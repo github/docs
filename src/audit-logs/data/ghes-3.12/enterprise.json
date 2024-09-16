@@ -40,6 +40,26 @@
     "docs_reference_links": "N/A"
   },
   {
+    "action": "audit_log_streaming.check",
+    "description": "A manual check of the endpoint configured for audit log streaming was performed.",
+    "docs_reference_links": "N/A"
+  },
+  {
+    "action": "audit_log_streaming.create",
+    "description": "An endpoint was added for audit log streaming.",
+    "docs_reference_links": "N/A"
+  },
+  {
+    "action": "audit_log_streaming.destroy",
+    "description": "An audit log streaming endpoint was deleted.",
+    "docs_reference_links": "N/A"
+  },
+  {
+    "action": "audit_log_streaming.update",
+    "description": "An endpoint configuration was updated for audit log streaming, such as the stream was paused, enabled, or disabled.",
+    "docs_reference_links": "N/A"
+  },
+  {
     "action": "billing.change_billing_type",
     "description": "The way the account pays for GitHub was changed.",
     "docs_reference_links": "/billing/managing-your-github-billing-settings/adding-or-editing-a-payment-method"
@@ -1241,7 +1261,7 @@
   },
   {
     "action": "org.delete",
-    "description": "An organization was deleted by a user-initiated background job.",
+    "description": "An organization was deleted by a user or staff.",
     "docs_reference_links": "N/A"
   },
   {
@@ -1467,17 +1487,17 @@
   {
     "action": "org.secret_scanning_push_protection_enable",
     "description": "Push protection for secret scanning was enabled.",
-    "docs_reference_links": "N/A"
+    "docs_reference_links": "/code-security/secret-scanning/push-protection-for-repositories-and-organizations"
   },
   {
     "action": "org.secret_scanning_push_protection_new_repos_disable",
     "description": "Push protection for secret scanning was disabled for all new repositories in the organization.",
-    "docs_reference_links": "N/A"
+    "docs_reference_links": "/code-security/secret-scanning/push-protection-for-repositories-and-organizations"
   },
   {
     "action": "org.secret_scanning_push_protection_new_repos_enable",
     "description": "Push protection for secret scanning was enabled for all new repositories in the organization.",
-    "docs_reference_links": "N/A"
+    "docs_reference_links": "/code-security/secret-scanning/push-protection-for-repositories-and-organizations"
   },
   {
     "action": "org.self_hosted_runner_offline",

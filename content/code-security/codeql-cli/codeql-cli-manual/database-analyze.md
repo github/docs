@@ -167,6 +167,13 @@ This option has no effect when passed to [codeql bqrs interpret](/code-security/
 
 Available since `v2.15.2`.
 
+#### `--no-sarif-include-alert-provenance`
+
+\[Advanced] \[SARIF formats only] Do not include alert provenance
+information in the SARIF output.
+
+Available since `v2.18.1`.
+
 #### `--[no-]sarif-group-rules-by-pack`
 
 \[SARIF formats only] Place the rule object for each query under its
@@ -243,6 +250,14 @@ during database creation from a Code Scanning configuration file.
 #### `--[no-]download`
 
 Download any missing queries before analyzing.
+
+### Options to control the model packs to be used
+
+#### `--model-packs=<`<name@range>>...
+
+A list of CodeQL pack names, each with an optional version range, to be
+used as model packs to customize the queries that are about to be
+evaluated.
 
 ### Options to control the threat models to be used
 

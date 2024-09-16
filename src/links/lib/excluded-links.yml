@@ -62,7 +62,17 @@
 - is: https://azure.microsoft.com
 - is: https://api.octocorp.ghe.com
 - is: https://platform.openai.com/docs/guides/safety-best-practices
+- is: https://platform.openai.com/docs/guides/function-calling
 - is: https://global.rel.tunnels.api.visualstudio.com/api/version
 - is: https://www.wireguard.com/quickstart/
 - is: https://docs.openstack.org/horizon/latest/
 - is: https://packages.ubuntu.com/search?keywords=netcat&searchon=names
+- is: https://vimeo.com/333786093
+- is: https://www.gnu.org/software/bash/
+- is: https://www.gnu.org/software/bash/manual/
+- startsWith: https://github.com/actions/actions-runner-controller
+- is: https://github.com/actions/runner/pkgs/container/actions-runner
+- is: https://github.com/Codertocat/hello-world-npm/pkgs/npm/hello-world-npm
+- is: https://jsonformatter.org/
+- is: https://mvnrepository.com/artifact/org.xwiki.platform/xwiki-platform-oldcore
+- is: https://mvnrepository.com/artifact/com.google.guava/guava

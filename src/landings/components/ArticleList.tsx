@@ -5,7 +5,6 @@ import { useTranslation } from 'src/languages/components/useTranslation'
 import { Link } from 'src/frame/components/Link'
 import { ArrowRightIcon } from '@primer/octicons-react'
 import { FeaturedLink } from 'src/landings/components/ProductLandingContext'
-import { useMainContext } from 'src/frame/components/context/MainContext'
 import { BumpLink } from 'src/frame/components/ui/BumpLink'
 
 export type ArticleListPropsT = {
@@ -22,11 +21,9 @@ export const ArticleList = ({
   articles,
 }: ArticleListPropsT) => {
   const { t } = useTranslation('product_landing')
-  const mainContext = useMainContext()
   // Use TypeScript's "not null assertion" because `mainContext.page` should
   // will present in mainContext if it's gotten to the stage of React
   // rendering.
-  const page = mainContext.page!
 
   return (
     <>
@@ -37,7 +34,9 @@ export const ArticleList = ({
             <Link
               href={viewAllHref}
               className="ml-4"
-              {...(viewAllTitleText ? { 'aria-label': `${page.title} - ${viewAllTitleText}` } : {})}
+              {...(viewAllTitleText
+                ? { 'aria-label': t('all_content').replace('{{ title }}', viewAllTitleText) }
+                : {})}
             >
               {t('view')} <ArrowRightIcon size={14} className="v-align-middle" />
             </Link>

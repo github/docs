@@ -46,10 +46,14 @@ For a real-world example of `dependabot.yml` file, see  [{% data variables.produ
 The top-level `updates` key is mandatory. You use it to configure how {% data variables.product.prodname_dependabot %} updates the versions or your project's dependencies. Each entry configures the update settings for a particular package manager. You can use the following options.
 
 {% data reusables.dependabot.configuration-options %}
+{% ifversion dependabot-updates-multidirectory-support %}
 
+{% data reusables.dependabot.directory-directories-required %}
+
+{% endif %}
 These options fit broadly into the following categories.
 
-* Essential set up options that you must include in all configurations: [`package-ecosystem`](#package-ecosystem), [`directory`](#directory),[`schedule.interval`](#scheduleinterval).
+* Essential set up options that you must include in all configurations: [`package-ecosystem`](#package-ecosystem), [`directory`](#directory){% ifversion dependabot-updates-multidirectory-support %} or [`directories`](#directories){% endif %},[`schedule.interval`](#scheduleinterval).
 * Options to customize the update schedule: [`schedule.time`](#scheduletime), [`schedule.timezone`](#scheduletimezone), [`schedule.day`](#scheduleday).
 * Options to control which dependencies are updated: [`allow`](#allow), {% ifversion dependabot-version-updates-groups %}[`groups`](#groups),{% endif %} [`ignore`](#ignore), [`vendor`](#vendor).
 * Options to add metadata to pull requests: [`reviewers`](#reviewers), [`assignees`](#assignees), [`labels`](#labels), [`milestone`](#milestone).
@@ -117,6 +121,14 @@ updates:
 
 **Required**. You must define the location of the package manifests for each package manager (for example, the _package.json_ or _Gemfile_). You define the directory relative to the root of the repository for all ecosystems except {% data variables.product.prodname_actions %}.
 
+{% ifversion dependabot-updates-multidirectory-support %}
+
+{% data reusables.dependabot.directories-option-overview %} For more information, see [`directories`](#directories).
+
+{% data reusables.dependabot.directory-directories-required %}
+
+{% endif %}
+
 For {% data variables.product.prodname_actions %}, you do not need to set the directory to `/.github/workflows`. Configuring the key to `/` automatically instructs {% data variables.product.prodname_dependabot %} to search the `/.github/workflows` directory, as well as the _action.yml_ / _action.yaml_ file from the root directory.
 
 ```yaml
@@ -142,6 +154,94 @@ updates:
     schedule:
       interval: "weekly"
 ```
+
+{% ifversion dependabot-updates-multidirectory-support %}
+
+### `directories`
+
+**Required**. You must define the locations of the package manifests for each package manager. You define directories relative to the root of the repository for all ecosystems except {% data variables.product.prodname_actions %}. The `directories` option contains a list of strings representing directories.
+
+{% data reusables.dependabot.directory-directories-required %}
+
+```yaml
+# Specify locations of manifest files for each package manager using `directories`
+
+version: 2
+updates:
+  - package-ecosystem: "bundler"
+    directories:
+      - "/frontend"
+      - "/backend"
+      - "/admin"
+    schedule:
+      interval: "weekly"
+```
+
+{% data reusables.dependabot.directories-option-overview %}
+
+{% data reusables.dependabot.directory-vs-directories-guidance %}
+
+```yaml
+# Specify locations of manifest files for each package manager using both `directories` and `directory`
+
+version: 2
+updates:
+  - package-ecosystem: "bundler"
+    directories:
+      - "/frontend"
+      - "/backend"
+      - "/admin"
+    schedule:
+      interval: "weekly"
+  - package-ecosystem: "bundler"
+    directory: "/"
+    schedule:
+      interval: "daily"
+```
+
+>[!TIP]
+> The `directories` key supports globbing and the wildcard character `*`. These features are not supported by the `directory` key.
+
+```yaml
+# Specify the root directory and directories that start with "lib-", using globbing, for locations of manifest files
+
+version: 2
+updates:
+  - package-ecosystem: "composer"
+    directories:
+      - "/"
+      - "/lib-*"
+    schedule:
+      interval: "weekly"
+```
+
+```yaml
+# Specify the root directory and directories in the root directory as the location of manifest files using the wildcard character
+
+version: 2
+updates:
+  - package-ecosystem: "composer"
+    directories:
+      - "*"
+    schedule:
+      interval: "weekly"
+```
+
+```yaml
+# Specify all directories from the current layer and below recursively, using globstar, for locations of manifest files
+
+version: 2
+updates:
+  - package-ecosystem: "composer"
+    directories:
+      - "**/*"
+    schedule:
+      interval: "weekly"
+```
+
+{% data reusables.dependabot.multidirectory-vs-pr-grouping %}  For more information about grouping, see "[`groups`](#groups)."
+
+{% endif %}
 
 ### `schedule.interval`
 
@@ -204,8 +304,8 @@ Use the `allow` option to customize which dependencies are updated. This applies
   | `direct` | All | All explicitly defined dependencies. |
   | `indirect` | `bundler`, `pip`, `composer`, `cargo`{% ifversion dependabot-updates-gomod-indirect %}, `gomod`{% endif %} | Dependencies of direct dependencies (also known as sub-dependencies, or transient dependencies).|
   | `all` | All | All explicitly defined dependencies. For `bundler`, `pip`, `composer`, `cargo`,{% ifversion dependabot-updates-gomod-indirect %} `gomod`,{% endif %} also the dependencies of direct dependencies.|
-  | `production` | `bundler`, `composer`, `mix`, `maven`, `npm`, `pip` | Only dependencies in the "Production dependency group". |
-  | `development`| `bundler`, `composer`, `mix`, `maven`, `npm`, `pip` | Only dependencies in the "Development dependency group". |
+  | `production` | `bundler`, `composer`, `mix`, `maven`, `npm`, `pip` (not all managers) | Only dependencies in the "Production dependency group". |
+  | `development`| `bundler`, `composer`, `mix`, `maven`, `npm`, `pip` (not all managers) | Only dependencies in the "Development dependency group". |
 
 ```yaml
 # Use `allow` to specify which dependencies to maintain
@@ -266,7 +366,9 @@ updates:
 
 ### `commit-message`
 
-By default, {% data variables.product.prodname_dependabot %} attempts to detect your commit message preferences and use similar patterns. Use the `commit-message` option to specify your preferences explicitly.
+By default, {% data variables.product.prodname_dependabot %} attempts to detect your commit message preferences and use similar patterns. Use the `commit-message` option to specify your preferences explicitly. This setting also impacts the titles of pull requests.
+
+We populate the titles of pull requests based on the commit messages, whether explicitly set or auto-detected from the repository history.
 
 Supported options
 
@@ -276,12 +378,12 @@ Supported options
 
 {% endnote %}
 
-* `prefix` specifies a prefix for all commit messages.
+* `prefix` specifies a prefix for all commit messages and it will also be added to the start of the PR title.
    When you specify a prefix for commit messages, {% data variables.product.prodname_dotcom %} will automatically add a colon between the defined prefix and the commit message provided the defined prefix ends with a letter, number, closing parenthesis, or closing bracket. This means that, for example, if you end the prefix with a whitespace, there will be no colon added between the prefix and the commit message.
    The code snippet below provides examples of both in the same configuration file.
 
 * `prefix-development` specifies a separate prefix for all commit messages that update dependencies in the Development dependency group. When you specify a value for this option, the `prefix` is used only for updates to dependencies in the Production dependency group. This is supported by: `bundler`, `composer`, `mix`, `maven`, `npm`, and `pip`.
-* `include: "scope"` specifies that any prefix is followed by a list of the dependencies updated in the commit.
+* `include: "scope"` specifies that any prefix is followed by the type of the dependencies (`deps` or `deps-dev`) updated in the commit.
 
 {% data reusables.dependabot.option-affects-security-updates %}
 
@@ -325,7 +427,6 @@ updates:
     commit-message:
       prefix: "pip prod"
       prefix-development: "pip dev"
-      include: "scope"
 ```
 
 If you use the same configuration as in the example above, bumping the `requests` library in the `pip` development dependency group will generate a commit message of:
@@ -360,6 +461,12 @@ When a scheduled update runs, {% data variables.product.prodname_dependabot %} w
 You can also manage pull requests for grouped version updates and security updates using comment commands, which are short comments you can make on a pull request to give instructions to {% data variables.product.prodname_dependabot %}. For more information, see "[AUTOTITLE](/code-security/dependabot/working-with-dependabot/managing-pull-requests-for-dependency-updates#managing-dependabot-pull-requests-for-grouped-{% ifversion dependabot-grouped-security-updates-config %}{% else %}version-{% endif %}updates-with-comment-commands)."
 
 {% data reusables.dependabot.dependabot-version-updates-groups-yaml-example %}
+
+{% ifversion dependabot-grouped-security-updates-config %}
+
+{% data reusables.dependabot.multidirectory-vs-pr-grouping %} For more information about multidirectory support, see "[`directories`](#directories)."
+
+{% endif %}
 
 {% endif %}
 
@@ -942,9 +1049,9 @@ You can give {% data variables.product.prodname_dependabot %} access to private 
 * Docker
 * Gradle
 * Maven
-* npm
+* Npm
 * Nuget{% ifversion dependabot-updates-pub-private-registry %}
-* pub{% endif %}
+* Pub{% endif %}
 * Python
 * Yarn
 

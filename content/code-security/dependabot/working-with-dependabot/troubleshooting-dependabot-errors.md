@@ -170,7 +170,7 @@ Similarly, if {% data variables.product.prodname_dependabot %} can't access a pr
 
 To allow {% data variables.product.prodname_dependabot %} to update the dependency references successfully, make sure that all of the referenced dependencies are hosted at accessible locations.
 
-**Version updates only.** {% data reusables.dependabot.private-dependencies-note %} Additionally, {% data variables.product.prodname_dependabot %} doesn't support private {% data variables.product.prodname_dotcom %} dependencies for all package managers. For more information, see "[AUTOTITLE](/code-security/dependabot/dependabot-version-updates/about-dependabot-version-updates#supported-repositories-and-ecosystems)."
+**Version updates only.** {% data reusables.dependabot.private-dependencies-note %} Additionally, {% data variables.product.prodname_dependabot %} doesn't support private {% data variables.product.prodname_dotcom %} dependencies for all package managers. For more information, see "[AUTOTITLE](/code-security/dependabot/ecosystems-supported-by-dependabot/supported-ecosystems-and-repositories)."
 
 {% ifversion dependabot-version-updates-groups %}
 
@@ -214,7 +214,7 @@ The [`groups`](/code-security/dependabot/dependabot-version-updates/configuratio
 
 For grouped security updates, {% data variables.product.prodname_dependabot %} uses the following guidelines to create grouped pull requests.
 
-* {% data variables.product.prodname_dependabot %} **will** group dependencies from the same package ecosystem that are located in different directories. Grouping across directories only occurs for directories not configured in the `dependabot.yml` file.
+* {% data variables.product.prodname_dependabot %} **will** group dependencies from the same package ecosystem that are located in different directories when grouping rules are specified for configurations that use the `directories` key.
 * {% data variables.product.prodname_dependabot %} **will** apply other relevant customization options from the `dependabot.yml` file to pull requests for grouped security updates. {% data reusables.dependabot.dependabot-grouped-security-updates-yaml-override %}
 * {% data variables.product.prodname_dependabot %} **will not** group dependencies from different package ecosystems together.
 * {% data variables.product.prodname_dependabot %} **will not** group security updates with version updates.

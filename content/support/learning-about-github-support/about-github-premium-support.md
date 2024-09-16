@@ -48,7 +48,7 @@ There are two {% data variables.contact.premium_support %} plans: Premium and Pr
 | Initial response time | <ul><li>30 minutes for {% data variables.product.support_ticket_priority_urgent %} (including initial troubleshooting)</li><li>4 hours for {% data variables.product.support_ticket_priority_high %}</li></ul> | <ul><li>30 minutes for {% data variables.product.support_ticket_priority_urgent %} (including initial troubleshooting)</li><li>4 hours for {% data variables.product.support_ticket_priority_high %}</li></ul> |
 | Support channels | <ul><li>Online ticket submission</li><li>Phone support in English via callback request (when required for ticket resolution)</li><li>Screen share request for critical issues</li></ul> | <ul><li>Online ticket submission</li><li>Phone support in English via callback request (when required for ticket resolution)</li><li>Screen share request for critical issues</li></ul> |
 | Training | Access to premium content  | <ul><li>Access to premium content</li><li>1 virtual training class per year</li></ul> |
-| Members with support entitlements | 20 | 20 |
+| Members with support entitlements | 20 | 40 |
 | Resources | Priority ticket handling | <ul><li>Priority ticket handling</li><li>Named Customer Reliability Engineer</li></ul>   |
 Escalation management | For high and urgent priority tickets | For High and Urgent priority tickets
 Incident management | None | For urgent priority tickets, as needed

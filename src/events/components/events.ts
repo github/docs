@@ -6,7 +6,7 @@ import { isLoggedIn } from 'src/frame/components/hooks/useHasAccount'
 
 const COOKIE_NAME = '_docs-events'
 
-export const startVisitTime = Date.now()
+const startVisitTime = Date.now()
 
 let initialized = false
 let cookieValue: string | undefined
@@ -119,8 +119,8 @@ type SendEventProps = {
     survey_vote: boolean
     survey_comment?: string
     survey_email?: string
-    survey_visit_duration?: number
     survey_rating?: number
+    survey_comment_language?: string
   }
 }
 

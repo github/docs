@@ -7,12 +7,12 @@ deploy_an_instance:
     ghes: '*'
   guides:
     - /admin/overview/system-overview
-    - /admin/installation
+    - /admin/installing-your-enterprise-server
     - >-
       /admin/administering-your-instance/administering-your-instance-from-the-web-ui
     - >-
-      /admin/configuration/configuring-network-settings/configuring-the-hostname-for-your-instance
-    - /admin/identity-and-access-management/using-saml-for-enterprise-iam
+      /admin/configuring-settings/configuring-network-settings/configuring-the-hostname-for-your-instance
+    - /admin/managing-iam/using-saml-for-enterprise-iam
 upgrade_your_instance:
   title: Upgrade your instance
   description: >-
@@ -22,17 +22,18 @@ upgrade_your_instance:
     ghes: '*'
   guides:
     - >-
-      /admin/monitoring-managing-and-updating-your-instance/updating-the-virtual-machine-and-physical-resources/enabling-automatic-update-checks
+      /admin/upgrading-your-instance/preparing-to-upgrade/overview-of-the-upgrade-process
+    - /admin/upgrading-your-instance/preparing-to-upgrade/upgrade-requirements
     - >-
-      /admin/installation/setting-up-a-github-enterprise-server-instance/setting-up-a-staging-instance
+      /admin/upgrading-your-instance/preparing-to-upgrade/enabling-automatic-update-checks
     - >-
-      /admin/monitoring-managing-and-updating-your-instance/updating-the-virtual-machine-and-physical-resources/upgrade-requirements
+      /admin/installing-your-enterprise-server/setting-up-a-github-enterprise-server-instance/setting-up-a-staging-instance
     - >-
       /admin/managing-accounts-and-repositories/communicating-information-to-users-in-your-enterprise/customizing-user-messages-for-your-enterprise
     - >-
       /admin/administering-your-instance/configuring-maintenance-mode/enabling-and-scheduling-maintenance-mode
-    - >-
-      /admin/monitoring-managing-and-updating-your-instance/updating-the-virtual-machine-and-physical-resources/upgrading-github-enterprise-server
+    - /admin/upgrading-your-instance/preparing-to-upgrade/taking-a-snapshot
+    - /admin/upgrading-your-instance/performing-an-upgrade
 adopting_github_actions_for_your_enterprise_ghec:
   title: Adopt GitHub Actions for your enterprise
   description: >-
@@ -42,15 +43,15 @@ adopting_github_actions_for_your_enterprise_ghec:
     ghec: '*'
   guides:
     - >-
-      /admin/github-actions/getting-started-with-github-actions-for-your-enterprise/about-github-actions-for-enterprises
-    - /actions/learn-github-actions/understanding-github-actions
+      /admin/managing-github-actions-for-your-enterprise/getting-started-with-github-actions-for-your-enterprise/about-github-actions-for-enterprises
+    - /actions/about-github-actions/understanding-github-actions
     - >-
-      /admin/github-actions/getting-started-with-github-actions-for-your-enterprise/introducing-github-actions-to-your-enterprise
+      /admin/managing-github-actions-for-your-enterprise/getting-started-with-github-actions-for-your-enterprise/introducing-github-actions-to-your-enterprise
     - >-
-      /admin/github-actions/getting-started-with-github-actions-for-your-enterprise/migrating-your-enterprise-to-github-actions
+      /admin/managing-github-actions-for-your-enterprise/getting-started-with-github-actions-for-your-enterprise/migrating-your-enterprise-to-github-actions
     - >-
-      /admin/github-actions/getting-started-with-github-actions-for-your-enterprise/getting-started-with-github-actions-for-github-enterprise-cloud
-    - /actions/security-guides/security-hardening-for-github-actions
+      /admin/managing-github-actions-for-your-enterprise/getting-started-with-github-actions-for-your-enterprise/getting-started-with-github-actions-for-github-enterprise-cloud
+    - /actions/security-for-github-actions/security-guides/security-hardening-for-github-actions
     - >-
       /billing/managing-billing-for-github-actions/about-billing-for-github-actions
 adopting_github_actions_for_your_enterprise_ghes:
@@ -62,19 +63,19 @@ adopting_github_actions_for_your_enterprise_ghes:
     ghes: '*'
   guides:
     - >-
-      /admin/github-actions/getting-started-with-github-actions-for-your-enterprise/about-github-actions-for-enterprises
-    - /actions/learn-github-actions/understanding-github-actions
+      /admin/managing-github-actions-for-your-enterprise/getting-started-with-github-actions-for-your-enterprise/about-github-actions-for-enterprises
+    - /actions/about-github-actions/understanding-github-actions
     - >-
-      /admin/github-actions/getting-started-with-github-actions-for-your-enterprise/introducing-github-actions-to-your-enterprise
+      /admin/managing-github-actions-for-your-enterprise/getting-started-with-github-actions-for-your-enterprise/introducing-github-actions-to-your-enterprise
     - >-
-      /admin/github-actions/getting-started-with-github-actions-for-your-enterprise/migrating-your-enterprise-to-github-actions
+      /admin/managing-github-actions-for-your-enterprise/getting-started-with-github-actions-for-your-enterprise/migrating-your-enterprise-to-github-actions
     - >-
-      /admin/github-actions/getting-started-with-github-actions-for-your-enterprise/getting-started-with-github-actions-for-github-enterprise-cloud
+      /admin/managing-github-actions-for-your-enterprise/getting-started-with-github-actions-for-your-enterprise/getting-started-with-github-actions-for-github-enterprise-cloud
     - >-
-      /admin/github-actions/getting-started-with-github-actions-for-your-enterprise/getting-started-with-github-actions-for-github-enterprise-server
+      /admin/managing-github-actions-for-your-enterprise/getting-started-with-github-actions-for-your-enterprise/getting-started-with-github-actions-for-github-enterprise-server
     - >-
-      /admin/github-actions/getting-started-with-github-actions-for-your-enterprise/getting-started-with-self-hosted-runners-for-your-enterprise
-    - /actions/security-guides/security-hardening-for-github-actions
+      /admin/managing-github-actions-for-your-enterprise/getting-started-with-github-actions-for-your-enterprise/getting-started-with-self-hosted-runners-for-your-enterprise
+    - /actions/security-for-github-actions/security-guides/security-hardening-for-github-actions
     - >-
       /billing/managing-billing-for-github-actions/about-billing-for-github-actions
 increase_fault_tolerance:
@@ -91,11 +92,11 @@ increase_fault_tolerance:
     - >-
       /admin/backing-up-and-restoring-your-instance/configuring-backups-on-your-instance
     - >-
-      /admin/monitoring-managing-and-updating-your-instance/configuring-high-availability/about-high-availability-configuration
+      /admin/monitoring-and-managing-your-instance/configuring-high-availability/about-high-availability-configuration
     - >-
-      /admin/monitoring-managing-and-updating-your-instance/configuring-high-availability/creating-a-high-availability-replica
+      /admin/monitoring-and-managing-your-instance/configuring-high-availability/creating-a-high-availability-replica
     - >-
-      /admin/configuration/configuring-network-settings/using-github-enterprise-server-with-a-load-balancer
+      /admin/configuring-settings/configuring-network-settings/using-github-enterprise-server-with-a-load-balancer
 improve_security_of_your_instance:
   title: Improve the security of your instance
   description: >-
@@ -106,18 +107,18 @@ improve_security_of_your_instance:
     ghes: '*'
   guides:
     - >-
-      /admin/configuration/hardening-security-for-your-enterprise/enabling-private-mode
+      /admin/configuring-settings/hardening-security-for-your-enterprise/enabling-private-mode
     - >-
-      /admin/configuration/hardening-security-for-your-enterprise/configuring-tls
+      /admin/configuring-settings/hardening-security-for-your-enterprise/configuring-tls
     - >-
-      /admin/configuration/hardening-security-for-your-enterprise/troubleshooting-tls-errors
+      /admin/configuring-settings/hardening-security-for-your-enterprise/troubleshooting-tls-errors
     - >-
-      /admin/configuration/hardening-security-for-your-enterprise/enabling-subdomain-isolation
+      /admin/configuring-settings/hardening-security-for-your-enterprise/enabling-subdomain-isolation
     - >-
       /admin/administering-your-instance/administering-your-instance-from-the-command-line/accessing-the-administrative-shell-ssh
-    - /admin/configuration/configuring-network-settings/network-ports
+    - /admin/configuring-settings/configuring-network-settings/network-ports
     - >-
-      /admin/configuration/configuring-network-settings/configuring-built-in-firewall-rules
+      /admin/configuring-settings/configuring-network-settings/configuring-built-in-firewall-rules
     - >-
       /admin/managing-accounts-and-repositories/managing-users-in-your-enterprise/best-practices-for-user-security
     - >-
@@ -133,17 +134,17 @@ configure_github_actions:
     ghes: '*'
   guides:
     - >-
-      /admin/github-actions/getting-started-with-github-actions-for-your-enterprise/getting-started-with-github-actions-for-github-enterprise-server
+      /admin/managing-github-actions-for-your-enterprise/getting-started-with-github-actions-for-your-enterprise/getting-started-with-github-actions-for-github-enterprise-server
     - >-
-      /admin/policies/enforcing-policies-for-your-enterprise/enforcing-policies-for-github-actions-in-your-enterprise
+      /admin/enforcing-policies/enforcing-policies-for-your-enterprise/enforcing-policies-for-github-actions-in-your-enterprise
     - >-
-      /admin/github-actions/managing-access-to-actions-from-githubcom/enabling-automatic-access-to-githubcom-actions-using-github-connect
+      /admin/managing-github-actions-for-your-enterprise/managing-access-to-actions-from-githubcom/enabling-automatic-access-to-githubcom-actions-using-github-connect
     - >-
-      /admin/github-actions/advanced-configuration-and-troubleshooting/high-availability-for-github-actions
+      /admin/managing-github-actions-for-your-enterprise/advanced-configuration-and-troubleshooting/high-availability-for-github-actions
     - >-
-      /admin/github-actions/advanced-configuration-and-troubleshooting/backing-up-and-restoring-github-enterprise-server-with-github-actions-enabled
+      /admin/managing-github-actions-for-your-enterprise/advanced-configuration-and-troubleshooting/backing-up-and-restoring-github-enterprise-server-with-github-actions-enabled
     - >-
-      /admin/github-actions/advanced-configuration-and-troubleshooting/using-a-staging-environment
+      /admin/managing-github-actions-for-your-enterprise/advanced-configuration-and-troubleshooting/using-a-staging-environment
 configure_github_advanced_security:
   title: Configure {% data variables.product.prodname_GH_advanced_security %}
   description: >-
@@ -155,15 +156,15 @@ configure_github_advanced_security:
     - >-
       /billing/managing-billing-for-github-advanced-security/about-billing-for-github-advanced-security
     - >-
-      /admin/code-security/managing-github-advanced-security-for-your-enterprise/enabling-github-advanced-security-for-your-enterprise
+      /admin/managing-code-security/managing-github-advanced-security-for-your-enterprise/enabling-github-advanced-security-for-your-enterprise
     - >-
-      /admin/code-security/managing-github-advanced-security-for-your-enterprise/configuring-code-scanning-for-your-appliance
+      /admin/managing-code-security/managing-github-advanced-security-for-your-enterprise/configuring-code-scanning-for-your-appliance
     - >-
-      /admin/code-security/managing-github-advanced-security-for-your-enterprise/configuring-dependency-review-for-your-appliance
+      /admin/managing-code-security/managing-github-advanced-security-for-your-enterprise/configuring-dependency-review-for-your-appliance
     - >-
-      /admin/code-security/managing-github-advanced-security-for-your-enterprise/configuring-secret-scanning-for-your-appliance
+      /admin/managing-code-security/managing-github-advanced-security-for-your-enterprise/configuring-secret-scanning-for-your-appliance
     - >-
-      /admin/policies/enforcing-policies-for-your-enterprise/enforcing-policies-for-code-security-and-analysis-for-your-enterprise
+      /admin/enforcing-policies/enforcing-policies-for-your-enterprise/enforcing-policies-for-code-security-and-analysis-for-your-enterprise
 get_started_with_your_enterprise_account:
   title: Get started with your enterprise account
   description: >-
@@ -181,6 +182,6 @@ get_started_with_your_enterprise_account:
     - >-
       /admin/managing-accounts-and-repositories/managing-organizations-in-your-enterprise/adding-organizations-to-your-enterprise
     - >-
-      /admin/identity-and-access-management/using-saml-for-enterprise-iam/configuring-saml-single-sign-on-for-your-enterprise
+      /admin/managing-iam/using-saml-for-enterprise-iam/configuring-saml-single-sign-on-for-your-enterprise
     - >-
-      /admin/policies/enforcing-policies-for-your-enterprise/about-enterprise-policies
+      /admin/enforcing-policies/enforcing-policies-for-your-enterprise/about-enterprise-policies

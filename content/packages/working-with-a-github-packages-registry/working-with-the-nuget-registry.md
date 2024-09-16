@@ -37,6 +37,8 @@ dotnet nuget add source --username USERNAME --password {%raw%}${{ secrets.GITHUB
 
 Replace `NAMESPACE` with the name of the personal account or organization {% ifversion packages-nuget-v2 %}to which your packages are scoped{% else %}that owns the repository where your packages are hosted{% endif %}.
 
+Replace `USERNAME` with the username to be used when connecting to an authenticated source.
+
 {% ifversion packages-nuget-v2 %}{% else %}{% data reusables.package_registry.authenticate-packages-github-token %}{% endif %}
 
 {% ifversion packages-nuget-v2 %}
@@ -101,7 +103,13 @@ If your instance has subdomain isolation disabled:
 
 ## Publishing a package
 
-You can publish a package to {% data variables.product.prodname_registry %} by authenticating with a _nuget.config_ file, or by using the `--api-key` command line option with your {% data variables.product.prodname_dotcom %} {% data variables.product.pat_v1 %}.
+You can publish a package to {% data variables.product.prodname_registry %} by authenticating with a _nuget.config_ file, using the `--api-key` command line option with your {% data variables.product.prodname_dotcom %} {% data variables.product.pat_v1 %} or by using command that can be run directly from the command line using the `dotnet` command-line interface (CLI).
+
+Replace `OWNER` with your username or company name, and `YOUR_GITHUB_PAT` with your {% data variables.product.pat_generic %}.
+
+```shell
+dotnet nuget add source --username OWNER --password {%raw%}YOUR_GITHUB_PAT{% endraw %} --store-password-in-clear-text --name github "https://{% ifversion fpt or ghec %}nuget.pkg.github.com{% else %}nuget.HOSTNAME{% endif %}/OWNER/index.json"
+```
 
 {% ifversion packages-nuget-v2 %}
 
@@ -109,7 +117,7 @@ The NuGet registry stores packages within your organization or personal account,
 
 {% data reusables.package_registry.publishing-user-scoped-packages %} For more information on linking a published package with a repository, see "[AUTOTITLE](/packages/learn-github-packages/connecting-a-repository-to-a-package)."
 
-If you specify a `RepositoryURL` in your `nuget.config` file, the published package will automatically be connected to the specified repository. For more information, see "[AUTOTITLE](/packages/working-with-a-github-packages-registry/working-with-the-nuget-registry#publishing-a-package-using-a-nugetconfig-file)." For information on linking an already-published package to a repository, see "[AUTOTITLE](/packages/learn-github-packages/connecting-a-repository-to-a-package)."
+If you specify a `RepositoryURL` in your project's _.csproj_ file, the published package will automatically be connected to the specified repository. For more information, see "[AUTOTITLE](/packages/working-with-a-github-packages-registry/working-with-the-nuget-registry#publishing-a-package-using-a-nugetconfig-file)." For information on linking an already-published package to a repository, see "[AUTOTITLE](/packages/learn-github-packages/connecting-a-repository-to-a-package)."
 
 {% endif %}
 

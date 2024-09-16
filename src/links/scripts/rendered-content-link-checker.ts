@@ -16,7 +16,7 @@ import shortVersions from '@/versions/middleware/short-versions.js'
 import contextualize from '@/frame/middleware/context/context'
 import features from '@/versions/middleware/features.js'
 import getRedirect from '@/redirects/lib/get-redirect.js'
-import warmServer from '@/frame/lib/warm-server.js'
+import warmServer from '@/frame/lib/warm-server'
 import { liquid } from '@/content-render/index.js'
 import { deprecated } from '@/versions/lib/enterprise-server-releases.js'
 import excludedLinks from '@/links/lib/excluded-links.js'
@@ -44,8 +44,6 @@ type LinkFlaw = {
   src: string
   flaw: Flaw
 }
-
-// type Core = CoreInject
 
 type Redirects = Record<string, string>
 type PageMap = Record<string, Page>
@@ -1311,9 +1309,9 @@ async function renderInnerHTML(page: Page, permalink: Permalink) {
   }
   // This will create and set `req.context = {...}`
   await contextualize(req as ExtendedRequest, res as Response, next)
-  await shortVersions(req, res, next)
+  await shortVersions(req as ExtendedRequest, res as Response, next)
   req.context.page = page
-  await features(req, res, next)
+  features(req as ExtendedRequest, res as Response, next)
 
   req.context.relativePath = page.relativePath
 

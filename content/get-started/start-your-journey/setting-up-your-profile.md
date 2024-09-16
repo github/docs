@@ -83,7 +83,7 @@ In the following steps, we'll create and edit your profile README.
 1. Toggle back to "Edit" and remove any other lines of text that you don't want displayed on your profile.
 1. Keep customizing and editing your profile README.
    * Use the "[Emoji cheat sheet](https://www.webfx.com/tools/emoji-cheat-sheet/)" to add emojis.
-   * Use the "[Markdown cheat sheet](https://www.markdownguide.org/cheat-sheet/) to experiment with additional Markdown formatting.
+   * Use the "[Markdown cheat sheet](https://www.markdownguide.org/cheat-sheet/)" to experiment with additional Markdown formatting.
 
 ### Step 3: Publish your changes to your profile
 

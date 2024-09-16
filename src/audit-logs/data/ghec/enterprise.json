@@ -495,6 +495,16 @@
     "docs_reference_links": "/admin/code-security/managing-github-advanced-security-for-your-enterprise/managing-github-advanced-security-features-for-your-enterprise"
   },
   {
+    "action": "business_secret_scanning_generic_secrets.disabled",
+    "description": "Generic secrets have been disabled at the business level",
+    "docs_reference_links": "N/A"
+  },
+  {
+    "action": "business_secret_scanning_generic_secrets.enabled",
+    "description": "Generic secrets have been enabled at the business level",
+    "docs_reference_links": "N/A"
+  },
+  {
     "action": "business_secret_scanning_non_provider_patterns.disabled",
     "description": "Secret scanning for non-provider patterns was disabled at the enterprise level.",
     "docs_reference_links": "/code-security/secret-scanning/secret-scanning-patterns#non-provider-patterns"
@@ -813,6 +823,11 @@
     "action": "copilot.plan_changed",
     "description": "The plan for GitHub Copilot was updated.",
     "docs_reference_links": "/billing/managing-billing-for-github-copilot/about-billing-for-github-copilot"
+  },
+  {
+    "action": "copilot.plan_downgrade_scheduled",
+    "description": "The plan for GitHub Copilot was scheduled to be downgraded.",
+    "docs_reference_links": "N/A"
   },
   {
     "action": "custom_hosted_runner.create",
@@ -1206,17 +1221,17 @@
   },
   {
     "action": "external_identity.deprovision",
-    "description": "N/A",
+    "description": "An external identity was deprovisioned, suspending the linked GitHub user.",
     "docs_reference_links": "N/A"
   },
   {
     "action": "external_identity.provision",
-    "description": "N/A",
+    "description": "An external identity was created and linked to a GitHub user.",
     "docs_reference_links": "N/A"
   },
   {
     "action": "external_identity.update",
-    "description": "N/A",
+    "description": "An external identity was updated.",
     "docs_reference_links": "N/A"
   },
   {
@@ -1395,6 +1410,11 @@
     "docs_reference_links": "N/A"
   },
   {
+    "action": "ip_allow_list.disable_idp_ip_allowlist_for_web",
+    "description": "Identity Provider based IP allow list for web interactions was disabled.",
+    "docs_reference_links": "N/A"
+  },
+  {
     "action": "ip_allow_list.disable_skip_idp_ip_allowlist_app_access",
     "description": "N/A",
     "docs_reference_links": "N/A"
@@ -1412,6 +1432,11 @@
   {
     "action": "ip_allow_list.enable_for_installed_apps",
     "description": "An IP allow list was enabled for installed GitHub Apps.",
+    "docs_reference_links": "N/A"
+  },
+  {
+    "action": "ip_allow_list.enable_idp_ip_allowlist_for_web",
+    "description": "Identity Provider based IP allow list for web interactions was enabled.",
     "docs_reference_links": "N/A"
   },
   {
@@ -2225,6 +2250,26 @@
     "docs_reference_links": "/code-security/secret-scanning/secret-scanning-patterns#non-provider-patterns"
   },
   {
+    "action": "org_secret_scanning_push_protection_bypass_list.add",
+    "description": "A role or team was added to the push protection bypass list at the organization level.",
+    "docs_reference_links": "/code-security/secret-scanning/push-protection-for-repositories-and-organizations#enabling-delegated-bypass-for-push-protection"
+  },
+  {
+    "action": "org_secret_scanning_push_protection_bypass_list.disable",
+    "description": "Push protection settings for \"Users who can bypass push protection for secret scanning\" changed from \"Specific roles or teams\" to \"Anyone with write access\" at the organization level.",
+    "docs_reference_links": "/code-security/secret-scanning/push-protection-for-repositories-and-organizations#enabling-delegated-bypass-for-push-protection"
+  },
+  {
+    "action": "org_secret_scanning_push_protection_bypass_list.enable",
+    "description": "Push protection settings for \"Users who can bypass push protection for secret scanning\" changed from \"Anyone with write access\" to \"Specific roles or teams\" at the organization level.",
+    "docs_reference_links": "/code-security/secret-scanning/push-protection-for-repositories-and-organizations#enabling-delegated-bypass-for-push-protection"
+  },
+  {
+    "action": "org_secret_scanning_push_protection_bypass_list.remove",
+    "description": "A role or team was removed from the push protection bypass list at the organization level.",
+    "docs_reference_links": "/code-security/secret-scanning/push-protection-for-repositories-and-organizations#enabling-delegated-bypass-for-push-protection"
+  },
+  {
     "action": "org.secret_scanning_push_protection_custom_message_disabled",
     "description": "The custom message triggered by an attempted push to a push-protected repository was disabled for an organization.",
     "docs_reference_links": "/code-security/secret-scanning/protecting-pushes-with-secret-scanning#enabling-secret-scanning-as-a-push-protection-for-an-organization"
@@ -2247,17 +2292,17 @@
   {
     "action": "org.secret_scanning_push_protection_enable",
     "description": "Push protection for secret scanning was enabled.",
-    "docs_reference_links": "N/A"
+    "docs_reference_links": "/code-security/secret-scanning/push-protection-for-repositories-and-organizations"
   },
   {
     "action": "org.secret_scanning_push_protection_new_repos_disable",
     "description": "Push protection for secret scanning was disabled for all new repositories in the organization.",
-    "docs_reference_links": "N/A"
+    "docs_reference_links": "/code-security/secret-scanning/push-protection-for-repositories-and-organizations"
   },
   {
     "action": "org.secret_scanning_push_protection_new_repos_enable",
     "description": "Push protection for secret scanning was enabled for all new repositories in the organization.",
-    "docs_reference_links": "N/A"
+    "docs_reference_links": "/code-security/secret-scanning/push-protection-for-repositories-and-organizations"
   },
   {
     "action": "org.self_hosted_runner_offline",
@@ -2640,6 +2685,21 @@
     "docs_reference_links": "/issues/organizing-your-work-with-project-boards/managing-project-boards/closing-a-project-board"
   },
   {
+    "action": "project_collaborator.add",
+    "description": "A collaborator was added to a project.",
+    "docs_reference_links": "N/A"
+  },
+  {
+    "action": "project_collaborator.remove",
+    "description": "A collaborator was removed from a project.",
+    "docs_reference_links": "N/A"
+  },
+  {
+    "action": "project_collaborator.update",
+    "description": "A project collaborator's permission level was changed.",
+    "docs_reference_links": "N/A"
+  },
+  {
     "action": "project.create",
     "description": "A project board was created.",
     "docs_reference_links": "N/A"
@@ -2703,6 +2763,16 @@
     "action": "project_view.delete",
     "description": "A view was deleted in a project board.",
     "docs_reference_links": "/issues/planning-and-tracking-with-projects/customizing-views-in-your-project/managing-your-views"
+  },
+  {
+    "action": "project.visibility_private",
+    "description": "A project's visibility was changed from public to private.",
+    "docs_reference_links": "N/A"
+  },
+  {
+    "action": "project.visibility_public",
+    "description": "A project's visibility was changed from private to public.",
+    "docs_reference_links": "N/A"
   },
   {
     "action": "protected_branch.authorized_users_teams",
@@ -3495,6 +3565,26 @@
     "docs_reference_links": "/code-security/secret-scanning/secret-scanning-patterns#non-provider-patterns"
   },
   {
+    "action": "repository_secret_scanning_push_protection_bypass_list.add",
+    "description": "A role or team was added to the push protection bypass list at the repository level.",
+    "docs_reference_links": "/code-security/secret-scanning/push-protection-for-repositories-and-organizations#enabling-delegated-bypass-for-push-protection"
+  },
+  {
+    "action": "repository_secret_scanning_push_protection_bypass_list.disable",
+    "description": "Push protection settings for \"Users who can bypass push protection for secret scanning\" changed from \"Specific roles or teams\" to \"Anyone with write access\" at the repository level.",
+    "docs_reference_links": "/code-security/secret-scanning/push-protection-for-repositories-and-organizations#enabling-delegated-bypass-for-push-protection"
+  },
+  {
+    "action": "repository_secret_scanning_push_protection_bypass_list.enable",
+    "description": "Push protection settings for \"Users who can bypass push protection for secret scanning\" changed from \"Anyone with write access\" to \"Specific roles or teams\" at the repository level.",
+    "docs_reference_links": "/code-security/secret-scanning/push-protection-for-repositories-and-organizations#enabling-delegated-bypass-for-push-protection"
+  },
+  {
+    "action": "repository_secret_scanning_push_protection_bypass_list.remove",
+    "description": "A role or team was removed from the push protection bypass list at the repository level.",
+    "docs_reference_links": "/code-security/secret-scanning/push-protection-for-repositories-and-organizations#enabling-delegated-bypass-for-push-protection"
+  },
+  {
     "action": "repository_secret_scanning_push_protection.disable",
     "description": "Secret scanning push protection was disabled for a repository.",
     "docs_reference_links": "/code-security/secret-scanning/protecting-pushes-with-secret-scanning"
@@ -3666,18 +3756,18 @@
   },
   {
     "action": "secret_scanning_push_protection_request.approve",
-    "description": "N/A",
-    "docs_reference_links": "A request to bypass secret scanning push protection was approved by a user."
+    "description": "A request to bypass secret scanning push protection was approved by a user.",
+    "docs_reference_links": "/code-security/secret-scanning/push-protection-for-repositories-and-organizations#managing-requests-to-bypass-push-protection"
   },
   {
     "action": "secret_scanning_push_protection_request.deny",
-    "description": "N/A",
-    "docs_reference_links": "A request to bypass secret scanning push protection was denied by a user."
+    "description": "A request to bypass secret scanning push protection was denied by a user.",
+    "docs_reference_links": "/code-security/secret-scanning/push-protection-for-repositories-and-organizations#managing-requests-to-bypass-push-protection"
   },
   {
     "action": "secret_scanning_push_protection_request.request",
-    "description": "N/A",
-    "docs_reference_links": "A user requested to bypass secret scanning push protection."
+    "description": "A user requested to bypass secret scanning push protection.",
+    "docs_reference_links": "/code-security/secret-scanning/working-with-push-protection#requesting-bypass-privileges-when-working-with-the-command-line"
   },
   {
     "action": "sponsors.agreement_sign",
@@ -3918,6 +4008,16 @@
     "action": "team.update_repository_permission",
     "description": "A team's permission to a repository was changed.",
     "docs_reference_links": "N/A"
+  },
+  {
+    "action": "user_email.confirm_claim",
+    "description": "An enterprise managed user claimed an email address.",
+    "docs_reference_links": "N/A"
+  },
+  {
+    "action": "user_email.mark_as_unclaimed",
+    "description": "N/A",
+    "docs_reference_links": "An enterprise managed user unclaimed an email address."
   },
   {
     "action": "user_license.create",

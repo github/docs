@@ -85,7 +85,7 @@ You can grant the migrator role using either the {% data variables.product.prodn
 
 To grant the migrator role using the CLI, you must have installed the {% data variables.product.prodname_bbs2gh_cli %}. For more information, see "[AUTOTITLE](/migrations/using-github-enterprise-importer/migrating-from-bitbucket-server-to-github-enterprise-cloud/migrating-repositories-from-bitbucket-server-to-github-enterprise-cloud#step-1-install-the-bbs2gh-extension-of-the-github-cli)."
 
-1. On {% data variables.product.prodname_dotcom_the_website %}, create and record a {% data variables.product.pat_generic %} that meets all the requirements for granting the migrator role. For more information, see "[Creating a {% data variables.product.pat_generic %} for {% data variables.product.prodname_importer_proper_name %}](#creating-a-personal-access-token-for-github-enterprise-importer)."
+1. On {% data variables.product.prodname_dotcom %}, create and record a {% data variables.product.pat_generic %} that meets all the requirements for granting the migrator role. For more information, see "[Creating a {% data variables.product.pat_generic %} for {% data variables.product.prodname_importer_proper_name %}](#creating-a-personal-access-token-for-github-enterprise-importer)."
 {% data reusables.enterprise-migration-tool.grant-migrator-role-pat %}
 1. Use the `gh bbs2gh grant-migrator-role` command, replacing ORGANIZATION with the organization you want to grant the migrator role for, ACTOR with the user or team name, and TYPE with `USER` or `TEAM`.
 
@@ -103,10 +103,10 @@ To grant the migrator role using the CLI, you must have installed the {% data va
 
 ## Configuring IP allow lists for migrations
 
-If the destination of your migration uses an IP allow list (either {% data variables.product.company_short %}'s IP allow list feature or your identity provider's (IdP) IP allow list restrictions), you need to configure IP allow lists on {% data variables.product.prodname_dotcom_the_website %}.
+If the destination of your migration uses an IP allow list (either {% data variables.product.company_short %}'s IP allow list feature or your identity provider's (IdP) IP allow list restrictions), you need to configure IP allow lists on {% data variables.product.prodname_dotcom %}.
 
 * If you use {% data variables.product.company_short %}'s IP allow list feature, you must add the {% data variables.product.prodname_dotcom %} IP ranges below to the allow list for the destination organization.
-* If you use your IdP's IP allow list to restrict access to your enterprise on {% data variables.product.prodname_dotcom_the_website %}, you should disable these restrictions in your enterprise account settings until after your migration is complete.
+* If you use your IdP's IP allow list to restrict access to your enterprise on {% data variables.product.prodname_dotcom %}, you should disable these restrictions in your enterprise account settings until after your migration is complete.
 
 For more information, see "[AUTOTITLE](/enterprise-cloud@latest/organizations/keeping-your-organization-secure/managing-security-settings-for-your-organization/managing-allowed-ip-addresses-for-your-organization)" and "[AUTOTITLE](/enterprise-cloud@latest/admin/configuration/configuring-your-enterprise/restricting-network-traffic-to-your-enterprise-with-an-ip-allow-list)."
 

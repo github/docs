@@ -2,7 +2,7 @@ You can use `defaults.run` to provide default `shell` and `working-directory` op
 
 {% data reusables.actions.defaults-override %}
 
-#### Example: Set the default shell and working directory
+### Example: Set the default shell and working directory
 
 ```yaml
 defaults:

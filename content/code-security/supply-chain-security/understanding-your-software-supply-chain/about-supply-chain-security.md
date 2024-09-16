@@ -21,7 +21,11 @@ topics:
 
 ## About supply chain security at GitHub
 
-With the accelerated use of open source, most projects depend on hundreds of open-source dependencies. This poses a security problem: what if the dependencies you're using are vulnerable? You could be putting your users at risk of a supply chain attack. One of the most important things you can do to protect your supply chain is to patch your vulnerable dependencies{% ifversion GH-advisory-db-supports-malware %} and replace any malware{% endif %}.
+When developing a software project, you likely use other software to build and run your application, such as open-source libraries, frameworks or other tools. These resources are collectively referred to as your “dependencies”, because your project depends on them to function properly. Your project could rely on hundreds of these dependencies, forming what is known as your "supply chain".
+
+Your supply chain can pose a security problem. If one of your dependencies has a known security weakness or a bug, malicious actors could exploit this vulnerability to, for example, insert malicious code ("malware"), steal sensitive data, or cause some other type of disruption to your project. This type of threat is called a "supply chain attack". Having vulnerable dependencies in your supply chain compromises the security of your own project, and you put your users at risk, too.
+
+One of the most important things you can do to protect your supply chain is to patch your vulnerable dependencies{% ifversion GH-advisory-db-supports-malware %} and replace any malware{% endif %}.
 
 You add dependencies directly to your supply chain when you specify them in a manifest file or a lockfile. Dependencies can also be included transitively, that is, even if you don’t specify a particular dependency, but a dependency of yours uses it, then you’re also dependent on that dependency.
 
@@ -104,7 +108,7 @@ The term "{% data variables.product.prodname_dependabot %}" encompasses the foll
 * {% data variables.product.prodname_dependabot %} performs a scan to detect insecure dependencies and sends {% data variables.product.prodname_dependabot_alerts %} when:
 {% ifversion fpt or ghec %}
   * A new advisory is added to the {% data variables.product.prodname_advisory_database %}.{% else %}
-  * New advisory data is synchronized to {% data variables.location.product_location %} each hour from {% data variables.product.prodname_dotcom_the_website %}. {% data reusables.security-advisory.link-browsing-advisory-db %}{% endif %}
+  * New advisory data is synchronized to your instance each hour from {% data variables.product.prodname_dotcom_the_website %}. {% data reusables.security-advisory.link-browsing-advisory-db %}{% endif %}
   * The dependency graph for the repository changes.
 * {% data variables.product.prodname_dependabot_alerts %} are displayed on the **Security** tab for the repository and in the repository's dependency graph. The alert includes a link to the affected file in the project, and information about a fixed version.
 
@@ -155,7 +159,7 @@ Any repository type:
 
 {% ifversion ghes %}
 * **Dependency graph** and **{% data variables.product.prodname_dependabot_alerts %}**—not enabled by default. Both features are configured at an enterprise level by the enterprise owner. For more information, see {% ifversion ghes %}"[AUTOTITLE](/admin/code-security/managing-supply-chain-security-for-your-enterprise/enabling-the-dependency-graph-for-your-enterprise)" and {% endif %}"[AUTOTITLE](/admin/configuration/configuring-github-connect/enabling-dependabot-for-your-enterprise)."
-* **Dependency review**—available when dependency graph is enabled for {% data variables.location.product_location %} and {% data variables.product.prodname_advanced_security %} is enabled for the organization or repository. For more information, see "[AUTOTITLE](/get-started/learning-about-github/about-github-advanced-security)."
+* **Dependency review**—available when dependency graph is enabled for your instance and {% data variables.product.prodname_advanced_security %} is enabled for the organization or repository. For more information, see "[AUTOTITLE](/get-started/learning-about-github/about-github-advanced-security)."
 {% endif %}
 {% ifversion ghes %}
 * **{% data variables.product.prodname_dependabot_security_updates %}**—not enabled by default. You can enable {% data variables.product.prodname_dependabot_security_updates %} for any repository that uses {% data variables.product.prodname_dependabot_alerts %} and the dependency graph. For information about enabling security updates, see "[AUTOTITLE](/code-security/dependabot/dependabot-security-updates/configuring-dependabot-security-updates)."

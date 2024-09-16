@@ -37,4 +37,4 @@ Everyone's needs are different, so each guide starts with the highest impact cha
 
 * [Safeguarding artifact integrity across any software supply chain](https://slsa.dev/)
 * [Microsoft Supply Chain Integrity Model](https://github.com/microsoft/scim)
-* [Software Supply Chain Security Paper - CNCF Security Technical Advisory Group](https://github.com/cncf/tag-security/blob/main/supply-chain-security/supply-chain-security-paper/CNCF_SSCP_v1.pdf)
+* [Software Supply Chain Security Paper - CNCF Security Technical Advisory Group](https://github.com/cncf/tag-security/blob/main/community/working-groups/supply-chain-security/supply-chain-security-paper/CNCF_SSCP_v1.pdf)

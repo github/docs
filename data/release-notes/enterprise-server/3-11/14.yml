@@ -1,0 +1,107 @@
+date: '2024-08-20'
+sections:
+  features:
+    - |
+      Users can view the app state of gists, networks, and wikis in the `spokesctl info` output, enhancing visibility into the status of these elements. Additionally, `spokesctl check` can diagnose and, in most cases, fix empty repository networks, improving network management.
+  security_fixes:
+    - |
+      **CRITICAL:** On GitHub Enterprise Server instances that use SAML single sign-on (SSO) authentication with specific IdPs utilizing publicly exposed signed federation metadata XML, an attacker could forge a SAML response to provision and/or gain access to a user account with site administrator privileges. GitHub has requested CVE ID [CVE-2024-6800](https://www.cve.org/cverecord?id=CVE-2024-6800) for this vulnerability, which was reported via the [GitHub Bug Bounty program](https://bounty.github.com/).
+    - |
+      **MEDIUM:** An attacker could update the `title`, `assignees`, and `labels` of any issue inside a public repository. This was only exploitable inside a public repository, and private/internal repositories were not affected. GitHub has requested CVE ID [CVE-2024-7711](https://www.cve.org/cverecord?id=CVE-2024-7711) for this vulnerability, which was reported via the [GitHub Bug Bounty program](https://bounty.github.com/).
+    - |
+      **MEDIUM:** An attacker could disclose the issue contents from a private repository using a GitHub App with only `contents: read` and `pull requests: write` permissions. This was only exploitable via user access token, and installation access tokens were not impacted. GitHub has requested CVE ID [CVE-2024-6337](https://www.cve.org/cverecord?id=CVE-2024-6337) for this vulnerability, which was reported via the [GitHub Bug Bounty program](https://bounty.github.com/).
+    - |
+      Packages have been updated to the latest security versions.
+  bugs:
+    - |
+      During hotpatching and sometimes when applying configuration changes, a configuration run to upgrade the GitHub Actions service was unnecessarily triggered. The GitHub Actions service will only be upgraded in GitHub Enterprise Server feature releases.
+    - |
+      On an instance with GitHub Actions enabled, during a hotpatch upgrade, a race condition could block various upgrade activities.
+    - |
+      The `ghe-config-apply` process made an unnecessary number of connections to Redis.
+    - |
+      Restarting the `resolvconf` service would not correctly update the contents of `/etc/resolv.conf`.
+    - |
+      Instances installed on Google Cloud Platform (GCP) could have their hostname overwritten by GCP when a hotpatch was applied.
+    - |
+      The minimum password requirements for Management Console users and the root site administrator required an upper case character when providing a password with a minimum of 8 characters, contradicting the documentation and password hint.
+    - |
+      The `ghe-migrations` utility for visualizing migrations did not work due to a regression. Administrators can now run `ghe-migrations` to view the progress and status of `github` migrations, or run `ghe-migrations --all` to view progress on all services.
+    - |
+      On an instance with subdomain isolation enabled, configuration runs created subdomains for ChatOps services, such as `slack.HOSTNAME` and `teams.HOSTNAME`, regardless of whether the service was enabled.
+    - |
+      On an instance with GitHub Actions enabled, due to an insufficient wait time, MS SQL and MySQL replication could fail with the error message `Failed to start nomad service!`.
+    - |
+      Site administrators could not switch maintenance mode directly from "scheduled" to "on," or vice versa.
+    - |
+      Some users were unable to delete project views.
+    - |
+      When importing using `ghe-migrator`, team URLs containing dots were imported as-is, leading to 404s when attempting to view the imported teams. Dots in imported team URLs are now escaped to dashes.
+    - |
+      Due to a regression introduced in a previous patch, for enterprises that use encrypted SAML assertions, SSO attempts failed with a digest mismatch error if the entire SAML response was signed, rather than just the assertions.
+    - |
+      Running `go get` for a Golang repository with a directory structure that overlaps with GitHub UI routes failed
+    - |
+      The `github-stream-processor` service could get into a state where it would continually fail to process messages with a `TRILOGY_CLOSED_CONNECTION` error.
+    - |
+      The wrong help link was displayed when push protection blocked a secret from the CLI.
+    - |
+      For repositories with issues disabled, issue links were redirected to pull requests.
+    - |
+      In custom pre-receive hooks, the paths stored in environment variables that allow for newly pushed objects to be in a quarantine directory could be incorrectly interpreted as relative to a worktree instead of the Git directory, causing certain commands to fail to read from the repository. The variables now use absolute paths.
+    - |
+      A corrupted entry in the Git audit log could cause out of memory errors.
+    - |
+      Fixes and improvements for the git core module.
+  changes:
+    - |
+      Actions KPI logs are disabled by default to reduce log size.
+    - |
+      Users can set their styling preference for link underlines in the web interface, on their "Accessibility" settings page.
+    - |
+      Audit log events related to audit log streaming are available in the enterprise audit log page, and via audit log streaming.
+  known_issues:
+    - |
+      Custom firewall rules are removed during the upgrade process.
+    - |
+      During the validation phase of a configuration run, a `No such object` error may occur for the Notebook and Viewscreen services. This error can be ignored as the services should still correctly start.
+    - |
+      If the root site administrator is locked out of the Management Console after failed login attempts, the account does not unlock automatically after the defined lockout time. Someone with administrative SSH access to the instance must unlock the account using the administrative shell. For more information, see "[AUTOTITLE](/admin/configuration/administering-your-instance-from-the-management-console/troubleshooting-access-to-the-management-console#unlocking-the-root-site-administrator-account)."
+    - |
+      If an instance is configured to forward logs to a target server with TLS enabled, certificate authority (CA) bundles that a site administrator uploads using `ghe-ssl-ca-certificate-install` are not respected, and connections to the server fail.
+    - |
+      The `mbind: Operation not permitted` error in the `/var/log/mysql/mysql.err` file can be ignored. MySQL 8 does not gracefully handle when the `CAP_SYS_NICE` capability isn't required, and outputs an error instead of a warning.
+    - |
+      {% data reusables.release-notes.2023-11-aws-system-time %}
+    - |
+      On an instance with the HTTP `X-Forwarded-For` header configured for use behind a load balancer, all client IP addresses in the instance's audit log erroneously appear as 127.0.0.1.
+    - |
+      {% data reusables.release-notes.2023-10-git-push-made-but-not-registered %}
+    - |
+      {% data reusables.release-notes.large-adoc-files-issue %}
+    - |
+      {% data reusables.release-notes.2023-11-cluster-ha-failover-git-push-failure %}
+    - |
+      {% data reusables.release-notes.2023-12-backup-utils-exit-early-redis %}
+    - |
+      {% data reusables.release-notes.2024-01-haproxy-upgrade-causing-increased-errors %}
+    - |
+      Repositories originally imported using `ghe-migrator` will not correctly track Advanced Security contributions.
+    - |
+      Due to a known regression, operators will not be able to use the `ghe-migrations` visualizer to view the status of migrations during an upgrade. Instead, the operator can inspect the log files in `/var/log/dbmigration` to see the status and progress of migrations.
+    - |
+      The `reply.HOSTNAME` subdomain is falsely displayed as having no SSL and DNS record, when testing the domain settings via the Management Console without subdomain isolation.
+    - |
+      When log forwarding is enabled, some forwarded log entries may be duplicated.
+    - |
+      Admin stats REST API endpoints may timeout on appliances with many users or repositories. Retrying the request until data is returned is advised.
+    - |
+      If a hotpatch upgrade requires the `haproxy-frontend` service to be restarted, the restart will hang if there are existing long-lived connections, such as browser web sockets or Git operations. No new connections will be accepted for up to 5 minutes. Any existing unfinished connections at this time will be disconnected.
+    - |
+      When restoring from a backup snapshot, a large number of `mapper_parsing_exception` errors may be displayed.
+    - |
+      Services may respond with a `503` status due to an out of date `haproxy` configuration. This can usually be resolved with a `ghe-config-apply` run.
+    - |
+      {% data reusables.release-notes.2024-08-resolvconf-wont-start %}
+
+      [Updated: 2024-08-26]

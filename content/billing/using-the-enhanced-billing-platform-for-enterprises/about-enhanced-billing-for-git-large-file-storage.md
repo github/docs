@@ -14,11 +14,7 @@ permissions: The enhanced billing platform is available to all enterprise accoun
 
 ## About billing for {% data variables.large_files.product_name_long %}
 
-{% note %}
-
-**Note:** {% data reusables.user-settings.context_switcher %}
-
-{% endnote %}
+> [!NOTE] {% data reusables.user-settings.context_switcher %}
 
 Each {% data variables.product.prodname_dotcom %} account receives a certain amount of free bandwidth and storage for {% data variables.large_files.product_name_short %}, depending on the account's plan.
 Bandwidth is billed for each GiB of data downloaded. Storage is billed by calculating an hourly usage rate. To estimate costs for paid {% data variables.large_files.product_name_short %} usage, you can use the {% data variables.product.prodname_dotcom %} [pricing calculator](https://github.com/pricing/calculator?feature=lfs).
@@ -50,10 +46,10 @@ If you use more than the included amount of bandwidth or storage for your plan t
 
 For example, if you use 1 GiB above what is included for free for the first 15 days of April, then use 2 GiB starting from April 16th to the end of the month, your storage costs will be calculated in the following way.
 
-- 1 GiB × 15 days × 24 hours per day = 360 GiB-hours
-- 2 GiB × 15 days × 24 hours per day = 720 GiB-hours
-- 360 GiB-hours + 720 GiB-hours = 1080 GiB-hours
-- 1080 GiB-hours / 720 hours in the month = 1.5 GiB-months
+* 1 GiB × 15 days × 24 hours per day = 360 GiB-hours
+* 2 GiB × 15 days × 24 hours per day = 720 GiB-hours
+* 360 GiB-hours + 720 GiB-hours = 1080 GiB-hours
+* 1080 GiB-hours / 720 hours in the month = 1.5 GiB-months
 
 In this example, {% data variables.product.company_short %} would bill for 1.5 GiB of storage for the month of April.
 
@@ -63,5 +59,5 @@ The default budget for paid usage is $0 for accounts that do not have a payment 
 
 ## Further reading
 
-- "[AUTOTITLE](/repositories/working-with-files/managing-large-files/about-git-large-file-storage)"
-- "[AUTOTITLE](/repositories/working-with-files/managing-large-files/installing-git-large-file-storage)"
+* "[AUTOTITLE](/repositories/working-with-files/managing-large-files/about-git-large-file-storage)"
+* "[AUTOTITLE](/repositories/working-with-files/managing-large-files/installing-git-large-file-storage)"

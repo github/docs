@@ -141,7 +141,7 @@ describe.skip('category pages', () => {
           }
 
           await contextualize(req as ExtendedRequest, res as Response, next)
-          await shortVersions(req, res, next)
+          await shortVersions(req as ExtendedRequest, res as Response, next)
 
           // Save the index title for later testing
           indexTitle = data.title.includes('{')

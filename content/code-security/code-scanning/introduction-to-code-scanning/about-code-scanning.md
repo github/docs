@@ -27,6 +27,12 @@ You can use {% data variables.product.prodname_code_scanning %} to find, triage,
 
 If {% data variables.product.prodname_code_scanning %} finds a potential vulnerability or error in your code, {% data variables.product.prodname_dotcom %} displays an alert in the repository. After you fix the code that triggered the alert, {% data variables.product.prodname_dotcom %} closes the alert. For more information, see "[AUTOTITLE](/code-security/code-scanning/managing-code-scanning-alerts/managing-code-scanning-alerts-for-your-repository)."
 
+{% ifversion code-scanning-autofix %}
+
+{% data variables.product.prodname_copilot_autofix %} will suggest fixes for alerts from {% data variables.product.prodname_codeql %} analysis in private repositories, allowing developers to prevent and reduce vulnerabilities with less effort. For more information, see "[AUTOTITLE](/code-security/code-scanning/managing-code-scanning-alerts/about-autofix-for-codeql-code-scanning)."
+
+{% endif %}
+
 To monitor results from {% data variables.product.prodname_code_scanning %} across your repositories or your organization, you can use webhooks and the {% data variables.product.prodname_code_scanning %} API. For information about the webhooks for {% data variables.product.prodname_code_scanning %}, see
 "[AUTOTITLE](/webhooks-and-events/webhooks/webhook-events-and-payloads#code_scanning_alert)." For information about API endpoints, see "[AUTOTITLE](/rest/code-scanning)."
 

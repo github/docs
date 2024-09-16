@@ -32,7 +32,7 @@ suite definition have been executed, the result is a set of selected queries.
 {% ifversion codeql-packs %}
 {% note %}
 
-**Note:** Any custom queries that you want to add to a query suite must be in a [{% data variables.product.prodname_codeql %} pack](/code-security/codeql-cli/getting-started-with-the-codeql-cli/customizing-analysis-with-codeql-packs)" and contain the correct query metadata. For more information, see "[Using custom queries with the {% data variables.product.prodname_codeql_cli %}](/code-security/codeql-cli/using-the-advanced-functionality-of-the-codeql-cli/using-custom-queries-with-the-codeql-cli)."
+**Note:** Any custom queries that you want to add to a query suite must be in a "[{% data variables.product.prodname_codeql %} pack](/code-security/codeql-cli/getting-started-with-the-codeql-cli/customizing-analysis-with-codeql-packs)" and contain the correct query metadata. For more information, see "[Using custom queries with the {% data variables.product.prodname_codeql_cli %}](/code-security/codeql-cli/using-the-advanced-functionality-of-the-codeql-cli/using-custom-queries-with-the-codeql-cli)."
 
 {% endnote %}
 {% endif %}

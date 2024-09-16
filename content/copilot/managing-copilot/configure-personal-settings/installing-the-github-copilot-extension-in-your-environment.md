@@ -48,6 +48,10 @@ To see instructions for other popular coding environments, use the tool switcher
 
 For information about version compatibility of the {% data variables.product.prodname_copilot %} extension in JetBrains IDEs, see [{% data variables.product.prodname_copilot %} Versions](https://plugins.jetbrains.com/plugin/17718-github-copilot/versions) in the JetBrains Marketplace.
 
+### About the license for the {% data variables.product.prodname_copilot %} plugin in JetBrains IDEs
+
+{% data variables.product.prodname_dotcom %}, Inc. is the licensor of the JetBrains plugin. The end user license agreement for this plugin is the [{% data variables.product.prodname_dotcom %} Terms for Additional Products and Features](/free-pro-team@latest/site-policy/github-terms/github-terms-for-additional-products-and-features#github-copilot) and use of this plugin is subject to those terms. JetBrains has no responsibility or liability in connection with the plugin or such agreement. By using the plugin, you agree to the foregoing terms.
+
 ## Installing the {% data variables.product.prodname_copilot %} plugin in your JetBrains IDE
 
 The following procedure will guide you through installation of the {% data variables.product.prodname_copilot %} plugin in IntelliJ IDEA. Steps to install the plugin in another supported IDE may differ.
@@ -96,20 +100,6 @@ To see instructions for other popular coding environments, use the tool switcher
 
 1. Install {% data variables.product.prodname_copilot %} using the built-in plugin manager:
 
-   * For **Vim on macOS or Linux**, run the following command in the terminal.
-
-     ```shell copy
-     git clone https://github.com/github/copilot.vim \
-     ~/.vim/pack/github/start/copilot.vim
-     ```
-
-   * For **Vim on Windows**, run the following command in Git Bash:
-
-     ```shell copy
-     git clone https://github.com/github/copilot.vim.git \
-     $HOME/vimfiles/pack/github/start/copilot.vim
-     ```
-
    * For **Neovim on macOS or Linux**, run the following command in the terminal.
 
      ```shell copy
@@ -122,6 +112,20 @@ To see instructions for other popular coding environments, use the tool switcher
      ```shell copy
      git clone https://github.com/github/copilot.vim.git \
      $HOME/AppData/Local/nvim/pack/github/start/copilot.vim
+     ```
+
+   * For **Vim on macOS or Linux**, run the following command in the terminal.
+
+     ```shell copy
+     git clone https://github.com/github/copilot.vim \
+     ~/.vim/pack/github/start/copilot.vim
+     ```
+
+   * For **Vim on Windows**, run the following command in Git Bash:
+
+     ```shell copy
+     git clone https://github.com/github/copilot.vim.git \
+     $HOME/vimfiles/pack/github/start/copilot.vim
      ```
 
 {% data reusables.copilot.config-enable-copilot-in-vimneovim %}
@@ -162,9 +166,7 @@ To see instructions for other popular coding environments, use the tool switcher
 
 ### Version compatibility
 
-{% data variables.product.prodname_copilot_chat_short %} releases in lockstep with {% data variables.product.prodname_vscode %}, due to its deep UI integration. As a result, every new version of {% data variables.product.prodname_copilot_chat_short %} is only compatible with the latest release of {% data variables.product.prodname_vscode %}. This means that if you are using an older version of {% data variables.product.prodname_vscode %}, you will not be able to use the latest {% data variables.product.prodname_copilot_chat_short %}.
-
-Only the latest {% data variables.product.prodname_copilot_chat_short %} versions will use the latest large language model provided by the {% data variables.product.prodname_copilot_short %} service, as even minor model upgrades require prompt changes and fixes in the extension. An older version of {% data variables.product.prodname_copilot_chat_short %} will still use the latest version of {% data variables.product.prodname_copilot_short %} code completions.
+{% data reusables.copilot.vscode-version-compatibility %}
 
 ## Installing the {% data variables.product.prodname_copilot %} extension in {% data variables.product.prodname_vscode %}
 

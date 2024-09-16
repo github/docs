@@ -1,4 +1,4 @@
-## Create an example workflow
+## Creating an example workflow
 
 {% data variables.product.prodname_actions %} uses YAML syntax to define the workflow.  Each workflow is stored as a separate YAML file in your code repository, in a directory named `.github/workflows`.
 

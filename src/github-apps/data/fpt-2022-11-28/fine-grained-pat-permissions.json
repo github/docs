@@ -1,19 +1,4 @@
 {
-  "enterprise_administration": {
-    "title": "Enterprise administration",
-    "displayTitle": "Business permissions for \"Enterprise administration\"",
-    "permissions": [
-      {
-        "category": "copilot",
-        "slug": "get-a-summary-of-copilot-usage-for-organization-members",
-        "subcategory": "copilot-usage",
-        "verb": "get",
-        "requestPath": "/orgs/{org}/copilot/usage",
-        "additional-permissions": true,
-        "access": "read"
-      }
-    ]
-  },
   "organization_administration": {
     "title": "Administration",
     "displayTitle": "Organization permissions for \"Administration\"",
@@ -159,6 +144,96 @@
         "subcategory": "permissions",
         "verb": "put",
         "requestPath": "/orgs/{org}/actions/permissions/workflow",
+        "additional-permissions": false,
+        "access": "write"
+      },
+      {
+        "category": "code-security",
+        "slug": "get-code-security-configurations-for-an-organization",
+        "subcategory": "configurations",
+        "verb": "get",
+        "requestPath": "/orgs/{org}/code-security/configurations",
+        "additional-permissions": false,
+        "access": "write"
+      },
+      {
+        "category": "code-security",
+        "slug": "create-a-code-security-configuration",
+        "subcategory": "configurations",
+        "verb": "post",
+        "requestPath": "/orgs/{org}/code-security/configurations",
+        "additional-permissions": false,
+        "access": "write"
+      },
+      {
+        "category": "code-security",
+        "slug": "get-default-code-security-configurations",
+        "subcategory": "configurations",
+        "verb": "get",
+        "requestPath": "/orgs/{org}/code-security/configurations/defaults",
+        "additional-permissions": false,
+        "access": "write"
+      },
+      {
+        "category": "code-security",
+        "slug": "detach-configurations-from-repositories",
+        "subcategory": "configurations",
+        "verb": "delete",
+        "requestPath": "/orgs/{org}/code-security/configurations/detach",
+        "additional-permissions": false,
+        "access": "write"
+      },
+      {
+        "category": "code-security",
+        "slug": "get-a-code-security-configuration",
+        "subcategory": "configurations",
+        "verb": "get",
+        "requestPath": "/orgs/{org}/code-security/configurations/{configuration_id}",
+        "additional-permissions": false,
+        "access": "write"
+      },
+      {
+        "category": "code-security",
+        "slug": "update-a-code-security-configuration",
+        "subcategory": "configurations",
+        "verb": "patch",
+        "requestPath": "/orgs/{org}/code-security/configurations/{configuration_id}",
+        "additional-permissions": false,
+        "access": "write"
+      },
+      {
+        "category": "code-security",
+        "slug": "delete-a-code-security-configuration",
+        "subcategory": "configurations",
+        "verb": "delete",
+        "requestPath": "/orgs/{org}/code-security/configurations/{configuration_id}",
+        "additional-permissions": false,
+        "access": "write"
+      },
+      {
+        "category": "code-security",
+        "slug": "attach-a-configuration-to-repositories",
+        "subcategory": "configurations",
+        "verb": "post",
+        "requestPath": "/orgs/{org}/code-security/configurations/{configuration_id}/attach",
+        "additional-permissions": false,
+        "access": "write"
+      },
+      {
+        "category": "code-security",
+        "slug": "set-a-code-security-configuration-as-a-default-for-an-organization",
+        "subcategory": "configurations",
+        "verb": "put",
+        "requestPath": "/orgs/{org}/code-security/configurations/{configuration_id}/defaults",
+        "additional-permissions": false,
+        "access": "write"
+      },
+      {
+        "category": "code-security",
+        "slug": "get-repositories-associated-with-a-code-security-configuration",
+        "subcategory": "configurations",
+        "verb": "get",
+        "requestPath": "/orgs/{org}/code-security/configurations/{configuration_id}/repositories",
         "additional-permissions": false,
         "access": "write"
       },
@@ -388,6 +463,15 @@
         "access": "read"
       },
       {
+        "category": "copilot",
+        "slug": "get-a-summary-of-copilot-usage-for-a-team",
+        "subcategory": "copilot-usage",
+        "verb": "get",
+        "requestPath": "/orgs/{org}/team/{team_slug}/copilot/usage",
+        "additional-permissions": true,
+        "access": "read"
+      },
+      {
         "category": "orgs",
         "slug": "enable-or-disable-a-security-feature-for-an-organization",
         "subcategory": "orgs",
@@ -446,15 +530,6 @@
     "permissions": [
       {
         "category": "orgs",
-        "slug": "list-organization-fine-grained-permissions-for-an-organization",
-        "subcategory": "organization-roles",
-        "verb": "get",
-        "requestPath": "/orgs/{org}/organization-fine-grained-permissions",
-        "additional-permissions": false,
-        "access": "read"
-      },
-      {
-        "category": "orgs",
         "slug": "get-all-organization-roles-for-an-organization",
         "subcategory": "organization-roles",
         "verb": "get",
@@ -464,39 +539,12 @@
       },
       {
         "category": "orgs",
-        "slug": "create-a-custom-organization-role",
-        "subcategory": "organization-roles",
-        "verb": "post",
-        "requestPath": "/orgs/{org}/organization-roles",
-        "additional-permissions": false,
-        "access": "write"
-      },
-      {
-        "category": "orgs",
         "slug": "get-an-organization-role",
         "subcategory": "organization-roles",
         "verb": "get",
         "requestPath": "/orgs/{org}/organization-roles/{role_id}",
         "additional-permissions": false,
         "access": "read"
-      },
-      {
-        "category": "orgs",
-        "slug": "update-a-custom-organization-role",
-        "subcategory": "organization-roles",
-        "verb": "patch",
-        "requestPath": "/orgs/{org}/organization-roles/{role_id}",
-        "additional-permissions": false,
-        "access": "write"
-      },
-      {
-        "category": "orgs",
-        "slug": "delete-a-custom-organization-role",
-        "subcategory": "organization-roles",
-        "verb": "delete",
-        "requestPath": "/orgs/{org}/organization-roles/{role_id}",
-        "additional-permissions": false,
-        "access": "write"
       }
     ]
   },
@@ -649,7 +697,7 @@
         "verb": "get",
         "requestPath": "/orgs/{org}/copilot/usage",
         "additional-permissions": true,
-        "access": "write"
+        "access": "read"
       },
       {
         "category": "copilot",
@@ -657,6 +705,15 @@
         "subcategory": "copilot-user-management",
         "verb": "get",
         "requestPath": "/orgs/{org}/members/{username}/copilot",
+        "additional-permissions": true,
+        "access": "read"
+      },
+      {
+        "category": "copilot",
+        "slug": "get-a-summary-of-copilot-usage-for-a-team",
+        "subcategory": "copilot-usage",
+        "verb": "get",
+        "requestPath": "/orgs/{org}/team/{team_slug}/copilot/usage",
         "additional-permissions": true,
         "access": "read"
       }
@@ -2312,15 +2369,6 @@
       },
       {
         "category": "deployments",
-        "slug": "list-custom-deployment-rule-integrations-available-for-an-environment",
-        "subcategory": "protection-rules",
-        "verb": "get",
-        "requestPath": "/repos/{owner}/{repo}/environments/{environment_name}/deployment_protection_rules/apps",
-        "additional-permissions": false,
-        "access": "read"
-      },
-      {
-        "category": "deployments",
         "slug": "get-a-custom-deployment-protection-rule",
         "subcategory": "protection-rules",
         "verb": "get",
@@ -2920,6 +2968,15 @@
         "access": "write"
       },
       {
+        "category": "code-security",
+        "slug": "get-the-code-security-configuration-associated-with-a-repository",
+        "subcategory": "configurations",
+        "verb": "get",
+        "requestPath": "/repos/{owner}/{repo}/code-security-configuration",
+        "additional-permissions": false,
+        "access": "read"
+      },
+      {
         "category": "collaborators",
         "slug": "add-a-repository-collaborator",
         "subcategory": "collaborators",
@@ -2990,6 +3047,15 @@
         "requestPath": "/repos/{owner}/{repo}/environments/{environment_name}/deployment_protection_rules",
         "additional-permissions": false,
         "access": "write"
+      },
+      {
+        "category": "deployments",
+        "slug": "list-custom-deployment-rule-integrations-available-for-an-environment",
+        "subcategory": "protection-rules",
+        "verb": "get",
+        "requestPath": "/repos/{owner}/{repo}/environments/{environment_name}/deployment_protection_rules/apps",
+        "additional-permissions": false,
+        "access": "read"
       },
       {
         "category": "deployments",
@@ -3368,6 +3434,30 @@
         "requestPath": "/user/repository_invitations/{invitation_id}",
         "additional-permissions": false,
         "access": "write"
+      }
+    ]
+  },
+  "attestations": {
+    "title": "Attestations",
+    "displayTitle": "Repository permissions for \"Attestations\"",
+    "permissions": [
+      {
+        "category": "repos",
+        "slug": "create-an-attestation",
+        "subcategory": "repos",
+        "verb": "post",
+        "requestPath": "/repos/{owner}/{repo}/attestations",
+        "additional-permissions": false,
+        "access": "write"
+      },
+      {
+        "category": "repos",
+        "slug": "list-attestations",
+        "subcategory": "repos",
+        "verb": "get",
+        "requestPath": "/repos/{owner}/{repo}/attestations/{subject_digest}",
+        "additional-permissions": false,
+        "access": "read"
       }
     ]
   },
@@ -4089,7 +4179,16 @@
         "subcategory": "contents",
         "verb": "put",
         "requestPath": "/repos/{owner}/{repo}/contents/{path}",
-        "additional-permissions": false,
+        "additional-permissions": true,
+        "access": "write"
+      },
+      {
+        "category": "repos",
+        "slug": "create-or-update-file-contents",
+        "subcategory": "contents",
+        "verb": "put",
+        "requestPath": "/repos/{owner}/{repo}/contents/{path}",
+        "additional-permissions": true,
         "access": "write"
       },
       {
@@ -4098,7 +4197,16 @@
         "subcategory": "contents",
         "verb": "delete",
         "requestPath": "/repos/{owner}/{repo}/contents/{path}",
-        "additional-permissions": false,
+        "additional-permissions": true,
+        "access": "write"
+      },
+      {
+        "category": "repos",
+        "slug": "delete-a-file",
+        "subcategory": "contents",
+        "verb": "delete",
+        "requestPath": "/repos/{owner}/{repo}/contents/{path}",
+        "additional-permissions": true,
         "access": "write"
       },
       {
@@ -4505,6 +4613,15 @@
         "requestPath": "/repos/{owner}/{repo}/releases/{release_id}/assets",
         "additional-permissions": false,
         "access": "read"
+      },
+      {
+        "category": "secret-scanning",
+        "slug": "create-a-push-protection-bypass",
+        "subcategory": "secret-scanning",
+        "verb": "post",
+        "requestPath": "/repos/{owner}/{repo}/secret-scanning/push-protection-bypasses",
+        "additional-permissions": false,
+        "access": "write"
       },
       {
         "category": "repos",
@@ -5608,6 +5725,33 @@
         "verb": "get",
         "requestPath": "/user/repos",
         "additional-permissions": false,
+        "access": "read"
+      },
+      {
+        "category": "activity",
+        "slug": "check-if-a-repository-is-starred-by-the-authenticated-user",
+        "subcategory": "starring",
+        "verb": "get",
+        "requestPath": "/user/starred/{owner}/{repo}",
+        "additional-permissions": true,
+        "access": "read"
+      },
+      {
+        "category": "activity",
+        "slug": "star-a-repository-for-the-authenticated-user",
+        "subcategory": "starring",
+        "verb": "put",
+        "requestPath": "/user/starred/{owner}/{repo}",
+        "additional-permissions": true,
+        "access": "read"
+      },
+      {
+        "category": "activity",
+        "slug": "unstar-a-repository-for-the-authenticated-user",
+        "subcategory": "starring",
+        "verb": "delete",
+        "requestPath": "/user/starred/{owner}/{repo}",
+        "additional-permissions": true,
         "access": "read"
       },
       {
@@ -6970,6 +7114,24 @@
     "displayTitle": "Repository permissions for \"Workflows\"",
     "permissions": [
       {
+        "category": "repos",
+        "slug": "create-or-update-file-contents",
+        "subcategory": "contents",
+        "verb": "put",
+        "requestPath": "/repos/{owner}/{repo}/contents/{path}",
+        "additional-permissions": true,
+        "access": "write"
+      },
+      {
+        "category": "repos",
+        "slug": "delete-a-file",
+        "subcategory": "contents",
+        "verb": "delete",
+        "requestPath": "/repos/{owner}/{repo}/contents/{path}",
+        "additional-permissions": true,
+        "access": "write"
+      },
+      {
         "category": "git",
         "slug": "create-a-reference",
         "subcategory": "refs",
@@ -7584,7 +7746,7 @@
         "subcategory": "starring",
         "verb": "get",
         "requestPath": "/user/starred/{owner}/{repo}",
-        "additional-permissions": false,
+        "additional-permissions": true,
         "access": "read"
       },
       {
@@ -7593,7 +7755,7 @@
         "subcategory": "starring",
         "verb": "put",
         "requestPath": "/user/starred/{owner}/{repo}",
-        "additional-permissions": false,
+        "additional-permissions": true,
         "access": "write"
       },
       {
@@ -7602,7 +7764,7 @@
         "subcategory": "starring",
         "verb": "delete",
         "requestPath": "/user/starred/{owner}/{repo}",
-        "additional-permissions": false,
+        "additional-permissions": true,
         "access": "write"
       },
       {

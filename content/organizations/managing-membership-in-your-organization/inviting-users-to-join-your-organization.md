@@ -1,6 +1,6 @@
 ---
 title: Inviting users to join your organization
-intro: 'You can invite anyone to become a member of your organization using their username or email address for {% data variables.location.product_location %}.'
+intro: 'You can invite anyone to become a member of your organization using their username or email address for {% data variables.product.prodname_dotcom %}.'
 permissions: Organization owners can invite users to join an organization.
 redirect_from:
   - /articles/adding-or-inviting-members-to-a-team-in-an-organization
@@ -14,6 +14,8 @@ topics:
   - Teams
 shortTitle: Invite users to join
 ---
+
+> [!NOTE] This article does not apply to {% data variables.product.prodname_emus %}. {% data variables.enterprise.prodname_managed_users_caps %} are provisioned using SCIM, not invited.
 
 ## About organization invitations
 
@@ -36,6 +38,8 @@ If your organization has a paid per-user subscription, an unused license must be
 If your organization requires members to use two-factor authentication, users that you invite must enable two-factor authentication before accepting the invitation. For more information, see "[AUTOTITLE](/organizations/keeping-your-organization-secure/managing-two-factor-authentication-for-your-organization/requiring-two-factor-authentication-in-your-organization)" and "[AUTOTITLE](/authentication/securing-your-account-with-two-factor-authentication-2fa)."
 
 {% ifversion fpt %}Organizations that use {% data variables.product.prodname_ghe_cloud %}{% else %}You{% endif %} can implement SCIM to add, manage, and remove organization members' access to {% data variables.product.prodname_dotcom_the_website %} through an identity provider (IdP). For more information, see "[AUTOTITLE](/enterprise-cloud@latest/organizations/managing-saml-single-sign-on-for-your-organization/about-scim-for-organizations){% ifversion fpt %}" in the {% data variables.product.prodname_ghe_cloud %} documentation.{% else %}."{% endif %}
+
+To prevent abuse, you can only create 50 organization invitations within a 24-hour period. If your organization is more than one month old or on a paid plan, the limit is 500 invitations per 24 hour period. {% ifversion ghec %} This limit does not apply to invitations created via SCIM provisioning.{% endif %}
 
 ## Inviting a user to join your organization
 

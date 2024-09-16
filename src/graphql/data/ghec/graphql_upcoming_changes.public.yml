@@ -648,3 +648,21 @@ upcoming_changes:
     date: '2024-07-01T00:00:00+00:00'
     criticality: breaking
     owner: deborah-digges
+  - location: Workflow.hasWorkflowDispatchTrigger
+    description:
+      '`hasWorkflowDispatchTrigger` will be removed. Use `has_workflow_dispatch_trigger_for_branch(branch_ref)`
+      instead.'
+    reason:
+      "`has_workflow_dispatch_trigger` is being removed because it can be misleading
+      and only checks a repository's default branch"
+    date: '2024-10-01T00:00:00+00:00'
+    criticality: breaking
+    owner: stevepopovich
+  - location: AddMobileDevicePublicKeyPayload.expiresAt
+    description:
+      '`expiresAt` will be removed. Do not rely on this field, it is currently
+      set to a date far in the future if a device key is expirationless'
+    reason: We are deprecating expirations for mobile device keys used in mobile 2FA
+    date: '2025-01-01T00:00:00+00:00'
+    criticality: breaking
+    owner: chriskirkland

@@ -24,12 +24,16 @@ redirect_from:
 {% data reusables.enterprise-migration-tool.gei-tool-switcher-cli %}
 {% endapi %}
 
+{% ifversion repo-rules-enterprise %}
+{% data reusables.enterprise-migration-tool.deploy-key-bypass %}
+{% endif %}
+
 ## Prerequisites
 
 * We strongly recommend that you perform a trial run of your migration and complete your production migration soon after. To learn more about trial runs, see "[AUTOTITLE](/migrations/using-github-enterprise-importer/migrating-from-azure-devops-to-github-enterprise-cloud/overview-of-a-migration-from-azure-devops-to-github-enterprise-cloud#running-your-migrations)."
 * {% data reusables.enterprise-migration-tool.link-to-support-limitations %} For more information, see "[AUTOTITLE](/migrations/using-github-enterprise-importer/migrating-from-azure-devops-to-github-enterprise-cloud/about-migrations-from-azure-devops-to-github-enterprise-cloud)."
 * {% data reusables.enterprise-migration-tool.delta-migrations-not-supported %}
-* For the destination organization on {% data variables.product.prodname_dotcom_the_website %}, you need to be an organization owner or have the migrator role. For more information about the migrator role, see "[AUTOTITLE](/migrations/using-github-enterprise-importer/migrating-from-azure-devops-to-github-enterprise-cloud/managing-access-for-a-migration-from-azure-devops#about-the-migrator-role)."
+* For the destination organization on {% data variables.product.prodname_dotcom %}, you need to be an organization owner or have the migrator role. For more information about the migrator role, see "[AUTOTITLE](/migrations/using-github-enterprise-importer/migrating-from-azure-devops-to-github-enterprise-cloud/managing-access-for-a-migration-from-azure-devops#about-the-migrator-role)."
 
 {% api %}
 
@@ -128,7 +132,7 @@ mutation startRepositoryMigration (
 ```
 
 {% data reusables.enterprise-migration-tool.startRepositoryMigration-table-ec %}
-| `sourceRepositoryUrl` | The URL of your source repository, using the format `https://dev.azure.com/{organization}/_git/{repository}`.
+| `sourceRepositoryUrl` | The URL of your source repository, using the format `https://dev.azure.com/{organization}/{project}/_git/{repository}`.
 
 For {% data variables.product.pat_generic %} requirements, see "[AUTOTITLE](/migrations/using-github-enterprise-importer/migrating-from-azure-devops-to-github-enterprise-cloud/managing-access-for-a-migration-from-azure-devops#required-scopes-for-personal-access-tokens)."
 

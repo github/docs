@@ -21,7 +21,7 @@ This guide describes the highest impact changes you can make to increase account
 
 ## What's the risk?
 
-Account security is fundamental to the security of your supply chain. If an attacker can take over your account on {% data variables.product.product_name %}, they can then make malicious changes to your code or build process. So your first goal should be to make it difficult for someone to take over your account and the accounts of other {% ifversion ghes %}users{% else %}members{% endif %} of {% ifversion fpt %}your organization{% elsif ghec %}your organization or enterprise{% elsif ghes %}{% data variables.location.product_location %}{% endif %}.
+Account security is fundamental to the security of your supply chain. If an attacker can take over your account on {% data variables.product.product_name %}, they can then make malicious changes to your code or build process. So your first goal should be to make it difficult for someone to take over your account and the accounts of other {% ifversion ghes %}users{% else %}members{% endif %} of {% ifversion fpt %}your organization{% elsif ghec %}your organization or enterprise{% elsif ghes %}your instance{% endif %}.
 
 {% ifversion ghec or ghes %}
 
@@ -32,7 +32,7 @@ Account security is fundamental to the security of your supply chain. If an atta
 {% ifversion ghec %}
 If you're an enterprise or organization owner, you can configure centralized authentication with SAML. While you can add or remove members manually, it's simpler and more secure to set up single sign-on (SSO) and SCIM between {% data variables.product.product_name %} and your SAML identity provider (IdP). This also simplifies the authentication process for all members of your enterprise.
 
-You can configure SAML authentication for an enterprise or organization account. With SAML, you can grant access to the personal accounts of members of your enterprise or organization on {% data variables.location.product_location %} through your IdP, or you can create and control the accounts that belong to your enterprise by using {% data variables.product.prodname_emus %}. For more information, see "[AUTOTITLE](/admin/identity-and-access-management/managing-iam-for-your-enterprise/about-authentication-for-your-enterprise)."
+You can configure SAML authentication for an enterprise or organization account. With SAML, you can grant access to the personal accounts of members of your enterprise or organization on {% data variables.product.prodname_dotcom %} through your IdP, or you can create and control the accounts that belong to your enterprise by using {% data variables.product.prodname_emus %}. For more information, see "[AUTOTITLE](/admin/identity-and-access-management/managing-iam-for-your-enterprise/about-authentication-for-your-enterprise)."
 
 After you configure SAML authentication, when members request access to your resources, they'll be directed to your SSO flow to ensure they are still recognized by your IdP. If they are unrecognized, their request is declined.
 
@@ -40,7 +40,7 @@ Some IdPs support a protocol called SCIM, which can automatically provision or d
 {% endif %}
 
 {% ifversion ghes %}
-If you're the site administrator for {% data variables.location.product_location %}, you can simplify the login experience for users by choosing an authentication method that connects with your existing identity provider (IdP), like CAS, SAML, or LDAP. This means that they no longer need to remember an extra password for {% data variables.product.prodname_dotcom %}.
+If you're the site administrator for your instance, you can simplify the login experience for users by choosing an authentication method that connects with your existing identity provider (IdP), like CAS, SAML, or LDAP. This means that they no longer need to remember an extra password for {% data variables.product.prodname_dotcom %}.
 
 Some authentication methods also support communicating additional information to {% data variables.product.product_name %}, for example, what groups the user is a member of, or synchronizing cryptographic keys for the user. This is a great way to simplify your administration as your organization grows.
 
@@ -53,11 +53,11 @@ For more information about the authentication methods available for {% data vari
 {% data reusables.two_fa.mandatory-2fa-contributors-2023 %}
 {% endif %}
 
-The best way to improve the security of {% ifversion fpt %}your personal account{% elsif ghes %}your personal account or {% data variables.location.product_location %}{% elsif ghec %}your accounts{% endif %} is to configure two-factor authentication (2FA). Passwords by themselves can be compromised by being guessable, by being reused on another site that's been compromised, or by social engineering, like phishing. 2FA makes it much more difficult for your accounts to be compromised, even if an attacker has your password.
+The best way to improve the security of {% ifversion fpt %}your personal account{% elsif ghes %}your personal account or your instance{% elsif ghec %}your accounts{% endif %} is to configure two-factor authentication (2FA). Passwords by themselves can be compromised by being guessable, by being reused on another site that's been compromised, or by social engineering, like phishing. 2FA makes it much more difficult for your accounts to be compromised, even if an attacker has your password.
 
 As a best practice, to ensure both security and reliable access to your account, you should always have at least two second-factor credentials registered on your account. Extra credentials ensures that even if you lose access to one credential, you won't be locked out of your account.{% ifversion fpt or ghec %}
 
-Additionally, you should prefer{% ifversion passkeys %} passkeys and{% endif %} security keys over authenticator apps (called TOTP apps) and avoid use of SMS whenever possible. Both SMS-based 2FA and TOTP apps are vulnerable to phishing, and do not provide the same level of protection as {% ifversion passkeys %}passkeys and {% endif %}security keys. SMS is no longer recommended under the [NIST 800-63B](https://pages.nist.gov/800-63-3/sp800-63b.html) digital identity guidelines.
+Additionally, you should prefer{% ifversion passkeys %} passkeys and{% endif %} security keys over authenticator apps (called TOTP apps) and avoid use of SMS whenever possible. Both SMS-based 2FA and TOTP apps are vulnerable to phishing, and do not provide the same level of protection as {% ifversion passkeys %}passkeys and {% endif %}security keys. SMS is no longer recommended under the [NIST 800-63B](https://nvlpubs.nist.gov/nistpubs/specialpublications/nist.sp.800-63b.pdf) digital identity guidelines.
 
 {% endif %}{% ifversion mandatory-2fa-dotcom-contributors %}{% ifversion ghec %}
 If service accounts in your organization have been selected for 2FA enrollment by {% data variables.product.prodname_dotcom %}, their tokens and keys will continue to work after the deadline without interruption. Only access to {% data variables.product.prodname_dotcom %} through the website UI will be blocked until the account has enabled 2FA. We recommend setting up TOTP as the second factor for service accounts, and storing the TOTP secret exposed during setup in your company's shared password manager, with access to the secrets controlled through SSO.
@@ -68,7 +68,7 @@ If you're an enterprise owner, you may be able to configure a policy to require 
 {% endif %}
 
 {% ifversion ghes %}
-If you're the site administrator for {% data variables.location.product_location %}, you may be able to configure 2FA for all users of your instance. The availability of 2FA on {% data variables.product.product_name %} depends on the authentication method that you use. For more information, see "[Centralize authentication](#centralize-authentication)."
+If you're the site administrator for your instance, you may be able to configure 2FA for all users of your instance. The availability of 2FA on {% data variables.product.product_name %} depends on the authentication method that you use. For more information, see "[Centralize authentication](#centralize-authentication)."
 {% endif %}
 
 If you're an organization owner, then you {% ifversion fpt %}can{% else %}may be able to{% endif %} require that all members of the organization enable 2FA.
@@ -82,14 +82,14 @@ To learn more about enabling 2FA on your own account, see "[AUTOTITLE](/authenti
 Enterprise owners may be able to require 2FA for all {% ifversion ghes %}users on{% elsif ghec %}members of{% endif %} the {% ifversion ghes %}instance{% elsif ghec %}enterprise{% endif %}. The availability of 2FA policies on {% data variables.product.product_name %} depends on how {% ifversion ghes %}users{% else %}members{% endif %} authenticate to access your {% ifversion ghes %}instance{% elsif ghec %}enterprise's resources{% endif %}.
 
 {% ifversion ghes %}
-* If you sign into {% data variables.location.product_location %} through an external IdP using CAS or SAML SSO, you
+* If you sign into {% data variables.product.prodname_ghe_server %} through an external IdP using CAS or SAML SSO, you
 {% elsif ghec %}
 If your enterprise uses {% data variables.product.prodname_emus %} or SAML authentication is enforced for your enterprise, you
 {%- endif %} cannot configure 2FA on {% data variables.product.product_name %}. Someone with administrative access to your IdP must configure 2FA for the IdP.
 
 {% ifversion ghes %}
 
-* If you sign into {% data variables.location.product_location %} through an external LDAP directory, you can require 2FA for your enterprise on {% data variables.product.product_name %}. If you allow built-in authentication for users outside of your directory, individual users can enable 2FA, but you cannot require 2FA for your enterprise.
+* If you sign into {% data variables.product.prodname_ghe_server %} through an external LDAP directory, you can require 2FA for your enterprise on {% data variables.product.product_name %}. If you allow built-in authentication for users outside of your directory, individual users can enable 2FA, but you cannot require 2FA for your enterprise.
 
 {% endif %}
 
@@ -102,7 +102,7 @@ For more information, see {% ifversion ghec %}"[AUTOTITLE](/admin/identity-and-a
 {% ifversion ghec or ghes %}
 {% note %}
 
-**Note**: Depending on the authentication method that {% ifversion ghec %}an enterprise owner{% elsif ghes %}a site administrator{% endif %} has configured for {% ifversion ghec %}your enterprise on {% endif %}{% data variables.location.product_location %}, you may not be able to enable 2FA for your personal account.
+**Note**: Depending on the authentication method that {% ifversion ghec %}an enterprise owner{% elsif ghes %}a site administrator{% endif %} has configured, you may not be able to enable 2FA for your personal account.
 
 {% endnote %}
 {% endif %}
@@ -116,7 +116,7 @@ When you set up 2FA, you should always download the recovery codes and set up mo
 {% ifversion ghec or ghes %}
 {% note %}
 
-**Note**: Depending on the authentication method that {% ifversion ghec %}an enterprise owner{% elsif ghes %}a site administrator{% endif %} has configured for {% ifversion ghec %}your enterprise on {% endif %}{% data variables.location.product_location %}, you may not be able to require 2FA for your organization.
+**Note**: Depending on the authentication method that {% ifversion ghec %}an enterprise owner{% elsif ghes %}a site administrator{% endif %} has configured, you may not be able to require 2FA for your organization.
 
 {% endnote %}
 {% endif %}

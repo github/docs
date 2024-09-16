@@ -1,6 +1,6 @@
 date: '2024-05-16'
 release_candidate: true
-deprecated: false
+deprecated: true
 intro: |
 
   > [!NOTE] Release candidate (RC) builds are intended solely for use in a test environment. Do not install an RC in a production environment.
@@ -108,14 +108,14 @@ sections:
         - |
           The {% data variables.product.prodname_codeql %} action for code scanning analysis uses version 2.16.5 of the {% data variables.product.prodname_codeql_cli %} by default, an upgrade from 2.15.5 compared to the previous {% data variables.product.prodname_ghe_server %} feature release. For a detailed list of changes included in each version, see the [{% data variables.product.prodname_codeql %} change logs](https://codeql.github.com/docs/codeql-overview/codeql-changelog/).
           Significant changes include:
-          - Support for Swift 5.9.2, C# 12 / .NET 8, and Go 1.22.
-          - Installation of Python dependencies is disabled for all Python scans by default. See the [GitHub Blog post](https://github.blog/changelog/2023-07-12-code-scanning-with-codeql-no-longer-installs-python-dependencies-automatically-for-new-users/).
-          - A new `python_executable_name` option for the Python extractor. This allows you to select a non-default Python executable installed on the system running the scan (such as `py.exe` on Windows machines). See the [changelog in the CodeQL documentation](https://codeql.github.com/docs/codeql-overview/codeql-changelog/codeql-cli-2.16.3/#new-features).
-          - A fix for [CVE-2024-25129](https://github.com/github/codeql-cli-binaries/security/advisories/GHSA-gf8p-v3g3-3wph), a low-severity data exfiltration vulnerability that could be triggered by processing untrusted databases or CodeQL packs.
-          - The code scanning UI now includes partially extracted files. See the [GitHub Blog post](https://github.blog/changelog/2024-01-23-codeql-2-16-python-dependency-installation-disabled-new-queries-and-bug-fixes/#:~:text=The%20measure%20of,the%20near%20future.).
-          - 2 new C/C++ queries: `cpp/use-of-unique-pointer-after-lifetime-ends` and `cpp/incorrectly-checked-scanf`
-          - 6 new Java queries: `java/insecure-randomness` , `java/exec-tainted-environment` , `java/android/sensitive-text`, `java/android/sensitive-notification`, `java/android/insecure-local-authentication`, and `java/android/insecure-local-key-gen`
-          - 2 new Swift queries: `swift/weak-password-hashing` and `swift/unsafe-unpacking`
+          * Support for Swift 5.9.2, C# 12 / .NET 8, and Go 1.22.
+          * Installation of Python dependencies is disabled for all Python scans by default. See the [GitHub Blog post](https://github.blog/changelog/2023-07-12-code-scanning-with-codeql-no-longer-installs-python-dependencies-automatically-for-new-users/).
+          * A new `python_executable_name` option for the Python extractor. This allows you to select a non-default Python executable installed on the system running the scan (such as `py.exe` on Windows machines). See the [changelog in the CodeQL documentation](https://codeql.github.com/docs/codeql-overview/codeql-changelog/codeql-cli-2.16.3/#new-features).
+          * A fix for [CVE-2024-25129](https://github.com/github/codeql-cli-binaries/security/advisories/GHSA-gf8p-v3g3-3wph), a low-severity data exfiltration vulnerability that could be triggered by processing untrusted databases or CodeQL packs.
+          * The code scanning UI now includes partially extracted files. See the [GitHub Blog post](https://github.blog/changelog/2024-01-23-codeql-2-16-python-dependency-installation-disabled-new-queries-and-bug-fixes/#:~:text=The%20measure%20of,the%20near%20future.).
+          * 2 new C/C++ queries: `cpp/use-of-unique-pointer-after-lifetime-ends` and `cpp/incorrectly-checked-scanf`
+          * 6 new Java queries: `java/insecure-randomness` , `java/exec-tainted-environment` , `java/android/sensitive-text`, `java/android/sensitive-notification`, `java/android/insecure-local-authentication`, and `java/android/insecure-local-key-gen`
+          * 2 new Swift queries: `swift/weak-password-hashing` and `swift/unsafe-unpacking`
 
     - heading: Code security
       notes:
@@ -147,8 +147,8 @@ sections:
     - |
       **Upcoming change:** In version 3.14 and later of GitHub Enterprise Server, for instances with GitHub Actions and GitHub Connect enabled, self-hosted runners that download actions from GitHub.com via GitHub Connect will need to allow access to the following new hosts.
 
-      - `ghcr.io`
-      - `*.actions.githubusercontent.com`
+      * `ghcr.io`
+      * `*.actions.githubusercontent.com`
 
       You can make this change to your firewall rules on version 3.13, or on a previous version of GitHub Enterprise Server. For a smooth upgrade to version 3.14, we recommend you make changes to your firewall rules now, as failing to do so will result in your runners being unable to download certain actions in version 3.14 and later.
     # https://github.com/github/releases/issues/3443
@@ -172,6 +172,8 @@ sections:
       {% data reusables.release-notes.2023-12-backup-utils-exit-early-redis %}
     - |
       When enabling log forwarding, specific service logs, including babeld, are duplicated. For more information, see "[AUTOTITLE](/admin/monitoring-activity-in-your-enterprise/exploring-user-activity-in-your-enterprise/log-forwarding#enabling-log-forwarding)."
+    - |
+      {% data reusables.release-notes.2024-06-possible-frontend-5-minute-outage-during-hotpatch-upgrade %} [Updated: 2024-06-17]
 
   deprecations:
     # https://github.com/github/releases/issues/2732
@@ -179,4 +181,4 @@ sections:
       As part of sunsetting Subversion compatibility, Subversion support is now disabled by default. Subversion can be re-enabled in the 3.13 release series by setting `app.svnbridge.enabled = true`. In 3.14, subversion support will be permanently removed. For more information, see [Sunsetting Subversion support](https://github.blog/2023-01-20-sunsetting-subversion-support/) on the GitHub blog.
     # https://github.com/github/releases/issues/3859
     - |
-      The Manage GHES API reached feature parity with the Management Console API in GHES 3.12. As a result, we will deprecate the Management Console API in GitHub Enterprise Server 3.14. For information about updating tooling that relies on the Management Console API, see "[AUTOTITLE](/rest/enterprise-admin/management-console)."
+      The Manage GHES API reached feature parity with the Management Console API in GHES 3.12. As a result, we will deprecate the Management Console API in GitHub Enterprise Server 3.15. For information about updating tooling that relies on the Management Console API, see "[AUTOTITLE](/rest/enterprise-admin/management-console)."

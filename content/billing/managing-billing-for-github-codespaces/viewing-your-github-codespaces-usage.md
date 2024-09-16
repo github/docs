@@ -53,8 +53,8 @@ Organization owners and billing managers can view {% data variables.product.prod
    {% note %}
 
    **Notes**:
-   - The costs shown here are the cumulative costs within the current billing month. The usage-based costs for {% data variables.product.prodname_github_codespaces %} shown on this page are reset to zero at the start of each billing month. Outstanding costs from previous months are not shown.
-   - The figures on this page are updated every hour.
+   * The costs shown here are the cumulative costs within the current billing month. The usage-based costs for {% data variables.product.prodname_github_codespaces %} shown on this page are reset to zero at the start of each billing month. Outstanding costs from previous months are not shown.
+   * The figures on this page are updated every hour.
 
    {% endnote %}
 
@@ -79,4 +79,4 @@ Enterprise owners and billing managers can view {% data variables.product.prodna
 
 ## Further reading
 
-- "[AUTOTITLE](/codespaces/managing-codespaces-for-your-organization/listing-the-codespaces-in-your-organization)"
+* "[AUTOTITLE](/codespaces/managing-codespaces-for-your-organization/listing-the-codespaces-in-your-organization)"

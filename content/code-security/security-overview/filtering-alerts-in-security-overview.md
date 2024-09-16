@@ -56,10 +56,12 @@ In all views, there are two methods for filtering results by repository name.
 You can also filter by repository visibility (internal, private, or public) and archive status.
 
 | Qualifier | Description | Views |
-|--------|--------|------|{% ifversion security-overview-dashboard %}
-| `visibility` | Display data for all repositories that are `public`, `private`, or `internal`. | "Overview" and metrics{% endif %}
-| `is` | Display data for all repositories that are `public`, `private`, or `internal`. | "Risk" and "Coverage"
-| `archived` | Display only data for archived (`true`) or active (`false`) repositories. | All except "Alerts" views
+|--------|--------|------|
+| {% ifversion security-overview-dashboard %} |
+| `visibility` | Display data for all repositories that are `public`, `private`, or `internal`. | "Overview" and metrics |
+| {% endif %} |
+| `is` | Display data for all repositories that are `public`, `private`, or `internal`. | "Risk" and "Coverage" |
+| `archived` | Display only data for archived (`true`) or active (`false`) repositories. | All except "Alerts" views |
 
 ## Team and topic filters
 
@@ -92,13 +94,15 @@ If you add custom properties to your organization and set values for repositorie
 
 ## Repository owner name and type filters
 
-In enterprise-level views, you can limit the data to repositories owned by a single organization in your enterprise or an {% data variables.product.prodname_emu %} (EMU) account. Alternatively, you can filter by account owner type.
+In enterprise-level views, you can limit the data to repositories owned by a single organization in your enterprise{% ifversion ghec %} or an {% data variables.product.prodname_emu %} (EMU) account. If you are an owner of an {% data variables.enterprise.prodname_emu_enterprise %}, you can also filter by repository owner type{% endif %}.
 
 | Qualifier | Description | Views |
 | -------- | -------- | ------ |
-| `owner` | Display data for all repositories owned by one account owner. | Most views
-| `owner-type` | Display data for all repositories owned by an organization or a user account in your enterprise. | "Risk", "Coverage" and {% data variables.secret-scanning.alerts %}
-| `org` | Display data for repositories owned by one organization. | {% data variables.product.prodname_dependabot_alerts %} and {% data variables.product.prodname_code_scanning %} alerts
+| `owner` | Display data for all repositories owned by one account owner. | Most views |
+|  {% ifversion ghec %} |
+| `owner-type` | Display data for all repositories owned by an organization or a user account in your enterprise. | Most views, but only if you are an owner of an {% data variables.enterprise.prodname_emu_enterprise %} |
+|  {% endif %} |
+| `org` | Display data for repositories owned by one organization. | {% data variables.product.prodname_dependabot_alerts %} and {% data variables.product.prodname_code_scanning %} alerts |
 
 {% elsif security-overview-org-risk-coverage-enterprise %}
 
@@ -219,6 +223,6 @@ All {% data variables.product.prodname_code_scanning %} alerts have one of the c
 |`confidence`|Display {% data variables.secret-scanning.alerts %} of high (`high`) or other (`other`) confidence.|
 |`is`|Display {% data variables.secret-scanning.alerts %} that are open (`open`) or closed (`closed`).|
 |`provider` | Display alerts for all secrets issued by a specified provider, for example: `adafruit`.  |
-|`resolution`| Display {% data variables.secret-scanning.alerts %} closed as "false positive" (`false-postive`), "pattern deleted" (`pattern-deleted`), "pattern edited' (`pattern-edited`), "revoked" (`revoked`) "used in tests" (`used-in-tests`), or "won't fix" (`wont-fix`).|
+|`resolution`| Display {% data variables.secret-scanning.alerts %} closed as "false positive" (`false-positive`), "pattern deleted" (`pattern-deleted`), "pattern edited' (`pattern-edited`), "revoked" (`revoked`) "used in tests" (`used-in-tests`), or "won't fix" (`wont-fix`).|
 |`sort`| Display alerts from newest to oldest (`created-desc`), oldest to newest (`created-asc`), most recently updated (`updated-desc`), or least recently updated (`updated-asc`).|
 |`secret-type` | Display alerts for the specified secret and provider (`provider-pattern`) or custom pattern (`custom-pattern`). |

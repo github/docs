@@ -1192,6 +1192,17 @@
       },
       {
         "category": "enterprise-admin",
+        "slug": "update-pre-receive-hook-enforcement-for-an-organization",
+        "subcategory": "org-pre-receive-hooks",
+        "verb": "patch",
+        "requestPath": "/orgs/{org}/pre-receive-hooks/{pre_receive_hook_id}",
+        "access": "write",
+        "user-to-server": true,
+        "server-to-server": true,
+        "additional-permissions": false
+      },
+      {
+        "category": "enterprise-admin",
         "slug": "remove-pre-receive-hook-enforcement-for-an-organization",
         "subcategory": "org-pre-receive-hooks",
         "verb": "delete",
@@ -2543,17 +2554,6 @@
       },
       {
         "category": "deployments",
-        "slug": "list-custom-deployment-rule-integrations-available-for-an-environment",
-        "subcategory": "protection-rules",
-        "verb": "get",
-        "requestPath": "/repos/{owner}/{repo}/environments/{environment_name}/deployment_protection_rules/apps",
-        "access": "read",
-        "user-to-server": true,
-        "server-to-server": true,
-        "additional-permissions": false
-      },
-      {
-        "category": "deployments",
         "slug": "get-a-custom-deployment-protection-rule",
         "subcategory": "protection-rules",
         "verb": "get",
@@ -3357,6 +3357,17 @@
         "verb": "post",
         "requestPath": "/repos/{owner}/{repo}/environments/{environment_name}/deployment_protection_rules",
         "access": "write",
+        "user-to-server": true,
+        "server-to-server": true,
+        "additional-permissions": false
+      },
+      {
+        "category": "deployments",
+        "slug": "list-custom-deployment-rule-integrations-available-for-an-environment",
+        "subcategory": "protection-rules",
+        "verb": "get",
+        "requestPath": "/repos/{owner}/{repo}/environments/{environment_name}/deployment_protection_rules/apps",
+        "access": "read",
         "user-to-server": true,
         "server-to-server": true,
         "additional-permissions": false
@@ -4175,7 +4186,18 @@
         "access": "write",
         "user-to-server": true,
         "server-to-server": true,
-        "additional-permissions": false
+        "additional-permissions": true
+      },
+      {
+        "category": "repos",
+        "slug": "create-or-update-file-contents",
+        "subcategory": "contents",
+        "verb": "put",
+        "requestPath": "/repos/{owner}/{repo}/contents/{path}",
+        "access": "write",
+        "user-to-server": true,
+        "server-to-server": true,
+        "additional-permissions": true
       },
       {
         "category": "repos",
@@ -4186,7 +4208,18 @@
         "access": "write",
         "user-to-server": true,
         "server-to-server": true,
-        "additional-permissions": false
+        "additional-permissions": true
+      },
+      {
+        "category": "repos",
+        "slug": "delete-a-file",
+        "subcategory": "contents",
+        "verb": "delete",
+        "requestPath": "/repos/{owner}/{repo}/contents/{path}",
+        "access": "write",
+        "user-to-server": true,
+        "server-to-server": true,
+        "additional-permissions": true
       },
       {
         "category": "dependency-graph",
@@ -5886,6 +5919,39 @@
         "additional-permissions": false
       },
       {
+        "category": "activity",
+        "slug": "check-if-a-repository-is-starred-by-the-authenticated-user",
+        "subcategory": "starring",
+        "verb": "get",
+        "requestPath": "/user/starred/{owner}/{repo}",
+        "access": "read",
+        "user-to-server": true,
+        "server-to-server": false,
+        "additional-permissions": true
+      },
+      {
+        "category": "activity",
+        "slug": "star-a-repository-for-the-authenticated-user",
+        "subcategory": "starring",
+        "verb": "put",
+        "requestPath": "/user/starred/{owner}/{repo}",
+        "access": "read",
+        "user-to-server": true,
+        "server-to-server": false,
+        "additional-permissions": true
+      },
+      {
+        "category": "activity",
+        "slug": "unstar-a-repository-for-the-authenticated-user",
+        "subcategory": "starring",
+        "verb": "delete",
+        "requestPath": "/user/starred/{owner}/{repo}",
+        "access": "read",
+        "user-to-server": true,
+        "server-to-server": false,
+        "additional-permissions": true
+      },
+      {
         "category": "repos",
         "slug": "list-repositories-for-a-user",
         "subcategory": "repos",
@@ -6025,6 +6091,17 @@
         "verb": "get",
         "requestPath": "/repos/{owner}/{repo}/pre-receive-hooks/{pre_receive_hook_id}",
         "access": "read",
+        "user-to-server": true,
+        "server-to-server": true,
+        "additional-permissions": false
+      },
+      {
+        "category": "enterprise-admin",
+        "slug": "update-pre-receive-hook-enforcement-for-a-repository",
+        "subcategory": "repo-pre-receive-hooks",
+        "verb": "patch",
+        "requestPath": "/repos/{owner}/{repo}/pre-receive-hooks/{pre_receive_hook_id}",
+        "access": "write",
         "user-to-server": true,
         "server-to-server": true,
         "additional-permissions": false
@@ -7447,6 +7524,28 @@
     "displayTitle": "Repository permissions for \"Workflows\"",
     "permissions": [
       {
+        "category": "repos",
+        "slug": "create-or-update-file-contents",
+        "subcategory": "contents",
+        "verb": "put",
+        "requestPath": "/repos/{owner}/{repo}/contents/{path}",
+        "access": "write",
+        "user-to-server": true,
+        "server-to-server": true,
+        "additional-permissions": true
+      },
+      {
+        "category": "repos",
+        "slug": "delete-a-file",
+        "subcategory": "contents",
+        "verb": "delete",
+        "requestPath": "/repos/{owner}/{repo}/contents/{path}",
+        "access": "write",
+        "user-to-server": true,
+        "server-to-server": true,
+        "additional-permissions": true
+      },
+      {
         "category": "git",
         "slug": "create-a-reference",
         "subcategory": "refs",
@@ -7938,7 +8037,7 @@
         "access": "read",
         "user-to-server": true,
         "server-to-server": false,
-        "additional-permissions": false
+        "additional-permissions": true
       },
       {
         "category": "activity",
@@ -7949,7 +8048,7 @@
         "access": "write",
         "user-to-server": true,
         "server-to-server": false,
-        "additional-permissions": false
+        "additional-permissions": true
       },
       {
         "category": "activity",
@@ -7960,7 +8059,7 @@
         "access": "write",
         "user-to-server": true,
         "server-to-server": false,
-        "additional-permissions": false
+        "additional-permissions": true
       },
       {
         "category": "activity",

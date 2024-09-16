@@ -3,6 +3,171 @@
     "schemaChanges": [
       {
         "title": "The GraphQL schema includes these changes:",
+        "changes": []
+      }
+    ],
+    "previewChanges": [],
+    "upcomingChanges": [
+      {
+        "title": "The following changes will be made to the schema:",
+        "changes": [
+          "<p>On member <code>AddMobileDevicePublicKeyPayload.expiresAt</code>:<code>expiresAt</code> will be removed. Do not rely on this field, it is currently set to a date far in the future if a device key is expirationless <strong>Effective 2025-01-01</strong>.</p>"
+        ]
+      }
+    ],
+    "date": "2024-08-29"
+  },
+  {
+    "schemaChanges": [
+      {
+        "title": "The GraphQL schema includes these changes:",
+        "changes": [
+          "<p>Enum value 'THANKS_DEV<code>was added to enum</code>FundingPlatform'</p>"
+        ]
+      }
+    ],
+    "previewChanges": [],
+    "upcomingChanges": [],
+    "date": "2024-08-10"
+  },
+  {
+    "schemaChanges": [
+      {
+        "title": "The GraphQL schema includes these changes:",
+        "changes": [
+          "<p>Field <code>doNotEnforceOnCreate</code> was added to object type <code>RequiredStatusChecksParameters</code></p>",
+          "<p>Input field <code>doNotEnforceOnCreate</code> of type <code>Boolean</code> was added to input object type <code>RequiredStatusChecksParametersInput</code></p>",
+          "<p>Field <code>doNotEnforceOnCreate</code> was added to object type <code>WorkflowsParameters</code></p>",
+          "<p>Input field <code>doNotEnforceOnCreate</code> of type <code>Boolean</code> was added to input object type <code>WorkflowsParametersInput</code></p>"
+        ]
+      }
+    ],
+    "previewChanges": [],
+    "upcomingChanges": [],
+    "date": "2024-07-25"
+  },
+  {
+    "schemaChanges": [
+      {
+        "title": "The GraphQL schema includes these changes:",
+        "changes": [
+          "<p>Type <code>MergeQueueGroupingStrategy</code> was added</p>",
+          "<p>Type <code>MergeQueueMergeMethod</code> was added</p>",
+          "<p>Type <code>MergeQueueParameters</code> was added</p>",
+          "<p>Type <code>MergeQueueParametersInput</code> was added</p>",
+          "<p>Field <code>viewerCanLabel</code> was added to object type <code>Discussion</code></p>",
+          "<p>Field <code>viewerCanLabel</code> was added to object type <code>Issue</code></p>",
+          "<p>Field <code>viewerCanLabel</code> was added to interface <code>Labelable</code></p>",
+          "<p>Field <code>viewerCanLabel</code> was added to object type <code>PullRequest</code></p>",
+          "<p>Member <code>MergeQueueParameters</code> was added to Union type <code>RuleParameters</code></p>",
+          "<p>Input field <code>mergeQueue</code> of type <code>MergeQueueParametersInput</code> was added to input object type <code>RuleParametersInput</code></p>"
+        ]
+      }
+    ],
+    "previewChanges": [],
+    "upcomingChanges": [],
+    "date": "2024-07-24"
+  },
+  {
+    "schemaChanges": [
+      {
+        "title": "The GraphQL schema includes these changes:",
+        "changes": [
+          "<p>Field <code>closedByPullRequestsReferences</code> was added to object type <code>Issue</code></p>"
+        ]
+      }
+    ],
+    "previewChanges": [],
+    "upcomingChanges": [],
+    "date": "2024-07-16"
+  },
+  {
+    "schemaChanges": [
+      {
+        "title": "The GraphQL schema includes these changes:",
+        "changes": [
+          "<p>Type 'ProjectV2PermissionLevel' was added</p>",
+          "<p>Argument 'minPermissionLevel: ProjectV2PermissionLevel' (with default value) added to field 'Issue.projectsV2'</p>",
+          "<p>Argument 'minPermissionLevel: ProjectV2PermissionLevel' (with default value) added to field 'Organization.projectsV2'</p>",
+          "<p>Argument 'minPermissionLevel: ProjectV2PermissionLevel' (with default value) added to field 'ProjectV2Owner.projectsV2'</p>",
+          "<p>Argument 'minPermissionLevel: ProjectV2PermissionLevel' (with default value) added to field 'PullRequest.projectsV2'</p>",
+          "<p>Argument 'minPermissionLevel: ProjectV2PermissionLevel' (with default value) added to field 'Repository.projectsV2'</p>",
+          "<p>Argument 'minPermissionLevel: ProjectV2PermissionLevel' (with default value) added to field 'Team.projectsV2'</p>",
+          "<p>Argument 'minPermissionLevel: ProjectV2PermissionLevel' (with default value) added to field 'User.projectsV2'</p>"
+        ]
+      }
+    ],
+    "previewChanges": [],
+    "upcomingChanges": [],
+    "date": "2024-07-08"
+  },
+  {
+    "schemaChanges": [
+      {
+        "title": "The GraphQL schema includes these changes:",
+        "changes": [
+          "<p>Field <code>source</code> was added to object type <code>PropertyTargetDefinition</code></p>",
+          "<p>Input field <code>source</code> of type <code>String</code> was added to input object type <code>PropertyTargetDefinitionInput</code></p>"
+        ]
+      }
+    ],
+    "previewChanges": [],
+    "upcomingChanges": [],
+    "date": "2024-06-27"
+  },
+  {
+    "schemaChanges": [
+      {
+        "title": "The GraphQL schema includes these changes:",
+        "changes": []
+      }
+    ],
+    "previewChanges": [],
+    "upcomingChanges": [
+      {
+        "title": "The following changes will be made to the schema:",
+        "changes": [
+          "<p>On member <code>Workflow.hasWorkflowDispatchTrigger</code>:<code>hasWorkflowDispatchTrigger</code> will be removed. Use <code>has_workflow_dispatch_trigger_for_branch(branch_ref)</code> instead. <strong>Effective 2024-10-01</strong>.</p>"
+        ]
+      }
+    ],
+    "date": "2024-06-25"
+  },
+  {
+    "schemaChanges": [
+      {
+        "title": "The GraphQL schema includes these changes:",
+        "changes": [
+          "<p>Type 'ConvertProjectV2DraftIssueItemToIssueInput' was added</p>",
+          "<p>Type 'ConvertProjectV2DraftIssueItemToIssuePayload' was added</p>",
+          "<p>Type 'CreateProjectV2StatusUpdateInput' was added</p>",
+          "<p>Type 'CreateProjectV2StatusUpdatePayload' was added</p>",
+          "<p>Type 'DeleteProjectV2StatusUpdateInput' was added</p>",
+          "<p>Type 'DeleteProjectV2StatusUpdatePayload' was added</p>",
+          "<p>Type 'ProjectV2StatusOrder' was added</p>",
+          "<p>Type 'ProjectV2StatusUpdate' was added</p>",
+          "<p>Type 'ProjectV2StatusUpdateConnection' was added</p>",
+          "<p>Type 'ProjectV2StatusUpdateEdge' was added</p>",
+          "<p>Type 'ProjectV2StatusUpdateOrderField' was added</p>",
+          "<p>Type 'ProjectV2StatusUpdateStatus' was added</p>",
+          "<p>Type 'UpdateProjectV2StatusUpdateInput' was added</p>",
+          "<p>Type 'UpdateProjectV2StatusUpdatePayload' was added</p>",
+          "<p>Field 'convertProjectV2DraftIssueItemToIssue<code>was added to object type</code>Mutation'</p>",
+          "<p>Field 'createProjectV2StatusUpdate<code>was added to object type</code>Mutation'</p>",
+          "<p>Field 'deleteProjectV2StatusUpdate<code>was added to object type</code>Mutation'</p>",
+          "<p>Field 'updateProjectV2StatusUpdate<code>was added to object type</code>Mutation'</p>",
+          "<p>Field <code>statusUpdates</code> was added to object type 'ProjectV2'</p>"
+        ]
+      }
+    ],
+    "previewChanges": [],
+    "upcomingChanges": [],
+    "date": "2024-06-21"
+  },
+  {
+    "schemaChanges": [
+      {
+        "title": "The GraphQL schema includes these changes:",
         "changes": [
           "<p>Field <code>readme</code> was added to object type <code>Enterprise</code></p>",
           "<p>Field <code>readmeHTML</code> was added to object type <code>Enterprise</code></p>"

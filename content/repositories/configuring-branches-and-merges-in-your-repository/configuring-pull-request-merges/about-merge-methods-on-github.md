@@ -1,6 +1,6 @@
 ---
 title: About merge methods on GitHub
-intro: 'You can allow contributors with push access to your repository to merge their pull requests on {% data variables.location.product_location %} with different merge options or enforce a specific merge method for all of your repository''s pull requests.'
+intro: 'You can allow contributors with push access to your repository to merge their pull requests with different merge options or enforce a specific merge method for all of your repository''s pull requests.'
 redirect_from:
   - /articles/about-merge-methods-on-github
   - /github/administering-a-repository/about-merge-methods-on-github
@@ -43,9 +43,9 @@ For more information, see "[AUTOTITLE](/repositories/configuring-branches-and-me
 {% data reusables.pull_requests.rebase_and_merge_summary %}
 
 Before enabling commit rebasing, consider these disadvantages:
-* Repository contributors may have to rebase on the command line, resolve any conflicts, and force push their changes to the pull request's topic branch (or remote head branch) before they can use the **rebase and merge** option on {% data variables.location.product_location %}. Force pushing must be done carefully so contributors don't overwrite work that others have based their work on. To learn more about when the **Rebase and merge** option is disabled on {% data variables.location.product_location %} and the workflow to re-enable it, see "[AUTOTITLE](/pull-requests/collaborating-with-pull-requests/incorporating-changes-from-a-pull-request/about-pull-request-merges#rebase-and-merge-your-pull-request-commits)."
+* Repository contributors may have to rebase on the command line, resolve any conflicts, and force push their changes to the pull request's topic branch (or remote head branch) before they can use the **rebase and merge** option on {% data variables.product.prodname_dotcom %}. Force pushing must be done carefully so contributors don't overwrite work that others have based their work on. To learn more about when the **Rebase and merge** option is disabled on {% data variables.product.prodname_dotcom %} and the workflow to re-enable it, see "[AUTOTITLE](/pull-requests/collaborating-with-pull-requests/incorporating-changes-from-a-pull-request/about-pull-request-merges#rebase-and-merge-your-pull-request-commits)."
 * {% indented_data_reference reusables.pull_requests.rebase_and_merge_verification spaces=2 %}
-  
+
   {% indented_data_reference reusables.pull_requests.rebase_and_merge_verification_2 spaces=2 %}
 
 For more information, see "[AUTOTITLE](/repositories/configuring-branches-and-merges-in-your-repository/configuring-pull-request-merges/configuring-commit-rebasing-for-pull-requests)."

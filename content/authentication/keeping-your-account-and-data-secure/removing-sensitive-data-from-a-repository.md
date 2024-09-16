@@ -32,7 +32,7 @@ This article tells you how to make commits with sensitive data unreachable from 
 
 * In any clones or forks of your repository
 * Directly via their SHA-1 hashes in cached views on {% data variables.product.product_name %}
-* Through any pull requests that reference them.
+* Through any pull requests that reference them
 
 You cannot remove sensitive data from other users' clones of your repository, but you can permanently remove cached views and references to the sensitive data in pull requests on {% data variables.product.product_name %} by contacting {% data variables.contact.contact_support %}.
 
@@ -188,10 +188,11 @@ After using either the BFG tool or `git filter-repo` to remove the sensitive dat
 
 1. Tell your collaborators to [rebase](https://git-scm.com/book/en/Git-Branching-Rebasing), _not_ merge, any branches they created off of your old (tainted) repository history. One merge commit could reintroduce some or all of the tainted history that you just went to the trouble of purging.
 
-1. After some time has passed and you're confident that the BFG tool / `git filter-repo` had no unintended side effects, you can force all objects in your local repository to be dereferenced and garbage collected with the following commands (using Git 1.8.5 or newer):
+1. If you used `git filter-repo`, you can skip this step.
+
+   If you used the BFG tool, after rewriting, you can clean up references in your local repository to the old history to be dereferenced and garbage collected with the following commands (using Git 1.8.5 or newer):
 
    ```shell
-   $ git for-each-ref --format="delete %(refname)" refs/original | git update-ref --stdin
    $ git reflog expire --expire=now --all
    $ git gc --prune=now
    > Counting objects: 2437, done.
@@ -213,10 +214,10 @@ There are a few simple tricks to avoid committing things you don't want committe
 * Avoid the catch-all commands `git add .` and `git commit -a` on the command line—use `git add filename` and `git rm filename` to individually stage files, instead.
 * Use `git add --interactive` to individually review and stage changes within each file.
 * Use `git diff --cached` to review the changes that you have staged for commit. This is the exact diff that `git commit` will produce as long as you don't use the `-a` flag.
-* Enable push protection for your repository to detect and prevent pushes which contain hardcoded secrets from being committed to your codebase. For more information, see "[AUTOTITLE](/code-security/secret-scanning/push-protection-for-repositories-and-organizations#about-push-protection-for-repositories-and-organizations)."
+* Enable push protection for your repository to detect and prevent pushes which contain hardcoded secrets from being committed to your codebase. For more information, see "[AUTOTITLE](/code-security/secret-scanning/introduction/about-push-protection)."
 
 ## Further reading
 
 * [`git filter-repo` man page](https://htmlpreview.github.io/?https://github.com/newren/git-filter-repo/blob/docs/html/git-filter-repo.html)
 * [Pro Git: Git Tools - Rewriting History](https://git-scm.com/book/en/Git-Tools-Rewriting-History)
-* "[AUTOTITLE](/code-security/secret-scanning/about-secret-scanning)"
+* "[AUTOTITLE](/code-security/secret-scanning/introduction/about-secret-scanning)"

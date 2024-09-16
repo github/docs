@@ -24,6 +24,10 @@ redirect_from:
 {% data reusables.enterprise-migration-tool.gei-tool-switcher-cli %}
 {% endapi %}
 
+{% ifversion repo-rules-enterprise %}
+{% data reusables.enterprise-migration-tool.deploy-key-bypass %}
+{% endif %}
+
 ## Prerequisites
 
 * {% data reusables.enterprise-migration-tool.github-trial-prerequisite %}

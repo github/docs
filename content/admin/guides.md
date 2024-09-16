@@ -18,90 +18,91 @@ learningTracks:
   - '{% ifversion ghes %}configure_github_actions{% endif %}'
   - '{% ifversion ghes %}configure_github_advanced_security{% endif %}'
 includeGuides:
-  - /admin/identity-and-access-management/understanding-iam-for-enterprises/allowing-built-in-authentication-for-users-outside-your-provider
-  - /admin/identity-and-access-management/understanding-iam-for-enterprises/changing-authentication-methods
-  - /admin/identity-and-access-management/using-saml-for-enterprise-iam/configuring-authentication-and-provisioning-for-your-enterprise-using-entra-id
-  - /admin/identity-and-access-management/using-saml-for-enterprise-iam/configuring-saml-single-sign-on-for-your-enterprise
-  - /admin/identity-and-access-management/using-saml-for-enterprise-iam/configuring-user-provisioning-with-scim-for-your-enterprise
-  - /admin/identity-and-access-management/understanding-iam-for-enterprises/about-saml-for-enterprise-iam
-  - /admin/identity-and-access-management/using-saml-for-enterprise-iam/configuring-saml-single-sign-on-for-your-enterprise-using-okta
-  - /admin/identity-and-access-management/using-saml-for-enterprise-iam/managing-team-synchronization-for-organizations-in-your-enterprise
-  - /admin/identity-and-access-management/using-saml-for-enterprise-iam/switching-your-saml-configuration-from-an-organization-to-an-enterprise-account
-  - /admin/identity-and-access-management/understanding-iam-for-enterprises/about-enterprise-managed-users
-  - /admin/identity-and-access-management/configuring-authentication-for-enterprise-managed-users/configuring-saml-single-sign-on-for-enterprise-managed-users
-  - /admin/identity-and-access-management/provisioning-user-accounts-for-enterprise-managed-users/configuring-scim-provisioning-for-enterprise-managed-users
-  - /admin/identity-and-access-management/provisioning-user-accounts-for-enterprise-managed-users/configuring-scim-provisioning-using-okta
-  - /admin/identity-and-access-management/provisioning-user-accounts-for-enterprise-managed-users/managing-team-memberships-with-identity-provider-groups
-  - /admin/identity-and-access-management/using-cas-for-enterprise-iam/using-cas
-  - /admin/identity-and-access-management/using-ldap-for-enterprise-iam/using-ldap
-  - /admin/identity-and-access-management/using-saml-for-enterprise-iam
+  - /admin/managing-iam/understanding-iam-for-enterprises/allowing-built-in-authentication-for-users-outside-your-provider
+  - /admin/managing-iam/understanding-iam-for-enterprises/changing-authentication-methods
+  - /admin/managing-iam/provisioning-user-accounts-with-scim/configuring-authentication-and-provisioning-with-entra-id
+  - /admin/managing-iam/using-saml-for-enterprise-iam/configuring-saml-single-sign-on-for-your-enterprise
+  - /admin/managing-iam/provisioning-user-accounts-with-scim/user-provisioning-with-scim-on-ghes
+  - /admin/managing-iam/understanding-iam-for-enterprises/about-saml-for-enterprise-iam
+  - /admin/managing-iam/using-saml-for-enterprise-iam/configuring-saml-single-sign-on-for-your-enterprise-using-okta
+  - /admin/managing-iam/using-saml-for-enterprise-iam/managing-team-synchronization-for-organizations-in-your-enterprise
+  - /admin/managing-iam/using-saml-for-enterprise-iam/switching-your-saml-configuration-from-an-organization-to-an-enterprise-account
+  - /admin/managing-iam/understanding-iam-for-enterprises/about-enterprise-managed-users
+  - /admin/managing-iam/configuring-authentication-for-enterprise-managed-users/configuring-saml-single-sign-on-for-enterprise-managed-users
+  - /admin/managing-iam/provisioning-user-accounts-with-scim/configuring-scim-provisioning-for-users
+  - /admin/identity-and-access-management/provisioning-user-accounts-with-scim/configuring-scim-provisioning-using-okta
+  - /admin/managing-iam/provisioning-user-accounts-with-scim/managing-team-memberships-with-identity-provider-groups
+  - /admin/managing-iam/using-cas-for-enterprise-iam/using-cas
+  - /admin/managing-iam/using-ldap-for-enterprise-iam/using-ldap
+  - /admin/managing-iam/using-saml-for-enterprise-iam
   - /admin/administering-your-instance/administering-your-instance-from-the-command-line/accessing-the-administrative-shell-ssh
-  - /admin/configuration/configuring-network-settings/configuring-the-hostname-for-your-instance
-  - /admin/configuration/configuring-network-settings/changing-the-hostname-for-your-instance
+  - /admin/configuring-settings/configuring-network-settings/configuring-the-hostname-for-your-instance
+  - /admin/configuring-settings/configuring-network-settings/changing-the-hostname-for-your-instance
   - /admin/backing-up-and-restoring-your-instance/configuring-backups-on-your-instance
-  - /admin/configuration/configuring-network-settings/configuring-built-in-firewall-rules
-  - /admin/code-security/managing-github-advanced-security-for-your-enterprise/configuring-code-scanning-for-your-appliance
+  - /admin/configuring-settings/configuring-network-settings/configuring-built-in-firewall-rules
+  - /admin/managing-code-security/managing-github-advanced-security-for-your-enterprise/configuring-code-scanning-for-your-appliance
   - /admin/configuration/configuring-data-encryption-for-your-enterprise
-  - /admin/code-security/managing-github-advanced-security-for-your-enterprise/configuring-dependency-review-for-your-appliance
-  - /admin/configuration/configuring-network-settings/configuring-dns-nameservers
-  - /admin/configuration/configuring-user-applications-for-your-enterprise/configuring-rate-limits
-  - /admin/code-security/managing-github-advanced-security-for-your-enterprise/configuring-secret-scanning-for-your-appliance
-  - /admin/configuration/hardening-security-for-your-enterprise/configuring-tls
-  - /admin/configuration/configuring-user-applications-for-your-enterprise/verifying-or-approving-a-domain-for-your-enterprise
-  - /admin/configuration/configuring-user-applications-for-your-enterprise/managing-github-mobile-for-your-enterprise
+  - /admin/managing-code-security/managing-github-advanced-security-for-your-enterprise/configuring-dependency-review-for-your-appliance
+  - /admin/configuring-settings/configuring-network-settings/configuring-dns-nameservers
+  - /admin/configuring-settings/configuring-user-applications-for-your-enterprise/configuring-rate-limits
+  - /admin/managing-code-security/managing-github-advanced-security-for-your-enterprise/configuring-secret-scanning-for-your-appliance
+  - /admin/configuring-settings/hardening-security-for-your-enterprise/configuring-tls
+  - /admin/configuring-settings/configuring-user-applications-for-your-enterprise/verifying-or-approving-a-domain-for-your-enterprise
+  - /admin/configuring-settings/configuring-user-applications-for-your-enterprise/managing-github-mobile-for-your-enterprise
   - /admin/configuration/connecting-your-enterprise-account-to-github-enterprise-cloud
-  - /admin/configuration/hardening-security-for-your-enterprise/configuring-ssh-connections-to-your-instance
-  - /admin/configuration/hardening-security-for-your-enterprise/configuring-host-keys-for-your-instance
+  - /admin/configuring-settings/hardening-security-for-your-enterprise/configuring-ssh-connections-to-your-instance
+  - /admin/configuring-settings/hardening-security-for-your-enterprise/configuring-host-keys-for-your-instance
   - /admin/administering-your-instance/configuring-maintenance-mode/enabling-and-scheduling-maintenance-mode
-  - /admin/configuration/configuring-github-connect/enabling-automatic-user-license-sync-for-your-enterprise
-  - /admin/configuration/hardening-security-for-your-enterprise/enabling-private-mode
-  - /admin/configuration/hardening-security-for-your-enterprise/enabling-subdomain-isolation
-  - /admin/configuration/configuring-github-connect/enabling-unified-contributions-for-your-enterprise
-  - /admin/configuration/configuring-github-connect/enabling-unified-search-for-your-enterprise
-  - /admin/configuration/configuring-network-settings/network-ports
+  - /admin/configuring-settings/configuring-github-connect/enabling-automatic-user-license-sync-for-your-enterprise
+  - /admin/configuring-settings/hardening-security-for-your-enterprise/enabling-private-mode
+  - /admin/configuring-settings/hardening-security-for-your-enterprise/enabling-subdomain-isolation
+  - /admin/configuring-settings/configuring-github-connect/enabling-unified-contributions-for-your-enterprise
+  - /admin/configuring-settings/configuring-github-connect/enabling-unified-search-for-your-enterprise
+  - /admin/configuring-settings/configuring-network-settings/network-ports
   - /admin/configuration/restricting-network-traffic-to-your-enterprise-with-an-ip-allow-list
   - /admin/administering-your-instance/administering-your-instance-from-the-web-ui
-  - /admin/configuration/hardening-security-for-your-enterprise/troubleshooting-tls-errors
-  - /admin/configuration/configuring-network-settings/using-github-enterprise-server-with-a-load-balancer
-  - /admin/monitoring-managing-and-updating-your-instance/configuring-high-availability/about-high-availability-configuration
-  - /admin/monitoring-managing-and-updating-your-instance/monitoring-your-instance/accessing-the-monitor-dashboard
-  - /admin/monitoring-managing-and-updating-your-instance/configuring-high-availability/creating-a-high-availability-replica
-  - /admin/monitoring-managing-and-updating-your-instance/configuring-clustering/differences-between-clustering-and-high-availability-ha
-  - /admin/monitoring-managing-and-updating-your-instance/updating-the-virtual-machine-and-physical-resources/enabling-automatic-update-checks
-  - /admin/monitoring-managing-and-updating-your-instance/configuring-high-availability/initiating-a-failover-to-your-replica-appliance
-  - /admin/monitoring-managing-and-updating-your-instance/monitoring-your-instance/recommended-alert-thresholds
-  - /admin/monitoring-managing-and-updating-your-instance/monitoring-your-instance/setting-up-external-monitoring
-  - /admin/monitoring-managing-and-updating-your-instance/updating-the-virtual-machine-and-physical-resources/upgrade-requirements
-  - /admin/monitoring-managing-and-updating-your-instance/updating-the-virtual-machine-and-physical-resources/upgrading-github-enterprise-server
-  - /admin/monitoring-managing-and-updating-your-instance/monitoring-your-instance/about-system-logs
+  - /admin/configuring-settings/hardening-security-for-your-enterprise/troubleshooting-tls-errors
+  - /admin/configuring-settings/configuring-network-settings/using-github-enterprise-server-with-a-load-balancer
+  - /admin/monitoring-and-managing-your-instance/configuring-high-availability/about-high-availability-configuration
+  - /admin/monitoring-and-managing-your-instance/monitoring-your-instance/accessing-the-monitor-dashboard
+  - /admin/monitoring-and-managing-your-instance/configuring-high-availability/creating-a-high-availability-replica
+  - /admin/monitoring-and-managing-your-instance/configuring-clustering/differences-between-clustering-and-high-availability-ha
+  - /admin/upgrading-your-instance/preparing-to-upgrade/enabling-automatic-update-checks
+  - /admin/monitoring-and-managing-your-instance/configuring-high-availability/initiating-a-failover-to-your-replica-appliance
+  - /admin/monitoring-and-managing-your-instance/monitoring-your-instance/recommended-alert-thresholds
+  - /admin/monitoring-and-managing-your-instance/monitoring-your-instance/setting-up-external-monitoring
+  - /admin/upgrading-your-instance/preparing-to-upgrade/overview-of-the-upgrade-process
+  - /admin/upgrading-your-instance/preparing-to-upgrade/upgrade-requirements
+  - /admin/upgrading-your-instance/preparing-to-upgrade/taking-a-snapshot
+  - /admin/upgrading-your-instance/performing-an-upgrade
+  - /admin/monitoring-and-managing-your-instance/monitoring-your-instance/about-system-logs
   - /support/learning-about-github-support/about-github-support
-  - /admin/github-actions/managing-access-to-actions-from-githubcom/about-using-actions-in-your-enterprise
-  - /admin/github-actions/advanced-configuration-and-troubleshooting/backing-up-and-restoring-github-enterprise-server-with-github-actions-enabled
-  - /admin/github-actions/managing-access-to-actions-from-githubcom/enabling-automatic-access-to-githubcom-actions-using-github-connect
-  - /admin/policies/enforcing-policies-for-your-enterprise/enforcing-policies-for-github-actions-in-your-enterprise
-  - /admin/github-actions/getting-started-with-github-actions-for-your-enterprise/getting-started-with-github-actions-for-github-enterprise-server
-  - /admin/github-actions/advanced-configuration-and-troubleshooting/high-availability-for-github-actions
-  - /admin/github-actions/advanced-configuration-and-troubleshooting/using-a-staging-environment
+  - /admin/managing-github-actions-for-your-enterprise/managing-access-to-actions-from-githubcom/about-using-actions-in-your-enterprise
+  - /admin/managing-github-actions-for-your-enterprise/advanced-configuration-and-troubleshooting/backing-up-and-restoring-github-enterprise-server-with-github-actions-enabled
+  - /admin/managing-github-actions-for-your-enterprise/managing-access-to-actions-from-githubcom/enabling-automatic-access-to-githubcom-actions-using-github-connect
+  - /admin/enforcing-policies/enforcing-policies-for-your-enterprise/enforcing-policies-for-github-actions-in-your-enterprise
+  - /admin/managing-github-actions-for-your-enterprise/getting-started-with-github-actions-for-your-enterprise/getting-started-with-github-actions-for-github-enterprise-server
+  - /admin/managing-github-actions-for-your-enterprise/advanced-configuration-and-troubleshooting/high-availability-for-github-actions
+  - /admin/managing-github-actions-for-your-enterprise/advanced-configuration-and-troubleshooting/using-a-staging-environment
   - /admin/overview/about-data-residency
   - /admin/managing-your-enterprise-account/about-enterprise-accounts
-  - /admin/overview/about-upgrades-to-new-releases
-  - /admin/packages/configuring-package-ecosystem-support-for-your-enterprise
-  - /admin/packages/quickstart-for-configuring-your-minio-storage-bucket-for-github-packages
-  - /admin/policies/enforcing-policy-with-pre-receive-hooks/about-pre-receive-hooks
-  - /admin/policies/enforcing-policy-with-pre-receive-hooks/creating-a-pre-receive-hook-environment
-  - /admin/policies/enforcing-policy-with-pre-receive-hooks/creating-a-pre-receive-hook-script
-  - /admin/policies/enforcing-policies-for-your-enterprise/enforcing-policies-for-code-security-and-analysis-for-your-enterprise
-  - /admin/policies/enforcing-policies-for-your-enterprise/enforcing-policies-for-security-settings-in-your-enterprise
-  - /admin/policies/enforcing-policies-for-your-enterprise/enforcing-policies-for-projects-in-your-enterprise
-  - /admin/policies/enforcing-policies-for-your-enterprise/enforcing-repository-management-policies-in-your-enterprise
-  - /admin/policies/enforcing-policies-for-your-enterprise/enforcing-team-policies-in-your-enterprise
-  - /admin/policies/enforcing-policies-for-your-enterprise/restricting-email-notifications-for-your-enterprise
-  - /admin/policies/enforcing-policy-with-pre-receive-hooks/managing-pre-receive-hooks-on-your-instance
+  - /admin/getting-started-with-enterprise/about-upgrades-to-new-releases
+  - /admin/configuring-packages/configuring-package-ecosystem-support-for-your-enterprise
+  - /admin/configuring-packages/quickstart-for-configuring-your-minio-storage-bucket-for-github-packages
+  - /admin/enforcing-policies/enforcing-policy-with-pre-receive-hooks/about-pre-receive-hooks
+  - /admin/enforcing-policies/enforcing-policy-with-pre-receive-hooks/creating-a-pre-receive-hook-environment
+  - /admin/enforcing-policies/enforcing-policy-with-pre-receive-hooks/creating-a-pre-receive-hook-script
+  - /admin/enforcing-policies/enforcing-policies-for-your-enterprise/enforcing-policies-for-code-security-and-analysis-for-your-enterprise
+  - /admin/enforcing-policies/enforcing-policies-for-your-enterprise/enforcing-policies-for-security-settings-in-your-enterprise
+  - /admin/enforcing-policies/enforcing-policies-for-your-enterprise/enforcing-policies-for-projects-in-your-enterprise
+  - /admin/enforcing-policies/enforcing-policies-for-your-enterprise/enforcing-repository-management-policies-in-your-enterprise
+  - /admin/enforcing-policies/enforcing-policies-for-your-enterprise/enforcing-team-policies-in-your-enterprise
+  - /admin/enforcing-policies/enforcing-policies-for-your-enterprise/restricting-email-notifications-for-your-enterprise
+  - /admin/enforcing-policies/enforcing-policy-with-pre-receive-hooks/managing-pre-receive-hooks-on-your-instance
   - /admin/managing-accounts-and-repositories/managing-users-in-your-enterprise/auditing-ssh-keys
   - /admin/managing-accounts-and-repositories/managing-users-in-your-enterprise/auditing-users-across-your-enterprise
   - /admin/managing-accounts-and-repositories/managing-repositories-in-your-enterprise/configuring-git-large-file-storage-for-your-enterprise
   - /admin/managing-accounts-and-repositories/managing-organizations-in-your-enterprise/configuring-visibility-for-organization-membership
-  - /admin/managing-accounts-and-repositories/managing-organizations-in-your-enterprise/continuous-integration-using-jenkins
   - /admin/managing-accounts-and-repositories/managing-repositories-in-your-enterprise/disabling-git-ssh-access-on-your-enterprise
   - /admin/managing-accounts-and-repositories/managing-users-in-your-enterprise/managing-dormant-users
   - /admin/monitoring-activity-in-your-enterprise/reviewing-audit-logs-for-your-enterprise/about-the-audit-log-for-your-enterprise
@@ -136,3 +137,4 @@ includeGuides:
   - /admin/administering-your-instance/administering-your-instance-from-the-web-ui/accessing-the-management-console
   - /admin/administering-your-instance/administering-your-instance-from-the-web-ui/troubleshooting-access-to-the-management-console
 ---
+

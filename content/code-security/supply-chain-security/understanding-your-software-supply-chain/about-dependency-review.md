@@ -47,9 +47,15 @@ The dependency review feature becomes available when you enable the dependency g
 
 The action is available for all {% ifversion fpt or ghec %}public repositories, as well as private {% endif %}repositories that have {% data variables.product.prodname_GH_advanced_security %} enabled.
 
+{% data reusables.dependency-review.org-level-enforcement %}
+
 {% data reusables.dependency-review.action-enterprise %}
 
 {% data reusables.dependency-review.about-dependency-review-action %}
+
+![Screenshot of a workflow run that uses the dependency review action.](/assets/images/help/graphs/dependency-review-action.png)
+
+{% data reusables.dependency-review.about-dependency-review-action2 %}
 
 The action uses the dependency review REST API to get the diff of dependency changes between the base commit and head commit. You can use the dependency review API to get the diff of dependency changes, including vulnerability data, between any two commits on a repository. For more information, see "[AUTOTITLE](/rest/dependency-graph/dependency-review)."{% ifversion dependency-review-submission-api %} The action also considers dependencies submitted via the {% data variables.dependency-submission-api.name %}. For more information about the {% data variables.dependency-submission-api.name %}, see "[AUTOTITLE](/code-security/supply-chain-security/understanding-your-software-supply-chain/using-the-dependency-submission-api)."
 
@@ -90,3 +96,7 @@ If you don’t use {% data variables.product.prodname_actions %}, and your code 
      * Implement a retry logic with exponential backoff retries.
      * Implement a reasonable number of retries to account for the typical runtime of your dependency submission code.
 {% endif %}
+
+## Further reading
+
+* "[AUTOTITLE](/code-security/supply-chain-security/understanding-your-software-supply-chain/customizing-your-dependency-review-action-configuration)"

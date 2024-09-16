@@ -98,6 +98,14 @@ codebase.
 \[Advanced] Omit threat model configuration stored in the database
 during database creation from a Code Scanning configuration file.
 
+### Options to control the model packs to be used
+
+#### `--model-packs=<`<name@range>>...
+
+A list of CodeQL pack names, each with an optional version range, to be
+used as model packs to customize the queries that are about to be
+evaluated.
+
 ### Options to control the threat models to be used
 
 #### `--threat-model=<name>...`

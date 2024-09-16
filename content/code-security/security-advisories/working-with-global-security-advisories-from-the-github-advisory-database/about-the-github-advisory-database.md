@@ -84,7 +84,7 @@ In this section, you can find more detailed information about security advisorie
 
 ### About GHSA IDs
 
-Each security advisory, regardless of its type, has a unique identifier referred to as a GHSA ID. A `GHSA-ID` qualifier is assigned when a new advisory is created on {% data variables.product.prodname_dotcom_the_website %} or added to the {% data variables.product.prodname_advisory_database %} from any of the supported sources.
+Each security advisory, regardless of its type, has a unique identifier referred to as a GHSA ID. A `GHSA-ID` qualifier is assigned when a new advisory is created on {% data variables.product.prodname_dotcom %} or added to the {% data variables.product.prodname_advisory_database %} from any of the supported sources.
 
 The syntax of GHSA IDs follows this format: `GHSA-xxxx-xxxx-xxxx` where:
 
@@ -116,4 +116,4 @@ The {% data variables.product.prodname_advisory_database %} uses the CVSS levels
 ## Further reading
 
 * "[AUTOTITLE](/code-security/dependabot/dependabot-alerts/about-dependabot-alerts)"
-* The CVE Program's [definition of "vulnerability"](https://www.cve.org/ResourcesSupport/Glossary#vulnerability)
+* The CVE Program's [definition of "vulnerability"](https://www.cve.org/ResourcesSupport/Glossary#glossaryVulnerability)

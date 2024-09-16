@@ -14,6 +14,7 @@ topics:
   - Teams
 children:
   - /roles-in-an-organization
+  - /using-organization-roles
   - /about-custom-organization-roles
   - /managing-custom-organization-roles
   - /maintaining-ownership-continuity-for-your-organization

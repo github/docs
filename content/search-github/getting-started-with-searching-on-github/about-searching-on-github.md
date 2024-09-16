@@ -22,7 +22,7 @@ topics:
 
 {% data reusables.search.you-can-search-globally %}
 
-* To search globally across all of {% data variables.product.product_name %}, type what you're looking for into the search field at the top of any page, and choose "Search all of {% data variables.product.prodname_dotcom %}" in the search dropdown menu.
+* To search globally across all of {% data variables.product.product_name %}, type what you're looking for into the search field at the top of any page, and choose "Search all of {% data variables.product.prodname_dotcom %}"{% ifversion fpt or ghec or ghes < 3.12 %} in the search dropdown menu{% endif %}.
 * To search within a particular repository or organization, navigate to the repository or organization page, type what you're looking for into the search field at the top of the page, and press **Enter**.
 
   {% ifversion code-search-upgrade %}You can also use suggestions and completions in the search bar to quickly find what you need.
@@ -51,7 +51,7 @@ After running a search on {% data variables.product.product_name %}, you can sor
 
 ## Types of searches on {% data variables.product.prodname_dotcom %}
 
-You can search for the following information across all repositories you can access on {% data variables.location.product_location %}.
+You can search for the following information across all repositories you can access on {% data variables.product.prodname_dotcom %}.
 
 * [Repositories](/search-github/searching-on-github/searching-for-repositories)
 * [Topics](/search-github/searching-on-github/searching-topics)

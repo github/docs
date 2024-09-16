@@ -33,6 +33,8 @@ For more information, see "[Keeping your {% data variables.product.pat_generic %
 
 {% data variables.product.pat_generic_caps %}s are intended to access {% data variables.product.company_short %} resources on behalf of yourself. To access resources on behalf of an organization, or for long-lived integrations, you should use a {% data variables.product.prodname_github_app %}. For more information, see "[AUTOTITLE](/apps/creating-github-apps/setting-up-a-github-app/about-creating-github-apps)."
 
+{% data reusables.user-settings.token_access_capabilities %} For example, a {% data variables.product.pat_generic %} can be configured with an `admin:org` scope, but if the owner of the token is not an organization owner, the token will not give administrative access to the organization.
+
 {% ifversion pat-v2 %}
 
 ### Types of {% data variables.product.pat_generic %}s
@@ -147,7 +149,7 @@ If you selected an organization as the resource owner and the organization requi
 1. Click **Generate token**.
 1. Optionally, to copy the new token to your clipboard, click {% octicon "copy" aria-label="Copy token" %}.
 
-   ![Screenshot of the "{% data variables.product.pat_generic_caps_plural %}" page. Next to a blurred-out token, an icon of two overlapping squares is outlined in orange.](/assets/images/help/settings/personal-access-tokens.png){% ifversion fpt or ghec %}
+   {% ifversion ghes %}![Screenshot of the "{% data variables.product.pat_generic_caps_plural %}" page. Next to a blurred-out token, an icon of two overlapping squares is outlined in orange.](/assets/images/help/settings/personal-access-tokens-ghes.png){% else %}![Screenshot of the "{% data variables.product.pat_generic_caps_plural %}" page. Next to a blurred-out token, an icon of two overlapping squares is outlined in orange.](/assets/images/help/settings/personal-access-tokens.png){% endif %}{% ifversion fpt or ghec %}
 1. To use your token to access resources owned by an organization that uses SAML single sign-on, authorize the token. For more information, see "[AUTOTITLE](/enterprise-cloud@latest/authentication/authenticating-with-saml-single-sign-on/authorizing-a-personal-access-token-for-use-with-saml-single-sign-on){% ifversion fpt %}" in the {% data variables.product.prodname_ghe_cloud %} documentation.{% else %}."{% endif %}{% endif %}
 
 ## Deleting a {% data variables.product.pat_generic %}

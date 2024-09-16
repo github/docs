@@ -20,11 +20,11 @@ shortTitle: India one-time payments
 A new payments regulation from the Reserve Bank of India (RBI) recently came into effect. This regulation places additional requirements on recurring online transactions and has prevented some {% data variables.product.company_short %} customers in India from making recurring payments. Customers using payment methods issued in India for any recurring transactions on {% data variables.product.product_name %} may find that their payments are declined by their banks or card issuers. For more information, see [the RBI's press release](https://www.rbi.org.in/Scripts/BS_PressReleaseDisplay.aspx?prid=51353).
 
 The regulation applies to all recurring transactions, including:
-- {% data variables.product.prodname_dotcom %} plan subscriptions (Pro, Team, Enterprise)
-- {% data variables.product.prodname_marketplace %} purchases
-- {% data variables.product.prodname_sponsors %} transactions
-- Git Large File Storage purchases
-- {% data variables.product.prodname_actions %}, {% data variables.product.prodname_registry %}, and {% data variables.product.prodname_github_codespaces %} consumption
+* {% data variables.product.prodname_dotcom %} plan subscriptions (Pro, Team, Enterprise)
+* {% data variables.product.prodname_marketplace %} purchases
+* {% data variables.product.prodname_sponsors %} transactions
+* Git Large File Storage purchases
+* {% data variables.product.prodname_actions %}, {% data variables.product.prodname_registry %}, and {% data variables.product.prodname_github_codespaces %} consumption
 
 In order to minimize disruption, recurring payments for our affected customers were paused on October 29th, 2021. Paid features and services have remained available to customers impacted by the RBI regulation.
 

@@ -16,7 +16,7 @@ shortTitle: Manage SAML access
 
 ## About SAML access to your organization
 
-When you enable SAML single sign-on for your organization, each organization member can link their external identity on your identity provider (IdP) to their existing account on {% data variables.location.product_location %}. To access your organization's resources on {% data variables.product.product_name %}, the member must have an active SAML session in their browser. To access your organization's resources using the API or Git, the member must use a {% data variables.product.pat_generic %} or SSH key that the member has authorized for use with your organization.
+When you enable SAML single sign-on for your organization, each organization member can link their external identity on your identity provider (IdP) to their existing account on {% data variables.product.prodname_dotcom %}. To access your organization's resources on {% data variables.product.product_name %}, the member must have an active SAML session in their browser. To access your organization's resources using the API or Git, the member must use a {% data variables.product.pat_generic %} or SSH key that the member has authorized for use with your organization.
 
 You can view and revoke each member's linked identity, active sessions, and authorized credentials on the same page.
 

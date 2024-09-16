@@ -40,7 +40,7 @@ topics:
 
 When you enable {% data variables.product.prodname_code_scanning %}, both default and advanced setup generate a {% data variables.product.prodname_codeql %} database for analysis using the simplest method available. For {% data variables.code-scanning.no_build_support %}, the {% data variables.product.prodname_codeql %} database is generated directly from the codebase without requiring a build (`none` build mode). For other compiled languages, {% data variables.product.prodname_codeql %} builds the codebase using the `autobuild` build mode. Alternatively, you can use the `manual` build mode to specify explicit build commands to analyze only the files that are built by these custom commands.
 
-{% elsif ghes > 3.9 %}
+{% elsif ghes %}
 
 If you enable default setup, the `autobuild` action will be used to build your code, as part of your automatically configured {% data variables.code-scanning.codeql_workflow %}. If you enable advanced setup, the basic {% data variables.code-scanning.codeql_workflow %} uses `autobuild`. Alternatively, you can disable `autobuild` and instead specify explicit build commands to analyze only the files that are built by these custom commands.
 
@@ -50,21 +50,13 @@ The basic {% data variables.code-scanning.codeql_workflow %} uses the `autobuild
 
 {% endif %}
 
-{% ifversion ghes < 3.10 %}
-
-In {% data variables.product.product_name %} {{ allVersions[currentVersion].currentRelease }}, default setup does not support any compiled languages, so you must use advanced setup. Advanced setup generates a workflow file you can edit. The starter workflow files use `autobuild` to analyze compiled languages. For more information, see "[AUTOTITLE](/code-security/code-scanning/creating-an-advanced-setup-for-code-scanning/configuring-advanced-setup-for-code-scanning#configuring-advanced-setup-for-code-scanning-with-codeql)."
-
-{% endif %}
-
 {% ifversion codeql-no-build %}
 
 ## {% data variables.product.prodname_codeql %} build modes
 
-{% data reusables.code-scanning.beta-no-build %}
-
 The {% data variables.product.prodname_codeql %} action supports three different build modes for compiled languages:
 
-* `none` - the {% data variables.product.prodname_codeql %} database is created directly from the codebase without building the codebase (supported for all interpreted languages, and additionally supported in beta for {% data variables.code-scanning.no_build_support %}).
+* `none` - the {% data variables.product.prodname_codeql %} database is created directly from the codebase without building the codebase (supported for all interpreted languages, and additionally supported for {% data variables.code-scanning.no_build_support %}).
 * `autobuild` - {% data variables.product.prodname_codeql %} detects the most likely build method and uses this to attempt to build the codebase and create a database for analysis (supported for all compiled languages).
 * `manual` - you define the build steps to use for the codebase in the workflow (supported for all compiled languages).
 
@@ -128,25 +120,18 @@ For information about the languages, libraries, and frameworks that are supporte
 
 {% ifversion codeql-no-build %}
 
-## About creating a {% data variables.product.prodname_codeql %} Java database without a build
+## About build mode None for {% data variables.product.prodname_codeql %}
 
-{% data variables.product.prodname_codeql %} creates a Java database without requiring a build when one or both of the following conditions is true:
+For {% data variables.code-scanning.no_build_support %}, {% data variables.product.prodname_codeql %} creates a database without requiring a build when you enable default setup for {% data variables.product.prodname_code_scanning %} unless the repository also includes Kotlin code. If a repository contains Kotlin code in addition to Java code, default setup is enabled with the autobuild process because Kotlin analysis requires a build.
 
--`build-mode` is set to `none`.
-* Default setup is configured and Java code (but not Kotlin code) was present when {% data variables.product.prodname_codeql %} was enabled.
+Creating a {% data variables.product.prodname_codeql %} database without a build may produce less accurate results than using `autobuild` or manual build steps if:
 
-{% data variables.product.prodname_codeql %} will attempt to run Gradle or Maven first in order to extract accurate dependency information (but not to invoke a build), before creating a database from all Java files present.
-
-You can read about the system requirements to run Maven or Gradle, and the rules for selecting between them, in {% ifversion codeql-kotlin-beta %}"[Building Java and Kotlin](#building-java--and-kotlin)"{% else %}"[Building Java](#building-java)"{% endif %}. If you're creating a Java database without a build, these are the same, but note that multiple root Maven or Gradle scripts are allowed. Every root Maven or Gradle project file (a build script without any build script present in an ancestor directory) is queried for dependency information, and more recent dependency versions are preferred if there is a clash.
-
-Creating a {% data variables.product.prodname_codeql %} Java database without a build may produce less accurate results than using `autobuild` or manual build steps if:
-
-* Gradle or Maven build scripts cannot be queried for dependency information, and dependency guesses (based on Java package names) are inaccurate.
-* The analyzed code includes code that was generated during the build process.
+* The build scripts cannot be queried for dependency information, and dependency guesses are inaccurate.
+* The repository normally generates code during the build process.
 
 To use `autobuild` or manual build steps, you can use advanced setup.
 
-If `build-mode` is set to `none` and Kotlin code is found in the repository, it will not be analyzed and a warning will be produced. See {% ifversion codeql-kotlin-beta %}"[Building Java and Kotlin](#building-java--and-kotlin)"{% else %}"[Building Java](#building-java)"{% endif %}.
+>[!NOTE] For Java analysis, if `build-mode` is set to `none` and Kotlin code is found in the repository, the Kotlin code will not be analyzed and a warning will be produced. See "[Building Java and Kotlin](#building-java-and-kotlin)."
 
 {% endif %}
 
@@ -156,7 +141,7 @@ If `build-mode` is set to `none` and Kotlin code is found in the repository, it 
 
 The {% data variables.product.prodname_codeql %} action uses `autobuild` to analyze compiled languages in the following cases.
 
-* Default setup is enabled{% ifversion codeql-no-build %} and the language does not support `none` build (beta release supported for {% data variables.code-scanning.no_build_support %}).
+* Default setup is enabled{% ifversion codeql-no-build %} and the language does not support `none` build (supported for {% data variables.code-scanning.no_build_support %}).
 * Advanced setup is enabled and the workflow specifies `build-mode: autobuild`{% endif %}.
 * Advanced setup is enabled and the workflow has an Autobuild step for the language using the `autobuild` action (`{% data reusables.actions.action-codeql-action-autobuild %}`).
 
@@ -282,10 +267,9 @@ If you added manual build steps for compiled languages and {% data variables.pro
 
 * [Building C/C++](#building-cc)
 * [Building C#](#building-c){% ifversion codeql-go-autobuild %}
-* [Building Go](#building-go){% endif %}{% ifversion codeql-kotlin-beta %}
-* [Building Java and Kotlin](#building-java--and-kotlin){% else %}
-* [Building Java](#building-java){% endif %}{% ifversion codeql-swift-beta %}
-* [Building Swift](#building-swift){% endif %}
+* [Building Go](#building-go){% endif %}
+* [Building Java and Kotlin](#building-java-and-kotlin)
+* [Building Swift](#building-swift)
 
 {% note %}
 
@@ -297,7 +281,7 @@ If you added manual build steps for compiled languages and {% data variables.pro
 
 {% ifversion codeql-no-build %}{% data variables.product.prodname_codeql %} supports build modes `autobuild` or `manual` for C/C++ code.
 
-### Autobuild summary{% endif %}
+### Autobuild summary for C/C++{% endif %}
 
 | Supported system type | System name |
 |----|----|
@@ -322,7 +306,7 @@ On Linux and macOS, the `autobuild` step reviews the files present in the reposi
 1. If none are found, search subdirectories for a unique directory with a build system for C/C++.
 1. Run an appropriate command to configure the system.
 
-#### Runner requirements
+#### Runner requirements for C/C++
 
 {% ifversion codeql-cpp-autoinstall-dependencies %}
 On Ubuntu Linux runners, `autobuild` may try to automatically install dependencies required by the detected configuration and build steps. By default, this behavior is enabled on {% data variables.product.prodname_dotcom %}-hosted runners and disabled on self-hosted runners. You can enable or disable this feature explicitly by setting `CODEQL_EXTRACTOR_CPP_AUTOINSTALL_DEPENDENCIES` to `true` or `false` in the environment. For more information about defining environment variables, see "[AUTOTITLE](/actions/learn-github-actions/variables#defining-environment-variables-for-a-single-workflow)."
@@ -337,9 +321,37 @@ Windows runners require `powershell.exe` to be on the `PATH`.
 
 ## Building C#
 
-{% ifversion codeql-no-build %}{% data variables.product.prodname_codeql %} supports build modes `autobuild` or `manual` for C# code.
+{% ifversion codeql-no-build %}{% data variables.product.prodname_codeql %} supports build modes {% ifversion codeql-no-build-csharp %}`none`, {% endif %}`autobuild` or `manual` for C# code.{% endif %}
 
-### Autobuild summary{% endif %}
+{% ifversion codeql-no-build-csharp %}
+
+When you enable default setup for a repository that contains C# code, the build mode is set to `none` automatically.
+
+### No build for C#
+
+{% data variables.product.prodname_codeql %} restores dependencies and generates a few additional source files, to give more accurate results, before creating a database from all the source files and dependencies.
+
+Dependencies are restored using multiple heuristics and strategies. The following files are the primary source of information: `*.csproj`, `*.sln`, `nuget.config`, `packages.config`, `global.json`, and `project.assets.json`.
+
+The following generated source files are optional, but significantly increase the correctness of the {% data variables.product.prodname_codeql %} database:
+
+* `global` generated `using` directives to handle the implicit `using` feature of MSbuild.
+* ASP.NET core view files, `.cshtml` files are converted to `.cs` files.
+
+The information from the dependency assembly names, generated source files, and the source files in the repository is compiled and used to create a {% data variables.product.prodname_codeql %} database.
+
+#### Accuracy of no build analysis for C#
+
+Creating a {% data variables.product.prodname_codeql %} database without building the full code relies on being able to restore dependencies and being able to compile together the source files in the repository. When there are problems restoring dependencies or compiling the source code, this can affect the accuracy of the {% data variables.product.prodname_codeql %} database and {% data variables.product.prodname_code_scanning %} analysis results.
+
+You can ensure a more accurate analysis by taking the following steps:
+
+* Provide access to the public internet or ensure that access to a private Nuget feed is available.
+* Check whether the repository requires multiple versions of the same Nuget dependency. {% data variables.product.prodname_codeql %} can use only one version and usually chooses the newer version where there are multiple versions. This approach may not work for all repositories.
+* Check whether multiple versions of .NET are referenced, for example, `net48`, `net5.0`, and `netstandard1.6`. {% data variables.product.prodname_codeql %} can use only one version and this may affect accuracy.
+* Avoid colliding class names, otherwise this may cause missing method call targets, which has an impact on dataflow analysis.
+
+### Autobuild summary for C#{% endif %}
 
 | Supported system type | System name |
 |----|----|
@@ -355,13 +367,19 @@ The `autobuild` process attempts to autodetect a suitable build method for C# us
 If `autobuild` detects multiple solution or project files at the same (shortest) depth from the top level directory, it will attempt to build all of them.
 1. Invoke a script that looks like a build script—`build.bat`, `build.cmd`, and `build.exe` (in that order).
 
-#### Runner requirements
+#### Runner requirements for C# on Windows
 
 For .NET Core application development on self-hosted runners, the .NET SDK is required (for `dotnet`).
 
 For .NET Framework application development, you will need Microsoft Build Tools (for `msbuild`) and Nuget CLI (for `nuget`).
 
 Windows runners require `powershell.exe` to be on the `PATH`.
+
+{% ifversion codeql-no-build-csharp %}
+
+If you plan to create {% data variables.product.prodname_codeql %} databases using `build-mode: none`, you also need to provide access to the public internet, or you must ensure that access to a private Nuget feed is available.
+
+{% endif %}
 
 ### Linux and macOS autodetection
 
@@ -370,11 +388,17 @@ Windows runners require `powershell.exe` to be on the `PATH`.
 If `autobuild` detects multiple solution or project files at the same (shortest) depth from the top level directory, it will attempt to build all of them.
 1. Invoke a script that looks like a build script—`build` and `build.sh` (in that order).
 
-#### Runner requirements
+#### Runner requirements for C# on Linux and macOS
 
 For .NET Core application development on self-hosted runners, the .NET SDK is required (for `dotnet`).
 
 For .NET Framework application development, you will require Mono Runtime (to run `mono`, `msbuild`, or `nuget`).
+
+{% ifversion codeql-no-build-csharp %}
+
+If you plan to create {% data variables.product.prodname_codeql %} databases using `build-mode: none`, you also need to provide access to the public internet, or you must ensure that access to a private Nuget feed is available.
+
+{% endif %}
 
 {% ifversion codeql-go-autobuild %}
 
@@ -382,14 +406,14 @@ For .NET Framework application development, you will require Mono Runtime (to ru
 
 {% ifversion codeql-no-build %}{% data variables.product.prodname_codeql %} supports build modes `autobuild` or `manual` for Go code.
 
-### Autobuild summary{% endif %}
+### Autobuild summary for Go{% endif %}
 
 | Supported system type | System name |
 |----|----|
 | Operating system | Windows, macOS, and Linux |
 | Build system | Go modules, `dep` and Glide, as well as build scripts including Makefiles and Ninja scripts |
 
-### Autodetection
+### Autodetection for Go
 
 The `autobuild` process attempts to autodetect a suitable way to install the dependencies needed by a Go repository before extracting all `.go` files:
 
@@ -406,7 +430,7 @@ The `autobuild` process attempts to autodetect a suitable way to install the dep
 
 {% endif %}
 
-## Building Java {% ifversion codeql-kotlin-beta %} and Kotlin {% endif %}
+## Building Java and Kotlin
 
 {% ifversion codeql-no-build %}{% data variables.product.prodname_codeql %} supports the following build modes.
 
@@ -417,14 +441,32 @@ When you first enable default setup for a repository, if only Java code is detec
 
 If you later add Kotlin code to a repository that uses the `none` build mode, {% data variables.product.prodname_codeql %} analysis reports a warning message explaining that Kotlin is not supported. You will need to disable default setup and re-enable it. When you re-enable default setup, the build mode will change to `autobuild` so that both languages can be analyzed. Alternatively, you can change to an advanced setup. For more information, see "[AUTOTITLE](/code-security/code-scanning/troubleshooting-code-scanning/kotlin-detected-in-no-build)."
 
-### Autobuild summary{% endif %}
+### No build for Java
+
+{% data variables.product.prodname_codeql %} will attempt to run Gradle or Maven to extract accurate dependency information (but not to invoke a build), before creating a database from all Java files present. Every root Maven or Gradle project file (a build script without any build script present in an ancestor directory) is queried for dependency information, and more recent dependency versions are preferred if there is a clash. For information about the runner requirements to run Maven or Gradle, see "[Runner requirements for Java](#runner-requirements-for-java)."
+
+#### Accuracy of no build analysis for Java
+
+Creating a {% data variables.product.prodname_codeql %} Java database without a build may produce less accurate results than using `autobuild` or manual build steps if:
+
+* Gradle or Maven build scripts cannot be queried for dependency information, and dependency guesses (based on Java package names) are inaccurate.
+* The repository normally generates code during the build process. This would be analyzed if you created the {% data variables.product.prodname_codeql %} database using a different mode.
+
+You can ensure a more accurate analysis by taking the following steps:
+
+* Provide access to the public internet or ensure that access to a private artifact repository is available.
+* Check whether the repository requires multiple versions of the same dependency. {% data variables.product.prodname_codeql %} can use only one version and usually chooses the newer version where there are multiple versions. This approach may not work for all repositories.
+* Check whether more than one version of the JDK API is required by different source Java files. When multiple versions are seen, {% data variables.product.prodname_codeql %} will use the highest version required by any build script. This may mean that some files that require a lower version of the JDK will be partially analyzed. For example, if some files require JDK 8 but a JDK 17 requirement is found in one or more build scripts, {% data variables.product.prodname_codeql %} will use JDK 17. Any files that require JDK 8 and could not be built using JDK 17 will be partially analyzed.
+* Avoid colliding class names (for example, multiple files defining `org.myproject.Test`), otherwise this may cause missing method call targets, which has an impact on dataflow analysis.
+
+### Autobuild summary for Java{% endif %}
 
 | Supported system type | System name |
 |----|----|
 | Operating system | Windows, macOS, and Linux (no restriction) |
 | Build system | Gradle, Maven and Ant |
 
-### Autodetection
+### Autodetection for Java
 
 The `autobuild` process tries to determine the build system for Java codebases by applying this strategy:
 
@@ -432,7 +474,7 @@ The `autobuild` process tries to determine the build system for Java codebases b
 1. Run the first build file found. If both Gradle and Maven files are present, the Gradle file is used.
 1. Otherwise, search for build files in direct subdirectories of the root directory. If only one subdirectory contains build files, run the first file identified in that subdirectory (using the same preference as for 1). If more than one subdirectory contains build files, report an error.
 
-### Runner requirements
+### Runner requirements for Java
 
 If you're using self-hosted runners, the required version(s) of Java should be present:
 
@@ -450,13 +492,11 @@ You will also need to install the build system (for example `make`, `cmake`, `ba
 
 Windows runners require `powershell.exe` to be on the `PATH`.
 
-{% ifversion codeql-swift-beta %}
-
 ## Building Swift
 
 {% ifversion codeql-no-build %}{% data variables.product.prodname_codeql %} supports build modes `autobuild` or `manual` for Swift code.
 
-### Autobuild summary{% endif %}
+### Autobuild summary for Swift{% endif %}
 
 | Supported system type | System name |
 |----|----|
@@ -464,12 +504,6 @@ Windows runners require `powershell.exe` to be on the `PATH`.
 | Build system | Xcode |
 
 The `autobuild` process tries to build the biggest target from an Xcode project or workspace.
-
-{% endif %}
-
-{% ifversion codeql-swift-beta %}
-
-{% data reusables.code-scanning.beta-swift-support %}
 
 Code scanning of Swift code uses macOS runners by default. {% ifversion fpt or ghec %}Since {% data variables.product.company_short %}-hosted macOS runners are more expensive than Linux and Windows runners, we recommend that you build only the code that you want to analyze. For more information about pricing for {% data variables.product.company_short %}-hosted runners, see "[AUTOTITLE](/billing/managing-billing-for-github-actions/about-billing-for-github-actions)."{% endif %}
 
@@ -482,5 +516,3 @@ Code scanning of Swift code uses macOS runners by default. {% ifversion fpt or g
 You can pass the `archive` and `test` options to `xcodebuild`. However, the standard `xcodebuild` command is recommended as it should be the fastest, and should be all that {% data variables.product.prodname_codeql %} requires for a successful scan.
 
 For Swift analysis, you must always explicitly install dependencies managed via CocoaPods or Carthage before generating the {% data variables.product.prodname_codeql %} database.
-
-{% endif %}

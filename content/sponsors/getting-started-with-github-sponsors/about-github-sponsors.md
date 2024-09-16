@@ -159,6 +159,7 @@ Anyone in any region can sponsor eligible maintainers, but you must reside in a 
 
 * "[AUTOTITLE](/sponsors/sponsoring-open-source-contributors)"
 * "[AUTOTITLE](/sponsors/receiving-sponsorships-through-github-sponsors)"
+* "[AUTOTITLE](/sponsors/getting-started-with-github-sponsors/navigating-your-sponsors-dashboard)"
 * "[AUTOTITLE](/search-github/searching-on-github/searching-users#search-based-on-ability-to-sponsor)"
 * "[AUTOTITLE](/search-github/searching-on-github/searching-for-repositories#search-based-on-ability-to-sponsor)"
 * "[FAQ with the {% data variables.product.prodname_sponsors %} team](https://github.blog/2019-06-12-faq-with-the-github-sponsors-team/)" on {% data variables.product.prodname_blog %}

@@ -10,7 +10,6 @@ introLinks:
 featuredLinks:
   startHere:
     - /code-security/getting-started/quickstart-for-securing-your-repository
-    - /code-security/getting-started/quickstart-for-securing-your-organization
     - '{% ifversion fpt or ghec %}/code-security/security-advisories/working-with-repository-security-advisories/creating-a-repository-security-advisory{% endif %}'
     - '/code-security/code-scanning/enabling-code-scanning/configuring-default-setup-for-code-scanning'
   guideCards:

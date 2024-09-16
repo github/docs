@@ -67,7 +67,9 @@ You can manage {% data variables.product.prodname_dependabot %} on {% data varia
 
 ### Enabling or disabling for your organization
 
-You can use the organization settings page for "Code security and analysis" to enable {% data variables.product.prodname_dependabot %} on {% data variables.product.prodname_actions %} for all existing repositories in an organization. Only repositories with the following configuration will be updated to run {% data variables.product.prodname_dependabot %} on {% data variables.product.prodname_actions %} the next time a {% data variables.product.prodname_dependabot %} job is triggered.
+You can enable {% data variables.product.prodname_dependabot %} on {% data variables.product.prodname_actions %} for all existing repositories in an organization.
+
+Only repositories with the following configuration will be updated to run {% data variables.product.prodname_dependabot %} on {% data variables.product.prodname_actions %} the next time a {% data variables.product.prodname_dependabot %} job is triggered.
 
   * {% data variables.product.prodname_dependabot %} is enabled in the repository.
   * {% data variables.product.prodname_actions %} is enabled in the repository.
@@ -76,12 +78,10 @@ If a repository in your organization has {% data variables.product.prodname_depe
 
 {% data reusables.profile.access_org %}
 {% data reusables.profile.org_settings %}
-{% data reusables.organizations.security-and-analysis %}
-{% ifversion security-configurations %}
-    {% data reusables.security-configurations.changed-org-settings-security-configurations-callout %} For next steps on enabling {% data variables.product.prodname_dependabot %} on {% data variables.product.prodname_actions %} and other security features at scale with {% data variables.product.prodname_security_configurations %}, see "[AUTOTITLE](/code-security/securing-your-organization/enabling-security-features-in-your-organization/applying-the-github-recommended-security-configuration-in-your-organization)."
-{% endif %}
-1. Under "Code security", select "Global settings".
+1. In the "Security" section of the sidebar, click **{% octicon "codescan" aria-hidden="true" %} Code security** then **Global settings**.
 1. Under "Dependabot", select "{% data variables.product.prodname_dependabot %} on Actions runners" to enable the feature or deselect to disable it.
+
+For more information, see "[AUTOTITLE](/code-security/securing-your-organization/enabling-security-features-in-your-organization/configuring-global-security-settings-for-your-organization#enabling-dependency-updates-on-github-actions-runners)."
 
 ## Enabling or disabling {% data variables.product.prodname_dependabot %} on {% data variables.actions.hosted_runners %}
 
@@ -89,10 +89,8 @@ If you run into {% data variables.product.prodname_dependabot %} timeouts and ou
 
 > [!NOTE] You can only enable {% data variables.actions.hosted_runners %} for {% data variables.product.prodname_dependabot %} _at the organization level_. {% data variables.product.prodname_dotcom %} will bill your organization at the regular Actions runner pricing. For more information, see "[AUTOTITLE](/billing/managing-billing-for-github-actions/about-billing-for-github-actions#per-minute-rates)."
 
-1. Add a {% data variables.actions.hosted_runner %} to your organization. For more informaton, see "[AUTOTITLE](/actions/using-github-hosted-runners/about-larger-runners/managing-larger-runners#adding-a-larger-runner-to-an-organization)."
-1. Add the `dependabot` label to the {% data variables.actions.hosted_runner %}.
-1. Optionally, call the {% data variables.actions.hosted_runner %} `dependabot`.
-1. Opt in the organization to self-hosted runners. For more information, see "[AUTOTITLE](/code-security/dependabot/working-with-dependabot/managing-dependabot-on-self-hosted-runners#enabling-or-disabling-for-your-organization)." This step is required, as it ensures that future {% data variables.product.prodname_dependabot %} jobs will run on the larger {% data variables.product.prodname_dotcom %}-hosted runner that has the `dependabot` label.
+1. Add a {% data variables.actions.hosted_runner %} to your organization and ensure the name specified is `dependabot`. For more informaton, see "[AUTOTITLE](/actions/using-github-hosted-runners/about-larger-runners/managing-larger-runners#adding-a-larger-runner-to-an-organization)."
+1. Opt in the organization to self-hosted runners. For more information, see "[AUTOTITLE](/code-security/dependabot/working-with-dependabot/managing-dependabot-on-self-hosted-runners#enabling-or-disabling-for-your-organization)." This step is required, as it ensures that future {% data variables.product.prodname_dependabot %} jobs will run on the larger {% data variables.product.prodname_dotcom %}-hosted runner that has the `dependabot` name.
 
 ## Managing {% data variables.product.prodname_dependabot %} on {% data variables.product.prodname_actions %} runners
 

@@ -1,6 +1,6 @@
 ---
 title: Using ghe-migrator
-intro: "You can use ghe-migrator to migrate user, organization, and repository data to {% data variables.location.product_location_enterprise %} from {% data variables.product.prodname_dotcom_the_website %} or another {% data variables.product.prodname_ghe_server %} instance."
+intro: "You can use `ghe-migrator` to migrate user, organization, and repository data to {% data variables.location.product_location_enterprise %} from {% data variables.product.prodname_dotcom_the_website %} or another {% data variables.product.prodname_ghe_server %} instance."
 redirect_from:
   - /enterprise/admin/articles/moving-a-repository-from-github-com-to-github-enterprise
   - /enterprise/admin/categories/migrations-and-upgrades

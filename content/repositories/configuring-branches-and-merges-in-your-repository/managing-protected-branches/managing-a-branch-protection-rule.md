@@ -97,7 +97,7 @@ When you create a branch rule, the branch you specify doesn't have to exist yet 
    * Select **Lock branch**.
    * Optionally, to allow fork syncing, select **Allow fork syncing**.
 {%- endif %}
-1. Optionally, select {% ifversion bypass-branch-protections %}**Do not allow bypassing the above settings**{% else %}**Apply the rules above to administrators**{% endif %}.
+1. Optionally, select **Do not allow bypassing the above settings**.
 1. Optionally,{% ifversion fpt or ghec %} in public repositories owned by a {% data variables.product.prodname_free_user %} organization and in all repositories owned by an organization using {% data variables.product.prodname_team %} or {% data variables.product.prodname_ghe_cloud %},{% endif %} enable branch restrictions.
    * Select **Restrict who can push to matching branches**.
 {%- ifversion restrict-pushes-create-branch %}

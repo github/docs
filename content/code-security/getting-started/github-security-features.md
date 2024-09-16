@@ -77,32 +77,38 @@ Privately discuss and fix security vulnerabilities in your repository's code. Yo
 
 ### {% data variables.secret-scanning.user_alerts_caps %}
 
-Automatically detect tokens or credentials that have been checked into a {% ifversion ghec %}user-owned {% endif %}public repository. You can view alerts for any secrets that {% data variables.product.company_short %} finds in your code, in the **Security** tab of the repository, so that you know which tokens or credentials to treat as compromised. For more information, see "[AUTOTITLE](/code-security/secret-scanning/about-secret-scanning#about-secret-scanning-alerts-for-users)."
+Automatically detect tokens or credentials that have been checked into a {% ifversion ghec %}user-owned {% endif %}public repository. You can view alerts for any secrets that {% data variables.product.company_short %} finds in your code, in the **Security** tab of the repository, so that you know which tokens or credentials to treat as compromised. For more information, see "[AUTOTITLE](/code-security/secret-scanning/managing-alerts-from-secret-scanning/about-alerts#about-user-alerts)."
 
 {% ifversion secret-scanning-push-protection-for-users %}
 
 ### Push protection for users
 
-Push protection for users automatically protects you from accidentally committing secrets to public repositories, regardless of whether the repository itself has {% data variables.product.prodname_secret_scanning %} enabled. Push protection for users is on by default, but you can disable the feature at any time through your personal account settings. For more information, see "[AUTOTITLE](/code-security/secret-scanning/push-protection-for-users)."
+Push protection for users automatically protects you from accidentally committing secrets to public repositories, regardless of whether the repository itself has {% data variables.product.prodname_secret_scanning %} enabled. Push protection for users is on by default, but you can disable the feature at any time through your personal account settings. For more information, see "[AUTOTITLE](/code-security/secret-scanning/working-with-secret-scanning-and-push-protection/push-protection-for-users)."
 
 {% endif %}
 
 ### {% data variables.secret-scanning.partner_alerts_caps %}
 
-Automatically detect leaked secrets across all public repositories, as well as public npm packages. {% data variables.product.company_short %} informs the relevant service provider that the secret may be compromised. For details of the supported secrets and service providers, see "[AUTOTITLE](/code-security/secret-scanning/secret-scanning-patterns#supported-secrets)."
+Automatically detect leaked secrets across all public repositories, as well as public npm packages. {% data variables.product.company_short %} informs the relevant service provider that the secret may be compromised. For details of the supported secrets and service providers, see "[AUTOTITLE](/code-security/secret-scanning/introduction/supported-secret-scanning-patterns#supported-secrets)."
 
 {% endif %}
 
 ## Available with {% data variables.product.prodname_GH_advanced_security %}
 
 {% ifversion fpt %}
-The following {% data variables.product.prodname_GH_advanced_security %} features are available and free of charge for public repositories on {% data variables.product.prodname_dotcom_the_website %}. Organizations that use {% data variables.product.prodname_ghe_cloud %} with a license for {% data variables.product.prodname_GH_advanced_security %} can use the full set of features in any of their repositories. For a list of the features available with {% data variables.product.prodname_ghe_cloud %}, see the [{% data variables.product.prodname_ghe_cloud %} documentation](/enterprise-cloud@latest/code-security/getting-started/github-security-features#available-with-github-advanced-security).
+The following {% data variables.product.prodname_GH_advanced_security %} features are available and free of charge for public repositories on {% data variables.product.prodname_dotcom %}. Organizations that use {% data variables.product.prodname_ghe_cloud %} with a license for {% data variables.product.prodname_GH_advanced_security %} can use the full set of features in any of their repositories. For a list of the features available with {% data variables.product.prodname_ghe_cloud %}, see the [{% data variables.product.prodname_ghe_cloud %} documentation](/enterprise-cloud@latest/code-security/getting-started/github-security-features#available-with-github-advanced-security).
 
 {% elsif ghec %}
-Many {% data variables.product.prodname_GH_advanced_security %} features are available and free of charge for public repositories on {% data variables.product.prodname_dotcom_the_website %}. Organizations within an enterprise that have a {% data variables.product.prodname_GH_advanced_security %} license can use the following features on all their repositories. {% data reusables.advanced-security.more-info-ghas %}
+Many {% data variables.product.prodname_GH_advanced_security %} features are available and free of charge for public repositories on {% data variables.product.prodname_dotcom %}. Organizations within an enterprise that have a {% data variables.product.prodname_GH_advanced_security %} license can use the following features on all their repositories. {% data reusables.advanced-security.more-info-ghas %}
 
 {% elsif ghes %}
 {% data variables.product.prodname_GH_advanced_security %} features are available for enterprises with a license for {% data variables.product.prodname_GH_advanced_security %}. The features are restricted to repositories owned by an organization. {% data reusables.advanced-security.more-info-ghas %}
+
+{% endif %}
+
+{% ifversion copilot-chat-ghas-alerts %}
+
+With a {% data variables.product.prodname_copilot_enterprise %} license, you can also ask {% data variables.product.prodname_copilot_chat %} for help to better understand security alerts in repositories in your organization from {% data variables.product.prodname_GH_advanced_security %} features ({% data variables.product.prodname_code_scanning %}, {% data variables.product.prodname_secret_scanning %}, and {% data variables.product.prodname_dependabot_alerts %}). For more information, see "[AUTOTITLE](/copilot/using-github-copilot/asking-github-copilot-questions-in-githubcom#asking-questions-about-alerts-from-github-advanced-security-features)."
 
 {% endif %}
 
@@ -114,7 +120,7 @@ Automatically detect security vulnerabilities and coding errors in new or modifi
 
 ### {% data variables.secret-scanning.user_alerts_caps %}
 
-Automatically detect tokens or credentials that have been checked into a repository. You can view alerts for any secrets that {% data variables.product.company_short %} finds in your code, in the **Security** tab of the repository, so that you know which tokens or credentials to treat as compromised. For more information, see {% ifversion fpt or ghec %}"[AUTOTITLE](/code-security/secret-scanning/about-secret-scanning#about-secret-scanning-alerts-for-users){% elsif ghes %}"[AUTOTITLE](/code-security/secret-scanning/about-secret-scanning#about-secret-scanning-on-github-enterprise-server){% endif %}."
+Automatically detect tokens or credentials that have been checked into a repository. You can view alerts for any secrets that {% data variables.product.company_short %} finds in your code, in the **Security** tab of the repository, so that you know which tokens or credentials to treat as compromised. {% data reusables.secret-scanning.alert-type-links %}
 
 {% ifversion dependabot-auto-triage-rules %}
 

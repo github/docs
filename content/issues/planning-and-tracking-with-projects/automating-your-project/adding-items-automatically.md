@@ -2,7 +2,9 @@
 title: Adding items automatically
 intro: 'You can configure your project''s built-in workflows to automatically add items from {% ifversion projects-v2-duplicate-auto-add %}repositories{% else%}a repository{% endif %} that match a filter.'
 versions:
-  feature: projects-v2-auto-add
+  fpt: '*'
+  ghes: '*'
+  ghec: '*'
 type: tutorial
 topics:
   - Projects
@@ -79,6 +81,4 @@ Once you have duplicated a workflow, you can click **Edit** to start making chan
 ## Further reading
 
 * "[AUTOTITLE](/issues/planning-and-tracking-with-projects/managing-items-in-your-project/archiving-items-from-your-project)"
-{%- ifversion projects-v2-workflows %}
 * "[AUTOTITLE](/issues/planning-and-tracking-with-projects/automating-your-project/using-the-built-in-automations)"
-{%- endif %}

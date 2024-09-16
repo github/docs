@@ -1,6 +1,6 @@
 ---
 title: Adding a GPG key to your GitHub account
-intro: 'To configure your account on {% data variables.location.product_location %} to use your new (or existing) GPG key, you''ll also need to add the key to your account.'
+intro: 'To configure your account on {% data variables.product.product_name %} to use your new (or existing) GPG key, you''ll also need to add the key to your account.'
 redirect_from:
   - /articles/adding-a-gpg-key-to-your-github-account
   - /github/authenticating-to-github/adding-a-new-gpg-key-to-your-github-account
@@ -44,7 +44,7 @@ When verifying a signature, {% data variables.product.product_name %} extracts t
 1. In the "Title" field, type a name for your GPG key.
 1. In the "Key" field, paste the GPG key you copied when you [generated your GPG key](/authentication/managing-commit-signature-verification/generating-a-new-gpg-key).
 1. Click **Add GPG key**.
-1. To confirm the action, authenticate to your {% data variables.product.prodname_dotcom %} account.
+1. If prompted, authenticate to your {% data variables.product.prodname_dotcom %} account to confirm the action.
 
 {% ifversion upload-expired-or-revoked-gpg-key %}
 {% else %}

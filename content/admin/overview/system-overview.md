@@ -27,6 +27,8 @@ The root filesystem is included in the distributed machine image. It contains th
 
 The root storage volume is split into two equally-sized partitions. One of the partitions will be mounted as the root filesystem (`/`). The other partition is only mounted during upgrades and rollbacks of upgrades as `/mnt/upgrade`, to facilitate easier rollbacks if necessary. For example, if a 200GB root volume is allocated, there will be 100GB allocated to the root filesystem and 100GB reserved for the upgrades and rollbacks.
 
+{% ifversion ghes > 3.13 %}In new installations of 3.14 and later, the root storage volume is split into four partitions. Two small partitions are for the supported boot modes (BIOS and UEFI), and the other two equally large partitions are for the {% data variables.product.product_name %} primary, and upgrades and rollbacks.{% endif %}
+
 The root filesystem contains files that store the following information. This list is not exhaustive.
 
 * Custom certificate authority (CA) certificates (in `/usr/local/share/ca-certificates*`)
@@ -45,7 +47,11 @@ The user filesystem contains files that store following configuration and data. 
 
 ## Deployment topologies
 
-You can deploy {% data variables.product.product_name %} in a variety of topologies, such as a high availability pair. For more information, see "[AUTOTITLE](/admin/overview/about-github-enterprise-server#about-deployment-topologies)."
+By default, {% data variables.product.product_name %} runs as a standalone instance. You can increase the reliability and performance of {% data variables.product.product_name %} by using a different topology for your deployment.
+
+* To mitigate the impact of system or network failures, you can deploy a passive replica instance. During an outage that affects your primary instance, you can manually fail over to the replica instance. For more information, see "[AUTOTITLE](/admin/enterprise-management/configuring-high-availability/about-high-availability-configuration)."
+* You can configure multiple active replicas to improve performance for developers who are geographically distant from your primary instance. For more information, see "[AUTOTITLE](/admin/enterprise-management/configuring-high-availability/about-geo-replication)."
+* Some enterprises with tens of thousands of developers may benefit from a cluster configuration that scales horizontally instead of vertically. For more information, see "[AUTOTITLE](/admin/enterprise-management/configuring-clustering/about-clustering)."
 
 ## Data retention and datacenter redundancy
 

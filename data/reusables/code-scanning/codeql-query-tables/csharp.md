@@ -1,6 +1,6 @@
 {% rowheaders %}
 
-| Query name | Related CWEs | Default | Extended | Autofix |
+| Query name | Related CWEs | Default | Extended | {% data variables.product.prodname_copilot_autofix_short %} |
 | --- | --- | --- | --- | --- |
 | ['requireSSL' attribute is not set to true](https://codeql.github.com/codeql-query-help/csharp/cs-web-requiressl-not-set/) | 319, 614 | {% octicon "check" aria-label="Included" %} | {% octicon "check" aria-label="Included" %} | {% octicon "check" aria-label="Included" %} |
 | [Arbitrary file access during archive extraction ("Zip Slip")](https://codeql.github.com/codeql-query-help/csharp/cs-zipslip/) | 022 | {% octicon "check" aria-label="Included" %} | {% octicon "check" aria-label="Included" %} | {% octicon "check" aria-label="Included" %} |
@@ -28,7 +28,7 @@
 | [Missing cross-site request forgery token validation](https://codeql.github.com/codeql-query-help/csharp/cs-web-missing-token-validation/) | 352 | {% octicon "check" aria-label="Included" %} | {% octicon "check" aria-label="Included" %} | {% octicon "check" aria-label="Included" %} |
 | [Missing global error handler](https://codeql.github.com/codeql-query-help/csharp/cs-web-missing-global-error-handler/) | 12, 248 | {% octicon "check" aria-label="Included" %} | {% octicon "check" aria-label="Included" %} | {% octicon "check" aria-label="Included" %} |
 | [Missing X-Frame-Options HTTP header](https://codeql.github.com/codeql-query-help/csharp/cs-web-missing-x-frame-options/) | 451, 829 | {% octicon "check" aria-label="Included" %} | {% octicon "check" aria-label="Included" %} | {% octicon "x" aria-label="Not included" %} |
-| [Page request validation is disabled](https://codeql.github.com/codeql-query-help/csharp/cs-web-request-validation-disabled/) | 16 | {% octicon "check" aria-label="Included" %} | {% octicon "check" aria-label="Included" %} | {% octicon "x" aria-label="Not included" %} |
+| [Page request validation is disabled](https://codeql.github.com/codeql-query-help/csharp/cs-web-request-validation-disabled/) | 16 | {% octicon "check" aria-label="Included" %} | {% octicon "check" aria-label="Included" %} | {% octicon "check" aria-label="Included" %} |
 | [Regular expression injection](https://codeql.github.com/codeql-query-help/csharp/cs-regex-injection/) | 730, 400 | {% octicon "check" aria-label="Included" %} | {% octicon "check" aria-label="Included" %} | {% octicon "check" aria-label="Included" %} |
 | [Resource injection](https://codeql.github.com/codeql-query-help/csharp/cs-resource-injection/) | 099 | {% octicon "check" aria-label="Included" %} | {% octicon "check" aria-label="Included" %} | {% octicon "check" aria-label="Included" %} |
 | [SQL query built from user-controlled sources](https://codeql.github.com/codeql-query-help/csharp/cs-sql-injection/) | 089 | {% octicon "check" aria-label="Included" %} | {% octicon "check" aria-label="Included" %} | {% octicon "check" aria-label="Included" %} |

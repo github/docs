@@ -48,13 +48,13 @@ This content is displayed on the {% data variables.product.prodname_docs %} site
    This is another paragraph in the list.
 1. This is the next item.
 
-## Callout tags
+## Alerts
 
-Callouts highlight important information that users need to know. We use standard formatting and colors for four different types of callouts: notes, tips, warnings, and danger notices.
+Alerts highlight important information that users need to know. We use standard formatting and colors for four different types of Alerts: Note, Tip, Warning, and Caution.
 
-For information on when to use callouts, and how to format them in Markdown, see "[AUTOTITLE](/contributing/style-guide-and-content-model/style-guide#callouts)."
+For information on when to use alerts, and how to format them in Markdown, see "[AUTOTITLE](/contributing/style-guide-and-content-model/style-guide#alerts)."
 
-### Examples of callouts
+### Examples of alerts
 
 ```markdown
 > [!NOTE] Keep this in mind.
@@ -62,15 +62,15 @@ For information on when to use callouts, and how to format them in Markdown, see
 
 ```markdown
 > [!NOTE]
-> Generally callouts should be short.
+> Generally alerts should be short.
 >
 > But occasionally may require more than one paragraph
 ```
 
-### Example callouts rendered on {% data variables.product.prodname_docs %}
+### Example alerts rendered on {% data variables.product.prodname_docs %}
 
 > [!NOTE]
-> Generally callouts should be short.
+> Generally alerts should be short.
 >
 > But occasionally may require more than one paragraph
 
@@ -138,7 +138,7 @@ Code annotations only work in articles with the `layout: inline` frontmatter pro
               PR_URL: ${{ github.event.pull_request.html_url }}
     ```
 
-For an example of an article that uses code annotations on {% data variables.product.prodname_docs %}, see "[AUTOTITLE](/actions/examples/using-scripts-to-test-your-code-on-a-runner)."
+For an example of an article that uses code annotations on {% data variables.product.prodname_docs %}, see "[AUTOTITLE](/packages/managing-github-packages-using-github-actions-workflows/publishing-and-installing-a-package-with-github-actions)."
 
 ## Octicons
 

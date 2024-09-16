@@ -14,7 +14,7 @@ topics:
   - GitHub search
 shortTitle: Search for repositories
 ---
-You can search for repositories globally across all of {% data variables.location.product_location %}, or search for repositories within a particular organization. For more information, see "[AUTOTITLE](/search-github/getting-started-with-searching-on-github/about-searching-on-github)."
+You can search for repositories globally across all of {% data variables.product.prodname_dotcom %}, or search for repositories within a particular organization. For more information, see "[AUTOTITLE](/search-github/getting-started-with-searching-on-github/about-searching-on-github)."
 
 To include forks in the search results, you will need to add `fork:true` or `fork:only` to your query. For more information, see "[AUTOTITLE](/search-github/searching-on-github/searching-in-forks)."
 
@@ -143,10 +143,12 @@ You can search repositories by the type of license in the repositories. You must
 
 You can filter your search based on the visibility of the repositories. For more information, see "[AUTOTITLE](/repositories/creating-and-managing-repositories/about-repositories#about-repository-visibility)."
 
-| Qualifier  | Example
+| Qualifier  | Example |
 | ------------- | ------------- |
-| `is:public` | [**is:public org:github**](https://github.com/search?q=is%3Apublic+org%3Agithub&type=Repositories) matches public repositories owned by {% data variables.product.company_short %}.{% ifversion ghes or ghec %}
-| `is:internal` | [**is:internal test**](https://github.com/search?q=is%3Ainternal+test&type=Repositories) matches internal repositories that you can access and contain the word "test".{% endif %}
+| `is:public` | [**is:public org:github**](https://github.com/search?q=is%3Apublic+org%3Agithub&type=Repositories) matches public repositories owned by {% data variables.product.company_short %}. |
+|  {% ifversion ghes or ghec %} |
+| `is:internal` | [**is:internal test**](https://github.com/search?q=is%3Ainternal+test&type=Repositories) matches internal repositories that you can access and contain the word "test". |
+|  {% endif %} |
 | `is:private` | [**is:private pages**](https://github.com/search?q=is%3Aprivate+pages&type=Repositories) matches private repositories that you can access and contain the word "pages."
 
 {% ifversion repository-properties %}

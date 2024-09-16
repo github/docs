@@ -37,7 +37,8 @@ If you're migrating from {% data variables.product.prodname_ghe_server %} 3.8 or
 {% note %}
 
 **Notes:**
-* If you're migrating a repository between two organizations on {% data variables.product.prodname_dotcom_the_website %}, you can grant the migrator role to the same person or team for both organizations, but you must grant each separately.
+
+* If you're migrating a repository between two organizations, you can grant the migrator role to the same person or team for both organizations, but you must grant each separately.
 * You cannot grant the migrator role for enterprise accounts. Therefore, you can only run an organization migration if you're an owner of the destination enterprise. However, you can grant the migrator role to that enterprise owner for the source organization.
 * The {% data variables.product.prodname_cli %} does not support granting the migrator role for organizations on {% data variables.product.prodname_ghe_server %}, so you must be an organization owner of the source organization to migrate repositories from {% data variables.product.prodname_ghe_server %}.
 

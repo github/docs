@@ -9,7 +9,7 @@ featuredLinks:
   popular:
     - /pull-requests/collaborating-with-pull-requests/proposing-changes-to-your-work-with-pull-requests/about-pull-requests
     - /authentication
-    - /copilot/using-github-copilot/using-github-copilot-code-suggestions-in-your-editor
+    - /copilot/using-github-copilot/getting-code-suggestions-in-your-ide-with-github-copilot
     - /get-started/getting-started-with-git/managing-remote-repositories
     - /pages
 redirect_from:
@@ -82,6 +82,7 @@ children:
   - support
   - video-transcripts
   - contributing
+  - github-models
 childGroups:
   - name: Get started
     octicon: RocketIcon
@@ -133,6 +134,7 @@ childGroups:
       - rest
       - graphql
       - webhooks
+      - github-models
   - name: Enterprise and Teams
     octicon: OrganizationIcon
     children:
@@ -169,4 +171,3 @@ externalProducts:
     href: 'https://docs.npmjs.com/'
     external: true
 ---
-

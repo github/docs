@@ -13,7 +13,7 @@ jobs:
     runs-on: ubuntu-latest
 
     outputs:
-      colors: ${{ steps.colors.outputs.colors }}
+      colors: {% raw %}${{ steps.colors.outputs.colors }}{% endraw %}
 
     steps:
       - name: Define Colors
@@ -26,21 +26,18 @@ jobs:
     needs: define-matrix
     strategy:
       matrix:
-{% raw %}
-        color: ${{ fromJSON(needs.define-matrix.outputs.colors) }}
-{% endraw %}
+        color: {% raw %}${{ fromJSON(needs.define-matrix.outputs.colors) }}{% endraw %}
 
     steps:
       - name: Define Color
         env:
-          color: ${{ matrix.color }}
+          color: {% raw %}${{ matrix.color }}{% endraw %}
         run: |
           echo "$color" > color
       - name: Produce Artifact
         uses: {% data reusables.actions.action-upload-artifact %}
-{% raw %}
         with:
-          name: ${{ matrix.color }}
+          name: {% raw %}${{ matrix.color }}{% endraw %}
           path: color
 
   consume-artifacts:
@@ -50,18 +47,15 @@ jobs:
     - produce-artifacts
     strategy:
       matrix:
-        color: ${{ fromJSON(needs.define-matrix.outputs.colors) }}
+        color: {% raw %}${{ fromJSON(needs.define-matrix.outputs.colors) }}{% endraw %}
 
     steps:
     - name: Retrieve Artifact
-{% endraw %}
       uses: {% data reusables.actions.action-download-artifact %}
-{% raw %}
       with:
-        name: ${{ matrix.color }}
-      
+        name: {% raw %}${{ matrix.color }}{% endraw %}
+
     - name: Report Color
       run: |
         cat color
-{% endraw %}
 ```

@@ -1004,6 +1004,15 @@
       },
       {
         "category": "enterprise-admin",
+        "slug": "update-pre-receive-hook-enforcement-for-an-organization",
+        "subcategory": "org-pre-receive-hooks",
+        "verb": "patch",
+        "requestPath": "/orgs/{org}/pre-receive-hooks/{pre_receive_hook_id}",
+        "additional-permissions": false,
+        "access": "write"
+      },
+      {
+        "category": "enterprise-admin",
         "slug": "remove-pre-receive-hook-enforcement-for-an-organization",
         "subcategory": "org-pre-receive-hooks",
         "verb": "delete",
@@ -2126,15 +2135,6 @@
       },
       {
         "category": "deployments",
-        "slug": "list-custom-deployment-rule-integrations-available-for-an-environment",
-        "subcategory": "protection-rules",
-        "verb": "get",
-        "requestPath": "/repos/{owner}/{repo}/environments/{environment_name}/deployment_protection_rules/apps",
-        "additional-permissions": false,
-        "access": "read"
-      },
-      {
-        "category": "deployments",
         "slug": "get-a-custom-deployment-protection-rule",
         "subcategory": "protection-rules",
         "verb": "get",
@@ -2795,6 +2795,15 @@
         "requestPath": "/repos/{owner}/{repo}/environments/{environment_name}/deployment_protection_rules",
         "additional-permissions": false,
         "access": "write"
+      },
+      {
+        "category": "deployments",
+        "slug": "list-custom-deployment-rule-integrations-available-for-an-environment",
+        "subcategory": "protection-rules",
+        "verb": "get",
+        "requestPath": "/repos/{owner}/{repo}/environments/{environment_name}/deployment_protection_rules/apps",
+        "additional-permissions": false,
+        "access": "read"
       },
       {
         "category": "deployments",
@@ -3483,7 +3492,16 @@
         "subcategory": "contents",
         "verb": "put",
         "requestPath": "/repos/{owner}/{repo}/contents/{path}",
-        "additional-permissions": false,
+        "additional-permissions": true,
+        "access": "write"
+      },
+      {
+        "category": "repos",
+        "slug": "create-or-update-file-contents",
+        "subcategory": "contents",
+        "verb": "put",
+        "requestPath": "/repos/{owner}/{repo}/contents/{path}",
+        "additional-permissions": true,
         "access": "write"
       },
       {
@@ -3492,7 +3510,16 @@
         "subcategory": "contents",
         "verb": "delete",
         "requestPath": "/repos/{owner}/{repo}/contents/{path}",
-        "additional-permissions": false,
+        "additional-permissions": true,
+        "access": "write"
+      },
+      {
+        "category": "repos",
+        "slug": "delete-a-file",
+        "subcategory": "contents",
+        "verb": "delete",
+        "requestPath": "/repos/{owner}/{repo}/contents/{path}",
+        "additional-permissions": true,
         "access": "write"
       },
       {
@@ -4882,6 +4909,33 @@
         "access": "read"
       },
       {
+        "category": "activity",
+        "slug": "check-if-a-repository-is-starred-by-the-authenticated-user",
+        "subcategory": "starring",
+        "verb": "get",
+        "requestPath": "/user/starred/{owner}/{repo}",
+        "additional-permissions": true,
+        "access": "read"
+      },
+      {
+        "category": "activity",
+        "slug": "star-a-repository-for-the-authenticated-user",
+        "subcategory": "starring",
+        "verb": "put",
+        "requestPath": "/user/starred/{owner}/{repo}",
+        "additional-permissions": true,
+        "access": "read"
+      },
+      {
+        "category": "activity",
+        "slug": "unstar-a-repository-for-the-authenticated-user",
+        "subcategory": "starring",
+        "verb": "delete",
+        "requestPath": "/user/starred/{owner}/{repo}",
+        "additional-permissions": true,
+        "access": "read"
+      },
+      {
         "category": "repos",
         "slug": "list-repositories-for-a-user",
         "subcategory": "repos",
@@ -5000,6 +5054,15 @@
         "requestPath": "/repos/{owner}/{repo}/pre-receive-hooks/{pre_receive_hook_id}",
         "additional-permissions": false,
         "access": "read"
+      },
+      {
+        "category": "enterprise-admin",
+        "slug": "update-pre-receive-hook-enforcement-for-a-repository",
+        "subcategory": "repo-pre-receive-hooks",
+        "verb": "patch",
+        "requestPath": "/repos/{owner}/{repo}/pre-receive-hooks/{pre_receive_hook_id}",
+        "additional-permissions": false,
+        "access": "write"
       },
       {
         "category": "enterprise-admin",
@@ -6169,6 +6232,24 @@
     "displayTitle": "Repository permissions for \"Workflows\"",
     "permissions": [
       {
+        "category": "repos",
+        "slug": "create-or-update-file-contents",
+        "subcategory": "contents",
+        "verb": "put",
+        "requestPath": "/repos/{owner}/{repo}/contents/{path}",
+        "additional-permissions": true,
+        "access": "write"
+      },
+      {
+        "category": "repos",
+        "slug": "delete-a-file",
+        "subcategory": "contents",
+        "verb": "delete",
+        "requestPath": "/repos/{owner}/{repo}/contents/{path}",
+        "additional-permissions": true,
+        "access": "write"
+      },
+      {
         "category": "git",
         "slug": "create-a-reference",
         "subcategory": "refs",
@@ -6579,7 +6660,7 @@
         "subcategory": "starring",
         "verb": "get",
         "requestPath": "/user/starred/{owner}/{repo}",
-        "additional-permissions": false,
+        "additional-permissions": true,
         "access": "read"
       },
       {
@@ -6588,7 +6669,7 @@
         "subcategory": "starring",
         "verb": "put",
         "requestPath": "/user/starred/{owner}/{repo}",
-        "additional-permissions": false,
+        "additional-permissions": true,
         "access": "write"
       },
       {
@@ -6597,7 +6678,7 @@
         "subcategory": "starring",
         "verb": "delete",
         "requestPath": "/user/starred/{owner}/{repo}",
-        "additional-permissions": false,
+        "additional-permissions": true,
         "access": "write"
       },
       {

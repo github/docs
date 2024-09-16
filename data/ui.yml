@@ -56,18 +56,16 @@ support:
   contact_support: Contact support
   ask_community: Ask the GitHub community
 survey:
-  able_to_find: Did this doc help you?
+  able_to_find: Did you find what you needed?
   yes: Yes
   no: No
-  comment_yes_label: Let us know what we do well
-  comment_no_label: Let us know what we can do better
+  cancel: Cancel
+  additional_feedback: Can you tell us more about your rating? (Optional)
   optional: Optional
   required: Required
-  email_placeholder: email@example.com
-  email_label: If we can contact you with more questions, please enter your email address
+  email_label: Leave your email if we can contact you. (Optional)
   email_validation: Please enter a valid email address
   send: Send
-  next: Next
   feedback: Thank you! We received your feedback.
   not_support: If you need a reply, please contact <a href="https://support.github.com/">support</a>.
   privacy_policy: Privacy policy
@@ -236,6 +234,7 @@ product_landing:
   view: View all
   view_transcript: View video transcript
   all_docs: 'All {{ title }} docs'
+  all_content: 'View all {{ title }} content'
 product_guides:
   learning_paths_title: '{{ name }} learning paths'
   start_path: Start learning path

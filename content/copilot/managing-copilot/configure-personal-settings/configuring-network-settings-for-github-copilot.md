@@ -23,6 +23,8 @@ By default, {% data variables.product.prodname_copilot %} connects to {% data va
 
 Some networks use an HTTP proxy server to intercept Internet traffic before sending it to its intended location. Companies often use an HTTP proxy to detect suspicious traffic or restrict the content entering their networks. If you're working on a corporate network, you may need to configure {% data variables.product.prodname_copilot_short %} to connect via an HTTP proxy.
 
+> [!NOTE] The administrator of your proxy server or firewall also needs to configure network settings for {% data variables.product.prodname_copilot_short %} to work as expected. See "[AUTOTITLE](/copilot/managing-copilot/managing-github-copilot-in-your-organization/configuring-your-proxy-server-or-firewall-for-copilot)."
+
 ## Configuring proxy settings for {% data variables.product.prodname_copilot %}
 
 {% data variables.product.prodname_copilot %} supports basic HTTP proxy setups. If you need to authenticate to a proxy, {% data variables.product.prodname_copilot %} supports basic authentication or authentication with Kerberos. If the proxy URL starts `https://`, the proxy is not currently supported.
@@ -36,11 +38,7 @@ If you don't configure a proxy directly in your editor, {% data variables.produc
 * `HTTP_PROXY`
 * `http_proxy`
 
-{% note %}
-
-**Note:** You can use any of these variables to store the URL of a standard HTTP proxy. In standard usage, the `http` and `https` portions of these variables refer to the type of request being made, not the URL of the proxy itself. {% data variables.product.prodname_copilot %} does not follow this convention and uses the URL stored in the variable with the highest priority as the proxy for both HTTP and HTTPS requests.
-
-{% endnote %}
+> [!NOTE] You can use any of these variables to store the URL of a standard HTTP proxy. In standard usage, the `http` and `https` portions of these variables refer to the type of request being made, not the URL of the proxy itself. {% data variables.product.prodname_copilot %} does not follow this convention and uses the URL stored in the variable with the highest priority as the proxy for both HTTP and HTTPS requests.
 
 If you have configured a proxy but are still encountering connection errors, see "[AUTOTITLE](/copilot/troubleshooting-github-copilot/troubleshooting-network-errors-for-github-copilot#troubleshooting-proxy-errors)."
 
@@ -54,11 +52,7 @@ If you have configured a proxy but are still encountering connection errors, see
 1. In the "Host name" field, enter the hostname of your proxy server, and in the "Port number" field, enter the port number of your proxy server.
 1. Optionally, to configure {% data variables.product.prodname_copilot_short %} to ignore certificate errors, in the left sidebar, click **Tools**, click **Server Certificates**, then select or deselect **Accept non-trusted certificates automatically**.
 
-   {% warning %}
-
-   **Warning:** Ignoring certificate errors can cause security issues and is not recommended.
-
-   {% endwarning %}
+   > [!WARNING] Ignoring certificate errors can cause security issues and is not recommended.
 
 ### Basic authentication
 
@@ -77,11 +71,7 @@ This stores your credentials as plaintext in your editor's settings. Alternative
 1. In the text box under "Proxy", type the address of your proxy server, for example `http://localhost:3128`.
 1. Optionally, to configure {% data variables.product.prodname_copilot_short %} to ignore certificate errors, under "Proxy Strict SSL", select or deselect the checkbox.
 
-   {% warning %}
-
-   **Warning:** Ignoring certificate errors can cause security issues and is not recommended.
-
-   {% endwarning %}
+   > [!WARNING] Ignoring certificate errors can cause security issues and is not recommended.
 
 ### Basic authentication
 
@@ -147,11 +137,7 @@ If the default SPN isn't correct for your proxy, you can override the SPN in {% 
 
 Generally, if you're using company equipment, your company's IT department should have already installed any required certificates on your machine. If you need to install a certificate, see the following instructions.
 
-{% warning %}
-
-**Warning:** Installing a custom certificate is an instruction for your computer to trust the creator of the certificate, potentially allowing the creator to intercept all Internet traffic from your machine. You should be very careful to verify that you are installing the correct certificate.
-
-{% endwarning %}
+> [!WARNING] Installing a custom certificate is an instruction for your computer to trust the creator of the certificate, potentially allowing the creator to intercept all Internet traffic from your machine. You should be very careful to verify that you are installing the correct certificate.
 
 * For Windows, see [Installing the trusted root certificate](https://learn.microsoft.com/en-us/skype-sdk/sdn/articles/installing-the-trusted-root-certificate) in the Microsoft documentation.
 * For macOS, see [Add certificates to a keychain using Keychain Access on Mac](https://support.apple.com/en-gb/guide/keychain-access/kyca2431/mac) in the Keychain Access User Guide.

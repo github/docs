@@ -51,6 +51,8 @@ When you want to use an {% data variables.product.prodname_oauth_app %} that int
 
 {% endtip %}
 
+{% data reusables.user-settings.token_access_capabilities %} For example, an application can create an access token that is configured with an `admin:org` scope, but if the user of the application is not an organization owner, the application will not be granted administrative access to the organization.
+
 {% data reusables.apps.oauth-token-limit %}
 
 ### Types of requested data

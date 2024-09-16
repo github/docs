@@ -46,12 +46,9 @@ export default async function contextualizeSearch(req, res, next) {
     }
   }
 
-  // Feature flag
-  if (
-    ['enterprise-cloud', 'enterprise-server'].includes(req.context.currentVersion.split('@')[0])
-  ) {
-    search.aggregate = ['toplevel']
-  }
+  // This enables so that when the search is sent to Elasticsearch
+  // it will request an aggregate by these keyword fields.
+  search.aggregate = ['toplevel']
 
   req.context.search = { search, validationErrors }
 
@@ -67,10 +64,9 @@ export default async function contextualizeSearch(req, res, next) {
         // Do 2 searches. One without filtering
         const { toplevel, ...searchWithoutFilter } = search
         searchWithoutFilter.size = 0
-        const { meta, aggregations } = await getProxySearch(searchWithoutFilter)
+        const { aggregations } = await getProxySearch(searchWithoutFilter)
         const { aggregate, ...searchWithoutAggregate } = search
         req.context.search.results = await getProxySearch(searchWithoutAggregate)
-        req.context.search.results.meta = meta
         req.context.search.results.aggregations = aggregations
       } else {
         req.context.search.results = await getProxySearch(search)
@@ -87,9 +83,8 @@ export default async function contextualizeSearch(req, res, next) {
           // Do 2 searches. One without filtering
           const { toplevel, ...searchWithoutFilter } = search
           searchWithoutFilter.size = 0
-          const { meta, aggregations } = await timed(searchWithoutFilter)
+          const { aggregations } = await timed(searchWithoutFilter)
           req.context.search.results = await timed(search)
-          req.context.search.results.meta = meta
           req.context.search.results.aggregations = aggregations
         } else {
           req.context.search.results = await timed(search)

@@ -1,7 +1,7 @@
 import type { Response } from 'express'
 import cheerio from 'cheerio'
 
-import warmServer from '@/frame/lib/warm-server.js'
+import warmServer from '@/frame/lib/warm-server'
 import { liquid } from '@/content-render/index.js'
 import shortVersions from '@/versions/middleware/short-versions.js'
 import contextualize from '@/frame/middleware/context/context'
@@ -128,9 +128,9 @@ async function renderInnerHTML(page: Page, permalink: Permalink) {
     context: {},
   }
   await contextualize(req as ExtendedRequest, res as Response, next)
-  await shortVersions(req, res, next)
+  await shortVersions(req as ExtendedRequest, res as Response, next)
   await findPage(req, res, next)
-  await features(req, res, next)
+  features(req as ExtendedRequest, res as Response, next)
 
   const markdown = await liquid.parseAndRender(page.markdown, req.context)
   const processor = createMinimalProcessor(req.context)

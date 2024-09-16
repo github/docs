@@ -14,9 +14,9 @@ topics:
   - Community
 ---
 
-Every repository on {% data variables.location.product_location %} comes equipped with a section for hosting documentation, called a wiki. You can use your repository's wiki to  share long-form content about your project, such as how to use it, how you designed it, or its core principles. A README file quickly tells what your project can do, while you can use a wiki to provide additional documentation. For more information, see "[AUTOTITLE](/repositories/managing-your-repositorys-settings-and-features/customizing-your-repository/about-readmes)."
+Every repository on {% data variables.product.product_name %} comes equipped with a section for hosting documentation, called a wiki. You can use your repository's wiki to  share long-form content about your project, such as how to use it, how you designed it, or its core principles. A README file quickly tells what your project can do, while you can use a wiki to provide additional documentation. For more information, see "[AUTOTITLE](/repositories/managing-your-repositorys-settings-and-features/customizing-your-repository/about-readmes)."
 
-With wikis, you can write content just like everywhere else on {% data variables.product.product_name %}. For more information, see "[AUTOTITLE](/get-started/writing-on-github/getting-started-with-writing-and-formatting-on-github)." We use [our open-source Markup library](https://github.com/github/markup) to convert different formats into HTML, so you can choose to write in Markdown or any other supported format.
+With wikis, you can write content just like everywhere else on {% data variables.product.prodname_dotcom %}. For more information, see "[AUTOTITLE](/get-started/writing-on-github/getting-started-with-writing-and-formatting-on-github)." We use [our open-source Markup library](https://github.com/github/markup) to convert different formats into HTML, so you can choose to write in Markdown or any other supported format.
 
 {% data reusables.getting-started.math-and-diagrams %}
 
@@ -29,14 +29,14 @@ You can edit wikis directly on {% data variables.product.product_name %}, or you
 
 **Note:** Search engines will only index wikis with 500 or more stars that you configure to prevent public editing. For more information, see "[AUTOTITLE](/communities/documenting-your-project-with-wikis/changing-access-permissions-for-wikis)."
 
-If you need search engines to index your content, you can use [{% data variables.product.prodname_pages %}](/pages) in a public repository.
+If you need search engines to index your content, you can use {% data variables.product.prodname_pages %} in a public repository. For more information, see "[{% data variables.product.prodname_pages %}](/pages)."
 
 {% endnote %}
 {% endif %}
 
 {% note %}
 
-**Note:** For performance reasons, wikis have a soft limit of 5,000 pages. If you exceed this limit, some pages may be inaccessible to users.
+**Note:** For performance reasons, wikis have a soft limit of 5,000 total files, regardless of file type. If you exceed this limit, some pages may be inaccessible to users. If you need a larger wiki, we recommend using {% data variables.product.prodname_pages %}. For more information, see "[{% data variables.product.prodname_pages %}](/pages)."
 
 {% endnote %}
 

@@ -14,7 +14,7 @@ topics:
 {% ifversion ghec %}
 {% webui %}
 
-You can use {% data variables.product.prodname_copilot_chat_dotcom %} to get answers to coding-related questions, such as how best to code something, how to fix a bug, or how someone else's code works. For full details of what {% data variables.product.prodname_copilot_short %} can do, see "[AUTOTITLE](/copilot/about-github-copilot)."
+You can use {% data variables.product.prodname_copilot_chat_dotcom %} to get answers to coding-related questions, such as how best to code something, how to fix a bug, or how someone else's code works. For full details of what {% data variables.product.prodname_copilot_short %} can do, see "[AUTOTITLE](/copilot/about-github-copilot/what-is-github-copilot)."
 
 Instructions for using {% data variables.product.prodname_copilot_short %} differ depending on whether you are in an editor or on {% data variables.product.prodname_dotcom_the_website %}. This version of the quickstart is for {% data variables.product.prodname_dotcom_the_website %}. Click the tabs above for instructions on using {% data variables.product.prodname_copilot_short %} in an editor.
 
@@ -33,9 +33,9 @@ Instructions for using {% data variables.product.prodname_copilot_short %} diffe
 
    For example, you could enter:
 
-   - Explain this file.
-   - How could I improve this code?
-   - How can I test this code?
+   * Explain this file.
+   * How could I improve this code?
+   * How can I test this code?
 
    {% data variables.product.prodname_copilot_short %} responds to your request in the panel.
 
@@ -45,20 +45,21 @@ Instructions for using {% data variables.product.prodname_copilot_short %} diffe
 
 There are many more things you can do with {% data variables.product.prodname_copilot_chat_dotcom %}. For example:
 
-- Ask a general question about software development
-- Ask exploratory questions about a repository
-- Ask a question about a knowledge base
-- Find out about the changes in a pull request
-- Ask a question about a specific issue or commit
+* Ask a general question about software development
+* Ask exploratory questions about a repository
+* Ask a question about a knowledge base
+* Find out about the changes in a pull request
+* Ask a question about a specific issue or commit
 
 For more information, see "[AUTOTITLE](/copilot/github-copilot-chat/copilot-chat-in-github/using-github-copilot-chat-in-githubcom)."
 
 ## Next steps
 
-- **Find out more about {% data variables.product.prodname_copilot_chat %}** - See "[AUTOTITLE](/copilot/github-copilot-chat/using-github-copilot-chat-in-your-ide){% ifversion fpt %}.{% endif %}"{% ifversion ghec %} and "[AUTOTITLE](/copilot/github-copilot-enterprise/copilot-chat-in-github/using-github-copilot-chat-in-githubcom)."{% endif %}
-- **Get {% data variables.product.prodname_copilot_short %} code completion suggestions in an IDE** - See "[AUTOTITLE](/enterprise-cloud@latest/copilot/using-github-copilot/using-github-copilot-code-suggestions-in-your-editor)."
-- **Use {% data variables.product.prodname_copilot_short %} on your mobile device** - See "[AUTOTITLE](/copilot/github-copilot-chat/copilot-chat-in-github-mobile/using-github-copilot-chat-in-github-mobile)."
-- **Use {% data variables.product.prodname_copilot_short %} on the command line** - See "[AUTOTITLE](/copilot/github-copilot-in-the-cli/using-github-copilot-in-the-cli)."
+* **Find out more about {% data variables.product.prodname_copilot_chat %}** - See "[AUTOTITLE](/copilot/github-copilot-chat/using-github-copilot-chat-in-your-ide){% ifversion fpt %}.{% endif %}"{% ifversion ghec %} and "[AUTOTITLE](/copilot/github-copilot-enterprise/copilot-chat-in-github/using-github-copilot-chat-in-githubcom)."{% endif %}
+* **Get {% data variables.product.prodname_copilot_short %} code completion suggestions in an IDE** - See "[AUTOTITLE](/enterprise-cloud@latest/copilot/using-github-copilot/using-github-copilot-code-suggestions-in-your-editor)."
+* **Learn how to write effective prompts** - See "[AUTOTITLE](/copilot/using-github-copilot/prompt-engineering-for-github-copilot)."
+* **Use {% data variables.product.prodname_copilot_short %} on your mobile device** - See "[AUTOTITLE](/copilot/github-copilot-chat/copilot-chat-in-github-mobile/using-github-copilot-chat-in-github-mobile)."
+* **Use {% data variables.product.prodname_copilot_short %} on the command line** - See "[AUTOTITLE](/copilot/github-copilot-in-the-cli/using-github-copilot-in-the-cli)."
 
 {% endwebui %}
 {% endif %}
@@ -76,7 +77,7 @@ Instructions for using {% data variables.product.prodname_copilot_short %} diffe
 ## Prerequisites
 
 {% ifversion ghec %}
-- **{% data variables.product.prodname_copilot_short %} subscription** - To use {% data variables.product.prodname_copilot %} you must have been assigned a seat as part of a {% data variables.product.prodname_copilot_for_business %} or {% data variables.product.prodname_copilot_enterprise %} subscription.
+* **{% data variables.product.prodname_copilot_short %} subscription** - To use {% data variables.product.prodname_copilot %} you must have been assigned a seat as part of a {% data variables.product.prodname_copilot_for_business %} or {% data variables.product.prodname_copilot_enterprise %} subscription.
 {% endif %}
 {% data reusables.copilot.vscode-prerequisites %}
 
