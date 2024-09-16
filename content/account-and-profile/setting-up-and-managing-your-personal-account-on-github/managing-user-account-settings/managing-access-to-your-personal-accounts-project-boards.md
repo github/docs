@@ -10,9 +10,7 @@ redirect_from:
   - /account-and-profile/setting-up-and-managing-your-github-user-account/managing-user-account-settings/managing-access-to-your-user-accounts-project-boards
   - /account-and-profile/setting-up-and-managing-your-personal-account-on-github/managing-personal-account-settings/managing-access-to-your-personal-accounts-project-boards
 versions:
-  fpt: '*'
-  ghes: '*'
-  ghec: '*'
+  feature: projects-v1
 topics:
   - Accounts
 shortTitle: 'Manage {% data variables.projects.projects_v1_boards %} access'

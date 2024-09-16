@@ -328,6 +328,17 @@
   hasValidityCheck: false
   isduplicate: false
 - provider: Azure
+  supportedSecret: Unclassified Azure Common Annotated Security Key
+  secretType: azure_common_annotated_security_key
+  versions:
+    fpt: '*'
+    ghec: '*'
+  isPublic: true
+  isPrivateWithGhas: false
+  hasPushProtection: false
+  hasValidityCheck: false
+  isduplicate: false
+- provider: Azure
   supportedSecret: Azure Communication Services Connection String
   secretType: azure_communication_services_connection_string
   versions:
@@ -1739,7 +1750,29 @@
     fpt: '*'
     ghec: '*'
   isPublic: true
-  isPrivateWithGhas: false
+  isPrivateWithGhas: true
+  hasPushProtection: false
+  hasValidityCheck: false
+  isduplicate: true
+- provider: Hugging Face
+  supportedSecret: Hugging Face Organization API Token
+  secretType: hf_org_api_key
+  versions:
+    fpt: '*'
+    ghec: '*'
+  isPublic: true
+  isPrivateWithGhas: true
+  hasPushProtection: false
+  hasValidityCheck: false
+  isduplicate: false
+- provider: Hugging Face
+  supportedSecret: Hugging Face User Access Token
+  secretType: hf_user_access_token
+  versions:
+    fpt: '*'
+    ghec: '*'
+  isPublic: true
+  isPrivateWithGhas: true
   hasPushProtection: false
   hasValidityCheck: false
   isduplicate: false
@@ -2572,7 +2605,7 @@
     ghes: '*'
   isPublic: true
   isPrivateWithGhas: true
-  hasPushProtection: false
+  hasPushProtection: true
   hasValidityCheck: false
   isduplicate: false
 - provider: ReadMe
@@ -2606,7 +2639,7 @@
     fpt: '*'
     ghec: '*'
   isPublic: true
-  isPrivateWithGhas: false
+  isPrivateWithGhas: true
   hasPushProtection: false
   hasValidityCheck: false
   isduplicate: false
@@ -2725,6 +2758,17 @@
     fpt: '*'
     ghec: '*'
     ghes: '*'
+  isPublic: false
+  isPrivateWithGhas: true
+  hasPushProtection: false
+  hasValidityCheck: false
+  isduplicate: false
+- provider: Shopee
+  supportedSecret: Shopee Open Platform Partner Key
+  secretType: shopee_open_platform_partner_key
+  versions:
+    fpt: '*'
+    ghec: '*'
   isPublic: false
   isPrivateWithGhas: true
   hasPushProtection: false

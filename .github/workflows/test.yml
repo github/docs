@@ -66,6 +66,7 @@ jobs:
           - observability
           # - open-source
           - pageinfo
+          - pagelist
           # - pages
           - products
           - redirects
