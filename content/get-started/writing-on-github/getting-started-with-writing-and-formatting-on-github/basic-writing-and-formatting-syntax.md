@@ -158,9 +158,9 @@ Link to the sample section: [Link Text](#sample-section).
 
 Link to the helpful section: [Link Text](#thisll--be-a-helpful-section-about-the-greek-letter-Θ).
 
-Link to the first non-unique section: [Name](#this-heading-is-not-unique-in-the-file).
+Link to the first non-unique section: [Link Text](#this-heading-is-not-unique-in-the-file).
 
-Link to the second non-unique section: [Name](#this-heading-is-not-unique-in-the-file-1).
+Link to the second non-unique section: [Link Text](#this-heading-is-not-unique-in-the-file-1).
 ```
 
 > [!NOTE]
@@ -172,7 +172,7 @@ Link to the second non-unique section: [Name](#this-heading-is-not-unique-in-the
 
 ## Custom anchors
 
-You can use standard HTML anchor tags (`<a name="unique-anchor-name"></a>`) to create navigation anchor points for any location in the document.
+You can use standard HTML anchor tags (`<a name="unique-anchor-name"></a>`) to create navigation anchor points for any location in the document. To avoid ambiguous references, use a unique naming scheme for anchor tags, such as adding a prefix to the `name` attribute value.
 
 > [!NOTE]
 > Custom anchors will not be included in the document outline/Table of Contents.
@@ -195,8 +195,7 @@ Some text I want to provide a direct link to, but which doesn't have its own hea
 ```
 
 > [!TIP]
-> Custom anchors are not considered by the automatic naming and numbering behavior of automatic heading links.\
-> To avoid ambiguous references, use a unique naming scheme for custom anchors, such as adding a prefix to the `id` attribute value of custom anchors.
+> Custom anchors are not considered by the automatic naming and numbering behavior of automatic heading links.
 
 ## Images
 
