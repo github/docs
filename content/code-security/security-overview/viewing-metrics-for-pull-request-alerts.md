@@ -23,16 +23,17 @@ The metrics overview for {% data variables.product.prodname_codeql %} pull reque
 
 The overview shows you a summary of how many vulnerabilities prevented by {% data variables.product.prodname_codeql %} have been caught in pull requests. The metrics are only tracked for pull requests that have been merged into the default branches of repositories in your organization.
 
-You can also find more granular metrics, such as how many alerts were:
+You can also find more granular metrics, such as how many alerts were fixed with and without {% data variables.product.prodname_copilot_autofix_short %} suggestions, how many were unresolved and merged, and how many were dismissed as false positive or as risk accepted.
 
-* Fixed with and without {% data variables.product.prodname_copilot_autofix_short %} suggestions.
-* Unresolved and merged.
-* Dismissed as false positive.
-* Dismissed as risk accepted.
+You can also view:
 
-You can also view the most common rules that are causing alerts in your organization.
+* The rules that are causing the most alerts in your organization, and how many alerts each rule is associated with.
 
-You can also apply filters to the data. The metrics are based on activity from the default period or your selected period.
+* The number of alerts that were fixed with an accepted {% data variables.product.prodname_copilot_autofix_short %} suggestion, displayed as a fraction of how many total {% data variables.product.prodname_copilot_autofix_short %} suggestions were available.
+
+* Remediation rates, in a graph showing the percentage of alerts that were remediated with an available {% data variables.product.prodname_copilot_autofix_short %} suggestion, and the percentage of alerts that were remediated without a {% data variables.product.prodname_copilot_autofix_short %} suggestion.
+
+You can apply filters to the data. The metrics are based on activity from the default period or your selected period.
 
 ![Screenshot of the "CodeQL pull request alerts" view for an organization, showing status and trends over 90 days.](/assets/images/help/security-overview/security-overview-codeql-pull-requests-alerts-report.png)
 

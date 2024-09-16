@@ -57,11 +57,7 @@ For example, you link your Azure subscription to your organization {% ifversion 
 
 * You must have {% ifversion ghec %}either {% endif %}an organization {% ifversion ghec %}or an enterprise {% endif %}account on {% data variables.location.product_location %}. For more information about the differences between these two types of accounts, see "[AUTOTITLE](/get-started/learning-about-github/types-of-github-accounts)."
 
-  {%- ifversion ghec %}
-
-  * {% data reusables.enterprise.ghec-trial-azure %}
-    {%- endif %}
-  * If the organization you want to connect an Azure subscription to belongs to an enterprise account, you must connect your Azure subscription to the enterprise account, not the organization. {% ifversion fpt %}For more information, see [the {% data variables.product.prodname_ghe_cloud %} version](/enterprise-cloud@latest/{{ currentArticle }}) of this article.{% endif %}
+  If the organization you want to connect an Azure subscription to belongs to an enterprise account, you must connect your Azure subscription to the enterprise account, not the organization. {% ifversion fpt %}For more information, see [the {% data variables.product.prodname_ghe_cloud %} version](/enterprise-cloud@latest/{{ currentArticle }}) of this article.{% endif %}
 
 * You must be an owner of the organization{% ifversion ghec %} or enterprise{% endif %} account. For more information, see {% ifversion fpt %}"[AUTOTITLE](/organizations/managing-peoples-access-to-your-organization-with-roles/roles-in-an-organization)."{% elsif ghec %}the following articles.
 
@@ -76,12 +72,6 @@ For example, you link your Azure subscription to your organization {% ifversion 
 * To select an Azure subscription from the list of available subscriptions, the user must be an owner of the Azure subscription. For more information, see [Assign a user as an administrator of an Azure subscription](https://learn.microsoft.com/azure/role-based-access-control/role-assignments-portal-subscription-admin) in Microsoft docs.
 
 * You must know your Azure subscription ID. For more information, see [Get subscription and tenant IDs in the Azure portal](https://learn.microsoft.com/en-us/azure/azure-portal/get-subscription-tenant-id) in the Microsoft Docs or [contact Azure support](https://azure.microsoft.com/support/).
-
-## Video demonstration of connecting a subscription
-
-To connect an Azure subscription, you'll need appropriate access permissions on both {% data variables.product.product_name %} and the Azure billing portal. This may require coordination between two different people.
-
-To see a demo of the process from beginning to end, see [Billing GitHub consumption through an Azure subscription](https://www.youtube.com/watch?v=DAiIhJKCt8s&ab_channel=GitHub) on {% data variables.product.company_short %}'s YouTube channel. This video demonstrates the process for an enterprise account. If you're connecting a subscription to an organization account, see "[Connecting your Azure subscription to your organization account](/free-pro-team@latest/billing/managing-the-plan-for-your-github-account/connecting-an-azure-subscription#connecting-your-azure-subscription-to-your-organization-account)."
 
 {% ifversion fpt %}
 

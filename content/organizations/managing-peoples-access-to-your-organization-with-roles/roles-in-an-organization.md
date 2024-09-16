@@ -150,7 +150,9 @@ Some of the features listed below are limited to organizations using {% data var
 | Delete the organization account, including all repositories | {% octicon "check" aria-label="Yes" %} | {% octicon "x" aria-label="No" %} | {% octicon "x" aria-label="No" %} | {% octicon "x" aria-label="No" %} | {% octicon "x" aria-label="No" %} |
 | Create teams (see "[AUTOTITLE](/organizations/managing-organization-settings/setting-team-creation-permissions-in-your-organization)") | {% octicon "check" aria-label="Yes" %} | {% octicon "check" aria-label="Yes" %} | {% octicon "check" aria-label="Yes" %} | {% octicon "x" aria-label="No" %} | {% octicon "check" aria-label="Yes" %}  |
 | [Move teams in an organization's hierarchy](/organizations/organizing-members-into-teams/moving-a-team-in-your-organizations-hierarchy) | {% octicon "check" aria-label="Yes" %} | {% octicon "x" aria-label="No" %} | {% octicon "x" aria-label="No" %} | {% octicon "x" aria-label="No" %} | {% octicon "x" aria-label="No" %} |
+| {% ifversion projects-v1 %} |
 | Create projects (see "[AUTOTITLE](/organizations/managing-access-to-your-organizations-project-boards/project-board-permissions-for-an-organization)") | {% octicon "check" aria-label="Yes" %} | {% octicon "check" aria-label="Yes" %} | {% octicon "check" aria-label="Yes" %} | {% octicon "x" aria-label="No" %} | {% octicon "check" aria-label="Yes" %}  |
+| {% endif %} |
 | See all organization members and teams | {% octicon "check" aria-label="Yes" %} | {% octicon "check" aria-label="Yes" %} | {% octicon "check" aria-label="Yes" %} | {% octicon "x" aria-label="No" %} | {% octicon "check" aria-label="Yes" %}  |
 | @mention any visible team | {% octicon "check" aria-label="Yes" %} | {% octicon "check" aria-label="Yes" %} | {% octicon "check" aria-label="Yes" %} | {% octicon "x" aria-label="No" %} | {% octicon "check" aria-label="Yes" %}  |
 | Can be made a _team maintainer_ | {% octicon "check" aria-label="Yes" %} | {% octicon "check" aria-label="Yes" %} | {% octicon "check" aria-label="Yes" %} | {% octicon "x" aria-label="No" %} | {% octicon "check" aria-label="Yes" %} |
@@ -247,7 +249,9 @@ Some of the features listed below are limited to organizations using {% data var
 | Manage {% data variables.product.prodname_dependabot_security_updates %} (see "[AUTOTITLE](/code-security/dependabot/dependabot-security-updates/about-dependabot-security-updates)") | {% octicon "check" aria-label="Yes" %} | {% octicon "x" aria-label="No" %} | {% octicon "check" aria-label="Yes" %} |
 | {% endif %} |
 | Manage an organization's SSH certificate authorities (see "[AUTOTITLE](/organizations/managing-git-access-to-your-organizations-repositories/managing-your-organizations-ssh-certificate-authorities)") | {% octicon "check" aria-label="Yes" %} | {% octicon "x" aria-label="No" %} | {% octicon "x" aria-label="No" %} |
+| {% ifversion projects-v1 %} |
 | Create {% data variables.projects.projects_v1_boards %} (see "[AUTOTITLE](/organizations/managing-access-to-your-organizations-project-boards/project-board-permissions-for-an-organization)") | {% octicon "check" aria-label="Yes" %} | {% octicon "check" aria-label="Yes" %} | {% octicon "check" aria-label="Yes" %} |
+| {% endif %} |
 | {% ifversion team-discussions %} |
 | View and post public team discussions to **all teams** (see "[AUTOTITLE](/organizations/collaborating-with-your-team/about-team-discussions)") | {% octicon "check" aria-label="Yes" %} | {% octicon "check" aria-label="Yes" %} | {% octicon "check" aria-label="Yes" %}  |
 | View and post private team discussions to **all teams** (see "[AUTOTITLE](/organizations/collaborating-with-your-team/about-team-discussions)") | {% octicon "check" aria-label="Yes" %} | {% octicon "x" aria-label="No" %} | {% octicon "x" aria-label="No" %} |
@@ -303,7 +307,9 @@ Some of the features listed below are limited to organizations using {% data var
 | Can be made a _team maintainer_ | {% octicon "check" aria-label="Yes" %} | {% octicon "check" aria-label="Yes" %} |
 | Transfer repositories | {% octicon "check" aria-label="Yes" %} | {% octicon "x" aria-label="No" %} |
 | Manage an organization's SSH certificate authorities (see "[AUTOTITLE](/organizations/managing-git-access-to-your-organizations-repositories/managing-your-organizations-ssh-certificate-authorities)") | {% octicon "check" aria-label="Yes" %} | {% octicon "x" aria-label="No" %} |
+| {% ifversion projects-v1 %} |
 | Create {% data variables.projects.projects_v1_boards %} (see "[AUTOTITLE](/organizations/managing-access-to-your-organizations-project-boards/project-board-permissions-for-an-organization)") | {% octicon "check" aria-label="Yes" %} | {% octicon "check" aria-label="Yes" %} | {% octicon "x" aria-label="No" %} |
+| {% endif %} |
 | {% ifversion team-discussions %} |
 | View and post public team discussions to **all teams** (see "[AUTOTITLE](/organizations/collaborating-with-your-team/about-team-discussions)") | {% octicon "check" aria-label="Yes" %} | {% octicon "check" aria-label="Yes" %} | {% octicon "x" aria-label="No" %} |
 | View and post private team discussions to **all teams** (see "[AUTOTITLE](/organizations/collaborating-with-your-team/about-team-discussions)") | {% octicon "check" aria-label="Yes" %} | {% octicon "x" aria-label="No" %} |
@@ -330,5 +336,5 @@ Some of the features listed below are limited to organizations using {% data var
 
 ## Further reading
 
-* "[AUTOTITLE](/organizations/managing-user-access-to-your-organizations-repositories/managing-repository-roles/repository-roles-for-an-organization)"
-* "[AUTOTITLE](/organizations/managing-access-to-your-organizations-project-boards/project-board-permissions-for-an-organization)"
+* "[AUTOTITLE](/organizations/managing-user-access-to-your-organizations-repositories/managing-repository-roles/repository-roles-for-an-organization)"{% ifversion projects-v1 %}
+* "[AUTOTITLE](/organizations/managing-access-to-your-organizations-project-boards/project-board-permissions-for-an-organization)"{% endif %}

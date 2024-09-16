@@ -67,9 +67,6 @@ jobs:
           --health-interval 10s
           --health-timeout 5s
           --health-retries 5
-        ports:
-          # Maps tcp port 5432 on service container to the host
-          - 5432:5432
 
     steps:
       # Downloads a copy of the code in your repository before running CI tests
@@ -123,9 +120,6 @@ jobs:
           --health-interval 10s
           --health-timeout 5s
           --health-retries 5
-        ports:
-          # Maps tcp port 5432 on service container to the host
-          - 5432:5432
 ```
 
 ### Configuring the steps for jobs in containers

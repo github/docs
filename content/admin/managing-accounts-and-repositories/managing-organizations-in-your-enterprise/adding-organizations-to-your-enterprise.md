@@ -47,9 +47,10 @@ After you add an existing organization to your enterprise, the organization's re
 
 * **Trial enterprise:** Certain features may be disabled if added to a trial enterprise. See "[AUTOTITLE](/admin/overview/setting-up-a-trial-of-github-enterprise-cloud#features-not-included-in-the-trial)."
 * **{% data variables.product.prodname_github_connect %}:** If the organization was connected to {% data variables.product.prodname_ghe_server %} using {% data variables.product.prodname_github_connect %}, adding the organization to an enterprise will not update the connection. {% data variables.product.prodname_github_connect %} features will no longer function for the organization. To continue using {% data variables.product.prodname_github_connect %}, you must disable and re-enable the feature. See "[AUTOTITLE](/enterprise-server@latest/admin/configuration/configuring-github-connect/managing-github-connect)" in the {% data variables.product.prodname_ghe_server %} documentation.
-* **{% data variables.product.prodname_marketplace %} apps:** If the organization uses billed {% data variables.product.prodname_marketplace %} apps, the organization can continue to use the apps, but usage will be billable to the enterprise.
+* **{% data variables.product.prodname_marketplace %} apps:** If you add a standalone organization that uses billed {% data variables.product.prodname_marketplace %} apps, the organization can continue to use the apps, but usage will be billable to the enterprise.
   * If your enterprise is billed via invoice, contact the app vendor and pay directly.
   * If your enterprise is billed via credit card or PayPal, billing continues automatically.
+  To transfer an existing organization with billed apps between enterprise accounts, first remove the billed apps and then re-add the apps after the transfer is complete.
 * **Sponsorships:** Any sponsorships by the organization will be canceled.
 * **Coupons:** Any coupons will be removed from the organization. To reapply the coupon, [contact our sales team](https://github.com/enterprise/contact).
 
@@ -95,6 +96,8 @@ After you invite the organization, and before an owner approves the invitation, 
 Enterprise owners can transfer existing organizations between enterprise accounts. You must be an enterprise owner of both enterprise accounts.
 
 You cannot transfer an existing organization to or from an {% data variables.enterprise.prodname_emu_enterprise %} or an enterprise account that is currently enrolled in a trial of {% data variables.product.prodname_ghe_cloud %}.
+
+If the existing organization uses billed apps, make sure to remove the billed apps before transferring. After the transfer is complete, re-add the apps.
 
 {% data reusables.enterprise-accounts.access-enterprise %}
 {%- ifversion enterprise-readme %}
