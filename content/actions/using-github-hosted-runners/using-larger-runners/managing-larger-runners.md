@@ -12,7 +12,6 @@ redirect_from:
 
 > [!NOTE]
 > * {% data reusables.actions.windows-linux-larger-runners-note %}
-> * ARM-powered runners are currently in beta and are subject to change.
 
 {% ifversion ghec %}
 

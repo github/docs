@@ -54,6 +54,12 @@ In repositories where {% data variables.product.prodname_code_scanning %} is con
 
 If your pull request targets a protected branch that uses {% data variables.product.prodname_code_scanning %}, and the repository owner has configured required status checks, then the "{% data variables.product.prodname_code_scanning_caps %} results" check must pass before you can merge the pull request. For more information, see "[AUTOTITLE](/repositories/configuring-branches-and-merges-in-your-repository/managing-protected-branches/about-protected-branches#require-status-checks-before-merging)."
 
+{% ifversion copilot-chat-ghas-alerts %}
+
+With a {% data variables.product.prodname_copilot_enterprise %} license, you can also ask {% data variables.product.prodname_copilot_chat %} for help to better understand {% data variables.product.prodname_code_scanning %} alerts in repositories in your organization. For more information, see "[AUTOTITLE](/copilot/using-github-copilot/asking-github-copilot-questions-in-githubcom#asking-questions-about-alerts-from-github-advanced-security-features)."
+
+{% endif %}
+
 ## About {% data variables.product.prodname_code_scanning %} as a pull request check
 
 There are many options for configuring {% data variables.product.prodname_code_scanning %} as a pull request check, so the exact configuration of each repository will vary and some will have more than one check.

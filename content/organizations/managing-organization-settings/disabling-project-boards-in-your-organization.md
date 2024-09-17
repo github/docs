@@ -55,7 +55,7 @@ You can control whether organization members can create {% data variables.projec
 ## Further reading
 
 {% ifversion projects-v2 %}- "[AUTOTITLE](/issues/planning-and-tracking-with-projects/learning-about-projects/about-projects)"{% endif %}
-* "[AUTOTITLE](/issues/organizing-your-work-with-project-boards/managing-project-boards/about-project-boards)"
+{% ifversion projects-v1 %}* "[AUTOTITLE](/issues/organizing-your-work-with-project-boards/managing-project-boards/about-project-boards)"
 * "[AUTOTITLE](/issues/organizing-your-work-with-project-boards/managing-project-boards/closing-a-project-board)"
-* "[AUTOTITLE](/issues/organizing-your-work-with-project-boards/managing-project-boards/deleting-a-project-board)"
+* "[AUTOTITLE](/issues/organizing-your-work-with-project-boards/managing-project-boards/deleting-a-project-board)"{% endif %}
 * "[AUTOTITLE](/repositories/managing-your-repositorys-settings-and-features/enabling-features-for-your-repository/disabling-project-boards-in-a-repository)"

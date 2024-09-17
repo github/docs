@@ -182,7 +182,7 @@ The subject claim includes the environment name when the job references an envir
 
 You can configure a subject that filters for a specific [environment](/actions/deployment/targeting-different-environments/managing-environments-for-deployment) name. In this example, the workflow run must have originated from a job that has an environment named `Production`, in a repository named `octo-repo` that is owned by the `octo-org` organization:
 
-* Syntax: `repo:<orgName/repoName>:environment:<environmentName>`
+* Syntax: `repo:ORG-NAME/REPO-NAME:environment:ENVIRONMENT-NAME`
 * Example: `repo:octo-org/octo-repo:environment:Production`
 
 #### Filtering for `pull_request` events
@@ -191,7 +191,7 @@ The subject claim includes the `pull_request` string when the workflow is trigge
 
 You can configure a subject that filters for the [`pull_request`](/actions/using-workflows/events-that-trigger-workflows#pull_request) event. In this example, the workflow run must have been triggered by a `pull_request` event in a repository named `octo-repo` that is owned by the `octo-org` organization:
 
-* Syntax: `repo:<orgName/repoName>:pull_request`
+* Syntax: `repo:ORG-NAME/REPO-NAME:pull_request`
 * Example: `repo:octo-org/octo-repo:pull_request`
 
 #### Filtering for a specific branch
@@ -200,7 +200,7 @@ The subject claim includes the branch name of the workflow, but only if the job 
 
 You can configure a subject that filters for a specific branch name. In this example, the workflow run must have originated from a branch named `demo-branch`, in a repository named `octo-repo` that is owned by the `octo-org` organization:
 
-* Syntax:  `repo:<orgName/repoName>:ref:refs/heads/branchName`
+* Syntax:  `repo:ORG-NAME/REPO-NAME:ref:refs/heads/BRANCH-NAME`
 * Example: `repo:octo-org/octo-repo:ref:refs/heads/demo-branch`
 
 #### Filtering for a specific tag
@@ -209,7 +209,7 @@ The subject claim includes the tag name of the workflow, but only if the job doe
 
 You can create a subject that filters for specific tag. In this example, the workflow run must have originated with a tag named `demo-tag`, in a repository named `octo-repo` that is owned by the `octo-org` organization:
 
-* Syntax: `repo:<orgName/repoName>:ref:refs/tags/<tagName>`
+* Syntax: `repo:ORG-NAME/REPO-NAME:ref:refs/tags/TAG-NAME`
 * Example: `repo:octo-org/octo-repo:ref:refs/tags/demo-tag`
 
 ### Configuring the subject in your cloud provider
@@ -304,7 +304,7 @@ Customizing the claims results in a new format for the entire `sub` claim, which
 
 {% note %}
 
-**Note**: The `sub` claim uses the shortened form `repo` (for example, `repo:<orgName/repoName>`) instead of `repository` to reference the repository.
+**Note**: The `sub` claim uses the shortened form `repo` (for example, `repo:ORG-NAME/REPO-NAME`) instead of `repository` to reference the repository.
 
 {% endnote %}
 
@@ -368,7 +368,7 @@ The following example template combines the requirement of a specific reusable w
 
 {% data reusables.actions.use-request-body-api %}
 
-This example also demonstrates how to use `"context"` to define your conditions. This is the part that follows the repository in the [default `sub` format](/actions/deployment/security-hardening-your-deployments/about-security-hardening-with-openid-connect#example-subject-claims). For example, when the job references an environment, the context contains: `environment:<environmentName>`.
+This example also demonstrates how to use `"context"` to define your conditions. This is the part that follows the repository in the [default `sub` format](/actions/deployment/security-hardening-your-deployments/about-security-hardening-with-openid-connect#example-subject-claims). For example, when the job references an environment, the context contains: `environment:ENVIRONMENT-NAME`.
 
 ```json
 {
@@ -382,7 +382,7 @@ This example also demonstrates how to use `"context"` to define your conditions.
 
 In your cloud provider's OIDC configuration, configure the `sub` condition to require that claims must include specific values for `repo`, `context`, and `job_workflow_ref`.
 
-This customization template requires that the `sub` uses the following format: `repo:<orgName/repoName>:environment:<environmentName>:job_workflow_ref:<reusableWorkflowPath>`.
+This customization template requires that the `sub` uses the following format: `repo:ORG-NAME/REPO-NAME:environment:ENVIRONMENT-NAME:job_workflow_ref:REUSABLE-WORKFLOW-PATH`.
 For example: `"sub": "repo:octo-org/octo-repo:environment:prod:job_workflow_ref:octo-org/octo-automation/.github/workflows/oidc.yml@refs/heads/main"`
 
 #### Example: Granting access to a specific repository

@@ -69,7 +69,7 @@ If you need to use multiple accounts on {% data variables.location.product_locat
 
 {% ifversion ghes %}
 * **External authentication**
-  * Your site administrator may configure {% data variables.location.product_location %} to use external authentication instead of a username and password. For more information, see "[AUTOTITLE](/admin/identity-and-access-management/managing-iam-for-your-enterprise/about-authentication-for-your-enterprise#external-authentication)."{% endif %}{% ifversion fpt or ghec %}
+  * Your site administrator may configure {% data variables.location.product_location_enterprise %} to use external authentication instead of a username and password. For more information, see "[AUTOTITLE](/admin/identity-and-access-management/managing-iam-for-your-enterprise/about-authentication-for-your-enterprise#external-authentication)."{% endif %}{% ifversion fpt or ghec %}
 * **SAML single sign-on**
   * Before you can access resources owned by an organization or enterprise account that uses SAML single sign-on, you may need to also authenticate through an IdP. For more information, see "[AUTOTITLE](/authentication/authenticating-with-saml-single-sign-on/about-authentication-with-saml-single-sign-on){% ifversion fpt %}" in the {% data variables.product.prodname_ghe_cloud %} documentation.{% else %}."{% endif %}{% endif %}
 

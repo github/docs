@@ -157,7 +157,7 @@ If your job requires a database or cache service, you can use the [`services`](/
 jobs:
   container-job:
     runs-on: ubuntu-latest
-    container: node:10.18-jessie
+    container: node:20-bookworm-slim
     services:
       postgres:
         image: postgres

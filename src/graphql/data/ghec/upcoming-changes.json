@@ -1,4 +1,14 @@
 {
+  "2025-01-01": [
+    {
+      "location": "AddMobileDevicePublicKeyPayload.expiresAt",
+      "description": "<p><code>expiresAt</code> will be removed. Do not rely on this field, it is currently set to a date far in the future if a device key is expirationless</p>",
+      "reason": "<p>We are deprecating expirations for mobile device keys used in mobile 2FA</p>",
+      "date": "2025-01-01",
+      "criticality": "breaking",
+      "owner": "chriskirkland"
+    }
+  ],
   "2024-10-01": [
     {
       "location": "Workflow.hasWorkflowDispatchTrigger",

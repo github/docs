@@ -125,11 +125,13 @@ Some of the features listed below are limited to organizations using {% data var
 | Manage [branch protection rules](/repositories/configuring-branches-and-merges-in-your-repository/managing-protected-branches/managing-a-branch-protection-rule){% ifversion repo-rules %} and [repository rulesets](/repositories/configuring-branches-and-merges-in-your-repository/managing-rulesets/about-rulesets){% endif %} | {% octicon "x" aria-label="No" %} | {% octicon "x" aria-label="No" %} | {% octicon "x" aria-label="No" %} | {% octicon "x" aria-label="No" %} | {% octicon "check" aria-label="Yes" %} |
 | {% ifversion repo-rules %} |
 | View [rulesets for a repository](/repositories/configuring-branches-and-merges-in-your-repository/managing-rulesets/about-rulesets) | {% octicon "check" aria-label="Yes" %} | {% octicon "check" aria-label="Yes" %} | {% octicon "check" aria-label="Yes" %} | {% octicon "check" aria-label="Yes" %} | {% octicon "check" aria-label="Yes" %} |
-| {%- endif %} |
+| {% endif %} |
 | [Push to protected branches](/repositories/configuring-branches-and-merges-in-your-repository/managing-protected-branches/about-protected-branches) | {% octicon "x" aria-label="No" %} | {% octicon "x" aria-label="No" %} | {% octicon "x" aria-label="No" %} | {% octicon "check" aria-label="Yes" %} | {% octicon "check" aria-label="Yes" %} |
 | Merge pull requests on protected branches, even if there are no approving reviews | {% octicon "x" aria-label="No" %} | {% octicon "x" aria-label="No" %} | {% octicon "x" aria-label="No" %} | {% octicon "x" aria-label="No" %} | {% octicon "check" aria-label="Yes" %} |
+| {% ifversion ghes < 3.16 %} |
 | Create tags that match a [tag protection rule](/repositories/managing-your-repositorys-settings-and-features/managing-repository-settings/configuring-tag-protection-rules) | {% octicon "x" aria-label="No" %} | {% octicon "x" aria-label="No" %} | {% octicon "x" aria-label="No" %} | {% octicon "check" aria-label="Yes" %} | {% octicon "check" aria-label="Yes" %} |
 | Delete tags that match a [tag protection rule](/repositories/managing-your-repositorys-settings-and-features/managing-repository-settings/configuring-tag-protection-rules) | {% octicon "x" aria-label="No" %} | {% octicon "x" aria-label="No" %} | {% octicon "x" aria-label="No" %} | {% octicon "x" aria-label="No" %} | {% octicon "check" aria-label="Yes" %} |
+| {% endif %} |
 | [Create and edit repository social cards](/repositories/managing-your-repositorys-settings-and-features/customizing-your-repository/customizing-your-repositorys-social-media-preview) | {% octicon "x" aria-label="No" %} | {% octicon "x" aria-label="No" %} | {% octicon "x" aria-label="No" %} | {% octicon "check" aria-label="Yes" %} | {% octicon "check" aria-label="Yes" %} |
 | {% ifversion fpt or ghec %} |
 | Limit [interactions in a repository](/communities/moderating-comments-and-conversations/limiting-interactions-in-your-repository)| {% octicon "x" aria-label="No" %} | {% octicon "x" aria-label="No" %} | {% octicon "x" aria-label="No" %} | {% octicon "check" aria-label="Yes" %} | {% octicon "check" aria-label="Yes" %} |
@@ -211,5 +213,5 @@ In this section, you can find the access required for security features, such as
 ## Further reading
 
 * "[AUTOTITLE](/organizations/managing-user-access-to-your-organizations-repositories)"
-* "[AUTOTITLE](/organizations/managing-user-access-to-your-organizations-repositories/managing-outside-collaborators/adding-outside-collaborators-to-repositories-in-your-organization)"
-* "[AUTOTITLE](/organizations/managing-access-to-your-organizations-project-boards/project-board-permissions-for-an-organization)"
+* "[AUTOTITLE](/organizations/managing-user-access-to-your-organizations-repositories/managing-outside-collaborators/adding-outside-collaborators-to-repositories-in-your-organization)"{% ifversion projects-v1 %}
+* "[AUTOTITLE](/organizations/managing-access-to-your-organizations-project-boards/project-board-permissions-for-an-organization)"{% endif %}

@@ -51,7 +51,8 @@ Organization owners can prevent {% data variables.product.pat_v1_plural %} from 
 {% data reusables.profile.access_org %}
 {% data reusables.profile.org_settings %}
 1. In the left sidebar, under **{% octicon "key" aria-hidden="true" %} {% data variables.product.pat_generic_caps %}s**, click **Settings**.
-1. Under **{% data variables.product.pat_v1_caps %}**, select the option that meets your needs:
+{% ifversion tabbed-pat-settings-ui %} 1. Select the **Tokens (classic)** tab to access the {% data variables.product.pat_v1_plural %} settings.
+{% endif %}1. Under **{% data variables.product.pat_v1_caps %}**, select the option that meets your needs:
    * **Allow access via {% data variables.product.pat_v1_plural %}**: {% data variables.product.pat_v1_caps_plural %} can access resources owned by the organization.
    * **Restrict access via {% data variables.product.pat_v1_plural %}**: {% data variables.product.pat_v1_caps_plural %} cannot access resources owned by the organization. SSH keys created by {% data variables.product.pat_v1_plural %} will continue to work.
 1. Click **Save**.

@@ -70,7 +70,7 @@ You can use the command palette to navigate to any page that you have access to 
 
 ## Searching with the {% data variables.product.prodname_command_palette %}
 
-You can use the command palette to search for anything on {% data variables.location.product_location %}.
+You can use the command palette to search for anything on {% data variables.product.prodname_dotcom %}.
 
 {% data reusables.command-palette.open-palette %}
 

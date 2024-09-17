@@ -14,11 +14,8 @@ topics:
   - Access management
 shortTitle: Associate email with GPG key
 ---
-{% note %}
 
 If you're using a GPG key that matches your committer identity and your verified email address associated with your account on {% data variables.location.product_location %}, then you can begin signing commits and signing tags.
-
-{% endnote %}
 
 {% data reusables.command_line.open_the_multi_os_terminal %}
 {% data reusables.gpg.list-keys-with-note %}

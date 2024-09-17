@@ -17,7 +17,7 @@ For information on how to use labels to route jobs to specific types of self-hos
 
 {% data reusables.actions.self-hosted-runner-management-permissions-required %}
 
->[!NOTE]Action Runner Controller does not support multiple labels, to find our more please read our [Action Runner Controller documentation](/actions/hosting-your-own-runners/managing-self-hosted-runners-with-actions-runner-controller/about-actions-runner-controller#using-arc-runners-in-a-workflow)
+>[!NOTE]Actions Runner Controller does not support multiple labels, to find out more please read our [Actions Runner Controller documentation](/actions/hosting-your-own-runners/managing-self-hosted-runners-with-actions-runner-controller/about-actions-runner-controller#using-arc-runners-in-a-workflow)
 
 ## Creating a custom label
 

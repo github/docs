@@ -19,3 +19,6 @@ max-chat-indexed-repos: '50'
 copilot_partners: 'Copilot Partners'
 copilot_partner: 'Copilot Partner'
 copilot_partner_program: 'Copilot Partner Program'
+
+## Copilot URLs
+chat_completions_api: 'https://api.githubcopilot.com/chat/completions'

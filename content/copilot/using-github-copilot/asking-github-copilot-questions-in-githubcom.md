@@ -63,9 +63,11 @@ The skills you can use in {% data variables.product.prodname_copilot_chat_dotcom
 | **Issue details** | Retrieves a specific {% data variables.product.prodname_dotcom %} issue, including the issue's title, number, author, status, body, linked pull requests, comments, and timestamps. | Yes | _Summarize the conversation on this issue and suggest next steps_ |
 | **File details** | Retrieves a specific file in the default branch of the Git repository, allowing you to ask questions about the file and the recent changes made to it. This skill is useful when you provide the exact path of a file in the repository. | Yes | _What logic does user_auth.js encapsulate?_ <br> <br> _What is the file history of user_auth.js?_ |
 | **Pull request details** | Retrieves a specific pull request. This allows you to ask questions about the pull request, including getting a summary of the pull request, its comments, or the code it changes. | Yes | _Summarize this PR for me_ <br><br> _Summarize the changes in this PR_ |
+| **{% data variables.product.prodname_GH_advanced_security %}** | Retrieves information about security alerts within your organization from {% data variables.product.prodname_GH_advanced_security %} features ({% data variables.product.prodname_code_scanning %}, {% data variables.product.prodname_secret_scanning %}, and {% data variables.product.prodname_dependabot_alerts %}). | Yes | _How would I fix this {% data variables.product.prodname_code_scanning %} alert?_ |
 | **Release details** | Retrieves the latest, or specified, release. This allows you to find out who created a release, when it happened, and information included in the release notes. | Yes | _When was the latest release?_ |
 | **Repository details** | Retrieves a specific {% data variables.product.prodname_dotcom %} repository. This is useful for finding out details such as the repository owner and the main language used. | Yes | _Tell me about this repo_ |
 | **Symbol definition** | Retrieves the lines of code that define a specific code symbol (function, class, or struct) in the default branch of the Git repository. This skill is useful when you have the exact name of a symbol, and want to understand it. | Yes | _Write unit tests for the AuthUser method_ |
+| **Support search** | Retrieves information from the {% data variables.contact.contact_support_portal %}. This skill is useful for asking {% data variables.product.prodname_copilot_chat_short %} about {% data variables.product.prodname_dotcom %} products and support related questions. | Yes | _Can I use {% data variables.product.prodname_copilot_short %} knowledge bases with {% data variables.product.prodname_copilot_individuals_short %}?_ |
 
 ## Asking a general question about software development
 
@@ -106,19 +108,31 @@ Depending on the question you ask, and your enterprise and organization settings
 
 {% data variables.product.prodname_copilot_short %} allows you to use natural language questions to explore repositories on {% data variables.product.prodname_dotcom %}. This can help you get a better understanding of where specific aspects of a codebase are implemented.
 
-{% data reusables.copilot.go-to-copilot-page %}
+1. On the {% data variables.product.prodname_dotcom %} website, go to the repository you want to chat about.
 
-{% data reusables.copilot.ask-copilot-not-displayed %}
+1. Click the **{% octicon "copilot" aria-hidden="true" %}** {% data variables.product.prodname_copilot %} icon at the top right of the page.
 
-1. In the "Ask {% data variables.product.prodname_copilot_short %}" box, type a question and press <kbd>Enter</kbd>.
+   The {% data variables.product.prodname_copilot_chat %} panel is displayed. To resize the panel, click and drag the top or left edge.
+
+1. The heading at the top of the panel should read "Chatting about" followed by the name of the current repository.
+
+   If the wrong repository name is displayed, because you were previously chatting about another repository, click **All repositories** then choose the repository you want to chat about.
+
+   ![Screenshot of the {% data variables.product.prodname_copilot_short %} chat panel page with "All repositories" highlighted with a dark orange outline.](/assets/images/help/copilot/copilot-chat-all-repositories.png)
+
+1. In the "Ask {% data variables.product.prodname_copilot_short %}" box, at the bottom of the chat panel, type a question and press <kbd>Enter</kbd>.
 
    For example, you could ask:
 
    * When was the most recent release?
    * Where is rate limiting implemented in our API?
    * How does the WidgetFactory class work?
-   * Where is the code for converting an organization member to be an outside collaborator?
+   * Where is the code for updating a phone number?
    * Where are SAT tokens generated?
+   * Show the most recently updated issues assigned to USERNAME
+   * List open issues about SUBJECT
+   * What was the last merged PR by USERNAME
+   * What are the latest commits to the main branch by USERNAME
 
    {% data variables.product.prodname_copilot_short %} replies in the chat panel.
 
@@ -246,6 +260,38 @@ You can chat with {% data variables.product.prodname_copilot_short %} about a fi
 1. To view a conversation in immersive mode, displaying just the conversation thread, click the dashed box icon at the top right of the conversation thread.
 
    ![Screenshot of the immersive mode button at the top right of the {% data variables.product.prodname_copilot_short %} panel. The button is highlighted with a dark orange outline.](/assets/images/help/copilot/copilot-immersive-view-button.png)
+
+## Asking questions about {% data variables.product.prodname_GH_advanced_security %} alerts
+
+{% data variables.product.prodname_copilot_short %} allows you to use natural language questions to ask about security alerts in repositories in your organization when these alerts are generated by {% data variables.product.prodname_GH_advanced_security %} features ({% data variables.product.prodname_code_scanning %}, {% data variables.product.prodname_secret_scanning %}, and {% data variables.product.prodname_dependabot_alerts %}).
+
+{% data reusables.copilot.go-to-copilot-page %}
+
+1. If the "Ask {% data variables.product.prodname_copilot_short %}" page is not displayed in the panel, click **All repositories**.
+
+   ![Screenshot of the {% data variables.product.prodname_copilot_short %} chat panel page with "All repositories" highlighted with a dark orange outline.](/assets/images/help/copilot/copilot-chat-all-repositories.png)
+
+1. On the "Ask {% data variables.product.prodname_copilot_short %}" page, select a repository to provide a context for your question.
+
+   For example, you could choose a repository with security alerts you want to understand better.
+
+   You can search for a repository if you don't see one you want to use.
+
+1. In the "Ask {% data variables.product.prodname_copilot_short %}" box, type a question and press <kbd>Enter</kbd>.
+
+   For example, you could ask:
+
+   * How would I fix this alert?
+   * How many alerts do I have on this pull request?
+   * Which line of code is this {% data variables.product.prodname_code_scanning %} alert referencing?
+   * What library is affected by this {% data variables.product.prodname_dependabot %} alert?
+
+   {% data variables.product.prodname_copilot_short %} replies in the chat panel.
+
+   <a id="repo-indexing-note"></a>
+
+{% data reusables.copilot.stop-response-generation %}
+{% data reusables.copilot.chat-conversation-buttons %}
 
 ## Asking questions about a specific pull request
 
