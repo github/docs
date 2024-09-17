@@ -7,7 +7,7 @@ WORKDIR /openapi-check
 RUN chown node:node /openapi-check -R
 
 USER node
-
+github.com/tree-sitter/go-tree-sitter
 COPY --chown=node:node package.json /openapi-check
 COPY --chown=node:node package-lock.json /openapi-check
 ADD --chown=node:node src /openapi-check/src
