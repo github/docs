@@ -23,7 +23,7 @@ When you delete a private repository, all of its private forks are also deleted.
 
 ## Deleting a public repository
 
-When you delete a public repository, one of the existing public forks is chosen to be the new upstream repository. All other repositories are forked off of this new upstream and subsequent pull requests go to this new upstream repository.
+When you delete a public repository, the oldest, active public fork is chosen to be the new upstream repository. All other repositories are forked off of this new upstream and subsequent pull requests go to this new upstream repository.
 
 ## Private forks and permissions
 
@@ -45,7 +45,7 @@ If a public repository is made private and then deleted, its public forks will c
 
 ## Changing a private repository to a public repository
 
-When you change a private repository to public, all the commits in that repository, including any commits made in the repositories it was forked into, will be visible to everyone. However, the private forks will not automatically become public. Instead, each private fork will become a separate private repository and create its own independent network of repositories. Any new changes made to these networks will not be accessible from the original repository.
+When a private repository is made public, all the commits in that repository, including any commits previously pushed to private forks of that repository, will be migrated to a new public repository network and become visible to everyone. Any previously created private forks will remain private but will become disconnected from the original repository that was made public. Each private fork will become a separate private repository and create its own independent network of repositories. Any new changes made to these networks will not be accessible from the original repository that was made public.
 
 ### Deleting the public repository
 

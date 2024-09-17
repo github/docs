@@ -23,7 +23,15 @@ shortTitle: Quickstart
 
 This quickstart guide shows you how to use the user interface of {% data variables.location.product_location %} to add a workflow that demonstrates some of the essential features of {% data variables.product.prodname_actions %}.
 
+{% data reusables.actions.workflow-templates-for-more-information %}
+
 For an overview of {% data variables.product.prodname_actions %} workflows, see "[AUTOTITLE](/actions/using-workflows/about-workflows)." If you want to learn about the various components that make up {% data variables.product.prodname_actions %}, see "[AUTOTITLE](/actions/learn-github-actions/understanding-github-actions)."
+
+## Using workflow templates
+
+{% data reusables.actions.workflow-template-overview %}
+
+{% data reusables.actions.workflow-templates-repo-link %}
 
 ## Prerequisites
 
@@ -101,10 +109,6 @@ If you chose to start a pull request, you can continue and create the pull reque
    ![Screenshot of the "List files in the repository" step expanded to show the log output. The output for the step is highlighted with an orange outline.](/assets/images/help/repository/actions-quickstart-log-detail.png)
 
 The example workflow you just added is triggered each time code is pushed to the branch, and shows you how {% data variables.product.prodname_actions %} can work with the contents of your repository. For an in-depth tutorial, see "[AUTOTITLE](/actions/learn-github-actions/understanding-github-actions)."
-
-## More starter workflows
-
-{% data reusables.actions.workflow-template-overview %}
 
 ## Next steps
 

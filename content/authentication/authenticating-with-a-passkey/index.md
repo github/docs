@@ -9,3 +9,5 @@ children:
   - /signing-in-with-a-passkey
 shortTitle: Authenticate with a passkey
 ---
+
+{% data reusables.passkeys.ghes-disable %}

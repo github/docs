@@ -1,7 +1,7 @@
 ---
 title: 'Sharing workflows, secrets, and runners with your organization'
 shortTitle: Share workflows with your organization
-intro: 'Learn how you can use organization features to collaborate with your team, by sharing starter workflows, secrets, variables, and self-hosted runners.'
+intro: 'Learn how you can use organization features to collaborate with your team, by sharing workflow templates, secrets, variables, and self-hosted runners.'
 redirect_from:
   - /actions/learn-github-actions/sharing-workflows-with-your-organization
   - /actions/learn-github-actions/sharing-workflows-secrets-and-runners-with-your-organization
@@ -17,14 +17,14 @@ type: how_to
 
 ## Overview
 
-If you need to share workflows and other {% data variables.product.prodname_actions %} features with your team, then consider collaborating within a {% data variables.product.prodname_dotcom %} organization. An organization allows you to centrally store and manage secrets, artifacts, and self-hosted runners. You can also create starter workflows in the `.github` repository and share them with other users in your organization.
+If you need to share workflows and other {% data variables.product.prodname_actions %} features with your team, then consider collaborating within a {% data variables.product.prodname_dotcom %} organization. An organization allows you to centrally store and manage secrets, artifacts, and self-hosted runners. You can also create workflow templates in the `.github` repository and share them with other users in your organization.
 
 ## Sharing {% ifversion internal-actions %}actions and {% endif %}workflows
 
 {% ifversion internal-actions %}
-You can share both individual actions and entire workflows with your organization, with or without publishing the actions or workflows publicly. You can reuse actions and workflows exactly by referencing them in your workflow file, and you can create starter workflows that provide templates for new workflows.
+You can share both individual actions and entire workflows with your organization, with or without publishing the actions or workflows publicly. You can reuse actions and workflows exactly by referencing them in your workflow file, and you can create workflow templates.
 {% else %}
-Your organization can share workflows by reusing the workflows exactly or by creating starter workflows that provide templates for new workflows.
+Your organization can share workflows by reusing the workflows exactly or by creating workflow templates
 {% endif %}
 
 {% ifversion internal-actions %}
@@ -38,7 +38,7 @@ Your organization can share workflows by reusing the workflows exactly or by cre
 
 {% data reusables.actions.reusable-workflows %}
 
-### Using starter workflows
+### Using workflow templates
 
 {% data reusables.actions.workflow-organization-templates %} For more information, see "[AUTOTITLE](/actions/using-workflows/creating-starter-workflows-for-your-organization)."
 

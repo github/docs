@@ -38,14 +38,9 @@ Minutes reset every month, while storage usage does not.
 
 ### Included storage and minutes
 
-{% note %}
-
-**Notes**:
-
-* Included minutes cannot be used for larger runners. These runners will always be charged for, including in public repositories. For more information, see "[AUTOTITLE](/billing/managing-billing-for-github-actions/about-billing-for-github-actions#per-minute-rates)."
-* Logs and job summaries do not count towards storage usage.
-
-{% endnote %}
+> [!NOTE]
+> * Included minutes cannot be used for larger runners. These runners will always be charged for, including in public repositories. For more information, see "[AUTOTITLE](/billing/managing-billing-for-github-actions/about-billing-for-github-actions#per-minute-rates)."
+> * Logs and job summaries do not count towards storage usage.
 
 |Plan | Storage | Minutes (per month)|
 |------- | ------- | ---------|
@@ -69,11 +64,8 @@ Jobs that run on Windows and macOS runners that {% data variables.product.prodna
 | Windows          | 2                 |
 | macOS            | 10                |
 
-{% note %}
-
-**Note:** Minute multipliers do not apply to the per-minute rates shown below.
-
-{% endnote %}
+> [!NOTE]
+> Minute multipliers do not apply to the per-minute rates shown below.
 
 ### Per-minute rates
 
@@ -87,21 +79,21 @@ Jobs that run on Windows and macOS runners that {% data variables.product.prodna
 
 #### Per-minute rates for x64-powered {% data variables.actions.hosted_runners %}
 
-| Operating system    | Per-minute rate (USD) |
-|---------------------| -----------|
-|  Linux 2-core       |   $0.008   |
-|  Linux 4-core       |   $0.016   |
-|  Linux 8-core       |   $0.032   |
-|  Linux 16-core      |   $0.064   |
-|  Linux 32-core      |   $0.128   |
-|  Linux 64-core      |   $0.256   |
-|  Windows 4-core     |   $0.032   |
-|  Windows 8-core     |   $0.064   |
-|  Windows 16-core    |   $0.128   |
-|  Windows 32-core    |   $0.256   |
-|  Windows 64-core    |   $0.512   |
-|  Windows 4-core GPU |   $0.14    |
-|  macOS 12-core      |   $0.12    |
+| Operating system       | Per-minute rate (USD) |
+|------------------------| ----------------------|
+|  Linux Advanced 2-core |   $0.008   |
+|  Linux 4-core          |   $0.016   |
+|  Linux 8-core          |   $0.032   |
+|  Linux 16-core         |   $0.064   |
+|  Linux 32-core         |   $0.128   |
+|  Linux 64-core         |   $0.256   |
+|  Windows 4-core        |   $0.032   |
+|  Windows 8-core        |   $0.064   |
+|  Windows 16-core       |   $0.128   |
+|  Windows 32-core       |   $0.256   |
+|  Windows 64-core       |   $0.512   |
+|  Windows 4-core GPU    |   $0.14    |
+|  macOS 12-core         |   $0.12    |
 
 #### Per-minute rates for arm64-powered {% data variables.actions.hosted_runners %}
 
@@ -134,7 +126,7 @@ Jobs that run on Windows and macOS runners that {% data variables.product.prodna
 * {% data reusables.user-settings.context_switcher %}
 * {% data reusables.actions.larger-runner-permissions %}
 * {% data reusables.actions.about-larger-runners-billing %}
-* For {% data variables.actions.hosted_runner %}s, there is no additional cost for configurations that assign public static IP addresses to a {% data variables.actions.hosted_runner %}. For more information on {% data variables.actions.hosted_runner %}s, see "[AUTOTITLE](/actions/using-github-hosted-runners/using-larger-runners)."
+* For {% data variables.actions.hosted_runner %}s, there is no additional cost for configurations that assign public static IP addresses to a {% data variables.actions.hosted_runner %}. For more information on {% data variables.actions.hosted_runner %}s, see "[AUTOTITLE](/actions/using-github-hosted-runners/using-larger-runners/about-larger-runners)."
 * Included minutes cannot be used for {% data variables.actions.hosted_runner %}s.
 * The {% data variables.actions.hosted_runner %}s are not free for public repositories.
 
@@ -156,11 +148,8 @@ For example, if your organization uses {% data variables.product.prodname_team %
 
 ### Sample storage cost calculation
 
-{% note %}
-
-**Note:** {% data variables.product.company_short %} updates your storage space within a 6 to 12-hour window. If you delete artifacts, the available space will be reflected in your account during the next scheduled update.
-
-{% endnote %}
+> [!NOTE]
+> {% data variables.product.company_short %} updates your storage space within a 6 to 12-hour window. If you delete artifacts, the available space will be reflected in your account during the next scheduled update.
 
 For example, if you use 3 GB of storage for 10 days of March and 12 GB for 21 days of March, your storage usage would be:
 

@@ -1,0 +1,222 @@
+date: '2024-08-07'
+release_candidate: true
+deprecated: true
+intro: |
+  > [!NOTE] Release candidate (RC) builds are intended solely for use in a test environment. Do not install an RC in a production environment.
+  >
+  > Do not upgrade to an RC from a supported, earlier version.
+  >
+  > If {% data variables.location.product_location %} is running an RC, you cannot upgrade to the general availability (GA) release. You also cannot upgrade with a hotpatch.
+
+  For upgrade instructions, see "[Upgrading {% data variables.product.prodname_ghe_server %}](/admin/upgrading-your-instance/preparing-to-upgrade/overview-of-the-upgrade-process)."
+sections:
+
+  features:
+    - heading: Instance administration
+      notes:
+        # https://github.com/github/releases/issues/4262
+        - |
+          On an instance with multiple replica nodes, to start or stop replication for all nodes in a single configuration run, administrators can use the `ghe-repl-start-all` and `ghe-repl-stop-all` commands.
+
+    - heading: Instance services
+      notes:
+        # https://github.com/github/releases/issues/4178
+        - |
+          Administrators can scale the appliance using generation 2 virtual machines, with support for booting in UEFI mode. This requires deploying a new instance and restoring data onto it. See "[AUTOTITLE](/admin/monitoring-and-managing-your-instance/updating-the-virtual-machine-and-physical-resources/using-generation-2-virtual-machines)."
+        # https://github.com/github/releases/issues/4179
+        - |
+          Nomad has been upgraded to 1.5.17 and Consul has been upgraded to 1.17.4. These services are used in {% data variables.product.prodname_ghe_server %} to orchestrate containers and configuration.
+
+    - heading: Identity and access management
+      notes:
+        # https://github.com/github/releases/issues/4087
+        - |
+          Automated user provisioning via the System for Cross-domain Identity Management (SCIM) standard is available in public beta. Instances that use SAML authentication can enable SCIM to provision user accounts and manage their lifecycle from an identity provider (IdP). You can configure SCIM using an application for supported IdPs, or using the REST API endpoints for SCIM. See "[AUTOTITLE](/admin/managing-iam/provisioning-user-accounts-with-scim/user-provisioning-with-scim-on-ghes)."
+
+          * If your instance already uses SAML, you will need to configure a new IdP application that supports automated provisioning via SCIM.
+          * Existing private beta customers should also reconfigure their implementation with an updated application.
+          * During the public beta, we recommend testing SCIM support for your identity system in a non-production instance before adding SCIM to your current setup.
+        # https://github.com/github/releases/issues/3905
+        - |
+          Organization owners can create and assign custom organization roles, delegating administrative duties to trusted teams and users. See "[AUTOTITLE](/organizations/managing-peoples-access-to-your-organization-with-roles/managing-custom-organization-roles)."
+        # https://github.com/github/releases/issues/4026
+        - |
+          Users can use the account switcher to switch between multiple accounts. See "[AUTOTITLE](/authentication/keeping-your-account-and-data-secure/switching-between-accounts)."
+        # https://github.com/github/releases/issues/4025
+        - |
+          On an instance that uses built-in authentication, users can use passkeys to sign in securely to GitHub, without needing to input their password. See "[AUTOTITLE](/authentication/authenticating-with-a-passkey)."
+        # https://github.com/github/releases/issues/3789
+        - |
+          Enterprises that use an SSH certificate authority can allow SSH certificates to be used to access user-owned repositories. See "[AUTOTITLE](/admin/enforcing-policies/enforcing-policies-for-your-enterprise/enforcing-policies-for-security-settings-in-your-enterprise#managing-access-to-user-owned-repositories)."
+
+    - heading: Audit logs
+      notes:
+        # https://github.com/github/releases/issues/3793
+       - |
+         Every 24 hours, a health check runs for each audit log stream. If a stream is set up incorrectly, an email will be sent to the enterprise owners as notification that their audit log stream is not properly configured.
+
+    - heading: Secret scanning
+      notes:
+        # https://github.com/github/releases/issues/3179
+        - |
+          Users can specify which teams or roles have the ability to bypass push protection. This feature is in public beta and subject to change. See "[AUTOTITLE](/code-security/secret-scanning/push-protection-for-repositories-and-organizations#enabling-delegated-bypass-for-push-protection)."
+        # https://github.com/github/releases/issues/3567
+        - |
+          Secret scanning detects secrets leaked in discussions and in pull request titles, bodies, and comments. This feature is in public beta and subject to change. See "[AUTOTITLE](/code-security/secret-scanning/about-secret-scanning)."
+        # https://github.com/github/releases/issues/3740
+        - |
+          Secret scanning blocks contributors from uploading files with detected secrets if push protection is enabled for a repository. This feature is in public beta and subject to change.
+        # https://github.com/github/releases/issues/3741
+        - |
+          Audit log events are created when secret scanning non-provider patterns are enabled or disabled at the repository, organization, or enterprise level.
+
+    - heading: Code scanning
+      notes:
+        # https://github.com/github/releases/issues/3707
+        - |
+          Users can create a dedicated code scanning rule to block pull request merges, instead of relying on status checks. This feature is in public beta and subject to change. See "[AUTOTITLE](/code-security/code-scanning/managing-your-code-scanning-configuration/set-code-scanning-merge-protection)."
+        # https://github.com/github/releases/issues/3734
+        - |
+          Users can use CodeQL threat model settings for C# to adapt CodeQL's code scanning analysis to detect the most relevant security vulnerabilities in their code. This feature is in public beta and subject to change. See "[AUTOTITLE](/code-security/code-scanning/managing-your-code-scanning-configuration/editing-your-configuration-of-default-setup#including-local-sources-of-tainted-data-in-default-setup)."
+        # https://github.com/github/releases/issues/3936
+        - |
+          Organizations that use default setup for code scanning can use organization-level model packs to extend the coverage of multiple repositories. This feature is in public beta and subject to change. See "[AUTOTITLE](/code-security/code-scanning/managing-your-code-scanning-configuration/editing-your-configuration-of-default-setup#extending-codeql-coverage-with-codeql-model-packs-in-default-setup)."
+        # https://github.com/github/releases/issues/3663
+        - |
+          CodeQL can scan Java projects without a build. This feature is in public beta and subject to change.
+        # https://github.com/github/releases/issues/3865
+        - |
+          This release comes installed with version **2.17.6** of the CodeQL CLI, used in the CodeQL action for code scanning. Significant updates since the default version installed on GitHub Enterprise Server 3.13 include:
+
+          * Support for Java 22, Swift 5.10, TS 5.4, and C# 12
+          * New queries for C/C++, Go, Java, and Ruby:
+            * `cpp/type-confusion`:	Detects casts to invalid types
+            * `cpp/iterator-to-expired-container`:	Detects the creation of iterators owned by temporary objects that are about to be destroyed
+            * `go/uncontrolled-allocation-size`: Detects slice memory allocation with excessive size value
+            * `java/unvalidated-url-forward`:	Prevents information disclosure caused by unsafe URL construction
+            * `rb/insecure-mass-assignment`: Detects instances of mass assignment operations accepting arbitrary parameters
+            * `rb/csrf-protection-not-enabled`:	Detects cases where Cross-Site Request Forgery protection is not enabled in Ruby on Rails controllers
+
+    - heading: Dependabot
+      notes:
+        # https://github.com/github/releases/issues/3344
+        - |
+          Users can consolidate Dependabot pull requests by enabling grouped security updates for related dependencies in a package ecosystem. See "[AUTOTITLE](/code-security/dependabot/dependabot-security-updates/about-dependabot-security-updates#about-grouped-security-updates)."
+        # https://github.com/github/releases/issues/3839
+        - |
+          Dependabot can access Cargo private registries to provide updates to Rust dependencies. See "[AUTOTITLE](/code-security/dependabot/working-with-dependabot/guidance-for-the-configuration-of-private-registries-for-dependabot#about-configuring-private-registries-for-dependabot)."
+        # https://github.com/github/releases/issues/3848
+        - |
+          Dependabot pauses scheduled jobs after 15 failures. This gives an earlier indication of potential issues while still ensuring that critical security updates continue to be applied without interruption.
+        # https://github.com/github/releases/issues/3850
+        - |
+          Dependabot uses private registry configurations specified in the `dependabot.yml` file as expected, even if there is a configuration with `target-branch`. This ensures that security updates are applied correctly, regardless of your repository's configuration settings. See "[AUTOTITLE](/code-security/dependabot/working-with-dependabot/configuring-access-to-private-registries-for-dependabot)."
+
+    - heading: Code security
+      notes:
+        # https://github.com/github/releases/issues/4036
+        - |
+          The security overview dashboard, with the ability to view secret scanning metrics and trending data for the enablement of security features, is available at the enterprise level. See "[AUTOTITLE](/code-security/security-overview/viewing-security-insights)."
+        # https://github.com/github/releases/issues/4212
+        - |
+          The security overview dashboard for organizations is now generally available.
+        # https://github.com/github/releases/issues/3913
+        - |
+          On the security overview dashboard, users can view alert trends grouped by tool. The group-by option is designed to improve the ability to track and analyze the effectiveness of scanning tools, enabling more strategic decision-making. See "[AUTOTITLE](/code-security/security-overview/viewing-security-insights#viewing-the-security-overview-dashboard-for-your-organization)."
+        # https://github.com/github/releases/issues/3912
+        - |
+          On the security overview dashboard, users can filter by security tool. This feature is in public beta and subject to change.
+        # https://github.com/github/releases/issues/4115
+        - |
+          In the dependency graph, a software bill of materials (SBOM) generated for a package now includes the package URL for more packages. Previously, the package URL was not included if the manifest file referenced a package with a version range.
+
+    - heading: GitHub Actions
+      notes:
+        # Required Actions Runner version
+        - |
+          {% data reusables.actions.actions-runner-release-note %}
+        # https://github.com/github/releases/issues/3866
+        - |
+          Deployment views across environments are now generally available. Users can pin environments and use additional filters to filter the views. See "[AUTOTITLE](/actions/deployment/managing-your-deployments/viewing-deployment-history)."
+
+    - heading: GitHub Pages
+      notes:
+        # https://github.com/github/releases/issues/3872
+        - |
+          Users can configure custom GitHub Actions workflows to build and deploy sites on GitHub Pages. See "[AUTOTITLE](/pages/getting-started-with-github-pages/configuring-a-publishing-source-for-your-github-pages-site#publishing-with-a-custom-github-actions-workflow)."
+
+    - heading: Repositories
+      notes:
+        # https://github.com/github/releases/issues/3947
+        - |
+          Users can enhance security by adding deploy keys as a bypass type to rulesets. See "[AUTOTITLE](/repositories/configuring-branches-and-merges-in-your-repository/managing-rulesets/creating-rulesets-for-a-repository#granting-bypass-permissions-for-your-branch-or-tag-ruleset)."
+        # https://github.com/github/releases/issues/3826
+        - |
+          Users can select Dependabot in the bypass list of a ruleset. See "[AUTOTITLE](/repositories/configuring-branches-and-merges-in-your-repository/managing-rulesets/creating-rulesets-for-a-repository#granting-bypass-permissions-for-your-push-ruleset)."
+
+    - heading: Projects
+      notes:
+        # https://github.com/github/releases/issues/3910
+        - |
+           Users can use the auto-close issue workflow to automatically close issues when a project item moves to a specific "completed" status. See "[AUTOTITLE](/issues/planning-and-tracking-with-projects/automating-your-project/using-the-built-in-automations)."
+
+    - heading: Integrations and extensions
+      notes:
+        # https://github.com/github/releases/issues/3679
+        # https://github.com/github/releases/issues/4047
+        - |
+          When authenticating to a native GitHub App or OAuth app, users will be prompted to select which account they want to sign in to using an account picker. Developers of apps can append `?prompt=select_account` to their login flow to show users the account picker.
+        # https://github.com/github/releases/issues/3898
+        - |
+          When using a JSON Web Token (JWT) to authenticate or request an installation token, developers of GitHub Apps can use the app's client ID for the JWT's `iss` claim. The application ID remains valid, but is considered deprecated.
+
+  changes:
+    # https://github.com/github/releases/issues/3927
+    - |
+      Pushes that update over 5,000 branches no longer trigger webhooks or GitHub Actions workflows.
+
+  known_issues:
+    - |
+      **Note:** This list is not complete. Any new known issues that are identified for the 3.14 release will be added between now and the GA.
+    - |
+      Custom firewall rules are removed during the upgrade process.
+    - |
+      When enabling automatic update checks for the first time in the Management Console, the status is not dynamically reflected until the "Updates" page is reloaded.
+    - |
+      During the validation phase of a configuration run, a `No such object` error may occur for the Notebook and Viewscreen services. This error can be ignored as the services should still correctly start.
+    - |
+      If the root site administrator is locked out of the Management Console after failed login attempts, the account does not unlock automatically after the defined lockout time. Someone with administrative SSH access to the instance must unlock the account using the administrative shell. For more information, see "[AUTOTITLE](/admin/configuration/administering-your-instance-from-the-management-console/troubleshooting-access-to-the-management-console#unlocking-the-root-site-administrator-account)."
+    - |
+      On an instance with the HTTP `X-Forwarded-For` header configured for use behind a load balancer, all client IP addresses in the instance's audit log erroneously appear as 127.0.0.1.
+    - |
+      {% data reusables.release-notes.large-adoc-files-issue %}
+    - |
+      Repositories originally imported using ghe-migrator will not correctly track Advanced Security contributions.
+    - |
+      When log forwarding is enabled, some forwarded log entries may be duplicated.
+    - |
+      REST API endpoints for admin stats may time out on appliances with many users or repositories. Retrying the request until data is returned is advised.
+    - |
+      When following the steps for [Replacing the primary MySQL node](/admin/monitoring-and-managing-your-instance/configuring-clustering/replacing-a-cluster-node#replacing-the-primary-mysql-node), step 14 (running `ghe-cluster-config-apply`) might fail with errors.
+    - |
+      Running a config apply as part of the steps for [Replacing a node in an emergency](/admin/monitoring-and-managing-your-instance/configuring-clustering/replacing-a-cluster-node#replacing-a-node-in-an-emergency) may fail with errors if the node being replaced is still reachable. If this occurs, shut down the node and repeat the steps.
+    - |
+      If a hotpatch upgrade requires the `haproxy-frontend` service to be restarted, the restart will hang if there are existing long-lived connections, such as browser web sockets or Git operations. No new connections will be accepted for up to 5 minutes. Any existing unfinished connections at this time will be disconnected.
+    - |
+      When restoring data originally backed up from a 3.13 appliance, the Elasticsearch indices need to be reindexed before some of the data will show up. This happens via a nightly scheduled job. It can also be forced by running `/usr/local/share/enterprise/ghe-es-search-repair`.
+    - |
+      The global search bar does not have suggestions enabled due to the redesigned navigation and pending new search experience.
+    - |
+      Upgrades include an error concerning `Error deregistering job` for `consul-template`. This message does not indicate any problems with your install and can be safely ignored.
+    - |
+      Some links to GitHub Docs from GitHub Enterprise Server may lead to a "Page not found," because an `enterprise-cloud@latest` portion is incorrectly added to the URL.
+    - |
+      An organization-level code scanning configuration page is displayed on instances that do not use GitHub Advanced Security or code scanning.
+    - |
+      In the header bar displayed to site administrators, some icons are not available.
+    - |
+      When restoring from a backup snapshot, a large number of `mapper_parsing_exception` errors may be displayed.
+
+  deprecations:
+    - |
+      The Manage GHES API reached feature parity with the Management Console API in GHES 3.12. As a result, we will remove the Management Console API in GitHub Enterprise Server 3.15. For information about updating tooling that relies on the Management Console API, see "[AUTOTITLE](/rest/enterprise-admin/management-console)."

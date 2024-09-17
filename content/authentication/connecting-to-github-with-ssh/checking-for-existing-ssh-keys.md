@@ -16,7 +16,7 @@ shortTitle: Check for existing SSH key
 
 ## About SSH keys
 
-You can use SSH to perform Git operations in repositories on {% data variables.location.product_location %}. For more information, see "[AUTOTITLE](/authentication/connecting-to-github-with-ssh/about-ssh)."
+You can use SSH to perform Git operations in repositories. For more information, see "[AUTOTITLE](/authentication/connecting-to-github-with-ssh/about-ssh)."
 
 If you have an existing SSH key, you can use the key to authenticate Git operations over SSH.
 

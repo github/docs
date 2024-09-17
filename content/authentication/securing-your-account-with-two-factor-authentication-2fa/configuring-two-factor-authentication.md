@@ -39,7 +39,7 @@ If you're a member of an {% data variables.enterprise.prodname_emu_enterprise %}
 {% warning %}
 
 **Warning:**
-* If you're a member{% ifversion fpt or ghec %}, billing manager,{% endif %} or outside collaborator to a private repository of an organization that requires two-factor authentication, you must leave the organization before you can disable 2FA on {% data variables.location.product_location %}.
+* If you're a member{% ifversion fpt or ghec %}, billing manager,{% endif %} or outside collaborator to a private repository of an organization that requires two-factor authentication, you must leave the organization before you can disable 2FA.
 * If you disable 2FA, you will automatically lose access to the organization and any private forks you have of the organization's private repositories. To regain access to the organization and your forks, re-enable two-factor authentication and contact an organization owner.
 
 {% endwarning %}
@@ -95,15 +95,13 @@ If you're unable to configure a TOTP app, you can also register your phone numbe
 
 ## Configuring two-factor authentication using a passkey
 
-{% data reusables.passkeys.about-passkeys %}
+{% data reusables.passkeys.about-passkeys %} See "[AUTOTITLE](/authentication/authenticating-with-a-passkey/about-passkeys)."
 
 {% note %}
 
 **Note:** Platform authenticators like Windows Hello, Face ID, or Touch ID can be registered as a passkey instead.
 
 {% endnote %}
-
-For more information, see "[AUTOTITLE](/authentication/authenticating-with-a-passkey/about-passkeys)."
 
 1. You must have already configured 2FA via a TOTP mobile app{% ifversion fpt or ghec %} or via SMS{% endif %}.
 {% data reusables.passkeys.adding-a-passkey %}
@@ -148,8 +146,9 @@ Once you have configured a TOTP application, or SMS, you can also use {% data va
 1. You must have already configured 2FA via a TOTP mobile app or via SMS.
 1. Install [{% data variables.product.prodname_mobile %}](https://github.com/mobile).
 1. Sign in to your {% data variables.product.product_name %} account from {% data variables.product.prodname_mobile %}.
+1. Ensure {% data variables.product.prodname_mobile %} can send push notifications. If you have not opted in to push notifications, you can turn them on within notification settings in {% data variables.product.prodname_mobile %}.
 
-After signing in, you can now use your device for 2FA.
+After signing in and turning on push notifications, you can now use your device for 2FA.
 {% endif %}
 
 ## Further reading

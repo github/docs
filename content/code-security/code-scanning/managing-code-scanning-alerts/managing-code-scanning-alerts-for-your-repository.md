@@ -55,6 +55,22 @@ For more information, see "[AUTOTITLE](/code-security/code-scanning/managing-cod
 
 {% endnote %}
 
+{% ifversion copilot-chat-ghas-alerts %}
+
+## Asking {% data variables.product.prodname_copilot_chat %} about {% data variables.product.prodname_code_scanning %} alerts
+
+With a {% data variables.product.prodname_copilot_enterprise %} license, you can ask {% data variables.product.prodname_copilot_chat_short %} for help to better understand security alerts, including {% data variables.product.prodname_code_scanning %} alerts, in repositories in your organization. For more information, see "[AUTOTITLE](/copilot/using-github-copilot/asking-github-copilot-questions-in-githubcom#asking-questions-about-alerts-from-github-advanced-security-features)."
+
+{% endif %}
+
+{% ifversion security-overview-org-codeql-pr-alerts %}
+
+## Viewing metrics for {% data variables.product.prodname_codeql %} pull request alerts for an organization
+
+For {% data variables.product.prodname_code_scanning %} alerts from {% data variables.product.prodname_codeql %} analysis, you can use security overview to see how {% data variables.product.prodname_codeql %} is performing in pull requests in repositories across your organization, and to identify repositories where you may need to take action. For more information, see "[AUTOTITLE](/code-security/security-overview/viewing-metrics-for-pull-request-alerts)."
+
+{% endif %}
+
 ## Filtering {% data variables.product.prodname_code_scanning %} alerts
 
 You can filter the alerts shown in the {% data variables.product.prodname_code_scanning %} alerts view. This is useful if there are many alerts as you can focus on a particular type of alert. There are some predefined filters and a range of keywords that you can use to refine the list of alerts displayed.
@@ -122,13 +138,13 @@ Alternatively, to track a {% data variables.product.prodname_code_scanning %} al
 
 {% data reusables.rai.code-scanning.autofix-note %}
 
-{% data variables.product.prodname_code_scanning_caps %} autofix can generate fixes for alerts from {% data variables.product.prodname_codeql %} analysis in private repositories. For more information, see "[AUTOTITLE](/code-security/code-scanning/managing-code-scanning-alerts/about-autofix-for-codeql-code-scanning)."
+{% data variables.product.prodname_copilot_autofix %} can generate fixes for alerts from {% data variables.product.prodname_codeql %} analysis in private repositories. For more information, see "[AUTOTITLE](/code-security/code-scanning/managing-code-scanning-alerts/about-autofix-for-codeql-code-scanning)."
 
 {% data reusables.repositories.navigate-to-repo %}
 {% data reusables.repositories.sidebar-security %}
 {% data reusables.repositories.sidebar-code-scanning-alerts %}
 1. Click the name of an alert.
-1. If autofix can suggest a fix, at the top of the page, click **{% octicon "shield-check" aria-label="Generate fix"%} Generate fix**.
+1. If {% data variables.product.prodname_copilot_autofix_short %} can suggest a fix, at the top of the page, click **{% octicon "shield-check" aria-label="Generate fix"%} Generate fix**.
 1. Once the suggested fix has been generated, at the bottom of the page, you can click **Create PR with fix** to automatically generate a pull request with the suggested fix.
 
 {% endif %}

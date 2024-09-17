@@ -1410,6 +1410,11 @@
     "docs_reference_links": "N/A"
   },
   {
+    "action": "ip_allow_list.disable_idp_ip_allowlist_for_web",
+    "description": "Identity Provider based IP allow list for web interactions was disabled.",
+    "docs_reference_links": "N/A"
+  },
+  {
     "action": "ip_allow_list.disable_skip_idp_ip_allowlist_app_access",
     "description": "N/A",
     "docs_reference_links": "N/A"
@@ -1427,6 +1432,11 @@
   {
     "action": "ip_allow_list.enable_for_installed_apps",
     "description": "An IP allow list was enabled for installed GitHub Apps.",
+    "docs_reference_links": "N/A"
+  },
+  {
+    "action": "ip_allow_list.enable_idp_ip_allowlist_for_web",
+    "description": "Identity Provider based IP allow list for web interactions was enabled.",
     "docs_reference_links": "N/A"
   },
   {

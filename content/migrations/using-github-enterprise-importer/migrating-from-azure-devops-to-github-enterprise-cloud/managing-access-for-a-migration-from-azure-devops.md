@@ -16,7 +16,7 @@ To migrate a repository from Azure DevOps to GitHub, you need sufficient access 
 * A required role in the destination organization on {% data variables.product.prodname_dotcom %}
 * A {% data variables.product.pat_generic %} that can access the destination organization on {% data variables.product.prodname_dotcom %}
   * The {% data variables.product.pat_generic %} must have all the required scopes, which depend on your role and the task you want to complete.
-  * If the destination organization uses SAML single sign-on for {% data variables.product.prodname_dotcom_the_website %}, you must authorize the {% data variables.product.pat_generic %} for SSO.
+  * If the destination organization uses SAML single sign-on for {% data variables.product.prodname_dotcom %}, you must authorize the {% data variables.product.pat_generic %} for SSO.
 * A {% data variables.product.pat_generic %} that can access the source organization on Azure DevOps
 
 Additionally, if you use IP allow lists with the source or destination, you may need to configure the allow lists to allow access by {% data variables.product.prodname_importer_proper_name %}.
@@ -64,7 +64,7 @@ You can grant the migrator role using either the {% data variables.product.prodn
 
 To grant the migrator role using the CLI, you must have installed the {% data variables.product.prodname_ado2gh_cli %}. For more information, see "[AUTOTITLE](/migrations/using-github-enterprise-importer/migrating-from-azure-devops-to-github-enterprise-cloud/migrating-repositories-from-azure-devops-to-github-enterprise-cloud#step-1-install-the-ado2gh-extension-of-the-github-cli)."
 
-1. On {% data variables.product.prodname_dotcom_the_website %}, create and record a {% data variables.product.pat_generic %} that meets all the requirements for granting the migrator role. For more information, see "[Creating a {% data variables.product.pat_generic %} for {% data variables.product.prodname_dotcom %}](#creating-a-personal-access-token-for-github)."
+1. On {% data variables.product.prodname_dotcom %}, create and record a {% data variables.product.pat_generic %} that meets all the requirements for granting the migrator role. For more information, see "[Creating a {% data variables.product.pat_generic %} for {% data variables.product.prodname_dotcom %}](#creating-a-personal-access-token-for-github)."
 {% data reusables.enterprise-migration-tool.grant-migrator-role-pat %}
 1. Use the `gh ado2gh grant-migrator-role` command, replacing ORGANIZATION with the organization you want to grant the migrator role for, ACTOR with the user or team name, and TYPE with `USER` or `TEAM`.
 

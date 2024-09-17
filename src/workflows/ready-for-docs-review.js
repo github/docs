@@ -144,9 +144,7 @@ async function run() {
   // Generate a mutation to populate fields for the new project item
   const updateProjectV2ItemMutation = generateUpdateProjectV2ItemFieldMutation({
     item: newItemID,
-    author: firstTimeContributor
-      ? `${process.env.AUTHOR_LOGIN} (first time contributor)`
-      : process.env.AUTHOR_LOGIN,
+    author: firstTimeContributor ? ':star: first time contributor' : process.env.AUTHOR_LOGIN,
     turnaround,
     feature,
   })

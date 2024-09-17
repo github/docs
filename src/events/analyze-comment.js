@@ -72,6 +72,25 @@ export const SIGNAL_RATINGS = [
   },
 ]
 
+export async function getGuessedLanguage(comment) {
+  if (!comment || !comment.trim()) {
+    return
+  }
+
+  const bestGuess = language.guessBest(comment.trim())
+  if (!bestGuess) return // Can happen if the text is just whitespace
+  // // @horizon-rs/language-guesser is based on tri-grams and can lead
+  // // to false positives. For example, it thinks that 'Thamk you ❤️🙏' is
+  // // Haitian! And that 'I wanne robux 1000' is Polish!
+  // // But that's because they are short and there's not enough clues to
+  // // guess what language it is. You and I might know those are actually
+  // // attempts to be English, despite the spelling.
+  // // But are they useful comments? Given that this is just a signal,
+  // // and not a hard blocker, it's more of a clue than a fact.
+
+  return bestGuess.alpha2
+}
+
 export async function analyzeComment(text, language = 'en') {
   const signals = []
   let rating = 1.0

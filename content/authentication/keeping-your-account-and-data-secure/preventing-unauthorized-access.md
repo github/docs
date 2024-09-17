@@ -1,6 +1,6 @@
 ---
 title: Preventing unauthorized access
-intro: 'You may be alerted to a security incident in the media, such as the discovery of the [Heartbleed bug](http://heartbleed.com/), or your computer could be stolen while you''re signed in to {% data variables.location.product_location %}. In such cases, changing your password prevents any unintended future access to your account and projects.'
+intro: 'You may be alerted to a security incident in the media, such as the discovery of the [Heartbleed bug](http://heartbleed.com/), or your computer could be stolen while you''re signed in to {% data variables.product.prodname_dotcom %}. In such cases, changing your password prevents any unintended future access to your account and projects.'
 redirect_from:
   - /articles/preventing-unauthorized-access
   - /github/authenticating-to-github/preventing-unauthorized-access
@@ -20,7 +20,7 @@ After changing your password, you should perform these actions to make sure that
 
 * Enable two-factor authentication on your account so that access requires more than just a password. For more information, see "[AUTOTITLE](/authentication/securing-your-account-with-two-factor-authentication-2fa/about-two-factor-authentication)."
 {%- ifversion passkeys %}
-* Add a passkey to your account to enable a secure, passwordless login. Passkeys are phishing-resistant, and they don't require memorization or active management. For more information, see "[AUTOTITLE](/authentication/authenticating-with-a-passkey/about-passkeys)" and "[AUTOTITLE](/authentication/authenticating-with-a-passkey/managing-your-passkeys)."{% endif %}
+* Add a passkey to your account to enable a secure, passwordless login. Passkeys are phishing-resistant, and they don't require memorization or active management. See "[AUTOTITLE](/authentication/authenticating-with-a-passkey/about-passkeys)."{% endif %}
 * Review your SSH keys, deploy keys, and authorized integrations and revoke unauthorized or unfamiliar access in your SSH and Applications settings. For more information, see "[AUTOTITLE](/authentication/keeping-your-account-and-data-secure/reviewing-your-ssh-keys)," "[AUTOTITLE](/authentication/keeping-your-account-and-data-secure/reviewing-your-deploy-keys)," and "[AUTOTITLE](/apps/using-github-apps/reviewing-your-authorized-integrations)."
 {% ifversion fpt or ghec %}
 * Verify all your email addresses. If an attacker added their email address to your account, it could allow them to force an unintended password reset. For more information, see "[AUTOTITLE](/account-and-profile/setting-up-and-managing-your-personal-account-on-github/managing-email-preferences/verifying-your-email-address)."

@@ -10,4 +10,4 @@ Push protection for repositories and organizations is available for {% ifversion
 {%- elsif ghes %}
 Push protection is available for organization-owned repositories in {% data variables.product.product_name %} if your enterprise has a license for {% data variables.product.prodname_GH_advanced_security %}.{% endif %}
 
-For more information, see {% ifversion secret-scanning-push-protection-for-users %}"[AUTOTITLE](/code-security/secret-scanning/push-protection-for-users)" and {% endif %}"[AUTOTITLE](/code-security/secret-scanning/push-protection-for-repositories-and-organizations)."
+For more information, see {% ifversion secret-scanning-push-protection-for-users %}"[AUTOTITLE](/code-security/secret-scanning/working-with-secret-scanning-and-push-protection/push-protection-for-users)" and {% endif %}"[AUTOTITLE](/code-security/secret-scanning/introduction/about-push-protection)."

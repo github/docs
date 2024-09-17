@@ -34,7 +34,7 @@ As a Microsoft CSP partner, you can get started with {% data variables.product.p
 
 ## Step 2: Purchase {% data variables.product.prodname_enterprise %}
 
-At any time during the trial, you can purchase {% data variables.product.prodname_enterprise %} for your client by adding your Azure subscription. If you ever hand over the enterprise account to your customer, you will need to remove your Azure subscription.
+At any time during the trial, you can purchase {% data variables.product.prodname_enterprise %} for your client by linking it to their Azure subscription. If the account is later transferred to the customer, ensure the Azure subscription is fully managed by them.
 
 {% data reusables.enterprise-accounts.access-enterprise %}
 1. At the top of the page, in the blue banner, click **Activate Enterprise**.

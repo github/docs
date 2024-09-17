@@ -112,8 +112,6 @@ It can generally be assumed that if a pack is published with one release of {% d
 
 It can also be assumed that a pack published by the _latest_ public release of {% data variables.product.prodname_codeql %} will be useable by the version of {% data variables.product.prodname_codeql %} that is used by {% data variables.product.prodname_code_scanning %} and {% data variables.product.prodname_actions %}, even though that is often a slightly older release.
 
-As an exception to the above, packs published with versions of {% data variables.product.prodname_codeql %} _earlier than 2.12.0_ are not compatible with any earlier or later versions. These old versions did not write pre-compiled queries in a format that supported compatibility between releases. Packs published by these versions can still be _used_ by newer versions, but the analysis will be slower because the queries have to be recompiled first.
-
 As a user of a published query pack, you can check that the {% data variables.product.prodname_codeql %} makes use of the precompiled queries in it by inspecting the terminal output from an analysis runs that uses the query pack. If it contains lines looking like the following, then the precompiled queries were used successfully:
 
 ```shell
@@ -383,7 +381,7 @@ The following properties are supported in `qlpack.yml` files.
 #### `warnOnImplicitThis`
 
 * Optional. Defaults to `false` if the `warnOnImplicitThis` property is not defined.
-* Defines a boolean that specifies whether or not the compiler should emit warnings about member predicate calls with implicit `this` call receivers, that is, without an explicit receiver. Supported from {% data variables.product.prodname_codeql_cli %} version 2.13.2 and onwards. For example:
+* Defines a boolean that specifies whether or not the compiler should emit warnings about member predicate calls with implicit `this` call receivers, that is, without an explicit receiver. Available since {% data variables.product.prodname_codeql_cli %} v2.13.2. For example:
 
   ```yaml
   warnOnImplicitThis: true

@@ -183,7 +183,9 @@ sections:
       For an instance in a cluster configuration and with GitHub Actions enabled, restoring a cluster from backup requires targeting the primary DB node.
     - |
       Memory utilization may increase after the upgrade. During periods of high traffic, interruptions in service may occur due to insufficient memory allocations for internal components.
-
+    - |
+      Following an upgrade, Elasticsearch search migrations are sometimes incorrectly reported as failing in the audit log, even though the migrations completed successfully. [Updated: 2024-08-02]
+      
   deprecations:
     # https://github.com/github/releases/issues/2732
     - |
@@ -191,5 +193,11 @@ sections:
     # https://github.com/github/releases/issues/3859
     - |
       The Manage GHES API reached feature parity with the Management Console API in GHES 3.12. As a result, we will remove the Management Console API in GitHub Enterprise Server 3.15. For information about updating tooling that relies on the Management Console API, see "[AUTOTITLE](/rest/enterprise-admin/management-console)."
+    # https://github.com/github/releases/issues/3794
+    - |
+      From November 19, 2024, references to v1 and v2 of artifacts actions in GitHub Actions will not resolve. GitHub deprecated v1 and v2 of actions/upload-artifact, actions/download-artifact, and related npm packages on June 30, 2024. You can read more about this deprecation on the [GitHub Blog](https://github.blog/changelog/2024-02-13-deprecation-notice-v1-and-v2-of-the-artifact-actions/). GitHub Enterprise Server instances configured to use GitHub Connect to download these actions will need to store cached copies locally for workflows to continue working. If your local copy of these actions has been removed, use [GitHub Actions Sync](https://github.com/actions/actions-sync) to manually re-download the actions. [Updated: 2024-18-20]
+    # https://github.com/github/releases/issues/3794
+    - |
+      The deprecated v1 and v2 versions of artifacts actions will be removed from GitHub Enterprise Server 3.15 onwards. Users should update their workflows to use v3 or later versions of artifacts actions. [Updated: 2024-18-20]
   errata:
     - 'The "[Deprecations](/admin/release-notes#3.13.0-deprecations)" section previously indicated that the Management Console API would be deprecated in GitHub Enterprise Server 3.14. Instead, the Management Console API will be removed in GitHub Enterprise Server 3.15. [Updated: 2024-07-08]'

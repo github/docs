@@ -75,10 +75,10 @@ export function prettyPrintResults(results, { fixed = false } = {}) {
           ruleNames,
           chalk.dim(indentWrappedString(result.ruleDescription, ruleNames.length)),
         )
-        if (!distinctDetails) {
+        if (!distinctDetails && result.errorDetail) {
           console.log(
             label('Detail'),
-            `${indentWrappedString(result.errorDetail?.replace(/\n/g, ' ').trim(), PREFIX_PADDING.length * 8)}`,
+            `${indentWrappedString(result.errorDetail.replace(/\n/g, ' ').trim(), PREFIX_PADDING.length * 8)}`,
           )
         }
 
@@ -93,11 +93,11 @@ export function prettyPrintResults(results, { fixed = false } = {}) {
       if (isNumber(result.columnNumber) && result.columnNumber !== 1) {
         position += ` (col ${chalk.yellow(result.columnNumber)})`
       }
-      if (distinctDetails) {
+      if (distinctDetails && result.errorDetail) {
         console.log(
           label('Detail'),
           indentWrappedString(
-            result.errorDetail?.replace(/\n/g, ' ').trim(),
+            result.errorDetail.replace(/\n/g, ' ').trim(),
             PREFIX_PADDING.length * 8,
           ),
         )

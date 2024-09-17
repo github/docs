@@ -19,7 +19,7 @@ shortTitle: Update access credentials
 ## Requesting a new password
 
 1. To request a new password, visit {% ifversion fpt or ghec %}https://{% data variables.product.product_url %}/password_reset{% else %}`https://{% data variables.product.product_url %}/password_reset`{% endif %}.
-1. Enter the email address associated with your account on {% data variables.location.product_location %}, then click **Send password reset email.** The email will be sent to the backup email address if you have one configured.
+1. Enter the email address associated with your account, then click **Send password reset email.** The email will be sent to the backup email address if you have one configured.
 1. We'll email you a link that will allow you to reset your password. You must click on this link within 3 hours of receiving the email. If you didn't receive an email from us, make sure to check your spam folder.
 1. If you have enabled two-factor authentication, you will be prompted for your 2FA credentials:
 {% ifversion fpt or ghec %}

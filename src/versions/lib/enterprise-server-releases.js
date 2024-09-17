@@ -9,10 +9,10 @@ export const dates = JSON.parse(await fs.readFile('src/ghes-releases/lib/enterpr
 // enterprise-releases/docs/supported-versions.md#release-lifecycle-dates
 
 // Some frontmatter may contain the upcoming GHES release number
-export const next = '3.14'
-export const nextNext = '3.15'
+export const next = '3.15'
+export const nextNext = '3.16'
 
-export const supported = ['3.13', '3.12', '3.11', '3.10']
+export const supported = ['3.14', '3.13', '3.12', '3.11', '3.10']
 
 // Edit this to `null` when it's no longer the release candidate
 export const releaseCandidate = null

@@ -9,3 +9,10 @@
 .opacity100 {
   opacity: 1;
 }
+
+.customFocus:focus:not(:focus-visible), // override primer css specificity
+.customFocus:focus-visible {
+  outline: 2px solid var(--fgColor-accent, var(--color-accent-fg));
+  outline-offset: -2px;
+  box-shadow: 0 0 0 4px inset; // A little wider for the border radius :shrug:
+}

@@ -55,6 +55,8 @@ When a user has joined your {% data variables.product.prodname_ghe_server %} ins
 * Add the user to an organization. See "[AUTOTITLE](/organizations/managing-membership-in-your-organization/adding-people-to-your-organization)."
 * Invite the user to become an enterprise owner. See "[AUTOTITLE](/admin/user-management/managing-users-in-your-enterprise/inviting-people-to-manage-your-enterprise)."
 
+If you provision users with SCIM, you assign each user's enterprise role on your identity provider (IdP). The role cannot be changed on {% data variables.product.prodname_dotcom %}.
+
 {% endif %}
 
 ## Enterprise owners
@@ -81,7 +83,7 @@ Billing managers only have access to your enterprise's billing settings. They ca
 * View a list of billing managers
 * Add or remove other billing managers
 
-Billing managers do not have access to organization settings or content by default.
+Billing managers do not have access to organization settings or content by default except for internal repositories within an enterprise in which they are a member.
 
 {% endif %}
 

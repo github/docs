@@ -120,6 +120,7 @@ type SendEventProps = {
     survey_comment?: string
     survey_email?: string
     survey_rating?: number
+    survey_comment_language?: string
   }
 }
 

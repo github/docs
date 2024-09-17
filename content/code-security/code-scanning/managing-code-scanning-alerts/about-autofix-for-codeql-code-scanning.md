@@ -1,7 +1,8 @@
 ---
-title: About autofix for CodeQL code scanning
-shortTitle: Autofix for code scanning
+title: About Copilot Autofix for CodeQL code scanning
+shortTitle: Copilot Autofix for code scanning
 intro: Learn how GitHub uses AI to suggest potential fixes for {% data variables.product.prodname_code_scanning %} alerts found by {% data variables.product.prodname_codeql %}.
+allowTitleToDifferFromFilename: true
 product: '{% data reusables.rai.code-scanning.gated-feature-autofix %}'
 versions:
   feature: code-scanning-autofix
@@ -17,16 +18,16 @@ topics:
 
 {% data reusables.rai.code-scanning.autofix-note %}
 
-## About autofix for {% data variables.product.prodname_codeql %} {% data variables.product.prodname_code_scanning %}
+## About {% data variables.product.prodname_copilot_autofix_short %} for {% data variables.product.prodname_codeql %} {% data variables.product.prodname_code_scanning %}
 
-{% data variables.product.prodname_code_scanning_caps %} autofix is a {% data variables.product.prodname_copilot %}-powered expansion of {% data variables.product.prodname_code_scanning %} that provides users with targeted recommendations to help them fix {% data variables.product.prodname_code_scanning %} alerts so they can avoid introducing new security vulnerabilities. The potential fixes are generated automatically by large language models (LLMs) using data from the codebase and from {% data variables.product.prodname_codeql %} analysis.
+{% data variables.product.prodname_copilot_autofix %} is an expansion of {% data variables.product.prodname_code_scanning %} that provides users with targeted recommendations to help them fix {% data variables.product.prodname_code_scanning %} alerts so they can avoid introducing new security vulnerabilities. The potential fixes are generated automatically by large language models (LLMs) using data from the codebase and from {% data variables.product.prodname_codeql %} analysis.
 
 > [!NOTE]
-> While {% data variables.product.prodname_code_scanning %} autofix is powered by {% data variables.product.prodname_copilot %}, your enterprise does not need a subscription to {% data variables.product.prodname_copilot %} to use autofix. As long as your enterprise has {% data variables.product.prodname_GH_advanced_security %}, you will have access to autofix.
+> While {% data variables.product.prodname_copilot_autofix_short %} is powered by {% data variables.product.prodname_copilot %}, your enterprise does not need a subscription to {% data variables.product.prodname_copilot %} to use {% data variables.product.prodname_copilot_autofix_short %}. As long as your enterprise has {% data variables.product.prodname_GH_advanced_security %}, you will have access to {% data variables.product.prodname_copilot_autofix_short %}.
 
-{% data variables.product.prodname_code_scanning_caps %} autofix generates potential fixes that are relevant to the existing source code and translates the description and location of an alert into code changes that may fix the alert. Autofix uses internal {% data variables.product.prodname_copilot %} APIs interfacing with the large language model GPT-4o from OpenAI, which has sufficient generative capabilities to produce both suggested fixes in code and explanatory text for those fixes.
+{% data variables.product.prodname_copilot_autofix_short %} generates potential fixes that are relevant to the existing source code and translates the description and location of an alert into code changes that may fix the alert. {% data variables.product.prodname_copilot_autofix_short %} uses internal {% data variables.product.prodname_copilot %} APIs interfacing with the large language model GPT-4o from OpenAI, which has sufficient generative capabilities to produce both suggested fixes in code and explanatory text for those fixes.
 
-{% ifversion code-scanning-autofix %}While {% data variables.product.prodname_code_scanning %} autofix is allowed by default in an enterprise and enabled for every repository using {% data variables.product.prodname_codeql %}, you can choose to opt out and disable autofix. To learn how to disable autofix at the enterprise, organization and repository levels, see "[AUTOTITLE](/code-security/code-scanning/managing-code-scanning-alerts/disabling-autofix-for-code-scanning)."{% endif %}
+{% ifversion code-scanning-autofix %}While {% data variables.product.prodname_copilot_autofix_short %} is allowed by default in an enterprise and enabled for every repository using {% data variables.product.prodname_codeql %}, you can choose to opt out and disable {% data variables.product.prodname_copilot_autofix_short %}. To learn how to disable {% data variables.product.prodname_copilot_autofix_short %} at the enterprise, organization and repository levels, see "[AUTOTITLE](/code-security/code-scanning/managing-code-scanning-alerts/disabling-autofix-for-code-scanning)."{% endif %}
 
 In an organization's security overview dashboard, you can view the total number of code suggestions generated on open and closed pull requests in the organization for a given time period. For more information, see "[AUTOTITLE](/enterprise-cloud@latest/code-security/security-overview/viewing-security-insights#autofix-suggestions)" in the {% data variables.product.prodname_ghe_cloud %} documentation.
 
@@ -34,17 +35,17 @@ In an organization's security overview dashboard, you can view the total number 
 
 {% data variables.product.prodname_GH_advanced_security %} users can already see any security alerts detected by {% data variables.product.prodname_code_scanning %} using {% data variables.product.prodname_codeql %} to analyze their pull requests. However, developers often have little training in code security so fixing these alerts requires substantial effort. They must first read and understand the alert location and description, and then use that understanding to edit the source code to fix the vulnerability.
 
-{% data variables.product.prodname_code_scanning_caps %} autofix lowers the barrier of entry to developers by combining information on best practices with details of the codebase and alert to suggest a potential fix to the developer. Instead of starting with a search for information about the vulnerability, the developer starts with a code suggestion that demonstrates a potential solution for their codebase. The developer evaluates the potential fix to determine whether it is the best solution for their codebase and to ensure that it maintains the intended behavior.
+{% data variables.product.prodname_copilot_autofix_short %} lowers the barrier of entry to developers by combining information on best practices with details of the codebase and alert to suggest a potential fix to the developer. Instead of starting with a search for information about the vulnerability, the developer starts with a code suggestion that demonstrates a potential solution for their codebase. The developer evaluates the potential fix to determine whether it is the best solution for their codebase and to ensure that it maintains the intended behavior.
 
 After committing a suggested fix or modified fix, the developer should always verify that continuous integration testing (CI) for the codebase continues to pass and that the alert is shown as resolved before they merge their pull request.
 
 ## Supported languages
 
-{% data variables.product.prodname_code_scanning_caps %} autofix supports fix generation for a subset of queries included in the default and security-extended query suites for {% data variables.code-scanning.code_scanning_autofix_languages %}. For more information on these query suites, see "[AUTOTITLE](/code-security/code-scanning/managing-your-code-scanning-configuration/codeql-query-suites#built-in-codeql-query-suites)."
+{% data variables.product.prodname_copilot_autofix_short %} supports fix generation for a subset of queries included in the default and security-extended query suites for {% data variables.code-scanning.code_scanning_autofix_languages %}. For more information on these query suites, see "[AUTOTITLE](/code-security/code-scanning/managing-your-code-scanning-configuration/codeql-query-suites#built-in-codeql-query-suites)."
 
 ## Suggestion generation process
 
-When autofix is enabled for a repository, {% data variables.product.prodname_code_scanning %} alerts that are identified by supported {% data variables.product.prodname_codeql %} queries send input to the LLM. If the LLM can generate a potential fix, the fix is shown as a suggestion.
+When {% data variables.product.prodname_copilot_autofix_short %} is enabled for a repository, {% data variables.product.prodname_code_scanning %} alerts that are identified by supported {% data variables.product.prodname_codeql %} queries send input to the LLM. If the LLM can generate a potential fix, the fix is shown as a suggestion.
 
 {% data variables.product.prodname_dotcom %} sends the LLM a variety of data from the {% data variables.product.prodname_codeql %} analysis.
 
@@ -54,13 +55,13 @@ When autofix is enabled for a repository, {% data variables.product.prodname_cod
     * First ~10 lines from each file involved in any of those locations.
 * Help text for the {% data variables.product.prodname_codeql %} query that identified the problem. For examples, see “[{% data variables.product.prodname_codeql %} query help](https://codeql.github.com/codeql-query-help/).”
 
-Any autofix suggestions are generated and stored within the {% data variables.product.prodname_code_scanning %} backend. They are displayed as suggestions. No user interaction is needed beyond enabling {% data variables.product.prodname_code_scanning %} on the codebase and creating a pull request.
+Any {% data variables.product.prodname_copilot_autofix_short %} suggestions are generated and stored within the {% data variables.product.prodname_code_scanning %} backend. They are displayed as suggestions. No user interaction is needed beyond enabling {% data variables.product.prodname_code_scanning %} on the codebase and creating a pull request.
 
-The process of generating fixes does not gather or utilize any customer data beyond the scope outlined above. Therefore, the use of this feature is governed by the existing terms and conditions associated with {% data variables.product.prodname_GH_advanced_security %}. Moreover, data handled by {% data variables.product.prodname_code_scanning %} autofix is strictly not employed for LLM training purposes. For more information on  {% data variables.product.prodname_GH_advanced_security %} terms and conditions, see "[AUTOTITLE](/free-pro-team@latest/site-policy/github-terms/github-terms-for-additional-products-and-features#advanced-security){% ifversion fpt %}."{% else %} in the Free, Pro, & Team documentation.{% endif %}
+The process of generating fixes does not gather or utilize any customer data beyond the scope outlined above. Therefore, the use of this feature is governed by the existing terms and conditions associated with {% data variables.product.prodname_GH_advanced_security %}. Moreover, data handled by {% data variables.product.prodname_copilot_autofix_short %} is strictly not employed for LLM training purposes. For more information on  {% data variables.product.prodname_GH_advanced_security %} terms and conditions, see "[AUTOTITLE](/free-pro-team@latest/site-policy/github-terms/github-terms-for-additional-products-and-features#advanced-security){% ifversion fpt %}."{% else %} in the Free, Pro, & Team documentation.{% endif %}
 
 ## Quality of suggestions
 
-{% data variables.product.prodname_dotcom %} uses an automated test harness to continuously monitor the quality of suggestions from autofix. This allows us to understand how the suggestions generated by the LLM change as the model develops.
+{% data variables.product.prodname_dotcom %} uses an automated test harness to continuously monitor the quality of suggestions from {% data variables.product.prodname_copilot_autofix_short %}. This allows us to understand how the suggestions generated by the LLM change as the model develops.
 
 The test harness includes a set of over 2,300 alerts from a diverse set of public repositories where the highlighted code has test coverage. Suggestions for these alerts are tested to see how good they are, that is, how much a developer would need to edit them before committing them to the codebase. For many of the test alerts, suggestions generated by the LLM could be committed as-is to fix the alert while continuing to successfully pass all the existing CI tests.
 
@@ -79,20 +80,20 @@ In addition, we spot check many of the successful suggestions and verify that th
 
 ### Effectiveness on other projects
 
-The test set contains a broad range of different types of projects and alerts. We predict that suggestions for other projects using languages supported by autofix should follow a similar pattern.
+The test set contains a broad range of different types of projects and alerts. We predict that suggestions for other projects using languages supported by {% data variables.product.prodname_copilot_autofix_short %} should follow a similar pattern.
 
-* Autofix is likely to add a code suggestion to the majority of alerts.
+* {% data variables.product.prodname_copilot_autofix_short %} is likely to add a code suggestion to the majority of alerts.
 * When developers evaluate the suggestions we expect that the majority of fixes can be committed without editing or with minor updates to reflect the wider context of the code.
 * A small percentage of suggested fixes will reflect a significant misunderstanding of the codebase or the vulnerability.
 
-However, each project and codebase is unique, so developers may need to edit a larger percentage of suggested fixes before committing them. Autofix provides valuable information to help you resolve {% data variables.product.prodname_code_scanning %} alerts, but ultimately it remains your responsibility to evaluate the proposed change and ensure the security and accuracy of your code.
+However, each project and codebase is unique, so developers may need to edit a larger percentage of suggested fixes before committing them. {% data variables.product.prodname_copilot_autofix_short %} provides valuable information to help you resolve {% data variables.product.prodname_code_scanning %} alerts, but ultimately it remains your responsibility to evaluate the proposed change and ensure the security and accuracy of your code.
 
 > [!NOTE]
 > Fix generation for supported languages is subject to LLM operational capacity. In addition, each suggested fix is tested before it is added to a pull request. If no suggestion is available, or if the suggested fix fails internal testing, then no suggestion is displayed.
 
 ## Limitations of suggestions
 
-When you review a suggestion from autofix, you must always consider the limitations of AI and edit the changes as needed before you accept the changes. You should also consider updating the CI testing and dependency management for a repository before enabling autofix for {% data variables.product.prodname_code_scanning %}. For more information, see "[Mitigating the limitations of suggestions](#mitigating-the-limitations-of-suggestions)."
+When you review a suggestion from {% data variables.product.prodname_copilot_autofix_short %}, you must always consider the limitations of AI and edit the changes as needed before you accept the changes. You should also consider updating the CI testing and dependency management for a repository before enabling {% data variables.product.prodname_copilot_autofix_short %} for {% data variables.product.prodname_code_scanning %}. For more information, see "[Mitigating the limitations of suggestions](#mitigating-the-limitations-of-suggestions)."
 
 ### Limitations of code suggestions
 
@@ -113,7 +114,7 @@ Sometimes a suggested fix includes a change in the dependencies of the codebase.
 
 ## Mitigating the limitations of suggestions
 
-The best way to mitigate the limitations of suggestions from autofix is to follow best practices. For example, using CI testing of pull requests to verify functional requirements are unaffected and using dependency management solutions, such as the dependency review API and action. For more information, see “[AUTOTITLE](/code-security/supply-chain-security/understanding-your-software-supply-chain/about-dependency-review).”
+The best way to mitigate the limitations of suggestions from {% data variables.product.prodname_copilot_autofix_short %} is to follow best practices. For example, using CI testing of pull requests to verify functional requirements are unaffected and using dependency management solutions, such as the dependency review API and action. For more information, see “[AUTOTITLE](/code-security/supply-chain-security/understanding-your-software-supply-chain/about-dependency-review).”
 
 It is important to remember that the author of a pull request retains responsibility for how they respond to review comments and suggested code changes, whether proposed by colleagues or automated tools. Developers should always look at suggestions for code changes critically. If needed, they should edit the suggested changes to ensure that the resulting code and application are correct, secure, meet performance criteria, and satisfy all other functional and non-functional requirements for the application.
 

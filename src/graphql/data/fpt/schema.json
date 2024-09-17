@@ -49896,7 +49896,7 @@
         },
         {
           "name": "closingIssuesReferences",
-          "description": "<p>List of issues that were may be closed by this pull request.</p>",
+          "description": "<p>List of issues that may be closed by this pull request.</p>",
           "type": "IssueConnection",
           "id": "issueconnection",
           "kind": "objects",
@@ -84210,6 +84210,10 @@
         {
           "name": "POLAR",
           "description": "<p>Polar funding platform.</p>"
+        },
+        {
+          "name": "THANKS_DEV",
+          "description": "<p>thanks.dev funding platform.</p>"
         },
         {
           "name": "TIDELIFT",

@@ -59,11 +59,13 @@ If an organization member is assigned a seat by multiple organizations with diff
 
 1. If your organization has a {% data variables.product.prodname_copilot_enterprise_short %} subscription and you enable {% data variables.product.prodname_copilot_short %} in {% data variables.product.prodname_dotcom_the_website %}, two additional options are displayed. Depending on your enterprise settings, you may be able to change the settings for these options.
 
-      {% data reusables.copilot.policies-for-dotcom %}
+    {% data reusables.copilot.policies-for-dotcom %}
 
 {% endif %}
 
 ## Setting a policy for {% data variables.product.prodname_copilot_extensions %} in your organization
+
+{% data reusables.copilot.copilot-extensions.beta-note %}
 
 {% data variables.product.prodname_copilot_extensions %} integrate external tools with {% data variables.product.prodname_copilot_chat %}. See "[AUTOTITLE](/copilot/using-github-copilot/using-extensions-to-integrate-external-tools-with-copilot-chat)."
 

@@ -54,7 +54,7 @@ Notes are particularly useful for communicating parenthetical information that i
 * Caveats that might affect the outcome of a process, such as specific user settings.
 * Products and features that are subject to changes in availability, such as those in beta or being deprecated.
 
-For example, "[AUTOTITLE](/code-security/secret-scanning/managing-alerts-from-secret-scanning#reviewing-github-token-metadata)" uses a note to inform users that metadata for {% data variables.product.prodname_dotcom %} tokens is currently in beta.
+For example, "[AUTOTITLE](/code-security/secret-scanning/managing-alerts-from-secret-scanning/evaluating-alerts#reviewing-github-token-metadata)" uses a note to inform users that metadata for {% data variables.product.prodname_dotcom %} tokens is currently in beta.
 
 > [!NOTE]
 > Metadata for {% data variables.product.prodname_dotcom %} tokens is currently in public beta and subject to change.
@@ -277,10 +277,14 @@ Workflow runs are delayed when too many workflows run at once. Since many users 
 
 ## Emphasis
 
-Use italics to emphasize words or parts of a sentence. Use emphasis sparingly for terminology or context that someone must be aware of to successfully complete the task that they're working on. Do not use italics to emphasize words that have other formatting applied such as all caps for placeholder text or bold for UI elements.
+Use bold to emphasize words or parts of a sentence. Use emphasis sparingly (no more than five contiguous words), and remember that it is a visual aid for scannability for sighted users.
 
-* **Use:** _{% data variables.product.pat_v2 %}s_ have several security advantages over {% data variables.product.pat_v1_plural %}.
-* **Use:** _For types of packages other than containers_, to the right of the package version click **Delete**.
+* Do not bold words that have other formatting applied, such as all caps for placeholder text.
+* For accessibility, do not use bolding as the only way to convey meaning or emphasis.
+
+For example:
+
+* **Use:** Managed user accounts **cannot create public content** or collaborate outside your enterprise.
 * **Avoid:** Next to _**Title**_, add a descriptive label for your new key.
 
 ## Error messages
@@ -411,7 +415,7 @@ Use alt text to express the core idea of the image, without duplicating the webp
 
 > Diagram showing a five-step process by which a {% data variables.product.prodname_actions %} runner can be automatically added to named classes of runners and then requested by specific jobs.
 
-For example, see [accompanying explanation of this diagram in the Actions documentation](/free-pro-team@latest/actions/using-github-hosted-runners/using-larger-runners#architectural-overview-of-larger-runners).
+For example, see [accompanying explanation of this diagram in the Actions documentation](/free-pro-team@latest/actions/using-github-hosted-runners/using-larger-runners/about-larger-runners#architectural-overview-of-larger-runners).
 
 #### Alt text for images of command-line interfaces
 

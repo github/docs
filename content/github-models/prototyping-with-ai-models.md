@@ -151,3 +151,7 @@ Low, high, and embedding models have different rate limits. To see which type of
 </table>
 
 These limits are subject to change without notice.
+
+## Leaving feedback
+
+To leave feedback about {% data variables.product.prodname_github_models %}, start a new discussion or comment on an existing discussion in the [GitHub Community](https://github.com/orgs/community/discussions/categories/models).

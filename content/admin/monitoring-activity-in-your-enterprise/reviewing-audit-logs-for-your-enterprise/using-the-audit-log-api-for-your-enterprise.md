@@ -1,8 +1,8 @@
 ---
 title: Using the audit log API for your enterprise
-intro: You can programmatically retrieve enterprise events with the REST API.
+intro: Learn how to programmatically retrieve enterprise events with the REST API.
 shortTitle: Audit log API
-permissions: 'Enterprise owners {% ifversion ghes %}and site administrators {% endif %}can use the audit log API.'
+permissions: 'Enterprise owners {% ifversion ghes %}and site administrators {% endif %}'
 versions:
   ghec: '*'
   ghes: '*'
@@ -14,19 +14,17 @@ topics:
   - API
 ---
 
-## Using the audit log API
+>[!NOTE] {% data reusables.webhooks.webhooks-as-audit-log-alternative %}
 
-{% note %}
+Maintain compliance and secure intellectual property with endpoints relating to the audit log. See "[AUTOTITLE](/rest/enterprise-admin/audit-log)" and "[AUTOTITLE](/rest/orgs#get-the-audit-log-for-an-organization)."
 
-**Note:**  {% data reusables.webhooks.webhooks-as-audit-log-alternative %}
-
-{% endnote %}
-
-You can maintain compliance for your enterprise and secure your intellectual property by interacting with the audit log using the REST API. For more information about the specific events that you can access via the audit log API, see the following articles.
+For more information about the specific events that you can access via the audit log endpoints, see the following articles.
 
 * "[AUTOTITLE](/admin/monitoring-activity-in-your-enterprise/reviewing-audit-logs-for-your-enterprise/audit-log-events-for-your-enterprise)"
 * "[AUTOTITLE](/organizations/keeping-your-organization-secure/managing-security-settings-for-your-organization/audit-log-events-for-your-organization)"
 * "[AUTOTITLE](/authentication/keeping-your-account-and-data-secure/security-log-events)"
+
+## Audit log details
 
 {% data reusables.audit_log.retention-periods %}
 
@@ -34,9 +32,11 @@ Timestamps and date fields in the API response are measured in [UTC epoch millis
 
 {% ifversion read-audit-scope %}You can use the `read:audit_log` scope to access the audit log via the API.{% endif %}
 
-{% ifversion ghec %}Each audit log API endpoint has a rate limit of 1,750 queries per hour for a given combination of user and IP address. To avoid rate limiting, integrations that query the audit log API should query at a maximum frequency of 1,750 queries per hour. Additionally, if your integration receives a rate limit error (typically a 403 or 429 response), it should wait before making another request to the API. For more information, see "[AUTOTITLE](/rest/overview/rate-limits-for-the-rest-api)" and "[AUTOTITLE](/rest/guides/best-practices-for-integrators)."{% endif %}
+{% ifversion ghec %}
 
-For more information about the audit log REST API, see "[AUTOTITLE](/rest/enterprise-admin/audit-log)" and "[AUTOTITLE](/rest/orgs#get-the-audit-log-for-an-organization)."
+## Rate limit
+
+Each audit log API endpoint has a rate limit of 1,750 queries per hour for a given combination of user and IP address. To avoid rate limiting, integrations that query the audit log API should query at a maximum frequency of 1,750 queries per hour. Additionally, if your integration receives a rate limit error (typically a 403 or 429 response), it should wait before making another request to the API. See "[AUTOTITLE](/rest/overview/rate-limits-for-the-rest-api)" and "[AUTOTITLE](/rest/guides/best-practices-for-integrators)."{% endif %}
 
 ## Example 1: All events in an enterprise, for a specific date, with pagination
 

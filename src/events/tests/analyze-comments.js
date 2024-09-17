@@ -1,6 +1,6 @@
 import { describe, expect, test } from 'vitest'
 
-import { analyzeComment } from '../analyze-comment.js'
+import { analyzeComment, getGuessedLanguage } from '../analyze-comment.js'
 
 describe('analyzeComment', () => {
   test('email only', async () => {
@@ -246,6 +246,28 @@ describe('analyzeComment', () => {
     {
       const { signals } = await analyzeComment('MinecraftFacebook')
       expect(signals.includes('spammy-words')).toBeFalsy()
+    }
+  })
+
+  test('guessed-language', async () => {
+    // Yes
+    {
+      const guessedLanguage = await getGuessedLanguage('Garçon des la voituré')
+      expect(guessedLanguage).toBe('fr')
+    }
+    {
+      const guessedLanguage = await getGuessedLanguage('english words longer sentence this time')
+      expect(guessedLanguage).toBe('en')
+    }
+
+    // False positives due to short text
+    {
+      const guessedLanguage = await analyzeComment('Hello')
+      expect(guessedLanguage).not.toBe('en')
+    }
+    {
+      const guessedLanguage = await analyzeComment('Garçon')
+      expect(guessedLanguage).not.toBe('fr')
     }
   })
 })

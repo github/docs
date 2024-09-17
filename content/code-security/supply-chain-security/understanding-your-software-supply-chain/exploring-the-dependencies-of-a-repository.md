@@ -29,15 +29,20 @@ The dependency graph shows the dependencies{% ifversion fpt or ghec %} and depen
 {% data reusables.repositories.accessing-repository-graphs %}
 {% data reusables.repositories.click-dependency-graph %}{% ifversion dependency-graph-repository-view-update %}
 1. Optionally, use the search bar to find a specific dependency or set of dependencies.
-   {% note %}
 
-   **Note:** The search bar only searches based on the package name.
+   >[!NOTE] The search bar only searches based on the package name.
 
-   {% endnote %}{% endif %}
+{% endif %}
+
 {% ifversion fpt or ghec %}
+
 1. Optionally, to view the repositories and packages that depend on your repository, under "Dependency graph", click **Dependents**.
 
-   ![Screenshot of the "Dependency graph" page. The "Dependents" tab is highlighted with an orange outline.](/assets/images/help/graphs/dependency-graph-dependents-tab.png){% endif %}
+   ![Screenshot of the "Dependency graph" page. The "Dependents" tab is highlighted with an orange outline.](/assets/images/help/graphs/dependency-graph-dependents-tab.png)
+
+   >[!NOTE] {% data variables.product.prodname_dotcom %} currently only determines dependents for public repositories.
+
+{% endif %}
 
 {% ifversion ghes %}
 Enterprise owners can configure the dependency graph at an enterprise level. For more information, see "[AUTOTITLE](/admin/code-security/managing-supply-chain-security-for-your-enterprise/enabling-the-dependency-graph-for-your-enterprise)."

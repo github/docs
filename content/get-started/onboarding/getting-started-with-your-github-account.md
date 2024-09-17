@@ -23,7 +23,7 @@ The first steps in starting with {% data variables.product.product_name %} are t
 
 ### 1. Creating an account
 
-To sign up for an account on {% data variables.location.product_location %}, navigate to https://github.com/ and follow the prompts.
+To sign up for an account, navigate to https://github.com/ and follow the prompts.
 
 To keep your {% data variables.product.prodname_dotcom %} account secure you should use a strong and unique password. For more information, see "[AUTOTITLE](/authentication/keeping-your-account-and-data-secure/creating-a-strong-password)."
 
@@ -52,7 +52,7 @@ The administrator of your {% data variables.product.product_name %} instance wil
 
 Two-factor authentication, or 2FA, is an extra layer of security used when logging into websites or apps. We strongly urge you to configure 2FA for the safety of your account. For more information, see "[AUTOTITLE](/authentication/securing-your-account-with-two-factor-authentication-2fa/about-two-factor-authentication)."
 
-{% ifversion passkeys %}Optionally, after you have configured 2FA, add a passkey to your account to enable a secure, passwordless login. For more information, see "[AUTOTITLE](/authentication/authenticating-with-a-passkey/about-passkeys)" and "[AUTOTITLE](/authentication/authenticating-with-a-passkey/managing-your-passkeys)."{% endif %}
+{% ifversion passkeys %}Optionally, after you have configured 2FA, add a passkey to your account to enable a secure, passwordless login. See "[AUTOTITLE](/authentication/authenticating-with-a-passkey/managing-your-passkeys)."{% endif %}
 
 ### {% ifversion fpt or ghec %}5.{% elsif ghes %}3.{% else %}2.{% endif %} Viewing your {% data variables.product.prodname_dotcom %} profile and contribution graph
 

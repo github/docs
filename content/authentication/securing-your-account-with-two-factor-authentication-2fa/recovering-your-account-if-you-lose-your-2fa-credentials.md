@@ -45,14 +45,14 @@ Use one of your recovery codes to automatically regain entry into your account. 
 
     {% endwarning %}
 
-1. Under "Having problems?", click **Use a recovery code{% ifversion fpt or ghec %} or request a reset{% endif %}**.
+1. Under "Having problems?", click **Use a recovery code{% ifversion fpt or ghec %} or begin 2FA account recovery{% endif %}**.
 1. Type one of your recovery codes, then click **Verify**.
 
 {% ifversion passkeys %}
 
 ## Authenticating with a passkey
 
-If you have added a passkey to your account, you can use your passkey to automatically regain access to your account. Passkeys satisfy both password and 2FA requirements, so you don't need to know your password in order to recover your account. For more information, see "[AUTOTITLE](/authentication/authenticating-with-a-passkey/about-passkeys)."
+If you have added a passkey to your account, you can use your passkey to automatically regain access to your account. Passkeys satisfy both password and 2FA requirements, so you don't need to know your password in order to recover your account. See "[AUTOTITLE](/authentication/authenticating-with-a-passkey/about-passkeys)."
 
 {% endif %}
 
@@ -74,7 +74,7 @@ If you lose access to your preferred TOTP app or phone number, you can provide a
 
 ## Authenticating with a verified device, SSH token, or {% data variables.product.pat_generic %}
 
-If you know your password for {% data variables.location.product_location %} but don't have the two-factor authentication credentials or your two-factor authentication recovery codes, you can have a one-time password sent to your verified email address to begin the verification process and regain access to your account.
+If you know your password for {% data variables.product.prodname_dotcom %} but don't have the two-factor authentication credentials or your two-factor authentication recovery codes, you can have a one-time password sent to your verified email address to begin the verification process and regain access to your account.
 
 {% note %}
 
@@ -92,12 +92,7 @@ You can use your two-factor authentication credentials or two-factor authenticat
 
     {% endwarning %}
 1. Under "Having problems?", click **Use a recovery code or begin 2FA account recovery**.
-
-{% ifversion 2fa-reconfiguration-inline-update %}
-1. Under "Locked out?", click **Recover your account or unlink an email address**.
-{% else %}
-1. To the right of "Locked out?", click **Try recovering your account**.
-{% endif %}
+1. Under "Locked out?", click **Try 2FA account recovery, or unlink your account email address(es)**.
 1. Click **I understand, get started** to request a reset of your authentication settings.
 1. Click **Send one-time password** to send a one-time password to all eligible addresses associated with your account. Only verified emails are eligible for account recovery. If you've restricted password resets to your primary and/or backup addresses, these addresses are the only addresses eligible for account recovery.
 1. Under "One-time password", type the temporary password from the recovery email {% data variables.product.prodname_dotcom %} sent, then click **Verify email address**.
@@ -113,7 +108,7 @@ You can use your two-factor authentication credentials or two-factor authenticat
 If you have forgotten your password and you've lost access to your two-factor authentication credentials, you can start account recovery to regain access to your account. You'll need to verify your identity using a recovery authentication factor, such as an SSH key or previously verified device. If no recovery methods are available, you can choose to unlink your email address from your account.
 
 1. Click **Forgot password?**.
-1. Enter a primary or backup email address associated with your account on {% data variables.location.product_location %}, then click **Send password reset email.**
+1. Enter a primary or backup email address associated with your account, then click **Send password reset email.**
 1. Check your email for a link to reset your password. You must click on this link within three hours of receiving the email. If you don't see an email from us, make sure to check your spam folder.
 1. Click on the link in the email, then under "Having problems?", click **Start a 2FA recovery request**.
 1. To complete your recovery request, you'll need to verify an alternative authentication factor. {% data reusables.accounts.alternative-authentication %}

@@ -56,10 +56,12 @@ You can search the database, and use qualifiers to narrow your search. For examp
 {% data reusables.search.date_gt_lt %}
 
 | Qualifier  | Example |
-| ------------- | ------------- |
+| ---------- | ------- |
 | `type:reviewed`| [**type:reviewed**](https://github.com/advisories?query=type%3Areviewed) will show {% data variables.product.company_short %}-reviewed advisories for security vulnerabilities. |
-{% ifversion GH-advisory-db-supports-malware %}| `type:malware` | [**type:malware**](https://github.com/advisories?query=type%3Amalware) will show malware advisories. |
-{% endif %}| `type:unreviewed`| [**type:unreviewed**](https://github.com/advisories?query=type%3Aunreviewed) will show unreviewed advisories. |
+|  {% ifversion GH-advisory-db-supports-malware %} |
+| `type:malware` | [**type:malware**](https://github.com/advisories?query=type%3Amalware) will show malware advisories. |
+|  {% endif %} |
+| `type:unreviewed`| [**type:unreviewed**](https://github.com/advisories?query=type%3Aunreviewed) will show unreviewed advisories. |
 | `GHSA-ID`| [**GHSA-49wp-qq6x-g2rf**](https://github.com/advisories?query=GHSA-49wp-qq6x-g2rf) will show the advisory with this {% data variables.product.prodname_advisory_database %} ID. |
 | `CVE-ID`| [**CVE-2020-28482**](https://github.com/advisories?query=CVE-2020-28482) will show the advisory with this CVE ID number. |
 | `ecosystem:ECOSYSTEM`| [**ecosystem:npm**](https://github.com/advisories?utf8=%E2%9C%93&query=ecosystem%3Anpm) will show only advisories affecting npm packages. |
@@ -90,9 +92,9 @@ For any {% data variables.product.company_short %}-reviewed advisory in the {% d
 
 {% ifversion security-advisories-ghes %}
 
-## Accessing the local advisory database on {% data variables.location.product_location %}
+## Accessing the local advisory database on {% data variables.product.prodname_ghe_server %}
 
-If your site administrator has enabled {% data variables.product.prodname_github_connect %} for {% data variables.location.product_location %}, you can also browse reviewed advisories locally. For more information, see "[AUTOTITLE](/admin/configuration/configuring-github-connect/about-github-connect)".
+If your site administrator has enabled {% data variables.product.prodname_github_connect %} for your instance, you can also browse reviewed advisories locally. For more information, see "[AUTOTITLE](/admin/configuration/configuring-github-connect/about-github-connect)".
 
 You can use your local advisory database to check whether a specific security vulnerability is included, and therefore whether you'd get alerts for vulnerable dependencies. You can also view any vulnerable repositories.
 
@@ -107,7 +109,7 @@ You can use your local advisory database to check whether a specific security vu
 
 You can also suggest improvements to any advisory directly from your local advisory database. For more information, see "[AUTOTITLE](/code-security/security-advisories/working-with-global-security-advisories-from-the-github-advisory-database/editing-security-advisories-in-the-github-advisory-database#editing-advisories-from-your-github-enterprise-server-instance)".
 
-### Viewing vulnerable repositories for {% data variables.location.product_location %}
+### Viewing vulnerable repositories for your instance
 
 {% data reusables.repositories.enable-security-alerts %}
 

@@ -42,10 +42,8 @@ With a {% data variables.product.prodname_copilot_enterprise_short %} license, y
 * **{% data variables.product.prodname_copilot_short %} knowledge bases** - Organization owners can create knowledge bases consisting of Markdown documentation across one or more repositories, allowing organization members to use that documentation as context when they ask questions in {% data variables.product.prodname_copilot_chat_dotcom_short %}, {% data variables.product.prodname_copilot_chat_short %} in {% data variables.product.prodname_vscode %}, and {% data variables.product.prodname_copilot_chat_short %} in {% data variables.product.prodname_vs %}.
 
 If you enable "{% data variables.product.prodname_copilot_short %} in {% data variables.product.prodname_dotcom_the_website %}", you can also configure additional features:
-* **Opt in to user feedback collection** - If enabled, members of your enterprise can provide feedback after {% data variables.product.prodname_copilot_short %} generates a pull request summary, and the summary will be sent to {% data variables.product.prodname_dotcom %} for context. If disabled, members of your enterprise can still provide feedback after each {% data variables.product.prodname_copilot_chat_short %} response, and via the "Give feedback" link in conversations.
-* **Previews of {% data variables.product.prodname_copilot_short %} features** - If enabled, members of your enterprise can test new {% data variables.product.prodname_copilot_short %} features that are not yet generally available. Be aware that previews of features may have flaws, and the features may be changed or discontinued at any time. Current previews of {% data variables.product.prodname_copilot_short %} features:
 
-  * {% data variables.product.prodname_copilot_autocomplete_pr %}. For more information, see "[Using Copilot text completion](/copilot/using-github-copilot/using-copilot-text-completion)."
+{% data reusables.copilot.policies-for-dotcom %}
 
 ### {% data variables.product.prodname_copilot_cli %}
 
@@ -71,7 +69,7 @@ You can chat with {% data variables.product.prodname_copilot %} in your IDE to g
 
 ### Give {% data variables.product.prodname_copilot_short %} access to Bing
 
-> [!NOTE] Bing search integration into {% data variables.product.prodname_copilot_chat_short %} in {% data variables.product.prodname_dotcom_the_website %}, {% data variables.product.prodname_vscode_shortname %}, and {% data variables.product.prodname_vs %} is currently in beta and is subject to change.
+> [!NOTE] Bing search integration into {% data variables.product.prodname_copilot_chat_dotcom_short %}, {% data variables.product.prodname_vscode_shortname %}, and {% data variables.product.prodname_vs %} is currently in beta and is subject to change.
 
 {% data variables.product.prodname_copilot_chat %} can use Bing to provide enhanced responses by searching the internet for information related to a question. Bing search is particularly helpful when discussing new technologies or highly specific subjects.
 

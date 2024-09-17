@@ -4,7 +4,7 @@ IP allow lists **do** restrict access to:
 
 * Organization-owned repositories
 * Private and internal repositories
-* Public resources, when a user is signed into {% data variables.location.product_location %}
+* Public resources, when a user is signed into {% data variables.product.prodname_dotcom %}
 * Raw URLs for files in repositories, such as `https://raw.githubusercontent.com/octo-org/octo-repo/main/README.md?token=ABC10001`
 
 IP allow lists do **not** restrict access to:

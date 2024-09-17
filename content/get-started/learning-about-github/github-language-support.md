@@ -25,7 +25,7 @@ Core languages for {% data variables.product.prodname_dotcom %} features include
 
 Some features are supported for additional languages or package managers. If you want to know whether another language is supported for a feature or to request support for a language, visit {% data variables.contact.community_support_forum %}.
 
-| Language {% data reusables.supported-languages.products-table-header %}
+{% data reusables.supported-languages.products-table-header %}
 {% data reusables.supported-languages.C %}
 {% data reusables.supported-languages.Cpp %}
 {% data reusables.supported-languages.Cs %}

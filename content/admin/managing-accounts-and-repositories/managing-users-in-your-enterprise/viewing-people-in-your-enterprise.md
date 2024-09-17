@@ -86,9 +86,7 @@ If a user has multiple roles in an enterprise, the user is counted once for each
 
 An "outside collaborator" is a user who has access to a repository in an organization, but is not a member of the organization. The user might be an outside collaborator in one organization in your enterprise and a member of another organization. In this case, the user counts towards each total. For more information, see "[AUTOTITLE](/organizations/managing-user-access-to-your-organizations-repositories/managing-outside-collaborators/adding-outside-collaborators-to-repositories-in-your-organization)."
 
-{% ifversion ghec %}
-If your enterprise uses {% data variables.enterprise.prodname_managed_users %}, an "unaffiliated user" is someone who been provisioned with a user account, but is not a member of any of your organizations.
-{% endif %}
+If your enterprise uses {% ifversion ghec %}{% data variables.enterprise.prodname_managed_users %}{% else %}SCIM provisioning{% endif %}, an "unaffiliated" user is someone who been provisioned with a user account, but is not a member of any of your organizations.
 
 {% ifversion ghec %}
 
@@ -174,15 +172,15 @@ If you use {% data variables.visual_studio.prodname_vss_ghe %}, the list of pend
 
    ![Screenshot of the "Invitations" page. Three dropdown menus, titled "License", "Organizations", and "Source" are highlighted with an orange outline.](/assets/images/help/enterprises/enterprise-filter-pending-invitations.png)
 
-## Viewing suspended members in an {% data variables.enterprise.prodname_emu_enterprise %}
+{% endif %}
 
-If your enterprise uses {% data variables.product.prodname_emus %}, you can view suspended users. Suspended users are members who have been deprovisioned after being unassigned from the {% data variables.product.prodname_emu_idp_application %} application or deleted from the identity provider. For more information, see "[AUTOTITLE](/admin/identity-and-access-management/using-enterprise-managed-users-for-iam/about-enterprise-managed-users)."
+## Viewing suspended members
+
+If your enterprise uses {% ifversion ghec %}{% data variables.product.prodname_emus %}{% else %}SCIM provisioning{% endif %}, you can view suspended users. Suspended users are members who have been deprovisioned after being unassigned from the application or deleted on the identity provider.
 
 {% data reusables.enterprise-accounts.access-enterprise %}
 {% data reusables.enterprise-accounts.people-tab %}
 1. Under "People", click **Suspended**.
-
-{% endif %}
 
 ## Viewing dormant users
 
@@ -205,11 +203,27 @@ You can view a list of all dormant users {% ifversion ghes %} who have not been 
 
 {% endif %}
 
+{% ifversion scim-for-ghes-public-beta %}
+
+## Filtering by account type (SAML and SCIM)
+
+If you use SAML authentication and SCIM provisioning, you can filter members based on how they authenticate and how their account was created.
+
+{% data reusables.enterprise-accounts.access-enterprise %}
+{% data reusables.enterprise-accounts.people-tab %}
+1. Select **Account Type**, then choose from the following options.
+
+   * **Built-in**: Users with local accounts on {% data variables.location.product_location %} who authenticate with a username and password.
+   * **SAML linked**: Users who authenticate with SAML via an identity provider, but were not provisioned by SCIM.
+   * **SAML and SCIM linked**: Users who authenticate with SAML via an identity provider, and were provisioned by SCIM.
+
+{% endif %}
+
 {% ifversion ghec or ghes %}
 
 ## Viewing members without an email address from a verified domain
 
-You can view a list of members in your enterprise who don't have an email address from a verified domain associated with their user account on {% data variables.product.prodname_dotcom_the_website %}.
+You can view a list of members in your enterprise who don't have an email address from a verified domain associated with their user account.
 
 {% data reusables.enterprise-accounts.access-enterprise %}
 {% data reusables.enterprise-accounts.settings-tab %}
