@@ -1,0 +1,5 @@
+# Reference: Issue #7738 Dependency graph supports Dart (pub) - [GA]
+versions:
+  fpt: '*'
+  ghec: '*'
+  ghes: '>= 3.8'

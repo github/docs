@@ -3,16 +3,18 @@ name: Sync search - PR
 # **What it does**: This does what `sync-sarch-elasticsearch.yml` does but
 #                   with a localhost Elasticsearch and only for English.
 # **Why we have it**: To test that the script works and the popular pages json is valid.
-# **Who does it impact**: Docs engineering.
+# **Who does it impact**: Docs engineering
 
 on:
+  workflow_dispatch:
   pull_request:
     paths:
-      - script/search/parse-page-sections-into-records.js
-      - script/search/popular-pages.js
-      - lib/search/popular-pages.json
+      - 'src/search/**'
+      - 'package*.json'
       # Ultimately, for debugging this workflow itself
       - .github/workflows/sync-search-pr.yml
+      # Make sure we run this if the composite action changes
+      - .github/actions/setup-elasticsearch/action.yml
 
 permissions:
   contents: read
@@ -27,38 +29,32 @@ env:
   # as they do in `sync-search-elasticsearch.yml` where it uses
   # that `${{ env.ELASTICSEARCH_URL }}`
   ELASTICSEARCH_URL: http://localhost:9200
+  # Since we'll run in NDOE_ENV=production, we need to be explicit that
+  # we don't want Hydro configured.
+  HYDRO_ENDPOINT: ''
+  HYDRO_SECRET: ''
 
 jobs:
-  lint:
-    runs-on: ${{ fromJSON('["ubuntu-latest", "ubuntu-20.04-xl"]')[github.repository == 'github/docs-internal'] }}
+  dryRunElasticsearchIndexes:
+    runs-on: ubuntu-20.04-xl
+    if: github.repository == 'github/docs-internal'
     steps:
-      - uses: getong/elasticsearch-action@95b501ab0c83dee0aac7c39b7cea3723bef14954
-        with:
-          # # Make sure this matches production and `test.yml`
-          elasticsearch version: '7.11.1'
-          host port: 9200
-          container port: 9200
-          host node port: 9300
-          node port: 9300
-          discovery type: 'single-node'
-
       - name: Check out repo
-        uses: actions/checkout@dcd71f646680f2efd8db4afa5ad64fdcba30e748
+        uses: actions/checkout@b4ffde65f46336ab88eb53be808477a3936bae11 # v4.1.1
 
-      - name: Setup node
-        uses: actions/setup-node@17f8bd926464a1afa4c6a11669539e9c1ba77048
+      - name: Clone docs-internal-data
+        uses: actions/checkout@b4ffde65f46336ab88eb53be808477a3936bae11 # v4.1.1
         with:
-          node-version: '16.15.0'
-          cache: npm
+          repository: github/docs-internal-data
+          # This works because user `docs-bot` has read access to that private repo.
+          token: ${{ secrets.DOCS_BOT_PAT_READPUBLICKEY }}
+          path: docs-internal-data
 
-      - name: Install dependencies
-        run: npm ci
+      - uses: ./.github/actions/setup-elasticsearch
 
-      - name: Cache nextjs build
-        uses: actions/cache@48af2dc4a9e8278b89d7fa154b955c30c6aaab09
-        with:
-          path: .next/cache
-          key: ${{ runner.os }}-nextjs-${{ hashFiles('package*.json') }}
+      - uses: ./.github/actions/node-npm-setup
+
+      - uses: ./.github/actions/cache-nextjs
 
       - name: Build
         run: npm run build
@@ -92,13 +88,15 @@ jobs:
           # let's just accept an empty string instead.
           THROW_ON_EMPTY: false
 
+          # The sync-search-index recognizes this env var if you don't
+          # use the `--docs-internal-data <PATH>` option.
+          DOCS_INTERNAL_DATA: docs-internal-data
+
         run: |
           mkdir /tmp/records
-          npm run sync-search-indices -- \
+          npm run sync-search-indices -- /tmp/records \
             --language en \
-            --version dotcom \
-            --out-directory /tmp/records \
-            --no-compression --no-lunr-index
+            --version dotcom
 
           ls -lh /tmp/records
 
@@ -108,10 +106,9 @@ jobs:
 
       - name: Index into Elasticsearch
         run: |
-          ./script/search/index-elasticsearch.js \
+          npm run index-elasticsearch -- /tmp/records \
             --language en \
-            --version dotcom \
-            --source-directory /tmp/records
+            --version dotcom
 
       - name: Check created indexes and aliases
         run: |

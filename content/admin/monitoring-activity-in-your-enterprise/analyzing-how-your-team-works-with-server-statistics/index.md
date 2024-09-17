@@ -8,5 +8,6 @@ children:
   - /about-server-statistics
   - /exporting-server-statistics
   - /requesting-server-statistics-using-the-rest-api
+redirect_from:
+  - /admin/monitoring-activity-in-your-enterprise/analyzing-how-your-team-works-with-server-statistics/including-data-about-github-actions-in-server-statistics
 ---
-

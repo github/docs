@@ -1,2 +1,1 @@
-1. In the left sidebar, click **Code scanning alerts**.
-  !["Code scanning alerts" tab](/assets/images/help/repository/sidebar-code-scanning-alerts.png)
+1. In the left sidebar, click {% octicon "codescan" aria-hidden="true" %} **{% data variables.product.prodname_code_scanning_caps %}**.

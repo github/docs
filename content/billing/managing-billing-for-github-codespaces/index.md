@@ -5,10 +5,14 @@ intro: 'You can view your usage and set a spending limit for {% data variables.p
 versions:
   fpt: '*'
   ghec: '*'
-product: '{% data reusables.gated-features.codespaces %}'
 children:
   - /about-billing-for-github-codespaces
   - /viewing-your-github-codespaces-usage
-  - /managing-spending-limits-for-github-codespaces
+  - /managing-the-spending-limit-for-github-codespaces
 ---
 
+{% ifversion enhanced-billing-platform %}
+
+{% data reusables.billing.enhanced-billing-platform %}
+
+{% endif %}

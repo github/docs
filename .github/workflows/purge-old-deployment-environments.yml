@@ -1,0 +1,38 @@
+name: Purge old deployment environments
+
+# **What it does**:
+#  Deletes old deployment environments. A deployment environment exists
+#  for the sake of a Azure Preview environment. Those Azure Preview environments
+#  and cleaned up by a separate process.
+# **Why we have it**: To keep things neat and tidy.
+# **Who does it impact**: Docs engineering.
+
+on:
+  workflow_dispatch:
+  schedule:
+    - cron: '20 16 * * *' # Run every day at 16:20 UTC / 8:20 PST
+
+permissions:
+  contents: write
+
+jobs:
+  purge-old-deployment-environments:
+    if: ${{ github.repository == 'github/docs-internal' || github.repository == 'github/docs' }}
+    runs-on: ubuntu-latest
+    steps:
+      - name: Checkout out repo
+        uses: actions/checkout@b4ffde65f46336ab88eb53be808477a3936bae11 # v4.1.1
+
+      - uses: ./.github/actions/node-npm-setup
+
+      - name: Run purge script
+        env:
+          # Necessary to be able to delete deployment environments
+          GITHUB_TOKEN: ${{ secrets.DOCS_BOT_PAT_WORKFLOW_READORG }}
+        run: src/workflows/purge-old-deployment-environments.js
+
+      - uses: ./.github/actions/slack-alert
+        if: ${{ failure() && github.event_name != 'workflow_dispatch' }}
+        with:
+          slack_channel_id: ${{ secrets.DOCS_ALERTS_SLACK_CHANNEL_ID }}
+          slack_token: ${{ secrets.SLACK_DOCS_BOT_TOKEN }}

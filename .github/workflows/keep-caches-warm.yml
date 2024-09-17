@@ -1,0 +1,51 @@
+name: Keep caches warm
+
+# **What it does**:
+#   Makes sure the caching of ./node_modules and ./.next is kept warm
+#   for making other pull requests faster.
+#   We also use this workflow to precompute other things so that the
+#   actions cache is warmed up with data available during deployment
+#   actions. When you use actions/cache within a run on `main`
+#   what gets saved can be used by other pull requests. But it's
+#   also so that when we make preview or production deployments,
+#   we can just rely on the cache to already be warmed up.
+# **Why we have it**:
+#   A PR workflow that depends on caching can't reuse a
+#   cached artifact acorss PRs unless it also runs on `main`.
+# **Who does it impact**: Docs engineering, open-source engineering contributors.
+
+on:
+  workflow_dispatch:
+  push:
+    branches:
+      - main
+
+permissions:
+  contents: read
+
+jobs:
+  keep-caches-warm:
+    if: github.repository == 'github/docs-internal' || github.repository == 'github/docs'
+    runs-on: ${{ fromJSON('["ubuntu-latest", "ubuntu-20.04-xl"]')[github.repository == 'github/docs-internal'] }}
+    steps:
+      - name: Check out repo
+        uses: actions/checkout@b4ffde65f46336ab88eb53be808477a3936bae11 # v4.1.1
+
+      - uses: ./.github/actions/node-npm-setup
+
+      - uses: ./.github/actions/cache-nextjs
+
+      - name: Build
+        run: npm run build
+
+      - uses: ./.github/actions/warmup-remotejson-cache
+        if: github.repository == 'github/docs-internal'
+
+      - uses: ./.github/actions/precompute-pageinfo
+        if: github.repository == 'github/docs-internal'
+
+      - uses: ./.github/actions/slack-alert
+        if: ${{ failure() && github.event_name != 'workflow_dispatch' }}
+        with:
+          slack_channel_id: ${{ secrets.DOCS_ALERTS_SLACK_CHANNEL_ID }}
+          slack_token: ${{ secrets.SLACK_DOCS_BOT_TOKEN }}

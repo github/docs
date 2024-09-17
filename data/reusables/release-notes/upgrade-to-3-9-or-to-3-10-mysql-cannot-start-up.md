@@ -1,0 +1,1 @@
+After an administrator upgrades from {% data variables.product.prodname_ghe_server %} 3.7 or 3.8, to 3.9 or 3.10, MySQL may not start back up. For more information, see "[AUTOTITLE](/admin/enterprise-management/updating-the-virtual-machine-and-physical-resources/known-issues-with-upgrades-to-your-instance#mysql-does-not-start-after-upgrade-to-github-enterprise-server-39-or-310)."

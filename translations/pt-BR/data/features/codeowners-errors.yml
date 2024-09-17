@@ -1,5 +1,0 @@
-versions:
-  fpt: '*'
-  ghec: '*'
-  ghes: '>=3.5'
-  ghae: 'problema 6078'

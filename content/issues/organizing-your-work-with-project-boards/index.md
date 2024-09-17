@@ -4,7 +4,7 @@ shortTitle: '{% data variables.product.prodname_projects_v1_caps %}'
 intro: 'Use {% data variables.product.prodname_projects_v1 %} to manage your work on {% data variables.product.prodname_dotcom %}'
 allowTitleToDifferFromFilename: true
 versions:
-  feature: "projects-v1"
+  feature: projects-v1
 topics:
   - Issues
   - Projects

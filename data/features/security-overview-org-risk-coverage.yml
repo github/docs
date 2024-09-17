@@ -1,0 +1,6 @@
+# Reference: #8557 and #8765.
+# Documentation for the organization-level split of the "Overview" page into "Risks" and "Coverage"
+# and the initial single-repo enablement panel for security overview coverage view.
+versions:
+  ghes: '> 3.7'
+  ghec: '*'

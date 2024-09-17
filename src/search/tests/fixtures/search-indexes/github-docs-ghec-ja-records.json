@@ -1,0 +1,12 @@
+{
+    "/ja/enterprise-cloud@latest/foo": {
+        "objectID": "/ja/enterprise-cloud@latest/foo",
+        "breadcrumbs": "foo",
+        "title": "フー",
+        "headings": "",
+        "content": "これは、ばかげた foo ワードのフィクスチャです。 GHAE専用。",
+        "topics": ["Test", "Fixture"],
+        "intro": "サンプル紹介",
+        "toplevel": "Fooing"
+    }
+}

@@ -9,7 +9,6 @@ redirect_from:
 versions:
   fpt: '*'
   ghes: '*'
-  ghae: '*'
   ghec: '*'
 topics:
   - Pull requests
@@ -18,12 +17,14 @@ For a "marked as duplicate" timeline event to appear, the user who creates the d
 
 ## Marking duplicates
 
-To mark an issue or pull request as a duplicate, type "Duplicate of" followed by the issue or pull request number it duplicates in the body of a new comment. You can also use the GitHub-provided "Duplicate issue" or "Duplicate pull request" saved replies to mark an issue or pull request as a duplicate. For more information, see "[About saved replies](/articles/about-saved-replies)."
+To mark an issue or pull request as a duplicate, type "Duplicate of" followed by an issue or pull request number in the body of a new comment.
 
-![Duplicate issue syntax](/assets/images/help/issues/duplicate-issue-syntax.png)
+You can also use the {% data variables.product.company_short %}-provided saved replies, "Duplicate issue" or "Duplicate pull request." For more information, see "[AUTOTITLE](/get-started/writing-on-github/working-with-saved-replies/about-saved-replies)."
+
+![Screenshot of an issue timeline, with a comment by octocat that says "Duplicate of #97" and a timeline event that says "octocat marked this as a duplicate of #97."](/assets/images/help/issues/duplicate-issue-syntax.png)
 
 ## Unmarking duplicates
 
 You can unmark duplicate issues and pull requests by clicking **Undo** in the timeline. This will add a new timeline event, indicating that the issue or pull request was unmarked.
 
-![Unmark duplicate issue button](/assets/images/help/issues/unmark-duplicate-issue-button.png)
+![Screenshot of an issue timeline. To the right of a timeline event about the issue being marked as duplicate, a button, labeled "Undo", is outlined in dark orange.](/assets/images/help/issues/unmark-duplicate-issue-button.png)

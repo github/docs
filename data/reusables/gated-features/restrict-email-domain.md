@@ -1,1 +1,1 @@
-Restriction of email notifications to approved or verified domains is available with {% data variables.product.prodname_ghe_cloud %} and {% data variables.product.prodname_ghe_server %}. For more information, see "[GitHub's products](/articles/githubs-products)."
+Restriction of email notifications to approved or verified domains is available with {% data variables.product.prodname_ghe_cloud %} and {% data variables.product.prodname_ghe_server %}. For more information, see "[AUTOTITLE](/get-started/learning-about-github/githubs-plans)."

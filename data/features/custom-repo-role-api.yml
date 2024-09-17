@@ -2,5 +2,4 @@
 # Custom Repo Roles Management API
 versions:
   ghec: '*'
-  ghes: '>=3.8'
-  ghae: '>= 3.8'
+  ghes: '>=3.9'

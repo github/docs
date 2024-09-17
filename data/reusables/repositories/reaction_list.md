@@ -1,8 +1,8 @@
 <table style="width:20%">
 <thead>
 <tr>
-<th style="text-align:left">content</th>
-<th style="text-align:left">emoji</th>
+<th scope="col" style="text-align:left">Content</th>
+<th scope="col" style="text-align:left">Emoji</th>
 </tr>
 </thead>
 <tbody>

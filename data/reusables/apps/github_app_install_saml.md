@@ -1,0 +1,1 @@
+If your organization uses SAML SSO and you do not see your organization listed, you may need to start an active SAML session for your organization. For more information, see "[AUTOTITLE](/apps/using-github-apps/saml-and-github-apps)."

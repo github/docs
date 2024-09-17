@@ -1,0 +1,80 @@
+date: '2024-01-16'
+intro: |
+  {% warning %}
+
+  **Warning**: A change to MySQL in GitHub Enterprise Server 3.9 and later may impact the performance of your instance. Before you upgrade, make sure you've read the "[Known issues](#3.10.5-known-issues)" section of these release notes.
+
+  {% endwarning %}
+sections:
+  security_fixes:
+    - |
+      **HIGH**: An attacker with access to a Management Console user account with the editor role could escalate privileges through a command injection vulnerability in the Management Console. GitHub has requested CVE ID [CVE-2024-0507](https://www.cve.org/cverecord?id=CVE-2024-0507) for this vulnerability, which was reported via the [GitHub Bug Bounty program](https://bounty.github.com/).
+    - |
+      **HIGH**: An attacker could leverage an unsafe reflection vulnerability in GitHub Enterprise Server (GHES) that could lead to reflection injection. This vulnerability could lead to the execution of user-controlled methods and remote code execution. To exploit this bug, an actor would need to be logged into an account on the GHES instance with the [organization owner role](/enterprise-server@latest/organizations/managing-peoples-access-to-your-organization-with-roles/roles-in-an-organization#organization-owners). GitHub has requested CVE ID [CVE-2024-0200](https://www.cve.org/cverecord?id=CVE-2024-0200) for this vulnerability, which was reported via the [GitHub Bug Bounty program](https://bounty.github.com/).
+    - |
+      Packages have been updated to the latest security versions.
+  bugs:
+    - Support for authenticating to GitHub Enterprise Server using GitHub CLI OAuth App with a device code was unintentionally disabled.
+    - During periods of high load, users would see intermittent interruptions to services when upstream services failed internal health checks.
+    - On an instance in a high availability configuration, site administrators using the Manage GitHub Enterprise Server API may have seen a status of `UNKNOWN` for the MSSQL service.
+    - On an instance with GitHub Actions enabled, some maintenance tasks could fail due to incomplete upgrade steps during previous upgrades to new releases of GitHub Enterprise Server.
+    - Deleting a repository would enqueue unnecessary background jobs that would never complete.
+    - When creating a new custom pattern for secret scanning, the "More options" section of the custom pattern form automatically collapsed when a user entered an invalid regex in the post processing expressions (before/after secret match or additional secret requirements).
+    - On an instance with a GitHub Advanced Security license and secret scanning enabled, users could experience a `500` error when viewing a secret scanning alert page in cases where the alerted commits belonged to the user and one or more commits could not be found.
+    - Members of an enterprise were incorrectly allowed access to the REST API endpoints for Enterprise licensing.
+    - On an instance that uses SAML for authentication, an upgrade from GitHub Enterprise Server 3.7 to 3.9 could result in user login failures due to an outdated gem dependency.
+  changes:
+    - To avoid leaking secrets, the logging of all parameters is disabled for Management Console events in enterprise audit logs.
+    - More detailed information is logged when a GitHub Enterprise Server upgrade failed due to missing database encryption keys.
+    - The branch protection setting to require PR approval of the most recent reviewable push is included in exports from `ghe-migrator` or the Organization Migrations API.
+  known_issues:
+    - |
+      Custom firewall rules are removed during the upgrade process.
+    - |
+      During the validation phase of a configuration run, a `No such object` error may occur for the Notebook and Viewscreen services. This error can be ignored as the services should still correctly start.
+    - |
+      If the root site administrator is locked out of the Management Console after failed login attempts, the account does not unlock automatically after the defined lockout time. Someone with administrative SSH access to the instance must unlock the account using the administrative shell. For more information, see "[AUTOTITLE](/admin/configuration/administering-your-instance-from-the-management-console/troubleshooting-access-to-the-management-console#unlocking-the-root-site-administrator-account)."
+    - |
+      If an instance is configured to forward logs to a target server with TLS enabled, certificate authority (CA) bundles that a site administrator uploads using `ghe-ssl-ca-certificate-install` are not respected, and connections to the server fail.
+    - |
+      The `mbind: Operation not permitted` error in the `/var/log/mysql/mysql.err` file can be ignored. MySQL 8 does not gracefully handle when the `CAP_SYS_NICE` capability isn't required, and outputs an error instead of a warning.
+    - |
+      {% data reusables.release-notes.upgrade-to-3-9-or-to-3-10-mysql-cannot-start-up %}
+    - |
+      {% data reusables.release-notes.upgrade-to-3-9-or-to-3-10-io-utilization-increase %}
+    - |
+      {% data reusables.release-notes.2023-08-mssql-replication-known-issue %}
+    - |
+      {% data reusables.release-notes.2023-09-config-apply-timeout-hookshot-go-replicas %}
+    - |
+      After an administrator enables maintenance mode from the instance's Management Console UI using Firefox, the administrator is redirected to the Settings page, but maintenance mode is not enabled. To work around this issue, use a different browser.
+    - |
+      On an instance hosted in AWS, system time may lose synchronization with Amazon's servers after an administrator reboots the instance.
+    - |
+      On an instance with the HTTP `X-Forwarded-For` header configured for use behind a load balancer, all client IP addresses in the instance's audit log erroneously appear as 127.0.0.1.
+    - |
+      {% data reusables.release-notes.2023-10-git-push-made-but-not-registered %}
+    - |
+      {% data reusables.release-notes.2023-10-actions-upgrade-bug %}
+    - |
+      {% data reusables.release-notes.large-adoc-files-issue %}
+    - |
+      Restoring backups with `ghe-restore` on a GHES cluster will exit prematurely if `redis` has not restarted properly.
+    - |
+      {% data reusables.release-notes.2024-01-haproxy-upgrade-causing-increased-errors %}
+    - |
+      {% data reusables.release-notes.2024-01-ha-proxy-out-of-memory %} [Updated 2024-01-23]
+    - |
+      {% data reusables.release-notes.scheduled-reminders-unintentional %} [Updated: 2024-02-22]
+    - |
+      {% data reusables.release-notes.2024-03-increased-log-volume-in-syslog %} [Updated: 2024-03-08]
+    - |
+      {% data reusables.release-notes.2024-06-possible-frontend-5-minute-outage-during-hotpatch-upgrade %} [Updated: 2024-06-17]
+  errata:
+    - |
+      These release notes previously indicated that GitHub Enterprise Server 3.10.5 contained fixes for the following issues:
+
+      - An improper authentication vulnerability that affected private mode, [CVE-2023-6847](https://www.cve.org/cverecord?id=CVE-2023-6847)
+      - An incorrect authorization vulnerability that affected issue comments, [CVE-2023-51380](https://www.cve.org/CVERecord?id=CVE-2023-51380)
+
+      These fixes were included in GitHub Enterprise Server [3.10.4](/admin/release-notes#3.10.4-security-fixes).

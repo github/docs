@@ -1,4 +1,4 @@
-## Feature-based versioning
+# Feature-based versioning
 
 Feature-based versioning allows us to define and control the versions of an arbitrarily named "feature" in one place.
 
@@ -13,8 +13,8 @@ Add a `versions` block to the YML file with the short names of the versions the 
 ```yaml
 versions:
   fpt: '*'
+  ghec: '*'
   ghes: '>3.1'
-  ghae: '*'
 ```
 
 The format and allowed values are the same as the [frontmatter versions property](/content#versions).
@@ -30,6 +30,7 @@ You can also use the feature in frontmatter in content files:
 ```yaml
 versions:
   fpt: '*'
+  ghec: '*'
   ghes: '>3.1'
   feature: 'meow'
 ```
@@ -38,7 +39,7 @@ You cannot use `feature:` to specify multiple concurrent versions, as this is no
 
 ## Schema enforcement
 
-The schema for validating the feature versioning lives in [`tests/helpers/schemas/feature-versions-schema.js`](/tests/helpers/schemas/feature-versions-schema.js) and is exercised by [`tests/linting/lint-versioning.js`](/tests/linting/lint-versioning.js).
+The schema for validating the feature versioning lives in [`src/data-directory/lib/data-schemas/features.js`](../../src/data-directory/lib/data-schemas/features.js).
 
 ## Script to remove feature tags
 

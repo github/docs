@@ -1,0 +1,6 @@
+# Reference: #10798
+# Versions for which GitHub Desktop is available
+versions:
+  fpt: '*'
+  ghec: '*'
+  ghes: '*'

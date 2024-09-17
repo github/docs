@@ -1,0 +1,5 @@
+# Reference: 11904
+# Documentation for the Billing private beta for Enterprise users.
+
+versions:
+  ghec: '*'

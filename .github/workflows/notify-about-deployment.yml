@@ -1,0 +1,78 @@
+name: Notify about production deployment
+
+# **What it does**: Posts a comment on the PR whose merge got into production.
+# **Why we have it**: So that the PR author can be informed when their merged PR is in production.
+# **Who does it impact**: Writers
+
+on:
+  workflow_dispatch:
+  workflow_run:
+    # Note, we could do this after the "Purge Fastly" finished
+    workflows: ['Azure Production - Build and Deploy']
+    types:
+      - completed
+
+permissions:
+  contents: read
+  pull-requests: write
+
+jobs:
+  find-pr-and-post-comment:
+    if: >-
+      ${{
+        github.repository == 'github/docs-internal' &&
+        (github.event_name != 'workflow_run' ||
+        github.event.workflow_run.conclusion == 'success')
+      }}
+    runs-on: ubuntu-latest
+    steps:
+      - name: Check out repo
+        uses: actions/checkout@b4ffde65f46336ab88eb53be808477a3936bae11 # v4.1.1
+
+      - uses: ./.github/actions/node-npm-setup
+
+      # The "Purge Fastly" action takes about 6 minutes to purge all
+      # languages. First does the language agnostic URLs, then English,
+      # then all the other languages.
+      # So it takes about ~30 seconds until it has sent the purge for
+      # all English docs.
+      - name: Sleep a little to give Fastly Purge a chance
+        run: sleep 30
+
+      - name: Find last PR
+        id: get-number
+        timeout-minutes: 5
+        env:
+          GITHUB_TOKEN: ${{ secrets.DOCS_BOT_PAT_READPUBLICKEY }}
+        run: npm run find-past-built-pr
+
+      - name: Find content directory changes comment
+        if: ${{ steps.get-number.outputs.number != '' }}
+        uses: peter-evans/find-comment@3eae4d37986fb5a8592848f6a574fdf654e61f9e
+        id: findComment
+        with:
+          issue-number: ${{ steps.get-number.outputs.number }}
+          comment-author: 'github-actions[bot]'
+          body-includes: '<!-- GONE_TO_PRODUCTION -->'
+
+      - name: Update comment
+        if: ${{ steps.get-number.outputs.number != '' }}
+        uses: peter-evans/create-or-update-comment@71345be0265236311c031f5c7866368bd1eff043
+        with:
+          comment-id: ${{ steps.findComment.outputs.comment-id }}
+          issue-number: ${{ steps.get-number.outputs.number }}
+          body: |
+            <!-- GONE_TO_PRODUCTION -->
+            🚀 **This pull request has gone into production!**
+
+            The SHA of https://docs.github.com/_build matches the merge commit in this PR.
+
+            If you don't see updates when expected, try adding a random query string to the URL like `?bla=1234` and see if that helps.
+            If that shows the expected content, it would indicate that the CDN is "overly caching" the page still. It will eventually update, but it can take a while.
+          edit-mode: replace
+
+      - uses: ./.github/actions/slack-alert
+        if: ${{ failure() }}
+        with:
+          slack_channel_id: ${{ secrets.DOCS_ALERTS_SLACK_CHANNEL_ID }}
+          slack_token: ${{ secrets.SLACK_DOCS_BOT_TOKEN }}

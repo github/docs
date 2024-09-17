@@ -1,0 +1,89 @@
+# For the sake of saving time, only run this step if the test-group is one that will run tests against an Elasticsearch on localhost.
+name: Set up local Elasticsearch
+
+description: Install a local Elasticsearch with version that matches prod
+
+inputs:
+  token:
+    description: PAT
+    required: true
+  elasticsearch_version:
+    description: Version of Elasticsearch to install
+    required: true
+    # Make sure the version matches production and is available on Docker Hub
+    default: '8.12.0'
+
+runs:
+  using: 'composite'
+  steps:
+    # Cache the elasticsearch image to prevent Docker Hub rate limiting
+    - name: Cache Docker layers
+      id: cache-docker-layers
+      uses: actions/cache@v2
+      with:
+        path: /tmp/docker-cache
+        key: ${{ runner.os }}-elasticsearch-${{ inputs.elasticsearch_version }}
+        restore-keys: |
+          ${{ runner.os }}-elasticsearch-
+
+    - name: Load cached Docker image
+      shell: bash
+      if: steps.cache-docker-layers.outputs.cache-hit == 'true'
+      run: docker load -i /tmp/docker-cache/elasticsearch.tar || echo "No cache found for elasticsearch, pulling image"
+
+    - name: Pull Docker image
+      shell: bash
+      if: steps.cache-docker-layers.outputs.cache-hit != 'true'
+      run: docker pull elasticsearch:${{ inputs.elasticsearch_version }}
+
+    - name: Save Docker image to cache
+      shell: bash
+      if: steps.cache-docker-layers.outputs.cache-hit != 'true'
+      run: |
+        mkdir -p /tmp/docker-cache
+        docker save -o /tmp/docker-cache/elasticsearch.tar elasticsearch:${{ inputs.elasticsearch_version }}
+
+    # Setups the Elasticsearch container
+    # Derived from https://github.com/getong/elasticsearch-action
+    - name: Run Docker container
+      shell: bash
+      env:
+        INPUT_ELASTICSEARCH_VERSION: ${{ inputs.elasticsearch_version }}
+        INPUT_HOST_PORT: 9200
+        INPUT_CONTAINER_PORT: 9200
+        INPUT_HOST_NODE_PORT: 9300
+        INPUT_NODE_PORT: 9300
+        INPUT_DISCOVERY_TYPE: 'single-node'
+      run: |
+        docker network create elastic
+
+        docker run --network elastic \
+          -e 'node.name=es1' \
+          -e 'cluster.name=docker-elasticsearch' \
+          -e 'cluster.initial_master_nodes=es1' \
+          -e 'discovery.seed_hosts=es1' \
+          -e 'cluster.routing.allocation.disk.threshold_enabled=false' \
+          -e 'bootstrap.memory_lock=true' \
+          -e 'ES_JAVA_OPTS=-Xms1g -Xmx1g' \
+          -e 'xpack.security.enabled=false' \
+          -e 'xpack.license.self_generated.type=basic' \
+          --ulimit nofile=65536:65536 \
+          --ulimit memlock=-1:-1 \
+          --name='es1' \
+          -d \
+          -p $INPUT_HOST_PORT:$INPUT_CONTAINER_PORT \
+          -p $INPUT_HOST_NODE_PORT:$INPUT_NODE_PORT \
+          -e discovery_type=$INPUT_DISCOVERY_TYPE \
+          elasticsearch:$INPUT_ELASTICSEARCH_VERSION
+
+        # Check if Elasticsearch is up and running
+        for i in {1..120}; do
+          if curl --silent --fail http://localhost:9200; then
+            echo "Elasticsearch is up and running"
+            exit 0
+          fi
+          echo "Waiting for Elasticsearch to be ready..."
+          sleep 1
+        done
+        echo "Elasticsearch did not become ready in time"
+        exit 1

@@ -1,0 +1,6 @@
+# Reference: #8433
+# Allow admins to require approval on fork PR in private repos
+versions:
+  fpt: '*'
+  ghec: '*'
+  ghes: '>= 3.8'

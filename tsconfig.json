@@ -1,6 +1,6 @@
 {
   "compilerOptions": {
-    "target": "es5",
+    "target": "ES2022",
     "lib": [
       "dom",
       "dom.iterable",
@@ -13,17 +13,21 @@
     "noImplicitThis": false,
     "esModuleInterop": true,
     "module": "esnext",
-    "moduleResolution": "node",
+    "moduleResolution": "Bundler",
     "resolveJsonModule": true,
     "isolatedModules": true,
     "jsx": "preserve",
     "baseUrl": ".",
     "noEmit": true,
     "allowSyntheticDefaultImports": true,
-    "incremental": true
+    "incremental": true,
+    "paths": {
+      "@/*": ["./src/*"]
+    }
   },
   "exclude": [
-    "node_modules"
+    "node_modules",
+    "src/code-scanning/scripts/generate-code-scanning-query-list.ts"
   ],
   "include": [
     "*.d.ts",

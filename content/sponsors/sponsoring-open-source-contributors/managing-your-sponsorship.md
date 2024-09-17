@@ -14,8 +14,6 @@ topics:
   - Open Source
 ---
 
-{% data reusables.sponsors.org-sponsors-release-phase %}
-
 ## Managing the privacy setting for your sponsorship
 
 {% data reusables.sponsors.navigate-to-sponsored-account %}
@@ -38,5 +36,5 @@ You can choose whether an account you sponsor can send you email updates about t
 
 ## Further reading
 
-- "[Upgrading a sponsorship](/articles/upgrading-a-sponsorship)"
-- "[Downgrading a sponsorship](/articles/downgrading-a-sponsorship)"
+* "[AUTOTITLE](/billing/managing-billing-for-github-sponsors/upgrading-a-sponsorship)"
+* "[AUTOTITLE](/billing/managing-billing-for-github-sponsors/downgrading-a-sponsorship)"

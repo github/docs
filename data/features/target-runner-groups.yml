@@ -1,0 +1,6 @@
+# Reference: #8268
+# Restrict workflow using runner group names
+versions:
+  fpt: '*'
+  ghec: '*'
+  ghes: '>= 3.8'

@@ -1,0 +1,762 @@
+{
+  "2025-01-01": [
+    {
+      "location": "AddMobileDevicePublicKeyPayload.expiresAt",
+      "description": "<p><code>expiresAt</code> will be removed. Do not rely on this field, it is currently set to a date far in the future if a device key is expirationless</p>",
+      "reason": "<p>We are deprecating expirations for mobile device keys used in mobile 2FA</p>",
+      "date": "2025-01-01",
+      "criticality": "breaking",
+      "owner": "chriskirkland"
+    }
+  ],
+  "2024-10-01": [
+    {
+      "location": "Workflow.hasWorkflowDispatchTrigger",
+      "description": "<p><code>hasWorkflowDispatchTrigger</code> will be removed. Use <code>has_workflow_dispatch_trigger_for_branch(branch_ref)</code> instead.</p>",
+      "reason": "<p><code>has_workflow_dispatch_trigger</code> is being removed because it can be misleading and only checks a repository's default branch</p>",
+      "date": "2024-10-01",
+      "criticality": "breaking",
+      "owner": "stevepopovich"
+    }
+  ],
+  "2024-07-01": [
+    {
+      "location": "TeamDiscussionComment.url",
+      "description": "<p><code>url</code> will be removed. Follow the guide at <a href=\"https://github.blog/changelog/2023-02-08-sunset-notice-team-discussions/\">https://github.blog/changelog/2023-02-08-sunset-notice-team-discussions/</a> to find a suitable replacement.</p>",
+      "reason": "<p>The Team Discussions feature is deprecated in favor of Organization Discussions.</p>",
+      "date": "2024-07-01",
+      "criticality": "breaking",
+      "owner": "deborah-digges"
+    },
+    {
+      "location": "TeamDiscussionComment.resourcePath",
+      "description": "<p><code>resourcePath</code> will be removed. Follow the guide at <a href=\"https://github.blog/changelog/2023-02-08-sunset-notice-team-discussions/\">https://github.blog/changelog/2023-02-08-sunset-notice-team-discussions/</a> to find a suitable replacement.</p>",
+      "reason": "<p>The Team Discussions feature is deprecated in favor of Organization Discussions.</p>",
+      "date": "2024-07-01",
+      "criticality": "breaking",
+      "owner": "deborah-digges"
+    },
+    {
+      "location": "TeamDiscussionComment.number",
+      "description": "<p><code>number</code> will be removed. Follow the guide at <a href=\"https://github.blog/changelog/2023-02-08-sunset-notice-team-discussions/\">https://github.blog/changelog/2023-02-08-sunset-notice-team-discussions/</a> to find a suitable replacement.</p>",
+      "reason": "<p>The Team Discussions feature is deprecated in favor of Organization Discussions.</p>",
+      "date": "2024-07-01",
+      "criticality": "breaking",
+      "owner": "deborah-digges"
+    },
+    {
+      "location": "TeamDiscussionComment.discussion",
+      "description": "<p><code>discussion</code> will be removed. Follow the guide at <a href=\"https://github.blog/changelog/2023-02-08-sunset-notice-team-discussions/\">https://github.blog/changelog/2023-02-08-sunset-notice-team-discussions/</a> to find a suitable replacement.</p>",
+      "reason": "<p>The Team Discussions feature is deprecated in favor of Organization Discussions.</p>",
+      "date": "2024-07-01",
+      "criticality": "breaking",
+      "owner": "deborah-digges"
+    },
+    {
+      "location": "TeamDiscussionComment.bodyVersion",
+      "description": "<p><code>bodyVersion</code> will be removed. Follow the guide at <a href=\"https://github.blog/changelog/2023-02-08-sunset-notice-team-discussions/\">https://github.blog/changelog/2023-02-08-sunset-notice-team-discussions/</a> to find a suitable replacement.</p>",
+      "reason": "<p>The Team Discussions feature is deprecated in favor of Organization Discussions.</p>",
+      "date": "2024-07-01",
+      "criticality": "breaking",
+      "owner": "deborah-digges"
+    },
+    {
+      "location": "TeamDiscussionComment.authorAssociation",
+      "description": "<p><code>authorAssociation</code> will be removed. Follow the guide at <a href=\"https://github.blog/changelog/2023-02-08-sunset-notice-team-discussions/\">https://github.blog/changelog/2023-02-08-sunset-notice-team-discussions/</a> to find a suitable replacement.</p>",
+      "reason": "<p>The Team Discussions feature is deprecated in favor of Organization Discussions.</p>",
+      "date": "2024-07-01",
+      "criticality": "breaking",
+      "owner": "deborah-digges"
+    },
+    {
+      "location": "TeamDiscussion.viewerCanPin",
+      "description": "<p><code>viewerCanPin</code> will be removed. Follow the guide at <a href=\"https://github.blog/changelog/2023-02-08-sunset-notice-team-discussions/\">https://github.blog/changelog/2023-02-08-sunset-notice-team-discussions/</a> to find a suitable replacement.</p>",
+      "reason": "<p>The Team Discussions feature is deprecated in favor of Organization Discussions.</p>",
+      "date": "2024-07-01",
+      "criticality": "breaking",
+      "owner": "deborah-digges"
+    },
+    {
+      "location": "TeamDiscussion.url",
+      "description": "<p><code>url</code> will be removed. Follow the guide at <a href=\"https://github.blog/changelog/2023-02-08-sunset-notice-team-discussions/\">https://github.blog/changelog/2023-02-08-sunset-notice-team-discussions/</a> to find a suitable replacement.</p>",
+      "reason": "<p>The Team Discussions feature is deprecated in favor of Organization Discussions.</p>",
+      "date": "2024-07-01",
+      "criticality": "breaking",
+      "owner": "deborah-digges"
+    },
+    {
+      "location": "TeamDiscussion.title",
+      "description": "<p><code>title</code> will be removed. Follow the guide at <a href=\"https://github.blog/changelog/2023-02-08-sunset-notice-team-discussions/\">https://github.blog/changelog/2023-02-08-sunset-notice-team-discussions/</a> to find a suitable replacement.</p>",
+      "reason": "<p>The Team Discussions feature is deprecated in favor of Organization Discussions.</p>",
+      "date": "2024-07-01",
+      "criticality": "breaking",
+      "owner": "deborah-digges"
+    },
+    {
+      "location": "TeamDiscussion.team",
+      "description": "<p><code>team</code> will be removed. Follow the guide at <a href=\"https://github.blog/changelog/2023-02-08-sunset-notice-team-discussions/\">https://github.blog/changelog/2023-02-08-sunset-notice-team-discussions/</a> to find a suitable replacement.</p>",
+      "reason": "<p>The Team Discussions feature is deprecated in favor of Organization Discussions.</p>",
+      "date": "2024-07-01",
+      "criticality": "breaking",
+      "owner": "deborah-digges"
+    },
+    {
+      "location": "TeamDiscussion.resourcePath",
+      "description": "<p><code>resourcePath</code> will be removed. Follow the guide at <a href=\"https://github.blog/changelog/2023-02-08-sunset-notice-team-discussions/\">https://github.blog/changelog/2023-02-08-sunset-notice-team-discussions/</a> to find a suitable replacement.</p>",
+      "reason": "<p>The Team Discussions feature is deprecated in favor of Organization Discussions.</p>",
+      "date": "2024-07-01",
+      "criticality": "breaking",
+      "owner": "deborah-digges"
+    },
+    {
+      "location": "TeamDiscussion.number",
+      "description": "<p><code>number</code> will be removed. Follow the guide at <a href=\"https://github.blog/changelog/2023-02-08-sunset-notice-team-discussions/\">https://github.blog/changelog/2023-02-08-sunset-notice-team-discussions/</a> to find a suitable replacement.</p>",
+      "reason": "<p>The Team Discussions feature is deprecated in favor of Organization Discussions.</p>",
+      "date": "2024-07-01",
+      "criticality": "breaking",
+      "owner": "deborah-digges"
+    },
+    {
+      "location": "TeamDiscussion.isPrivate",
+      "description": "<p><code>isPrivate</code> will be removed. Follow the guide at <a href=\"https://github.blog/changelog/2023-02-08-sunset-notice-team-discussions/\">https://github.blog/changelog/2023-02-08-sunset-notice-team-discussions/</a> to find a suitable replacement.</p>",
+      "reason": "<p>The Team Discussions feature is deprecated in favor of Organization Discussions.</p>",
+      "date": "2024-07-01",
+      "criticality": "breaking",
+      "owner": "deborah-digges"
+    },
+    {
+      "location": "TeamDiscussion.isPinned",
+      "description": "<p><code>isPinned</code> will be removed. Follow the guide at <a href=\"https://github.blog/changelog/2023-02-08-sunset-notice-team-discussions/\">https://github.blog/changelog/2023-02-08-sunset-notice-team-discussions/</a> to find a suitable replacement.</p>",
+      "reason": "<p>The Team Discussions feature is deprecated in favor of Organization Discussions.</p>",
+      "date": "2024-07-01",
+      "criticality": "breaking",
+      "owner": "deborah-digges"
+    },
+    {
+      "location": "TeamDiscussion.commentsUrl",
+      "description": "<p><code>commentsUrl</code> will be removed. Follow the guide at <a href=\"https://github.blog/changelog/2023-02-08-sunset-notice-team-discussions/\">https://github.blog/changelog/2023-02-08-sunset-notice-team-discussions/</a> to find a suitable replacement.</p>",
+      "reason": "<p>The Team Discussions feature is deprecated in favor of Organization Discussions.</p>",
+      "date": "2024-07-01",
+      "criticality": "breaking",
+      "owner": "deborah-digges"
+    },
+    {
+      "location": "TeamDiscussion.commentsResourcePath",
+      "description": "<p><code>commentsResourcePath</code> will be removed. Follow the guide at <a href=\"https://github.blog/changelog/2023-02-08-sunset-notice-team-discussions/\">https://github.blog/changelog/2023-02-08-sunset-notice-team-discussions/</a> to find a suitable replacement.</p>",
+      "reason": "<p>The Team Discussions feature is deprecated in favor of Organization Discussions.</p>",
+      "date": "2024-07-01",
+      "criticality": "breaking",
+      "owner": "deborah-digges"
+    },
+    {
+      "location": "TeamDiscussion.comments",
+      "description": "<p><code>comments</code> will be removed. Follow the guide at <a href=\"https://github.blog/changelog/2023-02-08-sunset-notice-team-discussions/\">https://github.blog/changelog/2023-02-08-sunset-notice-team-discussions/</a> to find a suitable replacement.</p>",
+      "reason": "<p>The Team Discussions feature is deprecated in favor of Organization Discussions.</p>",
+      "date": "2024-07-01",
+      "criticality": "breaking",
+      "owner": "deborah-digges"
+    },
+    {
+      "location": "TeamDiscussion.bodyVersion",
+      "description": "<p><code>bodyVersion</code> will be removed. Follow the guide at <a href=\"https://github.blog/changelog/2023-02-08-sunset-notice-team-discussions/\">https://github.blog/changelog/2023-02-08-sunset-notice-team-discussions/</a> to find a suitable replacement.</p>",
+      "reason": "<p>The Team Discussions feature is deprecated in favor of Organization Discussions.</p>",
+      "date": "2024-07-01",
+      "criticality": "breaking",
+      "owner": "deborah-digges"
+    },
+    {
+      "location": "TeamDiscussion.authorAssociation",
+      "description": "<p><code>authorAssociation</code> will be removed. Follow the guide at <a href=\"https://github.blog/changelog/2023-02-08-sunset-notice-team-discussions/\">https://github.blog/changelog/2023-02-08-sunset-notice-team-discussions/</a> to find a suitable replacement.</p>",
+      "reason": "<p>The Team Discussions feature is deprecated in favor of Organization Discussions.</p>",
+      "date": "2024-07-01",
+      "criticality": "breaking",
+      "owner": "deborah-digges"
+    },
+    {
+      "location": "PullRequestReviewComment.databaseId",
+      "description": "<p><code>databaseId</code> will be removed. Use <code>fullDatabaseId</code> instead.</p>",
+      "reason": "<p><code>databaseId</code> will be removed because it does not support 64-bit signed integer identifiers.</p>",
+      "date": "2024-07-01",
+      "criticality": "breaking",
+      "owner": "JanKoszewski"
+    },
+    {
+      "location": "PullRequestReview.databaseId",
+      "description": "<p><code>databaseId</code> will be removed. Use <code>fullDatabaseId</code> instead.</p>",
+      "reason": "<p><code>databaseId</code> will be removed because it does not support 64-bit signed integer identifiers.</p>",
+      "date": "2024-07-01",
+      "criticality": "breaking",
+      "owner": "JanKoszewski"
+    },
+    {
+      "location": "PullRequest.databaseId",
+      "description": "<p><code>databaseId</code> will be removed. Use <code>fullDatabaseId</code> instead.</p>",
+      "reason": "<p><code>databaseId</code> will be removed because it does not support 64-bit signed integer identifiers.</p>",
+      "date": "2024-07-01",
+      "criticality": "breaking",
+      "owner": "JanKoszewski"
+    },
+    {
+      "location": "OrganizationInvitation.inviter",
+      "description": "<p><code>inviter</code> will be removed. <code>inviter</code> will be replaced by <code>inviterActor</code>.</p>",
+      "reason": "<p><code>inviter</code> will be removed.</p>",
+      "date": "2024-07-01",
+      "criticality": "breaking",
+      "owner": "jdennes"
+    },
+    {
+      "location": "CreateTeamDiscussionPayload.teamDiscussion",
+      "description": "<p><code>teamDiscussion</code> will be removed. Follow the guide at <a href=\"https://github.blog/changelog/2023-02-08-sunset-notice-team-discussions/\">https://github.blog/changelog/2023-02-08-sunset-notice-team-discussions/</a> to find a suitable replacement.</p>",
+      "reason": "<p>The Team Discussions feature is deprecated in favor of Organization Discussions.</p>",
+      "date": "2024-07-01",
+      "criticality": "breaking",
+      "owner": "deborah-digges"
+    },
+    {
+      "location": "CreateTeamDiscussionInput.title",
+      "description": "<p><code>title</code> will be removed. Follow the guide at <a href=\"https://github.blog/changelog/2023-02-08-sunset-notice-team-discussions/\">https://github.blog/changelog/2023-02-08-sunset-notice-team-discussions/</a> to find a suitable replacement.</p>",
+      "reason": "<p>The Team Discussions feature is deprecated in favor of Organization Discussions.</p>",
+      "date": "2024-07-01",
+      "criticality": "breaking",
+      "owner": "deborah-digges"
+    },
+    {
+      "location": "CreateTeamDiscussionInput.teamId",
+      "description": "<p><code>teamId</code> will be removed. Follow the guide at <a href=\"https://github.blog/changelog/2023-02-08-sunset-notice-team-discussions/\">https://github.blog/changelog/2023-02-08-sunset-notice-team-discussions/</a> to find a suitable replacement.</p>",
+      "reason": "<p>The Team Discussions feature is deprecated in favor of Organization Discussions.</p>",
+      "date": "2024-07-01",
+      "criticality": "breaking",
+      "owner": "deborah-digges"
+    },
+    {
+      "location": "CreateTeamDiscussionInput.private",
+      "description": "<p><code>private</code> will be removed. Follow the guide at <a href=\"https://github.blog/changelog/2023-02-08-sunset-notice-team-discussions/\">https://github.blog/changelog/2023-02-08-sunset-notice-team-discussions/</a> to find a suitable replacement.</p>",
+      "reason": "<p>The Team Discussions feature is deprecated in favor of Organization Discussions.</p>",
+      "date": "2024-07-01",
+      "criticality": "breaking",
+      "owner": "deborah-digges"
+    },
+    {
+      "location": "CreateTeamDiscussionInput.body",
+      "description": "<p><code>body</code> will be removed. Follow the guide at <a href=\"https://github.blog/changelog/2023-02-08-sunset-notice-team-discussions/\">https://github.blog/changelog/2023-02-08-sunset-notice-team-discussions/</a> to find a suitable replacement.</p>",
+      "reason": "<p>The Team Discussions feature is deprecated in favor of Organization Discussions.</p>",
+      "date": "2024-07-01",
+      "criticality": "breaking",
+      "owner": "deborah-digges"
+    },
+    {
+      "location": "CreateTeamDiscussionCommentPayload.teamDiscussionComment",
+      "description": "<p><code>teamDiscussionComment</code> will be removed. Follow the guide at <a href=\"https://github.blog/changelog/2023-02-08-sunset-notice-team-discussions/\">https://github.blog/changelog/2023-02-08-sunset-notice-team-discussions/</a> to find a suitable replacement.</p>",
+      "reason": "<p>The Team Discussions feature is deprecated in favor of Organization Discussions.</p>",
+      "date": "2024-07-01",
+      "criticality": "breaking",
+      "owner": "deborah-digges"
+    },
+    {
+      "location": "CreateTeamDiscussionCommentInput.discussionId",
+      "description": "<p><code>discussionId</code> will be removed. Follow the guide at <a href=\"https://github.blog/changelog/2023-02-08-sunset-notice-team-discussions/\">https://github.blog/changelog/2023-02-08-sunset-notice-team-discussions/</a> to find a suitable replacement.</p>",
+      "reason": "<p>The Team Discussions feature is deprecated in favor of Organization Discussions.</p>",
+      "date": "2024-07-01",
+      "criticality": "breaking",
+      "owner": "deborah-digges"
+    },
+    {
+      "location": "CreateTeamDiscussionCommentInput.body",
+      "description": "<p><code>body</code> will be removed. Follow the guide at <a href=\"https://github.blog/changelog/2023-02-08-sunset-notice-team-discussions/\">https://github.blog/changelog/2023-02-08-sunset-notice-team-discussions/</a> to find a suitable replacement.</p>",
+      "reason": "<p>The Team Discussions feature is deprecated in favor of Organization Discussions.</p>",
+      "date": "2024-07-01",
+      "criticality": "breaking",
+      "owner": "deborah-digges"
+    }
+  ],
+  "2024-04-01": [
+    {
+      "location": "TopicSuggestionDeclineReason.TOO_SPECIFIC",
+      "description": "<p><code>TOO_SPECIFIC</code> will be removed.</p>",
+      "reason": "<p>Suggested topics are no longer supported</p>",
+      "date": "2024-04-01",
+      "criticality": "breaking",
+      "owner": "calvinchilds"
+    },
+    {
+      "location": "TopicSuggestionDeclineReason.TOO_GENERAL",
+      "description": "<p><code>TOO_GENERAL</code> will be removed.</p>",
+      "reason": "<p>Suggested topics are no longer supported</p>",
+      "date": "2024-04-01",
+      "criticality": "breaking",
+      "owner": "calvinchilds"
+    },
+    {
+      "location": "TopicSuggestionDeclineReason.PERSONAL_PREFERENCE",
+      "description": "<p><code>PERSONAL_PREFERENCE</code> will be removed.</p>",
+      "reason": "<p>Suggested topics are no longer supported</p>",
+      "date": "2024-04-01",
+      "criticality": "breaking",
+      "owner": "calvinchilds"
+    },
+    {
+      "location": "TopicSuggestionDeclineReason.NOT_RELEVANT",
+      "description": "<p><code>NOT_RELEVANT</code> will be removed.</p>",
+      "reason": "<p>Suggested topics are no longer supported</p>",
+      "date": "2024-04-01",
+      "criticality": "breaking",
+      "owner": "calvinchilds"
+    },
+    {
+      "location": "DeclineTopicSuggestionPayload.topic",
+      "description": "<p><code>topic</code> will be removed.</p>",
+      "reason": "<p>Suggested topics are no longer supported</p>",
+      "date": "2024-04-01",
+      "criticality": "breaking",
+      "owner": "calvinchilds"
+    },
+    {
+      "location": "DeclineTopicSuggestionInput.repositoryId",
+      "description": "<p><code>repositoryId</code> will be removed.</p>",
+      "reason": "<p>Suggested topics are no longer supported</p>",
+      "date": "2024-04-01",
+      "criticality": "breaking",
+      "owner": "calvinchilds"
+    },
+    {
+      "location": "DeclineTopicSuggestionInput.reason",
+      "description": "<p><code>reason</code> will be removed.</p>",
+      "reason": "<p>Suggested topics are no longer supported</p>",
+      "date": "2024-04-01",
+      "criticality": "breaking",
+      "owner": "calvinchilds"
+    },
+    {
+      "location": "DeclineTopicSuggestionInput.name",
+      "description": "<p><code>name</code> will be removed.</p>",
+      "reason": "<p>Suggested topics are no longer supported</p>",
+      "date": "2024-04-01",
+      "criticality": "breaking",
+      "owner": "calvinchilds"
+    },
+    {
+      "location": "AcceptTopicSuggestionPayload.topic",
+      "description": "<p><code>topic</code> will be removed.</p>",
+      "reason": "<p>Suggested topics are no longer supported</p>",
+      "date": "2024-04-01",
+      "criticality": "breaking",
+      "owner": "calvinchilds"
+    },
+    {
+      "location": "AcceptTopicSuggestionInput.repositoryId",
+      "description": "<p><code>repositoryId</code> will be removed.</p>",
+      "reason": "<p>Suggested topics are no longer supported</p>",
+      "date": "2024-04-01",
+      "criticality": "breaking",
+      "owner": "calvinchilds"
+    },
+    {
+      "location": "AcceptTopicSuggestionInput.name",
+      "description": "<p><code>name</code> will be removed.</p>",
+      "reason": "<p>Suggested topics are no longer supported</p>",
+      "date": "2024-04-01",
+      "criticality": "breaking",
+      "owner": "calvinchilds"
+    }
+  ],
+  "2023-10-01": [
+    {
+      "location": "PullRequestReviewComment.position",
+      "description": "<p><code>position</code> will be removed. Use the <code>line</code> and <code>startLine</code> fields instead, which are file line numbers instead of diff line numbers</p>",
+      "reason": "<p>We are phasing out diff-relative positioning for PR comments</p>",
+      "date": "2023-10-01",
+      "criticality": "breaking",
+      "owner": "aharpole"
+    },
+    {
+      "location": "PullRequestReviewComment.originalPosition",
+      "description": "<p><code>originalPosition</code> will be removed.</p>",
+      "reason": "<p>We are phasing out diff-relative positioning for PR comments</p>",
+      "date": "2023-10-01",
+      "criticality": "breaking",
+      "owner": "aharpole"
+    },
+    {
+      "location": "AddPullRequestReviewInput.comments",
+      "description": "<p><code>comments</code> will be removed. use the <code>threads</code> argument instead</p>",
+      "reason": "<p>We are deprecating comment fields that use diff-relative positioning</p>",
+      "date": "2023-10-01",
+      "criticality": "breaking",
+      "owner": "aharpole"
+    },
+    {
+      "location": "AddPullRequestReviewCommentInput.pullRequestReviewId",
+      "description": "<p><code>pullRequestReviewId</code> will be removed. use addPullRequestReviewThread or addPullRequestReviewThreadReply instead</p>",
+      "reason": "<p>We are deprecating the addPullRequestReviewComment mutation</p>",
+      "date": "2023-10-01",
+      "criticality": "breaking",
+      "owner": "aharpole"
+    },
+    {
+      "location": "AddPullRequestReviewCommentInput.pullRequestId",
+      "description": "<p><code>pullRequestId</code> will be removed. use addPullRequestReviewThread or addPullRequestReviewThreadReply instead</p>",
+      "reason": "<p>We are deprecating the addPullRequestReviewComment mutation</p>",
+      "date": "2023-10-01",
+      "criticality": "breaking",
+      "owner": "aharpole"
+    },
+    {
+      "location": "AddPullRequestReviewCommentInput.position",
+      "description": "<p><code>position</code> will be removed. use addPullRequestReviewThread or addPullRequestReviewThreadReply instead</p>",
+      "reason": "<p>We are deprecating the addPullRequestReviewComment mutation</p>",
+      "date": "2023-10-01",
+      "criticality": "breaking",
+      "owner": "aharpole"
+    },
+    {
+      "location": "AddPullRequestReviewCommentInput.path",
+      "description": "<p><code>path</code> will be removed. use addPullRequestReviewThread or addPullRequestReviewThreadReply instead</p>",
+      "reason": "<p>We are deprecating the addPullRequestReviewComment mutation</p>",
+      "date": "2023-10-01",
+      "criticality": "breaking",
+      "owner": "aharpole"
+    },
+    {
+      "location": "AddPullRequestReviewCommentInput.inReplyTo",
+      "description": "<p><code>inReplyTo</code> will be removed. use addPullRequestReviewThread or addPullRequestReviewThreadReply instead</p>",
+      "reason": "<p>We are deprecating the addPullRequestReviewComment mutation</p>",
+      "date": "2023-10-01",
+      "criticality": "breaking",
+      "owner": "aharpole"
+    },
+    {
+      "location": "AddPullRequestReviewCommentInput.commitOID",
+      "description": "<p><code>commitOID</code> will be removed. use addPullRequestReviewThread or addPullRequestReviewThreadReply instead</p>",
+      "reason": "<p>We are deprecating the addPullRequestReviewComment mutation</p>",
+      "date": "2023-10-01",
+      "criticality": "breaking",
+      "owner": "aharpole"
+    },
+    {
+      "location": "AddPullRequestReviewCommentInput.body",
+      "description": "<p><code>body</code> will be removed. use addPullRequestReviewThread or addPullRequestReviewThreadReply instead</p>",
+      "reason": "<p>We are deprecating the addPullRequestReviewComment mutation</p>",
+      "date": "2023-10-01",
+      "criticality": "breaking",
+      "owner": "aharpole"
+    }
+  ],
+  "2023-07-01": [
+    {
+      "location": "ProjectV2ItemFieldGroup.field",
+      "description": "<p><code>field</code> will be removed. Check out the <code>ProjectV2ItemFieldGroup#groupByField</code> API as an example for the more capable alternative.</p>",
+      "reason": "<p>The <code>ProjectV2ItemFieldGroup#field</code> API is deprecated in favour of the more capable <code>ProjectV2ItemFieldGroup#groupByField</code> API.</p>",
+      "date": "2023-07-01",
+      "criticality": "breaking",
+      "owner": "stevepopovich"
+    },
+    {
+      "location": "MergeQueueEntry.isSolo",
+      "description": "<p><code>isSolo</code> will be removed. Use <code>solo</code> instead.</p>",
+      "reason": "<p><code>isSolo</code> will be removed.</p>",
+      "date": "2023-07-01",
+      "criticality": "breaking",
+      "owner": "github/merge_queue"
+    },
+    {
+      "location": "MergeQueueEntry.headOid",
+      "description": "<p><code>headOid</code> will be removed. Use <code>headCommit</code> instead.</p>",
+      "reason": "<p><code>headOid</code> will be removed.</p>",
+      "date": "2023-07-01",
+      "criticality": "breaking",
+      "owner": "github/merge_queue"
+    },
+    {
+      "location": "MergeQueueEntry.hasJumpedQueue",
+      "description": "<p><code>hasJumpedQueue</code> will be removed. Use <code>jump</code> instead.</p>",
+      "reason": "<p><code>hasJumpedQueue</code> will be removed.</p>",
+      "date": "2023-07-01",
+      "criticality": "breaking",
+      "owner": "github/merge_queue"
+    },
+    {
+      "location": "MergeQueueEntry.checkStatus",
+      "description": "<p><code>checkStatus</code> will be removed. Use <code>state</code> instead.</p>",
+      "reason": "<p><code>checkStatus</code> will be removed.</p>",
+      "date": "2023-07-01",
+      "criticality": "breaking",
+      "owner": "github/merge_queue"
+    },
+    {
+      "location": "MergeQueueEntry.blockedByMergeConflicts",
+      "description": "<p><code>blockedByMergeConflicts</code> will be removed. Use <code>state</code> instead.</p>",
+      "reason": "<p><code>blockedByMergeConflicts</code> will be removed.</p>",
+      "date": "2023-07-01",
+      "criticality": "breaking",
+      "owner": "github/merge_queue"
+    },
+    {
+      "location": "MergeQueueEntry.baseOid",
+      "description": "<p><code>baseOid</code> will be removed. Use <code>baseCommit</code> instead.</p>",
+      "reason": "<p><code>baseOid</code> will be removed.</p>",
+      "date": "2023-07-01",
+      "criticality": "breaking",
+      "owner": "github/merge_queue"
+    },
+    {
+      "location": "MergeQueue.pendingRemovalEntries",
+      "description": "<p><code>pendingRemovalEntries</code> will be removed.</p>",
+      "reason": "<p><code>pendingRemovalEntries</code> will be removed.</p>",
+      "date": "2023-07-01",
+      "criticality": "breaking",
+      "owner": "github/merge_queue"
+    },
+    {
+      "location": "MergeQueue.mergingEntries",
+      "description": "<p><code>mergingEntries</code> will be removed.</p>",
+      "reason": "<p><code>mergingEntries</code> will be removed.</p>",
+      "date": "2023-07-01",
+      "criticality": "breaking",
+      "owner": "github/merge_queue"
+    },
+    {
+      "location": "MergeQueue.mergeMethod",
+      "description": "<p><code>mergeMethod</code> will be removed. Use <code>configuration.merge_method</code> instead.</p>",
+      "reason": "<p><code>mergeMethod</code> will be removed.</p>",
+      "date": "2023-07-01",
+      "criticality": "breaking",
+      "owner": "github/merge_queue"
+    },
+    {
+      "location": "MergeQueue.headOid",
+      "description": "<p><code>headOid</code> will be removed. Use <code>entry.headOid</code> instead.</p>",
+      "reason": "<p><code>headOid</code> will be removed.</p>",
+      "date": "2023-07-01",
+      "criticality": "breaking",
+      "owner": "github/merge_queue"
+    },
+    {
+      "location": "Commit.pushedDate",
+      "description": "<p><code>pushedDate</code> will be removed.</p>",
+      "reason": "<p><code>pushedDate</code> is no longer supported.</p>",
+      "date": "2023-07-01",
+      "criticality": "breaking",
+      "owner": "darthwillis"
+    }
+  ],
+  "2023-04-01": [
+    {
+      "location": "Repository.squashPrTitleUsedAsDefault",
+      "description": "<p><code>squashPrTitleUsedAsDefault</code> will be removed. Use <code>Repository.squashMergeCommitTitle</code> instead.</p>",
+      "reason": "<p><code>squashPrTitleUsedAsDefault</code> will be removed.</p>",
+      "date": "2023-04-01",
+      "criticality": "breaking",
+      "owner": "github/pull_requests"
+    },
+    {
+      "location": "ProjectV2View.verticalGroupBy",
+      "description": "<p><code>verticalGroupBy</code> will be removed. Check out the <code>ProjectV2View#vertical_group_by_fields</code> API as an example for the more capable alternative.</p>",
+      "reason": "<p>The <code>ProjectV2View#vertical_group_by</code> API is deprecated in favour of the more capable <code>ProjectV2View#vertical_group_by_fields</code> API.</p>",
+      "date": "2023-04-01",
+      "criticality": "breaking",
+      "owner": "traumverloren"
+    },
+    {
+      "location": "ProjectV2View.sortBy",
+      "description": "<p><code>sortBy</code> will be removed. Check out the <code>ProjectV2View#sort_by_fields</code> API as an example for the more capable alternative.</p>",
+      "reason": "<p>The <code>ProjectV2View#sort_by</code> API is deprecated in favour of the more capable <code>ProjectV2View#sort_by_fields</code> API.</p>",
+      "date": "2023-04-01",
+      "criticality": "breaking",
+      "owner": "traumverloren"
+    },
+    {
+      "location": "ProjectV2View.groupBy",
+      "description": "<p><code>groupBy</code> will be removed. Check out the <code>ProjectV2View#group_by_fields</code> API as an example for the more capable alternative.</p>",
+      "reason": "<p>The <code>ProjectV2View#order_by</code> API is deprecated in favour of the more capable <code>ProjectV2View#group_by_field</code> API.</p>",
+      "date": "2023-04-01",
+      "criticality": "breaking",
+      "owner": "alcere"
+    }
+  ],
+  "2023-02-10": [
+    {
+      "location": "PackageType.MAVEN",
+      "description": "<p><code>MAVEN</code> will be removed.</p>",
+      "reason": "<p>MAVEN will be removed from this enum as this type will be migrated to only be used by the Packages REST API.</p>",
+      "date": "2023-02-10",
+      "criticality": "breaking",
+      "owner": "ankitkaushal01"
+    }
+  ],
+  "2023-01-01": [
+    {
+      "location": "ProjectV2View.visibleFields",
+      "description": "<p><code>visibleFields</code> will be removed. Check out the <code>ProjectV2View#fields</code> API as an example for the more capable alternative.</p>",
+      "reason": "<p>The <code>ProjectV2View#visibleFields</code> API is deprecated in favour of the more capable <code>ProjectV2View#fields</code> API.</p>",
+      "date": "2023-01-01",
+      "criticality": "breaking",
+      "owner": "mattruggio"
+    },
+    {
+      "location": "Commit.changedFiles",
+      "description": "<p><code>changedFiles</code> will be removed. Use <code>changedFilesIfAvailable</code> instead.</p>",
+      "reason": "<p><code>changedFiles</code> will be removed.</p>",
+      "date": "2023-01-01",
+      "criticality": "breaking",
+      "owner": "adamshwert"
+    }
+  ],
+  "2022-12-28": [
+    {
+      "location": "PackageType.RUBYGEMS",
+      "description": "<p><code>RUBYGEMS</code> will be removed.</p>",
+      "reason": "<p>RUBYGEMS will be removed from this enum as this type will be migrated to only be used by the Packages REST API.</p>",
+      "date": "2022-12-28",
+      "criticality": "breaking",
+      "owner": "ankitkaushal01"
+    }
+  ],
+  "2022-11-21": [
+    {
+      "location": "PackageType.NUGET",
+      "description": "<p><code>NUGET</code> will be removed.</p>",
+      "reason": "<p>NUGET will be removed from this enum as this type will be migrated to only be used by the Packages REST API.</p>",
+      "date": "2022-11-21",
+      "criticality": "breaking",
+      "owner": "s-anupam"
+    },
+    {
+      "location": "PackageType.NPM",
+      "description": "<p><code>NPM</code> will be removed.</p>",
+      "reason": "<p>NPM will be removed from this enum as this type will be migrated to only be used by the Packages REST API.</p>",
+      "date": "2022-11-21",
+      "criticality": "breaking",
+      "owner": "s-anupam"
+    }
+  ],
+  "2022-10-01": [
+    {
+      "location": "RemovePullRequestFromMergeQueueInput.branch",
+      "description": "<p><code>branch</code> will be removed.</p>",
+      "reason": "<p>PRs are removed from the merge queue for the base branch, the <code>branch</code> argument is now a no-op</p>",
+      "date": "2022-10-01",
+      "criticality": "breaking",
+      "owner": "jhunschejones"
+    },
+    {
+      "location": "DependencyGraphDependency.packageLabel",
+      "description": "<p><code>packageLabel</code> will be removed. Use normalized <code>packageName</code> field instead.</p>",
+      "reason": "<p><code>packageLabel</code> will be removed.</p>",
+      "date": "2022-10-01",
+      "criticality": "breaking",
+      "owner": "github/dependency_graph"
+    }
+  ],
+  "2022-07-01": [
+    {
+      "location": "Query.sponsorables.dependencyEcosystem",
+      "description": "<p><code>dependencyEcosystem</code> will be removed. Use the ecosystem argument instead.</p>",
+      "reason": "<p>The type is switching from SecurityAdvisoryEcosystem to DependencyGraphEcosystem.</p>",
+      "date": "2022-07-01",
+      "criticality": "breaking",
+      "owner": "cheshire137"
+    },
+    {
+      "location": "AddPullRequestToMergeQueueInput.branch",
+      "description": "<p><code>branch</code> will be removed.</p>",
+      "reason": "<p>PRs are added to the merge queue for the base branch, the <code>branch</code> argument is now a no-op</p>",
+      "date": "2022-07-01",
+      "criticality": "breaking",
+      "owner": "jhunschejones"
+    }
+  ],
+  "2021-10-01": [
+    {
+      "location": "ReactionGroup.users",
+      "description": "<p><code>users</code> will be removed. Use the <code>reactors</code> field instead.</p>",
+      "reason": "<p>Reactors can now be mannequins, bots, and organizations.</p>",
+      "date": "2021-10-01",
+      "criticality": "breaking",
+      "owner": "synthead"
+    }
+  ],
+  "2021-06-21": [
+    {
+      "location": "PackageType.DOCKER",
+      "description": "<p><code>DOCKER</code> will be removed.</p>",
+      "reason": "<p>DOCKER will be removed from this enum as this type will be migrated to only be used by the Packages REST API.</p>",
+      "date": "2021-06-21",
+      "criticality": "breaking",
+      "owner": "reybard"
+    }
+  ],
+  "2021-01-01": [
+    {
+      "location": "MergeStateStatus.DRAFT",
+      "description": "<p><code>DRAFT</code> will be removed. Use PullRequest.isDraft instead.</p>",
+      "reason": "<p>DRAFT state will be removed from this enum and <code>isDraft</code> should be used instead</p>",
+      "date": "2021-01-01",
+      "criticality": "breaking",
+      "owner": "nplasterer"
+    }
+  ],
+  "2020-10-01": [
+    {
+      "location": "Sponsorship.sponsor",
+      "description": "<p><code>sponsor</code> will be removed. Use <code>Sponsorship.sponsorEntity</code> instead.</p>",
+      "reason": "<p><code>Sponsorship.sponsor</code> will be removed.</p>",
+      "date": "2020-10-01",
+      "criticality": "breaking",
+      "owner": "nholden"
+    },
+    {
+      "location": "PullRequest.timeline",
+      "description": "<p><code>timeline</code> will be removed. Use PullRequest.timelineItems instead.</p>",
+      "reason": "<p><code>timeline</code> will be removed</p>",
+      "date": "2020-10-01",
+      "criticality": "breaking",
+      "owner": "mikesea"
+    },
+    {
+      "location": "Issue.timeline",
+      "description": "<p><code>timeline</code> will be removed. Use Issue.timelineItems instead.</p>",
+      "reason": "<p><code>timeline</code> will be removed</p>",
+      "date": "2020-10-01",
+      "criticality": "breaking",
+      "owner": "mikesea"
+    }
+  ],
+  "2020-04-01": [
+    {
+      "location": "Sponsorship.maintainer",
+      "description": "<p><code>maintainer</code> will be removed. Use <code>Sponsorship.sponsorable</code> instead.</p>",
+      "reason": "<p><code>Sponsorship.maintainer</code> will be removed.</p>",
+      "date": "2020-04-01",
+      "criticality": "breaking",
+      "owner": "antn"
+    }
+  ],
+  "2020-01-01": [
+    {
+      "location": "UnassignedEvent.user",
+      "description": "<p><code>user</code> will be removed. Use the <code>assignee</code> field instead.</p>",
+      "reason": "<p>Assignees can now be mannequins.</p>",
+      "date": "2020-01-01",
+      "criticality": "breaking",
+      "owner": "tambling"
+    },
+    {
+      "location": "AssignedEvent.user",
+      "description": "<p><code>user</code> will be removed. Use the <code>assignee</code> field instead.</p>",
+      "reason": "<p>Assignees can now be mannequins.</p>",
+      "date": "2020-01-01",
+      "criticality": "breaking",
+      "owner": "tambling"
+    }
+  ],
+  "2019-04-01": [
+    {
+      "location": "LegacyMigration.uploadUrlTemplate",
+      "description": "<p><code>uploadUrlTemplate</code> will be removed. Use <code>uploadUrl</code> instead.</p>",
+      "reason": "<p><code>uploadUrlTemplate</code> is being removed because it is not a standard URL and adds an extra user step.</p>",
+      "date": "2019-04-01",
+      "criticality": "breaking",
+      "owner": "tambling"
+    }
+  ]
+}

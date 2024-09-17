@@ -1,0 +1,101 @@
+date: '2023-10-24'
+intro: |
+  {% warning %}
+
+  **Warning**: A change to MySQL in GitHub Enterprise Server 3.9 and later may impact the performance of your instance. Before you upgrade, make sure you've read the "[Known issues](#3.10.3-known-issues)" section of these release notes.
+
+  {% endwarning %}
+sections:
+  security_fixes:
+    - |
+      **LOW:** Due to an incorrect permission assignment for some configuration files, an attacker with access to a local operating system user account could read MySQL connection details including the MySQL password. [Updated: 2023-11-13]
+    - |
+      Packages have been updated to the latest security versions.
+  bugs:
+    - |
+       Authentication of programmatic access tokens did not fully validate the status of token's users, which allowed token authentication requests to succeed even if the associated user was not allowed to make such requests. This issue is unrelated to validation of token scope.
+    - |
+       The `dependency-graph-api` service sometimes rapidly filled logs with a large amount of Base64-encoded response data, particularly during upgrades.
+    - |
+       After an administrator made changes to maintenance mode from the instance's Management Console UI using Firefox, the administrator was redirected to the Settings page, but their changes were not enabled.
+    - |
+       The `ghe-cluster-repl-status` command did not display all replication statuses.
+    - |
+       On an instance in a cluster configuration with high availability enabled, `ghe-config-apply` timed out while waiting for `hookshot-go` to start on replica application nodes.
+    - |
+       `/var/log/lastlog` was not copied over as a sparse file during `ghe-upgrade`, which could cause issues by using additional disk space.
+    - |
+       On an instance in a cluster configuration, when managing maintenance mode using `ghe-cluster-maintenance`, an erroneous warning appeared that read "Warning: Maintenance mode set on primary, please make sure to set it on any active replica if needed".
+    - |
+       `ghe-repl-status` did not identify Git replicas in certain incomplete states and incorrectly suggested that a failover could be performed safely. In some cases, this led to data loss during failover.
+    - |
+       Repository exports using `ghe-migrator` or the REST API's operation for organization migrations could fail when a large number of commit comments or long commit comments were present.
+    - |
+       On an instance with a GitHub Advanced Security license and secret scanning enabled, secret scanning suggested incorrect filters when viewing both open and closed alerts.
+    - |
+       On instances using the private beta of SCIM provisioning, some users were presented with a "single sign-in" hover card.
+    - |
+       On an instance with multiple nodes, `ghe-spokes status` did not identify Git replicas in certain incomplete states, causing a false report that replication was in sync and leading to data loss or replication issues during failover.
+    - |
+       On an instance with GitHub Actions enabled, administrators received a `500` error after attempting to force cancel a workflow run via Staff Tools.
+    - |
+       On an instance with a GitHub Advanced Security license, repositories within organizations created using the `+` dropdown menu did not have GitHub Advanced Security features enabled automatically, even if the features should have been enabled.
+    - |
+       On an instance with a GitHub Advanced Security license and secret scanning enabled, dry runs sometimes incorrectly reported no results for custom patterns.
+  changes:
+    - |
+       Instructions in the "Migrations" section of the Management Console clarify that only standard AWS S3 endpoints are supported when configuring AWS S3 as a blob storage provider for migrations.
+    - |
+       On an instance in a cluster configuration, administrators can identify the repository networks or gists that are common across a specified set of storage nodes using the `spokesctl find-on-replicas` command.
+    - |
+       As a security measure, GitHub Pages does not build sites that contain symbolic links except when using custom GitHub Actions workflows. This change strengthens GitHub Pages's symbolic link detection.
+  known_issues:
+    - |
+      {% data reusables.release-notes.2023-10-git-push-made-but-not-registered %} [Updated: 2023-10-26]
+    - |
+      Custom firewall rules are removed during the upgrade process.
+
+    - |
+      During the validation phase of a configuration run, a `No such object` error may occur for the Notebook and Viewscreen services. This error can be ignored as the services should still correctly start.
+    - |
+      If the root site administrator is locked out of the Management Console after failed login attempts, the account does not unlock automatically after the defined lockout time. Someone with administrative SSH access to the instance must unlock the account using the administrative shell. For more information, see "[AUTOTITLE](/admin/configuration/administering-your-instance-from-the-management-console/troubleshooting-access-to-the-management-console#unlocking-the-root-site-administrator-account)."
+    - |
+      On an instance in a high-availability configuration, passive replica nodes accept Git client requests and forward the requests to the primary node.
+    - |
+      If an instance is configured to forward logs to a target server with TLS enabled, certificate authority (CA) bundles that a site administrator uploads using `ghe-ssl-ca-certificate-install` are not respected, and connections to the server fail.
+    - |
+      When running `ghe-config-apply`, the process may stall with the message `Deployment is running pending automatic promotion`.
+    - |
+      The `mbind: Operation not permitted` error in the `/var/log/mysql/mysql.err` file can be ignored. MySQL 8 does not gracefully handle when the `CAP_SYS_NICE` capability isn't required, and outputs an error instead of a warning.
+    - |
+      {% data reusables.release-notes.upgrade-to-3-9-or-to-3-10-mysql-cannot-start-up %} [Updated: 2023-08-11]
+    - |
+      {% data reusables.release-notes.upgrade-to-3-9-or-to-3-10-io-utilization-increase %}
+    - |
+      {% data reusables.release-notes.2023-08-mssql-replication-known-issue %}
+    - |
+      {% data reusables.release-notes.2023-09-config-apply-timeout-hookshot-go-replicas %}
+    - |
+      After an administrator enables maintenance mode from the instance's Management Console UI using Firefox, the administrator is redirected to the Settings page, but maintenance mode is not enabled. To work around this issue, use a different browser.
+    - |
+      {% data reusables.release-notes.2023-10-support-bundle-p-flag-not-working %}
+    - |
+      {% data reusables.release-notes.2023-10-resource-activity-queue-not-processed %} [Updated: 2023-10-26]
+    - |
+      {% data reusables.release-notes.2023-10-actions-upgrade-bug %} [Updated: 2023-12-04]
+    - |
+      {% data reusables.release-notes.large-adoc-files-issue %} [Updated: 2023-10-31]
+    - |
+      {% data reusables.release-notes.2023-11-aws-system-time %} [Updated 2023-11-10]
+    - |
+      {% data reusables.release-notes.2023-12-backup-utils-exit-early-redis %} [Updated 2023-12-05]
+    - |
+      {% data reusables.release-notes.2023-12-client-ip-addresses-incorrect-in-audit-log %} [Updated 2023-12-13]
+    - |
+      {% data reusables.release-notes.2024-01-ha-proxy-out-of-memory %} [Updated 2024-01-23]
+    - |
+      {% data reusables.release-notes.scheduled-reminders-unintentional %} [Updated: 2024-02-22]
+    - |
+      {% data reusables.release-notes.2024-03-increased-log-volume-in-syslog %} [Updated: 2024-03-08]
+    - |
+      {% data reusables.release-notes.2024-06-possible-frontend-5-minute-outage-during-hotpatch-upgrade %} [Updated: 2024-06-17]

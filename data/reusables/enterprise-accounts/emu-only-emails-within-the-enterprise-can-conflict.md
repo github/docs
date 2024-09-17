@@ -1,0 +1,1 @@
+> [!NOTE] Conflicts can only occur between users within the same enterprise. {% data variables.enterprise.prodname_managed_users_caps %} can share IdP identifiers or email addresses with other user accounts on {% data variables.product.prodname_dotcom_the_website %} that are outside the enterprise.

@@ -1,0 +1,22 @@
+# Variables used in code scanning that are not product names
+
+# Descriptive name for the workflow used to run code scanning using the CodeQL action
+codeql_workflow: 'CodeQL analysis workflow'
+
+# The tool status page
+tool_status_page: 'tool status page'
+
+# List of compiled languages supported for `no-build` extraction
+no_build_support: '{% ifversion codeql-no-build-csharp %}C# and{% endif %} Java'
+
+# List of compiled languages
+compiled_languages: 'C/C++, C#, {% ifversion codeql-go-autobuild %} Go,{% endif %} Java, and Swift'
+
+# List of languages where the libraries support expansion using CodeQL model packs at the repository level.
+codeql_model_packs_support: '{% ifversion fpt or ghec or ghes > 3.14 %}C#, Java/Kotlin, Python, and Ruby{% elsif ghes > 3.12 %}C#, Java/Kotlin, and Ruby{% elsif ghes > 3.10 %}Java/Kotlin{% endif %}'
+
+# List of that allow threat models to be configurable for code scanning
+code_scanning_threat_model_support: 'Java/Kotlin{% ifversion fpt or ghec or ghes > 3.12 %} and C#{% endif %}'
+
+# List of languages that Copilot Autofix Agent supports
+code_scanning_autofix_languages: ' C#, C/C++, Go, Java/Kotlin, Swift, JavaScript/TypeScript, Python, and Ruby'

@@ -1,0 +1,1 @@
+The name of the workflow. {% data variables.product.prodname_dotcom %} displays the names of your workflows under your repository's "Actions" tab. If you omit `name`, {% data variables.product.prodname_dotcom %} displays the workflow file path relative to the root of the repository.

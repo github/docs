@@ -1,0 +1,187 @@
+date: '2024-02-13'
+release_candidate: true
+deprecated: true
+intro: |
+  {% note %}
+
+  **Note:** Release candidate (RC) builds are intended solely for use in a test environment. If {% data variables.location.product_location %} is running an RC, you cannot upgrade to the general availability (GA) release. You also cannot upgrade with a hotpatch.
+
+  {% endnote %}
+
+  For upgrade instructions, see "[Upgrading {% data variables.product.prodname_ghe_server %}](/admin/enterprise-management/updating-the-virtual-machine-and-physical-resources/upgrading-github-enterprise-server)."
+sections:
+  features:
+    - heading: Instance administration
+      notes:
+        # https://github.com/github/releases/issues/3542
+        - |
+          To ensure an instance's readiness for an upgrade to a new feature release of GitHub Enterprise Server, administrators can ensure that background tasks from a previous upgrade are complete using the `ghe-check-background-upgrade-jobs` command-line utility. For more information, see "[AUTOTITLE](/admin/upgrading-your-instance/performing-an-upgrade/upgrading-with-an-upgrade-package#upgrading-a-standalone-instance-using-an-upgrade-package)" and "[AUTOTITLE](/admin/administering-your-instance/administering-your-instance-from-the-command-line/command-line-utilities#ghe-check-background-upgrade-jobs)."
+        # https://github.com/github/releases/issues/3531
+        - |
+          When backing up an instance in a cluster configuration using GitHub Enterprise Server Backup Utilities, the pre-flight routine includes a health check for all nodes and notifies administrators of any issues before the backup begins.
+        # https://github.com/github/releases/issues/3659
+        - |
+          The REST API's `/manage/v1` endpoints have been expanded to include all the same operations as the `/setup/api` endpoints. The `/setup/api` endpoints will be deprecated in a future release of GitHub Enterprise Server. For more information, see the following articles in the REST API documentation.
+          - "[AUTOTITLE](/rest/enterprise-admin/manage-ghes)"
+          - "[AUTOTITLE](/rest/enterprise-admin/management-console)"
+        # https://github.com/github/releases/issues/3676
+        - |
+          On an instance in a cluster configuration, administrators can use the `ghe-remove-node` command-line utility to remove a node from a cluster. This command evacuates data from the node's data services, marks the node as offline, and stops traffic being routed to the node, replacing the manual steps previously required to remove a node. For more information, see "[AUTOTITLE](/admin/administering-your-instance/administering-your-instance-from-the-command-line/command-line-utilities#ghe-remove-node)." [Updated: 2024-02-28]
+
+    - heading: Authentication
+      notes:
+        # https://github.com/github/releases/issues/3682
+        - |
+          To manage work across different accounts and GitHub products, users can authenticate to the GitHub CLI with multiple accounts, then use the `gh auth switch` command to switch between active accounts. For more information, see [gh auth login](https://cli.github.com/manual/gh_auth_login) in the GitHub CLI manual.
+
+    - heading: GitHub Advanced Security
+      notes:
+        # https://github.com/github/releases/issues/3597
+        - |
+          The GitHub Advanced Security billing REST API and CSV download includes the email addresses for active committers. This provides information for insights into Advanced Security license usage across your business. For more information, see "[AUTOTITLE](/rest/enterprise-admin/billing)" and "[AUTOTITLE](/billing/managing-billing-for-github-advanced-security/viewing-your-github-advanced-security-usage#downloading-github-advanced-security-license-usage-information)".
+        # https://github.com/github/releases/issues/3285
+        - |
+          To make it easier for users to secure repositories, default setup for code scanning automatically attempts to analyze all languages supported by CodeQL. Users no longer need to manually include analysis of C, C++, C#, Java, or Kotlin when enabling default setup, and organization owners and security managers can enable analysis of these languages for multiple repositories in an organization. For more information about the languages and versions supported by CodeQL and code scanning, see "[AUTOTITLE](/code-security/code-scanning/enabling-code-scanning/configuring-default-setup-for-code-scanning)" and "[Supported languages and frameworks](https://codeql.github.com/docs/codeql-overview/supported-languages-and-frameworks/)" in the CodeQL documentation.
+        # https://github.com/github/releases/issues/3569
+        - |
+          Customers who use both GitHub Enterprise Server and GitHub Enterprise Cloud can ensure license usage for GitHub Advanced Security is calculated correctly by synchronizing license usage across deployments. Synchronization can be performed automatically, using GitHub Connect, or manually, using an export file. For more information, see "[AUTOTITLE](/billing/managing-your-license-for-github-enterprise/syncing-license-usage-between-github-enterprise-server-and-github-enterprise-cloud)."
+        # https://github.com/github/releases/issues/3680
+        - |
+          For code scanning, this release of GitHub Enterprise Server uses version 2.15.5 of CodeQL by default. This version of CodeQL includes more up-to-date support for various languages, including C# 12, .NET 8, TypeScript 5.3, Java 21, and Python 3.12. For more information, see the [changelog for CodeQL 2.15.5](https://codeql.github.com/docs/codeql-overview/codeql-changelog/codeql-cli-2.15.5/) in the CodeQL documentation.
+        # https://github.com/github/releases/issues/3521
+        - |
+          Code scanning with CodeQL has improved support for detecting vulnerabilities in C and C++ code, with queries available for detecting common memory-corruption vulnerabilities. These queries are in beta and subject to change. For more information, see [ICYMI: improved C++ vulnerability coverage and CodeQL support for Lombok](https://github.blog/2023-10-19-icymi-improved-c-vulnerability-coverage-and-codeql-support-for-lombok/#improved-c-vulnerability-coverage) on the GitHub Blog.
+        # https://github.com/github/releases/issues/3512
+        - |
+          For repositories migrated to GitHub Enterprise Server from other platforms, to calculate active committers for GitHub Advanced Security license usage, GitHub only considers commits made after the migration date. Previously, historic commits were included in the calculation, and users needed to intervene manually to avoid consuming licenses unnecessarily. For more information, see "[AUTOTITLE](/billing/managing-billing-for-github-advanced-security/about-billing-for-github-advanced-security)."
+        # https://github.com/github/releases/issues/3310
+        - |
+          To make the language overview on the tool status page more informative, users can directly specify `Kotlin`, `C`, and `TypeScript` as languages to be analyzed using the `language` property of a `codeql.yml` file. For example: `language: [ 'kotlin' ]`. These languages were already supported by CodeQL, but were previously treated as being part of the `Java`, `CPP`, and `JavaScript` languages respectively.
+        # https://github.com/github/releases/issues/3119
+        - |
+          To increase the coverage of secret scanning without needing to maintain custom patterns, users can configure secret scanning to detect non-provider patterns. Non-provider patterns are patterns such as private keys that tend to have a higher rate of false positives than high-confidence patterns. GitHub displays non-provider alerts in a different list from high-confidence alerts, making triaging a better experience for users. This feature is in beta and subject to change. For more information, see "[AUTOTITLE](/code-security/secret-scanning/managing-alerts-from-secret-scanning#managing-alerts-from-non-provider-patterns)."
+
+    - heading: Dependabot
+      notes:
+        # https://github.com/github/releases/issues/3458
+        - |
+          To debug issues with Dependabot, users can view logs for Dependabot job runs associated with version updates, security updates, and rebase updates. For more information, see "[AUTOTITLE](/code-security/dependabot/working-with-dependabot/viewing-dependabot-job-logs)."
+        # https://github.com/github/releases/issues/3091
+        - |
+          Users can choose how to respond to Dependabot alerts automatically by setting up custom auto-triage rules in repositories or organizations. Auto-triage rules provide control over whether an alert is ignored, is snoozed, or triggers a pull request for a security update. Users can also use a rule created by GitHub to automatically dismiss low-impact issues in npm dependencies. Auto-triage rules are in public beta and subject to change. For more information, see "[AUTOTITLE](/code-security/dependabot/dependabot-auto-triage-rules/about-dependabot-auto-triage-rules)."
+        # https://github.com/github/releases/issues/3615
+        - |
+          Dependabot version updates have improved support for dependencies in NuGet, the package manager for .NET. Improvements include better support for implicit dependencies and peer dependencies. For more information about supported package managers, see "[AUTOTITLE](/code-security/dependabot/dependabot-version-updates/about-dependabot-version-updates#supported-repositories-and-ecosystems)."
+
+    - heading: GitHub Actions
+      notes:
+        # https://github.com/github/releases/issues/3227
+        - |
+          Users can set up organization-wide rules to enforce their CI/CD workflows, ensuring workflows pass before pull requests can be merged into target repositories. You can fine-tune your rule by selecting a specific branch, tag, or SHA, and provide maximum control over the version expected to run. To reduce risk, you can "evaluate" workflow rules to validate rules are working correctly. For more information, see "[AUTOTITLE](/repositories/configuring-branches-and-merges-in-your-repository/managing-rulesets/available-rules-for-rulesets#require-workflows-to-pass-before-merging)".
+        # https://github.com/github/releases/issues/3417
+        - |
+          GitHub Actions developers can use GitHub Actions Importer to plan, forecast, and automate the migration of existing CI/CD pipelines from Bamboo Server, Bamboo Data Center, and Bitbucket. Developers can migrate their Bamboo and Bitbucket pipelines to GitHub Actions using the GitHub CLI or IssueOps. For more information, see "[AUTOTITLE](/actions/migrating-to-github-actions/automated-migrations/migrating-from-bitbucket-pipelines-with-github-actions-importer)" and "[AUTOTITLE](/actions/migrating-to-github-actions/automated-migrations/migrating-from-bamboo-with-github-actions-importer)".
+        # https://github.com/github/releases/issues/3508
+        - |
+          Actions environments support defining selected tag patterns to restrict deployments. Administrators who want to have more secure and controlled deployments can specify selected tags or tag patterns on their protected environments. For more information, see "[AUTOTITLE](/actions/deployment/targeting-different-environments/using-environments-for-deployment#deployment-branches)".
+
+    - heading: Community experience
+      notes:
+        # https://github.com/github/releases/issues/3529
+        - |
+          To tailor information to users' needs, users are prompted to sign in to access the [GitHub Support](https://support.github.com/) portal. For customers with an enterprise account on GitHub.com, we encourage users to sign in to an account with support privileges for the enterprise. For more information, see "[AUTOTITLE](/enterprise-cloud@latest/admin/managing-accounts-and-repositories/managing-users-in-your-enterprise/managing-support-entitlements-for-your-enterprise)." Users who cannot sign in to an account on GitHub.com can still access the portal by verifying an email address.
+        # https://github.com/github/releases/issues/3605
+        - |
+          To help users find answers to their questions more quickly, GitHub Copilot is integrated into GitHub Support. Users can choose to chat with Copilot instead of creating a ticket on the "[Get help with GitHub](https://support.github.com/contact)" contact form. Copilot has been trained on the GitHub Enterprise Server documentation on GitHub Docs. This feature is in public beta and subject to change.
+
+    - heading: Projects
+      notes:
+         # https://github.com/github/releases/issues/2930
+        - |
+          Project templates for organizations are generally available. Users in an organization can create a template to share a pre-configured project with other people in your organization as the base for their projects. For more information, see "[AUTOTITLE](/issues/planning-and-tracking-with-projects/managing-your-project/managing-project-templates-in-your-organization)".
+
+        # https://github.com/github/releases/issues/3549
+        - |
+          Users can access Projects from from the global navigation menu. This page can be used to find projects you've recently viewed or created, regardless of the organization or where they are located. For more information, see "[AUTOTITLE](/issues/planning-and-tracking-with-projects/learning-about-projects/finding-your-projects)".
+
+    - heading: GitHub Discussions
+      notes:
+        # https://github.com/github/releases/issues/3475
+        - |
+          Users can filter for answered or unanswered discussions with the GraphQL API by using the `answered` property. For more information, see "[AUTOTITLE](/graphql/guides/using-the-graphql-api-for-discussions)."
+
+    - heading: Pull requests
+      notes:
+        # https://github.com/github/releases/issues/3140
+        - |
+          Users can merge pull requests without needing to wait for status checks to pass by adding a pull request to a merge queue. The merge queue ensures that the changes in the pull request will pass all required status checks when applied to the latest version of the target branch. A pull request is merged automatically once it reaches the front of the queue. This feature is particularly useful on branches where pull requests are merged frequently. For more information, see "[AUTOTITLE](/repositories/configuring-branches-and-merges-in-your-repository/configuring-pull-request-merges/managing-a-merge-queue)."
+
+    - heading: Markdown
+      notes:
+        # https://github.com/github/releases/issues/2339
+        - |
+          Users can highlight information using Markdown alerts. Alerts are displayed with distinctive colors and icons, and include notes, tips, warnings, and more. For more information, see "[AUTOTITLE](/get-started/writing-on-github/getting-started-with-writing-and-formatting-on-github/basic-writing-and-formatting-syntax#alerts)."
+
+    - heading: Accessibility
+      notes:
+        # https://github.com/github/releases/issues/3563
+        - |
+          The web interface for GitHub Enterprise Server has been redesigned to provide a more intuitive, responsive, and accessible navigation experience. Changes include:
+
+          - Breadcrumbs to help users navigate the site more efficiently
+          - Menus to quickly access a user's top repositories and teams
+          - A more accessible navigation experience, including more consistent keyboard navigation and improvements to code search
+
+          For more information, see [Exploring GitHub with the redesigned navigation](https://github.blog/2023-06-15-exploring-github-with-the-redesigned-navigation-now-in-public-beta/) on the GitHub Blog. Note that the redesigned navigation is now generally available.
+        # https://github.com/github/releases/issues/3595
+        - |
+          The comment field in issues, discussions, and pull requests has been redesigned for easier use across different screen sizes, and for better integration with assistive technology such as keyboard navigation and screen readers.
+
+  changes:
+    # https://github.com/github/docs-content/issues/12948
+    - |
+      Field names for some service logs on GitHub Enterprise Server have changed as part of GitHub's gradual migration to internal semantic conventions for [OpenTelemetry](https://opentelemetry.io/). Additional field names were changed in GitHub Enterprise Server 3.9, 3.10, and 3.11. If any tooling or processes in your environment rely on specific field names within logs, or log entries in specific files, the following changes may affect you.
+
+      - `level` is now `SeverityText`.
+      - `log_message`, `msg`, or `message` is now `Body`.
+      - `now` is now `Timestamp`.
+      - Custom field names such as `gh.repo.id` or `graphql.operation.name` use semantic names.
+      - Log statements that the instance would previously write to `auth.log`, `ldap.log`, or `ldap-sync.log` now appear in containerized logs for `github-unicorn` if the statement originated from a web request, or in logs for `github-resqued` if the statement originated from a background job. For more information about containerized logs, see "[AUTOTITLE](/admin/monitoring-managing-and-updating-your-instance/monitoring-your-appliance/about-system-logs#system-logs-in-the-systemd-journal)."
+
+      For a full list of mappings, download the OpenTelemetry attribute mapping CSV for GitHub Enterprise Server [3.9](/assets/ghes-3.9-opentelemetry-attribute-mappings.csv), [3.10](/assets/ghes-3.10-opentelemetry-attribute-mappings.csv), [3.11](/assets/ghes-3.11-opentelemetry-attribute-mappings.csv), and [3.12](/assets/ghes-3-12-opentelemetry-attribute-mappings.csv).
+
+    # https://github.com/github/releases/issues/3579
+    - |
+      On an instance with GitHub Advanced Security and code scanning enabled, the bot that posts comments and annotations for code scanning alerts on pull requests has been renamed from `github-code-scanning` to `github-advanced-security`.
+    # https://github.com/github/releases/issues/3561
+    - |
+      The REST API's `/rate_limit` endpoint is now subject to rate limits. Requests will not consume the primary rate limit quotas for the authenticated user. However, making a very high number of requests in a short period of time will trigger the secondary rate limits if secondary rate limits are enabled on your instance. For more information, see "[AUTOTITLE](/rest/rate-limit/rate-limit)" in the REST API documentation and "[AUTOTITLE](/admin/configuration/configuring-user-applications-for-your-enterprise/configuring-rate-limits)."
+
+  known_issues:
+    - |
+      Custom firewall rules are removed during the upgrade process.
+    - |
+      During the validation phase of a configuration run, a `No such object` error may occur for the Notebook and Viewscreen services. This error can be ignored as the services should still correctly start.
+    - |
+      If the root site administrator is locked out of the Management Console after failed login attempts, the account does not unlock automatically after the defined lockout time. Someone with administrative SSH access to the instance must unlock the account using the administrative shell. For more information, see "[AUTOTITLE](/admin/configuration/administering-your-instance-from-the-management-console/troubleshooting-access-to-the-management-console#unlocking-the-root-site-administrator-account)."
+    - |
+      If an instance is configured to forward logs to a target server with TLS enabled, certificate authority (CA) bundles that a site administrator uploads using `ghe-ssl-ca-certificate-install` are not respected, and connections to the server fail.
+    - |
+      The `mbind: Operation not permitted` error in the `/var/log/mysql/mysql.err` file can be ignored. MySQL 8 does not gracefully handle when the `CAP_SYS_NICE` capability isn't required, and outputs an error instead of a warning.
+    - |
+      {% data reusables.release-notes.2023-11-aws-system-time %}
+    - |
+      On an instance with the HTTP `X-Forwarded-For` header configured for use behind a load balancer, all client IP addresses in the instance's audit log erroneously appear as 127.0.0.1.
+    - |
+      {% data reusables.release-notes.large-adoc-files-issue %}
+    - |
+      {% data reusables.release-notes.2023-11-cluster-ha-failover-git-push-failure %}
+    - |
+      Restoring backups with `ghe-restore` on a GHES cluster will exit prematurely if `redis` has not restarted properly.
+
+  deprecations:
+    # https://github.com/github/releases/issues/2605
+    - heading: Upcoming deprecation of team discussions
+      notes:
+        - |
+          GitHub will deprecate team discussions for users in GitHub Enterprise Server 3.13. In GitHub Enterprise Server 3.12, a banner appears atop teams' discussions with information about the deprecation, including a link to tooling to migrate existing team discussions to GitHub Discussions. For more information, see "[AUTOTITLE](/organizations/collaborating-with-your-team/about-team-discussions)" and "[AUTOTITLE](/discussions/collaborating-with-your-community-using-discussions/about-discussions)." [Updated: 2024-03-04]

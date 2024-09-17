@@ -1,0 +1,5 @@
+# Reference: #9840
+# Updating the "SSH Certificates Required" feature to allow GitHub Apps
+versions:
+  ghec: '*'
+  ghes: '>= 3.9'

@@ -1,0 +1,1 @@
+When assigning users, you can use the "Roles" attribute in the application on your IdP to set a user's role in your enterprise on {% data variables.product.product_name %}. For more information about the roles available to assign, see "[AUTOTITLE](/admin/user-management/managing-users-in-your-enterprise/roles-in-an-enterprise)."

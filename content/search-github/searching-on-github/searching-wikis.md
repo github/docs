@@ -8,12 +8,11 @@ redirect_from:
 versions:
   fpt: '*'
   ghes: '*'
-  ghae: '*'
   ghec: '*'
 topics:
   - GitHub search
 ---
-You can search wikis globally across all of {% data variables.product.product_name %}, or search wikis within a particular repository or organization. For more information, see "[About searching on {% data variables.product.company_short %}](/search-github/getting-started-with-searching-on-github/about-searching-on-github)."
+You can search wikis globally across all of {% data variables.product.product_name %}, or search wikis within a particular repository or organization. For more information, see "[AUTOTITLE](/search-github/getting-started-with-searching-on-github/about-searching-on-github)."
 
 {% data reusables.search.syntax_tips %}
 
@@ -48,4 +47,4 @@ The `updated` qualifier matches wiki pages that were last updated within the spe
 
 ## Further reading
 
-- "[Sorting search results](/search-github/getting-started-with-searching-on-github/sorting-search-results/)"
+* "[AUTOTITLE](/search-github/getting-started-with-searching-on-github/sorting-search-results)"

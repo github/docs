@@ -1,0 +1,18 @@
+#!/bin/sh
+[ -n "$CI" ] && exit 0
+
+# The --verbose flag tells lint-staged to *not* swallow the stdout
+# output even if it passes.
+# For example, if `npm run lint-content` only had warnings, and no errors,
+# now it will display those warnings in the terminal.
+# In pseudo-code, `lint-staged` works like this:
+#
+#  for command in find_commands_to_execute(git_staged_files):
+#     output, exitCode = executeCommand(command, git_staged_files)
+#     if exitCode != 0:
+#         print(output)
+#         exit(exitCode)
+#     else if verbose:
+#         print(output)
+#
+npx lint-staged --verbose

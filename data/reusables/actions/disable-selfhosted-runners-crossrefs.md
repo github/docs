@@ -1,0 +1,5 @@
+{% ifversion ghec or ghes %}Enterprise owners and organization {% elsif fpt %}Organization {% endif %}owners can choose which repositories are allowed to create repository-level self-hosted runners. {% ifversion custom-org-roles %}Users with the “Manage organization runners and runner groups” permission can only choose which repositories are allowed to create repository-level self-hosted runners for repositories in your organization{% endif %}.
+
+{% ifversion custom-org-roles %}For more information about custom organization roles, see "[AUTOTITLE](/organizations/managing-peoples-access-to-your-organization-with-roles/about-custom-organization-roles)."{% endif %}
+
+For more information, see {% ifversion ghec or ghes %}"[AUTOTITLE](/admin/policies/enforcing-policies-for-your-enterprise/enforcing-policies-for-github-actions-in-your-enterprise#disabling-repository-level-self-hosted-runners)" and {% endif %}"[AUTOTITLE](/organizations/managing-organization-settings/disabling-or-limiting-github-actions-for-your-organization#limiting-the-use-of-self-hosted-runners)."

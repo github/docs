@@ -1,9 +1,9 @@
 ---
-title: Tracking progress on your {% data variables.product.prodname_projects_v1 %}
-shortTitle: Tracking {% data variables.product.prodname_projects_v1 %}
-intro: Learn how to track your work on {% data variables.projects.projects_v1_board %}
+title: 'Tracking progress on your {% data variables.product.prodname_projects_v1 %}'
+shortTitle: 'Tracking {% data variables.product.prodname_projects_v1 %}'
+intro: 'Learn how to track your work on {% data variables.projects.projects_v1_board %}'
 versions:
-  feature: "projects-v1"
+  feature: projects-v1
 topics:
   - Issues
   - Projects

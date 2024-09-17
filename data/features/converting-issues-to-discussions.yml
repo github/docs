@@ -1,0 +1,5 @@
+# Converting an issue to a discussion
+versions:
+  fpt: '*'
+  ghec: '*'
+  ghes: '>=3.7'

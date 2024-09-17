@@ -1,0 +1,4 @@
+# issue 14684 push rule delegated bypass
+versions:
+  ghec: '*'
+  ghes: '>3.15'

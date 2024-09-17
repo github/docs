@@ -1,0 +1,1 @@
+When you migrate a {% data variables.projects.projects_v1_board %} to an organization, the organization's base permission for projects will not be applied. After migrating your project, make sure to confirm the project's permissions. For more information, see "[AUTOTITLE](/issues/planning-and-tracking-with-projects/managing-your-project/managing-access-to-your-projects)."

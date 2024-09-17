@@ -1,0 +1,42 @@
+name: Open Enterprise release or deprecation issue
+
+# **What it does**: Checks if there is an Enterprise release or deprecation upcoming, and if so, opens an issue with the tasks to be completed.
+# **Why we have it**: GHES releases and deprecations run on a predictable schedule, so we can automate some of the project management aspects.
+# **Who does it impact**: Docs engineering, docs content.
+
+on:
+  workflow_dispatch:
+  schedule:
+    - cron: '20 16 * * *' # Run every day at 16:20 UTC / 8:20 PST
+
+permissions:
+  contents: read
+
+jobs:
+  open_enterprise_issue:
+    name: Open Enterprise issue
+    if: github.repository == 'github/docs-internal'
+    runs-on: ubuntu-latest
+    steps:
+      - name: Checkout repository code
+        uses: actions/checkout@b4ffde65f46336ab88eb53be808477a3936bae11 # v4.1.1
+
+      - uses: ./.github/actions/node-npm-setup
+
+      - name: Create an enterprise release issue
+        run: |
+          src/ghes-releases/scripts/create-enterprise-issue.js release
+        env:
+          GITHUB_TOKEN: ${{ secrets.DOCS_BOT_PAT_WRITEORG_PROJECT }}
+
+      - name: Create an enterprise deprecation issue
+        run: |
+          src/ghes-releases/scripts/create-enterprise-issue.js deprecation
+        env:
+          GITHUB_TOKEN: ${{ secrets.DOCS_BOT_PAT_WRITEORG_PROJECT }}
+
+      - uses: ./.github/actions/slack-alert
+        if: ${{ failure() && github.event_name != 'workflow_dispatch' }}
+        with:
+          slack_channel_id: ${{ secrets.DOCS_ALERTS_SLACK_CHANNEL_ID }}
+          slack_token: ${{ secrets.SLACK_DOCS_BOT_TOKEN }}

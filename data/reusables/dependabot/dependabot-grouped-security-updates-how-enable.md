@@ -1,0 +1,4 @@
+You can enable grouped pull requests for {% data variables.product.prodname_dependabot_security_updates %} in one, or both, of the following ways.
+
+* To group as many available security updates together as possible, across directories and per ecosystem, enable grouping in the "Code security and analysis" settings for your repository{% ifversion security-configurations-beta-and-pre-beta %}or organization{% elsif security-configurations-ga %}, or in "Global settings" under "Code security" for your organization{% endif %}.
+* For more granular control of grouping, such as grouping by package name, development/production dependencies,{% ifversion dependabot-updates-multidirectory-support %} SemVer level, or across multiple directories per ecosystem{% else %} or SemVer level{% endif %}, add configuration options to the `dependabot.yml` configuration file in your repository.

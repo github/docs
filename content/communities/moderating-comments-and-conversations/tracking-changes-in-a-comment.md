@@ -7,7 +7,6 @@ redirect_from:
 versions:
   fpt: '*'
   ghes: '*'
-  ghae: '*'
   ghec: '*'
 topics:
   - Community
@@ -29,11 +28,12 @@ When you delete sensitive information from the comment's edit history, the perso
 
 1. Navigate to the comment where you would like to delete sensitive information from the edit history.
 {% data reusables.repositories.edited-comment-list %}
-3. In the top right of the edit history window, click **Options**. Then click **Delete revision from history** to delete the diff that shows the content being added.
-  ![Delete comment edit details](/assets/images/help/repository/delete-comment-edit-details.png)
-4. To confirm deletion, click **OK**.
+1. In the top right of the edit history window, click **Options**. Then click **Delete revision from history** to delete the diff that shows the content being added.
+
+   ![Screenshot of the edit history window for a comment. A dropdown menu, labeled "Options," is expanded, and the "Delete revision from history" option is outlined in orange.](/assets/images/help/repository/delete-comment-edit-details.png)
+1. To confirm deletion, click **OK**.
 
 ## Further reading
 
-{% ifversion fpt or ghec %}- "[Reporting abuse or spam](/communities/maintaining-your-safety-on-github/reporting-abuse-or-spam)"{% endif %}
-- "[Editing a comment](/articles/editing-a-comment)"
+{% ifversion fpt or ghec %}- "[AUTOTITLE](/communities/maintaining-your-safety-on-github/reporting-abuse-or-spam)"{% endif %}
+* "[AUTOTITLE](/communities/moderating-comments-and-conversations/managing-disruptive-comments)"

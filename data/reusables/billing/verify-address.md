@@ -1,0 +1,1 @@
+1. Review your "Billing information" and update any incorrect data. You must ensure that the address fields are correct and that the "City" and "Postal/Zip code" fields are accepted. If there is any missing information or any errors are reported, the option to upload a sales tax certificate is hidden.

@@ -9,7 +9,6 @@ redirect_from:
 versions:
   fpt: '*'
   ghes: '*'
-  ghae: '*'
   ghec: '*'
 topics:
   - SSH
@@ -25,6 +24,7 @@ to approve this key so we know it's safe.
 Fingerprint: ab:08:46:83:ff:f6:c4:f8:a9:4e:68:6b:94:17:f2:46
 fatal: could not read from remote repository
 ```
+
 ## Solving the issue
 
-To fix this, you need to [review your SSH keys](/articles/reviewing-your-ssh-keys) and either reject or approve the unverified key. Clicking the URL link in the error message brings you to the SSH Settings page, where the unverified SSH key is highlighted in the SSH key list.
+To fix this, you need to [review your SSH keys](/authentication/keeping-your-account-and-data-secure/reviewing-your-ssh-keys) and either reject or approve the unverified key. Clicking the URL link in the error message brings you to the SSH Settings page, where the unverified SSH key is highlighted in the SSH key list.

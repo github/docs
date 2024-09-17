@@ -1,0 +1,1 @@
+For more information about enabling security features across an organization, see {% ifversion security-configurations-ga %}"[AUTOTITLE](/code-security/securing-your-organization)."{% else %}"[AUTOTITLE](/code-security/getting-started/quickstart-for-securing-your-organization)."{% endif %}

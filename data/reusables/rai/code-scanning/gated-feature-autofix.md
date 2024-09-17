@@ -1,0 +1,1 @@
+{% data variables.product.prodname_copilot_autofix %} for {% data variables.product.prodname_code_scanning %} is available only to {% data variables.product.prodname_ghe_cloud %} users who have {% data variables.product.prodname_GH_advanced_security %}. For more information, see "[AUTOTITLE](/get-started/learning-about-github/about-github-advanced-security)."

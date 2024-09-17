@@ -1,0 +1,3 @@
+Features are self-contained units of installation code and dev container configuration, designed to work across a wide range of base container images. You can use features to quickly add tools, runtimes, or libraries to your codespace image. For more information, see the [available features](https://containers.dev/features) and [features specification](https://containers.dev/implementors/features/) on the Development Containers website.
+
+You can add features to a `devcontainer.json` file from {% data variables.product.prodname_vscode_shortname %} or from your repository on {% data variables.product.prodname_dotcom_the_website %}.

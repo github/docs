@@ -10,24 +10,22 @@ permissions: You can install any package that you have permission to view.
 versions:
   fpt: '*'
   ghes: '*'
-  ghae: '*'
   ghec: '*'
 ---
 
 {% data reusables.package_registry.packages-ghes-release-stage %}
-{% data reusables.package_registry.packages-ghae-release-stage %}
 
 ## About package installation
 
-You can search on {% ifversion ghae %}{% data variables.product.product_name %}{% else %}{% data variables.product.product_location %}{% endif %} to find packages in {% data variables.product.prodname_registry %} that you can install in your own project. For more information, see "[Searching {% data variables.product.prodname_registry %} for packages](/search-github/searching-on-github/searching-for-packages)."
+You can search on {% data variables.location.product_location %} to find packages in {% data variables.product.prodname_registry %} that you can install in your own project. For more information, see "[AUTOTITLE](/search-github/searching-on-github/searching-for-packages)."
 
 After you find a package, you can read the package's description and installation and usage instructions on the package page.
 
 ## Installing a package
 
-You can install a package from {% data variables.product.prodname_registry %} using any {% ifversion fpt or ghae or ghec %}supported package client{% else %}package type enabled for your instance{% endif %} by following the same general guidelines.
+You can install a package from {% data variables.product.prodname_registry %} using any {% ifversion fpt or ghec %}supported package client{% else %}package type enabled for your instance{% endif %} by following the same general guidelines.
 
-1. Authenticate to {% data variables.product.prodname_registry %} using the instructions for your package client. For more information, see "[Authenticating to GitHub Packages](/packages/learn-github-packages/introduction-to-github-packages#authenticating-to-github-packages)."
-2. Install the package using the instructions for your package client.
+1. Authenticate to {% data variables.product.prodname_registry %} using the instructions for your package client. For more information, see "[AUTOTITLE](/packages/learn-github-packages/introduction-to-github-packages#authenticating-to-github-packages)."
+1. Install the package using the instructions for your package client.
 
-For instructions specific to your package client, see "[Working with a {% data variables.product.prodname_registry %} registry](/packages/working-with-a-github-packages-registry)."
+For instructions specific to your package client, see "[AUTOTITLE](/packages/working-with-a-github-packages-registry)."

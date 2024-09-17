@@ -13,7 +13,6 @@ intro: 'The organization account settings page provides several ways to manage t
 versions:
   fpt: '*'
   ghes: '*'
-  ghae: '*'
   ghec: '*'
 topics:
   - Organizations

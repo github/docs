@@ -1,0 +1,90 @@
+date: '2024-02-13'
+intro: |
+  {% warning %}
+
+  **Warning**: A change to MySQL in GitHub Enterprise Server 3.9 and later may impact the performance of your instance. Before you upgrade, make sure you've read the "[Known issues](#3.10.7-known-issues)" section of these release notes.
+
+  {% endwarning %}
+sections:
+  security_fixes:
+   - |
+     **HIGH:** An attacker could gain unauthorized read permission to files by deploying arbitrary symbolic links to a GitHub Pages site with a specially crafted artifact tarball. GitHub has requested CVE ID [CVE-2024-1082](https://www.cve.org/cverecord?id=CVE-2024-1082) for this vulnerability, which was reported via the [GitHub Bug Bounty program](https://bounty.github.com/).
+   - |
+     **HIGH:** An attacker with an editor role in the Management Console could gain admin SSH access to the appliance by command injection when configuring SAML settings. GitHub has requested CVE ID [CVE-2024-1372](https://www.cve.org/cverecord?id=CVE-2024-1372) for this vulnerability, which was reported via the [GitHub Bug Bounty program](https://bounty.github.com/).
+   - |
+     **HIGH:** An attacker with an editor role in the Management Console could gain admin SSH access to the appliance by command injection when setting an HTTP proxy. GitHub has requested CVE ID [CVE-2024-1359](https://www.cve.org/cverecord?id=CVE-2024-1359) for this vulnerability, which was reported via the [GitHub Bug Bounty program](https://bounty.github.com/).
+   - |
+     **HIGH:** An attacker with an editor role in the Management Console could gain admin SSH access to the appliance by command injection into nomad templates when configuring SMTP options. GitHub has requested CVE ID [CVE-2024-1378](https://www.cve.org/cverecord?id=CVE-2024-1378) for this vulnerability, which was reported via the [GitHub Bug Bounty program](https://bounty.github.com/).
+   - |
+     **HIGH:** An attacker with an editor role in the Management Console could gain admin SSH access to the appliance by command injection in the `actions-console` docker container while setting a service URL. GitHub has requested CVE ID [CVE-2024-1355](https://www.cve.org/cverecord?id=CVE-2024-1355) for this vulnerability, which was reported via the [GitHub Bug Bounty program](https://bounty.github.com/).
+   - |
+     **HIGH:** An attacker with an editor role in the Management Console could gain admin SSH access to the appliance by command injection in the `syslog-ng` configuration file. GitHub has requested CVE ID [CVE-2024-1354](https://www.cve.org/cverecord?id=CVE-2024-1354) for this vulnerability, which was reported via the [GitHub Bug Bounty program](https://bounty.github.com/).
+   - |
+     **HIGH:** An attacker with an editor role in the Management Console could gain admin SSH access to the appliance by command injection when setting the username and password for `collectd` configurations. GitHub has requested CVE ID [CVE-2024-1369](https://www.cve.org/cverecord?id=CVE-2024-1369) for this vulnerability, which was reported via the [GitHub Bug Bounty program](https://bounty.github.com/).
+   - |
+     **HIGH:** An attacker with an editor role in the Management Console could gain admin SSH access to the appliance by command injection into nomad templates when configuring audit log forwarding. GitHub has requested CVE ID [CVE-2024-1374](https://www.cve.org/cverecord?id=CVE-2024-1374) for this vulnerability, which was reported via the [GitHub Bug Bounty program](https://bounty.github.com/).
+   - |
+     **HIGH:** An attacker could create new branches in public repositories, and run arbitrary GitHub Actions workflows with permissions from the GITHUB_TOKEN. GitHub has requested CVE ID [CVE-2024-1482](https://www.cve.org/cverecord?id=CVE-2024-1482) for this vulnerability, which was reported via the [GitHub Bug Bounty program](https://bounty.github.com/).
+   - |
+     **MEDIUM:** An attacker could make changes to a user account by taking advantage of a Cross-site Scripting vulnerability in the tag name pattern field in the tag protections UI. Exploitation of this vulnerability required user interaction with malicious javascript on a website along with further social engineering. GitHub has requested CVE ID [CVE-2024-1084](https://www.cve.org/cverecord?id=CVE-2024-1084) for this vulnerability, which was reported via the [GitHub Bug Bounty program](https://bounty.github.com/).
+   - |
+     **LOW:** An attacker could decrypt the user section of the enterprise user license list JSON file by using an exposed private key. This vulnerability was reported via the [GitHub Bug Bounty](https://bounty.github.com/) program.
+   - |
+     Packages have been updated to the latest security versions.
+  bugs:
+   - |
+      On startup, Elasticsearch logged an innocuous JMX MBeans registration error.
+   - |
+      Hunk headers in C# files did not correctly display changed functions.
+   - |
+      Pre-receive hook failures were not visible in the administrator audit log due to an incomplete bug fix.
+   - |
+      When restoring a deleted repository, some metadata associated with the repository, such as packages or project items, did not properly restore.
+   - |
+      On an instance with subdomain isolation disabled, a notebook could not be loaded due to an extra `/` character in the URL path.
+   - |
+      During Git data server maintenance, a process that was ran on unsupported GitHub Enterprise Server topologies created a significant amount of system logs but did not perform any repair work.
+  changes:
+    - |
+      The default 30 second webhook delivery HTTP timeout can be configured.
+  known_issues:
+    - |
+      Custom firewall rules are removed during the upgrade process.
+    - |
+      During the validation phase of a configuration run, a `No such object` error may occur for the Notebook and Viewscreen services. This error can be ignored as the services should still correctly start.
+    - |
+      If the root site administrator is locked out of the Management Console after failed login attempts, the account does not unlock automatically after the defined lockout time. Someone with administrative SSH access to the instance must unlock the account using the administrative shell. For more information, see "[AUTOTITLE](/admin/configuration/administering-your-instance-from-the-management-console/troubleshooting-access-to-the-management-console#unlocking-the-root-site-administrator-account)."
+    - |
+      If an instance is configured to forward logs to a target server with TLS enabled, certificate authority (CA) bundles that a site administrator uploads using `ghe-ssl-ca-certificate-install` are not respected, and connections to the server fail.
+    - |
+      The `mbind: Operation not permitted` error in the `/var/log/mysql/mysql.err` file can be ignored. MySQL 8 does not gracefully handle when the `CAP_SYS_NICE` capability isn't required, and outputs an error instead of a warning.
+    - |
+      {% data reusables.release-notes.upgrade-to-3-9-or-to-3-10-mysql-cannot-start-up %}
+    - |
+      {% data reusables.release-notes.upgrade-to-3-9-or-to-3-10-io-utilization-increase %}
+    - |
+      {% data reusables.release-notes.2023-08-mssql-replication-known-issue %}
+    - |
+      {% data reusables.release-notes.2023-09-config-apply-timeout-hookshot-go-replicas %}
+    - |
+      After an administrator enables maintenance mode from the instance's Management Console UI using Firefox, the administrator is redirected to the Settings page, but maintenance mode is not enabled. To work around this issue, use a different browser.
+    - |
+      {% data reusables.release-notes.2023-11-aws-system-time %}
+    - |
+      On an instance with the HTTP `X-Forwarded-For` header configured for use behind a load balancer, all client IP addresses in the instance's audit log erroneously appear as 127.0.0.1.
+    - |
+      {% data reusables.release-notes.2023-10-git-push-made-but-not-registered %}
+    - |
+      {% data reusables.release-notes.2023-10-actions-upgrade-bug %}
+    - |
+      {% data reusables.release-notes.large-adoc-files-issue %}
+    - |
+      {% data reusables.release-notes.2023-12-backup-utils-exit-early-redis %}
+    - |
+      {% data reusables.release-notes.2024-01-haproxy-upgrade-causing-increased-errors %}
+    - |
+      {% data reusables.release-notes.2024-02-pages-deployment-error %} [Updated: 2024-03-07]
+    - |
+      {% data reusables.release-notes.2024-03-increased-log-volume-in-syslog %} [Updated: 2024-03-08]
+    - |
+      {% data reusables.release-notes.2024-06-possible-frontend-5-minute-outage-during-hotpatch-upgrade %} [Updated: 2024-06-17]
