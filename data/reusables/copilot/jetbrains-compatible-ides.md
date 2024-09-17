@@ -14,5 +14,6 @@
 * RubyMine
 * RustRover
 * WebStorm
+* Writeside
 
 See the [JetBrains IDEs](https://www.jetbrains.com/products/) tool finder to download.
