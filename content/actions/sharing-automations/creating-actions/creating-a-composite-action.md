@@ -31,9 +31,9 @@ Composite actions allow you to collect a series of workflow job steps into a sin
 
 ## Prerequisites
 
-Before you begin, you'll create a repository on {% data variables.location.product_location %}.
+Before you begin, you'll create a repository on {% data variables.product.github %}.
 
-1. Create a new public repository on {% data variables.location.product_location %}. You can choose any repository name, or use the following `hello-world-composite-action` example. You can add these files after your project has been pushed to {% data variables.product.product_name %}. For more information, see "[AUTOTITLE](/repositories/creating-and-managing-repositories/creating-a-new-repository)."
+1. Create a new public repository on {% data variables.product.github %}. You can choose any repository name, or use the following `hello-world-composite-action` example. You can add these files after your project has been pushed to {% data variables.product.product_name %}. For more information, see "[AUTOTITLE](/repositories/creating-and-managing-repositories/creating-a-new-repository)."
 
 1. Clone your repository to your computer. For more information, see "[AUTOTITLE](/repositories/creating-and-managing-repositories/cloning-a-repository)."
 
@@ -178,9 +178,9 @@ jobs:
 
 From your repository, click the **Actions** tab, and select the latest workflow run. The output should include: "Hello Mona the Octocat", the result of the "Goodbye" script, and a random number.
 
-## Example composite actions on {% data variables.product.prodname_dotcom_the_website %}
+## Example composite actions on {% data variables.product.github %}
 
-You can find many examples of composite actions on {% data variables.product.prodname_dotcom_the_website %}.
+You can find many examples of composite actions on {% data variables.product.github %}.
 
 * [microsoft/action-python](https://github.com/microsoft/action-python)
 * [microsoft/gpt-review](https://github.com/microsoft/gpt-review)

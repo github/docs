@@ -38,7 +38,7 @@ You can check the current service status on the [Status Dashboard](https://www.g
 
 ## Option 3: Clone the repository locally or edit in the browser
 
-While {% data variables.product.prodname_github_codespaces %} provides the benefit of a pre-configured developer environment, your source code should always be accessible through the repository hosted on {% data variables.product.prodname_dotcom_the_website %}. In the event of a {% data variables.product.prodname_github_codespaces %} outage, you can still clone the repository locally or edit files in the {% data variables.product.company_short %} browser editor. For more information, see "[AUTOTITLE](/repositories/working-with-files/managing-files/editing-files)."
+While {% data variables.product.prodname_github_codespaces %} provides the benefit of a pre-configured developer environment, your source code should always be accessible through the repository hosted on {% data variables.product.github %}. In the event of a {% data variables.product.prodname_github_codespaces %} outage, you can still clone the repository locally or edit files in the {% data variables.product.company_short %} browser editor. For more information, see "[AUTOTITLE](/repositories/working-with-files/managing-files/editing-files)."
 
 While this option does not configure a development environment for you, it will allow you to make changes to your source code as needed while you wait for the service disruption to resolve.
 

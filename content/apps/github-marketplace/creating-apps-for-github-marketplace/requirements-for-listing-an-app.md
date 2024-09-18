@@ -79,7 +79,7 @@ When you are ready to publish the app on {% data variables.product.prodname_mark
 
 Your app does not need to handle payments but does need to use {% data variables.product.prodname_marketplace %} purchase events to manage new purchases, upgrades, downgrades, cancellations, and free trials. For information about how integrate these events into your app, see "[AUTOTITLE](/apps/github-marketplace/using-the-github-marketplace-api-in-your-app)."
 
-Using GitHub's billing API allows customers to purchase an app without leaving GitHub and to pay for the service with the payment method already attached to their account on {% data variables.location.product_location %}.
+Using GitHub's billing API allows customers to purchase an app without leaving GitHub and to pay for the service with the payment method already attached to their account on {% data variables.product.github %}.
 
 * Apps must support both monthly and annual billing for paid subscriptions purchases.
 * Listings may offer any combination of free and paid plans. Free plans are optional but encouraged. For more information, see "[AUTOTITLE](/apps/github-marketplace/listing-an-app-on-github-marketplace/setting-pricing-plans-for-your-listing)."
