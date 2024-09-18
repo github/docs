@@ -20,7 +20,7 @@ redirect_from:
 
 {% endjetbrains_beta %}
 
-You can reopen any of your active or stopped codespaces on {% data variables.product.prodname_dotcom_the_website %}, in a JetBrains IDE, in {% data variables.product.prodname_vscode %}, or by using {% data variables.product.prodname_cli %}. You can't reopen a codespace that has been deleted. For more information, see "[AUTOTITLE](/codespaces/getting-started/understanding-the-codespace-lifecycle)."
+You can reopen any of your active or stopped codespaces on {% data variables.product.github %}, in a JetBrains IDE, in {% data variables.product.prodname_vscode %}, or by using {% data variables.product.prodname_cli %}. You can't reopen a codespace that has been deleted. For more information, see "[AUTOTITLE](/codespaces/getting-started/understanding-the-codespace-lifecycle)."
 
 You can view all your codespaces on the "Your codespaces" page at [github.com/codespaces](https://github.com/codespaces). From this page, you can:
 
@@ -34,9 +34,9 @@ You can view all your codespaces on the "Your codespaces" page at [github.com/co
 
 ## Resuming a codespace from a repository page
 
-You can quickly resume a codespace when you're viewing a repository on {% data variables.product.prodname_dotcom_the_website %}.
+You can quickly resume a codespace when you're viewing a repository on {% data variables.product.github %}.
 
-1. With the {% octicon "code" aria-hidden="true" %} **Code** tab of your repository displayed on {% data variables.product.prodname_dotcom_the_website %}, press <kbd>,</kbd> (the comma key).
+1. With the {% octicon "code" aria-hidden="true" %} **Code** tab of your repository displayed on {% data variables.product.github %}, press <kbd>,</kbd> (the comma key).
 
    The "Resume codespace" page is displayed. This allows you to resume your most recently used codespace for the currently selected branch of the repository or, if you were viewing a pull request, for the topic branch of the pull request.
 

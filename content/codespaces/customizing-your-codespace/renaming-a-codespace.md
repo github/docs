@@ -1,6 +1,6 @@
 ---
 title: Renaming a codespace
-intro: 'You can change the codespace display name to one of your choice through {% data variables.product.prodname_dotcom_the_website %} or the {% data variables.product.prodname_cli %}.'
+intro: 'You can change the codespace display name to one of your choice on {% data variables.product.github %} or using the {% data variables.product.prodname_cli %}.'
 versions:
   fpt: '*'
   ghec: '*'
@@ -59,7 +59,7 @@ For more information, see "[AUTOTITLE](/codespaces/developing-in-a-codespace/usi
 
 {% webui %}
 
-You can change the display name for your codespace on {% data variables.product.prodname_dotcom_the_website %}.
+You can change the display name for your codespace on {% data variables.product.github %}.
 
 {% data reusables.codespaces.your-codespaces-procedure-step %}
 

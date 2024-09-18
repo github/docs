@@ -114,7 +114,7 @@ If you don't specify a retention period when you create a codespace, then either
 
 ## Setting the retention period
 
-You can set your default retention period in your web browser, on {% data variables.product.prodname_dotcom_the_website %}. Alternatively, if you use {% data variables.product.prodname_cli %} to create a codespace you can set a retention period for that particular codespace. For more information, click the appropriate tab above.
+You can set your default retention period in your web browser, on {% data variables.product.github %}. Alternatively, if you use {% data variables.product.prodname_cli %} to create a codespace you can set a retention period for that particular codespace. For more information, click the appropriate tab above.
 
 ## Checking whether codespaces will be autodeleted soon
 

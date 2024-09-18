@@ -55,7 +55,7 @@ If you want your app to take actions on behalf of a user, you should use a user 
 
 Some examples of automations you could create with a {% data variables.product.prodname_github_app %}, where the app acts on a user's behalf, include:
 * A {% data variables.product.prodname_github_app %} that uses {% data variables.product.prodname_dotcom %} as an identity provider for your ecosystem.
-* A {% data variables.product.prodname_github_app %} that adds a service on top of {% data variables.product.prodname_dotcom_the_website %} that might be useful to a {% data variables.product.prodname_dotcom %} user. You can share the app with other developers via {% data variables.product.prodname_marketplace %} or by making the app public.
+* A {% data variables.product.prodname_github_app %} that adds a service on top of {% data variables.product.github %} that might be useful to a {% data variables.product.prodname_dotcom %} user. You can share the app with other developers via {% data variables.product.prodname_marketplace %} or by making the app public.
 
 ### {% data variables.product.prodname_github_apps %} that act on their own behalf
 
