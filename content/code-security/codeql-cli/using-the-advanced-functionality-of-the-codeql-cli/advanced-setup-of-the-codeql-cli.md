@@ -1,6 +1,6 @@
 ---
 title: Advanced setup of the CodeQL CLI
-intro: 'You can modify your {% data variables.product.prodname_codeql_cli %} setup to use a local checkout of the {% data variables.product.prodname_codeql %} repository for analysis, set up multiple versions of the {% data variables.product.prodname_codeql_cli %}, and analyze databases you have downloaded from {% data variables.product.prodname_dotcom_the_website %}.'
+intro: 'You can modify your {% data variables.product.prodname_codeql_cli %} setup to use a local checkout of the {% data variables.product.prodname_codeql %} repository for analysis, set up multiple versions of the {% data variables.product.prodname_codeql_cli %}, and analyze databases you have downloaded from {% data variables.product.github %}.'
 product: '{% data reusables.gated-features.codeql %}'
 versions:
   fpt: '*'
@@ -64,7 +64,7 @@ see "[AUTOTITLE](/code-security/codeql-cli/using-the-advanced-functionality-of-t
 
 **Note:** There are different versions of the {% data variables.product.prodname_codeql %} queries available for different users. Check out the correct version for your use case:
 
-* For the queries that are intended to be used with the latest {% data variables.product.prodname_codeql_cli %} release, check out the branch tagged `codeql-cli/latest`. You should use this branch for databases you’ve built using the {% data variables.product.prodname_codeql_cli %} or recently downloaded from {% data variables.product.prodname_dotcom_the_website %}.
+* For the queries that are intended to be used with the latest {% data variables.product.prodname_codeql_cli %} release, check out the branch tagged `codeql-cli/latest`. You should use this branch for databases you’ve built using the {% data variables.product.prodname_codeql_cli %} or recently downloaded from {% data variables.product.github %}.
 * For the most up to date {% data variables.product.prodname_codeql %} queries, check out the `main` branch. This branch represents the very latest version of {% data variables.product.prodname_codeql %}’s analysis.
 
 {% endnote %}
@@ -97,7 +97,7 @@ If you want to use the latest {% data variables.product.prodname_codeql %} featu
 
 ## Downloading databases from {% data variables.product.prodname_dotcom_the_website %}
 
-{% data variables.product.prodname_dotcom %} stores {% data variables.product.prodname_codeql %} databases for over 200,000 repositories on {% data variables.product.prodname_dotcom_the_website %}, which you can download using the REST API. The list of repositories is constantly growing and evolving to make sure that it includes the most interesting codebases for security research.
+{% data variables.product.github %} stores {% data variables.product.prodname_codeql %} databases for over 200,000 repositories on {% data variables.product.prodname_dotcom_the_website %}, which you can download using the REST API. The list of repositories is constantly growing and evolving to make sure that it includes the most interesting codebases for security research.
 
 You can also analyze databases from {% data variables.product.prodname_dotcom_the_website %} using the {% data variables.product.prodname_codeql %} for {% data variables.product.prodname_vscode_shortname %} extension. For more information, see "[AUTOTITLE](/code-security/codeql-for-vs-code/getting-started-with-codeql-for-vs-code/running-codeql-queries)."
 
