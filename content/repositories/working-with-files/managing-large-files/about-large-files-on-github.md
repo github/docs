@@ -104,7 +104,37 @@ If the file was added with your most recent commit, and you have not pushed to {
 
 ### Removing a file that was added in an earlier commit
 
+#### BFG Repo-Cleaner
+
 If you added a file in an earlier commit, you need to remove it from the repository's history. To remove files from the repository's history, you can use the BFG Repo-Cleaner or the `git filter-repo` command. For more information see "[AUTOTITLE](/authentication/keeping-your-account-and-data-secure/removing-sensitive-data-from-a-repository)."
+
+#### git rebase 
+
+Alternatively, `git rebase` may be used to alter the commit in the earlier commit. First, you need to identify the hash of the commit where the change happened. For instance, to modify `35da8436`, you may use
+
+```shell
+$ git rebase --interactive 35da8436~
+```
+
+The tilde (`~`) is strictly necessary to reapply the subsequent commits. `git rebase` will now open an editor of structure:
+
+```shell
+pick 35da8436 style: add new resources for roofs and clean up some old ones
+pick 09f6df0d feat/WIP!: major restructure and rewrite of components
+```
+
+Change `pick` to `edit` in the line of the commit to be modified. Once the file is saved, the HEAD of the repository will be at the named commit. The commit may now be modified. Repeat the steps mentioned previously:
+
+ ```shell
+   $ git rm --cached GIANT_FILE
+   # Stage our giant file for removal, but leave it on disk
+   $ git commit --amend -CHEAD
+   # Amend the previous commit with your change
+   # Simply making a new commit won't work, as you need
+   # to remove the file from the unpushed history as well
+ ```
+
+Consequently, you may return to the original HEAD using `git rebase --continue` and push the smaller commits using `git push`.
 
 ## Distributing large binaries
 
