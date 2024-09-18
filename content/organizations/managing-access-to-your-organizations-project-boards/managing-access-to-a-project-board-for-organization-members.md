@@ -5,9 +5,7 @@ redirect_from:
   - /articles/managing-access-to-a-project-board-for-organization-members
   - /github/setting-up-and-managing-organizations-and-teams/managing-access-to-a-project-board-for-organization-members
 versions:
-  fpt: '*'
-  ghes: '*'
-  ghec: '*'
+  feature: projects-v1
 topics:
   - Organizations
   - Teams

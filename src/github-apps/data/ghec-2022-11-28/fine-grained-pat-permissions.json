@@ -185,6 +185,15 @@
       },
       {
         "category": "enterprise-admin",
+        "slug": "update-an-attribute-for-a-scim-enterprise-user",
+        "subcategory": "scim",
+        "verb": "patch",
+        "requestPath": "/scim/v2/enterprises/{enterprise}/Users/{scim_user_id}",
+        "additional-permissions": false,
+        "access": "write"
+      },
+      {
+        "category": "enterprise-admin",
         "slug": "delete-a-scim-user-from-an-enterprise",
         "subcategory": "scim",
         "verb": "delete",

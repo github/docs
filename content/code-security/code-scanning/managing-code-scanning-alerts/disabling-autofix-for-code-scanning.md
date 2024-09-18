@@ -14,13 +14,13 @@ topics:
   - AI
 ---
 
-{% data reusables.rai.code-scanning.autofix-note %}
-
 ## About disabling {% data variables.product.prodname_copilot_autofix_short %} for {% data variables.product.prodname_code_scanning %}
 
 {% data variables.product.prodname_copilot_autofix %} is a {% data variables.product.prodname_copilot %}-powered is an expansion of {% data variables.product.prodname_code_scanning %} that provides users with targeted recommendations to help them fix {% data variables.product.prodname_code_scanning %} alerts so they can avoid introducing new security vulnerabilities. To learn more about {% data variables.product.prodname_copilot_autofix_short %} for {% data variables.product.prodname_code_scanning %}, see "[AUTOTITLE](/code-security/code-scanning/managing-code-scanning-alerts/about-autofix-for-codeql-code-scanning)."
 
-{% data variables.product.prodname_copilot_autofix_short %} is allowed by default in an enterprise and enabled for every repository that uses {% data variables.product.prodname_codeql %}, regardless of whether it uses default or advanced setup for {% data variables.product.prodname_code_scanning %}. Administrators at the enterprise, organization and repository levels can choose to opt-out and disable {% data variables.product.prodname_copilot_autofix_short %}.
+{% data reusables.rai.code-scanning.copilot-autofix-note %}
+
+{% data variables.product.prodname_copilot_autofix_short %} is allowed by default and enabled for every repository that uses {% data variables.product.prodname_codeql %}, regardless of whether it uses default or advanced setup for {% data variables.product.prodname_code_scanning %}. Administrators at the enterprise, organization and repository levels can choose to opt out and disable {% data variables.product.prodname_copilot_autofix_short %}.
 
 Note that disabling {% data variables.product.prodname_copilot_autofix_short %} at any level will close all open {% data variables.product.prodname_copilot_autofix_short %} comments. If {% data variables.product.prodname_copilot_autofix_short %} is disabled and then subsequently enabled, {% data variables.product.prodname_copilot_autofix_short %} won't automatically suggest fixes for any pull requests that are already open. The suggestions will only be generated for any pull requests that are opened after {% data variables.product.prodname_copilot_autofix_short %} is enabled, or after re-running {% data variables.product.prodname_codeql %} analysis on existing pull requests.
 
