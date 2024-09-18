@@ -132,9 +132,9 @@ Anyone with push access to a pull request can fix a {% data variables.product.pr
 
 ## Working with {% data variables.product.prodname_copilot_autofix_short %} suggestions for alerts on a pull request
 
-{% data reusables.rai.code-scanning.autofix-note %}
-
 {% data variables.product.prodname_copilot_autofix %} is an expansion of {% data variables.product.prodname_code_scanning %} that provides you with targeted recommendations to help you fix {% data variables.product.prodname_code_scanning %} alerts in pull requests. The potential fixes are generated automatically by large language models (LLMs) using data from the codebase, the pull request, and from {% data variables.product.prodname_codeql %} analysis.
+
+{% data reusables.rai.code-scanning.copilot-autofix-note %}
 
 ![Screenshot of the check failure for a {% data variables.product.prodname_code_scanning %} alert in a pull request. Part of the "autofix" suggestion is outlined in dark orange.](/assets/images/help/code-scanning/alert+autofix.png)
 
