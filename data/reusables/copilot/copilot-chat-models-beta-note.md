@@ -1,0 +1,1 @@
+> [!NOTE] The ability to change the AI model used by {% data variables.product.prodname_copilot_chat_short %} in {% data variables.product.prodname_vscode_shortname %} is in beta and subject to change. To request access, join the [waitlist](https://github.com/o1-waitlist-signup).

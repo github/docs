@@ -15,6 +15,8 @@ To find AI models, go to [{% data variables.product.prodname_marketplace %}](htt
 
 To view details about a model, click on the model's name.
 
+> [!NOTE] Access to OpenAI's `o1` models is in public beta and subject to change. To request access, join the [waitlist](https://github.com/o1-waitlist-signup).
+
 ## Experimenting with AI models in the playground
 
 >[!NOTE]
