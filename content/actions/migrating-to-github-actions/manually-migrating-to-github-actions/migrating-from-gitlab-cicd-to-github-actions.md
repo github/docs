@@ -125,7 +125,7 @@ Below is an example of the syntax for each system.
 
 ```yaml
 my_job:
-  image: node:10.16-jessie
+  image: node:20-bookworm-slim
 ```
 
 {% endraw %}
@@ -137,7 +137,7 @@ my_job:
 ```yaml
 jobs:
   my_job:
-    container: node:10.16-jessie
+    container: node:20-bookworm-slim
 ```
 
 {% endraw %}
@@ -369,7 +369,7 @@ container-job:
     POSTGRES_HOST: postgres
     # The default PostgreSQL port
     POSTGRES_PORT: 5432
-  image: node:10.18-jessie
+  image: node:20-bookworm-slim
   services:
     - postgres
   script:
@@ -391,7 +391,7 @@ container-job:
 jobs:
   container-job:
     runs-on: ubuntu-latest
-    container: node:10.18-jessie
+    container: node:20-bookworm-slim
 
     services:
       postgres:

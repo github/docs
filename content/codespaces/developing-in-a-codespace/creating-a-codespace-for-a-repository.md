@@ -21,7 +21,7 @@ shortTitle: Create a codespace for a repo
 
 {% data reusables.codespaces.ways-to-create-a-codespace %} Use the tabs in this article to display instructions for each of these ways of creating a codespace.
 
-You can use {% data variables.product.prodname_github_codespaces %} on your personal {% data variables.product.prodname_dotcom_the_website %} account, with the quota of free use included each month for accounts on the Free and Pro plans. {% data reusables.codespaces.codespaces-continue-by-paying %}
+You can use {% data variables.product.prodname_github_codespaces %} on your personal {% data variables.product.github %} account, with the quota of free use included each month for accounts on the Free and Pro plans. {% data reusables.codespaces.codespaces-continue-by-paying %}
 
 Organizations can enable members and outside collaborators to create and use codespaces at the organization's expense. For more information, see "[AUTOTITLE](/codespaces/managing-codespaces-for-your-organization/choosing-who-owns-and-pays-for-codespaces-in-your-organization)."
 

@@ -5,6 +5,7 @@ import events from '@/events/middleware.js'
 import anchorRedirect from '@/rest/api/anchor-redirect.js'
 import search from '@/search/middleware/search.js'
 import pageInfo from '@/pageinfo/middleware'
+import pageList from '@/pagelist/middleware'
 import webhooks from '@/webhooks/middleware/webhooks.js'
 import { ExtendedRequest } from '@/types'
 
@@ -14,6 +15,7 @@ router.use('/events', events)
 router.use('/webhooks', webhooks)
 router.use('/anchor-redirect', anchorRedirect)
 router.use('/pageinfo', pageInfo)
+router.use('/pagelist', pageList)
 
 // The purpose of this is for convenience to everyone who runs this code
 // base locally but don't have an Elasticsearch server locally.

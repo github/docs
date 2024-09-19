@@ -123,7 +123,7 @@ If you specify a `RepositoryURL` in your project's _.csproj_ file, the published
 
 ### Publishing a package using a GitHub {% data variables.product.pat_generic %} as your API key
 
-If you don't already have a {% data variables.product.pat_generic %} to use for your account on {% data variables.location.product_location %}, see "[AUTOTITLE](/authentication/keeping-your-account-and-data-secure/creating-a-personal-access-token)."
+If you don't already have a {% data variables.product.pat_generic %} to use for your account on {% data variables.product.github %}, see "[AUTOTITLE](/authentication/keeping-your-account-and-data-secure/creating-a-personal-access-token)."
 
 1. Create a new project. Replace `PROJECT_NAME` with the name you'd like to give the project.
 

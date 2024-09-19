@@ -97,7 +97,7 @@ If the dev container for the current codespace was built from the default image,
   du -h -s ~/.vscode-remote/extensions
   ```
 
-* Monitor your compute and storage usage by going to your billing page on {% data variables.product.prodname_dotcom_the_website %}, https://github.com/settings/billing, and reviewing the figures in the "{% data variables.product.prodname_codespaces %}" section.
+* Monitor your compute and storage usage by going to your billing page on {% data variables.product.github %}, https://github.com/settings/billing, and reviewing the figures in the "{% data variables.product.prodname_codespaces %}" section.
   {% note %}
 
   **Note**: Storage is calculated hourly and added to your existing storage usage. Consumed storage is therefore cumulative for the duration of your month-long billing cycle. This means that, during the billing period, the value you see on your billing page will only increase or remain the same. Usage will be reset to zero when a new billing cycle starts. Deleting a codespace, or a prebuild, will not reduce the usage figure for the current month, but it will reduce the rate at which storage usage accumulates.

@@ -39,7 +39,7 @@ To see the log output for the latest prebuild workflow run, click **See output**
 
 This displays the output of the most recent run of the workflow in the **Actions** tab.
 
-![Screenshot of the prebuild workflow output in the "Actions" tab of {% data variables.product.prodname_dotcom_the_website %}.](/assets/images/help/codespaces/prebuilds-log-output.png)
+![Screenshot of the prebuild workflow output in the "Actions" tab of {% data variables.product.github %}.](/assets/images/help/codespaces/prebuilds-log-output.png)
 
 Alternatively, to view all prebuild workflow runs associated with the specified branch, select the {% octicon "kebab-horizontal" aria-label="options" %} dropdown menu and click **View runs**.
 

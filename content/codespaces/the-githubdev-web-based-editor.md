@@ -29,7 +29,7 @@ The {% data variables.codespaces.serverless %} editor provides many of the benef
 
 The {% data variables.codespaces.serverless %} editor runs entirely in your browser’s sandbox. The editor doesn’t clone the repository, but instead uses the [GitHub Repositories extension](https://code.visualstudio.com/docs/editor/github#_github-repositories-extension) to carry out most of the functionality that you will use. Your work is saved in the browser’s local storage until you commit it. You should commit your changes regularly to ensure that they're always accessible.
 
-You must be signed in to {% data variables.product.prodname_dotcom_the_website %} to use the {% data variables.codespaces.serverless %} editor.
+You must be signed in to {% data variables.product.github %} to use the {% data variables.codespaces.serverless %} editor.
 
 ## Opening the {% data variables.codespaces.serverless %} editor
 

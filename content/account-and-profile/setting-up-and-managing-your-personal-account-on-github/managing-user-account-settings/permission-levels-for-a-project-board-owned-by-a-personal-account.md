@@ -8,9 +8,7 @@ redirect_from:
   - /account-and-profile/setting-up-and-managing-your-github-user-account/managing-user-account-settings/permission-levels-for-user-owned-project-boards
   - /account-and-profile/setting-up-and-managing-your-personal-account-on-github/managing-personal-account-settings/permission-levels-for-a-project-board-owned-by-a-personal-account
 versions:
-  fpt: '*'
-  ghes: '*'
-  ghec: '*'
+  feature: projects-v1
 topics:
   - Accounts
 shortTitle: '{% data variables.projects.projects_v1_board_caps %} permissions'
