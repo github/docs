@@ -1005,6 +1005,16 @@
     "docs_reference_links": "N/A"
   },
   {
+    "action": "org.code_scanning_autofix_third_party_tools_disabled",
+    "description": "Autofix for third party tools for code scanning alerts was disabled for an organization.",
+    "docs_reference_links": "N/A"
+  },
+  {
+    "action": "org.code_scanning_autofix_third_party_tools_enabled",
+    "description": "Autofix for third party tools for code scanning alerts was enabled for an organization.",
+    "docs_reference_links": "N/A"
+  },
+  {
     "action": "org.codeql_disabled",
     "description": "Code scanning using the default setup was disabled for an organization.",
     "docs_reference_links": "/code-security/code-scanning/enabling-code-scanning/configuring-default-setup-for-code-scanning-at-scale"
@@ -2322,6 +2332,16 @@
   {
     "action": "repo.code_scanning_autofix_enabled",
     "description": "Autofix for code scanning alerts was enabled for a repository.",
+    "docs_reference_links": "N/A"
+  },
+  {
+    "action": "repo.code_scanning_autofix_third_party_tools_disabled",
+    "description": "Autofix for third party tools for code scanning alerts was disabled for a repository.",
+    "docs_reference_links": "N/A"
+  },
+  {
+    "action": "repo.code_scanning_autofix_third_party_tools_enabled",
+    "description": "Autofix for third party tools for code scanning alerts was enabled for a repository.",
     "docs_reference_links": "N/A"
   },
   {
