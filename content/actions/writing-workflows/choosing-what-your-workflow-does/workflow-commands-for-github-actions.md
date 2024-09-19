@@ -965,7 +965,7 @@ Prepends a directory to the system `PATH` variable and automatically makes it av
 This example demonstrates how to add the user `$HOME/.local/bin` directory to `PATH`:
 
 ```bash copy
-echo "$HOME/.local/bin" >> $GITHUB_PATH
+echo "$HOME/.local/bin" >> "$GITHUB_PATH"
 ```
 
 {% endbash %}
@@ -975,7 +975,7 @@ echo "$HOME/.local/bin" >> $GITHUB_PATH
 This example demonstrates how to add the user `$env:HOMEPATH/.local/bin` directory to `PATH`:
 
 ```powershell copy
-"$env:HOMEPATH/.local/bin" | Out-File -FilePath $env:GITHUB_PATH -Append
+"$env:HOMEPATH/.local/bin" | Out-File -FilePath "$env:GITHUB_PATH" -Append
 ```
 
 {% endpowershell %}
