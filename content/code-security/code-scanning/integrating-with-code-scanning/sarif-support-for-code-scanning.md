@@ -65,8 +65,6 @@ Specifying source file locations and lines of code ensures code scanning alerts 
 
 This precision enhances the efficiency of code review and resolution processes, streamlining development workflows by enabling developers to address issues directly in the context of their codebase.
 
-{% ifversion code-scanning-alerts-in-pr-diff %}
-
 {% data variables.product.prodname_code_scanning_caps %} will also display alerts in pull request check results when all the lines of code identified by the alert exist in the pull request diff.
 
 For display in a pull request check, an alert must meet all the following conditions:
@@ -75,8 +73,6 @@ For display in a pull request check, an alert must meet all the following condit
 * The alert must exist in the lines of code added or edited in the pull request, not lines that were deleted.
 
 The `physicalLocation` object in a submitted SARIF file identifies the lines of code for an alert. For more information, see "[`physicalLocation` object](#physicallocation-object)."
-
-{% endif %}
 
 ### Specifying the root for source files
 
