@@ -17,7 +17,7 @@ When you first start using {% data variables.product.prodname_code_scanning %}, 
 
 ## Customizing {% data variables.product.prodname_code_scanning %}
 
-When you first configure default setup, or after an initial analysis of your code, you can edit{% ifversion code-scanning-without-workflow-310 %} which languages default setup will analyze and{% endif %} the query suite run during analysis. The `default` query suite contains a set of queries that are carefully designed to look for the most relevant security issues, while minimizing false positive results. However, you can use the `security-extended` suite to run additional queries, which have slightly lower precision. For more information on the available query suites, see "[AUTOTITLE](/code-security/code-scanning/managing-your-code-scanning-configuration/codeql-query-suites)."
+When you first configure default setup, or after an initial analysis of your code, you can edit which languages default setup will analyze and the query suite run during analysis. The `default` query suite contains a set of queries that are carefully designed to look for the most relevant security issues, while minimizing false positive results. However, you can use the `security-extended` suite to run additional queries, which have slightly lower precision. For more information on the available query suites, see "[AUTOTITLE](/code-security/code-scanning/managing-your-code-scanning-configuration/codeql-query-suites)."
 
 For more information about customizing default setup, see "[AUTOTITLE](/code-security/code-scanning/managing-your-code-scanning-configuration/editing-your-configuration-of-default-setup)."
 
