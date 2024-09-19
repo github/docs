@@ -20,10 +20,10 @@ shortTitle: Use SSH over HTTPS port
 
 To test if SSH over the HTTPS port is possible, run this SSH command:
 
-```shell
+```bash
 $ ssh -T -p 443 git@ssh.github.com
-> Hi USERNAME! You've successfully authenticated, but GitHub does not
-> provide shell access.
+# Hi USERNAME! You've successfully authenticated, but GitHub does not
+# provide shell access.
 ```
 
 {% note %}
@@ -55,10 +55,10 @@ Host {% data variables.product.product_url %}
 
 You can test that this works by connecting once more to {% data variables.location.product_location %}:
 
-```shell
+```bash
 $ ssh -T git@{% data variables.product.product_url %}
-> Hi USERNAME! You've successfully authenticated, but GitHub does not
-> provide shell access.
+# Hi USERNAME! You've successfully authenticated, but GitHub does not
+# provide shell access.
 ```
 
 ## Updating known hosts
@@ -66,12 +66,12 @@ $ ssh -T git@{% data variables.product.product_url %}
 The first time you interact with {% data variables.product.prodname_dotcom %} after switching to port 443, you may get a warning message
 that the host wasn't found in `known_hosts`, or that it was found by another name.
 
-```shell
-> The authenticity of host '[ssh.github.com]:443 ([140.82.112.36]:443)' can't be established.
-> ED25519 key fingerprint is SHA256:+DiY3wvvV6TuJJhbpZisF/zLDA0zPMSvHdkr4UvCOqU.
-> This host key is known by the following other names/addresses:
->     ~/.ssh/known_hosts:32: github.com
-> Are you sure you want to continue connecting (yes/no/[fingerprint])?
+```bash
+# The authenticity of host '[ssh.github.com]:443 ([140.82.112.36]:443)' can't be established.
+# ED25519 key fingerprint is SHA256:+DiY3wvvV6TuJJhbpZisF/zLDA0zPMSvHdkr4UvCOqU.
+# This host key is known by the following other names/addresses:
+#     ~/.ssh/known_hosts:32: github.com
+# Are you sure you want to continue connecting (yes/no/[fingerprint])?
 ```
 
 It is safe to answer "yes" to this question, assuming that the SSH fingerprint matches
