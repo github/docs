@@ -124,7 +124,7 @@ GET /scim/v2/Users/{scim_user_id}
 
 The SCIM integration on the IdP performs actions on behalf of an enterprise owner for the {% data variables.product.product_name %} instance. For more information, see "[AUTOTITLE](/admin/user-management/managing-users-in-your-enterprise/roles-in-an-enterprise#enterprise-owners)."
 
-To authenticate API requests, the person who configures SCIM on the IdP must use a {% data variables.product.pat_v1 %} with `admin:enterprise` scope, which the IdP must provide in the request's `Authorization` header. For more information about {% data variables.product.pat_v1_plural %}, see "[AUTOTITLE](/authentication/keeping-your-account-and-data-secure/creating-a-personal-access-token)".
+To authenticate API requests, the person who configures SCIM on the IdP must use a {% data variables.product.pat_v1 %} with the {% ifversion scim-enterprise-scope %}`scim:enterprise`{% else %}`admin:enterprise`{% endif %} scope, which the IdP must provide in the request's `Authorization` header. For more information about {% data variables.product.pat_v1_plural %}, see "[AUTOTITLE](/authentication/keeping-your-account-and-data-secure/creating-a-personal-access-token)".
 
 {% note %}
 

@@ -77,7 +77,7 @@ To ensure you can continue to sign in and configure settings when SCIM is enable
 1. Sign in to your instance as the **built-in setup user** you created in the previous section.
 1. Create a {% data variables.product.pat_v1 %}. For instructions, see "[AUTOTITLE](/authentication/keeping-your-account-and-data-secure/managing-your-personal-access-tokens#creating-a-personal-access-token-classic)."
 
-   * The token must have the **admin:enterprise** scope.
+   * The token must have the {% ifversion scim-enterprise-scope %}`scim:enterprise`{% else %}`admin:enterprise`{% endif %} scope.
    * The token must have **no expiration**. If you specify an expiration date, SCIM will no longer function after the expiration date passes.
 
 1. Store the token securely in a password manager until you need the token again later in the setup process. You'll need the token to configure SCIM on your IdP.

@@ -115,7 +115,7 @@ Before starting this section, ensure you have followed steps **1 and 2** in "[AU
 After {% ifversion ghec %}setting your enterprise name{% else %}configuring your SAML settings{% endif %}, you can proceed to configure provisioning settings.
 
 {% ifversion ghec %}
-To configure provisioning, the setup user {% ifversion ghec %}with the **@<em>SHORT-CODE</em>_admin** username {% endif %}will need to provide a {% data variables.product.pat_v1 %} with the **admin:enterprise** scope. See "[AUTOTITLE](/admin/managing-iam/understanding-iam-for-enterprises/getting-started-with-enterprise-managed-users#create-a-personal-access-token)."
+To configure provisioning, the setup user {% ifversion ghec %}with the **@<em>SHORT-CODE</em>_admin** username {% endif %}will need to provide a {% data variables.product.pat_v1 %} with the **scim:enterprise** scope. See "[AUTOTITLE](/admin/managing-iam/understanding-iam-for-enterprises/getting-started-with-enterprise-managed-users#create-a-personal-access-token)."
 {% else %}
 Before starting this section, ensure you have followed steps **1 to 4** in "[AUTOTITLE](/admin/managing-iam/provisioning-user-accounts-with-scim/configuring-scim-provisioning-for-users)."
 {% endif %}
