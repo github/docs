@@ -33,7 +33,12 @@ After you configure SAML SSO, we recommend storing your recovery codes so you ca
 
 ## Prerequisites
 
-* Understand the integration requirements and level of support for your IdP. See "[AUTOTITLE](/admin/identity-and-access-management/understanding-iam-for-enterprises/about-enterprise-managed-users#about-authentication-and-user-provisioning)."
+* Understand the integration requirements and level of support for your IdP.
+
+  * {% data variables.product.company_short %} offers a "paved-path" integration and full support if you use a **partner IdP** for both authentication and provisioning.
+  * Alternatively, you can use any system or combination of systems that conform to SAML 2.0 and SCIM 2.0. However, support may be limited.
+
+  For more details, see "[AUTOTITLE](/admin/managing-iam/understanding-iam-for-enterprises/about-enterprise-managed-users#identity-management-systems)."
 * Your IdP must adhere to the SAML 2.0 specification. See the [SAML Wiki](https://wiki.oasis-open.org/security) on the OASIS website.
 * You must have tenant administrative access to your IdP.
 * If you're configuring SAML SSO for a new enterprise, make sure to complete all previous steps in the initial configuration process. See "[AUTOTITLE](/admin/managing-iam/understanding-iam-for-enterprises/getting-started-with-enterprise-managed-users)."
