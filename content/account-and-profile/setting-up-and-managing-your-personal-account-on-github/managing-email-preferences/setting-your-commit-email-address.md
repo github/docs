@@ -112,3 +112,15 @@ You can change the email address associated with commits you make in a single re
    ```
 
 1. {% data reusables.user-settings.link_email_with_your_account %}
+
+### Resetting commits that violate your email privacy settings
+
+If you have accidentally committed to the repository with a public e-mail that should be private you will need to reset the author in your local commit by following these steps: 
+
+```shell
+git config --global user.email "ID+USERNAME@users.noreply.github.com"
+git rebase -i
+git commit --amend --reset-author
+git rebase --continue
+git push
+```
