@@ -11,8 +11,6 @@ topics:
   - Security
 ---
 
-{% data reusables.security-configurations.security-configurations-beta-note-opt-out %}
-
 ## About choosing a {% data variables.product.prodname_security_configuration %}
 
 {% data reusables.security-configurations.define-security-configurations %} {% data variables.product.company_short %} offers two types of {% data variables.product.prodname_security_configurations %}:

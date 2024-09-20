@@ -24,7 +24,7 @@ You can additionally enable push protection for your own personal account, which
 
 {% endif %}
 
-If you're an organization owner, you can enable push protection for multiple repositories at a time{% ifversion security-configurations-ga %} using a security configuration{% endif %}. For more information, see {% ifversion security-configurations-ga %}"[AUTOTITLE](/code-security/securing-your-organization/meeting-your-specific-security-needs-with-custom-security-configurations/creating-a-custom-security-configuration){% else %}"[AUTOTITLE](/code-security/getting-started/quickstart-for-securing-your-organization#enabling-security-features-in-your-organization){% endif %}."
+If you're an organization owner, you can enable push protection for multiple repositories at a time{% ifversion security-configurations %} using the {% data variables.product.prodname_github_security_configuration %}{% endif %}. For more information, see {% ifversion security-configurations %}"[AUTOTITLE](/code-security/securing-your-organization/enabling-security-features-in-your-organization/applying-the-github-recommended-security-configuration-in-your-organization){% else %}"[AUTOTITLE](/code-security/getting-started/quickstart-for-securing-your-organization#enabling-security-features-in-your-organization){% endif %}."
 
 Organization owners, security managers, and repository administrators can also enable push protection for {% data variables.product.prodname_secret_scanning %} via the API. For more information, see "[AUTOTITLE](/rest/repos#update-a-repository)" and expand the "Properties of the `security_and_analysis` object" section.
 
