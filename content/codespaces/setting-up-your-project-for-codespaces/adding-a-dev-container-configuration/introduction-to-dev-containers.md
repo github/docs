@@ -188,7 +188,7 @@ If none of the predefined configurations meets your needs, you can create a cust
 
 ### Adding a `devcontainer.json` file
 
-If you don't already have a `devcontainer.json` file in your repository, you can quickly add one from {% data variables.product.prodname_dotcom_the_website %}.
+If you don't already have a `devcontainer.json` file in your repository, you can quickly add one from {% data variables.product.github %}.
 1. Navigate to your repository and click the **{% octicon "code" aria-hidden="true" %} Code** dropdown.
 1. In the **Codespaces** tab, click the ellipsis (**...**), then select **Configure dev container**.
 

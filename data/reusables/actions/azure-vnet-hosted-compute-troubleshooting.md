@@ -16,7 +16,7 @@ Ensure your Azure resources have been configured _before_ adding a network confi
 
 ### Runner failed to connect to the internet
 
-{% data variables.product.company_short %}-hosted runners need to be able to make outbound connections to {% data variables.product.prodname_dotcom_the_website %} as well as other necessary URLs for {% data variables.product.prodname_actions %}.
+{% data variables.product.company_short %}-hosted runners need to be able to make outbound connections to {% data variables.product.github %} as well as other necessary URLs for {% data variables.product.prodname_actions %}.
 
 If {% data variables.product.prodname_actions %} cannot communicate with the runners, the pool will never be able to bring runners online and so no jobs will be picked up. In this case, the pool will have the following error code.
 

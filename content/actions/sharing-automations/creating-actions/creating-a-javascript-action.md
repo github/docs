@@ -39,7 +39,7 @@ Before you begin, you'll need to download Node.js and create a public {% data va
 1. Download and install Node.js {% ifversion actions-node20-support %}20.x{% else %}16.x{% endif %}, which includes npm.
 
    https://nodejs.org/en/download/
-1. Create a new public repository on {% data variables.location.product_location %} and call it "hello-world-javascript-action". For more information, see "[AUTOTITLE](/repositories/creating-and-managing-repositories/creating-a-new-repository)."
+1. Create a new public repository on {% data variables.product.github %} and call it "hello-world-javascript-action". For more information, see "[AUTOTITLE](/repositories/creating-and-managing-repositories/creating-a-new-repository)."
 
 1. Clone your repository to your computer. For more information, see "[AUTOTITLE](/repositories/creating-and-managing-repositories/cloning-a-repository)."
 

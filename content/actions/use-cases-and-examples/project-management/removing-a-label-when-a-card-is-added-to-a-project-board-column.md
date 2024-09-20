@@ -5,9 +5,7 @@ redirect_from:
   - /actions/guides/removing-a-label-when-a-card-is-added-to-a-project-board-column
   - /actions/managing-issues-and-pull-requests/removing-a-label-when-a-card-is-added-to-a-project-board-column
 versions:
-  fpt: '*'
-  ghes: '*'
-  ghec: '*'
+  feature: projects-v1
 type: tutorial
 topics:
   - Workflows

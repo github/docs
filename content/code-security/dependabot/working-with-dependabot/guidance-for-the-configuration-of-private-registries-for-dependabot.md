@@ -54,7 +54,7 @@ You'll also find recommendations for the setup of the following registry hosts:
 
 Supported by Artifactory, Artifacts, {% data variables.product.prodname_registry %} registry, Nexus, and ProGet.
 
-You can authenticate with either a username and password, or a token. For more information, see `ruby-gems` in "[AUTOTITLE](/code-security/dependabot/dependabot-version-updates/configuration-options-for-the-dependabot.yml-file#rubygems-server)."
+You can authenticate with either a username and password, or a token. For more information, see `rubygems-server` in "[AUTOTITLE](/code-security/dependabot/dependabot-version-updates/configuration-options-for-the-dependabot.yml-file#rubygems-server)."
 
 Snippet of a `dependabot.yml` file using a username and password.
 

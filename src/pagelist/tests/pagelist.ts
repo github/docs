@@ -61,4 +61,14 @@ describe.each(allVersionKeys)('pagelist api for %s', async (versionKey) => {
         expect(permalink).toMatch(expression)
       })
   })
+
+  test('only returns urls that contain /en', async () => {
+    const expression = new RegExp(`^/en(/${nonEnterpriseDefaultVersion})?/?.*`)
+    res.body
+      .trim()
+      .split('\n')
+      .forEach((permalink: string) => {
+        expect(permalink).toMatch(expression)
+      })
+  })
 })

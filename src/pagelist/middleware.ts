@@ -30,16 +30,20 @@ router.get('/v1/:product@:version', (req: ExtendedRequest, res: Response) => {
 
   // we filter the permalinks to get only our target version
   const filteredPermalinks = keys.filter((key) => versionMatcher(key, `${product}@${version}`))
+  const expression = /^\/en/
 
   if (!filteredPermalinks.length) {
     res.status(400).type('text').send('Invalid version')
     return
   }
 
+  //right now we only need english permalinks perhaps we can use the language from the request in the future
+  const englishPermalinks = filteredPermalinks.filter((permalink) => expression.test(permalink))
+
   defaultCacheControl(res)
 
   // new line added at the end so `wc` works as expected with `-l` and `-w`.
-  res.type('text').send(filteredPermalinks.join('\n').concat('\n'))
+  res.type('text').send(englishPermalinks.join('\n').concat('\n'))
 })
 
 router.get('/:product@:version', (req, res) => {

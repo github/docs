@@ -137,15 +137,11 @@ To use `autobuild` or manual build steps, you can use advanced setup.
 
 ## About Autobuild for {% data variables.product.prodname_codeql %}
 
-{% ifversion codeql-no-build or code-scanning-without-workflow-310 %}
-
 The {% data variables.product.prodname_codeql %} action uses `autobuild` to analyze compiled languages in the following cases.
 
 * Default setup is enabled{% ifversion codeql-no-build %} and the language does not support `none` build (supported for {% data variables.code-scanning.no_build_support %}).
 * Advanced setup is enabled and the workflow specifies `build-mode: autobuild`{% endif %}.
 * Advanced setup is enabled and the workflow has an Autobuild step for the language using the `autobuild` action (`{% data reusables.actions.action-codeql-action-autobuild %}`).
-
-{% endif %}
 
 {% ifversion codeql-no-build %}
 
@@ -173,11 +169,7 @@ steps:
 
 ### Example using the Autobuild step
 
-{% elsif ghes and code-scanning-without-workflow-310 %}
-
-<!--Nothing to display-->
-
-{% elsif ghes %}
+{% elsif ghes < 3.14 %}
 
 The basic {% data variables.code-scanning.codeql_workflow %} uses the `autobuild` action to build your code.
 
@@ -196,8 +188,7 @@ The basic {% data variables.code-scanning.codeql_workflow %} uses the `autobuild
 
 ## About specifying build steps manually
 
-{% ifversion codeql-no-build or code-scanning-without-workflow-310 %}
-You can only specify manual build steps if you have enabled advanced setup, see "[AUTOTITLE](/code-security/code-scanning/creating-an-advanced-setup-for-code-scanning/configuring-advanced-setup-for-code-scanning#configuring-advanced-setup-for-a-repository)."{% endif %}
+You can only specify manual build steps if you have enabled advanced setup, see "[AUTOTITLE](/code-security/code-scanning/creating-an-advanced-setup-for-code-scanning/configuring-advanced-setup-for-code-scanning#configuring-advanced-setup-for-a-repository)."
 
 {% data reusables.code-scanning.autobuild-add-build-steps %} For information on how to edit the workflow file, see  "[AUTOTITLE](/code-security/code-scanning/creating-an-advanced-setup-for-code-scanning/customizing-your-advanced-setup-for-code-scanning#editing-a-code-scanning-workflow)."
 
@@ -266,8 +257,8 @@ If you added manual build steps for compiled languages and {% data variables.pro
 {% ifversion fpt or ghec %}{% data variables.product.prodname_dotcom %}-hosted runners are always run with the software required by `autobuild`.{% endif %} If you use self-hosted runners for {% data variables.product.prodname_actions %}, you may need to install additional software to use the `autobuild` process. Additionally, if your repository requires a specific version of a build tool, you may need to install it manually. {% ifversion code-scanning-default-setup-self-hosted-310 or default-setup-self-hosted-runners-GHEC %} For self-hosted runners, you should install dependencies directly in the runners themselves. We provide examples of common dependencies for C/C++, C#, and Java in each of the `autobuild` sections of this article for those languages. For more information, see "[AUTOTITLE](/actions/hosting-your-own-runners/managing-self-hosted-runners/about-self-hosted-runners)."{% endif %}
 
 * [Building C/C++](#building-cc)
-* [Building C#](#building-c){% ifversion codeql-go-autobuild %}
-* [Building Go](#building-go){% endif %}
+* [Building C#](#building-c)
+* [Building Go](#building-go)
 * [Building Java and Kotlin](#building-java-and-kotlin)
 * [Building Swift](#building-swift)
 
@@ -400,8 +391,6 @@ If you plan to create {% data variables.product.prodname_codeql %} databases usi
 
 {% endif %}
 
-{% ifversion codeql-go-autobuild %}
-
 ## Building Go
 
 {% ifversion codeql-no-build %}{% data variables.product.prodname_codeql %} supports build modes `autobuild` or `manual` for Go code.
@@ -427,8 +416,6 @@ The `autobuild` process attempts to autodetect a suitable way to install the dep
 **Note:** If you use default setup, it will look for a `go.mod` file to automatically install a compatible version of the Go language.{% ifversion code-scanning-default-setup-self-hosted-310 %} If you're using a self-hosted runner with default setup that doesn't have internet access, you can manually install a compatible version of Go.{% endif %}
 
 {% endnote %}
-
-{% endif %}
 
 ## Building Java and Kotlin
 

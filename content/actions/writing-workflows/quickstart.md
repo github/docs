@@ -21,7 +21,7 @@ shortTitle: Quickstart
 
 {% data reusables.actions.about-actions %}  You can create workflows that run tests whenever you push a change to your repository, or that deploy merged pull requests to production.
 
-This quickstart guide shows you how to use the user interface of {% data variables.location.product_location %} to add a workflow that demonstrates some of the essential features of {% data variables.product.prodname_actions %}.
+This quickstart guide shows you how to use the user interface of {% data variables.product.github %} to add a workflow that demonstrates some of the essential features of {% data variables.product.prodname_actions %}.
 
 {% data reusables.actions.workflow-templates-for-more-information %}
 
@@ -37,14 +37,14 @@ For an overview of {% data variables.product.prodname_actions %} workflows, see 
 
 This guide assumes that:
 * You have at least a basic knowledge of how to use {% data variables.product.prodname_dotcom %}. If you don't, you'll find it helpful to read some of the articles in the documentation for repositories and pull requests first. For example, see "[AUTOTITLE](/repositories/creating-and-managing-repositories/quickstart-for-repositories)," "[AUTOTITLE](/pull-requests/collaborating-with-pull-requests/proposing-changes-to-your-work-with-pull-requests/about-branches)," and "[AUTOTITLE](/pull-requests/collaborating-with-pull-requests/proposing-changes-to-your-work-with-pull-requests/about-pull-requests)."
-* You have a repository on {% data variables.location.product_location %} where you can add files.
+* You have a repository on {% data variables.product.github %} where you can add files.
 * You have access to {% data variables.product.prodname_actions %}.
 
   > [!NOTE] If the {% octicon "play" aria-hidden="true" %} **Actions** tab is not displayed under the name of your repository on {% data variables.product.prodname_dotcom %}, it may be because Actions is disabled for the repository. For more information, see "[AUTOTITLE](/repositories/managing-your-repositorys-settings-and-features/enabling-features-for-your-repository/managing-github-actions-settings-for-a-repository)."
 
 ## Creating your first workflow
 
-1. In your repository on {% data variables.location.product_location %}, create a workflow file called `github-actions-demo.yml` in the `.github/workflows` directory. To do this:
+1. In your repository on {% data variables.product.github %}, create a workflow file called `github-actions-demo.yml` in the `.github/workflows` directory. To do this:
    * If the `.github/workflows` directory already exists, navigate to that directory on {% data variables.product.prodname_dotcom %}, click **Add file**, then click **Create new file**, and name the file `github-actions-demo.yml`.
    * If your repository doesn't have a `.github/workflows` directory, go to the main page of the repository on {% data variables.product.prodname_dotcom %}, click **Add file**, then click **Create new file**, and name the file `.github/workflows/github-actions-demo.yml`. This creates the `.github` and `workflows` directories and the `github-actions-demo.yml` file in a single step.
 
