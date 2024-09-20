@@ -11,8 +11,6 @@ topics:
   - Security
 ---
 
-{% data reusables.security-configurations.security-configurations-beta-note-opt-out %}
-
 ## About {% data variables.product.prodname_global_settings %}
 
 Alongside {% data variables.product.prodname_security_configurations %}, which determine repository-level security settings, you should also configure {% data variables.product.prodname_global_settings %} for your organization. {% data variables.product.prodname_global_settings_caps %} apply to your entire organization, and can customize {% data variables.product.prodname_GH_advanced_security %} features based on your needs. You can also create security managers on the {% data variables.product.prodname_global_settings %} page to monitor and maintain your organization's security.

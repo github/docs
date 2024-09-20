@@ -60,8 +60,6 @@ If you want to use {% data variables.product.prodname_GH_advanced_security %} fe
 {% ifversion security-configurations %}
 {% data reusables.security-configurations.managing-GHAS-licenses %}
 
-{% data reusables.security-configurations.security-configurations-beta-note-short %}
-
 {% endif %}
 
 {% data reusables.advanced-security.ghas-trial-availability %} For more information, see "[AUTOTITLE](/billing/managing-billing-for-github-advanced-security/setting-up-a-trial-of-github-advanced-security)."
@@ -76,8 +74,6 @@ You can make extra features for code security available to users by buying and u
 
 {% ifversion security-configurations %}
 {% data reusables.security-configurations.managing-GHAS-licenses %}
-
-{% data reusables.security-configurations.security-configurations-beta-note-short %}
 
 {% endif %}
 

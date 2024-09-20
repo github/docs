@@ -41,7 +41,7 @@ For workflows initiated by {% data variables.product.prodname_dependabot %} (`gi
 
 For workflows initiated by {% data variables.product.prodname_dependabot %} (`github.actor == 'dependabot[bot]'`) using the `pull_request_target` event, if the base ref of the pull request was created by {% data variables.product.prodname_dependabot %} (`github.event.pull_request.user.login == 'dependabot[bot]'`), the `GITHUB_TOKEN` will be read-only and secrets are not available.
 
-{% ifversion actions-stable-actor-ids %}These restrictions apply even if the workflow is re-run by a different actor.{% endif %}
+These restrictions apply even if the workflow is re-run by a different actor.
 
 For more information, see "[Keeping your GitHub Actions and workflows secure: Preventing pwn requests](https://securitylab.github.com/research/github-actions-preventing-pwn-requests/)."
 
@@ -106,15 +106,7 @@ jobs:
 
 ### Manually re-running a workflow
 
-{% ifversion actions-stable-actor-ids %}
-
 When you manually re-run a Dependabot workflow, it will run with the same privileges as before even if the user who initiated the rerun has different privileges. For more information, see "[AUTOTITLE](/actions/managing-workflow-runs/re-running-workflows-and-jobs)."
-
-{% else %}
-
-You can also manually re-run a failed Dependabot workflow, and it will run with a read-write token and access to secrets. Before manually re-running a failed workflow, you should always check the dependency being updated to ensure that the change doesn't introduce any malicious or unintended behavior.
-
-{% endif %}
 
 ## Common Dependabot automations
 
