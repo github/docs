@@ -20,14 +20,7 @@ topics:
 
 {% ifversion ghec %}
 
-{% note %}
-
-**Notes**:
-
-* {% data reusables.scim.ghec-open-scim-release-phase %}
-* {% data reusables.scim.ghec-open-scim-test-in-isolation %}
-
-{% endnote %}
+> [!NOTE] {% data reusables.scim.ghec-open-scim-test-in-isolation %}
 
 {% else %}
 
