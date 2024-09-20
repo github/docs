@@ -20,7 +20,6 @@ Each license for {% data variables.product.prodname_GH_advanced_security %} spec
 {% ifversion security-configurations %}
 
 {% data reusables.security-configurations.managing-GHAS-licenses %}
-{% data reusables.security-configurations.security-configurations-beta-note-short %}
 
 {% endif %}
 

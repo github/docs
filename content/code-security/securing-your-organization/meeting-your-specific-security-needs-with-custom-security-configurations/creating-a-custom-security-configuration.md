@@ -11,8 +11,6 @@ topics:
   - Security
 ---
 
-{% data reusables.security-configurations.security-configurations-beta-note %}
-
 ## About {% data variables.product.prodname_custom_security_configurations %}
 
 We recommend securing your organization with the {% data variables.product.prodname_github_security_configuration %}, then evaluating the security findings on your repositories before configuring {% data variables.product.prodname_custom_security_configurations %}. For more information, see "[AUTOTITLE](/code-security/securing-your-organization/enabling-security-features-in-your-organization/applying-the-github-recommended-security-configuration-in-your-organization)."
@@ -59,13 +57,13 @@ With {% data variables.product.prodname_custom_security_configurations %}, you c
 {% endif %}
 1. Optionally, in the "Policy" section, you can choose to automatically apply the {% data variables.product.prodname_security_configuration %} to newly created repositories depending on their visibility. Select the **None** {% octicon "triangle-down" aria-hidden="true" %} dropdown menu, then click **Public**, or **Private and internal**, or both.
 
-    {% data reusables.security-configurations.default-configuration-exception-repo-transfers %}{% ifversion enforce-security-configurations %}
-1. Optionally, in the "Policy" section, you can enforce the configuration and block repository owners from changing features that are enabled or disabled by the configuration (features that are not set aren't enforced). Next to "Enforce configuration", select **Enforce** from the dropdown menu.{% ifversion enforce-security-configurations-beta %} This feature is in beta, and is subject to change.{% endif %}
+    {% data reusables.security-configurations.default-configuration-exception-repo-transfers %}
+
+1. Optionally, in the "Policy" section, you can enforce the configuration and block repository owners from changing features that are enabled or disabled by the configuration (features that are not set aren't enforced). Next to "Enforce configuration", select **Enforce** from the dropdown menu.
 
     >[!NOTE]
     {% data reusables.code-scanning.custom-security-configuration-enforcement-edge-cases %}
 
-{% endif %}
 1. To finish creating your {% data variables.product.prodname_custom_security_configuration %}, click **Save configuration**.
 
 ## Next steps

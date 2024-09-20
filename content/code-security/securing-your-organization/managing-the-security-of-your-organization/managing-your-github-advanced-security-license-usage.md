@@ -11,8 +11,6 @@ topics:
   - Security
 ---
 
-{% data reusables.security-configurations.security-configurations-beta-note %}
-
 ## About {% data variables.product.prodname_GH_advanced_security %} billing and licenses
 
 {% ifversion fpt %}

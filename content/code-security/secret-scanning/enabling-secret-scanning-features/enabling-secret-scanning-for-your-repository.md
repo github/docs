@@ -26,7 +26,7 @@ topics:
 
 {% endif %}
 
-If you're an organization owner, you can enable {% data variables.product.prodname_secret_scanning %} for multiple repositories at the same time{% ifversion security-configurations-ga %} using a security configuration{% endif %}. For more information, see {% ifversion security-configurations-ga %}"[AUTOTITLE](/code-security/securing-your-organization){% else %}"[AUTOTITLE](/code-security/getting-started/quickstart-for-securing-your-organization#enabling-security-features-in-your-organization)"{% endif %}."
+If you're an organization owner, you can enable {% data variables.product.prodname_secret_scanning %} for multiple repositories at the same time{% ifversion security-configurations %} using the {% data variables.product.prodname_github_security_configuration %}{% endif %}. For more information, see {% ifversion security-configurations %}"[AUTOTITLE](/code-security/securing-your-organization/enabling-security-features-in-your-organization/applying-the-github-recommended-security-configuration-in-your-organization){% else %}"[AUTOTITLE](/code-security/getting-started/quickstart-for-securing-your-organization#enabling-security-features-in-your-organization)"{% endif %}."
 
 {% ifversion secret-scanning-enterprise-level %}
 

@@ -30,11 +30,12 @@ When you enable this feature, you will create a bypass list of roles and teams w
 
 {% data reusables.organizations.navigate-to-org %}
 {% data reusables.organizations.org_settings %}
-{% data reusables.organizations.security-and-analysis %}
 {% ifversion security-configurations %}
-    {% data reusables.security-configurations.changed-org-settings-global-settings-callout %}
-{% endif %}
+1. In the "Security" section of the sidebar, select the **Code security** dropdown menu, then click **{% data variables.product.prodname_global_settings_caps %}**.
+{% else %}
+{% data reusables.organizations.security-and-analysis %}
 {% data reusables.repositories.navigate-to-ghas-settings %}
+{% endif %}
 1. Under "Push protection", to the right of "Who can bypass push protection for {% data variables.product.prodname_secret_scanning %}", select the dropdown menu, then click **Specific roles or teams**.
 1. Under "Bypass list", click **Add role or team**.
 1. In the dialog box, select the roles and teams that you want to add to the bypass list, then click **Add selected**.

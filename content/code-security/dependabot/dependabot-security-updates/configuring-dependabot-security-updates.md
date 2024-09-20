@@ -31,7 +31,7 @@ topics:
 
 You can enable {% data variables.product.prodname_dependabot_security_updates %} for any repository that uses {% data variables.product.prodname_dependabot_alerts %} and the dependency graph. For more information, see "[AUTOTITLE](/code-security/dependabot/dependabot-security-updates/about-dependabot-security-updates)."
 
-You can enable or disable {% data variables.product.prodname_dependabot_security_updates %} for an individual repository{% ifversion code-security-multi-repo-enablement %}, for a selection of repositories in an organization,{% endif %} or for all repositories owned by your personal account or organization. For more information about enabling security features in an organization, see {% ifversion security-configurations-ga %}"[AUTOTITLE](/code-security/securing-your-organization)."{% else %}"[AUTOTITLE](/code-security/getting-started/quickstart-for-securing-your-organization)."{% endif %}
+You can enable or disable {% data variables.product.prodname_dependabot_security_updates %} for an individual repository{% ifversion code-security-multi-repo-enablement %}, for a selection of repositories in an organization,{% endif %} or for all repositories owned by your personal account or organization. For more information about enabling security features in an organization, see {% ifversion security-configurations %}"[AUTOTITLE](/code-security/securing-your-organization/enabling-security-features-in-your-organization)."{% else %}"[AUTOTITLE](/code-security/getting-started/quickstart-for-securing-your-organization)."{% endif %}
 
 {% data reusables.dependabot.dependabot-security-updates-disable-for-alert-rules %}
 
@@ -88,20 +88,15 @@ Repository administrators can enable or disable grouped security updates for the
 
 ### Enabling or disabling grouped {% data variables.product.prodname_dependabot_security_updates %} for an organization
 
-{% ifversion security-configurations-ga %} You can enable grouped {% data variables.product.prodname_dependabot_security_updates %} into a single pull request. For more information, see "[AUTOTITLE](/code-security/securing-your-organization/enabling-security-features-in-your-organization/configuring-global-security-settings-for-your-organization#grouping-dependabot-security-updates)."
+{% ifversion security-configurations %} You can enable grouped {% data variables.product.prodname_dependabot_security_updates %} into a single pull request. For more information, see "[AUTOTITLE](/code-security/securing-your-organization/enabling-security-features-in-your-organization/configuring-global-security-settings-for-your-organization#grouping-dependabot-security-updates)."
 
-{% elsif security-configurations-beta-and-pre-beta %}
+{% else %}
 
 Organization owners can enable or disable grouped security updates for all repositories in their organization. However, repository administrators within the organization can update the settings for their repositories to override the default organization settings. {% data reusables.dependabot.dependabot-grouped-security-updates-yaml-override %}
 
 {% data reusables.profile.access_org %}
 {% data reusables.profile.org_settings %}
 {% data reusables.organizations.security-and-analysis %}
-
-{% ifversion security-configurations-beta-only %}
-    {% data reusables.security-configurations.changed-org-settings-global-settings-callout %} For next steps on enabling or disabling grouped {% data variables.product.prodname_dependabot_security_updates %} in your organization with {% data variables.product.prodname_global_settings %}, see "[AUTOTITLE](/code-security/securing-your-organization/enabling-security-features-in-your-organization/configuring-global-security-settings-for-your-organization#grouping-dependabot-security-updates)."
-{% endif %}
-
 1. Under "Code security and analysis", to the right of "Grouped security updates", click **Disable all** or **Enable all**.
 1. Optionally, to enable grouped {% data variables.product.prodname_dependabot_security_updates %} for new repositories in your organization, select **Automatically enable for new repositories**.
 
