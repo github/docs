@@ -102,6 +102,9 @@ When you configure your identity management system to provision users or groups 
 * [Validate access for groups on {% data variables.product.prodname_dotcom %}](#validate-access-for-groups-on-github)
 * [Understand rate limits on {% data variables.product.prodname_dotcom %}](#understand-rate-limits-on-github)
 * [Configure audit log streaming](#configure-audit-log-streaming)
+{%- ifversion scim-enterprise-scope %}
+* [Limit the scope of the SCIM token](#limit-the-scope-of-the-scim-token)
+{%- endif %}
 
 ### Ensure your identity management system is the only source of write operations
 
@@ -154,6 +157,16 @@ For more information, see "[AUTOTITLE](/rest/using-the-rest-api/rate-limits-for-
 The audit log for your enterprise displays details about activity in your enterprise. You can use the audit log to support your configuration of SCIM. For more information, see "[AUTOTITLE](/admin/monitoring-activity-in-your-enterprise/reviewing-audit-logs-for-your-enterprise/about-the-audit-log-for-your-enterprise)."
 
 Due to the volume of events in this log, {% data variables.product.company_short %} retains the data for 180 days. To ensure that you don't lose audit log data, and to view more granular activity in the audit log, {% data variables.product.company_short %} recommends that you configure audit log streaming. When you stream the audit log, you can optionally choose to stream events for API requests, including requests to REST API endpoints for SCIM provisioning. For more information, see "[AUTOTITLE](/admin/monitoring-activity-in-your-enterprise/reviewing-audit-logs-for-your-enterprise/streaming-the-audit-log-for-your-enterprise)."
+
+{% ifversion scim-enterprise-scope %}
+
+### Limit the scope of the SCIM token
+
+For better security posture, we recommend using a {% data variables.product.pat_v1 %} with only the `scim:enterprise` scope to limit the token's access to the REST API endpoints required to make SCIM calls.
+
+If you currently use a token with the `admin:enterprise` scope, be aware that this token grants access to all actions on the enterprise. You can swap your token for a new token with just the `scim:enterprise` scope without disruption.
+
+{% endif %}
 
 ## Provisioning users with the REST API
 
