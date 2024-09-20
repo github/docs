@@ -51,15 +51,13 @@ In the list of repositories, the "Paused" label under "{% data variables.product
 
    ![Screenshot of the header section of the "Security coverage" view on the "Security" tab for an organization. The options for filtering are outlined in dark orange, including "enabled" and "not enabled" links, "Teams" selector, archived repositories, and search field.](/assets/images/help/security-overview/security-coverage-view-highlights.png)
 
-{% ifversion security-configurations-ga %}
-1. You can optionally enable code security features for a repository or selected repositories using the {% data variables.product.prodname_github_security_configuration %}, or you can create a {% data variables.product.prodname_custom_security_configuration %}. For more information, see "[AUTOTITLE](/code-security/securing-your-organization/enabling-security-features-in-your-organization/applying-the-github-recommended-security-configuration-in-your-organization)" and "[AUTOTITLE](/code-security/securing-your-organization/meeting-your-specific-security-needs-with-custom-security-configurations/creating-a-custom-security-configuration)."
-{% endif %}
-{% ifversion security-configurations-beta-and-pre-beta %}
+{% ifversion pre-security-configurations %}
 1. Optionally, click **{% octicon "gear" aria-hidden="true" %} Security settings** to enable code security features for a repository and click **Save security settings** to confirm the changes. If a feature is not shown, it has more complex configuration requirements and you need to use the repository settings dialog. For more information, see "[AUTOTITLE](/code-security/getting-started/securing-your-repository)."
 1. Optionally, select some or all of the repositories that match your current search and click **Security settings** in the table header to display a side panel where you can enable security features for the selected repositories. When you've finished, click **Apply changes** to confirm the changes. For more information, see "[AUTOTITLE](/code-security/security-overview/enabling-security-features-for-multiple-repositories)."
-{% endif %}
 
 {% data reusables.security-overview.settings-limitations %}
+
+{% endif %}
 
 {% ifversion security-overview-org-risk-coverage-enterprise %}
 
@@ -67,9 +65,7 @@ In the list of repositories, the "Paused" label under "{% data variables.product
 
 You can view data to assess the enablement of code security features across organizations in an enterprise. {% data reusables.security-overview.information-varies-GHAS %}
 
-{% ifversion security-configurations-beta-and-pre-beta %}
-In the enterprise-level view, you can view data about the enablement of features, but you cannot enable or disable features. For more information about enabling features, see "[AUTOTITLE](/code-security/security-overview/enabling-security-features-for-multiple-repositories)."
-{% endif %}
+In the enterprise-level view, you can view data about the enablement of features, but you cannot enable or disable features. For more information about enabling features, see {% ifversion security-configurations %}"[AUTOTITLE](/code-security/securing-your-organization/enabling-security-features-in-your-organization){% else %}"[AUTOTITLE](/code-security/security-overview/enabling-security-features-for-multiple-repositories){% endif %}."
 
 {% data reusables.security-overview.enterprise-filters-tip %}
 
@@ -132,7 +128,7 @@ You can view data to assess the enablement status and enablement status trends o
 
 ## Interpreting and acting on the enablement data
 
-Some code security features can and should be enabled on all repositories. For example, {% data variables.secret-scanning.alerts %} and push protection reduce the risk of a security leak no matter what information is stored in the repository. If you see repositories that don't already use these features, you should either enable them or discuss an enablement plan with the team who owns the repository. For information on enabling features for a whole organization, see "[AUTOTITLE](/organizations/keeping-your-organization-secure/managing-security-settings-for-your-organization/managing-security-and-analysis-settings-for-your-organization)." For information on enabling features across your entire enterprise, see "[AUTOTITLE](/admin/code-security/managing-github-advanced-security-for-your-enterprise/managing-github-advanced-security-features-for-your-enterprise)."
+Some code security features can and should be enabled on all repositories. For example, {% data variables.secret-scanning.alerts %} and push protection reduce the risk of a security leak no matter what information is stored in the repository. If you see repositories that don't already use these features, you should either enable them or discuss an enablement plan with the team who owns the repository. For information on enabling features for a whole organization, see {% ifversion security-configurations %}"[AUTOTITLE](/code-security/securing-your-organization/enabling-security-features-in-your-organization){% else %}"[AUTOTITLE](/organizations/keeping-your-organization-secure/managing-security-settings-for-your-organization/managing-security-and-analysis-settings-for-your-organization){% endif %}." For information on enabling features across your entire enterprise, see "[AUTOTITLE](/admin/code-security/managing-github-advanced-security-for-your-enterprise/managing-github-advanced-security-features-for-your-enterprise)."
 
 Other features are not available for use in all repositories. For example, there would be no point in enabling {% data variables.product.prodname_dependabot %}{% ifversion default-setup-pre-enablement %}{% else %} or {% data variables.product.prodname_code_scanning %}{% endif %} for repositories that only use ecosystems or languages that are unsupported. As such, it's normal to have some repositories where these features are not enabled.
 
