@@ -155,7 +155,7 @@ Due to the volume of events in this log, {% data variables.product.company_short
 
 ### Limit the scope of the SCIM token
 
-For better security posture, we recommend using a {% data variables.product.pat_v1 %} with only the `scim:enterprise` scope to limit the token's access to the REST API endpoints required to make SCIM calls.
+For a better security posture, we recommend using a {% data variables.product.pat_v1 %} with only the `scim:enterprise` scope to limit the token's access to the REST API endpoints required to make SCIM calls.
 
 If you currently use a token with the `admin:enterprise` scope, be aware that this token grants access to all actions on the enterprise. You can swap your token for a new token with just the `scim:enterprise` scope without disruption.
 
