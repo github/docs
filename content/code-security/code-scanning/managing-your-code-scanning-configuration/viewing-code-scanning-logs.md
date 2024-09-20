@@ -43,11 +43,7 @@ For information about the {% data variables.product.prodname_codeql_cli %}, see 
 
 {% data reusables.code-scanning.extractor-diagnostics %}
 
-{% ifversion codeql-action-debug-logging %}
-
 You can see more detailed information about {% data variables.product.prodname_codeql %} extractor errors and warnings that occurred during database creation by enabling debug logging. For more information, see "[AUTOTITLE](/code-security/code-scanning/troubleshooting-code-scanning/logs-are-not-detailed-enough#creating-codeql-debugging-artifacts-by-re-running-jobs-with-debug-logging-enabled)."
-
-{% endif %}
 
 ## Viewing the logging output from {% data variables.product.prodname_code_scanning %}
 
