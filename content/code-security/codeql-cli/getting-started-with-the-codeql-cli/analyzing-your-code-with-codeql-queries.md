@@ -54,7 +54,7 @@ codeql database analyze <database> --format=<format> --output=<output> <query-sp
 ```shell
 codeql database analyze <database> --format=<format> \
     --sarif-category=<language-specifier> --output=<output> \
-    {% ifversion codeql-packs %}<packs,queries>{% else %}<queries>{% endif %}
+    <packs,queries>
 ```
 
 {% endnote %}
@@ -70,10 +70,8 @@ You must specify `<database>`, `--format`, and `--output`. You can specify addit
 | <code><span style="white-space: nowrap;">--sarif-category</span></code> | {% octicon "question" aria-label="Required with multiple results sets" %} | Optional for single database analysis. Required to define the language when you analyze multiple databases for a single commit in a repository.<br><br>Specify a category to include in the SARIF results file for this analysis. A category is used to distinguish multiple analyses for the same tool and commit, but performed on different languages or different parts of the code. |
 | <code><span style="white-space: nowrap;">--sarif-add-baseline-file-info</span></code> | {% octicon "x" aria-label="Optional" %} | **Recommended.** Use to submit file coverage information to the {% data variables.code-scanning.tool_status_page %}. For more information, see "[AUTOTITLE](/code-security/code-scanning/managing-your-code-scanning-configuration/about-the-tool-status-page#how-codeql-defines-scanned-files)." |
 | <code><span style="white-space: nowrap;">--sarif-include-query-help</span></code> | {% octicon "x" aria-label="Optional" %} | Specify whether to include query help in the SARIF output. One of: `always`: Include query help for all queries.  `custom_queries_only` (default): Include query help only for custom queries, that is, queries in query packs which are not of the form `codeql/<lang>-queries`.  `never`: Do not include query help for any queries. Any query help for custom queries included in the SARIF output will be displayed in any code scanning alerts for the query. For more information, see "[AUTOTITLE](/code-security/codeql-cli/using-the-advanced-functionality-of-the-codeql-cli/using-custom-queries-with-the-codeql-cli#including-query-help-for-custom-codeql-queries-in-sarif-files)." |
-|  {% ifversion codeql-packs %} |
 | `<packs>` | {% octicon "x" aria-label="Optional" %} | Use if you want to include {% data variables.product.prodname_codeql %} query packs in your analysis. For more information, see "[Downloading and using {% data variables.product.prodname_codeql %} packs](/code-security/codeql-cli/getting-started-with-the-codeql-cli/customizing-analysis-with-codeql-packs#downloading-and-using-codeql-query-packs)." |
 | <code><span style="white-space: nowrap;">--download</span></code> | {% octicon "x" aria-label="Optional" %}  | Use if some of your {% data variables.product.prodname_codeql %} query packs are not yet on disk and need to be downloaded before running queries. |
-|  {% endif %} |
 | <code><span style="white-space: nowrap;">--threads</span></code> | {% octicon "x" aria-label="Optional" %}  | Use if you want to use more than one thread to run queries. The default value is `1`. You can specify more threads to speed up query execution. To set the number of threads to the number of logical processors, specify `0`. |
 | <code><span style="white-space: nowrap;">--verbose</span></code> | {% octicon "x" aria-label="Optional" %}  | Use to get more detailed information about the analysis process and diagnostic data from the database creation process. |
 | <code><span style="white-space: nowrap;">--threat-model</span></code> | {% octicon "x" aria-label="Optional" %}  | (Beta) Use to add threat models to configure additional sources in your {% data variables.product.prodname_codeql %} analysis. During the beta, threat models are supported only by Java analysis. For more information, see "[AUTOTITLE](/code-security/codeql-cli/codeql-cli-manual/database-analyze#--threat-modelname)." |
@@ -126,8 +124,6 @@ $ codeql database analyze /codeql-dbs/example-repo \
 
 The following examples show how to run `database analyze` using {% data variables.product.prodname_codeql %} packs, and how to use a local checkout of the {% data variables.product.prodname_codeql %} repository. These examples assume your {% data variables.product.prodname_codeql %} databases have been created in a directory that is a sibling of your local copies of the {% data variables.product.prodname_codeql %} repository.
 
-{% ifversion codeql-packs %}
-
 ### Running a {% data variables.product.prodname_codeql %} query pack
 
 To run an existing {% data variables.product.prodname_codeql %} query pack from the {% data variables.product.prodname_dotcom %} {% data variables.product.prodname_container_registry %}, you can specify one or more pack names:
@@ -139,7 +135,6 @@ codeql database analyze <database> microsoft/coding-standards@1.0.0 github/secur
 This command runs the default query suite of two {% data variables.product.prodname_codeql %} query packs: `microsoft/coding-standards` version 1.0.0 and the latest version of `github/security-queries` on the specified database. For further information about default suites, see "[AUTOTITLE](/code-security/codeql-cli/using-the-advanced-functionality-of-the-codeql-cli/publishing-and-using-codeql-packs)."
 
 The `--download` flag is optional. Using it will ensure the query pack is downloaded if it isn’t yet available locally.
-{% endif %}
 
 ### Running a single query
 
@@ -203,8 +198,6 @@ When the analysis has finished, a SARIF results file is generated. Specifying `-
 that the results are formatted according to the most recent SARIF specification
 supported by {% data variables.product.prodname_codeql %}.
 
-{% ifversion codeql-packs %}
-
 ### Running a subset of queries in a {% data variables.product.prodname_codeql %} pack
 
 If you are using {% data variables.product.prodname_codeql_cli %} v2.8.1 or later, you can include a path at the end of a pack specification to run a subset of queries inside the pack. This applies to any command that locates or runs queries within a pack.
@@ -261,8 +254,6 @@ codeql database analyze --format=sarif-latest --output=results <db> \
 ```
 
 For more information about {% data variables.product.prodname_codeql %} packs, see [AUTOTITLE](/code-security/codeql-cli/getting-started-with-the-codeql-cli/customizing-analysis-with-codeql-packs).
-
-{% endif %}
 
 ### Running query suites
 
