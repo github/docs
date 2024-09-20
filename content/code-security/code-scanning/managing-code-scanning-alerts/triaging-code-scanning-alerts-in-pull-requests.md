@@ -30,8 +30,8 @@ In repositories where {% data variables.product.prodname_code_scanning %} is con
 
 If the lines of code changed in the pull request generate {% data variables.product.prodname_code_scanning %} alerts, the alerts are reported in the following places on the pull request.
 
-* Check results in the pull request {% ifversion code-scanning-pr-conversations-tab %}
-* The **Conversation** tab of the pull request, as part of a pull request review {% endif %}
+* Check results in the pull request
+* The **Conversation** tab of the pull request, as part of a pull request review
 * The **Files changed** tab of the pull request
 
 {% note %}
@@ -88,18 +88,11 @@ As with other pull request checks, you can see full details of the check failure
 
 ## Viewing an alert on your pull request
 
-{% ifversion code-scanning-pr-conversations-tab %}
 You can see any {% data variables.product.prodname_code_scanning %} alerts that are inside the diff of the changes introduced in a pull request by viewing the **Conversation** tab. {% data variables.product.prodname_code_scanning_caps %} posts a pull request review that shows each alert as an annotation on the lines of code that triggered the alert. You can comment on the alerts, dismiss the alerts, and view paths for the alerts, directly from the annotations. You can view the full details of an alert by clicking the "Show more details" link, which will take you to the alert details page.
 
 ![Screenshot of an alert annotation on the "Conversations" tab of a pull request. The "Show more details" link is outlined in dark orange.](/assets/images/help/repository/code-scanning-pr-conversation-tab.png)
 
 You can also view all {% data variables.product.prodname_code_scanning %} alerts that are inside the diff of the changes introduced in the pull request in the **Files changed** tab.
-
-{% else %}
-You can see any {% data variables.product.prodname_code_scanning %} alerts introduced in a pull request by displaying the **Files changed** tab. Each alert is shown as an annotation on the lines of code that triggered the alert. The severity of the alert is displayed in the annotation.
-
-![Screenshot showing an alert annotation within a pull request diff.](/assets/images/help/repository/code-scanning-pr-annotation.png)
-{% endif %}
 
 If you add a new code scanning configuration in your pull request, you will see a comment on your pull request directing you to the **Security** tab of the repository so you can view all the alerts on the pull request branch. For more information about viewing the alerts for a repository, see  "[AUTOTITLE](/code-security/code-scanning/managing-code-scanning-alerts/managing-code-scanning-alerts-for-your-repository#viewing-the-alerts-for-a-repository)."
 
@@ -113,14 +106,11 @@ In the detailed view for an alert, some {% data variables.product.prodname_code_
 
 ![Screenshot showing the description for a {% data variables.product.prodname_code_scanning %} alert. A link labeled "Show more" is highlighted with a dark orange outline.](/assets/images/help/repository/code-scanning-pr-alert.png)
 
-{% ifversion code-scanning-pr-conversations-tab %}
-
 ## Commenting on an alert in a pull request
 
 You can comment on any {% data variables.product.prodname_code_scanning %} alert that appears in a pull request. Alerts appear as annotations in the **Conversation** tab of a pull request, as part of a  pull request review, and also are shown in the **Files changed** tab.
 
 You can choose to require all conversations in a pull request, including those on {% data variables.product.prodname_code_scanning %} alerts, to be resolved before a pull request can be merged. For more information, see "[AUTOTITLE](/repositories/configuring-branches-and-merges-in-your-repository/managing-protected-branches/about-protected-branches#require-conversation-resolution-before-merging)."
-{% endif %}
 
 ## Fixing an alert on your pull request
 
@@ -176,11 +166,9 @@ If you decide to reject a {% data variables.product.prodname_copilot_autofix_sho
 ## Dismissing an alert on your pull request
 
 An alternative way of closing an alert is to dismiss it. You can dismiss an alert if you don't think it needs to be fixed. {% data reusables.code-scanning.close-alert-examples %} If you have write permission for the repository, a **Dismiss alert** button is available in code annotations and in the alerts summary. When you click **Dismiss alert** you will be prompted to choose a reason for closing the alert.
-{% ifversion comment-dismissed-code-scanning-alert %}
+
 ![Screenshot of a check failure for code scanning. The "Dismiss alert" button is highlighted in dark orange. The "Dismiss alert" drop-down is shown.](/assets/images/help/repository/code-scanning-alert-dropdown-reason.png)
-{% else %}
-![Choosing a reason for dismissing an alert.](/assets/images/help/repository/code-scanning-alert-close-drop-down.png)
-{% endif %}
+
 {% data reusables.code-scanning.choose-alert-dismissal-reason %}
 
 {% data reusables.code-scanning.false-positive-fix-codeql %}

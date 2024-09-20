@@ -182,8 +182,8 @@ When you dismiss an alert:
 * It's dismissed in all branches.
 * The alert is removed from the number of current alerts for your project.
 * The alert is moved to the "Closed" list in the summary of alerts, from where you can reopen it, if required.
-* The reason why you closed the alert is recorded.{% ifversion comment-dismissed-code-scanning-alert %}
-* Optionally, you can comment on a dismissal to record the context of an alert dismissal.{% endif %}
+* The reason why you closed the alert is recorded.
+* Optionally, you can comment on a dismissal to record the context of an alert dismissal.
 * Next time {% data variables.product.prodname_code_scanning %} runs, the same code won't generate an alert.
 
 To dismiss alerts:
@@ -192,13 +192,8 @@ To dismiss alerts:
 {% data reusables.repositories.sidebar-security %}
 {% data reusables.repositories.sidebar-code-scanning-alerts %}
 1. If you want to dismiss an alert, it's important to explore the alert first, so that you can choose the correct dismissal reason. Click the alert you'd like to explore.
-{%- ifversion comment-dismissed-code-scanning-alert %}
 1. Review the alert, then click **Dismiss alert** and choose, or type, a reason for closing the alert.
    ![Screenshot of the check failure for a {% data variables.product.prodname_code_scanning %} alert in a pull request. The "Dismiss alert" button in the check failure is highlighted in dark orange. The "Dismiss alert" drop-down is displayed. ](/assets/images/help/repository/code-scanning-alert-dropdown-reason.png)
-{%- else %}
-1. Review the alert, then click **Dismiss** and choose a reason for closing the alert.
-   ![Choosing a reason for dismissing an alert.](/assets/images/help/repository/code-scanning-alert-close-drop-down.png)
-{%- endif %}
    {% data reusables.code-scanning.choose-alert-dismissal-reason %}
 
    {% data reusables.code-scanning.false-positive-fix-codeql %}

@@ -404,7 +404,7 @@ In the following example, the `+` symbol ensures that the specified additional p
 
 ## Using a custom configuration file
 
-A custom configuration file is an alternative way to specify additional packs and queries to run. You can also use the file to disable the default queries{% ifversion code-scanning-exclude-queries-from-analysis %}, exclude or include specific queries,{% endif %} and to specify which directories to scan during analysis.
+A custom configuration file is an alternative way to specify additional packs and queries to run. You can also use the file to disable the default queries, exclude or include specific queries, and to specify which directories to scan during analysis.
 
 In the workflow file, use the `config-file` parameter of the `init` action to specify the path to the configuration file you want to use. This example loads the configuration file _./.github/codeql/codeql-config.yml_.
 
@@ -497,8 +497,6 @@ Optionally, you can give each array element a name, as shown in the example conf
 
 If you only want to run custom queries, you can disable the default security queries by using `disable-default-queries: true`.
 
-{% ifversion code-scanning-exclude-queries-from-analysis %}
-
 ### Excluding specific queries from analysis
 
 You can add `exclude` and `include` filters to your custom configuration file, to specify the queries you want to exclude or include in the analysis.
@@ -532,8 +530,6 @@ You can find another example illustrating the use of these filters in the "[Exam
 
 For more information about using `exclude` and `include` filters in your custom configuration file, see "[AUTOTITLE](/code-security/codeql-cli/using-the-advanced-functionality-of-the-codeql-cli/creating-codeql-query-suites#filtering-the-queries-in-a-query-suite)." For information on the query metadata you can filter on, see "[Metadata for CodeQL queries](https://codeql.github.com/docs/writing-codeql-queries/metadata-for-codeql-queries/)."
 
-{% endif %}
-
 ### Specifying directories to scan
 
 When codebases are analyzed without building the code, you can restrict {% data variables.product.prodname_code_scanning %} to files in specific directories by adding a `paths` array to the configuration file. You can also exclude the files in specific directories from analysis by adding a `paths-ignore` array. You can use this option when you run the {% data variables.product.prodname_codeql %} actions on an interpreted language (Python, Ruby, and JavaScript/TypeScript){% ifversion codeql-no-build %} or when you analyze a compiled language without building the code (currently supported for {% data variables.code-scanning.no_build_support %}){% endif %}.
@@ -563,8 +559,6 @@ You can quickly analyze small portions of a monorepo when you modify code in spe
 ### Example configuration files
 
 {% data reusables.code-scanning.example-configuration-files %}
-
-{% ifversion code-scanning-config-input %}
 
 ## Specifying configuration details using the `config` input
 
@@ -605,7 +599,6 @@ In the following example, `vars.CODEQL_CONF` is a {% data variables.product.prod
 ```
 
 {% endtip %}
-{% endif %}
 
 ## Configuring {% data variables.product.prodname_code_scanning %} for compiled languages
 
