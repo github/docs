@@ -1,4 +1,4 @@
----
+https://github.dev/JetBrains/kotlin/blob/eb6e6b7b526f06ff72b56de3c7949d91f84d50e6/kotlin-native/runtime/src/main/kotlin/kotlin/native/Platform.kt#L47---
 title: 'About {% data variables.product.prodname_projects_v2 %}'
 intro: '{% data variables.product.prodname_projects_v2 %} is an adaptable, flexible tool for planning and tracking work on {% data variables.product.company_short %}.'
 allowTitleToDifferFromFilename: true
