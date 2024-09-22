@@ -31,11 +31,15 @@ When {% data variables.product.prodname_dependabot %} raises a pull request, you
 
 If you have many dependencies to manage, you may want to customize the configuration for each package manager so that pull requests have specific reviewers, assignees, and labels. {% ifversion dependabot-version-updates-groups %} You may also want to group sets of dependencies together, so that multiple dependencies are updated in a single pull request.{% endif %} For more information, see "[AUTOTITLE](/code-security/dependabot/dependabot-version-updates/customizing-dependency-updates){% ifversion dependabot-grouped-security-updates-config %}" and "[AUTOTITLE](/code-security/dependabot/dependabot-security-updates/configuring-dependabot-security-updates#grouping-dependabot-updates-into-a-single-pull-request)."{% else %}" and "[AUTOTITLE](/code-security/dependabot/dependabot-security-updates/configuring-dependabot-security-updates#grouping-dependabot-security-updates-into-a-single-pull-request)."{% endif %}
 
+{% ifversion dependabot-updates-paused %}
+
 {% note %}
 
 **Note**: If you don't interact with {% data variables.product.prodname_dependabot %} pull requests for a repository during a 90-day time period, {% data variables.product.prodname_dependabot %} considers your repository as inactive, and will automatically pause {% data variables.product.prodname_dependabot_updates %}. For more information about inactivity criteria, see "[AUTOTITLE](/code-security/dependabot/dependabot-version-updates/about-dependabot-version-updates#about-automatic-deactivation-of-dependabot-updates)" and "[AUTOTITLE](/code-security/dependabot/dependabot-security-updates/about-dependabot-security-updates#about-automatic-deactivation-of-dependabot-updates)."
 
 {% endnote %}
+
+{% endif %}
 
 ## Viewing {% data variables.product.prodname_dependabot %} pull requests
 

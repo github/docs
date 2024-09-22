@@ -95,7 +95,11 @@ The term "{% data variables.product.prodname_dependabot %}" encompasses the foll
 
 {% endif %}
 
+{% ifversion dependabot-actions-support %}
+
 {% data reusables.dependabot.dependabot-actions-support %} For more information, see "[AUTOTITLE](/code-security/dependabot/dependabot-security-updates/about-dependabot-security-updates)."
+
+{% endif %}
 
 #### What are Dependabot alerts
 
