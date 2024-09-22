@@ -11,6 +11,4 @@ You can sort and filter {% data variables.product.prodname_dependabot_alerts %} 
 | `repo` |  Displays alerts based on the repository they relate to</br>Note that this filter is only available for security overview. For more information, see "[AUTOTITLE](/code-security/security-overview/about-security-overview)" | Use `repo:octocat-repo` to show alerts in the repository called `octocat-repo` |
 | `scope` | Displays alerts based on the scope of the dependency they relate to | Use `scope:development` to show alerts for dependencies that are only used during development |
 | `severity` | Displays alerts based on their level of severity | Use `severity:high` to show alerts with a severity of High |
-| {% ifversion dependabot-most-important-sort-option %} |
 | `sort` | Displays alerts according to the selected sort order | The default sorting option for alerts is `sort:most-important`, which ranks alerts by importance</br>Use `sort:newest` to show the latest alerts reported by {% data variables.product.prodname_dependabot %} |
-| {% endif %} |

@@ -26,9 +26,7 @@ shortTitle: Configure access to private registries
 
 In most ecosystems, private dependencies are usually published to private package registries. These private registries are similar to their public equivalents, but they require authentication.
 
-{% ifversion dependabot-private-registries %}
 For specific ecosystems, you can configure {% data variables.product.prodname_dependabot %} to access _only_ private registries by removing calls to public registries. For more information, see "[AUTOTITLE](/code-security/dependabot/working-with-dependabot/removing-dependabot-access-to-public-registries)."
-{% endif %}
 
 {% ifversion dependabot-on-actions-self-hosted %}To allow {% data variables.product.prodname_dependabot %} access to registries hosted privately or restricted to internal networks, configure {% data variables.product.prodname_dependabot %} to run on {% data variables.product.prodname_actions %} self-hosted runners. For more information, see "[AUTOTITLE](/code-security/dependabot/working-with-dependabot/managing-dependabot-on-self-hosted-runners)."{% endif %}
 

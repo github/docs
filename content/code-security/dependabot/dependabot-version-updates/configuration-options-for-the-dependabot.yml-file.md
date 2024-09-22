@@ -1193,8 +1193,6 @@ registries:
 
 {% endraw %}
 
-{% ifversion dependabot-hex-self-hosted-support %}
-
 ### `hex-repository`
 
 The `hex-repository` type supports an authentication key.
@@ -1215,7 +1213,7 @@ registries:
      public-key-fingerprint: ${{secrets.MY_PUBLIC_KEY_FINGERPRINT}}
 ```
 
-{% endraw %}{% endif %}
+{% endraw %}
 
 ### `maven-repository`
 
