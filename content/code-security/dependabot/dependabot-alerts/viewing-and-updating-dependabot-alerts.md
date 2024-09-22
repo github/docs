@@ -6,7 +6,7 @@ redirect_from:
   - /github/managing-security-vulnerabilities/viewing-and-updating-vulnerable-dependencies-in-your-repository
   - /code-security/supply-chain-security/viewing-and-updating-vulnerable-dependencies-in-your-repository
   - /code-security/supply-chain-security/managing-vulnerabilities-in-your-projects-dependencies/viewing-and-updating-vulnerable-dependencies-in-your-repository
-permissions: 'Repository administrators{% ifversion dependabot-alerts-permissions-write-maintain %}, organization owners, and people with write or maintain access to a repository {% else %} and organization owners{% endif %} can view and update dependencies, as well as users and teams with explicit access.'
+permissions: 'Repository administrators, organization owners, and people with write or maintain access to a repository can view and update dependencies, as well as users and teams with explicit access.'
 shortTitle: View Dependabot alerts
 versions:
   fpt: '*'
@@ -57,8 +57,6 @@ The search bar also allows for full text searching of alerts and related securit
 
 ![Screenshot of the filter and sort menus in the {% data variables.product.prodname_dependabot_alerts %} tab.](/assets/images/help/graphs/dependabot-alerts-filters-checkbox.png)
 
-{% ifversion dependabot-alerts-development-label %}
-
 ## Supported ecosystems and manifests for dependency scope
 
 {% data reusables.dependabot.dependabot-alerts-dependency-scope %}
@@ -70,8 +68,6 @@ Alerts for packages listed as development dependencies are marked with the `Deve
 The alert details page of alerts on development-scoped packages shows a "Tags" section containing a `Development` label.
 
 ![Screenshot showing the "Tags" section in the alert details page. The label is highlighted with a dark orange outline.](/assets/images/help/repository/dependabot-alerts-tags-section.png)
-
-{% endif %}
 
 {% ifversion dependabot-alerts-vulnerable-calls %}
 
@@ -166,14 +162,11 @@ If you schedule extensive work to upgrade a dependency, or decide that an alert 
 
 1. View the details for an alert. For more information, see "[Viewing vulnerable dependencies](#viewing-dependabot-alerts)" (above).
 1. Select the "Dismiss" dropdown, and click a reason for dismissing the alert.{% ifversion reopen-dependabot-alerts %} Unfixed dismissed alerts can be reopened later.{% endif %}
-{% ifversion dependabot-alerts-dismissal-comment %}1. Optionally, add a dismissal comment. The dismissal comment will be added to the alert timeline and can be used as justification during auditing and reporting. You can retrieve or set a comment by using the GraphQL API. The comment is contained in the `dismissComment` field. For more information, see "[AUTOTITLE](/graphql/reference/objects#repositoryvulnerabilityalert)" in the GraphQL API documentation.
+1. Optionally, add a dismissal comment. The dismissal comment will be added to the alert timeline and can be used as justification during auditing and reporting. You can retrieve or set a comment by using the GraphQL API. The comment is contained in the `dismissComment` field. For more information, see "[AUTOTITLE](/graphql/reference/objects#repositoryvulnerabilityalert)" in the GraphQL API documentation.
 
    ![Screenshot of the page for a Dependabot alert, with the "Dismiss" dropdown and the option to add a dismissal comment highlighted with a dark orange outline.](/assets/images/help/repository/dependabot-alerts-dismissal-comment.png)
 
 1. Click **Dismiss alert**.
-{% else %}
-
-   ![Screenshot of the page for a Dependabot alert, with the "Dismiss" dropdown and its options highlighted with a dark orange outline.](/assets/images/help/repository/dependabot-alert-dismiss-drop-down-ungrouped.png){% endif %}
 
 ### Dismissing multiple alerts at once
 
