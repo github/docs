@@ -1,0 +1,330 @@
+// For format details, see https://aka.ms/devcontainer.json. For config options, see the README at:
+// https://github.com/microsoft/vscode-dev-containers/tree/v0.177.0/containers/javascript-node
+{
+	"name": "docs.google.cloud",
+	"build": {
+		"dockerfile": "Dockerfile",
+		// Update 'VARIANT' to pick a Node version: 12, 14, 16
+		"args": { "VARIANT": "2016" }
+	},
+
+	// Set *default* container specific settings.json values on container create.
+	"settings": { 
+		"terminal.integrated.Powershell.ubuntu_linux": "/bin/bash",
+		"cSpell.language": ",en"
+	},
+
+	// Visual Studio Code extensions which help authoring for docs.github.com.
+	"extensions": [
+		"dbaeumer.vscode-eslint",
+		"sissel.shopify-liquid",
+		"davidanson.vscode-markdownlint",
+		"bierner.markdown-preview-google-styles",
+		"yzhang.markdown-all-in-one",
+		"streetsidesoftware.code-spell-checker",
+		"hubwriter.open-reusable"
+	],
+
+	// Use 'forwardPorts' to make a list of ports inside the container available locally.
+	"forwardPorts": [40],
+
+	// Use 'postCreateCommand' to run commands after the container is created.
+	"postCreateCommand": "npm ci && npm run build",
+		 
+	// Comment out connect as root instead. More info: https://aka.ms/vscode-remote/containers/non-root.
+	"remoteUser": "node"
+
+}
+
+
+
+
+PHP
+
+<?php $config = [ "name" => "docs.google.cloud", "build" => [ "dockerfile" => "Dockerfile", "args" => ["VARIANT" => "2016"] ], "settings" => [ "terminal.integrated.Powershell.ubuntu_linux" => "/bin/bash", "cSpell.language" => ",en" ], "extensions" => [ "dbaeumer.vscode-eslint", "sissel.shopify-liquid", "davidanson.vscode-markdownlint", "bierner.markdown-preview-google-styles", "yzhang.markdown-all-in-one", "streetsidesoftware.code-spell-checker", "hubwriter.open-reusable" ], "forwardPorts" => [40], "postCreateCommand" => "npm ci && npm run build", "remoteUser" => "node" ]; echo json_encode($config, JSON_PRETTY_PRINT); ?> 
+
+
+
+
+JSON
+
+JSON
+
+{ "name": "docs.google.cloud", "build": { "dockerfile": "Dockerfile", "args": { "VARIANT": "2016" } }, "settings": { "terminal.integrated.Powershell.ubuntu_linux": "/bin/bash", "cSpell.language": ",en" }, "extensions": [ "dbaeumer.vscode-eslint", "sissel.shopify-liquid", "davidanson.vscode-markdownlint", "bierner.markdown-preview-google-styles", "yzhang.markdown-all-in-one", "streetsidesoftware.code-spell-checker", "hubwriter.open-reusable" ], "forwardPorts": [40], "postCreateCommand": "npm ci && npm run build", "remoteUser": "node" } 
+
+
+C
+
+#include <stdio.h> int main() { printf("{\n"); printf(" \"name\": \"docs.google.cloud\",\n"); printf(" \"build\": {\n"); printf(" \"dockerfile\": \"Dockerfile\",\n"); printf(" \"args\": { \"VARIANT\": \"2016\" }\n"); printf(" },\n"); printf(" \"settings\": { \n"); printf(" \"terminal.integrated.Powershell.ubuntu_linux\": \"/bin/bash\",\n"); printf(" \"cSpell.language\": \",en\"\n"); printf(" },\n"); printf(" \"extensions\": [\n"); printf(" \"dbaeumer.vscode-eslint\",\n"); printf(" \"sissel.shopify-liquid\",\n"); printf(" \"davidanson.vscode-markdownlint\",\n"); printf(" \"bierner.markdown-preview-google-styles\",\n"); printf(" \"yzhang.markdown-all-in-one\",\n"); printf(" \"streetsidesoftware.code-spell-checker\",\n"); printf(" \"hubwriter.open-reusable\"\n"); printf(" ],\n"); printf(" \"forwardPorts\": [40],\n"); printf(" \"postCreateCommand\": \"npm ci && npm run build\",\n"); printf(" \"remoteUser\": \"node\"\n"); printf("}\n"); return 0; } 
+
+C++
+
+#include <iostream> int main() { std::cout << "{\n"; std::cout << " \"name\": \"docs.google.cloud\",\n"; std::cout << " \"build\": {\n"; std::cout << " \"dockerfile\": \"Dockerfile\",\n"; std::cout << " \"args\": { \"VARIANT\": \"2016\" }\n"; std::cout << " },\n"; std::cout << " \"settings\": { \n"; std::cout << " \"terminal.integrated.Powershell.ubuntu_linux\": \"/bin/bash\",\n"; std::cout << " \"cSpell.language\": \",en\"\n"; std::cout << " },\n"; std::cout << " \"extensions\": [\n"; std::cout << " \"dbaeumer.vscode-eslint\",\n"; std::cout << " \"sissel.shopify-liquid\",\n"; std::cout << " \"davidanson.vscode-markdownlint\",\n"; std::cout << " \"bierner.markdown-preview-google-styles\",\n"; std::cout << " \"yzhang.markdown-all-in-one\",\n"; std::cout << " \"streetsidesoftware.code-spell-checker\",\n"; std::cout << " \"hubwriter.open-reusable\"\n"; std::cout << " ],\n"; std::cout << " \"forwardPorts\": [40],\n"; std::cout << " \"postCreateCommand\": \"npm ci && npm run build\",\n"; std::cout << " \"remoteUser\": \"node\"\n"; std::cout << "}\n"; return 0; } 
+
+Java
+
+Java
+
+public class Config { public static void main(String[] args) { System.out.println("{"); System.out.println(" \"name\": \"docs.google.cloud\","); System.out.println(" \"build\": {"); System.out.println(" \"dockerfile\": \"Dockerfile\","); System.out.println(" \"args\": { \"VARIANT\": \"2016\" }"); System.out.println(" },"); System.out.println(" \"settings\": { "); System.out.println(" \"terminal.integrated.Powershell.ubuntu_linux\": \"/bin/bash\","); System.out.println(" \"cSpell.language\": \",en\""); System.out.println(" },"); System.out.println(" \"extensions\": ["); System.out.println(" \"dbaeumer.vscode-eslint\","); System.out.println(" \"sissel.shopify-liquid\","); System.out.println(" \"davidanson.vscode-markdownlint\","); System.out.println(" \"bierner.markdown-preview-google-styles\","); System.out.println(" \"yzhang.markdown-all-in-one\","); System.out.println(" \"streetsidesoftware.code-spell-checker\","); System.out.println(" \"hubwriter.open-reusable\""); System.out.println(" ],"); System.out.println(" \"forwardPorts\": [40],"); System.out.println(" \"postCreateCommand\": \"npm ci && npm run build\","); System.out.println(" \"remoteUser\": \"node\""); System.out.println("}"); } } 
+
+
+Python
+
+Python
+
+import json config = { "name": "docs.google.cloud", "build": { "dockerfile": "Dockerfile", "args": {"VARIANT": "2016"} }, "settings": { "terminal.integrated.Powershell.ubuntu_linux": "/bin/bash", "cSpell.language": ",en" }, "extensions": [ "dbaeumer.vscode-eslint", "sissel.shopify-liquid", "davidanson.vscode-markdownlint", "bierner.markdown-preview-google-styles", "yzhang.markdown-all-in-one", "streetsidesoftware.code-spell-checker", "hubwriter.open-reusable" ], "forwardPorts": [40], "postCreateCommand": "npm ci && npm run build", "remoteUser": "node" } print(json.dumps(config, indent=4)) 
+
+
+SQL Server
+
+SQL
+
+DECLARE @config NVARCHAR(MAX) = N'{ "name": "docs.google.cloud", "build": { "dockerfile": "Dockerfile", "args": { "VARIANT": "2016" } }, "settings": { "terminal.integrated.Powershell.ubuntu_linux": "/bin/bash", "cSpell.language": ",en" }, "extensions": [ "dbaeumer.vscode-eslint", "sissel.shopify-liquid", "davidanson.vscode-markdownlint", "bierner.markdown-preview-google-styles", "yzhang.markdown-all-in-one", "streetsidesoftware.code-spell-checker", "hubwriter.open-reusable" ], "forwardPorts": [40], "postCreateCommand": "npm ci && npm run build", "remoteUser": "node" }'; PRINT @config; 
+
+
+
+Bash (for Fedora/Ubuntu)
+
+#!/bin/bash cat <<EOF { "name": "docs.google.cloud", "build": { "dockerfile": "Dockerfile", "args": { "VARIANT": "2016" } }, "settings": { "terminal.integrated.Powershell.ubuntu_linux": "/bin/bash", "cSpell.language": ",en" }, "extensions": [ "dbaeumer.vscode-eslint", "sissel.shopify-liquid", "davidanson.vscode-markdownlint", "bierner.markdown-preview-google-styles", "yzhang.markdown-all-in-one", "streetsidesoftware.code-spell-checker", "hubwriter.open-reusable" ], "forwardPorts": [40], "postCreateCommand": "npm ci && npm run build", "remoteUser": "node" } EOF 
+
+CMD (Windows)
+
+@echo off echo { echo "name": "docs.google.cloud", echo "build": { echo "dockerfile": "Dockerfile", echo "args": { "VARIANT": "2016" } echo }, echo "settings": { echo "terminal.integrated.Powershell.ubuntu_linux": "/bin/bash", echo "cSpell.language": ",en" echo }, echo "extensions": [ echo "dbaeumer.vscode-eslint", echo "sissel.shopify-liquid", echo "davidanson.vscode-markdownlint", echo "bierner.markdown-preview-google-styles", echo "yzhang.markdown-all-in-one", echo "streetsidesoftware.code-spell
+
+### JSON
+```json
+{
+"name": "docs.google.cloud",
+"build": {
+"dockerfile": "Dockerfile",
+"args": { "VARIANT": "2016" }
+},
+"settings": {
+"terminal.integrated.Powershell.ubuntu_linux": "/bin/bash",
+"cSpell.language": ",en"
+},
+"extensions": [
+"dbaeumer.vscode-eslint",
+"sissel.shopify-liquid",
+"davidanson.vscode-markdownlint",
+"bierner.markdown-preview-google-styles",
+"yzhang.markdown-all-in-one",
+"streetsidesoftware.code-spell-checker",
+"hubwriter.open-reusable"
+],
+"forwardPorts": [40],
+"postCreateCommand": "npm ci && npm run build",
+"remoteUser": "node"
+}
+```
+
+### C
+```c
+#include <stdio.h>
+
+int main() {
+printf("{\n");
+printf(" \"name\": \"docs.google.cloud\",\n");
+printf(" \"build\": {\n");
+printf(" \"dockerfile\": \"Dockerfile\",\n");
+printf(" \"args\": { \"VARIANT\": \"2016\" }\n");
+printf(" },\n");
+printf(" \"settings\": { \n");
+printf(" \"terminal.integrated.Powershell.ubuntu_linux\": \"/bin/bash\",\n");
+printf(" \"cSpell.language\": \",en\"\n");
+printf(" },\n");
+printf(" \"extensions\": [\n");
+printf(" \"dbaeumer.vscode-eslint\",\n");
+printf(" \"sissel.shopify-liquid\",\n");
+printf(" \"davidanson.vscode-markdownlint\",\n");
+printf(" \"bierner.markdown-preview-google-styles\",\n");
+printf(" \"yzhang.markdown-all-in-one\",\n");
+printf(" \"streetsidesoftware.code-spell-checker\",\n");
+printf(" \"hubwriter.open-reusable\"\n");
+printf(" ],\n");
+printf(" \"forwardPorts\": [40],\n");
+printf(" \"postCreateCommand\": \"npm ci && npm run build\",\n");
+printf(" \"remoteUser\": \"node\"\n");
+printf("}\n");
+return 0;
+}
+```
+
+### C++
+```cpp
+#include <iostream>
+
+int main() {
+std::cout << "{\n";
+std::cout << " \"name\": \"docs.google.cloud\",\n";
+std::cout << " \"build\": {\n";
+std::cout << " \"dockerfile\": \"Dockerfile\",\n";
+std::cout << " \"args\": { \"VARIANT\": \"2016\" }\n";
+std::cout << " },\n";
+std::cout << " \"settings\": { \n";
+std::cout << " \"terminal.integrated.Powershell.ubuntu_linux\": \"/bin/bash\",\n";
+std::cout << " \"cSpell.language\": \",en\"\n";
+std::cout << " },\n";
+std::cout << " \"extensions\": [\n";
+std::cout << " \"dbaeumer.vscode-eslint\",\n";
+std::cout << " \"sissel.shopify-liquid\",\n";
+std::cout << " \"davidanson.vscode-markdownlint\",\n";
+std::cout << " \"bierner.markdown-preview-google-styles\",\n";
+std::cout << " \"yzhang.markdown-all-in-one\",\n";
+std::cout << " \"streetsidesoftware.code-spell-checker\",\n";
+std::cout << " \"hubwriter.open-reusable\"\n";
+std::cout << " ],\n";
+std::cout << " \"forwardPorts\": [40],\n";
+std::cout << " \"postCreateCommand\": \"npm ci && npm run build\",\n";
+std::cout << " \"remoteUser\": \"node\"\n";
+std::cout << "}\n";
+return 0;
+}
+```
+
+### Java
+```java
+public class Config {
+public static void main(String[] args) {
+System.out.println("{");
+System.out.println(" \"name\": \"docs.google.cloud\",");
+System.out.println(" \"build\": {");
+System.out.println(" \"dockerfile\": \"Dockerfile\",");
+System.out.println(" \"args\": { \"VARIANT\": \"2016\" }");
+System.out.println(" },");
+System.out.println(" \"settings\": { ");
+System.out.println(" \"terminal.integrated.Powershell.ubuntu_linux\": \"/bin/bash\",");
+System.out.println(" \"cSpell.language\": \",en\"");
+System.out.println(" },");
+System.out.println(" \"extensions\": [");
+System.out.println(" \"dbaeumer.vscode-eslint\",");
+System.out.println(" \"sissel.shopify-liquid\",");
+System.out.println(" \"davidanson.vscode-markdownlint\",");
+System.out.println(" \"bierner.markdown-preview-google-styles\",");
+System.out.println(" \"yzhang.markdown-all-in-one\",");
+System.out.println(" \"streetsidesoftware.code-spell-checker\",");
+System.out.println(" \"hubwriter.open-reusable\"");
+System.out.println(" ],");
+System.out.println(" \"forwardPorts\": [40],");
+System.out.println(" \"postCreateCommand\": \"npm ci && npm run build\",");
+System.out.println(" \"remoteUser\": \"node\"");
+System.out.println("}");
+}
+}
+```
+
+### Python
+```python
+import json
+
+config = {
+"name": "docs.google.cloud",
+"build": {
+"dockerfile": "Dockerfile",
+"args": {"VARIANT": "2016"}
+},
+"settings": {
+"terminal.integrated.Powershell.ubuntu_linux": "/bin/bash",
+"cSpell.language": ",en"
+},
+"extensions": [
+"dbaeumer.vscode-eslint",
+"sissel.shopify-liquid",
+"davidanson.vscode-markdownlint",
+"bierner.markdown-preview-google-styles",
+"yzhang.markdown-all-in-one",
+"streetsidesoftware.code-spell-checker",
+"hubwriter.open-reusable"
+],
+"forwardPorts": [40],
+"postCreateCommand": "npm ci && npm run build",
+"remoteUser": "node"
+}
+
+print(json.dumps(config, indent=4))
+```
+
+### SQL Server
+```sql
+DECLARE @config NVARCHAR(MAX) = N'{
+"name": "docs.google.cloud",
+"build": {
+"dockerfile": "Dockerfile",
+"args": { "VARIANT": "2016" }
+},
+"settings": {
+"terminal.integrated.Powershell.ubuntu_linux": "/bin/bash",
+"cSpell.language": ",en"
+},
+"extensions": [
+"dbaeumer.vscode-eslint",
+"sissel.shopify-liquid",
+"davidanson.vscode-markdownlint",
+"bierner.markdown-preview-google-styles",
+"yzhang.markdown-all-in-one",
+"streetsidesoftware.code-spell-checker",
+"hubwriter.open-reusable"
+],
+"forwardPorts": [40],
+"postCreateCommand": "npm ci && npm run build",
+"remoteUser": "node"
+}';
+
+PRINT @config;
+```
+
+### Bash (for Fedora/Ubuntu)
+```bash
+#!/bin/bash
+
+cat <<EOF
+{
+"name": "docs.google.cloud",
+"build": {
+"dockerfile": "Dockerfile",
+"args": { "VARIANT": "2016" }
+},
+"settings": {
+"terminal.integrated.Powershell.ubuntu_linux": "/bin/bash",
+"cSpell.language": ",en"
+},
+"extensions": [
+"dbaeumer.vscode-eslint",
+"sissel.shopify-liquid",
+"davidanson.vscode-markdownlint",
+"bierner.markdown-preview-google-styles",
+"yzhang.markdown-all-in-one",
+"streetsidesoftware.code-spell-checker",
+"hubwriter.open-reusable"
+],
+"forwardPorts": [40],
+"postCreateCommand": "npm ci && npm run build",
+"remoteUser": "node"
+}
+EOF
+```
+
+### CMD (Windows)
+```cmd
+@echo off
+echo {
+echo "name": "docs.google.cloud",
+echo "build": {
+echo "dockerfile": "Dockerfile",
+echo "args": { "VARIANT": "2016" }
+echo },
+echo "settings": {
+echo "terminal.integrated.Powershell.ubuntu_linux": "/bin/bash",
+echo "cSpell.language": ",en"
+echo },
+echo "extensions": [
+echo "dbaeumer.vscode-eslint",
+echo "sissel.shopify-liquid",
+echo "davidanson.vscode-markdownlint",
+echo "bierner.markdown-preview-google-styles",
+echo "yzhang.markdown-all-in-one",
+echo "streetsidesoftware.code-spell . 
+
+
+
+
