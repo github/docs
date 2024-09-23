@@ -30,7 +30,7 @@ If you don't specify an image in the dev container configuration for a repositor
 
 As an organization owner, you can add a policy to restrict which dev container images can be used for codespaces created within your organization.
 
-If you attempt to create a codespace using a `devcontainer.json` that specifies an image that is not allowed by the policy, the following message is displayed in {% data variables.product.prodname_dotcom_the_website %}:
+If you attempt to create a codespace using a `devcontainer.json` that specifies an image that is not allowed by the policy, the following message is displayed in {% data variables.product.github %}:
 
 > The codespace cannot be created because the image specified in your dev container configuration is not allowed. You may need to select a different branch, modify your container configuration, or adjust your organization's policy setting.
 

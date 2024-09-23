@@ -3,7 +3,9 @@ title: About CodeQL workspaces
 intro: '{% data variables.product.prodname_codeql %} workspaces allow you to develop and maintain a group of {% data variables.product.prodname_codeql %} packs that depend on each other.'
 product: '{% data reusables.gated-features.codeql %}'
 versions:
-  feature: codeql-packs
+  fpt: '*'
+  ghes: '*'
+  ghec: '*'
 topics:
   - Advanced Security
   - Code scanning

@@ -18,8 +18,6 @@ You can create rulesets to control how users can interact with selected branches
 
 {% data reusables.repositories.rulesets-push-rulesets-intro %}
 
-{% data reusables.repositories.rulesets-push-rules-beta-note %}
-
 {% endif %}
 
 When you create a ruleset, you can allow certain users to bypass the rules in the ruleset.
@@ -85,9 +83,7 @@ To import one of the prebuilt rulesets by {% data variables.product.prodname_dot
 
 ## Creating a push ruleset
 
-{% data reusables.repositories.rulesets-push-rules-beta-note %}
->
-> This ruleset will enforce push restrictions for this repository's entire fork network.
+{% data reusables.repositories.push-rules-fork-network-note %}
 
 You can create a push ruleset for private or internal repositories.
 

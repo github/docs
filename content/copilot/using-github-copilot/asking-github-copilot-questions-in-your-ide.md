@@ -23,11 +23,30 @@ shortTitle: Chat in IDE
 
 {% data reusables.copilot.chat-access-denied %}
 
+## AI models for {% data variables.product.prodname_copilot_chat_short %}
+
+{% data reusables.copilot.copilot-chat-models-beta-note %}
+
+{% data reusables.copilot.copilot-chat-models-list %}
+
+### Changing your AI model
+
+The model picker in Chat view is a pre-release feature and requires the latest version of [VS Code Insiders](https://code.visualstudio.com/insiders/), as well as the {% data variables.product.prodname_copilot_short %} pre-release extension.
+
+{% data reusables.copilot.model-picker-enable-preview-features %}
+{% data reusables.copilot.open-chat-vs-code %}
+1. In the bottom right of the chat view, select the **CURRENT-MODEL** {% octicon "chevron-down" aria-hidden="true" %} dropdown menu, then click the AI model of your choice.
+
+> [!NOTE]
+>
+> * If you use {% data variables.product.prodname_copilot_extensions_short %}, they may override the model you select.
+> * Experimental pre-release versions of the models may not interact with all filters correctly, including the duplication detection filter.
+
 ## Submitting prompts
 
 You can ask {% data variables.product.prodname_copilot_chat_short %} to give code suggestions, explain code, generate unit tests, and suggest code fixes.
 
-1. Open the chat view by clicking the chat icon in the activity bar or by entering <kbd>Control</kbd>+<kbd>Command</kbd>+<kbd>i</kbd> (Mac) / <kbd>Ctrl</kbd>+<kbd>Alt</kbd>+<kbd>i</kbd> (Windows/Linux).
+{% data reusables.copilot.open-chat-vs-code %}
 
    ![Screenshot of the {% data variables.product.prodname_copilot_chat_short %} icon in the Activity Bar.](/assets/images/help/copilot/vsc-copilot-chat-icon.png)
 

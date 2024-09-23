@@ -33,7 +33,7 @@ Each license for {% data variables.product.prodname_GH_advanced_security %} spec
 You can estimate the number of licenses your enterprise would need to purchase {% data variables.product.prodname_GH_advanced_security %} or to enable {% data variables.product.prodname_GH_advanced_security %} for additional organizations and repositories. For more information, see "[AUTOTITLE](/billing/managing-billing-for-github-advanced-security/viewing-committer-information-for-github-advanced-security)."
 {% endif %}
 
-{% ifversion security-configurations-ga %}
+{% ifversion security-configurations %}
 
 {% data reusables.security-configurations.managing-GHAS-licenses %}
 
@@ -54,7 +54,6 @@ You can view the enterprise account's current {% ifversion ghas-billing-UI-updat
 
 {% ifversion security-configurations %}
       {% data reusables.security-configurations.managing-GHAS-licenses %}
-      {% data reusables.security-configurations.security-configurations-beta-note-short %}
 {% endif %}
 
 {% elsif ghes %}
@@ -86,7 +85,6 @@ You can view the enterprise account's current {% ifversion ghas-billing-UI-updat
 {% ifversion security-configurations %}
 
 {% data reusables.security-configurations.managing-GHAS-licenses %}
-> {% data reusables.security-configurations.security-configurations-beta-note-short %}
 
 {% endif %}
 {% endif %}

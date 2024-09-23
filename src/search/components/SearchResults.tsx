@@ -143,29 +143,31 @@ function ResultsPagination({ page, totalPages }: { page: number; totalPages: num
   }
 
   return (
-    <Box borderRadius={2} p={2}>
-      <Pagination
-        pageCount={Math.min(totalPages, 10)}
-        currentPage={page}
-        hrefBuilder={hrefBuilder}
-        onPageChange={(event, page) => {
-          event.preventDefault()
+    <div className={styles.paginationFocus}>
+      <Box borderRadius={2} p={2}>
+        <Pagination
+          pageCount={Math.min(totalPages, 10)}
+          currentPage={page}
+          hrefBuilder={hrefBuilder}
+          onPageChange={(event, page) => {
+            event.preventDefault()
 
-          const [asPathRoot, asPathQuery = ''] = router.asPath.split('#')[0].split('?')
-          const params = new URLSearchParams(asPathQuery)
-          if (page !== 1) {
-            params.set('page', `${page}`)
-          } else {
-            params.delete('page')
-          }
-          let asPath = `/${router.locale}${asPathRoot}`
-          if (params.toString()) {
-            asPath += `?${params}`
-          }
-          setAsPath(asPath)
-          router.push(asPath)
-        }}
-      />
-    </Box>
+            const [asPathRoot, asPathQuery = ''] = router.asPath.split('#')[0].split('?')
+            const params = new URLSearchParams(asPathQuery)
+            if (page !== 1) {
+              params.set('page', `${page}`)
+            } else {
+              params.delete('page')
+            }
+            let asPath = `/${router.locale}${asPathRoot}`
+            if (params.toString()) {
+              asPath += `?${params}`
+            }
+            setAsPath(asPath)
+            router.push(asPath)
+          }}
+        />
+      </Box>
+    </div>
   )
 }

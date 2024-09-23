@@ -170,6 +170,8 @@ You can consolidate your audit logs by integrating streaming to S3 with AWS Clou
 
 ### Setting up streaming to Azure Blob Storage
 
+> [!NOTE] Audit log streaming to blob storage in Azure Government is not supported.
+
 Before setting up a stream in {% data variables.product.prodname_dotcom %}, first create a storage account and a container in Microsoft Azure. See [Introduction to Azure Blob Storage](https://docs.microsoft.com/en-us/azure/storage/blobs/storage-blobs-introduction) in the Microsoft documentation.
 
 To configure the stream, you need the URL of a SAS token.

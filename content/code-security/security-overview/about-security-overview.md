@@ -60,7 +60,7 @@ There are also dedicated views for each type of security alert that you can use 
 
 ## About security overview for organizations
 
-The application security team at your company can use the different views for both broad and specific analyses of your organization's security status. {% ifversion security-overview-org-risk-coverage %} For example, {% ifversion security-overview-dashboard %}the team can use the "Overview" dashboard view to track your organization's security landscape and progression{% else %}the team can use the "Coverage" view to monitor the adoption of features across your organization or by a specific team as you roll out {% data variables.product.prodname_GH_advanced_security %}, or use the "Risk" view to identify repositories with more than five open {% data variables.secret-scanning.alerts %}{% endif %}. {% else %}For example, they can use the overview page to monitor adoption of features by your organization or by a specific team as you roll out {% data variables.product.prodname_GH_advanced_security %} to your enterprise, or to review all alerts of a specific type and severity level across all repositories in your organization.{% endif %} {% ifversion code-security-multi-repo-enablement %}{% ifversion security-configurations-beta-and-pre-beta %}You can also use security overview to find a set of repositories and enable or disable security features for them all at the same time. For more information, see "[AUTOTITLE](/code-security/security-overview/enabling-security-features-for-multiple-repositories)."{% endif %}{% endif %}
+The application security team at your company can use the different views for both broad and specific analyses of your organization's security status. {% ifversion security-overview-org-risk-coverage %} For example, {% ifversion security-overview-dashboard %}the team can use the "Overview" dashboard view to track your organization's security landscape and progression{% else %}the team can use the "Coverage" view to monitor the adoption of features across your organization or by a specific team as you roll out {% data variables.product.prodname_GH_advanced_security %}, or use the "Risk" view to identify repositories with more than five open {% data variables.secret-scanning.alerts %}{% endif %}. {% else %}For example, they can use the overview page to monitor adoption of features by your organization or by a specific team as you roll out {% data variables.product.prodname_GH_advanced_security %} to your enterprise, or to review all alerts of a specific type and severity level across all repositories in your organization.{% endif %} {% ifversion code-security-multi-repo-enablement %}{% ifversion pre-security-configurations %}You can also use security overview to find a set of repositories and enable or disable security features for them all at the same time. For more information, see "[AUTOTITLE](/code-security/security-overview/enabling-security-features-for-multiple-repositories)."{% endif %}{% endif %}
 
 You can find security overview on the **Security** tab for any organization that's owned by an enterprise. Each view shows a summary of the data that you have access to. As you add filters, all data and metrics across the view change to reflect the repositories or alerts that you've selected. For information about permissions, see "[Permission to view data in security overview](#permission-to-view-data-in-security-overview)."
 
@@ -135,7 +135,7 @@ If you are an organization or team member, you can view security overview for th
 
 | Organization or team member with | Overview dashboard view | Risk and alerts views | Coverage view |
 |--------------------|-------------|---------------------|---------|
-| `admin` access for one or more repositories | View data for those repositories | View data for those repositories |  View data for those repositories{% ifversion security-configurations-beta-and-pre-beta %}, and enable and disable security features{% endif %} |
+| `admin` access for one or more repositories | View data for those repositories | View data for those repositories |  View data for those repositories{% ifversion pre-security-configurations %}, and enable and disable security features{% endif %} |
 | `write` access for one or more repositories | View {% data variables.product.prodname_code_scanning %} and {% data variables.product.prodname_dependabot %} data for those repositories | View {% data variables.product.prodname_code_scanning %} and {% data variables.product.prodname_dependabot %} data for those repositories | No access |
 | `read` or `triage` access for one or more repositories | No access | No access | No access |
 | Security alert access for one or more repositories | View all security alert data for those repositories | View all security alert data for those repositories | No access |
@@ -178,7 +178,7 @@ For more information about access to security alerts and related views, see "[AU
 {% endnote %}
 {% endif %}
 
-In the enterprise-level security overview, you can see data for all organizations where you are an organization owner or security manager. {% ifversion security-configurations-beta-and-pre-beta %}However, you cannot use the enterprise-level security overview to enable and disable security features.{% endif %} For more information, see "[AUTOTITLE](/admin/code-security/managing-github-advanced-security-for-your-enterprise/managing-github-advanced-security-features-for-your-enterprise)."
+In the enterprise-level security overview, you can see data for all organizations where you are an organization owner or security manager. However, you cannot use the enterprise-level security overview to enable and disable security features. For more information, see "[AUTOTITLE](/admin/code-security/managing-github-advanced-security-for-your-enterprise/managing-github-advanced-security-features-for-your-enterprise)."
 {% endif %}
 
 {% ifversion ghec %}
@@ -187,7 +187,7 @@ If you're an owner of an {% data variables.enterprise.prodname_emu_enterprise %}
 
 ## Further reading
 
-* "[AUTOTITLE](/code-security/getting-started/securing-your-repository)"{% ifversion security-configurations-ga %}
+* "[AUTOTITLE](/code-security/getting-started/securing-your-repository)"{% ifversion security-configurations %}
 * "[AUTOTITLE](/code-security/securing-your-organization)"{% else %}
 * "[AUTOTITLE](/code-security/getting-started/quickstart-for-securing-your-organization)"{% endif %}
 * "[AUTOTITLE](/code-security/adopting-github-advanced-security-at-scale/introduction-to-adopting-github-advanced-security-at-scale)"

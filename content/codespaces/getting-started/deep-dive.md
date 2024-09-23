@@ -17,7 +17,7 @@ topics:
 
 There are a number of entry points to create a codespace.
 
-* From a {% data variables.product.company_short %} template or any template repository on {% data variables.product.prodname_dotcom_the_website %} to start a new project
+* From a {% data variables.product.company_short %} template or any template repository on {% data variables.product.github %} to start a new project
 * From a branch in your repository for new feature work
 * From an open pull request to explore work-in-progress
 * From a commit in a repository's history to investigate a bug at a specific point in time

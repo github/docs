@@ -11,8 +11,6 @@ topics:
   - Security
 ---
 
-{% data reusables.security-configurations.security-configurations-beta-note-opt-out %}
-
 ## About the {% data variables.product.prodname_github_security_configuration %}
 
 The {% data variables.product.prodname_github_security_configuration %} is a collection of enablement settings for {% data variables.product.company_short %}'s security features that is created and maintained by subject matter experts at {% data variables.product.company_short %}. The {% data variables.product.prodname_github_security_configuration %} is designed to successfully reduce the security risks for low- and high-impact repositories. We recommend you apply this configuration to all the repositories in your organization.
@@ -46,16 +44,7 @@ The {% data variables.product.prodname_github_security_configuration %} is a col
 
 {% data reusables.security-configurations.apply-configuration %}
 
-{% ifversion enforce-security-configurations %}
-
 ## Enforcing the {% data variables.product.prodname_github_security_configuration %}
-
-{% ifversion enforce-security-configurations-beta %}
-
->[!NOTE]
-> This feature is in beta, and is subject to change.
-
-{% endif %}
 
 {% data reusables.profile.access_org %}
 {% data reusables.organizations.org_settings %}
@@ -65,8 +54,6 @@ The {% data variables.product.prodname_github_security_configuration %} is a col
 
 >[!NOTE]
 {% data reusables.code-scanning.custom-security-configuration-enforcement-edge-cases %}
-
-{% endif %}
 
 ## Next steps
 
