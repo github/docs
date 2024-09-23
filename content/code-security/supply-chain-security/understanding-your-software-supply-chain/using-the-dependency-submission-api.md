@@ -27,7 +27,6 @@ You can use the {% data variables.dependency-submission-api.name %} in a {% data
 
 {% data reusables.dependency-submission.api-premade-actions %}
 
-TODO: Review whether we need to keep all the content in the reusable above.
 
 For more information about these actions, see "[AUTOTITLE](/code-security/dependabot/ecosystems-supported-by-dependabot/dependency-graph-supported-package-ecosystems#supported-package-ecosystems-via-dependency-submission-actions)."
 
