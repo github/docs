@@ -32,7 +32,7 @@ The instructions below will guide you through configuring your environment to us
 There are some limitations when migrating from CircleCI to {% data variables.product.prodname_actions %} with {% data variables.product.prodname_actions_importer %}:
 
 * Automatic caching in between jobs of different workflows is not supported.
-* The `audit` command is only supported when using an organization account. However, the `dry-run` and `migrate` commands can be used with an organization or user account.
+* The `audit` command is only supported when you use a CircleCI organization account. The `dry-run` and `migrate` commands can be used with a CircleCI organization or user account.
 
 #### Manual tasks
 
