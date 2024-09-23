@@ -61,9 +61,7 @@ The action uses the dependency review REST API to get the diff of dependency cha
 
 {% data reusables.dependency-review.works-with-submission-api-beta %}
 
-{% ifversion dependency-review-action-configuration %}
 You can configure the {% data variables.dependency-review.action_name %} to better suit your needs. For example, you can specify the severity level that will make the action fail{% ifversion dependency-review-action-licenses %}, or set an allow or deny list for licenses to scan{% endif %}. For more information, see "[AUTOTITLE](/code-security/supply-chain-security/understanding-your-software-supply-chain/configuring-dependency-review#configuring-the-dependency-review-github-action)."
-{% endif %}
 
 {% endif %}
 
