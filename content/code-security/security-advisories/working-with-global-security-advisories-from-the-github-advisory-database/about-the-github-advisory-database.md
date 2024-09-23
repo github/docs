@@ -39,18 +39,18 @@ In contrast, malicious software, or malware, is code that is intentionally desig
 
 Generally, we name our supported ecosystems after the software programming language's associated package registry. We review advisories if they are for a vulnerability in a package that comes from a supported registry.
 
-* Composer (registry: https://packagist.org/){% ifversion GH-advisory-db-erlang-support %}
-* Erlang (registry: https://hex.pm/){% endif %}
+* Composer (registry: https://packagist.org/)
+* Erlang (registry: https://hex.pm/)
 * Go (registry: https://pkg.go.dev/)
 * GitHub Actions (https://github.com/marketplace?type=actions/)
 * Maven (registry: https://repo.maven.apache.org/maven2)
 * npm (registry: https://www.npmjs.com/)
 * NuGet (registry: https://www.nuget.org/)
-* pip (registry: https://pypi.org/){% ifversion dependency-graph-dart-support %}
-* pub (registry: https://pub.dev/packages/registry){% endif %}
+* pip (registry: https://pypi.org/)
+* pub (registry: https://pub.dev/packages/registry)
 * RubyGems (registry: https://rubygems.org/)
-* Rust (registry: https://crates.io/){% ifversion supply-chain-features-swift-support %}
-* Swift (registry: N/A){% endif %}
+* Rust (registry: https://crates.io/)
+* Swift (registry: N/A)
 
 If you have a suggestion for a new ecosystem we should support, please open an [issue](https://github.com/github/advisory-database/issues) for discussion.
 
