@@ -36,7 +36,7 @@ You can use {% data variables.product.prodname_actions_importer %} to migrate fr
 * Bamboo
 * Bitbucket Pipelines
 * CircleCI
-* GitLab
+* GitLab (both cloud and self-hosted)
 * Jenkins
 * Travis CI
 
