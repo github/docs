@@ -22,7 +22,7 @@ allowTitleToDifferFromFilename: true
 There are some additional features that can help you to evaluate alerts in order to better prioritize and manage them. You can:
 
 * Check the validity of a secret, to see if the secret is still active. {% ifversion fpt or ghes %}**Applies to {% data variables.product.company_short %} tokens only**.{% endif %} For more information, see "[Checking a secret's validity](#checking-a-secrets-validity)."{% ifversion secret-scanning-validity-check-partner-patterns %}
-* Perform an "on-demand" validity check, to get the most up to date validation status. For more information, see "[Performing an on-demand-validity-check](#performing-an-on-demand-validity-check)."{% endif %}
+* Perform an "on-demand" validity check, to get the most up to date validation status. For more information, see "[Performing an on-demand validity check](#performing-an-on-demand-validity-check)."{% endif %}
 * Review a token's metadata. **Applies to {% data variables.product.company_short %} tokens only**. For example, to see when the token was last used. For more information, see "[Reviewing {% data variables.product.company_short %} token metadata](#reviewing-github-token-metadata)."{% ifversion secret-scanning-multi-repo-public-leak %}
 * Review the labels assigned to the alert. For more information, see "[Reviewing alert labels](#reviewing-alert-labels)."{% endif %}
 
