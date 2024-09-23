@@ -44,7 +44,7 @@ For system-critical issues, and prior to making modifications to your appliance,
 
 ### Recommendations
 
-* Ensure CPU cores are [provisioned appropriately](/admin/installing-your-enterprise-server/setting-up-a-github-enterprise-server-instance/installing-github-enterprise-server-on-aws#minimum-requirements).
+* Ensure CPU cores are [provisioned appropriately](/admin/installing-your-enterprise-server/setting-up-a-github-enterprise-server-instance/installing-github-enterprise-server-on-aws#minimum-recommended-requirements).
 * [Set alert thresholds](/admin/monitoring-and-managing-your-instance/monitoring-your-instance/recommended-alert-thresholds).
 * After an upgrade, check whether background upgrade jobs have completed, by running `ghe-check-background-upgrade-jobs`.
 * Use webhooks instead of pulling.
@@ -62,7 +62,7 @@ For system-critical issues, and prior to making modifications to your appliance,
 
 ### Recommendations
 
-* Memory of your instance is under-provisioned for your workload, data volume, given usage over time may exceed the [minimum requirements](/admin/installing-your-enterprise-server/setting-up-a-github-enterprise-server-instance/installing-github-enterprise-server-on-aws#minimum-requirements).
+* Memory of your instance is under-provisioned for your workload, data volume, given usage over time may exceed the [minimum recommended requirements](/admin/installing-your-enterprise-server/setting-up-a-github-enterprise-server-instance/installing-github-enterprise-server-on-aws#minimum-recommended-requirements).
 * Within the Nomad graphs, identify services with out of memory trends which are often followed by free memory trends after they get restarted. For more information, see "[AUTOTITLE](/enterprise-server@3.14/admin/monitoring-and-managing-your-instance/monitoring-your-instance/accessing-the-monitor-dashboard#appliance-specific-system-services)."
 * Check logs for processes going out of memory by running `rg -z 'kernel: Out of memory: Killed process' /var/log/syslog*` (for this, first log in to the administrative shell using SSH - see "[AUTOTITLE](/enterprise-server@3.14/admin/administering-your-instance/administering-your-instance-from-the-command-line/accessing-the-administrative-shell-ssh).")
 * Ensure the correct ratio of memory to CPU services is met (at least `6.5:1`).

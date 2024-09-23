@@ -139,12 +139,12 @@ jobs:
     steps:
       - name: Retrieve secret from Vault
         uses: hashicorp/vault-action@v2.4.0
-          with:
-            method: jwt
-            url: VAULT-URL
-            namespace: VAULT-NAMESPACE # HCP Vault and Vault Enterprise only
-            role: ROLE-NAME
-            secrets: SECRET-PATH
+        with:
+          method: jwt
+          url: VAULT-URL
+          namespace: VAULT-NAMESPACE # HCP Vault and Vault Enterprise only
+          role: ROLE-NAME
+          secrets: SECRET-PATH
 
       - name: Use secret from Vault
         run: |
@@ -177,12 +177,12 @@ jobs:
     steps:
       - name: Retrieve secret from Vault
         uses: hashicorp/vault-action@v2.4.0
-          with:
-            exportToken: true
-            method: jwt
-            url: VAULT-URL
-            role: ROLE-NAME
-            secrets: SECRET-PATH
+        with:
+          exportToken: true
+          method: jwt
+          url: VAULT-URL
+          role: ROLE-NAME
+          secrets: SECRET-PATH
 
       - name: Use secret from Vault
         run: |
