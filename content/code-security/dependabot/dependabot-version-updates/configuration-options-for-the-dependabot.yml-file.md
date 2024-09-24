@@ -738,14 +738,11 @@ updates:
 
 By default, {% data variables.product.prodname_dependabot %} automatically rebases open pull requests when it detects any changes to the pull request. Use `rebase-strategy` to disable this behavior.
 
-{% ifversion dependabot-updates-rebase-30-days-cutoff %}
-
 {% note %}
 
 **Note:** {% data reusables.dependabot.pull-requests-30-days-cutoff %}
 
 {% endnote %}
-{% endif %}
 
 Available rebase strategies
 
@@ -758,20 +755,11 @@ When `rebase-strategy` is set to `auto`, {% data variables.product.prodname_depe
 * When you change the value of `target-branch` in the {% data variables.product.prodname_dependabot %} configuration file. For more information about this field, see "[`target-branch`](#target-branch)."
 * When {% data variables.product.prodname_dependabot %} detects that a {% data variables.product.prodname_dependabot %} pull request is in conflict after a recent push to the target branch.
 
-{% ifversion dependabot-updates-rebase-30-days-cutoff %}
-{% else %}
-{% note %}
-
-**Note:** {% data variables.product.prodname_dependabot %} will keep rebasing a pull request indefinitely until the pull request is closed, merged or you disable {% data variables.product.prodname_dependabot_updates %}.
-
-{% endnote %}
-{% endif %}
-
 When `rebase-strategy` is set to `disabled`, {% data variables.product.prodname_dependabot %} stops rebasing pull requests.
 
 {% note %}
 
-**Note:** This behavior only applies to pull requests that go into conflict with the target branch. {% data variables.product.prodname_dependabot %} will keep rebasing {% ifversion dependabot-updates-rebase-30-days-cutoff %}(until 30 days after opening){% endif %} pull requests opened prior to the `rebase-strategy` setting being changed, and pull requests that are part of a scheduled run.
+**Note:** This behavior only applies to pull requests that go into conflict with the target branch. {% data variables.product.prodname_dependabot %} will keep rebasing (until 30 days after opening) pull requests opened prior to the `rebase-strategy` setting being changed, and pull requests that are part of a scheduled run.
 
 {% endnote %}
 

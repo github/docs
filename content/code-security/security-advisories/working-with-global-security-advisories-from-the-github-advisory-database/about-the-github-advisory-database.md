@@ -1,6 +1,6 @@
 ---
 title: About the GitHub Advisory database
-intro: 'The {% data variables.product.prodname_advisory_database %} contains a list of known security vulnerabilities {% ifversion GH-advisory-db-supports-malware %}and malware, grouped in three categories: {% data variables.product.company_short %}-reviewed advisories, unreviewed advisories, and malware advisories.{% else %} grouped in two categories: {% data variables.product.company_short %}-reviewed advisories and unreviewed advisories.{% endif %}'
+intro: 'The {% data variables.product.prodname_advisory_database %} contains a list of known security vulnerabilities and malware, grouped in three categories: {% data variables.product.company_short %}-reviewed advisories, unreviewed advisories, and malware advisories.'
 versions:
   fpt: '*'
   ghec: '*'
@@ -23,15 +23,11 @@ Security advisories are published as JSON files in the Open Source Vulnerability
 
 ## About types of security advisories
 
-Each advisory in the {% data variables.product.prodname_advisory_database %} is for a vulnerability in open source projects{% ifversion GH-advisory-db-supports-malware %} or for malicious open source software{% endif %}.
+Each advisory in the {% data variables.product.prodname_advisory_database %} is for a vulnerability in open source projects or for malicious open source software.
 
 {% data reusables.repositories.a-vulnerability-is %} Vulnerabilities in code are usually introduced by accident and fixed soon after they are discovered. You should update your code to use the fixed version of the dependency as soon as it is available.
 
-{% ifversion GH-advisory-db-supports-malware %}
-
 In contrast, malicious software, or malware, is code that is intentionally designed to perform unwanted or harmful functions. The malware may target hardware, software, confidential data, or users of any application that uses the malware. You need to remove the malware from your project and find an alternative, more secure replacement for the dependency.
-
-{% endif %}
 
 ### {% data variables.product.company_short %}-reviewed advisories
 
@@ -39,18 +35,18 @@ In contrast, malicious software, or malware, is code that is intentionally desig
 
 Generally, we name our supported ecosystems after the software programming language's associated package registry. We review advisories if they are for a vulnerability in a package that comes from a supported registry.
 
-* Composer (registry: https://packagist.org/){% ifversion GH-advisory-db-erlang-support %}
-* Erlang (registry: https://hex.pm/){% endif %}
+* Composer (registry: https://packagist.org/)
+* Erlang (registry: https://hex.pm/)
 * Go (registry: https://pkg.go.dev/)
 * GitHub Actions (https://github.com/marketplace?type=actions/)
 * Maven (registry: https://repo.maven.apache.org/maven2)
 * npm (registry: https://www.npmjs.com/)
 * NuGet (registry: https://www.nuget.org/)
-* pip (registry: https://pypi.org/){% ifversion dependency-graph-dart-support %}
-* pub (registry: https://pub.dev/packages/registry){% endif %}
+* pip (registry: https://pypi.org/)
+* pub (registry: https://pub.dev/packages/registry)
 * RubyGems (registry: https://rubygems.org/)
-* Rust (registry: https://crates.io/){% ifversion supply-chain-features-swift-support %}
-* Swift (registry: N/A){% endif %}
+* Rust (registry: https://crates.io/)
+* Swift (registry: N/A)
 
 If you have a suggestion for a new ecosystem we should support, please open an [issue](https://github.com/github/advisory-database/issues) for discussion.
 
@@ -62,19 +58,13 @@ If you enable {% data variables.product.prodname_dependabot_alerts %} for your r
 
 {% data variables.product.prodname_dependabot %} doesn't create {% data variables.product.prodname_dependabot_alerts %} for unreviewed advisories as this type of advisory isn't checked for validity or completion.
 
-{% ifversion GH-advisory-db-supports-malware %}
-
 ### Malware advisories
-
-{% data reusables.advisory-database.beta-malware-advisories %}
 
 {% data reusables.advisory-database.malware-overview %}
 
 {% data variables.product.prodname_dependabot %} doesn't generate alerts when malware is detected as most of the vulnerabilities cannot be resolved by downstream users. You can view malware advisories by searching for `type:malware` in the {% data variables.product.prodname_advisory_database %}.
 
 Our malware advisories are mostly about substitution attacks. During this type of attack, an attacker publishes a package to the public registry with the same name as a dependency that users rely on from a third party or private registry, with the hope that the malicious version is consumed. {% data variables.product.prodname_dependabot %} doesn’t look at project configurations to determine if the packages are coming from a private registry, so we aren't sure if you're using the malicious version or a non-malicious version. Users who have their dependencies appropriately scoped should not be affected by malware.
-
-{% endif %}
 
 ## About information in security advisories
 
@@ -101,7 +91,7 @@ You can validate a GHSA ID using a regular expression.
 
 ### About CVSS levels
 
-Each security advisory contains information about the vulnerability{% ifversion GH-advisory-db-supports-malware %} or malware,{% endif %} which may include the description, severity, affected package, package ecosystem, affected versions and patched versions, impact, and optional information such as references, workarounds, and credits. In addition, advisories from the National Vulnerability Database list contain a link to the CVE record, where you can read more details about the vulnerability, its CVSS scores, and its qualitative severity level. For more information, see the "[National Vulnerability Database](https://nvd.nist.gov/)" from the National Institute of Standards and Technology.
+Each security advisory contains information about the vulnerability or malware, which may include the description, severity, affected package, package ecosystem, affected versions and patched versions, impact, and optional information such as references, workarounds, and credits. In addition, advisories from the National Vulnerability Database list contain a link to the CVE record, where you can read more details about the vulnerability, its CVSS scores, and its qualitative severity level. For more information, see the "[National Vulnerability Database](https://nvd.nist.gov/)" from the National Institute of Standards and Technology.
 
 The severity level is one of four possible levels defined in the "[Common Vulnerability Scoring System (CVSS), Section 5](https://www.first.org/cvss/specification-document)."
 * Low

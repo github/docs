@@ -25,7 +25,7 @@ If your enterprise uses **personal accounts**, you must follow a different proce
 
 ## About SAML SSO for {% data variables.product.prodname_emus %}
 
-With {% data variables.product.prodname_emus %}, access to your enterprise's resources on {% data variables.location.product_location %} must be authenticated through your identity provider (IdP). Instead of signing in to {% data variables.product.prodname_dotcom %} with a {% data variables.product.prodname_dotcom %} username and password, members of your enterprise will sign in through your IdP.
+With {% data variables.product.prodname_emus %}, access to your enterprise's resources on {% data variables.product.github %} must be authenticated through your identity provider (IdP). Instead of signing in to {% data variables.product.prodname_dotcom %} with a {% data variables.product.prodname_dotcom %} username and password, members of your enterprise will sign in through your IdP.
 
 After you configure SAML SSO, we recommend storing your recovery codes so you can recover access to your enterprise in the event that your IdP is unavailable.
 
@@ -40,7 +40,7 @@ After you configure SAML SSO, we recommend storing your recovery codes so you ca
 
 ## Configure SAML SSO for {% data variables.product.prodname_emus %}
 
-To configure SAML SSO for your {% data variables.enterprise.prodname_emu_enterprise %}, you must configure an application on your IdP, then configure your enterprise on {% data variables.location.product_location %}. After you configure SAML SSO, you can configure user provisioning.
+To configure SAML SSO for your {% data variables.enterprise.prodname_emu_enterprise %}, you must configure an application on your IdP, then configure your enterprise on {% data variables.product.github %}. After you configure SAML SSO, you can configure user provisioning.
 
 1. [Configure your IdP](#configure-your-idp)
 1. [Configure your enterprise](#configure-your-enterprise)
@@ -64,12 +64,12 @@ To configure SAML SSO for your {% data variables.enterprise.prodname_emu_enterpr
    {%- ifversion emu-public-scim-schema %}
    * "[AUTOTITLE](/admin/identity-and-access-management/iam-configuration-reference/saml-configuration-reference)"
    {%- endif %}
-1. To test and configure your enterprise, assign yourself or the user that will configure SAML SSO for your enterprise on {% data variables.location.product_location %} to the application you configured for {% data variables.product.prodname_emus %} on your IdP.
+1. To test and configure your enterprise, assign yourself or the user that will configure SAML SSO for your enterprise on {% data variables.product.github %} to the application you configured for {% data variables.product.prodname_emus %} on your IdP.
 
    > [!NOTE]
    > In order to test a successful authentication connection upon configuration, at least one user must be assigned to the IdP.
 
-1. To continue configuring your enterprise on {% data variables.location.product_location %}, locate and note the following information from the application you installed on your IdP.
+1. To continue configuring your enterprise on {% data variables.product.github %}, locate and note the following information from the application you installed on your IdP.
 
     | Value | Other names | Description |
     | :- | :- | :- |
@@ -79,9 +79,9 @@ To configure SAML SSO for your {% data variables.enterprise.prodname_emu_enterpr
 
 ### Configure your enterprise
 
-After you configure SAML SSO for {% data variables.product.prodname_emus %} on your IdP, you can configure your enterprise on {% data variables.location.product_location %}.
+After you configure SAML SSO for {% data variables.product.prodname_emus %} on your IdP, you can configure your enterprise on {% data variables.product.github %}.
 
-After the initial configuration of SAML SSO, the only setting you can update on {% data variables.location.product_location %} for your existing SAML configuration is the SAML certificate. If you need to update the sign-on URL or issuer URL, you must first disable SAML SSO, then reconfigure SAML SSO with the new settings. For more information, see "[AUTOTITLE](/admin/identity-and-access-management/configuring-authentication-for-enterprise-managed-users/disabling-authentication-for-enterprise-managed-users)."
+After the initial configuration of SAML SSO, the only setting you can update on {% data variables.product.github %} for your existing SAML configuration is the SAML certificate. If you need to update the sign-on URL or issuer URL, you must first disable SAML SSO, then reconfigure SAML SSO with the new settings. For more information, see "[AUTOTITLE](/admin/identity-and-access-management/configuring-authentication-for-enterprise-managed-users/disabling-authentication-for-enterprise-managed-users)."
 
 {% data reusables.emus.sign-in-as-setup-user %}
 

@@ -98,7 +98,7 @@ Before you can add your local repository to {% data variables.product.prodname_d
 
 {% data reusables.migrations.create-empty-repo %}
 
-1. At the top of your repository on {% data variables.location.product_location %}'s Quick Setup page, click {% octicon "copy" aria-label="Copy to clipboard" %} to copy the remote repository URL.
+1. At the top of your repository on {% data variables.product.github %}'s Quick Setup page, click {% octicon "copy" aria-label="Copy to clipboard" %} to copy the remote repository URL.
 
    ![Screenshot of the "Quick Setup" header in a repository. Next to the remote URL, an icon of two overlapping squares is highlighted with an orange outline.](/assets/images/help/repository/copy-remote-repository-url-quick-setup.png)
 
@@ -117,7 +117,7 @@ Before you can add your local repository to {% data variables.product.prodname_d
    git remote -v
    ```
 
-1. To push the changes in your local repository to {% data variables.location.product_location %}, run the following command.
+1. To push the changes in your local repository to {% data variables.product.github %}, run the following command.
 
    ```shell
    git push -u origin main
@@ -131,7 +131,7 @@ Before you can add your local repository to {% data variables.product.prodname_d
 
 {% data reusables.migrations.create-empty-repo %}
 
-1. At the top of your repository on {% data variables.location.product_location %}'s Quick Setup page, click {% octicon "copy" aria-label="Copy to clipboard" %} to copy the remote repository URL.
+1. At the top of your repository on {% data variables.product.github %}'s Quick Setup page, click {% octicon "copy" aria-label="Copy to clipboard" %} to copy the remote repository URL.
 
    ![Screenshot of the "Quick Setup" header in a repository. Next to the remote URL, an icon of two overlapping squares is highlighted with an orange outline.](/assets/images/help/repository/copy-remote-repository-url-quick-setup.png)
 
@@ -150,7 +150,7 @@ Before you can add your local repository to {% data variables.product.prodname_d
    git remote -v
    ```
 
-1. To push the changes in your local repository to {% data variables.location.product_location %}, run the following command.
+1. To push the changes in your local repository to {% data variables.product.github %}, run the following command.
 
    ```shell
    git push origin main
@@ -164,7 +164,7 @@ Before you can add your local repository to {% data variables.product.prodname_d
 
 {% data reusables.migrations.create-empty-repo %}
 
-1. At the top of your repository on {% data variables.location.product_location %}'s Quick Setup page, click {% octicon "copy" aria-label="Copy to clipboard" %} to copy the remote repository URL.
+1. At the top of your repository on {% data variables.product.github %}'s Quick Setup page, click {% octicon "copy" aria-label="Copy to clipboard" %} to copy the remote repository URL.
 
    ![Screenshot of the "Quick Setup" header in a repository. Next to the remote URL, an icon of two overlapping squares is highlighted with an orange outline.](/assets/images/help/repository/copy-remote-repository-url-quick-setup.png)
 
@@ -183,7 +183,7 @@ Before you can add your local repository to {% data variables.product.prodname_d
    git remote -v
    ```
 
-1. To push the changes in your local repository to {% data variables.location.product_location %}, run the following command.
+1. To push the changes in your local repository to {% data variables.product.github %}, run the following command.
 
    ```shell
    git push origin main
