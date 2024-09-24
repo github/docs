@@ -60,6 +60,8 @@ If you enable {% data variables.product.prodname_dependabot_alerts %} for your r
 
 ### Malware advisories
 
+{% data reusables.advisory-database.beta-malware-advisories %}
+
 {% data reusables.advisory-database.malware-overview %}
 
 {% data variables.product.prodname_dependabot %} doesn't generate alerts when malware is detected as most of the vulnerabilities cannot be resolved by downstream users. You can view malware advisories by searching for `type:malware` in the {% data variables.product.prodname_advisory_database %}.
