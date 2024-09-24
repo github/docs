@@ -119,7 +119,7 @@ For {% data variables.product.prodname_dependabot_security_updates %}, Gradle su
 
 #### pip-compile and uv
 
-{% data variables.product.prodname_dependabot %} can update `requirements.txt` compiled files using both `pip-compile` and `uv pip` (depending on which one was used to generate the file), as well as performing updates to `pyproject.toml` files if they follow the PEP 621 standard.
+{% data variables.product.prodname_dependabot %} can update `requirements.txt` files using both `pip-compile` and `uv pip` (depending on which one was used to generate the file). {% data variables.product.prodname_dependabot %} can also update `pyproject.toml` files if they follow the PEP 621 standard.
 
 `uv.lock` files are not supported yet.
 {% endif %}
