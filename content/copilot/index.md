@@ -1,3 +1,4 @@
+#sudo su 
 ---
 title: '{% data variables.product.prodname_copilot %} documentation'
 shortTitle: '{% data variables.product.prodname_copilot %}'
