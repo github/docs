@@ -228,7 +228,7 @@
     "@elastic/elasticsearch": "8.13.1",
     "@github/failbot": "0.8.3",
     "@horizon-rs/language-guesser": "0.1.1",
-    "@octokit/plugin-retry": "6.0.1",
+    "@octokit/plugin-retry": "7.1.2",
     "@octokit/request-error": "6.1.1",
     "@primer/behaviors": "^1.7.0",
     "@primer/css": "^21.3.1",
