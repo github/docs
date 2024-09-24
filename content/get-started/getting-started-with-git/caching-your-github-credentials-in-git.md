@@ -110,13 +110,18 @@ For more information or to report issues with GCM, see the official GCM docs at 
 
 There are [many Git credential helpers](https://git-scm.com/doc/credential-helpers). Those which can authenticate via OAuth might well serve to authenticate to Git with your {% data variables.product.product_name %} credentials. Note that a Git installation can work with multiple credential helpers — it tries each in turn, until one gets it access. Thus you can perhaps add a credential helper for {% data variables.product.product_name %} to your existing helpers. Follow the instructions for the helper, and the [Git credentials documentation](https://git-scm.com/docs/gitcredentials), to configure the helper.
 
-OAuth credential helpers will get you immediate access to your own repos. If you work with repos controlled by an organization, or with your forks and clones of those repos, then you must take an extra step. You must [request that organization's approval for OAuth access by your helper](https://docs.github.com/en/account-and-profile/setting-up-and-managing-your-personal-account-on-github/managing-your-membership-in-organizations/requesting-organization-approval-for-oauth-apps), and the [organization must approve access](https://docs.github.com/en/organizations/managing-oauth-access-to-your-organizations-data/approving-oauth-apps-for-your-organization). Access is pre-authorized for {% data variables.product.prodname_cli %} and Git Credential Manager. If you use those tools, you do not need to request approval.
+OAuth credential helpers will get you immediate access to your own repos. If you work with repos controlled by an organization, or with your forks and clones of those repos, then two extra steps are necessary.
+
+1. You must request that organization's approval for OAuth access by your helper. See "[AUTOTITLE](/account-and-profile/setting-up-and-managing-your-personal-account-on-github/managing-your-membership-in-organizations/requesting-organization-approval-for-oauth-apps)".
+2. The [organization must approve access. See "[AUTOTITLE](/organizations/managing-oauth-access-to-your-organizations-data/approving-oauth-apps-for-your-organization)".
+
+Access is pre-authorized for {% data variables.product.prodname_cli %} and Git Credential Manager. If you use those tools, you do not need to request approval.
 
 {% tip %}
 
-**Tip:** If you use a Git command which requires access to an organization's repo (e.g. `git fetch`), and your helper seems to authenticate correctly, but the command fails with an error, then check that you have received the organization's approval for OAuth access by that app. The error may say something like: 
+**Tip:** If you use a Git command which requires access to an organization's repo (e.g. `git fetch`), and your helper seems to authenticate correctly, but the command fails with an error, then check that you have received the organization's approval for OAuth access by that app. The error may say something like:
 
-```
+```text
 remote: Repository not found.
 fatal: repository 'https://github.com/ExampleUser/example-repo.git/' not found
 ```
