@@ -7,7 +7,7 @@ redirect_from:
   - /github/using-git/caching-your-github-credentials-in-git
   - /github/getting-started-with-github/caching-your-github-credentials-in-git
   - /github/getting-started-with-github/getting-started-with-git/caching-your-github-credentials-in-git
-intro: 'If you''re [cloning {% data variables.product.product_name %} repositories using HTTPS](/github/getting-started-with-github/about-remote-repositories), we recommend you use {% data variables.product.prodname_cli %} or Git Credential Manager (GCM) to remember your credentials.'
+intro: 'If you''re [cloning {% data variables.product.product_name %} repositories using HTTPS](/github/getting-started-with-github/about-remote-repositories), we recommend you use {% data variables.product.prodname_cli %} or a Git credential helper to authenticate and to remember your credentials.'
 versions:
   fpt: '*'
   ghes: '*'
@@ -23,7 +23,7 @@ shortTitle: Caching credentials
 
 ## {% data variables.product.prodname_cli %}
 
-{% data variables.product.prodname_cli %} will automatically store your Git credentials for you when you choose `HTTPS` as your preferred protocol for Git operations and answer "yes" to the prompt asking if you would like to authenticate to Git with your {% data variables.product.product_name %} credentials.
+{% data variables.product.prodname_cli %} works cooperatively with Git on your command line. It helps you log in to {% data variables.product.product_name %}, and automatically stores your Git credentials for you. Choose `HTTPS` as your preferred protocol for Git operations and answer "yes" to the prompt asking if you would like to authenticate to Git with your {% data variables.product.product_name %} credentials.
 
 1. [Install](https://github.com/cli/cli#installation) {% data variables.product.prodname_cli %} on macOS, Windows, or Linux.
 1. In the command line, enter `gh auth login`, then follow the prompts.
@@ -34,7 +34,7 @@ For more information about authenticating with {% data variables.product.prodnam
 
 ## Git Credential Manager
 
-[Git Credential Manager](https://github.com/GitCredentialManager/git-credential-manager) (GCM) is another way to store your credentials securely and connect to GitHub over HTTPS. With GCM, you don't have to manually [create and store a {% data variables.product.pat_generic %}](/authentication/keeping-your-account-and-data-secure/managing-your-personal-access-tokens), as GCM manages authentication on your behalf, including 2FA (two-factor authentication).
+[Git Credential Manager](https://github.com/GitCredentialManager/git-credential-manager) (GCM) extends your Git installation. On Git's behalf, it helps you log in to {% data variables.product.product_name %}, including 2FA (two-factor authentication), and stores your credentials securely. Or, if you have manually [created and stored a {% data variables.product.pat_generic %}](/authentication/keeping-your-account-and-data-secure/managing-your-personal-access-tokens), GCM can store that token securely, and provided it to {% data variables.product.product_name %} automatically when needed. In Git terms, GCM is an [OAuth credential helper](https://git-scm.com/docs/gitcredentials).
 
 {% mac %}
 
@@ -105,3 +105,20 @@ For more options for storing your credentials on Linux, see [Credential Storage]
 <br>
 
 For more information or to report issues with GCM, see the official GCM docs at "[Git Credential Manager](https://github.com/GitCredentialManager/git-credential-manager)."
+
+## Other Git credential helpers
+
+There are [many Git credential helpers](https://git-scm.com/doc/credential-helpers). Those which can authenticate via OAuth might well serve to authenticate to Git with your {% data variables.product.product_name %} credentials. Note that a Git installation can work with multiple credential helpers — it tries each in turn, until one gets it access. Thus you can perhaps add a credential helper for {% data variables.product.product_name %} to your existing helpers. Follow the instructions for the helper, and the [Git credentials documentation](https://git-scm.com/docs/gitcredentials), to configure the helper.
+
+OAuth credential helpers will get you immediate access to your own repos. If you work with repos controlled by an organization, or with your forks and clones of those repos, then you must take an extra step. You must [request that organization's approval for OAuth access by your helper](https://docs.github.com/en/account-and-profile/setting-up-and-managing-your-personal-account-on-github/managing-your-membership-in-organizations/requesting-organization-approval-for-oauth-apps), and the [organization must approve access](https://docs.github.com/en/organizations/managing-oauth-access-to-your-organizations-data/approving-oauth-apps-for-your-organization). Access is pre-authorized for {% data variables.product.prodname_cli %} and Git Credential Manager. If you use those tools, you do not need to request approval.
+
+{% tip %}
+
+**Tip:** If you use a Git command which requires access to an organization's repo (e.g. `git fetch`), and your helper seems to authenticate correctly, but the command fails with an error, then check that you have received the organization's approval for OAuth access by that app. The error may say something like: 
+
+```
+remote: Repository not found.
+fatal: repository 'https://github.com/ExampleUser/example-repo.git/' not found
+```
+
+{% endtip %}
