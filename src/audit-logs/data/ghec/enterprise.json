@@ -1205,6 +1205,16 @@
     "docs_reference_links": "N/A"
   },
   {
+    "action": "external_group.scim_api_failure",
+    "description": "Failed external group SCIM API request.",
+    "docs_reference_links": "/rest/scim/scim"
+  },
+  {
+    "action": "external_group.scim_api_success",
+    "description": "Successful external group SCIM API request. Excludes GET API requests.",
+    "docs_reference_links": "/rest/scim/scim"
+  },
+  {
     "action": "external_group.unlink",
     "description": "An external group was unlinked to a GitHub team.",
     "docs_reference_links": "N/A"
@@ -1228,6 +1238,16 @@
     "action": "external_identity.provision",
     "description": "An external identity was created and linked to a GitHub user.",
     "docs_reference_links": "N/A"
+  },
+  {
+    "action": "external_identity.scim_api_failure",
+    "description": "Failed external identity SCIM API request.",
+    "docs_reference_links": "/rest/scim/scim"
+  },
+  {
+    "action": "external_identity.scim_api_success",
+    "description": "Successful external identity SCIM API request. Excludes GET API requests.",
+    "docs_reference_links": "/rest/scim/scim"
   },
   {
     "action": "external_identity.update",
@@ -2535,6 +2555,11 @@
     "docs_reference_links": "/organizations/managing-peoples-access-to-your-organization-with-roles/about-custom-organization-roles"
   },
   {
+    "action": "organization_wide_project_base_role.update",
+    "description": "An organization's default project base role was updated.",
+    "docs_reference_links": "N/A"
+  },
+  {
     "action": "packages.package_deleted",
     "description": "An entire package was deleted.",
     "docs_reference_links": "/packages/learn-github-packages/deleting-and-restoring-a-package"
@@ -2687,6 +2712,11 @@
   {
     "action": "project.access",
     "description": "A project board visibility was changed.",
+    "docs_reference_links": "N/A"
+  },
+  {
+    "action": "project_base_role.update",
+    "description": "A project's base role was updated.",
     "docs_reference_links": "N/A"
   },
   {
