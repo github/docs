@@ -21,9 +21,9 @@ allowTitleToDifferFromFilename: true
 
 Once a secret has been committed to a repository, you should consider the secret compromised. {% data variables.product.github %} recommends the following actions for compromised secrets:
 
-* First verify that the secret committed to {% data variables.product.github %} is valid. {% ifversion fpt or ghes %}**Applies to {% data variables.product.company_short %} tokens only**. For more information, see "[Checking a secret's validity](/code-security/secret-scanning/managing-alerts-from-secret-scanning/evaluating-alerts#checking-a-secrets-validity)."{% endif %}{% ifversion secret-scanning-validity-check-partner-patterns %}For more information, see "[Performing an on-demand validity check](/code-security/secret-scanning/managing-alerts-from-secret-scanning/evaluating-alerts#performing-an-on-demand-validity-check)".{% endif %}{% ifversion secret-scanning-report-secret-github-pat %}
-* Report the leaked token to {% data variables.product.github %}. For more information, see "[Reporting a leaked secret](#reporting-a-leaked-secret)."{% endif %}
-* Review and update any services that use the old token. If required, delete the compromised token and create a new token.
+* Verify that the secret committed to {% data variables.product.github %} is valid. {% ifversion fpt or ghes %}**Applies to {% data variables.product.company_short %} tokens only**. See "[Checking a secret's validity](/code-security/secret-scanning/managing-alerts-from-secret-scanning/evaluating-alerts#checking-a-secrets-validity)."{% endif %}{% ifversion secret-scanning-validity-check-partner-patterns %}See "[Performing an on-demand validity check](/code-security/secret-scanning/managing-alerts-from-secret-scanning/evaluating-alerts#performing-an-on-demand-validity-check)".{% endif %}{% ifversion secret-scanning-report-secret-github-pat %}
+* {% ifversion ghec %}For secrets detected in private repositories, r{% else %}R{% endif %}eport the leaked secret to {% data variables.product.github %}. **Applies to {% data variables.product.company_short %} tokens only**. See "[Reporting a leaked secret](#reporting-a-leaked-secret)." {% endif %}
+* Review and update any services that use the old token. For {% data variables.product.github %} {% data variables.product.pat_generic %}s, delete the compromised token and create a new token. See "[AUTOTITLE](/authentication/keeping-your-account-and-data-secure/creating-a-personal-access-token)."
 * Check your security logs for any unauthorized activity. [TODO - LINK?]
 
 {% ifversion secret-scanning-report-secret-github-pat %}
@@ -47,11 +47,10 @@ For secrets detected in **private** repositories, anyone who can view {% data va
 
 By reporting the secret, the token provider will treat the privately exposed secret as if it had been publicly leaked. This means the token provider may revoke the secret, so you should first consider reviewing and updating any services that use the secret. If possible, you should also consider notifying the token owner before reporting the token, so that the token owner is aware that the secret may get revoked.
 
-You will only see the option to report the privately exposed secret to {% data variables.product.github %} if the following conditions are met:
+You will only see the option to report a privately exposed secret to {% data variables.product.github %} if the following conditions are met:
 
-* The secret's validity has not been confirmed.
-* The secret's validity has been confirmed as "active".
 * The secret is a {% data variables.product.github %} {% data variables.product.pat_generic %}.
+* The secret's validity has not been confirmed, or the secret's validity has been confirmed as `active`.
 
 {% data reusables.repositories.navigate-to-repo %}
 {% data reusables.repositories.sidebar-security %}
