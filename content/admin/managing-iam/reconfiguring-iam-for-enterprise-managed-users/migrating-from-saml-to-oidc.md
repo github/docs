@@ -33,17 +33,17 @@ If you're new to {% data variables.product.prodname_emus %} and haven't yet conf
 
 ## Prerequisites
 
-* Your enterprise on {% data variables.location.product_location %} must currently be configured to use SAML for authentication, with Entra ID as your identity provider (IdP). For more information, see "[AUTOTITLE](/admin/identity-and-access-management/using-enterprise-managed-users-for-iam/configuring-saml-single-sign-on-for-enterprise-managed-users)."
+* Your enterprise on {% data variables.product.github %} must currently be configured to use SAML for authentication, with Entra ID as your identity provider (IdP). For more information, see "[AUTOTITLE](/admin/identity-and-access-management/using-enterprise-managed-users-for-iam/configuring-saml-single-sign-on-for-enterprise-managed-users)."
 {% data reusables.emus.migration-roles-prereq %}
 {% data reusables.emus.migration-schedule-downtime %}
 
 ## Migrating your enterprise
 
-To migrate your enterprise from SAML to OIDC, you will disable your existing {% data variables.product.prodname_emu_idp_application %} application on Entra ID, prepare and begin the migration as the setup user for your enterprise on {% data variables.location.product_location %}, then install and configure the new application for OIDC on Entra ID. After the migration is complete and Entra ID provisions your users, the users can authenticate to access your enterprise's resources on {% data variables.location.product_location %} using OIDC.
+To migrate your enterprise from SAML to OIDC, you will disable your existing {% data variables.product.prodname_emu_idp_application %} application on Entra ID, prepare and begin the migration as the setup user for your enterprise on {% data variables.product.github %}, then install and configure the new application for OIDC on Entra ID. After the migration is complete and Entra ID provisions your users, the users can authenticate to access your enterprise's resources on {% data variables.product.github %} using OIDC.
 
 {% warning %}
 
-**Warning**: Migration of your enterprise from SAML to OIDC can take up to an hour. During the migration, users cannot access your enterprise on {% data variables.location.product_location %}.
+**Warning**: Migration of your enterprise from SAML to OIDC can take up to an hour. During the migration, users cannot access your enterprise on {% data variables.product.github %}.
 
 {% endwarning %}
 
@@ -57,7 +57,7 @@ To migrate your enterprise from SAML to OIDC, you will disable your existing {% 
 1. At the bottom of the page, next to "Migrate to OpenID Connect single sign-on", click **Configure with Azure**.
 1. Read the warning, then click **I understand, begin migrating to OpenID Connect**.
 {% data reusables.enterprise-accounts.emu-azure-admin-consent %}
-1. After you grant consent, a new browser window will open to {% data variables.location.product_location %} and display a new set of recovery codes for your {% data variables.enterprise.prodname_emu_enterprise %}. Download the codes, then click **Enable OIDC authentication**.
+1. After you grant consent, a new browser window will open to {% data variables.product.github %} and display a new set of recovery codes for your {% data variables.enterprise.prodname_emu_enterprise %}. Download the codes, then click **Enable OIDC authentication**.
 1. Wait for the migration to complete, which can take up to an hour. To check the status of the migration, navigate to your enterprise's authentication security settings page. If "Require SAML authentication" is selected, the migration is still in progress.
 
    {% warning %}
