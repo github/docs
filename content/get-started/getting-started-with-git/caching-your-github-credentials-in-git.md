@@ -113,7 +113,7 @@ There are [many Git credential helpers](https://git-scm.com/doc/credential-helpe
 OAuth credential helpers will get you immediate access to your own repos. If you work with repos controlled by an organization, or with your forks and clones of those repos, then two extra steps are necessary.
 
 1. You must request that organization's approval for OAuth access by your helper. See "[AUTOTITLE](/account-and-profile/setting-up-and-managing-your-personal-account-on-github/managing-your-membership-in-organizations/requesting-organization-approval-for-oauth-apps)".
-2. The [organization must approve access. See "[AUTOTITLE](/organizations/managing-oauth-access-to-your-organizations-data/approving-oauth-apps-for-your-organization)".
+2. The organization must approve access. See "[AUTOTITLE](/organizations/managing-oauth-access-to-your-organizations-data/approving-oauth-apps-for-your-organization)".
 
 Access is pre-authorized for {% data variables.product.prodname_cli %} and Git Credential Manager. If you use those tools, you do not need to request approval.
 
@@ -123,7 +123,7 @@ Access is pre-authorized for {% data variables.product.prodname_cli %} and Git C
 
 ```text
 remote: Repository not found.
-fatal: repository 'https://github.com/ExampleUser/example-repo.git/' not found
+fatal: repository 'https://github.com/User/repo.git/' not found
 ```
 
 {% endtip %}
