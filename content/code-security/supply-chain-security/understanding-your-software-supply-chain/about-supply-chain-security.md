@@ -87,7 +87,13 @@ The term "{% data variables.product.prodname_dependabot %}" encompasses the foll
 
 {% ifversion fpt or ghec %}Pull requests opened by {% data variables.product.prodname_dependabot %} can trigger workflows that run actions. For more information, see "[AUTOTITLE](/code-security/dependabot/working-with-dependabot/automating-dependabot-with-github-actions)."{% endif %}
 
-{% ifversion dependabot-on-actions-opt-in %}By default, {% data variables.product.prodname_dependabot_alerts %}, {% data variables.product.prodname_dependabot_security_updates %}, and {% data variables.product.prodname_dependabot_version_updates %} are run using the built-in {% data variables.product.prodname_dependabot %} application in {% data variables.product.product_name %}. You can instead choose to run {% data variables.product.prodname_dependabot_security_updates %} and {% data variables.product.prodname_dependabot_version_updates %} on {% data variables.product.prodname_actions %}, to take advantage of better performance, and increased visibility and control of {% data variables.product.prodname_dependabot_updates %} jobs. For more information, see "[AUTOTITLE](/code-security/dependabot/working-with-dependabot/about-dependabot-on-github-actions-runners)."
+{% ifversion dependabot-on-actions-opt-in %}By default:
+
+* If {% data variables.product.prodname_actions %} is enabled for the repository, {% data variables.product.prodname_dotcom %} runs {% data variables.product.prodname_dependabot_updates %} on {% data variables.product.prodname_actions %}.
+
+* If {% data variables.product.prodname_actions %} is not enabled for the repository, {% data variables.product.prodname_dotcom %} generates {% data variables.product.prodname_dependabot_alerts %} using the built-in {% data variables.product.prodname_dependabot %} application in {% data variables.product.product_name %}.
+
+For more information, see "[AUTOTITLE](/code-security/dependabot/working-with-dependabot/about-dependabot-on-github-actions-runners)."
 
 {% else %}
 

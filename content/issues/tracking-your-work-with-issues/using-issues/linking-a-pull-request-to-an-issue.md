@@ -9,6 +9,7 @@ redirect_from:
   - /github/managing-your-work-on-github/closing-issues-using-keywords
   - /github/managing-your-work-on-github/linking-a-pull-request-to-an-issue
   - /issues/tracking-your-work-with-issues/creating-issues/linking-a-pull-request-to-an-issue
+  - /issues/tracking-your-work-with-issues/linking-a-pull-request-to-an-issue
 versions:
   fpt: '*'
   ghes: '*'

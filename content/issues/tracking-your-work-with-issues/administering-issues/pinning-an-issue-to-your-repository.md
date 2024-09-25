@@ -7,6 +7,7 @@ redirect_from:
   - /articles/pinning-an-issue-to-your-repository
   - /github/managing-your-work-on-github/pinning-an-issue-to-your-repository
   - /issues/tracking-your-work-with-issues/managing-issues/pinning-an-issue-to-your-repository
+  - /issues/tracking-your-work-with-issues/pinning-an-issue-to-your-repository
 versions:
   fpt: '*'
   ghes: '*'

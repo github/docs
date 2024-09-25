@@ -9,6 +9,8 @@ type: overview
 topics:
   - Project management
   - Projects
+redirect_from:
+  - /issues/tracking-your-work-with-issues/planning-and-tracking-work-for-your-team-or-project
 ---
 ## Introduction
 
