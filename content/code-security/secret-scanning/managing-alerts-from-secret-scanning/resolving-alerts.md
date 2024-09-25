@@ -57,6 +57,7 @@ You will only see the option to report a privately exposed secret to {% data var
 1. In the left sidebar, under "Vulnerability alerts", click **{% data variables.product.prodname_secret_scanning_caps %}**.
 1. From the alert list, click the alert you want to view.
 1. In the alert view for the leaked secret, click **Report leak**.
+1. In order to prevent breaking workflows, consider first rotating the secret, as disclosing it could lead to the secret being revoked. If possible, you should also reach out to the token owner to let them know about the leak and coordinate a remediation plan.
 1. Review the information in the dialog box, then click **I understand the consequence, report this secret**.
 1. Once you've reported the secret, you can close the alert.
 
