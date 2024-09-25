@@ -18,6 +18,7 @@ redirect_from:
   - /articles/about-automation-for-issues-and-pull-requests-with-query-parameters
   - /github/managing-your-work-on-github/about-automation-for-issues-and-pull-requests-with-query-parameters
   - /issues/tracking-your-work-with-issues/creating-issues/creating-an-issue
+  - /issues/tracking-your-work-with-issues/creating-an-issue
 versions:
   fpt: '*'
   ghes: '*'

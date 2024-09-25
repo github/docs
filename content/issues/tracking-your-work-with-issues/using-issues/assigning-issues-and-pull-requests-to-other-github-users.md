@@ -7,6 +7,7 @@ redirect_from:
   - /articles/assigning-issues-and-pull-requests-to-other-github-users
   - /github/managing-your-work-on-github/assigning-issues-and-pull-requests-to-other-github-users
   - /issues/tracking-your-work-with-issues/managing-issues/assigning-issues-and-pull-requests-to-other-github-users
+  - /issues/tracking-your-work-with-issues/assigning-issues-and-pull-requests-to-other-github-users
 versions:
   fpt: '*'
   ghes: '*'

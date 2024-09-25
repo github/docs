@@ -6,6 +6,7 @@ redirect_from:
   - /articles/about-duplicate-issues-and-pull-requests
   - /github/managing-your-work-on-github/about-duplicate-issues-and-pull-requests
   - /issues/tracking-your-work-with-issues/managing-issues/marking-issues-or-pull-requests-as-a-duplicate
+  - /issues/tracking-your-work-with-issues/marking-issues-or-pull-requests-as-a-duplicate
 versions:
   fpt: '*'
   ghes: '*'
