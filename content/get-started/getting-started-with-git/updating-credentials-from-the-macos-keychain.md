@@ -52,7 +52,7 @@ echo url=https://github.com | git credential reject
 
 or that:
 
-```
+```shell
 echo url=https://author@git.example.org | git credential reject
 ```
 
