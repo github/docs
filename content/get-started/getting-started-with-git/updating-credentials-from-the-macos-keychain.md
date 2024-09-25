@@ -58,7 +58,6 @@ echo url=https://author@git.example.org | git credential reject
 
 For details see [https://git-scm.com/docs/gitfaq#http-reset-credentials](https://git-scm.com/docs/gitfaq#http-reset-credentials).
 
-
 ## Further reading
 
 * "[AUTOTITLE](/get-started/getting-started-with-git/caching-your-github-credentials-in-git)"
