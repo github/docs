@@ -37,7 +37,7 @@ This guide applies in any of the following situations.
 
 * You're **setting up SAML and SCIM for the first time**: you'll follow these instructions to get started.
 * You **already use SAML authentication**: you'll need to enable SCIM on your instance, plus either reconfigure SAML with an IdP application that supports automated provisioning or set up a SCIM integration with the REST API.
-* You were **enrolled in SCIM the private beta**: you'll need to reenable SCIM on your instance and, if you're using a partner IdP, reconfigure your settings on an updated IdP application.
+* You were **enrolled in the SCIM private beta**: you'll need to reenable SCIM on your instance and, if you're using a partner IdP, reconfigure your settings on an updated IdP application.
 
 {% endif %}
 
