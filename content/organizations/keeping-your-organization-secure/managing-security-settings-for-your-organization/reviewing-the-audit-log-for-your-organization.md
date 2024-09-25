@@ -45,9 +45,7 @@ To search for specific events, use the `action` qualifier in your query. Actions
 | `account` | Contains all activities related to your organization account.
 | `advisory_credit` | Contains all activities related to crediting a contributor for a security advisory in the {% data variables.product.prodname_advisory_database %}. For more information, see "[AUTOTITLE](/code-security/security-advisories/working-with-repository-security-advisories/about-repository-security-advisories)."
 | {% endif %} |
-| {% ifversion pat-v2%} |
 | `auto_approve_personal_access_token_requests` | Contains activities related to your organization's approval policy for {% data variables.product.pat_v2 %}s. For more information, see "[AUTOTITLE](/organizations/managing-programmatic-access-to-your-organization/setting-a-personal-access-token-policy-for-your-organization)."
-| {% endif %} |
 | {% ifversion fpt or ghec %} |
 | `billing` | Contains all activities related to your organization's billing.
 | `business` | Contains activities related to business settings for an enterprise. |
@@ -94,9 +92,7 @@ To search for specific events, use the `action` qualifier in your query. Actions
 | {% ifversion fpt or ghec %} |
 | `payment_method` | Contains all activities related to how your organization pays for GitHub.
 | {% endif %} |
-| {% ifversion pat-v2%} |
 | `personal_access_token` | Contains activities related to {% data variables.product.pat_v2 %}s in your organization. For more information, see "[AUTOTITLE](/authentication/keeping-your-account-and-data-secure/creating-a-personal-access-token)."
-| {% endif %} |
 | `profile_picture`| Contains all activities related to your organization's profile picture.
 | `project` | Contains all activities related to {% data variables.projects.projects_v1_boards %}.
 | `protected_branch` | Contains all activities related to protected branches.

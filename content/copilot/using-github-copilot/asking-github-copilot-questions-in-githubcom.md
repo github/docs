@@ -431,6 +431,10 @@ You can ask {% data variables.product.prodname_copilot_short %} a question about
 
 {% data reusables.copilot.stop-response-generation %}
 
+## Extending {% data variables.product.prodname_copilot_chat_dotcom_short %}
+
+{% data reusables.copilot.copilot-extensions.extending-copilot-chat %}
+
 ## Sharing feedback about {% data variables.product.prodname_copilot_chat_dotcom %}
 
 {% data reusables.rai.copilot-dotcom-feedback-collection %}

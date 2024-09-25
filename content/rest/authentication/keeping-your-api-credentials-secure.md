@@ -24,15 +24,7 @@ For more information, see "[AUTOTITLE](/authentication/keeping-your-account-and-
 
 ## Limit the permissions of your credentials
 
-{% ifversion pat-v2 %}
-
 When creating a {% data variables.product.pat_generic %}, only select the minimum permissions or scopes needed, and set an expiration date for the minimum amount of time you'll need to use the token. {% data variables.product.company_short %} recommends that you use {% data variables.product.pat_v2 %}s instead of {% data variables.product.pat_v1_plural %}. For more information, see "[AUTOTITLE](/authentication/keeping-your-account-and-data-secure/managing-your-personal-access-tokens#types-of-personal-access-tokens)."
-
-{% else %}
-
-When creating a {% data variables.product.pat_generic %}, only select the minimum scopes needed, and set an expiration date for the minimum amount of time you'll need to use the token. For more information, see "[AUTOTITLE](/authentication/keeping-your-account-and-data-secure/managing-your-personal-access-tokens)."
-
-{% endif %}
 
 {% data reusables.user-settings.token_access_capabilities %}
 

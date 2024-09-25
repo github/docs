@@ -91,6 +91,8 @@ You can validate a GHSA ID using a regular expression.
 
 ### About CVSS levels
 
+{% ifversion cvss-4 %} The {% data variables.product.prodname_advisory_database %} supports both CVSS version 3.1 and CVSS version 4.0.{% endif %}
+
 Each security advisory contains information about the vulnerability or malware, which may include the description, severity, affected package, package ecosystem, affected versions and patched versions, impact, and optional information such as references, workarounds, and credits. In addition, advisories from the National Vulnerability Database list contain a link to the CVE record, where you can read more details about the vulnerability, its CVSS scores, and its qualitative severity level. For more information, see the "[National Vulnerability Database](https://nvd.nist.gov/)" from the National Institute of Standards and Technology.
 
 The severity level is one of four possible levels defined in the "[Common Vulnerability Scoring System (CVSS), Section 5](https://www.first.org/cvss/specification-document)."
@@ -99,7 +101,7 @@ The severity level is one of four possible levels defined in the "[Common Vulner
 * High
 * Critical
 
-The {% data variables.product.prodname_advisory_database %} uses the CVSS levels described above. If {% data variables.product.company_short %} obtains a CVE, the {% data variables.product.prodname_advisory_database %} uses CVSS version 3.1. If the CVE is imported, the {% data variables.product.prodname_advisory_database %} supports both CVSS versions 3.0 and 3.1.
+The {% data variables.product.prodname_advisory_database %} uses the CVSS levels described above. If {% data variables.product.company_short %} obtains a CVE, the {% data variables.product.prodname_advisory_database %} uses the CVSS version assigned by the maintainer, which can be version 3.1{% ifversion cvss-4 %} or 4.0{% endif %}. If the CVE is imported, the {% data variables.product.prodname_advisory_database %} supports CVSS versions {% ifversion cvss-4 %}4.0, {% endif %}3.1 and 3.0.
 
 {% data reusables.repositories.github-security-lab %}
 

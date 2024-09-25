@@ -29,7 +29,6 @@ This example uses {% data variables.product.prodname_actions %}, but you can als
 
 The built in `GITHUB_TOKEN` does not have sufficient permissions to redeliver webhooks. Instead of using `GITHUB_TOKEN`, this example uses a {% data variables.product.pat_generic %}. Alternatively, instead of creating a {% data variables.product.pat_generic %}, you can create a {% data variables.product.prodname_github_app %} and use the app's credentials to create an installation access token during the {% data variables.product.prodname_actions %} workflow. For more information, see "[AUTOTITLE](/apps/creating-github-apps/authenticating-with-a-github-app/making-authenticated-api-requests-with-a-github-app-in-a-github-actions-workflow)."
 
-{% ifversion pat-v2 %}
 1. Create a {% data variables.product.pat_generic %} with the following access. For more information, see "[AUTOTITLE](/authentication/keeping-your-account-and-data-secure/managing-your-personal-access-tokens)."
    * For a {% data variables.product.pat_v2 %}:
      * Set resource owner to be the organization where your webhook was created
@@ -37,9 +36,6 @@ The built in `GITHUB_TOKEN` does not have sufficient permissions to redeliver we
      * Grant the token write access to the organization webhooks permission
      * Grant the token write access to the repository variables permission
    * For a {% data variables.product.pat_v1 %}, grant the token the `admin:org_hook` and `repo` scope.
-{% else %}
-1. Create a {% data variables.product.pat_v1 %} with the `admin:org_hook` and `repo` scope. For more information, see "[AUTOTITLE](/authentication/keeping-your-account-and-data-secure/managing-your-personal-access-tokens)."
-{% endif %}
 1. Store your {% data variables.product.pat_generic %} as a {% data variables.product.prodname_actions %} secret in the repository where you want the workflow to run. For more information, see "[AUTOTITLE](/actions/security-guides/encrypted-secrets)."
 
 ## Adding a workflow that will run the script

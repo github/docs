@@ -27,6 +27,20 @@ topics:
 
 If you use a partner IdP, you can simplify the configuration of SCIM provisioning by using the partner IdP's application. If you don't use a partner IdP for provisioning, you can implement SCIM using calls to {% data variables.product.company_short %}'s REST API for SCIM{% ifversion ghec %}, which is in beta and subject to change{% endif %}. For more information, see {% ifversion ghec %}"[AUTOTITLE](/admin/managing-iam/understanding-iam-for-enterprises/about-enterprise-managed-users#identity-management-systems)."{% else %}"[AUTOTITLE](/admin/managing-iam/provisioning-user-accounts-with-scim/user-provisioning-with-scim-on-ghes#supported-identity-providers)."{% endif %}
 
+{% ifversion ghes %}
+
+## Who needs to follow these instructions?
+
+Even if your instance already uses SAML authentication, or if you were enrolled in the SCIM private beta on a previous {% data variables.product.prodname_ghe_server %} version, you must ensure you have followed **all instructions in this guide** to enable SCIM in version 3.14 and later.
+
+This guide applies in any of the following situations.
+
+* You're **setting up SAML and SCIM for the first time**: you'll follow these instructions to get started.
+* You **already use SAML authentication**: you'll need to enable SCIM on your instance, plus either reconfigure SAML with an IdP application that supports automated provisioning or set up a SCIM integration with the REST API.
+* You were **enrolled in the SCIM private beta**: you'll need to reenable SCIM on your instance and, if you're using a partner IdP, reconfigure your settings on an updated IdP application.
+
+{% endif %}
+
 {% ifversion ghec %}
 
 ## About user lifecycle management with SCIM
@@ -86,7 +100,7 @@ To ensure you can continue to sign in and configure settings when SCIM is enable
 
 > [!NOTE] Complete this section if either of the following situations applies:
 > * If you have **not already enabled SAML authentication**, you will need to do so before you can enable SCIM.
-> * If you already use SAML authentication and want to use a **partner IdP for both authentication and provisioning**, you must configure SAML using an application that supports automatic provisioning via SCIM.
+> * If you already use SAML authentication and want to use a **partner IdP for both authentication and provisioning**, or if you're **upgrading from the SCIM private beta**, you must reconfigure SAML using a new application.
 
 1. Sign in to your instance as a user with access to the Management Console.
 1. Go to the "Authentication" section of the Management Console. For instructions, see "[AUTOTITLE](/admin/managing-iam/using-saml-for-enterprise-iam/configuring-saml-single-sign-on-for-your-enterprise#configuring-saml-sso)."

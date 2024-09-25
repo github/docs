@@ -205,6 +205,10 @@ You can ask {% data variables.product.prodname_copilot_chat_short %} to give cod
 
 You can use special keywords to help {% data variables.product.prodname_copilot_short %} understand your prompt.
 
+### Extending {% data variables.product.prodname_copilot_chat_short %}
+
+{% data reusables.copilot.copilot-extensions.extending-copilot-chat %}
+
 ### Slash commands
 
 Use slash commands to avoid writing complex prompts for common scenarios. To use a slash command, type `/` in the chat prompt box, followed by a command. Slash commands include:
