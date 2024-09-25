@@ -3,7 +3,7 @@ import { useRouter } from 'next/router'
 import { BeakerIcon } from '@primer/octicons-react'
 
 import { useTranslation } from 'src/languages/components/useTranslation'
-import { Box, Flash, FormControl, Spinner, TextInput } from '@primer/react'
+import { Box, Flash, FormControl, Spinner, Text, TextInput } from '@primer/react'
 import { Dialog } from '@primer/react/experimental'
 import { useEditableDomainName } from './useEditableDomainContext'
 import { sendEvent, EventType } from 'src/events/components/events'
@@ -225,7 +225,7 @@ function SubmissionError({ error }: { error: boolean }) {
   if (error) {
     return (
       <Flash variant="danger">
-        <p>{t('submission_failed')}</p>
+        <Text>{t('submission_failed')}</Text>
       </Flash>
     )
   }
@@ -293,12 +293,12 @@ function LearnMoreSnippet() {
   const { t } = useTranslation(TRANSLATION_NAMESPACE)
   return (
     <Box sx={{ p: 3 }}>
-      <p>
+      <Text>
         {t('snippet_about')}{' '}
         <a href="/enterprise-server@latest/early-access/admin/articles/editing-host-names-in-github-docs">
           {t('learn_more')}
         </a>
-      </p>
+      </Text>
     </Box>
   )
 }

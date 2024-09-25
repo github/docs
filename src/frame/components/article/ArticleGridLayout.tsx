@@ -25,7 +25,7 @@ export const ArticleGridLayout = ({
 }: Props) => {
   const containerBoxStyles = fullWidth ? '' : styles.containerBox
   return (
-    <div className={cx(containerBoxStyles, className)}>
+    <Box className={cx(containerBoxStyles, className)}>
       {topper && <Box gridArea="topper">{topper}</Box>}
       {intro && (
         <Box id="article-intro" gridArea="intro" className="f4 pb-4">
@@ -52,6 +52,6 @@ export const ArticleGridLayout = ({
           )}
         {children}
       </Box>
-    </div>
+    </Box>
   )
 }

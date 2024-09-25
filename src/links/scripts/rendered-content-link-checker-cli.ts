@@ -104,7 +104,7 @@ program
       let stats
       try {
         stats = fs.statSync(resolvedPath)
-      } catch {
+      } catch (error) {
         // Ignore
       }
 
