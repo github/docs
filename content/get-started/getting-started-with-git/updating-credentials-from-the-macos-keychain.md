@@ -44,6 +44,21 @@ protocol=https
 
 If it's successful, nothing will print out. To test that it works, try and clone a private repository. If you are prompted for a password, the keychain entry was deleted.
 
+If the code above did not work, you may try that:
+
+```shell
+echo url=https://github.com | git credential reject
+```
+
+or that:
+
+```
+echo url=https://author@git.example.org | git credential reject
+```
+
+For details see [https://git-scm.com/docs/gitfaq#http-reset-credentials](https://git-scm.com/docs/gitfaq#http-reset-credentials).
+
+
 ## Further reading
 
 * "[AUTOTITLE](/get-started/getting-started-with-git/caching-your-github-credentials-in-git)"
