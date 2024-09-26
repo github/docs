@@ -126,7 +126,7 @@ The skills you can use in {% data variables.product.prodname_copilot_chat_short 
 
 | Skill  | Description | Enabled by default? | Example question |
 | ------- | ----------- | ------------------- | -----------------|
-| **Code search** | Natural language code search in the default branch of the Git repository. This skill is useful when you want to know where or how certain functionality has been implemented in the code. Note: the repository must be indexed - see "[AUTOTITLE](/enterprise-cloud@latest/copilot/managing-copilot/managing-github-copilot-in-your-organization/managing-github-copilot-features-in-your-organization/indexing-repositories-for-copilot-chat)." | Yes | `@github Where is the logic that controls the user session management, and how does it work?` |
+| **Code search** | Natural language code search in the default branch of the Git repository. This skill is useful when you want to know where or how certain functionality has been implemented in the code. Note: the repository must be indexed - see "[AUTOTITLE](/copilot/managing-copilot/managing-github-copilot-in-your-organization/managing-github-copilot-features-in-your-organization/indexing-repositories-for-copilot-chat)." | Yes | `@github Where is the logic that controls the user session management, and how does it work?` |
 | **Path search** | Retrieves a specific file in the default branch of the Git repository. This skill is useful when you provide the exact path of a file in the repository. | Yes | `@github What logic does user_auth.js encapsulate?` |
 | **Show symbol definition** | Retrieves the lines of code that define a specific code symbol (function, class, or struct) in the default branch of the Git repository. This skill is useful when you have the exact name of a symbol, and want to understand it. | Yes | `@github Write unit tests for the AuthUser method` |
 | **Knowledge base search** | Tell {% data variables.product.prodname_copilot_chat_short %} to answer a question within the context of a knowledge base. To initiate a knowledge base search, first enter `@github #kb`. | Yes | Enter `@github #kb`, then choose your organization's style guide knowledge base, then ask: `What is our coding convention for indentation?` |
@@ -167,12 +167,10 @@ To leave feedback about the {% data variables.product.prodname_copilot_chat %} e
 
 * "[AUTOTITLE](/copilot/using-github-copilot/prompt-engineering-for-github-copilot)"
 * [Using Copilot Chat in VS Code](https://code.visualstudio.com/docs/copilot/copilot-chat) and [Getting started with GitHub Copilot Chat in VS Code](https://code.visualstudio.com/docs/copilot/getting-started-chat) in the {% data variables.product.prodname_vscode %} documentation
-{%- ifversion ghec %}
-* "[AUTOTITLE](/enterprise-cloud@latest/copilot/github-copilot-enterprise/copilot-chat-in-github/using-github-copilot-chat-in-githubcom)"
-{%- endif %}
+* "[AUTOTITLE](/copilot/github-copilot-enterprise/copilot-chat-in-github/using-github-copilot-chat-in-githubcom)"
 * "[AUTOTITLE](/copilot/github-copilot-chat/about-github-copilot-chat)"
-* "[AUTOTITLE](/free-pro-team@latest/site-policy/github-terms/github-terms-for-additional-products-and-features#github-copilot)"{% ifversion ghec %}
-* [{% data variables.product.prodname_copilot %} Trust Center](https://resources.github.com/copilot-trust-center){% endif %}
+* "[AUTOTITLE](/free-pro-team@latest/site-policy/github-terms/github-terms-for-additional-products-and-features#github-copilot)"
+* [{% data variables.product.prodname_copilot %} Trust Center](https://resources.github.com/copilot-trust-center)
 * [{% data variables.product.prodname_copilot %} FAQ](https://github.com/features/copilot#faq)
 
 {% endvscode %}
@@ -251,7 +249,7 @@ The skills you can use in {% data variables.product.prodname_copilot_chat_short 
 
 | Skill  | Description | Enabled by default? | Example question |
 | ------- | ----------- | ------------------- | -----------------|
-| **Code search** | Natural language code search in the default branch of the Git repository. This skill is useful when you want to know where or how certain functionality has been implemented in the code. Note: the repository must be indexed - see "[AUTOTITLE](/enterprise-cloud@latest/copilot/managing-copilot/managing-github-copilot-in-your-organization/managing-github-copilot-features-in-your-organization/indexing-repositories-for-copilot-chat)." | Yes | `@github Where is the logic that controls the user session management, and how does it work?` |
+| **Code search** | Natural language code search in the default branch of the Git repository. This skill is useful when you want to know where or how certain functionality has been implemented in the code. Note: the repository must be indexed - see "[AUTOTITLE](/copilot/managing-copilot/managing-github-copilot-in-your-organization/managing-github-copilot-features-in-your-organization/indexing-repositories-for-copilot-chat)." | Yes | `@github Where is the logic that controls the user session management, and how does it work?` |
 | **Path search** | Retrieves a specific file in the default branch of the Git repository. This skill is useful when you provide the exact path of a file in the repository. | Yes | `@github What logic does user_auth.js encapsulate?` |
 | **Show symbol definition** | Retrieves the lines of code that define a specific code symbol (function, class, or struct) in the default branch of the Git repository. This skill is useful when you have the exact name of a symbol, and want to understand it. | Yes | `@github Write unit tests for the AuthUser method` |
 | **Web search** | Searches the web using the Bing search engine. This skill is useful for teaching Copilot about recent events, new developments, trends, technologies, or extremely specific, detailed, or niche subjects. | No (requires admin approval - see "[AUTOTITLE](/copilot/managing-copilot/managing-copilot-for-your-enterprise/managing-policies-and-features-for-copilot-in-your-enterprise)")| `@github What are some recent articles about SAT tokens securing against vulnerabilities in Node?` |
@@ -296,12 +294,10 @@ To share feedback about {% data variables.product.prodname_copilot_chat_short %}
 * "[AUTOTITLE](/copilot/using-github-copilot/prompt-engineering-for-github-copilot)"
 * [Using {% data variables.product.prodname_copilot_chat %} in {% data variables.product.prodname_vs %} in the Microsoft Learn documentation](https://learn.microsoft.com/visualstudio/ide/visual-studio-github-copilot-chat?view=vs-2022#use-copilot-chat-in-visual-studio)
 * [Tips to improve {% data variables.product.prodname_copilot_chat %} results in the Microsoft Learn documentation](https://learn.microsoft.com/en-us/visualstudio/ide/copilot-chat-context?view=vs-2022)
-{%- ifversion ghec %}
-* "[AUTOTITLE](/enterprise-cloud@latest/copilot/github-copilot-enterprise/copilot-chat-in-github/using-github-copilot-chat-in-githubcom)"
-{%- endif %}
+* "[AUTOTITLE](/copilot/github-copilot-enterprise/copilot-chat-in-github/using-github-copilot-chat-in-githubcom)"
 * "[AUTOTITLE](/copilot/github-copilot-chat/about-github-copilot-chat)"
-* "[AUTOTITLE](/free-pro-team@latest/site-policy/github-terms/github-terms-for-additional-products-and-features#github-copilot)"{% ifversion ghec %}
-* [{% data variables.product.prodname_copilot %} Trust Center](https://resources.github.com/copilot-trust-center){% endif %}
+* "[AUTOTITLE](/free-pro-team@latest/site-policy/github-terms/github-terms-for-additional-products-and-features#github-copilot)"
+* [{% data variables.product.prodname_copilot %} Trust Center](https://resources.github.com/copilot-trust-center)
 * [{% data variables.product.prodname_copilot %} FAQ](https://github.com/features/copilot#faq)
 
 {% endvisualstudio %}
@@ -372,12 +368,11 @@ To share feedback about {% data variables.product.prodname_copilot_chat_short %}
 ## Further reading
 
 * "[AUTOTITLE](/copilot/using-github-copilot/prompt-engineering-for-github-copilot)"
-{%- ifversion ghec %}
-* "[AUTOTITLE](/enterprise-cloud@latest/copilot/github-copilot-enterprise/copilot-chat-in-github/using-github-copilot-chat-in-githubcom)"{% endif %}
+* "[AUTOTITLE](/copilot/github-copilot-enterprise/copilot-chat-in-github/using-github-copilot-chat-in-githubcom)"
 * "[AUTOTITLE](/copilot/github-copilot-chat/about-github-copilot-chat)"
 * "[AUTOTITLE](/free-pro-team@latest/site-policy/github-terms/github-copilot-pre-release-terms)"
-* "[AUTOTITLE](/free-pro-team@latest/site-policy/github-terms/github-terms-for-additional-products-and-features#github-copilot) "{% ifversion ghec %}
-* [{% data variables.product.prodname_copilot %} Trust Center](https://resources.github.com/copilot-trust-center){% endif %}
+* "[AUTOTITLE](/free-pro-team@latest/site-policy/github-terms/github-terms-for-additional-products-and-features#github-copilot)"
+* [{% data variables.product.prodname_copilot %} Trust Center](https://resources.github.com/copilot-trust-center)
 * [{% data variables.product.prodname_copilot %} FAQ](https://github.com/features/copilot#faq)
 
 {% endjetbrains %}
