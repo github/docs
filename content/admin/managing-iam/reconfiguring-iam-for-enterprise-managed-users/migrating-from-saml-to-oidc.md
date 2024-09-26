@@ -65,7 +65,7 @@ To migrate your enterprise from SAML to OIDC, you will disable your existing {% 
    **Warning:** Do not provision new users from the application on Entra ID during the migration.
 
    {% endwarning %}
-1. In a new tab or window, while signed in as the setup user, create a {% data variables.product.pat_v1 %} with the **admin:enterprise** scope and **no expiration** and copy it to your clipboard. For more information about creating a new token, see "[AUTOTITLE](/admin/identity-and-access-management/using-enterprise-managed-users-for-iam/configuring-scim-provisioning-for-enterprise-managed-users#creating-a-personal-access-token)."
+1. In a new tab or window, while signed in as the setup user, create a {% data variables.product.pat_v1 %} with the **scim:enterprise** scope and **no expiration** and copy it to your clipboard. For more information about creating a new token, see "[AUTOTITLE](/admin/identity-and-access-management/using-enterprise-managed-users-for-iam/configuring-scim-provisioning-for-enterprise-managed-users#creating-a-personal-access-token)."
 1. In the provisioning settings for the {% data variables.product.prodname_emu_idp_oidc_application %} application in the Microsoft Entra admin center, under "Tenant URL", type `https://api.github.com/scim/v2/enterprises/YOUR_ENTERPRISE`, replacing YOUR_ENTERPRISE with the name of your enterprise account.
 
    For example, if your enterprise account's URL is `https://github.com/enterprises/octo-corp`, the name of the enterprise account is `octo-corp`.
