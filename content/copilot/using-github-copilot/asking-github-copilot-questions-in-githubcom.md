@@ -76,6 +76,28 @@ The skills you can use in {% data variables.product.prodname_copilot_chat_dotcom
 | **Symbol definition**                                          | Retrieves the lines of code that define a specific code symbol (function, class, or struct) in the default branch of the Git repository. This skill is useful when you have the exact name of a symbol, and want to understand it.                                                                                                                                                                                                                                          | Yes                                                                                                                                                                            | _Write unit tests for the AuthUser method_                                                                                                            |
 | **Support search**                                             | Retrieves information from the {% data variables.contact.contact_support_portal %}. This skill is useful for asking {% data variables.product.prodname_copilot_chat_short %} about {% data variables.product.prodname_dotcom %} products and support related questions.                                                                                                                                                                                                     | Yes                                                                                                                                                                            | _Can I use {% data variables.product.prodname_copilot_short %} knowledge bases with {% data variables.product.prodname_copilot_individuals_short %}?_ |
 
+## AI models for {% data variables.product.prodname_copilot_chat_short %}
+
+{% data reusables.copilot.copilot-chat-models-beta-note %}
+
+{% data reusables.copilot.copilot-chat-models-list %}
+
+### Changing your AI model
+
+> [!NOTE]
+> * The `o1-preview` and `o1-mini` models do not have access to skills {% ifversion ghec %}or knowledge bases {% endif %}in {% data variables.product.prodname_copilot_chat_dotcom %}. If you want to use skills {% ifversion ghec %}or knowledge bases {% endif %}on {% data variables.product.prodname_dotcom_the_website %}, you must use the `gpt-4o` model.
+> * If you use {% data variables.product.prodname_copilot_extensions_short %}, they may override the model you select.
+> * Experimental pre-release versions of the models may not interact with all filters correctly, including the duplication detection filter.
+
+{% data reusables.copilot.model-picker-enable-preview-features %}
+1. In the bottom right of any page on {% data variables.product.github %}, click {% octicon "copilot" aria-label="Open Copilot Chat" %}.
+1. If the panel contains a previous conversation you had with {% data variables.product.prodname_copilot_short %}, in the top right of the panel, click {% octicon "plus" aria-label="New conversation" %}.
+
+   ![Screenshot of the new conversation button, highlighted with a dark orange outline.](/assets/images/help/copilot/chat-new-conversation-button.png)
+
+1. In the top right of the panel, select the {% octicon "kebab-horizontal" aria-label="Open conversation options" %} dropdown menu, then click {% octicon "screen-full" aria-hidden="true" %} **Take conversation to immersive**. Model selection for {% data variables.product.prodname_copilot_chat_short %} is currently only available in the immersive view.
+1. In the top left of the immersive view, select the **CURRENT-MODEL** {% octicon "chevron-down" aria-hidden="true" %} dropdown menu, then click the AI model of your choice.
+
 ## Asking a general question about software development
 
 You can ask a general question about software development that is not focused on a particular context, such as a repository{% ifversion ghec %} or a knowledge base{% endif %}.

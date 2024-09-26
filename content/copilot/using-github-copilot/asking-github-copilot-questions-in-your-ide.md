@@ -33,14 +33,14 @@ shortTitle: Chat in IDE
 
 The model picker in Chat view is a pre-release feature and requires the latest version of [VS Code Insiders](https://code.visualstudio.com/insiders/), as well as the {% data variables.product.prodname_copilot_short %} pre-release extension.
 
-{% data reusables.copilot.model-picker-enable-preview-features %}
-{% data reusables.copilot.open-chat-vs-code %}
-1. In the bottom right of the chat view, select the **CURRENT-MODEL** {% octicon "chevron-down" aria-hidden="true" %} dropdown menu, then click the AI model of your choice.
-
 > [!NOTE]
 >
 > * If you use {% data variables.product.prodname_copilot_extensions_short %}, they may override the model you select.
 > * Experimental pre-release versions of the models may not interact with all filters correctly, including the duplication detection filter.
+
+{% data reusables.copilot.model-picker-enable-preview-features %}
+{% data reusables.copilot.open-chat-vs-code %}
+1. In the bottom right of the chat view, select the **CURRENT-MODEL** {% octicon "chevron-down" aria-hidden="true" %} dropdown menu, then click the AI model of your choice.
 
 ## Submitting prompts
 
