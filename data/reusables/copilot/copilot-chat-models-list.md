@@ -1,4 +1,4 @@
-For those enrolled in the model selection beta for {% data variables.product.prodname_copilot_chat_short %} in {% data variables.product.prodname_vscode_shortname %}, the following models are currently available:
+For those enrolled in the model selection beta for {% data variables.product.prodname_copilot_chat_short %}, the following models are currently available:
 
 * `gpt-4o`: This is the default {% data variables.product.prodname_copilot_chat_short %} model. It is a versatile, multimodal model that excels in both text and image processing and is designed to provide fast, reliable responses. It also has superior performance in non-English languages.
 * `o1-preview`: This model is focused on advanced reasoning and solving complex problems, in particular in math and science. It responds more slowly than the `gpt-4o` model. You can make 10 requests to this model per day.
