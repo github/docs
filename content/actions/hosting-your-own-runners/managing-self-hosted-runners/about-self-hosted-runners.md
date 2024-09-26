@@ -216,13 +216,9 @@ Untrusted workflows running on your self-hosted runner pose significant security
 
 For more information about security hardening for self-hosted runners, see "[AUTOTITLE](/actions/security-guides/security-hardening-for-github-actions#hardening-for-self-hosted-runners)."
 
-{% ifversion actions-disable-repo-runners %}
-
 ### Restricting the use of self-hosted runners
 
 {% data reusables.actions.disable-selfhosted-runners-crossrefs %}
-
-{% endif %}
 
 {% ifversion ghec or ghes %}
 

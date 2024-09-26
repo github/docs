@@ -16,7 +16,7 @@ topics:
   - PowerShell
 shortTitle: Build & test PowerShell
 ---
- 
+
 {% data reusables.actions.enterprise-github-hosted-runners %}
 
 ## Introduction
@@ -109,7 +109,7 @@ The table below describes the locations for various PowerShell modules in each {
 
 {% endnote %}
 
-{% ifversion actions-caching %}You can also cache dependencies to speed up your workflow. For more information, see "[AUTOTITLE](/actions/using-workflows/caching-dependencies-to-speed-up-workflows)."{% endif %}
+You can also cache dependencies to speed up your workflow. For more information, see "[AUTOTITLE](/actions/using-workflows/caching-dependencies-to-speed-up-workflows)."
 
 For example, the following job installs the `SqlServer` and `PSScriptAnalyzer` modules:
 
@@ -133,8 +133,6 @@ jobs:
 
 {% endnote %}
 
-{% ifversion actions-caching %}
-
 ### Caching dependencies
 
 You can cache PowerShell dependencies using a unique key, which allows you to restore the dependencies for future workflows with the [`cache`](https://github.com/marketplace/actions/cache) action. For more information, see "[AUTOTITLE](/actions/using-workflows/caching-dependencies-to-speed-up-workflows)."
@@ -157,8 +155,6 @@ steps:
       Set-PSRepository PSGallery -InstallationPolicy Trusted
       Install-Module SqlServer, PSScriptAnalyzer -ErrorAction Stop
 ```
-
-{% endif %}
 
 ## Testing your code
 
