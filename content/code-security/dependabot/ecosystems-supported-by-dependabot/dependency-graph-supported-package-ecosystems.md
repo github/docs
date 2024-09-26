@@ -28,7 +28,7 @@ The recommended formats explicitly define which versions are used for all direct
 
 {% data reusables.dependency-graph.supported-package-ecosystems %}
 
-## Supported package ecosystems via dependency submission actions
+## Package ecosystems supported via dependency submission actions
 
 You can use the {% data variables.dependency-submission-api.name %} to add dependencies from the package manager or ecosystem of your choice to the dependency graph, even if the ecosystem is not in the supported ecosystem list above. {% data reusables.dependency-graph.dependency-submission-API-short %} For more information on the {% data variables.dependency-submission-api.name %}, see "[AUTOTITLE](/code-security/supply-chain-security/understanding-your-software-supply-chain/using-the-dependency-submission-api)."
 
@@ -39,7 +39,5 @@ Dependency information from these discovered and submitted dependencies will, in
 You typically use the {% data variables.dependency-submission-api.name %} in a {% data variables.product.prodname_actions %} workflow to submit dependencies for your project when your project is built. {% data reusables.dependency-submission.api-premade-actions %} You can find links to the currently available actions in the table below.
 
 {% data reusables.dependency-submission.premade-action-table %}
-
-TODO: - Move more content from "[AUTOTITLE](/code-security/supply-chain-security/understanding-your-software-supply-chain/using-the-dependency-submission-api) to here?
 
 You can also create your own action. For more information, see "[AUTOTITLE](/code-security/supply-chain-security/understanding-your-software-supply-chain/using-the-dependency-submission-api#creating-your-own-action)."
