@@ -286,7 +286,7 @@ To stream audit logs to Splunk's HTTP Event Collector (HEC) endpoint, make sure 
 
 ## Pausing audit log streaming
 
-Pause the stream to perform maintenance on the receiving application without losing audit data. Audit logs are stored for up to seven days on {% data variables.location.product_location %} and are then exported when you unpause the stream.
+Pause the stream to perform maintenance on the receiving application without losing audit data. Audit logs are stored for up to seven days on {% data variables.product.github %} and are then exported when you unpause the stream.
 
 {% ifversion streaming-datadog %}
 Datadog only accepts logs from up to 18 hours in the past. If you pause a stream to a Datadog endpoint for more than 18 hours, you risk losing logs that Datadog won't accept after you resume streaming.

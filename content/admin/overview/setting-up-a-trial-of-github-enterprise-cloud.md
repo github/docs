@@ -63,6 +63,8 @@ You can create up to **three new organizations** in the trial enterprise, or tra
 
 You can end your trial at any time by purchasing {% data variables.product.prodname_enterprise %} or canceling the trial. Otherwise, after {% data reusables.enterprise.ghec-trial-length %} days, your trial will expire.
 
+{% data variables.product.prodname_enterprise %} trial accounts are automatically deleted 90 days after the trial period ends if the account has not been converted to a paid account.
+
 If you **purchase {% data variables.product.prodname_enterprise %}**:
 
 {% ifversion metered-ghe-ghas%}

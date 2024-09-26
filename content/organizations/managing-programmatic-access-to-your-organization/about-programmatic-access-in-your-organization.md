@@ -1,6 +1,6 @@
 ---
 title: About programmatic access in your organization
-intro: 'As an organization owner, you can control access to your organization by {% ifversion pat-v2%}{% data variables.product.pat_generic %}s, {% data variables.product.prodname_github_apps %}, and {% data variables.product.prodname_oauth_apps %}{% else %} {% data variables.product.prodname_github_apps %} and {% data variables.product.prodname_oauth_apps %}{% endif %}.'
+intro: 'As an organization owner, you can control access to your organization by {% data variables.product.pat_generic %}s, {% data variables.product.prodname_github_apps %}, and {% data variables.product.prodname_oauth_apps %}.'
 permissions: Organization owners can control programmatic access in their organization.
 topics:
   - Organizations
@@ -38,13 +38,9 @@ Organization managers can restrict {% data variables.product.prodname_oauth_apps
 
 ## {% data variables.product.pat_generic_caps %}s
 
-{% ifversion pat-v2%}
-
 Organization owners can prevent {% data variables.product.pat_v2 %}s and {% data variables.product.pat_v1_plural %} from accessing resources owned by the organization. Organization owners can also require approval for each {% data variables.product.pat_v2 %} that can access the organization. For more information, see "[AUTOTITLE](/organizations/managing-programmatic-access-to-your-organization/setting-a-personal-access-token-policy-for-your-organization)."
 
 Organization owners can view all {% data variables.product.pat_v2 %}s that can access resources owned by the organization. Organization owners can also revoke access by {% data variables.product.pat_v2 %}s. For more information, see "[AUTOTITLE](/organizations/managing-programmatic-access-to-your-organization/reviewing-and-revoking-personal-access-tokens-in-your-organization)."
-
-{% endif %}
 
 {% ifversion ghec %}
 

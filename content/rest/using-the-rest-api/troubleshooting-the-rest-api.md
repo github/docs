@@ -39,13 +39,13 @@ If you get a `404 Not Found` response when you know that the resource that you a
 * If you are using a {% data variables.product.pat_v1 %}, you should ensure that:
   * The token has the scopes that are required to use the endpoint. For more information, see "[AUTOTITLE](/apps/oauth-apps/building-oauth-apps/scopes-for-oauth-apps#available-scopes)" and "[AUTOTITLE](/authentication/keeping-your-account-and-data-secure/managing-your-personal-access-tokens#creating-a-fine-grained-personal-access-token)."
   * The owner of the token has any permissions that are required to use the endpoint. For example, if an endpoint can only be used by organization owners, only users that are owners of the affected organization can use the endpoint.
-  * The token has not been expired or revoked. For more information, see "[AUTOTITLE](/authentication/keeping-your-account-and-data-secure/token-expiration-and-revocation)."{% ifversion pat-v2 %}
+  * The token has not been expired or revoked. For more information, see "[AUTOTITLE](/authentication/keeping-your-account-and-data-secure/token-expiration-and-revocation)."
 * If you are using a {% data variables.product.pat_v2 %}, you should ensure that:
   * The token has the permissions that are required to use the endpoint. For more information about the required permissions, see the documentation for the endpoint.
   * The resource owner that was specified for the token matches the owner of the resource that the endpoint will affect. For more information, see "[AUTOTITLE](/authentication/keeping-your-account-and-data-secure/managing-your-personal-access-tokens#creating-a-fine-grained-personal-access-token)."
   * The token has access to any private repositories that the endpoint will affect. For more information, see "[AUTOTITLE](/authentication/keeping-your-account-and-data-secure/managing-your-personal-access-tokens#creating-a-fine-grained-personal-access-token)."
   * The owner of the token has any permissions that are required to use the endpoint. For example, if an endpoint can only be used by organization owners, only users that are owners of the affected organization can use the endpoint.
-  * The token has not been expired or revoked. For more information, see "[AUTOTITLE](/authentication/keeping-your-account-and-data-secure/token-expiration-and-revocation)."{% endif %}
+  * The token has not been expired or revoked. For more information, see "[AUTOTITLE](/authentication/keeping-your-account-and-data-secure/token-expiration-and-revocation)."
 * If you are using a {% data variables.product.prodname_github_app %} installation access token, you should ensure that:
   * The {% data variables.product.prodname_github_app %} has the permissions that are required to use the endpoint. For more information about the required permissions, see the documentation for the endpoint.
   * The endpoint is only affecting resources owned by the account where the {% data variables.product.prodname_github_app %} is installed.
@@ -95,7 +95,7 @@ You can check the status of the REST API at [githubstatus.com](https://www.githu
 
 ## Resource not accessible
 
-If you are using a {% data variables.product.prodname_github_app %}{% ifversion pat-v2 %} or {% data variables.product.pat_v2 %}{% endif %} and you receive a "Resource not accessible by integration"{% ifversion pat-v2 %} or "Resource not accessible by {% data variables.product.pat_generic %}"{% endif %} error, then your token has insufficient permissions. For more information about the required permissions, see the documentation for the endpoint.
+If you are using a {% data variables.product.prodname_github_app %} or {% data variables.product.pat_v2 %} and you receive a "Resource not accessible by integration" or "Resource not accessible by {% data variables.product.pat_generic %}" error, then your token has insufficient permissions. For more information about the required permissions, see the documentation for the endpoint.
 
 {% ifversion rest-permissions-header %}
 
@@ -105,9 +105,9 @@ The value of the `X-Accepted-GitHub-Permissions` header is a comma separated lis
 
 For example:
 
-* `X-Accepted-GitHub-Permissions: contents=read` means that your {% data variables.product.prodname_github_app %}{% ifversion pat-v2 %} or {% data variables.product.pat_v2 %}{% endif %} needs read access to the contents permission.
-* `X-Accepted-GitHub-Permissions: pull_requests=write,contents=read` means that your {% data variables.product.prodname_github_app %}{% ifversion pat-v2 %} or {% data variables.product.pat_v2 %}{% endif %} needs write access to the pull request permission and read access to the contents permission.
-* `X-Accepted-GitHub-Permissions: pull_requests=read,contents=read; issues=read,contents=read` means that your {% data variables.product.prodname_github_app %}{% ifversion pat-v2 %} or {% data variables.product.pat_v2 %}{% endif %} needs either read access to the pull request permission and read access to the contents permission, or read access to the issues permission and read access to the contents permission.
+* `X-Accepted-GitHub-Permissions: contents=read` means that your {% data variables.product.prodname_github_app %} or {% data variables.product.pat_v2 %} needs read access to the contents permission.
+* `X-Accepted-GitHub-Permissions: pull_requests=write,contents=read` means that your {% data variables.product.prodname_github_app %} or {% data variables.product.pat_v2 %} needs write access to the pull request permission and read access to the contents permission.
+* `X-Accepted-GitHub-Permissions: pull_requests=read,contents=read; issues=read,contents=read` means that your {% data variables.product.prodname_github_app %} or {% data variables.product.pat_v2 %} needs either read access to the pull request permission and read access to the contents permission, or read access to the issues permission and read access to the contents permission.
 
 {% endif %}
 

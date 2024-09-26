@@ -49,9 +49,7 @@ The events listed in your security log are triggered by your actions. Actions ar
 |  {% ifversion fpt or ghec %} |
 | `payment_method` | Contains all activities related to paying for your {% data variables.product.prodname_dotcom %} subscription.
 |  {% endif %} |
-|  {% ifversion pat-v2%} |
 | `personal_access_token` | Contains activities related to {% data variables.product.pat_v2 %}s. For more information, see "[AUTOTITLE](/authentication/keeping-your-account-and-data-secure/creating-a-personal-access-token)." |
-|  {% endif %} |
 | `profile_picture`| Contains all activities related to your profile picture. |
 | `project` | Contains all activities related to {% data variables.projects.projects_v1_boards %}. |
 | `public_key` | Contains all activities related to [your public SSH keys](/authentication/connecting-to-github-with-ssh/adding-a-new-ssh-key-to-your-github-account). |

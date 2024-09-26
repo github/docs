@@ -6,6 +6,7 @@ redirect_from:
   - /articles/deleting-an-issue
   - /github/managing-your-work-on-github/deleting-an-issue
   - /issues/tracking-your-work-with-issues/creating-issues/deleting-an-issue
+  - /issues/tracking-your-work-with-issues/deleting-an-issue
 versions:
   fpt: '*'
   ghes: '*'

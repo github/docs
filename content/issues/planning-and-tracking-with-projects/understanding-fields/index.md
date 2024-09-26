@@ -12,11 +12,11 @@ children:
   - /about-date-fields
   - /about-single-select-fields
   - /about-iteration-fields
-  - /about-tracks-and-tracked-by-fields
   - /renaming-custom-fields
   - /deleting-custom-fields
 allowTitleToDifferFromFilename: true
 redirect_from:
   - /issues/planning-and-tracking-with-projects/understanding-field-types
+  - /issues/planning-and-tracking-with-projects/understanding-fields/about-tracks-and-tracked-by-fields
 ---
 

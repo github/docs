@@ -16,7 +16,7 @@ topics:
   - Actions
   - Enterprise
 ---
- 
+
 
 {% data reusables.actions.enterprise-github-hosted-runners %}
 
@@ -41,7 +41,6 @@ The peak quantity of connected runners without performance loss depends on such 
 | 8   | 64 GB  | 740  runners |
 | 32  | 160 GB | 2700 runners |
 | 96  | 384 GB | 7000 runners |
-| 128 | 512 GB | 7000 runners |
 
 {% data variables.product.company_short %} measured maximum connected runners using multiple repositories, job duration of approximately 10 minutes, and 10 MB artifact uploads. You may experience different performance depending on the overall levels of activity on your instance.
 

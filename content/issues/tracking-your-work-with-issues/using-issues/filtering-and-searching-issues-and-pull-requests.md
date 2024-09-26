@@ -33,6 +33,7 @@ redirect_from:
   - /github/administering-a-repository/finding-information-in-a-repository/sorting-issues-and-pull-requests
   - /github/administering-a-repository/finding-information-in-a-repository/using-search-to-filter-issues-and-pull-requests
   - /github/administering-a-repository/finding-information-in-a-repository/sharing-filters
+  -  /issues/tracking-your-work-with-issues/filtering-and-searching-issues-and-pull-requests
 versions:
   fpt: '*'
   ghes: '*'

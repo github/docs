@@ -135,7 +135,9 @@ apps/ @octocat
 
 # In this example, @octocat owns any file in the `/apps`
 # directory in the root of your repository except for the `/apps/github`
-# subdirectory, as its owners are left empty.
+# subdirectory, as its owners are left empty. Without an owner, changes
+# to `apps/github` can be made with the approval of any user who has
+# write access to the repository.
 /apps/ @octocat
 /apps/github
 

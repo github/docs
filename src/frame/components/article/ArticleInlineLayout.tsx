@@ -26,13 +26,13 @@ export const ArticleInlineLayout = ({
   supportPortalVaIframeProps,
 }: Props) => {
   return (
-    <Box className={cx(styles.containerBox, className)}>
+    <div className={cx(styles.containerBox, className)}>
       {breadcrumbs && (
         <Box gridArea="breadcrumbs" className={cx('d-none d-xxl-block mt-3 mr-auto width-full')}>
           {breadcrumbs}
         </Box>
       )}
-      <Box className={cx(styles.contentBox)}>
+      <div className={cx(styles.contentBox)}>
         {topper && <Box gridArea="topper">{topper}</Box>}
 
         {intro && (
@@ -71,7 +71,7 @@ export const ArticleInlineLayout = ({
             )}
           {children}
         </Box>
-      </Box>
-    </Box>
+      </div>
+    </div>
   )
 }

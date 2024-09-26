@@ -62,7 +62,7 @@ If you've enabled security updates, you'll sometimes see extra pull requests for
 
 {% data reusables.dependabot.automatically-pause-dependabot-updates %}
 
-{% ifversion dependabot-updates-rebase-30-days-cutoff %}{% data variables.product.prodname_dependabot %} also stops rebasing pull requests for version and security updates after 30 days, reducing notifications for inactive {% data variables.product.prodname_dependabot %} pull requests.{% endif %}
+{% data variables.product.prodname_dependabot %} also stops rebasing pull requests for version and security updates after 30 days, reducing notifications for inactive {% data variables.product.prodname_dependabot %} pull requests.
 
 ## About notifications for {% data variables.product.prodname_dependabot %} version updates
 

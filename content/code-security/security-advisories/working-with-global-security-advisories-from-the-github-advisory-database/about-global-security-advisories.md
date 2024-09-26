@@ -19,9 +19,9 @@ redirect_from:
 
 {% ifversion fpt or ghec %}There are two types of advisories: global security advisories and repository security advisories. For more information about repository security advisories, see "[AUTOTITLE](/code-security/security-advisories/working-with-repository-security-advisories/about-repository-security-advisories)."{% endif %}
 
-Global security advisories are grouped into these categories: {% data variables.product.company_short %}-reviewed advisories,{% ifversion GH-advisory-db-supports-malware %} unreviewed advisories, and malware advisories{% else %} and unreviewed advisories{% endif %}.
+Global security advisories are grouped into these categories: {% data variables.product.company_short %}-reviewed advisories, unreviewed advisories, and malware advisories.
 * {% data reusables.advisory-database.github-reviewed-overview %}
-* {% data reusables.advisory-database.unreviewed-overview %}{% ifversion GH-advisory-db-supports-malware %}
+* {% data reusables.advisory-database.unreviewed-overview %}
 * {% data reusables.advisory-database.malware-overview %}
 
 {% note %}
@@ -29,16 +29,6 @@ Global security advisories are grouped into these categories: {% data variables.
 **Note:** {% data variables.product.prodname_dependabot %} doesn't generate {% data variables.product.prodname_dependabot_alerts %} for unreviewed and malware advisories.
 
 {% endnote %}
-
-{% else %}
-
-{% note %}
-
-**Note:** {% data variables.product.prodname_dependabot %} doesn't generate {% data variables.product.prodname_dependabot_alerts %} for unreviewed advisories.
-
-{% endnote %}
-
-{% endif %}
 
 For more information about the {% data variables.product.prodname_advisory_database %}, see "[AUTOTITLE](/code-security/security-advisories/working-with-global-security-advisories-from-the-github-advisory-database/about-the-github-advisory-database)."
 
