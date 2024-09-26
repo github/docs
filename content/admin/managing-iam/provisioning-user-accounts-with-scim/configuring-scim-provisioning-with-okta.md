@@ -63,7 +63,7 @@ In addition:
 * To configure SCIM, you must have completed **steps 1 to 4** in "[AUTOTITLE](/admin/managing-iam/provisioning-user-accounts-with-scim/configuring-scim-provisioning-for-users)."
   * You will need the {% data variables.product.pat_v1 %} created for the setup user to authenticate requests from Okta.
 {% else %}
-* {% data reusables.scim.use-pat-from-setup-user %}
+* {% data variables.product.company_short %} recommends that you only authenticate requests with Okta's SCIM application using a {% data variables.product.pat_v1 %} associated with your enterprise's setup user. The token requires the **scim:enterprise** scope. For more information, see "[AUTOTITLE](/admin/managing-iam/understanding-iam-for-enterprises/getting-started-with-enterprise-managed-users#create-a-personal-access-token)."
 {% endif %}
 * You must use Okta's application for both authentication and provisioning.
 * {% data reusables.scim.your-okta-product-must-support-scim %}
@@ -115,7 +115,7 @@ Before starting this section, ensure you have followed steps **1 and 2** in "[AU
 After {% ifversion ghec %}setting your enterprise name{% else %}configuring your SAML settings{% endif %}, you can proceed to configure provisioning settings.
 
 {% ifversion ghec %}
-To configure provisioning, the setup user {% ifversion ghec %}with the **@<em>SHORT-CODE</em>_admin** username {% endif %}will need to provide a {% data variables.product.pat_v1 %} with the **admin:enterprise** scope. See "[AUTOTITLE](/admin/managing-iam/understanding-iam-for-enterprises/getting-started-with-enterprise-managed-users#create-a-personal-access-token)."
+To configure provisioning, the setup user {% ifversion ghec %}with the **@<em>SHORT-CODE</em>_admin** username {% endif %}will need to provide a {% data variables.product.pat_v1 %} with the **scim:enterprise** scope. See "[AUTOTITLE](/admin/managing-iam/understanding-iam-for-enterprises/getting-started-with-enterprise-managed-users#create-a-personal-access-token)."
 {% else %}
 Before starting this section, ensure you have followed steps **1 to 4** in "[AUTOTITLE](/admin/managing-iam/provisioning-user-accounts-with-scim/configuring-scim-provisioning-for-users)."
 {% endif %}
