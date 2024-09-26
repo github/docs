@@ -22,7 +22,7 @@ allowTitleToDifferFromFilename: true
 Once a secret has been committed to a repository, you should consider the secret compromised. {% data variables.product.github %} recommends the following actions for compromised secrets:
 
 * Verify that the secret committed to {% data variables.product.github %} is valid. {% ifversion fpt or ghes %}**Applies to {% data variables.product.github %} tokens only**. See "[Checking a secret's validity](/code-security/secret-scanning/managing-alerts-from-secret-scanning/evaluating-alerts#checking-a-secrets-validity)."{% endif %}{% ifversion secret-scanning-validity-check-partner-patterns %}See "[Performing an on-demand validity check](/code-security/secret-scanning/managing-alerts-from-secret-scanning/evaluating-alerts#performing-an-on-demand-validity-check)".{% endif %}{% ifversion secret-scanning-report-secret-github-pat %}
-* {% ifversion ghec %}For secrets detected in private repositories, r{% else %}R{% endif %}eport the leaked secret to {% data variables.product.github %}, who will treat it like any publicly leaked secret and revoke it. **Applies to {% data variables.product.github %} {% data variables.product.pat_generic %}s only**. See "[Reporting a leaked secret](#reporting-a-leaked-secret)." {% endif %}
+* For secrets detected in private repositories, report the leaked secret to {% data variables.product.github %}, who will treat it like any publicly leaked secret and revoke it. **Applies to {% data variables.product.github %} {% data variables.product.pat_generic %}s only**. See "[Reporting a leaked secret](#reporting-a-leaked-secret)." {% endif %}
 * Review and update any services that use the old token. For {% data variables.product.github %} {% data variables.product.pat_generic %}s, delete the compromised token and create a new token. See "[AUTOTITLE](/authentication/keeping-your-account-and-data-secure/creating-a-personal-access-token)."
 * Depending on the secret provider, check your security logs for any unauthorized activity.
 
@@ -37,7 +37,7 @@ Once a secret has been committed to a repository, you should consider the secret
 
 {% ifversion fpt or ghec %}
 
-If a secret is detected in a **public** repository on {% data variables.product.github %} and the secret also matches a partner pattern, the potential secret is **automatically reported** to the service provider. For details of all supported partner patterns, see "[AUTOTITLE](/code-security/secret-scanning/introduction/supported-secret-scanning-patterns#supported-secrets)."
+If a secret is detected in a **public** repository on {% data variables.product.github %} and the secret also matches a supported partner pattern, the potential secret is **automatically reported** to the service provider. For details of all supported partner patterns, see "[AUTOTITLE](/code-security/secret-scanning/introduction/supported-secret-scanning-patterns#supported-secrets)."
 
 {% endif %}
 
@@ -58,7 +58,7 @@ You will only see the option to report a privately exposed secret to {% data var
 1. From the alert list, click the alert you want to view.
 1. In the alert view for the leaked secret, click **Report leak**.
 
-   * In order to prevent breaking workflows, consider first rotating the secret before continuing, as disclosing it could lead to the secret being revoked. If possible, you should also reach out to the token owner to let them know about the leak and coordinate a remediation plan.
+   > [!NOTE] In order to prevent breaking workflows, consider first rotating the secret before continuing, as disclosing it could lead to the secret being revoked. If possible, you should also reach out to the token owner to let them know about the leak and coordinate a remediation plan.
 
 1. Review the information in the dialog box, then click **I understand the consequence, report this secret**.
 
