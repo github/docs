@@ -21,11 +21,28 @@ shortTitle: Advanced Security billing
 
 {% ifversion metered-ghe-ghas %}
 
-## Usage-based billing for {% data variables.product.prodname_GH_advanced_security %}
+## Metered billing for {% data variables.product.prodname_GH_advanced_security %}
 
-If you started a free trial of {% data variables.product.prodname_GH_advanced_security %} during your {% data variables.product.prodname_ghe_cloud %} trial on or after August 1, 2024, your billing for {% data variables.product.prodname_GH_advanced_security %} will be usage-based.
+If you started a trial of {% data variables.product.prodname_GH_advanced_security %} during your {% data variables.product.prodname_ghe_cloud %} trial on or after August 1, 2024, or if your account is onboarded into metered billing outside of the trial, your billing will be usage-based. This means:
 
-This means that you can use usage-based billing to pay for your licenses for both {% data variables.product.prodname_ghe_cloud %} and {% data variables.product.prodname_GH_advanced_security %}. With usage-based billing, you pay for the number of licenses you use each month. You cannot access a trial of {% data variables.product.prodname_GH_advanced_security %} usage-based billing outside of a {% data variables.product.prodname_ghe_cloud %} trial.
+* You pay for the number of licenses used each month.
+* This applies to both {% data variables.product.prodname_ghe_cloud %} and {% data variables.product.prodname_GH_advanced_security %}.
+
+There are a few key differences between metered and volume billing for {% data variables.product.prodname_GH_advanced_security %}.
+
+* **Metered billing:**
+
+  * Billed per active committer, with no pre-defined license limit.
+  * No overage state, pay only for what you use.
+
+* **Volume billing:**
+
+  * Purchase a defined number of licenses (e.g. 100 licenses).
+  * If usage exceeds purchased licenses, you will need to purchase additional licenses to cover this overage usage.
+
+### Managing committers and repositories
+
+{% data variables.product.prodname_GH_advanced_security %} is billed per committer and enabled by repository. If a committer is removed from an organization or enterprise, they are no longer billable as of the removal day. However, if you disable {% data variables.product.prodname_GH_advanced_security %} on a repository, the committers tied to that repository will remain billable until the end of the current monthly billing cycle. Prorated billing applies if a committer starts partway through the month. For an example of how this works, see "[Understanding usage](/billing/managing-billing-for-github-advanced-security/about-billing-for-github-advanced-security#understanding-usage)."
 
 If you have further questions about using {% data variables.product.prodname_GH_advanced_security %}, you can contact your account manager in {% data variables.contact.contact_enterprise_sales %}.
 
@@ -124,6 +141,20 @@ For more information on managing the number of committers, see "[AUTOTITLE](/bil
 
 ## Understanding usage
 
+{% ifversion metered-ghe-ghas %}
+
+The following example timeline demonstrates how active committer count for {% data variables.product.prodname_GH_advanced_security %} could change over time in an enterprise. For each month, you will find events, along with the resulting committer count and the effect on usage-based billing.
+
+| Date | Events during the month | Total committers | Effect on usage-based billing |
+| :- | :- | -: | :- |
+| <span style="white-space: nowrap;">April 15</span> | A member of your enterprise enables {% data variables.product.prodname_GH_advanced_security %} for repository **X**. Repository **X** has 50 committers over the past 90 days. | **50** | Billing begins for 50 committers. |
+| <span style="white-space: nowrap;">May 1</span> | Developer **A** leaves the team working on repository **X**. Developer **A**'s contributions continue to count for 90 days. | **50** | No immediate change. Developer **A** continues to be billed until their contributions are inactive for 90 days. |
+| <span style="white-space: nowrap;">August 1</span> | Developer **A**'s contributions no longer count towards the licenses required, because 90 days have passed. | 50 - 1 =<br>**49** | Developer **A** is removed from the billing count, reducing the billable committers to 49. |
+| <span style="white-space: nowrap;">August 15</span> | A member of your enterprise enables {% data variables.product.prodname_GH_advanced_security %} for a second repository, repository **Y**. In the last 90 days, a total of 20 developers contributed to that repository. Of those 20 developers, 10 also recently worked on repo **X** and do not require additional licenses. | 49 + 10 =<br>**59** | Billing increases to 59 committers, accounting for the 10 additional unique contributors. |
+| <span style="white-space: nowrap;">August 16</span> | A member of your enterprise disables {% data variables.product.prodname_GH_advanced_security %} for repository **X**. Of the 49 developers who were working on repository **X**, 10 still also work on repository **Y**, which has a total of 20 developers contributing in the last 90 days. | 49 - 29 =<br>**20** | Billing for repository **X** continues until the end of the monthly billing cycle, but the overall billing count decreases to 20 committers for the next cycle. |
+
+{% else %}
+
 The following example timeline demonstrates how active committer count for {% data variables.product.prodname_GH_advanced_security %} could change over time in an enterprise. For each month, you will find events, along with the resulting committer count.
 
 | Date | Events during the month | Total committers |
@@ -133,6 +164,8 @@ The following example timeline demonstrates how active committer count for {% da
 | <span style="white-space: nowrap;">August 1</span> | Developer **A**'s contributions no longer count towards the licenses required, because 90 days have passed. | 50 - 1 =<br>**49** |
 | <span style="white-space: nowrap;">August 15</span> | A member of your enterprise enables {% data variables.product.prodname_GH_advanced_security %} for a second repository, repository **Y**. In the last 90 days, a total of 20 developers contributed to that repository. Of those 20 developers, 10 also recently worked on repo **X** and do not require additional licenses. | 49 + 10 =<br>**59** |
 | <span style="white-space: nowrap;">August 16</span> | A member of your enterprise disables {% data variables.product.prodname_GH_advanced_security %} for repository **X**. Of the 49 developers who were working on repository **X**, 10 still also work on repository **Y**, which has a total of 20 developers contributing in the last 90 days. | 49 - 29 =<br>**20** |
+
+{% endif %}
 
 > [!NOTE] A user will be flagged as active when their commits are pushed to any branch of a repository, even if the commits were authored more than 90 days ago.
 
