@@ -50,7 +50,7 @@ jobs:
     # Containers must run in Linux based operating systems
     runs-on: ubuntu-latest
     # Docker Hub image that `container-job` executes in
-    container: node:10.18-jessie
+    container: node:20-bookworm-slim
 
     # Service containers to run with `container-job`
     services:
@@ -103,7 +103,7 @@ jobs:
     # Containers must run in Linux based operating systems
     runs-on: ubuntu-latest
     # Docker Hub image that `container-job` executes in
-    container: node:10.18-jessie
+    container: node:20-bookworm-slim
 
     # Service containers to run with `container-job`
     services:

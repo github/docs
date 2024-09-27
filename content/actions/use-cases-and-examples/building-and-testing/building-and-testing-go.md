@@ -146,8 +146,6 @@ You can use `go get` to install dependencies:
           go get example.com/octo-examplemodule@v1.3.4
 ```
 
-{% ifversion actions-caching %}
-
 ### Caching dependencies
 
 You can cache and restore dependencies using the [`setup-go` action](https://github.com/actions/setup-go). By default, caching is {% ifversion actions-setup-go-default-cache-enabled %}enabled when using the `setup-go` action.{% else %}disabled, but you can set the `cache` parameter to `true` to enable it.{% endif %}
@@ -190,8 +188,6 @@ Alternatively, you can use the `cache-dependency-path` parameter for cases when 
 {% endif %}
 
 If you have a custom requirement or need finer controls for caching, you can use the [`cache` action](https://github.com/marketplace/actions/cache). For more information, see "[AUTOTITLE](/actions/using-workflows/caching-dependencies-to-speed-up-workflows)."
-
-{% endif %}
 
 ## Building and testing your code
 

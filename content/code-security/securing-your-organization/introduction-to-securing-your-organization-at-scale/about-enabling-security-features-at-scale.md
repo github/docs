@@ -11,8 +11,6 @@ topics:
   - Security
 ---
 
-{% data reusables.security-configurations.security-configurations-beta-note-opt-out %}
-
 ## About securing your organization
 
 {% data variables.product.company_short %} offers many code security products and features including {% data variables.product.prodname_GH_advanced_security %}, a suite of features designed to protect your organization from vulnerabilities in your code, insecure dependencies, leaked secrets, and more. For more information on {% data variables.product.prodname_GH_advanced_security %}, see "[AUTOTITLE](/get-started/learning-about-github/about-github-advanced-security)."
@@ -26,12 +24,8 @@ You can easily enable and manage {% data variables.product.company_short %}'s se
 * **The {% data variables.product.prodname_github_security_configuration %}**. This configuration is a collection of enablement settings created and managed by subject matter experts at {% data variables.product.company_short %}. The {% data variables.product.prodname_github_security_configuration %} is designed to adequately secure any repository, and can easily be applied to all repositories in your organization.
 * **{% data variables.product.prodname_custom_security_configurations_caps %}**. These are configurations you can create and edit yourself, allowing you to choose different enablement settings for groups of repositories with specific security needs.
 
-{% ifversion enforce-security-configurations %}
-
 >[!NOTE]
 {% data reusables.code-scanning.custom-security-configuration-enforcement-edge-cases %}
-
-{% endif %}
 
 Each repository can only have one {% data variables.product.prodname_security_configuration %} applied to it. To find out how you should get started with {% data variables.product.prodname_security_configurations %}, see "[AUTOTITLE](/code-security/securing-your-organization/introduction-to-securing-your-organization-at-scale/choosing-a-security-configuration-for-your-repositories)."
 

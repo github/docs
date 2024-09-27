@@ -45,6 +45,8 @@ const ProductTreeNodeList = ({ treeNode }: { treeNode: ProductTreeNode }) => {
                   borderRadius: 0,
                 },
               }}
+              tabIndex={undefined}
+              aria-labelledby={undefined}
             >
               <Link className="d-block width-full text-underline" href={childNode.href}>
                 {childNode.title}

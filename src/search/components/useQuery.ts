@@ -37,7 +37,7 @@ function parseDebug(debug: string | Array<string> | undefined) {
   try {
     debug = JSON.parse(debug)
     return Boolean(debug)
-  } catch (e) {}
+  } catch {}
 
   return false
 }

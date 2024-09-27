@@ -32,7 +32,7 @@ You can also clone a repository directly from {% data variables.product.prodname
 
 ## Forking a repository
 
-You can fork a repository on {% data variables.product.prodname_dotcom_the_website %} or in {% data variables.product.prodname_desktop %}. For information about forking on {% data variables.product.prodname_dotcom_the_website %}, see "[AUTOTITLE](/pull-requests/collaborating-with-pull-requests/working-with-forks/fork-a-repo?tool=webui)."
+You can fork a repository on {% data variables.product.github %} or in {% data variables.product.prodname_desktop %}. For information about forking on {% data variables.product.github %}, see "[AUTOTITLE](/pull-requests/collaborating-with-pull-requests/working-with-forks/fork-a-repo?tool=webui)."
 
 {% data reusables.desktop.forking-a-repo %}
 

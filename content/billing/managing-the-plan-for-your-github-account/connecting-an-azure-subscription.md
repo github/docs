@@ -44,6 +44,11 @@ If you use {% data variables.product.product_name %} through a Microsoft Enterpr
 | {% data variables.product.prodname_actions %} usage beyond the amounts included with your plan  | "[AUTOTITLE](/billing/managing-billing-for-github-actions/about-billing-for-github-actions)"                                                                         |   "[AUTOTITLE](/billing/managing-billing-for-github-actions/about-billing-for-github-actions#about-spending-limits)" |
 | {% data variables.product.prodname_registry %} usage beyond the amounts included with your plan | "[AUTOTITLE](/billing/managing-billing-for-github-packages/about-billing-for-github-packages)"                                                                       | "[AUTOTITLE](/billing/managing-billing-for-github-packages/about-billing-for-github-packages#about-spending-limits)" |
 | {% data variables.product.prodname_copilot_business_short %} usage                              | "[AUTOTITLE](/billing/managing-billing-for-github-copilot/about-billing-for-github-copilot#about-billing-for-github-copilot-business-and-github-copilot-enterprise)" |                                                                                                                  N/A |
+| {% ifversion metered-ghe-ghas %} |
+| {% data variables.product.prodname_GH_advanced_security %} usage (only available with a trial of {% data variables.product.prodname_ghe_cloud %})                              | "[AUTOTITLE](/billing/managing-billing-for-github-advanced-security/about-billing-for-github-advanced-security#usage-based-billing-for-github-advanced-security)" |                                                                                                                  N/A |
+| {% data variables.product.prodname_enterprise %} usage                              | "[AUTOTITLE](/billing/managing-your-github-billing-settings/about-billing-for-your-enterprise)" |                                                                                                                  N/A |
+
+{% endif %}
 
 {% endif %}
 
@@ -165,4 +170,4 @@ If the user account you used to sign into Azure does not have adequate permissio
 >
 > GitHub Inc needs permission to access resources in your organisation that only an admin can grant. Please ask an admin to grant permission to this app before you can use it.
 
-To avoid this message when you try again, you must either ensure that the Azure user can provide tenant-wide admin consent, or you must work with an Azure administrator to configure the admin consent workflow. For more information, review "[Prerequisites](#prerequisites)".
+To avoid this message when you try again, you must either ensure that the Azure user can provide tenant-wide admin consent, or you must work with an Azure administrator to configure the admin consent workflow. For more information, review "[Prerequisites](#prerequisites)."

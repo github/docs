@@ -61,7 +61,7 @@ checkout path if it is omitted.
 #### `-f, --ref=<ref>`
 
 Name of the ref that was analyzed. If this ref is a pull request merge
-commit, then use _refs/pulls/1234/merge_ or _refs/pulls/1234/head_
+commit, then use _refs/pull/1234/merge_ or _refs/pull/1234/head_
 (depending on whether or not this commit corresponds to the HEAD or
 MERGE commit of the PR). Otherwise, this should be a branch:
 _refs/heads/branch-name_. If omitted, the CLI will attempt to

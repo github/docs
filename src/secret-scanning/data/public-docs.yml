@@ -166,6 +166,17 @@
   hasPushProtection: true
   hasValidityCheck: false
   isduplicate: false
+- provider: Asaas
+  supportedSecret: Asaas API Token
+  secretType: asaas_api_token
+  versions:
+    fpt: '*'
+    ghec: '*'
+  isPublic: true
+  isPrivateWithGhas: false
+  hasPushProtection: false
+  hasValidityCheck: false
+  isduplicate: false
 - provider: Asana
   supportedSecret: Asana Legacy Format Personal Access Token
   secretType: asana_legacy_format_personal_access_token
@@ -822,12 +833,34 @@
     ghes: '*'
   isPublic: false
   isPrivateWithGhas: true
-  hasPushProtection: false
+  hasPushProtection: true
   hasValidityCheck: false
   isduplicate: false
 - provider: Contributed Systems
   supportedSecret: Contributed Systems Credentials
   secretType: contributed_systems_credentials
+  versions:
+    fpt: '*'
+    ghec: '*'
+  isPublic: true
+  isPrivateWithGhas: false
+  hasPushProtection: false
+  hasValidityCheck: false
+  isduplicate: false
+- provider: Coveo
+  supportedSecret: Coveo Access Token
+  secretType: coveoaccesstoken
+  versions:
+    fpt: '*'
+    ghec: '*'
+  isPublic: true
+  isPrivateWithGhas: false
+  hasPushProtection: false
+  hasValidityCheck: false
+  isduplicate: false
+- provider: Coveo
+  supportedSecret: Coveo API Key
+  secretType: coveoapikey
   versions:
     fpt: '*'
     ghec: '*'
@@ -1404,7 +1437,7 @@
     ghes: '*'
   isPublic: false
   isPrivateWithGhas: true
-  hasPushProtection: false
+  hasPushProtection: true
   hasValidityCheck: false
   isduplicate: false
 - provider: GoCardless
@@ -1739,7 +1772,29 @@
     fpt: '*'
     ghec: '*'
   isPublic: true
-  isPrivateWithGhas: false
+  isPrivateWithGhas: true
+  hasPushProtection: false
+  hasValidityCheck: false
+  isduplicate: true
+- provider: Hugging Face
+  supportedSecret: Hugging Face Organization API Token
+  secretType: hf_org_api_key
+  versions:
+    fpt: '*'
+    ghec: '*'
+  isPublic: true
+  isPrivateWithGhas: true
+  hasPushProtection: false
+  hasValidityCheck: false
+  isduplicate: false
+- provider: Hugging Face
+  supportedSecret: Hugging Face User Access Token
+  secretType: hf_user_access_token
+  versions:
+    fpt: '*'
+    ghec: '*'
+  isPublic: true
+  isPrivateWithGhas: true
   hasPushProtection: false
   hasValidityCheck: false
   isduplicate: false
@@ -2322,7 +2377,7 @@
     ghec: '*'
   isPublic: false
   isPrivateWithGhas: true
-  hasPushProtection: false
+  hasPushProtection: true
   hasValidityCheck: false
   isduplicate: false
 - provider: PagerDuty
@@ -2455,6 +2510,72 @@
   hasPushProtection: true
   hasValidityCheck: false
   isduplicate: false
+- provider: Polar
+  supportedSecret: Polar Access Token
+  secretType: polar_access_token
+  versions:
+    fpt: '*'
+    ghec: '*'
+  isPublic: true
+  isPrivateWithGhas: false
+  hasPushProtection: false
+  hasValidityCheck: false
+  isduplicate: false
+- provider: Polar
+  supportedSecret: Polar Authorization Code
+  secretType: polar_authorization_code
+  versions:
+    fpt: '*'
+    ghec: '*'
+  isPublic: true
+  isPrivateWithGhas: false
+  hasPushProtection: false
+  hasValidityCheck: false
+  isduplicate: false
+- provider: Polar
+  supportedSecret: Polar Client Registration Token
+  secretType: polar_client_registration_token
+  versions:
+    fpt: '*'
+    ghec: '*'
+  isPublic: true
+  isPrivateWithGhas: false
+  hasPushProtection: false
+  hasValidityCheck: false
+  isduplicate: false
+- provider: Polar
+  supportedSecret: Polat Client Secret
+  secretType: polar_client_secret
+  versions:
+    fpt: '*'
+    ghec: '*'
+  isPublic: true
+  isPrivateWithGhas: false
+  hasPushProtection: false
+  hasValidityCheck: false
+  isduplicate: false
+- provider: Polar
+  supportedSecret: Polar Personal Access Token
+  secretType: polar_personal_access_token
+  versions:
+    fpt: '*'
+    ghec: '*'
+  isPublic: true
+  isPrivateWithGhas: false
+  hasPushProtection: false
+  hasValidityCheck: false
+  isduplicate: false
+- provider: Polar
+  supportedSecret: Polar Refresh Token
+  secretType: polar_refresh_token
+  versions:
+    fpt: '*'
+    ghec: '*'
+  isPublic: true
+  isPrivateWithGhas: false
+  hasPushProtection: false
+  hasValidityCheck: false
+  isduplicate: false
 - provider: Postman
   supportedSecret: Postman API Key
   secretType: postman_api_key
@@ -2572,7 +2693,7 @@
     ghes: '*'
   isPublic: true
   isPrivateWithGhas: true
-  hasPushProtection: false
+  hasPushProtection: true
   hasValidityCheck: false
   isduplicate: false
 - provider: ReadMe
@@ -2606,8 +2727,8 @@
     fpt: '*'
     ghec: '*'
   isPublic: true
-  isPrivateWithGhas: false
-  hasPushProtection: false
+  isPrivateWithGhas: true
+  hasPushProtection: true
   hasValidityCheck: false
   isduplicate: false
 - provider: Rootly
@@ -2730,6 +2851,17 @@
   hasPushProtection: false
   hasValidityCheck: false
   isduplicate: false
+- provider: Shopee
+  supportedSecret: Shopee Open Platform Partner Key
+  secretType: shopee_open_platform_partner_key
+  versions:
+    fpt: '*'
+    ghec: '*'
+  isPublic: false
+  isPrivateWithGhas: true
+  hasPushProtection: false
+  hasValidityCheck: false
+  isduplicate: false
 - provider: Shopify
   supportedSecret: Shopify Access Token
   secretType: shopify_access_token
@@ -2835,6 +2967,28 @@
     ghes: '*'
   isPublic: true
   isPrivateWithGhas: true
+  hasPushProtection: false
+  hasValidityCheck: false
+  isduplicate: false
+- provider: Siemens
+  supportedSecret: Siemens API Token
+  secretType: siemens_api_token
+  versions:
+    fpt: '*'
+    ghec: '*'
+  isPublic: true
+  isPrivateWithGhas: true
+  hasPushProtection: true
+  hasValidityCheck: false
+  isduplicate: false
+- provider: Siemens
+  supportedSecret: Siemens Code Token
+  secretType: siemens_code_token
+  versions:
+    fpt: '*'
+    ghec: '*'
+  isPublic: true
+  isPrivateWithGhas: false
   hasPushProtection: false
   hasValidityCheck: false
   isduplicate: false
@@ -3078,6 +3232,17 @@
   hasPushProtection: false
   hasValidityCheck: false
   isduplicate: false
+- provider: Thunderstore
+  supportedSecret: Thunderstore IO API Token
+  secretType: thunderstore_io_api_token
+  versions:
+    fpt: '*'
+    ghec: '*'
+  isPublic: false
+  isPrivateWithGhas: true
+  hasPushProtection: true
+  hasValidityCheck: false
+  isduplicate: false
 - provider: Twilio
   supportedSecret: Twilio Access Token
   secretType: twilio_access_token
@@ -3264,7 +3429,7 @@
     ghec: '*'
   isPublic: true
   isPrivateWithGhas: true
-  hasPushProtection: false
+  hasPushProtection: true
   hasValidityCheck: false
   isduplicate: false
 - provider: Yandex

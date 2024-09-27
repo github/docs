@@ -22,10 +22,20 @@ The indexing status of a repository is displayed on {% data variables.product.pr
 
 After you index a repository it is automatically re-indexed every time a change is pushed to the repository.
 
+## Indexing limits
+
+{% rowheaders %}
+
+|                  | {% data variables.product.prodname_copilot_individuals_short %} | {% data variables.product.prodname_copilot_business_short %} | {% data variables.product.prodname_copilot_enterprise_short %} |
+|------------------|-----------------------------------------------------------------|--------------------------------------------------------------|----------------------------------------------------------------|
+| Repository limit | 5                                                               | 50                                                           | Unlimited                                                      |
+
+{% endrowheaders %}
+
 ## Indexing a repository
 
 1. On {% data variables.product.prodname_dotcom_the_website %}, browse to the repository you want to index.
-1. On any page, click the **{% octicon "copilot" aria-hidden="true" %} {% data variables.product.prodname_copilot_short %}** icon in the upper-right corner.
+1. On any page, click the **{% octicon "copilot" aria-hidden="true" %} {% data variables.product.prodname_copilot_short %}** icon in the bottom right corner.
 
    If the repository has been indexed, this is shown near top of the {% data variables.product.prodname_copilot_short %} Chat panel.
 

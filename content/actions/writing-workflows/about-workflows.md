@@ -123,8 +123,6 @@ jobs:
 
 For more information, see "[AUTOTITLE](/actions/using-jobs/using-a-matrix-for-your-jobs)."
 
-{% ifversion actions-caching %}
-
 ### Caching dependencies
 
 If your jobs regularly reuse dependencies, you can consider caching these files to help improve performance. Once the cache is created, it is available to all workflows in the same repository.
@@ -147,7 +145,6 @@ jobs:
 ```
 
 For more information, see "[AUTOTITLE](/actions/using-workflows/caching-dependencies-to-speed-up-workflows)."
-{% endif %}
 
 ### Using databases and service containers
 
@@ -157,7 +154,7 @@ If your job requires a database or cache service, you can use the [`services`](/
 jobs:
   container-job:
     runs-on: ubuntu-latest
-    container: node:10.18-jessie
+    container: node:20-bookworm-slim
     services:
       postgres:
         image: postgres

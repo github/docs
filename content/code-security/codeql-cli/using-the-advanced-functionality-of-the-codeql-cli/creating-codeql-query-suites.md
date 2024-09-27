@@ -20,7 +20,7 @@ redirect_from:
 {% data reusables.code-scanning.codeql-cli-version-ghes %}
 
 {% data variables.product.prodname_codeql %} query suites provide a way of selecting queries, based on their
-filename, location on disk{% ifversion codeql-packs %} or in a {% data variables.product.prodname_codeql %} pack{% endif %}, or metadata properties.
+filename, location on disk or in a {% data variables.product.prodname_codeql %} pack, or metadata properties.
 Create query suites for the queries that you want to frequently use in
 your {% data variables.product.prodname_codeql %} analyses.
 
@@ -29,13 +29,11 @@ mapping with (usually) a single key. The instructions are executed in the order
 they appear in the query suite definition. After all the instructions in the
 suite definition have been executed, the result is a set of selected queries.
 
-{% ifversion codeql-packs %}
 {% note %}
 
 **Note:** Any custom queries that you want to add to a query suite must be in a "[{% data variables.product.prodname_codeql %} pack](/code-security/codeql-cli/getting-started-with-the-codeql-cli/customizing-analysis-with-codeql-packs)" and contain the correct query metadata. For more information, see "[Using custom queries with the {% data variables.product.prodname_codeql_cli %}](/code-security/codeql-cli/using-the-advanced-functionality-of-the-codeql-cli/using-custom-queries-with-the-codeql-cli)."
 
 {% endnote %}
-{% endif %}
 
 ## Locating queries to add to a query suite
 

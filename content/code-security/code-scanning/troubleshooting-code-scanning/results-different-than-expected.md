@@ -17,6 +17,4 @@ To check if default setup is enabled, navigate to the main page of the repositor
 
 If you want to return to using advanced setup and get {% data variables.product.prodname_code_scanning %} results from your custom workflow file, click {% octicon "stop" aria-hidden="true" %} **Disable {% data variables.product.prodname_codeql %}** to disable default setup. Then you should re-enable your pre-existing workflows to start triggering and uploading results from advanced setup. For more information, see "[AUTOTITLE](/actions/managing-workflow-runs/disabling-and-enabling-a-workflow)" and "[AUTOTITLE](/code-security/code-scanning/creating-an-advanced-setup-for-code-scanning/configuring-advanced-setup-for-code-scanning)."
 
-{% ifversion remove-code-scanning-configurations %}
 {% data reusables.code-scanning.troubleshooting-multiple-configurations %}
-{% endif %}

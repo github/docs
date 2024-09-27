@@ -1,7 +1,7 @@
 ---
 title: Authenticating to the GitHub API
 shortTitle: Authenticating
-intro: 'Learn how to authenticate to the {% data variables.product.company_short %} API to use {% data variables.product.prodname_actions_runner_controller %} with {% data variables.location.product_location %}.'
+intro: 'Learn how to authenticate to the {% data variables.product.company_short %} API to use {% data variables.product.prodname_actions_runner_controller %} with {% data variables.product.github %}.'
 versions:
   fpt: '*'
   ghec: '*'

@@ -27,6 +27,15 @@ When you transfer a repository to a new owner, they can immediately administer t
 
 Prerequisites for repository transfers:
 * When you transfer a repository that you own to another personal account, the new owner will receive a confirmation email.{% ifversion fpt or ghec %} The confirmation email includes instructions for accepting the transfer. If the new owner doesn't accept the transfer within one day, the invitation will expire.{% endif %}
+* To transfer a repository you must have administrator access to the repository.
+{%- ifversion fpt or ghec %}
+* Repositories on {% data variables.product.prodname_dotcom_the_website %} can only be transferred to other owners on {% data variables.product.prodname_dotcom_the_website %}.
+{%- ifversion ghec %}
+* Repositories cannot be transferred into an {% data variables.enterprise.prodname_emu_enterprise %} from outside the enterprise, or vice versa.
+{%- endif %}
+{%- elsif ghes %}
+* Repositories can only be transferred to an owner within the same {% data variables.product.prodname_ghe_server %} instance. For more information about moving a repository from {% data variables.product.prodname_ghe_server %} to {% data variables.product.prodname_ghe_cloud %}, see "[AUTOTITLE](/migrations/using-github-enterprise-importer/migrating-between-github-products/migrating-repositories-from-github-enterprise-server-to-github-enterprise-cloud)."
+{%- endif %}
 * To transfer a repository that you own to an organization, you must have permission to create a repository in the target organization.
 * The target account must not have a repository with the same name, or a fork in the same network.
 * The original owner of the repository is added as a collaborator on the transferred repository. Other collaborators to the transferred repository remain intact.

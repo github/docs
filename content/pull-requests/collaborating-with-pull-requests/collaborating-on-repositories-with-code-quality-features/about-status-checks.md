@@ -87,10 +87,6 @@ Alternatively, to skip or request _all_ checks for your commit, add one of the f
 
 {% data reusables.commits.about-commit-cleanup %}
 
-{% ifversion status-check-retention %}
-
 ### Retention of checks
 
 {% data reusables.pull_requests.retention-checks-data %}
-
-{% endif %}

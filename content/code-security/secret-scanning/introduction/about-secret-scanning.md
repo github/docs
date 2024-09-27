@@ -24,7 +24,7 @@ shortTitle: Secret scanning
 
 {% data variables.product.prodname_secret_scanning_caps %} is a security feature that helps detect and prevent the accidental inclusion of sensitive information such as API keys, passwords, tokens, and other secrets in your repository. When enabled, {% data variables.product.prodname_secret_scanning %} scans commits in repositories for known types of secrets and alerts repository administrators upon detection.
 
-{% data variables.product.prodname_secret_scanning_caps %} scans your entire Git history on all branches present in your {% data variables.product.prodname_dotcom %} repository for secrets{% ifversion ghec or ghes %}, even if the repository is archived{% endif %}.{% ifversion ghes < 3.11 %} {% data variables.product.prodname_secret_scanning_caps %} does not scan issues.{% endif %}{% ifversion secret-scanning-backfills %} {% data variables.product.prodname_dotcom %} will also periodically run a full Git history scan of existing content in {% ifversion fpt %}public{% else %}{% data variables.product.prodname_GH_advanced_security %}{% endif %} repositories where {% data variables.product.prodname_secret_scanning %} is enabled.{% endif %}
+{% data variables.product.prodname_secret_scanning_caps %} scans your entire Git history on all branches present in your {% data variables.product.prodname_dotcom %} repository for secrets{% ifversion ghec or ghes %}, even if the repository is archived{% endif %}.{% ifversion ghes < 3.11 %} {% data variables.product.prodname_secret_scanning_caps %} does not scan issues.{% endif %} {% data variables.product.prodname_dotcom %} will also periodically run a full Git history scan of existing content in {% ifversion fpt %}public{% else %}{% data variables.product.prodname_GH_advanced_security %}{% endif %} repositories where {% data variables.product.prodname_secret_scanning %} is enabled.
 
 {% data reusables.secret-scanning.what-is-scanned %}
 
@@ -54,7 +54,7 @@ Below is a typical workflow that explains how {% data variables.product.prodname
 
 * **Review**: When a secret is detected, you'll need to review the alert details provided.
 
-* **Remediation**: You then need take appropriate actions to remediate the exposure. This might include:
+* **Remediation**: You then need to take appropriate actions to remediate the exposure. This might include:
   * Rotating the affected credential to ensure it is no longer usable.
   * Removing the secret from the repository's history (using tools like BFG Repo-Cleaner or {% data variables.product.prodname_dotcom %}'s built-in features).
 

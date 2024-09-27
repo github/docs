@@ -11,8 +11,6 @@ topics:
   - Security
 ---
 
-{% data reusables.security-configurations.security-configurations-beta-note-short %}
-
 You must have an available {% data variables.product.prodname_GH_advanced_security %} (GHAS) license for each unique active committer to enable GHAS features on a private{% ifversion ghec or ghes %} or internal{% endif %} repository. To learn about GHAS licensing, as well as unique and active committers, see "[AUTOTITLE](/billing/managing-billing-for-github-advanced-security/about-billing-for-github-advanced-security)."
 
 If you try to apply a {% data variables.product.prodname_security_configuration %} with GHAS features to your repositories and don't have enough GHAS licenses, the configuration will only be successfully applied to public repositories. For private {% ifversion ghec or ghes %}and internal {% endif %}repositories, only free security features will be enabled due to the license limitation, resulting in the following outcomes:

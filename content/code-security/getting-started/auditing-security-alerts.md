@@ -63,15 +63,11 @@ You can also integrate webhook payloads into other tools you use to monitor and 
 
 You can use the API to list and interact with security alerts, for example, getting the most recent information about updates or dismissals of an alert. You can also use the API to make additional updates to the alert or to automate follow-up actions, such as creating a new issue for each alert that needs further action. Only the current status of an alert is reported by the API.
 
-{% ifversion dependabot-alerts-rest-api %}
-
 ### {% data variables.product.prodname_dependabot %} alerts API
 
 You can list all {% data variables.product.prodname_dependabot %} alerts for a repository, organization, or enterprise, or use path parameters to list only alerts that meet a specific set of criteria. For example, you might only want to list {% data variables.product.prodname_dependabot %} alerts for Maven that were dismissed. Alternatively, you can get full details for an alert or update the alert.
 
 For more information, see "[{% data variables.product.prodname_dependabot %} alerts](/rest/dependabot/alerts#about-dependabot-alerts)."
-
-{% endif %}
 
 ### {% data variables.product.prodname_secret_scanning_caps %} alerts API
 

@@ -53,7 +53,7 @@ For more information, see the [`deploy-pages`](https://github.com/marketplace/ac
 {% raw %}
 
 ```yaml
-...
+# ...
 
 jobs:
   deploy:
@@ -70,7 +70,7 @@ jobs:
       - name: Deploy artifact
         id: deployment
         uses: actions/deploy-pages@v1
-...
+# ...
 ```
 
 {% endraw %}
@@ -80,7 +80,7 @@ jobs:
 You can link your `build` and `deploy` jobs in a single workflow file,  eliminating the need to create two separate files to get the same result. To get started on your workflow file, under `jobs` you can define a `build` and `deploy` job to execute your jobs.
 
 ```yaml
-...
+# ...
 
 jobs:
   # Build job
@@ -111,13 +111,13 @@ jobs:
       - name: Deploy to GitHub Pages
         id: deployment
         uses: actions/deploy-pages@v2
-...
+# ...
 ```
 
 In certain cases, you might choose to combine everything into a single job, especially if there is no need for a build process. Consequently, you would solely focus on the deployment step.
 
 ```yaml
-...
+# ...
 
 jobs:
   # Single deploy job no building
@@ -140,7 +140,7 @@ jobs:
         id: deployment
         uses: actions/deploy-pages@v2
 
-...
+# ...
 ```
 
 You can define your jobs to be run on different runners, sequentially, or in parallel. For more information, see "[AUTOTITLE](/actions/using-jobs)."

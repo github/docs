@@ -11,6 +11,7 @@ children:
   - /setting-up-copilot-extensions
   - /building-a-copilot-agent-for-your-copilot-extension
   - /creating-a-copilot-extension
+  - /debugging-your-github-copilot-extension
   - /managing-the-availability-of-your-copilot-extension
   - /copilot-extensions-glossary
 ---

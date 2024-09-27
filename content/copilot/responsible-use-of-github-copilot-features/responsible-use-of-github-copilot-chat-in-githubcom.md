@@ -2,10 +2,9 @@
 title: Responsible use of GitHub Copilot Chat in GitHub.com
 shortTitle: Chat in GitHub.com
 intro: 'Learn how to use {% data variables.product.prodname_copilot_chat_dotcom %} responsibly by understanding its purposes, capabilities, and limitations.'
-product: 'Owners of organizations {% ifversion ghec %}or enterprises {% endif %}with a {% data variables.product.prodname_copilot_enterprise %} subscription can decide whether to grant access to the {% data variables.product.prodname_copilot_enterprise_short %} functionality for an organization. For more information, see "[AUTOTITLE](/copilot/github-copilot-enterprise/overview/enabling-github-copilot-enterprise-features)."'
+product: '{% data reusables.gated-features.copilot-chat-callout-dotcom %}'
 versions:
-  feature: copilot-on-dotcom
-  fpt: '*'
+  feature: copilot
 topics:
   - Copilot
 type: rai
@@ -16,11 +15,7 @@ redirect_from:
   - /copilot/github-copilot-chat/copilot-chat-in-github/about-github-copilot-chat-in-githubcom
 ---
 
-{% ifversion fpt %}
-
-{% data reusables.rai.copilot.enterprise-fpt-link %}
-
-{% endif %}
+> [!NOTE] {% data reusables.rai.copilot.copilot-chat-dotcom-beta %}
 
 ## About {% data variables.product.prodname_copilot_chat_dotcom %}
 

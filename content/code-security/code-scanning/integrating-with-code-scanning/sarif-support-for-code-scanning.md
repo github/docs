@@ -65,8 +65,6 @@ Specifying source file locations and lines of code ensures code scanning alerts 
 
 This precision enhances the efficiency of code review and resolution processes, streamlining development workflows by enabling developers to address issues directly in the context of their codebase.
 
-{% ifversion code-scanning-alerts-in-pr-diff %}
-
 {% data variables.product.prodname_code_scanning_caps %} will also display alerts in pull request check results when all the lines of code identified by the alert exist in the pull request diff.
 
 For display in a pull request check, an alert must meet all the following conditions:
@@ -76,8 +74,6 @@ For display in a pull request check, an alert must meet all the following condit
 
 The `physicalLocation` object in a submitted SARIF file identifies the lines of code for an alert. For more information, see "[`physicalLocation` object](#physicallocation-object)."
 
-{% endif %}
-
 ### Specifying the root for source files
 
 {% data variables.product.prodname_code_scanning_caps %} interprets results that are reported with relative paths as relative to the root of the repository analyzed. If a result contains an absolute URI, the URI is converted to a relative URI. The relative URI can then be matched against a file committed to the repository.
@@ -86,7 +82,7 @@ You can provide the source root for conversion from absolute to relative URIs in
 
 * [`checkout_path`](https://github.com/github/codeql-action/blob/c2c0a2908e95769d01b907f9930050ecb5cf050d/analyze/action.yml#L44-L47) input to the `github/codeql-action/analyze` action
 * `checkout_uri` parameter to the SARIF upload API endpoint. For more information, see "[AUTOTITLE](/rest/code-scanning/code-scanning#upload-an-analysis-as-sarif-data)."
-* [`invocation.workingDirectory.uri`](https://docs.oasis-open.org/sarif/sarif/v2.1.0/csprd01/sarif-v2.1.0-csprd01.html#_Toc9244365) property in the SARIF file
+* [`invocations[0].workingDirectory.uri`](https://docs.oasis-open.org/sarif/sarif/v2.1.0/csprd01/sarif-v2.1.0-csprd01.html#_Toc9244365) property in the `run` object in the SARIF file
 
 If you provide a source root, any location of an artifact specified using an absolute URI must use the same URI scheme. If there is a mismatch between the URI scheme for the source root and one or more of the absolute URIs, the upload is rejected.
 

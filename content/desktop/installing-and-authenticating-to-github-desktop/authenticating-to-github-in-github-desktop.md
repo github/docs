@@ -22,7 +22,7 @@ Before you authenticate, {% data reusables.desktop.get-an-account %}
 ## Authenticating an account on {% data variables.product.prodname_dotcom %}
 
 {% data reusables.desktop.mac-select-desktop-menu %}
-1. In the "Preferences" window, on the **Accounts** pane, click the **Sign In** button next to "{% data variables.product.prodname_dotcom_the_website %}".
+1. In the "Preferences" window, on the **Accounts** pane, click the **Sign In** button next to "GitHub.com".
 
    ![Screenshot of the "Accounts" pane in the "Preferences" window. Next to "GitHub.com", a button, labeled "Sign In", is outlined in orange.](/assets/images/help/desktop/sign-in-github.png)
 

@@ -18,7 +18,7 @@ Rate limits are disabled by default for {% data variables.product.product_name %
 
 If you are a site administrator, you can set rate limits, including secondary rate limits, for your instance. See "[AUTOTITLE](/admin/configuration/configuring-user-applications-for-your-enterprise/configuring-rate-limits)."
 
-If you are developing an app for users or organizations outside of your instance, the standard {% data variables.product.prodname_dotcom_the_website %} rate limits apply. See "[AUTOTITLE](/free-pro-team@latest/rest/overview/rate-limits-for-the-rest-api)" in the {% data variables.product.prodname_free_user %} documentation.
+If you are developing an app for users or organizations outside of your instance, the standard {% data variables.product.github %} rate limits apply. See "[AUTOTITLE](/free-pro-team@latest/rest/overview/rate-limits-for-the-rest-api)" in the {% data variables.product.prodname_free_user %} documentation.
 
 ## About secondary rate limits
 

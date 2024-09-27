@@ -29,7 +29,7 @@ Here are guidelines about the fields you'll need to fill out in the **Listing de
 
 ### Listing name
 
-Your listing's name will appear on the [{% data variables.product.prodname_marketplace %} homepage](https://github.com/marketplace). The name is limited to 255 characters and can be different from your app's name. Your listing cannot have the same name as an existing account on {% data variables.location.product_location %}, unless the name is your own user or organization name.
+Your listing's name will appear on the [{% data variables.product.prodname_marketplace %} homepage](https://github.com/marketplace). The name is limited to 255 characters and can be different from your app's name. Your listing cannot have the same name as an existing account on {% data variables.product.github %}, unless the name is your own user or organization name.
 
 ### Very short description of listing
 

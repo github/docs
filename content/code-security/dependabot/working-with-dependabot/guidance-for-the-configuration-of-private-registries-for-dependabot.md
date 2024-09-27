@@ -54,7 +54,7 @@ You'll also find recommendations for the setup of the following registry hosts:
 
 Supported by Artifactory, Artifacts, {% data variables.product.prodname_registry %} registry, Nexus, and ProGet.
 
-You can authenticate with either a username and password, or a token. For more information, see `ruby-gems` in "[AUTOTITLE](/code-security/dependabot/dependabot-version-updates/configuration-options-for-the-dependabot.yml-file#rubygems-server)."
+You can authenticate with either a username and password, or a token. For more information, see `rubygems-server` in "[AUTOTITLE](/code-security/dependabot/dependabot-version-updates/configuration-options-for-the-dependabot.yml-file#rubygems-server)."
 
 Snippet of a `dependabot.yml` file using a username and password.
 
@@ -684,7 +684,7 @@ If you are restricting which IPs can reach your Nexus host, you need to add the 
       * "3.217.93.44/32"
 For more information, see [Securing Nexus Repository Manager](https://help.sonatype.com/repomanager3/planning-your-implementation/securing-nexus-repository-manager) in the Sonatype documentation.
 
-  Registries can be proxied to reach out to a public registry in case a dependency is not available in the private registry.{% ifversion dependabot-private-registries %} However, you may want {% data variables.product.prodname_dependabot %} to only access the private registry and not access the public registry at all. For more information, see "[Quick Start Guide - Proxying Maven and NPM](https://help.sonatype.com/repomanager3/planning-your-implementation/quick-start-guide---proxying-maven-and-npm)" in the Sonatype documentation, and "[AUTOTITLE](/code-security/dependabot/working-with-dependabot/removing-dependabot-access-to-public-registries)."{% endif %}
+  Registries can be proxied to reach out to a public registry in case a dependency is not available in the private registry. However, you may want {% data variables.product.prodname_dependabot %} to only access the private registry and not access the public registry at all. For more information, see "[Quick Start Guide - Proxying Maven and NPM](https://help.sonatype.com/repomanager3/planning-your-implementation/quick-start-guide---proxying-maven-and-npm)" in the Sonatype documentation, and "[AUTOTITLE](/code-security/dependabot/working-with-dependabot/removing-dependabot-access-to-public-registries)."
 
 ### ProGet
 

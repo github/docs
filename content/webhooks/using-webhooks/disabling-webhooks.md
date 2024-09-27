@@ -39,7 +39,7 @@ To disable an organization webhook, you can deactivate or delete it. Only organi
 
 You can use the {% data variables.product.prodname_dotcom %} web interface or the REST API to delete an organization webhook. For more information about using the REST API to delete an organization webhook, see "[AUTOTITLE](/rest/orgs/webhooks#delete-an-organization-webhook)."
 
-1. In the upper-right corner of any page on {% data variables.location.product_location %}, click your profile photo.
+1. In the upper-right corner of any page on {% data variables.product.github %}, click your profile photo.
 1. Click **Your organizations**.
 1. To the right of the organization, click **Settings**.
 {% data reusables.webhooks.sidebar_webhooks %}

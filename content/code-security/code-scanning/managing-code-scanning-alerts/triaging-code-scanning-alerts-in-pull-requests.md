@@ -28,19 +28,17 @@ topics:
 
 In repositories where {% data variables.product.prodname_code_scanning %} is configured as a pull request check, {% data variables.product.prodname_code_scanning %} checks the code in the pull request. By default, this is limited to pull requests that target the default branch, but you can change this configuration within {% data variables.product.prodname_actions %} or in a third-party CI/CD system.
 
-{% ifversion code-scanning-alerts-in-pr-diff %}If the lines of code changed in the pull request generate {% data variables.product.prodname_code_scanning %} alerts, the alerts are reported in the following places on the pull request{% else %}If merging the changes would introduce new {% data variables.product.prodname_code_scanning %} alerts to the target branch, the alerts are reported in the following places{% endif %}.
+If the lines of code changed in the pull request generate {% data variables.product.prodname_code_scanning %} alerts, the alerts are reported in the following places on the pull request.
 
-* Check results in the pull request {% ifversion code-scanning-pr-conversations-tab %}
-* The **Conversation** tab of the pull request, as part of a pull request review {% endif %}
+* Check results in the pull request
+* The **Conversation** tab of the pull request, as part of a pull request review
 * The **Files changed** tab of the pull request
 
-{% ifversion code-scanning-alerts-in-pr-diff %}
 {% note %}
 
 **Note:** {% data variables.product.prodname_code_scanning_caps %} displays alerts in pull requests only when all the lines of code identified by the alert exist in the pull request diff. For more information, see "[AUTOTITLE](/code-security/code-scanning/integrating-with-code-scanning/sarif-support-for-code-scanning#specifying-the-location-for-source-files)."
 
 {% endnote %}
-{% endif %}
 
 {% ifversion code-scanning-autofix %}
 
@@ -66,7 +64,7 @@ There are many options for configuring {% data variables.product.prodname_code_s
 
 ### {% data variables.product.prodname_code_scanning_caps %} results check
 
-For all configurations of {% data variables.product.prodname_code_scanning %}, the check that contains the results of {% data variables.product.prodname_code_scanning %} is: **{% data variables.product.prodname_code_scanning_caps %} results**. The results for each analysis tool used are shown separately. {% ifversion code-scanning-alerts-in-pr-diff %}Any new alerts on lines of code changed in the pull request are shown as annotations{% else %}Any new alerts caused by changes in the pull request are shown as annotations{% endif %}.
+For all configurations of {% data variables.product.prodname_code_scanning %}, the check that contains the results of {% data variables.product.prodname_code_scanning %} is: **{% data variables.product.prodname_code_scanning_caps %} results**. The results for each analysis tool used are shown separately. Any new alerts on lines of code changed in the pull request are shown as annotations.
 
 To see the full set of alerts for the analyzed branch, click **View all branch alerts**. This opens the full alert view where you can filter all the alerts on the branch by type, severity, tag, etc. For more information, see "[AUTOTITLE](/code-security/code-scanning/managing-code-scanning-alerts/managing-code-scanning-alerts-for-your-repository#filtering-and-searching-for-code-scanning-alerts)."
 
@@ -90,20 +88,13 @@ As with other pull request checks, you can see full details of the check failure
 
 ## Viewing an alert on your pull request
 
-{% ifversion code-scanning-pr-conversations-tab %}
-You can see any {% data variables.product.prodname_code_scanning %} alerts {% ifversion code-scanning-alerts-in-pr-diff %}that are inside the diff of the changes{% endif %} introduced in a pull request by viewing the **Conversation** tab. {% data variables.product.prodname_code_scanning_caps %} posts a pull request review that shows each alert as an annotation on the lines of code that triggered the alert. You can comment on the alerts, dismiss the alerts, and view paths for the alerts, directly from the annotations. You can view the full details of an alert by clicking the "Show more details" link, which will take you to the alert details page.
+You can see any {% data variables.product.prodname_code_scanning %} alerts that are inside the diff of the changes introduced in a pull request by viewing the **Conversation** tab. {% data variables.product.prodname_code_scanning_caps %} posts a pull request review that shows each alert as an annotation on the lines of code that triggered the alert. You can comment on the alerts, dismiss the alerts, and view paths for the alerts, directly from the annotations. You can view the full details of an alert by clicking the "Show more details" link, which will take you to the alert details page.
 
 ![Screenshot of an alert annotation on the "Conversations" tab of a pull request. The "Show more details" link is outlined in dark orange.](/assets/images/help/repository/code-scanning-pr-conversation-tab.png)
 
-You can also view all {% data variables.product.prodname_code_scanning %} alerts {% ifversion code-scanning-alerts-in-pr-diff %}that are inside the diff of the changes introduced in the pull request in the **Files changed** tab{% else %}in the **Files changed** tab of the pull request. Existing {% data variables.product.prodname_code_scanning %} alerts on a file that are outside the diff of the changes introduced in the pull request will only appear in the **Files changed** tab{% endif %}.
+You can also view all {% data variables.product.prodname_code_scanning %} alerts that are inside the diff of the changes introduced in the pull request in the **Files changed** tab.
 
-{% else %}
-You can see any {% data variables.product.prodname_code_scanning %} alerts introduced in a pull request by displaying the **Files changed** tab. Each alert is shown as an annotation on the lines of code that triggered the alert. The severity of the alert is displayed in the annotation.
-
-![Screenshot showing an alert annotation within a pull request diff.](/assets/images/help/repository/code-scanning-pr-annotation.png)
-{% endif %}
-
-{% ifversion code-scanning-alerts-in-pr-diff %}If you add a new code scanning configuration in your pull request, you will see a comment on your pull request directing you to the **Security** tab of the repository so you can view all the alerts on the pull request branch. For more information about viewing the alerts for a repository, see  "[AUTOTITLE](/code-security/code-scanning/managing-code-scanning-alerts/managing-code-scanning-alerts-for-your-repository#viewing-the-alerts-for-a-repository)."{% endif %}
+If you add a new code scanning configuration in your pull request, you will see a comment on your pull request directing you to the **Security** tab of the repository so you can view all the alerts on the pull request branch. For more information about viewing the alerts for a repository, see  "[AUTOTITLE](/code-security/code-scanning/managing-code-scanning-alerts/managing-code-scanning-alerts-for-your-repository#viewing-the-alerts-for-a-repository)."
 
 If you have write permission for the repository, some annotations contain links with extra context for the alert. In the example above, from {% data variables.product.prodname_codeql %} analysis, you can click **user-provided value** to see where the untrusted data enters the data flow (this is referred to as the source). In this case you can also view the full path from the source to the code that uses the data (the sink) by clicking **Show paths**. This makes it easy to check whether the data is untrusted or if the analysis failed to recognize a data sanitization step between the source and the sink. For information about analyzing data flow using {% data variables.product.prodname_codeql %}, see "[About data flow analysis](https://codeql.github.com/docs/writing-codeql-queries/about-data-flow-analysis/)."
 
@@ -115,14 +106,11 @@ In the detailed view for an alert, some {% data variables.product.prodname_code_
 
 ![Screenshot showing the description for a {% data variables.product.prodname_code_scanning %} alert. A link labeled "Show more" is highlighted with a dark orange outline.](/assets/images/help/repository/code-scanning-pr-alert.png)
 
-{% ifversion code-scanning-pr-conversations-tab %}
-
 ## Commenting on an alert in a pull request
 
-You can comment on any {% data variables.product.prodname_code_scanning %} alert {% ifversion code-scanning-alerts-in-pr-diff %}that appears in a pull request. Alerts appear as annotations in the **Conversation** tab of a pull request, as part of a  pull request review, and also are shown in the **Files changed** tab{% else %}introduced by the changes in a pull request. Alerts appear as annotations in the **Conversation** tab of a pull request, as part of a  pull request review, and also are shown in the **Files changed** tab. You can only comment on alerts introduced by the changes in a pull request. Existing {% data variables.product.prodname_code_scanning %} alerts, on files that are outside the changes introduced in the pull request, will appear in the **Files changed** tab but cannot be commented on{% endif %}.
+You can comment on any {% data variables.product.prodname_code_scanning %} alert that appears in a pull request. Alerts appear as annotations in the **Conversation** tab of a pull request, as part of a  pull request review, and also are shown in the **Files changed** tab.
 
 You can choose to require all conversations in a pull request, including those on {% data variables.product.prodname_code_scanning %} alerts, to be resolved before a pull request can be merged. For more information, see "[AUTOTITLE](/repositories/configuring-branches-and-merges-in-your-repository/managing-protected-branches/about-protected-branches#require-conversation-resolution-before-merging)."
-{% endif %}
 
 ## Fixing an alert on your pull request
 
@@ -132,9 +120,9 @@ Anyone with push access to a pull request can fix a {% data variables.product.pr
 
 ## Working with {% data variables.product.prodname_copilot_autofix_short %} suggestions for alerts on a pull request
 
-{% data reusables.rai.code-scanning.autofix-note %}
-
 {% data variables.product.prodname_copilot_autofix %} is an expansion of {% data variables.product.prodname_code_scanning %} that provides you with targeted recommendations to help you fix {% data variables.product.prodname_code_scanning %} alerts in pull requests. The potential fixes are generated automatically by large language models (LLMs) using data from the codebase, the pull request, and from {% data variables.product.prodname_codeql %} analysis.
+
+{% data reusables.rai.code-scanning.copilot-autofix-note %}
 
 ![Screenshot of the check failure for a {% data variables.product.prodname_code_scanning %} alert in a pull request. Part of the "autofix" suggestion is outlined in dark orange.](/assets/images/help/code-scanning/alert+autofix.png)
 
@@ -178,11 +166,9 @@ If you decide to reject a {% data variables.product.prodname_copilot_autofix_sho
 ## Dismissing an alert on your pull request
 
 An alternative way of closing an alert is to dismiss it. You can dismiss an alert if you don't think it needs to be fixed. {% data reusables.code-scanning.close-alert-examples %} If you have write permission for the repository, a **Dismiss alert** button is available in code annotations and in the alerts summary. When you click **Dismiss alert** you will be prompted to choose a reason for closing the alert.
-{% ifversion comment-dismissed-code-scanning-alert %}
+
 ![Screenshot of a check failure for code scanning. The "Dismiss alert" button is highlighted in dark orange. The "Dismiss alert" drop-down is shown.](/assets/images/help/repository/code-scanning-alert-dropdown-reason.png)
-{% else %}
-![Choosing a reason for dismissing an alert.](/assets/images/help/repository/code-scanning-alert-close-drop-down.png)
-{% endif %}
+
 {% data reusables.code-scanning.choose-alert-dismissal-reason %}
 
 {% data reusables.code-scanning.false-positive-fix-codeql %}

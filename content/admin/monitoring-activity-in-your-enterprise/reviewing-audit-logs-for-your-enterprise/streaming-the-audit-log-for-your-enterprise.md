@@ -170,6 +170,8 @@ You can consolidate your audit logs by integrating streaming to S3 with AWS Clou
 
 ### Setting up streaming to Azure Blob Storage
 
+> [!NOTE] Audit log streaming to blob storage in Azure Government is not supported.
+
 Before setting up a stream in {% data variables.product.prodname_dotcom %}, first create a storage account and a container in Microsoft Azure. See [Introduction to Azure Blob Storage](https://docs.microsoft.com/en-us/azure/storage/blobs/storage-blobs-introduction) in the Microsoft documentation.
 
 To configure the stream, you need the URL of a SAS token.
@@ -284,7 +286,7 @@ To stream audit logs to Splunk's HTTP Event Collector (HEC) endpoint, make sure 
 
 ## Pausing audit log streaming
 
-Pause the stream to perform maintenance on the receiving application without losing audit data. Audit logs are stored for up to seven days on {% data variables.location.product_location %} and are then exported when you unpause the stream.
+Pause the stream to perform maintenance on the receiving application without losing audit data. Audit logs are stored for up to seven days on {% data variables.product.github %} and are then exported when you unpause the stream.
 
 {% ifversion streaming-datadog %}
 Datadog only accepts logs from up to 18 hours in the past. If you pause a stream to a Datadog endpoint for more than 18 hours, you risk losing logs that Datadog won't accept after you resume streaming.

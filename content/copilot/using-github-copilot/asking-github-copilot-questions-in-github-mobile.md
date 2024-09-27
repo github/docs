@@ -15,7 +15,7 @@ redirect_from:
 
 ## Overview
 
-{% data variables.product.prodname_copilot_chat %} is a chat interface that lets you ask and receive answers to coding-related questions in {% data variables.product.prodname_mobile %}. You can also use {% data variables.product.prodname_copilot_chat %} {% ifversion ghec %}on either {% data variables.product.prodname_dotcom_the_website %} or{% endif %} within a supported IDE. For information on using {% data variables.product.prodname_copilot_chat %} in an IDE, see "[AUTOTITLE](/copilot/github-copilot-chat/copilot-chat-in-ides/using-github-copilot-chat-in-your-ide)."
+{% data variables.product.prodname_copilot_chat %} is a chat interface that lets you ask and receive answers to coding-related questions in {% data variables.product.prodname_mobile %}. You can also use {% data variables.product.prodname_copilot_chat %} on either {% data variables.product.prodname_dotcom_the_website %} or within a supported IDE. For information on using {% data variables.product.prodname_copilot_chat %} in an IDE, see "[AUTOTITLE](/copilot/github-copilot-chat/copilot-chat-in-ides/using-github-copilot-chat-in-your-ide)."
 
 {% data variables.product.prodname_copilot_mobile_short %} can help you with a variety of coding-related tasks, like offering you code suggestions, providing natural language descriptions of a piece of code's functionality and purpose, generating unit tests for your code, and proposing fixes for bugs in your code. For more information, see "[AUTOTITLE](/copilot/github-copilot-chat/copilot-chat-in-github-mobile/about-github-copilot-chat-in-github-mobile)."
 
