@@ -6,6 +6,7 @@ redirect_from:
   - /articles/viewing-all-of-your-issues-and-pull-requests
   - /github/managing-your-work-on-github/viewing-all-of-your-issues-and-pull-requests
   - /issues/tracking-your-work-with-issues/managing-issues/viewing-all-of-your-issues-and-pull-requests
+  - /issues/tracking-your-work-with-issues/viewing-all-of-your-issues-and-pull-requests
 versions:
   fpt: '*'
   ghes: '*'

@@ -1,1 +1,1 @@
-1. Under "{% octicon "law" aria-hidden="true" %} Policies", click **Repositories**.
+1. Under "{% octicon "law" aria-hidden="true" %} Policies", click **Member privileges**.

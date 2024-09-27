@@ -35,15 +35,11 @@ The endpoints to fetch and update the value of environment variables require a {
 1. Store the app ID from the previous step as a {% data variables.product.prodname_actions %} secret in the repository where you want the workflow to run. For more information about storing secrets, see "[AUTOTITLE](/actions/security-guides/encrypted-secrets)."
 1. Generate a private key for your app. For more information about generating a private key, see "[AUTOTITLE](/apps/creating-github-apps/authenticating-with-a-github-app/managing-private-keys-for-github-apps)."
 1. Store the private key, including `-----BEGIN RSA PRIVATE KEY-----` and `-----END RSA PRIVATE KEY-----`, from the previous step as a {% data variables.product.prodname_actions %} secret in the repository where you want the workflow to run.
-{% ifversion pat-v2 %}
 1. Create a {% data variables.product.pat_generic %} with the following access. For more information, see "[AUTOTITLE](/authentication/keeping-your-account-and-data-secure/managing-your-personal-access-tokens)."
    * For a {% data variables.product.pat_v2 %}, grant the token:
      * Write access to the repository variables permission
      * Access to the repository where this workflow will run
    * For a {% data variables.product.pat_v1 %}, grant the token the `repo` scope.
-{% else %}
-1. Create a {% data variables.product.pat_v1 %} with the `repo` scope. For more information, see "[AUTOTITLE](/authentication/keeping-your-account-and-data-secure/managing-your-personal-access-tokens)."
-{% endif %}
 1. Store your {% data variables.product.pat_generic %} from the previous step as a {% data variables.product.prodname_actions %} secret in the repository where you want the workflow to run.
 
 ## Adding a workflow that will run the script

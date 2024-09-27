@@ -19,7 +19,7 @@ redirect_from:
 
 ## About SAML configuration
 
-To use SAML single sign-on (SSO) for authentication to {% data variables.product.product_name %}, you must configure both your external SAML identity provider (IdP) and {% ifversion ghes %}{% data variables.location.product_location %}{% elsif ghec %}your enterprise or organization on {% data variables.location.product_location %}{% endif %}. In a SAML configuration, {% data variables.product.product_name %} functions as a SAML service provider (SP). For more information about authentication for your enterprise, see "[AUTOTITLE](/admin/identity-and-access-management/understanding-iam-for-enterprises/about-identity-and-access-management#authentication-methods)."
+To use SAML single sign-on (SSO) for authentication to {% data variables.product.product_name %}, you must configure both your external SAML identity provider (IdP) and {% ifversion ghes %}{% data variables.location.product_location %}{% elsif ghec %}your enterprise or organization on {% data variables.product.github %}{% endif %}. In a SAML configuration, {% data variables.product.product_name %} functions as a SAML service provider (SP). For more information about authentication for your enterprise, see "[AUTOTITLE](/admin/identity-and-access-management/understanding-iam-for-enterprises/about-identity-and-access-management#authentication-methods)."
 
  {% data variables.product.product_name %} provides integration according to the SAML 2.0 specification. For more information, see the [SAML Wiki](https://wiki.oasis-open.org/security) on the OASIS website.
 
@@ -35,7 +35,7 @@ The SP metadata for {% data variables.product.product_name %} is available for e
 
 You can configure SAML SSO for an individual organization in your enterprise. You can also configure SAML SSO for an organization if you use an individual organization on {% data variables.product.product_name %} and do not use an enterprise account. For more information, see "[AUTOTITLE](/organizations/managing-saml-single-sign-on-for-your-organization)."
 
-The SP metadata for an organization on {% data variables.location.product_location %} is available at `https://github.com/orgs/ORGANIZATION/saml/metadata`, where **ORGANIZATION** is the name of your organization on {% data variables.location.product_location %}.
+The SP metadata for an organization on {% data variables.product.github %} is available at `https://github.com/orgs/ORGANIZATION/saml/metadata`, where **ORGANIZATION** is the name of your organization on {% data variables.product.github %}.
 
 | Value | Other names | Description | Example |
 | :- | :- | :- | :- |
@@ -45,7 +45,7 @@ The SP metadata for an organization on {% data variables.location.product_locati
 
 ### Enterprises
 
-The SP metadata for an enterprise on {% data variables.location.product_location %} is available at `https://github.com/enterprises/ENTERPRISE/saml/metadata`, where **ENTERPRISE** is the name of your enterprise on {% data variables.location.product_location %}.
+The SP metadata for an enterprise on {% data variables.product.github %} is available at `https://github.com/enterprises/ENTERPRISE/saml/metadata`, where **ENTERPRISE** is the name of your enterprise on {% data variables.product.github %}.
 
 | Value | Other names | Description | Example |
 | :- | :- | :- | :- |
@@ -96,7 +96,7 @@ To specify more than one value for an attribute, use multiple `<saml2:AttributeV
 {% data variables.product.product_name %} requires that the response message from your IdP fulfill the following requirements.
 
 * Your IdP must provide the `<Destination>` element on the root response document and match the ACS URL only when the root response document is signed. If your IdP signs the assertion, {% data variables.product.product_name %} will ignore the assertion.
-* Your IdP must always provide the `<Audience>` element as part of the `<AudienceRestriction>` element. The value must match your `EntityId` for {% data variables.product.product_name %}.{% ifversion ghes %} This value is the URL where you access {% data variables.location.product_location %}, such as `http(s)://HOSTNAME`.{% endif %}
+* Your IdP must always provide the `<Audience>` element as part of the `<AudienceRestriction>` element. The value must match your `EntityId` for {% data variables.product.product_name %}.{% ifversion ghes %} This value is the URL where you access {% data variables.product.github %}, such as `http(s)://HOSTNAME`.{% endif %}
 
   {%- ifversion ghec %}
   * If you configure SAML for an organization, this value is `https://github.com/orgs/ORGANIZATION`.

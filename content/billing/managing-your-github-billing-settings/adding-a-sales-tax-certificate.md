@@ -18,7 +18,7 @@ If you're a {% data variables.product.company_short %} customer in the United St
 * PNG (`.png`)
 * PDF (`.pdf`)
 
-Your account is marked as tax exempt, while your certificate is reviewed. If your certificate is not approved, you will need to upload a new one.
+Your account is marked as tax exempt while your certificate is reviewed. If your certificate is not approved, you will need to upload a new one.
 
 ## Adding a sales tax exemption certificate to your organization account
 

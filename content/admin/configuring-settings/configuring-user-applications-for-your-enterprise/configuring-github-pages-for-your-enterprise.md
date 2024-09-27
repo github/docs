@@ -20,8 +20,6 @@ topics:
 shortTitle: Configure GitHub Pages
 ---
 
-{% ifversion ghes %}
-
 ## Enabling public sites for {% data variables.product.prodname_pages %}
 
 If private mode is enabled on your enterprise, the public cannot access {% data variables.product.prodname_pages %} sites hosted by your enterprise unless you enable public sites.
@@ -48,10 +46,6 @@ If subdomain isolation is disabled for your enterprise, you should also disable 
 1. Deselect **Enable Pages**.
 {% data reusables.enterprise_management_console.save-settings %}
 
-{% endif %}
-
-{% ifversion ghes %}
-
 ## Configuring {% data variables.product.prodname_pages %} response headers for your enterprise
 
 You can add or override response headers for {% data variables.product.prodname_pages %} sites hosted by {% data variables.location.product_location %}.
@@ -70,11 +64,6 @@ You can add or override response headers for {% data variables.product.prodname_
 1. Click **Add headers**.
 {% data reusables.enterprise_management_console.save-settings %}
 
-{% endif %}
-
-{% ifversion ghes %}
-
 ## Further reading
 
 * "[AUTOTITLE](/admin/configuration/configuring-your-enterprise/enabling-private-mode)"
-{% endif %}
