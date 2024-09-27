@@ -17,7 +17,7 @@ redirect_from:
 
 {% note %}
 
-**Note:** {% data variables.product.prodname_actions %} support for Google Cloud Storage is currently in beta and subject to change.
+**Note:** {% data variables.product.prodname_actions %} support for Google Cloud Storage is currently in {% data variables.release-phases.public_preview %} and subject to change.
 
 {% endnote %}
 

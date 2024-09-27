@@ -1,6 +1,6 @@
 {% note %}
 
-**Note:** Tasklists are in private beta and subject to change. We have currently paused onboarding to the beta.
+**Note:** Tasklists are in {% data variables.release-phases.private_preview %} and subject to change. We have currently paused onboarding to the {% data variables.release-phases.public_preview %}.
 
 {% endnote %}
 

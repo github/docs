@@ -1,5 +1,5 @@
 >[!NOTE]
->The editor role was deprecated in patch release
+>The editor role is {% data variables.release-phases.closing_down %} in patch release
 {%- ifversion ghes = 3.12 %} 3.12.2{%- endif %}
 {%- ifversion ghes = 3.11 %} 3.11.8{%- endif %}
 {%- ifversion ghes = 3.10 %} 3.10.10{%- endif %}

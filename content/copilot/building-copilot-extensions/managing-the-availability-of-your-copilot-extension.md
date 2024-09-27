@@ -40,7 +40,7 @@ If you make your app public, you can choose to publish it on the {% data variabl
 
 App managers cannot create, edit, or publish extensions on the {% data variables.product.prodname_marketplace %}. To manage a listing, you should be an organization owner for the publishing organization.
 
-> [!NOTE] Paid plans are not supported for {% data variables.product.prodname_copilot_extensions_short %} during public beta. Any requests to publish with a paid plan attached will not be approved.
+> [!NOTE] Paid plans are not supported for {% data variables.product.prodname_copilot_extensions_short %} during {% data variables.release-phases.public_preview %}. Any requests to publish with a paid plan attached will not be approved.
 
 {% data reusables.profile.access_org %}
 {% data reusables.organizations.org-list %}

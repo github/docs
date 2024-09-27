@@ -59,7 +59,7 @@ A piece of code that retrieves context or executes an action in response to a us
 
 #### Tool/Function Calling
 
-A capability of {% data variables.product.prodname_copilot_short %}'s LLM (as well as Open AI’s) that allows them to invoke specific tools or functions. Extension builders can define available tools with parameters, enabling the LLM to select and call appropriate tools to fulfill a user’s request. “Functions” are a subset of “tools” and the “function calling” term will eventually be deprecated.
+A capability of {% data variables.product.prodname_copilot_short %}'s LLM (as well as Open AI’s) that allows them to invoke specific tools or functions. Extension builders can define available tools with parameters, enabling the LLM to select and call appropriate tools to fulfill a user’s request. “Functions” are a subset of “tools” and the “function calling” term will be {% data variables.release-phases.closing_down %}.
 
 #### Unlisted Extension
 

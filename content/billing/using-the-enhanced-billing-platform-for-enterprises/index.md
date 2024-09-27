@@ -4,7 +4,7 @@ shortTitle: Enhanced billing platform
 intro: 'The enhanced billing platform offers better spending control and detailed visibility to help you understand your usage with more granular controls.'
 redirect_from:
   - /early-access/billing/billing-private-beta
-permissions: The enhanced billing platform is available to all enterprise accounts, and organizations owned by enterprise accounts, created after June 2, 2024. Enterprises that participated in the beta program also have access to the enhanced billing platform.
+permissions: The enhanced billing platform is available to all enterprise accounts, and organizations owned by enterprise accounts, created after June 2, 2024. Enterprises that participated in the {% data variables.release-phases.public_preview %} program also have access to the enhanced billing platform.
 versions:
   feature: enhanced-billing-platform
 children:

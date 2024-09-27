@@ -1,4 +1,4 @@
->[!NOTE] Delegated bypass for push rules is currently in beta and subject to change.
+>[!NOTE] Delegated bypass for push rules is currently in {% data variables.release-phases.public_preview %} and subject to change.
 
 Delegated bypass for push rulesets lets you control who can bypass push protection and which blocked pushes should be allowed.
 

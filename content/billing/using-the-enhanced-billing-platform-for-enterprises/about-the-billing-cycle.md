@@ -6,7 +6,7 @@ versions:
 type: overview
 topics:
   - Enterprise
-permissions: The enhanced billing platform is available to all enterprise accounts, and organizations owned by enterprise accounts, created after June 2, 2024. Enterprises that participated in the beta program also have access to the enhanced billing platform.
+permissions: The enhanced billing platform is available to all enterprise accounts, and organizations owned by enterprise accounts, created after June 2, 2024. Enterprises that participated in the {% data variables.release-phases.public_preview %} program also have access to the enhanced billing platform.
 ---
 
 >[!IMPORTANT] If you are on not on the new billing platform, this article does not apply to you. To check if you are on the new billing platform, see "[How do I know if I can access the enhanced billing platform?](/billing/using-the-enhanced-billing-platform-for-enterprises/about-the-enhanced-billing-platform-for-enterprises#how-do-i-know-if-i-can-access-the-enhanced-billing-platform)." For more information about the billing cycle for your enterprise account, see "[AUTOTITLE](/billing/managing-your-github-billing-settings/changing-the-duration-of-your-billing-cycle#changing-the-duration-of-your-enterprise-accounts-billing-cycle)."

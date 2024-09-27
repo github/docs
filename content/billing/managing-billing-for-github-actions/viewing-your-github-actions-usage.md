@@ -39,7 +39,7 @@ Anyone can view {% data variables.product.prodname_actions %} usage for their ow
 {% ifversion billing-beta-enterprise %}
 {% note %}
 
-**Note:** If your organization belongs to an enterprise enrolled in the Billing private beta for {% data variables.product.prodname_actions %}, you will not see {% data variables.product.prodname_actions %} usage on the existing billing pages.
+**Note:** If your organization belongs to an enterprise enrolled in the Billing {% data variables.release-phases.private_preview %} for {% data variables.product.prodname_actions %}, you will not see {% data variables.product.prodname_actions %} usage on the existing billing pages.
 
 {% endnote %}
 {% endif %}
@@ -58,7 +58,7 @@ Organization owners and billing managers can view {% data variables.product.prod
 {% ifversion billing-beta-enterprise %}
 {% note %}
 
-**Note:** If your enterprise is enrolled in the Billing private beta for {% data variables.product.prodname_actions %}, you will not see {% data variables.product.prodname_actions %} usage on the existing billing pages.
+**Note:** If your enterprise is enrolled in the Billing {% data variables.release-phases.private_preview %} for {% data variables.product.prodname_actions %}, you will not see {% data variables.product.prodname_actions %} usage on the existing billing pages.
 
 {% endnote %}
 {% endif %}

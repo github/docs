@@ -37,7 +37,7 @@ shortTitle: View Git LFS usage
 {% ifversion billing-beta-enterprise %}
 {% note %}
 
-**Note:** If your organization belongs to an enterprise enrolled in the Billing private beta for {% data variables.large_files.product_name_short %}, you will not see {% data variables.large_files.product_name_short %} usage on the existing billing pages.
+**Note:** If your organization belongs to an enterprise enrolled in the Billing {% data variables.release-phases.private_preview %} for {% data variables.large_files.product_name_short %}, you will not see {% data variables.large_files.product_name_short %} usage on the existing billing pages.
 
 {% endnote %}
 {% endif %}
@@ -54,7 +54,7 @@ shortTitle: View Git LFS usage
 {% ifversion billing-beta-enterprise %}
 {% note %}
 
-**Note:** If your enterprise is enrolled in the Billing private beta for {% data variables.large_files.product_name_short %}, you will not see {% data variables.large_files.product_name_short %} usage on the existing billing pages.
+**Note:** If your enterprise is enrolled in the Billing {% data variables.release-phases.private_preview %} for {% data variables.large_files.product_name_short %}, you will not see {% data variables.large_files.product_name_short %} usage on the existing billing pages.
 
 {% endnote %}
 {% endif %}

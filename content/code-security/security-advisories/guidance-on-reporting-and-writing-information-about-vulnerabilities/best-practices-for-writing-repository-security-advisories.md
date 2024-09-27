@@ -132,7 +132,7 @@ This is because, if a fixed version is ever released, users of the fixed version
 ### Specifying only one affected version
 
 * `= n` for the single affected version
-* Keep in mind that the `=` will not automatically include any pre-releases, alpha, or beta versions, _only_ the version specified.
+* Keep in mind that the `=` will not automatically include any public or private previews, _only_ the version specified.
 
 ### Common errors
 

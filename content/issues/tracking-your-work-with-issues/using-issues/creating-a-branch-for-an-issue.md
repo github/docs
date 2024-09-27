@@ -15,7 +15,7 @@ redirect_from:
 
 {% note %}
 
-**Note:** The ability to create a branch for an issue is currently in public beta and subject to change.
+**Note:** The ability to create a branch for an issue is currently in {% data variables.release-phases.public_preview %} and subject to change.
 
 {% endnote %}
 

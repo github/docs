@@ -52,12 +52,12 @@ Provides additional context that users may need to take into account. Tasks can 
 
 Notes are particularly useful for communicating parenthetical information that is not central to the process being described:
 * Caveats that might affect the outcome of a process, such as specific user settings.
-* Products and features that are subject to changes in availability, such as those in beta or being deprecated.
+* Products and features that are subject to changes in availability, such as those in {% data variables.release-phases.public_preview %} or {% data variables.release-phases.closing_down %}.
 
-For example, "[AUTOTITLE](/code-security/secret-scanning/managing-alerts-from-secret-scanning/evaluating-alerts#reviewing-github-token-metadata)" uses a note to inform users that metadata for {% data variables.product.prodname_dotcom %} tokens is currently in beta.
+For example, "[AUTOTITLE](/code-security/secret-scanning/managing-alerts-from-secret-scanning/evaluating-alerts#reviewing-github-token-metadata)" uses a note to inform users that metadata for {% data variables.product.prodname_dotcom %} tokens is currently in {% data variables.release-phases.public_preview %}.
 
 > [!NOTE]
-> Metadata for {% data variables.product.prodname_dotcom %} tokens is currently in public beta and subject to change.
+> Metadata for {% data variables.product.prodname_dotcom %} tokens is currently in {% data variables.release-phases.public_preview %} and subject to change.
 
 #### Tip
 

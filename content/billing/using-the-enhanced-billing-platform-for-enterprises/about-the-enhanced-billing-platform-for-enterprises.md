@@ -6,7 +6,7 @@ versions:
 type: overview
 topics:
   - Enterprise
-permissions: The enhanced billing platform is available to all enterprise accounts, and organizations owned by enterprise accounts, created after June 2, 2024. Enterprises that participated in the beta program also have access to the enhanced billing platform.
+permissions: The enhanced billing platform is available to all enterprise accounts, and organizations owned by enterprise accounts, created after June 2, 2024. Enterprises that participated in the {% data variables.release-phases.public_preview %} program also have access to the enhanced billing platform.
 shortTitle: About the enhanced billing platform
 ---
 
@@ -42,7 +42,7 @@ With the enhanced billing platform, you can:
 
 ## How do I know if I can access the enhanced billing platform?
 
-You have access to the enhanced billing platform if you have an enterprise account, or if you are part of an organization owned by an enterprise account, created after June 2, 2024. Enterprises that participated in the beta program also have access to the enhanced billing platform. To check if you have access:
+You have access to the enhanced billing platform if you have an enterprise account, or if you are part of an organization owned by an enterprise account, created after June 2, 2024. Enterprises that participated in the {% data variables.release-phases.public_preview %} program also have access to the enhanced billing platform. To check if you have access:
 
 {% data reusables.enterprise-accounts.access-enterprise %}
 
