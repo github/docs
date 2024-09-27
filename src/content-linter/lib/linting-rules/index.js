@@ -30,6 +30,7 @@ import { raiReusableUsage } from './rai-reusable-usage.js'
 import { imageNoGif } from './image-no-gif.js'
 import { expiredContent, expiringSoon } from './expired-content.js'
 import { tableLiquidVersioning } from './table-liquid-versioning.js'
+import { thirdPartyActionPinning } from './third-party-action-pinning.js'
 
 const noDefaultAltText = markdownlintGitHub.find((elem) =>
   elem.names.includes('no-default-alt-text'),
@@ -75,5 +76,6 @@ export const gitHubDocsMarkdownlint = {
     expiredContent,
     expiringSoon,
     tableLiquidVersioning,
+    thirdPartyActionPinning,
   ],
 }

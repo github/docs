@@ -27,7 +27,7 @@ There are currently two methods of accessing resources on a private network with
 
 {% warning %}
 
-**Warning**: The {% data variables.product.prodname_cli %} extension is deprecated and no longer supported.
+**Warning**: The {% data variables.product.prodname_cli %} extension is {% data variables.release-phases.closing_down %} and is no longer supported.
 
 {% endwarning %}
 

@@ -15,7 +15,7 @@ redirect_from:
 
 {% note %}
 
-**Note:** Viewing user-owned repositories is currently in beta for {% data variables.product.prodname_emus %} and subject to change.
+**Note:** Viewing user-owned repositories is currently in {% data variables.release-phases.public_preview %} for {% data variables.product.prodname_emus %} and subject to change.
 
 {% endnote %}
 

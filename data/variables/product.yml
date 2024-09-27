@@ -12,7 +12,7 @@ company_short: 'GitHub'
 ## Use another variable if it is important to specify the environment (e.g. GHES)
 github: 'GitHub'
 
-## DEPRECATED: Use the `github` variable instead. (Writers found the name of this variable to be misleading.)
+## DO NOT USE. Use the `github` variable instead. (Writers found the name of this variable to be misleading.)
 prodname_dotcom: 'GitHub'
 
 product_name: >-

@@ -156,7 +156,7 @@ jobs:
         name: sbom
         path: _manifest/spdx_2.2
     - name: SBOM upload
-      uses: advanced-security/spdx-dependency-submission-action@v0.0.1
+      uses: advanced-security/spdx-dependency-submission-action@5d6e7f8a9b0c1d2e3f4a5b6c7d8e9f0a1b2c3d4e
       with:
         filePath: "_manifest/spdx_2.2/"
 ```

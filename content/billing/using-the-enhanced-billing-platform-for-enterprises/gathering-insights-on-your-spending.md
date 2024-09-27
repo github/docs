@@ -6,7 +6,7 @@ versions:
 type: how_to
 topics:
   - Enterprise
-permissions: The enhanced billing platform is available to all enterprise accounts, and organizations owned by enterprise accounts, created after June 2, 2024. Enterprises that participated in the beta program also have access to the enhanced billing platform.<br><br> As an enterprise owner or billing manager you can view and download your enterprise's usage. As an organization owner, you can view and download usage for the organizations you manage
+permissions: The enhanced billing platform is available to all enterprise accounts, and organizations owned by enterprise accounts, created after June 2, 2024. Enterprises that participated in the {% data variables.release-phases.public_preview %} program also have access to the enhanced billing platform.<br><br> As an enterprise owner or billing manager you can view and download your enterprise's usage. As an organization owner, you can view and download usage for the organizations you manage
 shortTitle: Gather insights
 ---
 

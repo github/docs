@@ -137,7 +137,7 @@ For more detailed information on the requirements of URI fragments, see [RFC 398
 The code block below demonstrates the basic rules used to generate anchors from headings in rendered content.
 
 ```markdown
-# Example headings 
+# Example headings
 
 ## Sample Section
 
@@ -233,7 +233,7 @@ For example, the following code displays a sun image for light themes and a moon
 
 {% data reusables.getting-started.picture-element-example %}
 
-The old method of specifying images based on the theme, by using a fragment appended to the URL (`#gh-dark-mode-only` or `#gh-light-mode-only`), is deprecated and will be removed in favor of the new method described above.
+The old method of specifying images based on the theme, by using a fragment appended to the URL (`#gh-dark-mode-only` or `#gh-light-mode-only`), is {% data variables.release-phases.closing_down %} and will be removed in favor of the new method described above.
 
 ## Lists
 
