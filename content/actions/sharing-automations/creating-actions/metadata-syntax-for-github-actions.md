@@ -72,11 +72,11 @@ For example, if a workflow defined the `num-octocats` and `octocat-eye-color` in
 
 ### `inputs.<input_id>`
 
-**Required** A `string` identifier to associate with the input. The value of `<input_id>` is a map of the input's metadata. The `<input_id>` must be a unique identifier within the `inputs` object. The `<input_id>` must start with a letter or `_` and contain only alphanumeric characters, spaces, `-`, or `_`.
+**Required** A `string` identifier to associate with the input. The value of `<input_id>` is a map of the input's metadata. The `<input_id>` must be a unique identifier within the `inputs` object. The `<input_id>` must start with a letter or `_` and contain only alphanumeric characters, `-`, or `_`.
 
 ### `inputs.<input_id>.description`
 
-**Optional** A `string` description of the input parameter.
+**Required** A `string` description of the input parameter.
 
 ### `inputs.<input_id>.required`
 
@@ -84,7 +84,7 @@ For example, if a workflow defined the `num-octocats` and `octocat-eye-color` in
 
 ### `inputs.<input_id>.default`
 
-**Optional** A `string` representing the default value. The default value is used when an input parameter isn't specified in a workflow file. If input is not required and default value is not specified, {% data variables.product.prodname_dotcom %} will use empty string as a default value.
+**Optional** A `string` representing the default value. The default value is used when an input parameter isn't specified in a workflow file.
 
 ### `inputs.<input_id>.deprecationMessage`
 
@@ -108,11 +108,11 @@ outputs:
 
 ### `outputs.<output_id>`
 
-**Required** A `string` identifier to associate with the output. The value of `<output_id>` is a map of the output's metadata. The `<output_id>` must be a unique identifier within the `outputs` object. The `<output_id>` must start with a letter or `_` and contain only alphanumeric characters, space, `-`, or `_`.
+**Required** A `string` identifier to associate with the output. The value of `<output_id>` is a map of the output's metadata. The `<output_id>` must be a unique identifier within the `outputs` object. The `<output_id>` must start with a letter or `_` and contain only alphanumeric characters, `-`, or `_`.
 
 ### `outputs.<output_id>.description`
 
-**Optional** A `string` description of the output parameter.
+**Required** A `string` description of the output parameter.
 
 ## `outputs` for composite actions
 
