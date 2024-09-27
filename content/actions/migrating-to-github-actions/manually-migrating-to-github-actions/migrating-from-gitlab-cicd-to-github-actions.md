@@ -270,6 +270,8 @@ For more information, see "[AUTOTITLE](/actions/learn-github-actions/variables)"
 
 GitLab CI/CD and {% data variables.product.prodname_actions %} provide a method in the configuration file to manually cache workflow files.
 
+{% ifversion actions-caching %}
+
 Below is an example of the syntax for each system.
 
 ### GitLab CI/CD syntax for caching
@@ -308,6 +310,12 @@ jobs:
         key: {% raw %}v1-npm-deps-${{ hashFiles('**/package-lock.json') }}{% endraw %}
         restore-keys: v1-npm-deps-
 ```
+
+{% else %}
+
+{% data reusables.actions.caching-availability %}
+
+{% endif %}
 
 ## Artifacts
 
