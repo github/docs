@@ -56,13 +56,9 @@ To share data between jobs:
 
 The steps of a job share the same environment on the runner machine, but run in their own individual processes. To pass data between steps in a job, you can use inputs and outputs. For more information about inputs and outputs, see "[AUTOTITLE](/actions/creating-actions/metadata-syntax-for-github-actions)."
 
-{% ifversion actions-caching %}
-
 {% data reusables.actions.comparing-artifacts-caching %}
 
 For more information on dependency caching, see "[AUTOTITLE](/actions/using-workflows/caching-dependencies-to-speed-up-workflows#comparing-artifacts-and-dependency-caching)."
-
-{% endif %}
 
 ## Uploading build and test artifacts
 

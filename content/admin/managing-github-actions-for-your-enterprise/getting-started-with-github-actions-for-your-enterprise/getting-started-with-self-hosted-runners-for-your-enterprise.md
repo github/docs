@@ -33,7 +33,7 @@ This guide shows you how to apply a centralized management approach to self-host
 1. Deploy a self-hosted runner for your enterprise
 1. Create a group to manage access to the runners available to your enterprise
 1. Optionally, further restrict the repositories that can use the runner
-1. Optionally, {% ifversion actions-runner-controller %}to build and scale self-hosted runners automatically, use {% data variables.product.prodname_actions_runner_controller %} (ARC). For more information, see "[AUTOTITLE](/actions/hosting-your-own-runners/managing-self-hosted-runners-with-actions-runner-controller/about-actions-runner-controller)."{% else %}build custom tooling to automatically scale your self-hosted runners{% endif %}
+1. Optionally, to build and scale self-hosted runners automatically, use {% data variables.product.prodname_actions_runner_controller %} (ARC). For more information, see "[AUTOTITLE](/actions/hosting-your-own-runners/managing-self-hosted-runners-with-actions-runner-controller/about-actions-runner-controller)."
 
 You'll also find additional information about how to monitor and secure your self-hosted runners,{% ifversion ghes %} how to access actions from {% data variables.product.prodname_dotcom_the_website %},{% endif %} and how to customize the software on your runner machines.
 
@@ -111,10 +111,7 @@ For more information, see "[AUTOTITLE](/actions/hosting-your-own-runners/managin
 
 ## 5. Automatically scale your self-hosted runners
 
-{% ifversion actions-runner-controller %}Optionally, you can use {% data variables.product.prodname_actions_runner_controller %} (ARC) to automatically scale self-hosted runners. {% data reusables.actions.actions-runner-controller-about-arc %}
-
-{% else %}Optionally, you can build custom tooling to automatically scale the self-hosted runners for {% ifversion ghec %}your enterprise{% elsif ghes %}{% data variables.location.product_location %}{% endif %}. For example, your tooling can respond to webhook events from {% data variables.location.product_location %} to automatically scale a cluster of runner machines. For more information, see "[AUTOTITLE](/actions/hosting-your-own-runners/managing-self-hosted-runners/autoscaling-with-self-hosted-runners)."
-{% endif %}
+Optionally, you can use {% data variables.product.prodname_actions_runner_controller %} (ARC) to automatically scale self-hosted runners. {% data reusables.actions.actions-runner-controller-about-arc %}
 
 ## Next steps
 
