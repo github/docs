@@ -124,6 +124,112 @@ git checkout BRANCH-NAME
 
 {% desktop %}
 
+## If any Error
+Follow the Steps mentioned below:
+
+1.Check if your repository has any commits:Run this command in Git Bash:
+
+{% webui %}
+
+```shell
+git log
+```
+
+{% endwebui %}
+
+{% cli %}
+
+```shell
+git log
+```
+
+{% endcli %}
+
+{% desktop %}
+
+2.Check your current branch name:
+
+{% webui %}
+
+```shell
+git branch
+```
+
+{% endwebui %}
+
+{% cli %}
+
+```shell
+git log
+```
+
+{% endcli %}
+
+{% desktop %}
+
+3.If you don't have any commits yet, make an initial commit:
+
+{% webui %}
+
+```shell
+git add .
+git commit -m "Initial commit"
+```
+
+{% endwebui %}
+
+{% cli %}
+
+```shell
+git add .
+git commit -m "Initial commit"
+```
+
+{% endcli %}
+
+{% desktop %}
+
+4.Now try creating your new branch:
+
+{% webui %}
+
+```shell
+git checkout -b your-new-branch-name
+```
+
+{% endwebui %}
+
+{% cli %}
+
+```shell
+git checkout -b your-new-branch-name
+```
+
+{% endcli %}
+
+{% desktop %}
+
+5.If your default branch is "main" instead of "master", use this command to create a new branch:
+
+{% webui %}
+
+```shell
+git checkout -b your-new-branch-name main
+```
+
+{% endwebui %}
+
+{% cli %}
+
+```shell
+git checkout -b your-new-branch-name main
+```
+
+{% endcli %}
+
+{% desktop %}
+
+
 For more information about how to create and manage branches in {% data variables.product.prodname_desktop %}, see "[AUTOTITLE](/desktop/making-changes-in-a-branch/managing-branches-in-github-desktop)."
 
 {% enddesktop %}
