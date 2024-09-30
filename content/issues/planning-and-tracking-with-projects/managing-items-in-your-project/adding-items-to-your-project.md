@@ -24,7 +24,7 @@ You have several options for adding issues and pull requests to your project. Yo
 
 {% note %}
 
-**Note:** Timeline events for Projects is currently in beta and subject to change.
+**Note:** Timeline events for Projects is currently in {% data variables.release-phases.public_preview %} and subject to change.
 
 {% endnote %}
 

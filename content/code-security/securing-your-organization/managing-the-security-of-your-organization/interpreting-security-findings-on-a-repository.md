@@ -11,8 +11,6 @@ topics:
   - Security
 ---
 
-{% data reusables.security-configurations.security-configurations-beta-note %}
-
 ## About security findings on a repository
 
 After you apply a {% data variables.product.prodname_security_configuration %} to a repository, the enabled security features will likely raise security findings on that repository. These findings may show up as feature-specific alerts, or as automatically generated pull requests designed to keep your repository secure. To best secure your organization, you should be able to understand and resolve these alerts and pull requests, then analyze the findings and make any necessary adjustments to your {% data variables.product.prodname_security_configuration %}.

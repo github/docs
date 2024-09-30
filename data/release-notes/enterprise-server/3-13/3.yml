@@ -75,6 +75,8 @@ sections:
       Fixes and improvements for the git core module.
     - |
       When enabling GitHub Advanced Security for an organization, active committers in other organizations were not accounted for.
+    - |
+      Following an upgrade, Elasticsearch search migrations are sometimes incorrectly reported as failing in the audit log, even though the migrations completed successfully. [Updated: 2024-09-27]
   changes:
     - |
       Actions KPI logs are disabled by default to reduce log size.

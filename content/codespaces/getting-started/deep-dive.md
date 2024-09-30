@@ -40,7 +40,7 @@ When you create a codespace, various steps happen in the background before the c
 
 ### Step 1: VM and storage are assigned to your codespace
 
-When you create a codespace, a virtual machine (VM) is created using either the stable or beta release of the VM host image. For more information, see "[AUTOTITLE](/codespaces/setting-your-user-preferences/choosing-the-stable-or-beta-host-image)." The host image defines the version of Linux that is used for the VM. The VM is both dedicated and private to you. Having a dedicated VM ensures that you have the entire set of compute resources from that machine available to you. If necessary, this also allows you to have full root access to your container.
+When you create a codespace, a virtual machine (VM) is created using either the stable or {% data variables.release-phases.public_preview %} release of the VM host image. For more information, see "[AUTOTITLE](/codespaces/setting-your-user-preferences/choosing-the-stable-or-beta-host-image)." The host image defines the version of Linux that is used for the VM. The VM is both dedicated and private to you. Having a dedicated VM ensures that you have the entire set of compute resources from that machine available to you. If necessary, this also allows you to have full root access to your container.
 
 A [shallow clone](https://github.blog/2020-12-21-get-up-to-speed-with-partial-clone-and-shallow-clone/) is then made of your repository, or of the template repository if you're creating a codespace from a template. This is cloned into the `/workspaces` directory of the VM and subsequently mounted into the dev container. For more information, see "[About the directory structure of a codespace](#about-the-directory-structure-of-a-codespace)" below.
 

@@ -61,7 +61,7 @@ For information on best practices to follow when using webhooks, see "[AUTOTITLE
 
 {% note %}
 
-**Note:** GitHub Services (sometimes referred to as Service Hooks) was deprecated in 2019, in favor of integrating with webhooks. For more information about migrating your integration from using GitHub Services to using webhooks, see the [blog post](https://developer.github.com/changes/2018-04-25-github-services-deprecation/).
+**Note:** GitHub Services (sometimes referred to as Service Hooks) is {% data variables.release-phases.retired %}, in favor of integrating with webhooks. For more information about migrating your integration from using GitHub Services to using webhooks, see the [blog post](https://developer.github.com/changes/2018-04-25-github-services-deprecation/).
 
 {% endnote %}
 

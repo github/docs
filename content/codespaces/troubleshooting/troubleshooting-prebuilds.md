@@ -42,7 +42,7 @@ cat /workspaces/.codespaces/shared/environment-variables.json | jq '.ACTION_NAME
 
 You can check whether a repository is using prebuilds in the "{% data variables.product.prodname_codespaces %}" page of the repository's settings.
 
-You can check how much storage space has been consumed by prebuilds in your current billing cycle by reviewing the billing data for your personal or organization account. You can also generate a usage report to see which repositories have been using prebuilds. For more information, see "[AUTOTITLE](/billing/managing-billing-for-github-codespaces/viewing-your-github-codespaces-usage)."
+You can check how much storage space has been consumed by prebuilds in your current billing cycle by reviewing the billing data for your personal or organization account. You can also generate a usage report to see which repositories have been using prebuilds. For more information, see "[AUTOTITLE](/billing/managing-billing-for-your-products/managing-billing-for-github-codespaces/viewing-your-github-codespaces-usage)."
 
 ## The "Prebuild Ready" label is sometimes missing
 

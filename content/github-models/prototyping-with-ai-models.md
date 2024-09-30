@@ -15,11 +15,13 @@ To find AI models, go to [{% data variables.product.prodname_marketplace %}](htt
 
 To view details about a model, click on the model's name.
 
+> [!NOTE] Access to OpenAI's `o1` models is in {% data variables.release-phases.public_preview %} and subject to change. To request access, join the [waitlist](https://github.com/o1-waitlist-signup).
+
 ## Experimenting with AI models in the playground
 
 >[!NOTE]
 >
-> The playground is in limited public beta and subject to change. To request access, [join the waitlist](https://github.com/marketplace/models/waitlist).
+> The playground is in {% data variables.release-phases.public_preview %} and subject to change. To request access, [join the waitlist](https://github.com/marketplace/models/waitlist).
 
 {% data variables.product.prodname_marketplace %} provides a free playground where you can adjust model parameters and submit prompts to see how the model responds.
 
@@ -33,7 +35,7 @@ The playground is rate limited. See [Rate limits](#rate-limits) below.
 
 >[!NOTE]
 >
-> The free API usage is in limited public beta and subject to change. To request access, [join the waitlist](https://github.com/marketplace/models/waitlist).
+> The free API usage is in {% data variables.release-phases.public_preview %} and subject to change. To request access, [join the waitlist](https://github.com/marketplace/models/waitlist).
 
 {% data variables.product.company_short %} provides free API usage so that you can experiment with AI models in your own application.
 
@@ -124,7 +126,7 @@ Low, high, and embedding models have different rate limits. To see which type of
     <td>4</td>
   </tr>
   <tr>
-    <th rowspan="4" scope="rowgroup" style="box-shadow: none"><b>Embedding</b></th>
+    <th rowspan="4" scope="rowgroup"><b>Embedding</b></th>
     <th style="padding-left: 0"><b>Requests per minute</b></th>
     <td>15</td>
     <td>15</td>
@@ -147,6 +149,56 @@ Low, high, and embedding models have different rate limits. To see which type of
     <td>5</td>
     <td>5</td>
     <td>8</td>
+  </tr>
+  <tr>
+    <th rowspan="4" scope="rowgroup"><b>Azure OpenAI o1-preview</b></th>
+    <th style="padding-left: 0"><b>Requests per minute</b></th>
+    <td>1</td>
+    <td>2</td>
+    <td>2</td>
+  </tr>
+  <tr>
+    <th><b>Requests per day</b></th>
+    <td>8</td>
+    <td>10</td>
+    <td>12</td>
+  </tr>
+  <tr>
+    <th><b>Tokens per request</b></th>
+    <td>4000 in, 4000 out</td>
+    <td>4000 in, 4000 out</td>
+    <td>4000 in, 8000 out</td>
+  </tr>
+  <tr>
+    <th><b>Concurrent requests</b></th>
+    <td>1</td>
+    <td>1</td>
+    <td>1</td>
+  </tr>
+  <tr>
+    <th rowspan="4" scope="rowgroup"  style="box-shadow: none"><b>Azure OpenAI o1-mini</b></th>
+    <th style="padding-left: 0"><b>Requests per minute</b></th>
+    <td>2</td>
+    <td>3</td>
+    <td>3</td>
+  </tr>
+  <tr>
+    <th><b>Requests per day</b></th>
+    <td>12</td>
+    <td>15</td>
+    <td>20</td>
+  </tr>
+  <tr>
+    <th><b>Tokens per request</b></th>
+    <td>4000 in, 4000 out</td>
+    <td>4000 in, 4000 out</td>
+    <td>4000 in, 4000 out</td>
+  </tr>
+  <tr>
+    <th><b>Concurrent requests</b></th>
+    <td>1</td>
+    <td>1</td>
+    <td>1</td>
   </tr>
 </table>
 

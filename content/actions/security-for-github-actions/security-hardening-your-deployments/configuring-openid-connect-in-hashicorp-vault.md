@@ -138,13 +138,13 @@ jobs:
       contents: read
     steps:
       - name: Retrieve secret from Vault
-        uses: hashicorp/vault-action@v2.4.0
-          with:
-            method: jwt
-            url: VAULT-URL
-            namespace: VAULT-NAMESPACE # HCP Vault and Vault Enterprise only
-            role: ROLE-NAME
-            secrets: SECRET-PATH
+        uses: hashicorp/vault-action@9a8b7c6d5e4f3a2b1c0d9e8f7a6b5c4d3e2f1a0b
+        with:
+          method: jwt
+          url: VAULT-URL
+          namespace: VAULT-NAMESPACE # HCP Vault and Vault Enterprise only
+          role: ROLE-NAME
+          secrets: SECRET-PATH
 
       - name: Use secret from Vault
         run: |
@@ -176,13 +176,13 @@ jobs:
       contents: read
     steps:
       - name: Retrieve secret from Vault
-        uses: hashicorp/vault-action@v2.4.0
-          with:
-            exportToken: true
-            method: jwt
-            url: VAULT-URL
-            role: ROLE-NAME
-            secrets: SECRET-PATH
+        uses: hashicorp/vault-action@9a8b7c6d5e4f3a2b1c0d9e8f7a6b5c4d3e2f1a0b
+        with:
+          exportToken: true
+          method: jwt
+          url: VAULT-URL
+          role: ROLE-NAME
+          secrets: SECRET-PATH
 
       - name: Use secret from Vault
         run: |

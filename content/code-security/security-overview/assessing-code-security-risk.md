@@ -80,7 +80,7 @@ You can view data for security alerts across organizations in an enterprise. {% 
 
 {% data reusables.enterprise-accounts.access-enterprise-on-dotcom %}
 {% data reusables.code-scanning.click-code-security-enterprise %}
-{% ifversion security-overview-feature-specific-alert-page %}{% ifversion security-overview-org-risk-coverage-enterprise %}
+{% ifversion security-overview-org-risk-coverage-enterprise %}
 1. To display the "Security coverage" view, in the sidebar, click **Risk**.
 {% data reusables.code-scanning.using-security-overview-risk %}
 
@@ -88,6 +88,5 @@ You can view data for security alerts across organizations in an enterprise. {% 
 
 {% else %}
 {% data reusables.organizations.security-overview-feature-specific-page %}{% endif %}
-{% endif %}
 
 {% data reusables.security-overview.alert-differences %}

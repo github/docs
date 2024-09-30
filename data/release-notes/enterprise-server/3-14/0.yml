@@ -215,6 +215,8 @@ sections:
       Services may respond with a 503 status due to an out of date haproxy configuration. This can usually be resolved with a `ghe-config-apply` run.
     - |
       When enabling automatic update checks for the first time in the Management Console, the status is not dynamically reflected until the "Updates" page is reloaded.
+    - |
+      Following an upgrade, Elasticsearch search migrations are sometimes incorrectly reported as failing in the audit log, even though the migrations completed successfully. [Updated: 2024-09-27]
 
   deprecations:
     - |

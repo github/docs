@@ -19,7 +19,7 @@ redirect_from:
   - /github/collaborating-with-pull-requests/reviewing-changes-in-pull-requests/reviewing-dependency-changes-in-a-pull-request
 shortTitle: Review dependency changes
 ---
-<!--Marketing-LINK: From /features/security/software-supply-chain page "Sign up for the dependency review beta" and "Reviewing dependency changes in a pull request".-->
+<!--Marketing-LINK: From /features/security/software-supply-chain page "Sign up for the dependency review {% data variables.release-phases.public_preview %}" and "Reviewing dependency changes in a pull request".-->
 
 ## About dependency review
 
@@ -33,9 +33,7 @@ Dependency review allows you to "shift left". You can use the provided predictiv
 
 You can use the {% data variables.dependency-review.action_name %} to help enforce dependency reviews on pull requests in your repository. {% data reusables.dependency-review.dependency-review-action-overview %}
 
-{% ifversion dependency-review-action-configuration %}
 You can configure the {% data variables.dependency-review.action_name %} to better suit your needs by specifying the type of dependency vulnerability you wish to catch. For more information, see "[AUTOTITLE](/code-security/supply-chain-security/understanding-your-software-supply-chain/configuring-dependency-review#configuring-the-dependency-review-github-action)."
-{% endif %}
 
 ## Reviewing dependencies in a pull request
 

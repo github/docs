@@ -148,7 +148,7 @@ jobs:
       - name: Git clone the repository
         uses: {% data reusables.actions.action-checkout %}
       - name: configure aws credentials
-        uses: aws-actions/configure-aws-credentials@v3
+        uses: aws-actions/configure-aws-credentials@d4e5f6a7b8c9d0e1f2a3b4c5d6e7f8a9b0c1d2e3
         with:
           role-to-assume: ROLE-TO-ASSUME
           role-session-name: samplerolesession

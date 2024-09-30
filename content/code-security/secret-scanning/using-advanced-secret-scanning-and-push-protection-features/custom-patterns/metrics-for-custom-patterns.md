@@ -15,7 +15,7 @@ topics:
 
 Organization owners and people with admin permission for a repository can see an overview of the activity for custom patterns. The overview includes alert and push protection activity for the custom pattern during the last 30 days.
 
-> [!NOTE] Metrics for custom patterns are in public beta and subject to change.
+> [!NOTE] Metrics for custom patterns are in {% data variables.release-phases.public_preview %} and subject to change.
 
 ## Viewing metrics for custom patterns
 

@@ -111,13 +111,13 @@ The "Deployment" column groups users by the type of deployment they are using. F
 
 ## Viewing members' email addresses
 
-You may be able to view the email addresses for members of your enterprise on either {% data variables.location.product_location %} or an external identity system. The visibility of the email addresses depends on your enterprise's authentication method, domains, and potentially the member's user profile configuration.
+You may be able to view the email addresses for members of your enterprise on either {% data variables.product.github %} or an external identity system. The visibility of the email addresses depends on your enterprise's authentication method, domains, and potentially the member's user profile configuration.
 
 * If you use {% data variables.product.prodname_emus %} and the `NameID` for your SAML configuration is an email address, you can view the `NameID` for each of your enterprise members.
 
 * If you verify a domain for your enterprise, you can view members' email addresses for the verified domain. For more information, see "[AUTOTITLE](/admin/configuration/configuring-your-enterprise/verifying-or-approving-a-domain-for-your-enterprise)."
 
-* If you don't use {% data variables.product.prodname_emus %}, and you also don't configure SAML single sign-on (SSO), members access your enterprise's resources on {% data variables.location.product_location %} solely using a personal account. {% data reusables.saml.personal-accounts-determine-email-visibility %}
+* If you don't use {% data variables.product.prodname_emus %}, and you also don't configure SAML single sign-on (SSO), members access your enterprise's resources on {% data variables.product.github %} solely using a personal account. {% data reusables.saml.personal-accounts-determine-email-visibility %}
 
 If you use {% data variables.product.prodname_emus %}, verify a domain, or configure SAML SSO for your enterprise, you may be able to view the email addresses in one or more of the following ways.
 
@@ -159,7 +159,7 @@ In the list of pending members, for any individual account, you can cancel all i
 
 {% endnote %}
 
-If you use {% data variables.visual_studio.prodname_vss_ghe %}, the list of pending invitations includes all {% data variables.product.prodname_vs %} subscribers that haven't joined any of your organizations on {% data variables.product.prodname_dotcom %}, even if the subscriber does not have a pending invitation to join an organization. For more information about how to get {% data variables.product.prodname_vs %} subscribers access to {% data variables.product.prodname_enterprise %}, see "[AUTOTITLE](/billing/managing-licenses-for-visual-studio-subscriptions-with-github-enterprise/setting-up-visual-studio-subscriptions-with-github-enterprise)."
+If you use {% data variables.visual_studio.prodname_vss_ghe %}, the list of pending invitations includes all {% data variables.product.prodname_vs %} subscribers that haven't joined any of your organizations on {% data variables.product.prodname_dotcom %}, even if the subscriber does not have a pending invitation to join an organization. For more information about how to get {% data variables.product.prodname_vs %} subscribers access to {% data variables.product.prodname_enterprise %}, see "[AUTOTITLE](/billing/managing-billing-for-your-products/managing-licenses-for-visual-studio-subscriptions-with-github-enterprise/setting-up-visual-studio-subscriptions-with-github-enterprise)."
 
 {% data reusables.enterprise-accounts.access-enterprise %}
 {% data reusables.enterprise-accounts.people-tab %}

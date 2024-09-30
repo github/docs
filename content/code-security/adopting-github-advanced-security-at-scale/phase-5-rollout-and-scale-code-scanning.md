@@ -19,8 +19,6 @@ This article is part of a series on adopting {% data variables.product.prodname_
 
 {% data reusables.security-configurations.enable-security-features-with-gh-config %}
 
-{% data reusables.security-configurations.security-configurations-beta-note-short %}
-
 {% endif %}
 
 ## Enabling code scanning

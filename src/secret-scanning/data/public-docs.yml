@@ -166,6 +166,17 @@
   hasPushProtection: true
   hasValidityCheck: false
   isduplicate: false
+- provider: Asaas
+  supportedSecret: Asaas API Token
+  secretType: asaas_api_token
+  versions:
+    fpt: '*'
+    ghec: '*'
+  isPublic: true
+  isPrivateWithGhas: false
+  hasPushProtection: false
+  hasValidityCheck: false
+  isduplicate: false
 - provider: Asana
   supportedSecret: Asana Legacy Format Personal Access Token
   secretType: asana_legacy_format_personal_access_token
@@ -325,17 +336,6 @@
   isPublic: true
   isPrivateWithGhas: true
   hasPushProtection: true
-  hasValidityCheck: false
-  isduplicate: false
-- provider: Azure
-  supportedSecret: Unclassified Azure Common Annotated Security Key
-  secretType: azure_common_annotated_security_key
-  versions:
-    fpt: '*'
-    ghec: '*'
-  isPublic: true
-  isPrivateWithGhas: false
-  hasPushProtection: false
   hasValidityCheck: false
   isduplicate: false
 - provider: Azure
@@ -821,7 +821,7 @@
     ghes: '*'
   isPublic: true
   isPrivateWithGhas: false
-  hasPushProtection: false
+  hasPushProtection: true
   hasValidityCheck: false
   isduplicate: false
 - provider: Contentful
@@ -1437,7 +1437,7 @@
     ghes: '*'
   isPublic: false
   isPrivateWithGhas: true
-  hasPushProtection: false
+  hasPushProtection: true
   hasValidityCheck: false
   isduplicate: false
 - provider: GoCardless
@@ -2510,6 +2510,84 @@
   hasPushProtection: true
   hasValidityCheck: false
   isduplicate: false
+- provider: Polar
+  supportedSecret: Polar Access Token
+  secretType: polar_access_token
+  versions:
+    fpt: '*'
+    ghec: '*'
+  isPublic: true
+  isPrivateWithGhas: false
+  hasPushProtection: false
+  hasValidityCheck: false
+  isduplicate: false
+- provider: Polar
+  supportedSecret: Polar Authorization Code
+  secretType: polar_authorization_code
+  versions:
+    fpt: '*'
+    ghec: '*'
+  isPublic: true
+  isPrivateWithGhas: false
+  hasPushProtection: false
+  hasValidityCheck: false
+  isduplicate: false
+- provider: Polar
+  supportedSecret: Polar Client Registration Token
+  secretType: polar_client_registration_token
+  versions:
+    fpt: '*'
+    ghec: '*'
+  isPublic: true
+  isPrivateWithGhas: false
+  hasPushProtection: false
+  hasValidityCheck: false
+  isduplicate: false
+- provider: Polar
+  supportedSecret: Polat Client Secret
+  secretType: polar_client_secret
+  versions:
+    fpt: '*'
+    ghec: '*'
+  isPublic: true
+  isPrivateWithGhas: false
+  hasPushProtection: false
+  hasValidityCheck: false
+  isduplicate: false
+- provider: Polar
+  supportedSecret: Polar Personal Access Token
+  secretType: polar_personal_access_token
+  versions:
+    fpt: '*'
+    ghec: '*'
+  isPublic: true
+  isPrivateWithGhas: false
+  hasPushProtection: false
+  hasValidityCheck: false
+  isduplicate: false
+- provider: Polar
+  supportedSecret: Polar Refresh Token
+  secretType: polar_refresh_token
+  versions:
+    fpt: '*'
+    ghec: '*'
+  isPublic: true
+  isPrivateWithGhas: false
+  hasPushProtection: false
+  hasValidityCheck: false
+  isduplicate: false
+- provider: Postman
+  supportedSecret: Postman API Key
+  secretType: postman_api_key
+  versions:
+    fpt: '*'
+    ghec: '*'
+    ghes: '>=3.5'
+  isPublic: true
+  isPrivateWithGhas: true
+  hasPushProtection: true
+  hasValidityCheck: false
+  isduplicate: false
 - provider: Postman
   supportedSecret: Postman API Key
   secretType: postman_api_key
@@ -2913,6 +2991,17 @@
   isPublic: true
   isPrivateWithGhas: true
   hasPushProtection: true
+  hasValidityCheck: false
+  isduplicate: false
+- provider: Siemens
+  supportedSecret: Siemens Code Token
+  secretType: siemens_code_token
+  versions:
+    fpt: '*'
+    ghec: '*'
+  isPublic: true
+  isPrivateWithGhas: false
+  hasPushProtection: false
   hasValidityCheck: false
   isduplicate: false
 - provider: Slack

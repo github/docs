@@ -1005,6 +1005,16 @@
     "docs_reference_links": "N/A"
   },
   {
+    "action": "org.code_scanning_autofix_third_party_tools_disabled",
+    "description": "Autofix for third party tools for code scanning alerts was disabled for an organization.",
+    "docs_reference_links": "N/A"
+  },
+  {
+    "action": "org.code_scanning_autofix_third_party_tools_enabled",
+    "description": "Autofix for third party tools for code scanning alerts was enabled for an organization.",
+    "docs_reference_links": "N/A"
+  },
+  {
     "action": "org.codeql_disabled",
     "description": "Code scanning using the default setup was disabled for an organization.",
     "docs_reference_links": "/code-security/code-scanning/enabling-code-scanning/configuring-default-setup-for-code-scanning-at-scale"
@@ -1780,6 +1790,11 @@
     "docs_reference_links": "/organizations/managing-peoples-access-to-your-organization-with-roles/about-custom-organization-roles"
   },
   {
+    "action": "organization_wide_project_base_role.update",
+    "description": "An organization's default project base role was updated.",
+    "docs_reference_links": "N/A"
+  },
+  {
     "action": "packages.package_deleted",
     "description": "An entire package was deleted.",
     "docs_reference_links": "/packages/learn-github-packages/deleting-and-restoring-a-package"
@@ -1932,6 +1947,11 @@
   {
     "action": "project.access",
     "description": "A project board visibility was changed.",
+    "docs_reference_links": "N/A"
+  },
+  {
+    "action": "project_base_role.update",
+    "description": "A project's base role was updated.",
     "docs_reference_links": "N/A"
   },
   {
@@ -2322,6 +2342,16 @@
   {
     "action": "repo.code_scanning_autofix_enabled",
     "description": "Autofix for code scanning alerts was enabled for a repository.",
+    "docs_reference_links": "N/A"
+  },
+  {
+    "action": "repo.code_scanning_autofix_third_party_tools_disabled",
+    "description": "Autofix for third party tools for code scanning alerts was disabled for a repository.",
+    "docs_reference_links": "N/A"
+  },
+  {
+    "action": "repo.code_scanning_autofix_third_party_tools_enabled",
+    "description": "Autofix for third party tools for code scanning alerts was enabled for a repository.",
     "docs_reference_links": "N/A"
   },
   {

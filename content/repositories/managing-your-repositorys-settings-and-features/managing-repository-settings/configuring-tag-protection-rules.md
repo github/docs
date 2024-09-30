@@ -6,7 +6,7 @@ versions:
   ghes: '<3.16'
 ---
 
->[!NOTE] Tag protection rules will be deprecated on August 30, 2024, and in {% data variables.product.prodname_ghe_server %} version 3.16 and later, in favor of rulesets. Any tag protection rules still in use after the deprecation date will be auto-migrated, but you can also migrate them manually before the deprecation date. You can read more about this deprecation on the [{% data variables.product.prodname_blog %}](https://github.blog/changelog/2024-05-29-sunset-notice-tag-protections).
+>[!NOTE] Tag protection rules are {% data variables.release-phases.closing_down %} in {% data variables.product.prodname_ghe_server %} version 3.16 and later. Use rulesets instead. Any tag protection rules still in use will be auto-migrated. You can read more about this on the [{% data variables.product.prodname_blog %}](https://github.blog/changelog/2024-05-29-sunset-notice-tag-protections).
 
 When you add a tag protection rule, all tags that match the pattern provided will be protected. Only users with admin or maintain permissions, or custom roles with the "edit repository rules" permission in the repository will be able to create protected tags, and only users with admin permissions or custom roles with the "edit repository rules" permission in the repository will be able to delete protected tags. For more information, see "[AUTOTITLE](/organizations/managing-user-access-to-your-organizations-repositories/managing-repository-roles/repository-roles-for-an-organization#permissions-for-each-role)." {% data variables.product.prodname_github_apps %} require the `Repository administration: write` permission to modify a protected tag.
 

@@ -126,18 +126,6 @@ You can filter closed items by their close reason.
 |                                          | **reason:"not planned"** will show closed items with the "not planned" reason.
 |                                          | **reason:reopened** will show items that have been reopened after previously being closed.
 
-{% ifversion projects-v2-tasklists %}
-
-## Filtering by the tracked-by field
-
-You can filter for issues that are tracked by another issue in a tasklist. For more information, see "[AUTOTITLE](/issues/tracking-your-work-with-issues/about-tasklists)."
-
-| Qualifier  | Example
-| ---------- | -------------
-| <code>tracked-by:"<em>OWNER</em>/<em>REPO</em>#<em>ISSUE NUMBER</em>"</code> | **tracked-by:"octocat/game#11"** will show any issue tracked by a tasklist in issue #11 of the `octocat/game` repository.
-
-{% endif %}
-
 ## Filtering for when an item was last updated
 
 You can use the `{number}days` syntax to filter for when items were last updated.
@@ -204,8 +192,8 @@ You can filter by specific text fields or use a general text filter across all t
 
 | Qualifier  | Example
 | ---------- | -------------
-| <code>field:"<em>TEXT</em>"    | **title:"API deprecation"** will show items with titles that exactly match "API deprecation."
-| <code>field:<em>TEXT</em>      | **note:complete** will show items with a note text field that exactly match "complete."
+| <code>field:"<em>TEXT</em>"    | **title:"Bug fix"** will show items with titles that exactly match "Bug fix".
+| <code>field:<em>TEXT</em>      | **note:complete** will show items with a note text field that exactly match "complete".
 | <code><em>TEXT</em></code>     | **API** will show items with "API" in the title or any other text field.
 | <code>field:<em>TEXT</em> TEXT | **label:bug rendering** will show items with the "bug" label and with "rendering" in the title or any other text field.
 

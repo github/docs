@@ -150,7 +150,7 @@ For more information, see "[AUTOTITLE](/actions/using-github-hosted-runners/abou
 
 {% data variables.product.prodname_dotcom %}-hosted runners have npm and Yarn dependency managers installed. You can use npm and Yarn to install dependencies in your workflow before building and testing your code. The Windows and Linux {% data variables.product.prodname_dotcom %}-hosted runners also have Grunt, Gulp, and Bower installed.
 
-{% ifversion actions-caching %}You can also cache dependencies to speed up your workflow. For more information, see "[AUTOTITLE](/actions/using-workflows/caching-dependencies-to-speed-up-workflows)."{% endif %}
+You can also cache dependencies to speed up your workflow. For more information, see "[AUTOTITLE](/actions/using-workflows/caching-dependencies-to-speed-up-workflows)."
 
 ### Example using npm
 
@@ -242,8 +242,6 @@ The example above creates an _.npmrc_ file with the following contents:
 always-auth=true
 ```
 
-{% ifversion actions-caching %}
-
 ### Example caching dependencies
 
 You can cache and restore the dependencies using the [`setup-node` action](https://github.com/actions/setup-node).
@@ -295,8 +293,6 @@ steps:
 ```
 
 If you have a custom requirement or need finer controls for caching, you can use the [`cache` action](https://github.com/marketplace/actions/cache). For more information, see "[AUTOTITLE](/actions/using-workflows/caching-dependencies-to-speed-up-workflows)."
-
-{% endif %}
 
 ## Building and testing your code
 
