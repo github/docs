@@ -160,7 +160,7 @@ git branch
 {% cli %}
 
 ```shell
-git log
+git branch
 ```
 
 {% endcli %}
