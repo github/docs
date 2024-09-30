@@ -110,7 +110,7 @@ To see all available chat variables, type `#` in the chat prompt box. See also [
 
 > [!NOTE]
 > * This feature is only available if you have a {% data variables.product.prodname_copilot_enterprise_short %} subscription.
-> * The `@github` chat participant is currently in beta and is subject to change.
+> * The `@github` chat participant is currently in {% data variables.release-phases.public_preview %} and is subject to change.
 
 {% data variables.product.prodname_copilot_short %} has a collection of {% data variables.product.prodname_dotcom %}-specific skills that it can use to answer your questions. To access these skills in {% data variables.product.prodname_copilot_chat_short %} in {% data variables.product.prodname_vscode_shortname %}, include `@github` in your question.
 

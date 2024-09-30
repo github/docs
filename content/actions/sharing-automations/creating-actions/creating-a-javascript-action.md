@@ -223,7 +223,7 @@ Public actions can be used by workflows in any repository. When an action is in 
 
 This example demonstrates how your new public action can be run from within an external repository.
 
-Copy the following YAML into a new file at `.github/workflows/main.yml`, and update the `uses: octocat/hello-world-javascript-action@v1.1` line with your username and the name of the public repository you created above. You can also replace the `who-to-greet` input with your name.
+Copy the following YAML into a new file at `.github/workflows/main.yml`, and update the `uses: octocat/hello-world-javascript-action@1a2b3c4d5e6f7a8b9c0d1e2f3a4b5c6d7e8f9a0b` line with your username and the name of the public repository you created above. You can also replace the `who-to-greet` input with your name.
 
 {% raw %}
 
@@ -237,7 +237,7 @@ jobs:
     steps:
       - name: Hello world action step
         id: hello
-        uses: octocat/hello-world-javascript-action@v1.1
+        uses: octocat/hello-world-javascript-action@1a2b3c4d5e6f7a8b9c0d1e2f3a4b5c6d7e8f9a0b
         with:
           who-to-greet: 'Mona the Octocat'
       # Use the output from the `hello` step

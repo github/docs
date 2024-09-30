@@ -192,8 +192,8 @@ You can filter by specific text fields or use a general text filter across all t
 
 | Qualifier  | Example
 | ---------- | -------------
-| <code>field:"<em>TEXT</em>"    | **title:"API deprecation"** will show items with titles that exactly match "API deprecation."
-| <code>field:<em>TEXT</em>      | **note:complete** will show items with a note text field that exactly match "complete."
+| <code>field:"<em>TEXT</em>"    | **title:"Bug fix"** will show items with titles that exactly match "Bug fix".
+| <code>field:<em>TEXT</em>      | **note:complete** will show items with a note text field that exactly match "complete".
 | <code><em>TEXT</em></code>     | **API** will show items with "API" in the title or any other text field.
 | <code>field:<em>TEXT</em> TEXT | **label:bug rendering** will show items with the "bug" label and with "rendering" in the title or any other text field.
 

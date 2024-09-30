@@ -50,7 +50,7 @@ Since AI-powered generic secret detection may generate more false positives than
 
 ### Provide feedback
 
-Generic secret detection is currently in beta. If you encounter any issues or limitations with the feature, we recommend that you provide feedback through the **Give feedback** button listed under each detected secret in the list of alerts for the repository, organization, or enterprise. This can help the developers improve the tool and address any concerns or limitations.
+Generic secret detection is currently in {% data variables.release-phases.public_preview %}. If you encounter any issues or limitations with the feature, we recommend that you provide feedback through the **Give feedback** button listed under each detected secret in the list of alerts for the repository, organization, or enterprise. This can help the developers improve the tool and address any concerns or limitations.
 
 ## Limitations of generic secret detection
 

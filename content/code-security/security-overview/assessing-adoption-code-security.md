@@ -84,7 +84,7 @@ In the enterprise-level view, you can view data about the enablement of features
 
 {% ifversion ghes < 3.15 %}
 
-> [!NOTE] The "Enablement trends" view is currently in beta and is subject to change.
+> [!NOTE] The "Enablement trends" view is currently in {% data variables.release-phases.public_preview %} and is subject to change.
 
 {% endif %}
 
@@ -108,7 +108,7 @@ You can view data to assess the enablement status and enablement status trends o
 
 {% ifversion ghes < 3.15 %}
 
-> [!NOTE] The "Enablement trends" view is currently in beta and is subject to change.
+> [!NOTE] The "Enablement trends" view is currently in {% data variables.release-phases.public_preview %} and is subject to change.
 
 {% endif %}
 

@@ -32,6 +32,8 @@ sections:
       Custom links to other repositories displayed incorrect breadcrumbs.
     - |
       The Secret Scanning Push Protection custom resource link set at the Enterprise level was not being displayed to users being blocked when pushing secrets to a repository using git through the command line interface.
+    - |
+      Following an upgrade, Elasticsearch search migrations are sometimes incorrectly reported as failing in the audit log, even though the migrations completed successfully. [Updated: 2024-09-27]
   changes:
     - |
       For instances deployed on Amazon Web Services (AWS), site administrators can configure regional AWS STS endpoints for OIDC from the Management Console.

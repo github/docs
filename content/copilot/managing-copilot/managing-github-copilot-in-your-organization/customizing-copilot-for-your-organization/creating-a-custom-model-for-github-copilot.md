@@ -2,7 +2,7 @@
 title: Creating a custom model for GitHub Copilot
 shortTitle: Create a custom model
 intro: "You can fine-tune {% data variables.product.prodname_copilot_short %} code completion by creating a custom model based on code in your organization's repositories."
-permissions: "Owners of organizations enrolled in the limited public beta."
+permissions: "Owners of organizations enrolled in the {% data variables.release-phases.public_preview %}."
 product: "The organization must belong to an enterprise with a {% data variables.product.prodname_copilot_enterprise_short %} subscription."
 versions:
   feature: copilot-custom-models
@@ -12,7 +12,7 @@ redirect_from:
   - /copilot/managing-copilot/managing-github-copilot-in-your-organization/enhancing-copilot-for-your-organization/creating-a-custom-model-for-github-copilot
 ---
 
-> [!NOTE] Custom models for {% data variables.product.prodname_copilot_enterprise %} is in limited public beta and is subject to change. During the limited public beta, there is no additional cost to {% data variables.product.prodname_copilot_enterprise_short %} customers enrolled on the beta for creating or using a custom model.
+> [!NOTE] Custom models for {% data variables.product.prodname_copilot_enterprise %} is in {% data variables.release-phases.public_preview %} and is subject to change. During the {% data variables.release-phases.public_preview %}, there is no additional cost to {% data variables.product.prodname_copilot_enterprise_short %} customers enrolled on the {% data variables.release-phases.public_preview %} for creating or using a custom model.
 
 ## Prerequisite
 
@@ -20,7 +20,7 @@ The code on which you want to train a custom model must be hosted in repositorie
 
 ## Limitations
 
-* For the limited public beta, an enterprise can deploy one custom model in a single organization.
+* For the {% data variables.release-phases.public_preview %}, an enterprise can deploy one custom model in a single organization.
 * Code completion suggestions based on the custom model are only available to managed users who get a {% data variables.product.prodname_copilot_enterprise_short %} subscription from the organization in which the custom model is deployed. For more information, see "[AUTOTITLE](/enterprise-cloud@latest/admin/managing-iam/understanding-iam-for-enterprises/about-enterprise-managed-users)."
 * The custom model is not used for code suggested in responses by {% data variables.product.prodname_copilot_chat %}.
 
@@ -42,7 +42,7 @@ This provides:
 
 ### About model creation
 
-Currently, in the limited public beta, only one organization in an enterprise is permitted to create a custom model.
+Currently, in the {% data variables.release-phases.public_preview %}, only one organization in an enterprise is permitted to create a custom model.
 
 As an owner of the organization that's permitted to create a custom model, you can choose which of your organization's repositories to use to train the model. You can train the model on one, several, or all of the repositories in the organization. The model is trained on the content of the default branches of the selected repositories. Optionally, you can specify that only code written in certain programming languages should be used for training. The custom model will be used for generating code completion suggestions in all file types, irrespective of whether that type of file was used for training.
 

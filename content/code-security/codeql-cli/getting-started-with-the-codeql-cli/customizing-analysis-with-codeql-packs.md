@@ -28,7 +28,7 @@ There are{% ifversion codeql-model-packs %} three{% else %} two{% endif %} types
 
 * Library packs are designed to be used by query packs (or other library packs) and do not contain queries themselves. The libraries are not compiled separately.{% ifversion codeql-model-packs %}
 
-* Model packs can be used to expand {% data variables.product.prodname_code_scanning %} analysis to recognize libraries and frameworks that are not supported by default. Model packs are currently in beta and subject to change. During the beta, model packs are available for {% data variables.code-scanning.codeql_model_packs_support %} analysis. For more information about creating your own model packs, see "[AUTOTITLE](/code-security/codeql-cli/using-the-advanced-functionality-of-the-codeql-cli/creating-and-working-with-codeql-packs#creating-a-codeql-model-pack)."
+* Model packs can be used to expand {% data variables.product.prodname_code_scanning %} analysis to recognize libraries and frameworks that are not supported by default. Model packs are currently in {% data variables.release-phases.public_preview %} and subject to change. During the {% data variables.release-phases.public_preview %}, model packs are available for {% data variables.code-scanning.codeql_model_packs_support %} analysis. For more information about creating your own model packs, see "[AUTOTITLE](/code-security/codeql-cli/using-the-advanced-functionality-of-the-codeql-cli/creating-and-working-with-codeql-packs#creating-a-codeql-model-pack)."
 
 {% endif %}
 

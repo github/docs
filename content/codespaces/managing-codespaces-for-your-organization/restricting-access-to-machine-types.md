@@ -16,7 +16,7 @@ product: '{% data reusables.gated-features.codespaces-org %}'
 
 Typically, when you create a codespace you are offered a choice of specifications for the machine that will run your codespace. You can choose the machine type that best suits your needs. For more information, see "[AUTOTITLE](/codespaces/developing-in-a-codespace/creating-a-codespace-for-a-repository#creating-a-codespace-for-a-repository)."
 
-If you pay for using {% data variables.product.prodname_github_codespaces %} then your choice of machine type will affect how much you are billed. The compute cost for a codespace is proportional to the number of processor cores in the machine type you choose. For example, the compute cost of using a codespace for an hour on a 16-core machine is eight times greater than a 2-core machine. For more information about pricing, see "[AUTOTITLE](/billing/managing-billing-for-github-codespaces/about-billing-for-github-codespaces)."
+If you pay for using {% data variables.product.prodname_github_codespaces %} then your choice of machine type will affect how much you are billed. The compute cost for a codespace is proportional to the number of processor cores in the machine type you choose. For example, the compute cost of using a codespace for an hour on a 16-core machine is eight times greater than a 2-core machine. For more information about pricing, see "[AUTOTITLE](/billing/managing-billing-for-your-products/managing-billing-for-github-codespaces/about-billing-for-github-codespaces)."
 
 As an organization owner, you may want to configure constraints on the types of machine that are available. For example, if the work in your organization doesn't require significant compute power or storage space, you can remove the highly resourced machines from the list of options that people can choose from. You do this by defining one or more policies in the {% data variables.product.prodname_github_codespaces %} settings for your organization.
 
@@ -86,4 +86,4 @@ You can edit an existing policy. For example, you may want to add or remove cons
 
 ## Further reading
 
-* "[AUTOTITLE](/billing/managing-billing-for-github-codespaces/managing-the-spending-limit-for-github-codespaces)"
+* "[AUTOTITLE](/billing/managing-billing-for-your-products/managing-billing-for-github-codespaces/managing-the-spending-limit-for-github-codespaces)"

@@ -94,7 +94,7 @@ jobs:
         uses: {% data reusables.actions.action-checkout %}
 
       - name: Login to private container registry for dependencies
-        uses: docker/login-action@v2
+        uses: docker/login-action@3b4c5d6e7f8a9b0c1d2e3f4a5b6c7d8e9f0a1b2c
         with:
           registry: https://1234567890.dkr.ecr.us-east-1.amazonaws.com
           username: {% raw %}${{ secrets.READONLY_AWS_ACCESS_KEY_ID }}{% endraw %}
@@ -136,7 +136,7 @@ jobs:
     steps:
       - name: Dependabot metadata
         id: metadata
-        uses: dependabot/fetch-metadata@v2
+        uses: dependabot/fetch-metadata@4c5d6e7f8a9b0c1d2e3f4a5b6c7d8e9f0a1b2c3d
         with:
           github-token: "${{ secrets.GITHUB_TOKEN }}"
       # The following properties are now available:
@@ -173,7 +173,7 @@ jobs:
     steps:
       - name: Dependabot metadata
         id: metadata
-        uses: dependabot/fetch-metadata@v2
+        uses: dependabot/fetch-metadata@4c5d6e7f8a9b0c1d2e3f4a5b6c7d8e9f0a1b2c3d
         with:
           github-token: "${{ secrets.GITHUB_TOKEN }}"
       - name: Add a label for all production dependencies
@@ -205,7 +205,7 @@ jobs:
     steps:
       - name: Dependabot metadata
         id: metadata
-        uses: dependabot/fetch-metadata@v2
+        uses: dependabot/fetch-metadata@4c5d6e7f8a9b0c1d2e3f4a5b6c7d8e9f0a1b2c3d
         with:
           github-token: "${{ secrets.GITHUB_TOKEN }}"
       - name: Approve a PR
@@ -248,7 +248,7 @@ jobs:
     steps:
       - name: Dependabot metadata
         id: metadata
-        uses: dependabot/fetch-metadata@v2
+        uses: dependabot/fetch-metadata@4c5d6e7f8a9b0c1d2e3f4a5b6c7d8e9f0a1b2c3d
         with:
           github-token: "${{ secrets.GITHUB_TOKEN }}"
       - name: Enable auto-merge for Dependabot PRs

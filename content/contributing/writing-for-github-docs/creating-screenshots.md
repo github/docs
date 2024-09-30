@@ -172,7 +172,7 @@ When replacing an existing image, best practice is to retain the image's filenam
 
 If you must change an image filename, search the repository for other references to that image and update all references to the original filename.
 
-If the image is used in deprecated versions of {% data variables.product.prodname_ghe_server %} documentation, don't change the filename.
+If the image is used in documentation for versions of {% data variables.product.prodname_ghe_server %} that are {% data variables.release-phases.closing_down %}, don't change the filename.
 
 ## Versioning images in Markdown content
 
@@ -220,6 +220,6 @@ Your Liquid conditional would look like this:
 {% endif %}{% endraw %}
 ```
 
-When the 3.10 release is deprecated, the `/assets/images/enterprise/3.10` directory will be removed.
+When the 3.10 release is {% data variables.release-phases.closing_down %}, the `/assets/images/enterprise/3.10` directory will be removed.
 
 The numbered release directory should contain images that apply to that release number only or to that release number and earlier. For example, images in `/assets/images/enterprise/2.22` should contain images that apply to 2.22 only or 2.22 and earlier.

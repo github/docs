@@ -24,7 +24,7 @@ To manage individual {% data variables.product.prodname_GH_advanced_security %} 
 
 {% ifversion secret-scanning-enterprise-level-api %}{% data reusables.secret-scanning.secret-scanning-enterprise-level-api %}{% endif %}
 
-{% ifversion ghes %}For information about buying a license for {% data variables.product.prodname_GH_advanced_security %}, see "[AUTOTITLE](/billing/managing-billing-for-github-advanced-security/about-billing-for-github-advanced-security)."{% elsif ghec %}For information about buying a license for {% data variables.product.prodname_GH_advanced_security %}, see "[AUTOTITLE](/billing/managing-billing-for-github-advanced-security/signing-up-for-github-advanced-security)."{% endif %}
+{% ifversion ghes %}For information about buying a license for {% data variables.product.prodname_GH_advanced_security %}, see "[AUTOTITLE](/billing/managing-billing-for-your-products/managing-billing-for-github-advanced-security/about-billing-for-github-advanced-security)."{% elsif ghec %}For information about buying a license for {% data variables.product.prodname_GH_advanced_security %}, see "[AUTOTITLE](/billing/managing-billing-for-your-products/managing-billing-for-github-advanced-security/signing-up-for-github-advanced-security)."{% endif %}
 
 If you have disallowed {% data variables.product.prodname_GH_advanced_security %} for an organization, that organization will not be affected by enabling a feature for all existing repositories or for all new repositories. For more information about disallowing {% data variables.product.prodname_GH_advanced_security %} for an organization, see "[AUTOTITLE](/admin/policies/enforcing-policies-for-your-enterprise/enforcing-policies-for-code-security-and-analysis-for-your-enterprise)."
 
@@ -49,7 +49,7 @@ When you enable one or more security and analysis features for existing reposito
 
    {% note %}
 
-   **Note**: When a custom link is configured for an organization, the organization-level value overrides the custom link set for the enterprise. For more information, see "[AUTOTITLE](/code-security/secret-scanning/protecting-pushes-with-secret-scanning)."
+   **Note**: When a custom link is configured for an organization, the organization-level value overrides the custom link set for the enterprise. See "[AUTOTITLE](/code-security/secret-scanning/protecting-pushes-with-secret-scanning)."
 
    {% endnote %}
 

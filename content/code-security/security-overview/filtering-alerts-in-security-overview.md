@@ -78,7 +78,7 @@ These qualifiers are available in all views.
 
 {% note %}
 
-**Note:** Repository properties are in public beta and subject to change.
+**Note:** Repository properties are in {% data variables.release-phases.public_preview %} and subject to change.
 
 {% endnote %}
 
