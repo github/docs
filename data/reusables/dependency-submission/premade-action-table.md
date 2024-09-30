@@ -1,11 +1,11 @@
-Ecosystem | Action | Maintained by {% data variables.product.prodname_dotcom %}
---- | --- | --- |
+Ecosystem | Action |
+--- | --- |
 Go | [Go Dependency Submission](https://github.com/marketplace/actions/go-dependency-submission) | {% octicon "check" aria-label="Maintained by {% data variables.product.prodname_dotcom %} |
-Gradle | [Gradle Dependency Submission](https://github.com/marketplace/actions/build-with-gradle#the-dependency-submission-action) | {% octicon "x" aria-label="Not maintained by {% data variables.product.prodname_dotcom %} |
-Maven | [Maven Dependency Tree Dependency Submission](https://github.com/marketplace/actions/maven-dependency-tree-dependency-submission) | {% octicon "check" aria-label="Maintained by {% data variables.product.prodname_dotcom %} |
-Mill | [Mill Dependency Submission](https://github.com/marketplace/actions/mill-dependency-submission) | {% octicon "x" aria-label="Not maintained by {% data variables.product.prodname_dotcom %} |
-Scala | [Sbt Dependency Submission](https://github.com/marketplace/actions/sbt-dependency-submission) | {% octicon "x" aria-label="Not maintained by {% data variables.product.prodname_dotcom %} |
-NuGet and others | [Component Detection dependency submission action](https://github.com/marketplace/actions/component-detection-dependency-submission-action) | {% octicon "check" aria-label="Maintained by {% data variables.product.prodname_dotcom %} |
+Gradle | [Gradle Dependency Submission](https://github.com/marketplace/actions/build-with-gradle#the-dependency-submission-action) |
+Maven | [Maven Dependency Tree Dependency Submission](https://github.com/marketplace/actions/maven-dependency-tree-dependency-submission) |
+Mill | [Mill Dependency Submission](https://github.com/marketplace/actions/mill-dependency-submission) |
+Scala | [Sbt Dependency Submission](https://github.com/marketplace/actions/sbt-dependency-submission) |
+NuGet and others | [Component Detection dependency submission action](https://github.com/marketplace/actions/component-detection-dependency-submission-action) |
 
 {% note %}
 

@@ -21,7 +21,7 @@ shortTitle: Dependency graph
 
 {% data reusables.dependabot.about-the-dependency-graph %}
 
-When you push a commit to {% data variables.product.product_name %} that changes or adds a supported manifest or lock file to the default branch, the dependency graph is automatically updated.{% ifversion fpt or ghec %} In addition, the graph is updated when anyone pushes a change to the repository of one of your dependencies.{% endif %} 
+When you push a commit to {% data variables.product.product_name %} that changes or adds a supported manifest or lock file to the default branch, the dependency graph is automatically updated.{% ifversion fpt or ghec %} In addition, the graph is updated when anyone pushes a change to the repository of one of your dependencies.{% endif %}
 
 For information on the supported ecosystems and manifest files, see "[AUTOTITLE](/code-security/dependabot/ecosystems-supported-by-dependabot/dependency-graph-supported-package-ecosystems#supported-package-ecosystems)."
 
