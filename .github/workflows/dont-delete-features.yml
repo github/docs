@@ -26,7 +26,7 @@ jobs:
   dont-delete-features:
     # It's 'docs-bot' that creates those PR from "Delete orphaned features"
     if: github.event.pull_request.user.login != 'docs-bot' && (github.repository == 'github/docs-internal' || github.repository == 'github/docs')
-    runs-on: ubuntu-latest
+    runs-on: new-value
     steps:
       - name: Check out repo
         uses: actions/checkout@b4ffde65f46336ab88eb53be808477a3936bae11 # v4.1.1

@@ -16,7 +16,7 @@ permissions:
 jobs:
   move-reopened-issue-to-triage:
     if: github.repository == 'github/docs'
-    runs-on: ubuntu-latest
+    runs-on: new-value
     steps:
       - uses: actions/github-script@e69ef5462fd455e02edcaf4dd7708eda96b9eda0
         with:

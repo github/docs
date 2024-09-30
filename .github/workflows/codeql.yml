@@ -33,7 +33,7 @@ concurrency:
 jobs:
   build:
     if: github.repository == 'github/docs-internal' || github.repository == 'github/docs'
-    runs-on: ubuntu-latest
+    runs-on: new-value
     steps:
       - uses: actions/checkout@b4ffde65f46336ab88eb53be808477a3936bae11 # v4.1.1
       - uses: github/codeql-action/init@eb055d739abdc2e8de2e5f4ba1a8b246daa779aa # v3.26.0

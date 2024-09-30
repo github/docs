@@ -21,7 +21,7 @@ concurrency:
 
 jobs:
   lint:
-    runs-on: ubuntu-latest
+    runs-on: new-value
     if: github.repository == 'github/docs-internal' || github.repository == 'github/docs'
     steps:
       - name: Check out repo

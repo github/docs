@@ -29,7 +29,7 @@ concurrency:
 jobs:
   azure-staging-build-and-deploy:
     if: ${{ github.repository == 'github/docs-internal' }}
-    runs-on: ubuntu-latest
+    runs-on: new-value
     timeout-minutes: 20
     environment:
       # TODO: Update name and url to point to a specific slot for the branch/PR

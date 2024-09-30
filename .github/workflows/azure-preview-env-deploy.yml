@@ -41,7 +41,7 @@ concurrency:
 jobs:
   build-and-deploy-azure-preview:
     name: Build and deploy Azure preview environment
-    runs-on: ubuntu-latest
+    runs-on: new-value
     # Ensure this is actually a pull request and not a merge group
     # If its a merge group, report success without doing anything
     # See https://bit.ly/3qB9nZW > If a job in a workflow is skipped due to a conditional, it will report its status as "Success".

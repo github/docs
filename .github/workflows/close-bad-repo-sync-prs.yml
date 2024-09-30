@@ -19,7 +19,7 @@ jobs:
   close-invalid-repo-sync-pr:
     if: ${{ github.repository == 'github/docs' && github.event.pull_request.base.ref == 'main' && github.event.pull_request.head.ref == 'repo-sync' }}
     name: Close if invalid repo-sync PR author
-    runs-on: ubuntu-latest
+    runs-on: new-value
     steps:
       - name: Close pull request if unwanted
         uses: actions/github-script@e69ef5462fd455e02edcaf4dd7708eda96b9eda0

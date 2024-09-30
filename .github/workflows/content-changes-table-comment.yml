@@ -41,7 +41,7 @@ concurrency:
 jobs:
   filterContentDir:
     if: ${{ github.event.pull_request.user.login != 'docs-bot' && (github.repository == 'github/docs-internal' || github.repository == 'github/docs') }}
-    runs-on: ubuntu-latest
+    runs-on: new-value
     env:
       PR_NUMBER: ${{ github.event.pull_request.number || inputs.PR_NUMBER }}
     steps:

@@ -17,7 +17,7 @@ jobs:
   request_doc_review:
     name: Request a review from the docs-content team
     if: github.event.label.name == 'waiting for review' && github.repository == 'github/docs'
-    runs-on: ubuntu-latest
+    runs-on: new-value
     steps:
       - name: Check out repo content
         uses: actions/checkout@b4ffde65f46336ab88eb53be808477a3936bae11 # v4.1.1

@@ -16,7 +16,7 @@ permissions:
 jobs:
   triage-issue-comments:
     if: ${{ github.repository == 'github/docs' && !github.event.issue.pull_request }}
-    runs-on: ubuntu-latest
+    runs-on: new-value
 
     steps:
       - name: Check if the event originated from a team member

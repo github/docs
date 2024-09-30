@@ -20,7 +20,7 @@ jobs:
         github.event.pull_request.user.login != 'docs-bot' &&
         github.event.pull_request.user.login != 'dependabot[bot]'
       }}
-    runs-on: ubuntu-latest
+    runs-on: new-value
     steps:
       - name: Check out repo
         uses: actions/checkout@b4ffde65f46336ab88eb53be808477a3936bae11 # v4.1.1

@@ -20,7 +20,7 @@ jobs:
   first-responder-triage-pr:
     name: Add PR to FR project v2
     if: github.repository == 'github/docs-internal' && github.event.pull_request.draft == false && github.actor != 'dependabot[bot]' && github.event.pull_request.head.ref != 'repo-sync' && !contains(github.event.pull_request.labels.*.name, 'skip FR board')
-    runs-on: ubuntu-latest
+    runs-on: new-value
 
     steps:
       - name: Check if the event originated from a team member

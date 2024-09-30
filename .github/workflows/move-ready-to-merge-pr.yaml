@@ -21,7 +21,7 @@ jobs:
         github.repository == 'github/docs' &&
         github.event.label.name == 'ready to merge'
       }}
-    runs-on: ubuntu-latest
+    runs-on: new-value
     steps:
       - name: move PR
         uses: alex-page/github-project-automation-plus@303f24a24c67ce7adf565a07e96720faf126fe36

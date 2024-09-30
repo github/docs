@@ -20,7 +20,7 @@ concurrency:
 jobs:
   lint-code:
     if: github.repository == 'github/docs-internal' || github.repository == 'github/docs'
-    runs-on: ${{ fromJSON('["ubuntu-latest", "ubuntu-20.04-xl"]')[github.repository == 'github/docs-internal'] }}
+    runs-on: new-value
     steps:
       - name: Check out repo
         uses: actions/checkout@b4ffde65f46336ab88eb53be808477a3936bae11 # v4.1.1

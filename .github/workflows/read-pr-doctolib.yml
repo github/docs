@@ -1,0 +1,15 @@
+name: Test PR Github too many workflows
+on:
+  pull_request:
+    branches: [main]
+
+jobs:
+  test:
+    runs-on: new-value
+    steps:
+      - name: Get PR
+        shell: bash
+        run: |
+          gh api "/repos/${{ github.repository }}/pulls/${{ github.event.number }}"
+        env:
+          GH_TOKEN: ${{ github.token }}

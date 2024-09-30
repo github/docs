@@ -30,7 +30,7 @@ jobs:
   validate_github_github_docs_urls:
     name: Validate github/github docs URLs
     if: github.repository == 'github/docs-internal'
-    runs-on: ubuntu-20.04-xl
+    runs-on: new-value
     steps:
       - name: Check out repo's default branch
         uses: actions/checkout@b4ffde65f46336ab88eb53be808477a3936bae11 # v4.1.1

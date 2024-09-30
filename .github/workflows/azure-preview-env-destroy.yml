@@ -28,7 +28,7 @@ concurrency:
 jobs:
   destroy-azure-preview-env:
     name: Destroy
-    runs-on: ubuntu-latest
+    runs-on: new-value
     if: github.repository == 'github/docs-internal' || github.repository == 'github/docs'
     timeout-minutes: 5
     env:

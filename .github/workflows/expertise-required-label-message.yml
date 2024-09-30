@@ -12,7 +12,7 @@ on:
 jobs:
   job:
     name: Comment on issue with expertise required message
-    runs-on: ubuntu-latest
+    runs-on: new-value
     permissions:
       issues: write
     if: github.event.label.name == 'contributor-expertise-required' && github.repository == 'github/docs'

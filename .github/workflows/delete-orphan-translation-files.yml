@@ -22,7 +22,7 @@ permissions:
 jobs:
   delete-orphan-translation-files:
     if: github.repository == 'github/docs-internal'
-    runs-on: ubuntu-latest
+    runs-on: new-value
     strategy:
       fail-fast: false
       matrix:

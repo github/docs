@@ -20,7 +20,7 @@ permissions:
 jobs:
   close-on-adding-invalid-label:
     if: github.repository == 'github/docs' && github.event.label.name == 'invalid'
-    runs-on: ubuntu-latest
+    runs-on: new-value
 
     steps:
       - name: Close issue

@@ -23,7 +23,7 @@ concurrency:
 jobs:
   azure-prod-build-and-deploy:
     if: ${{ github.repository == 'github/docs-internal' }}
-    runs-on: ubuntu-20.04-xl
+    runs-on: new-value
     timeout-minutes: 20
     environment:
       name: production

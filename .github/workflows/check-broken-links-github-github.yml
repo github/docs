@@ -15,7 +15,7 @@ permissions:
 jobs:
   check_github_github_links:
     if: github.repository == 'github/docs-internal'
-    runs-on: ubuntu-latest
+    runs-on: new-value
     env:
       # need to use a token from a user with access to github/github for this step
       GITHUB_TOKEN: ${{ secrets.DOCS_BOT_PAT_WRITEORG_PROJECT }}

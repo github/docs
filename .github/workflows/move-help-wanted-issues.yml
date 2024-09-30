@@ -19,7 +19,7 @@ jobs:
         github.repository == 'github/docs' &&
         (github.event.label.name == 'help wanted' || github.event.label.name == 'good first issue')
       }}
-    runs-on: ubuntu-latest
+    runs-on: new-value
     steps:
       - uses: alex-page/github-project-automation-plus@303f24a24c67ce7adf565a07e96720faf126fe36
         with:

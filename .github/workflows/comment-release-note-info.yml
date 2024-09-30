@@ -18,7 +18,7 @@ jobs:
     # Do not add this comment on PRs created by the bot during the standard patch release process
     # or in the github/docs repository
     if: github.event.pull_request.user.login != 'release-controller[bot]' && github.repository == 'github/docs-internal'
-    runs-on: ubuntu-latest
+    runs-on: new-value
     steps:
       - uses: peter-evans/create-or-update-comment@71345be0265236311c031f5c7866368bd1eff043
         with:
