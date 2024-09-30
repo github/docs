@@ -23,7 +23,7 @@ shortTitle: Dependency graph
 
 When you push a commit to {% data variables.product.product_name %} that changes or adds a supported manifest or lock file to the default branch, the dependency graph is automatically updated.{% ifversion fpt or ghec %} In addition, the graph is updated when anyone pushes a change to the repository of one of your dependencies.{% endif %}
 
-For information on the supported ecosystems and manifest files, see "[AUTOTITLE](/code-security/dependabot/ecosystems-supported-by-dependabot/dependency-graph-supported-package-ecosystems#supported-package-ecosystems)."
+For information on the supported ecosystems and manifest files, see "[AUTOTITLE](/code-security/supply-chain-security/understanding-your-software-supply-chain/dependency-graph-supported-package-ecosystems#supported-package-ecosystems)."
 
 {% data reusables.dependency-submission.dependency-submission-link %}
 
@@ -71,7 +71,7 @@ You can use the dependency graph to:
 * View and update vulnerable dependencies for your repository. For more information, see "[AUTOTITLE](/code-security/dependabot/dependabot-alerts/about-dependabot-alerts)."
 * See information about vulnerable dependencies in pull requests. For more information, see "[AUTOTITLE](/pull-requests/collaborating-with-pull-requests/reviewing-changes-in-pull-requests/reviewing-dependency-changes-in-a-pull-request)."
 
-For information about ecosystem support for the dependency graph, see "[AUTOTITLE](/code-security/dependabot/ecosystems-supported-by-dependabot/dependency-graph-supported-package-ecosystems)."
+For information about ecosystem support for the dependency graph, see "[AUTOTITLE](/code-security/supply-chain-security/understanding-your-software-supply-chain/dependency-graph-supported-package-ecosystems)."
 
 ## Further reading
 

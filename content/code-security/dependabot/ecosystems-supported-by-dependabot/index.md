@@ -15,5 +15,4 @@ topics:
 shortTitle: Dependabot ecosystems
 children:
   - /supported-ecosystems-and-repositories
-  - /dependency-graph-supported-package-ecosystems
 ---
