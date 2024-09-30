@@ -3,7 +3,7 @@
 
 {% note %}
 
-**Note:** The scanning of content in pull requests, {% data variables.product.prodname_discussions %}, and wikis is currently in beta and subject to change.
+**Note:** The scanning of content in pull requests, {% data variables.product.prodname_discussions %}, and wikis is currently in {% data variables.release-phases.public_preview %} and subject to change.
 
 {% endnote %}
 

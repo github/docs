@@ -82,7 +82,7 @@ jobs:
     steps:
     - id: 'auth'
       name: 'Authenticate to GCP'
-      uses: 'google-github-actions/auth@v0.3.1'
+      uses: 'google-github-actions/auth@f1e2d3c4b5a6f7e8d9c0b1a2c3d4e5f6a7b8c9d0'
       with:
           create_credentials_file: 'true'
           workload_identity_provider: 'WORKLOAD-IDENTITY-PROVIDER'

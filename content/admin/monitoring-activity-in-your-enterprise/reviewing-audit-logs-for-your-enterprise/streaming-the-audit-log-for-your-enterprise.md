@@ -309,7 +309,7 @@ To restart streaming, click **Resume stream**.
 
 ## Enabling audit log streaming of API requests
 
->[!NOTE] This feature is currently in public beta and subject to change.
+>[!NOTE] This feature is currently in {% data variables.release-phases.public_preview %} and subject to change.
 
 {% data reusables.enterprise-accounts.access-enterprise %}
 {% data reusables.enterprise-accounts.settings-tab %}

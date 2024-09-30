@@ -10,7 +10,7 @@ versions:
   feature: copilot
 ---
 
-> [!NOTE] {% data variables.product.prodname_copilot %} code referencing is in public beta and is subject to change.
+> [!NOTE] {% data variables.product.prodname_copilot %} code referencing is in {% data variables.release-phases.public_preview %} and is subject to change.
 
 ## About code referencing in {% data variables.product.prodname_copilot %}
 

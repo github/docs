@@ -1,6 +1,6 @@
 ## Managing requests to bypass push rules
 
->[!NOTE] Delegated bypass for push rules is currently in beta and subject to change.
+>[!NOTE] Delegated bypass for push rules is currently in {% data variables.release-phases.public_preview %} and subject to change.
 
 You can view and manage all requests for bypass privileges on the “Bypass Requests" page, located under the **Rules** settings of the repository.
 

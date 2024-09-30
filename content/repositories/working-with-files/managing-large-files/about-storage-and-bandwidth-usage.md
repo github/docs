@@ -45,5 +45,5 @@ If you use more than {% data variables.large_files.initial_bandwidth_quota %} of
 
 ## Further reading
 
-* "[AUTOTITLE](/billing/managing-billing-for-git-large-file-storage/viewing-your-git-large-file-storage-usage)"
-* "[AUTOTITLE](/billing/managing-billing-for-git-large-file-storage)"
+* "[AUTOTITLE](/billing/managing-billing-for-your-products/managing-billing-for-git-large-file-storage/viewing-your-git-large-file-storage-usage)"
+* "[AUTOTITLE](/billing/managing-billing-for-your-products/managing-billing-for-git-large-file-storage)"

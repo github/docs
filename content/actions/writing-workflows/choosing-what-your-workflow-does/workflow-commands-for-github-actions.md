@@ -412,7 +412,7 @@ jobs:
     outputs:
       handle: {% raw %}${{ steps.generate-secret.outputs.handle }}{% endraw %}
     steps:
-    - uses: some/secret-store@v1
+    - uses: some/secret-store@27b31702a0e7fc50959f5ad993c78deac1bdfc29
       with:{% raw %}
         credentials: ${{ secrets.SECRET_STORE_CREDENTIALS }}
         instance: ${{ secrets.SECRET_STORE_INSTANCE }}{% endraw %}
@@ -428,7 +428,7 @@ jobs:
     runs-on: macos-latest
     needs: secret-generator
     steps:
-    - uses: some/secret-store@v1
+    - uses: some/secret-store@27b31702a0e7fc50959f5ad993c78deac1bdfc29
       with:{% raw %}
         credentials: ${{ secrets.SECRET_STORE_CREDENTIALS }}
         instance: ${{ secrets.SECRET_STORE_INSTANCE }}{% endraw %}
@@ -452,7 +452,7 @@ jobs:
   secret-generator:
     runs-on: ubuntu-latest
     steps:
-    - uses: some/secret-store@v1
+    - uses: some/secret-store@27b31702a0e7fc50959f5ad993c78deac1bdfc29
       with:{% raw %}
         credentials: ${{ secrets.SECRET_STORE_CREDENTIALS }}
         instance: ${{ secrets.SECRET_STORE_INSTANCE }}{% endraw %}
@@ -467,7 +467,7 @@ jobs:
     runs-on: macos-latest
     needs: secret-generator
     steps:
-    - uses: some/secret-store@v1
+    - uses: some/secret-store@27b31702a0e7fc50959f5ad993c78deac1bdfc29
       with:{% raw %}
         credentials: ${{ secrets.SECRET_STORE_CREDENTIALS }}
         instance: ${{ secrets.SECRET_STORE_INSTANCE }}{% endraw %}

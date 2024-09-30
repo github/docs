@@ -84,7 +84,7 @@ After your {% data variables.enterprise.prodname_emu_enterprise %} has been crea
 
 ## 1. Configure SAML
 
-During the public beta of SCIM on {% data variables.product.prodname_ghe_server %}, you will use the **GitHub AE** application in Okta to configure SAML authentication and SCIM provisioning. Do **not** use the "{% data variables.product.prodname_ghe_server %}" application, which is incompatible with {% data variables.product.prodname_dotcom %}'s latest SCIM API endpoints.
+During the {% data variables.release-phases.public_preview %} of SCIM on {% data variables.product.prodname_ghe_server %}, you will use the **GitHub AE** application in Okta to configure SAML authentication and SCIM provisioning. Do **not** use the "{% data variables.product.prodname_ghe_server %}" application, which is incompatible with {% data variables.product.prodname_dotcom %}'s latest SCIM API endpoints.
 
 Before starting this section, ensure you have followed steps **1 and 2** in "[AUTOTITLE](/admin/managing-iam/provisioning-user-accounts-with-scim/configuring-scim-provisioning-for-users)."
 

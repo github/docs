@@ -61,7 +61,7 @@ If your app runs in the browser, you should use the web application flow to gene
 
 {% note %}
 
-**Note:** The device flow is in public beta and subject to change.
+**Note:** The device flow is in {% data variables.release-phases.public_preview %} and subject to change.
 
 {% endnote %}
 
