@@ -27,6 +27,7 @@ In this article, you can see what the supported ecosystems are.
 The recommended formats explicitly define which versions are used for all direct and all indirect dependencies. If you use these formats, your dependency graph is more accurate. It also reflects the current build set up and enables the dependency graph to report vulnerabilities in both direct and indirect dependencies.{% ifversion fpt or ghec %} Indirect dependencies that are inferred from a manifest file (or equivalent) are excluded from the checks for insecure dependencies.{% endif %}
 
 {% data reusables.dependency-graph.supported-package-ecosystems %}
+For ecosystems that resolve transitive dependencies at build-time, we recommend configuring dependency submission to automatically submit these dependencies to the dependency graph. For more information, see "[AUTOTITLE](/code-security/supply-chain-security/understanding-your-software-supply-chain/configuring-automatic-dependency-submission-for-your-repository)."
 
 ## Package ecosystems supported via dependency submission actions
 
