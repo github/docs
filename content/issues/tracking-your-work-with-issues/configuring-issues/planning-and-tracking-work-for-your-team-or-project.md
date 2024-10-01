@@ -84,6 +84,16 @@ Below we have added a task list to our Project Octocat issue, breaking it down i
 
 ![Screenshot of an issue called "Front-end work for Project Octocat." The issue body contains a task list, with a checkbox preceding each issue link.](/assets/images/help/issues/quickstart-add-task-list-to-issue.png)
 
+{% ifversion sub-issues %}
+
+### Breaking down your work with sub-issues
+
+{% data reusables.issues.release-stage %}
+
+{% data reusables.issues.about-sub-issues %} See "[AUTOTITLE](/issues/tracking-your-work-with-issues/using-issues/adding-sub-issues)" and "[AUTOTITLE](/issues/tracking-your-work-with-issues/using-issues/browsing-sub-issues)."
+
+{% endif %}
+
 ## Making decisions as a team
 
 You can use issues and discussions to communicate and make decisions as a team on planned improvements or priorities for your project. Issues are useful when you create them for discussion of specific details, such as bug or performance reports, planning for the next quarter, or design for a new initiative. Discussions are useful for open-ended brainstorming or feedback, outside the codebase and across repositories. For more information, see "[AUTOTITLE](/get-started/using-github/communicating-on-github#which-discussion-tool-should-i-use)."
