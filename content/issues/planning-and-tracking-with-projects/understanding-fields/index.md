@@ -12,6 +12,7 @@ children:
   - /about-date-fields
   - /about-single-select-fields
   - /about-iteration-fields
+  - /about-parent-issue-and-sub-issue-progress-fields
   - /renaming-custom-fields
   - /deleting-custom-fields
 allowTitleToDifferFromFilename: true

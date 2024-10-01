@@ -92,6 +92,12 @@ You can use issues for a wide range of purposes. For example:
 * Planning tasks
 * Reporting bugs
 
+{% ifversion sub-issues %}
+
+To break your issue down into more manageable tasks, you can add multiple levels of sub-issues. See "[AUTOTITLE](/issues/tracking-your-work-with-issues/using-issues/adding-sub-issues)."
+
+{% endif %}
+
 Here are some helpful resources for taking your next steps with {% data variables.product.prodname_github_issues %}:
 
 * To learn more about issues, see "[AUTOTITLE](/issues/tracking-your-work-with-issues/about-issues)."
