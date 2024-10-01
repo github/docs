@@ -1,18 +1,20 @@
 ---
 title: Managing your passkeys
 intro: 'You may be prompted to register a passkey during sign-in, or you can choose to register a new passkey in your account settings. For 2FA users, you can upgrade existing eligible security keys into passkeys.'
-permissions: 'Personal account owners who manage their own credentials can authenticate to {% data variables.product.prodname_dotcom_the_website %} using passkeys.'
+permissions: '{% ifversion fpt or ghec%}Personal account owners who manage their own credentials{% endif %}'
 versions:
   feature: passkeys
 type: how_to
 shortTitle: Manage your passkeys
 ---
 
+{% data reusables.passkeys.ghes-disable %}
+
 ## About managing your passkeys
 
-If you are connecting to {% data variables.product.prodname_dotcom_the_website %} from an eligible device and browser, {% data variables.product.company_short %} may prompt you to register the device as a passkey during sign-in. You can also add passkeys to your account from your account settings. For more information, see "[Adding a passkey to your account](#adding-a-passkey-to-your-account)."
+If you are connecting to {% data variables.product.prodname_dotcom %} from an eligible device and browser, {% data variables.product.company_short %} may prompt you to register the device as a passkey during sign-in. You can also add passkeys to your account from your account settings. For more information, see "[Adding a passkey to your account](#adding-a-passkey-to-your-account)."
 
-If you use two-factor authentication (2FA), {% data variables.product.company_short %} may prompt you to upgrade existing eligible security keys (such as Mac TouchID, or Windows Hello) into passkeys after authenticating to {% data variables.product.prodname_dotcom_the_website %}. You can also upgrade eligible security keys from your account settings. For more information, see "[Upgrading an existing security key to a passkey](#upgrading-an-existing-security-key-to-a-passkey)."
+If you use two-factor authentication (2FA), {% data variables.product.company_short %} may prompt you to upgrade existing eligible security keys (such as Mac TouchID, or Windows Hello) into passkeys after authenticating to {% data variables.product.prodname_dotcom %}. You can also upgrade eligible security keys from your account settings. For more information, see "[Upgrading an existing security key to a passkey](#upgrading-an-existing-security-key-to-a-passkey)."
 
 For information on how to remove a passkey from your account, see "[Removing a passkey from your account](#removing-a-passkey-from-your-account)."
 
@@ -26,8 +28,8 @@ For information on how to remove a passkey from your account, see "[Removing a p
 
 **Notes:**
 
-- Platform support for upgrading security keys is inconsistent, so if you're seeing failures from your operating system or browser when trying to register an existing credential, we suggest that you remove and re-register the security key.
-- If you have used a security key recently and it's eligible for an upgrade, an upgrade button will be shown next to the security key in the settings menu. You can use the button to trigger the upgrade flow. You can also attempt to upgrade other keys by registering them as a passkey, even if the upgrade button isn't shown.
+* Platform support for upgrading security keys is inconsistent, so if you're seeing failures from your operating system or browser when trying to register an existing credential, we suggest that you remove and re-register the security key.
+* If you have used a security key recently and it's eligible for an upgrade, an upgrade button will be shown next to the security key in the settings menu. You can use the button to trigger the upgrade flow. You can also attempt to upgrade other keys by registering them as a passkey, even if the upgrade button isn't shown.
 
 {% endnote %}
 
@@ -58,5 +60,5 @@ You can see which of your passkeys are synced, and which are device-bound, under
 
 ## Further reading
 
-- [AUTOTITLE](/authentication/authenticating-with-a-passkey/about-passkeys)
-- [AUTOTITLE](/authentication/authenticating-with-a-passkey/signing-in-with-a-passkey)
+* [AUTOTITLE](/authentication/authenticating-with-a-passkey/about-passkeys)
+* [AUTOTITLE](/authentication/authenticating-with-a-passkey/signing-in-with-a-passkey)

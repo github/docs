@@ -20,13 +20,13 @@ Progress and error messages are displayed as notifications in the bottom right c
 
 You can access the following logs:
 
-- {% data variables.product.prodname_codeql %} Extension
+* {% data variables.product.prodname_codeql %} Extension
 
-- {% data variables.product.prodname_codeql %} Language Server
+* {% data variables.product.prodname_codeql %} Language Server
 
-- {% data variables.product.prodname_codeql %} Query Server
+* {% data variables.product.prodname_codeql %} Query Server
 
-- {% data variables.product.prodname_codeql %} Tests
+* {% data variables.product.prodname_codeql %} Tests
 
 {% note %}
 

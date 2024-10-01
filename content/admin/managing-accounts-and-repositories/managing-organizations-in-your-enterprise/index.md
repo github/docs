@@ -12,6 +12,7 @@ redirect_from:
   - /github/setting-up-and-managing-your-enterprise/managing-organizations-in-your-enterprise-account/managing-unowned-organizations-in-your-enterprise-account
   - /github/setting-up-and-managing-your-enterprise-account/managing-unowned-organizations-in-your-enterprise-account
   - /github/setting-up-and-managing-your-enterprise/managing-unowned-organizations-in-your-enterprise-account
+  - /admin/managing-accounts-and-repositories/managing-organizations-in-your-enterprise/continuous-integration-using-jenkins
 intro: 'You can use organizations to group users within your company, such as divisions or groups working on similar projects, and manage access to repositories.'
 versions:
   ghec: '*'
@@ -25,9 +26,9 @@ children:
   - /preventing-users-from-creating-organizations
   - /requiring-two-factor-authentication-for-an-organization
   - /managing-your-role-in-an-organization-owned-by-your-enterprise
+  - /managing-requests-for-copilot-business-from-organizations-in-your-enterprise
   - /removing-organizations-from-your-enterprise
   - /restoring-a-deleted-organization
   - /managing-projects-using-jira
-  - /continuous-integration-using-jenkins
 shortTitle: Manage organizations
 ---

@@ -26,8 +26,8 @@ shortTitle: Manage payment tiers
 {% data reusables.sponsors.navigate-to-sponsors-dashboard %}
 {% data reusables.sponsors.navigate-to-sponsor-tiers-tab %}
 1. If you are setting up tiers for the first time, we recommend you review the suggested tier examples to see how some other open source contributors have set up {% data variables.product.prodname_sponsors %}. Decide whether you want to start with some suggested draft tiers, which you can customize in the tier editor.
-   - To use a suggested tier, select the rewards you'd like to include in your draft tier or tiers. Then, click **Continue to tier editor**.
-   - To create tiers without using with any of the draft suggestions, click **Skip this step**.
+   * To use a suggested tier, select the rewards you'd like to include in your draft tier or tiers. Then, click **Continue to tier editor**.
+   * To create tiers without using with any of the draft suggestions, click **Skip this step**.
 1. Optionally, in the text boxes in the "Custom amounts" section, type a recommended or minimum sponsorship amount. The minimum amount applies to both recurring and one-time sponsorships.
 1. Optionally, to edit a draft tier, find the draft tier and click **Edit**.
 
@@ -70,9 +70,9 @@ You can also manually add or remove collaborators to the repository, and {% data
 
 If you transfer a repository that has been added to a sponsorship tier, sponsors who have access to the repository through the tier may be affected.
 
-- If the sponsored profile is for an organization and the repository is transferred to a different organization, current sponsors will be transferred, but new sponsors will not be added. The new owner of the repository can remove existing sponsors.
-- If the sponsored profile is for a personal account, the repository is transferred to an organization, and the personal account has admin access to the new repository, existing sponsors will be transferred, and new sponsors will continue to be added to the repository.
-- If the repository is transferred to a personal account, all sponsors will be removed and new sponsors will not be added to the repository.
+* If the sponsored profile is for an organization and the repository is transferred to a different organization, current sponsors will be transferred, but new sponsors will not be added. The new owner of the repository can remove existing sponsors.
+* If the sponsored profile is for a personal account, the repository is transferred to an organization, and the personal account has admin access to the new repository, existing sponsors will be transferred, and new sponsors will continue to be added to the repository.
+* If the repository is transferred to a personal account, all sponsors will be removed and new sponsors will not be added to the repository.
 
 ### Adding a repository a sponsorship tier
 

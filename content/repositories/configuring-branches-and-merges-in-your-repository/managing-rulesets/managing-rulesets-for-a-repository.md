@@ -104,12 +104,12 @@ You can view insights for rulesets to see how rulesets are affecting a repositor
 {%- ifversion repo-rules-merge-queue %}
 1. Optionally, review merge queue details for corresponding pull requests in the same merge group.
 
-    {% note %}
-
-    **Note:** The merge queue rule is in public beta and this interface is subject to change.
-
-    {% endnote %}
+{% endif %}
 
 {% endif %}
+
+{% ifversion push-rule-delegated-bypass %}
+
+{% data reusables.repositories.managing-delegated-bypass %}
 
 {% endif %}

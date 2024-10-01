@@ -15,8 +15,8 @@ shortTitle: Install Git LFS
 {% mac %}
 
 1. Navigate to [git-lfs.com](https://git-lfs.com) and click **Download**. Alternatively, you can install {% data variables.large_files.product_name_short %} using a package manager:
-   - To use [Homebrew](https://brew.sh/), run `brew install git-lfs`.
-   - To use [MacPorts](https://www.macports.org/), run `port install git-lfs`.
+   * To use [Homebrew](https://brew.sh/), run `brew install git-lfs`.
+   * To use [MacPorts](https://www.macports.org/), run `port install git-lfs`.
 
    If you install {% data variables.large_files.product_name_short %} with Homebrew or MacPorts, skip to step six.
 
@@ -45,7 +45,7 @@ shortTitle: Install Git LFS
    **Note:** You may have to use `sudo ./install.sh` to install the file.
 
    {% endnote %}
-1. Verify that the installation was successful:
+1. Next, make required changes to your global Git config:
 
    ```shell
    $ git {% data variables.large_files.command_name %} install
@@ -113,7 +113,7 @@ shortTitle: Install Git LFS
    **Note:** You may have to use `sudo ./install.sh` to install the file.
 
    {% endnote %}
-1. Verify that the installation was successful:
+1. Next, make required changes to your global Git config:
 
    ```shell
    $ git {% data variables.large_files.command_name %} install
@@ -126,4 +126,4 @@ shortTitle: Install Git LFS
 
 ## Further reading
 
-- "[AUTOTITLE](/repositories/working-with-files/managing-large-files/configuring-git-large-file-storage)"
+* "[AUTOTITLE](/repositories/working-with-files/managing-large-files/configuring-git-large-file-storage)"

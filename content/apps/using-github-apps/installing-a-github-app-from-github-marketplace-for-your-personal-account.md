@@ -53,5 +53,5 @@ For more information about authorizing {% data variables.product.prodname_github
 
 ## Further reading
 
-- "[AUTOTITLE](/billing/managing-your-github-billing-settings/adding-or-editing-a-payment-method)"
-- "[AUTOTITLE](/apps/using-github-apps/installing-an-app-in-your-organization)"
+* "[AUTOTITLE](/billing/managing-your-github-billing-settings/adding-or-editing-a-payment-method)"
+* "[AUTOTITLE](/apps/using-github-apps/installing-an-app-in-your-organization)"

@@ -2,8 +2,8 @@
 
 **Notes:**
 
-- {% data reusables.actions.actions-not-certified-by-github %}
-- {% data reusables.actions.actions-use-sha-pinning %}
+* {% data reusables.actions.actions-not-certified-by-github %}
+* {% data reusables.actions.actions-use-sha-pinning %}
 
 {% endnote %}
 
@@ -30,6 +30,7 @@ jobs:
       contents: read
       packages: write
       {% ifversion artifact-attestations %}attestations: write{% endif %}
+      {% ifversion artifact-attestations %}id-token: write{% endif %}
       # 
     steps:
       - name: Checkout repository
@@ -60,6 +61,11 @@ jobs:
           labels: {% raw %}${{ steps.meta.outputs.labels }}{% endraw %}
       {% ifversion artifact-attestations %}
       # This step generates an artifact attestation for the image, which is an unforgeable statement about where and how it was built. It increases supply chain security for people who consume the image. For more information, see "[AUTOTITLE](/actions/security-guides/using-artifact-attestations-to-establish-provenance-for-builds)." 
-      {% data reusables.actions.artifact-attestations-step-for-container-images %}
+      - name: Generate artifact attestation
+        uses: actions/attest-build-provenance@v1
+        with:
+          subject-name: {% raw %}${{ env.REGISTRY }}/${{ env.IMAGE_NAME}}{% endraw %}
+          subject-digest: {% raw %}${{ steps.push.outputs.digest }}{% endraw %}
+          push-to-registry: true
       {% endif %}
 ```

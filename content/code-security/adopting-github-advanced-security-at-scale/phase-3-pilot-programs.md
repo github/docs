@@ -29,19 +29,11 @@ If you haven't already enabled GHAS for your {% data variables.product.prodname_
 
 {% endif %}
 
-You need to enable GHAS for each pilot project, either by enabling the GHAS features for each repository or for all repositories in any organizations taking part in the pilot. For more information, see "[AUTOTITLE](/repositories/managing-your-repositorys-settings-and-features/enabling-features-for-your-repository/managing-security-and-analysis-settings-for-your-repository)" or "[AUTOTITLE](/organizations/keeping-your-organization-secure/managing-security-settings-for-your-organization/managing-security-and-analysis-settings-for-your-organization)"
-
 {% ifversion security-configurations %}
 
-## Piloting all {% data variables.product.prodname_GH_advanced_security %} features (beta)
+## Piloting all {% data variables.product.prodname_GH_advanced_security %} features
 
 {% data reusables.security-configurations.enable-security-features-with-gh-config %}
-
-{% note %}
-
-**Note:** {% data reusables.security-configurations.security-configurations-beta-note-short %}
-
-{% endnote %}
 
 {% endif %}
 
@@ -60,10 +52,10 @@ You can also choose to enable {% data variables.product.prodname_code_scanning %
 {% data reusables.advanced-security.enable-default-setup-first %}
 {% else %}
 You can run {% data variables.product.prodname_code_scanning %} on a repository by creating a {% data variables.product.prodname_actions %} workflow to run the [{% data variables.product.prodname_codeql %} action](https://github.com/github/codeql-action/). For more information about {% data variables.product.prodname_actions %}, see:
-- "[AUTOTITLE](/actions/learn-github-actions)"
-- "[AUTOTITLE](/actions/learn-github-actions/understanding-github-actions)"
-- "[AUTOTITLE](/actions/using-workflows/events-that-trigger-workflows)"
-- "[AUTOTITLE](/actions/using-workflows/workflow-syntax-for-github-actions#filter-pattern-cheat-sheet)"
+* "[AUTOTITLE](/actions/learn-github-actions)"
+* "[AUTOTITLE](/actions/learn-github-actions/understanding-github-actions)"
+* "[AUTOTITLE](/actions/using-workflows/events-that-trigger-workflows)"
+* "[AUTOTITLE](/actions/using-workflows/workflow-syntax-for-github-actions#filter-pattern-cheat-sheet)"
 
 We recommend enabling {% data variables.product.prodname_code_scanning %} on a repository-by-repository basis as part of your pilot program. For more information, see "[AUTOTITLE](/code-security/code-scanning/creating-an-advanced-setup-for-code-scanning/configuring-advanced-setup-for-code-scanning)."
 
@@ -86,19 +78,27 @@ To enable secret scanning for your {% data variables.product.prodname_ghe_server
 
 {% endif %}
 
-You need to enable secret scanning for each pilot project, either by enabling the feature for each repository or for all repositories in any organizations taking part in the project. For more information, see "[AUTOTITLE](/repositories/managing-your-repositorys-settings-and-features/enabling-features-for-your-repository/managing-security-and-analysis-settings-for-your-repository)" or "[AUTOTITLE](/organizations/keeping-your-organization-secure/managing-security-settings-for-your-organization/managing-security-and-analysis-settings-for-your-organization)."
+{% ifversion security-configurations %}
+
+You need to enable {% data variables.product.prodname_secret_scanning %} and push protection for each pilot project. You can do this with the {% data variables.product.prodname_github_security_configuration %}, or you can create a {% data variables.product.prodname_custom_security_configuration %}. For more information, see "[AUTOTITLE](/code-security/securing-your-organization/enabling-security-features-in-your-organization/applying-the-github-recommended-security-configuration-in-your-organization)" and "[AUTOTITLE](/code-security/securing-your-organization/meeting-your-specific-security-needs-with-custom-security-configurations/creating-a-custom-security-configuration)."
+
+{% else %}
+
+You need to enable {% data variables.product.prodname_secret_scanning %} for each pilot project, either by enabling the feature for each repository or for all repositories in any organizations taking part in the project. For more information, see "[AUTOTITLE](/repositories/managing-your-repositorys-settings-and-features/enabling-features-for-your-repository/managing-security-and-analysis-settings-for-your-repository)" or "[AUTOTITLE](/organizations/keeping-your-organization-secure/managing-security-settings-for-your-organization/managing-security-and-analysis-settings-for-your-organization)."
 
 Next, enable push protection for each pilot project.
+
+{% endif %}
 
 If you plan to configure a link to a resource in the message that's displayed when a developer attempts to push a blocked secret, now would be a good time to test and start to refine the guidance that you plan to make available.
 
 {%- ifversion security-overview-push-protection-metrics-page %}
 
-Start to review activity using the push protection metrics page in security overview. For more information, see "[AUTOTITLE](/code-security/security-overview/viewing-metrics-for-secret-scanning-push-protection-in-your-organization)."
+Start to review activity using the push protection metrics page in security overview. For more information, see "[AUTOTITLE](/code-security/security-overview/viewing-metrics-for-secret-scanning-push-protection)."
 
 {%- endif %}
 
-If you have collated any custom patterns specific to your enterprise, especially any related to the projects piloting {% data variables.product.prodname_secret_scanning %}, you can configure those. For more information, see "[AUTOTITLE](/code-security/secret-scanning/defining-custom-patterns-for-secret-scanning)."
+If you have collated any custom patterns specific to your enterprise, especially any related to the projects piloting {% data variables.product.prodname_secret_scanning %}, you can configure those. For more information, see "[AUTOTITLE](/code-security/secret-scanning/using-advanced-secret-scanning-and-push-protection-features/custom-patterns/defining-custom-patterns-for-secret-scanning)."
 
 To learn how to view and close alerts for secrets checked into your repository, see "[AUTOTITLE](/code-security/secret-scanning/managing-alerts-from-secret-scanning)."
 

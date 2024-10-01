@@ -15,7 +15,7 @@ shortTitle: View deployment activity
 ---
 {% note %}
 
-**Note:** The deployments dashboard is currently in beta and subject to change.
+**Note:** The deployments dashboard is currently in {% data variables.release-phases.public_preview %} and subject to change.
 
 {% endnote %}
 
@@ -32,4 +32,4 @@ You can also see deployment information on the "Conversation" tab of a pull requ
 
 ## Further reading
 
-- "[AUTOTITLE](/pull-requests/collaborating-with-pull-requests/proposing-changes-to-your-work-with-pull-requests/about-pull-requests)"
+* "[AUTOTITLE](/pull-requests/collaborating-with-pull-requests/proposing-changes-to-your-work-with-pull-requests/about-pull-requests)"

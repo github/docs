@@ -38,6 +38,7 @@ export default function parsePageSectionsIntoRecords(page) {
       .slice(0, breadcrumbsArray.length > 1 ? -1 : breadcrumbsArray.length)
       .join(' / ') || ''
 
+  const toplevel = breadcrumbsArray[0] || ''
   const objectID = href
 
   const rootSelector = '[data-search=article-body]'
@@ -91,5 +92,6 @@ export default function parsePageSectionsIntoRecords(page) {
     headings,
     content,
     intro,
+    toplevel,
   }
 }

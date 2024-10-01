@@ -3,8 +3,8 @@
 
 **Notes:**
 
-- Enabling {% data variables.product.prodname_code_scanning %} default setup _will not_ override any existing configurations of advanced setup for the selected repositories, but it _will_ override any existing configurations of default setup.
-- Enabling "Alerts" for {% data variables.product.prodname_secret_scanning %} enables high-confidence alerts. If you want to enable non-provider alerts, you need to edit the repository, organization, or enterprise settings. For more information about alert types, see "[Supported secrets](/code-security/secret-scanning/secret-scanning-patterns#supported-secrets)."
+* Enabling {% data variables.product.prodname_code_scanning %} default setup _will not_ override any existing configurations of advanced setup for the selected repositories, but it _will_ override any existing configurations of default setup.
+* Enabling "Alerts" for {% data variables.product.prodname_secret_scanning %} enables high-confidence alerts. If you want to enable non-provider alerts, you need to edit the repository, organization, or enterprise settings. For more information about alert types, see "[Supported secrets](/code-security/secret-scanning/introduction/supported-secret-scanning-patterns#supported-secrets)."
 
 {% endnote %}
 

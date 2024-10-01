@@ -3,69 +3,68 @@ import path from 'path'
 
 import express from 'express'
 import type { NextFunction, Request, Response, Express } from 'express'
+import timeout from 'connect-timeout'
 
-import haltOnDroppedConnection from './halt-on-dropped-connection.js'
-import abort from './abort.js'
-import timeout from './timeout.js'
+import { haltOnDroppedConnection } from './halt-on-dropped-connection'
+import abort from './abort'
 import morgan from 'morgan'
-import datadog from '@/observability/middleware/connect-datadog.js'
-import helmet from './helmet.js'
-import cookieParser from './cookie-parser.js'
+import datadog from '@/observability/middleware/connect-datadog'
+import helmet from './helmet'
+import cookieParser from './cookie-parser'
 import {
   setDefaultFastlySurrogateKey,
   setLanguageFastlySurrogateKey,
 } from './set-fastly-surrogate-key.js'
-import handleErrors from '@/observability/middleware/handle-errors.js'
-import handleNextDataPath from './handle-next-data-path.js'
-import detectLanguage from '@/languages/middleware/detect-language.js'
-import reloadTree from './reload-tree.js'
-import context from './context/context.js'
+import handleErrors from '@/observability/middleware/handle-errors'
+import handleNextDataPath from './handle-next-data-path'
+import detectLanguage from '@/languages/middleware/detect-language'
+import reloadTree from './reload-tree'
+import context from './context/context'
 import shortVersions from '@/versions/middleware/short-versions.js'
-import languageCodeRedirects from '@/redirects/middleware/language-code-redirects.js'
-import handleRedirects from '@/redirects/middleware/handle-redirects.js'
+import languageCodeRedirects from '@/redirects/middleware/language-code-redirects'
+import handleRedirects from '@/redirects/middleware/handle-redirects'
 import findPage from './find-page.js'
-import blockRobots from './block-robots.js'
-import archivedEnterpriseVersionsAssets from '@/archives/middleware/archived-enterprise-versions-assets.js'
-import api from './api.js'
-import healthz from './healthz.js'
-import productIcons from './product-icons.js'
-import manifestJson from './manifest-json.js'
-import remoteIP from './remote-ip.js'
-import buildInfo from './build-info.js'
-import archivedEnterpriseVersions from '@/archives/middleware/archived-enterprise-versions.js'
-import robots from './robots.js'
-import earlyAccessLinks from '@/early-access/middleware/early-access-links.js'
-import categoriesForSupport from './categories-for-support.js'
-import triggerError from '@/observability/middleware/trigger-error.js'
-import secretScanning from '@/secret-scanning/middleware/secret-scanning.js'
-import ghesReleaseNotes from '@/release-notes/middleware/ghes-release-notes.js'
-import whatsNewChangelog from './context/whats-new-changelog.js'
-import layout from './context/layout.js'
-import currentProductTree from './context/current-product-tree.js'
-import genericToc from './context/generic-toc.js'
-import breadcrumbs from './context/breadcrumbs.js'
-import glossaries from './context/glossaries.js'
-import renderProductName from './context/render-product-name.js'
-import features from '@/versions/middleware/features.js'
-import productExamples from './context/product-examples.js'
-import productGroups from './context/product-groups.js'
-import featuredLinks from '@/landings/middleware/featured-links.js'
-import learningTrack from '@/learning-track/middleware/learning-track.js'
-import next from './next.js'
-import renderPage from './render-page.js'
-import assetPreprocessing from '@/assets/middleware/asset-preprocessing.js'
-import archivedAssetRedirects from '@/archives/middleware/archived-asset-redirects.js'
-import favicons from './favicons.js'
-import setStaticAssetCaching from '@/assets/middleware/static-asset-caching.js'
-import fastHead from './fast-head.js'
-import fastlyCacheTest from './fastly-cache-test.js'
-import trailingSlashes from './trailing-slashes.js'
-import fastlyBehavior from './fastly-behavior.js'
-import mockVaPortal from './mock-va-portal.js'
-import dynamicAssets from '@/assets/middleware/dynamic-assets.js'
+import blockRobots from './block-robots'
+import archivedEnterpriseVersionsAssets from '@/archives/middleware/archived-enterprise-versions-assets'
+import api from './api'
+import healthz from './healthz'
+import manifestJson from './manifest-json'
+import remoteIP from './remote-ip'
+import buildInfo from './build-info'
+import archivedEnterpriseVersions from '@/archives/middleware/archived-enterprise-versions'
+import robots from './robots'
+import earlyAccessLinks from '@/early-access/middleware/early-access-links'
+import categoriesForSupport from './categories-for-support'
+import triggerError from '@/observability/middleware/trigger-error'
+import secretScanning from '@/secret-scanning/middleware/secret-scanning'
+import ghesReleaseNotes from '@/release-notes/middleware/ghes-release-notes'
+import whatsNewChangelog from './context/whats-new-changelog'
+import layout from './context/layout'
+import currentProductTree from './context/current-product-tree'
+import genericToc from './context/generic-toc'
+import breadcrumbs from './context/breadcrumbs'
+import glossaries from './context/glossaries'
+import renderProductName from './context/render-product-name'
+import features from '@/versions/middleware/features'
+import productExamples from './context/product-examples'
+import productGroups from './context/product-groups'
+import featuredLinks from '@/landings/middleware/featured-links'
+import learningTrack from '@/learning-track/middleware/learning-track'
+import next from './next'
+import renderPage from './render-page'
+import assetPreprocessing from '@/assets/middleware/asset-preprocessing'
+import archivedAssetRedirects from '@/archives/middleware/archived-asset-redirects'
+import favicons from './favicons'
+import setStaticAssetCaching from '@/assets/middleware/static-asset-caching'
+import fastHead from './fast-head'
+import fastlyCacheTest from './fastly-cache-test'
+import trailingSlashes from './trailing-slashes'
+import mockVaPortal from './mock-va-portal'
+import dynamicAssets from '@/assets/middleware/dynamic-assets'
 import contextualizeSearch from '@/search/middleware/contextualize.js'
-import shielding from '@/shielding/middleware/index.js'
-import tracking from '@/tracking/middleware/index.js'
+import shielding from '@/shielding/middleware'
+import tracking from '@/tracking/middleware'
+import { MAX_REQUEST_TIMEOUT } from '@/frame/lib/constants.js'
 
 const { DEPLOYMENT_ENV, NODE_ENV } = process.env
 const isTest = NODE_ENV === 'test' || process.env.GITHUB_ACTIONS === 'true'
@@ -89,7 +88,7 @@ const asyncMiddleware = (fn: Function) => (req: Request, res: Response, next: Ne
 
 export default function (app: Express) {
   // *** Request connection management ***
-  if (!isTest) app.use(timeout)
+  if (!isTest) app.use(timeout(MAX_REQUEST_TIMEOUT))
   app.use(abort)
 
   // Don't use the proxy's IP, use the requester's for rate limiting or
@@ -205,10 +204,6 @@ export default function (app: Express) {
   app.use(cookieParser)
   app.use(express.json())
 
-  if (ENABLE_FASTLY_TESTING) {
-    app.use(fastlyBehavior) // FOR TESTING.
-  }
-
   if (process.env.NODE_ENV === 'development') {
     app.use(mockVaPortal) // FOR TESTING.
   }
@@ -247,7 +242,6 @@ export default function (app: Express) {
   app.use('/api', api)
   app.get('/_ip', remoteIP)
   app.get('/_build', buildInfo)
-  app.use('/producticons', productIcons)
   app.use(asyncMiddleware(manifestJson))
 
   // Things like `/api` sets their own Fastly surrogate keys.

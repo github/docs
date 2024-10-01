@@ -1,5 +1,0 @@
-# Reference: comment in PR #36814
-
-versions:
-  ghec: '*'
-  ghes: '> 3.3'

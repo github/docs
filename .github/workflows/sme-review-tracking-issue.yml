@@ -19,7 +19,7 @@ permissions:
 jobs:
   create-sme-review-tracking-issue:
     runs-on: ubuntu-latest
-    if: github.repository == 'github/docs' && github.event.label.name == 'test-create-tracking-issue'
+    if: github.repository == 'github/docs' && github.event.label.name == 'needs SME'
     steps:
       - id: create-issue
         env:
@@ -39,6 +39,10 @@ jobs:
               body: `### Issue / PR that requires an SME review
 
             ${process.env.URL}
+
+            ### Reason for SME review
+
+            @${context.payload.sender.login} (Optional) _Insert short answer regarding why SME assistance is required to review this contribution_
 
             ### Location SME review was requested
 

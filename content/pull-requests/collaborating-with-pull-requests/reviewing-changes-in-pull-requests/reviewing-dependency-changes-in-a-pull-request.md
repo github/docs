@@ -19,7 +19,7 @@ redirect_from:
   - /github/collaborating-with-pull-requests/reviewing-changes-in-pull-requests/reviewing-dependency-changes-in-a-pull-request
 shortTitle: Review dependency changes
 ---
-<!--Marketing-LINK: From /features/security/software-supply-chain page "Sign up for the dependency review beta" and "Reviewing dependency changes in a pull request".-->
+<!--Marketing-LINK: From /features/security/software-supply-chain page "Sign up for the dependency review {% data variables.release-phases.public_preview %}" and "Reviewing dependency changes in a pull request".-->
 
 ## About dependency review
 
@@ -33,9 +33,7 @@ Dependency review allows you to "shift left". You can use the provided predictiv
 
 You can use the {% data variables.dependency-review.action_name %} to help enforce dependency reviews on pull requests in your repository. {% data reusables.dependency-review.dependency-review-action-overview %}
 
-{% ifversion dependency-review-action-configuration %}
 You can configure the {% data variables.dependency-review.action_name %} to better suit your needs by specifying the type of dependency vulnerability you wish to catch. For more information, see "[AUTOTITLE](/code-security/supply-chain-security/understanding-your-software-supply-chain/configuring-dependency-review#configuring-the-dependency-review-github-action)."
-{% endif %}
 
 ## Reviewing dependencies in a pull request
 
@@ -68,17 +66,17 @@ You can configure the {% data variables.dependency-review.action_name %} to bett
 
    Other information includes:
 
-   - The version, or version range, of the new, updated, or deleted dependency.
-   - For a specific version of a dependency:
-      - The age of that release of the dependency.
-      - The number of projects that are dependent on this software. This information is taken from the dependency graph. Checking the number of dependents can help you avoid accidentally adding the wrong dependency.
-      - The license used by this dependency, if this information is available. This is useful if you want to avoid code with certain licenses being used in your project.
+   * The version, or version range, of the new, updated, or deleted dependency.
+   * For a specific version of a dependency:
+      * The age of that release of the dependency.
+      * The number of projects that are dependent on this software. This information is taken from the dependency graph. Checking the number of dependents can help you avoid accidentally adding the wrong dependency.
+      * The license used by this dependency, if this information is available. This is useful if you want to avoid code with certain licenses being used in your project.
 
    Where a dependency has a known vulnerability, the warning message includes:
 
-   - A brief description of the vulnerability.
-   - A Common Vulnerabilities and Exposures (CVE) or {% data variables.product.prodname_security_advisories %} (GHSA) identification number. You can click this ID to find out more about the vulnerability.
-   - The severity of the vulnerability.
-   - The version of the dependency in which the vulnerability was fixed. If you are reviewing a pull request for someone, you might ask the contributor to update the dependency to the patched version, or a later release.
+   * A brief description of the vulnerability.
+   * A Common Vulnerabilities and Exposures (CVE) or {% data variables.product.prodname_security_advisories %} (GHSA) identification number. You can click this ID to find out more about the vulnerability.
+   * The severity of the vulnerability.
+   * The version of the dependency in which the vulnerability was fixed. If you are reviewing a pull request for someone, you might ask the contributor to update the dependency to the patched version, or a later release.
 
 {% data reusables.repositories.return-to-source-diff %}

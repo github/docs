@@ -8,14 +8,16 @@ topics:
   - Advanced Security
   - Code scanning
 versions:
-  feature: code-scanning-without-workflow
+  fpt: '*'
+  ghes: '*'
+  ghec: '*'
 ---
 
 When you first start using {% data variables.product.prodname_code_scanning %}, you'll likely use default setup. This guide describes how to evaluate how default setup for {% data variables.product.prodname_code_scanning %} is working for you, and what steps to take if something isn't working as you expect. This guide also describes how you can customize {% data variables.product.prodname_code_scanning %} if you find that you have a specific use case that your new configuration doesn't fit.
 
 ## Customizing {% data variables.product.prodname_code_scanning %}
 
-When you first configure default setup, or after an initial analysis of your code, you can edit{% ifversion code-scanning-without-workflow-310 %} which languages default setup will analyze and{% endif %} the query suite run during analysis. The `default` query suite contains a set of queries that are carefully designed to look for the most relevant security issues, while minimizing false positive results. However, you can use the `security-extended` suite to run additional queries, which have slightly lower precision. For more information on the available query suites, see "[AUTOTITLE](/code-security/code-scanning/managing-your-code-scanning-configuration/codeql-query-suites)."
+When you first configure default setup, or after an initial analysis of your code, you can edit which languages default setup will analyze and the query suite run during analysis. The `default` query suite contains a set of queries that are carefully designed to look for the most relevant security issues, while minimizing false positive results. However, you can use the `security-extended` suite to run additional queries, which have slightly lower precision. For more information on the available query suites, see "[AUTOTITLE](/code-security/code-scanning/managing-your-code-scanning-configuration/codeql-query-suites)."
 
 For more information about customizing default setup, see "[AUTOTITLE](/code-security/code-scanning/managing-your-code-scanning-configuration/editing-your-configuration-of-default-setup)."
 

@@ -27,25 +27,31 @@ The root filesystem is included in the distributed machine image. It contains th
 
 The root storage volume is split into two equally-sized partitions. One of the partitions will be mounted as the root filesystem (`/`). The other partition is only mounted during upgrades and rollbacks of upgrades as `/mnt/upgrade`, to facilitate easier rollbacks if necessary. For example, if a 200GB root volume is allocated, there will be 100GB allocated to the root filesystem and 100GB reserved for the upgrades and rollbacks.
 
+{% ifversion ghes > 3.13 %}In new installations of 3.14 and later, the root storage volume is split into four partitions. Two small partitions are for the supported boot modes (BIOS and UEFI), and the other two equally large partitions are for the {% data variables.product.product_name %} primary, and upgrades and rollbacks.{% endif %}
+
 The root filesystem contains files that store the following information. This list is not exhaustive.
 
-- Custom certificate authority (CA) certificates (in `/usr/local/share/ca-certificates*`)
-- Custom networking configurations
-- Custom firewall configurations
-- The replication state
+* Custom certificate authority (CA) certificates (in `/usr/local/share/ca-certificates*`)
+* Custom networking configurations
+* Custom firewall configurations
+* The replication state
 
 The user filesystem contains files that store following configuration and data. This list is not exhaustive.
 
-- Git repositories
-- Databases
-- Search indexes
-- Content published on {% data variables.product.prodname_pages %} sites
-- Large files from {% data variables.large_files.product_name_long %}
-- Pre-receive hook environments
+* Git repositories
+* Databases
+* Search indexes
+* Content published on {% data variables.product.prodname_pages %} sites
+* Large files from {% data variables.large_files.product_name_long %}
+* Pre-receive hook environments
 
 ## Deployment topologies
 
-You can deploy {% data variables.product.product_name %} in a variety of topologies, such as a high availability pair. For more information, see "[AUTOTITLE](/admin/overview/about-github-enterprise-server#about-deployment-topologies)."
+By default, {% data variables.product.product_name %} runs as a standalone instance. You can increase the reliability and performance of {% data variables.product.product_name %} by using a different topology for your deployment.
+
+* To mitigate the impact of system or network failures, you can deploy a passive replica instance. During an outage that affects your primary instance, you can manually fail over to the replica instance. For more information, see "[AUTOTITLE](/admin/enterprise-management/configuring-high-availability/about-high-availability-configuration)."
+* You can configure multiple active replicas to improve performance for developers who are geographically distant from your primary instance. For more information, see "[AUTOTITLE](/admin/enterprise-management/configuring-high-availability/about-geo-replication)."
+* Some enterprises with tens of thousands of developers may benefit from a cluster configuration that scales horizontally instead of vertically. For more information, see "[AUTOTITLE](/admin/enterprise-management/configuring-clustering/about-clustering)."
 
 ## Data retention and datacenter redundancy
 
@@ -67,14 +73,14 @@ For more information, see "[AUTOTITLE](/admin/configuration/configuring-your-ent
 
 {% data variables.product.product_name %} also includes additional security features.
 
-- [Operating system, software, and patches](#operating-system-software-and-patches)
-- [Network security](#network-security)
-- [Application security](#application-security)
-- [External services and support access](#external-services-and-support-access)
-- [Encrypted communication](#encrypted-communication)
-- [Users and access permissions](#users-and-access-permissions)
-- [Authentication](#authentication)
-- [Audit and access logging](#audit-and-access-logging)
+* [Operating system, software, and patches](#operating-system-software-and-patches)
+* [Network security](#network-security)
+* [Application security](#application-security)
+* [External services and support access](#external-services-and-support-access)
+* [Encrypted communication](#encrypted-communication)
+* [Users and access permissions](#users-and-access-permissions)
+* [Authentication](#authentication)
+* [Audit and access logging](#audit-and-access-logging)
 
 ### Operating system, software, and patches
 
@@ -112,9 +118,9 @@ If you configure SAML authentication for {% data variables.location.product_loca
 
 {% data variables.product.product_name %} provides three types of accounts.
 
-- The `admin` Linux user account has controlled access to the underlying operating system, including direct filesystem and database access. A small set of trusted administrators should have access to this account, which they can access over SSH. For more information, see "[AUTOTITLE](/admin/configuration/configuring-your-enterprise/accessing-the-administrative-shell-ssh)."
-- User accounts in the instance's web application have full access to their own data and any data that other users or organizations explicitly grant.
-- Site administrators in the instance's web application are user accounts that can manage high-level web application and instance settings, user and organization account settings, and repository data.
+* The `admin` Linux user account has controlled access to the underlying operating system, including direct filesystem and database access. A small set of trusted administrators should have access to this account, which they can access over SSH. For more information, see "[AUTOTITLE](/admin/configuration/configuring-your-enterprise/accessing-the-administrative-shell-ssh)."
+* User accounts in the instance's web application have full access to their own data and any data that other users or organizations explicitly grant.
+* Site administrators in the instance's web application are user accounts that can manage high-level web application and instance settings, user and organization account settings, and repository data.
 
 For more information about {% data variables.product.product_name %}'s user permissions, see "[AUTOTITLE](/get-started/learning-about-github/access-permissions-on-github)."
 
@@ -122,10 +128,10 @@ For more information about {% data variables.product.product_name %}'s user perm
 
 {% data variables.product.product_name %} provides four authentication methods.
 
-- SSH public key authentication provides both repository access using Git and administrative shell access. For more information, see "[AUTOTITLE](/authentication/connecting-to-github-with-ssh/about-ssh)" and "[AUTOTITLE](/admin/configuration/configuring-your-enterprise/accessing-the-administrative-shell-ssh)."
-- Username and password authentication with HTTP cookies provides web application access and session management, with optional two-factor authentication (2FA). For more information, see "[AUTOTITLE](/admin/identity-and-access-management/using-built-in-authentication/configuring-built-in-authentication)."
-- External LDAP, SAML, or CAS authentication using an LDAP service, SAML Identity Provider (IdP), or other compatible service provides access to the web application. For more information, see "[AUTOTITLE](/admin/identity-and-access-management/using-saml-for-enterprise-iam)."
-- OAuth and {% data variables.product.pat_generic %}s provide access to Git repository data and APIs for both external clients and services. For more information, see "[AUTOTITLE](/authentication/keeping-your-account-and-data-secure/creating-a-personal-access-token)."
+* SSH public key authentication provides both repository access using Git and administrative shell access. For more information, see "[AUTOTITLE](/authentication/connecting-to-github-with-ssh/about-ssh)" and "[AUTOTITLE](/admin/configuration/configuring-your-enterprise/accessing-the-administrative-shell-ssh)."
+* Username and password authentication with HTTP cookies provides web application access and session management, with optional two-factor authentication (2FA). For more information, see "[AUTOTITLE](/admin/identity-and-access-management/using-built-in-authentication/configuring-built-in-authentication)."
+* External LDAP, SAML, or CAS authentication using an LDAP service, SAML Identity Provider (IdP), or other compatible service provides access to the web application. For more information, see "[AUTOTITLE](/admin/identity-and-access-management/using-saml-for-enterprise-iam)."
+* OAuth and {% data variables.product.pat_generic %}s provide access to Git repository data and APIs for both external clients and services. For more information, see "[AUTOTITLE](/authentication/keeping-your-account-and-data-secure/creating-a-personal-access-token)."
 
 ### Audit and access logging
 
@@ -135,16 +141,16 @@ Access and audit logs include information like the following.
 
 #### Access logs
 
-- Full web server logs for both browser and API access
-- Full logs for access to repository data over Git, HTTPS, and SSH protocols
-- Administrative access logs over HTTPS and SSH
+* Full web server logs for both browser and API access
+* Full logs for access to repository data over Git, HTTPS, and SSH protocols
+* Administrative access logs over HTTPS and SSH
 
 #### Audit logs
 
-- User logins, password resets, 2FA requests, email setting changes, and changes to authorized applications and APIs
-- Site administrator actions, such as unlocking user accounts and repositories
-- Repository push events, access grants, transfers, and renames
-- Organization membership changes, including team creation and destruction
+* User logins, password resets, 2FA requests, email setting changes, and changes to authorized applications and APIs
+* Site administrator actions, such as unlocking user accounts and repositories
+* Repository push events, access grants, transfers, and renames
+* Organization membership changes, including team creation and destruction
 
 ## Open source dependencies for {% data variables.product.product_name %}
 
@@ -152,12 +158,12 @@ You can see a complete list of dependencies in your instance's version of {% dat
 
 Tarballs with a full list of dependencies and associated metadata are available on your instance.
 
-- For dependencies common to all platforms, at `/usr/local/share/enterprise/dependencies-<GHE version>-base.tar.gz`
-- For dependencies specific to a platform, at `/usr/local/share/enterprise/dependencies-<GHE version>-<platform>.tar.gz`
+* For dependencies common to all platforms, at `/usr/local/share/enterprise/dependencies-<GHE version>-base.tar.gz`
+* For dependencies specific to a platform, at `/usr/local/share/enterprise/dependencies-<GHE version>-<platform>.tar.gz`
 
 Tarballs are also available, with a full list of dependencies and metadata, at `https://enterprise.github.com/releases/<version>/download.html`.
 
 ## Further reading
 
-- "[AUTOTITLE](/admin/overview/setting-up-a-trial-of-github-enterprise-server)"
-- "[AUTOTITLE](/admin/installation/setting-up-a-github-enterprise-server-instance)"
+* "[AUTOTITLE](/admin/overview/setting-up-a-trial-of-github-enterprise-server)"
+* "[AUTOTITLE](/admin/installation/setting-up-a-github-enterprise-server-instance)"

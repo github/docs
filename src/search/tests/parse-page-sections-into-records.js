@@ -51,6 +51,7 @@ describe('search parsePageSectionsIntoRecords module', () => {
         'Bullet\nPoint\nNumbered\nList\n' +
         "Further reading\nThis won't be ignored.",
       intro: 'This is an introduction to the article.',
+      toplevel: 'GitHub Actions',
     }
 
     expect(record).toEqual(expected)
@@ -68,6 +69,7 @@ describe('search parsePageSectionsIntoRecords module', () => {
       headings: '',
       content: 'This is an introduction to the article.\nFirst paragraph.\nSecond paragraph.',
       intro: 'This is an introduction to the article.',
+      toplevel: 'Education',
     }
 
     expect(record).toEqual(expected)
@@ -85,6 +87,7 @@ describe('search parsePageSectionsIntoRecords module', () => {
       headings: '',
       content: 'This is an introduction to the article.',
       intro: 'This is an introduction to the article.',
+      toplevel: 'Education',
     }
 
     expect(record).toEqual(expected)

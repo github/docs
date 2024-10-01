@@ -30,9 +30,9 @@ To search for locked conversations in a repository that is not archived, you can
 
 ## Further reading
 
-- "[AUTOTITLE](/communities/setting-up-your-project-for-healthy-contributions)"
-- "[AUTOTITLE](/communities/using-templates-to-encourage-useful-issues-and-pull-requests)"
-- "[AUTOTITLE](/communities/moderating-comments-and-conversations/managing-disruptive-comments)"{% ifversion fpt or ghec %}
-- "[AUTOTITLE](/communities/maintaining-your-safety-on-github)"
-- "[AUTOTITLE](/communities/maintaining-your-safety-on-github/reporting-abuse-or-spam)"
+* "[AUTOTITLE](/communities/setting-up-your-project-for-healthy-contributions)"
+* "[AUTOTITLE](/communities/using-templates-to-encourage-useful-issues-and-pull-requests)"
+* "[AUTOTITLE](/communities/moderating-comments-and-conversations/managing-disruptive-comments)"{% ifversion fpt or ghec %}
+* "[AUTOTITLE](/communities/maintaining-your-safety-on-github)"
+* "[AUTOTITLE](/communities/maintaining-your-safety-on-github/reporting-abuse-or-spam)"
 {% endif %}

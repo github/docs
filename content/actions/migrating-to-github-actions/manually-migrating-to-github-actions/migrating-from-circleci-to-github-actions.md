@@ -24,10 +24,10 @@ shortTitle: Migrate from CircleCI
 
 CircleCI and {% data variables.product.prodname_actions %} both allow you to create workflows that automatically build, test, publish, release, and deploy code. CircleCI and {% data variables.product.prodname_actions %} share some similarities in workflow configuration:
 
-- Workflow configuration files are written in YAML and stored in the repository.
-- Workflows include one or more jobs.
-- Jobs include one or more steps or individual commands.
-- Steps or tasks can be reused and shared with the community.
+* Workflow configuration files are written in YAML and stored in the repository.
+* Workflows include one or more jobs.
+* Jobs include one or more steps or individual commands.
+* Steps or tasks can be reused and shared with the community.
 
 For more information, see "[AUTOTITLE](/actions/learn-github-actions/understanding-github-actions)."
 
@@ -35,8 +35,8 @@ For more information, see "[AUTOTITLE](/actions/learn-github-actions/understandi
 
 When migrating from CircleCI, consider the following differences:
 
-- CircleCI’s automatic test parallelism automatically groups tests according to user-specified rules or historical timing information. This functionality is not built into {% data variables.product.prodname_actions %}.
-- Actions that execute in Docker containers are sensitive to permissions problems since containers have a different mapping of users. You can avoid many of these problems by not using the `USER` instruction in your _Dockerfile_. For more information about the Docker filesystem on {% data variables.product.product_name %}-hosted runners, see "[AUTOTITLE](/actions/using-github-hosted-runners/about-github-hosted-runners#docker-container-filesystem)."
+* CircleCI’s automatic test parallelism automatically groups tests according to user-specified rules or historical timing information. This functionality is not built into {% data variables.product.prodname_actions %}.
+* Actions that execute in Docker containers are sensitive to permissions problems since containers have a different mapping of users. You can avoid many of these problems by not using the `USER` instruction in your _Dockerfile_. For more information about the Docker filesystem on {% data variables.product.product_name %}-hosted runners, see "[AUTOTITLE](/actions/using-github-hosted-runners/about-github-hosted-runners#docker-container-filesystem)."
 
 ## Migrating workflows and jobs
 
@@ -72,8 +72,6 @@ For more information, see "[AUTOTITLE](/actions/learn-github-actions/variables#d
 
 CircleCI and {% data variables.product.prodname_actions %} provide a method to manually cache files in the configuration file.
 
-{% ifversion actions-caching %}
-
 Below is an example of the syntax for each system.
 
 ### CircleCI syntax for caching
@@ -99,12 +97,6 @@ Below is an example of the syntax for each system.
     key: {% raw %}v1-npm-deps-${{ hashFiles('**/package-lock.json') }}{% endraw %}
     restore-keys: v1-npm-deps-
 ```
-
-{% else %}
-
-{% data reusables.actions.caching-availability %}
-
-{% endif %}
 
 {% data variables.product.prodname_actions %} does not have an equivalent of CircleCI’s Docker Layer Caching (or DLC).
 

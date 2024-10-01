@@ -42,7 +42,7 @@ cat /workspaces/.codespaces/shared/environment-variables.json | jq '.ACTION_NAME
 
 You can check whether a repository is using prebuilds in the "{% data variables.product.prodname_codespaces %}" page of the repository's settings.
 
-You can check how much storage space has been consumed by prebuilds in your current billing cycle by reviewing the billing data for your personal or organization account. You can also generate a usage report to see which repositories have been using prebuilds. For more information, see "[AUTOTITLE](/billing/managing-billing-for-github-codespaces/viewing-your-github-codespaces-usage)."
+You can check how much storage space has been consumed by prebuilds in your current billing cycle by reviewing the billing data for your personal or organization account. You can also generate a usage report to see which repositories have been using prebuilds. For more information, see "[AUTOTITLE](/billing/managing-billing-for-your-products/managing-billing-for-github-codespaces/viewing-your-github-codespaces-usage)."
 
 ## The "Prebuild Ready" label is sometimes missing
 
@@ -54,10 +54,10 @@ If your branch is not specifically enabled for prebuilds it may still benefit fr
 
 Here are things to check if the "{% octicon "zap" aria-hidden="true" %} Prebuild Ready" label is not displayed for a particular branch:
 
-- Confirm that a prebuild configuration exists for this branch. If you’re not a repository administrator, you'll need to reach out to one to confirm this.
-- Confirm that the prebuild configuration includes your region.
-- Check whether a change to the dev container configuration was pushed to the prebuild-enabled branch recently. If so, you will typically have to wait until the prebuild workflow run for this push completes before prebuilds are available again.
-- If no configuration changes were recently made, go to the **Actions** tab of your repository, click **{% octicon "codespaces" aria-hidden="true" %} {% data variables.product.prodname_codespaces %} Prebuilds** in the workflows list, and check that prebuild workflow runs for the branch are succeeding. If latest runs of a workflow failed, and one or more of these failed runs contained changes to the dev container configuration, then there will be no available prebuilds for the associated branch.
+* Confirm that a prebuild configuration exists for this branch. If you’re not a repository administrator, you'll need to reach out to one to confirm this.
+* Confirm that the prebuild configuration includes your region.
+* Check whether a change to the dev container configuration was pushed to the prebuild-enabled branch recently. If so, you will typically have to wait until the prebuild workflow run for this push completes before prebuilds are available again.
+* If no configuration changes were recently made, go to the **Actions** tab of your repository, click **{% octicon "codespaces" aria-hidden="true" %} {% data variables.product.prodname_codespaces %} Prebuilds** in the workflows list, and check that prebuild workflow runs for the branch are succeeding. If latest runs of a workflow failed, and one or more of these failed runs contained changes to the dev container configuration, then there will be no available prebuilds for the associated branch.
 
 ## Some resources cannot be accessed in codespaces created using a prebuild
 
@@ -98,5 +98,5 @@ We recommend keeping prebuild optimization enabled, because it helps ensure that
 
 ## Further reading
 
-- "[AUTOTITLE](/codespaces/prebuilding-your-codespaces/configuring-prebuilds)"
-- "[AUTOTITLE](/codespaces/prebuilding-your-codespaces/managing-prebuilds)"
+* "[AUTOTITLE](/codespaces/prebuilding-your-codespaces/configuring-prebuilds)"
+* "[AUTOTITLE](/codespaces/prebuilding-your-codespaces/managing-prebuilds)"

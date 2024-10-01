@@ -35,8 +35,8 @@ To use the {% data variables.product.prodname_container_registry %} on {% data v
 
 The {% data variables.product.prodname_container_registry %} currently supports the following container image formats:
 
-- [Docker Image Manifest V2, Schema 2](https://docs.docker.com/registry/spec/manifest-v2-2/)
-- [Open Container Initiative (OCI) Specifications](https://github.com/opencontainers/image-spec)
+* [Docker Image Manifest V2, Schema 2](https://docs.docker.com/registry/spec/manifest-v2-2/)
+* [Open Container Initiative (OCI) Specifications](https://github.com/opencontainers/image-spec)
 
 When installing or publishing a Docker image, the {% data variables.product.prodname_container_registry %} supports foreign layers, such as Windows images.
 
@@ -235,3 +235,8 @@ For example, the following {% data variables.product.prodname_actions %} workflo
     push: true
     outputs: type=image,name=target,annotation-index.org.opencontainers.image.description=My multi-arch image
 ```
+
+## Troubleshooting
+
+* The {% data variables.product.prodname_container_registry %} has a 10 GB size limit for each layer.
+* The {% data variables.product.prodname_container_registry %} has a 10 minute timeout limit for uploads.

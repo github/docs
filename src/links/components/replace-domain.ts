@@ -2,20 +2,14 @@ import { useEffect } from 'react'
 import { useRouter } from 'next/router'
 
 import { useVersion } from 'src/versions/components/useVersion'
-import Cookies from 'src/frame/components/lib/cookies'
-
-const COOKIE_KEY = 'github_domains'
+import { useEditableDomainName } from './useEditableDomainContext'
+import { createPenSVG } from './pen-icon'
 
 // We only want to activate the replace-domain feature for these versions.
 // This means that if you're on a version we don't want it activated on,
 // even though you have a your-domain cookie, it *won't* replace the
 // word HOSTNAME.
 const REPLACEDOMAIN_VERSION_PREFIXES = ['enterprise-server@']
-
-// This list needs to match what's in `unified/replace-domain.js`
-const regexes = {
-  HOSTNAME: /\bHOSTNAME\b/g,
-} as const
 
 function replaceDomains(domain: string | null) {
   document.querySelectorAll<HTMLElement>('pre code[data-replacedomain]').forEach((codeBlock) => {
@@ -30,60 +24,108 @@ function replaceDomains(domain: string | null) {
     } else {
       replaceInTextContent(codeBlock, replaceDomains, domain)
     }
+    replaceInClipboard(codeBlock, replaceDomains, domain)
   })
 }
 
-function replaceInTextContent(
-  codeBlock: HTMLElement,
-  replaceDomains: string[],
-  domain: string | null,
-) {
-  if (!codeBlock.textContent) return
-  for (const replaceDomain of replaceDomains) {
-    if (replaceDomain in regexes) {
-      // If the domain is falsy, it means we're reverting the replacement.
-      // This happens when you used to be on a version where we want to
-      // activate this functionality. Then, when you switch to a version
-      // where you don't want it, we need to revert the replacement to
-      // to what it was before we did the first replacement.
+function replaceInClipboard(element: HTMLElement, replaceDomains: string[], domain: string | null) {
+  if (
+    element.parentElement &&
+    element.parentElement.parentElement &&
+    element.parentElement.parentElement.classList.contains('code-example')
+  ) {
+    const pre =
+      element.parentElement.parentElement.querySelector<HTMLPreElement>('pre[data-clipboard]')
+    const regex = new RegExp(`(${replaceDomains.join('|')})`)
+    if (pre && pre.textContent) {
+      if (!pre.dataset.originalText) {
+        pre.dataset.originalText = pre.textContent
+      }
       if (domain) {
-        const match = codeBlock.textContent.match(regexes[replaceDomain as keyof typeof regexes])
-        for (const matched of match || []) {
-          codeBlock.dataset.replacedomainOriginal = matched
-          codeBlock.dataset.replacedomainReplace = domain
-        }
-        codeBlock.textContent = codeBlock.textContent.replace(
-          regexes[replaceDomain as keyof typeof regexes],
-          domain,
-        )
+        pre.textContent = pre.dataset.originalText.replace(regex, domain)
       } else {
-        if (codeBlock.dataset.replacedomainOriginal && codeBlock.dataset.replacedomainReplace) {
-          // Reverse it
-          codeBlock.textContent = codeBlock.textContent.replace(
-            codeBlock.dataset.replacedomainReplace,
-            codeBlock.dataset.replacedomainOriginal,
-          )
-        }
+        pre.textContent = pre.dataset.originalText
       }
     }
   }
 }
 
+function replaceInTextContent(
+  element: HTMLElement,
+  replaceDomains: string[],
+  domain: string | null,
+) {
+  if (!element.textContent) return
+
+  if (!element.querySelector('.replacedomain-text')) {
+    splitElementText(element, replaceDomains)
+  }
+
+  if (domain !== null) {
+    element.querySelectorAll('.replacedomain-text').forEach((textSpan) => {
+      textSpan.textContent = domain
+      textSpan.classList.add('editable-domain')
+    })
+    element.querySelectorAll('.replacedomain-edit').forEach((toggleElement) => {
+      toggleElement.classList.remove('visually-hidden')
+    })
+  } else {
+    element.querySelectorAll('.replacedomain-text').forEach((textSpan) => {
+      if (element.dataset.replacedomain) {
+        textSpan.textContent = element.dataset.replacedomain
+      }
+      textSpan.classList.remove('editable-domain')
+    })
+    element.querySelectorAll('.replacedomain-edit').forEach((toggleElement) => {
+      toggleElement.classList.remove('visually-hidden')
+    })
+  }
+}
+
+function splitElementText(element: HTMLElement, replaceDomains: string[]) {
+  const splitText = element.textContent!.split(new RegExp(`(${replaceDomains.join('|')})`))
+  element.textContent = ''
+  for (const text of splitText) {
+    if (replaceDomains.includes(text)) {
+      element.appendChild(createEditWrapper(text))
+    } else {
+      const span = document.createElement('span')
+      span.textContent = text
+      element.appendChild(span)
+    }
+  }
+}
+
+function createEditWrapper(text: string): HTMLSpanElement {
+  const element = document.createElement('span')
+  element.classList.add('replacedomain-edit')
+  const span = document.createElement('span')
+  span.classList.add('replacedomain-text')
+  span.textContent = text
+  element.appendChild(span)
+  element.appendChild(createPenSVG())
+
+  return element
+}
+
 export function ReplaceDomain() {
   const { asPath } = useRouter()
+  const { domainName } = useEditableDomainName()
   const { currentVersion } = useVersion()
 
-  const bother = REPLACEDOMAIN_VERSION_PREFIXES.some((prefix) => currentVersion.startsWith(prefix))
+  const enable = REPLACEDOMAIN_VERSION_PREFIXES.some((prefix) => currentVersion.startsWith(prefix))
 
   useEffect(() => {
-    const cookieValue = Cookies.get(COOKIE_KEY)
-    if (cookieValue) {
-      if (bother) {
-        replaceDomains(cookieValue.split(',')[0])
+    if (domainName) {
+      if (enable) {
+        replaceDomains(domainName.split(',')[0])
       } else {
         replaceDomains(null)
       }
+    } else if (enable) {
+      replaceDomains(null)
     }
-  }, [asPath, bother])
+  }, [asPath, enable, domainName])
+
   return null
 }

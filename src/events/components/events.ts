@@ -6,7 +6,7 @@ import { isLoggedIn } from 'src/frame/components/hooks/useHasAccount'
 
 const COOKIE_NAME = '_docs-events'
 
-export const startVisitTime = Date.now()
+const startVisitTime = Date.now()
 
 let initialized = false
 let cookieValue: string | undefined
@@ -37,7 +37,7 @@ function resetPageParams() {
 function uuidv4(): string {
   try {
     return crypto.randomUUID()
-  } catch (err) {
+  } catch {
     // https://stackoverflow.com/a/2117523
     return (<any>[1e7] + -1e3 + -4e3 + -8e3 + -1e11).replace(/[018]/g, (c: number) =>
       (c ^ (crypto.getRandomValues(new Uint8Array(1))[0] & (15 >> (c / 4)))).toString(16),
@@ -94,6 +94,7 @@ type SendEventProps = {
   [EventType.link]: {
     link_url: string
     link_samesite?: boolean
+    link_samepage?: boolean
     link_container?: string
   }
   [EventType.page]: {}
@@ -118,7 +119,8 @@ type SendEventProps = {
     survey_vote: boolean
     survey_comment?: string
     survey_email?: string
-    survey_visit_duration?: number
+    survey_rating?: number
+    survey_comment_language?: string
   }
 }
 
@@ -147,11 +149,12 @@ export function sendEvent<T extends EventType>({
       page_event_id: pageEventId,
 
       // Content information
-      path: location.pathname,
-      hostname: location.hostname,
       referrer: getReferrer(document.referrer),
-      search: location.search,
-      href: location.href,
+      href: location.href, // full URL
+      hostname: location.hostname, // origin without protocol or port
+      path: location.pathname, // path without search or host
+      search: location.search, // also known as query string
+      hash: location.hash, // also known as anchor
       path_language: getMetaContent('path-language'),
       path_version: getMetaContent('path-version'),
       path_product: getMetaContent('path-product'),
@@ -204,7 +207,7 @@ function getReferrer(documentReferrer: string) {
     if (!referrerUrl.pathname || referrerUrl.pathname === '/') {
       return referrerUrl.origin + previousPath
     }
-  } catch (e) {}
+  } catch {}
   return documentReferrer
 }
 
@@ -377,6 +380,7 @@ function initLinkEvent() {
       type: EventType.link,
       link_url: link.href,
       link_samesite: sameSite,
+      link_samepage: sameSite && link.pathname === location.pathname,
       link_container: container?.dataset.container,
     })
   })
@@ -389,6 +393,9 @@ function initLinkEvent() {
     sendEvent({
       type: EventType.link,
       link_url: `${url}#scroll-to-top`,
+      link_samesite: true,
+      link_samepage: true,
+      link_container: 'static',
     })
   })
 }

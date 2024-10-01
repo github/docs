@@ -20,19 +20,19 @@ In addition to reviewing {% data variables.product.prodname_github_apps %} that 
 
 ## Navigating to the {% data variables.product.prodname_github_app %} you want to review or modify
 
-- For a {% data variables.product.prodname_github_app %} installed on an organization:
-   1. In the top right corner of {% ifversion fpt or ghec %}{% data variables.product.prodname_dotcom_the_website %}{% else %}{% data variables.product.product_name %}{% endif %}, click your profile photo, then click **Your organizations**.
+* For a {% data variables.product.prodname_github_app %} installed on an organization:
+   1. In the top right corner of {% data variables.product.prodname_dotcom %}, click your profile photo, then click **Your organizations**.
    1. Next to your organization name, click **Settings**.
    1. In the side bar, under "Third-party Access," click **GitHub Apps**. A list of the {% data variables.product.prodname_github_apps %} installed on your organization will be displayed.
    1. Next to the {% data variables.product.prodname_github_app %} you want to review or modify, click **Configure**.
 
-- For a {% data variables.product.prodname_github_app %} installed on your personal account:
+* For a {% data variables.product.prodname_github_app %} installed on your personal account:
    1. In the upper-right corner of any page, click your profile photo, then click **Settings**.
    1. Under "Integrations," click **Applications**.
    1. Click **Installed GitHub Apps**. A list of the {% data variables.product.prodname_github_apps %} installed on your personal account will be displayed.
    1. Next to the {% data variables.product.prodname_github_app %} you want to review or modify, click **Configure**.
 
-- For a repository where a {% data variables.product.prodname_github_app %} was granted access:
+* For a repository where a {% data variables.product.prodname_github_app %} was granted access:
 
    {% note %}
 
@@ -74,5 +74,5 @@ In addition to reviewing {% data variables.product.prodname_github_apps %} that 
 
 ## Further reading
 
-- "[AUTOTITLE](/apps/using-github-apps/reviewing-and-revoking-authorization-of-github-apps)"
-- "[AUTOTITLE](/apps/using-github-apps/internal-github-apps)"
+* "[AUTOTITLE](/apps/using-github-apps/reviewing-and-revoking-authorization-of-github-apps)"
+* "[AUTOTITLE](/apps/using-github-apps/internal-github-apps)"

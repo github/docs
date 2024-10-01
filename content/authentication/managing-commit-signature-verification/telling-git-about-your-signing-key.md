@@ -22,11 +22,7 @@ shortTitle: Tell Git about your signing key
 
 If you're using a GPG key that matches your committer identity and your verified email address associated with your account on {% data variables.location.product_location %}, then you can begin signing commits and signing tags.
 
-{% note %}
-
 If you don't have a GPG key that matches your committer identity, you need to associate an email with an existing key. For more information, see "[AUTOTITLE](/authentication/managing-commit-signature-verification/associating-an-email-with-your-gpg-key)".
-
-{% endnote %}
 
 If you have multiple GPG keys, you need to tell Git which one to use.
 
@@ -131,6 +127,6 @@ You can use an existing SSH key to sign commits and tags, or generate a new one 
 
 ## Further reading
 
-- "[AUTOTITLE](/authentication/connecting-to-github-with-ssh/adding-a-new-ssh-key-to-your-github-account)."
-- "[AUTOTITLE](/authentication/managing-commit-signature-verification/signing-commits)"
-- "[AUTOTITLE](/authentication/managing-commit-signature-verification/signing-tags)"
+* "[AUTOTITLE](/authentication/connecting-to-github-with-ssh/adding-a-new-ssh-key-to-your-github-account)."
+* "[AUTOTITLE](/authentication/managing-commit-signature-verification/signing-commits)"
+* "[AUTOTITLE](/authentication/managing-commit-signature-verification/signing-tags)"

@@ -1,6 +1,6 @@
 ---
 title: Changing your GitHub username
-intro: 'You can change the username for your account on {% ifversion fpt or ghec %}{% data variables.product.prodname_dotcom_the_website %}{% elsif ghes %}{% data variables.location.product_location %} if your instance uses built-in authentication{% endif %}.'
+intro: 'You can change the username for your account on {% data variables.product.prodname_dotcom %}{% ifversion ghes %} if your instance uses built-in authentication{% endif %}.'
 redirect_from:
   - /articles/how-to-change-your-username
   - /articles/changing-your-github-user-name
@@ -49,8 +49,8 @@ If you do not hold a trademark for the name, you can choose another username or 
 After changing your username, your old username becomes available for anyone else to claim. Most references to your repositories under the old username automatically change to the new username. However, some links to your profile won't automatically redirect.
 
 {% data variables.product.product_name %} cannot set up redirects for:
-- [@mentions](/get-started/writing-on-github/getting-started-with-writing-and-formatting-on-github/basic-writing-and-formatting-syntax#mentioning-people-and-teams) using your old username
-- Links to [gists](/get-started/writing-on-github/editing-and-sharing-content-with-gists/creating-gists) that include your old username
+* [@mentions](/get-started/writing-on-github/getting-started-with-writing-and-formatting-on-github/basic-writing-and-formatting-syntax#mentioning-people-and-teams) using your old username
+* Links to [gists](/get-started/writing-on-github/editing-and-sharing-content-with-gists/creating-gists) that include your old username
 
 {% ifversion fpt or ghec %}
 
@@ -69,14 +69,18 @@ If you're a member of an {% data variables.enterprise.prodname_emu_enterprise %}
 ## Repository references
 
 After you change your username, {% data variables.product.product_name %} will automatically redirect references to your repositories.
-- Web links to your existing repositories will continue to work. This can take a few minutes to complete after you make the change.
-- Command line pushes from your local repository clones to the old remote tracking URLs will continue to work.
+* Web links to your existing repositories will continue to work. This can take a few minutes to complete after you make the change.
+* Command line pushes from your local repository clones to the old remote tracking URLs will continue to work.
 
 If the new owner of your old username creates a repository with the same name as your repository, that will override the redirect entry and your redirect will stop working. Because of this possibility, we recommend you update all existing remote repository URLs after changing your username. For more information, see "[AUTOTITLE](/get-started/getting-started-with-git/managing-remote-repositories)."
 
 ## Links to your previous profile page
 
-After changing your username, links to your previous profile page, such as `https://{% data variables.command_line.backticks %}/previoususername`, will return a 404 error. We recommend updating any links to your account on {% data variables.location.product_location %} from elsewhere{% ifversion fpt or ghec %}, such as your LinkedIn or Twitter profile{% endif %}.
+After changing your username, links to your previous profile page, such as `https://{% data variables.product.product_url %}/previoususername`, will return a 404 error. We recommend updating any links to your account on {% data variables.location.product_location %} from elsewhere{% ifversion fpt or ghec %}, such as your LinkedIn or Twitter profile{% endif %}.
+
+## Accounts logged in on GitHub Mobile
+
+Accounts logged in on the {% data variables.product.prodname_mobile %} app may continue to display your original username until you log out. To ensure your updated username is displayed, we recommend you sign out and back in to your account on each mobile device.
 
 ## Your Git commits
 
@@ -88,8 +92,8 @@ If your Git commits are associated with another email address you've added to yo
 
 **Warnings:**
 
-- After a username change, verified commits signed using the previous {% data variables.product.product_name %}-provided `noreply` email address will lose their "Verified" status.
-- When verifying a signature, {% data variables.product.product_name %} checks that the email address of the committer or tagger exactly matches one of the email addresses associated with the GPG key's identities. Additionally, {% data variables.product.product_name %} confirms that the email address is verified and linked to the user's account. This ensures that the key belongs to you and that you created the commit or tag. Because the username of the `noreply` email address changes, these commits can no longer be verified.
+* After a username change, verified commits signed using the previous {% data variables.product.product_name %}-provided `noreply` email address will lose their "Verified" status.
+* When verifying a signature, {% data variables.product.product_name %} checks that the email address of the committer or tagger exactly matches one of the email addresses associated with the GPG key's identities. Additionally, {% data variables.product.product_name %} confirms that the email address is verified and linked to the user's account. This ensures that the key belongs to you and that you created the commit or tag. Because the username of the `noreply` email address changes, these commits can no longer be verified.
 
 {% endwarning %}
 
@@ -99,7 +103,7 @@ After changing your username, the URLs to any public or secret gists will also c
 
 ## CODEOWNERS files
 
-After changing your username, CODEOWNERS files that include your old username will need to be manually updated. When you view the CODEOWNERS files on {% data variables.product.prodname_dotcom_the_website %}, an error message is displayed if the file contains any unknown users, or users without write access. We recommend updating all relevant CODEOWNERS files with your new username. For more information, see "[AUTOTITLE](/repositories/managing-your-repositorys-settings-and-features/customizing-your-repository/about-code-owners)."
+After changing your username, CODEOWNERS files that include your old username will need to be manually updated. When you view the CODEOWNERS files on {% data variables.product.prodname_dotcom %}, an error message is displayed if the file contains any unknown users, or users without write access. We recommend updating all relevant CODEOWNERS files with your new username. For more information, see "[AUTOTITLE](/repositories/managing-your-repositorys-settings-and-features/customizing-your-repository/about-code-owners)."
 
 ## Changing your username
 
@@ -113,5 +117,5 @@ After changing your username, CODEOWNERS files that include your old username wi
 
 ## Further reading
 
-- "[AUTOTITLE](/pull-requests/committing-changes-to-your-project/troubleshooting-commits/why-are-my-commits-linked-to-the-wrong-user)"{% ifversion fpt or ghec %}
-- "[AUTOTITLE](/free-pro-team@latest/site-policy/other-site-policies/github-username-policy)"{% endif %}
+* "[AUTOTITLE](/pull-requests/committing-changes-to-your-project/troubleshooting-commits/why-are-my-commits-linked-to-the-wrong-user)"{% ifversion fpt or ghec %}
+* "[AUTOTITLE](/free-pro-team@latest/site-policy/other-site-policies/github-username-policy)"{% endif %}

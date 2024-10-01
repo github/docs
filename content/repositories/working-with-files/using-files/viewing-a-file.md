@@ -23,14 +23,14 @@ With the raw view, you can view or copy the raw content of a file without any st
 {% data reusables.repositories.navigate-to-repo %}
 1. Click the file that you want to view.
 1. In the upper-right corner of the file view, click **Raw**.
-{% ifversion code-search-code-view %}
+{% ifversion code-view-ui %}
 
    ![Screenshot of a file. In the header, a button, labeled "Raw," outlined in dark orange.](/assets/images/help/repository/raw-file-button.png)
 {% else %}
 
    ![Screenshot of a file. In the header, a button, labeled "Raw," outlined in dark orange.](/assets/images/enterprise/repository/raw-file-button.png)
 {% endif %}
-1. Optionally, to copy the raw file content, in the upper-right corner of the file view, click **{% octicon "copy" aria-label="Copy raw content" %}**. {% ifversion code-search-code-view %} To download the raw file, click **{% octicon "download" aria-label="Download raw file" %}**.{% endif %}
+1. Optionally, to copy the raw file content, in the upper-right corner of the file view, click **{% octicon "copy" aria-label="Copy raw content" %}**. {% ifversion code-view-ui %} To download the raw file, click **{% octicon "download" aria-label="Download raw file" %}**.{% endif %}
 
 ## Viewing the line-by-line revision history for a file
 
@@ -44,14 +44,14 @@ Within the blame view, you can view the line-by-line revision history for an ent
 
 {% data reusables.repositories.navigate-to-repo %}
 1. Click to open the file whose line history you want to view.
-{% ifversion code-search-code-view %}
+{% ifversion code-view-ui %}
 1. Above the file content, click **Blame**. This view gives you a line-by-line revision history, with the code in a file separated by commit. Each commit lists the author, commit description, and commit date.
 1. To see versions of a file before a particular commit, click {% octicon "versions" aria-label="View blame prior to this change" %}. Alternatively, to see more detail about a particular commit, click the commit message.
 
       ![Screenshot of a commit in the blame view. The commit message and versions icon are outlined in dark orange.](/assets/images/help/repository/code-view-blame-commit-options.png)
 
 1. To return to the raw code view, above the file content, click **Code**.
-   - If you are viewing a Markdown file, above the file content, you can also click **Preview** to return to the view with Markdown formatting applied.
+   * If you are viewing a Markdown file, above the file content, you can also click **Preview** to return to the view with Markdown formatting applied.
 {% else %}
 1. In the upper-right corner of the file view, click **Blame** to open the blame view.
 

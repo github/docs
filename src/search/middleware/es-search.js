@@ -8,6 +8,8 @@ export const DEFAULT_HIGHLIGHT_FIELDS = ['title', 'content']
 
 const ELASTICSEARCH_URL = process.env.ELASTICSEARCH_URL
 
+const MAX_AGGREGATE_SIZE = 30
+
 const isDevMode = process.env.NODE_ENV !== 'production'
 
 function getClient() {
@@ -47,6 +49,8 @@ export async function getSearchResults({
   usePrefixSearch,
   highlights,
   include,
+  toplevel,
+  aggregate,
 }) {
   if (topics && !Array.isArray(topics)) {
     throw new Error("'topics' has to be an array")
@@ -57,6 +61,14 @@ export async function getSearchResults({
     }
     if (!include.every((value) => typeof value === 'string')) {
       throw new Error("Every entry in the 'include' must be a string")
+    }
+  }
+  if (toplevel) {
+    if (!Array.isArray(toplevel)) {
+      throw new Error("'toplevel' has to be an array")
+    }
+    if (!toplevel.every((value) => typeof value === 'string')) {
+      throw new Error("Every entry in the 'toplevel' must be a string")
     }
   }
   const t0 = new Date()
@@ -74,6 +86,8 @@ export async function getSearchResults({
   const matchQuery = {
     bool: {
       should: matchQueries,
+      // This allows filtering by toplevel later.
+      minimum_should_match: 1,
     },
   }
 
@@ -90,6 +104,14 @@ export async function getSearchResults({
     matchQuery.bool.filter = topicsFilter
   }
 
+  if (toplevel && toplevel.length) {
+    matchQuery.bool.filter = {
+      terms: {
+        toplevel,
+      },
+    }
+  }
+
   const highlightFields = Array.from(highlights || DEFAULT_HIGHLIGHT_FIELDS)
   // These acts as an alias convenience
   if (highlightFields.includes('content')) {
@@ -97,18 +119,21 @@ export async function getSearchResults({
   }
   const highlight = getHighlightConfiguration(query, highlightFields)
 
+  const aggs = getAggregations(aggregate)
+
   const searchQuery = {
     index: indexName,
     highlight,
     from,
     size,
+    aggs,
 
     // Since we know exactly which fields from the source we're going
     // need we can specify that here. It's an inclusion list.
     // We can save precious network by not having to transmit fields
     // stored in Elasticsearch to here if it's not going to be needed
     // anyway.
-    _source_includes: ['title', 'url', 'breadcrumbs', 'popularity'],
+    _source_includes: ['title', 'url', 'breadcrumbs', 'popularity', 'toplevel'],
   }
 
   if (includeTopics) {
@@ -168,6 +193,7 @@ export async function getSearchResults({
     highlightFields,
     include,
   })
+  const aggregations = getAggregationsResult(aggregate, result.aggregations)
   const t1 = new Date()
 
   const meta = {
@@ -180,7 +206,39 @@ export async function getSearchResults({
     size,
   }
 
-  return { meta, hits }
+  return { meta, hits, aggregations }
+}
+
+function getAggregations(aggregate) {
+  if (!aggregate || !aggregate.length) return undefined
+
+  const aggs = {}
+  for (const key of aggregate) {
+    aggs[key] = {
+      terms: {
+        field: key,
+        size: MAX_AGGREGATE_SIZE,
+      },
+    }
+  }
+  return aggs
+}
+
+function getAggregationsResult(aggregate, result) {
+  if (!aggregate || !aggregate.length) return
+  return Object.fromEntries(
+    aggregate.map((key) => [
+      key,
+      result[key].buckets
+        .map((bucket) => {
+          return {
+            key: bucket.key,
+            count: bucket.doc_count,
+          }
+        })
+        .sort((a, b) => a.key.localeCompare(b.key)),
+    ]),
+  )
 }
 
 export async function getAutocompleteSearchResults({ indexName, query, size }) {

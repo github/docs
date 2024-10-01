@@ -81,13 +81,13 @@ You can create a codespace from any template repository, then publish your work 
 
 When a codespace is published, you have access to a greater range of options to customize your {% data variables.product.prodname_github_codespaces %} experience. For example, you can:
 
-- Change the machine type of your codespace to make sure you're using resources appropriate for the work you're doing (see "[AUTOTITLE](/codespaces/customizing-your-codespace/changing-the-machine-type-for-your-codespace)").
-- Allow {% data variables.product.prodname_dotcom %} to automatically use GPG to sign commits you make in your codespace (see "[AUTOTITLE](/codespaces/managing-your-codespaces/managing-gpg-verification-for-github-codespaces)").
-- Share secrets with your codespace (see "[AUTOTITLE](/codespaces/managing-your-codespaces/managing-your-account-specific-secrets-for-github-codespaces)").
+* Change the machine type of your codespace to make sure you're using resources appropriate for the work you're doing (see "[AUTOTITLE](/codespaces/customizing-your-codespace/changing-the-machine-type-for-your-codespace)").
+* Allow {% data variables.product.prodname_dotcom %} to automatically use GPG to sign commits you make in your codespace (see "[AUTOTITLE](/codespaces/managing-your-codespaces/managing-gpg-verification-for-github-codespaces)").
+* Share secrets with your codespace (see "[AUTOTITLE](/codespaces/managing-your-codespaces/managing-your-account-specific-secrets-for-github-codespaces)").
 
-### Publishing from {% data variables.product.prodname_dotcom_the_website %}
+### Publishing from {% data variables.product.github %}
 
-You can publish an unpublished codespace from the "Your codespaces" page on {% data variables.product.prodname_dotcom_the_website %}. This is useful if you want to publish a codespace that you don't currently have open in your browser. If you do this, your work will be preserved in a repository, but there won't be a link between your existing codespace and the new repository. However, you can navigate to the new repository and create a codespace from there, and this codespace will be connected to the repository.
+You can publish an unpublished codespace from the "Your codespaces" page on {% data variables.product.github %}. This is useful if you want to publish a codespace that you don't currently have open in your browser. If you do this, your work will be preserved in a repository, but there won't be a link between your existing codespace and the new repository. However, you can navigate to the new repository and create a codespace from there, and this codespace will be connected to the repository.
 
 {% data reusables.codespaces.your-codespaces-procedure-step %}
 1. Next to the unpublished codespace, click the ellipsis (**...**), then select **Publish to a new repository**.
@@ -102,6 +102,6 @@ You can publish an unpublished codespace from the "Your codespaces" page on {% d
 
 ## Further reading
 
-- "[AUTOTITLE](/codespaces/developing-in-a-codespace/creating-a-codespace-for-a-repository)"
-- "[AUTOTITLE](/codespaces/getting-started/understanding-the-codespace-lifecycle)"
-- "[AUTOTITLE](/codespaces/developing-in-a-codespace/using-source-control-in-your-codespace)"
+* "[AUTOTITLE](/codespaces/developing-in-a-codespace/creating-a-codespace-for-a-repository)"
+* "[AUTOTITLE](/codespaces/getting-started/understanding-the-codespace-lifecycle)"
+* "[AUTOTITLE](/codespaces/developing-in-a-codespace/using-source-control-in-your-codespace)"

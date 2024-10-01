@@ -14,13 +14,13 @@ type: how_to
 
 You can work with {% data variables.product.prodname_classroom %} in the  {% data variables.product.prodname_cli %} to:
 
-- [List classrooms](#list-classrooms)
-- [View classroom information](#view-classroom-information)
-- [List assignments](#list-assignments)
-- [List accepted assignments](#list-accepted-assignments)
-- [View assignment information](#view-assignment-information)
-- [Clone an assignment's starter code repository](#clone-an-assignments-starter-code-repository)
-- [Clone a student’s assignment repository](#clone-a-students-assignment-repository)
+* [List classrooms](#list-classrooms)
+* [View classroom information](#view-classroom-information)
+* [List assignments](#list-assignments)
+* [List accepted assignments](#list-accepted-assignments)
+* [View assignment information](#view-assignment-information)
+* [Clone an assignment's starter code repository](#clone-an-assignments-starter-code-repository)
+* [Clone a student’s assignment repository](#clone-a-students-assignment-repository)
 
 ## Setting up {% data variables.product.prodname_cli %} <!-- omit in toc -->
 
@@ -35,11 +35,11 @@ To install the {% data variables.product.prodname_classroom %} extension, run `g
 To use `gh` to work with {% data variables.product.prodname_classroom %}, type `gh classroom SUBCOMMAND`.
 
 As an example of a series of commands you might use to work with {% data variables.product.prodname_classroom %}, you could:
-- List your classrooms:<br>
+* List your classrooms:<br>
   `gh classroom list`
-- List the assignments for a specific classroom:<br>
+* List the assignments for a specific classroom:<br>
   `gh classroom assignments`
-- View information for a specific assignment:<br>
+* View information for a specific assignment:<br>
   `gh classroom assignment`
 
 ## `gh` subcommands for {% data variables.product.prodname_classroom %} <!-- omit in toc -->

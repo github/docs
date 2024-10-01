@@ -49,15 +49,11 @@ You can add self-hosted runners to a single repository. To add a self-hosted run
 
 For information about how to add a self-hosted runner with the REST API, see "[AUTOTITLE](/rest/actions/self-hosted-runners)."
 
-{% ifversion actions-disable-repo-runners %}
-
 {% note %}
 
 **Note**: {% data reusables.actions.disable-selfhosted-runners-crossrefs %}
 
 {% endnote %}
-
-{% endif %}
 
 {% data reusables.repositories.navigate-to-repo %}
 {% data reusables.repositories.sidebar-settings %}
@@ -119,6 +115,6 @@ For more information on changing runner group access settings, see "[AUTOTITLE](
 
 ## Further reading
 
-- "[AUTOTITLE](/admin/github-actions/getting-started-with-github-actions-for-your-enterprise/getting-started-with-self-hosted-runners-for-your-enterprise)"
+* "[AUTOTITLE](/admin/github-actions/getting-started-with-github-actions-for-your-enterprise/getting-started-with-self-hosted-runners-for-your-enterprise)"
 
 {% endif %}

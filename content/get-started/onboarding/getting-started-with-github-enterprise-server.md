@@ -9,8 +9,8 @@ This guide will walk you through setting up, configuring and managing {% data va
 
 {% data variables.product.company_short %} provides two ways to deploy {% data variables.product.prodname_enterprise %}.
 
-- **{% data variables.product.prodname_ghe_cloud %}**
-- **{% data variables.product.prodname_ghe_server %}**
+* **{% data variables.product.prodname_ghe_cloud %}**
+* **{% data variables.product.prodname_ghe_server %}**
 
 {% data variables.product.company_short %} hosts {% data variables.product.prodname_ghe_cloud %}. You can deploy and host {% data variables.product.prodname_ghe_server %} in your own datacenter or a supported cloud provider.
 
@@ -22,7 +22,7 @@ To get started with {% data variables.product.product_name %}, you will need to 
 
 ### 1. Creating your enterprise account
 
-Before you install {% data variables.product.product_name %}, you can create an enterprise account on {% data variables.product.prodname_dotcom_the_website %} by contacting [{% data variables.product.prodname_dotcom %}'s Sales team](https://enterprise.github.com/contact). An enterprise account on {% data variables.product.prodname_dotcom_the_website %} is useful for billing and for shared features with {% data variables.product.prodname_dotcom_the_website %} via {% data variables.product.prodname_github_connect %}.  For more information, see "[AUTOTITLE](/admin/overview/about-enterprise-accounts)."
+Before you install {% data variables.product.product_name %}, you can create an enterprise account on {% data variables.product.prodname_dotcom_the_website %} by contacting [{% data variables.product.prodname_dotcom %}'s Sales team](https://enterprise.github.com/contact). An enterprise account on {% data variables.product.prodname_dotcom_the_website %} is useful for billing and for shared features with {% data variables.product.prodname_dotcom_the_website %} via {% data variables.product.prodname_github_connect %}.  For more information, see "[AUTOTITLE](/admin/managing-your-enterprise-account/about-enterprise-accounts)."
 
 ### 2. Installing {% data variables.product.product_name %}
 
@@ -40,7 +40,7 @@ You can use the default network settings used by {% data variables.product.produ
 
 ### 5. Configuring high availability
 
-You can configure {% data variables.location.product_location %} for high availability to minimize the impact of hardware failures and network outages. For more information, see "[AUTOTITLE](/admin/monitoring-managing-and-updating-your-instance/configuring-high-availability)."
+You can configure {% data variables.location.product_location %} for high availability to minimize the impact of hardware failures and network outages. For more information, see "[AUTOTITLE](/admin/monitoring-and-managing-your-instance/configuring-high-availability)."
 
 ### 6. Setting up a staging instance
 

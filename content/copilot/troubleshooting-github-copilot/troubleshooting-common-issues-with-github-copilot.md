@@ -31,18 +31,14 @@ When a file is affected by a content exclusion setting, {% data variables.produc
 
 ## {% data variables.product.prodname_copilot %} content exclusions are not being applied
 
+{% data reusables.copilot.content-exclusion-note %}
+
 {% data reusables.copilot.content-exclusions-scope %}
 
-{% data reusables.copilot.content-exclusions-delay %} For more information, see "[AUTOTITLE](/copilot/managing-github-copilot-in-your-organization/configuring-content-exclusions-for-github-copilot#propagating-content-exclusion-changes-to-your-ide)."
+{% data reusables.copilot.content-exclusions-delay %} For more information, see "[AUTOTITLE](/copilot/managing-copilot/managing-github-copilot-in-your-organization/managing-github-copilot-features-in-your-organization/testing-changes-to-content-exclusions-in-your-ide#propagating-content-exclusion-changes-to-your-ide)."
 
-{% note %}
-
-**Notes:**
-
-{% data reusables.copilot.content-exclusion-note %}
-{% data reusables.copilot.content-exclusion-limitations %}
-
-{% endnote %}
+> [!NOTE]
+> {% data reusables.copilot.content-exclusion-limitations %}
 
 ## Error: "{% data variables.product.prodname_copilot %} could not connect to server. Extension activation failed"
 
@@ -58,4 +54,4 @@ This is a known issue and our team is working towards a fix. For more informatio
 
 ## Further reading
 
-- "[AUTOTITLE](/free-pro-team@latest/site-policy/other-site-policies/github-and-trade-controls)"
+* "[AUTOTITLE](/free-pro-team@latest/site-policy/other-site-policies/github-and-trade-controls)"

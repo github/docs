@@ -18,11 +18,11 @@ versions:
 
 Gists provide a simple way to share code snippets with others. Every gist is a Git repository, which means that it can be forked and cloned. If you are signed in to {% data variables.product.product_name %} when you create a gist, the gist will be associated with your account and you will see it in your list of gists when you navigate to your {% data variables.gists.gist_homepage %}.
 
-Gists can be public or secret. public gists show up in {% data variables.gists.discover_url %}, where people can browse new gists as they're created. They're also searchable, so you can use them if you'd like other people to find and see your work.
+Gists can be public or secret. Public gists show up in {% data variables.gists.discover_url %}, where people can browse new gists as they're created. They're also searchable, so you can use them if you'd like other people to find and see your work.
 
 Secret gists don't show up in {% data variables.gists.discover_url %} and are not searchable unless you are logged in and are the author of the secret gist. Secret gists aren't private. If you send the URL of a secret gist to a friend, they'll be able to see it. However, if someone you don't know discovers the URL, they'll also be able to see your gist. If you need to keep your code away from prying eyes, you may want to [create a private repository](/repositories/creating-and-managing-repositories/creating-a-new-repository) instead.
 
-{% data reusables.gist.cannot-convert-public-gists-to-secret %}. However, a secret gist can be made public by editing the gist and updating the visibility to public.
+{% data reusables.gist.cannot-convert-public-gists-to-secret %} However, a secret gist can be made public by editing the gist and updating the visibility to public.
 
 {% ifversion ghes %}
 
@@ -33,9 +33,9 @@ If your site administrator has disabled private mode, you can also use anonymous
 {% endif %}
 
 You'll receive a notification when:
-- You are the author of a gist.
-- Someone mentions you in a gist.
-- You subscribe to a gist, by clicking **Subscribe** at the top of any gist.
+* You are the author of a gist.
+* Someone mentions you in a gist.
+* You subscribe to a gist, by clicking **Subscribe** at the top of any gist.
 
 You can pin gists to your profile so other people can see them easily. For more information, see "[AUTOTITLE](/account-and-profile/setting-up-and-managing-your-github-profile/customizing-your-profile/pinning-items-to-your-profile)."
 

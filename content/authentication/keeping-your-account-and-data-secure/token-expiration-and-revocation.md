@@ -46,13 +46,13 @@ If a valid OAuth token, {% data variables.product.prodname_github_app %} token, 
 
 You can revoke your authorization of a {% data variables.product.prodname_github_app %} or {% data variables.product.prodname_oauth_app %} from your account settings which will revoke any tokens associated with the app. For more information, see "[AUTOTITLE](/apps/using-github-apps/reviewing-your-authorized-integrations)" and "[AUTOTITLE](/apps/oauth-apps/using-oauth-apps/reviewing-your-authorized-applications-oauth)."
 
-Once an authorization is revoked, any tokens associated with the authorization will be revoked as well. To reauthorize an application, follow the instructions from the third-party application or website to connect your account on {% data variables.location.product_location %} again.
+Once an authorization is revoked, any tokens associated with the authorization will be revoked as well. To reauthorize an application, follow the instructions from the third-party application or website to connect your account on {% data variables.product.prodname_dotcom %} again.
 
 ## Token revoked by the {% data variables.product.prodname_oauth_app %}
 
 The owner of an {% data variables.product.prodname_oauth_app %} can revoke an account's authorization of their app, this will also revoke any tokens associated with the authorization. For more information about revoking authorizations of your {% data variables.product.prodname_oauth_app %}, see "[AUTOTITLE](/rest/apps/oauth-applications#delete-an-app-authorization)."
 
-{% data variables.product.prodname_oauth_app %} owners can also revoke individual tokens associated with an authorization. For more information about revoking individual tokens for your {% data variables.product.prodname_oauth_app %}, see "[AUTOTITLE](/rest/apps/oauth-applications#delete-an-app-token)".
+{% data variables.product.prodname_oauth_app %} owners can also revoke individual tokens associated with an authorization. For more information about revoking individual tokens for your {% data variables.product.prodname_oauth_app %}, see "[AUTOTITLE](/rest/apps/oauth-applications#delete-an-app-token)."
 
 ## Token revoked due to excess of tokens for an {% data variables.product.prodname_oauth_app %} with the same scope
 

@@ -1,9 +1,6 @@
 import { describe, expect, test } from 'vitest'
 
-import {
-  filterByAllowlistValues,
-  filterAndUpdateGhesDataByAllowlistValues,
-} from '../../lib/index.js'
+import { filterByAllowlistValues, filterAndUpdateGhesDataByAllowlistValues } from '../../lib'
 
 describe('audit log event fitering', () => {
   test('matches single allowlist value', () => {
@@ -101,35 +98,5 @@ describe('audit log event fitering', () => {
     expect(getActions('ghes-3.10').includes('repo.create')).toBe(true)
     expect(getActions('ghes-3.11').includes('repo.create')).toBe(true)
     expect(auditLogPage in currentEvents['ghes-3.12']).toBeFalsy()
-  })
-
-  test('gets the correct event fields data', () => {
-    const eventsToProcess = [
-      {
-        action: 'repo.create',
-        _allowlists: ['user'],
-        description: 'repo was created',
-        fields: ['beep'],
-        ghes: {
-          '3.10': {
-            _allowlists: ['user'],
-            fields: ['boop'],
-          },
-        },
-      },
-    ]
-    const filteredEvents = filterByAllowlistValues(eventsToProcess, 'user')
-    expect(filteredEvents[0].fields).toContain('beep')
-
-    const currentEvents = {}
-    const auditLogPage = 'user'
-    filterAndUpdateGhesDataByAllowlistValues(
-      eventsToProcess,
-      'user',
-      currentEvents,
-      {},
-      auditLogPage,
-    )
-    expect(currentEvents['ghes-3.10'].user[0].fields).toContain('boop')
   })
 })

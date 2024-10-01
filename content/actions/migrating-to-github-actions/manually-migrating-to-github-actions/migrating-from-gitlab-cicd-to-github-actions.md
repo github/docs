@@ -24,10 +24,10 @@ shortTitle: Migrate from GitLab CI/CD
 
 GitLab CI/CD and {% data variables.product.prodname_actions %} both allow you to create workflows that automatically build, test, publish, release, and deploy code. GitLab CI/CD and {% data variables.product.prodname_actions %} share some similarities in workflow configuration:
 
-- Workflow configuration files are written in YAML and are stored in the code's repository.
-- Workflows include one or more jobs.
-- Jobs include one or more steps or individual commands.
-- Jobs can run on either managed or self-hosted machines.
+* Workflow configuration files are written in YAML and are stored in the code's repository.
+* Workflows include one or more jobs.
+* Jobs include one or more steps or individual commands.
+* Jobs can run on either managed or self-hosted machines.
 
 There are a few differences, and this guide will show you the important differences so that you can migrate your workflow to {% data variables.product.prodname_actions %}.
 
@@ -35,9 +35,9 @@ There are a few differences, and this guide will show you the important differen
 
 Jobs in GitLab CI/CD are very similar to jobs in {% data variables.product.prodname_actions %}. In both systems, jobs have the following characteristics:
 
-- Jobs contain a series of steps or scripts that run sequentially.
-- Jobs can run on separate machines or in separate containers.
-- Jobs run in parallel by default, but can be configured to run sequentially.
+* Jobs contain a series of steps or scripts that run sequentially.
+* Jobs can run on separate machines or in separate containers.
+* Jobs run in parallel by default, but can be configured to run sequentially.
 
 You can run a script or a shell command in a job. In GitLab CI/CD, script steps are specified using the `script` key. In {% data variables.product.prodname_actions %}, all scripts are specified using the `run` key.
 
@@ -125,7 +125,7 @@ Below is an example of the syntax for each system.
 
 ```yaml
 my_job:
-  image: node:10.16-jessie
+  image: node:20-bookworm-slim
 ```
 
 {% endraw %}
@@ -137,7 +137,7 @@ my_job:
 ```yaml
 jobs:
   my_job:
-    container: node:10.16-jessie
+    container: node:20-bookworm-slim
 ```
 
 {% endraw %}
@@ -270,8 +270,6 @@ For more information, see "[AUTOTITLE](/actions/learn-github-actions/variables)"
 
 GitLab CI/CD and {% data variables.product.prodname_actions %} provide a method in the configuration file to manually cache workflow files.
 
-{% ifversion actions-caching %}
-
 Below is an example of the syntax for each system.
 
 ### GitLab CI/CD syntax for caching
@@ -310,12 +308,6 @@ jobs:
         key: {% raw %}v1-npm-deps-${{ hashFiles('**/package-lock.json') }}{% endraw %}
         restore-keys: v1-npm-deps-
 ```
-
-{% else %}
-
-{% data reusables.actions.caching-availability %}
-
-{% endif %}
 
 ## Artifacts
 
@@ -369,7 +361,7 @@ container-job:
     POSTGRES_HOST: postgres
     # The default PostgreSQL port
     POSTGRES_PORT: 5432
-  image: node:10.18-jessie
+  image: node:20-bookworm-slim
   services:
     - postgres
   script:
@@ -391,7 +383,7 @@ container-job:
 jobs:
   container-job:
     runs-on: ubuntu-latest
-    container: node:10.18-jessie
+    container: node:20-bookworm-slim
 
     services:
       postgres:

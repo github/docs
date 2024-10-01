@@ -14,6 +14,7 @@ redirect_from:
   - /enterprise/admin/user-management/configuring-git-large-file-storage-for-your-enterprise
   - /admin/user-management/configuring-git-large-file-storage-for-your-enterprise
   - /admin/user-management/managing-repositories-in-your-enterprise/configuring-git-large-file-storage-for-your-enterprise
+  - /admin/managing-accounts-and-repositories/managing-repositories-in-your-enterprise/migrating-to-internal-repositories
 versions:
   ghes: '*'
 type: how_to
@@ -149,4 +150,4 @@ Before migrating to a different {% data variables.large_files.product_name_long 
 
 ## Further reading
 
-- [{% data variables.large_files.product_name_long %} project site](https://git-lfs.com/)
+* [{% data variables.large_files.product_name_long %} project site](https://git-lfs.com/)

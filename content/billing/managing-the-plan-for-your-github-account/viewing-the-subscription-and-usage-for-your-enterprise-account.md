@@ -16,6 +16,12 @@ topics:
 shortTitle: View subscription & usage
 ---
 
+{% ifversion enhanced-billing-platform %}
+
+{% data reusables.billing.enhanced-billing-platform-licenses %}
+
+{% endif %}
+
 ## About billing for enterprise accounts
 
 You can view an overview of {% ifversion ghec %}your subscription and paid{% elsif ghes %}the license{% endif %} usage for {% ifversion ghec %}your{% elsif ghes %}the{% endif %} enterprise account on {% ifversion ghec %}{% data variables.product.prodname_dotcom_the_website %}{% elsif ghes %}{% data variables.location.product_location %}{% endif %}.{% ifversion ghec %} {% data reusables.enterprise.create-an-enterprise-account %} For more information, see "[AUTOTITLE](/enterprise-cloud@latest/admin/managing-your-enterprise-account/creating-an-enterprise-account)."{% endif %}
@@ -33,6 +39,12 @@ In addition to enterprise owners, billing managers can view the subscription and
 {% ifversion ghes %}
 
 If you want to view an overview of your subscription and usage for {% data variables.product.prodname_enterprise %} and any related services on {% data variables.product.prodname_dotcom_the_website %}, see "[AUTOTITLE](/enterprise-cloud@latest/billing/managing-the-plan-for-your-github-account/viewing-the-subscription-and-usage-for-your-enterprise-account)" in the {% data variables.product.prodname_ghe_cloud %} documentation.
+
+{% endif %}
+
+{% ifversion metered-ghe-ghas %}
+
+{% data reusables.billing.usage-based-billing %}
 
 {% endif %}
 

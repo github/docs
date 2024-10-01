@@ -106,6 +106,12 @@ jobs:
           GITHUB_TOKEN: ${{ secrets.DOCS_BOT_PAT_READPUBLICKEY }}
           DRY_RUN: ${{ github.event_name == 'pull_request'}}
         run: |
+
+          # When we started, we downloaded the CodeQL CLI here in this workflow.
+          # We have no intention of checking that in but we also don't want
+          # `git status ...` to show it as an untracked file.
+          rm -fr ./codeql
+
           # If nothing to commit, exit now. It's fine. No orphans.
           changes=$(git diff --name-only | wc -l)
           untracked=$(git status --untracked-files --short | wc -l)

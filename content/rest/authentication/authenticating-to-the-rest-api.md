@@ -24,7 +24,7 @@ After creating a token, you can authenticate your request by sending the token i
 
 ```shell
 curl --request GET \
---url "{% data variables.product.api_url_code %}/octocat" \
+--url "{% data variables.product.rest_url %}/octocat" \
 --header "Authorization: Bearer YOUR-TOKEN" \
 --header "X-GitHub-Api-Version: {{ allVersions[currentVersion].latestApiVersion }}"
 ```
@@ -43,15 +43,15 @@ After detecting several requests with invalid credentials within a short period,
 
 ## Authenticating with a {% data variables.product.pat_generic %}
 
-If you want to use the {% data variables.product.company_short %} REST API for personal use, you can create a {% data variables.product.pat_generic %}.{% ifversion pat-v2 %} If possible, {% data variables.product.company_short %} recommends that you use a {% data variables.product.pat_v2 %} instead of a {% data variables.product.pat_v1 %}.{% endif %} For more information about creating a {% data variables.product.pat_generic %}, see "[AUTOTITLE](/authentication/keeping-your-account-and-data-secure/creating-a-personal-access-token)."
+If you want to use the {% data variables.product.company_short %} REST API for personal use, you can create a {% data variables.product.pat_generic %}. If possible, {% data variables.product.company_short %} recommends that you use a {% data variables.product.pat_v2 %} instead of a {% data variables.product.pat_v1 %}. For more information about creating a {% data variables.product.pat_generic %}, see "[AUTOTITLE](/authentication/keeping-your-account-and-data-secure/creating-a-personal-access-token)."
 
-{% ifversion pat-v2 %}If you are using a {% data variables.product.pat_v2 %}, your {% data variables.product.pat_v2 %} requires specific permissions in order to access each REST API endpoint. The REST API reference document for each endpoint states whether the endpoint works with {% data variables.product.pat_v2 %}s and states what permissions are required in order for the token to use the endpoint. Some endpoints may require multiple permissions, and some endpoints may require one of multiple permissions. For an overview of which REST API endpoints a {% data variables.product.pat_v2 %} can access with each permission, see "[AUTOTITLE](/rest/overview/permissions-required-for-fine-grained-personal-access-tokens)."{% endif %}
+If you are using a {% data variables.product.pat_v2 %}, your {% data variables.product.pat_v2 %} requires specific permissions in order to access each REST API endpoint. The REST API reference document for each endpoint states whether the endpoint works with {% data variables.product.pat_v2 %}s and states what permissions are required in order for the token to use the endpoint. Some endpoints may require multiple permissions, and some endpoints may require one of multiple permissions. For an overview of which REST API endpoints a {% data variables.product.pat_v2 %} can access with each permission, see "[AUTOTITLE](/rest/overview/permissions-required-for-fine-grained-personal-access-tokens)."
 
-{% ifversion pat-v2 %}If you are using a {% data variables.product.pat_v1 %}, your {% else %}Your {% endif %}{% data variables.product.pat_v1 %} requires specific scopes in order to access each REST API endpoint. For general guidance about what scopes to choose, see "[AUTOTITLE](/apps/oauth-apps/building-oauth-apps/scopes-for-oauth-apps#available-scopes)."
+If you are using a {% data variables.product.pat_v1 %}, it requires specific scopes in order to access each REST API endpoint. For general guidance about what scopes to choose, see "[AUTOTITLE](/apps/oauth-apps/building-oauth-apps/scopes-for-oauth-apps#available-scopes)."
 
 ### {% data variables.product.pat_generic_caps_plural %} and SAML SSO
 
-{% ifversion fpt or ghec %}If you use a {% data variables.product.pat_v1 %} to access an organization that enforces SAML single sign-on (SSO) for authentication, you will need to authorize your token after creation.{% ifversion pat-v2 %} {% data variables.product.pat_v2_caps %}s are authorized during token creation, before access to the organization is granted.{% endif %} For more information, see "[AUTOTITLE](/authentication/authenticating-with-saml-single-sign-on/authorizing-a-personal-access-token-for-use-with-saml-single-sign-on)."
+{% ifversion fpt or ghec %}If you use a {% data variables.product.pat_v1 %} to access an organization that enforces SAML single sign-on (SSO) for authentication, you will need to authorize your token after creation. {% data variables.product.pat_v2_caps %}s are authorized during token creation, before access to the organization is granted. For more information, see "[AUTOTITLE](/authentication/authenticating-with-saml-single-sign-on/authorizing-a-personal-access-token-for-use-with-saml-single-sign-on)."
 
 If you do not authorize your {% data variables.product.pat_v1 %} for SAML SSO before you try to use it to access a single organization that enforces SAML SSO, you may receive a `404 Not Found` or a `403 Forbidden` error. If you receive a `403 Forbidden` error, the `X-GitHub-SSO` header will include a URL that you can follow to authorize your token. The URL expires after one hour.
 
@@ -77,7 +77,7 @@ For example:
 
 ```shell
 curl --request POST \
---url "{% data variables.product.api_url_code %}/applications/YOUR_CLIENT_ID/token" \
+--url "{% data variables.product.rest_url %}/applications/YOUR_CLIENT_ID/token" \
 --user "YOUR_CLIENT_ID:YOUR_CLIENT_SECRET" \
 --header "Accept: application/vnd.github+json" \
 --header "X-GitHub-Api-Version: {{ allVersions[currentVersion].latestApiVersion }}" \
@@ -92,8 +92,8 @@ If you are the owner of a {% data variables.product.prodname_github_app %} or {%
 
 1. In the upper-right corner of any page on {% data variables.product.prodname_dotcom %}, click your profile photo.
 1. Navigate to your account settings.
-   - For an app owned by a personal account, click **Settings**.
-   - For an app owned by an organization:
+   * For an app owned by a personal account, click **Settings**.
+   * For an app owned by an organization:
      1. Click **Your organizations**.
      1. To the right of the organization, click **Settings**.
 {% data reusables.user-settings.developer_settings %}
@@ -142,7 +142,7 @@ jobs:
           GH_TOKEN: {% raw %}${{ secrets.GITHUB_TOKEN }}{% endraw %}
         run: |
           curl --request GET \
-          --url "{% data variables.product.api_url_code %}/PATH" \
+          --url "{% data variables.product.rest_url %}/PATH" \
           --header "Authorization: Bearer $GH_TOKEN"
 ```
 
@@ -158,7 +158,7 @@ For an example of how to authenticate in a {% data variables.product.prodname_ac
 
 ```shell
 curl --request GET \
---url "{% data variables.product.api_url_code %}/user" \
+--url "{% data variables.product.rest_url %}/user" \
 --user USERNAME:PASSWORD \
 --header "X-GitHub-Api-Version: {{ allVersions[currentVersion].latestApiVersion }}"
 ```
@@ -171,5 +171,5 @@ Authentication with username and password is not supported. If you try to authen
 
 ## Further reading
 
-- "[AUTOTITLE](/rest/overview/keeping-your-api-credentials-secure)"
-- "[AUTOTITLE](/rest/guides/getting-started-with-the-rest-api#authenticating)"
+* "[AUTOTITLE](/rest/overview/keeping-your-api-credentials-secure)"
+* "[AUTOTITLE](/rest/guides/getting-started-with-the-rest-api#authenticating)"

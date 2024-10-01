@@ -48,7 +48,7 @@
 | GHD013 | github-owned-action-references | GitHub-owned action references should not be hardcoded | error | feature, actions |
 | GHD016 | liquid-quoted-conditional-arg | Liquid conditional tags should not quote the conditional argument | error | liquid, format |
 | GHD014 | liquid-data-references-defined | Liquid data or indented data references were found in content that have no value or do not exist in the data directory | error | liquid |
-| GHD015 | liquid-data-tag-format | Liquid data or indented data references tags must have the correct number of arguments and spacing | error | liquid, format |
+| GHD015 | liquid-data-tag-format | Liquid data or indented data references tags must be correctly formatted and have the correct number of arguments and spacing | error | liquid, format |
 | GHD010 | frontmatter-hidden-docs | Articles with frontmatter property `hidden` can only be located in specific products | error | frontmatter, feature, early-access |
 | GHD009 | frontmatter-early-access-references | Files that are not early access should not have frontmatter that references early-access | error | frontmatter, feature, early-access |
 | GHD011 | frontmatter-video-transcripts | Video transcript must be configured correctly | error | frontmatter, feature, video-transcripts |
@@ -63,3 +63,5 @@
 | GHD036 | image-no-gif | Image must not be a gif, styleguide reference: contributing/style-guide-and-content-model/style-guide.md#images | error | images |
 | GHD038 | expired-content | Expired content must be remediated. | error | expired |
 | GHD039 | expiring-soon | Content that expires soon should be proactively addressed. | warning | expired |
+| [GHD040](https://github.com/github/docs/blob/main/src/content-linter/README.md) | table-liquid-versioning | Tables must use the correct liquid versioning format | error | tables |
+| GHD041 | third-party-action-pinning | Code examples that use third-party actions must always pin to a full length commit SHA | error | feature, actions |

@@ -45,7 +45,7 @@ shortTitle: Check out a PR locally
 
 {% data reusables.cli.cli-learn-more %}
 
-To check out a pull request locally, use the `gh pr checkout` subcommand. Replace `pull-request` with the number, URL, or head branch of the pull request.
+To check out a pull request locally, use the `gh pr checkout` subcommand. Replace `PULL-REQUEST` with the number, URL, or head branch of the pull request.
 
 ```shell
 gh pr checkout PULL-REQUEST
@@ -91,7 +91,7 @@ Anyone can work with a previously opened pull request to continue working on it,
    > Compressing objects: 100% (26/26), done.
    > Writing objects: 100% (29/29), 74.94 KiB | 0 bytes/s, done.
    > Total 29 (delta 8), reused 0 (delta 0)
-   > To https://{% data variables.command_line.codeblock %}/USERNAME/REPOSITORY.git
+   > To https://{% data variables.product.product_url %}/USERNAME/REPOSITORY.git
    >  * [new branch]      BRANCH_NAME -> BRANCH_NAME
    ```
 

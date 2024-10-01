@@ -8,19 +8,22 @@ import {
 } from 'src/frame/components/context/MainContext'
 import { DefaultLayout } from 'src/frame/components/DefaultLayout'
 import type { SearchT } from 'src/search/components/types'
+import { SearchContext, SearchContextT } from 'src/search/components/context/SearchContext'
 import { Search } from 'src/search/components/index'
 
 type Props = {
   mainContext: MainContextT
-  search: SearchT
+  searchContext: SearchContextT
 }
 
-export default function Page({ mainContext, search }: Props) {
+export default function Page({ mainContext, searchContext }: Props) {
   return (
     <MainContext.Provider value={mainContext}>
-      <DefaultLayout>
-        <Search search={search} />
-      </DefaultLayout>
+      <SearchContext.Provider value={searchContext}>
+        <DefaultLayout>
+          <Search />
+        </DefaultLayout>
+      </SearchContext.Provider>
     </MainContext.Provider>
   )
 }
@@ -59,13 +62,17 @@ export const getServerSideProps: GetServerSideProps<Props> = async (context) => 
     search.results = {
       meta: req.context.search.results.meta,
       hits: req.context.search.results.hits,
+      // Use `null` instead of `undefined` for JSON serialization.
+      // The only reason it would ever not be truthy is if the aggregates
+      // functionality is not enabled for this version.
+      aggregations: req.context.search.results.aggregations || null,
     }
   }
 
   return {
     props: {
       mainContext,
-      search,
+      searchContext: { search },
     },
   }
 }

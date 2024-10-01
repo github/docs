@@ -11,11 +11,11 @@ shortTitle: Migrating global node IDs
 
 ## Background
 
-The {% data variables.product.product_name %} GraphQL API currently supports two types of global node ID formats. The legacy format will be deprecated and replaced with a new format.  This guide shows you how to migrate to the new format, if necessary.
+The {% data variables.product.product_name %} GraphQL API currently supports two types of global node ID formats. The legacy format will be {% data variables.release-phases.closing_down %} and replaced with a new format.  This guide shows you how to migrate to the new format, if necessary.
 
-By migrating to the new format, you ensure that the response times of your requests remain consistent and small. You also ensure that your application continues to work once the legacy IDs are fully deprecated.
+By migrating to the new format, you ensure that the response times of your requests remain consistent and small. You also ensure that your application continues to work once the legacy IDs are {% data variables.release-phases.closing_down %}.
 
-To learn more about why the legacy global node ID format will be deprecated, see "[New global ID format coming to GraphQL](https://github.blog/2021-02-10-new-global-id-format-coming-to-graphql)."
+To learn more about why the legacy global node ID format will be {% data variables.release-phases.closing_down %}, see "[New global ID format coming to GraphQL](https://github.blog/2021-02-10-new-global-id-format-coming-to-graphql)."
 
 ## Determining if you need to take action
 

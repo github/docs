@@ -2,7 +2,6 @@
 import fs from 'fs'
 import path from 'path'
 import { execSync } from 'child_process'
-
 import { program, Option } from 'commander'
 import markdownlint from 'markdownlint'
 import { applyFixes } from 'markdownlint-rule-helpers'
@@ -68,6 +67,8 @@ const ALL_CONTENT_DIR = ['content', 'data']
 main()
 
 async function main() {
+  if (!isOptionsValid()) return
+
   // If paths has not been specified, lint all files
   const files = getFilesToLint((summaryByRule && ALL_CONTENT_DIR) || paths || getChangedFiles())
 
@@ -469,8 +470,13 @@ function formatResult(object, isPrecommit) {
 
   // Add severity to each result object
   const ruleName = object.ruleNames[1] || object.ruleNames[0]
+  if (!allConfig[ruleName]) {
+    throw new Error(`Rule not found in allConfig: '${ruleName}'`)
+  }
   formattedResult.severity =
     allConfig[ruleName].severity || getSearchReplaceRuleSeverity(ruleName, object, isPrecommit)
+
+  formattedResult.context = allConfig[ruleName].context || ''
 
   return Object.entries(object).reduce((acc, [key, value]) => {
     if (key === 'fixInfo') {
@@ -646,4 +652,42 @@ function getSearchReplaceRuleSeverity(ruleName, object, isPrecommit) {
   const pluginRuleName = object.errorDetail.split(':')[0].trim()
   const rule = allConfig[ruleName].rules.find((rule) => rule.name === pluginRuleName)
   return isPrecommit ? rule.precommitSeverity || rule.severity : rule.severity
+}
+
+function isOptionsValid() {
+  // paths should only contain existing files and directories
+  const paths = program.opts().paths || []
+  for (const path of paths) {
+    try {
+      fs.statSync(path)
+    } catch (err) {
+      if ('paths'.includes(path)) {
+        console.log('error: did you mean --paths')
+      } else {
+        console.log(
+          `error: invalid --paths (-p) option. The value '${path}' is not a valid file or directory`,
+        )
+      }
+      return false
+    }
+  }
+
+  // rules should only contain existing, correctly spelled rules
+  const allRulesList = Object.values(allRules)
+    .map((rule) => rule.names)
+    .flat()
+  const rules = program.opts().rules || []
+  for (const rule of rules) {
+    if (!allRulesList.includes(rule)) {
+      if ('rules'.includes(rule)) {
+        console.log('error: did you mean --rules')
+      } else {
+        console.log(
+          `error: invalid --rules (-r) option. The value '${rule}' is not a valid rule name.`,
+        )
+      }
+      return false
+    }
+  }
+  return true
 }

@@ -14,9 +14,19 @@ redirect_from:
   - /copilot/troubleshooting-github-copilot/troubleshooting-authentication-issues-with-github-copilot-chat
 ---
 
-If you need help with {% data variables.product.prodname_copilot_chat %} and can't find the answer here, you can report a bug or ask for help. For more information, see "[Sharing feedback about {% data variables.product.prodname_copilot_chat %}](/copilot/github-copilot-chat/using-github-copilot-chat-in-your-ide#sharing-feedback-about-github-copilot-chat)."
+If you need help with {% data variables.product.prodname_copilot_chat %} and can't find the answer here, you can report a bug or ask for help. For more information, see "[Sharing feedback about {% data variables.product.prodname_copilot_chat %}](/copilot/github-copilot-chat/copilot-chat-in-ides/using-github-copilot-chat-in-your-ide#sharing-feedback-about-github-copilot-chat)."
 
-If you can't find {% data variables.product.prodname_copilot_chat %} in your editor, make sure you have checked the "[Prerequisites](/copilot/github-copilot-chat/using-github-copilot-chat-in-your-ide#prerequisites)" section.
+If you can't find {% data variables.product.prodname_copilot_chat %} in your editor, make sure you have checked the "[Prerequisites](/copilot/github-copilot-chat/copilot-chat-in-ides/using-github-copilot-chat-in-your-ide#prerequisites)" section.
+
+{% vscode %}
+
+## Troubleshooting issues caused by version incompatibility
+
+{% data reusables.copilot.vscode-version-compatibility %}
+
+To use {% data variables.product.prodname_copilot_chat %}, make sure you are using the [latest version of {% data variables.product.prodname_vscode %}](https://code.visualstudio.com/updates).
+
+{% endvscode %}
 
 ## Troubleshooting authentication issues in your editor
 

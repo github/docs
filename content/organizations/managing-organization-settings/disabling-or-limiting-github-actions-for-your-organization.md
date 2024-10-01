@@ -50,8 +50,6 @@ You can choose to disable {% data variables.product.prodname_actions %} for all 
 1. Under "Policies", select {% data reusables.actions.policy-label-for-select-actions-workflows %} and add your required actions{% ifversion actions-workflow-policy %} and reusable workflows{% endif %} to the list.
 1. Click **Save**.
 
-{% ifversion actions-disable-repo-runners %}
-
 ## Limiting the use of self-hosted runners
 
 {% data reusables.actions.disable-selfhosted-runners-overview %}
@@ -76,15 +74,13 @@ If a repository already has self-hosted runners when you disable their use, thes
 {% data reusables.profile.org_settings %}
 {% data reusables.organizations.settings-sidebar-actions-general %}
 1. Under "Runners," use the dropdown menu to choose your preferred setting:
-   - **All repositories** - self-hosted runners can be used for any repository in your organization.
-   - **Selected repositories** - self-hosted runners can only be used for the repositories you select.
-   - **Disabled** - self-hosted runners cannot be created at the repository level.
+   * **All repositories** - self-hosted runners can be used for any repository in your organization.
+   * **Selected repositories** - self-hosted runners can only be used for the repositories you select.
+   * **Disabled** - self-hosted runners cannot be created at the repository level.
 1. If you choose **Selected repositories**:
    1. Click {% octicon "gear" aria-label="Select repositories" %}.
    1. Select the check boxes for the repositories for which you want to allow self-hosted runners.
    1. Click **Select repositories**.
-
-{% endif %}
 
 {% ifversion fpt or ghec %}
 
@@ -198,8 +194,6 @@ By default, when you create a new organization, workflows are not allowed to {% 
 
 {% endif %}
 
-{% ifversion actions-cache-org-ui %}
-
 ## Managing {% data variables.product.prodname_actions %} cache storage for your organization
 
 Organization administrators can view {% ifversion actions-cache-admin-ui %}and manage {% endif %}{% data variables.product.prodname_actions %} cache storage for all repositories in the organization.
@@ -227,7 +221,5 @@ You can configure the size limit for {% data variables.product.prodname_actions 
 {% data reusables.profile.org_settings %}
 {% data reusables.organizations.settings-sidebar-actions-general %}
 {% data reusables.actions.change-cache-size-limit  %}
-
-{% endif %}
 
 {% endif %}

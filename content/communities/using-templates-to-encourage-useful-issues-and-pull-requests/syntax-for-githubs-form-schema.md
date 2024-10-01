@@ -11,7 +11,7 @@ topics:
 
 {% note %}
 
-**Note:** {% data variables.product.company_short %}'s form schema is currently in beta and subject to change.
+**Note:** {% data variables.product.company_short %}'s form schema is currently in {% data variables.release-phases.public_preview %} and subject to change.
 
 {% endnote %}
 
@@ -274,4 +274,4 @@ body:
 
 ## Further reading
 
-- [YAML](https://yaml.org)
+* [YAML](https://yaml.org)

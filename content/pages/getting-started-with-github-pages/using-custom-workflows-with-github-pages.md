@@ -26,7 +26,7 @@ To use the action place this snippet under your `jobs` in the desired workflow.
   uses: actions/configure-pages@v3
 ```
 
-This action helps support deployment from any static site generator to {% data variables.product.prodname_pages %}. To make this process less repetitive you can use starter workflows for some of the most widely used static site generators. For more information, see "[AUTOTITLE](/actions/learn-github-actions/using-starter-workflows)."
+This action helps support deployment from any static site generator to {% data variables.product.prodname_pages %}. To make this process less repetitive you can use workflow templates for some of the most widely used static site generators. For more information, see "[AUTOTITLE](/actions/learn-github-actions/using-starter-workflows)."
 
 ## Configuring the `upload-pages-artifact` action
 
@@ -43,17 +43,17 @@ To use the action in your current workflow place this snippet under `jobs`.
 
 The `deploy-pages` action handles the necessary setup for deploying artifacts. To ensure proper functionality, the following requirements should be met:
 
-- The job must have a minimum of `pages: write` and `id-token: write` permissions.
-- The `needs` parameter must be set to the `id` of the build step. Not setting this parameter may result in an independent deployment that continuously searches for an artifact that hasn't been created.
-- An `environment` must be established to enforce branch/deployment protection rules. The default environment is `github-pages`.
-- To specify the URL of the page as an output, utilize the `url:` field.
+* The job must have a minimum of `pages: write` and `id-token: write` permissions.
+* The `needs` parameter must be set to the `id` of the build step. Not setting this parameter may result in an independent deployment that continuously searches for an artifact that hasn't been created.
+* An `environment` must be established to enforce branch/deployment protection rules. The default environment is `github-pages`.
+* To specify the URL of the page as an output, utilize the `url:` field.
 
 For more information, see the [`deploy-pages`](https://github.com/marketplace/actions/deploy-github-pages-site) action.
 
 {% raw %}
 
 ```yaml
-...
+# ...
 
 jobs:
   deploy:
@@ -70,7 +70,7 @@ jobs:
       - name: Deploy artifact
         id: deployment
         uses: actions/deploy-pages@v1
-...
+# ...
 ```
 
 {% endraw %}
@@ -80,7 +80,7 @@ jobs:
 You can link your `build` and `deploy` jobs in a single workflow file,  eliminating the need to create two separate files to get the same result. To get started on your workflow file, under `jobs` you can define a `build` and `deploy` job to execute your jobs.
 
 ```yaml
-...
+# ...
 
 jobs:
   # Build job
@@ -111,13 +111,13 @@ jobs:
       - name: Deploy to GitHub Pages
         id: deployment
         uses: actions/deploy-pages@v2
-...
+# ...
 ```
 
 In certain cases, you might choose to combine everything into a single job, especially if there is no need for a build process. Consequently, you would solely focus on the deployment step.
 
 ```yaml
-...
+# ...
 
 jobs:
   # Single deploy job no building
@@ -140,7 +140,7 @@ jobs:
         id: deployment
         uses: actions/deploy-pages@v2
 
-...
+# ...
 ```
 
 You can define your jobs to be run on different runners, sequentially, or in parallel. For more information, see "[AUTOTITLE](/actions/using-jobs)."

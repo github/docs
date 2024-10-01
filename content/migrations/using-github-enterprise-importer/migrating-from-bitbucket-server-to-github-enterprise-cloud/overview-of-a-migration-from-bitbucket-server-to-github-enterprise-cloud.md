@@ -13,7 +13,7 @@ redirect_from:
 
 ## Overview
 
-With {% data variables.product.prodname_importer_proper_name %}, you can migrate to {% data variables.product.prodname_ghe_cloud %} on a repository-by-repository basis. For more information, see "[AUTOTITLE](/migrations/using-github-enterprise-importer/understanding-github-enterprise-importer/about-github-enterprise-importer)".
+With {% data variables.product.prodname_importer_proper_name %}, you can migrate to {% data variables.product.prodname_ghe_cloud %} on a repository-by-repository basis. For more information, see "[AUTOTITLE](/migrations/using-github-enterprise-importer/understanding-github-enterprise-importer/about-github-enterprise-importer)."
 
 If you're migrating from Bitbucket Server, you can use this guide to plan and implement your migration and complete follow-up tasks.
 
@@ -21,17 +21,17 @@ If you're migrating from Bitbucket Server, you can use this guide to plan and im
 
 {% data reusables.enterprise-migration-tool.planning-intro %}
 
-- [How soon do we need to complete the migration?](#how-soon-do-we-need-to-complete-the-migration)
-- [Do we understand what will be migrated?](#do-we-understand-what-will-be-migrated)
-- [Who will run the migration?](#who-will-run-the-migration)
-- [What organizational structure do we want in {% data variables.product.prodname_dotcom %}?](#what-organizational-structure-do-we-want-in-github)
+* [How soon do we need to complete the migration?](#how-soon-do-we-need-to-complete-the-migration)
+* [Do we understand what will be migrated?](#do-we-understand-what-will-be-migrated)
+* [Who will run the migration?](#who-will-run-the-migration)
+* [What organizational structure do we want in {% data variables.product.prodname_dotcom %}?](#what-organizational-structure-do-we-want-in-github)
 
 ### How soon do we need to complete the migration?
 
 Determine your timeline, which will largely dictate your approach. The first step for determining your timeline is to get an inventory of what you need to migrate.
 
-- Number of repositories
-- Number of pull requests
+* Number of repositories
+* Number of pull requests
 
 Migration timing is largely based on the number of pull requests in a repository. If you want to migrate 1,000 repositories, and each repository has 100 pull requests on average, and only 50 users have contributed to the repositories, your migration will likely be very quick. If you want to migrate only 100 repositories, but the repositories each have 75,000 pull requests on average, and 5,000 users, the migration will take much longer and require much more planning and testing.
 
@@ -58,9 +58,9 @@ To migrate a repository, you must be an organization owner for the destination o
 
 You must also have required permissions and access to your Bitbucket Server instance:
 
-- Admin or super admin permissions
-- If your Bitbucket Server instance runs Linux, SFTP access to the instance, using a supported SSH private key (see "[AUTOTITLE](/migrations/using-github-enterprise-importer/migrating-from-bitbucket-server-to-github-enterprise-cloud/managing-access-for-a-migration-from-bitbucket-server#required-permissions-for-bitbucket-server)")
-- If your Bitbucket Server instance runs Windows, file sharing (SMB) access to the instance
+* Admin or super admin permissions
+* If your Bitbucket Server instance runs Linux, SFTP access to the instance, using a supported SSH private key (see "[AUTOTITLE](/migrations/using-github-enterprise-importer/migrating-from-bitbucket-server-to-github-enterprise-cloud/managing-access-for-a-migration-from-bitbucket-server#required-permissions-for-bitbucket-server)")
+* If your Bitbucket Server instance runs Windows, file sharing (SMB) access to the instance
 
 1. Decide whether you want an organization owner of the destination organization to perform your migrations, or whether you need to grant the migrator role to someone else.
 {% data reusables.enterprise-migration-tool.grant-migrator-tasks %} For more information, see "[AUTOTITLE](/migrations/using-github-enterprise-importer/migrating-from-bitbucket-server-to-github-enterprise-cloud/managing-access-for-a-migration-from-bitbucket-server#about-the-migrator-role)."
@@ -97,12 +97,12 @@ We recommend creating a test organization to use as a destination for your trial
 
 {% data reusables.enterprise-migration-tool.follow-up-tasks-intro %}
 
-- [Checking the migration status](#checking-the-migration-status)
-- [Reviewing the migration log](#reviewing-the-migration-log)
-- [Setting repository visibility](#setting-repository-visibility)
-- [Configuring permissions](#configuring-permissions)
-- [Reclaiming mannequins](#reclaiming-mannequins)
-- [Configuring IP allow lists](#configuring-ip-allow-lists)
+* [Checking the migration status](#checking-the-migration-status)
+* [Reviewing the migration log](#reviewing-the-migration-log)
+* [Setting repository visibility](#setting-repository-visibility)
+* [Configuring permissions](#configuring-permissions)
+* [Reclaiming mannequins](#reclaiming-mannequins)
+* [Configuring IP allow lists](#configuring-ip-allow-lists)
 
 ### Checking the migration status
 

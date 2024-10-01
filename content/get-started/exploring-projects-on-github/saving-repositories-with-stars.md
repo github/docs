@@ -51,7 +51,7 @@ To view everyone who has starred a repository, add `/stargazers` to the end of t
 
 {% note %}
 
-**Note:** Lists are currently in public beta and subject to change.
+**Note:** Lists are currently in {% data variables.release-phases.public_preview %} and subject to change.
 
 {% endnote %}
 
@@ -121,4 +121,4 @@ You can use sorting or filtering to customize how you see starred repositories a
 
 ## Further reading
 
-- "[AUTOTITLE](/repositories/managing-your-repositorys-settings-and-features/customizing-your-repository/classifying-your-repository-with-topics)"
+* "[AUTOTITLE](/repositories/managing-your-repositorys-settings-and-features/customizing-your-repository/classifying-your-repository-with-topics)"

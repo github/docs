@@ -30,6 +30,7 @@
                 "streetsidesoftware.code-spell-checker",
                 "alistairchristie.open-reusables",
                 "AlistairChristie.version-identifier",
+                "peterbe.ghdocs-goer",
                 "GitHub.copilot",
                 "GitHub.copilot-chat"
             ]
@@ -57,6 +58,9 @@
 
     // Use 'postCreateCommand' to run commands after the container is created.
     "postCreateCommand": "npm ci",
+
+    // Use 'updateContentCommand' to run commands to be included in Codespace pre-builds
+    "updateContentCommand": "git clone https://github.com/github/rest-api-description.git",
 
     // Comment out connect as root instead. More info: https://aka.ms/vscode-remote/containers/non-root.
     "remoteUser": "node",

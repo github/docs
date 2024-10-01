@@ -27,7 +27,7 @@ To use a JWT, pass it in the `Authorization` header of an API request. For examp
 
 ```shell
 curl --request GET \
---url "{% data variables.product.api_url_pre %}/app" \
+--url "{% data variables.product.rest_url %}/app" \
 --header "Accept: application/vnd.github+json" \
 --header "Authorization: Bearer YOUR_JWT" \
 --header "X-GitHub-Api-Version: {{ allVersions[currentVersion].latestApiVersion }}"
@@ -84,15 +84,16 @@ puts jwt
 
 {% note %}
 
-**Note:** You must run `pip install jwt` to install the `jwt` package in order to use this script.
+**Note:** You must run `pip install PyJWT` to install the `PyJWT` package in order to use this script.
 
 {% endnote %}
 
 ```python copy
 #!/usr/bin/env python3
-from jwt import JWT, jwk_from_pem
-import time
 import sys
+import time
+
+import jwt
 
 
 # Get PEM file path
@@ -117,7 +118,7 @@ else:
 
 # Open PEM
 with open(pem, 'rb') as pem_file:
-    signing_key = jwk_from_pem(pem_file.read())
+    signing_key = pem_file.read()
 
 payload = {
     # Issued at time
@@ -128,12 +129,11 @@ payload = {
     # {% data variables.product.prodname_github_app %}'s client ID
     'iss': client_id{% else %}
     # {% data variables.product.prodname_github_app %}'s app ID
-    'iss': app_id{% endif %}    
+    'iss': app_id{% endif %}
 }
 
 # Create JWT
-jwt_instance = JWT()
-encoded_jwt = jwt_instance.encode(payload, signing_key, alg='RS256')
+encoded_jwt = jwt.encode(payload, signing_key, algorithm='RS256')
 
 print(f"JWT:  {encoded_jwt}")
 ```
@@ -156,7 +156,7 @@ set -o pipefail
 client_id=$1 # Client ID as first argument
 {% else %}
 app_id=$1 # App ID as first argument
-{% endif %} 
+{% endif %}
 pem=$( cat $2 ) # file path of the private key as second argument
 
 now=$(date +%s)
@@ -172,11 +172,11 @@ header_json='{
 # Header encode
 header=$( echo -n "${header_json}" | b64enc )
 
-payload_json='{
-    "iat":'"${iat}"',
-    "exp":'"${exp}"',
-    {% ifversion client-id-for-app %}"iss":'"${client_id}"'{% else %}"iss":'"${client_id}"'{% endif %} 
-}'
+payload_json="{
+    \"iat\":${iat},
+    \"exp\":${exp},
+    {% ifversion client-id-for-app %}\"iss\":\"${client_id}\"{% else %}\"iss\":\"${app_id}\"{% endif %}
+}"
 # Payload encode
 payload=$( echo -n "${payload_json}" | b64enc )
 
@@ -203,7 +203,7 @@ In the following example, replace `YOUR_PATH_TO_PEM` with the file path where yo
 $client_id = YOUR_CLIENT_ID
 {% else %}
 $app_id = YOUR_APP_ID
-{% endif %} 
+{% endif %}
 $private_key_path = "YOUR_PATH_TO_PEM"
 
 $header = [Convert]::ToBase64String([System.Text.Encoding]::UTF8.GetBytes((ConvertTo-Json -InputObject @{
@@ -214,7 +214,7 @@ $header = [Convert]::ToBase64String([System.Text.Encoding]::UTF8.GetBytes((Conve
 $payload = [Convert]::ToBase64String([System.Text.Encoding]::UTF8.GetBytes((ConvertTo-Json -InputObject @{
   iat = [System.DateTimeOffset]::UtcNow.AddSeconds(-10).ToUnixTimeSeconds()
   exp = [System.DateTimeOffset]::UtcNow.AddMinutes(10).ToUnixTimeSeconds()
-  {% ifversion client-id-for-app %}  iss = $client_id{% else %}  iss = $app_id{% endif %} 
+  {% ifversion client-id-for-app %}  iss = $client_id{% else %}  iss = $app_id{% endif %}
 }))).TrimEnd('=').Replace('+', '-').Replace('/', '_');
 
 $rsa = [System.Security.Cryptography.RSA]::Create()

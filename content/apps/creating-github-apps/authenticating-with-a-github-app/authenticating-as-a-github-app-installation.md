@@ -26,7 +26,7 @@ You can also use an installation access token to authenticate for HTTP-based Git
 
 Requests made with an installation access token are sometimes called "server-to-server" requests.
 
-For more information about authenticating as an app on behalf of a user instead of as an app installation, see "[AUTOTITLE](/apps/creating-github-apps/authenticating-with-a-github-app/identifying-and-authorizing-users-for-github-apps)".
+For more information about authenticating as an app on behalf of a user instead of as an app installation, see "[AUTOTITLE](/apps/creating-github-apps/authenticating-with-a-github-app/identifying-and-authorizing-users-for-github-apps)."
 
 ## Using an installation access token to authenticate as an app installation
 
@@ -46,7 +46,7 @@ In the following example, replace `INSTALLATION_ACCESS_TOKEN` with an installati
 
 ```shell
 curl --request GET \
---url "{% data variables.product.api_url_pre %}/meta" \
+--url "{% data variables.product.rest_url %}/meta" \
 --header "Accept: application/vnd.github+json" \
 --header "Authorization: Bearer INSTALLATION_ACCESS_TOKEN" \
 --header "X-GitHub-Api-Version: {{ allVersions[currentVersion].latestApiVersion }}"

@@ -17,10 +17,10 @@ topics:
 
 There are a number of entry points to create a codespace.
 
-- From a {% data variables.product.company_short %} template or any template repository on {% data variables.product.prodname_dotcom_the_website %} to start a new project
-- From a branch in your repository for new feature work
-- From an open pull request to explore work-in-progress
-- From a commit in a repository's history to investigate a bug at a specific point in time
+* From a {% data variables.product.company_short %} template or any template repository on {% data variables.product.github %} to start a new project
+* From a branch in your repository for new feature work
+* From an open pull request to explore work-in-progress
+* From a commit in a repository's history to investigate a bug at a specific point in time
 
 {% data reusables.codespaces.ways-to-create-a-codespace %}
 
@@ -40,7 +40,7 @@ When you create a codespace, various steps happen in the background before the c
 
 ### Step 1: VM and storage are assigned to your codespace
 
-When you create a codespace, a virtual machine (VM) is created using either the stable or beta release of the VM host image. For more information, see "[AUTOTITLE](/codespaces/setting-your-user-preferences/choosing-the-stable-or-beta-host-image)." The host image defines the version of Linux that is used for the VM. The VM is both dedicated and private to you. Having a dedicated VM ensures that you have the entire set of compute resources from that machine available to you. If necessary, this also allows you to have full root access to your container.
+When you create a codespace, a virtual machine (VM) is created using either the stable or {% data variables.release-phases.public_preview %} release of the VM host image. For more information, see "[AUTOTITLE](/codespaces/setting-your-user-preferences/choosing-the-stable-or-beta-host-image)." The host image defines the version of Linux that is used for the VM. The VM is both dedicated and private to you. Having a dedicated VM ensures that you have the entire set of compute resources from that machine available to you. If necessary, this also allows you to have full root access to your container.
 
 A [shallow clone](https://github.blog/2020-12-21-get-up-to-speed-with-partial-clone-and-shallow-clone/) is then made of your repository, or of the template repository if you're creating a codespace from a template. This is cloned into the `/workspaces` directory of the VM and subsequently mounted into the dev container. For more information, see "[About the directory structure of a codespace](#about-the-directory-structure-of-a-codespace)" below.
 
@@ -60,10 +60,10 @@ Since your repository is cloned onto the host VM before the container is created
 
 When your container has been created and any other initialization has run, you'll be connected to your codespace. You can connect to it by using:
 
-- Your web browser
-- [{% data variables.product.prodname_vscode %}](/codespaces/developing-in-a-codespace/using-github-codespaces-in-visual-studio-code)
-- [A JetBrains IDE](/codespaces/developing-in-a-codespace/using-github-codespaces-in-your-jetbrains-ide)
-- [{% data variables.product.prodname_cli %}](/codespaces/developing-in-a-codespace/using-github-codespaces-with-github-cli)
+* Your web browser
+* [{% data variables.product.prodname_vscode %}](/codespaces/developing-in-a-codespace/using-github-codespaces-in-visual-studio-code)
+* [A JetBrains IDE](/codespaces/developing-in-a-codespace/using-github-codespaces-in-your-jetbrains-ide)
+* [{% data variables.product.prodname_cli %}](/codespaces/developing-in-a-codespace/using-github-codespaces-with-github-cli)
 
 ### Step 4: Post-creation setup
 
@@ -93,10 +93,10 @@ If a codespace times out it will stop running, but you can restart it from the b
 
 To stop your codespace you can
 
-- In the browser: on your list of codespaces at [https://github.com/codespaces](https://github.com/codespaces), click the ellipsis (**...**) to the right of the codespace you want to stop and click **Stop codespace**.
-- In {% data variables.product.prodname_vscode_shortname %}: open the {% data variables.product.prodname_vscode_command_palette %} - for example, by pressing <kbd>Ctrl</kbd>+<kbd>Shift</kbd>+<kbd>P</kbd> (Windows/Linux) or <kbd>Shift</kbd>+<kbd>Command</kbd>+<kbd>P</kbd> (Mac) - type `Codespaces: stop` then press <kbd>Enter</kbd>. For more information, see "[AUTOTITLE](/codespaces/reference/using-the-vs-code-command-palette-in-codespaces#suspending-or-stopping-a-codespace)."
-- In the JetBrains client, click the stop button at the top of the {% data variables.product.prodname_github_codespaces %} tool window. For more information, see the "JetBrains IDEs" tab of "[AUTOTITLE](/codespaces/developing-in-a-codespace/stopping-and-starting-a-codespace)."
-- In a terminal window: use the {% data variables.product.prodname_cli %} command `gh codespace stop`. For more information, see "[AUTOTITLE](/codespaces/developing-in-a-codespace/using-github-codespaces-with-github-cli#gh-commands-for-github-codespaces)."
+* In the browser: on your list of codespaces at [https://github.com/codespaces](https://github.com/codespaces), click the ellipsis (**...**) to the right of the codespace you want to stop and click **Stop codespace**.
+* In {% data variables.product.prodname_vscode_shortname %}: open the {% data variables.product.prodname_vscode_command_palette %} - for example, by pressing <kbd>Ctrl</kbd>+<kbd>Shift</kbd>+<kbd>P</kbd> (Windows/Linux) or <kbd>Shift</kbd>+<kbd>Command</kbd>+<kbd>P</kbd> (Mac) - type `Codespaces: stop` then press <kbd>Enter</kbd>. For more information, see "[AUTOTITLE](/codespaces/reference/using-the-vs-code-command-palette-in-codespaces#suspending-or-stopping-a-codespace)."
+* In the JetBrains client, click the stop button at the top of the {% data variables.product.prodname_github_codespaces %} tool window. For more information, see the "JetBrains IDEs" tab of "[AUTOTITLE](/codespaces/developing-in-a-codespace/stopping-and-starting-a-codespace)."
+* In a terminal window: use the {% data variables.product.prodname_cli %} command `gh codespace stop`. For more information, see "[AUTOTITLE](/codespaces/developing-in-a-codespace/using-github-codespaces-with-github-cli#gh-commands-for-github-codespaces)."
 
 If you exit your codespace without running the stop command (for example, by closing the browser tab), or if you leave the codespace running without interaction, the codespace and its running processes will continue for the duration of the inactivity timeout period.
 
@@ -164,13 +164,13 @@ Clearing the directories outside `/workspaces` helps to ensure the rebuilt conta
 
 If you want to make changes to your codespace that will be more robust over rebuilds and across different codespaces, you have several options.
 
-- To install programs and tools in all codespaces created from a repository, in your dev container configuration, you can use lifecycle command properties such as `postCreateCommand` to run custom installation commands, or you can choose from pre-written installation commands called "features." For more information, see the [dev containers specification](https://containers.dev/implementors/json_reference/#lifecycle-scripts) on the Development Containers website and "[AUTOTITLE](/codespaces/setting-up-your-project-for-codespaces/configuring-dev-containers/adding-features-to-a-devcontainer-file)."
-- To install tools or customize your setup in every codespace you create, such as configuring your `bash` profile, you can link {% data variables.product.prodname_github_codespaces %} with a dotfiles repository. The dotfiles repository is also cloned into the persistent `/workspaces` directory. For more information, see "[AUTOTITLE](/codespaces/setting-your-user-preferences/personalizing-github-codespaces-for-your-account#dotfiles)."
-- If you want to preserve specific files over a rebuild, you can use a `devcontainer.json` file to create a symlink between the files and a persistent directory within `/workspaces`. For more information, see "[AUTOTITLE](/codespaces/developing-in-a-codespace/rebuilding-the-container-in-a-codespace#persisting-data-over-a-rebuild)."
+* To install programs and tools in all codespaces created from a repository, in your dev container configuration, you can use lifecycle command properties such as `postCreateCommand` to run custom installation commands, or you can choose from pre-written installation commands called "features." For more information, see the [dev containers specification](https://containers.dev/implementors/json_reference/#lifecycle-scripts) on the Development Containers website and "[AUTOTITLE](/codespaces/setting-up-your-project-for-codespaces/configuring-dev-containers/adding-features-to-a-devcontainer-file)."
+* To install tools or customize your setup in every codespace you create, such as configuring your `bash` profile, you can link {% data variables.product.prodname_github_codespaces %} with a dotfiles repository. The dotfiles repository is also cloned into the persistent `/workspaces` directory. For more information, see "[AUTOTITLE](/codespaces/setting-your-user-preferences/personalizing-github-codespaces-for-your-account#dotfiles)."
+* If you want to preserve specific files over a rebuild, you can use a `devcontainer.json` file to create a symlink between the files and a persistent directory within `/workspaces`. For more information, see "[AUTOTITLE](/codespaces/developing-in-a-codespace/rebuilding-the-container-in-a-codespace#persisting-data-over-a-rebuild)."
 
 ## Further reading
 
-- "[AUTOTITLE](/codespaces/managing-codespaces-for-your-organization/enabling-or-disabling-github-codespaces-for-your-organization)"
-- "[AUTOTITLE](/codespaces/managing-codespaces-for-your-organization/managing-the-cost-of-github-codespaces-in-your-organization)"
-- "[AUTOTITLE](/codespaces/setting-up-your-project-for-codespaces/adding-a-dev-container-configuration)"
-- "[AUTOTITLE](/codespaces/getting-started/understanding-the-codespace-lifecycle)"
+* "[AUTOTITLE](/codespaces/managing-codespaces-for-your-organization/enabling-or-disabling-github-codespaces-for-your-organization)"
+* "[AUTOTITLE](/codespaces/managing-codespaces-for-your-organization/managing-the-cost-of-github-codespaces-in-your-organization)"
+* "[AUTOTITLE](/codespaces/setting-up-your-project-for-codespaces/adding-a-dev-container-configuration)"
+* "[AUTOTITLE](/codespaces/getting-started/understanding-the-codespace-lifecycle)"

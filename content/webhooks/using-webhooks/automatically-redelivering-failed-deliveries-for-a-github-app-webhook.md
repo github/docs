@@ -19,9 +19,9 @@ This article describes how to write a script to find and redeliver failed delive
 
 This example shows you:
 
-- A script that will find and redeliver failed deliveries for a {% data variables.product.prodname_github_app %} webhook
-- What credentials your script will need, and how to store the credentials securely as {% data variables.product.prodname_actions %} secrets
-- A {% data variables.product.prodname_actions %} workflow that can securely access your credentials and run the script periodically
+* A script that will find and redeliver failed deliveries for a {% data variables.product.prodname_github_app %} webhook
+* What credentials your script will need, and how to store the credentials securely as {% data variables.product.prodname_actions %} secrets
+* A {% data variables.product.prodname_actions %} workflow that can securely access your credentials and run the script periodically
 
 This example uses {% data variables.product.prodname_actions %}, but you can also run this script on your server that handles webhook deliveries. For more information, see "[Alternative methods](#alternative-methods)."
 
@@ -35,15 +35,11 @@ The endpoints to fetch and update the value of environment variables require a {
 1. Store the app ID from the previous step as a {% data variables.product.prodname_actions %} secret in the repository where you want the workflow to run. For more information about storing secrets, see "[AUTOTITLE](/actions/security-guides/encrypted-secrets)."
 1. Generate a private key for your app. For more information about generating a private key, see "[AUTOTITLE](/apps/creating-github-apps/authenticating-with-a-github-app/managing-private-keys-for-github-apps)."
 1. Store the private key, including `-----BEGIN RSA PRIVATE KEY-----` and `-----END RSA PRIVATE KEY-----`, from the previous step as a {% data variables.product.prodname_actions %} secret in the repository where you want the workflow to run.
-{% ifversion pat-v2 %}
 1. Create a {% data variables.product.pat_generic %} with the following access. For more information, see "[AUTOTITLE](/authentication/keeping-your-account-and-data-secure/managing-your-personal-access-tokens)."
-   - For a {% data variables.product.pat_v2 %}, grant the token:
-     - Write access to the repository variables permission
-     - Access to the repository where this workflow will run
-   - For a {% data variables.product.pat_v1 %}, grant the token the `repo` scope.
-{% else %}
-1. Create a {% data variables.product.pat_v1 %} with the `repo` scope. For more information, see "[AUTOTITLE](/authentication/keeping-your-account-and-data-secure/managing-your-personal-access-tokens)."
-{% endif %}
+   * For a {% data variables.product.pat_v2 %}, grant the token:
+     * Write access to the repository variables permission
+     * Access to the repository where this workflow will run
+   * For a {% data variables.product.pat_v1 %}, grant the token the `repo` scope.
 1. Store your {% data variables.product.pat_generic %} from the previous step as a {% data variables.product.prodname_actions %} secret in the repository where you want the workflow to run.
 
 ## Adding a workflow that will run the script
@@ -133,7 +129,7 @@ async function checkAndRedeliverWebhooks() {
     appId: APP_ID,
     privateKey: PRIVATE_KEY,{% ifversion ghes %}
     Octokit: Octokit.defaults({
-      baseUrl: "{% data variables.product.api_url_code %}",
+      baseUrl: "{% data variables.product.rest_url %}",
     }),{% endif %}
   });
 
@@ -141,7 +137,7 @@ async function checkAndRedeliverWebhooks() {
   //
   // This will be used to update the configuration variable that stores the last time that this script ran.
   const octokit = new Octokit({ {% ifversion ghes %}
-    baseUrl: "{% data variables.product.api_url_code %}",{% endif %}
+    baseUrl: "{% data variables.product.rest_url %}",{% endif %}
     auth: TOKEN,
   });
 
@@ -339,6 +335,6 @@ You can manually trigger your workflow to test the script. For more information,
 
 This example used {% data variables.product.prodname_actions %} to securely store credentials and to run the script on a schedule. However, if you prefer to run this script on your server than handles webhook deliveries, you can:
 
-- Store the credentials in another secure manner, such as a secret manager like [Azure key vault](https://azure.microsoft.com/products/key-vault). You will also need to update the script to access the credentials from their new location.
-- Run the script on a schedule on your server, for example by using a cron job or task scheduler.
-- Update the script to store the last run time somewhere that your server can access and update. If you choose not to store the last run time as a {% data variables.product.prodname_actions %} secret, you do not need to use a {% data variables.product.pat_generic %}, and you can remove the API calls to access and update the configuration variable.
+* Store the credentials in another secure manner, such as a secret manager like [Azure key vault](https://azure.microsoft.com/products/key-vault). You will also need to update the script to access the credentials from their new location.
+* Run the script on a schedule on your server, for example by using a cron job or task scheduler.
+* Update the script to store the last run time somewhere that your server can access and update. If you choose not to store the last run time as a {% data variables.product.prodname_actions %} secret, you do not need to use a {% data variables.product.pat_generic %}, and you can remove the API calls to access and update the configuration variable.
