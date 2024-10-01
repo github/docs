@@ -15,13 +15,13 @@ To find AI models, go to [{% data variables.product.prodname_marketplace %}](htt
 
 To view details about a model, click on the model's name.
 
-> [!NOTE] Access to OpenAI's `o1` models is in public beta and subject to change. To request access, join the [waitlist](https://github.com/o1-waitlist-signup).
+> [!NOTE] Access to OpenAI's `o1` models is in {% data variables.release-phases.public_preview %} and subject to change. To request access, join the [waitlist](https://github.com/o1-waitlist-signup).
 
 ## Experimenting with AI models in the playground
 
 >[!NOTE]
 >
-> The playground is in limited public beta and subject to change. To request access, [join the waitlist](https://github.com/marketplace/models/waitlist).
+> The playground is in {% data variables.release-phases.public_preview %} and subject to change. To request access, [join the waitlist](https://github.com/marketplace/models/waitlist).
 
 {% data variables.product.prodname_marketplace %} provides a free playground where you can adjust model parameters and submit prompts to see how the model responds.
 
@@ -35,7 +35,7 @@ The playground is rate limited. See [Rate limits](#rate-limits) below.
 
 >[!NOTE]
 >
-> The free API usage is in limited public beta and subject to change. To request access, [join the waitlist](https://github.com/marketplace/models/waitlist).
+> The free API usage is in {% data variables.release-phases.public_preview %} and subject to change. To request access, [join the waitlist](https://github.com/marketplace/models/waitlist).
 
 {% data variables.product.company_short %} provides free API usage so that you can experiment with AI models in your own application.
 

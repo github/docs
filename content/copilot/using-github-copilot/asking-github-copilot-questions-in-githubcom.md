@@ -3,8 +3,8 @@ title: Asking GitHub Copilot questions in GitHub.com
 shortTitle: Chat in GitHub.com
 intro: 'You can use {% data variables.product.prodname_copilot_chat_dotcom %} to answer general questions about software development, or specific questions about the issues or code in a repository.'
 versions:
-  feature: copilot-on-dotcom
-permissions: 'Members of an enterprise with a subscription to {% data variables.product.prodname_copilot_enterprise %}'
+  feature: copilot
+permissions: '{% data reusables.gated-features.copilot-chat-callout-dotcom %}'
 topics:
   - Copilot
 redirect_from:
@@ -13,11 +13,11 @@ redirect_from:
   - /copilot/github-copilot-chat/copilot-chat-in-github
 ---
 
+> [!NOTE] {% data reusables.copilot.chat-dotcom-beta %}
+
 ## Overview
 
 {% data variables.product.prodname_copilot_chat_dotcom %} is a chat interface that lets you ask and receive answers to coding-related questions on {% data variables.product.prodname_dotcom_the_website %}.
-
-> [!NOTE] {% data variables.product.prodname_copilot_chat_short %} is also available in selected IDEs. For information on using {% data variables.product.prodname_copilot_chat %} in an IDE, see "[AUTOTITLE](/copilot/github-copilot-chat/copilot-chat-in-ides/using-github-copilot-chat-in-your-ide)."
 
 {% data variables.product.prodname_copilot_chat_short %} can help you with a variety of coding-related tasks, like offering you code suggestions, providing natural language descriptions of a piece of code's functionality and purpose, generating unit tests for your code, and proposing fixes for bugs in your code. For more information, see "[AUTOTITLE](/copilot/github-copilot-chat/copilot-chat-in-github/about-github-copilot-chat-in-githubcom)."
 
@@ -25,8 +25,8 @@ On {% data variables.product.prodname_dotcom_the_website %}, you can use {% data
 
 * General software-related questions, without a particular context. For more information, see "[Asking a general question about software development](#asking-a-general-question-about-software-development)."
 * Exploratory questions asked in the context of a specific repository. For more information, see "[Asking exploratory questions about a repository](#asking-exploratory-questions-about-a-repository)."
-* Questions asked in the context of a specific repository, file or symbol. For more information, see "[Asking a question about a specific file or symbol](#asking-a-question-about-a-specific-file-or-symbol)."
-* Questions asked in the context of a knowledge base (that is, Markdown documentation across one or more repositories). For more information, see "[Asking a question about a knowledge base](#asking-a-question-about-a-knowledge-base)."
+* Questions asked in the context of a specific repository, file or symbol. For more information, see "[Asking a question about a specific file or symbol](#asking-a-question-about-a-specific-file-or-symbol)." {% ifversion ghec %}
+* Questions asked in the context of a knowledge base (that is, Markdown documentation across one or more repositories). For more information, see "[Asking a question about a knowledge base](#asking-a-question-about-a-knowledge-base)."{% endif %}
 * Questions about a specific file or specified lines of code within a file. For more information, see "[Asking questions about specific pieces of code](#asking-questions-about-specific-pieces-of-code)."
 * Questions about a pull request diff. For more information, see "[Finding out about the changes in a pull request](#asking-questions-about-a-specific-pull-request)."
 * Questions about a specific issue. For more information, see "[Asking a question about a specific issue or discussion](#asking-a-question-about-a-specific-issue-or-discussion)."
@@ -38,7 +38,14 @@ On {% data variables.product.prodname_dotcom_the_website %}, you can use {% data
 
 ## Prerequisites
 
+{% ifversion ghec %}
 {% data reusables.copilot.chat-dotcom-prerequisites %}
+
+{% else %}
+To use {% data variables.product.prodname_copilot_chat_dotcom %}, you must have an active {% data variables.product.prodname_copilot_for_individuals %} subscription.
+
+Alternatively, members assigned a seat in a {% data variables.product.prodname_copilot_for_business %} subscription can use {% data variables.product.prodname_copilot_chat_dotcom %}. For more information, see "[AUTOTITLE](/copilot/setting-up-github-copilot/setting-up-github-copilot-for-your-organization)".
+{% endif %}
 
 ## Powered by skills
 
@@ -54,28 +61,50 @@ You can generate a list of currently available skills by asking {% data variable
 
 The skills you can use in {% data variables.product.prodname_copilot_chat_dotcom_short %} include those shown in the table below.
 
-| Skill | Description | Enabled by default? | Example question |
-| ----- | ----------- | ------------------- | ---------------- |
-| **Bing web search** (in beta and subject to change) | Searches the web using the Bing search engine. This skill is useful for teaching {% data variables.product.prodname_copilot_short %} about recent events, new developments, trends, technologies, or extremely specific, detailed, or niche subjects. | No (requires admin approval - see "[AUTOTITLE](/copilot/managing-copilot/managing-copilot-for-your-enterprise/managing-policies-and-features-for-copilot-in-your-enterprise)")| _What are some recent articles about SAT tokens securing against vulnerabilities in Node?_ |
-| **Code search** | Natural language code search in the default branch of the Git repository. This skill is useful when you want to know where or how certain functionality has been implemented in the code. Note: this requires indexing to be enabled for the repository (see "[AUTOTITLE](/enterprise-cloud@latest/copilot/managing-copilot/managing-github-copilot-in-your-organization/managing-github-copilot-features-in-your-organization/indexing-repositories-for-copilot-chat)"). | Yes | _Where is the logic that controls the user session management, and how does it work?_ |
-| **Commit details** | Retrieves a list of commits, or the contents of a specific commit, to provide answers to commit-related questions. | Yes | _Explain the changes in the code of this commit_ |
-| **Discussion details** | Retrieves a specific {% data variables.product.prodname_dotcom %} discussion. This is useful for quickly getting the gist of the conversation in a discussion. | Yes | _Summarize this discussion_ |
-| **Issue details** | Retrieves a specific {% data variables.product.prodname_dotcom %} issue, including the issue's title, number, author, status, body, linked pull requests, comments, and timestamps. | Yes | _Summarize the conversation on this issue and suggest next steps_ |
-| **File details** | Retrieves a specific file in the default branch of the Git repository, allowing you to ask questions about the file and the recent changes made to it. This skill is useful when you provide the exact path of a file in the repository. | Yes | _What logic does user_auth.js encapsulate?_ <br> <br> _What is the file history of user_auth.js?_ |
-| **Pull request details** | Retrieves a specific pull request. This allows you to ask questions about the pull request, including getting a summary of the pull request, its comments, or the code it changes. | Yes | _Summarize this PR for me_ <br><br> _Summarize the changes in this PR_ |
-| **{% data variables.product.prodname_GH_advanced_security %}** | Retrieves information about security alerts within your organization from {% data variables.product.prodname_GH_advanced_security %} features ({% data variables.product.prodname_code_scanning %}, {% data variables.product.prodname_secret_scanning %}, and {% data variables.product.prodname_dependabot_alerts %}). | Yes | _How would I fix this {% data variables.product.prodname_code_scanning %} alert?_ |
-| **Release details** | Retrieves the latest, or specified, release. This allows you to find out who created a release, when it happened, and information included in the release notes. | Yes | _When was the latest release?_ |
-| **Repository details** | Retrieves a specific {% data variables.product.prodname_dotcom %} repository. This is useful for finding out details such as the repository owner and the main language used. | Yes | _Tell me about this repo_ |
-| **Symbol definition** | Retrieves the lines of code that define a specific code symbol (function, class, or struct) in the default branch of the Git repository. This skill is useful when you have the exact name of a symbol, and want to understand it. | Yes | _Write unit tests for the AuthUser method_ |
-| **Support search** | Retrieves information from the {% data variables.contact.contact_support_portal %}. This skill is useful for asking {% data variables.product.prodname_copilot_chat_short %} about {% data variables.product.prodname_dotcom %} products and support related questions. | Yes | _Can I use {% data variables.product.prodname_copilot_short %} knowledge bases with {% data variables.product.prodname_copilot_individuals_short %}?_ |
+| Skill                                                          | Description                                                                                                                                                                                                                                                                                                                                                                                                                                                                 | Enabled by default?                                                                                                                                                            | Example question                                                                                                                                      |
+|----------------------------------------------------------------|-----------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------|--------------------------------------------------------------------------------------------------------------------------------------------------------------------------------|-------------------------------------------------------------------------------------------------------------------------------------------------------|
+| **Bing web search** (in {% data variables.release-phases.public_preview %} and subject to change)            | Searches the web using the Bing search engine. This skill is useful for teaching {% data variables.product.prodname_copilot_short %} about recent events, new developments, trends, technologies, or extremely specific, detailed, or niche subjects. **Available for {% data variables.product.prodname_copilot_business_short %} and {% data variables.product.prodname_copilot_enterprise_short %}**.                                                                    | No (requires admin approval - see "[AUTOTITLE](/copilot/managing-copilot/managing-copilot-for-your-enterprise/managing-policies-and-features-for-copilot-in-your-enterprise)") | _What are some recent articles about SAT tokens securing against vulnerabilities in Node?_                                                            |
+| **Code search**                                                | Natural language code search in the default branch of the Git repository. This skill is useful when you want to know where or how certain functionality has been implemented in the code. Note: this requires indexing to be enabled for the repository (see "[AUTOTITLE](/enterprise-cloud@latest/copilot/managing-copilot/managing-github-copilot-in-your-organization/managing-github-copilot-features-in-your-organization/indexing-repositories-for-copilot-chat)").   | Yes                                                                                                                                                                            | _Where is the logic that controls the user session management, and how does it work?_                                                                 |
+| **Commit details**                                             | Retrieves a list of commits, or the contents of a specific commit, to provide answers to commit-related questions.                                                                                                                                                                                                                                                                                                                                                          | Yes                                                                                                                                                                            | _Explain the changes in the code of this commit_                                                                                                      |
+| **Discussion details**                                         | Retrieves a specific {% data variables.product.prodname_dotcom %} discussion. This is useful for quickly getting the gist of the conversation in a discussion.                                                                                                                                                                                                                                                                                                              | Yes                                                                                                                                                                            | _Summarize this discussion_                                                                                                                           |
+| **Issue details**                                              | Retrieves a specific {% data variables.product.prodname_dotcom %} issue, including the issue's title, number, author, status, body, linked pull requests, comments, and timestamps.                                                                                                                                                                                                                                                                                         | Yes                                                                                                                                                                            | _Summarize the conversation on this issue and suggest next steps_                                                                                     |
+| **File details**                                               | Retrieves a specific file in the default branch of the Git repository, allowing you to ask questions about the file and the recent changes made to it. This skill is useful when you provide the exact path of a file in the repository.                                                                                                                                                                                                                                    | Yes                                                                                                                                                                            | _What logic does user_auth.js encapsulate?_ <br> <br> _What is the file history of user_auth.js?_                                                     |
+| **Pull request details**                                       | Retrieves a specific pull request. This allows you to ask questions about the pull request, including getting a summary of the pull request, its comments, or the code it changes.                                                                                                                                                                                                                                                                                          | Yes                                                                                                                                                                            | _Summarize this PR for me_ <br><br> _Summarize the changes in this PR_                                                                                |
+| **{% data variables.product.prodname_GH_advanced_security %}** | Retrieves information about security alerts within your organization from {% data variables.product.prodname_GH_advanced_security %} features ({% data variables.product.prodname_code_scanning %}, {% data variables.product.prodname_secret_scanning %}, and {% data variables.product.prodname_dependabot_alerts %}).                                                                                                                                                    | Yes                                                                                                                                                                            | _How would I fix this {% data variables.product.prodname_code_scanning %} alert?_                                                                     |
+| **Release details**                                            | Retrieves the latest, or specified, release. This allows you to find out who created a release, when it happened, and information included in the release notes.                                                                                                                                                                                                                                                                                                            | Yes                                                                                                                                                                            | _When was the latest release?_                                                                                                                        |
+| **Repository details**                                         | Retrieves a specific {% data variables.product.prodname_dotcom %} repository. This is useful for finding out details such as the repository owner and the main language used.                                                                                                                                                                                                                                                                                               | Yes                                                                                                                                                                            | _Tell me about this repo_                                                                                                                             |
+| **Symbol definition**                                          | Retrieves the lines of code that define a specific code symbol (function, class, or struct) in the default branch of the Git repository. This skill is useful when you have the exact name of a symbol, and want to understand it.                                                                                                                                                                                                                                          | Yes                                                                                                                                                                            | _Write unit tests for the AuthUser method_                                                                                                            |
+| **Support search**                                             | Retrieves information from the {% data variables.contact.contact_support_portal %}. This skill is useful for asking {% data variables.product.prodname_copilot_chat_short %} about {% data variables.product.prodname_dotcom %} products and support related questions.                                                                                                                                                                                                     | Yes                                                                                                                                                                            | _Can I use {% data variables.product.prodname_copilot_short %} knowledge bases with {% data variables.product.prodname_copilot_individuals_short %}?_ |
+
+## AI models for {% data variables.product.prodname_copilot_chat_short %}
+
+{% data reusables.copilot.copilot-chat-models-beta-note %}
+
+{% data reusables.copilot.copilot-chat-models-list %}
+
+### Changing your AI model
+
+> [!NOTE]
+> * The `o1-preview` and `o1-mini` models do not have access to skills {% ifversion ghec %}or knowledge bases {% endif %}in {% data variables.product.prodname_copilot_chat_dotcom %}. If you want to use skills {% ifversion ghec %}or knowledge bases {% endif %}on {% data variables.product.prodname_dotcom_the_website %}, you must use the `gpt-4o` model.
+> * If you use {% data variables.product.prodname_copilot_extensions_short %}, they may override the model you select.
+> * Experimental pre-release versions of the models may not interact with all filters correctly, including the duplication detection filter.
+
+{% data reusables.copilot.model-picker-enable-preview-features %}
+1. In the bottom right of any page on {% data variables.product.github %}, click {% octicon "copilot" aria-label="Open Copilot Chat" %}.
+1. If the panel contains a previous conversation you had with {% data variables.product.prodname_copilot_short %}, in the top right of the panel, click {% octicon "plus" aria-label="New conversation" %}.
+
+   ![Screenshot of the new conversation button, highlighted with a dark orange outline.](/assets/images/help/copilot/chat-new-conversation-button.png)
+
+1. In the top right of the panel, select the {% octicon "kebab-horizontal" aria-label="Open conversation options" %} dropdown menu, then click {% octicon "screen-full" aria-hidden="true" %} **Take conversation to immersive**. Model selection for {% data variables.product.prodname_copilot_chat_short %} is currently only available in the immersive view.
+1. In the top left of the immersive view, select the **CURRENT-MODEL** {% octicon "chevron-down" aria-hidden="true" %} dropdown menu, then click the AI model of your choice.
 
 ## Asking a general question about software development
 
-You can ask a general question about software development that is not focused on a particular context, such as a repository or a knowledge base.
+You can ask a general question about software development that is not focused on a particular context, such as a repository{% ifversion ghec %} or a knowledge base{% endif %}.
 
 Depending on the question you ask, and your enterprise and organization settings, {% data variables.product.prodname_copilot_short %} may respond using information based on the results of a Bing search. By using Bing search, {% data variables.product.prodname_copilot_short %} can answer a broad range of tech-related questions with up-to-date details based on information currently available on the internet. For information on how to enable or disable Bing search integration, see "[AUTOTITLE](/copilot/managing-copilot/managing-copilot-for-your-enterprise/managing-policies-and-features-for-copilot-in-your-enterprise)."
 
-> [!NOTE] Bing search integration into {% data variables.product.prodname_copilot_chat_dotcom_short %} is currently in beta and is subject to change.
+> [!NOTE] Bing search integration into {% data variables.product.prodname_copilot_chat_dotcom_short %} is currently in {% data variables.release-phases.public_preview %} and is subject to change.
 
 {% data reusables.copilot.go-to-copilot-page %}
 
@@ -110,7 +139,7 @@ Depending on the question you ask, and your enterprise and organization settings
 
 1. On the {% data variables.product.prodname_dotcom %} website, go to the repository you want to chat about.
 
-1. Click the **{% octicon "copilot" aria-hidden="true" %}** {% data variables.product.prodname_copilot %} icon at the top right of the page.
+1. Click the **{% octicon "copilot" aria-hidden="true" %}** {% data variables.product.prodname_copilot %} icon at the bottom right of the page.
 
    The {% data variables.product.prodname_copilot_chat %} panel is displayed. To resize the panel, click and drag the top or left edge.
 
@@ -170,9 +199,11 @@ You can ask {% data variables.product.prodname_copilot_short %} about a specific
 {% data reusables.copilot.stop-response-generation %}
 {% data reusables.copilot.chat-conversation-buttons %}
 
+{% ifversion ghec %}
+
 ## Asking a question about a knowledge base
 
-Organization owners can create knowledge bases, grouping together Markdown documentation across one or more repositories. You can use a knowledge base to ask questions with that context in mind.
+Organization owners (with a {% data variables.product.prodname_copilot_enterprise_short %} subscription) can create knowledge bases, grouping together Markdown documentation across one or more repositories. You can use a knowledge base to ask questions with that context in mind.
 
 When you enter a query, {% data variables.product.prodname_copilot_short %} searches for relevant documentation snippets, synthesizes a summary of the relevant snippets to answer your question, and provides links to the source documentation for additional context.
 
@@ -215,6 +246,7 @@ When you enter a query, {% data variables.product.prodname_copilot_short %} sear
 1. Within a conversation thread, you can ask follow-up questions. Follow-up questions will continue to use the selected knowledge base as context until you explicitly detach the knowledge base or select a different one.
 
 {% data reusables.copilot.chat-conversation-buttons %}
+{% endif %}
 
 ## Asking questions about specific pieces of code
 
@@ -347,7 +379,7 @@ You can ask {% data variables.product.prodname_copilot_short %} to summarize a p
 
 ### Ask why a workflow has failed
 
-> [!NOTE]This feature is currently in beta and subject to change.
+> [!NOTE]This feature is currently in {% data variables.release-phases.public_preview %} and subject to change.
 
 1. On {% data variables.product.prodname_dotcom_the_website %}, navigate to a pull request in a repository.
 1. Scroll to the bottom of the page, then, next to one of the failing checks, click **Details**.
@@ -431,6 +463,10 @@ You can ask {% data variables.product.prodname_copilot_short %} a question about
 
 {% data reusables.copilot.stop-response-generation %}
 
+## Extending {% data variables.product.prodname_copilot_chat_dotcom_short %}
+
+{% data reusables.copilot.copilot-extensions.extending-copilot-chat %}
+
 ## Sharing feedback about {% data variables.product.prodname_copilot_chat_dotcom %}
 
 {% data reusables.rai.copilot-dotcom-feedback-collection %}
@@ -438,3 +474,8 @@ You can ask {% data variables.product.prodname_copilot_short %} a question about
 To give feedback about a particular {% data variables.product.prodname_copilot_chat_short %} response, click either the thumbs up or thumbs down icon at the bottom of each chat response.
 
 To give feedback about {% data variables.product.prodname_copilot_chat_short %} in general, click the ellipsis (**...**) at the top right of the chat panel, then click **Give feedback**.
+
+## Further reading
+
+* "[AUTOTITLE](/copilot/github-copilot-chat/copilot-chat-in-ides/using-github-copilot-chat-in-your-ide)."
+* "[AUTOTITLE](/copilot/using-github-copilot/asking-github-copilot-questions-in-github-mobile)."

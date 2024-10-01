@@ -71,7 +71,7 @@ Once you have enabled validity checks for partner patterns for your repository, 
 ## Reviewing {% data variables.product.company_short %} token metadata
 
 > [!NOTE]
-> Metadata for {% data variables.product.company_short %} tokens is currently in public beta and subject to change.
+> Metadata for {% data variables.product.company_short %} tokens is currently in {% data variables.release-phases.public_preview %} and subject to change.
 
 In the view for an active {% data variables.product.company_short %} token alert, you can review certain metadata about the token. This metadata may help you identify the token and decide what remediation steps to take.
 

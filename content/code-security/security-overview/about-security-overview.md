@@ -84,7 +84,7 @@ For more information about these views, see {% ifversion security-overview-dashb
 
 ![Screenshot of security overview for an organization.](/assets/images/help/security-overview/security-overview-org-legacy.png)
 
-Each repository is shown in security overview with an indicator for each type of security feature and how many alerts there are of each type. If a security feature is not enabled for a repository, the indicator for that feature will be grayed out. In addition, a risk score is calculated for each repository based on its {% data variables.product.prodname_code_scanning %}, {% data variables.product.prodname_dependabot %} and {% data variables.secret-scanning.alerts %}. This score is in beta and should be used with caution. Its algorithm and approach is subject to change.
+Each repository is shown in security overview with an indicator for each type of security feature and how many alerts there are of each type. If a security feature is not enabled for a repository, the indicator for that feature will be grayed out. In addition, a risk score is calculated for each repository based on its {% data variables.product.prodname_code_scanning %}, {% data variables.product.prodname_dependabot %} and {% data variables.secret-scanning.alerts %}. This score is in {% data variables.release-phases.public_preview %} and should be used with caution. Its algorithm and approach is subject to change.
 
 | Indicator | Meaning |
 | -------- | -------- |

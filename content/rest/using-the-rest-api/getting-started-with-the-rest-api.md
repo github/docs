@@ -349,15 +349,11 @@ curl --request GET \
 
 The following example uses the "[Create an issue](/rest/issues/issues#create-an-issue)" endpoint to create a new issue in {% ifversion ghes %}a specified{% else %}the octocat/Spoon-Knife{% endif %} repository.{% ifversion ghes %} Replace `HOSTNAME` with the name of {% data variables.location.product_location %}. Replace `REPO-NAME` with the name of the repository where you want to create a new issue, and replace `REPO-OWNER` with the name of the account that owns the repository.{% endif %} Replace `YOUR-TOKEN` with the authentication token you created in a previous step.
 
-{% ifversion pat-v2 %}
-
 {% note %}
 
 **Note**: If you are using a {% data variables.product.pat_v2 %}, you must replace `{% ifversion ghes %}REPO-OWNER` and `REPO-NAME{% else %}octocat/Spoon-Knife{% endif %}` with a repository that you own or that is owned by an organization that you are a member of. Your token must have access to that repository and have read and write permissions for repository issues. For more information, see "[AUTOTITLE](/authentication/keeping-your-account-and-data-secure/creating-a-personal-access-token)."
 
 {% endnote %}
-
-{% endif %}
 
 ```shell copy
 curl \
@@ -418,15 +414,11 @@ Create an access token to authenticate your request. You can save your token and
 
    In the following example request, the HTTP method is `POST`, the path is `/repos/{owner}/{repo}/issues`, the path parameters are `owner: "{% ifversion ghes %}REPO-OWNER{% else %}octocat{% endif %}"` and `repo: "{% ifversion ghes %}REPO-NAME{% else %}Spoon-Knife{% endif %}"`, and the body parameters are `title: "Created with the REST API"` and `body: "This is a test issue created by the REST API"`.{% ifversion ghes %} Replace `REPO-OWNER` with the name of the account that owns the repository, and `REPO-NAME` with the name of the repository.{% endif %}
 
-   {% ifversion pat-v2 %}
-
    {% note %}
 
    **Note**: If you are using a {% data variables.product.pat_v2 %}, you must replace `{% ifversion ghes %}REPO-OWNER` and `REPO-NAME{% else %}octocat/Spoon-Knife{% endif %}` with a repository that you own or that is owned by an organization that you are a member of. Your token must have access to that repository and have read and write permissions for repository issues. For more information, see "[AUTOTITLE](/authentication/keeping-your-account-and-data-secure/creating-a-personal-access-token)."
 
    {% endnote %}
-
-   {% endif %}
 
    ```javascript copy
    await octokit.request("POST /repos/{owner}/{repo}/issues", {

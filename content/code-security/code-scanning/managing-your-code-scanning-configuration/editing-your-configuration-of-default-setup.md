@@ -18,7 +18,7 @@ topics:
 After running an initial analysis of your code with default setup, you may need to make changes to your configuration to better meet your code security needs. For existing configurations of default setup, you can edit:
 * Which languages default setup will analyze.
 * The query suite run during analysis. For more information on the available query suites, see "[AUTOTITLE](/code-security/code-scanning/managing-your-code-scanning-configuration/codeql-query-suites)."{% ifversion codeql-threat-models %}
-* The threat models (beta) to use for analysis. Your choice of threat model determines which sources of tainted data are treated as a risk to your application. During the beta, threat models are supported only for analysis of {% data variables.code-scanning.code_scanning_threat_model_support %}. For more information about threat models, see "[Including local sources of tainted data in default setup](#including-local-sources-of-tainted-data-in-default-setup)."
+* The threat models (beta) to use for analysis. Your choice of threat model determines which sources of tainted data are treated as a risk to your application. During the {% data variables.release-phases.public_preview %}, threat models are supported only for analysis of {% data variables.code-scanning.code_scanning_threat_model_support %}. For more information about threat models, see "[Including local sources of tainted data in default setup](#including-local-sources-of-tainted-data-in-default-setup)."
 {% endif %}
 
 {% ifversion codeql-model-packs %}
@@ -70,7 +70,7 @@ For more information, see "[AUTOTITLE](/code-security/code-scanning/managing-you
 
 {% data reusables.code-scanning.beta-threat-models %}
 
-If your codebase only considers remote network requests to be potential sources of tainted data, then we recommend using the default threat model. If your codebase considers sources other than network requests to potentially contain tainted data, then you can use threat models to add these additional sources to your {% data variables.product.prodname_codeql %} analysis. During the beta, you can add local sources (for example: command-line arguments, environment variables, file systems, and databases) that your codebase may consider to be additional sources of tainted data.
+If your codebase only considers remote network requests to be potential sources of tainted data, then we recommend using the default threat model. If your codebase considers sources other than network requests to potentially contain tainted data, then you can use threat models to add these additional sources to your {% data variables.product.prodname_codeql %} analysis. During the {% data variables.release-phases.public_preview %}, you can add local sources (for example: command-line arguments, environment variables, file systems, and databases) that your codebase may consider to be additional sources of tainted data.
 
 You can edit the threat model used in a default setup configuration. For more information, see "[Customizing your existing configuration of default setup](#customizing-your-existing-configuration-of-default-setup)."
 

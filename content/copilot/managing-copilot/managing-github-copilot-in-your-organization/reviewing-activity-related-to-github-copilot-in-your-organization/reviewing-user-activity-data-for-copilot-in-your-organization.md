@@ -42,7 +42,7 @@ You can use {% data variables.product.prodname_dotcom %}'s REST API to get detai
 
 ## Understanding the `last_activity_at` calculation
 
-> [!NOTE] This data is in public beta and subject to change.
+> [!NOTE] This data is in {% data variables.release-phases.public_preview %} and subject to change.
 
 To align the `last_activity_at` data point with _actual usage_, the system returns the timestamp of a user's most recent interaction with Copilot functionality. These interactions are:
 

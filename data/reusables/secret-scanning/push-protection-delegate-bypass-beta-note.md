@@ -1,1 +1,1 @@
->[!NOTE] Delegated bypass for push protection is currently in beta and subject to change.
+>[!NOTE] Delegated bypass for push protection is currently in {% data variables.release-phases.public_preview %} and subject to change.

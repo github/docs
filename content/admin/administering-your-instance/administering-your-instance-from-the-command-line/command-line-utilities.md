@@ -210,7 +210,7 @@ $ ghe-es-index-status -do | column -ts,
 
 ### ghe-legacy-github-services-report
 
-This utility lists repositories on your appliance that use {% data variables.product.prodname_dotcom %} Services, an integration method that will be discontinued on October 1, 2018. Users on your appliance may have set up {% data variables.product.prodname_dotcom %} Services to create notifications for pushes to certain repositories. For more information, see "[Announcing the deprecation of {% data variables.product.prodname_dotcom %} Services](https://developer.github.com/changes/2018-04-25-github-services-deprecation/)" on {% data variables.product.prodname_blog %}. For more information about this command or for additional options, use the `-h` flag.
+This utility lists repositories on your appliance that use {% data variables.product.prodname_dotcom %} Services, an integration that was discontinued on October 1, 2018. Users on your appliance may have set up {% data variables.product.prodname_dotcom %} Services to create notifications for pushes to certain repositories. For more information, see "[Announcing the deprecation of {% data variables.product.prodname_dotcom %} Services](https://developer.github.com/changes/2018-04-25-github-services-deprecation/)" on {% data variables.product.prodname_blog %}. For more information about this command or for additional options, use the `-h` flag.
 
 ```shell
 ghe-legacy-github-services-report
@@ -325,7 +325,6 @@ This utility lists all of the services that have been started or stopped (are ru
 
 ```shell
 $ ghe-service-list
-{% ifversion viewscreen-and-notebooks %}
 active
   - alambic
   - alive
@@ -378,26 +377,6 @@ active
 
 inactive
   - wireguard
-{% else %}
-start/running
-  - github-resqued, process 12711
-  - github-unicorn, process 12726
-  - github-gitauth, process 12743
-  - git-daemon, process 12755
-  - babeld, process 12771
-  - github-svn-proxy, process 12802
-  - gist-unicorn, process 12832
-  - gist-resqued, process 12881
-  - render-unicorn, process 12939
-  - hookshot-unicorn, process 13076
-  - nodeload2, process 13192
-  - slumlord-unicorn, process 13304
-  - ghe-storage, process 2012
-  - enterprise-manage-unicorn, process 2024
-  - enterprise-manage-resque, process 2053
-stop/waiting
-  - ghe-replica-mode
-  {% endif %}
 ```
 
 ### ghe-set-password

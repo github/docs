@@ -36,6 +36,6 @@ Some browser vendors provide extended support releases. We do our best to ensure
 
 In earlier extended support releases, {% data variables.product.product_name %} may not work as you expect, and some features may not be available.
 
-## Beta and developer builds
+## {% data variables.release-phases.public_preview_caps %} and developer builds
 
-You may encounter unexpected bugs in beta and developer builds of our supported browsers. If you encounter a bug on {% data variables.product.product_name %} in one of these unreleased builds, please verify that it also exists in the stable version of the same browser. If the bug only exists in the unstable version, consider reporting the bug to the browser developer.
+You may encounter unexpected bugs in {% data variables.release-phases.public_preview %} and developer builds of our supported browsers. If you encounter a bug on {% data variables.product.product_name %} in one of these unreleased builds, please verify that it also exists in the stable version of the same browser. If the bug only exists in the unstable version, consider reporting the bug to the browser developer.

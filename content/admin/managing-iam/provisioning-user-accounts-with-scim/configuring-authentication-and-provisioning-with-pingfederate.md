@@ -24,7 +24,7 @@ This guide will help you to set up both SAML authentication and SCIM provisionin
 
 Before you start, please note the following:
 
-* The use of PingFederate as an IdP for {% data variables.product.prodname_ghe_server %} is in beta. Please contact your account team to provide feedback.
+* The use of PingFederate as an IdP for {% data variables.product.prodname_ghe_server %} is in {% data variables.release-phases.public_preview %}. Please contact your account team to provide feedback.
 * This guide is based on PingFederate version 12.1. Instructions may vary for other versions.
 * This guide assumes that you are using an LDAP server as the backing data store. JDBC data stores should work, but the instructions may vary slightly.
 * This guide provides the minimal steps to configure a working setup. Because your identity directory may be connected to PingFederate differently, you’ll need to pick the correct data attributes for SAML and SCIM based on what is available from your backing data store.

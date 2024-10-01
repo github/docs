@@ -10,7 +10,9 @@ redirect_from:
   - /actions/advanced-guides/caching-dependencies-to-speed-up-workflows
   - /actions/using-workflows/caching-dependencies-to-speed-up-workflows
 versions:
-  feature: actions-caching
+  fpt: '*'
+  ghec: '*'
+  ghes: '*'
 type: tutorial
 topics:
   - Workflows

@@ -20,7 +20,7 @@ Autocomplete-style suggestions from {% data variables.product.prodname_copilot_s
 
 ### {% data variables.product.prodname_copilot_chat_short %}
 
-A chat interface that lets you ask coding-related questions. {% data variables.product.prodname_copilot_chat %} is available in {% data variables.product.prodname_dotcom_the_website %} _({% data variables.product.prodname_copilot_enterprise_short %} only)_, in {% data variables.product.prodname_mobile %}, and in supported IDEs _({% data variables.product.prodname_vscode %}, {% data variables.product.prodname_vs %}, and JetBrains IDEs)_. {% data variables.product.prodname_copilot_enterprise_short %} users can also use skills with {% data variables.product.prodname_copilot_chat_short %}.
+A chat interface that lets you ask coding-related questions. {% data variables.product.prodname_copilot_chat %} is available in {% data variables.product.prodname_dotcom_the_website %}, in {% data variables.product.prodname_mobile %}, and in supported IDEs _({% data variables.product.prodname_vscode %}, {% data variables.product.prodname_vs %}, and JetBrains IDEs)_. Users can also use skills with {% data variables.product.prodname_copilot_chat_short %}.
 
 ### {% data variables.product.prodname_copilot_cli_short %}
 

@@ -15,7 +15,7 @@ shortTitle: View deployment activity
 ---
 {% note %}
 
-**Note:** The deployments dashboard is currently in beta and subject to change.
+**Note:** The deployments dashboard is currently in {% data variables.release-phases.public_preview %} and subject to change.
 
 {% endnote %}
 

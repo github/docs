@@ -1,5 +1,5 @@
 {% note %}
 
-**Note**: The {% data variables.dependency-review.action_name %} is currently in public beta and subject to change.
+**Note**: The {% data variables.dependency-review.action_name %} is currently in {% data variables.release-phases.public_preview %} and subject to change.
 
 {% endnote %}
