@@ -67,6 +67,48 @@ You can filter issues and pull requests to find:
 
    ![Screenshot of the list of issues for a repository. Above the list, a dropdown menu, labeled "Filters", is outlined in dark orange.](/assets/images/help/issues/issues-filter-dropdown.png)
 
+{% ifversion issues-advanced-search %}
+
+{% webui %}
+
+## Building advanced filters for issues
+
+{% data reusables.issues.release-stage %}
+
+You can build advanced filters using boolean and nested queries on your repository's issues page. As you type your filter, {% data variables.product.github %} will show available qualifiers, suggest values, and warn when there is a problem with your filter.
+
+### Using boolean operators
+
+You can use `AND` and `OR` operators to refine your filters.
+
+Use `AND` when you need results where both statements are true. In the example filter below, the results will be comprised of issues with the "Bug fix" label that are assigned to the @octocat user.
+
+```text
+label:"Bug fix" AND assignee:octocat
+```
+
+To return results where either statement is true, use `OR`. In the example below, the results will contain issues assigned to either @octocat or @hubot.
+
+```text
+assignee:octocat OR assignee:hubot
+```
+
+If you choose not to use `AND` and `OR` operators, {% data variables.product.github %} will treat a space between statements as an `AND` operator unless you are using an `org`, `repo`, or `user` field to filter by ownership where any spaces will be treated as an `OR` operator.
+
+### Using parentheses for more complicated filters
+
+You can also use parentheses to nest filters and group qualifiers. In the example below, the results will contain issues that are either assigned to @octocat with the "bug" issue type or assigned to @hubot with the "Enchancement" issue type.
+
+```text
+(type:"Bug" AND assignee:octocat) OR (type:"Enhancement" AND assignee:hubot)
+```
+
+You can nest filters using parentheses up to five levels deep. It's not currently possible to include the `repo`, `org`, or `user` qualifiers within parentheses.
+
+{% endwebui %}
+
+{% endif %}
+
 ## Filtering issues and pull requests by assignees
 
 Once you've [assigned an issue or pull request to someone](/issues/tracking-your-work-with-issues/assigning-issues-and-pull-requests-to-other-github-users), you can find items based on who's working on them.
@@ -99,6 +141,24 @@ Once you've [applied labels to an issue or pull request](/issues/using-labels-an
 
 {% endtip %}
 
+{% ifversion issue-types %}
+
+## Filtering by issue type
+
+{% data reusables.issues.release-stage %}
+
+If your organization uses issue types, you can filter issues for a particular type. You can also type the `type:` qualifier directly into your filter.
+
+{% data reusables.repositories.navigate-to-repo %}
+{% data reusables.repositories.sidebar-issues %}
+1. Above the list of issues, select the **Types** dropdown menu.
+
+   ![Screenshot of a list of issues. In the header above the list, a dropdown menu, labeled "Types", is outlined in dark orange and the Issue Types menu is open.](/assets/images/help/issues/issue-type-dropdown.png)
+
+1. In the list of type, click an issue type.
+
+{% endif %}
+
 ## Filtering pull requests by review status
 
 You can use filters to list pull requests by review status and to find pull requests that you've reviewed or other people have asked you to review.
@@ -122,7 +182,7 @@ You can filter a repository's list of pull requests to find:
 
 ## Using search to filter issues and pull requests
 
-You can use advanced filters to search for issues and pull requests that meet specific criteria.
+You can use filters to search for issues and pull requests that meet specific criteria.
 
 ### Searching for issues and pull requests
 
@@ -182,8 +242,10 @@ For issues, you can also use search to:
 
 * Filter for issues that are linked to a pull request by a closing reference: `linked:pr`{% ifversion issue-close-reasons %}
 * Filter issues by the reason they were closed: `is:closed reason:completed` or `is:closed reason:"not planned"`{% endif %}
+{% ifversion issue-types %}* Filter for issues with a particular type: `is:open type:"Bug"`{% endif %}
 
 For pull requests, you can also use search to:
+
 * Filter [draft](/pull-requests/collaborating-with-pull-requests/proposing-changes-to-your-work-with-pull-requests/about-pull-requests#draft-pull-requests) pull requests: `is:draft`
 * Filter pull requests that haven't been [reviewed](/pull-requests/collaborating-with-pull-requests/reviewing-changes-in-pull-requests/about-pull-request-reviews) yet: `state:open type:pr review:none`
 * Filter pull requests that [require a review](/repositories/configuring-branches-and-merges-in-your-repository/managing-protected-branches/about-protected-branches#require-pull-request-reviews-before-merging) before they can be merged: `state:open type:pr review:required`
