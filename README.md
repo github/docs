@@ -1,37 +1,33 @@
 # GitHub Docs <!-- omit in toc -->
-[![Build GitHub Docs On Codespaces](https://github.com/codespaces/badge.svg)](https://github.com/codespaces/new/?repo=github)
+[![Build GitHub Docs on Codespaces](https://github.com/codespaces/badge.svg)](https://github.com/codespaces/new/?repo=github)
 
-This repository contains the documentation website code and Markdown source files for [docs.github.com](https://docs.github.com).
+Welcome to the GitHub Docs repository! Here you'll find the code and Markdown source files for [docs.github.com](https://docs.github.com). GitHub's Documentation team develops content in a private repository, which is synced regularly with this public repo.
 
-GitHub's Docs team works on pre-production content in a private repo that regularly syncs with this public repo.
-
-Use the table of contents icon <img alt="Table of contents icon" src="./contributing/images/table-of-contents.png" width="25" height="25" /> on the top right corner of this document to navigate to a specific section quickly.
+Use the table of contents icon <img alt="Table of contents icon" src="./contributing/images/table-of-contents.png" width="25" height="25" /> in the top-right corner for easy navigation.
 
 ## Contributing
 
-We accept different types of contributions, including some that don't require you to write a single line of code. For detailed instructions on how to get started with our project, see "[About contributing to GitHub Docs](https://docs.github.com/en/contributing/collaborating-on-github-docs/about-contributing-to-github-docs)."
+We welcome a variety of contributions, many of which don't require any coding. For detailed instructions on how to get started, visit "[About contributing to GitHub Docs](https://docs.github.com/en/contributing/collaborating-on-github-docs/about-contributing-to-github-docs)."
 
-### Ways to contribute
+### How to Contribute
 
-On the GitHub Docs site, you can contribute by clicking the **Make a contribution** button at the bottom of the page to open a pull request for quick fixes like typos, updates, or link fixes.
+On the GitHub Docs site, you can contribute by clicking the **Make a contribution** button at the bottom of any page. This opens a pull request for simple fixes like typos, broken links, or small updates.
 
-You can also contribute by creating a local environment or opening a Codespace. For more information, see "[Setting up your environment to work on GitHub Docs](https://docs.github.com/en/contributing/setting-up-your-environment-to-work-on-github-docs)."
+For more involved contributions, you can set up a local environment or create a Codespace. Learn more in "[Setting up your environment to work on GitHub Docs](https://docs.github.com/en/contributing/setting-up-your-environment-to-work-on-github-docs)."
 
 <img alt="Contribution call-to-action" src="./contributing/images/contribution_cta.png" width="400">
 
-For more complex contributions, please open an issue using the most appropriate [issue template](https://github.com/github/docs/issues/new/choose) to describe the changes you'd like to see.
+For more significant changes, please open an issue using the relevant [issue template](https://github.com/github/docs/issues/new/choose) to describe the update you'd like to propose.
 
-If you're looking for a way to contribute, you can scan through our [help wanted board](https://github.com/github/docs/issues?q=is%3Aopen+is%3Aissue+label%3A%22help+wanted%22) to find open issues already approved for work.
+If you're looking for areas to contribute, check out the [help wanted board](https://github.com/github/docs/issues?q=is%3Aopen+is%3Aissue+label%3A%22help+wanted%22), where we list issues open for contribution.
 
-### And that's it!
+### And That's It!
 
-If you're having trouble with your GitHub account, contact [Support](https://support.github.com).
-
-That's how you can easily become a member of the GitHub Docs community. :sparkles:
+For GitHub account issues, contact [Support](https://support.github.com). That's how you can join the GitHub Docs community! :sparkles:
 
 ## READMEs
 
-In addition to the README you're reading right now, this repo includes other READMEs that describe the purpose of each subdirectory in more detail:
+This repo also includes additional README files that explain the purpose of each subdirectory:
 
 - [content/README.md](content/README.md)
 - [content/graphql/README.md](content/graphql/README.md)
@@ -44,12 +40,8 @@ In addition to the README you're reading right now, this repo includes other REA
 
 ## License
 
-The GitHub product documentation in the assets, content, and data folders are licensed under a [CC-BY license](LICENSE).
+The documentation files in the `assets`, `content`, and `data` folders are licensed under a [CC-BY license](LICENSE). All other code in this repository is licensed under the [MIT license](LICENSE-CODE). When using GitHub logos, please follow the [GitHub logo guidelines](https://github.com/logos).
 
-All other code in this repository is licensed under the [MIT license](LICENSE-CODE).
+## Thank You! :purple_heart:
 
-When using the GitHub logos, be sure to follow the [GitHub logo guidelines](https://github.com/logos).
-
-## Thanks :purple_heart:
-
-Thanks for all your contributions and efforts towards improving the GitHub documentation. We thank you for being part of our :sparkles: community :sparkles:!
+We appreciate your contributions and efforts to improve GitHub Docs. Thank you for being a part of our amazing community! :sparkles:
