@@ -1,7 +1,7 @@
 ---
 title: Dependency graph supported package ecosystems
 shortTitle: Dependency graph ecosystem support # Max 31 characters
-intro: 'Dependency graph supports a variety of ecosystem.'
+intro: 'Dependency graph supports a variety of ecosystems.'
 allowTitleToDifferFromFilename: true
 type: reference
 topics:
