@@ -1,4 +1,4 @@
-# GitHub Docs <!-- omit in toc -->
+# GitHub Docs
 [![Build GitHub Docs on Codespaces](https://github.com/codespaces/badge.svg)](https://github.com/codespaces/new/?repo=github)
 
 Welcome to the GitHub Docs repository! Here you'll find the code and Markdown source files for [docs.github.com](https://docs.github.com). GitHub's Documentation team develops content in a private repository, which is synced regularly with this public repo.
