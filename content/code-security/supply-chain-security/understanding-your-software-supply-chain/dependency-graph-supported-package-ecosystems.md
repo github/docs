@@ -30,7 +30,7 @@ The recommended formats explicitly define which versions are used for all direct
 
 ## Package ecosystems supported via dependency submission actions
 
-You can use the {% data variables.dependency-submission-api.name %} to add dependencies from the package manager or ecosystem of your choice to the dependency graph, even if the ecosystem is not in the supported ecosystem list above. Dependency information from these discovered and submitted dependencies will, in turn, flow into {% data variables.product.prodname_dependabot_updates %} and {% data variables.product.prodname_dependabot_alerts %}.
+You can use the {% data variables.dependency-submission-api.name %} to add build-time dependencies to the dependency graph, or to add dependencies from package managers and ecosystems of your choice to the dependency graph, even if the ecosystem is not in the supported ecosystem list above. Dependency information from these submitted dependencies will, in turn, flow into {% data variables.product.prodname_dependabot_updates %} and {% data variables.product.prodname_dependabot_alerts %}.
 
 {% data reusables.dependency-graph.dependency-submission-API-short %} For more information on the {% data variables.dependency-submission-api.name %}, see "[AUTOTITLE](/code-security/supply-chain-security/understanding-your-software-supply-chain/using-the-dependency-submission-api)."
 
