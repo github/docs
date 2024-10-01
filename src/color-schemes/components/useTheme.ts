@@ -1,66 +1,77 @@
 import { useState, useEffect } from 'react'
 import Cookies from '../../frame/components/lib/cookies'
 
+// Enum representing CSS color modes
 enum CssColorMode {
-  auto = 'auto',
-  light = 'light',
-  dark = 'dark',
+  auto = 'auto', // Detects user's OS theme preference
+  light = 'light', // Forces light theme
+  dark = 'dark', // Forces dark theme
 }
 
+// Enum representing component color modes (maps to CssColorMode)
 enum ComponentColorMode {
-  auto = 'auto',
-  day = 'day',
-  night = 'night',
+  auto = 'auto', // Automatically adjusts component theme
+  day = 'day', // Light theme for components
+  night = 'night', // Dark theme for components
 }
 
+// Enum for supported theme variants (used in both CSS and component themes)
 enum SupportedTheme {
-  light = 'light',
-  dark = 'dark',
-  dark_dimmed = 'dark_dimmed',
-  dark_high_contrast = 'dark_high_contrast',
+  light = 'light', // Light theme
+  dark = 'dark', // Dark theme
+  dark_dimmed = 'dark_dimmed', // Dimmed dark theme
+  dark_high_contrast = 'dark_high_contrast', // High contrast dark theme
 }
 
+// Type for managing CSS color theme settings
 type CssColorTheme = {
   colorMode: CssColorMode
   lightTheme: SupportedTheme
   darkTheme: SupportedTheme
 }
 
+// Type for managing component-specific color theme settings
 type ComponentColorTheme = {
   colorMode: ComponentColorMode
   dayScheme: SupportedTheme
   nightScheme: SupportedTheme
 }
 
+// Consolidated theme settings for both CSS and component themes
 type ColorModeThemes = {
   css: CssColorTheme
   component: ComponentColorTheme
 }
 
+// Default theme settings for CSS
 export const defaultCSSTheme: CssColorTheme = {
   colorMode: CssColorMode.auto,
   lightTheme: SupportedTheme.light,
   darkTheme: SupportedTheme.dark,
 }
 
+// Default theme settings for components
 export const defaultComponentTheme: ComponentColorTheme = {
   colorMode: ComponentColorMode.auto,
   dayScheme: SupportedTheme.light,
   nightScheme: SupportedTheme.dark,
 }
 
+// Mapping CSS color modes to component color modes for consistency
 const cssColorModeToComponentColorMode: Record<CssColorMode, ComponentColorMode> = {
   [CssColorMode.auto]: ComponentColorMode.auto,
   [CssColorMode.light]: ComponentColorMode.day,
   [CssColorMode.dark]: ComponentColorMode.night,
 }
 
+// Filters the CSS color mode, ensuring it's a valid value
 function filterMode(mode = ''): CssColorMode | undefined {
   if (Object.values<string>(CssColorMode).includes(mode)) {
     return mode as CssColorMode
   }
 }
 
+// Filters the supported theme, ensuring it's a valid theme name or color mode
 function filterTheme({ name = '', color_mode = '' } = {}): SupportedTheme | undefined {
   if (Object.values<string>(SupportedTheme).includes(name)) {
     return name as SupportedTheme
@@ -70,6 +81,7 @@ function filterTheme({ name = '', color_mode = '' } = {}): SupportedTheme | unde
   }
 }
 
+// Parses the CSS theme from a cookie value, applying default settings if parsing fails
 export function getCssTheme(cookieValue = ''): CssColorTheme {
   if (!cookieValue) return defaultCSSTheme
   try {
@@ -81,23 +93,25 @@ export function getCssTheme(cookieValue = ''): CssColorTheme {
       darkTheme: filterTheme(dark_theme) || defaultCSSTheme.darkTheme,
     }
   } catch (err) {
-    if (process.env.NODE_ENV === 'development')
+    // Only log the error in development mode
+    if (process.env.NODE_ENV === 'development') {
       console.warn("Unable to parse 'color_mode' cookie", err)
+    }
     return defaultCSSTheme
   }
 }
 
+// Converts the CSS theme to a component-compatible theme
 export function getComponentTheme(cookieValue = ''): ComponentColorTheme {
   const { colorMode, lightTheme, darkTheme } = getCssTheme(cookieValue)
   return {
-    // The cookie value is a primer/css color_mode.
-    // We need to convert that to a primer/react compatible version.
-    colorMode: cssColorModeToComponentColorMode[colorMode],
-    dayScheme: lightTheme,
-    nightScheme: darkTheme,
+    colorMode: cssColorModeToComponentColorMode[colorMode], // Convert CSS color mode to component mode
+    dayScheme: lightTheme, // Day scheme uses the light theme
+    nightScheme: darkTheme, // Night scheme uses the dark theme
   }
 }
 
+// Custom hook to manage the current theme for both CSS and components
 export function useTheme() {
   const [theme, setTheme] = useState<ColorModeThemes>({
     css: defaultCSSTheme,
@@ -105,25 +119,16 @@ export function useTheme() {
   })
 
   useEffect(() => {
-    // Using setTimeout with a default delay value of 0 interjects one
-    // additional event cycle, which works around a bug that is the
-    // result of a timing issue. Without the setTimeout function
-    // the page loads, then the docs site switches the color mode to
-    // match the user's GitHub color mode. Primer React has a useEffect
-    // call that overrides this change, causing the site to ignore the
-    // user's GitHub color mode and revert to auto.
-    // As a temporary workaround, this code that fetches the user's GitHub
-    // color mode will be called after Primer React's useEffect call.
-    // The long term solution to this theming issue is to migrate to CSS variables
-    // under the hood, which Primer is planning to do in the next couple quarters.
-    // Reference: https://github.com/primer/react/issues/2229
+    // The setTimeout ensures that the user's theme preference is applied
+    // after any Primer React theme-related changes.
+    // This is a workaround for a known timing issue in Primer React.
     setTimeout(() => {
-      const cookieValue = Cookies.get('color_mode')
-      const css = getCssTheme(cookieValue)
-      const component = getComponentTheme(cookieValue)
-      setTheme({ css, component })
+      const cookieValue = Cookies.get('color_mode') // Fetch the user's theme from cookies
+      const css = getCssTheme(cookieValue) // Parse the CSS theme from the cookie
+      const component = getComponentTheme(cookieValue) // Convert it to a component-compatible theme
+      setTheme({ css, component }) // Update the theme state with the fetched theme
     })
-  }, [])
+  }, []) // Run only once when the component is mounted
 
-  return { theme }
+  return { theme } // Return the current theme object
 }
