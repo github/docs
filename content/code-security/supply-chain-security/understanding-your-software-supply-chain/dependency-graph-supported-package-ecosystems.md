@@ -28,7 +28,11 @@ The recommended formats explicitly define which versions are used for all direct
 
 {% data reusables.dependency-graph.supported-package-ecosystems %}
 
+{% ifversion maven-transitive-dependencies %}
+
 For ecosystems that resolve transitive dependencies at build-time, we recommend configuring dependency submission to automatically submit these dependencies to the dependency graph. For more information, see "[AUTOTITLE](/code-security/supply-chain-security/understanding-your-software-supply-chain/configuring-automatic-dependency-submission-for-your-repository)."
+
+{% endif %}
 
 ## Package ecosystems supported via dependency submission actions
 
