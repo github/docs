@@ -22,7 +22,7 @@ The indexing status of a repository is displayed on {% data variables.product.pr
 
 After you index a repository it is automatically re-indexed every time a change is pushed to the repository.
 
-## Indexing limits
+## Indexing limits (Per Individual)
 
 {% rowheaders %}
 
