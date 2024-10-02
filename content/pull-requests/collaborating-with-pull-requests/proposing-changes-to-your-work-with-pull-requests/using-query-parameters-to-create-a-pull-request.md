@@ -21,7 +21,7 @@ You can use query parameters to open pull requests. Query parameters are optiona
 
 You must have the proper permissions for any action to use the equivalent query parameter. For example, you must have permission to add a label to a pull request to use the `labels` query parameter. For more information, see "[AUTOTITLE](/organizations/managing-user-access-to-your-organizations-repositories/managing-repository-roles/repository-roles-for-an-organization)."
 
-If you create an invalid URL using query parameters, or if you don’t have the proper permissions, the URL will return a `404 Not Found` error page. If you create a URL that exceeds the server limit, the URL will return a `414 URI Too Long` error page.
+If you create an invalid URL using query parameters, or if you don’t have the proper permissions, the URL will return a `404 Not Found` error page. If you create a URL that exceeds the server limit, the URL will return a `414 URL Too Long` error page.
 
 Query parameter | Example
 ---  | ---
