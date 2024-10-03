@@ -72,7 +72,7 @@ After you change your username, {% data variables.product.product_name %} will a
 * Web links to your existing repositories will continue to work. This can take a few minutes to complete after you make the change.
 * Command line pushes from your local repository clones to the old remote tracking URLs will continue to work.
 
-If the new owner of your old username creates a repository with the same name as your repository, that will override the redirect entry and your redirect will stop working. Because of this possibility, we recommend you update all existing remote repository URLs after changing your username. For more information, see "[AUTOTITLE](/get-started/getting-started-with-git/managing-remote-repositories)."
+We recommend you update all existing remote repository URLs after changing your username. For more information, see "[AUTOTITLE](/get-started/getting-started-with-git/managing-remote-repositories)."
 
 ## Links to your previous profile page
 
