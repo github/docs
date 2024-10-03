@@ -239,11 +239,11 @@ Use the category to distinguish between multiple analyses for the same tool or c
 
 | `id` | category | `run_id` |
 |----|----|----|
-| my-analysis/tool1/2021-02-01 | my-analysis/tool1 | 2021-02-01
+| my-analysis/tool1/2022-01-02 | my-analysis/tool1 | 2022-01-02
 | my-analysis/tool1/ | my-analysis/tool1 | None
 | my-analysis for tool1 | None | my-analysis for tool1
 
-* The run with an `id` of "my-analysis/tool1/2021-02-01" belongs to the category "my-analysis/tool1". Presumably, this is the run from February 2, 2021.
+* The run with an `id` of "my-analysis/tool1/2021-02-01" belongs to the category "my-analysis/tool1". Presumably, this is the run from January 2, 2022.
 * The run with an `id` of "my-analysis/tool1/" belongs to the category "my-analysis/tool1" but is not distinguished from other runs in that category.
 * The run whose `id` is "my-analysis for tool1 " has a unique identifier but cannot be inferred to belong to any category.
 
