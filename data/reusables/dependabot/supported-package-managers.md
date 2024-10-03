@@ -17,10 +17,10 @@ Go modules     | `gomod`          | v1               | {% octicon "check" aria-l
 [Maven](#maven)       | `maven`          | Not applicable   | {% octicon "check" aria-label="Supported" %} | {% octicon "check" aria-label="Supported" %} | {% octicon "check" aria-label="Supported" %} | {% octicon "check" aria-label="Supported" %} | {% octicon "x" aria-label="Not supported" %} |
 npm            | `npm`            | v6, v7, v8, v9   | {% octicon "check" aria-label="Supported" %} | {% octicon "check" aria-label="Supported" %} | {% octicon "check" aria-label="Supported" %} | {% octicon "check" aria-label="Supported" %} | {% octicon "x" aria-label="Not supported" %} |
 [NuGet](#nuget-cli)          | `nuget`          | {% ifversion dependabot-updates-v680-nuget-support %}<=6.8.0{% elsif ghes = 3.12 %}<= 6.7.0{% else %}<= 4.8{% endif %} | {% octicon "check" aria-label="Supported" %} | {% octicon "check" aria-label="Supported" %} | {% octicon "check" aria-label="Supported" %} | {% octicon "check" aria-label="Supported" %} | {% octicon "x" aria-label="Not supported" %} |
-| {% ifversion dependabot-PEP621-support %}[pip](#pip-compile-and-uv){% else %}pip{% endif %} | `pip`            | v21.1.2          | {% octicon "check" aria-label="Supported" %} | {% octicon "check" aria-label="Supported" %} | {% octicon "x" aria-label="Not supported" %} | {% octicon "check" aria-label="Supported" %} | {% octicon "x" aria-label="Not supported" %} |
+| {% ifversion dependabot-PEP621-support %}[pip](#pip-pip-compile-and-uv){% else %}pip{% endif %} | `pip`            | v21.1.2          | {% octicon "check" aria-label="Supported" %} | {% octicon "check" aria-label="Supported" %} | {% octicon "x" aria-label="Not supported" %} | {% octicon "check" aria-label="Supported" %} | {% octicon "x" aria-label="Not supported" %} |
 pipenv         | `pip`            | <= 2021-05-29    | {% octicon "check" aria-label="Supported" %} | {% octicon "check" aria-label="Supported" %} | {% octicon "x" aria-label="Not supported" %} | {% octicon "check" aria-label="Supported" %} | {% octicon "x" aria-label="Not supported" %} |
 |  {% ifversion dependabot-PEP621-support %}[pip-compile](#pip-compile-and-uv){% else %}pip-compile{% endif %}   | `pip`            | 6.1.0            | {% octicon "check" aria-label="Supported" %} | {% octicon "check" aria-label="Supported" %} | {% octicon "x" aria-label="Not supported" %} | {% octicon "check" aria-label="Supported" %} | {% octicon "x" aria-label="Not supported" %} |
-|  {% ifversion dependabot-PEP621-support %}[uv](#pip-compile-and-uv){% else %}uv{% endif %}   | `pip`            | 0.4.9            | {% octicon "check" aria-label="Supported" %} | {% octicon "check" aria-label="Supported" %} | {% octicon "x" aria-label="Not supported" %} | {% octicon "check" aria-label="Supported" %} | {% octicon "x" aria-label="Not supported" %} |
+|  {% ifversion dependabot-PEP621-support %}[uv](#pip-pip-compile-and-uv){% else %}uv{% endif %}   | `pip`            | 0.4.9            | {% octicon "check" aria-label="Supported" %} | {% octicon "check" aria-label="Supported" %} | {% octicon "x" aria-label="Not supported" %} | {% octicon "check" aria-label="Supported" %} | {% octicon "x" aria-label="Not supported" %} |
 | {% ifversion dependabot-updates-pnpm-support %} |
 [pnpm](#pnpm)   | `npm`            | v7, v8, v9      | {% octicon "check" aria-label="Supported" %} | {% octicon "check" aria-label="Supported" %} (v7 and v8 only) | {% octicon "check" aria-label="Supported" %} | {% octicon "check" aria-label="Supported" %} | {% octicon "x" aria-label="Not supported" %} |
 | {% endif %} |
@@ -117,7 +117,7 @@ For {% data variables.product.prodname_dependabot_security_updates %}, Gradle su
 
 {% ifversion dependabot-PEP621-support %}
 
-#### pip-compile and uv
+#### pip, pip-compile and uv
 
 {% data variables.product.prodname_dependabot %} can update `requirements.txt` files using both `pip-compile` and `uv pip` (depending on which one was used to generate the file). {% data variables.product.prodname_dependabot %} can also update `pyproject.toml` files if they follow the PEP 621 standard.
 
