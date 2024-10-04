@@ -33,8 +33,9 @@ You can also manually configure [gpg-agent](http://linux.die.net/man/1/gpg-agent
 
 If you have multiple keys or are attempting to sign commits or tags with a key that doesn't match your committer identity, you should [tell Git about your signing key](/authentication/managing-commit-signature-verification/telling-git-about-your-signing-key).
 
-> ℹ️ **Configure your local information**
-> To sign your commit, it is necessary that the information about your account on github is the same with the one on your local machine. You can configure it by setting the `user.name` and the `user.email` through your terminal.
+**Tips:**
+
+To sign your commit, it is necessary that the information about your account on github is the same with the one on your local machine. You can configure it by setting the `user.name` and the `user.email` through your terminal.
 
    ```shell
    $ git config --global user.name "YOUR_FULL_NAME" 
@@ -43,7 +44,9 @@ If you have multiple keys or are attempting to sign commits or tags with a key t
    # Create or modify your existing email
    ```
 
-If you make a commit and the verification fails due to email not matching, kindly use your `github no-reply` email in the local email config. There is an article on how to get your [github no-reply](https://docs.github.com/en/account-and-profile/setting-up-and-managing-your-personal-account-on-github/managing-email-preferences/setting-your-commit-email-address) email. Once it is updated, you can make the signed commit again using the command below.
+{% endtip %}
+
+If you make a commit and the verification fails due to email not matching, kindly use your `github no-reply` email in the local email config. There is an article on how to get your [github no-reply](/account-and-profile/setting-up-and-managing-your-personal-account-on-github/managing-email-preferences/setting-your-commit-email-address) email. Once it is updated, you can make the signed commit again using the command below.
 
 1. When committing changes in your local branch, add the `-s` flag to the git commit command:
 
