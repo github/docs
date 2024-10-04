@@ -44,7 +44,7 @@ Organizations using {% data variables.product.prodname_ghe_cloud %} with a licen
 
 {% data reusables.gated-features.partner-pattern-validity-check-ghas %}
 
-For information on how to enable validity checks for partner patterns, see "[AUTOTITLE](/code-security/secret-scanning/enabling-secret-scanning-features/enabling-validity-checks-for-your-repository)," and for information on which partner patterns are currently supported, see "[AUTOTITLE](/code-security/secret-scanning/introduction/supported-secret-scanning-patterns#high-confidence-patterns)."
+For information on how to enable validity checks for partner patterns, see "[AUTOTITLE](/code-security/secret-scanning/enabling-secret-scanning-features/enabling-validity-checks-for-your-repository)," and for information on which partner patterns are currently supported, see "[AUTOTITLE](/code-security/secret-scanning/introduction/supported-secret-scanning-patterns)."
 
 {% endif %}
 
