@@ -22,8 +22,8 @@ allowTitleToDifferFromFilename: true
 There are some additional features that can help you to evaluate alerts in order to better prioritize and manage them. You can:
 
 * Check the validity of a secret, to see if the secret is still active. {% ifversion fpt or ghes %}**Applies to {% data variables.product.company_short %} tokens only**.{% endif %} For more information, see "[Checking a secret's validity](#checking-a-secrets-validity)."{% ifversion secret-scanning-validity-check-partner-patterns %}
-* Perform an "on-demand" validity check, to get the most up to date validation status. For more information, see "[Performing an on-demand-validity-check](#performing-an-on-demand-validity-check)."{% endif %}{% ifversion secret-scanning-github-token-metadata %}
-* Review a token's metadata. **Applies to {% data variables.product.company_short %} tokens only**. For example, to see when the token was last used. For more information, see "[Reviewing {% data variables.product.company_short %} token metadata](#reviewing-github-token-metadata)."{% endif %}{% ifversion secret-scanning-multi-repo-public-leak %}
+* Perform an "on-demand" validity check, to get the most up to date validation status. For more information, see "[Performing an on-demand validity check](#performing-an-on-demand-validity-check)."{% endif %}
+* Review a token's metadata. **Applies to {% data variables.product.company_short %} tokens only**. For example, to see when the token was last used. For more information, see "[Reviewing {% data variables.product.company_short %} token metadata](#reviewing-github-token-metadata)."{% ifversion secret-scanning-multi-repo-public-leak %}
 * Review the labels assigned to the alert. For more information, see "[Reviewing alert labels](#reviewing-alert-labels)."{% endif %}
 
 ## Checking a secret's validity
@@ -44,7 +44,7 @@ Organizations using {% data variables.product.prodname_ghe_cloud %} with a licen
 
 {% data reusables.gated-features.partner-pattern-validity-check-ghas %}
 
-For information on how to enable validity checks for partner patterns, see "[AUTOTITLE](/code-security/secret-scanning/enabling-secret-scanning-features/enabling-validity-checks-for-your-repository)," and for information on which partner patterns are currently supported, see "[AUTOTITLE](/code-security/secret-scanning/introduction/supported-secret-scanning-patterns#high-confidence-patterns)."
+For information on how to enable validity checks for partner patterns, see "[AUTOTITLE](/code-security/secret-scanning/enabling-secret-scanning-features/enabling-validity-checks-for-your-repository)," and for information on which partner patterns are currently supported, see "[AUTOTITLE](/code-security/secret-scanning/introduction/supported-secret-scanning-patterns)."
 
 {% endif %}
 
@@ -68,12 +68,10 @@ Once you have enabled validity checks for partner patterns for your repository, 
 
 {% endif %}
 
-{% ifversion secret-scanning-github-token-metadata %}
-
 ## Reviewing {% data variables.product.company_short %} token metadata
 
 > [!NOTE]
-> Metadata for {% data variables.product.company_short %} tokens is currently in public beta and subject to change.
+> Metadata for {% data variables.product.company_short %} tokens is currently in {% data variables.release-phases.public_preview %} and subject to change.
 
 In the view for an active {% data variables.product.company_short %} token alert, you can review certain metadata about the token. This metadata may help you identify the token and decide what remediation steps to take.
 
@@ -93,8 +91,6 @@ Tokens, like {% data variables.product.pat_generic %} and other credentials, are
 |Access| Whether the token has organization access|
 
 {% ifversion secret-scanning-user-owned-repos %}{% data reusables.secret-scanning.secret-scanning-user-owned-repo-access %} If access is granted, {% data variables.product.prodname_dotcom %} will notify the owner of the repository containing the leaked secret, report the action in the repository owner and enterprise audit logs, and enable access for 2 hours.{% ifversion ghec %} For more information, see "[AUTOTITLE](/admin/managing-accounts-and-repositories/managing-repositories-in-your-enterprise/accessing-user-owned-repositories-in-your-enterprise)."{% endif %}{% endif %}
-
-{% endif %}
 
 {% ifversion secret-scanning-multi-repo-public-leak %}
 

@@ -19,7 +19,7 @@ redirect_from:
 
 {% note %}
 
-**Note:** Generating a Health Check is currently in beta for {% data variables.product.prodname_ghe_server %} and subject to change.
+**Note:** Generating a Health Check is currently in {% data variables.release-phases.public_preview %} for {% data variables.product.prodname_ghe_server %} and subject to change.
 
 {% endnote %}
 

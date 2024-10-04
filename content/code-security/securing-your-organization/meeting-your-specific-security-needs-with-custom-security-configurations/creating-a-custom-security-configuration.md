@@ -11,8 +11,6 @@ topics:
   - Security
 ---
 
-{% data reusables.security-configurations.security-configurations-beta-note %}
-
 ## About {% data variables.product.prodname_custom_security_configurations %}
 
 We recommend securing your organization with the {% data variables.product.prodname_github_security_configuration %}, then evaluating the security findings on your repositories before configuring {% data variables.product.prodname_custom_security_configurations %}. For more information, see "[AUTOTITLE](/code-security/securing-your-organization/enabling-security-features-in-your-organization/applying-the-github-recommended-security-configuration-in-your-organization)."
@@ -32,7 +30,7 @@ With {% data variables.product.prodname_custom_security_configurations %}, you c
 {% data reusables.security-configurations.view-configurations-page %}
 1. In the "Code security configurations" section, click **New configuration**.
 1. To help identify your {% data variables.product.prodname_custom_security_configuration %} and clarify its purpose on the "Code {% data variables.product.prodname_security_configurations %}" page, name your configuration and create a description.
-1. In the "{% data variables.product.prodname_GH_advanced_security %} features" row, choose whether to include or exclude {% data variables.product.prodname_GH_advanced_security %} (GHAS) features. If you plan to apply a {% data variables.product.prodname_custom_security_configuration %} with GHAS features to private repositories, you must have available GHAS licenses for each active unique committer to those repositories, or the features will not be enabled. To learn more about committers and GHAS licensing, see "[AUTOTITLE](/billing/managing-billing-for-github-advanced-security/about-billing-for-github-advanced-security)."
+1. In the "{% data variables.product.prodname_GH_advanced_security %} features" row, choose whether to include or exclude {% data variables.product.prodname_GH_advanced_security %} (GHAS) features. If you plan to apply a {% data variables.product.prodname_custom_security_configuration %} with GHAS features to private repositories, you must have available GHAS licenses for each active unique committer to those repositories, or the features will not be enabled. See "[AUTOTITLE](/billing/managing-billing-for-your-products/managing-billing-for-github-advanced-security/about-billing-for-github-advanced-security)."
 1. In the "Dependency graph" section of the security settings table, choose whether you want to enable, disable, or keep the existing settings for the following security features:
     * Dependency graph. To learn about dependency graph, see "[AUTOTITLE](/code-security/supply-chain-security/understanding-your-software-supply-chain/about-the-dependency-graph)."{%- ifversion maven-transitive-dependencies %}
     * Automatic dependency submission. To learn about automatic dependency submission, see "[AUTOTITLE](/code-security/supply-chain-security/understanding-your-software-supply-chain/configuring-automatic-dependency-submission-for-your-repository)."{%- endif %}
@@ -50,7 +48,7 @@ With {% data variables.product.prodname_custom_security_configurations %}, you c
     * {% data variables.product.prodname_secret_scanning_caps %}. To learn about {% data variables.product.prodname_secret_scanning %}, see "[AUTOTITLE](/code-security/secret-scanning/introduction/about-secret-scanning)."{% ifversion secret-scanning-validity-check-partner-patterns %}
     * Validity check. To learn more about validity checks for partner patterns, see "[AUTOTITLE](/code-security/secret-scanning/managing-alerts-from-secret-scanning/evaluating-alerts#checking-a-secrets-validity)".{% endif %}
     * Push protection. To learn about push protection, see "[AUTOTITLE](/code-security/secret-scanning/introduction/about-push-protection)."{% ifversion org-npp-enablement-security-configurations %}
-    * Non-provider patterns. To learn more about scanning for non-provider patterns, see "[AUTOTITLE](/code-security/secret-scanning/introduction/supported-secret-scanning-patterns#non-provider-patterns)" and "[AUTOTITLE](/code-security/secret-scanning/managing-alerts-from-secret-scanning/viewing-alerts#other-alerts-list)."
+    * Non-provider patterns. To learn more about scanning for non-provider patterns, see "[AUTOTITLE](/code-security/secret-scanning/introduction/supported-secret-scanning-patterns#non-provider-patterns)" and "[AUTOTITLE](/code-security/secret-scanning/managing-alerts-from-secret-scanning/viewing-alerts)."
 
        {% data reusables.secret-scanning.non-provider-patterns-beta %}{% endif %}
 
@@ -59,13 +57,12 @@ With {% data variables.product.prodname_custom_security_configurations %}, you c
 {% endif %}
 1. Optionally, in the "Policy" section, you can choose to automatically apply the {% data variables.product.prodname_security_configuration %} to newly created repositories depending on their visibility. Select the **None** {% octicon "triangle-down" aria-hidden="true" %} dropdown menu, then click **Public**, or **Private and internal**, or both.
 
-    {% data reusables.security-configurations.default-configuration-exception-repo-transfers %}{% ifversion enforce-security-configurations %}
-1. Optionally, in the "Policy" section, you can enforce the configuration and block repository owners from changing features that are enabled or disabled by the configuration (features that are not set aren't enforced). Next to "Enforce configuration", select **Enforce** from the dropdown menu.{% ifversion enforce-security-configurations-beta %} This feature is in beta, and is subject to change.{% endif %}
+    {% data reusables.security-configurations.default-configuration-exception-repo-transfers %}
+1. Optionally, in the "Policy" section, you can enforce the configuration and block repository owners from changing features that are enabled or disabled by the configuration (features that are not set aren't enforced). Next to "Enforce configuration", select **Enforce** from the dropdown menu.
 
     >[!NOTE]
     {% data reusables.code-scanning.custom-security-configuration-enforcement-edge-cases %}
 
-{% endif %}
 1. To finish creating your {% data variables.product.prodname_custom_security_configuration %}, click **Save configuration**.
 
 ## Next steps

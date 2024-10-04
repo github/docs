@@ -17,7 +17,7 @@ topics:
 
 **Notes:**
 
-* This feature is currently in beta and subject to change.
+* This feature is currently in {% data variables.release-phases.public_preview %} and subject to change.
 * Merge protection with rulesets is not related to status checks. For more information about status checks, see "[AUTOTITLE](/pull-requests/collaborating-with-pull-requests/collaborating-on-repositories-with-code-quality-features/about-status-checks)."
 * Merge protection with rulesets will not apply to merge queue groups or {% data variables.product.prodname_dependabot %} pull requests analyzed by default setup.
 

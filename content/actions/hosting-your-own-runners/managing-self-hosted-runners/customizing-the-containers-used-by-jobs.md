@@ -11,7 +11,7 @@ shortTitle: Customize containers used by jobs
 
 {% note %}
 
-**Note**: This feature is currently in beta and is subject to change.
+**Note**: This feature is currently in {% data variables.release-phases.public_preview %} and is subject to change.
 
 {% endnote %}
 

@@ -1,7 +1,7 @@
 #!/usr/bin/env node
 import { renderContent } from '#src/content-render/index.js'
 import fs from 'fs/promises'
-import graphql from 'graphql'
+import { graphql } from 'graphql'
 import path from 'path'
 
 const graphqlTypes = JSON.parse(

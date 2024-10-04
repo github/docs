@@ -296,8 +296,6 @@ In this example, the default queries will be run for Java, as well as the querie
 
 {% data reusables.code-scanning.run-additional-queries %}
 
-{% ifversion codeql-packs %}
-
 ### Using query packs
 
 To add one or more {% data variables.product.prodname_codeql %} query packs, add a `with: packs:` entry within the `uses: {% data reusables.actions.action-codeql-action-init %}` section of the workflow. Within `packs` you specify one or more packages to use and, optionally, which version to download. Where you don't specify a version, the latest version is downloaded. If you want to use packages that are not publicly available, you need to set the `GITHUB_TOKEN` environment variable to a secret that has access to the packages. For more information, see "[AUTOTITLE](/actions/security-guides/automatic-token-authentication)" and "[AUTOTITLE](/actions/security-guides/encrypted-secrets)."
@@ -321,7 +319,6 @@ In the example below, `scope` is the organization or personal account that publi
     packs: scope/pack1,scope/pack2@1.2.3,scope/pack3@~3.2.1,scope/pack4@4.5.6:path/to/queries
 ```
 
-{% ifversion query-pack-compatibility %}
 {% note %}
 
 **Note:** If you specify a particular version of a query pack to use,
@@ -334,7 +331,6 @@ To ensure optimal performance, if you need to specify exact query pack versions,
 For more information about pack compatibility, see "[AUTOTITLE](/code-security/codeql-cli/using-the-advanced-functionality-of-the-codeql-cli/publishing-and-using-codeql-packs#about-codeql-pack-compatibility)."
 
 {% endnote %}
-{% endif %}
 
 ### Downloading {% data variables.product.prodname_codeql %} packs from {% data variables.product.prodname_ghe_server %}
 
@@ -370,7 +366,6 @@ Notice the `|` after the `registries` property name. This is important since  {%
 
 ### Using queries in QL packs
 
-{% endif %}
 To add one or more queries, add a `with: queries:` entry within the `uses: {% data reusables.actions.action-codeql-action-init %}` section of the workflow. If the queries are in a private repository, use the `external-repository-token` parameter to specify a token that has access to checkout the private repository.
 
 You can also specify query suites in the value of `queries`. Query suites are collections of queries, usually grouped by purpose or language.
@@ -388,24 +383,18 @@ You can also specify query suites in the value of `queries`. Query suites are co
 
 {% data reusables.code-scanning.codeql-query-suites-explanation %}
 
-{% ifversion codeql-packs %}
-
 ### Working with custom configuration files
 
-{% endif %}
+If you also use a configuration file for custom settings, any additional packs or queries specified in your workflow are used instead of those specified in the configuration file. If you want to run the combined set of additional packs or queries, prefix the value of `packs` or `queries` in the workflow with the `+` symbol. For more information, see "[Using a custom configuration file](#using-a-custom-configuration-file)."
 
-If you also use a configuration file for custom settings, any additional {% ifversion codeql-packs %}packs or {% endif %}queries specified in your workflow are used instead of those specified in the configuration file. If you want to run the combined set of additional {% ifversion codeql-packs %}packs or {% endif %}queries, prefix the value of {% ifversion codeql-packs %}`packs` or {% endif %}`queries` in the workflow with the `+` symbol. For more information, see "[Using a custom configuration file](#using-a-custom-configuration-file)."
-
-In the following example, the `+` symbol ensures that the specified additional {% ifversion codeql-packs %}packs and {% endif %}queries are used together with any specified in the referenced configuration file.
+In the following example, the `+` symbol ensures that the specified additional packs and queries are used together with any specified in the referenced configuration file.
 
 ``` yaml copy
 - uses: {% data reusables.actions.action-codeql-action-init %}
   with:
     config-file: ./.github/codeql/codeql-config.yml
     queries: +security-and-quality,octo-org/python-qlpack/show_ifs.ql@main
-    {%- ifversion codeql-packs %}
     packs: +scope/pack1,scope/pack2@1.2.3,scope/pack3@4.5.6:path/to/queries
-    {%- endif %}
 ```
 <!-- Anchor to maintain the current CodeQL CLI manual pages link: https://aka.ms/code-scanning-docs/config-file -->
 <a name="using-a-custom-configuration-file"></a>
@@ -415,7 +404,7 @@ In the following example, the `+` symbol ensures that the specified additional {
 
 ## Using a custom configuration file
 
-A custom configuration file is an alternative way to specify additional {% ifversion codeql-packs %}packs and {% endif %}queries to run. You can also use the file to disable the default queries{% ifversion code-scanning-exclude-queries-from-analysis %}, exclude or include specific queries,{% endif %} and to specify which directories to scan during analysis.
+A custom configuration file is an alternative way to specify additional packs and queries to run. You can also use the file to disable the default queries, exclude or include specific queries, and to specify which directories to scan during analysis.
 
 In the workflow file, use the `config-file` parameter of the `init` action to specify the path to the configuration file you want to use. This example loads the configuration file _./.github/codeql/codeql-config.yml_.
 
@@ -436,8 +425,6 @@ If the configuration file is located in an external private repository, use the 
 ```
 
 The settings in the configuration file are written in YAML format.
-
-{% ifversion codeql-packs %}
 
 ### Specifying {% data variables.product.prodname_codeql %} query packs
 
@@ -482,7 +469,6 @@ packs:
 ```
 
 {% endraw %}
-{% endif %}
 
 {% ifversion codeql-threat-models %}
 
@@ -510,8 +496,6 @@ Optionally, you can give each array element a name, as shown in the example conf
 ### Disabling the default queries
 
 If you only want to run custom queries, you can disable the default security queries by using `disable-default-queries: true`.
-
-{% ifversion code-scanning-exclude-queries-from-analysis %}
 
 ### Excluding specific queries from analysis
 
@@ -546,8 +530,6 @@ You can find another example illustrating the use of these filters in the "[Exam
 
 For more information about using `exclude` and `include` filters in your custom configuration file, see "[AUTOTITLE](/code-security/codeql-cli/using-the-advanced-functionality-of-the-codeql-cli/creating-codeql-query-suites#filtering-the-queries-in-a-query-suite)." For information on the query metadata you can filter on, see "[Metadata for CodeQL queries](https://codeql.github.com/docs/writing-codeql-queries/metadata-for-codeql-queries/)."
 
-{% endif %}
-
 ### Specifying directories to scan
 
 When codebases are analyzed without building the code, you can restrict {% data variables.product.prodname_code_scanning %} to files in specific directories by adding a `paths` array to the configuration file. You can also exclude the files in specific directories from analysis by adding a `paths-ignore` array. You can use this option when you run the {% data variables.product.prodname_codeql %} actions on an interpreted language (Python, Ruby, and JavaScript/TypeScript){% ifversion codeql-no-build %} or when you analyze a compiled language without building the code (currently supported for {% data variables.code-scanning.no_build_support %}){% endif %}.
@@ -577,8 +559,6 @@ You can quickly analyze small portions of a monorepo when you modify code in spe
 ### Example configuration files
 
 {% data reusables.code-scanning.example-configuration-files %}
-
-{% ifversion code-scanning-config-input %}
 
 ## Specifying configuration details using the `config` input
 
@@ -619,7 +599,6 @@ In the following example, `vars.CODEQL_CONF` is a {% data variables.product.prod
 ```
 
 {% endtip %}
-{% endif %}
 
 ## Configuring {% data variables.product.prodname_code_scanning %} for compiled languages
 

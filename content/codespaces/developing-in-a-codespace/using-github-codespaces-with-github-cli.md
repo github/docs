@@ -256,7 +256,7 @@ You can use the {% data variables.product.prodname_cli %} extension to create a 
 
 {% note %}
 
-**Note**: The {% data variables.product.prodname_cli %} extension is currently in beta and subject to change.
+**Note**: The {% data variables.product.prodname_cli %} extension is currently in {% data variables.release-phases.public_preview %} and subject to change.
 
 {% endnote %}
 

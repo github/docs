@@ -20,21 +20,21 @@ product: '{% data reusables.gated-features.codespaces-org %}'
 
 Your organization is billed according to its compute and storage usage for {% data variables.product.prodname_github_codespaces %}. This article explains the ways in which you, as an organization owner, can manage these costs.
 
-To learn about pricing for {% data variables.product.prodname_github_codespaces %}, see "[AUTOTITLE](/billing/managing-billing-for-github-codespaces/about-billing-for-github-codespaces#codespaces-pricing)."
+To learn about pricing for {% data variables.product.prodname_github_codespaces %}, see "[AUTOTITLE](/billing/managing-billing-for-your-products/managing-billing-for-github-codespaces/about-billing-for-github-codespaces#codespaces-pricing)."
 
 ## Spending limits
 
-You can set a spending limit for {% data variables.product.prodname_github_codespaces %} for your organization. This limit is applied to the total compute and storage cost for {% data variables.product.prodname_github_codespaces %}. For more information, see "[AUTOTITLE](/billing/managing-billing-for-github-codespaces/managing-the-spending-limit-for-github-codespaces)."
+You can set a spending limit for {% data variables.product.prodname_github_codespaces %} for your organization. This limit is applied to the total compute and storage cost for {% data variables.product.prodname_github_codespaces %}. For more information, see "[AUTOTITLE](/billing/managing-billing-for-your-products/managing-billing-for-github-codespaces/managing-the-spending-limit-for-github-codespaces)."
 
 * **Compute usage:** This is the total time during which all {% data variables.product.prodname_github_codespaces %} instances ("codespaces") were active in a billing month.
 
 * **Storage usage:** For {% data variables.product.prodname_github_codespaces %} billing purposes, this includes all files used by all codespaces and prebuilds in your account. This includes resources such as cloned repositories, configuration files, and extensions, among others.
 
-You can check the compute and storage usage for {% data variables.product.prodname_github_codespaces %} for the current billing month. For information, see "[AUTOTITLE](/billing/managing-billing-for-github-codespaces/viewing-your-github-codespaces-usage)."
+You can check the compute and storage usage for {% data variables.product.prodname_github_codespaces %} for the current billing month. For information, see "[AUTOTITLE](/billing/managing-billing-for-your-products/managing-billing-for-github-codespaces/viewing-your-github-codespaces-usage)."
 
 {% note %}
 
-**Note**: Prebuilds for {% data variables.product.prodname_github_codespaces %} are created and updated using {% data variables.product.prodname_actions %}. This may incur billable costs for {% data variables.product.prodname_actions %}. You can set a spending limit for {% data variables.product.prodname_actions %}. For more information, see "[AUTOTITLE](/billing/managing-billing-for-github-codespaces/about-billing-for-github-codespaces#about-billing-for-codespaces-prebuilds)" and "[AUTOTITLE](/billing/managing-billing-for-github-actions/managing-your-spending-limit-for-github-actions)." Storage of the generated prebuilds is charged at the same rate as your codespaces, and is included in your {% data variables.product.prodname_github_codespaces %} spending limit.
+**Note**: Prebuilds for {% data variables.product.prodname_github_codespaces %} are created and updated using {% data variables.product.prodname_actions %}. This may incur billable costs for {% data variables.product.prodname_actions %}. You can set a spending limit for {% data variables.product.prodname_actions %}. For more information, see "[AUTOTITLE](/billing/managing-billing-for-your-products/managing-billing-for-github-codespaces/about-billing-for-github-codespaces#about-billing-for-codespaces-prebuilds)" and "[AUTOTITLE](/billing/managing-billing-for-your-products/managing-billing-for-github-actions/managing-your-spending-limit-for-github-actions)." Storage of the generated prebuilds is charged at the same rate as your codespaces, and is included in your {% data variables.product.prodname_github_codespaces %} spending limit.
 
 {% endnote %}
 

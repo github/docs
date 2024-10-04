@@ -20,7 +20,7 @@ You can also create a custom organization role that includes permissions for rep
 
 You can create a role that includes permissions for organization settings, a base role for repository access, or both. If you add a base role for repository access, you can also include additional repository permissions. You can't create a role with repository permissions unless it includes a base repository role. Without repository permissions or a base repository role, the organization role doesn't grant access to any repositories.
 
->[!NOTE] Adding repository permissions to a custom organization role is currently in public beta and subject to change.
+>[!NOTE] Adding repository permissions to a custom organization role is currently in {% data variables.release-phases.public_preview %} and subject to change.
 
 {% endif %}
 

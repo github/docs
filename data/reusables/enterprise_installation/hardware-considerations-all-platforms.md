@@ -1,12 +1,12 @@
-* [Minimum requirements](#minimum-requirements)
+* [Minimum recommended requirements](#minimum-recommended-requirements)
 * [Storage](#storage)
 * [CPU and memory](#cpu-and-memory)
 
-### Minimum requirements
+### Minimum recommended requirements
 
-We recommend different hardware configurations depending on the number of user licenses for {% data variables.location.product_location %}. If you provision more resources than the minimum requirements, your instance will perform and scale better.
+We recommend different hardware configurations depending on the number of user licenses for {% data variables.location.product_location %}. If you provision more resources than the minimum recommended requirements, your instance will perform and scale better.
 
-{% data reusables.enterprise_installation.hardware-rec-table %}
+{% ifversion ghes > 3.14 %}{% data reusables.enterprise_installation.hardware-rec-table %}{% else %}{% data reusables.enterprise_installation.hardware-rec-table-legacy %}{% endif %}
 
 {% data reusables.actions.more-resources-for-ghes %}
 
@@ -19,6 +19,9 @@ If you plan to enable {% data variables.product.prodname_container_registry %} f
 We recommend a high-performance SSD with high input/output operations per second (IOPS) and low latency for {% data variables.product.prodname_ghe_server %}. Workloads are I/O intensive. If you use a bare metal hypervisor, we recommend directly attaching the disk or using a disk from a storage area network (SAN).
 
 Your instance requires a persistent data disk separate from the root disk. For more information, see "[AUTOTITLE](/admin/overview/system-overview)."
+
+>[!WARNING]
+>Root storage refers to the total size of your instance's root disk. When the instance is booted you will see 200GB available on the root filesystem. The remaining 200GB is reserved for upgrades. For more information, see "[AUTOTITLE](/admin/overview/system-overview#storage-architecture)."
 
 {% ifversion ghes %}
 

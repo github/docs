@@ -7,7 +7,7 @@
 
       Once you've selected a base repository role, you can add additional permissions to the custom role. For more information about the available permissions, see "[Additional permissions for repository access](/organizations/managing-peoples-access-to-your-organization-with-roles/about-custom-organization-roles#additional-permissions-for-repository-access)."
 
-      >[!NOTE] Adding a repository role and permissions to a custom organization role is currently in public beta and subject to change.
+      >[!NOTE] Adding a repository role and permissions to a custom organization role is currently in {% data variables.release-phases.public_preview %} and subject to change.
 
 {% else %}
 1. Under "Add permissions", click the text field, then select the permissions you want to add to the custom role. For more information about the available permissions, see "[AUTOTITLE](/organizations/managing-peoples-access-to-your-organization-with-roles/about-custom-organization-roles#additional-permissions-for-custom-roles)."{% endif %}

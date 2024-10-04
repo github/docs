@@ -20,14 +20,7 @@ topics:
 
 {% ifversion ghec %}
 
-{% note %}
-
-**Notes**:
-
-* {% data reusables.scim.ghec-open-scim-release-phase %}
-* {% data reusables.scim.ghec-open-scim-test-in-isolation %}
-
-{% endnote %}
+> [!NOTE] {% data reusables.scim.ghec-open-scim-test-in-isolation %}
 
 {% else %}
 
@@ -80,7 +73,7 @@ If you cannot use a partner IdP for both authentication and provisioning due to 
 * {% data reusables.enterprise-managed.emu-prerequisite %}
 * {% data reusables.scim.emu-prerequisite-authentication %}
 * You must enable an open SCIM configuration for your enterprise. For more information, see "[AUTOTITLE](/admin/identity-and-access-management/provisioning-user-accounts-for-enterprise-managed-users/configuring-scim-provisioning-for-enterprise-managed-users#configuring-provisioning-for-other-identity-management-systems)."
-* To authenticate requests to the REST API endpoints for SCIM, you must use a {% data variables.product.pat_v1 %} associated with your enterprise's setup user. The token requires the **admin:enterprise** scope. {% data variables.product.company_short %} recommends that you do not configure an expiration date for the token. See "[AUTOTITLE](/admin/managing-iam/understanding-iam-for-enterprises/getting-started-with-enterprise-managed-users#create-a-personal-access-token)."
+* To authenticate requests to the REST API endpoints for SCIM, you must use a {% data variables.product.pat_v1 %} associated with your enterprise's setup user. The token requires the **scim:enterprise** scope. {% data variables.product.company_short %} recommends that you do not configure an expiration date for the token. See "[AUTOTITLE](/admin/managing-iam/understanding-iam-for-enterprises/getting-started-with-enterprise-managed-users#create-a-personal-access-token)."
 {%- else %}
 To implement SCIM using the REST API, the general prerequisites for using SCIM on {% data variables.product.product_name %} apply. See the "Prerequisites" section in "[AUTOTITLE](/admin/managing-iam/provisioning-user-accounts-with-scim/configuring-scim-provisioning-for-users#prerequisites)."
 
@@ -102,6 +95,9 @@ When you configure your identity management system to provision users or groups 
 * [Validate access for groups on {% data variables.product.prodname_dotcom %}](#validate-access-for-groups-on-github)
 * [Understand rate limits on {% data variables.product.prodname_dotcom %}](#understand-rate-limits-on-github)
 * [Configure audit log streaming](#configure-audit-log-streaming)
+{%- ifversion scim-enterprise-scope %}
+* [Limit the scope of the SCIM token](#limit-the-scope-of-the-scim-token)
+{%- endif %}
 
 ### Ensure your identity management system is the only source of write operations
 
@@ -155,6 +151,16 @@ The audit log for your enterprise displays details about activity in your enterp
 
 Due to the volume of events in this log, {% data variables.product.company_short %} retains the data for 180 days. To ensure that you don't lose audit log data, and to view more granular activity in the audit log, {% data variables.product.company_short %} recommends that you configure audit log streaming. When you stream the audit log, you can optionally choose to stream events for API requests, including requests to REST API endpoints for SCIM provisioning. For more information, see "[AUTOTITLE](/admin/monitoring-activity-in-your-enterprise/reviewing-audit-logs-for-your-enterprise/streaming-the-audit-log-for-your-enterprise)."
 
+{% ifversion scim-enterprise-scope %}
+
+### Limit the scope of the SCIM token
+
+For a better security posture, we recommend using a {% data variables.product.pat_v1 %} with only the `scim:enterprise` scope to limit the token's access to the REST API endpoints required to make SCIM calls.
+
+If you currently use a token with the `admin:enterprise` scope, be aware that this token grants access to all actions on the enterprise. You can swap your token for a new token with just the `scim:enterprise` scope without disruption.
+
+{% endif %}
+
 ## Provisioning users with the REST API
 
 To provision, list, or manage users, make requests to the following REST API endpoints. You can read about the associated API endpoints in the REST API documentation and see code examples, and you can review audit log events associated with each request.
@@ -167,11 +173,11 @@ Before a person with an identity on your identity management system can sign in 
 | Action | Method | Endpoint and more information |  Events in the audit log |
 | :- | :- | :- | :- |
 | List all provisioned users for your enterprise, which includes all users who are soft-deprovisioned by setting `active` to `false`. | `GET` | [`/scim/v2/{% ifversion ghec %}enterprises/{enterprise}/{% endif %}Users`](/rest/enterprise-admin/scim#list-scim-provisioned-identities-for-an-enterprise) | N/A |
-| Create a user. The API's response includes an `id` field for uniquely identifying the user. | `POST` | [`/scim/v2/{% ifversion ghec %}enterprises/{enterprise}/{% endif %}Users`](/rest/enterprise-admin/scim#provision-a-scim-enterprise-user) | <ul><li>`external_identity.provision`</li><li>`user.create`</li><li>If request adds the `enterprise_owner` role, `business.add_admin`</li><li>If request adds the `billing_manager` role, `business.add_billing_manager`</li>{% ifversion ghes %}<li>If request succeeds, `external_identity.scim_api_success`</li><li>If request fails, `external_identity.scim_api_failure`</li>{% endif %}</ul> |
+| Create a user. The API's response includes an `id` field for uniquely identifying the user. | `POST` | [`/scim/v2/{% ifversion ghec %}enterprises/{enterprise}/{% endif %}Users`](/rest/enterprise-admin/scim#provision-a-scim-enterprise-user) | <ul><li>`external_identity.provision`</li><li>`user.create`</li><li>If request adds the `enterprise_owner` role, `business.add_admin`</li><li>If request adds the `billing_manager` role, `business.add_billing_manager`</li><li>If request succeeds, `external_identity.scim_api_success`</li><li>If request fails, `external_identity.scim_api_failure`</li></ul> |
 | Retrieve an existing user in your enterprise using the `id` field from the `POST` request that you sent to create the user. | `GET` | [`/scim/v2/{% ifversion ghec %}enterprises/{enterprise}/{% endif %}Users/{scim_user_id}`](/rest/enterprise-admin/scim#get-scim-provisioning-information-for-an-enterprise-user) | N/A |
 | Update all of an existing user's attributes using the `id` field from the `POST` request that you sent to create the user. Update `active` to `false` to soft-deprovision the user, or `true` to reactivate the user. {% data reusables.scim.public-scim-more-info-about-deprovisioning-and-reactivating %}  | `PUT` | [`/scim/v2/{% ifversion ghec %}enterprises/{enterprise}/{% endif %}Users/{scim_user_id}`](/rest/enterprise-admin/scim#set-scim-information-for-a-provisioned-enterprise-user) | {% data reusables.scim.public-scim-put-or-patch-user-audit-log-events %} |
 | Update an individual attribute for an existing user using the `id` field from the `POST` request that you sent to create the user. Update `active` to `false` to soft-deprovision the user, or `true` to reactivate the user. {% data reusables.scim.public-scim-more-info-about-deprovisioning-and-reactivating %} | `PATCH` | [`/scim/v2/{% ifversion ghec %}enterprises/{enterprise}/{% endif %}Users/{scim_user_id}`](/rest/enterprise-admin/scim#update-an-attribute-for-a-scim-enterprise-user) | {% data reusables.scim.public-scim-put-or-patch-user-audit-log-events %} |
-| To completely delete an existing user, you can hard-deprovision the user. After hard-deprovisioning, you cannot reactivate the user, and you must provision the user as a new user. For more information, see "[Hard-deprovisioning users with the REST API](#hard-deprovisioning-users-with-the-rest-api)." | `DELETE` | [`/scim/v2/{% ifversion ghec %}enterprises/{enterprise}/{% endif %}Users/{scim_user_id}`](/rest/enterprise-admin/scim#delete-a-scim-user-from-an-enterprise) | <ul><li>`external_identity.deprovision`</li><li>`user.remove_email`</li>{% ifversion ghes %}<li>If request succeeds, `external_identity.scim_api_success`</li><li>If request fails, `external_identity.scim_api_failure`</li>{% endif %}</ul> |
+| To completely delete an existing user, you can hard-deprovision the user. After hard-deprovisioning, you cannot reactivate the user, and you must provision the user as a new user. For more information, see "[Hard-deprovisioning users with the REST API](#hard-deprovisioning-users-with-the-rest-api)." | `DELETE` | [`/scim/v2/{% ifversion ghec %}enterprises/{enterprise}/{% endif %}Users/{scim_user_id}`](/rest/enterprise-admin/scim#delete-a-scim-user-from-an-enterprise) | <ul><li>`external_identity.deprovision`</li><li>`user.remove_email`</li><li>If request succeeds, `external_identity.scim_api_success`</li><li>If request fails, `external_identity.scim_api_failure`</li></ul> |
 
 ## Soft-deprovisioning users with the REST API
 
@@ -183,10 +189,8 @@ When you soft-deprovision a user, the `external_identity.update` event does not 
 * `user.remove_email`
 * `user.rename`
 * `external_identity.deprovision`
-{%- ifversion ghes %}
 * If the request succeeds, `external_identity.scim_api_success`
 * If the request fails, `external_identity.scim_api_failure`
-{%- endif %}
 
 You can view all suspended users for your enterprise. For more information, see "[AUTOTITLE](/admin/managing-accounts-and-repositories/managing-users-in-your-enterprise/viewing-people-in-your-enterprise#viewing-suspended-members).
 
@@ -200,10 +204,8 @@ When you reactivate a user, the `external_identity.update` event does not appear
 * `user.remove_email`
 * `user.rename`
 * `external_identity.provision`
-{%- ifversion ghes %}
 * If the request succeeds, `external_identity.scim_api_success`
 * If the request fails, `external_identity.scim_api_failure`
-{%- endif %}
 
 ## Hard-deprovisioning users with the REST API
 
@@ -222,7 +224,7 @@ To reprovision the user, you must use the `POST` method to create a new user. Th
 
 To control access to repositories in your enterprise, you can use groups on your identity management system to control organization and team membership for users in your enterprise. You can read about the associated API endpoints in the REST API documentation and see code examples, and you can review audit log events associated with each request.
 
-While your enterprise doesn't require an available license to provision a new user account, if you provision a group that results in the addition of users to an organization, you must have available licenses for those users.{% ifversion ghec %} If your enterprise only uses {% data variables.visual_studio.prodname_vss_ghe %}, the associated user must be assigned to a subscriber. For more information, see "[AUTOTITLE](/billing/managing-licenses-for-visual-studio-subscriptions-with-github-enterprise/about-visual-studio-subscriptions-with-github-enterprise#about-licenses-for-visual-studio-subscriptions-with-github-enterprise)."{% endif %}
+While your enterprise doesn't require an available license to provision a new user account, if you provision a group that results in the addition of users to an organization, you must have available licenses for those users.{% ifversion ghec %} If your enterprise only uses {% data variables.visual_studio.prodname_vss_ghe %}, the associated user must be assigned to a subscriber. For more information, see "[AUTOTITLE](/billing/managing-billing-for-your-products/managing-licenses-for-visual-studio-subscriptions-with-github-enterprise/about-visual-studio-subscriptions-with-github-enterprise#about-licenses-for-visual-studio-subscriptions-with-github-enterprise)."{% endif %}
 
 * For an overview of the supported attributes for groups, see "[SCIM](/rest/enterprise-admin/scim#supported-scim-group-attributes)" in the REST API documentation.
 * For an overview of audit log events related to groups, see "[AUTOTITLE](/admin/monitoring-activity-in-your-enterprise/reviewing-audit-logs-for-your-enterprise/audit-log-events-for-your-enterprise#external_group)."
@@ -231,11 +233,11 @@ While your enterprise doesn't require an available license to provision a new us
 | Action | Method | Endpoint and more information | Related events in the audit log |
 | :- | :- | :- | :- |
 | List all groups defined for your enterprise. | `GET` | [`/scim/v2/{% ifversion ghec %}enterprises/{enterprise}/{% endif %}Groups`](/rest/enterprise-admin/scim#list-provisioned-scim-groups-for-an-enterprise) | N/A |
-| To define a new IdP group for your enterprise, create the group. The API's response includes an `id` field for uniquely identifying the group. | `POST` | [`/scim/v2/{% ifversion ghec %}enterprises/{enterprise}/{% endif %}Groups`](/rest/enterprise-admin/scim#provision-a-scim-enterprise-group) | <ul><li>`external_group.provision`</li><li>`external_group.update_display_name`</li><li>If the request included a list of users, `external_group.add_member`</li>{% ifversion ghes %}<li>If request succeeds, `external_group.scim_api_success`</li><li>If request fails, `external_group.scim_api_failure`</li>{% endif %}</ul> |
+| To define a new IdP group for your enterprise, create the group. The API's response includes an `id` field for uniquely identifying the group. | `POST` | [`/scim/v2/{% ifversion ghec %}enterprises/{enterprise}/{% endif %}Groups`](/rest/enterprise-admin/scim#provision-a-scim-enterprise-group) | <ul><li>`external_group.provision`</li><li>`external_group.update_display_name`</li><li>If the request included a list of users, `external_group.add_member`</li><li>If request succeeds, `external_group.scim_api_success`</li><li>If request fails, `external_group.scim_api_failure`</li></ul> |
 | Retrieve an existing group for your enterprise using the `id` from the `POST` request that you sent to create the group. | `GET` | [`/scim/v2/{% ifversion ghec %}enterprises/{enterprise}/{% endif %}Groups/{scim_group_id}`](/rest/enterprise-admin/scim#get-scim-provisioning-information-for-an-enterprise-group) | N/A |
 | Update all of the attributes for an existing group. | `PUT` | [`/scim/v2/{% ifversion ghec %}enterprises/{enterprise}/{% endif %}Groups/{scim_group_id}`](/rest/enterprise-admin/scim#set-scim-information-for-a-provisioned-enterprise-group) | {% data reusables.scim.public-scim-put-or-patch-group-audit-log-events %} |
 | Update an individual attribute for an existing group. | `PATCH` | [`/scim/v2/{% ifversion ghec %}enterprises/{enterprise}/{% endif %}Groups/{scim_group_id}`](/rest/enterprise-admin/scim#update-an-attribute-for-a-scim-enterprise-group) | {% data reusables.scim.public-scim-put-or-patch-group-audit-log-events %} |
-| Completely delete an existing group. | `DELETE` | [`/scim/v2/{% ifversion ghec %}enterprises/{enterprise}/{% endif %}Groups/{scim_group_id}`](/rest/enterprise-admin/scim#delete-a-scim-group-from-an-enterprise) | <ul><li>`external_group.delete`</li><li>If the request deletes a group linked to a team in an organization where the user has no other team membership, `org.remove_member`</li><li>If the request deletes a group linked to a team in an organization where the user has other team membership, `team.remove_member`</li>{% ifversion ghes %}<li>If request succeeds, `external_group.scim_api_success`</li><li>If request fails, `external_group.scim_api_failure`</li>{% endif %}</ul> |
+| Completely delete an existing group. | `DELETE` | [`/scim/v2/{% ifversion ghec %}enterprises/{enterprise}/{% endif %}Groups/{scim_group_id}`](/rest/enterprise-admin/scim#delete-a-scim-group-from-an-enterprise) | <ul><li>`external_group.delete`</li><li>If the request deletes a group linked to a team in an organization where the user has no other team membership, `org.remove_member`</li><li>If the request deletes a group linked to a team in an organization where the user has other team membership, `team.remove_member`</li><li>If request succeeds, `external_group.scim_api_success`</li><li>If request fails, `external_group.scim_api_failure`</li></ul> |
 
 ### Additional audit log events for changes to IdP groups
 
@@ -270,7 +272,7 @@ After you configure SCIM provisioning for your enterprise, you may need to migra
 
 * If a request to provision a user fails with a `400` error, and the error message in your identity management system's log indicates issues with account ownership or username formatting, review "[AUTOTITLE](/admin/identity-and-access-management/iam-configuration-reference/username-considerations-for-external-authentication)."
 
-* After successful authentication, {% data variables.product.product_name %} links the user who authenticated to an identity provisioned by SCIM. The unique identifiers for authentication and provisioning must match. For more information, see "[AUTOTITLE](/rest/enterprise-admin/scim#mapping-of-saml-and-scim-data)."{% ifversion ghec %} You can also view this mapping on {% data variables.location.product_location %}. See "[AUTOTITLE](/admin/managing-accounts-and-repositories/managing-users-in-your-enterprise/viewing-and-managing-a-users-saml-access-to-your-enterprise#viewing-and-revoking-a-linked-identity)."{% endif %}
+* After successful authentication, {% data variables.product.product_name %} links the user who authenticated to an identity provisioned by SCIM. The unique identifiers for authentication and provisioning must match. For more information, see "[AUTOTITLE](/rest/enterprise-admin/scim#mapping-of-saml-and-scim-data)."{% ifversion ghec %} You can also view this mapping on {% data variables.product.github %}. See "[AUTOTITLE](/admin/managing-accounts-and-repositories/managing-users-in-your-enterprise/viewing-and-managing-a-users-saml-access-to-your-enterprise#viewing-and-revoking-a-linked-identity)."{% endif %}
 
 * If you manage access using groups on your identity management system, you can troubleshoot using the REST API or web UI for {% data variables.product.product_name %}.
 

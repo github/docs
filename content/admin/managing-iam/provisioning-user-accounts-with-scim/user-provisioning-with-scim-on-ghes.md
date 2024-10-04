@@ -45,7 +45,7 @@ The following IdPs are partner IdPs. They offer an application that you can use 
 * Okta
 * PingFederate (beta)
 
-When you use a single partner IdP for both authentication and provisioning, {% data variables.product.company_short %} provides support for the application on the partner IdP and the IdP's integration with {% data variables.product.prodname_dotcom %}. Support for PingFederate is in beta.
+When you use a single partner IdP for both authentication and provisioning, {% data variables.product.company_short %} provides support for the application on the partner IdP and the IdP's integration with {% data variables.product.prodname_dotcom %}. Support for PingFederate is in {% data variables.release-phases.public_preview %}.
 
 ### Other identity management systems
 
@@ -57,7 +57,7 @@ If you cannot use a single partner IdP for both authentication and provisioning,
 
 {% else %}
 
-During the private beta, your account team will provide documentation for the configuration of SCIM for {% data variables.product.product_name %} on a supported IdP.
+During the {% data variables.release-phases.private_preview %}, your account team will provide documentation for the configuration of SCIM for {% data variables.product.product_name %} on a supported IdP.
 
 {% endif %}
 

@@ -114,7 +114,7 @@ If you are creating a diagram to explain what or where things are, consider one 
 If you are creating a diagram to explain why something is the way that it is, consider one of these diagram types.
 
 * [Continuum diagram](https://en.wikipedia.org/wiki/Continuum_(measurement)): Continuum diagrams are useful for showing where things fall on a linear spectrum. In this example, the blue rectangle shows that the item of interest is closer to Option 2 than Option 1 on the continuum.
-  
+
   ![An example continuum with a horizontal axis representing the continuum between two options and the position of an item on the continuum.](/assets/images/help/diagrams/continuum-example.png)
 
 * [Quadrant diagram](https://en.wikipedia.org/wiki/Quadrant_(plane_geometry)): Quadrant diagrams are useful for explaining the relationship between two axes and where things fall on both axes. In this example, the horizontal axis is labelled "Purely decorative" on the left and "Meets a specific acceptance criteria" on the right. The vertical axis is labelled "Compliment written text" on the top and "The only way information is presented" on the bottom. The blue square labelled "Diagrams in the {% data variables.product.prodname_docs %}" is in the upper right quadrant formed by the overlap of "Compliment written text" and "Meets a specific acceptance criteria," which means that it has those two properties.
@@ -199,7 +199,7 @@ The preferred colors for diagrams in {% data variables.product.prodname_docs %} 
 * File size of 250 KB or less
 * Descriptive file names, such as `merge-conflict-diagram.png` instead of `diagram-02.png`
 
-If you need to create a diagram that is difficult to view at small resolutions, include a link to a larger version of the diagram in a relevant repository or other appropriate location.{% ifversion actions-runner-controller %} See "[AUTOTITLE](/actions/hosting-your-own-runners/managing-self-hosted-runners-with-actions-runner-controller/about-actions-runner-controller)" for an example.{% endif %}
+If you need to create a diagram that is difficult to view at small resolutions, include a link to a larger version of the diagram in a relevant repository or other appropriate location. See "[AUTOTITLE](/actions/hosting-your-own-runners/managing-self-hosted-runners-with-actions-runner-controller/about-actions-runner-controller)" for an example.
 
 ## Tools for creating diagrams
 

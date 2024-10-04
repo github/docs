@@ -95,10 +95,7 @@ You should check that the output contains the expected languages and also that t
 
 You can also run `codeql resolve languages` to show which languages are available for database creation. This will list the languages supported by default in your {% data variables.product.prodname_codeql_cli %} package.
 
-{% ifversion codeql-packs %}
 Optionally, you can download some CodeQL packs containing pre-compiled queries you would like to run. For more information, see "[AUTOTITLE](/code-security/codeql-cli/getting-started-with-the-codeql-cli/customizing-analysis-with-codeql-packs)."
-
-{% endif %}
 
 ## Next steps
 

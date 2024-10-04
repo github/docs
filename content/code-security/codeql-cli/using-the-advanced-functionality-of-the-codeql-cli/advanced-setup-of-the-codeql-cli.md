@@ -52,13 +52,10 @@ Rename this folder `codeql-repo` to avoid conflicting with the {% data variables
 clone and rename the repository in a single step by running
 `git clone git@github.com:github/codeql.git codeql-repo` in the `codeql-home` folder.
 
-{% ifversion codeql-packs %}
-
 Within this repository, the queries and libraries are organized into {% data variables.product.prodname_codeql %}
 packs. Along with the queries themselves, {% data variables.product.prodname_codeql %} packs contain important metadata
 that tells the {% data variables.product.prodname_codeql_cli %} how to process the query files. For more information,
 see "[AUTOTITLE](/code-security/codeql-cli/using-the-advanced-functionality-of-the-codeql-cli/creating-and-working-with-codeql-packs)."
-{% endif %}
 
 {% note %}
 

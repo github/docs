@@ -98,20 +98,20 @@ steps:
 - name: Checkout repository
   uses: {% data reusables.actions.action-checkout %}
 
-    # Initializes CodeQL tools and creates a codebase for analysis.
-    - name: Initialize CodeQL
-      uses: {% data reusables.actions.action-codeql-action-init %}
-      with:
-        languages: {% raw %}${{ matrix.language }}{% endraw %}
-    - if: {% raw %}${{ matrix.build-mode == 'manual' }}{% endraw %}
-      name: Build C and C++ code
-      run: |
-        echo 'If you are using a "manual" build mode for one or more of the' \
-          'languages you are analyzing, replace this with the commands to build' \
-          'your code, for example:'
-        echo '  make bootstrap'
-        echo '  make release'
-        exit 1
+# Initializes CodeQL tools and creates a codebase for analysis.
+- name: Initialize CodeQL
+  uses: {% data reusables.actions.action-codeql-action-init %}
+  with:
+    languages: {% raw %}${{ matrix.language }}{% endraw %}
+- if: {% raw %}${{ matrix.build-mode == 'manual' }}{% endraw %}
+  name: Build C and C++ code
+  run: |
+    echo 'If you are using a "manual" build mode for one or more of the' \
+      'languages you are analyzing, replace this with the commands to build' \
+      'your code, for example:'
+    echo '  make bootstrap'
+    echo '  make release'
+    exit 1
 ```
 
 {% endif %}

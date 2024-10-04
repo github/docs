@@ -286,16 +286,27 @@ test.describe('hover cards', () => {
     ).not.toBeVisible()
   })
 
-  test('internal links get a aria-roledescription and aria-describedby', async ({ page }) => {
+  test('able to use Esc to close hovercard', async ({ page }) => {
     await page.goto('/pages/quickstart')
-    const link = page.locator('#article-contents').getByRole('link', { name: 'Start your journey' })
-    await expect(link).toHaveAttribute('aria-roledescription', 'hovercard link')
 
-    // The link gets a `aria-describedby="...ID..."` attribute that points to
-    // another element in the DOM that has the description text.
-    const id = 'popover-describedby'
-    await expect(link).toHaveAttribute('aria-describedby', id)
-    await expect(page.locator(`#${id}`)).toHaveText('Press alt+up to activate')
+    // hover over a link and check for intro content from hovercard
+    await page
+      .locator('#article-contents')
+      .getByRole('link', { name: 'Start your journey' })
+      .hover()
+    await expect(
+      page.getByText(
+        'Get started using HubGit to manage Git repositories and collaborate with others.',
+      ),
+    ).toBeVisible()
+
+    // click the Esc key to close the hovercard
+    await page.keyboard.press('Escape')
+    await expect(
+      page.getByText(
+        'Get started using GitHub to manage Git repositories and collaborate with others.',
+      ),
+    ).not.toBeVisible()
   })
 })
 

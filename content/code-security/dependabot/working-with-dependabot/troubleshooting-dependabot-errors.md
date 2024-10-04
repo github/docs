@@ -31,13 +31,11 @@ topics:
 
 If anything prevents {% data variables.product.prodname_dependabot %} from raising a pull request, this is reported as an error.
 
-{% ifversion dependabot-updates-paused %}
 {% note %}
 
 **Note:** {% data variables.product.prodname_dependabot %} doesn't create pull requests for inactive repositories. For information about inactivity criteria, see "[AUTOTITLE](/code-security/dependabot/dependabot-security-updates/about-dependabot-security-updates#about-automatic-deactivation-of-dependabot-updates)" and "[AUTOTITLE](/code-security/dependabot/dependabot-version-updates/about-dependabot-version-updates#about-automatic-deactivation-of-dependabot-updates)," for security and version updates, respectively.
 
 {% endnote %}
-{% endif %}
 
 {% ifversion dependabot-on-actions-opt-in %}
 For more information about troubleshooting when running {% data variables.product.prodname_dependabot %} on {% data variables.product.prodname_actions %} runners, see "[AUTOTITLE](/code-security/dependabot/working-with-dependabot/about-dependabot-on-github-actions-runners)."
@@ -91,7 +89,7 @@ Pull requests for security updates act to upgrade a vulnerable dependency to the
 
 Every application that has dependencies has a dependency graph, that is, a directed acyclic graph of every package version that the application directly or indirectly depends on. Every time a dependency is updated, this graph must resolve otherwise the application won't build. When an ecosystem has a deep and complex dependency graph, for example, npm and RubyGems, it is often impossible to upgrade a single dependency without upgrading the whole ecosystem.
 
-The best way to avoid this problem is to stay up to date with the most recently released versions, for example, by enabling version updates. This increases the likelihood that a vulnerability in one dependency can be resolved by a simple upgrade that doesn't break the dependency graph. For more information, see "[AUTOTITLE](/code-security/dependabot/dependabot-version-updates/configuring-dependabot-version-updates)."{% ifversion dependabot-security-updates-unlock-transitive-dependencies %}
+The best way to avoid this problem is to stay up to date with the most recently released versions, for example, by enabling version updates. This increases the likelihood that a vulnerability in one dependency can be resolved by a simple upgrade that doesn't break the dependency graph. For more information, see "[AUTOTITLE](/code-security/dependabot/dependabot-version-updates/configuring-dependabot-version-updates)."
 
 ### {% data variables.product.prodname_dependabot %} tries to update dependencies without an alert
 
@@ -109,7 +107,7 @@ my project
 
 If a security vulnerability is released for `B` versions `<2.0.0` and a patch is available at `2.0.0` then  {% data variables.product.prodname_dependabot %} will attempt to update `B` but will find that it's not possible due to the restriction in place by `A` which only allows lower vulnerable versions. To fix the vulnerability, {% data variables.product.prodname_dependabot %} will look for updates to dependency `A` which allow the fixed version of `B` to be used.
 
-{% data variables.product.prodname_dependabot %} automatically generates a pull request that upgrades both the locked parent and child transitive dependencies.{% endif %}
+{% data variables.product.prodname_dependabot %} automatically generates a pull request that upgrades both the locked parent and child transitive dependencies.
 
 ### {% data variables.product.prodname_dependabot %} fails to close a open pull request for an update that has already been applied on the default branch
 

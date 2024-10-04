@@ -199,7 +199,7 @@ Because macOS arm64 does not support Node 12, macOS {% data variables.actions.ho
 
 {% note %}
 
-**Note:** ARM-powered runners are currently in beta and are subject to change.
+**Note:** ARM-powered runners are currently in {% data variables.release-phases.public_preview %} and are subject to change.
 
 {% endnote %}
 

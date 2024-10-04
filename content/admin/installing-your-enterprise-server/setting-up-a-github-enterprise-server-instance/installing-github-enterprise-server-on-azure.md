@@ -30,7 +30,7 @@ You can deploy {% data variables.product.prodname_ghe_server %} on global Azure 
 
 ## Determining the virtual machine type
 
-Before launching {% data variables.location.product_location %} on Azure, you'll need to determine the machine type that best fits the needs of your organization. For more information about memory optimized machines, see [Memory optimized virtual machine sizes](https://docs.microsoft.com/en-gb/azure/virtual-machines/sizes-memory) in the Microsoft Azure documentation. To review the minimum resource requirements for {% data variables.product.product_name %}, see "[Minimum requirements](#minimum-requirements)."
+Before launching {% data variables.location.product_location %} on Azure, you'll need to determine the machine type that best fits the needs of your organization. For more information about memory optimized machines, see [Memory optimized virtual machine sizes](https://docs.microsoft.com/en-gb/azure/virtual-machines/sizes-memory) in the Microsoft Azure documentation. To review the minimum resource requirements for {% data variables.product.product_name %}, see "[Minimum recommended requirements](#minimum-recommended-requirements)."
 
 {% data reusables.enterprise_installation.warning-on-scaling %}
 

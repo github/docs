@@ -39,8 +39,7 @@ security_advisories:
 dependabot_alerts:
   title: Get notifications for insecure dependencies
   description: >-
-    Set up Dependabot to alert you to new vulnerabilities{% ifversion
-    GH-advisory-db-supports-malware %} or malware{% endif %} in your
+    Set up Dependabot to alert you to new vulnerabilities or malware in your
     dependencies.
   guides:
     - /code-security/dependabot/dependabot-alerts/about-dependabot-alerts

@@ -11,8 +11,6 @@ topics:
   - Security
 ---
 
-{% data reusables.security-configurations.security-configurations-beta-note-opt-out %}
-
 ## About {% data variables.product.prodname_global_settings %}
 
 Alongside {% data variables.product.prodname_security_configurations %}, which determine repository-level security settings, you should also configure {% data variables.product.prodname_global_settings %} for your organization. {% data variables.product.prodname_global_settings_caps %} apply to your entire organization, and can customize {% data variables.product.prodname_GH_advanced_security %} features based on your needs. You can also create security managers on the {% data variables.product.prodname_global_settings %} page to monitor and maintain your organization's security.
@@ -47,11 +45,15 @@ For more information on {% data variables.dependabot.auto_triage_rules %}, see "
 
 {% data variables.product.prodname_dependabot %} can group all automatically suggested security updates into a single pull request to reduce noise. To enable grouped security updates, select **Grouped security updates**. For more information about grouped updates and customization options, see "[AUTOTITLE](/code-security/dependabot/dependabot-security-updates/configuring-dependabot-security-updates#grouping-dependabot-security-updates-into-a-single-pull-request)."
 
-{% ifversion fpt or ghec %}
+{% ifversion dependabot-on-actions-opt-in %}
 
 ### Enabling dependency updates on {% data variables.product.prodname_actions %} runners
 
-You can allow {% data variables.product.prodname_dependabot %} to use {% data variables.product.prodname_actions %} runners and the {% data variables.product.prodname_dependabot %} action to perform dependency updates. To enable {% data variables.product.prodname_dependabot %} for {% data variables.product.company_short %}-hosted runners on all repositories in your organization, select **Dependabot on Actions runners**. For more information, see "[AUTOTITLE](/code-security/dependabot/working-with-dependabot/about-dependabot-on-github-actions-runners)."
+If both {% data variables.product.prodname_dependabot %} and {% data variables.product.prodname_actions %} are enabled for existing repositories in your organization, {% data variables.product.company_short %} will automatically use {% data variables.product.company_short %}-hosted runners to run dependency updates for those repositories.
+
+Otherwise, to allow {% data variables.product.prodname_dependabot %} to use {% data variables.product.prodname_actions %} runners to perform dependency updates for all existing repositories in the organization, select "{% data variables.product.prodname_dependabot %} on Actions runners".
+
+For more information, see "[AUTOTITLE](/code-security/dependabot/working-with-dependabot/about-dependabot-on-github-actions-runners)."
 
 {% data reusables.dependabot.dependabot-on-actions-self-hosted-link %}
 

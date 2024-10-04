@@ -89,3 +89,4 @@ With {% data variables.product.prodname_emus %}, you can control the user accoun
 * Cannot create gists or comment on gists.
 * Cannot create personalized profiles.
 * Do not have access to the {% data variables.product.prodname_certifications %} program.
+* Do not have an individual storage allocation. They can still generate content that counts against the enterprise storage allocation, but cannot create content that consumes storage at a user level, such as by publishing packages.
