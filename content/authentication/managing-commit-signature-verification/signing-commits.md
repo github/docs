@@ -33,6 +33,8 @@ You can also manually configure [gpg-agent](http://linux.die.net/man/1/gpg-agent
 
 If you have multiple keys or are attempting to sign commits or tags with a key that doesn't match your committer identity, you should [tell Git about your signing key](/authentication/managing-commit-signature-verification/telling-git-about-your-signing-key).
 
+{% tip %}
+
 **Tips:**
 
 To sign your commit, it is necessary that the information about your account on github is the same with the one on your local machine. You can configure it by setting the `user.name` and the `user.email` through your terminal.
