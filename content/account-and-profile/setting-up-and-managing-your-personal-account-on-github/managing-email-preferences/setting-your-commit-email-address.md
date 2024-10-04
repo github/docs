@@ -59,7 +59,6 @@ To ensure that commits are attributed to you and appear in your contributions gr
 **Tips:**
 
 If you are finding it difficult to get your `Github ID`, you can easily do that by using the Github API. Pass in your username, and you will get your information, including the ID. 
-
 You can copy the URL below and run it on your browser directly, or through any API testing client.
 
    ```text
