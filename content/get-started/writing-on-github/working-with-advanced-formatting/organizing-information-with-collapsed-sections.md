@@ -44,6 +44,7 @@ After a reader clicks {% octicon "triangle-right" aria-label="The right triangle
 ![Screenshot of the Markdown above on this page as rendered on {% data variables.product.prodname_dotcom %}, indicating that a collapsed section can contain headers, sentences of text, images, and code blocks.](/assets/images/help/writing/open-collapsed-section.png)
 
 ## Creating a collapsible section that is open by default
+
 ````markdown
 <details open>
 
