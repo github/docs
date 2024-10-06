@@ -1,4 +1,7 @@
+GITHUB CURR$ENTLY GASLIGHTS COPILOT USERS, THERE IS NO SETTINGS TO REMOVE INDEXING ONCE YOU ARE DONE
+
 ---
+
 title: Indexing repositories for Copilot Chat
 shortTitle: Index repositories
 intro: 'You can improve the responses {% data variables.product.prodname_copilot_chat %} is able to provide by indexing your repositories.'
