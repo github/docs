@@ -16,7 +16,7 @@ topics:
 
 ## About disabling {% data variables.product.prodname_copilot_autofix_short %} for {% data variables.product.prodname_code_scanning %}
 
-{% data variables.product.prodname_copilot_autofix %} is a {% data variables.product.prodname_copilot %}-powered is an expansion of {% data variables.product.prodname_code_scanning %} that provides users with targeted recommendations to help them fix {% data variables.product.prodname_code_scanning %} alerts so they can avoid introducing new security vulnerabilities. To learn more about {% data variables.product.prodname_copilot_autofix_short %} for {% data variables.product.prodname_code_scanning %}, see "[AUTOTITLE](/code-security/code-scanning/managing-code-scanning-alerts/about-autofix-for-codeql-code-scanning)."
+{% data variables.product.prodname_copilot_autofix %} is a {% data variables.product.prodname_copilot %}-powered is an expansion of {% data variables.product.prodname_code_scanning %} that provides users with targeted recommendations to help them fix {% data variables.product.prodname_code_scanning %} alerts so they can avoid introducing new security vulnerabilities. To learn more about {% data variables.product.prodname_copilot_autofix_short %} for {% data variables.product.prodname_code_scanning %}, see "[AUTOTITLE](/code-security/code-scanning/managing-code-scanning-alerts/responsible-use-autofix-code-scanning)."
 
 {% data reusables.rai.code-scanning.copilot-autofix-note %}
 

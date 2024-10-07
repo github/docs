@@ -1,6 +1,6 @@
 ---
 title: Using GitHub Code Search
-intro: "You can use suggestions, completions and saved searches in the upgraded search interface to quickly find what you are looking for across {% data variables.product.prodname_dotcom_the_website %}."
+intro: "You can use suggestions, completions and saved searches in the upgraded search interface to quickly find what you are looking for across {% data variables.product.prodname_dotcom %}."
 allowTitleToDifferFromFilename: true
 versions:
   feature: code-search-upgrade
@@ -10,7 +10,7 @@ topics:
 
 ## About using {% data variables.product.prodname_dotcom%} code search
 
-{% data variables.product.prodname_dotcom %} indexes repositories you own and repositories in organizations you are a member of, whether public, private, or internal. This means that you can search across all of your repositories, in addition to the public repositories on {% data variables.product.prodname_dotcom_the_website %} that have already been indexed. Only users with permission to view your code on {% data variables.product.prodname_dotcom_the_website %} will be able to see your code in search results. Forks are indexed and searchable in the same way as other repositories.
+{% data variables.product.prodname_dotcom %} indexes repositories you own and repositories in organizations you are a member of, whether public, private, or internal. This means that you can search across all of your repositories, in addition to the public repositories on {% data variables.product.prodname_dotcom %} that have already been indexed. Only users with permission to view your code will be able to see your code in search results. Forks are indexed and searchable in the same way as other repositories.
 
 Not all code is indexed, and you can currently only search the default branches of repositories. For more information on known limitations, see "[AUTOTITLE](/search-github/github-code-search/about-github-code-search#limitations)."
 
@@ -18,13 +18,13 @@ Not all code is indexed, and you can currently only search the default branches 
 
 ## Using the search bar
 
-You can search using the search interface on {% data variables.product.prodname_dotcom_the_website %}. Using suggestions, completions, and saved searches, you can quickly find what you are looking for, often without having to fully type a query or view the search results page.
+You can search using the search interface on {% data variables.product.prodname_dotcom %}. Using suggestions, completions, and saved searches, you can quickly find what you are looking for, often without having to fully type a query or view the search results page.
 
 For more information about the search syntax of code search, see "[AUTOTITLE](/search-github/github-code-search/understanding-github-code-search-syntax)."
 
 {% data reusables.search.non-code-search-explanation %}
 
-1. In the top navigation of {% data variables.product.prodname_dotcom_the_website %}, click the search bar.
+1. In the top navigation of {% data variables.product.prodname_dotcom %}, click the search bar.
 1. Under the search bar, you will see a list of suggestions organized by category, including recent searches and suggested repositories, teams, and projects that you have access to. You can also see a list of saved searches that you have created. For more information on saved searches, see "[Creating and managing saved searches](#creating-and-managing-saved-searches)."
 
    ![Screenshot of the {% data variables.product.prodname_dotcom %} search bar. There is a list of search suggestions by category below the search bar.](/assets/images/help/search/code-search-beta-search-bar.png)
@@ -39,7 +39,7 @@ For more information about the search syntax of code search, see "[AUTOTITLE](/s
 
 ## Creating and managing saved searches
 
-1. In the top navigation of {% data variables.product.prodname_dotcom_the_website %}, click the search bar and type `saved:`.
+1. In the top navigation of {% data variables.product.prodname_dotcom %}, click the search bar and type `saved:`.
 1. Under the search bar, in the "Saved queries" section, click {% octicon "plus-circle" aria-hidden="true" %} **Manage saved searches**.
 1. In the pop-up window, type both the name you want for your saved search and the query you want to save.
 1. To finish creating your saved search, click **Create saved search**.
@@ -54,9 +54,9 @@ To construct a search query, as well as view and filter results, using a visual 
 
 On the search results view, you can navigate between different types of search results, including code, issues, pull request, repositories, and more. You can also view and use filters.
 
-## Using {% data variables.product.prodname_dotcom%} code search on {% data variables.product.prodname_mobile %}
+## Using {% data variables.product.prodname_dotcom %} code search on {% data variables.product.prodname_mobile %}
 
-{% ifversion global-code-search-mobile %}On {% data variables.product.prodname_mobile %}, you can use code search directly from the search bar in the home screen.{% else %} On {% data variables.product.prodname_mobile %}, you can navigate to a repository and use code search on the code in that repository.{% endif %} Code search on {% data variables.product.prodname_mobile %} uses the same syntax as code search on {% data variables.product.prodname_dotcom_the_website %}. For more information, see "[AUTOTITLE](/search-github/github-code-search/about-github-code-search#limitations)."
+{% ifversion global-code-search-mobile %}On {% data variables.product.prodname_mobile %}, you can use code search directly from the search bar in the home screen.{% else %} On {% data variables.product.prodname_mobile %}, you can navigate to a repository and use code search on the code in that repository.{% endif %} Code search on {% data variables.product.prodname_mobile %} uses the same syntax as code search on {% data variables.product.prodname_dotcom %}. For more information, see "[AUTOTITLE](/search-github/github-code-search/about-github-code-search#limitations)."
 
 {% ifversion global-code-search-mobile %}
 

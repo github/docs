@@ -1,8 +1,9 @@
 ---
-title: About generating regular expressions with AI
+title: Responsible use of AI to define regular expressions
 shortTitle: Generate regular expressions with AI
-intro: 'You can define your own custom patterns to extend the capabilities of {% data variables.product.prodname_secret_scanning %} by generating one or more regular expressions for each pattern, using the {% data variables.secret-scanning.custom-pattern-regular-expression-generator %}.'
+intro: 'Learn about the capabilities and limitations of the {% data variables.secret-scanning.custom-pattern-regular-expression-generator %} in helping you to define custom patterns to extend the capabilities of {% data variables.product.prodname_secret_scanning %}.'
 product: '{% data reusables.gated-features.secret-scanning %}'
+allowTitleToDifferFromFilename: true
 versions:
   feature: secret-scanning-custom-pattern-ai-generated
   fpt: '*'
@@ -14,6 +15,7 @@ topics:
 redirect_from:
   - /code-security/secret-scanning/about-the-regular-expression-generator-for-custom-patterns
   - /code-security/secret-scanning/about-generating-regular-expressions-with-ai
+  - /code-security/secret-scanning/using-advanced-secret-scanning-and-push-protection-features/custom-patterns/about-generating-regular-expressions-with-ai
 ---
 
 <!--Note on the versioning above ^. This article is visible to free, pro, team users for transparency. They cannot use the feature so `fpt` is not included in the feature definition.-->

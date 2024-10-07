@@ -34,7 +34,7 @@ If you use {% data variables.product.product_name %} through a Microsoft Enterpr
 
 {% ifversion fpt or ghec %}
 
-## About usage-based billing on {% data variables.product.prodname_dotcom_the_website %}
+## About usage-based billing on {% data variables.product.prodname_dotcom %}
 
 {% data variables.product.company_short %} provides usage-based billing for the following features and situations. You can learn more about billing and spending limits.
 
@@ -160,7 +160,7 @@ After you disconnect your Azure subscription from your enterprise account, your 
 
 ## Troubleshooting connection of an Azure subscription
 
-You can troubleshoot some common issues with connection of an Azure subscription to your account on {% data variables.product.prodname_dotcom_the_website %}.
+You can troubleshoot some common issues with connection of an Azure subscription to your account on {% data variables.product.prodname_dotcom %}.
 
 ### Message: "Need admin approval"
 
