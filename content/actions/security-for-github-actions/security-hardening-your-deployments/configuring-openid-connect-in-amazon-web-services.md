@@ -124,8 +124,8 @@ To update your workflows for OIDC, you will need to make two changes to your YAM
 
 The `aws-actions/configure-aws-credentials` action receives a JWT from the {% data variables.product.prodname_dotcom %} OIDC provider, and then requests an access token from AWS. For more information, see the AWS [documentation](https://github.com/aws-actions/configure-aws-credentials).
 
-* `BUCKET-NAME`: Add the name of your S3 bucket here.
-* `AWS-REGION`: Add the name of your AWS region here.
+* `BUCKET-NAME`: Replace this with the name of your S3 bucket.
+* `AWS-REGION`: Replace this with the name of your AWS region.
 * `ROLE-TO-ASSUME`: Replace this with your AWS role. For example, `arn:aws:iam::1234567890:role/example-role`
 
 ```yaml copy
@@ -148,7 +148,7 @@ jobs:
       - name: Git clone the repository
         uses: {% data reusables.actions.action-checkout %}
       - name: configure aws credentials
-        uses: aws-actions/configure-aws-credentials@v3
+        uses: aws-actions/configure-aws-credentials@d4e5f6a7b8c9d0e1f2a3b4c5d6e7f8a9b0c1d2e3
         with:
           role-to-assume: ROLE-TO-ASSUME
           role-session-name: samplerolesession

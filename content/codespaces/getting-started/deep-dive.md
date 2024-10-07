@@ -17,7 +17,7 @@ topics:
 
 There are a number of entry points to create a codespace.
 
-* From a {% data variables.product.company_short %} template or any template repository on {% data variables.product.prodname_dotcom_the_website %} to start a new project
+* From a {% data variables.product.company_short %} template or any template repository on {% data variables.product.github %} to start a new project
 * From a branch in your repository for new feature work
 * From an open pull request to explore work-in-progress
 * From a commit in a repository's history to investigate a bug at a specific point in time
@@ -40,7 +40,7 @@ When you create a codespace, various steps happen in the background before the c
 
 ### Step 1: VM and storage are assigned to your codespace
 
-When you create a codespace, a virtual machine (VM) is created using either the stable or beta release of the VM host image. For more information, see "[AUTOTITLE](/codespaces/setting-your-user-preferences/choosing-the-stable-or-beta-host-image)." The host image defines the version of Linux that is used for the VM. The VM is both dedicated and private to you. Having a dedicated VM ensures that you have the entire set of compute resources from that machine available to you. If necessary, this also allows you to have full root access to your container.
+When you create a codespace, a virtual machine (VM) is created using either the stable or {% data variables.release-phases.public_preview %} release of the VM host image. For more information, see "[AUTOTITLE](/codespaces/setting-your-user-preferences/choosing-the-stable-or-beta-host-image)." The host image defines the version of Linux that is used for the VM. The VM is both dedicated and private to you. Having a dedicated VM ensures that you have the entire set of compute resources from that machine available to you. If necessary, this also allows you to have full root access to your container.
 
 A [shallow clone](https://github.blog/2020-12-21-get-up-to-speed-with-partial-clone-and-shallow-clone/) is then made of your repository, or of the template repository if you're creating a codespace from a template. This is cloned into the `/workspaces` directory of the VM and subsequently mounted into the dev container. For more information, see "[About the directory structure of a codespace](#about-the-directory-structure-of-a-codespace)" below.
 

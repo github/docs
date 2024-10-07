@@ -42,7 +42,7 @@ You can use content exclusions to configure {% data variables.product.prodname_c
 | JetBrains IDEs | {% octicon "check" aria-label="Supported" %} | {% octicon "check" aria-label="Supported" %} |
 | Vim/Neovim | {% octicon "check" aria-label="Supported" %} | Not applicable |
 | Azure Data Studio | {% octicon "x" aria-label="Not supported" %} | Not applicable |
-| {% data variables.product.prodname_dotcom_the_website %} | Not applicable | {% octicon "x" aria-label="Not supported" %} |
+| The {% data variables.product.github %} website | Not applicable | {% octicon "x" aria-label="Not supported" %} |
 
 ### Limitations of content exclusions
 

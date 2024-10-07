@@ -11,8 +11,6 @@ topics:
   - Security
 ---
 
-{% data reusables.security-configurations.security-configurations-beta-note %}
-
 ## About detaching repositories from their {% data variables.product.prodname_security_configurations %}
 
 If you decide that the security needs of a repository are too specific for a {% data variables.product.prodname_security_configuration %} to be useful, you can detach that repository from the linked configuration and instead manage security enablement settings at the repository level. Detaching a repository from a {% data variables.product.prodname_security_configuration %} will not change the existing security enablement settings for that repository. For an introduction to securing your repository at the repository level, see "[AUTOTITLE](/code-security/getting-started/securing-your-repository)."

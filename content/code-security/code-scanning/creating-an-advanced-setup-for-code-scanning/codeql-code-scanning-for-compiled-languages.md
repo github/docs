@@ -98,20 +98,20 @@ steps:
 - name: Checkout repository
   uses: {% data reusables.actions.action-checkout %}
 
-    # Initializes CodeQL tools and creates a codebase for analysis.
-    - name: Initialize CodeQL
-      uses: {% data reusables.actions.action-codeql-action-init %}
-      with:
-        languages: {% raw %}${{ matrix.language }}{% endraw %}
-    - if: {% raw %}${{ matrix.build-mode == 'manual' }}{% endraw %}
-      name: Build C and C++ code
-      run: |
-        echo 'If you are using a "manual" build mode for one or more of the' \
-          'languages you are analyzing, replace this with the commands to build' \
-          'your code, for example:'
-        echo '  make bootstrap'
-        echo '  make release'
-        exit 1
+# Initializes CodeQL tools and creates a codebase for analysis.
+- name: Initialize CodeQL
+  uses: {% data reusables.actions.action-codeql-action-init %}
+  with:
+    languages: {% raw %}${{ matrix.language }}{% endraw %}
+- if: {% raw %}${{ matrix.build-mode == 'manual' }}{% endraw %}
+  name: Build C and C++ code
+  run: |
+    echo 'If you are using a "manual" build mode for one or more of the' \
+      'languages you are analyzing, replace this with the commands to build' \
+      'your code, for example:'
+    echo '  make bootstrap'
+    echo '  make release'
+    exit 1
 ```
 
 {% endif %}
@@ -137,15 +137,11 @@ To use `autobuild` or manual build steps, you can use advanced setup.
 
 ## About Autobuild for {% data variables.product.prodname_codeql %}
 
-{% ifversion codeql-no-build or code-scanning-without-workflow-310 %}
-
 The {% data variables.product.prodname_codeql %} action uses `autobuild` to analyze compiled languages in the following cases.
 
 * Default setup is enabled{% ifversion codeql-no-build %} and the language does not support `none` build (supported for {% data variables.code-scanning.no_build_support %}).
 * Advanced setup is enabled and the workflow specifies `build-mode: autobuild`{% endif %}.
 * Advanced setup is enabled and the workflow has an Autobuild step for the language using the `autobuild` action (`{% data reusables.actions.action-codeql-action-autobuild %}`).
-
-{% endif %}
 
 {% ifversion codeql-no-build %}
 
@@ -173,11 +169,7 @@ steps:
 
 ### Example using the Autobuild step
 
-{% elsif ghes and code-scanning-without-workflow-310 %}
-
-<!--Nothing to display-->
-
-{% elsif ghes %}
+{% elsif ghes < 3.14 %}
 
 The basic {% data variables.code-scanning.codeql_workflow %} uses the `autobuild` action to build your code.
 
@@ -196,8 +188,7 @@ The basic {% data variables.code-scanning.codeql_workflow %} uses the `autobuild
 
 ## About specifying build steps manually
 
-{% ifversion codeql-no-build or code-scanning-without-workflow-310 %}
-You can only specify manual build steps if you have enabled advanced setup, see "[AUTOTITLE](/code-security/code-scanning/creating-an-advanced-setup-for-code-scanning/configuring-advanced-setup-for-code-scanning#configuring-advanced-setup-for-a-repository)."{% endif %}
+You can only specify manual build steps if you have enabled advanced setup, see "[AUTOTITLE](/code-security/code-scanning/creating-an-advanced-setup-for-code-scanning/configuring-advanced-setup-for-code-scanning#configuring-advanced-setup-for-a-repository)."
 
 {% data reusables.code-scanning.autobuild-add-build-steps %} For information on how to edit the workflow file, see  "[AUTOTITLE](/code-security/code-scanning/creating-an-advanced-setup-for-code-scanning/customizing-your-advanced-setup-for-code-scanning#editing-a-code-scanning-workflow)."
 
@@ -266,8 +257,8 @@ If you added manual build steps for compiled languages and {% data variables.pro
 {% ifversion fpt or ghec %}{% data variables.product.prodname_dotcom %}-hosted runners are always run with the software required by `autobuild`.{% endif %} If you use self-hosted runners for {% data variables.product.prodname_actions %}, you may need to install additional software to use the `autobuild` process. Additionally, if your repository requires a specific version of a build tool, you may need to install it manually. {% ifversion code-scanning-default-setup-self-hosted-310 or default-setup-self-hosted-runners-GHEC %} For self-hosted runners, you should install dependencies directly in the runners themselves. We provide examples of common dependencies for C/C++, C#, and Java in each of the `autobuild` sections of this article for those languages. For more information, see "[AUTOTITLE](/actions/hosting-your-own-runners/managing-self-hosted-runners/about-self-hosted-runners)."{% endif %}
 
 * [Building C/C++](#building-cc)
-* [Building C#](#building-c){% ifversion codeql-go-autobuild %}
-* [Building Go](#building-go){% endif %}
+* [Building C#](#building-c)
+* [Building Go](#building-go)
 * [Building Java and Kotlin](#building-java-and-kotlin)
 * [Building Swift](#building-swift)
 
@@ -358,6 +349,26 @@ You can ensure a more accurate analysis by taking the following steps:
 | Operating system | Windows, macOS, and Linux |
 | Build system | .NET and MSbuild, as well as build scripts |
 
+### C# compiler flags injected by {% data variables.product.prodname_codeql %}
+
+>[!NOTE] The following compiler flags only apply if you're using build mode `manual`.
+
+The {% data variables.product.prodname_codeql %} tracer enables the extraction of all compiled languages by intercepting build processes and forwarding information to the relevant {% data variables.product.prodname_codeql %} language extractors. The tracer injects certain flags into the C# compiler invocation to ensure every component is built and included in the {% data variables.product.prodname_codeql %} database, which may cause your C# code to build in a different way to what you expect during {% data variables.product.prodname_codeql %} analysis.
+
+#### `/p:MvcBuildViews=true`
+
+When this option is set to `true`, the views in ASP.NET model-view-controller (MVC) projects are precompiled as part of the build process, which can help to catch errors and improve performance. The tracer injects this flag to make sure {% data variables.product.prodname_codeql %} finds and highlights security issues that may involve dataflow through the code generated from these views. For more information, see "[Adding a View to an MVC Application](https://learn.microsoft.com/en-us/aspnet/mvc/overview/getting-started/introduction/adding-a-view)" in Microsoft Learn.
+
+#### `/p:UseSharedCompilation=false`
+
+Setting this option to `false` disables the use of the shared compilation feature, which may result in slower build times. When `/p:UseSharedCompilation=false` is **not** specified, `msbuild` starts a compiler server process, and all the compilation will be done by that single process. However, the {% data variables.product.prodname_codeql %} tracer depends on inspecting the arguments of newly created processes.
+
+#### `/p:EmitCompilerGeneratedFiles=true`
+
+Setting this option to `true` will emit compiler-generated files during the build process. This option causes the compiler to generate additional source files that are used to support features such as improved regular expression support, serialization, and web application view generation. These generated artifacts are typically not written to disk by the compiler, but setting the option to `true` forces writing the files to disk, and so the extractor can process the files.
+
+For some legacy projects, and projects that use `.sqlproj` files, you may see that the injected `/p:EmitCompilerGeneratedFiles=true` property causes unexpected issues with `msbuild`. For information about troubleshooting this, see "[AUTOTITLE](/code-security/code-scanning/troubleshooting-code-scanning/c-sharp-compiler-unexpectedly-failing)."
+
 ### Windows autodetection
 
 The `autobuild` process attempts to autodetect a suitable build method for C# using the following approach:
@@ -400,8 +411,6 @@ If you plan to create {% data variables.product.prodname_codeql %} databases usi
 
 {% endif %}
 
-{% ifversion codeql-go-autobuild %}
-
 ## Building Go
 
 {% ifversion codeql-no-build %}{% data variables.product.prodname_codeql %} supports build modes `autobuild` or `manual` for Go code.
@@ -428,7 +437,11 @@ The `autobuild` process attempts to autodetect a suitable way to install the dep
 
 {% endnote %}
 
-{% endif %}
+### Extractor options for Go
+
+By default, test code (code in files ending in `_test.go`) is not analyzed. You can override this with the option `--extractor-option extract_tests=true` when using the {% data variables.product.prodname_codeql_cli %}, or by setting the environment variable `CODEQL_EXTRACTOR_GO_OPTION_EXTRACT_TESTS` to `true`.
+
+Additionally, `vendor` directories are excluded from {% data variables.product.prodname_codeql %} Go analysis by default. You can override this by passing the `--extractor-option extract_vendor_dirs=true` option when using the {% data variables.product.prodname_codeql_cli %}, or by setting the environment variable `CODEQL_EXTRACTOR_GO_OPTION_EXTRACT_VENDOR_DIRS` to `true`.
 
 ## Building Java and Kotlin
 

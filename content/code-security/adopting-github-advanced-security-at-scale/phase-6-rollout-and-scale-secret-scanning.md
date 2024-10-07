@@ -21,8 +21,6 @@ You can enable secret scanning for individual repositories or for all repositori
 
 {% data reusables.security-configurations.enable-security-features-with-gh-config %}
 
-{% data reusables.security-configurations.security-configurations-beta-note-short %}
-
 {% endif %}
 
 This article explains a high-level process focusing on enabling {% data variables.product.prodname_secret_scanning %} for all repositories in an organization. The principles described in this article can still be applied even if you take a more staggered approach of enabling {% data variables.product.prodname_secret_scanning %} for individual repositories.

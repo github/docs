@@ -18,14 +18,24 @@ redirect_from:
 
 Indexing repositories is not a requirement and will not affect responses to questions about information in knowledge bases, pull requests, issues, discussions, or commits. However, indexing can help {% data variables.product.prodname_copilot_chat_short %} answer questions that relate directly to the code within a repository.
 
-The indexing status of a repository is displayed on {% data variables.product.prodname_dotcom_the_website %} when you start a conversation that has a repository context. You can index the repository if it has not been indexed yet.
+The indexing status of a repository is displayed on {% data variables.product.github %} when you start a conversation that has a repository context. You can index the repository if it has not been indexed yet.
 
 After you index a repository it is automatically re-indexed every time a change is pushed to the repository.
 
+## Indexing limits
+
+{% rowheaders %}
+
+|                  | {% data variables.product.prodname_copilot_individuals_short %} | {% data variables.product.prodname_copilot_business_short %} | {% data variables.product.prodname_copilot_enterprise_short %} |
+|------------------|-----------------------------------------------------------------|--------------------------------------------------------------|----------------------------------------------------------------|
+| Repository limit | 5                                                               | 50                                                           | Unlimited                                                      |
+
+{% endrowheaders %}
+
 ## Indexing a repository
 
-1. On {% data variables.product.prodname_dotcom_the_website %}, browse to the repository you want to index.
-1. On any page, click the **{% octicon "copilot" aria-hidden="true" %} {% data variables.product.prodname_copilot_short %}** icon in the upper-right corner.
+1. On {% data variables.product.github %}, browse to the repository you want to index.
+1. On any page, click the **{% octicon "copilot" aria-hidden="true" %} {% data variables.product.prodname_copilot_short %}** icon in the bottom right corner.
 
    If the repository has been indexed, this is shown near top of the {% data variables.product.prodname_copilot_short %} Chat panel.
 

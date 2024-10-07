@@ -57,7 +57,7 @@ The {% data variables.product.prodname_emu_idp_application %} application on Okt
 
     {% note %}
 
-    **Note:** After you require SAML SSO for your enterprise, the setup user will no longer have access to the enterprise but will remain signed in to {% data variables.product.prodname_dotcom %}. Only {% data variables.enterprise.prodname_managed_users %} provisioned by your IdP will have access to the enterprise.
+    **Note:** After you require SAML SSO for your enterprise and save SAML settings, the setup user will continue to have access to the enterprise and will remain signed in to GitHub {% data variables.product.prodname_dotcom %} along with the {% data variables.enterprise.prodname_managed_users %} provisioned by your IdP who will also have access to the enterprise.
 
     {% endnote %}
 

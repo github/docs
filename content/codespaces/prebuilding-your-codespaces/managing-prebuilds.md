@@ -23,11 +23,11 @@ Depending on the settings in a prebuild configuration, the workflow to update th
 * A schedule that you've defined in the prebuild configuration
 * Manually triggering the workflow
 
-The settings in the prebuild configuration determine which events automatically trigger an update of the prebuild. For more information, see "[AUTOTITLE](/codespaces/prebuilding-your-codespaces/configuring-prebuilds#configuring-prebuilds)."
+The settings in the prebuild configuration determine which events automatically trigger an update of the prebuild. See "[AUTOTITLE](/codespaces/prebuilding-your-codespaces/configuring-prebuilds#configuring-prebuilds)."
 
 People with admin access to a repository can check the progress of prebuilds, edit, and delete prebuild configurations.
 
-To locate all repositories that are hosting a prebuild configuration, you must obtain a copy of your usage report by following the steps for "[AUTOTITLE](/billing/managing-billing-for-github-codespaces/viewing-your-github-codespaces-usage)."
+To locate all repositories that are hosting a prebuild configuration, you must obtain a copy of your usage report by following the steps for "[AUTOTITLE](/billing/managing-billing-for-your-products/managing-billing-for-github-codespaces/viewing-your-github-codespaces-usage)."
 
 ## Viewing the progress of prebuilds
 
@@ -39,7 +39,7 @@ To see the log output for the latest prebuild workflow run, click **See output**
 
 This displays the output of the most recent run of the workflow in the **Actions** tab.
 
-![Screenshot of the prebuild workflow output in the "Actions" tab of {% data variables.product.prodname_dotcom_the_website %}.](/assets/images/help/codespaces/prebuilds-log-output.png)
+![Screenshot of the prebuild workflow output in the "Actions" tab of {% data variables.product.github %}.](/assets/images/help/codespaces/prebuilds-log-output.png)
 
 Alternatively, to view all prebuild workflow runs associated with the specified branch, select the {% octicon "kebab-horizontal" aria-label="options" %} dropdown menu and click **View runs**.
 
@@ -77,7 +77,7 @@ Disabling the workflow runs for a prebuild configuration is useful if you need t
 
 {% note %}
 
-**Note**: You can find a list of the repositories that contain a prebuild by obtaining a copy of your “[usage report](/billing/managing-billing-for-github-codespaces/viewing-your-github-codespaces-usage).”
+**Note**: You can find a list of the repositories that contain a prebuild by obtaining a copy of your “[usage report](/billing/managing-billing-for-your-products/managing-billing-for-github-codespaces/viewing-your-github-codespaces-usage).”
 
 {% endnote %}
 

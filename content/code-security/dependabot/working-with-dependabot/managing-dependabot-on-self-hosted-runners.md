@@ -1,6 +1,6 @@
 ---
 title: Managing Dependabot on self-hosted runners
-intro: 'You can configure {% data variables.product.prodname_actions %} self-hosted runners that {% data variables.product.prodname_dependabot %} uses to access your private registries and internal network resources.'
+intro: 'You can configure self-hosted runners that {% data variables.product.prodname_dependabot %} uses to access your private registries and internal network resources.'
 shortTitle: Manage Dependabot on self-hosted runners
 permissions: 'Organization owners and repository administrators can configure {% data variables.product.prodname_dependabot %} to run on self-hosted runners.'
 versions:
@@ -15,9 +15,11 @@ topics:
   - Repositories
 ---
 
-{% data reusables.dependabot.dependabot-on-actions-opt-in-note %}
-
 ## About {% data variables.product.prodname_dependabot %} on {% data variables.product.prodname_actions %} self-hosted runners
+
+{% data reusables.dependabot.dependabot-updates-and-actions %}  For more information, see "[AUTOTITLE](/code-security/dependabot/working-with-dependabot/about-dependabot-on-github-actions-runners)."
+
+{% data reusables.dependabot.dependabot-on-actions-future-note %}
 
 You can help users of your organization and repositories to create and maintain secure code by setting up {% data variables.product.prodname_dependabot %} security and version updates. With {% data variables.product.prodname_dependabot_updates %}, developers can configure repositories so that their dependencies are updated and kept secure automatically. Running {% data variables.product.prodname_dependabot %} on {% data variables.product.prodname_actions %} allows for better performance, and increased visibility and control of {% data variables.product.prodname_dependabot %} jobs.
 
@@ -30,8 +32,6 @@ For more information about configuring {% data variables.product.prodname_depend
 ## Prerequisites
 
 You must have {% data variables.product.prodname_dependabot %} installed and enabled, and {% data variables.product.prodname_actions %} enabled and in use. The "{% data variables.product.prodname_dependabot %} on {% data variables.product.prodname_actions %} Runners" setting for your organization should also be enabled. For more information, see "[AUTOTITLE](/code-security/dependabot/working-with-dependabot/about-dependabot-on-github-actions-runners)."
-
-If {% data variables.product.prodname_actions %} is not enabled for your organization or repository, then the organization or repository level setting to enable "{% data variables.product.prodname_dependabot %} on {% data variables.product.prodname_actions %} runners" will not be visible in the web UI.
 
 Your organization may have configured a policy to restrict actions and self-hosted runners from running in specific repositories, which in turn will not allow {% data variables.product.prodname_dependabot %} to run on {% data variables.product.prodname_actions %} self-hosted runners. In this case, the organization or repository level setting to enable "{% data variables.product.prodname_dependabot %} on self-hosted runners" will not be visible in the web UI. For more information, see "[AUTOTITLE](/organizations/managing-organization-settings/disabling-or-limiting-github-actions-for-your-organization)."
 

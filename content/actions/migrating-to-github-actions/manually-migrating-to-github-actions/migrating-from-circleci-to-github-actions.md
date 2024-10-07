@@ -72,8 +72,6 @@ For more information, see "[AUTOTITLE](/actions/learn-github-actions/variables#d
 
 CircleCI and {% data variables.product.prodname_actions %} provide a method to manually cache files in the configuration file.
 
-{% ifversion actions-caching %}
-
 Below is an example of the syntax for each system.
 
 ### CircleCI syntax for caching
@@ -99,12 +97,6 @@ Below is an example of the syntax for each system.
     key: {% raw %}v1-npm-deps-${{ hashFiles('**/package-lock.json') }}{% endraw %}
     restore-keys: v1-npm-deps-
 ```
-
-{% else %}
-
-{% data reusables.actions.caching-availability %}
-
-{% endif %}
 
 {% data variables.product.prodname_actions %} does not have an equivalent of CircleCI’s Docker Layer Caching (or DLC).
 

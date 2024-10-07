@@ -19,13 +19,13 @@ redirect_from:
 
 If you use a JetBrains IDE to work on your code, you can take advantage of working in a codespace. You do this by using the JetBrains Gateway application.
 
-After installing the JetBrains Gateway, you can set JetBrains as your default editor for {% data variables.product.prodname_codespaces %}. If you do, then whenever you open a codespace from {% data variables.product.prodname_dotcom_the_website %}, the JetBrains Gateway will launch to allow you to choose your JetBrains IDE and connect to the codespace.
+After installing the JetBrains Gateway, you can set JetBrains as your default editor for {% data variables.product.prodname_codespaces %}. If you do, then whenever you open a codespace from {% data variables.product.github %}, the JetBrains Gateway will launch to allow you to choose your JetBrains IDE and connect to the codespace.
 
 When you work in a codespace, you use the JetBrains thin client application on your local computer. This provides the graphical interface for the full JetBrains IDE of your choice, which runs on the remote virtual machine that hosts your codespace. The thin client is always used, even if the full JetBrains IDE is installed locally. Any local JetBrains IDE settings are imported and used by the thin client.
 
 {% note %}
 
-**Note:** Only existing codespaces are available in the JetBrains Gateway. You can create codespaces in {% data variables.product.prodname_dotcom_the_website %}, or by using {% data variables.product.prodname_cli %}. For more information, see "[AUTOTITLE](/codespaces/developing-in-a-codespace/creating-a-codespace-for-a-repository)."
+**Note:** Only existing codespaces are available in the JetBrains Gateway. You can create codespaces in {% data variables.product.github %}, or by using {% data variables.product.prodname_cli %}. For more information, see "[AUTOTITLE](/codespaces/developing-in-a-codespace/creating-a-codespace-for-a-repository)."
 
 {% endnote %}
 
@@ -81,7 +81,7 @@ For more information about the `devcontainer.json` file and the default containe
 
 ## Setting up the JetBrains Gateway
 
-The first time you use JetBrains Gateway for {% data variables.product.prodname_github_codespaces %}, you must install the {% data variables.product.prodname_codespaces %} plugin. You must also allow the JetBrains Gateway to access {% data variables.product.prodname_dotcom_the_website %} using your {% data variables.product.prodname_dotcom %} account.
+The first time you use JetBrains Gateway for {% data variables.product.prodname_github_codespaces %}, you must install the {% data variables.product.prodname_codespaces %} plugin. You must also allow the JetBrains Gateway to access {% data variables.product.github %} using your {% data variables.product.prodname_dotcom %} account.
 
 1. Open the JetBrains Toolbox application.
 1. In the list of installed tools, click **Gateway**.

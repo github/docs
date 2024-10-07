@@ -45,7 +45,9 @@ The following sections list some of the available keyboard shortcuts, organized 
 |<kbd>G</kbd> <kbd>I</kbd> | Go to the **Issues** tab. For more information, see "[AUTOTITLE](/issues/tracking-your-work-with-issues/about-issues)."
 |<kbd>G</kbd> <kbd>P</kbd> | Go to the **Pull requests** tab. For more information, see "[AUTOTITLE](/pull-requests/collaborating-with-pull-requests/proposing-changes-to-your-work-with-pull-requests/about-pull-requests)."
 |<kbd>G</kbd> <kbd>A</kbd> | Go to the **Actions** tab. For more information, see "[AUTOTITLE](/actions/learn-github-actions)."
+| {% ifversion projects-v1 %} |
 |<kbd>G</kbd> <kbd>B</kbd> | Go to the **Projects** tab. For more information, see "[AUTOTITLE](/issues/organizing-your-work-with-project-boards/managing-project-boards/about-project-boards)."
+| {% endif %} |
 |<kbd>G</kbd> <kbd>W</kbd> | Go to the **Wiki** tab. For more information, see "[AUTOTITLE](/communities/documenting-your-project-with-wikis/about-wikis)." |
 |  {% ifversion discussions %} |
 |<kbd>G</kbd> <kbd>G</kbd> | Go to the **Discussions** tab. For more information, see "[AUTOTITLE](/discussions/collaborating-with-your-community-using-discussions/about-discussions)."
@@ -156,6 +158,11 @@ If you view a code file in a repository using the **Code** view and click on any
 |<kbd>Alt</kbd> and click | When creating an issue from a task list, open the new issue form in the current tab by holding <kbd>Alt</kbd> and clicking the {% octicon "issue-opened" aria-label="The issue opened icon" %} in the upper-right corner of the task. For more information, see "[AUTOTITLE](/get-started/writing-on-github/working-with-advanced-formatting/about-task-lists)." |
 |<kbd>Shift</kbd> and click | When creating an issue from a task list, open the new issue form in a new tab by holding <kbd>Shift</kbd> and clicking the {% octicon "issue-opened" aria-label="The issue opened icon" %} in the upper-right corner of the task. For more information, see "[AUTOTITLE](/get-started/writing-on-github/working-with-advanced-formatting/about-task-lists)." |
 |<kbd>Command</kbd> and click (Mac) or </br> <kbd>Ctrl</kbd>+<kbd>Shift</kbd> and click (Windows/Linux) | When creating an issue from a task list, open the new issue form in the new window by holding <kbd>Command</kbd> or <kbd>Ctrl</kbd>+<kbd>Shift</kbd> and clicking the {% octicon "issue-opened" aria-label="The issue opened icon" %} in the upper-right corner of the task. For more information, see "[AUTOTITLE](/get-started/writing-on-github/working-with-advanced-formatting/about-task-lists)." |
+|  {% endif %} |
+| {% ifversion sub-issues %} |
+|<kbd>Option</kbd>+<kbd>Shift</kbd>+<kbd>c</kbd> (Mac) or </br> <kbd>Alt</kbd>+<kbd>Shift</kbd>+<kbd>c</kbd> (Windows/Linux) | Create a new sub-issue. See "[AUTOTITLE](/issues/tracking-your-work-with-issues/using-issues/adding-sub-issues)." |
+|<kbd>Option</kbd>, <kbd>Shift</kbd>+<kbd>a</kbd> (Mac) or </br> <kbd>Alt</kbd>+<kbd>Shift</kbd>+<kbd>a</kbd> (Windows/Linux) | Add an existing issue as sub-issue. See "[AUTOTITLE](/issues/tracking-your-work-with-issues/using-issues/adding-sub-issues)." |
+|<kbd>Option</kbd>+<kbd>Shift</kbd>+<kbd>p</kbd> (Mac) or </br> <kbd>Alt</kbd>+<kbd>Shift</kbd>+<kbd>p</kbd> (Windows/Linux) | Edit parent issue. |
 |  {% endif %} |
 
 ## "Files changed" tab in pull requests

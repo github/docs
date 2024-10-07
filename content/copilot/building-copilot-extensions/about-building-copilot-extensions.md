@@ -13,12 +13,16 @@ type: overview
 
 ## About {% data variables.product.prodname_copilot_extensions_short %}
 
-{% data variables.product.prodname_copilot_extensions_short %} are integrations that expand the functionality of {% data variables.product.prodname_copilot_chat_short %}. {% data variables.product.prodname_copilot_extensions_short %} allow developers to integrate external tools, services, and custom behaviours into the {% data variables.product.prodname_copilot_chat_short %} experience across all supported IDEs and {% data variables.product.company_short %}.
+{% data variables.product.prodname_copilot_extensions_short %} are integrations that expand the functionality of {% data variables.product.prodname_copilot_chat_short %}. {% data variables.product.prodname_copilot_extensions_short %} allow developers to integrate external tools, services, and custom behaviors into the {% data variables.product.prodname_copilot_chat_short %} experience across all supported IDEs and {% data variables.product.company_short %}.
 
 {% data variables.product.prodname_copilot_extensions_short %} are built as {% data variables.product.prodname_github_apps %} with additional capabilities, including:
 * Read-access to your {% data variables.product.prodname_copilot_chat_short %} history
 * Sending responses to users in the {% data variables.product.prodname_copilot_chat_short %} window
 * Execution of {% data variables.product.company_short %} (first party) or functions on external services (third party)
+
+{% data variables.product.prodname_copilot_extensions_short %} can be used with:
+
+{% data reusables.copilot.copilot-extensions.compatible-chat-interfaces %}
 
 ## Visibility of {% data variables.product.prodname_copilot_extensions_short %}
 
@@ -53,22 +57,24 @@ You can use {% data variables.product.prodname_copilot_extensions_short %} to ex
 Before creating your own {% data variables.product.prodname_copilot_extension_short %} from scratch, you may want to explore an existing {% data variables.product.prodname_copilot_agent_short %}, and integrate it with a {% data variables.product.prodname_github_app %} to see how it works. {% data variables.product.company_short %} provides a few example {% data variables.product.prodname_copilot_agents_short %}, that you can clone and use as the basis for your own {% data variables.product.prodname_copilot_extension_short %}, including:
 
 * **Blackbeard**: A simple {% data variables.product.prodname_copilot_agent_short %} that responds to requests like a pirate, using {% data variables.product.prodname_copilot_short %}'s LLM API and special system prompts. It is a good starting point for learning how to build a {% data variables.product.prodname_copilot_extension_short %}. For more information, see the [Blackbeard {% data variables.product.prodname_copilot_extension_short %}](https://github.com/copilot-extensions/blackbeard-extension).
-* **{% data variables.product.prodname_github_models %}**: A more complex {% data variables.product.prodname_copilot_agent_short %} that let's you ask about and interact with various LLMs listed on the {% data variables.product.prodname_marketplace %} from within {% data variables.product.prodname_copilot_chat_short %}. For more information, see the [{% data variables.product.prodname_github_models %} {% data variables.product.prodname_copilot_extension_short %}](https://github.com/copilot-extensions/github-models-extension).
+* **{% data variables.product.prodname_github_models %}**: A more complex {% data variables.product.prodname_copilot_agent_short %} that lets you ask about and interact with various LLMs listed on the {% data variables.product.prodname_marketplace %} from within {% data variables.product.prodname_copilot_chat_short %}. For more information, see the [{% data variables.product.prodname_github_models %} {% data variables.product.prodname_copilot_extension_short %}](https://github.com/copilot-extensions/github-models-extension).
+
+    > [!NOTE] {% data variables.product.prodname_github_models %} are in {% data variables.release-phases.public_preview %} and subject to change. To request access, join the [waitlist](https://github.com/marketplace/models/waitlist).
 * **Function calling**: an example agent written in Go that demonstrates function calling and confirmation dialogues. For more information, see the [Function calling extension](https://github.com/copilot-extensions/function-calling-extension).
 * **RAG extension**: an example agent written in Go that demonstrates a simple implementation of retrieval augmented generation. For more information, see the [RAG extension](https://github.com/copilot-extensions/rag-extension).
 * **Preview SDK**: An SDK that simplifies the process of building {% data variables.product.prodname_copilot_extensions_short %} by handling request verification, response formatting, and API interactions. It allows builders to focus on their extension's core functionality rather than boilerplate, by streamlining the integration of tools, APIs, and data sources into {% data variables.product.prodname_copilot_chat_short %}. For more information, see the [Preview SDK](https://github.com/copilot-extensions/preview-sdk.js).
 
-## About {% data variables.product.prodname_vscode %} Chat extensions
+## About {% data variables.product.prodname_copilot_extensions_vsc %}
 
-{% data variables.product.prodname_copilot_extensions %} are generally built as {% data variables.product.prodname_github_apps %}. However, there is also an option to build a {% data variables.product.prodname_vscode %} Chat extension that integrates with {% data variables.product.prodname_copilot_chat_short %} and provides a similar end user experience. {% data variables.product.prodname_vscode %} Chat extensions are a good option for developers looking to customize their copilot experience with functionalities specific to {% data variables.product.prodname_vscode %}.
+Alternatively, you can build a {% data variables.product.prodname_copilot_extension_short %} that is exclusive and native to {% data variables.product.prodname_vscode %}. These extensions are called {% data variables.product.prodname_copilot_extensions_vsc %}, or {% data variables.product.prodname_vscode %} Chat extensions. {% data variables.product.prodname_vscode_shortname %} Chat extensions can only be used in {% data variables.product.prodname_copilot_chat_short %} for {% data variables.product.prodname_vscode_shortname %}, and are a good option for developers who want to build extensions that use specific {% data variables.product.prodname_vscode %} functionality.
 
-There are some key differences from {% data variables.product.prodname_github_app %} {% data variables.product.prodname_copilot_extensions_short %}:
-* {% data variables.product.prodname_vscode %} Specific: Unlike {% data variables.product.prodname_github_app %} {% data variables.product.prodname_copilot_extensions_short %}, which work across all supported IDEs and {% data variables.product.company_short %}, {% data variables.product.prodname_vscode %} Chat extensions only work within the {% data variables.product.prodname_vscode %} environment.
-* Capabilities: They have more access to {% data variables.product.prodname_vscode %}'s features and APIs, allowing for more editor-specific interactions, such as accessing local workspace data and manipulating {% data variables.product.prodname_vscode %}'s interface.
-* Publishing: They can be published to the {% data variables.product.prodname_vscode %} Marketplace. They cannot be published on the {% data variables.product.prodname_marketplace %}.
+There are some key differences from {% data variables.product.prodname_copilot_extensions %}:
+* {% data variables.product.prodname_vscode %} Chat extensions only work within the {% data variables.product.prodname_vscode %} environment.
+* {% data variables.product.prodname_copilot_extensions_vsc %} have more access to {% data variables.product.prodname_vscode %}'s features and APIs, allowing for more editor-specific interactions like accessing local workspace data, manipulating {% data variables.product.prodname_vscode %}'s interface, and read/write access to local files.
+* {% data variables.product.prodname_copilot_extensions_vsc %} are published to the {% data variables.product.prodname_vscode %} Marketplace, not the {% data variables.product.prodname_marketplace %}.
 
-For more information, see [{% data variables.product.prodname_vscode %} Chat extensions](https://code.visualstudio.com/api/extension-guides/chat) in the Visual Studio Code documentation.
+For more information, see [Chat extensions](https://code.visualstudio.com/api/extension-guides/chat) in the {% data variables.product.prodname_vscode %} documentation.
 
 ## Further reading
 
-* For a glossary of terms used in the context of {% data variables.product.prodname_copilot_extensions_short %}, see [Copilot Extensions Glossary](/copilot/building-copilot-extensions/copilot-extensions-glossary)
+* "[AUTOTITLE](/copilot/building-copilot-extensions/copilot-extensions-glossary)"

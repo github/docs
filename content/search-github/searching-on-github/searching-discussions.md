@@ -107,7 +107,7 @@ You can use the `involves` qualifier to find discussions that involve a certain 
 | Qualifier | Example |
 | :- | :- |
 | <code>involves:<em>USERNAME</em></code> | **[involves:becca involves:octocat](https://github.com/search?q=involves%3Abecca+involves%3Aoctocat&type=Discussions)** matches discussions either @becca or @octocat are involved in.
-| `in:body` <code>involves:<em>USERNAME</em></code> | [**NOT beta in:body involves:becca**](https://github.com/search?q=NOT+beta+in%3Abody+involves%3Abecca&type=Discussions) matches discussions @becca is involved in that do not contain the word "beta" in the body.
+| `in:body` <code>involves:<em>USERNAME</em></code> | [**NOT {% data variables.release-phases.public_preview %} in:body involves:becca**](https://github.com/search?q=NOT+beta+in%3Abody+involves%3Abecca&type=Discussions) matches discussions @becca is involved in that do not contain the word "beta" in the body.
 
 ## Search by number of comments
 

@@ -27,12 +27,10 @@ When {% data variables.product.company_short %} detects a supported secret in a 
 
 {% ifversion secret-scanning-non-provider-patterns %}{% ifversion fpt or ghec %}User {% else %}{% data variables.product.prodname_secret_scanning %}{% endif %} alerts can be of the following types:
 
-* High confidence alerts, which relate to supported patterns and specified custom patterns.
-* Other alerts, which have a higher ratio of false positives, and correspond to secrets such as private keys{% ifversion secret-scanning-ai-generic-secret-detection %} or AI-detected generic secrets{% endif %}.
+* {% ifversion secret-scanning-alert-experimental-list %}Default{% else %}High confidence{% endif %} alerts, which relate to supported patterns and specified custom patterns.
+* {% ifversion secret-scanning-alert-experimental-list %}Experimental{% else %}Other{% endif %} alerts, which can have a higher ratio of false positives or secrets used in tests.
 
-{% data variables.product.prodname_dotcom %} displays these "other" alerts in a different list to high confidence alerts, making triaging a better experience for users. For more information, see "[AUTOTITLE](/code-security/secret-scanning/managing-alerts-from-secret-scanning/viewing-alerts)."
-
-{% data reusables.secret-scanning.non-provider-patterns-beta %}
+{% data variables.product.prodname_dotcom %} displays {% ifversion secret-scanning-alert-experimental-list %}experimental{% else %}these "other"{% endif %} alerts in a different list to {% ifversion secret-scanning-alert-experimental-list %}default{% else %}high confidence{% endif %} alerts, making triaging a better experience for users. For more information, see "[AUTOTITLE](/code-security/secret-scanning/managing-alerts-from-secret-scanning/viewing-alerts)."
 
 {% endif %}
 
@@ -68,4 +66,4 @@ Partner alerts are not sent to repository administrators, so you do not need to 
 * "[AUTOTITLE](/code-security/secret-scanning/introduction/supported-secret-scanning-patterns){% ifversion ghec or ghes %}
 * "[AUTOTITLE](/code-security/secret-scanning/using-advanced-secret-scanning-and-push-protection-features/custom-patterns/defining-custom-patterns-for-secret-scanning)"{% endif %}{% ifversion secret-scanning-non-provider-patterns %}
 * "[AUTOTITLE](/code-security/secret-scanning/using-advanced-secret-scanning-and-push-protection-features/non-provider-patterns/enabling-secret-scanning-for-non-provider-patterns)"{% endif %}{% ifversion secret-scanning-ai-generic-secret-detection %}
-* "[AUTOTITLE](/code-security/secret-scanning/using-advanced-secret-scanning-and-push-protection-features/generic-secret-detection/about-the-detection-of-generic-secrets-with-secret-scanning)"{% endif %}
+* "[AUTOTITLE](/code-security/secret-scanning/using-advanced-secret-scanning-and-push-protection-features/generic-secret-detection/responsible-ai-generic-secrets)"{% endif %}

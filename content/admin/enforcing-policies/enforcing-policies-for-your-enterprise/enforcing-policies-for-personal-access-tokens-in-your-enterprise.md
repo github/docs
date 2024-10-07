@@ -12,7 +12,7 @@ redirect_from:
 
 **Note**: {% data reusables.user-settings.pat-v2-beta %}
 
-During the beta, enterprises must opt in to {% data variables.product.pat_v2 %}s. If your enterprise has not already opted-in, then you will be prompted to opt-in and set policies when you follow the steps below.
+During the {% data variables.release-phases.public_preview %}, enterprises must opt in to {% data variables.product.pat_v2 %}s. If your enterprise has not already opted-in, then you will be prompted to opt-in and set policies when you follow the steps below.
 
 Even if an enterprise has not opted in to {% data variables.product.pat_v2 %}s, organizations owned by the enterprise can still opt in. All users, including {% data variables.product.prodname_emus %}, can create {% data variables.product.pat_v2 %}s that can access resources owned by the user (such as repositories created under their account) even if the enterprise has not opted in to {% data variables.product.pat_v2 %}s.
 

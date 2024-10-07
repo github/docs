@@ -166,8 +166,9 @@ Some of the features listed below are limited to organizations using {% data var
 | [Create new discussions and comment on existing discussions](/discussions/collaborating-with-your-community-using-discussions/participating-in-a-discussion) | {% octicon "check" aria-label="Yes" %} | {% octicon "check" aria-label="Yes" %} | {% octicon "check" aria-label="Yes" %} | {% octicon "check" aria-label="Yes" %} | {% octicon "check" aria-label="Yes" %} |
 | [Delete a discussion](/discussions/managing-discussions-for-your-community/managing-discussions#deleting-a-discussion) | {% octicon "x" aria-label="No" %} | {% octicon "check" aria-label="Yes" %} | {% octicon "check" aria-label="Yes" %} | {% octicon "check" aria-label="Yes" %} | {% octicon "check" aria-label="Yes" %} |
 | {% ifversion fpt or ghec %} |
-| [Create codespaces](/codespaces/developing-in-codespaces/creating-a-codespace-for-a-repository?tool=webui) for private{% ifversion ghec %}/internal{% endif %} repositories | {% octicon "x" aria-label="No" %} | {% octicon "x" aria-label="No" %} | {% octicon "check" aria-label="Yes" %} | {% octicon "check" aria-label="Yes" %} | {% octicon "check" aria-label="Yes" %} |
-| [Create codespaces](/codespaces/developing-in-codespaces/creating-a-codespace-for-a-repository?tool=webui) for public repositories | {% octicon "x" aria-label="No" %} | {% octicon "check" aria-label="Yes" %} | {% octicon "check" aria-label="Yes" %} | {% octicon "check" aria-label="Yes" %} | {% octicon "check" aria-label="Yes" %} |
+| [Create codespaces](/codespaces/developing-in-codespaces/creating-a-codespace-for-a-repository?tool=webui) for private{% ifversion ghec %}/internal{% endif %} repositories | {% octicon "check" aria-label="Yes" %} | {% octicon "check" aria-label="Yes" %} | {% octicon "check" aria-label="Yes" %} | {% octicon "check" aria-label="Yes" %} | {% octicon "check" aria-label="Yes" %} |
+| [Create codespaces](/codespaces/developing-in-codespaces/creating-a-codespace-for-a-repository?tool=webui) for private{% ifversion ghec %}/internal{% endif %} repositories with [Codespaces secrets access](/codespaces/managing-codespaces-for-your-organization/managing-development-environment-secrets-for-your-repository-or-organization?tool=webui) | {% octicon "check" aria-label="No" %} | {% octicon "check" aria-label="No" %} | {% octicon "check" aria-label="Yes" %} | {% octicon "check" aria-label="Yes" %} | {% octicon "check" aria-label="Yes" %} |
+| [Create codespaces](/codespaces/developing-in-codespaces/creating-a-codespace-for-a-repository?tool=webui) for public repositories<br>(users with read-only access can only create codespaces at their own expense) | {% octicon "check" aria-label="Yes" %} | {% octicon "check" aria-label="Yes" %} | {% octicon "check" aria-label="Yes" %} | {% octicon "check" aria-label="Yes" %} | {% octicon "check" aria-label="Yes" %} |
 | {% endif %} |
 
 {% endrowheaders %}
@@ -213,5 +214,5 @@ In this section, you can find the access required for security features, such as
 ## Further reading
 
 * "[AUTOTITLE](/organizations/managing-user-access-to-your-organizations-repositories)"
-* "[AUTOTITLE](/organizations/managing-user-access-to-your-organizations-repositories/managing-outside-collaborators/adding-outside-collaborators-to-repositories-in-your-organization)"
-* "[AUTOTITLE](/organizations/managing-access-to-your-organizations-project-boards/project-board-permissions-for-an-organization)"
+* "[AUTOTITLE](/organizations/managing-user-access-to-your-organizations-repositories/managing-outside-collaborators/adding-outside-collaborators-to-repositories-in-your-organization)"{% ifversion projects-v1 %}
+* "[AUTOTITLE](/organizations/managing-access-to-your-organizations-project-boards/project-board-permissions-for-an-organization)"{% endif %}

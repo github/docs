@@ -15,9 +15,9 @@ redirect_from:
   - /admin/overview/creating-an-enterprise-account
 ---
 
-<!-- expires 2024-09-03 -->
+<!-- expires 2024-10-01 -->
 {% data reusables.enterprise.single-organizations-enterprise-migration %}
-<!-- end expires 2024-09-03 -->
+<!-- end expires 2024-10-01 -->
 
 ## When should I create an enterprise account?
 
@@ -38,7 +38,7 @@ In these cases, contact {% data variables.contact.contact_enterprise_sales %}.
 
 ## What will happen after I upgrade my organization?
 
-The following changes also apply to single organizations that are automatically upgraded to an enterprise account. For details, see the [{% data variables.product.prodname_blog %}](https://github.blog/changelog/2024-06-19-upcoming-automatic-upgrade-to-the-enterprise-account-experience/).
+The following changes also apply to single organizations that are automatically upgraded to an enterprise account. For details, see [{% data variables.product.prodname_blog %}](https://github.blog/changelog/2024-06-19-upcoming-automatic-upgrade-to-the-enterprise-account-experience/).
 
 * **Ownership transfer**: Your organization will automatically be owned by the enterprise account. For details, see "[AUTOTITLE](/admin/user-management/managing-organizations-in-your-enterprise/adding-organizations-to-your-enterprise#about-addition-of-organizations-to-your-enterprise-account)."
 * **Ownership roles**: All organization owners will become enterprise owners.
