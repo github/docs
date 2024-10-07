@@ -186,7 +186,7 @@ After using either the BFG tool or `git filter-repo` to remove the sensitive dat
 
    {% endif %}
 
-1. Tell your collaborators to [rebase](https://git-scm.com/book/en/Git-Branching-Rebasing), _not_ merge, any branches they created off of your old (tainted) repository history. One merge commit could reintroduce some or all of the tainted history that you just went to the trouble of purging.
+1. Tell your collaborators to [rebase](https://git-scm.com/book/en/v2/Git-Branching-Rebasing), _not_ merge, any branches they created off of your old (tainted) repository history. One merge commit could reintroduce some or all of the tainted history that you just went to the trouble of purging.
 
 1. If you used `git filter-repo`, you can skip this step.
 
@@ -219,5 +219,5 @@ There are a few simple tricks to avoid committing things you don't want committe
 ## Further reading
 
 * [`git filter-repo` man page](https://htmlpreview.github.io/?https://github.com/newren/git-filter-repo/blob/docs/html/git-filter-repo.html)
-* [Pro Git: Git Tools - Rewriting History](https://git-scm.com/book/en/Git-Tools-Rewriting-History)
+* [Pro Git: Git Tools - Rewriting History](https://git-scm.com/book/en/v2/Git-Tools-Rewriting-History)
 * "[AUTOTITLE](/code-security/secret-scanning/introduction/about-secret-scanning)"
