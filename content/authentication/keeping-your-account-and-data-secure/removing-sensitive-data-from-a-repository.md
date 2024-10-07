@@ -1,6 +1,6 @@
 ---
 title: Removing sensitive data from a repository
-intro: 'If you commit sensitive data, such as a password or SSH key into a Git repository, you can remove it from the history.'
+intro: 'If you commit sensitive data into a Git repository, you can remove it from the history.'
 redirect_from:
   - /remove-sensitive-data
   - /removing-sensitive-data
@@ -180,13 +180,13 @@ To illustrate how `git filter-repo` works, we'll show you how to remove your fil
 
 After using either the BFG tool or `git filter-repo` to remove the sensitive data and pushing your changes to {% data variables.product.product_name %}, you must take a few more steps to fully remove the data from {% data variables.product.product_name %}.
 
-1. Contact {% data variables.contact.contact_support %}, and ask to remove cached views and references to the sensitive data in pull requests on {% data variables.product.product_name %}. Please provide the name of the repository and/or a link to the commit you need removed.{% ifversion ghes %} For more information about how site administrators can remove unreachable Git objects, see "[AUTOTITLE](/admin/configuration/configuring-your-enterprise/command-line-utilities#ghe-repo-gc)."{% endif %}{% ifversion fpt or ghec %}
+1. Contact {% data variables.contact.contact_support %}, and ask to remove cached views and references to the sensitive data in pull requests on {% data variables.product.product_name %}. Please provide the name of the repository and/or a link to the commit you need removed.{% ifversion ghes %} For more information about how site administrators can remove unreachable Git objects, see "[AUTOTITLE](/admin/configuration/configuring-your-enterprise/command-line-utilities#ghe-repo-gc)." For more information about how site administrators can identify reachable commits, see "[Identifying reachable commits](#identifying-reachable-commits)."{% endif %}{% ifversion fpt or ghec %}
 
    > [!IMPORTANT] {% data variables.contact.github_support %} won't remove non-sensitive data, and will only assist in the removal of sensitive data in cases where we determine that the risk can't be mitigated by rotating affected credentials.
 
    {% endif %}
 
-1. Tell your collaborators to [rebase](https://git-scm.com/book/en/Git-Branching-Rebasing), _not_ merge, any branches they created off of your old (tainted) repository history. One merge commit could reintroduce some or all of the tainted history that you just went to the trouble of purging.
+1. Tell your collaborators to [rebase](https://git-scm.com/book/en/v2/Git-Branching-Rebasing), _not_ merge, any branches they created off of your old (tainted) repository history. One merge commit could reintroduce some or all of the tainted history that you just went to the trouble of purging.
 
 1. If you used `git filter-repo`, you can skip this step.
 
@@ -204,6 +204,44 @@ After using either the BFG tool or `git filter-repo` to remove the sensitive dat
 
    > [!NOTE] You can also achieve this by pushing your filtered history to a new or empty repository and then making a fresh clone from {% data variables.product.product_name %}.
 
+{% ifversion ghes %}
+
+## Identifying reachable commits
+
+To fully remove unwanted or sensitive data from a repository, the commit that first introduced the data needs to be completely unreferenced in branches, tags, pull requests, and forks. A single reference anywhere will prevent garbage collection from being able to purge the data completely.
+
+You can check for existing references by using the following commands when connected to the appliance via SSH. You'll need the SHA of the commit that originally introduced the sensitive data.
+
+```shell
+ghe-repo OWNER/REPOSITORY -c 'git ref-contains COMMIT_SHA_NUMBER'
+ghe-repo OWNER/REPOSITORY -c 'cd ../network.git && git ref-contains COMMIT_SHA_NUMBER'
+```
+
+If either of those commands return any results, you'll need to remove those references before the commit can be successfully garbage collected. The second command will identify references that exist in forks of the repository (if the repository has no forks, you may skip running it).
+
+* Results beginning with `refs/heads/` or `refs/tags/` indicate branches and tags respectively which still contain references to the offending commit, suggesting that the modified repository was not fully cleaned of the commit, or that it was not force-pushed.
+* Results beginning with `refs/pull/` or `refs/__gh__/pull` indicate pull requests that reference the offending commit. These pull requests need to be deleted in order to allow the commit to be garbage collected. A pull request can be deleted in the site admin dashboard at `https://HOSTNAME/stafftools/repositories/OWNER/REPOSITORY/PULL_REQUESTS/<PULL-REQUEST-NUMBER>`, replacing `<PULL-REQUEST-NUMBER>` with the pull request number.
+
+If references are found in any forks, the results will look similar, but will start with `refs/remotes/NWO/`. To identify the fork by name, you can run the following command.
+
+```shell
+ghe-nwo NWO
+```
+
+The same procedure using the BFG tool or `git filter-repo` can be used to remove the sensitive data from the repository's forks. Alternatively, the forks can be deleted altogether, and if needed, the repository can be re-forked once the cleanup of the root repository is complete.
+
+Once you have removed the commit's references, re-run the commands to double-check.
+
+If there are no results from either of the `ref-contains` commands, you can run garbage collection with the `--prune` flag to remove the unreferenced commits by running the following command.
+
+```shell
+ghe-repo-gc -v --prune OWNER/REPOSITORY
+```
+
+Once garbage collection has successfully removed the commit, you'll want to browse to the repository's site admin dashboard at `https://HOSTNAME/stafftools/repositories/OWNER/REPOSITORY`, select **Network**, then click **Invalidate Git cache** to remove any cached data.
+
+{% endif %}
+
 ## Avoiding accidental commits in the future
 
 Preventing contributors from making accidental commits can help you prevent sensitive information from being exposed. For more information see "[AUTOTITLE](/code-security/getting-started/best-practices-for-preventing-data-leaks-in-your-organization)."
@@ -219,5 +257,5 @@ There are a few simple tricks to avoid committing things you don't want committe
 ## Further reading
 
 * [`git filter-repo` man page](https://htmlpreview.github.io/?https://github.com/newren/git-filter-repo/blob/docs/html/git-filter-repo.html)
-* [Pro Git: Git Tools - Rewriting History](https://git-scm.com/book/en/Git-Tools-Rewriting-History)
+* [Pro Git: Git Tools - Rewriting History](https://git-scm.com/book/en/v2/Git-Tools-Rewriting-History)
 * "[AUTOTITLE](/code-security/secret-scanning/introduction/about-secret-scanning)"

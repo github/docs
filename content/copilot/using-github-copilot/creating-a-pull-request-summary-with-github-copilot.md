@@ -14,7 +14,7 @@ redirect_from:
 
 ## About {% data variables.product.prodname_copilot_for_prs %}
 
-You can use {% data variables.product.prodname_copilot %} to generate a summary of a pull request on {% data variables.product.prodname_dotcom_the_website %}. You can use the summary to help reviewers understand your changes, or to quickly understand the changes in a pull request you're reviewing.
+You can use {% data variables.product.prodname_copilot %} to generate a summary of a pull request on {% data variables.product.github %}. You can use the summary to help reviewers understand your changes, or to quickly understand the changes in a pull request you're reviewing.
 
 {% data variables.product.prodname_copilot %} will scan through the pull request and provide an overview of the changes made in prose, as well as a bulleted list of changes with the files that they impact. You can generate a summary in the following places.
 
@@ -26,7 +26,7 @@ To learn more about {% data variables.product.prodname_copilot_for_prs %} and ho
 
 ## Creating a summary for a pull request
 
-1. On {% data variables.product.prodname_dotcom_the_website %}, create a pull request or navigate to an existing pull request.
+1. On {% data variables.product.github %}, create a pull request or navigate to an existing pull request.
 
    > [!NOTE] {% data variables.product.prodname_copilot %} does not take into account any existing content in the pull request description, so it is best to start with a blank description.
 
