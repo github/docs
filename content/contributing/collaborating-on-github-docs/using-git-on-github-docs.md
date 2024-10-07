@@ -8,7 +8,7 @@ versions:
 
 This article describes the process of creating a topic branch for the documentation repository, committing changes, and pushing your changes back up to the remote repository.
 
-The article assumes you have already cloned the documentation repository locally and you will be making changes on your local computer rather than on {% data variables.product.prodname_dotcom_the_website %} or in a codespace. For more information, see "[AUTOTITLE](/repositories/creating-and-managing-repositories/cloning-a-repository?tool=webui)."
+The article assumes you have already cloned the documentation repository locally and you will be making changes on your local computer rather than on {% data variables.product.prodname_dotcom %} or in a codespace. For more information, see "[AUTOTITLE](/repositories/creating-and-managing-repositories/cloning-a-repository?tool=webui)."
 
 ## Setting up your topic branch and making changes
 
@@ -99,17 +99,17 @@ To keep your local branches in sync with their remotes and avoid merge conflicts
 
    ```shell
    git commit -m "Commit message title (max 72 characters)
-   
-   Optional fuller description of what changed (no character limit). 
-   Note the empty line between the title and the description, 
+
+   Optional fuller description of what changed (no character limit).
+   Note the empty line between the title and the description,
    and the closing quotation mark at the end of the commit message."
    ```
 
-   This commits the staged changes locally. You can now push this commit, and any other unpushed commits, to the remote repository.  
+   This commits the staged changes locally. You can now push this commit, and any other unpushed commits, to the remote repository.
 
    To remove this commit, use `git reset --soft HEAD~1`. After running this command our changes are no longer committed but the changed files remain in the staging area. You can make further changes and then `add` and `commit` again.
 
-1. Push your changes to the remote repository on {% data variables.product.prodname_dotcom_the_website %}.
+1. Push your changes to the remote repository on {% data variables.product.prodname_dotcom %}.
 
    * The first time you push your branch you can choose to add an upstream tracking branch. This allows you to use `git pull` and `git push` on that branch without additional arguments.
 
@@ -135,7 +135,7 @@ To keep your local branches in sync with their remotes and avoid merge conflicts
   {% endnote %}
 * Make commit messages clear, detailed, and imperative. For example: "Adds a conceptual article about 2FA," not "Add info."
 * Try not to leave uncommitted changes in your local branch when you finish working for the day. Get to a good stopping point and commit and push your changes so your work is backed up to the remote repository.
-* Only push up to {% data variables.product.prodname_dotcom_the_website %} after you've made a few commits. Pushing after every commit adds noise to our ops channels on Slack and causes unnecessary builds to run.
+* Only push up to {% data variables.product.prodname_dotcom %} after you've made a few commits. Pushing after every commit adds noise to our ops channels on Slack and causes unnecessary builds to run.
 
 ## Resolving merge conflicts
 
@@ -143,7 +143,7 @@ When you try to merge two branches that contain different changes to the same pa
 
 There are two ways to handle merge conflicts:
 * Edit the file in your text editor and choose which changes to keep. Then commit the updated file to your topic branch from the command line.
-* [Resolve the merge conflicts on {% data variables.product.prodname_dotcom_the_website %}](/pull-requests/collaborating-with-pull-requests/addressing-merge-conflicts/resolving-a-merge-conflict-on-github).
+* "[AUTOTITLE](/pull-requests/collaborating-with-pull-requests/addressing-merge-conflicts/resolving-a-merge-conflict-on-github)."
 
 ### Resolving merge conflicts by editing the file and committing the changes
 
@@ -185,7 +185,7 @@ There are two ways to handle merge conflicts:
    git commit -m "Resolves merge conflicts"
    ```
 
-1. Push the committed changes to the remote repository on {% data variables.product.prodname_dotcom_the_website %}.
+1. Push the committed changes to the remote repository on {% data variables.product.prodname_dotcom %}.
 
    ```shell
    git push
@@ -197,7 +197,7 @@ We recommend you open your pull request on {% data variables.product.prodname_do
 
 {% note %}
 
-**Note**: You can quickly access pull requests you've created by clicking **Pull requests** at the top of every page on {% data variables.product.prodname_dotcom_the_website %}.
+**Note**: You can quickly access pull requests you've created by clicking **Pull requests** at the top of every page on {% data variables.product.prodname_dotcom %}.
 
 {% endnote %}
 
