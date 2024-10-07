@@ -1,6 +1,6 @@
 ---
 title: Removing sensitive data from a repository
-intro: 'If you commit sensitive data, such as a password or SSH key into a Git repository, you can remove it from the history.'
+intro: 'If you commit sensitive data into a Git repository, you can remove it from the history.'
 redirect_from:
   - /remove-sensitive-data
   - /removing-sensitive-data
