@@ -16,7 +16,7 @@ redirect_from:
 
 ## Prerequisite
 
-The code on which you want to train a custom model must be hosted in repositories owned by your organization on {% data variables.product.prodname_dotcom_the_website %}.
+The code on which you want to train a custom model must be hosted in repositories owned by your organization on {% data variables.product.github %}.
 
 ## Limitations
 

@@ -1,6 +1,6 @@
-### {% data variables.product.prodname_copilot_chat %} in {% data variables.product.prodname_dotcom_the_website %}
+### {% data variables.product.prodname_copilot_chat_dotcom %}
 
-{% data variables.product.prodname_copilot_chat %} in {% data variables.product.prodname_dotcom_the_website %} is a chat interface that lets you ask and receive answers to coding-related questions within {% data variables.product.prodname_dotcom_the_website %}. For more information, see "[AUTOTITLE](/copilot/github-copilot-chat/copilot-chat-in-github/about-github-copilot-chat-in-githubcom)."
+{% data variables.product.prodname_copilot_chat_dotcom %} is a chat interface that lets you ask and receive answers to coding-related questions within {% data variables.product.github %}. For more information, see "[AUTOTITLE](/copilot/github-copilot-chat/copilot-chat-in-github/about-github-copilot-chat-in-githubcom)."
 
 ### {% data variables.product.prodname_copilot_for_prs %}
 
@@ -12,4 +12,4 @@
 
 ### {% data variables.product.prodname_copilot_short %} knowledge bases
 
-Knowledge bases are collections of Markdown documentation from one or more repositories. When you ask {% data variables.product.prodname_copilot_chat_short %} a question in {% data variables.product.prodname_dotcom_the_website %}, {% data variables.product.prodname_vscode_shortname %}, and {% data variables.product.prodname_vs %} you can specify a knowledge base as the context for your question. For more information, see "[AUTOTITLE](/enterprise-cloud@latest/copilot/managing-copilot/managing-github-copilot-in-your-organization/managing-github-copilot-features-in-your-organization/managing-copilot-knowledge-bases)."
+Knowledge bases are collections of Markdown documentation from one or more repositories. When you ask {% data variables.product.prodname_copilot_chat_short %} a question in the {% data variables.product.github %} website, {% data variables.product.prodname_vscode_shortname %}, or {% data variables.product.prodname_vs %}, you can specify a knowledge base as the context for your question. For more information, see "[AUTOTITLE](/enterprise-cloud@latest/copilot/managing-copilot/managing-github-copilot-in-your-organization/managing-github-copilot-features-in-your-organization/managing-copilot-knowledge-bases)."
