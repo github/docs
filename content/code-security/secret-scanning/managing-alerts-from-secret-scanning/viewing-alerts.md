@@ -29,6 +29,8 @@ To help you triage alerts more effectively, {% data variables.product.company_sh
 * **Default** alerts
 * **Experimental** alerts
 
+![Screenshot of the {% data variables.product.prodname_secret_scanning %} alert view. The button to toggle between "Default" and "Experimental" alerts is highlighted with an orange outline.](/assets/images/help/security/secret-scanning-default-alert-view.png)
+
 {% else %}
 * **High confidence** alerts.
 * **Other** alerts.
