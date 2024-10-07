@@ -2995,6 +2995,11 @@
     "docs_reference_links": "N/A"
   },
   {
+    "action": "secret_scanning_alert.report",
+    "description": "A leaked secret was reported to the secret's provider by secret scanning.",
+    "docs_reference_links": "/code-security/secret-scanning/managing-alerts-from-secret-scanning/resolving-alerts"
+  },
+  {
     "action": "secret_scanning_alert.resolve",
     "description": "A secret scanning alert was resolved.",
     "docs_reference_links": "N/A"

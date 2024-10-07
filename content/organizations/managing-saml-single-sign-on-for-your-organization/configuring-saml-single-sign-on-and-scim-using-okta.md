@@ -46,7 +46,7 @@ Alternatively, you can configure SAML SSO for an enterprise using Okta. SCIM for
 
 {% data reusables.scim.dedicated-configuration-account %}
 
-1. Sign into {% data variables.product.prodname_dotcom_the_website %} using an account that is an organization owner and is ideally used only for SCIM configuration.
+1. Sign into {% data variables.product.prodname_dotcom %} using an account that is an organization owner and is ideally used only for SCIM configuration.
 1. To create an active SAML session for your organization, navigate to `https://github.com/orgs/ORGANIZATION-NAME/sso`. For more information, see "[AUTOTITLE](/authentication/authenticating-with-saml-single-sign-on/about-authentication-with-saml-single-sign-on#about-oauth-apps-github-apps-and-saml-sso)."
 1. Navigate to Okta.
 {% data reusables.saml.okta-dashboard-click-applications %}

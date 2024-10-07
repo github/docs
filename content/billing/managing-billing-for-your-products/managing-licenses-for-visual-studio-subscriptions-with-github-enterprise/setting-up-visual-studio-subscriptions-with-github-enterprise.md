@@ -50,7 +50,7 @@ One person may be able to complete the tasks because the person has all of the r
 
 1. If the subscription admin has not disabled email notifications, the subscriber will receive two confirmation emails. For more information, see [{% data variables.product.prodname_vs %} subscriptions with {% data variables.product.prodname_enterprise %}](https://docs.microsoft.com/en-us/visualstudio/subscriptions/access-github#what-is-the-visual-studio-subscription-with-github-enterprise-setup-process) in Microsoft Docs.
 
-1. An organization owner must invite the subscriber to the organization on {% data variables.location.product_location %} from step 1. The subscriber can accept the invitation with an existing personal account on {% data variables.product.prodname_dotcom_the_website %} or create a new account. After the subscriber joins the organization, the subscriber becomes an enterprise member. For more information, see "[AUTOTITLE](/organizations/managing-membership-in-your-organization/inviting-users-to-join-your-organization)."
+1. An organization owner must invite the subscriber to the organization on {% data variables.location.product_location %} from step 1. The subscriber can accept the invitation with an existing personal account or create a new account. After the subscriber joins the organization, the subscriber becomes an enterprise member. For more information, see "[AUTOTITLE](/organizations/managing-membership-in-your-organization/inviting-users-to-join-your-organization)."
 
    {% tip %}
 

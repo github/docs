@@ -9,7 +9,7 @@ redirect_from:
 
 On {% data variables.product.prodname_docs %}, we provide versions of our documentation that reflect the differences in UI and functionality across {% data variables.product.company_short %}'s major product offerings. Contributors can use versioning syntax to scope content to a specific product offering.
 
-Versioning syntax allows the reader to manually choose the version of the documentation that applies to the product they're using. {% data variables.product.prodname_docs %}' URLs can also include versioning information, which allows links from {% data variables.product.prodname_dotcom_the_website %} and {% data variables.product.prodname_ghe_server %} to send the reader directly to documentation for the product they're using.
+Versioning syntax allows the reader to manually choose the version of the documentation that applies to the product they're using. {% data variables.product.prodname_docs %}' URLs can also include versioning information, which allows links from one version of {% data variables.product.prodname_docs %} to another to send the reader directly to documentation for the product they're using.
 
 ## How and where to version
 
@@ -26,7 +26,7 @@ There are two types of versioning syntax for {% data variables.product.prodname_
       ...
     ```
 
-    The following example shows content versioned for {% data variables.product.prodname_dotcom_the_website %}, and all versions of {% data variables.product.prodname_ghe_server %}.
+    The following example shows content versioned for Free, Pro, & Team, and all versions of {% data variables.product.prodname_ghe_server %}.
 
     ```yaml
     versions:
@@ -50,7 +50,7 @@ There are two types of versioning syntax for {% data variables.product.prodname_
 
 ## About the different versions of {% data variables.product.company_short %}
 
-We provide versioned documentation for users of {% data variables.product.prodname_dotcom_the_website %} plans including {% data variables.product.prodname_ghe_cloud %} and {% data variables.product.prodname_ghe_server %}. If multiple versions of a page exist on the site, readers can choose the version from the version picker at the top of the page.
+We provide versioned documentation for users of {% data variables.product.prodname_dotcom %} plans including {% data variables.product.prodname_ghe_cloud %} and {% data variables.product.prodname_ghe_server %}. If multiple versions of a page exist on the site, readers can choose the version from the version picker at the top of the page.
 
 ### {% data variables.product.prodname_dotcom_the_website %}
 
@@ -91,7 +91,7 @@ versions:
   ghes: '*'
 ```
 
-You can also version a page for a range of releases. The following example will version the page for {% data variables.product.prodname_dotcom_the_website %}, and {% data variables.product.prodname_ghe_server %} versions 3.1 and 3.2 only:
+You can also version a page for a range of releases. The following example will version the page for Free, Pro, & Team, {% data variables.product.prodname_ghe_cloud %}, and {% data variables.product.prodname_ghe_server %} versions 3.1 and 3.2 only:
 
 ```yaml
 versions:
