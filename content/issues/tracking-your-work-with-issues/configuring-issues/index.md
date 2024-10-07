@@ -10,4 +10,5 @@ topics:
 children:
   - /quickstart
   - /planning-and-tracking-work-for-your-team-or-project
+  - /managing-issue-types-in-an-organization
 ---

@@ -38,7 +38,7 @@ You can migrate your {% data variables.projects.projects_v1_boards %} to the new
 
 ## Migrating a user {% data variables.projects.projects_v1_board %}
 
-1. In the upper-right corner of {% data variables.product.prodname_dotcom_the_website %}, select your profile photo, then click **Your projects**.
+1. In the upper-right corner of {% data variables.product.prodname_dotcom %}, select your profile photo, then click **Your projects**.
 
    ![Screenshot showing the profile photo menu. The "Your projects" link is highlighted with an orange outline.](/assets/images/help/projects-v2/projects-profile-menu.png)
 

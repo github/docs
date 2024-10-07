@@ -213,18 +213,6 @@ You will use a script to automate configuring your Azure resources.
             destinationAddressPrefixes: []
           }
         }
-        {
-          name: 'DenyInternetOutBoundOverwrite'
-          properties: {
-            protocol: '*'
-            sourcePortRange: '*'
-            destinationPortRange: '*'
-            sourceAddressPrefix: '*'
-            destinationAddressPrefix: 'Internet'
-            access: 'Deny'
-            priority: 400
-            direction: 'Outbound'
-          }
         }
       ]
     }
