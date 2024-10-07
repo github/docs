@@ -33,7 +33,7 @@ The new commit and message will appear on {% data variables.location.product_loc
 
 {% tip %}
 
-You can change the default text editor for Git by changing the `core.editor` setting. For more information, see "[Basic Client Configuration](https://git-scm.com/book/en/Customizing-Git-Git-Configuration#_basic_client_configuration)" in the Git manual.
+You can change the default text editor for Git by changing the `core.editor` setting. For more information, see "[Basic Client Configuration](https://git-scm.com/book/en/v2/Customizing-Git-Git-Configuration#_basic_client_configuration)" in the Git manual.
 
 {% endtip %}
 

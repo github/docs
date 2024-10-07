@@ -1,6 +1,6 @@
 ---
 title: About community management and moderation
-intro: '{% data variables.product.prodname_dotcom %} offers tools that help repository maintainers establish and enforce standards of behavior in their communities on {% data variables.product.prodname_dotcom_the_website %}.'
+intro: '{% data variables.product.prodname_dotcom %} offers tools that help repository maintainers establish and enforce standards of behavior in their communities on {% data variables.product.prodname_dotcom %}.'
 versions:
   fpt: '*'
   ghec: '*'
@@ -15,7 +15,7 @@ shortTitle: Management & moderation
 
 {% data reusables.policies.github-community-guidelines-and-terms %}
 
-{% data variables.product.prodname_dotcom %} also offers tools for repository maintainers to define and enforce higher standards of behavior in their own communities on {% data variables.product.prodname_dotcom_the_website %}.
+{% data variables.product.prodname_dotcom %} also offers tools for repository maintainers to define and enforce higher standards of behavior in their own communities on {% data variables.product.prodname_dotcom %}.
 
 Organization owners can specify organization members as moderators. This gives these members access to moderation features otherwise reserved for organization owners. For more information, see "[AUTOTITLE](/organizations/managing-peoples-access-to-your-organization-with-roles/managing-moderators-in-your-organization)."
 
