@@ -1,7 +1,9 @@
 ---
-title: About the detection of generic secrets with secret scanning
+title: Responsible detection of generic secrets with AI
 shortTitle: Generic secret detection
-intro: 'Learn how {% data variables.product.prodname_secret_scanning %} uses AI to scan and create alerts for unstructured secrets, such as passwords.'
+intro: 'Learn how {% data variables.product.prodname_secret_scanning %} uses AI responsibly to scan and create alerts for unstructured secrets, such as passwords.'
+product: '{% data reusables.gated-features.secret-scanning %}'
+allowTitleToDifferFromFilename: true
 versions:
   feature: secret-scanning-ai-generic-secret-detection
   fpt: '*'
@@ -12,6 +14,7 @@ topics:
   - AI
 redirect_from:
   - /code-security/secret-scanning/about-the-detection-of-generic-secrets-with-secret-scanning
+  - /code-security/secret-scanning/using-advanced-secret-scanning-and-push-protection-features/generic-secret-detection/about-the-detection-of-generic-secrets-with-secret-scanning
 ---
 
 <!--Note on the versioning above ^. This article is visible to free, pro, team users for transparency. They cannot use the feature so `fpt` is not included in the feature definition.-->

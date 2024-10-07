@@ -136,7 +136,7 @@ Alternatively, to track a {% data variables.product.prodname_code_scanning %} al
 
 ## Generating suggested fixes for {% data variables.product.prodname_code_scanning %} alerts
 
-{% data variables.product.prodname_copilot_autofix %} can generate fixes for alerts from {% data variables.product.prodname_codeql %} analysis. For more information, see "[AUTOTITLE](/code-security/code-scanning/managing-code-scanning-alerts/about-autofix-for-codeql-code-scanning)."
+{% data variables.product.prodname_copilot_autofix %} can generate fixes for alerts from {% data variables.product.prodname_codeql %} analysis. For more information, see "[AUTOTITLE](/code-security/code-scanning/managing-code-scanning-alerts/responsible-use-autofix-code-scanning)."
 
 {% data reusables.rai.code-scanning.copilot-autofix-note %}
 

@@ -44,4 +44,4 @@ redirect_from:
 
 ## Further reading
 
-* "[AUTOTITLE](/code-security/secret-scanning/using-advanced-secret-scanning-and-push-protection-features/custom-patterns/about-generating-regular-expressions-with-ai)"
+* "[AUTOTITLE](/code-security/secret-scanning/using-advanced-secret-scanning-and-push-protection-features/custom-patterns/responsible-use-ai-regex-generator)"
