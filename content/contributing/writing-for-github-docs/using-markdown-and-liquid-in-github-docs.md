@@ -376,7 +376,7 @@ For example, if you include the following link in a content file:
 /github/writing-on-github/creating-a-saved-reply
 ```
 
-When viewed on {% data variables.product.prodname_dotcom_the_website %} docs, the link gets rendered with the language code:
+When viewed on {% data variables.product.prodname_docs %}, the link gets rendered with the language code:
 
 ```text
 /en/github/writing-on-github/creating-a-saved-reply
