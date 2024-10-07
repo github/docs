@@ -43,25 +43,10 @@ After a reader clicks {% octicon "triangle-right" aria-label="The right triangle
 
 ![Screenshot of the Markdown above on this page as rendered on {% data variables.product.prodname_dotcom %}, indicating that a collapsed section can contain headers, sentences of text, images, and code blocks.](/assets/images/help/writing/open-collapsed-section.png)
 
-## Creating a collapsible section that is open by default
+Optionally, to make the section display as open by default, add the `open` attribute to the `<details>` tag:
 
-````markdown
+```html
 <details open>
-
-<summary>Tips for collapsible sections that are open by default</summary>
-
-### You can add a header
-
-You can add text within a collapsed section. 
-
-You can add an image or a code block, too.
-
-```python
-   print("Hello World")
-```
-
-</details>
-````
 
 ## Further reading
 
