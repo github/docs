@@ -417,6 +417,12 @@ The `autobuild` process attempts to autodetect a suitable way to install the dep
 
 {% endnote %}
 
+### Extractor options for Go
+
+By default, test code (code in files ending in `_test.go`) is not analyzed. You can override this with the option `--extractor-option extract_tests=true` when using the {% data variables.product.prodname_codeql_cli %}, or by setting the environment variable `CODEQL_EXTRACTOR_GO_OPTION_EXTRACT_TESTS` to `true`.
+
+Additionally, `vendor` directories are excluded from {% data variables.product.prodname_codeql %} Go analysis by default. You can override this by passing the `--extractor-option extract_vendor_dirs=true` option when using the {% data variables.product.prodname_codeql_cli %}, or by setting the environment variable `CODEQL_EXTRACTOR_GO_OPTION_EXTRACT_VENDOR_DIRS` to `true`.
+
 ## Building Java and Kotlin
 
 {% ifversion codeql-no-build %}{% data variables.product.prodname_codeql %} supports the following build modes.
