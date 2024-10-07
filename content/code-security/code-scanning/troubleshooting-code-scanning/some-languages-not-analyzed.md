@@ -23,7 +23,7 @@ If you're using advanced setup and your workflow doesn't explicitly specify the 
       permissions:
         security-events: write
         actions: read
-      ...
+      # ...
       strategy:
         fail-fast: false
         matrix: {% ifversion codeql-language-identifiers-311 %}
@@ -31,7 +31,7 @@ If you're using advanced setup and your workflow doesn't explicitly specify the 
           language: ['csharp', 'cpp', 'javascript'] {% endif %}
 
       steps:
-      ...
+      # ...
         - name: Initialize {% data variables.product.prodname_codeql %}
           uses: {% data reusables.actions.action-codeql-action-init %}
           with:

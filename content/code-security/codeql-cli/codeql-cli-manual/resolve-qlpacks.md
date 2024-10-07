@@ -29,10 +29,12 @@ codeql resolve qlpacks <options>...
 
 ## Description
 
-Create a list of installed QL packs and their locations.
+\[Deprecated] Create a list of installed QL packs and their locations.
 
-This plumbing command creates a list of QL packs that can be resolved
-given the configured (or given) search path.
+This command is deprecated. Use the [codeql resolve packs](/code-security/codeql-cli/codeql-cli-manual/resolve-packs) command instead.
+
+This command creates a list of QL packs that can be resolved given the
+configured (or given) search path.
 
 When run with JSON output selected, it can report multiple locations for
 each pack name. When that happens, it means that the pack has

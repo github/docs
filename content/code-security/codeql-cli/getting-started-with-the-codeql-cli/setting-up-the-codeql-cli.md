@@ -64,41 +64,40 @@ Extract the {% data variables.product.prodname_codeql_cli %} tar archive to a di
 
 After you extract the {% data variables.product.prodname_codeql_cli %} bundle, you can run the following command to verify that the CLI is correctly configured to create and analyze databases:
 
-* `codeql resolve qlpacks` if `/<extraction-root>/codeql` is on the `PATH`.
-* `/<extraction-root>/codeql/codeql resolve qlpacks` otherwise.
+* `codeql resolve packs` if `/<extraction root>/codeql` is on the `PATH`.
+* `/<extraction root>/codeql/codeql resolve packs` otherwise.
 
-You should see output similar to the extract below, if successful:
+If successful, you should see output similar to the extract below:
 
 ```shell
-codeql/cpp-all (/<extraction-root>/qlpacks/codeql/cpp-all/<version>)
-codeql/cpp-examples (/<extraction-root>/qlpacks/codeql/cpp-examples/<version>)
-codeql/cpp-queries (/<extraction-root>/qlpacks/codeql/cpp-queries/<version>)
-codeql/csharp-all (/<extraction-root>/qlpacks/codeql/charp-all/<version>)
-codeql/csharp-examples (/<extraction-root>/qlpacks/codeql/charp-examples/<version>)
-codeql/csharp-queries (/<extraction-root>/qlpacks/codeql/charp-queries/<version>)
-codeql/java-all (/<extraction-root>/qlpacks/codeql/java-all/<version>)
-codeql/java-examples (/<extraction-root>/qlpacks/codeql/java-examples/<version>)
-codeql/java-queries (/<extraction-root>/qlpacks/codeql/java-queries/<version>)
-codeql/javascript-all (/<extraction-root>/qlpacks/codeql/javascript-all/<version>)
-codeql/javascript-examples (/<extraction-root>/qlpacks/codeql/javascript-examples/<version>)
-codeql/javascript-queries (/<extraction-root>/qlpacks/codeql/javascript-queries/<version>)
-codeql/python-all (/<extraction-root>/qlpacks/codeql/python-all/<version>)
-codeql/python-examples (/<extraction-root>/qlpacks/codeql/python-examples/<version>)
-codeql/python-queries (/<extraction-root>/qlpacks/codeql/python-queries/<version>)
-codeql/ruby-all (/<extraction-root>/qlpacks/codeql/ruby-all/<version>)
-codeql/ruby-examples (/<extraction-root>/qlpacks/codeql/ruby-examples/<version>)
-codeql/ruby-queries (/<extraction-root>/qlpacks/codeql/ruby-queries/<version>)
+Searching directories specified by `--additional-packs`. All directories have equal priority.
+  Searching in:
+    No packs were found at this location.
+Searching directories specified by `--search-path`. Directories are searched in order.
+Searching the root of the CodeQL distribution.
+  Searching in:
+      <extraction root>
+    The following packs were found:
+      codeql/java-all@<version>: (library) <extraction root>/qlpacks/codeql/javat-all/<version>/qlpack.yml
+      codeql/java-queries@<version>: (query) <extraction root>/qlpacks/codeql/java-queries/<version>/qlpack.yml
+      codeql/javascript-all@<version>: (library) <extraction root>/qlpacks/codeql/javascript-all/<version>/qlpack.yml
+      codeql/javascript-queries@<version>: (query) <extraction root>/qlpacks/codeql/javascript-queries/<version>/qlpack.yml
+      codeql/swift-all@<version>: (library) <extraction root>/qlpacks/codeql/swift-all/<version>/qlpack.yml
+      codeql/swift-queries@<version>: (query) <extraction root>/qlpacks/codeql/swift-queries/<version>/qlpack.yml
 ...
 ```
+
+The results have been truncated for brevity. The actual results will be longer and more detailed.
 
 You should check that the output contains the expected languages and also that the directory location for the qlpack files is correct. The location should be within the extracted {% data variables.product.prodname_codeql_cli %} bundle, shown in the earlier example as `<extraction root>`. If the {% data variables.product.prodname_codeql_cli %} is unable to locate the qlpacks for the expected languages, check that you downloaded the {% data variables.product.prodname_codeql %} bundle and not a standalone copy of the {% data variables.product.prodname_codeql_cli %}.
 
 You can also run `codeql resolve languages` to show which languages are available for database creation. This will list the languages supported by default in your {% data variables.product.prodname_codeql_cli %} package.
 
-{% ifversion codeql-packs %}
 Optionally, you can download some CodeQL packs containing pre-compiled queries you would like to run. For more information, see "[AUTOTITLE](/code-security/codeql-cli/getting-started-with-the-codeql-cli/customizing-analysis-with-codeql-packs)."
 
-{% endif %}
+The `codeql resolve packs` command is useful for diagnosing problems when the {% data variables.product.prodname_codeql_cli %} is unable to locate query packs that you expect to be available for analysis.
+
+>[!NOTE] The `codeql resolve packs` command is available in the {% data variables.product.prodname_codeql_cli %} versions 2.19.0 and later. For earlier versions of the CLI, you should run the `codeql resolve qlpacks` command, which produces similar, but less detailed output.
 
 ## Next steps
 

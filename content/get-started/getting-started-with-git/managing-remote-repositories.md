@@ -248,4 +248,4 @@ Check that you've correctly typed the remote name.
 
 ## Further reading
 
-* ["Working with Remotes" from the _Pro Git_ book](https://git-scm.com/book/en/Git-Basics-Working-with-Remotes)
+* ["Working with Remotes" from the _Pro Git_ book](https://git-scm.com/book/en/v2/Git-Basics-Working-with-Remotes)

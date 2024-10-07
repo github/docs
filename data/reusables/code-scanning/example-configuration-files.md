@@ -25,13 +25,11 @@ queries:
     uses: ./codeql-packs/complex-python-codeql-pack/rootAndBar.qls
 
 paths:
-  - src 
-paths-ignore: 
+  - src
+paths-ignore:
   - src/node_modules
   - '**/*.test.js'
 ```
-
-{% ifversion code-scanning-exclude-queries-from-analysis %}
 
 The following configuration file only runs queries that generate alerts of severity error. The configuration first selects all the default queries, all queries in `./my-queries`, and the default suite in `codeql/java-queries`, then excludes all the queries that generate warnings or recommendations.
 
@@ -47,5 +45,3 @@ query-filters:
       - warning
       - recommendation
 ```
-
-{% endif %}

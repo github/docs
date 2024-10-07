@@ -1,4 +1,4 @@
-> [!NOTE] {% data variables.product.prodname_copilot_sku_isolation %} is currently in limited public beta and subject to change. <!-- expires 2024-10-31 -->This feature will be enabled for all users on October 31, 2024.<!-- end expires 2024-10-31 -->
+> [!NOTE] {% data variables.product.prodname_copilot_sku_isolation %} is currently in {% data variables.release-phases.public_preview %} and subject to change. <!-- expires 2024-10-31 -->This feature will be enabled for all users on October 31, 2024.<!-- end expires 2024-10-31 -->
 
 ## About {% data variables.product.prodname_copilot_sku_isolation %}
 

@@ -14,7 +14,7 @@ topics:
 
 ## Using an API gateway with OIDC
 
-{% data reusables.actions.private-networking-oidc-intro %}For example, you could run an API gateway on the edge of your private network that authenticates incoming requests with the OIDC token and then makes API requests on behalf of your workflow in your private network.
+{% data reusables.actions.private-networking-oidc-intro %} For example, you could run an API gateway on the edge of your private network that authenticates incoming requests with the OIDC token and then makes API requests on behalf of your workflow in your private network.
 
 The following diagram gives an overview of this solution's architecture:
 

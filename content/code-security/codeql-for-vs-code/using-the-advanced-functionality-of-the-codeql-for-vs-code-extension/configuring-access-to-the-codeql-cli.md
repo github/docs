@@ -16,7 +16,7 @@ allowTitleToDifferFromFilename: true
 
 ## Configuring access to the {% data variables.product.prodname_codeql_cli %}
 
-If you already have the {% data variables.product.prodname_codeql_cli %} installed and added to your `PATH`, the extension will use that version. This might be the case if you create your own {% data variables.product.prodname_codeql %} databases instead of downloading them from {% data variables.product.prodname_dotcom_the_website %}. For more information, see "[AUTOTITLE](/code-security/codeql-cli/getting-started-with-the-codeql-cli/preparing-your-code-for-codeql-analysis)."
+If you already have the {% data variables.product.prodname_codeql_cli %} installed and added to your `PATH`, the extension will use that version. This might be the case if you create your own {% data variables.product.prodname_codeql %} databases instead of downloading them from {% data variables.product.github %}. For more information, see "[AUTOTITLE](/code-security/codeql-cli/getting-started-with-the-codeql-cli/preparing-your-code-for-codeql-analysis)."
 
 Otherwise, the extension automatically manages access to the executable of the {% data variables.product.prodname_codeql_cli %} for you. This ensures that the {% data variables.product.prodname_codeql_cli %} is compatible with the {% data variables.product.prodname_codeql %} extension. You can also check for updates with the **{% data variables.product.prodname_codeql %}: Check for CLI Updates** command from the {% data variables.product.prodname_vscode_command_palette_shortname %}.
 

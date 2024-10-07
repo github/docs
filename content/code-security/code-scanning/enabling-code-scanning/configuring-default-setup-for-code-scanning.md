@@ -48,9 +48,10 @@ If you need more granular control over your {% data variables.product.prodname_c
 
 ### Requirements for using default setup
 
-Your repository is eligible for default setup for {% data variables.product.prodname_code_scanning %} if:{% ifversion default-setup-pre-enablement %}{% else %}{% ifversion code-scanning-without-workflow-310 %}
-* It includes at least one {% data variables.product.prodname_codeql %}-supported language{% ifversion codeql-swift-advanced-setup %} aside from Swift{% endif %}.{% else %}
-* It includes only the following {% data variables.product.prodname_codeql %}-supported languages: {% ifversion code-scanning-default-setup-go %}Go, {% endif %}JavaScript/TypeScript, Python, or Ruby.{% endif %}{% endif %}
+Your repository is eligible for default setup for {% data variables.product.prodname_code_scanning %} if:{% ifversion default-setup-pre-enablement %}
+<!-- No restrictions on languages. Can be set up before CodeQL supported languages are added. -->
+{% else %}
+* It includes at least one {% data variables.product.prodname_codeql %}-supported language{% ifversion codeql-swift-advanced-setup %} aside from Swift{% endif %}.{% endif %}
 * {% data variables.product.prodname_actions %} are enabled.{% ifversion fpt %}
 * It is publicly visible.{%- elsif ghec %}
 * It is publicly visible, or {% data variables.product.prodname_GH_advanced_security %} is enabled.{%- elsif ghes %}
@@ -70,12 +71,12 @@ You can use default setup with self-hosted runners for all {% data variables.pro
 
 We recommend that you start using {% data variables.product.prodname_code_scanning %} with default setup. After you've initially configured default setup, you can evaluate {% data variables.product.prodname_code_scanning %} to see how it's working for you. If you find that something isn't working as you expect, you can customize default setup to better meet your code security needs. For more information, see "[AUTOTITLE](/code-security/code-scanning/enabling-code-scanning/evaluating-default-setup-for-code-scanning)."
 
-{% ifversion code-scanning-default-setup-recommended-languages and code-scanning-without-workflow-310 %}
+{% ifversion code-scanning-default-setup-recommended-languages %}
 
 ### About adding {% ifversion code-scanning-default-setup-automatic-311 %}non-compiled and {% endif %}compiled languages to your default setup
 
 {% ifversion code-scanning-default-setup-automatic-311 %}
-If the code in a repository changes to include {% ifversion code-scanning-default-setup-go %}Go, {% endif %}JavaScript/TypeScript, Python, or Ruby, {% data variables.product.prodname_dotcom %} will automatically update the {% data variables.product.prodname_code_scanning %} configuration to include the new language. If {% data variables.product.prodname_code_scanning %} fails with the new configuration, {% data variables.product.prodname_dotcom %} will resume the previous configuration automatically so the repository does not lose {% data variables.product.prodname_code_scanning %} coverage.
+If the code in a repository changes to include Go, JavaScript/TypeScript, Python, or Ruby, {% data variables.product.prodname_dotcom %} will automatically update the {% data variables.product.prodname_code_scanning %} configuration to include the new language. If {% data variables.product.prodname_code_scanning %} fails with the new configuration, {% data variables.product.prodname_dotcom %} will resume the previous configuration automatically so the repository does not lose {% data variables.product.prodname_code_scanning %} coverage.
 {% endif %}
 
 Compiled languages are not automatically included in default setup configuration because they often require more advanced configuration, but you can manually select any {% data variables.product.prodname_codeql %}-supported compiled language{% ifversion codeql-swift-advanced-setup %} other than Swift{% endif %} for analysis.
@@ -114,13 +115,12 @@ At least one {% data variables.product.prodname_codeql %}-supported language's a
    You will then see a "{% data variables.product.prodname_codeql %} default configuration" dialog summarizing the {% data variables.product.prodname_code_scanning %} configuration automatically created by default setup.
 
    {% ifversion code-scanning-default-setup-recommended-languages %}
-   {% ifversion code-scanning-without-workflow-310 %}
+
    {% note %}
 
    **Note:** If your repository contains _only_ compiled {% data variables.product.prodname_codeql %}-supported languages (for example, Java), you will be taken to the settings page to select the languages you want to add to your default setup configuration.
 
    {% endnote %}
-   {% endif %}
 
 1. Optionally, to customize your {% data variables.product.prodname_code_scanning %} setup, click {% octicon "pencil" aria-hidden="true" %} **Edit**.
    * To add or remove a language from the analysis performed by default setup, select or deselect that language in the "Languages" section. {% ifversion code-scanning-default-setup-recommended-languages %}If you would like to analyze a {% data variables.product.prodname_codeql %}-supported compiled language with default setup, select that language here.{% endif %}

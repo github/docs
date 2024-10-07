@@ -159,7 +159,7 @@ echo "::notice file=app.js,line=1,col=5,endColumn=7::Missing semicolon"
 {% powershell %}
 
 ```powershell copy
-Write-Output "::notice file=app.js,line=1,col=5,endColumn=7::Missing semicolon"
+Write-Output "::notice file=app.js,line=1,col=5,endColumn=7,title=YOUR-TITLE::Missing semicolon"
 ```
 
 {% endpowershell %}
@@ -179,7 +179,7 @@ Creates a warning message and prints the message to the log. {% data reusables.a
 {% bash %}
 
 ```bash copy
-echo "::warning file=app.js,line=1,col=5,endColumn=7::Missing semicolon"
+echo "::warning file=app.js,line=1,col=5,endColumn=7,title=YOUR-TITLE::Missing semicolon"
 ```
 
 {% endbash %}
@@ -187,7 +187,7 @@ echo "::warning file=app.js,line=1,col=5,endColumn=7::Missing semicolon"
 {% powershell %}
 
 ```powershell copy
-Write-Output "::warning file=app.js,line=1,col=5,endColumn=7::Missing semicolon"
+Write-Output "::warning file=app.js,line=1,col=5,endColumn=7,title=YOUR-TITLE::Missing semicolon"
 ```
 
 {% endpowershell %}
@@ -207,7 +207,7 @@ Creates an error message and prints the message to the log. {% data reusables.ac
 {% bash %}
 
 ```bash copy
-echo "::error file=app.js,line=1,col=5,endColumn=7::Missing semicolon"
+echo "::error file=app.js,line=1,col=5,endColumn=7,title=YOUR-TITLE::Missing semicolon"
 ```
 
 {% endbash %}
@@ -215,7 +215,7 @@ echo "::error file=app.js,line=1,col=5,endColumn=7::Missing semicolon"
 {% powershell %}
 
 ```powershell copy
-Write-Output "::error file=app.js,line=1,col=5,endColumn=7::Missing semicolon"
+Write-Output "::error file=app.js,line=1,col=5,endColumn=7,title=YOUR-TITLE::Missing semicolon"
 ```
 
 {% endpowershell %}
@@ -412,7 +412,7 @@ jobs:
     outputs:
       handle: {% raw %}${{ steps.generate-secret.outputs.handle }}{% endraw %}
     steps:
-    - uses: some/secret-store@v1
+    - uses: some/secret-store@27b31702a0e7fc50959f5ad993c78deac1bdfc29
       with:{% raw %}
         credentials: ${{ secrets.SECRET_STORE_CREDENTIALS }}
         instance: ${{ secrets.SECRET_STORE_INSTANCE }}{% endraw %}
@@ -428,7 +428,7 @@ jobs:
     runs-on: macos-latest
     needs: secret-generator
     steps:
-    - uses: some/secret-store@v1
+    - uses: some/secret-store@27b31702a0e7fc50959f5ad993c78deac1bdfc29
       with:{% raw %}
         credentials: ${{ secrets.SECRET_STORE_CREDENTIALS }}
         instance: ${{ secrets.SECRET_STORE_INSTANCE }}{% endraw %}
@@ -452,7 +452,7 @@ jobs:
   secret-generator:
     runs-on: ubuntu-latest
     steps:
-    - uses: some/secret-store@v1
+    - uses: some/secret-store@27b31702a0e7fc50959f5ad993c78deac1bdfc29
       with:{% raw %}
         credentials: ${{ secrets.SECRET_STORE_CREDENTIALS }}
         instance: ${{ secrets.SECRET_STORE_INSTANCE }}{% endraw %}
@@ -467,7 +467,7 @@ jobs:
     runs-on: macos-latest
     needs: secret-generator
     steps:
-    - uses: some/secret-store@v1
+    - uses: some/secret-store@27b31702a0e7fc50959f5ad993c78deac1bdfc29
       with:{% raw %}
         credentials: ${{ secrets.SECRET_STORE_CREDENTIALS }}
         instance: ${{ secrets.SECRET_STORE_INSTANCE }}{% endraw %}

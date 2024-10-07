@@ -47,7 +47,7 @@ For a definition of common terms, see "[AUTOTITLE](/actions/learn-github-actions
 
 {% data variables.product.product_name %} offers CI workflow templates for a variety of languages and frameworks.
 
-Browse the complete list of CI workflow templates offered by {% data variables.product.company_short %} in the {% ifversion fpt or ghec %}[actions/starter-workflows](https://github.com/actions/starter-workflows/tree/main/ci) repository{% else %} `actions/starter-workflows` repository on {% data variables.location.product_location %}{% endif %}.
+Browse the complete list of CI workflow templates offered by {% data variables.product.company_short %} in the {% ifversion fpt or ghec %}[actions/starter-workflows](https://github.com/actions/starter-workflows/tree/main/ci) repository{% else %} `actions/starter-workflows` repository on {% data variables.product.prodname_dotcom_the_website %}{% endif %}.
 
 ## Further reading
 

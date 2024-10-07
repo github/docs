@@ -28,7 +28,7 @@ shortTitle: Install on GCP
 
 ## Determining the machine type
 
-Before launching {% data variables.location.product_location %} on Google Cloud Platform, you'll need to determine the machine type that best fits the needs of your organization. To review the minimum requirements for {% data variables.product.product_name %}, see "[Minimum requirements](#minimum-requirements)."
+Before launching {% data variables.location.product_location %} on Google Cloud Platform, you'll need to determine the machine type that best fits the needs of your organization. To review the minimum recommended requirements for {% data variables.product.product_name %}, see "[Minimum recommended requirements](#minimum-recommended-requirements)."
 
 {% data reusables.enterprise_installation.warning-on-scaling %}
 

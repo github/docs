@@ -14,7 +14,7 @@ topics:
 shortTitle: Enterprise Cloud trial
 ---
 
-{% data reusables.enterprise.about-ghec %} For more information, see "[AUTOTITLE](/enterprise-cloud@latest/admin/overview/about-github-enterprise-cloud)."
+{% data reusables.enterprise.about-ghec %} See "[AUTOTITLE](/enterprise-cloud@latest/admin/overview/about-github-enterprise-cloud)."
 
 You can set up a trial to evaluate the additional features that come with {% data variables.product.prodname_ghe_cloud %}, such as SAML single sign-on (SSO), internal repositories, and audit log streaming. For a list of available features, see our [Pricing](https://github.com/pricing) page.
 
@@ -31,10 +31,10 @@ You do not need to provide a payment method during the trial.
 The trial lasts for **{% data reusables.enterprise.ghec-trial-length %} days** and includes the following features.
 
 * Access to **most** {% data variables.product.prodname_ghe_cloud %} features.{% ifversion metered-ghe-ghas%}
-* Access to the **enhanced billing platform**. See "[AUTOTITLE](/billing/using-the-enhanced-billing-platform-for-enterprises/about-the-enhanced-billing-platform-for-enterprises)."{% endif %}
+* Access to the **new billing platform**. See "[AUTOTITLE](/billing/using-the-new-billing-platform/about-the-new-billing-platform-for-enterprises)."{% endif %}
 * An **enterprise account**, which allows you to manage multiple organizations. See "[AUTOTITLE](/enterprise-cloud@latest/get-started/learning-about-github/types-of-github-accounts)."
 * Up to **50 seats** to grant access to users.
-* The option to set up a free trial of **{% data variables.product.prodname_GH_advanced_security %}** to test features such as {% data variables.product.prodname_code_scanning %} and {% data variables.product.prodname_secret_scanning %}. See "[AUTOTITLE](/enterprise-cloud@latest/billing/managing-billing-for-github-advanced-security/setting-up-a-trial-of-github-advanced-security)."
+* The option to set up a free trial of **{% data variables.product.prodname_GH_advanced_security %}** to test features such as {% data variables.product.prodname_code_scanning %} and {% data variables.product.prodname_secret_scanning %}. See "[AUTOTITLE](/enterprise-cloud@latest/billing/managing-billing-for-your-products/managing-billing-for-github-advanced-security/setting-up-a-trial-of-github-advanced-security)."
 
 ## Features not included in the trial
 
@@ -63,10 +63,12 @@ You can create up to **three new organizations** in the trial enterprise, or tra
 
 You can end your trial at any time by purchasing {% data variables.product.prodname_enterprise %} or canceling the trial. Otherwise, after {% data reusables.enterprise.ghec-trial-length %} days, your trial will expire.
 
+{% data variables.product.prodname_enterprise %} trial accounts are automatically deleted 90 days after the trial period ends if the account has not been converted to a paid account.
+
 If you **purchase {% data variables.product.prodname_enterprise %}**:
 
 {% ifversion metered-ghe-ghas%}
-* You can use usage-based billing for {% data variables.product.prodname_ghe_cloud %} and {% data variables.product.prodname_GH_advanced_security %}, which means you pay monthly for the number of licenses you use. You will not need to buy a predefined number of licenses in advance. See, "[AUTOTITLE](/billing/using-the-enhanced-billing-platform-for-enterprises/about-usage-based-billing-for-licenses)."
+* You can use usage-based billing for {% data variables.product.prodname_ghe_cloud %} and {% data variables.product.prodname_GH_advanced_security %}, which means you pay monthly for the number of licenses you use. You will not need to buy a predefined number of licenses in advance. See, "[AUTOTITLE](/billing/using-the-new-billing-platform/about-usage-based-billing-for-licenses)."
 
   If you did not set up a free trial and you want to use usage-based billing to pay for {% data variables.product.prodname_GH_advanced_security %} after the {% data variables.product.prodname_ghe_cloud %} trial ends, contact [{% data variables.product.prodname_dotcom %}'s Sales team](https://enterprise.github.com/contact).{% endif %}
 

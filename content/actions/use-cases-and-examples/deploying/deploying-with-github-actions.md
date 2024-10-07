@@ -147,7 +147,7 @@ You can also view the logs of each workflow run and the history of workflow runs
 ## Tracking deployments through apps
 
 {% ifversion fpt or ghec %}
-If your personal account or organization on {% data variables.location.product_location %} is integrated with Microsoft Teams or Slack, you can track deployments that use environments through Microsoft Teams or Slack. For example, you can receive notifications through the app when a deployment is pending approval, when a deployment is approved, or when the deployment status changes. For more information about integrating  Microsoft Teams or Slack, see "[AUTOTITLE](/get-started/exploring-integrations/github-extensions-and-integrations#team-communication-tools)."
+If your personal account or organization on {% data variables.product.github %} is integrated with Microsoft Teams or Slack, you can track deployments that use environments through Microsoft Teams or Slack. For example, you can receive notifications through the app when a deployment is pending approval, when a deployment is approved, or when the deployment status changes. For more information about integrating  Microsoft Teams or Slack, see "[AUTOTITLE](/get-started/exploring-integrations/github-extensions-and-integrations#team-communication-tools)."
 {% endif %}
 
 You can also build an app that uses deployment and deployment status webhooks to track deployments. {% data reusables.actions.environment-deployment-event %} For more information, see "[AUTOTITLE](/apps)" and "[AUTOTITLE](/webhooks-and-events/webhooks/webhook-events-and-payloads#deployment)."

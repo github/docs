@@ -177,8 +177,8 @@ Notice that all of the examples use a short version number for the action (`v3`)
           # ([String]). Representing a path to a configuration file local to the repository or in an external repository.
           # Possible values: An absolute path to a local file or an external file.
           config-file: './.github/dependency-review-config.yml'
-          # Syntax for an external file: OWNER/REPOSITORY/FILENAME@BRANCH
-          config-file: 'github/octorepo/dependency-review-config.yml@main'
+          # Optional alternative syntax for an external file: OWNER/REPOSITORY/FILENAME@BRANCH (uncomment if preferred)
+          # config-file: 'github/octorepo/dependency-review-config.yml@main'
 
           # ([Token]) Use if your configuration file resides in a private external repository.
           # Possible values: Any GitHub token with read access to the private external repository.

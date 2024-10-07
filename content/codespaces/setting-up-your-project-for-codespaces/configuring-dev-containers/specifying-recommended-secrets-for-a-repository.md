@@ -16,7 +16,7 @@ topics:
 
 If a project needs user-specific secrets to be set up, you can prompt people to do this when they create a codespace. You do this by adding a setting to a dev container configuration file for the repository.
 
-After you specify recommended secrets, if people have not already created those secrets in their personal settings for {% data variables.product.prodname_codespaces %}, they will be prompted to do so when they use the advanced options method of creating a codespace. This is done on {% data variables.product.prodname_dotcom_the_website %} by clicking the **{% octicon "code" aria-hidden="true" %} Code** button, then clicking the **Codespaces** tab, then selecting {% octicon "kebab-horizontal" aria-label="Codespace repository configuration" %} and clicking **New with options**.
+After you specify recommended secrets, if people have not already created those secrets in their personal settings for {% data variables.product.prodname_codespaces %}, they will be prompted to do so when they use the advanced options method of creating a codespace. This is done on {% data variables.product.github %} by clicking the **{% octicon "code" aria-hidden="true" %} Code** button, then clicking the **Codespaces** tab, then selecting {% octicon "kebab-horizontal" aria-label="Codespace repository configuration" %} and clicking **New with options**.
 
 ![Screenshot of the options dropdown in the "{% data variables.product.prodname_codespaces %}" tab, with the option "New with options" highlighted.](/assets/images/help/codespaces/default-machine-type.png)
 

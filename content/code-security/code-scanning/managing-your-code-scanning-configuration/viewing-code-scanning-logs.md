@@ -1,6 +1,6 @@
 ---
 title: Viewing code scanning logs
-intro: 'You can view the output generated during {% data variables.product.prodname_code_scanning %} analysis in {% data variables.location.product_location %}.'
+intro: 'You can view the output generated during {% data variables.product.prodname_code_scanning %} analysis in {% data variables.product.github %}.'
 product: '{% data reusables.gated-features.code-scanning %}'
 permissions: 'If you have read permissions to a repository, you can view the {% data variables.product.prodname_code_scanning %} logs for that repository.'
 redirect_from:
@@ -43,11 +43,7 @@ For information about the {% data variables.product.prodname_codeql_cli %}, see 
 
 {% data reusables.code-scanning.extractor-diagnostics %}
 
-{% ifversion codeql-action-debug-logging %}
-
 You can see more detailed information about {% data variables.product.prodname_codeql %} extractor errors and warnings that occurred during database creation by enabling debug logging. For more information, see "[AUTOTITLE](/code-security/code-scanning/troubleshooting-code-scanning/logs-are-not-detailed-enough#creating-codeql-debugging-artifacts-by-re-running-jobs-with-debug-logging-enabled)."
-
-{% endif %}
 
 ## Viewing the logging output from {% data variables.product.prodname_code_scanning %}
 

@@ -42,6 +42,7 @@ You'll also find recommendations for the setup of the following registry hosts:
 
 * [Artifactory](#artifactory)
 * [Azure Artifacts](#azure-artifacts)
+* [Cloudsmith](#cloudsmith)
 * [{% data variables.product.prodname_registry %} registry](#github-packages-registry)
 * [Nexus](#nexus)
 * [ProGet](#proget)
@@ -52,9 +53,9 @@ You'll also find recommendations for the setup of the following registry hosts:
 
 ### Bundler
 
-Supported by Artifactory, Artifacts, {% data variables.product.prodname_registry %} registry, Nexus, and ProGet.
+Supported by Artifactory, Artifacts, Cloudsmith, {% data variables.product.prodname_registry %} registry, Nexus, and ProGet.
 
-You can authenticate with either a username and password, or a token. For more information, see `ruby-gems` in "[AUTOTITLE](/code-security/dependabot/dependabot-version-updates/configuration-options-for-the-dependabot.yml-file#rubygems-server)."
+You can authenticate with either a username and password, or a token. For more information, see `rubygems-server` in "[AUTOTITLE](/code-security/dependabot/dependabot-version-updates/configuration-options-for-the-dependabot.yml-file#rubygems-server)."
 
 Snippet of a `dependabot.yml` file using a username and password.
 
@@ -323,7 +324,7 @@ Registries should be configured using the `https` protocol.
 
 ### Nuget
 
-Supported by Artifactory, Artifacts, {% data variables.product.prodname_registry %} registry, Nexus, and ProGet.
+Supported by Artifactory, Artifacts, Cloudsmith, {% data variables.product.prodname_registry %} registry, Nexus, and ProGet.
 
 The `nuget-feed` type supports username and password, or token. For more information, see `nuget-feed` in "[AUTOTITLE](/code-security/dependabot/dependabot-version-updates/configuration-options-for-the-dependabot.yml-file#nuget-feed)."
 
@@ -406,7 +407,7 @@ pub supports URL and token authentication. The URL used for the registry should 
 
 ### Python
 
-Supported by Artifactory, Azure Artifacts, Nexus, and ProGet. The {% data variables.product.prodname_registry %} registry is not supported.
+Supported by Artifactory, Azure Artifacts, Cloudsmith, Nexus, and ProGet. The {% data variables.product.prodname_registry %} registry is not supported.
 
 The `python-index` type supports username and password, or token. For more information, see `python-index` in "[AUTOTITLE](/code-security/dependabot/dependabot-version-updates/configuration-options-for-the-dependabot.yml-file#python-index)."
 
@@ -621,6 +622,10 @@ The Azure Artifacts password must be an unencoded token and should include a `:`
 
 You can check whether the private registry is successfully accessed by looking at the {% data variables.product.prodname_dependabot %} logs.
 
+### Cloudsmith
+
+For information about Cloudsmith and instructions on how to configure {% data variables.product.prodname_dependabot %} to work with Cloudsmith, see [Getting Started with Cloudsmith](https://help.cloudsmith.io/docs/welcome-to-cloudsmith-docs) and [Integrate Github Dependabot with Cloudsmith](https://help.cloudsmith.io/docs/dependabot) in the Cloudsmith documentation.
+
 ### {% data variables.product.prodname_registry %} registry
 
 For information about {% data variables.product.prodname_registry %} registries, see "[AUTOTITLE](/packages/working-with-a-github-packages-registry)." From that article, you can access pages describing how to configure the following registries.
@@ -684,7 +689,7 @@ If you are restricting which IPs can reach your Nexus host, you need to add the 
       * "3.217.93.44/32"
 For more information, see [Securing Nexus Repository Manager](https://help.sonatype.com/repomanager3/planning-your-implementation/securing-nexus-repository-manager) in the Sonatype documentation.
 
-  Registries can be proxied to reach out to a public registry in case a dependency is not available in the private registry.{% ifversion dependabot-private-registries %} However, you may want {% data variables.product.prodname_dependabot %} to only access the private registry and not access the public registry at all. For more information, see "[Quick Start Guide - Proxying Maven and NPM](https://help.sonatype.com/repomanager3/planning-your-implementation/quick-start-guide---proxying-maven-and-npm)" in the Sonatype documentation, and "[AUTOTITLE](/code-security/dependabot/working-with-dependabot/removing-dependabot-access-to-public-registries)."{% endif %}
+  Registries can be proxied to reach out to a public registry in case a dependency is not available in the private registry. However, you may want {% data variables.product.prodname_dependabot %} to only access the private registry and not access the public registry at all. For more information, see "[Quick Start Guide - Proxying Maven and NPM](https://help.sonatype.com/repomanager3/planning-your-implementation/quick-start-guide---proxying-maven-and-npm)" in the Sonatype documentation, and "[AUTOTITLE](/code-security/dependabot/working-with-dependabot/removing-dependabot-access-to-public-registries)."
 
 ### ProGet
 

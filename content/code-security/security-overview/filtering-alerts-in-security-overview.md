@@ -78,7 +78,7 @@ These qualifiers are available in all views.
 
 {% note %}
 
-**Note:** Repository properties are in public beta and subject to change.
+**Note:** Repository properties are in {% data variables.release-phases.public_preview %} and subject to change.
 
 {% endnote %}
 
@@ -219,8 +219,12 @@ All {% data variables.product.prodname_code_scanning %} alerts have one of the c
 
 | Qualifier | Description |
 | -------- | -------- |
-|`bypassed` | Display {% data variables.secret-scanning.alerts %} where push protection was bypassed (`true`) or not bypassed (`false`).
+|`bypassed` | Display {% data variables.secret-scanning.alerts %} where push protection was bypassed (`true`) or not bypassed (`false`).|
+|{% ifversion secret-scanning-alert-experimental-list %}|
+|`results`|Display default (`default`) or experimental (`experimental`) {% data variables.secret-scanning.alerts %}.|
+|{% else %}|
 |`confidence`|Display {% data variables.secret-scanning.alerts %} of high (`high`) or other (`other`) confidence.|
+|{% endif %}|
 |`is`|Display {% data variables.secret-scanning.alerts %} that are open (`open`) or closed (`closed`).|
 |`provider` | Display alerts for all secrets issued by a specified provider, for example: `adafruit`.  |
 |`resolution`| Display {% data variables.secret-scanning.alerts %} closed as "false positive" (`false-positive`), "pattern deleted" (`pattern-deleted`), "pattern edited' (`pattern-edited`), "revoked" (`revoked`) "used in tests" (`used-in-tests`), or "won't fix" (`wont-fix`).|

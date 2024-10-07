@@ -50,8 +50,6 @@ You can choose to disable {% data variables.product.prodname_actions %} for all 
 1. Under "Policies", select {% data reusables.actions.policy-label-for-select-actions-workflows %} and add your required actions{% ifversion actions-workflow-policy %} and reusable workflows{% endif %} to the list.
 1. Click **Save**.
 
-{% ifversion actions-disable-repo-runners %}
-
 ## Limiting the use of self-hosted runners
 
 {% data reusables.actions.disable-selfhosted-runners-overview %}
@@ -83,8 +81,6 @@ If a repository already has self-hosted runners when you disable their use, thes
    1. Click {% octicon "gear" aria-label="Select repositories" %}.
    1. Select the check boxes for the repositories for which you want to allow self-hosted runners.
    1. Click **Select repositories**.
-
-{% endif %}
 
 {% ifversion fpt or ghec %}
 

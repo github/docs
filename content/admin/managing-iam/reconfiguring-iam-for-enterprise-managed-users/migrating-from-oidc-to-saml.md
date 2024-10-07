@@ -33,7 +33,7 @@ If you're new to {% data variables.product.prodname_emus %} and haven't yet conf
 
 ## Prerequisites
 
-* Your enterprise on {% data variables.location.product_location %} must currently be configured to use OIDC for authentication. For more information, see "[AUTOTITLE](/admin/identity-and-access-management/using-enterprise-managed-users-for-iam/configuring-oidc-for-enterprise-managed-users)."
+* Your enterprise on {% data variables.product.github %} must currently be configured to use OIDC for authentication. For more information, see "[AUTOTITLE](/admin/identity-and-access-management/using-enterprise-managed-users-for-iam/configuring-oidc-for-enterprise-managed-users)."
 {% data reusables.emus.migration-roles-prereq %}
 {% data reusables.emus.migration-schedule-downtime %}
 

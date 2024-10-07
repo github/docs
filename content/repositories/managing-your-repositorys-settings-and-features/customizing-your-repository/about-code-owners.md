@@ -58,9 +58,9 @@ To reduce the size of your CODEOWNERS file, consider using wildcard patterns to 
 {% warning %}
 
 **Warning:** There are some syntax rules for gitignore files that _do not work_ in CODEOWNERS files:
-* Escaping a pattern starting with `#` using `\` so it is treated as a pattern and not a comment
-* Using `!` to negate a pattern
-* Using `[ ]` to define a character range
+* Escaping a pattern starting with `#` using `\` so it is treated as a pattern and not a comment doesn't work
+* Using `!` to negate a pattern doesn't work
+* Using `[ ]` to define a character range doesn't work
 
 {% endwarning %}
 
@@ -135,7 +135,9 @@ apps/ @octocat
 
 # In this example, @octocat owns any file in the `/apps`
 # directory in the root of your repository except for the `/apps/github`
-# subdirectory, as its owners are left empty.
+# subdirectory, as its owners are left empty. Without an owner, changes
+# to `apps/github` can be made with the approval of any user who has
+# write access to the repository.
 /apps/ @octocat
 /apps/github
 
