@@ -1,7 +1,7 @@
 ---
 title: Managing Copilot policies as an individual subscriber
 shortTitle: Manage policies
-intro: 'Find out how to change your personal settings on {% data variables.product.prodname_dotcom_the_website %} to configure {% data variables.product.prodname_copilot %}''s behavior.'
+intro: 'Find out how to change your personal settings on {% data variables.product.github %} to configure {% data variables.product.prodname_copilot %}''s behavior.'
 product: '{% data variables.product.prodname_copilot_for_individuals %}'
 topics:
   - Copilot
@@ -14,9 +14,9 @@ redirect_from:
   - /copilot/configuring-github-copilot/configuring-your-personal-github-copilot-settings-on-githubcom
 ---
 
-## About {% data variables.product.prodname_copilot %} settings on {% data variables.product.prodname_dotcom_the_website %}
+## About {% data variables.product.prodname_copilot %} settings on {% data variables.product.github %}
 
-In addition to the configuration for the {% data variables.product.prodname_copilot %} plugin in your supported IDE, you can configure settings for {% data variables.product.prodname_copilot %} on {% data variables.product.prodname_dotcom_the_website %}. The settings apply wherever you use {% data variables.product.prodname_copilot %}.
+In addition to the configuration for the {% data variables.product.prodname_copilot %} plugin in your supported IDE, you can configure settings for {% data variables.product.prodname_copilot %} on {% data variables.product.github %}. The settings apply wherever you use {% data variables.product.prodname_copilot %}.
 
 ## Enabling or disabling suggestions matching public code
 
