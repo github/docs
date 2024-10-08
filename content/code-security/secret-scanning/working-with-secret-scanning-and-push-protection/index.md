@@ -15,6 +15,7 @@ topics:
 children:
   - /push-protection-for-users
   - /working-with-push-protection-from-the-command-line
+  - /working-with-push-protection-from-the-rest-api
   - /working-with-push-protection-in-the-github-ui
 redirect_from:
   - /code-security/secret-scanning/working-with-push-protection
