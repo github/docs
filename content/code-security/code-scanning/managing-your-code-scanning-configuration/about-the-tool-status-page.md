@@ -3,6 +3,7 @@ title: About the tool status page for code scanning
 shortTitle: Code scanning tool status
 allowTitleToDifferFromFilename: true
 intro: The {% data variables.code-scanning.tool_status_page %} shows useful information about all of your code scanning tools. If code scanning is not working as you'd expect, the {% data variables.code-scanning.tool_status_page %} is a good starting point for debugging problems.
+permissions: '{% data reusables.permissions.code-scanning-all-alerts %}'
 product: '{% data reusables.gated-features.code-scanning %}'
 versions:
   fpt: '*'

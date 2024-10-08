@@ -1,7 +1,7 @@
 ---
 title: Quickstart for securing your repository
 intro: 'You can use a number of {% data variables.product.prodname_dotcom %} features to help keep your repository secure.'
-permissions: Repository administrators and organization owners can configure repository security settings.
+permissions: '{% data reusables.permissions.security-repo-enable %}'
 redirect_from:
   - /github/administering-a-repository/about-securing-your-repository
   - /github/code-security/getting-started/about-securing-your-repository
@@ -115,6 +115,9 @@ To enable {% data variables.product.prodname_dependabot_version_updates %}, you 
 
 ## Configuring {% data variables.product.prodname_code_scanning %}
 
+> [!NOTE]
+> {% data variables.product.prodname_code_scanning_caps %} is available {% ifversion fpt or ghec %}for all public repositories, and for private repositories owned by organizations that are part of an enterprise with a license for {% else %}for organization-owned repositories if your enterprise uses {% endif %}{% data variables.product.prodname_GH_advanced_security %}.
+
 You can configure {% data variables.product.prodname_code_scanning %} to automatically identify vulnerabilities and errors in the code stored in your repository by using a {% data variables.code-scanning.codeql_workflow %} or third-party tool. Depending on the programming languages in your repository, you can configure {% data variables.product.prodname_code_scanning %} with {% data variables.product.prodname_codeql %} using default setup, in which {% data variables.product.prodname_dotcom %} automatically determines the languages to scan, query suites to run, and events that will trigger a new scan. For more information, see "[AUTOTITLE](/code-security/code-scanning/enabling-code-scanning/configuring-default-setup-for-code-scanning)."
 
 1. From the main page of your repository, click {% octicon "gear" aria-hidden="true" %} **Settings**.
@@ -123,8 +126,6 @@ You can configure {% data variables.product.prodname_code_scanning %} to automat
 1. In the pop-up window that appears, review the default configuration settings for your repository, then click **Enable {% data variables.product.prodname_codeql %}**.
 
 Alternatively, you can use advanced setup, which generates a workflow file you can edit to customize your {% data variables.product.prodname_code_scanning %} with {% data variables.product.prodname_codeql %}. For more information, see "[AUTOTITLE](/code-security/code-scanning/creating-an-advanced-setup-for-code-scanning/configuring-advanced-setup-for-code-scanning#configuring-advanced-setup-for-code-scanning-with-codeql)."
-
-{% data variables.product.prodname_code_scanning_caps %} is available {% ifversion fpt or ghec %}for all public repositories, and for private repositories owned by organizations that are part of an enterprise with a license for {% else %}for organization-owned repositories if your enterprise uses {% endif %}{% data variables.product.prodname_GH_advanced_security %}. {% data reusables.secret-scanning.secret-scanning-user-owned-repos-beta %}
 
 ## Configuring {% data variables.product.prodname_secret_scanning %}
 

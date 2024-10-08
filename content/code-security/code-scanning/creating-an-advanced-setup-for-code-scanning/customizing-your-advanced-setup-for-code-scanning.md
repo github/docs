@@ -1,8 +1,7 @@
 ---
 title: Customizing your advanced setup for code scanning
 intro: 'You can customize how your advanced setup scans the code in your project for vulnerabilities and errors.'
-product: '{% data reusables.gated-features.code-scanning %}'
-permissions: 'People with write permissions to a repository can customize advanced setup for {% data variables.product.prodname_code_scanning %}.'
+permissions: '{% data reusables.permissions.code-scanning-all-alerts %} if [advanced setup](/code-security/code-scanning/creating-an-advanced-setup-for-code-scanning/configuring-advanced-setup-for-code-scanning) is already enabled'
 redirect_from:
   - /github/finding-security-vulnerabilities-and-errors-in-your-code/configuring-code-scanning
   - /code-security/secure-coding/configuring-code-scanning

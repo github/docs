@@ -1,9 +1,8 @@
 ---
 title: Resolving code scanning alerts
 shortTitle: Resolve alerts
-intro: 'From the security you can fix, or dismiss alerts for potential vulnerabilities or errors in your project''s code.'
-product: '{% data reusables.gated-features.code-scanning %}'
-permissions: 'If you have write permission to a repository you can manage {% data variables.product.prodname_code_scanning %} alerts for that repository.'
+intro: 'From the security view, you can view, fix, or dismiss alerts for potential vulnerabilities or errors in your project''s code.'
+permissions: '{% data reusables.permissions.code-scanning-all-alerts %}'
 versions:
   fpt: '*'
   ghes: '*'

@@ -2,8 +2,7 @@
 title: Tracking code scanning alerts in issues using task lists
 shortTitle: Track alerts in issues
 intro: You can add code scanning alerts to issues using task lists. This makes it easy to create a plan for development work that includes fixing alerts.
-product: '{% data reusables.gated-features.code-scanning %}'
-permissions: 'If you have write permission to a repository you can track {% data variables.product.prodname_code_scanning %} alerts in issues using task lists.'
+permissions: '{% data reusables.permissions.code-scanning-all-alerts %}'
 versions:
   feature: code-scanning-task-lists
 redirect_from:

@@ -2,6 +2,7 @@
 title: Set code scanning merge protection
 shortTitle: Set merge protection
 intro: 'You can use rulesets to set {% data variables.product.prodname_code_scanning %} merge protection for pull requests.'
+permissions: '{% data reusables.permissions.security-org-enable %}'
 product: '{% data reusables.gated-features.code-scanning %}'
 versions:
   feature: code-scanning-merge-protection-rulesets

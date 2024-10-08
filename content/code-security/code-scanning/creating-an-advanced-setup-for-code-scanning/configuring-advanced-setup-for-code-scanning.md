@@ -2,8 +2,8 @@
 title: Configuring advanced setup for code scanning
 shortTitle: Configure advanced setup
 intro: 'You can configure advanced setup for a repository to find security vulnerabilities in your code using a highly customizable {% data variables.product.prodname_code_scanning %} configuration.'
+permissions: '{% data reusables.permissions.security-repo-enable %}'
 product: '{% data reusables.gated-features.code-scanning %}'
-permissions: 'People with admin permissions to a repository, or the security manager role for the repository, can enable {% data variables.product.prodname_code_scanning %} for that repository.'
 redirect_from:
    - /code-security/code-scanning/automatically-scanning-your-code-for-vulnerabilities-and-errors/configuring-advanced-setup-for-code-scanning
 versions:
