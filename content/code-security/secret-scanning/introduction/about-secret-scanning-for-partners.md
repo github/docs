@@ -1,6 +1,7 @@
 ---
 title: About secret scanning for partners
 intro: 'When {% data variables.product.prodname_secret_scanning %} detects authentication details for a service provider in a public repository on {% data variables.product.prodname_dotcom %}, an alert is sent directly to the provider. This allows service providers who are {% data variables.product.prodname_dotcom %} partners to promptly take action to secure their systems.'
+product: '{% data reusables.gated-features.secret-scanning-partner-alerts %}'
 versions:
   fpt: '*'
   ghec: '*'

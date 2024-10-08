@@ -1,11 +1,21 @@
-{% ifversion fpt %}
+* **Repository administrators** can only exclude content for their own repositories. This affects {% data variables.product.prodname_copilot_short %} users working within those specific repositories.
+* **Organization owners** can exclude content for users assigned a {% data variables.product.prodname_copilot_short %} seat through their organization.
 
-Content exclusion settings only apply to members of the organization in which the content exclusion is configured, who have been granted a seat as part of a {% data variables.product.prodname_copilot_for_business %} or {% data variables.product.prodname_copilot_enterprise %} subscription.
+{% ifversion ghec %}
 
-{% else %}
+<!-- expires 2024-11-08 -->
 
-You can only specify content exclusions in the settings for an organization or repository, not in the settings for an enterprise. Content exclusion settings defined in an organization or repository within an enterprise will apply to all members of the enterprise who have been granted a seat as part of a {% data variables.product.prodname_copilot_for_business %} or {% data variables.product.prodname_copilot_enterprise %} subscription.
+  > [!NOTE] In the current {% data variables.release-phases.public_preview %} release, organization-level settings for content exclusion typically apply to all {% data variables.product.prodname_copilot_short %} users in the enterprise. This will change with the general availability (GA) release of this feature on November 8th, 2024.
+  >
+  > **_Before November 8th:_**
+  > * **If enterprise owners do not set rules**: Organization-level rules will continue to apply to all users across the enterprise, functioning as they do now, until November 8th.
+  > * **If enterprise owners set a rule**: Once enterprise-level rules are applied, organization-level rules will only apply to users who are assigned a {% data variables.product.prodname_copilot_short %} seat from the organization where the rule is set.<br><br>
+  >
+  > **_After November 8th:_**
+  > * Organization-level rules will no longer apply enterprise-wide. They will be limited to users who are assigned a {% data variables.product.prodname_copilot_short %} seat from the organization where the rule is set.
+
+<!-- end expires 2024-11-08 -->
+
+* **Enterprise owners** can apply exclusion rules to all {% data variables.product.prodname_copilot_short %} users in the enterprise.
 
 {% endif %}
-
-Anyone else who can access the specified files will still see code completion suggestions and {% data variables.product.prodname_copilot_chat %} responses referencing the specified files.

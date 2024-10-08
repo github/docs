@@ -2,7 +2,7 @@
 title: Evaluating default setup for code scanning
 shortTitle: Evaluate code scanning
 intro: 'Learn how to assess how code scanning is working for you, and how you can customize your setup to best meet your code security needs.'
-product: '{% data reusables.gated-features.code-scanning %}'
+permissions: '{% data reusables.permissions.security-repo-enable %}'
 type: how_to
 topics:
   - Advanced Security

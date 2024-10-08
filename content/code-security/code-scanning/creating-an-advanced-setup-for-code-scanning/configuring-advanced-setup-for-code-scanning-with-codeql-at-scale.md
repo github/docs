@@ -2,6 +2,7 @@
 title: Configuring advanced setup for code scanning with CodeQL at scale
 shortTitle: CodeQL advanced setup at scale
 intro: 'You can use a script to configure advanced setup for {% data variables.product.prodname_code_scanning %} for a specific group of repositories in your organization.'
+permissions: '{% data reusables.permissions.security-org-enable %}'
 product: '{% data reusables.gated-features.code-scanning %}'
 redirect_from:
   - /code-security/code-scanning/automatically-scanning-your-code-for-vulnerabilities-and-errors/configuring-advanced-setup-for-code-scanning-with-codeql-at-scale
