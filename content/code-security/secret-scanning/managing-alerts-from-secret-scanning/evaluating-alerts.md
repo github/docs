@@ -1,8 +1,7 @@
 ---
 title: Evaluating alerts from secret scanning
 intro: 'Learn about additional features that can help you evaluate alerts and prioritize their remediation, such as checking a secret''s validity.'
-permissions: 'People with admin access to a {% ifversion fpt %}public {% endif %}repository can view {% data variables.secret-scanning.alerts %} for the repository.'
-product: '{% data reusables.gated-features.secret-scanning %}'
+permissions: '{% data reusables.permissions.secret-scanning-alerts %}'
 versions:
   fpt: '*'
   ghes: '*'
