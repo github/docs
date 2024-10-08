@@ -15,7 +15,8 @@ children:
   - /about-code-scanning-alerts
   - /responsible-use-autofix-code-scanning
   - /disabling-autofix-for-code-scanning
-  - /managing-code-scanning-alerts-for-your-repository
+  - /assessing-code-scanning-alerts-for-your-repository
+  - /resolving-code-scanning-alerts
   - /triaging-code-scanning-alerts-in-pull-requests
   - /tracking-code-scanning-alerts-in-issues-using-task-lists
 ---

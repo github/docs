@@ -63,7 +63,7 @@ Instead of tracking a {% data variables.product.prodname_code_scanning %} alert 
 {% data reusables.repositories.sidebar-security %}
 {% data reusables.repositories.sidebar-code-scanning-alerts %}
 {% data reusables.code-scanning.explore-alert %}
-1. Optionally, to find the alert to track, you can use the free-text search or the drop-down menus to filter and locate the alert. For more information, see "[AUTOTITLE](/code-security/code-scanning/managing-code-scanning-alerts/managing-code-scanning-alerts-for-your-repository#filtering-code-scanning-alerts)."
+1. Optionally, to find the alert to track, you can use the free-text search or the drop-down menus to filter and locate the alert. For more information, see "[AUTOTITLE](/code-security/code-scanning/managing-code-scanning-alerts/assessing-code-scanning-alerts-for-your-repository#filtering-code-scanning-alerts)."
 1. Towards the top of the page, on the right side, click **Create issue**.
 
    ![Screenshot of a {% data variables.product.prodname_code_scanning %} alert. The "Create issue" button is outlined in dark orange.](/assets/images/help/repository/code-scanning-create-issue-for-alert.png)
