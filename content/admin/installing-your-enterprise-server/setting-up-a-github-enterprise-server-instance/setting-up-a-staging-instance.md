@@ -154,6 +154,21 @@ Then, review the staging instance's configuration in the {% data variables.enter
 
 To apply the configuration from the {% data variables.enterprise.management_console %}, click **Save settings**.
 
+## Bringing a staging instance back online
+
+You may want to power off a staging instance to save costs and power it back on when needed.
+
+An instance can stay offline for {% ifversion ghes = 3.10 %}7 days{% elsif ghes < 3.14 %}60 days as of the latest patch release of this version, increased from 7 days{% else %}60 days{% endif %}.
+
+If you bring the instance back online within the allowed offline time period, {% data variables.product.product_name %} instantiates successfully. If the instance stays offline for longer than the allowed period, {% data variables.product.product_name %} fails to instantiate successfully, and an error message with the text `server has been offline for more than the configured server_rejoin_age_max` may appear in the system logs. See "[AUTOTITLE](/admin/monitoring-and-managing-your-instance/monitoring-your-instance/about-system-logs)."
+
+If the instance is stuck in the error state, you can run these commands to recover.
+
+```shell
+sudo mv /data/user/consul/server_metadata.json /data/user/consul/server_metadata.json.bak
+ghe-config-apply
+```
+
 ## Further reading
 
 * "[AUTOTITLE](/admin/overview/about-upgrades-to-new-releases)"
