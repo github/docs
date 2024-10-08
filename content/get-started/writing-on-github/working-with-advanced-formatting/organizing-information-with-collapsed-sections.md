@@ -47,6 +47,7 @@ Optionally, to make the section display as open by default, add the `open` attri
 
 ```html
 <details open>
+```
 
 ## Further reading
 
