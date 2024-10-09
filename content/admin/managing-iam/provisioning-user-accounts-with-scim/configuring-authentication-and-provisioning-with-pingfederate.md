@@ -37,9 +37,9 @@ In addition:
 
 * To configure SCIM, you must have completed **steps 1 to 4** in "[AUTOTITLE](/admin/managing-iam/provisioning-user-accounts-with-scim/configuring-scim-provisioning-for-users)."
   * You will need the {% data variables.product.pat_v1 %} created for the setup user to authenticate requests from PingFederate.
-* You must have installed the "GitHub EMU connector" on PingFederate. To download and install the connector, see [Install the connector](https://docs.pingidentity.com/r/en-us/pingfederate-github-emu-connector/pingfederate_github_connector_install_the_connector) in the PingIdentity documentation.
+* You must have installed the "GitHub EMU connector" on PingFederate. To download and install the connector, see [Install the provisioner](https://docs.pingidentity.com/integrations/github/github_emu_provisioner/wie1563995015164.html) in the PingIdentity documentation.
   * You may need to configure the firewall in PingFederate to allow outbound connections to the `https://HOSTNAME/api/v3/scim/v2` endpoint on your {% data variables.product.prodname_ghe_server %} instance.
-* PingFederate's "provisioner mode" must be set to a value that allows SCIM provisioning. See the "Before you begin" section in PingIdentity's [Configuring outbound provisioning settings](https://docs.pingidentity.com/r/en-us/pingfederate-112/help_protocolsettingstasklet_saasglobalprovisioningsettingsstate) guide.
+* PingFederate's "provisioner mode" must be set to a value that allows SCIM provisioning. See the "Before you begin" section in PingIdentity's [Configuring outbound provisioning settings](https://docs.pingidentity.com/pingfederate/11.2/administrators_reference_guide/help_protocolsettingstasklet_saasglobalprovisioningsettingsstate.html) guide.
 * During this procedure, you will need to upload an X509 certificate to PingFederate. You may want to create and store the certificate before proceeding. You will also need the challenge password for the certificate. See the "[Example of creating an X509 certificate](#example-of-creating-an-x509-certificate)" section later in this article.
 
 ## 1. Configure SAML
