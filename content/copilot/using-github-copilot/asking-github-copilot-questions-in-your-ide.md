@@ -362,7 +362,9 @@ By default, {% data variables.product.prodname_copilot_chat_short %} will refere
 
 ## Additional ways to access {% data variables.product.prodname_copilot_chat_short %}
 
-In addition to submitting prompts through the chat window, you can submit built-in requests by right clicking in a file, selecting **GitHub Copilot**, then selecting one of the options.
+* **Built-in requests**. In addition to submitting prompts through the chat window, you can submit built-in requests by right clicking in a file, selecting **{% data variables.product.prodname_copilot %}**, then selecting one of the options.
+* **Inline**. You can submit a chat prompt inline, and scope it to a highlighted code block or your current file.
+   * To start an inline chat, right click on a code block or anywhere in your current file, hover over **{% data variables.product.prodname_copilot %}**, then select **{% octicon "plus" aria-label="plus" %} {% data variables.product.prodname_copilot_short %}: Inline Chat**, or enter <kbd>Ctrl</kbd>+<kbd>Shift</kbd>+<kbd>I</kbd>.
 
 ## Sharing feedback
 
