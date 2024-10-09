@@ -29989,6 +29989,11 @@ type Organization implements Actor & AnnouncementBanner & MemberStatusable & Nod
     Returns the last _n_ elements from the list.
     """
     last: Int
+
+    """
+    Return rulesets that apply to the specified target
+    """
+    targets: [RepositoryRulesetTarget!] = null
   ): RepositoryRulesetConnection
 
   """
@@ -46122,6 +46127,11 @@ type Repository implements Node & PackageOwner & ProjectOwner & ProjectV2Recent 
     Returns the last _n_ elements from the list.
     """
     last: Int
+
+    """
+    Return rulesets that apply to the specified target
+    """
+    targets: [RepositoryRulesetTarget!] = null
   ): RepositoryRulesetConnection
 
   """

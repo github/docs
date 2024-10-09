@@ -4,6 +4,20 @@
       {
         "title": "The GraphQL schema includes these changes:",
         "changes": [
+          "<p>Argument 'targets: [RepositoryRulesetTarget!]<code>added to field</code>Organization.rulesets'</p>",
+          "<p>Argument 'targets: [RepositoryRulesetTarget!]<code>added to field</code>Repository.rulesets'</p>"
+        ]
+      }
+    ],
+    "previewChanges": [],
+    "upcomingChanges": [],
+    "date": "2024-10-09"
+  },
+  {
+    "schemaChanges": [
+      {
+        "title": "The GraphQL schema includes these changes:",
+        "changes": [
           "<p>Type <code>EnterpriseDisallowedMethodsSettingValue</code> was added</p>",
           "<p>Type <code>TwoFactorCredentialSecurityType</code> was added</p>",
           "<p>Type <code>UpdateEnterpriseTwoFactorAuthenticationDisallowedMethodsSettingInput</code> was added</p>",
