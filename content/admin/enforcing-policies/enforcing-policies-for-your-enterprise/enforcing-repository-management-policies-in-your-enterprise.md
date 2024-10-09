@@ -151,6 +151,24 @@ Across all organizations owned by your enterprise, you can set the default branc
 1. Optionally, to enforce the default branch name for all organizations in the enterprise, select **Enforce across this enterprise**.
 1. Click **Update**.
 
+{% ifversion deploy-keys-enterprise-org-policy %}
+
+## Enforcing a policy for deploy keys
+
+Across all organizations owned by your enterprise, you can allow members to create deploy keys in repositories, restrict deploy key creation, or allow owners to administer the setting on the organization level.
+
+For more information about using deploy keys, see "[AUTOTITLE](/authentication/connecting-to-github-with-ssh/managing-deploy-keys#deploy-keys)." If you want fine-grained control over permissions, consider using a {% data variables.product.prodname_github_app %} instead. See "[AUTOTITLE](/apps/overview)."
+
+> [!WARNING]
+> Changing this setting to disabled will result in existing deploy keys being disabled in all repositories in your enterprise.
+
+{% data reusables.enterprise-accounts.access-enterprise %}
+{% data reusables.enterprise-accounts.policies-tab %}
+{% data reusables.enterprise-accounts.repositories-tab %}
+1. Under "Deploy keys", review the information about changing the setting, then select a policy.
+1. Click **Save**.
+{% endif %}
+
 ## Enforcing a policy for changes to repository visibility
 
 Across all organizations owned by your enterprise, you can allow members with admin access to change a repository's visibility, restrict repository visibility changes to organization owners, or allow owners to administer the setting on the organization level. When you prevent members from changing repository visibility, only enterprise owners can change the visibility of a repository.

@@ -41585,6 +41585,16 @@
                 "kind": "scalars",
                 "href": "/graphql/reference/scalars#int"
               }
+            },
+            {
+              "name": "targets",
+              "description": "<p>Return rulesets that apply to the specified target.</p>",
+              "type": {
+                "name": "[RepositoryRulesetTarget!]",
+                "id": "repositoryrulesettarget",
+                "kind": "enums",
+                "href": "/graphql/reference/enums#repositoryrulesettarget"
+              }
             }
           ]
         },
@@ -63294,6 +63304,16 @@
                 "id": "int",
                 "kind": "scalars",
                 "href": "/graphql/reference/scalars#int"
+              }
+            },
+            {
+              "name": "targets",
+              "description": "<p>Return rulesets that apply to the specified target.</p>",
+              "type": {
+                "name": "[RepositoryRulesetTarget!]",
+                "id": "repositoryrulesettarget",
+                "kind": "enums",
+                "href": "/graphql/reference/enums#repositoryrulesettarget"
               }
             }
           ]
