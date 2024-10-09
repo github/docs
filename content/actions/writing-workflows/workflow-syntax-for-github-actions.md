@@ -873,6 +873,8 @@ Prevents a job from failing when a step fails. Set to `true` to allow a job to p
 
 The maximum number of minutes to run the step before killing the process.
 
+Fractional values are not supported. `timeout-minutes` must be a positive integer.
+
 ## `jobs.<job_id>.timeout-minutes`
 
 The maximum number of minutes to let a job run before {% data variables.product.prodname_dotcom %} automatically cancels it. Default: 360
