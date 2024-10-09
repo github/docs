@@ -89,8 +89,6 @@ data: [{
 
 ### `copilot_references`
 
-> [!NOTE] The `copilot_references` SSE is not yet available when using {% data variables.product.prodname_copilot_chat_dotcom_short %}.
-
 The `copilot_references` SSE sends the user a list of references used to generate a response. This SSE is sent through an event type and data field. See the following code for an example of a `copilot_references` SSE:
 
 ```typescript annotate

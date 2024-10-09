@@ -12,6 +12,7 @@ shortTitle: Understand your supply chain
 children:
   - /about-supply-chain-security
   - /about-the-dependency-graph
+  - /dependency-graph-supported-package-ecosystems
   - /configuring-the-dependency-graph
   - /configuring-automatic-dependency-submission-for-your-repository
   - /exporting-a-software-bill-of-materials-for-your-repository

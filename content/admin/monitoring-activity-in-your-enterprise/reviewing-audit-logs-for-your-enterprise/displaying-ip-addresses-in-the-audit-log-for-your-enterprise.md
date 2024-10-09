@@ -22,7 +22,7 @@ You are responsible for meeting any legal obligations that accompany the viewing
 
 If you choose to display IP addresses for your enterprise account, the IP addresses will appear in both your enterprise's audit log and the audit log of every organization owned by your enterprise. Alternatively, you can enable the display of IP addresses in the audit log for individual organizations. For more information, see "[AUTOTITLE](/organizations/keeping-your-organization-secure/managing-security-settings-for-your-organization/displaying-ip-addresses-in-the-audit-log-for-your-organization)."
 
-You can display IP addresses in the audit log regardless of which authentication method you use for your enterprise on {% data variables.location.product_location %}. For more information, see "[AUTOTITLE](/admin/identity-and-access-management/managing-iam-for-your-enterprise/about-authentication-for-your-enterprise)."
+You can display IP addresses in the audit log regardless of which authentication method you use for your enterprise on {% data variables.product.github %}. For more information, see "[AUTOTITLE](/admin/identity-and-access-management/managing-iam-for-your-enterprise/about-authentication-for-your-enterprise)."
 
 {% data reusables.audit_log.users-agree-to-ip-collection %}
 

@@ -175,8 +175,6 @@ steps:
 - run: bundle install
 ```
 
-{% ifversion actions-caching %}
-
 ### Caching dependencies
 
 The `setup-ruby` actions provides a method to automatically handle the caching of your gems between runs.
@@ -229,8 +227,6 @@ steps:
     bundle config path vendor/bundle
     bundle install --jobs 4 --retry 3
 ```
-
-{% endif %}
 
 ## Matrix testing your code
 

@@ -13,8 +13,6 @@ topics:
   - Security
 ---
 
-{% data reusables.security-configurations.security-configurations-beta-note-short %}
-
 ## About the problem
 
 You cannot successfully apply a {% data variables.product.prodname_security_configuration %} with {% data variables.product.prodname_code_scanning %} default setup enabled to a target repository that uses advanced setup for {% data variables.product.prodname_code_scanning %}. Advanced setups are tailored to the specific security needs of their repositories, so they are not intended to be overridden at scale.

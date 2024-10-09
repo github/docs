@@ -89,4 +89,5 @@ If your request is denied, you will need to remove the secret from the file befo
 
 ## Further reading
 
-* [AUTOTITLE](/code-security/secret-scanning/working-with-secret-scanning-and-push-protection/working-with-push-protection-from-the-command-line)
+* [AUTOTITLE](/code-security/secret-scanning/working-with-secret-scanning-and-push-protection/working-with-push-protection-from-the-command-line){% ifversion secret-scanning-push-protection-content-endpoints %}
+* [AUTOTITLE](/code-security/secret-scanning/working-with-secret-scanning-and-push-protection/working-with-push-protection-from-the-rest-api){% endif %}

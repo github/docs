@@ -3,7 +3,9 @@ title: Publishing and using CodeQL packs
 intro: 'You can publish your own {% data variables.product.prodname_codeql %} packs and use packs published by other people.'
 product: '{% data reusables.gated-features.codeql %}'
 versions:
-  feature: codeql-packs
+  fpt: '*'
+  ghes: '*'
+  ghec: '*'
 topics:
   - Advanced Security
   - Code scanning
@@ -65,7 +67,6 @@ codeql pack download <scope>/<pack>@x.x.x
 
 This command accepts arguments for multiple packs.
 
-{% ifversion query-pack-compatibility %}
 If you write scripts that specify a particular version number of a
 query pack to download, keep in mind that when you update your version of
 {% data variables.product.prodname_codeql %} to a newer one, you may
@@ -74,7 +75,6 @@ versions of {% data variables.product.prodname_codeql %} _may_ provide
 degraded performance when used with query packs that have been pinned
 to a very old version. For more information, see "[About {% data variables.product.prodname_codeql %}
 pack compatibility](#about-codeql-pack-compatibility)."
-{% endif %}
 
 ## Using a {% data variables.product.prodname_codeql %} pack to analyze a {% data variables.product.prodname_codeql %} database
 
@@ -96,7 +96,6 @@ The `analyze` command will run the default suite of any specified {% data variab
 codeql <database> analyze <scope>/<pack> <scope>/<other-pack>
 ```
 
-{% ifversion query-pack-compatibility %}
 {% note %}
 
 **Note:** The `codeql pack download` command stores the pack it downloads in an internal location that is not intended for local modification.  Unexpected (and hard to troubleshoot) behavior may result if the pack is modified after downloading. For more information about customizing packs, see "[AUTOTITLE](/code-security/codeql-cli/using-the-advanced-functionality-of-the-codeql-cli/creating-and-working-with-codeql-packs)."
@@ -130,8 +129,6 @@ The results of the analysis will still be good in this case, but to get optimal 
 If you publish query packs on the {% data variables.product.prodname_container_registry %} on {% data variables.product.prodname_dotcom_the_website %} for others to use, we recommend that you use a recent release of {% data variables.product.prodname_codeql %} to run `codeql pack publish`, and that you publish a fresh version of your pack with an updated {% data variables.product.prodname_codeql %} version before the version you used turns 6 months old. That way you can ensure that users of your pack who keep _their_ {% data variables.product.prodname_codeql %} up to date will benefit from the pre-compiled queries in your pack.
 
 If you publish query packs with the intention of using them on a {% data variables.product.prodname_ghe_server %} installation that uses its bundled {% data variables.product.prodname_codeql %} binaries, use the same {% data variables.product.prodname_codeql %} version to run `codeql pack publish`. Newer versions might produce pre-compiled queries that the one in {% data variables.product.prodname_ghe_server %} may not recognize. Your {% data variables.product.prodname_ghe_server %} administrator may choose to upgrade to a newer version of {% data variables.product.prodname_codeql %} periodically. If so, follow their lead.
-
-{% endif %}
 
 {% ifversion ghes %}
 

@@ -39,7 +39,7 @@ Before you begin, you'll need to download Node.js and create a public {% data va
 1. Download and install Node.js {% ifversion actions-node20-support %}20.x{% else %}16.x{% endif %}, which includes npm.
 
    https://nodejs.org/en/download/
-1. Create a new public repository on {% data variables.location.product_location %} and call it "hello-world-javascript-action". For more information, see "[AUTOTITLE](/repositories/creating-and-managing-repositories/creating-a-new-repository)."
+1. Create a new public repository on {% data variables.product.github %} and call it "hello-world-javascript-action". For more information, see "[AUTOTITLE](/repositories/creating-and-managing-repositories/creating-a-new-repository)."
 
 1. Clone your repository to your computer. For more information, see "[AUTOTITLE](/repositories/creating-and-managing-repositories/cloning-a-repository)."
 
@@ -223,7 +223,7 @@ Public actions can be used by workflows in any repository. When an action is in 
 
 This example demonstrates how your new public action can be run from within an external repository.
 
-Copy the following YAML into a new file at `.github/workflows/main.yml`, and update the `uses: octocat/hello-world-javascript-action@v1.1` line with your username and the name of the public repository you created above. You can also replace the `who-to-greet` input with your name.
+Copy the following YAML into a new file at `.github/workflows/main.yml`, and update the `uses: octocat/hello-world-javascript-action@1a2b3c4d5e6f7a8b9c0d1e2f3a4b5c6d7e8f9a0b` line with your username and the name of the public repository you created above. You can also replace the `who-to-greet` input with your name.
 
 {% raw %}
 
@@ -237,7 +237,7 @@ jobs:
     steps:
       - name: Hello world action step
         id: hello
-        uses: octocat/hello-world-javascript-action@v1.1
+        uses: octocat/hello-world-javascript-action@1a2b3c4d5e6f7a8b9c0d1e2f3a4b5c6d7e8f9a0b
         with:
           who-to-greet: 'Mona the Octocat'
       # Use the output from the `hello` step

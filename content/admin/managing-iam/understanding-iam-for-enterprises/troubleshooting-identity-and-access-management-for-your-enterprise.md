@@ -29,7 +29,7 @@ If a user is unable to successfully authenticate using SAML, it may be helpful t
 
 ## Username conflicts
 
-{% ifversion ghec %}If your enterprise uses {% data variables.product.prodname_emus %}, {% endif %}{% data variables.product.product_name %} normalizes an identifier provided by your identity provider (IdP) to create each person's username on {% data variables.product.prodname_dotcom %}. If multiple accounts are normalized into the same {% data variables.product.prodname_dotcom %} username, a username conflict occurs, and only the first user account is created. For more information, see "[AUTOTITLE](/admin/identity-and-access-management/managing-iam-for-your-enterprise/username-considerations-for-external-authentication)."
+{% ifversion ghec %}If your enterprise uses {% data variables.product.prodname_emus %}, {% endif %}{% data variables.product.product_name %} normalizes the SCIM `userName` attribute value that is sent by an identity provider (IdP) in a SCIM API call to create each person's username on {% data variables.product.prodname_dotcom %}. If multiple accounts are normalized into the same {% data variables.product.prodname_dotcom %} username, a username conflict occurs, and only the first user account is created. For more information, see "[AUTOTITLE](/admin/identity-and-access-management/managing-iam-for-your-enterprise/username-considerations-for-external-authentication)."
 
 {% ifversion ghec %}
 
@@ -53,6 +53,8 @@ Microsoft Entra ID (previously known as Azure AD) will retry SCIM provisioning a
 
 Okta will retry failed SCIM provisioning attempts with manual Okta admin intervention. For more information about how an Okta admin can retry a failed task for a specific application, see the [Okta documentation](https://support.okta.com/help/s/article/How-to-retry-failed-tasks-for-a-specific-application?language=en_US) or contact Okta support.
 {% endif %}
+
+In an {% data variables.enterprise.prodname_emu_enterprise %} where SCIM is generally functioning properly, individual user SCIM provisioning attempts sometimes fail. Users will be unable to sign in until their account is provisioned to {% data variables.product.github %}. These individual SCIM user provisioning failures result in an HTTP 400 status code and are typically caused by issues with username normalization or username conflicts, where another user with the same normalized username already exists in the enterprise. See "[AUTOTITLE](/admin/managing-iam/iam-configuration-reference/username-considerations-for-external-authentication)."
 
 ## SAML authentication errors
 

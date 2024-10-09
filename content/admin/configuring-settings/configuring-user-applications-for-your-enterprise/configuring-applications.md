@@ -24,8 +24,6 @@ You can choose the amount of time that {% data variables.location.product_locati
 1. Under "Avatar image cache time (seconds)", type the number of seconds that you would like {% data variables.location.product_location %} to cache avatar images.
 {% data reusables.enterprise_management_console.save-settings %}
 
-{% ifversion status-check-retention %}
-
 ## Enabling retention policy for checks
 
 You can enable a retention policy for checks, actions, and associated data by setting thresholds for archival and deletion. For more information about configuring actions, see "[AUTOTITLE](/admin/github-actions/getting-started-with-github-actions-for-your-enterprise/about-github-actions-for-enterprises)."
@@ -37,7 +35,6 @@ You can enable a retention policy for checks, actions, and associated data by se
 1. Under "Archive threshold (days)", type the number of days for the archival threshold. Checks older than this number of days will be archived before being permanently deleted.
 1. Under "Delete threshold (days)", type the number of days for the deletion threshold. An archived check exists in an archived state for the number of days specified here. After this threshold, the check will be permanently deleted.
 {% data reusables.enterprise_management_console.save-settings %}
-{% endif %}
 
 {% ifversion azure-maps %}
 {% ifversion ghes < 3.13 %}

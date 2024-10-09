@@ -18,9 +18,9 @@ topics:
   - Accounts
 ---
 
-## About your personal account on {% data variables.product.prodname_dotcom_the_website %}
+## About your personal account on {% data variables.product.prodname_dotcom %}
 
-To get started with {% data variables.product.prodname_dotcom %}, you'll need to create a free personal account on {% data variables.product.prodname_dotcom_the_website %} and verify your email address.
+To get started with {% data variables.product.prodname_dotcom %}, you'll need to create a free personal account and verify your email address.
 
 {% data reusables.accounts.your-personal-account %}
 

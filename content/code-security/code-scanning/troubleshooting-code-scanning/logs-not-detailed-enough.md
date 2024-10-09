@@ -24,15 +24,11 @@ The debug artifacts will be uploaded to the workflow run as an artifact named `d
 
 These artifacts will help you debug problems with {% data variables.product.prodname_codeql %} {% data variables.product.prodname_code_scanning %}. If you contact GitHub support, they might ask for this data.
 
-{% ifversion codeql-action-debug-logging %}
-
 ### Creating {% data variables.product.prodname_codeql %} debugging artifacts by re-running jobs with debug logging enabled
 
 You can create {% data variables.product.prodname_codeql %} debugging artifacts by enabling debug logging and re-running the jobs. For more information about re-running {% data variables.product.prodname_actions %} workflows and jobs, see "[AUTOTITLE](/actions/managing-workflow-runs/re-running-workflows-and-jobs)."
 
 You need to ensure that you select **Enable debug logging**. This option enables runner diagnostic logging and step debug logging for the run. You'll then be able to download `debug-artifacts` to investigate further. You do not need to modify the workflow file when creating {% data variables.product.prodname_codeql %} debugging artifacts by re-running jobs.
-
-{% endif %}
 
 ### Creating {% data variables.product.prodname_codeql %} debugging artifacts using a workflow flag
 

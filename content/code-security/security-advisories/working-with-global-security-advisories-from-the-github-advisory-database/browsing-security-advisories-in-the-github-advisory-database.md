@@ -36,9 +36,9 @@ You can access any advisory in the {% data variables.product.prodname_advisory_d
 
    {% endnote %}
 
-1. Click an advisory to view details. By default, you will see {% data variables.product.company_short %}-reviewed advisories for security vulnerabilities. {% ifversion GH-advisory-db-supports-malware %}To show malware advisories, use `type:malware` in the search bar.{% endif %}
+1. Click an advisory to view details. By default, you will see {% data variables.product.company_short %}-reviewed advisories for security vulnerabilities. To show malware advisories, use `type:malware` in the search bar.
 
-The database is also accessible using the GraphQL API. {% ifversion GH-advisory-db-supports-malware %}By default, queries will return {% data variables.product.company_short %}-reviewed advisories for security vulnerabilities unless you specify `type:malware`.{% endif %} For more information, see the "[AUTOTITLE](/webhooks-and-events/webhooks/webhook-events-and-payloads#security_advisory)."
+The database is also accessible using the GraphQL API. By default, queries will return {% data variables.product.company_short %}-reviewed advisories for security vulnerabilities unless you specify `type:malware`. For more information, see the "[AUTOTITLE](/webhooks-and-events/webhooks/webhook-events-and-payloads#security_advisory)."
 
 {% ifversion security-advisories-rest-api %}
 Additionally, you can access the {% data variables.product.prodname_advisory_database %} using the REST API. For more information, see "[AUTOTITLE](/rest/security-advisories/global-advisories)."{% endif %}
@@ -58,9 +58,7 @@ You can search the database, and use qualifiers to narrow your search. For examp
 | Qualifier  | Example |
 | ---------- | ------- |
 | `type:reviewed`| [**type:reviewed**](https://github.com/advisories?query=type%3Areviewed) will show {% data variables.product.company_short %}-reviewed advisories for security vulnerabilities. |
-|  {% ifversion GH-advisory-db-supports-malware %} |
 | `type:malware` | [**type:malware**](https://github.com/advisories?query=type%3Amalware) will show malware advisories. |
-|  {% endif %} |
 | `type:unreviewed`| [**type:unreviewed**](https://github.com/advisories?query=type%3Aunreviewed) will show unreviewed advisories. |
 | `GHSA-ID`| [**GHSA-49wp-qq6x-g2rf**](https://github.com/advisories?query=GHSA-49wp-qq6x-g2rf) will show the advisory with this {% data variables.product.prodname_advisory_database %} ID. |
 | `CVE-ID`| [**CVE-2020-28482**](https://github.com/advisories?query=CVE-2020-28482) will show the advisory with this CVE ID number. |
@@ -81,7 +79,7 @@ A `GHSA-ID` qualifier is a unique ID that we at {% data variables.product.prodna
 
 ## Viewing your vulnerable repositories
 
-For any {% data variables.product.company_short %}-reviewed advisory in the {% data variables.product.prodname_advisory_database %}, you can see which of your repositories are affected by that security vulnerability{% ifversion GH-advisory-db-supports-malware %} or malware{% endif %}. To see a vulnerable repository, you must have access to {% data variables.product.prodname_dependabot_alerts %} for that repository. For more information, see "[AUTOTITLE](/code-security/dependabot/dependabot-alerts/about-dependabot-alerts#access-to-dependabot-alerts)."
+For any {% data variables.product.company_short %}-reviewed advisory in the {% data variables.product.prodname_advisory_database %}, you can see which of your repositories are affected by that security vulnerability or malware. To see a vulnerable repository, you must have access to {% data variables.product.prodname_dependabot_alerts %} for that repository. For more information, see "[AUTOTITLE](/code-security/dependabot/dependabot-alerts/about-dependabot-alerts#access-to-dependabot-alerts)."
 
 1. Navigate to https://github.com/advisories.
 1. Click an advisory.
@@ -105,7 +103,7 @@ You can use your local advisory database to check whether a specific security vu
    **Note:** Only reviewed advisories will be listed. Unreviewed advisories can be viewed in the {% data variables.product.prodname_advisory_database %} on {% data variables.product.prodname_dotcom_the_website %}. For more information, see "[Accessing an advisory in the GitHub Advisory Database](#accessing-an-advisory-in-the-github-advisory-database)".
 
    {% endnote %}
-1. Click an advisory to view details.{% ifversion GH-advisory-db-supports-malware %} By default, you will see {% data variables.product.company_short %}-reviewed advisories for security vulnerabilities. To show malware advisories, use `type:malware` in the search bar.{% endif %}
+1. Click an advisory to view details. By default, you will see {% data variables.product.company_short %}-reviewed advisories for security vulnerabilities. To show malware advisories, use `type:malware` in the search bar.
 
 You can also suggest improvements to any advisory directly from your local advisory database. For more information, see "[AUTOTITLE](/code-security/security-advisories/working-with-global-security-advisories-from-the-github-advisory-database/editing-security-advisories-in-the-github-advisory-database#editing-advisories-from-your-github-enterprise-server-instance)".
 
@@ -113,7 +111,7 @@ You can also suggest improvements to any advisory directly from your local advis
 
 {% data reusables.repositories.enable-security-alerts %}
 
-In the local advisory database, you can see which repositories are affected by each security vulnerability{% ifversion GH-advisory-db-supports-malware %} or malware{% endif %}. To see a vulnerable repository, you must have access to {% data variables.product.prodname_dependabot_alerts %} for that repository. For more information, see "[AUTOTITLE](/code-security/dependabot/dependabot-alerts/about-dependabot-alerts#access-to-dependabot-alerts)."
+In the local advisory database, you can see which repositories are affected by each security vulnerability or malware. To see a vulnerable repository, you must have access to {% data variables.product.prodname_dependabot_alerts %} for that repository. For more information, see "[AUTOTITLE](/code-security/dependabot/dependabot-alerts/about-dependabot-alerts#access-to-dependabot-alerts)."
 
 1. Navigate to `https://HOSTNAME/advisories`.
 1. Click an advisory.

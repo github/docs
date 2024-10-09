@@ -2,7 +2,7 @@
 title: CodeQL query suites
 shortTitle: CodeQL query suites
 intro: 'You can choose from different built-in {% data variables.product.prodname_codeql %} query suites to use in your {% data variables.product.prodname_codeql %} {% data variables.product.prodname_code_scanning %} setup.'
-product: '{% data reusables.gated-features.code-scanning %}'
+product: '{% data reusables.gated-features.codeql %}'
 versions:
   fpt: '*'
   ghes: '*'

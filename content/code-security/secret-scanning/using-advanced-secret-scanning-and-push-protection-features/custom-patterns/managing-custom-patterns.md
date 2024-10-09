@@ -80,14 +80,14 @@ Before enabling push protection for a custom pattern at organization level, you 
 
 {% data reusables.profile.access_org %}
 {% data reusables.profile.org_settings %}
-{% data reusables.organizations.security-and-analysis %}
-
 {% ifversion security-configurations %}
-    {% data reusables.security-configurations.changed-org-settings-global-settings-callout %} For next steps on managing custom patterns for your organization with {% data variables.product.prodname_global_settings %}, see "[AUTOTITLE](/code-security/securing-your-organization/enabling-security-features-in-your-organization/configuring-global-security-settings-for-your-organization#defining-custom-patterns)." For information on enabling push protection for specific custom patterns, reference the following steps.
-{% endif %}
-
+1. In the "Security" section of the sidebar, select the **Code security** dropdown menu, then click **{% data variables.product.prodname_global_settings_caps %}**.
+1. Under "Custom patterns", click {% octicon "pencil" aria-label="Edit custom pattern" %} for the pattern of interest.
+{% else %}
+{% data reusables.organizations.security-and-analysis %}
 {% data reusables.repositories.navigate-to-ghas-settings %}
 {% data reusables.advanced-security.secret-scanning-edit-custom-pattern %}
+{% endif %}
 1. To enable push protection for your custom pattern, scroll down to "Push Protection", and click **Enable**.
 {% indented_data_reference reusables.secret-scanning.push-protection-org-notes spaces=3 %}
 

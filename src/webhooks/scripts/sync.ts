@@ -64,7 +64,7 @@ async function processWebhookSchema(webhooks: Webhook[]): Promise<void> {
     if (webhooks.length) {
       await Promise.all(webhooks.map((webhook) => webhook.process()))
     }
-  } catch (error) {
+  } catch {
     throw new Error(
       "🐛 Whoops! It looks like the decorator script wasn't able to parse the dereferenced schema. A recent change may not yet be supported by the decorator. Please reach out in the #docs-engineering slack channel for help.",
     )

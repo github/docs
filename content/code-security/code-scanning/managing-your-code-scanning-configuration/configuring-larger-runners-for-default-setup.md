@@ -2,8 +2,7 @@
 title: Configuring larger runners for default setup
 shortTitle: Configure larger runners
 intro: 'You can run {% data variables.product.prodname_code_scanning %} default setup more quickly on bigger codebases using {% data variables.actions.hosted_runners %}.'
-product: '{% data reusables.gated-features.code-scanning %}'
-permissions: '{% data reusables.actions.larger-runner-permissions %}'
+product: '{% data reusables.actions.larger-runner-permissions %}'
 versions:
   feature: default-setup-larger-runners
 topics:
