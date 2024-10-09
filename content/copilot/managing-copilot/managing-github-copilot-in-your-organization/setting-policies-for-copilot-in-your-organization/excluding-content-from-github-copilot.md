@@ -2,7 +2,7 @@
 title: Excluding content from GitHub Copilot
 shortTitle: Exclude content from Copilot
 intro: 'You can prevent {% data variables.product.prodname_copilot_short %} from accessing certain content.'
-permissions: '{% data reusables.copilot.content-exclusion-permissions %}'
+permissions: 'Repository administrators{% ifversion ghec%}, organization owners, and enterprise owners{% else %} and organization owners{% endif %} can manage content exclusion settings. People with the "Maintain" role for a repository can view, but not edit, content exclusion settings for that repository.'
 product: '{% data reusables.gated-features.copilot-business-and-enterprise %}'
 layout: inline
 versions:
@@ -31,6 +31,10 @@ You can use content exclusions to configure {% data variables.product.prodname_c
 * The content in affected files will not inform code completion suggestions in other files.
 * The content in affected files will not inform {% data variables.product.prodname_copilot_chat %}'s responses.
 
+### Who can configure content exclusion
+
+Repository administrators{% ifversion ghec%}, organization owners, and enterprise owners{% else %} and organization owners{% endif %} can configure content exclusion.
+
 {% data reusables.copilot.content-exclusions-scope %}
 
 ### Availability of content exclusions
@@ -42,7 +46,7 @@ You can use content exclusions to configure {% data variables.product.prodname_c
 | JetBrains IDEs | {% octicon "check" aria-label="Supported" %} | {% octicon "check" aria-label="Supported" %} |
 | Vim/Neovim | {% octicon "check" aria-label="Supported" %} | Not applicable |
 | Azure Data Studio | {% octicon "x" aria-label="Not supported" %} | Not applicable |
-| {% data variables.product.prodname_dotcom_the_website %} | Not applicable | {% octicon "x" aria-label="Not supported" %} |
+| The {% data variables.product.github %} website | Not applicable | {% octicon "x" aria-label="Not supported" %} |
 
 ### Limitations of content exclusions
 
@@ -170,6 +174,16 @@ git@gitlab.com:gitlab-org/gitlab-runner.git:
   # Ignore files in or below any `security` directories, anywhere in this repository.
   - "**/security/**"
 ```
+
+{% ifversion ghec %}
+
+## Configuring content exclusions for your enterprise
+
+As an enterprise owner, you can use the enterprise settings to specify files that {% data variables.product.prodname_copilot %} should ignore. The files can be within a Git repository or anywhere on the file system that is not under Git control.
+
+You apply rules in the same way as described in the previous section "[Configuring content exclusions for your organization](#configuring-content-exclusions-for-your-organization)" but from the settings for your enterprise. The key difference is that rules set at the enterprise level apply to all {% data variables.product.prodname_copilot_short %} users in the enterprise, whereas the rules set by organization owners only apply to users who are assigned a {% data variables.product.prodname_copilot_short %} seat by that organization.
+
+{% endif %}
 
 ## Testing changes to content exclusions
 

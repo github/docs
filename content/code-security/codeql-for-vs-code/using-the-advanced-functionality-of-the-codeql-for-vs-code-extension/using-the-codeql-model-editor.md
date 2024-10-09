@@ -35,7 +35,7 @@ The rest of this article covers the practical aspects of modelling dependencies 
 
 {% note %}
 
-**Note:** To use this beta functionality, install the latest version of the {% data variables.product.prodname_codeql %} extension for {% data variables.product.prodname_vscode %}.
+**Note:** To use this {% data variables.release-phases.public_preview %} functionality, install the latest version of the {% data variables.product.prodname_codeql %} extension for {% data variables.product.prodname_vscode %}.
 
 {% endnote %}
 

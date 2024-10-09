@@ -499,6 +499,17 @@
   hasValidityCheck: false
   isduplicate: false
 - provider: Azure
+  supportedSecret: Azure OpenAI Key
+  secretType: azure_openai_key
+  versions:
+    fpt: '*'
+    ghec: '*'
+  isPublic: true
+  isPrivateWithGhas: true
+  hasPushProtection: true
+  hasValidityCheck: false
+  isduplicate: false
+- provider: Azure
   supportedSecret: Azure Relay Key Identifiable
   secretType: azure_relay_key_identifiable
   versions:
@@ -717,6 +728,17 @@
   isPublic: true
   isPrivateWithGhas: true
   hasPushProtection: true
+  hasValidityCheck: false
+  isduplicate: false
+- provider: Cfx.re
+  supportedSecret: Cfx.re Server Key
+  secretType: cfxre_server_key
+  versions:
+    fpt: '*'
+    ghec: '*'
+  isPublic: true
+  isPrivateWithGhas: false
+  hasPushProtection: false
   hasValidityCheck: false
   isduplicate: false
 - provider: Checkout.com
@@ -2151,6 +2173,17 @@
     ghes: '*'
   isPublic: false
   isPrivateWithGhas: true
+  hasPushProtection: false
+  hasValidityCheck: false
+  isduplicate: false
+- provider: Netflix
+  supportedSecret: Netflix NetKey
+  secretType: netflix_netkey
+  versions:
+    fpt: '*'
+    ghec: '*'
+  isPublic: true
+  isPrivateWithGhas: false
   hasPushProtection: false
   hasValidityCheck: false
   isduplicate: false

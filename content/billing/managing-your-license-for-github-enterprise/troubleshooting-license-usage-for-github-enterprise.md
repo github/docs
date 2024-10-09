@@ -24,7 +24,7 @@ For privacy reasons, enterprise owners cannot directly access the details of use
 
 {% note %}
 
-**Note:** For {% data variables.visual_studio.prodname_vs_subscriber %}s, see "[AUTOTITLE](/enterprise-cloud@latest/billing/managing-licenses-for-visual-studio-subscriptions-with-github-enterprise/about-visual-studio-subscriptions-with-github-enterprise)."
+**Note:** For {% data variables.visual_studio.prodname_vs_subscriber %}s, see "[AUTOTITLE](/enterprise-cloud@latest/billing/managing-billing-for-your-products/managing-licenses-for-visual-studio-subscriptions-with-github-enterprise/about-visual-studio-subscriptions-with-github-enterprise)."
 
 {% endnote %}
 

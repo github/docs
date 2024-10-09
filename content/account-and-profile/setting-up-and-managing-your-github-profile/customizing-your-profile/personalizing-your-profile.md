@@ -212,7 +212,7 @@ To stop private contributions from counting toward your Achievements, or to turn
 
 {% note %}
 
-**Note:** This feature is currently in beta and subject to change.
+**Note:** This feature is currently in {% data variables.release-phases.public_preview %} and subject to change.
 
 {% endnote %}
 

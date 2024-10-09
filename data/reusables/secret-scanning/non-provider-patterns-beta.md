@@ -1,5 +1,5 @@
-{% note %}
+{% ifversion ghes > 3.11 and ghes < 3.16 %}
 
-**Note:** The detection of non-provider patterns is currently in beta and subject to change.
+**Note:** The detection of non-provider patterns is currently in {% data variables.release-phases.public_preview %} and subject to change.
 
-{% endnote %}
+{% endif %}

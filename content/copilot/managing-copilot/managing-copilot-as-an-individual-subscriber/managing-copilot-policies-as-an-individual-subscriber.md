@@ -1,7 +1,7 @@
 ---
 title: Managing Copilot policies as an individual subscriber
 shortTitle: Manage policies
-intro: 'Find out how to change your personal settings on {% data variables.product.prodname_dotcom_the_website %} to configure {% data variables.product.prodname_copilot %}''s behavior.'
+intro: 'Find out how to change your personal settings on {% data variables.product.github %} to configure {% data variables.product.prodname_copilot %}''s behavior.'
 product: '{% data variables.product.prodname_copilot_for_individuals %}'
 topics:
   - Copilot
@@ -14,15 +14,15 @@ redirect_from:
   - /copilot/configuring-github-copilot/configuring-your-personal-github-copilot-settings-on-githubcom
 ---
 
-## About {% data variables.product.prodname_copilot %} settings on {% data variables.product.prodname_dotcom_the_website %}
+## About {% data variables.product.prodname_copilot %} settings on {% data variables.product.github %}
 
-In addition to the configuration for the {% data variables.product.prodname_copilot %} plugin in your supported IDE, you can configure settings for {% data variables.product.prodname_copilot %} on {% data variables.product.prodname_dotcom_the_website %}. The settings apply wherever you use {% data variables.product.prodname_copilot %}.
+In addition to the configuration for the {% data variables.product.prodname_copilot %} plugin in your supported IDE, you can configure settings for {% data variables.product.prodname_copilot %} on {% data variables.product.github %}. The settings apply wherever you use {% data variables.product.prodname_copilot %}.
 
 ## Enabling or disabling suggestions matching public code
 
 > [!NOTE] If you are a member of an organization on {% data variables.product.prodname_ghe_cloud %} who has been assigned a {% data variables.product.prodname_copilot %} seat through your organization, you will not be able to configure suggestions matching public code in your personal account settings. Your setting for suggestions matching public code will be inherited from your organization or enterprise.
 
-Your personal settings for {% data variables.product.prodname_copilot %} include an option to either allow or block code completion suggestions that match publicly available code. If you choose to block suggestions matching public code, {% data variables.product.prodname_copilot %} checks code completion suggestions with their surrounding code of about 150 characters against public code on {% data variables.product.prodname_dotcom %}. If there is a match, or a near match, the suggestion is not shown to you.
+Your personal settings for {% data variables.product.prodname_copilot %} include an option to either allow or block code suggestions that match publicly available code. If you choose to block suggestions matching public code, {% data variables.product.prodname_copilot %} checks code suggestions with their surrounding code of about 150 characters against public code on {% data variables.product.prodname_dotcom %}. If there is a match, or a near match, the suggestion is not shown to you.
 
 If you choose to allow suggestions matching public code, and you accept a suggestion for which one or more matches were found, you can click through from an entry in the {% data variables.product.prodname_copilot %} log to view a list of references on {% data variables.product.prodname_dotcom %}. For more information, see "[AUTOTITLE](/copilot/using-github-copilot/finding-public-code-that-matches-github-copilot-suggestions)."
 

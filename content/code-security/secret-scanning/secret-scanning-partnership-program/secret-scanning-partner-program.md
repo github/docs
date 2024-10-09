@@ -1,6 +1,7 @@
 ---
 title: Secret scanning partner program
 intro: 'As a service provider, you can partner with {% data variables.product.prodname_dotcom %} to have your secret token formats secured through secret scanning, which searches for accidental commits of your secret format and can be sent to a service provider''s verify endpoint.'
+product: '{% data reusables.gated-features.secret-scanning-partner-alerts %}'
 redirect_from:
   - /partnerships/token-scanning
   - /partnerships/secret-scanning

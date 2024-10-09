@@ -60,7 +60,7 @@ For more information about enabling or disabling {% data variables.product.prodn
 
 {% note %}
 
-**Note:** During the public beta, you can create up to 10 {% data variables.dependabot.custom_rules %} for a repository.
+**Note:** During the {% data variables.release-phases.public_preview %}, you can create up to 10 {% data variables.dependabot.custom_rules %} for a repository.
 
 {% endnote %}
 
@@ -85,7 +85,7 @@ For more information about enabling or disabling {% data variables.product.prodn
 
 {% note %}
 
-**Note:** During the public beta, you can create up to 25 {% data variables.dependabot.custom_rules %} for your organization.
+**Note:** During the {% data variables.release-phases.public_preview %}, you can create up to 25 {% data variables.dependabot.custom_rules %} for your organization.
 
 {% endnote %}
 

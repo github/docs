@@ -79,7 +79,7 @@ For supported languages, {% data variables.product.prodname_dependabot %} automa
 
 {% note %}
 
-**Note:** During the beta release, this feature is available only for new Python advisories created _after_ April 14, 2022, and for a subset of historical Python advisories. {% data variables.product.prodname_dotcom %} is working to backfill data across additional historical Python advisories, which are added on a rolling basis. Vulnerable calls are highlighted only on the {% data variables.product.prodname_dependabot_alerts %} pages.
+**Note:** During the {% data variables.release-phases.public_preview %} release, this feature is available only for new Python advisories created _after_ April 14, 2022, and for a subset of historical Python advisories. {% data variables.product.prodname_dotcom %} is working to backfill data across additional historical Python advisories, which are added on a rolling basis. Vulnerable calls are highlighted only on the {% data variables.product.prodname_dependabot_alerts %} pages.
 
 {% endnote %}
 

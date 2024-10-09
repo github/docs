@@ -31,13 +31,13 @@ If you use a partner IdP, you can simplify the configuration of SCIM provisionin
 
 ## Who needs to follow these instructions?
 
-Even if your instance already uses SAML authentication, or if you were enrolled in the SCIM private beta on a previous {% data variables.product.prodname_ghe_server %} version, you must ensure you have followed **all instructions in this guide** to enable SCIM in version 3.14 and later.
+Even if your instance already uses SAML authentication, or if you were enrolled in the SCIM {% data variables.release-phases.private_preview %} on a previous {% data variables.product.prodname_ghe_server %} version, you must ensure you have followed **all instructions in this guide** to enable SCIM in version 3.14 and later.
 
 This guide applies in any of the following situations.
 
 * You're **setting up SAML and SCIM for the first time**: you'll follow these instructions to get started.
 * You **already use SAML authentication**: you'll need to enable SCIM on your instance, plus either reconfigure SAML with an IdP application that supports automated provisioning or set up a SCIM integration with the REST API.
-* You were **enrolled in the SCIM private beta**: you'll need to reenable SCIM on your instance and, if you're using a partner IdP, reconfigure your settings on an updated IdP application.
+* You were **enrolled in the SCIM {% data variables.release-phases.private_preview %}**: you'll need to reenable SCIM on your instance and, if you're using a partner IdP, reconfigure your settings on an updated IdP application.
 
 {% endif %}
 
@@ -100,7 +100,7 @@ To ensure you can continue to sign in and configure settings when SCIM is enable
 
 > [!NOTE] Complete this section if either of the following situations applies:
 > * If you have **not already enabled SAML authentication**, you will need to do so before you can enable SCIM.
-> * If you already use SAML authentication and want to use a **partner IdP for both authentication and provisioning**, or if you're **upgrading from the SCIM private beta**, you must reconfigure SAML using a new application.
+> * If you already use SAML authentication and want to use a **partner IdP for both authentication and provisioning**, or if you're **upgrading from the SCIM {% data variables.release-phases.private_preview %}**, you must reconfigure SAML using a new application.
 
 1. Sign in to your instance as a user with access to the Management Console.
 1. Go to the "Authentication" section of the Management Console. For instructions, see "[AUTOTITLE](/admin/managing-iam/using-saml-for-enterprise-iam/configuring-saml-single-sign-on-for-your-enterprise#configuring-saml-sso)."
@@ -155,7 +155,7 @@ To use a partner IdP's application both authentication and provisioning, review 
 | Microsoft Entra ID (previously known as Azure AD) | OIDC | [Tutorial: Configure GitHub Enterprise Managed User (OIDC) for automatic user provisioning](https://docs.microsoft.com/azure/active-directory/saas-apps/github-enterprise-managed-user-oidc-provisioning-tutorial) on Microsoft Learn |
 | Entra ID | SAML | [Tutorial: Configure GitHub Enterprise Managed User for automatic user provisioning](https://docs.microsoft.com/en-us/azure/active-directory/saas-apps/github-enterprise-managed-user-provisioning-tutorial) on Microsoft Learn |
 | Okta | SAML | "[AUTOTITLE](/admin/identity-and-access-management/using-enterprise-managed-users-for-iam/configuring-scim-provisioning-for-enterprise-managed-users-with-okta)" |
-| PingFederate | SAML | [Configure PingFederate for provisioning and SSO](https://docs.pingidentity.com/r/en-us/pingfederate-github-emu-connector/pingfederate_github_connector_configure_pingfederate_for_provisioning_and_sso) and [Managing channels](https://docs.pingidentity.com/r/en-us/pingfederate-112/help_saasmanagementtasklet_saasmanagementstate) in the PingFederate documentation |
+| PingFederate | SAML | [Configure PingFederate for provisioning and SSO](https://docs.pingidentity.com/integrations/github/github_emu_provisioner/vup1682006069653.html) and [Managing channels](https://docs.pingidentity.com/pingfederate/latest/administrators_reference_guide/help_saasmanagementtasklet_saasmanagementstate.html) in the PingFederate documentation |
 
 {% endrowheaders %}
 
@@ -171,7 +171,7 @@ To use a partner IdP's application for both authentication and provisioning, rev
 
 ### Configuring provisioning for other identity management systems
 
-If you don't use a partner IdP, or if you only use a partner IdP for authentication, you can manage the lifecycle of user accounts using {% data variables.product.company_short %}'s REST API endpoints for SCIM provisioning. These endpoints are in beta and subject to change. See "[AUTOTITLE](/admin/identity-and-access-management/provisioning-user-accounts-for-enterprise-managed-users/provisioning-users-and-groups-with-scim-using-the-rest-api)."
+If you don't use a partner IdP, or if you only use a partner IdP for authentication, you can manage the lifecycle of user accounts using {% data variables.product.company_short %}'s REST API endpoints for SCIM provisioning. These endpoints are in {% data variables.release-phases.public_preview %} and subject to change. See "[AUTOTITLE](/admin/identity-and-access-management/provisioning-user-accounts-for-enterprise-managed-users/provisioning-users-and-groups-with-scim-using-the-rest-api)."
 
 {% ifversion emu-public-scim-schema %}
 

@@ -15,11 +15,11 @@ product: '{% data reusables.gated-features.codespaces-org %}'
 
 ## Overview
 
-As an organization owner, you can list all of the currently active and stopped codespaces for your organization. You might want to do this to check how many codespaces users are creating, to make sure they aren't incurring unnecessary costs. For information about pricing, see "[AUTOTITLE](/billing/managing-billing-for-github-codespaces/about-billing-for-github-codespaces)."
+As an organization owner, you can list all of the currently active and stopped codespaces for your organization. You might want to do this to check how many codespaces users are creating, to make sure they aren't incurring unnecessary costs. For information about pricing, see "[AUTOTITLE](/billing/managing-billing-for-your-products/managing-billing-for-github-codespaces/about-billing-for-github-codespaces)."
 
 The easiest way to list the codespaces for an organization is by using {% data variables.product.prodname_cli %}. You can also use the REST API, which provides more information about each codespace.
 
-For information on how to see the current total {% data variables.product.prodname_codespaces %} usage for your organization or enterprise, and generate a detailed report, see "[AUTOTITLE](/billing/managing-billing-for-github-codespaces/viewing-your-github-codespaces-usage)."
+For information on how to see the current total {% data variables.product.prodname_codespaces %} usage for your organization or enterprise, and generate a detailed report, see "[AUTOTITLE](/billing/managing-billing-for-your-products/managing-billing-for-github-codespaces/viewing-your-github-codespaces-usage)."
 
 ### Using {% data variables.product.prodname_cli %} to list codespaces
 

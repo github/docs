@@ -1,7 +1,7 @@
 ---
 title: Quickstart for securing your organization
 intro: "You can use a number of {% data variables.product.prodname_dotcom %} features to help keep your organization secure."
-permissions: Organization owners and security managers can manage security features for an organization.
+permissions: '{% data reusables.permissions.security-org-enable %}'
 redirect_from:
   - /code-security/getting-started/securing-your-organization
 versions:
@@ -90,7 +90,7 @@ On this view, you can use checkboxes to select specific repositories, or you can
 
 {% endif %}
 
-If you have a limited number of licenses for {% data variables.product.prodname_GH_advanced_security %}, you may want to prioritize repositories that contain critical projects, or that have the highest commit frequencies. For more information, see "[AUTOTITLE](/billing/managing-billing-for-github-advanced-security/about-billing-for-github-advanced-security)."
+If you have a limited number of licenses for {% data variables.product.prodname_GH_advanced_security %}, you may want to prioritize repositories that contain critical projects, or that have the highest commit frequencies. See "[AUTOTITLE](/billing/managing-billing-for-your-products/managing-billing-for-github-advanced-security/about-billing-for-github-advanced-security)."
 
 {% data reusables.security-overview.settings-limitations %}
 
@@ -104,7 +104,7 @@ You can choose to enable a security feature automatically in all new repositorie
 1. In the left sidebar, click {% octicon "codescan" aria-hidden="true" %} **Code security and analysis**.
 1. Below the name of the feature, select the option for automatically enabling the feature in applicable future repositories.
 
-   ![Screenshot of the "Code security and analysis" page. Below "Dependabot alerts", a checkbox for enabling the feature in future repositories is highlighted with an orange outline.](/assets/images/help/security/enable-for-new-repos.png)
+   ![Screenshot of "Code security and analysis" page. Below "Dependabot alerts", a checkbox to enable the feature in future repositories is highlighted in orange.](/assets/images/help/security/enable-for-new-repos.png)
 
 ## Monitoring the impact of security features
 

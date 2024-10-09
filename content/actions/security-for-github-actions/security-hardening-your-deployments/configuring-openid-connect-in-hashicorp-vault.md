@@ -138,7 +138,7 @@ jobs:
       contents: read
     steps:
       - name: Retrieve secret from Vault
-        uses: hashicorp/vault-action@v2.4.0
+        uses: hashicorp/vault-action@9a8b7c6d5e4f3a2b1c0d9e8f7a6b5c4d3e2f1a0b
         with:
           method: jwt
           url: VAULT-URL
@@ -176,7 +176,7 @@ jobs:
       contents: read
     steps:
       - name: Retrieve secret from Vault
-        uses: hashicorp/vault-action@v2.4.0
+        uses: hashicorp/vault-action@9a8b7c6d5e4f3a2b1c0d9e8f7a6b5c4d3e2f1a0b
         with:
           exportToken: true
           method: jwt

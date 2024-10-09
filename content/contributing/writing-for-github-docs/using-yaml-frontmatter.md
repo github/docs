@@ -53,7 +53,7 @@ For more information about the different types of versioning, see "[Versioning d
 
 This frontmatter value is used by the docs site to generate "permalinks" for each version of an article. For more information, see [Permalinks](/contributing/writing-for-github-docs/using-markdown-and-liquid-in-github-docs#permalinks).
 
-Example that applies to {% data variables.product.prodname_dotcom_the_website %} and recent versions of {% data variables.product.prodname_ghe_server %}:
+Example that applies to Free, Pro, & Team and {% data variables.product.prodname_ghe_server %} version 3.11 and later:
 
 ```yaml
 title: About your personal dashboard
@@ -62,7 +62,7 @@ versions:
   ghes: '>=3.11'
 ```
 
-Example that applies to all supported versions of {% data variables.product.prodname_ghe_server %}, but not {% data variables.product.prodname_dotcom_the_website %}:
+Example that applies only to {% data variables.product.prodname_ghe_server %}:
 
 ```yaml
 title: Downloading your license
@@ -70,7 +70,7 @@ versions:
   ghes: '*'
 ```
 
-You can also version a page for a range of releases. This would version the page for {% data variables.product.prodname_dotcom_the_website %}, and {% data variables.product.prodname_ghe_server %} versions 3.1 and 3.2 only:
+You can also version a page for a range of releases. This would version the page for Free, Pro, & Team, and {% data variables.product.prodname_ghe_server %} versions 3.1 and 3.2 only:
 
 ```yaml
 versions:

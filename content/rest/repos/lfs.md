@@ -21,7 +21,7 @@ People with admin access to a repository can use these endpoints.
 
 {% ifversion fpt or ghec %}
 
-Usage of {% data variables.large_files.product_name_short %} is subject to billing. For more information, see "[AUTOTITLE](/billing/managing-billing-for-git-large-file-storage/about-billing-for-git-large-file-storage)."
+Usage of {% data variables.large_files.product_name_short %} is subject to billing. For more information, see "[AUTOTITLE](/billing/managing-billing-for-your-products/managing-billing-for-git-large-file-storage/about-billing-for-git-large-file-storage)."
 
 If you want to use these endpoints for a repository that belongs to an organization, you must have admin access to the repository (which can be inherited as an organization owner), and your role must also provide you with access to the organization's billing.
 

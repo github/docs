@@ -31,7 +31,7 @@ First, prepare your teams to use {% data variables.product.prodname_code_scannin
 For an introduction to {% data variables.product.prodname_code_scanning %}, see:
 * "[AUTOTITLE](/code-security/code-scanning/introduction-to-code-scanning/about-code-scanning)"
 * "[AUTOTITLE](/code-security/code-scanning/managing-code-scanning-alerts/about-code-scanning-alerts)"
-* "[AUTOTITLE](/code-security/code-scanning/managing-code-scanning-alerts/managing-code-scanning-alerts-for-your-repository)"
+* "[AUTOTITLE](/code-security/code-scanning/managing-code-scanning-alerts/assessing-code-scanning-alerts-for-your-repository)"
 {% else %} During this phase, you should focus on leveraging APIs and running internal enablement events.{% endif %}
 
 Your core focus should be preparing as many teams to use {% data variables.product.prodname_code_scanning %} as possible. You can also encourage teams to remediate appropriately, but we recommend prioritizing enablement and use of {% data variables.product.prodname_code_scanning %} over fixing issues during this phase.

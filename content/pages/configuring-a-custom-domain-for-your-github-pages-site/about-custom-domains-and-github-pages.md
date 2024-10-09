@@ -20,7 +20,7 @@ shortTitle: Custom domains in GitHub Pages
 
 {% data reusables.pages.custom-domain-warning %}
 
-On {% data variables.product.prodname_dotcom_the_website %}, {% data variables.product.prodname_pages %} works with two types of domains: subdomains and apex domains. For a list of unsupported custom domains, see "[AUTOTITLE](/pages/configuring-a-custom-domain-for-your-github-pages-site/troubleshooting-custom-domains-and-github-pages#custom-domain-names-that-are-unsupported)."
+{% data variables.product.prodname_pages %} works with two types of domains: subdomains and apex domains. For a list of unsupported custom domains, see "[AUTOTITLE](/pages/configuring-a-custom-domain-for-your-github-pages-site/troubleshooting-custom-domains-and-github-pages#custom-domain-names-that-are-unsupported)."
 
 | Supported custom domain type | Example |
 |---|---|

@@ -255,3 +255,28 @@ async function secondaryRateLimitRetry(callable, args, maxAttempts = 10, sleepTi
     throw err
   }
 }
+
+// Recursively gets the contents of a directory within a repo. Returns an
+// array of file contents. This function could be modified to return an array
+// of objects that include the path and the content of the file if needed
+// in the future.
+export async function getDirectoryContents(owner, repo, branch, path) {
+  const { data } = await getContent(owner, repo, branch, path)
+  const files = []
+
+  for (const blob of data) {
+    if (blob.type === 'dir') {
+      files.push(...(await getDirectoryContents(owner, repo, branch, blob.path)))
+    } else if (blob.type === 'file') {
+      if (!data.content) {
+        const blobContents = await getContentsForBlob(owner, repo, blob.sha)
+        files.push(blobContents)
+      } else {
+        // decode Base64 encoded contents
+        const decodedContent = Buffer.from(blob.content, 'base64').toString()
+        files.push(decodedContent)
+      }
+    }
+  }
+  return files
+}
