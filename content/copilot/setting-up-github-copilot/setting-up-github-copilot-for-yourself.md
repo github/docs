@@ -43,6 +43,6 @@ If you have your own subscription to {% data variables.product.prodname_copilot_
 
 ## 6. Start using {% data variables.product.prodname_copilot_short %}
 
-Start using {% data variables.product.prodname_copilot_short %} to help you write code faster and more efficiently. For all the ways you can use {% data variables.product.prodname_copilot_short %}, see "[AUTOTITLE](/copilot/using-github-copilot)." {% data variables.product.prodname_copilot_short %} code suggestions and {% data variables.product.prodname_copilot_chat_short %} in your IDE is a great place to start.
+Start using {% data variables.product.prodname_copilot_short %} to help you write code faster and more efficiently. For all the ways you can use {% data variables.product.prodname_copilot_short %}, see "[AUTOTITLE](/copilot/using-github-copilot)." {% data variables.product.prodname_copilot_short %} code suggestions, {% data variables.product.prodname_copilot_chat_dotcom_short %}, and {% data variables.product.prodname_copilot_chat_short %} in your IDE are a great place to start.
 
 To learn how to best use {% data variables.product.prodname_copilot_short %}, see "[AUTOTITLE](/copilot/using-github-copilot/best-practices-for-using-github-copilot)" and "[AUTOTITLE](/copilot/using-github-copilot/prompt-engineering-for-github-copilot)."

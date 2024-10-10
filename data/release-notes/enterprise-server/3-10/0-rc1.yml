@@ -43,7 +43,7 @@ sections:
       notes:
         # https://github.com/github/releases/issues/2798
         - |
-          To find vulnerabilities in specific parts of a project, users with write access to a repository can filter code scanning alerts by language or by file path by using the search queries `language:` and `path:`. For more information, see "[AUTOTITLE](/code-security/code-scanning/automatically-scanning-your-code-for-vulnerabilities-and-errors/managing-code-scanning-alerts-for-your-repository)."
+          To find vulnerabilities in specific parts of a project, users with write access to a repository can filter code scanning alerts by language or by file path by using the search queries `language:` and `path:`. For more information, see "[AUTOTITLE](/code-security/code-scanning/managing-code-scanning-alerts/assessing-code-scanning-alerts-for-your-repository)."
 
         # https://github.com/github/releases/issues/2844
         - |

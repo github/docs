@@ -56,7 +56,7 @@ You must install {% data variables.product.prodname_mobile %} 1.4 or later on yo
 
 To use {% data variables.product.prodname_mobile %} with {% data variables.product.prodname_ghe_server %}, {% data variables.product.prodname_dotcom %} must be version 3.0 or greater, and your enterprise owner must enable mobile support for your enterprise. For more information, see {% ifversion ghes %}"[AUTOTITLE](/admin/release-notes)" and {% endif %}"[Managing {% data variables.product.prodname_mobile %} for your enterprise]({% ifversion not ghes %}/enterprise-server@latest{% endif %}/admin/configuration/configuring-your-enterprise/managing-github-mobile-for-your-enterprise){% ifversion not ghes %}" in the {% data variables.product.prodname_ghe_server %} documentation.{% else %}."{% endif %}
 
-During the beta for {% data variables.product.prodname_mobile %} with {% data variables.product.prodname_ghe_server %}, you must be signed in with a personal account on {% data variables.product.prodname_dotcom_the_website %}.
+During the {% data variables.release-phases.public_preview %} for {% data variables.product.prodname_mobile %} with {% data variables.product.prodname_ghe_server %}, you must be signed in with a personal account on {% data variables.product.prodname_dotcom_the_website %}.
 
 ### Adding, switching, or signing out of accounts
 
@@ -94,9 +94,9 @@ To re-enable Universal Links, long-press any {% data variables.product.product_n
 
 You can submit feature requests or other feedback for {% data variables.product.prodname_mobile %} on [{% data variables.product.prodname_github_community %}](https://github.com/orgs/community/discussions/categories/mobile).
 
-## Opting out of beta releases for iOS
+## Opting out of {% data variables.release-phases.public_preview %} releases for iOS
 
-If you're testing a beta release of {% data variables.product.prodname_mobile %} for iOS using TestFlight, you can leave the beta at any time.
+If you're testing a {% data variables.release-phases.public_preview %} release of {% data variables.product.prodname_mobile %} for iOS using TestFlight, you can leave the {% data variables.release-phases.public_preview %} at any time.
 
 1. On your iOS device, open the TestFlight app.
 1. Under "Apps", tap **{% data variables.product.prodname_dotcom %}**.

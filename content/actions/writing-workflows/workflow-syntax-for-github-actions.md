@@ -873,6 +873,8 @@ Prevents a job from failing when a step fails. Set to `true` to allow a job to p
 
 The maximum number of minutes to run the step before killing the process.
 
+Fractional values are not supported. `timeout-minutes` must be a positive integer.
+
 ## `jobs.<job_id>.timeout-minutes`
 
 The maximum number of minutes to let a job run before {% data variables.product.prodname_dotcom %} automatically cancels it. Default: 360
@@ -1000,7 +1002,7 @@ For more information about the differences between networking service containers
 
 ### Example: Using localhost
 
-This example creates two services: nginx and redis. When you specify the Docker host port but not the container port, the container port is randomly assigned to a free port. {% data variables.product.prodname_dotcom %} sets the assigned container port in the {% raw %}`${{job.services.<service_name>.ports}}`{% endraw %} context. In this example, you can access the service container ports using the {% raw %}`${{ job.services.nginx.ports['8080'] }}`{% endraw %} and {% raw %}`${{ job.services.redis.ports['6379'] }}`{% endraw %} contexts.
+This example creates two services: nginx and redis. When you specify the container port but not the host port, the host port is randomly assigned to a free port on host. {% data variables.product.prodname_dotcom %} sets the assigned host port in the {% raw %}`${{job.services.<service_name>.ports}}`{% endraw %} context. In this example, you can access the service host ports using the {% raw %}`${{ job.services.nginx.ports['80'] }}`{% endraw %} and {% raw %}`${{ job.services.redis.ports['6379'] }}`{% endraw %} contexts.
 
 ```yaml
 services:
@@ -1011,9 +1013,13 @@ services:
       - 8080:80
   redis:
     image: redis
-    # Map TCP port 6379 on Docker host to a random free port on the Redis container
+    # Map random free TCP port on Docker host to port 6379 on redis container
     ports:
       - 6379/tcp
+steps:
+  - run: |
+      echo "Redis available on 127.0.0.1:{% raw %}${{ job.services.redis.ports['6379'] }}{% endraw %}"
+      echo "Nginx available on 127.0.0.1:{% raw %}${{ job.services.nginx.ports['80'] }}{% endraw %}"
 ```
 
 ## `jobs.<job_id>.services.<service_id>.image`

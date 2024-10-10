@@ -172,7 +172,7 @@ You can use the `dry-run` command to convert a GitLab pipeline to its equivalent
 
 You can use the `dry-run` command to convert a GitLab pipeline to an equivalent {% data variables.product.prodname_actions %} workflow. A dry-run creates the output files in a specified directory, but does not open a pull request to migrate the pipeline.
 
-To perform a dry run of migrating your GitLab pipelines to {% data variables.product.prodname_actions %}, run the following command in your terminal, replacing `my-gitlab-project` with the URL of your GitLab project, and `my-gitlab-namespace` with the namespace or group you are performing a dry run for.
+To perform a dry run of migrating your GitLab pipelines to {% data variables.product.prodname_actions %}, run the following command in your terminal, replacing `my-gitlab-project` with your GitLab project slug, and `my-gitlab-namespace` with the namespace or group (full group path for subgroups, e.g. `my-org/my-team`) you are performing a dry run for.
 
 ```shell
 gh actions-importer dry-run gitlab --output-dir tmp/dry-run --namespace my-gitlab-namespace --project my-gitlab-project
@@ -193,8 +193,8 @@ You can use the `migrate` command to convert a GitLab pipeline and open a pull r
 To migrate a GitLab pipeline to {% data variables.product.prodname_actions %}, run the following command in your terminal, replacing the following values:
 
 * `target-url` value with the URL for your {% data variables.product.product_name %} repository
-* `my-gitlab-project` with the URL for your GitLab project
-* `my-gitlab-namespace` with the namespace or group you are migrating
+* `my-gitlab-project` with your GitLab project slug
+* `my-gitlab-namespace` with the namespace or group you are migrating (full path for subgroups, e.g. `my-org/my-team`)
 
 ```shell
 gh actions-importer migrate gitlab --target-url https://github.com/:owner/:repo --output-dir tmp/migrate --namespace my-gitlab-namespace --project my-gitlab-project

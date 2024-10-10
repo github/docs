@@ -1,6 +1,6 @@
 ---
 title: Quickstart for GitHub Copilot
-intro: 'Quickly learn how to use {% data variables.product.prodname_copilot %} in your editor{% ifversion ghec %} or on {% data variables.product.prodname_dotcom_the_website %}{% endif %}.'
+intro: 'Quickly learn how to use {% data variables.product.prodname_copilot %} in your editor{% ifversion ghec %} or on {% data variables.product.github %}{% endif %}.'
 allowTitleToDifferFromFilename: true
 versions:
   feature: copilot
@@ -16,7 +16,7 @@ topics:
 
 You can use {% data variables.product.prodname_copilot_chat_dotcom %} to get answers to coding-related questions, such as how best to code something, how to fix a bug, or how someone else's code works. For full details of what {% data variables.product.prodname_copilot_short %} can do, see "[AUTOTITLE](/copilot/about-github-copilot/what-is-github-copilot)."
 
-Instructions for using {% data variables.product.prodname_copilot_short %} differ depending on whether you are in an editor or on {% data variables.product.prodname_dotcom_the_website %}. This version of the quickstart is for {% data variables.product.prodname_dotcom_the_website %}. Click the tabs above for instructions on using {% data variables.product.prodname_copilot_short %} in an editor.
+Instructions for using {% data variables.product.prodname_copilot_short %} differ depending on whether you are in an editor or on the {% data variables.product.github %} website. This version of the quickstart is for {% data variables.product.github %}. Click the tabs above for instructions on using {% data variables.product.prodname_copilot_short %} in an editor.
 
 ## Prerequisites
 
@@ -24,7 +24,7 @@ Instructions for using {% data variables.product.prodname_copilot_short %} diffe
 
 ## Asking your first question
 
-1. On {% data variables.product.prodname_dotcom_the_website %}, navigate to a repository and open a file.
+1. On {% data variables.product.github %}, navigate to a repository and open a file.
 1. Click the {% data variables.product.prodname_copilot_short %} icon ({% octicon "copilot" aria-hidden="true" %}) at the top right of the file view.
 
    ![Screenshot of the {% data variables.product.prodname_copilot_short %} button, highlighted with a dark orange outline, at the top of the file view.](/assets/images/help/copilot/copilot-button-for-file.png)
@@ -68,7 +68,7 @@ For more information, see "[AUTOTITLE](/copilot/github-copilot-chat/copilot-chat
 
 {% data reusables.copilot.quickstart-intro %}
 
-Instructions for using {% data variables.product.prodname_copilot_short %} differ depending on the editor you use. This version of the quickstart is for {% data variables.product.prodname_vscode %}. Click the tabs above to see instructions for other editors{% ifversion ghec %} and for {% data variables.product.prodname_dotcom_the_website %}{% endif %}.
+Instructions for using {% data variables.product.prodname_copilot_short %} differ depending on the editor you use. This version of the quickstart is for {% data variables.product.prodname_vscode %}. Click the tabs above to see instructions for other editors{% ifversion ghec %} or for the {% data variables.product.github %} website{% endif %}.
 
 {% ifversion fpt %}
 {% data reusables.copilot.quickstart-signup %}
@@ -125,7 +125,7 @@ The following example uses JavaScript, however other languages will work similar
 
 {% data reusables.copilot.quickstart-intro %}
 
-Instructions for using {% data variables.product.prodname_copilot_short %} differ depending on the editor you use. This version of the quickstart is for {% data variables.product.prodname_vs %}. Click the tabs above to see instructions for other editors{% ifversion ghec %} and for {% data variables.product.prodname_dotcom_the_website %}{% endif %}.
+Instructions for using {% data variables.product.prodname_copilot_short %} differ depending on the editor you use. This version of the quickstart is for {% data variables.product.prodname_vs %}. Click the tabs above to see instructions for other editors{% ifversion ghec %} or for the {% data variables.product.github %} website{% endif %}.
 
 {% ifversion fpt %}
 {% data reusables.copilot.quickstart-signup %}
@@ -175,7 +175,7 @@ The following example uses JavaScript, however other languages will work similar
 
 {% data reusables.copilot.quickstart-intro %}
 
-Instructions for using {% data variables.product.prodname_copilot_short %} differ depending on the editor you use. This version of the quickstart is for JetBrains IDEs. Click the tabs above to see instructions for other editors{% ifversion ghec %} and for {% data variables.product.prodname_dotcom_the_website %}{% endif %}.
+Instructions for using {% data variables.product.prodname_copilot_short %} differ depending on the editor you use. This version of the quickstart is for JetBrains IDEs. Click the tabs above to see instructions for other editors{% ifversion ghec %} or for the {% data variables.product.github %} website{% endif %}.
 
 {% ifversion fpt %}
 {% data reusables.copilot.quickstart-signup %}

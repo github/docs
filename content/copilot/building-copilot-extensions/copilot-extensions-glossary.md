@@ -29,13 +29,17 @@ A {% data variables.product.prodname_github_app %} with additional access to the
 
 The system that handles authentication and proxies requests between clients and agent plugins.
 
+#### {% data variables.product.prodname_copilot_extension_vsc %}
+
+Also known as {% data variables.product.prodname_vscode %} Chat extensions, {% data variables.product.prodname_copilot_extensions_vsc %} are built as a {% data variables.product.prodname_vscode %} extension rather than a {% data variables.product.prodname_github_app %}. These extensions are exclusive to {% data variables.product.prodname_vscode_shortname %} and can be downloaded from the {% data variables.product.prodname_vscode_shortname %} Marketplace.
+
 #### {% data variables.product.prodname_github_app %}
 
 The foundation for a {% data variables.product.prodname_copilot_extension_short %} that provides the necessary infrastructure, permissions, and context from {% data variables.product.company_short %}, such as user, repo and organization metadata.
 
 ##### {% data variables.product.prodname_marketplace %}
 
-The platform where {% data variables.product.company_short %} approved {% data variables.product.prodname_copilot_extensions_short %} can be listed publicly and discovered by users.
+The platform where {% data variables.product.company_short %} approved {% data variables.product.prodname_copilot_extensions %} can be listed publicly and discovered by users.
 
 #### Listed/Published Extension
 
@@ -55,7 +59,7 @@ A piece of code that retrieves context or executes an action in response to a us
 
 #### Tool/Function Calling
 
-A capability of {% data variables.product.prodname_copilot_short %}'s LLM (as well as Open AI’s) that allows them to invoke specific tools or functions. Extension builders can define available tools with parameters, enabling the LLM to select and call appropriate tools to fulfill a user’s request. “Functions” are a subset of “tools” and the “function calling” term will eventually be deprecated.
+A capability of {% data variables.product.prodname_copilot_short %}'s LLM (as well as Open AI’s) that allows them to invoke specific tools or functions. Extension builders can define available tools with parameters, enabling the LLM to select and call appropriate tools to fulfill a user’s request. “Functions” are a subset of “tools” and the “function calling” term will be {% data variables.release-phases.closing_down %}.
 
 #### Unlisted Extension
 
@@ -64,7 +68,3 @@ An extension that is not published on the {% data variables.product.prodname_mar
 #### Verified Creator
 
 A status required for organizations to publish extensions on the {% data variables.product.prodname_marketplace %}.
-
-#### {% data variables.product.prodname_vscode %} Chat Extensions
-
-{% data variables.product.prodname_vscode %} Chat Extensions extend {% data variables.product.prodname_copilot_chat_short %} functionality for a similar end-user experience, but they’re built as a {% data variables.product.prodname_vscode %} Extension rather than a {% data variables.product.prodname_github_app %}.

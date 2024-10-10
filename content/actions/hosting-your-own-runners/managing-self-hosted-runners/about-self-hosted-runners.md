@@ -117,7 +117,7 @@ The following operating systems are supported for the self-hosted runner applica
 The following processor architectures are supported for the self-hosted runner application.
 
 * `x64` - Linux, macOS, Windows.
-* `ARM64` - Linux, macOS{% ifversion actions-windows-arm %}, Windows (currently in beta){% endif %}.
+* `ARM64` - Linux, macOS{% ifversion actions-windows-arm %}, Windows (currently in {% data variables.release-phases.public_preview %}){% endif %}.
 * `ARM32` - Linux.
 
 {% ifversion ghes %}
@@ -216,13 +216,9 @@ Untrusted workflows running on your self-hosted runner pose significant security
 
 For more information about security hardening for self-hosted runners, see "[AUTOTITLE](/actions/security-guides/security-hardening-for-github-actions#hardening-for-self-hosted-runners)."
 
-{% ifversion actions-disable-repo-runners %}
-
 ### Restricting the use of self-hosted runners
 
 {% data reusables.actions.disable-selfhosted-runners-crossrefs %}
-
-{% endif %}
 
 {% ifversion ghec or ghes %}
 

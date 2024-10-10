@@ -12,7 +12,7 @@ topics:
 
 {% data variables.product.prodname_dotcom %} code search lets you rapidly search, navigate and understand your code, your team's code, and the code of the open source community. This search engine is designed to be scalable, code-aware, and support searching code across {% data variables.product.prodname_dotcom %} using regular expressions, boolean operations, specialized qualifiers, and symbol search. For more information on the syntax of code search, see "[AUTOTITLE](/search-github/github-code-search/understanding-github-code-search-syntax)."
 
-Code search is integrated with features in the search interface on {% data variables.product.prodname_dotcom_the_website %}, such as suggestions and completions. Your searches will be saved automatically and can be deleted at any time. On {% data variables.product.prodname_mobile %}, you can use the same methods to search through code {% ifversion global-code-search-mobile %}directly from the home screen{% else %} in a specific repository{% endif %}. For more information, see "[AUTOTITLE](/search-github/github-code-search/using-github-code-search)."
+Code search is integrated with features in the search interface on {% data variables.product.prodname_dotcom %}, such as suggestions and completions. Your searches will be saved automatically and can be deleted at any time. On {% data variables.product.prodname_mobile %}, you can use the same methods to search through code {% ifversion global-code-search-mobile %}directly from the home screen{% else %} in a specific repository{% endif %}. For more information, see "[AUTOTITLE](/search-github/github-code-search/using-github-code-search)."
 
 {% data reusables.search.code-search-login-requirement %}
 
@@ -28,7 +28,7 @@ Supported languages for code navigation include:
 
 ## Limitations
 
-We have indexed many public repositories for code search, and continue to index more. Additionally, the private repositories of {% data variables.product.prodname_dotcom%} users are indexed and searchable by those that already have access to those private repositories on {% data variables.product.prodname_dotcom_the_website %}. However, very large repositories may not be indexed at this time, and not all code is indexed.
+We have indexed many public repositories for code search, and continue to index more. Additionally, the private repositories of {% data variables.product.prodname_dotcom%} users are indexed and searchable by those that already have access to those private repositories on {% data variables.product.prodname_dotcom %}. However, very large repositories may not be indexed at this time, and not all code is indexed.
 
 The current limitations on indexed code are:
 

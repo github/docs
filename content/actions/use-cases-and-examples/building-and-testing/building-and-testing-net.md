@@ -136,8 +136,6 @@ steps:
   run: dotnet add package Newtonsoft.Json --version 12.0.1
 ```
 
-{% ifversion actions-caching %}
-
 ### Caching dependencies
 
 You can cache NuGet dependencies for future workflows using the optional `cache` input. For example, the YAML below caches the NuGet `global-packages` folder, and then installs the `Newtonsoft` package. A second optional input, `cache-dependency-path`, can be used to specify the path to a dependency file: `packages.lock.json`.
@@ -161,8 +159,6 @@ steps:
 **Note:** Depending on the number of dependencies, it may be faster to use the dependency cache. Projects with many large dependencies should see a performance increase as it cuts down the time required for downloading. Projects with fewer dependencies may not see a significant performance increase and may even see a slight decrease due to how NuGet installs cached dependencies. The performance varies from project to project.
 
 {% endnote %}
-
-{% endif %}
 
 ## Building and testing your code
 

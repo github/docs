@@ -51,7 +51,7 @@ You can also find a list of your recently visited repositories, teams, and proje
 
 {% note %}
 
-**Note:** The new feed is currently in public beta and subject to change.
+**Note:** The new feed is currently in {% data variables.release-phases.public_preview %} and subject to change.
 
 {% endnote %}
 
@@ -91,7 +91,7 @@ For more information about following people and starring repositories, see "[AUT
 
 {% note %}
 
-**Note:** This new tab is currently in public beta and subject to change.
+**Note:** This new tab is currently in {% data variables.release-phases.public_preview %} and subject to change.
 
 {% endnote %}
 

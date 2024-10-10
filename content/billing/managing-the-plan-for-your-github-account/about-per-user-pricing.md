@@ -22,7 +22,7 @@ topics:
 
 {% data reusables.billing.about-billing %} For organizations, the "plan" component of the bill is based on the number of licensed seats you choose to purchase.
 
-New organizations on {% data variables.product.prodname_dotcom_the_website %} can build public and open-source projects with {% data variables.product.prodname_free_team %}, or upgrade to a paid plan. See "[AUTOTITLE](/get-started/learning-about-github/githubs-plans)" and "[AUTOTITLE](/billing/managing-the-plan-for-your-github-account/upgrading-your-accounts-plan)."
+New organizations on {% data variables.product.prodname_dotcom %} can build public and open-source projects with {% data variables.product.prodname_free_team %}, or upgrade to a paid plan. See "[AUTOTITLE](/get-started/learning-about-github/githubs-plans)" and "[AUTOTITLE](/billing/managing-the-plan-for-your-github-account/upgrading-your-accounts-plan)."
 
 >[!NOTE] Organizations who upgraded to a paid plan before May 11, 2016 can choose to stay on their existing per-repository plan or switch to per-user pricing. {% data variables.product.company_short %} will notify you twelve months before any mandated change to your subscription. For more information on switching your subscription, see "[AUTOTITLE](/billing/managing-the-plan-for-your-github-account/upgrading-your-accounts-plan)."
 
@@ -41,7 +41,7 @@ In addition to licensed seats, your bill may include other charges, such as {% d
 
 ## Two billing models for {% data variables.product.prodname_enterprise %} licenses
 
-If you created a trial of {% data variables.product.prodname_ghe_cloud %} on or after August 1, 2024, you use usage-based billing to pay for your licenses. With usage-based billing, you pay for the number of licenses you use each month. You do not need to buy a predefined number of licenses in advance. See, "[AUTOTITLE](/billing/using-the-enhanced-billing-platform-for-enterprises/about-usage-based-billing-for-licenses)."
+If you created a trial of {% data variables.product.prodname_ghe_cloud %} on or after August 1, 2024, you use usage-based billing to pay for your licenses. With usage-based billing, you pay for the number of licenses you use each month. You do not need to buy a predefined number of licenses in advance. See, "[AUTOTITLE](/billing/using-the-new-billing-platform/about-usage-based-billing-for-licenses)."
 
 If you currently pay for your {% data variables.product.prodname_enterprise %} licenses by invoice with a volume, subscription, or prepaid agreement, you will continue to be billed in this way until your agreement expires. At renewal, you have the option to switch to the metered billing model.
 
@@ -111,7 +111,7 @@ If your enterprise does not use {% data variables.product.prodname_emus %}, you 
 * Anyone with a pending invitation to become a billing manager
 * Anyone with a pending invitation to become an outside collaborator on a public repository owned by your organization
 * Guest collaborators who are not organization members (see "[AUTOTITLE](/enterprise-cloud@latest/admin/user-management/managing-users-in-your-enterprise/roles-in-an-enterprise#guest-collaborators)")
-* Users of {% data variables.visual_studio.prodname_vss_ghe %} whose accounts on {% data variables.product.prodname_dotcom_the_website %} are not linked, and who do not meet any of the other criteria for per-user pricing
+* Users of {% data variables.visual_studio.prodname_vss_ghe %} whose accounts on {% data variables.product.prodname_dotcom %} are not linked, and who do not meet any of the other criteria for per-user pricing
 * Users who have been provisioned with a {% data variables.enterprise.prodname_managed_user %}, but are not members of any organizations in the enterprise
 
 ### Accounts that consume a license on {% data variables.product.prodname_ghe_server %}
@@ -146,7 +146,7 @@ For more information about per-user pricing for {% data variables.product.prodna
 
 {% else %}
 
-If you use an enterprise account on {% data variables.product.prodname_dotcom_the_website %} and have questions about changes to your subscription, contact {% data variables.contact.contact_enterprise_sales %}.
+If you use an enterprise account and have questions about changes to your subscription, contact {% data variables.contact.contact_enterprise_sales %}.
 
 {% endif %}
 

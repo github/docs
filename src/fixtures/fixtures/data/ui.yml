@@ -262,7 +262,6 @@ scroll_button:
   scroll_to_top: Scroll to top
 popovers:
   role_description: hovercard link
-  keyboard_shortcut_description: Press alt+up to activate
 alerts:
   NOTE: Note
   IMPORTANT: Important

@@ -13,7 +13,7 @@ shortTitle: Manage the push policy
 
 {% note %}
 
-**Note:** The push policy is currently in beta and subject to change.
+**Note:** The push policy is currently in {% data variables.release-phases.public_preview %} and subject to change.
 
 {% endnote %}
 

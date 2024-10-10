@@ -34,16 +34,21 @@ If you use {% data variables.product.product_name %} through a Microsoft Enterpr
 
 {% ifversion fpt or ghec %}
 
-## About usage-based billing on {% data variables.product.prodname_dotcom_the_website %}
+## About usage-based billing on {% data variables.product.prodname_dotcom %}
 
 {% data variables.product.company_short %} provides usage-based billing for the following features and situations. You can learn more about billing and spending limits.
 
 | Billed feature or situation                                                                     | Information about billing                                                                                                                                            |                                                                                    Information about spending limits |
 | :---------------------------------------------------------------------------------------------- | :------------------------------------------------------------------------------------------------------------------------------------------------------------------- | -------------------------------------------------------------------------------------------------------------------: |
-| {% data variables.product.prodname_github_codespaces %} usage                                   | "[AUTOTITLE](/billing/managing-billing-for-github-codespaces/about-billing-for-github-codespaces)"                                                                   |                   "[AUTOTITLE](/billing/managing-billing-for-github-codespaces/about-billing-for-github-codespaces)" |
+| {% data variables.product.prodname_github_codespaces %} usage                                   | "[AUTOTITLE](/billing/managing-billing-for-your-products/managing-billing-for-github-codespaces/about-billing-for-github-codespaces)"                                                                   |                   "[AUTOTITLE](/billing/managing-billing-for-your-products/managing-billing-for-github-codespaces/about-billing-for-github-codespaces)" |
 | {% data variables.product.prodname_actions %} usage beyond the amounts included with your plan  | "[AUTOTITLE](/billing/managing-billing-for-github-actions/about-billing-for-github-actions)"                                                                         |   "[AUTOTITLE](/billing/managing-billing-for-github-actions/about-billing-for-github-actions#about-spending-limits)" |
 | {% data variables.product.prodname_registry %} usage beyond the amounts included with your plan | "[AUTOTITLE](/billing/managing-billing-for-github-packages/about-billing-for-github-packages)"                                                                       | "[AUTOTITLE](/billing/managing-billing-for-github-packages/about-billing-for-github-packages#about-spending-limits)" |
 | {% data variables.product.prodname_copilot_business_short %} usage                              | "[AUTOTITLE](/billing/managing-billing-for-github-copilot/about-billing-for-github-copilot#about-billing-for-github-copilot-business-and-github-copilot-enterprise)" |                                                                                                                  N/A |
+| {% ifversion metered-ghe-ghas %} |
+| {% data variables.product.prodname_GH_advanced_security %} usage (only available with a trial of {% data variables.product.prodname_ghe_cloud %})                              | "[AUTOTITLE](/billing/managing-billing-for-github-advanced-security/about-billing-for-github-advanced-security#usage-based-billing-for-github-advanced-security)" |                                                                                                                  N/A |
+| {% data variables.product.prodname_enterprise %} usage                              | "[AUTOTITLE](/billing/managing-your-github-billing-settings/about-billing-for-your-enterprise)" |                                                                                                                  N/A |
+
+{% endif %}
 
 {% endif %}
 
@@ -57,21 +62,21 @@ For example, you link your Azure subscription to your organization {% ifversion 
 
 * You must have {% ifversion ghec %}either {% endif %}an organization {% ifversion ghec %}or an enterprise {% endif %}account on {% data variables.location.product_location %}. For more information about the differences between these two types of accounts, see "[AUTOTITLE](/get-started/learning-about-github/types-of-github-accounts)."
 
-  If the organization you want to connect an Azure subscription to belongs to an enterprise account, you must connect your Azure subscription to the enterprise account, not the organization. {% ifversion fpt %}For more information, see [the {% data variables.product.prodname_ghe_cloud %} version](/enterprise-cloud@latest/{{ currentArticle }}) of this article.{% endif %}
+  If the organization you want to connect an Azure subscription to belongs to an enterprise account, you must connect your Azure subscription to the enterprise account, not the organization. {% ifversion fpt %}See [the {% data variables.product.prodname_ghe_cloud %} version](/enterprise-cloud@latest/{{ currentArticle }}) of this article.{% endif %}
 
-* You must be an owner of the organization{% ifversion ghec %} or enterprise{% endif %} account. For more information, see {% ifversion fpt %}"[AUTOTITLE](/organizations/managing-peoples-access-to-your-organization-with-roles/roles-in-an-organization)."{% elsif ghec %}the following articles.
+* You must be an owner of the organization{% ifversion ghec %} or enterprise{% endif %} account. See {% ifversion fpt %}"[AUTOTITLE](/organizations/managing-peoples-access-to-your-organization-with-roles/roles-in-an-organization)."{% elsif ghec %}the following articles.
 
   * "[AUTOTITLE](/organizations/managing-peoples-access-to-your-organization-with-roles/roles-in-an-organization)"
   * "[AUTOTITLE](/admin/managing-accounts-and-repositories/managing-users-in-your-enterprise/roles-in-an-enterprise)"
     {% endif %}
 
-* You must be logged into Azure as a user who is able to provide tenant-wide admin consent, which is required to install {% data variables.product.company_short %}'s Subscription Permission Validation app on the Azure AD tenant. The app requires read access to display a list of available subscriptions, and is only used during this one-time process of connecting the Azure subscription. For more information, see [Grant tenant-wide admin consent to an application](https://learn.microsoft.com/azure/active-directory/manage-apps/grant-admin-consent) in Microsoft Docs.
+* You must be logged into Azure as a user who is able to provide tenant-wide admin consent, which is required to install {% data variables.product.company_short %}'s Subscription Permission Validation app on the Azure AD tenant. The app requires read access to display a list of available subscriptions, and is only used during this one-time process of connecting the Azure subscription. See [Grant tenant-wide admin consent to an application](https://learn.microsoft.com/azure/active-directory/manage-apps/grant-admin-consent) in Microsoft Docs.
 
-  * Alternatively, before following the instructions in this article, users who are not able to provide tenant-wide admin consent can work with an Azure AD global administrator to configure an admin consent workflow. For more information, see [User and admin consent in Azure Active Directory](https://learn.microsoft.com/en-us/azure/active-directory/manage-apps/user-admin-consent-overview#admin-consent-workflow) in Microsoft Docs.
+  * Alternatively, before following the instructions in this article, users who are not able to provide tenant-wide admin consent can work with an Azure AD global administrator to configure an admin consent workflow. See [User and admin consent in Azure Active Directory](https://learn.microsoft.com/en-us/azure/active-directory/manage-apps/user-admin-consent-overview#admin-consent-workflow) in Microsoft Docs.
 
-* To select an Azure subscription from the list of available subscriptions, the user must be an owner of the Azure subscription. For more information, see [Assign a user as an administrator of an Azure subscription](https://learn.microsoft.com/azure/role-based-access-control/role-assignments-portal-subscription-admin) in Microsoft docs.
+* To select an Azure subscription from the list of available subscriptions, the user must be an owner of the Azure subscription. See [Assign a user as an administrator of an Azure subscription](https://learn.microsoft.com/azure/role-based-access-control/role-assignments-portal-subscription-admin) in Microsoft docs.
 
-* You must know your Azure subscription ID. For more information, see [Get subscription and tenant IDs in the Azure portal](https://learn.microsoft.com/en-us/azure/azure-portal/get-subscription-tenant-id) in the Microsoft Docs or [contact Azure support](https://azure.microsoft.com/support/).
+* You must know your Azure subscription ID. See [Get subscription and tenant IDs in the Azure portal](https://learn.microsoft.com/en-us/azure/azure-portal/get-subscription-tenant-id) in the Microsoft Docs or [contact Azure support](https://azure.microsoft.com/support/).
 
 {% ifversion fpt %}
 
@@ -81,7 +86,7 @@ To connect your Azure subscription, you must have owner permissions to the Azure
 
 {% note %}
 
-**Note**: If your organization account on {% data variables.location.product_location %} belongs an enterprise account, you must connect your Azure subscription to the enterprise account instead of the organization account. For more information, see "[Connecting your Azure subscription to your enterprise account](/enterprise-cloud@latest/billing/managing-the-plan-for-your-github-account/connecting-an-azure-subscription#connecting-your-azure-subscription-to-your-enterprise-account)" in the {% data variables.product.prodname_ghe_cloud %} version of this article.
+**Note**: If your organization account on {% data variables.location.product_location %} belongs an enterprise account, you must connect your Azure subscription to the enterprise account instead of the organization account. See "[Connecting your Azure subscription to your enterprise account](/enterprise-cloud@latest/billing/managing-the-plan-for-your-github-account/connecting-an-azure-subscription#connecting-your-azure-subscription-to-your-enterprise-account)" in the {% data variables.product.prodname_ghe_cloud %} version of this article.
 
 {% endnote %}
 
@@ -155,7 +160,7 @@ After you disconnect your Azure subscription from your enterprise account, your 
 
 ## Troubleshooting connection of an Azure subscription
 
-You can troubleshoot some common issues with connection of an Azure subscription to your account on {% data variables.product.prodname_dotcom_the_website %}.
+You can troubleshoot some common issues with connection of an Azure subscription to your account on {% data variables.product.prodname_dotcom %}.
 
 ### Message: "Need admin approval"
 
@@ -165,4 +170,4 @@ If the user account you used to sign into Azure does not have adequate permissio
 >
 > GitHub Inc needs permission to access resources in your organisation that only an admin can grant. Please ask an admin to grant permission to this app before you can use it.
 
-To avoid this message when you try again, you must either ensure that the Azure user can provide tenant-wide admin consent, or you must work with an Azure administrator to configure the admin consent workflow. For more information, review "[Prerequisites](#prerequisites)".
+To avoid this message when you try again, you must either ensure that the Azure user can provide tenant-wide admin consent, or you must work with an Azure administrator to configure the admin consent workflow. For more information, review "[Prerequisites](#prerequisites)."

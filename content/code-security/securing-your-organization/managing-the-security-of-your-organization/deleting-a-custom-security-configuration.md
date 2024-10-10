@@ -11,8 +11,6 @@ topics:
   - Security
 ---
 
-{% data reusables.security-configurations.security-configurations-beta-note %}
-
 ## About deleting a {% data variables.product.prodname_custom_security_configuration %}
 
 If you no longer need a {% data variables.product.prodname_custom_security_configuration %}, you can delete that configuration to ensure it will not be applied to any repositories in the future. If you are deleting a {% data variables.product.prodname_custom_security_configuration %} because you want to change the security enablement settings in that configuration, you can instead edit the configuration. For more information, see "[AUTOTITLE](/code-security/securing-your-organization/managing-the-security-of-your-organization/editing-a-custom-security-configuration)."

@@ -159,6 +159,11 @@ If you view a code file in a repository using the **Code** view and click on any
 |<kbd>Shift</kbd> and click | When creating an issue from a task list, open the new issue form in a new tab by holding <kbd>Shift</kbd> and clicking the {% octicon "issue-opened" aria-label="The issue opened icon" %} in the upper-right corner of the task. For more information, see "[AUTOTITLE](/get-started/writing-on-github/working-with-advanced-formatting/about-task-lists)." |
 |<kbd>Command</kbd> and click (Mac) or </br> <kbd>Ctrl</kbd>+<kbd>Shift</kbd> and click (Windows/Linux) | When creating an issue from a task list, open the new issue form in the new window by holding <kbd>Command</kbd> or <kbd>Ctrl</kbd>+<kbd>Shift</kbd> and clicking the {% octicon "issue-opened" aria-label="The issue opened icon" %} in the upper-right corner of the task. For more information, see "[AUTOTITLE](/get-started/writing-on-github/working-with-advanced-formatting/about-task-lists)." |
 |  {% endif %} |
+| {% ifversion sub-issues %} |
+|<kbd>Option</kbd>+<kbd>Shift</kbd>+<kbd>c</kbd> (Mac) or </br> <kbd>Alt</kbd>+<kbd>Shift</kbd>+<kbd>c</kbd> (Windows/Linux) | Create a new sub-issue. See "[AUTOTITLE](/issues/tracking-your-work-with-issues/using-issues/adding-sub-issues)." |
+|<kbd>Option</kbd>, <kbd>Shift</kbd>+<kbd>a</kbd> (Mac) or </br> <kbd>Alt</kbd>+<kbd>Shift</kbd>+<kbd>a</kbd> (Windows/Linux) | Add an existing issue as sub-issue. See "[AUTOTITLE](/issues/tracking-your-work-with-issues/using-issues/adding-sub-issues)." |
+|<kbd>Option</kbd>+<kbd>Shift</kbd>+<kbd>p</kbd> (Mac) or </br> <kbd>Alt</kbd>+<kbd>Shift</kbd>+<kbd>p</kbd> (Windows/Linux) | Edit parent issue. |
+|  {% endif %} |
 
 ## "Files changed" tab in pull requests
 

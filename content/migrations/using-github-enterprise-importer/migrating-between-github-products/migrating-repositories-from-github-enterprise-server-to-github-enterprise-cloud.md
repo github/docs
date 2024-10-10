@@ -486,6 +486,8 @@ gh gei migrate-repo --github-source-org SOURCE --source-repo CURRENT-NAME --gith
 
 {% data reusables.enterprise-migration-tool.skip-releases %}
 
+{% data reusables.enterprise-migration-tool.set-repository-visibility %}
+
 {% data reusables.enterprise-migration-tool.migrate-repo-table-ec %}
 {% data reusables.enterprise-migration-tool.ghes-api-url-placeholder %}
 {% data reusables.enterprise-migration-tool.azure-storage-connection-string-placeholder %}

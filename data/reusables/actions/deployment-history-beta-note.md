@@ -1,5 +1,5 @@
 {% note %}
 
-**Note:** Deployment history is currently in beta and subject to change.
+**Note:** Deployment history is currently in {% data variables.release-phases.public_preview %} and subject to change.
 
 {% endnote %}

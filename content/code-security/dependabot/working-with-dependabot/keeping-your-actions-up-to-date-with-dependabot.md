@@ -23,16 +23,13 @@ shortTitle: Auto-update actions
 
 ## About {% data variables.product.prodname_dependabot_version_updates %} for actions
 
-Actions are often updated with bug fixes and new features to make automated processes more reliable, faster, and safer. When you enable {% data variables.product.prodname_dependabot_version_updates %} for {% data variables.product.prodname_actions %}, {% data variables.product.prodname_dependabot %} will help ensure that references to actions in a repository's _workflow.yml_ file{% ifversion dependabot-updates-actions-reusable-workflows %} and reusable workflows used inside workflows{% endif %} are kept up to date.
+Actions are often updated with bug fixes and new features to make automated processes more reliable, faster, and safer. When you enable {% data variables.product.prodname_dependabot_version_updates %} for {% data variables.product.prodname_actions %}, {% data variables.product.prodname_dependabot %} will help ensure that references to actions in a repository's _workflow.yml_ file and reusable workflows used inside workflows are kept up to date.
 
 For each action in the file, {% data variables.product.prodname_dependabot %} checks the action's reference (typically a version number or commit identifier associated with the action) against the latest version. For information about how action creators version their actions, see "[Using release management for your custom actions](/actions/learn-github-actions/finding-and-customizing-actions#using-release-management-for-your-custom-actions)."
 
 If a more recent version of the action is available, {% data variables.product.prodname_dependabot %} will send you a pull request that updates the reference in the workflow file to the latest version. For more information about {% data variables.product.prodname_dependabot_version_updates %}, see "[AUTOTITLE](/code-security/dependabot/dependabot-version-updates/about-dependabot-version-updates)." For more information about configuring workflows for {% data variables.product.prodname_actions %}, see "[AUTOTITLE](/actions/learn-github-actions)."
 
-{% ifversion dependabot-updates-actions-reusable-workflows %}
 {% data variables.product.prodname_dependabot %} also checks workflow files for uses of reusable workflows, and updates the git reference for these called reusable workflows. For more information about reusable workflows, see "[AUTOTITLE](/actions/using-workflows/reusing-workflows)."
-
-{% endif %}
 
 {% ifversion fpt or ghec %}
 {% note %}

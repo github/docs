@@ -88,7 +88,7 @@ For example, if a workflow defined the `num-octocats` and `octocat-eye-color` in
 
 ### `inputs.<input_id>.deprecationMessage`
 
-**Optional** If the input parameter is used, this `string` is logged as a warning message. You can use this warning to notify users that the input is deprecated and mention any alternatives.
+**Optional** If the input parameter is used, this `string` is logged as a warning message. You can use this warning to notify users that the input is {% data variables.release-phases.closing_down %} and mention any alternatives.
 
 ## `outputs` for Docker container and JavaScript actions
 
