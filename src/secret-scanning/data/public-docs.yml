@@ -3025,6 +3025,17 @@
   hasPushProtection: false
   hasValidityCheck: false
   isduplicate: false
+- provider: Sindri
+  supportedSecret: Sindri API Key
+  secretType: sindri_api_key
+  versions:
+    fpt: '*'
+    ghec: '*'
+  isPublic: true
+  isPrivateWithGhas: false
+  hasPushProtection: false
+  hasValidityCheck: false
+  isduplicate: true
 - provider: Slack
   supportedSecret: Slack API Token
   secretType: slack_api_token
