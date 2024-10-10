@@ -69,8 +69,6 @@ See [our guide on creating a {% data variables.product.pat_generic %}](/authenti
 
 {% data reusables.repositories.deploy-keys-write-access %}
 
-For enhanced security and fine-grained control over repository access and permissions, we recommend using a GitHub App instead. See "[AUTOTITLE](/apps/creating-github-apps/about-creating-github-apps/deciding-when-to-build-a-github-app#github-apps-offer-enhanced-security)."
-
 ### Pros of deploy keys
 
 * Anyone with access to the repository and server has the ability to deploy the project.
@@ -81,15 +79,9 @@ For enhanced security and fine-grained control over repository access and permis
 
 * Deploy keys only grant access to a single repository. More complex projects may have many repositories to pull to the same server.
 * Deploy keys are usually not protected by a passphrase, making the key easily accessible if the server is compromised.
-* Deploy keys are credentials that don't have an expiry date.
-* Deploy keys aren't linked directly to organization membership. If the user who created the deploy key is removed from the repository, the deploy key will still be active as it isn't tied to the specific user, but rather to the repository.
+* If the user who created the deploy key is removed from the repository, the deploy key will still be active as it isn't tied to the specific user, but rather to the repository.
 
 ### Set up deploy keys
-
-{% ifversion deploy-keys-enterprise-org-policy %}
-
-> [!NOTE] If your organization is owned by an enterprise, and your enterprise owner has restricted the use of deploy keys in repositories, then you cannot override the policy in your organization to create a deploy key. For more information, see "[AUTOTITLE](/admin/policies/enforcing-policies-for-your-enterprise/enforcing-repository-management-policies-in-your-enterprise#enforcing-a-policy-for-deploy-keys)."
-{% endif %}
 
 1. [Run the `ssh-keygen` procedure][generating-ssh-keys] on your server, and remember where you save the generated public and private rsa key pair.
 {% data reusables.repositories.navigate-to-repo %}
