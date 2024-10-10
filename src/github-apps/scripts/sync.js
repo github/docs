@@ -165,7 +165,7 @@ export async function getProgAccessData(progAccessSource, isRest = false) {
       await readFile(path.join(progAccessSource, progAccessFilepath), 'utf8'),
     )
     progActorResources = await getProgActorResourceContent({
-      gitHubSourceDirectory: path.join(progAccessSource, progActorDirectory),
+      localDirectory: path.join(progAccessSource, progActorDirectory),
     })
   } else {
     progAccessDataRaw = yaml.load(
@@ -242,7 +242,7 @@ function getDisplayTitle(permissionName, progActorResources, isRest = false) {
   const permissionNameExists = progActorResources[permissionName]
   if (!permissionNameExists) {
     console.warn(
-      `The permission ${permissionName} is missing from the definitions in the config/access_control/fine_grained_permissions/programmatic_actor_fine_grained_resources directory. Creating a placeholder value of ${tempTitle} until it's added.`,
+      `The permission ${permissionName} is missing from config/locales/programmatic_actor_fine_grained_resources.en.yml. Creating a placeholder value of ${tempTitle} until it's added.`,
     )
   }
   const title = progActorResources[permissionName]?.title || tempTitle
