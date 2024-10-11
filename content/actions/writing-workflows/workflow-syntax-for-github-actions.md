@@ -1002,7 +1002,7 @@ For more information about the differences between networking service containers
 
 ### Example: Using localhost
 
-This example creates two services: nginx and redis. When you specify the container port but not the host port, the host port is randomly assigned to a free port on host. {% data variables.product.prodname_dotcom %} sets the assigned host port in the {% raw %}`${{job.services.<service_name>.ports}}`{% endraw %} context. In this example, you can access the service host ports using the {% raw %}`${{ job.services.nginx.ports['80'] }}`{% endraw %} and {% raw %}`${{ job.services.redis.ports['6379'] }}`{% endraw %} contexts.
+This example creates two services: nginx and redis. When you specify the container port but not the host port, the container port is randomly assigned to a free port on the host. {% data variables.product.prodname_dotcom %} sets the assigned host port in the {% raw %}`${{job.services.<service_name>.ports}}`{% endraw %} context. In this example, you can access the service host ports using the {% raw %}`${{ job.services.nginx.ports['80'] }}`{% endraw %} and {% raw %}`${{ job.services.redis.ports['6379'] }}`{% endraw %} contexts.
 
 ```yaml
 services:
