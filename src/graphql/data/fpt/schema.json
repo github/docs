@@ -84621,6 +84621,10 @@
           "description": "<p>An issue that has been closed as completed.</p>"
         },
         {
+          "name": "DUPLICATE",
+          "description": "<p>An issue that has been closed as a duplicate.</p>"
+        },
+        {
           "name": "NOT_PLANNED",
           "description": "<p>An issue that has been closed as not planned.</p>"
         }
@@ -84687,6 +84691,10 @@
         {
           "name": "COMPLETED",
           "description": "<p>An issue that has been closed as completed.</p>"
+        },
+        {
+          "name": "DUPLICATE",
+          "description": "<p>An issue that has been closed as a duplicate.</p>"
         },
         {
           "name": "NOT_PLANNED",
