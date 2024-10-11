@@ -84,11 +84,11 @@ You can map service containers ports to the Docker host using the `ports` keywor
 |------------------|--------------|
 | `8080:80` |	Maps TCP port 80 in the container to port 8080 on the Docker host. |
 | `8080:80/udp` |	Maps UDP port 80 in the container to port 8080 on the Docker host. |
-| `8080/udp`	| Map a randomly chosen UDP port in the container to UDP port 8080 on the Docker host. |
+| `8080/udp`	| Maps a randomly chosen port on the Docker host to UDP port 8080 in the container. |
 
 When you map ports using the `ports` keyword, {% data variables.product.prodname_dotcom %} uses the `--publish` command to publish the container’s ports to the Docker host. For more information, see "[Docker container networking](https://docs.docker.com/config/containers/container-networking/)" in the Docker documentation.
 
-When you specify the Docker host port but not the container port, the container port is randomly assigned to a free port. {% data variables.product.prodname_dotcom %} sets the assigned container port in the service container context. For example, for a `redis` service container, if you configured the Docker host port 5432, you can access the corresponding container port using the `job.services.redis.ports[5432]` context. For more information, see "[AUTOTITLE](/actions/learn-github-actions/contexts#job-context)."
+When you specify the container port but not the Docker host port, the container port is randomly assigned to a free port. {% data variables.product.prodname_dotcom %} sets the assigned container port in the service container context. For example, for a `redis` service container, if you configured the Docker host port 5432, you can access the corresponding container port using the `job.services.redis.ports[5432]` context. For more information, see "[AUTOTITLE](/actions/learn-github-actions/contexts#job-context)."
 
 ### Example mapping Redis ports
 
