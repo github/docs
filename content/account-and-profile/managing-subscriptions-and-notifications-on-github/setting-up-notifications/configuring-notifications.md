@@ -201,7 +201,7 @@ If you are a member of more than one organization, you can configure each one to
 {% data reusables.notifications.access_notifications %}
 {% data reusables.notifications-v2.manage-notifications %}
 {% ifversion update-notification-settings-22 %}
-1. Under "Default notifications email", click **Custom routing**.
+1. Under "Default notifications email", click **[Custom routing](https://github.com/settings/notifications/custom_routing)**.
 
    ![Screenshot of the "Default notifications email" section. A button, titled "Custom routing", is highlighted with an orange outline.](/assets/images/help/notifications/custom-router-emphasized.png)
 
