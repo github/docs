@@ -4,6 +4,20 @@
       {
         "title": "The GraphQL schema includes these changes:",
         "changes": [
+          "<p>Enum value <code>DUPLICATE</code> was added to enum <code>IssueClosedStateReason</code></p>",
+          "<p>Enum value <code>DUPLICATE</code> was added to enum <code>IssueStateReason</code></p>"
+        ]
+      }
+    ],
+    "previewChanges": [],
+    "upcomingChanges": [],
+    "date": "2024-10-11"
+  },
+  {
+    "schemaChanges": [
+      {
+        "title": "The GraphQL schema includes these changes:",
+        "changes": [
           "<p>Argument 'targets: [RepositoryRulesetTarget!]<code>added to field</code>Organization.rulesets'</p>",
           "<p>Argument 'targets: [RepositoryRulesetTarget!]<code>added to field</code>Repository.rulesets'</p>"
         ]
