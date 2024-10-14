@@ -40,11 +40,11 @@ Knowledge bases you create will be accessible by all organization members with a
 {% data reusables.profile.access_org %}
 {% data reusables.profile.org_settings %}
 
-1. In the left sidebar, click **{% octicon "copilot" aria-hidden="true" %} {% data variables.product.prodname_copilot_short %}** then click **Customize**.
-1. To the right of "Knowledge", click **Add knowledge base**.
+1. In the left sidebar, click **{% octicon "copilot" aria-hidden="true" %} {% data variables.product.prodname_copilot_short %}** then click **Knowledge bases**.
+1. To the right of "Knowledge bases", click **New knowledge base**.
 1. In the "Name" field, enter a unique name for the knowledge base. Optionally, in the "Description" field, you can add a description for the knowledge base.
 
-    ![Screenshot of the "Add knowledge base" page.](/assets/images/help/copilot/copilot-create-knowledge-base-page.png)
+    ![Screenshot of the "New knowledge base" page.](/assets/images/help/copilot/copilot-create-knowledge-base-page.png)
 
 1. Under "Content", to see a full list of available repositories, click **Select repositories**.
 
@@ -54,7 +54,7 @@ Knowledge bases you create will be accessible by all organization members with a
 
     ![Screenshot of the "Select repositories" page.](/assets/images/help/copilot/copilot-select-repositories-page.png)
 
-1. Optionally, you can define which paths within the selected repositories to index.
+1. Optionally, you can specify particular paths within the selected repositories for searches. When a search is conducted using the knowledge base, only the files located in those designated paths will be included in the results.
 
       * Click **Edit file paths**.
 
@@ -71,7 +71,7 @@ Organization owners can update a knowledge base created in their organization.
 {% data reusables.profile.access_org %}
 {% data reusables.profile.org_settings %}
 
-1. In the left sidebar, click **{% octicon "copilot" aria-hidden="true" %} {% data variables.product.prodname_copilot_short %}** then click **Customize**.
+1. In the left sidebar, click **{% octicon "copilot" aria-hidden="true" %} {% data variables.product.prodname_copilot_short %}** then click **Knowledge bases**.
 1. To the right of the knowledge base you want to edit, click {% octicon "pencil" aria-label="The pencil symbol" %}.
 1. Make your desired changes to your knowledge base.
 1. Click **Update knowledge base**.
@@ -83,6 +83,10 @@ Organization owners can delete a knowledge base created in their organization.
 {% data reusables.profile.access_org %}
 {% data reusables.profile.org_settings %}
 
-1. In the left sidebar, click **{% octicon "copilot" aria-hidden="true" %} {% data variables.product.prodname_copilot_short %}** then click **Customize**.
+1. In the left sidebar, click **{% octicon "copilot" aria-hidden="true" %} {% data variables.product.prodname_copilot_short %}** then click **Knowledge bases**.
 1. To the right of the knowledge base you want to delete, click {% octicon "trash" aria-label="The trash symbol" %}.
 1. In the "Confirm deletion" dialog box, review the information and click **Delete**.
+
+## Indexing repositories within a knowledge base
+
+For more information about indexing, see "[AUTOTITLE](/copilot/managing-copilot/managing-github-copilot-in-your-organization/customizing-copilot-for-your-organization/indexing-repositories-for-copilot-chat)"
