@@ -240,13 +240,10 @@ By default, {% data variables.product.prodname_copilot_chat_short %} will refere
 
 See also [Reference](https://learn.microsoft.com/visualstudio/ide/copilot-chat-context#reference) in the {% data variables.product.prodname_vs %} documentation.
 
-{% ifversion ghec %}
-
 ## Using {% data variables.product.prodname_dotcom %} skills for {% data variables.product.prodname_copilot_short %} (preview)
 
 > [!NOTE]
-> * This feature is only available if you have a {% data variables.product.prodname_copilot_enterprise_short %} subscription.
-> * The `@github` chat participant is currently in preview, and only available in [{% data variables.product.prodname_vs %} 2022 Preview 2](https://visualstudio.microsoft.com/vs/preview/) onwards.
+> The `@github` chat participant is currently in preview, and only available in [{% data variables.product.prodname_vs %} 2022 Preview 2](https://visualstudio.microsoft.com/vs/preview/) onwards.
 
 {% data variables.product.prodname_copilot_short %} has a collection of {% data variables.product.prodname_dotcom %}-specific skills that it can use to answer your questions. To access these skills in {% data variables.product.prodname_copilot_chat_short %} in {% data variables.product.prodname_vs %}, include `@github` in your question.
 
@@ -264,7 +261,11 @@ The skills you can use in {% data variables.product.prodname_copilot_chat_short 
 | **Path search** | Retrieves a specific file in the default branch of the Git repository. This skill is useful when you provide the exact path of a file in the repository. | Yes | `@github What logic does user_auth.js encapsulate?` |
 | **Show symbol definition** | Retrieves the lines of code that define a specific code symbol (function, class, or struct) in the default branch of the Git repository. This skill is useful when you have the exact name of a symbol, and want to understand it. | Yes | `@github Write unit tests for the AuthUser method` |
 | **Web search** | Searches the web using the Bing search engine. This skill is useful for teaching Copilot about recent events, new developments, trends, technologies, or extremely specific, detailed, or niche subjects. | No (requires admin approval - see "[AUTOTITLE](/copilot/managing-copilot/managing-copilot-for-your-enterprise/managing-policies-and-features-for-copilot-in-your-enterprise)")| `@github What are some recent articles about SAT tokens securing against vulnerabilities in Node?` |
+| {% ifversion ghec %} |
 | **Knowledge base search** | Tell {% data variables.product.prodname_copilot_chat_short %} to answer a question within the context of a knowledge base. To initiate a knowledge base search, first enter `@github`, then press **#**, then select a knowledge base. | Yes | Enter `@github #`, then choose your organization's style guide knowledge base, then ask: `What is our coding convention for indentation?` |
+| {% endif %} |
+
+{% ifversion ghec %}
 
 ## Asking a question about a knowledge base (preview)
 
