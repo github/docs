@@ -22,13 +22,13 @@ The indexing status of a repository is displayed on {% data variables.product.pr
 
 After you index a repository it is automatically re-indexed every time a change is pushed to the repository.
 
-## Indexing limits (Per Individual)
+## Indexing limits
 
 {% rowheaders %}
 
 |                  | {% data variables.product.prodname_copilot_individuals_short %} | {% data variables.product.prodname_copilot_business_short %} | {% data variables.product.prodname_copilot_enterprise_short %} |
 |------------------|-----------------------------------------------------------------|--------------------------------------------------------------|----------------------------------------------------------------|
-| Repository limit | 5                                                               | 50                                                           | Unlimited                                                      |
+| Repository limit | 5                                                               | 50 (total shared by business)                                | Unlimited                                                      |
 
 {% endrowheaders %}
 
