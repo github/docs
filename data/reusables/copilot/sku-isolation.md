@@ -8,6 +8,7 @@ Configuring {% data variables.product.prodname_copilot_sku_isolation %} will aff
 
 * Code completions in {% data variables.product.prodname_vscode %}, {% data variables.product.prodname_vs %}, JetBrains IDEs, and Vim/NeoVim
 * {% data variables.product.prodname_copilot_chat_short %} in {% data variables.product.prodname_vscode %}, {% data variables.product.prodname_vs %}, and JetBrains IDEs
+* {% data variables.product.prodname_copilot_chat_short %} on {% data variables.product.github %}
 * {% data variables.product.prodname_mobile %} Apps
 * {% data variables.product.prodname_copilot_cli_short %}
 
