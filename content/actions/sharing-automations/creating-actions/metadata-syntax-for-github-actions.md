@@ -37,7 +37,7 @@ Action metadata files use YAML syntax. If you're new to YAML, you can read "[Lea
 
 ## `inputs`
 
-**Optional** Input parameters allow you to specify data that the action expects to use during runtime. {% data variables.product.prodname_dotcom %} stores input parameters as environment variables. Input ids with uppercase letters are converted to lowercase during runtime. We recommend using lowercase input ids.
+**Optional** Input parameters allow you to specify data that the action expects to use during runtime. {% data variables.product.prodname_dotcom %} stores input parameters as environment variables. We recommend using lowercase input ids.
 
 ### Example: Specifying inputs
 
@@ -45,7 +45,7 @@ This example configures two inputs: `num-octocats` and `octocat-eye-color`. The 
 
 {% note %}
 
-**Note:** Workflows using `required: true` will not automatically return an error if the input is not specified for events that automatically trigger workflow runs. If you set `required: true` in your workflow file and are using `workflow_dispatch` to manually run the workflow, you will be required to specify inputs on {% data variables.product.prodname_dotcom %}. For more information, see "[AUTOTITLE](/actions/using-workflows/events-that-trigger-workflows)."
+**Note:** Actions using `required: true` will not automatically return an error if the input is not specified.
 
 {% endnote %}
 
@@ -62,9 +62,9 @@ inputs:
     required: true
 ```
 
-When you specify an input in a workflow file or use a default input value, {% data variables.product.prodname_dotcom %} creates an environment variable for the input with the name `INPUT_<VARIABLE_NAME>`. The environment variable created converts input names to uppercase letters and replaces spaces with `_` characters.
+When you specify an input, {% data variables.product.prodname_dotcom %} creates an environment variable for the input with the name `INPUT_<VARIABLE_NAME>`. The environment variable created converts input names to uppercase letters and replaces spaces with `_` characters.
 
-If the action is written using a [composite](/actions/creating-actions/creating-a-composite-action), then it will not automatically get `INPUT_<VARIABLE_NAME>`. If the conversion doesn't occur, you can change these inputs manually.
+If the action is written using a [composite](/actions/creating-actions/creating-a-composite-action), then it will not automatically get `INPUT_<VARIABLE_NAME>`. With composite actions you can use `inputs` [AUTOTITLE](/actions/learn-github-actions/contexts) to access action inputs.
 
 To access the environment variable in a Docker container action, you must pass the input using the `args` keyword in the action metadata file. For more information about the action metadata file for Docker container actions, see "[AUTOTITLE](/actions/creating-actions/creating-a-docker-container-action#creating-an-action-metadata-file)."
 
