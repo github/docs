@@ -38,16 +38,7 @@ You can interact with your custom-built or installed extension in a {% data vari
 
 ### Supported clients and IDEs
 
-| Clients and IDEs                       | {% data variables.product.prodname_copilot_extensions_short %} support |
-|------------------------------------|:---------:|
-| {% data variables.product.prodname_vscode %}                 | {% octicon "check" aria-label="Supported" %}       |
-| {% data variables.product.prodname_vs %}                     | {% octicon "check" aria-label="Supported" %}       |
-| {% data variables.product.prodname_dotcom_the_website %}     | {% octicon "check" aria-label="Supported" %}       |
-| {% data variables.product.prodname_mobile %}                 | {% octicon "x" aria-label="Unsupported" %}         |
-| JetBrains IDEs                                               | {% octicon "x" aria-label="Unsupported" %}         |
-| Vim/Neovim                         | {% octicon "x" aria-label="Unsupported" %}        |
-| CLI                                | {% octicon "x" aria-label="Unsupported" %}        |
-| Xcode                              | {% octicon "x" aria-label="Unsupported" %}        |
+{% data reusables.copilot.copilot-extensions.supported-clients-and-ides-table %}
 
 ## Prerequisites
 
