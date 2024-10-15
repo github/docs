@@ -17,11 +17,11 @@ redirect_from:
 
 ## Overview
 
-{% data variables.product.prodname_copilot_chat_dotcom %} is a chat interface that lets you ask and receive answers to coding-related questions on {% data variables.product.prodname_dotcom_the_website %}.
+{% data variables.product.prodname_copilot_chat_dotcom %} is a chat interface that lets you ask and receive answers to coding-related questions on the {% data variables.product.github %} website.
 
 {% data variables.product.prodname_copilot_chat_short %} can help you with a variety of coding-related tasks, like offering you code suggestions, providing natural language descriptions of a piece of code's functionality and purpose, generating unit tests for your code, and proposing fixes for bugs in your code. For more information, see "[AUTOTITLE](/copilot/github-copilot-chat/copilot-chat-in-github/about-github-copilot-chat-in-githubcom)."
 
-On {% data variables.product.prodname_dotcom_the_website %}, you can use {% data variables.product.prodname_copilot_chat_short %} to ask:
+On {% data variables.product.github %}, you can use {% data variables.product.prodname_copilot_chat_short %} to ask:
 
 * General software-related questions, without a particular context. For more information, see "[Asking a general question about software development](#asking-a-general-question-about-software-development)."
 * Exploratory questions asked in the context of a specific repository. For more information, see "[Asking exploratory questions about a repository](#asking-exploratory-questions-about-a-repository)."
@@ -85,7 +85,7 @@ The skills you can use in {% data variables.product.prodname_copilot_chat_dotcom
 ### Changing your AI model
 
 > [!NOTE]
-> * The `o1-preview` and `o1-mini` models do not have access to skills {% ifversion ghec %}or knowledge bases {% endif %}in {% data variables.product.prodname_copilot_chat_dotcom %}. If you want to use skills {% ifversion ghec %}or knowledge bases {% endif %}on {% data variables.product.prodname_dotcom_the_website %}, you must use the `gpt-4o` model.
+> * The `o1-preview` and `o1-mini` models do not have access to skills {% ifversion ghec %}or knowledge bases {% endif %}in {% data variables.product.prodname_copilot_chat_dotcom %}. If you want to use skills {% ifversion ghec %}or knowledge bases {% endif %}on {% data variables.product.github %}, you must use the `gpt-4o` model.
 > * If you use {% data variables.product.prodname_copilot_extensions_short %}, they may override the model you select.
 > * Experimental pre-release versions of the models may not interact with all filters correctly, including the duplication detection filter.
 
@@ -252,7 +252,7 @@ When you enter a query, {% data variables.product.prodname_copilot_short %} sear
 
 You can chat with {% data variables.product.prodname_copilot_short %} about a file in your repository, or about specific lines of code within a file.
 
-1. On {% data variables.product.prodname_dotcom_the_website %}, navigate to a repository and open a file.
+1. On {% data variables.product.github %}, navigate to a repository and open a file.
 1. Do one of the following:
    * To ask a question about the entire file, click the {% data variables.product.prodname_copilot_short %} icon ({% octicon "copilot" aria-hidden="true" %}) at the top right of the file view.
 
@@ -331,7 +331,7 @@ You can ask {% data variables.product.prodname_copilot_short %} to summarize a p
 
 ### Get a summary of a pull request
 
-1. On {% data variables.product.prodname_dotcom_the_website %}, navigate to a pull request in a repository.
+1. On {% data variables.product.github %}, navigate to a pull request in a repository.
 
 {% data reusables.copilot.open-copilot %}
 
@@ -347,7 +347,7 @@ You can ask {% data variables.product.prodname_copilot_short %} to summarize a p
 
 ### Ask about changes to a specific file in a pull request
 
-1. On {% data variables.product.prodname_dotcom_the_website %}, navigate to a pull request in a repository.
+1. On {% data variables.product.github %}, navigate to a pull request in a repository.
 1. Click the **Files changed** tab.
 1. Click {% octicon "kebab-horizontal" aria-label="Show options" %} at the top right of the file, then click **Ask {% data variables.product.prodname_copilot_short %} about this diff**.
 1. Type a question in the "Ask {% data variables.product.prodname_copilot_short %}" box at the bottom of the chat panel and press <kbd>Enter</kbd>.
@@ -361,7 +361,7 @@ You can ask {% data variables.product.prodname_copilot_short %} to summarize a p
 
 ### Ask about specific lines within a file in a pull request
 
-1. On {% data variables.product.prodname_dotcom_the_website %}, navigate to a pull request in a repository.
+1. On {% data variables.product.github %}, navigate to a pull request in a repository.
 1. Click the **Files changed** tab.
 1. Click the line number for the first line you want to select, then hold down <kbd>Shift</kbd> and click the line number for the last line you want to select.
 1. Ask {% data variables.product.prodname_copilot_short %} a question, or choose from a list of predefined questions.
@@ -381,7 +381,7 @@ You can ask {% data variables.product.prodname_copilot_short %} to summarize a p
 
 > [!NOTE]This feature is currently in {% data variables.release-phases.public_preview %} and subject to change.
 
-1. On {% data variables.product.prodname_dotcom_the_website %}, navigate to a pull request in a repository.
+1. On {% data variables.product.github %}, navigate to a pull request in a repository.
 1. Scroll to the bottom of the page, then, next to one of the failing checks, click **Details**.
 
 {% data reusables.copilot.open-copilot %}
@@ -404,7 +404,7 @@ You can ask {% data variables.product.prodname_copilot_short %} to summarize or 
 
 > [!NOTE] The quality of {% data variables.product.prodname_copilot_chat_short %}'s responses may be degraded when working with issues or discussions that have very long bodies or a large number of comments. For example, this may occur if you ask {% data variables.product.prodname_copilot_short %} to summarize a long-running discussion. Where this happens, {% data variables.product.prodname_copilot_short %} will warn you so you can double check its output.
 
-1. Navigate to an issue or discussion on {% data variables.product.prodname_dotcom_the_website %}.
+1. Navigate to an issue or discussion on {% data variables.product.github %}.
 
 {% data reusables.copilot.open-copilot %}
 
@@ -426,7 +426,7 @@ You can ask {% data variables.product.prodname_copilot_short %} to summarize or 
 
 You can ask {% data variables.product.prodname_copilot_short %} to explain the changes in a commit.
 
-1. Navigate to a commit on {% data variables.product.prodname_dotcom_the_website %}.
+1. Navigate to a commit on {% data variables.product.github %}.
 
 {% data reusables.copilot.open-copilot %}
 
@@ -437,7 +437,7 @@ You can ask {% data variables.product.prodname_copilot_short %} to explain the c
    * When was this commit made?
 
    > [!TIP]
-   > If you know the SHA for a commit, instead of navigating to the commit, you can ask {% data variables.product.prodname_copilot_short %} about the commit from any page in the repository on {% data variables.product.prodname_dotcom_the_website %} by including the SHA in your message. For example, `What changed in commit a778e0eab?`
+   > If you know the SHA for a commit, instead of navigating to the commit, you can ask {% data variables.product.prodname_copilot_short %} about the commit from any page in the repository on {% data variables.product.github %} by including the SHA in your message. For example, `What changed in commit a778e0eab?`
 
 {% data reusables.copilot.stop-response-generation %}
 
@@ -445,7 +445,7 @@ You can ask {% data variables.product.prodname_copilot_short %} to explain the c
 
 You can ask {% data variables.product.prodname_copilot_short %} a question about an entire repository by typing your question in the main search box of the repository.
 
-1. Navigate to a repository on {% data variables.product.prodname_dotcom_the_website %}.
+1. Navigate to a repository on {% data variables.product.github %}.
 1. Press <kbd>/</kbd>, or click in the main search box at the top of the page.
 1. In the search box, after `repo:OWNER/REPO`, type the question you want to ask {% data variables.product.prodname_copilot_short %}.
 

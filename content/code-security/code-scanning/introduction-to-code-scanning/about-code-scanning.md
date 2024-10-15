@@ -25,11 +25,11 @@ topics:
 
 You can use {% data variables.product.prodname_code_scanning %} to find, triage, and prioritize fixes for existing problems in your code. {% data variables.product.prodname_code_scanning_caps %} also prevents developers from introducing new problems. You can schedule scans for specific days and times, or trigger scans when a specific event occurs in the repository, such as a push.
 
-If {% data variables.product.prodname_code_scanning %} finds a potential vulnerability or error in your code, {% data variables.product.prodname_dotcom %} displays an alert in the repository. After you fix the code that triggered the alert, {% data variables.product.prodname_dotcom %} closes the alert. For more information, see "[AUTOTITLE](/code-security/code-scanning/managing-code-scanning-alerts/managing-code-scanning-alerts-for-your-repository)."
+If {% data variables.product.prodname_code_scanning %} finds a potential vulnerability or error in your code, {% data variables.product.prodname_dotcom %} displays an alert in the repository. After you fix the code that triggered the alert, {% data variables.product.prodname_dotcom %} closes the alert. For more information, see "[AUTOTITLE](/code-security/code-scanning/managing-code-scanning-alerts/resolving-code-scanning-alerts)."
 
 {% ifversion code-scanning-autofix %}
 
-{% data variables.product.prodname_copilot_autofix %} will suggest fixes for alerts from {% data variables.product.prodname_codeql %} analysis in private repositories, allowing developers to prevent and reduce vulnerabilities with less effort. For more information, see "[AUTOTITLE](/code-security/code-scanning/managing-code-scanning-alerts/about-autofix-for-codeql-code-scanning)."
+{% data variables.product.prodname_copilot_autofix %} will suggest fixes for alerts from {% data variables.product.prodname_codeql %} analysis in private repositories, allowing developers to prevent and reduce vulnerabilities with less effort. For more information, see "[AUTOTITLE](/code-security/code-scanning/managing-code-scanning-alerts/responsible-use-autofix-code-scanning)."
 
 {% endif %}
 

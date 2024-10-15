@@ -2,7 +2,7 @@
 title: Managing policies for Copilot in your organization
 intro: 'Learn how to manage policies for {% data variables.product.prodname_copilot %} in your organization.'
 permissions: Organization owners
-product: '{% data reusables.gated-features.copilot-business-and-enterprise %}'
+product: 'Organizations with a subscription to {% data variables.product.prodname_copilot_for_business %} or {% data variables.product.prodname_copilot_enterprise %}'
 versions:
   feature: copilot
 redirect_from:
@@ -23,8 +23,7 @@ shortTitle: Managing policies
 
 Organization owners can set policies to govern how {% data variables.product.prodname_copilot %} can be used within the organization. For example, an organization owner can enable or disable the following {% data variables.product.prodname_copilot_short %} features{% ifversion ghec %} (unless an enterprise owner has blocked access to these features at the enterprise level){% endif %}:
 
-{% ifversion ghec %}
-* {% data variables.product.prodname_copilot_short %} in {% data variables.product.prodname_dotcom_the_website %} (if your organization has a {% data variables.product.prodname_copilot_enterprise_short %} subscription){% endif %}
+* {% data variables.product.prodname_copilot_short %} in {% data variables.product.prodname_dotcom_the_website %}
 * {% data variables.product.prodname_copilot_chat_short %} in the IDE
 * {% data variables.product.prodname_copilot_mobile_short %}
 * {% data variables.product.prodname_copilot_cli_short %}

@@ -2,7 +2,6 @@
 title: About enabling security features at scale
 shortTitle: About organization security
 intro: 'You can quickly secure your organization at scale with {% data variables.product.prodname_security_configurations %} and {% data variables.product.prodname_global_settings %}.'
-permissions: '{% data reusables.security-configurations.security-configurations-permissions %}'
 versions:
   feature: security-configurations
 topics:

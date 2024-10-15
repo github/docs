@@ -1,7 +1,7 @@
 ---
 title: Monitoring alerts from secret scanning
 intro: 'Learn how and when {% data variables.product.product_name %} will notify you about a secret scanning alert.'
-product: '{% data reusables.gated-features.secret-scanning %}'
+permissions: '{% data reusables.permissions.secret-scanning-alerts %}'
 versions:
   fpt: '*'
   ghes: '*'

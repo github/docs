@@ -1,0 +1,4 @@
+# Issue 16148 - Push protection delegated bypass for file uploads [GA]
+versions:
+  ghec: '*'
+  ghes: '>3.15'

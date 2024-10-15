@@ -1,8 +1,7 @@
 ---
 title: Managing requests to bypass push protection
 intro: 'As a member of the bypass list for an organization or repository, you can review bypass requests from other members of the organization or repository.'
-product: '{% data reusables.gated-features.push-protection-for-repos %}'
-permissions: 'Members of the bypass list can process requests from non-members to bypass push protection.'
+permissions: '{% data reusables.permissions.delegated-bypass-list %}'
 versions:
   feature: push-protection-delegated-bypass
 type: how_to

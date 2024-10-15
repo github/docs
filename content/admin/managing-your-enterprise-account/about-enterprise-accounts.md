@@ -22,11 +22,11 @@ topics:
 
 ## What are enterprise accounts?
 
-<!-- expires 2024-10-01 -->
+<!-- expires 2024-12-31 -->
 {% ifversion ghec %}
 > [!NOTE] Currently, {% data variables.product.prodname_ghe_cloud %} customers who use a single organization are being automatically upgraded to an enterprise account at no additional cost. For details, see "[AUTOTITLE](/admin/managing-your-enterprise-account/creating-an-enterprise-account#what-will-happen-after-i-upgrade-my-organization)."
 {% endif %}
-<!-- end expires 2024-10-01 -->
+<!-- end expires 2024-12-31 -->
 
 An enterprise account enables centralized management for **multiple organizations**.
 

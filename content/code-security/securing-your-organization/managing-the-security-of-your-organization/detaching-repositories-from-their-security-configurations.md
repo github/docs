@@ -2,7 +2,7 @@
 title: Detaching repositories from their security configurations
 shortTitle: Detach security configuration
 intro: 'You can unlink repositories from their {% data variables.product.prodname_security_configurations %} and instead manage their security enablement settings at the repository level.'
-permissions: '{% data reusables.security-configurations.security-configurations-permissions %}'
+permissions: '{% data reusables.permissions.security-org-enable %}'
 versions:
   feature: security-configurations
 topics:

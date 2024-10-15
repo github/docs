@@ -2,7 +2,7 @@
 title: Configuring global security settings for your organization
 shortTitle: Configure global settings
 intro: 'Customize {% data variables.product.prodname_GH_advanced_security %} features and create security managers to strengthen the security of your organization.'
-permissions: '{% data reusables.security-configurations.security-configurations-permissions %}'
+permissions: '{% data reusables.permissions.security-org-enable %}'
 versions:
   feature: security-configurations
 topics:
@@ -81,7 +81,7 @@ You can customize several {% data variables.product.prodname_global_settings %} 
 
 ### Enabling {% data variables.product.prodname_copilot_autofix_short %} for {% data variables.product.prodname_codeql %}
 
-You can select **{% data variables.product.prodname_copilot_autofix_short %}** to enable {% data variables.product.prodname_copilot_autofix_short %} for all the repositories in your organization that use {% data variables.product.prodname_codeql %} default setup or {% data variables.product.prodname_codeql %} advanced setup. {% data variables.product.prodname_copilot_autofix_short %} is an expansion of {% data variables.product.prodname_code_scanning %} that suggests fixes for {% data variables.product.prodname_code_scanning %} alerts. For more information, see "[AUTOTITLE](/code-security/code-scanning/managing-code-scanning-alerts/about-autofix-for-codeql-code-scanning)."
+You can select **{% data variables.product.prodname_copilot_autofix_short %}** to enable {% data variables.product.prodname_copilot_autofix_short %} for all the repositories in your organization that use {% data variables.product.prodname_codeql %} default setup or {% data variables.product.prodname_codeql %} advanced setup. {% data variables.product.prodname_copilot_autofix_short %} is an expansion of {% data variables.product.prodname_code_scanning %} that suggests fixes for {% data variables.product.prodname_code_scanning %} alerts. For more information, see "[AUTOTITLE](/code-security/code-scanning/managing-code-scanning-alerts/responsible-use-autofix-code-scanning)."
 
 {% endif %}
 
@@ -115,7 +115,7 @@ You can choose to scan for non-provider patterns, such as private keys, to detec
 
 ### Generic secret detection
 
-Generic secret detection is an AI-powered expansion of {% data variables.product.prodname_secret_scanning %} that scans and creates alerts for unstructured secrets, such as passwords. To enable these scans, select **Use AI detection to find additional secrets**. Be aware that generic secrets often have a higher rate of false positives than other types of alert. To learn more about generic secrets, see "[AUTOTITLE](/code-security/secret-scanning/using-advanced-secret-scanning-and-push-protection-features/generic-secret-detection/about-the-detection-of-generic-secrets-with-secret-scanning)."
+Generic secret detection is an AI-powered expansion of {% data variables.product.prodname_secret_scanning %} that scans and creates alerts for unstructured secrets, such as passwords. To enable these scans, select **Use AI detection to find additional secrets**. Be aware that generic secrets often have a higher rate of false positives than other types of alert. To learn more about generic secrets, see "[AUTOTITLE](/code-security/secret-scanning/using-advanced-secret-scanning-and-push-protection-features/generic-secret-detection/responsible-ai-generic-secrets)."
 
 {% data reusables.secret-scanning.generic-secret-detection-ai %}
 

@@ -2,7 +2,7 @@
 title: Editing your configuration of default setup
 shortTitle: Edit default setup
 intro: 'You can edit your existing configuration of default setup for {% data variables.product.prodname_code_scanning %} to better meet your code security needs.'
-product: '{% data reusables.gated-features.code-scanning %}'
+permissions: '{% data reusables.permissions.security-org-enable %}'
 versions:
   fpt: '*'
   ghes: '*'

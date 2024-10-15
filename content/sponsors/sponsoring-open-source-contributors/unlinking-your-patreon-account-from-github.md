@@ -15,7 +15,7 @@ redirect_from:
 
 {% note %}
 
-**Note:** Unlinking your Patreon account from {% data variables.product.company_short %} will not cancel any existing sponsorships you have created through Patreon. They will only appear as cancelled on {% data variables.product.prodname_dotcom_the_website %}. To stop sponsoring maintainers through Patreon, see [How do I cancel?](https://support.patreon.com/hc/en-us/articles/360005502572-How-do-I-cancel-) in the Patreon documentation.
+**Note:** Unlinking your Patreon account from {% data variables.product.company_short %} will not cancel any existing sponsorships you have created through Patreon. They will only appear as cancelled on {% data variables.product.prodname_dotcom %}. To stop sponsoring maintainers through Patreon, see [How do I cancel?](https://support.patreon.com/hc/en-us/articles/360005502572-How-do-I-cancel-) in the Patreon documentation.
 
 {% endnote %}
 

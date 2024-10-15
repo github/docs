@@ -65,7 +65,7 @@ To configure SAML SSO for your {% data variables.enterprise.prodname_emu_enterpr
 
    * [Entra ID](https://docs.microsoft.com/en-us/azure/active-directory/saas-apps/github-enterprise-managed-user-tutorial) on Microsoft Learn
    * "[AUTOTITLE](/admin/identity-and-access-management/configuring-authentication-for-enterprise-managed-users/configuring-saml-single-sign-on-with-okta-for-enterprise-managed-users)"
-   * [PingFederate instructions](https://docs.pingidentity.com/r/en-us/pingfederate-github-emu-connector/pingfederate_github_emu_connector) in the PingIdentity documentation
+   * [PingFederate instructions](https://docs.pingidentity.com/integrations/github/github_emu_provisioner/pf_github_emu_connector.html) in the PingIdentity documentation
    {%- ifversion emu-public-scim-schema %}
    * "[AUTOTITLE](/admin/identity-and-access-management/iam-configuration-reference/saml-configuration-reference)"
    {%- endif %}

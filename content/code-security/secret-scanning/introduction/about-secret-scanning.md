@@ -108,7 +108,7 @@ Scan for and detect secrets that are not specific to a service provider, such as
 
 ### Generic secret detection
 
-Leverage {% data variables.product.prodname_secret_scanning %}'s AI capabilities to detect unstructured secrets, such as passwords, in your repository. For more information, see "[AUTOTITLE](/code-security/secret-scanning/using-advanced-secret-scanning-and-push-protection-features/generic-secret-detection/about-the-detection-of-generic-secrets-with-secret-scanning)."
+Leverage {% data variables.product.prodname_secret_scanning %}'s AI capabilities to detect unstructured secrets, such as passwords, in your repository. For more information, see "[AUTOTITLE](/code-security/secret-scanning/using-advanced-secret-scanning-and-push-protection-features/generic-secret-detection/responsible-ai-generic-secrets)."
 
 {% endif %}
 
@@ -124,7 +124,7 @@ Define your own patterns for secrets used by your organization that {% data vari
 
 {% ifversion secret-scanning-custom-pattern-ai-generated %}
 
-You can also leverage AI to generate regular expressions that will capture all your custom patterns. For more information, see "[AUTOTITLE](/code-security/secret-scanning/using-advanced-secret-scanning-and-push-protection-features/custom-patterns/about-generating-regular-expressions-with-ai)."
+You can also leverage AI to generate regular expressions that will capture all your custom patterns. For more information, see "[AUTOTITLE](/code-security/secret-scanning/using-advanced-secret-scanning-and-push-protection-features/custom-patterns/responsible-use-ai-regex-generator)."
 
 {% endif %}
 

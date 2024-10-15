@@ -1,6 +1,6 @@
 {% rowheaders %}
 
-| **SARIF data** | **Maximum values** | **Display limits** |
+| **SARIF data** | **Maximum values** | **Data truncation limits** |
 |----------------|:------------------:|-----------------------|
 | Runs per file | 20 | None |
 | Results per run |  25,000 | Only the top 5,000 results will be included, prioritized by severity. |

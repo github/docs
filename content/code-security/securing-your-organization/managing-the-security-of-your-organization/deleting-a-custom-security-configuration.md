@@ -2,7 +2,7 @@
 title: Deleting a custom security configuration
 shortTitle: Delete custom configuration
 intro: 'You can delete unnecessary {% data variables.product.prodname_custom_security_configurations %} in your organization.'
-permissions: '{% data reusables.security-configurations.security-configurations-permissions %}'
+permissions: '{% data reusables.permissions.security-org-enable %}'
 versions:
   feature: security-configurations
 topics:
