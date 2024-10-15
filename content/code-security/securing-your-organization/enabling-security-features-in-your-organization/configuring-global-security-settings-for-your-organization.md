@@ -2,7 +2,7 @@
 title: Configuring global security settings for your organization
 shortTitle: Configure global settings
 intro: 'Customize {% data variables.product.prodname_GH_advanced_security %} features and create security managers to strengthen the security of your organization.'
-permissions: '{% data reusables.security-configurations.security-configurations-permissions %}'
+permissions: '{% data reusables.permissions.security-org-enable %}'
 versions:
   feature: security-configurations
 topics:

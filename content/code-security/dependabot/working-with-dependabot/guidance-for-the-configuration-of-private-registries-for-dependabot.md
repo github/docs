@@ -624,7 +624,7 @@ You can check whether the private registry is successfully accessed by looking a
 
 ### Cloudsmith
 
-For information about Cloudsmith and instructions on how to configure {% data variables.product.prodname_dependabot %} to work with Cloudsmith, see [Getting Started with Cloudsmith](https://help.cloudsmith.io/docs/welcome-to-cloudsmith-docs) and [Integrate Github Dependabot with Cloudsmith](https://help.cloudsmith.io/docs/dependabot) in the Cloudsmith documentation.
+For information about Cloudsmith and instructions on how to configure {% data variables.product.prodname_dependabot %} to work with Cloudsmith, see [Getting Started with Cloudsmith](https://help.cloudsmith.io/docs/welcome-to-cloudsmith-docs) and [Integrate {% data variables.product.company_short %} {% data variables.product.prodname_dependabot %} with Cloudsmith](https://help.cloudsmith.io/docs/dependabot) in the Cloudsmith documentation.
 
 ### {% data variables.product.prodname_registry %} registry
 
