@@ -53,7 +53,8 @@ You should capture the pull request URLs created by automation, and check each w
 To successfully manage and use {% data variables.product.prodname_code_scanning %} across your company, you should build internal subject matter expertise. For default setup for {% data variables.product.prodname_code_scanning %}, one of the most important areas for subject matter experts (SMEs) to understand is interpreting and fixing {% data variables.product.prodname_code_scanning %} alerts. For more information about {% data variables.product.prodname_code_scanning %} alerts, see:
 
 * "[AUTOTITLE](/code-security/code-scanning/managing-code-scanning-alerts/about-code-scanning-alerts)"
-* "[AUTOTITLE](/code-security/code-scanning/managing-code-scanning-alerts/managing-code-scanning-alerts-for-your-repository)"
+* "[AUTOTITLE](/code-security/code-scanning/managing-code-scanning-alerts/assessing-code-scanning-alerts-for-your-repository)"
+* "[AUTOTITLE](/code-security/code-scanning/managing-code-scanning-alerts/resolving-code-scanning-alerts)"
 
 You'll also need SMEs if you need to use advanced setup for {% data variables.product.prodname_code_scanning %}. These SMEs will need knowledge of {% data variables.product.prodname_code_scanning %} alerts, as well as topics like {% data variables.product.prodname_actions %} and customizing {% data variables.product.prodname_code_scanning %} workflows for particular frameworks. For custom configurations of advanced setup, consider running meetings on complicated topics to scale the knowledge of several SMEs at once.
 {% else %}

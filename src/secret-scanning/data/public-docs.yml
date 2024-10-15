@@ -1878,6 +1878,17 @@
   hasPushProtection: true
   hasValidityCheck: false
   isduplicate: true
+- provider: Iterative
+  supportedSecret: DVC Studio Access Token
+  secretType: iterative_dvc_studio_access_token
+  versions:
+    fpt: '*'
+    ghec: '*'
+  isPublic: true
+  isPrivateWithGhas: false
+  hasPushProtection: false
+  hasValidityCheck: false
+  isduplicate: false
 - provider: JFrog
   supportedSecret: JFrog Platform Access Token
   secretType: jfrog_platform_access_token
@@ -3025,6 +3036,17 @@
   hasPushProtection: false
   hasValidityCheck: false
   isduplicate: false
+- provider: Sindri
+  supportedSecret: Sindri API Key
+  secretType: sindri_api_key
+  versions:
+    fpt: '*'
+    ghec: '*'
+  isPublic: true
+  isPrivateWithGhas: false
+  hasPushProtection: false
+  hasValidityCheck: false
+  isduplicate: true
 - provider: Slack
   supportedSecret: Slack API Token
   secretType: slack_api_token

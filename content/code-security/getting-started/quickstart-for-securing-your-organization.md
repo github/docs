@@ -1,7 +1,7 @@
 ---
 title: Quickstart for securing your organization
 intro: "You can use a number of {% data variables.product.prodname_dotcom %} features to help keep your organization secure."
-permissions: Organization owners and security managers can manage security features for an organization.
+permissions: '{% data reusables.permissions.security-org-enable %}'
 redirect_from:
   - /code-security/getting-started/securing-your-organization
 versions:

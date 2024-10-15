@@ -70,21 +70,21 @@ We recommend that you have a basic understanding of Python, and pip. For more in
 
        steps:
        - uses: {% data reusables.actions.action-checkout %}
-       - name: Set up Python 3.10
+       - name: Set up Python 3.13
          uses: {% data reusables.actions.action-setup-python %}
          with:
-           python-version: "3.10"
+           python-version: "3.13"
        - name: Install dependencies
          run: |
            python -m pip install --upgrade pip
-           pip install flake8 pytest
+           pip install ruff pytest
            if [ -f requirements.txt ]; then pip install -r requirements.txt; fi
-       - name: Lint with flake8
+       - name: Lint and format Python code with ruff
          run: |
-           # stop the build if there are Python syntax errors or undefined names
-           flake8 . --count --select=E9,F63,F7,F82 --show-source --statistics
-           # exit-zero treats all errors as warnings. The GitHub editor is 127 chars wide
-           flake8 . --count --exit-zero --max-complexity=10 --max-line-length=127 --statistics
+          # Lint with the default set of ruff rules with GitHub Annotations
+          ruff check --format=github --target-version=py39
+          # Verify the code is properly formatted
+          ruff format --diff --target-version=py39
        - name: Test with pytest
          run: |
            pytest
@@ -136,7 +136,7 @@ jobs:
     runs-on: ubuntu-latest
     strategy:
       matrix:
-        python-version: ["pypy3.9", "pypy3.10", "3.9", "3.10", "3.11", "3.12"]
+        python-version: ["pypy3.10", "3.9", "3.10", "3.11", "3.12", "3.13"]
 
     steps:
       - uses: {% data reusables.actions.action-checkout %}
@@ -151,7 +151,7 @@ jobs:
 
 ### Using a specific Python version
 
-You can configure a specific version of Python. For example, 3.10. Alternatively, you can use semantic version syntax to get the latest minor release. This example uses the latest minor release of Python 3.
+You can configure a specific version of Python. For example, 3.12. Alternatively, you can use semantic version syntax to get the latest minor release. This example uses the latest minor release of Python 3.
 
 ```yaml copy
 name: Python package
@@ -180,7 +180,7 @@ jobs:
 
 ### Excluding a version
 
-If you specify a version of Python that is not available, `setup-python` fails with an error such as: `##[error]Version 3.6 with arch x64 not found`. The error message includes the available versions.
+If you specify a version of Python that is not available, `setup-python` fails with an error such as: `##[error]Version 3.7 with arch x64 not found`. The error message includes the available versions.
 
 You can also use the `exclude` keyword in your workflow if there is a configuration of Python that you do not wish to run. For more information, see "[AUTOTITLE](/actions/using-workflows/workflow-syntax-for-github-actions#jobsjob_idstrategy)."
 
@@ -196,12 +196,12 @@ jobs:
     strategy:
       matrix:
         os: [ubuntu-latest, macos-latest, windows-latest]
-        python-version: ["3.9", "3.10", "3.11", "pypy3.9", "pypy3.10"]
+        python-version: ["3.9", "3.11", "3.13", "pypy3.10"]
         exclude:
           - os: macos-latest
-            python-version: "3.9"
+            python-version: "3.11"
           - os: windows-latest
-            python-version: "3.9"
+            python-version: "3.11"
 ```
 
 ### Using the default Python version
@@ -259,7 +259,7 @@ steps:
 - uses: {% data reusables.actions.action-checkout %}
 - uses: {% data reusables.actions.action-setup-python %}
   with:
-    python-version: '3.11'
+    python-version: '3.12'
     cache: 'pip'
 - run: pip install -r requirements.txt
 - run: pip test
@@ -294,9 +294,9 @@ steps:
     pytest tests.py --doctest-modules --junitxml=junit/test-results.xml --cov=com --cov-report=xml --cov-report=html
 ```
 
-### Using Ruff to lint code
+### Using Ruff to lint and/or format code
 
-The following example installs or upgrades `ruff` and uses it to lint all files. For more information, see [Ruff](https://beta.ruff.rs/docs).
+The following example installs or upgrades `ruff` and uses it to lint all files. For more information, see [Ruff](https://docs.astral.sh/ruff).
 
 ```yaml copy
 steps:
@@ -305,18 +305,16 @@ steps:
   uses: {% data reusables.actions.action-setup-python %}
   with:
     python-version: '3.x'
-- name: Install dependencies
-  run: |
-    python -m pip install --upgrade pip
-    pip install -r requirements.txt
-- name: Lint with Ruff
-  run: |
-    pip install ruff
-    ruff check --output-format=github .
+- name: Install the code linting and formatting tool Ruff
+  run: pipx install ruff
+- name: Lint code with Ruff
+  run: ruff check --output-format=github --target-version=py39
+- name: Check code formatting with Ruff
+  run: ruff format --diff --target-version=py39
   continue-on-error: true
 ```
 
-The linting step has `continue-on-error: true` set. This will keep the workflow from failing if the linting step doesn't succeed. Once you've addressed all of the linting errors, you can remove this option so the workflow will catch new issues.
+The formatting step has `continue-on-error: true` set. This will keep the workflow from failing if the formatting step doesn't succeed. Once you've addressed all of the formatting errors, you can remove this option so the workflow will catch new issues.
 
 ### Running tests with tox
 
@@ -333,7 +331,7 @@ jobs:
     runs-on: ubuntu-latest
     strategy:
       matrix:
-        python: ["3.9", "3.10", "3.11"]
+        python: ["3.9", "3.11", "3.13"]
 
     steps:
       - uses: {% data reusables.actions.action-checkout %}
@@ -365,7 +363,7 @@ jobs:
     runs-on: ubuntu-latest
     strategy:
       matrix:
-        python-version: ["3.7", "3.8", "3.9", "3.10", "3.11"]
+        python-version: ["3.9", "3.10", "3.11", "3.12", "3.13"]
 
     steps:
       - uses: {% data reusables.actions.action-checkout %}

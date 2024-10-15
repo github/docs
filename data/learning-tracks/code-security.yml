@@ -162,7 +162,11 @@ security_alerts:
       endif %}
     - >-
       {% ifversion ghec or ghes
-      %}/code-security/code-scanning/managing-code-scanning-alerts/managing-code-scanning-alerts-for-your-repository{%
+      %}/code-security/code-scanning/managing-code-scanning-alerts/assessing-code-scanning-alerts-for-your-repository{%
+      endif %}
+    - >-
+      {% ifversion ghec or ghes
+      %}/code-security/code-scanning/managing-code-scanning-alerts/resolving-code-scanning-alerts{%
       endif %}
     - >-
       {% ifversion ghec or ghes

@@ -19,15 +19,15 @@ redirect_from:
 
 ## About {% data variables.product.prodname_copilot_chat_dotcom %}
 
-{% data variables.product.prodname_copilot_chat_dotcom %} is a chat interface that lets you interact with {% data variables.product.prodname_copilot %}, to ask and receive answers to coding-related questions within {% data variables.product.prodname_dotcom_the_website %}.
+{% data variables.product.prodname_copilot_chat_dotcom %} is a chat interface that lets you interact with {% data variables.product.prodname_copilot %}, to ask and receive answers to coding-related questions within {% data variables.product.github %}.
 
 The chat interface provides access to coding information and support without requiring you to navigate documentation or search online forums.
 
-> [!NOTE] {% data variables.product.prodname_copilot_chat_short %} is also available in {% data variables.product.prodname_vscode %}, {% data variables.product.prodname_vs %}, and the JetBrains suite of IDEs. However, features available in these IDEs differ from features available on {% data variables.product.prodname_dotcom_the_website %}.
+> [!NOTE] {% data variables.product.prodname_copilot_chat_short %} is also available in {% data variables.product.prodname_vscode %}, {% data variables.product.prodname_vs %}, and the JetBrains suite of IDEs. However, features available in these IDEs differ from features available on {% data variables.product.github %}.
 
 {% data variables.product.prodname_copilot_chat %} can answer a wide range of coding-related questions on topics including syntax, programming concepts, test cases, debugging, and more. {% data variables.product.prodname_copilot_chat %} is not designed to answer non-coding questions or provide general information on topics outside of coding.
 
-The primary supported language for {% data variables.product.prodname_copilot_chat %} on {% data variables.product.prodname_dotcom_the_website %} is English.
+The primary supported language for {% data variables.product.prodname_copilot_chat_dotcom_short %} is English.
 
 {% data variables.product.prodname_copilot_chat %} works by using a combination of natural language processing and machine learning to understand your question and provide you with an answer. This process can be broken down into a number of steps.
 
@@ -85,7 +85,7 @@ However, it's important to note that {% data variables.product.prodname_copilot_
 
 ### Finding out about releases, discussions, and commits
 
-{% data variables.product.prodname_copilot_chat_short %} can help you find out what changed in a specific release, it can summarize the information in a discussion on {% data variables.product.prodname_dotcom_the_website %}, and it can explain the changes in a specific commit. This can be useful if, for example, you are new to a project, you want to quickly get the gist of a discussion, or you need to work on code that someone else wrote. However, it's important to note that {% data variables.product.prodname_copilot_chat_short %}'s summaries of releases, discussions, and commits may not always be accurate or complete.
+{% data variables.product.prodname_copilot_chat_short %} can help you find out what changed in a specific release, it can summarize the information in a discussion, and it can explain the changes in a specific commit. This can be useful if, for example, you are new to a project, you want to quickly get the gist of a discussion, or you need to work on code that someone else wrote. However, it's important to note that {% data variables.product.prodname_copilot_chat_short %}'s summaries of releases, discussions, and commits may not always be accurate or complete.
 
 ## Improving performance for {% data variables.product.prodname_copilot_chat_short %}
 
@@ -143,7 +143,7 @@ One of the limitations of {% data variables.product.prodname_copilot_chat_short 
 
 ### Leveraging a web search to answer a question
 
-Depending on the question you ask, {% data variables.product.prodname_copilot_chat %} in {% data variables.product.prodname_dotcom_the_website %} can optionally use a Bing search to help answer your question. {% data variables.product.prodname_copilot_short %} will use Bing for queries about recent events, new trends or technologies, highly specific subjects, or when a web search is explicitly requested by the user. Your {% data variables.product.prodname_enterprise %} administrator can enable Bing for your whole enterprise, or can delegate this decision to the organizational administrator. For more information, see "[AUTOTITLE](/copilot/managing-copilot/managing-copilot-for-your-enterprise/managing-policies-and-features-for-copilot-in-your-enterprise)."
+Depending on the question you ask, {% data variables.product.prodname_copilot_chat %} can optionally use a Bing search to help answer your question. {% data variables.product.prodname_copilot_short %} will use Bing for queries about recent events, new trends or technologies, highly specific subjects, or when a web search is explicitly requested by the user. Your {% data variables.product.prodname_enterprise %} administrator can enable Bing for your whole enterprise, or can delegate this decision to the organizational administrator. For more information, see "[AUTOTITLE](/copilot/managing-copilot/managing-copilot-for-your-enterprise/managing-policies-and-features-for-copilot-in-your-enterprise)."
 
 When leveraging Bing, {% data variables.product.prodname_copilot_short %} will use the content of your prompt, as well as additional available context, to generate a Bing search query on your behalf that is sent to the Bing Search API. {% data variables.product.prodname_copilot_short %} will provide a link to the search results with its response. The search query sent to Bing is governed by [Microsoft's Privacy Statement](https://privacy.microsoft.com/en-us/privacystatement).
 

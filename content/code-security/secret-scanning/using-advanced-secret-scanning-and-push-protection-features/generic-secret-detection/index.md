@@ -11,6 +11,6 @@ topics:
   - Advanced Security
   - Repositories
 children:
-  - /about-the-detection-of-generic-secrets-with-secret-scanning
+  - /responsible-ai-generic-secrets
   - /enabling-ai-powered-generic-secret-detection
 ---

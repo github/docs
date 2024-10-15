@@ -112,7 +112,7 @@ For more information on working with forks, see "[AUTOTITLE](/pull-requests/coll
 
 ## Further reading
 
-* [The "Remotes" chapter from the "Pro Git" book](https://git-scm.com/book/ch5-2.html)
+* [The "Remotes" chapter from the "Pro Git" book](https://git-scm.com/book/en/v2/Git-Basics-Working-with-Remotes)
 * [`git remote` main page](https://git-scm.com/docs/git-remote.html)
 * "[AUTOTITLE](/get-started/getting-started-with-git/git-cheatsheet)"
 * "[AUTOTITLE](/get-started/getting-started-with-git/git-workflows)"
