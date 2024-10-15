@@ -44,6 +44,7 @@ In addition to the README you're reading right now, this repo includes other REA
 - [src/README.md](src/README.md)
 
 ## License
+https://creativecommons.org/licenses/by/4.0/
 
 The GitHub product documentation in the assets, content, and data folders are licensed under a [CC-BY license](LICENSE).
 
