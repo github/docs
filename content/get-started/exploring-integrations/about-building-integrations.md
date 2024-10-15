@@ -1,5 +1,5 @@
 ---
-title: About building integrations
+title: About Building Integrations
 intro: 'You can build integrations to extend {% data variables.product.company_short %}''s functionality.'
 versions:
   fpt: '*'
@@ -7,22 +7,26 @@ versions:
   ghec: '*'
 ---
 
-Integrations are tools that extend {% data variables.product.company_short %}'s functionality. Integrations can do things on {% data variables.product.company_short %} like open issues, comment on pull requests, and manage projects. They can also do things outside of {% data variables.product.company_short %} based on events that happen on {% data variables.product.company_short %}. For example, an integration can post on Slack when an issue is opened on {% data variables.product.company_short %}.
+Integrations are tools that expand {% data variables.product.company_short %}'s functionality. These integrations can perform tasks within {% data variables.product.company_short %}, such as opening issues, commenting on pull requests, and managing projects. Additionally, integrations can trigger actions outside of {% data variables.product.company_short %} based on events occurring on the platform. For example, an integration can send a message to Slack when an issue is opened on {% data variables.product.company_short %}.
 
-Many integrations are {% data variables.product.prodname_github_apps %}, {% data variables.product.prodname_actions %} workflows, or custom actions for {% data variables.product.prodname_actions %} workflows.
+Many integrations include {% data variables.product.prodname_github_apps %}, {% data variables.product.prodname_actions %} workflows, or custom actions for {% data variables.product.prodname_actions %} workflows.
 
-* {% data variables.product.prodname_github_apps %} are integrations that run on the app owner's server or on a user device. For more information, see "[AUTOTITLE](/apps/creating-github-apps/about-creating-github-apps/about-creating-github-apps)."
-* {% data variables.product.prodname_actions %} workflows are workflows that run when specific events occur on {% data variables.product.company_short %}. For more information, see "[AUTOTITLE](/actions/learn-github-actions/understanding-github-actions)."
-* Custom actions are code that can be executed by a {% data variables.product.prodname_actions %} workflow. For more information, see "[AUTOTITLE](/actions/creating-actions/about-custom-actions)."
+* **{% data variables.product.prodname_github_apps %}**: These are integrations that run on the app owner's server or a user device. For more details, visit "[Creating GitHub Apps](/apps/creating-github-apps/about-creating-github-apps/about-creating-github-apps)."
+* **{% data variables.product.prodname_actions %} Workflows**: These workflows are triggered by specific events within {% data variables.product.company_short %}. To learn more, see "[Understanding GitHub Actions](/actions/learn-github-actions/understanding-github-actions)."
+* **Custom Actions**: These are code components that execute within a {% data variables.product.prodname_actions %} workflow. More information is available at "[About Custom Actions](/actions/creating-actions/about-custom-actions)."
 
-Your integration can use {% data variables.product.company_short %}'s API to fetch data and make changes to data on {% data variables.product.company_short %}. {% data variables.product.company_short %} has a REST API and a GraphQL API. For more information, see:
+Your integration can interact with {% data variables.product.company_short %} through its API to fetch and modify data. {% data variables.product.company_short %} offers both a REST API and a GraphQL API. For more information, see:
 
-* "[AUTOTITLE](/rest/about-the-rest-api/comparing-githubs-rest-api-and-graphql-api)"
-* "[AUTOTITLE](/rest)"
-* "[AUTOTITLE](/graphql)"
+* "[Comparing GitHub's REST and GraphQL APIs](/rest/about-the-rest-api/comparing-githubs-rest-api-and-graphql-api)"
+* "[GitHub REST API](/rest)"
+* "[GitHub GraphQL API](/graphql)"
 
-Your integration can use webhooks to learn when specific events happen on {% data variables.product.company_short %}. For more information, see "[AUTOTITLE](/webhooks/about-webhooks)."
+To respond to events on {% data variables.product.company_short %}, you can use webhooks. For more information, refer to "[About Webhooks](/webhooks/about-webhooks)."
 
-{% ifversion fpt or ghec %} If your integration is a {% data variables.product.prodname_github_app %} or custom action, you can publish your integration on {% data variables.product.prodname_marketplace %}. For more information, see "[AUTOTITLE](/apps/github-marketplace/github-marketplace-overview/about-github-marketplace-for-apps)" and "[AUTOTITLE](/actions/creating-actions/publishing-actions-in-github-marketplace)."{% endif %}
+{% ifversion fpt or ghec %} 
+If your integration is a {% data variables.product.prodname_github_app %} or a custom action, you can publish it on {% data variables.product.prodname_marketplace %}. For further details, check out:
+* "[GitHub Marketplace Overview for Apps](/apps/github-marketplace/github-marketplace-overview/about-github-marketplace-for-apps)" 
+* "[Publishing Actions in GitHub Marketplace](/actions/creating-actions/publishing-actions-in-github-marketplace)." 
+{% endif %}
 
-If your integration uses generative AI, you can find and experiment with AI models for free on {% data variables.product.company_short %}. See "[AUTOTITLE](/github-models/prototyping-with-ai-models)."
+If your integration uses generative AI, {% data variables.product.company_short %} offers free access to experiment with AI models. Learn more at "[Prototyping with AI Models](/github-models/prototyping-with-ai-models)."
