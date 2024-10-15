@@ -41,7 +41,8 @@ For information about the secrets and service providers supported by push protec
 Push protection works:
 
 * From the command line. See "[AUTOTITLE](/code-security/secret-scanning/working-with-secret-scanning-and-push-protection/working-with-push-protection-from-the-command-line)."
-* In the {% data variables.product.prodname_dotcom %} UI. See "[AUTOTITLE](/code-security/secret-scanning/working-with-secret-scanning-and-push-protection/working-with-push-protection-in-the-github-ui)."{% ifversion secret-scanning-push-protection-content-endpoints %}
+* In the {% data variables.product.prodname_dotcom %} UI. See "[AUTOTITLE](/code-security/secret-scanning/working-with-secret-scanning-and-push-protection/working-with-push-protection-in-the-github-ui)."{% ifversion push-protection-delegated-bypass-file-upload-support %}
+* On files uploaded onto the repository on {% data variables.product.prodname_dotcom %}.{% endif %}{% ifversion secret-scanning-push-protection-content-endpoints %}
 * From the REST API. See "[AUTOTITLE](/code-security/secret-scanning/working-with-secret-scanning-and-push-protection/working-with-push-protection-from-the-rest-api)."{% endif %}
 
 Once enabled, if push protection detects a potential secret during a push attempt, it will block the push and provide a detailed message explaining the reason for the block. You will need to review the code in question, remove any sensitive information, and reattempt the push.
