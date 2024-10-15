@@ -2,7 +2,7 @@
 title: Enabling push protection for your repository
 shortTitle: Enable push protection
 intro: 'With push protection, {% data variables.product.prodname_secret_scanning %} blocks contributors from pushing secrets to a repository and generates an alert whenever a contributor bypasses the block.'
-product: '{% data reusables.gated-features.secret-scanning %}'
+permissions: '{% data reusables.permissions.push-protection %}'
 versions:
   fpt: '*'
   ghes: '*'
