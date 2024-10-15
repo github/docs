@@ -1,7 +1,7 @@
 ---
 title: Excluding folders and files from secret scanning
 intro: 'You can customize {% data variables.product.prodname_secret_scanning %} to exclude directories or files from analysis, by configuring a `secret_scanning.yml` file in your repository.'
-product: '{% data reusables.gated-features.secret-scanning %}'
+permissions: '{% data reusables.permissions.secret-scanning-alerts %}'
 shortTitle: Exclude folders and files
 versions:
   fpt: '*'
