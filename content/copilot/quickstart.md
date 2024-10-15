@@ -11,7 +11,6 @@ topics:
 
 ## Introduction
 
-{% ifversion ghec %}
 {% webui %}
 
 You can use {% data variables.product.prodname_copilot_chat_dotcom %} to get answers to coding-related questions, such as how best to code something, how to fix a bug, or how someone else's code works. For full details of what {% data variables.product.prodname_copilot_short %} can do, see "[AUTOTITLE](/copilot/about-github-copilot/what-is-github-copilot)."
@@ -62,7 +61,6 @@ For more information, see "[AUTOTITLE](/copilot/github-copilot-chat/copilot-chat
 * **Use {% data variables.product.prodname_copilot_short %} on the command line** - See "[AUTOTITLE](/copilot/github-copilot-in-the-cli/using-github-copilot-in-the-cli)."
 
 {% endwebui %}
-{% endif %}
 
 {% vscode %}
 
