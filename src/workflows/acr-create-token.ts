@@ -9,7 +9,7 @@ type IsoDateString = string
 dotenv.config()
 
 const acrTokenName = process.env.ACR_TOKEN_NAME
-const acrServer = process.env.CONTAINER_REGISTRY_SERVER
+const acrProdRegistryServer = process.env.PROD_REGISTRY_SERVER
 const repo = process.env.GITHUB_REPOSITORY
 
 function main() {
@@ -23,7 +23,7 @@ function main() {
   try {
     const cmd = `az acr token create \
       --name ${acrTokenName} \
-      --registry ${acrServer} \
+      --registry ${acrProdRegistryServer} \
       --repository ${repo} \
       content/write \
       content/read \
