@@ -2,7 +2,7 @@
 title: Interpreting security findings
 shortTitle: Interpret security data
 intro: 'You can analyze security data on repositories in your organization to determine if you need to make changes to your security setup.'
-permissions: '{% data reusables.security-configurations.security-configurations-permissions %}'
+permissions: '{% data reusables.permissions.security-org-enable %}'
 versions:
   feature: security-configurations
 topics:
