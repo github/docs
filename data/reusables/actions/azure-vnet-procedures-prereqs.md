@@ -213,7 +213,6 @@ You will use a script to automate configuring your Azure resources.
             destinationAddressPrefixes: []
           }
         }
-        }
       ]
     }
   }
