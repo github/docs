@@ -284,6 +284,7 @@ docker pull docker.HOSTNAME/OWNER/REPOSITORY/IMAGE_NAME:TAG_NAME
 {% ifversion ghes %}
 If your instance has subdomain isolation disabled:
 
+
 ```shell
 docker pull HOSTNAME/OWNER/REPOSITORY/IMAGE_NAME:TAG_NAME
 ```
