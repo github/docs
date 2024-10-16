@@ -2,8 +2,7 @@
 title: Reviewing requests to bypass push protection
 shortTitle: Review bypass requests
 intro: 'You can use security overview to review requests to bypass push protection from contributors pushing to repositories across your organization.'
-permissions: '{% data reusables.security-overview.permissions %}'
-product: '{% data reusables.gated-features.security-overview %}'
+permissions: '{% data reusables.permissions.security-overview %}'
 type: how_to
 topics:
   - Security overview
