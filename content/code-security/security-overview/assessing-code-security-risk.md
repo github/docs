@@ -3,8 +3,7 @@ title: Assessing your code security risk
 shortTitle: Assess security risk to code
 allowTitleToDifferFromFilename: true
 intro: 'You can use security overview to see which teams and repositories are affected by security alerts, and identify repositories for urgent remedial action.'
-permissions: '{% data reusables.security-overview.permissions %}'
-product: '{% data reusables.gated-features.security-overview %}'
+permissions: '{% data reusables.permissions.security-overview %}'
 type: how_to
 topics:
   - Security overview
@@ -41,8 +40,6 @@ For information about the **Overview**, see "[AUTOTITLE](/code-security/security
 
 ## Viewing organization-level code security risks
 
-{% data reusables.security-overview.information-varies-GHAS %}
-
 {% data reusables.organizations.navigate-to-org %}
 {% data reusables.organizations.security-overview %}
 {% data reusables.security-overview.open-security-risk-view %}
@@ -59,7 +56,7 @@ For information about the **Overview**, see "[AUTOTITLE](/code-security/security
 
 ## Viewing enterprise-level code security risks
 
-You can view data for security alerts across organizations in an enterprise. {% data reusables.security-overview.information-varies-GHAS %}
+You can view data for security alerts across organizations in an enterprise.
 
 {% data reusables.security-overview.enterprise-filters-tip %}
 

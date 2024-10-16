@@ -181,7 +181,14 @@ git@gitlab.com:gitlab-org/gitlab-runner.git:
 
 As an enterprise owner, you can use the enterprise settings to specify files that {% data variables.product.prodname_copilot %} should ignore. The files can be within a Git repository or anywhere on the file system that is not under Git control.
 
-You apply rules in the same way as described in the previous section "[Configuring content exclusions for your organization](#configuring-content-exclusions-for-your-organization)" but from the settings for your enterprise. The key difference is that rules set at the enterprise level apply to all {% data variables.product.prodname_copilot_short %} users in the enterprise, whereas the rules set by organization owners only apply to users who are assigned a {% data variables.product.prodname_copilot_short %} seat by that organization.
+{% data reusables.enterprise-accounts.access-enterprise %}
+{% data reusables.enterprise-accounts.policies-tab %}
+{% data reusables.enterprise-accounts.copilot-tab %}
+1. Click the **Content exclusion** tab.
+1. Use paths to specify which content to exclude. See the previous section, "[Configuring content exclusions for your organization](#configuring-content-exclusions-for-your-organization)."
+
+> [!NOTE]
+> The key difference between setting content exclusion at the enterprise level and the organization level is that rules set at the enterprise level apply to all {% data variables.product.prodname_copilot_short %} users in the enterprise, whereas the rules set by organization owners only apply to users who are assigned a {% data variables.product.prodname_copilot_short %} seat by that organization.
 
 {% endif %}
 

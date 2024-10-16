@@ -1,7 +1,6 @@
 ---
 title: About security overview
 intro: 'You can gain insights into the overall security landscape of your organization or enterprise and identify repositories that require intervention using security overview.'
-permissions: '{% data reusables.security-overview.permissions %}'
 product: '{% data reusables.gated-features.security-overview %}'
 redirect_from:
   - /code-security/security-overview/exploring-security-alerts
