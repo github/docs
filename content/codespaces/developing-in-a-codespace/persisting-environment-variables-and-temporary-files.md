@@ -2,8 +2,8 @@
 title: Persisting environment variables and temporary files
 intro: You can configure custom environment variables so that they are set to the same value every time you open a codespace. You can also ensure that temporary files are not deleted when a codespace stops.
 versions:
-  fpt: '*'
-  ghec: '*'
+  fpt: "*"
+  ghec: "*"
 type: how_to
 topics:
   - Codespaces
@@ -30,9 +30,9 @@ After you save the change to this file, the value will be set the next time you 
 
 There are three ways that you can set persistent custom environment variables for all codespaces that you create for a repository:
 
-* You can edit the `devcontainer.json` configuration file for the repository
-* You can use a custom Dockerfile
-* You can use development environment secrets
+* You can edit the `devcontainer.json` configuration file for the repository.
+* You can use a custom Dockerfile.
+* You can use development environment secrets.
 
 #### Edit the `devcontainer.json` configuration file for the repository
 
@@ -40,9 +40,9 @@ Edit the `devcontainer.json` configuration file for the repository, and use the 
 
 ```json
 {
-    "remoteEnv": {
-      "VARNAME": "value"
-   }
+  "remoteEnv": {
+    "VARNAME": "value"
+  }
 }
 ```
 
