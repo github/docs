@@ -1,8 +1,7 @@
 ---
 title: Filtering alerts in security overview
 intro: Use filters to view specific categories of alerts
-permissions: '{% data reusables.security-overview.permissions %}'
-product: '{% data reusables.gated-features.security-overview %}'
+permissions: '{% data reusables.permissions.security-overview %}'
 allowTitleToDifferFromFilename: true
 versions:
   ghes: '*'
