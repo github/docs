@@ -6,7 +6,7 @@ intro: 'You can control the ability to bypass push protection by setting up a re
 product: '{% data reusables.gated-features.secret-scanning %}'
 versions:
   fpt: '*'
-  ghes: '*'
+  ghes: '>=3.14'
   ghec: '*'
 topics:
   - Secret scanning

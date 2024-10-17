@@ -77,4 +77,4 @@ Writers can also add an introduction paragraph _above_ the following Markdown co
 Slack: `#docs-engineering`
 Repo: `github/docs-engineering`
 
-If you have a question about the REST pipeline, you can ask in the `#docs-engineering` Slack channel. If you notice a problem with the REST pipeline, you can open an issue in the `github/docs-engineering` repository.
+If you have a question about the REST pipeline, you can ask in the `#docs-engineering` Slack channel. If you notice a problem with the REST pipeline, you can open an issue in the `github/docs-engineering` repository. 🚀 

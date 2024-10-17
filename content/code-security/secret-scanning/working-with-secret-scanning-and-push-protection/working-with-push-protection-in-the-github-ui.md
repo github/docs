@@ -2,7 +2,7 @@
 title: Working with push protection in the GitHub UI
 shortTitle: Push protection in the GitHub UI
 intro: 'Learn your options for unblocking your commit when {% data variables.product.prodname_secret_scanning %} detects a secret in your changes.'
-product: '{% data reusables.gated-features.secret-scanning %}'
+permissions: '{% data reusables.permissions.push-protection %}'
 versions:
   fpt: '*'
   ghes: '*'
@@ -17,7 +17,7 @@ topics:
 
 ## About push protection in the {% data variables.product.prodname_dotcom %} UI
 
-When you are creating and editing files in the {% data variables.product.prodname_dotcom %} UI, push protection prevents you from accidentally committing secrets to a repository by blocking commits containing supported secrets.
+When you {% ifversion push-protection-delegated-bypass-file-upload-support %}upload, create, {% else %}create {% endif %}or edit files from the {% data variables.product.prodname_dotcom %} UI, push protection prevents you from accidentally committing secrets to a repository by blocking commits containing supported secrets.
 
 {% ifversion push-protection-block-uploads %}
 

@@ -2,8 +2,7 @@
 title: Viewing security insights
 shortTitle: View security insights
 intro: 'You can use the overview dashboard in security overview to monitor the security landscape of the repositories in your organization{% ifversion security-overview-dashboard-enterprise %} or enterprise{% endif %}.'
-permissions: '{% data reusables.security-overview.permissions %}'
-product: '{% data reusables.gated-features.security-overview %}'
+permissions: '{% data reusables.permissions.security-overview %}'
 versions:
   feature: security-overview-dashboard
 type: how_to
@@ -76,12 +75,12 @@ Keep in mind that the overview page tracks changes over time for security alert 
 
 ## Viewing the security overview dashboard for your enterprise
 
-{% data reusables.security-overview.enterprise-filters-tip %}
-
 {% data reusables.enterprise-accounts.access-enterprise-on-dotcom %}
 {% data reusables.code-scanning.click-code-security-enterprise %}{% ifversion security-overview-3-tab-dashboard %}
 1. By default, the **Detection** tab is displayed. If you want to switch to another tab to see other metrics, click **Remediation** or **Prevention**.{% endif %}
 {% data reusables.security-overview.filter-and-toggle %}
+
+{% data reusables.security-overview.enterprise-filters-tip %}
 
 {% endif %}
 
