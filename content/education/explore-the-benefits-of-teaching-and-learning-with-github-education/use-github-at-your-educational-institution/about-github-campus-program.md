@@ -33,7 +33,7 @@ To read more about {% data variables.product.prodname_dotcom %}'s privacy practi
 
 ## {% data variables.product.prodname_campus_program %} Application Eligibility
 
-* A school employee with authority to adopt technology for the whole school, such as a CTO/CIO, Dean, Department Chair, or Technology Officer, must sign the terms of the program on behalf of the campus.
+A school employee with authority to adopt technology for the whole school, such as a CTO/CIO, Dean, Department Chair, or Technology Officer, must sign the terms of the program on behalf of the campus.
 
 For more information, see the [official {% data variables.product.prodname_campus_program %}](https://education.github.com/schools) page. Or visit the [GitHub Education Resource Guide](https://github.com/github-education-resources/edu-resource-guide?tab=readme-ov-file#github-education-resource-guide).
 
