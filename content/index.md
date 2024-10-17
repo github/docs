@@ -100,7 +100,14 @@ childGroups:
       - repositories
       - pull-requests
       - discussions
+  - name: GitHub Copilot
+    octicon: CopilotIcon
+    children:
       - copilot
+      - copilot/using-github-copilot/getting-code-suggestions-in-your-ide-with-github-copilot
+      - copilot/using-github-copilot/prompt-engineering-for-github-copilot
+      - copilot/using-github-copilot/asking-github-copilot-questions-in-githubcom
+      - copilot/using-github-copilot/example-use-cases/refactoring-code-with-github-copilot
   - name: CI/CD and DevOps
     octicon: GearIcon
     children:
@@ -135,6 +142,7 @@ childGroups:
       - rest
       - graphql
       - webhooks
+      - copilot/building-copilot-extensions
       - github-models
   - name: Enterprise and Teams
     octicon: OrganizationIcon
