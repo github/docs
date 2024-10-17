@@ -120,6 +120,7 @@ childGroups:
     octicon: DeviceMobileIcon
     children:
       - github-cli
+      - get-started/using-github/github-mobile
       - desktop
   - name: Project management
     octicon: ProjectIcon
@@ -139,7 +140,9 @@ childGroups:
     octicon: OrganizationIcon
     children:
       - organizations
+      - code-security/securing-your-organization
       - admin
+      - gh-wa
   - name: Community
     octicon: GlobeIcon
     children:
@@ -151,8 +154,8 @@ childGroups:
   - name: More docs
     octicon: PencilIcon
     children:
-      - electron
       - codeql
+      - electron
       - npm
 externalProducts:
   electron:
@@ -162,12 +165,17 @@ externalProducts:
     external: true
   codeql:
     id: codeql
-    name: CodeQL
+    name: CodeQL query writing
     href: 'https://codeql.github.com/docs'
     external: true
   npm:
     id: npm
     name: npm
     href: 'https://docs.npmjs.com/'
+    external: true
+  gh-wa:
+    id: gh-wa
+    name: GitHub Well-Architected
+    href: 'https://wellarchitected.github.com/'
     external: true
 ---
