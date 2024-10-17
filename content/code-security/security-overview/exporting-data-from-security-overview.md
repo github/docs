@@ -2,8 +2,7 @@
 title: Exporting data from security overview
 shortTitle: Export data
 intro: You can export CSV files of your organization's{% ifversion security-overview-export-dashboard-data %} overview,{% endif %} risk and coverage data from security overview.
-permissions: '{% data reusables.security-overview.permissions %}'
-product: '{% data reusables.gated-features.security-overview %}'
+permissions: '{% data reusables.permissions.security-overview %}'
 versions:
   feature: security-overview-export-data
 type: how_to

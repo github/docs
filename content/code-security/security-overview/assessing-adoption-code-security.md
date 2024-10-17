@@ -3,8 +3,7 @@ title: Assessing adoption of code security features
 shortTitle: Assess adoption of features
 allowTitleToDifferFromFilename: true
 intro: 'You can use security overview to see which teams and repositories have already enabled code security features, and identify any that are not yet protected.'
-permissions: '{% data reusables.security-overview.permissions %}'
-product: '{% data reusables.gated-features.security-overview %}'
+permissions: '{% data reusables.permissions.security-overview %}'
 type: how_to
 topics:
   - Security overview
@@ -22,7 +21,7 @@ versions:
 
 You can use security overview to see which repositories and teams have already enabled each code security feature, and where people need more encouragement to adopt these features. The "Security coverage" view shows a summary and detailed information on feature enablement for an organization. You can filter the view to show a subset of repositories using the "enabled" and "not enabled" links, the "Teams" dropdown menu, and a search field in the page header.
 
-![Screenshot of the header section of the "Security coverage" view on the "Security" tab for an organization. The options for filtering are outlined in dark orange, including "enabled" and "not enabled" links, "Teams" selector, and search field.](/assets/images/help/security-overview/security-coverage-view-summary.png)
+![Screenshot of the header section of the "Security coverage" view on the "Security" tab for an organization.](/assets/images/help/security-overview/security-coverage-view-summary.png)
 
 >[!NOTE] "Pull request alerts" are reported as enabled only when {% data variables.product.prodname_code_scanning %} has analyzed at least one pull request since alerts were enabled for the repository.
 
@@ -38,18 +37,14 @@ You can use the "Enablement trends" view to see enablement status and enablement
 
 ## Viewing the enablement of code security features for an organization
 
-You can view data to assess the enablement of code security features across organizations in an enterprise. {% data reusables.security-overview.information-varies-GHAS %}
-
-{% ifversion dependabot-updates-paused-enterprise-orgs %}
-
-In the list of repositories, the "Paused" label under "{% data variables.product.prodname_dependabot %}" indicates repositories for which {% data variables.product.prodname_dependabot_updates %} are paused. For information about inactivity criteria, see "[AUTOTITLE](/code-security/dependabot/dependabot-security-updates/about-dependabot-security-updates#about-automatic-deactivation-of-dependabot-updates)" and "[AUTOTITLE](/code-security/dependabot/dependabot-version-updates/about-dependabot-version-updates#about-automatic-deactivation-of-dependabot-updates)," for security and version updates, respectively.{% endif %}
+You can view data to assess the enablement of code security features across repositories in an organization.
 
 {% data reusables.organizations.navigate-to-org %}
 {% data reusables.organizations.security-overview %}
 1. To display the "Security coverage" view, in the sidebar, click **{% octicon "meter" aria-hidden="true"  %} Coverage**.
 {% data reusables.code-scanning.using-security-overview-coverage %}
 
-   ![Screenshot of the header section of the "Security coverage" view on the "Security" tab for an organization. The options for filtering are outlined in dark orange, including "enabled" and "not enabled" links, "Teams" selector, archived repositories, and search field.](/assets/images/help/security-overview/security-coverage-view-highlights.png)
+   ![Screenshot of the "Security coverage" view. The options for filtering are outlined in dark orange.](/assets/images/help/security-overview/security-coverage-view-highlights.png)
 
 {% ifversion pre-security-configurations %}
 1. Optionally, click **{% octicon "gear" aria-hidden="true" %} Security settings** to enable code security features for a repository and click **Save security settings** to confirm the changes. If a feature is not shown, it has more complex configuration requirements and you need to use the repository settings dialog. For more information, see "[AUTOTITLE](/code-security/getting-started/securing-your-repository)."
@@ -59,24 +54,26 @@ In the list of repositories, the "Paused" label under "{% data variables.product
 
 {% endif %}
 
-{% ifversion security-overview-org-risk-coverage-enterprise %}
+{% ifversion dependabot-updates-paused-enterprise-orgs %}
+
+In the list of repositories, a "Paused" label under "{% data variables.product.prodname_dependabot %}" indicates repositories for which {% data variables.product.prodname_dependabot_updates %} are paused. For information about inactivity criteria, see "[AUTOTITLE](/code-security/dependabot/dependabot-security-updates/about-dependabot-security-updates#about-automatic-deactivation-of-dependabot-updates)" and "[AUTOTITLE](/code-security/dependabot/dependabot-version-updates/about-dependabot-version-updates#about-automatic-deactivation-of-dependabot-updates)," for security and version updates, respectively.{% endif %}
 
 ## Viewing the enablement of code security features for an enterprise
 
-You can view data to assess the enablement of code security features across organizations in an enterprise. {% data reusables.security-overview.information-varies-GHAS %}
+You can view data to assess the enablement of code security features across organizations in an enterprise.
 
-In the enterprise-level view, you can view data about the enablement of features, but you cannot enable or disable features. For more information about enabling features, see {% ifversion security-configurations %}"[AUTOTITLE](/code-security/securing-your-organization/enabling-security-features-in-your-organization){% else %}"[AUTOTITLE](/code-security/security-overview/enabling-security-features-for-multiple-repositories){% endif %}."
-
-{% data reusables.security-overview.enterprise-filters-tip %}
+{% ifversion pre-security-configurations %}
+In the enterprise-level view, you can view data about the enablement of features, but you cannot enable or disable features.
+{% endif %}
 
 {% data reusables.enterprise-accounts.access-enterprise-on-dotcom %}
 {% data reusables.code-scanning.click-code-security-enterprise %}
 1. To display the "Security coverage" view, in the sidebar, click **Coverage**.
 {% data reusables.code-scanning.using-security-overview-coverage %}
 
-   ![Screenshot of the header section of the "Security coverage" view for an enterprise. The options for filtering are outlined in dark orange, including "enabled" and "not enabled" links, "Teams" selector, archived repositories, and search field.](/assets/images/help/security-overview/security-coverage-view-highlights-enterprise.png)
+   ![Screenshot of the header section of the "Security coverage" view. The options for filtering are outlined in dark orange.](/assets/images/help/security-overview/security-coverage-view-highlights-enterprise.png)
 
-{% endif %}
+{% data reusables.security-overview.enterprise-filters-tip %}
 
 {% ifversion security-overview-tool-adoption %}
 
@@ -114,8 +111,6 @@ You can view data to assess the enablement status and enablement status trends o
 
 You can view data to assess the enablement status and enablement status trends of code security features across organizations in an enterprise.
 
->[!TIP] You can use the `owner:` filter in the search field to filter the data by organization. For more information, see "[AUTOTITLE](/code-security/security-overview/filtering-alerts-in-security-overview)."
-
 {% data reusables.enterprise-accounts.access-enterprise-on-dotcom %}
 {% data reusables.code-scanning.click-code-security-enterprise %}
 1. To display the "Enablement trends" view, in the sidebar, click **Enablement trends**.
@@ -123,6 +118,8 @@ You can view data to assess the enablement status and enablement status trends o
 1. Optionally, use the options at the top of the "Enablement trends" view page to filter the group of repositories you want to see enablement trends for.
     * Use the date picker to set the time range that you want to view enablement trends for.
     * Click in the search box to add further filters on the enablement trends displayed. For more information, see "[AUTOTITLE](/code-security/security-overview/filtering-alerts-in-security-overview)."
+
+>[!TIP] You can use the `owner:` filter in the search field to filter the data by organization. For more information, see "[AUTOTITLE](/code-security/security-overview/filtering-alerts-in-security-overview)."
 
 {% endif %}
 

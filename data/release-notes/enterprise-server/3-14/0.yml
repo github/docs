@@ -220,6 +220,8 @@ sections:
       When enabling automatic update checks for the first time in the Management Console, the status is not dynamically reflected until the "Updates" page is reloaded.
     - |
       Following an upgrade, Elasticsearch search migrations are sometimes incorrectly reported as failing in the audit log, even though the migrations completed successfully. [Updated: 2024-09-27]
+    - |
+      Images embedded in wiki pages may stop rendering shortly after being published. [Updated: 2024-10-16]
 
   deprecations:
     - |
