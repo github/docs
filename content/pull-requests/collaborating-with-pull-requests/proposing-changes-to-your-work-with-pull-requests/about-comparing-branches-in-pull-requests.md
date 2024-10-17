@@ -70,7 +70,8 @@ To see two committish references in a two-dot diff comparison on {% data variabl
 
 A two-dot diff compares two Git committish references, such as SHAs or OIDs (Object IDs), directly with each other. On {% data variables.product.prodname_dotcom %}, the Git committish references in a two-dot diff comparison must be pushed to the same repository or its forks.
 
-If you want to simulate a two-dot diff in a pull request and see a comparison between the most recent versions of each branch, you can merge the base branch into your topic branch, which updates the last common ancestor between your branches.
+
+To simulate a two-dot diff in a pull request and compare the latest versions of each branch, you can merge the base branch into your topic branch. This updates the last common ancestor between the two branches.
 
 For more information about Git commands to compare changes, see "[Git diff options](https://git-scm.com/docs/git-diff#git-diff-emgitdiffemltoptionsgtltcommitgtltcommitgt--ltpathgt82308203)" from the _Pro Git_ book site.
 
@@ -84,7 +85,7 @@ In contrast, by comparing the branches using the three-dot comparison, changes i
 
 ### Merging often
 
-To avoid getting confused, merge the base branch (for example, `main`) into your topic branch frequently. By merging the base branch, the diffs shown by two-dot and three-dot comparisons are the same. We recommend merging a pull request as soon as possible. This encourages contributors to make pull requests smaller, which is recommended in general.
+To avoid confusion, regularly merge the base branch (e.g., main) into your topic branch. Doing so ensures that the diffs in both two-dot and three-dot comparisons remain consistent. It's best to merge pull requests as soon as possible, as this encourages smaller, more manageable pull requests, which is generally recommended.
 
 ## Further reading
 
