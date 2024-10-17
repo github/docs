@@ -1,13 +1,13 @@
 ---
 title: Developing in a codespace
-intro: "You can work in a codespace using your browser, {% data variables.product.prodname_vscode %}, a JetBrains IDE, or in a command shell."
+intro: 'You can work in a codespace using your browser, {% data variables.product.prodname_vscode %}, a JetBrains IDE, or in a command shell.'
 redirect_from:
   - /github/developing-online-with-github-codespaces/developing-in-a-codespace
   - /github/developing-online-with-codespaces/developing-in-a-codespace
   - /codespaces/developing-in-codespaces/developing-in-a-codespace
 versions:
-  fpt: "*"
-  ghec: "*"
+  fpt: '*'
+  ghec: '*'
 type: how_to
 topics:
   - Codespaces
