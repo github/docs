@@ -243,7 +243,7 @@ Use the category to distinguish between multiple analyses for the same tool or c
 | my-analysis/tool1/ | my-analysis/tool1 | None
 | my-analysis for tool1 | None | my-analysis for tool1
 
-* The run with an `id` of "my-analysis/tool1/2021-02-01" belongs to the category "my-analysis/tool1". If _ISO8601_, this is the run from January 2, 2022 (notice: ISO8601 format is used in Europe + US, but your system locale can replace this.)
+* The run with an `id` of "my-analysis/tool1/2021-02-01" belongs to the category "my-analysis/tool1".
 * The run with an `id` of "my-analysis/tool1/" belongs to the category "my-analysis/tool1" but is not distinguished from other runs in that category.
 * The run whose `id` is "my-analysis for tool1 " has a unique identifier but cannot be inferred to belong to any category.
 
