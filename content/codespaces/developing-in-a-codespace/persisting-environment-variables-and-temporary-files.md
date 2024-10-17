@@ -2,8 +2,8 @@
 title: Persisting environment variables and temporary files
 intro: You can configure custom environment variables so that they are set to the same value every time you open a codespace. You can also ensure that temporary files are not deleted when a codespace stops.
 versions:
-  fpt: "*"
-  ghec: "*"
+  fpt: '*'
+  ghec: '*'
 type: how_to
 topics:
   - Codespaces
