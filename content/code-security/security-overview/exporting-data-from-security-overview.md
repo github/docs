@@ -2,8 +2,7 @@
 title: Exporting data from security overview
 shortTitle: Export data
 intro: You can export CSV files of your organization's{% ifversion security-overview-export-dashboard-data %} overview,{% endif %} risk and coverage data from security overview.
-permissions: '{% data reusables.security-overview.permissions %}'
-product: '{% data reusables.gated-features.security-overview %}'
+permissions: '{% data reusables.permissions.security-overview %}'
 versions:
   feature: security-overview-export-data
 type: how_to
@@ -45,7 +44,7 @@ The CSV file you download will contain data corresponding to the filters you hav
 
 {% note %}
 
-**Note:** The summary views ({% ifversion security-overview-dashboard %}"Overview", {% endif %}"Coverage" and "Risk") show data only for high-confidence alerts. {% data variables.product.prodname_code_scanning_caps %} alerts from third-party tools, and {% data variables.product.prodname_secret_scanning %} alerts for non-provider patterns or for ignored directories are all omitted from these views. Consequently, files exported from the summary views do not contain data for these types of alert.
+**Note:** The summary views ({% ifversion security-overview-dashboard %}"Overview", {% endif %}"Coverage" and "Risk") show data only for {% ifversion secret-scanning-alert-experimental-list %}default{% else %}high confidence{% endif %} alerts. {% data variables.product.prodname_code_scanning_caps %} alerts from third-party tools, and {% data variables.product.prodname_secret_scanning %} alerts for non-provider patterns or for ignored directories are all omitted from these views. Consequently, files exported from the summary views do not contain data for these types of alert.
 
 {% endnote %}
 

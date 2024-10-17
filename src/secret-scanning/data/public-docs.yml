@@ -499,6 +499,17 @@
   hasValidityCheck: false
   isduplicate: false
 - provider: Azure
+  supportedSecret: Azure OpenAI Key
+  secretType: azure_openai_key
+  versions:
+    fpt: '*'
+    ghec: '*'
+  isPublic: true
+  isPrivateWithGhas: true
+  hasPushProtection: true
+  hasValidityCheck: false
+  isduplicate: false
+- provider: Azure
   supportedSecret: Azure Relay Key Identifiable
   secretType: azure_relay_key_identifiable
   versions:
@@ -719,6 +730,17 @@
   hasPushProtection: true
   hasValidityCheck: false
   isduplicate: false
+- provider: Cfx.re
+  supportedSecret: Cfx.re Server Key
+  secretType: cfxre_server_key
+  versions:
+    fpt: '*'
+    ghec: '*'
+  isPublic: true
+  isPrivateWithGhas: false
+  hasPushProtection: false
+  hasValidityCheck: false
+  isduplicate: false
 - provider: Checkout.com
   supportedSecret: Checkout.com Production Secret Key
   secretType: checkout_production_secret_key
@@ -821,7 +843,7 @@
     ghes: '*'
   isPublic: true
   isPrivateWithGhas: false
-  hasPushProtection: true
+  hasPushProtection: false
   hasValidityCheck: false
   isduplicate: false
 - provider: Contentful
@@ -833,7 +855,7 @@
     ghes: '*'
   isPublic: false
   isPrivateWithGhas: true
-  hasPushProtection: false
+  hasPushProtection: true
   hasValidityCheck: false
   isduplicate: false
 - provider: Contributed Systems
@@ -1856,6 +1878,17 @@
   hasPushProtection: true
   hasValidityCheck: false
   isduplicate: true
+- provider: Iterative
+  supportedSecret: DVC Studio Access Token
+  secretType: iterative_dvc_studio_access_token
+  versions:
+    fpt: '*'
+    ghec: '*'
+  isPublic: true
+  isPrivateWithGhas: false
+  hasPushProtection: false
+  hasValidityCheck: false
+  isduplicate: false
 - provider: JFrog
   supportedSecret: JFrog Platform Access Token
   secretType: jfrog_platform_access_token
@@ -2151,6 +2184,17 @@
     ghes: '*'
   isPublic: false
   isPrivateWithGhas: true
+  hasPushProtection: false
+  hasValidityCheck: false
+  isduplicate: false
+- provider: Netflix
+  supportedSecret: Netflix NetKey
+  secretType: netflix_netkey
+  versions:
+    fpt: '*'
+    ghec: '*'
+  isPublic: true
+  isPrivateWithGhas: false
   hasPushProtection: false
   hasValidityCheck: false
   isduplicate: false
@@ -2589,18 +2633,6 @@
   hasValidityCheck: false
   isduplicate: false
 - provider: Postman
-  supportedSecret: Postman API Key
-  secretType: postman_api_key
-  versions:
-    fpt: '*'
-    ghec: '*'
-    ghes: '>=3.5'
-  isPublic: true
-  isPrivateWithGhas: true
-  hasPushProtection: true
-  hasValidityCheck: false
-  isduplicate: false
-- provider: Postman
   supportedSecret: Postman Collection Key
   secretType: postman_collection_key
   versions:
@@ -3004,6 +3036,17 @@
   hasPushProtection: false
   hasValidityCheck: false
   isduplicate: false
+- provider: Sindri
+  supportedSecret: Sindri API Key
+  secretType: sindri_api_key
+  versions:
+    fpt: '*'
+    ghec: '*'
+  isPublic: true
+  isPrivateWithGhas: false
+  hasPushProtection: false
+  hasValidityCheck: false
+  isduplicate: true
 - provider: Slack
   supportedSecret: Slack API Token
   secretType: slack_api_token

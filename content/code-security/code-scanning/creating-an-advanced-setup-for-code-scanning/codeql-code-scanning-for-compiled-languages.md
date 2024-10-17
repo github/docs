@@ -2,8 +2,8 @@
 title: CodeQL code scanning for compiled languages
 shortTitle: CodeQL for compiled languages
 intro: 'Understand how {% data variables.product.prodname_codeql %} analyzes compiled languages, the build options available, and learn how you can customize the database generation process if you need to.'
+permissions: '{% data reusables.permissions.code-scanning-all-alerts %} if [advanced setup](/code-security/code-scanning/creating-an-advanced-setup-for-code-scanning/configuring-advanced-setup-for-code-scanning) is already enabled'
 product: '{% data reusables.gated-features.code-scanning %}'
-permissions: 'People with write permissions to a repository can configure {% data variables.product.prodname_code_scanning %} for that repository by editing a workflow, when advanced setup is enabled (admin permission is required to change setup).'
 redirect_from:
   - /github/finding-security-vulnerabilities-and-errors-in-your-code/configuring-code-scanning-for-compiled-languages
   - /github/finding-security-vulnerabilities-and-errors-in-your-code/configuring-the-codeql-action-for-compiled-languages
@@ -349,6 +349,26 @@ You can ensure a more accurate analysis by taking the following steps:
 | Operating system | Windows, macOS, and Linux |
 | Build system | .NET and MSbuild, as well as build scripts |
 
+### C# compiler flags injected by {% data variables.product.prodname_codeql %}
+
+>[!NOTE] The following compiler flags only apply if you're using build mode `manual`.
+
+The {% data variables.product.prodname_codeql %} tracer enables the extraction of all compiled languages by intercepting build processes and forwarding information to the relevant {% data variables.product.prodname_codeql %} language extractors. The tracer injects certain flags into the C# compiler invocation to ensure every component is built and included in the {% data variables.product.prodname_codeql %} database, which may cause your C# code to build in a different way to what you expect during {% data variables.product.prodname_codeql %} analysis.
+
+#### `/p:MvcBuildViews=true`
+
+When this option is set to `true`, the views in ASP.NET model-view-controller (MVC) projects are precompiled as part of the build process, which can help to catch errors and improve performance. The tracer injects this flag to make sure {% data variables.product.prodname_codeql %} finds and highlights security issues that may involve dataflow through the code generated from these views. For more information, see "[Adding a View to an MVC Application](https://learn.microsoft.com/en-us/aspnet/mvc/overview/getting-started/introduction/adding-a-view)" in Microsoft Learn.
+
+#### `/p:UseSharedCompilation=false`
+
+Setting this option to `false` disables the use of the shared compilation feature, which may result in slower build times. When `/p:UseSharedCompilation=false` is **not** specified, `msbuild` starts a compiler server process, and all the compilation will be done by that single process. However, the {% data variables.product.prodname_codeql %} tracer depends on inspecting the arguments of newly created processes.
+
+#### `/p:EmitCompilerGeneratedFiles=true`
+
+Setting this option to `true` will emit compiler-generated files during the build process. This option causes the compiler to generate additional source files that are used to support features such as improved regular expression support, serialization, and web application view generation. These generated artifacts are typically not written to disk by the compiler, but setting the option to `true` forces writing the files to disk, and so the extractor can process the files.
+
+For some legacy projects, and projects that use `.sqlproj` files, you may see that the injected `/p:EmitCompilerGeneratedFiles=true` property causes unexpected issues with `msbuild`. For information about troubleshooting this, see "[AUTOTITLE](/code-security/code-scanning/troubleshooting-code-scanning/c-sharp-compiler-unexpectedly-failing)."
+
 ### Windows autodetection
 
 The `autobuild` process attempts to autodetect a suitable build method for C# using the following approach:
@@ -416,6 +436,12 @@ The `autobuild` process attempts to autodetect a suitable way to install the dep
 **Note:** If you use default setup, it will look for a `go.mod` file to automatically install a compatible version of the Go language.{% ifversion code-scanning-default-setup-self-hosted-310 %} If you're using a self-hosted runner with default setup that doesn't have internet access, you can manually install a compatible version of Go.{% endif %}
 
 {% endnote %}
+
+### Extractor options for Go
+
+By default, test code (code in files ending in `_test.go`) is not analyzed. You can override this with the option `--extractor-option extract_tests=true` when using the {% data variables.product.prodname_codeql_cli %}, or by setting the environment variable `CODEQL_EXTRACTOR_GO_OPTION_EXTRACT_TESTS` to `true`.
+
+Additionally, `vendor` directories are excluded from {% data variables.product.prodname_codeql %} Go analysis by default. You can override this by passing the `--extractor-option extract_vendor_dirs=true` option when using the {% data variables.product.prodname_codeql_cli %}, or by setting the environment variable `CODEQL_EXTRACTOR_GO_OPTION_EXTRACT_VENDOR_DIRS` to `true`.
 
 ## Building Java and Kotlin
 

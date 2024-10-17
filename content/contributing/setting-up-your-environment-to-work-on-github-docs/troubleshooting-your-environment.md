@@ -16,7 +16,7 @@ For more information, see "[AUTOTITLE](/contributing/setting-up-your-environment
 If a staging deployment is pending for more than ten minutes, try closing your pull request (without deleting the branch) and reopening it. This will trigger a new staging deployment. It won't break anything.
 
 If that doesn't work, use the commands below to trigger a new staging deployment by pushing an empty commit on the command line.
-  
+
 ```shell
 git commit --allow-empty -m 'empty commit to redeploy staging'
 git push
@@ -73,8 +73,8 @@ If the error does not include the location of the broken link, you will need to 
 
 When you locate the broken link, make sure the link is versioned correctly. For example, if the article only exists for GHES version 3.8+, make sure the link is versioned for 3.8+.
 
-If an article that is available for {% data variables.product.prodname_ghe_server %} links to a {% data variables.product.prodname_dotcom_the_website %}-only article, include the version in the path to prevent the URL from automatically converting to include a {% data variables.product.prodname_ghe_server %} version number. The following example demonstrates how to link from a {% data variables.product.prodname_ghe_server %} article to a {% data variables.product.prodname_dotcom_the_website %}-only article.
-  
+If an article that is available for {% data variables.product.prodname_ghe_server %} links to a different version of {% data variables.product.prodname_docs %}, include the version in the path to prevent the URL from automatically converting to include a {% data variables.product.prodname_ghe_server %} version number. The following example demonstrates how to link from a {% data variables.product.prodname_ghe_server %} article to a Free, Pro, & Team version of an article.
+
 ```text
 [{% raw %}{{ data variables.product.prodname_github_connect }} Addendum to the {{ data variables.product.prodname_enterprise }} License Agreement{% endraw %}](/free-pro-team@latest/articles/github-connect-addendum-to-the-github-enterprise-license-agreement/)"
 ```

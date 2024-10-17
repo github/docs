@@ -278,8 +278,8 @@ To migrate your repositories, run the generated script.
 Before running the script, you must set additional environment variables to authenticate to your blob storage provider.
 
 * For AWS S3, set the following environment variables.
-  * `AWS_ACCESS_KEY`: The access key for your bucket
-  * `AWS_SECRET_KEY`: The secret key for your bucket
+  * `AWS_ACCESS_KEY_ID`: The access key id for your bucket
+  * `AWS_SECRET_ACCESS_KEY`: The secret key for your bucket
   * `AWS_REGION`: The AWS region where your bucket is located
   * `AWS_SESSION_TOKEN`: The session token, if you're using AWS temporary credentials (see [Using temporary credentials with AWS resources](https://docs.aws.amazon.com/IAM/latest/UserGuide/id_credentials_temp_use-resources.html) in the AWS documentation)
 * For Azure Blob Storage, set `AZURE_STORAGE_CONNECTION_STRING` to the connection string for your Azure storage account.

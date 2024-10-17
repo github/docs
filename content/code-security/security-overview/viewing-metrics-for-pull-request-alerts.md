@@ -3,8 +3,7 @@ title: Viewing metrics for pull request alerts
 shortTitle: View PR alert metrics
 allowTitleToDifferFromFilename: true
 intro: 'You can use security overview to see how {% data variables.product.prodname_codeql %} is performing in pull requests for repositories across your organization, and to identify repositories where you may need to take action.'
-permissions: '{% data reusables.security-overview.permissions %}'
-product: '{% data reusables.gated-features.security-overview %}'
+permissions: '{% data reusables.permissions.security-overview %}'
 type: how_to
 topics:
   - Security overview

@@ -5,6 +5,7 @@ intro: 'You can quickly configure {% data variables.product.prodname_code_scanni
 redirect_from:
   - /code-security/code-scanning/automatically-scanning-your-code-for-vulnerabilities-and-errors/configuring-code-scanning-at-scale
   - /code-security/code-scanning/automatically-scanning-your-code-for-vulnerabilities-and-errors/configuring-default-setup-for-code-scanning-at-scale
+permissions: '{% data reusables.permissions.security-org-enable %}'
 product: '{% data reusables.gated-features.code-scanning %}'
 type: how_to
 topics:

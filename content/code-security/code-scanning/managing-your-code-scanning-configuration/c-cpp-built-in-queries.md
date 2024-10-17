@@ -2,7 +2,7 @@
 title: C and C++ queries for CodeQL analysis
 shortTitle: C and C++ CodeQL queries
 intro: 'Explore the queries that {% data variables.product.prodname_codeql %} uses to analyze code written in C or C++ when you select the `default` or the `security-extended` query suite.'
-product: '{% data reusables.gated-features.code-scanning %}'
+product: '{% data reusables.gated-features.codeql %}'
 allowTitleToDifferFromFilename: true
 versions:
   fpt: '*'

@@ -2,7 +2,7 @@
 title: Managing your GitHub Advanced Security license usage
 shortTitle: Manage GHAS licenses
 intro: 'You can understand and control {% data variables.product.prodname_GH_advanced_security %} license usage for repositories in your organization.'
-permissions: '{% data reusables.security-configurations.security-configurations-permissions %}'
+permissions: '{% data reusables.permissions.security-org-enable %}'
 versions:
   feature: security-configurations
 topics:

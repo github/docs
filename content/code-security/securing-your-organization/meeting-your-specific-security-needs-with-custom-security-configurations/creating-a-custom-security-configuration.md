@@ -2,7 +2,7 @@
 title: Creating a custom security configuration
 shortTitle: Create custom configuration
 intro: 'Build a {% data variables.product.prodname_custom_security_configuration %} to meet the specific security needs of repositories in your organization.'
-permissions: '{% data reusables.security-configurations.security-configurations-permissions %}'
+permissions: '{% data reusables.permissions.security-org-enable %}'
 versions:
   feature: security-configurations
 topics:
@@ -48,7 +48,7 @@ With {% data variables.product.prodname_custom_security_configurations %}, you c
     * {% data variables.product.prodname_secret_scanning_caps %}. To learn about {% data variables.product.prodname_secret_scanning %}, see "[AUTOTITLE](/code-security/secret-scanning/introduction/about-secret-scanning)."{% ifversion secret-scanning-validity-check-partner-patterns %}
     * Validity check. To learn more about validity checks for partner patterns, see "[AUTOTITLE](/code-security/secret-scanning/managing-alerts-from-secret-scanning/evaluating-alerts#checking-a-secrets-validity)".{% endif %}
     * Push protection. To learn about push protection, see "[AUTOTITLE](/code-security/secret-scanning/introduction/about-push-protection)."{% ifversion org-npp-enablement-security-configurations %}
-    * Non-provider patterns. To learn more about scanning for non-provider patterns, see "[AUTOTITLE](/code-security/secret-scanning/introduction/supported-secret-scanning-patterns#non-provider-patterns)" and "[AUTOTITLE](/code-security/secret-scanning/managing-alerts-from-secret-scanning/viewing-alerts#other-alerts-list)."
+    * Non-provider patterns. To learn more about scanning for non-provider patterns, see "[AUTOTITLE](/code-security/secret-scanning/introduction/supported-secret-scanning-patterns#non-provider-patterns)" and "[AUTOTITLE](/code-security/secret-scanning/managing-alerts-from-secret-scanning/viewing-alerts)."
 
        {% data reusables.secret-scanning.non-provider-patterns-beta %}{% endif %}
 

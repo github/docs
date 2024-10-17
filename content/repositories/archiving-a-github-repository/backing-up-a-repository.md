@@ -73,7 +73,7 @@ Migration archives can be restored to your {% data variables.product.prodname_gh
 {% endwarning %}
 
 {% else %}
-There is no supported, documented way to restore migration archives on {% data variables.product.prodname_dotcom_the_website %}, so these backups are only suitable for archiving purposes.
+There is no supported, documented way to restore migration archives on {% data variables.product.prodname_dotcom %}, so these backups are only suitable for archiving purposes.
 {% endif %}
 
 {% ifversion fpt or ghec %}

@@ -2,7 +2,7 @@
 title: Managing policies for Copilot in your organization
 intro: 'Learn how to manage policies for {% data variables.product.prodname_copilot %} in your organization.'
 permissions: Organization owners
-product: '{% data reusables.gated-features.copilot-business-and-enterprise %}'
+product: 'Organizations with a subscription to {% data variables.product.prodname_copilot_for_business %} or {% data variables.product.prodname_copilot_enterprise %}'
 versions:
   feature: copilot
 redirect_from:

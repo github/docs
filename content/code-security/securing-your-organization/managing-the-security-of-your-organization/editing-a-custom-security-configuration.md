@@ -2,7 +2,7 @@
 title: Editing a custom security configuration
 shortTitle: Edit custom configuration
 intro: 'Change the enablement settings in your {% data variables.product.prodname_custom_security_configuration %} to better meet the security needs of your repositories.'
-permissions: '{% data reusables.security-configurations.security-configurations-permissions %}'
+permissions: '{% data reusables.permissions.security-org-enable %}'
 versions:
   feature: security-configurations
 topics:
@@ -15,7 +15,7 @@ topics:
 
 After creating and applying a {% data variables.product.prodname_custom_security_configuration %}, you may need to edit the enablement settings for that configuration to better secure your repositories. Any changes you make to the enablement settings of a {% data variables.product.prodname_security_configuration %} will automatically populate to all linked repositories.
 
-To determine if your {% data variables.product.prodname_custom_security_configuration %} is meeting your security needs, see "[AUTOTITLE](/code-security/securing-your-organization/managing-the-security-of-your-organization/interpreting-security-findings-on-a-repository)."
+To determine if your {% data variables.product.prodname_custom_security_configuration %} is meeting your security needs, see "[AUTOTITLE](/code-security/securing-your-organization/managing-the-security-of-your-organization/interpreting-security-findings)."
 
 {% note %}
 
