@@ -47,6 +47,8 @@ In order to use ARC, ensure you have the following.
     The following example installs the latest version of the chart. To install a specific version, you can pass the `--version` argument along with the version of the chart you wish to install. You can find the list of releases in the [GitHub Container Registry](https://github.com/actions/actions-runner-controller/pkgs/container/actions-runner-controller-charts%2Fgha-runner-scale-set-controller).
 
     ```bash copy
+    gh auth token | helm registry login ghcr.io -u propyless --password-stdin
+    
     NAMESPACE="arc-systems"
     helm install arc \
         --namespace "{% raw %}${NAMESPACE}{% endraw %}" \
