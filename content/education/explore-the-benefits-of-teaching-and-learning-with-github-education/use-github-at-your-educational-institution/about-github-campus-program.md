@@ -23,7 +23,7 @@ To read about how {% data variables.product.prodname_dotcom %} is used by educat
 
 * The license is free for one year and will automatically renew annually. You may continue on the free license so long as you continue to operate within the terms of the agreement. Any school that grants degrees, dipolomas or certificates and can agree to the [terms of the program](https://education.github.com/schools/terms) is welcome to join.
 
-* Please note that the licenses are for use by the whole school. Internal IT departments, academic research groups, collaborators, students, and other non-academic departments are eligible to use the licenses so long as they are not making a profit from its use. 
+* Please note that the licenses are for use by the whole school. Internal IT departments, academic research groups, collaborators, students, and other non-academic departments are eligible to use the licenses so long as they are not making a profit from its use.
 
 * You must offer {% data variables.product.prodname_dotcom %} to all of your technical and academic departments and your school’s logo will be shared on the GitHub Education website as a {% data variables.product.prodname_campus_program %} Partner.
 
