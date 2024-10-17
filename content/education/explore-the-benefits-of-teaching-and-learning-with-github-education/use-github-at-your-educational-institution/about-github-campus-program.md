@@ -35,6 +35,6 @@ To read more about {% data variables.product.prodname_dotcom %}'s privacy practi
 
 A school employee with authority to adopt technology for the whole school, such as a CTO/CIO, Dean, Department Chair, or Technology Officer, must sign the terms of the program on behalf of the campus.
 
-For more information, see the [official {% data variables.product.prodname_campus_program %}](https://education.github.com/schools) page. Or visit the [GitHub Education Resource Guide](https://github.com/github-education-resources/edu-resource-guide?tab=readme-ov-file#github-education-resource-guide).
+For more information, see the [official {% data variables.product.prodname_campus_program %}](https://education.github.com/schools) page or visit the [{% data variables.product.prodname_education %} Resource Guide](https://github.com/github-education-resources/edu-resource-guide?tab=readme-ov-file#github-education-resource-guide).
 
 If you're a student or academic faculty and your school isn't partnered with {% data variables.product.prodname_dotcom %} as a {% data variables.product.prodname_campus_program %} school, then you can still individually apply for discounts to use {% data variables.product.prodname_dotcom %}. To apply for the Student Developer Pack, [see the application form](https://education.github.com/pack/join).
