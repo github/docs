@@ -449,8 +449,8 @@ If you're migrating from {% data variables.product.prodname_ghe_server %} 3.7 or
 
    {% data reusables.enterprise-migration-tool.azure-storage-connection-key %}
 * For AWS S3, set the following environment variables.
-  * `AWS_ACCESS_KEY`: The access key for your bucket
-  * `AWS_SECRET_KEY`: The secret key for your bucket
+  * `AWS_ACCESS_KEY_ID`: The access key id for your bucket
+  * `AWS_SECRET_ACCESS_KEY`: The secret key for your bucket
   * `AWS_REGION`: The AWS region where your bucket is located
   * `AWS_SESSION_TOKEN`: The session token, if you're using AWS temporary credentials (see [Using temporary credentials with AWS resources](https://docs.aws.amazon.com/IAM/latest/UserGuide/id_credentials_temp_use-resources.html) in the AWS documentation)
 
