@@ -60,6 +60,8 @@ To get started, read the guide for your chosen authentication method.
 * "[AUTOTITLE](/admin/identity-and-access-management/using-enterprise-managed-users-for-iam/configuring-oidc-for-enterprise-managed-users)"
 * "[AUTOTITLE](/admin/identity-and-access-management/managing-iam-with-enterprise-managed-users/configuring-saml-single-sign-on-for-enterprise-managed-users)"
 
+{% data variables.product.company_short %} offers a "paved-path" integration and full support if you use a partner IdP for both authentication and provisioning. Alternatively, you can use any system, or combination of systems, that conforms to SAML 2.0 and SCIM 2.0. However, support for resolving problems with these systems may be limited. For more details, see "[AUTOTITLE](/admin/identity-and-access-management/understanding-iam-for-enterprises/about-enterprise-managed-users#identity-management-systems)."
+
 ## Configure provisioning
 
 After you configure authentication, you can configure SCIM provisioning, which is how your IdP will create {% data variables.enterprise.prodname_managed_users %} on {% data variables.product.prodname_dotcom %}. See "[AUTOTITLE](/admin/identity-and-access-management/using-enterprise-managed-users-for-iam/configuring-scim-provisioning-for-enterprise-managed-users)."

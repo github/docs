@@ -24,8 +24,7 @@ You can view the usage of your enterprise members and download the usage data fo
 {% data reusables.enterprise-accounts.access-enterprise %}
 {% data reusables.billing.enterprise-billing-menu %}
 1. Click **Usage**.
-1. To view usage for a specific cost center, click **Metered usage (w/o cost centers) {% octicon "triangle-down" aria-label="Change cost center selection" %}**, then select a cost center.
-1. To search or filter the graph, click the search bar. When you click the search bar, you will see a list of suggested filters.
+1. To search or filter the graph, click the search bar. Then click the filter you want to use.
 1. To further filter the graph, use the dropdown menus.
 
    * To see the usage by group, select **Group**, then click a group.
