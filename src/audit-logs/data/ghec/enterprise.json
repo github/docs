@@ -220,6 +220,11 @@
     "docs_reference_links": "N/A"
   },
   {
+    "action": "business.code_scanning_autofix_third_party_tools_policy_update",
+    "description": "The policy for Code scanning autofix third party tools was updated for an enterprise.",
+    "docs_reference_links": "N/A"
+  },
+  {
     "action": "business.connect_usage_metrics_export",
     "description": "Server statistics were exported for the enterprise.",
     "docs_reference_links": "/admin/monitoring-activity-in-your-enterprise/analyzing-how-your-team-works-with-server-statistics/exporting-server-statistics"
@@ -552,6 +557,16 @@
   {
     "action": "business.secret_scanning_repo_admin_settings_policy_update",
     "description": "N/A",
+    "docs_reference_links": "N/A"
+  },
+  {
+    "action": "business.security_center_export_code_scanning_metrics",
+    "description": "A CSV export was requested on the \"CodeQL pull request alerts\" page.",
+    "docs_reference_links": "N/A"
+  },
+  {
+    "action": "business.security_center_export_overview_dashboard",
+    "description": "A CSV export was requested on the \"Overview Dashboard\" page.",
     "docs_reference_links": "N/A"
   },
   {
