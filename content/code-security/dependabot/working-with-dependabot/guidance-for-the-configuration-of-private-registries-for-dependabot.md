@@ -318,7 +318,7 @@ If there is no global registry defined in a `.npmrc` file, you can set `replaces
 
 {% data reusables.dependabot.access-private-dependencies-link %}
 
-For scoped dependencies (`@my-org/my-dep`), {% data variables.product.prodname_dependabot %} requires that the private registry is defined in the project's `.npmrc file`. To define private registries for individual scopes, use `@myscope:registry=https://private_registry_url`.
+For scoped dependencies (`@my-org/my-dep`), {% data variables.product.prodname_dependabot %} requires that the private registry is defined in the project's `.npmrc` file. To define private registries for individual scopes, use `@myscope:registry=https://private_registry_url`.
 
 Registries should be configured using the `https` protocol.
 
