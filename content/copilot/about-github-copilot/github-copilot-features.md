@@ -30,7 +30,7 @@ A chat-like interface in the terminal, where you can ask questions about the com
 
 AI-generated summaries of the changes that were made in a pull request, which files they impact, and what a reviewer should focus on when they conduct their review.
 
-### {% data variables.product.prodname_copilot_autocomplete_pr %} (beta)
+### {% data variables.product.prodname_copilot_autocomplete_pr %} ({% data variables.release-phases.public_preview %})
 
 AI-generated text completion to help you write pull request descriptions quickly and accurately.
 
