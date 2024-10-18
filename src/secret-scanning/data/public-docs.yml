@@ -1499,6 +1499,18 @@
   hasValidityCheck: '{% ifversion fpt or ghes %}false{% else %}true{% endif %}'
   isduplicate: false
 - provider: Google
+  supportedSecret: Google Cloud Private Key ID
+  secretType: google_cloud_private_key_id
+  versions:
+    fpt: '*'
+    ghec: '*'
+    ghes: <3.13
+  isPublic: true
+  isPrivateWithGhas: false
+  hasPushProtection: false
+  hasValidityCheck: false
+  isduplicate: false
+- provider: Google
   supportedSecret: Google Cloud Service Account Credentials
   secretType: google_cloud_service_account_credentials
   versions:
@@ -2857,50 +2869,6 @@
   isPublic: true
   isPrivateWithGhas: true
   hasPushProtection: true
-  hasValidityCheck: false
-  isduplicate: false
-- provider: Sentry
-  supportedSecret: Sentry Integration Token
-  secretType: sentry_integration_token
-  versions:
-    fpt: '*'
-    ghec: '*'
-  isPublic: false
-  isPrivateWithGhas: true
-  hasPushProtection: false
-  hasValidityCheck: false
-  isduplicate: false
-- provider: Sentry
-  supportedSecret: Sentry Org Auth Token
-  secretType: sentry_org_auth_token
-  versions:
-    fpt: '*'
-    ghec: '*'
-  isPublic: false
-  isPrivateWithGhas: true
-  hasPushProtection: false
-  hasValidityCheck: false
-  isduplicate: false
-- provider: Sentry
-  supportedSecret: Sentry User App Auth Token
-  secretType: sentry_user_app_auth_token
-  versions:
-    fpt: '*'
-    ghec: '*'
-  isPublic: false
-  isPrivateWithGhas: true
-  hasPushProtection: false
-  hasValidityCheck: false
-  isduplicate: false
-- provider: Sentry
-  supportedSecret: Sentry User Auth Token
-  secretType: sentry_user_auth_token
-  versions:
-    fpt: '*'
-    ghec: '*'
-  isPublic: false
-  isPrivateWithGhas: true
-  hasPushProtection: false
   hasValidityCheck: false
   isduplicate: false
 - provider: Shippo
