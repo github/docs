@@ -1,4 +1,4 @@
----
+New team
 title: Creating a team
 intro: You can create independent or nested teams to manage repository permissions and mentions for groups of people.
 redirect_from:
