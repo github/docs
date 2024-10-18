@@ -28,7 +28,7 @@
     "content-changes-table-comment": "tsx src/workflows/content-changes-table-comment.ts",
     "copy-fixture-data": "node src/tests/scripts/copy-fixture-data.js",
     "count-translation-corruptions": "tsx src/languages/scripts/count-translation-corruptions.ts",
-    "create-acr-token": "tsx src/workflows/acr-create-token.ts",
+    "create-acr-token": "tsx src/workflows/acr-create-token.js",
     "debug": "cross-env NODE_ENV=development ENABLED_LANGUAGES=en nodemon --inspect src/frame/server.ts",
     "delete-orphan-translation-files": "tsx src/workflows/delete-orphan-translation-files.ts",
     "deleted-features-pr-comment": "tsx src/data-directory/scripts/deleted-features-pr-comment.ts",

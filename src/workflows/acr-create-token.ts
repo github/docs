@@ -10,7 +10,7 @@ dotenv.config()
 
 const acrTokenName = process.env.ACR_TOKEN_NAME
 const acrServer = process.env.CONTAINER_REGISTRY_SERVER
-const repo = process.env.CONTAINER_REPO
+const repo = process.env.GITHUB_REPOSITORY
 
 function main() {
   // Get the current time and add 30 minutes to it
