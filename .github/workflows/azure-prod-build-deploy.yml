@@ -66,7 +66,6 @@ jobs:
       - name: 'Create Azure Container Registry Token'
         env:
           CONTAINER_REGISTRY_SERVER: ${{ secrets.PROD_REGISTRY_SERVER }}
-          CONTAINER_REPO: ${{ github.repository }}
         run: npm run create-acr-token
 
       - name: 'Docker login'
