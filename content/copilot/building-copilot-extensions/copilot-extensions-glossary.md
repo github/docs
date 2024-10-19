@@ -37,7 +37,7 @@ Also known as {% data variables.product.prodname_vscode %} Chat extensions, {% d
 
 The foundation for a {% data variables.product.prodname_copilot_extension_short %} that provides the necessary infrastructure, permissions, and context from {% data variables.product.company_short %}, such as user, repo and organization metadata.
 
-##### {% data variables.product.prodname_marketplace %}
+#### {% data variables.product.prodname_marketplace %}
 
 The platform where {% data variables.product.company_short %} approved {% data variables.product.prodname_copilot_extensions %} can be listed publicly and discovered by users.
 
@@ -49,7 +49,7 @@ An extension that appears on the {% data variables.product.prodname_marketplace 
 
 An extension that is only visible and usable by the organization or individual user that created it.
 
-##### Public Extension
+#### Public Extension
 
 An extension that is visible and installable by any {% data variables.product.company_short %} user or organization.
 
