@@ -4,6 +4,24 @@
       {
         "title": "The GraphQL schema includes these changes:",
         "changes": [
+          "<p>Type <code>EPSS</code> was added</p>",
+          "<p>Type <code>UserViewType</code> was added</p>",
+          "<p>Argument <code>epssPercentage: Float</code> added to field <code>Query.securityAdvisories</code></p>",
+          "<p>Argument <code>epssPercentile: Float</code> added to field <code>Query.securityAdvisories</code></p>",
+          "<p>Field <code>epss</code> was added to object type <code>SecurityAdvisory</code></p>",
+          "<p>Field <code>userViewType</code> was added to object type <code>User</code></p>"
+        ]
+      }
+    ],
+    "previewChanges": [],
+    "upcomingChanges": [],
+    "date": "2024-10-18"
+  },
+  {
+    "schemaChanges": [
+      {
+        "title": "The GraphQL schema includes these changes:",
+        "changes": [
           "<p>Enum value <code>DUPLICATE</code> was added to enum <code>IssueClosedStateReason</code></p>",
           "<p>Enum value <code>DUPLICATE</code> was added to enum <code>IssueStateReason</code></p>"
         ]
