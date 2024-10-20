@@ -4,7 +4,6 @@ intro: You can build GitHub Apps for yourself or others to use.
 versions:
   fpt: '*'
   ghes: '*'
-  ghae: '*'
   ghec: '*'
 topics:
   - GitHub Apps

@@ -29,7 +29,7 @@ async function retryingGot(url, args) {
         //
         limit: 4,
       },
-    })
+    }),
   )
 }
 

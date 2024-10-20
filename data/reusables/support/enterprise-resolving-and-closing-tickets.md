@@ -1,6 +1,6 @@
-{% data variables.contact.enterprise_support %} may consider a ticket solved after providing an explanation, recommendation, usage instructions, {% ifversion ghae %}or {% endif %} workaround instructions{% ifversion ghes %}, or by advising you of an available release that addresses the issue{% endif %}.
+{% data variables.contact.enterprise_support %} may consider a ticket solved after providing an explanation, recommendation, usage instructions, workaround instructions{% ifversion ghes %}, or by advising you of an available release that addresses the issue{% endif %}.
 
-{% ifversion ghes or ghae %}
+{% ifversion ghes %}
 If you have installed additional third-party software on, or made modifications to, {% data variables.product.product_name %} outside of the recommendations of {% data variables.contact.enterprise_support %}, {% data variables.contact.enterprise_support %} may ask you to remove the software and/or modifications while attempting to resolve the issue. If the problem is fixed when the unsupported software or modifications have been removed, {% data variables.contact.enterprise_support %} may consider the ticket solved.
 {% endif %}
 

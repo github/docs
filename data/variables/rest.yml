@@ -1,0 +1,1 @@
+example_request_url: '/repos{% ifversion ghes %}/REPO-OWNER/REPO-NAME{% else %}/octocat/Spoon-Knife{% endif %}/issues'

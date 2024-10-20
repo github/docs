@@ -7,25 +7,25 @@
  *   ELASTICSEARCH_URL=http://localhost:9200 npm run index-test-fixtures
  *
  * This will replace any "real" Elasticsearch indexes you might have so
- * once you're done working on jest tests you need to index real
+ * once you're done working on vitest tests you need to index real
  * content again.
  */
 
-import { jest, test, expect } from '@jest/globals'
+import { expect, test, vi } from 'vitest'
 
-import { describeIfElasticsearchURL } from '../../../tests/helpers/conditional-runs.js'
-import { get } from '../../../tests/helpers/e2etest.js'
+import { describeIfElasticsearchURL } from '#src/tests/helpers/conditional-runs.js'
+import { get } from '#src/tests/helpers/e2etest.js'
 
 if (!process.env.ELASTICSEARCH_URL) {
   console.warn(
     'None of the API search middleware tests are run because ' +
-      "the environment variable 'ELASTICSEARCH_URL' is currently not set."
+      "the environment variable 'ELASTICSEARCH_URL' is currently not set.",
   )
 }
 
 // This suite only runs if $ELASTICSEARCH_URL is set.
 describeIfElasticsearchURL('search v1 middleware', () => {
-  jest.setTimeout(60 * 1000)
+  vi.setConfig({ testTimeout: 60 * 1000 })
 
   test('basic search', async () => {
     const sp = new URLSearchParams()
@@ -68,7 +68,7 @@ describeIfElasticsearchURL('search v1 middleware', () => {
     expect(res.headers['cache-control']).toMatch(/max-age=[1-9]/)
     expect(res.headers['surrogate-control']).toContain('public')
     expect(res.headers['surrogate-control']).toMatch(/max-age=[1-9]/)
-    expect(res.headers['surrogate-key']).toBe('api-search:en')
+    expect(res.headers['surrogate-key']).toBe('manual-purge')
   })
 
   test('debug search', async () => {
@@ -128,7 +128,6 @@ describeIfElasticsearchURL('search v1 middleware', () => {
   test('configurable highlights', async () => {
     const sp = new URLSearchParams()
     sp.set('query', 'introduction heading')
-    sp.append('highlights', 'headings')
     sp.append('highlights', 'content')
     const res = await get('/api/search/v1?' + sp)
     expect(res.statusCode).toBe(200)
@@ -136,7 +135,6 @@ describeIfElasticsearchURL('search v1 middleware', () => {
     expect(results.meta.found.value).toBeGreaterThanOrEqual(1)
     for (const hit of results.hits) {
       expect(hit.highlights.title).toBeFalsy()
-      expect(hit.highlights.headings).toBeTruthy()
       expect(hit.highlights.content).toBeTruthy()
     }
   })
@@ -145,14 +143,13 @@ describeIfElasticsearchURL('search v1 middleware', () => {
     const sp = new URLSearchParams()
     // This will match because it's in the 'content' but not in 'headings'
     sp.set('query', 'Fact of life')
-    sp.set('highlights', 'headings')
+    sp.set('highlights', 'title')
     const res = await get('/api/search/v1?' + sp)
     expect(res.statusCode).toBe(200)
     const results = JSON.parse(res.body)
     expect(results.meta.found.value).toBeGreaterThanOrEqual(1)
     for (const hit of results.hits) {
-      expect(hit.highlights.headings).toBeTruthy()
-      expect(hit.highlights.title).toBeFalsy()
+      expect(hit.highlights.title).toBeTruthy()
       expect(hit.highlights.content).toBeFalsy()
     }
   })
@@ -242,6 +239,15 @@ describeIfElasticsearchURL('search v1 middleware', () => {
       expect(res.statusCode).toBe(400)
       expect(JSON.parse(res.body).error).toMatch('neverheardof')
     }
+    // multiple 'query' keys
+    {
+      const sp = new URLSearchParams()
+      sp.append('query', 'test1')
+      sp.append('query', 'test2')
+      const res = await get('/api/search/v1?' + sp)
+      expect(res.statusCode).toBe(400)
+      expect(JSON.parse(res.body).error).toMatch('Cannot have multiple values')
+    }
   })
 
   test('breadcrumbless records should always return a string', async () => {
@@ -257,7 +263,7 @@ describeIfElasticsearchURL('search v1 middleware', () => {
 })
 
 describeIfElasticsearchURL("additional fields with 'include'", () => {
-  jest.setTimeout(60 * 1000)
+  vi.setConfig({ testTimeout: 60 * 1000 })
 
   test("'intro' and 'headings' are omitted by default", async () => {
     const sp = new URLSearchParams()
@@ -302,6 +308,86 @@ describeIfElasticsearchURL("additional fields with 'include'", () => {
     const res = await get('/api/search/v1?' + sp)
     expect(res.statusCode).toBe(400)
     const results = JSON.parse(res.body)
-    expect(results.error).toMatch(`Not a valid value (["xxxxx"]) for key 'include'`)
+    expect(results.error).toMatch(`Not a valid value ([ 'xxxxx' ]) for key 'include'`)
+  })
+})
+
+describeIfElasticsearchURL('filter by toplevel', () => {
+  vi.setConfig({ testTimeout: 60 * 1000 })
+
+  test("include 'toplevel' in output", async () => {
+    const sp = new URLSearchParams()
+    sp.set('query', 'foo')
+    sp.set('include', 'toplevel')
+    const res = await get('/api/search/v1?' + sp)
+    expect(res.statusCode).toBe(200)
+    const results = JSON.parse(res.body)
+    // In the fixtures, there are two distinct `toplevel` that
+    // matches to this search.
+    const toplevels = new Set(results.hits.map((hit) => hit.toplevel))
+    expect(toplevels).toEqual(new Set(['Fooing', 'Baring']))
+  })
+
+  test("filter by 'toplevel' (single)", async () => {
+    const sp = new URLSearchParams()
+    sp.set('query', 'foo')
+    sp.set('include', 'toplevel')
+    sp.set('toplevel', 'Baring')
+    const res = await get('/api/search/v1?' + sp)
+    expect(res.statusCode).toBe(200)
+    const results = JSON.parse(res.body)
+    const toplevels = new Set(results.hits.map((hit) => hit.toplevel))
+    expect(toplevels).toEqual(new Set(['Baring']))
+  })
+
+  test("filter by 'toplevel' (array)", async () => {
+    const sp = new URLSearchParams()
+    sp.set('query', 'foo')
+    sp.set('include', 'toplevel')
+    sp.append('toplevel', 'Baring')
+    sp.append('toplevel', 'Fooing')
+    const res = await get('/api/search/v1?' + sp)
+    expect(res.statusCode).toBe(200)
+    const results = JSON.parse(res.body)
+    const toplevels = new Set(results.hits.map((hit) => hit.toplevel))
+    expect(toplevels).toEqual(new Set(['Fooing', 'Baring']))
+  })
+
+  test("filter by unrecognized 'toplevel'", async () => {
+    const sp = new URLSearchParams()
+    sp.set('query', 'foo')
+    sp.set('include', 'toplevel')
+    sp.set('toplevel', 'Never heard of')
+    const res = await get('/api/search/v1?' + sp)
+    expect(res.statusCode).toBe(200)
+    const results = JSON.parse(res.body)
+    expect(results.meta.found.value).toBe(0)
+  })
+})
+
+describeIfElasticsearchURL('aggregate', () => {
+  vi.setConfig({ testTimeout: 60 * 1000 })
+
+  test("aggregate by 'toplevel'", async () => {
+    const sp = new URLSearchParams()
+    sp.set('query', 'foo')
+    sp.set('aggregate', 'toplevel')
+    const res = await get('/api/search/v1?' + sp)
+    expect(res.statusCode).toBe(200)
+    const results = JSON.parse(res.body)
+    expect(results.aggregations).toBeTruthy()
+    expect(results.aggregations.toplevel).toBeTruthy()
+    const firstAgg = results.aggregations.toplevel[0]
+    expect(firstAgg.key).toBeTruthy()
+    expect(firstAgg.count).toBeTruthy()
+  })
+
+  test("aggregate by 'unrecognizedxxx'", async () => {
+    const sp = new URLSearchParams()
+    sp.set('query', 'foo')
+    sp.set('aggregate', 'unrecognizedxxx')
+    const res = await get('/api/search/v1?' + sp)
+    expect(res.statusCode).toBe(400)
+    expect(JSON.parse(res.body).error).toMatch('aggregate')
   })
 })

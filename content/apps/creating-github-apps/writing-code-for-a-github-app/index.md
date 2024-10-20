@@ -8,7 +8,6 @@ redirect_from:
 versions:
   fpt: '*'
   ghes: '*'
-  ghae: '*'
   ghec: '*'
 topics:
   - GitHub Apps
@@ -18,7 +17,5 @@ children:
   - /building-a-github-app-that-responds-to-webhook-events
   - /building-a-login-with-github-button-with-a-github-app
   - /building-a-cli-with-a-github-app
-  - /setting-up-your-development-environment-to-create-a-github-app
-  - /creating-ci-tests-with-the-checks-api
+  - /building-ci-checks-with-a-github-app
 ---
-

@@ -2,9 +2,11 @@
 
    To create a Kubernetes secret with the values of your {% data variables.product.prodname_github_app %}, run the following command.
 
+     {% data reusables.actions.arc-runners-namespace %}
+
    ```bash copy
    kubectl create secret generic pre-defined-secret \
-      --namespace=my_namespace \
+      --namespace=arc-runners \
       --from-literal=github_app_id=123456 \
       --from-literal=github_app_installation_id=654321 \
       --from-literal=github_app_private_key='-----BEGIN RSA PRIVATE KEY-----********'

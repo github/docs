@@ -7,7 +7,6 @@ versions:
   fpt: '*'
   ghec: '*'
   ghes: '*'
-  ghae: '*'
 type: overview
 topics:
   - Fundamentals
@@ -30,15 +29,27 @@ There are several security capabilities a build system should have:
 
 1. The build steps should be clear and repeatable.
 
-2. You should know exactly what was running during the build process.
+1. You should know exactly what was running during the build process.
 
-3. Each build should start in a fresh environment, so a compromised build doesn't persist to affect future builds.
+1. Each build should start in a fresh environment, so a compromised build doesn't persist to affect future builds.
 
 {% data variables.product.prodname_actions %} can help you meet these capabilities. Build instructions are stored in your repository, alongside your code. You choose what environment your build runs on, including Windows, Mac, Linux, or runners you host yourself. Each build starts with a fresh runner image, making it difficult for an attack to persist in your build environment.
 
 In addition to the security benefits, {% data variables.product.prodname_actions %} lets you trigger builds manually, periodically, or on git events in your repository for frequent and fast builds.
 
 {% data variables.product.prodname_actions %} is a big topic, but a good place to get started is "[AUTOTITLE](/actions/learn-github-actions/understanding-github-actions)," as well as "[AUTOTITLE](/actions/using-workflows/workflow-syntax-for-github-actions#choosing-github-hosted-runners)," and "[AUTOTITLE](/actions/using-workflows/triggering-a-workflow)."
+
+{% ifversion artifact-attestations %}
+
+## Generate artifact attestations for your builds
+
+{% data reusables.actions.about-artifact-attestations %}
+
+Artifact attestations include a signature over a built artifact, along with links to the source code and build instructions. If you sign your build with artifact attestations, you do not have to manage your own signing key material. {% data variables.product.prodname_dotcom %} handles this for you with the signing authority we operate.
+
+For more information, see "[AUTOTITLE](/actions/security-guides/using-artifact-attestations-to-establish-provenance-for-builds)."
+
+{% endif %}
 
 ## Sign your builds
 
@@ -52,12 +63,12 @@ For more information, see "[AUTOTITLE](/actions/security-guides/encrypted-secret
 
 There are many further steps you can take to additionally secure {% data variables.product.prodname_actions %}. In particular, be careful when evaluating third-party workflows, and consider using `CODEOWNERS` to limit who can make changes to your workflows.
 
-For more information, see "[AUTOTITLE](/actions/security-guides/security-hardening-for-github-actions);" particularly "[AUTOTITLE](/actions/security-guides/security-hardening-for-github-actions#using-third-party-actions)" and "[AUTOTITLE](/actions/security-guides/security-hardening-for-github-actions#using-codeowners-to-monitor-changes)."
+For more information, see "[AUTOTITLE](/actions/security-guides/security-hardening-for-github-actions)" and "[AUTOTITLE](/actions/security-guides/using-githubs-security-features-to-secure-your-use-of-github-actions)."
 
 ## Next steps
 
-- "[AUTOTITLE](/code-security/supply-chain-security/end-to-end-supply-chain/end-to-end-supply-chain-overview)"
+* "[AUTOTITLE](/code-security/supply-chain-security/end-to-end-supply-chain/end-to-end-supply-chain-overview)"
 
-- "[AUTOTITLE](/code-security/supply-chain-security/end-to-end-supply-chain/securing-accounts)"
+* "[AUTOTITLE](/code-security/supply-chain-security/end-to-end-supply-chain/securing-accounts)"
 
-- "[AUTOTITLE](/code-security/supply-chain-security/end-to-end-supply-chain/securing-code)"
+* "[AUTOTITLE](/code-security/supply-chain-security/end-to-end-supply-chain/securing-code)"

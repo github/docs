@@ -14,7 +14,7 @@ query(
 }
 ```
 
-| Query variable | Description | 
+| Query variable | Description |
 |----|----|
 | `login` | Your organization name.
 

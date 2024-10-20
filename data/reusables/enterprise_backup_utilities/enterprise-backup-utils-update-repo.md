@@ -7,5 +7,5 @@
    Alternatively, to use a specific project version, run the following command, replacing `X.Y.Z` with the desired release version.
 
    ```shell
-   $ git checkout vX.Y.Z
+   git checkout vX.Y.Z
    ```

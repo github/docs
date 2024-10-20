@@ -1,1 +1,1 @@
-github/codeql-action/autobuild@{% ifversion actions-node16-action %}v2{% else %}v1{% endif %}
+github/codeql-action/autobuild{% ifversion codeql-action-node16-deprecated %}@v3{% else %}@v2{% endif %}

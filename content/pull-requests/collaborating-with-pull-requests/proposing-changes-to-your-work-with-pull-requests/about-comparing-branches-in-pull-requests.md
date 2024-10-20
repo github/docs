@@ -9,7 +9,6 @@ redirect_from:
 versions:
   fpt: '*'
   ghes: '*'
-  ghae: '*'
   ghec: '*'
 topics:
   - Pull requests
@@ -22,7 +21,7 @@ shortTitle: Compare branches
 {% endnote %}
 
 You can view proposed changes in a pull request in the Files changed tab.
-![Pull Request Files changed tab.](/assets/images/help/pull_requests/pull-request-tabs-changed-files.png)
+![Screenshot of the tabs for a pull request. The "Files changed" tab is outlined in dark orange.](/assets/images/help/pull_requests/pull-request-tabs-changed-files.png)
 
 Rather than viewing the commits themselves, you can view the proposed changes as they'll appear in the files once the pull request is merged. The files appear in alphabetical order within the Files changed tab. Additions to the files appear in green and are prefaced by a `+` sign while content that has been removed appears in red and is prefaced by a `-` sign.
 
@@ -35,10 +34,10 @@ Rather than viewing the commits themselves, you can view the proposed changes as
 {% endtip %}
 
 You have several options for viewing a diff:
-- The unified view shows updated and existing content together in a linear view.
-- The split view shows old content on one side and new content on the other side.
-- The rich diff view shows a preview of how the changes will look once the pull request is merged.
-- The source view shows the changes in source without the formatting of the rich diff view.
+* The unified view shows updated and existing content together in a linear view.
+* The split view shows old content on one side and new content on the other side.
+* The rich diff view shows a preview of how the changes will look once the pull request is merged.
+* The source view shows the changes in source without the formatting of the rich diff view.
 
 You can also choose to ignore whitespace changes to get a more accurate view of the substantial changes in a pull request.
 
@@ -49,12 +48,13 @@ To simplify reviewing changes in a large pull request, you can filter the diff t
 ![Screenshot of the file filter dropdown menu. The menu is expanded and outlined in dark orange.](/assets/images/help/pull_requests/file-filter-menu.png)
 
 ## Reasons diffs will not display
-- You've exceeded the total limit of files or certain file types. For more information, see "[AUTOTITLE](/repositories/creating-and-managing-repositories/about-repositories#limits-for-viewing-content-and-diffs-in-a-repository)."
-- Your file matches a rule in the repository's *.gitattributes* file to block that file from displaying by default. For more information, see "[AUTOTITLE](/repositories/working-with-files/managing-files/customizing-how-changed-files-appear-on-github)."
+
+* You've exceeded the total limit of files or certain file types. For more information, see "[AUTOTITLE](/repositories/creating-and-managing-repositories/repository-limits#diff-limits)."
+* Your file matches a rule in the repository's _.gitattributes_ file to block that file from displaying by default. For more information, see "[AUTOTITLE](/repositories/working-with-files/managing-files/customizing-how-changed-files-appear-on-github)."
 
 ## Three-dot and two-dot Git diff comparisons
 
-There are two comparison methods for the `git diff` command; two-dot (`git diff A..B`) and three-dot (`git diff A...B`). By default, pull requests on {% data variables.product.prodname_dotcom %} show a three-dot diff.
+There are two comparison methods for the `git diff` command; two-dot (`git diff A..B`) and three-dot (`git diff A...B`). Pull requests on {% data variables.product.prodname_dotcom %} show a three-dot diff.
 
 ### Three-dot Git diff comparison
 
@@ -88,5 +88,5 @@ To avoid getting confused, merge the base branch (for example, `main`) into your
 
 ## Further reading
 
-- "[AUTOTITLE](/pull-requests/collaborating-with-pull-requests/proposing-changes-to-your-work-with-pull-requests/about-pull-requests)"
-- "[AUTOTITLE](/pull-requests/collaborating-with-pull-requests/working-with-forks/about-forks)"
+* "[AUTOTITLE](/pull-requests/collaborating-with-pull-requests/proposing-changes-to-your-work-with-pull-requests/about-pull-requests)"
+* "[AUTOTITLE](/pull-requests/collaborating-with-pull-requests/working-with-forks/about-forks)"

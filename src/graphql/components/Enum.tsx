@@ -1,6 +1,6 @@
 import React from 'react'
 
-import { useTranslation } from 'components/hooks/useTranslation'
+import { useTranslation } from 'src/languages/components/useTranslation'
 import { GraphqlItem } from './GraphqlItem'
 import type { EnumT } from './types'
 
@@ -9,8 +9,8 @@ type Props = {
 }
 
 export function Enum({ item }: Props) {
-  const { t } = useTranslation('products')
-  const heading = t('graphql.reference.values').replace('{{ GraphQLItemTitle }}', item.name)
+  const { t } = useTranslation('graphql')
+  const heading = t('reference.values').replace('{{ GraphQLItemTitle }}', item.name)
 
   return (
     <GraphqlItem item={item} heading={heading}>

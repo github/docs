@@ -1,0 +1,5 @@
+# Reference: #114733
+# Automatic dependency submission for Maven
+versions:
+  fpt: '*'
+  ghec: '*'

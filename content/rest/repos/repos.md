@@ -1,11 +1,11 @@
 ---
-title: Repositories
+title: REST API endpoints for repositories
+shortTitle: Repositories
 intro: >-
   Use the REST API to manage repositories on {% data
   variables.product.company_short %}.
-versions:
+versions: # DO NOT MANUALLY EDIT. CHANGES WILL BE OVERWRITTEN BY A 🤖
   fpt: '*'
-  ghae: '*'
   ghec: '*'
   ghes: '*'
 topics:

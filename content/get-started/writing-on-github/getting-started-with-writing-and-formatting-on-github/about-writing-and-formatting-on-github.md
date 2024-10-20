@@ -8,11 +8,10 @@ redirect_from:
 versions:
   fpt: '*'
   ghes: '*'
-  ghae: '*'
   ghec: '*'
 shortTitle: About writing & formatting
 ---
-Markdown is an easy-to-read, easy-to-write syntax for formatting plain text.
+{% data reusables.getting-started.what-is-markdown %}
 
 We've added some custom functionality to create {% data variables.product.prodname_dotcom %} Flavored Markdown, used to format prose and code across our site.
 
@@ -39,7 +38,7 @@ You can enable a fixed-width font in every comment field on {% data variables.pr
 
 ## Further reading
 
-- [{% data variables.product.prodname_dotcom %} Flavored Markdown Spec](https://github.github.com/gfm/)
-- "[AUTOTITLE](/get-started/writing-on-github/getting-started-with-writing-and-formatting-on-github/basic-writing-and-formatting-syntax)"
-- "[AUTOTITLE](/get-started/writing-on-github/working-with-advanced-formatting)"
-- "[AUTOTITLE](/get-started/writing-on-github/getting-started-with-writing-and-formatting-on-github/quickstart-for-writing-on-github)"
+* [{% data variables.product.prodname_dotcom %} Flavored Markdown Spec](https://github.github.com/gfm/)
+* "[AUTOTITLE](/get-started/writing-on-github/getting-started-with-writing-and-formatting-on-github/basic-writing-and-formatting-syntax)"
+* "[AUTOTITLE](/get-started/writing-on-github/working-with-advanced-formatting)"
+* "[AUTOTITLE](/get-started/writing-on-github/getting-started-with-writing-and-formatting-on-github/quickstart-for-writing-on-github)"

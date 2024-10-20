@@ -1,6 +1,6 @@
 ---
 title: Updating credentials from the macOS Keychain
-intro: 'You''ll need to update your saved credentials in the `git-credential-osxkeychain` helper if you change your{% ifversion not ghae %} username, password, or{% endif %} {% data variables.product.pat_generic %} on {% data variables.product.product_name %}.'
+intro: 'You''ll need to update your saved credentials in the `git-credential-osxkeychain` helper if you change your username, password, or {% data variables.product.pat_generic %} on {% data variables.product.product_name %}.'
 redirect_from:
   - /articles/updating-credentials-from-the-osx-keychain
   - /github/using-git/updating-credentials-from-the-osx-keychain
@@ -10,7 +10,6 @@ redirect_from:
 versions:
   fpt: '*'
   ghes: '*'
-  ghae: '*'
   ghec: '*'
 shortTitle: macOS Keychain credentials
 ---
@@ -28,8 +27,8 @@ We recommend you either [configure SSH](/authentication/connecting-to-github-wit
 
 1. Click on the Spotlight icon (magnifying glass) on the right side of the menu bar.
 1. Type `Keychain Access`, then press the Enter key to launch the app.
-1. In Keychain Access, search for `{% data variables.command_line.backticks %}`.
-1. Find the "Internet password" entry for `{% data variables.command_line.backticks %}`.
+1. In Keychain Access, search for `{% data variables.product.product_url %}`.
+1. Find the "Internet password" entry for `{% data variables.product.product_url %}`.
 1. Edit or delete the entry accordingly.
 
 ## Deleting your credentials via the command line
@@ -38,13 +37,13 @@ Through the command line, you can use the credential helper directly to erase th
 
 ```shell
 $ git credential-osxkeychain erase
-host={% data variables.command_line.codeblock %}
+host={% data variables.product.product_url %}
 protocol=https
 > [Press Return]
 ```
 
-If it's successful, nothing will print out. To test that it works, try and clone a private repository from {% data variables.location.product_location %}. If you are prompted for a password, the keychain entry was deleted.
+If it's successful, nothing will print out. To test that it works, try and clone a private repository. If you are prompted for a password, the keychain entry was deleted.
 
 ## Further reading
 
-- "[AUTOTITLE](/get-started/getting-started-with-git/caching-your-github-credentials-in-git)"
+* "[AUTOTITLE](/get-started/getting-started-with-git/caching-your-github-credentials-in-git)"

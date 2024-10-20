@@ -1,7 +1,8 @@
 import { useState, useEffect, useRef, FormEvent } from 'react'
-import { FormControl, Select, Tooltip, UnderlineNav } from '@primer/react'
+import { FormControl, IconButton, Select, TabNav } from '@primer/react'
 import { CheckIcon, CopyIcon } from '@primer/octicons-react'
-import Cookies from 'components/lib/cookies'
+import { announce } from '@primer/live-region-element'
+import Cookies from 'src/frame/components/lib/cookies'
 import cx from 'classnames'
 
 import hljs from 'highlight.js/lib/core'
@@ -9,7 +10,7 @@ import json from 'highlight.js/lib/languages/json'
 import javascript from 'highlight.js/lib/languages/javascript'
 import hljsCurl from 'highlightjs-curl'
 
-import { useTranslation } from 'components/hooks/useTranslation'
+import { useTranslation } from 'src/languages/components/useTranslation'
 import useClipboard from 'src/rest/components/useClipboard'
 import {
   getShellExample,
@@ -20,7 +21,8 @@ import styles from './RestCodeSamples.module.scss'
 import { RestMethod } from './RestMethod'
 import type { Operation, ExampleT } from './types'
 import { ResponseKeys, CodeSampleKeys } from './types'
-import { useVersion } from 'components/hooks/useVersion'
+import { useVersion } from 'src/versions/components/useVersion'
+import { useMainContext } from 'src/frame/components/context/MainContext'
 
 type Props = {
   slug: string
@@ -40,8 +42,16 @@ function getLanguageHighlight(selectedLanguage: string) {
   return selectedLanguage === CodeSampleKeys.javascript ? 'javascript' : 'curl'
 }
 
+function highlightElement(element: HTMLElement) {
+  element.className = 'hljs'
+  // If the element was already highlighted, remove the dataset property
+  // otherwise the `hljs.highlightElement` function will not highlight.
+  delete element.dataset.highlighted
+  hljs.highlightElement(element)
+}
+
 export function RestCodeSamples({ operation, slug, heading }: Props) {
-  const { t } = useTranslation('products')
+  const { t } = useTranslation(['rest_reference'])
   const { isEnterpriseServer } = useVersion()
 
   // Refs to track the request example, response example
@@ -51,12 +61,15 @@ export function RestCodeSamples({ operation, slug, heading }: Props) {
   const firstRender = useRef(true)
   const scrollRef = useRef<HTMLDivElement>(null)
 
+  const { currentVersion } = useVersion()
+  const { allVersions } = useMainContext()
+
   // Get format examples for each language
   const languageExamples = operation.codeExamples.map((sample) => ({
     description: sample.request.description,
-    curl: getShellExample(operation, sample),
-    javascript: getJSExample(operation, sample),
-    ghcli: getGHExample(operation, sample),
+    curl: getShellExample(operation, sample, currentVersion, allVersions),
+    javascript: getJSExample(operation, sample, currentVersion, allVersions),
+    ghcli: getGHExample(operation, sample, currentVersion, allVersions),
     response: sample.response,
   }))
 
@@ -83,7 +96,7 @@ export function RestCodeSamples({ operation, slug, heading }: Props) {
   const showExampleOptionMediaType =
     languageExamples.length > 1 &&
     !languageExamples.every(
-      (example) => example.response.contentType === languageExamples[0].response.contentType
+      (example) => example.response.contentType === languageExamples[0].response.contentType,
     )
   const exampleSelectOptions = languageExamples.map((example, index) => ({
     text: showExampleOptionMediaType
@@ -138,7 +151,7 @@ export function RestCodeSamples({ operation, slug, heading }: Props) {
     }
   }, [])
 
-  // Handle syntax higlighting when the language changes or
+  // Handle syntax highlighting when the language changes or
   // a cookie is set
   useEffect(() => {
     const reqElem = requestCodeExample.current
@@ -147,8 +160,7 @@ export function RestCodeSamples({ operation, slug, heading }: Props) {
     // intersection observer syntax highlighting
     // (ClientSideHighlightJS) will have already handled highlighting
     if (reqElem && !firstRender.current) {
-      reqElem.className = 'hljs'
-      hljs.highlightElement(reqElem)
+      highlightElement(reqElem)
       handleResponseResize()
     }
   }, [selectedLanguage])
@@ -168,8 +180,7 @@ export function RestCodeSamples({ operation, slug, heading }: Props) {
     // intersection observer syntax highlighting
     // (ClientSideHighlightJS) will have already handled highlighting
     if (reqElem && !firstRender.current) {
-      reqElem.className = 'hljs'
-      hljs.highlightElement(reqElem)
+      highlightElement(reqElem)
     }
   }, [selectedResponse])
 
@@ -178,14 +189,12 @@ export function RestCodeSamples({ operation, slug, heading }: Props) {
   useEffect(() => {
     const reqElem = requestCodeExample.current
     if (reqElem) {
-      reqElem.className = 'hljs'
-      hljs.highlightElement(reqElem)
+      highlightElement(reqElem)
     }
 
     const resElem = responseCodeExample.current
     if (resElem) {
-      resElem.className = 'hljs'
-      hljs.highlightElement(resElem)
+      highlightElement(resElem)
     }
   }, [selectedExample])
 
@@ -224,7 +233,9 @@ export function RestCodeSamples({ operation, slug, heading }: Props) {
       <h3 className="mt-0 pt-0 h4" id={`${slug}--code-samples`}>
         <a href={`#${slug}--code-samples`}>{heading}</a>
       </h3>
-
+      <h4 className="mt-3 mb-3 h5">
+        {isSingleExample ? t('request_example') : t('request_examples')}
+      </h4>
       {/* Display an example selector if more than one example */}
       {!isSingleExample && (
         <div className="pb-5 pt-2">
@@ -246,13 +257,15 @@ export function RestCodeSamples({ operation, slug, heading }: Props) {
         <div className="my-0 p-3">
           <RestMethod verb={operation.verb} requestPath={operation.requestPath} />
         </div>
-        <div className="border-top d-inline-flex flex-justify-between width-full flex-items-center">
+        <div className="border-top d-inline-flex flex-justify-between width-full flex-items-center pt-2">
           <div className="d-inline-flex ml-2">
-            <UnderlineNav aria-label="Example language selector">
+            <TabNav aria-label={`Example language selector for ${operation.title}`}>
               {languageSelectOptions.map((optionKey) => (
-                <UnderlineNav.Link
+                <TabNav.Link
                   key={optionKey}
-                  onClick={() => {
+                  selected={optionKey === selectedLanguage}
+                  onClick={(e) => {
+                    e.preventDefault()
                     handleLanguageSelection(optionKey)
                   }}
                   onKeyDown={(event) => {
@@ -260,28 +273,23 @@ export function RestCodeSamples({ operation, slug, heading }: Props) {
                       handleLanguageSelection(optionKey)
                     }
                   }}
-                  tabIndex={0}
-                  selected={optionKey === selectedLanguage}
-                  className="pr-3 mr-0"
-                  sx={{
-                    cursor: 'pointer',
-                  }}
+                  href="#"
                 >
-                  {t(`rest.reference.code_sample_options.${optionKey}`)}
-                </UnderlineNav.Link>
+                  {t(`code_sample_options.${optionKey}`)}
+                </TabNav.Link>
               ))}
-            </UnderlineNav>
+            </TabNav>
           </div>
           <div className="mr-2">
-            <Tooltip
-              className="mr-2"
-              direction="w"
-              aria-label={isCopied ? 'Copied!' : 'Copy to clipboard'}
-            >
-              <button className="js-btn-copy btn-octicon" onClick={() => setCopied()}>
-                {isCopied ? <CheckIcon /> : <CopyIcon />}
-              </button>
-            </Tooltip>
+            <IconButton
+              icon={isCopied ? CheckIcon : CopyIcon}
+              className="js-btn-copy btn-octicon"
+              aria-label={`${t('button_text.copy_to_clipboard')} ${selectedLanguage} request example`}
+              onClick={() => {
+                setCopied()
+                announce('Copied!')
+              }}
+            ></IconButton>
           </div>
         </div>
 
@@ -290,51 +298,52 @@ export function RestCodeSamples({ operation, slug, heading }: Props) {
           className={cx(
             styles.codeBlock,
             styles.requestCodeBlock,
-            `border-top rounded-1 my-0 ${getLanguageHighlight(selectedLanguage)}`
+            `border-top rounded-1 my-0 ${getLanguageHighlight(selectedLanguage)}`,
           )}
           data-highlight={getLanguageHighlight(selectedLanguage)}
+          tabIndex={0}
+          role="scrollbar"
+          aria-controls="example-request-code"
+          aria-valuenow={0}
         >
-          <code ref={requestCodeExample}>{displayedExample[selectedLanguage]}</code>
+          <code id="example-request-code" ref={requestCodeExample}>
+            {displayedExample[selectedLanguage]}
+          </code>
         </div>
       </div>
 
       {/* Response section */}
-      <div
+      <h4
         className="mt-5 mb-2 h5"
         dangerouslySetInnerHTML={{
-          __html: displayedExample.response.description || t('rest.reference.response'),
+          __html: displayedExample.response.description || t('response'),
         }}
-      ></div>
-
+      ></h4>
       <div className="border rounded-1">
         {displayedExample.response.schema ? (
-          <UnderlineNav aria-label="Example response format selector">
-            {responseSelectOptions.map((optionKey) => {
-              if (!displayedExample.response.schema) return null
-
-              return (
-                <UnderlineNav.Link
-                  key={optionKey}
-                  onClick={() => {
+          <TabNav
+            className="pt-2 mx-2"
+            aria-label={`Example response format selector for ${operation.title}`}
+          >
+            {responseSelectOptions.map((optionKey) => (
+              <TabNav.Link
+                key={optionKey}
+                selected={optionKey === selectedResponse}
+                onClick={(e) => {
+                  e.preventDefault()
+                  handleResponseSelection(optionKey)
+                }}
+                onKeyDown={(event) => {
+                  if (event.key === 'Enter') {
                     handleResponseSelection(optionKey)
-                  }}
-                  onKeyDown={(event) => {
-                    if (event.key === 'Enter') {
-                      handleResponseSelection(optionKey)
-                    }
-                  }}
-                  tabIndex={0}
-                  selected={optionKey === selectedResponse}
-                  className="pr-3 mr-0 ml-2"
-                  sx={{
-                    cursor: 'pointer',
-                  }}
-                >
-                  {t(`rest.reference.response_options.${optionKey}`)}
-                </UnderlineNav.Link>
-              )
-            })}
-          </UnderlineNav>
+                  }
+                }}
+                href="#"
+              >
+                {t(`response_options.${optionKey}`)}
+              </TabNav.Link>
+            ))}
+          </TabNav>
         ) : null}
         <div className="">
           {/* Status code */}
@@ -350,12 +359,16 @@ export function RestCodeSamples({ operation, slug, heading }: Props) {
               className={cx(
                 styles.codeBlock,
                 styles.responseCodeBlock,
-                'border-top rounded-1 my-0'
+                'border-top rounded-1 my-0',
               )}
               data-highlight={'json'}
               style={{ maxHeight: responseMaxHeight }}
+              tabIndex={0}
+              role="scrollbar"
+              aria-controls="example-response-code"
+              aria-valuenow={0}
             >
-              <code ref={responseCodeExample}>
+              <code id="example-response-code" ref={responseCodeExample}>
                 {selectedResponse === ResponseKeys.example
                   ? displayedExampleResponse
                   : displayedExampleSchema}

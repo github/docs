@@ -1,21 +1,19 @@
-import { jest, test } from '@jest/globals'
+import { describe, expect, test, vi } from 'vitest'
 import { slug } from 'github-slugger'
-import { readdirSync, readFileSync } from 'fs'
-import path from 'path'
 
-import { get, getDOM } from '../../../tests/helpers/e2etest.js'
-import { isApiVersioned, allVersions } from '../../../lib/all-versions.js'
+import { get, getDOM } from '#src/tests/helpers/e2etest.js'
+import { isApiVersioned, allVersions } from '#src/versions/lib/all-versions.js'
 import { getDiffOpenAPIContentRest } from '../scripts/test-open-api-schema.js'
-import getRest, { REST_DATA_DIR, REST_SCHEMA_FILENAME } from '#src/rest/lib/index.js'
+import getRest from '#src/rest/lib/index.js'
 
 describe('REST references docs', () => {
-  jest.setTimeout(3 * 60 * 1000)
+  vi.setConfig({ testTimeout: 3 * 60 * 1000 })
 
   // This test ensures that the page component and the Markdown file are
   // in sync. It checks that every version of the /rest/checks
   // page has every operation defined in the openapi schema.
   test('loads schema data for all versions', async () => {
-    for (const version in allVersions) {
+    for (const version of Object.keys(allVersions)) {
       const calendarDate = allVersions[version].latestApiVersion
       const checksRestOperations = await getRest(version, calendarDate, 'checks', 'runs')
       const $ = await getDOM(`/en/${version}/rest/checks/runs?restVersion=${calendarDate}`)
@@ -27,38 +25,57 @@ describe('REST references docs', () => {
     }
   })
 
-  test('all category and subcategory REST pages render for free-pro-team', async () => {
-    // This currently just grabs the 'free-pro-team' schema, but ideally, we'd
-    // get a list of all categories across all versions.
-    const freeProTeamVersion = readdirSync(REST_DATA_DIR)
-      .filter((file) => file.startsWith('fpt'))
-      .shift()
-    const freeProTeamSchema = JSON.parse(
-      readFileSync(path.join(REST_DATA_DIR, freeProTeamVersion, REST_SCHEMA_FILENAME), 'utf8')
-    )
-
-    const restCategories = Object.entries(freeProTeamSchema)
-      .map(([key, subCategory]) => {
-        const subCategoryKeys = Object.keys(subCategory)
-        if (subCategoryKeys.length === 1) {
-          return key
-        } else {
-          return subCategoryKeys.map((elem) => `${key}/${elem}`)
-        }
-      })
-      .flat()
-
-    const statusCodes = await Promise.all(
-      restCategories.map(async (page) => {
-        const url = `/en/rest/${page}`
-        const res = await get(url)
-        return [url, res.statusCode]
-      })
-    )
-    for (const [url, status] of statusCodes) {
-      expect(status, url).toBe(200)
+  // These tests exists because of issue #1960
+  test('rest subcategory with fpt in URL', async () => {
+    for (const category of [
+      'migrations',
+      'actions',
+      'activity',
+      'apps',
+      'billing',
+      'checks',
+      'codes-of-conduct',
+      'code-scanning',
+      'codespaces',
+      'emojis',
+      'gists',
+      'git',
+      'gitignore',
+      'interactions',
+      'issues',
+      'licenses',
+      'markdown',
+      'meta',
+      'orgs',
+      'projects',
+      'pulls',
+      'rate-limit',
+      'reactions',
+      'repos',
+      'scim',
+      'search',
+      'teams',
+      'users',
+    ]) {
+      // Without language prefix
+      {
+        const res = await get(`/free-pro-team@latest/rest/reference/${category}`)
+        expect(res.statusCode).toBe(302)
+        expect(
+          res.headers.location === `/en/rest/${category}` ||
+            res.headers.location === `/en/rest/${category}/${category}`,
+        )
+      }
+      // With language prefix
+      {
+        const res = await get(`/en/free-pro-team@latest/rest/reference/${category}`)
+        expect(res.statusCode).toBe(301)
+        expect(
+          res.headers.location === `/en/rest/${category}` ||
+            res.headers.location === `/en/rest/${category}/${category}`,
+        )
+      }
     }
-    expect.assertions(restCategories.length)
   })
 
   test('test the latest version of the OpenAPI schema categories/subcategories to see if it matches the content/rest directory', async () => {
@@ -82,7 +99,7 @@ describe('REST references docs', () => {
   })
 
   test('REST pages show the correct versions in the api version picker', async () => {
-    for (const version in allVersions) {
+    for (const version of Object.keys(allVersions)) {
       if (isApiVersioned(version)) {
         for (const apiVersion of allVersions[version].apiVersions) {
           const $ = await getDOM(`/en/${version}/rest?apiVersion=${apiVersion}`)
@@ -100,36 +117,6 @@ describe('REST references docs', () => {
         expect($('[data-testid=api-version-picker] button span').text()).toBe('')
       }
     }
-  })
-
-  describe('headings', () => {
-    test('rest pages do not render any headings with duplicate text', async () => {
-      const $ = await getDOM('/en/rest/actions/artifacts')
-      const headingText = $('body')
-        .find('h2, h3, h4, h5, h6')
-        .map((i, el) => $(el).text())
-        .get()
-        .sort()
-
-      const dupes = headingText.filter((item, index) => headingText.indexOf(item) !== index)
-
-      const message = `The following duplicate heading texts were found: ${dupes.join(', ')}`
-      expect(dupes.length, message).toBe(0)
-    })
-
-    test('rest pages do not render any headings with duplicate ids', async () => {
-      const $ = await getDOM('/en/rest/actions/artifacts')
-      const headingIDs = $('body')
-        .find('h2, h3, h4, h5, h6')
-        .map((i, el) => $(el).attr('id'))
-        .get()
-        .sort()
-
-      const dupes = headingIDs.filter((item, index) => headingIDs.indexOf(item) !== index)
-
-      const message = `The following duplicate heading IDs were found: ${dupes.join(', ')}`
-      expect(dupes.length, message).toBe(0)
-    })
   })
 })
 

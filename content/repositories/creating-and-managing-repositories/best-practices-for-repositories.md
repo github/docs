@@ -5,7 +5,6 @@ intro: Learn how to use repositories most effectively.
 versions:
   fpt: '*'
   ghes: '*'
-  ghae: '*'
   ghec: '*'
 topics:
   - Repositories
@@ -13,7 +12,7 @@ topics:
 
 ## Create a README file
 
-To make it easier for people to understand and navigate your work, we recommend that you create a README file for every repository. 
+To make it easier for people to understand and navigate your work, we recommend that you create a README file for every repository.
 
 {% data reusables.repositories.about-READMEs %} For more information, see "[AUTOTITLE](/repositories/managing-your-repositorys-settings-and-features/customizing-your-repository/about-readmes)."
 
@@ -25,6 +24,6 @@ To maintain quality of important branches, such as `main`, while using a branchi
 
 ## Use {% data variables.large_files.product_name_long %}
 
-To optimize performance, {% data variables.location.product_location %} limits the sizes of files allowed in repositories. For more information, see "[AUTOTITLE](/repositories/working-with-files/managing-large-files/about-large-files-on-github)."
+To optimize performance, {% data variables.product.prodname_dotcom %} limits the sizes of files allowed in repositories. For more information, see "[AUTOTITLE](/repositories/working-with-files/managing-large-files/about-large-files-on-github)."
 
 To track large files in a Git repository, we recommend using {% data variables.large_files.product_name_long %} ({% data variables.large_files.product_name_short %}). For more information, see "[AUTOTITLE](/repositories/working-with-files/managing-large-files/about-git-large-file-storage)."

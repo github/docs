@@ -4,7 +4,7 @@ import got from 'got'
 import { isNil } from 'lodash-es'
 import statsd from '#src/observability/lib/statsd.js'
 import { report } from '#src/observability/lib/failbot.js'
-import { MAX_REQUEST_TIMEOUT } from '../../../lib/constants.js'
+import { MAX_REQUEST_TIMEOUT } from '#src/frame/lib/constants.js'
 
 const TIME_OUT_TEXT = 'ms has passed since batch creation'
 const SERVER_DISCONNECT_TEXT = 'The server disconnected before a response was received'
@@ -18,7 +18,7 @@ const inProd = NODE_ENV === 'production'
 
 if (inProd && (isNil(HYDRO_SECRET) || isNil(HYDRO_ENDPOINT))) {
   console.warn(
-    'Running in production but HYDRO_SECRET and HYDRO_ENDPOINT environment variables are not set.'
+    'Running in production but HYDRO_SECRET and HYDRO_ENDPOINT environment variables are not set.',
   )
 }
 
@@ -30,7 +30,7 @@ if (inProd && (isNil(HYDRO_SECRET) || isNil(HYDRO_ENDPOINT))) {
 */
 async function _publish(
   events,
-  { secret, endpoint } = { secret: HYDRO_SECRET, endpoint: HYDRO_ENDPOINT }
+  { secret, endpoint } = { secret: HYDRO_SECRET, endpoint: HYDRO_ENDPOINT },
 ) {
   if (!secret || !endpoint) {
     return { statusCode: 200 }

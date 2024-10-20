@@ -1,0 +1,6 @@
+# Issue 10904
+# Ability to switch between accounts
+versions:
+  fpt: '*'
+  ghec: '*'
+  ghes: '>=3.14'

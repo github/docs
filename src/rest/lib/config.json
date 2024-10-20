@@ -6,7 +6,19 @@
     "ghec": [
       "2022-11-28"
     ],
-    "ghes-3.9": [
+    "ghes-3.10": [
+      "2022-11-28"
+    ],
+    "ghes-3.11": [
+      "2022-11-28"
+    ],
+    "ghes-3.12": [
+      "2022-11-28"
+    ],
+    "ghes-3.13": [
+      "2022-11-28"
+    ],
+    "ghes-3.14": [
       "2022-11-28"
     ]
   },
@@ -28,10 +40,12 @@
     "content/rest/index.md": {
       "startsWith": [
         "quickstart",
-        "overview",
+        "about-the-rest-api",
+        "using-the-rest-api",
+        "authentication",
         "guides"
       ]
     }
   },
-  "sha": "09227d9129ab37f474e43d3b94f61c6ab7d9fde4"
+  "sha": "e165265240d01bb9ca924b4ace9893455200257e"
 }

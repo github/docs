@@ -2,4 +2,3 @@
 # Documentation for enabling Git events in the audit log
 versions:
   ghes: '>=3.5'
-  ghae: '>= 3.5'

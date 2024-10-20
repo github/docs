@@ -1,0 +1,24 @@
+# Variables used in the Copilot docs that are not product names
+
+# Copilot billing: price per month for Copilot Individuals
+cfi_price_per_month: '$10 USD'
+
+# Copilot billing: price per year for Copilot Individuals
+cfi_price_per_year: '$100 USD'
+
+# Copilot billing: price per month for Copilot Business
+cfb_price_per_month: '$19 USD'
+
+# Copilot billing: price per month for Copilot Enterprise
+ce_price_per_month: '$39 USD'
+
+# Copilot Chat in GitHub.com: maximum number of repos that can be indexed for an org
+max-chat-indexed-repos: '50'
+
+# Copilot partners: builders who can develop Copilot extensions
+copilot_partners: 'Copilot Partners'
+copilot_partner: 'Copilot Partner'
+copilot_partner_program: 'Copilot Partner Program'
+
+## Copilot URLs
+chat_completions_api: 'https://api.githubcopilot.com/chat/completions'

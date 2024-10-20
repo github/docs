@@ -2,4 +2,3 @@
 versions:
   ghes: '>3.0'
   ghec: '*'
-  ghae: '*'

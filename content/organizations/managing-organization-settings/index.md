@@ -7,7 +7,6 @@ redirect_from:
 versions:
   fpt: '*'
   ghes: '*'
-  ghae: '*'
   ghec: '*'
 topics:
   - Organizations
@@ -22,6 +21,10 @@ children:
   - /managing-the-forking-policy-for-your-organization
   - /managing-pull-request-reviews-in-your-organization
   - /disabling-or-limiting-github-actions-for-your-organization
+  - /about-networking-for-hosted-compute-products-in-your-organization
+  - /about-azure-private-networking-for-github-hosted-runners-in-your-organization
+  - /configuring-private-networking-for-github-hosted-runners-in-your-organization
+  - /troubleshooting-azure-private-network-configurations-for-github-hosted-runners-in-your-organization
   - /configuring-the-retention-period-for-github-actions-artifacts-and-logs-in-your-organization
   - /setting-permissions-for-adding-outside-collaborators
   - /allowing-people-to-delete-issues-in-your-organization
@@ -41,12 +44,14 @@ children:
   - /deleting-an-organization-account
   - /converting-an-organization-into-a-user
   - /integrating-jira-with-your-organization-project-board
-  - /upgrading-to-the-corporate-terms-of-service
+  - /upgrading-to-the-github-customer-agreement
   - /disabling-project-boards-in-your-organization
   - /disabling-insights-for-projects-in-your-organization
   - /managing-base-permissions-for-projects
   - /allowing-project-visibility-changes-in-your-organization
+  - /creating-rulesets-for-repositories-in-your-organization
   - /managing-rulesets-for-repositories-in-your-organization
+  - /managing-custom-properties-for-repositories-in-your-organization
 shortTitle: Manage organization settings
 ---
 {% ifversion fpt or ghec %}

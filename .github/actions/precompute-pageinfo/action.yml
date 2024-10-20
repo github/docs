@@ -1,0 +1,46 @@
+name: Warmup pageinfo cache
+
+description: Run this to create a .pageinfo-cache.json.br file
+
+inputs:
+  restore-only:
+    description: Only attempt to restore, don't warm up
+    required: false
+
+runs:
+  using: 'composite'
+  steps:
+    # The caching technique here is to "unboundedly" add to the cache.
+    # By unboundedly, it means the cached item will grow and grow.
+    # The general idea is that we A) restore from cache, B) replace the
+    # file by running the script, and C) save the file back to cache.
+    # Optionally, you can have it just do A (and not B and C).
+
+    - name: Cache .pageinfo-cache.json.br (restore)
+      # You can't use a SHA on these. Only possible with `actions/cache@SHA...`
+      uses: actions/cache/restore@v3
+      with:
+        path: .pageinfo-cache.json.br
+        key: pageinfo-cache-
+        restore-keys: pageinfo-cache-
+
+    # When we use this composite action from the workflows like
+    # Azure Preview Deploy and Azure Production Deploy, we don't have
+    # any Node installed or any of its packages. I.e. we never
+    # run `npm ci` in those actions. For security sake.
+    # So we can't do things that require Node code.
+    # Tests and others will omit the `restore-only` input, but
+    # prepping for Docker build and push, will set it to a non-empty
+    # string which basically means "If you can restore it, great.
+    # If not, that's fine, don't bother".
+    - name: Run script
+      if: ${{ inputs.restore-only == '' }}
+      shell: bash
+      run: npm run precompute-pageinfo -- --max-versions 2
+
+    - name: Cache .remotejson-cache (save)
+      if: ${{ inputs.restore-only == '' }}
+      uses: actions/cache/save@v3
+      with:
+        path: .pageinfo-cache.json.br
+        key: pageinfo-cache-${{ github.sha }}

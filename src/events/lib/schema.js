@@ -1,7 +1,7 @@
-import { languageKeys } from '../../../lib/languages.js'
-import { allVersionKeys } from '../../../lib/all-versions.js'
-import { productIds } from '../../../lib/all-products.js'
-import { allTools } from '../../../lib/all-tools.js'
+import { languageKeys } from '#src/languages/lib/languages.js'
+import { allVersionKeys } from '#src/versions/lib/all-versions.js'
+import { productIds } from '#src/products/lib/all-products.js'
+import { allTools } from '#src/tools/lib/all-tools.js'
 
 const versionPattern = '^\\d+(\\.\\d+)?(\\.\\d+)?$' // eslint-disable-line
 
@@ -39,29 +39,33 @@ const context = {
     },
 
     // Content information
-    path: {
+    referrer: {
       type: 'string',
-      description: 'The browser value of `location.pathname`.',
+      description: 'The browser value of `document.referrer`.',
       format: 'uri-reference',
+    },
+    href: {
+      type: 'string',
+      description: 'The browser value of `location.href`.',
+      format: 'uri',
     },
     hostname: {
       type: 'string',
       description: 'The browser value of `location.hostname.`',
       format: 'uri-reference',
     },
-    referrer: {
+    path: {
       type: 'string',
-      description: 'The browser value of `document.referrer`.',
+      description: 'The browser value of `location.pathname`.',
       format: 'uri-reference',
     },
     search: {
       type: 'string',
       description: 'The browser value of `location.search`.',
     },
-    href: {
+    hash: {
       type: 'string',
-      description: 'The browser value of `location.href`.',
-      format: 'uri',
+      description: 'The browser value of `location.hash`.',
     },
     path_language: {
       type: 'string',
@@ -90,13 +94,17 @@ const context = {
     page_type: {
       type: 'string',
       description: 'Optional page type from the content frontmatter.',
-      enum: ['overview', 'quick_start', 'tutorial', 'how_to', 'reference'], // frontmatter.js
+      enum: ['overview', 'quick_start', 'tutorial', 'how_to', 'reference', 'rai'], // frontmatter.js
     },
     status: {
       type: 'number',
       description: 'The HTTP response status code of the main page HTML.',
       minimum: 0,
       maximum: 999,
+    },
+    is_logged_in: {
+      type: 'boolean',
+      description: 'Anonymous -- whether the user has github.com cookies set.',
     },
 
     // Device information
@@ -113,7 +121,7 @@ const context = {
     browser: {
       type: 'string',
       description: 'The type of browser the user is browsing with.',
-      enum: ['chrome', 'safari', 'firefox', 'edge', 'ie', 'other'],
+      enum: ['chrome', 'safari', 'firefox', 'edge', 'opera', 'other'],
       default: 'other',
     },
     browser_version: {
@@ -155,6 +163,10 @@ const context = {
     color_mode_preference: {
       enum: ['dark', 'light', 'auto', 'auto:dark', 'auto:light'],
       description: 'The color mode selected by the user.',
+    },
+    code_display_preference: {
+      enum: ['beside', 'inline'],
+      description: 'How the user prefers to view code examples.',
     },
   },
 }
@@ -245,6 +257,26 @@ const link = {
       type: 'boolean',
       description: 'If the link stays on docs.github.com.',
     },
+    link_samepage: {
+      type: 'boolean',
+      description: 'If the link stays on the same page (hash link).',
+    },
+    link_container: {
+      type: 'string',
+      enum: [
+        'header',
+        'nav',
+        'breadcrumbs',
+        'title',
+        'lead',
+        'notifications',
+        'article',
+        'toc',
+        'footer',
+        'static',
+      ],
+      description: 'The part of the page where the user clicked the link.',
+    },
   },
 }
 
@@ -334,23 +366,6 @@ const searchResult = {
   },
 }
 
-const navigate = {
-  type: 'object',
-  additionalProperties: false,
-  required: ['type', 'context'],
-  properties: {
-    context,
-    type: {
-      type: 'string',
-      pattern: '^navigate$',
-    },
-    navigate_label: {
-      type: 'string',
-      description: 'An identifier for where the user is navigating.',
-    },
-  },
-}
-
 const survey = {
   type: 'object',
   additionalProperties: false,
@@ -374,6 +389,16 @@ const survey = {
       format: 'email',
       description: "The user's email address, if the user provided and consented.",
     },
+    survey_rating: {
+      type: 'number',
+      description:
+        'The computed rating of the quality of the survey comment. Used for spam filtering and quality control.',
+    },
+    survey_comment_language: {
+      type: 'string',
+      description:
+        'The guessed language of the survey comment. The guessed language is very inaccurate when the string contains fewer than 3 or 4 words.',
+    },
   },
 }
 
@@ -393,7 +418,6 @@ const experiment = {
     },
     experiment_variation: {
       type: 'string',
-      enum: ['control', 'treatment'],
       description: 'The variation this user we bucketed in, such as control or treatment.',
     },
     experiment_success: {
@@ -418,6 +442,10 @@ const clipboard = {
       type: 'string',
       description: 'Which clipboard operation the user is performing.',
       enum: ['copy', 'paste', 'cut'],
+    },
+    clipboard_target: {
+      type: 'string',
+      description: 'How the user got the contents into their clipboard.',
     },
   },
 }
@@ -447,22 +475,29 @@ const preference = {
     },
     preference_name: {
       type: 'string',
-      enum: ['application', 'color_mode', 'os'],
+      enum: ['application', 'color_mode', 'os', 'code_display'],
       description: 'The preference name, such as os, application, or color_mode',
     },
     preference_value: {
       type: 'string',
-      enum: Object.keys(allTools).concat(
+      enum: [
+        // application
+        ...Object.keys(allTools),
+        // color_mode
         'dark',
         'light',
         'auto',
         'auto:dark',
         'auto:light',
+        // os
         'linux',
         'mac',
-        'windows'
-      ),
-      description: 'The application, color_mode, or os selected by the user.',
+        'windows',
+        // code_display
+        'beside',
+        'inline',
+      ],
+      description: 'The application, color_mode, os, or code_display selected by the user.',
     },
   },
 }
@@ -496,7 +531,6 @@ export const schemas = {
   hover,
   search,
   searchResult,
-  navigate,
   survey,
   experiment,
   clipboard,
@@ -512,7 +546,6 @@ export const hydroNames = {
   hover: 'docs.v0.HoverEvent',
   search: 'docs.v0.SearchEvent',
   searchResult: 'docs.v0.SearchResultEvent',
-  navigate: 'docs.v0.NavigateEvent',
   survey: 'docs.v0.SurveyEvent',
   experiment: 'docs.v0.ExperimentEvent',
   clipboard: 'docs.v0.ClipboardEvent',

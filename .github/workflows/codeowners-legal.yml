@@ -1,0 +1,75 @@
+name: Codeowners - Legal
+
+# **What it does**: Enforces reviews of Responsible AI (RAI) content by the GitHub legal team. Because RAI content can live anywhere in the content directory, it becomes a maintenance problem to use CODEOWNERS to enforce review on each article.
+# **Why we have it**: RAI content must be reviewed by the GitHub legal team.
+# **Who does it impact**: Content writers and the GitHub legal team.
+
+on:
+  workflow_dispatch:
+  pull_request:
+    types:
+      - edited
+      - opened
+      - ready_for_review
+      - reopened
+      - synchronize
+    paths:
+      - 'content/**'
+
+permissions:
+  contents: read
+  pull-requests: write
+
+jobs:
+  codeowners-legal:
+    if: >-
+      ${{ github.repository == 'github/docs-internal' &&
+          !github.event.pull_request.draft &&
+          github.event.pull_request.head.ref != 'repo-sync' }}
+    runs-on: ubuntu-latest
+    steps:
+      - name: Check out repo
+        uses: actions/checkout@b4ffde65f46336ab88eb53be808477a3936bae11 # v4.1.1
+        with:
+          # Picking this number is a "best guess". If we make it too large,
+          # the checkout will take potentially unnecessariily long.
+          # This reduces the chance that tj-actions/changed-files has to
+          # fetch deeper history. But if it needs to, it will.
+          fetch-depth: 10
+
+      - name: Get changed files
+        id: changed-files
+        uses: tj-actions/changed-files@40853de9f8ce2d6cfdc73c1b96f14e22ba44aec4 # v45.0.0
+        with:
+          files: 'content/**'
+          output_renamed_files_as_deleted_and_added: true
+
+      - name: Set up Node and dependencies
+        if: steps.changed-files.outputs.any_changed == 'true'
+        uses: ./.github/actions/node-npm-setup
+
+      - name: Check content type
+        if: steps.changed-files.outputs.any_changed == 'true'
+        id: checkContentType
+        run: npm run check-content-type
+        env:
+          # all_changed_files does not include deleted files
+          CHANGED_FILE_PATHS: ${{ steps.changed-files.outputs.all_changed_files }}
+          CONTENT_TYPE: 'rai'
+
+      - name: Add Legal team as a reviewer
+        if: steps.checkContentType.outputs.containsContentType == 'true'
+        env:
+          # The GH CLI uses a slightly different env name for
+          # the token than the GITHUB_TOKEN used by actions
+          GH_TOKEN: ${{ secrets.DOCS_BOT_PAT_WRITEORG_PROJECT }}
+          PR: ${{ github.event.pull_request.html_url }}
+        run: |
+          has_reviewer=$(
+            gh pr view $PR --json reviews |
+            jq 'any(.reviews[]; select(length > 0))'
+          )
+          if ! $has_reviewer
+          then
+            gh pr edit $PR --add-reviewer github/legal-product
+          fi

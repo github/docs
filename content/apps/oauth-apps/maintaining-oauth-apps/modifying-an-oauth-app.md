@@ -1,5 +1,5 @@
 ---
-title: Modifying an OAuth App
+title: Modifying an OAuth app
 intro: '{% data reusables.shortdesc.modifying_oauth_apps %}'
 redirect_from:
   - /apps/building-integrations/managing-oauth-apps/modifying-an-oauth-app
@@ -9,10 +9,9 @@ redirect_from:
 versions:
   fpt: '*'
   ghes: '*'
-  ghae: '*'
   ghec: '*'
 topics:
-  - OAuth Apps
+  - OAuth apps
 ---
 {% data reusables.user-settings.access_settings %}
 {% data reusables.user-settings.developer_settings %}

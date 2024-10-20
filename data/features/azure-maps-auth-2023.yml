@@ -1,0 +1,4 @@
+# Reference: #12932
+# Changes to authentication for configuration of interactive maps from Azure on a GHES instance
+versions:
+  ghes: '>= 3.7'

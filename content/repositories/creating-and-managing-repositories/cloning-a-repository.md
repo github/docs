@@ -1,6 +1,6 @@
 ---
 title: Cloning a repository
-intro: 'When you create a repository on {% data variables.location.product_location %}, it exists as a remote repository. You can clone your repository to create a local copy on your computer and sync between the two locations.'
+intro: 'When you create a repository on {% data variables.product.prodname_dotcom %}, it exists as a remote repository. You can clone your repository to create a local copy on your computer and sync between the two locations.'
 redirect_from:
   - /articles/cloning-a-repository
   - /articles/cloning-a-repository-from-github
@@ -9,7 +9,6 @@ redirect_from:
 versions:
   fpt: '*'
   ghes: '*'
-  ghae: '*'
   ghec: '*'
 topics:
   - Repositories
@@ -73,9 +72,9 @@ gh repo clone https://github.com/PATH-TO/REPOSITORY
 
 {% data reusables.repositories.navigate-to-repo %}
 {% data reusables.repositories.open-with-github-desktop %}
-4. Follow the prompts in {% data variables.product.prodname_desktop %} to complete the clone.
+1. Follow the prompts in {% data variables.product.prodname_desktop %} to complete the clone.
 
-For more information, see "[AUTOTITLE](/desktop/contributing-and-collaborating-using-github-desktop/adding-and-cloning-repositories/cloning-a-repository-from-github-to-github-desktop)."
+For more information, see "[AUTOTITLE](/desktop/adding-and-cloning-repositories/cloning-a-repository-from-github-to-github-desktop)."
 
 {% enddesktop %}
 
@@ -103,13 +102,13 @@ When cloning a repository it's possible that you might encounter some errors.
 
 If you're unable to clone a repository, check that:
 
-- You can connect using HTTPS. For more information, see "[AUTOTITLE](/repositories/creating-and-managing-repositories/troubleshooting-cloning-errors)."
-- You have permission to access the repository you want to clone. For more information, see "[AUTOTITLE](/repositories/creating-and-managing-repositories/troubleshooting-cloning-errors)."
-- The default branch you want to clone still exists. For more information, see "[AUTOTITLE](/repositories/creating-and-managing-repositories/troubleshooting-cloning-errors#error-remote-head-refers-to-nonexistent-ref-unable-to-checkout)."
+* You can connect using HTTPS. For more information, see "[AUTOTITLE](/repositories/creating-and-managing-repositories/troubleshooting-cloning-errors)."
+* You have permission to access the repository you want to clone. For more information, see "[AUTOTITLE](/repositories/creating-and-managing-repositories/troubleshooting-cloning-errors)."
+* The default branch you want to clone still exists. For more information, see "[AUTOTITLE](/repositories/creating-and-managing-repositories/troubleshooting-cloning-errors#error-remote-head-refers-to-nonexistent-ref-unable-to-checkout)."
 
 {% ifversion fpt or ghec %}
 
 ## Further reading
 
-- "[AUTOTITLE](/get-started/using-github/troubleshooting-connectivity-problems)"
+* "[AUTOTITLE](/get-started/using-github/troubleshooting-connectivity-problems)"
 {% endif %}

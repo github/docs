@@ -5,7 +5,6 @@ intro: 'Learn how to authenticate with {% data variables.product.prodname_github
 versions:
   fpt: '*'
   ghes: '*'
-  ghae: '*'
   ghec: '*'
 topics:
   - GitHub Apps

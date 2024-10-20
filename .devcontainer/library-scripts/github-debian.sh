@@ -4,7 +4,7 @@
 # Licensed under the MIT License. See https://go.microsoft.com/fwlink/?linkid=2090316 for license information.
 #-------------------------------------------------------------------------------------------------------------
 #
-# Docs: https://github.com/microsoft/vscode-dev-containers/blob/master/script-library/docs/github.md
+# Docs: https://github.com/microsoft/vscode-dev-containers/blob/main/script-library/docs/github-cli.md
 #
 # Syntax: ./github-debian.sh [version]
 

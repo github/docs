@@ -1,10 +1,11 @@
 ---
-title: Pre-receive Environments
+title: REST API endpoints for pre-receive environments
+shortTitle: Pre-receive environments
+allowTitleToDifferFromFilename: true
 intro: >-
   Use the REST API to create, list, update and delete environments for
   pre-receive hooks.
-versions:
-  ghae: '*'
+versions: # DO NOT MANUALLY EDIT. CHANGES WILL BE OVERWRITTEN BY A 🤖
   ghes: '*'
 topics:
   - API
@@ -38,6 +39,5 @@ These endpoints are only available to [authenticated](/rest/overview/authenticat
 | `message`       | `string` | On failure, this will have any error messages produced. |
 
 Possible values for `state` are `not_started`, `in_progress`, `success`, `failed`.
-
 
 <!-- Content after this section is automatically generated -->

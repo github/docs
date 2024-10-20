@@ -1,0 +1,5 @@
+# Reference: #13978
+# Editor role in Management Console
+
+versions:
+  ghes: '<3.13'

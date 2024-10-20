@@ -1,5 +1,7 @@
 {% note %}
 
-**Note:** Tasklists and the tracks and tracked by fields for Projects are currently in private beta and subject to change. If you are interested in trying tasklists and using the new fields, you can join the [waitlist](https://aka.ms/tasklist-roadmap-signup).
+**Note:** Tasklists are in {% data variables.release-phases.private_preview %} and subject to change. We have currently paused onboarding to the {% data variables.release-phases.public_preview %}.
 
 {% endnote %}
+
+<!-- n.b. separate note on "About tasklists" -->

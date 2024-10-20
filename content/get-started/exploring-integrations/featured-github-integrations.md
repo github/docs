@@ -11,7 +11,7 @@ redirect_from:
 versions:
   fpt: '*'
   ghec: '*'
-  ghes: '>3.7'
+  ghes: '*'
 shortTitle: Featured integrations
 ---
 
@@ -19,7 +19,7 @@ shortTitle: Featured integrations
 
 ## Editor tools
 
-You can connect to {% data variables.product.product_name %} repositories within third-party editor tools such as Unity and {% data variables.product.prodname_vs %}.
+You can connect to {% data variables.product.product_name %} repositories within third-party editor tools such as {% data variables.product.prodname_vs %}.
 
 {% ifversion fpt %}
 {% note %}
@@ -28,9 +28,6 @@ You can connect to {% data variables.product.product_name %} repositories within
 
 {% endnote %}
 {% endif %}
-### {% data variables.product.product_name %} for Unity
-
-With the {% data variables.product.product_name %} for Unity editor extension, you can develop on Unity, the open source game development platform, and see your work on {% data variables.product.product_name %}. For more information, see the official Unity editor extension [site](https://unity.github.com/) or the [documentation](https://github.com/github-for-unity/Unity/tree/master/docs).
 
 ### {% data variables.product.product_name %} for {% data variables.product.prodname_vs %}
 
@@ -48,7 +45,6 @@ You can integrate your personal or organization account on {% data variables.loc
 
 You can integrate Jira Cloud with your personal or organization account to scan commits and pull requests, creating relevant metadata and hyperlinks in any mentioned Jira issues. For more information, visit the [Jira integration app](https://github.com/marketplace/jira-software-github) in the marketplace.
 
-
 {% endif %}
 
 {% ifversion slack-and-team-integrations %}
@@ -61,30 +57,29 @@ You can integrate your {% ifversion fpt or ghec %}personal{% elsif ghes %}user{%
 
 The Slack + {% data variables.product.prodname_dotcom %} app lets you subscribe to your repositories or organizations and get real-time updates about activity for the following features on {% data variables.location.product_location %}.
 
-- Issues
-- Pull requests
-- Commits
-- Discussions
-- Releases
-- {% data variables.product.prodname_actions %}
-- Deployments
+* Issues
+* Pull requests
+* Commits
+* Discussions
+* Releases
+* {% data variables.product.prodname_actions %}
+* Deployments
 
 You can also open and close issues, comment on your issues and pull requests, approve deployments, and see detailed references to issues and pull requests without leaving Slack. The app will also ping you personally on Slack if you are mentioned as part of any {% data variables.product.prodname_dotcom %} notifications that you receive in your channels or personal chats.
 
 The Slack + {% data variables.product.prodname_dotcom %} app is also compatible with [Slack Enterprise Grid](https://slack.com/intl/en-in/help/articles/360000281563-Manage-apps-on-Enterprise-Grid). For more information, see the integration's [README](https://github.com/integrations/slack/blob/master/README.md) in the `integrations/slack` repository.
 
-
 ### Microsoft Teams and {% data variables.product.product_name %} integration
 
 The {% data variables.product.prodname_dotcom %} for Teams app lets you subscribe to your repositories or organizations and get real-time updates about activity for the following features on {% data variables.location.product_location %}.
 
-- Issues
-- Pull requests
-- Commits
-- Discussions
-- Releases
-- {% data variables.product.prodname_actions %}
-- Deployments
+* Issues
+* Pull requests
+* Commits
+* Discussions
+* Releases
+* {% data variables.product.prodname_actions %}
+* Deployments
 
 You can also open and close issues, comment on your issues and pull requests, approve deployments, and see detailed references to issues and pull requests without leaving Microsoft Teams. The app will also ping you personally on Teams if you are mentioned as part of any {% data variables.product.prodname_dotcom %} notifications that you receive in your channels or personal chats.
 

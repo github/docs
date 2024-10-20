@@ -7,7 +7,6 @@ versions:
   fpt: '*'
   ghec: '*'
   ghes: '*'
-  ghae: '*'
 topics:
   - API
 ---
@@ -25,17 +24,17 @@ You can access most objects in GitHub (users, issues, pull requests, etc.) using
 You can follow three steps to use global node IDs effectively:
 
 1. Call a REST endpoint that returns an object's `node_id`.
-2. Find the object's type in GraphQL.
-3. Use the ID and type to do a direct node lookup in GraphQL.
+1. Find the object's type in GraphQL.
+1. Use the ID and type to do a direct node lookup in GraphQL.
 
 Let's walk through an example.
 
 ## 1. Call a REST endpoint that returns an object's node ID
 
-If you [request the authenticated user](/rest/users#get-the-authenticated-user):
+If you [request the authenticated user](/rest/users/users#get-the-authenticated-user):
 
 ```shell
-$ curl -i --header "Authorization: Bearer YOUR-TOKEN" {% data variables.product.api_url_pre %}/user
+curl -i --header "Authorization: Bearer YOUR-TOKEN" {% data variables.product.rest_url %}/user
 ```
 
 you'll get a response that includes the `node_id` of the authenticated user:
@@ -108,7 +107,7 @@ When you run this query, you'll see that the `__typename` is [`User`](/graphql/r
 
 ## 3. Do a direct node lookup in GraphQL
 
-Once you've confirmed the type, you can use an [inline fragment](https://graphql.github.io/learn/queries/#inline-fragments) to access the object by its ID and return additional data. In this example, we define the fields on `User` that we'd like to query:
+Once you've confirmed the type, you can use an [inline fragment](https://graphql.org/learn/queries/#inline-fragments) to access the object by its ID and return additional data. In this example, we define the fields on `User` that we'd like to query:
 
 ```graphql
 query {

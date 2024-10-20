@@ -9,13 +9,12 @@ redirect_from:
 versions:
   fpt: '*'
   ghes: '*'
-  ghae: '*'
   ghec: '*'
 topics:
   - Pull requests
 children:
   - /about-status-checks
+  - /troubleshooting-required-status-checks
   - /working-with-pre-receive-hooks
 shortTitle: Code quality features
 ---
-

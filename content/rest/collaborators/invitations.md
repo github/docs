@@ -1,13 +1,12 @@
 ---
-title: Repository invitations
+title: REST API endpoints for repository invitations
 allowTitleToDifferFromFilename: true
 shortTitle: Invitations
 intro: >-
   Use the REST API to view and manage invitations to collaborate on a
   repository.
-versions:
+versions: # DO NOT MANUALLY EDIT. CHANGES WILL BE OVERWRITTEN BY A 🤖
   fpt: '*'
-  ghae: '*'
   ghec: '*'
   ghes: '*'
 topics:
@@ -24,6 +23,5 @@ To add a user as a collaborator, use the Collaborators endpoints instead. For mo
 Note that the `repo:invite` [OAuth scope](/apps/oauth-apps/building-oauth-apps/scopes-for-oauth-apps) grants targeted
 access to invitations **without** also granting access to repository code, while the
 `repo` scope grants permission to code as well as invitations.
-
 
 <!-- Content after this section is automatically generated -->

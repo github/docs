@@ -2,4 +2,4 @@
 
    ![Screenshot of {% data variables.product.prodname_pages %} settings showing verified domains. Under the horizontal kebab icon to the right, the "Continue verifying" dropdown option is outlined in dark orange.](/assets/images/help/pages/verify-continue.png)
 1. To verify your domain, click **Verify**.
-2. To make sure your custom domain remains verified, keep the TXT record in your domain's DNS configuration.
+1. To make sure your custom domain remains verified, keep the TXT record in your domain's DNS configuration.

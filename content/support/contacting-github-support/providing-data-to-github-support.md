@@ -30,32 +30,32 @@ To help you troubleshoot issues with a {% data variables.product.prodname_ghe_se
 
 Authentication tokens, keys, and secrets are removed from log files in the following log directories contained within a support bundle or diagnostics file:
 
-- `alambic-logs`
-- `babeld-logs`
-- `codeload-logs`
-- `enterprise-manage-logs`
-- `github-logs`
-- `hookshot-logs`
-- `lfs-server-logs`
-- `semiotic-logs`
-- `task-dispatcher-logs`
-- `pages-logs`
-- `registry-logs`
-- `render-logs`
-- `svn-bridge-logs`
+* `alambic-logs`
+* `babeld-logs`
+* `codeload-logs`
+* `enterprise-manage-logs`
+* `github-logs`
+* `hookshot-logs`
+* `lfs-server-logs`
+* `semiotic-logs`
+* `task-dispatcher-logs`
+* `pages-logs`
+* `registry-logs`
+* `render-logs`
+* `svn-bridge-logs`
 
 ## Creating and sharing diagnostic files
 
 Diagnostic files are an overview of a {% data variables.product.prodname_ghe_server %} instance's settings and environment that contain:
 
-- Client license information, including company name, expiration date, and number of user licenses
-- Version numbers and SHAs
-- VM architecture
-- Host name, private mode, SSL settings
-- Load and process listings
-- Network settings
-- Authentication method and details
-- Number of repositories, users, and other installation data
+* Client license information, including company name, expiration date, and number of user licenses
+* Version numbers and SHAs
+* VM architecture
+* Host name, private mode, SSL settings
+* Load and process listings
+* Network settings
+* Authentication method and details
+* Number of repositories, users, and other installation data
 
 You can download the diagnostics for your instance from the {% data variables.enterprise.management_console %} or by running the `ghe-diagnostics` command-line utility.
 
@@ -67,7 +67,7 @@ You can create a diagnostic file from the {% data variables.enterprise.managemen
 {% data reusables.enterprise_site_admin_settings.management-console %}
 {% data reusables.enterprise_management_console.type-management-console-password %}
 {% data reusables.enterprise_management_console.support-link %}
-5. Click **Download diagnostics info**.
+1. Click **Download diagnostics info**.
 
 ### Creating a diagnostic file using SSH
 
@@ -76,27 +76,29 @@ You can use this method without signing into the {% data variables.enterprise.ma
 Use the [ghe-diagnostics](/admin/configuration/configuring-your-enterprise/command-line-utilities#ghe-diagnostics) command-line utility to retrieve the diagnostics for your instance.
 
 ```shell
-$ ssh -p122 admin@HOSTNAME -- 'ghe-diagnostics' > diagnostics.txt
+ssh -p122 admin@HOSTNAME -- 'ghe-diagnostics' > diagnostics.txt
 ```
 
 ## Creating and sharing support bundles
 
 After you submit your support request, we may ask you to share a support bundle with our team. The support bundle is a gzip-compressed tar archive that includes diagnostics and important logs from your instance, such as:
 
-- Authentication-related logs that may be helpful when troubleshooting authentication errors, or configuring LDAP, CAS, or SAML
-- {% data variables.enterprise.management_console %} log
-- `github-logs/exceptions.log`: Information about 500 errors encountered on the site
-- `github-logs/audit.log`: {% data variables.product.prodname_ghe_server %} audit logs
-- `babeld-logs/babeld.log`: Git proxy logs
-- `system-logs/haproxy.log`: HAProxy logs
-- `elasticsearch-logs/github-enterprise.log`: Elasticsearch logs
-- `configuration-logs/ghe-config.log`: {% data variables.product.prodname_ghe_server %} configuration logs
-- `collectd/logs/collectd.log`: Collectd logs
-- `mail-logs/mail.log`: SMTP email delivery logs
+* Authentication-related logs that may be helpful when troubleshooting authentication errors, or configuring LDAP, CAS, or SAML
+* {% data variables.enterprise.management_console %} log
+* `github-logs/exceptions.log`: Information about 500 errors encountered on the site
+* `github-logs/audit.log`: {% data variables.product.prodname_ghe_server %} audit logs
+* `babeld-logs/babeld.log`: Git proxy logs
+* `system-logs/haproxy.log`: HAProxy logs
+* `elasticsearch-logs/github-enterprise.log`: Elasticsearch logs
+* `configuration-logs/{% ifversion unique-config-run-logs %}{% else %}ghe-config.log{% endif %}`: {% data variables.product.prodname_ghe_server %} configuration logs
+{%- ifversion unique-config-run-logs %}
+{%- endif %}
+* `collectd/logs/collectd.log`: Collectd logs
+* `mail-logs/mail.log`: SMTP email delivery logs
 
 For more information, see "[AUTOTITLE](/admin/monitoring-activity-in-your-enterprise/reviewing-audit-logs-for-your-enterprise/about-the-audit-log-for-your-enterprise)."
 
-Support bundles include logs from the past two days by default. You can specify an exact duration in hours or days. To provide logs from the past eight days, you can download an extended support bundle. For more information, see "[Creating and sharing extended support bundles](#creating-and-sharing-extended-support-bundles)."
+Support bundles include logs from the past two days by default. You can specify an exact duration in days. To provide logs from the past eight days, you can download an extended support bundle. For more information, see "[Creating and sharing extended support bundles](#creating-and-sharing-extended-support-bundles)."
 
 {% tip %}
 
@@ -112,7 +114,7 @@ You can use these steps to create and share a support bundle if you can access t
 {% data reusables.enterprise_site_admin_settings.management-console %}
 {% data reusables.enterprise_management_console.type-management-console-password %}
 {% data reusables.enterprise_management_console.support-link %}
-5. Click **Download support bundle**.
+1. Click **Download support bundle**.
 {% data reusables.enterprise_enterprise_support.sign-in-to-support %}
 {% data reusables.enterprise_enterprise_support.upload-support-bundle %}
 
@@ -123,9 +125,11 @@ You can use these steps to create and share a support bundle if you have SSH acc
 {% data reusables.enterprise_enterprise_support.use_ghe_cluster_support_bundle %}
 
 1. Download the support bundle via SSH:
+
    ```shell
-   $ ssh -p 122 admin@HOSTNAME -- 'ghe-support-bundle -o' > support-bundle.tgz
+   ssh -p 122 admin@HOSTNAME -- 'ghe-support-bundle -o' > support-bundle.tgz
    ```
+
    For more information about the `ghe-support-bundle` command, see "[AUTOTITLE](/admin/configuration/configuring-your-enterprise/command-line-utilities#ghe-support-bundle)".
 {% data reusables.enterprise_enterprise_support.sign-in-to-support %}
 {% data reusables.enterprise_enterprise_support.upload-support-bundle %}
@@ -145,12 +149,13 @@ You can use these steps to create and share a support bundle if you have SSH acc
 ### Uploading a support bundle directly using SSH
 
 You can directly upload a support bundle to our server if:
-- You have SSH access to {% data variables.location.product_location %}.
-- Outbound HTTPS connections over TCP port 443 are allowed from {% data variables.location.product_location %} to _enterprise-bundles.github.com_ and _esbtoolsproduction.blob.core.windows.net_.
+* You have SSH access to {% data variables.location.product_location %}.
+* Outbound HTTPS connections over TCP port 443 are allowed from {% data variables.location.product_location %} to _enterprise-bundles.github.com_ and _esbtoolsproduction.blob.core.windows.net_.
 
 1. Upload the bundle to our support bundle server:
+
    ```shell
-   $ ssh -p122 admin@HOSTNAME -- 'ghe-support-bundle -u'
+   ssh -p122 admin@HOSTNAME -- 'ghe-support-bundle -u'
    ```
 
 ## Creating and sharing extended support bundles
@@ -164,24 +169,27 @@ To prevent bundles from becoming too large, bundles only contain logs that haven
 You can use these steps to create and share an extended support bundle if you have SSH access to {% data variables.location.product_location %} and you have outbound internet access.
 
 1. Download the extended support bundle via SSH by adding the `-x` flag to the `ghe-support-bundle` command:
+
    ```shell
-   $ ssh -p 122 admin@HOSTNAME -- 'ghe-support-bundle -o -x' > support-bundle.tgz
+   ssh -p 122 admin@HOSTNAME -- 'ghe-support-bundle -o -x' > support-bundle.tgz
    ```
+
 {% data reusables.enterprise_enterprise_support.sign-in-to-support %}
 {% data reusables.enterprise_enterprise_support.upload-support-bundle %}
 
 ### Uploading an extended support bundle directly using SSH
 
 You can directly upload a support bundle to our server if:
-- You have SSH access to {% data variables.location.product_location %}.
-- Outbound HTTPS connections over TCP port 443 are allowed from {% data variables.location.product_location %} to _enterprise-bundles.github.com_ and _esbtoolsproduction.blob.core.windows.net_.
+* You have SSH access to {% data variables.location.product_location %}.
+* Outbound HTTPS connections over TCP port 443 are allowed from {% data variables.location.product_location %} to _enterprise-bundles.github.com_ and _esbtoolsproduction.blob.core.windows.net_.
 
 1. Upload the bundle to our support bundle server:
+
    ```shell
-   $ ssh -p122 admin@HOSTNAME -- 'ghe-support-bundle -u -x'
+   ssh -p122 admin@HOSTNAME -- 'ghe-support-bundle -u -x'
    ```
 
 ## Further reading
 
-- "[AUTOTITLE](/support/learning-about-github-support/about-github-support)"
-- "[AUTOTITLE](/enterprise-server@latest/admin/enterprise-management/monitoring-your-appliance/generating-a-health-check-for-your-enterprise)"
+* "[AUTOTITLE](/support/learning-about-github-support/about-github-support)"
+* "[AUTOTITLE](/enterprise-server@latest/admin/enterprise-management/monitoring-your-appliance/generating-a-health-check-for-your-enterprise)"

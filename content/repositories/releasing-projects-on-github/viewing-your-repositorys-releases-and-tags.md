@@ -10,7 +10,6 @@ redirect_from:
 versions:
   fpt: '*'
   ghes: '*'
-  ghae: '*'
   ghec: '*'
 topics:
   - Repositories
@@ -26,14 +25,14 @@ shortTitle: View releases & tags
 
 {% data reusables.repositories.navigate-to-repo %}
 {% data reusables.repositories.releases %}
-2. At the top of the Releases page, click **Releases**.
+1. At the top of the Releases page, click **Releases**.
 
 ## Viewing tags
 
 {% data reusables.repositories.navigate-to-repo %}
 {% data reusables.repositories.releases %}
-2. At the top of the page, click **Tags**.
+1. At the top of the page, click **Tags**.
 
 ## Further reading
 
-- "[AUTOTITLE](/authentication/managing-commit-signature-verification/signing-tags)"
+* "[AUTOTITLE](/authentication/managing-commit-signature-verification/signing-tags)"

@@ -4,7 +4,6 @@ intro: Create an organization to apply fine-grained access permissions to reposi
 versions:
   fpt: '*'
   ghes: '*'
-  ghae: '*'
   ghec: '*'
 redirect_from:
   - /articles/creating-a-new-organization-from-scratch
@@ -21,10 +20,11 @@ When you create a new organization from scratch, it doesn't have any repositorie
 {% data reusables.user-settings.access_settings %}
 {% data reusables.user-settings.organizations %}
 {% data reusables.organizations.new-organization %}
-4. Follow the prompts to create your organization. {% ifversion fpt or ghec %}For more information about the plans available for your team, see "[AUTOTITLE](/get-started/learning-about-github/githubs-products)."{% endif %}
+1. Follow the prompts to create your organization. {% ifversion fpt or ghec %}For more information about the plans available for your team, see "[AUTOTITLE](/get-started/learning-about-github/githubs-plans)."{% endif %}
 
 ## Further reading
 
 {% ifversion fpt or ghec %}
-- "[AUTOTITLE](/billing/managing-your-github-billing-settings/setting-your-billing-email)"{% endif %}
-- "[AUTOTITLE](/organizations/collaborating-with-groups-in-organizations/about-organizations)"
+* "[AUTOTITLE](/billing/managing-your-github-billing-settings/setting-your-billing-email)"{% endif %}
+* "[AUTOTITLE](/organizations/collaborating-with-groups-in-organizations/about-organizations)"
+* "[AUTOTITLE](/account-and-profile/setting-up-and-managing-your-personal-account-on-github/managing-your-personal-account/converting-a-user-into-an-organization)"

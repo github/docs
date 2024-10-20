@@ -1,4 +1,4 @@
-```YAML copy
+```yaml copy
 title: "[General] "
 labels: ["General Introduction"]
 body:
@@ -54,5 +54,4 @@ body:
       value: |
         ### The thrilling conclusion
         _to our template_
-
 ```

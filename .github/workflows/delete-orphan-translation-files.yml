@@ -1,0 +1,140 @@
+name: Delete orphan translation files
+
+# **What it does**:
+#    Compares content & data files left in each translation that aren't
+#    in docs-internal. Then creates a PR to delete these files.
+# **Why we have it**:
+#    When Juno dumps to each translation repo it can not account for the
+#    fact that files in docs-internal get moved or deleted. So the
+#    sum total of files constantly grows.
+#    This leads to excess files in each translation repo that are not
+#    ever used but has to be put into every production build.
+# **Who does it impact**: Docs engineering
+
+on:
+  workflow_dispatch:
+  schedule:
+    - cron: '20 16 * * 1' # Run every Monday at 16:20 UTC / 8:20 PST
+
+permissions:
+  contents: write
+
+jobs:
+  delete-orphan-translation-files:
+    if: github.repository == 'github/docs-internal'
+    runs-on: ubuntu-latest
+    strategy:
+      fail-fast: false
+      matrix:
+        include:
+          - language: zh
+            language_dir: translations/zh-cn
+            language_repo: github/docs-internal.zh-cn
+
+          - language: es
+            language_dir: translations/es-es
+            language_repo: github/docs-internal.es-es
+
+          - language: pt
+            language_dir: translations/pt-br
+            language_repo: github/docs-internal.pt-br
+
+          - language: ru
+            language_dir: translations/ru-ru
+            language_repo: github/docs-internal.ru-ru
+
+          - language: ja
+            language_dir: translations/ja-jp
+            language_repo: github/docs-internal.ja-jp
+
+          - language: fr
+            language_dir: translations/fr-fr
+            language_repo: github/docs-internal.fr-fr
+
+          - language: de
+            language_dir: translations/de-de
+            language_repo: github/docs-internal.de-de
+
+          - language: ko
+            language_dir: translations/ko-kr
+            language_repo: github/docs-internal.ko-kr
+
+    steps:
+      - uses: actions/checkout@b4ffde65f46336ab88eb53be808477a3936bae11 # v4.1.1
+
+      - name: Checkout the language-specific repo
+        uses: actions/checkout@b4ffde65f46336ab88eb53be808477a3936bae11 # v4.1.1
+        with:
+          repository: ${{ matrix.language_repo }}
+          token: ${{ secrets.DOCS_BOT_PAT_READPUBLICKEY }}
+          path: ${{ matrix.language_dir }}
+
+      - uses: ./.github/actions/node-npm-setup
+
+      - name: Delete orphan files
+        run: |
+          npm run delete-orphan-translation-files -- ${{ matrix.language_dir }}
+
+      - name: Debug deleted files
+        working-directory: ${{ matrix.language_dir }}
+        run: git status
+
+      - name: Git config
+        working-directory: ${{ matrix.language_dir }}
+        run: |
+          git config --global user.name "docs-bot"
+          git config --global user.email "77750099+docs-bot@users.noreply.github.com"
+
+      - name: Git commit and push, create and merge PR
+        working-directory: ${{ matrix.language_dir }}
+        env:
+          # Needed for gh
+          GH_TOKEN: ${{ secrets.DOCS_BOT_PAT_READPUBLICKEY }}
+        run: |
+          # If nothing to commit, exit now. It's fine. No orphans.
+          changes=$(git diff --name-only | wc -l)
+          untracked=$(git status --untracked-files --short | wc -l)
+          if [[ $changes -eq 0 ]] && [[ $untracked -eq 0 ]]; then
+            echo "There are no changes to commit or untracked files. Exiting."
+            exit 0
+          fi
+
+          # Create a general retry function that retries and sleeps
+          retry_command() {
+            local max_attempts=3
+            local attempt=1
+
+            while [ $attempt -le $max_attempts ]; do
+              echo "Attempt $attempt: $@"
+              "$@" && return 0
+              ((attempt++))
+              sleep 3 # You can adjust the sleep duration as needed
+            done
+
+            echo "Max attempts reached. Command failed after $max_attempts attempts."
+            return 1
+          }
+
+          git status
+          current_timestamp=$(date '+%Y-%m-%d-%H%M%S')
+          branch_name="delete-orphan-files-$current_timestamp"
+          git checkout -b "$branch_name"
+          current_daystamp=$(date '+%Y-%m-%d')
+          git commit -a -m "Delete orphan files ($current_daystamp)"
+          git push origin "$branch_name"
+
+          # Create PR
+          echo "Creating pull request..."
+          gh pr create \
+            --title "Delete orphan files ($current_daystamp)" \
+            --body '👋 humans. This PR was generated from docs-internal/.github/workflows/delete-orphan-translation-files.yml.
+            ' \
+            --repo "${{ matrix.language_repo }}"
+          echo "Merge created PR..."
+          retry_command gh pr merge --merge --auto --delete-branch "$branch_name"
+
+      - uses: ./.github/actions/slack-alert
+        if: ${{ failure() && github.event_name != 'workflow_dispatch' }}
+        with:
+          slack_channel_id: ${{ secrets.DOCS_ALERTS_SLACK_CHANNEL_ID }}
+          slack_token: ${{ secrets.SLACK_DOCS_BOT_TOKEN }}

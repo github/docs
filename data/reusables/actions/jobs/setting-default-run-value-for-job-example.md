@@ -5,5 +5,5 @@ jobs:
     defaults:
       run:
         shell: bash
-        working-directory: scripts
+        working-directory: ./scripts
 ```

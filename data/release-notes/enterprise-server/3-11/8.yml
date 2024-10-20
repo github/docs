@@ -1,0 +1,88 @@
+date: '2024-04-18'
+sections:
+  security_fixes:
+    - |
+      **HIGH**: An attacker with the editor role in the Management Console could gain administrative SSH access to the appliance by command injection when configuring the chat integration. GitHub has requested CVE ID [CVE-2024-3646](https://www.cve.org/cverecord?id=CVE-2024-3646) for this vulnerability, which was reported via the [GitHub Bug Bounty program](https://bounty.github.com/). The editor role has been deprecated. For more information, see the "Changes" section of these release notes.
+    - |
+      **HIGH**: An attacker with an editor role in the Management Console could gain SSH access to the instance by command injection when configuring Artifact & Logs and Migrations Storage. GitHub has requested CVE ID [CVE-2024-3684](https://nvd.nist.gov/vuln/detail/CVE-2024-3684) for this vulnerability, which was reported via the [GitHub Bug Bounty program](https://bounty.github.com/).
+    - |
+      **MEDIUM**: An attacker with a deploy key for an organization-owned repository could bypass a ruleset that specified organization administrators as bypass actors. Exploitation would require an attacker to already have access to a valid deploy key for a repository. GitHub has requested CVE ID [CVE-2024-3470](https://nvd.nist.gov/vuln/detail/CVE-2023-3470) for this vulnerability, which was reported via the [GitHub Bug Bounty program](https://bounty.github.com/).
+    - |
+      **MEDIUM**: An attacker could maintain admin access to a detached repository in a race condition by making a GraphQL mutation to alter repository permissions while the repository is detached. GitHub has requested CVE ID [CVE-2024-2440](https://nvd.nist.gov/vuln/detail/CVE-2024-2440) for this vulnerability, which was reported via the [GitHub Bug Bounty program](https://bounty.github.com/).
+    - |
+      A GraphQL endpoint was disabled as part of a previous security fix, causing projects auto-add workflow and inline issue creation errors. To resolve these errors, a security patch was applied that allows for the affected GraphQL endpoint to be re-enabled.
+    - |
+      Packages have been updated to the latest security versions.
+  bugs:
+    - |
+      When configuring audit log streaming to Datadog or Splunk on an instance with custom CA certificates, the connection failed with the error `There was an error trying to connect`.
+    - |
+      Disk usage, utilization, and latency for data devices could render incorrectly in Grafana.
+    - |
+      On an instance in a cluster configuration with high availability replication enabled, Git operations for existing repositories would fail after failover to the replica cluster.
+    - |
+      On an instance in a cluster configuration, former primary nodes were able to access the newly promoted nodes after failover. The `ghe-cluster-failover` command has been updated to block access from the old cluster, and four new command-line utilities have been introduced to manually block IP addresses: `ghe-cluster-block-ips`, `ghe-cluster-block-ip`, `ghe-cluster-unblock-ips`, and `ghe-cluster-unblock-ip`. For more information, see "[AUTOTITLE](/admin/administering-your-instance/administering-your-instance-from-the-command-line/command-line-utilities#ghe-cluster-failover)." [Updated: 2024-05-01]
+    - |
+      A Redis job had a memory limit that was too low in some cases, leading the process to run out of memory.
+    - |
+      The `ghe-update-check` command did not clean up .tmp files in `/var/lib/ghe-updates/`, which could lead to full disk issues.
+    - |
+      On an instance that failed a configuration run, when attempting to repeat the restore step of a backup, the audit log restore step returned error lines even though audit logs were being fully restored.
+    - |
+      In some cases, Treelights timeouts caused pull requests to return a 500 error.
+    - |
+      Some search indices in Stafftools failed to load.
+    - |
+      The web UI presented inapplicable fine-grained permissions for assignment to custom repository roles. The permissions were also displayed as implicitly included in certain base roles.
+    - |
+      Unauthenticated requests to the REST APIs `/search/code` endpoint returned erroneous rate-limit values.
+    - |
+      The profile settings for organizations displayed a warning about profile images that does not apply to organizations on a GitHub Enterprise Server instance.
+    - |
+      On some pages that listed users on an instance, the web UI erroneously rendered checkboxes to the right of users details.
+    - |
+      Administrators could get a 500 error when trying to access the "File storage" section of the site admin dashboard.
+    - |
+      Setting a maintenance message failed if the message contained a multibyte character.
+    - |
+      On an instance where user avatars had been deleted directly from the database, an identicon avatar was not correctly displayed for affected users, and administrators may have observed a relatively high number of application exceptions.
+    - |
+      On an instance with repository caching configured, adding new repositories to a cache node sometimes failed.
+    - |
+      On an instance with a GitHub Advanced Security license, after enabling secret scanning for the first time for an organization or the instance, the historical backfills for alerts in existing repositories issues did not appear.
+    - |
+      On an instance with a GitHub Advanced Security license, metrics for custom patterns alerts incorrectly included tokens in ignored locations.
+    - |
+      On an instance with code scanning enabled, on the tool status page for code scanning, outdated upload errors were still displayed after a successful upload.
+  changes:
+    - |
+      On an instance hosted on Azure, administrators can set and reset SSH keys and passwords via the Azure Agent.
+    - |
+      As a result of a security vulnerability, the editor role for a Management Console user has been deprecated. For details, see the "Security fixes" section of these release notes. Existing users with the editor role will be unable to log in to the Management Console, and should contact their site administrator requesting that access be reinstated by updating the user to the operator role if appropriate.
+  known_issues:
+    - |
+      Custom firewall rules are removed during the upgrade process.
+    - |
+      During the validation phase of a configuration run, a `No such object` error may occur for the Notebook and Viewscreen services. This error can be ignored as the services should still correctly start.
+    - |
+      If the root site administrator is locked out of the Management Console after failed login attempts, the account does not unlock automatically after the defined lockout time. Someone with administrative SSH access to the instance must unlock the account using the administrative shell. For more information, see "[AUTOTITLE](/admin/configuration/administering-your-instance-from-the-management-console/troubleshooting-access-to-the-management-console#unlocking-the-root-site-administrator-account)."
+    - |
+      If an instance is configured to forward logs to a target server with TLS enabled, certificate authority (CA) bundles that a site administrator uploads using `ghe-ssl-ca-certificate-install` are not respected, and connections to the server fail.
+    - |
+      The `mbind: Operation not permitted` error in the `/var/log/mysql/mysql.err` file can be ignored. MySQL 8 does not gracefully handle when the `CAP_SYS_NICE` capability isn't required, and outputs an error instead of a warning.
+    - |
+      {% data reusables.release-notes.2023-11-aws-system-time %}
+    - |
+      On an instance with the HTTP `X-Forwarded-For` header configured for use behind a load balancer, all client IP addresses in the instance's audit log erroneously appear as 127.0.0.1.
+    - |
+      {% data reusables.release-notes.2023-10-git-push-made-but-not-registered %}
+    - |
+      {% data reusables.release-notes.large-adoc-files-issue %}
+    - |
+      {% data reusables.release-notes.2023-12-backup-utils-exit-early-redis %}
+    - |
+      {% data reusables.release-notes.2024-01-haproxy-upgrade-causing-increased-errors %}
+    - |
+      Repositories originally imported using ghe-migrator will not correctly track Advanced Security contributions.
+    - |
+      {% data reusables.release-notes.2024-06-possible-frontend-5-minute-outage-during-hotpatch-upgrade %} [Updated: 2024-06-17]

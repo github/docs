@@ -1,0 +1,6 @@
+# Reference: #13661
+# Enterprise overview page and README
+
+versions:
+  ghec: '*'
+  ghes: '>=3.13'

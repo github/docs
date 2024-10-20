@@ -9,13 +9,12 @@ redirect_from:
 versions:
   fpt: '*'
   ghes: '*'
-  ghae: '*'
   ghec: '*'
 topics:
   - GitHub search
 shortTitle: Search for repositories
 ---
-You can search for repositories globally across all of {% data variables.location.product_location %}, or search for repositories within a particular organization. For more information, see "[AUTOTITLE](/search-github/getting-started-with-searching-on-github/about-searching-on-github)."
+You can search for repositories globally across all of {% data variables.product.prodname_dotcom %}, or search for repositories within a particular organization. For more information, see "[AUTOTITLE](/search-github/getting-started-with-searching-on-github/about-searching-on-github)."
 
 To include forks in the search results, you will need to add `fork:true` or `fork:only` to your query. For more information, see "[AUTOTITLE](/search-github/searching-on-github/searching-in-forks)."
 
@@ -37,7 +36,7 @@ With the `in` qualifier you can restrict your search to the repository name, rep
 
 You can find a repository by searching for content in the repository's README file using the `in:readme` qualifier. For more information, see "[AUTOTITLE](/repositories/managing-your-repositorys-settings-and-features/customizing-your-repository/about-readmes)."
 
-Besides using `in:readme`, it's not possible to find repositories by searching for specific content within the repository. To search for a specific file or content within a repository, you can use the file finder or code-specific search qualifiers. For more information, see "[AUTOTITLE](/search-github/searching-on-github/finding-files-on-github)" and "[AUTOTITLE]{% ifversion code-search-code-view %}(/search-github/github-code-search/understanding-github-code-search-syntax){% else %}(/search-github/searching-on-github/searching-code){% endif %}."
+Besides using `in:readme`, it's not possible to find repositories by searching for specific content within the repository. To search for a specific file or content within a repository, you can use the file finder or code-specific search qualifiers. For more information, see "[AUTOTITLE](/search-github/searching-on-github/finding-files-on-github)" and "[AUTOTITLE]{% ifversion code-search-upgrade %}(/search-github/github-code-search/understanding-github-code-search-syntax){% else %}(/search-github/searching-on-github/searching-code){% endif %}."
 
 | Qualifier  | Example
 | ------------- | -------------
@@ -132,8 +131,6 @@ You can search repositories by the number of topics that have been applied to th
 | <code>topics:<em>n</em></code> | [**topics:5**](https://github.com/search?utf8=%E2%9C%93&q=topics%3A5&type=Repositories&ref=searchresults) matches repositories that have five topics.
 | <code>topics:><em>n</em></code> | [**topics:>3**](https://github.com/search?utf8=%E2%9C%93&q=topics%3A%3E3&type=Repositories&ref=searchresults) matches repositories that have more than three topics.
 
-{% ifversion fpt or ghes or ghec %}
-
 ## Search by license
 
 You can search repositories by the type of license in the repositories. You must use a license keyword to filter repositories by a particular license or license family. For more information, see "[AUTOTITLE](/repositories/managing-your-repositorys-settings-and-features/customizing-your-repository/licensing-a-repository)."
@@ -142,17 +139,31 @@ You can search repositories by the type of license in the repositories. You must
 | ------------- | -------------
 | <code>license:<em>LICENSE_KEYWORD</em></code> | [**license:apache-2.0**](https://github.com/search?utf8=%E2%9C%93&q=license%3Aapache-2.0&type=Repositories&ref=searchresults) matches repositories that are licensed under Apache License 2.0.
 
-{% endif %}
-
 ## Search by repository visibility
 
 You can filter your search based on the visibility of the repositories. For more information, see "[AUTOTITLE](/repositories/creating-and-managing-repositories/about-repositories#about-repository-visibility)."
 
-| Qualifier  | Example
-| ------------- | ------------- |{% ifversion fpt or ghes or ghec %}
-| `is:public` | [**is:public org:github**](https://github.com/search?q=is%3Apublic+org%3Agithub&type=Repositories) matches public repositories owned by {% data variables.product.company_short %}.{% endif %}{% ifversion ghes or ghec or ghae %}
-| `is:internal` | [**is:internal test**](https://github.com/search?q=is%3Ainternal+test&type=Repositories) matches internal repositories that you can access and contain the word "test".{% endif %}
+| Qualifier  | Example |
+| ------------- | ------------- |
+| `is:public` | [**is:public org:github**](https://github.com/search?q=is%3Apublic+org%3Agithub&type=Repositories) matches public repositories owned by {% data variables.product.company_short %}. |
+|  {% ifversion ghes or ghec %} |
+| `is:internal` | [**is:internal test**](https://github.com/search?q=is%3Ainternal+test&type=Repositories) matches internal repositories that you can access and contain the word "test". |
+|  {% endif %} |
 | `is:private` | [**is:private pages**](https://github.com/search?q=is%3Aprivate+pages&type=Repositories) matches private repositories that you can access and contain the word "pages."
+
+{% ifversion repository-properties %}
+
+## Search based on repository custom property
+
+You can filter repositories based on custom properties using the `props.` prefixed qualifiers. For more information, see "[AUTOTITLE](/organizations/managing-organization-settings/managing-custom-properties-for-repositories-in-your-organization)."
+
+For these qualifiers to work, the search must be limited to a single organization. Otherwise, `props.` qualifiers are ignored.
+
+| Qualifier  | Example
+| ------------- | -------------
+| <code>props.<em>PROPERTY</em>:<em>VALUE</em></code> | [**org:github props.environment:production**](https://github.com/search?utf8=%E2%9C%93&q=org%3Agithub+props.environment%3Atesting&type=Repositories) matches repositories from the `github` organization that have the custom property `environment` set to `production`.
+
+{% endif %}
 
 {% ifversion fpt or ghec %}
 
@@ -211,5 +222,5 @@ You can search for repositories that have a funding file using the `has:funding-
 
 ## Further reading
 
-- "[AUTOTITLE](/search-github/getting-started-with-searching-on-github/sorting-search-results)"
-- "[AUTOTITLE](/search-github/searching-on-github/searching-in-forks)"
+* "[AUTOTITLE](/search-github/getting-started-with-searching-on-github/sorting-search-results)"
+* "[AUTOTITLE](/search-github/searching-on-github/searching-in-forks)"

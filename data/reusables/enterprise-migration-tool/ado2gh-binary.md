@@ -1,0 +1,1 @@
+Alternatively, you can download a standalone binary from the [releases page](https://github.com/github/gh-ado2gh/releases) for the `github/gh-ado2gh` repository. You can run this binary directly, without the `gh` prefix.

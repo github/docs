@@ -1,34 +1,33 @@
 import { Box, Pagination, Text } from '@primer/react'
 import { SearchIcon } from '@primer/octicons-react'
 import { useRouter } from 'next/router'
+import { useEffect, useState } from 'react'
 import cx from 'classnames'
 
-import type { SearchResultsT, SearchResultHitT } from './types'
-import { useTranslation } from 'components/hooks/useTranslation'
-import { Link } from 'components/Link'
-import { useQuery } from 'src/search/components/useQuery'
+import type { SearchResultsT, SearchResultHitT, SearchQueryT } from './types'
+import { useTranslation } from 'src/languages/components/useTranslation'
+import { Link } from 'src/frame/components/Link'
 import { sendEvent, EventType } from 'src/events/components/events'
 
 import styles from './SearchResults.module.scss'
 
 type Props = {
   results: SearchResultsT
-  query: string
+  search: SearchQueryT
 }
-export function SearchResults({ results, query }: Props) {
+export function SearchResults({ results, search }: Props) {
   const pages = Math.ceil(results.meta.found.value / results.meta.size)
   const { page } = results.meta
 
   return (
     <div>
-      <SearchResultHits hits={results.hits} query={query} />
+      <SearchResultHits hits={results.hits} search={search} />
       {pages > 1 && <ResultsPagination page={page} totalPages={pages} />}
     </div>
   )
 }
 
-function SearchResultHits({ hits, query }: { hits: SearchResultHitT[]; query: string }) {
-  const { debug } = useQuery()
+function SearchResultHits({ hits, search }: { hits: SearchResultHitT[]; search: SearchQueryT }) {
   return (
     <div>
       {hits.length === 0 && <NoSearchResults />}
@@ -36,10 +35,10 @@ function SearchResultHits({ hits, query }: { hits: SearchResultHitT[]; query: st
         <SearchResultHit
           key={hit.id}
           hit={hit}
-          query={query}
+          query={search.query}
           totalHits={hits.length}
           index={index}
-          debug={debug}
+          debug={search.debug}
         />
       ))}
     </div>
@@ -47,12 +46,12 @@ function SearchResultHits({ hits, query }: { hits: SearchResultHitT[]; query: st
 }
 
 function NoSearchResults() {
-  const { t } = useTranslation('search')
+  const { t } = useTranslation('search_results')
   return (
     <div className="d-flex flex-items-center flex-column my-6 border rounded-2">
       <div className="d-flex flex-items-center flex-column p-4">
         <SearchIcon size={24} />
-        <Text className="f2 mt-3">{t('n_results').replace('{n}', 0)}</Text>
+        <p className="f2 mt-3">{t('n_results').replace('{n}', '0')}</p>
       </div>
     </div>
   )
@@ -74,6 +73,13 @@ function SearchResultHit({
   const title =
     hit.highlights.title && hit.highlights.title.length > 0 ? hit.highlights.title[0] : hit.title
 
+  let content = ''
+  if (hit.highlights.content_explicit?.length) {
+    content = hit.highlights.content_explicit[0]
+  } else if (hit.highlights.content?.length) {
+    content = hit.highlights.content[0]
+  }
+
   return (
     <div className={cx('my-6', styles.search_result)} data-testid="search-result">
       <p className="text-normal f5 color-fg-muted" style={{ wordSpacing: 2 }}>
@@ -87,7 +93,7 @@ function SearchResultHit({
       <h2 className="f3">
         <Link
           href={hit.url}
-          className="color-fg-accent"
+          className="color-fg-accent search-result-link"
           dangerouslySetInnerHTML={{ __html: title }}
           onClick={() => {
             sendEvent({
@@ -101,9 +107,7 @@ function SearchResultHit({
           }}
         ></Link>
       </h2>
-      {hit.highlights.content && hit.highlights.content.length > 0 && (
-        <div dangerouslySetInnerHTML={{ __html: hit.highlights.content[0] }}></div>
-      )}
+      {content && <div dangerouslySetInnerHTML={{ __html: content }}></div>}
       {debug && (
         <Text as="p" fontWeight="bold">
           score: <code style={{ marginRight: 10 }}>{hit.score}</code> popularity:{' '}
@@ -116,8 +120,17 @@ function SearchResultHit({
 
 function ResultsPagination({ page, totalPages }: { page: number; totalPages: number }) {
   const router = useRouter()
+  const [asPath, setAsPath] = useState('')
+  const [asPathRoot, asPathQuery = ''] = router.asPath.split('#')[0].split('?')
 
-  const [asPathRoot, asPathQuery = ''] = router.asPath.split('?')
+  useEffect(() => {
+    if (asPath) {
+      const firstSearchResult = document.getElementsByClassName(
+        'search-result-link',
+      )[0] as HTMLElement
+      firstSearchResult?.focus()
+    }
+  }, [asPath])
 
   function hrefBuilder(page: number) {
     const params = new URLSearchParams(asPathQuery)
@@ -130,28 +143,31 @@ function ResultsPagination({ page, totalPages }: { page: number; totalPages: num
   }
 
   return (
-    <Box borderRadius={2} p={2}>
-      <Pagination
-        pageCount={Math.min(totalPages, 10)}
-        currentPage={page}
-        hrefBuilder={hrefBuilder}
-        onPageChange={(event, page) => {
-          event.preventDefault()
+    <div className={styles.paginationFocus}>
+      <Box borderRadius={2} p={2}>
+        <Pagination
+          pageCount={Math.min(totalPages, 10)}
+          currentPage={page}
+          hrefBuilder={hrefBuilder}
+          onPageChange={(event, page) => {
+            event.preventDefault()
 
-          const [asPathRoot, asPathQuery = ''] = router.asPath.split('#')[0].split('?')
-          const params = new URLSearchParams(asPathQuery)
-          if (page !== 1) {
-            params.set('page', `${page}`)
-          } else {
-            params.delete('page')
-          }
-          let asPath = `/${router.locale}${asPathRoot}`
-          if (params.toString()) {
-            asPath += `?${params}`
-          }
-          router.push(asPath)
-        }}
-      />
-    </Box>
+            const [asPathRoot, asPathQuery = ''] = router.asPath.split('#')[0].split('?')
+            const params = new URLSearchParams(asPathQuery)
+            if (page !== 1) {
+              params.set('page', `${page}`)
+            } else {
+              params.delete('page')
+            }
+            let asPath = `/${router.locale}${asPathRoot}`
+            if (params.toString()) {
+              asPath += `?${params}`
+            }
+            setAsPath(asPath)
+            router.push(asPath)
+          }}
+        />
+      </Box>
+    </div>
   )
 }

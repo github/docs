@@ -4,7 +4,6 @@ intro: 'You can import a repository from Mercurial by converting the repository 
 versions:
   fpt: '*'
   ghes: '*'
-  ghae: '*'
   ghec: '*'
 shortTitle: Mercurial
 ---
@@ -13,10 +12,10 @@ shortTitle: Mercurial
 
 To follow these steps, you must use a macOS or Linux system and have the following tools installed:
 
-- [Mercurial](https://www.mercurial-scm.org)
-- [Git](https://git-scm.com/downloads)
-- {% data variables.large_files.product_name_long %} ({% data variables.large_files.product_name_short %}) (see "[AUTOTITLE](/repositories/working-with-files/managing-large-files/installing-git-large-file-storage)")
-- [Python](https://www.python.org), including the `pip` package manager
+* [Mercurial](https://www.mercurial-scm.org)
+* [Git](https://git-scm.com/downloads)
+* {% data variables.large_files.product_name_long %} ({% data variables.large_files.product_name_short %}) (see "[AUTOTITLE](/repositories/working-with-files/managing-large-files/installing-git-large-file-storage)")
+* [Python](https://www.python.org), including the `pip` package manager
 
 ## Importing a Mercurial repository
 
@@ -47,14 +46,23 @@ To follow these steps, you must use a macOS or Linux system and have the followi
    ```shell copy
    hg log --template "{author}\n" | sort | uniq > committers.txt
    ```
+
 1. Update your `committers.txt` file, mapping the committer name used in the Mercurial repository to the name you want to use in your Git repository, with the following format:
 
-   ```
+   ```text
    “The Octocat <octocato@gmail.com>”=”Octocat <octocat@github.com>”
    ```
+
 1. In your initialized Git repository, run `hg-fast-export.sh`, passing in the path to your Mercurial repository and the path to your `committers.txt` file as arguments.
 
    For example, `../fast-export-221024/hg-fast-export.sh -r ../mercurial-repo -A ../mercurial-repo/committers.txt -M main`.
 1. After the import finishes, to check out your newly-created Git repository, run `git checkout HEAD`.
 {% data reusables.migrations.add-github-repo-as-remote %}
 {% data reusables.migrations.push-to-github %}
+
+{% ifversion fpt or ghec %}
+
+## Further reading
+
+* "[AUTOTITLE](/get-started/using-git/troubleshooting-the-2-gb-push-limit)"
+{% endif %}

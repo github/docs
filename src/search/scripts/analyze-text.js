@@ -8,7 +8,7 @@
 //
 // Example:
 //
-//    ./src/search/scripts/analyze-text.js my words to tokenize
+//    npm run analyze-text "my words" to tokenize
 //
 // [end-readme]
 
@@ -17,14 +17,14 @@ import { program, Option } from 'commander'
 import chalk from 'chalk'
 import dotenv from 'dotenv'
 
-import { languageKeys } from '../../../lib/languages.js'
-import { allVersions } from '../../../lib/all-versions.js'
+import { languageKeys } from '#src/languages/lib/languages.js'
+import { allVersions } from '#src/versions/lib/all-versions.js'
 
 // Now you can optionally have set the ELASTICSEARCH_URL in your .env file.
 dotenv.config()
 
 // Create an object that maps the "short name" of a version to
-// all information about it. E.g
+// all information about it. E.g.
 //
 //   {
 //    'ghes-3.5': {
@@ -44,7 +44,7 @@ const shortNames = Object.fromEntries(
       ? info.miscBaseName + info.currentRelease
       : info.miscBaseName
     return [shortName, info]
-  })
+  }),
 )
 
 const allVersionKeys = Object.keys(shortNames)
@@ -54,7 +54,7 @@ program
   .option('-v, --verbose', 'Verbose outputs')
   .addOption(new Option('-V, --version <VERSION>', 'Specific version').choices(allVersionKeys))
   .addOption(
-    new Option('-l, --language <LANGUAGE>', 'Which language to focus on').choices(languageKeys)
+    new Option('-l, --language <LANGUAGE>', 'Which language to focus on').choices(languageKeys),
   )
   .option('-u, --elasticsearch-url <url>', 'If different from $ELASTICSEARCH_URL')
   .argument('<text>', 'text to tokenize')
@@ -67,7 +67,7 @@ async function main(opts, args) {
   if (!opts.elasticsearchUrl && !process.env.ELASTICSEARCH_URL) {
     throw new Error(
       'Must passed the elasticsearch URL option or ' +
-        'set the environment variable ELASTICSEARCH_URL'
+        'set the environment variable ELASTICSEARCH_URL',
     )
   }
   let node = opts.elasticsearchUrl || process.env.ELASTICSEARCH_URL
@@ -134,17 +134,10 @@ async function analyzeVersion(client, texts, indexName, verbose = false) {
     console.log(`RAW TEXT: 〝${chalk.italic(text)}〞`)
     for (const analyzer of ['text_analyzer_explicit', 'text_analyzer', 'standard']) {
       console.log('ANALYZER:', chalk.bold(analyzer))
-      const response = await client.indices.analyze({
+      const { tokens } = await client.indices.analyze({
         index: indexName,
         body: { analyzer, text },
       })
-      if (response.statusCode !== 200) {
-        console.warn(response)
-        throw new Error(`${response.statusCode} on ${indexName}`)
-      }
-      const {
-        body: { tokens },
-      } = response
       const tokenWords = tokens.map((token) => token.token)
       console.log(tokenWords)
     }

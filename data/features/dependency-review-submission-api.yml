@@ -1,0 +1,5 @@
+# Reference: Issue #10333 Dependency review works with dependencies submitted with the dependency submission API [Public Beta]
+versions:
+  fpt: '*'
+  ghec: '*'
+  ghes: '>3.10'

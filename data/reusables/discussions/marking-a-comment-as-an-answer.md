@@ -17,4 +17,4 @@ When you mark a question as an answer, {% data variables.product.product_name %}
 
    ![Screenshot of a discussion comment. A button, labeled "Mark as answer", is outlined in dark orange.](/assets/images/help/discussions/comment-mark-as-answer-button.png)
 
-2. Optionally, to unmark a comment as the answer, click **Unmark as answer**.
+1. Optionally, to unmark a comment as the answer, click **Unmark as answer**.

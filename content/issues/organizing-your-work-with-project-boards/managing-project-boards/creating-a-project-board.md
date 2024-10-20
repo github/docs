@@ -7,7 +7,7 @@ redirect_from:
   - /articles/creating-a-project-board
   - /github/managing-your-work-on-github/creating-a-project-board
 versions:
-  feature: projects-v1
+  feature: projects-v1-can-create
 topics:
   - Pull requests
   - Issues
@@ -93,7 +93,7 @@ You can also configure workflow automations to keep your {% data variables.proje
 {% data reusables.projects.classic-project-creation %}
 
 {% data reusables.repositories.navigate-to-repo %}
-2. Under your repository name, click {% octicon "project" aria-hidden="true" %} **Projects**.{% ifversion projects-v2 %}
+1. Under your repository name, click {% octicon "project" aria-hidden="true" %} **Projects**.{% ifversion projects-v2 %}
 1. Click **Projects (classic)**{% endif %}
 {% data reusables.project-management.click-new-project %}
 {% data reusables.project-management.create-project-name-description %}
@@ -112,8 +112,8 @@ You can also configure workflow automations to keep your {% data variables.proje
 
 ## Further reading
 
-- "[AUTOTITLE](/issues/organizing-your-work-with-project-boards/managing-project-boards/about-project-boards)"
-- "[AUTOTITLE](/issues/organizing-your-work-with-project-boards/managing-project-boards/editing-a-project-board)"{% ifversion fpt or ghec %}
-- "[AUTOTITLE](/issues/organizing-your-work-with-project-boards/managing-project-boards/copying-a-project-board)"{% endif %}
-- "[AUTOTITLE](/issues/organizing-your-work-with-project-boards/managing-project-boards/closing-a-project-board)"
-- "[AUTOTITLE](/issues/organizing-your-work-with-project-boards/managing-project-boards/about-automation-for-project-boards)"
+* "[AUTOTITLE](/issues/organizing-your-work-with-project-boards/managing-project-boards/about-project-boards)"
+* "[AUTOTITLE](/issues/organizing-your-work-with-project-boards/managing-project-boards/editing-a-project-board)"{% ifversion fpt or ghec %}
+* "[AUTOTITLE](/issues/organizing-your-work-with-project-boards/managing-project-boards/copying-a-project-board)"{% endif %}
+* "[AUTOTITLE](/issues/organizing-your-work-with-project-boards/managing-project-boards/closing-a-project-board)"
+* "[AUTOTITLE](/issues/organizing-your-work-with-project-boards/managing-project-boards/about-automation-for-project-boards)"

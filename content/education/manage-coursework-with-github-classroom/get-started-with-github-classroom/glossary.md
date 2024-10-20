@@ -14,7 +14,7 @@ An assignment is coursework in {% data variables.product.prodname_classroom %}. 
 
 ## classroom
 
-A classroom is the basic unit of {% data variables.product.prodname_classroom %}. Teachers can use a classroom to organize and manage students, teaching assistants, and assignments for a single course. A classroom belongs to an organization on {% data variables.product.prodname_dotcom_the_website %}. To administer a classroom, you must be an organization owner for the organization on {% data variables.product.prodname_dotcom %}. For more information, see "[AUTOTITLE](/education/manage-coursework-with-github-classroom/teach-with-github-classroom/manage-classrooms)."
+A classroom is the basic unit of {% data variables.product.prodname_classroom %}. Teachers can use a classroom to organize and manage students, teaching assistants, and assignments for a single course. A classroom belongs to an organization on {% data variables.product.prodname_dotcom %}. To administer a classroom, you must be an organization owner for the organization. For more information, see "[AUTOTITLE](/education/manage-coursework-with-github-classroom/teach-with-github-classroom/manage-classrooms)."
 
 ---
 
@@ -24,7 +24,7 @@ A classroom is the basic unit of {% data variables.product.prodname_classroom %}
 
 ---
 
-## group assignment  
+## group assignment
 
 {% data reusables.classroom.assignments-group-definition %} For more information, see "[AUTOTITLE](/education/manage-coursework-with-github-classroom/teach-with-github-classroom/create-a-group-assignment)."
 
@@ -50,4 +50,4 @@ A roster allows a teacher to manage students and assignment submissions in a cla
 
 ## Further reading
 
-- "[AUTOTITLE](/get-started/quickstart/github-glossary)"
+* "[AUTOTITLE](/get-started/learning-about-github/github-glossary)"

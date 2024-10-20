@@ -1,6 +1,6 @@
 ---
 title: Adding a GPG key to your GitHub account
-intro: 'To configure your account on {% ifversion ghae %}{% data variables.product.product_name %}{% else %}{% data variables.location.product_location %}{% endif %} to use your new (or existing) GPG key, you''ll also need the key to your account.'
+intro: 'To configure your account on {% data variables.product.product_name %} to use your new (or existing) GPG key, you''ll also need to add the key to your account.'
 redirect_from:
   - /articles/adding-a-gpg-key-to-your-github-account
   - /github/authenticating-to-github/adding-a-new-gpg-key-to-your-github-account
@@ -13,7 +13,6 @@ redirect_from:
 versions:
   fpt: '*'
   ghes: '*'
-  ghae: '*'
   ghec: '*'
 topics:
   - Identity
@@ -30,7 +29,7 @@ You can add multiple public keys to your account on {% data variables.product.pr
 {% ifversion upload-expired-or-revoked-gpg-key %}
 To verify as many of your commits as possible, you can add expired and revoked keys. If the key meets all other verification requirements, commits that were previously signed by any of the corresponding private keys will show as verified and indicate that their signing key is expired or revoked.
 
-![A verified commit whose key expired.](/assets/images/help/settings/gpg-verified-with-expired-key.png)
+![Screenshot of a list of commits. One commit is marked with a "Verified" label. Below the label, a dropdown explains that the commit was signed, but the key has now expired.](/assets/images/help/settings/gpg-verified-with-expired-key.png)
 {% endif %}
 
 {% data reusables.gpg.supported-gpg-key-algorithms %}
@@ -45,10 +44,11 @@ When verifying a signature, {% data variables.product.product_name %} extracts t
 1. In the "Title" field, type a name for your GPG key.
 1. In the "Key" field, paste the GPG key you copied when you [generated your GPG key](/authentication/managing-commit-signature-verification/generating-a-new-gpg-key).
 1. Click **Add GPG key**.
-1. To confirm the action, authenticate to your {% data variables.product.prodname_dotcom %} account.
+1. If prompted, authenticate to your {% data variables.product.prodname_dotcom %} account to confirm the action.
 
 {% ifversion upload-expired-or-revoked-gpg-key %}
 {% else %}
+
 ## Updating an expired GPG key
 
 When verifying a signature, {% data variables.product.product_name %} checks that the key is not revoked or expired. If your signing key is revoked or expired, {% data variables.product.product_name %} cannot verify your signatures.
@@ -62,9 +62,9 @@ If your key is invalid and you don't use another valid key in your key set, but 
 
 ## Further reading
 
-- "[AUTOTITLE](/authentication/managing-commit-signature-verification/checking-for-existing-gpg-keys)"
-- "[AUTOTITLE](/authentication/managing-commit-signature-verification/generating-a-new-gpg-key)"
-- "[AUTOTITLE](/authentication/managing-commit-signature-verification/telling-git-about-your-signing-key)"
-- "[AUTOTITLE](/authentication/managing-commit-signature-verification/associating-an-email-with-your-gpg-key)"
-- "[AUTOTITLE](/authentication/managing-commit-signature-verification/signing-commits)"
-- "[AUTOTITLE](/authentication/managing-commit-signature-verification/about-commit-signature-verification)"
+* "[AUTOTITLE](/authentication/managing-commit-signature-verification/checking-for-existing-gpg-keys)"
+* "[AUTOTITLE](/authentication/managing-commit-signature-verification/generating-a-new-gpg-key)"
+* "[AUTOTITLE](/authentication/managing-commit-signature-verification/telling-git-about-your-signing-key)"
+* "[AUTOTITLE](/authentication/managing-commit-signature-verification/associating-an-email-with-your-gpg-key)"
+* "[AUTOTITLE](/authentication/managing-commit-signature-verification/signing-commits)"
+* "[AUTOTITLE](/authentication/managing-commit-signature-verification/about-commit-signature-verification)"

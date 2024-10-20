@@ -6,7 +6,6 @@ permissions: Anyone can search for packages they have access to.
 versions:
   fpt: '*'
   ghes: '*'
-  ghae: '*'
   ghec: '*'
 topics:
   - GitHub search

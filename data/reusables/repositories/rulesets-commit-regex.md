@@ -1,8 +1,10 @@
-When you add metadata restrictions, you can use regular expression syntax to define patterns that the relevant metadata, such as the commit message or the branch or tag name, must or must not match.
+When you add metadata restrictions for a ruleset that targets branches or tags, you can use regular expression syntax to define patterns that the relevant metadata, such as the commit message or the branch or tag name, must or must not match.
+
+Metadata restrictions do not accept regex patterns by default. To enable this, select the **Must match a given regex pattern** restriction when you are creating the metadata restrictions for your ruleset.
 
 Rulesets support RE2 syntax. For more information, see Google's [syntax guide](https://github.com/google/re2/wiki/Syntax). To validate your expressions, you can use the validator on [regex101.com](https://regex101.com/), selecting the "Golang" flavor in the left sidebar.
 
-Regular expressions consider multiple lines of text by default. For example, if you have a multiline commit message, the pattern `^ABC` will be a match if any line in the message starts with `ABC`. To match the start of the message specifically, you can start your expression with `\A`.
+By default, regular expressions in metadata restrictions do not consider multiple lines of text. For example, if you have a multiline commit message, the pattern `^ABC` will be a match if the first line of the message starts with `ABC`. To match multiple lines of the message, start your expression with `(?m)`.
 
 The negative lookahead assertion, denoted `?!`, is not supported. However, for cases where you need to look for a given string that is not followed by another given string, you can use the positive lookahead assertion, denoted `?`, combined with the "Must not match a given regex pattern" requirement.
 
@@ -12,11 +14,11 @@ The negative lookahead assertion, denoted `?!`, is not supported. However, for c
 
 {% endnote %}
 
-### Useful regular expression patterns
+#### Useful regular expression patterns
 
 The following examples provide useful patterns for commit metadata. To use these patterns, set **Requirement** to "Must match a given regex pattern".
 
-#### Ensure branch names are compatible with Windows
+##### Ensure branch names are compatible with Windows
 
 You can use the following pattern to ensure that branch names only include numbers, lowercase letters, and the characters `-` and `_`. This ensures branch names are compatible with operating systems that do not use case-sensitive file systems by default.
 
@@ -28,7 +30,7 @@ Matches: `my-branch`
 
 Does not match: `myBranch`
 
-#### Ensure tag names use semantic versioning
+##### Ensure tag names use semantic versioning
 
 You can use the following pattern to ensure tag names conform to semantic versioning. For more information, see the documentation on [semver.org](https://semver.org/).
 
@@ -40,7 +42,7 @@ Matches: `1.2.3`, `10.20.30`, `1.1.2-prerelease+meta`
 
 Does not match: `1.2`, `1.2-SNAPSHOT`
 
-#### Limit length of lines in commit messages
+##### Limit length of lines in commit messages
 
 The [Pro Git book](https://git-scm.com/book/en/v2/Distributed-Git-Contributing-to-a-Project#_commit_guidelines) recommends limiting the first line of a commit message to around 50 characters.
 
@@ -50,7 +52,7 @@ You can use the following pattern to ensure the first line in a commit message c
 \A.{1,50}$
 ```
 
-#### Ensure commit messages start with a resolution and issue number
+##### Ensure commit messages start with a resolution and issue number
 
 You can use the following pattern to ensure that commit messages contain the word `Resolves:` or `Fixes:`, followed by a string like `#1234`.
 
@@ -62,7 +64,7 @@ Matches: `Fixes: #1234`
 
 Does not match: `Add conditional logic to foo.bar`
 
-#### Enforce conventional commits
+##### Enforce conventional commits
 
 You can use the following pattern to ensure that commit messages conform to the Conventional Commits specification. For more information, see [conventionalcommits.org](https://www.conventionalcommits.org/).
 

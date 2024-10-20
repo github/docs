@@ -1,0 +1,6 @@
+# Reference: #11599 Java, #13332 Java and C#, #13659 Java, C#, and Ruby, #15116 Java, C#, Python, and Ruby
+
+versions:
+  fpt: '*'
+  ghec: '*'
+  ghes: '> 3.10'
