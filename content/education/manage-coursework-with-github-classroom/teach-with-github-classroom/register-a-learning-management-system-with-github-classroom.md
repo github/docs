@@ -21,9 +21,9 @@ Before you can connect your LMS to a classroom, an administrator for your LMS in
 
 You can register your Blackboard installation with {% data variables.product.prodname_classroom %} to enable teachers to import roster data into their classrooms. For more information about Blackboard, see the [Blackboard website](https://www.anthology.com/products/teaching-and-learning/learning-effectiveness/blackboard).
 
-### 1. Register {% data variables.product.prodname_classroom %} Developer Keys in the Blackboard Developer Portal
+### 1. Register {% data variables.product.prodname_classroom %} Developer Keys in the Anthology Developer Portal
 
-1. Sign into the [Blackboard Developer Portal](https://developer.anthology.com/).
+1. Sign into the [Anthology Developer Portal](https://developer.anthology.com/).
 1. Click on the **plus sign** in the [My Application](https://developer.anthology.com/portal/applications) page.
 1. Click **Manual Registration** in the dropdown menu.
 1. On the "Register a new application" configuration screen, set the fields to the following values.
@@ -79,10 +79,10 @@ You can register your Blackboard installation with {% data variables.product.pro
    * Under "LMS Type", choose "Other" from the dropdown menu.
    * "Issuer Identifier": `https://blackboard.com`
    * "Domain": The base URL to your Blackboard instance
-   * "Client ID": The "Client ID" obtained from the registration of the app in the Blackboard Developer Portal.
-   * "OIDC Initiation URL": The "OIDC auth request endpoint" obtained from the registration of the app in the Blackboard Developer Portal.
-   * "OAuth 2.0 Token Retrieval URL": The "Auth token endpoint" obtained from the registration of the app in the Blackboard Developer Portal.
-   * "Key Set URL": The "Public keyset URL" obtained from the registration of the app in the Blackboard Developer Portal.
+   * "Client ID": The "Client ID" obtained from the registration of the app in the Anthology Developer Portal.
+   * "OIDC Initiation URL": The "OIDC auth request endpoint" obtained from the registration of the app in the Anthology Developer Portal.
+   * "OAuth 2.0 Token Retrieval URL": The "Auth token endpoint" obtained from the registration of the app in the Anthology Developer Portal.
+   * "Key Set URL": The "Public keyset URL" obtained from the registration of the app in the Anthology Developer Portal.
 
 1. Click **Register**.
 1. You should see the "Successfully registered LMS" banner at the top of the screen, which means that you've registered your LMS instance and teachers can now link their classrooms.
