@@ -11,7 +11,7 @@ topics:
   - Organizations
   - Teams
 shortTitle: Dependency insights
-permissions: Organization members can view organization insights.
+permissions: '{% data reusables.permissions.dependency-graph-view-org-insights %}'
 ---
 
 {% note %}
