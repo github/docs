@@ -1,6 +1,7 @@
 ---
 title: About the dependency graph
 intro: You can use the dependency graph to identify all your project's dependencies. The dependency graph supports a range of popular package ecosystems.
+product: '{% data reusables.gated-features.dependency-graph %}'
 redirect_from:
   - /github/visualizing-repository-data-with-graphs/about-the-dependency-graph
   - /code-security/supply-chain-security/about-the-dependency-graph
