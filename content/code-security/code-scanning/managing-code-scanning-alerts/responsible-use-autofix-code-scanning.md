@@ -16,35 +16,35 @@ redirect_from:
   - /code-security/code-scanning/managing-code-scanning-alerts/about-autofix-for-codeql-code-scanning
 ---
 
-## About {% data variables.product.prodname_copilot_autofix_short %} for {% data variables.product.prodname_codeql %} {% data variables.product.prodname_code_scanning %}
+## About {% data variables.product.prodname_copilot_autofix_short %} for {% data variables.product.prodname_code_scanning %}
 
-{% data variables.product.prodname_copilot_autofix %} is an expansion of {% data variables.product.prodname_code_scanning %} that provides users with targeted recommendations to help them fix {% data variables.product.prodname_code_scanning %} alerts so they can avoid introducing new security vulnerabilities. The potential fixes are generated automatically by large language models (LLMs) using data from the codebase and from {% data variables.product.prodname_codeql %} analysis.
+{% data variables.product.prodname_copilot_autofix %} is an expansion of {% data variables.product.prodname_code_scanning %} that provides users with targeted recommendations to help them fix {% data variables.product.prodname_code_scanning %} alerts so they can avoid introducing new security vulnerabilities. The potential fixes are generated automatically by large language models (LLMs) using data from the codebase and from {% data variables.product.prodname_code_scanning %} analysis. {% data variables.product.prodname_copilot_autofix %} is available for {% data variables.product.prodname_codeql %} analysis, and supports the third-party tool ESLint (third-party support is in {% data variables.release-phases.public_preview %} and subject to change).
 
 {% data reusables.rai.code-scanning.copilot-autofix-note %}
 
 {% data variables.product.prodname_copilot_autofix_short %} generates potential fixes that are relevant to the existing source code and translates the description and location of an alert into code changes that may fix the alert. {% data variables.product.prodname_copilot_autofix_short %} uses internal {% data variables.product.prodname_copilot %} APIs interfacing with the large language model GPT-4o from OpenAI, which has sufficient generative capabilities to produce both suggested fixes in code and explanatory text for those fixes.
 
-While {% data variables.product.prodname_copilot_autofix_short %} is allowed by default and enabled for every repository using {% data variables.product.prodname_codeql %}, you can choose to opt out and disable {% data variables.product.prodname_copilot_autofix_short %}. To learn how to disable {% data variables.product.prodname_copilot_autofix_short %} at the enterprise, organization and repository levels, see "[AUTOTITLE](/code-security/code-scanning/managing-code-scanning-alerts/disabling-autofix-for-code-scanning)."
+{% data variables.product.prodname_copilot_autofix_short %} is allowed by default and enabled for every repository using {% data variables.product.prodname_codeql %}, but you can choose to opt out and disable {% data variables.product.prodname_copilot_autofix_short %}. To learn how to disable {% data variables.product.prodname_copilot_autofix_short %} at the enterprise, organization and repository levels, see "[AUTOTITLE](/code-security/code-scanning/managing-code-scanning-alerts/disabling-autofix-for-code-scanning)."
 
 In an organization's security overview dashboard, you can view the total number of code suggestions generated on open and closed pull requests in the organization for a given time period. For more information, see "[AUTOTITLE](/enterprise-cloud@latest/code-security/security-overview/viewing-security-insights#autofix-suggestions)" in the {% data variables.product.prodname_ghe_cloud %} documentation.
 
 ## Developer experience
 
-{% data variables.product.prodname_code_scanning_caps %} users can already see any security alerts detected by {% data variables.product.prodname_codeql %} to analyze their pull requests. However, developers often have little training in code security so fixing these alerts requires substantial effort. They must first read and understand the alert location and description, and then use that understanding to edit the source code to fix the vulnerability.
+{% data variables.product.prodname_code_scanning_caps %} users can already see security alerts to analyze their pull requests. However, developers often have little training in code security so fixing these alerts requires substantial effort. They must first read and understand the alert location and description, and then use that understanding to edit the source code to fix the vulnerability.
 
 {% data variables.product.prodname_copilot_autofix_short %} lowers the barrier of entry to developers by combining information on best practices with details of the codebase and alert to suggest a potential fix to the developer. Instead of starting with a search for information about the vulnerability, the developer starts with a code suggestion that demonstrates a potential solution for their codebase. The developer evaluates the potential fix to determine whether it is the best solution for their codebase and to ensure that it maintains the intended behavior.
 
 After committing a suggested fix or modified fix, the developer should always verify that continuous integration testing (CI) for the codebase continues to pass and that the alert is shown as resolved before they merge their pull request.
 
-## Supported languages
+## Supported languages for {% data variables.product.prodname_codeql %} {% data variables.product.prodname_code_scanning %}
 
-{% data variables.product.prodname_copilot_autofix_short %} supports fix generation for a subset of queries included in the default and security-extended query suites for {% data variables.code-scanning.code_scanning_autofix_languages %}. For more information on these query suites, see "[AUTOTITLE](/code-security/code-scanning/managing-your-code-scanning-configuration/codeql-query-suites#built-in-codeql-query-suites)."
+{% data variables.product.prodname_copilot_autofix_short %} supports fix generation for a subset of queries included in the default and security-extended {% data variables.product.prodname_codeql %} query suites for {% data variables.code-scanning.codeql_autofix_languages %}. For more information on these query suites, see "[AUTOTITLE](/code-security/code-scanning/managing-your-code-scanning-configuration/codeql-query-suites#built-in-codeql-query-suites)."
 
 ## Suggestion generation process
 
-When {% data variables.product.prodname_copilot_autofix_short %} is enabled for a repository, {% data variables.product.prodname_code_scanning %} alerts that are identified by supported {% data variables.product.prodname_codeql %} queries send input to the LLM. If the LLM can generate a potential fix, the fix is shown as a suggestion.
+When {% data variables.product.prodname_copilot_autofix_short %} is enabled for a repository, {% data variables.product.prodname_code_scanning %} alerts that are identified send input to the LLM. If the LLM can generate a potential fix, the fix is shown as a suggestion.
 
-{% data variables.product.prodname_dotcom %} sends the LLM a variety of data from the {% data variables.product.prodname_codeql %} analysis.
+{% data variables.product.prodname_dotcom %} sends the LLM a variety of data from the {% data variables.product.prodname_code_scanning %} analysis. For example:
 
 * {% data variables.product.prodname_codeql %} alert data in SARIF format. For more information, see “[AUTOTITLE](/code-security/code-scanning/integrating-with-code-scanning/sarif-support-for-code-scanning).”
 * Code from the current version of the branch.
@@ -70,7 +70,7 @@ We test the effectiveness of suggestions by merging all suggested changes, unedi
 
 1. Was the {% data variables.product.prodname_code_scanning %} alert fixed by the suggestion?
 1. Did the fix introduce any new {% data variables.product.prodname_code_scanning %} alerts?
-1. Did the fix introduce any syntax errors that {% data variables.product.prodname_codeql %} can detect?
+1. Did the fix introduce any syntax errors that {% data variables.product.prodname_code_scanning %} can detect?
 1. Has the fix changed the output of any of the repository tests?
 
 In addition, we spot check many of the successful suggestions and verify that they fix the alert without introducing new problems. When one or more of these checks failed, our manual triage showed that in many cases the proposed fix was nearly correct but needed some minor modifications that a user could identify and manually perform.

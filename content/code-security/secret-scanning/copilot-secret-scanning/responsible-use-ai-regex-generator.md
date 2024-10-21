@@ -12,10 +12,12 @@ topics:
   - Advanced Security
   - Secret scanning
   - AI
+  - Copilot
 redirect_from:
   - /code-security/secret-scanning/about-the-regular-expression-generator-for-custom-patterns
   - /code-security/secret-scanning/about-generating-regular-expressions-with-ai
   - /code-security/secret-scanning/using-advanced-secret-scanning-and-push-protection-features/custom-patterns/about-generating-regular-expressions-with-ai
+  - /code-security/secret-scanning/using-advanced-secret-scanning-and-push-protection-features/custom-patterns/responsible-use-ai-regex-generator
 ---
 
 <!--Note on the versioning above ^. This article is visible to free, pro, team users for transparency. They cannot use the feature so `fpt` is not included in the feature definition.-->
@@ -23,6 +25,8 @@ redirect_from:
 ## About generating regular expressions with AI
 
 {% data variables.product.prodname_secret_scanning_caps %} scans repositories for a predefined set of secrets from our partner program, as well as custom patterns that are user-defined. Custom patterns are formatted as regular expressions.
+
+{% data reusables.rai.secret-scanning.copilot-secret-scanning-expression-generator-subscription-note %}
 
 Regular expressions can be challenging for people to write. The {% data variables.secret-scanning.custom-pattern-regular-expression-generator %} makes it possible for you to define your custom patterns without knowledge of regular expressions. Within the existing custom pattern page, you can launch a generative AI experience where you input a text description of what pattern you would like to detect, include optional example strings that should be detected, and get matching regular expressions in return.
 
@@ -60,7 +64,7 @@ Note that the {% data variables.secret-scanning.custom-pattern-regular-expressio
 
 ## Next steps
 
-* [AUTOTITLE](/code-security/secret-scanning/using-advanced-secret-scanning-and-push-protection-features/custom-patterns/generating-regular-expressions-for-custom-patterns-with-ai)
+* [AUTOTITLE](/code-security/secret-scanning/copilot-secret-scanning/generating-regular-expressions-for-custom-patterns-with-ai)
 * [AUTOTITLE](/code-security/secret-scanning/managing-alerts-from-secret-scanning)
 {% endif %}
 
