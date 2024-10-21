@@ -104,14 +104,6 @@ Scan for and detect secrets that are not specific to a service provider, such as
 
 {% endif %}
 
-{% ifversion secret-scanning-ai-generic-secret-detection %}
-
-### Generic secret detection
-
-Leverage {% data variables.product.prodname_secret_scanning %}'s AI capabilities to detect unstructured secrets, such as passwords, in your repository. For more information, see "[AUTOTITLE](/code-security/secret-scanning/using-advanced-secret-scanning-and-push-protection-features/generic-secret-detection/responsible-ai-generic-secrets)."
-
-{% endif %}
-
 ### Performing validity checks
 
 Validity checks help you prioritize alerts by telling you which secrets are `active` or `inactive`. For more information, see{% ifversion secret-scanning-validity-check-partner-patterns %} "[AUTOTITLE](/code-security/secret-scanning/enabling-secret-scanning-features/enabling-validity-checks-for-your-repository)" and{% endif %} "[AUTOTITLE](/code-security/secret-scanning/managing-alerts-from-secret-scanning/evaluating-alerts#checking-a-secrets-validity)."
@@ -122,11 +114,14 @@ Validity checks help you prioritize alerts by telling you which secrets are `act
 
 Define your own patterns for secrets used by your organization that {% data variables.product.prodname_secret_scanning %} can scan for and detect. For more information, see "[AUTOTITLE](/code-security/secret-scanning/using-advanced-secret-scanning-and-push-protection-features/custom-patterns/defining-custom-patterns-for-secret-scanning)."
 
-{% ifversion secret-scanning-custom-pattern-ai-generated %}
-
-You can also leverage AI to generate regular expressions that will capture all your custom patterns. For more information, see "[AUTOTITLE](/code-security/secret-scanning/using-advanced-secret-scanning-and-push-protection-features/custom-patterns/responsible-use-ai-regex-generator)."
-
 {% endif %}
+
+{% ifversion secret-scanning-ai-generic-secret-detection %}
+
+### {% data variables.secret-scanning.copilot-secret-scanning %}
+
+* **{% data variables.secret-scanning.generic-secret-detection-caps %}**: Leverage {% data variables.product.prodname_secret_scanning %}'s AI capabilities to detect unstructured secrets, such as passwords, in your repository. For more information, see "[AUTOTITLE](/code-security/secret-scanning/copilot-secret-scanning/responsible-ai-generic-secrets)."{% ifversion secret-scanning-custom-pattern-ai-generated %}
+* **{% data variables.secret-scanning.custom-pattern-regular-expression-generator-caps %}**: Leverage {% data variables.product.prodname_secret_scanning %}'s AI capabilities to generate regular expressions that will capture all your custom patterns. For more information, see "[AUTOTITLE](/code-security/secret-scanning/copilot-secret-scanning/responsible-use-ai-regex-generator).{% endif %}
 
 {% endif %}
 

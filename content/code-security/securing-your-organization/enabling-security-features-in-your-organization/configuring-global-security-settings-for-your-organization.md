@@ -105,7 +105,7 @@ You can customize several {% data variables.product.prodname_global_settings %} 
 
 {% ifversion ghes < 3.15 %}
 * [Scanning for non-provider patterns](#scanning-for-non-provider-patterns){% endif %}{% ifversion secret-scanning-ai-generic-secret-detection %}
-* [Generic secret detection](#generic-secret-detection){% endif %}
+* [Generic secret detection with {% data variables.secret-scanning.copilot-secret-scanning %}](#generic-secret-detection-with-copilot-secret-scanning){% endif %}
 * [Adding a resource link for blocked commits](#adding-a-resource-link-for-blocked-commits){% ifversion ghec or ghes %}
 * [Defining custom patterns](#defining-custom-patterns){% endif %}
 
@@ -121,11 +121,11 @@ You can choose to scan for non-provider patterns, such as private keys, to detec
 
 {% ifversion secret-scanning-ai-generic-secret-detection %}
 
-### Generic secret detection
+### {% data variables.secret-scanning.generic-secret-detection-caps %} with {% data variables.secret-scanning.copilot-secret-scanning %}
 
-Generic secret detection is an AI-powered expansion of {% data variables.product.prodname_secret_scanning %} that scans and creates alerts for unstructured secrets, such as passwords. To enable these scans, select **Use AI detection to find additional secrets**. Be aware that generic secrets often have a higher rate of false positives than other types of alert. To learn more about generic secrets, see "[AUTOTITLE](/code-security/secret-scanning/using-advanced-secret-scanning-and-push-protection-features/generic-secret-detection/responsible-ai-generic-secrets)."
+{% data variables.secret-scanning.copilot-secret-scanning %}'s {% data variables.secret-scanning.generic-secret-detection %} is an AI-powered expansion of {% data variables.product.prodname_secret_scanning %} that scans and creates alerts for unstructured secrets, such as passwords. To enable these scans, select **Scan for generic secrets**. Be aware that generic secrets often have a higher rate of false positives than other types of alert. To learn more about generic secrets, see "[AUTOTITLE](/code-security/secret-scanning/copilot-secret-scanning/responsible-ai-generic-secrets)."
 
-{% data reusables.secret-scanning.generic-secret-detection-ai %}
+{% data reusables.secret-scanning.copilot-secret-scanning-generic-secrets-subscription-note %}
 
 {% endif %}
 
