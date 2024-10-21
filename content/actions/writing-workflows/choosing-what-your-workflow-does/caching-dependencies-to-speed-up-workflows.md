@@ -340,9 +340,9 @@ Users with `write` access to a repository can use the {% data variables.product.
 
 Caches have branch scope restrictions in place, which means some caches have limited usage options. For more information on cache scope restrictions, see "[AUTOTITLE](/actions/using-workflows/caching-dependencies-to-speed-up-workflows#restrictions-for-accessing-a-cache)." If caches limited to a specific branch are using a lot of storage quota, it may cause caches from the `default` branch to be created and deleted at a high frequency.
 
-For example, a repository could have many new pull requests opened, each with their own caches that are restricted to that branch. These caches could take up the majority of the cache storage for that repository. {% data reusables.actions.cache-eviction-policy %} In order to prevent cache thrashing when this happens, you can set up workflows to delete caches on a faster cadence than the cache eviction policy will. You can use the [`gh-actions-cache`](https://github.com/actions/gh-actions-cache/) CLI extension to delete caches for specific branches.
+For example, a repository could have many new pull requests opened, each with their own caches that are restricted to that branch. These caches could take up the majority of the cache storage for that repository. {% data reusables.actions.cache-eviction-policy %} In order to prevent cache thrashing when this happens, you can set up workflows to delete caches on a faster cadence than the cache eviction policy will. You can use the `gh` CLI to delete caches for specific branches.
 
-The following example workflow uses `gh-actions-cache` to delete up to 100 caches created by a branch once a pull request is closed.
+The following example workflow uses [`gh cache`](https://cli.github.com/manual/gh_cache) to delete up to 100 caches created by a branch once a pull request is closed.
 
 To run the following example on cross-repository pull requests or pull requests from forks, you can trigger the workflow with the `pull_request_target` event. If you do use `pull_request_target` to trigger the workflow, there are security considerations to keep in mind. For more information, see "[AUTOTITLE](/actions/using-workflows/events-that-trigger-workflows#pull_request_target)."
 
@@ -359,22 +359,20 @@ jobs:
     steps:
       - name: Cleanup
         run: |
-          gh extension install actions/gh-actions-cache
-
           echo "Fetching list of cache key"
-          cacheKeysForPR=$(gh actions-cache list -R $REPO -B $BRANCH -L 100 | cut -f 1 )
+          cacheKeysForPR=$(gh cache list --ref $BRANCH --limit 100 --json id --jq '.[].id')
 
           ## Setting this to not fail the workflow while deleting cache keys.
           set +e
           echo "Deleting caches..."
           for cacheKey in $cacheKeysForPR
           do
-              gh actions-cache delete $cacheKey -R $REPO -B $BRANCH --confirm
+              gh cache delete $cacheKey
           done
           echo "Done"
         env:
           GH_TOKEN: {% raw %}${{ secrets.GITHUB_TOKEN }}{% endraw %}
-          REPO: {% raw %}${{ github.repository }}{% endraw %}
+          GH_REPO: {% raw %}${{ github.repository }}{% endraw %}
           BRANCH: refs/pull/{% raw %}${{ github.event.pull_request.number }}{% endraw %}/merge
 ```
 
