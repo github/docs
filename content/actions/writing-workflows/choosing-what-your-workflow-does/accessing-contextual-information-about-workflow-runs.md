@@ -88,7 +88,7 @@ Different contexts are available throughout a workflow run. For example, the `se
 
 In addition, some functions may only be used in certain places. For example, the `hashFiles` function is not available everywhere.
 
-The following table indicates where each context and special function can be used within a workflow. Unless listed below, a function can be used anywhere.
+The following table lists the restrictions on where each context and special function can be used within a workflow. The listed contexts are only available for the given workflow key, and may not be used anywhere else. Unless listed below, a function can be used anywhere.
 
 | Workflow key | Context | Special functions |
 | ---- | ------- | ----------------- |
