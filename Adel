@@ -1,0 +1,20 @@
+import telebot
+
+# استبدل TOKEN_HERE برمز التميز الخاص بك
+TOKEN = '7252047204:AAGIkho424SM-S8ifntg951lBnIjOTWumBo'
+
+# إنشاء روبوت Telegram
+bot = telebot.TeleBot(TOKEN)
+
+# معالج بدء التشغيل
+@bot.message_handler(commands=['start'])
+def start(message):
+    # إرسال رسالة ترحيب إلى المستخدم
+    bot.send_message(message.chat.id, 'مرحبا بك! هذا روبوت Telegram بسيط.')
+
+# إنشاء محدث وإضافة معالج البدء
+updater = telebot.Updater(7252047204:AAGIkho424SM-S8ifntg951lBnIjOTWumBo)
+updater.dispatcher.add_handler(start)
+
+# بدء الاستطلاع للرسائل الواردة
+updater.start_polling(/start)
