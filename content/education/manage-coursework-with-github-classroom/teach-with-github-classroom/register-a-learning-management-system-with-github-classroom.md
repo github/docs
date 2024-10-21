@@ -41,7 +41,7 @@ You can register your Blackboard installation with {% data variables.product.pro
     | **Signing Algorithm** dropdown | `RS256` |
     | **Custom parameters** | Leave empty. |
 1. Click **Register Application**.
-1. The Developer Portal will show a screen contains important information you'll need to input in the next steps of registering your instance in your Blackboard instance and in {% data variables.product.prodname_classroom %} below. Please note them in a safe place and click **Done**. 
+1. The Developer Portal will show a screen contains important information you'll need to input in the next steps of registering your instance in your Blackboard instance and in {% data variables.product.prodname_classroom %} below. Please note them in a safe place and click **Done**.
 1. In the table on the "My Applications" page, in the row for the GitHub Classroom application, click on the three dots and then **Manage Placements** in the dropdown menu.
 1. Click on the **plus sign**.
 1. On the "Register a new placement" configuration screen, set the fields to the following values.
