@@ -21,8 +21,7 @@ Once you have configured your server and created your {% data variables.product.
 ## Configuring your {% data variables.product.prodname_github_app %}
 
 {% data reusables.apps.settings-step %}
-{% data reusables.user-settings.developer_settings %}
-{% data reusables.user-settings.github_apps %}
+{% data reusables.apps.enterprise-apps-steps %}
 1. To the right of the {% data variables.product.prodname_github_app %} you want to configure for your {% data variables.product.prodname_copilot_extension_short %}, click **Edit**.
 1. In the "Identifying and authorizing users" section, under "Callback URL", enter your server's hostname, then click **Save changes**.
 

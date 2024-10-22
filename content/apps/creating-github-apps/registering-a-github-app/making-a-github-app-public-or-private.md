@@ -32,7 +32,11 @@ If a {% data variables.product.prodname_github_app %} registration is owned by a
 
 {% ifversion fpt or ghec %}You can register a {% data variables.product.prodname_github_app %} under your personal account or organization and make it available for other organizations to install. You do not need an enterprise plan or an organization account to make your {% data variables.product.prodname_github_app %} available to an organization even if the organization is owned by an enterprise on {% data variables.product.prodname_ghe_cloud %}.{% endif %}
 
-If you want to make your app available to {% ifversion ghes %}other {% endif %}{% data variables.product.prodname_ghe_server %} instances, then you need to take additional steps. For more information, see "[AUTOTITLE](/apps/sharing-github-apps/making-your-github-app-available-for-github-enterprise-server)."
+{% ifversion enterprise-apps-public-beta %}
+Additionally, you can register a {% data variables.product.prodname_github_app %} under your enterprise. You can't make this app public, the app can only be installed on organizations within your enterprise, and can only be authorized by members of your enterprise.
+{% endif %}
+
+If you want your {% data variables.product.prodname_github_app %} to be available to organizations in a {% data variables.product.prodname_ghe_server %} instance that you are not part of, then you need to take additional steps. For more information, see "[AUTOTITLE](/apps/sharing-github-apps/making-your-github-app-available-for-github-enterprise-server)."
 
 If it is important for {% ifversion ghes %}other {% endif %}{% data variables.product.prodname_ghe_server %} users to be able to use your tool, consider using {% data variables.product.prodname_actions %} instead of a {% data variables.product.prodname_github_app %}. Public actions are available on {% data variables.product.prodname_ghe_server %} instances with GitHub Connect. For more information, see "[AUTOTITLE]({% ifversion not ghes %}/enterprise-server@latest{% endif %}/admin/github-actions/managing-access-to-actions-from-githubcom/enabling-automatic-access-to-githubcom-actions-using-github-connect)" and "[AUTOTITLE]({% ifversion not ghes %}/enterprise-server@latest{% endif %}/admin/github-actions/getting-started-with-github-actions-for-your-enterprise/about-github-actions-for-enterprises){% ifversion ghes %}."{% else %}" in the {% data variables.product.prodname_ghe_server %} documentation.{% endif %}
 
@@ -45,3 +49,11 @@ Public {% data variables.product.prodname_github_apps %} have a landing page wit
 ### Private installation flow
 
 Private {% data variables.product.prodname_github_apps %} can only be installed on the user or organization account of the app owner. Limited information about the app will exist on a landing page for the app, but the **Install** button will only be available to organization owners and app managers for the organization that owns the app, or the personal account if the {% data variables.product.prodname_github_app %} is owned by an individual account.
+
+{% ifversion enterprise-apps-public-beta %}
+
+### Enterprise-owned installation flow
+
+Enterprise-owned {% data variables.product.prodname_github_apps %} can only be installed by organization owners of organizations within the enterprise by using the installation URL. The app can not be installed on user accounts.
+
+{% endif %}

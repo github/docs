@@ -21,8 +21,7 @@ A {% data variables.product.prodname_copilot_extension_short %} is a {% data var
 ## Creating a {% data variables.product.prodname_github_app %}
 
 {% data reusables.apps.settings-step %}
-{% data reusables.user-settings.developer_settings %}
-{% data reusables.user-settings.github_apps %}
+{% data reusables.apps.enterprise-apps-steps %}
 1. Click **New {% data variables.product.prodname_github_app %}**.
 1. Under "{% data variables.product.prodname_github_app %} name," enter a name for your app.
 
