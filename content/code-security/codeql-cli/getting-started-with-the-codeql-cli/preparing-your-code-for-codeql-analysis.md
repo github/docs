@@ -2,6 +2,7 @@
 title: Preparing your code for CodeQL analysis
 intro: 'You can build a {% data variables.product.prodname_codeql %} database containing the data needed to analyze your code.'
 shortTitle: Preparing code for analysis
+permissions: '{% data reusables.permissions.repo-checkout %}'
 product: '{% data reusables.gated-features.codeql %}'
 versions:
   fpt: '*'
