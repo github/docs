@@ -57,6 +57,40 @@ The steps to use each model are similar. In general, you will need to:
 
 The free API usage is rate limited. See [Rate limits](#rate-limits) below.
 
+{% ifversion github-models-cli %}
+
+## Experimenting with AI models using {% data variables.product.prodname_cli %}
+
+>[!NOTE] The {% data variables.product.prodname_github_models %} CLI extension is in {% data variables.release-phases.public_preview %} and subject to change.
+
+You can use {% data variables.product.prodname_github_models %} with the {% data variables.product.prodname_cli %} to experiment with AI models from the command line.
+
+### Prerequisites
+
+To use the {% data variables.product.prodname_github_models %} CLI extension, you need to have {% data variables.product.prodname_cli %} installed. {% data reusables.cli.cli-installation %}
+
+### Installing the extension
+
+1. If you have not already authenticated to the {% data variables.product.prodname_cli %}, run the following command in your terminal.
+
+   ```shell copy
+   gh auth login
+   ```
+
+1. To install the {% data variables.product.prodname_github_models %} extension, run the following command.
+
+   ```shell copy
+   gh extension install https://github.com/github/gh-models
+   ```
+
+### Using the extension
+
+To see a list of all available commands, run `gh models help`. To run the extension in interactive mode, run `gh models run`. This will prompt you to select a model and then to enter a prompt. The extension will then return a response from the model.
+
+For more information about what you can do with {% data variables.product.prodname_cli %}, see the [{% data variables.product.prodname_cli %} manual](https://cli.github.com/manual).
+
+{% endif %}
+
 ## Going to production
 
 The rate limits for the playground and free API usage are intended to help you experiment with models and develop your AI application. Once you are ready to bring your application to production, you can use a token from a paid Azure account instead of your {% data variables.product.company_short %} {% data variables.product.pat_generic %}. You don't need to change anything else in your code. For more information, see the [Azure AI](https://ai.azure.com/github/model/docs) documentation.
