@@ -3,8 +3,7 @@ title: Creating a pull request summary with GitHub Copilot
 shortTitle: Create a PR summary
 intro: 'You can generate a summary in the description of a pull request, or as a comment.'
 versions:
-  feature: copilot-pr-summaries
-permissions: 'Members of an enterprise with a subscription to {% data variables.product.prodname_copilot_enterprise %}'
+  feature: copilot
 topics:
   - Copilot
 redirect_from:
