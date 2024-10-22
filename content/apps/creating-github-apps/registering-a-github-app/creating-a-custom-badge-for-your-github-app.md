@@ -35,8 +35,7 @@ For more information about badges for {% data variables.product.prodname_github_
 ## Creating a custom badge
 
 {% data reusables.apps.settings-step %}
-{% data reusables.user-settings.developer_settings %}
-{% data reusables.user-settings.github_apps %}
+{% data reusables.apps.enterprise-apps-steps %}
 {% data reusables.user-settings.modify_github_app %}
 1. Under "Display information", drag and drop an image from a local folder or click **Upload a logo** to select an image from your computer.
 1. Optionally, crop your image.

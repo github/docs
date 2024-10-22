@@ -139,8 +139,7 @@ For more information about configuring a webhook when you register a {% data var
 To configure a webhook for an existing {% data variables.product.prodname_github_app %} registration:
 
 {% data reusables.apps.settings-step %}
-{% data reusables.user-settings.developer_settings %}
-{% data reusables.user-settings.github_apps %}
+{% data reusables.apps.enterprise-apps-steps %}
 1. Next to the {% data variables.product.prodname_github_app %} that you want to configure the webhook for, click **Edit**.
 1. Under "Webhook," select **Active**.
 1. Under "Webhook URL", type the URL where you'd like to receive payloads.

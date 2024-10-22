@@ -17,7 +17,7 @@ shortTitle: Activate optional features
 
 ## Activating optional features for {% data variables.product.prodname_oauth_apps %}
 
-{% data reusables.apps.settings-step %}
+{% data reusables.apps.settings-step-personal-orgs %}
 {% data reusables.user-settings.developer_settings %}
 {% data reusables.user-settings.oauth_apps %}
 1. Select the {% data variables.product.prodname_oauth_app %} you want to enable an optional feature for.
