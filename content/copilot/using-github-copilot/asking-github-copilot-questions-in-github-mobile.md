@@ -183,6 +183,10 @@ You can ask questions about a specific discussion in a repository.
 
 {% endif %}
 
+## Extending {% data variables.product.prodname_copilot_chat_short %} in {% data variables.product.prodname_mobile %}
+
+{% data reusables.copilot.copilot-extensions.extending-copilot-chat %}
+
 ## Sharing feedback about {% data variables.product.prodname_copilot_mobile %}
 
 To give feedback about a particular {% data variables.product.prodname_copilot_chat_short %} response:

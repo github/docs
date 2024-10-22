@@ -50,10 +50,7 @@ You can interact with your custom-built or installed extension in a {% data vari
 
 ## Using {% data variables.product.prodname_copilot_extensions %}
 
-1. To start using a {% data variables.product.prodname_copilot_extension_short %}, open any of the following {% data variables.product.prodname_copilot_chat_short %} interfaces:
-    * {% data variables.product.prodname_copilot_chat_short %} in {% data variables.product.prodname_vscode %}. See "[AUTOTITLE](/copilot/github-copilot-chat/copilot-chat-in-ides/using-github-copilot-chat-in-your-ide?tool=vscode#asking-your-first-question)."
-    * {% data variables.product.prodname_copilot_chat_short %} in {% data variables.product.prodname_vs %}. See "[AUTOTITLE](/copilot/github-copilot-chat/copilot-chat-in-ides/using-github-copilot-chat-in-your-ide?tool=visualstudio#asking-your-first-question-1)."
-    * {% data variables.product.prodname_copilot_chat_dotcom_short %}. See "[AUTOTITLE](/copilot/github-copilot-chat/copilot-chat-in-github/using-github-copilot-chat-in-githubcom#asking-a-general-question-about-software-development)."
+1. To start using a {% data variables.product.prodname_copilot_extension_short %}, open a supported {% data variables.product.prodname_copilot_chat_short %} interface. See "[Supported clients and IDEs](#supported-clients-and-ides)."
 1. To see a list of all {% data variables.product.prodname_copilot_extensions_short %} available in your {% data variables.product.prodname_copilot_chat_short %} conversation, in the {% data variables.product.prodname_copilot_chat_short %} text box, type `@`.
 
     > [!NOTE] If you are using {% data variables.product.prodname_copilot_chat_short %} in an IDE, and you or your organization owner install a {% data variables.product.prodname_copilot_extension_short %} while your IDE is open, you need to restart your IDE to begin using the {% data variables.product.prodname_copilot_extension_short %}.
