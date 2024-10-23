@@ -73,6 +73,6 @@ sections:
     - |
       Services may respond with a `503` status due to an out of date `haproxy` configuration. This can usually be resolved with a `ghe-config-apply` run.
     - |
-      Instance setup in AWS with IMDSv2 enforced fails if no public IP is present.
-    - |
       For customers using Secret Scanning, internal jobs were created and not worked that could contribute to performance issues.
+  errata:
+    - 'The "[Known issues](/admin/release-notes#3.13.4-known-issues)" section previously indicated that `Instance setup in AWS with IMDSv2 enforced fails if no public IP is present` is still an issue. The issue is resolved and is documented in the "[Bug fixes](/admin/release-notes#3.13.4-bugs)" section. [Updated: 2024-09-30]'
