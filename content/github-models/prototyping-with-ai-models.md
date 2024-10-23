@@ -199,9 +199,9 @@ Low, high, and embedding models have different rate limits. To see which type of
   </tr>
   <tr>
     <th><b>Tokens per request</b></th>
-    <td>4000 in, 4000 out</td>
-    <td>4000 in, 4000 out</td>
-    <td>4000 in, 8000 out</td>
+    <td>128000 in, 32000 out</td>
+    <td>128000 in, 32000 out</td>
+    <td>128000 in, 32000 out</td>
   </tr>
   <tr>
     <th><b>Concurrent requests</b></th>
@@ -224,9 +224,9 @@ Low, high, and embedding models have different rate limits. To see which type of
   </tr>
   <tr>
     <th><b>Tokens per request</b></th>
-    <td>4000 in, 4000 out</td>
-    <td>4000 in, 4000 out</td>
-    <td>4000 in, 4000 out</td>
+    <td>128000 in, 64000 out</td>
+    <td>128000 in, 64000 out</td>
+    <td>128000 in, 64000 out</td>
   </tr>
   <tr>
     <th><b>Concurrent requests</b></th>
