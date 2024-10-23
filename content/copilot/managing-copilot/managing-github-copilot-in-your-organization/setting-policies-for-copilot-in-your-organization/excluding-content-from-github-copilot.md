@@ -39,14 +39,14 @@ Repository administrators{% ifversion ghec%}, organization owners, and enterpris
 
 ### Availability of content exclusions
 
-| Tool | Code completion support | {% data variables.product.prodname_copilot_chat_short %} support |
-|--------|:--------:|:--------:|
-| {% data variables.product.prodname_vs %} | {% octicon "check" aria-label="Supported" %} | {% octicon "check" aria-label="Supported" %} |
-| {% data variables.product.prodname_vscode %} | {% octicon "check" aria-label="Supported" %} | {% octicon "check" aria-label="Supported" %} |
-| JetBrains IDEs | {% octicon "check" aria-label="Supported" %} | {% octicon "check" aria-label="Supported" %} |
-| Vim/Neovim | {% octicon "check" aria-label="Supported" %} | Not applicable |
-| Azure Data Studio | {% octicon "x" aria-label="Not supported" %} | Not applicable |
-| The {% data variables.product.github %} website | Not applicable | {% octicon "x" aria-label="Not supported" %} |
+| Tool                                            |            Code completion support            | {% data variables.product.prodname_copilot_chat_short %} support |
+|-------------------------------------------------|:---------------------------------------------:|:----------------------------------------------------------------:|
+| {% data variables.product.prodname_vs %}        | {% octicon "check" aria-label="Supported" %}  |           {% octicon "check" aria-label="Supported" %}           |
+| {% data variables.product.prodname_vscode %}    | {% octicon "check" aria-label="Supported" %}  |           {% octicon "check" aria-label="Supported" %}           |
+| JetBrains IDEs                                  | {% octicon "check" aria-label="Supported" %}  |           {% octicon "check" aria-label="Supported" %}           |
+| Vim/Neovim                                      | {% octicon "check" aria-label="Supported" %}  |                          Not applicable                          |
+| Azure Data Studio                               | {% octicon "x" aria-label="Not supported" %}  |                          Not applicable                          |
+| The {% data variables.product.github %} website |                Not applicable                 |           {% octicon "x" aria-label="Not supported" %}           |
 
 ### Limitations of content exclusions
 
