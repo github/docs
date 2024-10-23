@@ -48,8 +48,6 @@ To ensure that commits are attributed to you and appear in your contributions gr
 
 {% ifversion fpt or ghec %}
 
-<a name="about-no-reply-email"></a>
-
 {% note %}
 
 **Note:** If you created your account _after_ July 18, 2017, your `noreply` email address for is an ID number and your username in the form of <code>ID+USERNAME@users.noreply.github.com</code>. If you created your account _prior to_ July 18, 2017, and enabled **Keep my email address private** prior to that date, your `noreply` email address is <code>USERNAME@users.noreply.github.com</code>. You can get an ID-based `noreply` email address by selecting (or deselecting and reselecting) **Keep my email address private** in your email settings.
