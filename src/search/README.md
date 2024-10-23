@@ -22,7 +22,7 @@ You can also query our search endpoint directly at:
 
 ## Production deploys
 
-A [GitHub Actions workflow](/.github/workflows/sync-search-elasticsearch.yml) that runs every twenty four hours syncs the search data. This process generates structured data for all pages on the site, compares that data to what's currently on search, then adds, updates, or removes indices based on the diff of the local and remote data, being careful not to create duplicate records and avoiding any unnecessary (and costly) indexing operations.
+A [GitHub Actions workflow](/.github/workflows/sync-search-elasticsearch.yml) that runs every four hours syncs the search data. This process generates structured data for all pages on the site, compares that data to what's currently on search, then adds, updates, or removes indices based on the diff of the local and remote data, being careful not to create duplicate records and avoiding any unnecessary (and costly) indexing operations.
 
 The workflow runs are only accessible to GitHub employees using internal resources.
 

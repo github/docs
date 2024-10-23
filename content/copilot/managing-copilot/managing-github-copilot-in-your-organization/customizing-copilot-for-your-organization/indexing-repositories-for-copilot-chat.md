@@ -16,15 +16,13 @@ redirect_from:
 
 {% data variables.product.prodname_copilot %}'s ability to answer natural language questions, in the context of a {% data variables.product.prodname_dotcom %} repository, is improved when the repository has been indexed for semantic code search.
 
-Indexing repositories for {% data variables.product.prodname_copilot_chat_short %} is not a requirement and will not affect responses to questions about information in knowledge bases, pull requests, issues, discussions, or commits. However, indexing is for search purposes and can help {% data variables.product.prodname_copilot_chat_short %} answer questions that relate directly to the code within a repository. **{% data variables.product.prodname_copilot_chat_short %} will not use your indexed repository for model training.**
+Indexing repositories is not a requirement and will not affect responses to questions about information in pull requests, issues, discussions, or commits. However, indexing can help {% data variables.product.prodname_copilot_chat_short %} answer questions that relate directly to the code within a repository.
 
 The indexing status of a repository is displayed on {% data variables.product.github %} when you start a conversation that has a repository context. You can index the repository if it has not been indexed yet.
 
 After you index a repository it is automatically re-indexed every time a change is pushed to the repository.
 
 ## Indexing limits
-
-Your {% data variables.product.prodname_copilot %} subscription plan determines your indexing limits.
 
 {% rowheaders %}
 
@@ -33,22 +31,6 @@ Your {% data variables.product.prodname_copilot %} subscription plan determines 
 | Repository limit | 5                                                               | 50                                                           | Unlimited                                                      |
 
 {% endrowheaders %}
-
-{% ifversion ghec %}
-If you have a seat on the {% data variables.product.prodname_copilot_enterprise_short %} (CE) plan, you do not have a limit on the number of repositories you can index. You can index repositories from any organization you have access to, regardless of whether the organization is subject to an indexing limit.
-{% endif %}
-
-{% ifversion ghec or fpt %}
-If you have a seat on the {% data variables.product.prodname_copilot_business_short %} (CB) plan, you are subject to the indexing limit for your organization. You cannot index additional repositories once your organization reaches the repository limit, but you can still benefit from the indexes created by other users.
-{% endif %}
-
-{% ifversion fpt %}
-If you have a {% data variables.product.prodname_copilot_individuals_short %} (CI) plan, you are subject to an indexing limit and can index any repository that you belong to. However, you can still benefit from the indexes created by other users without affecting your limit.
-{% endif %}
-
-Both CE and CB plans can apply content exclusions to control the behavior of {% data variables.product.prodname_copilot %} for the {% data variables.product.prodname_copilot_short %} seats they manage. For more information, see "[AUTOTITLE](/copilot/managing-copilot/managing-github-copilot-in-your-organization/setting-policies-for-copilot-in-your-organization/excluding-content-from-github-copilot)." However, CI users can still index any repository they have access to, regardless of the content exclusion policies set by the organization.
-
-> [!WARNING] Indexing is permanent for each repository unless the repository itself is deleted. Use caution when selecting a repository to index. Repository indexing cannot be canceled once it starts.
 
 ## Indexing a repository
 
