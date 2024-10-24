@@ -65,8 +65,18 @@
     "docs_reference_links": "N/A"
   },
   {
+    "action": "business.security_center_export_coverage",
+    "description": "A CSV export was requested on the \"Coverage\" page.",
+    "docs_reference_links": "N/A"
+  },
+  {
     "action": "business.security_center_export_overview_dashboard",
     "description": "A CSV export was requested on the \"Overview Dashboard\" page.",
+    "docs_reference_links": "N/A"
+  },
+  {
+    "action": "business.security_center_export_risk",
+    "description": "A CSV export was requested on the \"Risk\" page.",
     "docs_reference_links": "N/A"
   },
   {
