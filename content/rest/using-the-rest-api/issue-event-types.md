@@ -276,7 +276,7 @@ This event is available for the following issue types.
 
 |  | REST API for issue events | REST API for timeline events |
 |---|---|---|
-|Issues| {% octicon "check" aria-label="Supported" %} | {% octicon "x" aria-label="Not supported" %}|
+|Issues| {% octicon "check" aria-label="Supported" %} | {% octicon "check" aria-label="Supported" %} |
 
 {% endrowheaders %}
 
