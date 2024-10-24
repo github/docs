@@ -371,6 +371,21 @@ This SARIF output file has example values to show all supported SARIF properties
           ]
         }
       },
+      "originalUriBaseIds": {
+        "PROJECTROOT": {
+         "uri": "file:///C:/Users/Mary/code/TheProject/",
+           "description": {
+             "text": "The root directory for all project files."
+           }
+        },
+         "%SRCROOT%": {
+           "uri": "src/",
+           "uriBaseId": "PROJECTROOT",
+           "description": {
+             "text": "The root of the source tree."
+           }
+         }
+      },
       "automationDetails": {
         "id": "my-category/"
       },
