@@ -1,7 +1,7 @@
 ---
 title: Exporting data from security overview
 shortTitle: Export data
-intro: You can export CSV files of your organization's{% ifversion security-overview-export-dashboard-data %} overview,{% endif %} risk and coverage data from security overview.
+intro: You can export CSV files of your organization's overview, risk, coverage, and {% data variables.product.prodname_codeql %} pull request alerts data from security overview.
 permissions: '{% data reusables.permissions.security-overview %}'
 versions:
   feature: security-overview-export-data
@@ -20,7 +20,7 @@ redirect_from:
 
 {% data reusables.security-overview.download-csv-files %}
 
-{% ifversion security-overview-export-dashboard-data %}The overview page contains data about security alerts across your organization, while the risk and coverage pages contain data about repositories and how they are affected by security alerts or covered by security features.{% endif %}
+The overview page contains data about security alerts across your organization, while the risk and coverage pages contain data about repositories and how they are affected by security alerts or covered by security features. The {% data variables.product.prodname_codeql %} pull request alerts page contains data about {% data variables.product.prodname_codeql %} alerts that were caught in pull requests merged to the default branch.
 
 The CSV file you download will contain data corresponding to the filters you have applied to security overview. For example, if you add the filter `dependabot-alerts:enabled`, your file will only contain data for repositories that have enabled {% data variables.product.prodname_dependabot_alerts %}.
 
@@ -35,10 +35,10 @@ The CSV file you download will contain data corresponding to the filters you hav
 {% data reusables.profile.access_org %}
 1. In the "Organizations" section, select the organization for which you would like to download security overview data.
 {% data reusables.organizations.security-overview %}
-1. In the "Security" sidebar, choose the page that you want to export data from by clicking on {% ifversion security-overview-export-dashboard-data %}**{% octicon "graph" aria-hidden="true"  %}Overview**, {% endif %}**{% octicon "meter" aria-hidden="true" %} Coverage** or **{% octicon "shield" aria-hidden="true" %} Risk**.
+1. In the "Security" sidebar, choose the page that you want to export data from by clicking on **{% octicon "graph" aria-hidden="true"  %}Overview**, **{% octicon "meter" aria-hidden="true" %} Coverage**, **{% octicon "shield" aria-hidden="true" %} Risk** or **{% octicon "graph" aria-hidden="true"  %} {% data variables.product.prodname_codeql %} pull request alerts**.
 1. Next to the search bar, click {% octicon "download" aria-hidden="true" %} **Export CSV**.
 
-    It may take a moment for {% data variables.product.product_name %} to generate the CSV file of your data. Once the CSV file generates, the file will automatically start downloading, and a banner will appear confirming your report is ready. {% ifversion security-overview-export-dashboard-data %}If you are downloading the CSV from the overview page, you will also receive an email when your report is ready, containing a link to download the CSV.{% endif %}
+    It may take a moment for {% data variables.product.product_name %} to generate the CSV file of your data. Once the CSV file generates, the file will automatically start downloading, and a banner will appear confirming your report is ready. If you are downloading the CSV from the overview page, you will also receive an email when your report is ready, containing a link to download the CSV.
 
 {% ifversion secret-scanning-non-provider-patterns %}
 

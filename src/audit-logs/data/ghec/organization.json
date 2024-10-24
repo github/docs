@@ -3025,6 +3025,11 @@
     "docs_reference_links": "/code-security/secret-scanning/managing-alerts-from-secret-scanning"
   },
   {
+    "action": "secret_scanning_alert.public_leak",
+    "description": "A secret scanning alert was leaked in a public repo.",
+    "docs_reference_links": "/code-security/secret-scanning/managing-alerts-from-secret-scanning"
+  },
+  {
     "action": "secret_scanning_alert.reopen",
     "description": "A secret scanning alert was reopened.",
     "docs_reference_links": "N/A"
