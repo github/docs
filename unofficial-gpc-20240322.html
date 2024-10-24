@@ -1,0 +1,1135 @@
+<!DOCTYPE html><html lang="en" dir="ltr"><head>
+<meta charset="utf-8">
+<meta name="generator" content="ReSpec 35.1.2">
+<meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
+<style>
+span.example-title{text-transform:none}
+:is(aside,div).example,div.illegal-example{padding:.5em;margin:1em 0;position:relative;clear:both}
+div.illegal-example{color:red}
+div.illegal-example p{color:#000}
+aside.example div.example{border-left-width:.1em;border-color:#999;background:#fff}
+</style>
+<style>
+pre.idl{padding:1em;position:relative}
+pre.idl>code{color:#000;color:var(--text,#000)}
+@media print{
+pre.idl{white-space:pre-wrap}
+}
+.idlHeader{display:block;width:150px;background:#8ccbf2;background:var(--def-border,#8ccbf2);color:#fff;color:var(--defrow-border,#fff);font-family:sans-serif;font-weight:700;margin:-1em 0 1em -1em;height:28px;line-height:28px}
+.idlHeader a.self-link{margin-left:.3cm;text-decoration:none;border-bottom:none;color:inherit}
+.idlID{font-weight:700;color:#005a9c}
+.idlType{color:#005a9c}
+.idlName{color:#ff4500}
+.idlName a{color:#ff4500;border-bottom:1px dotted #ff4500;text-decoration:none}
+a.idlEnumItem{color:#000;border-bottom:1px dotted #ccc;text-decoration:none}
+.idlSuperclass{font-style:italic;color:#005a9c}
+.idlDefaultValue,.idlParamName{font-style:italic}
+.extAttr{color:#666}
+.idlSectionComment{color:gray}
+.idlIncludes a{font-weight:700}
+.respec-button-copy-paste:focus{text-decoration:none;border-color:#51a7e8;outline:0;box-shadow:0 0 5px rgba(81,167,232,.5)}
+.respec-button-copy-paste:is(:focus:hover,.selected:focus){border-color:#51a7e8}
+.respec-button-copy-paste:is(:hover,:active,.zeroclipboard-is-hover,.zeroclipboard-is-active){text-decoration:none;background-color:#ddd;background-image:linear-gradient(#eee,#ddd);border-color:#ccc}
+.respec-button-copy-paste:is(:active,.selected,.zeroclipboard-is-active){background-color:#dcdcdc;background-image:none;border-color:#b5b5b5;box-shadow:inset 0 2px 4px rgba(0,0,0,.15)}
+.respec-button-copy-paste.selected:hover{background-color:#cfcfcf}
+.respec-button-copy-paste:is(:disabled,:disabled:hover,.disabled,.disabled:hover){color:rgba(102,102,102,.5);cursor:default;background-color:rgba(229,229,229,.5);background-image:none;border-color:rgba(197,197,197,.5);box-shadow:none}
+@media print{
+.respec-button-copy-paste{visibility:hidden}
+}
+</style>
+<style>
+dfn{cursor:pointer}
+.dfn-panel{position:absolute;z-index:35;min-width:300px;max-width:500px;padding:.5em .75em;margin-top:.6em;font-family:"Helvetica Neue",sans-serif;font-size:small;background:#fff;background:var(--indextable-hover-bg,#fff);color:#000;color:var(--text,#000);box-shadow:0 1em 3em -.4em rgba(0,0,0,.3),0 0 1px 1px rgba(0,0,0,.05);box-shadow:0 1em 3em -.4em var(--tocsidebar-shadow,rgba(0,0,0,.3)),0 0 1px 1px var(--tocsidebar-shadow,rgba(0,0,0,.05));border-radius:2px}
+.dfn-panel:not(.docked)>.caret{position:absolute;top:-9px}
+.dfn-panel:not(.docked)>.caret::after,.dfn-panel:not(.docked)>.caret::before{content:"";position:absolute;border:10px solid transparent;border-top:0;border-bottom:10px solid #fff;border-bottom-color:var(--indextable-hover-bg,#fff);top:0}
+.dfn-panel:not(.docked)>.caret::before{border-bottom:9px solid #a2a9b1;border-bottom-color:var(--indextable-hover-bg,#a2a9b1)}
+.dfn-panel *{margin:0}
+.dfn-panel b{display:block;color:#000;color:var(--text,#000);margin-top:.25em}
+.dfn-panel ul a[href]{color:#333;color:var(--text,#333)}
+.dfn-panel>div{display:flex}
+.dfn-panel a.self-link{font-weight:700;margin-right:auto}
+.dfn-panel .marker{padding:.1em;margin-left:.5em;border-radius:.2em;text-align:center;white-space:nowrap;font-size:90%;color:#040b1c}
+.dfn-panel .marker.dfn-exported{background:#d1edfd;box-shadow:0 0 0 .125em #1ca5f940}
+.dfn-panel .marker.idl-block{background:#8ccbf2;box-shadow:0 0 0 .125em #0670b161}
+.dfn-panel a:not(:hover){text-decoration:none!important;border-bottom:none!important}
+.dfn-panel a[href]:hover{border-bottom-width:1px}
+.dfn-panel ul{padding:0}
+.dfn-panel li{margin-left:1em}
+.dfn-panel.docked{position:fixed;left:.5em;top:unset;bottom:2em;margin:0 auto;max-width:calc(100vw - .75em * 2 - .5em - .2em * 2);max-height:30vh;overflow:auto}
+</style>
+    
+    
+    
+<link rel="icon" href="data:image/svg+xml,<svg xmlns=%22http://www.w3.org/2000/svg%22 viewBox=%220 0 100 100%22><text y=%220.9em%22 font-size=%22105%22>🕹</text></svg>">
+    
+<title>Global Privacy Control (GPC)</title>
+    
+<style>
+
+      body {
+        background: url(proposal.svg) no-repeat fixed !important;
+        background-size: 25px 380px !important;
+      }
+    
+</style>
+    
+  
+<style id="respec-mainstyle">
+@keyframes pop{
+0%{transform:scale(1,1)}
+25%{transform:scale(1.25,1.25);opacity:.75}
+100%{transform:scale(1,1)}
+}
+a.internalDFN{color:inherit;border-bottom:1px solid #99c;text-decoration:none}
+a.externalDFN{color:inherit;border-bottom:1px dotted #ccc;text-decoration:none}
+a.bibref{text-decoration:none}
+.respec-offending-element:target{animation:pop .25s ease-in-out 0s 1}
+.respec-offending-element,a[href].respec-offending-element{text-decoration:red wavy underline}
+@supports not (text-decoration:red wavy underline){
+.respec-offending-element:not(pre){display:inline-block}
+.respec-offending-element{background:url(data:image/gif;base64,R0lGODdhBAADAPEAANv///8AAP///wAAACwAAAAABAADAEACBZQjmIAFADs=) bottom repeat-x}
+}
+#references :target{background:#eaf3ff;animation:pop .4s ease-in-out 0s 1}
+cite .bibref{font-style:normal}
+a[href].orcid{padding-left:4px;padding-right:4px}
+a[href].orcid>svg{margin-bottom:-2px}
+ol.tof,ul.tof{list-style:none outside none}
+.caption{margin-top:.5em;font-style:italic}
+#issue-summary>ul{column-count:2}
+#issue-summary li{list-style:none;display:inline-block}
+details.respec-tests-details{margin-left:1em;display:inline-block;vertical-align:top}
+details.respec-tests-details>*{padding-right:2em}
+details.respec-tests-details[open]{z-index:999999;position:absolute;border:thin solid #cad3e2;border-radius:.3em;background-color:#fff;padding-bottom:.5em}
+details.respec-tests-details[open]>summary{border-bottom:thin solid #cad3e2;padding-left:1em;margin-bottom:1em;line-height:2em}
+details.respec-tests-details>ul{width:100%;margin-top:-.3em}
+details.respec-tests-details>li{padding-left:1em}
+.self-link:hover{opacity:1;text-decoration:none;background-color:transparent}
+aside.example .marker>a.self-link{color:inherit}
+.header-wrapper{display:flex;align-items:baseline}
+:is(h2,h3,h4,h5,h6):not(#toc>h2,#abstract>h2,#sotd>h2,.head>h2){position:relative;left:-.5em}
+:is(h2,h3,h4,h5,h6):not(#toch2)+a.self-link{color:inherit;order:-1;position:relative;left:-1.1em;font-size:1rem;opacity:.5}
+:is(h2,h3,h4,h5,h6)+a.self-link::before{content:"§";text-decoration:none;color:var(--heading-text)}
+:is(h2,h3)+a.self-link{top:-.2em}
+:is(h4,h5,h6)+a.self-link::before{color:#000}
+@media (max-width:767px){
+dd{margin-left:0}
+}
+@media print{
+.removeOnSave{display:none}
+}
+</style>
+<meta name="color-scheme" content="light">
+<meta name="description" content="This document defines a signal, transmitted over HTTP and through the DOM, that conveys a
+        person's request to websites and services to not sell or share their personal information with
+        third parties. This standard is intended to work with existing and upcoming legal frameworks
+        that render such requests enforceable.">
+<style>
+.hljs{--base:#fafafa;--mono-1:#383a42;--mono-2:#686b77;--mono-3:#717277;--hue-1:#0b76c5;--hue-2:#336ae3;--hue-3:#a626a4;--hue-4:#42803c;--hue-5:#ca4706;--hue-5-2:#c91243;--hue-6:#986801;--hue-6-2:#9a6a01}
+@media (prefers-color-scheme:dark){
+.hljs{--base:#282c34;--mono-1:#abb2bf;--mono-2:#818896;--mono-3:#5c6370;--hue-1:#56b6c2;--hue-2:#61aeee;--hue-3:#c678dd;--hue-4:#98c379;--hue-5:#e06c75;--hue-5-2:#be5046;--hue-6:#d19a66;--hue-6-2:#e6c07b}
+}
+.hljs{display:block;overflow-x:auto;padding:.5em;color:#383a42;color:var(--mono-1,#383a42);background:#fafafa;background:var(--base,#fafafa)}
+.hljs-comment,.hljs-quote{color:#717277;color:var(--mono-3,#717277);font-style:italic}
+.hljs-doctag,.hljs-formula,.hljs-keyword{color:#a626a4;color:var(--hue-3,#a626a4)}
+.hljs-deletion,.hljs-name,.hljs-section,.hljs-selector-tag,.hljs-subst{color:#ca4706;color:var(--hue-5,#ca4706);font-weight:700}
+.hljs-literal{color:#0b76c5;color:var(--hue-1,#0b76c5)}
+.hljs-addition,.hljs-attribute,.hljs-meta-string,.hljs-regexp,.hljs-string{color:#42803c;color:var(--hue-4,#42803c)}
+.hljs-built_in,.hljs-class .hljs-title{color:#9a6a01;color:var(--hue-6-2,#9a6a01)}
+.hljs-attr,.hljs-number,.hljs-selector-attr,.hljs-selector-class,.hljs-selector-pseudo,.hljs-template-variable,.hljs-type,.hljs-variable{color:#986801;color:var(--hue-6,#986801)}
+.hljs-bullet,.hljs-link,.hljs-meta,.hljs-selector-id,.hljs-symbol,.hljs-title{color:#336ae3;color:var(--hue-2,#336ae3)}
+.hljs-emphasis{font-style:italic}
+.hljs-strong{font-weight:700}
+.hljs-link{text-decoration:underline}
+</style>
+<style>
+var{position:relative;cursor:pointer}
+var[data-type]::after,var[data-type]::before{position:absolute;left:50%;top:-6px;opacity:0;transition:opacity .4s;pointer-events:none}
+var[data-type]::before{content:"";transform:translateX(-50%);border-width:4px 6px 0 6px;border-style:solid;border-color:transparent;border-top-color:#222}
+var[data-type]::after{content:attr(data-type);transform:translateX(-50%) translateY(-100%);background:#222;text-align:center;font-family:"Dank Mono","Fira Code",monospace;font-style:normal;padding:6px;border-radius:3px;color:#daca88;text-indent:0;font-weight:400}
+var[data-type]:hover::after,var[data-type]:hover::before{opacity:1}
+</style>
+<script id="initialUserConfig" type="application/json">{
+  "specStatus": "unofficial",
+  "postProcess": [
+    null
+  ],
+  "xref": [
+    "html"
+  ],
+  "editors": [
+    {
+      "name": "Sebastian Zimmeck",
+      "company": "Wesleyan University",
+      "companyURL": "https://www.wesleyan.edu/",
+      "url": "https://www.privacytechlab.org/"
+    },
+    {
+      "name": "Peter Snyder",
+      "company": "Brave Software",
+      "companyURL": "https://brave.com/",
+      "url": "https://www.peteresnyder.com/"
+    },
+    {
+      "name": "Justin Brookman",
+      "company": "Consumer Reports",
+      "companyURL": "https://www.consumerreports.org/"
+    },
+    {
+      "name": "Aram Zucker-Scharff",
+      "company": "The Washington Post",
+      "companyURL": "https://www.washingtonpost.com/",
+      "url": "https://aramzs.github.io/aramzs/"
+    }
+  ],
+  "formerEditors": [
+    {
+      "name": "Robin Berjon",
+      "company": "Protocol Labs",
+      "companyURL": "https://protocol.ai/",
+      "url": "https://berjon.com/",
+      "note": "The New York Times until Sep 2022",
+      "w3cid": 34327
+    },
+    {
+      "name": "Ashkan Soltani",
+      "company": "Independent",
+      "companyURL": "https://ashkansoltani.org",
+      "url": "https://ashkansoltani.org"
+    },
+    {
+      "name": "David Harbage",
+      "company": "DuckDuckGo",
+      "companyURL": "https://duckduckgo.com/",
+      "url": "https://davidharbage.com/"
+    }
+  ],
+  "shortName": "gpc",
+  "github": "https://github.com/privacycg/gpc-spec",
+  "edDraftURI": "https://privacycg.github.io/gpc-spec/",
+  "localBiblio": {
+    "CCPA-AG-FINAL-STATEMENT": {
+      "title": "California Attorney General CCPA Final Statement of Reasons",
+      "href": "https://oag.ca.gov/sites/all/files/agweb/pdfs/privacy/ccpa-fsor.pdf",
+      "id": "ccpa-ag-final-statement"
+    },
+    "CCPA-REGULATIONS": {
+      "title": "CCPA Regulations",
+      "href": "https://www.oag.ca.gov/sites/all/files/agweb/pdfs/privacy/oal-sub-final-text-of-regs.pdf?",
+      "id": "ccpa-regulations"
+    },
+    "CPPA-REGULATIONS": {
+      "title": "CPPA Regulations",
+      "href": "https://cppa.ca.gov/regulations/pdf/cppa_regs.pdf",
+      "id": "cppa-regulations"
+    },
+    "EPRIVACY-DIRECTIVE": {
+      "title": "Directive 2009/136/EC (ePrivacy Directive)",
+      "href": "https://edps.europa.eu/data-protection/our-work/publications/legislation/directive-2009136ec_en",
+      "id": "eprivacy-directive"
+    },
+    "GDPR": {
+      "title": "General Data Protection Regulation (GDPR)",
+      "href": "https://eur-lex.europa.eu/legal-content/EN/TXT/HTML/?uri=CELEX:32016R0679&from=EN",
+      "id": "gdpr"
+    },
+    "Privacy-Principles": {
+      "title": "Privacy Principles",
+      "href": "https://w3ctag.github.io/privacy-principles/",
+      "authors": [
+        "Robin Berjon",
+        "Jeffrey Yasskin"
+      ],
+      "publisher": "W3C",
+      "id": "privacy-principles"
+    },
+    "SB220": {
+      "title": "Nevada SB220 (NRS 603A)",
+      "href": "https://www.leg.state.nv.us/NRS/NRS-603A.html",
+      "id": "sb220"
+    },
+    "COLORADO-REGULATIONS": {
+      "title": "Colorado Regulations",
+      "href": "https://coag.gov/app/uploads/2023/03/FINAL-CLEAN-2023.03.15-Official-CPA-Rules.pdf",
+      "id": "colorado-regulations"
+    }
+  },
+  "publishISODate": "2024-03-22T00:00:00.000Z",
+  "generatedSubtitle": "Unofficial Draft 22 March 2024"
+}</script>
+<link rel="stylesheet" href="https://www.w3.org/StyleSheets/TR/2021/W3C-UD"></head>
+  <body class="h-entry toc-inline" data-cite="WEBIDL html"><div class="head">
+    
+    <h1 id="title" class="title">Global Privacy Control (GPC)</h1> 
+    <p id="w3c-state">Proposal <time class="dt-published" datetime="2024-03-22">22 March 2024</time></p>
+    <details open="">
+      <summary>More details about this document</summary>
+      <dl>
+        
+        
+        <dt>Latest editor's draft:</dt><dd><a href="https://privacycg.github.io/gpc-spec/">https://privacycg.github.io/gpc-spec/</a></dd>
+        <dt>History:</dt><dd>
+                    <a href="https://github.com/privacycg/gpc-spec/commits/">Commit history</a>
+                  </dd>
+        
+        
+        
+        
+        
+        <dt>Editors:</dt><dd class="editor p-author h-card vcard">
+    <a class="u-url url p-name fn" href="https://www.privacytechlab.org/">Sebastian Zimmeck</a> (<a class="p-org org h-org" href="https://www.wesleyan.edu/">Wesleyan University</a>)
+  </dd><dd class="editor p-author h-card vcard">
+    <a class="u-url url p-name fn" href="https://www.peteresnyder.com/">Peter Snyder</a> (<a class="p-org org h-org" href="https://brave.com/">Brave Software</a>)
+  </dd><dd class="editor p-author h-card vcard">
+    <span class="p-name fn">Justin Brookman</span> (<a class="p-org org h-org" href="https://www.consumerreports.org/">Consumer Reports</a>)
+  </dd><dd class="editor p-author h-card vcard">
+    <a class="u-url url p-name fn" href="https://aramzs.github.io/aramzs/">Aram Zucker-Scharff</a> (<a class="p-org org h-org" href="https://www.washingtonpost.com/">The Washington Post</a>)
+  </dd>
+        <dt>
+                Former editors:
+              </dt><dd class="editor p-author h-card vcard" data-editor-id="34327">
+    <a class="u-url url p-name fn" href="https://berjon.com/">Robin Berjon</a> (<a class="p-org org h-org" href="https://protocol.ai/">Protocol Labs</a>) (The New York Times until Sep 2022)
+  </dd><dd class="editor p-author h-card vcard">
+    <a class="u-url url p-name fn" href="https://ashkansoltani.org">Ashkan Soltani</a> (<a class="p-org org h-org" href="https://ashkansoltani.org">Independent</a>)
+  </dd><dd class="editor p-author h-card vcard">
+    <a class="u-url url p-name fn" href="https://davidharbage.com/">David Harbage</a> (<a class="p-org org h-org" href="https://duckduckgo.com/">DuckDuckGo</a>)
+  </dd>
+        
+        <dt>Feedback:</dt><dd>
+        <a href="https://github.com/privacycg/gpc-spec/">GitHub privacycg/gpc-spec</a>
+        (<a href="https://github.com/privacycg/gpc-spec/pulls/">pull requests</a>,
+        <a href="https://github.com/privacycg/gpc-spec/issues/new/choose">new issue</a>,
+        <a href="https://github.com/privacycg/gpc-spec/issues/">open issues</a>)
+      </dd>
+        
+        
+      </dl>
+    </details>
+    
+    
+    <p class="copyright">
+      Copyright ©
+      2024
+      the document editors/authors.
+      Text is available under the
+            <a rel="license" href="https://creativecommons.org/licenses/by/4.0/legalcode">Creative Commons Attribution 4.0 International Public License</a>; additional terms may apply.
+    </p>
+    <hr title="Separator for header">
+  </div>
+    <section id="abstract" class="introductory"><h2>Abstract</h2>
+      <p>
+        This document defines a signal, transmitted over HTTP and through the DOM, that conveys a
+        person's request to websites and services to not sell or share their personal information with
+        third parties. This standard is intended to work with existing and upcoming legal frameworks
+        that render such requests enforceable.
+      </p>
+    </section>
+    <section id="sotd" class="introductory"><h2>Status of This Document</h2><p>This document is a specification proposal.</p></section><nav id="toc"><h2 class="introductory" id="table-of-contents">Table of Contents</h2><ol class="toc"><li class="tocline"><a class="tocxref" href="#abstract">Abstract</a></li><li class="tocline"><a class="tocxref" href="#sotd">Status of This Document</a></li><li class="tocline"><a class="tocxref" href="#introduction"><bdi class="secno">1. </bdi>Introduction</a></li><li class="tocline"><a class="tocxref" href="#definitions"><bdi class="secno">2. </bdi>Definitions</a></li><li class="tocline"><a class="tocxref" href="#expressing-a-do-not-sell-or-share-preference"><bdi class="secno">3. </bdi>Expressing a Do Not Sell Or Share Preference</a><ol class="toc"><li class="tocline"><a class="tocxref" href="#expression-format"><bdi class="secno">3.1 </bdi>Expression Format</a></li><li class="tocline"><a class="tocxref" href="#preference-caching"><bdi class="secno">3.2 </bdi>Preference Caching</a></li><li class="tocline"><a class="tocxref" href="#the-sec-gpc-header-field-for-http-requests"><bdi class="secno">3.3 </bdi>The <code>Sec-GPC</code> Header Field for HTTP Requests</a><ol class="toc"><li class="tocline"><a class="tocxref" href="#extensibility-of-the-sec-gpc-field-value"><bdi class="secno">3.3.1 </bdi>
+            Extensibility of the Sec-GPC Field Value
+          </a></li></ol></li><li class="tocline"><a class="tocxref" href="#javascript-property-to-detect-preference"><bdi class="secno">3.4 </bdi>JavaScript Property to Detect Preference</a></li></ol></li><li class="tocline"><a class="tocxref" href="#gpc-support-resource"><bdi class="secno">4. </bdi>GPC Support Resource</a><ol class="toc"><li class="tocline"><a class="tocxref" href="#gpc-support-representation"><bdi class="secno">4.1 </bdi>GPC Support Representation</a></li></ol></li><li class="tocline"><a class="tocxref" href="#legal-effects"><bdi class="secno">5. </bdi>Legal Effects</a><ol class="toc"><li class="tocline"><a class="tocxref" href="#calfornia-consumer-privacy-act-ccpa"><bdi class="secno">5.1 </bdi>Calfornia Consumer Privacy Act (CCPA)</a></li><li class="tocline"><a class="tocxref" href="#colorado-privacy-act-cpa"><bdi class="secno">5.2 </bdi>Colorado Privacy Act (CPA)</a></li><li class="tocline"><a class="tocxref" href="#connecticut-data-privacy-act-cdpa"><bdi class="secno">5.3 </bdi>Connecticut Data Privacy Act (CDPA)</a></li><li class="tocline"><a class="tocxref" href="#nevada-revised-statutes-chapter-603a-nrs-603a"><bdi class="secno">5.4 </bdi>Nevada Revised Statutes Chapter 603A (NRS 603A)</a></li><li class="tocline"><a class="tocxref" href="#eu-general-data-protection-regulation-gdpr"><bdi class="secno">5.5 </bdi>EU General Data Protection Regulation (GDPR)</a></li><li class="tocline"><a class="tocxref" href="#other-jurisdictions-and-privacy-rights"><bdi class="secno">5.6 </bdi>Other Jurisdictions and Privacy Rights</a></li><li class="tocline"><a class="tocxref" href="#user-interface-language"><bdi class="secno">5.7 </bdi>User Interface Language</a></li></ol></li><li class="tocline"><a class="tocxref" href="#privacy"><bdi class="secno">6. </bdi>Privacy Considerations</a></li><li class="tocline"><a class="tocxref" href="#conformance"><bdi class="secno">7. </bdi>Conformance</a></li><li class="tocline"><a class="tocxref" href="#implementation-considerations"><bdi class="secno">A. </bdi>Implementation Considerations</a></li><li class="tocline"><a class="tocxref" href="#acknowledgments"><bdi class="secno">B. </bdi>Acknowledgments</a></li><li class="tocline"><a class="tocxref" href="#references"><bdi class="secno">C. </bdi>References</a><ol class="toc"><li class="tocline"><a class="tocxref" href="#normative-references"><bdi class="secno">C.1 </bdi>Normative references</a></li><li class="tocline"><a class="tocxref" href="#informative-references"><bdi class="secno">C.2 </bdi>Informative references</a></li></ol></li></ol></nav>
+    <section class="informative" id="introduction"><div class="header-wrapper"><h2 id="x1-introduction"><bdi class="secno">1. </bdi>Introduction</h2><a class="self-link" href="#introduction" aria-label="Permalink for Section 1."></a></div><p><em>This section is non-normative.</em></p>
+      
+      <p>
+        Building websites today often requires relying on services provided by businesses other than
+        the one which a person choses to interact with. This result is a natural consequence of the
+        increasing complexity of Web technology and of the division of labor between different
+        services. While this architecture can be used in the service of better Web experiences,
+        it can also be abused to violate privacy ([<cite><a class="bibref" data-link-type="biblio" href="#bib-privacy-principles" title="Privacy Principles">Privacy-Principles</a></cite>]). While data can be shared
+        with service providers for limited operational purposes, it can also be shared with third
+        parties or used for behavioral targeting in ways that many users find objectionable.
+      </p>
+      <p>
+        Several legal frameworks exist — and more are on the way — within which people have the right
+        to request that their privacy be protected, including requests that their data not be sold
+        or shared beyond the business with which they intend to interact. Requiring that people
+        manually express their rights for each and every site they visit is, however, impractical.
+      </p>
+      <blockquote cite="https://oag.ca.gov/sites/all/files/agweb/pdfs/privacy/ccpa-fsor.pdf">
+        <p>
+          Given the ease and frequency by which personal information is collected and sold when a
+          consumer visits a website, consumers should have a similarly easy ability to request to
+          opt-out globally. This regulation offers consumers a global choice to opt-out of the sale
+          of personal information, as opposed to going website by website to make individual
+          requests with each business each time they use a new browser or a new device.
+          [<cite><a class="bibref" data-link-type="biblio" href="#bib-ccpa-ag-final-statement" title="California Attorney General CCPA Final Statement of Reasons">CCPA-AG-FINAL-STATEMENT</a></cite>]
+        </p>
+      </blockquote>
+      <p>
+        This specification addresses the issue by providing a way to signal, through an HTTP header
+        or the DOM, a person's assertion of their applicable rights to prevent the sale of their data,
+        the sharing of their data with third parties, and the use of their data for cross-site targeted
+        advertising. This signal is equivalent, for example, to the "global privacy control" in the
+        CCPA [<cite><a class="bibref" data-link-type="biblio" href="#bib-ccpa-regulations" title="CCPA Regulations">CCPA-REGULATIONS</a></cite>].
+      </p>
+    </section>
+    <section id="definitions"><div class="header-wrapper"><h2 id="x2-definitions"><bdi class="secno">2. </bdi>Definitions</h2><a class="self-link" href="#definitions" aria-label="Permalink for Section 2."></a></div>
+      
+      <p>
+        A <dfn data-plurals="do-not-sell-or-share interactions" id="dfn-do-not-sell-or-share-interaction" tabindex="0" aria-haspopup="dialog" data-dfn-type="dfn">do-not-sell-or-share interaction</dfn> is an interaction with a website in which the
+        person is requesting that their data not be sold to or shared with any party other than the
+        one the person intends to interact with, or to have their data used for cross-site ad targeting,
+        except as permitted by law.
+      </p>
+      <p>
+        A <dfn data-lt="preference|do-not-sell-or-share preference" data-plurals="preferences" id="dfn-preference" tabindex="0" aria-haspopup="dialog" data-dfn-type="dfn">do-not-sell-or-share preference</dfn> is when a person requests
+        that their data "not be sold or shared" for instance by activating a Global Privacy Control
+        setting with their user agent or by using tools that default to such a setting (possibly
+        because this setting matches the most common expectations of that tool's users).
+        When set, this <a data-link-type="dfn|abstract-op" href="#dfn-preference" class="internalDFN" id="ref-for-dfn-preference-1">preference</a> indicates that the person expects to browse the Web with
+        <a data-link-type="dfn|abstract-op" href="#dfn-do-not-sell-or-share-interaction" class="internalDFN" id="ref-for-dfn-do-not-sell-or-share-interaction-1">do-not-sell-or-share interactions</a>.
+      </p>
+    </section>
+    <section id="expressing-a-do-not-sell-or-share-preference"><div class="header-wrapper"><h2 id="x3-expressing-a-do-not-sell-or-share-preference"><bdi class="secno">3. </bdi>Expressing a Do Not Sell Or Share Preference</h2><a class="self-link" href="#expressing-a-do-not-sell-or-share-preference" aria-label="Permalink for Section 3."></a></div>
+      
+      <section id="expression-format"><div class="header-wrapper"><h3 id="x3-1-expression-format"><bdi class="secno">3.1 </bdi>Expression Format</h3><a class="self-link" href="#expression-format" aria-label="Permalink for Section 3.1"></a></div>
+        
+        <p>
+          A Global Privacy Control <a data-link-type="dfn|abstract-op" href="#dfn-preference" class="internalDFN" id="ref-for-dfn-preference-2">preference</a> should be conveyed for all HTTP requests (in the form 
+          of the HTTP header) and all websites (in the form of the Web API property).
+        </p>
+        <p>
+          If set, this <a data-link-type="dfn|abstract-op" href="#dfn-preference" class="internalDFN" id="ref-for-dfn-preference-3">preference</a> is expressed as a single value of <code>1</code> or equivalently
+          <code>true</code> according to context.
+        </p>
+        <p>
+          In the absence of regulatory, legal, or other requirements, websites <em class="rfc2119">MAY</em> interpret an
+          expressed Global Privacy Control <a data-link-type="dfn|abstract-op" href="#dfn-preference" class="internalDFN" id="ref-for-dfn-preference-4">preference</a> as they find most appropriate for the given
+          person, particularly as considered in light of the person's privacy expectations, context, and
+          cultural circumstances. Likewise, websites might make use of other <a data-link-type="dfn|abstract-op" href="#dfn-preference" class="internalDFN" id="ref-for-dfn-preference-5">preference</a> information
+          outside the scope of this protocol, such as site-specific person <a data-link-type="dfn|abstract-op" href="#dfn-preference" class="internalDFN" id="ref-for-dfn-preference-6">preferences</a> or third-party
+          registration services, to inform or adjust their behavior when no explicit <a data-link-type="dfn|abstract-op" href="#dfn-preference" class="internalDFN" id="ref-for-dfn-preference-7">preference</a> is
+          expressed via this protocol.
+        </p>
+        <p>
+          User agents are expected to convey person <a data-link-type="dfn|abstract-op" href="#dfn-preference" class="internalDFN" id="ref-for-dfn-preference-8">preferences</a> as accurately as they can. User
+          agents <em class="rfc2119">SHOULD</em> strive to represent what the user agent best believes to be the person's
+          <a data-link-type="dfn|abstract-op" href="#dfn-preference" class="internalDFN" id="ref-for-dfn-preference-9">preference</a> for the Global Privacy Control value.
+        </p>
+      </section>
+      <section id="preference-caching"><div class="header-wrapper"><h3 id="x3-2-preference-caching"><bdi class="secno">3.2 </bdi>Preference Caching</h3><a class="self-link" href="#preference-caching" aria-label="Permalink for Section 3.2"></a></div>
+        
+        <p>
+          The <a data-link-type="dfn|abstract-op" href="#dfn-preference" class="internalDFN" id="ref-for-dfn-preference-10">preference</a> <em class="rfc2119">MUST</em> be cached on each top-level navigation to ensure consistency in communication of
+          the person's request that their data "not be sold or shared." This means that if the <a data-link-type="dfn|abstract-op" href="#dfn-preference" class="internalDFN" id="ref-for-dfn-preference-11">preference</a> changes
+          during or after a top-level navigation, it will not be reflected until the next navigation.
+        </p>
+        <p>
+          A <a data-link-type="dfn|abstract-op" data-type="dfn" href="https://html.spec.whatwg.org/multipage/document-sequences.html#top-level-browsing-context">top-level browsing context</a> has a <dfn id="dfn-gpcatnavigation" tabindex="0" aria-haspopup="dialog" data-dfn-type="dfn"><code>gpcAtNavigation</code></dfn> boolean.
+          It is initially <code>false</code>.
+        </p>
+        <p>
+          The value of <a data-link-type="dfn|abstract-op" href="#dfn-gpcatnavigation" class="internalDFN" id="ref-for-dfn-gpcatnavigation-1"><code>gpcAtNavigation</code></a> <em class="rfc2119">MUST</em> reflect the <a data-link-type="dfn|abstract-op" href="#dfn-preference" class="internalDFN" id="ref-for-dfn-preference-12">preference</a>
+          of the person when the <a data-link-type="dfn|abstract-op" data-type="dfn" href="https://html.spec.whatwg.org/multipage/document-sequences.html#top-level-browsing-context">top-level browsing context</a>'s <a data-link-type="dfn|abstract-op" data-type="dfn" href="https://html.spec.whatwg.org/multipage/document-sequences.html#nav-document">active document</a> began loading.
+          It will be <code>true</code> if the person's  <a data-link-type="dfn|abstract-op" href="#dfn-preference" class="internalDFN" id="ref-for-dfn-preference-13">preference</a> was enabled, and <code>false</code> if
+          the person's <a data-link-type="dfn|abstract-op" href="#dfn-preference" class="internalDFN" id="ref-for-dfn-preference-14">preference</a> was disabled or had not been set.
+        </p>
+        <p>
+          If <a data-link-type="dfn|abstract-op" href="#dfn-preference" class="internalDFN" id="ref-for-dfn-preference-15">preference</a> is changed to be inconsistent with some <code>gpcAtNavigation</code> cached in a
+          <a data-link-type="dfn|abstract-op" data-type="dfn" href="https://html.spec.whatwg.org/multipage/document-sequences.html#top-level-browsing-context">top-level browsing context</a>, the user agent <em class="rfc2119">SHOULD</em> inform the user of any inconsistent tabs and provide
+          the option to reload them, refreshing the cached <code>gpcAtNavigation</code> to reflect the current <a data-link-type="dfn|abstract-op" href="#dfn-preference" class="internalDFN" id="ref-for-dfn-preference-16">preference</a>.
+        </p>
+      </section>
+      <section id="the-sec-gpc-header-field-for-http-requests"><div class="header-wrapper"><h3 id="x3-3-the-sec-gpc-header-field-for-http-requests"><bdi class="secno">3.3 </bdi>The <code>Sec-GPC</code> Header Field for HTTP Requests</h3><a class="self-link" href="#the-sec-gpc-header-field-for-http-requests" aria-label="Permalink for Section 3.3"></a></div>
+        
+        <p>
+          The <dfn id="dfn-sec-gpc" tabindex="0" aria-haspopup="dialog" data-dfn-type="dfn"><code>Sec-GPC</code></dfn> header field is a mechanism for expressing the person's
+          <a data-link-type="dfn|abstract-op" href="#dfn-preference" class="internalDFN" id="ref-for-dfn-preference-17">preference</a> for a <a data-link-type="dfn|abstract-op" href="#dfn-do-not-sell-or-share-interaction" class="internalDFN" id="ref-for-dfn-do-not-sell-or-share-interaction-2">do-not-sell-or-share interaction</a> in an HTTP request (for any
+          request method).
+        </p>
+        <p>
+          The syntax ([<cite><a class="bibref" data-link-type="biblio" href="#bib-abnf" title="Augmented BNF for Syntax Specifications: ABNF">ABNF</a></cite>]) of the field is:
+        </p>
+        <pre class="hljs" aria-busy="false"><code class="hljs">Sec-GPC-field-name  = "Sec-GPC"
+Sec-GPC-field-value = "1"</code></pre>
+        <p>
+          A user agent <em class="rfc2119">MUST NOT</em> generate a <code><a data-link-type="dfn|abstract-op" href="#dfn-sec-gpc" class="internalDFN" id="ref-for-dfn-sec-gpc-1"><code>Sec-GPC</code></a></code> header field if <a data-link-type="dfn|abstract-op" data-type="dfn" href="https://html.spec.whatwg.org/multipage/document-sequences.html#top-level-browsing-context">top-level browsing context</a>'s
+          <code>gpcAtNavigation</code> is <code>false</code>.
+        </p>
+        <p>
+          A user agent <em class="rfc2119">MUST</em> generate a <code><a data-link-type="dfn|abstract-op" href="#dfn-sec-gpc" class="internalDFN" id="ref-for-dfn-sec-gpc-2"><code>Sec-GPC</code></a></code> header field with a field-value that
+          is exactly the numeric character "1" if <a data-link-type="dfn|abstract-op" data-type="dfn" href="https://html.spec.whatwg.org/multipage/document-sequences.html#top-level-browsing-context">top-level browsing context</a>'s
+          <code>gpcAtNavigation</code> is <code>true</code>.
+        </p>
+        <p>
+          A user agent <em class="rfc2119">MUST NOT</em> generate more than one <code><a data-link-type="dfn|abstract-op" href="#dfn-sec-gpc" class="internalDFN" id="ref-for-dfn-sec-gpc-3"><code>Sec-GPC</code></a></code> in a given HTTP
+          request and <em class="rfc2119">MUST NOT</em> use a <code><a data-link-type="dfn|abstract-op" href="#dfn-sec-gpc" class="internalDFN" id="ref-for-dfn-sec-gpc-4"><code>Sec-GPC</code></a></code> field in an HTTP trailer.
+        </p>
+        <p>
+          A server processing an HTTP request that contains a <code><a data-link-type="dfn|abstract-op" href="#dfn-sec-gpc" class="internalDFN" id="ref-for-dfn-sec-gpc-5"><code>Sec-GPC</code></a></code> header <em class="rfc2119">MUST</em>
+          ignore it and process the request as if that header had not been specified unless the
+          field value is exactly the character "1". If there are multiple <code><a data-link-type="dfn|abstract-op" href="#dfn-sec-gpc" class="internalDFN" id="ref-for-dfn-sec-gpc-6"><code>Sec-GPC</code></a></code>
+          headers and at least one has a field value of exactly "1" then the server <em class="rfc2119">MUST</em> treat the
+          request as if there were only one <code><a data-link-type="dfn|abstract-op" href="#dfn-sec-gpc" class="internalDFN" id="ref-for-dfn-sec-gpc-7"><code>Sec-GPC</code></a></code> header with a field value of
+          "1"; and as if there were none otherwise.
+        </p>
+        <p>
+          HTTP intermediaries <em class="rfc2119">MUST NOT</em> remove a <code><a data-link-type="dfn|abstract-op" href="#dfn-sec-gpc" class="internalDFN" id="ref-for-dfn-sec-gpc-8"><code>Sec-GPC</code></a></code> header set to "1", but they
+          <em class="rfc2119">MAY</em> remove <code><a data-link-type="dfn|abstract-op" href="#dfn-sec-gpc" class="internalDFN" id="ref-for-dfn-sec-gpc-9"><code>Sec-GPC</code></a></code> headers that contain other values. Additionally, an
+          HTTP intermediary that has reasons to believe the the person originating a given HTTP
+          request has a <a data-link-type="dfn|abstract-op" href="#dfn-preference" class="internalDFN" id="ref-for-dfn-preference-18">do-not-sell-or-share preference</a>, <em class="rfc2119">MAY</em> insert a <code><a data-link-type="dfn|abstract-op" href="#dfn-sec-gpc" class="internalDFN" id="ref-for-dfn-sec-gpc-10"><code>Sec-GPC</code></a></code>
+          header set to "1".
+        </p>
+        <aside class="example" id="example-example-gpc-request"><div class="marker">
+    <a class="self-link" href="#example-example-gpc-request">Example<bdi> 1</bdi></a><span class="example-title">: Example GPC Request</span>
+  </div>
+          <pre class="hljs" aria-busy="false"><code class="hljs http"><span class="hljs-keyword">GET</span> <span class="hljs-string">/something/here</span> <span class="hljs-meta">HTTP/2</span>
+<span class="hljs-attribute">Host</span><span class="hljs-punctuation">: </span>example.com
+<span class="hljs-attribute">Sec-GPC</span><span class="hljs-punctuation">: </span>1</code></pre>
+        </aside>
+        <section id="extensibility-of-the-sec-gpc-field-value"><div class="header-wrapper"><h4 id="x3-3-1-extensibility-of-the-sec-gpc-field-value"><bdi class="secno">3.3.1 </bdi>
+            Extensibility of the Sec-GPC Field Value
+          </h4><a class="self-link" href="#extensibility-of-the-sec-gpc-field-value" aria-label="Permalink for Section 3.3.1"></a></div>
+          
+          <p>
+            The <code><a data-link-type="dfn|abstract-op" href="#dfn-sec-gpc" class="internalDFN" id="ref-for-dfn-sec-gpc-11"><code>Sec-GPC</code></a></code> is deliberately defined without an extension mechanism.
+            Experience with previous similar headers shows that people tend to rely on string
+            equality instead of parsing the value when testing for their presence, especially when
+            extensions do not yet exist. Such checks would of course fail in the presence of
+            extension content, which would in turn render the mechanism moot. Should extensions
+            prove necessary to this standard, they will need to be implemented through other
+            headers, which may in time supersede this one.
+          </p>
+        </section>
+      </section>
+      <section id="javascript-property-to-detect-preference"><div class="header-wrapper"><h3 id="x3-4-javascript-property-to-detect-preference"><bdi class="secno">3.4 </bdi>JavaScript Property to Detect Preference</h3><a class="self-link" href="#javascript-property-to-detect-preference" aria-label="Permalink for Section 3.4"></a></div>
+        
+        <p>
+          The <a data-link-type="idl" href="#dom-globalprivacycontrol-globalprivacycontrol" class="internalDFN" id="ref-for-dom-globalprivacycontrol-globalprivacycontrol-1"><code>globalPrivacyControl</code></a> property enables a client-side
+          script to determine what <code><a data-link-type="dfn|abstract-op" href="#dfn-sec-gpc" class="internalDFN" id="ref-for-dfn-sec-gpc-12"><code>Sec-GPC</code></a></code> header field value was sent when
+          loading the <a data-link-type="dfn|abstract-op" data-type="dfn" href="https://html.spec.whatwg.org/multipage/document-sequences.html#top-level-browsing-context">top-level browsing context</a>'s <a data-link-type="dfn|abstract-op" data-type="dfn" href="https://html.spec.whatwg.org/multipage/document-sequences.html#nav-document">active document</a>.
+        </p>
+        <pre class="idl def" id="webidl-2062116596"><span class="idlHeader"><a class="self-link" href="#webidl-2062116596">WebIDL</a></span><code><span data-idl="" class="idlInterface mixin" id="idl-def-globalprivacycontrol" data-title="GlobalPrivacyControl">interface mixin <dfn data-export="" data-dfn-type="interface" id="dom-globalprivacycontrol" data-idl="interface mixin" data-title="GlobalPrivacyControl" data-dfn-for="" class="idlID" tabindex="0" aria-haspopup="dialog"><code>GlobalPrivacyControl</code></dfn> {<span data-idl="" class="idlAttribute" id="idl-def-globalprivacycontrol-globalprivacycontrol" data-title="globalPrivacyControl" data-dfn-for="GlobalPrivacyControl">
+  readonly attribute<span class="idlType"> <a data-link-type="idl" data-type="interface" href="https://webidl.spec.whatwg.org/#idl-boolean">boolean</a></span> <dfn data-export="" data-dfn-type="attribute" id="dom-globalprivacycontrol-globalprivacycontrol" data-idl="attribute" data-title="globalPrivacyControl" data-dfn-for="GlobalPrivacyControl" data-type="boolean" data-lt="globalPrivacyControl" data-local-lt="GlobalPrivacyControl.globalPrivacyControl" class="idlName" tabindex="0" aria-haspopup="dialog"><code>globalPrivacyControl</code></dfn>;</span>
+};</span><span class="idlIncludes">
+<a data-link-type="idl" data-type="interface" href="https://html.spec.whatwg.org/multipage/system-state.html#navigator">Navigator</a> includes <a data-link-type="idl" href="#dom-globalprivacycontrol" class="internalDFN" id="ref-for-dom-globalprivacycontrol-1"><code>GlobalPrivacyControl</code></a>;</span><span class="idlIncludes">
+<a data-link-type="idl" data-type="interface" href="https://html.spec.whatwg.org/multipage/workers.html#workernavigator">WorkerNavigator</a> includes <a data-link-type="idl" href="#dom-globalprivacycontrol" class="internalDFN" id="ref-for-dom-globalprivacycontrol-2"><code>GlobalPrivacyControl</code></a>;</span></code></pre>
+        <p>
+          The value is <code>false</code> if no <code>Sec-GPC</code> header field would be sent;
+          otherwise, the value is <code>true</code>.
+        </p>
+        <p>
+          The value of <a data-link-type="idl" href="#dom-globalprivacycontrol-globalprivacycontrol" class="internalDFN" id="ref-for-dom-globalprivacycontrol-globalprivacycontrol-2"><code>globalPrivacyControl</code></a> <em class="rfc2119">MUST</em> be the
+          <a data-link-type="dfn|abstract-op" data-type="dfn" href="https://html.spec.whatwg.org/multipage/document-sequences.html#top-level-browsing-context">top-level browsing context</a>'s <code>gpcAtNavigation</code>.
+        </p>
+        <p>
+          The <a data-link-type="idl" href="#dom-globalprivacycontrol-globalprivacycontrol" class="internalDFN" id="ref-for-dom-globalprivacycontrol-globalprivacycontrol-3"><code>globalPrivacyControl</code></a> property is available on the
+          <code>navigator</code> object in both regular and worker contexts, and so can be checked
+          reading from <code>navigator.globalPrivacyControl</code>.
+        </p>
+        <aside class="example" id="example-checking-gpc-in-script"><div class="marker">
+    <a class="self-link" href="#example-checking-gpc-in-script">Example<bdi> 2</bdi></a><span class="example-title">: checking GPC in script</span>
+  </div>
+          <pre aria-busy="false"><code class="hljs js"><span class="hljs-keyword">if</span> (!navigator.<span class="hljs-property">globalPrivacyControl</span>) {
+  <span class="hljs-comment">// wonderful, we can sell this person's data!</span>
+}</code></pre>
+        </aside>
+      </section>
+    </section>
+    <section id="gpc-support-resource"><div class="header-wrapper"><h2 id="x4-gpc-support-resource"><bdi class="secno">4. </bdi>GPC Support Resource</h2><a class="self-link" href="#gpc-support-resource" aria-label="Permalink for Section 4."></a></div>
+      
+      <p>
+        A site <em class="rfc2119">MAY</em> produce a resource at a .well-known URL in order for a site to represent the fact
+        that it abides by GPC requests, at least where required to do so. The purpose of a GPC support
+        resource is for a site to convey its awareness of and support for the Global Privacy Control.
+        The support resource is not intended to convey whether the site abides by GPC requests from
+        the user agent accessing the resource. By default, an origin's support is <em>unknown</em>.
+      </p>
+      <p>
+        A GPC support resource has the well-known identifier <code>/.well-known/gpc.json</code>
+        relative to the origin server's URL [<cite><a class="bibref" data-link-type="biblio" href="#bib-rfc8615" title="Well-Known Uniform Resource Identifiers (URIs)">RFC8615</a></cite>].
+      </p>
+      <p>
+        An origin server that receives a valid GET request targeting its GPC support resource
+        responds either with a successful response containing a machine-readable representation of
+        the site-wide tracking status, as defined below, or a sequence of redirects that leads to
+        such a representation (which <em class="rfc2119">MAY</em> be provided by a server at another origin).
+      </p>
+      <section id="gpc-support-representation"><div class="header-wrapper"><h3 id="x4-1-gpc-support-representation"><bdi class="secno">4.1 </bdi>GPC Support Representation</h3><a class="self-link" href="#gpc-support-representation" aria-label="Permalink for Section 4.1"></a></div>
+        
+        <p>
+          The origin server <em class="rfc2119">MUST</em> return the GPC support resource as a valid representation using the
+          <code>application/json</code> media type [<cite><a class="bibref" data-link-type="biblio" href="#bib-rfc8259" title="The JavaScript Object Notation (JSON) Data Interchange Format">RFC8259</a></cite>], otherwise the origin's support is
+          unknown.
+        </p>
+        <p>
+          The GPC support representation <em class="rfc2119">MUST</em> be an
+          <a href="https://tools.ietf.org/html/rfc8259#section-4">JSON object</a>, otherwise the
+          origin's support is unknown. Members of this JSON object not in the list below have no
+          meaning in this specification and <em class="rfc2119">MUST</em> be ignored. Members include:
+          </p><ul>
+            <li>
+              A <code>gpc</code> member. The value of the <code>gpc</code> member <em class="rfc2119">MUST</em> be either
+              <code>true</code>, to indicate that the server intends to abide by GPC requests at least
+              to the extent it is legally obligated to do so, or <code>false</code>, to indicate that
+              it does not. For any other value the origin's support is unknown.
+            </li>
+            <li>
+              A <code>lastUpdate</code> member. The value of the <code>lastUpdate</code>
+              member <em class="rfc2119">MUST</em> be an RFC3339 <code>full-date</code> (YYYY-MM-DD) or <code>date-time</code>
+              (YYYY-MM-DDTHH:mm:ss.sssZ) [<cite><a class="bibref" data-link-type="biblio" href="#bib-rfc3339" title="Date and Time on the Internet: Timestamps">RFC3339</a></cite>]. This indicates the time at
+              which the statement of support was made, such that later changes to the meaning of the
+              GPC standard should not affect the interpretation of the resource for legal purposes.
+              If the member is not in a valid RFC3339 format, the last update date and time is
+              unknown.
+            </li>
+          </ul>
+        <p></p>
+        <aside class="example" id="example-example-org-abides-by-gpc"><div class="marker">
+    <a class="self-link" href="#example-example-org-abides-by-gpc">Example<bdi> 3</bdi></a><span class="example-title">: example.org abides by GPC</span>
+  </div>
+          <pre aria-busy="false"><code class="hljs http"><span class="hljs-keyword">GET</span> <span class="hljs-string">/.well-known/gpc.json</span> <span class="hljs-meta">HTTP/2</span>
+<span class="hljs-attribute">Host</span><span class="hljs-punctuation">: </span>example.org
+<span class="hljs-attribute">User-Agent</span><span class="hljs-punctuation">: </span>whatever
+
+<span class="language-css">
+<span class="hljs-attribute">Content</span>-Type: application/json
+
+{
+  "gpc": true,
+  <span class="hljs-string">"lastUpdate"</span>: <span class="hljs-string">"1997-03-10"</span>
+}</span></code></pre>
+        </aside>
+      </section>
+    </section>
+    <section class="informative" id="legal-effects"><div class="header-wrapper"><h2 id="x5-legal-effects"><bdi class="secno">5. </bdi>Legal Effects</h2><a class="self-link" href="#legal-effects" aria-label="Permalink for Section 5."></a></div><p><em>This section is non-normative.</em></p>
+      
+      <p>
+        Receiving a GPC signal may have legal effects, depending on
+        factors such as the location of the individual sending the signal, the scope of the
+        applicable law, as well as any separate agreement between the recipient of the signal and
+        the individual. For additional details on legal effects, 
+        <a href="https://privacycg.github.io/gpc-spec/explainer" target="_blank">consult the explainer</a>. 
+      </p>
+      <p>
+        For example, the use of the GPC signal by an individual will be intended to communicate the
+        individual's intention to invoke the following rights, as applicable:
+      </p>
+      <section id="calfornia-consumer-privacy-act-ccpa"><div class="header-wrapper"><h3 id="x5-1-calfornia-consumer-privacy-act-ccpa"><bdi class="secno">5.1 </bdi>Calfornia Consumer Privacy Act (CCPA)</h3><a class="self-link" href="#calfornia-consumer-privacy-act-ccpa" aria-label="Permalink for Section 5.1"></a></div>
+      <p>
+        Under the CCPA, the GPC signal will be intended to communicate a Do Not Sell request
+        from a global privacy control, as per [<cite><a class="bibref" data-link-type="biblio" href="#bib-ccpa-regulations" title="CCPA Regulations">CCPA-REGULATIONS</a></cite>] §999.315 for that browser or
+        device, or, if known, the consumer.
+      </p>
+      <p>
+        Where the GPC signal conflicts with the existing privacy settings a consumer has with
+        the business, the business shall respect the GPC signal but may notify the consumer of
+        the conflict and give the consumer an opportunity to confirm the business-specific
+        privacy setting or participation in the financial incentive program [<cite><a class="bibref" data-link-type="biblio" href="#bib-ccpa-regulations" title="CCPA Regulations">CCPA-REGULATIONS</a></cite>]
+        §999.315(c)(2).
+      </p>
+      </section><section id="colorado-privacy-act-cpa"><div class="header-wrapper"><h3 id="x5-2-colorado-privacy-act-cpa"><bdi class="secno">5.2 </bdi>Colorado Privacy Act (CPA)</h3><a class="self-link" href="#colorado-privacy-act-cpa" aria-label="Permalink for Section 5.2"></a></div>
+      <p>
+        The CPA gives consumers the legal right to opt out of both the sale of their information 
+        as well as the use of their data for cross-site targeted advertising, including through 
+        the use of “universal opt-out mechanisms that clearly communicate a consumer’s affirmative, 
+        freely given, and unambiguous choice to opt out.” Under the CPA, the GPC signal will be 
+        intended to communicate a request to opt out of both the sale of their personal information
+        and the use of their personal information for targeted advertising.
+      </p>
+      </section><section id="connecticut-data-privacy-act-cdpa"><div class="header-wrapper"><h3 id="x5-3-connecticut-data-privacy-act-cdpa"><bdi class="secno">5.3 </bdi>Connecticut Data Privacy Act (CDPA)</h3><a class="self-link" href="#connecticut-data-privacy-act-cdpa" aria-label="Permalink for Section 5.3"></a></div>
+      <p>
+        Similarly, the CDPA gives consumers separate opt-out rights for data sales and targeted 
+        advertising, including through an “authorized agent by way of, among other things, a 
+        technology, including, but not limited to, an Internet link or a browser setting, browser 
+        extension or global device setting.” Under the CDPA, the GPC signal will be intended to 
+        communicate a request to opt out of both the sale of their personal information and the 
+        use of their personal information for targeted advertising.
+      </p>
+      </section><section id="nevada-revised-statutes-chapter-603a-nrs-603a"><div class="header-wrapper"><h3 id="x5-4-nevada-revised-statutes-chapter-603a-nrs-603a"><bdi class="secno">5.4 </bdi>Nevada Revised Statutes Chapter 603A (NRS 603A)</h3><a class="self-link" href="#nevada-revised-statutes-chapter-603a-nrs-603a" aria-label="Permalink for Section 5.4"></a></div>
+      <p>
+        Under NRS 603A, a GPC signal will be intended to communicate a Do Not Sell My Personal
+        Information request [<cite><a class="bibref" data-link-type="biblio" href="#bib-sb220" title="Nevada SB220 (NRS 603A)">SB220</a></cite>].
+      </p>
+      </section><section id="eu-general-data-protection-regulation-gdpr"><div class="header-wrapper"><h3 id="x5-5-eu-general-data-protection-regulation-gdpr"><bdi class="secno">5.5 </bdi>EU General Data Protection Regulation (GDPR)</h3><a class="self-link" href="#eu-general-data-protection-regulation-gdpr" aria-label="Permalink for Section 5.5"></a></div>
+      <p>
+        The GDPR requires that "Natural persons should have control of their own personal data"
+        ([<cite><a class="bibref" data-link-type="biblio" href="#bib-gdpr" title="General Data Protection Regulation (GDPR)">GDPR</a></cite>], Recital 7). The GPC signal is intended to convey a general request that data
+        controllers limit the sale or sharing of the person's personal data to other data
+        controllers ([<cite><a class="bibref" data-link-type="biblio" href="#bib-gdpr" title="General Data Protection Regulation (GDPR)">GDPR</a></cite>] Articles 7 &amp; 21). This request is expressed with every
+        interaction that the user agent has with the server.
+      </p>
+      <p>
+        Note that this request is not meant to withdraw a person's consent to local storage as per
+        the ePrivacy Directive ("cookie consent") ([<cite><a class="bibref" data-link-type="biblio" href="#bib-eprivacy-directive" title="Directive 2009/136/EC (ePrivacy Directive)">EPRIVACY-DIRECTIVE</a></cite>]) nor is it intended to
+        object to direct marketing under legitimate interest ([<cite><a class="bibref" data-link-type="biblio" href="#bib-gdpr" title="General Data Protection Regulation (GDPR)">GDPR</a></cite>]).
+      </p>
+      </section><section id="other-jurisdictions-and-privacy-rights"><div class="header-wrapper"><h3 id="x5-6-other-jurisdictions-and-privacy-rights"><bdi class="secno">5.6 </bdi>Other Jurisdictions and Privacy Rights</h3><a class="self-link" href="#other-jurisdictions-and-privacy-rights" aria-label="Permalink for Section 5.6"></a></div>
+      <p>
+        GPC could potentially be used to indicate rights in other jurisdictions as well.
+      </p>
+      <p>
+        Other US state privacy laws, such as those in Virginia and Utah, give consumers new opt-out
+        rights around data sales and targeted advertising but are silent on the legal effect of
+        global opt-out signals. Regulators enforcing those statutes may determine that a user
+        activating a signal such as GPC may be sufficient to legally exercise opt-out rights in
+        those jurisdictions.
+      </p>
+      <p>
+        However, GPC is not necessarily intended to invoke every new privacy right in every
+        jurisdiction. For example, GPC is not intended to globally invoke data deletion rights on
+        every website visited by the user. GPC is also not intended to limit a first party’s use of
+        personal information within the first-party context (such as a publisher targeting ads to a
+        user on its website based on that user’s previous activity on that same site). For that
+        reason, GPC should not be interpreted as exercising the CCPA’s right to limit the use of
+        sensitive information in a first-party context.
+      </p>
+      <p>
+        Given the complexities of existing consent frameworks, publishers who accept the GPC signal
+        should disclose how they treat the GPC signal in that jurisdiction and how they deal with
+        conflicts between the signal and other specific privacy choices that the person has already
+        made directly with the publisher, including instances where third party sharing may be
+        permitted such as sharing to service providers/processors, sharing at law or at the
+        direction of the individual.
+      </p>
+      </section><section id="user-interface-language"><div class="header-wrapper"><h3 id="x5-7-user-interface-language"><bdi class="secno">5.7 </bdi>User Interface Language</h3><a class="self-link" href="#user-interface-language" aria-label="Permalink for Section 5.7"></a></div>
+        
+        <p>
+          User agents <em class="rfc2119">SHOULD</em> strive to represent what the user agent best believes to be the person's
+          preference for the Global Privacy Control value. While studies have shown that people do not
+          want their data sold or shared, some jurisdictions have enacted "opt-out" legal frameworks
+          where consumers have to take an affirmative action to express a <a data-link-type="dfn|abstract-op" href="#dfn-preference" class="internalDFN" id="ref-for-dfn-preference-19">preference</a> to limit data
+          sharing of the use of their data for targeted advertising.
+        </p>
+        <p>
+          Different jurisdictions have different prerequisites before a platform can enable a universal
+          opt-out. For example, the most recent regulations promulgated under the California Consumer
+          Privacy Act state:
+        </p>
+        <blockquote cite="https://cppa.ca.gov/regulations/pdf/cppa_regs.pdf">
+          The platform, technology, or mechanism that sends the opt-out preference signal shall make
+          clear to the consumer, whether in its configuration or in disclosures to the public, that
+          the use of the signal is meant to have the effect of opting the consumer out of the sale
+          and sharing of their personal information. The configuration or disclosure does not need to
+          be tailored only to California or to refer to California ([<cite><a class="bibref" data-link-type="biblio" href="#bib-cppa-regulations" title="CPPA Regulations">CPPA-REGULATIONS</a></cite>], §7025(b)(2)).
+        </blockquote>
+        <p>
+          Colorado and other jurisdictions are more prescriptive about requirements for a valid universal
+          opt-out signal. For example, Colorado’s regulations explicitly provide “a Universal Opt-Out
+          Mechanism may not be the default setting for a tool that comes pre-installed with a device,
+          such as a browser or operating system” ([<cite><a class="bibref" data-link-type="biblio" href="#bib-colorado-regulations" title="Colorado Regulations">COLORADO-REGULATIONS</a></cite>], Rule 5.04(a)).
+        </p>
+        <p>
+          Currently California and Colorado are the only jurisdictions in the United States that empower
+          regulators to issue detailed regulations on topics such as universal opt-outs. Other statutes
+          state relatively high level legal requirements that may be augmented by informal guidance
+          (such as an FAQ) or through enforcement.
+        </p>
+        <p>
+          The legal landscape around global opt-outs is also changing. In 2023, several new states passed
+          laws that include requirements to honor global opt-outs, though some of those states’ provisions
+          differ considerably. Additionally states may revise their legal requirements as California has
+          already amended the original CCPA that was passed in 2018.
+        </p>
+        <p>In addition to the United States, other jurisdictions may recognize universal privacy signals
+          and may impose their own requirements before such signals are deemed legally bindinging.
+        </p>
+        <p>
+          For more information on the latest legal requirements, please review the implementation guide
+          which will provide more up-to-date information about the latest legal guidance around global
+          opt-outs.
+        </p>
+        <p>
+          User agents are expected, where required, to present all the appropriate notices to people
+          to ensure that the rights they wish to avail themselves of are effectively binding.
+        </p>
+      </section>
+    </section>
+    <section id="privacy-considerations"><div class="header-wrapper"><h2 id="privacy"><bdi class="secno">6. </bdi>Privacy Considerations</h2><a class="self-link" href="#privacy" aria-label="Permalink for Section 6."></a></div>
+      
+      <p>
+        Exposing a user's preference (in the HTTP header field or </p><pre class="js" aria-busy="false"><code class="hljs">navigator</code></pre> object)
+        potentially divides users into two groups in a way that might increase the information
+        available for fingerprinting. This extra information is available unless the signal
+        perfectly correlates with other signals. Depending on the browser and implementation, the GPC signal
+        may impose a privacy cost, though one intended to be justified by the privacy benefit
+        of sending the signal.
+      <p></p>
+    </section>
+    <section id="conformance"><div class="header-wrapper"><h2 id="x7-conformance"><bdi class="secno">7. </bdi>Conformance</h2><a class="self-link" href="#conformance" aria-label="Permalink for Section 7."></a></div><p>As well as sections marked as non-normative, all authoring guidelines, diagrams, examples, and notes in this specification are non-normative. Everything else in this specification is normative.</p><p>
+        The key words <em class="rfc2119">MAY</em>, <em class="rfc2119">MUST</em>, <em class="rfc2119">MUST NOT</em>, and <em class="rfc2119">SHOULD</em> in this document
+        are to be interpreted as described in
+        <a href="https://datatracker.ietf.org/doc/html/bcp14">BCP 14</a>
+        [<cite><a class="bibref" data-link-type="biblio" href="#bib-rfc2119" title="Key words for use in RFCs to Indicate Requirement Levels">RFC2119</a></cite>] [<cite><a class="bibref" data-link-type="biblio" href="#bib-rfc8174" title="Ambiguity of Uppercase vs Lowercase in RFC 2119 Key Words">RFC8174</a></cite>]
+        when, and only when, they appear in all capitals, as shown here.
+      </p></section>
+    <section class="appendix" id="implementation-considerations"><div class="header-wrapper"><h2 id="a-implementation-considerations"><bdi class="secno">A. </bdi>Implementation Considerations</h2><a class="self-link" href="#implementation-considerations" aria-label="Permalink for Appendix A."></a></div>
+      
+      <p>
+        It is worth considering that a GPC signal will be attached to every HTTP request made to a
+        given site. Rendering a page on the Web often requires making dozens such requests. As such
+        it can prove impractical for GPC signals to trigger full-blown opt-out procedures with
+        costly audit trails for every single GPC interaction as that will cause a large amount of
+        processing, including for resources served from a content delivery network (CDN) that must
+        be executed as efficiently as possible.
+      </p>
+      <p>
+        Regulations that intend to support GPC are encouraged to consider such implementation
+        difficulties. One way of addressing them is to differentiate between user interface
+        affordances given to people for the purpose of requesting a <a data-link-type="dfn|abstract-op" href="#dfn-do-not-sell-or-share-interaction" class="internalDFN" id="ref-for-dfn-do-not-sell-or-share-interaction-3">do-not-sell-or-share interaction</a> <a data-link-type="dfn|abstract-op" href="#dfn-preference" class="internalDFN" id="ref-for-dfn-preference-20">preference</a> to persist on the site, and the provision of a
+        <a data-link-type="dfn|abstract-op" href="#dfn-do-not-sell-or-share-interaction" class="internalDFN" id="ref-for-dfn-do-not-sell-or-share-interaction-4">do-not-sell-or-share interaction</a> signal the state of which is maintained with the
+        user agent. In the latter case, the interaction can be processed as if the person had
+        previously requested such a <a data-link-type="dfn|abstract-op" href="#dfn-do-not-sell-or-share-interaction" class="internalDFN" id="ref-for-dfn-do-not-sell-or-share-interaction-5">do-not-sell-or-share interaction</a> <a data-link-type="dfn|abstract-op" href="#dfn-preference" class="internalDFN" id="ref-for-dfn-preference-21">preference</a> and were
+        interacting with that <a data-link-type="dfn|abstract-op" href="#dfn-preference" class="internalDFN" id="ref-for-dfn-preference-22">preference</a> already active.
+      </p>
+    </section>
+    <section class="appendix" id="acknowledgments"><div class="header-wrapper"><h2 id="b-acknowledgments"><bdi class="secno">B. </bdi>Acknowledgments</h2><a class="self-link" href="#acknowledgments" aria-label="Permalink for Appendix B."></a></div>
+      
+        This specification relies on concepts developed in large part by the
+        <a href="https://www.w3.org/2011/tracking-protection/">Tracking Protection Working Group</a>
+        and others who contributed to
+        <a href="https://www.w3.org/TR/tracking-dnt/">Tracking Preference Expression (DNT)</a>.
+    </section>
+  
+
+<section id="references" class="appendix"><div class="header-wrapper"><h2 id="c-references"><bdi class="secno">C. </bdi>References</h2><a class="self-link" href="#references" aria-label="Permalink for Appendix C."></a></div><section id="normative-references"><div class="header-wrapper"><h3 id="c-1-normative-references"><bdi class="secno">C.1 </bdi>Normative references</h3><a class="self-link" href="#normative-references" aria-label="Permalink for Appendix C.1"></a></div>
+    
+    <dl class="bibliography"><dt id="bib-abnf">[ABNF]</dt><dd>
+      <a href="https://www.rfc-editor.org/rfc/rfc5234"><cite>Augmented BNF for Syntax Specifications: ABNF</cite></a>. D. Crocker, Ed.; P. Overell.  IETF. January 2008. Internet Standard. URL: <a href="https://www.rfc-editor.org/rfc/rfc5234">https://www.rfc-editor.org/rfc/rfc5234</a>
+    </dd><dt id="bib-html">[html]</dt><dd>
+      <a href="https://html.spec.whatwg.org/multipage/"><cite>HTML Standard</cite></a>. Anne van Kesteren; Domenic Denicola; Dominic Farolino; Ian Hickson; Philip Jägenstedt; Simon Pieters.  WHATWG. Living Standard. URL: <a href="https://html.spec.whatwg.org/multipage/">https://html.spec.whatwg.org/multipage/</a>
+    </dd><dt id="bib-rfc2119">[RFC2119]</dt><dd>
+      <a href="https://www.rfc-editor.org/rfc/rfc2119"><cite>Key words for use in RFCs to Indicate Requirement Levels</cite></a>. S. Bradner.  IETF. March 1997. Best Current Practice. URL: <a href="https://www.rfc-editor.org/rfc/rfc2119">https://www.rfc-editor.org/rfc/rfc2119</a>
+    </dd><dt id="bib-rfc3339">[RFC3339]</dt><dd>
+      <a href="https://www.rfc-editor.org/rfc/rfc3339"><cite>Date and Time on the Internet: Timestamps</cite></a>. G. Klyne; C. Newman.  IETF. July 2002. Proposed Standard. URL: <a href="https://www.rfc-editor.org/rfc/rfc3339">https://www.rfc-editor.org/rfc/rfc3339</a>
+    </dd><dt id="bib-rfc8174">[RFC8174]</dt><dd>
+      <a href="https://www.rfc-editor.org/rfc/rfc8174"><cite>Ambiguity of Uppercase vs Lowercase in RFC 2119 Key Words</cite></a>. B. Leiba.  IETF. May 2017. Best Current Practice. URL: <a href="https://www.rfc-editor.org/rfc/rfc8174">https://www.rfc-editor.org/rfc/rfc8174</a>
+    </dd><dt id="bib-rfc8259">[RFC8259]</dt><dd>
+      <a href="https://www.rfc-editor.org/rfc/rfc8259"><cite>The JavaScript Object Notation (JSON) Data Interchange Format</cite></a>. T. Bray, Ed..  IETF. December 2017. Internet Standard. URL: <a href="https://www.rfc-editor.org/rfc/rfc8259">https://www.rfc-editor.org/rfc/rfc8259</a>
+    </dd><dt id="bib-rfc8615">[RFC8615]</dt><dd>
+      <a href="https://www.rfc-editor.org/rfc/rfc8615"><cite>Well-Known Uniform Resource Identifiers (URIs)</cite></a>. M. Nottingham.  IETF. May 2019. Proposed Standard. URL: <a href="https://www.rfc-editor.org/rfc/rfc8615">https://www.rfc-editor.org/rfc/rfc8615</a>
+    </dd><dt id="bib-webidl">[webidl]</dt><dd>
+      <a href="https://webidl.spec.whatwg.org/"><cite>Web IDL Standard</cite></a>. Edgar Chen; Timothy Gu.  WHATWG. Living Standard. URL: <a href="https://webidl.spec.whatwg.org/">https://webidl.spec.whatwg.org/</a>
+    </dd></dl>
+  </section><section id="informative-references"><div class="header-wrapper"><h3 id="c-2-informative-references"><bdi class="secno">C.2 </bdi>Informative references</h3><a class="self-link" href="#informative-references" aria-label="Permalink for Appendix C.2"></a></div>
+    
+    <dl class="bibliography"><dt id="bib-ccpa-ag-final-statement">[CCPA-AG-FINAL-STATEMENT]</dt><dd>
+      <a href="https://oag.ca.gov/sites/all/files/agweb/pdfs/privacy/ccpa-fsor.pdf"><cite>California Attorney General CCPA Final Statement of Reasons</cite></a>. URL: <a href="https://oag.ca.gov/sites/all/files/agweb/pdfs/privacy/ccpa-fsor.pdf">https://oag.ca.gov/sites/all/files/agweb/pdfs/privacy/ccpa-fsor.pdf</a>
+    </dd><dt id="bib-ccpa-regulations">[CCPA-REGULATIONS]</dt><dd>
+      <a href="https://www.oag.ca.gov/sites/all/files/agweb/pdfs/privacy/oal-sub-final-text-of-regs.pdf?"><cite>CCPA Regulations</cite></a>. URL: <a href="https://www.oag.ca.gov/sites/all/files/agweb/pdfs/privacy/oal-sub-final-text-of-regs.pdf?">https://www.oag.ca.gov/sites/all/files/agweb/pdfs/privacy/oal-sub-final-text-of-regs.pdf?</a>
+    </dd><dt id="bib-colorado-regulations">[COLORADO-REGULATIONS]</dt><dd>
+      <a href="https://coag.gov/app/uploads/2023/03/FINAL-CLEAN-2023.03.15-Official-CPA-Rules.pdf"><cite>Colorado Regulations</cite></a>. URL: <a href="https://coag.gov/app/uploads/2023/03/FINAL-CLEAN-2023.03.15-Official-CPA-Rules.pdf">https://coag.gov/app/uploads/2023/03/FINAL-CLEAN-2023.03.15-Official-CPA-Rules.pdf</a>
+    </dd><dt id="bib-cppa-regulations">[CPPA-REGULATIONS]</dt><dd>
+      <a href="https://cppa.ca.gov/regulations/pdf/cppa_regs.pdf"><cite>CPPA Regulations</cite></a>. URL: <a href="https://cppa.ca.gov/regulations/pdf/cppa_regs.pdf">https://cppa.ca.gov/regulations/pdf/cppa_regs.pdf</a>
+    </dd><dt id="bib-eprivacy-directive">[EPRIVACY-DIRECTIVE]</dt><dd>
+      <a href="https://edps.europa.eu/data-protection/our-work/publications/legislation/directive-2009136ec_en"><cite>Directive 2009/136/EC (ePrivacy Directive)</cite></a>. URL: <a href="https://edps.europa.eu/data-protection/our-work/publications/legislation/directive-2009136ec_en">https://edps.europa.eu/data-protection/our-work/publications/legislation/directive-2009136ec_en</a>
+    </dd><dt id="bib-gdpr">[GDPR]</dt><dd>
+      <a href="https://eur-lex.europa.eu/legal-content/EN/TXT/HTML/?uri=CELEX:32016R0679&amp;from=EN"><cite>General Data Protection Regulation (GDPR)</cite></a>. URL: <a href="https://eur-lex.europa.eu/legal-content/EN/TXT/HTML/?uri=CELEX:32016R0679&amp;from=EN">https://eur-lex.europa.eu/legal-content/EN/TXT/HTML/?uri=CELEX:32016R0679&amp;from=EN</a>
+    </dd><dt id="bib-privacy-principles">[Privacy-Principles]</dt><dd>
+      <a href="https://w3ctag.github.io/privacy-principles/"><cite>Privacy Principles</cite></a>. Robin Berjon; Jeffrey Yasskin.  W3C. URL: <a href="https://w3ctag.github.io/privacy-principles/">https://w3ctag.github.io/privacy-principles/</a>
+    </dd><dt id="bib-sb220">[SB220]</dt><dd>
+      <a href="https://www.leg.state.nv.us/NRS/NRS-603A.html"><cite>Nevada SB220 (NRS 603A)</cite></a>. URL: <a href="https://www.leg.state.nv.us/NRS/NRS-603A.html">https://www.leg.state.nv.us/NRS/NRS-603A.html</a>
+    </dd></dl>
+  </section></section><p role="navigation" id="back-to-top">
+    <a href="#title"><abbr title="Back to Top">↑</abbr></a>
+  </p><div class="dfn-panel" hidden="" role="dialog" aria-modal="true" id="dfn-panel-for-dfn-do-not-sell-or-share-interaction" aria-label="Links in this document to definition: do-not-sell-or-share interaction">
+      <span class="caret"></span>
+      <div>
+        <a class="self-link" href="#dfn-do-not-sell-or-share-interaction" aria-label="Permalink for definition: do-not-sell-or-share interaction. Activate to close this dialog.">Permalink</a>
+         
+      </div>
+      <p><b>Referenced in:</b></p>
+      <ul>
+    <li>
+      <a href="#ref-for-dfn-do-not-sell-or-share-interaction-1" title="§ 2. Definitions">§ 2. Definitions</a> 
+    </li><li>
+      <a href="#ref-for-dfn-do-not-sell-or-share-interaction-2" title="§ 3.3 The Sec-GPC Header Field for HTTP Requests">§ 3.3 The Sec-GPC Header Field for HTTP Requests</a> 
+    </li><li>
+      <a href="#ref-for-dfn-do-not-sell-or-share-interaction-3" title="§ A. Implementation Considerations">§ A. Implementation Considerations</a> <a href="#ref-for-dfn-do-not-sell-or-share-interaction-4" title="Reference 2">(2)</a> <a href="#ref-for-dfn-do-not-sell-or-share-interaction-5" title="Reference 3">(3)</a> 
+    </li>
+  </ul>
+    </div><div class="dfn-panel" hidden="" role="dialog" aria-modal="true" id="dfn-panel-for-dfn-preference" aria-label="Links in this document to definition: do-not-sell-or-share preference">
+      <span class="caret"></span>
+      <div>
+        <a class="self-link" href="#dfn-preference" aria-label="Permalink for definition: do-not-sell-or-share preference. Activate to close this dialog.">Permalink</a>
+         
+      </div>
+      <p><b>Referenced in:</b></p>
+      <ul>
+    <li>
+      <a href="#ref-for-dfn-preference-1" title="§ 2. Definitions">§ 2. Definitions</a> 
+    </li><li>
+      <a href="#ref-for-dfn-preference-2" title="§ 3.1 Expression Format">§ 3.1 Expression Format</a> <a href="#ref-for-dfn-preference-3" title="Reference 2">(2)</a> <a href="#ref-for-dfn-preference-4" title="Reference 3">(3)</a> <a href="#ref-for-dfn-preference-5" title="Reference 4">(4)</a> <a href="#ref-for-dfn-preference-6" title="Reference 5">(5)</a> <a href="#ref-for-dfn-preference-7" title="Reference 6">(6)</a> <a href="#ref-for-dfn-preference-8" title="Reference 7">(7)</a> <a href="#ref-for-dfn-preference-9" title="Reference 8">(8)</a> 
+    </li><li>
+      <a href="#ref-for-dfn-preference-10" title="§ 3.2 Preference Caching">§ 3.2 Preference Caching</a> <a href="#ref-for-dfn-preference-11" title="Reference 2">(2)</a> <a href="#ref-for-dfn-preference-12" title="Reference 3">(3)</a> <a href="#ref-for-dfn-preference-13" title="Reference 4">(4)</a> <a href="#ref-for-dfn-preference-14" title="Reference 5">(5)</a> <a href="#ref-for-dfn-preference-15" title="Reference 6">(6)</a> <a href="#ref-for-dfn-preference-16" title="Reference 7">(7)</a> 
+    </li><li>
+      <a href="#ref-for-dfn-preference-17" title="§ 3.3 The Sec-GPC Header Field for HTTP Requests">§ 3.3 The Sec-GPC Header Field for HTTP Requests</a> <a href="#ref-for-dfn-preference-18" title="Reference 2">(2)</a> 
+    </li><li>
+      <a href="#ref-for-dfn-preference-19" title="§ 5.7 User Interface Language">§ 5.7 User Interface Language</a> 
+    </li><li>
+      <a href="#ref-for-dfn-preference-20" title="§ A. Implementation Considerations">§ A. Implementation Considerations</a> <a href="#ref-for-dfn-preference-21" title="Reference 2">(2)</a> <a href="#ref-for-dfn-preference-22" title="Reference 3">(3)</a> 
+    </li>
+  </ul>
+    </div><div class="dfn-panel" hidden="" role="dialog" aria-modal="true" id="dfn-panel-for-dfn-gpcatnavigation" aria-label="Links in this document to definition: gpcAtNavigation">
+      <span class="caret"></span>
+      <div>
+        <a class="self-link" href="#dfn-gpcatnavigation" aria-label="Permalink for definition: gpcAtNavigation. Activate to close this dialog.">Permalink</a>
+         
+      </div>
+      <p><b>Referenced in:</b></p>
+      <ul>
+    <li>
+      <a href="#ref-for-dfn-gpcatnavigation-1" title="§ 3.2 Preference Caching">§ 3.2 Preference Caching</a> 
+    </li>
+  </ul>
+    </div><div class="dfn-panel" hidden="" role="dialog" aria-modal="true" id="dfn-panel-for-dfn-sec-gpc" aria-label="Links in this document to definition: Sec-GPC">
+      <span class="caret"></span>
+      <div>
+        <a class="self-link" href="#dfn-sec-gpc" aria-label="Permalink for definition: Sec-GPC. Activate to close this dialog.">Permalink</a>
+         
+      </div>
+      <p><b>Referenced in:</b></p>
+      <ul>
+    <li>
+      <a href="#ref-for-dfn-sec-gpc-1" title="§ 3.3 The Sec-GPC Header Field for HTTP Requests">§ 3.3 The Sec-GPC Header Field for HTTP Requests</a> <a href="#ref-for-dfn-sec-gpc-2" title="Reference 2">(2)</a> <a href="#ref-for-dfn-sec-gpc-3" title="Reference 3">(3)</a> <a href="#ref-for-dfn-sec-gpc-4" title="Reference 4">(4)</a> <a href="#ref-for-dfn-sec-gpc-5" title="Reference 5">(5)</a> <a href="#ref-for-dfn-sec-gpc-6" title="Reference 6">(6)</a> <a href="#ref-for-dfn-sec-gpc-7" title="Reference 7">(7)</a> <a href="#ref-for-dfn-sec-gpc-8" title="Reference 8">(8)</a> <a href="#ref-for-dfn-sec-gpc-9" title="Reference 9">(9)</a> <a href="#ref-for-dfn-sec-gpc-10" title="Reference 10">(10)</a> 
+    </li><li>
+      <a href="#ref-for-dfn-sec-gpc-11" title="§ 3.3.1 Extensibility of the Sec-GPC Field Value">§ 3.3.1 Extensibility of the Sec-GPC Field Value</a> 
+    </li><li>
+      <a href="#ref-for-dfn-sec-gpc-12" title="§ 3.4 JavaScript Property to Detect Preference">§ 3.4 JavaScript Property to Detect Preference</a> 
+    </li>
+  </ul>
+    </div><div class="dfn-panel" hidden="" role="dialog" aria-modal="true" id="dfn-panel-for-dom-globalprivacycontrol" aria-label="Links in this document to definition: GlobalPrivacyControl">
+      <span class="caret"></span>
+      <div>
+        <a class="self-link" href="#dom-globalprivacycontrol" aria-label="Permalink for definition: GlobalPrivacyControl. Activate to close this dialog.">Permalink</a>
+        <span class="marker dfn-exported" title="Definition can be referenced by other specifications">exported</span> 
+      </div>
+      <p><b>Referenced in:</b></p>
+      <ul>
+    <li>
+      <a href="#ref-for-dom-globalprivacycontrol-1" title="§ 3.4 JavaScript Property to Detect Preference">§ 3.4 JavaScript Property to Detect Preference</a> <a href="#ref-for-dom-globalprivacycontrol-2" title="Reference 2">(2)</a> 
+    </li>
+  </ul>
+    </div><div class="dfn-panel" hidden="" role="dialog" aria-modal="true" id="dfn-panel-for-dom-globalprivacycontrol-globalprivacycontrol" aria-label="Links in this document to definition: globalPrivacyControl">
+      <span class="caret"></span>
+      <div>
+        <a class="self-link" href="#dom-globalprivacycontrol-globalprivacycontrol" aria-label="Permalink for definition: globalPrivacyControl. Activate to close this dialog.">Permalink</a>
+        <span class="marker dfn-exported" title="Definition can be referenced by other specifications">exported</span> 
+      </div>
+      <p><b>Referenced in:</b></p>
+      <ul>
+    <li>
+      <a href="#ref-for-dom-globalprivacycontrol-globalprivacycontrol-1" title="§ 3.4 JavaScript Property to Detect Preference">§ 3.4 JavaScript Property to Detect Preference</a> <a href="#ref-for-dom-globalprivacycontrol-globalprivacycontrol-2" title="Reference 2">(2)</a> <a href="#ref-for-dom-globalprivacycontrol-globalprivacycontrol-3" title="Reference 3">(3)</a> 
+    </li>
+  </ul>
+    </div><script id="respec-dfn-panel">(() => {
+// @ts-check
+if (document.respec) {
+  document.respec.ready.then(setupPanel);
+} else {
+  setupPanel();
+}
+
+function setupPanel() {
+  const listener = panelListener();
+  document.body.addEventListener("keydown", listener);
+  document.body.addEventListener("click", listener);
+}
+
+function panelListener() {
+  /** @type {HTMLElement} */
+  let panel = null;
+  return event => {
+    const { target, type } = event;
+
+    if (!(target instanceof HTMLElement)) return;
+
+    // For keys, we only care about Enter key to activate the panel
+    // otherwise it's activated via a click.
+    if (type === "keydown" && event.key !== "Enter") return;
+
+    const action = deriveAction(event);
+
+    switch (action) {
+      case "show": {
+        hidePanel(panel);
+        /** @type {HTMLElement} */
+        const dfn = target.closest("dfn, .index-term");
+        panel = document.getElementById(`dfn-panel-for-${dfn.id}`);
+        const coords = deriveCoordinates(event);
+        displayPanel(dfn, panel, coords);
+        break;
+      }
+      case "dock": {
+        panel.style.left = null;
+        panel.style.top = null;
+        panel.classList.add("docked");
+        break;
+      }
+      case "hide": {
+        hidePanel(panel);
+        panel = null;
+        break;
+      }
+    }
+  };
+}
+
+/**
+ * @param {MouseEvent|KeyboardEvent} event
+ */
+function deriveCoordinates(event) {
+  const target = /** @type HTMLElement */ (event.target);
+
+  // We prevent synthetic AT clicks from putting
+  // the dialog in a weird place. The AT events sometimes
+  // lack coordinates, so they have clientX/Y = 0
+  const rect = target.getBoundingClientRect();
+  if (
+    event instanceof MouseEvent &&
+    event.clientX >= rect.left &&
+    event.clientY >= rect.top
+  ) {
+    // The event probably happened inside the bounding rect...
+    return { x: event.clientX, y: event.clientY };
+  }
+
+  // Offset to the middle of the element
+  const x = rect.x + rect.width / 2;
+  // Placed at the bottom of the element
+  const y = rect.y + rect.height;
+  return { x, y };
+}
+
+/**
+ * @param {Event} event
+ */
+function deriveAction(event) {
+  const target = /** @type {HTMLElement} */ (event.target);
+  const hitALink = !!target.closest("a");
+  if (target.closest("dfn:not([data-cite]), .index-term")) {
+    return hitALink ? "none" : "show";
+  }
+  if (target.closest(".dfn-panel")) {
+    if (hitALink) {
+      return target.classList.contains("self-link") ? "hide" : "dock";
+    }
+    const panel = target.closest(".dfn-panel");
+    return panel.classList.contains("docked") ? "hide" : "none";
+  }
+  if (document.querySelector(".dfn-panel:not([hidden])")) {
+    return "hide";
+  }
+  return "none";
+}
+
+/**
+ * @param {HTMLElement} dfn
+ * @param {HTMLElement} panel
+ * @param {{ x: number, y: number }} clickPosition
+ */
+function displayPanel(dfn, panel, { x, y }) {
+  panel.hidden = false;
+  // distance (px) between edge of panel and the pointing triangle (caret)
+  const MARGIN = 20;
+
+  const dfnRects = dfn.getClientRects();
+  // Find the `top` offset when the `dfn` can be spread across multiple lines
+  let closestTop = 0;
+  let minDiff = Infinity;
+  for (const rect of dfnRects) {
+    const { top, bottom } = rect;
+    const diffFromClickY = Math.abs((top + bottom) / 2 - y);
+    if (diffFromClickY < minDiff) {
+      minDiff = diffFromClickY;
+      closestTop = top;
+    }
+  }
+
+  const top = window.scrollY + closestTop + dfnRects[0].height;
+  const left = x - MARGIN;
+  panel.style.left = `${left}px`;
+  panel.style.top = `${top}px`;
+
+  // Find if the panel is flowing out of the window
+  const panelRect = panel.getBoundingClientRect();
+  const SCREEN_WIDTH = Math.min(window.innerWidth, window.screen.width);
+  if (panelRect.right > SCREEN_WIDTH) {
+    const newLeft = Math.max(MARGIN, x + MARGIN - panelRect.width);
+    const newCaretOffset = left - newLeft;
+    panel.style.left = `${newLeft}px`;
+    /** @type {HTMLElement} */
+    const caret = panel.querySelector(".caret");
+    caret.style.left = `${newCaretOffset}px`;
+  }
+
+  // As it's a dialog, we trap focus.
+  // TODO: when <dialog> becomes a implemented, we should really
+  // use that.
+  trapFocus(panel, dfn);
+}
+
+/**
+ * @param {HTMLElement} panel
+ * @param {HTMLElement} dfn
+ * @returns
+ */
+function trapFocus(panel, dfn) {
+  /** @type NodeListOf<HTMLAnchorElement> elements */
+  const anchors = panel.querySelectorAll("a[href]");
+  // No need to trap focus
+  if (!anchors.length) return;
+
+  // Move focus to first anchor element
+  const first = anchors.item(0);
+  first.focus();
+
+  const trapListener = createTrapListener(anchors, panel, dfn);
+  panel.addEventListener("keydown", trapListener);
+
+  // Hiding the panel releases the trap
+  const mo = new MutationObserver(records => {
+    const [record] = records;
+    const target = /** @type HTMLElement */ (record.target);
+    if (target.hidden) {
+      panel.removeEventListener("keydown", trapListener);
+      mo.disconnect();
+    }
+  });
+  mo.observe(panel, { attributes: true, attributeFilter: ["hidden"] });
+}
+
+/**
+ *
+ * @param {NodeListOf<HTMLAnchorElement>} anchors
+ * @param {HTMLElement} panel
+ * @param {HTMLElement} dfn
+ * @returns
+ */
+function createTrapListener(anchors, panel, dfn) {
+  const lastIndex = anchors.length - 1;
+  let currentIndex = 0;
+  return event => {
+    switch (event.key) {
+      // Hitting "Tab" traps us in a nice loop around elements.
+      case "Tab": {
+        event.preventDefault();
+        currentIndex += event.shiftKey ? -1 : +1;
+        if (currentIndex < 0) {
+          currentIndex = lastIndex;
+        } else if (currentIndex > lastIndex) {
+          currentIndex = 0;
+        }
+        anchors.item(currentIndex).focus();
+        break;
+      }
+
+      // Hitting "Enter" on an anchor releases the trap.
+      case "Enter":
+        hidePanel(panel);
+        break;
+
+      // Hitting "Escape" returns focus to dfn.
+      case "Escape":
+        hidePanel(panel);
+        dfn.focus();
+        return;
+    }
+  };
+}
+
+/** @param {HTMLElement} panel */
+function hidePanel(panel) {
+  if (!panel) return;
+  panel.hidden = true;
+  panel.classList.remove("docked");
+}
+})()</script><script src="https://www.w3.org/scripts/TR/2021/fixup.js"></script></body></html>
