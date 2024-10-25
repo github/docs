@@ -28,7 +28,7 @@ After you index a repository it is automatically re-indexed every time a change 
 
 |                  | {% data variables.product.prodname_copilot_individuals_short %} | {% data variables.product.prodname_copilot_business_short %} | {% data variables.product.prodname_copilot_enterprise_short %} |
 |------------------|-----------------------------------------------------------------|--------------------------------------------------------------|----------------------------------------------------------------|
-| Repository limit | 5                                                               | 50 (total shared by business)                                | Unlimited                                                      |
+| Repository limit per subscription | 5                                                               | 50                                | Unlimited                                                      |
 
 {% endrowheaders %}
 
