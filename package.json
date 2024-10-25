@@ -269,7 +269,7 @@
     "highlightjs-curl": "^1.3.0",
     "hot-shots": "^10.0.0",
     "html-entities": "^2.5.2",
-    "http-proxy-middleware": "3.0.0",
+    "http-proxy-middleware": "3.0.3",
     "imurmurhash": "^0.1.4",
     "is-svg": "5.0.0",
     "javascript-stringify": "^2.1.0",
