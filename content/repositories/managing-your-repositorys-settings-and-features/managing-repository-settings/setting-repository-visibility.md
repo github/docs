@@ -87,7 +87,7 @@ For information about improving repository security, see "[AUTOTITLE](/code-secu
 
 ### Changing from public to private
 
-Stars and watchers for this repository will be permanently erased, which will affect repository rankings.
+* Stars and watchers for this repository will be permanently erased, which will affect repository rankings.
 * Custom {% data variables.product.prodname_dependabot %} alert rules will be disabled unless {% data variables.product.prodname_GH_advanced_security %} is enabled for this repository. Dependency graph and {% data variables.product.prodname_dependabot_alerts %} will remain enabled with permission to perform read-only analysis on this repository.
 * Code scanning will become unavailable.
 * Current forks will remain public and will be detached from this repository.
@@ -100,8 +100,6 @@ Stars and watchers for this repository will be permanently erased, which will af
 * Your changes will be published as activity.
 * Actions history and logs will be visible to everyone.
 * Stars and watchers for this repository will be permanently erased.
-
-{% ifversion ghes or ghec %}
 
 ### Changing from private to internal
 
@@ -130,8 +128,6 @@ Stars and watchers for this repository will be permanently erased, which will af
 * All members of the enterprise will be given read access.
 * Outside collaborators can no longer be added to forks unless they're added to the root.
 * Stars and watchers for this repository will be permanently erased.
-
-{% endif %}
 
 ## Changing a repository's visibility
 
