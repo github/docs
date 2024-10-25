@@ -42,6 +42,7 @@ You'll also find recommendations for the setup of the following registry hosts:
 
 * [Artifactory](#artifactory)
 * [Azure Artifacts](#azure-artifacts)
+* [Cloudsmith](#cloudsmith)
 * [{% data variables.product.prodname_registry %} registry](#github-packages-registry)
 * [Nexus](#nexus)
 * [ProGet](#proget)
@@ -52,7 +53,7 @@ You'll also find recommendations for the setup of the following registry hosts:
 
 ### Bundler
 
-Supported by Artifactory, Artifacts, {% data variables.product.prodname_registry %} registry, Nexus, and ProGet.
+Supported by Artifactory, Artifacts, Cloudsmith, {% data variables.product.prodname_registry %} registry, Nexus, and ProGet.
 
 You can authenticate with either a username and password, or a token. For more information, see `rubygems-server` in "[AUTOTITLE](/code-security/dependabot/dependabot-version-updates/configuration-options-for-the-dependabot.yml-file#rubygems-server)."
 
@@ -317,13 +318,13 @@ If there is no global registry defined in a `.npmrc` file, you can set `replaces
 
 {% data reusables.dependabot.access-private-dependencies-link %}
 
-For scoped dependencies (`@my-org/my-dep`), {% data variables.product.prodname_dependabot %} requires that the private registry is defined in the project's `.npmrc file`. To define private registries for individual scopes, use `@myscope:registry=https://private_registry_url`.
+For scoped dependencies (`@my-org/my-dep`), {% data variables.product.prodname_dependabot %} requires that the private registry is defined in the project's `.npmrc` file. To define private registries for individual scopes, use `@myscope:registry=https://private_registry_url`.
 
 Registries should be configured using the `https` protocol.
 
 ### Nuget
 
-Supported by Artifactory, Artifacts, {% data variables.product.prodname_registry %} registry, Nexus, and ProGet.
+Supported by Artifactory, Artifacts, Cloudsmith, {% data variables.product.prodname_registry %} registry, Nexus, and ProGet.
 
 The `nuget-feed` type supports username and password, or token. For more information, see `nuget-feed` in "[AUTOTITLE](/code-security/dependabot/dependabot-version-updates/configuration-options-for-the-dependabot.yml-file#nuget-feed)."
 
@@ -406,7 +407,7 @@ pub supports URL and token authentication. The URL used for the registry should 
 
 ### Python
 
-Supported by Artifactory, Azure Artifacts, Nexus, and ProGet. The {% data variables.product.prodname_registry %} registry is not supported.
+Supported by Artifactory, Azure Artifacts, Cloudsmith, Nexus, and ProGet. The {% data variables.product.prodname_registry %} registry is not supported.
 
 The `python-index` type supports username and password, or token. For more information, see `python-index` in "[AUTOTITLE](/code-security/dependabot/dependabot-version-updates/configuration-options-for-the-dependabot.yml-file#python-index)."
 
@@ -620,6 +621,10 @@ registries:
 The Azure Artifacts password must be an unencoded token and should include a `:` after the token. In addition, the password cannot be base64-encoded.
 
 You can check whether the private registry is successfully accessed by looking at the {% data variables.product.prodname_dependabot %} logs.
+
+### Cloudsmith
+
+For information about Cloudsmith and instructions on how to configure {% data variables.product.prodname_dependabot %} to work with Cloudsmith, see [Getting Started with Cloudsmith](https://help.cloudsmith.io/docs/welcome-to-cloudsmith-docs) and [Integrate {% data variables.product.company_short %} {% data variables.product.prodname_dependabot %} with Cloudsmith](https://help.cloudsmith.io/docs/dependabot) in the Cloudsmith documentation.
 
 ### {% data variables.product.prodname_registry %} registry
 

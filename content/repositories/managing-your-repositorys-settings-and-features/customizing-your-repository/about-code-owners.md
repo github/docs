@@ -58,9 +58,9 @@ To reduce the size of your CODEOWNERS file, consider using wildcard patterns to 
 {% warning %}
 
 **Warning:** There are some syntax rules for gitignore files that _do not work_ in CODEOWNERS files:
-* Escaping a pattern starting with `#` using `\` so it is treated as a pattern and not a comment
-* Using `!` to negate a pattern
-* Using `[ ]` to define a character range
+* Escaping a pattern starting with `#` using `\` so it is treated as a pattern and not a comment doesn't work
+* Using `!` to negate a pattern doesn't work
+* Using `[ ]` to define a character range doesn't work
 
 {% endwarning %}
 

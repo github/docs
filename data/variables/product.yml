@@ -120,6 +120,7 @@ pat_generic_title_case_plural: 'Personal Access Tokens'
 pat_v2: 'fine-grained personal access token'
 pat_v2_plural: 'fine-grained personal access tokens'
 pat_v2_caps: 'Fine-grained personal access token'
+pat_v2_caps_plural: 'Fine-grained personal access tokens'
 pat_v1: >-
   {% ifversion pat-v2 %}personal access token (classic){% else %}personal access token{% endif %}
 pat_v1_plural: >-
@@ -128,6 +129,9 @@ pat_v1_caps: >-
   {% ifversion pat-v2 %}Personal access token (classic){% else %}Personal access token{% endif %}
 pat_v1_caps_plural: >-
   {% ifversion pat-v2 %}Personal access tokens (classic){% else %}Personal access tokens{% endif %}
+pat_classic: 'token (classic)'
+pat_classic_plural: 'tokens (classic)'
+pat_classic_caps: 'Token (classic)'
 
 # Apps, GitHub Marketplace, and integrations
 prodname_marketplace: 'GitHub Marketplace'

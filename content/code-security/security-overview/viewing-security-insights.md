@@ -2,8 +2,7 @@
 title: Viewing security insights
 shortTitle: View security insights
 intro: 'You can use the overview dashboard in security overview to monitor the security landscape of the repositories in your organization{% ifversion security-overview-dashboard-enterprise %} or enterprise{% endif %}.'
-permissions: '{% data reusables.security-overview.permissions %}'
-product: '{% data reusables.gated-features.security-overview %}'
+permissions: '{% data reusables.permissions.security-overview %}'
 versions:
   feature: security-overview-dashboard
 type: how_to
@@ -76,12 +75,12 @@ Keep in mind that the overview page tracks changes over time for security alert 
 
 ## Viewing the security overview dashboard for your enterprise
 
-{% data reusables.security-overview.enterprise-filters-tip %}
-
 {% data reusables.enterprise-accounts.access-enterprise-on-dotcom %}
 {% data reusables.code-scanning.click-code-security-enterprise %}{% ifversion security-overview-3-tab-dashboard %}
 1. By default, the **Detection** tab is displayed. If you want to switch to another tab to see other metrics, click **Remediation** or **Prevention**.{% endif %}
 {% data reusables.security-overview.filter-and-toggle %}
+
+{% data reusables.security-overview.enterprise-filters-tip %}
 
 {% endif %}
 
@@ -92,7 +91,7 @@ Keep in mind that the overview page tracks changes over time for security alert 
 * [Detection tab](#detection-tab)
 * [Remediation tab](#remediation-tab)
 * [Prevention tab](#prevention-tab)
-  
+
 Some metrics in the security overview dashboard include a trend indicator, which shows the percentage gain or loss for the chosen time period relative to previous period. For example, when you select a week with 10 alerts, if the previous week had 20 alerts, the trend indicator reports that the metric has dropped by 50%. If the average age of the open alerts is 15 days, and for the previous period it was 5 days, the trend indicator reports that the metric has risen by 200%.
 
 >[!NOTE]
@@ -202,9 +201,9 @@ The "Vulnerabilities fixed in pull requests" metric shows the count of pull requ
 
 #### Pull request alerts fixed with {% data variables.product.prodname_copilot_autofix_short %} suggestions
 
-{% data variables.product.prodname_copilot_autofix %} for {% data variables.product.prodname_code_scanning %} is an expansion of {% data variables.product.prodname_code_scanning %} that provides you with targeted recommendations to help you fix {% data variables.product.prodname_code_scanning %} alerts. For more information, see "[AUTOTITLE](/code-security/code-scanning/managing-code-scanning-alerts/about-autofix-for-codeql-code-scanning)."
+{% data variables.product.prodname_copilot_autofix %} for {% data variables.product.prodname_code_scanning %} is an expansion of {% data variables.product.prodname_code_scanning %} that provides you with targeted recommendations to help you fix {% data variables.product.prodname_code_scanning %} alerts. For more information, see "[AUTOTITLE](/code-security/code-scanning/managing-code-scanning-alerts/responsible-use-autofix-code-scanning)."
 
-The "Pull request alerts fixed with autofix suggestions" metric shows the ratio of accepted {% data variables.product.prodname_copilot_autofix_short %} suggestions to the total number of {% data variables.product.prodname_copilot_autofix_short %} suggestions on pull request alerts detected by {% data variables.product.prodname_codeql %}.
+The "Pull request alerts fixed with autofix suggestions" metric shows the ratio of accepted {% data variables.product.prodname_copilot_autofix_short %} suggestions to the total number of {% data variables.product.prodname_copilot_autofix_short %} suggestions on pull request alerts detected by {% data variables.product.prodname_code_scanning %}.
 
 {% endif %}
 
@@ -284,7 +283,7 @@ Alerts that are reopened and re-closed during the chosen time period are ignored
 
 ### {% data variables.product.prodname_copilot_autofix_short %} suggestions
 
-{% data variables.product.prodname_copilot_autofix %} is an expansion of {% data variables.product.prodname_code_scanning %} that provides you with targeted recommendations to help you fix {% data variables.product.prodname_code_scanning %} alerts. For more information, see "[AUTOTITLE](/code-security/code-scanning/managing-code-scanning-alerts/about-autofix-for-codeql-code-scanning)."
+{% data variables.product.prodname_copilot_autofix %} is an expansion of {% data variables.product.prodname_code_scanning %} that provides you with targeted recommendations to help you fix {% data variables.product.prodname_code_scanning %} alerts (including {% data variables.product.prodname_codeql %} alerts). For more information, see "[AUTOTITLE](/code-security/code-scanning/managing-code-scanning-alerts/responsible-use-autofix-code-scanning)."
 
 The "{% data variables.product.prodname_copilot_autofix_short %} suggestions" metric is the total number of {% data variables.product.prodname_copilot_autofix_short %} suggestions generated in open and closed pull requests during the chosen time period.
 

@@ -1,0 +1,6 @@
+# Issue 8157
+# PATs (classic) and fine-grained PATs lifetime requirements policy
+versions:
+  fpt: '*'
+  ghec: '*'
+  ghes: '>=3.16'

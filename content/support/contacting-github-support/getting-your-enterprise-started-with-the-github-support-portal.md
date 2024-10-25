@@ -18,7 +18,7 @@ redirect_from:
 
 Anyone can use the {% data variables.contact.contact_landing_page_portal %} to view and manage support tickets about {% data variables.product.prodname_dotcom %}, but there are special steps to follow before using the {% data variables.contact.contact_landing_page_portal %} to create tickets about an enterprise account.
 
-The {% data variables.contact.enterprise_portal %} offers single sign-on (SSO) connected to your {% data variables.product.prodname_dotcom_the_website %} account.
+The {% data variables.contact.enterprise_portal %} offers single sign-on (SSO) connected to your {% data variables.product.prodname_dotcom %} account.
 
 {% else %}
 

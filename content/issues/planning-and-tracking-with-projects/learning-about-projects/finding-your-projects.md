@@ -38,7 +38,7 @@ You can view and filter projects that you have created under your personal accou
 
 Repositories can be linked to organization-level and user-level projects.  You can browse and filter the projects that are linked to a specific repository. For more information on linking projects to a repository, see "[AUTOTITLE](/issues/planning-and-tracking-with-projects/managing-your-project/adding-your-project-to-a-repository)."
 
-1. On {% ifversion fpt or ghec %}{% data variables.product.prodname_dotcom_the_website %}{% else %}{% data variables.product.product_name %}{% endif %}, navigate to the main page of your repository.
+1. On {% data variables.product.prodname_dotcom %}, navigate to the main page of your repository.
 1. Click {% octicon "table" aria-hidden="true" %} **Projects**.
 
    ![Screenshot showing a repository's tabs. The "Projects" tab is highlighted with an orange outline.](/assets/images/help/projects-v2/repo-tab.png)

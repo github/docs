@@ -5,6 +5,7 @@ versions:
   fpt: '*'
   ghec: '*'
   ghes: '*'
+product: '{% data reusables.gated-features.codeql %}'
 topics:
   - Advanced Security
   - Code scanning

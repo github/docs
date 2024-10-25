@@ -2,6 +2,7 @@
 title: Uploading CodeQL analysis results to GitHub
 shortTitle: Uploading results to GitHub
 intro: 'You can use the {% data variables.product.prodname_codeql_cli %} to upload {% data variables.product.prodname_codeql %} analysis results to {% data variables.product.product_name %}.'
+permissions: '{% data reusables.permissions.code-scanning-all-alerts %}'
 product: '{% data reusables.gated-features.codeql %}'
 versions:
   fpt: '*'
@@ -25,7 +26,12 @@ If you used a method other than the {% data variables.product.prodname_codeql_cl
 
 ## Generating a token for authentication with {% data variables.product.product_name %}
 
-Before you can upload your results to {% data variables.product.product_name %}, you will first need to generate a {% data variables.product.pat_generic %} with the `security_events` write permission. For more information, see "[AUTOTITLE](/authentication/keeping-your-account-and-data-secure/creating-a-personal-access-token)."
+Before you can upload your results to {% data variables.product.product_name %}, you will first need to generate a {% data variables.product.pat_generic %}.
+
+* **{% data variables.product.pat_v1_caps %}** requires "{% data variables.product.prodname_code_scanning_caps %} alerts" **Read and write** access for the required repositories.
+* **{% data variables.product.pat_v2_caps %}** requires "repo" **security_events** access.
+
+For more information, see "[AUTOTITLE](/authentication/keeping-your-account-and-data-secure/creating-a-personal-access-token)."
 
 If you have installed the {% data variables.product.prodname_codeql_cli %} in a third-party CI system to create results to display in {% data variables.product.prodname_dotcom %} as code scanning alerts, you can use a {% data variables.product.prodname_github_app %} or {% data variables.product.pat_generic %} to upload results to {% data variables.product.product_name %}. For more information, see "[AUTOTITLE](/code-security/code-scanning/integrating-with-code-scanning/using-code-scanning-with-your-existing-ci-system#generating-a-token-for-authentication-with-github)."
 
@@ -88,7 +94,7 @@ codeql github upload-results \
     {% endif %}
 ```
 
-There is no output from this command unless the upload was unsuccessful. The command prompt returns when the upload is complete and data processing has begun. On smaller codebases, you should be able to explore the {% data variables.product.prodname_code_scanning %} alerts in {% data variables.product.product_name %} shortly afterward. You can see alerts directly in the pull request or on the **Security** tab for branches, depending on the code you checked out. For more information, see "[AUTOTITLE](/code-security/code-scanning/managing-code-scanning-alerts/triaging-code-scanning-alerts-in-pull-requests)" and "[AUTOTITLE](/code-security/code-scanning/managing-code-scanning-alerts/managing-code-scanning-alerts-for-your-repository)."
+There is no output from this command unless the upload was unsuccessful. The command prompt returns when the upload is complete and data processing has begun. On smaller codebases, you should be able to explore the {% data variables.product.prodname_code_scanning %} alerts in {% data variables.product.product_name %} shortly afterward. You can see alerts directly in the pull request or on the **Security** tab for branches, depending on the code you checked out. For more information, see "[AUTOTITLE](/code-security/code-scanning/managing-code-scanning-alerts/triaging-code-scanning-alerts-in-pull-requests)" and "[AUTOTITLE](/code-security/code-scanning/managing-code-scanning-alerts/assessing-code-scanning-alerts-for-your-repository)."
 
 ## Uploading diagnostic information to {% data variables.product.product_name %} if the analysis fails
 

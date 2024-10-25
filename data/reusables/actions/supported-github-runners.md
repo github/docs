@@ -20,7 +20,7 @@ For public repositories, jobs using the workflow labels shown in the table below
       <td>14 GB</td>
       <td>
         <code><a href="https://github.com/actions/runner-images/blob/main/images/ubuntu/Ubuntu2404-Readme.md">ubuntu-latest</a></code>,
-        <code><a href="https://github.com/actions/runner-images/blob/main/images/ubuntu/Ubuntu204-Readme.md">ubuntu-24.04</a></code>,
+        <code><a href="https://github.com/actions/runner-images/blob/main/images/ubuntu/Ubuntu2404-Readme.md">ubuntu-24.04</a></code>,
         <code><a href="https://github.com/actions/runner-images/blob/main/images/ubuntu/Ubuntu2204-Readme.md">ubuntu-22.04</a></code>,
         <code><a href="https://github.com/actions/runner-images/blob/main/images/ubuntu/Ubuntu2004-Readme.md">ubuntu-20.04</a></code>
       </td>
@@ -62,7 +62,7 @@ For public repositories, jobs using the workflow labels shown in the table below
       <td>
         <code><a href="https://github.com/actions/runner-images/blob/main/images/macos/macos-14-Readme.md">macos-latest</a></code>,
         <code><a href="https://github.com/actions/runner-images/blob/main/images/macos/macos-14-Readme.md">macos-14</a></code>,
-        <code><a href="https://github.com/actions/runner-images/blob/main/images/macos/macos-15-Readme.md">macos-15</a></code> [Beta]
+        <code><a href="https://github.com/actions/runner-images/blob/main/images/macos/macos-15-Readme.md">macos-15</a></code> [{% data variables.release-phases.public_preview_caps %}]
       </td>
     </tr>
   </tbody>
@@ -133,7 +133,7 @@ For {% ifversion ghec %}internal and{% endif %} private repositories, jobs using
       <td>
         <code><a href="https://github.com/actions/runner-images/blob/main/images/macos/macos-14-Readme.md">macos-latest</a></code>,
         <code><a href="https://github.com/actions/runner-images/blob/main/images/macos/macos-14-Readme.md">macos-14</a></code>,
-        <code><a href="https://github.com/actions/runner-images/blob/main/images/macos/macos-15-Readme.md">macos-15</a></code> [Beta]
+        <code><a href="https://github.com/actions/runner-images/blob/main/images/macos/macos-15-Readme.md">macos-15</a></code> [{% data variables.release-phases.public_preview_caps %}]
       </td>
     </tr>
   </tbody>

@@ -2721,7 +2721,7 @@
       "requestPath": "/organizations"
     },
     {
-      "slug": "deprecated---list-custom-repository-roles-in-an-organization",
+      "slug": "closing-down---list-custom-repository-roles-in-an-organization",
       "subcategory": "custom-roles",
       "verb": "get",
       "requestPath": "/organizations/{organization_id}/custom_roles"
@@ -2823,25 +2823,25 @@
       "requestPath": "/orgs/{org}/custom-repository-roles/{role_id}"
     },
     {
-      "slug": "deprecated---create-a-custom-role",
+      "slug": "closing-down---create-a-custom-role",
       "subcategory": "custom-roles",
       "verb": "post",
       "requestPath": "/orgs/{org}/custom_roles"
     },
     {
-      "slug": "deprecated---get-a-custom-role",
+      "slug": "closing-down---get-a-custom-role",
       "subcategory": "custom-roles",
       "verb": "get",
       "requestPath": "/orgs/{org}/custom_roles/{role_id}"
     },
     {
-      "slug": "deprecated---update-a-custom-role",
+      "slug": "closing-down---update-a-custom-role",
       "subcategory": "custom-roles",
       "verb": "patch",
       "requestPath": "/orgs/{org}/custom_roles/{role_id}"
     },
     {
-      "slug": "deprecated---delete-a-custom-role",
+      "slug": "closing-down---delete-a-custom-role",
       "subcategory": "custom-roles",
       "verb": "delete",
       "requestPath": "/orgs/{org}/custom_roles/{role_id}"
@@ -2853,7 +2853,7 @@
       "requestPath": "/orgs/{org}/failed_invitations"
     },
     {
-      "slug": "deprecated---list-fine-grained-permissions-for-an-organization",
+      "slug": "closing-down---list-fine-grained-permissions-for-an-organization",
       "subcategory": "custom-roles",
       "verb": "get",
       "requestPath": "/orgs/{org}/fine_grained_permissions"
@@ -4297,19 +4297,19 @@
       "requestPath": "/repos/{owner}/{repo}/tags"
     },
     {
-      "slug": "deprecated---list-tag-protection-states-for-a-repository",
+      "slug": "closing-down---list-tag-protection-states-for-a-repository",
       "subcategory": "tags",
       "verb": "get",
       "requestPath": "/repos/{owner}/{repo}/tags/protection"
     },
     {
-      "slug": "deprecated---create-a-tag-protection-state-for-a-repository",
+      "slug": "closing-down---create-a-tag-protection-state-for-a-repository",
       "subcategory": "tags",
       "verb": "post",
       "requestPath": "/repos/{owner}/{repo}/tags/protection"
     },
     {
-      "slug": "deprecated---delete-a-tag-protection-state-for-a-repository",
+      "slug": "closing-down---delete-a-tag-protection-state-for-a-repository",
       "subcategory": "tags",
       "verb": "delete",
       "requestPath": "/repos/{owner}/{repo}/tags/protection/{tag_protection_id}"

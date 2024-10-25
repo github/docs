@@ -2,8 +2,8 @@
 title: Configuring advanced setup for code scanning
 shortTitle: Configure advanced setup
 intro: 'You can configure advanced setup for a repository to find security vulnerabilities in your code using a highly customizable {% data variables.product.prodname_code_scanning %} configuration.'
+permissions: '{% data reusables.permissions.security-repo-enable %}'
 product: '{% data reusables.gated-features.code-scanning %}'
-permissions: 'People with admin permissions to a repository, or the security manager role for the repository, can enable {% data variables.product.prodname_code_scanning %} for that repository.'
 redirect_from:
    - /code-security/code-scanning/automatically-scanning-your-code-for-vulnerabilities-and-errors/configuring-advanced-setup-for-code-scanning
 versions:
@@ -125,7 +125,7 @@ For information on bulk enablement, see "[AUTOTITLE](/code-security/code-scannin
 
 ## Next steps
 
-After your workflow runs successfully at least once, you are ready to start examining and resolving {% data variables.product.prodname_code_scanning %} alerts. For more information on {% data variables.product.prodname_code_scanning %} alerts, see "[AUTOTITLE](/code-security/code-scanning/managing-code-scanning-alerts/about-code-scanning-alerts)" and "[AUTOTITLE](/code-security/code-scanning/managing-code-scanning-alerts/managing-code-scanning-alerts-for-your-repository)."
+After your workflow runs successfully at least once, you are ready to start examining and resolving {% data variables.product.prodname_code_scanning %} alerts. For more information on {% data variables.product.prodname_code_scanning %} alerts, see "[AUTOTITLE](/code-security/code-scanning/managing-code-scanning-alerts/about-code-scanning-alerts)" and "[AUTOTITLE](/code-security/code-scanning/managing-code-scanning-alerts/assessing-code-scanning-alerts-for-your-repository)."
 
 Learn how {% data variables.product.prodname_code_scanning %} runs behave as checks on pull requests, see "[AUTOTITLE](/code-security/code-scanning/managing-code-scanning-alerts/triaging-code-scanning-alerts-in-pull-requests#about-code-scanning-as-a-pull-request-check)."
 

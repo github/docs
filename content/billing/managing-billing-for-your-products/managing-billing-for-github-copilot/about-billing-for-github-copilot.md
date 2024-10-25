@@ -12,7 +12,7 @@ redirect_from:
 
 ## {% data variables.product.prodname_copilot %} in your enterprise
 
-Enterprises on {% data variables.product.prodname_ghe_cloud %} can subscribe to either {% data variables.product.prodname_copilot_for_business %} or {% data variables.product.prodname_copilot_enterprise %}. Both subscriptions are available on a monthly cycle, and pricing varies. For more information, see "[AUTOTITLE](/copilot/managing-copilot/managing-copilot-for-your-enterprise/managing-the-copilot-subscription-for-your-enterprise/about-billing-for-github-copilot-in-your-enterprise)."
+Enterprises on {% data variables.product.prodname_ghe_cloud %} can subscribe to either {% data variables.product.prodname_copilot_for_business %} or {% data variables.product.prodname_copilot_enterprise %}, or a mixture of both across different organizations within an enterprise. Both subscriptions are available on a monthly cycle, and pricing varies. For more information, see "[AUTOTITLE](/copilot/managing-copilot/managing-copilot-for-your-enterprise/managing-the-copilot-subscription-for-your-enterprise/about-billing-for-github-copilot-in-your-enterprise)."
 
 ## {% data variables.product.prodname_copilot %} in your organization
 

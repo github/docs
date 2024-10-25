@@ -45,8 +45,7 @@ This tutorial assumes that you have a basic understanding of Ruby. For more info
 You will need your app's client ID in order to generate a user access token via the device flow.
 
 {% data reusables.apps.settings-step %}
-{% data reusables.user-settings.developer_settings %}
-{% data reusables.user-settings.github_apps %}
+{% data reusables.apps.enterprise-apps-steps %}
 1. Next to the {% data variables.product.prodname_github_app %} that you want to work with, click **Edit**.
 1. On the app's settings page, find the client ID for your app. You will use it later in this tutorial. Note that the client ID is different from the app ID.
 

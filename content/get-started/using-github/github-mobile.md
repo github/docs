@@ -1,6 +1,7 @@
 ---
 title: GitHub Mobile
 intro: 'Triage, collaborate, and manage your work on {% data variables.product.product_name %} from your mobile device.'
+shortTitle: GitHub Mobile
 versions:
   fpt: '*'
   ghes: '*'

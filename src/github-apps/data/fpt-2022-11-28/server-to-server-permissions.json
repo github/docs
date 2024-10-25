@@ -2026,6 +2026,149 @@
     "permissions": [
       {
         "category": "actions",
+        "slug": "list-self-hosted-runner-groups-for-an-organization",
+        "subcategory": "self-hosted-runner-groups",
+        "verb": "get",
+        "requestPath": "/orgs/{org}/actions/runner-groups",
+        "access": "read",
+        "user-to-server": true,
+        "server-to-server": true,
+        "additional-permissions": false
+      },
+      {
+        "category": "actions",
+        "slug": "create-a-self-hosted-runner-group-for-an-organization",
+        "subcategory": "self-hosted-runner-groups",
+        "verb": "post",
+        "requestPath": "/orgs/{org}/actions/runner-groups",
+        "access": "write",
+        "user-to-server": true,
+        "server-to-server": true,
+        "additional-permissions": false
+      },
+      {
+        "category": "actions",
+        "slug": "get-a-self-hosted-runner-group-for-an-organization",
+        "subcategory": "self-hosted-runner-groups",
+        "verb": "get",
+        "requestPath": "/orgs/{org}/actions/runner-groups/{runner_group_id}",
+        "access": "read",
+        "user-to-server": true,
+        "server-to-server": true,
+        "additional-permissions": false
+      },
+      {
+        "category": "actions",
+        "slug": "update-a-self-hosted-runner-group-for-an-organization",
+        "subcategory": "self-hosted-runner-groups",
+        "verb": "patch",
+        "requestPath": "/orgs/{org}/actions/runner-groups/{runner_group_id}",
+        "access": "write",
+        "user-to-server": true,
+        "server-to-server": true,
+        "additional-permissions": false
+      },
+      {
+        "category": "actions",
+        "slug": "delete-a-self-hosted-runner-group-from-an-organization",
+        "subcategory": "self-hosted-runner-groups",
+        "verb": "delete",
+        "requestPath": "/orgs/{org}/actions/runner-groups/{runner_group_id}",
+        "access": "write",
+        "user-to-server": true,
+        "server-to-server": true,
+        "additional-permissions": false
+      },
+      {
+        "category": "actions",
+        "slug": "list-repository-access-to-a-self-hosted-runner-group-in-an-organization",
+        "subcategory": "self-hosted-runner-groups",
+        "verb": "get",
+        "requestPath": "/orgs/{org}/actions/runner-groups/{runner_group_id}/repositories",
+        "access": "read",
+        "user-to-server": true,
+        "server-to-server": true,
+        "additional-permissions": false
+      },
+      {
+        "category": "actions",
+        "slug": "set-repository-access-for-a-self-hosted-runner-group-in-an-organization",
+        "subcategory": "self-hosted-runner-groups",
+        "verb": "put",
+        "requestPath": "/orgs/{org}/actions/runner-groups/{runner_group_id}/repositories",
+        "access": "write",
+        "user-to-server": true,
+        "server-to-server": true,
+        "additional-permissions": false
+      },
+      {
+        "category": "actions",
+        "slug": "add-repository-access-to-a-self-hosted-runner-group-in-an-organization",
+        "subcategory": "self-hosted-runner-groups",
+        "verb": "put",
+        "requestPath": "/orgs/{org}/actions/runner-groups/{runner_group_id}/repositories/{repository_id}",
+        "access": "write",
+        "user-to-server": true,
+        "server-to-server": true,
+        "additional-permissions": true
+      },
+      {
+        "category": "actions",
+        "slug": "remove-repository-access-to-a-self-hosted-runner-group-in-an-organization",
+        "subcategory": "self-hosted-runner-groups",
+        "verb": "delete",
+        "requestPath": "/orgs/{org}/actions/runner-groups/{runner_group_id}/repositories/{repository_id}",
+        "access": "write",
+        "user-to-server": true,
+        "server-to-server": true,
+        "additional-permissions": true
+      },
+      {
+        "category": "actions",
+        "slug": "list-self-hosted-runners-in-a-group-for-an-organization",
+        "subcategory": "self-hosted-runner-groups",
+        "verb": "get",
+        "requestPath": "/orgs/{org}/actions/runner-groups/{runner_group_id}/runners",
+        "access": "read",
+        "user-to-server": true,
+        "server-to-server": true,
+        "additional-permissions": false
+      },
+      {
+        "category": "actions",
+        "slug": "set-self-hosted-runners-in-a-group-for-an-organization",
+        "subcategory": "self-hosted-runner-groups",
+        "verb": "put",
+        "requestPath": "/orgs/{org}/actions/runner-groups/{runner_group_id}/runners",
+        "access": "write",
+        "user-to-server": true,
+        "server-to-server": true,
+        "additional-permissions": false
+      },
+      {
+        "category": "actions",
+        "slug": "add-a-self-hosted-runner-to-a-group-for-an-organization",
+        "subcategory": "self-hosted-runner-groups",
+        "verb": "put",
+        "requestPath": "/orgs/{org}/actions/runner-groups/{runner_group_id}/runners/{runner_id}",
+        "access": "write",
+        "user-to-server": true,
+        "server-to-server": true,
+        "additional-permissions": false
+      },
+      {
+        "category": "actions",
+        "slug": "remove-a-self-hosted-runner-from-a-group-for-an-organization",
+        "subcategory": "self-hosted-runner-groups",
+        "verb": "delete",
+        "requestPath": "/orgs/{org}/actions/runner-groups/{runner_group_id}/runners/{runner_id}",
+        "access": "write",
+        "user-to-server": true,
+        "server-to-server": true,
+        "additional-permissions": false
+      },
+      {
+        "category": "actions",
         "slug": "list-self-hosted-runners-for-an-organization",
         "subcategory": "self-hosted-runners",
         "verb": "get",
@@ -4014,7 +4157,7 @@
       },
       {
         "category": "repos",
-        "slug": "deprecated---list-tag-protection-states-for-a-repository",
+        "slug": "closing-down---list-tag-protection-states-for-a-repository",
         "subcategory": "tags",
         "verb": "get",
         "requestPath": "/repos/{owner}/{repo}/tags/protection",
@@ -4025,7 +4168,7 @@
       },
       {
         "category": "repos",
-        "slug": "deprecated---create-a-tag-protection-state-for-a-repository",
+        "slug": "closing-down---create-a-tag-protection-state-for-a-repository",
         "subcategory": "tags",
         "verb": "post",
         "requestPath": "/repos/{owner}/{repo}/tags/protection",
@@ -4036,7 +4179,7 @@
       },
       {
         "category": "repos",
-        "slug": "deprecated---delete-a-tag-protection-state-for-a-repository",
+        "slug": "closing-down---delete-a-tag-protection-state-for-a-repository",
         "subcategory": "tags",
         "verb": "delete",
         "requestPath": "/repos/{owner}/{repo}/tags/protection/{tag_protection_id}",
@@ -5153,7 +5296,7 @@
         "access": "read",
         "user-to-server": true,
         "server-to-server": true,
-        "additional-permissions": true
+        "additional-permissions": false
       },
       {
         "category": "dependency-graph",
@@ -6541,6 +6684,28 @@
       },
       {
         "category": "actions",
+        "slug": "add-repository-access-to-a-self-hosted-runner-group-in-an-organization",
+        "subcategory": "self-hosted-runner-groups",
+        "verb": "put",
+        "requestPath": "/orgs/{org}/actions/runner-groups/{runner_group_id}/repositories/{repository_id}",
+        "access": "read",
+        "user-to-server": true,
+        "server-to-server": true,
+        "additional-permissions": true
+      },
+      {
+        "category": "actions",
+        "slug": "remove-repository-access-to-a-self-hosted-runner-group-in-an-organization",
+        "subcategory": "self-hosted-runner-groups",
+        "verb": "delete",
+        "requestPath": "/orgs/{org}/actions/runner-groups/{runner_group_id}/repositories/{repository_id}",
+        "access": "read",
+        "user-to-server": true,
+        "server-to-server": true,
+        "additional-permissions": true
+      },
+      {
+        "category": "actions",
         "slug": "add-selected-repository-to-an-organization-secret",
         "subcategory": "secrets",
         "verb": "put",
@@ -7458,17 +7623,6 @@
         "user-to-server": true,
         "server-to-server": true,
         "additional-permissions": false
-      },
-      {
-        "category": "dependency-graph",
-        "slug": "get-a-diff-of-the-dependencies-between-commits",
-        "subcategory": "dependency-review",
-        "verb": "get",
-        "requestPath": "/repos/{owner}/{repo}/dependency-graph/compare/{basehead}",
-        "access": "read",
-        "user-to-server": true,
-        "server-to-server": true,
-        "additional-permissions": true
       },
       {
         "category": "issues",

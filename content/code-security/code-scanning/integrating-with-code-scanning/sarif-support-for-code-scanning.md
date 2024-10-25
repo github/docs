@@ -29,7 +29,7 @@ To upload a SARIF file from a third-party static code analysis engine, you'll ne
 
 If you're using {% data variables.product.prodname_actions %} with the {% data variables.code-scanning.codeql_workflow %} or using the {% data variables.product.prodname_codeql_cli %}, then the {% data variables.product.prodname_code_scanning %} results will automatically use the supported subset of SARIF 2.1.0. For more information, see "[AUTOTITLE](/code-security/code-scanning/creating-an-advanced-setup-for-code-scanning/configuring-advanced-setup-for-code-scanning)" or "[AUTOTITLE](/code-security/code-scanning/integrating-with-code-scanning/using-code-scanning-with-your-existing-ci-system)."
 
-{% data variables.product.prodname_dotcom %} uses properties in the SARIF file to display alerts. For example, the `shortDescription` and `fullDescription` appear at the top of a {% data variables.product.prodname_code_scanning %} alert. The `location` allows {% data variables.product.prodname_dotcom %} to show annotations in your code file. For more information, see "[AUTOTITLE](/code-security/code-scanning/managing-code-scanning-alerts/managing-code-scanning-alerts-for-your-repository)."
+{% data variables.product.prodname_dotcom %} uses properties in the SARIF file to display alerts. For example, the `shortDescription` and `fullDescription` appear at the top of a {% data variables.product.prodname_code_scanning %} alert. The `location` allows {% data variables.product.prodname_dotcom %} to show annotations in your code file. For more information, see "[AUTOTITLE](/code-security/code-scanning/managing-code-scanning-alerts/about-code-scanning-alerts)."
 
 If you're new to SARIF and want to learn more, see Microsoft's [`SARIF tutorials`](https://github.com/microsoft/sarif-tutorials) repository.
 
@@ -239,11 +239,11 @@ Use the category to distinguish between multiple analyses for the same tool or c
 
 | `id` | category | `run_id` |
 |----|----|----|
-| my-analysis/tool1/2021-02-01 | my-analysis/tool1 | 2021-02-01
+| my-analysis/tool1/2022-01-02 | my-analysis/tool1 | 2022-01-02
 | my-analysis/tool1/ | my-analysis/tool1 | None
 | my-analysis for tool1 | None | my-analysis for tool1
 
-* The run with an `id` of "my-analysis/tool1/2021-02-01" belongs to the category "my-analysis/tool1". Presumably, this is the run from February 2, 2021.
+* The run with an `id` of "my-analysis/tool1/2021-02-01" belongs to the category "my-analysis/tool1".
 * The run with an `id` of "my-analysis/tool1/" belongs to the category "my-analysis/tool1" but is not distinguished from other runs in that category.
 * The run whose `id` is "my-analysis for tool1 " has a unique identifier but cannot be inferred to belong to any category.
 

@@ -92,8 +92,7 @@ You can disable webhooks that were previously enabled for events relating to {% 
 Each {% data variables.product.prodname_github_app %} has one webhook. You cannot delete the webhook, but you can deactivate the webhook. The owner of a {% data variables.product.prodname_github_app %} can deactivate the webhook the app. If an organization has designated any app managers for a {% data variables.product.prodname_github_app %} owned by the organization, the app managers can also deactivate the webhook for the app.
 
 {% data reusables.apps.settings-step %}
-{% data reusables.user-settings.developer_settings %}
-{% data reusables.user-settings.github_apps %}
+{% data reusables.apps.enterprise-apps-steps %}
 1. Next to the {% data variables.product.prodname_github_app %} that you want to deactivate the webhook for, click **Edit**.
 1. Under "Webhook," deselect **Active** to disable the webhook.
 1. Click **Save changes**.

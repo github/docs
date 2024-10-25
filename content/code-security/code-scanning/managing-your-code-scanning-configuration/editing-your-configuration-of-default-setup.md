@@ -2,7 +2,7 @@
 title: Editing your configuration of default setup
 shortTitle: Edit default setup
 intro: 'You can edit your existing configuration of default setup for {% data variables.product.prodname_code_scanning %} to better meet your code security needs.'
-product: '{% data reusables.gated-features.code-scanning %}'
+permissions: '{% data reusables.permissions.security-org-enable %}'
 versions:
   fpt: '*'
   ghes: '*'
@@ -18,7 +18,7 @@ topics:
 After running an initial analysis of your code with default setup, you may need to make changes to your configuration to better meet your code security needs. For existing configurations of default setup, you can edit:
 * Which languages default setup will analyze.
 * The query suite run during analysis. For more information on the available query suites, see "[AUTOTITLE](/code-security/code-scanning/managing-your-code-scanning-configuration/codeql-query-suites)."{% ifversion codeql-threat-models %}
-* The threat models (beta) to use for analysis. Your choice of threat model determines which sources of tainted data are treated as a risk to your application. During the {% data variables.release-phases.public_preview %}, threat models are supported only for analysis of {% data variables.code-scanning.code_scanning_threat_model_support %}. For more information about threat models, see "[Including local sources of tainted data in default setup](#including-local-sources-of-tainted-data-in-default-setup)."
+* The threat models ({% data variables.release-phases.public_preview %}) to use for analysis. Your choice of threat model determines which sources of tainted data are treated as a risk to your application. During the {% data variables.release-phases.public_preview %}, threat models are supported only for analysis of {% data variables.code-scanning.code_scanning_threat_model_support %}. For more information about threat models, see "[Including local sources of tainted data in default setup](#including-local-sources-of-tainted-data-in-default-setup)."
 {% endif %}
 
 {% ifversion codeql-model-packs %}
@@ -38,7 +38,7 @@ If you need to change any other aspects of your {% data variables.product.prodna
 1. In the "{% data variables.product.prodname_codeql %} default configuration" window, click {% octicon "pencil" aria-hidden="true" %} **Edit**.
 1. Optionally, in the "Languages" section, select or deselect languages for analysis.
 1. Optionally, in the "Query suite" row of the "Scan settings" section, select a different query suite to run against your code.{% ifversion codeql-threat-models %}
-1. (Beta) Optionally, in the "Threat model" row of the "Scan settings" section, select **Remote and local sources**.
+1. ({% data variables.release-phases.public_preview_caps %}) Optionally, in the "Threat model" row of the "Scan settings" section, select **Remote and local sources**.
 {% endif %}
 1. To update your configuration, as well as run an initial analysis of your code with the new configuration, click **Save changes**. All future analyses will use your new configuration.
 

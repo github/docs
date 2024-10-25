@@ -34,7 +34,7 @@ If you use {% data variables.product.product_name %} through a Microsoft Enterpr
 
 {% ifversion fpt or ghec %}
 
-## About usage-based billing on {% data variables.product.prodname_dotcom_the_website %}
+## About usage-based billing on {% data variables.product.prodname_dotcom %}
 
 {% data variables.product.company_short %} provides usage-based billing for the following features and situations. You can learn more about billing and spending limits.
 
@@ -73,6 +73,8 @@ For example, you link your Azure subscription to your organization {% ifversion 
 * You must be logged into Azure as a user who is able to provide tenant-wide admin consent, which is required to install {% data variables.product.company_short %}'s Subscription Permission Validation app on the Azure AD tenant. The app requires read access to display a list of available subscriptions, and is only used during this one-time process of connecting the Azure subscription. See [Grant tenant-wide admin consent to an application](https://learn.microsoft.com/azure/active-directory/manage-apps/grant-admin-consent) in Microsoft Docs.
 
   * Alternatively, before following the instructions in this article, users who are not able to provide tenant-wide admin consent can work with an Azure AD global administrator to configure an admin consent workflow. See [User and admin consent in Azure Active Directory](https://learn.microsoft.com/en-us/azure/active-directory/manage-apps/user-admin-consent-overview#admin-consent-workflow) in Microsoft Docs.
+
+     >[!NOTE] If your tenant provides user consent settings, users included in those settings might not require admin consent to install {% data variables.product.company_short %}'s Subscription Permission Validation app. See [User consent](https://learn.microsoft.com/en-us/entra/identity/enterprise-apps/user-admin-consent-overview#user-consent) in Microsoft Docs.
 
 * To select an Azure subscription from the list of available subscriptions, the user must be an owner of the Azure subscription. See [Assign a user as an administrator of an Azure subscription](https://learn.microsoft.com/azure/role-based-access-control/role-assignments-portal-subscription-admin) in Microsoft docs.
 
@@ -160,7 +162,7 @@ After you disconnect your Azure subscription from your enterprise account, your 
 
 ## Troubleshooting connection of an Azure subscription
 
-You can troubleshoot some common issues with connection of an Azure subscription to your account on {% data variables.product.prodname_dotcom_the_website %}.
+You can troubleshoot some common issues with connection of an Azure subscription to your account on {% data variables.product.prodname_dotcom %}.
 
 ### Message: "Need admin approval"
 

@@ -2,7 +2,7 @@
 title: Applying a custom security configuration
 shortTitle: Apply custom configuration
 intro: 'You can apply your {% data variables.product.prodname_custom_security_configuration %} to repositories in your organization to meet the specific security needs of those repositories.'
-permissions: '{% data reusables.security-configurations.security-configurations-permissions %}'
+permissions: '{% data reusables.permissions.security-org-enable %}'
 versions:
   feature: security-configurations
 topics:
@@ -36,7 +36,7 @@ After you create a {% data variables.product.prodname_custom_security_configurat
 
 ## Next steps
 
-To learn how to interpret security findings from your {% data variables.product.prodname_custom_security_configuration %} on a repository, see "[AUTOTITLE](/code-security/securing-your-organization/managing-the-security-of-your-organization/interpreting-security-findings-on-a-repository)."
+To learn how to interpret security findings from your {% data variables.product.prodname_custom_security_configuration %} on a repository, see "[AUTOTITLE](/code-security/securing-your-organization/managing-the-security-of-your-organization/interpreting-security-findings)."
 
 {% data reusables.security-configurations.edit-configuration-next-step %}
 

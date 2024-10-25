@@ -2,7 +2,7 @@
 title: Not enough GitHub Advanced Security licenses
 shortTitle: Not enough GHAS licenses
 intro: 'You need available GHAS licenses to enable GHAS features on a private{% ifversion ghec or ghes %} or internal{% endif %} repository.'
-permissions: '{% data reusables.security-configurations.security-configurations-permissions %}'
+permissions: '{% data reusables.permissions.security-org-enable %}'
 versions:
   feature: security-configurations
 topics:

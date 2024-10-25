@@ -14,7 +14,7 @@ An assignment is coursework in {% data variables.product.prodname_classroom %}. 
 
 ## classroom
 
-A classroom is the basic unit of {% data variables.product.prodname_classroom %}. Teachers can use a classroom to organize and manage students, teaching assistants, and assignments for a single course. A classroom belongs to an organization on {% data variables.product.prodname_dotcom_the_website %}. To administer a classroom, you must be an organization owner for the organization on {% data variables.product.prodname_dotcom %}. For more information, see "[AUTOTITLE](/education/manage-coursework-with-github-classroom/teach-with-github-classroom/manage-classrooms)."
+A classroom is the basic unit of {% data variables.product.prodname_classroom %}. Teachers can use a classroom to organize and manage students, teaching assistants, and assignments for a single course. A classroom belongs to an organization on {% data variables.product.prodname_dotcom %}. To administer a classroom, you must be an organization owner for the organization. For more information, see "[AUTOTITLE](/education/manage-coursework-with-github-classroom/teach-with-github-classroom/manage-classrooms)."
 
 ---
 
