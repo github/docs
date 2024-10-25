@@ -10,5 +10,6 @@ children:
   - /creating-a-readme-for-an-enterprise
   - /deleting-an-enterprise-account
   - /changing-the-url-for-your-enterprise
+  - /creating-github-apps-for-your-enterprise
 shortTitle: Manage enterprise account
 ---

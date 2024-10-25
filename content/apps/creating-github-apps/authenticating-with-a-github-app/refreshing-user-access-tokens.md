@@ -33,8 +33,7 @@ If your refresh token expires before you use it, you can regenerate a user acces
 When you create your app, expiration of user access tokens is enabled unless you opt out. For more information, see "[AUTOTITLE](/apps/creating-github-apps/setting-up-a-github-app/creating-a-github-app)." You can also configure this setting after your app has been created.
 
 {% data reusables.apps.settings-step %}
-{% data reusables.user-settings.developer_settings %}
-{% data reusables.user-settings.github_apps %}
+{% data reusables.apps.enterprise-apps-steps %}
 1. Next to the {% data variables.product.prodname_github_app %} that you want to modify, click **Edit**.
 1. In the {% data variables.product.prodname_github_apps %} settings sidebar, click **Optional Features**.
 1. Next to "User-to-server token expiration", click **Opt-in** or **Opt-out**. This setting may take a couple of seconds to apply.

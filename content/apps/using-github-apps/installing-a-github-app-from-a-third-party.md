@@ -8,9 +8,9 @@ versions:
 shortTitle: Install from third party
 ---
 
-{% ifversion ghes %}
+{% ifversion ghes < 3.16 %}
 
-You cannot install third-party {% data variables.product.prodname_github_apps %} on organizations owned by your instance.{% ifversion ghes %} If you want to use the functionality of a third-party {% data variables.product.prodname_github_app %}, you can contact the app developer about making the {% data variables.product.prodname_github_app %} available for {% data variables.product.prodname_ghe_server %}. For more information, see "[AUTOTITLE](/apps/sharing-github-apps/making-your-github-app-available-for-github-enterprise-server)."{% endif %}
+You cannot install third-party {% data variables.product.prodname_github_apps %} on organizations owned by your instance. If you want to use the functionality of a third-party {% data variables.product.prodname_github_app %}, you can contact the app developer about making the {% data variables.product.prodname_github_app %} available for {% data variables.product.prodname_ghe_server %}. For more information, see "[AUTOTITLE](/apps/sharing-github-apps/making-your-github-app-available-for-github-enterprise-server)."
 
 For more information about installing {% data variables.product.prodname_github_apps %} that you own, see "[AUTOTITLE](/apps/maintaining-github-apps/installing-your-own-github-app)."
 
@@ -18,7 +18,13 @@ For more information about installing {% data variables.product.prodname_github_
 
 ## About installing {% data variables.product.prodname_github_apps %}
 
-This article describes how to install a {% data variables.product.prodname_github_app %} directly from the app owner instead of from {% data variables.product.prodname_marketplace %}. For more information on installing {% data variables.product.prodname_github_apps %} from {% data variables.product.prodname_marketplace %}, see "[AUTOTITLE](/apps/using-github-apps/installing-a-github-app-in-your-personal-account)" and "[AUTOTITLE](/apps/using-github-apps/installing-a-github-app-in-your-organization)." For more information about installing {% data variables.product.prodname_github_apps %} that you own, see "[AUTOTITLE](/apps/maintaining-github-apps/installing-your-own-github-app)."
+{% ifversion fpt or ghec %}
+
+This article describes how to install a {% data variables.product.prodname_github_app %} directly from the app owner instead of from {% data variables.product.prodname_marketplace %}. For more information on installing {% data variables.product.prodname_github_apps %} from {% data variables.product.prodname_marketplace %}, see "[AUTOTITLE](/apps/using-github-apps/installing-a-github-app-in-your-personal-account)" and "[AUTOTITLE](/apps/using-github-apps/installing-a-github-app-in-your-organization)." For more information about installing {% data variables.product.prodname_github_apps %} that you own, see "[AUTOTITLE](/apps/maintaining-github-apps/installing-your-own-github-app)."{% endif %}
+
+{% ifversion enterprise-apps-public-beta %}
+>[!NOTE] This installation flow applies to any {% data variables.product.prodname_github_app %}, whether it’s a third-party app or an app owned by your enterprise. You can install the app manually using the link provided by the app owner.
+{% endif %}
 
 {% data reusables.apps.about-installation %}
 
@@ -40,7 +46,7 @@ Admins of repositories that are owned by an organization can also install {% dat
 
 Organization members who are not organization owners or repository admins can still select the organization during the install process. Instead of installing the app, {% data variables.product.company_short %} will send a notification to the organization owner to request the organization owner to install the app.
 
-The "app manager" role in an organization does not give a person the ability to install a {% data variables.product.prodname_github_app %} in the organization. For more information, see "[AUTOTITLE](/apps/maintaining-github-apps/about-github-app-managers)."
+The "app manager" role in an organization does not give a person the ability to install a {% data variables.product.prodname_github_app %} in the organization. See "[AUTOTITLE](/apps/maintaining-github-apps/about-github-app-managers)."
 
 ## Installing a {% data variables.product.prodname_github_app %}
 
