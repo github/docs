@@ -32,7 +32,6 @@ When you work in a codespace, you use the JetBrains thin client application on y
 ### The JetBrains remote development connection process
 
 The basic process behind using a codespace in your JetBrains IDE is as follows.
-
 1. In the JetBrains Gateway application you select one of your active or stopped codespaces.
 2. You then choose which JetBrains IDE you want to use.
 3. The selected JetBrains IDE is then downloaded to the remote virtual machine that hosts your codespace and source code.
