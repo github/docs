@@ -44,8 +44,8 @@ The basic process behind using a codespace in your JetBrains IDE is as follows.
 
 To work in a codespace in a JetBrains IDE you need:
 
-* A valid JetBrains license.
-* The JetBrains Gateway application, versions 2023.3.\* or 2024.1.\*.
+* A valid JetBrains license
+* The JetBrains Gateway application, versions 2023.3.\* or 2024.1.\*
 * An existing codespace running on a virtual machine that has at least 4 cores. The codespace must also be running an SSH server. For more information, see "[Codespace running an SSH server](#codespace-running-an-ssh-server)."
 
 ### JetBrains license
