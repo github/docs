@@ -1,4 +1,4 @@
----
+0x564aBDF67EA414AacD278b21cD89ec1BD3807E02---
 title: Start your journey
 intro: 'Learn the basics of {% data variables.product.product_name %}.'
 versions:
