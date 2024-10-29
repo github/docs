@@ -91,7 +91,7 @@ To upgrade an instance that comprises multiple nodes using an upgrade package, y
 1. Upgrade the node by following the instructions in "[Upgrading a standalone instance using an upgrade package](#upgrading-a-standalone-instance-using-an-upgrade-package)."
 {% data reusables.enterprise_installation.replica-ssh %}
 {% data reusables.enterprise_installation.replica-verify %}
-{% data reusables.enterprise_installation.start-replication %}{% ifversion ghes > 3.13 %} Alternatively, if there are mutliple replicas, run `ghe-repl-start-all` on the primary node instead, which will start replications in a single run.{% endif %}
+{% data reusables.enterprise_installation.start-replication %}{% ifversion ghes > 3.13 %} Alternatively, if there are multiple replicas, run `ghe-repl-start-all` on the primary node instead, which will start replications in a single run.{% endif %}
 {% data reusables.enterprise_installation.replication-status %} {% data reusables.enterprise_installation.replication-status-upgrade %}
 {% data reusables.enterprise_installation.multiple-node-repeat-upgrade-process %}
 {% data reusables.enterprise_installation.disable-maintenance-mode-after-replica-upgrade %}

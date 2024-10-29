@@ -35,7 +35,7 @@ The available space on the root filesystem will be 50% of the total disk size. Y
 
 The CPU and memory resources that {% data variables.product.prodname_ghe_server %} requires depend on the levels of activity for users, automations, and integrations.
 
-Any VMs you provision for {% data variables.location.product_location %} must use the x86-64 CPU architecture. Other architectures are not supported, such as Aarch64 or arm64.
+Any VMs you provision for {% data variables.location.product_location %} must use the x86-64 CPU architecture. Other architectures are not supported, such as Arch64 or arm64.
 
 {% ifversion ghes %}
 

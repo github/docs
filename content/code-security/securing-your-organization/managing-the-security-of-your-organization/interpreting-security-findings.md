@@ -26,7 +26,7 @@ After you apply a {% data variables.product.prodname_security_configuration %} t
 {% data reusables.organizations.security-overview %}
 1. By default, the overview shows alerts for all native {% data variables.product.github %} tools (filter: `tool:github`). To display alerts for a specific tool, replace `tool:github` in the filter text box. For example:
     * `tool:dependabot` to show only alerts for dependencies identified by {% data variables.product.prodname_dependabot %}.
-    * `tool:secret-scanning` to only show alerts for secrets indentified by {% data variables.product.prodname_secret_scanning %}.
+    * `tool:secret-scanning` to only show alerts for secrets identified by {% data variables.product.prodname_secret_scanning %}.
     * `tool:codeql` to show only alerts for potential security vulnerabilities identified by {% data variables.product.prodname_codeql %} {% data variables.product.prodname_code_scanning %}.
 1. You can add further filters to show only the repositories you want to assess. The list of repositories and metrics displayed on the page automatically update to match your current selection. For more information on filtering, see "[AUTOTITLE](/code-security/security-overview/filtering-alerts-in-security-overview)."
     * Use the **Teams** dropdown to show information only for the repositories owned by one or more teams.
