@@ -1,1 +1,0 @@
-1. （可选）要为您的站点实施 HTTPS 加密，请选择 **Enforce HTTPS（实施 HTTPS）**。 可能要过 24 小时才能使用此选项。 更多信息请参阅“[使用 HTTPS 保护 {% data variables.product.prodname_pages %} 站点](/articles/securing-your-github-pages-site-with-https)”。 ![对自定义域名强制使用 HTTPS 选项](/assets/images/help/pages/enforce-https-custom-domains.png)

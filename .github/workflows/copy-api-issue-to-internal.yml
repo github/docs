@@ -1,7 +1,7 @@
-name: Copy to REST API issue to docs-content
+name: Copy to API/events issue to docs-content
 
 # **What it does**: Copies an issue in the open source repo to the docs-content repo, comments on and closes the original issue
-# **Why we have it**: REST API updates cannot be made in the open source repo. Instead, we copy the issue to an internal issue (we do not transfer so that the issue does not disappear for the contributor) and close the original issue.
+# **Why we have it**: OpenAPI/GraphQL schema updates cannot be made in the open source repo. Instead, we copy the issue to an internal issue (we do not transfer so that the issue does not disappear for the contributor) and close the original issue.
 # **Who does it impact**: Open source and docs-content maintainers
 
 on:
@@ -9,17 +9,20 @@ on:
     types:
       - labeled
 
+permissions:
+  contents: read
+
 jobs:
   transfer-issue:
     name: Transfer issue
     runs-on: ubuntu-latest
-    if: (github.event.label.name == 'rest-description' || github.event.label.name == 'graphql-description') && github.repository == 'github/docs'
+    if: github.event.label.name == 'fix-internally' && github.repository == 'github/docs'
     steps:
       - name: Check if this run was triggered by a member of the docs team
-        uses: actions/github-script@2b34a689ec86a68d8ab9478298f91d5401337b7d
+        uses: actions/github-script@e69ef5462fd455e02edcaf4dd7708eda96b9eda0
         id: triggered-by-member
         with:
-          github-token: ${{secrets.DOCUBOT_READORG_REPO_WORKFLOW_SCOPES}}
+          github-token: ${{secrets.DOCS_BOT_PAT_WORKFLOW_READORG}}
           result-encoding: string
           script: |
             const triggerer_login = context.payload.sender.login
@@ -45,25 +48,34 @@ jobs:
           new_issue_url="$(gh issue create --title "$ISSUE_TITLE" --body "$ISSUE_BODY" --repo github/docs-content)"
           echo 'NEW_ISSUE='$new_issue_url >> $GITHUB_ENV
         env:
-          GITHUB_TOKEN: ${{secrets.DOCUBOT_READORG_REPO_WORKFLOW_SCOPES}}
+          GITHUB_TOKEN: ${{secrets.DOCS_BOT_PAT_WORKFLOW_READORG}}
           ISSUE_TITLE: ${{ github.event.issue.title }}
           ISSUE_BODY: ${{ github.event.issue.body }}
 
-      - name: Comment on the new issue
-        run: gh issue comment $NEW_ISSUE --body "This issue was originally opened in the open source repo as $OLD_ISSUE"
-        env:
-          GITHUB_TOKEN: ${{secrets.DOCUBOT_READORG_REPO_WORKFLOW_SCOPES}}
-          NEW_ISSUE: ${{ env.NEW_ISSUE }}
-          OLD_ISSUE: ${{ github.event.issue.html_url }}
-
       - name: Comment on the old issue
-        run: gh issue comment $OLD_ISSUE --body "Thank you for opening this issue! Updates to the REST/GraphQL API description must be made internally. I have copied your issue to an internal issue, so I will close this issue."
+        run: gh issue comment $OLD_ISSUE --body "Thank you for opening this issue! Updates to this documentation must be made internally. I have copied your issue to an internal issue, so I will close this issue."
         env:
-          GITHUB_TOKEN: ${{secrets.DOCUBOT_READORG_REPO_WORKFLOW_SCOPES}}
+          GITHUB_TOKEN: ${{secrets.DOCS_BOT_PAT_WORKFLOW_READORG}}
           OLD_ISSUE: ${{ github.event.issue.html_url }}
 
       - name: Close the old issue
         run: gh issue close $OLD_ISSUE
         env:
-          GITHUB_TOKEN: ${{secrets.DOCUBOT_READORG_REPO_WORKFLOW_SCOPES}}
+          GITHUB_TOKEN: ${{secrets.DOCS_BOT_PAT_WORKFLOW_READORG}}
           OLD_ISSUE: ${{ github.event.issue.html_url }}
+
+      - name: Comment on the new issue
+        run: gh issue comment $NEW_ISSUE --body "This issue was originally opened in the open source repo as $OLD_ISSUE"
+        env:
+          GITHUB_TOKEN: ${{secrets.DOCS_BOT_PAT_WORKFLOW_READORG}}
+          NEW_ISSUE: ${{ env.NEW_ISSUE }}
+          OLD_ISSUE: ${{ github.event.issue.html_url }}
+
+      - name: Check out repo
+        if: ${{ failure() && github.event_name != 'workflow_dispatch' && github.repository == 'github/docs-internal' }}
+        uses: actions/checkout@b4ffde65f46336ab88eb53be808477a3936bae11 # v4.1.1
+      - uses: ./.github/actions/slack-alert
+        if: ${{ failure() && github.event_name != 'workflow_dispatch' && github.repository == 'github/docs-internal' }}
+        with:
+          slack_channel_id: ${{ secrets.DOCS_ALERTS_SLACK_CHANNEL_ID }}
+          slack_token: ${{ secrets.SLACK_DOCS_BOT_TOKEN }}

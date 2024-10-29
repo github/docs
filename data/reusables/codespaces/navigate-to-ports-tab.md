@@ -1,2 +1,2 @@
-1. In your codespace, under the text editor, click "Ports".
-    ![Ports tab](/assets/images/help/codespaces/ports-tab.png)
+1. Open the terminal in your codespace.
+1. Click the **PORTS** tab.

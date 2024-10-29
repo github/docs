@@ -1,0 +1,1 @@
+To create secrets or variables for an environment in a personal account repository, you must be the repository owner. To create secrets or variables for an environment in an organization repository, you must have `admin` access. For more information on environments, see "[AUTOTITLE](/actions/deployment/targeting-different-environments/managing-environments-for-deployment)."

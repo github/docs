@@ -1,30 +1,43 @@
 ---
 title: GitHub CLI reference
-intro: 'You can view all of the {% data variables.product.prodname_cli %} commands in your terminal or in the {% data variables.product.prodname_cli %} manual.'
+intro: 'You can view all of the {% data variables.product.prodname_cli %} commands in your terminal. The same information is available in the {% data variables.product.prodname_cli %} manual.'
 versions:
   fpt: '*'
   ghes: '*'
-  ghae: '*'
   ghec: '*'
 topics:
   - CLI
 type: reference
 ---
 
-To view all {% data variables.product.prodname_cli %} commands, see the [{% data variables.product.prodname_cli %} manual](https://cli.github.com/manual/gh_help_reference) or use the `reference` command.
+To view all top-level {% data variables.product.prodname_cli %} commands, enter `gh` without arguments.
 
 ```shell
-gh reference
+gh
 ```
 
-To view the environment variables that can be used with {% data variables.product.prodname_cli %}, see the [{% data variables.product.prodname_cli %} manual](https://cli.github.com/manual/gh_help_environment) or use the `environment` command.
+To list all of the subcommands that you can use with a {% data variables.product.prodname_cli %} command, use the top-level command without arguments.
+
+```shell
+gh COMMAND
+```
+
+For example, to view the environment variables that you can set to affect certain aspects of {% data variables.product.prodname_cli %}, use the `environment` command.
 
 ```shell
 gh environment
 ```
 
-To view the configuration settings that can be used with {% data variables.product.prodname_cli %}, see the [{% data variables.product.prodname_cli %} manual](https://cli.github.com/manual/gh_config) or use the `config` command.
+To view the configuration settings that you can set, use the `config` command.
 
 ```shell
 gh config
 ```
+
+To view help for a particular subcommand, use the `--help` flag.
+
+```shell
+gh COMMAND [SUBCOMMAND ...] --help
+```
+
+All of the information that's available by running these commands in the terminal is also included in the [{% data variables.product.prodname_cli %} online manual](https://cli.github.com/manual/gh).

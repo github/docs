@@ -1,1 +1,0 @@
-Si configuras un ambiente de despliegue, cambia el valor de `environment` para que sea el nombre de tu ambiente. Si no configuraste un ambiente{% ifversion fpt or ghec %} o si tu flujo de trabajo está en un repositorio privado y no utilizas {% data variables.product.prodname_ghe_cloud %}{% endif %}, borra la clave `environment`.

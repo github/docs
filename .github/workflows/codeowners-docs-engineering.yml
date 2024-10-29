@@ -1,0 +1,58 @@
+name: Codeowners - Docs Engineering
+
+# **What it does**: Automatically add reviewers based on paths, but only for the docs-internal repo.
+# And sets the 'engineering' label on the PR. It also edits the PR body to add a template
+# for asking questions for the sake of being confident about the PRs rollout.
+# **Why we have it**: So we can have reviewers automatically without getting open source notifications.
+# **Who does it impact**: Docs team.
+
+on:
+  pull_request:
+    types:
+      - edited
+      - opened
+      - ready_for_review
+      - reopened
+      - synchronize
+    paths:
+      - '**.js'
+      - '**.ts'
+      - '**.tsx'
+      - '**.scss'
+      - 'src/**'
+      - '!src/**.json' # So that Docs Engineering isn't reviewing automated pipeline data PRs
+      - '!src/**.yml' # So that Docs Engineering isn't reviewing automated pipeline data PRs
+      - '.github/**'
+      - '**Dockerfile'
+      - 'package*.json'
+
+jobs:
+  codeowners-docs-engineering:
+    if: >-
+      ${{ github.repository == 'github/docs-internal' &&
+          !github.event.pull_request.draft &&
+          !contains(github.event.pull_request.labels.*.name, 'engineering') &&
+          github.event.pull_request.head.ref != 'repo-sync' }}
+    runs-on: ubuntu-latest
+    env:
+      GH_TOKEN: ${{ secrets.DOCS_BOT_PAT_WRITEORG_PROJECT }}
+      PR: ${{ github.event.pull_request.html_url }}
+
+    steps:
+      - name: Check out repo
+        uses: actions/checkout@b4ffde65f46336ab88eb53be808477a3936bae11 # v4.1.1
+
+      - name: Label as engineering
+        run: gh pr edit $PR --add-label engineering
+
+      - name: Add Docs Engineering as a reviewer
+        run: |
+          needs_review=$(
+            gh pr view $PR --json reviews |
+            jq '.reviews |
+            length == 0 or all(.author.login == "${{github.event.pull_request.user.login}}")'
+          )
+          if $needs_review
+          then
+            gh pr edit $PR --add-reviewer github/docs-engineering
+          fi

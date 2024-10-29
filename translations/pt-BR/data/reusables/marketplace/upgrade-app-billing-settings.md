@@ -1,1 +1,0 @@
-1. Ao lado do aplicativo que você deseja atualizar, use o menu suspenso **Editar** e clique em **Alterar plano**. ![Editar menu suspenso na seção de Compras no Mercado das configurações de faturamento da sua conta pessoal](/assets/images/help/marketplace/marketplace-edit-app-billing-settings.png)

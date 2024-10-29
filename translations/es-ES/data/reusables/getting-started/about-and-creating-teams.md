@@ -1,3 +1,0 @@
-Los equipos son grupos de miembros de una organización que puedes crear para reflejar la estructura de tu empresa o grupo con menciones y permisos de acceso en cascada. Los miembros de una organización pueden enviar notificaciones a un equipo o solicitar revisiones y los equipos pueden ser visibles o secretos. Para obtener más información, consulta la sección "[Acerca de los equipos](/organizations/organizing-members-into-teams/about-teams)".
-
-Puedes crear equipos independientes o tener niveles múltiples de equipos anidados para reflejar la jerarquía de tu grupo o compañía. Para obtener más información, consulta la sección "[Crear un equipo](/organizations/organizing-members-into-teams/creating-a-team)".

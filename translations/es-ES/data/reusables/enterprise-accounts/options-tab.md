@@ -1,1 +1,0 @@
-1. Debajo de {% ifversion ghes or ghae %} {% octicon "law" aria-label="The law icon" %} **Políticas**{% else %}"{% octicon "gear" aria-label="The Settings gear" %} Configuración"{% endif %}, da clic en **Opciones**. ![Pestaña Options (Opciones) en la barra lateral de parámetros de la cuenta de empresa](/assets/images/enterprise/business-accounts/settings-options-tab.png)

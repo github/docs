@@ -1,9 +1,8 @@
 user_migrations_intro: >-
-  You can use this API to review, backup, or migrate your user data stored on {% data variables.product.product_name %}.com.
+  You can use these endpoints to review, backup, or migrate your user data stored on {% data variables.product.prodname_dotcom_the_website %}.
 organization_migrations_intro: >-
-  The organization migrations API lets you move a repository from {% data variables.product.prodname_dotcom_the_website %} to {% data variables.product.prodname_ghe_server %}. For more information, see "[Exporting migration data from GitHub.com](/enterprise-server@latest/admin/user-management/migrating-data-to-and-from-your-enterprise/exporting-migration-data-from-githubcom)" in the {% data variables.product.prodname_ghe_server %} documentation.
+  You can use these endpoints to export one or more repositories so you can move them to a{% ifversion ghes %}nother{% endif %} {% data variables.product.prodname_ghe_server %} instance. For more information, see "[AUTOTITLE](/migrations/using-ghe-migrator/exporting-migration-data-from-githubcom)."
 source_imports_intro: >-
-  The Source Import API lets you start an import from a Git, Subversion,
-  Mercurial, or Team Foundation Version Control source repository. This is the same
+  You can use these endpoints to start an import from a Git repository hosted with another service. This is the same
   functionality as the {% data variables.product.prodname_dotcom %}
-  Importer. For more information, see "[Importing a repository with {% data variables.product.prodname_dotcom %} Importer](/github/importing-your-projects-to-github/importing-a-repository-with-github-importer)."
+  Importer. For more information, see "[AUTOTITLE](/migrations/importing-source-code/using-github-importer/importing-a-repository-with-github-importer)."

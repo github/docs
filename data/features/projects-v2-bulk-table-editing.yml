@@ -1,0 +1,6 @@
+# Issue 9957
+# Projects V2 - bulk editing tools for tables
+versions:
+  fpt: '*'
+  ghec: '*'
+  ghes: '>=3.10'

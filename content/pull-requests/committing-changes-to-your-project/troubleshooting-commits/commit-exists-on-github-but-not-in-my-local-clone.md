@@ -8,7 +8,6 @@ redirect_from:
 versions:
   fpt: '*'
   ghes: '*'
-  ghae: '*'
   ghec: '*'
 shortTitle: Commit missing in local clone
 ---
@@ -21,9 +20,9 @@ $ git show 1095ff3d0153115e75b7bca2c09e5136845b5592
 > fatal: bad object 1095ff3d0153115e75b7bca2c09e5136845b5592
 ```
 
-However, when you view the commit on {% data variables.product.product_location %}, you'll be able to see it without any problems:
+However, when you view the commit on {% data variables.location.product_location %}, you'll be able to see it without any problems:
 
-`github.com/$account/$repository/commit/1095ff3d0153115e75b7bca2c09e5136845b5592`
+`github.com/ACCOUNT/REPOSITORY/commit/1095ff3d0153115e75b7bca2c09e5136845b5592`
 
 There are several possible explanations:
 
@@ -36,7 +35,7 @@ There are several possible explanations:
 Your local repository may not have the commit yet. To get information from your remote repository to your local clone, use `git fetch`:
 
 ```shell
-$ git fetch <em>remote</em>
+git fetch REMOTE
 ```
 
 This safely copies information from the remote repository to your local clone without making any changes to the files you have checked out.
@@ -44,7 +43,7 @@ You can use `git fetch upstream` to get information from a repository you've for
 
 {% tip %}
 
-**Tip**: For more information, read about [managing remotes and fetching data](https://git-scm.com/book/en/Git-Basics-Working-with-Remotes) in the [Pro Git](https://git-scm.com/book) book.
+**Tip**: For more information, read about [managing remotes and fetching data](https://git-scm.com/book/en/v2/Git-Basics-Working-with-Remotes) in the [Pro Git](https://git-scm.com/book) book.
 
 {% endtip %}
 
@@ -64,7 +63,7 @@ the commit.  This might be tracking the branch that was force pushed or deleted
 and they simply haven't updated yet.  To preserve the commit, they can push that
 local branch to a new branch (call it `recover-B`) on {% data variables.product.product_name %}.  For this example,
 let's assume they have a remote named `upstream` via which they have push access
-to `github.com/$account/$repository`.
+to `github.com/ACCOUNT/REPOSITORY`.
 
 The other person runs:
 
@@ -75,7 +74,7 @@ $ git push upstream B:recover-B
 # Push local B to new upstream branch, creating new reference to commit
 ```
 
-Now, *you* can run:
+Now, _you_ can run:
 
 ```shell
 $ git fetch upstream recover-B
@@ -84,9 +83,9 @@ $ git fetch upstream recover-B
 
 ## Avoid force pushes
 
-Avoid force pushing to a repository unless absolutely necessary. This is especially true if more than one person can push to the repository.
+Avoid force pushing to a repository unless absolutely necessary. This is especially true if more than one person can push to the repository. If someone force pushes to a repository, the force push may overwrite commits that other people based their work on. Force pushing changes the repository history and can corrupt pull requests.
 
 ## Further reading
 
-- ["Working with Remotes" from the _Pro Git_ book](https://git-scm.com/book/en/Git-Basics-Working-with-Remotes)
-- ["Data Recovery" from the _Pro Git_ book](https://git-scm.com/book/en/Git-Internals-Maintenance-and-Data-Recovery)
+* ["Working with Remotes" from the _Pro Git_ book](https://git-scm.com/book/en/v2/Git-Basics-Working-with-Remotes)
+* ["Data Recovery" from the _Pro Git_ book](https://git-scm.com/book/en/v2/Git-Internals-Maintenance-and-Data-Recovery)

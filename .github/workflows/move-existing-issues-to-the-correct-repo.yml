@@ -7,28 +7,32 @@ name: Move existing issues to correct docs repo
 on:
   workflow_dispatch:
 
+permissions:
+  contents: read
+
 jobs:
   transfer_issues:
     runs-on: ubuntu-latest
+    if: github.repository == 'github/docs-internal'
     steps:
       - id: move_to_correct_repo
-        uses: actions/github-script@2b34a689ec86a68d8ab9478298f91d5401337b7d
+        uses: actions/github-script@e69ef5462fd455e02edcaf4dd7708eda96b9eda0
         env:
           TEAM_ENGINEERING_REPO: ${{ secrets.TEAM_ENGINEERING_REPO }}
           TEAM_CONTENT_REPO: ${{ secrets.TEAM_CONTENT_REPO }}
         with:
-          github-token: ${{ secrets.DOCUBOT_READORG_REPO_WORKFLOW_SCOPES }}
+          github-token: ${{ secrets.DOCS_BOT_PAT_WORKFLOW_READORG }}
           script: |
             const owner = 'github'
             const originalRepo = 'docs-internal'
-            let correctRepo = process.env.TEAM_ENGINEERING_REPO 
+            let correctRepo = process.env.TEAM_ENGINEERING_REPO
 
-            const correctRepoObject = await github.repos.get({
+            const correctRepoObject = await github.rest.repos.get({
               owner: owner,
               repo: correctRepo
             })
 
-            const allIssues = await github.paginate(github.issues.listForRepo, {
+            const allIssues = await github.paginate(github.rest.issues.listForRepo, {
               owner: owner,
               repo: originalRepo,
               per_page: 100,
@@ -55,18 +59,18 @@ jobs:
                     }
                   }
                 }`
-                
+
                 const variables = {
                   id: issueNodeId,
                   repositoryId: correctRepositoryNodeId
                 }
-                
+
                 const graph = await github.graphql(mutation, variables)
                 console.log('GraphQL mutation result:\n' + JSON.stringify(graph))
-                
+
                 // Add the same labels to the new issue
                 const newIssueNumber = graph.transferIssue.issue.number
-                await github.issues.addLabels({
+                await github.rest.issues.addLabels({
                   owner: owner,
                   repo: correctRepo,
                   issue_number: newIssueNumber,

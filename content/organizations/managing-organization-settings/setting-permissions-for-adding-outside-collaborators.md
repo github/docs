@@ -1,15 +1,12 @@
 ---
 title: Setting permissions for adding outside collaborators
-intro: 'To protect your organization''s data and the number of paid licenses used in your organization, you can allow only owners to invite outside collaborators to organization repositories.'
-product: '{% data reusables.gated-features.restrict-add-collaborator %}'
+intro: 'To protect your organization''s data and the number of paid licenses used in your organization, you can configure who can add outside collaborators to organization repositories.'
 redirect_from:
-  - /articles/restricting-the-ability-to-add-outside-collaborators-to-organization-repositories/
+  - /articles/restricting-the-ability-to-add-outside-collaborators-to-organization-repositories
   - /articles/setting-permissions-for-adding-outside-collaborators
   - /github/setting-up-and-managing-organizations-and-teams/setting-permissions-for-adding-outside-collaborators
 versions:
-  fpt: '*'
   ghes: '*'
-  ghae: '*'
   ghec: '*'
 topics:
   - Organizations
@@ -17,13 +14,26 @@ topics:
 shortTitle: Set collaborator policy
 ---
 
-Organization owners, and members with admin privileges for a repository, can invite outside collaborators to work on the repository. You can also restrict outside collaborator invite permissions to only organization owners.
+{% data reusables.enterprise-managed.repo-collaborators-note %}
+
+{% data reusables.organizations.about-outside-collaborators %} For more information, see "[AUTOTITLE](/organizations/managing-user-access-to-your-organizations-repositories/managing-outside-collaborators/adding-outside-collaborators-to-repositories-in-your-organization)."
+
+By default, anyone with admin access to a repository can invite outside collaborators to work on the repository. You can choose to restrict the ability to add outside collaborators to organization owners only.
+
+{% ifversion ghec %}
+{% note %}
+
+**Note:** Only organizations that use {% data variables.product.prodname_ghe_cloud %} can restrict the ability to invite outside collaborators to organization owners. {% data reusables.enterprise.link-to-ghec-trial %}
+
+{% endnote %}
+{% endif %}
+
+{% ifversion ghec %}If your organization is owned by an enterprise account, you{% else %}You{% endif %} may not be able to configure this setting for your organization, if an enterprise owner has set a policy at the enterprise level. For more information, see "[Enforcing repository management policies in your enterprise]{% ifversion ghec %}(/admin/policies/enforcing-policies-for-your-enterprise/enforcing-repository-management-policies-in-your-enterprise#enforcing-a-policy-for-inviting-collaborators-to-repositories)"{% else %}(/admin/policies/enforcing-policies-for-your-enterprise/enforcing-repository-management-policies-in-your-enterprise#enforcing-a-policy-for-inviting-outside-collaborators-to-repositories){% endif %}."
 
 {% data reusables.organizations.outside-collaborators-use-seats %}
 
 {% data reusables.profile.access_org %}
 {% data reusables.profile.org_settings %}
 {% data reusables.organizations.member-privileges %}
-5. Under "Repository invitations", select **Allow members to invite outside collaborators to repositories for this organization**.
-  ![Checkbox to allow members to invite outside collaborators to organization repositories](/assets/images/help/organizations/repo-invitations-checkbox-updated.png)
-6. Click **Save**.
+1. Under "Repository outside collaborators", deselect **Allow repository administrators to invite outside collaborators to repositories for this organization**.
+1. Click **Save**.

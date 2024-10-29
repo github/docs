@@ -1,1 +1,0 @@
-By default, {% data variables.product.product_name %} stores build logs and artifacts for 90 days, and this retention period can be customized. 更多信息请参阅“[使用限制、计费和管理](/actions/reference/usage-limits-billing-and-administration#artifact-and-log-retention-policy)”。

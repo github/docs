@@ -1,0 +1,3 @@
+These endpoints are only available to authenticated members of the team's [organization](/rest/orgs). OAuth access tokens require the `read:org` [scope](/apps/oauth-apps/building-oauth-apps/scopes-for-oauth-apps). {% data variables.product.prodname_dotcom %} generates the team's `slug` from the team `name`.
+
+Where `pull` and `push` permissions are accepted, these will map to the **Read** and **Write** roles for an organization repository. For more information about repository roles, see "[AUTOTITLE](/organizations/managing-user-access-to-your-organizations-repositories/managing-repository-roles/repository-roles-for-an-organization)."

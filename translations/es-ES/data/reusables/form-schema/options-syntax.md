@@ -1,5 +1,0 @@
-Para cada valor en el arreglo de `options`, puedes configurar las siguientes claves.
-
-| Clave      | Descripción                                                                                                                                                                           | Requerido | Type      | Predeterminado                                  | Opciones                                        |
-| ---------- | ------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------- | --------- | --------- | ----------------------------------------------- | ----------------------------------------------- |
-| `etiqueta` | El identificador para la opción, el cual se muestra en el formato. Hay compatibilidad con lenguaje de marcado para formateo de texto en itálicas o negritas y para los hipervínculos. | Requerido | Secuencia | {% octicon "dash" aria-label="The dash icon" %} | {% octicon "dash" aria-label="The dash icon" %} | 

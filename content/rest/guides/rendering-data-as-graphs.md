@@ -2,34 +2,33 @@
 title: Rendering data as graphs
 intro: Learn how to visualize the programming languages from your repository using the D3.js library and Ruby Octokit.
 redirect_from:
-  - /guides/rendering-data-as-graphs/
+  - /guides/rendering-data-as-graphs
   - /v3/guides/rendering-data-as-graphs
 versions:
   fpt: '*'
   ghes: '*'
-  ghae: '*'
   ghec: '*'
 topics:
   - API
 ---
- 
+
 
 
 In this guide, we're going to use the API to fetch information about repositories
 that we own, and the programming languages that make them up. Then, we'll
-visualize that information in a couple of different ways using the [D3.js][D3.js] library. To
-interact with the {% ifversion fpt or ghec %}{% data variables.product.prodname_dotcom %}{% else %}{% data variables.product.product_name %}{% endif %} API, we'll be using the excellent Ruby library, [Octokit][Octokit].
+visualize that information in a couple of different ways using the [D3.js](https://d3js.org/) library. To
+interact with the {% ifversion fpt or ghec %}{% data variables.product.prodname_dotcom %}{% else %}{% data variables.product.product_name %}{% endif %} API, we'll be using the excellent Ruby library, [Octokit](https://github.com/octokit/octokit.rb).
 
-If you haven't already, you should read the ["Basics of Authentication"][basics-of-authentication]
-guide before starting this example. You can find the complete source code for this project in the [platform-samples][platform samples] repository.
+If you haven't already, you should read the "[Basics of Authentication](/apps/oauth-apps/building-oauth-apps/authenticating-to-the-rest-api-with-an-oauth-app)"
+guide before starting this example. You can find the complete source code for this project in the [platform-samples](https://github.com/github/platform-samples/tree/master/api/ruby/rendering-data-as-graphs) repository.
 
 Let's jump right in!
 
-## Setting up an OAuth application
+## Setting up an {% data variables.product.prodname_oauth_app %}
 
-First, [register a new application][new oauth application] on {% data variables.product.product_name %}. Set the main and callback
-URLs to `http://localhost:4567/`. As [before][basics-of-authentication], we're going to handle authentication for the API by
-implementing a Rack middleware using [sinatra-auth-github][sinatra auth github]:
+First, [register a new application](https://github.com/settings/applications/new) on {% data variables.product.product_name %}. Set the main and callback
+URLs to `http://localhost:4567/`. As [before](/apps/oauth-apps/building-oauth-apps/authenticating-to-the-rest-api-with-an-oauth-app), we're going to handle authentication for the API by
+implementing a Rack middleware using [sinatra-auth-github](https://github.com/atmos/sinatra_auth_github):
 
 ``` ruby
 require 'sinatra/auth/github'
@@ -83,7 +82,7 @@ run Example::MyGraphApp
 ## Fetching repository information
 
 This time, in order to talk to the {% ifversion fpt or ghec %}{% data variables.product.prodname_dotcom %}{% else %}{% data variables.product.product_name %}{% endif %} API, we're going to use the [Octokit
-Ruby library][Octokit]. This is much easier than directly making a bunch of
+Ruby library](https://github.com/octokit/octokit.rb). This is much easier than directly making a bunch of
 REST calls. Plus, Octokit was developed by a GitHubber, and is actively maintained,
 so you know it'll work.
 
@@ -141,7 +140,7 @@ our counts into D3 to get a neat bar graph representing the popularity of the la
 
 D3.js, or just D3, is a comprehensive library for creating many kinds of charts, graphs, and interactive visualizations.
 Using D3 in detail is beyond the scope of this guide, but for a good introductory article,
-check out ["D3 for Mortals"][D3 mortals].
+check out "[D3 for Mortals](http://recursion.org/d3-for-mere-mortals/)."
 
 D3 is a JavaScript library, and likes working with data as arrays. So, let's convert our Ruby hash into
 a JSON array for use by JavaScript in the browser.
@@ -258,7 +257,7 @@ a repository that combines several languages, the one with the most bytes of cod
 is considered to be the primary language.
 
 Let's combine a few API calls to get a _true_ representation of which language
-has the greatest number of bytes written across all our code. A [treemap][D3 treemap]
+has the greatest number of bytes written across all our code. A [treemap](https://www.d3-graph-gallery.com/treemap.html)
 should be a great way to visualize the sizes of our coding languages used, rather
 than simply the count. We'll need to construct an array of objects that looks
 something like this:
@@ -271,7 +270,7 @@ something like this:
 ```
 
 Since we already have a list of repositories above, let's inspect each one, and
-call [the language listing API method][language API]:
+call the [GET /repos/{owner}/{repo}/languages endpoint](/rest/repos/repos#list-repository-languages):
 
 ``` ruby
 repos.each do |repo|
@@ -303,7 +302,7 @@ end
 language_bytes = [ :name => "language_bytes", :elements => language_byte_count]
 ```
 
-(For more information on D3 tree map magic, check out [this simple tutorial][language API].)
+(For more information on D3 tree map magic, check out [this simple tutorial](/rest/repos/repos#list-repository-languages).)
 
 To wrap up, we pass this JSON information over to the same ERB template:
 
@@ -366,15 +365,3 @@ Et voila! Beautiful rectangles containing your repo languages, with relative
 proportions that are easy to see at a glance. You might need to
 tweak the height and width of your treemap, passed as the first two
 arguments to `drawTreemap` above, to get all the information to show up properly.
-
-
-[D3.js]: http://d3js.org/
-[basics-of-authentication]: /rest/guides/basics-of-authentication
-[sinatra auth github]: https://github.com/atmos/sinatra_auth_github
-[Octokit]: https://github.com/octokit/octokit.rb
-[D3 mortals]: http://www.recursion.org/d3-for-mere-mortals/
-[D3 treemap]: https://www.d3-graph-gallery.com/treemap.html 
-[language API]: /rest/reference/repos#list-repository-languages
-[simple tree map]: http://2kittymafiasoftware.blogspot.com/2011/09/simple-treemap-visualization-with-d3.html
-[platform samples]: https://github.com/github/platform-samples/tree/master/api/ruby/rendering-data-as-graphs
-[new oauth application]: https://github.com/settings/applications/new

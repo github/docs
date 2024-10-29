@@ -1,0 +1,4 @@
+# Secret scanning: custom pattern dry run GA #7527
+versions:
+  ghec: '*'
+  ghes: '>3.6'

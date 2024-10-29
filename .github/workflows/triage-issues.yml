@@ -1,8 +1,8 @@
 name: Triage new issues
 
-# **What it does**:
-# **Why we have it**:
-# **Who does it impact**:
+# **What it does**: Add the 'triage' label to new issues in the open source repository.
+# **Why we have it**: We want to make sure that new issues are triaged and assigned to the right team.
+# **Who does it impact**: Docs open source.
 
 on:
   issues:
@@ -11,8 +11,8 @@ on:
       - opened
 
 permissions:
+  contents: read
   issues: write
-  repository-projects: write
 
 jobs:
   triage_issues:
@@ -20,13 +20,12 @@ jobs:
     runs-on: ubuntu-latest
 
     steps:
+      - name: Check out repo
+        uses: actions/checkout@b4ffde65f46336ab88eb53be808477a3936bae11 # v4.1.1
+
+      - uses: ./.github/actions/node-npm-setup
+
       - name: Label new issues with 'triage'
-        uses: andymckay/labeler@e6c4322d0397f3240f0e7e30a33b5c5df2d39e90
+        uses: ./.github/actions/labeler
         with:
-          add-labels: 'triage'
-      - name: Triage to project board
-        uses: rachmari/actions-add-new-issue-to-column@1a459ef92308ba7c9c9dc2fcdd72f232495574a9
-        with:
-          action-token: ${{ secrets.GITHUB_TOKEN }}
-          project-url: 'https://github.com/github/docs/projects/1'
-          column-name: 'Triage'
+          addLabels: 'triage'

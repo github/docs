@@ -8,7 +8,6 @@ redirect_from:
 versions:
   fpt: '*'
   ghes: '*'
-  ghae: '*'
   ghec: '*'
 topics:
   - Identity
@@ -25,15 +24,22 @@ shortTitle: Existing GPG keys
 
 {% data reusables.command_line.open_the_multi_os_terminal %}
 {% data reusables.gpg.list-keys-with-note %}
-3. Check the command output to see if you have a GPG key pair.
-    * If there are no GPG key pairs or you don't want to use any that are available for signing commits and tags, then [generate a new GPG key](/articles/generating-a-new-gpg-key).
-    * If there's an existing GPG key pair and you want to use it to sign commits and tags, then [add your GPG key to your GitHub account](/articles/adding-a-new-gpg-key-to-your-github-account).
+1. Check the command output to see if you have a GPG key pair.
+    * If there are no GPG key pairs or you don't want to use any that are available for signing commits and tags, then [generate a new GPG key](/authentication/managing-commit-signature-verification/generating-a-new-gpg-key).
+    * If there's an existing GPG key pair and you want to use it to sign commits and tags, you can display the public key using the following command, substituting in the GPG key ID you'd like to use. In this example, the GPG key ID is `3AA5C34371567BD2`:
+
+      ```shell
+      $ gpg --armor --export 3AA5C34371567BD2
+      # Prints the GPG key ID, in ASCII armor format
+      ```
+
+      You can then [add your GPG key to your GitHub account](/authentication/managing-commit-signature-verification/adding-a-gpg-key-to-your-github-account).
 
 ## Further reading
 
-* "[Generating a new GPG key](/articles/generating-a-new-gpg-key)"
-* "[Adding a new GPG key to your GitHub account](/articles/adding-a-new-gpg-key-to-your-github-account)"
-* "[Telling Git about your signing key](/articles/telling-git-about-your-signing-key)"
-* "[Associating an email with your GPG key](/articles/associating-an-email-with-your-gpg-key)"
-* "[Signing commits](/articles/signing-commits)"
-* "[Signing tags](/articles/signing-tags)"
+* "[AUTOTITLE](/authentication/managing-commit-signature-verification/generating-a-new-gpg-key)"
+* "[AUTOTITLE](/authentication/managing-commit-signature-verification/adding-a-gpg-key-to-your-github-account)"
+* "[AUTOTITLE](/authentication/managing-commit-signature-verification/telling-git-about-your-signing-key)"
+* "[AUTOTITLE](/authentication/managing-commit-signature-verification/associating-an-email-with-your-gpg-key)"
+* "[AUTOTITLE](/authentication/managing-commit-signature-verification/signing-commits)"
+* "[AUTOTITLE](/authentication/managing-commit-signature-verification/signing-tags)"

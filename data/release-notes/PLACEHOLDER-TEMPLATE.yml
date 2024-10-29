@@ -1,0 +1,203 @@
+date: '2099-12-31'
+release_candidate: true
+deprecated: false
+intro: |
+  > [!NOTE] Release candidate (RC) builds are intended solely for use in a test environment. Do not install an RC in a production environment.
+  >
+  > Do not upgrade to an RC from a supported, earlier version.
+  >
+  > If {% data variables.location.product_location %} is running an RC, you cannot upgrade to the general availability (GA) release. You also cannot upgrade with a hotpatch.
+
+  For upgrade instructions, see "[AUTOTITLE](/admin/upgrading-your-instance/preparing-to-upgrade/overview-of-the-upgrade-process)."
+sections:
+  # Remove section heading if the section contains no notes.
+
+  features:
+    # Remove a sub-section heading if the heading contains no notes. If sections
+    # that regularly recur are missing, add placeholders to this template.
+
+    - heading: Instance administration
+      notes:
+        # LINK TO RELEASE ISSUE
+        - |
+          ...
+
+    - heading: Instance services
+      notes:
+        # LINK TO RELEASE ISSUE
+        - |
+          ...
+
+    - heading: Identity and access management
+      notes:
+        # LINK TO RELEASE ISSUE
+        - |
+          ...
+
+    - heading: Authentication
+      notes:
+        # LINK TO RELEASE ISSUE
+        - |
+          ...
+
+    - heading: Migrations
+      notes:
+        # LINK TO RELEASE ISSUE
+        - |
+          ...
+
+    - heading: Policies
+      notes:
+        # LINK TO RELEASE ISSUE
+        - |
+          ...
+
+    - heading: Audit logs
+      notes:
+        # LINK TO RELEASE ISSUE
+        - |
+          ...
+
+    - heading: GitHub Connect
+      notes:
+        # LINK TO RELEASE ISSUE
+        - |
+          ...
+
+    - heading: GitHub Advanced Security
+      notes:
+        # LINK TO RELEASE ISSUE
+        - |
+          ...
+
+    - heading: Dependabot
+      notes:
+        # LINK TO RELEASE ISSUE
+        - |
+          ...
+
+    - heading: Code security
+      notes:
+        # LINK TO RELEASE ISSUE
+        - |
+          ...
+
+    - heading: GitHub Actions
+      notes:
+        # Required Actions Runner version
+        - |
+          {% data reusables.actions.actions-runner-release-note %}
+        # LINK TO RELEASE ISSUE
+        - |
+          ...
+
+    - heading: GitHub Packages
+      notes:
+        # LINK TO RELEASE ISSUE
+        - |
+          ...
+
+    - heading: GitHub Pages
+      notes:
+        # LINK TO RELEASE ISSUE
+        - |
+          ...
+
+    - heading: Community experience
+      notes:
+        # LINK TO RELEASE ISSUE
+        - |
+          ...
+
+    - heading: Organizations
+      notes:
+        # LINK TO RELEASE ISSUE
+        - |
+          ...
+
+    - heading: Repositories
+      notes:
+        # LINK TO RELEASE ISSUE
+        - |
+          ...
+
+    - heading: Issues
+      notes:
+        # LINK TO RELEASE ISSUE
+        - |
+          ...
+
+    - heading: Projects
+      notes:
+        # LINK TO RELEASE ISSUE
+        - |
+          ...
+
+    - heading: GitHub Discussions
+      notes:
+        # LINK TO RELEASE ISSUE
+        - |
+          ...
+
+    - heading: Commits
+      notes:
+        # LINK TO RELEASE ISSUE
+        - |
+          ...
+
+    - heading: Pull requests
+      notes:
+        # LINK TO RELEASE ISSUE
+        - |
+          ...
+
+    - heading: Releases
+      notes:
+        # LINK TO RELEASE ISSUE
+        - |
+          ...
+
+    - heading: Gist
+      notes:
+        # LINK TO RELEASES ISSUE
+        - |
+          ...
+
+    - heading: Markdown
+      notes:
+        # LINK TO RELEASE ISSUE
+        - |
+          ...
+
+    - heading: Accessibility
+      notes:
+        # LINK TO RELEASE ISSUE
+        - |
+          ...
+
+    - heading: GitHub Mobile
+      notes:
+        # LINK TO RELEASE ISSUE
+        - |
+          ...
+
+    - heading: Integrations and extensions
+      notes:
+        # LINK TO RELEASE ISSUE
+        - |
+          ...
+
+  changes:
+    # LINK TO RELEASE ISSUE
+    - |
+      ...
+
+  known_issues:
+    # INCLUDE NOTES FOR RELEASE FROM "GHES Release Note Tracking" PROJECT'S "Known Issues" TAB
+    - |
+      ...
+
+  deprecations:
+    # LINK TO RELEASE ISSUE
+    - |
+      ...

@@ -1,6 +1,6 @@
 ---
 title: About forks
-intro: A fork is a copy of a repository that you manage. Forks let you make changes to a project without affecting the original repository. You can fetch updates from or submit changes to the original repository with pull requests.
+intro: A fork is a new repository that shares code and visibility settings with the original “upstream” repository.
 redirect_from:
   - /github/collaborating-with-issues-and-pull-requests/working-with-forks/about-forks
   - /articles/about-forks
@@ -9,37 +9,52 @@ redirect_from:
 versions:
   fpt: '*'
   ghes: '*'
-  ghae: '*'
   ghec: '*'
 topics:
   - Pull requests
 ---
-Forking a repository is similar to copying a repository, with two major differences:
 
-* You can use a pull request to suggest changes from your user-owned fork to the original repository, also known as the *upstream* repository.
-* You can bring changes from the upstream repository to your local fork by synchronizing your fork with the upstream repository.
+## About forks
+
+{% data reusables.repositories.about-forks %} A fork can exist in either a personal account or an organization.
+
+When you view a forked repository on {% data variables.product.product_name %}, the upstream repository is indicated below the name of the fork.
+
+![Screenshot of a repository's page on GitHub. Below the name of the repository, "mona/docs", the text "forked from github/docs" is outlined in orange.](/assets/images/help/pull_requests/fork-path.png)
+
+In open source projects, forks are often used to iterate on ideas or changes before incorporating the changes into the upstream repository. {% data reusables.repositories.about-giving-access-to-forks %}
+
+Deleting a fork will not delete the original upstream repository. Code pushed to a fork will be visible from the upstream, but changes won't have any immediate effect on the upstream branches. For example, you can add collaborators, rename files, or generate {% data variables.product.prodname_pages %} on the fork without affecting the upstream branches. {% ifversion fpt or ghec %} After a fork is deleted, you cannot restore the fork. For more information, see "[AUTOTITLE](/repositories/creating-and-managing-repositories/restoring-a-deleted-repository)."{% endif %} If you delete a private repository, all forks of the repository are deleted.
+
+{% data reusables.repositories.forks-page %}
+
+## About creating forks
 
 {% data reusables.repositories.you-can-fork %}
 
-{% ifversion fpt or ghec %}
+For instructions for forking a repository, see "[AUTOTITLE](/pull-requests/collaborating-with-pull-requests/working-with-forks/fork-a-repo)." For more information about when you can create forks, and the permission and visibility settings of forks, see "[AUTOTITLE](/pull-requests/collaborating-with-pull-requests/working-with-forks/about-permissions-and-visibility-of-forks)."
 
-If you're a member of a {% data variables.product.prodname_emu_enterprise %}, there are further restrictions on the repositories you can fork. {% data reusables.enterprise-accounts.emu-forks %} For more information, see "[About {% data variables.product.prodname_emus %}](/enterprise-cloud@latest/admin/authentication/managing-your-enterprise-users-with-your-identity-provider/about-enterprise-managed-users){% ifversion fpt %}" in the {% data variables.product.prodname_ghe_cloud %} documentation.{% else %}."{% endif %}
+{% tip %}
 
-{% endif %}
+**Tip:** {% data reusables.repositories.desktop-fork %}
 
-{% data reusables.repositories.desktop-fork %}
+{% endtip %}
 
-Deleting a fork will not delete the original upstream repository. You can make any changes you want to your fork—add collaborators, rename files, generate {% data variables.product.prodname_pages %}—with no effect on the original.{% ifversion fpt or ghec %} You cannot restore a deleted forked repository. For more information, see "[Restoring a deleted repository](/articles/restoring-a-deleted-repository)."{% endif %}
+## Forking a repository versus duplicating a repository
 
-In open source projects, forks are often used to iterate on ideas or changes before they are offered back to the upstream repository. When you make changes in your user-owned fork and open a pull request that compares your work to the upstream repository, you can give anyone with push access to the upstream repository permission to push changes to your pull request branch. This speeds up collaboration by allowing repository maintainers the ability to make commits or run tests locally to your pull request branch from a user-owned fork before merging. You cannot give push permissions to a fork owned by an organization.
+If you want to create a new repository from the contents of an existing repository but don't want to merge your changes to the upstream in the future, you can duplicate the repository or, if the repository is a template, you can use the repository as a template. For more information, see "[AUTOTITLE](/repositories/creating-and-managing-repositories/duplicating-a-repository)" and "[AUTOTITLE](/repositories/creating-and-managing-repositories/creating-a-repository-from-a-template)".
 
-{% data reusables.repositories.private_forks_inherit_permissions %}
+Forking a repository is similar to duplicating a repository, with the following differences.
 
-If you want to create a new repository from the contents of an existing repository but don't want to merge your changes upstream in the future, you can duplicate the repository or, if the repository is a template, use the repository as a template. For more information, see "[Duplicating a repository](/articles/duplicating-a-repository)" and "[Creating a repository from a template](/articles/creating-a-repository-from-a-template)".
+* Code pushed to a fork is visible to all repositories in the fork network, even after that fork is deleted.
+* You can use a pull request to suggest changes from your fork to the upstream repository.
+* You can bring changes from the upstream repository to your fork by synchronizing your fork with the upstream repository.
+* Forks have their own members, branches, tags, labels, policies, issues, pull requests, discussions, actions, projects, and wikis.
+* Forks inherit the restrictions of their upstream repositories. For example, branch protection rules cannot be passed down if the upstream repository belongs to an organization on a {% data variables.product.prodname_free_team %} plan.
 
 ## Further reading
 
-- "[About collaborative development models](/pull-requests/collaborating-with-pull-requests/getting-started/about-collaborative-development-models)"
-- "[Creating a pull request from a fork](/pull-requests/collaborating-with-pull-requests/proposing-changes-to-your-work-with-pull-requests/creating-a-pull-request-from-a-fork)"
-- [Open Source Guides](https://opensource.guide/){% ifversion fpt or ghec %}
-- [{% data variables.product.prodname_learning %}]({% data variables.product.prodname_learning_link %}){% endif %}
+* "[AUTOTITLE](/pull-requests/collaborating-with-pull-requests/getting-started/about-collaborative-development-models)"
+* "[AUTOTITLE](/pull-requests/collaborating-with-pull-requests/proposing-changes-to-your-work-with-pull-requests/creating-a-pull-request-from-a-fork)"
+* [Open Source Guides](https://opensource.guide/){% ifversion fpt or ghec %}
+* [{% data variables.product.prodname_learning %}]({% data variables.product.prodname_learning_link %}){% endif %}

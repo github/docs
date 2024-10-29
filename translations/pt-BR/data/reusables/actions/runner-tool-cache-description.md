@@ -1,1 +1,0 @@
-O caminho para o diretório que contém ferramentas pré-instaladas para executores hospedados em {% data variables.product.prodname_dotcom %}. Para obter mais informações, consulte "[Especificações para executores hospedados no {% data variables.product.prodname_dotcom %}](/actions/reference/specifications-for-github-hosted-runners/#supported-software)".

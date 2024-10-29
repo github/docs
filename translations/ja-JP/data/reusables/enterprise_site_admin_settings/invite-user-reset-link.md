@@ -1,1 +1,0 @@
-1. 作成したいそれぞれのユーザアカウントのユーザ名とメールアドレスを入力し、**Generate a password reset link（パスワードリセットリンクの生成）**をクリックしてください。 ![パスワードリセットリンクの生成ボタン](/assets/images/enterprise/site-admin-settings/generate-password-reset-link-button.png)

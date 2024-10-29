@@ -1,1 +1,0 @@
-Después de que publiques un paquete, puedes verlo en {% data variables.product.prodname_dotcom %}. Para obtener más información, consulta "[Visualizar paquetes](/packages/manage-packages/viewing-packages)".

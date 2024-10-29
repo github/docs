@@ -1,1 +1,1 @@
-Encrypted secrets allow you to store sensitive information, such as access tokens, in your repository{% ifversion fpt or ghes > 3.1 or ghae-next or ghec %}, repository environments,{% endif %} or organization.
+Secrets allow you to store sensitive information, such as access tokens, in your repository, repository environments, or organization.

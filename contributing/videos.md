@@ -1,0 +1,1 @@
+The content in the `contributing` directory has been deprecated. See "[Using videos in GitHub Docs](https://docs.github.com/en/contributing/writing-for-github-docs/using-videos-in-github-docs)" in the GitHub Docs for the maintained version of this article.

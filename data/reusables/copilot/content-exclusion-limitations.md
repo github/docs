@@ -1,0 +1,2 @@
+* In {% data variables.product.prodname_copilot_chat_short %} in {% data variables.product.prodname_vscode %} and {% data variables.product.prodname_vs %}, content exclusions are not applied when you use the `@github` chat participant in your question.
+* It's possible that {% data variables.product.prodname_copilot_short %} may use semantic information from an excluded file if the information is provided by the IDE in a non-excluded file. Examples of such content include type information and hover-over definitions for symbols used in code.

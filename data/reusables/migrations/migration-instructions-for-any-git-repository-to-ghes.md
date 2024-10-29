@@ -1,0 +1,1 @@
+If an expert-led migration isn't right for you, you can perform a "source and history" migration of the affected repositories instead. For more information, see "[Any Git repository to {% data variables.product.prodname_ghe_server %}](#any-git-repository-to-github-enterprise-server)."

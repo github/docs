@@ -1,7 +1,0 @@
----
-gist_homepage: >-
-  {% ifversion fpt or ghec %}[gistホームページ](https://gist.github.com/){% elsif ghae %}gistホームページ, `http(s)://gist.[hostname)`,{% else %}gistホームページ, `http(s)://[hostname]/gist`もしくはサブドメインが有効化されている場合は`http(s)://gist.[hostname]` {% endif %}
-gist_search_url: >-
-  {% ifversion fpt or ghec %}[Gist検索](https://gist.github.com/search){% elsif ghae %}Gist検索, `http(s)://gist.[hostname]/search`,{% else %}Gist検索, `http(s)://[hostname]/gist/search`もしくはサブドメインが有効化されている場合は`http(s)://gist.[hostname]/search`{% endif %}
-discover_url: >-
-  {% ifversion fpt or ghec %}[Discover](https://gist.github.com/discover){% elsif ghae %}Discover, `http(s)://gist.[hostname]/discover`,{% else %}Discover, `http(s)://[hostname]/gist/discover`もしくはサブドメインが有効化されている場合は`http(s)://gist.[hostname]/discover`{% endif %}

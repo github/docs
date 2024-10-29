@@ -1,0 +1,7 @@
+# Default setup for code scanning can now be enabled on any repository, including repositories that don't contain a
+# CodeQL-supported language, and scans will begin automatically if/when a CodeQL-supported language is added. This
+# versioning pairs with `default-setup-pre-enablement` and was created to future-proof GHES-specific sections.
+# Reference: #12363
+
+versions:
+  ghes: '>3.12'

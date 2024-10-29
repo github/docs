@@ -1,1 +1,0 @@
-1. 在“{% octicon "gear" aria-label="The Settings gear" %} Settings（设置）”下，单击 **Audit log（审核日志）**。 ![在企业帐户侧边栏中的 Audit log（审核日志）选项卡](/assets/images/help/business-accounts/enterprise-account-settings-audit-log-tab.png)

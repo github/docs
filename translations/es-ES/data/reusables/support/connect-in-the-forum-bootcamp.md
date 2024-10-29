@@ -1,1 +1,0 @@
-{% data variables.product.prodname_dotcom %} tiene una excelente comunidad de soporte en donde puedes pedir ayuda y hablar con las personas de todo el mundo. Únete a la conversación en la [Comunidad de soporte de GitHub](https://github.community/).

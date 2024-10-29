@@ -1,2 +1,11 @@
-translations/
-includes/
+data/release-notes/
+src/bookmarklets/
+src/open-source/scripts/add-pr-links.js
+/.next/
+
+/.coverage
+/coverage
+
+# Automated content source
+rest-api-description
+semmle-code

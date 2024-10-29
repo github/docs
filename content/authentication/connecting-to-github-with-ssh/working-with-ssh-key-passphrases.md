@@ -2,32 +2,34 @@
 title: Working with SSH key passphrases
 intro: You can secure your SSH keys and configure an authentication agent so that you won't have to reenter your passphrase every time you use your SSH keys.
 redirect_from:
-  - /ssh-key-passphrases/
-  - /working-with-key-passphrases/
+  - /ssh-key-passphrases
+  - /working-with-key-passphrases
   - /articles/working-with-ssh-key-passphrases
   - /github/authenticating-to-github/working-with-ssh-key-passphrases
   - /github/authenticating-to-github/connecting-to-github-with-ssh/working-with-ssh-key-passphrases
 versions:
   fpt: '*'
   ghes: '*'
-  ghae: '*'
   ghec: '*'
 topics:
   - SSH
 shortTitle: SSH key passphrases
 ---
-With SSH keys, if someone gains access to your computer, they also gain access to every system that uses that key. To add an extra layer of security, you can add a passphrase to your SSH key. You can use `ssh-agent` to securely save your passphrase so you don't have to reenter it.
+
+## About passphrases for SSH keys
+
+With SSH keys, if someone gains access to your computer, the attacker can gain access to every system that uses that key. To add an extra layer of security, you can add a passphrase to your SSH key. To avoid entering the passphrase every time you connect, you can securely save your passphrase in the SSH agent.
 
 ## Adding or changing a passphrase
 
 You can change the passphrase for an existing private key without regenerating the keypair by typing the following command:
 
 ```shell
-$ ssh-keygen -p -f ~/.ssh/id_{% ifversion ghae %}rsa{% else %}ed25519{% endif %}
-> Enter old passphrase: <em>[Type old passphrase]</em>
-> Key has comment '<em>your_email@example.com</em>'
-> Enter new passphrase (empty for no passphrase): <em>[Type new passphrase]</em>
-> Enter same passphrase again: <em>[Repeat the new passphrase]</em>
+$ ssh-keygen -p -f ~/.ssh/id_ed25519
+> Enter old passphrase: [Type old passphrase]
+> Key has comment 'your_email@example.com'
+> Enter new passphrase (empty for no passphrase): [Type new passphrase]
+> Enter same passphrase again: [Repeat the new passphrase]
 > Your identification has been saved with the new passphrase.
 ```
 
@@ -63,7 +65,7 @@ fi
 unset env
 ```
 
-If your private key is not stored in one of the default locations (like `~/.ssh/id_rsa`), you'll need to tell your SSH authentication agent where to find it. To add your key to ssh-agent, type `ssh-add ~/path/to/my_key`. For more information, see "[Generating a new SSH key and adding it to the ssh-agent](/articles/generating-a-new-ssh-key-and-adding-it-to-the-ssh-agent/)"
+If your private key is not stored in one of the default locations (like `~/.ssh/id_rsa`), you'll need to tell your SSH authentication agent where to find it. To add your key to ssh-agent, type `ssh-add ~/path/to/my_key`. For more information, see "[AUTOTITLE](/authentication/connecting-to-github-with-ssh/generating-a-new-ssh-key-and-adding-it-to-the-ssh-agent)"
 
 {% tip %}
 
@@ -76,9 +78,9 @@ Now, when you first run Git Bash, you are prompted for your passphrase:
 ```shell
 > Initializing new SSH agent...
 > succeeded
-> Enter passphrase for /c/Users/<em>you</em>/.ssh/id_rsa:
-> Identity added: /c/Users/<em>you</em>/.ssh/id_rsa (/c/Users/<em>you</em>/.ssh/id_rsa)
-> Welcome to Git (version <em>1.6.0.2-preview20080923</em>)
+> Enter passphrase for /c/Users/YOU/.ssh/id_rsa:
+> Identity added: /c/Users/YOU/.ssh/id_rsa (/c/Users/YOU/.ssh/id_rsa)
+> Welcome to Git (version 1.6.0.2-preview20080923)
 >
 > Run 'git help git' to display the help index.
 > Run 'git help <command>' to display help for specific commands.
@@ -94,15 +96,11 @@ The `ssh-agent` process will continue to run until you log out, shut down your c
 
 On Mac OS X Leopard through OS X El Capitan, these default private key files are handled automatically:
 
-- *.ssh/id_rsa*
-- *.ssh/identity*
+* _.ssh/id_rsa_
+* _.ssh/identity_
 
 The first time you use your key, you will be prompted to enter your passphrase. If you choose to save the passphrase with your keychain, you won't have to enter it again.
 
-Otherwise, you can store your passphrase in the keychain when you add your key to the ssh-agent. For more information, see "[Adding your SSH key to the ssh-agent](/articles/generating-a-new-ssh-key-and-adding-it-to-the-ssh-agent#adding-your-ssh-key-to-the-ssh-agent)."
+Otherwise, you can store your passphrase in the keychain when you add your key to the ssh-agent. For more information, see "[AUTOTITLE](/authentication/connecting-to-github-with-ssh/generating-a-new-ssh-key-and-adding-it-to-the-ssh-agent#adding-your-ssh-key-to-the-ssh-agent)."
 
 {% endmac %}
-
-## Further reading
-
-- "[About SSH](/articles/about-ssh)"

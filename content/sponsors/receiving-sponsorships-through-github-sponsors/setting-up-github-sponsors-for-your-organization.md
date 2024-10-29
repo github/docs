@@ -23,12 +23,13 @@ shortTitle: Set up for organization
 
 After you receive an invitation for your organization to join {% data variables.product.prodname_sponsors %}, you can complete the steps below to become a sponsored organization.
 
-To join {% data variables.product.prodname_sponsors %} as an individual contributor outside an organization, see "[Setting up {% data variables.product.prodname_sponsors %} for your user account](/sponsors/receiving-sponsorships-through-github-sponsors/setting-up-github-sponsors-for-your-user-account)."
+To join {% data variables.product.prodname_sponsors %} as an individual contributor outside an organization, see "[AUTOTITLE](/sponsors/receiving-sponsorships-through-github-sponsors/setting-up-github-sponsors-for-your-personal-account)."
 
 {% data reusables.sponsors.navigate-to-github-sponsors %}
 {% data reusables.sponsors.view-eligible-accounts %}
-3. To the right of your organization, click **Join the waitlist**.
+1. To the right of your organization, click **Join the waitlist**.
 {% data reusables.sponsors.contact-info %}
+{% data reusables.sponsors.payout-choice %}
 {% data reusables.sponsors.accept-legal-terms %}
 
 ## Completing your sponsored organization profile
@@ -59,28 +60,28 @@ To join {% data variables.product.prodname_sponsors %} as an individual contribu
 
 ## Submitting your bank information
 
-As a sponsored organization, you will receive payouts to a bank account in a supported region. This can be a dedicated bank account for your organization or a personal bank account. You can get a business bank account through services like [Stripe Atlas](https://stripe.com/atlas) or join a fiscal host like [Open Collective](https://opencollective.com/). The person setting up {% data variables.product.prodname_sponsors %} for the organization must live in the same supported region, too. {% data reusables.sponsors.stripe-supported-regions %}
+As a sponsored organization, you will receive payouts to a bank account in a supported region or via a fiscal host.
+
+{% data reusables.sponsors.bank-info-fiscal-host-reminder %} For more information about setting up and using fiscal hosts, see "[AUTOTITLE](/sponsors/receiving-sponsorships-through-github-sponsors/using-a-fiscal-host-to-receive-github-sponsors-payouts)."
+
+If you choose to receive payouts to a bank account, your bank account can be a dedicated bank account for your organization or a personal bank account. You can get a business bank account through services like [Stripe Atlas](https://stripe.com/atlas). The person setting up {% data variables.product.prodname_sponsors %} for the organization must live in the same supported region, too. {% data reusables.sponsors.stripe-supported-regions %}
 
 {% data reusables.sponsors.double-check-stripe-info %}
 
 {% data reusables.sponsors.navigate-to-sponsors-dashboard %}
 {% data reusables.sponsors.create-stripe-account %}
 
-For more information about setting up Stripe Connect using Open Collective, see [Setting up {% data variables.product.prodname_sponsors %}](https://docs.opencollective.com/help/collectives/github-sponsors) in the Open Collective Docs.
-
 ## Submitting your tax information
 
 {% data reusables.sponsors.tax-form-information-org %}
 
 {% data reusables.sponsors.navigate-to-sponsors-dashboard %}
-{% data reusables.sponsors.settings-tab %}
-{% data reusables.sponsors.country-of-residence %}
 {% data reusables.sponsors.overview-tab %}
 {% data reusables.sponsors.tax-form-link %}
 
 ## Enabling two-factor authentication (2FA) on your {% data variables.product.prodname_dotcom %} account
 
-Before your organization can become a sponsored organization, you must enable 2FA for your account on {% data variables.product.product_location %}. For more information, see "[Configuring two-factor authentication](/articles/configuring-two-factor-authentication)."
+Before your organization can become a sponsored organization, you must enable 2FA for your account on {% data variables.product.prodname_dotcom %}. For more information, see "[AUTOTITLE](/authentication/securing-your-account-with-two-factor-authentication-2fa/configuring-two-factor-authentication)."
 
 ## Submitting your application to {% data variables.product.prodname_dotcom %} for approval
 
@@ -90,5 +91,6 @@ Before your organization can become a sponsored organization, you must enable 2F
 {% data reusables.sponsors.github-review-app %}
 
 ## Further reading
-- "[About {% data variables.product.prodname_sponsors %}](/sponsors/getting-started-with-github-sponsors/about-github-sponsors)"
-- "[Receiving sponsorships through {% data variables.product.prodname_sponsors %}](/sponsors/receiving-sponsorships-through-github-sponsors)"
+
+* "[AUTOTITLE](/sponsors/getting-started-with-github-sponsors/about-github-sponsors)"
+* "[AUTOTITLE](/sponsors/receiving-sponsorships-through-github-sponsors)"

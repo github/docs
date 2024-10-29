@@ -3,8 +3,7 @@ title: 'Error: Unknown key type'
 intro: 'This error means that the SSH key type you used was unrecognized or is unsupported by your SSH client. '
 versions:
   fpt: '*'
-  ghes: '>=3.2'
-  ghae: next
+  ghes: '*'
   ghec: '*'
 topics:
   - SSH
@@ -31,8 +30,8 @@ If you remove OpenSSH, the passphrases that are stored in your keychain will onc
 {% endwarning %}
 
 1. Open Terminal.
-2. Enter the command `brew install openssh`.
-3. Quit and relaunch Terminal.
-4. Try the procedure for generating a new SSH key again. For more information, see "[Generating a new SSH key and adding it to the ssh-agent](/github/authenticating-to-github/generating-a-new-ssh-key-and-adding-it-to-the-ssh-agent#generating-a-new-ssh-key-for-a-hardware-security-key)."
+1. Enter the command `brew install openssh`.
+1. Quit and relaunch Terminal.
+1. Try the procedure for generating a new SSH key again. For more information, see "[AUTOTITLE](/authentication/connecting-to-github-with-ssh/generating-a-new-ssh-key-and-adding-it-to-the-ssh-agent#generating-a-new-ssh-key-for-a-hardware-security-key)."
 
 {% endmac %}{% linux %}To solve this issue on Linux, use the package manager for your Linux distribution to install a new version of OpenSSH, or compile a new version from source. If you install a different version of OpenSSH, the ability of other applications to authenticate via SSH may be affected. For more information, review the documentation for your distribution.{% endlinux %}

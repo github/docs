@@ -1,0 +1,6 @@
+# Reference: #10144.
+# Advisory Database + Dependency Graph + Dependabot Alerts support Swift [GA]
+versions:
+  fpt: '*'
+  ghec: '*'
+  ghes: '>=3.10'

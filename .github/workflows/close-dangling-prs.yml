@@ -1,0 +1,40 @@
+name: Close dangling PRs
+
+# **What it does**: Searches for specific PRs that have been open for a certain number of days and closes them.
+# **Why we have it**: Tidying up so humans don't need to do it.
+# **Who does it impact**: docs-engineering
+
+on:
+  workflow_dispatch:
+  schedule:
+    - cron: '20 16 * * *' # Run every day at 16:20 UTC / 8:20 PST
+  pull_request:
+    paths:
+      - .github/workflows/close-dangling-prs.yml
+      - src/workflows/close-dangling-prs.ts
+
+permissions:
+  contents: read
+  pull-requests: write
+
+jobs:
+  close-dangling-prs:
+    if: github.repository == 'github/docs-internal'
+    runs-on: ubuntu-latest
+    steps:
+      - name: Check out repo
+        uses: actions/checkout@b4ffde65f46336ab88eb53be808477a3936bae11 # v4.1.1
+
+      - uses: ./.github/actions/node-npm-setup
+
+      - name: Close dangling PRs
+        env:
+          GITHUB_TOKEN: ${{ secrets.DOCS_BOT_PAT_READPUBLICKEY }}
+          DRY_RUN: ${{ github.event_name == 'pull_request'}}
+        run: npm run close-dangling-prs
+
+      - uses: ./.github/actions/slack-alert
+        if: ${{ failure() && github.event_name == 'schedule' }}
+        with:
+          slack_channel_id: ${{ secrets.DOCS_ALERTS_SLACK_CHANNEL_ID }}
+          slack_token: ${{ secrets.SLACK_DOCS_BOT_TOKEN }}

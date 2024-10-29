@@ -1,6 +1,7 @@
 ---
 title: Keeping secrets secure with secret scanning
 shortTitle: Secret scanning
+allowTitleToDifferFromFilename: true
 intro: 'Let {% data variables.product.company_short %} do the hard work of ensuring that tokens, private keys, and other code secrets are not exposed in your repository.'
 product: '{% data reusables.gated-features.secret-scanning %}'
 redirect_from:
@@ -8,16 +9,18 @@ redirect_from:
 versions:
   fpt: '*'
   ghes: '*'
-  ghae: '*'
   ghec: '*'
 topics:
   - Secret scanning
   - Advanced Security
   - Repositories
 children:
-  - /about-secret-scanning
-  - /configuring-secret-scanning-for-your-repositories
-  - /defining-custom-patterns-for-secret-scanning
+  - /introduction
+  - /enabling-secret-scanning-features
   - /managing-alerts-from-secret-scanning
+  - /working-with-secret-scanning-and-push-protection
+  - /using-advanced-secret-scanning-and-push-protection-features
+  - /copilot-secret-scanning
+  - /troubleshooting-secret-scanning-and-push-protection
+  - /secret-scanning-partnership-program
 ---
-

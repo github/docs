@@ -1,7 +1,7 @@
 ---
 title: Using Git rebase on the command line
 redirect_from:
-  - /articles/using-git-rebase/
+  - /articles/using-git-rebase
   - /articles/using-git-rebase-on-the-command-line
   - /github/using-git/using-git-rebase-on-the-command-line
   - /github/getting-started-with-github/using-git-rebase-on-the-command-line
@@ -10,7 +10,6 @@ intro: Here's a short tutorial on using `git rebase` on the command line.
 versions:
   fpt: '*'
   ghes: '*'
-  ghae: '*'
   ghec: '*'
 shortTitle: Git rebase
 ---
@@ -20,7 +19,7 @@ In this example, we will cover all of the `git rebase` commands available, excep
 
 We'll start our rebase by entering `git rebase --interactive HEAD~7` on the terminal. Our favorite text editor will display the following lines:
 
-```
+```text
 pick 1fc6c95 Patch A
 pick 6b2481b Patch B
 pick dd1475d something I want to split
@@ -42,7 +41,7 @@ Phew! This sounds like a lot of work, but by taking it one step at a time, we ca
 
 To start, we'll need to modify the commands in the file to look like this:
 
-```
+```text
 pick 1fc6c95 Patch A
 squash fa39187 something to add to patch A
 pick 7b36971 something to move before patch B
@@ -58,7 +57,7 @@ Now, save and close the editor; this will start the interactive rebase.
 
 Git skips the first rebase command, `pick 1fc6c95`, since it doesn't need to do anything. It goes to the next command, `squash fa39187`. Since this operation requires your input, Git opens your text editor once again. The file it opens up looks something like this:
 
-```
+```text
 # This is a combination of two commits.
 # The first commit's message is:
 
@@ -82,7 +81,7 @@ This file is Git's way of saying, "Hey, here's what I'm about to do with this `s
 
 When the editor is closed, the rebase continues:
 
-```
+```text
 pick 1fc6c95 Patch A
 squash fa39187 something to add to patch A
 pick 7b36971 something to move before patch B
@@ -92,7 +91,7 @@ edit dd1475d something I want to split
 reword 4ca2acc i cant' typ goods
 ```
 
-Git processes the two `pick` commands (for `pick 7b36971` and `pick 6b2481b`). It *also* processes the `fixup` command (`fixup c619268`), since it doesn't require any interaction. `fixup` merges the changes from `c619268` into the commit before it, `6b2481b`. Both changes will have the same commit message: `"Patch B"`.
+Git processes the two `pick` commands (for `pick 7b36971` and `pick 6b2481b`). It _also_ processes the `fixup` command (`fixup c619268`), since it doesn't require any interaction. `fixup` merges the changes from `c619268` into the commit before it, `6b2481b`. Both changes will have the same commit message: `"Patch B"`.
 
 Git gets to the `edit dd1475d` operation, stops, and prints the following message to the terminal:
 
@@ -110,7 +109,7 @@ At this point, you can edit any of the files in your project to make any additio
 
 Git then gets to the `reword 4ca2acc` command.  It opens up your text editor one more time, and presents the following information:
 
-```
+```text
 i cant' typ goods
 
 # Please enter the commit message for your changes. Lines starting
@@ -145,4 +144,4 @@ Force pushing has serious implications because it changes the historical sequenc
 
 ## Further reading
 
-* "[Resolving merge conflicts after a Git rebase](/github/getting-started-with-github/resolving-merge-conflicts-after-a-git-rebase)"
+* "[AUTOTITLE](/get-started/using-git/resolving-merge-conflicts-after-a-git-rebase)"

@@ -1,1 +1,0 @@
-`X-GitHub-Severity`ヘッダフィールドを含む、1つ以上のリポジトリに影響する{% ifversion fpt or ghes or ghec %}{% data variables.product.prodname_dependabot_alerts %}{% else %}セキュリティアラート{% endif %}に対するメール通知。 `X-GitHub-Severity`ヘッダフィールドは、{% ifversion fpt or ghes or ghec %}{% data variables.product.prodname_dependabot_alerts %}{% else %}セキュリティアラート{% endif %}に対するメール通知のフィルタリングに利用できます。

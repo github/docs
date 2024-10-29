@@ -1,2 +1,1 @@
-1. In the upper-right corner of any page, click your profile photo, then click **Settings**.
-![Settings icon in the user bar](/assets/images/settings/userbar-account-settings_post2dot12.png)
+1. In the upper-right corner of any page on {% data variables.product.prodname_dotcom %}, click your profile photo, then click {% octicon "gear" aria-hidden="true" %} **Settings**.

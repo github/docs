@@ -9,27 +9,30 @@ on:
     types:
       - reopened
 
+permissions:
+  contents: read
+  repository-projects: write
+
 jobs:
   move-reopened-issue-to-triage:
     if: github.repository == 'github/docs'
     runs-on: ubuntu-latest
     steps:
-      - uses: actions/github-script@2b34a689ec86a68d8ab9478298f91d5401337b7d
+      - uses: actions/github-script@e69ef5462fd455e02edcaf4dd7708eda96b9eda0
         with:
-          github-token: ${{ github.token }}
           script: |
             const issueNumber = context.issue.number;
             const doneColumnId = 11167427;
             const triageColumnId = 11007039;
 
             try {
-              const cards = await github.projects.listCards({
+              const cards = await github.rest.projects.listCards({
                 column_id: doneColumnId
               });
 
               for (const card of cards) {
                 if (card.content_url.endsWith(`/${issueNumber}`)) {
-                  await github.projects.moveCard({
+                  await github.rest.projects.moveCard({
                     card_id: card.id,
                     position: 'position',
                     column_id: triageColumnId
@@ -39,3 +42,12 @@ jobs:
             } catch(e) {
               console.log(e);
             }
+
+      - name: Check out repo
+        if: ${{ failure() }}
+        uses: actions/checkout@b4ffde65f46336ab88eb53be808477a3936bae11 # v4.1.1
+      - uses: ./.github/actions/slack-alert
+        if: ${{ failure() }}
+        with:
+          slack_channel_id: ${{ secrets.DOCS_ALERTS_SLACK_CHANNEL_ID }}
+          slack_token: ${{ secrets.SLACK_DOCS_BOT_TOKEN }}

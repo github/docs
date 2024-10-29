@@ -6,7 +6,12 @@ name: Public Repo Stale Check
 
 on:
   schedule:
-    - cron: '45 16 * * *' # Run each day at 16:45 UTC / 8:45 PST
+    - cron: '20 16 * * 1-5' # Run every weekday at 16:20 UTC / 8:20 PST
+
+permissions:
+  contents: read
+  issues: write
+  pull-requests: write
 
 jobs:
   stale_contributor:
@@ -14,19 +19,32 @@ jobs:
     runs-on: ubuntu-latest
 
     steps:
-      - uses: actions/stale@cdf15f641adb27a71842045a94023bef6945e3aa
+      - uses: actions/stale@28ca1036281a5e5922ead5184a1bbf96e5fc984e # v9.0.0
         with:
           repo-token: ${{ secrets.GITHUB_TOKEN }}
+          stale-issue-message: 'A stale label has been added to this issue because it has been open for 60 days with no activity. To keep this issue open, add a comment within 3 days.'
+          days-before-issue-stale: 60
+          days-before-issue-close: 3
+          exempt-issue-labels: 'help wanted,never-stale,waiting for review'
           stale-pr-message: 'A stale label has been added to this pull request because it has been open 7 days with no activity. To keep this PR open, add a comment or push a commit within 3 days.'
           days-before-pr-stale: 7
           days-before-pr-close: 3
           stale-pr-label: 'stale'
-          exempt-pr-labels: 'waiting for review,never-stale, ready to merge'
+          exempt-pr-labels: 'waiting for review,never-stale,ready to merge'
+
+      - name: Check out repo
+        if: ${{ failure() }}
+        uses: actions/checkout@b4ffde65f46336ab88eb53be808477a3936bae11 # v4.1.1
+      - uses: ./.github/actions/slack-alert
+        if: ${{ failure() }}
+        with:
+          slack_channel_id: ${{ secrets.DOCS_ALERTS_SLACK_CHANNEL_ID }}
+          slack_token: ${{ secrets.SLACK_DOCS_BOT_TOKEN }}
   stale_staff:
     if: github.repository == 'github/docs'
     runs-on: ubuntu-latest
     steps:
-      - uses: actions/stale@cdf15f641adb27a71842045a94023bef6945e3aa
+      - uses: actions/stale@28ca1036281a5e5922ead5184a1bbf96e5fc984e # v9.0.0
         with:
           repo-token: ${{ secrets.GITHUB_TOKEN }}
           stale-pr-message: 'This is a gentle bump for the docs team that this PR is waiting for review.'
@@ -34,10 +52,19 @@ jobs:
           days-before-pr-close: -1 # Never close
           remove-stale-when-updated: false
           operations-per-run: 100
-          only-labels: 'waiting for review'
+          only-pr-labels: 'waiting for review'
           # The hope is that by setting the stale-pr-label to the same label
           # as the label that the stale check looks for, this will result in
           # a comment being posted every 14 days as an infinite loop, which is what
           # we want
           stale-pr-label: 'waiting for review'
           exempt-pr-labels: 'never-stale'
+
+      - name: Check out repo
+        if: ${{ failure() }}
+        uses: actions/checkout@b4ffde65f46336ab88eb53be808477a3936bae11 # v4.1.1
+      - uses: ./.github/actions/slack-alert
+        if: ${{ failure() }}
+        with:
+          slack_channel_id: ${{ secrets.DOCS_ALERTS_SLACK_CHANNEL_ID }}
+          slack_token: ${{ secrets.SLACK_DOCS_BOT_TOKEN }}

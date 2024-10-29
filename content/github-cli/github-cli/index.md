@@ -5,7 +5,6 @@ intro: '{% data reusables.cli.about-cli %}'
 versions:
   fpt: '*'
   ghes: '*'
-  ghae: '*'
   ghec: '*'
 children:
   - /about-github-cli

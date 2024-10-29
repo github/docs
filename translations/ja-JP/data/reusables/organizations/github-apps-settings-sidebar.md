@@ -1,1 +1,0 @@
-1. 左のサイドバーで**{% data variables.product.prodname_github_apps %}**をクリックしてください。 ![{% data variables.product.prodname_github_apps %} settings](/assets/images/help/organizations/github-apps-settings-sidebar.png)

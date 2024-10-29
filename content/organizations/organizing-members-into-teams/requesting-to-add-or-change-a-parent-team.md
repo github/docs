@@ -7,7 +7,6 @@ redirect_from:
 versions:
   fpt: '*'
   ghes: '*'
-  ghae: '*'
   ghec: '*'
 topics:
   - Organizations
@@ -17,25 +16,22 @@ shortTitle: Add or change parent team
 
 When you request to add or change your team's parent, a request is sent to the maintainers of the parent team. When a maintainer of the new parent team approves your request, your team is nested as a child team under the parent team in your organization's hierarchy.
 
-If you're an organization owner or you have team maintainer permissions in the child team and the parent team, you can add the parent team without requesting approval or change your team's parent from your team's settings page. For more information, see "[Moving a team in your organization's hierarchy](/articles/moving-a-team-in-your-organization-s-hierarchy)."
+If you're an organization owner or you have team maintainer permissions in the child team and the parent team, you can add the parent team without requesting approval or change your team's parent from your team's settings page. For more information, see "[AUTOTITLE](/organizations/organizing-members-into-teams/moving-a-team-in-your-organizations-hierarchy)."
 
 {% data reusables.organizations.child-team-inherits-permissions %}
 
 {% data reusables.profile.access_org %}
-{% data reusables.user_settings.access_org %}
+{% data reusables.user-settings.access_org %}
 {% data reusables.organizations.teams %}
-4. In the list of teams, click the name of the team you'd like to nest under a parent.
-  ![List of the organization's teams](/assets/images/help/teams/click-team-name.png)
+1. In the list of teams, click the name of the team you'd like to nest under a parent.
 {% data reusables.organizations.team_settings %}
-6. Under "Parent team", use the "Select parent team" drop-down menu and click the name of the new parent team.
-  ![Drop-down menu listing the organization's teams](/assets/images/help/teams/choose-parent-team.png)
-7. Click **Save changes**.
+1. Under "Parent team", select the **Select a parent team** dropdown menu and click the name of the new parent team.
+1. Click **Save changes**.
 {% data reusables.repositories.changed-repository-access-permissions %}
-9. Click **Confirm changes** to send a request to add or change your team's parent.
-  ![Modal box with information about the changes in repository access permissions](/assets/images/help/teams/confirm-new-parent-team.png)
+1. To send a request to add or change your team's parent, click **Confirm changes**.
 
 ## Further reading
 
-- "[About teams](/articles/about-teams)"
-- "[Moving a team in your organization’s hierarchy](/articles/moving-a-team-in-your-organization-s-hierarchy)"
-- "[Requesting to add a child team](/articles/requesting-to-add-a-child-team)"
+* "[AUTOTITLE](/organizations/organizing-members-into-teams/about-teams)"
+* "[AUTOTITLE](/organizations/organizing-members-into-teams/moving-a-team-in-your-organizations-hierarchy)"
+* "[AUTOTITLE](/organizations/organizing-members-into-teams/requesting-to-add-a-child-team)"

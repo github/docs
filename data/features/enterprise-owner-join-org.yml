@@ -1,0 +1,3 @@
+versions:
+  ghec: '*'
+  ghes: '>=3.6'

@@ -1,7 +1,7 @@
 name: Site policy sync
 
-# **What it does**: Updates our site-policy repo when changes happen to site policy docs.
-# **Why we have it**: We want keep site-policy repo up to date.
+# **What it does**: Creates a branch in our site-policy repo with changes to site policy docs.
+# **Why we have it**: We want to keep the site-policy repo up to date.
 # **Who does it impact**: site-policy-admins and Developer Policy teams.
 
 # Controls when the action will run.
@@ -13,25 +13,23 @@ on:
     types:
       - closed
     paths:
-      - 'content/github/site-policy/**'
+      - 'content/site-policy/**'
   workflow_dispatch:
+
+permissions:
+  contents: read
 
 jobs:
   sync:
     name: Get the latest docs
-    if: >-
-      github.event.pull_request.merged == true &&
-      github.repository == 'github/docs-internal'
+    if: github.event_name == 'workflow_dispatch' || (github.event.pull_request.merged == true && github.repository == 'github/docs-internal')
     runs-on: ubuntu-latest
-    permissions:
-      contents: write
-      pull-requests: write
     steps:
       - name: checkout docs-internal
-        uses: actions/checkout@1e204e9a9253d643386038d443f96446fa156a97
+        uses: actions/checkout@b4ffde65f46336ab88eb53be808477a3936bae11 # v4.1.1
 
       - name: checkout public site-policy
-        uses: actions/checkout@1e204e9a9253d643386038d443f96446fa156a97
+        uses: actions/checkout@b4ffde65f46336ab88eb53be808477a3936bae11 # v4.1.1
         with:
           repository: github/site-policy
           token: ${{ secrets.API_TOKEN_SITEPOLICY }}
@@ -39,42 +37,33 @@ jobs:
           path: public-repo
 
       - name: Commits internal policies to copy of public repo with descriptive message from triggering PR title
+        env:
+          PR_TITLE: ${{ github.event.pull_request.title }}
         run: |
           cd public-repo
           git config --local user.name 'site-policy-bot'
           git config --local user.email 'site-policy-bot@github.com'
           rm -rf Policies
-          cp -r ../content/github/site-policy Policies
+          cp -r ../content/site-policy Policies
           git status
           git checkout -b automated-sync-$GITHUB_RUN_ID
           git add .
-          PR_TITLE=${{ github.event.pull_request.title }}
+          echo PR_TITLE: $PR_TITLE
           [[ ! -z $PR_TITLE ]] && DESCRIPTION="${PR_TITLE}" || DESCRIPTION="Update manually triggered by workflow"
           echo "DESCRIPTION=$DESCRIPTION" >> $GITHUB_ENV
           git commit -m "$(echo $DESCRIPTION)"
 
-      - name: If there are changes to push, create a pull request in the public repo using the gh command line tool, then immediately merge the PR and delete the branch
-        id: createAndMergePullRequest
+      - name: If there are changes to push, create a branch in the public repo and push changes
         env:
-          GITHUB_TOKEN: ${{ secrets.API_TOKEN_SITEPOLICY }}
+          GITHUB_TOKEN: ${{ secrets.DOCS_BOT_PAT_READPUBLICKEY }}
         run: |
           cd public-repo
           git config --local user.name 'site-policy-bot'
           git config --local user.email 'site-policy-bot@github.com'
-          DIFF=$(git diff --name-status --summary HEAD^..HEAD)
           NUM_FILES_CHANGED=$(git diff --name-only HEAD^..HEAD | wc -l)
-          [[ $NUM_FILES_CHANGED -ge 2 ]] && TITLE="Sync changes from GitHub Docs" || TITLE=$(echo $DIFF | sed -e 's/^A\s/Added /g;s/^D\s/Deleted /g;s/^C\s/Copied /g;s/^M\s/Modified /g;s/^R100\s/Renamed /g;')
-          if [[ ! -z $TITLE ]]
+          if [[ $NUM_FILES_CHANGED -ge 1 ]]
             then
-              echo -e "This is an automated pull request to sync changes from GitHub Docs.\n\nDiff summary:\n\n${DIFF}" > msg
               git push --set-upstream origin automated-sync-$GITHUB_RUN_ID
-              PR_URL=$(gh pr create --title "${TITLE}" --body-file msg --head automated-sync-$GITHUB_RUN_ID --base main --repo github/site-policy)
-              gh pr diff ${PR_URL}
-              gh pr merge ${PR_URL} --merge --delete-branch
             else
               echo "No updates to push to the public repo"
           fi
-
-      - name: Delete remote updates branch if previous step failed
-        if: failure() && steps.createAndMergePullRequest.outcome == 'failure'
-        run: git push github/site-policy --delete automated-sync-$GITHUB_RUN_ID

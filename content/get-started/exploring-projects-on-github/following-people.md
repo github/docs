@@ -9,7 +9,6 @@ redirect_from:
 versions:
   fpt: '*'
   ghes: '*'
-  ghae: '*'
   ghec: '*'
 topics:
   - Profile
@@ -17,55 +16,38 @@ topics:
 
 ## About followers on {% data variables.product.product_name %}
 
-When you follow people, you'll see their public activity in the activity view of your news feed.{% ifversion fpt or ghec %} If someone you follow stars a public repository, {% data variables.product.product_name %} may recommend the repository to you in the discovery view of your news feed.{% endif %}
+When you follow people, you'll see their public activity on your personal dashboard.{% ifversion fpt or ghec %} If someone you follow stars a public repository, {% data variables.product.product_name %} may recommend the repository to you.{% endif %} For more information, see "[AUTOTITLE](/account-and-profile/setting-up-and-managing-your-personal-account-on-github/managing-user-account-settings/about-your-personal-dashboard#staying-updated-with-activity-from-the-community)."
 
 You can unfollow someone if you do not wish to see their public activity on {% data variables.product.product_name %}.
 
 ## Following a user on {% data variables.product.product_name %}
 
-1. Click a user image to display that user's profile.
-
-  ![User image](/assets/images/help/profile/user-profile-image.png)
-
-2. Click **Follow** under their profile image.
-
-  ![Follow user button](/assets/images/help/profile/follow-user-button.png)
+{% data reusables.profile.navigate-to-user-profile %}
+1. Under the user's profile picture, click **Follow**.
 
 ## Unfollowing a user on {% data variables.product.product_name %}
 
-1.  Click a user image to display that user's profile.
-
-  ![User image](/assets/images/help/profile/user-profile-image.png)
-
-2.  Click **Unfollow** under their profile image.
-
-  ![User profile button](/assets/images/help/profile/user-profile-unfollow-button.png)
+{% data reusables.profile.navigate-to-user-profile %}
+1. Under the user's profile picture, click **Unfollow**.
 
 ## Viewing followed users on {% data variables.product.product_name %}
 
-1. Click a user image to display that user's profile.
+{% data reusables.profile.navigate-to-user-profile %}
+1. Under the user's profile picture, click **following**.
 
-  ![User image](/assets/images/help/profile/user-profile-image.png)
-
-2. Click **following** under their profile image.
-
-  ![User following](/assets/images/help/profile/user-profile-following.png)
+   ![Screenshot of the sidebar of @octocat's profile page. A link, labeled "9 following", is outlined in dark orange.](/assets/images/help/profile/user-profile-following.png)
 
 ## Viewing followers on {% data variables.product.product_name %}
 
-1. Click a user image to display that user's profile.
+{% data reusables.profile.navigate-to-user-profile %}
+1. Under the user's profile picture, click **followers**.
 
-  ![User image](/assets/images/help/profile/user-profile-image.png)
-
-2. Click **followers** under their profile image.
-
-  ![User following](/assets/images/help/profile/user-profile-followers.png)
-
-
+   ![Screenshot of the sidebar of @octocat's profile page. A people icon and a link, labeled "8.4k followers", are outlined in dark orange.](/assets/images/help/profile/user-profile-followers.png)
 
 {% ifversion fpt or ghec %}
+
 ## Further reading
 
-- "[Saving repositories with stars](/articles/saving-repositories-with-stars/)"
-- "[Finding ways to contribute to open source on {% data variables.product.prodname_dotcom %}](/github/getting-started-with-github/finding-ways-to-contribute-to-open-source-on-github)"
+* "[AUTOTITLE](/get-started/exploring-projects-on-github/saving-repositories-with-stars)"
+* "[AUTOTITLE](/get-started/exploring-projects-on-github/finding-ways-to-contribute-to-open-source-on-github)"
 {% endif %}

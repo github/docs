@@ -2,27 +2,26 @@
 title: About repository languages
 intro: The files and directories within a repository determine the languages that make up the repository. You can view a repository's languages to get a quick overview of the repository.
 redirect_from:
-  - /articles/my-repository-is-marked-as-the-wrong-language/
-  - /articles/why-isn-t-my-favorite-language-recognized/
-  - /articles/my-repo-is-marked-as-the-wrong-language/
-  - /articles/why-isn-t-sql-recognized-as-a-language/
-  - /articles/why-isn-t-my-favorite-language-recognized-by-github/
+  - /articles/my-repository-is-marked-as-the-wrong-language
+  - /articles/why-isn-t-my-favorite-language-recognized
+  - /articles/my-repo-is-marked-as-the-wrong-language
+  - /articles/why-isn-t-sql-recognized-as-a-language
+  - /articles/why-isn-t-my-favorite-language-recognized-by-github
   - /articles/about-repository-languages
   - /github/creating-cloning-and-archiving-repositories/about-repository-languages
   - /github/creating-cloning-and-archiving-repositories/creating-a-repository-on-github/about-repository-languages
 versions:
   fpt: '*'
   ghes: '*'
-  ghae: '*'
   ghec: '*'
 topics:
   - Repositories
 shortTitle: Repository languages
 ---
-{% data variables.product.product_name %} uses the open source [Linguist library](https://github.com/github/linguist) to
+{% data variables.product.product_name %} uses the open source [Linguist library](https://github.com/github-linguist/linguist) to
 determine file languages for syntax highlighting and repository statistics. Language statistics will update after you push changes to your default branch.
 
-Some files are hard to identify, and sometimes projects contain more library and vendor files than their primary code. If you're receiving incorrect results, please consult the Linguist [troubleshooting guide](https://github.com/github/linguist/blob/master/docs/troubleshooting.md) for help.
+Some files are hard to identify, and sometimes projects contain more library and vendor files than their primary code. If you're receiving incorrect results, please consult the Linguist [troubleshooting guide](https://github.com/github-linguist/linguist/blob/master/docs/troubleshooting.md) for help. Note that Linguist only works for repositories with fewer than 100,000 files.
 
 ## Markup languages
 

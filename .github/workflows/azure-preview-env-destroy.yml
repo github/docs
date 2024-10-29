@@ -1,0 +1,73 @@
+name: Azure - Destroy Preview Env
+
+# **What it does**: Destroys resources associated with a PRs Azure preview environment
+# **Why we have it**: Closed PRs don't need apps
+# **Who does it impact**: All contributors.
+
+on:
+  # Required in lieu of `pull_request` so that PRs created from forks can destroy the preview environment.
+  pull_request_target:
+    types:
+      - closed
+      - locked
+  workflow_dispatch:
+    inputs:
+      PR_NUMBER:
+        description: 'PR Number'
+        type: string
+        required: true
+
+permissions:
+  contents: read
+
+# This allows one deploy workflow to interrupt another
+concurrency:
+  group: 'preview-env @ ${{ github.head_ref || github.run_id }} for ${{ github.event.number || inputs.PR_NUMBER }}'
+  cancel-in-progress: true
+
+jobs:
+  destroy-azure-preview-env:
+    name: Destroy
+    runs-on: ubuntu-latest
+    if: github.repository == 'github/docs-internal' || github.repository == 'github/docs'
+    timeout-minutes: 5
+    env:
+      PR_NUMBER: ${{ github.event.number || inputs.PR_NUMBER }}
+
+    steps:
+      - name: 'Az CLI login'
+        uses: azure/login@6c251865b4e6290e7b78be643ea2d005bc51f69a # pin @v2
+        with:
+          creds: ${{ secrets.NONPROD_AZURE_CREDENTIALS }}
+
+      - name: Check out repo
+        uses: actions/checkout@b4ffde65f46336ab88eb53be808477a3936bae11 # v4.1.1
+
+      - name: Get preview app info
+        env:
+          APP_NAME_SEED: ${{ secrets.PREVIEW_ENV_NAME_SEED }}
+        run: src/workflows/get-preview-app-info.sh
+
+      # Succeed despite any non-zero exit code (e.g. if there is no deployment to cancel)
+      - name: 'Cancel any in progress deployments'
+        run: |
+          az deployment group cancel --name ${{ env.DEPLOYMENT_NAME }} -g ${{ secrets.PREVIEW_ENV_RESOURCE_GROUP }} || true
+
+      # Delete web app (which will also delete the App Service plan)
+      # This will succeed even if the app doesn't exist / has already been deleted
+      - name: 'Delete App Service App (which will also delete the App Service plan)'
+        run: |
+          az container delete -n ${{ env.APP_NAME }} -g ${{ secrets.PREVIEW_ENV_RESOURCE_GROUP }} -y
+
+      # Untag all images under this PR's container registry repo - the container registry will automatically remove untagged images.
+      # This will fail if the IMAGE_REPO doesn't exist, but we don't care
+      - name: 'Untag all docker images for this PR'
+        run: |
+          az acr repository delete -n ${{ secrets.NONPROD_REGISTRY_SERVER }} --repository ${{ env.IMAGE_REPO }} -y || true
+
+      # Remove all GitHub deployments from this environment and remove the environment
+      - uses: strumwolf/delete-deployment-environment@a4825dd9648c57da8437a4885c3fcad58beac69c
+        with:
+          # The token provided by the workflow does not have the permissions to delete created environments
+          token: ${{ secrets.DOCS_BOT_PAT_READPUBLICKEY }}
+          environment: preview-env-${{ env.PR_NUMBER }}

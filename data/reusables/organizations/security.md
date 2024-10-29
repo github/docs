@@ -1,3 +1,1 @@
-1. In the left sidebar, click **Organization security**.
-
- ![Organization security settings](/assets/images/help/organizations/org-security-settings-tab.png)
+1. In the "Security" section of the sidebar, click **{% octicon "shield-lock" aria-hidden="true" %} Authentication security**.

@@ -1,0 +1,6 @@
+# Feature flag for versions that include the Packages REST API
+# Content issue: 9325
+versions:
+  fpt: '*'
+  ghec: '*'
+  ghes: '>=3.9'

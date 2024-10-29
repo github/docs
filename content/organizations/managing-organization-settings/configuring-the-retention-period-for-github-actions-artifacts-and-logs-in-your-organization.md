@@ -6,7 +6,6 @@ redirect_from:
 versions:
   fpt: '*'
   ghes: '*'
-  ghae: '*'
   ghec: '*'
 topics:
   - Organizations
@@ -20,5 +19,5 @@ shortTitle: Configure retention period
 
 {% data reusables.organizations.navigate-to-org %}
 {% data reusables.organizations.org_settings %}
-{% data reusables.organizations.settings-sidebar-actions %}
-{% data reusables.github-actions.change-retention-period-for-artifacts-logs  %}
+{% data reusables.organizations.settings-sidebar-actions-general %}
+{% data reusables.actions.change-retention-period-for-artifacts-logs  %}

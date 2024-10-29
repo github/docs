@@ -1,0 +1,60 @@
+date: '2024-01-16'
+sections:
+  security_fixes:
+    - |
+      **HIGH**: An attacker with access to a Management Console user account with the editor role could escalate privileges through a command injection vulnerability in the Management Console. GitHub has requested CVE ID [CVE-2024-0507](https://www.cve.org/cverecord?id=CVE-2024-0507) for this vulnerability, which was reported via the [GitHub Bug Bounty program](https://bounty.github.com/).
+    - |
+      **HIGH**: An attacker could leverage an unsafe reflection vulnerability in GitHub Enterprise Server (GHES) that could lead to reflection injection. This vulnerability could lead to the execution of user-controlled methods and remote code execution. To exploit this bug, an actor would need to be logged into an account on the GHES instance with the [organization owner role](/enterprise-server@latest/organizations/managing-peoples-access-to-your-organization-with-roles/roles-in-an-organization#organization-owners). GitHub has requested CVE ID [CVE-2024-0200](https://www.cve.org/cverecord?id=CVE-2024-0200) for this vulnerability, which was reported via the [GitHub Bug Bounty program](https://bounty.github.com/).
+    - |
+      Packages have been updated to the latest security versions.
+  bugs:
+    - Support for authenticating to GitHub Enterprise Server using GitHub CLI OAuth App with a device code was unintentionally disabled.
+    - During periods of high load, users would see intermittent interruptions to services when upstream services failed internal health checks.
+    - On an instance in a high availability configuration, site administrators using the Manage GitHub Enterprise Server API may have seen a status of `UNKNOWN` for the MSSQL service.
+    - Hotpatch upgrades from GitHub Enterprise Server version `3.11.0` to `3.11.1` resulted in the instance losing network connectivity after a reboot.
+    - On an instance with GitHub Actions enabled, some maintenance tasks could fail due to incomplete upgrade steps during previous upgrades to new releases of GitHub Enterprise Server.
+    - Deleting a repository would enqueue unnecessary background jobs that would never complete.
+    - When creating a new custom pattern for secret scanning, the "More options" section of the custom pattern form automatically collapsed when a user entered an invalid regex in the post processing expressions (before/after secret match or additional secret requirements).
+    - On an instance with a GitHub Advanced Security license and secret scanning enabled, users could experience a `500` error when viewing a secret scanning alert page in cases where the alerted commits belonged to the user and one or more commits could not be found.
+    - Members of an enterprise were incorrectly allowed access to the REST API endpoints for Enterprise licensing.
+    - On an instance that uses SAML for authentication, an upgrade from GitHub Enterprise Server 3.7 to 3.9 could result in user login failures due to an outdated gem dependency.
+    - Under rare circumstances, a repository could become unavailable due to a temporary file being left behind after a Git process was unexpectedly interrupted (for example, due to a power outage).
+    - On an instance with GitHub Advanced Security enabled, a suspended user would consume a license for GitHub Advanced Security.
+  changes:
+    - To avoid leaking secrets, the logging of all parameters is disabled for Management Console events in enterprise audit logs.
+    - The branch protection setting to require PR approval of the most recent reviewable push is included in exports from `ghe-migrator` or the Organization Migrations API.
+  known_issues:
+    - |
+      Custom firewall rules are removed during the upgrade process.
+    - |
+      During the validation phase of a configuration run, a `No such object` error may occur for the Notebook and Viewscreen services. This error can be ignored as the services should still correctly start.
+    - |
+      If the root site administrator is locked out of the Management Console after failed login attempts, the account does not unlock automatically after the defined lockout time. Someone with administrative SSH access to the instance must unlock the account using the administrative shell. For more information, see "[AUTOTITLE](/admin/configuration/administering-your-instance-from-the-management-console/troubleshooting-access-to-the-management-console#unlocking-the-root-site-administrator-account)."
+    - |
+      If an instance is configured to forward logs to a target server with TLS enabled, certificate authority (CA) bundles that a site administrator uploads using `ghe-ssl-ca-certificate-install` are not respected, and connections to the server fail.
+    - |
+      The `mbind: Operation not permitted` error in the `/var/log/mysql/mysql.err` file can be ignored. MySQL 8 does not gracefully handle when the `CAP_SYS_NICE` capability isn't required, and outputs an error instead of a warning.
+    - |
+      On an instance hosted in AWS, system time may lose synchronization with Amazon's servers after an administrator reboots the instance.
+    - |
+      On an instance with the HTTP `X-Forwarded-For` header configured for use behind a load balancer, all client IP addresses in the instance's audit log erroneously appear as 127.0.0.1.
+    - |
+      {% data reusables.release-notes.2023-10-git-push-made-but-not-registered %}
+    - |
+      {% data reusables.release-notes.large-adoc-files-issue %}
+    - |
+      {% data reusables.release-notes.2023-11-cluster-ha-failover-git-push-failure %}
+    - |
+      Restoring backups with `ghe-restore` on a GHES cluster will exit prematurely if `redis` has not restarted properly.
+    - |
+      {% data reusables.release-notes.2024-01-haproxy-upgrade-causing-increased-errors %}
+    - |
+      Pre-receive hooks which utilize `git rev-list` fail with an `fatal: Invalid revision range` error message.
+    - |
+      {% data reusables.release-notes.2024-01-ha-proxy-out-of-memory %} [Updated 2024-01-23]
+    - |
+      {% data reusables.release-notes.scheduled-reminders-unintentional %} [Updated: 2024-02-22]
+    - |
+      {% data reusables.release-notes.2024-03-increased-log-volume-in-syslog %} [Updated: 2024-03-08]
+    - |
+      {% data reusables.release-notes.2024-06-possible-frontend-5-minute-outage-during-hotpatch-upgrade %} [Updated: 2024-06-17]

@@ -1,6 +1,6 @@
 ---
 title: Configuring a package's access control and visibility
-intro: 'Choose who has read, write, or admin access to your container image and the visibility of your container images on {% data variables.product.prodname_dotcom %}.'
+intro: 'Choose who has read, write, or admin access to your package and the visibility of your packages on {% data variables.product.prodname_dotcom %}.'
 product: '{% data reusables.gated-features.packages %}'
 redirect_from:
   - /packages/managing-container-images-with-github-container-registry/configuring-access-control-and-visibility-for-container-images
@@ -8,98 +8,149 @@ redirect_from:
 versions:
   fpt: '*'
   ghec: '*'
+  ghes: '*'
 shortTitle: Access control & visibility
 ---
+{% data reusables.package_registry.container-registry-ghes-beta %}
 
-Packages with granular permissions are scoped to a personal user or organization account. You can change the access control and visibility of a package separately from the repository that it is connected (or linked) to.
+A package can inherit its visibility and access permissions from a repository, or, for registries that support granular permissions, you can set the visibility and permissions of the package separately from a repository.
 
-Currently, you can only use granular permissions with the {% data variables.product.prodname_container_registry %}. Granular permissions are not supported in our other package registries, such as the npm registry.
+For the list of registries that support granular permissions, and for more information about permissions for packages, packages-related scopes for PATs, or managing permissions for your {% data variables.product.prodname_actions %} workflows, see "[AUTOTITLE](/packages/learn-github-packages/about-permissions-for-github-packages)."
 
-For more information about permissions for repository-scoped packages, packages-related scopes for PATs, or managing permissions for your actions workflows, see "[About permissions for GitHub Packages](/packages/learn-github-packages/about-permissions-for-github-packages)."
+## About inheritance of access permissions
 
-## Visibility and access permissions for container images
+In registries that support granular permissions, packages are scoped to a personal account or organization. In these registries, you can publish a package without linking the package to a repository, then determine who can access the package by setting access permissions and visibility in the package's settings.
+
+{% ifversion packages-inherit-permissions %}By default, if you publish a package that is linked to a repository, the package automatically inherits the access permissions (but not the visibility) of the linked repository. For example, a user who has read access to the linked repository will also have read access to the package. When a package automatically inherits access permissions, {% data variables.product.prodname_actions %} workflows in the linked repository also automatically get access to the package.
+
+A package only inherits the access permissions of a linked repository automatically if you link the repository to the package before you publish the package, such as by adding the `org.opencontainers.image.source` Docker label to a container image. If you connect a published package to a repository from the package's settings page, the package will retain its existing access permissions, and will not inherit the access permissions of the repository unless you explicitly select this option. Additionally, organizations can disable automatic inheritance of access permissions for all new packages scoped to their organization. For more information, see "[Disabling automatic inheritance of access permissions in an organization](#disabling-automatic-inheritance-of-access-permissions-in-an-organization)" below.
+
+When a package inherits permissions from a repository, to grant or remove access to your package, you must configure the permissions settings of the linked repository. If you want to set a package's access settings separately from the repository linked to the package, you must remove the inherited permissions from the package{% else %}You can choose to have a package inherit the access permissions of a linked repository{% endif %}. For more information, see "[Selecting whether a package inherits permissions from a repository](#selecting-whether-a-package-inherits-permissions-from-a-repository)" below.
+
+If you publish a package in a registry that only supports repository-scoped permissions, the package is always linked to a repository, and always inherits the permissions of the linked repository.
+
+## About setting visibility and access permissions for packages
 
 {% data reusables.package_registry.visibility-and-access-permissions %}
 
-## Configuring access to container images for your personal account
+## Configuring access to packages for your personal account
 
-If you have admin permissions to a container image that's owned by a user account, you can assign read, write, or admin roles to other users. For more information about these permission roles, see "[Visibility and access permissions for container images](#visibility-and-access-permissions-for-container-images)."
+If you have admin permissions to a package that's scoped to a personal account, you can assign read, write, or admin roles to other users. For more information about these permission roles, see "[About inheritance of access permissions](#about-inheritance-of-access-permissions)."
 
-If your package is private or internal and owned by an organization, then you can only give access to other organization members or teams.
+If your package is private or internal and scoped to an organization, then you can only give access to other organization members or teams.
 
-{% data reusables.package_registry.package-settings-from-user-level %}
-1. On the package settings page, click **Invite teams or people** and enter the name, username, or email of the person you want to give access. Teams cannot be given access to a container image owned by a user account.
-  ![Container access invite button](/assets/images/help/package-registry/container-access-invite.png)
-1. Next to the username or team name, use the "Role" drop-down menu to select a desired permission level.
-  ![Container access options](/assets/images/help/package-registry/container-access-control-options.png)
+{% data reusables.package_registry.package-settings-option %}
+{% data reusables.package_registry.package-settings-manage-access-people %} Teams cannot be given access to a package that is scoped to a personal account.
+{% data reusables.package_registry.package-settings-user-access %}
 
 The selected users will automatically be given access and don't need to accept an invitation first.
 
-## Configuring access to container images for an organization
+## Configuring access to packages for an organization
 
-If you have admin permissions to an organization-owned container image, you can assign read, write, or admin roles to other users and teams. For more information about these permission roles, see "[Visibility and access permissions for container images](#visibility-and-access-permissions-for-container-images)."
+If you have admin permissions to a package that is scoped to an organization, you can assign read, write, or admin roles to other users and teams. For more information about these permission roles, see "[About inheritance of access permissions](#about-inheritance-of-access-permissions)."
 
-If your package is private or internal and owned by an organization, then you can only give access to other organization members or teams.
+If your package is private or internal and scoped to an organization, then you can only give access to other organization members or teams.
 
 {% data reusables.package_registry.package-settings-from-org-level %}
-1. On the package settings page, click **Invite teams or people** and enter the name, username, or email of the person you want to give access. You can also enter a team name from the organization to give all team members access.
-  ![Container access invite button](/assets/images/help/package-registry/container-access-invite.png)
-1. Next to the username or team name, use the "Role" drop-down menu to select a desired permission level.
-  ![Container access options](/assets/images/help/package-registry/container-access-control-options.png)
+{% data reusables.package_registry.package-settings-option %}
+{% data reusables.package_registry.package-settings-manage-access-people %} You can also enter a team name from the organization to give all team members access.
+{% data reusables.package_registry.package-settings-user-access %}
 
 The selected users or teams will automatically be given access and don't need to accept an invitation first.
 
-## Inheriting access for a container image from a repository
+## Selecting whether a package inherits permissions from a repository
 
-To simplify package management through {% data variables.product.prodname_actions %} workflows, you can enable a container image to inherit the access permissions of a repository by default.
+{% ifversion packages-inherit-permissions %}By default, if you publish a package that is linked to a repository, the package inherits{% else %}If you link a package to a repository, you can choose whether or not the package inherits{% endif %} the access permissions of the linked repository. We recommend you let packages inherit their permissions from a repository, because this simplifies the process of managing access to a package.
 
-If you inherit the access permissions of the repository where your package's workflows are stored, then you can adjust access to your package through the repository's permissions.
+When a package inherits permissions from a repository, to grant or remove access to your package, you must configure the permissions of the linked repository.
 
-Once a repository is synced, you can't access the package's granular access settings. To customize the package's permissions through the granular package access settings, you must remove the synced repository first.
-
-{% data reusables.package_registry.package-settings-from-org-level %}
-2. Under "Repository source", select **Inherit access from repository (recommended)**.
-  ![Inherit repo access checkbox](/assets/images/help/package-registry/inherit-repo-access-for-package.png)
-
-## Ensuring workflow access to your package
-
-To ensure that a {% data variables.product.prodname_actions %} workflow has access to your package, you must give explicit access to the repository where the workflow is stored.
-
-The specified repository does not need to be the repository where the source code for the package is kept. You can give multiple repositories workflow access to a package.
+{% ifversion packages-inherit-permissions %}If you want to configure a package's access settings on a granular level, separately from the linked repository, you must remove the inherited permissions from the package.{% endif %}
 
 {% note %}
 
-**Note:** Syncing your container image with a repository through the **Actions access** menu option is different than connecting your container to a repository. For more information about linking a repository to your container, see "[Connecting a repository to a package](/packages/learn-github-packages/connecting-a-repository-to-a-package)."
+**Note:** If you change how a package gets its access permissions, any existing permissions for the package are overwritten.
 
 {% endnote %}
 
-### {% data variables.product.prodname_actions %} access for user-account-owned container images 
+### Selecting the inheritance setting for packages scoped to your personal account
 
 {% data reusables.package_registry.package-settings-from-user-level %}
-1. In the left sidebar, click **Actions access**.
-  !["Actions access" option in left menu](/assets/images/help/package-registry/organization-repo-access-for-a-package.png)
-2. To ensure your workflow has access to your container package, you must add the repository where the workflow is stored. Click **Add repository** and search for the repository you want to add.
-   !["Add repository" button](/assets/images/help/package-registry/add-repository-button.png)
-3. Using the "role" drop-down menu, select the default access level that you'd like the repository to have to your container image.
-  ![Permission access levels to give to repositories](/assets/images/help/package-registry/repository-permission-options-for-package-access-through-actions.png)
+{% data reusables.package_registry.package-settings-option %}
+{% data reusables.package_registry.disable-auto-inheritance-step %}
 
-To further customize access to your container image, see "[Configuring access to container images for your personal account](#configuring-access-to-container-images-for-your-personal-account)."
+### Selecting the inheritance setting for packages scoped to an organization
 
-### {% data variables.product.prodname_actions %} access for organization-owned container images 
+{% ifversion packages-inherit-permissions %}
+{% tip %}
+
+**Tip:** If you're the owner of an organization, you can prevent all new packages scoped to your organization from automatically inheriting permissions from a linked repository. For more information, see "[Disabling automatic inheritance of access permissions in an organization](#disabling-automatic-inheritance-of-access-permissions-in-an-organization)" below.
+
+{% endtip %}
+{% endif %}
 
 {% data reusables.package_registry.package-settings-from-org-level %}
-1. In the left sidebar, click **Actions access**.
-  !["Actions access" option in left menu](/assets/images/help/package-registry/organization-repo-access-for-a-package.png)
-2. Click **Add repository** and search for the repository you want to add.
-   !["Add repository" button](/assets/images/help/package-registry/add-repository-button.png)
-3. Using the "role" drop-down menu, select the default access level that you'd like repository members to have to your container image. Outside collaborators will not be included.
-  ![Permission access levels to give to repositories](/assets/images/help/package-registry/repository-permission-options-for-package-access-through-actions.png)
+{% data reusables.package_registry.package-settings-option %}
+{% data reusables.package_registry.disable-auto-inheritance-step %}
 
-To further customize access to your container image, see "[Configuring access to container images for an organization](#configuring-access-to-container-images-for-an-organization)."
+{% ifversion packages-inherit-permissions %}
 
-## Ensuring {% data variables.product.prodname_codespaces %} access to your package
+## Disabling automatic inheritance of access permissions in an organization
 
-By default, a codespace can seamlessly access certain packages in the {% data variables.product.prodname_dotcom %} Container Registry, such as those published in the same repository with the **Inherit access** option selected. For more information on which access is automatically configured, see "[Accessing images stored in {% data variables.product.prodname_dotcom %} Container Registry](/codespaces/codespaces-reference/allowing-your-codespace-to-access-a-private-image-registry#accessing-images-stored-in-github-container-registry)."
+By default, if you publish a package that is linked to a repository, the package automatically inherits the access permissions of the linked repository. As an organization owner, you can disable automatic inheritance for all packages scoped to your organization.
+
+If you disable automatic inheritance of access permissions, new packages scoped to your organization will not automatically inherit the permissions of a linked repository. However, anyone with admin permissions to a package in your organization will be able to enable or disable inheritance of permissions for that package.
+
+{% data reusables.profile.access_org %}
+{% data reusables.profile.org_settings %}
+1. In the sidebar, in the "Code, planning, and automation" section, click **{% octicon "package" aria-hidden="true" %} Packages**.
+1. Under "Default Package Settings", deselect **Inherit access from source repository**.
+1. Click **Save**.
+
+{% endif %}
+
+## Ensuring workflow access to your package
+
+For packages scoped to a personal account or an organization, to ensure that a {% data variables.product.prodname_actions %} workflow has access to your package, you must give explicit access to the repository where the workflow is stored.
+
+The specified repository does not need to be the repository where the source code for the package is kept. You can give multiple repositories workflow access to a package.
+
+{% ifversion packages-inherit-permissions %}
+If you publish a package that is linked to a repository, {% data variables.product.prodname_actions %} workflows in the linked repository automatically get access to the package, unless your organization has disabled the automatic inheritance of access permissions. For more information, see "[About inheritance of access permissions](#about-inheritance-of-access-permissions)" above.
+{% endif %}
+
+{% note %}
+
+**Notes:**
+* Syncing your package with a repository {% data variables.package_registry.package-settings-actions-access-menu %} is different than connecting your package to a repository. For more information about linking a repository to your package, see "[AUTOTITLE](/packages/learn-github-packages/connecting-a-repository-to-a-package)."
+* You can choose to limit permissions to workflow jobs usings the `permissions` key and `packages` scope. For more information, see "[AUTOTITLE](/actions/using-jobs/assigning-permissions-to-jobs)."
+* {% data reusables.package_registry.public-forks-private-packages %}
+
+{% endnote %}
+
+### {% data variables.product.prodname_actions %} access for packages scoped to personal accounts
+
+{% data reusables.package_registry.package-settings-option %}
+{% data reusables.package_registry.package-settings-actions-access %}
+1. To ensure your workflow has access to your package, you must add the repository where the workflow is stored. {% data reusables.package_registry.package-settings-add-repo %}
+{% data reusables.package_registry.package-settings-actions-access-role-repo %}
+
+To further customize access to your package, see "[Configuring access to packages for your personal account](#configuring-access-to-packages-for-your-personal-account)."
+
+### {% data variables.product.prodname_actions %} access for packages scoped to organizations
+
+{% data reusables.package_registry.package-settings-from-org-level %}
+{% data reusables.package_registry.package-settings-option %}
+{% data reusables.package_registry.package-settings-actions-access %}
+1. {% data reusables.package_registry.package-settings-add-repo %}
+{% data reusables.package_registry.package-settings-actions-access-role-repo %}
+
+To further customize access to your package, see "[Configuring access to packages for an organization](#configuring-access-to-packages-for-an-organization)."
+
+{% ifversion fpt or ghec %}
+
+## Ensuring {% data variables.product.prodname_github_codespaces %} access to your package
+
+By default, a codespace can seamlessly access certain packages in registries that support granular permissions, such as packages published in the same repository with the **Inherit access** option selected. For the list of {% data variables.product.prodname_registry %} registries that support granular permissions and seamless {% data variables.product.prodname_github_codespaces %} access, see "[AUTOTITLE](/packages/learn-github-packages/about-permissions-for-github-packages#granular-permissions-for-userorganization-scoped-packages)."
 
 Otherwise, to ensure that a codespace has access to your package, you must grant access to the repository where the codespace is being launched.
 
@@ -107,67 +158,64 @@ The specified repository does not need to be the repository where the source cod
 
 Once you've selected the package you're interested in sharing with codespaces in a repository, you can grant that repo access.
 
-1. In the right sidebar, click **Package settings**.
+{% data reusables.package_registry.package-settings-option %}
 
-   !["Package settings" option in right menu](/assets/images/help/package-registry/package-settings.png)
-   
-2. Under "Manage Codespaces access", click **Add repository**.
+1. Under "Manage Codespaces access", click **Add repository**.
 
-   !["Add repository" button](/assets/images/help/package-registry/manage-codespaces-access-blank.png)
+   ![Screenshot of the "Manage Codespaces access" section of the package settings page. The "Add repository" button is highlighted with an orange outline.](/assets/images/help/package-registry/manage-codespaces-access-blank.png)
 
-3. Search for the repository you want to add.
+1. Search for the repository you want to add.
 
-   !["Add repository" button](/assets/images/help/package-registry/manage-codespaces-access-search.png)
-   
-4. Repeat for any additional repositories you would like to allow access.
+1. Repeat for any additional repositories you would like to allow access.
 
-5. If the codespaces for a repository no longer need access to an image, you can remove access.
+1. If the codespaces for a repository no longer need access to a package, you can remove access. Click **{% octicon "trash" aria-label="remove access to repository from this package" %}**.
 
-   !["Remove repository" button](/assets/images/help/package-registry/manage-codespaces-access-item.png)
+   ![Screenshot of the "Manage Codespaces access" section of the package settings page. The trash icon is highlighted with an orange outline.](/assets/images/help/package-registry/manage-codespaces-access-item.png)
 
-## Configuring visibility of container images for your personal account
+{% endif %}
 
-When you first publish a package, the default visibility is private and only you can see the package. You can modify a private or public container image's access by changing the access settings.
+## Configuring visibility of packages for your personal account
 
-A public package can be accessed anonymously without authentication. Once you make your package public, you cannot make your package private again.
+When you first publish a package that is scoped to your personal account, the default visibility is private and only you can see the package. You can modify a private or public  package's access by changing the access settings.
 
-{% data reusables.package_registry.package-settings-from-user-level %}
-5. Under "Danger Zone", choose a visibility setting:
-    - To make the container image visible to anyone, click **Make public**.
-    {% warning %}
+{% data reusables.package_registry.package-settings-option %}
+1. At the bottom of the page, under "Danger Zone", click **Change visibility**.
+1. Select a visibility setting:
+   * To make the package visible to anyone, select **Public**.
+     {% warning %}
 
-    **Warning:** Once you make a package public, you cannot make it private again.
+     **Warning:** Once you make a package public, you cannot make it private again.
 
-    {% endwarning %}
-    - To make the container image visible to a custom selection of people, click **Make private**.
-  ![Container visibility options](/assets/images/help/package-registry/container-visibility-option.png)
+     {% endwarning %}
+   * To make the package visible to a custom selection of people, select **Private**.
+1. To confirm, type the name of the package, then click **I understand the consequences, change package visibility**.
 
-## Container creation visibility for organization members
+## Package creation visibility for organization members
 
-You can choose the visibility of containers that organization members can publish by default.
+For registries that support granular permissions, you can choose the visibility of packages that organization members can publish by default. For the list of these registries, see "[AUTOTITLE](/packages/learn-github-packages/about-permissions-for-github-packages#granular-permissions-for-userorganization-scoped-packages)."
 
 {% data reusables.profile.access_org %}
 {% data reusables.profile.org_settings %}
-4. On the left, click **Packages**.
-6. Under "Container creation", choose whether you want to enable the creation of public, private, or internal container images.
-    - To enable organization members to create public container images, click **Public**.
-    - To enable organization members to create private container images that are only visible to other organization members, click **Private**. You can further customize the visibility of private container images.
-    - **For {% data variables.product.prodname_ghe_cloud %} only:** To enable organization members to create internal container images that are only visible to other organization members, click **Internal**.
-    ![Visibility options for container images published by organization members](/assets/images/help/package-registry/container-creation-org-settings.png)
+1. On the left, click **Packages**.
+1. Under "Package Creation", choose whether you want to enable the creation of public, private, or internal packages.
+    * To enable organization members to create public packages, click **Public**.
+    * To enable organization members to create private packages that are only visible to other organization members, click **Private**. You can further customize the visibility of private packages.
+    * To enable organization members to create internal packages that are visible to all organization members, click **Internal**. If the organization belongs to an enterprise, the packages will be visible to all enterprise members.
 
-## Configuring visibility of container images for an organization
+## Configuring visibility of packages for an organization
 
-When you first publish a package, the default visibility is private and only you can see the package. You can grant users or teams different access roles for your container image through the access settings.
-
-A public package can be accessed anonymously without authentication. Once you make your package public, you cannot make your package private again.
+When you first publish a package, the default visibility is private and only you can see the package. You can grant users or teams different access roles for your package through the access settings. Once you make your package public, you cannot make your package private again.
 
 {% data reusables.package_registry.package-settings-from-org-level %}
-5. Under "Danger Zone", choose a visibility setting:
-    - To make the container image visible to anyone, click **Make public**.
-    {% warning %}
+{% data reusables.package_registry.package-settings-option %}
+1. At the bottom of the page, under "Danger Zone", click **Change visibility** and choose a visibility setting:
+    * To make the package visible to anyone, click **Public**.
 
-    **Warning:** Once you make a package public, you cannot make it private again.
+      {% warning %}
 
-    {% endwarning %}
-    - To make the container image visible to a custom selection of people, click **Make private**.
-  ![Container visibility options](/assets/images/help/package-registry/container-visibility-option.png)
+      **Warning:** Once you make a package public, you cannot make it private again.
+
+      {% endwarning %}
+
+    * To make the package visible to a custom selection of people in your organization, click **Private**.{% ifversion not fpt %}
+    * To make the package visible to all organization members, click **Internal**. If the organization belongs to an enterprise, the packages will be visible to all enterprise members.{% endif %}

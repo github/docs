@@ -1,0 +1,1 @@
+{% data variables.product.prodname_copilot %} offers coding suggestions as you type in your coding environment. For more information about other things that {% data variables.product.prodname_copilot_short %} can do, see "[AUTOTITLE](/copilot/about-github-copilot/what-is-github-copilot)."

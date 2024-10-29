@@ -1,0 +1,1 @@
+{% data variables.product.prodname_dotcom %} connects users and allows you to interact with other projects. To learn more about contributing to someone else's project, see "[AUTOTITLE](/get-started/exploring-projects-on-github/contributing-to-a-project)."

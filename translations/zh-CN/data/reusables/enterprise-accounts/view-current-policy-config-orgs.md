@@ -1,1 +1,0 @@
-（可选）要在更改设置之前，查看企业帐户中所有组织的当前配置，请单击 {% octicon "eye" aria-label="The eye octicon" %} **View your organizations' current configurations（查看组织的当前配置）**。 ![查看企业中组织的当前策略配置的链接](/assets/images/help/business-accounts/view-current-policy-implementation-link.png)

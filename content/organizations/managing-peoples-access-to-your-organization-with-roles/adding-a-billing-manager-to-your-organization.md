@@ -14,7 +14,7 @@ topics:
 shortTitle: Add a billing manager
 ---
 
-Members of your organization's Owners team can give *billing manager* permissions to people. Once a person accepts their invitation to become a billing manager for your organization, they can invite additional people to be billing managers.
+Members of your organization's Owners team can give _billing manager_ permissions to people. Once a person accepts their invitation to become a billing manager for your organization, they can invite additional people to be billing managers.
 
 {% note %}
 
@@ -26,25 +26,27 @@ Members of your organization's Owners team can give *billing manager* permission
 
 Billing managers can:
 
-- Upgrade or downgrade the account
-- Add, update, or remove payment methods
-- View payment history
-- Download receipts
-- View, invite, and remove billing managers
-- Start, modify, or cancel sponsorships
+* Upgrade or downgrade between {% data variables.product.prodname_free_user %} and {% data variables.product.prodname_team %} plans
+* Add, update, or remove payment methods
+* View payment history
+* Download receipts
+* View, invite, and remove billing managers
+* Start, modify, or cancel sponsorships
 
 In addition, all billing managers will receive billing receipts by email on the organization's billing date.
 
 Billing managers **are not** able to:
 
-- Create or access repositories in your organizations
-- See private members of your organization
-- Be seen in the list of organization members
-- Purchase, edit, or cancel subscriptions for {% data variables.product.prodname_marketplace %} apps
+* Upgrade to {% data variables.product.prodname_enterprise %} or downgrade an enterprise account
+* Create or access repositories in your organizations
+* See private members of your organization
+* Be seen in the list of organization members
+* Purchase, edit, or cancel subscriptions for {% data variables.product.prodname_marketplace %} apps
+* Purchase, edit, or cancel subscriptions for {% data variables.product.prodname_copilot_for_business %} or {% data variables.product.prodname_copilot_enterprise %}
 
 {% tip %}
 
-**Tip:**  If your organization [requires members, billing managers, and outside collaborators to use two-factor authentication](/articles/requiring-two-factor-authentication-in-your-organization), the user must enable two-factor authentication before they can accept your invitation to become a billing manager for the organization.
+**Tip:**  If your organization [requires members, billing managers, and outside collaborators to use two-factor authentication](/organizations/keeping-your-organization-secure/managing-two-factor-authentication-for-your-organization/requiring-two-factor-authentication-in-your-organization), the user must enable two-factor authentication before they can accept your invitation to become a billing manager for the organization.
 
 {% endtip %}
 
@@ -53,7 +55,7 @@ Billing managers **are not** able to:
 {% ifversion ghec %}
 {% note %}
 
-**Note:** If your organization is managed using [Enterprise Accounts](/github/setting-up-and-managing-your-enterprise/managing-your-enterprise-account/about-enterprise-accounts) you will not be able to invite Billing Managers at the organization level. 
+**Note:** If your organization is owned by an enterprise account, you cannot invite billing managers at the organization level. For more information, see "[AUTOTITLE](/admin/overview/about-enterprise-accounts)."
 
 {% endnote %}
 {% endif %}
@@ -62,6 +64,8 @@ The invited person will receive an invitation email asking them to become a bill
 
 {% data reusables.organizations.billing-settings %}
 1. Under "Billing management", next to "Billing managers", click **Add**.
-  ![Invite billing manager](/assets/images/help/billing/settings_billing_managers_list.png)
-6. Type the username or email address of the person you want to add and click **Send invitation**.
-  ![Invite billing manager page](/assets/images/help/billing/billing_manager_invite.png)
+1. Type the username or email address of the person you want to add and click **Send invitation**.
+
+## Further reading
+
+* "[AUTOTITLE](/enterprise-cloud@latest/admin/user-management/managing-users-in-your-enterprise/inviting-people-to-manage-your-enterprise)"{% ifversion fpt %} in the {% data variables.product.prodname_ghe_cloud %} documentation{% endif %}

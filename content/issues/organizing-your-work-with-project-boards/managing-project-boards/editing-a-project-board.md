@@ -1,36 +1,37 @@
 ---
-title: Editing a project board
-intro: You can edit the title and description of an existing project board.
+title: 'Editing a {% data variables.product.prodname_project_v1 %}'
+intro: 'You can edit the title and description of an existing {% data variables.projects.projects_v1_board %}.'
 redirect_from:
   - /github/managing-your-work-on-github/managing-project-boards/editing-a-project-board
-  - /articles/editing-a-project/
-  - /articles/editing-and-deleting-a-project/
+  - /articles/editing-a-project
+  - /articles/editing-and-deleting-a-project
   - /articles/editing-a-project-board
   - /github/managing-your-work-on-github/editing-a-project-board
 versions:
-  fpt: '*'
-  ghes: '*'
-  ghae: '*'
-  ghec: '*'
+  feature: projects-v1
 topics:
   - Pull requests
+allowTitleToDifferFromFilename: true
 ---
 {% data reusables.projects.project_boards_old %}
 
+{% ifversion projects-v1-can-create %}
+
 {% tip %}
 
-**Tip:** For details on adding, removing, or editing columns in your project board, see "[Creating a project board](/articles/creating-a-project-board)."
+**Tip:** For details on adding, removing, or editing columns in your {% data variables.projects.projects_v1_board %}, see "[AUTOTITLE](/issues/organizing-your-work-with-project-boards/managing-project-boards/creating-a-project-board)."
 
 {% endtip %}
 
-1. Navigate to the project board you want to edit.
+{% endif %}
+
+1. Navigate to the {% data variables.projects.projects_v1_board %} you want to edit.
 {% data reusables.project-management.click-menu %}
-{% data reusables.project-management.click-edit-sidebar-menu-project-board %} 
-4. Modify the project board name and description as needed, then click **Save project**.
-![Fields with the project board name and description, and Save project button](/assets/images/help/projects/edit-project-board-save-button.png)
+{% data reusables.project-management.click-edit-sidebar-menu-project-board %}
+1. Modify the {% data variables.projects.projects_v1_board %} name and description as needed, then click **Save project**.
 
 ## Further reading
 
-- "[About project boards](/articles/about-project-boards)"
-- "[Adding issues and pull requests to a project board](/articles/adding-issues-and-pull-requests-to-a-project-board)"
-- "[Deleting a project board](/articles/deleting-a-project-board)"
+* "[AUTOTITLE](/issues/organizing-your-work-with-project-boards/managing-project-boards/about-project-boards)"
+* "[AUTOTITLE](/issues/organizing-your-work-with-project-boards/tracking-work-with-project-boards/adding-issues-and-pull-requests-to-a-project-board)"
+* "[AUTOTITLE](/issues/organizing-your-work-with-project-boards/managing-project-boards/deleting-a-project-board)"

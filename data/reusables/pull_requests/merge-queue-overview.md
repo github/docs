@@ -1,3 +1,9 @@
-Merge queues for pull requests can increase the rate at which pull requests are merged into a busy default branch, whilst ensuring that CI checks pass. 
+A merge queue helps increase velocity by automating pull request merges into a busy branch and ensuring the branch is never broken by incompatible changes.
 
-Once a pull request has passed any required checks and approvals, a contributor can add the pull request to the merge queue. The queue then creates a temporary branch with that pull request and any pull requests ahead of it in the queue, and triggers any required continuous integration (CI) checks. Once CI checks pass, {% data variables.product.product_name %} merges the pull request by fast-forwarding the default branch.
+The merge queue provides the same benefits as the **Require branches to be up to date before merging** branch protection, but does not require a pull request author to update their pull request branch and wait for status checks to finish before trying to merge.
+
+Using a merge queue is particularly useful on branches that have a relatively high number of pull requests merging each day from many different users.
+
+Once a pull request has passed all required branch protection checks, a user with write access to the repository can add the pull request to the queue. The merge queue will ensure the pull request's changes pass all required status checks when applied to the latest version of the target branch and any pull requests already in the queue.
+
+A merge queue may use {% data variables.product.prodname_actions %} or your own CI provider to run required checks on pull requests in a merge queue. For more information, see "[AUTOTITLE](/actions)."

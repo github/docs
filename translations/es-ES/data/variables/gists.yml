@@ -1,7 +1,0 @@
----
-gist_homepage: >-
-  {% ifversion fpt or ghec %}[página principal del gist](https://gist.github.com/){% elsif ghae %}página principal del gist, `http(s)://gist.[hostname)`,{% else %}página principal del gist, `http(s)://[hostname]/gist` o `http(s)://gist.[hostname]` si se habilitan los subdominios{% endif %}
-gist_search_url: >-
-  {% ifversion fpt or ghec %}[Búsqueda de Gists](https://gist.github.com/search){% elsif ghae %}Búsqueda de Gists, `http(s)://gist.[hostname]/search`,{% else %}Búsqueda de Gists, `http(s)://[hostname]/gist/search` o `http(s)://gist.[hostname]/search` si se habilitaron los subdominios{% endif %}
-discover_url: >-
-  {% ifversion fpt or ghec %}[Discover](https://gist.github.com/discover){% elsif ghae %}Descubre, `http(s)://gist.[hostname]/discover`,{% else %}Descubre, `http(s)://[hostname]/gist/discover` o `http(s)://gist.[hostname]/discover` si se habilitaron los subdominios{% endif %}

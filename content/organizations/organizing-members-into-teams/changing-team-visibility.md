@@ -7,7 +7,6 @@ redirect_from:
 versions:
   fpt: '*'
   ghes: '*'
-  ghae: '*'
   ghec: '*'
 topics:
   - Organizations
@@ -18,16 +17,17 @@ topics:
 
 {% tip %}
 
-**Tip:** If a team has [child or parent teams](/articles/about-teams), you cannot make it a secret team.
+**Tip:** If a team has [child or parent teams](/organizations/organizing-members-into-teams/about-teams), you cannot make it a secret team.
 
 {% endtip %}
 
 {% data reusables.profile.access_org %}
-{% data reusables.user_settings.access_org %}
+{% data reusables.user-settings.access_org %}
 {% data reusables.organizations.teams %}
-3. Select the team or teams whose visibility you'd like to change.
-  ![List of teams with two teams selected](/assets/images/help/teams/list-of-teams-selected.png)
-4. Above the list of teams, use the drop-down menu and click **Change visibility**.
-  ![Drop-down menu with option to change team visibility](/assets/images/help/teams/team-bulk-management-options.png)
-5. Choose whether to make the team or teams visible or secret, then click **Change visibility**.
-  ![Radio buttons for making a team visible or secret and Change visibility button](/assets/images/help/teams/select-and-confirm-new-visibility.png)
+1. Select the team or teams whose visibility you'd like to change.
+
+   ![Screenshot of the first two teams in the list of teams. To the left of each team, a checkbox is checked and outlined in dark orange.](/assets/images/help/teams/list-of-teams-selected.png)
+1. Above the list of teams, use the drop-down menu and click **Change visibility**.
+
+   {% data reusables.organizations.bulk-edit-team-dropdown %}
+1. Select a visibility, then click **Change visibility**.

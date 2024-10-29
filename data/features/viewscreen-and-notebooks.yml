@@ -1,0 +1,6 @@
+# Issues #7825
+# Standing up Viewscreen and Notebooks services to replace Render service
+versions:
+  fpt: '*'
+  ghec: '*'
+  ghes: '>=3.7'

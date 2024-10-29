@@ -1,1 +1,0 @@
-1. Na barra lateral esquerda, clique em **Empresa{% ifversion ghes or ghae %} visão geral{% endif %}**. ![Empresa{% ifversion ghes or ghae %} aba visão geral{% endif %} nas configurações de administrador do Site](/assets/images/enterprise/site-admin-settings/enterprise-tab.png)

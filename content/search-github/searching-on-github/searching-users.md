@@ -8,12 +8,11 @@ redirect_from:
 versions:
   fpt: '*'
   ghes: '*'
-  ghae: '*'
   ghec: '*'
 topics:
   - GitHub search
 ---
-You can search for users globally across all of {% data variables.product.product_name %}. For more information, see "[About searching on {% data variables.product.company_short %}](/search-github/getting-started-with-searching-on-github/about-searching-on-github)."
+You can search for users globally across all of {% data variables.product.product_name %}. For more information, see "[AUTOTITLE](/search-github/getting-started-with-searching-on-github/about-searching-on-github)."
 
 {% data reusables.search.syntax_tips %}
 
@@ -48,7 +47,7 @@ You can filter users based on the number of repositories they own, using the `re
 | Qualifier        | Example
 | ------------- | -------------
 | <code>repos:<em>n</em></code> | [**repos:>9000**](https://github.com/search?q=repos%3A%3E%3D9000&type=Users) matches users whose repository count is over 9,000.
-| | [**bert repos:10..30**](https://github.com/search?q=bert+repos%3A10..30&type=Users) matches users with the word "bert" in their username or real name who own 10 to 30 repositories.
+| <em>`name`</em> <code>repos:<em>n</em></code> | [**bert repos:10..30**](https://github.com/search?q=bert+repos%3A10..30&type=Users) matches users with the word "bert" in their username or real name who own 10 to 30 repositories.
 
 ## Search by location
 
@@ -64,10 +63,10 @@ Using the `language` qualifier you can search for users based on the languages o
 
 | Qualifier        | Example
 | ------------- | -------------
-| <code>language:<em>LANGUAGE</em></code> | [**language:javascript location:russia**](https://github.com/search?q=language%3Ajavascript+location%3Arussia&type=Users) matches users in Russia with a majority of their repositories written in JavaScript.
-| | [**jenny language:javascript in:fullname**](https://github.com/search?q=jenny+language%3Ajavascript+in%3Afullname&type=Users) matches users with JavaScript repositories whose full name contains the word "jenny."
+| <code>language:<em>LANGUAGE</em></code> <code>location:<em>LOCATION</em></code> | [**language:javascript location:russia**](https://github.com/search?q=language%3Ajavascript+location%3Arussia&type=Users) matches users in Russia with a majority of their repositories written in JavaScript.
+| <em>`name`</em> <code>language:<em>LANGUAGE</em></code> `in:fullname` | [**jenny language:javascript in:fullname**](https://github.com/search?q=jenny+language%3Ajavascript+in%3Afullname&type=Users) matches users with JavaScript repositories whose full name contains the word "jenny."
 
-## Search by when a user account was created
+## Search by when a personal account was created
 
 You can filter users based on when they joined {% data variables.product.product_name %} with the `created` qualifier. This takes a date as its parameter. {% data reusables.time_date.date_format %} {% data reusables.time_date.time_format %}
 
@@ -76,9 +75,9 @@ You can filter users based on when they joined {% data variables.product.product
 | Qualifier        | Example
 | ------------- | -------------
 | <code>created:<em>YYYY-MM-DD</em></code> | [**created:<2011-01-01**](https://github.com/search?q=created%3A%3C2011-01-01&type=Users) matches users that joined before 2011.
-| | [**created:>=2013-05-11**](https://github.com/search?q=created%3A%3E%3D2013-05-11&type=Users) matches users that joined at or after May 11th, 2013.
-| | [**created:2013-03-06 location:london**](https://github.com/search?q=created%3A2013-03-06+location%3Alondon&type=Users) matches users that joined on March 6th, 2013, who list their location as London.
-| | [**created:2010-01-01..2011-01-01 john in:login**](https://github.com/search?q=created%3A2010-01-01..2011-01-01+john+in%3Ausername&type=Users) matches users that joined between 2010 and 2011 with the word "john" in their username.
+| <code>created:>=<em>YYYY-MM-DD</em></code> | [**created:>=2013-05-11**](https://github.com/search?q=created%3A%3E%3D2013-05-11&type=Users) matches users that joined at or after May 11th, 2013.
+| <code>created:<em>YYYY-MM-DD</em></code> <code>location:<em>LOCATION</em></code> | [**created:2013-03-06 location:london**](https://github.com/search?q=created%3A2013-03-06+location%3Alondon&type=Users) matches users that joined on March 6th, 2013, who list their location as London.
+| <code>created:<em>YYYY-MM-DD..YYYY-MM-DD</em></code> <em>`name`</em> `in:login` | [**created:2010-01-01..2011-01-01 john in:login**](https://github.com/search?q=created%3A2010-01-01..2011-01-01+john+in%3Ausername&type=Users) matches users that joined between 2010 and 2011 with the word "john" in their username.
 
 ## Search by number of followers
 
@@ -87,13 +86,13 @@ You can filter users based on the number of followers that they have, using the 
 | Qualifier        | Example
 | ------------- | -------------
 | <code>followers:<em>n</em></code> | [**followers:>=1000**](https://github.com/search?q=followers%3A%3E%3D1000&type=Users) matches users with 1,000 or more followers.
-| | [**sparkle followers:1..10**](https://github.com/search?q=sparkle+followers%3A1..10&type=Users) matches users with between 1 and 10 followers, with the word "sparkle" in their name.
+| <em>`name`</em> <code>followers:<em>n</em></code> | [**sparkle followers:1..10**](https://github.com/search?q=sparkle+followers%3A1..10&type=Users) matches users with between 1 and 10 followers, with the word "sparkle" in their name.
 
 {% ifversion fpt or ghec %}
 
 ## Search based on ability to sponsor
 
-You can search for users and organizations who can be sponsored on {% data variables.product.prodname_sponsors %} with the `is:sponsorable` qualifier. For more information, see "[About {% data variables.product.prodname_sponsors %}](/sponsors/getting-started-with-github-sponsors/about-github-sponsors)."
+You can search for users and organizations who can be sponsored on {% data variables.product.prodname_sponsors %} with the `is:sponsorable` qualifier. For more information, see "[AUTOTITLE](/sponsors/getting-started-with-github-sponsors/about-github-sponsors)."
 
 | Qualifier  | Example
 | ------------- | -------------
@@ -103,4 +102,4 @@ You can search for users and organizations who can be sponsored on {% data varia
 
 ## Further reading
 
-- "[Sorting search results](/search-github/getting-started-with-searching-on-github/sorting-search-results/)"
+* "[AUTOTITLE](/search-github/getting-started-with-searching-on-github/sorting-search-results)"

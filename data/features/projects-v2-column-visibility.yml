@@ -1,0 +1,5 @@
+# Issue 8166
+versions:
+  fpt: '*'
+  ghec: '*'
+  ghes: '>=3.9'

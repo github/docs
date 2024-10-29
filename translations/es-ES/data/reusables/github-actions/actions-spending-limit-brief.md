@@ -1,1 +1,0 @@
-Si eres un cliente que factura mensualmente, tu cuenta tendrá un límite de gastos predeterminado de 0 dólares Estadounidenses (USD), lo cual previene el uso adicional de minutos o almacenamiento para los repositorios privados más allá de las cantidades que se incluyen en tu cuenta. Si pagas tu cuenta por factura, ésta tendrá un límite de gastos ilimitado predeterminadamente.

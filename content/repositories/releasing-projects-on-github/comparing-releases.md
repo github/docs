@@ -5,7 +5,6 @@ permissions: People with read access to a repository can view and compare releas
 versions:
   fpt: '*'
   ghes: '*'
-  ghae: '*'
   ghec: '*'
 topics:
   - Repositories
@@ -15,15 +14,7 @@ redirect_from:
 ---
 {% data reusables.repositories.navigate-to-repo %}
 {% data reusables.repositories.releases %}
-3. Next to the release you want to use as your base, click **Compare**.
-  {% ifversion fpt or ghec or ghes > 3.4 or ghae-issue-4974 %}
-  ![Compare release tags menu](/assets/images/help/releases/refreshed-compare-tags.png)
-  {% else %}
-  ![Compare release tags menu](/assets/images/help/releases/compare-tags-menu.png)
-  {% endif %}
-4. Use the "Compare" drop-down menu and select the tags you want to compare.
-  {% ifversion fpt or ghec or ghes > 3.4 or ghae-issue-4974 %}
-  ![Compare release tags menu](/assets/images/help/releases/refreshed-compare-tags-menu-options.png)
-  {% else %}
-  ![Compare release tags menu options](/assets/images/help/releases/compare-tags-menu-options.png)
-  {% endif %}
+
+1. Next to the release you want to use as your base, select the **Compare** dropdown menu, then click the tag you want to compare.
+
+   ![Screenshot of a release in the releases list. A dropdown menu, labeled "Compare, is highlighted with an orange outline.](/assets/images/help/releases/refreshed-compare-tags.png)

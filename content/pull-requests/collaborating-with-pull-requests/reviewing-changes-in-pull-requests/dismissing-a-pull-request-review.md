@@ -9,7 +9,6 @@ redirect_from:
 versions:
   fpt: '*'
   ghes: '*'
-  ghae: '*'
   ghec: '*'
 topics:
   - Pull requests
@@ -22,14 +21,18 @@ This changes the status of the review to a review comment. When you dismiss a re
 
 {% data reusables.repositories.sidebar-pr %}
 {% data reusables.repositories.choose-pr-review %}
-3. On the "Conversation" tab, scroll to the review you'd like to dismiss, then click {% octicon "chevron-down" aria-label="The down button" %}. ![Chevron icon in the merge box](/assets/images/help/pull_requests/merge_box/pull-request-open-menu.png)
-4. Click {% octicon "kebab-horizontal" aria-label="The horizontal kebab icon" %}, then click **Dismiss review**.
-![Kebab icon in merge box](/assets/images/help/pull_requests/merge_box/pull-request-dismiss-review.png)
-5. Type your reason for dismissing the review, then click **Dismiss review**.
-  ![Dismiss review button](/assets/images/help/pull_requests/merge_box/pull-request-dismiss-review-button.png)
+1. On the "Conversation" tab, next to the summary of reviews, click {% octicon "chevron-down" aria-label="show" %}.
+
+   ![Screenshot of the merge box for a pull request. The chevron icon to see the reviews is outlined in dark orange.](/assets/images/help/pull_requests/merge_box/pull-request-open-menu.png)
+
+1. Next. to the review you'd like to dismiss, select the {% octicon "kebab-horizontal" aria-label="Show options" %} dropdown menu, then click **Dismiss review**.
+
+   ![Screenshot of the merge box for a pull request. A dropdown menu, labeled with the kebab icon, is expanded, and the "Dismiss review" option is outlined in dark orange.](/assets/images/help/pull_requests/merge_box/pull-request-dismiss-review.png)
+
+1. Type your reason for dismissing the review, then click **Dismiss review**.
 
 ## Further reading
 
-- "[About pull request reviews](/pull-requests/collaborating-with-pull-requests/reviewing-changes-in-pull-requests/about-pull-request-reviews)"
-- "[Reviewing proposed changes in a pull request](/pull-requests/collaborating-with-pull-requests/reviewing-changes-in-pull-requests/reviewing-proposed-changes-in-a-pull-request)"
-- "[About protected branches](/github/administering-a-repository/about-protected-branches#require-pull-request-reviews-before-merging)"
+* "[AUTOTITLE](/pull-requests/collaborating-with-pull-requests/reviewing-changes-in-pull-requests/about-pull-request-reviews)"
+* "[AUTOTITLE](/pull-requests/collaborating-with-pull-requests/reviewing-changes-in-pull-requests/reviewing-proposed-changes-in-a-pull-request)"
+* "[AUTOTITLE](/repositories/configuring-branches-and-merges-in-your-repository/managing-protected-branches/about-protected-branches#require-pull-request-reviews-before-merging)"

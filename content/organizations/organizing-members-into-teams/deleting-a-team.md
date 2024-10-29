@@ -7,7 +7,6 @@ redirect_from:
 versions:
   fpt: '*'
   ghes: '*'
-  ghae: '*'
   ghec: '*'
 topics:
   - Organizations
@@ -16,16 +15,17 @@ topics:
 
 {% tip %}
 
-**Tip:** Only organization owners can delete parent teams. For more information, see "[About teams](/articles/about-teams)."
+**Tip:** Only organization owners can delete parent teams. For more information, see "[AUTOTITLE](/organizations/organizing-members-into-teams/about-teams)."
 
 {% endtip %}
 
 {% data reusables.profile.access_org %}
-{% data reusables.user_settings.access_org %}
+{% data reusables.user-settings.access_org %}
 {% data reusables.organizations.teams %}
-4. Select the team or teams you'd like to delete.
-  ![List of teams with two teams selected](/assets/images/help/teams/list-of-teams-selected.png)
-5. Above the list of teams, use the drop-down menu and click **Delete**.
-  ![Drop-down menu with option to change team visibility](/assets/images/help/teams/team-bulk-management-options.png)
-6. Review the team or teams that will be deleted, then click **I understand, delete teams**.
-  ![List of teams that will be deleted and Delete teams button](/assets/images/help/teams/confirm-delete-teams-bulk.png)
+1. Select the team or teams you'd like to delete.
+
+   ![Screenshot of the first two teams in the list of teams. To the left of each team, a checkbox is checked and outlined in dark orange.](/assets/images/help/teams/list-of-teams-selected.png)
+1. Above the list of teams, select the **X teams selected** dropdown menu and click **Delete**.
+
+   {% data reusables.organizations.bulk-edit-team-dropdown %}
+1. Review the team or teams that will be deleted, then click **I understand, delete teams**.

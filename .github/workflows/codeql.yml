@@ -5,24 +5,48 @@ name: CodeQL analysis
 # **Who does it impact**: Docs engineering.
 
 on:
-  push:
-    branches:
-      - main
   pull_request:
     branches:
       - main
     paths:
       - '**/*.js'
+      - '**/*.ts'
+      - '**/*.jsx'
+      - '**/*.tsx'
       - '.github/workflows/codeql.yml'
+  # This is so that when CodeQL runs on a pull request, it can compare
+  # against the state of the base branch.
+  push:
+    branches:
+      - main
+
+permissions:
+  actions: read
+  contents: read
+  security-events: write
+
+# This allows a subsequently queued workflow run to interrupt previous runs
+concurrency:
+  group: '${{ github.workflow }} @ ${{ github.event.pull_request.head.label || github.head_ref || github.ref }}'
+  cancel-in-progress: true
 
 jobs:
   build:
     if: github.repository == 'github/docs-internal' || github.repository == 'github/docs'
     runs-on: ubuntu-latest
     steps:
-      - uses: actions/checkout@1e204e9a9253d643386038d443f96446fa156a97
-      - uses: github/codeql-action/init@v1
+      - uses: actions/checkout@b4ffde65f46336ab88eb53be808477a3936bae11 # v4.1.1
+      - uses: github/codeql-action/init@eb055d739abdc2e8de2e5f4ba1a8b246daa779aa # v3.26.0
         with:
-          languages: javascript # comma separated list of values from {go, python, javascript, java, cpp, csharp} (not YET ruby, sorry!)
-      - uses: github/codeql-action/analyze@v1
+          languages: javascript # comma separated list of values from {go, python, javascript, java, cpp, csharp, ruby}
+          config: |
+            paths-ignore:
+              - 'src/open-source/scripts/add-pr-links.js'
+      - uses: github/codeql-action/analyze@eb055d739abdc2e8de2e5f4ba1a8b246daa779aa # v3.26.0
         continue-on-error: true
+
+      - uses: ./.github/actions/slack-alert
+        if: ${{ failure() && github.event_name != 'pull_request' }}
+        with:
+          slack_channel_id: ${{ secrets.DOCS_ALERTS_SLACK_CHANNEL_ID }}
+          slack_token: ${{ secrets.SLACK_DOCS_BOT_TOKEN }}

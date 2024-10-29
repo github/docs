@@ -1,7 +1,0 @@
----
-gist_homepage: >-
-  {% ifversion fpt or ghec %}[gist 主页](https://gist.github.com/){% elsif ghae %}gist 主页 `http(s)://gist.[hostname)`，{% else %}gist 主页 `http(s)://[hostname]/gist` 或 `http(s)://gist.[hostname]` 如果启用了子域{% endif %}
-gist_search_url: >-
-  {% ifversion fpt or ghec %}[Gist 搜索](https://gist.github.com/search){% elsif ghae %}Gist 搜索 `http(s)://gist.[hostname]/search`，{% else %}Gist 搜索 `http(s)://[hostname]/gist/search` 或 `http(s)://gist.[hostname]/search`（如果启用了子域）{% endif %}
-discover_url: >-
-  {% ifversion fpt or ghec %}[Discover](https://gist.github.com/discover){% elsif ghae %}Discover, `http(s)://gist.[hostname]/discover`，{% else %}Discover `http(s)://[hostname]/gist/discover` 或 `http(s)://gist.[hostname]/discover`（如果启用了子域）{% endif %}

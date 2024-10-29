@@ -1,1 +1,0 @@
-1. {% ifversion ghes or ghae %} {% octicon "law" aria-label="The law icon" %} **Policies（ポリシー）**{% else %}"{% octicon "gear" aria-label="The Settings gear" %} Settings（設定）"{% endif %}の下で、**Options（オプション）**をクリックしてください。 ![Enterpriseアカウント設定サイドバー内のオプションタブ](/assets/images/enterprise/business-accounts/settings-options-tab.png)

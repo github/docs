@@ -3,6 +3,7 @@ title: Use the Git and GitHub starter assignment
 intro: 'You can use the Git & {% data variables.product.company_short %} starter assignment to give students an overview of Git and {% data variables.product.company_short %} fundamentals.'
 versions:
   fpt: '*'
+permissions: 'Organization owners who are admins for a classroom can use Git & {% data variables.product.company_short %} starter assignments. {% data reusables.classroom.classroom-admins-link %}'
 redirect_from:
   - /education/manage-coursework-with-github-classroom/use-the-git-and-github-starter-assignment
 shortTitle: Starter assignment
@@ -19,40 +20,35 @@ The Git & {% data variables.product.company_short %} starter assignment is a pre
 ### If there are no existing assignments in the classroom
 
 1. Sign into {% data variables.product.prodname_classroom_with_url %}.
-2. Navigate to a classroom.
-3. In the {% octicon "repo" aria-label="The repo icon" %} **Assignments** tab, click  **Use starter assignment**.
-
-<div class="procedural-image-wrapper">
-  <img alt="Creating your first assignment" class="procedural-image-wrapper" src="/assets/images/help/classroom/assignments-create-first-assignment.png">
-</div>
+1. Navigate to a classroom.
+1. In the {% octicon "repo" aria-hidden="true" %} **Assignments** tab, click  **Use starter assignment**.
 
 ### If there already are existing assignments in the classroom
 
 1. Sign into {% data variables.product.prodname_classroom_with_url %}.
-2. Navigate to a classroom.
-3. In the {% octicon "repo" aria-label="The repo icon" %} **Assignments** tab, click the link on the blue banner.
-
-<div class="procedural-image-wrapper">
-  <img alt="The 'New assignment' button" class="procedural-image-wrapper" src="/assets/images/help/classroom/assignments-click-new-starter-assignment-button.png">
-</div>
+1. Navigate to a classroom.
+1. In the {% octicon "repo" aria-hidden="true" %} **Assignments** tab, click the link in the blue banner.
 
 ## Setting up the basics for an assignment
 
 Import the starter course into your organization, name your assignment, decide whether to assign a deadline, and choose the visibility of assignment repositories.
 
-- [Importing the assignment](#importing-the-assignment)
-- [Naming an assignment](#naming-an-assignment)
-- [Assigning a deadline for an assignment](#assigning-a-deadline-for-an-assignment)
-- [Choosing an assignment type](#choosing-an-assignment-type)
-- [Choosing a visibility for assignment repositories](#choosing-a-visibility-for-assignment-repositories)
+* [Prerequisites](#prerequisites)
+* [Creating the starter assignment](#creating-the-starter-assignment)
+  * [If there are no existing assignments in the classroom](#if-there-are-no-existing-assignments-in-the-classroom)
+  * [If there already are existing assignments in the classroom](#if-there-already-are-existing-assignments-in-the-classroom)
+* [Setting up the basics for an assignment](#setting-up-the-basics-for-an-assignment)
+  * [Importing the assignment](#importing-the-assignment)
+  * [Naming the assignment](#naming-the-assignment)
+  * [Assigning a deadline for an assignment](#assigning-a-deadline-for-an-assignment)
+  * [Choosing a visibility for assignment repositories](#choosing-a-visibility-for-assignment-repositories)
+* [Inviting students to an assignment](#inviting-students-to-an-assignment)
+* [Next steps](#next-steps)
+* [Further reading](#further-reading)
 
 ### Importing the assignment
 
-You first need to import the Git & {% data variables.product.product_name %} starter assignment into your organization.
-
-<div class="procedural-image-wrapper">
-  <img alt="The `Import the assignment` button" class="procedural-image-wrapper" src="/assets/images/help/classroom/assignments-import-starter-assignment.png">
-</div>
+To import the Git & {% data variables.product.product_name %} starter assignment into your organization, click **Import the assignment**.
 
 ### Naming the assignment
 
@@ -64,15 +60,13 @@ For an individual assignment, {% data variables.product.prodname_classroom %} na
 
 {% data reusables.classroom.assignments-guide-assign-a-deadline %}
 
+{% data reusables.classroom.assignments-guide-make-cutoff-date %}
+
 ### Choosing a visibility for assignment repositories
 
 The repositories for an assignment can be public or private. If you use private repositories, only the student can see the feedback you provide. Under "Repository visibility," select a visibility.
 
 When you're done, click **Continue**. {% data variables.product.prodname_classroom %} will create the assignment and bring you to the assignment page.
-
-<div class="procedural-image-wrapper">
-  <img alt="'Continue' button" class="procedural-image-wrapper" src="/assets/images/help/classroom/assignments-click-continue-button.png">
-</div>
 
 ## Inviting students to an assignment
 
@@ -80,17 +74,13 @@ When you're done, click **Continue**. {% data variables.product.prodname_classro
 
 You can see whether a student has joined the classroom and accepted or submitted an assignment in the **All students** tab for the assignment. {% data reusables.classroom.assignments-to-prevent-submission %}
 
-<div class="procedural-image-wrapper">
-  <img alt="Individual assignment" class="procedural-image-wrapper" src="/assets/images/help/classroom/assignment-individual-hero.png">
-</div>
-
 The Git & {% data variables.product.company_short %} starter assignment is only available for individual students, not for groups. Once you create the assignment, students can start work on the assignment.
 
 ## Next steps
 
-- Make additional assignments customized to your course. For more information, see "[Create an individual assignment](/education/manage-coursework-with-github-classroom/create-an-individual-assignment)" and "[Create a group assignment](/education/manage-coursework-with-github-classroom/create-a-group-assignment)."
+* Make additional assignments customized to your course. For more information, see "[AUTOTITLE](/education/manage-coursework-with-github-classroom/teach-with-github-classroom/create-an-individual-assignment)," "[AUTOTITLE](/education/manage-coursework-with-github-classroom/teach-with-github-classroom/create-a-group-assignment)," and "[AUTOTITLE](/education/manage-coursework-with-github-classroom/teach-with-github-classroom/reuse-an-assignment)."
 
 ## Further reading
 
-- "[Use {% data variables.product.prodname_dotcom %} in your classroom and research](/education/explore-the-benefits-of-teaching-and-learning-with-github-education/use-github-in-your-classroom-and-research)"
-- "[Connect a learning management system to {% data variables.product.prodname_classroom %}](/education/manage-coursework-with-github-classroom/connect-a-learning-management-system-to-github-classroom)"
+* "[AUTOTITLE](/education/explore-the-benefits-of-teaching-and-learning-with-github-education/github-global-campus-for-teachers)"
+* "[AUTOTITLE](/education/manage-coursework-with-github-classroom/teach-with-github-classroom/connect-a-learning-management-system-course-to-a-classroom)"

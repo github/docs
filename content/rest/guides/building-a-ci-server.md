@@ -2,12 +2,11 @@
 title: Building a CI server
 intro: Build your own CI system using the Status API.
 redirect_from:
-  - /guides/building-a-ci-server/
+  - /guides/building-a-ci-server
   - /v3/guides/building-a-ci-server
 versions:
   fpt: '*'
   ghes: '*'
-  ghae: '*'
   ghec: '*'
 topics:
   - API
@@ -15,9 +14,9 @@ topics:
 
 
 
-The [Status API][status API] is responsible for tying together commits with
+You can use the REST API to tie together commits with
 a testing service, so that every push you make can be tested and represented
-in a {% data variables.product.product_name %} pull request.
+in a {% data variables.product.product_name %} pull request. For more information about the relevant endpoints, see "[AUTOTITLE](/rest/commits/statuses)."
 
 This guide will use that API to demonstrate a setup that you can use.
 In our scenario, we will:
@@ -29,12 +28,20 @@ Our CI system and host server will be figments of our imagination. They could be
 Travis, Jenkins, or something else entirely. The crux of this guide will be setting up
 and configuring the server managing the communication.
 
-If you haven't already, be sure to [download ngrok][ngrok], and learn how
-to [use it][using ngrok]. We find it to be a very useful tool for exposing local
-connections.
+If you haven't already, [download `ngrok`](https://ngrok.com/), and learn how
+to [use it](/webhooks-and-events/webhooks/configuring-your-server-to-receive-payloads#using-ngrok). We find it to be a very useful tool for exposing local
+applications to the internet.
+
+{% ifversion cli-webhook-forwarding %}
+{% note %}
+
+**Note:** Alternatively, you can use webhook forwarding to set up your local environment to receive webhooks. For more information, see "[AUTOTITLE](/webhooks-and-events/webhooks/receiving-webhooks-with-the-github-cli)."
+
+{% endnote %}
+{% endif %}
 
 Note: you can download the complete source code for this project
-[from the platform-samples repo][platform samples].
+[from the platform-samples repo](https://github.com/github/platform-samples/tree/master/api/ruby/building-a-ci-server).
 
 ## Writing your server
 
@@ -51,20 +58,16 @@ post '/event_handler' do
 end
 ```
 
-(If you're unfamiliar with how Sinatra works, we recommend [reading the Sinatra guide][Sinatra].)
+(If you're unfamiliar with how Sinatra works, we recommend [reading the Sinatra guide](http://www.sinatrarb.com/).)
 
 Start this server up. By default, Sinatra starts on port `4567`, so you'll want
-to configure ngrok to start listening for that, too.
+to configure `ngrok` to start listening for that, too.
 
-In order for this server to work, we'll need to set a repository up with a webhook.
-The webhook should be configured to fire whenever a Pull Request is created, or merged.
-Go ahead and create a repository you're comfortable playing around in. Might we
-suggest [@octocat's Spoon/Knife repository](https://github.com/octocat/Spoon-Knife)?
-After that, you'll create a new webhook in your repository, feeding it the URL
-that ngrok gave you, and choosing `application/x-www-form-urlencoded` as the
-content type:
+In order for this server to work, we'll need to set a repository up with a webhook. The webhook should be configured to fire whenever a pull request is created, or merged.
 
-![A new ngrok URL](/assets/images/webhook_sample_url.png)
+Go ahead and create a repository you're comfortable playing around in. Might we suggest [@octocat's Spoon/Knife repository](https://github.com/octocat/Spoon-Knife)?
+
+After that, you'll create a new webhook in your repository, feeding it the URL that `ngrok` gave you, and choosing `application/x-www-form-urlencoded` as the content type.
 
 Click **Update webhook**. You should see a body response of `Well, it worked!`.
 Great! Click on **Let me select individual events**, and select the following:
@@ -73,7 +76,7 @@ Great! Click on **Let me select individual events**, and select the following:
 * Pull Request
 
 These are the events {% data variables.product.product_name %} will send to our server whenever the relevant action
-occurs. Let's update our server to *just* handle the Pull Request scenario right now:
+occurs. Let's update our server to _just_ handle the Pull Request scenario right now:
 
 ``` ruby
 post '/event_handler' do
@@ -111,9 +114,9 @@ setting (and updating) CI statuses. Note that at any time you update your server
 you can click **Redeliver** to send the same payload. There's no need to make a
 new pull request every time you make a change!
 
-Since we're interacting with the {% ifversion fpt or ghec %}{% data variables.product.prodname_dotcom %}{% else %}{% data variables.product.product_name %}{% endif %} API, we'll use [Octokit.rb][octokit.rb]
+Since we're interacting with the {% ifversion fpt or ghec %}{% data variables.product.prodname_dotcom %}{% else %}{% data variables.product.product_name %}{% endif %} API, we'll use [Octokit.rb](https://github.com/octokit/octokit.rb)
 to manage our interactions. We'll configure that client with
-[a personal access token][access token]:
+[a {% data variables.product.pat_generic %}](/authentication/keeping-your-account-and-data-secure/creating-a-personal-access-token):
 
 ``` ruby
 # !!! DO NOT EVER USE HARD-CODED VALUES IN A REAL APP !!!
@@ -143,7 +146,7 @@ We're doing three very basic things here:
 
 That's it! From here, you can run whatever process you need to in order to execute
 your test suite. Maybe you're going to pass off your code to Jenkins, or call
-on another web service via its API, like [Travis][travis api]. After that, you'd
+on another web service via its API, like [Travis](https://api.travis-ci.com/docs/). After that, you'd
 be sure to update the status once more. In our example, we'll just set it to `"success"`:
 
 ``` ruby
@@ -153,11 +156,11 @@ def process_pull_request(pull_request)
   @client.create_status(pull_request['base']['repo']['full_name'], pull_request['head']['sha'], 'success')
   puts "Pull request processed!"
 end
-``` 
+```
 
 ## Conclusion
 
-At GitHub, we've used a version of [Janky][janky] to manage our CI for years.
+At GitHub, we've used a version of [Janky](https://github.com/github/janky) to manage our CI for years.
 The basic flow is essentially the exact same as the server we've built above.
 At GitHub, we:
 
@@ -167,19 +170,4 @@ At GitHub, we:
 
 All of this communication is funneled back to our chat rooms. You don't need to
 build your own CI setup to use this example.
-You can always rely on [GitHub integrations][integrations].
-
-[deploy API]: /rest/reference/repos#deployments
-[status API]: /rest/reference/repos#statuses
-[ngrok]: https://ngrok.com/
-[using ngrok]: /webhooks/configuring/#using-ngrok
-[platform samples]: https://github.com/github/platform-samples/tree/master/api/ruby/building-a-ci-server
-[Sinatra]: http://www.sinatrarb.com/
-[webhook]: /webhooks/
-[octokit.rb]: https://github.com/octokit/octokit.rb
-[access token]: /articles/creating-an-access-token-for-command-line-use
-[travis api]: https://api.travis-ci.org/docs/
-[janky]: https://github.com/github/janky
-[heaven]: https://github.com/atmos/heaven
-[hubot]: https://github.com/github/hubot
-[integrations]: https://github.com/integrations
+You can always rely on [GitHub integrations](https://github.com/integrations).

@@ -1,33 +1,29 @@
 ---
-title: Reopening a closed project board
-intro: You can reopen a closed project board and and restart any workflow automation that was configured for the project board.
+title: 'Reopening a closed {% data variables.product.prodname_project_v1 %}'
+intro: 'You can reopen a closed {% data variables.projects.projects_v1_board %} and restart any workflow automation that was configured for the {% data variables.projects.projects_v1_board %}.'
 redirect_from:
   - /github/managing-your-work-on-github/managing-project-boards/reopening-a-closed-project-board
   - /articles/reopening-a-closed-project-board
   - /github/managing-your-work-on-github/reopening-a-closed-project-board
 versions:
-  fpt: '*'
-  ghes: '*'
-  ghae: '*'
-  ghec: '*'
+  feature: projects-v1
 topics:
   - Pull requests
-shortTitle: Reopen project board
+shortTitle: 'Reopen {% data variables.product.prodname_project_v1 %}'
+allowTitleToDifferFromFilename: true
 ---
 {% data reusables.projects.project_boards_old %}
 
-When you close a project board, any workflow automation that was configured for the project board will pause by default. For more information, see "[Closing a project board](/articles/closing-a-project-board)."
+When you close a {% data variables.projects.projects_v1_board %}, any workflow automation that was configured for the {% data variables.projects.projects_v1_board %} will pause by default. For more information, see "[AUTOTITLE](/issues/organizing-your-work-with-project-boards/managing-project-boards/closing-a-project-board)."
 
-When you reopen a project board, you have the option to *sync* automation, which updates the position of the cards on the board according to the automation settings configured for the board.
+When you reopen a {% data variables.projects.projects_v1_board %}, you have the option to _sync_ automation, which updates the position of the cards on the board according to the automation settings configured for the board.
 
-1. Navigate to the project board you want to reopen.
+1. Navigate to the {% data variables.projects.projects_v1_board %} you want to reopen.
 {% data reusables.project-management.click-menu %}
-3. Choose whether to sync automation for your project board or reopen your project board without syncing.
-    - To reopen your project board and sync automation, click **Reopen and sync project**.
-  ![Select "Reopen and resync project" button](/assets/images/help/projects/reopen-and-sync-project.png)
-    - To reopen your project board without syncing automation, using the reopen drop-down menu, click **Reopen only**. Then, click **Reopen only**.
-  ![Reopen closed project board drop-down menu](/assets/images/help/projects/reopen-closed-project-board-drop-down-menu.png)
+1. Choose whether to sync automation for your {% data variables.projects.projects_v1_board %} or reopen your {% data variables.projects.projects_v1_board %} without syncing.
+    * To reopen your {% data variables.projects.projects_v1_board %} and sync automation, click **Reopen and sync project**.
+    * To reopen your {% data variables.projects.projects_v1_board %} without syncing automation, using the reopen drop-down menu, click **Reopen only**. Then, click **Reopen only**.
 
 ## Further reading
 
-- "[Configuring automation for project boards](/articles/configuring-automation-for-project-boards)"
+* "[AUTOTITLE](/issues/organizing-your-work-with-project-boards/managing-project-boards/configuring-automation-for-project-boards)"

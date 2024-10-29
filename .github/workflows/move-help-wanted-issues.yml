@@ -10,7 +10,7 @@ on:
       - labeled
 
 permissions:
-  issues: none
+  contents: read
 
 jobs:
   move_issues:
@@ -21,8 +21,8 @@ jobs:
       }}
     runs-on: ubuntu-latest
     steps:
-      - uses: alex-page/github-project-automation-plus@bb266ff4dde9242060e2d5418e120a133586d488
+      - uses: alex-page/github-project-automation-plus@303f24a24c67ce7adf565a07e96720faf126fe36
         with:
-          project: Docs team reviews
+          project: Docs open source board
           column: Help wanted
-          repo-token: ${{ secrets.DOCUBOT_READORG_REPO_WORKFLOW_SCOPES }}
+          repo-token: ${{ secrets.DOCS_BOT_PAT_WORKFLOW_READORG }}

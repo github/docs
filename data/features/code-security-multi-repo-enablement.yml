@@ -1,0 +1,5 @@
+# Reference: #9212
+
+versions:
+  ghec: '*'
+  ghes: '>= 3.10'

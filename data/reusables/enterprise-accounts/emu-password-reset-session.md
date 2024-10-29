@@ -1,2 +1,1 @@
-If you need to reset the password for your setup user, use an incognito or private browsing window to request a new password. When the email arrives with the link to reset your password, copy the link into your browser. For more information on resetting your password, see "[Requesting a new password
-](/github/authenticating-to-github/keeping-your-account-and-data-secure/updating-your-github-access-credentials#requesting-a-new-password)."
+If you need to reset the password for your setup user, contact {% data variables.contact.github_support %} through the {% data variables.contact.contact_enterprise_portal %}. The usual password reset option by providing your email address will not work.

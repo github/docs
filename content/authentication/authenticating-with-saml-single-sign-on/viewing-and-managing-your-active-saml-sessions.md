@@ -1,32 +1,32 @@
 ---
 title: Viewing and managing your active SAML sessions
-intro: You can view and revoke your active SAML sessions in your security settings.
+intro: You can view and revoke your active SAML sessions in your settings.
 redirect_from:
   - /articles/viewing-and-managing-your-active-saml-sessions
   - /github/authenticating-to-github/viewing-and-managing-your-active-saml-sessions
   - /github/authenticating-to-github/authenticating-with-saml-single-sign-on/viewing-and-managing-your-active-saml-sessions
 versions:
-  fpt: '*'
   ghec: '*'
 topics:
   - SSO
+type: how_to
 shortTitle: Active SAML sessions
 ---
-{% data reusables.user_settings.access_settings %}
-{% data reusables.user_settings.security %}
-3. Under "Sessions," you can see your active SAML sessions.
-   ![List of active SAML sessions](/assets/images/help/settings/saml-active-sessions.png)
-4. To see the session details, click **See more**.
-   ![Button to open SAML session details](/assets/images/help/settings/saml-expand-session-details.png)
-5. To revoke a session, click **Revoke SAML**.
-   ![Button to revoke a SAML session](/assets/images/help/settings/saml-revoke-session.png)
+
+You can view a list of devices that have logged into your account, and revoke any SAML sessions that you don't recognize.
+
+{% data reusables.user-settings.access_settings %}
+{% data reusables.user-settings.sessions %}
+1. Under "Web sessions," you can see your active SAML sessions.
+1. To see the session details, next to the session, click **See more**.
+1. To revoke a session, in the session details, click **Revoke SAML**.
 
   {% note %}
 
-  **Note:** When you revoke a session, you remove your SAML authentication to that organization. To access the organization again, you will need to single sign-on through your identity provider. For more information, see "[About authentication with SAML SSO](/github/authenticating-to-github/about-authentication-with-saml-single-sign-on)."
+  **Note:** When you revoke a session, you remove your SAML authentication to that organization. To access the organization again, you will need to single sign-on through your identity provider. For more information, see "[AUTOTITLE](/authentication/authenticating-with-saml-single-sign-on/about-authentication-with-saml-single-sign-on)."
 
   {% endnote %}
 
 ## Further reading
 
-- "[About authentication with SAML SSO](/github/authenticating-to-github/about-authentication-with-saml-single-sign-on)"
+* "[AUTOTITLE](/authentication/authenticating-with-saml-single-sign-on/about-authentication-with-saml-single-sign-on)"

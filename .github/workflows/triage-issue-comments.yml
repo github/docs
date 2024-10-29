@@ -1,8 +1,8 @@
 name: Triage new issue comments
 
-# **What it does**:
-# **Why we have it**:
-# **Who does it impact**:
+# **What it does**: Adds label triage to new issue comments in the open source repository.
+# **Why we have it**: Update open source project board for review.
+# **Who does it impact**: Docs open source.
 
 on:
   issue_comment:
@@ -10,6 +10,7 @@ on:
       - created
 
 permissions:
+  contents: read
   issues: write
 
 jobs:
@@ -19,10 +20,9 @@ jobs:
 
     steps:
       - name: Check if the event originated from a team member
-        uses: actions/github-script@2b34a689ec86a68d8ab9478298f91d5401337b7d
+        uses: actions/github-script@e69ef5462fd455e02edcaf4dd7708eda96b9eda0
         id: is-internal-contributor
         with:
-          github-token: ${{ secrets.GITHUB_TOKEN }}
           result-encoding: string
           script: |
             const repo = context.payload.repository.name
@@ -41,15 +41,21 @@ jobs:
               console.log(`This issue was commented on by an external contributor.`)
               return 'false'
             }
+
+      - name: Check out repo
+        uses: actions/checkout@b4ffde65f46336ab88eb53be808477a3936bae11 # v4.1.1
+
+      - uses: ./.github/actions/node-npm-setup
+
       - name: Label issues with new comments with 'triage'
-        uses: andymckay/labeler@e6c4322d0397f3240f0e7e30a33b5c5df2d39e90
+        uses: ./.github/actions/labeler
         if: ${{ steps.is-internal-contributor.outputs.result == 'false' }}
         with:
-          add-labels: 'triage'
-          ignore-if-labeled: true
-      - name: Triage to project board
-        uses: rachmari/actions-add-new-issue-to-column@1a459ef92308ba7c9c9dc2fcdd72f232495574a9
+          addLabels: 'triage'
+          ignoreIfLabeled: true
+
+      - uses: ./.github/actions/slack-alert
+        if: ${{ failure() }}
         with:
-          action-token: ${{ secrets.GITHUB_TOKEN }}
-          project-url: 'https://github.com/github/docs/projects/1'
-          column-name: 'Triage'
+          slack_channel_id: ${{ secrets.DOCS_ALERTS_SLACK_CHANNEL_ID }}
+          slack_token: ${{ secrets.SLACK_DOCS_BOT_TOKEN }}

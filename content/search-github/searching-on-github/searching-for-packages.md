@@ -6,7 +6,6 @@ permissions: Anyone can search for packages they have access to.
 versions:
   fpt: '*'
   ghes: '*'
-  ghae: '*'
   ghec: '*'
 topics:
   - GitHub search
@@ -18,7 +17,7 @@ redirect_from:
 
 ## About searching for packages
 
-You can search for packages globally across all of {% data variables.product.product_name %}, or search for packages within a particular organization. For more information, see "[About searching on {% data variables.product.prodname_dotcom %}](/search-github/getting-started-with-searching-on-github/about-searching-on-github)."
+You can search for packages globally across all of {% data variables.product.product_name %}, or search for packages within a particular organization. For more information, see "[AUTOTITLE](/search-github/getting-started-with-searching-on-github/about-searching-on-github)."
 
 {% ifversion ghes %}
 You can only search for packages on {% data variables.product.product_name %}, not {% data variables.product.prodname_dotcom_the_website %}, even if {% data variables.product.prodname_github_connect %} is enabled.
@@ -32,8 +31,8 @@ To find packages owned by a certain user or organization, use the `user` or `org
 
 | Qualifier        | Example
 | ------------- | -------------
-| <code>user:<em>USERNAME</em></code> | [**user:codertocat**](https://github.com/search?q=user%3Acodertocat&type=RegistryPackages) matches packages owned by @codertocat
-| <code>org:<em>ORGNAME</em></code> | [**org:github**](https://github.com/search?q=org%3Agithub&type=RegistryPackages) matches packages owned by the {% data variables.product.prodname_dotcom %} organization
+| <code>user:<em>USERNAME</em></code> | [**`user:codertocat`**](https://github.com/search?q=user%3Acodertocat&type=RegistryPackages) matches packages owned by @codertocat
+| <code>org:<em>ORGNAME</em></code> | [**`org:github`**](https://github.com/search?q=org%3Agithub&type=RegistryPackages) matches packages owned by the {% data variables.product.prodname_dotcom %} organization
 
 ## Filtering by package visibility
 

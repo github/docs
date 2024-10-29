@@ -1,1 +1,0 @@
-1. あるいは、**Opt-in to potentially being featured on github.com/sponsors（github.com/sponsorsに取り上げられるかもしれないことにオプトイン）**を選択してください。 ![取り上げられることへのオプトインのチェックボックス](/assets/images/help/sponsors/opt-in-to-being-featured.png)

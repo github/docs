@@ -1,1 +1,0 @@
-SAML single sign-on is available with {% data variables.product.prodname_ghe_cloud %}{% ifversion ghae %} and {% data variables.product.prodname_ghe_managed %}{% endif %}. For more information, see "[GitHub's products](/articles/githubs-products)."

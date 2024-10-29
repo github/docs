@@ -3,14 +3,15 @@ name: OS Ready for review
 # **What it does**: Adds pull requests and issues in the docs repository to the docs-content review board when the "waiting for review" label is added
 # **Why we have it**: So that contributors in the OS repo can easily get reviews from the docs-content team, and so that writers can see when a PR is ready for review
 # **Who does it impact**: Writers working in the docs repository
-permissions:
-  contents: read
-
 on:
+  # Needed in lieu of `pull_request` so that PRs from a fork can be triaged to the proper project board.
   pull_request_target:
     types: [labeled]
   issues:
     types: [labeled]
+
+permissions:
+  contents: read
 
 jobs:
   request_doc_review:
@@ -18,11 +19,14 @@ jobs:
     if: github.event.label.name == 'waiting for review' && github.repository == 'github/docs'
     runs-on: ubuntu-latest
     steps:
+      - name: Check out repo content
+        uses: actions/checkout@b4ffde65f46336ab88eb53be808477a3936bae11 # v4.1.1
+
       - name: Check if this run was triggered by a member of the docs team
-        uses: actions/github-script@2b34a689ec86a68d8ab9478298f91d5401337b7d
+        uses: actions/github-script@e69ef5462fd455e02edcaf4dd7708eda96b9eda0
         id: triggered-by-member
         with:
-          github-token: ${{secrets.DOCUBOT_READORG_REPO_WORKFLOW_SCOPES}}
+          github-token: ${{secrets.DOCS_BOT_PAT_WORKFLOW_READORG}}
           result-encoding: string
           script: |
             const triggerer_login = context.payload.sender.login
@@ -43,13 +47,10 @@ jobs:
           echo Aborting. This workflow must be triggered by a member of the docs team.
           exit 1
 
-      - name: Check out repo content
-        uses: actions/checkout@1e204e9a9253d643386038d443f96446fa156a97
-
-      - name: Setup Node
-        uses: actions/setup-node@270253e841af726300e85d718a5f606959b2903c
+      - name: Setup Node.js
+        uses: actions/setup-node@60edb5dd545a775178f52524783378180af0d1f8 # v4.0.2
         with:
-          node-version: 16.x
+          node-version-file: 'package.json'
           cache: npm
 
       - name: Install dependencies
@@ -57,11 +58,17 @@ jobs:
 
       - name: Run script
         run: |
-          node .github/actions-scripts/ready-for-docs-review.js
+          node src/workflows/ready-for-docs-review.js
         env:
-          TOKEN: ${{ secrets.DOCS_BOT_FR }}
+          TOKEN: ${{ secrets.DOCS_BOT_PAT_WRITEORG_PROJECT }}
           PROJECT_NUMBER: 2936
           ORGANIZATION: 'github'
           ITEM_NODE_ID: ${{ github.event.pull_request.node_id || github.event.issue.node_id }}
           AUTHOR_LOGIN: ${{ github.event.pull_request.user.login || github.event.issue.user.login }}
           REPO: ${{ github.repository }}
+
+      - uses: ./.github/actions/slack-alert
+        if: ${{ failure() && github.event_name != 'pull_request_target' }}
+        with:
+          slack_channel_id: ${{ secrets.DOCS_ALERTS_SLACK_CHANNEL_ID }}
+          slack_token: ${{ secrets.SLACK_DOCS_BOT_TOKEN }}

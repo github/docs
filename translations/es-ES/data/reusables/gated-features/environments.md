@@ -1,1 +1,0 @@
-Los ambientes, las reglas de protección de ambiente y los secretos de ambiente se encuentran disponibles en los repositorios **públicos** para todos los productos. Para tener acceso a los ambientes en los repositorios **privados**, debes utilizar {% data variables.product.prodname_enterprise %}.{% data reusables.gated-features.more-info %}{% ifversion fpt or ghec %}{% endif %}

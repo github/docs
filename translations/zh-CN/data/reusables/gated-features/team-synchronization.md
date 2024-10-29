@@ -1,1 +1,0 @@
-{% ifversion fpt or ghec %}团队同步可用于使用 {% data variables.product.prodname_ghe_cloud %} 的组织和企业帐户。 {% data reusables.gated-features.more-info-org-products %}{% elsif ghae %}团队与 SCIM 组的同步可用于使用 {% data variables.product.prodname_ghe_managed %} 的组织。 更多信息请参阅“[GitHub 的产品](/github/getting-started-with-github/githubs-products)”。{% endif %}

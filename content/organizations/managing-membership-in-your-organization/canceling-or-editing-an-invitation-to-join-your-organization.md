@@ -14,22 +14,24 @@ shortTitle: Cancel or edit invitation
 ---
 
 {% data reusables.profile.access_org %}
-{% data reusables.user_settings.access_org %}
+{% data reusables.user-settings.access_org %}
 {% data reusables.organizations.people %}
-4. On the People tab, click **Pending invitation**.
- ![Pending invitation link](/assets/images/help/organizations/pending-invitation-link.png)
-5. Next to the username or email address of the person whose invitation you'd like to edit or cancel, click **Edit invitation**.
-![Edit invitation button](/assets/images/help/organizations/edit-invitation-button.png)
+1. Under "Organization permissions", click **Invitations**.
+1. Next to the username of the person whose invitation you'd like to edit or cancel, click {% octicon "kebab-horizontal" aria-label="Invitation options" %}, then click **Edit invitation**, or click **Cancel invitation**.
 
- You may need to click **View all invitations** at the bottom of the window to find the person you're looking for.
-6. Decide whether to edit or cancel the user's invitation to join your organization.
-  ![Update invitation and cancel invitation buttons](/assets/images/help/organizations/update-cancel-invitation-buttons-for-dotcom-and-2.8.png)
-    - To edit the user's invitation, select a different role or team, then click **Update invitation**.
-    - To cancel the user's invitation to join your organization, click **Cancel invitation**.
+   ![Screenshot of the "Invitations" page. The "Edit invitation" and "Cancel invitation" buttons are highlighted with an orange outline.](/assets/images/help/organizations/organization-edit-or-cancel-invitation.png)
+
+1. To edit the invitation, in the dialog box, select a different role or team for the account, then click **Update invitation**.
+
+   ![Screenshot of the "Edit invitation" dialog box. Two buttons, "Update invitation" and "Cancel invitation", are highlighted with an orange outline.](/assets/images/help/organizations/organization-edit-invitation.png)
+
+1. Optionally, to filter the list of pending invitations by role or by source, use the dropdown menus at the top of the list.
+
+   ![Screenshot of the "Invitations" page. Two dropdown menus, titled "Role" and "Source", are highlighted with an orange outline.](/assets/images/help/organizations/organization-filter-invitations.png)
 
 ## Further reading
 
 {% ifversion fpt or ghec %}
-- "[Inviting users to join your organization](/articles/inviting-users-to-join-your-organization)"
+* "[AUTOTITLE](/organizations/managing-membership-in-your-organization/inviting-users-to-join-your-organization)"
 {% endif %}
-- "[Adding organization members to a team](/articles/adding-organization-members-to-a-team)"
+* "[AUTOTITLE](/organizations/organizing-members-into-teams/adding-organization-members-to-a-team)"

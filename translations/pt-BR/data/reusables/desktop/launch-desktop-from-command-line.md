@@ -1,1 +1,0 @@
-Para iniciar o {% data variables.product.prodname_desktop %} no último repositório aberto, digite `github`. Para abrir o {% data variables.product.prodname_desktop %} em um repositório específico, digite `github` seguido pelo caminho do repositório.

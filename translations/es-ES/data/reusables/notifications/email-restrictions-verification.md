@@ -1,1 +1,0 @@
-{% ifversion fpt or ghec %}To continue receiving email notifications after you enable restrictions, members must verify any email addresses within domains that you verify or approve. Para obtener más información, consulta "[Verificar tu dirección de correo electrónico](/github/getting-started-with-github/verifying-your-email-address)".{% endif %}

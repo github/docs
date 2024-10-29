@@ -1,12 +1,16 @@
 name: Site Policy Reminder
 
-# **What it does**: Automated comment reminder on a PR to change the title for public consumption before merging
-# **Why we have it**: Titles of merged PRs to Site Policies are sent to the public site-policy repo
-# **Who does it impact**: Docs team merging changes to Site Policies
+# **What it does**: Automated comment reminder on a PR to change the title for public consumption before merging and to run the Site Policy repo sync action
+# **Why we have it**: Titles of merged PRs to Site Policies are sent to the public site-policy repo when the repos are synced
+# **Who does it impact**: Everyone merging changes to Site Policies
 
 on:
   pull_request:
     types: [labeled]
+
+permissions:
+  pull-requests: write
+  contents: read
 
 jobs:
   run:
@@ -15,10 +19,12 @@ jobs:
       github.repository == 'github/docs-internal'
     runs-on: ubuntu-latest
     steps:
-      - uses: peter-evans/create-or-update-comment@5221bf4aa615e5c6e95bb142f9673a9c791be2cd
+      - uses: peter-evans/create-or-update-comment@71345be0265236311c031f5c7866368bd1eff043
         env:
           GITHUB_TOKEN: ${{ secrets.API_TOKEN_SITEPOLICY }}
         with:
           issue-number: ${{ github.event.pull_request.number }}
           body: |
             Before merging, please remember to change the title of this PR to a description of its changes that is suitable for public viewing on github/site-policy.
+
+            <@github/site-policy-admins>, when these changes are ready to be synced to the site policy repo for the 24-hour or 30-day [review window](https://github.com/github/site-policy#whats-the-process), run the [site policy sync action](https://github.com/github/docs-internal/actions/workflows/site-policy-sync.yml) from this PR's branch. When these changes are ready to be merged in `docs-internal`, let the Docs team know on Slack in #docs-content and a writer will merge this PR.

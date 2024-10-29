@@ -1,1 +1,0 @@
-Enterpriseアカウントは、{% data variables.product.prodname_ghe_cloud %}{% ifversion ghae %}、{% data variables.product.prodname_ghe_managed %}{% endif %}、{% data variables.product.prodname_ghe_server %}で利用できます。 詳細は「[Enterprise アカウントについて]({% ifversion fpt or ghec %}/enterprise-cloud@latest{% endif %}/admin/overview/about-enterprise-accounts)」を参照してください。

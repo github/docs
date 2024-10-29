@@ -1,0 +1,23 @@
+{
+  "youtube": 43.0,
+  "ssh": 20.6,
+  "copilot": 18.4,
+  "google": 14.0,
+  "\u30ea\u30fc\u30b8\u30e7\u30f3": 13.7,
+  "workflow_run": 13.7,
+  "\u65e5\u672c\u8a9e": 13.7,
+  "\u691c\u7d22": 13.7,
+  "workflow_dispatch": 13.4,
+  "\u8a00\u8a9e": 13.4,
+  "\u5909\u6570": 13.4,
+  "uses": 12.6,
+  "\u30c8\u30fc\u30af\u30f3": 12.6,
+  "fork": 12.6,
+  "japanese": 12.6,
+  "permissions": 12.3,
+  "\u5bb9\u91cf": 12.3,
+  "actions/checkout": 12.3,
+  "github.event": 12.3,
+  "homebrew": 12.3,
+  "copilot workspace": 12.3
+}

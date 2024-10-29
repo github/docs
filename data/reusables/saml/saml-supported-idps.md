@@ -2,13 +2,9 @@
 
 {% data variables.product.company_short %} officially supports and internally tests the following IdPs.
 
-{% ifversion fpt or ghec or ghes %}
-- Active Directory Federation Services (AD FS)
-- Azure Active Directory (Azure AD)
-- Okta
-- OneLogin
-- PingOne
-- Shibboleth
-{% elsif ghae %}
-- Azure Active Directory (Azure AD)
-{% endif %}
+* Microsoft Active Directory Federation Services (AD FS)
+* Microsoft Entra ID (previously known as Azure AD)
+* Okta
+* OneLogin
+* PingOne
+* Shibboleth

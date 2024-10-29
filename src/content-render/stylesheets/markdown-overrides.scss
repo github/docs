@@ -1,0 +1,39 @@
+// What might happens is that we have a DOM of
+//
+//   <div class="markdown-body">
+//     <div style="display: none">Note</div>
+//     <h2>Heading</h2>
+//     ...
+//
+// When this is the case, by default, that first <div> that is the first
+// gets the `margin-top: 0 !important` and not the first <h2>.
+// Generally, the reason this even exists is because <h2> (and <h3>) elements
+// are given extra margin-top so as to divide the article into sections
+// with some extra whitespace. That's fine, but we don't to start the
+// top of the page with too much whitespace. That's why @primer/css
+// has a solution for that. Just the problem that it fails then first
+// element isn't actually a heading.
+// Note we're also doing it for a possible <h3> being the first element.
+// See https://github.com/primer/css/issues/2303
+// See internal issue #2368
+.markdown-body {
+  > h2:first-of-type,
+  > h3:first-of-type {
+    margin-top: 0 !important;
+  }
+}
+
+// Horizontal scroll gets flagged as an accessibility violation.
+// Updates all code examples to only allow vertical scroll, and
+// break aggressively.
+.markdown-body {
+  pre {
+    overflow-x: hidden;
+    overflow-y: auto;
+  }
+
+  pre code {
+    white-space: pre-wrap;
+    overflow-wrap: break-word;
+  }
+}

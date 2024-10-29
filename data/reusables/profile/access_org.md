@@ -1,2 +1,1 @@
-1. In the top right corner of {% ifversion fpt or ghec %}{% data variables.product.prodname_dotcom_the_website %}{% else %}{% data variables.product.product_name %}{% endif %}, click your profile photo, then click **Your organizations**.
-  ![Your organizations in the profile menu](/assets/images/help/profile/your-organizations.png)
+1. In the upper-right corner of {% data variables.product.prodname_dotcom %}, select your profile photo, then click{% ifversion fpt or ghec %} {% octicon "organization" aria-hidden="true" %}{% endif %} **Your organizations**.

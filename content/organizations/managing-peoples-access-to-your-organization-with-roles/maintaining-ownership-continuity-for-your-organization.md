@@ -11,7 +11,6 @@ permissions: Organization owners can promote any member of an organization to an
 versions:
   fpt: '*'
   ghes: '*'
-  ghae: '*'
   ghec: '*'
 topics:
   - Organizations
@@ -27,18 +26,23 @@ Organization owners have full administrative access to the organization. {% data
 
 {% note %}
 
-**Note**: As an organization owner, you can change the role of other organization members and owners. You can't change your own role. 
+**Note**: As an organization owner, you can change the role of other organization members and owners. You can't change your own role.
 
 {% endnote %}
+
+{% ifversion enterprise-owner-join-org %}
+If your organization is owned by an enterprise account, any enterprise owner can make themselves an owner of your organization. For more information, see "[AUTOTITLE](/admin/user-management/managing-organizations-in-your-enterprise/managing-your-role-in-an-organization-owned-by-your-enterprise)."
+{% endif %}
 
 ## Appointing an organization owner
 
 {% data reusables.profile.access_org %}
-{% data reusables.user_settings.access_org %}
+{% data reusables.user-settings.access_org %}
 {% data reusables.organizations.people %}
-4. Select the person or people you'd like to promote to owner.
-  ![List of members with two members selected](/assets/images/help/teams/list-of-members-selected-bulk.png)
-5. Above the list of members, use the drop-down menu and click **Change role**.
-  ![Drop-down menu with option to remove members](/assets/images/help/teams/user-bulk-management-options.png)
-6. Select a new role for the person or people, then click **Change role**.
-  ![Radio buttons with owner and member roles and Change role button](/assets/images/help/teams/select-and-confirm-new-role-bulk.png)
+1. Select the person or people you'd like to promote to owner.
+
+   ![Screenshot of the first two users in a list of organization members. To the left of each member, a checkbox is checked and outlined in dark orange.](/assets/images/help/teams/list-of-members-selected-bulk.png)
+1. Above the list of members, select the **X members selected...** dropdown menu and click **Change role**.
+
+   ![Screenshot of the list of organization members. Above the list, a dropdown menu, labeled "2 members selected..." is outlined in dark orange.](/assets/images/help/teams/user-bulk-management-options.png)
+1. Select a new role for the person or people, then click **Change role**.

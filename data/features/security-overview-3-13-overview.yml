@@ -1,0 +1,5 @@
+# Reference: #10332 and #13509
+# Documentation for the addition of additional groupings and filters to the Overview page in the Security tab.
+versions:
+  ghes: '>3.12'
+  ghec: '*'

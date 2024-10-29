@@ -1,0 +1,4 @@
+# Reference: #7429
+# Dotcom now uses Azure maps for geoJSON, but GHES/AE will still use the existing MapBox system
+versions:
+  ghes: '*'

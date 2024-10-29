@@ -9,9 +9,13 @@ on:
     types:
       - opened
       - transferred
+  # Required in lieu of `pull_request` so that this workflow can query users in org to determine membership.
   pull_request_target:
     types:
       - opened
+
+permissions:
+  contents: read
 
 jobs:
   check-team-membership:
@@ -20,15 +24,15 @@ jobs:
     if: github.repository == 'github/docs' && github.actor != 'docs-bot'
     steps:
       - id: membership_check
-        uses: actions/github-script@2b34a689ec86a68d8ab9478298f91d5401337b7d
+        uses: actions/github-script@e69ef5462fd455e02edcaf4dd7708eda96b9eda0
         env:
           TEAM_CONTENT_REPO: ${{ secrets.TEAM_CONTENT_REPO }}
         with:
-          github-token: ${{ secrets.DOCUBOT_READORG_REPO_WORKFLOW_SCOPES }}
+          github-token: ${{ secrets.DOCS_BOT_PAT_WORKFLOW_READORG }}
           script: |
             // Only perform this action with GitHub employees
             try {
-              await github.teams.getMembershipForUserInOrg({
+              await github.rest.teams.getMembershipForUserInOrg({
                 org: 'github',
                 team_slug: 'employees',
                 username: context.payload.sender.login,
@@ -42,7 +46,7 @@ jobs:
 
             // Don't perform this action with Docs team members
             try {
-              await github.teams.getMembershipForUserInOrg({
+              await github.rest.teams.getMembershipForUserInOrg({
                 org: 'github',
                 team_slug: 'docs',
                 username: context.payload.sender.login,
@@ -59,7 +63,7 @@ jobs:
             const issueNo = context.number || context.issue.number
 
             // Create an issue in our private repo
-            await github.issues.create({
+            await github.rest.issues.create({
               owner: 'github',
               repo: process.env.TEAM_CONTENT_REPO,
               title: `@${context.payload.sender.login} confirm that \#${issueNo} should be in the public github/docs repo`,
@@ -71,8 +75,17 @@ jobs:
 
       - name: Send Slack notification if a GitHub employee who isn't on the docs team opens an issue in public
         if: ${{ steps.membership_check.outputs.did_warn && github.repository == 'github/docs' }}
-        uses: someimportantcompany/github-actions-slack-message@f8d28715e7b8a4717047d23f48c39827cacad340
+        uses: someimportantcompany/github-actions-slack-message@a975b440de2bcef178d451cc70d4c1161b5a30cd
         with:
           channel: ${{ secrets.DOCS_OPEN_SOURCE_SLACK_CHANNEL_ID }}
           bot-token: ${{ secrets.SLACK_DOCS_BOT_TOKEN }}
           text: <@${{github.actor}}> opened https://github.com/github/docs/issues/${{ github.event.number || github.event.issue.number }} publicly on the github/docs repo instead of a private repo. They have been notified via a new issue in the private repo to confirm this was intentional.
+
+      - name: Check out repo
+        if: ${{ failure() && github.event_name != 'pull_request_target' }}
+        uses: actions/checkout@b4ffde65f46336ab88eb53be808477a3936bae11 # v4.1.1
+      - uses: ./.github/actions/slack-alert
+        if: ${{ failure() && github.event_name != 'pull_request_target' }}
+        with:
+          slack_channel_id: ${{ secrets.DOCS_ALERTS_SLACK_CHANNEL_ID }}
+          slack_token: ${{ secrets.SLACK_DOCS_BOT_TOKEN }}

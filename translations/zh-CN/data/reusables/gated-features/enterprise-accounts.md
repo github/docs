@@ -1,1 +1,0 @@
-企业帐户可用于 {% data variables.product.prodname_ghe_cloud %}{% ifversion ghae %}、{% data variables.product.prodname_ghe_managed %}、{% endif %} 和 {% data variables.product.prodname_ghe_server %}。 更多信息请参阅“[关于企业帐户]({% ifversion fpt or ghec %}/enterprise-cloud@latest{% endif %}/admin/overview/about-enterprise-accounts)”。

@@ -1,6 +1,7 @@
 ---
 title: Finding security vulnerabilities and errors in your code with code scanning
 shortTitle: Code scanning
+allowTitleToDifferFromFilename: true
 intro: 'Keep your code secure by using {% data variables.product.prodname_code_scanning %} to identify and fix potential security vulnerabilities and other errors in your code.'
 product: '{% data reusables.gated-features.code-scanning %}'
 redirect_from:
@@ -10,15 +11,18 @@ redirect_from:
 versions:
   fpt: '*'
   ghes: '*'
-  ghae: '*'
   ghec: '*'
 topics:
   - Advanced Security
   - Code scanning
   - CodeQL
 children:
-  - /automatically-scanning-your-code-for-vulnerabilities-and-errors
+  - /introduction-to-code-scanning
+  - /enabling-code-scanning
+  - /creating-an-advanced-setup-for-code-scanning
+  - /managing-code-scanning-alerts
+  - /managing-your-code-scanning-configuration
   - /integrating-with-code-scanning
-  - /using-codeql-code-scanning-with-your-existing-ci-system
+  - /troubleshooting-code-scanning
+  - /troubleshooting-sarif-uploads
 ---
-<!--For this article in earlier GHES versions, see /content/github/finding-security-vulnerabilities-and-errors-in-your-code-->

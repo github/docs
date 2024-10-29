@@ -4,7 +4,6 @@ intro: Create an organization to apply fine-grained access permissions to reposi
 versions:
   fpt: '*'
   ghes: '*'
-  ghae: '*'
   ghec: '*'
 redirect_from:
   - /articles/creating-a-new-organization-from-scratch
@@ -16,15 +15,16 @@ topics:
 shortTitle: Create new organization
 ---
 
-When you create a new organization from scratch, it doesn't have any repositories associated with it. For more information on adding repositories to your organization, see "[Creating a new repository](/articles/creating-a-new-repository)" and "[Transferring a repository](/articles/transferring-a-repository)."
+When you create a new organization from scratch, it doesn't have any repositories associated with it. For more information on adding repositories to your organization, see "[AUTOTITLE](/repositories/creating-and-managing-repositories/creating-a-new-repository)" and "[AUTOTITLE](/repositories/creating-and-managing-repositories/transferring-a-repository)."
 
-{% data reusables.user_settings.access_settings %}
-{% data reusables.user_settings.organizations %}
+{% data reusables.user-settings.access_settings %}
+{% data reusables.user-settings.organizations %}
 {% data reusables.organizations.new-organization %}
-4. Follow the prompts to create your organization. {% ifversion fpt or ghec %}For more information about the plans available for your team, see "[{% data variables.product.prodname_dotcom %}'s products](/articles/githubs-products)."{% endif %}
+1. Follow the prompts to create your organization. {% ifversion fpt or ghec %}For more information about the plans available for your team, see "[AUTOTITLE](/get-started/learning-about-github/githubs-plans)."{% endif %}
 
 ## Further reading
 
 {% ifversion fpt or ghec %}
-- "[Setting your billing email](/articles/setting-your-billing-email)"{% endif %}
-- "[About organizations](/articles/about-organizations)"
+* "[AUTOTITLE](/billing/managing-your-github-billing-settings/setting-your-billing-email)"{% endif %}
+* "[AUTOTITLE](/organizations/collaborating-with-groups-in-organizations/about-organizations)"
+* "[AUTOTITLE](/account-and-profile/setting-up-and-managing-your-personal-account-on-github/managing-your-personal-account/converting-a-user-into-an-organization)"

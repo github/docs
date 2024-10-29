@@ -1,0 +1,3 @@
+# Reference: Issue #6982 Community Contributions to Security Advisories - Enterprise 3.6
+versions:
+  ghes: '>=3.6'

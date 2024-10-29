@@ -1,1 +1,0 @@
-Los {% data variables.product.prodname_discussions %} están disponibles para los repositorios públicos y privados en {% data variables.product.prodname_dotcom_the_website %}. {% data reusables.gated-features.more-info-org-products %}

@@ -1,0 +1,117 @@
+date: '2024-03-20'
+sections:
+  security_fixes:
+    - |
+      **HIGH:** An attacker with an Administrator role in GitHub Enterprise Server could gain SSH root access via remote code execution. GitHub has requested CVE ID [CVE-2024-2469](https://www.cve.org/cverecord?id=CVE-2024-2469) for this vulnerability, which was reported via the [GitHub Bug Bounty program](https://bounty.github.com/).
+    - |
+      **HIGH:** An attacker with an editor role in the Management Console could gain SSH access to the instance by command injection when configuring GeoJSON settings. GitHub has requested CVE ID [CVE-2024-2443](https://www.cve.org/cverecord?id=CVE-2024-2443) for this vulnerability, which was reported via the [GitHub Bug Bounty program](https://bounty.github.com/).
+    - |
+      **MEDIUM**: An attacker could execute CSRF attacks to perform unauthorized actions on behalf of an unsuspecting user, using the GraphQL mutations. A mitigating factor is that user interaction is required. GitHub has requested CVE ID [CVE-2024-2748](https://nvd.nist.gov/vuln/detail/CVE-2024-2748) for this vulnerability, which was reported via the [GitHub Bug Bounty program](https://bounty.github.com/).
+    - |
+      Packages have been updated to the latest security versions.
+  bugs:
+    - |
+      On an instance in a high availability or cluster configuration, configuring `fluent-bit` on a primary node returned an empty `primary_host` value.
+    - |
+      When an administrator performed certain operations related to an instance's storage, the user disk would fail to unmount.
+    - |
+      In some cases, storage initialization on a new instance launch could cause EBS-backed data volumes to not be detected correctly.
+    - |
+      Redundant messages caused an increase in the volume of events logged in `/var/log/syslog`.
+    - |
+      On an instance in a cluster configuration with high availability enabled, the `ghe-spokesctl` command failed when run on a replica node.
+    - |
+      On an instance in a cluster configuration, the `ghe-remove-node` utility allowed accidental removal of a node with the `redis-master` role.
+    - |
+      If an administrator lost SSH access to an instance, authentication from the hypervisor console using the password for the root site administrator would fail.
+    - |
+      On an instance with GitHub Actions enabled, GitHub Actions workflows that deployed GitHub Pages sites failed with the following error: `Error: Deployment failed, try again later.`
+    - |
+      On an instance in a cluster configuration, Jupyter notebooks did not render correctly.
+    - |
+      After an administrator runs `gh es config apply` using the GitHub CLI, the output includes a run ID.
+    - |
+      On an instance in a cluster configuration with many nodes, requests to the REST API for managing GitHub Enterprise Server would exceed the instances HTTP timeouts.
+    - |
+      Administrators could initiate an SSH audit that unknowingly unverified all SSH keys.
+    - |
+      Attributes used to debug LDAP issues were not included in system logs.
+    - |
+      Some API endpoints for projects did not properly filter target repositories based on the users access.
+    - |
+      Improved error handling for domain verification.
+    - |
+      On an instance with a GitHub Advanced Security license, some searches for secret scanning alerts resulted in a `500` error.
+    - |
+      Organizations using projects (classic) returned an error log about a soon-to-be deprecated MySQL feature when viewing a project.
+    - |
+      When an administrator set a policy to require two-factor authentication (2FA) for an enterprise, a message incorrectly indicated that users without 2FA enabled on their account would be removed from the enterprise. These users will be removed from repositories and organizations in the enterprise, but not from the enterprise itself.
+    - |
+      On an instance with a GitHub Advanced Security license, viewing a secret scanning alert as a user without the security manager role would return a `500` error if the alert was generated from a Git tag instead of a normal commit.
+    - |
+      When using GitHub Enterprise Importer to import repositories, `ghost` users in archive metadata files would cause an error when generating a list of migration conflicts using `ghe-migrator conflicts`.
+    - |
+      After an administrator ran `ghe-saml-mapping-csv`, the output did not include the corresponding SQL query.
+    - |
+      On an instance with a GitHub Advanced Security license, the security overview did not display updated alert counts for code scanning immediately after the completion of analysis.
+    - |
+      The web UI presented inapplicable fine-grained permissions for assignment to custom repository roles. The permissions were also displayed as implicitly included in certain base roles.
+    - |
+      Unauthenticated requests to the REST APIs `/search/code` endpoint returned erroneous rate-limit values.
+    - |
+      On an instance with SAML authentication configured, users with a SAML mapping were able to configure two-factor authentication (2FA).
+    - |
+      The profile settings for organizations displayed a warning about profile images that does not apply to organizations on a GitHub Enterprise Server instance.
+    - |
+      Some pages in the settings for the instances enterprise account contained a link that responded with a `404 Not Found` error.
+    - |
+      When viewing a file in the instance's web interface, the "Copy lines" and "Copy permalink" interactions did not copy content to the clipboard.
+    - |
+      The landing page for the site admin dashboard did not render details about the instance's enterprise account.
+    - |
+      During a configuration run prompted by the delayed restart of the `notebooks` service, a container validation warning appeared in system logs.
+    - |
+      On an instance in a cluster configuration, rebuilds of GitHub Pages sites failed if no replicas of the GitHub Pages data were available (for example, on a newly restored cluster).
+    - |
+      In some cases, manual repository maintenance using `ghe-spokesctl` would fail with the following error: `panic: runtime error: invalid memory address or nil pointer dereference`.
+    - |
+      On an instance with a GitHub Advanced Security license, repositories with generic secret detection or non-provider pattern scanning enabled wouldn't see the results of scans for secrets.
+    - |
+      On an instance with a GitHub Advanced Security license, in some cases, when a user deleted a custom pattern for secret scanning, GitHub Enterprise Server failed to close or delete the patterns alerts.
+    - |
+      On an instance with a GitHub Advanced Security license, the speed of migration for code scanning analyses is increased during an upgrade from GitHub Enterprise Server 3.10 or earlier.
+    - |
+      On an instance with a GitHub Advanced Security license, in some cases, weekly scheduled runs for code scanning's default setup might not occur.
+    - |
+      On an instance with a GitHub Advanced Security license, a user with read-only access to a repository could adjust severity settings for code scanning.
+  changes:
+    - |
+      People deploying a GitHub Enterprise Server instance in AWS can now deploy in an environment that uses Instance Metadata Service Version 2 (IMDSv2).
+    - |
+      On an instance in a cluster configuration, MySQL replica nodes can be configured to skip database seeding. For more information, see "[AUTOTITLE](/admin/monitoring-managing-and-updating-your-instance/configuring-clustering/deferring-database-seeding)."
+      Gists can be deleted using the **Purge Gist** button on the Deleted Gists page in Staff Tools.
+    - |
+      The payload for the `push` webhook event is now limited to 2,048 commits. If there are more than 2,048 commits in a push, the payload for the push webhook will not contain serialized diff information for each commit. If you need to fetch commit information, you can use the Commits endpoints of the REST API. For more information, see "[AUTOTITLE](/webhooks/webhook-events-and-payloads#push)" and "[AUTOTITLE](/rest/commits)."
+  known_issues:
+    - |
+      Custom firewall rules are removed during the upgrade process.
+    - |
+      During the validation phase of a configuration run, a `No such object` error may occur for the Notebook and Viewscreen services. This error can be ignored as the services should still correctly start.
+    - |
+      If the root site administrator is locked out of the Management Console after failed login attempts, the account does not unlock automatically after the defined lockout time. Someone with administrative SSH access to the instance must unlock the account using the administrative shell. For more information, see "[AUTOTITLE](/admin/configuration/administering-your-instance-from-the-management-console/troubleshooting-access-to-the-management-console#unlocking-the-root-site-administrator-account)."
+    - |
+      If an instance is configured to forward logs to a target server with TLS enabled, certificate authority (CA) bundles that a site administrator uploads using `ghe-ssl-ca-certificate-install` are not respected, and connections to the server fail.
+    - |
+      The `mbind: Operation not permitted` error in the `/var/log/mysql/mysql.err` file can be ignored. MySQL 8 does not gracefully handle when the `CAP_SYS_NICE` capability isn't required, and outputs an error instead of a warning.
+    - |
+      {% data reusables.release-notes.2023-11-aws-system-time %}
+    - |
+      On an instance with the HTTP `X-Forwarded-For` header configured for use behind a load balancer, all client IP addresses in the instance's audit log erroneously appear as 127.0.0.1.
+    - |
+      {% data reusables.release-notes.large-adoc-files-issue %}
+    - |
+      {% data reusables.release-notes.2023-11-cluster-ha-failover-git-push-failure %}
+    - |
+      {% data reusables.release-notes.2023-12-backup-utils-exit-early-redis %}
+    - |
+      {% data reusables.release-notes.2024-06-possible-frontend-5-minute-outage-during-hotpatch-upgrade %} [Updated: 2024-06-17]

@@ -1,13 +1,11 @@
-contact_ent_support: '[GitHub Enterprise Support](https://support.github.com/contact?tags=docs-generic)'
+contact_ent_support: '[GitHub Enterprise Support](https://support.github.com)'
 
+# GitHub Support (with versioning for GHES) - when users need to open a ticket through the support portal
 contact_support: >-
-  {% ifversion fpt or ghec %}[GitHub Support](https://support.github.com/contact?tags=docs-generic){% elsif ghes %}your site administrator{% elsif ghae %}your enterprise owner{% endif %}
+  {% ifversion fpt or ghec %}us through the [GitHub Support portal](https://support.github.com){% elsif ghes %}your site administrator{% endif %}
 
-report_abuse: >-
-  {% ifversion fpt or ghec %}[Report abuse](https://github.com/contact/report-abuse){% endif %}
-
-report_content: >-
-  {% ifversion fpt or ghec %}[Report content](https://github.com/contact/report-content){% endif %}
+# GitHub Support (no versioning) - when users can self-serve from the support landing page
+contact_support_page: '[GitHub Support](https://support.github.com)'
 
 contact_dmca: >-
   {% ifversion fpt or ghec %}[Copyright claims form](https://github.com/contact/dmca){% endif %}
@@ -15,9 +13,9 @@ contact_dmca: >-
 contact_privacy: >-
   {% ifversion fpt or ghec %}[Privacy contact form](https://github.com/contact/privacy){% endif %}
 
-contact_enterprise_sales: "[GitHub's Sales team](https://enterprise.github.com/contact)"
+contact_enterprise_sales: "[GitHub's Sales team](https://github.com/enterprise/contact)"
 
-contact_feedback_actions: '[Feedback form for GitHub Actions](https://support.github.com/contact/feedback?contact[category]=actions)'
+contact_feedback_actions: '[GitHub Community discussions for GitHub Actions](https://github.com/orgs/community/discussions/categories/actions-and-packages)'
 
 # The team that provides Standard Support
 enterprise_support: 'GitHub Enterprise Support'
@@ -28,24 +26,18 @@ github_support: 'GitHub Support'
 # The team that provides Premium Support
 premium_support: 'GitHub Premium Support'
 
-# Enterprise Support portal (previously the Zendesk portal at enterprise.githubsupport.com)
+# Enterprise Support portal
 enterprise_portal: 'GitHub Support portal'
-contact_enterprise_portal: '[GitHub Support portal](https://support.github.com/contact?tags=docs-generic)'
+contact_enterprise_portal: '[GitHub Support portal](https://support.github.com)'
 
-# Azure support (GitHub AE) portal
-ae_azure_portal: 'Azure Support portal'
-contact_ae_portal: '[Azure Support portal](https://portal.azure.com/#blade/Microsoft_Azure_Support/HelpAndSupportBlade)'
-
-# GitHub Support portal (for dotcom - this sends users to a contact form)
+# GitHub Support portal (for dotcom)
 support_portal: 'GitHub Support portal'
-contact_support_portal: '[GitHub Support portal](https://support.github.com/contact?tags=docs-generic)'
+contact_support_portal: '[GitHub Support portal](https://support.github.com/)'
 
-# GitHub Support portal (this sends users to the Support landing page)
+# GitHub Support portal - use to refer to the portal
 landing_page_portal: 'GitHub Support portal'
 contact_landing_page_portal: '[GitHub Support portal](https://support.github.com/)'
 
-# The team that provides GitHub Community Support on the GitHub Community forum (for GitHub Free)
-community_support: 'GitHub Community Support'
-
-# The GitHub Community forum
-community_support_forum: '[GitHub Community forum](https://github.community/)'
+# GitHub Community discussions
+community_support_forum: '[GitHub Community discussions](https://github.com/orgs/community/discussions)'
+community_feedback_discussions: 'GitHub Community discussions'

@@ -15,35 +15,36 @@ shortTitle: Changes to GitHub plans
 
 GitHub announced the following plans and pricing changes:
 
-- GitHub Free for organizations is immediately available and includes private repositories for unlimited users
-- All organizations previously using Team for Open Source now have GitHub Free
-- GitHub Free for individual developers now includes unlimited collaborators
-- Organizations and individuals using GitHub Free will receive GitHub Community Support
-- GitHub Pro will now include 2GB of Packages storage and 10GB of data transfer
-- GitHub Pro now has a reduced monthly price of $4
-- GitHub Team now has a reduced monthly price of $4 per user
-- GitHub Team no longer has a required five-seat minimum
-- GitHub Team includes 3,000 Actions minutes per month for private repositories
+* GitHub Free for organizations is immediately available and includes private repositories for unlimited users
+* All organizations previously using Team for Open Source now have GitHub Free
+* GitHub Free for individual developers now includes unlimited collaborators
+* Organizations and individuals using GitHub Free will receive GitHub Community Support
+* GitHub Pro will now include 2GB of Packages storage and 10GB of data transfer
+* GitHub Pro now has a reduced monthly price of $4
+* GitHub Team now has a reduced monthly price of $4 per user
+* GitHub Team no longer has a required five-seat minimum
+* GitHub Team includes 3,000 Actions minutes per month for private repositories
 
 ## How can I upgrade my plan?
 
-To upgrade your user account's plan, see "[Upgrading your personal account's subscription](/billing/managing-billing-for-your-github-account/upgrading-your-github-subscription#upgrading-your-personal-accounts-subscription)." To upgrade your organization's plan, see "[Upgrading your organization's subscription](/billing/managing-billing-for-your-github-account/upgrading-your-github-subscription#upgrading-your-organizations-subscription)."
+To upgrade your account's plan, see "[AUTOTITLE](/billing/managing-the-plan-for-your-github-account/upgrading-your-accounts-plan)."
 
 ## How can I downgrade my plan?
 
-To downgrade your user account's plan, see "[Downgrading your user account's subscription](/billing/managing-billing-for-your-github-account/downgrading-your-github-subscription#downgrading-your-user-accounts-subscription)." To downgrade your organization's plan, see "[Downgrading your organization's subscription](/billing/managing-billing-for-your-github-account/downgrading-your-github-subscription#downgrading-your-organizations-subscription)."
+To downgrade your personal account or organizations's plan, see "[AUTOTITLE](/billing/managing-the-plan-for-your-github-account/downgrading-your-accounts-plan)."
 
 ## If I downgrade from GitHub Team or a Legacy plan to GitHub Free, what features will I lose?
-- Required reviewers in private repositories
-- Protected branches in private repositories
-- Code owners in private repositories
-- GitHub Pages in private repositories
-- Wikis in private repositories
-- Multiple assignees for issues and pull requests in private repositories
-- Multiple pull request reviewers in private repositories
-- Draft pull requests in private repositories
-- Autolinked references in private repositories
-- Standard support
+
+* Required reviewers in private repositories
+* Protected branches in private repositories
+* Code owners in private repositories
+* GitHub Pages in private repositories
+* Wikis in private repositories
+* Multiple assignees for issues and pull requests in private repositories
+* Multiple pull request reviewers in private repositories
+* Draft pull requests in private repositories
+* Autolinked references in private repositories
+* Standard support
 
 ## How can I create a GitHub Free or GitHub Team organization?
 
@@ -63,23 +64,23 @@ Customers who are currently paying annually for Pro and Team plans and signed up
 
 ## What is the difference between GitHub Free for individual developers and GitHub Free for organizations?
 
-For details on the differences for each GitHub Free product, see "[{% data variables.product.prodname_dotcom %}'s products](/articles/github-s-products)."
+For details on the differences for each GitHub Free product, see "[AUTOTITLE](/get-started/learning-about-github/githubs-plans)."
 
 ## How can I get more Actions minutes if I need more than allocated in the GitHub Team plan?
 
-Most small teams use fewer than 3,000 Actions minutes/month, but some teams might use more. If your team needs additional minutes for private repositories, you can increase your spending limit for GitHub Actions. Actions minutes and Packages storage are still free for your public repositories. For more information, see "[Managing your spending limit for GitHub Actions](/billing/managing-billing-for-github-actions/managing-your-spending-limit-for-github-actions)."
+Most small teams use fewer than 3,000 Actions minutes/month, but some teams might use more. If your team needs additional minutes for private repositories, you can increase your spending limit for GitHub Actions. Actions minutes and Packages storage are still free for your public repositories. For more information, see "[AUTOTITLE](/billing/managing-billing-for-github-actions/managing-your-spending-limit-for-github-actions)."
 
 ## How do the seat limit changes affect me?
 
-Now that {% data variables.product.prodname_team %} has no minimum seat requirement, if you are using fewer than five seats in your organization, you can remove paid seats to reduce your bill. For more information, see "[Downgrading your {% data variables.product.prodname_dotcom %} subscription](/billing/managing-billing-for-your-github-account/downgrading-your-github-subscription#removing-paid-seats-from-your-organization)."
+Now that {% data variables.product.prodname_team %} has no minimum seat requirement, if you are using fewer than five seats in your organization, you can remove paid seats to reduce your bill. For more information, see "[AUTOTITLE](/billing/managing-the-plan-for-your-github-account/downgrading-your-accounts-plan#removing-paid-seats-from-your-organization)."
 
 ## Is anything changing for teams on the GitHub Team for Open Source plan?
 
-If your organization account currently uses the GitHub Team for Open Source plan, you’ve been automatically moved to GitHub Free, which includes private repositories with unlimited collaborators, 2,000 Actions minutes for private repositories, and GitHub Community Support. Actions minutes and Packages storage are still free for your public repositories.
+If your organization account currently uses the GitHub Team for Open Source plan, you’ve been automatically moved to GitHub Free, which includes private repositories with unlimited collaborators, 2,000 Actions minutes for private repositories, and GitHub Community on Discussions. Actions minutes and Packages storage are still free for your public repositories.
 
-## What is GitHub Community Support?
+## What is GitHub Community on Discussions?
 
-GitHub Community Support includes support through our [Community Forum](https://github.community/), where you can browse solutions from the GitHub community, ask new questions, and share ideas. GitHub Community Support is staffed by Support Engineers on the GitHub Team, who moderate the Community Forum along with our most active community members. If you need to report spam, report abuse, or have issues with account access, you can send a message to our Support Team on https://support.github.com/.
+[GitHub Community](https://github.com/community) is built to support all GitHub users on their educational journey, via Discussions. It is a resource hub, learning portal, and inspiration station, all in one. Regardless of how big or small your challenge is, all resources and information will be accessible in a true open source fashion. If you need to report spam, report abuse, or have issues with account access, you can send a message to our Support Team on https://support.github.com/.
 
 ## How does this change affect education benefits?
 
@@ -91,6 +92,6 @@ If you’re currently an invoice customer, email your sales representative for a
 
 ## How will this impact users and organizations in regions where U.S. government sanctions are applied?
 
-Due to U.S. trade controls law restrictions, GitHub is unable to provide private repository services and paid services to accounts in U.S. sanctioned regions. GitHub has preserved, however, access to free public repository services. Please read about [GitHub and Trade Controls](/free-pro-team@latest/github/site-policy/github-and-trade-controls) for more information.
+Due to U.S. trade controls law restrictions, GitHub is unable to provide private repository services and paid services to accounts in U.S. sanctioned regions. GitHub has preserved, however, access to free public repository services. Please read about [GitHub and Trade Controls](/free-pro-team@latest/site-policy/other-site-policies/github-and-trade-controls) for more information.
 
 GitHub will continue advocating with U.S. regulators for the greatest possible access to free code collaboration services to developers in sanctioned regions, including free private repositories. We believe that offering those free services supports U.S. foreign policy of encouraging the free flow of information and free speech in those regions.

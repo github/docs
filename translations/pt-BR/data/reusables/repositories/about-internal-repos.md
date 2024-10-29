@@ -1,1 +1,0 @@
-Você pode usar repositórios internos para praticar "innersource" dentro da sua empresa. Os integrantes da sua empresa podem colaborar usando metodologias de código aberto sem compartilhar informações proprietárias publicamente{% ifversion ghes %}, mesmo com o modo privado desabilitado{% endif %}.

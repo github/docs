@@ -9,7 +9,6 @@ redirect_from:
 versions:
   fpt: '*'
   ghes: '*'
-  ghae: '*'
   ghec: '*'
 topics:
   - Pull requests
@@ -21,10 +20,12 @@ When you view a full review, you'll see the same version of the pull request as 
 
 {% data reusables.repositories.sidebar-pr %}
 {% data reusables.repositories.choose-pr-review %}
-3. On the "Conversation" tab, scroll to the review you'd like to see, then click **View changes**.
-  ![Review header with link to full review](/assets/images/help/pull_requests/view-full-review-view-changes.png)
+1. On the "Conversation" tab, scroll to the review you'd like to see, then click **View changes**.
+
+   ![Screenshot of a review. The "View changes" link is outlined in dark orange.](/assets/images/help/pull_requests/view-full-review-view-changes.png)
 
 ## Further reading
 
-- "[About pull request reviews](/pull-requests/collaborating-with-pull-requests/reviewing-changes-in-pull-requests/about-pull-request-reviews)"
-- "[Reviewing proposed changes in a pull request](/pull-requests/collaborating-with-pull-requests/reviewing-changes-in-pull-requests/reviewing-proposed-changes-in-a-pull-request)"
+* "[AUTOTITLE](/pull-requests/collaborating-with-pull-requests/reviewing-changes-in-pull-requests/about-pull-request-reviews)"
+* "[AUTOTITLE](/pull-requests/collaborating-with-pull-requests/reviewing-changes-in-pull-requests/reviewing-proposed-changes-in-a-pull-request)"
+* "[AUTOTITLE](/code-security/code-scanning/managing-code-scanning-alerts/triaging-code-scanning-alerts-in-pull-requests)"

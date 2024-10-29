@@ -1,1 +1,0 @@
-Cada persona en tu organización tiene un rol que define su nivel de acceso a esta. El rol de miembro es el predeterminado y puedes asignar roles de propietario y gerente de facturación así como permisos de "mantenedor de equipo". For more information, see "[Roles in an organization](/organizations/managing-peoples-access-to-your-organization-with-roles/roles-in-an-organization)."
