@@ -51,7 +51,7 @@ To align the `last_activity_at` data point with _actual usage_, the system retur
 {%- ifversion ghec %}
 * Creating or updating a knowledge base
 * Creating a pull request summary
-* Interacting with Copilot Chat on GitHub.com
+* Interacting with Copilot Chat in GitHub
 {%- endif %}
 * Interacting with Copilot on a mobile device
 * Interacting with Copilot Chat for CLI

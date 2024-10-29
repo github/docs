@@ -497,6 +497,23 @@ To enable and configure OIDC for another cloud provider, see the following guide
 
 * "[AUTOTITLE](/actions/deployment/security-hardening-your-deployments/configuring-openid-connect-in-cloud-providers)"
 
+{% ifversion ghec %}
+
+### Following these guides on {% data variables.enterprise.data_residency_site %}
+
+If you are part of an enterprise that uses {% data variables.enterprise.data_residency %} and you're setting up OIDC on {% data variables.enterprise.data_residency_site %}, you must **substitute certain values** in the linked articles.
+
+* Your provider's expected claim must substitute `githubusercontent.com` with `{% data variables.enterprise.data_residency_domain %}`, where SUBDOMAIN is your enterprise's subdomain on {% data variables.enterprise.data_residency_site %}.
+* For any URLs that include a route with your enterprise's name or slug, you must substitute your enterprise's subdomain on {% data variables.enterprise.data_residency_site %}.
+
+For example, if your subdomain is `octocorp`, the following substitutions apply:
+
+* The URL for seeing all the claims supported by {% data variables.product.company_short %}'s OIDC provider would be `https://token.actions.octocorp.ghe.com/.well-known/openid-configuration`.
+* The value of `iss` in your OIDC token would be `https://token.actions.octocorp.ghe.com`.
+* The enterprise can receive tokens at `https://token.actions.octocorp.ghe.com/octocorp`, and the REST API endpoint for customizing the `issuer` value would be `/enterprises/octocorp/actions/oidc/customization/issuer`.
+
+{% endif %}
+
 ## Debugging your OIDC claims
 
 You can use the [`github/actions-oidc-debugger`](https://github.com/github/actions-oidc-debugger) action to visualize the claims that would be sent, before integrating with a cloud provider. This action requests a JWT and prints the claims included within the JWT that were received from {% data variables.product.prodname_actions %}.

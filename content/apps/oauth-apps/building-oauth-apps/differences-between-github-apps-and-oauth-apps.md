@@ -43,8 +43,7 @@ You can install GitHub Apps in your personal account or organizations you own. I
 
 By contrast, users authorize {% data variables.product.prodname_oauth_apps %}, which gives the app the ability to act as the authenticated user. For example, you can authorize an {% data variables.product.prodname_oauth_app %} that finds all notifications for the authenticated user. You can always revoke permissions from an {% data variables.product.prodname_oauth_app %}.
 
-{% ifversion limit-app-access-requests %}
-{% data reusables.organizations.restricted-app-access-requests %}{% endif %}
+{% data reusables.organizations.restricted-app-access-requests %}
 
 {% data reusables.apps.deletes_ssh_keys %}
 

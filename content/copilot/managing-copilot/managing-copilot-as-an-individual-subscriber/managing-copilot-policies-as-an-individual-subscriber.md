@@ -40,4 +40,15 @@ You can choose whether your prompts and {% data variables.product.prodname_copil
 {% data reusables.user-settings.access_settings %}
 {% data reusables.user-settings.copilot-settings %}
 1. To allow or prevent {% data variables.product.prodname_dotcom %} using your data, select or deselect **Allow {% data variables.product.prodname_dotcom %} to use my code snippets from the code editor for product improvements**.
-{% data reusables.copilot.save-settings %}{% endif %}
+{% data reusables.copilot.save-settings %}
+
+## Enabling or disabling web search for {% data variables.product.prodname_copilot_chat %}
+
+You can enable web search for {% data variables.product.prodname_copilot_chat %}. This setting is disabled by default. If you enable this setting, {% data variables.product.prodname_copilot_chat_short %} will use Bing to search the internet for information related to a question. Bing search is particularly helpful when discussing new technologies or highly specific subjects.
+
+{% data reusables.user-settings.access_settings %}
+{% data reusables.user-settings.copilot-settings %}
+1. To the right of **{% data variables.product.prodname_copilot_short %} access to Bing**, select the dropdown menu, and then click **Enabled** or **Disabled**.
+{% data reusables.copilot.save-settings %}
+
+{% endif %}

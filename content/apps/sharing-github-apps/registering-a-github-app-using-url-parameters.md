@@ -24,6 +24,12 @@ This approach is useful for integrators who want customers to set up an app on t
 
 Alternatively, you can create a {% data variables.product.prodname_github_app %} manifest. For more information, see "[AUTOTITLE](/apps/creating-github-apps/setting-up-a-github-app/creating-a-github-app-from-a-manifest)."
 
+{% ifversion ghec %}
+
+> [!NOTE] {% data reusables.enterprise-data-residency.access-domain %}
+
+{% endif %}
+
 ## Creating a custom configuration URL with query parameters
 
 To create a custom configuration URL for a {% data variables.product.prodname_github_app %} on a personal or organization account, add query parameters after the following base URLs.

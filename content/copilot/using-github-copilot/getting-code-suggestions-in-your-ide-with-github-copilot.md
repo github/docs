@@ -408,6 +408,45 @@ If you want to accept the next line of the suggestion, you will need to set a cu
 
 {% endazure_data_studio %}
 
+{% xcode %}
+
+{% data reusables.copilot.xcode-beta-note %}
+
+## About {% data variables.product.prodname_copilot %} for Xcode
+
+This guide demonstrates how to get coding suggestions from {% data variables.product.prodname_copilot %} for Xcode. To see instructions for other popular coding environments, use the tool switcher at the top of the page.
+
+## Prerequisites
+
+* **Subscription to {% data variables.product.prodname_copilot_short %}**. To use {% data variables.product.prodname_copilot %} for Xcode, you must have an active {% data variables.product.prodname_copilot %} subscription. {% data reusables.copilot.subscription-prerequisite %}
+
+* **Compatible versions of Xcode and macOS**. To use {% data variables.product.prodname_copilot %} for Xcode you must have Xcode version 8.0 or above and macOS Monterey (12.0) or above installed. See [Xcode](https://developer.apple.com/xcode/) on the Apple Developer site.
+
+* **{% data variables.product.prodname_copilot %} extension for Xcode**. To use {% data variables.product.prodname_copilot %} for Xcode, you must install the {% data variables.product.prodname_copilot %} for Xcode extension. See "[AUTOTITLE](/copilot/configuring-github-copilot/installing-the-github-copilot-extension-in-your-environment)."
+
+## Getting code suggestions
+
+{% data variables.product.prodname_copilot %} offers coding suggestions as you type. For example, type this function
+signature in a Swift file:
+
+```shell copy
+func CalculateDaysBetweenDates(
+```
+
+{% data variables.product.prodname_copilot %} will automatically suggest an entire function body in grayed text. To accept the first line of a suggestion, press <kbd>Tab</kbd>. To view the full suggestion, hold <kbd>Option</kbd>, and to accept the full suggestion, press <kbd>Option</kbd>+<kbd>Tab</kbd>.
+
+### Improving code suggestions
+
+If you encounter issues with code suggestions, such as conflicting or missing suggestions, you can try the following:
+
+* **Disable Xcode's native predictive text completion**: To avoid receiving two sets of code suggestions, you can disable Xcode's native predictive text completion. You can find this setting in the Xcode settings in the "Editing" tab under "Text Editing".
+* **Check for duplication detection in {% data variables.product.prodname_copilot_short %}**: If you receive limited or no suggestions from {% data variables.product.prodname_copilot_short %}, you may have duplication detection enabled. For more information on duplication detection, see "[AUTOTITLE](/copilot/configuring-github-copilot/configuring-your-personal-github-copilot-settings-on-githubcom#enabling-or-disabling-suggestions-matching-public-code)."
+* **Check for updates and restart Xcode**: Ensure you have the latest version of {% data variables.product.prodname_copilot_short %} for Xcode in the extension application and restart Xcode.
+
+You can also open an issue in the [{% data variables.product.prodname_copilot_short %} for Xcode repository](https://github.com/github/CopilotForXcode).
+
+{% endxcode %}
+
 ## Next steps
 
 * **Learn how to write effective prompts** - See "[AUTOTITLE](/copilot/using-github-copilot/prompt-engineering-for-github-copilot)."

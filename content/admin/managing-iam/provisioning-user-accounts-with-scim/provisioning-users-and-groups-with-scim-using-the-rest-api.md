@@ -117,6 +117,9 @@ However, you can safely retrieve information from {% data variables.product.comp
 
 * Requests that don't match the API's expectations will return a `400 Bad Request` error.
 * REST API endpoints for provisioning users with SCIM require a `User-Agent` header. {% data variables.product.product_name %} will reject requests without this header.
+{%- ifversion ghec %}
+* If your enterprise is on {% data variables.enterprise.data_residency_site %}, ensure you send API requests to the endpoint for your enterprise at `{% data variables.enterprise.data_residency_api %}`.
+{%- endif %}
 
 ### Provision users before you provision groups
 

@@ -26,8 +26,9 @@ Organization owners can set policies to govern how {% data variables.product.pro
 * {% data variables.product.prodname_copilot_short %} in {% data variables.product.prodname_dotcom_the_website %}
 * {% data variables.product.prodname_copilot_chat_short %} in the IDE
 * {% data variables.product.prodname_copilot_mobile_short %}
-* {% data variables.product.prodname_copilot_cli_short %}
+* {% data variables.product.prodname_copilot_cli_short %} and {% data variables.product.prodname_windows_terminal %}
 * Suggestions matching public code
+* {% data variables.product.prodname_copilot_short %} access to the o1 family of models
 
 The policy settings selected by an organization owner determine the behavior of {% data variables.product.prodname_copilot %} for all organization members that have been granted access to {% data variables.product.prodname_copilot_short %} through the organization.
 

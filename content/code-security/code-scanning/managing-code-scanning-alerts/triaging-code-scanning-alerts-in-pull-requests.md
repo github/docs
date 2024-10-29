@@ -149,6 +149,9 @@ Each {% data variables.product.prodname_copilot_autofix_short %} suggestion demo
 1. Click **Edit** to display the editing options and select your preferred method.
    * Under **Edit with {% data variables.product.prodname_cli %}**, follow the instructions for checking out the pull request locally and applying the suggested fix.
    * Select **Edit FILENAME** to edit the file directly on {% data variables.product.prodname_dotcom %} with the suggested fix applied.
+
+    {% data reusables.rai.code-scanning.copilot-workspaces-prs-autofix-note %}
+
 1. Optionally, if you prefer to apply the fix on a local repository or branch, select the {% octicon "copy" aria-hidden="true" %} dropdown menu on the suggestion.
    * Select **View autofix patch** to display instructions for applying the suggested fix to any local repository or branch.
    * Select **Copy modified line LINE_NUMBER** to copy a specific line of the suggestion.

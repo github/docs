@@ -24,6 +24,12 @@ The CLI will have three commands:
 
 This tutorial uses Ruby, but you can write a CLI and use the device flow to generate a user access token with any programming language.
 
+{% ifversion ghec %}
+
+> [!NOTE] {% data reusables.enterprise-data-residency.access-domain %}
+
+{% endif %}
+
 ### About device flow and user access tokens
 
 The CLI will use the device flow to authenticate a user and generate a user access token. Then, the CLI can use the user access token to make API requests on behalf of the authenticated user.

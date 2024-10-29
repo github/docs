@@ -16,13 +16,15 @@ shortTitle: Private contributions {% ifversion hide-individual-achievements %}an
 allowTitleToDifferFromFilename: true
 ---
 
+{% ifversion ghec %}
+
+>[!NOTE] Achievements are not available on subdomains of {% data variables.enterprise.data_residency_site %}, such as `octocorp.ghe.com`.
+
+{% endif %}
+
 If you publicize your private contributions, people without access to the private repositories you work in won't be able to see the details of your private contributions. Instead, they'll see the number of private contributions you made on any given day. Your public contributions will include detailed information. For more information, see "[AUTOTITLE](/account-and-profile/setting-up-and-managing-your-github-profile/managing-contribution-settings-on-your-profile/viewing-contributions-on-your-profile)."
 
-{% note %}
-
-**Note:** On {% ifversion fpt or ghec %}{% data variables.product.prodname_dotcom_the_website %}{% elsif ghes %}{% data variables.product.product_name %}{% endif %}, public contributions on your profile are visible {% ifversion fpt or ghec %}to anyone in the world who can access {% data variables.product.prodname_dotcom_the_website %}{% elsif ghes %}only to other users of {% data variables.location.product_location%}{% endif %}.
-
-{% endnote %}
+>[!NOTE] On {% ifversion fpt or ghec %}{% data variables.product.prodname_dotcom_the_website %}{% elsif ghes %}{% data variables.product.product_name %}{% endif %}, public contributions on your profile are visible {% ifversion fpt or ghec %}to anyone in the world who can access {% data variables.product.prodname_dotcom_the_website %}{% elsif ghes %}only to other users of {% data variables.location.product_location%}{% endif %}.
 
 ## Changing the visibility of your private contributions
 

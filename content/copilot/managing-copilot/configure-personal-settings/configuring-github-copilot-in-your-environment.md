@@ -2,7 +2,6 @@
 title: Configuring GitHub Copilot in your environment
 shortTitle: Configure in your environment
 intro: 'You can enable, configure, or disable {% data variables.product.prodname_copilot %} in a supported IDE.'
-product: '{% data reusables.gated-features.copilot %}'
 redirect_from:
   - /copilot/configuring-github-copilot/configuring-github-copilot-in-visual-studio
   - /copilot/configuring-github-copilot/configuring-github-copilot-in-visual-studio-code
@@ -398,3 +397,57 @@ You can rebind the keyboard shortcuts in Vim/Neovim when using {% data variables
 * [{% data variables.product.prodname_copilot %} FAQ](https://github.com/features/copilot/#faq)
 
 {% endvimneovim %}
+
+{% xcode %}
+
+{% data reusables.copilot.xcode-beta-note %}
+
+## About {% data variables.product.prodname_copilot %} for Xcode
+
+If you use Xcode, {% data variables.product.prodname_copilot %} can autocomplete code as you type. After installation, you can enable or disable {% data variables.product.prodname_copilot %}, and you can configure advanced settings within Xcode or on {% data variables.product.github %}.
+
+## Prerequisites
+
+To configure {% data variables.product.prodname_copilot %} for Xcode, you must install the {% data variables.product.prodname_copilot %} extension. See "[AUTOTITLE](/copilot/managing-copilot/configure-personal-settings/installing-the-github-copilot-extension-in-your-environment?tool=xcode)."
+
+## Using or rebinding keyboard shortcuts for {% data variables.product.prodname_copilot %}
+
+You can use the default keyboard shortcuts for inline suggestions in Xcode when using {% data variables.product.prodname_copilot %}. Alternatively, you can rebind the shortcuts to your preferred keyboard shortcuts for each specific command.
+
+### Default keyboard shortcuts
+
+| Action | Shortcut |
+|:---|:---|
+|Accept the first line of a suggestion|<kbd>Tab</kbd>|
+|View full suggestion|Hold <kbd>Option</kbd>|
+|Accept full suggestion|<kbd>Option</kbd>+<kbd>Tab</kbd>|
+
+### Rebinding keyboard shortcuts
+
+If you don't want to use the default keyboard shortcuts for {% data variables.product.prodname_copilot %}, you can rebind the shortcuts in the Key Bindings editor and use your preferred keyboard shortcuts.
+
+If you want to use something besides <kbd>Tab</kbd> to accept the first line of a suggestion, you need to disable the "Accept suggestions with Tab" option in the advanced settings in the  {% data variables.product.prodname_copilot %} for Xcode application. Additionally, we currently only support the <kbd>Option</kbd> key for the "View full suggestion" action.
+
+1. In the Xcode menu bar, click **Settings**.
+1. Click **Key Bindings** and search for "{% data variables.product.prodname_copilot_short %}" to find the commands you want to rebind.
+
+## Enabling or disabling {% data variables.product.prodname_copilot %}
+
+You can enable or disable the {% data variables.product.prodname_copilot %} extension from within the application.
+
+1. Open the {% data variables.product.prodname_copilot %} extension application.
+1. At the top of the application window, click **Advanced**.
+1. In the "Suggestion Settings" section, use the "Request suggestions while typing" toggle to enable or disable the extension.
+
+## Automatically updating {% data variables.product.prodname_copilot %} for Xcode
+
+You can configure the {% data variables.product.prodname_copilot %} extension to automatically check for updates.
+
+1. Open the {% data variables.product.prodname_copilot %} extension application.
+1. Select **Automatically check for updates**.
+
+After updating the extension, Xcode must be restarted for the changes to take effect.
+
+{% data reusables.copilot.dotcom-settings %}
+
+{% endxcode %}

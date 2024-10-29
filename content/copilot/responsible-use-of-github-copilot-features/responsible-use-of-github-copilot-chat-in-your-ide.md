@@ -19,7 +19,11 @@ type: rai
 
 {% data reusables.rai.copilot.about-copilot-chat-ide %}
 
-{% data reusables.rai.copilot.copilot-chat-ide-input-processing %}
+{% data reusables.rai.copilot.copilot-chat-ide-input-processing-all1 %}
+
+{% data reusables.rai.copilot.copilot-chat-ide-input-processing-custom-instructions %}
+
+{% data reusables.rai.copilot.copilot-chat-ide-input-processing-all2 %}
 
 {% data reusables.rai.copilot.copilot-chat-ide-language-model-analysis %}
 
@@ -55,7 +59,11 @@ This can be a useful tool for programmers, as it can provide guidance and suppor
 
 {% data reusables.rai.copilot.about-copilot-chat-ide %}
 
-{% data reusables.rai.copilot.copilot-chat-ide-input-processing %}
+{% data reusables.rai.copilot.copilot-chat-ide-input-processing-all1 %}
+
+{% data reusables.rai.copilot.copilot-chat-ide-input-processing-custom-instructions %}
+
+{% data reusables.rai.copilot.copilot-chat-ide-input-processing-all2 %}
 
 {% data reusables.rai.copilot.copilot-chat-ide-language-model-analysis %}
 
@@ -89,7 +97,9 @@ This can be a useful tool for programmers, as it can provide guidance and suppor
 
 {% data reusables.rai.copilot.about-copilot-chat-ide %}
 
-{% data reusables.rai.copilot.copilot-chat-ide-input-processing %}
+{% data reusables.rai.copilot.copilot-chat-ide-input-processing-all1 %}
+
+{% data reusables.rai.copilot.copilot-chat-ide-input-processing-all2 %}
 
 {% data reusables.rai.copilot.copilot-chat-ide-language-model-analysis %}
 

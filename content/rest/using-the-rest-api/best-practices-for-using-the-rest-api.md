@@ -51,6 +51,8 @@ If you receive a rate limit error, you should stop making requests temporarily a
 
 Continuing to make requests while you are rate limited may result in the banning of your integration.
 
+{% data reusables.organizations.api-insights-learn-about %}
+
 ## Follow redirects
 
 The {% data variables.product.product_name %} REST API uses HTTP redirection where appropriate. You should assume that any

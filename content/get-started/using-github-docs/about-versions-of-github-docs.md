@@ -47,9 +47,17 @@ On {% data variables.product.prodname_dotcom_the_website %}, each account has it
 
 If you don't know whether an organization uses {% data variables.product.prodname_ghe_cloud %}, ask an organization owner. For more information, see "[AUTOTITLE](/account-and-profile/setting-up-and-managing-your-personal-account-on-github/managing-your-membership-in-organizations/viewing-peoples-roles-in-an-organization)."
 
+### {% data variables.enterprise.data_residency_site %}
+
+If you access {% data variables.product.github %} at a subdomain of {% data variables.enterprise.data_residency_site %}, such as `octocorp.ghe.com`, you're part of an enterprise that uses {% data variables.enterprise.data_residency %}. You should use the "{% data variables.product.prodname_ghe_cloud %}" version of {% data variables.product.prodname_docs %}.
+
+Because you're using a {% data variables.enterprise.prodname_managed_user %}, certain parts of the documentation may not apply to you. See "[AUTOTITLE](/enterprise-cloud@latest/admin/managing-iam/understanding-iam-for-enterprises/abilities-and-restrictions-of-managed-user-accounts)."
+
+If you see references to "github.com" in the documentation, you may need to substitute these references for your enterprise's subdomain on {% data variables.enterprise.data_residency_site %}. For example, you will make API calls to `https://{% data variables.enterprise.data_residency_api %}`, rather than `https://api.github.com`.
+
 ### {% data variables.product.prodname_ghe_server %}
 
-If you access {% data variables.product.prodname_dotcom %} at a URL other than https://github.com, `https://*.github.us`, or `https://*.ghe.com`, you're using {% data variables.product.prodname_ghe_server %}. For example, you may access {% data variables.product.prodname_ghe_server %} at `https://github.YOUR-COMPANY-NAME.com`. Your administrators may choose a URL that doesn't include the word "{% data variables.product.company_short %}."
+If you access {% data variables.product.prodname_dotcom %} at a URL **other than** https://github.com, `https://*.github.us`, or `https://*.ghe.com`, you're using {% data variables.product.prodname_ghe_server %}. For example, you may access {% data variables.product.prodname_ghe_server %} at `https://github.YOUR-COMPANY-NAME.com`. Your administrators may choose a URL that doesn't include the word "{% data variables.product.company_short %}."
 
 In a wide browser window, the word "Enterprise" immediately follows the {% data variables.product.company_short %} logo on the left side of the header.
 

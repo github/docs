@@ -1,4 +1,4 @@
-{% data variables.product.prodname_importer_proper_name %} supports migrations to {% data variables.product.prodname_ghe_cloud %} from the following sources.
+{% data variables.product.prodname_importer_proper_name %} supports migrations **to** {% data variables.product.prodname_ghe_cloud %} ({% data variables.product.prodname_dotcom_the_website %} or {% data variables.enterprise.data_residency_site %}) **from** the following sources.
 
 * Azure DevOps (ADO) Cloud
 * Bitbucket Server and Bitbucket Data Center 5.14+

@@ -18,7 +18,7 @@ topics:
   - iOS
 shortTitle: Build & test Xamarin apps
 ---
- 
+
 {% data reusables.actions.enterprise-github-hosted-runners %}
 
 ## Introduction
@@ -34,6 +34,12 @@ We recommend that you have a basic understanding of Xamarin, .NET Core SDK, YAML
 * "[AUTOTITLE](/actions/using-workflows/workflow-syntax-for-github-actions)"
 * "[Getting started with .NET](https://dotnet.microsoft.com/learn)"
 * "[Learn Xamarin](https://dotnet.microsoft.com/learn/xamarin)"
+
+{% ifversion ghec %}
+
+To use the examples in the guide, you will need a repository on {% data variables.product.prodname_dotcom_the_website %}. {% data reusables.actions.macos-unavailable-ghecom %}
+
+{% endif %}
 
 ## Building Xamarin.iOS apps
 
@@ -54,7 +60,7 @@ jobs:
     - name: Set default Xamarin SDK versions
       run: |
         $VM_ASSETS/select-xamarin-sdk-v2.sh --mono=6.12 --ios=14.10
-    
+
     - name: Set default Xcode 12.3
       run: |
         XCODE_ROOT=/Applications/Xcode_12.3.0.app
