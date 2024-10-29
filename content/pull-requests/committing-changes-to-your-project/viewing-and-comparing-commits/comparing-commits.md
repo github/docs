@@ -27,6 +27,8 @@ To compare branches, you can select a branch name from the `compare` drop down m
 
 Here's an example of a [comparison between two branches](https://github.com/octocat/linguist/compare/master...octocat:an-example-comparison-for-docs).
 
+You can also start a branch comparison when browsing a particular branch, by clicking on the `Contribute` button, followed by the `Compare` button.
+
 ## Comparing tags
 
 Comparing release tags will show you changes to your repository since the last release.
