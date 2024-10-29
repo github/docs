@@ -13,7 +13,7 @@ redirect_from:
   - /copilot/using-github-copilot/asking-github-copilot-questions-in-githubcom
 ---
 
-> [!NOTE] {% data reusables.copilot.chat-dotcom-beta %}
+> [!NOTE] {% data variables.product.prodname_copilot_chat_dotcom %} is currently in {% data variables.release-phases.public_preview %} and is subject to change.
 
 ## Overview
 
@@ -75,7 +75,7 @@ The skills you can use in {% data variables.product.prodname_copilot_chat_dotcom
 ### Changing your AI model
 
 > [!NOTE]
-> * The `o1-preview` and `o1-mini` models do not have access to skills {% ifversion ghec %}or knowledge bases {% endif %}in {% data variables.product.prodname_copilot_chat_dotcom %}. If you want to use skills {% ifversion ghec %}or knowledge bases {% endif %}on {% data variables.product.github %}, you must use the `gpt-4o` model.
+> * If you want to use the skills listed in the table above{% ifversion ghec %}, or knowledge bases{% endif %}, on the {% data variables.product.github %} website, you must use the `gpt-4o` model.
 > * If you use {% data variables.product.prodname_copilot_extensions_short %}, they may override the model you select.
 > * Experimental pre-release versions of the models may not interact with all filters correctly, including the duplication detection filter.
 

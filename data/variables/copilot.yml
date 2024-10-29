@@ -26,3 +26,6 @@ chat_completions_api: 'https://api.githubcopilot.com/chat/completions'
 ## Copilot code review - e.g. {% data variables.copilot.copilot_code-review %}
 copilot_code-review: 'GitHub Copilot code review'
 copilot_code-review_short: 'Copilot code review'
+
+## LLM models for Copilot
+copilot_claude_sonnet: 'Claude 3.5 Sonnet'
