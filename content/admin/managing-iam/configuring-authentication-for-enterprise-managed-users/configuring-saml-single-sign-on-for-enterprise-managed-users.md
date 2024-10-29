@@ -25,7 +25,7 @@ If your enterprise uses **personal accounts**, you must follow a different proce
 
 ## About SAML SSO for {% data variables.product.prodname_emus %}
 
-With {% data variables.product.prodname_emus %}, access to your enterprise's resources on {% data variables.product.github %} must be authenticated through your identity provider (IdP). Instead of signing in to {% data variables.product.prodname_dotcom %} with a {% data variables.product.prodname_dotcom %} username and password, members of your enterprise will sign in through your IdP.
+With {% data variables.product.prodname_emus %}, access to your enterprise's resources on {% data variables.product.prodname_dotcom_the_website %} or {% data variables.enterprise.data_residency_site %} must be authenticated through your identity provider (IdP). Instead of signing in with a {% data variables.product.prodname_dotcom %} username and password, members of your enterprise will sign in through your IdP.
 
 After you configure SAML SSO, we recommend storing your recovery codes so you can recover access to your enterprise in the event that your IdP is unavailable.
 
@@ -53,22 +53,32 @@ To configure SAML SSO for your {% data variables.enterprise.prodname_emu_enterpr
 
 ### Configure your IdP
 
-1. {% ifversion emu-public-scim-schema %}If you use a partner IdP, to install the {% data variables.product.prodname_emu_idp_application %} application, click one of the following links.{% else %}To install the {% data variables.product.prodname_emu_idp_application %} application, click the link for your IdP below:{% endif %}
+1. If you use a partner IdP, to install the {% data variables.product.prodname_emu_idp_application %} application, click the link for your IdP and environment.
 
-    * [Microsoft Entra ID application](https://azuremarketplace.microsoft.com/en-us/marketplace/apps/aad.githubenterprisemanageduser?tab=Overview) in Azure Marketplace (Entra ID was previously known as Azure AD)
-    * [Okta application](https://www.okta.com/integrations/github-enterprise-managed-user) in Okta's integrations directory
-    * [PingFederate downloads website](https://www.pingidentity.com/en/resources/downloads/pingfederate.html)
+   {% rowheaders %}
 
-      * To download the PingFederate connector, navigate to the **Add-ons** tab and select **{% data variables.product.prodname_dotcom %} EMU Connector 1.0**.
+   | Identity provider | App for {% data variables.product.prodname_dotcom_the_website %} | App for {% data variables.enterprise.data_residency_site %} |
+   | ----------------- | ------------- | ------------------- |
+   | Microsoft Entra ID | [{% data variables.product.prodname_emu_idp_application %}](https://azuremarketplace.microsoft.com/en-us/marketplace/apps/aad.githubenterprisemanageduser?tab=Overview) | [{% data variables.product.prodname_emu_idp_application %}](https://azuremarketplace.microsoft.com/en-us/marketplace/apps/aad.githubenterprisemanageduser?tab=Overview) |
+   | Okta | [{% data variables.product.prodname_emu_idp_application %}](https://www.okta.com/integrations/github-enterprise-managed-user) | [{% data variables.product.prodname_emu_idp_application %} - ghe.com](https://www.okta.com/integrations/github-enterprise-managed-user-ghe-com/) |
+   | PingFederate | [PingFederate downloads website](https://www.pingidentity.com/en/resources/downloads/pingfederate.html) (navigate to the **Add-ons** tab, then select **{% data variables.product.prodname_dotcom %} EMU Connector 1.0**) | [PingFederate downloads website](https://www.pingidentity.com/en/resources/downloads/pingfederate.html) (navigate to the **Add-ons** tab, then select **{% data variables.product.prodname_dotcom %} EMU Connector 1.0**) |
 
-1. To configure SAML SSO for {% data variables.product.prodname_emus %} on your IdP, read the following documentation. {% ifversion emu-public-scim-schema %}If you don't use a partner IdP, you can use the SAML configuration reference for {% data variables.product.product_name %} to create and configure a generic SAML 2.0 application on your IdP.{% endif %}
+   {% endrowheaders %}
 
-   * [Entra ID](https://docs.microsoft.com/en-us/azure/active-directory/saas-apps/github-enterprise-managed-user-tutorial) on Microsoft Learn
-   * "[AUTOTITLE](/admin/identity-and-access-management/configuring-authentication-for-enterprise-managed-users/configuring-saml-single-sign-on-with-okta-for-enterprise-managed-users)"
-   * [PingFederate instructions](https://docs.pingidentity.com/integrations/github/github_emu_provisioner/pf_github_emu_connector.html) in the PingIdentity documentation
-   {%- ifversion emu-public-scim-schema %}
-   * "[AUTOTITLE](/admin/identity-and-access-management/iam-configuration-reference/saml-configuration-reference)"
-   {%- endif %}
+1. To configure SAML SSO for {% data variables.product.prodname_emus %} on a partner IdP, read the relevant documentation for your IdP and environment.
+
+   {% rowheaders %}
+
+   | Identity provider | Documentation for {% data variables.product.prodname_dotcom_the_website %} | Documentation for {% data variables.enterprise.data_residency_site %} |
+   | ----------------- | ------------- | ------------------- |
+   | Microsoft Entra ID | [Microsoft Learn](https://docs.microsoft.com/en-us/azure/active-directory/saas-apps/github-enterprise-managed-user-tutorial) | [Microsoft Learn](https://learn.microsoft.com/en-us/entra/identity/saas-apps/github-enterprise-managed-user-ghe-com-tutorial) |
+   | Okta | "[AUTOTITLE](/admin/identity-and-access-management/configuring-authentication-for-enterprise-managed-users/configuring-saml-single-sign-on-with-okta-for-enterprise-managed-users)" | "[AUTOTITLE](/admin/identity-and-access-management/configuring-authentication-for-enterprise-managed-users/configuring-saml-single-sign-on-with-okta-for-enterprise-managed-users)" |
+   | PingFederate | "[AUTOTITLE](/admin/managing-iam/provisioning-user-accounts-with-scim/configuring-authentication-and-provisioning-with-pingfederate)" ("Prerequisities" and "1. Configure SAML" sections) | "[AUTOTITLE](/admin/managing-iam/provisioning-user-accounts-with-scim/configuring-authentication-and-provisioning-with-pingfederate)" ("Prerequisities" and "1. Configure SAML" sections) |
+
+   {% endrowheaders %}
+
+   Alternatively, if you don't use a partner IdP, you can use the SAML configuration reference for {% data variables.product.product_name %} to create and configure a generic SAML 2.0 application on your IdP. See "[AUTOTITLE](/admin/identity-and-access-management/iam-configuration-reference/saml-configuration-reference)."
+
 1. To test and configure your enterprise, assign yourself or the user that will configure SAML SSO for your enterprise on {% data variables.product.github %} to the application you configured for {% data variables.product.prodname_emus %} on your IdP.
 
    > [!NOTE]
@@ -95,7 +105,7 @@ After the initial configuration of SAML SSO, the only setting you can update on 
    **Note**: {% data reusables.enterprise-accounts.emu-password-reset-session %}
 
    {% endnote %}
-{% data reusables.enterprise-accounts.access-enterprise %}
+{% data reusables.enterprise-accounts.access-enterprise-emu %}
 {% data reusables.enterprise-accounts.settings-tab %}
 {% data reusables.enterprise-accounts.security-tab %}
 

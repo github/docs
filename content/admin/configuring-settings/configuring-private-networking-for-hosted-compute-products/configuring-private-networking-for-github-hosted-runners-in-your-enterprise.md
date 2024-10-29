@@ -56,7 +56,9 @@ Variables
 }
 ```
 
-Alternatively, you can use the following curl command to find your `databaseId`.
+#### Example for {% data variables.product.prodname_dotcom_the_website %}
+
+You can use the following curl command to find your `databaseId`.
 
 ```shell copy
 curl -H "Authorization: Bearer BEARER_TOKEN" -X POST \
@@ -67,6 +69,16 @@ curl -H "Authorization: Bearer BEARER_TOKEN" -X POST \
       }' \
 https://api.github.com/graphql
 ```
+
+#### Example for {% data variables.enterprise.data_residency_site %}
+
+You can use the following {% data variables.product.prodname_cli %} commands to retrieve the `databaseId`. Replace SUBDOMAIN with your enterprise's subdomain of {% data variables.enterprise.data_residency_site %}.
+
+  ```shell copy
+  gh auth login -s 'read:enterprise' -h SUBDOMAIN.ghe.com
+
+  gh api graphql --hostname SUBDOMAIN.ghe.com -f query='query($slug: String!) { enterprise (slug: $slug) { slug databaseId } }' -f slug='SUBDOMAIN'
+  ```
 
 {% data reusables.actions.azure-vnet-configure-azure-resources-script %}
 

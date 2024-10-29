@@ -13,7 +13,7 @@ shortTitle: Change enterprise URL
 
 ## About changes to enterprise slugs
 
-When you create an enterprise, you choose a "slug" for the enterprise, which is a string used in the URL for your enterprise. For example, if you chose `octo-enterprise` as the slug, the URL for your enterprise would be `https://github.com/enterprises/octo-enterprise`.
+When you create an enterprise, you choose a "slug" for the enterprise, which is a string used in the URL for your enterprise. For example, if you chose `octo-enterprise` as the slug, the URL for your enterprise on {% data variables.product.prodname_dotcom_the_website %} would be `https://github.com/enterprises/octo-enterprise`.
 
 If your company pays for {% data variables.product.prodname_ghe_cloud %} by credit card or PayPal, you can change the slug in the settings for your enterprise. When you change the slug, {% data variables.product.company_short %} does not set up any redirects from the old URL. Your old enterprise slug will immediately become available for another customer to use.
 

@@ -46,6 +46,12 @@ If you do not choose {% data variables.product.prodname_emus %}:
 
 Consider personal accounts if using your external identity management system as the source of truth for user and access management would add too much complexity. For example, you do not have an established process for onboarding new users in the system.
 
+## Do you need to choose where your data is stored?
+
+To help you meet compliance requirements, {% data variables.product.prodname_ghe_cloud %} includes the option to store your enterprise's code and data in a specific region, on your own subdomain of {% data variables.enterprise.data_residency_site %}. See "[AUTOTITLE](/admin/data-residency/about-github-enterprise-cloud-with-data-residency)."
+
+If you adopt {% data variables.enterprise.data_residency %}, you **must** use {% data variables.product.prodname_emus %}.
+
 ## Is your external identity management system supported?
 
 Consider whether you already use, or can adopt, a supported identity management system.

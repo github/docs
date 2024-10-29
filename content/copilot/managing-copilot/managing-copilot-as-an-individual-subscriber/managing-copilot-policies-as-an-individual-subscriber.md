@@ -26,10 +26,8 @@ Your personal settings for {% data variables.product.prodname_copilot %} include
 
 If you choose to allow suggestions matching public code, and you accept a suggestion for which one or more matches were found, you can click through from an entry in the {% data variables.product.prodname_copilot %} log to view a list of references on {% data variables.product.prodname_dotcom %}. For more information, see "[AUTOTITLE](/copilot/using-github-copilot/finding-public-code-that-matches-github-copilot-suggestions)."
 
-{% data reusables.user-settings.access_settings %}
 {% data reusables.user-settings.copilot-settings %}
-1. Under **Suggestions matching public code**, select the dropdown menu, then click **Allow** to allow suggestions matching public code, or **Block** to block suggestions matching public code.
-{% data reusables.copilot.save-settings %}
+1. To the right of **Suggestions matching public code**, select the dropdown menu, then click **Allow** to allow suggestions matching public code, or **Block** to block suggestions matching public code.
 
 {% ifversion fpt %}
 
@@ -37,7 +35,21 @@ If you choose to allow suggestions matching public code, and you accept a sugges
 
 You can choose whether your prompts and {% data variables.product.prodname_copilot_short %}'s suggestions are collected and retained by {% data variables.product.prodname_dotcom %}, and further processed and shared with Microsoft. For more information about data that {% data variables.product.prodname_copilot %} may collect depending on your settings, see "[AUTOTITLE](/free-pro-team@latest/site-policy/github-terms/github-terms-for-additional-products-and-features#github-copilot)" and the [{% data variables.product.prodname_copilot %} privacy FAQ](https://github.com/features/copilot/#faq-privacy-copilot-for-business).
 
-{% data reusables.user-settings.access_settings %}
 {% data reusables.user-settings.copilot-settings %}
 1. To allow or prevent {% data variables.product.prodname_dotcom %} using your data, select or deselect **Allow {% data variables.product.prodname_dotcom %} to use my code snippets from the code editor for product improvements**.
-{% data reusables.copilot.save-settings %}{% endif %}
+
+## Enabling or disabling {% data variables.copilot.copilot_claude_sonnet %}
+
+You can choose whether to allow use of Anthropic's {% data variables.copilot.copilot_claude_sonnet %} model as an alternative to {% data variables.product.prodname_copilot_short %}'s default model. For more information, see "[AUTOTITLE](/copilot/using-github-copilot/using-claude-sonnet-in-github-copilot)."
+
+{% data reusables.user-settings.copilot-settings %}
+1. To the right of **Anthropic {% data variables.copilot.copilot_claude_sonnet %} in {% data variables.product.prodname_copilot_short %}**, select the dropdown menu, then click **Enabled** or **Disabled**.
+
+## Enabling or disabling web search for {% data variables.product.prodname_copilot_chat %}
+
+You can enable web search for {% data variables.product.prodname_copilot_chat %}. This setting is disabled by default. If you enable this setting, {% data variables.product.prodname_copilot_chat_short %} will use Bing to search the internet for information related to a question. Bing search is particularly helpful when discussing new technologies or highly specific subjects.
+
+{% data reusables.user-settings.copilot-settings %}
+1. To the right of **{% data variables.product.prodname_copilot_short %} access to Bing**, select the dropdown menu, and then click **Enabled** or **Disabled**.
+
+{% endif %}

@@ -42,6 +42,8 @@ The actions you use in your workflow can be defined in:
 
 {% data reusables.actions.enterprise-marketplace-actions %}
 
+{% data reusables.actions.actions-marketplace-ghecom %}
+
 {% ifversion fpt or ghec %}
 
 ## Browsing Marketplace actions in the workflow editor
@@ -98,6 +100,10 @@ jobs:
       - name: My first step
         uses: {% data reusables.actions.action-setup-node %}
 ```
+
+{% ifversion ghec or ghes %}
+If {% ifversion ghec %}you're on {% data variables.enterprise.data_residency_site %}{% elsif ghes %}an enterprise owner has enabled access to actions on {% data variables.product.prodname_dotcom_the_website %}{% endif %}, you can use this syntax to reference actions either within your enterprise or on {% data variables.product.prodname_dotcom_the_website %}. {% data variables.product.prodname_actions %} will look for the action in your enterprise first, then fall back to {% data variables.product.prodname_dotcom_the_website %}.
+{% endif %}
 
 ### Referencing a container on Docker Hub
 
