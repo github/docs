@@ -15,7 +15,9 @@ redirect_from:
 
 ## About security findings
 
-After you apply a {% data variables.product.prodname_security_configuration %} to a repository, the enabled security features will likely raise security findings on that repository. These findings may show up as feature-specific alerts, or as automatically generated pull requests designed to keep your repository secure. To best secure your organization, you should encourage contributors to those repositories to review and resolve these alerts and pull requests. You can analyze the findings across the organization and make any necessary adjustments to your {% data variables.product.prodname_security_configuration %}.
+After you apply a {% data variables.product.prodname_security_configuration %} to a repository, the enabled security features will likely raise security findings on that repository. These findings may show up as feature-specific alerts, or as automatically generated pull requests designed to keep your repositories secure. You can analyze the findings across the organization and make any necessary adjustments to your {% data variables.product.prodname_security_configuration %}.
+
+To best secure your organization, you should encourage contributors to review and resolve security alerts and pull requests. {% ifversion security-campaigns %}In addition, you can collaborate with contributors to fix historical security alerts, see "[AUTOTITLE](/code-security/securing-your-organization/fixing-security-alerts-at-scale/best-practice-fix-alerts-at-scale)."{% endif %}
 
 {% ifversion ghec or ghes %}
 

@@ -35,9 +35,7 @@ After you have installed {% data variables.product.prodname_desktop %}, you can 
 
 1. Before you can authenticate to {% data variables.product.prodname_dotcom %} or {% data variables.product.prodname_enterprise %}, you will need an account.{% ifversion fpt or ghec %} For more information, see "[AUTOTITLE](/get-started/start-your-journey/creating-an-account-on-github)."{% endif %}{% ifversion ghec %} If you're part of an organization that uses {% data variables.product.prodname_emus %} and you do not have an account, contact your enterprise administrator.{% elsif ghes %} If you're a member of an organization that uses {% data variables.product.product_name %} and you do not have an account, contact your {% data variables.product.prodname_enterprise %} site administrator.{% endif %}
 {% data reusables.desktop.mac-select-desktop-menu %}
-1. In the "Preferences" window, on the **Accounts** pane, click one of the **Sign In** buttons to sign in to your account.
-
-   ![Screenshot of the "Accounts" pane in the "Preferences" window. Next to "GitHub.com", a button, labeled "Sign In", is outlined in orange.](/assets/images/help/desktop/sign-in-github.png)
+{% data reusables.desktop.mac-click-sign-into %}
 1. Follow the steps to sign in. For more information about authentication, see "[AUTOTITLE](/desktop/installing-and-authenticating-to-github-desktop/authenticating-to-github-in-github-desktop)."
 
 {% endmac %}
@@ -45,8 +43,9 @@ After you have installed {% data variables.product.prodname_desktop %}, you can 
 {% windows %}
 
 1. Before you can authenticate to {% data variables.product.prodname_dotcom %} or {% data variables.product.prodname_enterprise %}, you will need an account.{% ifversion fpt or ghec %} For more information, see "[AUTOTITLE](/get-started/start-your-journey/creating-an-account-on-github)."{% endif %}{% ifversion ghec %} If you're part of an organization that uses {% data variables.product.prodname_emus %} and you do not have an account, contact your enterprise administrator.{% elsif ghes %} If you're a member of an organization that uses {% data variables.product.product_name %} and you do not have an account, contact your {% data variables.product.prodname_enterprise %} site administrator.{% endif %}
-1. In the File drop-down menu, click **Options**. In the options window, click **Accounts** and follow the steps to sign in. For more information on authenticating, see "[AUTOTITLE](/desktop/installing-and-authenticating-to-github-desktop/authenticating-to-github-in-github-desktop)."
-   ![Screenshot of the "Accounts" pane in the "Options" window. Next to "GitHub.com", a button, labeled "Sign In", is outlined in orange.](/assets/images/help/desktop/windows-sign-in-github.png)
+{% data reusables.desktop.windows-choose-options %}
+{% data reusables.desktop.windows-click-sign-into %}
+1. Follow the steps to sign in. For more information about authentication, see "[AUTOTITLE](/desktop/installing-and-authenticating-to-github-desktop/authenticating-to-github-in-github-desktop)."
 
 {% endwindows %}
 
@@ -58,7 +57,7 @@ After you install {% data variables.product.prodname_desktop %}, you can configu
 
 You can connect or remove accounts on {% data variables.product.prodname_dotcom %} or {% data variables.product.prodname_enterprise %}, choose a default text editor or shell, edit your Git configuration, change the appearance of {% data variables.product.prodname_desktop %}, customize system dialog boxes, and set privacy preferences in the {% data variables.product.prodname_desktop %} Preferences window. For more information, see "[AUTOTITLE](/desktop/configuring-and-customizing-github-desktop/configuring-basic-settings-in-github-desktop)."
 
-![Screenshot of the "Preferences" window. The left sidebar, with menu options such as "Accounts" and "Integrations", is highlighted with an orange outline.](/assets/images/help/desktop/mac-select-preferences-pane.png)
+![Screenshot of the "Preferences" window. Options in the left sidebar are highlighted with an orange outline.](/assets/images/help/desktop/mac-select-preferences-pane.png)
 
 {% endmac %}
 
@@ -66,7 +65,7 @@ You can connect or remove accounts on {% data variables.product.prodname_dotcom 
 
 You can connect or remove accounts on {% data variables.product.prodname_dotcom %} or {% data variables.product.prodname_enterprise %}, choose a default text editor or shell, edit your Git configuration, change the appearance of {% data variables.product.prodname_desktop %}, customize system dialog boxes, and set privacy preferences in the {% data variables.product.prodname_desktop %} Options window. For more information, see "[AUTOTITLE](/desktop/configuring-and-customizing-github-desktop/configuring-basic-settings-in-github-desktop)."
 
-![Screenshot of the "Preferences" window. The left sidebar, with menu options such as "Accounts" and "Integrations", is highlighted with an orange outline.](/assets/images/help/desktop/mac-select-preferences-pane.png)
+![Screenshot of the "Preferences" window. Options in the left sidebar are highlighted with an orange outline.](/assets/images/help/desktop/mac-select-preferences-pane.png)
 
 {% endwindows %}
 

@@ -148,6 +148,7 @@ rest_reference:
   http_status_code: HTTP response status codes for "{{ RESTOperationTitle }}"
   code_sample: Code sample
   code_samples: Code samples for "{{ RESTOperationTitle }}"
+  data_residency_notice: If you access GitHub at GHE.com, replace <code>api.github.com</code> with your enterprise's dedicated subdomain at <code>api.SUBDOMAIN.ghe.com</code>.
   preview_notice: Preview notice for "{{ RESTOperationTitle }}"
   preview_notices: Preview notices for "{{ RESTOperationTitle }}"
   fine_grained_access: Fine-grained access tokens for "{{ RESTOperationTitle }}"

@@ -138,3 +138,9 @@ For {% ifversion ghec %}internal and{% endif %} private repositories, jobs using
     </tr>
   </tbody>
 </table>
+
+{% ifversion ghec %}
+
+> [!NOTE] {% data reusables.actions.macos-unavailable-ghecom %}
+
+{% endif %}

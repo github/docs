@@ -111,7 +111,7 @@ Note that any image you intend to admit _must_ have a matching glob pattern in t
 
 {% ifversion ghec %}
 
-If your GitHub Enterprise account has a subdomain on GHE.com, you must specify a value for the GitHub trust domain. This value is used to fetch the trusted materials associated with the data residency region that hosts your GitHub Enterprise account. This value can be found by logging into your enterprise account with the `gh` CLI tool and running the following command:
+If your GitHub Enterprise account has a subdomain on {% data variables.enterprise.data_residency_site %}, you must specify a value for the GitHub trust domain. This value is used to fetch the trusted materials associated with the data residency region that hosts your GitHub Enterprise account. This value can be found by logging into your enterprise account with the `gh` CLI tool and running the following command:
 
 ```bash copy
 gh api meta --jq .domains.artifact_attestations.trust_domain

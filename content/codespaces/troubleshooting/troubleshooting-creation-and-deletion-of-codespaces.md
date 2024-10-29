@@ -10,6 +10,12 @@ topics:
 shortTitle: Creation and deletion
 ---
 
+{% ifversion ghec %}
+
+{% data reusables.codespaces.data-residency-availability %}
+
+{% endif %}
+
 ## Creating codespaces
 
 ### No access to create a codespace
