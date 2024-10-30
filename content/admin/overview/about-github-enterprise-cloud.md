@@ -9,16 +9,15 @@ topics:
   - Fundamentals
 ---
 
-{% data variables.product.prodname_ghe_cloud %} is a deployment option for {% data variables.product.prodname_enterprise %}, adding advanced features to {% data variables.product.prodname_dotcom %}, including:
+{% data variables.product.prodname_ghe_cloud %}  is a deployment option for {% data variables.product.prodname_enterprise %}, adding advanced features to {% data variables.product.prodname_dotcom %}, including:
 
 * SAML authentication
 * Additional {% data variables.product.prodname_actions %} minutes
-* Restriction of email notifications to verified domains
+* Restrict email notifications to verified domains
 * Privately published {% data variables.product.prodname_pages %} sites
 * {% data variables.enterprise.prodname_managed_users_caps %}
 * Repository rulesets
 * {% data variables.product.company_short %}'s compliance reports
-* The option to host your company's data in a specific region, on a unique subdomain
 
 For a full list of features included with {% data variables.product.product_name %}, see our [Pricing](https://github.com/pricing) page.
 
@@ -41,12 +40,9 @@ Documentation for both administrators and users of {% data variables.product.pro
 
 ## Can I try {% data variables.product.product_name %}?
 
-You can sign up for a free, 30-day trial of {% data variables.product.product_name %} on {% data variables.product.prodname_dotcom_the_website %}. See "[AUTOTITLE](/admin/overview/setting-up-a-trial-of-github-enterprise-cloud)."
-
-If you require {% data variables.enterprise.data_residency_short %}, contact {% data variables.contact.contact_enterprise_sales %}.
+You can sign up for a free, 30-day trial of {% data variables.product.product_name %}. See "[AUTOTITLE](/admin/overview/setting-up-a-trial-of-github-enterprise-cloud)."
 
 ## Further reading
 
 * "[AUTOTITLE](/get-started/onboarding/getting-started-with-github-enterprise-cloud)"
-* "[AUTOTITLE](/admin/data-residency/about-github-enterprise-cloud-with-data-residency)"
 * [ {% data variables.product.prodname_roadmap %} ]( {% data variables.product.prodname_roadmap_link %} ) in the  `github/roadmap` repository

@@ -1,1 +1,0 @@
-The large language model will take the prompt, gather additional context (for example repository data stored on {% data variables.product.prodname_dotcom %}), and provide a response based on the prompt. The system is only intended to respond to coding-related questions.

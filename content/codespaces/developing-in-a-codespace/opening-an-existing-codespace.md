@@ -14,12 +14,6 @@ redirect_from:
   - /codespaces/developing-in-codespaces/opening-an-existing-codespace
 ---
 
-{% ifversion ghec %}
-
-{% data reusables.codespaces.data-residency-availability %}
-
-{% endif %}
-
 {% jetbrains_beta %}
 
 {% data reusables.codespaces.codespaces-jetbrains-beta-note %}

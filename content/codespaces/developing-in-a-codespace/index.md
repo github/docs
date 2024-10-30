@@ -29,8 +29,3 @@ redirect_from:
   - /codespaces/developing-in-codespaces
 ---
 
-{% ifversion ghec %}
-
-{% data reusables.codespaces.data-residency-availability %}
-
-{% endif %}

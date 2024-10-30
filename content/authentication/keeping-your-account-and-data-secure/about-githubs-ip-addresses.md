@@ -19,13 +19,7 @@ topics:
 shortTitle: GitHub's IP addresses
 ---
 
-You can retrieve a list of the IP addresses for {% data variables.product.prodname_dotcom_the_website %} from the [meta](https://api.github.com/meta) API endpoint. For more information, see "[AUTOTITLE](/rest/meta)."
-
-{% ifversion ghec %}
-
-If you access {% data variables.product.github %} on a subdomain of {% data variables.enterprise.data_residency_site %}, the meta endpoint does not return IP ranges for your subdomain. See "[AUTOTITLE](/admin/data-residency/network-details-for-ghecom#githubs-ip-addresses)."
-
-{% endif %}
+You can retrieve a list of {% data variables.product.prodname_dotcom %}'s IP addresses from the [meta](https://api.github.com/meta) API endpoint. For more information, see "[AUTOTITLE](/rest/meta)."
 
 {% note %}
 

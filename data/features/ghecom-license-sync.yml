@@ -1,3 +1,0 @@
-# GHES version required to enable GitHub Connect license sync between GHES and GHE.com
-versions:
-  ghes: '>=3.15'

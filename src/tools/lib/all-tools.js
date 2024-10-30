@@ -16,6 +16,4 @@ export const allTools = {
   visualstudio: 'Visual Studio',
   vscode: 'Visual Studio Code',
   webui: 'Web browser',
-  windowsterminal: 'Windows Terminal',
-  xcode: 'Xcode',
 }

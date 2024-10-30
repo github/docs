@@ -16,12 +16,6 @@ topics:
   - Access management
 shortTitle: Update access credentials
 ---
-{% ifversion ghec %}
-
-> [!NOTE] {% data reusables.enterprise-data-residency.access-domain %}
-
-{% endif %}
-
 ## Requesting a new password
 
 1. To request a new password, visit {% ifversion fpt or ghec %}https://{% data variables.product.product_url %}/password_reset{% else %}`https://{% data variables.product.product_url %}/password_reset`{% endif %}.

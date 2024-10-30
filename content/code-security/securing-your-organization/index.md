@@ -13,6 +13,5 @@ children:
   - /enabling-security-features-in-your-organization
   - /meeting-your-specific-security-needs-with-custom-security-configurations
   - /managing-the-security-of-your-organization
-  - /fixing-security-alerts-at-scale
   - /troubleshooting-security-configurations
 ---

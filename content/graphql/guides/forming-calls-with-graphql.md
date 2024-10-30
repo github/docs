@@ -37,15 +37,11 @@ To authenticate with an OAuth token from an {% data variables.product.prodname_o
 
 ## The GraphQL endpoint
 
-The REST API has numerous endpoints. With the GraphQL API, the endpoint remains constant, no matter what operation you perform. For {% ifversion fpt or ghec %}{% data variables.product.prodname_dotcom_the_website %}{% else %}{% data variables.product.prodname_ghe_server %}{% endif %}, that endpoint is:
+The REST API has numerous endpoints; the GraphQL API has a single endpoint:
 
 <pre>{% data variables.product.graphql_url %}</pre>
 
-{% ifversion ghec %}
-
-If you access {% data variables.product.github %} at a different domain, such as `{% data variables.enterprise.data_residency_example_domain %}`, the endpoint will reflect that domain. For example: `https://api.octocorp.ghe.com/graphql`.
-
-{% endif %}
+The endpoint remains constant no matter what operation you perform.
 
 ## Communicating with GraphQL
 

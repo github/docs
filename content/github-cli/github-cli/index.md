@@ -9,7 +9,6 @@ versions:
 children:
   - /about-github-cli
   - /quickstart
-  - /using-multiple-accounts
   - /creating-github-cli-extensions
   - /using-github-cli-extensions
   - /github-cli-reference

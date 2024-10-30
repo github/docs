@@ -8,8 +8,7 @@ versions:
   ghec: '*'
 children:
   - /usage-limits-billing-and-administration
-  - /viewing-github-actions-metrics
+  - /viewing-github-actions-usage-metrics-for-your-organization
   - /sharing-workflows-secrets-and-runners-with-your-organization
-  - /making-retired-namespaces-available-on-ghecom
 ---
 
