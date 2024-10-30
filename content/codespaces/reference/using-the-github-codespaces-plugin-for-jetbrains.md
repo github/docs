@@ -35,7 +35,7 @@ The {% data variables.product.prodname_github_codespaces %} tool window shows:
 * The age of the codespace
 * The period for which a stopped codespace will be retained before it is automatically deleted
 
-The icons at the top of the {% data variables.product.prodname_github_codespaces %} tool window provide the following functions
+The icons at the top of the {% data variables.product.prodname_github_codespaces %} tool window provide the following functions.
 
 * **Refresh active codespace**
 
