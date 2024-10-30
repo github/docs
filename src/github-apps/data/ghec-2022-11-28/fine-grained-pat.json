@@ -2069,6 +2069,12 @@
       "requestPath": "/orgs/{org}/copilot/billing/selected_users"
     },
     {
+      "slug": "get-copilot-metrics-for-an-organization",
+      "subcategory": "copilot-metrics",
+      "verb": "get",
+      "requestPath": "/orgs/{org}/copilot/metrics"
+    },
+    {
       "slug": "get-a-summary-of-copilot-usage-for-organization-members",
       "subcategory": "copilot-usage",
       "verb": "get",
@@ -2079,6 +2085,12 @@
       "subcategory": "copilot-user-management",
       "verb": "get",
       "requestPath": "/orgs/{org}/members/{username}/copilot"
+    },
+    {
+      "slug": "get-copilot-metrics-for-a-team",
+      "subcategory": "copilot-metrics",
+      "verb": "get",
+      "requestPath": "/orgs/{org}/team/{team_slug}/copilot/metrics"
     },
     {
       "slug": "get-a-summary-of-copilot-usage-for-a-team",
