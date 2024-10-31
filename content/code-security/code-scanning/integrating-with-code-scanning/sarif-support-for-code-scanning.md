@@ -315,7 +315,7 @@ This SARIF output file has example values to show the minimum required propertie
 
 ### Relative URI Guidance for SARIF Producers
 
-This SARIF output file has example of values for the field `originalUriBaseIds`, showing the minimum required properties a SARIF producer should include when using relative URI references. 
+This SARIF output file has example of values for the field `originalUriBaseIds`, showing the minimum required properties a SARIF producer should include when using relative URI references.
 
 {% note %}
 
