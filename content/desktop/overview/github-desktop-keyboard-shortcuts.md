@@ -19,7 +19,7 @@ GitHub Desktop keyboard shortcuts on macOS
 
 | Keyboard shortcut | Description
 |-----------|------------
-|<kbd>Command</kbd>+<kbd>,</kbd> | Go to Preferences
+|<kbd>Command</kbd>+<kbd>,</kbd> | Display the Settings window
 |<kbd>Command</kbd>+<kbd>H</kbd> | Hide the {% data variables.product.prodname_desktop %} application
 |<kbd>Option</kbd>+<kbd>Command</kbd>+<kbd>H</kbd> | Hide all other applications
 |<kbd>Command</kbd>+<kbd>Q</kbd> | Quit {% data variables.product.prodname_desktop %}
@@ -80,7 +80,7 @@ GitHub Desktop keyboard shortcuts on Windows
 
 | Keyboard shortcut | Description
 |-----------|------------
-|<kbd>Ctrl</kbd>+<kbd>,</kbd> | Go to Options
+|<kbd>Ctrl</kbd>+<kbd>,</kbd> | Display the Options window
 |<kbd>F11</kbd> | Toggle full screen view
 |<kbd>Ctrl</kbd>+<kbd>0</kbd> | Reset zoom to default text size
 |<kbd>Ctrl</kbd>+<kbd>=</kbd> | Zoom in for larger text and graphics
