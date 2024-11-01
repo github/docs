@@ -61,7 +61,7 @@ Milestones | {% octicon "check" aria-label="Can be migrated" %}  | {% octicon "c
 Wikis | {% octicon "check" aria-label="Can be migrated" %}  | {% octicon "check" aria-label="Can be migrated" %}  |
 {% data variables.product.prodname_actions %} workflows | {% octicon "check" aria-label="Can be migrated" %}  | {% octicon "check" aria-label="Can be migrated" %}  |
 Commit comments | {% octicon "check" aria-label="Can be migrated" %}  | {% octicon "check" aria-label="Can be migrated" %}  |
-Active webhooks | {% octicon "check" aria-label="Can be migrated" %}  | {% octicon "check" aria-label="Can be migrated" %}  |
+Webhooks (must be re-enabled after your migration, see "[Enabling webhooks](/migrations/using-github-enterprise-importer/migrating-between-github-products/overview-of-a-migration-between-github-products#enabling-webhooks)") | {% octicon "check" aria-label="Can be migrated" %}  | {% octicon "check" aria-label="Can be migrated" %}  |
 Branch protections | {% octicon "check" aria-label="Can be migrated" %}  | {% octicon "check" aria-label="Can be migrated" %}  |
 {% data variables.product.prodname_pages %} settings | {% octicon "check" aria-label="Can be migrated" %}  | {% octicon "check" aria-label="Can be migrated" %}  |
 User history for the above data | {% octicon "check" aria-label="Can be migrated" %}  | {% octicon "check" aria-label="Can be migrated" %}  |
