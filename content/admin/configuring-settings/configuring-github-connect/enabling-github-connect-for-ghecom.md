@@ -4,6 +4,10 @@ shortTitle: Enable for GHE.com
 intro: 'Enable {% data variables.product.prodname_github_connect %} to share data between {% data variables.enterprise.data_residency_site %} and {% data variables.location.product_location %}.'
 versions:
   feature: ghecom-github-connect
+redirect_from:
+   - /early-access/admin/preview-of-data-residency-for-github-enterprise/configuring-github-connect-during-the-preview-of-data-residency
+   - /early-access/admin/private-ga-of-data-residency-for-github-enterprise-cloud/configuring-github-connect-during-the-private-ga-of-data-residency
+   - /early-access/admin/data-residency-for-github-enterprise-cloud/configuring-github-connect-for-data-residency
 ---
 
 You can access additional features and workflows on {% data variables.location.product_location %} by enabling {% data variables.product.prodname_github_connect %}. See "[AUTOTITLE](/admin/configuration/configuring-github-connect/about-github-connect)."

@@ -108,7 +108,7 @@ You can use {% data variables.codespaces.serverless %} to work with an existing 
 
 ## Using extensions
 
-The {% data variables.codespaces.serverless %} editor supports {% data variables.product.prodname_vscode_shortname %} extensions that have been specifically created or updated to run in the web. These extensions are known as "web extensions". To learn how you can create a web extension or update your existing extension to work for the web, see "[Web extensions](https://code.visualstudio.com/api/extension-guides/web-extensions)" in the {% data variables.product.prodname_vscode_shortname %} documentation.
+The {% data variables.codespaces.serverless %} editor supports {% data variables.product.prodname_vscode_shortname %} extensions that have been specifically created or updated to run in the web. These extensions are known as "web extensions". To learn how you can create a web extension or update your existing extension to work for the web, see [Web extensions](https://code.visualstudio.com/api/extension-guides/web-extensions) in the {% data variables.product.prodname_vscode_shortname %} documentation.
 
 Extensions that can run in {% data variables.codespaces.serverless %} will appear in the Extensions View and can be installed. If you use Settings Sync, any compatible extensions are also installed automatically. For information, see "[Settings Sync](https://code.visualstudio.com/docs/editor/settings-sync)" in the {% data variables.product.prodname_vscode_shortname %} documentation.
 

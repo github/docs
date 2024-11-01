@@ -23,14 +23,14 @@ topics:
 
 Using {% data variables.product.prodname_actions %} runners allows you to more easily identify {% data variables.product.prodname_dependabot %} job errors and manually detect and troubleshoot failed runs. You can also integrate {% data variables.product.prodname_dependabot %} into your CI/CD pipelines by using {% data variables.product.prodname_actions %} APIs and webhooks to detect {% data variables.product.prodname_dependabot %} job status such as failed runs, and perform downstream processing. For more information, see "[AUTOTITLE](/rest/actions)" and "[AUTOTITLE](/webhooks/webhook-events-and-payloads)."
 
+>[!TIP] Running {% data variables.product.prodname_dependabot %} on {% data variables.product.prodname_dotcom %}-hosted and self-hosted runners **does not** count towards your included {% data variables.product.prodname_actions %} minutes. For more information, see "[AUTOTITLE](/billing/managing-billing-for-github-actions/about-billing-for-github-actions)."
+
 You can run {% data variables.product.prodname_dependabot %} on {% data variables.product.prodname_actions %} using:
 * {% data variables.product.prodname_dotcom %}-hosted runners
 * {% data variables.actions.hosted_runners_caps %}. These runners are {% data variables.product.prodname_dotcom %}-hosted, with advanced features, such as more RAM, CPU, and disk space. For more information, see "[AUTOTITLE](/actions/using-github-hosted-runners/about-larger-runners)."
 * Self-hosted runners
 
-Using private networking with either an Azure Virtual Network (VNET) or Actions Runner Controller (ARC) is not supported.
-
->[!TIP] Running {% data variables.product.prodname_dependabot %} on {% data variables.product.prodname_dotcom %}-hosted and self-hosted runners **does not** count towards your included {% data variables.product.prodname_actions %} minutes. For more information, see "[AUTOTITLE](/billing/managing-billing-for-github-actions/about-billing-for-github-actions)."
+{% data reusables.dependabot.vnet-arc-note %}
 
 Enabling {% data variables.product.prodname_dependabot %} on {% data variables.product.prodname_actions %} may increase the number of concurrent jobs run in your account. If required, customers on enterprise plans can request a higher limit for concurrent jobs. For more information, contact us through the {% data variables.contact.contact_support_portal %}, or contact your sales representative.
 

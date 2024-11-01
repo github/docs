@@ -4,6 +4,12 @@ shortTitle: How is data stored?
 intro: "Learn how your data is stored when you use {% data variables.enterprise.data_residency %}."
 versions:
   ghec: '*'
+redirect_from:
+  - /early-access/admin/using-a-data-resident-enterprise-on-github/about-data-locality
+  - /early-access/admin/using-a-data-resident-enterprise-on-github/about-data-residency
+  - /early-access/admin/preview-of-data-residency-for-github-enterprise/about-data-residency-in-the-european-union
+  - /early-access/admin/private-ga-of-data-residency-for-github-enterprise-cloud/about-data-residency-in-the-european-union
+  - /early-access/admin/data-residency-for-github-enterprise-cloud/about-data-residency-in-the-european-union
 ---
 
 {% data reusables.data-residency.when-you-adopt-data-residency %}
