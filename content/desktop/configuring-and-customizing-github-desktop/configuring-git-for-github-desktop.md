@@ -32,7 +32,7 @@ Configuring your global author information in {% data variables.product.prodname
 {% mac %}
 
 {% data reusables.desktop.mac-select-desktop-menu %}
-{% data reusables.desktop.preferences-git-pane %}
+{% data reusables.desktop.settings-git-pane %}
 {% data reusables.desktop.name-field-git-config %}
 {% data reusables.desktop.select-email-git-config %}
 {% data reusables.desktop.click-save-git-config %}
@@ -89,8 +89,8 @@ You can configure the default branch that will be used when you create a new rep
 {% mac %}
 
 {% data reusables.desktop.mac-select-desktop-menu %}
-{% data reusables.desktop.preferences-git-pane %}
-1. Under "Default branch name for new repositories", select the default branch name you would like to use, or, to enter a custom name, select "Other...".
+{% data reusables.desktop.settings-git-pane %}
+1. Optional, under "Default branch name for new repositories" edit the name of the default branch as needed.
 {% data reusables.desktop.click-save-git-config %}
 
 {% endmac %}
