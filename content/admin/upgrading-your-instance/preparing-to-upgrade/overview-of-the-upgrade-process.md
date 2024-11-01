@@ -95,7 +95,7 @@ Ensure you have a recent, successful backup snapshot of your instance's primary 
 
 ### Create a VM snapshot
 
-If you're upgrading to a new feature release, a virtual machine (VM) snapshot is required. If you're ugprading to a patch release, you can attach the existing data disk.
+If you're upgrading to a new feature release, a virtual machine (VM) snapshot is required. If you're upgrading to a patch release, you can attach the existing data disk.
 
 Create a virtual machine (VM) snapshot of your instance's primary node immediately before upgrading, and only when maintenance mode has been enabled or the instance has been powered down. See "[AUTOTITLE](/admin/upgrading-your-instance/preparing-to-upgrade/taking-a-snapshot)".
 

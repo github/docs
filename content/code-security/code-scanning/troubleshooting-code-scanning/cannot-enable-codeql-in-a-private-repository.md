@@ -14,7 +14,7 @@ versions:
 ---
 
 {% ifversion fpt %}
-If you are on a free, pro, or team plan, you can only use {% data variables.product.prodname_code_scanning %} on repositories that are publically available. To enable {% data variables.product.prodname_code_scanning %} for private or internal repositories, you must upgrade to GitHub Enterprise with {% data variables.product.prodname_GH_advanced_security %} and enable {% data variables.product.prodname_GH_advanced_security %} for the repository. For more information, see "[AUTOTITLE](/get-started/learning-about-github/githubs-products#github-enterprise)" and "[AUTOTITLE](/get-started/learning-about-github/about-github-advanced-security)."
+If you are on a free, pro, or team plan, you can only use {% data variables.product.prodname_code_scanning %} on repositories that are publicly available. To enable {% data variables.product.prodname_code_scanning %} for private or internal repositories, you must upgrade to GitHub Enterprise with {% data variables.product.prodname_GH_advanced_security %} and enable {% data variables.product.prodname_GH_advanced_security %} for the repository. For more information, see "[AUTOTITLE](/get-started/learning-about-github/githubs-products#github-enterprise)" and "[AUTOTITLE](/get-started/learning-about-github/about-github-advanced-security)."
 
 {% else %}
 

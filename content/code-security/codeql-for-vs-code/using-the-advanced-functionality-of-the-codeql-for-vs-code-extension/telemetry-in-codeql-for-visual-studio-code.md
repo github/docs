@@ -34,7 +34,7 @@ If you opt in, {% data variables.product.company_short %} collects the following
 
 * The identifiers of any {% data variables.product.prodname_codeql %}-related {% data variables.product.prodname_vscode_shortname %} commands that are run. For each command, these are: the timestamp, time taken, and whether or not the command completed successfully.
 
-* Interactions with UI elements, including buttons, links, and other inputs. Intereacts that are not recorded are: link targets, text inputs, mouse movement, and mouse hovering.
+* Interactions with UI elements, including buttons, links, and other inputs. Interacts that are not recorded are: link targets, text inputs, mouse movement, and mouse hovering.
 
 * Occurrence of exceptions and errors. All sensitive information such as file paths and non-static exception message content are removed before uploading.
 

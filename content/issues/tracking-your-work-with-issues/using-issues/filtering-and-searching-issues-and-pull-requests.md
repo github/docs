@@ -97,7 +97,7 @@ If you choose not to use `AND` and `OR` operators, {% data variables.product.git
 
 ### Using parentheses for more complicated filters
 
-You can also use parentheses to nest filters and group qualifiers. In the example below, the results will contain issues that are either assigned to @octocat with the "bug" issue type or assigned to @hubot with the "Enchancement" issue type.
+You can also use parentheses to nest filters and group qualifiers. In the example below, the results will contain issues that are either assigned to @octocat with the "bug" issue type or assigned to @hubot with the "Enhancement" issue type.
 
 ```text
 (type:"Bug" AND assignee:octocat) OR (type:"Enhancement" AND assignee:hubot)
