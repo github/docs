@@ -338,7 +338,7 @@ Users with `write` access to a repository can use the {% data variables.product.
 
 ### Force deleting cache entries
 
-Caches have branch scope restrictions in place, which means some caches have limited usage options. For more information on cache scope restrictions, see "[AUTOTITLE](/actions/using-workflows/caching-dependencies-to-speed-up-workflows#restrictions-for-accessing-a-cache)." If caches limited to a specific branch are using a lot of storage quota, it may cause caches from the `default` branch to be created and deleted at a high frequency.
+Caches have branch scope restrictions in place, which means some caches have limited usage options. For more information on cache scope restrictions, see "[Restrictions for accessing a cache](#restrictions-for-accessing-a-cache)," earlier in this article. If caches limited to a specific branch are using a lot of storage quota, it may cause caches from the `default` branch to be created and deleted at a high frequency.
 
 For example, a repository could have many new pull requests opened, each with their own caches that are restricted to that branch. These caches could take up the majority of the cache storage for that repository. {% data reusables.actions.cache-eviction-policy %} In order to prevent cache thrashing when this happens, you can set up workflows to delete caches on a faster cadence than the cache eviction policy will. You can use the {% data variables.product.prodname_cli %} to delete caches for specific branches.
 
