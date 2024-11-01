@@ -30,7 +30,7 @@ If you're migrating between {% data variables.product.company_short %} products,
 
 ### Do we want to migrate by organization or by repository?
 
-First, if your migration source and destination are both {% data variables.product.prodname_dotcom_the_website %}, decide whether you want to migrate on an organization-by-organization basis or on a repository-by-repository basis.
+First, if your migration source is {% data variables.product.prodname_dotcom_the_website %}, decide whether you want to migrate on an organization-by-organization basis or on a repository-by-repository basis.
 
 {% note %}
 
@@ -222,6 +222,10 @@ The user associated with these updated remediations will be the user who owns th
 When {% data variables.product.prodname_dependabot_alerts %} and the dependency graph are enabled, {% data variables.product.prodname_dependabot_alerts %} will be rebuilt from the current state of the default branch. Remediation states of these alerts are not migrated, and any previous alerts are also not migrated.
 
 You'll need to re-add any encrypted secrets for {% data variables.product.prodname_dependabot %}. For more information, see "[AUTOTITLE](/enterprise-cloud@latest/code-security/dependabot/working-with-dependabot/configuring-access-to-private-registries-for-dependabot)."
+
+### Reconfiguring features for {% data variables.enterprise.data_residency_short %}
+
+If you have migrated from {% data variables.product.prodname_dotcom_the_website %} to {% data variables.enterprise.data_residency %}, some features work differently, and some features will require different or additional configuration. See "[AUTOTITLE](/enterprise-cloud@latest/admin/data-residency/feature-overview-for-github-enterprise-cloud-with-data-residency)."
 
 ### Enabling webhooks
 

@@ -1,4 +1,8 @@
-The {% data variables.product.prodname_actions %} service supports a subset of all the regions that Azure provides. To facilitate communication between the {% data variables.product.prodname_actions %} service and your subnet, your subnet must be in one of the following supported regions.
+The {% data variables.product.prodname_actions %} service supports a subset of all the regions that Azure provides. To facilitate communication between the {% data variables.product.prodname_actions %} service and your subnet, your subnet must be in one of the supported regions.
+
+> [!NOTE] If you use {% data variables.enterprise.data_residency_short %} on {% data variables.enterprise.data_residency_site %}, the supported regions are different. See "[AUTOTITLE](/admin/data-residency/network-details-for-ghecom#supported-regions-for-azure-private-networking)."
+
+The following regions are supported on {% data variables.product.prodname_dotcom_the_website %}.
 
 <ul style="-webkit-column-count: 2; -moz-column-count: 2; column-count: 2;">
 <li><code>EastUs</code></li>

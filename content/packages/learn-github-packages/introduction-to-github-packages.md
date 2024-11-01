@@ -76,6 +76,12 @@ The permissions for a package are either inherited from the repository where the
 
 {% endif %}
 
+{% ifversion ghec %}
+
+> [!NOTE] The Apache Maven and Gradle registries are not available for {% data variables.enterprise.data_residency %}.
+
+{% endif %}
+
 For more information about configuring your package client for use with {% data variables.product.prodname_registry %}, see "[AUTOTITLE](/packages/working-with-a-github-packages-registry)."
 
 {% ifversion fpt or ghec %}

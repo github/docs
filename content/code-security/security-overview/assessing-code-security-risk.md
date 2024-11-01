@@ -71,3 +71,10 @@ You can view data for security alerts across organizations in an enterprise.
 {% data reusables.organizations.security-overview-feature-specific-page %}
 
 {% data reusables.security-overview.alert-differences %}
+
+{% ifversion security-campaigns %}
+
+## Next steps
+
+When you have assessed your code security risks, you are ready to create a security campaign to collaborate with developers to remediate alerts. For information about fixing security alerts at scale, see "[AUTOTITLE](/code-security/securing-your-organization/fixing-security-alerts-at-scale/creating-tracking-security-campaigns)" and "[AUTOTITLE](/code-security/securing-your-organization/fixing-security-alerts-at-scale/best-practice-fix-alerts-at-scale)."
+{% endif %}

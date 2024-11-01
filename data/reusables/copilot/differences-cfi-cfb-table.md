@@ -7,6 +7,7 @@
 | {% data variables.product.prodname_copilot_chat_short %} in IDEs[^2] | {% octicon "check" aria-label="Included" %} | {% octicon "check" aria-label="Included" %} | {% octicon "check" aria-label="Included" %} |
 | {% data variables.product.prodname_copilot_mobile_short %} | {% octicon "check" aria-label="Included" %} | {% octicon "check" aria-label="Included" %} | {% octicon "check" aria-label="Included" %} |
 | {% data variables.product.prodname_copilot_chat_dotcom_short %} | {% octicon "check" aria-label="Included" %} | {% octicon "check" aria-label="Included" %} | {% octicon "check" aria-label="Included" %} |
+| {% data variables.product.prodname_copilot_chat_short %}  in {% data variables.product.prodname_windows_terminal %} | {% octicon "check" aria-label="Included" %} | {% octicon "check" aria-label="Included" %} | {% octicon "check" aria-label="Included" %} |
 | {% data variables.product.prodname_copilot_cli_short %} | {% octicon "check" aria-label="Included" %} | {% octicon "check" aria-label="Included" %} | {% octicon "check" aria-label="Included" %} |
 | Block suggestions matching public code     | {% octicon "check" aria-label="Included" %} | {% octicon "check" aria-label="Included" %} | {% octicon "check" aria-label="Included" %} |
 | {% data variables.product.prodname_copilot_for_prs %} | {% octicon "check" aria-label="Included" %} | {% octicon "check" aria-label="Included" %} | {% octicon "check" aria-label="Included" %} |
@@ -20,7 +21,7 @@
 
 {% endrowheaders %}
 
-[^1]: Code completion in IDEs is available in {% data variables.product.prodname_vscode %}, {% data variables.product.prodname_vs %}, JetBrains IDEs, Azure Data Studio, and Vim/Neovim.
+[^1]: Code completion in IDEs is available in {% data variables.product.prodname_vscode %}, {% data variables.product.prodname_vs %}, JetBrains IDEs, Azure Data Studio, Xcode, and Vim/Neovim.
 [^2]: {% data variables.product.prodname_copilot_chat_short %} in IDEs is available in {% data variables.product.prodname_vscode %}, {% data variables.product.prodname_vs %}, and JetBrains IDEs.
 [^3]: {% data variables.product.prodname_copilot_chat_short %} skills in IDEs is available in {% data variables.product.prodname_vscode %} and {% data variables.product.prodname_vs %}.
 [^4]: For details about the increased rate limits, see "[AUTOTITLE](/github-models/prototyping-with-ai-models)."

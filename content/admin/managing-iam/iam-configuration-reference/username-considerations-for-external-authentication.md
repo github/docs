@@ -38,7 +38,12 @@ When you use external authentication, {% data variables.location.product_locatio
 
 If you use an enterprise with {% data variables.product.prodname_emus %}, members of your enterprise authenticate to access {% data variables.product.prodname_dotcom %} through your SAML identity provider (IdP). For more information, see "[AUTOTITLE](/admin/identity-and-access-management/using-enterprise-managed-users-for-iam/about-enterprise-managed-users)" and "[AUTOTITLE](/admin/identity-and-access-management/managing-iam-for-your-enterprise/about-authentication-for-your-enterprise#authentication-methods-for-github-enterprise-server)."
 
-{% data variables.product.prodname_dotcom %} automatically creates a username for each person when their user account is provisioned via SCIM, by normalizing an identifier provided by your IdP, then adding an underscore and short code. If multiple identifiers are normalized into the same username, a username conflict occurs, and only the first user account is created. You can resolve username problems by making a change in your IdP so that the normalized usernames will be unique and within the 39-character limit.
+{% data variables.product.github %} automatically creates a username for each person when their user account is provisioned via SCIM.
+
+* To create the username, {% data variables.product.github %} normalizes an identifier provided by your IdP.
+* On {% data variables.product.prodname_dotcom_the_website %}, {% data variables.product.github %} also adds an underscore and your enterprise's shortcode to the end of each username.
+
+If multiple identifiers are normalized into the same username, a username conflict occurs, and only the first user account is created. You can resolve username problems by making a change in your IdP so that the normalized usernames will be unique and within the 39-character limit.
 
 {% data reusables.enterprise-accounts.emu-only-emails-within-the-enterprise-can-conflict %}
 
@@ -46,13 +51,31 @@ If you use an enterprise with {% data variables.product.prodname_emus %}, member
 
 {% ifversion ghec %}
 
-## About usernames for {% data variables.enterprise.prodname_managed_users %}
+## About shortcodes for {% data variables.enterprise.prodname_managed_users %}
 
-When your {% data variables.enterprise.prodname_emu_enterprise %} is created, you will choose a short code that will be used as the suffix for your enterprise members' usernames. {% data reusables.enterprise-accounts.emu-shortcode %}
+Each enterprise that uses {% data variables.enterprise.prodname_managed_users %} is associated with a shortcode, which is an alphanumeric string between three and eight characters.
+
+### Shortcodes on {% data variables.product.prodname_dotcom_the_website %}
+
+When you create an {% data variables.enterprise.prodname_emu_enterprise %} on {% data variables.product.prodname_dotcom_the_website %}, you choose a shortcode that will be used as the suffix for all your enterprise members' usernames.
+
+* The short code must be unique to your enterprise and contain no special characters.
+* Choose carefully, because it is **not possible** to modify the shortcode after your {% data variables.enterprise.prodname_emu_enterprise %} has been created.
 
 The setup user who configures SAML SSO has a username in the format of **SHORT-CODE_admin**. For example, if your enterprise's shortcode is "octo", the setup user will be "octo_admin."
 
-When you provision a new user from your identity provider, the new {% data variables.enterprise.prodname_managed_user %} will have a {% data variables.product.prodname_dotcom %} username in the format of **@IDP-USERNAME_SHORT-CODE** (for example, "mona-cat_octo"). The IDP-USERNAME component is formed by normalizing the SCIM `userName` attribute value sent from the IdP.
+When you provision a new user from your identity provider, the new {% data variables.enterprise.prodname_managed_user %} will have a {% data variables.product.prodname_dotcom %} username in the format of **@IDP-USERNAME_SHORT-CODE** (for example, "mona-cat_octo").
+
+### Shortcodes on {% data variables.enterprise.data_residency_site %}
+
+If you use {% data variables.enterprise.data_residency %}, when you create an {% data variables.enterprise.prodname_emu_enterprise %} on {% data variables.enterprise.data_residency_site %}, your enterprise's shortcode is randomly generated.
+
+* The shortcode is **not** used as a suffix in the usernames of provisioned users.
+* The only place you are likely to see the shortcode is in the username of the setup admin, which will look like `2abvd19d_admin`.
+
+## About normalized usernames
+
+Usernames are formed by normalizing the SCIM `userName` attribute value sent from the IdP.
 
 | Identity provider                 | {% data variables.product.prodname_dotcom %} username  |
 |-----------------------------------|----------------------|
@@ -92,7 +115,7 @@ When you configure CAS, LDAP, or SAML authentication, {% data variables.product.
 
 ### Examples of username normalization
 
-| Identifier on provider | Normalized username on {% data variables.product.prodname_dotcom %} | Result |
+| Identifier on provider | Normalized username on {% data variables.product.prodname_dotcom_the_website %} | Result |
 | :- | :- | :- |
 | The.Octocat | `the-octocat{% ifversion ghec %}_SHORT-CODE{% endif %}` | This username is created successfully. |
 | !The.Octocat | `-the-octocat{% ifversion ghec %}_SHORT-CODE{% endif %}` | This username is not created, because it starts with a dash. |

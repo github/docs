@@ -12,7 +12,12 @@ shortTitle: Generate a user access token
 
 ## About user access tokens
 
-{% data reusables.pre-release-program.expiring-user-access-tokens %}
+> [!NOTE] {% data reusables.pre-release-program.expiring-user-access-tokens %}
+>
+> {% data reusables.apps.github_app_auth_saml %}
+> {% ifversion ghec %}
+> {% data reusables.enterprise-data-residency.access-domain %}
+{% endif %}
 
 A user access token is a type of OAuth token. Unlike a traditional OAuth token, the user access token does not use scopes. Instead, it uses fine-grained permissions. A user access token only has permissions that both the user and the app have. For example, if the app was granted permission to write the contents of a repository, but the user can only read the contents, then the user access token can only read the contents.
 
@@ -25,12 +30,6 @@ By default, the user access token expires after 8 hours. You can use a refresh t
 Users can revoke their authorization of a {% data variables.product.prodname_github_app %}. For more information, see "[AUTOTITLE](/authentication/keeping-your-account-and-data-secure/token-expiration-and-revocation)." If a user revokes their authorization of a {% data variables.product.prodname_github_app %}, the app will receive the `github_app_authorization` webhook. {% data variables.product.prodname_github_apps %} cannot unsubscribe from this event. If your app receives this webhook, you should stop calling the API on behalf of the user who revoked the token. If your app continues to use a revoked access token, it will receive the `401 Bad Credentials` error. For more information about this webhook, see "[AUTOTITLE](/webhooks-and-events/webhooks/webhook-events-and-payloads#github_app_authorization)."
 
 You should keep user access tokens and refresh tokens secure. For more information, see "[AUTOTITLE](/apps/creating-github-apps/setting-up-a-github-app/best-practices-for-creating-a-github-app)."
-
-{% note %}
-
-**Note**: {% data reusables.apps.github_app_auth_saml %}
-
-{% endnote %}
 
 ## Using the web application flow to generate a user access token
 
