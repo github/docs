@@ -23,6 +23,8 @@ topics:
 
 You can help users of your organization and repositories to create and maintain secure code by setting up {% data variables.product.prodname_dependabot %} security and version updates. With {% data variables.product.prodname_dependabot_updates %}, developers can configure repositories so that their dependencies are updated and kept secure automatically. Running {% data variables.product.prodname_dependabot %} on {% data variables.product.prodname_actions %} allows for better performance, and increased visibility and control of {% data variables.product.prodname_dependabot %} jobs.
 
+{% data reusables.dependabot.vnet-arc-note %}
+
 To have greater control over {% data variables.product.prodname_dependabot %} access to your private registries and internal network resources, you can configure {% data variables.product.prodname_dependabot %} to run on {% data variables.product.prodname_actions %} self-hosted runners.
 
 For security reasons, when running {% data variables.product.prodname_dependabot %} on {% data variables.product.prodname_actions %} self-hosted runners, {% data variables.product.prodname_dependabot_updates %} will not be run on public repositories.
