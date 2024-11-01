@@ -170,6 +170,6 @@ If the user account you used to sign into Azure does not have adequate permissio
 
 > **Need admin approval**
 >
-> GitHub Inc needs permission to access resources in your organisation that only an admin can grant. Please ask an admin to grant permission to this app before you can use it.
+> GitHub Inc needs permission to access resources in your organization that only an admin can grant. Please ask an admin to grant permission to this app before you can use it.
 
 To avoid this message when you try again, you must either ensure that the Azure user can provide tenant-wide admin consent, or you must work with an Azure administrator to configure the admin consent workflow. For more information, review "[Prerequisites](#prerequisites)."
