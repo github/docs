@@ -36,7 +36,7 @@
   },
   {
     "action": "api.request",
-    "description": "An API request was made to a security-significant endpoint for the enterprise. This event is only included if API Request Events is enabled in the enterprise's audit log settings. This event is only available via audit log streaming.",
+    "description": "An API request was made to an endpoint for the enterprise, or an enterprise owned resource. This event is only included if API Request Events is enabled in the enterprise's audit log settings. This event is only available via audit log streaming.",
     "docs_reference_links": "/admin/monitoring-activity-in-your-enterprise/reviewing-audit-logs-for-your-enterprise/streaming-the-audit-log-for-your-enterprise#enabling-audit-log-streaming-of-api-requests"
   },
   {
@@ -565,8 +565,18 @@
     "docs_reference_links": "N/A"
   },
   {
+    "action": "business.security_center_export_coverage",
+    "description": "A CSV export was requested on the \"Coverage\" page.",
+    "docs_reference_links": "N/A"
+  },
+  {
     "action": "business.security_center_export_overview_dashboard",
     "description": "A CSV export was requested on the \"Overview Dashboard\" page.",
+    "docs_reference_links": "N/A"
+  },
+  {
+    "action": "business.security_center_export_risk",
+    "description": "A CSV export was requested on the \"Risk\" page.",
     "docs_reference_links": "N/A"
   },
   {
@@ -3665,6 +3675,26 @@
     "docs_reference_links": "/code-security/secret-scanning/protecting-pushes-with-secret-scanning"
   },
   {
+    "action": "repository_security_configuration.applied",
+    "description": "A code security configuration was applied to a repository.",
+    "docs_reference_links": "N/A"
+  },
+  {
+    "action": "repository_security_configuration.failed",
+    "description": "A code security configuration failed to attach to the repository.",
+    "docs_reference_links": "N/A"
+  },
+  {
+    "action": "repository_security_configuration.removed",
+    "description": "A code security configuration was removed from a repository.",
+    "docs_reference_links": "N/A"
+  },
+  {
+    "action": "repository_security_configuration.removed_by_settings_change",
+    "description": "A code security configuration was removed due to a change in repository or enterprise settings.",
+    "docs_reference_links": "N/A"
+  },
+  {
     "action": "repository_visibility_change.clear",
     "description": "The repository visibility change setting was cleared for an organization or enterprise.",
     "docs_reference_links": "/organizations/managing-organization-settings/restricting-repository-visibility-changes-in-your-organization, /admin/policies/enforcing-policies-for-your-enterprise/enforcing-repository-management-policies-in-your-enterprise#enforcing-a-policy-for-changes-to-repository-visibility"
@@ -3777,6 +3807,11 @@
   {
     "action": "secret_scanning_alert.create",
     "description": "GitHub detected a secret and created a secret scanning alert.",
+    "docs_reference_links": "/code-security/secret-scanning/managing-alerts-from-secret-scanning"
+  },
+  {
+    "action": "secret_scanning_alert.public_leak",
+    "description": "A secret scanning alert was leaked in a public repo.",
     "docs_reference_links": "/code-security/secret-scanning/managing-alerts-from-secret-scanning"
   },
   {

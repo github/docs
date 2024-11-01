@@ -10,7 +10,7 @@ versions:
 
 ## About migrations from Bitbucket Server
 
-You can use {% data variables.product.prodname_importer_proper_name %} to migrate repositories from Bitbucket Server to {% data variables.product.prodname_ghe_cloud %}. Migrations from Bitbucket Server are only supported for Bitbucket Server or Bitbucket Data Center version 5.14+ or higher.
+You can use {% data variables.product.prodname_importer_proper_name %} to migrate repositories from Bitbucket Server to {% data variables.product.prodname_ghe_cloud %} ({% data variables.product.prodname_dotcom_the_website %} or {% data variables.enterprise.data_residency_site %}). Migrations from Bitbucket Server are only supported for Bitbucket Server or Bitbucket Data Center version 5.14+ or higher.
 
 ## Data that is migrated
 

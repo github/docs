@@ -27,6 +27,8 @@ This guide gives an overview of how to configure Azure to trust {% data variable
 
 {% data reusables.actions.oidc-security-notice %}
 
+{% data reusables.actions.oidc-on-ghecom %}
+
 {% ifversion ghes %}
 {% data reusables.actions.oidc-endpoints %}
   <!-- This note is indented to align with the above reusable. -->

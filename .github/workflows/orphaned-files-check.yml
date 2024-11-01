@@ -24,7 +24,7 @@ permissions:
   contents: read
 
 jobs:
-  orphaned-assets-check:
+  orphaned-files-check:
     if: ${{ github.repository == 'github/docs-internal' }}
     runs-on: ubuntu-latest
     steps:

@@ -1,7 +1,7 @@
 ---
 title: Configuring {% ifversion ghec %}SCIM{% else %}authentication and{% endif %} provisioning with Okta
 shortTitle: Set up Okta
-intro: 'Learn how to configure Okta to communicate with your enterprise using System for Cross-domain Identity Management (SCIM).'
+intro: 'Learn how to configure Okta to communicate with your enterprise{% ifversion ghec %} on {% data variables.product.prodname_dotcom_the_website %} or {% data variables.enterprise.data_residency_site %}{% endif %}.'
 product: '{% data reusables.gated-features.emus %}'
 permissions: '{% ifversion ghes %}Site administrators{% else %}People{% endif %} with admin access to the IdP'
 allowTitleToDifferFromFilename: true
@@ -63,24 +63,14 @@ In addition:
 * To configure SCIM, you must have completed **steps 1 to 4** in "[AUTOTITLE](/admin/managing-iam/provisioning-user-accounts-with-scim/configuring-scim-provisioning-for-users)."
   * You will need the {% data variables.product.pat_v1 %} created for the setup user to authenticate requests from Okta.
 {% else %}
-* {% data variables.product.company_short %} recommends that you only authenticate requests with Okta's SCIM application using a {% data variables.product.pat_v1 %} associated with your enterprise's setup user. The token requires the **scim:enterprise** scope. For more information, see "[AUTOTITLE](/admin/managing-iam/understanding-iam-for-enterprises/getting-started-with-enterprise-managed-users#create-a-personal-access-token)."
+If you're configuring SCIM provisioning for a new enterprise, make sure to complete all previous steps in the initial configuration process. See "[AUTOTITLE](/admin/managing-iam/understanding-iam-for-enterprises/getting-started-with-enterprise-managed-users)."
+
+In addition:
 {% endif %}
 * You must use Okta's application for both authentication and provisioning.
 * {% data reusables.scim.your-okta-product-must-support-scim %}
 
-{% ifversion ghec %}
-
-## 1. Set your enterprise name
-
-After your {% data variables.enterprise.prodname_emu_enterprise %} has been created, you can begin to configure provisioning by setting your enterprise name in Okta.
-
-1. Navigate to your {% data variables.product.prodname_emu_idp_application %} application on Okta.
-1. Click the **Sign On** tab.
-1. To make changes, click **Edit**.
-1. Under "Advanced Sign-on Settings", in the "Enterprise Name" text box, type your enterprise name. For example, if you access your enterprise at `https://github.com/enterprises/octoinc`, your enterprise name would be "octoinc".
-1. To save your enterprise name, click **Save**.
-
-{% else %}
+{% ifversion ghes %}
 
 ## 1. Configure SAML
 
@@ -108,11 +98,17 @@ Before starting this section, ensure you have followed steps **1 and 2** in "[AU
 1. Sign in to {% data variables.location.product_location %} as a user with access to the Management Console.
 1. Configure SAML using the information you have gathered. See "[AUTOTITLE](/admin/managing-iam/using-saml-for-enterprise-iam/configuring-saml-single-sign-on-for-your-enterprise#configuring-saml-sso)."
 
-{% endif %}
-
 ## 2. Configure SCIM
 
-After {% ifversion ghec %}setting your enterprise name{% else %}configuring your SAML settings{% endif %}, you can proceed to configure provisioning settings.
+After configuring your SAML settings, you can proceed to configure provisioning settings.
+
+{% elsif ghec %}
+
+## Configuring SCIM
+
+After you have configured your SAML settings in Okta's app, you can proceed to configure provisioning settings. If you haven't already configured SAML settings, see "[AUTOTITLE](/admin/managing-iam/configuring-authentication-for-enterprise-managed-users/configuring-saml-single-sign-on-with-okta-for-enterprise-managed-users)."
+
+{% endif %}
 
 {% ifversion ghec %}
 To configure provisioning, the setup user {% ifversion ghec %}with the **@<em>SHORT-CODE</em>_admin** username {% endif %}will need to provide a {% data variables.product.pat_v1 %} with the **scim:enterprise** scope. See "[AUTOTITLE](/admin/managing-iam/understanding-iam-for-enterprises/getting-started-with-enterprise-managed-users#create-a-personal-access-token)."
@@ -125,7 +121,7 @@ Before starting this section, ensure you have followed steps **1 to 4** in "[AUT
 1. In the settings menu, click **Integration**.
 1. To make changes, click **Edit**.
 1. Click **Configure API integration**.
-1. In the "API Token" field, enter the {% data variables.product.pat_v1 %} with the **admin:enterprise** scope belonging to the setup user.
+1. In the "API Token" field, enter the {% data variables.product.pat_v1 %} belonging to the setup user.
 
    {% data reusables.scim.import-groups-unsupported %}
 
@@ -136,7 +132,11 @@ Before starting this section, ensure you have followed steps **1 to 4** in "[AUT
 1. Select **Enable** to the right of **Create Users**, **Update User Attributes**, and **Deactivate Users**.
 1. To finish configuring provisioning, click **Save**.
 
+{% ifversion ghes %}
+
 When you have finished configuring SCIM, you may want to disable some SAML settings you enabled for the configuration process. See "[AUTOTITLE](/admin/managing-iam/provisioning-user-accounts-with-scim/configuring-scim-provisioning-for-users#6-disable-optional-settings)."
+
+{% endif %}
 
 ## How do I assign users and groups?
 

@@ -16,10 +16,32 @@
       },
       {
         "category": "copilot",
+        "slug": "get-copilot-metrics-for-an-enterprise",
+        "subcategory": "copilot-metrics",
+        "verb": "get",
+        "requestPath": "/enterprises/{enterprise}/copilot/metrics",
+        "access": "read",
+        "user-to-server": false,
+        "server-to-server": false,
+        "additional-permissions": false
+      },
+      {
+        "category": "copilot",
         "slug": "get-a-summary-of-copilot-usage-for-enterprise-members",
         "subcategory": "copilot-usage",
         "verb": "get",
         "requestPath": "/enterprises/{enterprise}/copilot/usage",
+        "access": "read",
+        "user-to-server": false,
+        "server-to-server": false,
+        "additional-permissions": false
+      },
+      {
+        "category": "copilot",
+        "slug": "get-copilot-metrics-for-an-enterprise-team",
+        "subcategory": "copilot-metrics",
+        "verb": "get",
+        "requestPath": "/enterprises/{enterprise}/team/{team_slug}/copilot/metrics",
         "access": "read",
         "user-to-server": false,
         "server-to-server": false,
@@ -396,6 +418,17 @@
       },
       {
         "category": "copilot",
+        "slug": "get-copilot-metrics-for-an-organization",
+        "subcategory": "copilot-metrics",
+        "verb": "get",
+        "requestPath": "/orgs/{org}/copilot/metrics",
+        "access": "read",
+        "user-to-server": true,
+        "server-to-server": true,
+        "additional-permissions": true
+      },
+      {
+        "category": "copilot",
         "slug": "get-a-summary-of-copilot-usage-for-organization-members",
         "subcategory": "copilot-usage",
         "verb": "get",
@@ -602,6 +635,17 @@
         "user-to-server": true,
         "server-to-server": true,
         "additional-permissions": false
+      },
+      {
+        "category": "copilot",
+        "slug": "get-copilot-metrics-for-a-team",
+        "subcategory": "copilot-metrics",
+        "verb": "get",
+        "requestPath": "/orgs/{org}/team/{team_slug}/copilot/metrics",
+        "access": "read",
+        "user-to-server": true,
+        "server-to-server": true,
+        "additional-permissions": true
       },
       {
         "category": "copilot",
@@ -877,6 +921,17 @@
       },
       {
         "category": "copilot",
+        "slug": "get-copilot-metrics-for-an-organization",
+        "subcategory": "copilot-metrics",
+        "verb": "get",
+        "requestPath": "/orgs/{org}/copilot/metrics",
+        "access": "read",
+        "user-to-server": true,
+        "server-to-server": true,
+        "additional-permissions": true
+      },
+      {
+        "category": "copilot",
         "slug": "get-a-summary-of-copilot-usage-for-organization-members",
         "subcategory": "copilot-usage",
         "verb": "get",
@@ -892,6 +947,17 @@
         "subcategory": "copilot-user-management",
         "verb": "get",
         "requestPath": "/orgs/{org}/members/{username}/copilot",
+        "access": "read",
+        "user-to-server": true,
+        "server-to-server": true,
+        "additional-permissions": true
+      },
+      {
+        "category": "copilot",
+        "slug": "get-copilot-metrics-for-a-team",
+        "subcategory": "copilot-metrics",
+        "verb": "get",
+        "requestPath": "/orgs/{org}/team/{team_slug}/copilot/metrics",
         "access": "read",
         "user-to-server": true,
         "server-to-server": true,
@@ -4157,7 +4223,7 @@
       },
       {
         "category": "repos",
-        "slug": "deprecated---list-tag-protection-states-for-a-repository",
+        "slug": "closing-down---list-tag-protection-states-for-a-repository",
         "subcategory": "tags",
         "verb": "get",
         "requestPath": "/repos/{owner}/{repo}/tags/protection",
@@ -4168,7 +4234,7 @@
       },
       {
         "category": "repos",
-        "slug": "deprecated---create-a-tag-protection-state-for-a-repository",
+        "slug": "closing-down---create-a-tag-protection-state-for-a-repository",
         "subcategory": "tags",
         "verb": "post",
         "requestPath": "/repos/{owner}/{repo}/tags/protection",
@@ -4179,7 +4245,7 @@
       },
       {
         "category": "repos",
-        "slug": "deprecated---delete-a-tag-protection-state-for-a-repository",
+        "slug": "closing-down---delete-a-tag-protection-state-for-a-repository",
         "subcategory": "tags",
         "verb": "delete",
         "requestPath": "/repos/{owner}/{repo}/tags/protection/{tag_protection_id}",
@@ -5080,6 +5146,17 @@
       },
       {
         "category": "code-scanning",
+        "slug": "delete-a-codeql-database",
+        "subcategory": "code-scanning",
+        "verb": "delete",
+        "requestPath": "/repos/{owner}/{repo}/code-scanning/codeql/databases/{language}",
+        "access": "write",
+        "user-to-server": true,
+        "server-to-server": true,
+        "additional-permissions": false
+      },
+      {
+        "category": "code-scanning",
         "slug": "create-a-codeql-variant-analysis",
         "subcategory": "code-scanning",
         "verb": "post",
@@ -5296,7 +5373,7 @@
         "access": "read",
         "user-to-server": true,
         "server-to-server": true,
-        "additional-permissions": true
+        "additional-permissions": false
       },
       {
         "category": "dependency-graph",
@@ -7623,17 +7700,6 @@
         "user-to-server": true,
         "server-to-server": true,
         "additional-permissions": false
-      },
-      {
-        "category": "dependency-graph",
-        "slug": "get-a-diff-of-the-dependencies-between-commits",
-        "subcategory": "dependency-review",
-        "verb": "get",
-        "requestPath": "/repos/{owner}/{repo}/dependency-graph/compare/{basehead}",
-        "access": "read",
-        "user-to-server": true,
-        "server-to-server": true,
-        "additional-permissions": true
       },
       {
         "category": "issues",

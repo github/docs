@@ -33,6 +33,8 @@ You can configure any of the following policies for your enterprise:
 * [{% data variables.product.prodname_copilot_extensions %}](#github-copilot-extensions)
 * [Suggestions matching public code](#suggestions-matching-public-code)
 * [Give {% data variables.product.prodname_copilot_short %} access to Bing](#give-copilot-access-to-bing)
+* [{% data variables.product.prodname_copilot_short %} access to {% data variables.copilot.copilot_claude_sonnet %}](#copilot-access-to-claude-35-sonnet)
+* [{% data variables.product.prodname_copilot_short %} access to the o1 family of models](#copilot-access-to-the-o1-family-of-models)
 
 ### {% data variables.product.prodname_copilot_short %} in {% data variables.product.prodname_dotcom_the_website %}
 
@@ -72,6 +74,19 @@ You can chat with {% data variables.product.prodname_copilot %} in your IDE to g
 > [!NOTE] Bing search integration into {% data variables.product.prodname_copilot_chat_dotcom_short %}, {% data variables.product.prodname_vscode_shortname %}, and {% data variables.product.prodname_vs %} is currently in {% data variables.release-phases.public_preview %} and is subject to change.
 
 {% data variables.product.prodname_copilot_chat %} can use Bing to provide enhanced responses by searching the internet for information related to a question. Bing search is particularly helpful when discussing new technologies or highly specific subjects.
+
+### {% data variables.product.prodname_copilot_short %} access to {% data variables.copilot.copilot_claude_sonnet %}
+
+If you grant access to **Anthropic {% data variables.copilot.copilot_claude_sonnet %} in {% data variables.product.prodname_copilot_short %}**, members of your enterprise can choose to use this model rather than the default `GPT 4o` model. For more information, see "[AUTOTITLE](/copilot/using-github-copilot/using-claude-sonnet-in-github-copilot)."
+
+### {% data variables.product.prodname_copilot_short %} access to the o1 family of models
+
+{% data reusables.models.o1-models-preview-note %}
+
+By default, {% data variables.product.prodname_copilot_chat_short %} uses the `GPT 4o` model. If you grant access to the o1 family of models, members of your enterprise can select the specific model {% data variables.product.prodname_copilot_chat_short %} will use in a conversation. The o1 family of models includes two models:
+
+* `o1-preview`: This model is focused on advanced reasoning and solving complex problems, in particular in math and science. It responds more slowly than the `gpt-4o` model. Each member of your enterprise can make 10 requests to this model per day.
+* `o1-mini`: This is the faster version of the `o1-preview` model, balancing the use of complex reasoning with the need for faster responses. It is best suited for code generation and small context operations. Each member of your enterprise can make 50 requests to this model per day.
 
 ## Configuring policies for {% data variables.product.prodname_copilot %}
 

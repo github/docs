@@ -82,6 +82,8 @@ You'll also need to set environment variables for your Bitbucket Server username
      $env:SMB_PASSWORD="PASSWORD"
       ```
 
+{% data reusables.enterprise-migration-tool.set-target-api-url %}
+
 ## Step 4: Set up blob storage
 
 Because many Bitbucket Server instances sit behind firewalls, the {% data variables.product.prodname_cli %} uses blob storage as an intermediate location to store your data that is reachable from the internet.
@@ -103,6 +105,10 @@ Before you can run a migration, you need to set up a storage container with your
 {% data reusables.enterprise-migration-tool.set-up-azure-storage-account %}
 
 {% data reusables.enterprise-migration-tool.azure-credentials-cli %}
+
+### Allowing network access
+
+If you have configured firewall rules on your storage account, ensure you have allowed access to the IP ranges for your migration destination. See "[AUTOTITLE](/migrations/using-github-enterprise-importer/migrating-from-bitbucket-server-to-github-enterprise-cloud/managing-access-for-a-migration-from-bitbucket-server#ip-ranges-for-ghecom)."
 
 ## Step 5: Migrate a repository
 
@@ -131,13 +137,15 @@ To migrate a single repository, use the `gh bbs2gh migrate-repo` command.
 gh bbs2gh migrate-repo --bbs-server-url BBS-SERVER-URL \
   --bbs-project PROJECT --bbs-repo CURRENT-NAME \
   --github-org DESTINATION --github-repo NEW-NAME \
-  # Use the following options if your Bitbucket Server instance runs on Linux
+  # If you are migrating to {% data variables.enterprise.data_residency_site %}:
+  --target-api-url TARGET-API-URL
+  # If your Bitbucket Server instance runs on Linux:
   --ssh-user SSH-USER --ssh-private-key PATH-TO-KEY
-  # Use the following options if your Bitbucket Server instance runs on Windows
+  # If your Bitbucket Server instance runs on Windows:
   --smb-user SMB-USER
-  # Use the following option if you're using AWS S3 as your blob storage provider
+  # If you're using AWS S3 as your blob storage provider:
   --aws-bucket-name AWS-BUCKET-NAME
-  # Use the following option if you are running a Bitbucket Data Center cluster or your Bitbucket Server is behind a load balancer
+  # If you are running a Bitbucket Data Center cluster or your Bitbucket Server is behind a load balancer:
   --archive-download-host ARCHIVE-DOWNLOAD-HOST
 ```
 
@@ -147,6 +155,7 @@ gh bbs2gh migrate-repo --bbs-server-url BBS-SERVER-URL \
 {% data reusables.enterprise-migration-tool.current-name-placeholder %}
 {% data reusables.enterprise-migration-tool.destination-placeholder %}
 {% data reusables.enterprise-migration-tool.new-name-placeholder %}
+{% data reusables.enterprise-migration-tool.target-api-url-placeholder %}
 {% data reusables.enterprise-migration-tool.ssh-user-placeholder %}
 {% data reusables.enterprise-migration-tool.path-to-key-placeholder %}
 {% data reusables.enterprise-migration-tool.smb-user-placeholder %}
@@ -202,8 +211,10 @@ gh bbs2gh migrate-repo --archive-path ARCHIVE-PATH \
   --bbs-server-url BBS-SERVER-URL \
   --bbs-project PROJECT \
   --bbs-repo CURRENT-NAME \
-  # Use the following option if you're using AWS S3 as your blob storage provider
+  # If you're using AWS S3 as your blob storage provider:
   --aws-bucket-name AWS-BUCKET-NAME
+  # If you are migrating to {% data variables.enterprise.data_residency_site %}:
+  --target-api-url TARGET-API-URL
 ```
 
 {% data reusables.enterprise-migration-tool.placeholder-table %}
@@ -214,6 +225,7 @@ gh bbs2gh migrate-repo --archive-path ARCHIVE-PATH \
 {% data reusables.enterprise-migration-tool.project-placeholder %}
 {% data reusables.enterprise-migration-tool.current-name-placeholder %}
 {% data reusables.enterprise-migration-tool.aws-bucket-name-placeholder %}
+{% data reusables.enterprise-migration-tool.target-api-url-placeholder %}
 
 ### Cancelling a migration
 
@@ -241,11 +253,13 @@ To generate a migration script, run the `gh bbs2gh generate-script` command.
 gh bbs2gh generate-script --bbs-server-url BBS-SERVER-URL \
   --github-org DESTINATION \
   --output FILENAME \
-  # Use the following options if your Bitbucket Server instance runs on Linux
+  # If you are migrating to {% data variables.enterprise.data_residency_site %}:
+  --target-api-url TARGET-API-URL
+  # If your Bitbucket Server instance runs on Linux:
   --ssh-user SSH-USER --ssh-private-key PATH-TO-KEY
-  # Use the following options if your Bitbucket Server instance runs on Windows
+  # If your Bitbucket Server instance runs on Windows:
   --smb-user SMB-USER
-  # Use the following option if you are running a Bitbucket Data Center cluster or your Bitbucket Server is behind a load balancer
+  # If you are running a Bitbucket Data Center cluster or your Bitbucket Server is behind a load balancer:
   --archive-download-host ARCHIVE-DOWNLOAD-HOST
 ```
 
@@ -255,6 +269,7 @@ gh bbs2gh generate-script --bbs-server-url BBS-SERVER-URL \
 {% data reusables.enterprise-migration-tool.bbs-server-url-placeholder %}
 {% data reusables.enterprise-migration-tool.destination-placeholder %}
 {% data reusables.enterprise-migration-tool.filename-placeholder %}
+{% data reusables.enterprise-migration-tool.target-api-url-placeholder %}
 {% data reusables.enterprise-migration-tool.ssh-user-placeholder %}
 {% data reusables.enterprise-migration-tool.path-to-key-placeholder %}
 {% data reusables.enterprise-migration-tool.smb-user-placeholder %}

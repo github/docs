@@ -81,6 +81,54 @@ We recommend reviewing the following caveats before you change the visibility of
 
 For information about improving repository security, see "[AUTOTITLE](/code-security/getting-started/securing-your-repository)."{% endif %}
 
+## Consequences of changing a repository's visibility
+
+>[!CAUTION]Before you change your repository's visibility, understand the consequences of this change.
+
+### Changing from public to private
+
+* Stars and watchers for this repository will be permanently erased, which will affect repository rankings.
+* Custom {% data variables.product.prodname_dependabot %} alert rules will be disabled unless {% data variables.product.prodname_GH_advanced_security %} is enabled for this repository. Dependency graph and {% data variables.product.prodname_dependabot_alerts %} will remain enabled with permission to perform read-only analysis on this repository.
+* Code scanning will become unavailable.
+* Current forks will remain public and will be detached from this repository.
+
+### Changing from private to public
+
+* The code will be visible to everyone who can visit {% data variables.product.prodname_dotcom_the_website %}.
+* Anyone can fork your repository.
+* All push rulesets will be disabled.
+* Your changes will be published as activity.
+* Actions history and logs will be visible to everyone.
+* Stars and watchers for this repository will be permanently erased.
+
+### Changing from private to internal
+
+* All members of the enterprise will be given read access.
+* Outside collaborators can no longer be added to forks unless they're added to the root.
+* Stars and watchers for this repository will be permanently erased.
+
+### Changing from internal to private
+
+* Stars and watchers for this repository will be permanently erased, which will affect repository rankings.
+* Custom {% data variables.product.prodname_dependabot %} alert rules will be disabled unless GitHub Advanced Security is enabled for this repository. Dependency graph and {% data variables.product.prodname_dependabot_alerts %} will remain enabled with permission to perform read-only analysis on this repository.
+* Code scanning will become unavailable.
+* Current forks will remain public and will be detached from this repository.
+
+### Changing from internal to public
+
+* The code will be visible to everyone who can visit {% data variables.product.prodname_dotcom_the_website %}.
+* Anyone can fork your repository.
+* All push rulesets will be disabled.
+* Your changes will be published as activity.
+* Actions history and logs will be visible to everyone.
+* Stars and watchers for this repository will be permanently erased.
+
+### Changing from public to internal
+
+* All members of the enterprise will be given read access.
+* Outside collaborators can no longer be added to forks unless they're added to the root.
+* Stars and watchers for this repository will be permanently erased.
+
 ## Changing a repository's visibility
 
 {% data reusables.repositories.navigate-to-repo %}

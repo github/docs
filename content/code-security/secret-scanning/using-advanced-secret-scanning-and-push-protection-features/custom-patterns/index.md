@@ -14,7 +14,6 @@ topics:
 children:
   - /defining-custom-patterns-for-secret-scanning
   - /managing-custom-patterns
-  - /responsible-use-ai-regex-generator
-  - /generating-regular-expressions-for-custom-patterns-with-ai
   - /metrics-for-custom-patterns
 ---
+

@@ -13,6 +13,11 @@ topics:
   - SSH
 shortTitle: Permission denied (publickey)
 ---
+{% ifversion ghec %}
+
+> [!NOTE] {% data reusables.enterprise-data-residency.access-domain %}
+
+{% endif %}
 
 ## Should the `sudo` command or elevated privileges be used with Git?
 

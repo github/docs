@@ -24,6 +24,12 @@ The CLI will have three commands:
 
 This tutorial uses Ruby, but you can write a CLI and use the device flow to generate a user access token with any programming language.
 
+{% ifversion ghec %}
+
+> [!NOTE] {% data reusables.enterprise-data-residency.access-domain %}
+
+{% endif %}
+
 ### About device flow and user access tokens
 
 The CLI will use the device flow to authenticate a user and generate a user access token. Then, the CLI can use the user access token to make API requests on behalf of the authenticated user.
@@ -45,8 +51,7 @@ This tutorial assumes that you have a basic understanding of Ruby. For more info
 You will need your app's client ID in order to generate a user access token via the device flow.
 
 {% data reusables.apps.settings-step %}
-{% data reusables.user-settings.developer_settings %}
-{% data reusables.user-settings.github_apps %}
+{% data reusables.apps.enterprise-apps-steps %}
 1. Next to the {% data variables.product.prodname_github_app %} that you want to work with, click **Edit**.
 1. On the app's settings page, find the client ID for your app. You will use it later in this tutorial. Note that the client ID is different from the app ID.
 

@@ -66,4 +66,4 @@ Partner alerts are not sent to repository administrators, so you do not need to 
 * "[AUTOTITLE](/code-security/secret-scanning/introduction/supported-secret-scanning-patterns){% ifversion ghec or ghes %}
 * "[AUTOTITLE](/code-security/secret-scanning/using-advanced-secret-scanning-and-push-protection-features/custom-patterns/defining-custom-patterns-for-secret-scanning)"{% endif %}{% ifversion secret-scanning-non-provider-patterns %}
 * "[AUTOTITLE](/code-security/secret-scanning/using-advanced-secret-scanning-and-push-protection-features/non-provider-patterns/enabling-secret-scanning-for-non-provider-patterns)"{% endif %}{% ifversion secret-scanning-ai-generic-secret-detection %}
-* "[AUTOTITLE](/code-security/secret-scanning/using-advanced-secret-scanning-and-push-protection-features/generic-secret-detection/responsible-ai-generic-secrets)"{% endif %}
+* "[AUTOTITLE](/code-security/secret-scanning/copilot-secret-scanning/responsible-ai-generic-secrets)"{% endif %}

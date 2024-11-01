@@ -24,12 +24,20 @@ This approach is useful for integrators who want customers to set up an app on t
 
 Alternatively, you can create a {% data variables.product.prodname_github_app %} manifest. For more information, see "[AUTOTITLE](/apps/creating-github-apps/setting-up-a-github-app/creating-a-github-app-from-a-manifest)."
 
+{% ifversion ghec %}
+
+> [!NOTE] {% data reusables.enterprise-data-residency.access-domain %}
+
+{% endif %}
+
 ## Creating a custom configuration URL with query parameters
 
 To create a custom configuration URL for a {% data variables.product.prodname_github_app %} on a personal or organization account, add query parameters after the following base URLs.
 
 * To register an app on a personal account, add URL parameters to: `{% data variables.product.oauth_host_code %}/settings/apps/new`
-* To register an app on an organization account, add URL parameters to: `{% data variables.product.oauth_host_code %}/organizations/ORGANIZATION/settings/apps/new`. Replace `ORGANIZATION` with the name of the organization where you'd like the customer to register the app.
+* To register an app on an organization account, add URL parameters to: `{% data variables.product.oauth_host_code %}/organizations/ORGANIZATION/settings/apps/new`. Replace `ORGANIZATION` with the name of the organization where you'd like the customer to register the app. {% ifversion enterprise-apps-public-beta %}
+
+  >[!NOTE] The URL parameters for registering a {% data variables.product.prodname_github_app %} are also available for apps owned by enterprises. Since you can only install enterprise-owned apps on organizations within that enterprise, you can use the custom configuration URL for organizations.{% endif %}
 
 On the app registration page, the person registering the app can edit the preselected values before submitting the app. If you do not include parameters for required values (like `name`) in the URL query string, the person registering the app will need to input a value before they can register the app.
 
@@ -45,14 +53,14 @@ You can use the following query parameters to select a specific configuration fo
 
 Parameter name | Type | Description
 -----|------|-------------
-`name` | `string` | The name of the {% data variables.product.prodname_github_app %}. Give your app a clear and succinct name. Your app cannot have the same name as an existing GitHub user, unless it is your own user or organization name. A slugged version of your app's name will be shown in the user interface when your integration takes an action.
+`name` | `string` | The name of the {% data variables.product.prodname_github_app %}. Give your app a clear and succinct name. Your app cannot have the same name as an existing {% data variables.product.prodname_dotcom %} user, unless it is your own user or organization name. A slugged version of your app's name will be shown in the user interface when your integration takes an action.
 `description` | `string` | A description of the {% data variables.product.prodname_github_app %}.
 `url` | `string` | The full URL of your {% data variables.product.prodname_github_app %}'s website homepage.
 `callback_urls` | `array of strings` | A full URL to redirect to after someone authorizes an installation. You can provide up to 10 callback URLs. These URLs are used if your app needs to generate a user access token. For example, `callback_urls[]=https://example.com&callback_urls[]=https://example-2.com`. For more information, see "[AUTOTITLE](/apps/creating-github-apps/setting-up-a-github-app/about-the-user-authorization-callback-url)."
 `request_oauth_on_install` | `boolean` | If your app authorizes users using the OAuth flow, you can set this option to `true` to allow people to authorize the app when they install it, saving a step. If you select this option, the `setup_url` becomes unavailable and users will be redirected to your `callback_url` after installing the app.
 `setup_url` | `string` | The full URL to redirect to after someone installs the {% data variables.product.prodname_github_app %} if the app requires additional setup after installation. For more information, see "[AUTOTITLE](/apps/creating-github-apps/setting-up-a-github-app/about-the-setup-url)."
 `setup_on_update` | `boolean` | Set to `true` to redirect people to the setup URL when installations have been updated, for example, after repositories are added or removed.
-`public` | `boolean` | Set to `true` when your {% data variables.product.prodname_github_app %} is available to the public or `false` when it is only accessible to the owner of the app.
+`public` | `boolean` | Set to `true` when your {% data variables.product.prodname_github_app %} is available to the public or `false` when it is only accessible to the owner of the app. This parameter does not apply to apps owned by enterprises.
 `webhook_active` | `boolean` | Set to `true` to enable webhook. Webhook is disabled by default.
 `webhook_url` | `string` | The full URL that you would like to send webhook event payloads to.
 `events` | `array of strings` | Webhook events. Some webhook events require `read` or `write` permissions for a resource before you can select the event when registering a new {% data variables.product.prodname_github_app %}. For more information, see the "[{% data variables.product.prodname_github_app %} webhook events](#github-app-webhook-events)" section. You can select multiple events in a query string. For example, `events[]=public&events[]=label`.

@@ -29,6 +29,8 @@ This guide explains how to configure AWS to trust {% data variables.product.prod
 
 {% data reusables.actions.oidc-security-notice %}
 
+{% data reusables.actions.oidc-on-ghecom %}
+
 {% ifversion ghes %}
 {% data reusables.actions.oidc-endpoints %}
   <!-- This note is indented to align with the above reusable. -->

@@ -23,6 +23,12 @@ We recommend you either [configure SSH](/authentication/connecting-to-github-wit
 
 {% data reusables.user-settings.password-authentication-deprecation %}
 
+{% ifversion ghec %}
+
+> [!NOTE] {% data reusables.enterprise-data-residency.access-domain %}
+
+{% endif %}
+
 ## Updating your credentials via Keychain Access
 
 1. Click on the Spotlight icon (magnifying glass) on the right side of the menu bar.

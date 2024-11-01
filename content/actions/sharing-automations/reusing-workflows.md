@@ -361,7 +361,7 @@ jobs:
   workflowB-calls-workflowC:
     uses: different-org/example-repo/.github/workflows/C.yml@main
     secrets:
-      repo-token: ${{ secrets.person_access_token }} # pass just this secret
+      repo-token: ${{ secrets.personal_access_token }} # pass just this secret
 ```
 
 {% endraw %}

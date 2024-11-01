@@ -23,13 +23,15 @@ To use SAML single sign-on (SSO) for authentication to {% data variables.product
 
  {% data variables.product.product_name %} provides integration according to the SAML 2.0 specification. For more information, see the [SAML Wiki](https://wiki.oasis-open.org/security) on the OASIS website.
 
-You must enter unique values from your SAML IdP when configuring SAML SSO for {% data variables.product.product_name %}, and you must also enter unique values from {% data variables.product.product_name %} on your IdP. For more information about authentication for
+You must enter unique values from your SAML IdP when configuring SAML SSO for {% data variables.product.product_name %}, and you must also enter unique values from {% data variables.product.product_name %} on your IdP.
 
 ## SAML metadata
 
 {% ifversion ghec %}
 
 The SP metadata for {% data variables.product.product_name %} is available for either organizations or enterprises with SAML SSO. {% data variables.product.product_name %} uses the `urn:oasis:names:tc:SAML:2.0:bindings:HTTP-POST` binding.
+
+If you use {% data variables.product.prodname_emus %}, you can only enable SAML SSO at the enterprise level.
 
 ### Organizations
 
@@ -45,7 +47,10 @@ The SP metadata for an organization on {% data variables.product.github %} is av
 
 ### Enterprises
 
-The SP metadata for an enterprise on {% data variables.product.github %} is available at `https://github.com/enterprises/ENTERPRISE/saml/metadata`, where **ENTERPRISE** is the name of your enterprise on {% data variables.product.github %}.
+Depending on your environment, the SP metadata for an enterprise on {% data variables.product.prodname_ghe_cloud %} is available at either:
+
+* `https://github.com/enterprises/ENTERPRISE/saml/metadata`, where **ENTERPRISE** is the name of your enterprise
+* `https://SUBDOMAIN.ghe.com/enterprises/SUBDOMAIN/saml/metadata`, where **SUBDOMAIN** is the subdomain for your enterprise
 
 | Value | Other names | Description | Example |
 | :- | :- | :- | :- |
@@ -100,7 +105,7 @@ To specify more than one value for an attribute, use multiple `<saml2:AttributeV
 
   {%- ifversion ghec %}
   * If you configure SAML for an organization, this value is `https://github.com/orgs/ORGANIZATION`.
-  * If you configure SAML for an enterprise, this URL is `https://github.com/enterprises/ENTERPRISE`.
+  * If you configure SAML for an enterprise, this URL is `https://github.com/enterprises/ENTERPRISE` or `https://SUBDOMAIN.ghe.com/enterprises/SUBDOMAIN`.
   {%- endif %}
 * Your IdP must protect each assertion in the response with a digital signature. You can accomplish this by signing each individual `<Assertion>` element or by signing the `<Response>` element.
 * Your IdP must provide a `<NameID>` element as part of the `<Subject>` element. You may use any persistent name identifier format.

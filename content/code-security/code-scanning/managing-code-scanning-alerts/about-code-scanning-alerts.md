@@ -26,7 +26,7 @@ By default, {% data variables.product.prodname_code_scanning %} analyzes your co
 
 {% ifversion code-scanning-autofix %}
 
-You can use {% data variables.product.prodname_copilot_autofix %} to generate fixes automatically for {% data variables.product.prodname_code_scanning %} alerts from {% data variables.product.prodname_codeql %} analysis. For more information, see "[AUTOTITLE](/code-security/code-scanning/managing-code-scanning-alerts/resolving-code-scanning-alerts#generating-suggested-fixes-for-code-scanning-alerts)."
+You can use {% data variables.product.prodname_copilot_autofix %} to generate fixes automatically for {% data variables.product.prodname_code_scanning %} alerts, including {% data variables.product.prodname_codeql %} alerts. For more information, see "[AUTOTITLE](/code-security/code-scanning/managing-code-scanning-alerts/resolving-code-scanning-alerts#generating-suggested-fixes-for-code-scanning-alerts)."
 
 {% endif %}
 

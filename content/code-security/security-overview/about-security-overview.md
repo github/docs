@@ -64,6 +64,10 @@ Security overview has multiple views that provide different ways to explore enab
 * **CodeQL pull request alerts:** assess the impact of running CodeQL on pull requests and how development teams are resolving code scanning alerts, see "[AUTOTITLE](/code-security/security-overview/viewing-metrics-for-pull-request-alerts)."{% endif %}{% ifversion security-overview-push-protection-metrics-page %}
 * **Secret scanning:** find out which types of secret are blocked by push protection{% ifversion security-overview-delegated-bypass-requests %} and which teams are bypassing push protection{% endif %}, see "[AUTOTITLE](/code-security/security-overview/viewing-metrics-for-secret-scanning-push-protection){% ifversion security-overview-delegated-bypass-requests %}" and "[AUTOTITLE](/code-security/security-overview/reviewing-requests-to-bypass-push-protection){% endif %}."{% endif %}
 
+{% ifversion security-campaigns %}
+You also create and manage security campaigns to remediate alerts from security overview, see "[AUTOTITLE](/code-security/securing-your-organization/fixing-security-alerts-at-scale/creating-tracking-security-campaigns)" and "[AUTOTITLE](/code-security/securing-your-organization/fixing-security-alerts-at-scale/best-practice-fix-alerts-at-scale)."
+{% endif %}
+
 ## About security overview for enterprises
 
 You can find security overview on the **Code Security** tab for your enterprise. Each page displays aggregated and repository-specific security information for your enterprise.

@@ -89,6 +89,8 @@ data: [{
 
 ### `copilot_references`
 
+> [!NOTE] Rendering references is currently unsupported for {% data variables.product.prodname_copilot_mobile_short %}. Extensions that depend on reference memory to generate responses will still work, but the references will not be displayed to the user.
+
 The `copilot_references` SSE sends the user a list of references used to generate a response. This SSE is sent through an event type and data field. See the following code for an example of a `copilot_references` SSE:
 
 ```typescript annotate

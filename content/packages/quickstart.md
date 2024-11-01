@@ -15,6 +15,12 @@ shortTitle: Quickstart
 
 In this guide, you'll create a {% data variables.product.prodname_actions %} workflow to test your code and then publish it to {% data variables.product.prodname_registry %}.
 
+{% ifversion ghec %}
+
+If you use a {% data variables.enterprise.prodname_managed_user %}, you cannot publish a package to a repository owned by your account. To follow this guide, use a personal account on {% data variables.product.prodname_dotcom_the_website %} instead.
+
+{% endif %}
+
 ## Publishing your package
 
 1. Create a new repository on {% data variables.product.prodname_dotcom %}, adding the `.gitignore` for Node. For more information, see "[AUTOTITLE](/repositories/creating-and-managing-repositories/creating-a-new-repository)."

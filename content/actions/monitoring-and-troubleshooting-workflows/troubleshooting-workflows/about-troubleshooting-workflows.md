@@ -24,6 +24,15 @@ If the workflow logs do not provide enough detail to diagnose why a workflow, jo
 
 If you attempt to cancel a workflow and the cancellation doesn't succeed, make sure you aren't using the `always` expression. The `always` expression causes a workflow step to run even when the workflow is canceled, which results in a hanging cancellation. For more information, see "[AUTOTITLE](/actions/learn-github-actions/expressions#always)".
 
+{% ifversion actions-metrics %}
+
+## Troubleshooting {% data variables.product.prodname_actions %} inefficiencies
+
+To analyze the inefficiencies and reliability of your workflows using metrics, see "[AUTOTITLE](/actions/administering-github-actions/viewing-github-actions-metrics)".
+{% endif %}
+
+## Monitoring self-hosted runners
+
 ## Troubleshooting self-hosted runners
 
 If you use self-hosted runners, you can view their activity and diagnose common issues.
