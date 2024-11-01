@@ -4,6 +4,10 @@ shortTitle: Network details
 intro: 'Ensure client systems can access your resources on {% data variables.enterprise.data_residency_site %}.'
 versions:
   ghec: '*'
+redirect_from:
+  - /early-access/admin/preview-of-data-residency-for-github-enterprise/network-access-to-resources-on-ghecom
+  - /early-access/admin/private-ga-of-data-residency-for-github-enterprise-cloud/network-access-to-resources-on-ghecom
+  - /early-access/admin/data-residency-for-github-enterprise-cloud/network-access-to-resources-on-ghecom
 ---
 
 To access your enterprise on {% data variables.enterprise.data_residency_site %}, client systems must:
