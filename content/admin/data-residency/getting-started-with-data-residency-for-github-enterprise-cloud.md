@@ -4,6 +4,15 @@ shortTitle: Get started
 intro: "Set up your enterprise on {% data variables.enterprise.data_residency_site %} by onboarding users, enabling billing, and migrating data."
 versions:
   ghec: '*'
+redirect_from:
+  - /early-access/admin/using-a-data-local-enterprise-on-github/getting-started-with-a-data-local-enterprise
+  - /early-access/admin/using-a-data-local-enterprise-on-github/getting-started-with-a-data-resident-enterprise
+  - /early-access/admin/preview-of-data-residency-for-github-enterprise/getting-started-with-the-preview-of-data-residency
+  - /early-access/admin/private-ga-of-data-residency-for-github-enterprise-cloud/getting-started-with-the-private-ga-of-data-residency
+  - /early-access/admin/data-residency-for-github-enterprise-cloud/getting-started-with-data-residency-for-github-enterprise-cloud
+  - /early-access/admin/preview-of-data-residency-for-github-enterprise/configuring-authentication-and-provisioning-for-your-enterprise
+  - /early-access/admin/private-ga-of-data-residency-for-github-enterprise-cloud/configuring-authentication-and-provisioning-for-your-enterprise
+  - /early-access/admin/data-residency-for-github-enterprise-cloud/configuring-authentication-and-provisioning-for-your-enterprise
 ---
 
 When you adopt {% data variables.enterprise.data_residency %}, you can choose where your company's code and data are stored.

@@ -24,7 +24,7 @@ In addition to the configuration for the {% data variables.product.prodname_copi
 
 Your personal settings for {% data variables.product.prodname_copilot %} include an option to either allow or block code suggestions that match publicly available code. If you choose to block suggestions matching public code, {% data variables.product.prodname_copilot %} checks code suggestions with their surrounding code of about 150 characters against public code on {% data variables.product.prodname_dotcom %}. If there is a match, or a near match, the suggestion is not shown to you.
 
-If you choose to allow suggestions matching public code, and you accept a suggestion for which one or more matches were found, you can click through from an entry in the {% data variables.product.prodname_copilot %} log to view a list of references on {% data variables.product.prodname_dotcom %}. For more information, see "[AUTOTITLE](/copilot/using-github-copilot/finding-public-code-that-matches-github-copilot-suggestions)."
+If you choose to allow suggestions matching public code, when {% data variables.product.prodname_copilot_short %} suggests matching code you can display details of the matches and click through to the relevant repositories on {% data variables.product.prodname_dotcom %}. For more information, see "[AUTOTITLE](/copilot/using-github-copilot/finding-public-code-that-matches-github-copilot-suggestions)."
 
 {% data reusables.user-settings.copilot-settings %}
 1. To the right of **Suggestions matching public code**, select the dropdown menu, then click **Allow** to allow suggestions matching public code, or **Block** to block suggestions matching public code.

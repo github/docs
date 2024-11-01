@@ -4,6 +4,6 @@ Repository owners, organization owners, security managers, and users with the **
 
 {% elsif ghes %}
 
-Enteprise owners
+Enterprise owners
 
 {% endif %}
