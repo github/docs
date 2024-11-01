@@ -36,6 +36,7 @@ You can review the scope and tooling for your migration to {% data variables.pro
 * [Any Team Foundation Version Control (TFVC) repository to {% data variables.product.prodname_dotcom_the_website %}](#any-team-foundation-version-control-tfvc-repository-to-githubcom)
 * [Any Perforce repository to {% data variables.product.prodname_dotcom_the_website %}](#any-perforce-repository-to-githubcom)
 * [Any other repository to {% data variables.product.prodname_dotcom_the_website %}](#any-other-repository-to-githubcom)
+* [{% data variables.enterprise.data_residency_site %} to {% data variables.product.prodname_dotcom_the_website %}](#ghecom-to-githubcom)
 
 ### {% data variables.product.prodname_ghe_server %} 3.4.1 or newer to {% data variables.product.prodname_dotcom_the_website %}
 
@@ -155,6 +156,146 @@ Migrations from {% data variables.product.prodname_dotcom_the_website %} include
 * **Tooling**: {% data variables.product.prodname_cli %} or Git CLI
 * **More information**: "[AUTOTITLE](/migrations/importing-source-code/using-the-command-line-to-import-source-code/adding-locally-hosted-code-to-github)"
 
+### {% data variables.enterprise.data_residency_site %} to {% data variables.product.prodname_dotcom_the_website %}
+
+This path is not currently supported with our official tools. Please contact {% data variables.product.prodname_expert_services %}.
+
+## Migrations to {% data variables.enterprise.data_residency_site %}
+
+If you're migrating to {% data variables.enterprise.data_residency %}, your migration destination is {% data variables.enterprise.data_residency_site %}.
+
+Migrations to {% data variables.enterprise.data_residency_site %} use similar tools as migrations to {% data variables.product.prodname_dotcom_the_website %}. However, the {% data variables.product.prodname_importer %} and Enterprise Cloud Importer are not available.
+
+Follow a link below to review the scope and tooling for your migration to {% data variables.enterprise.data_residency_site %}, plus any additional information or caveats.
+
+* [{% data variables.product.prodname_ghe_server %} 3.4.1 or newer to {% data variables.enterprise.data_residency_site %}](#github-enterprise-server-341-or-newer-to-ghecom)
+* [{% data variables.product.prodname_ghe_server %} 3.4.0 or older to {% data variables.enterprise.data_residency_site %}](#github-enterprise-server-340-or-older-to-ghecom)
+* [{% data variables.product.prodname_dotcom_the_website %} to {% data variables.enterprise.data_residency_site %}](#githubcom-to-ghecom)
+* [Azure DevOps Services (Azure DevOps Cloud) to {% data variables.enterprise.data_residency_site %}](#azure-devops-services-azure-devops-cloud-to-ghecom)
+* [Azure DevOps Server to {% data variables.enterprise.data_residency_site %}](#azure-devops-server-to-ghecom)
+* [Bitbucket Cloud (Bitbucket.org) to {% data variables.enterprise.data_residency_site %}](#bitbucket-cloud-bitbucketorg-to-ghecom)
+* [Bitbucket Server or Bitbucket Data Center to {% data variables.enterprise.data_residency_site %}](#bitbucket-server-or-bitbucket-data-center-to-ghecom)
+* [GitLab to {% data variables.enterprise.data_residency_site %}](#gitlab-to-ghecom)
+* [Any Git repository to {% data variables.enterprise.data_residency_site %}](#any-git-repository-to-githubcom)
+* [Any Mercurial repository to {% data variables.enterprise.data_residency_site %}](#any-mercurial-repository-to-ghecom)
+* [Any Subversion (SVN) repository to {% data variables.enterprise.data_residency_site %}](#any-subversion-svn-repository-to-ghecom)
+* [Any Team Foundation Version Control (TFVC) repository to {% data variables.enterprise.data_residency_site %}](#any-team-foundation-version-control-tfvc-repository-to-ghecom)
+* [Any Perforce repository to {% data variables.enterprise.data_residency_site %}](#any-perforce-repository-to-ghecom)
+* [Any other repository to {% data variables.enterprise.data_residency_site %}](#any-other-repository-to-ghecom)
+
+### {% data variables.product.prodname_ghe_server %} 3.4.1 or newer to {% data variables.enterprise.data_residency_site %}
+
+* **Scope**: Source, history, and metadata
+* **Tooling**: {% data variables.product.prodname_importer_proper_name %}
+* **More information**:
+  * "[AUTOTITLE](/migrations/using-github-enterprise-importer)"
+  * [{% data variables.product.prodname_expert_services %}](https://github.com/services/) website
+* **Caveats**:
+  * {% data reusables.migrations.large-repositories-require-expert-services-ghecom %}
+  * {% data reusables.migrations.migration-instructions-for-any-git-repository-to-ghecom %}
+
+### {% data variables.product.prodname_ghe_server %} 3.4.0 or older to {% data variables.enterprise.data_residency_site %}
+
+* **Scope**: Source, history, and metadata
+* **Tooling**: {% data variables.product.prodname_importer_proper_name %}
+* **More information**:
+  * "[AUTOTITLE](/migrations/using-github-enterprise-importer)"
+  * [{% data variables.product.prodname_expert_services %}](https://github.com/services/) website
+* **Caveats**:
+  * {% data reusables.migrations.large-repositories-require-expert-services-ghecom %}
+  * {% data reusables.migrations.migration-instructions-for-any-git-repository-to-ghecom %}
+
+### {% data variables.product.prodname_dotcom_the_website %} to {% data variables.enterprise.data_residency_site %}
+
+* **Scope**: Source, history, and metadata
+* **Tooling**: {% data variables.product.prodname_importer_proper_name %} or {% data variables.product.prodname_expert_services %}
+* **More information**:
+  * "[AUTOTITLE](/migrations/using-github-enterprise-importer)"
+  * [{% data variables.product.prodname_expert_services %}](https://github.com/services/) website
+* **Caveats**:
+  * {% data reusables.migrations.large-repositories-require-expert-services-ghecom %}
+  * {% data reusables.migrations.migration-instructions-for-any-git-repository-to-ghecom %}
+
+### Azure DevOps Services (Azure DevOps Cloud) to {% data variables.enterprise.data_residency_site %}
+
+* **Scope**: Source, history, and metadata
+* **Tooling**: {% data variables.product.prodname_importer_proper_name %}
+* **More information**: "[AUTOTITLE](/migrations/using-github-enterprise-importer)"
+
+### Azure DevOps Server to {% data variables.enterprise.data_residency_site %}
+
+* **Scope**: Source, history, and metadata
+* **Tooling**: Migration to Azure DevOps Services, then {% data variables.product.prodname_importer_proper_name %}
+* **More information**:
+  * [Migrate data from Azure DevOps Server to Azure DevOps Services](https://learn.microsoft.com/en-us/azure/devops/migrate/migration-overview?view=azure-devops) in the Microsoft Docs
+  * "[AUTOTITLE](/migrations/using-github-enterprise-importer)"
+* **Caveats**: If you can't migrate to Azure DevOps Services first, you must  perform a "source and history" migration instead. For more information, see "[Migrations from any Git repository to {% data variables.enterprise.data_residency_site %}](#any-git-repository-to-githubcom)."
+
+### Bitbucket Cloud (Bitbucket.org) to {% data variables.enterprise.data_residency_site %}
+
+* **Scope**: Source and history
+* **Tooling**: Git CLI
+* **More information**:
+  * "[AUTOTITLE](/migrations/importing-source-code/using-the-command-line-to-import-source-code/importing-an-external-git-repository-using-the-command-line)"
+
+### Bitbucket Server or Bitbucket Data Center to {% data variables.enterprise.data_residency_site %}
+
+* **Scope**: Source, history, and metadata
+* **Tooling**: {% data variables.product.prodname_importer_proper_name %}
+* **More information**:
+  * "[AUTOTITLE](/migrations/using-github-enterprise-importer)"
+  * [{% data variables.product.prodname_expert_services %}](https://github.com/services/) website
+* **Caveats**:
+  * {% data reusables.migrations.large-repositories-require-expert-services-ghecom %}
+  * {% data reusables.migrations.migration-instructions-for-any-git-repository-to-ghecom %}
+
+### GitLab to {% data variables.enterprise.data_residency_site %}
+
+* **Scope**: Source, history, and metadata
+* **Tooling**: Contact {% data variables.product.prodname_expert_services %}
+* **More information**: [{% data variables.product.prodname_expert_services %}](https://github.com/services/) website
+* **Caveats**:
+  * {% data reusables.migrations.migration-instructions-for-any-git-repository-to-ghecom %}
+
+### Any Git repository to {% data variables.enterprise.data_residency_site %}
+
+* **Scope**: Source and history
+* **Tooling**: Git CLI
+* **More information**:
+  * "[AUTOTITLE](/migrations/importing-source-code/using-the-command-line-to-import-source-code/importing-an-external-git-repository-using-the-command-line)"
+
+### Any Mercurial repository to {% data variables.enterprise.data_residency_site %}
+
+* **Scope**: Source and history
+* **Tooling**: Mercurial, Git CLI, and Python
+* **More information**: "[AUTOTITLE](/migrations/importing-source-code/using-the-command-line-to-import-source-code/importing-a-mercurial-repository)"
+
+### Any Subversion (SVN) repository to {% data variables.enterprise.data_residency_site %}
+
+* **Scope**: Source and history
+* **Tooling**: Subversion and Git CLI
+* **More information**: "[AUTOTITLE](/migrations/importing-source-code/using-the-command-line-to-import-source-code/importing-a-subversion-repository)"
+
+### Any Team Foundation Version Control (TFVC) repository to {% data variables.enterprise.data_residency_site %}
+
+* **Scope**: Source and history
+* **Tooling**: Azure Repos, then Git CLI
+* **More information**: "[AUTOTITLE](/migrations/importing-source-code/using-the-command-line-to-import-source-code/importing-a-team-foundation-version-control-repository)"
+
+### Any Perforce repository to {% data variables.enterprise.data_residency_site %}
+
+* **Scope**: Source and history
+* **Tooling**: `git-p4`, then Git CLI
+* **More information**:
+  * [git-p4](https://git-scm.com/docs/git-p4) in the Git documentation
+  * "[AUTOTITLE](/migrations/importing-source-code/using-the-command-line-to-import-source-code/adding-locally-hosted-code-to-github#importing-a-git-repository-with-the-command-line)"
+
+### Any other repository to {% data variables.enterprise.data_residency_site %}
+
+* **Scope**: Source snapshot
+* **Tooling**: {% data variables.product.prodname_cli %} or Git CLI
+* **More information**: "[AUTOTITLE](/migrations/importing-source-code/using-the-command-line-to-import-source-code/adding-locally-hosted-code-to-github)"
+
 ## Migrations to {% data variables.product.prodname_ghe_server %}
 
 You can review the scope and tooling for your migration to {% data variables.product.prodname_ghe_server %}, including any additional information or caveats.
@@ -171,6 +312,7 @@ You can review the scope and tooling for your migration to {% data variables.pro
 * [Any Team Foundation Version Control (TFVC) repository to {% data variables.product.prodname_ghe_server %}](#any-team-foundation-version-control-tfvc-repository-to-github-enterprise-server)
 * [Any Perforce repository to {% data variables.product.prodname_ghe_server %}](#any-perforce-repository-to-github-enterprise-server)
 * [Any other repository to {% data variables.product.prodname_ghe_server %}](#any-other-repository-to-github-enterprise-server)
+* [{% data variables.enterprise.data_residency_site %} to {% data variables.product.prodname_ghe_server %}](#ghecom-to-github-enterprise-server)
 
 ### {% data variables.product.prodname_dotcom_the_website %} to {% data variables.product.prodname_ghe_server %}
 
@@ -257,3 +399,7 @@ Migrations from {% data variables.product.prodname_dotcom_the_website %} include
 * **Scope**: Source snapshot
 * **Tooling**: {% data variables.product.prodname_cli %} or Git CLI
 * **More information**: "[AUTOTITLE](/migrations/importing-source-code/using-the-command-line-to-import-source-code/adding-locally-hosted-code-to-github)"
+
+### {% data variables.enterprise.data_residency_site %} to {% data variables.product.prodname_ghe_server %}
+
+This path is not currently supported with our official tools. Please contact {% data variables.product.prodname_expert_services %}.

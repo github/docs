@@ -106,4 +106,4 @@ There are a few steps to fix this problem.
 
 On top of fixing the code scanning configuration and removing or fixing the output of third-party tools, you will need to contact {% data variables.contact.contact_support %} to assist you in deleting the alerts for any offending configurations.
 
-**There is no self-service method for deleting alerts at this time, so contacting customer support is neccessary before code-scanning can be re-enabled.**
+**There is no self-service method for deleting alerts at this time, so contacting customer support is necessary before code-scanning can be re-enabled.**

@@ -28,6 +28,8 @@ If you receive a rate limit error, you should stop making requests temporarily a
 
 Continuing to make requests while you are rate limited may result in the banning of your integration.
 
+{% data reusables.organizations.api-insights-learn-about %}
+
 For more information about how to avoid exceeding the rate limits, see "[AUTOTITLE](/rest/guides/best-practices-for-using-the-rest-api)."
 
 ## `404 Not Found` for an existing resource

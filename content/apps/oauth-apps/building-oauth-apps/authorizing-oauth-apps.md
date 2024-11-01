@@ -37,6 +37,12 @@ To authorize your {% data variables.product.prodname_oauth_app %}, consider whic
 * [web application flow](#web-application-flow): Used to authorize users for standard {% data variables.product.prodname_oauth_apps %} that run in the browser. (The [implicit grant type](https://tools.ietf.org/html/rfc6749#section-4.2) is not supported.)
 * [device flow](#device-flow):  Used for headless apps, such as CLI tools.
 
+{% ifversion ghec %}
+
+> [!NOTE] {% data reusables.enterprise-data-residency.access-domain %}
+
+{% endif %}
+
 ## Web application flow
 
 {% note %}

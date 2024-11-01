@@ -12,7 +12,7 @@ topics:
 redirect_from:
   - /actions/deployment/security-hardening-your-deployments/configuring-openid-connect-in-google-cloud-platform
 ---
- 
+
 {% data reusables.actions.enterprise-github-hosted-runners %}
 
 ## Overview
@@ -26,6 +26,8 @@ This guide gives an overview of how to configure GCP to trust {% data variables.
 {% data reusables.actions.oidc-link-to-intro %}
 
 {% data reusables.actions.oidc-security-notice %}
+
+{% data reusables.actions.oidc-on-ghecom %}
 
 ## Adding a Google Cloud Workload Identity Provider
 

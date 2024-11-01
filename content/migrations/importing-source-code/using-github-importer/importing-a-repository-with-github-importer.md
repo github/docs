@@ -23,7 +23,7 @@ shortTitle: Import a repository
 
 When you import a repository using the {% data variables.product.prodname_importer %}, a new repository will be created. If you already have an existing repository you want to use, you can instead add your local repository to {% data variables.product.prodname_dotcom %} using Git. For more information, see "[AUTOTITLE](/migrations/importing-source-code/using-the-command-line-to-import-source-code/adding-locally-hosted-code-to-github#importing-a-git-repository-with-the-command-line)."
 
-1. In the upper-right corner of any page, click {% octicon "plus" aria-label="Create new..." %}, and then click **Import repository**.
+1. In the upper-right corner of any page on {% data variables.product.prodname_dotcom_the_website %}, click {% octicon "plus" aria-label="Create new..." %}, and then click **Import repository**.
 
    ![Screenshot of the top-right corner of any page on {% data variables.product.prodname_dotcom %}. A plus icon is highlighted with an orange outline.](/assets/images/help/importer/import-repository.png)
 
