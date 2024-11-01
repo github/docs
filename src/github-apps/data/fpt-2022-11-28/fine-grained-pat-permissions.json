@@ -4193,6 +4193,15 @@
       },
       {
         "category": "code-scanning",
+        "slug": "delete-a-codeql-database",
+        "subcategory": "code-scanning",
+        "verb": "delete",
+        "requestPath": "/repos/{owner}/{repo}/code-scanning/codeql/databases/{language}",
+        "additional-permissions": false,
+        "access": "write"
+      },
+      {
+        "category": "code-scanning",
         "slug": "create-a-codeql-variant-analysis",
         "subcategory": "code-scanning",
         "verb": "post",
