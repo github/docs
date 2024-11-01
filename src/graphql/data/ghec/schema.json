@@ -88097,6 +88097,10 @@
       "description": "<p>Software or company that hosts social media accounts.</p>",
       "values": [
         {
+          "name": "BLUESKY",
+          "description": "<p>Decentralized microblogging social platform.</p>"
+        },
+        {
           "name": "FACEBOOK",
           "description": "<p>Social media and networking website.</p>"
         },

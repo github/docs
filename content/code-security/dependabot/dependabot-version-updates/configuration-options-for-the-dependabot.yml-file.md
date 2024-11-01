@@ -1022,6 +1022,33 @@ updates:
     versioning-strategy: increase-if-necessary
 ```
 
+{% ifversion dependabot-updates-supported-versioning-tags %}
+
+### Versioning tags
+
+* Represent stages in the software release lifecycle, such as alpha, beta, and stable versions.
+* Allow publishers to distribute their packages more effectively.
+* Indicate the stability of a version and communicate what users should expect in terms of features and stability.
+
+{% data reusables.dependabot.dependabot-updates-supported-versioning-tags %}
+
+#### Versioning tag glossary
+
+* **`alpha`**: Early version, may be unstable and have incomplete features.
+* **`beta`**: More stable than alpha but may still have bugs.
+* **`canary`**: Regularly updated pre-release version for testing.
+* **`dev`**: Represents development versions.
+* **`experimental`**: Versions with experimental features.
+* **`latest`**: The latest stable release.
+* **`legacy`**: Older or deprecated versions.
+* **`next`**: Upcoming release version.
+* **`nightly`**: Versions built nightly; often includes the latest changes.
+* **`rc`**: Release candidate, close to stable release.
+* **`release`**: The official release version.
+* **`stable`**: The most reliable, production-ready version.
+
+{% endif %}
+
 ## Configuration options for private registries
 
 The top-level `registries` key is optional. It allows you to specify authentication details that {% data variables.product.prodname_dependabot %} can use to access private package registries.
