@@ -279,9 +279,7 @@ You can chat with {% data variables.product.prodname_copilot_short %} about a fi
 1. You can continue the conversation by asking a follow-up question. For example, you could type "tell me more" to get {% data variables.product.prodname_copilot_short %} to expand on its last comment.
 1. To clear, delete, or rename the current conversation thread, or to start a new thread, type `/` in the "Ask {% data variables.product.prodname_copilot_short %}" box, select from the options that are displayed, then press <kbd>Enter</kbd>.
 
-1. To view a conversation in immersive mode, displaying just the conversation thread, click the dashed box icon at the top right of the conversation thread.
-
-   ![Screenshot of the immersive mode button at the top right of the {% data variables.product.prodname_copilot_short %} panel. The button is highlighted with a dark orange outline.](/assets/images/help/copilot/copilot-immersive-view-button.png)
+1. To view a conversation in immersive mode, displaying just the conversation thread, click {% octicon "kebab-horizontal" aria-label="Open conversation options" %} at the top right of the conversation thread, then click {% octicon "screen-full" aria-hidden="true" %} **Take conversation to immersive**.
 
 ## Asking questions about {% data variables.product.prodname_GH_advanced_security %} alerts
 
