@@ -131,7 +131,11 @@ Depending on factors such as your codebase and input data, you may experience di
 
 ### Matches with public code
 
-{% data variables.product.prodname_copilot_chat_short %} is capable of generating new code, which it does in a probabilistic way. While the probability that it may produce code that matches code in the training set is low, a {% data variables.product.prodname_copilot_chat_short %} suggestion may contain some code snippets that match code in the training set. {% data variables.product.prodname_copilot_chat_short %} utilizes filters that block matches with public code on {% data variables.product.prodname_dotcom %} repositories, but you should always take the same precautions as you would with any code you write that uses material you did not independently originate, including precautions to ensure its suitability. These include rigorous testing, IP scanning, and checking for security vulnerabilities.
+{% data variables.product.prodname_copilot_chat_short %} is capable of generating new code, which it does in a probabilistic way. While the probability that it may produce code that matches code in the training set is low, a {% data variables.product.prodname_copilot_chat_short %} suggestion may contain some code snippets that match code in the training set.
+
+If you have disabled suggestions that match public code then {% data variables.product.prodname_copilot_chat_short %} utilizes filters that prevent it from showing code that matches code found in public repositories on {% data variables.product.prodname_dotcom %}. However, you should always take the same precautions as you would with any code you write that uses material you did not independently originate, including precautions to ensure its suitability. These include rigorous testing, IP scanning, and checking for security vulnerabilities.
+
+If you have enabled suggestions that match public code then {% data variables.product.prodname_copilot_chat_short %} displays a message if matching code is found. The message includes links to repositories on {% data variables.product.github %} that contain matching code, and any license details that were found. For more information, see "[AUTOTITLE](/copilot/using-github-copilot/finding-public-code-that-matches-github-copilot-suggestions)."
 
 ### Inaccurate code
 
