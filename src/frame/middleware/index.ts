@@ -214,12 +214,6 @@ export default function (app: Express) {
   // *** Headers ***
   app.set('etag', false) // We will manage our own ETags if desired
 
-  // temporary
-  app.use(function (req, res, next) {
-    res.set('x-ptcl', req.secure ? 'o' : 'x')
-    next()
-  })
-
   // *** Config and context for redirects ***
   app.use(detectLanguage) // Must come before context, breadcrumbs, find-page, handle-errors, homepages
   app.use(asyncMiddleware(reloadTree)) // Must come before context
