@@ -25,6 +25,8 @@ This guide gives an overview of how to configure PyPI to trust {% data variables
 
 {% data reusables.actions.oidc-security-notice %}
 
+{% data reusables.actions.oidc-on-ghecom %}
+
 ## Adding the identity provider to PyPI
 
 To use OIDC with PyPI, add a trust configuration that links each project on PyPI to each repository and workflow combination that's allowed to publish for it.

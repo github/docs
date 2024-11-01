@@ -20,11 +20,15 @@ topics:
 
 {% data reusables.actions.actions-not-verified %}
 
+{% data reusables.actions.actions-marketplace-ghecom %}
+
 To learn about publishing {% data variables.product.prodname_actions %} in {% data variables.product.prodname_marketplace %}, see "[AUTOTITLE](/actions/creating-actions/publishing-actions-in-github-marketplace)."
 
 ## Apps
 
 Anyone can share their apps with other users for free on {% data variables.product.prodname_marketplace %} but only apps owned by organizations can sell their app.
+
+{% data reusables.data-residency.github-marketplace-apps-unsupported %}
 
 To publish paid plans for your app and display a marketplace badge, you must complete the publisher verification process. For more information, see "[AUTOTITLE](/apps/github-marketplace/github-marketplace-overview/applying-for-publisher-verification-for-your-organization)" or "[AUTOTITLE](/apps/github-marketplace/creating-apps-for-github-marketplace/requirements-for-listing-an-app)."
 

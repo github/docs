@@ -1,6 +1,6 @@
 ---
 title: Quickstart for GitHub Copilot
-intro: 'Quickly learn how to use {% data variables.product.prodname_copilot %} in your editor{% ifversion ghec %} or on {% data variables.product.github %}{% endif %}.'
+intro: 'Quickly learn how to use {% data variables.product.prodname_copilot %}.'
 allowTitleToDifferFromFilename: true
 versions:
   feature: copilot
@@ -13,13 +13,22 @@ topics:
 
 {% webui %}
 
-You can use {% data variables.product.prodname_copilot_chat_dotcom %} to get answers to coding-related questions, such as how best to code something, how to fix a bug, or how someone else's code works. For full details of what {% data variables.product.prodname_copilot_short %} can do, see "[AUTOTITLE](/copilot/about-github-copilot/what-is-github-copilot)."
+You can use {% data variables.product.prodname_copilot_short %} to get answers to coding-related questions, such as how best to code something, how to fix a bug, or how someone else's code works. For full details of what {% data variables.product.prodname_copilot_short %} can do, see "[AUTOTITLE](/copilot/about-github-copilot/what-is-github-copilot)."
 
-Instructions for using {% data variables.product.prodname_copilot_short %} differ depending on whether you are in an editor or on the {% data variables.product.github %} website. This version of the quickstart is for {% data variables.product.github %}. Click the tabs above for instructions on using {% data variables.product.prodname_copilot_short %} in an editor.
+If you have access to {% data variables.product.prodname_copilot_workspace %}, {% data variables.product.prodname_copilot_short %} can also help you when you are editing files in a pull request on the {% data variables.product.github %} website by offering you code completion suggestions. For more information about {% data variables.product.prodname_copilot_workspace %}, see "[AUTOTITLE](/copilot/using-github-copilot/using-github-copilot-for-pull-requests/using-copilot-to-help-you-work-on-a-pull-request)."
 
-## Prerequisites
+Instructions for using {% data variables.product.prodname_copilot_short %} differ depending on where you are using it. This version of the quickstart is for {% data variables.product.github %}. Click the tabs above for instructions on using {% data variables.product.prodname_copilot_short %} in other environments.
 
-{% data reusables.copilot.chat-dotcom-prerequisites %}
+{% ifversion fpt %}
+{% data reusables.copilot.quickstart-signup %}
+{% endif %}
+
+{% ifversion ghec %}
+
+## Prerequisite
+
+To use {% data variables.product.prodname_copilot %} on the {% data variables.product.github %} website, you must have an active {% data variables.product.prodname_copilot %} subscription. {% data reusables.copilot.subscription-prerequisite %}
+{% endif %}
 
 ## Asking your first question
 
@@ -62,11 +71,11 @@ For more information, see "[AUTOTITLE](/copilot/github-copilot-chat/copilot-chat
 
 {% endwebui %}
 
-{% vscode %}
+{% windowsterminal %}
 
 {% data reusables.copilot.quickstart-intro %}
 
-Instructions for using {% data variables.product.prodname_copilot_short %} differ depending on the editor you use. This version of the quickstart is for {% data variables.product.prodname_vscode %}. Click the tabs above to see instructions for other editors{% ifversion ghec %} or for the {% data variables.product.github %} website{% endif %}.
+Instructions for using {% data variables.product.prodname_copilot_short %} differ depending on where you are using it. This version of the quickstart is for {% data variables.product.prodname_windows_terminal %}. Click the tabs above for instructions on using {% data variables.product.prodname_copilot_short %} in other environments.
 
 {% ifversion fpt %}
 {% data reusables.copilot.quickstart-signup %}
@@ -75,7 +84,57 @@ Instructions for using {% data variables.product.prodname_copilot_short %} diffe
 ## Prerequisites
 
 {% ifversion ghec %}
-* **{% data variables.product.prodname_copilot_short %} subscription** - To use {% data variables.product.prodname_copilot %} you must have been assigned a seat as part of a {% data variables.product.prodname_copilot_for_business %} or {% data variables.product.prodname_copilot_enterprise %} subscription.
+* **Subscription to {% data variables.product.prodname_copilot_short %}**. To use {% data variables.product.prodname_copilot %} in {% data variables.product.prodname_windows_terminal %}, you must have an active {% data variables.product.prodname_copilot %} subscription. {% data reusables.copilot.subscription-prerequisite %}
+{% endif %}
+* **{% data variables.product.prodname_windows_terminal %} Canary**. Terminal Chat is only available in [{% data variables.product.prodname_windows_terminal %} Canary](https://github.com/microsoft/terminal?tab=readme-ov-file#installing-windows-terminal-canary).
+
+## Use {% data variables.product.prodname_copilot_short %} in Terminal Chat
+
+After you've installed {% data variables.product.prodname_windows_terminal %} Canary, you can use {% data variables.product.prodname_copilot_short %} in [Terminal Chat](https://learn.microsoft.com/windows/terminal/terminal-chat) to ask command line-related questions.
+
+1. Open **Settings** from the dropdown menu.
+
+   ![Screenshot of the dropdown menu in the {% data variables.product.prodname_windows_terminal %} with the Settings item highlighted.](/assets/images/help/copilot/windows-terminal-dropdown.png)
+
+1. Go to the **Terminal Chat (Experimental)** setting.
+
+   ![Screenshot of the Settings menu in the {% data variables.product.prodname_windows_terminal %} with the Terminal Chat (Experimental) item highlighted.](/assets/images/help/copilot/windows-terminal-settings.png)
+
+1. Under **Service Providers**, select **GitHub Copilot** and **Authenticate via GitHub** to sign in.
+
+## Chat with {% data variables.product.prodname_copilot %}
+
+> [!NOTE] {% data reusables.copilot.windows-terminal-access-denied %}
+
+1. Open **Terminal Chat (Experimental)** in the dropdown menu.
+
+1. In the Terminal Chat chat window, type `how do i list all markdown files in my directory` then press <kbd>Enter</kbd>.
+
+   {% data variables.product.prodname_copilot_short %}'s answer is displayed below your question.
+
+1. Click on an answer to insert it to the command line.
+
+## Next steps
+
+{% data reusables.copilot.quickstart-nextsteps1 %}
+{% data reusables.copilot.quickstart-nextsteps2 %}
+
+{% endwindowsterminal %}
+
+{% vscode %}
+
+{% data reusables.copilot.quickstart-intro %}
+
+Instructions for using {% data variables.product.prodname_copilot_short %} differ depending on where you are using it. This version of the quickstart is for {% data variables.product.prodname_vscode %}. Click the tabs above for instructions on using {% data variables.product.prodname_copilot_short %} in other environments.
+
+{% ifversion fpt %}
+{% data reusables.copilot.quickstart-signup %}
+{% endif %}
+
+## Prerequisites
+
+{% ifversion ghec %}
+* **{% data variables.product.prodname_copilot_short %} subscription** - To use {% data variables.product.prodname_copilot %} in {% data variables.product.prodname_vscode_shortname %}, you must have an active {% data variables.product.prodname_copilot %} subscription. {% data reusables.copilot.subscription-prerequisite %}
 {% endif %}
 {% data reusables.copilot.vscode-prerequisites %}
 
@@ -123,7 +182,7 @@ The following example uses JavaScript, however other languages will work similar
 
 {% data reusables.copilot.quickstart-intro %}
 
-Instructions for using {% data variables.product.prodname_copilot_short %} differ depending on the editor you use. This version of the quickstart is for {% data variables.product.prodname_vs %}. Click the tabs above to see instructions for other editors{% ifversion ghec %} or for the {% data variables.product.github %} website{% endif %}.
+Instructions for using {% data variables.product.prodname_copilot_short %} differ depending on where you are using it. This version of the quickstart is for {% data variables.product.prodname_vs %}. Click the tabs above for instructions on using {% data variables.product.prodname_copilot_short %} in other environments.
 
 {% ifversion fpt %}
 {% data reusables.copilot.quickstart-signup %}
@@ -132,7 +191,7 @@ Instructions for using {% data variables.product.prodname_copilot_short %} diffe
 ## Prerequisites
 
 {% ifversion ghec %}
-* **Subscription to {% data variables.product.prodname_copilot_short %}**. To use {% data variables.product.prodname_copilot %} in Visual Studio, you must have an active {% data variables.product.prodname_copilot %} subscription. {% data reusables.copilot.subscription-prerequisite %}
+* **Subscription to {% data variables.product.prodname_copilot_short %}**. To use {% data variables.product.prodname_copilot %} in {% data variables.product.prodname_vs %}, you must have an active {% data variables.product.prodname_copilot %} subscription. {% data reusables.copilot.subscription-prerequisite %}
 {% endif %}
 {% data reusables.copilot.visual-studio-prerequisites %}
 
@@ -173,7 +232,7 @@ The following example uses JavaScript, however other languages will work similar
 
 {% data reusables.copilot.quickstart-intro %}
 
-Instructions for using {% data variables.product.prodname_copilot_short %} differ depending on the editor you use. This version of the quickstart is for JetBrains IDEs. Click the tabs above to see instructions for other editors{% ifversion ghec %} or for the {% data variables.product.github %} website{% endif %}.
+Instructions for using {% data variables.product.prodname_copilot_short %} differ depending on where you are using it. This version of the quickstart is for JetBrains IDEs. Click the tabs above for instructions on using {% data variables.product.prodname_copilot_short %} in other environments.
 
 {% ifversion fpt %}
 {% data reusables.copilot.quickstart-signup %}
@@ -182,7 +241,7 @@ Instructions for using {% data variables.product.prodname_copilot_short %} diffe
 ## Prerequisites
 
 {% ifversion ghec %}
-* **Subscription to {% data variables.product.prodname_copilot_short %}**. To use {% data variables.product.prodname_copilot %} in Visual Studio, you must have an active {% data variables.product.prodname_copilot %} subscription. {% data reusables.copilot.subscription-prerequisite %}
+* **Subscription to {% data variables.product.prodname_copilot_short %}**. To use {% data variables.product.prodname_copilot %} in {% data variables.product.prodname_vs %}, you must have an active {% data variables.product.prodname_copilot %} subscription. {% data reusables.copilot.subscription-prerequisite %}
 {% endif %}
 * **A compatible JetBrains IDE**. {% data variables.product.prodname_copilot_short %} is supported in a large number of JetBrains IDEs. For a full list, see "[AUTOTITLE](/copilot/github-copilot-chat/copilot-chat-in-ides/using-github-copilot-chat-in-your-ide?tool=jetbrains)."
 {% data reusables.copilot.jetbrains-plugin-prerequisites %}

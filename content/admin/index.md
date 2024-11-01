@@ -100,6 +100,7 @@ versions:
   ghes: '*'
 children:
   - /overview
+  - /data-residency
   - /managing-your-enterprise-account
   - /installing-your-enterprise-server
   - /configuring-settings

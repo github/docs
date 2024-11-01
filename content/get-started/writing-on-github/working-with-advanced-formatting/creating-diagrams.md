@@ -52,6 +52,12 @@ To ensure {% data variables.product.company_short %} supports your Mermaid synta
 
 You can use GeoJSON or TopoJSON syntax to create interactive maps. To create a map, add GeoJSON or TopoJSON inside a fenced code block with the `geojson` or `topojson` syntax identifier. For more information, see "[AUTOTITLE](/get-started/writing-on-github/working-with-advanced-formatting/creating-and-highlighting-code-blocks)."
 
+{% ifversion ghec %}
+
+>[!NOTE] GeoJSON and TopoJSON maps are not available on subdomains of {% data variables.enterprise.data_residency_site %}, such as `octocorp.ghe.com`.
+
+{% endif %}
+
 {% data reusables.advanced-formatting.administrator-must-enable-mapping %}
 
 ### Using GeoJSON

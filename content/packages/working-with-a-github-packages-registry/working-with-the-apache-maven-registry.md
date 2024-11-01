@@ -15,6 +15,12 @@ versions:
 shortTitle: Apache Maven registry
 ---
 
+{% ifversion ghec %}
+
+> [!NOTE] The Apache Maven registry is not available for {% data variables.enterprise.data_residency %}.
+
+{% endif %}
+
 {% data reusables.package_registry.packages-ghes-release-stage %}
 
 {% data reusables.package_registry.admins-can-configure-package-types %}

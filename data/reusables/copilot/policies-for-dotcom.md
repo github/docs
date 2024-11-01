@@ -3,8 +3,3 @@
 
   * {% data variables.product.prodname_copilot_autocomplete_pr %}. See "[AUTOTITLE](/copilot/using-github-copilot/using-copilot-text-completion)."
   * Asking {% data variables.product.prodname_copilot_short %} why a workflow has failed. See "[AUTOTITLE](/copilot/using-github-copilot/asking-github-copilot-questions-in-githubcom#ask-why-a-workflow-has-failed)."
-  * The ability to:
-    * Change the AI model used by {% data variables.product.prodname_copilot_chat_dotcom_short %} and {% data variables.product.prodname_copilot_chat_short %} in {% data variables.product.prodname_vscode_shortname %}. See "[AUTOTITLE](/copilot/using-github-copilot/asking-github-copilot-questions-in-githubcom#ai-models-for-copilot-chat)" and "[AUTOTITLE](/copilot/using-github-copilot/asking-github-copilot-questions-in-your-ide#ai-models-for-copilot-chat)."
-    * Use `o1` models in {% data variables.product.prodname_github_models %}. See "[AUTOTITLE](/github-models/prototyping-with-ai-models)."
-
-    To use these AI models, your organization{% ifversion ghec %} or enterprise{% endif %} must also join the [waitlist](https://github.com/o1-waitlist-signup).
