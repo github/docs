@@ -264,7 +264,7 @@ prodname_dependabot_updates: 'Dependabot updates'
 prodname_archive: 'GitHub Archive Program'
 prodname_arctic_vault: 'Arctic Code Vault'
 
-# GitHub Copilot
+# GitHub Copilot (product)
 prodname_copilot: 'GitHub Copilot'
 prodname_copilot_short: 'Copilot'
 prodname_copilot_for_business: 'GitHub Copilot Business'
@@ -275,8 +275,8 @@ prodname_copilot_enterprise: 'GitHub Copilot Enterprise'
 prodname_copilot_enterprise_short: 'Copilot Enterprise'
 prodname_copilot_chat: 'GitHub Copilot Chat'
 prodname_copilot_chat_short: 'Copilot Chat'
-prodname_copilot_chat_dotcom: 'GitHub Copilot Chat in GitHub.com'
-prodname_copilot_chat_dotcom_short: 'Copilot Chat in GitHub.com'
+prodname_copilot_chat_dotcom: 'GitHub Copilot Chat in GitHub'
+prodname_copilot_chat_dotcom_short: 'Copilot Chat in GitHub'
 prodname_copilot_mobile: 'GitHub Copilot Chat in GitHub Mobile'
 prodname_copilot_mobile_short: 'Copilot Chat in GitHub Mobile'
 prodname_copilot_extensions: 'GitHub Copilot Extensions'
@@ -297,8 +297,17 @@ prodname_copilot_customization: 'Copilot Customization'
 prodname_copilot_in_support: 'Copilot in GitHub Support'
 prodname_copilot_sku_isolation: 'Copilot subscription-based network routing'
 prodname_copilot_autocomplete_pr: 'Copilot text completion'
+
+# Copilot branded GHAS features
 prodname_copilot_autofix: 'GitHub Copilot Autofix'
 prodname_copilot_autofix_short: 'Copilot Autofix'
+prodname_copilot_workspace_pr: 'GitHub Copilot Workspace for pull requests'
+prodname_copilot_workspace_pr_short: 'Copilot Workspace for PRs'
+prodname_copilot_workspace: 'Copilot Workspace'
+prodname_copilot_workspace_short: 'Workspace'
+
+# Windows
+prodname_windows_terminal: 'Windows Terminal'
 
 # Command Palette
 prodname_command_palette: 'GitHub Command Palette'

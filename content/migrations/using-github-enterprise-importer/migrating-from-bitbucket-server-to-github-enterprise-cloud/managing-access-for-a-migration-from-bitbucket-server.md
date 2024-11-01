@@ -93,6 +93,8 @@ To grant the migrator role using the CLI, you must have installed the {% data va
    gh bbs2gh grant-migrator-role --github-org ORGANIZATION --actor ACTOR --actor-type TYPE
    ```
 
+   {% data reusables.enterprise-migration-tool.grant-migrator-role-ghecom %}
+
 ### Granting the migrator role with the GraphQL API
 
 {% data reusables.enterprise-migration-tool.grant-migrator-role-graphql %}
@@ -110,9 +112,17 @@ If the destination of your migration uses an IP allow list (either {% data varia
 
 For more information, see "[AUTOTITLE](/enterprise-cloud@latest/organizations/keeping-your-organization-secure/managing-security-settings-for-your-organization/managing-allowed-ip-addresses-for-your-organization)" and "[AUTOTITLE](/enterprise-cloud@latest/admin/configuration/configuring-your-enterprise/restricting-network-traffic-to-your-enterprise-with-an-ip-allow-list)."
 
-### Identifying {% data variables.product.prodname_dotcom %}'s IP ranges
+### IP ranges for {% data variables.product.prodname_dotcom_the_website %}
 
 {% data reusables.enterprise-migration-tool.identifying-githubs-ip-ranges %}
+
+### IP ranges for {% data variables.enterprise.data_residency_site %}
+
+{% data reusables.enterprise-migration-tool.ip-ranges-ghecom %}
+
+In addition, if you are using a blob storage account with firewall rules:
+
+{% data reusables.enterprise-migration-tool.extra-requirements-storage %}
 
 ## Further reading
 

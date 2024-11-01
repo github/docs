@@ -185,15 +185,17 @@ Before you can use the {% data variables.product.prodname_ado2gh_cli_short %} to
 
       ```shell copy
       export GH_PAT="TOKEN"
-     export ADO_PAT="TOKEN"
+      export ADO_PAT="TOKEN"
       ```
 
    * If you're using PowerShell, use the `$env` command.
 
       ```shell copy
       $env:GH_PAT="TOKEN"
-     $env:ADO_PAT="TOKEN"
+      $env:ADO_PAT="TOKEN"
       ```
+
+{% data reusables.enterprise-migration-tool.set-target-api-url %}
 
 ## Step 4: Generate a migration script
 
@@ -209,14 +211,20 @@ To generate a migration script, run the `gh ado2gh generate-script` command.
 gh ado2gh generate-script --ado-org SOURCE --github-org DESTINATION --output FILENAME
 ```
 
-To add additional functionality to the script, such as rewiring pipelines, creating teams, and configuring Azure Boards integrations, you can add the `--all` flag.
-
-{% data reusables.enterprise-migration-tool.download-migration-logs-flag %}
+#### Placeholders
 
 {% data reusables.enterprise-migration-tool.placeholder-table %}
 {% data reusables.enterprise-migration-tool.source-placeholder %}
 {% data reusables.enterprise-migration-tool.destination-placeholder %}
 {% data reusables.enterprise-migration-tool.filename-placeholder %}
+
+#### Additional arguments
+
+| Argument | Description |
+| -------- | ----------- |
+| `--target-api-url TARGET-API-URL` | {% data reusables.enterprise-migration-tool.add-target-api-url %} |
+| `--all` | Add additional functionality to the script, such as rewiring pipelines, creating teams, and configuring Azure Boards integrations. |
+| `--download-migration-logs` | Download the migration log for each migrated repository. For more information about migration logs, see "[AUTOTITLE](/migrations/using-github-enterprise-importer/completing-your-migration-with-github-enterprise-importer/accessing-your-migration-logs-for-github-enterprise-importer#downloading-all-migration-logs-for-an-organization)." |
 
 ### Reviewing the migration script
 
@@ -239,6 +247,8 @@ To migrate a single repository, use the `gh ado2gh migrate-repo` command.
 ```shell copy
 gh ado2gh migrate-repo --ado-org SOURCE --ado-team-project TEAM-PROJECT --ado-repo CURRENT-NAME --github-org DESTINATION --github-repo NEW-NAME
 ```
+
+> [!NOTE] {% data reusables.enterprise-migration-tool.add-target-api-url %}
 
 {% data reusables.enterprise-migration-tool.migrate-repo-table-ec %}
 TEAM-PROJECT | Name of the team project of the repository you want to migrate

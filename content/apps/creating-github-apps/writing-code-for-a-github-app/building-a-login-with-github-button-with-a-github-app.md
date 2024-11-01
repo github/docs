@@ -19,6 +19,12 @@ This tutorial demonstrates how to build a "Login with {% data variables.product.
 
 This tutorial uses Ruby, but you can use the web application flow with any programming language that is used for web development.
 
+{% ifversion ghec %}
+
+> [!NOTE] {% data reusables.enterprise-data-residency.access-domain %}
+
+{% endif %}
+
 ### About web application flow and user access tokens
 
 Your app should use a user access token if you want to attribute the app's actions to a user. For more information, see "[AUTOTITLE](/apps/creating-github-apps/authenticating-with-a-github-app/authenticating-with-a-github-app-on-behalf-of-a-user)."

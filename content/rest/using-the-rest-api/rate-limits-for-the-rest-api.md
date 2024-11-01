@@ -32,6 +32,8 @@ If you are developing an app for users or organizations outside of your instance
 
 Some endpoints, like the search endpoints, have more restrictive limits. For more information about these endpoints, see "[AUTOTITLE](/rest/rate-limit/rate-limit)." The GraphQL API also has a separate primary rate limit. See "[AUTOTITLE](/graphql/overview/resource-limitations)."
 
+{% data reusables.organizations.api-insights-learn-about %}
+
 In general, you can calculate your primary rate limit for the REST API based on your method of authentication, as described below.
 
 ### Primary rate limit for unauthenticated users

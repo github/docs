@@ -26,7 +26,7 @@ redirect_from:
   - /admin/identity-and-access-management/understanding-iam-for-enterprises/about-saml-for-enterprise-iam
 ---
 
-## About SAML SSO for {% ifversion ghec %}your enterprise on {% endif %}{% ifversion ghec or ghes %}{% data variables.location.product_location %}{% endif %}
+## About SAML SSO for your enterprise
 
 {% ifversion ghec %}
 

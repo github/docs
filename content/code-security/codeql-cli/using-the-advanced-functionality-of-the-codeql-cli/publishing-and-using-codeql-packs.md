@@ -15,6 +15,74 @@ redirect_from:
   - /code-security/codeql-cli/using-the-codeql-cli/publishing-and-using-codeql-packs
 ---
 
+{% ifversion ghec or ghes %}
+
+## Working with {% data variables.product.prodname_codeql %} packs on {% data variables.enterprise.gh_enterprise %}
+
+By default, the {% data variables.product.prodname_codeql_cli %} expects to download {% data variables.product.prodname_codeql %} packs from and publish packs to the {% data variables.product.prodname_container_registry %} on {% data variables.product.prodname_dotcom_the_website %}. However, you can also work with {% data variables.product.prodname_codeql %} packs in a {% data variables.product.prodname_container_registry %} on {% data variables.enterprise.gh_enterprise %} by creating a `qlconfig.yml` file to tell the CLI which {% data variables.product.prodname_container_registry %} to use for each pack.
+
+Create a `~/.codeql/qlconfig.yml` file on Linux/MacOS or `%HOMEPATH%\.codeql\qlconfig.yml` on Windows using your preferred text editor, and add entries to specify which registry to use for one or more package name patterns.
+For example, the following `qlconfig.yml` file associates all packs with the {% data variables.product.prodname_container_registry %} at `{% data variables.enterprise.gh_enterprise_domain %}`, except packs matching `codeql/\*` or the `other-org/*` organization, which are associated with the {% data variables.product.prodname_container_registry %} on {% data variables.product.prodname_dotcom_the_website %}:
+
+```yaml
+registries:
+- packages:
+  - 'codeql/*'
+  - 'other-org/*'
+  # {% data variables.product.prodname_container_registry %} on {% data variables.product.prodname_dotcom_the_website %}
+  url: https://ghcr.io/v2/
+- packages: '*'
+  # {% data variables.product.prodname_container_registry %} hosted at `{% data variables.enterprise.gh_enterprise_domain %}`
+  url: {% data variables.enterprise.gh_enterprise_container_registry %}
+```
+
+The {% data variables.product.prodname_codeql_cli %} will determine which registry to use for a given package name by finding the first item in the `registries` list with a `packages` property that matches that package name.
+This means that you’ll generally want to define the most specific package name patterns first. The `packages` property may be a single package name, a glob pattern, or a YAML list of package names and glob patterns.
+
+The `registries` list can also be placed inside a `codeql-workspace.yml` file. Doing so will allow you to define the registries to be used within a specific workspace, so that it can be shared amongst other {% data variables.product.prodname_codeql %} users of the workspace. The `registries` list in `codeql-workspace.yml` will be merged with and take precedence over the list in the global `qlconfig.yml`. For more information about `codeql-workspace.yml`, see "[AUTOTITLE](/code-security/codeql-cli/using-the-advanced-functionality-of-the-codeql-cli/about-codeql-workspaces#about-codeql-workspaces)."
+
+You can now use `codeql pack publish`, `codeql pack download`, and `codeql database analyze` to manage packs on {% data variables.enterprise.gh_enterprise %}.
+
+{% endif %}
+
+## Authenticating to {% data variables.product.github %} {% data variables.product.prodname_container_registries %}
+
+You can publish packs and download private packs by authenticating to the appropriate {% data variables.product.github %} {% data variables.product.prodname_container_registry %}.
+
+{% ifversion ghec or ghes %}
+
+### Authenticating to {% data variables.product.prodname_container_registries %} on {% data variables.product.prodname_dotcom_the_website %}
+
+{% endif %}
+
+You can authenticate to the {% data variables.product.prodname_container_registry %}  in two ways:
+
+1. Pass the `--github-auth-stdin` option to the {% data variables.product.prodname_codeql_cli %}, then supply a {% data variables.product.prodname_github_apps %} token or {% data variables.product.pat_generic %} via standard input.
+1. Set the `GITHUB_TOKEN` environment variable to a {% data variables.product.prodname_github_apps %} token or {% data variables.product.pat_generic %}.
+
+{% ifversion ghec or ghes %}
+
+### Authenticating to {% data variables.product.prodname_container_registries %} on {% data variables.enterprise.gh_enterprise %}
+
+Similarly, you can authenticate to a {% data variables.product.prodname_container_registry %} on {% data variables.enterprise.gh_enterprise %}, or authenticate to multiple registries simultaneously (for example, to download or run private packs from multiple registries) in two ways:
+
+1. Pass the `--registries-auth-stdin` option to the {% data variables.product.prodname_codeql_cli %}, then supply a registry authentication string via standard input.
+1. Set the `CODEQL_REGISTRIES_AUTH` environment variable to a registry authentication string.
+
+A registry authentication string is a comma-separated list of `<registry-url>=<token>` pairs, where `registry-url` is a {% data variables.product.prodname_container_registry %} URL, such as `{% data variables.enterprise.gh_enterprise_container_registry %}`, and `token` is a {% data variables.product.prodname_github_apps %} token or {% data variables.product.pat_generic %} for that {% data variables.product.prodname_container_registry %}.
+This ensures that each token is only passed to the {% data variables.product.prodname_container_registry %} you specify.
+
+For example, the following registry authentication string specifies that the {% data variables.product.prodname_codeql_cli %} should authenticate as follows:
+
+* Use the token `<token1>` to authenticate to {% data variables.product.prodname_container_registry %} on {% data variables.product.prodname_dotcom_the_website %}.
+* Use the token `<token2>` to authenticate to the {% data variables.product.prodname_container_registry %} for the enterprise at `{% data variables.enterprise.gh_enterprise_container_registry %}`.
+
+```shell
+https://ghcr.io/v2/=<token1>,{% data variables.enterprise.gh_enterprise_container_registry %}=<token2>
+```
+
+{% endif %}
+
 ## Configuring the `qlpack.yml` file before publishing
 
 {% data reusables.code-scanning.codeql-cli-version-ghes %}
@@ -129,60 +197,6 @@ The results of the analysis will still be good in this case, but to get optimal 
 If you publish query packs on the {% data variables.product.prodname_container_registry %} on {% data variables.product.prodname_dotcom_the_website %} for others to use, we recommend that you use a recent release of {% data variables.product.prodname_codeql %} to run `codeql pack publish`, and that you publish a fresh version of your pack with an updated {% data variables.product.prodname_codeql %} version before the version you used turns 6 months old. That way you can ensure that users of your pack who keep _their_ {% data variables.product.prodname_codeql %} up to date will benefit from the pre-compiled queries in your pack.
 
 If you publish query packs with the intention of using them on a {% data variables.product.prodname_ghe_server %} installation that uses its bundled {% data variables.product.prodname_codeql %} binaries, use the same {% data variables.product.prodname_codeql %} version to run `codeql pack publish`. Newer versions might produce pre-compiled queries that the one in {% data variables.product.prodname_ghe_server %} may not recognize. Your {% data variables.product.prodname_ghe_server %} administrator may choose to upgrade to a newer version of {% data variables.product.prodname_codeql %} periodically. If so, follow their lead.
-
-{% ifversion ghes %}
-
-## Working with {% data variables.product.prodname_codeql %} packs on {% data variables.product.prodname_ghe_server %}
-
-By default, the {% data variables.product.prodname_codeql_cli %} expects to download {% data variables.product.prodname_codeql %} packs from and publish packs to the {% data variables.product.prodname_container_registry %} on {% data variables.product.prodname_dotcom_the_website %}. However, you can also work with {% data variables.product.prodname_codeql %} packs in a {% data variables.product.prodname_container_registry %} on {% data variables.product.prodname_ghe_server %} by creating a `qlconfig.yml` file to tell the CLI which {% data variables.product.prodname_container_registry %} to use for each pack.
-
-Create a `~/.codeql/qlconfig.yml` file using your preferred text editor, and add entries to specify which registry to use for one or more package name patterns.
-For example, the following `qlconfig.yml` file associates all packs with the {% data variables.product.prodname_container_registry %} for the {% data variables.product.prodname_ghe_server %} at `GHE_HOSTNAME`, except packs matching `codeql/\*`, which are associated with the {% data variables.product.prodname_container_registry %} on {% data variables.product.prodname_dotcom_the_website %}:
-
-```yaml
-registries:
-- packages:
-  - 'codeql/*'
-  - 'other-org/*'
-  url: https://ghcr.io/v2/
-- packages: '*'
-  url: https://containers.GHE_HOSTNAME/v2/
-```
-
-The {% data variables.product.prodname_codeql_cli %} will determine which registry to use for a given package name by finding the first item in the `registries` list with a `packages` property that matches that package name.
-This means that you’ll generally want to define the most specific package name patterns first. The `packages` property may be a single package name, a glob pattern, or a YAML list of package names and glob patterns.
-
-The `registries` list can also be placed inside of a `codeql-workspace.yml` file. Doing so will allow you to define the registries to be used within a specific workspace, so that it can be shared amongst other {% data variables.product.prodname_codeql %} users of the workspace. The `registries` list in the `codeql-workspace.yml` will be merged with and take precedence over the list in the global `qlconfig.yml`. For more information about `codeql-workspace.yml`, see "[AUTOTITLE](/code-security/codeql-cli/using-the-advanced-functionality-of-the-codeql-cli/about-codeql-workspaces#about-codeql-workspaces)."
-
-You can now use `codeql pack publish`, `codeql pack download`, and `codeql database analyze` to manage packs on {% data variables.product.prodname_ghe_server %}.
-
-{% endif %}
-
-## Authenticating to {% data variables.product.prodname_dotcom %} {% data variables.product.prodname_container_registries %}
-
-You can publish packs and download private packs by authenticating to the appropriate {% data variables.product.prodname_dotcom %} {% data variables.product.prodname_container_registry %}.
-
-You can authenticate to the {% data variables.product.prodname_container_registry %} on {% data variables.product.prodname_dotcom_the_website %} in two ways:
-
-1. Pass the `--github-auth-stdin` option to the {% data variables.product.prodname_codeql_cli %}, then supply a {% data variables.product.prodname_github_apps %} token or {% data variables.product.pat_generic %} via standard input.
-1. Set the `GITHUB_TOKEN` environment variable to a {% data variables.product.prodname_github_apps %} token or {% data variables.product.pat_generic %}.
-
-{% ifversion ghes %}
-
-Similarly, you can authenticate to a {% data variables.product.prodname_ghe_server %} {% data variables.product.prodname_container_registry %}, or authenticate to multiple registries simultaneously (for example, to download or run private packs from multiple registries) in two ways:
-
-1. Pass the `--registries-auth-stdin` option to the {% data variables.product.prodname_codeql_cli %}, then supply a registry authentication string via standard input.
-1. Set the `CODEQL_REGISTRIES_AUTH` environment variable to a registry authentication string.
-
-A registry authentication string is a comma-separated list of `<registry-url>=<token>` pairs, where `registry-url` is a {% data variables.product.prodname_container_registry %} URL, such as `https://containers.GHE_HOSTNAME/v2/`, and `token` is a {% data variables.product.prodname_github_apps %} token or {% data variables.product.pat_generic %} for that {% data variables.product.prodname_dotcom %} {% data variables.product.prodname_container_registry %}.
-This ensures that each token is only passed to the {% data variables.product.prodname_container_registry %} you specify.
-For instance, the following registry authentication string specifies that the {% data variables.product.prodname_codeql_cli %} should authenticate to the {% data variables.product.prodname_container_registry %} on {% data variables.product.prodname_dotcom_the_website %} using the token `<token1>` and to the {% data variables.product.prodname_container_registry %} for the GHES instance at `GHE_HOSTNAME` using the token `<token2>`:
-
-```shell
-https://ghcr.io/v2/=<token1>,https://containers.GHE_HOSTNAME/v2/=<token2>
-```
-
-{% endif %}
 
 ## About `qlpack.yml` files
 

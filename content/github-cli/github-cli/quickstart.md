@@ -88,6 +88,12 @@ You can change configuration settings and add aliases or extensions, to make {% 
 
 * Create or add custom commands with {% data variables.product.prodname_cli %} extensions. For more information, see "[AUTOTITLE](/github-cli/github-cli/using-github-cli-extensions)" and "[AUTOTITLE](/github-cli/github-cli/creating-github-cli-extensions)."
 
+## Using {% data variables.product.prodname_cli %} with multiple accounts
+
+If you have multiple accounts on the same {% data variables.product.github %} platform, such as {% data variables.location.product_location %}, you can authenticate to each one and switch between them using the `gh auth switch` command. See [gh auth switch](https://cli.github.com/manual/gh_auth_switch) in the {% data variables.product.prodname_cli %} manual.
+
+If you need to use the {% data variables.product.prodname_cli %} across multiple {% data variables.product.github %} platforms, such as a personal account on {% data variables.product.prodname_dotcom_the_website %} and a {% data variables.enterprise.prodname_managed_user %} on {% data variables.enterprise.data_residency_site %}, see "[AUTOTITLE](/github-cli/github-cli/using-multiple-accounts)."
+
 ## Further reading
 
 * [AUTOTITLE](/github-cli/github-cli/github-cli-reference)

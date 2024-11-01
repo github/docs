@@ -24,6 +24,12 @@ versions:
   ghec: '*'
 shortTitle: Manage remote repositories
 ---
+{% ifversion ghec %}
+
+> [!NOTE] {% data reusables.enterprise-data-residency.access-domain %}
+
+{% endif %}
+
 ## Adding a remote repository
 
 To add a new remote, use the `git remote add` command on the terminal, in the directory your repository is stored at.

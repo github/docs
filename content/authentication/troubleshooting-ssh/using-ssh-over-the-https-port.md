@@ -26,13 +26,12 @@ $ ssh -T -p 443 git@ssh.github.com
 # provide shell access.
 ```
 
-{% note %}
-
-**Note**: The hostname for port 443 is `ssh.{% data variables.product.product_url %}`, not `{% data variables.product.product_url %}`.
-
-{% endnote %}
-
 If that worked, great! If not, you may need to [follow our troubleshooting guide](/authentication/troubleshooting-ssh/error-permission-denied-publickey).
+
+> [!NOTE] The hostname for port 443 is `ssh.{% data variables.product.product_url %}`, not `{% data variables.product.product_url %}`.
+> {% ifversion ghec %}
+> {% data reusables.enterprise-data-residency.access-domain %}
+{% endif %}
 
 Now, to clone the repository, you can run the following command:
 

@@ -45,7 +45,7 @@ gh actions-importer ... --custom-transformers transformers/*.rb
 
 {% note %}
 
-**Note:** When you use custom transformers, the custom transformer files must reside in the same directory, or in subdirectores, from where the `gh actions-importer` command is run.
+**Note:** When you use custom transformers, the custom transformer files must reside in the same directory, or in subdirectories, from where the `gh actions-importer` command is run.
 
 {% endnote %}
 

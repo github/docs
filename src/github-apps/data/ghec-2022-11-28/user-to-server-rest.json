@@ -1463,6 +1463,12 @@
       "requestPath": "/repos/{owner}/{repo}/code-scanning/codeql/databases/{language}"
     },
     {
+      "slug": "delete-a-codeql-database",
+      "subcategory": "code-scanning",
+      "verb": "delete",
+      "requestPath": "/repos/{owner}/{repo}/code-scanning/codeql/databases/{language}"
+    },
+    {
       "slug": "create-a-codeql-variant-analysis",
       "subcategory": "code-scanning",
       "verb": "post",
@@ -2069,6 +2075,12 @@
       "requestPath": "/orgs/{org}/copilot/billing/selected_users"
     },
     {
+      "slug": "get-copilot-metrics-for-an-organization",
+      "subcategory": "copilot-metrics",
+      "verb": "get",
+      "requestPath": "/orgs/{org}/copilot/metrics"
+    },
+    {
       "slug": "get-a-summary-of-copilot-usage-for-organization-members",
       "subcategory": "copilot-usage",
       "verb": "get",
@@ -2079,6 +2091,12 @@
       "subcategory": "copilot-user-management",
       "verb": "get",
       "requestPath": "/orgs/{org}/members/{username}/copilot"
+    },
+    {
+      "slug": "get-copilot-metrics-for-a-team",
+      "subcategory": "copilot-metrics",
+      "verb": "get",
+      "requestPath": "/orgs/{org}/team/{team_slug}/copilot/metrics"
     },
     {
       "slug": "get-a-summary-of-copilot-usage-for-a-team",

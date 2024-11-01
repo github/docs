@@ -21,11 +21,18 @@ Before your developers can use {% data variables.product.prodname_ghe_cloud %} w
 
 To use {% data variables.product.prodname_emus %}, you need a **separate type of enterprise account** with {% data variables.product.prodname_emus %} enabled.
 
-Start a free 30-day trial of {% data variables.product.prodname_ghe_cloud %}, and choose **Enterprise with managed users**. See "[AUTOTITLE](/admin/overview/setting-up-a-trial-of-github-enterprise-cloud)."
+* To create an enterprise on {% data variables.product.prodname_dotcom_the_website %}, start a free 30-day trial of {% data variables.product.prodname_ghe_cloud %}, and choose **Enterprise with managed users**. See "[AUTOTITLE](/admin/overview/setting-up-a-trial-of-github-enterprise-cloud)."
+* If you require {% data variables.enterprise.data_residency_short %}, contact {% data variables.contact.contact_enterprise_sales %}.
+
+### Understand where your enterprise is hosted
+
+{% data variables.product.prodname_emus %} are available on {% data variables.product.prodname_dotcom_the_website %} or, if you use {% data variables.enterprise.data_residency_short %}, on your own subdomain of {% data variables.enterprise.data_residency_site %}.
+
+The setup process for the environments is similar. However, you will need to **pay attention** to where your enterprise is hosted as you follow the process. For example, there may be differences in the application you need to use in your identity provider, or the configuration values you need to provide.
 
 ## Create the setup user
 
-After we create your enterprise, you will receive an email inviting you to choose a password for the setup user, which is used to configure authentication and provisioning. The username is your enterprise's shortcode suffixed with `_admin`, for example `fabrikam_admin`.
+After we create your enterprise, you will receive an email inviting you to choose a password for the setup user, which is used to configure authentication and provisioning. The username is your enterprise's shortcode (chosen by you or randomly generated), suffixed with `_admin`. For example: `fabrikam_admin`.
 
 Using an **incognito or private browsing window**:
 
@@ -37,38 +44,21 @@ Using an **incognito or private browsing window**:
 
 ## Create a {% data variables.product.pat_generic %}
 
-Next, create a {% data variables.product.pat_generic %} that you can use to configure provisioning.
-
-* You must be **signed in as the setup user** when you create the token.
-* The token must have at least the **scim:enterprise** scope.
-* The token must have **no expiration**.
-
-To learn how to create a {% data variables.product.pat_v1 %}, see "[AUTOTITLE](/authentication/keeping-your-account-and-data-secure/managing-your-personal-access-tokens)."
+{% data reusables.enterprise-accounts.emu-create-a-pat %}
 
 ## Configure authentication
 
-Next, configure how your members will authenticate.
-
-**If you're using Entra ID** as your IdP, you can choose between OpenID Connect (OIDC) and Security Assertion Markup Language (SAML).
-* We recommend OIDC, which includes support for Conditional Access Policies (CAP).
-* If you require multiple enterprises provisioned from one tenant, you must use SAML for each enterprise after the first.
-
-**If you're using another IdP**, like Okta or PingFederate, you must use SAML to authenticate your members.
-
-To get started, read the guide for your chosen authentication method.
-
-* "[AUTOTITLE](/admin/identity-and-access-management/using-enterprise-managed-users-for-iam/configuring-oidc-for-enterprise-managed-users)"
-* "[AUTOTITLE](/admin/identity-and-access-management/managing-iam-with-enterprise-managed-users/configuring-saml-single-sign-on-for-enterprise-managed-users)"
+{% data reusables.enterprise-accounts.emu-configure-authentication %}
 
 {% data variables.product.company_short %} offers a "paved-path" integration and full support if you use a partner IdP for both authentication and provisioning. Alternatively, you can use any system, or combination of systems, that conforms to SAML 2.0 and SCIM 2.0. However, support for resolving problems with these systems may be limited. For more details, see "[AUTOTITLE](/admin/identity-and-access-management/understanding-iam-for-enterprises/about-enterprise-managed-users#identity-management-systems)."
 
 ## Configure provisioning
 
-After you configure authentication, you can configure SCIM provisioning, which is how your IdP will create {% data variables.enterprise.prodname_managed_users %} on {% data variables.product.prodname_dotcom %}. See "[AUTOTITLE](/admin/identity-and-access-management/using-enterprise-managed-users-for-iam/configuring-scim-provisioning-for-enterprise-managed-users)."
+{% data reusables.enterprise-accounts.emu-configure-provisioning %}
 
 ## Manage organization membership
 
-After authentication and provisioning are configured, you can start managing organization membership for your {% data variables.enterprise.prodname_managed_users %} by synchronizing IdP groups with teams. See "[AUTOTITLE](/admin/identity-and-access-management/using-enterprise-managed-users-for-iam/managing-team-memberships-with-identity-provider-groups)."
+{% data reusables.enterprise-accounts.emu-manage-org-membership %}
 
 ## Support developers with multiple user accounts
 

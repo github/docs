@@ -14,7 +14,8 @@
 /rest/using-the-rest-api/getting-started-with-the-rest-api
 - /rest/overview/api-previews
 
-/enterprise-server@latest/search-github/getting-started-with-searching-on-github/enabling-githubcom-repository-search-from-your-private-enterprise-environment
+/enterprise-server@latest/search-github/getting-started-with-searching-on-github/enabling-repository-search-across-environments
+- /enterprise-server@latest/search-github/getting-started-with-searching-on-github/enabling-githubcom-repository-search-from-your-private-enterprise-environment
 - /enterprise-cloud@latest/search-github/getting-started-with-searching-on-github/enabling-githubcom-repository-search-from-your-private-enterprise-environment
 
 /enterprise-cloud@latest/organizations/managing-membership-in-your-organization/exporting-member-information-for-your-organization
