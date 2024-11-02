@@ -301,6 +301,7 @@ prodname_copilot_autocomplete_pr: 'Copilot text completion'
 # Copilot branded GHAS features
 prodname_copilot_autofix: 'GitHub Copilot Autofix'
 prodname_copilot_autofix_short: 'Copilot Autofix'
+prodname_copilot_edits_vscode_short: 'Copilot Edits'
 prodname_copilot_workspace_pr: 'GitHub Copilot Workspace for pull requests'
 prodname_copilot_workspace_pr_short: 'Copilot Workspace for PRs'
 prodname_copilot_workspace: 'Copilot Workspace'
