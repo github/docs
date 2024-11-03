@@ -72,12 +72,14 @@ The skills you can use in {% data variables.product.prodname_copilot_chat_dotcom
 
 {% data reusables.copilot.copilot-chat-models-list %}
 
+### Limitations of AI models for {% data variables.product.prodname_copilot_chat_short %}
+
+* If you want to use the skills listed in the table above{% ifversion ghec %}, or knowledge bases{% endif %}, on the {% data variables.product.github %} website, you must use the `gpt-4o` model.
+* Experimental pre-release versions of the models may not interact with all filters correctly, including the duplication detection filter.
+
 ### Changing your AI model
 
-> [!NOTE]
-> * If you want to use the skills listed in the table above{% ifversion ghec %}, or knowledge bases{% endif %}, on the {% data variables.product.github %} website, you must use the `gpt-4o` model.
-> * If you use {% data variables.product.prodname_copilot_extensions_short %}, they may override the model you select.
-> * Experimental pre-release versions of the models may not interact with all filters correctly, including the duplication detection filter.
+> [!NOTE] If you use {% data variables.product.prodname_copilot_extensions_short %}, they may override the model you select.
 
 {% data reusables.copilot.model-picker-enable-o1-models %}
 1. In the bottom right of any page on {% data variables.product.github %}, click {% octicon "copilot" aria-label="Open Copilot Chat" %}.
