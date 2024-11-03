@@ -38,6 +38,11 @@ To import one of the prebuilt rulesets by {% data variables.product.prodname_dot
 ## Using `fnmatch` syntax
 
 {% data reusables.repositories.rulesets-fnmatch %}
+
+### Unsupported `fnmatch` syntax
+
+{% data reusables.repositories.rulesets-unsupported-fnmatch-syntax %}
+
 {% ifversion repo-rules-enterprise %}
 
 ## Using regular expressions for commit metadata
