@@ -37,6 +37,12 @@ On this page, you can view your usage in the following categories:
 
    {% endif %}
 
+## Viewing prepaid credits
+
+Your prepaid credits are shown above the "Metered usage" graph. To add more prepaid credits, you can contact your account manager in {% data variables.contact.contact_enterprise_sales %}.
+
+If you don't currently use prepaid credits, but have a volume subscription and would like to use credits, you can contact your account manager in {% data variables.contact.contact_enterprise_sales %}. Prepaid credits are only available to customers who are invoiced (with or without metered add-ons). Prepaid credits can't be used if your account _only_ includes metered add-ons.
+
 ## Viewing promotion and discounts
 
 In the "Current promotions and discounts" section in the top right, you can see the total amount of promotions and discounts applied to your account. Click **More details** to view a breakdown of the promotions and discounts.
