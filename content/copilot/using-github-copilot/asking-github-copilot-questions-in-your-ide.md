@@ -23,20 +23,6 @@ shortTitle: Chat in IDE
 
 {% data reusables.copilot.chat-access-denied %}
 
-## AI models for {% data variables.product.prodname_copilot_chat_short %}
-
-{% data reusables.copilot.copilot-chat-models-beta-note %}
-
-{% data reusables.copilot.copilot-chat-models-list %}
-
-### Changing your AI model
-
-{% data reusables.copilot.chat-model-limitations-ide %}
-
-{% data reusables.copilot.model-picker-enable-o1-models %}
-{% data reusables.copilot.open-chat-vs-code %}
-1. In the bottom right of the chat view, select the **CURRENT-MODEL** {% octicon "chevron-down" aria-hidden="true" %} dropdown menu, then click the AI model of your choice.
-
 ## Submitting prompts
 
 You can ask {% data variables.product.prodname_copilot_chat_short %} to give code suggestions, explain code, generate unit tests, and suggest code fixes.
@@ -163,6 +149,20 @@ You can tell {% data variables.product.prodname_copilot_short %} to answer a que
 
 {% endif %}
 
+## AI models for {% data variables.product.prodname_copilot_chat_short %}
+
+{% data reusables.copilot.copilot-chat-models-beta-note %}
+
+{% data reusables.copilot.copilot-chat-models-list %}
+
+### Changing your AI model
+
+{% data reusables.copilot.chat-model-limitations-ide %}
+
+{% data reusables.copilot.model-picker-enable-o1-models %}
+{% data reusables.copilot.open-chat-vs-code %}
+1. In the bottom right of the chat view, select the **CURRENT-MODEL** {% octicon "chevron-down" aria-hidden="true" %} dropdown menu, then click the AI model of your choice.
+
 ## Additional ways to access {% data variables.product.prodname_copilot_chat_short %}
 
 In addition to submitting prompts through the chat view, you can submit prompts in other ways:
@@ -216,22 +216,6 @@ To leave feedback about the {% data variables.product.prodname_copilot_chat %} e
 * **Sign in to {% data variables.product.company_short %} in {% data variables.product.prodname_vs %}**. If you experience authentication issues, see "[AUTOTITLE](/copilot/troubleshooting-github-copilot/troubleshooting-issues-with-github-copilot-chat-in-ides#troubleshooting-authentication-issues-in-your-editor)."
 
 {% data reusables.copilot.chat-access-denied %}
-
-## AI models for {% data variables.product.prodname_copilot_chat_short %}
-
-{% data reusables.copilot.copilot-chat-models-beta-note %}
-
-{% data reusables.copilot.copilot-chat-models-list %}
-
-### Changing your AI model
-
-To use multi-model {% data variables.product.prodname_copilot_chat_short %}, you must use {% data variables.product.prodname_vs %} 17.12 Preview 3 or later. See [{% data variables.product.prodname_vs %} 2022 Preview](https://visualstudio.microsoft.com/vs/preview/#download-preview).
-
-{% data reusables.copilot.chat-model-limitations-ide %}
-
-{% data reusables.copilot.model-picker-enable-o1-models %}
-1. In the {% data variables.product.prodname_vs %} menu bar, click **View**, then click **{% data variables.product.prodname_copilot_chat %}**.
-1. In the bottom right of the chat view, select the **CURRENT-MODEL** {% octicon "triangle-down" aria-hidden="true" %} dropdown menu, then click the AI model of your choice.
 
 ## Submitting prompts
 
@@ -319,6 +303,22 @@ You can tell {% data variables.product.prodname_copilot_short %} to answer a que
 1. {% data variables.product.prodname_copilot_chat_short %} will process your question and provide an answer, with citations from your knowledge base, in the chat window.
 
 {% endif %}
+
+## AI models for {% data variables.product.prodname_copilot_chat_short %}
+
+{% data reusables.copilot.copilot-chat-models-beta-note %}
+
+{% data reusables.copilot.copilot-chat-models-list %}
+
+### Changing your AI model
+
+To use multi-model {% data variables.product.prodname_copilot_chat_short %}, you must use {% data variables.product.prodname_vs %} 17.12 Preview 3 or later. See [{% data variables.product.prodname_vs %} 2022 Preview](https://visualstudio.microsoft.com/vs/preview/#download-preview) in the {% data variables.product.prodname_vs %} documentation.
+
+{% data reusables.copilot.chat-model-limitations-ide %}
+
+{% data reusables.copilot.model-picker-enable-o1-models %}
+1. In the {% data variables.product.prodname_vs %} menu bar, click **View**, then click **{% data variables.product.prodname_copilot_chat %}**.
+1. In the bottom right of the chat view, select the **CURRENT-MODEL** {% octicon "triangle-down" aria-hidden="true" %} dropdown menu, then click the AI model of your choice.
 
 ## Additional ways to access {% data variables.product.prodname_copilot_chat_short %}
 
