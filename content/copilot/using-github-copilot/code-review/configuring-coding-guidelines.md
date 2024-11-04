@@ -31,11 +31,11 @@ Coding guidelines are configured at the repository level. You can create and ena
 ## Dos and don'ts for coding guidelines
 
 * **Do** use simple, clear and concise language to describe your coding guideline.
-* **Do** be as specific as possible about what Copilot should look for - that is, what you \*o or don't want to see in your code.
-* **Do** take a look at the "[Coding guidelines examples](#coding-guidelines-examples)" \*elow for some inspiration.
-* **Don't** try to use coding guidelines to enforce style guidelines that can be covered \*y your linter or static analysis tool.
+* **Do** be as specific as possible about what Copilot should look for - that is, what you do or don't want to see in your code.
+* **Do** take a look at the "[Coding guidelines examples](#coding-guidelines-examples)" below for some inspiration.
+* **Don't** try to use coding guidelines to enforce style guidelines that can be covered by your linter or static analysis tool.
 * **Don't** use wording that is ambiguous or could be interpreted in different ways.
-* **Don't** try to fit multiple different ideas into a single coding guideline.\*
+* **Don't** try to fit multiple different ideas into a single coding guideline.
 
 ## Creating a coding guideline
 
