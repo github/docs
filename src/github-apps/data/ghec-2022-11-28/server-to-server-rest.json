@@ -2943,6 +2943,60 @@
       "requestPath": "/orgs/{org}/hooks/{hook_id}/pings"
     },
     {
+      "slug": "get-route-stats-by-actor",
+      "subcategory": "api-insights",
+      "verb": "get",
+      "requestPath": "/orgs/{org}/insights/api/route-stats/{actor_type}/{actor_id}"
+    },
+    {
+      "slug": "get-subject-stats",
+      "subcategory": "api-insights",
+      "verb": "get",
+      "requestPath": "/orgs/{org}/insights/api/subject-stats"
+    },
+    {
+      "slug": "get-summary-stats",
+      "subcategory": "api-insights",
+      "verb": "get",
+      "requestPath": "/orgs/{org}/insights/api/summary-stats"
+    },
+    {
+      "slug": "get-summary-stats-by-user",
+      "subcategory": "api-insights",
+      "verb": "get",
+      "requestPath": "/orgs/{org}/insights/api/summary-stats/users/{user_id}"
+    },
+    {
+      "slug": "get-summary-stats-by-actor",
+      "subcategory": "api-insights",
+      "verb": "get",
+      "requestPath": "/orgs/{org}/insights/api/summary-stats/{actor_type}/{actor_id}"
+    },
+    {
+      "slug": "get-time-stats",
+      "subcategory": "api-insights",
+      "verb": "get",
+      "requestPath": "/orgs/{org}/insights/api/time-stats"
+    },
+    {
+      "slug": "get-time-stats-by-user",
+      "subcategory": "api-insights",
+      "verb": "get",
+      "requestPath": "/orgs/{org}/insights/api/time-stats/users/{user_id}"
+    },
+    {
+      "slug": "get-time-stats-by-actor",
+      "subcategory": "api-insights",
+      "verb": "get",
+      "requestPath": "/orgs/{org}/insights/api/time-stats/{actor_type}/{actor_id}"
+    },
+    {
+      "slug": "get-user-stats",
+      "subcategory": "api-insights",
+      "verb": "get",
+      "requestPath": "/orgs/{org}/insights/api/user-stats/{user_id}"
+    },
+    {
       "slug": "list-app-installations-for-an-organization",
       "subcategory": "orgs",
       "verb": "get",
