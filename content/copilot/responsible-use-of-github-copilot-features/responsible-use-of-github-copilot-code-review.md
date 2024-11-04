@@ -7,6 +7,10 @@ versions:
 topics:
   - Copilot
 type: rai
+redirect_from:
+  - /early-access/copilot/code-review/responsible-use-of-copilot-code-review
+  - /early-access/copilot/code-reviews/responsible-use-of-copilot-code-review
+  - /early-access/copilot/code-reviews/responsible-use-of-copilot-code-reviews
 ---
 
 > [!NOTE]

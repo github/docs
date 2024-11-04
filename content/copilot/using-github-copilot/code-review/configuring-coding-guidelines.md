@@ -3,12 +3,13 @@ title: Configuring coding guidelines for GitHub Copilot code review
 shortTitle: Configuring coding guidelines
 intro: "Learn how to customize {% data variables.copilot.copilot_code-review_short %} with custom coding guidelines."
 allowTitleToDifferFromFilename: true
-redirect_from:
-  - /early-access/copilot/code-reviews/configuring-coding-guidelines
 versions:
   feature: copilot
 topics:
   - Copilot
+redirect_from:
+  - /early-access/copilot/code-review/configuring-coding-guidelines
+  - /early-access/copilot/code-reviews/configuring-coding-guidelines
 ---
 
 > [!NOTE] Custom coding guidelines are limited to selected participants in the {% data variables.release-phases.public_preview %} of {% data variables.copilot.copilot_code-review_short %}, and only available as part of a subscription to {% data variables.product.prodname_copilot_enterprise %}.
