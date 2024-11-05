@@ -9,7 +9,6 @@ redirect_from:
 versions:
   fpt: '*'
   ghes: '*'
-  ghae: '*'
   ghec: '*'
 topics:
   - Pull requests
@@ -17,15 +16,14 @@ shortTitle: View progress to milestone
 ---
 {% data reusables.repositories.navigate-to-repo %}
 {% data reusables.repositories.sidebar-issue-pr %}
-3. In the upper-left corner, click **Milestones**.
-  ![Issues Milestone button](/assets/images/help/issues/issues_milestone_button.png)
-4. Select the milestone you wish to see more information about.
+1. In the upper-right corner, click **Milestones**.
 
-![Issues Milestone overview](/assets/images/help/issues/issues_milestone_overview.png)
+   ![Screenshot of the list of issues for a repository. Above the list, a button, labeled with a signpost icon and "Milestones," is outlined in dark orange.](/assets/images/help/issues/issues-milestone-button.png)
+1. Click the milestone you wish to see more information about.
 
-To better manage your project, you can prioritize issues or pull requests within a milestone. For more information, see "[About milestones](/articles/about-milestones#prioritizing-issues-and-pull-requests-in-milestones)."
+To better manage your project, you can prioritize issues or pull requests within a milestone. For more information, see "[AUTOTITLE](/issues/using-labels-and-milestones-to-track-work/about-milestones#prioritizing-issues-and-pull-requests-in-milestones)."
 
 ## Further reading
 
-* "[Associating milestones with issues and pull requests](/articles/associating-milestones-with-issues-and-pull-requests)"
-* "[Filtering issues and pull requests by milestone](/articles/filtering-issues-and-pull-requests-by-milestone)"
+* "[AUTOTITLE](/issues/using-labels-and-milestones-to-track-work/associating-milestones-with-issues-and-pull-requests)"
+* "[AUTOTITLE](/issues/using-labels-and-milestones-to-track-work/filtering-issues-and-pull-requests-by-milestone)"

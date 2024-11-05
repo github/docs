@@ -1,0 +1,60 @@
+name: Purge Fastly
+
+# **What it does**: Sends a soft-purge to Fastly.
+# **Why we have it**: So that, right after a production deploy, we start afresh
+# **Who does it impact**: Writers and engineers.
+
+on:
+  workflow_dispatch:
+    inputs:
+      nuke_all:
+        description: "Nuke all 'every-deployment' keys independent of language"
+        required: false
+        type: boolean
+        default: false
+      languages:
+        description: "Comma separated languages. E.g. 'en,ja, es' (defaults to all)"
+        required: false
+        default: ''
+  workflow_run:
+    workflows: ['Azure Production - Build and Deploy']
+    types:
+      - completed
+
+permissions:
+  contents: read
+
+env:
+  FASTLY_TOKEN: ${{ secrets.FASTLY_TOKEN }}
+  FASTLY_SERVICE_ID: ${{ secrets.FASTLY_SERVICE_ID }}
+
+jobs:
+  send-purges:
+    if: >-
+      ${{
+        github.repository == 'github/docs-internal' &&
+        (github.event_name != 'workflow_run' ||
+        github.event.workflow_run.conclusion == 'success')
+      }}
+    runs-on: ubuntu-latest
+    steps:
+      - name: Check out repo
+        uses: actions/checkout@b4ffde65f46336ab88eb53be808477a3936bae11 # v4.1.1
+
+      - uses: ./.github/actions/node-npm-setup
+
+      - name: Purge Fastly edge cache independent of language
+        if: ${{ inputs.nuke_all }}
+        run: src/workflows/purge-fastly-edge-cache.js
+
+      - name: Purge Fastly edge cache per language
+        if: ${{ !inputs.nuke_all }}
+        env:
+          LANGUAGES: ${{ inputs.languages }}
+        run: src/languages/scripts/purge-fastly-edge-cache-per-language.js
+
+      - uses: ./.github/actions/slack-alert
+        if: ${{ failure() && github.event_name != 'workflow_dispatch' }}
+        with:
+          slack_channel_id: ${{ secrets.DOCS_ALERTS_SLACK_CHANNEL_ID }}
+          slack_token: ${{ secrets.SLACK_DOCS_BOT_TOKEN }}

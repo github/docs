@@ -1,0 +1,338 @@
+date: '2023-11-14'
+release_candidate: true
+deprecated: true
+intro: |
+  {% note %}
+
+  **Note:** Release candidate (RC) builds are intended solely for use in a test environment. If {% data variables.location.product_location %} is running an RC, you cannot upgrade to the general availability (GA) release. You also cannot upgrade with a hotpatch.
+
+  {% endnote %}
+
+  For upgrade instructions, see "[Upgrading {% data variables.product.prodname_ghe_server %}](/admin/enterprise-management/updating-the-virtual-machine-and-physical-resources/upgrading-github-enterprise-server)."
+
+sections:
+  features:
+    - heading: Instance administration
+      notes:
+        # https://github.com/github/releases/issues/3439
+        - |
+          Instance administrators can perform administrative tasks using the `gh es` extension for the GitHub CLI. The extension communicates with your instance's management API, so you don't need to SSH into the instance or write a custom application. For more information, see "[AUTOTITLE](/admin/administering-your-instance/administering-your-instance-from-the-command-line/administering-your-instance-using-the-github-cli)."
+
+    - heading: Authentication
+      notes:
+        # https://github.com/github/releases/issues/3320
+        - |
+          To help users discover the required permissions for calls to a REST API endpoint, GitHub Enterprise Server returns the `X-Accepted-GitHub-Permissions` header for requests to endpoints that use fine-grained permissions, including requests from GitHub Apps. For more information, see the following articles.
+
+          - "[AUTOTITLE](/rest/overview/troubleshooting#insufficient-permissions-errors)"
+          - "[AUTOTITLE](/rest/overview/permissions-required-for-fine-grained-personal-access-tokens)"
+          - "[AUTOTITLE](/rest/overview/permissions-required-for-github-apps)"
+
+    - heading: Audit logs
+      notes:
+        # https://github.com/github/releases/issues/3263
+        - |
+          The web interface for enterprise, organization, and user audit logs include an expandable view that displays the full audit log payload for each event. Administrators and users can see the same event metadata when searching the audit log in the web interface or via streaming. For more information, see the following articles.
+
+          - "[AUTOTITLE](/admin/monitoring-activity-in-your-enterprise/reviewing-audit-logs-for-your-enterprise/about-the-audit-log-for-your-enterprise)"
+          - "[AUTOTITLE](/organizations/keeping-your-organization-secure/managing-security-settings-for-your-organization/reviewing-the-audit-log-for-your-organization)"
+          - "[AUTOTITLE](/authentication/keeping-your-account-and-data-secure/reviewing-your-security-log)"
+
+    - heading: GitHub Advanced Security
+      notes:
+        # https://github.com/github/releases/issues/3066
+        - |
+           On an instance with GitHub Actions enabled, in repositories that use default setup for code scanning, the default setup configuration updates automatically if GitHub detects new languages. Users can view a repository's language configuration for default setup from the repository's "Code security and analysis" settings page. Additionally, users can view information about setup and debug failed languages from the tools status page. For more information, see the following articles.
+
+           - "[AUTOTITLE](/code-security/code-scanning/enabling-code-scanning/configuring-default-setup-for-code-scanning-at-scale#about-adding-languages-to-an-existing-default-setup-configuration)"
+           - "[AUTOTITLE](/code-security/code-scanning/enabling-code-scanning/configuring-default-setup-for-code-scanning)"
+           - "[AUTOTITLE](/code-security/code-scanning/automatically-scanning-your-code-for-vulnerabilities-and-errors/about-the-tool-status-page)"
+
+        # https://github.com/github/releases/issues/3258
+        - |
+          On an instance with GitHub Actions enabled, default setup for code scanning at the organization level is now generally available. For more information, see "[AUTOTITLE](/code-security/code-scanning/enabling-code-scanning/configuring-default-setup-for-code-scanning-at-scale)" and "[AUTOTITLE](/rest/orgs/orgs?apiVersion=2022-11-28#enable-or-disable-a-security-feature-for-an-organization)" in the REST API documentation.
+
+        # https://github.com/github/releases/issues/3214
+        - |
+          On an instance with GitHub Actions enabled, during configuration of default setup for code scanning, users can select either the "Extended" or "Default" query suite for eligible repositories in an organization. For more information, see "[AUTOTITLE](/code-security/code-scanning/managing-your-code-scanning-configuration/built-in-codeql-query-suites)" and "[AUTOTITLE](/code-security/code-scanning/enabling-code-scanning/configuring-default-setup-for-code-scanning)."
+
+        # https://github.com/github/releases/issues/2841
+        - |
+          On an instance with GitHub Actions enabled, to better protect active and inactive repositories, GitHub Enterprise Server automatically analyzes repositories that use a default setup for code scanning. The analysis runs on a weekly schedule and uses the most recent version of CodeQL. When configuring code scanning, the fixed time for the weekly scan is randomly chosen. The scan will take place at the same time every week, and the schedule is displayed after the setup is completed, so users can easily see when the next scheduled analysis will occur. The scheduled analysis will be automatically disabled if a repository has no activity for six months. Creation of a pull request or pushes to the repository will re-enable scheduled analysis.
+
+        # https://github.com/github/releases/issues/3283
+        - |
+          Code scanning default setup is available for Swift analysis with CodeQL. For more information, see "[AUTOTITLE](/code-security/code-scanning/automatically-scanning-your-code-for-vulnerabilities-and-errors/configuring-code-scanning-for-a-repository#configuring-code-scanning-automatically)."
+
+        # https://github.com/github/releases/issues/3355
+        - |
+          CodeQL 2.14.6 and later supports analysis of code written in Go 1.21. For more information, see "[Supported languages and frameworks](https://codeql.github.com/docs/codeql-overview/supported-languages-and-frameworks/)" in the CodeQL documentation.
+
+        # https://github.com/github/releases/issues/3289
+        - |
+          With CodeQL model packs for Java, users can improve code scanning results by ensuring that any custom Java libraries and frameworks used by their codebase are recognized by CodeQL. For more information, see the following documentation.
+
+          - "[AUTOTITLE](/code-security/code-scanning/managing-your-code-scanning-configuration/editing-your-configuration-of-default-setup#extending-codeql-coverage-with-codeql-model-packs-in-default-setup)"
+          - "[AUTOTITLE](/code-security/code-scanning/creating-an-advanced-setup-for-code-scanning/customizing-your-advanced-setup-for-code-scanning#extending-codeql-coverage-with-codeql-model-packs)"
+          - "[Using the CodeQL model editor](https://codeql.github.com/docs/codeql-for-visual-studio-code/using-the-codeql-model-editor)" in the CodeQL documentation
+
+        # https://github.com/github/releases/issues/3110
+        - |
+          For instances with GitHub Connect configured, code scanning with CodeQL supports Java codebases that use [Project Lombok](https://projectlombok.org/). Previously, code scanning users were able to scan Java applications that contained Lombok code, but all the contents of files containing Lombok code were either skipped or users had to apply a workaround to prepare the applications for scanning. Lombok features will now be automatically scanned without requiring any workaround.
+
+          For more information about syncing the required GitHub Actions workflow to scan Lombok code, see "[AUTOTITLE](/admin/code-security/managing-github-advanced-security-for-your-enterprise/configuring-code-scanning-for-your-appliance#configuring-github-connect-to-sync-github-actions)."
+
+        # https://github.com/github/releases/issues/2920
+        - |
+          Push protection for secret scanning is now generally available. For more information, see "[AUTOTITLE](/code-security/secret-scanning/protecting-pushes-with-secret-scanning)."
+
+        # https://github.com/github/releases/issues/2649
+        # https://github.com/github/releases/issues/2866
+        # https://github.com/github/releases/issues/3196
+        - |
+          To prevent the leak of tokens where users work outside of code, secret scanning detects tokens in both new and historical issue titles, descriptions, and comments. When a new token type is added to secret scanning, GitHub Enterprise Server scans for matches automatically. This expanded coverage also detects and surfaces secrets that match any custom pattern defined at the repository, organization, or enterprise level. These secrets appear both in the web interface and in queries to the REST API. For more information, see "[AUTOTITLE](/code-security/secret-scanning/about-secret-scanning)" and "[AUTOTITLE](/code-security/secret-scanning/defining-custom-patterns-for-secret-scanning)."
+
+        # https://github.com/github/releases/issues/2868
+        - |
+          Users can view metrics associated with push protection usage across an organization. The overview shows a summary of blocks and bypasses, as well as more granular metrics. For more information, see "[AUTOTITLE](/code-security/security-overview/assessing-code-security-risk)."
+
+        # https://github.com/github/releases/issues/3291
+        - |
+          A new REST API endpoint is available for dataflow analysis using custom CodeQL queries. The new endpoint offers additional flexibility, includes improvements that prevent common pitfalls with the old API, and improves the performance of query evaluation by five percent. For more information, see [New dataflow API for writing custom CodeQL queries](https://github.blog/changelog/2023-08-14-new-dataflow-api-for-writing-custom-codeql-queries/) in the GitHub Changelog.
+
+    - heading: Dependabot
+      notes:
+        # https://github.com/github/releases/issues/2919
+        - |
+          For developers who manage Node.js dependencies using the pnpm package manager, pnpm is fully supported by dependency graph, Dependabot alerts, and Dependabot security updates. For more information about securing your supply chain with Dependabot, see "[AUTOTITLE](/code-security/dependabot)."
+
+        # https://github.com/github/releases/issues/3171
+        - |
+          Developers can enforce policies related to vulnerabilities and licenses in pull requests for complex ecosystems with transitive dependencies like Gradle and Scala. Dependency review supports dependencies from the dependency submission API. For more information, see the following articles.
+
+          - "[AUTOTITLE](/code-security/supply-chain-security/understanding-your-software-supply-chain/about-dependency-review#best-practices-for-using-the-dependency-review-api-and-the-dependency-submission-api-together)"
+          - "[AUTOTITLE](/code-security/supply-chain-security/understanding-your-software-supply-chain/about-dependency-review)"
+          - "[AUTOTITLE](/code-security/supply-chain-security/understanding-your-software-supply-chain/using-the-dependency-submission-api)"
+
+        # https://github.com/github/releases/issues/3268
+        # https://github.com/github/releases/issues/3362
+        # https://github.com/github/releases/issues/3363
+        # https://github.com/github/releases/issues/3364
+        - |
+          To control how Dependabot structures pull requests and improve mergeability, users can implement flexible grouping options in `dependabot.yml`. You can also control Dependabot's behavior for groups using comment commands. For more information, see "[AUTOTITLE](/code-security/dependabot/dependabot-version-updates/configuration-options-for-the-dependabot.yml-file#groups)" and "[AUTOTITLE](/code-security/dependabot/working-with-dependabot/managing-pull-requests-for-dependency-updates#managing-dependabot-pull-requests-with-comment-commands)."
+
+        # https://github.com/github/releases/issues/3270
+        # https://github.com/github/releases/issues/3271
+        - |
+          Dependabot can open pull requests for Swift and Gradle dependencies.
+
+          - Users can also configure scheduled updates for Swift dependencies using `dependabot.yml`.
+          - If users have used the REST API for dependency submission to upload Gradle dependencies to the dependency graph and receive Dependabot alerts for those dependencies, Dependabot will try to open a pull request to resolve security updates enabled for the repository.
+
+          For more information, see "[AUTOTITLE](/code-security/dependabot/dependabot-security-updates/configuring-dependabot-security-updates)."
+
+        # https://github.com/github/releases/issues/3287
+        - |
+          Responses from REST API endpoints for repositories display whether Dependabot security updates are enabled or disabled. Users can also enable or disable security updates for a repository using the REST API. For more information, see "[AUTOTITLE](/rest/repos/repos)" in the REST API documentation.
+
+    - heading: Code security
+      notes:
+        # https://github.com/github/releases/issues/3259
+        - |
+          To assess risks to code security and ensure adoption of features to improve code security, the "Security risk" and "Security coverage" pages for organizations and the entire instance are generally available. Additionally, the alert-centric pages for Dependabot, code scanning, and secret scanning are also now generally available. For more information, see "[Assessing your code security risk](/code-security/security-overview/assessing-code-security-risk)" and "[Assessing adoption of code security features](/code-security/security-overview/assessing-adoption-code-security)."
+
+        # https://github.com/github/releases/issues/3126
+        - |
+         Users can take advantage of the [GitHub Advisory Database](https://github.com/advisories) using the REST API. The Advisory Database is a free, open-source list of actionable security advisories and CVEs. API responses include machine-readable mappings to the ecosystem, package name, and affected versions of impacted software. For more information, see "[AUTOTITLE](/rest/security-advisories/global-advisories)" in the REST API documentation.
+
+    - heading: GitHub Actions
+      notes:
+        # https://github.com/github/releases/issues/3247
+        - |
+          To better navigate, trace, understand, and monitor deployments, users can view and track the full history of deployments in a repository or filter across environments. For more information, see "[AUTOTITLE](/actions/deployment/managing-your-deployments/viewing-deployment-history)."
+
+        # https://github.com/github/releases/issues/3402
+        - |
+          Users can improve the security of deployment environments by configuring a branch protection policy to only allow specific branches to deploy to an environment. Additionally, the following security improvements apply to environments.
+
+          - GitHub Enterprise Server blocks runs triggered from forks with branch names that match the protected branch's name.
+          - Tags with the same name as a protected branch cannot deploy to the environments with a branch protection configuration.
+
+          For more information, see "[AUTOTITLE](/actions/deployment/targeting-different-environments/using-environments-for-deployment#deployment-branches)."
+
+        # https://github.com/github/releases/issues/3489
+        - |
+          On an instance with GitHub Actions enabled and a configuration for deployment environments, administrators for environments can improve the security of deployments by enforcing a review by someone other than the person who triggered the run. This option prevents required reviewers from self-reviewing to trigger workflows. For more information, see "[AUTOTITLE](/actions/deployment/targeting-different-environments/using-environments-for-deployment#required-reviewers)."
+
+    - heading: Organizations
+      notes:
+        # https://github.com/github/releases/issues/3465
+        - |
+          Organization owners can signal that an organization is no longer actively maintained by archiving the organization. For more information, see "[AUTOTITLE](/organizations/managing-organization-settings/archiving-an-organization)."
+
+    - heading: Repositories
+      notes:
+        # https://github.com/github/releases/issues/2926
+        - |
+          Users can govern protections for branches and tags in a repository using repository rules. To govern the protections for all of an organization's repositories, users can also enable rulesets for an organization. Contributors to a repository can see which rules apply via the web interface, Git, or the GitHub CLI. For more information, see "[AUTOTITLE](/repositories/configuring-branches-and-merges-in-your-repository/managing-rulesets/about-rulesets)."
+
+        # https://github.com/github/releases/issues/3081
+        - |
+          Users can create new repositories with predefined attributes using query parameters. For example, a user can create a URL that prepopulates information about the repository like the name, description, visibility, and more. For more information, see "[AUTOTITLE](/repositories/creating-and-managing-repositories/creating-a-new-repository#creating-a-new-repository-from-a-url-query)."
+
+        # https://github.com/github/releases/issues/2741
+        - |
+          Users can more easily understand changes to a repository using the activity view. For more information, see "[AUTOTITLE](/repositories/viewing-activity-and-data-for-your-repository/using-the-activity-view-to-see-changes-to-a-repository)."
+
+    - heading: Issues
+      notes:
+        # https://github.com/github/releases/issues/3324
+        - |
+          Users can automatically add a new issue to projects using a custom issue form by defining `projects` in the issue template. For more information, see "[AUTOTITLE](/communities/using-templates-to-encourage-useful-issues-and-pull-requests/syntax-for-issue-forms)."
+
+    - heading: Projects
+      notes:
+        # https://github.com/github/releases/issues/3205
+        - |
+          Users can review items in a project view broken down by a certain field value. For more information, see "[AUTOTITLE](/issues/planning-and-tracking-with-projects/customizing-views-in-your-project/customizing-the-table-layout#slicing-by-field-values)."
+
+        # https://github.com/github/releases/issues/3205
+        - |
+          Users can create charts to visualize current project items, or visualize project items over time. For more information, see "[AUTOTITLE](/issues/planning-and-tracking-with-projects/viewing-insights-from-your-project/about-insights-for-projects)."
+
+    - heading: Accessibility
+      notes:
+        # https://github.com/github/releases/issues/3340
+        - |
+          To improve the visibility of links with blocks of text in the web interface for GitHub Enterprise Server, users can apply underline styling. For more information, see "[AUTOTITLE](/account-and-profile/setting-up-and-managing-your-personal-account-on-github/managing-user-account-settings/managing-accessibility-settings#managing-the-appearance-of-links)."
+
+  changes:
+    # https://github.com/github/releases/issues/3319
+    - |
+      The speed of restoration operations with GitHub Enterprise Server Backup Utilities has increased.
+
+    # https://github.com/github/releases/issues/3403
+    - |
+      Field names for some service logs on GitHub Enterprise Server have changed as part of GitHub's gradual migration to internal semantic conventions for [OpenTelemetry](https://opentelemetry.io/). Additional field names were changed in GitHub Enterprise Server 3.9 and 3.10. If any tooling or processes in your environment rely on specific field names within logs, or log entries in specific files, the following changes may affect you.
+
+      - `level` is now `SeverityText`.
+      - `log_message`, `msg`, or `message` is now `Body`.
+      - `now` is now `Timestamp`.
+      - Custom field names such as `gh.repo.id` or `graphql.operation.name` use semantic names.
+      - Log statements that the instance would previously write to `auth.log`, `ldap.log`, or `ldap-sync.log` now appear in containerized logs for `github-unicorn` if the statement originated from a web request, or in logs for `github-resqued` if the statement originated from a background job. For more information about containerized logs, see "[AUTOTITLE](/admin/monitoring-managing-and-updating-your-instance/monitoring-your-appliance/about-system-logs#system-logs-in-the-systemd-journal)."
+
+      For a full list of mappings, download the OpenTelemetry attribute mapping CSV for GitHub Enterprise Server [3.9](/assets/ghes-3.9-opentelemetry-attribute-mappings.csv), [3.10](/assets/ghes-3.10-opentelemetry-attribute-mappings.csv), and [3.11](/assets/ghes-3.11-opentelemetry-attribute-mappings.csv).
+
+    # https://github.com/github/releases/issues/3281
+    - |
+      On an instance that uses built-in authentication or LDAP, if two-factor authentication (2FA) is configured for an organization, a user could use a TOTP code multiple times within the code's window of validity during authentication or when entering sudo mode for sensitive actions. To improve security, this reuse is no longer allowed. External systems with a scripted login flow across multiple parallel jobs may stop working as a result of this change.
+
+      For more information about 2FA, see the following articles.
+
+      - "[AUTOTITLE](/admin/managing-accounts-and-repositories/managing-organizations-in-your-enterprise/requiring-two-factor-authentication-for-an-organization)"
+      - "[AUTOTITLE](/authentication/keeping-your-account-and-data-secure/sudo-mode)"
+      - "[AUTOTITLE](/authentication/securing-your-account-with-two-factor-authentication-2fa/configuring-two-factor-authentication#configuring-two-factor-authentication-using-a-totp-mobile-app)"
+
+    # https://github.com/github/releases/issues/3327
+    - |
+      On an instance with a GitHub Advanced Security license, during analysis of Python projects with code scanning using CodeQL and an advanced setup, GitHub Enterprise Server would automatically install dependencies for the project. Due to improvements to CodeQL, GitHub Enterprise Server no longer needs to fetch these dependencies to analyze a codebase. To improve scan times for Python projects, automatic dependency installation is disabled.
+
+      If you configured code scanning with CodeQL via advanced setup to disable dependency installation, GitHub recommends setting `setup-python-dependencies` to `false` for the configuration. For more information, see "[AUTOTITLE](/code-security/code-scanning/creating-an-advanced-setup-for-code-scanning/customizing-your-advanced-setup-for-code-scanning#analyzing-python-dependencies)."
+
+    # https://github.com/github/releases/issues/3172
+    - |
+      On an instance with Dependabot enabled, due to misconfiguration or incompatible versions, Dependabot jobs for a repository can fail. After 30 failed runs, subsequent scheduled jobs will fail immediately until you trigger a check for updates from the dependency graph, or until you update a manifest file. Jobs for Dependabot security updates will still trigger normally.
+
+    # https://github.com/github/releases/issues/3284
+    - |
+      On an instance with GitHub Advanced Security, to help users more efficiently review and filter code scanning alerts at scale using the REST API, the `updated_at` field in API responses is improved. The `updated_at` timestamp now represents an alert's most recent state change on the branch that you requested. State changes include an alert being introduced, fixed, dismissed, reopened, or reintroduced. Previously, the `updated_at` timestamp changed frequently, whenever an alert was found in an analysis or the alert state changed. For more information about using the REST API to retrieve code scanning alerts, see "[AUTOTITLE](/rest/code-scanning/code-scanning?apiVersion=2022-11-28)" in the REST API documentation.
+
+    # https://github.com/github/releases/issues/2874
+    - |
+      On an instance with Dependabot enabled, the following improvements apply to the repository view for dependency graph, available from the repository's "Insights" tab.
+
+      - Users can search by package name from a paginated list of all dependencies.
+      - Dependency licenses are displayed.
+      - Dependabot alerts appear for dependencies, sorted by severity, and link to the Dependabot alerts and the Dependabot update pull request where applicable.
+
+      For more information about the dependency graph, see "[AUTOTITLE](/code-security/supply-chain-security/understanding-your-software-supply-chain/about-the-dependency-graph)."
+
+    # https://github.com/github/releases/issues/3253
+    - |
+      After first enabling Dependabot on an instance, GitHub Enterprise Server will no longer send web or email notifications for repositories that are initially populated with Dependabot alerts. This allows you to review the new Dependabot alerts for a repository, organization, or the entire instance without immediately notifying other users of existing alerts.
+
+    # https://github.com/github/releases/issues/2603
+    - |
+      On an instance with GitHub Actions enabled, workflows that use Node.js 12 will log a warning. Node.js 12 has been end-of-life since [April 2022](https://github.com/nodejs/Release/#end-of-life-releases).
+
+      - Workflow authors should update actions to run on Node.js 16 instead of 12. For more information, see "[AUTOTITLE](/actions/creating-actions/metadata-syntax-for-github-actions#runs-for-javascript-actions)."
+      - Users with workflows that use Node.js should specify Node.js 16 or later in the workflows using versioned actions. For more information, see "[AUTOTITLE](/actions/using-workflows/workflow-syntax-for-github-actions#example-using-versioned-actions)."
+
+    # https://github.com/github/releases/issues/3500
+    - |
+      On an instance with GitHub Actions enabled and runners using GitHub Actions Runner 2.309.0 or later, users can no longer use `GITHUB_ENV` to set the `NODE_OPTIONS` environment variable in workflows. Workflows that set `NODE_OPTIONS` as an environment variable will now log the following error. For more information, see "[AUTOTITLE](/actions/using-workflows/workflow-commands-for-github-actions#setting-an-environment-variable)" and the [v2.309.0 release](https://github.com/actions/runner/releases/tag/v2.309.0) in the actions/runner repository on GitHub.com.
+
+      ```shell
+      Can't store NODE_OPTIONS output parameter using '$GITHUB_ENV' command.
+      ```
+
+    # https://github.com/github/releases/issues/3205
+    - |
+      Users can quickly take action on multiple items in a group, or the group itself, using the `•••` button in a table, board, or roadmap.
+
+    # https://github.com/github/releases/issues/3219
+    - |
+      Users can break out items in a project by workstreams, team members, priorities, or other groupings using a swimlane view. For more information, see "[AUTOTITLE](/issues/planning-and-tracking-with-projects/customizing-views-in-your-project/customizing-the-board-layout#grouping-by-field-values)."
+
+    # https://github.com/github/releases/issues/3262
+    - |
+      Users can view view the template used to create a project from a project's settings.
+
+    # https://github.com/github/releases/issues/3262
+    - |
+      When scrolling through a project, group headers are now sticky.
+
+    # https://github.com/github/releases/issues/3262
+    - |
+      The colors for single-select fields in a project have been updated, so users see the same colors within the field picker and within project views.
+
+    # https://github.com/github/releases/issues/3262
+    - |
+      Users create can create issues in a project view that's grouped by repository in the board layout by clicking "Create new issue", or by starting to type the issue's title.
+
+  known_issues:
+    - |
+      Custom firewall rules are removed during the upgrade process.
+    - |
+      During the validation phase of a configuration run, a `No such object` error may occur for the Notebook and Viewscreen services. This error can be ignored as the services should still correctly start.
+    - |
+      If the root site administrator is locked out of the Management Console after failed login attempts, the account does not unlock automatically after the defined lockout time. Someone with administrative SSH access to the instance must unlock the account using the administrative shell. For more information, see "[AUTOTITLE](/admin/configuration/administering-your-instance-from-the-management-console/troubleshooting-access-to-the-management-console#unlocking-the-root-site-administrator-account)."
+    - |
+      If an instance is configured to forward logs to a target server with TLS enabled, certificate authority (CA) bundles that a site administrator uploads using `ghe-ssl-ca-certificate-install` are not respected, and connections to the server fail.
+    - |
+      The `mbind: Operation not permitted` error in the `/var/log/mysql/mysql.err` file can be ignored. MySQL 8 does not gracefully handle when the `CAP_SYS_NICE` capability isn't required, and outputs an error instead of a warning.
+    - |
+      On an instance hosted in AWS, system time may lose synchronization with Amazon's servers after an administrator reboots the instance.
+    - |
+      On an instance with the HTTP `X-Forwarded-For` header configured for use behind a load balancer, all client IP addresses in the instance's audit log erroneously appear as 127.0.0.1.
+    - |
+      {% data reusables.release-notes.large-adoc-files-issue %}
+    - |
+      {% data reusables.release-notes.2023-11-cluster-ha-failover-git-push-failure %}
+    - |
+      On an instance in a high-availability configuration, passive replica nodes accept Git client requests and forward the requests to the primary node.
+    - |
+      On an instance with the HTTP `X-Forwarded-For` header configured for use behind a load balancer, all client IP addresses in the instance's audit log erroneously appear as 127.0.0.1.
+    - |
+      {% data reusables.release-notes.2023-10-git-push-made-but-not-registered %}
+
+  deprecations:
+    # https://github.com/github/releases/issues/2605
+    - heading: Dependabot updates no longer support Python 3.6 or 3.7
+      notes:
+        - |
+          Dependabot updates no longer support Python 3.6 or 3.7, which have reached end-of-life. If a user's code uses these versions, Dependabot will no longer be able to open pull requests in your repository and will log errors. Update to Python 3.8 or later to ensure your code is secure and Dependabot can still run.
+
+          Users will continue to receive Dependabot alerts for dependencies with known vulnerabilities. To resolve these alerts, users can manually upgrade the affected package.
+
+           For more information about Python releases, see [Status of Python versions](https://devguide.python.org/versions) on the Python website. For more information about supported package managers for Dependabot, see "[AUTOTITLE](/code-security/dependabot/dependabot-version-updates/about-dependabot-version-updates#supported-repositories-and-ecosystems)."

@@ -1,1 +1,0 @@
-1. Em "{% data variables.product.prodname_dotcom %} Storage for Actions and Packages", veja os detalhes de uso de armazenamento para cada organização na sua conta corporativa, para {% data variables.product.prodname_actions %} e {% data variables.product.prodname_registry %}. ![Detalhes do uso do armazenamento](/assets/images/help/billing/actions-packages-storage-enterprise.png)

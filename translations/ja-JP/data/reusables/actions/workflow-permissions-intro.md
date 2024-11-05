@@ -1,1 +1,0 @@
-`GITHUB_TOKEN`に付与されるデフォルトの権限を設定できます。 For more information about the `GITHUB_TOKEN`, see "[Automatic token authentication](/actions/security-guides/automatic-token-authentication)." デフォルトとして制限された権限セットか、より幅広く許可をする設定を選択できます。 

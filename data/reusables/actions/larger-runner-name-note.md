@@ -1,0 +1,2 @@
+> [!NOTE]
+> The names of {% data variables.actions.hosted_runners %} can dictate their functionality. For example, to use a {% data variables.actions.hosted_runner %} for {% data variables.product.prodname_code_scanning %} default setup, the runner must be named `code-scanning`. For more information on {% data variables.product.prodname_code_scanning %} with {% data variables.actions.hosted_runners %}, see "[AUTOTITLE](/code-security/code-scanning/managing-your-code-scanning-configuration/configuring-larger-runners-for-default-setup)."

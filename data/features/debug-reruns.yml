@@ -1,0 +1,6 @@
+# Issue 6629
+# Enabling debug logging when re-running jobs or workflows
+versions:
+  fpt: '*'
+  ghec: '*'
+  ghes: '>=3.6'

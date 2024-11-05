@@ -14,12 +14,13 @@ redirect_from:
 versions:
   fpt: '*'
   ghes: '*'
-  ghae: '*'
   ghec: '*'
 topics:
   - SSH
 children:
   - /about-ssh
+  - /using-ssh-agent-forwarding
+  - /managing-deploy-keys
   - /checking-for-existing-ssh-keys
   - /generating-a-new-ssh-key-and-adding-it-to-the-ssh-agent
   - /adding-a-new-ssh-key-to-your-github-account
@@ -27,4 +28,3 @@ children:
   - /working-with-ssh-key-passphrases
 shortTitle: Connect with SSH
 ---
-

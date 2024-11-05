@@ -1,0 +1,1 @@
+When you began using {% data variables.product.product_name %}, you must have chosen to create an {% data variables.enterprise.prodname_emu_enterprise %}. For more information, see "[AUTOTITLE](/admin/identity-and-access-management/understanding-iam-for-enterprises/identifying-the-best-authentication-method-for-your-enterprise)."

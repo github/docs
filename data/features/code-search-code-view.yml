@@ -1,0 +1,6 @@
+# Reference: #6672
+# Documentation for GitHub Code Search limited public beta
+# Now in public beta, see CD plan for #9287
+versions:
+  fpt: '*'
+  ghec: '*'

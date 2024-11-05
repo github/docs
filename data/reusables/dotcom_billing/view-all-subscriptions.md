@@ -1,1 +1,1 @@
-To view all the subscriptions for your account on {% data variables.product.product_location %}, see "[Viewing your subscriptions and billing date](/articles/viewing-your-subscriptions-and-billing-date)."
+To view all the subscriptions for your account on {% data variables.product.prodname_dotcom %}, see "[AUTOTITLE](/billing/managing-your-github-billing-settings/viewing-your-subscriptions-and-billing-date)."

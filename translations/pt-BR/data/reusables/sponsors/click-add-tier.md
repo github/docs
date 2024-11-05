@@ -1,1 +1,0 @@
-1. Para criar uma camada mensal, clique **Adicionar uma camada mensal** à direita da página. Como alternativa, para criar uma camada para pagamentos únicos, clique em **Camadas únicas** e, em seguida, clique em **Adicionar uma camada única**. ![Botão adicionar camada](/assets/images/help/sponsors/add-a-tier-button.png)

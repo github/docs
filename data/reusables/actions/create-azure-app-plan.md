@@ -2,7 +2,7 @@
 
    For example, you can use the Azure CLI to create a new App Service plan:
 
-   ```bash{:copy}
+   ```bash copy
    az appservice plan create \
       --resource-group MY_RESOURCE_GROUP \
       --name MY_APP_SERVICE_PLAN \

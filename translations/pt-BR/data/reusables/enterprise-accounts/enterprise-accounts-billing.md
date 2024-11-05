@@ -1,1 +1,0 @@
-As contas corporativas estão disponíveis com {% data variables.product.prodname_ghe_cloud %} e {% data variables.product.prodname_ghe_server %} clientes pagando por fatura. O faturamento para todas as organizações e {% data variables.product.prodname_ghe_server %} instâncias conectadas à sua conta corporativa é agregado em uma única fatura.

@@ -1,0 +1,5 @@
+# Reference: #6724
+# Documentation for Git events in the audit log
+versions:
+  ghec: '*'
+  ghes: '>=3.5'

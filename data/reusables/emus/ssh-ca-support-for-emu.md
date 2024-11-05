@@ -1,0 +1,1 @@
+Members cannot use the certificate to access forks of the organization's repositories, unless the enterprise has allowed SSH CAs to access user owned repositories. For more information, see "[AUTOTITLE](/organizations/managing-git-access-to-your-organizations-repositories/about-ssh-certificate-authorities)."

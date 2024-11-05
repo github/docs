@@ -1,0 +1,53 @@
+name: 'Link Checker: On PR'
+
+# **What it does**: Renders the content of every page and check all internal links on PR.
+# **Why we have it**: To make sure all links connect correctly on changed files.
+# **Who does it impact**: Docs content.
+
+on:
+  workflow_dispatch:
+  merge_group:
+  pull_request:
+
+permissions:
+  contents: read
+  # TODO: Uncomment if we uncomment below
+  # Needed for the 'trilom/file-changes-action' action
+  # pull-requests: read
+
+# This allows a subsequently queued workflow run to interrupt previous runs
+concurrency:
+  group: '${{ github.workflow }} @ ${{ github.event.pull_request.head.label || github.head_ref || github.ref }}'
+  cancel-in-progress: true
+
+jobs:
+  check-links:
+    runs-on: ${{ fromJSON('["ubuntu-latest", "ubuntu-20.04-xl"]')[github.repository == 'github/docs-internal'] }}
+    if: github.repository == 'github/docs-internal' || github.repository == 'github/docs'
+    steps:
+      - name: Checkout
+        uses: actions/checkout@b4ffde65f46336ab88eb53be808477a3936bae11 # v4.1.1
+
+      - uses: ./.github/actions/node-npm-setup
+
+      - uses: ./.github/actions/get-docs-early-access
+        if: ${{ github.repository == 'github/docs-internal' }}
+        with:
+          token: ${{ secrets.DOCS_BOT_PAT_READPUBLICKEY }}
+
+      - name: Link check all pages (internal links only)
+        env:
+          LEVEL: 'critical'
+          ACTION_RUN_URL: ${{ github.server_url }}/${{ github.repository }}/actions/runs/${{ github.run_id }}
+          GITHUB_TOKEN: ${{ secrets.DOCS_BOT_PAT_WRITEORG_PROJECT }}
+          SHOULD_COMMENT: ${{ secrets.DOCS_BOT_PAT_WRITEORG_PROJECT != '' }}
+          CHECK_EXTERNAL_LINKS: false
+          CREATE_REPORT: false
+          CHECK_ANCHORS: true
+          # Not strictly necessary bit it makes warmServer() a bit faster
+          # because it only bothers with English to begin with, which
+          # we're filtering on anyway once the list of all pages has
+          # been loaded.
+          ENABLED_LANGUAGES: en
+          FAIL_ON_FLAW: true
+        run: npm run rendered-content-link-checker

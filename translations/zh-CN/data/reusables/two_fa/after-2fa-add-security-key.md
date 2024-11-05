@@ -1,1 +1,0 @@
-After you configure 2FA, using a time-based one-time password (TOTP) mobile app{% ifversion fpt or ghec %}, or via text message{% endif %}, you can add a security key, like a fingerprint reader or Windows Hello. 启用安全密钥身份验证的技术称为 WebAuthn。 WebAuthn 是 U2F 的继承者，适用于所有现代浏览器。 更多信息请参阅“[WebAuthn](https://webauthn.guide/)”和“[我可以使用](https://caniuse.com/#search=webauthn)”。

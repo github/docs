@@ -1,0 +1,1 @@
+Organization owners can add additional entries to the allow list for their organizations, but they cannot manage entries that are inherited from the enterprise account's allow list, and enterprise owners cannot manage entries added to the organization's allow list.

@@ -1,0 +1,1 @@
+If there is a protected branch rule in your repository that requires a linear commit history, you must allow squash merging, rebase merging, or both. For more information, see "[AUTOTITLE](/repositories/configuring-branches-and-merges-in-your-repository/managing-protected-branches/about-protected-branches#require-pull-request-reviews-before-merging)."

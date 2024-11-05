@@ -9,7 +9,6 @@ redirect_from:
 versions:
   fpt: '*'
   ghes: '*'
-  ghae: '*'
   ghec: '*'
 topics:
   - Pull requests
@@ -18,30 +17,30 @@ shortTitle: Methods & functions
 Anyone with read access to a repository can see a summary list of the functions and methods changes in certain files of a pull request.
 
 The summary list of methods and functions is created from these supported file types:
-  - Go
-  - JavaScript (includes Typescript, Flow, and other types of JavaScript)
-  - PHP
-  - Python
-  - Ruby
+* Go
+* JavaScript (includes TypeScript, Flow, and other types of JavaScript)
+* PHP
+* Python
+* Ruby
 
 {% data reusables.repositories.sidebar-pr %}
-2. In the list of pull requests, click the pull request where you'd like to find the changed functions and methods.
+1. In the list of pull requests, click the pull request where you'd like to find the changed functions and methods.
 {% data reusables.repositories.changed-files %}
-4. To see a summary list of the changed functions and methods, click **Jump to...**.
-![Jump to drop-down menu](/assets/images/help/pull_requests/jump-to-menu.png)
-5. Select the changed function or method from the drop-down menu. You can also enter the name of the function or method to filter results.
-  ![Filter function and methods](/assets/images/help/pull_requests/filter-function-and-methods.png)
+1. To see a summary list of the changed functions and methods, click **Jump to {% octicon "triangle-down" aria-hidden="true" %}**.
 
- {% note %}
+   ![Screenshot of the "Files changed" tab for a pull request. The "Jump to" option is outlined in dark orange.](/assets/images/help/pull_requests/jump-to-menu.png)
 
- **Note:** If you don't see the functions or methods you expected, confirm that your code compiles and doesn't contain errors. Only functions and methods changed in this pull request and found in *.go*, *.js*, *.ts*, *.py*, *.php*, and *.rb* files appear in the drop-down menu.
+1. Select the changed function or method from the drop-down menu. You can also enter the name of the function or method to filter results.
 
- {% endnote %}
+   {% note %}
 
-6. You'll be redirected to the first line of the function or method you selected.
- ![view function or method in files changed](/assets/images/help/pull_requests/view-selected-function-or-method.png)
+   **Note:** If you don't see the functions or methods you expected, confirm that your code compiles and doesn't contain errors. Only functions and methods changed in this pull request and found in _.go_, _.js_, _.ts_, _.py_, _.php_, and _.rb_ files appear in the drop-down menu.
+
+   {% endnote %}
+
+1. You'll be redirected to the first line of the function or method you selected.
 
 ## Further reading
 
-- "[About comparing branches in a pull request](/pull-requests/collaborating-with-pull-requests/proposing-changes-to-your-work-with-pull-requests/about-comparing-branches-in-pull-requests)"
-- "[Filtering files in a pull request by file type](/pull-requests/collaborating-with-pull-requests/reviewing-changes-in-pull-requests/filtering-files-in-a-pull-request)"
+* "[AUTOTITLE](/pull-requests/collaborating-with-pull-requests/proposing-changes-to-your-work-with-pull-requests/about-comparing-branches-in-pull-requests)"
+* "[AUTOTITLE](/pull-requests/collaborating-with-pull-requests/reviewing-changes-in-pull-requests/filtering-files-in-a-pull-request)"

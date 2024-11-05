@@ -1,1 +1,0 @@
-Você também pode habilitar o {% data variables.product.prodname_dependabot_version_updates %} para as ações que você adicionar ao seu fluxo de trabalho. Para obter mais informações, consulte "[Manter suas ações atualizadas com o {% data variables.product.prodname_dependabot %}](/github/administering-a-repository/keeping-your-actions-up-to-date-with-dependabot)".

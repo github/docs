@@ -1,1 +1,0 @@
-{% ifversion fpt or ghec %}新しいOrganizationを作成する際には、{% data variables.product.prodname_oauth_app %}アクセス制限がデフォルトで有効です。 Organizationのオーナーは、いつでも[{% data variables.product.prodname_oauth_app %}アクセス制限を無効化](/articles/disabling-oauth-app-access-restrictions-for-your-organization)できます。{% endif %}

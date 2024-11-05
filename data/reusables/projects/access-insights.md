@@ -1,8 +1,3 @@
 1. Navigate to your project.
-2. In the top-right, to access insights, click {% octicon "graph" aria-label="the graph icon" %}.
-
-    {% note %}
-
-   **Note:** This feature is currently in a private preview and only available for some organizations. If the {% octicon "graph" aria-label="the graph icon" %} icon is not displayed in your project, insights is not yet enabled for your organization.
-
-   {% endnote %} 
+1. In the top-right, to access insights, click {% octicon "graph" aria-label="Navigate to insights" %}.
+   ![Screenshot showing a projects menu buttons. The insights button is highlighted with an orange outline.](/assets/images/help/projects-v2/insights-button.png)

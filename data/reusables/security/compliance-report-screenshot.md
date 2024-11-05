@@ -1,1 +1,1 @@
-![Screenshot of download button to the right of a compliance report](/assets/images/help/settings/compliance-report-download.png)
+![Screenshot of the "Resources" section of the "Compliance" page. Next to a report, a button, labeled "Download," is outlined in orange.](/assets/images/help/settings/compliance-report-download.png)

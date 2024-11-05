@@ -1,0 +1,60 @@
+date: '2024-05-08'
+sections:
+  security_fixes:
+    - |
+      Firewall port 9199, which linked to a static maintenance page used when enabling maintenance mode with an IP exception list, was opened unnecessarily.
+    - |
+      As a result of a security vulnerability, the editor role for a Management Console user has been deprecated in the Manage GitHub Enterprise Server API.
+    - |
+      Packages have been updated to the latest security versions.
+  bugs:
+    - |
+      Running `ghe-repl-node -d` did not validate value length in order to prevent values longer than 20 characters.
+    - |
+      On an instance in a cluster configuration with high availability enabled, `ghe-repl-setup` did not successfully complete on a replica due to a missing key.
+    - |
+      For an instance in a cluster configuration, during the migration phase of a configuration run, the process of copying configuration updates to all nodes would fail.
+    - |
+      An LDAP-related error message was incorrectly displayed at the enterprise and organization levels.
+    - |
+      On an instance with Dependabot enabled, a misconfiguration caused jobs to be added to the `hydro_update_rule_override_for_repository_visibility_change_event`  queue but not processed.
+    - |
+      An incorrect job queue mapping caused the `hydro_advanced_security_archived_status_changed` queue to constantly grow.
+    - |
+      External collaborators with read-only access were able to run workflows on their pull requests from private forks without approval.
+    - |
+      On an instance with a GitHub Advanced Security license, custom pattern matches were incorrectly filtered during post-scan filtering.
+  changes:
+    - |
+      To aid in understanding the CPU/memory utilization of secret scanning processes, the binary names of nomad workers were updated to differentiate between the different types of secret scanning jobs.
+    - |
+      A more specific error message is shown when the `ghe-repl-node` command is run on an instance not configured for high availability.
+    - |
+       The SCIM private beta has resumed with support from GitHub engineering in GitHub Enterprise Server version 3.11 and later. Site administrators can provision users and groups on a GitHub Enterprise Server instance automatically with SCIM. SCIM for GitHub Enterprise Server is in private beta and subject to change. For more information, see "[AUTOTITLE](/admin/identity-and-access-management/using-saml-for-enterprise-iam/configuring-user-provisioning-with-scim-for-your-enterprise)" and "[AUTOTITLE](/rest/enterprise-admin/scim)" in the REST API documentation.
+  known_issues:
+    - |
+      Custom firewall rules are removed during the upgrade process.
+    - |
+      During the validation phase of a configuration run, a `No such object` error may occur for the Notebook and Viewscreen services. This error can be ignored as the services should still correctly start.
+    - |
+      If the root site administrator is locked out of the Management Console after failed login attempts, the account does not unlock automatically after the defined lockout time. Someone with administrative SSH access to the instance must unlock the account using the administrative shell. For more information, see "[AUTOTITLE](/admin/configuration/administering-your-instance-from-the-management-console/troubleshooting-access-to-the-management-console#unlocking-the-root-site-administrator-account)."
+    - |
+      If an instance is configured to forward logs to a target server with TLS enabled, certificate authority (CA) bundles that a site administrator uploads using `ghe-ssl-ca-certificate-install` are not respected, and connections to the server fail.
+    - |
+      The `mbind: Operation not permitted` error in the `/var/log/mysql/mysql.err` file can be ignored. MySQL 8 does not gracefully handle when the `CAP_SYS_NICE` capability isn't required, and outputs an error instead of a warning.
+    - |
+      {% data reusables.release-notes.2023-11-aws-system-time %}
+    - |
+      On an instance with the HTTP `X-Forwarded-For` header configured for use behind a load balancer, all client IP addresses in the instance's audit log erroneously appear as 127.0.0.1.
+    - |
+      {% data reusables.release-notes.2023-10-git-push-made-but-not-registered %}
+    - |
+      {% data reusables.release-notes.large-adoc-files-issue %}
+    - |
+      {% data reusables.release-notes.2023-12-backup-utils-exit-early-redis %}
+    - |
+      {% data reusables.release-notes.2024-01-haproxy-upgrade-causing-increased-errors %}
+    - |
+      Repositories originally imported using ghe-migrator will not correctly track Advanced Security contributions.
+    - |
+      {% data reusables.release-notes.2024-06-possible-frontend-5-minute-outage-during-hotpatch-upgrade %} [Updated: 2024-06-17]

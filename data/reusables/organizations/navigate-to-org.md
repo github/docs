@@ -1,1 +1,1 @@
-1. On {% data variables.product.product_location %}, navigate to the main page of the organization.
+1. On {% data variables.product.prodname_dotcom %}, navigate to the main page of the organization.

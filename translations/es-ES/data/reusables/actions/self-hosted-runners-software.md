@@ -1,1 +1,0 @@
-Debes instalar el software requerido en tus ejecutores auto-hospedados. Para obtener información sobre los ejecutores auto-hospedados, consulta la sección "[Hospedar tus propios ejecutores](/actions/hosting-your-own-runners)".

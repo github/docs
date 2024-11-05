@@ -1,0 +1,121 @@
+name: Azure Staging - Build and Deploy
+
+# **What it does**: Builds and deploys a branch/PR to staging
+# **Why we have it**: To enable us to deploy a branch/PR to staging whenever necessary
+# **Who does it impact**: All contributors.
+
+on:
+  workflow_dispatch:
+    inputs:
+      PR_NUMBER:
+        description: 'PR Number'
+        type: string
+        required: true
+      COMMIT_REF:
+        description: 'The commit SHA to build'
+        type: string
+        required: true
+
+permissions:
+  contents: read
+  deployments: write
+
+# This allows a subsequently queued workflow run to take priority over
+# previously queued runs but NOT interrupt currently executing runs
+concurrency:
+  group: 'staging-env @ ${{ github.head_ref || github.run_id }} for ${{ github.event.number || inputs.PR_NUMBER }}'
+  cancel-in-progress: true
+
+jobs:
+  azure-staging-build-and-deploy:
+    if: ${{ github.repository == 'github/docs-internal' }}
+    runs-on: ubuntu-latest
+    timeout-minutes: 20
+    environment:
+      # TODO: Update name and url to point to a specific slot for the branch/PR
+      name: staging-env
+      url: ${{ env.APP_URL }}
+    env:
+      PR_NUMBER: ${{ github.event.number || inputs.PR_NUMBER || github.run_id }}
+      COMMIT_REF: ${{ github.event.pull_request.head.sha || inputs.COMMIT_REF }}
+      IMAGE_REPO: ${{ github.repository }}/pr-${{ github.event.number || inputs.PR_NUMBER || github.run_id }}
+      RESOURCE_GROUP_NAME: docs-staging
+      APP_SERVICE_NAME: ghdocs-staging
+      SLOT_NAME: canary
+
+    steps:
+      - name: 'Az CLI login'
+        uses: azure/login@6c251865b4e6290e7b78be643ea2d005bc51f69a # pin @v2
+        with:
+          creds: ${{ secrets.PROD_AZURE_CREDENTIALS }}
+
+      - name: 'Docker login'
+        uses: azure/docker-login@15c4aadf093404726ab2ff205b2cdd33fa6d054c
+        with:
+          login-server: ${{ secrets.NONPROD_REGISTRY_SERVER }}
+          username: ${{ secrets.NONPROD_REGISTRY_USERNAME }}
+          password: ${{ secrets.NONPROD_REGISTRY_PASSWORD }}
+
+      - name: Set up Docker Buildx
+        uses: docker/setup-buildx-action@988b5a0280414f521da01fcc63a27aeeb4b104db
+
+      - name: Check out repo
+        uses: actions/checkout@b4ffde65f46336ab88eb53be808477a3936bae11 # v4.1.1
+        with:
+          ref: ${{ env.COMMIT_REF }}
+          # To prevent issues with cloning early access content later
+          persist-credentials: 'false'
+
+      - name: 'Set env vars'
+        run: |
+          # Set APP_URL
+          echo "APP_URL=${{ secrets.STAGING_APP_URL }}" >> $GITHUB_ENV
+          # Image tag is unique to each workflow run so that it always triggers a new deployment
+          echo "DOCKER_IMAGE=${{ secrets.NONPROD_REGISTRY_SERVER }}/${{ env.IMAGE_REPO }}:${{ env.COMMIT_REF }}-${{ github.run_number }}-${{ github.run_attempt }}" >> $GITHUB_ENV
+
+      - name: Setup Node.js
+        uses: actions/setup-node@60edb5dd545a775178f52524783378180af0d1f8 # v4.0.2
+        with:
+          node-version-file: 'package.json'
+          cache: npm
+
+      - name: Clone docs-early-access
+        uses: actions/checkout@b4ffde65f46336ab88eb53be808477a3936bae11 # v4.1.1
+        with:
+          repository: github/docs-early-access
+          token: ${{ secrets.DOCS_BOT_PAT_READPUBLICKEY }}
+          path: docs-early-access
+          ref: main
+
+      - name: Merge docs-early-access repo's folders
+        run: src/early-access/scripts/merge-early-access.sh
+
+      - name: 'Build and push image'
+        uses: docker/build-push-action@16ebe778df0e7752d2cfcbd924afdbbd89c1a755
+        with:
+          context: .
+          push: true
+          target: production
+          tags: ${{ env.DOCKER_IMAGE }}
+          build-args: |
+            BUILD_SHA=${{ env.COMMIT_REF }}
+
+      - name: 'Update docker-compose.staging.yaml template file'
+        run: |
+          sed 's|#{IMAGE}#|${{ env.DOCKER_IMAGE }}|g' src/workflows/docker-compose.staging.tmpl.yaml > docker-compose.staging.yaml
+
+      - name: 'Apply updated docker-compose.staging.yaml config to deployment slot'
+        run: |
+          az webapp config container set --multicontainer-config-type COMPOSE --multicontainer-config-file docker-compose.staging.yaml --slot ${{ env.SLOT_NAME }} -n ${{ env.APP_SERVICE_NAME }} -g ${{ env.RESOURCE_GROUP_NAME }}
+
+      # Watch deployment slot instances to see when all the instances are ready
+      - name: Check that deployment slot is ready
+        env:
+          CHECK_INTERVAL: 10000
+          EXPECTED_SHA: ${{ github.sha }}
+          CANARY_BUILD_URL: https://ghdocs-staging-canary.azurewebsites.net/_build
+        run: src/workflows/check-canary-slots.js
+
+      - name: 'Swap deployment slot to production'
+        run: |
+          az webapp deployment slot swap --slot ${{ env.SLOT_NAME }} --target-slot production -n ${{ env.APP_SERVICE_NAME }} -g ${{ env.RESOURCE_GROUP_NAME }}

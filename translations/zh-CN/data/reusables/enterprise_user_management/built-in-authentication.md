@@ -1,1 +1,0 @@
-If you want to authenticate some users without adding them to your identity provider, you can configure built-in authentication in addition to SAML SSO. 更多信息请参阅“[允许对身份提供程序覆盖范围以外的用户进行内置身份验证](/admin/identity-and-access-management/authenticating-users-for-your-github-enterprise-server-instance/allowing-built-in-authentication-for-users-outside-your-identity-provider)”。

@@ -1,0 +1,1 @@
+While not required, we recommend halting work during your production migration. The {% data variables.product.prodname_importer_secondary_name %} doesn't support delta migrations, so any changes that happen during the migration will not migrate. If you choose not to halt work during your production migration, you'll need to manually migrate these changes.

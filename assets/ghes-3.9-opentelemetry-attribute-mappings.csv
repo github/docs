@@ -1,0 +1,497 @@
+Category,Old Attribute,New Attribute
+All Services,now,Timestamp
+All Services,msg or message,Body
+All Services,All Services,SeverityText
+Discussions,action_name,code.function
+Discussions,actor_id,actor_id
+Discussions,old_org,gh.org.old_name
+Discussions,new_org,gh.org.login
+Discussions,new_path,gh.controller.new_path
+Discussions,issue_id,gh.issue.id
+Discussions,issue_number,gh.issue.number
+Discussions,issue_comments_count,gh.issue.comments.count
+Discussions,discussion,gh.discussion.id
+Discussions,discussion_number,gh.discussion.number
+Discussions,discussion_cached_comments_count,gh.discussion.cached_comments.count
+Discussions,discussion_live_comments_count,gh.discussion.live_comments.count
+Discussions,discussion_converted_at,gh.discussion.converted_at
+Discussions,discussion_state,gh.discussion.state
+Discussions,discussion_error_reason,gh.discussion.error_reason
+Discussions,discussion_reaction_count,gh.discussion.reaction.count
+Discussions,team_id,gh.team_post.team_id
+Discussions,team_post_id,gh.team_post.id
+Discussions,team_post_number,gh.team_post.number
+Stratocaster,stratocaster_name,gh.stratocaster.adapter_name
+Stratocaster,stratocaster_event_type,gh.stratocaster.event_type
+Stratocaster,stratocaster_event_id,gh.stratocaster.event.id
+Stratocaster,stratocaster_event_action,gh.stratocaster.event.action
+Stratocaster,stratocaster_event_actor_id,gh.stratocaster.event.actor_id
+Stratocaster,stratocaster_event_sender_id,gh.stratocaster.event.sender_id
+Stratocaster,stratocaster_event_repo_id,gh.stratocaster.event.repo_id
+Stratocaster,stratocaster_processor_indexes_count,gh.stratocaster.processor.indexes.count
+Stratocaster,stratocaster_processor_received_batch_size,gh.stratocaster.processor.received_batch_size
+Stratocaster,stratocaster_processor_index,gh.stratocaster.processor.index
+Stratocaster,stratocaster_processor_index_updates,gh.stratocaster.processor.index_updates
+Stratocaster,stratocaster_processor_updates,gh.stratocaster.processor.updates
+Stratocaster,stratocaster_processor_update_differences,gh.stratocaster.processor.update_differences
+Stratocaster,stratocaster_keys,gh.stratocaster.keys
+Stratocaster,stratocaster_event_time,gh.stratocaster.event_time
+Stratocaster,stratocaster_timeline_processor_group_id,gh.stratocaster.timeline_processor.group.id
+Stratocaster,stratocaster_timeline_processor_subscribe_to,gh.stratocaster.timeline_processor.subscribe_to
+Audit Log,org_id,gh.org.id
+Audit Log,org_name,gh.org.name
+Audit Log,business_id,gh.business.id
+Audit Log,business_name,gh.business.name
+Profile,actor,gh.actor.login
+Profile,notes,gh.rename.notes
+Profile,reason,gh.rename.reason
+Profile,dormant,gh.rename.dormant
+Profile,active_keys,gh.rename.active_keys
+Profile,team_id,gh.team.id
+Profile,context,gh.context
+Profile,processor,gh.processor.name
+Profile,topic,gh.processor.message.topic
+Profile,partition,gh.processor.message.partition
+Profile,offset,gh.processor.message.offset
+Profile,replication_wait,gh.processor.replication_wait
+Profile,event,gh.user_metadata.event.name
+Profile,skip,gh.user_metadata.event.skip
+Profile,skip_reason,gh.user_metadata.event.skip_reason
+Profile,updates,gh.user_metadata.updates
+Profile,affected_rows,gh.user_metadata.affected_rows
+Profile,user_id,gh.user.id
+Profile,internal_view,gh.internal_view
+Profile,viewer,gh.viewer.login
+Profile,current_user,gh.actor.login
+Profile,items_to_unpin_ids,gh.items_to_unpin_ids
+Profile,items_to_pin_ids,gh.items_to_pin_ids
+feature_management,execution_id,gh.feature_management.execution_id
+feature_management,all_features_id,gh.feature_management.all_features_id
+feature_management,reload_task_id,gh.feature_management.reload_task_id
+feature_management,rollout_last_updated_at,gh.feature_management.rollout_last_updated_at
+feature_management,feature,gh.feature_management.feature
+feature_management,after_fork,gh.feature_management.after_fork
+devtools,notifyd_science_experiment,gh.devtools.notifyd_science_experiment
+devtools,notification_source,gh.devtools.notification_source
+devtools,experiment_id,gh.devtools.experiment_id
+devtools,recipient_id,gh.devtools.recipient_id
+devtools,candidate_type,gh.devtools.candidate_type
+devtools,notification_id,gh.devtools.notification_id
+script/enterprise-stream-processor,n/a,n/a
+insights,org_id,gh.org.id
+insights,tenant_id,gh.insights.tenant.id
+insights,entity_name,gh.insights.entity.name
+insights,entity_id,gh.insights.entity.id
+insights,parent_entity,gh.insights.entity.parent_entity
+insights,insights_domain_event,gh.hydro.topic
+insights,source_time,gh.insights.source.time
+insights,attempt_number,gh.insights.attempt.number
+insights,topic,gh.hydro.topic
+insights,rails_timestamp,gh.insights.rails.timestamp
+insights,rails_offset,gh.insights.rails.offset
+insights,mysql_timestamp,gh.insights.mysql.timestamp
+insights,mysql_offset,gh.insights.mysql.offset
+insights,mysql_timestamp_before_type_cast,gh.insights.mysql.timestamp_before_type_cast
+insights,mysql_timestamp_before_type_cast_offset,gh.insights.mysql.timestamp_before_type_cast_offset
+insights,request_id,gh.request.id
+insights,current_repo_id,gh.insights.event.current_repo_id
+insights,target_repo_id,gh.insights.event.target_repo_id
+LDAP authentication,op,code.function or code.op 
+LDAP authentication,group,ldap.dn
+LDAP authentication,timeout_sec,ldap.timeout_sec
+LDAP authentication,remote_address,net.peer.name
+LDAP authentication,error_message,exception.message
+LDAP authentication,transaction_id,ldap.transaction_id
+LDAP authentication,result,ldap.bind.result
+LDAP authentication,"duration for log field with `at: ""Bind result""`","replaced with the new ""ldap.bind"" timing metric"
+LDAP authentication,capabilities,ldap.search.capabilities
+LDAP authentication,filter,ldap.search.filter
+LDAP authentication,attributes,ldap.search.attributes
+LDAP authentication,base,ldap.search.base
+LDAP authentication,result_code,ldap.search.result.code
+LDAP authentication,matched_dn,ldap.search.matched_dn
+LDAP authentication,result_count,ldap.search.result.count
+LDAP authentication,page_count,ldap.search.page.count
+LDAP authentication,scope,gh.ldap.search.scope
+LDAP authentication,limit,ldap.search.limit
+LDAP authentication,"duration for log field with `at: ""Search""`","n/a, captured by the new ""ldap.search"" timing metric"
+LDAP authentication,"runtime for log field with `at: ""New user sync""`","n/a, captured by the ldap.sync.new_members.runtime metric "
+LDAP authentication,"runtime for log field with `at: ""Team member search""`","n/a, captured by the ""ldap.sync.team_member_search.runtime"" metric"
+LDAP authentication,"runtime for log field with `at: ""Team sync error""`","n/a, captured by the ldap.team_sync_error metric"
+LDAP authentication,at,Body
+LDAP authentication,"runtime for log field with `at: Bulk team sync""`","n/a, captured by the ldap.sync.teams.runtime metric"
+LDAP authentication,count for log field with `at: Bulk team sync`,gh.ldap.bulk_team_sync.count
+LDAP authentication,"runtime for log field with `at: ""User sync""`",ldap.sync.user.runtime
+LDAP authentication,count for log field with `at: User sync`,gh.ldap.user_sync_event.count
+LDAP authentication,"runtime for log field with `at: Bulk user sync""","n/a, captured by the ""ldap.sync.users.runtime"" metric"
+LDAP authentication,runtime for log field with `at: Team sync`,"n/a, captured by the ""ldap.sync.team.runtime"" timing metric"
+LDAP authentication,"unidentfied top level keys for log field with `at: Team sync""",top level keys from that log field are now nested under gh.ldap.team_sync.event_payload
+LDAP authentication,error for log field with `at: Team sync error`,exception.message
+LDAP authentication,user,gh.user.login
+LDAP authentication,result_code,ldap.operation.result.code
+LDAP authentication,message,ldap.operation.result.message
+Auth,hashed_token,gh.auth.hashed_token
+Auth,token_type,gh.auth.token_type
+Auth,programmatic_access_type,gh.auth.programmatic_access_type
+Auth,,gh.auth.result.message
+Auth,,gh.auth.token_attempt
+Auth,gh.billing.result.success,nested under gh.auth.auth_attempt_data
+Auth,message,gh.auth.result
+Auth,from,gh.auth.origin
+Auth,login,gh.auth.login
+Auth,raw_login,gh.auth.raw_login
+Auth,user_id,gh.enduser.id
+Auth,failure_type,gh.auth.failure.type
+Auth,failure_reason,gh.auth.failure.reason
+Auth,two_factor_type,gh.auth.result.two_factor_type
+Auth,sign_in_verification_method,gh.auth.result.sign_in_verification_method
+Auth,user,gh.enduser.login
+Auth,error,exception.message
+Auth,options,oauth.strategy.options
+Auth,configuration,strategy.configuration
+Auth,dn,ldap.dn
+Auth,base_name,ldap.base
+Auth,"login, for log message with body ""Invalid ldap credentials""",ldap.dn
+Auth,groups,ldap.auth_groups
+Auth,collision,gh.auth.login
+Auth,ip,http.client_ip
+Auth,"login, for log message with body ""omniauth success"" or ""omniauth failure""",omniauth.uid
+Auth,"raw, for log message with body ""starting SAML auth""",gh.saml.raw_request
+Auth,"message, for log message with body ""SAML success""",gh.saml.result.message
+Auth,login,gh.saml.login
+Auth,errors,gh.saml.errors
+Auth,params,gh.saml.params
+Auth,uid,gh.auth.login
+Auth,authentication_success,gh.auth.result
+Auth,configuration,omniauth.cas.configuration
+Auth,return_to_url,omniauth.cas.return_to_url
+Auth,ticket,omniauth.cas.ticket
+Auth,authentication_success,omniauth.cas.result
+Auth,authentication_success,gh.authentication.cas.result
+Auth,user_info,omniauth.user_info
+Auth,options,gh.auth.cas.options
+Auth,configuration,gh.auth.cas.configuration
+Auth,callback_url,gh.auth.cas.callback_url
+Auth,login_url,gh.auth.cas.login_url
+Auth,code,ldap.search.result.code
+Auth,message,ldap.search.result
+Auth,user_id,gh.enduser.id
+Auth,login,gh.enduser.login
+Auth,expires,saml.session.expires_at
+gh-migrator Script,n/a,n/a
+gh-migrator Script,at ,n/a
+gh-migrator Script,migration_path,gh.gh_migrator.migration_path
+gh-migrator Script,cli_args,gh.gh_migrator.cli_args
+gh-migrator Script,command ,process.command
+gh-migrator Script,guid,gh.gh_migrator.guid
+Marketplace,metric_types,gh.marketplace.metric.types
+Marketplace,marketplace_listing_id,gh.marketplace.listing.id
+Marketplace,installs,gh.marketplace.listing.install.count
+Marketplace,recorded_on,gh.marketplace.listing.recorded_on
+Marketplace,new_purchases,gh.marketplace.new_purchases
+Marketplace,pageviews,gh.marketplace.pageviews
+Marketplace,visitors,gh.marketplace.visitors
+Marketplace,organization email id,gh.organization.profile_email_id
+Apps,catalog_service,gh.catalog_serivce
+Background Jobs,job_id,gh.job.active_job_id / gh.job.aqueduct_job_id
+Background Jobs,,gh.job.aqueduct_job_id
+Background Jobs,job,gh.job.name
+Background Jobs,correlation_id,gh.correlation_id
+Background Jobs,queue,gh.job.queue
+Background Jobs,fn,code.namespace + code.function
+Background Jobs,,messaging.source.name
+Background Jobs,partition,messaging.kafka.source.partition
+Background Jobs,offset,messaging.kafka.message.offset
+Background Jobs,error + backtrace,exception
+Background Jobs,sleep_secs,gh.hydro_processor.dead_letter_retrying.sleep_secs
+Background Jobs,retries,gh.hydro_processor.dead_letter_retrying.retries
+Background Jobs,error_class,gh.hydro_processor.dead_letter_retrying.original_error_class
+Background Jobs,ns,code.namespace / code.filepath
+Background Jobs,signal,process.signal
+Background Jobs,,process.status
+Background Jobs,now,Timestamp
+Background Jobs,class,gh.timerd.timer.class
+Background Jobs,timer,gh.timerd.timer.name
+Background Jobs,interval,gh.timerd.timer.interval_seconds
+Background Jobs,at,code.function / Body
+Background Jobs,test,Body
+Background Jobs,duration,gh.test_job.duration
+Background Jobs,alloc,gh.test_job.alloc
+Background Jobs,should_raise,gh.test_job.should_raise
+Background Jobs,should_write,gh.test_job.should_write
+Background Jobs,catalog_service,gh.catalog_serivce
+Hydro,"old log line: Processing messages in consumer #{client_id} with options #{options}""","New log line with tags: 
+""hydro.kafka_source.batch_processed""
+  "
+Hydro,,messaging.consumer.id
+Hydro,,messaging.consumer.group_id
+Hydro,,messaging.consumer.max_bytes_per_partition
+Hydro,,messaging.consumer.start_from_beginning
+Hydro,"old log line: Processing messages in consumer #{client_id} with options #{options}""","New log line with tags: 
+""hydro.kafka_source.processing_message""
+  "
+Hydro,old log line: Starting consumer '#{@group_id}' with options #{consumer_options},New log line with tags: hydro.kafka_source.consumer_initialize
+Hydro,,messaging.consumer.id
+Hydro,,messaging.consumer.group_id
+Hydro,,messaging.consumer.options
+Hydro,old log line: Subscribing consumer '#{@group_id}' to topic #{topic} with options #{subscribe_options},new log line with tags: hydro.kafka_source.consumer_subscribed
+Hydro,,messaging.consumer.id
+Hydro,,messaging.consumer.group_id
+Hydro,,messaging.consumer.max_bytes_per_partition
+Hydro,,messaging.consumer.start_from_beginning
+Hydro,,messaging.destination.name
+Hydro,"old log line: Failed to deliver all messages while closing, retrying",new log line with tags: hydro.kafka_sink.close.message_flush_retry
+Hydro,,exception.type
+Hydro,,exception.message
+Hydro,,exception.backtrace
+Hydro,,hydro.kafka_sink.close.message_flush_retry
+Hydro,old log line: Failed to deliver all messages while closing,new log line with tags: hydro.kafka_sink.close.message_flush_failure
+Hydro,,exception.type
+Hydro,,exception.message
+Hydro,,exception.backtrace
+Billing/Gitcoin,job,gh.job
+Billing/Gitcoin,subscription_item,gh.billing.subscription_item.id
+Billing/Gitcoin,plan_subscription_id,gh.billing.plan_subscription.id
+Billing/Gitcoin,organization_id,gh.org.id
+Billing/Gitcoin,at,code.namespace + code.function
+Billing/Gitcoin,catalog_service,gh.catalog_service
+Billing/Gitcoin,refund_success,gh.billing.refund_success
+Billing/Gitcoin,cancel_success,gh.billing.subscription_item.cancelled
+Billing/Gitcoin,refund_result,gh.billing.refund_result
+Billing/Gitcoin,billing_transaction,gh.billing.billing_transaction
+Billing/Gitcoin,refund_amount,gh.billing.refund_amount
+Billing/Gitcoin,update_result,gh.billing.update_result
+Billing/Gitcoin,preview_result,gh.billing.preview_result
+Billing/Gitcoin,product_key,gh.billing.product_uuid.product_key
+Billing/Gitcoin,product_type,gh.billing.product_uuid.product_type
+Billing/Gitcoin,free_trial,gh.billing.free_trial
+Billing/Gitcoin,payment_collected,gh.billing.payment_collected
+Billing/Gitcoin,plan_subscription,gh.billing.plan_subscription
+Billing/Gitcoin,customer_id,gh.billing.customer.id
+Billing/Gitcoin,plan_subscription_active,gh.billing.plan_subscription.active
+Billing/Gitcoin,fn,code.namespace + code.function
+Billing/Gitcoin,vss_subscription_event_id,gh.billing.vss_subscription_event.id
+Billing/Gitcoin,subscription_id,gh.billing.vss_subscription_event.subscription_id
+Billing/Gitcoin,invoice_amount,gh.billing.zuora.invoice.amount
+Billing/Gitcoin,invoice_balance,gh.billing.zuora.invoice.balance
+Billing/Gitcoin,invoice_id,gh.billing.zuora.invoice.id
+Billing/Gitcoin,invoice_number,gh.billing.zuora.invoice.number
+Billing/Gitcoin,sponsors_invoice_item_adjustments,gh.billing.sponsors_invoice_item_adjustments
+Billing/Gitcoin,copilot_invoice_item_adjustments,gh.billing.copilot_invoice_item_adjustments
+Billing/Gitcoin,zuora_response_results,gh.billing.zuora.response_results
+Billing/Gitcoin,slug + business_id with conditional statement of login + user_id,gh.billing.billable_entity.id + gh.billing.billable_entity.type
+Billing/Gitcoin,billable_entity,gh.billing.billable_entity.id + gh.billing.billable_entity.type
+Billing/Gitcoin,error,exception.type + exception.message
+Billing/Gitcoin,login,gh.user.login
+Billing/Gitcoin,plan,gh.billing.billable_entity.plan_name
+Billing/Gitcoin,billed_on,gh.billing.billable_entity.billed_on
+Billing/Gitcoin,billing_attempts,gh.billing.billable_entity.billing_attempts
+Billing/Gitcoin,payment_amount,gh.billing.billable_entity.payment_amount
+Billing/Gitcoin,active_subscription_items,gh.billing.billable_entity.has_active_subscription_items
+Billing/Gitcoin,has_valid_payment_method,gh.billing.billable_entity.has_valid_payment_method
+Billing/Gitcoin,discount,gh.billing.coupon.discount
+Billing/Gitcoin,expires_at,gh.billing.coupon_redemption.expires_at
+Billing/Gitcoin,expired,gh.billing.coupon_redemption.expired
+Billing/Gitcoin,stale,gh.billing.coupon_redemption.stale
+Billing/Gitcoin,account_update_response,gh.billing.zuora.update_account.response
+Billing/Gitcoin,zuora_account_id,gh.billing.zuora.account.id
+Billing/Gitcoin,rate_limit_reset,gh.billing.zuora.rate_limit_reset
+Billing/Gitcoin,headers,gh.billing.zuora.http.headers
+Billing/Gitcoin,attempts,gh.job.attempts
+Billing/Gitcoin,account_id,gh.billing.zuora.account.id
+Billing/Gitcoin,credit_balance_adjustment_id,gh.billing.zuora.credit_balance_adjustment.id
+Billing/Gitcoin,credit_balance_adjustment_amount,gh.billing.zuora.credit_balance_adjustment.amount
+Billing/Gitcoin,log_message,Body
+Billing/Gitcoin,payment_id,gh.billing.zuora.payment.id
+Billing/Gitcoin,refund_id,gh.billing.zuora.refund.id
+Billing/Gitcoin,business_id,gh.business.id
+Billing/Gitcoin,message_id,gh.processor.message.id
+Billing/Gitcoin,message_owner_id,gh.billing.artifact.repository_owner.id
+Billing/Gitcoin,message_repository_id,gh.billing.artifact.repository.id
+Billing/Gitcoin,artifact_event_id,gh.billing.artifact.event.id
+Billing/Gitcoin,artifact_event_owner_id,gh.billing.artifact.event.owner.id
+Billing/Gitcoin,artifact_event_repository_id,gh.billing.artifact.event.repository.id
+Billing/Gitcoin,package_type,gh.registry.package.type
+Billing/Gitcoin,repository_name,gh.registry.package.repository_name
+Billing/Gitcoin,package_name,gh.registry.package.name
+Billing/Gitcoin,package_id,gh.registry.package.id
+Billing/Gitcoin,namespace,gh.registry.package.namespace
+Billing/Gitcoin,owner_id,gh.registry.package.owner_id
+Billing/Gitcoin,user,gh.user.login
+Billing/Gitcoin,version_count,gh.registry.package.version_count
+Billing/Gitcoin,versions_migrated_count,gh.registry.package.versions_migrated_count
+Billing/Gitcoin,original_error,gh.billing.client.original_error
+Billing/Gitcoin,"{ fn: ""billing.client.#{method}"", original_error: error.to_s }.merge!(request_params)",gh.billing.client.request_params
+Billing/Gitcoin,collect,gh.billing.collect_payment_for_upgrade.collect
+Billing/Gitcoin,success,gh.billing.collect_payment_for_upgrade.success
+Billing/Gitcoin,elapsed_ms,gh.billing.collect_payment_for_upgrade.elapsed_ms
+Billing/Gitcoin,from_plan,gh.billing.collect_payment_for_upgrade.from_plan
+Billing/Gitcoin,to_plan,gh.billing.collect_payment_for_upgrade.to_plan
+Billing/Gitcoin,from_seats,gh.billing.collect_payment_for_upgrade.from_seats
+Billing/Gitcoin,to_seats,gh.billing.collect_payment_for_upgrade.to_seats
+Billing/Gitcoin,from_subscription_item_quantity,gh.billing.collect_payment_for_upgrade.from_subscription_item_quantity
+Billing/Gitcoin,to_subscription_item_quantity,gh.billing.collect_payment_for_upgrade.to_subscription_item_quantity
+Billing/Gitcoin,subscription_item_name,gh.billing.subscription_item.name
+Billing/Gitcoin,business_slug,gh.business.slug
+Billing/Gitcoin,business_name,gh.business.name
+Billing/Gitcoin,success,gh.billing.create_customer.success
+Billing/Gitcoin,error,gh.billing.create_customer.error
+Billing/Gitcoin,error_class,exception.type
+Billing/Gitcoin,owner,gh.billing.billable_entity.name
+Billing/Gitcoin,dunning,gh.billing.billable_entity.dunning
+Billing/Gitcoin,zuora_response_success,gh.billing.zuora.success
+Billing/Gitcoin,zuora_response,gh.billing.zuora.response
+Billing/Gitcoin,synchronization_id,gh.billing.synchronization_id
+Billing/Gitcoin,event,gh.billing.synchronization_event
+Billing/Gitcoin,success,gh.billing.result.success
+Billing/Gitcoin,billing_type,gh.billing.billable_entity.billing_type
+Billing/Gitcoin,plan_duration,gh.billing.billable_entity.plan_duration
+Billing/Gitcoin,zuora_subscription_number,gh.billing.plan_subscription.zuora_subscription_number
+Billing/Gitcoin,params,gh.billing.zuora.params
+Billing/Gitcoin,number_of_retries_remaining,gh.billing.synchronization.number_of_retries_remaining
+Billing/Gitcoin,on_last_retry,gh.billing.synchronization.on_last_retry
+Billing/Gitcoin,external_sync_status,gh.billing.synchronization.external_sync_status
+Billing/Gitcoin,owner_id,gh.billing.current_usage.owner.id
+Billing/Gitcoin,repository_id,gh.repo.id
+Billing/Gitcoin,id,gh.billing.current_usage.id
+Billing/Gitcoin,class,code.namespace
+Billing/Gitcoin,old_size,gh.billing.current_usage.old_size
+Billing/Gitcoin,new_size,gh.billing.current_usage.new_size
+Billing/Gitcoin,invoice_item_adjustments,gh.billing.zuora.invoice_item_adjustments
+Billing/Gitcoin,slug,gh.business.slug
+Billing/Gitcoin,ns,code.namespace
+Billing/Gitcoin,result,gh.early_access_subscribers.get_subscriber_ids.result
+Billing/Gitcoin,member_id,gh.early_access_subscribers.get_subscriber_ids.member_id
+Billing/Gitcoin,value,gh.early_access_subscribers.get_subscriber_ids.value
+Billing/Gitcoin,"log_message: ""Aleph index request failed with reason: #{index_response.error}"",",exception.message
+Billing/Gitcoin,organization_name,gh.org.name
+Billing/Gitcoin,network_id,gh.repository.network_id
+Billing/Gitcoin,method,gh.dormant.method
+Billing/Gitcoin,"""Activity #{activity.inspect}""",gh.dormant.activity
+Dependabot Alerts (security_alerts),severity,gh.security_alerts.severity
+Dependabot Alerts (security_alerts),cvss_severity,gh.security_alerts.cvss_severity
+Dependabot Alerts (security_alerts),cvss_vector,gh.security_alerts.cvss_vector
+Dependabot Alerts (security_alerts),"""Index request failed for repository with id #{repository_id} with reason: #{index_response.error}""",gh.security_alerts.vulnerability_exposure.index_error
+Dependabot Alerts (security_alerts),content_analysis_enabled,gh.ghes.content_analysis.enabled
+Dependabot Alerts (security_alerts),github_connect_enabled,gh.ghes.github_connect.enabled
+Dependabot Alerts (security_alerts),,gh.security_alerts.vulnerable_version_range_alerting_process.id
+Dependabot Alerts (security_alerts),,gh.security_alerts.vulnerable_version_range.id
+Dependabot Alerts (security_alerts),,gh.security_alerts.vulnerability.id
+Dependabot Alerts (security_alerts),,gh.security_alerts.vulnerability.ghsa_id
+Dependabot Alerts (security_alerts),,gh.security_alerts.create_vulnerability_alerts_job.cursor
+Dependabot Alerts (security_alerts),"""Setting GitHub.dotcom_api_host_name to #{gh_connect_dotcom_hostname}""",gh.security_alerts.sync.connect_dotcom_hostname
+Dependabot Alerts (security_alerts),"""Setting GitHub.dotcom_host_protocol to #{gh_connect_dotcom_protocol}""",gh.security_alerts.sync.gh_connect_dotcom_protocol
+Dependabot Alerts (security_alerts),"category: ""newsletter"", at: :invalid",gh.security_alerts.newsletter.stage
+Dependabot Alerts (security_alerts),name,gh.security_alerts.newsletter.subscription_name
+Dependabot Alerts (security_alerts),period,gh.security_alerts.newsletter.subscription_period
+Pull Requests,base_owner_id,gh.pull_request.base_repository.owner_id
+Pull Requests,base_ref,gh.pull_request.base_ref
+Pull Requests,base_repo_id,gh.pull_request.base_repository.id
+Pull Requests,base_sha,gh.pull_request.base_sha
+Pull Requests,cmd,code.function
+Pull Requests,codeowners_file_size,gh.pull_request.codeowners.file_size
+Pull Requests,current_base_sha,gh.pull_request.current_base_sha
+Pull Requests,cv_comment_id,gh.pull_request.convod.comment.id
+Pull Requests,cv_conversation_id,gh.pull_request.convod.conversation.id
+Pull Requests,details,exception.message
+Pull Requests,equivalent_pr_ids,gh.pull_request.equivalent_pr_ids
+Pull Requests,error,exception.message
+Pull Requests,error_class,exception.type
+Pull Requests,error_message,exception.message
+Pull Requests,ex_type,exception.type
+Pull Requests,fn,code.namespace + code.function
+Pull Requests,gh_parent_comment_id,gh.pull_request.convod.parent_comment.id
+Pull Requests,head_owner_id,gh.pull_request.head_repository.owner_id
+Pull Requests,head_ref,gh.pull_request.head_ref
+Pull Requests,head_repo_id,gh.pull_request.head_repository.id
+Pull Requests,head_sha,gh.pull_request.head_sha
+Pull Requests,hidden_files,gh.pull_request.hidden_files_count
+Pull Requests,integration_id,gh.integration.id
+Pull Requests,integration_name,deleted it
+Pull Requests,issues_closed,gh.pull_request.issues_closed
+Pull Requests,issues_closed_count,gh.pull_request.issues_closed_count
+Pull Requests,issues_failed_to_close,gh.pull_request.issues_failed_to_close
+Pull Requests,issues_failed_to_close_count,gh.pull_request.issues_failed_to_close_count
+Pull Requests,job,gh.job.name
+Pull Requests,line,gh.pull_request.review_comments.line
+Pull Requests,merge_commit_sha,gh.pull_request.merge_commit_sha
+Pull Requests,method,code.function
+Pull Requests,num_paths,gh.pull_request.codeowners.num_paths
+Pull Requests,num_rules,gh.pull_request.codeowners.num_rules
+Pull Requests,number_of_equivalent_prs,gh.pull_request.number_of_equivalent_prs
+Pull Requests,owner_id,gh.repo.owner_id
+Pull Requests,position,gh.pull_request.review_comments.position
+Pull Requests,pr_author_id,gh.actor.id
+Pull Requests,pr_id,gh.pull_request.id
+Pull Requests,pr_repo_id,gh.repo.id
+Pull Requests,pull_request_id,gh.pull_request.id
+Pull Requests,pull_request_number,gh.pull_request.id
+Pull Requests,ref,gh.pull_request.codeowners.ref
+Pull Requests,repository_id,gh.repo.id
+Pull Requests,request_id,gh.request_id
+Pull Requests,result,code.function
+Pull Requests,start_line,gh.pull_request.review_comments.start_line
+Pull Requests,start_side,gh.pull_request.review_comments.start_side
+Pull Requests,total_duraction,metric
+Pull Requests,user_login,gh.actor.login
+Branch Protection,rename_id,gh.branch_protection_rule.repository_branch_renamer.id
+Branch Protection,human_error,gh.branch_protection_rule.repository_branch_renamer.human_error
+Branch Protection,protected_branch_id,gh.branch_protection_rule.id
+Branch Protection,actor,gh.actor.id / gh.actor.name / gh.actor.slug
+Branch Protection,actor_type,gh.actor.type
+Branch Protection,actor_class_name,gh.actor.class_name
+Branch Protection,result,gh.branch_protection_rule.result
+Branch Protection,enforcement_level,gh.branch_protection_rule.enforcement_level
+Branch Protection,type,gh.branch_protection_rule.type
+Branch Protection,details,gh.branch_protection_rule.rule.details
+Branch Protection,commit,gh.commit.oid
+Branch Protection,ref,gh.branch_protection_rule.rule.ref
+Branch Protection,aggregation_status,gh.branch_protection_rule.rule.aggregation_status
+Branch Protection,head_sha,gh.commit.oid
+Branch Protection,user_merged_pr_id,gh.pull_request.id
+Branch Protection,user_merged_pr_number,gh.pull_request.number
+Branch Protection,user_merged_pr_approvals,gh.branch_protection_rule.rule.user_merged_pr_approvals
+Branch Protection,approved_pr_ids,gh.branch_protection_rule.rule.approved_pr_ids
+Branch Protection,total_approvals,gh.branch_protection_rule.rule.total_approvals
+Branch Protection,max_single_pr_approvals,gh.branch_protection_rule.rule.max_single_pr_approvals
+Branch Protection,required_approvals,gh.branch_protection_rule.rule.required_approvals
+Branch Protection,pr_id,gh.pull_request.id
+Branch Protection,pr_number,gh.pull_request.number
+Branch Protection,direct_approvals,gh.branch_protection_rule.rule.direct_approvals
+Branch Protection,other_approvals,gh.branch_protection_rule.rule.other_approvals
+Branch Protection,number_of_other_prs,gh.branch_protection_rule.rule.number_of_other_prs
+Branch Protection,required_approvals,gh.branch_protection_rule.rule.required_approvals
+Branch Protection,approval_requirement_fulfilled_directly,gh.branch_protection_rule.rule.approval_requirement_fulfilled_directly
+Branch Protection,approval_requirement_fulfilled_aggregated,gh.branch_protection_rule.rule.approval_requirement_fulfilled_aggregated
+Branch Protection,related_known_pr_ids,gh.branch_protection_rule.rule.related_known_pr_ids
+Branch Protection,related_number_of_known_prs,gh.branch_protection_rule.rule.related_number_of_known_prs
+Branch Protection,branch,gh.branch_protection_rule.rule.branch
+Branch Protection,before,gh.branch_protection_rule.rule.before
+Branch Protection,after,gh.branch_protection_rule.rule.after
+Branch Protection,rules_fulfilled,gh.branch_protection_rule.rule.rules_fulfilled
+Branch Protection,available_bypasses,gh.branch_protection_rule.rule.available_bypasses
+Branch Protection,overridable_codes,gh.branch_protection_rule.rule.overridable_codes
+Branch Protection,overridden_codes,gh.branch_protection_rule.rule.overridden_codes
+Branch Protection,can_override_status_checks,gh.branch_protection_rule.rule.override_status_checks
+Branch Protection,can_override_review_policy,gh.branch_protection_rule.rule.override_review_policy
+Branch Protection,can_override_required_signatures,gh.branch_protection_rule.rule.override_required_signatures
+Branch Protection,can_override_required_linear_history,gh.branch_protection_rule.rule.override_required_linear_history
+Branch Protection,can_override_required_deployments,gh.branch_protection_rule.rule.override_required_deployments
+Branch Protection,can_override_merge_queue,gh.branch_protection_rule.rule.override_merge_queue
+Branch Protection,reasons,gh.branch_protection_rule.rule.reasons
+Branch Protection,effected_pr_ids,gh.branch_protection_rule.rule.effected_pr_ids
+Branch Protection,effected_pr_numbers,gh.branch_protection_rule.rule.effected_pr_numbers
+Branch Protection,number_of_prs,gh.branch_protection_rule.rule.number_of_prs
+Branch Protection,number_of_uniq_head_refs,gh.branch_protection_rule.rule.number_of_uniq_head_refs
+Branch Protection,number_of_uniq_base_refs,gh.branch_protection_rule.rule.number_of_uniq_base_refs
+Branch Protection,pull_status,gh.pull_request.status
+Branch Protection,pull_mergeable,gh.pull_request.mergeable
+Repos,state,gh.commit_verification.state
+Repos,at,code.namespace
+Repos,line,gh.diff.line
+Repos,status,gh.spokes.maintenance.status
+Repos,linked_filter,gh.search.error.linked_filter
+Repos,repository.name_with_owner,gh.repo.name_with_owner
+Repos,code_path,gh.gitauth.code_path
+Repos,msg,used as logger.info message
+Repos,index,elasticsearch.index.name

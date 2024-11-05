@@ -1,3 +1,0 @@
-{% ifversion ghes or ghae-issue-4864 %}
-Enterprise owners can configure {% ifversion ghes %}the dependency graph and {% endif %}{% data variables.product.prodname_dependabot_alerts %} for an enterprise. Para obtener más información, consulta la sección {% ifversion ghes %}"[Habilitar la gráfica de dependencias para tu empresa](/admin/code-security/managing-supply-chain-security-for-your-enterprise/enabling-the-dependency-graph-for-your-enterprise)" y {% endif %}"[Habilitar el {% data variables.product.prodname_dependabot %} para tu empresa](/admin/configuration/configuring-github-connect/enabling-dependabot-for-your-enterprise)".
-{% endif %} 

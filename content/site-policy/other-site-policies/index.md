@@ -12,5 +12,6 @@ children:
   - /github-government-takedown-policy
   - /github-username-policy
   - /guidelines-for-legal-requests-of-user-data
+  - /github-account-recovery-policy
 ---
 

@@ -1,4 +1,4 @@
-You can specify an environment for each job in your workflow. To do so, add a `jobs.<job_id>.environment` key followed by the name of the environment.
+You can specify an environment for each job in your workflow. To do so, add a [`jobs.<job_id>.environment`](/actions/using-workflows/workflow-syntax-for-github-actions#jobsjob_idenvironment) key followed by the name of the environment.
 
 For example, this workflow will use an environment called `production`.
 
@@ -41,5 +41,3 @@ jobs:
       - name: deploy
         # ...deployment-specific steps
 ```
-
-![Workflow graph with URL](/assets/images/help/images/deploy-graph.png)

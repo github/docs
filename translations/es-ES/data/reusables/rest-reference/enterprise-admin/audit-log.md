@@ -1,1 +1,0 @@
-## Registro de auditoría

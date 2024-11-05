@@ -8,7 +8,6 @@ redirect_from:
 versions:
   fpt: '*'
   ghes: '*'
-  ghae: '*'
   ghec: '*'
 topics:
   - Repositories
@@ -16,7 +15,7 @@ shortTitle: Automate release forms
 ---
 Query parameters are optional parts of a URL you can customize to share a specific web page view, such as search filter results, an issue template, or the release form page on {% data variables.product.prodname_dotcom %}. To create your own query parameters, you must match the key and value pair.
 
-You must have the proper permissions for any action to use the equivalent query parameter. For example, you must have permission to create releases to pre-fill the releases form. For more information, see "[Managing releases in a repository](/github/administering-a-repository/managing-releases-in-a-repository)."
+You must have the proper permissions for any action to use the equivalent query parameter. For example, you must have permission to create releases to pre-fill the releases form. For more information, see "[AUTOTITLE](/repositories/releasing-projects-on-github/managing-releases-in-a-repository)."
 
 If you create an invalid URL using query parameters, or if you don’t have the proper permissions, the URL will return a 404 error page.  
 
@@ -32,4 +31,5 @@ Query parameter | Example
 
 ## Further reading
 
-- "[About automation for issues and pull requests with query parameters](/articles/about-automation-for-issues-and-pull-requests-with-query-parameters)"
+* "[AUTOTITLE](/issues/tracking-your-work-with-issues/creating-an-issue#creating-an-issue-from-a-url-query)"
+* "[AUTOTITLE](/pull-requests/collaborating-with-pull-requests/proposing-changes-to-your-work-with-pull-requests/using-query-parameters-to-create-a-pull-request)"

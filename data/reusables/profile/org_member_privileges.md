@@ -1,2 +1,1 @@
-3. Under "Access", click **Member privileges**.
-     ![Screenshot of the member privileges tab](/assets/images/help/organizations/member-privileges.png) 
+1. In the "Access" section of the sidebar, click **Member privileges**.

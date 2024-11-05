@@ -3,4 +3,3 @@
 versions:
   ghec: '*'
   ghes: '>=3.5'
-  ghae: 'issue-6137'

@@ -1,1 +1,0 @@
-1. Se você ainda não estiver no branch onde as alterações encontram-se ocultas, clique em {% octicon "git-branch" aria-label="The branch icon" %} **Branch atual** e, em seguida, clique em um branch com alterações ocultas. ![Lista de branches no repositório](/assets/images/help/desktop/click-branch-in-drop-down-mac.png)

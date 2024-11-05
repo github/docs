@@ -1,0 +1,1 @@
+   ![Screenshot of an organization in the organization list. A dropdown menu, labeled with the gear icon, is highlighted with an orange outline.](/assets/images/help/business-accounts/organization-settings-button.png)

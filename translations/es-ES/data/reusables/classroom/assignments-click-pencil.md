@@ -1,1 +1,0 @@
-1. A la derecha de la tarea que quieras editar, da clic en {% octicon "pencil" aria-label="The pencil icon" %}. ![Icono de lápiz para editar una tarea en la lista de tareas](/assets/images/help/classroom/assignments-click-pencil.png)

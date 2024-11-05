@@ -1,0 +1,3 @@
+{% ifversion ghec %}
+When you enforce a policy to only allow actions and reusable workflows from your enterprise, and you enable {% data variables.product.prodname_dependabot %} on {% data variables.product.prodname_actions %}, {% data variables.product.prodname_dependabot %} will not run. To enable {% data variables.product.prodname_dependabot %} to run with your enterprise actions and reusable workflows, you should choose either to allow actions created by {% data variables.product.prodname_dotcom %}, or allow specified actions and reusable workflows. For more information, see "[AUTOTITLE](/admin/policies/enforcing-policies-for-your-enterprise/enforcing-policies-for-github-actions-in-your-enterprise#allowing-select-actions-and-reusable-workflows-to-run)."
+{% endif %}

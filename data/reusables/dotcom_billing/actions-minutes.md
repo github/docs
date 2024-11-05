@@ -1,2 +1,3 @@
-1. Under "{% data variables.product.prodname_actions %}", view details of your minutes used.
-  ![Details of minute usage](/assets/images/help/billing/actions-minutes.png)
+1. Under "Usage this month", in the "Actions" section, view details of your minutes used.
+
+   You can expand this section to show a breakdown of your usage by runner type.

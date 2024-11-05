@@ -8,15 +8,12 @@ redirect_from:
 versions:
   fpt: '*'
   ghes: '*'
-  ghae: '*'
   ghec: '*'
 topics:
   - Identity
   - Access management
 children:
   - /checking-your-commit-and-tag-signature-verification-status
-  - /updating-an-expired-gpg-key
   - /using-a-verified-email-address-in-your-gpg-key
 shortTitle: Troubleshoot verification
 ---
-

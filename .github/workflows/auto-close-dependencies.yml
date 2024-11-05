@@ -1,0 +1,68 @@
+name: Auto Close Open Source Dependency Updates
+
+# **What it does**:
+#  - close-external: Automatically close dependabot's pull requests in the open-source repository.
+# **Why we have it**:
+#  - close-external: To avoid duplicating updates against the internal repository.
+# **Who does it impact**: It helps docs engineering focus on higher value work.
+
+on:
+  pull_request:
+    paths:
+      - 'package*.json'
+      - 'Gemfile*'
+      - 'Dockerfile'
+      - '.github/workflows/**'
+  pull_request_review:
+    types:
+      - edited
+      - submitted
+
+permissions:
+  contents: read
+  pull-requests: write
+
+jobs:
+  close-external:
+    if: >-
+      ${{
+        github.repository == 'github/docs' &&
+        github.event.pull_request.number &&
+        github.event.pull_request.base.ref == 'main' &&
+        github.event.pull_request.user.login == 'dependabot[bot]' &&
+        github.event.pull_request.state == 'open'
+      }}
+    runs-on: ubuntu-latest
+    steps:
+      - name: Close pull request
+        env:
+          GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
+          PR_URL: ${{ github.event.pull_request.html_url }}
+        run: |
+          gh pr close "$PR_URL"
+
+      - name: Comment on the pull request
+        env:
+          GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
+          PR_URL: ${{ github.event.pull_request.html_url }}
+        run: |
+          gh pr comment "$PR_URL" --body "This dependency update will be handled internally by our engineering team."
+
+      # Because we get far too much spam ;_;
+      - name: Lock conversations
+        uses: actions/github-script@e69ef5462fd455e02edcaf4dd7708eda96b9eda0
+        env:
+          PR_NUMBER: ${{ github.event.pull_request.number }}
+        with:
+          script: |
+            try {
+              await github.rest.issues.lock({
+                ...context.repo,
+                issue_number: parseInt(process.env.PR_NUMBER, 10),
+                lock_reason: 'resolved'
+              })
+              console.log('Locked the pull request to prevent spam!')
+            } catch (error) {
+              console.error(`Failed to lock the pull request. Error: ${error}`)
+              throw error
+            }

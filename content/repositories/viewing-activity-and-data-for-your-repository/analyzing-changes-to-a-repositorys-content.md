@@ -16,7 +16,6 @@ redirect_from:
 versions:
   fpt: '*'
   ghes: '*'
-  ghae: '*'
   ghec: '*'
 topics:
   - Repositories
@@ -25,36 +24,34 @@ shortTitle: Analyze changes
 
 ## Visualizing commits in a repository
 
+{% data reusables.repositories.repo-insights-commit-limit %}
+
 You can see all commits made to a repository in the past year (excluding merge commits) in the Commit graph.
 
-The top graph shows commits for the entire year by week.
-
-![Repository commit year graph](/assets/images/help/graphs/repo_commit_activity_year_graph.png)
-
-The bottom graph shows the average number of commits by day of the week for the selected week.
-
-![Repository commit week graph](/assets/images/help/graphs/repo_commit_activity_week_graph.png)
+The top graph shows commits for the entire year by week. The bottom graph shows the average number of commits by day of the week for the selected week.
 
 ### Accessing the commits graph
 
 {% data reusables.repositories.navigate-to-repo %}
 {% data reusables.repositories.accessing-repository-graphs %}
-3. In the left sidebar, click **Commits**.
-![Commits tab](/assets/images/help/graphs/commits_tab.png)
+1. In the left sidebar, click **Commits**.
 
 ## Visualizing additions and deletion to content in a repository
 
+{% data reusables.repositories.repo-insights-commit-limit %}
+
 The code frequency graph displays the content additions and deletions for each week in a repository's history.
-
-{% ifversion fpt or ghec %}
-
-![Code frequency graph](/assets/images/help/graphs/repo_code_frequency_graph_dotcom.png)
-
-{% endif %}
 
 ### Accessing the code frequency graph
 
 {% data reusables.repositories.navigate-to-repo %}
 {% data reusables.repositories.accessing-repository-graphs %}
-3. In the left sidebar, click **Code frequency**.
-![Code frequency tab](/assets/images/help/graphs/code_frequency_tab.png)
+1. In the left sidebar, click **Code frequency**.
+{%- ifversion accessible-charts %}
+{% data reusables.repositories.repositories-insights-graphs-download-steps %}
+{% endif %}
+
+{% ifversion repository-activity-view %}
+{% data reusables.repositories.activity-view %}
+For more information, see "[AUTOTITLE](/repositories/viewing-activity-and-data-for-your-repository/using-the-activity-view-to-see-changes-to-a-repository)."
+{% endif %}

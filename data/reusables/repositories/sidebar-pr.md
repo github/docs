@@ -1,5 +1,10 @@
-1. Under your repository name, click {% octicon "git-pull-request" aria-label="The pull request icon" %} **Pull requests**.
-    {% ifversion fpt or ghec %}
-    ![Issues and pull requests tab selection](/assets/images/help/repository/repo-tabs-pull-requests.png){% elsif ghes > 3.1 or ghae %}
-    ![Pull request tab selection](/assets/images/enterprise/3.3/repository/repo-tabs-pull-requests.png){% else %}
-    ![Issues tab](/assets/images/enterprise/3.1/help/repository/repo-tabs-pull-requests.png){% endif %}
+1. Under your repository name, click {% octicon "git-pull-request" aria-hidden="true" %} **Pull requests**.
+{% ifversion global-nav-update %}
+
+   ![Screenshot of the main page of a repository. In the horizontal navigation bar, a tab, labeled "Pull requests," is outlined in dark orange.](/assets/images/help/repository/repo-tabs-pull-requests-global-nav-update.png)
+
+{% else %}
+
+   ![Screenshot of the main page of a repository. In the horizontal navigation bar, a tab, labeled "Pull requests," is outlined in dark orange.](/assets/images/help/repository/repo-tabs-pull-requests.png)
+
+{% endif %}

@@ -1,0 +1,6 @@
+# Reference: issue #7597
+# Admin can control default PR merge/ squash commit messages
+versions:
+  fpt: '*'
+  ghec: '*'
+  ghes: '>=3.7'

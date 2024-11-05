@@ -1,3 +1,3 @@
-- **Read**, which gives people permission to view a project board.
-- **Write**, which gives people permission to view a project board, link repositories to a project board, and interact with a project board. For more information, see "[Linking a repository to a project board](/articles/linking-a-repository-to-a-project-board)."
-- **Admin**, which gives people permission to view a project board, interact with a project board, manage project board settings, and manage other people's access to the project board.
+* **Read**, which gives people permission to view a {% data variables.projects.projects_v1_board %}.
+* **Write**, which gives people permission to view a {% data variables.projects.projects_v1_board %}, link repositories to a {% data variables.projects.projects_v1_board %}, and interact with a {% data variables.projects.projects_v1_board %}. For more information, see "[AUTOTITLE](/issues/organizing-your-work-with-project-boards/managing-project-boards/linking-a-repository-to-a-project-board)."
+* **Admin**, which gives people permission to view a {% data variables.projects.projects_v1_board %}, interact with a {% data variables.projects.projects_v1_board %}, manage {% data variables.projects.projects_v1_board %} settings, and manage other people's access to the {% data variables.projects.projects_v1_board %}.

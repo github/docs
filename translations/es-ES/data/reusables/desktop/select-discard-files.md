@@ -1,1 +1,0 @@
-1. En la lista de archivos cambiados, selecciona los archivos en los que deseas descartar los cambios desde la última confirmación. Para seleccionar varios archivos, haz clic en `shift` y haz clic en el rango de archivos desde los que deseas descartar los cambios. ![Selecciona varios archivos con cambios a descartar](/assets/images/help/desktop/select-multiple-files-discard.png)

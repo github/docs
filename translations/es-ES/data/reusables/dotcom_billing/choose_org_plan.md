@@ -1,1 +1,0 @@
-1. Debajo de "Comparar planes", puedes comparar las características de cada plan. Dependiendo de tu plan actual y del plan que hayas elegido, haz clic ya sea en **Mejorar a equipo** o **Mejorar a empresa**. ![Comparar planes y mejorar](/assets/images/help/billing/settings-compare-and-upgrade-plans.png)

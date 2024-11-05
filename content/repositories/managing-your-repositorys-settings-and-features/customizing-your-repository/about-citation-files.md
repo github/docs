@@ -5,8 +5,7 @@ redirect_from:
   - /github/creating-cloning-and-archiving-repositories/creating-a-repository-on-github/about-citation-files
 versions:
   fpt: '*'
-  ghes: '>=3.3'
-  ghae: issue-4651
+  ghes: '*'
   ghec: '*'
 topics:
   - Repositories
@@ -17,7 +16,7 @@ You can add a `CITATION.cff` file to the root of a repository to let others know
 
 Example `CITATION.cff` file:
 
-```
+```text
 cff-version: 1.2.0
 message: "If you use this software, please cite it as below."
 authors:
@@ -31,64 +30,72 @@ title: "My Research Software"
 version: 2.0.4
 doi: 10.5281/zenodo.1234
 date-released: 2017-12-18
-url: "https://github.com/github/linguist"
+url: "https://github.com/github-linguist/linguist"
 ```
 
-The GitHub citation prompt on your repository will show the example `CITATION.cff` content in these formats:
+The {% data variables.product.company_short %} citation prompt on your repository will show the example `CITATION.cff` content in these formats:
 
 **APA**
 
-```
+```text
 Lisa, M., & Bot, H. (2017). My Research Software (Version 2.0.4) [Computer software]. https://doi.org/10.5281/zenodo.1234
 ```
 
 **BibTeX**
 
 {% raw %}
-```
+
+```text
 @software{Lisa_My_Research_Software_2017,
   author = {Lisa, Mona and Bot, Hew},
   doi = {10.5281/zenodo.1234},
   month = {12},
   title = {{My Research Software}},
-  url = {https://github.com/github/linguist},
+  url = {https://github.com/github-linguist/linguist},
   version = {2.0.4},
   year = {2017}
 }
 ```
+
 {% endraw %}
 
-Note the example above produces a _software_ citation (i.e., `@software` type in BibTeX rather than `@article`).
+Note the example above produces a _software_ citation (that is, `@software` type in BibTeX rather than `@article`).
 
 For more information, see the [Citation File Format](https://citation-file-format.github.io/) website.
 
-When you add a `CITATION.cff` file to the default branch of your repository, it is automatically linked from the repository landing page. This makes it easy for other users to cite your software project, using the information you've provided.
+When you add a `CITATION.cff` file to the default branch of your repository, a link is automatically added to the repository landing page in the right sidebar, with the label "Cite this repository." This makes it easy for other users to cite your software project, using the information you've provided.
 
-![Citation link on repository landing page](/assets/images/help/repository/citation-link.png)
+<!-- Screenshot taken from: https://github.com/citation-file-format/ruby-cff -->
+
+![Screenshot showing the landing page for a repository. The "Cite this repository" link in the right sidebar is highlighted with a dark orange outline and a dropdown menu with the citation details is expanded underneath.](/assets/images/help/repository/citation-link.png)
 
 ## Citing something other than software
 
 If you would prefer the {% data variables.product.prodname_dotcom %} citation information to link to another resource such as a research article, then you can use the `preferred-citation` override in CFF with the following types.
 
+{% rowheaders %}
+
 | Resource | CFF type | BibTeX type | APA annotation |
 |----------|----------|-------------|----------------|
-| Journal article/paper | `article` | `@article` | |
-| Book | `book` | `@book` | |
-| Booklet (bound but not published) | `pamphlet` | `@booklet` | |
+| Journal article/paper | `article` | `@article` | Not applicable |
+| Book | `book` | `@book` | Not applicable |
+| Booklet (bound but not published) | `pamphlet` | `@booklet` | Not applicable |
 | Conference article/paper | `conference-paper` | `@inproceedings` | [Conference paper] |
-| Conference proceedings | `conference`, `proceedings` | `@proceedings` | |
+| Conference proceedings | `conference`, `proceedings` | `@proceedings` | Not applicable |
 | Data set | `data`, `database` | `@misc` | [Data set] |
-| Magazine article | `magazine-article` | `@article` | |
-| Manual | `manual` | `@manual` | |
-| Misc/generic/other | `generic`, any other CFF type | `@misc` | |
-| Newspaper article | `newspaper-article` | `@article` | |
+| Magazine article | `magazine-article` | `@article` | Not applicable |
+| Manual | `manual` | `@manual` | Not applicable |
+| Misc/generic/other | `generic`, any other CFF type | `@misc` | Not applicable |
+| Newspaper article | `newspaper-article` | `@article` | Not applicable |
 | Software |  `software`, `software-code`, `software-container`, `software-executable`, `software-virtual-machine` | `@software` | [Computer software] |
-| Report/technical report | `report` | `@techreport` | |
-| Unpublished | `unpublished` | `@unpublished` | |
+| Report/technical report | `report` | `@techreport` | Not applicable |
+| Unpublished | `unpublished` | `@unpublished` | Not applicable |
+
+{% endrowheaders %}
 
 Extended CITATION.cff file describing the software, but linking to a research article as the preferred citation:
 
-```
+```text
 cff-version: 1.2.0
 message: "If you use this software, please cite it as below."
 authors:
@@ -102,7 +109,7 @@ title: "My Research Software"
 version: 2.0.4
 doi: 10.5281/zenodo.1234
 date-released: 2017-12-18
-url: "https://github.com/github/linguist"
+url: "https://github.com/github-linguist/linguist"
 preferred-citation:
   type: article
   authors:
@@ -123,18 +130,19 @@ preferred-citation:
   year: 2021
 ```
 
-The example `CITATION.cff` file above will produce the following outputs in the GitHub citation prompt:
+The example `CITATION.cff` file above will produce the following outputs in the {% data variables.product.company_short %} citation prompt:
 
 **APA**
 
-```
+```text
 Lisa, M., & Bot, H. (2021). My awesome research software. Journal Title, 1(1), 1. https://doi.org/10.0000/00000
 ```
 
 **BibTeX**
 
 {% raw %}
-```
+
+```text
 @article{Lisa_My_awesome_research_2021,
   author = {Lisa, Mona and Bot, Hew},
   doi = {10.0000/00000},
@@ -147,6 +155,7 @@ Lisa, M., & Bot, H. (2021). My awesome research software. Journal Title, 1(1), 1
   year = {2021}
 }
 ```
+
 {% endraw %}
 
 ## Citing a dataset
@@ -155,11 +164,11 @@ If your repository contains a dataset, you can set `type: dataset` at the top le
 
 ## Other citation files
 
-The GitHub citation feature will also detect a small number of additional files that are often used by communities and projects to describe how they would like their work to be cited.
+The {% data variables.product.company_short %} citation feature will also detect a small number of additional files that are often used by communities and projects to describe how they would like their work to be cited.
 
-GitHub will link to these files in the _Cite this repository_ prompt, but will not attempt to parse them into other citation formats.
+{% data variables.product.company_short %} will link to these files in the _Cite this repository_ prompt, but will not attempt to parse them into other citation formats.
 
-```
+```text
 # Note these are case-insensitive and must be in the root of the repository
 CITATION
 CITATIONS
@@ -174,6 +183,6 @@ inst/CITATION
 
 ## Citation formats
 
-We currently support APA and BibTex file formats.
+We currently support APA and BibTeX file formats.
 
-Are you looking for additional citation formats? GitHub uses a Ruby library, to parse the `CITATION.cff` files. You can request additional formats in the [ruby-cff](https://github.com/citation-file-format/ruby-cff) repository, or contribute them yourself.
+Are you looking for additional citation formats? {% data variables.product.company_short %} uses a Ruby library, to parse the `CITATION.cff` files. You can request additional formats in the [ruby-cff](https://github.com/citation-file-format/ruby-cff) repository, or contribute them yourself.

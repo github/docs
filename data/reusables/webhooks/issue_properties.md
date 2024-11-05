@@ -1,4 +1,4 @@
-`issue`|`object` | The [issue](/rest/reference/issues) itself.
+`issue`|`object` | The [issue](/rest/issues) itself.
 `changes`|`object`| The changes to the issue if the action was `edited`.
 `changes[title][from]`|`string` | The previous version of the title if the action was `edited`.
 `changes[body][from]`|`string` | The previous version of the body if the action was `edited`.

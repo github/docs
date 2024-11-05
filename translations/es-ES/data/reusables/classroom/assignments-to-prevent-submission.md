@@ -1,1 +1,0 @@
-Para prevenir que los alumnos acepten o envíen una tarea, puedes cambiar el "Estado de la tarea" dentro de la vista de "Editar tarea". Cuando una tarea se encuentra activa, los alumnos podrán aceptarla utilizando el enlace de invitación. Cuando está inactiva, este enlace ya no será válido.

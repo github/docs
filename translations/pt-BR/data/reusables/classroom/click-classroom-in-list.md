@@ -1,1 +1,0 @@
-1. Na lista de salas de aula, clique na sala de aula que você deseja visualizar. ![Sala de aula na lista de salas de aula de uma organização](/assets/images/help/classroom/click-classroom-in-list.png)

@@ -1,1 +1,0 @@
-Representa un intento de compilación de un sitio de {% data variables.product.prodname_pages %}, haya sido exitoso o no. Una subida a la rama habilitada de {% data variables.product.prodname_pages %} (`gh-pages` para las páginas de proyecto, la rama predeterminada para las páginas de usuario y de organización) desencadena este evento.

@@ -1,0 +1,1 @@
+Ruleset workflows can be configured at the organization level to require workflows to pass before merging pull requests. For more information, see "[AUTOTITLE](/organizations/managing-organization-settings/creating-rulesets-for-repositories-in-your-organization)."

@@ -7,7 +7,6 @@ versions:
   fpt: '*'
   ghec: '*'
   ghes: '*'
-  ghae: '*'
 topics:
   - API
 children:
@@ -16,8 +15,8 @@ children:
   - /using-global-node-ids
   - /migrating-from-rest-to-graphql
   - /using-the-explorer
+  - /using-pagination-in-the-graphql-api
   - /managing-enterprise-accounts
   - /using-the-graphql-api-for-discussions
   - /migrating-graphql-global-node-ids
 ---
-

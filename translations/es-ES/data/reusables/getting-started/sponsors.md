@@ -1,1 +1,0 @@
-{% data variables.product.prodname_sponsors %} te permite hacer un pago mensual recurrente a un desarrollador u organización que diseñe, cree o mantenga proyectos de código abierto de los cuales dependas. Para obtener más información, consulta "[Acerca de {% data variables.product.prodname_sponsors %}](/sponsors/getting-started-with-github-sponsors/about-github-sponsors)".

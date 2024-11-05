@@ -7,16 +7,15 @@ versions:
   fpt: '*'
   ghec: '*'
   ghes: '*'
-  ghae: '*'
 topics:
   - API
 ---
 
-You can access most objects in GitHub (users, issues, pull requests, etc.) using either the REST API or the GraphQL API. With a [recent update](https://developer.github.com/changes/2017-12-19-graphql-node-id/), you can find the **global node ID** of many objects from within the REST API and use these IDs in your GraphQL operations.
+You can access most objects in GitHub (users, issues, pull requests, etc.) using either the REST API or the GraphQL API. You can find the **global node ID** of many objects from within the REST API and use these IDs in your GraphQL operations. For more information, see "[Preview GraphQL API Node IDs in REST API resources](https://developer.github.com/changes/2017-12-19-graphql-node-id/)."
 
 {% note %}
 
-**Note:** In REST, the global node ID field is named `node_id`. In GraphQL, it's an `id` field on the `node` interface. For a refresher on what "node" means in GraphQL, see "[Introduction to GraphQL](/graphql/guides/introduction-to-graphql#node)."
+**Note:** In REST, the global node ID field is named `node_id`. In GraphQL, it's an `id` field on the `node` interface. For a refresher on what "node" means in GraphQL, see "[AUTOTITLE](/graphql/guides/introduction-to-graphql#node)."
 
 {% endnote %}
 
@@ -25,17 +24,17 @@ You can access most objects in GitHub (users, issues, pull requests, etc.) using
 You can follow three steps to use global node IDs effectively:
 
 1. Call a REST endpoint that returns an object's `node_id`.
-2. Find the object's type in GraphQL.
-3. Use the ID and type to do a direct node lookup in GraphQL.
+1. Find the object's type in GraphQL.
+1. Use the ID and type to do a direct node lookup in GraphQL.
 
 Let's walk through an example.
 
 ## 1. Call a REST endpoint that returns an object's node ID
 
-If you [request the authenticated user](/rest/reference/users#get-the-authenticated-user):
+If you [request the authenticated user](/rest/users/users#get-the-authenticated-user):
 
 ```shell
-$ curl -i -u <em>username:token</em> {% data variables.product.api_url_pre %}/user
+curl -i --header "Authorization: Bearer YOUR-TOKEN" {% data variables.product.rest_url %}/user
 ```
 
 you'll get a response that includes the `node_id` of the authenticated user:
@@ -108,7 +107,7 @@ When you run this query, you'll see that the `__typename` is [`User`](/graphql/r
 
 ## 3. Do a direct node lookup in GraphQL
 
-Once you've confirmed the type, you can use an [inline fragment](https://graphql.github.io/learn/queries/#inline-fragments) to access the object by its ID and return additional data. In this example, we define the fields on `User` that we'd like to query:
+Once you've confirmed the type, you can use an [inline fragment](https://graphql.org/learn/queries/#inline-fragments) to access the object by its ID and return additional data. In this example, we define the fields on `User` that we'd like to query:
 
 ```graphql
 query {
@@ -125,4 +124,4 @@ This type of query is the standard approach for looking up an object by its glob
 
 ## Using global node IDs in migrations
 
-When building integrations that use either the REST API or the GraphQL API, it's best practice to persist the global node ID so you can easily reference objects across API versions. For more information on handling the transition between REST and GraphQL, see "[Migrating from REST to GraphQL](/graphql/guides/migrating-from-rest-to-graphql)."
+When building integrations that use either the REST API or the GraphQL API, it's best practice to persist the global node ID so you can easily reference objects across API versions. For more information on handling the transition between REST and GraphQL, see "[AUTOTITLE](/graphql/guides/migrating-from-rest-to-graphql)."

@@ -8,7 +8,6 @@ redirect_from:
 versions:
   fpt: '*'
   ghes: '*'
-  ghae: '*'
   ghec: '*'
 topics:
   - GitHub search
@@ -27,8 +26,8 @@ There are some limits to the length of the queries when searching across {% data
 * Queries longer than 256 characters are not supported
 * You can't construct a query using more than five `AND`, `OR`, or `NOT` operators
 
-Specific search types, such as code search, might have additional limitations. Check the documentation for these search types for more information.
+Specific search types, such as code search, might have additional limitations. Check the documentation for these search types for more information. {% ifversion code-search-upgrade %} For more information on code search limitations specifically, see "[AUTOTITLE](/search-github/github-code-search/about-github-code-search#limitations)."{% endif %}
 
 ## Further reading
 
-- "[About searching on GitHub](/search-github/getting-started-with-searching-on-github/about-searching-on-github)"
+* "[AUTOTITLE](/search-github/getting-started-with-searching-on-github/about-searching-on-github)"

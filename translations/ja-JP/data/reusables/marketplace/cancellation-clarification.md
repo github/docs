@@ -1,1 +1,0 @@
-顧客が{% data variables.product.prodname_marketplace %}のサブスクリプションをキャンセルした場合、GitHubは自動的にアプリケーションをアンインストールしないので、顧客は無料の機能を使い続けられることが期待できます。

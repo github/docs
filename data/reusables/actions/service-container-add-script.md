@@ -1,1 +1,1 @@
-Add a new file called *client.js* to your repository with the following code.
+Add a new file called _client.js_ to your repository with the following code.

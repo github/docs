@@ -1,1 +1,0 @@
-- **Fila de execução do fluxo de trabalho** - Apenas 500 execuções do fluxo de trabalho podem ser enfileiradas em um segundo intervalo de 10 segundos por repositório. Se a execução de um fluxo de trabalho atingir esse limite, a execução do fluxo de trabalho terminará e falhará em ser concluída.

@@ -1,1 +1,0 @@
-Qualquer pessoa com acesso de gravação a um repositório pode modificar as permissões concedidas ao `GITHUB_TOKEN`, adicionar ou remover acesso, conforme necessário, editando a chave de `permissões` no arquivo do fluxo de trabalho. Para obter mais informações, consulte [`permissões`](/actions/reference/workflow-syntax-for-github-actions#permissions). 

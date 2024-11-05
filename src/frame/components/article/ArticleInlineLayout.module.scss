@@ -1,0 +1,45 @@
+@import "@primer/css/support/variables/layout.scss";
+@import "@primer/css/support/mixins/layout.scss";
+@import "src/frame/stylesheets/breakpoint-xxl.scss";
+
+.containerBox {
+  max-width: 720px;
+  margin: 24px auto;
+  padding: 0 16px;
+  align-content: center;
+  column-gap: 80px;
+  row-gap: 0;
+  grid-template-areas:
+    "breadcrumbs"
+    "topper"
+    "sidebar"
+    "intro"
+    "content";
+  grid-template-rows: auto 1fr;
+  grid-template-columns: minmax(300px, 720px);
+  display: grid;
+
+  @include breakpoint(md) {
+    display: grid;
+    justify-items: flex-start;
+    justify-content: center;
+  }
+}
+
+.contentBox {
+  @include breakpoint(md) {
+    padding-top: 24px;
+  }
+}
+
+.articleContainer {
+  max-width: 720px;
+}
+
+.sidebarBox {
+  border-bottom: 1px solid var(--color-border-default) !important;
+
+  @include breakpoint-xxl {
+    border-bottom: none !important;
+  }
+}

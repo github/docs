@@ -8,4 +8,3 @@
 * `s3:DeleteObject`
 * `s3:ListBucket`
 * `kms:GenerateDataKey` (if Key Management Service (KMS) encryption has been enabled)
-

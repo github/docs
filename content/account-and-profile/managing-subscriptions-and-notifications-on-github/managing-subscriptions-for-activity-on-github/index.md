@@ -6,7 +6,6 @@ redirect_from:
 versions:
   fpt: '*'
   ghes: '*'
-  ghae: '*'
   ghec: '*'
 topics:
   - Notifications
@@ -15,4 +14,3 @@ children:
   - /managing-your-subscriptions
 shortTitle: Manage subscriptions
 ---
-

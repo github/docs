@@ -1,1 +1,0 @@
-Você pode criar uma regra de proteção de branch em um repositório para um branch específico, todos os branches, ou qualquer branch que corresponde a um padrão de nome que você especificar com a sintaxe `fnmatch`. Por exemplo, para proteger qualquer branch que contenha a palavra `versão`, você pode criar uma regra de branch para `*versão*`.

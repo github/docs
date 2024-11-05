@@ -2,6 +2,6 @@ Use `jobs.<job_id>.container.options` to configure additional Docker container r
 
 {% warning %}
 
-**Warning:** The `--network` option is not supported.
+**Warning:** The `--network` and `--entrypoint` options are not supported.
 
 {% endwarning %}

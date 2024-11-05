@@ -1,0 +1,4 @@
+# Reference: #8546
+# Documentation for multi-user authentication for the Management Console
+versions:
+  ghes: '>=3.8'

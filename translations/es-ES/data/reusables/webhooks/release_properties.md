@@ -1,1 +1,0 @@
-`changes[body][from]` |`string` | La versión previa del cuerpo si la acción aparece como `edited`. `changes[name][from]` |`string` | La versión previa del nombre si la acción aparece como `edited`. `release`|`object` | El objeto de [release](/rest/reference/repos/#get-a-release).

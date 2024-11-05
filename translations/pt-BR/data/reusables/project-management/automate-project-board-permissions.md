@@ -1,1 +1,0 @@
-Para configurar fluxos de trabalho automáticos para um quadro de projetos de repositório, você deve ter acesso de gravação ao repositório. Os proprietários e integrantes da organização podem configurar fluxos de trabalho automáticos em um quadro de projetos para toda a organização.
