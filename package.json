@@ -329,7 +329,7 @@
     "@types/accept-language-parser": "1.5.6",
     "@types/connect-datadog": "0.0.10",
     "@types/connect-timeout": "0.0.39",
-    "@types/cookie": "0.6.0",
+    "@types/cookie": "1.0.0",
     "@types/cookie-parser": "1.4.7",
     "@types/express": "4.17.21",
     "@types/imurmurhash": "^0.1.4",
