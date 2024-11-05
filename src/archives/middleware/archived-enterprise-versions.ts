@@ -33,8 +33,6 @@ const OLD_DEVELOPER_SITE_CONTAINER = `${OLD_PUBLIC_AZURE_BLOB_URL}/developer-sit
 // version. E.g. https://github.github.com/docs-ghes-2.10
 const ENTERPRISE_GH_PAGES_URL_PREFIX = 'https://github.github.com/docs-ghes-'
 
-const inProd = process.env.NODE_ENV === 'production' // temporary
-
 type ArchivedRedirects = {
   [url: string]: string | null
 }
@@ -236,7 +234,7 @@ export default async function archivedEnterpriseVersions(
         )
         .replaceAll(
           `${OLD_AZURE_BLOB_ENTERPRISE_DIR}/${requestedVersion}/`,
-          `${req.protocol}://${inProd ? 'docs.github.com' : req.get('host')}/enterprise-server@${requestedVersion}/`,
+          `${req.protocol}://${req.get('x-forwarded-host') || req.get('host')}/enterprise-server@${requestedVersion}/`,
         )
     }
 
