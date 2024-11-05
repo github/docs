@@ -81,10 +81,11 @@ export const deprecated = [
 ]
 export const legacyAssetVersions = ['3.0', '2.22', '2.21']
 
-// As of GHES 3.2, the archived enterprise content in no longer stored
-// in the help-docs-archived-enterprise-versions repository. Instead, it
-// is stored in our githubdocs Azure blog storage, in the `enterprise`
-// container.
+// As of GHES 3.2, we started storing the scraped assets and html
+// in Azure blob storage. All enterprise deprecated veresions are
+// now stored in individual docs-ghes-<release number> repos. This
+// release number now indicates a change in the way the archived html
+// references assets.
 export const firstReleaseStoredInBlobStorage = '3.2'
 
 export const all = supported.concat(deprecated)
