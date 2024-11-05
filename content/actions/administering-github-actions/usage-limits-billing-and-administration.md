@@ -48,6 +48,7 @@ There are some limits on {% data variables.product.prodname_actions %} usage whe
 * **Job execution time** - Each job in a workflow can run for up to 6 hours of execution time. If a job reaches this limit, the job is terminated and fails to complete.
 {% data reusables.actions.usage-workflow-run-time %}
 {% data reusables.actions.usage-api-requests %}
+* **Webhook rate limit** - Each repository is limited to 1500 triggered events every 10 seconds.
 * **Concurrent jobs** - The number of concurrent jobs you can run in your account depends on your {% data variables.product.prodname_dotcom %} plan, as well as the type of runner used. If exceeded, any additional jobs are queued.
 
   **Standard {% data variables.product.prodname_dotcom %}-hosted runners**
