@@ -28,14 +28,15 @@ topics:
 shortTitle: Manage a payment method
 ---
 
-
-{% data reusables.billing.us-sales-tax-note %}
->
->If you're exempt from sales tax, you can upload a certificate to your account. See "[AUTOTITLE](/billing/managing-your-github-billing-settings/adding-a-sales-tax-certificate)."
-
 {% data reusables.dotcom_billing.payment-methods %} {% data reusables.dotcom_billing.same-payment-method %}
 
 We don't support purchase orders for personal accounts. We email receipts monthly or yearly on your account's billing date. If your company, country, or accountant requires your receipts to provide more detail, you can add extra information to your receipts. For more information, see "[AUTOTITLE](/billing/managing-your-github-billing-settings/adding-information-to-your-receipts)."
+
+{% ifversion us-sales-tax %}
+
+{% data reusables.billing.us-sales-tax %}
+
+{% endif %}
 
 ## Updating your personal account's payment method
 
