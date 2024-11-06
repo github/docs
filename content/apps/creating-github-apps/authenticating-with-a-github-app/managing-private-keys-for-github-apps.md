@@ -14,11 +14,13 @@ topics:
 
 After you create a {% data variables.product.prodname_github_app %}, you'll need to generate a private key in order to make requests to the {% data variables.product.product_name %} API as the application itself. For example, you need a private key to sign a JSON Web Token (JWT) in order to request an installation access token. For more information, see "[AUTOTITLE](/apps/creating-github-apps/authenticating-with-a-github-app/generating-a-json-web-token-jwt-for-a-github-app)"
 
-You can create multiple private keys and rotate them to prevent downtime if a key is compromised or lost. To verify that a private key matches a public key, see "[Verifying private keys](#verifying-private-keys)".
+You can create {% ifversion app-key-limit %}up to 25 {% else %}multiple {% endif %}private keys for an app. You should use multiple keys in order to rotate keys without downtime in the event of a key compromise. {% ifversion app-key-limit %}If your application has 25 or more keys, you must delete some before you can create more. {% endif %}
 
-Private keys do not expire and instead need to be manually revoked. For more information about how to revoke a private key, see "[Deleting private keys](#deleting-private-keys)."
+Private keys do not expire and instead need to be manually revoked. For more information about how to revoke or delete a private key, see "[Deleting private keys](#deleting-private-keys)."
 
 You must keep private keys for {% data variables.product.prodname_github_apps %} secure. For more information, see "[Storing private keys](#storing-private-keys)".
+
+To verify that a private key matches a public key, see "[Verifying private keys](#verifying-private-keys)".
 
 ## Generating private keys
 
