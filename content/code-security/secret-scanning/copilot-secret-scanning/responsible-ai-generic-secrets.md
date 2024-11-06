@@ -3,6 +3,7 @@ title: Responsible detection of generic secrets with Copilot secret scanning
 shortTitle: Generic secret detection
 intro: 'Learn how {% data variables.secret-scanning.copilot-secret-scanning %} uses AI responsibly to scan and create alerts for unstructured secrets, such as passwords.'
 allowTitleToDifferFromFilename: true
+product: '{% data reusables.gated-features.copilot-secret-scanning %}'
 versions:
   feature: secret-scanning-ai-generic-secret-detection
   fpt: '*'

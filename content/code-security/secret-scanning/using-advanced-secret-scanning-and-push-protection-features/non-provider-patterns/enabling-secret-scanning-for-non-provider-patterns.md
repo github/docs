@@ -2,7 +2,8 @@
 title: Enabling secret scanning for non-provider patterns
 allowTitleToDifferFromFilename: true
 intro: 'You can enable {% data variables.product.prodname_secret_scanning %} to detect additional potential secrets at the {% ifversion security-configurations %}repository and organization levels{% else %}repository level{% endif %}.'
-product: '{% data reusables.gated-features.push-protection-for-repos %}'
+permissions: '{% data reusables.permissions.security-repo-enable %}'
+product: '{% data reusables.gated-features.secret-scanning-non-provider-patterns %}'
 versions:
   feature: secret-scanning-non-provider-patterns
 type: how_to

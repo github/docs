@@ -1,7 +1,7 @@
 ---
 title: Customizing your dependency review action configuration
 intro: 'Learn how to add a basic customization to your dependency review configuration.'
-product: '{% data reusables.gated-features.dependency-review-action %}'
+permissions: '{% data reusables.permissions.security-repo-enable %}'
 versions:
   fpt: '*'
   ghes: '*'
