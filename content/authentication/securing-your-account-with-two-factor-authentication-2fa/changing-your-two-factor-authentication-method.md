@@ -9,9 +9,7 @@ redirect_from:
   - /authentication/securing-your-account-with-two-factor-authentication-2fa/changing-two-factor-authentication-delivery-methods-for-your-mobile-device
   - /authentication/securing-your-account-with-two-factor-authentication-2fa/changing-your-preferred-two-factor-authentication-method
 versions:
-  fpt: '*'
-  ghes: '*'
-  ghec: '*'
+  feature: 2fa-reconfiguration-inline-update
 topics:
   - 2FA
 shortTitle: Change 2FA method
