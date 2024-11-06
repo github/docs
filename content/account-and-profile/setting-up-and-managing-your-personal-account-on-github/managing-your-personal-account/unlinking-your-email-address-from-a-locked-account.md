@@ -37,11 +37,7 @@ Since an email address can only be associated with a single {% data variables.pr
 1. Navigate to [https://github.com/login](https://github.com/login).
 1. To prompt two-factor authentication, type your username and password, then click **Sign in**.
 1. Under "Unable to verify with your security key?", click **Use a recovery code or request a reset**.
-{% ifversion 2fa-reconfiguration-inline-update %}
 1. Under "Locked out?", click **Recover your account or unlink an email address**.
-{% else %}
-1. On the "Two-factor recovery" screen, click **Try recovering your account**.
-{% endif %}
 1. In the modal that appears, click **I understand, get started**.
 1. To send an email containing a one-time password to each email address associated with your account, click **Send one-time password**.
 1. To verify your identity, type the one-time password from your email in the "One-time password" text field, then click **Verify email address**.
