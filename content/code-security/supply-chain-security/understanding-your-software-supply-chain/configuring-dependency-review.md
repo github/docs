@@ -2,6 +2,7 @@
 title: Configuring dependency review
 intro: You can use dependency review to catch vulnerabilities before they are added to your project.
 shortTitle: Configure dependency review
+permissions: '{% data reusables.permissions.security-repo-enable %}'
 versions:
   fpt: '*'
   ghes: '*'
