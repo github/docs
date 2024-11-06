@@ -2,7 +2,7 @@
 title: Metrics for custom patterns
 shortTitle: Custom pattern metrics
 intro: 'You can view alert metrics for custom patterns at the repository, organization, and enterprise levels.'
-product: '{% data reusables.gated-features.secret-scanning %}'
+permissions: '{% data reusables.permissions.security-enterprise-enable %}'
 versions:
   feature: secret-scanning-custom-patterns-metrics
 type: how_to
@@ -15,7 +15,7 @@ topics:
 
 Organization owners and people with admin permission for a repository can see an overview of the activity for custom patterns. The overview includes alert and push protection activity for the custom pattern during the last 30 days.
 
-> [!NOTE] Metrics for custom patterns are in public beta and subject to change.
+> [!NOTE] Metrics for custom patterns are in {% data variables.release-phases.public_preview %} and subject to change.
 
 ## Viewing metrics for custom patterns
 

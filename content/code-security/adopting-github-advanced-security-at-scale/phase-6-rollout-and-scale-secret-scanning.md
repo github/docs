@@ -21,11 +21,15 @@ You can enable secret scanning for individual repositories or for all repositori
 
 {% data reusables.security-configurations.enable-security-features-with-gh-config %}
 
-{% data reusables.security-configurations.security-configurations-beta-note-short %}
-
 {% endif %}
 
 This article explains a high-level process focusing on enabling {% data variables.product.prodname_secret_scanning %} for all repositories in an organization. The principles described in this article can still be applied even if you take a more staggered approach of enabling {% data variables.product.prodname_secret_scanning %} for individual repositories.
+
+{% ifversion copilot-chat-ghas-alerts %}
+
+With a {% data variables.product.prodname_copilot_enterprise %} license, you can also ask {% data variables.product.prodname_copilot_chat %} for help to better understand {% data variables.product.prodname_secret_scanning %} alerts in repositories in your organization. For more information, see "[AUTOTITLE](/copilot/using-github-copilot/asking-github-copilot-questions-in-githubcom#asking-questions-about-alerts-from-github-advanced-security-features)."
+
+{% endif %}
 
 ## 1. Focus on newly committed secrets
 

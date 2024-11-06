@@ -53,7 +53,7 @@ For more information about the different types of versioning, see "[Versioning d
 
 This frontmatter value is used by the docs site to generate "permalinks" for each version of an article. For more information, see [Permalinks](/contributing/writing-for-github-docs/using-markdown-and-liquid-in-github-docs#permalinks).
 
-Example that applies to {% data variables.product.prodname_dotcom_the_website %} and recent versions of {% data variables.product.prodname_ghe_server %}:
+Example that applies to Free, Pro, & Team and {% data variables.product.prodname_ghe_server %} version 3.11 and later:
 
 ```yaml
 title: About your personal dashboard
@@ -62,7 +62,7 @@ versions:
   ghes: '>=3.11'
 ```
 
-Example that applies to all supported versions of {% data variables.product.prodname_ghe_server %}, but not {% data variables.product.prodname_dotcom_the_website %}:
+Example that applies only to {% data variables.product.prodname_ghe_server %}:
 
 ```yaml
 title: Downloading your license
@@ -70,7 +70,7 @@ versions:
   ghes: '*'
 ```
 
-You can also version a page for a range of releases. This would version the page for {% data variables.product.prodname_dotcom_the_website %}, and {% data variables.product.prodname_ghe_server %} versions 3.1 and 3.2 only:
+You can also version a page for a range of releases. This would version the page for Free, Pro, & Team, and {% data variables.product.prodname_ghe_server %} versions 3.1 and 3.2 only:
 
 ```yaml
 versions:
@@ -258,7 +258,7 @@ includeGuides:
 
 ### `topics`
 
-* Purpose: Indicate the topics covered by the article. The topics are used to filter guides on some landing pages. For example, the guides at the bottom of "[Guides for {% data variables.product.prodname_actions %}](/actions/guides#all-guides)" can be filtered by topics, and the topics are listed under the guide intro. Refer to the content models for more details about adding topics. A full list of  existing topics is located in the [allowed topics file](https://github.com/github/docs/blob/main/data/allowed-topics.js). If topics in article frontmatter and the allow-topics list become out of sync, the [topics CI test](https://github.com/github/docs/blob/main/src/search/tests/topics.js) will fail.
+* Purpose: Indicate the topics covered by the article. Refer to the content models for more details about adding topics. A full list of existing topics is located in the [allowed topics file](https://github.com/github/docs/blob/main/data/allowed-topics.js). If topics in article frontmatter and the allow-topics list become out of sync, the [topics CI test](https://github.com/github/docs/blob/main/src/search/tests/topics.js) will fail.
 * Type: Array of `String`s
 * Optional: Topics are preferred for each article, but, there may be cases where existing articles don't yet have topics, or adding a topic to a new article may not add value.
 

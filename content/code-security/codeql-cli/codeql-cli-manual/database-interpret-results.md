@@ -153,6 +153,11 @@ as a plain string.
 \[SARIF formats only] Produce pretty-printed SARIF output. By default,
 SARIF output is minified to reduce the size of the output file.
 
+#### `--sarif-run-property=<String=String>`
+
+\[SARIF formats only] A key value pair to add to the generated SARIF
+'run' property bag. Can be repeated.
+
 #### `--no-group-results`
 
 \[SARIF formats only] Produce one result per message, rather than one

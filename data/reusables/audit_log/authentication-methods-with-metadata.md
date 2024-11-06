@@ -9,7 +9,7 @@ Token data appears in the audit log for the following authentication methods.
 
 {% note %}
 
-**Note**: Display of token data for SSH keys and deploy keys in the audit log is in public beta and subject to change.
+**Note**: Display of token data for SSH keys and deploy keys in the audit log is in {% data variables.release-phases.public_preview %} and subject to change.
 
 {%- endnote %}
 {% endif %}

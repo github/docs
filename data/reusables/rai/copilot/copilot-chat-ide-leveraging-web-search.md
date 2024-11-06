@@ -1,8 +1,7 @@
 ### Leveraging a web search to answer a question
 
 > [!NOTE]
-> * Bing search integration in {% data variables.product.prodname_copilot_chat_short %} is currently in beta and is subject to change.
-> * The `@github` chat participant in {% data variables.product.prodname_vscode_shortname %} and {% data variables.product.prodname_vs %} is currently in preview and is subject to change. For more information, see "[Supplemental Terms of Use for Microsoft Azure Previews](https://azure.microsoft.com/en-us/support/legal/preview-supplemental-terms)."
+> Bing search integration in {% data variables.product.prodname_copilot_chat_short %} is currently in {% data variables.release-phases.public_preview %} and is subject to change.
 
 When you use the `@github` chat participant, {% data variables.product.prodname_copilot_chat %} can use a Bing search to help answer your question if this has been enabled by your administrator.
 

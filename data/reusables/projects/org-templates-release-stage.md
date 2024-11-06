@@ -2,7 +2,7 @@
 
 {% note %}
 
-**Note:** Project templates for organizations is currently in public beta and subject to change.
+**Note:** Project templates for organizations is currently in {% data variables.release-phases.public_preview %} and subject to change.
 
 {% endnote %}
 

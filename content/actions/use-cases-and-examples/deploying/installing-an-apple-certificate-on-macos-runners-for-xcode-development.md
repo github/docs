@@ -116,7 +116,7 @@ jobs:
           mkdir -p ~/Library/MobileDevice/Provisioning\ Profiles
           cp $PP_PATH ~/Library/MobileDevice/Provisioning\ Profiles
       - name: Build app
-        ...
+          # ...
 ```
 
 {% note %}

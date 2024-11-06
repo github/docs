@@ -2,7 +2,7 @@
 title: Choosing a security configuration for your repositories
 shortTitle: Choose security configuration
 intro: 'Find out which type of {% data variables.product.prodname_security_configuration %} will meet the security needs of the repositories in your organization.'
-permissions: '{% data reusables.security-configurations.security-configurations-permissions %}'
+permissions: '{% data reusables.permissions.security-org-enable %}'
 versions:
   feature: security-configurations
 topics:
@@ -10,8 +10,6 @@ topics:
   - Organizations
   - Security
 ---
-
-{% data reusables.security-configurations.security-configurations-beta-note-opt-out %}
 
 ## About choosing a {% data variables.product.prodname_security_configuration %}
 

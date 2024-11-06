@@ -14,6 +14,12 @@ redirect_from:
   - /codespaces/developing-in-codespaces/creating-a-codespace-from-a-template
 ---
 
+{% ifversion ghec %}
+
+{% data reusables.codespaces.data-residency-availability %}
+
+{% endif %}
+
 ## About templates for {% data variables.product.prodname_github_codespaces %}
 
 If you're starting a new project, you can get started with development work quickly by creating a codespace from a template. You'll be able to work on your project in a cloud-based development environment, save your files in the cloud, and publish your work to a new remote repository that you can share with others or clone to your local machine.
@@ -85,9 +91,9 @@ When a codespace is published, you have access to a greater range of options to 
 * Allow {% data variables.product.prodname_dotcom %} to automatically use GPG to sign commits you make in your codespace (see "[AUTOTITLE](/codespaces/managing-your-codespaces/managing-gpg-verification-for-github-codespaces)").
 * Share secrets with your codespace (see "[AUTOTITLE](/codespaces/managing-your-codespaces/managing-your-account-specific-secrets-for-github-codespaces)").
 
-### Publishing from {% data variables.product.prodname_dotcom_the_website %}
+### Publishing from {% data variables.product.github %}
 
-You can publish an unpublished codespace from the "Your codespaces" page on {% data variables.product.prodname_dotcom_the_website %}. This is useful if you want to publish a codespace that you don't currently have open in your browser. If you do this, your work will be preserved in a repository, but there won't be a link between your existing codespace and the new repository. However, you can navigate to the new repository and create a codespace from there, and this codespace will be connected to the repository.
+You can publish an unpublished codespace from the "Your codespaces" page on {% data variables.product.github %}. This is useful if you want to publish a codespace that you don't currently have open in your browser. If you do this, your work will be preserved in a repository, but there won't be a link between your existing codespace and the new repository. However, you can navigate to the new repository and create a codespace from there, and this codespace will be connected to the repository.
 
 {% data reusables.codespaces.your-codespaces-procedure-step %}
 1. Next to the unpublished codespace, click the ellipsis (**...**), then select **Publish to a new repository**.

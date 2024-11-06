@@ -7,3 +7,4 @@ The current set of pre-defined roles are:
 * **All-repository triage**: Grants triage access to all repositories in the organization.
 * **All-repository maintain**: Grants maintenance access to all repositories in the organization.
 * **All-repository admin**: Grants admin access to all repositories in the organization.
+* **CI/CD admin**: Grants admin access to manage Actions policies, runners, runner groups, hosted compute network configurations, secrets, variables, and usage metrics for an organization.

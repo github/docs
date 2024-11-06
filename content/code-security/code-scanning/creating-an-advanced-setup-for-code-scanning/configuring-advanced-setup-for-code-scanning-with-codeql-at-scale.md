@@ -2,6 +2,7 @@
 title: Configuring advanced setup for code scanning with CodeQL at scale
 shortTitle: CodeQL advanced setup at scale
 intro: 'You can use a script to configure advanced setup for {% data variables.product.prodname_code_scanning %} for a specific group of repositories in your organization.'
+permissions: '{% data reusables.permissions.security-org-enable %}'
 product: '{% data reusables.gated-features.code-scanning %}'
 redirect_from:
   - /code-security/code-scanning/automatically-scanning-your-code-for-vulnerabilities-and-errors/configuring-advanced-setup-for-code-scanning-with-codeql-at-scale
@@ -33,6 +34,7 @@ For repositories that are not eligible for default setup, you can use a bulk con
 1. Use one of the example scripts or create a custom script to add the workflow to each repository in the group.
    * PowerShell example: [`jhutchings1/Create-ActionsPRs`](https://github.com/jhutchings1/Create-ActionsPRs) repository
    * NodeJS example: [`nickliffen/ghas-enablement`](https://github.com/NickLiffen/ghas-enablement) repository
+   * Python example: [`Malwarebytes/ghas-cli`](https://github.com/Malwarebytes/ghas-cli) repository
 
 {% ifversion codeql-model-packs-org %}
 

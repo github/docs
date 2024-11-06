@@ -25,7 +25,7 @@ When developing a software project, you likely use other software to build and r
 
 Your supply chain can pose a security problem. If one of your dependencies has a known security weakness or a bug, malicious actors could exploit this vulnerability to, for example, insert malicious code ("malware"), steal sensitive data, or cause some other type of disruption to your project. This type of threat is called a "supply chain attack". Having vulnerable dependencies in your supply chain compromises the security of your own project, and you put your users at risk, too.
 
-One of the most important things you can do to protect your supply chain is to patch your vulnerable dependencies{% ifversion GH-advisory-db-supports-malware %} and replace any malware{% endif %}.
+One of the most important things you can do to protect your supply chain is to patch your vulnerable dependencies and replace any malware.
 
 You add dependencies directly to your supply chain when you specify them in a manifest file or a lockfile. Dependencies can also be included transitively, that is, even if you don’t specify a particular dependency, but a dependency of yours uses it, then you’re also dependent on that dependency.
 
@@ -87,7 +87,13 @@ The term "{% data variables.product.prodname_dependabot %}" encompasses the foll
 
 {% ifversion fpt or ghec %}Pull requests opened by {% data variables.product.prodname_dependabot %} can trigger workflows that run actions. For more information, see "[AUTOTITLE](/code-security/dependabot/working-with-dependabot/automating-dependabot-with-github-actions)."{% endif %}
 
-{% ifversion dependabot-on-actions-opt-in %}By default, {% data variables.product.prodname_dependabot_alerts %}, {% data variables.product.prodname_dependabot_security_updates %}, and {% data variables.product.prodname_dependabot_version_updates %} are run using the built-in {% data variables.product.prodname_dependabot %} application in {% data variables.product.product_name %}. You can instead choose to run {% data variables.product.prodname_dependabot_security_updates %} and {% data variables.product.prodname_dependabot_version_updates %} on {% data variables.product.prodname_actions %}, to take advantage of better performance, and increased visibility and control of {% data variables.product.prodname_dependabot_updates %} jobs. For more information, see "[AUTOTITLE](/code-security/dependabot/working-with-dependabot/about-dependabot-on-github-actions-runners)."
+{% ifversion dependabot-on-actions-opt-in %}By default:
+
+* If {% data variables.product.prodname_actions %} is enabled for the repository, {% data variables.product.prodname_dotcom %} runs {% data variables.product.prodname_dependabot_updates %} on {% data variables.product.prodname_actions %}.
+
+* If {% data variables.product.prodname_actions %} is not enabled for the repository, {% data variables.product.prodname_dotcom %} generates {% data variables.product.prodname_dependabot_alerts %} using the built-in {% data variables.product.prodname_dependabot %} application in {% data variables.product.product_name %}.
+
+For more information, see "[AUTOTITLE](/code-security/dependabot/working-with-dependabot/about-dependabot-on-github-actions-runners)."
 
 {% else %}
 
@@ -95,11 +101,7 @@ The term "{% data variables.product.prodname_dependabot %}" encompasses the foll
 
 {% endif %}
 
-{% ifversion dependabot-actions-support %}
-
 {% data reusables.dependabot.dependabot-actions-support %} For more information, see "[AUTOTITLE](/code-security/dependabot/dependabot-security-updates/about-dependabot-security-updates)."
-
-{% endif %}
 
 #### What are Dependabot alerts
 

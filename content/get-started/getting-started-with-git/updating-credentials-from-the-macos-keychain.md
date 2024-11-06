@@ -23,6 +23,12 @@ We recommend you either [configure SSH](/authentication/connecting-to-github-wit
 
 {% data reusables.user-settings.password-authentication-deprecation %}
 
+{% ifversion ghec %}
+
+> [!NOTE] {% data reusables.enterprise-data-residency.access-domain %}
+
+{% endif %}
+
 ## Updating your credentials via Keychain Access
 
 1. Click on the Spotlight icon (magnifying glass) on the right side of the menu bar.
@@ -42,7 +48,7 @@ protocol=https
 > [Press Return]
 ```
 
-If it's successful, nothing will print out. To test that it works, try and clone a private repository from {% data variables.location.product_location %}. If you are prompted for a password, the keychain entry was deleted.
+If it's successful, nothing will print out. To test that it works, try and clone a private repository. If you are prompted for a password, the keychain entry was deleted.
 
 ## Further reading
 

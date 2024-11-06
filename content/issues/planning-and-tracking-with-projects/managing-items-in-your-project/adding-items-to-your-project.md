@@ -24,7 +24,7 @@ You have several options for adding issues and pull requests to your project. Yo
 
 {% note %}
 
-**Note:** Timeline events for Projects is currently in beta and subject to change.
+**Note:** Timeline events for Projects is currently in {% data variables.release-phases.public_preview %} and subject to change.
 
 {% endnote %}
 
@@ -70,7 +70,7 @@ You can add multiple issues and pull requests from your project and use filters,
 
 You can also add issues and pull requests to your project from a repository's issue and pull request lists.
 
-1. On {% data variables.location.product_location %}, navigate to the repository that contains the issues or pull requests you want to add to your project.
+1. On {% data variables.product.prodname_dotcom %}, navigate to the repository that contains the issues or pull requests you want to add to your project.
 {% data reusables.repositories.sidebar-issue-pr %}
 1. Select the issues or pull requests you want to add to your project.
 

@@ -2,7 +2,7 @@
 title: A repository is using advanced setup for code scanning
 shortTitle: Active advanced setup
 intro: 'You cannot attach a {% data variables.product.prodname_security_configuration %} with code scanning enabled to repositories that are using advanced setup for code scanning.'
-permissions: '{% data reusables.security-configurations.security-configurations-permissions %}'
+permissions: '{% data reusables.permissions.security-org-enable %}'
 versions:
   feature: security-configurations
 redirect_from:
@@ -12,8 +12,6 @@ topics:
   - Organizations
   - Security
 ---
-
-{% data reusables.security-configurations.security-configurations-beta-note-short %}
 
 ## About the problem
 
@@ -33,7 +31,7 @@ For all repositories without an active advanced setup, the {% data variables.pro
 * The latest {% data variables.product.prodname_codeql %} analysis is more than 90 days old
 * All {% data variables.product.prodname_codeql %} configurations have been deleted
 * The workflow file has been deleted or disabled (exclusively for YAML-based advanced setup)
-  
+
 {% endnote %}
 
 ## Solving the problem

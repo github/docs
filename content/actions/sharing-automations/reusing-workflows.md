@@ -136,7 +136,7 @@ You can define inputs and secrets, which can be passed from the caller workflow 
            required: true
            type: string
        secrets:
-         envPAT:
+         personal_access_token:
            required: true
    ```
 
@@ -160,22 +160,22 @@ You can define inputs and secrets, which can be passed from the caller workflow 
    jobs:
      reusable_workflow_job:
        runs-on: ubuntu-latest
-       environment: production
        steps:
        - uses: actions/labeler@v4
          with:
-           repo-token: ${{ secrets.envPAT }}
+           repo-token: ${{ secrets.personal_access_token }}
            configuration-path: ${{ inputs.config-path }}
    ```
 
    {% endraw %}
-   In the example above, `envPAT` is an environment secret that's been added to the `production` environment. This environment is therefore referenced within the job.
 
-   {% note %}
+   In the example above, `personal_access_token` is a secret that's defined at the repository or organization level.
 
-   **Note**: Environment secrets are {% ifversion fpt or ghec %}encrypted {% endif %}strings that are stored in an environment that you've defined for a repository. Environment secrets are only available to workflow jobs that reference the appropriate environment. For more information, see "[AUTOTITLE](/actions/deployment/targeting-different-environments/managing-environments-for-deployment#environment-secrets)."
+   {% warning %}
 
-   {% endnote %}
+   **Warning**: Environment secrets cannot be passed from the caller workflow as `on.workflow_call` does not support the `environment` keyword. If you include `environment` in the reusable workflow at the job level, the environment secret will be used, and not the secret passed from the caller workflow. For more information, see "[AUTOTITLE](/actions/deployment/targeting-different-environments/managing-environments-for-deployment#environment-secrets)" and "[AUTOTITLE](/actions/writing-workflows/workflow-syntax-for-github-actions#onworkflow_call)".
+
+   {% endwarning %}
 
 1. Pass the input or secret from the caller workflow.
 
@@ -361,7 +361,7 @@ jobs:
   workflowB-calls-workflowC:
     uses: different-org/example-repo/.github/workflows/C.yml@main
     secrets:
-      envPAT: ${{ secrets.envPAT }} # pass just this secret
+      repo-token: ${{ secrets.personal_access_token }} # pass just this secret
 ```
 
 {% endraw %}

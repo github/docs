@@ -21,6 +21,12 @@ Before testing your SSH connection, you should have already:
 
 You'll need to authenticate this action using your password, which is the SSH key passphrase you created earlier. See "[AUTOTITLE](/authentication/connecting-to-github-with-ssh/working-with-ssh-key-passphrases)."
 
+{% ifversion ghec %}
+
+> [!NOTE] {% data reusables.enterprise-data-residency.access-domain %}
+
+{% endif %}
+
 {% data reusables.command_line.open_the_multi_os_terminal %}
 1. Enter the following:
 

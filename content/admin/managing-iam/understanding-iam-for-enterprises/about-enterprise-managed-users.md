@@ -27,7 +27,7 @@ topics:
 allowTitleToDifferFromFilename: true
 ---
 
-With {% data variables.product.prodname_emus %}, you manage the lifecycle and authentication of your users on {% data variables.product.prodname_dotcom %} from an external identity management system, or IdP:
+With {% data variables.product.prodname_emus %}, you manage the lifecycle and authentication of your users on {% data variables.product.prodname_dotcom_the_website %} or {% data variables.enterprise.data_residency_site %} from an external identity management system, or IdP:
 
 * Your IdP **provisions new user accounts** on {% data variables.product.prodname_dotcom %}, with access to your enterprise.
 * Users must **authenticate on your IdP** to access your enterprise's resources on {% data variables.product.prodname_dotcom %}.
@@ -64,8 +64,6 @@ If you cannot use a single partner IdP for both authentication and provisioning,
 * Adhere to **{% data variables.product.company_short %}'s integration guidelines**
 * Provide **authentication using SAML**, adhering to SAML 2.0 specification
 * Provide **user lifecycle management using SCIM**, adhering to the SCIM 2.0 specification and communicating with {% data variables.product.company_short %}'s REST API (see "[AUTOTITLE](/admin/identity-and-access-management/provisioning-user-accounts-for-enterprise-managed-users/provisioning-users-with-scim-using-the-rest-api)")
-
-> [!NOTE] {% data reusables.scim.ghec-open-scim-release-phase %}
 
 {% data variables.product.company_short %} does not expressly support mixing and matching partner IdPs for authentication and provisioning and does not test all identity management systems. **{% data variables.product.company_short %}'s support team may not be able to assist you with issues related to mixed or untested systems.** If you need help, you must consult the system's documentation, support team, or other resources.
 

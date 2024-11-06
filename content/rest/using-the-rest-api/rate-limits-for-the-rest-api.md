@@ -18,7 +18,7 @@ Rate limits are disabled by default for {% data variables.product.product_name %
 
 If you are a site administrator, you can set rate limits, including secondary rate limits, for your instance. See "[AUTOTITLE](/admin/configuration/configuring-user-applications-for-your-enterprise/configuring-rate-limits)."
 
-If you are developing an app for users or organizations outside of your instance, the standard {% data variables.product.prodname_dotcom_the_website %} rate limits apply. See "[AUTOTITLE](/free-pro-team@latest/rest/overview/rate-limits-for-the-rest-api)" in the {% data variables.product.prodname_free_user %} documentation.
+If you are developing an app for users or organizations outside of your instance, the standard {% data variables.product.github %} rate limits apply. See "[AUTOTITLE](/free-pro-team@latest/rest/overview/rate-limits-for-the-rest-api)" in the {% data variables.product.prodname_free_user %} documentation.
 
 ## About secondary rate limits
 
@@ -31,6 +31,8 @@ If you are developing an app for users or organizations outside of your instance
 {% data variables.product.company_short %} limits the number of REST API requests that you can make within a specific amount of time. This limit helps prevent abuse and denial-of-service attacks, and ensures that the API remains available for all users.
 
 Some endpoints, like the search endpoints, have more restrictive limits. For more information about these endpoints, see "[AUTOTITLE](/rest/rate-limit/rate-limit)." The GraphQL API also has a separate primary rate limit. See "[AUTOTITLE](/graphql/overview/resource-limitations)."
+
+{% data reusables.organizations.api-insights-learn-about %}
 
 In general, you can calculate your primary rate limit for the REST API based on your method of authentication, as described below.
 

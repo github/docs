@@ -109,14 +109,12 @@ You can fix or dismiss {% data variables.product.prodname_dependabot_alerts %} o
      * When you're ready to update your dependency and resolve the vulnerability, merge the pull request.
    * If you decide that you want to dismiss the alert
      * Go back to the alert details page.
-     * On the top-right corner, click **Dismiss alert**.{% ifversion dependabot-alerts-dismissal-comment %}
+     * On the top-right corner, click **Dismiss alert**.
 
-       ![Screenshot of the alert details page with the **Dismiss alert** button, dropdown menu options, and dismissal comment box highlighted with a dark orange outline.](/assets/images/help/repository/dismiss-alert-demo-repo.png){% else %}
+       ![Screenshot of the alert details page with the **Dismiss alert** button, dropdown menu options, and dismissal comment box highlighted with a dark orange outline.](/assets/images/help/repository/dismiss-alert-demo-repo.png)
 
-       ![Screenshot of the alert details page with the **Dismiss alert** button highlighted with a dark orange outline.](/assets/images/enterprise/3.4/repository/dismiss-alert-demo-repo.png){% endif %}
-
-     * Select a reason for dismissing the alert. {% ifversion dependabot-alerts-dismissal-comment %}
-     * Optionally, add a dismissal comment. The dismissal comment will be added to the alert timeline and can be used as justification during auditing and reporting.{% endif %}
+     * Select a reason for dismissing the alert.
+     * Optionally, add a dismissal comment. The dismissal comment will be added to the alert timeline and can be used as justification during auditing and reporting.
      * Click **Dismiss alert**. The alert won't appear anymore in the **Open** tab of the alert list, and you are able to view it in the **Closed** tab.
 
 For more information about reviewing and updating {% data variables.product.prodname_dependabot_alerts %}, see "[AUTOTITLE](/code-security/dependabot/dependabot-alerts/viewing-and-updating-dependabot-alerts#reviewing-and-fixing-alerts)."

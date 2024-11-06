@@ -70,21 +70,21 @@ We recommend that you have a basic understanding of Python, and pip. For more in
 
        steps:
        - uses: {% data reusables.actions.action-checkout %}
-       - name: Set up Python 3.10
+       - name: Set up Python 3.13
          uses: {% data reusables.actions.action-setup-python %}
          with:
-           python-version: "3.10"
+           python-version: "3.13"
        - name: Install dependencies
          run: |
            python -m pip install --upgrade pip
-           pip install flake8 pytest
+           pip install ruff pytest
            if [ -f requirements.txt ]; then pip install -r requirements.txt; fi
-       - name: Lint with flake8
+       - name: Lint and format Python code with ruff
          run: |
-           # stop the build if there are Python syntax errors or undefined names
-           flake8 . --count --select=E9,F63,F7,F82 --show-source --statistics
-           # exit-zero treats all errors as warnings. The GitHub editor is 127 chars wide
-           flake8 . --count --exit-zero --max-complexity=10 --max-line-length=127 --statistics
+          # Lint with the default set of ruff rules with GitHub Annotations
+          ruff check --format=github --target-version=py39
+          # Verify the code is properly formatted
+          ruff format --diff --target-version=py39
        - name: Test with pytest
          run: |
            pytest
@@ -136,7 +136,7 @@ jobs:
     runs-on: ubuntu-latest
     strategy:
       matrix:
-        python-version: ["pypy3.9", "pypy3.10", "3.9", "3.10", "3.11", "3.12"]
+        python-version: ["pypy3.10", "3.9", "3.10", "3.11", "3.12", "3.13"]
 
     steps:
       - uses: {% data reusables.actions.action-checkout %}
@@ -151,7 +151,7 @@ jobs:
 
 ### Using a specific Python version
 
-You can configure a specific version of Python. For example, 3.10. Alternatively, you can use semantic version syntax to get the latest minor release. This example uses the latest minor release of Python 3.
+You can configure a specific version of Python. For example, 3.12. Alternatively, you can use semantic version syntax to get the latest minor release. This example uses the latest minor release of Python 3.
 
 ```yaml copy
 name: Python package
@@ -180,7 +180,7 @@ jobs:
 
 ### Excluding a version
 
-If you specify a version of Python that is not available, `setup-python` fails with an error such as: `##[error]Version 3.6 with arch x64 not found`. The error message includes the available versions.
+If you specify a version of Python that is not available, `setup-python` fails with an error such as: `##[error]Version 3.7 with arch x64 not found`. The error message includes the available versions.
 
 You can also use the `exclude` keyword in your workflow if there is a configuration of Python that you do not wish to run. For more information, see "[AUTOTITLE](/actions/using-workflows/workflow-syntax-for-github-actions#jobsjob_idstrategy)."
 
@@ -196,12 +196,12 @@ jobs:
     strategy:
       matrix:
         os: [ubuntu-latest, macos-latest, windows-latest]
-        python-version: ["3.9", "3.10", "3.11", "pypy3.9", "pypy3.10"]
+        python-version: ["3.9", "3.11", "3.13", "pypy3.10"]
         exclude:
           - os: macos-latest
-            python-version: "3.9"
+            python-version: "3.11"
           - os: windows-latest
-            python-version: "3.9"
+            python-version: "3.11"
 ```
 
 ### Using the default Python version
@@ -218,7 +218,7 @@ We recommend using `setup-python` to configure the version of Python used in you
 
 {% data variables.product.prodname_dotcom %}-hosted runners have the pip package manager installed. You can use pip to install dependencies from the PyPI package registry before building and testing your code. For example, the YAML below installs or upgrades the `pip` package installer and the `setuptools` and `wheel` packages.
 
-{% ifversion actions-caching %}You can also cache dependencies to speed up your workflow. For more information, see "[AUTOTITLE](/actions/using-workflows/caching-dependencies-to-speed-up-workflows)."{% endif %}
+You can also cache dependencies to speed up your workflow. For more information, see "[AUTOTITLE](/actions/using-workflows/caching-dependencies-to-speed-up-workflows)."
 
 ```yaml copy
 steps:
@@ -248,8 +248,6 @@ steps:
     pip install -r requirements.txt
 ```
 
-{% ifversion actions-caching %}
-
 ### Caching Dependencies
 
 You can cache and restore the dependencies using the [`setup-python` action](https://github.com/actions/setup-python).
@@ -261,7 +259,7 @@ steps:
 - uses: {% data reusables.actions.action-checkout %}
 - uses: {% data reusables.actions.action-setup-python %}
   with:
-    python-version: '3.11'
+    python-version: '3.12'
     cache: 'pip'
 - run: pip install -r requirements.txt
 - run: pip test
@@ -270,8 +268,6 @@ steps:
 By default, the `setup-python` action searches for the dependency file (`requirements.txt` for pip, `Pipfile.lock` for pipenv or `poetry.lock` for poetry) in the whole repository. For more information, see "[Caching packages dependencies](https://github.com/actions/setup-python#caching-packages-dependencies)" in the `setup-python` README.
 
 If you have a custom requirement or need finer controls for caching, you can use the [`cache` action](https://github.com/marketplace/actions/cache). Pip caches dependencies in different locations, depending on the operating system of the runner. The path you'll need to cache may differ from the Ubuntu example above, depending on the operating system you use. For more information, see [Python caching examples](https://github.com/actions/cache/blob/main/examples.md#python---pip) in the `cache` action repository.
-
-{% endif %}
 
 ## Testing your code
 
@@ -298,9 +294,9 @@ steps:
     pytest tests.py --doctest-modules --junitxml=junit/test-results.xml --cov=com --cov-report=xml --cov-report=html
 ```
 
-### Using Ruff to lint code
+### Using Ruff to lint and/or format code
 
-The following example installs or upgrades `ruff` and uses it to lint all files. For more information, see [Ruff](https://beta.ruff.rs/docs).
+The following example installs or upgrades `ruff` and uses it to lint all files. For more information, see [Ruff](https://docs.astral.sh/ruff).
 
 ```yaml copy
 steps:
@@ -309,18 +305,16 @@ steps:
   uses: {% data reusables.actions.action-setup-python %}
   with:
     python-version: '3.x'
-- name: Install dependencies
-  run: |
-    python -m pip install --upgrade pip
-    pip install -r requirements.txt
-- name: Lint with Ruff
-  run: |
-    pip install ruff
-    ruff check --output-format=github .
+- name: Install the code linting and formatting tool Ruff
+  run: pipx install ruff
+- name: Lint code with Ruff
+  run: ruff check --output-format=github --target-version=py39
+- name: Check code formatting with Ruff
+  run: ruff format --diff --target-version=py39
   continue-on-error: true
 ```
 
-The linting step has `continue-on-error: true` set. This will keep the workflow from failing if the linting step doesn't succeed. Once you've addressed all of the linting errors, you can remove this option so the workflow will catch new issues.
+The formatting step has `continue-on-error: true` set. This will keep the workflow from failing if the formatting step doesn't succeed. Once you've addressed all of the formatting errors, you can remove this option so the workflow will catch new issues.
 
 ### Running tests with tox
 
@@ -337,7 +331,7 @@ jobs:
     runs-on: ubuntu-latest
     strategy:
       matrix:
-        python: ["3.9", "3.10", "3.11"]
+        python: ["3.9", "3.11", "3.13"]
 
     steps:
       - uses: {% data reusables.actions.action-checkout %}
@@ -369,7 +363,7 @@ jobs:
     runs-on: ubuntu-latest
     strategy:
       matrix:
-        python-version: ["3.7", "3.8", "3.9", "3.10", "3.11"]
+        python-version: ["3.9", "3.10", "3.11", "3.12", "3.13"]
 
     steps:
       - uses: {% data reusables.actions.action-checkout %}
@@ -460,7 +454,7 @@ jobs:
           path: dist/
 
       - name: Publish release distributions to PyPI
-        uses: pypa/gh-action-pypi-publish@release/v1
+        uses: pypa/gh-action-pypi-publish@6f7e8d9c0b1a2c3d4e5f6a7b8c9d0e1f2a3b4c5d
 ```
 
 {% ifversion not ghes %}

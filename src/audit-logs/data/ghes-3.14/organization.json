@@ -85,6 +85,11 @@
     "docs_reference_links": "N/A"
   },
   {
+    "action": "code.search",
+    "description": "A code search was run targeting an organization. This event is not available in the web interface, only via the REST API, audit log streaming, or JSON/CSV exports.",
+    "docs_reference_links": "/search-github/github-code-search"
+  },
+  {
     "action": "codespaces.allow_permissions",
     "description": "A codespace using custom permissions from its devcontainer.json file was launched.",
     "docs_reference_links": "N/A"
@@ -233,6 +238,11 @@
     "action": "copilot.knowledge_base_updated",
     "description": "A knowledge base was updated in the organization.",
     "docs_reference_links": "copilot/github-copilot-enterprise/copilot-chat-in-github/managing-copilot-knowledge-bases"
+  },
+  {
+    "action": "copilot.plan_changed",
+    "description": "The plan for GitHub Copilot was updated.",
+    "docs_reference_links": "/billing/managing-billing-for-github-copilot/about-billing-for-github-copilot"
   },
   {
     "action": "custom_hosted_runner.create",
@@ -825,6 +835,21 @@
     "docs_reference_links": "N/A"
   },
   {
+    "action": "network_configuration.create",
+    "description": "A network configuration for a hosted compute service was created.",
+    "docs_reference_links": "/admin/configuration/configuring-private-networking-for-hosted-compute-products/about-networking-for-hosted-compute-products"
+  },
+  {
+    "action": "network_configuration.delete",
+    "description": "A network configuration for a hosted compute service was deleted.",
+    "docs_reference_links": "/admin/configuration/configuring-private-networking-for-hosted-compute-products/about-networking-for-hosted-compute-products"
+  },
+  {
+    "action": "network_configuration.update",
+    "description": "A network configuration for a hosted compute service was updated.",
+    "docs_reference_links": "/admin/configuration/configuring-private-networking-for-hosted-compute-products/about-networking-for-hosted-compute-products"
+  },
+  {
     "action": "oauth_application.create",
     "description": "An OAuth application was created.",
     "docs_reference_links": "/apps/oauth-apps/building-oauth-apps/authenticating-to-the-rest-api-with-an-oauth-app#registering-your-app"
@@ -967,6 +992,16 @@
   {
     "action": "org.clear_custom_invitation_rate_limit",
     "description": "N/A",
+    "docs_reference_links": "N/A"
+  },
+  {
+    "action": "org.code_scanning_autofix_disabled",
+    "description": "Autofix for code scanning alerts was disabled for an organization.",
+    "docs_reference_links": "N/A"
+  },
+  {
+    "action": "org.code_scanning_autofix_enabled",
+    "description": "Autofix for code scanning alerts was enabled for an organization.",
     "docs_reference_links": "N/A"
   },
   {
@@ -1428,6 +1463,36 @@
     "action": "org_secret_scanning_generic_secrets.enabled",
     "description": "Generic secrets have been enabled at the organization level",
     "docs_reference_links": "N/A"
+  },
+  {
+    "action": "org_secret_scanning_non_provider_patterns.disabled",
+    "description": "Secret scanning for non-provider patterns was disabled at the organization level.",
+    "docs_reference_links": "/code-security/secret-scanning/secret-scanning-patterns#non-provider-patterns"
+  },
+  {
+    "action": "org_secret_scanning_non_provider_patterns.enabled",
+    "description": "Secret scanning for non-provider patterns was enabled at the organization level.",
+    "docs_reference_links": "/code-security/secret-scanning/secret-scanning-patterns#non-provider-patterns"
+  },
+  {
+    "action": "org_secret_scanning_push_protection_bypass_list.add",
+    "description": "A role or team was added to the push protection bypass list at the organization level.",
+    "docs_reference_links": "/code-security/secret-scanning/push-protection-for-repositories-and-organizations#enabling-delegated-bypass-for-push-protection"
+  },
+  {
+    "action": "org_secret_scanning_push_protection_bypass_list.disable",
+    "description": "Push protection settings for \"Users who can bypass push protection for secret scanning\" changed from \"Specific roles or teams\" to \"Anyone with write access\" at the organization level.",
+    "docs_reference_links": "/code-security/secret-scanning/push-protection-for-repositories-and-organizations#enabling-delegated-bypass-for-push-protection"
+  },
+  {
+    "action": "org_secret_scanning_push_protection_bypass_list.enable",
+    "description": "Push protection settings for \"Users who can bypass push protection for secret scanning\" changed from \"Anyone with write access\" to \"Specific roles or teams\" at the organization level.",
+    "docs_reference_links": "/code-security/secret-scanning/push-protection-for-repositories-and-organizations#enabling-delegated-bypass-for-push-protection"
+  },
+  {
+    "action": "org_secret_scanning_push_protection_bypass_list.remove",
+    "description": "A role or team was removed from the push protection bypass list at the organization level.",
+    "docs_reference_links": "/code-security/secret-scanning/push-protection-for-repositories-and-organizations#enabling-delegated-bypass-for-push-protection"
   },
   {
     "action": "org.secret_scanning_push_protection_custom_message_disabled",
@@ -2205,29 +2270,19 @@
     "docs_reference_links": "/rest/code-scanning#delete-a-code-scanning-analysis-from-a-repository"
   },
   {
+    "action": "repo.code_scanning_autofix_disabled",
+    "description": "Autofix for code scanning alerts was disabled for a repository.",
+    "docs_reference_links": "N/A"
+  },
+  {
+    "action": "repo.code_scanning_autofix_enabled",
+    "description": "Autofix for code scanning alerts was enabled for a repository.",
+    "docs_reference_links": "N/A"
+  },
+  {
     "action": "repo.code_scanning_configuration_for_branch_deleted",
     "description": "A code scanning configuration for a branch of a repository was deleted.",
     "docs_reference_links": "/code-security/code-scanning/managing-code-scanning-alerts/managing-code-scanning-alerts-for-your-repository#removing-stale-configurations-and-alerts-from-a-branch"
-  },
-  {
-    "action": "repo.code_scanning_third_party_tools_disabled",
-    "description": "N/A",
-    "docs_reference_links": "N/A"
-  },
-  {
-    "action": "repo.code_scanning_third_party_tools_enabled",
-    "description": "N/A",
-    "docs_reference_links": "N/A"
-  },
-  {
-    "action": "repo.codeql_advanced_disabled",
-    "description": "N/A",
-    "docs_reference_links": "N/A"
-  },
-  {
-    "action": "repo.codeql_advanced_enabled",
-    "description": "N/A",
-    "docs_reference_links": "N/A"
   },
   {
     "action": "repo.codeql_disabled",
@@ -2237,6 +2292,11 @@
   {
     "action": "repo.codeql_enabled",
     "description": "Code scanning using the default setup was enabled for a repository.",
+    "docs_reference_links": "/code-security/code-scanning/enabling-code-scanning/configuring-default-setup-for-code-scanning"
+  },
+  {
+    "action": "repo.codeql_updated",
+    "description": "Code scanning using the default setup was updated for a repository.",
     "docs_reference_links": "/code-security/code-scanning/enabling-code-scanning/configuring-default-setup-for-code-scanning"
   },
   {
@@ -2710,6 +2770,36 @@
     "docs_reference_links": "N/A"
   },
   {
+    "action": "repository_secret_scanning_non_provider_patterns.disabled",
+    "description": "Secret scanning for non-provider patterns was disabled at the repository level.",
+    "docs_reference_links": "/code-security/secret-scanning/secret-scanning-patterns#non-provider-patterns"
+  },
+  {
+    "action": "repository_secret_scanning_non_provider_patterns.enabled",
+    "description": "Secret scanning for non-provider patterns was enabled at the repository level.",
+    "docs_reference_links": "/code-security/secret-scanning/secret-scanning-patterns#non-provider-patterns"
+  },
+  {
+    "action": "repository_secret_scanning_push_protection_bypass_list.add",
+    "description": "A role or team was added to the push protection bypass list at the repository level.",
+    "docs_reference_links": "/code-security/secret-scanning/push-protection-for-repositories-and-organizations#enabling-delegated-bypass-for-push-protection"
+  },
+  {
+    "action": "repository_secret_scanning_push_protection_bypass_list.disable",
+    "description": "Push protection settings for \"Users who can bypass push protection for secret scanning\" changed from \"Specific roles or teams\" to \"Anyone with write access\" at the repository level.",
+    "docs_reference_links": "/code-security/secret-scanning/push-protection-for-repositories-and-organizations#enabling-delegated-bypass-for-push-protection"
+  },
+  {
+    "action": "repository_secret_scanning_push_protection_bypass_list.enable",
+    "description": "Push protection settings for \"Users who can bypass push protection for secret scanning\" changed from \"Anyone with write access\" to \"Specific roles or teams\" at the repository level.",
+    "docs_reference_links": "/code-security/secret-scanning/push-protection-for-repositories-and-organizations#enabling-delegated-bypass-for-push-protection"
+  },
+  {
+    "action": "repository_secret_scanning_push_protection_bypass_list.remove",
+    "description": "A role or team was removed from the push protection bypass list at the repository level.",
+    "docs_reference_links": "/code-security/secret-scanning/push-protection-for-repositories-and-organizations#enabling-delegated-bypass-for-push-protection"
+  },
+  {
     "action": "repository_secret_scanning_push_protection.disable",
     "description": "Secret scanning push protection was disabled for a repository.",
     "docs_reference_links": "/code-security/secret-scanning/protecting-pushes-with-secret-scanning"
@@ -2878,6 +2968,21 @@
     "action": "secret_scanning_push_protection.bypass",
     "description": "Triggered when a user bypasses the push protection on a secret detected by secret scanning.",
     "docs_reference_links": "/code-security/secret-scanning/protecting-pushes-with-secret-scanning#bypassing-push-protection-for-a-secret"
+  },
+  {
+    "action": "secret_scanning_push_protection_request.approve",
+    "description": "A request to bypass secret scanning push protection was approved by a user.",
+    "docs_reference_links": "/code-security/secret-scanning/push-protection-for-repositories-and-organizations#managing-requests-to-bypass-push-protection"
+  },
+  {
+    "action": "secret_scanning_push_protection_request.deny",
+    "description": "A request to bypass secret scanning push protection was denied by a user.",
+    "docs_reference_links": "/code-security/secret-scanning/push-protection-for-repositories-and-organizations#managing-requests-to-bypass-push-protection"
+  },
+  {
+    "action": "secret_scanning_push_protection_request.request",
+    "description": "A user requested to bypass secret scanning push protection.",
+    "docs_reference_links": "/code-security/secret-scanning/working-with-push-protection#requesting-bypass-privileges-when-working-with-the-command-line"
   },
   {
     "action": "sponsors.agreement_sign",
@@ -3215,6 +3320,11 @@
     "docs_reference_links": "N/A"
   },
   {
+    "action": "workflows.pin_workflow",
+    "description": "A workflow was pinned.",
+    "docs_reference_links": "N/A"
+  },
+  {
     "action": "workflows.prepared_workflow_job",
     "description": "A workflow job was started. Includes the list of secrets that were provided to the job. This event is not available in the web interface, only via the REST API, audit log streaming, or JSON/CSV exports.",
     "docs_reference_links": "/actions/using-workflows/events-that-trigger-workflows"
@@ -3228,5 +3338,10 @@
     "action": "workflows.rerun_workflow_run",
     "description": "A workflow run was re-run.",
     "docs_reference_links": "/actions/managing-workflow-runs/re-running-workflows-and-jobs"
+  },
+  {
+    "action": "workflows.unpin_workflow",
+    "description": "A workflow was unpinned after previously being pinned.",
+    "docs_reference_links": "N/A"
   }
 ]

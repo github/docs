@@ -144,6 +144,6 @@ If you encounter problems with key validation, try upgrading your version of {% 
 
 ### JetBrains IDE issues
 
-For help with issues specific to the JetBrains IDE you are using, or the JetBrains Gateway application, see "[Product Support](https://www.jetbrains.com/support/)" on the JetBrains website.
+For help with issues specific to the JetBrains IDE you are using, or the JetBrains Gateway application, see [Product Support](https://www.jetbrains.com/support/) on the JetBrains website.
 
 {% endjetbrains_beta %}

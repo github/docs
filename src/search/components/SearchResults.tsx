@@ -51,7 +51,7 @@ function NoSearchResults() {
     <div className="d-flex flex-items-center flex-column my-6 border rounded-2">
       <div className="d-flex flex-items-center flex-column p-4">
         <SearchIcon size={24} />
-        <Text className="f2 mt-3">{t('n_results').replace('{n}', '0')}</Text>
+        <p className="f2 mt-3">{t('n_results').replace('{n}', '0')}</p>
       </div>
     </div>
   )
@@ -143,29 +143,31 @@ function ResultsPagination({ page, totalPages }: { page: number; totalPages: num
   }
 
   return (
-    <Box borderRadius={2} p={2}>
-      <Pagination
-        pageCount={Math.min(totalPages, 10)}
-        currentPage={page}
-        hrefBuilder={hrefBuilder}
-        onPageChange={(event, page) => {
-          event.preventDefault()
+    <div className={styles.paginationFocus}>
+      <Box borderRadius={2} p={2}>
+        <Pagination
+          pageCount={Math.min(totalPages, 10)}
+          currentPage={page}
+          hrefBuilder={hrefBuilder}
+          onPageChange={(event, page) => {
+            event.preventDefault()
 
-          const [asPathRoot, asPathQuery = ''] = router.asPath.split('#')[0].split('?')
-          const params = new URLSearchParams(asPathQuery)
-          if (page !== 1) {
-            params.set('page', `${page}`)
-          } else {
-            params.delete('page')
-          }
-          let asPath = `/${router.locale}${asPathRoot}`
-          if (params.toString()) {
-            asPath += `?${params}`
-          }
-          setAsPath(asPath)
-          router.push(asPath)
-        }}
-      />
-    </Box>
+            const [asPathRoot, asPathQuery = ''] = router.asPath.split('#')[0].split('?')
+            const params = new URLSearchParams(asPathQuery)
+            if (page !== 1) {
+              params.set('page', `${page}`)
+            } else {
+              params.delete('page')
+            }
+            let asPath = `/${router.locale}${asPathRoot}`
+            if (params.toString()) {
+              asPath += `?${params}`
+            }
+            setAsPath(asPath)
+            router.push(asPath)
+          }}
+        />
+      </Box>
+    </div>
   )
 }

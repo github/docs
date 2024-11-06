@@ -25,8 +25,7 @@ You must keep private keys for {% data variables.product.prodname_github_apps %}
 To generate a private key:
 
 {% data reusables.apps.settings-step %}
-{% data reusables.user-settings.developer_settings %}
-{% data reusables.user-settings.github_apps %}
+{% data reusables.apps.enterprise-apps-steps %}
 1. Next to the {% data variables.product.prodname_github_app %} that you want to generate a private key for, click **Edit**.
 1. Under "Private keys", click **Generate a private key**.
 1. You will see a private key in PEM format downloaded to your computer. Make sure to store this file because GitHub only stores the public portion of the key. For more information about securely storing your key, see "[Storing private keys](#storing-private-keys)."

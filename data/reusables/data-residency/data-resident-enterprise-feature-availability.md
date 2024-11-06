@@ -1,0 +1,1 @@
+The features available with {% data variables.enterprise.data_residency_short %} on {% data variables.enterprise.data_residency_site %} are similar to the features available to {% data variables.enterprise.prodname_managed_users %} on {% data variables.product.prodname_dotcom_the_website %}, with some additions and exceptions.

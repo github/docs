@@ -86,7 +86,7 @@ jobs:
           # treat it as a warning and not as a broken link.
           EXTERNAL_SERVER_ERRORS_AS_WARNINGS: true
           FAIL_ON_FLAW: false
-        timeout-minutes: 30
+        timeout-minutes: 120
         run: npm run rendered-content-link-checker
 
       - name: Insight into external link checker DB json file (after)

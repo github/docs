@@ -46,7 +46,7 @@ If you hold a trademark for the username, you can find more information about ma
 
 If you do not hold a trademark for the name, you can choose another username or keep your current username. {% data variables.contact.github_support %} cannot release the unavailable username for you. For more information, see "[Changing your username](#changing-your-username)."{% endif %}
 
-After changing your username, your old username becomes available for anyone else to claim. Most references to your repositories under the old username automatically change to the new username. However, some links to your profile won't automatically redirect.
+After changing your username, your previous username will be unavailable for anyone to claim for 90 days. Most references to your repositories under the previous username automatically change to the new username. However, some links to your profile won't automatically redirect.
 
 {% data variables.product.product_name %} cannot set up redirects for:
 * [@mentions](/get-started/writing-on-github/getting-started-with-writing-and-formatting-on-github/basic-writing-and-formatting-syntax#mentioning-people-and-teams) using your old username
@@ -76,7 +76,7 @@ If the new owner of your old username creates a repository with the same name as
 
 ## Links to your previous profile page
 
-After changing your username, links to your previous profile page, such as `https://{% data variables.product.product_url %}/previoususername`, will return a 404 error. We recommend updating any links to your account on {% data variables.location.product_location %} from elsewhere{% ifversion fpt or ghec %}, such as your LinkedIn or Twitter profile{% endif %}.
+After changing your username, links to your previous profile page, such as `https://{% data variables.product.product_url %}/previoususername`, will return a 404 error. We recommend updating any links to your profile from elsewhere{% ifversion fpt or ghec %}, such as your LinkedIn or Twitter profile{% endif %}.
 
 ## Accounts logged in on GitHub Mobile
 

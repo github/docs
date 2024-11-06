@@ -122,7 +122,7 @@ describe('recently deprecated redirects', () => {
     expect(res.headers.vary).toContain('accept-language')
     expect(res.headers.vary).toContain('x-user-language')
     // This is based on
-    // https://github.com/github/help-docs-archived-enterprise-versions/blob/master/3.0/redirects.json
+    // https://github.com/github/docs-ghes-3.0/blob/main/redirects.json
     expect(res.headers.location).toBe(
       '/en/enterprise-server@3.0/get-started/learning-about-github/githubs-products',
     )
@@ -309,8 +309,8 @@ describe('JS and CSS assets', () => {
     expect(result.headers['x-is-archived']).toBeUndefined()
   })
 
-  test('404 if the pathname contains URL characters (..)', async () => {
-    const result = await get('/enterprise/2.18/dist/index..css', {
+  test('404 if the pathname contains URL characters (../)', async () => {
+    const result = await get('/enterprise/2.18/dist/index../css', {
       headers: {
         Referrer: '/en/enterprise/2.18',
       },

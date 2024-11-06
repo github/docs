@@ -51,38 +51,41 @@ For more information about the {% data variables.product.prodname_advisory_datab
 
 ### Glossary
 
-**Vulnerable Version Range (VVR)**: the range of versions that are vulnerable to a particular software bug.
-**Operator**: any symbol that indicates the boundary of a vulnerable version range.
-**Open Source Vulnerability format (OSV)**: format that the {% data variables.product.prodname_advisory_database %} data strives to be compatible with.
+* **Vulnerable Version Range (VVR)**: the range of versions that are vulnerable to a particular software bug.
+* **Operator**: any symbol that indicates the boundary of a vulnerable version range.
+* **Open Source Vulnerability format (OSV)**: format that the {% data variables.product.prodname_advisory_database %} data strives to be compatible with.
 
 ### Version syntax
 
 * Smaller numbers are earlier versions than larger numbers. for example, `1.0.0` is a lower version than `2.0.0`
 * Earlier letters in the alphabet are earlier versions than later letters in the alphabet. For example, `2.0.0-a` is an earlier version than `2.0.0-b`.
 * Any letters that come after a number are considered part of a prerelease, so any versions with letters after the numbers are earlier versions than numbers without letters in the version number. For example,  `2.0.0-alpha`, `2.0.0-beta`, and `2.0.0-rc` are earlier than `2.0.0`.
-* A fixed version cannot be smaller than the largest number in the VVR. For example, a vulnerable version is released and the maintainer recommends downgrading. The lower version cannot be used as a fixed version because it is smaller than the vulnerable version.
+* A fixed version cannot be smaller than the largest number in the VVR. For example, a vulnerable version is released and the maintainer recommends downgrading. The maintainer cannot label that lower version as a fixed or patched version in the `Fixed` field because that version is smaller than the vulnerable version.
 
 ### Supported operators
 
 * `>=` for “greater than or equal to this version”.
 * `>` for “greater than this version”.
 
->[!WARNING] The use of the `>` operator option isn't recommended because OSV doesn’t support it.
+   >[!WARNING] Although {% data variables.product.prodname_dotcom %} supports the use of the `>` operator, using this operator is not recommended because it's not supported by the OSV format.
 
 * `=` for “equal to this version”.
 * `<=` for “less than or equal to this version”.
 * `<` for “less than this version”.
 
-### Specifying affected versions on {% data variables.product.product_name %}
+### Specifying affected versions on {% data variables.product.prodname_dotcom %}
+
+It is important to clearly define the affected versions for an advisory. {% data variables.product.prodname_dotcom %} provides several options in the **Affected versions** field for you to specify vulnerable version ranges.
+
+For examples showing how affected versions are defined in some existing advisories, see [Examples](#examples).
 
 * A valid affected version string consists of one of the following:
   * A lower bound operator sequence.
   * An upper bound operator sequence.
-  * Both an upper and lower bound operator sequence.
+  * Both an upper and lower bound operator sequence. The lower bound must come first, followed by a comma and a single space, then the upper bound.
   * A specific version sequence using the equality (`=`) operator.
   * Each operator sequence must be specified as the operator, a single space, and then the version. For more information about valid operators, see [Supported operators](#supported-operators) above.
   * The version must begin with a number followed by any number of numbers, letters, dots, dashes, or underscores (anything other than a space or comma). For more information about version formatting, see [Version syntax](#version-syntax) above.
-  * When specifying both an upper and lower bound sequence, the lower bound must come first, followed by a comma and a single space, then the upper bound.
 
    {% note %}
 
@@ -92,11 +95,16 @@ For more information about the {% data variables.product.prodname_advisory_datab
 
 * Upper-bound operators can be inclusive or exclusive, i.e. `<=` or `<`, respectively.
 * Lower-bound operators can be inclusive or exclusive, i.e. `>=` or `>`, respectively. However, if you publish your repository advisory, and we graduate your repository advisory into a global advisory, a different rule applies: lower-bound strings can only be inclusive, i.e. `>=`. The exclusive lower bound operator (`>`) is only allowed when the version is `0`, for example `> 0`.
+* Proper use of spaces
+   * Use a space between an operator and a version number.
+   * Do not use a space in `>=` or `<=`.
+   * Do not use a space between a number and a comma in `>= lower bound, <= upper bound`.
+   * Use a space between a comma and the upper bound operator.
 
   {% note %}
 
   **Notes:** The lower-bound limitation:
-  * Is due to incompatibilities with the OSV (Open Source Vulnerability) schema.
+  * Is due to incompatibilities with the OSV schema.
   * Only applies when you make a suggestion on an existing advisory in the {% data variables.product.prodname_advisory_database %}.
 
   {% endnote %}
@@ -110,32 +118,21 @@ For more information about the {% data variables.product.prodname_advisory_datab
 
 ### Setting an upper bound only on a VVR
 
-* If setting only an upper bound, use `<=` or `<`.
-* PyPa security advisories often use `>= 0, <= n` or `>= 0, < n` to refer to version ranges that only have an upper bound.
-* Including `>= 0` in a range that only has an upper bound is not technically wrong, but `>= 0` is unnecessary if you have an upper bound.
-
-### Setting an upper bound only on a VVR
-
-* If setting only an upper bound, use `<=` or `<`.
-* PyPa security advisories often uses `>= 0, <= n` or `>= 0, < n` to refer to version ranges that only have an upper bound.
-* Including `>= 0` in a range that only has an upper bound is not technically wrong, but `>= 0` is unnecessary if you have an upper bound.
+* If you set only an upper bound, use `<=` or `<`.
+* The {% data variables.product.prodname_advisory_database %} uses the PyPA database as one of its data sources. However, {% data variables.product.prodname_dotcom %} doesn't match the PyPA VVR format exactly (PyPa security advisories often use `>= 0, <= n` or `>= 0, < n` to refer to version ranges that only have an upper bound).
+* There is no need to include `>= 0` in a range that only has an upper bound.
 
 ### Setting a lower bound only on a VVR
 
-* `>= 0` for all versions
-* `> 0` is generally not used.
 * The advisory curation team doesn't recommend setting lower bounds only on any advisory other than malware.
-This is because, if a fixed version is ever released, users of the fixed version will continue to receive unnecessary Dependabot alerts until the advisory is manually updated.
+This is because, if a fixed version is ever released, users of the fixed version will continue to receive unnecessary {% data variables.product.prodname_dependabot_alerts %} until the advisory is manually updated.
+* Use `>= 0` for all versions
+* `> 0` is generally not used.
 
 ### Specifying only one affected version
 
 * `= n` for the single affected version
-* Keep in mind that the `=` will not automatically include any pre-releases, alpha, or beta versions, _only_ the version specified.
-* Proper use of spaces
-   * Use a space between an operator and a version number.
-   * Do not use a space in `>=` or `<=`.
-   * Do not use a space between a number and a comma in `>= lower bound, <= upper bound`.
-   * Use a space between a comma and the upper bound operator.
+* Keep in mind that the `=` will not automatically include any public or private previews, _only_ the version specified.
 
 ### Common errors
 
@@ -162,7 +159,7 @@ This is because, if a fixed version is ever released, users of the fixed version
 * `>= 15.6-rc-1, < 15.10.6`
 * `= 16.0.0-rc-1`
 
-Three of these VVRs include prereleases into the bucket of vulnerable versions. One of the VVRs, `= 16.0.0-rc-1`, shows that only `16.0.0-rc-1` is vulnerable, while the regular release that came after it, `16.0.0`, isn't. The logic considers `16.0.0-rc-1` and `16.0.0` as separate versions, with `16.0.0-rc-1` being an earlier release than `16.0.0`.
+Three of these VVRs include prereleases in the range of vulnerable versions. The last VVR, `= 16.0.0-rc-1`, shows that only `16.0.0-rc-1` is vulnerable, while the regular release that came after it, `16.0.0`, isn't. The logic considers `16.0.0-rc-1` and `16.0.0` as separate versions, with `16.0.0-rc-1` being an earlier release than `16.0.0`.
 
 The patch for this vulnerability was published on Jan 24, 2024, for version 16.0.0. For more information see [commit 27eca84](https://github.com/xwiki/xwiki-platform/commit/27eca8423fc1ad177518077a733076821268509c) in the `xwiki/xwiki-platform ` repository. The [XWiki Platform Old Core](https://mvnrepository.com/artifact/org.xwiki.platform/xwiki-platform-oldcore) page in the MVN Repository site shows that `16.0.0-rc-1` was published on Jan 22, 2024, before the fix was added to XWiki, and `16.0.0` was published on Jan 29, 2024, after the fix was committed.
 
@@ -170,7 +167,7 @@ The patch for this vulnerability was published on Jan 24, 2024, for version 16.0
 
 [Google Guava](https://mvnrepository.com/artifact/com.google.guava/guava) has two branches, `android` and `jre`, in its version releases. [Guava vulnerable to insecure use of temporary directory (GHSA-7g45-4rm6-3mm3)](https://github.com/advisories/GHSA-7g45-4rm6-3mm3) and [Information Disclosure in Guava (GHSA-5mg8-w23w-74h3)](https://github.com/advisories/GHSA-5mg8-w23w-74h3) are advisories about vulnerabilities that affect Guava. Both advisories set `32.0.0-android` as the patched version.
 
-* Because of the version range logic that interprets letters after `32.0.0` as prereleases, if you set the patched version to `32.0.0`, both `32.0.0-android` and `32.0.0-jre` would be incorrectly marked as vulnerable.
-* Because of the version range logic that interprets letters later in the alphabet as being a later version than letters earlier in the alphabet, if you set the patched version to `32.0.0-jre`, `32.0.0-android` would be incorrectly marked as vulnerable.
+* The version range logic interprets letters after `32.0.0` as prereleases, so if you set the patched version to `32.0.0`, then both `32.0.0-android` and `32.0.0-jre` would be incorrectly marked as vulnerable.
+* The version range logic interprets letters later in the alphabet as being a later version than letters earlier in the alphabet, so if you set the patched version to `32.0.0-jre`, then `32.0.0-android` would be incorrectly marked as vulnerable.
 
 The best way to indicate that both `32.0.0-android` and `32.0.0-jre` are patched is to use `32.0.0-android` as the patched version, and the logic will interpret everything after `32.0.0-android` in the alphabet as patched.

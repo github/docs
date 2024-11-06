@@ -50,13 +50,13 @@ It is a block of key-value content that lives at the top of every Markdown file.
 
 The following frontmatter values have special meanings and requirements for this site.
 There's also a schema that's used by the test suite to validate every page's frontmatter.
-See [`lib/frontmatter.js`](../lib/frontmatter.js).
+See [`lib/frontmatter.js`](/src/frame/lib/frontmatter.js).
 
 ### `versions`
 
-- Purpose: Indicates the [versions](#src/versions/lib/all-versions.js) to which a page applies.
+- Purpose: Indicates the [versions](/src/versions/lib/all-versions.js) to which a page applies.
 See [Versioning](#versioning) for more info.
-- Type: `Object`. Allowable keys map to product names and can be found in the `versions` object in [`lib/frontmatter.js`](../lib/frontmatter.js).
+- Type: `Object`. Allowable keys map to product names and can be found in the `versions` object in [`lib/frontmatter.js`](/src/frame/lib/frontmatter.js).
 - This frontmatter value is currently **required** for all pages.
 - The `*` is used to denote all releases for the version.
 
@@ -258,7 +258,7 @@ includeGuides:
 - Optional.
 
 ### `topics`
-- Purpose: Indicate the topics covered by the article. The topics are used to filter guides on some landing pages. For example, the guides at the bottom of [this page](https://docs.github.com/en/actions/guides) can be filtered by topics, and the topics are listed under the guide intro. Refer to the content models for more details about adding topics. A full list of  existing topics is located in the [allowed topics file](/data/allowed-topics.js). If topics in article frontmatter and the allow-topics list become out of sync, the [topics CI test](/tests/unit/search/topics.js) will fail.
+- Purpose: Indicate the topics covered by the article. Refer to the content models for more details about adding topics. A full list of existing topics is located in the [allowed topics file](/data/allowed-topics.js). If topics in article frontmatter and the allow-topics list become out of sync, the [topics CI test](/src/search/tests/topics.js) will fail.
 - Type: Array of `String`s
 - Optional: Topics are preferred for each article, but, there may be cases where existing articles don't yet have topics, or adding a topic to a new article may not add value.
 
@@ -297,7 +297,7 @@ A content file can have **two** types of versioning:
 - Liquid statements in content (**optional**)
     - Conditionally render content depending on the current version being viewed. See "[Versioning documentation](https://docs.github.com/en/contributing/writing-for-github-docs/versioning-documentation#versioning-with-liquid-conditional-operators)" for more info. Note Liquid conditionals can also appear in `data` and `include` files.
 
-**Note**: As of early 2021, the `free-pro-team@latest` version is not included URLs. A helper function called `lib/remove-fpt-from-path.js` removes the version from URLs.
+**Note**: As of early 2021, the `free-pro-team@latest` version is not included URLs. A helper function called `src/versions/lib/remove-fpt-from-path.js` removes the version from URLs.
 
 ## Filenames
 
@@ -345,7 +345,7 @@ Links to docs in the `docs-internal` repository must start with a product ID (li
 
 Image paths must start with `/assets` and contain the entire filepath including the file extension. For example, `/assets/images/help/settings/settings-account-delete.png`.
 
-The links to Markdown pages undergo some transformations on the server side to match the current page's language and version. The handling for these transformations lives in [`lib/render-content/plugins/rewrite-local-links`](/lib/render-content/plugins/rewrite-local-links.js).
+The links to Markdown pages undergo some transformations on the server side to match the current page's language and version. The handling for these transformations lives in [`src/content-render/unified/rewrite-local-links.js`](/src/content-render/unified/rewrite-local-links.js).
 
 For example, if you include the following link in a content file:
 

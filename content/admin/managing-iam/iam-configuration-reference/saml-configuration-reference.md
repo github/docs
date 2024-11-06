@@ -19,11 +19,11 @@ redirect_from:
 
 ## About SAML configuration
 
-To use SAML single sign-on (SSO) for authentication to {% data variables.product.product_name %}, you must configure both your external SAML identity provider (IdP) and {% ifversion ghes %}{% data variables.location.product_location %}{% elsif ghec %}your enterprise or organization on {% data variables.location.product_location %}{% endif %}. In a SAML configuration, {% data variables.product.product_name %} functions as a SAML service provider (SP). For more information about authentication for your enterprise, see "[AUTOTITLE](/admin/identity-and-access-management/understanding-iam-for-enterprises/about-identity-and-access-management#authentication-methods)."
+To use SAML single sign-on (SSO) for authentication to {% data variables.product.product_name %}, you must configure both your external SAML identity provider (IdP) and {% ifversion ghes %}{% data variables.location.product_location %}{% elsif ghec %}your enterprise or organization on {% data variables.product.github %}{% endif %}. In a SAML configuration, {% data variables.product.product_name %} functions as a SAML service provider (SP). For more information about authentication for your enterprise, see "[AUTOTITLE](/admin/identity-and-access-management/understanding-iam-for-enterprises/about-identity-and-access-management#authentication-methods)."
 
  {% data variables.product.product_name %} provides integration according to the SAML 2.0 specification. For more information, see the [SAML Wiki](https://wiki.oasis-open.org/security) on the OASIS website.
 
-You must enter unique values from your SAML IdP when configuring SAML SSO for {% data variables.product.product_name %}, and you must also enter unique values from {% data variables.product.product_name %} on your IdP. For more information about authentication for
+You must enter unique values from your SAML IdP when configuring SAML SSO for {% data variables.product.product_name %}, and you must also enter unique values from {% data variables.product.product_name %} on your IdP.
 
 ## SAML metadata
 
@@ -31,11 +31,13 @@ You must enter unique values from your SAML IdP when configuring SAML SSO for {%
 
 The SP metadata for {% data variables.product.product_name %} is available for either organizations or enterprises with SAML SSO. {% data variables.product.product_name %} uses the `urn:oasis:names:tc:SAML:2.0:bindings:HTTP-POST` binding.
 
+If you use {% data variables.product.prodname_emus %}, you can only enable SAML SSO at the enterprise level.
+
 ### Organizations
 
 You can configure SAML SSO for an individual organization in your enterprise. You can also configure SAML SSO for an organization if you use an individual organization on {% data variables.product.product_name %} and do not use an enterprise account. For more information, see "[AUTOTITLE](/organizations/managing-saml-single-sign-on-for-your-organization)."
 
-The SP metadata for an organization on {% data variables.location.product_location %} is available at `https://github.com/orgs/ORGANIZATION/saml/metadata`, where **ORGANIZATION** is the name of your organization on {% data variables.location.product_location %}.
+The SP metadata for an organization on {% data variables.product.github %} is available at `https://github.com/orgs/ORGANIZATION/saml/metadata`, where **ORGANIZATION** is the name of your organization on {% data variables.product.github %}.
 
 | Value | Other names | Description | Example |
 | :- | :- | :- | :- |
@@ -45,7 +47,10 @@ The SP metadata for an organization on {% data variables.location.product_locati
 
 ### Enterprises
 
-The SP metadata for an enterprise on {% data variables.location.product_location %} is available at `https://github.com/enterprises/ENTERPRISE/saml/metadata`, where **ENTERPRISE** is the name of your enterprise on {% data variables.location.product_location %}.
+Depending on your environment, the SP metadata for an enterprise on {% data variables.product.prodname_ghe_cloud %} is available at either:
+
+* `https://github.com/enterprises/ENTERPRISE/saml/metadata`, where **ENTERPRISE** is the name of your enterprise
+* `https://SUBDOMAIN.ghe.com/enterprises/SUBDOMAIN/saml/metadata`, where **SUBDOMAIN** is the subdomain for your enterprise
 
 | Value | Other names | Description | Example |
 | :- | :- | :- | :- |
@@ -96,11 +101,11 @@ To specify more than one value for an attribute, use multiple `<saml2:AttributeV
 {% data variables.product.product_name %} requires that the response message from your IdP fulfill the following requirements.
 
 * Your IdP must provide the `<Destination>` element on the root response document and match the ACS URL only when the root response document is signed. If your IdP signs the assertion, {% data variables.product.product_name %} will ignore the assertion.
-* Your IdP must always provide the `<Audience>` element as part of the `<AudienceRestriction>` element. The value must match your `EntityId` for {% data variables.product.product_name %}.{% ifversion ghes %} This value is the URL where you access {% data variables.location.product_location %}, such as `http(s)://HOSTNAME`.{% endif %}
+* Your IdP must always provide the `<Audience>` element as part of the `<AudienceRestriction>` element. The value must match your `EntityId` for {% data variables.product.product_name %}.{% ifversion ghes %} This value is the URL where you access {% data variables.product.github %}, such as `http(s)://HOSTNAME`.{% endif %}
 
   {%- ifversion ghec %}
   * If you configure SAML for an organization, this value is `https://github.com/orgs/ORGANIZATION`.
-  * If you configure SAML for an enterprise, this URL is `https://github.com/enterprises/ENTERPRISE`.
+  * If you configure SAML for an enterprise, this URL is `https://github.com/enterprises/ENTERPRISE` or `https://SUBDOMAIN.ghe.com/enterprises/SUBDOMAIN`.
   {%- endif %}
 * Your IdP must protect each assertion in the response with a digital signature. You can accomplish this by signing each individual `<Assertion>` element or by signing the `<Response>` element.
 * Your IdP must provide a `<NameID>` element as part of the `<Subject>` element. You may use any persistent name identifier format.
@@ -140,11 +145,4 @@ If you define a customized session duration value less than 24 hours, {% data va
 To prevent authentication errors, we recommend a minimum session duration of 4 hours. For more information, see "[AUTOTITLE](/admin/identity-and-access-management/using-saml-for-enterprise-iam/troubleshooting-saml-authentication#users-are-repeatedly-redirected-to-authenticate)."
 {% endif %}
 
-{% note %}
-
-**Notes**:
-
-* For Microsoft Entra ID (previously known as Azure AD), the configurable lifetime policy for SAML tokens does not control session timeout for {% data variables.product.product_name %}.
-* Okta does not currently send the `SessionNotOnOrAfter` attribute during SAML authentication with {% data variables.product.product_name %}. For more information, contact Okta.
-
-{% endnote %}
+>[!NOTE] For Microsoft Entra ID (previously known as Azure AD), the configurable lifetime policy for SAML tokens does not control session timeout for {% data variables.product.product_name %}.

@@ -17,15 +17,11 @@ shortTitle: Monitor & troubleshoot
 
 {% data reusables.actions.enterprise-github-hosted-runners %}
 
-{% ifversion actions-disable-repo-runners %}
-
 ## Using repository-level self-hosted runners
 
 You may not be able to create a self-hosted runner for an organization-owned repository.
 
 {% data reusables.actions.disable-selfhosted-runners-crossrefs %}
-
-{% endif %}
 
 ## Checking the status of a self-hosted runner
 
@@ -46,12 +42,12 @@ You may not be able to create a self-hosted runner for an organization-owned rep
 
 ### Checking self-hosted runner network connectivity
 
-You can use the self-hosted runner application's `config` script with the `--check` parameter to check that a self-hosted runner can access all required network services on {% data variables.location.product_location %}.
+You can use the self-hosted runner application's `config` script with the `--check` parameter to check that a self-hosted runner can access all required network services on {% data variables.product.github %}.
 
 In addition to `--check`, you must provide two arguments to the script:
 
 * `--url` with the URL to your {% data variables.product.company_short %} repository, organization, or enterprise. For example, `--url https://github.com/octo-org/octo-repo`.
-* `--pat` with the value of a {% data variables.product.pat_v1 %}, which must have the `workflow` scope{% ifversion pat-v2%}, or a {% data variables.product.pat_v2 %} with workflows read and write access {% endif %}. For example, `--pat ghp_abcd1234`. For more information, see "[AUTOTITLE](/authentication/keeping-your-account-and-data-secure/creating-a-personal-access-token)."
+* `--pat` with the value of a {% data variables.product.pat_v1 %}, which must have the `workflow` scope, or a {% data variables.product.pat_v2 %} with workflows read and write access. For example, `--pat ghp_abcd1234`. For more information, see "[AUTOTITLE](/authentication/keeping-your-account-and-data-secure/creating-a-personal-access-token)."
 
 For example:
 
@@ -293,7 +289,7 @@ User=runner-user
 
 {% ifversion ghes %}
 
-## Resolving runners that are offline after an upgrade of {% data variables.location.product_location %}
+## Resolving runners that are offline after an upgrade of {% data variables.product.prodname_ghe_server %}
 
 {% data reusables.actions.upgrade-runners-before-upgrade-ghes %}
 

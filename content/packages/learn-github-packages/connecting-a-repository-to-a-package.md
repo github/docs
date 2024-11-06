@@ -1,6 +1,6 @@
 ---
 title: Connecting a repository to a package
-intro: 'You can connect a repository to a package on {% data variables.location.product_location %}.'
+intro: 'You can connect a repository to a package on {% data variables.product.github %}.'
 product: '{% data reusables.gated-features.packages %}'
 redirect_from:
   - /packages/managing-container-images-with-github-container-registry/connecting-a-repository-to-a-container-image
@@ -40,7 +40,7 @@ When you publish a package that is scoped to a personal account or an organizati
    LABEL org.opencontainers.image.source=https://{% ifversion fpt or ghec %}github.com{% else %}HOSTNAME{% endif %}/OWNER/REPO
    ```
 
-   For example, if you're the user `octocat` and own `my-repo`{% ifversion ghes %}, and your {% data variables.location.product_location %} hostname is `github.companyname.com`,{% endif %} you would add this line to your Dockerfile:
+   For example, if you're the user `octocat` and own `my-repo`{% ifversion ghes %}, and your {% data variables.product.github %} hostname is `github.companyname.com`,{% endif %} you would add this line to your Dockerfile:
 
    ```shell
    LABEL org.opencontainers.image.source=https://{% ifversion fpt or ghec %}github.com{% else %}{% data reusables.package_registry.container-registry-example-hostname %}{% endif %}/octocat/my-repo

@@ -1,6 +1,6 @@
 ---
 title: Getting permanent links to files
-intro: 'When viewing a file on {% data variables.location.product_location %}, you can press the "y" key to update the URL to a permalink to the exact version of the file you see.'
+intro: 'When viewing a file on {% data variables.product.prodname_dotcom %}, you can press the "y" key to update the URL to a permalink to the exact version of the file you see.'
 redirect_from:
   - /articles/getting-a-permanent-link-to-a-file
   - /articles/how-do-i-get-a-permanent-link-from-file-view-to-permanent-blob-url
@@ -23,7 +23,7 @@ shortTitle: Permanent links to files
 
 ## File views show the latest version on a branch
 
-When viewing a file on {% data variables.location.product_location %}, you usually see the version at the current head of a branch.  For example:
+When viewing a file on {% data variables.product.prodname_dotcom %}, you usually see the version at the current head of a branch.  For example:
 
 * [https://github.com/github/codeql/blob/**main**/README.md](https://github.com/github/codeql/blob/main/README.md)
 

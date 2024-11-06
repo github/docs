@@ -1,6 +1,7 @@
 ---
 title: Secret scanning partner program
 intro: 'As a service provider, you can partner with {% data variables.product.prodname_dotcom %} to have your secret token formats secured through secret scanning, which searches for accidental commits of your secret format and can be sent to a service provider''s verify endpoint.'
+product: '{% data reusables.gated-features.secret-scanning-partner-alerts %}'
 redirect_from:
   - /partnerships/token-scanning
   - /partnerships/secret-scanning
@@ -121,7 +122,7 @@ key to use based on the value of `Github-Public-Key-Identifier`.
 
 {% note %}
 
-**Note**: When you send a request to the public key endpoint above, you may hit rate limits. To avoid hitting rate limits, you can use a {% data variables.product.pat_v1 %} (no scopes required){% ifversion pat-v2 %} or a {% data variables.product.pat_v2 %} (only the automatic public repositories read access required){% endif %} as suggested in the samples below, or use a conditional request. For more information, see "[AUTOTITLE](/rest/guides/getting-started-with-the-rest-api#conditional-requests)."
+**Note**: When you send a request to the public key endpoint above, you may hit rate limits. To avoid hitting rate limits, you can use a {% data variables.product.pat_v1 %} (no scopes required) or a {% data variables.product.pat_v2 %} (only the automatic public repositories read access required) as suggested in the samples below, or use a conditional request. For more information, see "[AUTOTITLE](/rest/guides/getting-started-with-the-rest-api#conditional-requests)."
 
 {% endnote %}
 

@@ -19,9 +19,9 @@ redirect_from:
 
 ## About disabled authentication for {% data variables.product.prodname_emus %}
 
-After you disable SAML or OIDC SSO and SCIM provisioning for your enterprise, the following effects apply:
+After you disable SAML or OIDC SSO for your enterprise, the following effects apply:
 
-* All external identities for the enterprise will be removed. For more information, see "[AUTOTITLE](/admin/user-management/managing-users-in-your-enterprise/viewing-and-managing-a-users-saml-access-to-your-enterprise)."
+* All external identities for the enterprise, and associated email addresses for {% data variables.enterprise.prodname_managed_users %}, will be removed. For more information, see "[AUTOTITLE](/admin/user-management/managing-users-in-your-enterprise/viewing-and-managing-a-users-saml-access-to-your-enterprise)."
 * All {% data variables.enterprise.prodname_managed_users %} will be suspended. The suspended accounts will not be renamed. For more information, see "[AUTOTITLE](/admin/user-management/managing-users-in-your-enterprise/viewing-people-in-your-enterprise#viewing-suspended-members)."
 * All {% data variables.product.pat_generic_plural %} and SSH keys associated with {% data variables.enterprise.prodname_managed_users %} will be deleted.
 * All of the external groups provisioned by SCIM will be deleted. For more information, see "[AUTOTITLE](/admin/identity-and-access-management/using-enterprise-managed-users-for-iam/managing-team-memberships-with-identity-provider-groups)."
@@ -46,7 +46,7 @@ If you want to migrate to a new identity provider (IdP) or tenant rather than di
 
 {% data reusables.emus.sign-in-as-setup-user %}
 1. Attempt to access your enterprise account, and use a recovery code to bypass SAML SSO or OIDC. For more information, see "[AUTOTITLE](/admin/identity-and-access-management/managing-recovery-codes-for-your-enterprise/accessing-your-enterprise-account-if-your-identity-provider-is-unavailable)."
-{% data reusables.enterprise-accounts.access-enterprise %}
+{% data reusables.enterprise-accounts.access-enterprise-emu %}
 {% data reusables.enterprise-accounts.settings-tab %}
 {% data reusables.enterprise-accounts.security-tab %}
 1. Under "SAML single sign-on", deselect **Require SAML authentication** or **Require OIDC single sign-on**.

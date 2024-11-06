@@ -14,7 +14,7 @@ topics:
 
 {% data reusables.repositories.you-can-fork %}
 
-If you fork a private repository that belongs to a personal account, external collaborators also get access to the fork. If you fork a private {% ifversion ghec or ghes %}or internal {% endif %}repository that belongs to an organization, teams within the organization get access to the fork, but external collaborators do not. You can add an external collaborator to the fork, but only if the external collaborator also has access to the upstream repository.
+If you fork a private repository that belongs to a personal account, external collaborators also get access to the fork. If you fork a private {% ifversion ghec or ghes %}or internal {% endif %}repository that belongs to an organization, teams within the organization get access to the fork, but external collaborators do not. You can add an external collaborator to a fork of a private repository that belongs to an organization if you are an owner of that organization or if your organization allows repository administrators to invite external collaborators.{% ifversion ghec or ghes %} You can add an external collaborator to a fork of an internal repository that belongs to an organization if the external collaborator also has access to the upstream repository.{% endif %}
 
 {% ifversion fpt or ghec %}
 
@@ -43,8 +43,6 @@ Public forks do not inherit the permissions structure of the upstream repository
 {% ifversion push-rulesets %}
 
 ### About push rulesets for forked repositories
-
-{% data reusables.repositories.rulesets-push-rules-beta-note %}
 
 {% data reusables.repositories.rulesets-push-rulesets-fork-network-information %}
 

@@ -88,7 +88,7 @@ Different contexts are available throughout a workflow run. For example, the `se
 
 In addition, some functions may only be used in certain places. For example, the `hashFiles` function is not available everywhere.
 
-The following table indicates where each context and special function can be used within a workflow. Unless listed below, a function can be used anywhere.
+The following table lists the restrictions on where each context and special function can be used within a workflow. The listed contexts are only available for the given workflow key, and may not be used anywhere else. Unless listed below, a function can be used anywhere.
 
 | Workflow key | Context | Special functions |
 | ---- | ------- | ----------------- |
@@ -364,6 +364,12 @@ The contents of the `vars` context is a mapping of configuration variable names 
 ### Example usage of the `vars` context
 
 This example workflow shows how configuration variables set at the repository, environment, or organization levels are automatically available using the `vars` context.
+
+{% note %}
+
+Note: Configuration variables at the environment level are automatically available after their environment is declared by the runner.
+
+{% endnote %}
 
 {% data reusables.actions.actions-vars-context-example-usage %}
 

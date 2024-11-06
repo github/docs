@@ -51,7 +51,7 @@ To view everyone who has starred a repository, add `/stargazers` to the end of t
 
 {% note %}
 
-**Note:** Lists are currently in public beta and subject to change.
+**Note:** Lists are currently in {% data variables.release-phases.public_preview %} and subject to change.
 
 {% endnote %}
 
