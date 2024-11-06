@@ -2,7 +2,7 @@
 title: Working with push protection from the REST API
 shortTitle: Push protection from the REST API
 intro: 'Learn your options for unblocking your push to {% data variables.product.prodname_dotcom %} using the REST API if {% data variables.product.prodname_secret_scanning %} detects a secret in the content of your API request.'
-product: '{% data reusables.gated-features.secret-scanning %}'
+permissions: '{% data reusables.permissions.push-protection-resolve-block %}'
 versions:
   feature: secret-scanning-push-protection-content-endpoints
 type: how_to
