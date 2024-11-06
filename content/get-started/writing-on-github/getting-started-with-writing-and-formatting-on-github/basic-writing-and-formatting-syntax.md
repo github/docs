@@ -40,7 +40,7 @@ You can indicate emphasis with bold, italic, strikethrough, subscript, or supers
 | All bold and italic | `*** ***` | None | `***All this text is important***` | ***All this text is important*** | <!-- markdownlint-disable-line emphasis-style -->
 | Subscript | `<sub> </sub>` | None | `This is a <sub>subscript</sub> text` | This is a <sub>subscript</sub> text |
 | Superscript | `<sup> </sup>` | None | `This is a <sup>superscript</sup> text` | This is a <sup>superscript</sup> text |
-| Underline | `<ins> </ins>` | None | `This is an <ins>underlined</ins> text` | <ins>This text is underlined</ins> |
+| Underline | `<ins> </ins>` | None | `This is an <ins>underlined</ins> text` | This is an <ins>underlined</ins> text |
 
 ## Quoting text
 
