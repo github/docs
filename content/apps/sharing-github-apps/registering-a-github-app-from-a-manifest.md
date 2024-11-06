@@ -172,11 +172,8 @@ To complete the handshake, send the temporary `code` in a `POST` request to the 
 
 You must complete this step of the {% data variables.product.prodname_github_app %} Manifest flow within one hour.
 
-{% note %}
-
-**Note:** This endpoint is rate limited. See [Rate limits](/rest/rate-limit/rate-limit) to learn how to get your current rate limit status.
-
-{% endnote %}
+> [!NOTE]
+> This endpoint is rate limited. See [Rate limits](/rest/rate-limit/rate-limit) to learn how to get your current rate limit status.
 
     POST /app-manifests/{code}/conversions
 

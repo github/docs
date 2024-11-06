@@ -2,14 +2,9 @@ This means that there can be at most one running and one pending job in a concur
 
 To also cancel any currently running job or workflow in the same concurrency group, specify `cancel-in-progress: true`.  To conditionally cancel currently running jobs or workflows in the same concurrency group, you can specify `cancel-in-progress` as an expression with any of the allowed expression contexts.
 
-{% note %}
-
-**Notes:**
-
-* The concurrency group name is case insensitive. For example, `prod` and `Prod` will be treated as the same concurrency group.
-* Ordering is not guaranteed for jobs or workflow runs using concurrency groups. Jobs or workflow runs in the same concurrency group are handled in an arbitrary order.
-
-{% endnote %}
+> [!NOTE]
+> * The concurrency group name is case insensitive. For example, `prod` and `Prod` will be treated as the same concurrency group.
+> * Ordering is not guaranteed for jobs or workflow runs using concurrency groups. Jobs or workflow runs in the same concurrency group are handled in an arbitrary order.
 
 ### Example: Using concurrency and the default behavior
 

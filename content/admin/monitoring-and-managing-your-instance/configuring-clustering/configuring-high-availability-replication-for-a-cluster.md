@@ -32,11 +32,8 @@ For each existing node in your active cluster, you'll need to provision a second
 
 On each new virtual machine, install the same version of {% data variables.product.prodname_ghe_server %} that runs on the nodes in your active cluster. You don't need to upload a license or perform any additional configuration. For more information, see "[AUTOTITLE](/enterprise/admin/installation/setting-up-a-github-enterprise-server-instance)."
 
-{% note %}
-
-**Note**: The nodes that you intend to use for high availability replication should be standalone {% data variables.product.prodname_ghe_server %} instances. Don't initialize the replica nodes as a second cluster.
-
-{% endnote %}
+> [!NOTE]
+> The nodes that you intend to use for high availability replication should be standalone {% data variables.product.prodname_ghe_server %} instances. Don't initialize the replica nodes as a second cluster.
 
 ### Network
 
@@ -53,15 +50,10 @@ To create a high availability replica for your cluster, use the `ghe-cluster-rep
 {% data reusables.enterprise_clustering.ssh-to-a-node %}
 1. To begin configuration of high availability, run the following command. The `-p` and `-s` flags are optional. If you're using the flags, replace PRIMARY-DATACENTER and SECONDARY-DATACENTER with the names of your primary and secondary datacenters.
 
-   {% note %}
-
-   **Notes:**
-
-   * By default, the utility will use the name of the primary datacenter in `cluster.conf`.
-   * If no name for the primary datacenter is defined, the utility will use `mona`.
-   * If no name for the secondary datacenter is defined, the utility will use `hubot`.
-
-   {% endnote %}
+   > [!NOTE]
+   > * By default, the utility will use the name of the primary datacenter in `cluster.conf`.
+   > * If no name for the primary datacenter is defined, the utility will use `mona`.
+   > * If no name for the secondary datacenter is defined, the utility will use `hubot`.
 
    ```shell copy
    ghe-cluster-repl-bootstrap -p PRIMARY-DATACENTER -s SECONDARY-DATACENTER
@@ -111,15 +103,12 @@ Before you define a secondary datacenter for your replica nodes, ensure that you
     ...
     ```
 
-    {% note %}
-
-    **Note**: If you changed the name of the primary datacenter in step 3, find the `consul-datacenter` key-value pair in the section for each node and change the value to the renamed primary datacenter. For example, if you named the primary datacenter `primary`, use the following key-value pair for each node.
-
-    ```text
-    consul-datacenter = primary
-    ```
-
-    {% endnote %}
+    > [!NOTE]
+    > If you changed the name of the primary datacenter in step 3, find the `consul-datacenter` key-value pair in the section for each node and change the value to the renamed primary datacenter. For example, if you named the primary datacenter `primary`, use the following key-value pair for each node.
+    >
+    > ```text
+    > consul-datacenter = primary
+    > ```
 
 {% data reusables.enterprise_clustering.apply-configuration %}
 {% data reusables.enterprise_clustering.configuration-finished %}
@@ -139,11 +128,8 @@ For an example configuration, see "[Review an example configuration](#3-review-a
 
 1. For each node in your cluster, provision a matching virtual machine with identical specifications, running the same version of  {% data variables.product.prodname_ghe_server %}. Note the IPv4 address and hostname for each new cluster node. For more information, see "[Prerequisites](#prerequisites)."
 
-    {% note %}
-
-    **Note**: If you're reconfiguring high availability after a failover, you can use the old nodes from the primary datacenter instead.
-
-    {% endnote %}
+    > [!NOTE]
+    > If you're reconfiguring high availability after a failover, you can use the old nodes from the primary datacenter instead.
 
 {% data reusables.enterprise_clustering.ssh-to-a-node %}
 1. Back up your existing cluster configuration.

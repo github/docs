@@ -24,13 +24,10 @@ shortTitle: Amazon S3 storage
 
 ## Prerequisites
 
-{% note %}
-
-**Note:** The only {% data variables.product.prodname_dotcom %}-supported S3 storage providers are Amazon S3 and MinIO Gateway for NAS.
-
-{% data reusables.actions.enterprise-s3-tech-partners %}
-
-{% endnote %}
+> [!NOTE]
+> The only {% data variables.product.prodname_dotcom %}-supported S3 storage providers are Amazon S3 and MinIO Gateway for NAS.
+>
+> {% data reusables.actions.enterprise-s3-tech-partners %}
 
 Before enabling {% data variables.product.prodname_actions %}, make sure you have completed the following steps:
 

@@ -107,11 +107,8 @@ All repositories are migrated with private visibility. If you want to set a repo
 
 Team membership is **not** migrated. After the migration, you'll need to add members to migrated teams. For more information, see "[AUTOTITLE](/migrations/using-github-enterprise-importer/migrating-between-github-products/overview-of-a-migration-between-github-products#recreating-teams)."
 
-{% note %}
-
-**Note:** {% data reusables.enterprise-migration-tool.team-references %} For more information about how to prevent and resolve these issues, see "[AUTOTITLE](/migrations/using-github-enterprise-importer/completing-your-migration-with-github-enterprise-importer/troubleshooting-your-migration-with-github-enterprise-importer#team-references-are-broken-after-an-organization-migration)."
-
-{% endnote %}
+> [!NOTE]
+> {% data reusables.enterprise-migration-tool.team-references %} For more information about how to prevent and resolve these issues, see "[AUTOTITLE](/migrations/using-github-enterprise-importer/completing-your-migration-with-github-enterprise-importer/troubleshooting-your-migration-with-github-enterprise-importer#team-references-are-broken-after-an-organization-migration)."
 
 ### Migrated data for a repository
 

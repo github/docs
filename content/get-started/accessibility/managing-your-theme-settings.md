@@ -39,11 +39,8 @@ If you have low vision, you may benefit from a high contrast theme, with greater
 
 {% ifversion command-palette %}
 
-{% note %}
-
-**Note:** You can also change your theme settings with the command palette. For more information, see "[AUTOTITLE](/get-started/accessibility/github-command-palette)."
-
-{% endnote %}
+> [!NOTE]
+> You can also change your theme settings with the command palette. For more information, see "[AUTOTITLE](/get-started/accessibility/github-command-palette)."
 
 {% endif %}
 

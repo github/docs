@@ -28,11 +28,8 @@ product: 'Requiring two-factor authentication is available to organizations on a
 
 You can also require two-factor authentication for organizations in an enterprise. For more information, see "[AUTOTITLE](/admin/policies/enforcing-policies-for-your-enterprise/enforcing-policies-for-security-settings-in-your-enterprise)."
 
-{% note %}
-
-**Note**: Some of the users in your organization may have been selected for mandatory two-factor authentication enrollment by {% data variables.product.prodname_dotcom %}, but it has no impact on how you enable the 2FA requirement for your organization. If you enable the 2FA requirement in your organization, all users without 2FA currently enabled will be removed from your organization, including those that are required to enable it by {% data variables.product.prodname_dotcom %}.
-
-{% endnote %}
+> [!NOTE]
+> Some of the users in your organization may have been selected for mandatory two-factor authentication enrollment by {% data variables.product.prodname_dotcom %}, but it has no impact on how you enable the 2FA requirement for your organization. If you enable the 2FA requirement in your organization, all users without 2FA currently enabled will be removed from your organization, including those that are required to enable it by {% data variables.product.prodname_dotcom %}.
 
 {% endif %}
 

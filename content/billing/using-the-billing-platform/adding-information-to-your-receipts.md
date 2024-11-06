@@ -46,11 +46,8 @@ You can add information to your personal account's receipts, such as a VAT or GS
 
 You can add information to your organization's receipts, such as a VAT or GST identification number, or your full business name or address of record.
 
-{% note %}
-
-**Note**: {% data reusables.dotcom_billing.org-billing-perms %}
-
-{% endnote %}
+> [!NOTE]
+> {% data reusables.dotcom_billing.org-billing-perms %}
 
 {% data reusables.organizations.billing-settings %}
 1. At the top of the page, click **Payment information**.

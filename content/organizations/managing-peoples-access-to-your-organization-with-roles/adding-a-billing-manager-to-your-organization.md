@@ -16,11 +16,8 @@ shortTitle: Add a billing manager
 
 Members of your organization's Owners team can give _billing manager_ permissions to people. Once a person accepts their invitation to become a billing manager for your organization, they can invite additional people to be billing managers.
 
-{% note %}
-
-**Note:** Billing managers do not use paid licenses in your organization's subscription.
-
-{% endnote %}
+> [!NOTE]
+> Billing managers do not use paid licenses in your organization's subscription.
 
 ## Permissions for billing managers
 
@@ -53,11 +50,10 @@ Billing managers **are not** able to:
 ## Inviting a billing manager
 
 {% ifversion ghec %}
-{% note %}
 
-**Note:** If your organization is owned by an enterprise account, you cannot invite billing managers at the organization level. For more information, see "[AUTOTITLE](/admin/overview/about-enterprise-accounts)."
+> [!NOTE]
+> If your organization is owned by an enterprise account, you cannot invite billing managers at the organization level. For more information, see "[AUTOTITLE](/admin/overview/about-enterprise-accounts)."
 
-{% endnote %}
 {% endif %}
 
 The invited person will receive an invitation email asking them to become a billing manager for your organization. Once the invited person clicks the accept link in their invitation email, they will automatically be added to the organization as a billing manager. If they don't already have a GitHub account, they will be directed to sign up for one, and they will be automatically added to the organization as a billing manager after they create an account.

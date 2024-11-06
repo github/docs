@@ -51,8 +51,5 @@ Webhook forwarding in the {% data variables.product.prodname_cli %} only works w
 
   Leave the command running in the background. It will receive all of the specified events for the specified repository and forward them to your webhook handler running at the specified URL.
 
-   {% note %}
-
-   **Note**: Only one person can use webhook forwarding at a time for each repository and organization. If you try to set up webhook forwarding and someone else is already working with that organization or repository, you'll receive a `Hook already exists` error.
-
-   {% endnote %}
+   > [!NOTE]
+   > Only one person can use webhook forwarding at a time for each repository and organization. If you try to set up webhook forwarding and someone else is already working with that organization or repository, you'll receive a `Hook already exists` error.

@@ -42,11 +42,10 @@ In addition, to allow users to create codespaces, you must ensure that{% ifversi
 * Your{% else %} your{% endif %} organization does not have an IP address allow list enabled. For more information, see "[Managing allowed IP addresses for your organization](/{% ifversion fpt %}enterprise-cloud@latest/{% endif %}organizations/keeping-your-organization-secure/managing-allowed-ip-addresses-for-your-organization){% ifversion fpt %}" in the {% data variables.product.prodname_ghe_cloud %} documentation.{% else %}."{% endif %}
 
 {% ifversion fpt %}
-{% note %}
 
-**Note:** If you are a verified educator or a teacher, you must enable {% data variables.product.prodname_github_codespaces %} from a {% data variables.product.prodname_classroom %} to use your {% data variables.product.prodname_codespaces %} Education benefit. For more information, see "[AUTOTITLE](/education/manage-coursework-with-github-classroom/integrate-github-classroom-with-an-ide/using-github-codespaces-with-github-classroom#about-the-codespaces-education-benefit-for-verified-teachers)."
+> [!NOTE]
+> If you are a verified educator or a teacher, you must enable {% data variables.product.prodname_github_codespaces %} from a {% data variables.product.prodname_classroom %} to use your {% data variables.product.prodname_codespaces %} Education benefit. For more information, see "[AUTOTITLE](/education/manage-coursework-with-github-classroom/integrate-github-classroom-with-an-ide/using-github-codespaces-with-github-classroom#about-the-codespaces-education-benefit-for-verified-teachers)."
 
-{% endnote %}
 {% endif %}
 
 ## About changing your settings
@@ -59,11 +58,8 @@ Once a user loses access to a codespace, the codespace is retained for a period 
 
 ## Enabling or disabling {% data variables.product.prodname_github_codespaces %}
 
-{% note %}
-
-**Note:** If you remove a user's access to {% data variables.product.prodname_github_codespaces %}, the user will immediately be unable to open existing codespaces they have created from your organization's private {% ifversion ghec %}and internal {% endif %}repositories. For more information, see "[About changing your settings](#about-changing-your-settings)."
-
-{% endnote %}
+> [!NOTE]
+> If you remove a user's access to {% data variables.product.prodname_github_codespaces %}, the user will immediately be unable to open existing codespaces they have created from your organization's private {% ifversion ghec %}and internal {% endif %}repositories. For more information, see "[About changing your settings](#about-changing-your-settings)."
 
 {% data reusables.profile.access_org %}
 {% data reusables.profile.org_settings %}

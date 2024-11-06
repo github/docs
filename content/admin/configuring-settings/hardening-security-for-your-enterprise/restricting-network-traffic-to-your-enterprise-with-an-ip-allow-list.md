@@ -119,11 +119,8 @@ To ensure seamless use of the OIDC CAP while still applying the policy to OAuth 
 
 ## Using your identity provider's allow list
 
-{% note %}
-
-**Note:** Using your IdP's allow list is only supported for {% data variables.product.prodname_emus %} with Entra ID and OIDC.
-
-{% endnote %}
+> [!NOTE]
+> Using your IdP's allow list is only supported for {% data variables.product.prodname_emus %} with Entra ID and OIDC.
 
 {% data reusables.enterprise-accounts.access-enterprise %}
 {% data reusables.profile.org_settings %}

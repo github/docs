@@ -19,11 +19,8 @@ shortTitle: Repository visibility
 
 ## About repository visibility changes
 
-{% note %}
-
-**Note:** If you can't change a repository's visibility, the organization owner may have restricted the ability to change repository visibility to organization owners only. For more information, see "[AUTOTITLE](/organizations/managing-organization-settings/restricting-repository-visibility-changes-in-your-organization)."
-
-{% endnote %}
+> [!NOTE]
+> If you can't change a repository's visibility, the organization owner may have restricted the ability to change repository visibility to organization owners only. For more information, see "[AUTOTITLE](/organizations/managing-organization-settings/restricting-repository-visibility-changes-in-your-organization)."
 
 {% ifversion ghec %}
 

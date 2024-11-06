@@ -28,11 +28,9 @@ shortTitle: Install Git LFS
    cd ~/Downloads/git-lfs-1.X.X
    ```
 
-   {% note %}
+   > [!NOTE]
+   > The file path you use after `cd` depends on your operating system, Git LFS version you downloaded, and where you saved the {% data variables.large_files.product_name_short %} download.
 
-   **Note:** The file path you use after `cd` depends on your operating system, Git LFS version you downloaded, and where you saved the {% data variables.large_files.product_name_short %} download.
-
-   {% endnote %}
 1. To install the file, run this command:
 
    ```shell
@@ -40,11 +38,9 @@ shortTitle: Install Git LFS
    > {% data variables.large_files.product_name_short %} initialized.
    ```
 
-   {% note %}
+   > [!NOTE]
+   > You may have to use `sudo ./install.sh` to install the file.
 
-   **Note:** You may have to use `sudo ./install.sh` to install the file.
-
-   {% endnote %}
 1. Next, make required changes to your global Git config:
 
    ```shell
@@ -96,11 +92,9 @@ shortTitle: Install Git LFS
    cd ~/Downloads/git-lfs-1.X.X
    ```
 
-   {% note %}
+   > [!NOTE]
+   > The file path you use after `cd` depends on your operating system, Git LFS version you downloaded, and where you saved the {% data variables.large_files.product_name_short %} download.
 
-   **Note:** The file path you use after `cd` depends on your operating system, Git LFS version you downloaded, and where you saved the {% data variables.large_files.product_name_short %} download.
-
-   {% endnote %}
 1. To install the file, run this command:
 
    ```shell
@@ -108,11 +102,9 @@ shortTitle: Install Git LFS
    > {% data variables.large_files.product_name_short %} initialized.
    ```
 
-   {% note %}
+   > [!NOTE]
+   > You may have to use `sudo ./install.sh` to install the file.
 
-   **Note:** You may have to use `sudo ./install.sh` to install the file.
-
-   {% endnote %}
 1. Next, make required changes to your global Git config:
 
    ```shell

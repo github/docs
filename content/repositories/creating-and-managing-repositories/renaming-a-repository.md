@@ -35,11 +35,8 @@ If you plan to rename a repository that has a {% data variables.product.prodname
 
 {% endif %}
 
-{% note %}
-
-**Note:** {% data variables.product.prodname_dotcom %} will not redirect calls to an action hosted by a renamed repository. Any workflow that uses that action will fail with the error `repository not found`. Instead, create a new repository and action with the new name and archive the old repository. For more information, see "[AUTOTITLE](/repositories/archiving-a-github-repository/archiving-repositories)."
-
-{% endnote %}
+> [!NOTE]
+> {% data variables.product.prodname_dotcom %} will not redirect calls to an action hosted by a renamed repository. Any workflow that uses that action will fail with the error `repository not found`. Instead, create a new repository and action with the new name and archive the old repository. For more information, see "[AUTOTITLE](/repositories/archiving-a-github-repository/archiving-repositories)."
 
 {% warning %}
 

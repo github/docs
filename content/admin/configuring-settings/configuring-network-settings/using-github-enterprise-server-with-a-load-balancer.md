@@ -77,11 +77,8 @@ Health checks allow a load balancer to stop sending traffic to a node that is no
 
 If you cannot connect to services on {% data variables.location.product_location %} through a load balancer, you can review the following information to troubleshoot the problem.
 
-{% note %}
-
-**Note**: Always test changes to your network infrastructure and instance configuration in a staging environment. For more information, see "[AUTOTITLE](/admin/installation/setting-up-a-github-enterprise-server-instance/setting-up-a-staging-instance)."
-
-{% endnote %}
+> [!NOTE]
+> Always test changes to your network infrastructure and instance configuration in a staging environment. For more information, see "[AUTOTITLE](/admin/installation/setting-up-a-github-enterprise-server-instance/setting-up-a-staging-instance)."
 
 ### Error: "Your session has expired" for connections to the {% data variables.enterprise.management_console %}
 

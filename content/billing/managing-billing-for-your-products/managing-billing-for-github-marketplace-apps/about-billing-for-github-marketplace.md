@@ -43,11 +43,8 @@ When you choose a paid plan with a free trial:
 
 {% data reusables.user-settings.context_switcher %}
 
-{% note %}
-
-**Note:** When you transfer an organization with paid {% data variables.product.prodname_marketplace %} apps into an enterprise account, you may receive a second receipt but you will not be charged twice.
-
-{% endnote %}
+> [!NOTE]
+> When you transfer an organization with paid {% data variables.product.prodname_marketplace %} apps into an enterprise account, you may receive a second receipt but you will not be charged twice.
 
 ## Unit plan limits
 

@@ -31,11 +31,8 @@ Deleting your personal account removes all repositories, forks of private reposi
 
 {% ifversion ghec %}
 
-{% note %}
-
-**Note**: If your enterprise manages your account and you sign into {% data variables.product.github %} through your company's identity provider (IdP), you cannot delete your account. For more information, see "[AUTOTITLE](/admin/identity-and-access-management/using-enterprise-managed-users-for-iam/about-enterprise-managed-users)."
-
-{% endnote %}
+> [!NOTE]
+> If your enterprise manages your account and you sign into {% data variables.product.github %} through your company's identity provider (IdP), you cannot delete your account. For more information, see "[AUTOTITLE](/admin/identity-and-access-management/using-enterprise-managed-users-for-iam/about-enterprise-managed-users)."
 
 {% endif %}
 

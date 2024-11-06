@@ -65,11 +65,8 @@ Code often needs to communicate with other systems over a network, and requires 
 
 ### Automatic detection of secrets committed to a repository
 
-{% note %}
-
-**Note:** {% data reusables.gated-features.secret-scanning %}
-
-{% endnote %}
+> [!NOTE]
+> {% data reusables.gated-features.secret-scanning %}
 
 {% data reusables.secret-scanning.enterprise-enable-secret-scanning %}
 
@@ -102,11 +99,8 @@ Besides your code, you probably need to use secrets in other places. For example
 
 ## Keep vulnerable coding patterns out of your repository
 
-{% note %}
-
-**Note:** {% data reusables.gated-features.code-scanning %}
-
-{% endnote %}
+> [!NOTE]
+> {% data reusables.gated-features.code-scanning %}
 
 {% data reusables.code-scanning.enterprise-enable-code-scanning %}
 

@@ -1,11 +1,6 @@
-{% note %}
-
-**Notes:**
-
-* {% data reusables.actions.actions-not-certified-by-github %}
-* {% data reusables.actions.actions-use-sha-pinning %}
-
-{% endnote %}
+> [!NOTE]
+> * {% data reusables.actions.actions-not-certified-by-github %}
+> * {% data reusables.actions.actions-use-sha-pinning %}
 
 ```yaml annotate copy
 #

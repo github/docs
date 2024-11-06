@@ -72,11 +72,8 @@ You can assign different types of credit to people.
 
 If someone accepts credit, the person's username appears in the "Credits" section of the security advisory. Anyone with read access to the repository can see the advisory and the people who accepted credit for it.
 
-{% note %}
-
-**Note:** If you believe you should be credited for a security advisory, please contact the creator of the advisory and to ask for the advisory to be edited to include your credit. Only the creator of the advisory can credit you, so please don't contact {% data variables.product.company_short %} Support about credits for security advisories.
-
-{% endnote %}
+> [!NOTE]
+> If you believe you should be credited for a security advisory, please contact the creator of the advisory and to ask for the advisory to be edited to include your credit. Only the creator of the advisory can credit you, so please don't contact {% data variables.product.company_short %} Support about credits for security advisories.
 
 ## Next steps
 

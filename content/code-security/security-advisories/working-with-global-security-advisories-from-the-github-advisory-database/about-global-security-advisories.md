@@ -24,11 +24,8 @@ Global security advisories are grouped into these categories: {% data variables.
 * {% data reusables.advisory-database.unreviewed-overview %}
 * {% data reusables.advisory-database.malware-overview %}
 
-{% note %}
-
-**Note:** {% data variables.product.prodname_dependabot %} doesn't generate {% data variables.product.prodname_dependabot_alerts %} for unreviewed and malware advisories.
-
-{% endnote %}
+> [!NOTE]
+> {% data variables.product.prodname_dependabot %} doesn't generate {% data variables.product.prodname_dependabot_alerts %} for unreviewed and malware advisories.
 
 For more information about the {% data variables.product.prodname_advisory_database %}, see "[AUTOTITLE](/code-security/security-advisories/working-with-global-security-advisories-from-the-github-advisory-database/about-the-github-advisory-database)."
 

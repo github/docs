@@ -42,11 +42,9 @@ For more information about forks, see "[AUTOTITLE](/pull-requests/collaborating-
 
    ![Screenshot of the "Use this template" button and the dropdown menu expanded to show the "Open in a codespace" option.](/assets/images/help/repository/use-this-template-button.png)
 
-   {% note %}
+   > [!NOTE]
+   > Alternatively, you can open the template in a codespace and publish your work to a new repository later. For more information, see "[AUTOTITLE](/codespaces/developing-in-codespaces/creating-a-codespace-from-a-template)."
 
-   **Note:** Alternatively, you can open the template in a codespace and publish your work to a new repository later. For more information, see "[AUTOTITLE](/codespaces/developing-in-codespaces/creating-a-codespace-from-a-template)."
-
-   {% endnote %}
 {% endif %}
 {% data reusables.repositories.owner-drop-down %}
 {% data reusables.repositories.repo-name %}

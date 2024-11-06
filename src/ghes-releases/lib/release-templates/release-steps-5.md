@@ -28,7 +28,7 @@ To incorporate updates to our REST API and webhook documentation into the public
 
 For each GHES release, there's a corresponding OpenAPI configuration. Ensure it's present. The [API team](https://github.com/github/ecosystem-api) often completes these steps before we prepare for a GHES RC, so some of this work may already be complete.
 
-- [ ] In `github/github`, within [`app/api/description/config/releases`](https://github.com/github/github/tree/master/app/api/description/config/releases), check for a `ghes-VERSION.yaml` file, where VERSION is the version we're releasing. (**Note**: These steps were already done when I created this tracking issue.)
+- [ ] In `github/github`, within [`app/api/description/config/releases`](https://github.com/github/github/tree/master/app/api/description/config/releases), check for a `ghes-VERSION.yaml` file, where VERSION is the version we're releasing. (**Note:** These steps were already done when I created this tracking issue.)
 
   - **If the file exists**, validate its contents.
 

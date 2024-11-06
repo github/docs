@@ -25,11 +25,8 @@ shortTitle: Recover an account with 2FA
 
 {% endwarning %}
 
-{% note %}
-
-**Note:** {% data reusables.two_fa.unlink-email-address %}
-
-{% endnote %}
+> [!NOTE]
+> {% data reusables.two_fa.unlink-email-address %}
 
 {% endif %}
 
@@ -64,11 +61,8 @@ If you configured two-factor authentication using a security key, you can use yo
 
 ## Authenticating with a fallback number
 
-{% note %}
-
-**Note:** Configuring a fallback SMS number in addition to your primary SMS number is no longer supported. Instead, we strongly recommend registering multiple authentication methods.
-
-{% endnote %}
+> [!NOTE]
+> Configuring a fallback SMS number in addition to your primary SMS number is no longer supported. Instead, we strongly recommend registering multiple authentication methods.
 
 If you lose access to your preferred TOTP app or phone number, you can provide a two-factor authentication code sent to your fallback number to automatically regain access to your account.
 
@@ -76,11 +70,8 @@ If you lose access to your preferred TOTP app or phone number, you can provide a
 
 If you know your password for {% data variables.product.prodname_dotcom %} but don't have the two-factor authentication credentials or your two-factor authentication recovery codes, you can have a one-time password sent to your verified email address to begin the verification process and regain access to your account.
 
-{% note %}
-
-**Note**: For security reasons, regaining access to your account by authenticating with a one-time password can take up to three business days. {% data variables.product.company_short %} will not review additional requests submitted during this time.
-
-{% endnote %}
+> [!NOTE]
+> For security reasons, regaining access to your account by authenticating with a one-time password can take up to three business days. {% data variables.product.company_short %} will not review additional requests submitted during this time.
 
 You can use your two-factor authentication credentials or two-factor authentication recovery codes to regain access to your account anytime during the 3-5 day waiting period.
 

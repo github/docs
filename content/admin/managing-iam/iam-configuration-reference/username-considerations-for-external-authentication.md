@@ -19,11 +19,10 @@ redirect_from:
 ---
 
 {% ifversion ghec %}
-{% note %}
 
-**Note:** This article only applies to {% data variables.product.prodname_emus %}. If you use {% data variables.product.prodname_ghe_cloud %} without {% data variables.product.prodname_emus %}, usernames are created by users, not {% data variables.product.prodname_dotcom %}.
+> [!NOTE]
+> This article only applies to {% data variables.product.prodname_emus %}. If you use {% data variables.product.prodname_ghe_cloud %} without {% data variables.product.prodname_emus %}, usernames are created by users, not {% data variables.product.prodname_dotcom %}.
 
-{% endnote %}
 {% endif %}
 
 ## About usernames with external authentication
@@ -142,11 +141,10 @@ When you configure CAS, LDAP, or SAML authentication, {% data variables.product.
 {% data variables.product.product_name %} creates a mapping between the `NameID` from the IdP and the username on {% data variables.location.product_location %}, so the `NameID` should be persistent, unique, and not subject to change for the lifecycle of the user.
 
 {% ifversion ghes %}
-{% note %}
 
-**Note**: If the `NameID` for a user does change on the IdP, the person will see an error message when signing in to {% data variables.location.product_location %}. To restore the person's access, you'll need to update the user account's `NameID` mapping. For more information, see "[AUTOTITLE](/admin/identity-and-access-management/using-saml-for-enterprise-iam/updating-a-users-saml-nameid)."
+> [!NOTE]
+> If the `NameID` for a user does change on the IdP, the person will see an error message when signing in to {% data variables.location.product_location %}. To restore the person's access, you'll need to update the user account's `NameID` mapping. For more information, see "[AUTOTITLE](/admin/identity-and-access-management/using-saml-for-enterprise-iam/updating-a-users-saml-nameid)."
 
-{% endnote %}
 {% endif %}
 {% endif %}
 
@@ -164,11 +162,8 @@ To resolve this problem, you must make one of the following changes in your IdP 
 
 When you change the attribute mapping, usernames of existing {% data variables.enterprise.prodname_managed_users %} will be updated, but nothing else about the accounts will change, including activity history.
 
-{% note %}
-
-**Note:** {% data variables.contact.github_support %} cannot provide assistance with customizing attribute mappings or configuring custom expressions. You can contact your IdP with any questions.
-
-{% endnote %}
+> [!NOTE]
+> {% data variables.contact.github_support %} cannot provide assistance with customizing attribute mappings or configuring custom expressions. You can contact your IdP with any questions.
 
 ### Resolving username problems with Entra ID
 

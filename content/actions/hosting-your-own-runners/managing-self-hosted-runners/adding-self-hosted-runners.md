@@ -49,11 +49,8 @@ You can add self-hosted runners to a single repository. To add a self-hosted run
 
 For information about how to add a self-hosted runner with the REST API, see "[AUTOTITLE](/rest/actions/self-hosted-runners)."
 
-{% note %}
-
-**Note**: {% data reusables.actions.disable-selfhosted-runners-crossrefs %}
-
-{% endnote %}
+> [!NOTE]
+> {% data reusables.actions.disable-selfhosted-runners-crossrefs %}
 
 {% data reusables.repositories.navigate-to-repo %}
 {% data reusables.repositories.sidebar-settings %}

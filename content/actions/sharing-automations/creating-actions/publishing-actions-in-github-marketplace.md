@@ -43,11 +43,9 @@ To draft a new release and publish the action to {% data variables.product.prodn
 1. Navigate to the action metadata file in your repository (`action.yml` or `action.yaml`), and you'll see a banner to publish the action to {% data variables.product.prodname_marketplace %}. Click **Draft a release**.
 1. Under "Release Action", select **Publish this Action to the {% data variables.product.prodname_marketplace %}**.
 
-   {% note %}
+   > [!NOTE]
+   > The "Publish" checkbox is disabled if the account that owns the repository has not yet accepted the {% data variables.product.prodname_marketplace %} Developer Agreement. If you own the repository or are an organization owner, click the link to "accept the GitHub Marketplace Developer Agreement", then accept the agreement. If there is no link, send the organization owner a link to this "Release Action" page and ask them to accept the agreement.
 
-   **Note**: The "Publish" checkbox is disabled if the account that owns the repository has not yet accepted the {% data variables.product.prodname_marketplace %} Developer Agreement. If you own the repository or are an organization owner, click the link to "accept the GitHub Marketplace Developer Agreement", then accept the agreement. If there is no link, send the organization owner a link to this "Release Action" page and ask them to accept the agreement.
-
-   {% endnote %}
 1. If the labels in your metadata file contain any problems, you will see an error message. Address them by updating your metadata file. Once complete, you will see an "Everything looks good!" message.
 1. Select the **Primary Category** dropdown menu and click a category that will help people find your action in {% data variables.product.prodname_marketplace %}.
 1. Optionally, select the **Another Category** dropdown menu and click a secondary category.
@@ -73,12 +71,9 @@ When a repository admin transfers an action repository, {% data variables.produc
 
 Actions published on {% data variables.product.prodname_marketplace %} are linked to a repository by their unique `name` identifier, meaning you can publish new releases of an action from the transferred repository under the same {% data variables.product.prodname_marketplace %} listing. If an action repository is deleted, the {% data variables.product.prodname_marketplace %} listing is also deleted, and the unique `name` identifier becomes available.
 
-{% note %}
+> [!NOTE]
+> The "Verified" badge seen on an organization's {% data variables.product.prodname_dotcom %} profile is different from the verified creator badge on {% data variables.product.prodname_marketplace %}. If you transfer an action repository, the {% data variables.product.prodname_marketplace %} listing will lose the verified creator badge unless the new owner is also a verified creator.
 
-**Note:** The "Verified" badge seen on an organization's {% data variables.product.prodname_dotcom %} profile is different from the verified creator badge on {% data variables.product.prodname_marketplace %}. If you transfer an action repository, the {% data variables.product.prodname_marketplace %} listing will lose the verified creator badge unless the new owner is also a verified creator.
-
-{% endnote %}
-  
 ## About badges in {% data variables.product.prodname_marketplace %}
 
 Actions with the {% octicon "verified" aria-label="The verified badge" %}, or  verified creator badge,  indicate that {% data variables.product.prodname_dotcom %} has verified the creator of the action as a partner organization. Partners can email <a href="mailto:partnerships@github.com">partnerships@github.com</a> to request the verified creator badge.

@@ -45,11 +45,8 @@ Before configuring {% data variables.product.prodname_dependabot %}, install Doc
 
    {%- endif %}
 
-   {% note %}
-
-   **Note:** You will need to repeat this step when you upgrade to a new minor version of {% data variables.product.product_name %}, or if you manually update the {% data variables.product.prodname_dependabot %} action from {% data variables.product.prodname_dotcom_the_website %}. For more information, see "[AUTOTITLE](/admin/github-actions/managing-access-to-actions-from-githubcom/manually-syncing-actions-from-githubcom)."
-
-   {% endnote %}
+   > [!NOTE]
+   > You will need to repeat this step when you upgrade to a new minor version of {% data variables.product.product_name %}, or if you manually update the {% data variables.product.prodname_dependabot %} action from {% data variables.product.prodname_dotcom_the_website %}. For more information, see "[AUTOTITLE](/admin/github-actions/managing-access-to-actions-from-githubcom/manually-syncing-actions-from-githubcom)."
 
 1. When you have finished adding these images to the runner, you are ready to restrict internet access to the {% data variables.product.prodname_dependabot %} runner, ensuring that it can still access your private registries for the required ecosystems and for {% data variables.product.prodname_ghe_server %}.
 

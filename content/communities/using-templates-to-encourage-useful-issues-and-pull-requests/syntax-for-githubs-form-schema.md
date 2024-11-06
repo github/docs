@@ -9,11 +9,8 @@ topics:
   - Community
 ---
 
-{% note %}
-
-**Note:** {% data variables.product.company_short %}'s form schema is currently in {% data variables.release-phases.public_preview %} and subject to change.
-
-{% endnote %}
+> [!NOTE]
+> {% data variables.product.company_short %}'s form schema is currently in {% data variables.release-phases.public_preview %} and subject to change.
 
 ## About {% data variables.product.company_short %}'s form schema
 

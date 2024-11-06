@@ -14,11 +14,8 @@ versions:
 shortTitle: Splitting a subfolder
 ---
 
-{% note %}
-
-**Note:** You need Git version 2.22.0 or later to follow these instructions, otherwise `git filter-repo` will not work.
-
-{% endnote %}
+> [!NOTE]
+> You need Git version 2.22.0 or later to follow these instructions, otherwise `git filter-repo` will not work.
 
 If you create a new clone of the repository, you won't lose any of your Git history or changes when you split a folder into a separate repository.  However, note that the new repository won't have the branches and tags of the original repository.
 

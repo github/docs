@@ -115,11 +115,8 @@ For a real-world example, see "[Example mutation](#example-mutation)."
 
 [Variables](https://graphql.org/learn/queries/#variables) can make queries more dynamic and powerful, and they can reduce complexity when passing mutation input objects.
 
-{% note %}
-
-**Note**: If you're using the Explorer, make sure to enter variables in the separate [Query Variables pane](/graphql/guides/using-the-explorer#using-the-variable-pane), and do not include the word `variables` before the JSON object.
-
-{% endnote %}
+> [!NOTE]
+> If you're using the Explorer, make sure to enter variables in the separate [Query Variables pane](/graphql/guides/using-the-explorer#using-the-variable-pane), and do not include the word `variables` before the JSON object.
 
 Here's an example query with a single variable:
 

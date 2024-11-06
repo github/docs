@@ -70,11 +70,8 @@ The repository owner has full control of the repository. In addition to the acti
 
 Collaborators on a personal repository can pull (read) the contents of the repository and push (write) changes to the repository.
 
-{% note %}
-
-**Note:** In a private repository, repository owners can only grant write access to collaborators. Collaborators can't have read-only access to repositories owned by a personal account.
-
-{% endnote %}
+> [!NOTE]
+> In a private repository, repository owners can only grant write access to collaborators. Collaborators can't have read-only access to repositories owned by a personal account.
 
 Collaborators can also perform the following actions.
 

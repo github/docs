@@ -27,11 +27,10 @@ If you're starting a new project, you can get started with development work quic
 You can start from a blank template, choose from templates maintained by {% data variables.product.company_short %} for popular technologies such as React or Jupyter Notebook, or launch a codespace from any template repository on {% data variables.product.prodname_dotcom %}.
 
 {% ifversion ghec %}
-{% note %}
 
-**Note:** If you have a {% data variables.enterprise.prodname_managed_user %}, you cannot use {% data variables.product.company_short %}'s public templates for {% data variables.product.prodname_github_codespaces %}, because you can only create codespaces that are owned and paid for by your organization or enterprise. For more information, see "[AUTOTITLE](/admin/identity-and-access-management/using-enterprise-managed-users-for-iam/about-enterprise-managed-users#abilities-and-restrictions-of-managed-user-accounts)."
+> [!NOTE]
+> If you have a {% data variables.enterprise.prodname_managed_user %}, you cannot use {% data variables.product.company_short %}'s public templates for {% data variables.product.prodname_github_codespaces %}, because you can only create codespaces that are owned and paid for by your organization or enterprise. For more information, see "[AUTOTITLE](/admin/identity-and-access-management/using-enterprise-managed-users-for-iam/about-enterprise-managed-users#abilities-and-restrictions-of-managed-user-accounts)."
 
-{% endnote %}
 {% endif %}
 
 With a blank template, you'll start with an empty directory, with access to cloud-based compute resources and the tools, languages, and runtime environments that come preinstalled with the default dev container image. With other templates, you'll get starter files for the technology you're working with, plus typically some extra files such as a README file, a `.gitignore` file, and dev container configuration files containing some custom environment configuration. For more information on dev containers and the default image, see "[AUTOTITLE](/codespaces/setting-up-your-project-for-codespaces/adding-a-dev-container-configuration/introduction-to-dev-containers)."
@@ -69,11 +68,8 @@ You can create a codespace from any template repository, then publish your work 
 {% data reusables.repositories.navigate-to-repo %}
 {% data reusables.codespaces.use-this-template %}
 
-   {% note %}
-
-   **Note:** If you're a maintainer of the template repository, and want to commit changes to the template repository itself, you should create a codespace from the **{% octicon "code" aria-hidden="true" %} Code** dropdown. For more information, see "[AUTOTITLE](/codespaces/developing-in-a-codespace/creating-a-codespace-for-a-repository#creating-a-codespace-for-a-repository)."
-
-   {% endnote %}
+   > [!NOTE]
+   > If you're a maintainer of the template repository, and want to commit changes to the template repository itself, you should create a codespace from the **{% octicon "code" aria-hidden="true" %} Code** dropdown. For more information, see "[AUTOTITLE](/codespaces/developing-in-a-codespace/creating-a-codespace-for-a-repository#creating-a-codespace-for-a-repository)."
 
 {% data reusables.codespaces.template-codespaces-default-editor %}
 

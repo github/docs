@@ -41,11 +41,10 @@ For push rulesets for forked repositories, the "Rulesets" page will indicate tha
 ## Editing a ruleset
 
 {% ifversion repo-rules-enterprise %}
-{% note %}
 
-**Note:** If a ruleset was created at the organization level, you cannot edit the ruleset from the repository's settings. If you have permission to edit the ruleset, you can do so in your organization's settings. For more information, see "[AUTOTITLE](/organizations/managing-organization-settings/managing-rulesets-for-repositories-in-your-organization#editing-a-ruleset)."
+> [!NOTE]
+> If a ruleset was created at the organization level, you cannot edit the ruleset from the repository's settings. If you have permission to edit the ruleset, you can do so in your organization's settings. For more information, see "[AUTOTITLE](/organizations/managing-organization-settings/managing-rulesets-for-repositories-in-your-organization#editing-a-ruleset)."
 
-{% endnote %}
 {% endif %}
 
 {% data reusables.repositories.about-editing-rulesets %}

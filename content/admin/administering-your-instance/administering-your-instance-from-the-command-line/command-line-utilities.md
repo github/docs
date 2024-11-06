@@ -796,14 +796,9 @@ Flag | Description
 `-v/--verbose` | Prints additional information to the console.
 `-h/--help` | Displays help text for the command.
 
-{% note %}
-
-**Notes:**
-
-* This command can only be used to remove a node from a cluster configuration. It cannot be used to remove a node from a high availability configuration.
-* This command does not support parallel execution. To remove multiple nodes, you must wait until this command has finished before running it for another node.
-
-{% endnote %}
+> [!NOTE]
+> * This command can only be used to remove a node from a cluster configuration. It cannot be used to remove a node from a high availability configuration.
+> * This command does not support parallel execution. To remove multiple nodes, you must wait until this command has finished before running it for another node.
 
 {% endif %}
 
@@ -1001,11 +996,10 @@ This utility tests the blob storage configuration for {% data variables.product.
 For more information about the configuration of {% data variables.product.prodname_actions %}, see "[AUTOTITLE](/admin/github-actions/getting-started-with-github-actions-for-your-enterprise/getting-started-with-github-actions-for-github-enterprise-server)."
 
 {% ifversion ghes-actions-storage-oidc %}
-{% note %}
 
-**Note:** This utility only works with configurations that use a credentials-based connection to the storage provider. To test OpenID Connect (OIDC) configurations, use [`ghe-actions-test-storage-with-oidc`](#ghe-actions-test-storage-with-oidc).
+> [!NOTE]
+> This utility only works with configurations that use a credentials-based connection to the storage provider. To test OpenID Connect (OIDC) configurations, use [`ghe-actions-test-storage-with-oidc`](#ghe-actions-test-storage-with-oidc).
 
-{% endnote %}
 {% endif %}
 
 ```shell
@@ -1024,11 +1018,8 @@ All Storage tests passed
 
 This utility checks that the blob storage provider for {% data variables.product.prodname_actions %} on {% data variables.location.product_location %} is valid when OpenID Connect (OIDC) is used.
 
-{% note %}
-
-**Note:** This utility only works with configurations that use an OpenID Connect (OIDC) configuration. To test credentials-based configurations, use [`ghe-actions-precheck`](#ghe-actions-precheck).
-
-{% endnote %}
+> [!NOTE]
+> This utility only works with configurations that use an OpenID Connect (OIDC) configuration. To test credentials-based configurations, use [`ghe-actions-precheck`](#ghe-actions-precheck).
 
 ```shell
 ghe-actions-test-storage-with-oidc -p [PROVIDER] -cs ["CONNECTION-STRING"]
@@ -1040,27 +1031,17 @@ ghe-actions-test-storage-with-oidc -p [PROVIDER] -cs ["CONNECTION-STRING"]
 
 This utility stops {% data variables.product.prodname_actions %} from running on {% data variables.location.product_location %}.
 
-{% note %}
-
-**Notes**:
-
-* {% data reusables.enterprise_enterprise_support.support_will_ask_you_to_run_command %}
-* In high availability configurations, run this command from the primary.
-
-{% endnote %}
+> [!NOTE]
+> * {% data reusables.enterprise_enterprise_support.support_will_ask_you_to_run_command %}
+> * In high availability configurations, run this command from the primary.
 
 ### ghe-actions-start
 
 This utility starts {% data variables.product.prodname_actions %} on {% data variables.location.product_location %} after it has been previously stopped.
 
-{% note %}
-
-**Notes**:
-
-* {% data reusables.enterprise_enterprise_support.support_will_ask_you_to_run_command %}
-* In high availability configurations, run this command from the primary.
-
-{% endnote %}
+> [!NOTE]
+> * {% data reusables.enterprise_enterprise_support.support_will_ask_you_to_run_command %}
+> * In high availability configurations, run this command from the primary.
 
 If your system is configured correctly, you'll see the following output:
 
@@ -1367,11 +1348,10 @@ In this example, `ghe-repl-status -vv` sends verbose status information from a r
 During an upgrade to a feature release, this utility displays the status of background jobs on {% data variables.location.product_location %}. If you're running back-to-back upgrades, you should use this utility to check that all background jobs are complete before proceeding with the next upgrade.
 
 {% ifversion ghes < 3.12 %}
-{% note %}
 
-**Note:** To use `ghe-check-background-upgrade-jobs` with {% data variables.product.product_name %} {{ allVersions[currentVersion].currentRelease }}, your instance must run version {{ allVersions[currentVersion].currentRelease }}.{% ifversion ghes = 3.10 %}4{% elsif ghes = 3.11 %}1{% endif %} or later.
+> [!NOTE]
+> To use `ghe-check-background-upgrade-jobs` with {% data variables.product.product_name %} {{ allVersions[currentVersion].currentRelease }}, your instance must run version {{ allVersions[currentVersion].currentRelease }}.{% ifversion ghes = 3.10 %}4{% elsif ghes = 3.11 %}1{% endif %} or later.
 
-{% endnote %}
 {% endif %}
 
 ```shell

@@ -31,11 +31,8 @@ When {% data variables.product.prodname_dependabot %} raises a pull request, you
 
 If you have many dependencies to manage, you may want to customize the configuration for each package manager so that pull requests have specific reviewers, assignees, and labels. {% ifversion dependabot-version-updates-groups %} You may also want to group sets of dependencies together, so that multiple dependencies are updated in a single pull request.{% endif %} For more information, see "[AUTOTITLE](/code-security/dependabot/dependabot-version-updates/customizing-dependency-updates){% ifversion dependabot-grouped-security-updates-config %}" and "[AUTOTITLE](/code-security/dependabot/dependabot-security-updates/configuring-dependabot-security-updates#grouping-dependabot-updates-into-a-single-pull-request)."{% else %}" and "[AUTOTITLE](/code-security/dependabot/dependabot-security-updates/configuring-dependabot-security-updates#grouping-dependabot-security-updates-into-a-single-pull-request)."{% endif %}
 
-{% note %}
-
-**Note**: If you don't interact with {% data variables.product.prodname_dependabot %} pull requests for a repository during a 90-day time period, {% data variables.product.prodname_dependabot %} considers your repository as inactive, and will automatically pause {% data variables.product.prodname_dependabot_updates %}. For more information about inactivity criteria, see "[AUTOTITLE](/code-security/dependabot/dependabot-version-updates/about-dependabot-version-updates#about-automatic-deactivation-of-dependabot-updates)" and "[AUTOTITLE](/code-security/dependabot/dependabot-security-updates/about-dependabot-security-updates#about-automatic-deactivation-of-dependabot-updates)."
-
-{% endnote %}
+> [!NOTE]
+> If you don't interact with {% data variables.product.prodname_dependabot %} pull requests for a repository during a 90-day time period, {% data variables.product.prodname_dependabot %} considers your repository as inactive, and will automatically pause {% data variables.product.prodname_dependabot_updates %}. For more information about inactivity criteria, see "[AUTOTITLE](/code-security/dependabot/dependabot-version-updates/about-dependabot-version-updates#about-automatic-deactivation-of-dependabot-updates)" and "[AUTOTITLE](/code-security/dependabot/dependabot-security-updates/about-dependabot-security-updates#about-automatic-deactivation-of-dependabot-updates)."
 
 ## Viewing {% data variables.product.prodname_dependabot %} pull requests
 
@@ -104,11 +101,8 @@ In {% data variables.product.prodname_dependabot %} pull requests for grouped ve
 
 In {% data variables.product.prodname_dependabot %} pull requests for grouped version updates, you can use comment commands to ignore and un-ignore updates for specific dependencies and versions. You can use any of the following commands to manage ignore conditions for grouped version updates.
 
-{% note %}
-
-**Note:** The following comment commands do not work for grouped {% data variables.product.prodname_dependabot_security_updates %}.
-
-{% endnote %}
+> [!NOTE]
+> The following comment commands do not work for grouped {% data variables.product.prodname_dependabot_security_updates %}.
 
 * `@dependabot ignore DEPENDENCY_NAME` closes the pull request and prevents {% data variables.product.prodname_dependabot %} from updating this dependency.
 * `@dependabot ignore DEPENDENCY_NAME major version` closes the pull request and prevents {% data variables.product.prodname_dependabot %} from updating this dependency's major version.

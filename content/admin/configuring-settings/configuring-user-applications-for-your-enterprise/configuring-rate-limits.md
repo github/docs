@@ -33,11 +33,8 @@ Excessive numbers of requests to the {% data variables.product.prodname_enterpri
 You can exempt a list of users from API rate limits using the `ghe-config` utility in the administrative shell. For more information, see "[AUTOTITLE](/admin/configuration/configuring-your-enterprise/command-line-utilities#ghe-config)."
 {% endif %}
 
-{% note %}
-
-**Note:** The {% data variables.enterprise.management_console %} lists the time period (per minute or per hour) for each rate limit.
-
-{% endnote %}
+> [!NOTE]
+> The {% data variables.enterprise.management_console %} lists the time period (per minute or per hour) for each rate limit.
 
 {% data reusables.enterprise_site_admin_settings.access-settings %}
 {% data reusables.enterprise_site_admin_settings.management-console %}

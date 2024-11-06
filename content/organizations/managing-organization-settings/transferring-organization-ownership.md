@@ -15,11 +15,11 @@ topics:
 shortTitle: Transfer ownership
 ---
 {% ifversion ghec %}
-{% note %}
 
-**Note:** {% data reusables.enterprise-accounts.invite-organization %}
+> [!NOTE]
+> {% data reusables.enterprise-accounts.invite-organization %}
 
-{% endnote %}{% endif %}
+{% endif %}
 
 1. If you're the only member with _owner_ privileges, give another organization member the owner role. For more information, see "[AUTOTITLE](/organizations/managing-peoples-access-to-your-organization-with-roles/maintaining-ownership-continuity-for-your-organization#appointing-an-organization-owner)."
 1. Contact the new owner and make sure they are able to [access the organization's settings](/organizations/collaborating-with-groups-in-organizations/accessing-your-organizations-settings).

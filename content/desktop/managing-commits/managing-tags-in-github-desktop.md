@@ -27,11 +27,9 @@ versions:
 
 {% data reusables.desktop.history-tab %}
 1. Click the commit.
-   {% note %}
 
-   **Note**: {% data variables.product.prodname_desktop %} displays an arrow {% octicon "arrow-up" aria-label="The up arrow icon" %} if the tag has not been pushed to the remote repository.
-
-   {% endnote %}
+   > [!NOTE]
+   > {% data variables.product.prodname_desktop %} displays an arrow {% octicon "arrow-up" aria-label="The up arrow icon" %} if the tag has not been pushed to the remote repository.
 
    ![Screenshot of a list of commits in the "History" tab. Next to a commit, a "hello-tag" label and an "up arrow" icon are outlined in orange.](/assets/images/help/desktop/viewing-tags-in-history.png)
 
@@ -41,11 +39,8 @@ versions:
 
 ## Deleting tags
 
-{% note %}
-
-**Note**: You can only delete tags associated with commits that have not yet been pushed.
-
-{% endnote %}
+> [!NOTE]
+> You can only delete tags associated with commits that have not yet been pushed.
 
 {% data reusables.desktop.history-tab %}
 {% data reusables.desktop.delete-tag %}

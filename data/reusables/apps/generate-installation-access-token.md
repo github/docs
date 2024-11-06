@@ -29,8 +29,5 @@
 
    For more information about this endpoint, see "[AUTOTITLE](/rest/apps/apps)".
 
-   {% note %}
-
-   **Note:** {% data reusables.getting-started.bearer-vs-token %}
-
-   {% endnote %}
+   > [!NOTE]
+   > {% data reusables.getting-started.bearer-vs-token %}

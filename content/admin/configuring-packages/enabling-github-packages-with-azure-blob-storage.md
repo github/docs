@@ -36,13 +36,10 @@ Before you can enable and configure {% data variables.product.prodname_registry 
 
    You must create a storage container prior to setting the container name and connection string.
 
-   {% note %}
-
-   **Note:** You can find your Azure Connection String by navigating to the Access Key menu in your Azure storage account.
-
-   Usage of a SAS Token or SAS URL as connection string is not currently supported.
-
-   {% endnote %}
+   > [!NOTE]
+   > You can find your Azure Connection String by navigating to the Access Key menu in your Azure storage account.
+   >
+   > Usage of a SAS Token or SAS URL as connection string is not currently supported.
 
 {% data reusables.enterprise_management_console.save-settings %}
 

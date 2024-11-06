@@ -85,11 +85,8 @@ When you click through to see details for the alert, you can see that the file p
 
 {% ifversion codeql-ml-queries %}
 
-{% note %}
-
-**Note:** Experimental alerts for {% data variables.product.prodname_code_scanning %} were available a {% data variables.release-phases.public_preview %} release for JavaScript using experimental technology in the {% data variables.product.prodname_codeql %} action. This feature was {% data variables.release-phases.retired %}. For more information, see [{% data variables.product.prodname_codeql %} {% data variables.product.prodname_code_scanning %} deprecates ML-powered alerts](https://github.blog/changelog/2023-09-29-codeql-code-scanning-deprecates-ml-powered-alerts/).
-
-{% endnote %}
+> [!NOTE]
+> Experimental alerts for {% data variables.product.prodname_code_scanning %} were available a {% data variables.release-phases.public_preview %} release for JavaScript using experimental technology in the {% data variables.product.prodname_codeql %} action. This feature was {% data variables.release-phases.retired %}. For more information, see [{% data variables.product.prodname_codeql %} {% data variables.product.prodname_code_scanning %} deprecates ML-powered alerts](https://github.blog/changelog/2023-09-29-codeql-code-scanning-deprecates-ml-powered-alerts/).
 
 {% endif %}
 

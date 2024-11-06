@@ -66,14 +66,9 @@ For example, the URL `https://codespaces.new/octo-org/octo-repo?quickstart=1` op
 
 ![Screenshot of the "Resume codespace" page showing the "Resume this codespace" and "Create a new one" buttons.](/assets/images/help/codespaces/resume-codespace.png)
 
-{% note %}
-
-**Notes**:
-
-* If the `codespaces.new` URL already contains a query string, add `&quickstart=1` at the end of the query string.
-* This type of URL will always open a codespace in the {% data variables.product.prodname_vscode_shortname %} web client, even if this is not set as your default editor for {% data variables.product.prodname_github_codespaces %}.
-
-{% endnote %}
+> [!NOTE]
+> * If the `codespaces.new` URL already contains a query string, add `&quickstart=1` at the end of the query string.
+> * This type of URL will always open a codespace in the {% data variables.product.prodname_vscode_shortname %} web client, even if this is not set as your default editor for {% data variables.product.prodname_github_codespaces %}.
 
 If no matching codespaces are found, the page is titled "Create codespace" and a button is displayed for creating a new codespace with matching parameters.
 

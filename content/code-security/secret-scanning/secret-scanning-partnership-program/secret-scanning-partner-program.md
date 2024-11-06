@@ -120,17 +120,11 @@ You can retrieve the {% data variables.product.prodname_dotcom %} secret scannin
 will provide several `key_identifier` and public keys. You can determine which public
 key to use based on the value of `Github-Public-Key-Identifier`.
 
-{% note %}
+> [!NOTE]
+> When you send a request to the public key endpoint above, you may hit rate limits. To avoid hitting rate limits, you can use a {% data variables.product.pat_v1 %} (no scopes required) or a {% data variables.product.pat_v2 %} (only the automatic public repositories read access required) as suggested in the samples below, or use a conditional request. For more information, see "[AUTOTITLE](/rest/guides/getting-started-with-the-rest-api#conditional-requests)."
 
-**Note**: When you send a request to the public key endpoint above, you may hit rate limits. To avoid hitting rate limits, you can use a {% data variables.product.pat_v1 %} (no scopes required) or a {% data variables.product.pat_v2 %} (only the automatic public repositories read access required) as suggested in the samples below, or use a conditional request. For more information, see "[AUTOTITLE](/rest/guides/getting-started-with-the-rest-api#conditional-requests)."
-
-{% endnote %}
-
-{% note %}
-
-**Note**: The signature was generated using the raw message body. So it's important you also use the raw message body for signature validation, instead of parsing and stringifying the JSON, to avoid rearranging the message or changing spacing.
-
-{% endnote %}
+> [!NOTE]
+> The signature was generated using the raw message body. So it's important you also use the raw message body for signature validation, instead of parsing and stringifying the JSON, to avoid rearranging the message or changing spacing.
 
 **Sample HTTP POST sent to verify endpoint**
 
@@ -403,8 +397,5 @@ A few important points:
 * For the hashed form of the raw token, you can only use SHA-256 to hash the token, not any other hashing algorithm.
 * The label indicates whether the token is a true ("true_positive") or a false positive ("false_positive"). Only these two lowercased literal strings are allowed.
 
-{% note %}
-
-**Note:** Our request timeout is set to be higher (that is, 30 seconds) for partners who provide data about false positives. If you require a timeout higher than 30 seconds, email us at <a href="mailto:secret-scanning@github.com">secret-scanning@github.com</a>.
-
-{% endnote %}
+> [!NOTE]
+> Our request timeout is set to be higher (that is, 30 seconds) for partners who provide data about false positives. If you require a timeout higher than 30 seconds, email us at <a href="mailto:secret-scanning@github.com">secret-scanning@github.com</a>.

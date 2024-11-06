@@ -259,11 +259,8 @@ If you are authenticating with a {% data variables.product.prodname_github_app %
 
 ## Using `curl` in the command line
 
-{% note %}
-
-**Note:** If you want to make API requests from the command line, {% data variables.product.prodname_dotcom %} recommends that you use {% data variables.product.prodname_cli %}, which simplifies authentication and requests. For more information about getting started with the REST API using {% data variables.product.prodname_cli %}, see the {% data variables.product.prodname_cli %} version of this article.
-
-{% endnote %}
+> [!NOTE]
+> If you want to make API requests from the command line, {% data variables.product.prodname_dotcom %} recommends that you use {% data variables.product.prodname_cli %}, which simplifies authentication and requests. For more information about getting started with the REST API using {% data variables.product.prodname_cli %}, see the {% data variables.product.prodname_cli %} version of this article.
 
 1. Install `curl` if it isn't already installed on your machine. To check if `curl` is installed, execute `curl --version` in the command line. If the output provides information about the version of `curl`, that means `curl` is installed. If you get a message similar to `command not found: curl`, you need to download and install `curl`. For more information, see [the curl project download page](https://curl.se/download.html).
 
@@ -292,11 +289,8 @@ If you are authenticating with a {% data variables.product.prodname_github_app %
    --header "Authorization: Bearer YOUR-TOKEN"
    ```
 
-   {% note %}
-
-   **Note:** {% data reusables.getting-started.bearer-vs-token %}
-
-   {% endnote %}
+   > [!NOTE]
+   > {% data reusables.getting-started.bearer-vs-token %}
 
 ## Using `curl` commands in {% data variables.product.prodname_actions %}
 

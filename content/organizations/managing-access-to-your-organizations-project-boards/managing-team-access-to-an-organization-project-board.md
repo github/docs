@@ -27,11 +27,8 @@ allowTitleToDifferFromFilename: true
 
 You can give an entire team the same permission level to a {% data variables.projects.projects_v1_board %}.
 
-{% note %}
-
-**Note:** {% data reusables.project-management.cascading-permissions %} For example, if an organization owner has given a team read permissions to a {% data variables.projects.projects_v1_board %}, and a {% data variables.projects.projects_v1_board %} admin gives one of the team members admin permissions to that board as an individual collaborator, that person would have admin permissions to the {% data variables.projects.projects_v1_board %}. For more information see, "[AUTOTITLE](/organizations/managing-access-to-your-organizations-project-boards/project-board-permissions-for-an-organization)."
-
-{% endnote %}
+> [!NOTE]
+> {% data reusables.project-management.cascading-permissions %} For example, if an organization owner has given a team read permissions to a {% data variables.projects.projects_v1_board %}, and a {% data variables.projects.projects_v1_board %} admin gives one of the team members admin permissions to that board as an individual collaborator, that person would have admin permissions to the {% data variables.projects.projects_v1_board %}. For more information see, "[AUTOTITLE](/organizations/managing-access-to-your-organizations-project-boards/project-board-permissions-for-an-organization)."
 
 {% data reusables.profile.access_org %}
 {% data reusables.user-settings.access_org %}

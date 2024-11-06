@@ -57,11 +57,8 @@ Now when you merge the `feature2` pull request, it'll be merged into the `main` 
 
 Repository administrators {% ifversion edit-repository-rules %}or custom roles with the "edit repository rules" permission {% endif %}can enable protections on a branch. If you're working on a branch that's protected, you won't be able to delete or force push to the branch. Repository administrators can additionally enable several other protected branch settings to enforce various workflows before a branch can be merged.
 
-{% note %}
-
-**Note:** If you're a repository administrator, you can merge pull requests on branches with branch protections enabled even if the pull request does not meet the requirements, unless branch protections have been set to "Include administrators."
-
-{% endnote %}
+> [!NOTE]
+> If you're a repository administrator, you can merge pull requests on branches with branch protections enabled even if the pull request does not meet the requirements, unless branch protections have been set to "Include administrators."
 
 To see if your pull request can be merged, look in the merge box at the bottom of the pull request's **Conversation** tab. For more information, see "[AUTOTITLE](/repositories/configuring-branches-and-merges-in-your-repository/managing-protected-branches/about-protected-branches)."
 

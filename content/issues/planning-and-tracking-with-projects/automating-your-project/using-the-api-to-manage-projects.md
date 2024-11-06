@@ -459,11 +459,8 @@ A project may contain items that a user does not have permission to view. In thi
 
 Use mutations to update projects. For more information, see "[AUTOTITLE](/graphql/guides/forming-calls-with-graphql#about-mutations)."
 
-{% note %}
-
-**Note:** You cannot add and update an item in the same call. You must use `addProjectV2ItemById` to add the item and then use `updateProjectV2ItemFieldValue` to update the item.
-
-{% endnote %}
+> [!NOTE]
+> You cannot add and update an item in the same call. You must use `addProjectV2ItemById` to add the item and then use `updateProjectV2ItemFieldValue` to update the item.
 
 ### Adding an item to a project
 
@@ -635,19 +632,16 @@ gh api graphql -f query='
 
 {% endcli %}
 
-{% note %}
-
-**Note:** You cannot use `updateProjectV2ItemFieldValue` to change `Assignees`, `Labels`, `Milestone`, or `Repository` because these fields are properties of pull requests and issues, not of project items. Instead, you may use the following mutations:
-
-* [addAssigneesToAssignable](/graphql/reference/mutations#addassigneestoassignable)
-* [removeAssigneesFromAssignable](/graphql/reference/mutations#removeassigneesfromassignable)
-* [addLabelsToLabelable](/graphql/reference/mutations#addlabelstolabelable)
-* [removeLabelsFromLabelable](/graphql/reference/mutations#removelabelsfromlabelable)
-* [updateIssue](/graphql/reference/mutations#updateissue)
-* [updatePullRequest](/graphql/reference/mutations#updatepullrequest)
-* [transferIssue](/graphql/reference/mutations#transferissue)
-
-{% endnote %}
+> [!NOTE]
+> You cannot use `updateProjectV2ItemFieldValue` to change `Assignees`, `Labels`, `Milestone`, or `Repository` because these fields are properties of pull requests and issues, not of project items. Instead, you may use the following mutations:
+>
+> * [addAssigneesToAssignable](/graphql/reference/mutations#addassigneestoassignable)
+> * [removeAssigneesFromAssignable](/graphql/reference/mutations#removeassigneesfromassignable)
+> * [addLabelsToLabelable](/graphql/reference/mutations#addlabelstolabelable)
+> * [removeLabelsFromLabelable](/graphql/reference/mutations#removelabelsfromlabelable)
+> * [updateIssue](/graphql/reference/mutations#updateissue)
+> * [updatePullRequest](/graphql/reference/mutations#updatepullrequest)
+> * [transferIssue](/graphql/reference/mutations#transferissue)
 
 ### Updating a single select field
 

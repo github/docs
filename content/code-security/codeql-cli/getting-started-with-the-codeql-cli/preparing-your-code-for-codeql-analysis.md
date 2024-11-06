@@ -149,11 +149,8 @@ When the database is successfully created, you’ll find a new directory at the 
 
 The {% data variables.product.prodname_codeql_cli %} includes extractors to create databases for non-compiled languages—specifically, JavaScript (and TypeScript), Python, and Ruby. These extractors are automatically invoked when you specify JavaScript, Python, or Ruby as the `--language` option when executing `database create`. When creating databases for these languages you must ensure that all additional dependencies are available.
 
-{% note %}
-
-**Note:** When you run `database create` for JavaScript, TypeScript, Python, and Ruby, you should not specify a `--command` option. Otherwise this overrides the normal extractor invocation, which will create an empty database. If you create databases for multiple languages and one of them is a compiled language, use the `--no-run-unnecessary-builds` option to skip the command for the languages that don’t need to be compiled.
-
-{% endnote %}
+> [!NOTE]
+> When you run `database create` for JavaScript, TypeScript, Python, and Ruby, you should not specify a `--command` option. Otherwise this overrides the normal extractor invocation, which will create an empty database. If you create databases for multiple languages and one of them is a compiled language, use the `--no-run-unnecessary-builds` option to skip the command for the languages that don’t need to be compiled.
 
 ### JavaScript and TypeScript
 
@@ -216,24 +213,16 @@ codeql database create --language=cpp <output-folder>/cpp-database
 
 If a codebase uses a standard build system, relying on an autobuilder is often the simplest way to create a database. For sources that require non-standard build steps, you may need to explicitly define each step in the command line.
 
-{% note %}
-
-**Notes:**
-
-* If you are building a Go database, install the Go toolchain (version 1.11 or later) and, if there are dependencies, the appropriate dependency manager (such as [dep](https://golang.github.io/dep/)).
-* The Go autobuilder attempts to automatically detect code written in Go in a repository, and only runs build scripts in an attempt to fetch dependencies. To force {% data variables.product.prodname_codeql %} to limit extraction to the files compiled by your build script, set the environment variable `CODEQL_EXTRACTOR_GO_BUILD_TRACING=on` or use the `--command` option to specify a build command.
-
-{% endnote %}
+> [!NOTE]
+> * If you are building a Go database, install the Go toolchain (version 1.11 or later) and, if there are dependencies, the appropriate dependency manager (such as [dep](https://golang.github.io/dep/)).
+> * The Go autobuilder attempts to automatically detect code written in Go in a repository, and only runs build scripts in an attempt to fetch dependencies. To force {% data variables.product.prodname_codeql %} to limit extraction to the files compiled by your build script, set the environment variable `CODEQL_EXTRACTOR_GO_BUILD_TRACING=on` or use the `--command` option to specify a build command.
 
 ### Specifying build commands
 
 The following examples are designed to give you an idea of some of the build commands that you can specify for compiled languages.
 
-{% note %}
-
-**Note:** The `--command` option accepts a single argument—if you need to use more than one command, specify `--command` multiple times. If you need to pass subcommands and options, the whole argument needs to be quoted to be interpreted correctly.
-
-{% endnote %}
+> [!NOTE]
+> The `--command` option accepts a single argument—if you need to use more than one command, specify `--command` multiple times. If you need to pass subcommands and options, the whole argument needs to be quoted to be interpreted correctly.
 
 * C/C++ project built using `make`:
 
@@ -362,11 +351,8 @@ You must specify:
 
 You may specify other options for the `codeql database init` command as normal.
 
-{% note %}
-
-**Note:** If the build runs on Windows, you must set either `--trace-process-level <number>` or `--trace-process-name <parent process name>` so that the option points to a parent CI process that will observe all build steps for the code being analyzed.
-
-{% endnote %}
+> [!NOTE]
+> If the build runs on Windows, you must set either `--trace-process-level <number>` or `--trace-process-name <parent process name>` so that the option points to a parent CI process that will observe all build steps for the code being analyzed.
 
 The `codeql database init` command will output a message:
 
@@ -387,11 +373,8 @@ Once you have created a {% data variables.product.prodname_codeql %} database us
 
 ### Example of creating a {% data variables.product.prodname_codeql %} database using indirect build tracing
 
-{% note %}
-
-**Note:** If you use Azure DevOps pipelines, the simplest way to create a {% data variables.product.prodname_codeql %} database is to use {% data variables.product.prodname_ghas_azdo %}. For documentation, see [Configure {% data variables.product.prodname_ghas_azdo %}](https://learn.microsoft.com/en-us/azure/devops/repos/security/configure-github-advanced-security-features) in Microsoft Learn.
-
-{% endnote %}
+> [!NOTE]
+> If you use Azure DevOps pipelines, the simplest way to create a {% data variables.product.prodname_codeql %} database is to use {% data variables.product.prodname_ghas_azdo %}. For documentation, see [Configure {% data variables.product.prodname_ghas_azdo %}](https://learn.microsoft.com/en-us/azure/devops/repos/security/configure-github-advanced-security-features) in Microsoft Learn.
 
 The following example shows how you could use indirect build tracing in an Azure DevOps pipeline to create a {% data variables.product.prodname_codeql %} database:
 

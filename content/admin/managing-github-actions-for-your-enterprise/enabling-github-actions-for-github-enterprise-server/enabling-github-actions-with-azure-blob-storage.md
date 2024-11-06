@@ -61,11 +61,9 @@ To configure {% data variables.product.prodname_ghe_server %} to use OIDC with a
    1. For "Issuer", enter `https://HOSTNAME/_services/token`, where `HOSTNAME` is the public hostname for {% data variables.location.product_location_enterprise %}. For example, `https://my-ghes-host.example.com/_services/token`.
    1. For "Subject identifier", enter the public hostname for {% data variables.location.product_location_enterprise %}. For example, `my-ghes-host.example.com`.
 
-      {% note %}
+      > [!NOTE]
+      > The subject identifier must only have the hostname of {% data variables.location.product_location_enterprise %}, and _must not_ include the protocol.
 
-      **Note:** The subject identifier must only have the hostname of {% data variables.location.product_location_enterprise %}, and _must not_ include the protocol.
-
-      {% endnote %}
    1. For "Name", enter a name for the credential.
    1. Click **Add**.
 

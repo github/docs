@@ -23,11 +23,9 @@ topics:
   - Upgrades
 shortTitle: Migrate from 11.10.x to 2.1.23
 ---
-{% note %}
 
-**Note**: {% data variables.product.prodname_ghe_server %} 11.10 is an unsupported release from 2014. For a list of supported releases, see "[AUTOTITLE](/admin/all-releases)."
-
-{% endnote %}
+> [!NOTE]
+> {% data variables.product.prodname_ghe_server %} 11.10 is an unsupported release from 2014. For a list of supported releases, see "[AUTOTITLE](/admin/all-releases)."
 
 Migrations from {% data variables.product.prodname_enterprise %} 11.10.348 and later are supported. Migrating from {% data variables.product.prodname_enterprise %} 11.10.348 and earlier is not supported. You must first upgrade to 11.10.348 in several upgrades. For more information, see the 11.10.348 upgrading procedure, "[Upgrading to the latest release](/enterprise/11.10.340/admin/articles/upgrading-to-the-latest-release/)."
 
@@ -64,11 +62,8 @@ To upgrade to the latest version of {% data variables.product.prodname_enterpris
 1. Copy the `ghe-restore` command that you'll run on the backup host to migrate data to the new instance.
 1. Enable maintenance mode on the old instance and wait for all active processes to complete. For more information, see "[AUTOTITLE](/admin/configuration/configuring-your-enterprise/enabling-and-scheduling-maintenance-mode)."
 
-   {% note %}
-
-   **Note:** The instance will be unavailable for normal use from this point forward.
-
-   {% endnote %}
+   > [!NOTE]
+   > The instance will be unavailable for normal use from this point forward.
 
 1. On the backup host, run the `ghe-backup` command to take a final backup snapshot. This ensures that all data from the old instance is captured.
 1. On the backup host, run the `ghe-restore` command you copied on the new instance's restore status screen to restore the latest snapshot.
@@ -97,11 +92,8 @@ To upgrade to the latest version of {% data variables.product.prodname_enterpris
 1. Click **Continue to settings** to review and adjust the configuration information and settings that were imported from the previous instance.
 1. Click **Save settings**.
 
-   {% note %}
-
-   **Note:** You can use the new instance after you've applied configuration settings and restarted the server.
-
-   {% endnote %}
+   > [!NOTE]
+   > You can use the new instance after you've applied configuration settings and restarted the server.
 
 1. Switch user network traffic from the old instance to the new instance using either DNS or IP address assignment.
 1. Upgrade to the latest patch release of {% data variables.product.prodname_ghe_server %}. For more information, see "[AUTOTITLE](/admin/upgrading-your-instance/preparing-to-upgrade/overview-of-the-upgrade-process)."

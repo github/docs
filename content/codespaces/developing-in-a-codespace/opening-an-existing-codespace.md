@@ -52,11 +52,8 @@ You can quickly resume a codespace when you're viewing a repository on {% data v
 
    Alternatively, if you want to create a new codespace for this branch of the repository, click **Create a new one**.
 
-   {% note %}
-
-   **Note**: If you don't have an existing codespace for this branch, the page is titled "Create codespace" and a button labeled **Create a new codespace** is displayed.
-
-   {% endnote %}
+   > [!NOTE]
+   > If you don't have an existing codespace for this branch, the page is titled "Create codespace" and a button labeled **Create a new codespace** is displayed.
 
 You can bookmark the address of this page if you want to get back to it quickly to resume your codespace. Alternatively you can use the address in a link to provide other people with a quick way of creating and resuming their own codespaces for this repository.
 
@@ -91,11 +88,8 @@ You can bookmark the address of this page if you want to get back to it quickly 
 
 ## Reopening an existing codespace
 
-{% note %}
-
-**Note:** {% data reusables.codespaces.using-codespaces-in-vscode %} See "[AUTOTITLE](/codespaces/developing-in-a-codespace/using-github-codespaces-in-visual-studio-code)."
-
-{% endnote %}
+> [!NOTE]
+> {% data reusables.codespaces.using-codespaces-in-vscode %} See "[AUTOTITLE](/codespaces/developing-in-a-codespace/using-github-codespaces-in-visual-studio-code)."
 
 1. In the {% data variables.product.prodname_vscode_shortname %} desktop application, open the Command Palette with <kbd>Command</kbd>+<kbd>Shift</kbd>+<kbd>P</kbd> (Mac) or <kbd>Ctrl</kbd>+<kbd>Shift</kbd>+<kbd>P</kbd> (Windows/Linux).
 1. Type "Codespaces" and select one of the following commands.
@@ -128,11 +122,8 @@ You can also access the commands listed above by navigating to the Remote Explor
      gh codespace code
      ```
 
-     {% note %}
-
-     **Note**: You must have {% data variables.product.prodname_vscode_shortname %} installed on your local machine. See "[Setting up {% data variables.product.prodname_vscode %}](https://code.visualstudio.com/docs/setup/setup-overview)" in the {% data variables.product.prodname_vscode_shortname %} documentation.
-
-     {% endnote %}
+     > [!NOTE]
+     > You must have {% data variables.product.prodname_vscode_shortname %} installed on your local machine. See "[Setting up {% data variables.product.prodname_vscode %}](https://code.visualstudio.com/docs/setup/setup-overview)" in the {% data variables.product.prodname_vscode_shortname %} documentation.
 
    * To open a codespace in the browser, enter:
 
@@ -146,11 +137,8 @@ You can also access the commands listed above by navigating to the Remote Explor
      gh codespace jupyter
      ```
 
-     {% note %}
-
-     **Note**: {% data reusables.codespaces.jupyterlab-installed-in-codespace %}
-
-     {% endnote %}
+     > [!NOTE]
+     > {% data reusables.codespaces.jupyterlab-installed-in-codespace %}
 
    * To access a codespace from the command line, over SSH, enter:
 

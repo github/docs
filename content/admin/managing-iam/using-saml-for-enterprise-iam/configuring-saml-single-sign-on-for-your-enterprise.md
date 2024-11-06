@@ -111,11 +111,8 @@ For more detailed information about how to enable SAML using Okta, see "[AUTOTIT
 
 You can enable or disable SAML authentication for {% data variables.location.product_location %}, or you can edit an existing configuration. You can view and edit authentication settings for {% data variables.product.product_name %} in the {% data variables.enterprise.management_console %}. For more information, see "[AUTOTITLE](/admin/configuration/administering-your-instance-from-the-management-console)."
 
-{% note %}
-
-**Note**: {% data reusables.enterprise.test-in-staging %}
-
-{% endnote %}
+> [!NOTE]
+> {% data reusables.enterprise.test-in-staging %}
 
 {% data reusables.enterprise_site_admin_settings.access-settings %}
 {% data reusables.enterprise_site_admin_settings.management-console %}
@@ -126,7 +123,7 @@ You can enable or disable SAML authentication for {% data variables.location.pro
 
    {% tip %}
 
-   **Note**: We recommend keeping this value **unselected**. You should enable this feature **only** in the rare instance that your SAML implementation does not support service provider initiated SSO, and when advised by {% data variables.contact.enterprise_support %}.
+   **Tip**: We recommend keeping this value **unselected**. You should enable this feature **only** in the rare instance that your SAML implementation does not support service provider initiated SSO, and when advised by {% data variables.contact.enterprise_support %}.
 
    {% endtip %}
 

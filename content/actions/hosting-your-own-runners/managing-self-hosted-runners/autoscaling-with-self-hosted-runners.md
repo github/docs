@@ -45,11 +45,8 @@ To add an ephemeral runner to your environment, include the `--ephemeral` parame
 
 The {% data variables.product.prodname_actions %} service will then automatically de-register the runner after it has processed one job. You can then create your own automation that wipes the runner after it has been de-registered.
 
-{% note %}
-
-**Note:**  If a job is labeled for a certain type of runner, but none matching that type are available, the job does not immediately fail at the time of queueing. Instead, the job will remain queued until the 24 hour timeout period expires.
-
-{% endnote %}
+> [!NOTE]
+> If a job is labeled for a certain type of runner, but none matching that type are available, the job does not immediately fail at the time of queueing. Instead, the job will remain queued until the 24 hour timeout period expires.
 
 {% ifversion actions-single-use-tokens %}
 

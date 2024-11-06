@@ -37,11 +37,8 @@ You can replace an existing, functional node in your cluster. For example, you m
 
 To replace a functional node, install the {% data variables.product.product_name %} appliance on a new VM, configure an IP address, add the new node to the cluster configuration file, initialize the cluster and apply the configuration, then take the node you replaced offline.
 
-{% note %}
-
-**Note:** If you're replacing the primary MySQL node, see "[Replacing the primary MySQL node](#replacing-the-primary-mysql-node)."
-
-{% endnote %}
+> [!NOTE]
+> If you're replacing the primary MySQL node, see "[Replacing the primary MySQL node](#replacing-the-primary-mysql-node)."
 
 {% data reusables.enterprise_clustering.replacing-a-cluster-node-provision %}
 {% data reusables.enterprise_clustering.replacing-a-cluster-node-admin-configure-ip %}
@@ -66,11 +63,8 @@ To replace a functional node, install the {% data variables.product.product_name
 
 You can replace a failed node in your cluster. For example, a software or hardware issue may affect a node's availability.
 
-{% note %}
-
-**Note:** If you're replacing the primary MySQL node, see "[Replacing the primary MySQL node](#replacing-the-primary-mysql-node)."
-
-{% endnote %}
+> [!NOTE]
+> If you're replacing the primary MySQL node, see "[Replacing the primary MySQL node](#replacing-the-primary-mysql-node)."
 
 {% ifversion cluster-node-removal %}
 
@@ -116,11 +110,8 @@ To replace a node in an emergency, you'll take the failed node offline, add your
 
       These commands indicate to each service that the node is permanently removed. The services will recreate any replicas contained within the node on the available nodes within the cluster.
 
-      {% note %}
-
-      **Note:** These commands may cause increased load on the server while data is rebalanced across replicas.
-
-      {% endnote %}
+      > [!NOTE]
+      > These commands may cause increased load on the server while data is rebalanced across replicas.
 
       For the `git-server` service (used for repository data):
 

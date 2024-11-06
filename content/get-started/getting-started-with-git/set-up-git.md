@@ -40,16 +40,13 @@ If you do not need to work with files locally, {% data variables.product.product
 
 1. [Download and install the latest version of Git](https://git-scm.com/downloads).
 
-   {% note %}
-
-   **Note**: Most Chrome OS devices from 2020 onwards now have a built-in Linux environment, which includes Git. To enable it, go to the Launcher, search for Linux, and click **Turn on**.
-
-   If you are using an older Chrome OS device, another method is required:
-
-   1. Install a terminal emulator such as Termux from the Google Play Store on your Chrome OS device.
-   1. From the terminal emulator that you installed, install Git. For example, in Termux, enter `apt install git` and then type `y` when prompted.
-
-   {% endnote %}
+   > [!NOTE]
+   > Most Chrome OS devices from 2020 onwards now have a built-in Linux environment, which includes Git. To enable it, go to the Launcher, search for Linux, and click **Turn on**.
+   >
+   > If you are using an older Chrome OS device, another method is required:
+   >
+   > 1. Install a terminal emulator such as Termux from the Google Play Store on your Chrome OS device.
+   > 1. From the terminal emulator that you installed, install Git. For example, in Termux, enter `apt install git` and then type `y` when prompted.
 
 1. [Set your username in Git](/get-started/getting-started-with-git/setting-your-username-in-git).
 1. [Set your commit email address in Git](/account-and-profile/setting-up-and-managing-your-personal-account-on-github/managing-email-preferences/setting-your-commit-email-address).
@@ -58,11 +55,8 @@ If you do not need to work with files locally, {% data variables.product.product
 
 When you connect to a {% data variables.product.prodname_dotcom %} repository from Git, you will need to authenticate with {% data variables.product.product_name %} using either HTTPS or SSH.
 
-{% note %}
-
-**Note:** You can authenticate to {% data variables.product.product_name %} using {% data variables.product.prodname_cli %}, for either HTTP or SSH. For more information, see [`gh auth login`](https://cli.github.com/manual/gh_auth_login).
-
-{% endnote %}
+> [!NOTE]
+> You can authenticate to {% data variables.product.product_name %} using {% data variables.product.prodname_cli %}, for either HTTP or SSH. For more information, see [`gh auth login`](https://cli.github.com/manual/gh_auth_login).
 
 ### Connecting over HTTPS (recommended)
 

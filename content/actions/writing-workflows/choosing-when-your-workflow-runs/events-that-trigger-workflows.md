@@ -21,11 +21,8 @@ Workflow triggers are events that cause a workflow to run. For more information 
 
 Some events have multiple activity types. For these events, you can specify which activity types will trigger a workflow run. For more information about what each activity type means, see "[AUTOTITLE](/webhooks-and-events/webhooks/webhook-events-and-payloads)."
 
-{% note %}
-
-**Note:** Not all webhook events trigger workflows.
-
-{% endnote %}
+> [!NOTE]
+> Not all webhook events trigger workflows.
 
 ## `branch_protection_rule`
 
@@ -33,11 +30,8 @@ Some events have multiple activity types. For these events, you can specify whic
 | --------------------- | -------------- | ------------ | -------------|
 | [`branch_protection_rule`](/webhooks-and-events/webhooks/webhook-events-and-payloads#branch_protection_rule) | - `created`<br/>- `edited`<br/>- `deleted` | Last commit on default branch | Default branch |
 
-{% note %}
-
-**Note**: {% data reusables.developer-site.multiple_activity_types %} For information about each activity type, see "[AUTOTITLE](/webhooks-and-events/webhooks/webhook-events-and-payloads#branch_protection_rule)." {% data reusables.developer-site.limit_workflow_to_activity_types %}
-
-{% endnote %}
+> [!NOTE]
+> {% data reusables.developer-site.multiple_activity_types %} For information about each activity type, see "[AUTOTITLE](/webhooks-and-events/webhooks/webhook-events-and-payloads#branch_protection_rule)." {% data reusables.developer-site.limit_workflow_to_activity_types %}
 
 {% data reusables.actions.branch-requirement %}
 
@@ -57,11 +51,8 @@ on:
 | --------------------- | -------------- | ------------ | -------------|
 | [`check_run`](/webhooks-and-events/webhooks/webhook-events-and-payloads#check_run) | - `created`<br/>- `rerequested`<br/>- `completed`<br/>- `requested_action` | Last commit on default branch | Default branch |
 
-{% note %}
-
-**Note**: {% data reusables.developer-site.multiple_activity_types %} For information about each activity type, see "[AUTOTITLE](/webhooks-and-events/webhooks/webhook-events-and-payloads#check_run)." {% data reusables.developer-site.limit_workflow_to_activity_types %}
-
-{% endnote %}
+> [!NOTE]
+> {% data reusables.developer-site.multiple_activity_types %} For information about each activity type, see "[AUTOTITLE](/webhooks-and-events/webhooks/webhook-events-and-payloads#check_run)." {% data reusables.developer-site.limit_workflow_to_activity_types %}
 
 {% data reusables.actions.branch-requirement %}
 
@@ -81,19 +72,13 @@ on:
 | --------------------- | -------------- | ------------ | -------------|
 | [`check_suite`](/webhooks-and-events/webhooks/webhook-events-and-payloads#check_suite) | - `completed` | Last commit on default branch | Default branch |
 
-{% note %}
-
-**Note**: {% data reusables.developer-site.multiple_activity_types %} For information about each activity type, see "[AUTOTITLE](/webhooks-and-events/webhooks/webhook-events-and-payloads#check_suite)." Although only the `completed` activity type is supported, specifying the activity type will keep your workflow specific if more activity types are added in the future. {% data reusables.developer-site.limit_workflow_to_activity_types %}
-
-{% endnote %}
+> [!NOTE]
+> {% data reusables.developer-site.multiple_activity_types %} For information about each activity type, see "[AUTOTITLE](/webhooks-and-events/webhooks/webhook-events-and-payloads#check_suite)." Although only the `completed` activity type is supported, specifying the activity type will keep your workflow specific if more activity types are added in the future. {% data reusables.developer-site.limit_workflow_to_activity_types %}
 
 {% data reusables.actions.branch-requirement %}
 
-{% note %}
-
-**Note:** To prevent recursive workflows, this event does not trigger workflows if the check suite was created by {% data variables.product.prodname_actions %}.
-
-{% endnote %}
+> [!NOTE]
+> To prevent recursive workflows, this event does not trigger workflows if the check suite was created by {% data variables.product.prodname_actions %}.
 
 Runs your workflow when check suite activity occurs. A check suite is a collection of the check runs created for a specific commit. Check suites summarize the status and conclusion of the check runs that are in the suite. For information, see "[AUTOTITLE](/rest/guides/using-the-rest-api-to-interact-with-checks)." For information about the check suite APIs, see "[AUTOTITLE](/graphql/reference/objects#checksuite)" in the GraphQL API documentation or "[AUTOTITLE](/rest/checks/suites)."
 
@@ -111,11 +96,8 @@ on:
 | --------------------- | -------------- | ------------ | -------------|
 | [`create`](/webhooks-and-events/webhooks/webhook-events-and-payloads#create) | Not applicable | Last commit on the created branch or tag | Branch or tag created |
 
-{% note %}
-
-**Note**: An event will not be created when you create more than three tags at once.
-
-{% endnote %}
+> [!NOTE]
+> An event will not be created when you create more than three tags at once.
 
 Runs your workflow when someone creates a Git reference (Git branch or tag) in the workflow's repository. For information about the APIs to create a Git reference, see "[AUTOTITLE](/graphql/reference/mutations#createref)" in the GraphQL API documentation or "[AUTOTITLE](/rest/git/refs#create-a-reference)."
 
@@ -134,11 +116,8 @@ on:
 
 {% data reusables.actions.branch-requirement %}
 
-{% note %}
-
-**Note**: An event will not be created when you delete more than three tags at once.
-
-{% endnote %}
+> [!NOTE]
+> An event will not be created when you delete more than three tags at once.
 
 Runs your workflow when someone deletes a Git reference (Git branch or tag) in the workflow's repository. For information about the APIs to delete a Git reference, see "[AUTOTITLE](/graphql/reference/mutations#deleteref)" in the GraphQL API documentation or "[AUTOTITLE](/rest/git/refs#delete-a-reference)."
 
@@ -170,11 +149,8 @@ on:
 | --------------------- | -------------- | ------------ | -------------|
 | [`deployment_status`](/webhooks-and-events/webhooks/webhook-events-and-payloads#deployment_status) | Not applicable | Commit to be deployed | Branch or tag to be deployed (empty if commit)|
 
-{% note %}
-
-**Note:** When a deployment status's state is set to `inactive`, a workflow run will not be triggered.
-
-{% endnote %}
+> [!NOTE]
+> When a deployment status's state is set to `inactive`, a workflow run will not be triggered.
 
 Runs your workflow when a third party provides a deployment status. Deployments created with a commit SHA may not have a Git ref. For information about the APIs to create a deployment status, see "[AUTOTITLE](/graphql/reference/mutations#createdeploymentstatus)" in the GraphQL API documentation or "[AUTOTITLE](/rest/deployments#create-a-deployment-status)."
 
@@ -191,11 +167,8 @@ on:
 | --------------------- | -------------- | ------------ | -------------|
 | [`discussion`](/webhooks-and-events/webhooks/webhook-events-and-payloads#discussion) | - `created`<br/>- `edited`<br/>- `deleted`<br/>- `transferred`<br/>- `pinned`<br/>- `unpinned`<br/>- `labeled`<br/>- `unlabeled`<br/>- `locked`<br/>- `unlocked`<br/>- `category_changed`<br/> - `answered`<br/> - `unanswered` | Last commit on default branch | Default branch |
 
-{% note %}
-
-**Note**: {% data reusables.developer-site.multiple_activity_types %} For information about each activity type, see "[AUTOTITLE](/webhooks-and-events/webhooks/webhook-events-and-payloads#discussion)." {% data reusables.developer-site.limit_workflow_to_activity_types %}
-
-{% endnote %}
+> [!NOTE]
+> {% data reusables.developer-site.multiple_activity_types %} For information about each activity type, see "[AUTOTITLE](/webhooks-and-events/webhooks/webhook-events-and-payloads#discussion)." {% data reusables.developer-site.limit_workflow_to_activity_types %}
 
 {% data reusables.actions.branch-requirement %}
 
@@ -217,11 +190,8 @@ on:
 | --------------------- | -------------- | ------------ | -------------|
 | [`discussion_comment`](/webhooks-and-events/webhooks/webhook-events-and-payloads#discussion_comment) | - `created`<br/>- `edited`<br/>- `deleted`<br/> | Last commit on default branch | Default branch |
 
-{% note %}
-
-**Note**: {% data reusables.developer-site.multiple_activity_types %} For information about each activity type, see "[AUTOTITLE](/webhooks-and-events/webhooks/webhook-events-and-payloads#discussion_comment)." {% data reusables.developer-site.limit_workflow_to_activity_types %}
-
-{% endnote %}
+> [!NOTE]
+> {% data reusables.developer-site.multiple_activity_types %} For information about each activity type, see "[AUTOTITLE](/webhooks-and-events/webhooks/webhook-events-and-payloads#discussion_comment)." {% data reusables.developer-site.limit_workflow_to_activity_types %}
 
 {% data reusables.actions.branch-requirement %}
 
@@ -277,11 +247,8 @@ on:
 | --------------------- | -------------- | ------------ | -------------|
 | [`issue_comment`](/webhooks-and-events/webhooks/webhook-events-and-payloads#issue_comment) | - `created`<br/>- `edited`<br/>- `deleted`<br/> | Last commit on default branch | Default branch |
 
-{% note %}
-
-**Note**: {% data reusables.developer-site.multiple_activity_types %} For information about each activity type, see "[AUTOTITLE](/webhooks-and-events/webhooks/webhook-events-and-payloads#issue_comment)." {% data reusables.developer-site.limit_workflow_to_activity_types %}
-
-{% endnote %}
+> [!NOTE]
+> {% data reusables.developer-site.multiple_activity_types %} For information about each activity type, see "[AUTOTITLE](/webhooks-and-events/webhooks/webhook-events-and-payloads#issue_comment)." {% data reusables.developer-site.limit_workflow_to_activity_types %}
 
 {% data reusables.actions.branch-requirement %}
 
@@ -334,11 +301,8 @@ jobs:
 | --------------------- | -------------- | ------------ | -------------|
 | [`issues`](/webhooks-and-events/webhooks/webhook-events-and-payloads#issues) | - `opened`<br/>- `edited`<br/>- `deleted`<br/>- `transferred`<br/>- `pinned`<br/>- `unpinned`<br/>- `closed`<br/>- `reopened`<br/>- `assigned`<br/>- `unassigned`<br/>- `labeled`<br/>- `unlabeled`<br/>- `locked`<br/>- `unlocked`<br/>- `milestoned`<br/> - `demilestoned` | Last commit on default branch | Default branch |
 
-{% note %}
-
-**Note**: {% data reusables.developer-site.multiple_activity_types %} For information about each activity type, see "[AUTOTITLE](/webhooks-and-events/webhooks/webhook-events-and-payloads#issues)." {% data reusables.developer-site.limit_workflow_to_activity_types %}
-
-{% endnote %}
+> [!NOTE]
+> {% data reusables.developer-site.multiple_activity_types %} For information about each activity type, see "[AUTOTITLE](/webhooks-and-events/webhooks/webhook-events-and-payloads#issues)." {% data reusables.developer-site.limit_workflow_to_activity_types %}
 
 {% data reusables.actions.branch-requirement %}
 
@@ -358,11 +322,8 @@ on:
 | --------------------- | -------------- | ------------ | -------------|
 | [`label`](/webhooks-and-events/webhooks/webhook-events-and-payloads#label) | - `created`<br/>- `edited`<br/>- `deleted`<br/> | Last commit on default branch | Default branch |
 
-{% note %}
-
-**Note**: {% data reusables.developer-site.multiple_activity_types %} For information about each activity type, see "[AUTOTITLE](/webhooks-and-events/webhooks/webhook-events-and-payloads#label)." {% data reusables.developer-site.limit_workflow_to_activity_types %}
-
-{% endnote %}
+> [!NOTE]
+> {% data reusables.developer-site.multiple_activity_types %} For information about each activity type, see "[AUTOTITLE](/webhooks-and-events/webhooks/webhook-events-and-payloads#label)." {% data reusables.developer-site.limit_workflow_to_activity_types %}
 
 {% data reusables.actions.branch-requirement %}
 
@@ -386,14 +347,9 @@ on:
 | --------------------- | -------------- | ------------ | -------------|
 | [`merge_group`](/webhooks-and-events/webhooks/webhook-events-and-payloads#merge_group) | `checks_requested` | SHA of the merge group | Ref of the merge group |
 
-{% note %}
-
-**Notes**:
-
-* {% data reusables.developer-site.multiple_activity_types %} Although only the `checks_requested` activity type is supported, specifying the activity type will keep your workflow specific if more activity types are added in the future. For information about each activity type, see "[AUTOTITLE](/webhooks-and-events/webhooks/webhook-events-and-payloads#merge_group)." {% data reusables.developer-site.limit_workflow_to_activity_types %}
-* {% data reusables.actions.merge-group-event-with-required-checks %}
-
-{% endnote %}
+> [!NOTE]
+> * {% data reusables.developer-site.multiple_activity_types %} Although only the `checks_requested` activity type is supported, specifying the activity type will keep your workflow specific if more activity types are added in the future. For information about each activity type, see "[AUTOTITLE](/webhooks-and-events/webhooks/webhook-events-and-payloads#merge_group)." {% data reusables.developer-site.limit_workflow_to_activity_types %}
+> * {% data reusables.actions.merge-group-event-with-required-checks %}
 
 Runs your workflow when a pull request is added to a merge queue, which adds the pull request to a merge group. For more information see "[AUTOTITLE](/pull-requests/collaborating-with-pull-requests/incorporating-changes-from-a-pull-request/merging-a-pull-request-with-a-merge-queue)".
 
@@ -415,11 +371,8 @@ on:
 | --------------------- | -------------- | ------------ | -------------|
 | [`milestone`](/webhooks-and-events/webhooks/webhook-events-and-payloads#milestone) | - `created`<br/>- `closed`<br/>- `opened`<br/>- `edited`<br/>- `deleted`<br/> | Last commit on default branch | Default branch |
 
-{% note %}
-
-**Note**: {% data reusables.developer-site.multiple_activity_types %} For information about each activity type, see "[AUTOTITLE](/webhooks-and-events/webhooks/webhook-events-and-payloads#milestone)." {% data reusables.developer-site.limit_workflow_to_activity_types %}
-
-{% endnote %}
+> [!NOTE]
+> {% data reusables.developer-site.multiple_activity_types %} For information about each activity type, see "[AUTOTITLE](/webhooks-and-events/webhooks/webhook-events-and-payloads#milestone)." {% data reusables.developer-site.limit_workflow_to_activity_types %}
 
 {% data reusables.actions.branch-requirement %}
 
@@ -460,26 +413,19 @@ on:
 | --------------------- | -------------- | ------------ | -------------|
 | [`project`](/webhooks-and-events/webhooks/webhook-events-and-payloads#project) | - `created`<br/>- `closed`<br/>- `reopened`<br/>- `edited`<br/>- `deleted`<br/> | Last commit on default branch | Default branch |
 
-{% note %}
-
-**Note**: {% data reusables.developer-site.multiple_activity_types %} The `edited` activity type refers to when a {% data variables.projects.projects_v1_board %}, not a column or card on the {% data variables.projects.projects_v1_board %}, is edited. For information about each activity type, see "[AUTOTITLE](/webhooks-and-events/webhooks/webhook-events-and-payloads#project)." {% data reusables.developer-site.limit_workflow_to_activity_types %}
-
-{% endnote %}
+> [!NOTE]
+> {% data reusables.developer-site.multiple_activity_types %} The `edited` activity type refers to when a {% data variables.projects.projects_v1_board %}, not a column or card on the {% data variables.projects.projects_v1_board %}, is edited. For information about each activity type, see "[AUTOTITLE](/webhooks-and-events/webhooks/webhook-events-and-payloads#project)." {% data reusables.developer-site.limit_workflow_to_activity_types %}
 
 {% data reusables.actions.branch-requirement %}
 
-{% note %}
-
-**Note**: This event only occurs for projects owned by the workflow's repository, not for organization-owned or user-owned projects or for projects owned by another repository.
-
-{% endnote %}
+> [!NOTE]
+> This event only occurs for projects owned by the workflow's repository, not for organization-owned or user-owned projects or for projects owned by another repository.
 
 {% ifversion fpt or ghec %}
-{% note %}
 
-**Note**: This event only occurs for {% data variables.product.prodname_projects_v1 %}.
+> [!NOTE]
+> This event only occurs for {% data variables.product.prodname_projects_v1 %}.
 
-{% endnote %}
 {% endif %}
 
 Runs your workflow when a {% data variables.projects.projects_v1_board %} is created or modified. For activity related to cards or columns in a {% data variables.projects.projects_v1_board %}, use the [`project_card`](#project_card) or [`project_column`](#project_column) events instead. For more information about {% data variables.projects.projects_v1_boards %}, see "[AUTOTITLE](/issues/organizing-your-work-with-project-boards/managing-project-boards/about-project-boards)." For information about the {% data variables.projects.projects_v1_board %} APIs, see "[AUTOTITLE](/graphql/reference/objects#project)" in the GraphQL API documentation or "[AUTOTITLE](/rest/projects)."
@@ -498,26 +444,19 @@ on:
 | --------------------- | -------------- | ------------ | -------------|
 | [`project_card`](/webhooks-and-events/webhooks/webhook-events-and-payloads#project_card) | - `created`<br/>- `moved`<br/>- `converted` to an issue<br/>- `edited`<br/>- `deleted` | Last commit on default branch | Default branch |
 
-{% note %}
-
-**Note**: {% data reusables.developer-site.multiple_activity_types %} For information about each activity type, see "[AUTOTITLE](/webhooks-and-events/webhooks/webhook-events-and-payloads#project_card)." {% data reusables.developer-site.limit_workflow_to_activity_types %}
-
-{% endnote %}
+> [!NOTE]
+> {% data reusables.developer-site.multiple_activity_types %} For information about each activity type, see "[AUTOTITLE](/webhooks-and-events/webhooks/webhook-events-and-payloads#project_card)." {% data reusables.developer-site.limit_workflow_to_activity_types %}
 
 {% data reusables.actions.branch-requirement %}
 
-{% note %}
-
-**Note**: This event only occurs for projects owned by the workflow's repository, not for organization-owned or user-owned projects or for projects owned by another repository.
-
-{% endnote %}
+> [!NOTE]
+> This event only occurs for projects owned by the workflow's repository, not for organization-owned or user-owned projects or for projects owned by another repository.
 
 {% ifversion fpt or ghec %}
-{% note %}
 
-**Note**: This event only occurs for {% data variables.product.prodname_projects_v1 %}.
+> [!NOTE]
+> This event only occurs for {% data variables.product.prodname_projects_v1 %}.
 
-{% endnote %}
 {% endif %}
 
 Runs your workflow when a card on a {% data variables.projects.projects_v1_board %} is created or modified. For activity related to {% data variables.projects.projects_v1_boards %} or columns in a {% data variables.projects.projects_v1_board %}, use the [`project`](#project) or [`project_column`](#project_column) event instead. For more information about {% data variables.projects.projects_v1_boards %}, see "[AUTOTITLE](/issues/organizing-your-work-with-project-boards/managing-project-boards/about-project-boards)." For information about the project card APIs, see "[AUTOTITLE](/graphql/reference/objects#projectcard)" in the GraphQL API documentation or "[AUTOTITLE](/rest/projects/cards)."
@@ -536,26 +475,19 @@ on:
 | --------------------- | -------------- | ------------ | -------------|
 | [`project_column`](/webhooks-and-events/webhooks/webhook-events-and-payloads#project_column) | - `created`<br/>- `updated`<br/>- `moved`<br/>- `deleted` | Last commit on default branch | Default branch |
 
-{% note %}
-
-**Note**: {% data reusables.developer-site.multiple_activity_types %} For information about each activity type, see "[AUTOTITLE](/webhooks-and-events/webhooks/webhook-events-and-payloads#project_column)." {% data reusables.developer-site.limit_workflow_to_activity_types %}
-
-{% endnote %}
+> [!NOTE]
+> {% data reusables.developer-site.multiple_activity_types %} For information about each activity type, see "[AUTOTITLE](/webhooks-and-events/webhooks/webhook-events-and-payloads#project_column)." {% data reusables.developer-site.limit_workflow_to_activity_types %}
 
 {% data reusables.actions.branch-requirement %}
 
-{% note %}
-
-**Note**: This event only occurs for projects owned by the workflow's repository, not for organization-owned or user-owned projects or for projects owned by another repository.
-
-{% endnote %}
+> [!NOTE]
+> This event only occurs for projects owned by the workflow's repository, not for organization-owned or user-owned projects or for projects owned by another repository.
 
 {% ifversion fpt or ghec %}
-{% note %}
 
-**Note**: This event only occurs for {% data variables.product.prodname_projects_v1 %}.
+> [!NOTE]
+> This event only occurs for {% data variables.product.prodname_projects_v1 %}.
 
-{% endnote %}
 {% endif %}
 
 Runs your workflow when a column on a {% data variables.projects.projects_v1_board %} is created or modified. For activity related to {% data variables.projects.projects_v1_boards %} or cards in a {% data variables.projects.projects_v1_board %}, use the [`project`](#project) or [`project_card`](#project_card) event instead. For more information about {% data variables.projects.projects_v1_boards %}, see "[AUTOTITLE](/issues/organizing-your-work-with-project-boards/managing-project-boards/about-project-boards)." For information about the project column APIs, see "[AUTOTITLE](/graphql/reference/objects#projectcolumn)" in the GraphQL API documentation or "[AUTOTITLE](/rest/projects#columns)."
@@ -593,20 +525,12 @@ on:
 | --------------------- | -------------- | ------------ | -------------|
 | [`pull_request`](/webhooks-and-events/webhooks/webhook-events-and-payloads#pull_request) | - `assigned`<br/>- `unassigned`<br/>- `labeled`<br/>- `unlabeled`<br/>- `opened`<br/>- `edited`<br/>- `closed`<br/>- `reopened`<br/>- `synchronize`<br/>- `converted_to_draft`<br/>- `locked`<br/>- `unlocked`<br/>{% ifversion fpt or ghec %}- `enqueued`<br/>- `dequeued`<br/>{% endif %}- `milestoned`<br/>- `demilestoned`<br/>- `ready_for_review`<br/>- `review_requested`<br/>- `review_request_removed`<br/>- `auto_merge_enabled`<br/>- `auto_merge_disabled` | Last merge commit on the `GITHUB_REF` branch | PR merge branch `refs/pull/PULL_REQUEST_NUMBER/merge` |
 
-{% note %}
-
-**Notes**:
-* {% data reusables.developer-site.multiple_activity_types %} For information about each activity type, see "[AUTOTITLE](/webhooks-and-events/webhooks/webhook-events-and-payloads#pull_request)." By default, a workflow only runs when a `pull_request` event's activity type is `opened`, `synchronize`, or `reopened`. To trigger workflows by different activity types, use the `types` keyword. For more information, see "[AUTOTITLE](/actions/using-workflows/workflow-syntax-for-github-actions#onevent_nametypes)."
-
-* Workflows will not run on `pull_request` activity if the pull request has a merge conflict. The merge conflict must be resolved first.
-
-  Conversely, workflows with the `pull_request_target` event will run even if the pull request has a merge conflict. Before using the `pull_request_target` trigger, you should be aware of the security risks. For more information, see [`pull_request_target`](#pull_request_target).
-
-* The `pull_request` webhook event payload is empty for merged pull requests and pull requests that come from forked repositories.
-
-* The value of `GITHUB_REF` varies for a closed pull request depending on whether the pull request has been merged or not. If a pull request was closed but not merged, it will be `refs/pull/PULL_REQUEST_NUMBER/merge`. If a pull request was closed as a result of being merged, it will be the fully qualified `ref` of the branch it was merged into, for example `/refs/heads/main`.
-
-{% endnote %}
+> [!NOTE]
+> * {% data reusables.developer-site.multiple_activity_types %} For information about each activity type, see "[AUTOTITLE](/webhooks-and-events/webhooks/webhook-events-and-payloads#pull_request)." By default, a workflow only runs when a `pull_request` event's activity type is `opened`, `synchronize`, or `reopened`. To trigger workflows by different activity types, use the `types` keyword. For more information, see "[AUTOTITLE](/actions/using-workflows/workflow-syntax-for-github-actions#onevent_nametypes)."
+> * Workflows will not run on `pull_request` activity if the pull request has a merge conflict. The merge conflict must be resolved first.
+>   Conversely, workflows with the `pull_request_target` event will run even if the pull request has a merge conflict. Before using the `pull_request_target` trigger, you should be aware of the security risks. For more information, see [`pull_request_target`](#pull_request_target).
+> * The `pull_request` webhook event payload is empty for merged pull requests and pull requests that come from forked repositories.
+> * The value of `GITHUB_REF` varies for a closed pull request depending on whether the pull request has been merged or not. If a pull request was closed but not merged, it will be `refs/pull/PULL_REQUEST_NUMBER/merge`. If a pull request was closed as a result of being merged, it will be the fully qualified `ref` of the branch it was merged into, for example `/refs/heads/main`.
 
 Runs your workflow when activity on a pull request in the workflow's repository occurs. For example, if no activity types are specified, the workflow runs when a pull request is opened or reopened or when the head branch of the pull request is updated. For activity related to pull request reviews, pull request review comments, or pull request comments, use the [`pull_request_review`](#pull_request_review), [`pull_request_review_comment`](#pull_request_review_comment), or [`issue_comment`](#issue_comment) events instead. For information about the pull request APIs, see "[AUTOTITLE](/graphql/reference/objects#pullrequest)" in the GraphQL API documentation or "[AUTOTITLE](/rest/pulls)."
 
@@ -649,22 +573,19 @@ on:
       - 'releases/**'
 ```
 
-{% note %}
-
-**Note:** {% data reusables.actions.branch-paths-filter %} For example, the following workflow will only run when a pull request that includes a change to a JavaScript (`.js`) file is opened on a branch whose name starts with `releases/`:
-
-```yaml
-on:
-  pull_request:
-    types:
-      - opened
-    branches:
-      - 'releases/**'
-    paths:
-      - '**.js'
-```
-
-{% endnote %}
+> [!NOTE]
+> {% data reusables.actions.branch-paths-filter %} For example, the following workflow will only run when a pull request that includes a change to a JavaScript (`.js`) file is opened on a branch whose name starts with `releases/`:
+>
+> ```yaml
+> on:
+>   pull_request:
+>     types:
+>       - opened
+>     branches:
+>       - 'releases/**'
+>     paths:
+>       - '**.js'
+> ```
 
 To run a job based on the pull request's head branch name (as opposed to the pull request's base branch name), use the `github.head_ref` context in a conditional. For example, this workflow will run whenever a pull request is opened, but the `run_if` job will only execute if the head of the pull request is a branch whose name starts with `releases/`:
 
@@ -694,22 +615,19 @@ on:
       - '**.js'
 ```
 
-{% note %}
-
-**Note:** {% data reusables.actions.branch-paths-filter %} For example, the following workflow will only run when a pull request that includes a change to a JavaScript (`.js`) file is opened on a branch whose name starts with `releases/`:
-
-```yaml
-on:
-  pull_request:
-    types:
-      - opened
-    branches:
-      - 'releases/**'
-    paths:
-      - '**.js'
-```
-
-{% endnote %}
+> [!NOTE]
+> {% data reusables.actions.branch-paths-filter %} For example, the following workflow will only run when a pull request that includes a change to a JavaScript (`.js`) file is opened on a branch whose name starts with `releases/`:
+>
+> ```yaml
+> on:
+>   pull_request:
+>     types:
+>       - opened
+>     branches:
+>       - 'releases/**'
+>     paths:
+>       - '**.js'
+> ```
 
 ### Running your `pull_request` workflow when a pull request merges
 
@@ -742,11 +660,8 @@ To run your workflow when a comment on a pull request (not on a pull request's d
 | --------------------- | -------------- | ------------ | -------------|
 | [`pull_request_review`](/webhooks-and-events/webhooks/webhook-events-and-payloads#pull_request_review) | - `submitted`<br/>- `edited`<br/>- `dismissed` | Last merge commit on the `GITHUB_REF` branch | PR merge branch `refs/pull/PULL_REQUEST_NUMBER/merge` |
 
-{% note %}
-
-**Note**: {% data reusables.developer-site.multiple_activity_types %} For information about each activity type, see "[AUTOTITLE](/webhooks-and-events/webhooks/webhook-events-and-payloads#pull_request_review)." {% data reusables.developer-site.limit_workflow_to_activity_types %}
-
-{% endnote %}
+> [!NOTE]
+> {% data reusables.developer-site.multiple_activity_types %} For information about each activity type, see "[AUTOTITLE](/webhooks-and-events/webhooks/webhook-events-and-payloads#pull_request_review)." {% data reusables.developer-site.limit_workflow_to_activity_types %}
 
 Runs your workflow when a pull request review is submitted, edited, or dismissed. A pull request review is a group of pull request review comments in addition to a body comment and a state. For activity related to pull request review comments or pull request comments, use the [`pull_request_review_comment`](#pull_request_review_comment) or [`issue_comment`](#issue_comment) events instead. For information about the pull request review APIs, see "[AUTOTITLE](/graphql/reference/objects#pullrequest)" in the GraphQL API documentation or "[AUTOTITLE](/rest/pulls#reviews)."
 
@@ -783,11 +698,8 @@ jobs:
 | --------------------- | -------------- | ------------ | -------------|
 | [`pull_request_review_comment`](/webhooks-and-events/webhooks/webhook-events-and-payloads#pull_request_review_comment) | - `created`<br/>- `edited`<br/>- `deleted`| Last merge commit on the `GITHUB_REF` branch | PR merge branch `refs/pull/PULL_REQUEST_NUMBER/merge` |
 
-{% note %}
-
-**Note**: {% data reusables.developer-site.multiple_activity_types %} For information about each activity type, see "[AUTOTITLE](/webhooks-and-events/webhooks/webhook-events-and-payloads#pull_request_review_comment)." {% data reusables.developer-site.limit_workflow_to_activity_types %}
-
-{% endnote %}
+> [!NOTE]
+> {% data reusables.developer-site.multiple_activity_types %} For information about each activity type, see "[AUTOTITLE](/webhooks-and-events/webhooks/webhook-events-and-payloads#pull_request_review_comment)." {% data reusables.developer-site.limit_workflow_to_activity_types %}
 
 Runs your workflow when a pull request review comment is modified. A pull request review comment is a comment on a pull request's diff. For activity related to pull request reviews or pull request comments, use the [`pull_request_review`](#pull_request_review) or [`issue_comment`](#issue_comment) events instead. For information about the pull request review comment APIs, see "[AUTOTITLE](/graphql/reference/objects#pullrequestreviewcomment)" in the GraphQL API documentation or "[AUTOTITLE](/rest/pulls#comments)."
 
@@ -807,11 +719,8 @@ on:
 | --------------------- | -------------- | ------------ | -------------|
 | [`pull_request`](/webhooks-and-events/webhooks/webhook-events-and-payloads#pull_request) | - `assigned`<br/>- `unassigned`<br/>- `labeled`<br/>- `unlabeled`<br/>- `opened`<br/>- `edited`<br/>- `closed`<br/>- `reopened`<br/>- `synchronize`<br/>- `converted_to_draft`<br/>- `ready_for_review`<br/>- `locked`<br/>- `unlocked` <br/>- `review_requested` <br/>- `review_request_removed` <br/>- `auto_merge_enabled` <br/>- `auto_merge_disabled` | Last commit on the PR base branch | PR base branch |
 
-{% note %}
-
-**Note**: {% data reusables.developer-site.multiple_activity_types %} For information about each activity type, see "[AUTOTITLE](/webhooks-and-events/webhooks/webhook-events-and-payloads#pull_request)." By default, a workflow only runs when a `pull_request_target` event's activity type is `opened`, `synchronize`, or `reopened`. To trigger workflows by different activity types, use the `types` keyword. For more information, see "[AUTOTITLE](/actions/using-workflows/workflow-syntax-for-github-actions#onevent_nametypes)."
-
-{% endnote %}
+> [!NOTE]
+> {% data reusables.developer-site.multiple_activity_types %} For information about each activity type, see "[AUTOTITLE](/webhooks-and-events/webhooks/webhook-events-and-payloads#pull_request)." By default, a workflow only runs when a `pull_request_target` event's activity type is `opened`, `synchronize`, or `reopened`. To trigger workflows by different activity types, use the `types` keyword. For more information, see "[AUTOTITLE](/actions/using-workflows/workflow-syntax-for-github-actions#onevent_nametypes)."
 
 Runs your workflow when activity on a pull request in the workflow's repository occurs. For example, if no activity types are specified, the workflow runs when a pull request is opened or reopened or when the head branch of the pull request is updated.
 
@@ -844,22 +753,19 @@ on:
       - 'releases/**'
 ```
 
-{% note %}
-
-**Note:** {% data reusables.actions.branch-paths-filter %} For example, the following workflow will only run when a pull request that includes a change to a JavaScript (`.js`) file is opened on a branch whose name starts with `releases/`:
-
-```yaml
-on:
-  pull_request_target:
-    types:
-      - opened
-    branches:
-      - 'releases/**'
-    paths:
-      - '**.js'
-```
-
-{% endnote %}
+> [!NOTE]
+> {% data reusables.actions.branch-paths-filter %} For example, the following workflow will only run when a pull request that includes a change to a JavaScript (`.js`) file is opened on a branch whose name starts with `releases/`:
+>
+> ```yaml
+> on:
+>   pull_request_target:
+>     types:
+>       - opened
+>     branches:
+>       - 'releases/**'
+>     paths:
+>       - '**.js'
+> ```
 
 To run a job based on the pull request's head branch name (as opposed to the pull request's base branch name), use the `github.head_ref` context in a conditional. For example, this workflow will run whenever a pull request is opened, but the `run_if` job will only execute if the head of the pull request is a branch whose name starts with `releases/`:
 
@@ -889,22 +795,19 @@ on:
       - '**.js'
 ```
 
-{% note %}
-
-**Note:** {% data reusables.actions.branch-paths-filter %} For example, the following workflow will only run when a pull request that includes a change to a JavaScript (`.js`) file is opened on a branch whose name starts with `releases/`:
-
-```yaml
-on:
-  pull_request_target:
-    types:
-      - opened
-    branches:
-      - 'releases/**'
-    paths:
-      - '**.js'
-```
-
-{% endnote %}
+> [!NOTE]
+> {% data reusables.actions.branch-paths-filter %} For example, the following workflow will only run when a pull request that includes a change to a JavaScript (`.js`) file is opened on a branch whose name starts with `releases/`:
+>
+> ```yaml
+> on:
+>   pull_request_target:
+>     types:
+>       - opened
+>     branches:
+>       - 'releases/**'
+>     paths:
+>       - '**.js'
+> ```
 
 ### Running your `pull_request_target` workflow when a pull request merges
 
@@ -931,17 +834,11 @@ jobs:
 | --------------------- | -------------- | ------------ | -------------|
 | [`push`](/webhooks-and-events/webhooks/webhook-events-and-payloads#push) | Not applicable | Tip commit pushed to the ref. When you delete a branch, the SHA in the workflow run (and its associated refs) reverts to the default branch of the repository. | Updated ref |
 
-{% note %}
+> [!NOTE]
+> The webhook payload available to GitHub Actions does not include the `added`, `removed`, and `modified` attributes in the `commit` object. You can retrieve the full commit object using the API. For information, see "[AUTOTITLE](/graphql/reference/objects#commit)" in the GraphQL API documentation or "[AUTOTITLE](/rest/commits#get-a-commit)."
 
-**Note:** The webhook payload available to GitHub Actions does not include the `added`, `removed`, and `modified` attributes in the `commit` object. You can retrieve the full commit object using the API. For information, see "[AUTOTITLE](/graphql/reference/objects#commit)" in the GraphQL API documentation or "[AUTOTITLE](/rest/commits#get-a-commit)."
-
-{% endnote %}
-
-{% note %}
-
-**Note**: {% ifversion fpt or ghec or ghes > 3.13 %}Events will not be created if more than 5,000 branches are pushed at once. {% endif %}Events will not be created for tags when more than three tags are pushed at once.
-
-{% endnote %}
+> [!NOTE]
+> {% ifversion fpt or ghec or ghes > 3.13 %}Events will not be created if more than 5,000 branches are pushed at once. {% endif %}Events will not be created for tags when more than three tags are pushed at once.
 
 Runs your workflow when you push a commit or tag, or when you create a repository from a template.
 
@@ -952,11 +849,8 @@ on:
   push
 ```
 
-{% note %}
-
-**Note**: When a `push` webhook event triggers a workflow run, the Actions UI's "pushed by" field shows the account of the pusher and not the author or committer. However, if the changes are pushed to a repository using SSH authentication with a deploy key, then the "pushed by" field will be the repository admin who verified the deploy key when it was added it to a repository.
-
-{% endnote %}
+> [!NOTE]
+> When a `push` webhook event triggers a workflow run, the Actions UI's "pushed by" field shows the account of the pusher and not the author or committer. However, if the changes are pushed to a repository using SSH authentication with a deploy key, then the "pushed by" field will be the repository admin who verified the deploy key when it was added it to a repository.
 
 ### Running your workflow only when a push to specific branches occurs
 
@@ -972,20 +866,17 @@ on:
       - 'releases/**'
 ```
 
-{% note %}
-
-**Note:** {% data reusables.actions.branch-paths-filter %} For example, the following workflow will only run when a push that includes a change to a JavaScript (`.js`) file is made to a branch whose name starts with `releases/`:
-
-```yaml
-on:
-  push:
-    branches:
-      - 'releases/**'
-    paths:
-      - '**.js'
-```
-
-{% endnote %}
+> [!NOTE]
+> {% data reusables.actions.branch-paths-filter %} For example, the following workflow will only run when a push that includes a change to a JavaScript (`.js`) file is made to a branch whose name starts with `releases/`:
+>
+> ```yaml
+> on:
+>   push:
+>     branches:
+>       - 'releases/**'
+>     paths:
+>       - '**.js'
+> ```
 
 ### Running your workflow only when a push of specific tags occurs
 
@@ -1013,20 +904,17 @@ on:
       - '**.js'
 ```
 
-{% note %}
-
-**Note:** {% data reusables.actions.branch-paths-filter %} For example, the following workflow will only run when a push that includes a change to a JavaScript (`.js`) file is made to a branch whose name starts with `releases/`:
-
-```yaml
-on:
-  push:
-    branches:
-      - 'releases/**'
-    paths:
-      - '**.js'
-```
-
-{% endnote %}
+> [!NOTE]
+> {% data reusables.actions.branch-paths-filter %} For example, the following workflow will only run when a push that includes a change to a JavaScript (`.js`) file is made to a branch whose name starts with `releases/`:
+>
+> ```yaml
+> on:
+>   push:
+>     branches:
+>       - 'releases/**'
+>     paths:
+>       - '**.js'
+> ```
 
 ## `registry_package`
 
@@ -1034,29 +922,19 @@ on:
 | --------------------- | -------------- | ------------ | -------------|
 | [`registry_package`](/webhooks-and-events/webhooks/webhook-events-and-payloads#package) | - `published`<br/>- `updated` | Commit of the published package | Branch or tag of the published package |
 
-{% note %}
-
-**Note**: {% data reusables.developer-site.multiple_activity_types %} For information about each activity type, see "[AUTOTITLE](/webhooks-and-events/webhooks/webhook-events-and-payloads#registry_package)." {% data reusables.developer-site.limit_workflow_to_activity_types %}
-
-{% endnote %}
+> [!NOTE]
+> {% data reusables.developer-site.multiple_activity_types %} For information about each activity type, see "[AUTOTITLE](/webhooks-and-events/webhooks/webhook-events-and-payloads#registry_package)." {% data reusables.developer-site.limit_workflow_to_activity_types %}
 
 {% data reusables.actions.branch-requirement %}
 
-{% note %}
-
-**Note**: When pushing multi-architecture container images, this event occurs once per manifest, so you might observe your workflow triggering multiple times. To mitigate this, and only run your workflow job for the event that contains the actual image tag information, use a conditional:
-
-{% raw %}
-
-```yaml
-jobs:
-    job_name:
-        if: ${{ github.event.registry_package.package_version.container_metadata.tag.name != '' }}
-```
-
-{% endraw %}
-
-{% endnote %}
+> [!NOTE]
+> When pushing multi-architecture container images, this event occurs once per manifest, so you might observe your workflow triggering multiple times. To mitigate this, and only run your workflow job for the event that contains the actual image tag information, use a conditional:
+>
+> ```yaml
+> jobs:
+>     job_name:
+>         if: ${{ github.event.registry_package.package_version.container_metadata.tag.name != '' }}
+> ```
 
 Runs your workflow when activity related to {% data variables.product.prodname_registry %} occurs in your repository. For more information, see "[{% data variables.product.prodname_registry %} Documentation](/packages)."
 
@@ -1074,23 +952,14 @@ on:
 | --------------------- | -------------- | ------------ | -------------|
 | [`release`](/webhooks-and-events/webhooks/webhook-events-and-payloads#release) | - `published` <br/>- `unpublished` <br/>- `created` <br/>- `edited` <br/>- `deleted` <br/>- `prereleased`<br/> - `released` | Last commit in the tagged release | Tag ref of release `refs/tags/<tag_name>` |
 
-{% note %}
+> [!NOTE]
+> {% data reusables.developer-site.multiple_activity_types %} For information about each activity type, see "[AUTOTITLE](/webhooks-and-events/webhooks/webhook-events-and-payloads#release)." {% data reusables.developer-site.limit_workflow_to_activity_types %}
 
-**Note**: {% data reusables.developer-site.multiple_activity_types %} For information about each activity type, see "[AUTOTITLE](/webhooks-and-events/webhooks/webhook-events-and-payloads#release)." {% data reusables.developer-site.limit_workflow_to_activity_types %}
+> [!NOTE]
+> Workflows are not triggered for the `created`, `edited`, or `deleted` activity types for draft releases. When you create your release through the {% data variables.product.product_name %} browser UI, your release may automatically be saved as a draft.
 
-{% endnote %}
-
-{% note %}
-
-**Note:** Workflows are not triggered for the `created`, `edited`, or `deleted` activity types for draft releases. When you create your release through the {% data variables.product.product_name %} browser UI, your release may automatically be saved as a draft.
-
-{% endnote %}
-
-{% note %}
-
-**Note:** The `prereleased` type will not trigger for pre-releases published from draft releases, but the `published` type will trigger. If you want a workflow to run when stable _and_ pre-releases publish, subscribe to `published` instead of `released` and `prereleased`.
-
-{% endnote %}
+> [!NOTE]
+> The `prereleased` type will not trigger for pre-releases published from draft releases, but the `published` type will trigger. If you want a workflow to run when stable _and_ pre-releases publish, subscribe to `published` instead of `released` and `prereleased`.
 
 Runs your workflow when release activity in your repository occurs. For information about the release APIs, see "[AUTOTITLE](/graphql/reference/objects#release)" in the GraphQL API documentation or "[AUTOTITLE](/rest/releases)" in the REST API documentation.
 
@@ -1120,11 +989,8 @@ on:
     types: [test_result]
 ```
 
-{% note %}
-
-**Note:** The `event_type` value is limited to 100 characters.
-
-{% endnote %}
+> [!NOTE]
+> The `event_type` value is limited to 100 characters.
 
 Any data that you send through the `client_payload` parameter will be available in the `github.event` context in your workflow. For example, if you send this request body when you create a repository dispatch event:
 
@@ -1155,14 +1021,9 @@ jobs:
         run: echo $MESSAGE
 ```
 
-{% note %}
-
-**Notes**:
-
-* The maximum number of top-level properties in `client_payload` is 10.
-* The payload can contain a maximum of 65,535 characters.
-
-{% endnote %}
+> [!NOTE]
+> * The maximum number of top-level properties in `client_payload` is 10.
+> * The payload can contain a maximum of 65,535 characters.
 
 ## `schedule`
 
@@ -1170,25 +1031,20 @@ jobs:
 | --------------------- | -------------- | ------------ | -------------|
 | Not applicable | Not applicable | Last commit on default branch | Default branch | When the scheduled workflow is set to run. A scheduled workflow uses [POSIX cron syntax](https://pubs.opengroup.org/onlinepubs/9699919799/utilities/crontab.html#tag_20_25_07). For more information, see "[AUTOTITLE](/actions/using-workflows#triggering-a-workflow-with-events)." |
 
-{% note %}
-
-**Notes:**
-
-* {% data reusables.actions.schedule-delay %}
-* This event will only trigger a workflow run if the workflow file is on the default branch.
-* Scheduled workflows will only run on the default branch.
-* In a public repository, scheduled workflows are automatically disabled when no repository activity has occurred in 60 days. For information on re-enabling a disabled workflow, see "[AUTOTITLE](/enterprise-server@3.12/actions/using-workflows/disabling-and-enabling-a-workflow#enabling-a-workflow)."
-* When the last user to commit to the cron schedule of a workflow is removed from the organization, the scheduled workflow will be disabled. If a user with `write` permissions to the repository makes a commit that changes the cron schedule, the scheduled workflow will be reactivated. Note that, in this situation, the workflow is not reactivated by any change to the workflow file; you must alter the `cron` value and commit this change.
-
-  **Example:**
-
-  ```yaml
-  on:
-    schedule:
-      - cron: "15 4,5 * * *"   # <=== Change this value
-  ```
-
-{% endnote %}
+> [!NOTE]
+> * {% data reusables.actions.schedule-delay %}
+> * This event will only trigger a workflow run if the workflow file is on the default branch.
+> * Scheduled workflows will only run on the default branch.
+> * In a public repository, scheduled workflows are automatically disabled when no repository activity has occurred in 60 days. For information on re-enabling a disabled workflow, see "[AUTOTITLE](/enterprise-server@3.12/actions/using-workflows/disabling-and-enabling-a-workflow#enabling-a-workflow)."
+> * When the last user to commit to the cron schedule of a workflow is removed from the organization, the scheduled workflow will be disabled. If a user with `write` permissions to the repository makes a commit that changes the cron schedule, the scheduled workflow will be reactivated. Note that, in this situation, the workflow is not reactivated by any change to the workflow file; you must alter the `cron` value and commit this change.
+>
+>   **Example:**
+>
+>   ```yaml
+>   on:
+>     schedule:
+>       - cron: "15 4,5 * * *"   # <=== Change this value
+>   ```
 
 The `schedule` event allows you to trigger a workflow at a scheduled time.
 
@@ -1217,11 +1073,8 @@ You can use these operators in any of the five fields:
 | - | Range of values | `30 4-6 * * *` runs at minute 30 of the 4th, 5th, and 6th hour. |
 | / | Step values | `20/15 * * * *` runs every 15 minutes starting from minute 20 through 59 (minutes 20, 35, and 50). |
 
-{% note %}
-
-**Note:** {% data variables.product.prodname_actions %} does not support the non-standard syntax `@yearly`, `@monthly`, `@weekly`, `@daily`, `@hourly`, and `@reboot`.
-
-{% endnote %}
+> [!NOTE]
+> {% data variables.product.prodname_actions %} does not support the non-standard syntax `@yearly`, `@monthly`, `@weekly`, `@daily`, `@hourly`, and `@reboot`.
 
 You can use [crontab guru](https://crontab.guru/) to help generate your cron syntax and confirm what time it will run. To help you get started, there is also a list of [crontab guru examples](https://crontab.guru/examples.html).
 
@@ -1268,11 +1121,8 @@ jobs:
 | --------------------- | -------------- | ------------ | -------------|
 | [`watch`](/webhooks-and-events/webhooks/webhook-events-and-payloads#watch) | - `started` | Last commit on default branch | Default branch |
 
-{% note %}
-
-**Note**: {% data reusables.developer-site.multiple_activity_types %} Although only the `started` activity type is supported, specifying the activity type will keep your workflow specific if more activity types are added in the future. For information about each activity type, see "[AUTOTITLE](/webhooks-and-events/webhooks/webhook-events-and-payloads#watch)." {% data reusables.developer-site.limit_workflow_to_activity_types %}
-
-{% endnote %}
+> [!NOTE]
+> {% data reusables.developer-site.multiple_activity_types %} Although only the `started` activity type is supported, specifying the activity type will keep your workflow specific if more activity types are added in the future. For information about each activity type, see "[AUTOTITLE](/webhooks-and-events/webhooks/webhook-events-and-payloads#watch)." {% data reusables.developer-site.limit_workflow_to_activity_types %}
 
 {% data reusables.actions.branch-requirement %}
 
@@ -1376,19 +1226,14 @@ For more information, see the {% data variables.product.prodname_cli %} informat
 | --------------------- | -------------- | ------------ | -------------|
 | [`workflow_run`](/webhooks-and-events/webhooks/webhook-events-and-payloads#workflow_run) | - `completed`<br/>- `requested`<br/>- `in_progress` | Last commit on default branch | Default branch |
 
-{% note %}
-
-**Note**: {% data reusables.developer-site.multiple_activity_types %} The `requested` activity type does not occur when a workflow is re-run. For information about each activity type, see "[AUTOTITLE](/webhooks-and-events/webhooks/webhook-events-and-payloads#workflow_run)." {% data reusables.developer-site.limit_workflow_to_activity_types %}
-
-{% endnote %}
+> [!NOTE]
+> {% data reusables.developer-site.multiple_activity_types %} The `requested` activity type does not occur when a workflow is re-run. For information about each activity type, see "[AUTOTITLE](/webhooks-and-events/webhooks/webhook-events-and-payloads#workflow_run)." {% data reusables.developer-site.limit_workflow_to_activity_types %}
 
 {% data reusables.actions.branch-requirement %}
 
-{% note %}
+> [!NOTE]
+> You can't use `workflow_run` to chain together more than three levels of workflows. For example, if you attempt to trigger five workflows (named `B` to `F`) to run sequentially after an initial workflow `A` has run (that is: `A` → `B` → `C` → `D` → `E` → `F`), workflows `E` and `F` will not be run.
 
-**Note:** You can't use `workflow_run` to chain together more than three levels of workflows. For example, if you attempt to trigger five workflows (named `B` to `F`) to run sequentially after an initial workflow `A` has run (that is: `A` → `B` → `C` → `D` → `E` → `F`), workflows `E` and `F` will not be run.
-
-{% endnote %}
 
 This event occurs when a workflow run is requested or completed. It allows you to execute a workflow based on execution or completion of another workflow. The workflow started by the `workflow_run` event is able to access secrets and write tokens, even if the previous workflow was not. This is useful in cases where the previous workflow is intentionally not privileged, but you need to take a privileged action in a later workflow.
 

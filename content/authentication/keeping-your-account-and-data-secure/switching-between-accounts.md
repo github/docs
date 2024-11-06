@@ -31,11 +31,8 @@ When you add a new account to the account switcher, both the account you are cur
 
 When you have added accounts to the account switcher, you can quickly change between them without always needing to reauthenticate.
 
-{% note %}
-
-**Note:** The "{% octicon "arrow-switch" aria-hidden="true" %} Switch account" option will not be available if all sessions have expired. You can instead click on {% octicon "arrow-switch" aria-hidden="true" %} **See all accounts** in the menu to reauthenticate.
-
-{% endnote %}
+> [!NOTE]
+> The "{% octicon "arrow-switch" aria-hidden="true" %} Switch account" option will not be available if all sessions have expired. You can instead click on {% octicon "arrow-switch" aria-hidden="true" %} **See all accounts** in the menu to reauthenticate.
 
 1. In the upper-right corner of any page, click your profile photo to open the menu.
 1. In the menu, click {% octicon "arrow-switch" aria-hidden="true" %} **Switch account**.

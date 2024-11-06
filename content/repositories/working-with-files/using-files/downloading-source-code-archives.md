@@ -49,11 +49,8 @@ Source code archives are available at specific URLs for each repository. For exa
 | Tag             | `codeql-cli/v2.12.0` | [https://github.com/github/codeql/archive/refs/**tags/codeql-cli/v2.12.0**.zip](https://github.com/github/codeql/archive/refs/tags/codeql-cli/v2.12.0.zip)  |
 | Commit          | `aef66c4` | [https://github.com/github/codeql/archive/**aef66c462abe817e33aad91d97aa782a1e2ad2c7**.zip](https://github.com/github/codeql/archive/aef66c462abe817e33aad91d97aa782a1e2ad2c7.zip) |
 
-{% note %}
-
-**Note**: You can use either `.zip` or `.tar.gz` in the URLs above to request a zipball or tarball respectively.
-
-{% endnote %}
+> [!NOTE]
+> You can use either `.zip` or `.tar.gz` in the URLs above to request a zipball or tarball respectively.
 
 ## Stability of source code archives
 

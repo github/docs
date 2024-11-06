@@ -40,11 +40,8 @@ By default, the {% data variables.product.prodname_code_scanning %} alerts page 
 
 For more information, see "[AUTOTITLE](/code-security/code-scanning/managing-code-scanning-alerts/about-code-scanning-alerts)."
 
-{% note %}
-
-**Note:** You can see information about when {% data variables.product.prodname_code_scanning %} analysis last ran on the tool status page. For more information, see "[AUTOTITLE](/code-security/code-scanning/managing-your-code-scanning-configuration/about-the-tool-status-page)."
-
-{% endnote %}
+> [!NOTE]
+> You can see information about when {% data variables.product.prodname_code_scanning %} analysis last ran on the tool status page. For more information, see "[AUTOTITLE](/code-security/code-scanning/managing-your-code-scanning-configuration/about-the-tool-status-page)."
 
 {% ifversion copilot-chat-ghas-alerts %}
 

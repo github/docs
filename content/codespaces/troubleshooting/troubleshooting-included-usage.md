@@ -13,11 +13,8 @@ topics:
 
 Personal {% data variables.product.prodname_dotcom %} accounts include a quota of free use of {% data variables.product.prodname_github_codespaces %} every month.
 
-{% note %}
-
-**Note**: Free use of {% data variables.product.prodname_github_codespaces %} is included in personal accounts only. It is not included in organization or enterprise accounts.
-
-{% endnote %}
+> [!NOTE]
+> Free use of {% data variables.product.prodname_github_codespaces %} is included in personal accounts only. It is not included in organization or enterprise accounts.
 
 There are two types of {% data variables.product.prodname_codespaces %} usage: compute and storage. During your monthly billing period, as you use {% data variables.product.prodname_codespaces %}, your compute and storage usage is deducted from the quota of free usage that's included in your personal {% data variables.product.prodname_dotcom %} account, until either compute or storage is consumed. Once one of those limits is reached, your use of {% data variables.product.prodname_github_codespaces %} will be restricted, unless you've set up a spending limit and a payment method. You will not be able to create new codespaces or open existing codespaces, that you would be billed for, until your quota renews. If you have access to repositories owned by an organization that pays for use of {% data variables.product.prodname_github_codespaces %}, you may still be able to create codespaces for those repositories.
 
@@ -35,11 +32,8 @@ You can see the storage usage for each of your codespaces on the "Your codespace
 
 ![Screenshot of a list of three codespaces on the https://github.com/codespaces page."](/assets/images/help/codespaces/your-codespaces-list.png)
 
-{% note %}
-
-**Note**: If the dev container for a codespace was built from the default image, the size of the codespace shown on this page does not include the size of the base dev container. Storage for the base dev container is provided free of charge. See "[Storage usage for your base dev container](#storage-usage-for-your-base-dev-container)".
-
-{% endnote %}
+> [!NOTE]
+> If the dev container for a codespace was built from the default image, the size of the codespace shown on this page does not include the size of the base dev container. Storage for the base dev container is provided free of charge. See "[Storage usage for your base dev container](#storage-usage-for-your-base-dev-container)".
 
 For billing purposes, {% data variables.product.prodname_codespaces %} storage is counted in GB-months. This is a cumulative measure of the total storage each codespace consumes from creation to deletion, plus the storage for prebuilds. See the "Billing for storage usage" section of "[AUTOTITLE](/billing/managing-billing-for-your-products/managing-billing-for-github-codespaces/about-billing-for-github-codespaces#about-billing-for-storage-usage)."
 
@@ -85,11 +79,10 @@ If the dev container for the current codespace was built from the default image,
 * Your codespaces consume compute usage while they are running. If you're not using a codespace, stopping the codespace prevents unnecessary compute usage. See "[AUTOTITLE](/codespaces/developing-in-a-codespace/stopping-and-starting-a-codespace)."
 * You can reduce the idle timeout for {% data variables.product.prodname_codespaces %} in your personal settings to less than the default 30 minutes. This will shorten the period of inactivity before your codespaces are automatically stopped. This can save on compute usage. See "[AUTOTITLE](/codespaces/setting-your-user-preferences/setting-your-timeout-period-for-github-codespaces)."
 * Your codespaces consume storage while they exist. You should delete a codespace you have finished using and know that you will not use again. See "[AUTOTITLE](/codespaces/developing-in-a-codespace/deleting-a-codespace)."
-  {% note %}
 
-  **Note**: Deleting a codespace will not reduce your used storage amount for the billing current month as this is a cumulative figure.
+  > [!NOTE]
+  > Deleting a codespace will not reduce your used storage amount for the billing current month as this is a cumulative figure.
 
-  {% endnote %}
 * Configure your retention period to ensure codespaces you forget to delete are deleted automatically. The default retention period is 30 days. See "[AUTOTITLE](/codespaces/setting-your-user-preferences/configuring-automatic-deletion-of-your-codespaces)."
 * {% data variables.product.prodname_vscode %} extensions consume storage. Make sure you are only installing extensions that you need. You can find out how much space is being used by extensions by running this command in your codespace.
 
@@ -98,17 +91,15 @@ If the dev container for the current codespace was built from the default image,
   ```
 
 * Monitor your compute and storage usage by going to your billing page on {% data variables.product.github %}, https://github.com/settings/billing, and reviewing the figures in the "{% data variables.product.prodname_codespaces %}" section.
-  {% note %}
 
-  **Note**: Storage is calculated hourly and added to your existing storage usage. Consumed storage is therefore cumulative for the duration of your month-long billing cycle. This means that, during the billing period, the value you see on your billing page will only increase or remain the same. Usage will be reset to zero when a new billing cycle starts. Deleting a codespace, or a prebuild, will not reduce the usage figure for the current month, but it will reduce the rate at which storage usage accumulates.
+  > [!NOTE]
+  > Storage is calculated hourly and added to your existing storage usage. Consumed storage is therefore cumulative for the duration of your month-long billing cycle. This means that, during the billing period, the value you see on your billing page will only increase or remain the same. Usage will be reset to zero when a new billing cycle starts. Deleting a codespace, or a prebuild, will not reduce the usage figure for the current month, but it will reduce the rate at which storage usage accumulates.
 
-  {% endnote %}
 * Ensure that you are using prebuilds for only as many versions and as many regions as you need. See "[AUTOTITLE](/codespaces/prebuilding-your-codespaces/about-github-codespaces-prebuilds)" and "[AUTOTITLE](/billing/managing-billing-for-your-products/managing-billing-for-github-codespaces/about-billing-for-github-codespaces#about-billing-for-codespaces-prebuilds)."
-  {% note %}
 
-  **Note**: If your included storage usage is exhausted, new prebuilds are disabled until you set up a spending limit or your included usage quota renews.
+  > [!NOTE]
+  > If your included storage usage is exhausted, new prebuilds are disabled until you set up a spending limit or your included usage quota renews.
 
-  {% endnote %}
 * If you have configured prebuilds in a repository's settings, but you're not using {% data variables.product.prodname_github_codespaces %} for that repository, consider deleting the prebuild configuration to avoid prebuilds for that repository consuming your included storage allowance unnecessarily. When you delete a prebuild configuration all the associated prebuilds are deleted, reducing your storage consumption from that point onward. See "[AUTOTITLE](/codespaces/prebuilding-your-codespaces/managing-prebuilds#deleting-a-prebuild-configuration)."
 
   You can check for prebuild configurations in the "{% data variables.product.prodname_codespaces %}" page of a repository's settings. See "[AUTOTITLE](/codespaces/prebuilding-your-codespaces/configuring-prebuilds#configuring-prebuilds)."

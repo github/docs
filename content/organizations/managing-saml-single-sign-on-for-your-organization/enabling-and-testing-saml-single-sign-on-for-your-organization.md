@@ -37,20 +37,14 @@ For more information about the identity providers (IdPs) that {% data variables.
 {% data reusables.organizations.security %}
 1. Under "SAML single sign-on", select **Enable SAML authentication**.
 
-   {% note %}
-
-   **Note:** After enabling SAML SSO, you can download your single sign-on recovery codes so that you can access your organization even if your IdP is unavailable. For more information, see "[AUTOTITLE](/organizations/managing-saml-single-sign-on-for-your-organization/downloading-your-organizations-saml-single-sign-on-recovery-codes)."
-
-   {% endnote %}
+   > [!NOTE]
+   > After enabling SAML SSO, you can download your single sign-on recovery codes so that you can access your organization even if your IdP is unavailable. For more information, see "[AUTOTITLE](/organizations/managing-saml-single-sign-on-for-your-organization/downloading-your-organizations-saml-single-sign-on-recovery-codes)."
 
 1. In the "Sign on URL" field, type the HTTPS endpoint of your IdP for single sign-on requests. This value is available in your IdP configuration.
 1. Optionally, in the "Issuer" field, type your SAML issuer's name. This verifies the authenticity of sent messages.
 
-   {% note %}
-
-   **Note:** If you want to enable team synchronization for your organization, the "Issuer" field is a required. For more information, see "[AUTOTITLE](/organizations/managing-saml-single-sign-on-for-your-organization/managing-team-synchronization-for-your-organization)."
-
-   {% endnote %}
+   > [!NOTE]
+   > If you want to enable team synchronization for your organization, the "Issuer" field is a required. For more information, see "[AUTOTITLE](/organizations/managing-saml-single-sign-on-for-your-organization/managing-team-synchronization-for-your-organization)."
 
 1. Under "Public Certificate," paste a certificate to verify SAML responses.
 {% data reusables.saml.edit-signature-and-digest-methods %}

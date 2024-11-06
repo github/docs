@@ -38,11 +38,10 @@ Organization owners can restrict the type of repositories members can create to 
 1. Under "Repository creation", select one or more options. <br><br>
 
    {% ifversion fpt or ghec %}
-   {% note %}
 
-   **Note:** To restrict members to creating private repositories only, your organization must use {% data variables.product.prodname_ghe_cloud %}. {% data reusables.enterprise.link-to-ghec-trial %}
+   > [!NOTE]
+   > To restrict members to creating private repositories only, your organization must use {% data variables.product.prodname_ghe_cloud %}. {% data reusables.enterprise.link-to-ghec-trial %}
 
-   {% endnote %}
    {%- endif %}
 
 1. Click **Save**.

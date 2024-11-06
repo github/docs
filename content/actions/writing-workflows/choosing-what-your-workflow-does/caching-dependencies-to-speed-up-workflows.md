@@ -289,11 +289,8 @@ There are multiple ways to manage caches for your repositories:
 * Using the REST API. For more information, see "[AUTOTITLE](/rest/actions/cache)."
 * Installing the `gh cache` subcommand to manage your caches from the command line. For more information, see the [GitHub CLI documentation](https://cli.github.com/manual/gh_cache).
 
-    {% note %}
-
-    **Note:** If you are doing this manually, ensure you have version 2.32.0 or higher of the CLI installed.
-
-    {% endnote %}
+    > [!NOTE]
+    > If you are doing this manually, ensure you have version 2.32.0 or higher of the CLI installed.
 
 {% else %}
 

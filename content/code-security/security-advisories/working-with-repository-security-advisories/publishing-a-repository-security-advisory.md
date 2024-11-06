@@ -56,11 +56,8 @@ When you publish a draft advisory from a public repository, everyone is able to 
 * The current version of the advisory data.
 * Any advisory credits that the credited users have accepted.
 
-{% note %}
-
-**Note**: The general public will never have access to the edit history of the advisory, and will only see the published version.
-
-{% endnote %}
+> [!NOTE]
+> The general public will never have access to the edit history of the advisory, and will only see the published version.
 
 After you publish a security advisory, the URL for the security advisory will remain the same as before you published the security advisory. Anyone with read access to the repository can see the security advisory. Collaborators on the security advisory can continue to view past conversations, including the full comment stream, in the security advisory unless someone with admin permissions removes the collaborator from the security advisory.
 
@@ -78,11 +75,8 @@ Publishing a security advisory deletes the temporary private fork for the securi
 
    ![Screenshot of the "Required advisory information has been provided" area of a draft security advisory. The "Publish advisory" button is outlined in dark orange.](/assets/images/help/security/publish-advisory-button.png)
 
-  {% note %}
-
-  **Note:** If you selected "Request CVE ID later", you will see a **Request CVE** button in place of the **Publish advisory** button. For more information, see "[Requesting a CVE identification number (Optional)](#requesting-a-cve-identification-number-optional)" below.
-
-  {% endnote %}
+  > [!NOTE]
+  > If you selected "Request CVE ID later", you will see a **Request CVE** button in place of the **Publish advisory** button. For more information, see "[Requesting a CVE identification number (Optional)](#requesting-a-cve-identification-number-optional)" below.
 
 ## {% data variables.product.prodname_dependabot_alerts %} for published security advisories
 
