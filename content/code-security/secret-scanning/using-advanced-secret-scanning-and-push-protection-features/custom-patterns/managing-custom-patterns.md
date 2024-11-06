@@ -2,7 +2,7 @@
 title: Managing custom patterns
 shortTitle: Manage custom patterns
 intro: 'You can view, edit, and remove custom patterns, as well as enable push protection for custom patterns.'
-product: '{% data reusables.gated-features.secret-scanning %}'
+permissions: '{% data reusables.permissions.security-enterprise-enable %}'
 versions:
   ghes: '*'
   ghec: '*'

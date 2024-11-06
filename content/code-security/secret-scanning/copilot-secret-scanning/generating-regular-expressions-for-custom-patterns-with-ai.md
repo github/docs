@@ -2,7 +2,7 @@
 title: Generating regular expressions for custom patterns with AI
 shortTitle: Use the regular expression generator
 intro: 'You can use the {% data variables.secret-scanning.custom-pattern-regular-expression-generator %} to generate regular expressions for custom patterns. The generator uses an AI model to generate expressions that match your input, and optionally example strings.'
-product: '{% data reusables.gated-features.secret-scanning %}'
+permissions: '{% data reusables.permissions.security-repo-enable %}'
 versions:
   feature: secret-scanning-custom-pattern-ai-generated
 type: how_to
