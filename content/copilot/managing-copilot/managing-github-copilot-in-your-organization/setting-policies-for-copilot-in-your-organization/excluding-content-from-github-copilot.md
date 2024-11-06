@@ -45,6 +45,7 @@ Repository administrators{% ifversion ghec %}, organization owners, and enterpri
 | {% data variables.product.prodname_vscode %}    | {% octicon "check" aria-label="Supported" %}  |           {% octicon "check" aria-label="Supported" %}           |
 | JetBrains IDEs                                  | {% octicon "check" aria-label="Supported" %}  |           {% octicon "check" aria-label="Supported" %}           |
 | Vim/Neovim                                      | {% octicon "check" aria-label="Supported" %}  |                          Not applicable                          |
+| Xcode                                           | {% octicon "check" aria-label="Supported" %}  |                          Not applicable                          |
 | Azure Data Studio                               | {% octicon "x" aria-label="Not supported" %}  |                          Not applicable                          |
 | The {% data variables.product.github %} website |                Not applicable                 |           {% octicon "x" aria-label="Not supported" %}           |
 
