@@ -2,7 +2,8 @@
 title: Defining custom patterns for secret scanning
 shortTitle: Define custom patterns
 intro: 'You can define your own custom patterns to extend the capabilities of {% data variables.product.prodname_secret_scanning %} by generating one or more regular expressions.'
-product: '{% data reusables.gated-features.secret-scanning %}'
+product: '{% data reusables.gated-features.secret-scanning-custom-patterns %}'
+permissions: '{% data reusables.permissions.security-enterprise-enable %}'
 redirect_from:
   - /code-security/secret-security/defining-custom-patterns-for-secret-scanning
   - /code-security/secret-scanning/defining-custom-patterns-for-secret-scanning
