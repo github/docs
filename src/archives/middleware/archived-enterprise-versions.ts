@@ -234,7 +234,7 @@ export default async function archivedEnterpriseVersions(
         )
         .replaceAll(
           `${OLD_AZURE_BLOB_ENTERPRISE_DIR}/${requestedVersion}/`,
-          `${req.protocol}://${req.get('host')}/enterprise-server@${requestedVersion}/`,
+          `${req.protocol}://${req.get('x-forwarded-host') || req.get('host')}/enterprise-server@${requestedVersion}/`,
         )
     }
 
