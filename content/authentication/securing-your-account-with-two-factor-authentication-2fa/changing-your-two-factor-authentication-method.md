@@ -32,7 +32,7 @@ You can change the time-based one-time password (TOTP) application you use to ge
 {% data reusables.user-settings.security %}
 {% data reusables.two_fa.edit-existing-method %}
 {% data reusables.two_fa.enable-totp-app-method %}
-{% data reusables.two_fa.save-2fa-method-when-editing%}
+{% data reusables.two_fa.save-2fa-method-when-editing %}
 
 {% warning %}
 
@@ -52,7 +52,7 @@ You can change the phone number you use to receive authentication codes via SMS.
 {% data reusables.user-settings.security %}
 {% data reusables.two_fa.edit-existing-method %}
 {% data reusables.two_fa.enable-sms-number-method %}
-{% data reusables.two_fa.save-2fa-method-when-editing%}
+{% data reusables.two_fa.save-2fa-method-when-editing %}
 
 {% endif %}
 
@@ -73,7 +73,7 @@ You can add a time-based one-time password (TOTP) application to generate authen
 {% data reusables.user-settings.security %}
 {% data reusables.two_fa.add-additional-method %}
 {% data reusables.two_fa.enable-totp-app-method %}
-{% data reusables.two_fa.save-2fa-method-when-editing%}
+{% data reusables.two_fa.save-2fa-method-when-editing %}
 {% data reusables.two_fa.manual-totp-app-setup %}
 
 {% ifversion fpt or ghec %}
@@ -86,7 +86,7 @@ You can add a time-based one-time password (TOTP) application to generate authen
 {% data reusables.user-settings.security %}
 {% data reusables.two_fa.add-additional-method %}
 {% data reusables.two_fa.enable-sms-number-method %}
-{% data reusables.two_fa.save-2fa-method-when-editing%}
+{% data reusables.two_fa.save-2fa-method-when-editing %}
 
 {% endif %}
 

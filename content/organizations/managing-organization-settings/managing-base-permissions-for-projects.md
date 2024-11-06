@@ -21,7 +21,7 @@ When you set the base permission for projects in your organization's settings, t
 
 {% endnote %}
 
-## Setting a base permission for {% data variables.projects.projects_v2  %} in your organization
+## Setting a base permission for {% data variables.projects.projects_v2 %} in your organization
 
 {% data reusables.profile.access_org %}
 {% data reusables.profile.org_settings %}

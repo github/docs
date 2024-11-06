@@ -21,7 +21,7 @@ npm            | `npm`            | v6, v7, v8, v9   | {% octicon "check" aria-l
 pipenv         | `pip`            | <= 2021-05-29    | {% octicon "check" aria-label="Supported" %} | {% octicon "check" aria-label="Supported" %} | {% octicon "x" aria-label="Not supported" %} | {% octicon "check" aria-label="Supported" %} | {% octicon "x" aria-label="Not supported" %} |
 |  {% ifversion dependabot-PEP621-support %}[pip-compile](#pip-and-pip-compile){% else %}pip-compile{% endif %}   | `pip`            | 6.1.0            | {% octicon "check" aria-label="Supported" %} | {% octicon "check" aria-label="Supported" %} | {% octicon "x" aria-label="Not supported" %} | {% octicon "check" aria-label="Supported" %} | {% octicon "x" aria-label="Not supported" %} |
 | {% ifversion dependabot-updates-pnpm-support %} |
-| {% ifversion dependabot-updates-pnpmv9-support %}pnpm{%else %}[pnpm](#pnpm){% endif %}   | `npm`            | v7, v8, v9      | {% octicon "check" aria-label="Supported" %} | {% octicon "check" aria-label="Supported" %} {% ifversion dependabot-updates-pnpmv9-support %}{% else %}(v7 and v8 only){% endif %}| {% octicon "check" aria-label="Supported" %} | {% octicon "check" aria-label="Supported" %} | {% octicon "x" aria-label="Not supported" %} |
+| {% ifversion dependabot-updates-pnpmv9-support %}pnpm{% else %}[pnpm](#pnpm){% endif %}   | `npm`            | v7, v8, v9      | {% octicon "check" aria-label="Supported" %} | {% octicon "check" aria-label="Supported" %} {% ifversion dependabot-updates-pnpmv9-support %}{% else %}(v7 and v8 only){% endif %}| {% octicon "check" aria-label="Supported" %} | {% octicon "check" aria-label="Supported" %} | {% octicon "x" aria-label="Not supported" %} |
 | {% endif %} |
 poetry         | `pip`            | v1               | {% octicon "check" aria-label="Supported" %} | {% octicon "check" aria-label="Supported" %} | {% octicon "x" aria-label="Not supported" %} | {% octicon "check" aria-label="Supported" %} | {% octicon "x" aria-label="Not supported" %} |
 [pub](#pub)           | `pub`            | v2  | {% octicon "check" aria-label="Supported" %} | {% octicon "check" aria-label="Supported" %} | {% ifversion dependabot-updates-pub-private-registry %}{% octicon "check" aria-label="Supported" %}{% else %}{% octicon "x" aria-label="Not supported" %}{% endif %} | {% ifversion dependabot-updates-pub-private-registry %}{% octicon "check" aria-label="Supported" %}{% else %}{% octicon "x" aria-label="Not supported" %}{% endif %} | {% octicon "x" aria-label="Not supported" %} |
@@ -93,6 +93,8 @@ For more information about using {% data variables.product.prodname_dependabot_v
 * `gradle/libs.versions.toml` (for projects using a standard Gradle version catalog){% endif %}
 * Files included via the `apply` declaration that have `dependencies` in the filename. Note that `apply` does not support `apply to`, recursion, or advanced syntaxes (for example, Kotlin's `apply` with `mapOf`, filenames defined by property).
 
+{% data variables.product.prodname_dependabot %} uses information from the `pom.xml` file of dependencies to add links to release information in update pull requests. If the information is omitted from the `pom.xml` file, then it cannot be included in {% data variables.product.prodname_dependabot %} pull requests, see "[AUTOTITLE](/code-security/dependabot/ecosystems-supported-by-dependabot/optimizing-java-packages-dependabot)".
+
 {% ifversion dependabot-security-updates-gradle-support %}
 For {% data variables.product.prodname_dependabot_security_updates %}, Gradle support is limited to manual uploads of the dependency graph data using the {% data variables.dependency-submission-api.name %}. For more information about the {% data variables.dependency-submission-api.name %}, see "[AUTOTITLE](/code-security/supply-chain-security/understanding-your-software-supply-chain/using-the-dependency-submission-api)."
 
@@ -109,6 +111,8 @@ For {% data variables.product.prodname_dependabot_security_updates %}, Gradle su
 #### Maven
 
 {% data variables.product.prodname_dependabot %} doesn't run Maven but supports updates to `pom.xml` files.
+
+{% data variables.product.prodname_dependabot %} uses information from the `pom.xml` file of dependencies to add links to release information in update pull requests. If the information is omitted from the `pom.xml` file, then it cannot be included in {% data variables.product.prodname_dependabot %} pull requests, see "[AUTOTITLE](/code-security/dependabot/ecosystems-supported-by-dependabot/optimizing-java-packages-dependabot)".
 
 #### NuGet CLI
 

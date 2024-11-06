@@ -50,7 +50,7 @@ To use {% data variables.product.prodname_code_scanning %} on a private reposito
 
 ## About tools for {% data variables.product.prodname_code_scanning %}
 
-You can configure {% data variables.product.prodname_code_scanning %} to use the {% data variables.product.prodname_codeql %} product maintained by {% data variables.product.company_short%} or a third-party {% data variables.product.prodname_code_scanning %} tool.
+You can configure {% data variables.product.prodname_code_scanning %} to use the {% data variables.product.prodname_codeql %} product maintained by {% data variables.product.company_short %} or a third-party {% data variables.product.prodname_code_scanning %} tool.
 
 ### About {% data variables.product.prodname_codeql %} analysis
 

@@ -42,7 +42,7 @@ This registry supports granular permissions. {% data reusables.package_registry.
 Use the following command to authenticate to {% data variables.product.prodname_registry %} in a {% data variables.product.prodname_actions %} workflow using the `GITHUB_TOKEN` instead of hardcoding a {% data variables.product.pat_generic %} in a nuget.config file in the repository:
 
 ```shell
-dotnet nuget add source --username USERNAME --password {%raw%}${{ secrets.GITHUB_TOKEN }}{% endraw %} --store-password-in-clear-text --name github "https://{% ifversion fpt or ghec %}nuget.pkg.github.com{% else %}nuget.HOSTNAME{% endif %}/NAMESPACE/index.json"
+dotnet nuget add source --username USERNAME --password {% raw %}${{ secrets.GITHUB_TOKEN }}{% endraw %} --store-password-in-clear-text --name github "https://{% ifversion fpt or ghec %}nuget.pkg.github.com{% else %}nuget.HOSTNAME{% endif %}/NAMESPACE/index.json"
 ```
 
 Replace `NAMESPACE` with the name of the personal account or organization {% ifversion packages-nuget-v2 %}to which your packages are scoped{% else %}that owns the repository where your packages are hosted{% endif %}.
@@ -118,7 +118,7 @@ You can publish a package to {% data variables.product.prodname_registry %} by a
 Replace `OWNER` with your username or company name, and `YOUR_GITHUB_PAT` with your {% data variables.product.pat_generic %}.
 
 ```shell
-dotnet nuget add source --username OWNER --password {%raw%}YOUR_GITHUB_PAT{% endraw %} --store-password-in-clear-text --name github "https://{% ifversion fpt or ghec %}nuget.pkg.github.com{% else %}nuget.HOSTNAME{% endif %}/OWNER/index.json"
+dotnet nuget add source --username OWNER --password {% raw %}YOUR_GITHUB_PAT{% endraw %} --store-password-in-clear-text --name github "https://{% ifversion fpt or ghec %}nuget.pkg.github.com{% else %}nuget.HOSTNAME{% endif %}/OWNER/index.json"
 ```
 
 {% ifversion packages-nuget-v2 %}

@@ -32,7 +32,7 @@ You do not need to provide a payment method during the trial.
 
 The trial lasts for **{% data reusables.enterprise.ghec-trial-length %} days** and includes the following features.
 
-* Access to **most** {% data variables.product.prodname_ghe_cloud %} features.{% ifversion metered-ghe-ghas%}
+* Access to **most** {% data variables.product.prodname_ghe_cloud %} features.{% ifversion metered-ghe-ghas %}
 * Access to the **new billing platform**. See "[AUTOTITLE](/billing/using-the-new-billing-platform/about-the-new-billing-platform-for-enterprises)."{% endif %}
 * An **enterprise account**, which allows you to manage multiple organizations. See "[AUTOTITLE](/enterprise-cloud@latest/get-started/learning-about-github/types-of-github-accounts)."
 * Up to **50 seats** to grant access to users.
@@ -68,7 +68,7 @@ You can end your trial at any time by purchasing {% data variables.product.prodn
 
 If you **purchase {% data variables.product.prodname_enterprise %}**:
 
-{% ifversion metered-ghe-ghas%}
+{% ifversion metered-ghe-ghas %}
 * You can use usage-based billing for {% data variables.product.prodname_ghe_cloud %} and {% data variables.product.prodname_GH_advanced_security %}, which means you pay monthly for the number of licenses you use. You will not need to buy a predefined number of licenses in advance. See, "[AUTOTITLE](/billing/using-the-new-billing-platform/about-usage-based-billing-for-licenses)."
 
   If you did not set up a free trial and you want to use usage-based billing to pay for {% data variables.product.prodname_GH_advanced_security %} after the {% data variables.product.prodname_ghe_cloud %} trial ends, contact [{% data variables.product.prodname_dotcom %}'s Sales team](https://enterprise.github.com/contact).{% endif %}

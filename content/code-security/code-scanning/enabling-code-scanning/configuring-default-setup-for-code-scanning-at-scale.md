@@ -84,7 +84,7 @@ Through the "Code security and analysis" page of your organization's settings, y
 {% data reusables.profile.access_org %}
 {% data reusables.profile.org_settings %}
 {% data reusables.organizations.security-and-analysis %}
-1. Click **Enable all** next to "{% data variables.product.prodname_code_scanning_caps %}".{% ifversion bulk-code-scanning-query-suite%}
+1. Click **Enable all** next to "{% data variables.product.prodname_code_scanning_caps %}".{% ifversion bulk-code-scanning-query-suite %}
 1. In the "Query suites" section of the "Enable {% data variables.product.prodname_code_scanning %} default setup" dialog box displayed, select the query suite your configuration of default setup will run. For more information, see "[AUTOTITLE](/code-security/code-scanning/managing-your-code-scanning-configuration/codeql-query-suites)."
 1. To enable your configuration of default setup, click **Enable for eligible repositories**.
 1. Optionally, to recommend the "Extended" query suite throughout your organization when enabling default setup, select "Recommend the extended query suite for repositories enabling default setup."{% else %}

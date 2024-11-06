@@ -175,7 +175,7 @@ You can add a maximum of 1,000 repositories to a custom list per search.
 
 1. In the "Variant Analysis Repositories" view, choose the list that you want to add repositories to. You can create a new list or choose an existing list that already contains repositories.
 
-1. Right-click on the list you have chosen and then click **Add repositories with {% data variables.product.prodname_dotcom%} code search**.
+1. Right-click on the list you have chosen and then click **Add repositories with {% data variables.product.prodname_dotcom %} code search**.
 
 1. In the pop-up that appears at the top of the application, under the search bar, select a language for your search from the choices in the dropdown.
 

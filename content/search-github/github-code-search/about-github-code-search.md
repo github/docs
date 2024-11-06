@@ -28,7 +28,7 @@ Supported languages for code navigation include:
 
 ## Limitations
 
-We have indexed many public repositories for code search, and continue to index more. Additionally, the private repositories of {% data variables.product.prodname_dotcom%} users are indexed and searchable by those that already have access to those private repositories on {% data variables.product.prodname_dotcom %}. However, very large repositories may not be indexed at this time, and not all code is indexed.
+We have indexed many public repositories for code search, and continue to index more. Additionally, the private repositories of {% data variables.product.prodname_dotcom %} users are indexed and searchable by those that already have access to those private repositories on {% data variables.product.prodname_dotcom %}. However, very large repositories may not be indexed at this time, and not all code is indexed.
 
 The current limitations on indexed code are:
 

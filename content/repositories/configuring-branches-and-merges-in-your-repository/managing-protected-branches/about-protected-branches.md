@@ -176,7 +176,7 @@ You can require that changes are successfully deployed to specific environments 
 Locking a branch will make the branch read-only and ensures that no commits can be made to the branch. Locked branches can also not be deleted.
 
 By default, a forked repository does not support syncing from its upstream repository. You can enable **Allow fork syncing** to pull changes from the upstream repository while preventing other contributions to the fork's branch.
-{%  endif %}
+{% endif %}
 
 ### Do not allow bypassing the above settings
 

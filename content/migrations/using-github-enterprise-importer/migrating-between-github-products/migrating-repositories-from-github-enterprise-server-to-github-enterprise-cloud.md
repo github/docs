@@ -215,7 +215,7 @@ For more information, see "[Get an organization migration status](/rest/migratio
 
 **Note:** If your migration moves to the `failed` state rather than the `exported` state, try starting the migration again. If the migration fails repeatedly, we recommend generating the archives using `ghe-migrator` instead of the API.
 
-Follow the steps in "[Exporting migration data from your enterprise]({% ifversion not ghes%}/enterprise-server@latest{% endif %}/admin/user-management/migrating-data-to-and-from-your-enterprise/exporting-migration-data-from-your-enterprise)," adding only one repository to the migration. At the end of the process, you will have a single migration archive with your Git source and metadata, and you can move to step 6 in this article.
+Follow the steps in "[Exporting migration data from your enterprise]({% ifversion not ghes %}/enterprise-server@latest{% endif %}/admin/user-management/migrating-data-to-and-from-your-enterprise/exporting-migration-data-from-your-enterprise)," adding only one repository to the migration. At the end of the process, you will have a single migration archive with your Git source and metadata, and you can move to step 6 in this article.
 
 {% endnote %}
 

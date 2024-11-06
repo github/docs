@@ -33,7 +33,7 @@ You can use content exclusions to configure {% data variables.product.prodname_c
 
 ### Who can configure content exclusion
 
-Repository administrators{% ifversion ghec%}, organization owners, and enterprise owners{% else %} and organization owners{% endif %} can configure content exclusion.
+Repository administrators{% ifversion ghec %}, organization owners, and enterprise owners{% else %} and organization owners{% endif %} can configure content exclusion.
 
 {% data reusables.copilot.content-exclusions-scope %}
 
@@ -65,7 +65,7 @@ You can use your repository settings to specify content in your repository that 
 
 1. In the "Code & automation" section of the side bar, click **{% octicon "copilot" aria-hidden="true" %} {% data variables.product.prodname_copilot_short %}**.
 
-   If your repository inherits any exclusions from {%ifversion fpt %}its parent organization{% else %} organizations in the same enterprise{% endif %}, you'll see {%ifversion ghec %}one or more{% else %} a{% endif %} gray box{%ifversion ghec %}es{% endif %} at the top of the page containing details of these exclusions. You cannot edit these settings.
+   If your repository inherits any exclusions from {% ifversion fpt %}its parent organization{% else %} organizations in the same enterprise{% endif %}, you'll see {% ifversion ghec %}one or more{% else %} a{% endif %} gray box{% ifversion ghec %}es{% endif %} at the top of the page containing details of these exclusions. You cannot edit these settings.
 
 1. In the box following "Paths to exclude in this repository," enter the paths to files from which {% data variables.product.prodname_copilot_short %} should be excluded.
 

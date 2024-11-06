@@ -378,7 +378,7 @@ on:
     types: [created, deleted]
 ```
 
-{% ifversion merge-queue  %}
+{% ifversion merge-queue %}
 
 ## `merge_group`
 

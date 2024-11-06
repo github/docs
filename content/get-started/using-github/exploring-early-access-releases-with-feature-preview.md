@@ -26,6 +26,6 @@ shortTitle: Feature preview
 
 You can see a list of features that are available in {% data variables.release-phases.public_preview %} and a brief description for each feature. Each feature includes a link to give feedback.
 
-{% data reusables.feature-preview.feature-preview-setting  %}
+{% data reusables.feature-preview.feature-preview-setting %}
 1. To view details for a feature, in the left sidebar, click the feature's name.
 1. Optionally, to the right of a feature's name, click **Enable** or **Disable**.

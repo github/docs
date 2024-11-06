@@ -22,7 +22,7 @@ shortTitle: Connect an Azure subscription
 
 ## About connection of an Azure subscription
 
-You can pay for usage of {% data variables.product.product_name %} features through Azure by connecting an Azure Subscription ID to your organization {% ifversion ghec %}or enterprise{% endif%} account on {% data variables.location.product_location %}. {% ifversion fpt %}For more information about organization accounts, see "[AUTOTITLE](/organizations/collaborating-with-groups-in-organizations/about-organizations)."{% elsif ghec %}
+You can pay for usage of {% data variables.product.product_name %} features through Azure by connecting an Azure Subscription ID to your organization {% ifversion ghec %}or enterprise{% endif %} account on {% data variables.location.product_location %}. {% ifversion fpt %}For more information about organization accounts, see "[AUTOTITLE](/organizations/collaborating-with-groups-in-organizations/about-organizations)."{% elsif ghec %}
 
 In this article, the instructions that you must follow to connect an Azure subscription depend on whether your company uses a single organization or an enterprise account on {% data variables.location.product_location %}. For more information about the differences between these two types of accounts, see "[AUTOTITLE](/get-started/learning-about-github/types-of-github-accounts)."{% endif %}
 
@@ -56,7 +56,7 @@ If you use {% data variables.product.product_name %} through a Microsoft Enterpr
 
 If you link your {% data variables.product.company_short %} account to Azure, any usage-based costs starting from that point will be billed through Azure and charged on the 1st of each month. However, remaining {% data variables.product.company_short %} charges, for example charges for your {% data variables.product.prodname_dotcom %} plan, will still be billed on your usual billing date.
 
-For example, you link your Azure subscription to your organization {% ifversion ghec %}or enterprise{% endif%} account on June 16th and you also have a {% data variables.product.prodname_copilot_for_business %} subscription. From that date onwards, any usage costs for {% data variables.product.prodname_copilot_business_short %} will be included in your Azure bill and charged on July 1st. However, any charges incurred before June 16th for {% data variables.product.prodname_copilot_business_short %} will be billed separately through {% data variables.product.company_short %} on your account's usual billing date.
+For example, you link your Azure subscription to your organization {% ifversion ghec %}or enterprise{% endif %} account on June 16th and you also have a {% data variables.product.prodname_copilot_for_business %} subscription. From that date onwards, any usage costs for {% data variables.product.prodname_copilot_business_short %} will be included in your Azure bill and charged on July 1st. However, any charges incurred before June 16th for {% data variables.product.prodname_copilot_business_short %} will be billed separately through {% data variables.product.company_short %} on your account's usual billing date.
 
 ## Prerequisites
 

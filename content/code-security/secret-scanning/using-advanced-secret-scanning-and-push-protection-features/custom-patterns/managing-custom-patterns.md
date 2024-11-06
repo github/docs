@@ -22,7 +22,7 @@ When you save a change to a custom pattern, this closes all the {% data variable
 
 {% data reusables.secret-scanning.view-custom-pattern %}
 1. Under "{% data variables.product.prodname_secret_scanning_caps %}", to the right of the custom pattern you want to edit, click {% octicon "pencil" aria-label="Edit pattern" %}.
-{%- ifversion custom-pattern-dry-run-ga  %}
+{%- ifversion custom-pattern-dry-run-ga %}
 1. When you're ready to test your edited custom pattern, to identify matches without creating alerts, click **Save and dry run**.
 {%- endif %}
 1. When you have reviewed and tested your changes, click **Publish changes**.{% ifversion secret-scanning-push-protection-custom-patterns %}
