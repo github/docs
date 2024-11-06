@@ -228,7 +228,7 @@ You can call multiple workflows, referencing each in a separate job.
 
 ### Passing inputs and secrets to a reusable workflow
 
-{% data reusables.actions.pass-inputs-to-reusable-workflows%}
+{% data reusables.actions.pass-inputs-to-reusable-workflows %}
 
 {% ifversion actions-reusable-workflow-matrix %}
 

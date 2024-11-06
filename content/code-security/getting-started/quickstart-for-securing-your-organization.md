@@ -82,7 +82,7 @@ If you're not sure about the impact a feature will have, you may want to test th
 {% data reusables.organizations.navigate-to-org %}
 {% data reusables.organizations.security-overview %}
 
-1. In the sidebar, click **{% octicon "meter" aria-hidden="true"  %} Coverage**.
+1. In the sidebar, click **{% octicon "meter" aria-hidden="true" %} Coverage**.
 
 On this view, you can use checkboxes to select specific repositories, or you can use the search bar to find the repositories where you want to enable a feature. For example, you can use filters to identify repositories where a certain team has write or admin access, or exclude repositories that don't require the same level of protection, such as test repositories or repositories for internal documentation. Then you can enable features for all selected repositories at once. For more information, see "[AUTOTITLE](/code-security/security-overview/enabling-security-features-for-multiple-repositories)."
 

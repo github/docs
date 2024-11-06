@@ -40,7 +40,7 @@ You can apply filters to the data. The metrics are based on activity from the de
 
 {% data reusables.organizations.navigate-to-org %}
 {% data reusables.organizations.security-overview %}
-1. In the sidebar, under "Metrics", click **{% octicon "graph" aria-hidden="true"  %} {% data variables.product.prodname_codeql %} pull request alerts**.
+1. In the sidebar, under "Metrics", click **{% octicon "graph" aria-hidden="true" %} {% data variables.product.prodname_codeql %} pull request alerts**.
 1. Optionally, use the date picker to set the time range. The date picker will show data based on the pull request alerts' creation dates.
 1. Optionally, apply filters in the search box at the top of the page.
 1. Alternatively, you can open the advanced filter dialog:

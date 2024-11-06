@@ -19,7 +19,7 @@ This tutorial will show you how to upload a group of files to a {% data variable
 
 Uploading your files to a {% data variables.product.prodname_dotcom %} repository lets you:
 * **Apply version control** when you make edits to the files, so your project's history is protected and manageable.
-* **Back up** your work{% ifversion fpt or ghec%}, because your files are now stored in the cloud{% endif %}.
+* **Back up** your work{% ifversion fpt or ghec %}, because your files are now stored in the cloud{% endif %}.
 * **Pin** the repository to your personal profile, so that others can see your work.
 * **Share** and discuss your work with others, either publicly or privately.
 

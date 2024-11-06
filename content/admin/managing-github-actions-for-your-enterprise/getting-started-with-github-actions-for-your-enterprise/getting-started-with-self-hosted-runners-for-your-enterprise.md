@@ -60,7 +60,7 @@ You can configure additional policies to restrict the actions available to {% if
 
 ## 2. Deploy the self-hosted runner for your enterprise
 
-Next, add a self-hosted runner to your enterprise. {% data variables.product.product_name %} will guide you through installation of the necessary software on the runner machine. After you deploy the runner, you can verify connectivity between the runner machine and {%ifversion ghec %}your enterprise{% elsif ghes %}{% data variables.location.product_location %}{% endif %}.
+Next, add a self-hosted runner to your enterprise. {% data variables.product.product_name %} will guide you through installation of the necessary software on the runner machine. After you deploy the runner, you can verify connectivity between the runner machine and {% ifversion ghec %}your enterprise{% elsif ghes %}{% data variables.location.product_location %}{% endif %}.
 
 ### Adding the self-hosted runner
 

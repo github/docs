@@ -33,7 +33,7 @@ When a file is affected by a content exclusion setting, {% data variables.produc
 
 {% data reusables.copilot.content-exclusion-note %}
 
-Content exclusion can be configured at the repository{% ifversion ghec%}, organization, and enterprise{% else %} and organization{% endif %} level. The scope of the exclusion is determined by the level at which the rule is set:
+Content exclusion can be configured at the repository{% ifversion ghec %}, organization, and enterprise{% else %} and organization{% endif %} level. The scope of the exclusion is determined by the level at which the rule is set:
 
 {% data reusables.copilot.content-exclusions-scope %}
 

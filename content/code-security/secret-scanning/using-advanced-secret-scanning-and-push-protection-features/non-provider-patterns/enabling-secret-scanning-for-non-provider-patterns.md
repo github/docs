@@ -27,7 +27,7 @@ For more information about non-provider patterns, see "{% ifversion fpt or ghec 
 
 ### Enabling detection of non-provider patterns for a repository
 
-{%endif %}
+{% endif %}
 
 {% data reusables.repositories.navigate-to-repo %}
 {% data reusables.repositories.sidebar-settings %}
