@@ -59,11 +59,9 @@ If you use **Microsoft Entra ID** (previously known as Azure AD) or **Okta** for
    },
    ```
 
-   {% note %}
+   > [!NOTE]
+   > The `id` value is critical. If another `id` value is present, the update will fail.
 
-   **Note:** The `id` value is critical. If another `id` value is present, the update will fail.
-
-   {% endnote %}
 1. Click **Save**.
 
 ### Enabling guest collaborators with Okta

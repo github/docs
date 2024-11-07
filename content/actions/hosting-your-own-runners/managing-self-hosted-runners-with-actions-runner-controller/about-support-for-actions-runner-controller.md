@@ -43,14 +43,9 @@ If you're uncertain if the issue is out of scope, open a ticket and we're happy 
 
 For more information about contacting {% data variables.contact.github_support %}, see [AUTOTITLE](/support/contacting-github-support).
 
-{% note %}
-
-**Note:**
-
-* OpenShift clusters are currently unsupported.
-* ARC is only supported on GitHub Enterprise Server versions 3.9 and greater.
-
-{% endnote %}
+> [!NOTE]
+> * OpenShift clusters are currently unsupported.
+> * ARC is only supported on GitHub Enterprise Server versions 3.9 and greater.
 
 ## Working with {% data variables.contact.github_support %} for Actions Runner Controller
 

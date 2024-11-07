@@ -28,21 +28,15 @@ After you disable SAML or OIDC SSO for your enterprise, the following effects ap
 
 If you later reconfigure authentication for the enterprise, external groups must be reprovisioned via SCIM, and {% data variables.enterprise.prodname_managed_users %} must be reprovisioned before users can sign in.
 
-{% note %}
-
-**Note:** When a {% data variables.enterprise.prodname_managed_user %} is suspended, the user's avatar is permanently deleted. If you reprovision the user, the user will need to reupload their avatar.
-
-{% endnote %}
+> [!NOTE]
+> When a {% data variables.enterprise.prodname_managed_user %} is suspended, the user's avatar is permanently deleted. If you reprovision the user, the user will need to reupload their avatar.
 
 If you want to migrate to a new identity provider (IdP) or tenant rather than disabling authentication entirely, see "[AUTOTITLE](/admin/identity-and-access-management/using-enterprise-managed-users-for-iam/migrating-your-enterprise-to-a-new-identity-provider-or-tenant)."
 
 ## Disabling authentication
 
-{% warning %}
-
-**Warning**: Disabling authentication and provisioning will prevent your enterprise's {% data variables.enterprise.prodname_managed_users %} from signing in to access your enterprise on {% data variables.product.product_name %}.
-
-{% endwarning %}
+> [!WARNING]
+> Disabling authentication and provisioning will prevent your enterprise's {% data variables.enterprise.prodname_managed_users %} from signing in to access your enterprise on {% data variables.product.product_name %}.
 
 {% data reusables.emus.sign-in-as-setup-user %}
 1. Attempt to access your enterprise account, and use a recovery code to bypass SAML SSO or OIDC. For more information, see "[AUTOTITLE](/admin/identity-and-access-management/managing-recovery-codes-for-your-enterprise/accessing-your-enterprise-account-if-your-identity-provider-is-unavailable)."

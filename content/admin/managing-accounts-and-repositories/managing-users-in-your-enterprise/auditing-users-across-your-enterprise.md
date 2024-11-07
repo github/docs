@@ -39,14 +39,9 @@ The audit log lists the following information about actions made within your ent
 * [Which country](#search-based-on-the-location) the action took place in
 * [The date and time](#search-based-on-the-time-of-action) the action occurred
 
-{% warning %}
-
-**Notes:**
-
-* While you can't use text to search for audit entries, you can construct search queries using a variety of filters. {% data variables.product.product_name %} supports many operators for searching across {% data variables.product.product_name %}. For more information, see "[AUTOTITLE](/search-github/getting-started-with-searching-on-github/about-searching-on-github)."
-* Audit records are available for the last 180 days.
-
-{% endwarning %}
+> [!NOTE]
+> * While you can't use text to search for audit entries, you can construct search queries using a variety of filters. {% data variables.product.product_name %} supports many operators for searching across {% data variables.product.product_name %}. For more information, see "[AUTOTITLE](/search-github/getting-started-with-searching-on-github/about-searching-on-github)."
+> * Audit records are available for the last 180 days.
 
 ### Search based on the repository
 

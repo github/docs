@@ -72,11 +72,8 @@ Before launching {% data variables.location.product_location %} on Azure, you'll
    az vm disk attach --vm-name VM_NAME -g RESOURCE_GROUP --sku Premium_LRS --new -z SIZE_IN_GB --name ghe-data.vhd --caching ReadWrite
    ```
 
-   {% note %}
-
-   **Note:** For non-production instances to have sufficient I/O throughput, the recommended minimum disk size is 150 GiB with read/write cache enabled (`--caching ReadWrite`).
-
-   {% endnote %}
+   > [!NOTE]
+   > For non-production instances to have sufficient I/O throughput, the recommended minimum disk size is 150 GiB with read/write cache enabled (`--caching ReadWrite`).
 
 ## Configuring the {% data variables.product.prodname_ghe_server %} virtual machine
 
@@ -94,11 +91,8 @@ To configure the instance, you must confirm the instance's status, upload a lice
 
    ```
 
-   {% note %}
-
-   **Note:** Azure does not automatically create a FQDNS entry for the VM. For more information, see the Azure guide [Create a fully qualified domain name in the Azure portal for a Linux VM](https://docs.microsoft.com/azure/virtual-machines/linux/portal-create-fqdn).
-
-   {% endnote %}
+   > [!NOTE]
+   > Azure does not automatically create a FQDNS entry for the VM. For more information, see the Azure guide [Create a fully qualified domain name in the Azure portal for a Linux VM](https://docs.microsoft.com/azure/virtual-machines/linux/portal-create-fqdn).
 
    {% data reusables.enterprise_installation.copy-the-vm-public-dns-name %}
    {% data reusables.enterprise_installation.upload-a-license-file %}

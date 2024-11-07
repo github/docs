@@ -46,11 +46,10 @@ Alternatively, if you only intend to use Okta for SAML authentication and you wa
 | Reactivate Users | Users in Okta whose Okta accounts are reactivated and who are assigned back to {% ifversion ghec %}the {% data variables.product.prodname_emu_idp_application %}{% else %}{% data variables.product.company_short %}'s{% endif %} application on Okta will be enabled. |
 
 {% ifversion ghec %}
-{% note %}
 
-**Note:** {% data variables.product.prodname_emus %} does not support modifications to usernames.
+> [!NOTE]
+> {% data variables.product.prodname_emus %} does not support modifications to usernames.
 
-{% endnote %}
 {% endif %}
 
 ## Prerequisites
@@ -148,11 +147,8 @@ You can also automatically manage organization membership by adding groups to th
 
 {% data reusables.enterprise-managed.assigning-roles %}
 
-{% note %}
-
-**Note:** You can only set the "Roles" attribute for an individual user, not a group. If you want to set roles for everyone in a group that is assigned to the application in Okta, you must use the "Roles" attribute for each group member, individually.
-
-{% endnote %}
+> [!NOTE]
+> You can only set the "Roles" attribute for an individual user, not a group. If you want to set roles for everyone in a group that is assigned to the application in Okta, you must use the "Roles" attribute for each group member, individually.
 
 ## How do I deprovision users and groups?
 

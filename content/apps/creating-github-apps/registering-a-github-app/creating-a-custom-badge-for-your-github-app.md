@@ -43,11 +43,10 @@ For more information about badges for {% data variables.product.prodname_github_
 1. Under "Badge background color", type the hexadecimal color code of the background color for your badge.
 
 {% ifversion fpt or ghec %}
-   {% note %}
 
-   **Note:** The "Badge background color" input field will only appear after you upload a logo.
+   > [!NOTE]
+   > The "Badge background color" input field will only appear after you upload a logo.
 
-   {% endnote %}
 {% endif %}
 
 {% ifversion fpt or ghec %}

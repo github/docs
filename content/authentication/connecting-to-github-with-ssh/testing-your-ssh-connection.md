@@ -65,10 +65,7 @@ You'll need to authenticate this action using your password, which is the SSH ke
 
    {% endlinux %}
 
-   {% note %}
-
-   **Note:** The remote command should exit with code 1.
-
-   {% endnote %}
+   > [!NOTE]
+   > The remote command should exit with code 1.
 
 1. Verify that the resulting message contains your username. If you receive a "permission denied" message, see "[AUTOTITLE](/authentication/troubleshooting-ssh/error-permission-denied-publickey)."

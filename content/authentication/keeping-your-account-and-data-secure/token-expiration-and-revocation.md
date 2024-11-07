@@ -17,11 +17,8 @@ When a token has expired or has been revoked, it can no longer be used to authen
 
 This article explains the possible reasons your {% data variables.product.product_name %} token might be revoked or expire.
 
-{% note %}
-
-**Note:** When a {% data variables.product.pat_generic %} or OAuth token expires or is revoked, you may see an `oauth_authorization.destroy` action in your security log. For more information, see "[AUTOTITLE](/authentication/keeping-your-account-and-data-secure/reviewing-your-security-log)."
-
-{% endnote %}
+> [!NOTE]
+> When a {% data variables.product.pat_generic %} or OAuth token expires or is revoked, you may see an `oauth_authorization.destroy` action in your security log. For more information, see "[AUTOTITLE](/authentication/keeping-your-account-and-data-secure/reviewing-your-security-log)."
 
 ## Token revoked after reaching its expiration date
 

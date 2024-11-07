@@ -36,11 +36,8 @@ You can format text and include emoji, images, and GIFs in your profile README b
 * The repository contains a file named README.md in its root.
 * The README.md file contains any content.
 
-{% note %}
-
-**Note**: If you created a public repository with the same name as your username before July 2020, {% data variables.product.prodname_dotcom %} won't automatically show the repository's README on your profile. You can manually share the repository's README to your profile by going to the repository on {% data variables.product.prodname_dotcom %} and clicking **Share to profile**.
-
-{% endnote %}
+> [!NOTE]
+> If you created a public repository with the same name as your username before July 2020, {% data variables.product.prodname_dotcom %} won't automatically show the repository's README on your profile. You can manually share the repository's README to your profile by going to the repository on {% data variables.product.prodname_dotcom %} and clicking **Share to profile**.
 
 ## Adding a profile README
 

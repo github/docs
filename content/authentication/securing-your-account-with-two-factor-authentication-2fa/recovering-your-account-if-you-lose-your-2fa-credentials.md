@@ -17,19 +17,11 @@ shortTitle: Recover an account with 2FA
 ---
 {% ifversion fpt or ghec %}
 
-{% warning %}
+> [!WARNING]
+> * {% data reusables.two_fa.support-may-not-help %}
 
-**Warnings**:
-
-* {% data reusables.two_fa.support-may-not-help %}
-
-{% endwarning %}
-
-{% note %}
-
-**Note:** {% data reusables.two_fa.unlink-email-address %}
-
-{% endnote %}
+> [!NOTE]
+> {% data reusables.two_fa.unlink-email-address %}
 
 {% endif %}
 
@@ -39,11 +31,8 @@ Use one of your recovery codes to automatically regain entry into your account. 
 
 1. Type your username and password to prompt authentication.
 
-    {% warning %}
-
-    **Warning**: {% data reusables.accounts.you-must-know-your-password %}
-
-    {% endwarning %}
+    > [!WARNING]
+    > {% data reusables.accounts.you-must-know-your-password %}
 
 1. Under "Having problems?", click **Use a recovery code{% ifversion fpt or ghec %} or begin 2FA account recovery{% endif %}**.
 1. Type one of your recovery codes, then click **Verify**.
@@ -64,11 +53,8 @@ If you configured two-factor authentication using a security key, you can use yo
 
 ## Authenticating with a fallback number
 
-{% note %}
-
-**Note:** Configuring a fallback SMS number in addition to your primary SMS number is no longer supported. Instead, we strongly recommend registering multiple authentication methods.
-
-{% endnote %}
+> [!NOTE]
+> Configuring a fallback SMS number in addition to your primary SMS number is no longer supported. Instead, we strongly recommend registering multiple authentication methods.
 
 If you lose access to your preferred TOTP app or phone number, you can provide a two-factor authentication code sent to your fallback number to automatically regain access to your account.
 
@@ -76,21 +62,16 @@ If you lose access to your preferred TOTP app or phone number, you can provide a
 
 If you know your password for {% data variables.product.prodname_dotcom %} but don't have the two-factor authentication credentials or your two-factor authentication recovery codes, you can have a one-time password sent to your verified email address to begin the verification process and regain access to your account.
 
-{% note %}
-
-**Note**: For security reasons, regaining access to your account by authenticating with a one-time password can take up to three business days. {% data variables.product.company_short %} will not review additional requests submitted during this time.
-
-{% endnote %}
+> [!NOTE]
+> For security reasons, regaining access to your account by authenticating with a one-time password can take up to three business days. {% data variables.product.company_short %} will not review additional requests submitted during this time.
 
 You can use your two-factor authentication credentials or two-factor authentication recovery codes to regain access to your account anytime during the 3-5 day waiting period.
 
 1. Type your username and password to prompt authentication.
 
-    {% warning %}
+    > [!WARNING]
+    > {% data reusables.accounts.you-must-know-your-password %}
 
-    **Warning**: {% data reusables.accounts.you-must-know-your-password %}
-
-    {% endwarning %}
 1. Under "Having problems?", click **Use a recovery code or begin 2FA account recovery**.
 1. Under "Locked out?", click **Try 2FA account recovery, or unlink your account email address(es)**.
 1. Click **I understand, get started** to request a reset of your authentication settings.

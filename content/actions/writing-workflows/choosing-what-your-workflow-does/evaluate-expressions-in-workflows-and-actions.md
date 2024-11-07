@@ -25,11 +25,8 @@ Expressions are commonly used with the conditional `if` keyword in a workflow fi
 `${{ <expression> }}`
 {% endraw %}
 
-{% note %}
-
-**Note**: The exception to this rule is when you are using expressions in an `if` clause, where, optionally, you can usually omit {% raw %}`${{`{% endraw %} and {% raw %}`}}`{% endraw %}. For more information about `if` conditionals, see "[AUTOTITLE](/actions/using-workflows/workflow-syntax-for-github-actions#jobsjob_idif)."
-
-{% endnote %}
+> [!NOTE]
+> The exception to this rule is when you are using expressions in an `if` clause, where, optionally, you can usually omit {% raw %}`${{`{% endraw %} and {% raw %}`}}`{% endraw %}. For more information about `if` conditionals, see "[AUTOTITLE](/actions/using-workflows/workflow-syntax-for-github-actions#jobsjob_idif)."
 
 {% data reusables.actions.context-injection-warning %}
 
@@ -92,14 +89,10 @@ env:
 | `&&`        | And |
 |  <code>\|\|</code> | Or |
 
-  {% note %}
-
-  **Notes:**
-  * {% data variables.product.company_short %} ignores case when comparing strings.
-  * `steps.<step_id>.outputs.<output_name>` evaluates as a string. {% data reusables.actions.expressions-syntax-evaluation %} For more information, see "[AUTOTITLE](/actions/learn-github-actions/contexts#steps-context)."
-  * For numerical comparison, the `fromJSON()` function can be used to convert a string to a number. For more information on the `fromJSON()` function, see "[fromJSON](#fromjson)."
-
-  {% endnote %}
+  > [!NOTE]
+  > * {% data variables.product.company_short %} ignores case when comparing strings.
+  > * `steps.<step_id>.outputs.<output_name>` evaluates as a string. {% data reusables.actions.expressions-syntax-evaluation %} For more information, see "[AUTOTITLE](/actions/learn-github-actions/contexts#steps-context)."
+  > * For numerical comparison, the `fromJSON()` function can be used to convert a string to a number. For more information on the `fromJSON()` function, see "[fromJSON](#fromjson)."
 
 {% data variables.product.prodname_dotcom %} performs loose equality comparisons.
 
@@ -332,11 +325,8 @@ steps:
 
 Causes the step to always execute, and returns `true`, even when canceled. The `always` expression is best used at the step level or on tasks that you expect to run even when a job is canceled. For example, you can use `always` to send logs even when a job is canceled.
 
-{% warning %}
-
-**Warning:** Avoid using `always` for any task that could suffer from a critical failure, for example: getting sources, otherwise the workflow may hang until it times out. If you want to run a job or step regardless of its success or failure, use the recommended alternative: `if: {% raw %}${{ !cancelled() }}{% endraw %}`
-
-{% endwarning %}
+> [!WARNING]
+> Avoid using `always` for any task that could suffer from a critical failure, for example: getting sources, otherwise the workflow may hang until it times out. If you want to run a job or step regardless of its success or failure, use the recommended alternative: `if: {% raw %}${{ !cancelled() }}{% endraw %}`
 
 #### Example of `always`
 
