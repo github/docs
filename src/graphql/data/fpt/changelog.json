@@ -4,6 +4,21 @@
       {
         "title": "The GraphQL schema includes these changes:",
         "changes": [
+          "<p>Type <code>UpdateEnterpriseDeployKeySettingInput</code> was added</p>",
+          "<p>Type <code>UpdateEnterpriseDeployKeySettingPayload</code> was added</p>",
+          "<p>Field <code>updateEnterpriseDeployKeySetting</code> was added to object type <code>Mutation</code></p>"
+        ]
+      }
+    ],
+    "previewChanges": [],
+    "upcomingChanges": [],
+    "date": "2024-11-07"
+  },
+  {
+    "schemaChanges": [
+      {
+        "title": "The GraphQL schema includes these changes:",
+        "changes": [
           "<p>Enum value <code>BLUESKY</code> was added to enum <code>SocialAccountProvider</code></p>"
         ]
       }

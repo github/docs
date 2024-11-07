@@ -14,11 +14,9 @@ topics:
   - OAuth apps
 shortTitle: Troubleshoot token request
 ---
-{% note %}
 
-**Note:** These examples only show JSON responses.
-
-{% endnote %}
+> [!NOTE]
+> These examples only show JSON responses.
 
 ## Incorrect client credentials
 

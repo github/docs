@@ -27,20 +27,14 @@ After you authenticate to perform a sensitive action, your session is temporaril
 
 {% ifversion ghes %}
 
-{% note %}
-
-**Note**: If {% data variables.location.product_location_enterprise %} uses an external authentication method like CAS or SAML SSO, you will not receive prompts to enter sudo mode. For more information, contact your site administrator.
-
-{% endnote %}
+> [!NOTE]
+> If {% data variables.location.product_location_enterprise %} uses an external authentication method like CAS or SAML SSO, you will not receive prompts to enter sudo mode. For more information, contact your site administrator.
 
 {% endif %}
 {% ifversion ghec %}
 
-{% note %}
-
-**Note**: If your enterprise uses {% data variables.product.prodname_emus %}, only the setup user will receive prompts to enter sudo mode, as {% data variables.enterprise.prodname_managed_users %} don't have credentials stored on {% data variables.product.product_name %}.
-
-{% endnote %}
+> [!NOTE]
+> If your enterprise uses {% data variables.product.prodname_emus %}, only the setup user will receive prompts to enter sudo mode, as {% data variables.enterprise.prodname_managed_users %} don't have credentials stored on {% data variables.product.product_name %}.
 
 {% endif %}
 

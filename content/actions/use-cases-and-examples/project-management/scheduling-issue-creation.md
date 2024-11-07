@@ -98,11 +98,8 @@ In the tutorial, you will first make a workflow file that uses the {% data varia
 
 Based on the `schedule` parameter (for example, every Monday at 7:20 UTC), your workflow will create a new issue with the assignees, labels, title, and body that you specified. If you set `PINNED` to `true`, the workflow will pin the issue to your repository. If you set `CLOSE_PREVIOUS` to true, the workflow will close the most recent issue with matching labels.
 
-{% note %}
-
-**Note:** {% data reusables.actions.schedule-delay %}
-
-{% endnote %}
+> [!NOTE]
+> {% data reusables.actions.schedule-delay %}
 
 You can view the history of your workflow runs to see this workflow run periodically. For more information, see "[AUTOTITLE](/actions/monitoring-and-troubleshooting-workflows/viewing-workflow-run-history)."
 

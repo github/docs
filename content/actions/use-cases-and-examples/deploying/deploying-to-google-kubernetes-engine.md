@@ -25,11 +25,8 @@ This guide explains how to use {% data variables.product.prodname_actions %} to 
 
 GKE is a managed Kubernetes cluster service from Google Cloud that can host your containerized workloads in the cloud or in your own datacenter. For more information, see [Google Kubernetes Engine](https://cloud.google.com/kubernetes-engine).
 
-{% note %}
-
-**Note**: {% data reusables.actions.about-oidc-short-overview %}
-
-{% endnote %}
+> [!NOTE]
+> {% data reusables.actions.about-oidc-short-overview %}
 
 ## Prerequisites
 
@@ -78,11 +75,8 @@ This procedure demonstrates how to create the service account for your GKE integ
 
 1. Add roles to the service account.
 
-   {% note %}
-
-   **Note**: Apply more restrictive roles to suit your requirements.
-
-   {% endnote %}
+   > [!NOTE]
+   > Apply more restrictive roles to suit your requirements.
 
    ```shell copy
    gcloud projects add-iam-policy-binding $GKE_PROJECT \

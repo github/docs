@@ -71,11 +71,8 @@ If you're connecting to an enterprise on {% data variables.enterprise.data_resid
 
 When {% data variables.product.prodname_github_connect %} is enabled, a record on {% data variables.product.prodname_ghe_cloud %} stores information about the connection. If you enable individual features of {% data variables.product.prodname_github_connect %}, additional data is transmitted.
 
-{% note %}
-
-**Note:** No repositories, issues, or pull requests are ever transmitted from {% data variables.product.product_name %} to {% data variables.product.prodname_ghe_cloud %} by {% data variables.product.prodname_github_connect %}.
-
-{% endnote %}
+> [!NOTE]
+> No repositories, issues, or pull requests are ever transmitted from {% data variables.product.product_name %} to {% data variables.product.prodname_ghe_cloud %} by {% data variables.product.prodname_github_connect %}.
 
 ### Data transmitted when {% data variables.product.prodname_github_connect %} is enabled
 
