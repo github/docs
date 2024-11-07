@@ -88,6 +88,7 @@ You can configure [Nagios](https://www.nagios.org/) to monitor {% data variables
    > ```shell
    > nagiosuser@nagios:~$ ssh-keygen -t rsa -b 4096
    > ```
+
 1. Copy the private key (`id_ed25519`) to the `nagios` home folder and set the appropriate ownership.
 
    ```shell
