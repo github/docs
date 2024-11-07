@@ -29,6 +29,12 @@ export async function indexAISearchAutocomplete(options: Options) {
   const client = getElasticsearchClient(undefined, options.verbose)
   await client.ping() // Will throw if not available
 
+  console.log(
+    'Indexing AI search autocomplete for languages: %O and versions: %O',
+    options.languages,
+    options.versions,
+  )
+
   const { dataRepoRoot, languages, versions } = options
   for (const language of languages) {
     for (const version of versions) {

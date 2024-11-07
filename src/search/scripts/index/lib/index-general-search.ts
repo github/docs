@@ -1,8 +1,6 @@
 import { Client } from '@elastic/elasticsearch'
-import chalk from 'chalk'
 
 import { languageKeys } from '#src/languages/lib/languages.js'
-import { allVersions } from '#src/versions/lib/all-versions.js'
 import { getElasticSearchIndex } from '@/search/lib/elasticsearch-indexes'
 import { getElasticsearchClient } from '@/search/lib/helpers/get-client'
 import {
@@ -16,12 +14,14 @@ import {
 import { sleep } from '@/search/lib/helpers/time'
 import { getGeneralSearchSettings } from '@/search/scripts/index/utils/settings'
 import { generalSearchMappings } from '@/search/scripts/index/utils/mappings'
-
-import type { AllVersionInfo } from '@/search/scripts/index/types'
+import {
+  allIndexVersionOptions,
+  versionToIndexVersionMap,
+} from '@/search/lib/elasticsearch-versions'
 
 interface Options {
   verbose?: boolean
-  version?: string[] | string
+  version?: string | undefined
   language?: string[]
   notLanguage?: string[]
   elasticsearchUrl?: string
@@ -30,17 +30,6 @@ interface Options {
   retries?: number
   sleepTime: number
 }
-
-const shortNames: { [key: string]: AllVersionInfo } = Object.fromEntries(
-  Object.values(allVersions).map((info: AllVersionInfo) => {
-    const shortName = info.hasNumberedReleases
-      ? info.miscBaseName + info.currentRelease
-      : info.miscBaseName
-    return [shortName, info]
-  }),
-)
-
-const allVersionKeys = Object.keys(shortNames)
 
 export async function indexGeneralSearch(sourceDirectory: string, opts: Options) {
   if (!sourceDirectory) {
@@ -56,29 +45,62 @@ export async function indexGeneralSearch(sourceDirectory: string, opts: Options)
   const client = getElasticsearchClient(opts.elasticsearchUrl, opts.verbose)
   await client.ping() // Will throw if not available
 
-  let version: string | string[] | undefined = opts.version
-  if (!version && process.env.VERSION && process.env.VERSION !== 'all') {
-    version = process.env.VERSION
-    if (!allVersionKeys.includes(version)) {
-      throw new Error(
-        `Environment variable 'VERSION' (${version}) is not recognized. Must be one of ${allVersionKeys}`,
+  let versions: string[] | 'all' = []
+  if ('version' in opts) {
+    if (process.env.VERSION) {
+      console.warn(
+        `'version' specified as argument ('${versions}') AND environment variable ('${process.env.VERSION}')`,
       )
     }
+    if (!Array.isArray(opts.version)) {
+      if (typeof opts.version === 'undefined') {
+        versions = 'all'
+      } else {
+        versions = [opts.version]
+      }
+    } else if (opts.version[0] === 'all') {
+      versions = 'all'
+    } else {
+      versions = opts.version
+    }
+  } else if (process.env.VERSION) {
+    if (process.env.VERSION !== 'all') {
+      versions = [process.env.VERSION]
+    } else {
+      versions = 'all'
+    }
   }
-  let versionKeys = allVersionKeys
-  if (version) {
-    versionKeys = Array.isArray(version) ? version : [version]
+
+  // Validate
+  if (versions !== 'all') {
+    for (const version of versions) {
+      if (!allIndexVersionOptions.includes(version || '')) {
+        throw new Error(
+          `Argument -version ${version} is not recognized. Must be one of ${allIndexVersionOptions}`,
+        )
+      }
+    }
+  }
+
+  let versionsToIndex: string[] = []
+  if (!versions.length || versions === 'all') {
+    versionsToIndex = allIndexVersionOptions
+  } else if (versions.length) {
+    versionsToIndex = versions.map((version) => versionToIndexVersionMap[version])
   }
 
   const languages =
     language || languageKeys.filter((lang) => !notLanguage || !notLanguage.includes(lang))
-  if (opts.verbose) {
-    console.log(`Indexing on languages ${chalk.bold(languages.join(', '))}`)
-  }
+
+  console.log(
+    'Indexing general search for languages: %O and versions: %O',
+    languages,
+    versionsToIndex,
+  )
 
   for (const language of languages) {
     let count = 0
-    for (const versionKey of versionKeys) {
+    for (const versionKey of versionsToIndex) {
       const startTime = new Date()
 
       const { indexName, indexAlias } = getElasticSearchIndex(
@@ -91,7 +113,7 @@ export async function indexGeneralSearch(sourceDirectory: string, opts: Options)
       await indexVersion(client, indexName, indexAlias, language, sourceDirectory, opts)
 
       count++
-      if (opts.staggerSeconds && count < versionKeys.length - 1) {
+      if (opts.staggerSeconds && count < versionsToIndex.length - 1) {
         console.log(`Sleeping for ${opts.staggerSeconds} seconds...`)
         await sleep(1000 * opts.staggerSeconds)
       }
