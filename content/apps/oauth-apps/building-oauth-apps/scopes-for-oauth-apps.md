@@ -87,7 +87,7 @@ Name | Description
 > [!NOTE]
 > Your {% data variables.product.prodname_oauth_app %} can request the scopes in the initial redirection. You can specify multiple scopes by separating them with a space using `%20`:
 >
-> ```
+> ```text
 > https://github.com/login/oauth/authorize?
 >   client_id=...&
 >   scope=user%20repo_deployment
