@@ -41,8 +41,5 @@ Due to risk of failure and performance impact for all users of your instance, we
 * Avoid API requests within a pre-receive hook. In particular, we strongly discourage that you make requests to external services, which may take longer and can compound performance impact.
 * Avoid long-running Git operations within a pre-receive hook. If your pre-receive hook performs Git operations within large or busy repositories, your instance's Git and overall performance may be negatively impacted.
 
-{% note %}
-
-**Note:** To avoid rejection of a push due to a timeout, all combined pre-receive hooks should run in under five seconds.
-
-{% endnote %}
+> [!NOTE]
+> To avoid rejection of a push due to a timeout, all combined pre-receive hooks should run in under five seconds.

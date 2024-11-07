@@ -30,11 +30,8 @@ You can forward system logs and audit logs to an external system for analysis or
 
 In addition to reviewing your system logs, you can monitor activity on your instance in other ways. For example, you can review audit logs and push logs, or configure global webhooks. For more information, see "[AUTOTITLE](/admin/monitoring-activity-in-your-enterprise)."
 
-{% note %}
-
-**Note**: The following lists of logs are not intended to be comprehensive.
-
-{% endnote %}
+> [!NOTE]
+> The following lists of logs are not intended to be comprehensive.
 
 ## System log files
 

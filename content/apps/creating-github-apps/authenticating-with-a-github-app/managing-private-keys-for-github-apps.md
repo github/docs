@@ -32,11 +32,8 @@ To generate a private key:
 1. Under "Private keys", click **Generate a private key**.
 1. You will see a private key in PEM format downloaded to your computer. Make sure to store this file because GitHub only stores the public portion of the key. For more information about securely storing your key, see "[Storing private keys](#storing-private-keys)."
 
-{% note %}
-
-**Note:** If you're using a library that requires a specific file format, the PEM file you download will be in `PKCS#1 RSAPrivateKey` format.
-
-{% endnote %}
+> [!NOTE]
+> If you're using a library that requires a specific file format, the PEM file you download will be in `PKCS#1 RSAPrivateKey` format.
 
 ## Verifying private keys
 

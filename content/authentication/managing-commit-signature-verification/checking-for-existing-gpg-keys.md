@@ -16,11 +16,8 @@ shortTitle: Existing GPG keys
 ---
 {% data reusables.gpg.supported-gpg-key-algorithms %}
 
-{% note %}
-
-**Note:** GPG does not come installed by default on macOS or Windows. To install GPG command line tools, see [GnuPG's Download page](https://www.gnupg.org/download/).
-
-{% endnote %}
+> [!NOTE]
+> GPG does not come installed by default on macOS or Windows. To install GPG command line tools, see [GnuPG's Download page](https://www.gnupg.org/download/).
 
 {% data reusables.command_line.open_the_multi_os_terminal %}
 {% data reusables.gpg.list-keys-with-note %}

@@ -16,11 +16,8 @@ shortTitle: Refresh user access tokens
 ---
 ## About user access tokens that expire
 
-{% note %}
-
-**Note:** User access tokens that expire are currently an optional feature and are subject to change. For more information, see "[Expiring user-to-server access tokens for GitHub Apps](https://developer.github.com/changes/2020-04-30-expiring-user-to-server-access-tokens-for-github-apps)."
-
-{% endnote %}
+> [!NOTE]
+> User access tokens that expire are currently an optional feature and are subject to change. For more information, see "[Expiring user-to-server access tokens for GitHub Apps](https://developer.github.com/changes/2020-04-30-expiring-user-to-server-access-tokens-for-github-apps)."
 
 To enforce regular token rotation and reduce the impact of a compromised token, you can configure your {% data variables.product.prodname_github_app %} to use user access tokens that expire. If your app uses user access tokens that expire, then you will receive a refresh token when you generate a user access token. The user access token expires after eight hours, and the refresh token expires after six months. For more information, see "[AUTOTITLE](/apps/creating-github-apps/authenticating-with-a-github-app/generating-a-user-access-token-for-a-github-app)."
 

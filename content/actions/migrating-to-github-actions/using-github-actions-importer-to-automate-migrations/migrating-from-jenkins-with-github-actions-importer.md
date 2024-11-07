@@ -212,11 +212,8 @@ This section contains reference information on environment variables, optional a
 * `GITHUB_INSTANCE_URL`: The URL to the target {% data variables.product.prodname_dotcom %} instance (for example, `https://github.com`).
 * `JENKINS_ACCESS_TOKEN`: The Jenkins API token used to view Jenkins resources.
 
-  {% note %}
-
-  **Note**: This token requires access to all jobs that you want to migrate or audit. In cases where a folder or job does not inherit access control lists from their parent, you must grant explicit permissions or full admin privileges.
-
-  {% endnote %}
+  > [!NOTE]
+  > This token requires access to all jobs that you want to migrate or audit. In cases where a folder or job does not inherit access control lists from their parent, you must grant explicit permissions or full admin privileges.
 
 * `JENKINS_USERNAME`: The username of the user account that created the Jenkins API token.
 * `JENKINS_INSTANCE_URL`: The URL of the Jenkins instance.

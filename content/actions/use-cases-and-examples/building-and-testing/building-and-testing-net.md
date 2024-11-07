@@ -154,11 +154,8 @@ steps:
   run: dotnet add package Newtonsoft.Json --version 12.0.1
 ```
 
-{% note %}
-
-**Note:** Depending on the number of dependencies, it may be faster to use the dependency cache. Projects with many large dependencies should see a performance increase as it cuts down the time required for downloading. Projects with fewer dependencies may not see a significant performance increase and may even see a slight decrease due to how NuGet installs cached dependencies. The performance varies from project to project.
-
-{% endnote %}
+> [!NOTE]
+> Depending on the number of dependencies, it may be faster to use the dependency cache. Projects with many large dependencies should see a performance increase as it cuts down the time required for downloading. Projects with fewer dependencies may not see a significant performance increase and may even see a slight decrease due to how NuGet installs cached dependencies. The performance varies from project to project.
 
 ## Building and testing your code
 

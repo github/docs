@@ -56,13 +56,9 @@ You can configure {% data variables.product.prodname_code_scanning %} to run {% 
 
 ## Provisioning a self-hosted runner
 
-{% note %}
-
-**Notes:**
-  * If your enterprise uses {% data variables.product.prodname_dotcom %}-hosted runners with {% data variables.product.prodname_actions %}, proceed directly to configuring {% data variables.product.prodname_code_scanning %} through {% data variables.product.prodname_dotcom_the_website %}. See "[AUTOTITLE](/code-security/code-scanning/enabling-code-scanning/configuring-default-setup-for-code-scanning)" and "[AUTOTITLE](/code-security/code-scanning/enabling-code-scanning/configuring-default-setup-for-code-scanning-at-scale)."
-  * With the exception of Swift analysis, default setup can now run on {% data variables.actions.hosted_runners %}. See "[AUTOTITLE](/actions/using-github-hosted-runners/about-larger-runners/about-larger-runners)" and "[AUTOTITLE](/code-security/code-scanning/managing-your-code-scanning-configuration/configuring-larger-runners-for-default-setup)."
-
-{% endnote %}
+> [!NOTE]
+> * If your enterprise uses {% data variables.product.prodname_dotcom %}-hosted runners with {% data variables.product.prodname_actions %}, proceed directly to configuring {% data variables.product.prodname_code_scanning %} through {% data variables.product.prodname_dotcom_the_website %}. See "[AUTOTITLE](/code-security/code-scanning/enabling-code-scanning/configuring-default-setup-for-code-scanning)" and "[AUTOTITLE](/code-security/code-scanning/enabling-code-scanning/configuring-default-setup-for-code-scanning-at-scale)."
+> * With the exception of Swift analysis, default setup can now run on {% data variables.actions.hosted_runners %}. See "[AUTOTITLE](/actions/using-github-hosted-runners/about-larger-runners/about-larger-runners)" and "[AUTOTITLE](/code-security/code-scanning/managing-your-code-scanning-configuration/configuring-larger-runners-for-default-setup)."
 
 {% endif %}
 
@@ -78,11 +74,10 @@ If you are using default setup for {% data variables.product.prodname_code_scann
 You must ensure that Git is in the PATH variable on any self-hosted runners you use to run {% data variables.product.prodname_codeql %} actions.
 
 {% ifversion default-setup-self-hosted-runners-GHEC or ghes %}
-{% note %}
 
-**Note:** If you use {% data variables.product.prodname_codeql %} {% data variables.product.prodname_code_scanning %} to analyze code written in Python in your enterprise, you must make sure that your self-hosted runner has Python 3 installed.
+> [!NOTE]
+> If you use {% data variables.product.prodname_codeql %} {% data variables.product.prodname_code_scanning %} to analyze code written in Python in your enterprise, you must make sure that your self-hosted runner has Python 3 installed.
 
-{% endnote %}
 {% endif %}
 
 {% ifversion ghes %}

@@ -21,11 +21,8 @@ shortTitle: Recover a HA configuration
 
 You can use the former primary appliance as the new replica appliance if the failover was planned or was not related to the health of the appliance. If the failover was related to an issue with the primary appliance, you may prefer to create a new replica appliance. For more information, see "[AUTOTITLE](/admin/enterprise-management/configuring-high-availability/creating-a-high-availability-replica)."
 
-{% warning %}
-
-**Warning:** You must enable maintenance mode before configuring a former primary appliance as a new replica. If you do not enable maintenance mode, you will cause a production outage.
-
-{% endwarning %}
+> [!WARNING]
+> You must enable maintenance mode before configuring a former primary appliance as a new replica. If you do not enable maintenance mode, you will cause a production outage.
 
 ## Configuring a former primary appliance as a new replica
 

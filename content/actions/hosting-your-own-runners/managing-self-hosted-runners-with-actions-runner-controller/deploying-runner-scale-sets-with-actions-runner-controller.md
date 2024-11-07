@@ -28,16 +28,11 @@ To deploy a runner scale set, you must have ARC up and running. For more informa
 
 You can deploy runner scale sets with ARC's Helm charts or by deploying the necessary manifests. Using ARC's Helm charts is the preferred method, especially if you do not have prior experience using ARC.
 
-{% note %}
-
-**Notes:**
-
-* {% data reusables.actions.actions-runner-controller-security-practices-namespace %}
-* {% data reusables.actions.actions-runner-controller-security-practices-secret %}
-* We recommend running production workloads in isolation. {% data variables.product.prodname_actions %} workflows are designed to run arbitrary code, and using a shared Kubernetes cluster for production workloads could pose a security risk.
-* Ensure you have implemented a way to collect and retain logs from the controller, listeners, and ephemeral runners.
-
-{% endnote %}
+> [!NOTE]
+> * {% data reusables.actions.actions-runner-controller-security-practices-namespace %}
+> * {% data reusables.actions.actions-runner-controller-security-practices-secret %}
+> * We recommend running production workloads in isolation. {% data variables.product.prodname_actions %} workflows are designed to run arbitrary code, and using a shared Kubernetes cluster for production workloads could pose a security risk.
+> * Ensure you have implemented a way to collect and retain logs from the controller, listeners, and ephemeral runners.
 
 1. To configure your runner scale set, run the following command in your terminal, using values from your ARC configuration.
 
@@ -118,11 +113,8 @@ ARC offers several advanced configuration options.
 
 ### Configuring the runner scale set name
 
-{% note %}
-
-**Note:** Runner scale set names are unique within the runner group they belong to. If you want to deploy multiple runner scale sets with the same name, they must belong to different runner groups.
-
-{% endnote %}
+> [!NOTE]
+> Runner scale set names are unique within the runner group they belong to. If you want to deploy multiple runner scale sets with the same name, they must belong to different runner groups.
 
 To configure the runner scale set name, you can define an `INSTALLATION_NAME` or set the value of `runnerScaleSetName` in your copy of the [`values.yaml`](https://github.com/actions/actions-runner-controller/blob/master/charts/gha-runner-scale-set/values.yaml) file.
 
@@ -138,11 +130,10 @@ Make sure to pass the `values.yaml` file in your `helm install` command. See the
 Runner scale sets can be deployed at the repository, organization, or enterprise levels.
 
 {% ifversion ghec or ghes %}
-{% note %}
 
-**Note:** You can only deploy runner scale sets at the enterprise level when using {% data variables.product.pat_v1 %} authentication.
+> [!NOTE]
+> You can only deploy runner scale sets at the enterprise level when using {% data variables.product.pat_v1 %} authentication.
 
-{% endnote %}
 {% endif %}
 
 To deploy runner scale sets to a specific level, set the value of `githubConfigUrl` in your copy of the `values.yaml` to the URL of your repository, organization, or enterprise.
@@ -170,11 +161,8 @@ githubConfigUrl: "http(s)://<HOSTNAME>/<'enterprises/your_enterprise'/'org'/'org
 
 If you are not using enterprise-level runners, you can use {% data variables.product.prodname_github_apps %} to authenticate with the {% data variables.product.company_short %} API. For more information, see "[AUTOTITLE](/actions/hosting-your-own-runners/managing-self-hosted-runners-with-actions-runner-controller/authenticating-to-the-github-api)."
 
-{% note %}
-
-**Note:** Given the security risk associated with exposing your private key in plain text in a file on disk, we recommend creating a Kubernetes secret and passing the reference instead.
-
-{% endnote %}
+> [!NOTE]
+> Given the security risk associated with exposing your private key in plain text in a file on disk, we recommend creating a Kubernetes secret and passing the reference instead.
 
 You can either create a Kubernetes secret, or specify values in your [`values.yaml`](https://github.com/actions/actions-runner-controller/blob/master/charts/gha-runner-scale-set/values.yaml) file.
 
@@ -266,11 +254,8 @@ ARC supports using anonymous or authenticated proxies. If you use authenticated 
 
 The `maxRunners` and `minRunners` properties provide you with a range of options to customize your ARC setup.
 
-{% note %}
-
-**Note:** ARC does not support scheduled maximum and minimum configurations. You can use a cronjob or any other scheduling solution to update the configuration on a schedule.
-
-{% endnote %}
+> [!NOTE]
+> ARC does not support scheduled maximum and minimum configurations. You can use a cronjob or any other scheduling solution to update the configuration on a schedule.
 
 #### Example: Unbounded number of runners
 
@@ -302,11 +287,8 @@ minRunners: 20
 
 In this configuration, {% data variables.product.prodname_actions_runner_controller %} will scale up to a maximum of `30` runners and will scale down to `20` runners when the jobs are complete.
 
-{% note %}
-
-**Note:** The value of `minRunners` can never exceed that of `maxRunners`, unless `maxRunners` is commented out.
-
-{% endnote %}
+> [!NOTE]
+> The value of `minRunners` can never exceed that of `maxRunners`, unless `maxRunners` is commented out.
 
 ```yaml
 ## maxRunners is the max number of runners the auto scaling runner set will scale up to.
@@ -332,11 +314,8 @@ minRunners: 0
 
 ### Custom TLS certificates
 
-{% note %}
-
-**Note:** If you are using a custom runner image that is not based on the `Debian` distribution, the following instructions will not work.
-
-{% endnote %}
+> [!NOTE]
+> If you are using a custom runner image that is not based on the `Debian` distribution, the following instructions will not work.
 
 Some environments require TLS certificates that are signed by a custom certificate authority (CA). Since the custom certificate authority certificates are not bundled with the controller or runner containers, you must inject them into their respective trust stores.
 
@@ -473,13 +452,10 @@ If you are using container jobs and services or container actions, the `containe
 
 ### Using Docker-in-Docker mode
 
-{% note %}
-
-**Note:** The Docker-in-Docker container requires privileged mode. For more information, see [Configure a Security Context for a Pod or Container](https://kubernetes.io/docs/tasks/configure-pod-container/security-context/) in the Kubernetes documentation.
-
-By default, the `dind` container uses the `docker:dind` image, which runs the Docker daemon as root. You can replace this image with `docker:dind-rootless` as long as you are aware of the [known limitations](https://docs.docker.com/engine/security/rootless/#known-limitations) and run the pods with `--privileged` mode. To learn how to customize the Docker-in-Docker configuration, see "[Customizing container modes](/actions/hosting-your-own-runners/managing-self-hosted-runners-with-actions-runner-controller/deploying-runner-scale-sets-with-actions-runner-controller#customizing-container-modes)."
-
-{% endnote %}
+> [!NOTE]
+> The Docker-in-Docker container requires privileged mode. For more information, see [Configure a Security Context for a Pod or Container](https://kubernetes.io/docs/tasks/configure-pod-container/security-context/) in the Kubernetes documentation.
+>
+> By default, the `dind` container uses the `docker:dind` image, which runs the Docker daemon as root. You can replace this image with `docker:dind-rootless` as long as you are aware of the [known limitations](https://docs.docker.com/engine/security/rootless/#known-limitations) and run the pods with `--privileged` mode. To learn how to customize the Docker-in-Docker configuration, see "[Customizing container modes](/actions/hosting-your-own-runners/managing-self-hosted-runners-with-actions-runner-controller/deploying-runner-scale-sets-with-actions-runner-controller#customizing-container-modes)."
 
 Docker-in-Docker mode is a configuration that allows you to run Docker inside a Docker container. In this configuration, for each runner pod created, ARC creates the following containers.
 
@@ -582,29 +558,26 @@ containerMode:
 
 {% data reusables.actions.actions-runner-controller-helm-chart-options %}
 
-{% note %}
-
-**Note:** When Kubernetes mode is enabled, workflows that are not configured with a container job will fail with an error similar to:
-
-  ```bash
-  Jobs without a job container are forbidden on this runner, please add a 'container:' to your job or contact your self-hosted runner administrator.
-  ```
-
-To allow jobs without a job container to run, set `ACTIONS_RUNNER_REQUIRE_JOB_CONTAINER` to `false` on your runner container. This instructs the runner to disable this check.
-
-```yaml
-template:
-  spec:
-    containers:
-      - name: runner
-        image: ghcr.io/actions/actions-runner:latest
-        command: ["/home/runner/run.sh"]
-        env:
-          - name: ACTIONS_RUNNER_REQUIRE_JOB_CONTAINER
-            value: "false"
-```
-
-{% endnote %}
+> [!NOTE]
+> When Kubernetes mode is enabled, workflows that are not configured with a container job will fail with an error similar to:
+>
+> ```bash
+> Jobs without a job container are forbidden on this runner, please add a 'container:' to your job or contact your self-hosted runner administrator.
+> ```
+>
+> To allow jobs without a job container to run, set `ACTIONS_RUNNER_REQUIRE_JOB_CONTAINER` to `false` on your runner container. This instructs the runner to disable this check.
+>
+> ```yaml
+> template:
+>   spec:
+>     containers:
+>       - name: runner
+>         image: ghcr.io/actions/actions-runner:latest
+>         command: ["/home/runner/run.sh"]
+>         env:
+>           - name: ACTIONS_RUNNER_REQUIRE_JOB_CONTAINER
+>             value: "false"
+> ```
 
 ### Customizing container modes
 
@@ -839,11 +812,8 @@ There are two options to configure hook extensions.
 * Store in your **custom runner image**. You can store the PodSpec in a YAML file anywhere in your custom runner image. For more information, see "[AUTOTITLE](/actions/hosting-your-own-runners/managing-self-hosted-runners-with-actions-runner-controller/about-actions-runner-controller#creating-your-own-runner-image)."
 * Store in a **ConfigMap**. You can create a config map with the PodSpec and mount that config map in the runner container. For more information, see [ConfigMaps](https://kubernetes.io/docs/concepts/configuration/configmap/) in the Kubernetes documentation.
 
-{% note %}
-
-**Note:** With both options, you must set the `ACTIONS_RUNNER_CONTAINER_HOOK_TEMPLATE` environment variable in the runner container spec to point to the path of the YAML file mounted in the runner container.
-
-{% endnote %}
+> [!NOTE]
+> With both options, you must set the `ACTIONS_RUNNER_CONTAINER_HOOK_TEMPLATE` environment variable in the runner container spec to point to the path of the YAML file mounted in the runner container.
 
 ##### Example: Using config map to set securityContext
 
@@ -879,11 +849,8 @@ data:
 
 ## Enabling metrics
 
-{% note %}
-
-**Note:** Metrics for ARC are available as of version gha-runner-scale-set-0.5.0.
-
-{% endnote %}
+> [!NOTE]
+> Metrics for ARC are available as of version gha-runner-scale-set-0.5.0.
 
 ARC can emit metrics about your runners, your jobs, and time spent on executing your workflows. Metrics can be used to identify congestion, monitor the health of your ARC deployment, visualize usage trends, optimize resource consumption, among many other use cases. Metrics are emitted by the controller-manager and listener pods in Prometheus format. For more information, see [Exposition formats](https://prometheus.io/docs/instrumenting/exposition_formats/) in the Prometheus documentation.
 
@@ -898,11 +865,8 @@ metrics:
   listenerEndpoint: "/metrics"
 ```
 
-{% note %}
-
-**Note:** If the `metrics:` object is not provided or is commented out, the following flags will be applied to the controller-manager and listener pods with empty values: `--metrics-addr`, `--listener-metrics-addr`, `--listener-metrics-endpoint`. This will disable metrics for ARC.
-
-{% endnote %}
+> [!NOTE]
+> If the `metrics:` object is not provided or is commented out, the following flags will be applied to the controller-manager and listener pods with empty values: `--metrics-addr`, `--listener-metrics-addr`, `--listener-metrics-endpoint`. This will disable metrics for ARC.
 
 Once these properties are configured, your controller-manager and listener pods emit metrics via the listenerEndpoint bound to the ports that you specify in your [`values.yaml`](https://github.com/actions/actions-runner-controller/blob/master/charts/gha-runner-scale-set-controller/values.yaml) file. In the above example, the endpoint is `/metrics` and the port is `:8080`. You can use this endpoint to scrape metrics from your controller-manager and listener pods.
 
@@ -912,11 +876,8 @@ To turn off metrics, update your [`values.yaml`](https://github.com/actions/acti
 
 The following table shows the metrics emitted by the controller-manager and listener pods.
 
-{% note %}
-
-**Note:** The metrics that the controller-manager emits pertain to the controller runtime and are not owned by {% data variables.product.company_short %}.
-
-{% endnote %}
+> [!NOTE]
+> The metrics that the controller-manager emits pertain to the controller runtime and are not owned by {% data variables.product.company_short %}.
 
 | Owner              | Metric                                        | Type      | Description                                                                                                 |
 | ------------------ | --------------------------------------------- | --------- | ----------------------------------------------------------------------------------------------------------- |
@@ -977,26 +938,16 @@ For more information, see "[Deploying a runner scale set](/actions/hosting-your-
 
 If you would like to upgrade ARC but are concerned about downtime, you can deploy ARC in a high availability configuration to ensure runners are always available. For more information, see "[High availability and automatic failover](/actions/hosting-your-own-runners/managing-self-hosted-runners-with-actions-runner-controller/deploying-runner-scale-sets-with-actions-runner-controller#high-availability-and-automatic-failover)."
 
-{% note %}
-
-**Note:**
-
-Transitioning from the [community supported version of ARC](https://github.com/actions/actions-runner-controller/discussions/2775) to the GitHub supported version is a substantial architectural change. The GitHub supported version involves a redesign of many components of ARC. It is not a minor software upgrade. For these reasons, we recommend testing the new versions in a staging environment that matches your production environment first. This will ensure stability and reliability of the setup before deploying in production.
-
-{% endnote %}
+> [!NOTE]
+> Transitioning from the [community supported version of ARC](https://github.com/actions/actions-runner-controller/discussions/2775) to the GitHub supported version is a substantial architectural change. The GitHub supported version involves a redesign of many components of ARC. It is not a minor software upgrade. For these reasons, we recommend testing the new versions in a staging environment that matches your production environment first. This will ensure stability and reliability of the setup before deploying in production.
 
 ### Deploying a canary image
 
 You can test features before they are released by using canary releases of the controller-manager container image. Canary images are published with tag format `canary-SHORT_SHA`. For more information, see [`gha-runner-scale-set-controller`](https://github.com/actions/actions-runner-controller/pkgs/container/gha-runner-scale-set-controller) on the {% data variables.product.prodname_container_registry %}.
 
-{% note %}
-
-**Notes:**
-
-* You must use Helm charts on your local file system.
-* You cannot use the released Helm charts.
-
-{% endnote %}
+> [!NOTE]
+> * You must use Helm charts on your local file system.
+> * You cannot use the released Helm charts.
 
 1. Update the `tag` in the [gha-runner-scale-set-controller `values.yaml`](https://github.com/actions/actions-runner-controller/blob/master/charts/gha-runner-scale-set-controller/values.yaml) file to: `canary-SHORT_SHA`
 1. Update the field `appVersion` in the [`Chart.yaml`](https://github.com/actions/actions-runner-controller/blob/master/charts/gha-runner-scale-set/Chart.yaml) file for `gha-runner-scale-set` to: `canary-SHORT_SHA`
