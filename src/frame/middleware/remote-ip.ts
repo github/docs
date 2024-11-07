@@ -7,6 +7,8 @@ export default function remoteIp(req: Request, res: Response) {
   res.json({
     ip: req.ip,
     'x-forwarded-for': req.headers['x-forwarded-for'] || null,
+    'x-forwarded-host': req.headers['x-forwarded-host'] || null,
+    host: req.headers['host'] || null,
     'fastly-client-ip': req.headers['fastly-client-ip'] || null,
   })
 }

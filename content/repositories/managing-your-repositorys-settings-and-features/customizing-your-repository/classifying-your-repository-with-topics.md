@@ -21,7 +21,7 @@ With topics, you can explore repositories in a particular subject area, find pro
 
 ![Screenshot of the github/docs repository. In the right sidebar, three topics are outlined in dark orange: "docs," "hacktoberfest," and "works-with-codespaces."](/assets/images/help/repository/os-repo-with-topics.png)
 
-To browse the most used topics, go to {% data variables.product.oauth_host_code %}/topics/.
+To browse the most used topics, go to {% data variables.product.product_url %}/topics/.
 
 {% ifversion fpt or ghec %}You can contribute to {% data variables.product.product_name %}'s set of featured topics in the [github/explore](https://github.com/github/explore) repository. {% endif %}
 

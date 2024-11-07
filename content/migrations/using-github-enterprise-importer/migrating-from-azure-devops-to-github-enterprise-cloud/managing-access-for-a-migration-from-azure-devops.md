@@ -72,6 +72,8 @@ To grant the migrator role using the CLI, you must have installed the {% data va
    gh ado2gh grant-migrator-role --github-org ORGANIZATION --actor ACTOR --actor-type TYPE
    ```
 
+   {% data reusables.enterprise-migration-tool.grant-migrator-role-ghecom %}
+
 ### Granting the migrator role with the GraphQL API
 
 {% data reusables.enterprise-migration-tool.grant-migrator-role-graphql %}
@@ -84,9 +86,13 @@ To grant the migrator role using the CLI, you must have installed the {% data va
 
 {% data reusables.enterprise-migration-tool.configuring-ip-allow-lists %}
 
-### Identifying {% data variables.product.prodname_dotcom %}'s IP ranges
+### IP ranges for {% data variables.product.prodname_dotcom_the_website %}
 
 {% data reusables.enterprise-migration-tool.identifying-githubs-ip-ranges %}
+
+### IP ranges for {% data variables.enterprise.data_residency_site %}
+
+{% data reusables.enterprise-migration-tool.ip-ranges-ghecom %}
 
 ## Further reading
 

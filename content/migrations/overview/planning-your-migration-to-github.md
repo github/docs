@@ -40,7 +40,7 @@ If you’re not using a code hosting platform at all, you might be storing your 
 
 Wherever your code lives, that's your "migration origin."
 
-You’ll also need to know which {% data variables.product.prodname_dotcom %} product you’re migrating to, or your "migration destination." This could be {% data variables.product.prodname_dotcom_the_website %}, which includes {% data variables.product.prodname_ghe_cloud %}, or {% data variables.product.prodname_ghe_server %}.
+You’ll also need to know which {% data variables.product.prodname_dotcom %} product you’re migrating to, or your "migration destination." This could be {% data variables.product.prodname_dotcom_the_website %}, {% data variables.enterprise.data_residency_site %}, or {% data variables.product.prodname_ghe_server %}.
 
 ### Building a basic inventory of the repositories you want to migrate
 
@@ -120,6 +120,8 @@ You may want to use different strategies for different repositories. For example
 You may choose to complete a "self-serve migration," where you plan and run your own migration using our documentation only, without any professional support from {% data variables.product.company_short %}.
 
 Alternatively, you may prefer to work with {% data variables.product.company_short %}'s Expert Services team or a {% data variables.product.company_short %} Partner, which we call an "expert-led migration." With an expert-led migration, you benefit from the knowledge and experience of an expert who has previously run tens or even hundreds of migrations, and you get access to additional migration tools that aren’t available for self-serve.
+
+If you're migrating a large amount of data, you're likely to benefit from an expert-led migration. For example, if you're migrating thousands of repositories, or you have complex repositories greater than around 5 GB in size, we recommend connecting with Expert Services.
 
 {% rowheaders %}
 

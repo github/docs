@@ -18,9 +18,20 @@ redirect_from:
 
 {% data reusables.enterprise-migration-tool.required-access-intro %}
 
-To run a migration, you need sufficient access to both the source and the destination for your migration. The source is the organization on {% data variables.product.prodname_dotcom_the_website %} or {% data variables.product.prodname_ghe_server %} from which you want to migrate data. The destination is either an organization account on {% data variables.product.prodname_dotcom_the_website %}, if you're migrating repositories, or an enterprise account on {% data variables.product.prodname_dotcom_the_website %}, if you're migrating an entire organization.
+To run a migration, you need sufficient access to both the source and the destination for your migration.
 
-To have sufficient access for the migration, for both the source and the destination, you need the following things.
+### What are my source and destination?
+
+The source is the organization on {% data variables.product.prodname_dotcom_the_website %} or {% data variables.product.prodname_ghe_server %} from which you want to migrate data.
+
+The destination can be:
+
+* An **organization** account on {% data variables.product.prodname_dotcom_the_website %} or {% data variables.enterprise.data_residency_site %}, if you're migrating repositories
+* An **enterprise** account on {% data variables.product.prodname_dotcom_the_website %} or {% data variables.enterprise.data_residency_site %}, if you're migrating an entire organization
+
+### What access do I need?
+
+To have sufficient access for the migration, for **both the source and the destination**, you need the following things.
 * A required role in the organization or enterprise account
 * A {% data variables.product.pat_generic %} that can access the organization or enterprise account
   * The {% data variables.product.pat_generic %} must have all the required scopes, which depend on your role and the task you want to complete.
@@ -113,6 +124,8 @@ To grant the migrator role using the CLI, you must have installed the {% data va
    gh gei grant-migrator-role --github-org ORGANIZATION --actor ACTOR --actor-type TYPE
    ```
 
+   {% data reusables.enterprise-migration-tool.grant-migrator-role-ghecom %}
+
 ### Granting the migrator role with the GraphQL API
 
 {% data reusables.enterprise-migration-tool.grant-migrator-role-graphql %}
@@ -127,9 +140,17 @@ To grant the migrator role using the CLI, you must have installed the {% data va
 
 If the source of your migration is {% data variables.product.prodname_ghe_server %}, you do not need to add any {% data variables.product.prodname_dotcom %} IP ranges to your firewall configuration or the IP allow list on {% data variables.location.product_location_enterprise %}. However, depending on the setup of your blob storage provider, you may need to update your blob storage provider's configuration to allow access to the {% data variables.product.prodname_dotcom %} IP ranges below.
 
-### Identifying {% data variables.product.prodname_dotcom %}'s IP ranges
+### IP ranges for {% data variables.product.prodname_dotcom_the_website %}
 
 {% data reusables.enterprise-migration-tool.identifying-githubs-ip-ranges %}
+
+### IP ranges for {% data variables.enterprise.data_residency_site %}
+
+{% data reusables.enterprise-migration-tool.ip-ranges-ghecom %}
+
+In addition, if you are migrating from {% data variables.product.prodname_ghe_server %} and using a blob storage account with firewall rules:
+
+{% data reusables.enterprise-migration-tool.extra-requirements-storage %}
 
 ## Further reading
 

@@ -16,15 +16,15 @@ redirect_from:
 
 ### Code completion
 
-Autocomplete-style suggestions from {% data variables.product.prodname_copilot_short %} in supported IDEs _({% data variables.product.prodname_vscode %}, {% data variables.product.prodname_vs %}, JetBrains IDEs, Azure Data Studio, and Vim/Neovim)_.
+Autocomplete-style suggestions from {% data variables.product.prodname_copilot_short %} in supported IDEs _({% data variables.product.prodname_vscode %}, {% data variables.product.prodname_vs %}, JetBrains IDEs, Azure Data Studio, Xcode, and Vim/Neovim)_.
 
 ### {% data variables.product.prodname_copilot_chat_short %}
 
-A chat interface that lets you ask coding-related questions. {% data variables.product.prodname_copilot_chat %} is available on the {% data variables.product.github %} website, in {% data variables.product.prodname_mobile %}, and in supported IDEs _({% data variables.product.prodname_vscode %}, {% data variables.product.prodname_vs %}, and JetBrains IDEs)_. Users can also use skills with {% data variables.product.prodname_copilot_chat_short %}.
+A chat interface that lets you ask coding-related questions. {% data variables.product.prodname_copilot_chat %} is available on the {% data variables.product.github %} website, in {% data variables.product.prodname_mobile %}, in supported IDEs _({% data variables.product.prodname_vscode %}, {% data variables.product.prodname_vs %}, and JetBrains IDEs)_, and in {% data variables.product.prodname_windows_terminal %}. Users can also use skills with {% data variables.product.prodname_copilot_chat_short %}.
 
 ### {% data variables.product.prodname_copilot_cli_short %}
 
-A chat-like interface in the terminal, where you can ask questions about the command line. You can ask {% data variables.product.prodname_copilot_short %} to provide command suggestions or explanations of commands.
+A chat-like interface in the terminal, where you can ask questions about the command line. You can ask {% data variables.product.prodname_copilot_short %} to provide command suggestions or explanations of commands. Users can also integrate {% data variables.product.prodname_copilot_short %} in {% data variables.product.prodname_windows_terminal %} Canary.
 
 ### {% data variables.product.prodname_copilot_for_prs %}
 
@@ -33,6 +33,14 @@ AI-generated summaries of the changes that were made in a pull request, which fi
 ### {% data variables.product.prodname_copilot_autocomplete_pr %} ({% data variables.release-phases.public_preview %})
 
 AI-generated text completion to help you write pull request descriptions quickly and accurately.
+
+### {% data variables.product.prodname_copilot_extensions %} ({% data variables.release-phases.public_preview %})
+
+{% data reusables.copilot.copilot-extensions.copilot-extensions-intro %}
+
+### GitHub Models ({% data variables.release-phases.public_preview %})
+
+Bringing the power of industry leading large and small language models to users directly on {% data variables.product.github %}.
 
 ### {% data variables.product.prodname_copilot_short %} knowledge bases _({% data variables.product.prodname_copilot_enterprise_short %} only)_
 
@@ -65,4 +73,4 @@ Configure {% data variables.product.prodname_copilot_short %} to ignore certain 
 ## Next steps
 
 * To learn more about the subscription plans available for {% data variables.product.prodname_copilot %}, see "[AUTOTITLE](/copilot/about-github-copilot/subscription-plans-for-github-copilot)."
-* To start using Copilot, see "[AUTOTITLE](/copilot/setting-up-github-copilot)."
+* To start using {% data variables.product.prodname_copilot_short %}, see "[AUTOTITLE](/copilot/setting-up-github-copilot)."

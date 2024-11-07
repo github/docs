@@ -136,6 +136,8 @@ Anyone can fork a public repository, then submit a pull request to propose chang
 
 You can configure which pull requests require approval before they are run.
 
+>[!WARNING] When requiring approvals only for first-time contributors (the first two settings), a user that has had any commit or pull request merged into the repository will not require approval. A malicious user could meet this requirement by getting a simple typo or other innocuous change accepted by a maintainer, either as part of a pull request they have authored or as part of another user's pull request.
+
 * **Require approval for first-time contributors who are new to {% data variables.product.prodname_dotcom %}**. Requires approval for users who have never committed to the repository and have new {% data variables.product.prodname_dotcom %} accounts.
 * **Require approval for first-time contributors**. Requires approval for users who have never committed to the repository.
 * **Require approval for all outside collaborators**. Requires approval for all users who are not organization members.

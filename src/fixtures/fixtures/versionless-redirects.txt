@@ -451,7 +451,7 @@
 - /articles/changing-the-visibility-of-your-organizations-dependency-insights
 - /github/setting-up-and-managing-organizations-and-teams/changing-the-visibility-of-your-organizations-dependency-insights
 
-/enterprise-server@latest/search-github/getting-started-with-searching-on-github/enabling-githubcom-repository-search-from-your-private-enterprise-environment
+/enterprise-server@latest/search-github/getting-started-with-searching-on-github/enabling-repository-search-across-environments
 - /search-github/getting-started-with-searching-on-github/enabling-githubcom-repository-search-from-your-private-enterprise-environment
 - /articles/enabling-private-githubcom-repository-search-in-your-github-enterprise-account
 - /articles/enabling-private-github-com-repository-search-in-your-github-enterprise-server-account

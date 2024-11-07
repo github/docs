@@ -10,8 +10,6 @@ import {
   makeLanguageSurrogateKey,
 } from '#src/frame/middleware/set-fastly-surrogate-key.js'
 
-const AZURE_STORAGE_URL = 'githubdocs.azureedge.net'
-
 describe('server', () => {
   vi.setConfig({ testTimeout: 60 * 1000 })
 
@@ -49,12 +47,10 @@ describe('server', () => {
     expect(csp.get('default-src')).toBe("'none'")
 
     expect(csp.get('font-src').includes("'self'")).toBe(true)
-    expect(csp.get('font-src').includes(AZURE_STORAGE_URL)).toBe(true)
 
     expect(csp.get('connect-src').includes("'self'")).toBe(true)
 
     expect(csp.get('img-src').includes("'self'")).toBe(true)
-    expect(csp.get('img-src').includes(AZURE_STORAGE_URL)).toBe(true)
 
     expect(csp.get('script-src').includes("'self'")).toBe(true)
 

@@ -33,7 +33,7 @@ You can use content exclusions to configure {% data variables.product.prodname_c
 
 ### Who can configure content exclusion
 
-Repository administrators{% ifversion ghec%}, organization owners, and enterprise owners{% else %} and organization owners{% endif %} can configure content exclusion.
+Repository administrators{% ifversion ghec %}, organization owners, and enterprise owners{% else %} and organization owners{% endif %} can configure content exclusion.
 
 {% data reusables.copilot.content-exclusions-scope %}
 
@@ -45,6 +45,7 @@ Repository administrators{% ifversion ghec%}, organization owners, and enterpris
 | {% data variables.product.prodname_vscode %}    | {% octicon "check" aria-label="Supported" %}  |           {% octicon "check" aria-label="Supported" %}           |
 | JetBrains IDEs                                  | {% octicon "check" aria-label="Supported" %}  |           {% octicon "check" aria-label="Supported" %}           |
 | Vim/Neovim                                      | {% octicon "check" aria-label="Supported" %}  |                          Not applicable                          |
+| Xcode                                           | {% octicon "check" aria-label="Supported" %}  |                          Not applicable                          |
 | Azure Data Studio                               | {% octicon "x" aria-label="Not supported" %}  |                          Not applicable                          |
 | The {% data variables.product.github %} website |                Not applicable                 |           {% octicon "x" aria-label="Not supported" %}           |
 
@@ -65,7 +66,7 @@ You can use your repository settings to specify content in your repository that 
 
 1. In the "Code & automation" section of the side bar, click **{% octicon "copilot" aria-hidden="true" %} {% data variables.product.prodname_copilot_short %}**.
 
-   If your repository inherits any exclusions from {%ifversion fpt %}its parent organization{% else %} organizations in the same enterprise{% endif %}, you'll see {%ifversion ghec %}one or more{% else %} a{% endif %} gray box{%ifversion ghec %}es{% endif %} at the top of the page containing details of these exclusions. You cannot edit these settings.
+   If your repository inherits any exclusions from {% ifversion fpt %}its parent organization{% else %} organizations in the same enterprise{% endif %}, you'll see {% ifversion ghec %}one or more{% else %} a{% endif %} gray box{% ifversion ghec %}es{% endif %} at the top of the page containing details of these exclusions. You cannot edit these settings.
 
 1. In the box following "Paths to exclude in this repository," enter the paths to files from which {% data variables.product.prodname_copilot_short %} should be excluded.
 

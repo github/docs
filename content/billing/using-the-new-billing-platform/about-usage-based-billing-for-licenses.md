@@ -30,5 +30,6 @@ Pending invitations to join an organization that belongs to your enterprise on {
 You can use the following payment methods for usage-based billing for licenses:
 
 * Invoiced and self-serve {% data variables.product.prodname_enterprise %} customers can pay using a **credit card** or **PayPal**
+* Invoiced customers can also pay using **prepaid credits** (only available to customers who have a volume subscription with or without metered add-ons)
 * You can connect an **Azure** subscription to your enterprise
 * For **purchase orders**, you can contact your account manager in {% data variables.contact.contact_enterprise_sales %}

@@ -48,6 +48,7 @@ There are some limits on {% data variables.product.prodname_actions %} usage whe
 * **Job execution time** - Each job in a workflow can run for up to 6 hours of execution time. If a job reaches this limit, the job is terminated and fails to complete.
 {% data reusables.actions.usage-workflow-run-time %}
 {% data reusables.actions.usage-api-requests %}
+* **Webhook rate limit** - Each repository is limited to 1500 triggered events every 10 seconds.
 * **Concurrent jobs** - The number of concurrent jobs you can run in your account depends on your {% data variables.product.prodname_dotcom %} plan, as well as the type of runner used. If exceeded, any additional jobs are queued.
 
   **Standard {% data variables.product.prodname_dotcom %}-hosted runners**
@@ -93,7 +94,7 @@ In addition to the usage limits, you must ensure that you use {% data variables.
 
 ## {% data variables.product.prodname_actions %} usage metrics
 
-Organization owners and users with the "View organization Actions usage metrics" permission can view {% data variables.product.prodname_actions %} usage metrics for their organization. These metrics can help you understand how and where your Actions minutes are being used. For more information, see "[AUTOTITLE](/enterprise-cloud@latest/organizations/collaborating-with-groups-in-organizations/viewing-usage-metrics-for-github-actions)."
+Organization owners and users with the "View organization Actions metrics" permission can view {% data variables.product.prodname_actions %} usage metrics for their organization. These metrics can help you understand how and where your Actions minutes are being used. For more information, see "[AUTOTITLE](/enterprise-cloud@latest/organizations/collaborating-with-groups-in-organizations/viewing-usage-metrics-for-github-actions)."
 
 When you view usage metrics, it is important to remember that {% data reusables.actions.actions-usage-metrics-not-billing-metrics %}
 

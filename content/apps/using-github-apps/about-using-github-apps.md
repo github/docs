@@ -19,6 +19,8 @@ topics:
 {% ifversion fpt or ghec %}
 You can discover {% data variables.product.prodname_github_apps %} on [{% data variables.product.prodname_marketplace %}](https://github.com/marketplace). {% else %}You cannot install third-party applications on your enterprise. If you want to use the functionality of a third-party app, you can contact the app developer about creating an app from a manifest or from URL parameters. For more information, see "[AUTOTITLE](/apps/creating-github-apps/setting-up-a-github-app/creating-a-github-app-from-a-manifest)" and "[AUTOTITLE](/apps/creating-github-apps/setting-up-a-github-app/creating-a-github-app-using-url-parameters)."{% endif %}
 
+{% data reusables.data-residency.github-marketplace-apps-unsupported %}
+
 You can also build your own {% data variables.product.prodname_github_app %}. For more information, see "[AUTOTITLE](/apps/creating-github-apps/setting-up-a-github-app/about-creating-github-apps)."
 
 ## Using {% data variables.product.prodname_github_apps %}

@@ -1,0 +1,111 @@
+name: Index general search in Elasticsearch on PR
+
+# **What it does**: This does what `index-general-search-elasticsearch.yml` does but
+#                   with a localhost Elasticsearch and only for English.
+# **Why we have it**: To test that the script works and the popular pages json is valid.
+# **Who does it impact**: Docs engineering
+
+on:
+  workflow_dispatch:
+  pull_request:
+    paths:
+      - 'src/search/**'
+      - 'package*.json'
+      # For debugging this workflow
+      - .github/workflows/index-general-search-pr.yml
+      # Make sure we run this if the composite action changes
+      - .github/actions/setup-elasticsearch/action.yml
+
+permissions:
+  contents: read
+
+# This allows a subsequently queued workflow run to interrupt previous runs
+concurrency:
+  group: '${{ github.workflow }} @ ${{ github.event.pull_request.head.label || github.head_ref || github.ref }}'
+  cancel-in-progress: true
+
+env:
+  ELASTICSEARCH_URL: http://localhost:9200
+  # Since we'll run in NDOE_ENV=production, we need to be explicit that
+  # we don't want Hydro configured.
+  HYDRO_ENDPOINT: ''
+  HYDRO_SECRET: ''
+
+jobs:
+  dryRunElasticsearchIndexes:
+    runs-on: ubuntu-20.04-xl
+    if: github.repository == 'github/docs-internal'
+    steps:
+      - name: Check out repo
+        uses: actions/checkout@b4ffde65f46336ab88eb53be808477a3936bae11 # v4.1.1
+
+      - name: Clone docs-internal-data
+        uses: actions/checkout@b4ffde65f46336ab88eb53be808477a3936bae11 # v4.1.1
+        with:
+          repository: github/docs-internal-data
+          # This works because user `docs-bot` has read access to that private repo.
+          token: ${{ secrets.DOCS_BOT_PAT_READPUBLICKEY }}
+          path: docs-internal-data
+
+      - uses: ./.github/actions/setup-elasticsearch
+
+      - uses: ./.github/actions/node-npm-setup
+
+      - uses: ./.github/actions/cache-nextjs
+
+      - name: Build
+        run: npm run build
+
+      - name: Start the server in the background
+        env:
+          ENABLE_DEV_LOGGING: false
+        run: |
+          npm run general-search-scrape-server > /tmp/stdout.log 2> /tmp/stderr.log &
+
+          # first sleep to give it a chance to start
+          sleep 6
+          curl --retry-connrefused --retry 4 -I http://localhost:4002/
+
+      - if: ${{ failure() }}
+        name: Debug server outputs on errors
+        run: |
+          echo "____STDOUT____"
+          cat /tmp/stdout.log
+          echo "____STDERR____"
+          cat /tmp/stderr.log
+
+      - name: Scrape records into a temp directory
+        env:
+          # If a reusable, or anything in the `data/*` directory is deleted
+          # you might get a
+          #
+          #   RenderError: Can't find the key 'site.data.reusables...' in the scope
+          #
+          # But that'll get fixed in the next translation pipeline. For now,
+          # let's just accept an empty string instead.
+          THROW_ON_EMPTY: false
+
+          DOCS_INTERNAL_DATA: docs-internal-data
+
+        run: |
+          mkdir /tmp/records
+          npm run general-search-scrape -- /tmp/records \
+            --language en \
+            --version fpt
+
+          ls -lh /tmp/records
+
+      - name: Check that Elasticsearch is accessible
+        run: |
+          curl --fail --retry-connrefused --retry 5 -I ${{ env.ELASTICSEARCH_URL }}
+
+      - name: Index into Elasticsearch
+        run: |
+          npm run index-general-search -- /tmp/records \
+            --language en \
+            --version fpt
+
+      - name: Check created indexes and aliases
+        run: |
+          curl --fail --retry-connrefused --retry 5 ${{ env.ELASTICSEARCH_URL }}/_cat/indices?v
+          curl --fail --retry-connrefused --retry 5 ${{ env.ELASTICSEARCH_URL }}/_cat/indices?v

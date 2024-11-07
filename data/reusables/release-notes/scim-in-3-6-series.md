@@ -1,1 +1,0 @@
-Releases in the 3.6 series of GitHub Enterprise Server are no longer suitable for testing SCIM. To continue using the {% data variables.release-phases.private_preview %} of SCIM, upgrade your instance to version 3.7.3 or later. For more information, see "[AUTOTITLE](/admin/upgrading-your-instance/preparing-to-upgrade/overview-of-the-upgrade-process)."

@@ -21,6 +21,8 @@ redirect_from:
 
 {% data reusables.enterprise-accounts.emu-cap-validates %}
 
+{% data reusables.enterprise-accounts.emu-cap-public-preview %}
+
 {% data variables.product.product_name %} supports CAP for any {% data variables.enterprise.prodname_emu_enterprise %} where OIDC SSO is enabled. Enterprise owners can choose to use this IP allow list configuration instead of {% data variables.product.product_name %}'s IP allow list, and can do so once OIDC SSO is configured. For more information about IP allow lists, see "[AUTOTITLE](/admin/configuration/configuring-your-enterprise/restricting-network-traffic-to-your-enterprise-with-an-ip-allow-list#about-your-idps-allow-list)" and "[AUTOTITLE](/organizations/keeping-your-organization-secure/managing-security-settings-for-your-organization/managing-allowed-ip-addresses-for-your-organization)."
 
 * {% data variables.product.product_name %} enforces your IdP's IP conditions but cannot enforce your device compliance conditions.

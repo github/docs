@@ -2,7 +2,7 @@
 title: Responsible use of AI to define regular expressions
 shortTitle: Generate regular expressions with AI
 intro: 'Learn about the capabilities and limitations of the {% data variables.secret-scanning.custom-pattern-regular-expression-generator %} in helping you to define custom patterns to extend the capabilities of {% data variables.product.prodname_secret_scanning %}.'
-product: '{% data reusables.gated-features.secret-scanning %}'
+product: '{% data reusables.gated-features.copilot-secret-scanning %}'
 allowTitleToDifferFromFilename: true
 versions:
   feature: secret-scanning-custom-pattern-ai-generated

@@ -220,6 +220,6 @@ You can configure the size limit for {% data variables.product.prodname_actions 
 {% data reusables.profile.access_org %}
 {% data reusables.profile.org_settings %}
 {% data reusables.organizations.settings-sidebar-actions-general %}
-{% data reusables.actions.change-cache-size-limit  %}
+{% data reusables.actions.change-cache-size-limit %}
 
 {% endif %}

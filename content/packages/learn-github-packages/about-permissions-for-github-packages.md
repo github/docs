@@ -18,9 +18,15 @@ Packages with granular permissions are scoped to a personal account or organizat
 The following {% data variables.product.prodname_registry %} registries support granular permissions.
 
 * {% data variables.product.prodname_container_registry %}
-{% ifversion packages-npm-v2 %}- npm registry{% endif %}
-{% ifversion packages-nuget-v2 %}- NuGet registry{% endif %}
-{% ifversion packages-rubygems-v2 %}- RubyGems registry{% endif %}
+{%- ifversion packages-npm-v2 %}
+* npm registry
+{%- endif %}
+{%- ifversion packages-nuget-v2 %}
+* NuGet registry
+{%- endif %}
+{%- ifversion packages-rubygems-v2 %}
+* RubyGems registry
+{%- endif %}
 
 ## Permissions for repository-scoped packages
 
@@ -28,12 +34,20 @@ A repository-scoped package inherits the permissions and visibility of the repos
 
 The following {% data variables.product.prodname_registry %} registries **only** support repository-scoped permissions.
 
-{% ifversion not fpt or ghec %}- Docker registry (`docker.pkg.github.com`){% endif %}
-{% ifversion packages-npm-v2 %}{% else %}- npm registry{% endif %}
+{%- ifversion not fpt or ghec %}
+* Docker registry (`docker.pkg.github.com`)
+{%- endif %}
+{%- ifversion packages-npm-v2 %}{% else %}
+* npm registry
+{%- endif %}
 * Apache Maven registry
 * Gradle registry
-{% ifversion packages-nuget-v2 %}{% else %}- NuGet registry{% endif %}
-{% ifversion packages-rubygems-v2 %}{% else %}- RubyGems registry{% endif %}
+{%- ifversion packages-nuget-v2 %}{% else %}
+* NuGet registry
+{%- endif %}
+{%- ifversion packages-rubygems-v2 %}{% else %}
+* RubyGems registry
+{%- endif %}
 
 For {% ifversion ghes %}the {% data variables.product.prodname_container_registry %}{% else %}other registries{% endif %}, you can choose to allow packages to be scoped to a user or an organization, or linked to a repository. {% ifversion docker-ghcr-enterprise-migration %}For information about migration to the {% data variables.product.prodname_container_registry %}, see "[AUTOTITLE](/packages/working-with-a-github-packages-registry/migrating-to-the-container-registry-from-the-docker-registry)."{% endif %}
 
@@ -51,14 +65,13 @@ To use or manage a package hosted by a package registry, you must use a {% data 
 
 For example:
 * To download and install packages from a repository, your {% data variables.product.pat_v1 %} must have the `read:packages` scope, and your user account must have read permission.
-* To delete a package on {% data variables.product.product_name %}, your {% data variables.product.pat_v1 %} must at least have the `delete:packages` and `read:packages` scope. The `repo` scope is also required for repo-scoped packages. For more information, see "[AUTOTITLE](/packages/learn-github-packages/deleting-and-restoring-a-package)."
+* To delete a package on {% data variables.product.product_name %}, your {% data variables.product.pat_v1 %} must at least have the `delete:packages` and `read:packages` scope. For more information, see "[AUTOTITLE](/packages/learn-github-packages/deleting-and-restoring-a-package)."
 
 | Scope | Description | Required permission |
 | --- | --- | --- |
-|`read:packages`| Download and install packages from {% data variables.product.prodname_registry %} | read |
-|`write:packages`| Upload and publish packages to {% data variables.product.prodname_registry %} | write |
+| `read:packages` | Download and install packages from {% data variables.product.prodname_registry %} | read |
+| `write:packages` | Upload and publish packages to {% data variables.product.prodname_registry %} | write |
 | `delete:packages` | Delete packages from {% data variables.product.prodname_registry %} | admin |
-| `repo` | Upload and delete packages (along with `write:packages`, or `delete:packages`) | write or admin |
 
 {% data reusables.package_registry.delete-with-github-token-using-api-beta %}
 

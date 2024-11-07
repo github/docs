@@ -31,11 +31,17 @@ On this page, you can view your usage in the following categories:
 * **By organization** and **by repository:** The two cards under the graph show the top five organizations and repositories that generate the most usage. You can click {% octicon "kebab-horizontal" aria-label="Open column options" %} in the upper-right corner of each card to view all usage.
 * **By products:** You can use the product tabs to view usage and discounts for different products. Only products with usage are shown.
 
-    ![Screenshot of the product tabs section of the overview page.](/assets/images/help/billing/enhanced-billing-platform-products-tabs.png){% ifversion metered-ghe-ghas%}
+    ![Screenshot of the product tabs section of the overview page.](/assets/images/help/billing/enhanced-billing-platform-products-tabs.png){% ifversion metered-ghe-ghas %}
 
    {% data reusables.billing.actions-usage-delay %}
 
    {% endif %}
+
+## Viewing prepaid credits
+
+Your prepaid credits are shown above the "Metered usage" graph. To add more prepaid credits, you can contact your account manager in {% data variables.contact.contact_enterprise_sales %}.
+
+If you don't currently use prepaid credits, but have a volume subscription and would like to use credits, you can contact your account manager in {% data variables.contact.contact_enterprise_sales %}. Prepaid credits are only available to customers who are invoiced (with or without metered add-ons). Prepaid credits can't be used if your account _only_ includes metered add-ons.
 
 ## Viewing promotion and discounts
 

@@ -32,20 +32,19 @@ When you work in a codespace, you use the JetBrains thin client application on y
 ### The JetBrains remote development connection process
 
 The basic process behind using a codespace in your JetBrains IDE is as follows.
-
-* In the JetBrains Gateway application you select one of your active or stopped codespaces.
-* You then choose which JetBrains IDE you want to use.
-* The selected JetBrains IDE is then downloaded to the remote virtual machine that hosts your codespace and source code.
-* The JetBrains thin client application is then downloaded to your local machine and started.
-* The client application connects to the full backend IDE.
-* You can work on your code in the client application in just the same way you would in a local environment.
+1. In the JetBrains Gateway application you select one of your active or stopped codespaces.
+1. You then choose which JetBrains IDE you want to use.
+1. The selected JetBrains IDE is then downloaded to the remote virtual machine that hosts your codespace and source code.
+1. The JetBrains thin client application is then downloaded to your local machine and started.
+1. The client application connects to the full backend IDE.
+1. You can work on your code in the client application in just the same way you would in a local environment.
 
 ## Prerequisites
 
 To work in a codespace in a JetBrains IDE you need:
 
-* A valid JetBrains license.
-* The JetBrains Gateway application, versions 2023.3.\* or 2024.1.\*.
+* A valid JetBrains license
+* The JetBrains Gateway application, versions 2023.3.\* or 2024.1.\*
 * An existing codespace running on a virtual machine that has at least 4 cores. The codespace must also be running an SSH server. For more information, see "[Codespace running an SSH server](#codespace-running-an-ssh-server)."
 
 ### JetBrains license

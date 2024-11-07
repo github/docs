@@ -14,7 +14,7 @@ redirect_from:
 
 ## Prerequisites
 
-* **Access to {% data variables.product.prodname_copilot %}**. See "[AUTOTITLE](/copilot/about-github-copilot#getting-access-to-github-copilot)."
+* **Access to {% data variables.product.prodname_copilot %}**. See "[AUTOTITLE](/copilot/about-github-copilot/what-is-github-copilot#getting-access-to-copilot)."
 * **{% data variables.product.prodname_cli %} installed**. {% data reusables.cli.cli-installation %}
 * **{% data variables.product.prodname_copilot_cli_short %} extension installed**. See "[AUTOTITLE](/copilot/github-copilot-in-the-cli/installing-github-copilot-in-the-cli)."
 

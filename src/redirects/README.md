@@ -58,12 +58,11 @@ As a workaround for these lost redirects, we have two files in `lib/redirects/st
   which had a record of each possible redirect candidate that we should bother
   redirecting too.
   Now, this new file has been created by accurately comparing it to the actual
-  content inside the `github/help-docs-archived-enterprise-versions` repo for the
+  content inside one of the `github/docs-ghes-<release number>` repos for the
   version range of 2.13 to 2.17. So every key in `archived-frontmatter-valid-urls.json`
   corresponds to a file that would work.
 
-Here's how the `src/archives/middleware/archived-enterprise-versions.js` fallback works: if someone tries to access an article that was updated via a now-lost frontmatter redirect (for example, an article at the path `/en/enterprise/2.15/user/articles/viewing-contributions-on-your-profile-page`), the middleware will first look for a redirect in `archived-redirects-from-213-to-217.json`. If it does not find one, it will look for it in `archived-frontmatter-valid-urls.json` that contains the requested path. If it finds it, it will redirect to it to because that file knows exactly which URLs are valid in
-`help-docs-archived-enterprise-versions`.
+Here's how the `src/archives/middleware/archived-enterprise-versions.js` fallback works: if someone tries to access an article that was updated via a now-lost frontmatter redirect (for example, an article at the path `/en/enterprise/2.15/user/articles/viewing-contributions-on-your-profile-page`), the middleware will first look for a redirect in `archived-redirects-from-213-to-217.json`. If it does not find one, it will look for it in `archived-frontmatter-valid-urls.json` that contains the requested path. If it finds it, it will redirect to it to because that file knows exactly which URLs are valid in the `docs-ghes-<release number>` repos.
 
 ## Tests
 
