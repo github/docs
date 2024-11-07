@@ -18,11 +18,8 @@ shortTitle: Disable 2FA
 {% data reusables.two_fa.mandatory-2fa-contributors-2023 %}
 {% endif %}
 
-{% warning %}
-
-**Warning:** If you're a member{% ifversion fpt or ghec %}, billing manager,{% endif %} or outside collaborator to a public repository of an organization that requires two-factor authentication and you disable 2FA, you'll be automatically removed from the organization, and you'll lose your access to their repositories. To regain access to the organization, re-enable two-factor authentication and contact an organization owner.
-
-{% endwarning %}
+> [!WARNING]
+> If you're a member{% ifversion fpt or ghec %}, billing manager,{% endif %} or outside collaborator to a public repository of an organization that requires two-factor authentication and you disable 2FA, you'll be automatically removed from the organization, and you'll lose your access to their repositories. To regain access to the organization, re-enable two-factor authentication and contact an organization owner.
 
 We strongly recommend using two-factor authentication (2FA) to secure your account. If you need to disable 2FA, we recommend re-enabling it as soon as possible.
 

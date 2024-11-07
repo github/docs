@@ -55,14 +55,11 @@ To reduce the size of your CODEOWNERS file, consider using wildcard patterns to 
 
 ## CODEOWNERS syntax
 
-{% warning %}
-
-**Warning:** There are some syntax rules for gitignore files that _do not work_ in CODEOWNERS files:
-* Escaping a pattern starting with `#` using `\` so it is treated as a pattern and not a comment doesn't work
-* Using `!` to negate a pattern doesn't work
-* Using `[ ]` to define a character range doesn't work
-
-{% endwarning %}
+> [!WARNING]
+> There are some syntax rules for gitignore files that _do not work_ in CODEOWNERS files:
+> * Escaping a pattern starting with `#` using `\` so it is treated as a pattern and not a comment doesn't work
+> * Using `!` to negate a pattern doesn't work
+> * Using `[ ]` to define a character range doesn't work
 
 A CODEOWNERS file uses a pattern that follows most of the same rules used in [gitignore](https://git-scm.com/docs/gitignore#_pattern_format) files. The pattern is followed by one or more {% data variables.product.prodname_dotcom %} usernames or team names using the standard `@username` or `@org/team-name` format. Users and teams must have explicit `write` access to the repository, even if the team's members already have access.
 

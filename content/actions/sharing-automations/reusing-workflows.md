@@ -169,11 +169,8 @@ You can define inputs and secrets, which can be passed from the caller workflow 
 
    In the example above, `personal_access_token` is a secret that's defined at the repository or organization level.
 
-   {% warning %}
-
-   **Warning**: Environment secrets cannot be passed from the caller workflow as `on.workflow_call` does not support the `environment` keyword. If you include `environment` in the reusable workflow at the job level, the environment secret will be used, and not the secret passed from the caller workflow. For more information, see "[AUTOTITLE](/actions/deployment/targeting-different-environments/managing-environments-for-deployment#environment-secrets)" and "[AUTOTITLE](/actions/writing-workflows/workflow-syntax-for-github-actions#onworkflow_call)".
-
-   {% endwarning %}
+   > [!WARNING]
+   > Environment secrets cannot be passed from the caller workflow as `on.workflow_call` does not support the `environment` keyword. If you include `environment` in the reusable workflow at the job level, the environment secret will be used, and not the secret passed from the caller workflow. For more information, see "[AUTOTITLE](/actions/deployment/targeting-different-environments/managing-environments-for-deployment#environment-secrets)" and "[AUTOTITLE](/actions/writing-workflows/workflow-syntax-for-github-actions#onworkflow_call)".
 
 1. Pass the input or secret from the caller workflow.
 

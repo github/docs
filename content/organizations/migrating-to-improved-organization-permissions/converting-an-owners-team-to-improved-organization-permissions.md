@@ -38,11 +38,8 @@ You have a few options to convert your legacy Owners team:
 
 ## Delete the legacy Owners team
 
-{% warning %}
-
-**Warning:** If there are members of your Owners team who are not members of other teams, deleting the team will remove those members from the organization. Before deleting the team, ensure members are already direct members of the organization, or have collaborator access to necessary repositories.
-
-{% endwarning %}
+> [!WARNING]
+> If there are members of your Owners team who are not members of other teams, deleting the team will remove those members from the organization. Before deleting the team, ensure members are already direct members of the organization, or have collaborator access to necessary repositories.
 
 {% data reusables.profile.access_org %}
 {% data reusables.user-settings.access_org %}

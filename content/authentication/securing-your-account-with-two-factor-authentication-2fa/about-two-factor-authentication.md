@@ -53,11 +53,8 @@ For more information, see "[AUTOTITLE](/authentication/securing-your-account-wit
 
 {% ifversion fpt or ghec %}
 
-{% warning %}
-
-**Warning**: {% data reusables.two_fa.support-may-not-help %} For more information, see "[AUTOTITLE](/authentication/securing-your-account-with-two-factor-authentication-2fa/recovering-your-account-if-you-lose-your-2fa-credentials)."
-
-{% endwarning %}
+> [!WARNING]
+> {% data reusables.two_fa.support-may-not-help %} For more information, see "[AUTOTITLE](/authentication/securing-your-account-with-two-factor-authentication-2fa/recovering-your-account-if-you-lose-your-2fa-credentials)."
 
 {% endif %}
 

@@ -65,11 +65,8 @@ Root storage refers to the total size of your instance's root disk. The availabl
 
 ## Increasing the root partition size using an existing appliance
 
-{% warning %}
-
-**Warning:** Before increasing the root partition size, you must put your instance in maintenance mode. For more information, see "[AUTOTITLE](/admin/configuration/configuring-your-enterprise/enabling-and-scheduling-maintenance-mode)."
-
-{% endwarning %}
+> [!WARNING]
+> Before increasing the root partition size, you must put your instance in maintenance mode. For more information, see "[AUTOTITLE](/admin/configuration/configuring-your-enterprise/enabling-and-scheduling-maintenance-mode)."
 
 1. Attach a new disk to your {% data variables.product.prodname_ghe_server %} appliance.
 1. Run the `lsblk` command to identify the new disk's device name.

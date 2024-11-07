@@ -102,11 +102,8 @@ To create the instance, you'll need to launch an EC2 instance with your {% data 
 > [!NOTE]
 > You can encrypt the data disk to gain an extra level of security and ensure that any data you write to your instance is protected. There is a slight performance impact when using encrypted disks. If you decide to encrypt your volume, we strongly recommend doing so **before** starting your instance for the first time. For more information, see the [Amazon guide on EBS encryption](https://docs.aws.amazon.com/AWSEC2/latest/UserGuide/EBSEncryption.html).
 
-{% warning %}
-
-**Warning:** If you decide to enable encryption after you've configured your instance, you will need to migrate your data to the encrypted volume, which will incur some downtime for your users.
-
-{% endwarning %}
+> [!WARNING]
+> If you decide to enable encryption after you've configured your instance, you will need to migrate your data to the encrypted volume, which will incur some downtime for your users.
 
 ### Launching an EC2 instance
 

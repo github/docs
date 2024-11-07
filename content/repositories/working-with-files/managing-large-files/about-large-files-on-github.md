@@ -64,11 +64,8 @@ You can prevent your repository from impacting your infrastructure by effectivel
 
 ## Removing files from a repository's history
 
-{% warning %}
-
-**Warning**: These procedures will permanently remove files from the repository on your computer and {% data variables.location.product_location %}. If the file is important, make a local backup copy in a directory outside of the repository.
-
-{% endwarning %}
+> [!WARNING]
+> These procedures will permanently remove files from the repository on your computer and {% data variables.location.product_location %}. If the file is important, make a local backup copy in a directory outside of the repository.
 
 ### Removing a file added in the most recent unpushed commit
 

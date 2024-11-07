@@ -21,13 +21,10 @@ You must have Homebrew installed. For more information, see the [installation gu
 
 ## Solving the issue
 
-{% warning %}
-
-**Warning:** If you install OpenSSH, your computer will not be able to retrieve passphrases that are stored in the Apple keychain. You will need to enter your passphrase or interact with your hardware security key every time you authenticate with SSH to {% data variables.product.prodname_dotcom %} or another web service.
-
-If you remove OpenSSH, the passphrases that are stored in your keychain will once again be retrievable. You can remove OpenSSH by entering the command `brew uninstall openssh` in Terminal.
-
-{% endwarning %}
+> [!WARNING]
+> If you install OpenSSH, your computer will not be able to retrieve passphrases that are stored in the Apple keychain. You will need to enter your passphrase or interact with your hardware security key every time you authenticate with SSH to {% data variables.product.prodname_dotcom %} or another web service.
+>
+> If you remove OpenSSH, the passphrases that are stored in your keychain will once again be retrievable. You can remove OpenSSH by entering the command `brew uninstall openssh` in Terminal.
 
 1. Open Terminal.
 1. Enter the command `brew install openssh`.

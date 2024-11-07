@@ -14,11 +14,9 @@ topics:
   - GitHub Apps
 shortTitle: Activate optional features
 ---
-{% warning %}
 
-**Warning:**  Optional features are subject to change.
-
-{% endwarning %}
+> [!WARNING]
+> Optional features are subject to change.
 
 ## Activating optional features for {% data variables.product.prodname_github_apps %}
 

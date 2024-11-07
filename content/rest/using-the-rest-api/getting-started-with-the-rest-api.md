@@ -143,11 +143,8 @@ For an example of a request that uses an authentication token, see "[Making a re
 > [!NOTE]
 > If you don't want to create a token, you can use {% data variables.product.prodname_cli %}. {% data variables.product.prodname_cli %} will take care of authentication for you, and help keep your account secure. For more information, see the [{% data variables.product.prodname_cli %} version of this page](/rest/guides/getting-started-with-the-rest-api?tool=cli).
 
-{% warning %}
-
-**Warning:** Treat your access token the same way you would treat your passwords or other sensitive credentials. For more information, see "[AUTOTITLE](/rest/overview/keeping-your-api-credentials-secure)."
-
-{% endwarning %}
+> [!WARNING]
+> Treat your access token the same way you would treat your passwords or other sensitive credentials. For more information, see "[AUTOTITLE](/rest/overview/keeping-your-api-credentials-secure)."
 
 {% endcurl %}
 
@@ -163,11 +160,8 @@ To authenticate your request, you will need to provide an authentication token w
 
 For an example of a request that uses an authentication token, see "[Making a request](#making-a-request)."
 
-{% warning %}
-
-**Warning:** Treat your access token the same way you would treat your passwords or other sensitive credentials. For more information, see "[AUTOTITLE](/rest/overview/keeping-your-api-credentials-secure)."
-
-{% endwarning %}
+> [!WARNING]
+> Treat your access token the same way you would treat your passwords or other sensitive credentials. For more information, see "[AUTOTITLE](/rest/overview/keeping-your-api-credentials-secure)."
 
 {% endjavascript %}
 

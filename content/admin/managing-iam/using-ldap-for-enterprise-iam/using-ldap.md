@@ -54,11 +54,8 @@ After you configure LDAP, users will be able to sign into your instance with the
 
 When you configure LDAP access for users via the {% data variables.enterprise.management_console %}, your user licenses aren't used until the first time a user signs in to your instance. However, if you create an account manually using site admin settings, the user license is immediately accounted for.
 
-{% warning %}
-
-**Warning:** Before configuring LDAP on {% data variables.location.product_location %}, make sure that your LDAP service supports paged results.
-
-{% endwarning %}
+> [!WARNING]
+> Before configuring LDAP on {% data variables.location.product_location %}, make sure that your LDAP service supports paged results.
 
 {% data reusables.enterprise_site_admin_settings.access-settings %}
 {% data reusables.enterprise_site_admin_settings.management-console %}

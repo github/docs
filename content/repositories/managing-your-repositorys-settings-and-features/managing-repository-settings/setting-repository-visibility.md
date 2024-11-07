@@ -32,15 +32,11 @@ We recommend reviewing the following caveats before you change the visibility of
 
 {% ifversion ghes %}
 
-{% warning %}
-
-**Warning:** Changes to the visibility of a large repository or repository network may affect data integrity. Visibility changes can also have unintended effects on forks. {% data variables.product.company_short %} recommends the following before changing the visibility of a repository network.
-
-* Wait for a period of reduced activity on {% data variables.location.product_location %}.
-
-* Contact your site administrator before proceeding. Your site administrator can contact us for further assistance by visiting {% data variables.contact.contact_ent_support %}.
-
-{% endwarning %}
+> [!WARNING]
+> Changes to the visibility of a large repository or repository network may affect data integrity. Visibility changes can also have unintended effects on forks. {% data variables.product.company_short %} recommends the following before changing the visibility of a repository network.
+>
+> * Wait for a period of reduced activity on {% data variables.location.product_location %}.
+> * Contact your site administrator before proceeding. Your site administrator can contact us for further assistance by visiting {% data variables.contact.contact_ent_support %}.
 
 {% endif %}
 

@@ -35,11 +35,8 @@ If you want to migrate to a new identity provider (IdP) or tenant rather than di
 
 ## Disabling authentication
 
-{% warning %}
-
-**Warning**: Disabling authentication and provisioning will prevent your enterprise's {% data variables.enterprise.prodname_managed_users %} from signing in to access your enterprise on {% data variables.product.product_name %}.
-
-{% endwarning %}
+> [!WARNING]
+> Disabling authentication and provisioning will prevent your enterprise's {% data variables.enterprise.prodname_managed_users %} from signing in to access your enterprise on {% data variables.product.product_name %}.
 
 {% data reusables.emus.sign-in-as-setup-user %}
 1. Attempt to access your enterprise account, and use a recovery code to bypass SAML SSO or OIDC. For more information, see "[AUTOTITLE](/admin/identity-and-access-management/managing-recovery-codes-for-your-enterprise/accessing-your-enterprise-account-if-your-identity-provider-is-unavailable)."

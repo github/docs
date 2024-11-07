@@ -18,13 +18,9 @@ If your organization is owned by an enterprise account, you can share actions an
 
 Any actions or reusable workflows stored in the internal {% ifversion private-actions %}or private {% endif %}repository can be used in workflows defined in other internal or private repositories owned by the same organization, or by any organization owned by the enterprise. Actions and reusable workflows stored in internal repositories cannot be used in public repositories {% ifversion private-actions %}and actions and reusable workflows stored in private repositories cannot be used in public or internal repositories{% endif %}.
 
-{% warning %}
-
-**Warning**:
-* {% data reusables.actions.outside-collaborators-actions %}
-* {% data reusables.actions.scoped-token-note %}
-
-{% endwarning %}
+> [!WARNING]
+> * {% data reusables.actions.outside-collaborators-actions %}
+> * {% data reusables.actions.scoped-token-note %}
 
 ## Sharing actions and workflows with your enterprise
 

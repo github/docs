@@ -46,16 +46,14 @@ If there is a conflict between the test merge commit and head commit, the checks
 
 ## Handling skipped but required checks
 
-{% warning %}
-
-**Warning:** If a workflow is skipped due to [path filtering](/actions/using-workflows/workflow-syntax-for-github-actions#onpushpull_requestpull_request_targetpathspaths-ignore), [branch filtering](/actions/using-workflows/workflow-syntax-for-github-actions#onpull_requestpull_request_targetbranchesbranches-ignore) or a [commit message](/actions/managing-workflow-runs/skipping-workflow-runs), then checks associated with that workflow will remain in a "Pending" state. A pull request that requires those checks to be successful will be blocked from merging.
-
-{% data reusables.pull_requests.path-filtering-required-workflows %}
-
-If, however, a job within a workflow is skipped due to a conditional, it will report its status as "Success". For more information, see "[AUTOTITLE](/actions/using-jobs/using-conditions-to-control-job-execution)."
-
-When a job fails, any jobs that depend on the failed job are skipped and do not report a failure. A pull request that requires the check may not be blocked. To use a required check on a job that depends on other jobs, use the `always()` conditional expression in addition to `needs`, see "[AUTOTITLE](/actions/using-jobs/using-jobs-in-a-workflow#defining-prerequisite-jobs)."
-{% endwarning %}
+> [!WARNING]
+> If a workflow is skipped due to [path filtering](/actions/using-workflows/workflow-syntax-for-github-actions#onpushpull_requestpull_request_targetpathspaths-ignore), [branch filtering](/actions/using-workflows/workflow-syntax-for-github-actions#onpull_requestpull_request_targetbranchesbranches-ignore) or a [commit message](/actions/managing-workflow-runs/skipping-workflow-runs), then checks associated with that workflow will remain in a "Pending" state. A pull request that requires those checks to be successful will be blocked from merging.
+>
+> {% data reusables.pull_requests.path-filtering-required-workflows %}
+>
+> If, however, a job within a workflow is skipped due to a conditional, it will report its status as "Success". For more information, see "[AUTOTITLE](/actions/using-jobs/using-conditions-to-control-job-execution)."
+>
+> When a job fails, any jobs that depend on the failed job are skipped and do not report a failure. A pull request that requires the check may not be blocked. To use a required check on a job that depends on other jobs, use the `always()` conditional expression in addition to `needs`, see "[AUTOTITLE](/actions/using-jobs/using-jobs-in-a-workflow#defining-prerequisite-jobs)."
 
 ### Example
 

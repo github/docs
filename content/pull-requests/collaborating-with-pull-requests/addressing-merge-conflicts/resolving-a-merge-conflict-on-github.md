@@ -21,11 +21,8 @@ You can only resolve merge conflicts on {% data variables.product.product_name %
 If a site administrator disables the merge conflict editor for pull requests between repositories, you cannot use the conflict editor on {% data variables.product.product_name %} and must resolve merge conflicts on the command line. For example, if the merge conflict editor is disabled, you cannot use it on a pull request between a fork and upstream repository.
 {% endif %}
 
-{% warning %}
-
-**Warning:** When you resolve a merge conflict on {% data variables.product.product_name %},  the entire [base branch](/get-started/learning-about-github/github-glossary#base-branch) of your pull request is merged into the [head branch](/get-started/learning-about-github/github-glossary#head-branch). Make sure you really want to commit to this branch. If the head branch is the default branch of your repository, you'll be given the option of creating a new branch to serve as the head branch for your pull request. If the head branch is protected you won't be able to merge your conflict resolution into it, so you'll be prompted to create a new head branch. For more information, see "[AUTOTITLE](/repositories/configuring-branches-and-merges-in-your-repository/managing-protected-branches/about-protected-branches)."
-
-{% endwarning %}
+> [!WARNING]
+> When you resolve a merge conflict on {% data variables.product.product_name %},  the entire [base branch](/get-started/learning-about-github/github-glossary#base-branch) of your pull request is merged into the [head branch](/get-started/learning-about-github/github-glossary#head-branch). Make sure you really want to commit to this branch. If the head branch is the default branch of your repository, you'll be given the option of creating a new branch to serve as the head branch for your pull request. If the head branch is protected you won't be able to merge your conflict resolution into it, so you'll be prompted to create a new head branch. For more information, see "[AUTOTITLE](/repositories/configuring-branches-and-merges-in-your-repository/managing-protected-branches/about-protected-branches)."
 
 {% data reusables.repositories.sidebar-pr %}
 1. In the "Pull Requests" list, click the pull request with a merge conflict that you'd like to resolve.

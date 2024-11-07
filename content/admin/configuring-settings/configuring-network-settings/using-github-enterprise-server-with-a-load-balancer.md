@@ -52,11 +52,8 @@ We strongly recommend enabling PROXY protocol support for both your instance and
 
 {% data reusables.enterprise_clustering.x-forwarded-for %}
 
-{% warning %}
-
-**Warning**: If you configure `X-Forwarded-For` support on {% data variables.location.product_location %} and load balancer, you may not be able to connect to the {% data variables.enterprise.management_console %}. For more information, see "[AUTOTITLE](/admin/configuration/configuring-network-settings/using-github-enterprise-server-with-a-load-balancer#error-your-session-has-expired-for-connections-to-the-management-console)."
-
-{% endwarning %}
+> [!WARNING]
+> If you configure `X-Forwarded-For` support on {% data variables.location.product_location %} and load balancer, you may not be able to connect to the {% data variables.enterprise.management_console %}. For more information, see "[AUTOTITLE](/admin/configuration/configuring-network-settings/using-github-enterprise-server-with-a-load-balancer#error-your-session-has-expired-for-connections-to-the-management-console)."
 
 {% data reusables.enterprise_site_admin_settings.access-settings %}
 {% data reusables.enterprise_site_admin_settings.management-console %}

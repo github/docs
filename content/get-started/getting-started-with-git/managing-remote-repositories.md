@@ -231,12 +231,8 @@ $ git remote -v
 > origin  https://{% data variables.product.product_url %}/OWNER/REPOSITORY.git (push)
 ```
 
-{% warning %}
-
-**Note**: `git remote rm` does not delete the remote repository from the server. It simply
-removes the remote and its references from your local repository.
-
-{% endwarning %}
+> [!NOTE]
+> `git remote rm` does not delete the remote repository from the server. It simply removes the remote and its references from your local repository.
 
 ### Troubleshooting: Could not remove config section 'remote.[name]'
 

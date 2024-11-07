@@ -37,11 +37,8 @@ If you set up an allow list you can also choose to automatically add to your all
 
 You can also configure allowed IP addresses at the enterprise account level, and the entries in the enterprise account's allow list are inherited by all the organizations owned by the enterprise. {% data reusables.identity-and-permissions.org-enterprise-allow-list-interaction %} For more information, see "[AUTOTITLE](/admin/policies/enforcing-policies-for-your-enterprise/enforcing-policies-for-security-settings-in-your-enterprise#managing-allowed-ip-addresses-for-organizations-in-your-enterprise)."
 
-{% warning %}
-
-**Warning:** Losing access to the IP addresses in your IP allow list could result in unintended consequences, such as getting locked out of your enterprise or organization.
-
-{% endwarning %}
+> [!WARNING]
+> Losing access to the IP addresses in your IP allow list could result in unintended consequences, such as getting locked out of your enterprise or organization.
 
 As a best practice, to ensure both secure and reliable access to your enterprise and organization resources when creating an IP allow list, consider the following:
 

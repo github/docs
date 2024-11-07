@@ -20,11 +20,8 @@ topics:
   - Access management
 ---
 
-{% warning %}
-
-**Warning**: Treat your access tokens like passwords. For more information, see "[Keeping your {% data variables.product.pat_generic %}s secure](#keeping-your-personal-access-tokens-secure)."
-
-{% endwarning %}
+> [!WARNING]
+> Treat your access tokens like passwords. For more information, see "[Keeping your {% data variables.product.pat_generic %}s secure](#keeping-your-personal-access-tokens-secure)."
 
 ## About {% data variables.product.pat_generic %}s
 
@@ -104,11 +101,8 @@ If you selected an organization as the resource owner and the organization requi
 > [!NOTE]
 > Organization owners can restrict the access of {% data variables.product.pat_v1 %} to their organization. If you try to use a {% data variables.product.pat_v1 %} to access resources in an organization that has disabled {% data variables.product.pat_v1 %} access, your request will fail with a 403 response. Instead, you must use a {% data variables.product.prodname_github_app %}, {% data variables.product.prodname_oauth_app %}, or {% data variables.product.pat_v2 %}.
 
-{% warning %}
-
-**Warning**: Your {% data variables.product.pat_v1 %} can access every repository that you can access. {% data variables.product.company_short %} recommends that you use {% data variables.product.pat_v2 %}s instead, which you can restrict to specific repositories. {% data variables.product.pat_v2_caps %}s also enable you to specify fine-grained permissions instead of broad scopes.
-
-{% endwarning %}
+> [!WARNING]
+> Your {% data variables.product.pat_v1 %} can access every repository that you can access. {% data variables.product.company_short %} recommends that you use {% data variables.product.pat_v2 %}s instead, which you can restrict to specific repositories. {% data variables.product.pat_v2_caps %}s also enable you to specify fine-grained permissions instead of broad scopes.
 
 {% ifversion fpt or ghec %}1. [Verify your email address](/account-and-profile/setting-up-and-managing-your-personal-account-on-github/managing-email-preferences/verifying-your-email-address), if it hasn't been verified yet.{% endif %}
 {% data reusables.user-settings.access_settings %}

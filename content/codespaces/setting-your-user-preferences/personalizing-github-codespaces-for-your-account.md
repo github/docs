@@ -131,11 +131,8 @@ Any changes to your selected dotfiles repository will apply only to each new cod
 
 You can use your selected dotfiles repository to personalize your {% data variables.product.prodname_github_codespaces %} environment. Once you choose your dotfiles repository, you can add your scripts, preferences, and configurations to it. You then need to enable your dotfiles from your personal {% data variables.product.prodname_github_codespaces %} settings page.
 
-{% warning %}
-
-**Warning:** Dotfiles have the ability to run arbitrary scripts, which may contain unexpected or malicious code. Before installing a dotfiles repo, we recommend checking scripts to ensure they don't perform any unexpected actions.
-
-{% endwarning %}
+> [!WARNING]
+> Dotfiles have the ability to run arbitrary scripts, which may contain unexpected or malicious code. Before installing a dotfiles repo, we recommend checking scripts to ensure they don't perform any unexpected actions.
 
 {% data reusables.user-settings.access_settings %}
 {% data reusables.user-settings.codespaces-tab %}

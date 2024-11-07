@@ -41,11 +41,8 @@ Organization owners can also choose to further limit access to certain settings 
 
 In addition to managing organization-level settings, organization owners have admin access to every repository owned by the organization. For more information, see "[AUTOTITLE](/organizations/managing-peoples-access-to-your-organization-with-roles/roles-in-an-organization)."
 
-{% warning %}
-
-**Warning:** When someone adds a deploy key to a repository, any user who has the private key can read from or write to the repository (depending on the key settings), even if they're later removed from the organization.
-
-{% endwarning %}
+> [!WARNING]
+> When someone adds a deploy key to a repository, any user who has the private key can read from or write to the repository (depending on the key settings), even if they're later removed from the organization.
 
 ## Permissions for each role
 

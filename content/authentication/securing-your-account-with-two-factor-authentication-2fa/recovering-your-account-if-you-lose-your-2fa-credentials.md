@@ -17,13 +17,8 @@ shortTitle: Recover an account with 2FA
 ---
 {% ifversion fpt or ghec %}
 
-{% warning %}
-
-**Warnings**:
-
-* {% data reusables.two_fa.support-may-not-help %}
-
-{% endwarning %}
+> [!WARNING]
+> * {% data reusables.two_fa.support-may-not-help %}
 
 > [!NOTE]
 > {% data reusables.two_fa.unlink-email-address %}
@@ -36,11 +31,8 @@ Use one of your recovery codes to automatically regain entry into your account. 
 
 1. Type your username and password to prompt authentication.
 
-    {% warning %}
-
-    **Warning**: {% data reusables.accounts.you-must-know-your-password %}
-
-    {% endwarning %}
+    > [!WARNING]
+    > {% data reusables.accounts.you-must-know-your-password %}
 
 1. Under "Having problems?", click **Use a recovery code{% ifversion fpt or ghec %} or begin 2FA account recovery{% endif %}**.
 1. Type one of your recovery codes, then click **Verify**.
@@ -77,11 +69,9 @@ You can use your two-factor authentication credentials or two-factor authenticat
 
 1. Type your username and password to prompt authentication.
 
-    {% warning %}
+    > [!WARNING]
+    > {% data reusables.accounts.you-must-know-your-password %}
 
-    **Warning**: {% data reusables.accounts.you-must-know-your-password %}
-
-    {% endwarning %}
 1. Under "Having problems?", click **Use a recovery code or begin 2FA account recovery**.
 1. Under "Locked out?", click **Try 2FA account recovery, or unlink your account email address(es)**.
 1. Click **I understand, get started** to request a reset of your authentication settings.

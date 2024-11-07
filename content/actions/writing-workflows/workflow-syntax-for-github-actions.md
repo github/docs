@@ -1083,11 +1083,8 @@ volumes:
 
 Additional Docker container resource options. For a list of options, see "[`docker create` options](https://docs.docker.com/engine/reference/commandline/create/#options)."
 
-{% warning %}
-
-**Warning:** The `--network` option is not supported.
-
-{% endwarning %}
+> [!WARNING]
+> The `--network` option is not supported.
 
 ## `jobs.<job_id>.uses`
 

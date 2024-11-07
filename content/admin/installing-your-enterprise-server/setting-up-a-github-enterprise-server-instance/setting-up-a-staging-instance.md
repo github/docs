@@ -52,11 +52,8 @@ Alternatively, you can create a staging instance that reflects your production c
 
 If you want to test changes on an instance that contains the same data and configuration as your production instance, back up the data and configuration from the production instance using {% data variables.product.prodname_enterprise_backup_utilities %}. For more information, see "[AUTOTITLE](/admin/configuration/configuring-your-enterprise/configuring-backups-on-your-appliance)."
 
-{% warning %}
-
-**Warning**: If you use {% data variables.product.prodname_actions %} or {% data variables.product.prodname_registry %} in production, your backup will include your production configuration for external storage. To avoid potential loss of data by writing to your production storage from your staging instance, you must configure each feature in steps 3 and 4 before you restore your backup.
-
-{% endwarning %}
+> [!WARNING]
+> If you use {% data variables.product.prodname_actions %} or {% data variables.product.prodname_registry %} in production, your backup will include your production configuration for external storage. To avoid potential loss of data by writing to your production storage from your staging instance, you must configure each feature in steps 3 and 4 before you restore your backup.
 
 ### 2. Set up a staging instance
 
@@ -68,11 +65,8 @@ If you plan to restore a backup of your production instance, continue to the nex
 
 Optionally, if you use {% data variables.product.prodname_actions %} on your production instance, configure the feature on the staging instance before restoring your production backup. If you don't use {% data variables.product.prodname_actions %}, skip to "[1. Configure {% data variables.product.prodname_registry %}](#4-configure-github-packages)."
 
-{% warning %}
-
-**Warning**: If you don't configure {% data variables.product.prodname_actions %} on the staging instance before restoring your production backup, your staging instance will use your production instance's external storage, which could result in loss of data. We strongly recommended that you use different external storage for your staging instance. For more information, see "[AUTOTITLE](/admin/github-actions/advanced-configuration-and-troubleshooting/using-a-staging-environment)."
-
-{% endwarning %}
+> [!WARNING]
+> If you don't configure {% data variables.product.prodname_actions %} on the staging instance before restoring your production backup, your staging instance will use your production instance's external storage, which could result in loss of data. We strongly recommended that you use different external storage for your staging instance. For more information, see "[AUTOTITLE](/admin/github-actions/advanced-configuration-and-troubleshooting/using-a-staging-environment)."
 
 {% data reusables.enterprise_installation.ssh-into-staging-instance %}
 1. To configure the staging instance to use an external storage provider for {% data variables.product.prodname_actions %}, enter one of the following commands.
@@ -88,11 +82,8 @@ Optionally, if you use {% data variables.product.prodname_actions %} on your pro
 
 Optionally, if you use {% data variables.product.prodname_registry %} on your production instance, configure the feature on the staging instance before restoring your production backup. If you don't use {% data variables.product.prodname_registry %}, skip to "[1. Restore your production backup](#5-restore-your-production-backup)."
 
-{% warning %}
-
-**Warning**: If you don't configure {% data variables.product.prodname_registry %} on the staging instance before restoring your production backup, your staging instance will use your production instance's external storage, which could result in loss of data. We strongly recommended that you use different external storage for your staging instance.
-
-{% endwarning %}
+> [!WARNING]
+> If you don't configure {% data variables.product.prodname_registry %} on the staging instance before restoring your production backup, your staging instance will use your production instance's external storage, which could result in loss of data. We strongly recommended that you use different external storage for your staging instance.
 
 1. Review the backup you will restore to the staging instance.
    * If you took the backup with {% data variables.product.prodname_enterprise_backup_utilities %} 3.5 or later, the backup includes the configuration for {% data variables.product.prodname_registry %}. Continue to the next step.
@@ -138,11 +129,8 @@ To access the staging instance using the same hostname, update your local hosts 
 
 Then, review the staging instance's configuration in the {% data variables.enterprise.management_console %}. For more information, see "[AUTOTITLE](/admin/configuration/administering-your-instance-from-the-management-console)."
 
-{% warning %}
-
-**Warning**: If you configured {% data variables.product.prodname_actions %} or {% data variables.product.prodname_registry %} for the staging instance, to avoid overwriting production data, ensure that the external storage configuration in the {% data variables.enterprise.management_console %} does not match your production instance.
-
-{% endwarning %}
+> [!WARNING]
+> If you configured {% data variables.product.prodname_actions %} or {% data variables.product.prodname_registry %} for the staging instance, to avoid overwriting production data, ensure that the external storage configuration in the {% data variables.enterprise.management_console %} does not match your production instance.
 
 ### 7. Apply the instance's configuration
 

@@ -43,11 +43,8 @@ Each codespace has its own retention period. You may, therefore, have codespaces
 
    You can set your default retention period between `0` and `30` days.
 
-   {% warning %}
-
-   **Warning**: Setting the period to `0` will result in your codespaces being immediately deleted when you stop them, or when they timeout due to inactivity. See "[AUTOTITLE](/codespaces/setting-your-user-preferences/setting-your-timeout-period-for-github-codespaces)."
-
-   {% endwarning %}
+   > [!WARNING]
+   > Setting the period to `0` will result in your codespaces being immediately deleted when you stop them, or when they timeout due to inactivity. See "[AUTOTITLE](/codespaces/setting-your-user-preferences/setting-your-timeout-period-for-github-codespaces)."
 
 1. Click **Save**.
 

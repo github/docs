@@ -34,14 +34,9 @@ If you do not verify your email address, you will not be able to:
 * Sponsor developers with {% data variables.product.prodname_sponsors %}
 * Accept organization invitations
 
-{% warning %}
-
-**Warnings**:
-
-* {% data reusables.user-settings.no-verification-disposable-emails %}
-* {% data reusables.user-settings.verify-org-approved-email-domain %}
-
-{% endwarning %}
+> [!WARNING]
+> * {% data reusables.user-settings.no-verification-disposable-emails %}
+> * {% data reusables.user-settings.verify-org-approved-email-domain %}
 
 {% ifversion ghec %}
 

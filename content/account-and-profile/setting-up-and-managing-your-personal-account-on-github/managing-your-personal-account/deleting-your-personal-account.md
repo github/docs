@@ -55,11 +55,8 @@ For more information, see the following articles.
 
 Before you delete your personal account, make a copy of all repositories, private forks, wikis, issues, and pull requests owned by your account. For more information, see "[AUTOTITLE](/repositories/archiving-a-github-repository/backing-up-a-repository)."
 
-{% warning %}
-
-**Warning:** Once your personal account has been deleted, {% ifversion fpt or ghec %}{% data variables.product.company_short %}{% elsif ghes %}an enterprise owner{% endif %} cannot restore your content.
-
-{% endwarning %}
+> [!WARNING]
+> Once your personal account has been deleted, {% ifversion fpt or ghec %}{% data variables.product.company_short %}{% elsif ghes %}an enterprise owner{% endif %} cannot restore your content.
 
 ## Deleting your personal account
 

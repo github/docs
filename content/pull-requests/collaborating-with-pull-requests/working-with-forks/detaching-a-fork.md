@@ -40,11 +40,8 @@ You can delete a fork and recreate the same repository, without the connection t
 
 1. Delete the forked repository. For more information, see "[AUTOTITLE](/repositories/creating-and-managing-repositories/deleting-a-repository)."<br><br>
 
-   {% warning %}
-
-   **Warning**: Deleting a fork will **permanently** delete any associated pull requests and configurations. This action **cannot** be undone.
-
-   {% endwarning %}
+   > [!WARNING]
+   > Deleting a fork will **permanently** delete any associated pull requests and configurations. This action **cannot** be undone.
 
 1. Create a new repository with the same name in the same location. For more information, see "[AUTOTITLE](/repositories/creating-and-managing-repositories/creating-a-new-repository)."
 1. Mirror-push the repository back to the same remote URL.

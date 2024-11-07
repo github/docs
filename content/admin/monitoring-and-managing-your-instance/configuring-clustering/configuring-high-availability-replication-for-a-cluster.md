@@ -158,11 +158,8 @@ For an example configuration, see "[Review an example configuration](#3-review-a
 
 1. Decide on a pattern for the replica nodes' hostnames.
 
-    {% warning %}
-
-    **Warning**: Hostnames for replica nodes must be unique and differ from the hostname for the corresponding active node.
-
-    {% endwarning %}
+    > [!WARNING]
+    > Hostnames for replica nodes must be unique and differ from the hostname for the corresponding active node.
 
 1. Open the temporary cluster configuration file from step 3 in a text editor. For example, you can use Vim.
 
@@ -199,25 +196,22 @@ For an example configuration, see "[Review an example configuration](#3-review-a
     git config -f /data/user/common/cluster.conf cluster.redis-master-replica REPLICA-REDIS-PRIMARY-HOSTNAME
     ```
 
-    {% warning %}
-
-    **Warning**: Review your cluster configuration file before proceeding.
-
-    * In the top-level `[cluster]` section, ensure that the values for `mysql-master-replica` and `redis-master-replica` are the correct hostnames for the replica nodes in the secondary datacenter that will serve as the MySQL and Redis primaries after a failover.
-    * In each section for an active node named <code>[cluster "ACTIVE NODE HOSTNAME"]</code>, double-check the following key-value pairs.
-      * `datacenter` should match the value of `primary-datacenter` in the top-level `[cluster]` section.
-      * `consul-datacenter` should match the value of `datacenter`, which should be the same as the value for `primary-datacenter` in the top-level `[cluster]` section.
-    * Ensure that for each active node, the configuration has **one** corresponding section for **one** replica node with the same roles. In each section for a replica node, double-check each key-value pair.
-      * `datacenter` should match all other replica nodes.
-      * `consul-datacenter` should match all other replica nodes.
-      * `hostname` should match the hostname in the section heading.
-      * `ipv4` should match the node's unique, static IPv4 address.
-      * `replica` should be configured as `enabled`.
-    * Take the opportunity to remove sections for offline nodes that are no longer in use.
-
-    To review an example configuration, see "[Review an example configuration](#3-review-an-example-configuration)."
-
-    {% endwarning %}
+    > [!WARNING]
+    > Review your cluster configuration file before proceeding.
+    >
+    > * In the top-level `[cluster]` section, ensure that the values for `mysql-master-replica` and `redis-master-replica` are the correct hostnames for the replica nodes in the secondary datacenter that will serve as the MySQL and Redis primaries after a failover.
+    > * In each section for an active node named <code>[cluster "ACTIVE NODE HOSTNAME"]</code>, double-check the following key-value pairs.
+    >   * `datacenter` should match the value of `primary-datacenter` in the top-level `[cluster]` section.
+    >   * `consul-datacenter` should match the value of `datacenter`, which should be the same as the value for `primary-datacenter` in the top-level `[cluster]` section.
+    > * Ensure that for each active node, the configuration has **one** corresponding section for **one** replica node with the same roles. In each section for a replica node, double-check each key-value pair.
+    >   * `datacenter` should match all other replica nodes.
+    >   * `consul-datacenter` should match all other replica nodes.
+    >   * `hostname` should match the hostname in the section heading.
+    >   * `ipv4` should match the node's unique, static IPv4 address.
+    >   * `replica` should be configured as `enabled`.
+    > * Take the opportunity to remove sections for offline nodes that are no longer in use.
+    >
+    > To review an example configuration, see "[Review an example configuration](#3-review-an-example-configuration)."
 
 1. Initialize the new cluster configuration. {% data reusables.enterprise.use-a-multiplexer %}
 

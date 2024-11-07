@@ -42,11 +42,8 @@ topics:
 
 1. In "Application name", type the name of your app.
 
-   {% warning %}
-
-   **Warning:**  Only use information in your {% data variables.product.prodname_oauth_app %} that you consider public. Avoid using sensitive data, such as internal URLs, when creating an {% data variables.product.prodname_oauth_app %}.
-
-   {% endwarning %}
+   > [!WARNING]
+   > Only use information in your {% data variables.product.prodname_oauth_app %} that you consider public. Avoid using sensitive data, such as internal URLs, when creating an {% data variables.product.prodname_oauth_app %}.
 
 1. In "Homepage URL", type the full URL to your app's website.
 1. Optionally, in "Application description", type a description of your app that users will see.

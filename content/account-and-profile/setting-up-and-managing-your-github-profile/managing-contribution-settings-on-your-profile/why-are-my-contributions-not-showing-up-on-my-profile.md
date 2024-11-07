@@ -89,11 +89,8 @@ If your commits are in a non-default or non-`gh-pages` branch and you'd like the
 * [Open a pull request](/pull-requests/collaborating-with-pull-requests/proposing-changes-to-your-work-with-pull-requests/creating-a-pull-request) to have your changes merged into the default branch or the `gh-pages` branch.
 * [Change the default branch](/repositories/configuring-branches-and-merges-in-your-repository/managing-branches-in-your-repository/changing-the-default-branch) of the repository.
 
-{% warning %}
-
-**Warning**: Changing the default branch of the repository will change it for all repository collaborators. Only do this if you want the new branch to become the base against which all future pull requests and commits will be made.
-
-{% endwarning %}
+> [!WARNING]
+> Changing the default branch of the repository will change it for all repository collaborators. Only do this if you want the new branch to become the base against which all future pull requests and commits will be made.
 
 ### Commit was made in a fork
 

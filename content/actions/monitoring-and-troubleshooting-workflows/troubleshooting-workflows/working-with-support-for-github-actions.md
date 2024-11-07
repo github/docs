@@ -41,11 +41,8 @@ Some information that {% data variables.contact.github_support %} will request c
 >
 > If the information you provide is unreadable due to the loss of formatting by improper Markdown syntax, {% data variables.contact.github_support %} may request that resubmit the information either as an attachment or with the correct Markdown formatting.
 
-{% warning %}
-
-**Warning:** Ensure all files and text provided to {% data variables.contact.github_support %} have been properly redacted to remove sensitive information such as tokens and other secrets.
-
-{% endwarning %}
+> [!WARNING]
+> Ensure all files and text provided to {% data variables.contact.github_support %} have been properly redacted to remove sensitive information such as tokens and other secrets.
 
 {% ifversion ghes %}
 Depending on the nature of your inquiry, {% data variables.contact.github_support %} may also request that you generate and upload a support bundle for further review and analysis. For more information about providing data to {% data variables.contact.github_support %} and support bundles, see "[AUTOTITLE](/support/contacting-github-support/providing-data-to-github-support)."

@@ -47,11 +47,8 @@ Write-Output "::workflow-command parameter1={data},parameter2={data}::{command v
 > [!NOTE]
 > Workflow command and parameter names are case insensitive.
 
-{% warning %}
-
-**Warning:** If you are using Command Prompt, omit double quote characters (`"`) when using workflow commands.
-
-{% endwarning %}
+> [!WARNING]
+> If you are using Command Prompt, omit double quote characters (`"`) when using workflow commands.
 
 ## Using workflow commands to access toolkit functions
 
@@ -290,11 +287,8 @@ Write-Output "::add-mask::Mona The Octocat"
 
 {% endpowershell %}
 
-{% warning %}
-
-**Warning:** Make sure you register the secret with 'add-mask' before outputting it in the build logs or using it in any other workflow commands.
-
-{% endwarning %}
+> [!WARNING]
+> Make sure you register the secret with 'add-mask' before outputting it in the build logs or using it in any other workflow commands.
 
 ### Example: Masking an environment variable
 
@@ -486,11 +480,8 @@ Stops processing any workflow commands. This special command allows you to log a
 
 To stop the processing of workflow commands, pass a unique token to `stop-commands`. To resume processing workflow commands, pass the same token that you used to stop workflow commands.
 
-{% warning %}
-
-**Warning:** Make sure the token you're using is randomly generated and unique for each run.
-
-{% endwarning %}
+> [!WARNING]
+> Make sure the token you're using is randomly generated and unique for each run.
 
 ```text copy
 ::{endtoken}::
@@ -709,11 +700,8 @@ For multiline strings, you may use a delimiter with the following syntax.
 {delimiter}
 ```
 
-{% warning %}
-
-**Warning:** Make sure the delimiter you're using won't occur on a line of its own within the value. If the value is completely arbitrary then you shouldn't use this format. Write the value to a file instead.
-
-{% endwarning %}
+> [!WARNING]
+> Make sure the delimiter you're using won't occur on a line of its own within the value. If the value is completely arbitrary then you shouldn't use this format. Write the value to a file instead.
 
 #### Example of a multiline string
 

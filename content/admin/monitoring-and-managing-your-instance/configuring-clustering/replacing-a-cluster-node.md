@@ -25,11 +25,8 @@ You can replace a functional node in a {% data variables.product.product_name %}
 After you replace a node, {% data variables.location.product_location %} does not automatically distribute jobs to the new node. You can force your instance to balance jobs across nodes. For more information, see "[AUTOTITLE](/admin/enterprise-management/configuring-clustering/rebalancing-cluster-workloads)."
 {% endif %}
 
-{% warning %}
-
-**Warning:** To avoid conflicts, do not reuse a hostname that was previously assigned to a node in the cluster.
-
-{% endwarning %}
+> [!WARNING]
+> To avoid conflicts, do not reuse a hostname that was previously assigned to a node in the cluster.
 
 ## Replacing a functional node
 
@@ -193,11 +190,9 @@ If you want to provide the VM for your primary MySQL node with more resources, o
 1. During your scheduled maintenance window, enable maintenance mode. For more information, see "[AUTOTITLE](/admin/administering-your-instance/configuring-maintenance-mode/enabling-and-scheduling-maintenance-mode#enabling-or-disabling-maintenance-mode-for-all-nodes-in-a-cluster-via-the-cli)."
 1. Ensure that MySQL replication is finished from any node in the cluster by running `ghe-cluster-status -v`.
 
-   {% warning %}
+   > [!WARNING]
+   > If you do not wait for MySQL replication to finish, you risk data loss on your instance.
 
-   **Warning**: If you do not wait for MySQL replication to finish, you risk data loss on your instance.
-
-   {% endwarning %}
 1. To set the current MySQL primary node to read-only mode, run the following command from of the instance's nodes.
 
    ```shell copy
