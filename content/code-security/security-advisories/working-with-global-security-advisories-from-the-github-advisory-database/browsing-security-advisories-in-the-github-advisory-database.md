@@ -30,11 +30,8 @@ You can access any advisory in the {% data variables.product.prodname_advisory_d
 1. Navigate to https://github.com/advisories.
 1. Optionally, to filter the list of advisories, use the search field or the drop-down menus at the top of the list.
 
-   {% note %}
-
-   **Note:** You can use the sidebar on the left to explore {% data variables.product.company_short %}-reviewed and unreviewed advisories separately, or to filter by ecosystem.
-
-   {% endnote %}
+   > [!NOTE]
+   > You can use the sidebar on the left to explore {% data variables.product.company_short %}-reviewed and unreviewed advisories separately, or to filter by ecosystem.
 
 1. Click an advisory to view details. By default, you will see {% data variables.product.company_short %}-reviewed advisories for security vulnerabilities. To show malware advisories, use `type:malware` in the search bar.
 
@@ -98,11 +95,10 @@ You can use your local advisory database to check whether a specific security vu
 
 1. Navigate to `https://HOSTNAME/advisories`.
 1. Optionally, to filter the list, use any of the drop-down menus.
-   {% note %}
 
-   **Note:** Only reviewed advisories will be listed. Unreviewed advisories can be viewed in the {% data variables.product.prodname_advisory_database %} on {% data variables.product.prodname_dotcom_the_website %}. For more information, see "[Accessing an advisory in the GitHub Advisory Database](#accessing-an-advisory-in-the-github-advisory-database)".
+   > [!NOTE]
+   > Only reviewed advisories will be listed. Unreviewed advisories can be viewed in the {% data variables.product.prodname_advisory_database %} on {% data variables.product.prodname_dotcom_the_website %}. For more information, see "[Accessing an advisory in the GitHub Advisory Database](#accessing-an-advisory-in-the-github-advisory-database)".
 
-   {% endnote %}
 1. Click an advisory to view details. By default, you will see {% data variables.product.company_short %}-reviewed advisories for security vulnerabilities. To show malware advisories, use `type:malware` in the search bar.
 
 You can also suggest improvements to any advisory directly from your local advisory database. For more information, see "[AUTOTITLE](/code-security/security-advisories/working-with-global-security-advisories-from-the-github-advisory-database/editing-security-advisories-in-the-github-advisory-database#editing-advisories-from-your-github-enterprise-server-instance)".

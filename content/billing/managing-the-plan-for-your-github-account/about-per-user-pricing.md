@@ -62,14 +62,10 @@ If you currently pay for your {% data variables.product.prodname_enterprise %} l
 * Anyone with a pending invitation to become an outside collaborator on private or internal repositories owned by your organization, excluding forks
 * Dormant users
 
-{% note %}
-
-**Notes:**
-* {% data variables.product.company_short %} counts each outside collaborator once for billing purposes, even if the user account has access to multiple repositories owned by your organization.
-* {% data reusables.organizations.org-invite-scim %}
-* Inviting an outside collaborator to a repository using their email address temporarily uses an available seat, even if they already have access to other repositories. After they accept the invite, the seat will be freed up again. However, inviting them using their username does not temporarily use a seat.
-
-{% endnote %}
+> [!NOTE]
+> * {% data variables.product.company_short %} counts each outside collaborator once for billing purposes, even if the user account has access to multiple repositories owned by your organization.
+> * {% data reusables.organizations.org-invite-scim %}
+> * Inviting an outside collaborator to a repository using their email address temporarily uses an available seat, even if they already have access to other repositories. After they accept the invite, the seat will be freed up again. However, inviting them using their username does not temporarily use a seat.
 
 {% data variables.product.company_short %} does not bill for the following people:
 
@@ -95,14 +91,10 @@ If your enterprise does not use {% data variables.product.prodname_emus %}, you 
 * Anyone with a pending invitation to become an organization owner or member
 * Anyone with a pending invitation to become an outside collaborator on private or internal repositories owned by your organization, excluding forks
 
-{% note %}
-
-**Notes:**
-* {% data variables.product.company_short %} counts each member or outside collaborator once for billing purposes, even if the user account has membership in multiple organizations in an enterprise or access to multiple repositories owned by your organization.
-* {% data reusables.organizations.org-invite-scim %}
-* Inviting an outside collaborator to a repository using their email address temporarily uses an available seat, even if they already have access to other repositories. After they accept the invite, the seat will be freed up again. However, inviting them using their username does not temporarily use a seat.
-
-{% endnote %}
+> [!NOTE]
+> * {% data variables.product.company_short %} counts each member or outside collaborator once for billing purposes, even if the user account has membership in multiple organizations in an enterprise or access to multiple repositories owned by your organization.
+> * {% data reusables.organizations.org-invite-scim %}
+> * Inviting an outside collaborator to a repository using their email address temporarily uses an available seat, even if they already have access to other repositories. After they accept the invite, the seat will be freed up again. However, inviting them using their username does not temporarily use a seat.
 
 {% data variables.product.company_short %} does not bill for any of the following accounts:
 

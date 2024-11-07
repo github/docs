@@ -22,11 +22,8 @@ For information on choosing a machine type when you create a codespace, see "[AU
 
 ## Changing the machine type
 
-{% note %}
-
-**Note**: {% data reusables.codespaces.codespaces-machine-type-availability %}
-
-{% endnote %}
+> [!NOTE]
+> {% data reusables.codespaces.codespaces-machine-type-availability %}
 
 {% webui %}
 

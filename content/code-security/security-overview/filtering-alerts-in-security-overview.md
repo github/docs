@@ -75,11 +75,8 @@ These qualifiers are available in all views.
 
 ## Custom repository property filters
 
-{% note %}
-
-**Note:** Repository properties are in {% data variables.release-phases.public_preview %} and subject to change.
-
-{% endnote %}
+> [!NOTE]
+> Repository properties are in {% data variables.release-phases.public_preview %} and subject to change.
 
 Custom repository properties are metadata that organization owners can add to repositories in an organization, providing a way to group repositories by the information you are interested in. For example, you can add custom repository properties for compliance frameworks or data sensitivity. For more information on adding custom repository properties, see "[AUTOTITLE](/organizations/managing-organization-settings/managing-custom-properties-for-repositories-in-your-organization)."
 

@@ -20,11 +20,8 @@ The personal settings of a {% data variables.product.prodname_dotcom %} user all
 
 As an organization owner, you may want to configure constraints on the maximum idle timeout period for codespaces created for repositories owned by your organization. This can help you to limit costs associated with codespaces that are left to timeout after long periods of inactivity. You can set a maximum timeout for the codespaces for all repositories owned by your organization, or for the codespaces of specific repositories.
 
-{% note %}
-
-**Note**: Maximum idle timeout constraints only apply to codespaces that are owned by your organization.
-
-{% endnote %}
+> [!NOTE]
+> Maximum idle timeout constraints only apply to codespaces that are owned by your organization.
 
 For more information about pricing for {% data variables.product.prodname_github_codespaces %} compute usage, see "[AUTOTITLE](/billing/managing-billing-for-your-products/managing-billing-for-github-codespaces/about-billing-for-github-codespaces#codespaces-pricing)."
 

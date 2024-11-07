@@ -40,28 +40,20 @@ If your code depends on a package with a security vulnerability, this can cause 
 
 * New advisory data is synchronized to {% data variables.product.prodname_dotcom %} each hour from {% data variables.product.prodname_dotcom_the_website %}. {% data reusables.security-advisory.link-browsing-advisory-db %}{% endif %}
 
-  {% note %}
+  > [!NOTE]
+  > Only advisories that have been reviewed by {% data variables.product.company_short %} will trigger {% data variables.product.prodname_dependabot_alerts %}.
 
-  **Note:** Only advisories that have been reviewed by {% data variables.product.company_short %} will trigger {% data variables.product.prodname_dependabot_alerts %}.
-
-  {% endnote %}
 * The dependency graph for a repository changes. For example, when a contributor pushes a commit to change the packages or versions it depends on{% ifversion fpt or ghec %}, or when the code of one of the dependencies changes{% endif %}. For more information, see "[AUTOTITLE](/code-security/supply-chain-security/understanding-your-software-supply-chain/about-the-dependency-graph)."
 
-{% note %}
-
-**Note:** {% data variables.product.prodname_dependabot %} doesn't scan archived repositories.
-
-{% endnote %}
+> [!NOTE]
+> {% data variables.product.prodname_dependabot %} doesn't scan archived repositories.
 
 {% data reusables.repositories.dependency-review %}
 
 As {% data variables.product.prodname_dependabot_alerts %} rely on the dependency graph, the ecosystems that are supported by {% data variables.product.prodname_dependabot_alerts %} are the same as those supported by the dependency graph. For a list of these ecosystems, see "[AUTOTITLE](/code-security/supply-chain-security/understanding-your-software-supply-chain/dependency-graph-supported-package-ecosystems#supported-package-ecosystems)."
 
-{% note %}
-
-**Note:** It is important to keep your manifest and lock files up to date. If the dependency graph doesn't accurately reflect your current dependencies and versions, then you could miss alerts for insecure dependencies that you use. You may also get alerts for dependencies that you no longer use.
-
-{% endnote %}
+> [!NOTE]
+> It is important to keep your manifest and lock files up to date. If the dependency graph doesn't accurately reflect your current dependencies and versions, then you could miss alerts for insecure dependencies that you use. You may also get alerts for dependencies that you no longer use.
 
 {% data reusables.dependabot.dependabot-alert-actions-semver %}
 
@@ -90,11 +82,8 @@ When {% data variables.product.product_name %} identifies a vulnerable dependenc
 
 {% endif %}
 
-{% warning %}
-
-**Note**: {% data variables.product.product_name %}'s security features do not claim to catch all vulnerabilities. We actively maintain {% data variables.product.prodname_advisory_database %} and generate alerts with the most up-to-date information. However, we cannot catch everything or tell you about known vulnerabilities within a guaranteed time frame. These features are not substitutes for human review of each dependency for potential vulnerabilities or any other issues, and we recommend consulting with a security service or conducting a thorough dependency review when necessary.
-
-{% endwarning %}
+> [!WARNING]
+> {% data variables.product.product_name %}'s security features do not claim to catch all vulnerabilities. We actively maintain {% data variables.product.prodname_advisory_database %} and generate alerts with the most up-to-date information. However, we cannot catch everything or tell you about known vulnerabilities within a guaranteed time frame. These features are not substitutes for human review of each dependency for potential vulnerabilities or any other issues, and we recommend consulting with a security service or conducting a thorough dependency review when necessary.
 
 ## Access to  {% data variables.product.prodname_dependabot_alerts %}
 

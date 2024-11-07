@@ -22,11 +22,8 @@ shortTitle: GitHub Advanced Security
 
 {% ifversion ghes %}For information about buying a license for {% data variables.product.prodname_GH_advanced_security %}, see "[AUTOTITLE](/billing/managing-billing-for-your-products/managing-billing-for-github-advanced-security/about-billing-for-github-advanced-security)."{% elsif ghec %}For information about buying a license for {% data variables.product.prodname_GH_advanced_security %}, see "[AUTOTITLE](/billing/managing-billing-for-your-products/managing-billing-for-github-advanced-security/signing-up-for-github-advanced-security)."{% elsif fpt %}To purchase a {% data variables.product.prodname_GH_advanced_security %} license, you must be using {% data variables.product.prodname_enterprise %}. For information about upgrading to {% data variables.product.prodname_enterprise %} with {% data variables.product.prodname_GH_advanced_security %}, see "[AUTOTITLE](/get-started/learning-about-github/githubs-plans)" and "[AUTOTITLE](/billing/managing-billing-for-your-products/managing-billing-for-github-advanced-security/about-billing-for-github-advanced-security)."{% endif %}
 
-{% note %}
-
-**Note:** If you want to use {% data variables.product.prodname_GH_advanced_security %} with Azure Repos, see [{% data variables.product.prodname_GH_advanced_security %} & Azure DevOps](https://resources.github.com/ghazdo/) in our resources site. For documentation, see [Configure {% data variables.product.prodname_ghas_azdo %}](https://learn.microsoft.com/en-us/azure/devops/repos/security/configure-github-advanced-security-features) in Microsoft Learn.
-
-{% endnote %}
+> [!NOTE]
+> If you want to use {% data variables.product.prodname_GH_advanced_security %} with Azure Repos, see [{% data variables.product.prodname_GH_advanced_security %} & Azure DevOps](https://resources.github.com/ghazdo/) in our resources site. For documentation, see [Configure {% data variables.product.prodname_ghas_azdo %}](https://learn.microsoft.com/en-us/azure/devops/repos/security/configure-github-advanced-security-features) in Microsoft Learn.
 
 ## About {% data variables.product.prodname_advanced_security %} features
 

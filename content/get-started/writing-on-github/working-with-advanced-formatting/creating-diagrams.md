@@ -32,11 +32,8 @@ graph TD;
 
 ![Screenshot of a rendered Mermaid flow chart with four lavender boxes labeled A, B, C, and D. Arrows extend from A to B, B to D, A to C, and C to D.](/assets/images/help/writing/mermaid-flow-chart.png)
 
-{% note %}
-
-**Note:** You may observe errors if you run a third-party Mermaid plugin when using Mermaid syntax on {% data variables.product.company_short %}.
-
-{% endnote %}
+> [!NOTE]
+> You may observe errors if you run a third-party Mermaid plugin when using Mermaid syntax on {% data variables.product.company_short %}.
 
 ### Checking your version of Mermaid
 

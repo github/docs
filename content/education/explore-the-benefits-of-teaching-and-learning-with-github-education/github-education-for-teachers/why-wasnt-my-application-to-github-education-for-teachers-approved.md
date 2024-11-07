@@ -14,11 +14,9 @@ versions:
   fpt: '*'
 shortTitle: Application not approved
 ---
-{% tip %}
 
-**Tip:** {% data reusables.education.about-github-education-link %}
-
-{% endtip %}
+> [!TIP]
+> {% data reusables.education.about-github-education-link %}
 
 ## Unclear proof of affiliation documents
 

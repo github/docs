@@ -27,11 +27,8 @@ You can manually delete a codespace in a variety of ways:
 
 Use the tabs at the top of this article to display instructions for each of these ways of deleting a codespace.
 
-{% note %}
-
-**Note**: You can't delete a codespace from within the JetBrains Gateway, or the JetBrains client application, or from within JupyterLab.
-
-{% endnote %}
+> [!NOTE]
+> You can't delete a codespace from within the JetBrains Gateway, or the JetBrains client application, or from within JupyterLab.
 
 ## Why you should delete unused codespaces
 
@@ -50,11 +47,8 @@ There are costs associated with storing codespaces. You should therefore delete 
 
 {% endwebui %}
 
-{% note %}
-
-**Note**: You may have prebuild codespaces that are consuming additional storage which are not displayed on this dashboard. To delete them, follow the steps for “[Deleting a prebuild configuration](/codespaces/prebuilding-your-codespaces/managing-prebuilds#deleting-a-prebuild-configuration).”
-
-{% endnote %}
+> [!NOTE]
+> You may have prebuild codespaces that are consuming additional storage which are not displayed on this dashboard. To delete them, follow the steps for “[Deleting a prebuild configuration](/codespaces/prebuilding-your-codespaces/managing-prebuilds#deleting-a-prebuild-configuration).”
 
 {% vscode %}
 

@@ -13,11 +13,8 @@ topics:
 
 You can access most objects in GitHub (users, issues, pull requests, etc.) using either the REST API or the GraphQL API. You can find the **global node ID** of many objects from within the REST API and use these IDs in your GraphQL operations. For more information, see "[Preview GraphQL API Node IDs in REST API resources](https://developer.github.com/changes/2017-12-19-graphql-node-id/)."
 
-{% note %}
-
-**Note:** In REST, the global node ID field is named `node_id`. In GraphQL, it's an `id` field on the `node` interface. For a refresher on what "node" means in GraphQL, see "[AUTOTITLE](/graphql/guides/introduction-to-graphql#node)."
-
-{% endnote %}
+> [!NOTE]
+> In REST, the global node ID field is named `node_id`. In GraphQL, it's an `id` field on the `node` interface. For a refresher on what "node" means in GraphQL, see "[AUTOTITLE](/graphql/guides/introduction-to-graphql#node)."
 
 ## Putting global node IDs to use
 

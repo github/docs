@@ -70,11 +70,8 @@ For an introduction to {% data variables.product.prodname_dependabot_alerts %}, 
 
 To learn how to interpret and resolve {% data variables.product.prodname_dependabot_alerts %}, see "[AUTOTITLE](/code-security/dependabot/dependabot-alerts/viewing-and-updating-dependabot-alerts)."
 
-{% note %}
-
-**Note:** If you enabled {% data variables.product.prodname_dependabot_security_updates %}, {% data variables.product.prodname_dependabot %} can also automatically raise pull requests to update the dependencies used in the repositories of the organization. For more information, see "[AUTOTITLE](/code-security/dependabot/dependabot-security-updates/about-dependabot-security-updates)."
-
-{% endnote %}
+> [!NOTE]
+> If you enabled {% data variables.product.prodname_dependabot_security_updates %}, {% data variables.product.prodname_dependabot %} can also automatically raise pull requests to update the dependencies used in the repositories of the organization. For more information, see "[AUTOTITLE](/code-security/dependabot/dependabot-security-updates/about-dependabot-security-updates)."
 
 ## Next steps
 

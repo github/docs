@@ -39,11 +39,8 @@ shortTitle: Subscriptions & billing date
 
 {% data reusables.enterprise-accounts.billing-perms %}
 
-{% note %}
-
-**Note:** You cannot view your next billing date if your enterprise account is invoiced.
-
-{% endnote %}
+> [!NOTE]
+> You cannot view your next billing date if your enterprise account is invoiced.
 
 {% data reusables.enterprise-accounts.access-enterprise %}
 {% data reusables.enterprise-accounts.settings-tab %}

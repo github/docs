@@ -42,11 +42,8 @@ shortTitle: View history & receipts
 
 {% data reusables.enterprise-accounts.billing-perms %}
 
-{% note %}
-
-**Note:** You cannot view receipts if your enterprise account is invoiced.
-
-{% endnote %}
+> [!NOTE]
+> You cannot view receipts if your enterprise account is invoiced.
 
 {% data reusables.enterprise-accounts.access-enterprise %}
 {% data reusables.enterprise-accounts.settings-tab %}

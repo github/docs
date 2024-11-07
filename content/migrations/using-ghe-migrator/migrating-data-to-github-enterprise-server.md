@@ -262,11 +262,8 @@ After your migration is applied to your target instance and you have reviewed th
 {% data reusables.enterprise_installation.ssh-into-instance %}
 {% data reusables.enterprise_migrations.unlocking-on-instances %}
 
-{% warning %}
-
-**Warning:** If your repository contains {% data variables.product.prodname_actions %} workflows using the `schedule` trigger, the workflows will not run automatically after an import. To start the scheduled workflows once again, push a commit to the repository. For more information, see "[AUTOTITLE](/actions/using-workflows/events-that-trigger-workflows#schedule)."
-
-{% endwarning %}
+> [!WARNING]
+> If your repository contains {% data variables.product.prodname_actions %} workflows using the `schedule` trigger, the workflows will not run automatically after an import. To start the scheduled workflows once again, push a commit to the repository. For more information, see "[AUTOTITLE](/actions/using-workflows/events-that-trigger-workflows#schedule)."
 
 ## Unlocking repositories on the source
 

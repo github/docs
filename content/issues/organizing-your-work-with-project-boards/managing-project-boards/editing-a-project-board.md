@@ -17,11 +17,8 @@ allowTitleToDifferFromFilename: true
 
 {% ifversion projects-v1-can-create %}
 
-{% tip %}
-
-**Tip:** For details on adding, removing, or editing columns in your {% data variables.projects.projects_v1_board %}, see "[AUTOTITLE](/issues/organizing-your-work-with-project-boards/managing-project-boards/creating-a-project-board)."
-
-{% endtip %}
+> [!TIP]
+> For details on adding, removing, or editing columns in your {% data variables.projects.projects_v1_board %}, see "[AUTOTITLE](/issues/organizing-your-work-with-project-boards/managing-project-boards/creating-a-project-board)."
 
 {% endif %}
 

@@ -23,11 +23,8 @@ You can connect a learning management system (LMS) to {% data variables.product.
 
 Before you can connect your LMS to a classroom, an administrator for your LMS instance needs to register your LMS with GitHub Classroom to initiate the OAuth handshake. An admin only needs to do this registration process once, then any teacher who uses their LMS instance may sync their LMS courses to classrooms. For more information, see "[AUTOTITLE](/education/manage-coursework-with-github-classroom/teach-with-github-classroom/register-a-learning-management-system-with-github-classroom)."
 
-{% note %}
-
-**Note:** {% data reusables.classroom.google-classroom-note %}
-
-{% endnote %}
+> [!NOTE]
+> {% data reusables.classroom.google-classroom-note %}
 
 To configure an LMS to connect to {% data variables.product.prodname_classroom %}, you must first create a classroom. For more information, see "[AUTOTITLE](/education/manage-coursework-with-github-classroom/teach-with-github-classroom/manage-classrooms#creating-a-classroom)."
 

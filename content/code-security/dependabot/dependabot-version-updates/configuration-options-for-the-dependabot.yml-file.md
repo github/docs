@@ -31,11 +31,8 @@ You must store this file in the `.github` directory of your repository in the de
 
 Any options that also affect security updates are used the next time a security alert triggers a pull request for a security update.  For more information, see "[AUTOTITLE](/code-security/dependabot/dependabot-security-updates/configuring-dependabot-security-updates)."
 
-{% note %}
-
-**Note:** You cannot configure {% data variables.product.prodname_dependabot_alerts %} using the `dependabot.yml` file.
-
-{% endnote %}
+> [!NOTE]
+> You cannot configure {% data variables.product.prodname_dependabot_alerts %} using the `dependabot.yml` file.
 
 The `dependabot.yml` file has two mandatory top-level keys: `version`, and `updates`. You can, optionally, include a top-level `registries` key. The file must start with `version: 2`.
 
@@ -61,15 +58,12 @@ These options fit broadly into the following categories.
 
 In addition, the [`open-pull-requests-limit`](#open-pull-requests-limit) option changes the maximum number of pull requests for version updates that {% data variables.product.prodname_dependabot %} can open.
 
-{% note %}
-
-**Note:** Some of these configuration options may also affect pull requests raised for security updates of vulnerable package manifests.
-
-Security updates are raised for vulnerable package manifests only on the default branch. When configuration options are set for the same branch (true unless you use `target-branch`), and specify a `package-ecosystem` and `directory` for the vulnerable manifest, then pull requests for security updates use relevant options.
-
-In general, security updates use any configuration options that affect pull requests, for example, adding metadata or changing their behavior. For more information about security updates, see "[AUTOTITLE](/code-security/dependabot/dependabot-security-updates/configuring-dependabot-security-updates)."
-
-{% endnote %}
+> [!NOTE]
+> Some of these configuration options may also affect pull requests raised for security updates of vulnerable package manifests.
+>
+> Security updates are raised for vulnerable package manifests only on the default branch. When configuration options are set for the same branch (true unless you use `target-branch`), and specify a `package-ecosystem` and `directory` for the vulnerable manifest, then pull requests for security updates use relevant options.
+>
+> In general, security updates use any configuration options that affect pull requests, for example, adding metadata or changing their behavior. For more information about security updates, see "[AUTOTITLE](/code-security/dependabot/dependabot-security-updates/configuring-dependabot-security-updates)."
 
 ### `package-ecosystem`
 
@@ -79,11 +73,8 @@ If you want to enable vendoring for a package manager that supports it, the vend
 
 If you want to allow {% data variables.product.prodname_dependabot %} to access a private package registry when performing a version update, you can include a `registries` setting in the configuration file. For more information, see [`registries`](#registries) below.{% ifversion ghes %}
 
-{% note %}
-
-**Note:** Enterprise owners can download the most recent version of the [{% data variables.product.prodname_dependabot %} action](https://github.com/github/dependabot-action) to get the best ecosystem coverage. {% data reusables.actions.action-bundled-actions %}
-
-{% endnote %}
+> [!NOTE]
+> Enterprise owners can download the most recent version of the [{% data variables.product.prodname_dependabot %} action](https://github.com/github/dependabot-action) to get the best ecosystem coverage. {% data reusables.actions.action-bundled-actions %}
 
 {% endif %}
 
@@ -247,11 +238,8 @@ updates:
 
 **Required**. You must define how often to check for new versions for each package manager. By default, {% data variables.product.prodname_dependabot %} randomly assigns a time to apply all the updates in the configuration file. To set a specific time, you can use [`schedule.time`](#scheduletime) and [`schedule.timezone`](#scheduletimezone).
 
-{% note %}
-
-**Note:** The `schedule.time` option is a best effort, and it may take some time before {% data variables.product.prodname_dependabot %} opens pull requests to update to newer dependency versions.
-
-{% endnote %}
+> [!NOTE]
+> The `schedule.time` option is a best effort, and it may take some time before {% data variables.product.prodname_dependabot %} opens pull requests to update to newer dependency versions.
 
 | Interval types | Frequency |
 |----------------|-----------|
@@ -279,13 +267,10 @@ updates:
       interval: "weekly"
 ```
 
-{% note %}
-
-**Note**: `schedule` defines when {% data variables.product.prodname_dependabot %} attempts a new update. However, it's not the only time you may receive pull requests. Updates can be triggered based on changes to your `dependabot.yml` file, {% ifversion dependabot-updates-deprecate-rerun-failed-jobs %}{% else %}changes to your manifest file(s) after a failed update, {% endif %}or {% data variables.product.prodname_dependabot_security_updates %}. For more information, see "[AUTOTITLE](/code-security/dependabot/dependabot-version-updates/about-dependabot-version-updates#frequency-of-dependabot-pull-requests)" and "[AUTOTITLE](/code-security/dependabot/dependabot-security-updates/about-dependabot-security-updates)."
-
-{% data reusables.dependabot.version-updates-skip-scheduled-runs %}
-
-{% endnote %}
+> [!NOTE]
+> `schedule` defines when {% data variables.product.prodname_dependabot %} attempts a new update. However, it's not the only time you may receive pull requests. Updates can be triggered based on changes to your `dependabot.yml` file, {% ifversion dependabot-updates-deprecate-rerun-failed-jobs %}{% else %}changes to your manifest file(s) after a failed update, {% endif %}or {% data variables.product.prodname_dependabot_security_updates %}. For more information, see "[AUTOTITLE](/code-security/dependabot/dependabot-version-updates/about-dependabot-version-updates#frequency-of-dependabot-pull-requests)" and "[AUTOTITLE](/code-security/dependabot/dependabot-security-updates/about-dependabot-security-updates)."
+>
+> {% data reusables.dependabot.version-updates-skip-scheduled-runs %}
 
 ### `allow`
 
@@ -372,11 +357,8 @@ We populate the titles of pull requests based on the commit messages, whether ex
 
 Supported options
 
-{% note %}
-
-**Note:** The `prefix` and the `prefix-development` options have a 50-character limit.
-
-{% endnote %}
+> [!NOTE]
+> The `prefix` and the `prefix-development` options have a 50-character limit.
 
 * `prefix` specifies a prefix for all commit messages and it will also be added to the start of the PR title.
    When you specify a prefix for commit messages, {% data variables.product.prodname_dotcom %} will automatically add a colon between the defined prefix and the commit message provided the defined prefix ends with a letter, number, closing parenthesis, or closing bracket. This means that, for example, if you end the prefix with a whitespace, there will be no colon added between the prefix and the commit message.
@@ -476,14 +458,9 @@ You can also manage pull requests for grouped version updates and security updat
 
 Dependencies can be ignored either by adding them to `ignore` or by using the `@dependabot ignore` command on a pull request opened by {% data variables.product.prodname_dependabot %}.
 
-{% warning %}
-
-**Warning**:
-* We recommend you do _not_ use `ignore` to prevent {% data variables.product.prodname_dependabot %} from accessing private registries. This may work for some ecosystems but we have no means of knowing whether package managers require access to all dependencies to be able to successfully perform updates, which makes this method unreliable. The supported way to handle private dependencies is to give {% data variables.product.prodname_dependabot %} access to private registries or private repositories. For more information, see "[AUTOTITLE](/code-security/dependabot/working-with-dependabot/configuring-access-to-private-registries-for-dependabot)."
-
-* For {% data variables.product.prodname_actions %} and Docker, you may use `ignore` to prevent {% data variables.product.prodname_dependabot %} from accessing private registries.
-
-{% endwarning %}
+> [!WARNING]
+> * We recommend you do _not_ use `ignore` to prevent {% data variables.product.prodname_dependabot %} from accessing private registries. This may work for some ecosystems but we have no means of knowing whether package managers require access to all dependencies to be able to successfully perform updates, which makes this method unreliable. The supported way to handle private dependencies is to give {% data variables.product.prodname_dependabot %} access to private registries or private repositories. For more information, see "[AUTOTITLE](/code-security/dependabot/working-with-dependabot/configuring-access-to-private-registries-for-dependabot)."
+> * For {% data variables.product.prodname_actions %} and Docker, you may use `ignore` to prevent {% data variables.product.prodname_dependabot %} from accessing private registries.
 
 #### Creating `ignore` conditions from `@dependabot ignore`
 
@@ -535,17 +512,11 @@ updates:
         versions: '>= 3'
 ```
 
-{% note %}
+> [!NOTE]
+> {% data variables.product.prodname_dependabot %} can only run version updates on manifest or lock files if it can access all of the dependencies in the file, even if you add inaccessible dependencies to the `ignore` option of your configuration file. For more information, see "[AUTOTITLE](/organizations/keeping-your-organization-secure/managing-security-settings-for-your-organization/managing-security-and-analysis-settings-for-your-organization#allowing-dependabot-to-access-private{% ifversion ghec or ghes %}-or-internal{% endif %}-dependencies)" and "[AUTOTITLE](/code-security/dependabot/working-with-dependabot/troubleshooting-dependabot-errors#dependabot-cant-resolve-your-dependency-files)."
 
-**Note**: {% data variables.product.prodname_dependabot %} can only run version updates on manifest or lock files if it can access all of the dependencies in the file, even if you add inaccessible dependencies to the `ignore` option of your configuration file. For more information, see "[AUTOTITLE](/organizations/keeping-your-organization-secure/managing-security-settings-for-your-organization/managing-security-and-analysis-settings-for-your-organization#allowing-dependabot-to-access-private{% ifversion ghec or ghes %}-or-internal{% endif %}-dependencies)" and "[AUTOTITLE](/code-security/dependabot/working-with-dependabot/troubleshooting-dependabot-errors#dependabot-cant-resolve-your-dependency-files)."
-
-{% endnote %}
-
-{% note %}
-
-**Note**: For the `pub` ecosystem, {% data variables.product.prodname_dependabot %} won't perform an update when the version that it tries to update to is ignored, even if an earlier version is available.
-
-{% endnote %}
+> [!NOTE]
+> For the `pub` ecosystem, {% data variables.product.prodname_dependabot %} won't perform an update when the version that it tries to update to is ignored, even if an earlier version is available.
 
 The following examples show how `ignore` can be used to customize which dependencies are updated.
 
@@ -738,11 +709,8 @@ updates:
 
 By default, {% data variables.product.prodname_dependabot %} automatically rebases open pull requests when it detects any changes to the pull request. Use `rebase-strategy` to disable this behavior.
 
-{% note %}
-
-**Note:** {% data reusables.dependabot.pull-requests-30-days-cutoff %}
-
-{% endnote %}
+> [!NOTE]
+> {% data reusables.dependabot.pull-requests-30-days-cutoff %}
 
 Available rebase strategies
 
@@ -757,11 +725,8 @@ When `rebase-strategy` is set to `auto`, {% data variables.product.prodname_depe
 
 When `rebase-strategy` is set to `disabled`, {% data variables.product.prodname_dependabot %} stops rebasing pull requests.
 
-{% note %}
-
-**Note:** This behavior only applies to pull requests that go into conflict with the target branch. {% data variables.product.prodname_dependabot %} will keep rebasing (until 30 days after opening) pull requests opened prior to the `rebase-strategy` setting being changed, and pull requests that are part of a scheduled run.
-
-{% endnote %}
+> [!NOTE]
+> This behavior only applies to pull requests that go into conflict with the target branch. {% data variables.product.prodname_dependabot %} will keep rebasing (until 30 days after opening) pull requests opened prior to the `rebase-strategy` setting being changed, and pull requests that are part of a scheduled run.
 
 {% data reusables.dependabot.option-affects-security-updates %}
 
@@ -1003,11 +968,8 @@ Available update strategies:
 | `pub` | `auto`, `increase`, `increase-if-necessary`, `widen` | `auto` |
 | `terraform` | N/A | N/A |
 
-{% note %}
-
-**Note:** `N/A` indicates that the package manager does not yet support configuring the `versioning-strategy` parameter. The strategy code is open source, so if you'd like a particular ecosystem to support a new strategy, you are always welcome to submit a pull request in https://github.com/dependabot/dependabot-core/.
-
-{% endnote %}
+> [!NOTE]
+> `N/A` indicates that the package manager does not yet support configuring the `versioning-strategy` parameter. The strategy code is open source, so if you'd like a particular ecosystem to support a new strategy, you are always welcome to submit a pull request in https://github.com/dependabot/dependabot-core/.
 
 ```yaml
 # Example configuration for customizing the manifest version strategy
@@ -1055,22 +1017,21 @@ The top-level `registries` key is optional. It allows you to specify authenticat
 
 You can give {% data variables.product.prodname_dependabot %} access to private package registries hosted by GitLab or Bitbucket by specifying a `type` of `git`. For more information, see [`git`](/code-security/dependabot/dependabot-version-updates/configuration-options-for-the-dependabot.yml-file#git).
 {% ifversion ghes %}
-{% note %}
 
-**Note:** Private registries behind firewalls on private networks are supported for the following ecosystems:
+> [!NOTE]
+> Private registries behind firewalls on private networks are supported for the following ecosystems:
+>
+> * Bundler{% ifversion dependabot-updates-cargo-private-registry-support %}
+> * Cargo{% endif %}
+> * Docker
+> * Gradle
+> * Maven
+> * Npm
+> * Nuget{% ifversion dependabot-updates-pub-private-registry %}
+> * Pub{% endif %}
+> * Python
+> * Yarn
 
-* Bundler{% ifversion dependabot-updates-cargo-private-registry-support %}
-* Cargo{% endif %}
-* Docker
-* Gradle
-* Maven
-* Npm
-* Nuget{% ifversion dependabot-updates-pub-private-registry %}
-* Pub{% endif %}
-* Python
-* Yarn
-
-{% endnote %}
 {% endif %}
 
 The value of the `registries` key is an associative array, each element of which consists of a key that identifies a particular registry and a value which is an associative array that specifies the settings required to access that registry. The following `dependabot.yml` file configures a registry identified as `dockerhub` in the `registries` section of the file and then references this in the `updates` section of the file.
@@ -1255,11 +1216,8 @@ The `npm-registry` type supports username and password, or token. {% data reusab
 
 When using username and password, your `.npmrc`'s auth token may contain a `base64` encoded `_password`; however, the password referenced in your {% data variables.product.prodname_dependabot %} configuration file must be the original (unencoded) password.
 
-{% note %}
-
-**Note**: When using `npm.pkg.github.com`, don't include a path. Instead use the `https://npm.pkg.github.com` URL without a path.
-
-{% endnote %}
+> [!NOTE]
+> When using `npm.pkg.github.com`, don't include a path. Instead use the `https://npm.pkg.github.com` URL without a path.
 
 {% raw %}
 

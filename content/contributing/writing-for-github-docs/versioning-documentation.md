@@ -106,15 +106,10 @@ We use the [Liquid template language](https://shopify.github.io/liquid/basics/in
 
 If you define multiple products in the `versions` key within a page's YAML frontmatter, you can use the conditional operators `ifversion`/`else` (or `ifversion`/`elsif`/`else`) in the Markdown to control how the site renders content on the page for a particular product. For example, a feature may have more options on {% data variables.product.prodname_dotcom_the_website %} than on {% data variables.product.prodname_ghe_server %}, so you can version the content appropriately via the `versions` frontmatter, and use Liquid conditionals to describe the additional options for {% data variables.product.prodname_dotcom_the_website %}.
 
-{% note %}
-
-**Notes:**
-
-* Use `ifversion` for product-based versioning and [feature-based versioning](#about-feature-based-versioning).
-* Do not use `if` or `unless`.
-* Make sure to use `elsif` and not `else if`. Liquid does not recognize `else if` and will not render content inside an `else if` block.
-
-{% endnote %}
+> [!NOTE]
+> * Use `ifversion` for product-based versioning and [feature-based versioning](#about-feature-based-versioning).
+> * Do not use `if` or `unless`.
+> * Make sure to use `elsif` and not `else if`. Liquid does not recognize `else if` and will not render content inside an `else if` block.
 
 ### Comparison operators
 
@@ -195,11 +190,8 @@ Feature-based versioning provides named "feature flags" that simplify the mainte
 
 Each feature is managed through individual YAML files in `data/features/`.
 
-{% note %}
-
-**Note**: Do not delete `data/features/placeholder.yml` because it is used by tests.
-
-{% endnote %}
+> [!NOTE]
+> Do not delete `data/features/placeholder.yml` because it is used by tests.
 
 To create a new feature, first create a new YAML file with the feature name you want to use in this directory. For a feature named `meow`, that would be `data/features/meow.yml`.
 

@@ -32,11 +32,8 @@ You can set a spending limit for {% data variables.product.prodname_github_codes
 
 You can check the compute and storage usage for {% data variables.product.prodname_github_codespaces %} for the current billing month. For information, see "[AUTOTITLE](/billing/managing-billing-for-your-products/managing-billing-for-github-codespaces/viewing-your-github-codespaces-usage)."
 
-{% note %}
-
-**Note**: Prebuilds for {% data variables.product.prodname_github_codespaces %} are created and updated using {% data variables.product.prodname_actions %}. This may incur billable costs for {% data variables.product.prodname_actions %}. You can set a spending limit for {% data variables.product.prodname_actions %}. For more information, see "[AUTOTITLE](/billing/managing-billing-for-your-products/managing-billing-for-github-codespaces/about-billing-for-github-codespaces#about-billing-for-codespaces-prebuilds)" and "[AUTOTITLE](/billing/managing-billing-for-your-products/managing-billing-for-github-actions/managing-your-spending-limit-for-github-actions)." Storage of the generated prebuilds is charged at the same rate as your codespaces, and is included in your {% data variables.product.prodname_github_codespaces %} spending limit.
-
-{% endnote %}
+> [!NOTE]
+> Prebuilds for {% data variables.product.prodname_github_codespaces %} are created and updated using {% data variables.product.prodname_actions %}. This may incur billable costs for {% data variables.product.prodname_actions %}. You can set a spending limit for {% data variables.product.prodname_actions %}. For more information, see "[AUTOTITLE](/billing/managing-billing-for-your-products/managing-billing-for-github-codespaces/about-billing-for-github-codespaces#about-billing-for-codespaces-prebuilds)" and "[AUTOTITLE](/billing/managing-billing-for-your-products/managing-billing-for-github-actions/managing-your-spending-limit-for-github-actions)." Storage of the generated prebuilds is charged at the same rate as your codespaces, and is included in your {% data variables.product.prodname_github_codespaces %} spending limit.
 
 ## Disabling or limiting billing for {% data variables.product.prodname_codespaces %}
 
@@ -60,11 +57,8 @@ Your users can delete their own codespaces in https://github.com/codespaces and 
 
 As an organization owner, you can delete any codespace in your organization. For more information, see "[AUTOTITLE](/codespaces/developing-in-a-codespace/deleting-a-codespace#deleting-codespaces-in-your-organization)."
 
-{% note %}
-
-**Note:** Codespaces are automatically deleted after they have been stopped and have remained inactive for a user-definable number of days. For more information, see "[AUTOTITLE](/codespaces/setting-your-user-preferences/configuring-automatic-deletion-of-your-codespaces)." As an organization owner, you can set the maximum retention period for codespaces owned by your organization. This will override a user's personal retention setting. For more information, see "[AUTOTITLE](/codespaces/managing-codespaces-for-your-organization/restricting-the-retention-period-for-codespaces)."
-
-{% endnote %}
+> [!NOTE]
+> Codespaces are automatically deleted after they have been stopped and have remained inactive for a user-definable number of days. For more information, see "[AUTOTITLE](/codespaces/setting-your-user-preferences/configuring-automatic-deletion-of-your-codespaces)." As an organization owner, you can set the maximum retention period for codespaces owned by your organization. This will override a user's personal retention setting. For more information, see "[AUTOTITLE](/codespaces/managing-codespaces-for-your-organization/restricting-the-retention-period-for-codespaces)."
 
 ## Further reading
 

@@ -32,11 +32,10 @@ If a more recent version of the action is available, {% data variables.product.p
 {% data variables.product.prodname_dependabot %} also checks workflow files for uses of reusable workflows, and updates the git reference for these called reusable workflows. For more information about reusable workflows, see "[AUTOTITLE](/actions/using-workflows/reusing-workflows)."
 
 {% ifversion fpt or ghec %}
-{% note %}
 
-**Note:**  {% data reusables.actions.workflow-runs-dependabot-note %}
+> [!NOTE]
+> {% data reusables.actions.workflow-runs-dependabot-note %}
 
-{% endnote %}
 {% endif %}
 
 ## Enabling {% data variables.product.prodname_dependabot_version_updates %} for actions

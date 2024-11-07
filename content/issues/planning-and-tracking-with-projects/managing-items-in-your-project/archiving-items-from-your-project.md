@@ -10,11 +10,8 @@ topics:
 allowTitleToDifferFromFilename: true
 ---
 
-{% note %}
-
-**Note:** A project can contain a maximum of {% data variables.projects.item_limit %} items and {% data variables.projects.archived_item_limit %} archived items.
-
-{% endnote %}
+> [!NOTE]
+> A project can contain a maximum of {% data variables.projects.item_limit %} items and {% data variables.projects.archived_item_limit %} archived items.
 
 ## Archiving items
 

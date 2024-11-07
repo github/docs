@@ -86,11 +86,8 @@ For example, you link your Azure subscription to your organization {% ifversion 
 
 To connect your Azure subscription, you must have owner permissions to the Azure subscription and be an organization owner on {% data variables.product.prodname_dotcom %}.
 
-{% note %}
-
-**Note**: If your organization account on {% data variables.location.product_location %} belongs an enterprise account, you must connect your Azure subscription to the enterprise account instead of the organization account. See "[Connecting your Azure subscription to your enterprise account](/enterprise-cloud@latest/billing/managing-the-plan-for-your-github-account/connecting-an-azure-subscription#connecting-your-azure-subscription-to-your-enterprise-account)" in the {% data variables.product.prodname_ghe_cloud %} version of this article.
-
-{% endnote %}
+> [!NOTE]
+> If your organization account on {% data variables.location.product_location %} belongs an enterprise account, you must connect your Azure subscription to the enterprise account instead of the organization account. See "[Connecting your Azure subscription to your enterprise account](/enterprise-cloud@latest/billing/managing-the-plan-for-your-github-account/connecting-an-azure-subscription#connecting-your-azure-subscription-to-your-enterprise-account)" in the {% data variables.product.prodname_ghe_cloud %} version of this article.
 
 {% data reusables.profile.access_org %}
 {% data reusables.profile.org_settings %}

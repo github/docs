@@ -8,11 +8,8 @@ redirect_from:
   - /education/manage-coursework-with-github-classroom/about-using-vs-code-with-github-classroom
 ---
 
-{% note %}
-
-**Note:** The [{% data variables.product.prodname_classroom %} extension for {% data variables.product.prodname_vscode_shortname %}](https://aka.ms/classroom-vscode-ext) is no longer in active development. The **Open in {% data variables.product.prodname_vscode_shortname %}** badge in student repositories still works, but other features of the extension may not function as expected.
-
-{% endnote %}
+> [!NOTE]
+> The [{% data variables.product.prodname_classroom %} extension for {% data variables.product.prodname_vscode_shortname %}](https://aka.ms/classroom-vscode-ext) is no longer in active development. The **Open in {% data variables.product.prodname_vscode_shortname %}** badge in student repositories still works, but other features of the extension may not function as expected.
 
 ## About {% data variables.product.prodname_vscode %}
 
@@ -32,11 +29,8 @@ When creating an assignment, {% data variables.product.prodname_vscode_shortname
 
 This will include an "Open in {% data variables.product.prodname_vscode_shortname %}" badge in all student repositories. This badge handles installing {% data variables.product.prodname_vscode_shortname %}, the Classroom extension pack, and opening to the active assignment with one click.
 
-{% note %}
-
-**Note:** The student must have Git installed on their computer to push code from {% data variables.product.prodname_vscode_shortname %} to their repository. This is not automatically installed when clicking the **Open in {% data variables.product.prodname_vscode_shortname %}** button. The student can download Git from [Git download](https://git-scm.com/downloads).
-
-{% endnote %}
+> [!NOTE]
+> The student must have Git installed on their computer to push code from {% data variables.product.prodname_vscode_shortname %} to their repository. This is not automatically installed when clicking the **Open in {% data variables.product.prodname_vscode_shortname %}** button. The student can download Git from [Git download](https://git-scm.com/downloads).
 
 ### How to use {% data variables.product.prodname_classroom %} extension pack
 

@@ -25,11 +25,8 @@ For both owners and contributors, contribution guidelines save time and hassle c
 
 You can create default contribution guidelines for your organization or personal account. For more information, see "[AUTOTITLE](/communities/setting-up-your-project-for-healthy-contributions/creating-a-default-community-health-file)."
 
-{% tip %}
-
-**Tip:** Repository maintainers can set specific guidelines for issues by creating an issue or pull request template for the repository. For more information, see "[AUTOTITLE](/communities/using-templates-to-encourage-useful-issues-and-pull-requests/about-issue-and-pull-request-templates)."
-
-{% endtip %}
+> [!TIP]
+> Repository maintainers can set specific guidelines for issues by creating an issue or pull request template for the repository. For more information, see "[AUTOTITLE](/communities/using-templates-to-encourage-useful-issues-and-pull-requests/about-issue-and-pull-request-templates)."
 
 ## Adding a _CONTRIBUTING_ file
 
