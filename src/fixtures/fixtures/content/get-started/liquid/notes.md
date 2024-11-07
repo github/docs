@@ -10,7 +10,10 @@ type: how_to
 
 ## Introduction
 
-> [!NOTE]
-> This is inside the note.
+{% note %}
+
+**Note!** This is inside the note.
+
+{% endnote %}
 
 This is outside the note.

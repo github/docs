@@ -10,7 +10,7 @@ labels:
 
 The day after a GHES version's [deprecation date](https://github.com/github/docs-internal/tree/main/src/ghes-releases/lib/enterprise-dates.json), a banner on the docs will say: `This version was deprecated on <date>.` This is all users need to know. However, we don't want to update those docs anymore or link to them in the nav. Follow the steps in this issue to **archive** the docs.
 
-**Note:** Each step below, except step 0, must be done in order. Only move on to the next step after successfully completing the previous step.
+**Note**: Each step below, except step 0, must be done in order. Only move on to the next step after successfully completing the previous step.
 
 The following large repositories are used throughout this checklist, it may be useful to clone them before you begin:
 
@@ -35,7 +35,7 @@ Additionally, you can download:
 
 - [ ] Completed step 1 ✅
 
-**Note:** This step can be performed independently of all other steps, and can be done several days before or along with the other steps.
+**Note**: This step can be performed independently of all other steps, and can be done several days before or along with the other steps.
 
 In the `docs-content` repo, remove the deprecated GHES version number from the `options` list in [`release-tracking.yml`](https://github.com/github/docs-content/blob/main/.github/ISSUE_TEMPLATE/release-tracking.yml).
 

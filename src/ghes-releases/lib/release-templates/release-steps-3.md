@@ -26,7 +26,7 @@ Docs Content will publish docs for the GHES {{ release-number }} RC soon. Please
 | Target date | {{ release-target-date }} |
 | Release issue | [link][release-issue] |
 
-**Note:** We publish docs for each GHES release when the RC ships. The target date reflects a few days prior to the GHES 3.13 RC's release date, while the release issue reflects the GA's release date.
+**Note**: We publish docs for each GHES release when the RC ships. The target date reflects a few days prior to the GHES 3.13 RC's release date, while the release issue reflects the GA's release date.
 
 <!--
 This section contains the Markdown reference-style links used to populate links in the content above. Uncomment the reference links below and add the URL to the GHES release issue in `github/releases` in between the <> brackets.
