@@ -65,3 +65,4 @@
 | GHD039 | expiring-soon | Content that expires soon should be proactively addressed. | warning | expired |
 | [GHD040](https://github.com/github/docs/blob/main/src/content-linter/README.md) | table-liquid-versioning | Tables must use the correct liquid versioning format | error | tables |
 | GHD041 | third-party-action-pinning | Code examples that use third-party actions must always pin to a full length commit SHA | error | feature, actions |
+| GHD042 | liquid-tag-whitespace | Liquid tags should start and end with one whitespace. Liquid tag arguments should be separated by only one whitespace. | error | liquid, format |

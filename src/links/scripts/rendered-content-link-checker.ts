@@ -3,7 +3,7 @@
 import fs from 'fs'
 import path from 'path'
 
-import cheerio, { type CheerioAPI, type Element } from 'cheerio'
+import cheerio from 'cheerio'
 import coreLib from '@actions/core'
 import got, { RequestError } from 'got'
 import chalk from 'chalk'
@@ -339,7 +339,15 @@ async function main(
   const t0 = new Date().getTime()
   const flawsGroups = await Promise.all(
     pages.map((page: Page) =>
-      processPage(core, page, pageMap, redirects, opts, externalLinkCheckerDB, versions),
+      processPage(
+        core,
+        page,
+        pageMap,
+        redirects,
+        opts,
+        externalLinkCheckerDB,
+        versions as string[],
+      ),
     ),
   )
   const t1 = new Date().getTime()
@@ -695,13 +703,13 @@ async function processPermalink(
   }
   const $ = cheerio.load(html, { xmlMode: true })
   const flaws: LinkFlaw[] = []
-  const links: Element[] = []
+  const links: cheerio.Element[] = []
   $('a[href]').each((i, link) => {
     links.push(link)
   })
   const newFlaws: LinkFlaw[] = await Promise.all(
     links.map(async (link) => {
-      const { href } = link.attribs
+      const { href } = (link as cheerio.TagElement).attribs
 
       // The global cache can't be used for anchor links because they
       // depend on each page it renders
@@ -752,7 +760,7 @@ async function processPermalink(
 
   if (checkImages) {
     $('img[src]').each((i, img) => {
-      let { src } = img.attribs
+      let { src } = (img as cheerio.TagElement).attribs
 
       // Images get a cache-busting prefix injected in the image
       // E.g. <img src="/assets/cb-123456/foo/bar.png">
@@ -874,7 +882,7 @@ let globalCacheMissCount = 0
 async function checkHrefLink(
   core: any,
   href: string,
-  $: CheerioAPI,
+  $: cheerio.Root,
   redirects: Redirects,
   pageMap: PageMap,
   checkAnchors = false,
