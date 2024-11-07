@@ -146,10 +146,8 @@ With a {% data variables.product.prodname_copilot_enterprise %} license, you can
 
 ## Dismissing {% data variables.product.prodname_dependabot_alerts %}
 
-{% tip %}
-
-**Tip:** You can only dismiss open alerts.
-{% endtip %}
+> [!TIP]
+> You can only dismiss open alerts.
 
 If you schedule extensive work to upgrade a dependency, or decide that an alert does not need to be fixed, you can dismiss the alert. Dismissing alerts that you have already assessed makes it easier to triage new alerts as they appear.
 

@@ -104,8 +104,5 @@ The remote `refs/pull/` namespace is _read-only_. If you try to push any commits
 error: failed to push some refs to 'git@github.local:USERNAME/REPOSITORY.git'
 ```
 
-{% tip %}
-
-**Tip:** When you remove or rename a remote reference, your local `refs/pull/origin/` namespace will not be affected by calls to `git-remote`.
-
-{% endtip %}
+> [!TIP]
+> When you remove or rename a remote reference, your local `refs/pull/origin/` namespace will not be affected by calls to `git-remote`.

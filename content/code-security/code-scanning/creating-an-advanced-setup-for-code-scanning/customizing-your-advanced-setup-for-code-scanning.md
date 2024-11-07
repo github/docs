@@ -492,13 +492,9 @@ query-filters:
 
 To find the id of a query, you can click the alert in the list of alerts in the **Security** tab. This opens the alert details page. The `Rule ID` field contains the query id. For more information about the alert details page, see "[AUTOTITLE](/code-security/code-scanning/managing-code-scanning-alerts/about-code-scanning-alerts#about-alert-details)."
 
-{% tip %}
-
-**Tips:**
-* The order of the filters is important. The first filter instruction that appears after the instructions about the queries and query packs determines whether the queries are included or excluded by default.
-* Subsequent instructions are executed in order and the instructions that appear later in the file take precedence over the earlier instructions.
-
-{% endtip %}
+> [!TIP]
+> * The order of the filters is important. The first filter instruction that appears after the instructions about the queries and query packs determines whether the queries are included or excluded by default.
+> * Subsequent instructions are executed in order and the instructions that appear later in the file take precedence over the earlier instructions.
 
 You can find another example illustrating the use of these filters in the "[Example configuration files](#example-configuration-files)" section.
 
@@ -552,22 +548,17 @@ This step in a {% data variables.product.prodname_actions %} workflow file uses 
 
 You can use the same approach to specify any valid configuration options in the workflow file.
 
-{% tip %}
-
-**Tip:**
-
-You can share one configuration across multiple repositories using  {% data variables.product.prodname_actions %} variables. One benefit of this approach is that you can update the configuration in a single place without editing the workflow file.
-
-In the following example, `vars.CODEQL_CONF` is a {% data variables.product.prodname_actions %} variable. Its value can be the contents of any valid configuration file. For more information, see "[AUTOTITLE](/actions/learn-github-actions/variables#defining-configuration-variables-for-multiple-workflows)."
-
-```yaml
-- uses: {% data reusables.actions.action-codeql-action-init %}
-  with:
-    languages: {% raw %}${{ matrix.language }}{% endraw %}
-    config: {% raw %}${{ vars.CODEQL_CONF }}{% endraw %}
-```
-
-{% endtip %}
+> [!TIP]
+> You can share one configuration across multiple repositories using  {% data variables.product.prodname_actions %} variables. One benefit of this approach is that you can update the configuration in a single place without editing the workflow file.
+>
+> In the following example, `vars.CODEQL_CONF` is a {% data variables.product.prodname_actions %} variable. Its value can be the contents of any valid configuration file. For more information, see "[AUTOTITLE](/actions/learn-github-actions/variables#defining-configuration-variables-for-multiple-workflows)."
+>
+> ```yaml
+> - uses: {% data reusables.actions.action-codeql-action-init %}
+>   with:
+>     languages: {% raw %}${{ matrix.language }}{% endraw %}
+>     config: {% raw %}${{ vars.CODEQL_CONF }}{% endraw %}
+> ```
 
 ## Configuring {% data variables.product.prodname_code_scanning %} for compiled languages
 

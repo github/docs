@@ -51,11 +51,8 @@ Assets are commonly found in the following locations:
 * JavaScript is usually found in the `<head>` section or just before the closing `</body>` tag.
 * Images are often found in the `<body>` section.
 
-{% tip %}
-
-**Tip:** If you can't find your assets in your site's source files, try searching your site's source files for `http` in your text editor or on {% data variables.product.product_name %}.
-
-{% endtip %}
+> [!TIP]
+> If you can't find your assets in your site's source files, try searching your site's source files for `http` in your text editor or on {% data variables.product.product_name %}.
 
 ### Examples of assets referenced in an HTML file
 

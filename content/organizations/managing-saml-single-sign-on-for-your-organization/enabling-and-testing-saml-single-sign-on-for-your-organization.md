@@ -49,11 +49,10 @@ For more information about the identity providers (IdPs) that {% data variables.
 1. Under "Public Certificate," paste a certificate to verify SAML responses.
 {% data reusables.saml.edit-signature-and-digest-methods %}
 1. Before enabling SAML SSO for your organization, to ensure that the information you've entered is correct, click **Test SAML configuration**. {% data reusables.saml.test-must-succeed %}
-   {% tip %}
 
-   **Tip:** {% data reusables.saml.testing-saml-sso %}
+   > [!TIP]
+   > {% data reusables.saml.testing-saml-sso %}
 
-   {% endtip %}
 1. To enforce SAML SSO and remove all organization members who haven't authenticated via your IdP, select **Require SAML SSO authentication for all members of the _organization name_ organization**. For more information on enforcing SAML SSO, see "[AUTOTITLE](/organizations/managing-saml-single-sign-on-for-your-organization/enforcing-saml-single-sign-on-for-your-organization)."
 1. Click **Save**.
 

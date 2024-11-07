@@ -48,11 +48,8 @@ The rest of this article covers the practical aspects of modelling dependencies 
 
 1. When the telemetry queries are complete, the APIs that have been identified are shown in the editor.
 
-{% tip %}
-
-**Tip:** You can move the {% data variables.product.prodname_codeql %} "Method Modeling" view from the primary sidebar to the secondary sidebar, if you want more space while you are modeling calls or methods. If you close the view, you can reopen it from the "View" menu in {% data variables.product.prodname_vscode_shortname %} and clicking **Open View...**.
-
-{% endtip %}
+> [!TIP]
+> You can move the {% data variables.product.prodname_codeql %} "Method Modeling" view from the primary sidebar to the secondary sidebar, if you want more space while you are modeling calls or methods. If you close the view, you can reopen it from the "View" menu in {% data variables.product.prodname_vscode_shortname %} and clicking **Open View...**.
 
 ## Modeling the calls your codebase makes to external APIs
 

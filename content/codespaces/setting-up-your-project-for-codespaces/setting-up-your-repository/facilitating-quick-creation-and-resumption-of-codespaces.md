@@ -76,11 +76,8 @@ This type of URL is useful, for instance, in a README for your repository as it 
 
 ## Creating an "Open in {% data variables.product.prodname_github_codespaces %}" badge
 
-{% tip %}
-
-**Tip:** You can use the "Share a deep link" option to create a Markdown or HTML snippet that includes an "Open in {% data variables.product.prodname_github_codespaces %}" badge with a custom URL. For more information, see "[Configuring more options](#configuring-more-options)."
-
-{% endtip %}
+> [!TIP]
+> You can use the "Share a deep link" option to create a Markdown or HTML snippet that includes an "Open in {% data variables.product.prodname_github_codespaces %}" badge with a custom URL. For more information, see "[Configuring more options](#configuring-more-options)."
 
 1. Get the URL to the codespace creation page, or the "Resume codespace" page, as described in the previous sections.
 1. Add the following Markdown to, for example, the `README.md` file of your repository:

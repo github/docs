@@ -19,11 +19,8 @@ Until you add an image, repository links expand to show basic information about 
 
 {% ifversion repo-rules %}You can upload an image to a public repository, or to a private repository to which you have previously uploaded an image. Your image can only be shared from a public repository.{% else %}You can upload an image to a private repository, but your image can only be shared from a public repository.{% endif %}
 
-{% tip %}
-
-**Tip:** Your image should be a PNG, JPG, or GIF file under 1 MB in size. For the best quality rendering, we recommend a size of at least 640 by 320 pixels (1280 by 640 pixels for best display).
-
-{% endtip %}
+> [!TIP]
+> Your image should be a PNG, JPG, or GIF file under 1 MB in size. For the best quality rendering, we recommend a size of at least 640 by 320 pixels (1280 by 640 pixels for best display).
 
 {% data reusables.repositories.navigate-to-repo %}
 {% data reusables.repositories.sidebar-settings %}
@@ -39,7 +36,5 @@ We support PNG images with transparency. Many communication platforms support a 
 
 When using an image with transparency, keep in mind how it may look on different color backgrounds or platforms that don't support transparency.
 
-{% tip %}
-
-**Tip:** If you aren't sure, we recommend using an image with a solid background.
-{% endtip %}
+> [!TIP]
+> If you aren't sure, we recommend using an image with a solid background.

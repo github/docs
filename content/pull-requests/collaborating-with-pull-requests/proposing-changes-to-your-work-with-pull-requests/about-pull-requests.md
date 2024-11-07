@@ -42,13 +42,9 @@ After you're happy with the proposed changes, you can merge the pull request. If
 
 {% data reusables.pull_requests.close-issues-using-keywords %}
 
-{% tip %}
-
-**Tips:**
-* To toggle between collapsing and expanding all outdated review comments in a pull request, hold down <span class="platform-mac"><kbd>Option</kbd></span><span class="platform-linux"><kbd>Alt</kbd></span><span class="platform-windows"><kbd>Alt</kbd></span> and click **Show outdated** or **Hide outdated**. For more shortcuts, see "[AUTOTITLE](/get-started/accessibility/keyboard-shortcuts)."
-* You can squash commits when merging a pull request to gain a more streamlined view of changes. See "[AUTOTITLE](/pull-requests/collaborating-with-pull-requests/incorporating-changes-from-a-pull-request/about-pull-request-merges)."
-
-{% endtip %}
+> [!TIP]
+> * To toggle between collapsing and expanding all outdated review comments in a pull request, hold down <span class="platform-mac"><kbd>Option</kbd></span><span class="platform-linux"><kbd>Alt</kbd></span><span class="platform-windows"><kbd>Alt</kbd></span> and click **Show outdated** or **Hide outdated**. For more shortcuts, see "[AUTOTITLE](/get-started/accessibility/keyboard-shortcuts)."
+> * You can squash commits when merging a pull request to gain a more streamlined view of changes. See "[AUTOTITLE](/pull-requests/collaborating-with-pull-requests/incorporating-changes-from-a-pull-request/about-pull-request-merges)."
 
 You can visit your dashboard to quickly find links to recently updated pull requests you're working on or subscribed to. See "[AUTOTITLE](/account-and-profile/setting-up-and-managing-your-personal-account-on-github/managing-personal-account-settings/about-your-personal-dashboard)."
 

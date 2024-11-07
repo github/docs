@@ -113,11 +113,8 @@ For more information, see "[AUTOTITLE](/pull-requests/collaborating-with-pull-re
 
      ![Screenshot of the branches pop-up menu with the "origin/templates" branch selected and "Checkout" selected in the submenu.](/assets/images/help/codespaces/jetbrains-checkout-submenu.png)
 
-     {% tip %}
-
-     **Tip**: If someone has recently changed a file on the remote repository, in the branch you switched to, you may not see those changes until you pull the changes into your codespace.
-
-     {% endtip %}
+     > [!TIP]
+     > If someone has recently changed a file on the remote repository, in the branch you switched to, you may not see those changes until you pull the changes into your codespace.
 
 ## Committing your changes
 

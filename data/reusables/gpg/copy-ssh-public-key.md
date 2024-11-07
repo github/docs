@@ -8,11 +8,9 @@
    # Copies the contents of the id_ed25519.pub file to your clipboard
    ```
 
-   {% tip %}
+   > [!TIP]
+   > If `pbcopy` isn't working, you can locate the hidden `.ssh` folder, open the file in your favorite text editor, and copy it to your clipboard.
 
-   **Tip:** If `pbcopy` isn't working, you can locate the hidden `.ssh` folder, open the file in your favorite text editor, and copy it to your clipboard.
-
-   {% endtip %}
    {% endmac %}
    {% windows %}
 
@@ -39,9 +37,7 @@
    # displayed in the terminal to your clipboard
    ```
 
-   {% tip %}
+   > [!TIP]
+   > Alternatively, you can locate the hidden `.ssh` folder, open the file in your favorite text editor, and copy it to your clipboard.
 
-   **Tip:** Alternatively, you can locate the hidden `.ssh` folder, open the file in your favorite text editor, and copy it to your clipboard.
-
-   {% endtip %}
    {% endlinux %}

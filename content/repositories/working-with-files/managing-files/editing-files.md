@@ -20,11 +20,8 @@ shortTitle: Edit files
 
 ## Editing files in your repository
 
-{% tip %}
-
-**Tip**: {% data reusables.repositories.protected-branches-block-web-edits-uploads %}
-
-{% endtip %}
+> [!TIP]
+> {% data reusables.repositories.protected-branches-block-web-edits-uploads %}
 
 > [!NOTE]
 > {% data variables.product.product_name %}'s file editor uses [CodeMirror](https://codemirror.net/).

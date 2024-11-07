@@ -145,21 +145,14 @@ pack.
 
 * `suites/my-suite.qls` - All queries in the `suites/my-suite.qls` file relative to the current working directory.
 
-{% note %}
-
-**Tip**
-
-The default query suite of the standard {% data variables.product.prodname_codeql %} query packs are `codeql-suites/<lang>-code-scanning.qls`. Several other useful query suites can also be found in the `codeql-suites` directory of each pack. For example, the `codeql/cpp-queries` pack contains the following query suites:
-
-* `cpp-code-scanning.qls` - Standard Code Scanning queries for C++. The default query suite for this pack.
-
-* `cpp-security-extended.qls` - Queries from the default  `cpp-code-scanning.qls` suite for C++, plus lower severity and precision queries.
-
-* `cpp-security-and-quality.qls` - Queries from `cpp-security-extended.qls`, plus maintainability and reliability queries.
-
-You can see the sources for these query suites in the [{% data variables.product.prodname_codeql %} repository](https://github.com/github/codeql/tree/main/cpp/ql/src/codeql-suites). Query suites for other languages are similar.
-
-{% endnote %}
+> [!TIP]
+> The default query suite of the standard {% data variables.product.prodname_codeql %} query packs are `codeql-suites/<lang>-code-scanning.qls`. Several other useful query suites can also be found in the `codeql-suites` directory of each pack. For example, the `codeql/cpp-queries` pack contains the following query suites:
+>
+> * `cpp-code-scanning.qls` - Standard Code Scanning queries for C++. The default query suite for this pack.
+> * `cpp-security-extended.qls` - Queries from the default  `cpp-code-scanning.qls` suite for C++, plus lower severity and precision queries.
+> * `cpp-security-and-quality.qls` - Queries from `cpp-security-extended.qls`, plus maintainability and reliability queries.
+>
+> You can see the sources for these query suites in the [{% data variables.product.prodname_codeql %} repository](https://github.com/github/codeql/tree/main/cpp/ql/src/codeql-suites). Query suites for other languages are similar.
 
 {% ifversion codeql-model-packs %}
 

@@ -18,11 +18,8 @@ When an {% data variables.product.prodname_oauth_app %} wants to identify you by
 
 {% ifversion fpt or ghec %}
 
-{% tip %}
-
-**Tip:** You must [verify your email address](/account-and-profile/setting-up-and-managing-your-personal-account-on-github/managing-email-preferences/verifying-your-email-address) before you can authorize an {% data variables.product.prodname_oauth_app %}.
-
-{% endtip %}
+> [!TIP]
+> You must [verify your email address](/account-and-profile/setting-up-and-managing-your-personal-account-on-github/managing-email-preferences/verifying-your-email-address) before you can authorize an {% data variables.product.prodname_oauth_app %}.
 
 {% endif %}
 
@@ -33,11 +30,8 @@ When an {% data variables.product.prodname_oauth_app %} wants to identify you by
 * **Read access** only allows an app to _look at_ your data.
 * **Write access** allows an app to _change_ your data.
 
-{% tip %}
-
-**Tip:** {% data reusables.user-settings.review_oauth_tokens_tip %}
-
-{% endtip %}
+> [!TIP]
+> {% data reusables.user-settings.review_oauth_tokens_tip %}
 
 ### About OAuth scopes
 

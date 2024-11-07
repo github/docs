@@ -40,11 +40,8 @@ To upgrade to the latest version of {% data variables.product.prodname_enterpris
     * If you are not currently running scheduled backups, set up {% data variables.product.prodname_enterprise_backup_utilities %}.
 1. Take an initial full backup snapshot of the current instance using the `ghe-backup` command. If you have already configured scheduled backups for your current instance, you don't need to take a snapshot of your instance.
 
-   {% tip %}
-
-   **Tip:** You can leave the instance online and in active use during the snapshot. You'll take another snapshot during the maintenance portion of the migration. Since backups are incremental, this initial snapshot reduces the amount of data transferred in the final snapshot, which may shorten the maintenance window.
-
-   {% endtip %}
+   > [!TIP]
+   > You can leave the instance online and in active use during the snapshot. You'll take another snapshot during the maintenance portion of the migration. Since backups are incremental, this initial snapshot reduces the amount of data transferred in the final snapshot, which may shorten the maintenance window.
 
 1. Determine the method for switching user network traffic to the new instance. After you've migrated, all HTTP and Git network traffic directs to the new instance.
     * **DNS** - We recommend this method for all environments, as it's simple and works well even when migrating from one datacenter to another. Before starting migration, reduce the existing DNS record's TTL to five minutes or less and allow the change to propagate. Once the migration is complete, update the DNS record(s) to point to the IP address of the new instance.

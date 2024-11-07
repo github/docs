@@ -78,11 +78,10 @@ When a package inherits permissions from a repository, to grant or remove access
 ### Selecting the inheritance setting for packages scoped to an organization
 
 {% ifversion packages-inherit-permissions %}
-{% tip %}
 
-**Tip:** If you're the owner of an organization, you can prevent all new packages scoped to your organization from automatically inheriting permissions from a linked repository. For more information, see "[Disabling automatic inheritance of access permissions in an organization](#disabling-automatic-inheritance-of-access-permissions-in-an-organization)" below.
+> [!TIP]
+> If you're the owner of an organization, you can prevent all new packages scoped to your organization from automatically inheriting permissions from a linked repository. For more information, see "[Disabling automatic inheritance of access permissions in an organization](#disabling-automatic-inheritance-of-access-permissions-in-an-organization)" below.
 
-{% endtip %}
 {% endif %}
 
 {% data reusables.package_registry.package-settings-from-org-level %}

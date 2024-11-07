@@ -18,11 +18,8 @@ If there are existing files in your repository that you'd like to use {% data va
 
 {% ifversion ghes %}
 
-{% tip %}
-
-**Note:** Before trying to push a large file to {% data variables.product.product_name %}, make sure that you've enabled {% data variables.large_files.product_name_short %} on your enterprise. For more information, see "[AUTOTITLE](/admin/user-management/managing-repositories-in-your-enterprise/configuring-git-large-file-storage-for-your-enterprise)."
-
-{% endtip %}
+> [!NOTE]
+> Before trying to push a large file to {% data variables.product.product_name %}, make sure that you've enabled {% data variables.large_files.product_name_short %} on your enterprise. For more information, see "[AUTOTITLE](/admin/user-management/managing-repositories-in-your-enterprise/configuring-git-large-file-storage-for-your-enterprise)."
 
 {% endif %}
 

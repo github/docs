@@ -317,11 +317,8 @@ To build this link, you'll need your {% data variables.product.prodname_oauth_ap
 {% data variables.product.oauth_host_code %}/settings/connections/applications/:client_id
 ```
 
-{% tip %}
-
-**Tip:** To learn more about the resources that your {% data variables.product.prodname_oauth_app %} can access for a user, see "[AUTOTITLE](/rest/guides/discovering-resources-for-a-user)."
-
-{% endtip %}
+> [!TIP]
+> To learn more about the resources that your {% data variables.product.prodname_oauth_app %} can access for a user, see "[AUTOTITLE](/rest/guides/discovering-resources-for-a-user)."
 
 ## Troubleshooting
 

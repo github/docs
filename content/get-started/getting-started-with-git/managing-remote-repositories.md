@@ -70,11 +70,8 @@ To fix this, you can:
 
 The `git remote set-url` command changes an existing remote repository URL.
 
-{% tip %}
-
-**Tip:** For information on the difference between HTTPS and SSH URLs, see "[AUTOTITLE](/get-started/getting-started-with-git/about-remote-repositories)."
-
-{% endtip %}
+> [!TIP]
+> For information on the difference between HTTPS and SSH URLs, see "[AUTOTITLE](/get-started/getting-started-with-git/about-remote-repositories)."
 
 The `git remote set-url` command takes two arguments:
 

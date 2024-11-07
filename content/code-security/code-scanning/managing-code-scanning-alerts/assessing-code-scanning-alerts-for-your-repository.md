@@ -91,13 +91,9 @@ You can search the list of alerts. This is useful if there is a large number of 
 | OR search | `sql OR injection` | Returns all the alerts containing `sql` or `injection` |
 | AND search | `sql AND injection` | Returns all the alerts containing both words `sql` and `injection` |
 
-{% tip %}
-
-**Tips:**
-* The multiple word search is equivalent to an OR search.
-* The AND search will return results where the search terms are found _anywhere_, in any order in the alert name or details.
-
-{% endtip %}
+> [!TIP]
+> * The multiple word search is equivalent to an OR search.
+> * The AND search will return results where the search terms are found _anywhere_, in any order in the alert name or details.
 
 {% data reusables.repositories.navigate-to-repo %}
 {% data reusables.repositories.sidebar-security %}

@@ -56,11 +56,9 @@ shortTitle: Install Git LFS
 
 1. Navigate to [git-lfs.com](https://git-lfs.com) and click **Download**.
 
-   {% tip %}
+   > [!TIP]
+   > For more information about alternative ways to install {% data variables.large_files.product_name_short %} for Windows, see this [Getting started guide](https://github.com/github/git-lfs#getting-started).
 
-   **Tip:** For more information about alternative ways to install {% data variables.large_files.product_name_short %} for Windows, see this [Getting started guide](https://github.com/github/git-lfs#getting-started).
-
-   {% endtip %}
 1. On your computer, locate the downloaded file.
 1. Double click on the file called _git-lfs-windows-1.X.X.exe_, where 1.X.X is replaced with the Git LFS version you downloaded. When you open this file Windows will run a setup wizard to install {% data variables.large_files.product_name_short %}.
 {% data reusables.command_line.open_the_multi_os_terminal %} As the setup wizard may have modified your system `PATH`, opening a new session will ensure Git can locate Git LFS.
@@ -79,11 +77,9 @@ shortTitle: Install Git LFS
 
 1. Navigate to [git-lfs.com](https://git-lfs.com) and click **Download**.
 
-   {% tip %}
+   > [!TIP]
+   > For more information about alternative ways to install {% data variables.large_files.product_name_short %} for Linux, see this [Getting started guide](https://github.com/github/git-lfs#getting-started).
 
-   **Tip:** For more information about alternative ways to install {% data variables.large_files.product_name_short %} for Linux, see this [Getting started guide](https://github.com/github/git-lfs#getting-started).
-
-   {% endtip %}
 1. On your computer, locate and unzip the downloaded file.
 {% data reusables.command_line.open_the_multi_os_terminal %}
 1. Change the current working directory into the folder you downloaded and unzipped.

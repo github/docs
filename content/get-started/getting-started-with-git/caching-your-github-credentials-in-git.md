@@ -15,11 +15,8 @@ versions:
 shortTitle: Caching credentials
 ---
 
-{% tip %}
-
-**Tip:** If you clone {% data variables.product.product_name %} repositories using SSH, then you  can authenticate using an SSH key instead of using other credentials. For information about setting up an SSH connection, see "[AUTOTITLE](/authentication/connecting-to-github-with-ssh)."
-
-{% endtip %}
+> [!TIP]
+> If you clone {% data variables.product.product_name %} repositories using SSH, then you  can authenticate using an SSH key instead of using other credentials. For information about setting up an SSH connection, see "[AUTOTITLE](/authentication/connecting-to-github-with-ssh)."
 
 ## {% data variables.product.prodname_cli %}
 

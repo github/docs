@@ -40,11 +40,8 @@ When you want to use a third-party application that integrates with {% data vari
 > [!NOTE]
 > Currently, you can't scope source code access to read-only.
 
-{% tip %}
-
-**Tip:** {% data reusables.user-settings.review_oauth_tokens_tip %}
-
-{% endtip %}
+> [!TIP]
+> {% data reusables.user-settings.review_oauth_tokens_tip %}
 
 ### Types of requested data
 

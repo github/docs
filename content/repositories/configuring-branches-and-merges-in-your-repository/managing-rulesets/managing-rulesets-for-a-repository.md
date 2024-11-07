@@ -15,11 +15,10 @@ After creating a ruleset, you can still make changes to it. For example, you can
 You can use the REST and GraphQL APIs to manage rulesets. For more information, see "[AUTOTITLE](/rest/repos/rules)" and "[AUTOTITLE](/graphql/reference/mutations#createrepositoryruleset)."
 
 {% ifversion repo-rules-enterprise %}
-{% tip %}
 
-**Tip:** If you're the owner of an organization, you can create rulesets at the organization level. You can apply these rulesets to specific repositories in your organization, and to specific branches in those repositories. For more information, see "[AUTOTITLE](/organizations/managing-organization-settings/creating-rulesets-for-repositories-in-your-organization)."
+> [!TIP]
+> If you're the owner of an organization, you can create rulesets at the organization level. You can apply these rulesets to specific repositories in your organization, and to specific branches in those repositories. For more information, see "[AUTOTITLE](/organizations/managing-organization-settings/creating-rulesets-for-repositories-in-your-organization)."
 
-{% endtip %}
 {% endif %}
 
 ## Viewing rulesets for a repository

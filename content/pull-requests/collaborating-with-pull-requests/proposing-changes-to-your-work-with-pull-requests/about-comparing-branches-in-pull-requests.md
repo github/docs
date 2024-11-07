@@ -25,11 +25,8 @@ Rather than viewing the commits themselves, you can view the proposed changes as
 
 ## Diff view options
 
-{% tip %}
-
-**Tip:** If you're having a hard time understanding the context of a change, you can click **View** in the Files changed tab to view the whole file with the proposed changes.
-
-{% endtip %}
+> [!TIP]
+> If you're having a hard time understanding the context of a change, you can click **View** in the Files changed tab to view the whole file with the proposed changes.
 
 You have several options for viewing a diff:
 * The unified view shows updated and existing content together in a linear view.

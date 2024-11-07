@@ -10,10 +10,7 @@ type: how_to
 
 ## Introduction
 
-{% tip %}
-
-**Tip!** This is inside the tip.
-
-{% endtip %}
+> [!TIP]
+> This is inside the tip.
 
 This is outside the tip.

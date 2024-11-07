@@ -100,11 +100,8 @@ ghe-cleanup-caches
 
 This utility wipes all existing {% data variables.enterprise.management_console %} settings.
 
-{% tip %}
-
-**Tip**: {% data reusables.enterprise_enterprise_support.support_will_ask_you_to_run_command %}
-
-{% endtip %}
+> [!TIP]
+> {% data reusables.enterprise_enterprise_support.support_will_ask_you_to_run_command %}
 
 ```shell
 ghe-cleanup-settings

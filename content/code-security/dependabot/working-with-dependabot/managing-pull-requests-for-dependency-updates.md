@@ -89,11 +89,8 @@ In {% data variables.product.prodname_dependabot %} pull requests for grouped ve
 * `@dependabot unignore DEPENDENCY_NAME` closes the current pull request, clears all `ignore` conditions stored for the dependency, then opens a new pull request that includes available updates for the specified dependency. For example, `@dependabot unignore lodash` would open a new pull request that includes updates for the Lodash dependency.
 * `@dependabot unignore DEPENDENCY_NAME IGNORE_CONDITION` closes the current pull request, clears the stored `ignore` condition, then opens a new pull request that includes available updates for the specified ignore condition. For example, `@dependabot unignore express [< 1.9, > 1.8.0]` would open a new pull request that includes updates for Express between versions 1.8.0 and 1.9.0.
 
-{% note %}
-
-**Tip:** When you want to un-ignore a specific ignore condition, use the `@dependabot show DEPENDENCY_NAME ignore conditions` command to quickly check what ignore conditions a dependency currently has.
-
-{% endnote %}
+> [!TIP]
+> When you want to un-ignore a specific ignore condition, use the `@dependabot show DEPENDENCY_NAME ignore conditions` command to quickly check what ignore conditions a dependency currently has.
 
 {% elsif dependabot-version-updates-groups %}
 
@@ -112,9 +109,7 @@ In {% data variables.product.prodname_dependabot %} pull requests for grouped ve
 * `@dependabot unignore DEPENDENCY_NAME` closes the current pull request, clears all `ignore` conditions stored for the dependency, then opens a new pull request that includes available version updates for the specified dependency. For example, `@dependabot unignore lodash` would open a new pull request that includes version updates for the Lodash dependency.
 * `@dependabot unignore DEPENDENCY_NAME IGNORE_CONDITION` closes the current pull request, clears the stored `ignore` condition, then opens a new pull request that includes available version updates for the specified ignore condition. For example, `@dependabot unignore express [< 1.9, > 1.8.0]` would open a new pull request that includes version updates for Express between versions 1.8.0 and 1.9.0.
 
-{% note %}
+> [!TIP]
+> When you want to un-ignore a specific ignore condition, use the `@dependabot show DEPENDENCY_NAME ignore conditions` command to quickly check what ignore conditions a dependency currently has.
 
-**Tip:** When you want to un-ignore a specific ignore condition, use the `@dependabot show DEPENDENCY_NAME ignore conditions` command to quickly check what ignore conditions a dependency currently has.
-
-{% endnote %}
 {% endif %}

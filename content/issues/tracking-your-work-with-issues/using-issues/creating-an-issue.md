@@ -148,11 +148,8 @@ Within an issue, you can use task lists to break work into smaller tasks and tra
 
 You can use query parameters to open issues. Query parameters are optional parts of a URL you can customize to share a specific web page view, such as search filter results or an issue template on {% data variables.product.prodname_dotcom %}. To create your own query parameters, you must match the key and value pair.
 
-{% tip %}
-
-**Tip:** You can also create issue templates that open with default labels, assignees, and an issue title. For more information, see "[AUTOTITLE](/communities/using-templates-to-encourage-useful-issues-and-pull-requests)."
-
-{% endtip %}
+> [!TIP]
+> You can also create issue templates that open with default labels, assignees, and an issue title. For more information, see "[AUTOTITLE](/communities/using-templates-to-encourage-useful-issues-and-pull-requests)."
 
 You must have the proper permissions for any action to use the equivalent query parameter. For example, you must have permission to add a label to an issue to use the `labels` query parameter. For more information, see "[AUTOTITLE](/organizations/managing-user-access-to-your-organizations-repositories/managing-repository-roles/repository-roles-for-an-organization)."
 
