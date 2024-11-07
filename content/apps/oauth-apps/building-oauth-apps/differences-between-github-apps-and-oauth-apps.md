@@ -71,11 +71,8 @@ An _authorized_ {% data variables.product.prodname_oauth_app %} has access to al
 
 ## Token-based identification
 
-{% note %}
-
-**Note:** GitHub Apps can also use a user-based token. For more information, see "[AUTOTITLE](/apps/creating-github-apps/authenticating-with-a-github-app/identifying-and-authorizing-users-for-github-apps)."
-
-{% endnote %}
+> [!NOTE]
+> GitHub Apps can also use a user-based token. For more information, see "[AUTOTITLE](/apps/creating-github-apps/authenticating-with-a-github-app/identifying-and-authorizing-users-for-github-apps)."
 
 | GitHub Apps | {% data variables.product.prodname_oauth_apps %} |
 | ----- | ----------- |

@@ -187,11 +187,8 @@ A map of the secrets that can be used in the called workflow.
 
 Within the called workflow, you can use the `secrets` context to refer to a secret.
 
-{% note %}
-
-**Note:** If you are passing the secret to a nested reusable workflow, then you must use [`jobs.<job_id>.secrets`](#jobsjob_idsecrets) again to pass the secret. For more information, see "[AUTOTITLE](/actions/using-workflows/reusing-workflows#passing-secrets-to-nested-workflows)."
-
-{% endnote %}
+> [!NOTE]
+> If you are passing the secret to a nested reusable workflow, then you must use [`jobs.<job_id>.secrets`](#jobsjob_idsecrets) again to pass the secret. For more information, see "[AUTOTITLE](/actions/using-workflows/reusing-workflows#passing-secrets-to-nested-workflows)."
 
 If a caller workflow passes a secret that is not specified in the called workflow, this results in an error.
 
@@ -881,11 +878,8 @@ The maximum number of minutes to let a job run before {% data variables.product.
 
 If the timeout exceeds the job execution time limit for the runner, the job will be canceled when the execution time limit is met instead. For more information about job execution time limits, see "[AUTOTITLE](/actions/learn-github-actions/usage-limits-billing-and-administration#usage-limits)" for {% data variables.product.prodname_dotcom %}-hosted runners and "[AUTOTITLE](/actions/hosting-your-own-runners/managing-self-hosted-runners/about-self-hosted-runners#usage-limits)" for self-hosted runner usage limits.
 
-{% note %}
-
-**Note:** {% data reusables.actions.github-token-expiration %} For self-hosted runners, the token may be the limiting factor if the job timeout is greater than 24 hours. For more information on the `GITHUB_TOKEN`, see "[AUTOTITLE](/actions/security-guides/automatic-token-authentication#about-the-github_token-secret)."
-
-{% endnote %}
+> [!NOTE]
+> {% data reusables.actions.github-token-expiration %} For self-hosted runners, the token may be the limiting factor if the job timeout is greater than 24 hours. For more information on the `GITHUB_TOKEN`, see "[AUTOTITLE](/actions/security-guides/automatic-token-authentication#about-the-github_token-secret)."
 
 ## `jobs.<job_id>.strategy`
 
@@ -1089,11 +1083,8 @@ volumes:
 
 Additional Docker container resource options. For a list of options, see "[`docker create` options](https://docs.docker.com/engine/reference/commandline/create/#options)."
 
-{% warning %}
-
-**Warning:** The `--network` option is not supported.
-
-{% endwarning %}
+> [!WARNING]
+> The `--network` option is not supported.
 
 ## `jobs.<job_id>.uses`
 

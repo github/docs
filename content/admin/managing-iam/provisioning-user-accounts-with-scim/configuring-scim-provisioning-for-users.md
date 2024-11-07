@@ -177,11 +177,9 @@ If you don't use a partner IdP, or if you only use a partner IdP for authenticat
 
 {% data reusables.emus.sign-in-as-setup-user %}
 
-   {% note %}
+   > [!NOTE]
+   > {% data reusables.enterprise-accounts.emu-password-reset-session %}
 
-   **Note**: {% data reusables.enterprise-accounts.emu-password-reset-session %}
-
-   {% endnote %}
 {% data reusables.enterprise-accounts.access-enterprise-emu %}
 {% data reusables.enterprise-accounts.settings-tab %}
 {% data reusables.enterprise-accounts.security-tab %}

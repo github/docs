@@ -29,11 +29,8 @@ After you restore a {% data variables.product.prodname_ghe_server %} backup to t
 
 When you set up a staging environment that includes a {% data variables.product.product_name %} instance with {% data variables.product.prodname_actions %} enabled, you must use a different external storage configuration for {% data variables.product.prodname_actions %} storage than your production environment.
 
-{% warning %}
-
-**Warning**: If you don't change the storage configuration, your staging instance may be able to write to the same external storage that you use for production, which could result in loss of data.
-
-{% endwarning %}
+> [!WARNING]
+> If you don't change the storage configuration, your staging instance may be able to write to the same external storage that you use for production, which could result in loss of data.
 
 For more information about storage configuration for {% data variables.product.prodname_actions %}, see "[AUTOTITLE](/admin/github-actions/getting-started-with-github-actions-for-your-enterprise/getting-started-with-github-actions-for-github-enterprise-server#enabling-github-actions-with-your-storage-provider)."
 

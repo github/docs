@@ -17,11 +17,8 @@ redirect_from:
   - /admin/monitoring-managing-and-updating-your-instance/monitoring-your-instance/generating-a-health-check-for-your-enterprise
 ---
 
-{% note %}
-
-**Note:** Generating a Health Check is currently in {% data variables.release-phases.public_preview %} for {% data variables.product.prodname_ghe_server %} and subject to change.
-
-{% endnote %}
+> [!NOTE]
+> Generating a Health Check is currently in {% data variables.release-phases.public_preview %} for {% data variables.product.prodname_ghe_server %} and subject to change.
 
 ## About generated Health Checks
 

@@ -52,11 +52,8 @@ We strongly recommend enabling PROXY protocol support for both your instance and
 
 {% data reusables.enterprise_clustering.x-forwarded-for %}
 
-{% warning %}
-
-**Warning**: If you configure `X-Forwarded-For` support on {% data variables.location.product_location %} and load balancer, you may not be able to connect to the {% data variables.enterprise.management_console %}. For more information, see "[AUTOTITLE](/admin/configuration/configuring-network-settings/using-github-enterprise-server-with-a-load-balancer#error-your-session-has-expired-for-connections-to-the-management-console)."
-
-{% endwarning %}
+> [!WARNING]
+> If you configure `X-Forwarded-For` support on {% data variables.location.product_location %} and load balancer, you may not be able to connect to the {% data variables.enterprise.management_console %}. For more information, see "[AUTOTITLE](/admin/configuration/configuring-network-settings/using-github-enterprise-server-with-a-load-balancer#error-your-session-has-expired-for-connections-to-the-management-console)."
 
 {% data reusables.enterprise_site_admin_settings.access-settings %}
 {% data reusables.enterprise_site_admin_settings.management-console %}
@@ -77,11 +74,8 @@ Health checks allow a load balancer to stop sending traffic to a node that is no
 
 If you cannot connect to services on {% data variables.location.product_location %} through a load balancer, you can review the following information to troubleshoot the problem.
 
-{% note %}
-
-**Note**: Always test changes to your network infrastructure and instance configuration in a staging environment. For more information, see "[AUTOTITLE](/admin/installation/setting-up-a-github-enterprise-server-instance/setting-up-a-staging-instance)."
-
-{% endnote %}
+> [!NOTE]
+> Always test changes to your network infrastructure and instance configuration in a staging environment. For more information, see "[AUTOTITLE](/admin/installation/setting-up-a-github-enterprise-server-instance/setting-up-a-staging-instance)."
 
 ### Error: "Your session has expired" for connections to the {% data variables.enterprise.management_console %}
 

@@ -155,11 +155,8 @@ After a workflow run has been completed, you can download or delete artifacts on
 
 The [`actions/download-artifact`](https://github.com/actions/download-artifact) action can be used to download previously uploaded artifacts during a workflow run.
 
-{% note %}
-
-**Note:** You can only download artifacts in a workflow that were uploaded during the same workflow run.
-
-{% endnote %}
+> [!NOTE]
+> You can only download artifacts in a workflow that were uploaded during the same workflow run.
 
 Specify an artifact's name to download an individual artifact. If you uploaded an artifact without specifying a name, the default name is `artifact`.
 

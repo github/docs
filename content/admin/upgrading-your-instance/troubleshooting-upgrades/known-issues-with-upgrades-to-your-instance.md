@@ -33,11 +33,8 @@ To future-proof {% data variables.product.prodname_ghe_server %} and provide the
 
 After the upgrade to {% data variables.product.prodname_ghe_server %} 3.9, if you experience unacceptable degradation in the performance of your instance, you can collect data from your instance's monitor dashboard to confirm the impact. You can attempt to mitigate the issue, and you can provide the data to {% data variables.contact.github_support %} to help profile and communicate the real-world impact of this change.
 
-{% warning %}
-
-**Warning**: Due to the nature of this upgrade, back up your instance's configuration and data before proceeding. Validate the backup in a staging environment. For more information, see "[AUTOTITLE](/admin/configuration/configuring-your-enterprise/configuring-backups-on-your-appliance)" and "[AUTOTITLE](/admin/installation/setting-up-a-github-enterprise-server-instance/setting-up-a-staging-instance)."
-
-{% endwarning %}
+> [!WARNING]
+> Due to the nature of this upgrade, back up your instance's configuration and data before proceeding. Validate the backup in a staging environment. For more information, see "[AUTOTITLE](/admin/configuration/configuring-your-enterprise/configuring-backups-on-your-appliance)" and "[AUTOTITLE](/admin/installation/setting-up-a-github-enterprise-server-instance/setting-up-a-staging-instance)."
 
 ### Collecting baseline I/O utilization data before the MySQL upgrade
 
@@ -77,14 +74,11 @@ To attempt to mitigate the performance impact, you can adjust InnoDB's flushing 
 
 The following instructions are only intended for  {% data variables.product.product_name %} 3.9 and later.
 
-{% warning %}
-
-**Warning**: Adjustment of the flushing method requires that your instance's storage device has a battery-backed cache. If the device's cache is not battery-backed, you risk data loss.
-
-* If you host your instance using a virtualization hypervisor within an on-premises datacenter, review your storage specifications to confirm.
-* If you host your instance in a public cloud service, consult your provider's documentation or support team to confirm.
-
-{% endwarning %}
+> [!WARNING]
+> Adjustment of the flushing method requires that your instance's storage device has a battery-backed cache. If the device's cache is not battery-backed, you risk data loss.
+>
+> * If you host your instance using a virtualization hypervisor within an on-premises datacenter, review your storage specifications to confirm.
+> * If you host your instance in a public cloud service, consult your provider's documentation or support team to confirm.
 
 {% data reusables.enterprise_installation.ssh-into-instance %}
 1. To validate the current flushing method for InnoDB, run the following command.

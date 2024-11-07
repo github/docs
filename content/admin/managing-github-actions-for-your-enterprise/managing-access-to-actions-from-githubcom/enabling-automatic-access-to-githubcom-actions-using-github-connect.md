@@ -56,8 +56,5 @@ After using an action from {% data variables.product.prodname_dotcom_the_website
 1. To the right of the namespace that you want use in {% data variables.location.product_location %}, click **Unretire**.
 1. Go to the relevant organization and create a new repository.
 
-   {% tip %}
-
-   **Tip:** When you unretire a namespace, always create the new repository with that name as soon as possible. If a workflow calls the associated action on {% data variables.product.prodname_dotcom_the_website %} before you create the local repository, the namespace will be retired again. For actions used in workflows that run frequently, you may find that a namespace is retired again before you have time to create the local repository. In this case, you can temporarily disable the relevant workflows until you have created the new repository.
-
-   {% endtip %}
+   > [!TIP]
+   > When you unretire a namespace, always create the new repository with that name as soon as possible. If a workflow calls the associated action on {% data variables.product.prodname_dotcom_the_website %} before you create the local repository, the namespace will be retired again. For actions used in workflows that run frequently, you may find that a namespace is retired again before you have time to create the local repository. In this case, you can temporarily disable the relevant workflows until you have created the new repository.

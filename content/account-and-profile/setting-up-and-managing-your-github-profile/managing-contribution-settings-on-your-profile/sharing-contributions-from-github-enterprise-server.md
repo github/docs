@@ -26,11 +26,8 @@ You can decide whether to show counts for private contributions on your profile.
 
 For more information about how contributions are calculated, see "[AUTOTITLE](/account-and-profile/setting-up-and-managing-your-github-profile/managing-contribution-settings-on-your-profile)."
 
-{% note %}
-
-**Note:** The connection between your accounts is governed by [GitHub's Privacy Statement](/free-pro-team@latest/site-policy/privacy-policies/github-privacy-statement) and users enabling the connection must agree to the [GitHub Terms of Service](/free-pro-team@latest/site-policy/github-terms/github-terms-of-service).
-
-{% endnote %}
+> [!NOTE]
+> The connection between your accounts is governed by [GitHub's Privacy Statement](/free-pro-team@latest/site-policy/privacy-policies/github-privacy-statement) and users enabling the connection must agree to the [GitHub Terms of Service](/free-pro-team@latest/site-policy/github-terms/github-terms-of-service).
 
 ## Sending your enterprise contributions to your profile
 

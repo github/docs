@@ -81,15 +81,11 @@ You can create a runner group to manage access to the runner that you added to y
 {%- ifversion ghec or ghes %}
 1. Optionally, to allow public repositories in the selected organizations to use runners in the group, select **Allow public repositories**.
 
-   {% warning %}
+   > [!WARNING]
+   > {% data reusables.actions.self-hosted-runner-security %}
+   >
+   > For more information, see "[AUTOTITLE](/actions/hosting-your-own-runners/managing-self-hosted-runners/about-self-hosted-runners#self-hosted-runner-security-with-public-repositories)."
 
-   **Warning**:
-
-   {% data reusables.actions.self-hosted-runner-security %}
-
-   For more information, see "[AUTOTITLE](/actions/hosting-your-own-runners/managing-self-hosted-runners/about-self-hosted-runners#self-hosted-runner-security-with-public-repositories)."
-
-   {% endwarning %}
 {%- endif %}
 {% data reusables.actions.create-runner-group %}
 1. Click the "Runners" tab.

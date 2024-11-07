@@ -36,31 +36,23 @@ If you're a member of an {% data variables.enterprise.prodname_emu_enterprise %}
 {% endif %}
 {% endif %}
 
-{% warning %}
-
-**Warning:**
-* If you're a member{% ifversion fpt or ghec %}, billing manager,{% endif %} or outside collaborator to a private repository of an organization that requires two-factor authentication, you must leave the organization before you can disable 2FA.
-* If you disable 2FA, you will automatically lose access to the organization and any private forks you have of the organization's private repositories. To regain access to the organization and your forks, re-enable two-factor authentication and contact an organization owner.
-
-{% endwarning %}
+> [!WARNING]
+> * If you're a member{% ifversion fpt or ghec %}, billing manager,{% endif %} or outside collaborator to a private repository of an organization that requires two-factor authentication, you must leave the organization before you can disable 2FA.
+> * If you disable 2FA, you will automatically lose access to the organization and any private forks you have of the organization's private repositories. To regain access to the organization and your forks, re-enable two-factor authentication and contact an organization owner.
 
 {% ifversion 2fa-reconfiguration-inline-update %}
-{% note %}
 
-**Note:** You can reconfigure your 2FA settings without disabling 2FA entirely, allowing you to keep both your recovery codes and your membership in organizations that require 2FA.
+> [!NOTE]
+> You can reconfigure your 2FA settings without disabling 2FA entirely, allowing you to keep both your recovery codes and your membership in organizations that require 2FA.
 
-{% endnote %}
 {% endif %}
 
 ## Configuring two-factor authentication using a TOTP app
 
 A time-based one-time password (TOTP) application automatically generates an authentication code that changes after a certain period of time. These apps can be downloaded to your phone or desktop. We recommend using cloud-based TOTP apps. {% data variables.product.prodname_dotcom %} is app-agnostic when it comes to TOTP apps, so you have the freedom to choose any TOTP app you prefer. Just search for `TOTP app` in your browser to find various options. You can also refine your search by adding keywords like `free` or `open source` to match your preferences.
 
-{% tip %}
-
-**Tip**: To configure authentication via TOTP on multiple devices, during setup, scan the QR code using each device at the same time or save the "setup key", which is the TOTP secret. If 2FA is already enabled and you want to add another device, you must re-configure your TOTP app from your security settings.
-
-{% endtip %}
+> [!TIP]
+> To configure authentication via TOTP on multiple devices, during setup, scan the QR code using each device at the same time or save the "setup key", which is the TOTP secret. If 2FA is already enabled and you want to add another device, you must re-configure your TOTP app from your security settings.
 
 1. Download a TOTP app of your choice to your phone or desktop.
 {% data reusables.user-settings.access_settings %}
@@ -97,11 +89,8 @@ If you're unable to configure a TOTP app, you can also register your phone numbe
 
 {% data reusables.passkeys.about-passkeys %} See "[AUTOTITLE](/authentication/authenticating-with-a-passkey/about-passkeys)."
 
-{% note %}
-
-**Note:** Platform authenticators like Windows Hello, Face ID, or Touch ID can be registered as a passkey instead.
-
-{% endnote %}
+> [!NOTE]
+> Platform authenticators like Windows Hello, Face ID, or Touch ID can be registered as a passkey instead.
 
 1. You must have already configured 2FA via a TOTP mobile app{% ifversion fpt or ghec %} or via SMS{% endif %}.
 {% data reusables.passkeys.adding-a-passkey %}

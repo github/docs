@@ -14,11 +14,8 @@ redirect_from:
 
 ## Deleting an artifact
 
-{% warning %}
-
-**Warning:** Once you delete an artifact, it cannot be restored.
-
-{% endwarning %}
+> [!WARNING]
+> Once you delete an artifact, it cannot be restored.
 
 {% data reusables.repositories.permissions-statement-write %}
 

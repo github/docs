@@ -111,11 +111,8 @@ For more detailed information about how to enable SAML using Okta, see "[AUTOTIT
 
 You can enable or disable SAML authentication for {% data variables.location.product_location %}, or you can edit an existing configuration. You can view and edit authentication settings for {% data variables.product.product_name %} in the {% data variables.enterprise.management_console %}. For more information, see "[AUTOTITLE](/admin/configuration/administering-your-instance-from-the-management-console)."
 
-{% note %}
-
-**Note**: {% data reusables.enterprise.test-in-staging %}
-
-{% endnote %}
+> [!NOTE]
+> {% data reusables.enterprise.test-in-staging %}
 
 {% data reusables.enterprise_site_admin_settings.access-settings %}
 {% data reusables.enterprise_site_admin_settings.management-console %}
@@ -124,11 +121,8 @@ You can enable or disable SAML authentication for {% data variables.location.pro
 1. {% data reusables.enterprise_user_management.built-in-authentication-option %}
 1. Optionally, to enable unsolicited response SSO, select **IdP initiated SSO**. By default, {% data variables.product.prodname_ghe_server %} will reply to an unsolicited Identity Provider (IdP) initiated request with an `AuthnRequest` back to the IdP.
 
-   {% tip %}
-
-   **Note**: We recommend keeping this value **unselected**. You should enable this feature **only** in the rare instance that your SAML implementation does not support service provider initiated SSO, and when advised by {% data variables.contact.enterprise_support %}.
-
-   {% endtip %}
+   > [!TIP]
+   > We recommend keeping this value **unselected**. You should enable this feature **only** in the rare instance that your SAML implementation does not support service provider initiated SSO, and when advised by {% data variables.contact.enterprise_support %}.
 
 1. Optionally, if you do not want your SAML provider to determine administrator rights for users on {% data variables.location.product_location %}, select **Disable administrator demotion/promotion**
 {%- ifversion ghes %}

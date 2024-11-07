@@ -31,11 +31,8 @@ You can also use the API to retrieve audit log events. For more information, see
 
 You cannot search for entries using text. You can, however, construct search queries using a variety of filters. Many operators used when querying the log, such as `-`, `>`, or `<`, match the same format as searching across {% data variables.product.product_name %}. For more information, see "[AUTOTITLE](/search-github/getting-started-with-searching-on-github/about-searching-on-github)."
 
-{% note %}
-
-**Note**: {% data reusables.audit_log.retention-periods %}
-
-{% endnote %}
+> [!NOTE]
+> {% data reusables.audit_log.retention-periods %}
 
 ## Search query filters
 

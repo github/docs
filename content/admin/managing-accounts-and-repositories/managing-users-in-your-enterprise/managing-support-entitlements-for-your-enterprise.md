@@ -24,11 +24,8 @@ Enterprise owners and billing managers automatically have a support entitlement.
 
 To add a support entitlement to a user, the user must already be a member of an organization that is owned by your enterprise.
 
-{% note %}
-
-**Note**: After you add a support entitlement, the enterprise member may need to sign out from {% data variables.contact.contact_landing_page_portal %}, then sign in again, before they can manage tickets.
-
-{% endnote %}
+> [!NOTE]
+> After you add a support entitlement, the enterprise member may need to sign out from {% data variables.contact.contact_landing_page_portal %}, then sign in again, before they can manage tickets.
 
 {% data reusables.enterprise-accounts.access-enterprise %}
 {% data reusables.enterprise-accounts.settings-tab %}

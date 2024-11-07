@@ -42,11 +42,8 @@ admin@ghe-data-node-0:~$ ghe-cluster-status | grep error
 > mysql cluster: error
 ```
 
-{% note %}
-
-**Note:** If there are no failing tests, this command produces no output. This indicates the cluster is healthy.
-
-{% endnote %}
+> [!NOTE]
+> If there are no failing tests, this command produces no output. This indicates the cluster is healthy.
 
 {% ifversion ghes-manage-api-cli-extension %}
 
@@ -84,15 +81,14 @@ You can configure [Nagios](https://www.nagios.org/) to monitor {% data variables
    **Security Warning:** An SSH key without a passphrase can pose a security risk if authorized for full access to a host. Limit this key's authorization to a single read-only command.
 
    {% enddanger %}
-   {% note %}
 
-   **Note:** If you're using a distribution of Linux that doesn't support the Ed25519 algorithm, use the command:
+   > [!NOTE]
+   > If you're using a distribution of Linux that doesn't support the Ed25519 algorithm, use the command:
+   >
+   > ```shell
+   > nagiosuser@nagios:~$ ssh-keygen -t rsa -b 4096
+   > ```
 
-   ```shell
-   nagiosuser@nagios:~$ ssh-keygen -t rsa -b 4096
-   ```
-
-   {% endnote %}
 1. Copy the private key (`id_ed25519`) to the `nagios` home folder and set the appropriate ownership.
 
    ```shell
