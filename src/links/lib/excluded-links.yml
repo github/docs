@@ -76,3 +76,6 @@
 - is: https://jsonformatter.org/
 - is: https://mvnrepository.com/artifact/org.xwiki.platform/xwiki-platform-oldcore
 - is: https://mvnrepository.com/artifact/com.google.guava/guava
+- startsWith: https://platform.openai.com/docs/models
+- startsWith: https://openai.com/index
+- is: https://github.com/github-linguist/linguist/compare/master...octocat:master
