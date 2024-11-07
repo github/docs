@@ -165,17 +165,8 @@ You can run all the queries located in a directory by providing the directory
 path, rather than listing all the individual query files. Paths are searched
 recursively, so any queries contained in subfolders will also be executed.
 
-{% note %}
-
-**Important**
-
-You should avoid specifying the root of a core {% data variables.product.prodname_codeql %} query pack when executing `database analyze`
-as it might contain some special queries that aren’t designed to be used with
-the command. Rather, run the query pack to include the
-pack’s default queries in the analysis, or run one of the
-code scanning query suites.
-
-{% endnote %}
+> [!IMPORTANT]
+> You should avoid specifying the root of a core {% data variables.product.prodname_codeql %} query pack when executing `database analyze` as it might contain some special queries that aren’t designed to be used with the command. Rather, run the query pack to include the pack’s default queries in the analysis, or run one of the code scanning query suites.
 
 For example, to execute all Python queries contained in the `Functions` directory in the
 `codeql/python-queries` query pack you would run:
