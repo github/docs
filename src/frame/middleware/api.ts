@@ -3,7 +3,7 @@ import { createProxyMiddleware } from 'http-proxy-middleware'
 
 import events from '@/events/middleware.js'
 import anchorRedirect from '@/rest/api/anchor-redirect.js'
-import search from '@/search/middleware/search.js'
+import search from '@/search/middleware/search-routes.js'
 import pageInfo from '@/pageinfo/middleware'
 import pageList from '@/pagelist/middleware'
 import webhooks from '@/webhooks/middleware/webhooks.js'
