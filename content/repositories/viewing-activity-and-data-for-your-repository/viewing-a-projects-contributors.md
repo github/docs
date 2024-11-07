@@ -45,11 +45,8 @@ If you don't appear in a repository's contributors graph, it may be because:
 * Your commits haven't been merged into the default branch.
 * The email address you used to author the commits isn't connected to your account on {% data variables.product.product_name %}.
 
-{% tip %}
-
-**Tip:** To list all commit contributors in a repository, see "[AUTOTITLE](/rest/repos/repos#list-repository-contributors)."
-
-{% endtip %}
+> [!TIP]
+> To list all commit contributors in a repository, see "[AUTOTITLE](/rest/repos/repos#list-repository-contributors)."
 
 If all your commits in the repository are on non-default branches, you won't be in the contributors graph. For example, commits on the `gh-pages` branch aren't included in the graph unless `gh-pages` is the repository's default branch. To have your commits merged into the default branch, you can create a pull request. For more information, see "[AUTOTITLE](/pull-requests/collaborating-with-pull-requests/proposing-changes-to-your-work-with-pull-requests/about-pull-requests)."
 

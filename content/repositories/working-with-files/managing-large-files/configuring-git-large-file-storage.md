@@ -18,11 +18,8 @@ If there are existing files in your repository that you'd like to use {% data va
 
 {% ifversion ghes %}
 
-{% tip %}
-
-**Note:** Before trying to push a large file to {% data variables.product.product_name %}, make sure that you've enabled {% data variables.large_files.product_name_short %} on your enterprise. For more information, see "[AUTOTITLE](/admin/user-management/managing-repositories-in-your-enterprise/configuring-git-large-file-storage-for-your-enterprise)."
-
-{% endtip %}
+> [!NOTE]
+> Before trying to push a large file to {% data variables.product.product_name %}, make sure that you've enabled {% data variables.large_files.product_name_short %} on your enterprise. For more information, see "[AUTOTITLE](/admin/user-management/managing-repositories-in-your-enterprise/configuring-git-large-file-storage-for-your-enterprise)."
 
 {% endif %}
 
@@ -39,15 +36,12 @@ If there are existing files in your repository that you'd like to use {% data va
 
    Every file type you want to associate with {% data variables.large_files.product_name_short %} will need to be added with `git {% data variables.large_files.command_name %} track`. This command amends your repository's _.gitattributes_ file and associates large files with {% data variables.large_files.product_name_short %}.
 
-   {% note %}
-
-   **Note:** We strongly suggest that you commit your local _.gitattributes_ file into your repository.
-
-   * Relying on a global _.gitattributes_ file associated with {% data variables.large_files.product_name_short %} may cause conflicts when contributing to other Git projects.
-   * Including the _.gitattributes_ file in the repository allows people creating forks or fresh clones to more easily collaborate using {% data variables.large_files.product_name_short %}.
-   * Including the _.gitattributes_ file in the repository allows {% data variables.large_files.product_name_short %} objects to optionally be included in ZIP file and tarball archives.
-
-   {% endnote %}
+   > [!NOTE]
+   > We strongly suggest that you commit your local _.gitattributes_ file into your repository.
+   >
+   > * Relying on a global _.gitattributes_ file associated with {% data variables.large_files.product_name_short %} may cause conflicts when contributing to other Git projects.
+   > * Including the _.gitattributes_ file in the repository allows people creating forks or fresh clones to more easily collaborate using {% data variables.large_files.product_name_short %}.
+   > * Including the _.gitattributes_ file in the repository allows {% data variables.large_files.product_name_short %} objects to optionally be included in ZIP file and tarball archives.
 
 1. Add a file to the repository matching the extension you've associated:
 

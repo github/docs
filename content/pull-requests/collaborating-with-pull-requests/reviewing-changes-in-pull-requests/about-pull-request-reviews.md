@@ -51,11 +51,8 @@ You can view all of the reviews a pull request has received in the Conversation 
 
 {% data reusables.pull_requests.required-reviews-for-prs-summary %} For more information, see "[AUTOTITLE](/repositories/configuring-branches-and-merges-in-your-repository/managing-protected-branches/about-protected-branches#require-pull-request-reviews-before-merging)."
 
-{% tip %}
-
-**Tip**: If necessary, people with _admin_ or _write_ access to a repository can dismiss a pull request review. For more information, see "[AUTOTITLE](/pull-requests/collaborating-with-pull-requests/reviewing-changes-in-pull-requests/dismissing-a-pull-request-review)."
-
-{% endtip %}
+> [!TIP]
+> If necessary, people with _admin_ or _write_ access to a repository can dismiss a pull request review. For more information, see "[AUTOTITLE](/pull-requests/collaborating-with-pull-requests/reviewing-changes-in-pull-requests/dismissing-a-pull-request-review)."
 
 ## Further reading
 

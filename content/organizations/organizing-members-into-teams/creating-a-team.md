@@ -52,14 +52,10 @@ You must be a site admin and an organization owner to create a team with LDAP sy
 
 {% data reusables.enterprise_user_management.ldap-sync-nested-teams %}
 
-{% warning %}
-
-**Notes:**
-* LDAP Sync only manages the team's member list. You must manage the team's repositories and permissions from within {% data variables.product.prodname_ghe_server %}.
-* If an LDAP group mapping to a DN is removed, such as if the LDAP group is deleted, then every member is removed from the synced {% data variables.product.prodname_ghe_server %} team. To fix this, map the team to a new DN, add the team members back, and [manually sync the mapping](/admin/identity-and-access-management/using-ldap-for-enterprise-iam/using-ldap#manually-syncing-ldap-accounts).
-* When LDAP Sync is enabled, if a person is removed from a repository, they will lose access but their forks will not be deleted. If the person is added to a team with access to the original organization repository within three months, their access to the forks will be automatically restored on the next sync.
-
-{% endwarning %}
+> [!NOTE]
+> * LDAP Sync only manages the team's member list. You must manage the team's repositories and permissions from within {% data variables.product.prodname_ghe_server %}.
+> * If an LDAP group mapping to a DN is removed, such as if the LDAP group is deleted, then every member is removed from the synced {% data variables.product.prodname_ghe_server %} team. To fix this, map the team to a new DN, add the team members back, and [manually sync the mapping](/admin/identity-and-access-management/using-ldap-for-enterprise-iam/using-ldap#manually-syncing-ldap-accounts).
+> * When LDAP Sync is enabled, if a person is removed from a repository, they will lose access but their forks will not be deleted. If the person is added to a team with access to the original organization repository within three months, their access to the forks will be automatically restored on the next sync.
 
 1. Ensure that [LDAP Sync is enabled](/admin/identity-and-access-management/using-ldap-for-enterprise-iam/using-ldap#enabling-ldap-sync).
 {% data reusables.profile.access_org %}

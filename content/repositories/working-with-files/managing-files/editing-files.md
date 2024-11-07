@@ -20,17 +20,11 @@ shortTitle: Edit files
 
 ## Editing files in your repository
 
-{% tip %}
+> [!TIP]
+> {% data reusables.repositories.protected-branches-block-web-edits-uploads %}
 
-**Tip**: {% data reusables.repositories.protected-branches-block-web-edits-uploads %}
-
-{% endtip %}
-
-{% note %}
-
-**Note:** {% data variables.product.product_name %}'s file editor uses [CodeMirror](https://codemirror.net/).
-
-{% endnote %}
+> [!NOTE]
+> {% data variables.product.product_name %}'s file editor uses [CodeMirror](https://codemirror.net/).
 
 1. In your repository, browse to the file you want to edit.
 {% data reusables.repositories.edit-file %}

@@ -46,11 +46,8 @@ You can configure the {% data variables.dependency-review.action_name %} to bett
    ![Screenshot of the "Changed files" tab. A dropdown labeled "File filter" is expanded, displaying a list of file types with checkboxes.](/assets/images/help/pull_requests/file-filter-menu-json.png)
    The dependency review provides a clearer view of what has changed in large lock files, where the source diff is not rendered by default.
 
-   {% note %}
-
-   **Note:** Dependency review rich diffs are not available for committed static JavaScript files like `jquery.js`.
-
-   {% endnote %}
+   > [!NOTE]
+   > Dependency review rich diffs are not available for committed static JavaScript files like `jquery.js`.
 
 1. On the right of the header for a manifest or lock file, display the dependency review by clicking **{% octicon "file" aria-label="Display the rich diff" %}**.
 

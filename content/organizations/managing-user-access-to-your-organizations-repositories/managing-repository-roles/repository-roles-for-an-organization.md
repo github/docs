@@ -41,11 +41,8 @@ Organization owners can also choose to further limit access to certain settings 
 
 In addition to managing organization-level settings, organization owners have admin access to every repository owned by the organization. For more information, see "[AUTOTITLE](/organizations/managing-peoples-access-to-your-organization-with-roles/roles-in-an-organization)."
 
-{% warning %}
-
-**Warning:** When someone adds a deploy key to a repository, any user who has the private key can read from or write to the repository (depending on the key settings), even if they're later removed from the organization.
-
-{% endwarning %}
+> [!WARNING]
+> When someone adds a deploy key to a repository, any user who has the private key can read from or write to the repository (depending on the key settings), even if they're later removed from the organization.
 
 ## Permissions for each role
 
@@ -53,11 +50,8 @@ In addition to managing organization-level settings, organization owners have ad
 Some of the features listed below are limited to organizations using {% data variables.product.prodname_ghe_cloud %}. {% data reusables.enterprise.link-to-ghec-trial %}
 {% endif %}
 
-{% note %}
-
-**Note:** The roles required to use security features are listed in "[Access requirements for security features](#access-requirements-for-security-features)" below.
-
-{% endnote %}
+> [!NOTE]
+> The roles required to use security features are listed in "[Access requirements for security features](#access-requirements-for-security-features)" below.
 
 {% rowheaders %}
 
@@ -177,11 +171,8 @@ Some of the features listed below are limited to organizations using {% data var
 
 In this section, you can find the access required for security features, such as {% data variables.product.prodname_advanced_security %} features.
 
-{% note %}
-
-**Note:** Repository writers and maintainers can only see secret scanning alert information for their own commits.
-
-{% endnote %}
+> [!NOTE]
+> Repository writers and maintainers can only see secret scanning alert information for their own commits.
 
 {% rowheaders %}
 

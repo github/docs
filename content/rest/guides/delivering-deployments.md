@@ -33,11 +33,10 @@ to [use it](/webhooks-and-events/webhooks/configuring-your-server-to-receive-pay
 applications to the internet.
 
 {% ifversion cli-webhook-forwarding %}
-{% note %}
 
-**Note:** Alternatively, you can use webhook forwarding to set up your local environment to receive webhooks. For more information, see "[AUTOTITLE](/webhooks-and-events/webhooks/receiving-webhooks-with-the-github-cli)."
+> [!NOTE]
+> Alternatively, you can use webhook forwarding to set up your local environment to receive webhooks. For more information, see "[AUTOTITLE](/webhooks-and-events/webhooks/receiving-webhooks-with-the-github-cli)."
 
-{% endnote %}
 {% endif %}
 
 Note: you can download the complete source code for this project

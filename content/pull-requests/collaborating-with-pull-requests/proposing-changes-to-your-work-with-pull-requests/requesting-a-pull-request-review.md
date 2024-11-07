@@ -22,11 +22,8 @@ To assign a reviewer to a pull request, you will need write access to the reposi
 
 Organization members with write access can also assign a pull request review to any person or team with read access to a repository. The requested reviewer or team will receive a notification that you asked them to review the pull request. If you request a review from a team and code review assignment is enabled, specific members will be requested and the team will be removed as a reviewer. For more information, see "[AUTOTITLE](/organizations/organizing-members-into-teams/managing-code-review-settings-for-your-team)."
 
-{% note %}
-
-**Note:** Pull request authors can't request reviews unless they are either a repository owner or collaborator with write access to the repository.
-
-{% endnote %}
+> [!NOTE]
+> Pull request authors can't request reviews unless they are either a repository owner or collaborator with write access to the repository.
 
 {% ifversion copilot-hadron %}
 

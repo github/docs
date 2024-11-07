@@ -54,11 +54,8 @@ Your repository may be secured by push protection. With push protection, {% data
 
 You can upload an existing file to a repository on {% data variables.product.prodname_dotcom %} using the command line.
 
-{% tip %}
-
-**Tip:** You can also [add an existing file to a repository from the {% data variables.product.product_name %} website](/repositories/working-with-files/managing-files/adding-a-file-to-a-repository).
-
-{% endtip %}
+> [!TIP]
+> You can also [add an existing file to a repository from the {% data variables.product.product_name %} website](/repositories/working-with-files/managing-files/adding-a-file-to-a-repository).
 
 {% data reusables.command_line.manipulating_file_prereqs %}
 

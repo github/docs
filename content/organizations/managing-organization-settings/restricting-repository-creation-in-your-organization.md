@@ -26,11 +26,8 @@ Enterprise owners can restrict the options you have available for your organizat
 
 Organization owners can restrict the type of repositories members can create to private {% ifversion ghec or ghes %}or internal{% endif %} to help prevent sensitive information from being exposed. For more information, see "[AUTOTITLE](/code-security/getting-started/best-practices-for-preventing-data-leaks-in-your-organization)."
 
-{% warning %}
-
-**Warning**: This setting restricts the visibility options available when repositories are _created_, but does not prevent changing the visibility of _existing_ repositories. For more information about restricting changes to existing repositories' visibilities, see "[AUTOTITLE](/organizations/managing-organization-settings/restricting-repository-visibility-changes-in-your-organization)."
-
-{% endwarning %}
+> [!WARNING]
+> This setting restricts the visibility options available when repositories are _created_, but does not prevent changing the visibility of _existing_ repositories. For more information about restricting changes to existing repositories' visibilities, see "[AUTOTITLE](/organizations/managing-organization-settings/restricting-repository-visibility-changes-in-your-organization)."
 
 {% data reusables.profile.access_org %}
 {% data reusables.profile.org_settings %}
@@ -38,11 +35,10 @@ Organization owners can restrict the type of repositories members can create to 
 1. Under "Repository creation", select one or more options. <br><br>
 
    {% ifversion fpt or ghec %}
-   {% note %}
 
-   **Note:** To restrict members to creating private repositories only, your organization must use {% data variables.product.prodname_ghe_cloud %}. {% data reusables.enterprise.link-to-ghec-trial %}
+   > [!NOTE]
+   > To restrict members to creating private repositories only, your organization must use {% data variables.product.prodname_ghe_cloud %}. {% data reusables.enterprise.link-to-ghec-trial %}
 
-   {% endnote %}
    {%- endif %}
 
 1. Click **Save**.
