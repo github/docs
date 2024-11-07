@@ -17,15 +17,15 @@ describe('frame', () => {
   test.each(langs)('breadcrumbs link to %s pages', async (lang) => {
     const $ = await getDOM(`/${lang}/get-started/learning-about-github`)
     const $breadcrumbs = $('[data-testid=breadcrumbs-in-article] a')
-    expect($breadcrumbs[0].attribs.href).toBe(`/${lang}/get-started`)
+    expect(($breadcrumbs[0] as cheerio.TagElement).attribs.href).toBe(`/${lang}/get-started`)
   })
 
   test.each(langs)('homepage links go to %s pages', async (lang) => {
     const $ = await getDOM(`/${lang}`)
     const $links = $('[data-testid=bump-link]')
-    $links.each((i: number, el: Element) => {
+    $links.each((i: number, el: cheerio.Element) => {
       const linkUrl = $(el).attr('href')
-      expect(linkUrl.startsWith(`/${lang}/`)).toBe(true)
+      expect((linkUrl || '').startsWith(`/${lang}/`)).toBe(true)
     })
   })
 
