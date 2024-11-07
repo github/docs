@@ -10,6 +10,7 @@ const layoutNames = [
   'product-guides',
   'release-notes',
   'inline',
+  'category-landing',
   false,
 ]
 

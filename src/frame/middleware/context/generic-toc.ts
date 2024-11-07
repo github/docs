@@ -9,7 +9,11 @@ import findPageInSiteTree from '@/frame/lib/find-page-in-site-tree.js'
 export default async function genericToc(req: ExtendedRequest, res: Response, next: NextFunction) {
   if (!req.context) throw new Error('request not contextualized')
   if (!req.context.page) return next()
-  if (req.context.currentLayoutName !== 'default') return next()
+  if (
+    req.context.currentLayoutName !== 'default' &&
+    req.context.currentLayoutName !== 'category-landing'
+  )
+    return next()
   // This middleware can only run on product, category, and map topics.
   if (
     req.context.page.documentType === 'homepage' ||
@@ -92,7 +96,7 @@ export default async function genericToc(req: ExtendedRequest, res: Response, ne
     renderIntros = false
     req.context.genericTocNested = await getTocItems(treePage, req.context, {
       recurse: isRecursive,
-      renderIntros,
+      renderIntros: req.context.currentLayoutName === 'category-landing' ? true : false,
       includeHidden,
     })
   }
@@ -127,7 +131,11 @@ async function getTocItems(node: Tree, context: Context, opts: Options): Promise
           // Deliberately don't use `textOnly:true` here because we intend
           // to display the intro, in a table of contents component,
           // with the HTML (dangerouslySetInnerHTML).
-          intro = await page.renderProp('rawIntro', context)
+          intro = await page.renderProp(
+            'rawIntro',
+            context,
+            context.currentLayoutName === 'category-landing' ? { textOnly: true } : {},
+          )
         }
       }
 
