@@ -45,6 +45,11 @@ for (const versionSource of Object.values(allVersions)) {
   }
 }
 
+// Add the values to the keys as well so that the map value -> value works for versions that are already conformed to the indexVersion syntax
+for (const [, value] of Object.entries(versionToIndexVersionMap)) {
+  versionToIndexVersionMap[value] = value
+}
+
 // All of the possible keys that can be input to access a version
 export const allIndexVersionKeys = Array.from(
   new Set([...Object.keys(versionToIndexVersionMap), ...Object.keys(allVersions)]),
