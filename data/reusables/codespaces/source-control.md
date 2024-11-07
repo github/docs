@@ -8,11 +8,8 @@ When you create a codespace from a template repository or a template on the "You
 
 {% data reusables.codespaces.create-or-switch-branch %}
 
-{% tip %}
-
-**Tip**: If someone has recently changed a file on the remote repository, in the branch you switched to, you may not see those changes until you pull the changes into your codespace.
-
-{% endtip %}
+> [!TIP]
+> If someone has recently changed a file on the remote repository, in the branch you switched to, you may not see those changes until you pull the changes into your codespace.
 
 ## Committing your changes
 

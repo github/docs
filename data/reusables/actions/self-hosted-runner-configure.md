@@ -6,11 +6,8 @@
 
    Open a shell on your self-hosted runner machine and run each shell command in the order shown.
 
-   {% note %}
-
-   **Note:** On Windows, if you want to install the self-hosted runner application as a service, you must open a shell with administrator privileges. We also recommend that you use `C:\actions-runner` as the directory for the self-hosted runner application so that Windows system accounts can access the runner directory.
-
-   {% endnote %}
+   > [!NOTE]
+   > On Windows, if you want to install the self-hosted runner application as a service, you must open a shell with administrator privileges. We also recommend that you use `C:\actions-runner` as the directory for the self-hosted runner application so that Windows system accounts can access the runner directory.
 
    The instructions walk you through completing these tasks:
    * Downloading and extracting the self-hosted runner application.
