@@ -3,18 +3,6 @@ export type RetryConfig = {
   sleepTime: number
 }
 
-export interface AllVersionInfo {
-  hasNumberedReleases: boolean
-  miscBaseName: string
-  currentRelease: string
-  version: string
-  plan: string
-}
-
-export interface AllVersions {
-  [key: string]: AllVersionInfo
-}
-
 export interface Options {
   language?: string
   notLanguage?: string
