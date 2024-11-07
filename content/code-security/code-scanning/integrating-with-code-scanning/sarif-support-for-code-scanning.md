@@ -319,7 +319,7 @@ This SARIF output file has example of values for the field `originalUriBaseIds`,
 
 {% note %}
 
-**Note:** While this property is not required by {% data variables.product.prodname_dotcom %} for the {% data variables.product.prodname_code_scanning %} results to be displayed correctly, it is required to produce a valid SARIF output when using relative URI references, For more information, visit the [Microsoft SARIF documentation](https://sarifweb.azurewebsites.net/).
+**Note:** While this property is not required by {% data variables.product.prodname_dotcom %} for the {% data variables.product.prodname_code_scanning %} results to be displayed correctly, it is required to produce a valid SARIF output when using relative URI references.
 
 {% endnote %}
 
