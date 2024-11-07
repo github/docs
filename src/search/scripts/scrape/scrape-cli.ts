@@ -7,7 +7,6 @@ import { program, Option } from 'commander'
 import { languageKeys } from '@/languages/lib/languages'
 import scrapeIntoIndexJson from '@/search/scripts/scrape/lib/scrape-into-index-json'
 import {
-  allIndexVersionKeys,
   allIndexVersionOptions,
   versionToIndexVersionMap,
 } from '@/search/lib/elasticsearch-versions'
@@ -18,7 +17,10 @@ program
   .description('Creates search index JSONs by scraping a running docs site')
   .option('-v, --verbose', 'Verbose outputs')
   .addOption(
-    new Option('-V, --version <VERSION>', 'Specific versions').choices(allIndexVersionOptions),
+    new Option('-V, --version <VERSION>', 'Specific versions').choices([
+      ...allIndexVersionOptions,
+      'all',
+    ]),
   )
   .addOption(
     new Option('-l, --language <LANGUAGE>', 'Which languages to focus on').choices(languageKeys),
@@ -61,23 +63,33 @@ async function main(opts: ProgramOptions, args: string[]) {
     throw new Error("Can't specify --language *and* --not-language")
   }
 
-  let version: string | undefined
+  let indexVersion: string | undefined
   if ('version' in opts) {
-    version = opts.version
+    indexVersion = opts.version
     if (process.env.VERSION) {
       console.warn(
-        `'version' specified as argument ('${version}') AND environment variable ('${process.env.VERSION}')`,
+        `'version' specified as argument ('${indexVersion}') AND environment variable ('${process.env.VERSION}')`,
       )
     }
-  } else {
-    if (process.env.VERSION && process.env.VERSION !== 'all') {
-      version = process.env.VERSION
-      if (!allIndexVersionOptions.includes(version)) {
-        throw new Error(
-          `Environment variable 'VERSION' (${version}) is not recognized. Must be one of ${allIndexVersionOptions}`,
-        )
-      }
+    if (!allIndexVersionOptions.includes(indexVersion || '') && indexVersion !== 'all') {
+      throw new Error(
+        `Argument -version (${indexVersion}) is not recognized. Must be one of ${allIndexVersionOptions}`,
+      )
     }
+  } else if (process.env.VERSION && process.env.VERSION !== 'all') {
+    indexVersion = process.env.VERSION
+    if (!allIndexVersionOptions.includes(indexVersion || '')) {
+      throw new Error(
+        `Environment variable 'VERSION' (${indexVersion}) is not recognized. Must be one of ${allIndexVersionOptions}`,
+      )
+    }
+  }
+
+  let versionsToBuild: string[] = []
+  if (!indexVersion || indexVersion === 'all') {
+    versionsToBuild = allIndexVersionOptions
+  } else if (indexVersion) {
+    versionsToBuild = [versionToIndexVersionMap[indexVersion]]
   }
 
   let docsInternalDataPath: string | undefined
@@ -109,16 +121,6 @@ async function main(opts: ProgramOptions, args: string[]) {
       throw new Error(`'${docsInternalDataPath}' must contain a 'hydro' directory`)
   }
 
-  let indexVersion: string | undefined
-  if (version && version !== 'all') {
-    indexVersion = versionToIndexVersionMap[version]
-  }
-  if (!indexVersion && !allIndexVersionOptions.includes(indexVersion || '')) {
-    throw new Error(
-      `Input error. Version must be not passed or one of ${allIndexVersionOptions}. Got: ${indexVersion}`,
-    )
-  }
-
   const [outDirectory] = args
 
   const config: Config = {
@@ -132,7 +134,7 @@ async function main(opts: ProgramOptions, args: string[]) {
     notLanguage,
     outDirectory,
     config,
-    versionsToBuild: indexVersion ? [indexVersion] : Object.keys(allIndexVersionKeys),
+    versionsToBuild,
   }
   await scrapeIntoIndexJson(options)
 }
