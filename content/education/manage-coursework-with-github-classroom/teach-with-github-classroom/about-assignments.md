@@ -23,11 +23,8 @@ With {% data variables.product.prodname_classroom %}, you can create individual 
 
 {% data reusables.classroom.reuse-assignment-link %}
 
-{% note %}
-
-**Note:** {% data reusables.classroom.assignments-classroom-prerequisite %}
-
-{% endnote %}
+> [!NOTE]
+> {% data reusables.classroom.assignments-classroom-prerequisite %}
 
 ## Types of assignments
 

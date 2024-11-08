@@ -39,13 +39,9 @@ The target user can choose to accept or reject the invitation. After a user acce
 
 If your organization uses {% data variables.product.prodname_emus %} and you choose to reclaim mannequins with the {% data variables.product.prodname_cli %}, you can optionally skip the invitation process, immediately reclaiming the mannequin without the user's approval.
 
-{% note %}
-
-**Notes:**
-* You cannot reclaim mannequins after you have transferred a repository to another organization. If you wish to transfer a repository to another organization after your migration, you must reclaim the mannequins before the transfer.
-* When reclaiming mannequins, you can only target existing organization members. Before attempting to reclaim a mannequin, verify that the {% data variables.product.prodname_dotcom %} user you want to invite is already added to the organization.
-
-{% endnote %}
+> [!NOTE]
+> * You cannot reclaim mannequins after you have transferred a repository to another organization. If you wish to transfer a repository to another organization after your migration, you must reclaim the mannequins before the transfer.
+> * When reclaiming mannequins, you can only target existing organization members. Before attempting to reclaim a mannequin, verify that the {% data variables.product.prodname_dotcom %} user you want to invite is already added to the organization.
 
 {% data variables.product.prodname_importer_proper_name %} does not migrate user access to repositories. After reclaiming mannequins, if any of the users do not already have appropriate access to the repository via team membership, you must separately give the users access to the repository. For more information, see "[Managing an individual's access to an organization repository](/organizations/managing-access-to-your-organizations-repositories/managing-an-individuals-access-to-an-organization-repository)."
 
@@ -134,11 +130,9 @@ If your migration source is Azure DevOps, you can reclaim mannequins with the {%
 1. To the right of the mannequin you want to reclaim, click **Reattribute**.
 1. In the search field, type the username of the organization member you want to attribute the mannequin's contributions to, then click the member.
 
-   {% note %}
+   > [!NOTE]
+   > You can only send attribution invitations to user accounts that are already members of the organization.
 
-   **Note:** You can only send attribution invitations to user accounts that are already members of the organization.
-
-   {% endnote %}
 1. Click **Invite**.
 {% data reusables.enterprise-migration-tool.mannequin-reclaim-must-accept %}
 

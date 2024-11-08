@@ -68,11 +68,8 @@ If the shell you install isn't detected automatically, you can add a new termina
 
 You can set a default terminal profile to choose the default shell used for all new terminal windows you open in {% data variables.product.prodname_vscode_shortname %}. The default terminal profile is dependent on your operating system, so you can set a default profile for Linux, if you're using the {% data variables.product.prodname_vscode_shortname %} web client, or for your local operating system, if you're using the desktop application.
 
-{% note %}
-
-**Note:** Regardless of your default profile, codespaces opened in the web client always open with a `bash` session running initially.
-
-{% endnote %}
+> [!NOTE]
+> Regardless of your default profile, codespaces opened in the web client always open with a `bash` session running initially.
 
 {% data reusables.codespaces.access-user-settings %}
 1. Inside the JSON object, to set the default shell for the relevant operating system, add lines or edit existing lines like the following.
@@ -113,11 +110,8 @@ sudo apt-get install -y csh
 sudo chsh "$(id -un)" --shell "/usr/bin/csh"
 ```
 
-{% note %}
-
-**Note**: If you create a new codespace (for example by using `gh codespace create`), you must wait sufficient time to ensure the script has finished running before you connect to the codespace over SSH. If the script hasn't finished running, you will connect to a default `bash` session.
-
-{% endnote %}
+> [!NOTE]
+> If you create a new codespace (for example by using `gh codespace create`), you must wait sufficient time to ensure the script has finished running before you connect to the codespace over SSH. If the script hasn't finished running, you will connect to a default `bash` session.
 
 When you have connected to the codespace, for most shells, you can use the command `readlink /proc/$$/exe` to check the correct shell is running.
 

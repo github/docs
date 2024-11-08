@@ -22,13 +22,10 @@ Consider configuring {% data variables.actions.hosted_runners %} for default set
 * Your scans with standard {% data variables.product.prodname_dotcom %}-hosted runners are returning memory or disk errors.
 * You want to customize aspects of your {% data variables.product.prodname_code_scanning %} runner like the runner size, runner image, and job concurrency without using self-hosted runners.
 
-{% warning %}
-
-**Warning:** Currently, Swift analysis is not available on {% data variables.actions.hosted_runners %} for default setup. Additionally, if your repository has access to a runner with the `code-scanning` label, such as a {% data variables.actions.hosted_runner %} provisioned for default setup, default setup workflows will _only_ use runners labeled `code-scanning`. If you would like to configure default setup on {% data variables.actions.hosted_runners %} _and_ analyze Swift, you have two options:
-  * Provision a self-hosted macOS runner with the `code-scanning` label in addition to your {% data variables.actions.hosted_runner %}. For more information, see {% ifversion ghec %}"[AUTOTITLE](/admin/code-security/managing-github-advanced-security-for-your-enterprise/configuring-code-scanning-for-your-appliance)."{% else %}"[AUTOTITLE](/actions/hosting-your-own-runners/managing-self-hosted-runners/adding-self-hosted-runners#adding-a-self-hosted-runner-to-a-repository)."{% endif %}
-  * Ensure any repositories containing Swift _do not_ have access to runners with the label `code-scanning`. Default setup workflows for that repository will only use standard runners.
-
-{% endwarning %}
+> [!WARNING]
+> Currently, Swift analysis is not available on {% data variables.actions.hosted_runners %} for default setup. Additionally, if your repository has access to a runner with the `code-scanning` label, such as a {% data variables.actions.hosted_runner %} provisioned for default setup, default setup workflows will _only_ use runners labeled `code-scanning`. If you would like to configure default setup on {% data variables.actions.hosted_runners %} _and_ analyze Swift, you have two options:
+> * Provision a self-hosted macOS runner with the `code-scanning` label in addition to your {% data variables.actions.hosted_runner %}. For more information, see {% ifversion ghec %}"[AUTOTITLE](/admin/code-security/managing-github-advanced-security-for-your-enterprise/configuring-code-scanning-for-your-appliance)."{% else %}"[AUTOTITLE](/actions/hosting-your-own-runners/managing-self-hosted-runners/adding-self-hosted-runners#adding-a-self-hosted-runner-to-a-repository)."{% endif %}
+> * Ensure any repositories containing Swift _do not_ have access to runners with the label `code-scanning`. Default setup workflows for that repository will only use standard runners.
 
 {% ifversion ghec %}
 

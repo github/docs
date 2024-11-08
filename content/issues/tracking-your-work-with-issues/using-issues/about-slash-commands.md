@@ -8,11 +8,8 @@ redirect_from:
   - /issues/tracking-your-work-with-issues/about-slash-commands
 ---
 
-{% note %}
-
-**Note:** Slash commands are currently in {% data variables.release-phases.public_preview %} and subject to change.
-
-{% endnote %}
+> [!NOTE]
+> Slash commands are currently in {% data variables.release-phases.public_preview %} and subject to change.
 
 ## About slash commands
 

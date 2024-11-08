@@ -120,11 +120,10 @@ You can enable or disable {% data variables.product.prodname_dependabot_alerts %
 {% endif %}
 
 {% ifversion dependabot-alerts-enterprise-enablement %}
-{% note %}
 
-**Note:** When {% data variables.product.prodname_dependabot_alerts %} are enabled or disabled at the enterprise level, it overrides the organization and repository level settings for {% data variables.product.prodname_dependabot_alerts %}.
+> [!NOTE]
+> When {% data variables.product.prodname_dependabot_alerts %} are enabled or disabled at the enterprise level, it overrides the organization and repository level settings for {% data variables.product.prodname_dependabot_alerts %}.
 
-{% endnote %}
 {% endif %}
 
 {% ifversion dependabot-alerts-enterprise-enablement or ghes %}

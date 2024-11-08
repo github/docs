@@ -58,11 +58,8 @@ After configuring {% data variables.product.prodname_code_scanning %} for your r
 
 1. Click the entry for the {% data variables.product.prodname_code_scanning %} workflow.
 
-   {% note %}
-
-   **Note:** If you are looking for the {% data variables.product.prodname_codeql %} workflow run triggered by enabling default setup, the text of the entry is "{% data variables.product.prodname_codeql %}."
-
-   {% endnote %}
+   > [!NOTE]
+   > If you are looking for the {% data variables.product.prodname_codeql %} workflow run triggered by enabling default setup, the text of the entry is "{% data variables.product.prodname_codeql %}."
 
 1. Click the job name on the left. For example, **Analyze (LANGUAGE)**.
 

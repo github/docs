@@ -58,11 +58,8 @@ If your course already has a roster, you can update the students on the roster o
 {% data reusables.classroom.click-students %}
 1. To connect {% data variables.product.prodname_classroom %} to your LMS and import a roster, your LMS administrator will first need to register your LMS instance and then you will need to connect your LMS course to your classroom. Once connected, you can click the **Import from...** button to import a roster from your LMS course. For more information, see "[AUTOTITLE](/education/manage-coursework-with-github-classroom/teach-with-github-classroom/connect-a-learning-management-system-course-to-a-classroom)."
 
-   {% note %}
-
-   **Note:** {% data reusables.classroom.google-classroom-note %}
-
-   {% endnote %}
+   > [!NOTE]
+   > {% data reusables.classroom.google-classroom-note %}
 
 1. Provide the student identifiers for your roster.
 
@@ -81,11 +78,10 @@ Your classroom must have an existing roster to add students to the roster. For m
 1. To the right of "Classroom roster", click **Update students**. If you have already linked your classroom to an LMS course, then you will see a **Sync from...** button instead.
 1. Follow the instructions to add students to the roster.
    * To import students from an LMS, your LMS administrator will first need to register your LMS instance and then you will need to connect your LMS course to your classroom. Once connected, you can click the **Sync from...** button. For more information, see "[AUTOTITLE](/education/manage-coursework-with-github-classroom/teach-with-github-classroom/connect-a-learning-management-system-course-to-a-classroom)."
-     {% note %}
 
-     **Note:** {% data reusables.classroom.google-classroom-note %}
+     > [!NOTE]
+     > {% data reusables.classroom.google-classroom-note %}
 
-     {% endnote %}
    * To manually add students, under "Manually add students", click **Upload a CSV or text file** or type the identifiers for the students, then click **Add roster entries**.
 
 ## Renaming a classroom

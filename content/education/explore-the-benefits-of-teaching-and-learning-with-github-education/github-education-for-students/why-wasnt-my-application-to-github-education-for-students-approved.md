@@ -14,11 +14,9 @@ versions:
   fpt: '*'
 shortTitle: Application not approved
 ---
-{% tip %}
 
-**Tip:** {% data reusables.education.about-github-education-link %}
-
-{% endtip %}
+> [!TIP]
+> {% data reusables.education.about-github-education-link %}
 
 ## Unclear academic affiliation documents
 
@@ -46,11 +44,8 @@ If you have other questions or concerns about the school domain please ask your 
 
 If your academic email address was already used to request a {% data variables.product.prodname_student_pack %} for a different {% data variables.product.prodname_dotcom %} account, you cannot reuse the academic email address to successfully apply for another {% data variables.product.prodname_student_pack %}.
 
-{% note %}
-
-**Note:** It is against the {% data variables.product.prodname_dotcom %} [Terms of Service](/site-policy/github-terms/github-terms-of-service#3-account-requirements) to maintain more than one individual account.
-
-{% endnote %}
+> [!NOTE]
+> It is against the {% data variables.product.prodname_dotcom %} [Terms of Service](/site-policy/github-terms/github-terms-of-service#3-account-requirements) to maintain more than one individual account.
 
 If you have more than one personal account, you must merge your accounts. To retain the discount, keep the account that was granted the discount. You can rename the retained account and keep your contribution history by adding all your email addresses to the retained account.
 

@@ -27,11 +27,8 @@ To follow {% data variables.product.prodname_dotcom %} flow, you will need a {% 
 
 ## Following {% data variables.product.prodname_dotcom %} flow
 
-{% tip %}
-
-**Tip:** You can complete all steps of {% data variables.product.prodname_dotcom %} flow through the {% data variables.product.prodname_dotcom %} web interface, command line and [{% data variables.product.prodname_cli %}](https://cli.github.com), or [{% data variables.product.prodname_desktop %}](/free-pro-team@latest/desktop). For more information about the tools you can use to connect to {% data variables.product.prodname_dotcom %}, see "[AUTOTITLE](/get-started/using-github/connecting-to-github)."
-
-{% endtip %}
+> [!TIP]
+> You can complete all steps of {% data variables.product.prodname_dotcom %} flow through the {% data variables.product.prodname_dotcom %} web interface, command line and [{% data variables.product.prodname_cli %}](https://cli.github.com), or [{% data variables.product.prodname_desktop %}](/free-pro-team@latest/desktop). For more information about the tools you can use to connect to {% data variables.product.prodname_dotcom %}, see "[AUTOTITLE](/get-started/using-github/connecting-to-github)."
 
 ### Create a branch
 
@@ -53,11 +50,8 @@ By committing and pushing your changes, you back up your work to remote storage.
 
 Continue to make, commit, and push changes to your branch until you are ready to ask for feedback.
 
-{% tip %}
-
-**Tip:** Make a separate branch for each set of unrelated changes. This makes it easier for reviewers to give feedback. It also makes it easier for you and future collaborators to understand the changes and to revert or build on them. Additionally, if there is a delay in one set of changes, your other changes aren't also delayed.
-
-{% endtip %}
+> [!TIP]
+> Make a separate branch for each set of unrelated changes. This makes it easier for reviewers to give feedback. It also makes it easier for you and future collaborators to understand the changes and to revert or build on them. Additionally, if there is a delay in one set of changes, your other changes aren't also delayed.
 
 ### Create a pull request
 

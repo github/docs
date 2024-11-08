@@ -22,11 +22,8 @@ shortTitle: Quickstart
 
 ## Some useful commands
 
-{% note %}
-
-**Note**: When you use some commands for the first time - for example, `gh codespace SUBCOMMAND` - you'll be prompted to add extra scopes to your authentication token. Follow the onscreen instructions.
-
-{% endnote %}
+> [!NOTE]
+> When you use some commands for the first time - for example, `gh codespace SUBCOMMAND` - you'll be prompted to add extra scopes to your authentication token. Follow the onscreen instructions.
 
 ### Viewing your status
 

@@ -129,11 +129,8 @@ If you upload a second SARIF file for a commit with the same category and from t
 
 If you use a code analysis engine other than {% data variables.product.prodname_codeql %}, you can review the supported SARIF properties to optimize how your analysis results will appear on {% data variables.product.prodname_dotcom %}.
 
-{% note %}
-
-**Note:** You must supply an explicit value for any property marked as "required". The empty string is not supported for required properties.
-
-{% endnote %}
+> [!NOTE]
+> You must supply an explicit value for any property marked as "required". The empty string is not supported for required properties.
 
 Any valid SARIF 2.1.0 output file can be uploaded, however, {% data variables.product.prodname_code_scanning %} will only use the following supported properties.
 

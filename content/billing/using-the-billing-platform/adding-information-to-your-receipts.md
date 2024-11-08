@@ -27,11 +27,8 @@ shortTitle: Add to your receipts
 
 Your receipts include your {% data variables.product.prodname_dotcom %} subscription as well as any subscriptions for other paid features and products. For more information, see "[AUTOTITLE](/billing/managing-your-github-billing-settings/about-billing-on-github)."
 
-{% warning %}
-
-**Warning**: For security reasons, we strongly recommend against including any confidential or financial information (such as credit card numbers) on your receipts.
-
-{% endwarning %}
+> [!WARNING]
+> For security reasons, we strongly recommend against including any confidential or financial information (such as credit card numbers) on your receipts.
 
 ## Adding information to your personal account's receipts
 
@@ -46,11 +43,8 @@ You can add information to your personal account's receipts, such as a VAT or GS
 
 You can add information to your organization's receipts, such as a VAT or GST identification number, or your full business name or address of record.
 
-{% note %}
-
-**Note**: {% data reusables.dotcom_billing.org-billing-perms %}
-
-{% endnote %}
+> [!NOTE]
+> {% data reusables.dotcom_billing.org-billing-perms %}
 
 {% data reusables.organizations.billing-settings %}
 1. At the top of the page, click **Payment information**.

@@ -44,11 +44,8 @@ You can install {% data variables.product.prodname_desktop %} on {% data variabl
 
 You can install {% data variables.product.prodname_desktop %} on {% data variables.desktop.windows-versions %}.
 
-{% warning %}
-
-**Warning**: You must have a 64-bit operating system to run {% data variables.product.prodname_desktop %}.
-
-{% endwarning %}
+> [!WARNING]
+> You must have a 64-bit operating system to run {% data variables.product.prodname_desktop %}.
 
 {% data reusables.desktop.download-desktop-page %}
 1. Click **Download for Windows**.
