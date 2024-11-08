@@ -43,11 +43,8 @@ You can set up your repositories so that you:
 
 You can use {% data variables.product.prodname_dependabot %} to monitor the actions in your workflows and enable {% data variables.product.prodname_dependabot_alerts %} to notify you when an action you use has a reported vulnerability. {% data variables.product.prodname_dependabot %} performs a scan of the default branch of the repositories where it is enabled to detect insecure dependencies. {% data variables.product.prodname_dependabot %} generates {% data variables.product.prodname_dependabot_alerts %} when a new advisory is added to the {% data variables.product.prodname_advisory_database %} or when an action you use is updated.
 
-{% note %}
-
-**Note:** {% data variables.product.prodname_dependabot %} only creates alerts for vulnerable actions that use semantic versioning and will not create alerts for actions pinned to SHA values.
-
-{% endnote %}
+> [!NOTE]
+> {% data variables.product.prodname_dependabot %} only creates alerts for vulnerable actions that use semantic versioning and will not create alerts for actions pinned to SHA values.
 
 {% ifversion fpt or ghec %}You can enable {% data variables.product.prodname_dependabot_alerts %} for your personal account, for a repository, or for an organization. For more information, see "[AUTOTITLE](/code-security/dependabot/dependabot-alerts/configuring-dependabot-alerts)."{% else %}An enterprise owner must first set up {% data variables.product.prodname_dependabot %} for your enterprise before you can manage {% data variables.product.prodname_dependabot_alerts %} for your repository. For more information, see "[AUTOTITLE](/admin/configuration/configuring-github-connect/enabling-dependabot-for-your-enterprise)."{% endif %}
 
@@ -76,13 +73,8 @@ The following features can automatically update the actions in your workflows.
 * **{% data variables.product.prodname_dependabot_version_updates %}** open pull requests to update actions to the latest version when a new version is released.
 * **{% data variables.product.prodname_dependabot_security_updates %}** open pull requests to update actions with reported vulnerabilities to the minimum patched version.
 
-{% note %}
-
-**Notes:**
-
-{% data reusables.actions.dependabot-version-updates-actions-caveats %}
-
-{% endnote %}
+> [!NOTE]
+> {% data reusables.actions.dependabot-version-updates-actions-caveats %}
 
 For information on how to configure {% data variables.product.prodname_dependabot_version_updates %}, see "[AUTOTITLE](/code-security/dependabot/dependabot-version-updates/configuring-dependabot-version-updates)."
 

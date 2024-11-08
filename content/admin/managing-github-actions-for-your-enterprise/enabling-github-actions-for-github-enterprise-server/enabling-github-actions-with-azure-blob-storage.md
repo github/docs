@@ -29,11 +29,9 @@ Before enabling {% data variables.product.prodname_actions %}, make sure you hav
 * Create your Azure storage account for storing workflow data. {% data variables.product.prodname_actions %} stores its data as block blobs, and two storage account types are supported:
   * A **general-purpose** storage account (also known as `general-purpose v1` or `general-purpose v2`) using the **standard** performance tier.
 
-    {% warning %}
+    > [!WARNING]
+    > Using the **premium** performance tier with a general-purpose storage account is not supported. The **standard** performance tier must be selected when creating the storage account, and it cannot be changed later.
 
-    **Warning:** Using the **premium** performance tier with a general-purpose storage account is not supported. The **standard** performance tier must be selected when creating the storage account, and it cannot be changed later.
-
-    {% endwarning %}
   * A **BlockBlobStorage** storage account, which uses the **premium** performance tier.
 
   For more information on Azure storage account types and performance tiers, see the [Azure documentation](https://docs.microsoft.com/en-us/azure/storage/common/storage-account-overview?toc=/azure/storage/blobs/toc.json#types-of-storage-accounts).
@@ -61,11 +59,9 @@ To configure {% data variables.product.prodname_ghe_server %} to use OIDC with a
    1. For "Issuer", enter `https://HOSTNAME/_services/token`, where `HOSTNAME` is the public hostname for {% data variables.location.product_location_enterprise %}. For example, `https://my-ghes-host.example.com/_services/token`.
    1. For "Subject identifier", enter the public hostname for {% data variables.location.product_location_enterprise %}. For example, `my-ghes-host.example.com`.
 
-      {% note %}
+      > [!NOTE]
+      > The subject identifier must only have the hostname of {% data variables.location.product_location_enterprise %}, and _must not_ include the protocol.
 
-      **Note:** The subject identifier must only have the hostname of {% data variables.location.product_location_enterprise %}, and _must not_ include the protocol.
-
-      {% endnote %}
    1. For "Name", enter a name for the credential.
    1. Click **Add**.
 

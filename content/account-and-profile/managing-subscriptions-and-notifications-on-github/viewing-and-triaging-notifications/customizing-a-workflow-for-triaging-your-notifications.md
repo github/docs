@@ -32,11 +32,8 @@ For example, you may decide to check your notifications in this order in the mor
 * Events where a team you're a member of is @mentioned, also called team mentions (filter by `reason:team-mention`)
 * CI workflow failures for a specific repository (filter by `reason:ci-activity` and `repo:owner/repo-name` and ensure you've enabled CI activity notifications for workflow failures in your notification settings)
 
-  {% tip %}
-
-  **Tip:** To quickly review your highest priorities, set up custom filters in order of their reviewing priority. For more information, see "[AUTOTITLE](/account-and-profile/managing-subscriptions-and-notifications-on-github/viewing-and-triaging-notifications/managing-notifications-from-your-inbox#customizing-your-inbox-with-custom-filters)."
-
-  {% endtip %}
+  > [!TIP]
+  > To quickly review your highest priorities, set up custom filters in order of their reviewing priority. For more information, see "[AUTOTITLE](/account-and-profile/managing-subscriptions-and-notifications-on-github/viewing-and-triaging-notifications/managing-notifications-from-your-inbox#customizing-your-inbox-with-custom-filters)."
 
 ## Following up on ongoing notification updates
 
@@ -50,11 +47,10 @@ For example, you may decide to follow up in this order:
 
 After triaging the higher priority notifications, review the remaining notifications, such as participating notifications. Consider these questions:
 * Can you unsubscribe to this notification? Is this notification completed and ready to be marked as **Done**?
-  {% tip %}
 
-  **Tip:** When you unsubscribe from a notification you won't receive new updates unless you start participating in the thread or you're @mentioned or a team you're on is @mentioned. When you mark a notification as **Done**, the notification is removed from your main inbox view and can be viewed with the query `is:read`. For more information, see "[AUTOTITLE](/account-and-profile/managing-subscriptions-and-notifications-on-github/viewing-and-triaging-notifications/managing-notifications-from-your-inbox#triaging-options)."
+  > [!TIP]
+  > When you unsubscribe from a notification you won't receive new updates unless you start participating in the thread or you're @mentioned or a team you're on is @mentioned. When you mark a notification as **Done**, the notification is removed from your main inbox view and can be viewed with the query `is:read`. For more information, see "[AUTOTITLE](/account-and-profile/managing-subscriptions-and-notifications-on-github/viewing-and-triaging-notifications/managing-notifications-from-your-inbox#triaging-options)."
 
-  {% endtip %}
 * Would you like to receive future updates when this issue or pull request is closed or reopened, or when a pull request is merged? For more information on these options, see "[AUTOTITLE](/account-and-profile/managing-subscriptions-and-notifications-on-github/viewing-and-triaging-notifications/triaging-a-single-notification#customizing-when-to-receive-future-updates-for-an-issue-or-pull-request)."
 * Would you like to avoid receiving notifications like this in the future? If so, consider unsubscribing. For more information, see "[AUTOTITLE](/account-and-profile/managing-subscriptions-and-notifications-on-github/managing-subscriptions-for-activity-on-github)."
 

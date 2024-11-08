@@ -24,11 +24,8 @@ topics:
 
 ## About audit logs
 
-{% note %}
-
-**Note:**  {% data reusables.webhooks.webhooks-as-audit-log-alternative %}
-
-{% endnote %}
+> [!NOTE]
+> {% data reusables.webhooks.webhooks-as-audit-log-alternative %}
 
 {% data reusables.audit_log.retention-periods %}
 

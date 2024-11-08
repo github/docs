@@ -66,11 +66,8 @@ If you have an existing backup configuration file, `backup.config`, ensure you c
 
 Backup snapshots created by {% data variables.product.prodname_enterprise_backup_utilities %} are written to the disk path set by the `GHE_DATA_DIR` data directory variable in your `backup.config` file. These snapshots need to be stored on a filesystem which supports symbolic and hard links.
 
-{% note %}
-
-**Note:** We recommend ensuring your snapshots are not kept in a subdirectory of the {% data variables.product.prodname_enterprise_backup_utilities %} installation directory, to avoid inadvertently overwriting your data directory when upgrading {% data variables.product.prodname_enterprise_backup_utilities %} versions.
-
-{% endnote %}
+> [!NOTE]
+> We recommend ensuring your snapshots are not kept in a subdirectory of the {% data variables.product.prodname_enterprise_backup_utilities %} installation directory, to avoid inadvertently overwriting your data directory when upgrading {% data variables.product.prodname_enterprise_backup_utilities %} versions.
 
 1. Download the relevant {% data variables.product.prodname_enterprise_backup_utilities %} release from the [Releases](https://github.com/github/backup-utils/releases) page of the github/backup-utils repository.
 
@@ -97,13 +94,11 @@ Backup snapshots created by {% data variables.product.prodname_enterprise_backup
    1. If you previously upgraded {% data variables.product.prodname_enterprise_backup_utilities %} using Git, ensure that you copy your existing configuration from `backup.config` into the new file. For more information, see "[Upgrading {% data variables.product.prodname_enterprise_backup_utilities %}](#upgrading-github-enterprise-server-backup-utilities)."
    1. Set the `GHE_HOSTNAME` value to your primary {% data variables.product.prodname_ghe_server %} instance's hostname or IP address.
 
-      {% note %}
+      > [!NOTE]
+      > If {% data variables.location.product_location %} is deployed as a cluster or in a high availability configuration using a load balancer, the `GHE_HOSTNAME` can be the load balancer hostname, as long as the load balancer allows SSH access over port 122 to {% data variables.location.product_location %}.
+      >
+      > To ensure a recovered instance is immediately available, perform backups targeting the primary instance even in a geo-replication configuration.
 
-      **Note:** If {% data variables.location.product_location %} is deployed as a cluster or in a high availability configuration using a load balancer, the `GHE_HOSTNAME` can be the load balancer hostname, as long as the load balancer allows SSH access over port 122 to {% data variables.location.product_location %}.
-
-      To ensure a recovered instance is immediately available, perform backups targeting the primary instance even in a geo-replication configuration.
-
-      {% endnote %}
    1. Set the `GHE_DATA_DIR` value to the filesystem location where you want to store backup snapshots. We recommend choosing a location on the same filesystem as your backup host.
 1. To grant your backup host access to your instance, open your primary instance's settings page at `http(s)://HOSTNAME/setup/settings` and add the backup host's SSH key to the list of authorized SSH keys. For more information, see "[AUTOTITLE](/admin/configuration/configuring-your-enterprise/accessing-the-administrative-shell-ssh#enabling-access-to-the-administrative-shell-via-ssh)."
 1. On your backup host, verify SSH connectivity with {% data variables.location.product_location %} with the `ghe-host-check` command.

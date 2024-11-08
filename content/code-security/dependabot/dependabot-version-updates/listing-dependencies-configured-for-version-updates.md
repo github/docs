@@ -1,6 +1,7 @@
 ---
 title: Listing dependencies configured for version updates
 intro: 'You can view the dependencies that {% data variables.product.prodname_dependabot %} monitors for updates.'
+permissions: '{% data reusables.permissions.dependabot-yml-configure %}'
 redirect_from:
   - /github/administering-a-repository/listing-dependencies-configured-for-version-updates
   - /code-security/supply-chain-security/listing-dependencies-configured-for-version-updates

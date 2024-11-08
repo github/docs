@@ -21,11 +21,8 @@ shortTitle: View listing metrics
 
 You can view metrics for the past day (24 hours), week, month, or for the entire duration of time that your {% data variables.product.prodname_github_app %} has been listed.
 
-{% note %}
-
-**Note:** Because it takes time to aggregate data, you'll notice a slight delay in the dates shown. When you select a time period, you can see exact dates for the metrics at the top of the page.
-
-{% endnote %}
+> [!NOTE]
+> Because it takes time to aggregate data, you'll notice a slight delay in the dates shown. When you select a time period, you can see exact dates for the metrics at the top of the page.
 
 ## Performance metrics
 
@@ -35,11 +32,8 @@ The Insights page displays these performance metrics, for the selected time peri
 * **Visitors:** Number of people that have viewed a page in your GitHub Apps listing. This number includes both logged in and logged out visitors.
 * **Pageviews:** Number of views the pages in your GitHub App's listing received. A single visitor can generate more than one page view.
 
-{% note %}
-
-**Note:**  Your estimated subscription value could be much higher than the transactions processed for this period.
-
-{% endnote %}
+> [!NOTE]
+> Your estimated subscription value could be much higher than the transactions processed for this period.
 
 ### Conversion performance
 

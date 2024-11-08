@@ -18,15 +18,12 @@ shortTitle: Troubleshooting resource allocation problems
 
 ## Troubleshooting common resource allocation problems on your appliance
 
-{% note %}
-
-**Note**: Regularly making repeated requests (polling) to {% data variables.location.product_location %} from continuous integration (CI) systems, build servers, or any other clients (such as Git or API clients) can overwhelm the system. This can lead to a denial of service (DoS) attack, causing significant performance issues and resource saturation.
-
-To avoid these problems, we strongly recommend using webhooks to receive updates. Webhooks allow the system to push updates to you automatically, eliminating the need for constant polling. Additionally, consider using conditional requests and caching strategies to minimize unnecessary requests. Avoid running jobs in large, simultaneous batches (thundering herds) and instead wait for webhook events to trigger actions.
-
-For more information, see "[AUTOTITLE](/get-started/exploring-integrations/about-webhooks)."
-
-{% endnote %}
+> [!NOTE]
+> Regularly making repeated requests (polling) to {% data variables.location.product_location %} from continuous integration (CI) systems, build servers, or any other clients (such as Git or API clients) can overwhelm the system. This can lead to a denial of service (DoS) attack, causing significant performance issues and resource saturation.
+>
+> To avoid these problems, we strongly recommend using webhooks to receive updates. Webhooks allow the system to push updates to you automatically, eliminating the need for constant polling. Additionally, consider using conditional requests and caching strategies to minimize unnecessary requests. Avoid running jobs in large, simultaneous batches (thundering herds) and instead wait for webhook events to trigger actions.
+>
+> For more information, see "[AUTOTITLE](/get-started/exploring-integrations/about-webhooks)."
 
 We recommend using the monitor dashboard to stay informed on your appliance's resource health and make decisions on how to fix high usage issues, such as the ones outlined on this page.
 

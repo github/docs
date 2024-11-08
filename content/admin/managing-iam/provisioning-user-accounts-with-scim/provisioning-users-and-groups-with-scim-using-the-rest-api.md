@@ -105,11 +105,8 @@ To ensure that your environment has a single source of truth, you should only pr
 
 However, you can safely retrieve information from {% data variables.product.company_short %}'s APIs with `GET` requests in scripts or ad hoc requests by an enterprise owner.
 
-{% warning %}
-
-**Warning:** If you use a partner IdP for SCIM provisioning, the application on the IdP must be the only system that makes write requests to the API. If you make ad hoc requests using the  `POST`, `PUT`, `PATCH`, or `DELETE` methods, subsequent synchronization attempts will fail, and provisioning won't function properly for your enterprise.
-
-{% endwarning %}
+> [!WARNING]
+> If you use a partner IdP for SCIM provisioning, the application on the IdP must be the only system that makes write requests to the API. If you make ad hoc requests using the  `POST`, `PUT`, `PATCH`, or `DELETE` methods, subsequent synchronization attempts will fail, and provisioning won't function properly for your enterprise.
 
 ### Send valid requests to REST API endpoints
 

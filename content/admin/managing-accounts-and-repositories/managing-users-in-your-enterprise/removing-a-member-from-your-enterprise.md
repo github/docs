@@ -24,11 +24,8 @@ If your enterprise does use {% data variables.product.prodname_emus %}, you must
 
 ## Removing a member from your enterprise
 
-{% note %}
-
-**Note:** If an enterprise member uses only {% data variables.product.prodname_ghe_server %}, and not {% data variables.product.prodname_ghe_cloud %}, you cannot remove the enterprise member this way.
-
-{% endnote %}
+> [!NOTE]
+> If an enterprise member uses only {% data variables.product.prodname_ghe_server %}, and not {% data variables.product.prodname_ghe_cloud %}, you cannot remove the enterprise member this way.
 
 {% data reusables.enterprise-accounts.access-enterprise %}
 {% data reusables.enterprise-accounts.people-tab %}

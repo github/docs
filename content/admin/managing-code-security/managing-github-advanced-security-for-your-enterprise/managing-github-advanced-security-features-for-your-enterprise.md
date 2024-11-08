@@ -47,10 +47,7 @@ When you enable one or more security and analysis features for existing reposito
 {% ifversion secret-scanning-custom-link-on-block %}
 1. Optionally, to include a resource link in the message that members will see when they attempt to push a secret, select **Add a resource link in the CLI and web UI when a commit is blocked**, then type a URL, and click **Save link**.
 
-   {% note %}
-
-   **Note**: When a custom link is configured for an organization, the organization-level value overrides the custom link set for the enterprise. See "[AUTOTITLE](/code-security/secret-scanning/protecting-pushes-with-secret-scanning)."
-
-   {% endnote %}
+   > [!NOTE]
+   > When a custom link is configured for an organization, the organization-level value overrides the custom link set for the enterprise. See "[AUTOTITLE](/code-security/secret-scanning/protecting-pushes-with-secret-scanning)."
 
    ![Screenshot of the "Push protection" section of the settings for security and analysis features. The checkbox and the text field used for enabling a custom link are outlined in dark orange.](/assets/images/help/organizations/secret-scanning-custom-link.png){% endif %}

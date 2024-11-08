@@ -11,11 +11,8 @@ redirect_from:
   - /actions/using-github-hosted-runners/about-larger-runners/controlling-access-to-larger-runners
 ---
 
-{% note %}
-
-**Note:** {% data reusables.actions.windows-linux-larger-runners-note %}
-
-{% endnote %}
+> [!NOTE]
+> {% data reusables.actions.windows-linux-larger-runners-note %}
 
 ## About runner groups
 
@@ -23,11 +20,8 @@ redirect_from:
 
 ### Managing access to your runners
 
-{% note %}
-
-**Note**: Before your workflows can send jobs to {% data variables.actions.hosted_runner %}s, you must first configure permissions for the runner group. See the following sections for more information.
-
-{% endnote %}
+> [!NOTE]
+> Before your workflows can send jobs to {% data variables.actions.hosted_runner %}s, you must first configure permissions for the runner group. See the following sections for more information.
 
 Runner groups are used to control which repositories can run jobs on your {% data variables.actions.hosted_runner %}s. You must manage access to the group from each level of the management hierarchy, depending on where you've defined the {% data variables.actions.hosted_runner %}:
 

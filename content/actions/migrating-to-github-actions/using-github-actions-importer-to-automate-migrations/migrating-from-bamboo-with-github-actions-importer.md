@@ -371,11 +371,8 @@ For more information about supported Bamboo concept and plugin mappings, see the
 | `bamboo.shortPlanKey`                            | {% raw %}`${{ github.workflow }}`{% endraw %}
 | `bamboo.shortPlanName`                           | {% raw %}`${{ github.workflow }}`{% endraw %}
 
-{% note %}
-
-**Note:** Unknown variables are transformed to {% raw %}`${{ env.<variableName> }}`{% endraw %} and must be replaced or added under `env` for proper operation. For example, `${bamboo.jira.baseUrl}` will become {% raw %}`${{ env.jira_baseUrl }}`{% endraw %}.
-
-{% endnote %}
+> [!NOTE]
+> Unknown variables are transformed to {% raw %}`${{ env.<variableName> }}`{% endraw %} and must be replaced or added under `env` for proper operation. For example, `${bamboo.jira.baseUrl}` will become {% raw %}`${{ env.jira_baseUrl }}`{% endraw %}.
 
 ### System Variables
 

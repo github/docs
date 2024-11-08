@@ -58,11 +58,8 @@ If your app runs in the browser, you should use the web application flow to gene
 
 ## Using the device flow to generate a user access token
 
-{% note %}
-
-**Note:** The device flow is in {% data variables.release-phases.public_preview %} and subject to change.
-
-{% endnote %}
+> [!NOTE]
+> The device flow is in {% data variables.release-phases.public_preview %} and subject to change.
 
 If your app is headless or does not have access to a browser, you should use the device flow to generate a user access token. For example, CLI tools, simple Raspberry Pis, and desktop applications should use the device flow. For a tutorial that uses device flow, see "[AUTOTITLE](/apps/creating-github-apps/guides/building-a-cli-with-a-github-app)."
 

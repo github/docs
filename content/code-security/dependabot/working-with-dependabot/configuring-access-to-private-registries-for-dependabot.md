@@ -1,6 +1,7 @@
 ---
 title: Configuring access to private registries for Dependabot
 intro: 'You can configure {% data variables.product.prodname_dependabot %} to access dependencies stored in private registries. You can store authentication information, like passwords and access tokens, as encrypted secrets and then reference these in the {% data variables.product.prodname_dependabot %} configuration file.{% ifversion dependabot-on-actions-self-hosted %} If you have registries on private networks, you can also configure {% data variables.product.prodname_dependabot %} access when running {% data variables.product.prodname_dependabot %} on self-hosted runners.{% endif %}'
+permissions: '{% data reusables.permissions.dependabot-various-tasks %}'
 redirect_from:
   - /github/administering-a-repository/managing-encrypted-secrets-for-dependabot
   - /code-security/supply-chain-security/managing-encrypted-secrets-for-dependabot

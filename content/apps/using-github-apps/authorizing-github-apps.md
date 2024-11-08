@@ -28,11 +28,10 @@ When authorizing the {% data variables.product.prodname_github_app %}, you shoul
 You can review and revoke your authorization at any time. For more information, see "[AUTOTITLE](/apps/using-github-apps/reviewing-your-authorized-integrations)."
 
 {% ifversion ghec %}
-{% note %}
 
-**Note**: If your organization uses SAML SSO and you cannot see your organization's resources after you authorize a {% data variables.product.prodname_github_app %}, you may need to reauthorize the app after starting an active SAML session for your organization. For more information, see "[AUTOTITLE](/apps/using-github-apps/saml-and-github-apps)."
+> [!NOTE]
+> If your organization uses SAML SSO and you cannot see your organization's resources after you authorize a {% data variables.product.prodname_github_app %}, you may need to reauthorize the app after starting an active SAML session for your organization. For more information, see "[AUTOTITLE](/apps/using-github-apps/saml-and-github-apps)."
 
-{% endnote %}
 {% endif %}
 
 ## About {% data variables.product.prodname_github_apps %} acting on your behalf

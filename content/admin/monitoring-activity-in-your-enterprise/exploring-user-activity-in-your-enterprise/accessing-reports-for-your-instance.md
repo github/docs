@@ -45,11 +45,8 @@ curl --remote-name \
 
 To access the other reports programmatically, replace `all_users` with `active_users`, `dormant_users`, `suspended_users`, `all_organizations`, or `all_repositories`.
 
-{% note %}
-
-**Note:** The initial curl request will return an HTTP `202` response if there are no cached reports available. Your instance will generate a report in the background. You can send a second request to download the report. You can use a password or an OAuth token with the `site_admin` scope in place of a password.
-
-{% endnote %}
+> [!NOTE]
+> The initial curl request will return an HTTP `202` response if there are no cached reports available. Your instance will generate a report in the background. You can send a second request to download the report. You can use a password or an OAuth token with the `site_admin` scope in place of a password.
 
 ## User reports
 

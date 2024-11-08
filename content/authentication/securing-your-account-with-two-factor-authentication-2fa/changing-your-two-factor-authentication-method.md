@@ -34,11 +34,8 @@ You can change the time-based one-time password (TOTP) application you use to ge
 {% data reusables.two_fa.enable-totp-app-method %}
 {% data reusables.two_fa.save-2fa-method-when-editing %}
 
-{% warning %}
-
-**Warning:** Changes to an existing 2FA method will only take effect after you have provided a valid code from the new method and clicked **Save**. Only replace the existing 2FA method on your device (e.g. the {% data variables.product.prodname_dotcom %} entry in your TOTP app) after your new method is saved to your {% data variables.product.prodname_dotcom %} account completely.
-
-{% endwarning %}
+> [!WARNING]
+> Changes to an existing 2FA method will only take effect after you have provided a valid code from the new method and clicked **Save**. Only replace the existing 2FA method on your device (e.g. the {% data variables.product.prodname_dotcom %} entry in your TOTP app) after your new method is saved to your {% data variables.product.prodname_dotcom %} account completely.
 
 {% data reusables.two_fa.manual-totp-app-setup %}
 

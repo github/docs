@@ -1,7 +1,7 @@
 ---
 title: Configuring Dependabot version updates
 intro: 'You can configure your repository so that {% data variables.product.prodname_dependabot %} automatically updates the packages you use.'
-permissions: 'People with write permissions to a repository can enable or disable {% data variables.product.prodname_dependabot_version_updates %} for the repository.'
+permissions: '{% data reusables.permissions.dependabot-yml-configure %}'
 redirect_from:
   - /github/administering-a-repository/enabling-and-disabling-version-updates
   - /code-security/supply-chain-security/enabling-and-disabling-version-updates

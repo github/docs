@@ -73,14 +73,10 @@ You can use a Linux container management tool to build a pre-receive hook enviro
    tar -czf /path/to/pre-receive-environment.tar.gz .
    ```
 
-   {% note %}
-
-   **Notes:**
-   * Do not include leading directory paths of files within the tar archive, such as `/path/to/chroot`.
-   * `/bin/sh` must exist and be executable, as the entry point into the chroot environment.
-   * Unlike traditional chroots, the `dev` directory is not required by the chroot environment for pre-receive hooks.
-
-   {% endnote %}
+   > [!NOTE]
+   > * Do not include leading directory paths of files within the tar archive, such as `/path/to/chroot`.
+   > * `/bin/sh` must exist and be executable, as the entry point into the chroot environment.
+   > * Unlike traditional chroots, the `dev` directory is not required by the chroot environment for pre-receive hooks.
 
 For more information about creating a chroot environment see "[Chroot](https://wiki.debian.org/chroot)" from the _Debian Wiki_, "[BasicChroot](https://help.ubuntu.com/community/BasicChroot)" from the _Ubuntu Community Help Wiki_, or "[Installing Alpine Linux in a chroot](https://wiki.alpinelinux.org/wiki/Installing_Alpine_Linux_in_a_chroot)" from the _Alpine Linux Wiki_.
 

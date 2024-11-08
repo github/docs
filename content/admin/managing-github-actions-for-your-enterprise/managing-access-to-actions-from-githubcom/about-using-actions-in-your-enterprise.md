@@ -43,13 +43,9 @@ There is no connection required between {% data variables.location.product_locat
 
 Each action is a repository in the `actions` organization, and each action repository includes the necessary tags, branches, and commit SHAs that your workflows can use to reference the action. For information on how to update the bundled official actions, see "[AUTOTITLE](/admin/github-actions/managing-access-to-actions-from-githubcom/using-the-latest-version-of-the-official-bundled-actions)."
 
-{% note %}
-
-**Notes:**
-* When using setup actions (such as `actions/setup-LANGUAGE`) on {% data variables.product.product_name %} with self-hosted runners, you might need to set up the tools cache on runners that do not have internet access. For more information, see "[AUTOTITLE](/admin/github-actions/managing-access-to-actions-from-githubcom/setting-up-the-tool-cache-on-self-hosted-runners-without-internet-access)."
-* When {% data variables.product.product_name %} is updated, bundled actions are automatically replaced with default versions in the upgrade package.
-
-{% endnote %}
+> [!NOTE]
+> * When using setup actions (such as `actions/setup-LANGUAGE`) on {% data variables.product.product_name %} with self-hosted runners, you might need to set up the tools cache on runners that do not have internet access. For more information, see "[AUTOTITLE](/admin/github-actions/managing-access-to-actions-from-githubcom/setting-up-the-tool-cache-on-self-hosted-runners-without-internet-access)."
+> * When {% data variables.product.product_name %} is updated, bundled actions are automatically replaced with default versions in the upgrade package.
 
 ## Configuring access to actions on {% data variables.product.prodname_dotcom_the_website %}
 
@@ -58,11 +54,10 @@ Each action is a repository in the `actions` organization, and each action repos
 The recommended approach is to enable automatic access to all actions from {% data variables.product.prodname_dotcom_the_website %}. You can do this by using {% data variables.product.prodname_github_connect %} to integrate {% data variables.product.product_name %} with {% data variables.product.prodname_ghe_cloud %}. For more information, see "[AUTOTITLE](/admin/github-actions/managing-access-to-actions-from-githubcom/enabling-automatic-access-to-githubcom-actions-using-github-connect)".
 
 {% ifversion ghes %}
-{% note %}
 
-**Note:** Before you can configure access to actions on {% data variables.product.prodname_dotcom_the_website %}, you must configure {% data variables.location.product_location %} to use {% data variables.product.prodname_actions %}. For more information, see "[AUTOTITLE](/admin/github-actions/getting-started-with-github-actions-for-your-enterprise/getting-started-with-github-actions-for-github-enterprise-server)."
+> [!NOTE]
+> Before you can configure access to actions on {% data variables.product.prodname_dotcom_the_website %}, you must configure {% data variables.location.product_location %} to use {% data variables.product.prodname_actions %}. For more information, see "[AUTOTITLE](/admin/github-actions/getting-started-with-github-actions-for-your-enterprise/getting-started-with-github-actions-for-github-enterprise-server)."
 
-{% endnote %}
 {% endif %}
 
 {% data reusables.actions.self-hosted-runner-networking-to-dotcom %}

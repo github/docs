@@ -27,11 +27,8 @@ Secrets are variables that you create in an organization, repository, or reposit
 
 For secrets stored at the environment level, you can enable required reviewers to control access to the secrets. A workflow job cannot access environment secrets until approval is granted by required approvers.
 
-{% note %}
-
-**Note**: {% data reusables.actions.about-oidc-short-overview %}
-
-{% endnote %}
+> [!NOTE]
+> {% data reusables.actions.about-oidc-short-overview %}
 
 ### Naming your secrets
 
@@ -65,11 +62,8 @@ When generating a {% data variables.product.pat_v1 %}, select the fewest scopes 
 
 Instead of using a {% data variables.product.pat_generic %}, consider using a {% data variables.product.prodname_github_app %}, which uses fine-grained permissions and short lived tokens, similar to a {% data variables.product.pat_v2 %}. Unlike a {% data variables.product.pat_generic %}, a {% data variables.product.prodname_github_app %} is not tied to a user, so the workflow will continue to work even if the user who installed the app leaves your organization. For more information, see "[AUTOTITLE](/apps/creating-github-apps/guides/making-authenticated-api-requests-with-a-github-app-in-a-github-actions-workflow)."
 
-{% note %}
-
-**Note:** Users with collaborator access to a repository can use the REST API to manage secrets for that repository, and users with admin access to an organization can use the REST API to manage secrets for that organization. For more information, see "[AUTOTITLE](/rest/actions/secrets)."
-
-{% endnote %}
+> [!NOTE]
+> Users with collaborator access to a repository can use the REST API to manage secrets for that repository, and users with admin access to an organization can use the REST API to manage secrets for that organization. For more information, see "[AUTOTITLE](/rest/actions/secrets)."
 
 ## Creating secrets for a repository
 
@@ -171,15 +165,12 @@ gh secret list --env ENV_NAME
 
 {% cli %}
 
-{% note %}
-
-**Note:** By default, {% data variables.product.prodname_cli %} authenticates with the `repo` and `read:org` scopes. To manage organization secrets, you must additionally authorize the `admin:org` scope.
-
-```shell
-gh auth login --scopes "admin:org"
-```
-
-{% endnote %}
+> [!NOTE]
+> By default, {% data variables.product.prodname_cli %} authenticates with the `repo` and `read:org` scopes. To manage organization secrets, you must additionally authorize the `admin:org` scope.
+>
+> ```shell
+> gh auth login --scopes "admin:org"
+> ```
 
 To add a secret for an organization, use the `gh secret set` subcommand with the `--org` or `-o` flag followed by the organization name.
 
@@ -218,15 +209,9 @@ You can check which access policies are being applied to a secret in your organi
 
 ## Using secrets in a workflow
 
-{% note %}
-
-**Notes:**
-
-* {% data reusables.actions.forked-secrets %}
-
-* Secrets are not automatically passed to reusable workflows. For more information, see "[AUTOTITLE](/actions/using-workflows/reusing-workflows#passing-inputs-and-secrets-to-a-reusable-workflow)."
-
-{% endnote %}
+> [!NOTE]
+> * {% data reusables.actions.forked-secrets %}
+> * Secrets are not automatically passed to reusable workflows. For more information, see "[AUTOTITLE](/actions/using-workflows/reusing-workflows#passing-inputs-and-secrets-to-a-reusable-workflow)."
 
 To provide an action with a secret as an input or environment variable, you can use the `secrets` context to access secrets you've created in your repository. For more information, see "[AUTOTITLE](/actions/learn-github-actions/contexts)" and "[AUTOTITLE](/actions/using-workflows/workflow-syntax-for-github-actions)."
 
@@ -312,11 +297,8 @@ Secrets are limited to 48 KB in size. To store larger secrets, see the "[Storing
 
 To use secrets that are larger than 48 KB, you can use a workaround to store secrets in your repository and save the decryption passphrase as a secret on {% data variables.product.prodname_dotcom %}. For example, you can use `gpg` to encrypt a file containing your secret locally before checking the encrypted file in to your repository on {% data variables.product.prodname_dotcom %}. For more information, see the "[gpg manpage](https://www.gnupg.org/gph/de/manual/r1023.html)."
 
-{% warning %}
-
-**Warning**: Be careful that your secrets do not get printed when your workflow runs. When using this workaround, {% data variables.product.prodname_dotcom %} does not redact secrets that are printed in logs.
-
-{% endwarning %}
+> [!WARNING]
+> Be careful that your secrets do not get printed when your workflow runs. When using this workaround, {% data variables.product.prodname_dotcom %} does not redact secrets that are printed in logs.
 
 1. Run the following command from your terminal to encrypt the file containing your secret using `gpg` and the AES256 cipher algorithm. In this example, `my_secret.json` is the file containing the secret.
 
@@ -330,11 +312,8 @@ To use secrets that are larger than 48 KB, you can use a workaround to store sec
 
 1. Copy your encrypted file to a path in your repository and commit it. In this example, the encrypted file is `my_secret.json.gpg`.
 
-   {% warning %}
-
-   **Warning**: Make sure to copy the encrypted `my_secret.json.gpg` file ending with the `.gpg` file extension, and **not** the unencrypted `my_secret.json` file.
-
-   {% endwarning %}
+   > [!WARNING]
+   > Make sure to copy the encrypted `my_secret.json.gpg` file ending with the `.gpg` file extension, and **not** the unencrypted `my_secret.json` file.
 
    ```shell
    git add my_secret.json.gpg
@@ -391,11 +370,8 @@ To use secrets that are larger than 48 KB, you can use a workaround to store sec
 
 You can use Base64 encoding to store small binary blobs as secrets. You can then reference the secret in your workflow and decode it for use on the runner. For the size limits, see "[AUTOTITLE](/actions/security-guides/using-secrets-in-github-actions#limits-for-secrets)."
 
-{% note %}
-
-**Note**: Note that Base64 only converts binary to text, and is not a substitute for actual encryption.
-
-{% endnote %}
+> [!NOTE]
+> Note that Base64 only converts binary to text, and is not a substitute for actual encryption.
 
 1. Use `base64` to encode your file into a Base64 string. For example:
 
@@ -440,11 +416,8 @@ You can use Base64 encoding to store small binary blobs as secrets. You can then
              openssl x509 -in cert.der -inform DER -text -noout
    ```
 
-{% note %}
-
-**Note**: Using another shell might require different commands for decoding the secret to a file. On Windows runners, we recommend [using a bash shell](/actions/using-workflows/workflow-syntax-for-github-actions#jobsjob_idstepsshell) with `shell: bash` to use the commands in the `run` step above.
-
-{% endnote %}
+> [!NOTE]
+> Using another shell might require different commands for decoding the secret to a file. On Windows runners, we recommend [using a bash shell](/actions/using-workflows/workflow-syntax-for-github-actions#jobsjob_idstepsshell) with `shell: bash` to use the commands in the `run` step above.
 
 ## Redacting secrets from workflow run logs
 

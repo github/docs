@@ -18,15 +18,12 @@ topics:
   - OAuth apps
 ---
 
-{% note %}
-
-**Note**: Consider building a {% data variables.product.prodname_github_app %} instead of an {% data variables.product.prodname_oauth_app %}.
-
-Both {% data variables.product.prodname_oauth_apps %} and {% data variables.product.prodname_github_apps %} use OAuth 2.0.
-
-{% data variables.product.prodname_github_apps %} can act on behalf of a user, similar to an {% data variables.product.prodname_oauth_app %}, or as themselves, which is beneficial for automations that do not require user input. Additionally, {% data variables.product.prodname_github_apps %} use fine-grained permissions, give the user more control over which repositories the app can access, and use short-lived tokens. For more information, see "[AUTOTITLE](/apps/oauth-apps/building-oauth-apps/differences-between-github-apps-and-oauth-apps)" and "[AUTOTITLE](/apps/creating-github-apps/setting-up-a-github-app/about-creating-github-apps)."
-
-{% endnote %}
+> [!NOTE]
+> Consider building a {% data variables.product.prodname_github_app %} instead of an {% data variables.product.prodname_oauth_app %}.
+>
+> Both {% data variables.product.prodname_oauth_apps %} and {% data variables.product.prodname_github_apps %} use OAuth 2.0.
+>
+> {% data variables.product.prodname_github_apps %} can act on behalf of a user, similar to an {% data variables.product.prodname_oauth_app %}, or as themselves, which is beneficial for automations that do not require user input. Additionally, {% data variables.product.prodname_github_apps %} use fine-grained permissions, give the user more control over which repositories the app can access, and use short-lived tokens. For more information, see "[AUTOTITLE](/apps/oauth-apps/building-oauth-apps/differences-between-github-apps-and-oauth-apps)" and "[AUTOTITLE](/apps/creating-github-apps/setting-up-a-github-app/about-creating-github-apps)."
 
 {% data variables.product.product_name %}'s OAuth implementation supports the standard [authorization code grant type](https://tools.ietf.org/html/rfc6749#section-4.1) and the OAuth 2.0 [Device Authorization Grant](https://tools.ietf.org/html/rfc8628) for apps that don't have access to a web browser.
 
@@ -45,11 +42,8 @@ To authorize your {% data variables.product.prodname_oauth_app %}, consider whic
 
 ## Web application flow
 
-{% note %}
-
-**Note:** If you are building a GitHub App, you can still use the OAuth web application flow, but the setup has some important differences. See "[AUTOTITLE](/apps/creating-github-apps/authenticating-with-a-github-app/identifying-and-authorizing-users-for-github-apps)" for more information.
-
-{% endnote %}
+> [!NOTE]
+> If you are building a GitHub App, you can still use the OAuth web application flow, but the setup has some important differences. See "[AUTOTITLE](/apps/creating-github-apps/authenticating-with-a-github-app/identifying-and-authorizing-users-for-github-apps)" for more information.
 
 The web application flow to authorize users for your app is:
 
@@ -323,11 +317,8 @@ To build this link, you'll need your {% data variables.product.prodname_oauth_ap
 {% data variables.product.oauth_host_code %}/settings/connections/applications/:client_id
 ```
 
-{% tip %}
-
-**Tip:** To learn more about the resources that your {% data variables.product.prodname_oauth_app %} can access for a user, see "[AUTOTITLE](/rest/guides/discovering-resources-for-a-user)."
-
-{% endtip %}
+> [!TIP]
+> To learn more about the resources that your {% data variables.product.prodname_oauth_app %} can access for a user, see "[AUTOTITLE](/rest/guides/discovering-resources-for-a-user)."
 
 ## Troubleshooting
 

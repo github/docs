@@ -43,11 +43,8 @@ Action metadata files use YAML syntax. If you're new to YAML, you can read "[Lea
 
 This example configures two inputs: `num-octocats` and `octocat-eye-color`. The `num-octocats` input is not required and will default to a value of `1`. `octocat-eye-color` is required and has no default value.
 
-{% note %}
-
-**Note:** Actions using `required: true` will not automatically return an error if the input is not specified.
-
-{% endnote %}
+> [!NOTE]
+> Actions using `required: true` will not automatically return an error if the input is not specified.
 
 Workflow files that use this action can use the `with` keyword to set an input value for `octocat-eye-color`. For more information about the `with` syntax, see "[AUTOTITLE](/actions/using-workflows/workflow-syntax-for-github-actions#jobsjob_idstepswith)."
 
