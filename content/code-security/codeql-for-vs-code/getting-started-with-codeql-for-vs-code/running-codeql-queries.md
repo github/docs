@@ -112,11 +112,8 @@ The "Query History" view contains information including the date and time when t
 
 1. Click a query in the "Query History" view to display its results in the "Results" view.
 
-    {% note %}
-
-    **Note:** Depending on the query, you can also choose different views such as CSV, [AUTOTITLE](/code-security/codeql-cli/codeql-cli-reference/sarif-output), or [DIL format](https://codeql.github.com/docs/codeql-overview/codeql-glossary/#dil). For example, to view the DIL format, right-click a result and select **View DIL**. The available output views are determined by the format and the metadata of the query. For more information, see "[{% data variables.product.prodname_codeql %} queries](https://codeql.github.com/docs/writing-codeql-queries/codeql-queries/#codeql-queries)."
-
-    {% endnote %}
+    > [!NOTE]
+    > Depending on the query, you can also choose different views such as CSV, [AUTOTITLE](/code-security/codeql-cli/codeql-cli-reference/sarif-output), or [DIL format](https://codeql.github.com/docs/codeql-overview/codeql-glossary/#dil). For example, to view the DIL format, right-click a result and select **View DIL**. The available output views are determined by the format and the metadata of the query. For more information, see "[{% data variables.product.prodname_codeql %} queries](https://codeql.github.com/docs/writing-codeql-queries/codeql-queries/#codeql-queries)."
 
 1. Use the dropdown menu in the "Results" view to choose which results to display, and in what form to display them, such as a formatted alert message or a table of raw results.
 
@@ -126,12 +123,8 @@ If a result links to a source code element, you can click it to display it in th
 
 To use standard code navigation features in the source code, you can right-click an element and use the commands **Go to Definition** or **Go to References**. This runs a {% data variables.product.prodname_codeql %}  query over the active file, which may take a few seconds. This query needs to run once for every file, so any additional references from the same file will be fast.
 
-{% note %}
-
-**Note:** If you're using an older database, code navigation commands such as **Go to Definition** and **Go to References** may not work.
-To use code navigation, try unzipping the database and running `codeql database cleanup <database>` on the unzipped database using the {% data variables.product.prodname_codeql_cli %}. Then, re-add the database to {% data variables.product.prodname_vscode %}. For more information, see "[AUTOTITLE](/code-security/codeql-cli/codeql-cli-manual/database-cleanup)."
-
-{% endnote %}
+> [!NOTE]
+> If you're using an older database, code navigation commands such as **Go to Definition** and **Go to References** may not work. To use code navigation, try unzipping the database and running `codeql database cleanup <database>` on the unzipped database using the {% data variables.product.prodname_codeql_cli %}. Then, re-add the database to {% data variables.product.prodname_vscode %}. For more information, see "[AUTOTITLE](/code-security/codeql-cli/codeql-cli-manual/database-cleanup)."
 
 ### Comparing query results
 

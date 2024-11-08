@@ -111,12 +111,9 @@ At the organization level, if you're unable to coordinate with the user who push
 
 If you're unable to coordinate directly with the repository owner to remove data that you're confident you own, you can fill out a DMCA takedown notice form and tell GitHub Support. For more information, see [DMCA takedown notice](https://support.github.com/contact/dmca-takedown).
 
-{% note %}
-
-**Note:** If one of your repositories has been taken down due to a false claim, you should fill out a DMCA
+> [!NOTE]
+> If one of your repositories has been taken down due to a false claim, you should fill out a DMCA
 counter notice form and alert GitHub Support. For more information, see [DMCA counter notice](https://support.github.com/contact/dmca-counter-notice).
-
-{% endnote %}
 
 ## Next steps
 

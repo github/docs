@@ -63,11 +63,8 @@ If you have further questions about using {% data variables.product.prodname_GH_
 
 {% data reusables.advanced-security.ghas-license-info-for-fpt %}
 
-{% note %}
-
-**Note:** If you change the visibility of a public repository to private then {% data variables.product.prodname_GH_advanced_security %} will be disabled for that repository.
-
-{% endnote %}
+> [!NOTE]
+> If you change the visibility of a public repository to private then {% data variables.product.prodname_GH_advanced_security %} will be disabled for that repository.
 
 For pricing details for {% data variables.product.prodname_GH_advanced_security %}, see our [pricing information](https://github.com/enterprise/advanced-security#pricing).
 

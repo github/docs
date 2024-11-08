@@ -87,11 +87,8 @@ For examples showing how affected versions are defined in some existing advisori
   * Each operator sequence must be specified as the operator, a single space, and then the version. For more information about valid operators, see [Supported operators](#supported-operators) above.
   * The version must begin with a number followed by any number of numbers, letters, dots, dashes, or underscores (anything other than a space or comma). For more information about version formatting, see [Version syntax](#version-syntax) above.
 
-   {% note %}
-
-   **Note:** Affected version strings cannot contain leading or trailing spaces.
-
-   {% endnote %}
+   > [!NOTE]
+   > Affected version strings cannot contain leading or trailing spaces.
 
 * Upper-bound operators can be inclusive or exclusive, i.e. `<=` or `<`, respectively.
 * Lower-bound operators can be inclusive or exclusive, i.e. `>=` or `>`, respectively. However, if you publish your repository advisory, and we graduate your repository advisory into a global advisory, a different rule applies: lower-bound strings can only be inclusive, i.e. `>=`. The exclusive lower bound operator (`>`) is only allowed when the version is `0`, for example `> 0`.
@@ -101,13 +98,10 @@ For examples showing how affected versions are defined in some existing advisori
    * Do not use a space between a number and a comma in `>= lower bound, <= upper bound`.
    * Use a space between a comma and the upper bound operator.
 
-  {% note %}
-
-  **Notes:** The lower-bound limitation:
-  * Is due to incompatibilities with the OSV schema.
-  * Only applies when you make a suggestion on an existing advisory in the {% data variables.product.prodname_advisory_database %}.
-
-  {% endnote %}
+  > [!NOTE]
+  > The lower-bound limitation:
+  > * Is due to incompatibilities with the OSV schema.
+  > * Only applies when you make a suggestion on an existing advisory in the {% data variables.product.prodname_advisory_database %}.
 
 * You cannot specify multiple affected version ranges in the same field, such as `> 2.0, < 2.3, > 3.0, < 3.2`.To specify more than one range, you must create a new **Affected products** section for each range, by clicking the **+ Add another affected product** button.
 

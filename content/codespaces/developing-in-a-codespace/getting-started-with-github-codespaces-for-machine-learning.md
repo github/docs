@@ -63,11 +63,8 @@ You can open your codespace in JupyterLab from the "Your codespaces" page at [gi
 
 ## Configuring NVIDIA CUDA for your codespace
 
-{% note %}
-
-**Note**: This section only applies to customers who can create codespaces on machines that use a GPU. The ability to choose a machine type that uses a GPU was offered to selected customers during a trial period. This option is not generally available.
-
-{% endnote %}
+> [!NOTE]
+> This section only applies to customers who can create codespaces on machines that use a GPU. The ability to choose a machine type that uses a GPU was offered to selected customers during a trial period. This option is not generally available.
 
 Some software requires you to install NVIDIA CUDA to use your codespace’s GPU. Where this is the case, you can create your own custom configuration, by using a `devcontainer.json` file, and specify that CUDA should be installed. For more information on creating a custom configuration, see "[AUTOTITLE](/codespaces/setting-up-your-project-for-codespaces/adding-a-dev-container-configuration/introduction-to-dev-containers#creating-a-custom-dev-container-configuration)."
 

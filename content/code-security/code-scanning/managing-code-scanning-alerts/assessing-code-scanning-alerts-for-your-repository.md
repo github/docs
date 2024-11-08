@@ -40,11 +40,8 @@ By default, the {% data variables.product.prodname_code_scanning %} alerts page 
 
 For more information, see "[AUTOTITLE](/code-security/code-scanning/managing-code-scanning-alerts/about-code-scanning-alerts)."
 
-{% note %}
-
-**Note:** You can see information about when {% data variables.product.prodname_code_scanning %} analysis last ran on the tool status page. For more information, see "[AUTOTITLE](/code-security/code-scanning/managing-your-code-scanning-configuration/about-the-tool-status-page)."
-
-{% endnote %}
+> [!NOTE]
+> You can see information about when {% data variables.product.prodname_code_scanning %} analysis last ran on the tool status page. For more information, see "[AUTOTITLE](/code-security/code-scanning/managing-your-code-scanning-configuration/about-the-tool-status-page)."
 
 {% ifversion copilot-chat-ghas-alerts %}
 
@@ -94,13 +91,9 @@ You can search the list of alerts. This is useful if there is a large number of 
 | OR search | `sql OR injection` | Returns all the alerts containing `sql` or `injection` |
 | AND search | `sql AND injection` | Returns all the alerts containing both words `sql` and `injection` |
 
-{% tip %}
-
-**Tips:**
-* The multiple word search is equivalent to an OR search.
-* The AND search will return results where the search terms are found _anywhere_, in any order in the alert name or details.
-
-{% endtip %}
+> [!TIP]
+> * The multiple word search is equivalent to an OR search.
+> * The AND search will return results where the search terms are found _anywhere_, in any order in the alert name or details.
 
 {% data reusables.repositories.navigate-to-repo %}
 {% data reusables.repositories.sidebar-security %}

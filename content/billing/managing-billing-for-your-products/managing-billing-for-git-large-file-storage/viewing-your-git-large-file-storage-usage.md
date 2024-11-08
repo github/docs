@@ -36,11 +36,10 @@ shortTitle: View Git LFS usage
 ## Viewing storage and bandwidth usage for an organization
 
 {% ifversion billing-beta-enterprise %}
-{% note %}
 
-**Note:** If your organization belongs to an enterprise enrolled in the Billing {% data variables.release-phases.private_preview %} for {% data variables.large_files.product_name_short %}, you will not see {% data variables.large_files.product_name_short %} usage on the existing billing pages.
+> [!NOTE]
+> If your organization belongs to an enterprise enrolled in the Billing {% data variables.release-phases.private_preview %} for {% data variables.large_files.product_name_short %}, you will not see {% data variables.large_files.product_name_short %} usage on the existing billing pages.
 
-{% endnote %}
 {% endif %}
 
 {% data reusables.dotcom_billing.org-billing-perms %}
@@ -53,11 +52,10 @@ shortTitle: View Git LFS usage
 ## Viewing storage and bandwidth for an enterprise account
 
 {% ifversion billing-beta-enterprise %}
-{% note %}
 
-**Note:** If your enterprise is enrolled in the Billing {% data variables.release-phases.private_preview %} for {% data variables.large_files.product_name_short %}, you will not see {% data variables.large_files.product_name_short %} usage on the existing billing pages.
+> [!NOTE]
+> If your enterprise is enrolled in the Billing {% data variables.release-phases.private_preview %} for {% data variables.large_files.product_name_short %}, you will not see {% data variables.large_files.product_name_short %} usage on the existing billing pages.
 
-{% endnote %}
 {% endif %}
 
 {% data reusables.enterprise-accounts.access-enterprise %}

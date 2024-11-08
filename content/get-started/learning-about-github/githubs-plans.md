@@ -60,11 +60,8 @@ In addition to the features available with {% data variables.product.prodname_fr
   * Auto-linked references
   * {% data variables.product.prodname_pages %}
 
-    {% note %}
-
-    **Note:** To publish a {% data variables.product.prodname_pages %} site privately, you need to have an organization account. Additionally, your organization must use {% data variables.product.prodname_ghe_cloud %}.
-
-    {% endnote %}
+    > [!NOTE]
+    > To publish a {% data variables.product.prodname_pages %} site privately, you need to have an organization account. Additionally, your organization must use {% data variables.product.prodname_ghe_cloud %}.
 
   * Wikis
   * Repository insights graphs: Pulse, contributors, traffic, commits, code frequency, network, and forks
@@ -97,11 +94,8 @@ In addition to the features available with {% data variables.product.prodname_fr
   * Scheduled reminders
   * {% data variables.product.prodname_pages %}
 
-    {% note %}
-
-    **Note:** To publish a {% data variables.product.prodname_pages %} site privately, you need to have an organization account. Additionally, your organization must use {% data variables.product.prodname_ghe_cloud %}.
-
-    {% endnote %}
+    > [!NOTE]
+    > To publish a {% data variables.product.prodname_pages %} site privately, you need to have an organization account. Additionally, your organization must use {% data variables.product.prodname_ghe_cloud %}.
 
   * Wikis
   * Repository insights graphs: Pulse, contributors, traffic, commits, code frequency, network, and forks

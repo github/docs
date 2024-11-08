@@ -88,11 +88,8 @@ Discarded changes are saved in a dated file in the Trash. You can recover discar
 
 You can discard one or more changed lines that are uncommitted.
 
-{% note %}
-
-**Note:** Discarding single lines is disabled in a group of changes that adds and removes lines.
-
-{% endnote %}
+> [!NOTE]
+> Discarding single lines is disabled in a group of changes that adds and removes lines.
 
 To discard one added line, in the list of changed lines, right-click the line number of the line you want to discard, then select **Discard Added Line**.
 
@@ -106,11 +103,8 @@ To discard a group of changed lines, right-click the vertical bar to the right o
 
 Once you're satisfied with the changes you've chosen to include in your commit, write your commit message and push your changes. If you've collaborated on a commit, you can also attribute a commit to more than one author.
 
-{% note %}
-
-**Note**: {% data reusables.desktop.tags-push-with-commits %} For more information, see "[AUTOTITLE](/desktop/managing-commits/managing-tags-in-github-desktop)."
-
-{% endnote %}
+> [!NOTE]
+> {% data reusables.desktop.tags-push-with-commits %} For more information, see "[AUTOTITLE](/desktop/managing-commits/managing-tags-in-github-desktop)."
 
 {% data reusables.desktop.commit-message %}
 

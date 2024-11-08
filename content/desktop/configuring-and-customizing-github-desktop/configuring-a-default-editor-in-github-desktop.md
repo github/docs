@@ -122,21 +122,19 @@ If you want to open another repository in the default editor, you can use the re
 1. In the upper-left corner of {% data variables.product.prodname_desktop %}, to the right of the current repository name, click {% octicon "triangle-down" aria-label="The triangle-down icon" %}.
 1. Right-click the repository, then click **Open in default editor**.
 
-{% tip %}
-
 {% mac %}
 
-**Tip:** You can use the <kbd>Shift</kbd>+<kbd>Command</kbd>+<kbd>A</kbd> keyboard shortcut to open a repository in the default editor.
+> [!TIP]
+> You can use the <kbd>Shift</kbd>+<kbd>Command</kbd>+<kbd>A</kbd> keyboard shortcut to open a repository in the default editor.
 
 {% endmac %}
 
 {% windows %}
 
-**Tip:** You can use the <kbd>Ctrl</kbd>+<kbd>Shift</kbd>+<kbd>A</kbd> keyboard shortcut to open a repository in the default editor.
+> [!TIP]
+> You can use the <kbd>Ctrl</kbd>+<kbd>Shift</kbd>+<kbd>A</kbd> keyboard shortcut to open a repository in the default editor.
 
 {% endwindows %}
-
-{% endtip %}
 
 ## Opening a file in the default editor
 

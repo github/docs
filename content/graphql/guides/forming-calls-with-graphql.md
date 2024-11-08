@@ -63,11 +63,8 @@ curl -H "Authorization: bearer TOKEN" -X POST -d " \
 " {% data variables.product.graphql_url %}
 ```
 
-{% tip %}
-
-**Note**: The string value of `"query"` must escape newline characters or the schema will not parse it correctly. For the `POST` body, use outer double quotes and escaped inner double quotes.
-
-{% endtip %}
+> [!NOTE]
+> The string value of `"query"` must escape newline characters or the schema will not parse it correctly. For the `POST` body, use outer double quotes and escaped inner double quotes.
 
 ### About query and mutation operations
 
@@ -115,11 +112,8 @@ For a real-world example, see "[Example mutation](#example-mutation)."
 
 [Variables](https://graphql.org/learn/queries/#variables) can make queries more dynamic and powerful, and they can reduce complexity when passing mutation input objects.
 
-{% note %}
-
-**Note**: If you're using the Explorer, make sure to enter variables in the separate [Query Variables pane](/graphql/guides/using-the-explorer#using-the-variable-pane), and do not include the word `variables` before the JSON object.
-
-{% endnote %}
+> [!NOTE]
+> If you're using the Explorer, make sure to enter variables in the separate [Query Variables pane](/graphql/guides/using-the-explorer#using-the-variable-pane), and do not include the word `variables` before the JSON object.
 
 Here's an example query with a single variable:
 
@@ -319,11 +313,8 @@ Let's examine the query line by line:
 
 When we run the query, we get the `id`: `MDU6SXNzdWUyMzEzOTE1NTE=`
 
-{% tip %}
-
-**Note**: The `id` returned in the query is the value we'll pass as the `subjectID` in the mutation. Neither the docs nor schema introspection will indicate this relationship; you'll need to understand the concepts behind the names to figure this out.
-
-{% endtip %}
+> [!NOTE]
+> The `id` returned in the query is the value we'll pass as the `subjectID` in the mutation. Neither the docs nor schema introspection will indicate this relationship; you'll need to understand the concepts behind the names to figure this out.
 
 With the ID known, we can proceed with the mutation:
 

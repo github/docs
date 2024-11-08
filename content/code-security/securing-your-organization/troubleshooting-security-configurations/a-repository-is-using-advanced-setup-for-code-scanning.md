@@ -25,14 +25,11 @@ If you try to attach a {% data variables.product.prodname_security_configuration
 
 For all repositories without an active advanced setup, the {% data variables.product.prodname_security_configuration %} will be applied as expected, and {% data variables.product.prodname_code_scanning %} default setup will be enabled.
 
-{% note %}
-
-**Note:** If advanced setup is considered inactive for a repository, default setup _will_ still be enabled for that repository. Advanced setup is considered inactive for a repository if the repository meets any of the following criteria:
-* The latest {% data variables.product.prodname_codeql %} analysis is more than 90 days old
-* All {% data variables.product.prodname_codeql %} configurations have been deleted
-* The workflow file has been deleted or disabled (exclusively for YAML-based advanced setup)
-
-{% endnote %}
+> [!NOTE]
+> If advanced setup is considered inactive for a repository, default setup _will_ still be enabled for that repository. Advanced setup is considered inactive for a repository if the repository meets any of the following criteria:
+> * The latest {% data variables.product.prodname_codeql %} analysis is more than 90 days old
+> * All {% data variables.product.prodname_codeql %} configurations have been deleted
+> * The workflow file has been deleted or disabled (exclusively for YAML-based advanced setup)
 
 ## Solving the problem
 

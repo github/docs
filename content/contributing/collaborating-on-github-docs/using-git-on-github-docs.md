@@ -39,15 +39,12 @@ To keep your local branches in sync with their remotes and avoid merge conflicts
      git checkout -b YOUR-TOPIC-BRANCH
      ```
 
-     {% note %}
-
-     **Note**: You can use forward slashes as part of the branch name, for example to include your user name:
-
-     ```shell
-     git checkout -b my-username/new-codespace-policy
-     ```
-
-     {% endnote %}
+     > [!NOTE]
+     > You can use forward slashes as part of the branch name, for example to include your user name:
+     >
+     > ```shell
+     > git checkout -b my-username/new-codespace-policy
+     > ```
 
    * To work on an existing project, switch to your topic branch and merge changes from `main`.
 
@@ -128,11 +125,10 @@ To keep your local branches in sync with their remotes and avoid merge conflicts
 * Favor commits that contain small, focused groups of changes over commits with large, unfocused groups of changes, since this will help you write commit messages that other people can easily understand. An exception is the initial commit for a new project or category. These commits are sometimes large, as they often introduce the bare versions of many articles at once to provide an organizational scheme for subsequent work.
 * If you are incorporating feedback or want to address a set of changes to a particular person or team for review, @mention the person whose suggestions you are incorporating. For example: "Incorporating feedback from @octocat," or "Updating billing configuration steps - cc @monalisa for accuracy."
 * If a commit addresses an issue, you can reference the issue number in the commit, and a link to the commit will appear in the issue conversation timeline: "Addresses #1234 - adds steps for backing up the VM before upgrading."
-  {% note %}
 
-  **Note**: We generally don't close an issue via a commit. To close an issue, open a pull request and add "Closes #1234" to the description. The linked issue will be closed when the pull request is merged. For more information, see "[AUTOTITLE](/issues/tracking-your-work-with-issues/linking-a-pull-request-to-an-issue)."
+  > [!NOTE]
+  > We generally don't close an issue via a commit. To close an issue, open a pull request and add "Closes #1234" to the description. The linked issue will be closed when the pull request is merged. For more information, see "[AUTOTITLE](/issues/tracking-your-work-with-issues/linking-a-pull-request-to-an-issue)."
 
-  {% endnote %}
 * Make commit messages clear, detailed, and imperative. For example: "Adds a conceptual article about 2FA," not "Add info."
 * Try not to leave uncommitted changes in your local branch when you finish working for the day. Get to a good stopping point and commit and push your changes so your work is backed up to the remote repository.
 * Only push up to {% data variables.product.prodname_dotcom %} after you've made a few commits. Pushing after every commit adds noise to our ops channels on Slack and causes unnecessary builds to run.
@@ -167,11 +163,8 @@ There are two ways to handle merge conflicts:
 
    If there are multiple files with merge conflicts, repeat the previous steps until you resolve all conflicts.
 
-   {% note %}
-
-   **Note**: You should apply care when resolving merge conflicts. Sometimes you will simply accept your own changes, sometimes you will use the upstream changes from the `main` branch, and sometimes you will combine both sets of changes. If you're unsure of the best resolution, be wary of replacing the changes from upstream as these may have been made for specific reasons that you're not aware of.
-
-   {% endnote %}
+   > [!NOTE]
+   > You should apply care when resolving merge conflicts. Sometimes you will simply accept your own changes, sometimes you will use the upstream changes from the `main` branch, and sometimes you will combine both sets of changes. If you're unsure of the best resolution, be wary of replacing the changes from upstream as these may have been made for specific reasons that you're not aware of.
 
 1. In the terminal, stage the file, or files, that you just modified.
 
@@ -195,10 +188,7 @@ There are two ways to handle merge conflicts:
 
 We recommend you open your pull request on {% data variables.product.prodname_dotcom %} early. Create the pull request as a draft until you are ready for it to be reviewed. Each time you push changes, your commits will be added to the pull request.
 
-{% note %}
-
-**Note**: You can quickly access pull requests you've created by clicking **Pull requests** at the top of every page on {% data variables.product.prodname_dotcom %}.
-
-{% endnote %}
+> [!NOTE]
+> You can quickly access pull requests you've created by clicking **Pull requests** at the top of every page on {% data variables.product.prodname_dotcom %}.
 
 For more information, see "[AUTOTITLE](/pull-requests/collaborating-with-pull-requests/proposing-changes-to-your-work-with-pull-requests/creating-a-pull-request?tool=webui#creating-the-pull-request)."

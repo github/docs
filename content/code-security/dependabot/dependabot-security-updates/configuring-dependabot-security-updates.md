@@ -69,11 +69,8 @@ To reduce the number of pull requests you may be seeing, you can enable grouped 
 * **{% data variables.product.prodname_dependabot_alerts %}**. For more information, see "[AUTOTITLE](/code-security/dependabot/dependabot-alerts/configuring-dependabot-alerts)."
 * **{% data variables.product.prodname_dependabot_security_updates %}**. For more information, see "[AUTOTITLE](/code-security/dependabot/dependabot-security-updates/configuring-dependabot-security-updates)."
 
-{% note %}
-
-**Note:** When grouped security updates are first enabled, {% data variables.product.prodname_dependabot %} will immediately try to create grouped pull requests. You may notice {% data variables.product.prodname_dependabot %} closing old pull requests and opening new ones.
-
-{% endnote %}
+> [!NOTE]
+> When grouped security updates are first enabled, {% data variables.product.prodname_dependabot %} will immediately try to create grouped pull requests. You may notice {% data variables.product.prodname_dependabot %} closing old pull requests and opening new ones.
 
 {% data reusables.dependabot.dependabot-grouped-security-updates-how-enable %}
 {% data reusables.dependabot.dependabot-grouped-security-updates-order %}
@@ -151,11 +148,8 @@ updates:
           - "golang.org*"{% endif %}
 ```
 
-{% note %}
-
-**Note:** In order for {% data variables.product.prodname_dependabot %} to use this configuration for security updates,  the `directory` must be the path to the manifest files, and you should not specify a `target-branch`.
-
-{% endnote %}
+> [!NOTE]
+> In order for {% data variables.product.prodname_dependabot %} to use this configuration for security updates,  the `directory` must be the path to the manifest files, and you should not specify a `target-branch`.
 
 ## Further reading
 

@@ -51,13 +51,9 @@ Organization owners and billing managers can view {% data variables.product.prod
 {% data reusables.organizations.billing-settings %}
 1. Under "Usage this month", under "{% data variables.product.prodname_codespaces %}", view the details of the compute hours and storage used so far this month.
 
-   {% note %}
-
-   **Notes**:
-   * The costs shown here are the cumulative costs within the current billing month. The usage-based costs for {% data variables.product.prodname_github_codespaces %} shown on this page are reset to zero at the start of each billing month. Outstanding costs from previous months are not shown.
-   * The figures on this page are updated every hour.
-
-   {% endnote %}
+   > [!NOTE]
+   > * The costs shown here are the cumulative costs within the current billing month. The usage-based costs for {% data variables.product.prodname_github_codespaces %} shown on this page are reset to zero at the start of each billing month. Outstanding costs from previous months are not shown.
+   > * The figures on this page are updated every hour.
 
    You can also see and update your current spending limit. See "[AUTOTITLE](/billing/managing-billing-for-your-products/managing-billing-for-github-codespaces/managing-the-spending-limit-for-github-codespaces)."
 

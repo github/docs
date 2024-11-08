@@ -32,11 +32,8 @@ If you're migrating between {% data variables.product.company_short %} products,
 
 First, if your migration source is {% data variables.product.prodname_dotcom_the_website %}, decide whether you want to migrate on an organization-by-organization basis or on a repository-by-repository basis.
 
-{% note %}
-
-**Note:** If you're migrating from {% data variables.product.prodname_ghe_server %}, you can only migrate repositories.
-
-{% endnote %}
+> [!NOTE]
+> If you're migrating from {% data variables.product.prodname_ghe_server %}, you can only migrate repositories.
 
 If you choose repository-by-repository migrations, only repository-level data is migrated. If you pick the organization-by-organization migration strategy, selected organization-level data is also migrated, including teams and their access to repositories.
 
@@ -88,11 +85,9 @@ To migrate a repository, you must be an organization owner for both the source o
 1. Decide whether you want an organization owner to perform your migrations, or whether you need to grant the migrator role to someone else.
 {% data reusables.enterprise-migration-tool.grant-migrator-tasks %} For more information, see "[AUTOTITLE](/migrations/using-github-enterprise-importer/migrating-between-github-products/managing-access-for-a-migration-between-github-products#about-the-migrator-role)."
 
-   {% note %}
+   > [!NOTE]
+   > Remember to grant the migrator role for both the source organization and the destination organization.
 
-   **Note:** Remember to grant the migrator role for both the source organization and the destination organization.
-
-   {% endnote %}
 {% data reusables.enterprise-migration-tool.confirm-migrator-has-correct-pats %} For more information, see "[AUTOTITLE](/migrations/using-github-enterprise-importer/migrating-between-github-products/managing-access-for-a-migration-between-github-products#required-scopes-for-personal-access-tokens)."
 
 ### Do we want to maintain a similar organization structure after migrating?
@@ -103,11 +98,8 @@ If you intend to change your organizational structure, consider other batching f
 
 Even if you change your organizational structure, you can still prepare a script for your migration. Use the {% data variables.product.prodname_cli %} command, then move the lines for each repository into different scripts as needed.
 
-{% note %}
-
-**Note:** You can run multiple batches simultaneously. For example, if you're batching by teams, you could run the migrations for multiple teams in the same time window.
-
-{% endnote %}
+> [!NOTE]
+> You can run multiple batches simultaneously. For example, if you're batching by teams, you could run the migrations for multiple teams in the same time window.
 
 {% data reusables.enterprise-migration-tool.organization-structure-tasks %}
 
@@ -165,11 +157,8 @@ During the migration process, {% data variables.product.prodname_actions %} is d
 
 If you were using {% data variables.actions.hosted_runner %}s, self-hosted runners, or encrypted secrets, you must reconfigure them.
 
-{% note %}
-
-**Note:** Workflow run history for {% data variables.product.prodname_actions %} is not included in migrations.
-
-{% endnote %}
+> [!NOTE]
+> Workflow run history for {% data variables.product.prodname_actions %} is not included in migrations.
 
 1. If you use self-hosted runners, reconfigure your runners.
 

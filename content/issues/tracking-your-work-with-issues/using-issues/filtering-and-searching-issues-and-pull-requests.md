@@ -135,11 +135,8 @@ Once you've [applied labels to an issue or pull request](/issues/using-labels-an
 {% data reusables.project-management.labels %}
 1. In the list of labels, click a label.
 
-{% tip %}
-
-**Tip:** To clear your filter selection, click **Clear current search query, filters, and sorts**.
-
-{% endtip %}
+> [!TIP]
+> To clear your filter selection, click **Clear current search query, filters, and sorts**.
 
 {% ifversion issue-types %}
 
@@ -192,11 +189,8 @@ The issues and pull requests search bar allows you to define your own custom fil
 
 ![Screenshot of the list of issues for a repository. Above the list, a search field, containing the query "is:issue is:open", is outlined in dark orange.](/assets/images/help/issues/issues-search-bar.png)
 
-{% tip %}
-
-**Tip:** {% data reusables.search.search_issues_and_pull_requests_shortcut %}
-
-{% endtip %}
+> [!TIP]
+> {% data reusables.search.search_issues_and_pull_requests_shortcut %}
 
 {% endwebui %}
 
@@ -230,13 +224,10 @@ With issue and pull request search terms, you can:
 * Filter issues and pull requests by label: `state:open type:issue label:"bug"`
 * Filter out search terms by using `-` before the term: `state:open type:issue -author:octocat`
 
-{% tip %}
-
-**Tip:** You can filter issues and pull requests by label using logical OR or using logical AND.
-* To filter issues using logical OR, use the comma syntax: `label:"bug","wip"`.
-* To filter issues using logical AND, use separate label filters: `label:"bug" label:"wip"`.
-
-{% endtip %}
+> [!TIP]
+> You can filter issues and pull requests by label using logical OR or using logical AND.
+> * To filter issues using logical OR, use the comma syntax: `label:"bug","wip"`.
+> * To filter issues using logical AND, use separate label filters: `label:"bug" label:"wip"`.
 
 For issues, you can also use search to:
 
