@@ -100,11 +100,9 @@ After the initial configuration of SAML SSO, the only setting you can update on 
 
 {% data reusables.emus.sign-in-as-setup-user %}
 
-   {% note %}
+   > [!NOTE]
+   > {% data reusables.enterprise-accounts.emu-password-reset-session %}
 
-   **Note**: {% data reusables.enterprise-accounts.emu-password-reset-session %}
-
-   {% endnote %}
 {% data reusables.enterprise-accounts.access-enterprise-emu %}
 {% data reusables.enterprise-accounts.settings-tab %}
 {% data reusables.enterprise-accounts.security-tab %}
@@ -117,11 +115,8 @@ After the initial configuration of SAML SSO, the only setting you can update on 
 1. Before enabling SAML SSO for your enterprise, to ensure that the information you've entered is correct, click **Test SAML configuration**. {% data reusables.saml.test-must-succeed %}
 1. Click **Save**.
 
-    {% note %}
-
-    **Note:** After you require SAML SSO for your enterprise and save SAML settings, the setup user will continue to have access to the enterprise and will remain signed in to GitHub along with the {% data variables.enterprise.prodname_managed_users %} provisioned by your IdP who will also have access to the enterprise.
-
-    {% endnote %}
+    > [!NOTE]
+    > After you require SAML SSO for your enterprise and save SAML settings, the setup user will continue to have access to the enterprise and will remain signed in to GitHub along with the {% data variables.enterprise.prodname_managed_users %} provisioned by your IdP who will also have access to the enterprise.
 
 {% data reusables.enterprise-accounts.download-recovery-codes %}
 

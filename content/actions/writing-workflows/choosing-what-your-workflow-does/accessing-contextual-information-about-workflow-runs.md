@@ -365,11 +365,8 @@ The contents of the `vars` context is a mapping of configuration variable names 
 
 This example workflow shows how configuration variables set at the repository, environment, or organization levels are automatically available using the `vars` context.
 
-{% note %}
-
-Note: Configuration variables at the environment level are automatically available after their environment is declared by the runner.
-
-{% endnote %}
+> [!NOTE]
+> Configuration variables at the environment level are automatically available after their environment is declared by the runner.
 
 {% data reusables.actions.actions-vars-context-example-usage %}
 

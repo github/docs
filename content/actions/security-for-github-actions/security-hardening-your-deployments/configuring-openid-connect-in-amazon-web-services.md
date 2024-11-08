@@ -34,16 +34,13 @@ This guide explains how to configure AWS to trust {% data variables.product.prod
 {% ifversion ghes %}
 {% data reusables.actions.oidc-endpoints %}
   <!-- This note is indented to align with the above reusable. -->
-  {% note %}
 
-  **Note:** You can restrict access to the OIDC endpoints by allowing only [AWS IP address ranges](https://docs.aws.amazon.com/vpc/latest/userguide/aws-ip-ranges.html).
+  > [!NOTE]
+  > You can restrict access to the OIDC endpoints by allowing only [AWS IP address ranges](https://docs.aws.amazon.com/vpc/latest/userguide/aws-ip-ranges.html).
 
-  {% endnote %}
-  {% note %}
+  > [!NOTE]
+  > {% data variables.product.prodname_dotcom %} does not natively support AWS session tags.
 
-  **Note:** {% data variables.product.prodname_dotcom %} does not natively support AWS session tags.
-
-  {% endnote %}
 {% endif %}
 
 ## Adding the identity provider to AWS
@@ -57,11 +54,8 @@ To add the {% data variables.product.prodname_dotcom %} OIDC provider to IAM, se
 
 To configure the role and trust in IAM, see the AWS documentation "[Configure AWS Credentials for GitHub Actions](https://github.com/aws-actions/configure-aws-credentials#configure-aws-credentials-for-github-actions)" and "[Configuring a role for GitHub OIDC identity provider](https://docs.aws.amazon.com/IAM/latest/UserGuide/id_roles_create_for-idp_oidc.html#idp_oidc_Create_GitHub)."
 
-{% note %}
-
-**Note**: AWS Identity and Access Management (IAM) recommends that users evaluate the IAM condition key, `token.actions.githubusercontent.com:sub`, in the trust policy of any role that trusts {% data variables.product.prodname_dotcom %}’s OIDC identity provider (IdP). Evaluating this condition key in the role trust policy limits which {% data variables.product.prodname_dotcom %} actions are able to assume the role.
-
-{% endnote %}
+> [!NOTE]
+> AWS Identity and Access Management (IAM) recommends that users evaluate the IAM condition key, `token.actions.githubusercontent.com:sub`, in the trust policy of any role that trusts {% data variables.product.prodname_dotcom %}’s OIDC identity provider (IdP). Evaluating this condition key in the role trust policy limits which {% data variables.product.prodname_dotcom %} actions are able to assume the role.
 
 Edit the trust policy, adding the `sub` field to the validation conditions. For example:
 

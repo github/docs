@@ -22,19 +22,17 @@ shortTitle: Change your username
 
 {% ifversion ghec or ghes %}
 
-{% note %}
-
 {% ifversion ghec %}
 
-**Note**: Members of an {% data variables.enterprise.prodname_emu_enterprise %} cannot change usernames. Your enterprise's IdP administrator controls your username for {% data variables.product.product_name %}. For more information, see "[AUTOTITLE](/admin/identity-and-access-management/using-enterprise-managed-users-for-iam/about-enterprise-managed-users)."
+> [!NOTE]
+> Members of an {% data variables.enterprise.prodname_emu_enterprise %} cannot change usernames. Your enterprise's IdP administrator controls your username for {% data variables.product.product_name %}. For more information, see "[AUTOTITLE](/admin/identity-and-access-management/using-enterprise-managed-users-for-iam/about-enterprise-managed-users)."
 
 {% elsif ghes %}
 
-**Note**: If you sign into {% data variables.location.product_location %} with LDAP credentials or single sign-on (SSO), only your local administrator can change your username. For more information about authentication methods for {% data variables.product.product_name %}, see "[AUTOTITLE](/admin/identity-and-access-management/managing-iam-for-your-enterprise)."
+> [!NOTE]
+> If you sign into {% data variables.location.product_location %} with LDAP credentials or single sign-on (SSO), only your local administrator can change your username. For more information about authentication methods for {% data variables.product.product_name %}, see "[AUTOTITLE](/admin/identity-and-access-management/managing-iam-for-your-enterprise)."
 
 {% endif %}
-
-{% endnote %}
 
 {% endif %}
 
@@ -88,14 +86,9 @@ If your Git commits are associated with another email address you've added to yo
 
 {% ifversion fpt or ghec %}If you've been using a {% data variables.product.prodname_dotcom %}-provided private commit email address, whether or not your commit history will be retained after an account rename depends on the format of the email address. Git commits that are associated with your {% data variables.product.product_name %}-provided `noreply` email address won't be attributed to your new username and won't appear in your contributions graph, unless your `noreply` email address is in the form of `ID+USERNAME@users.noreply.github.com`. Older versions of the `noreply` email address that do not contain a numeric ID will not be associated with your {% data variables.product.prodname_dotcom %} account after changing your username.{% endif %}
 
-{% warning %}
-
-**Warnings:**
-
-* After a username change, verified commits signed using the previous {% data variables.product.product_name %}-provided `noreply` email address will lose their "Verified" status.
-* When verifying a signature, {% data variables.product.product_name %} checks that the email address of the committer or tagger exactly matches one of the email addresses associated with the GPG key's identities. Additionally, {% data variables.product.product_name %} confirms that the email address is verified and linked to the user's account. This ensures that the key belongs to you and that you created the commit or tag. Because the username of the `noreply` email address changes, these commits can no longer be verified.
-
-{% endwarning %}
+> [!WARNING]
+> * After a username change, verified commits signed using the previous {% data variables.product.product_name %}-provided `noreply` email address will lose their "Verified" status.
+> * When verifying a signature, {% data variables.product.product_name %} checks that the email address of the committer or tagger exactly matches one of the email addresses associated with the GPG key's identities. Additionally, {% data variables.product.product_name %} confirms that the email address is verified and linked to the user's account. This ensures that the key belongs to you and that you created the commit or tag. Because the username of the `noreply` email address changes, these commits can no longer be verified.
 
 ## Your gists
 

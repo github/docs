@@ -63,11 +63,8 @@ You can download the log files from your workflow run. You can also download a w
 
   {% ifversion re-run-jobs %}
 
-  {% note %}
-
-  **Note**: When you download the log archive for a workflow that was partially re-run, the archive only includes the jobs that were re-run. To get a complete set of logs for jobs that were run from a workflow, you must download the log archives for the previous run attempts that ran the other jobs.
-
-  {% endnote %}
+  > [!NOTE]
+  > When you download the log archive for a workflow that was partially re-run, the archive only includes the jobs that were re-run. To get a complete set of logs for jobs that were run from a workflow, you must download the log archives for the previous run attempts that ran the other jobs.
 
   {% endif %}
 

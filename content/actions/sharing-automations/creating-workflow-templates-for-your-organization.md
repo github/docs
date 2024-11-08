@@ -36,11 +36,8 @@ Workflow templates can be created by users with write access to the organization
 Workflow templates created by users can only be used to create workflows in public repositories. Organizations using {% data variables.product.prodname_ghe_cloud %} can also use workflow templates to create workflows in private repositories. For more information, see the [{% data variables.product.prodname_ghe_cloud %} documentation](/enterprise-cloud@latest/actions/using-workflows/creating-starter-workflows-for-your-organization).
 {% endif %}
 
-{% note %}
-
-**Note:** To avoid duplication among workflow templates you can call reusable workflows from within a workflow. This can help make your workflows easier to maintain. For more information, see "[AUTOTITLE](/actions/using-workflows/reusing-workflows)."
-
-{% endnote %}
+> [!NOTE]
+> To avoid duplication among workflow templates you can call reusable workflows from within a workflow. This can help make your workflows easier to maintain. For more information, see "[AUTOTITLE](/actions/using-workflows/reusing-workflows)."
 
 This procedure demonstrates how to create a workflow template and metadata file. The metadata file describes how the workflow templates will be presented to users when they are creating a new workflow.
 
@@ -51,15 +48,15 @@ This procedure demonstrates how to create a workflow template and metadata file.
    If you need to refer to a repository's default branch, you can use the `$default-branch` placeholder. When a workflow is created the placeholder will be automatically replaced with the name of the repository's default branch.
 
    {% ifversion ghes %}
-   {% note %}
 
-   **Note:** The following values in the `runs-on` key are also treated as placeholders:
+   > [!NOTE]
+   > The following values in the `runs-on` key are also treated as placeholders:
+   >
+   > * "ubuntu-latest" is replaced with "[ self-hosted ]"
+   > * "windows-latest" is replaced with "[ self-hosted, windows ]"
+   > * "macos-latest" is replaced with "[ self-hosted, macOS ]"
 
-   * "ubuntu-latest" is replaced with "[ self-hosted ]"
-   * "windows-latest" is replaced with "[ self-hosted, windows ]"
-   * "macos-latest" is replaced with "[ self-hosted, macOS ]"
-
-   {% endnote %}{% endif %}
+   {% endif %}
 
    For example, this file named `octo-organization-ci.yml` demonstrates a basic workflow.
 

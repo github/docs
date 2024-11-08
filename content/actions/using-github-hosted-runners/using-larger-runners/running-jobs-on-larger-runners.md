@@ -39,11 +39,8 @@ Use the labels in the table below to run your workflows on the corresponding mac
 
 {% data reusables.actions.larger-runners-table %}
 
-{% note %}
-
-**Note:** For macOS {% data variables.actions.hosted_runner %}s, the `-latest` runner label uses the macOS 12 runner image. For macOS Xlarge, the `-latest` runner label uses the macOS 13 runner image
-
-{% endnote %}
+> [!NOTE]
+> For macOS {% data variables.actions.hosted_runner %}s, the `-latest` runner label uses the macOS 12 runner image. For macOS Xlarge, the `-latest` runner label uses the macOS 13 runner image
 
 {% endmac %}
 
@@ -197,10 +194,7 @@ jobs:
 
 Because macOS arm64 does not support Node 12, macOS {% data variables.actions.hosted_runner %}s automatically use Node 16 to execute any JavaScript action written for Node 12. Some community actions may not be compatible with Node 16. If you use an action that requires a different Node version, you may need to manually install a specific version at runtime.
 
-{% note %}
-
-**Note:** ARM-powered runners are currently in {% data variables.release-phases.public_preview %} and are subject to change.
-
-{% endnote %}
+> [!NOTE]
+> ARM-powered runners are currently in {% data variables.release-phases.public_preview %} and are subject to change.
 
 {% endmac %}

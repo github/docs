@@ -167,15 +167,12 @@ If your server needs to access multiple repositories, you can create a new accou
 
 {% ifversion fpt or ghec %}
 
-{% tip %}
-
-**Tip:** Our [terms of service][tos] state:
-
-> _Accounts registered by "bots" or other automated methods are not permitted._
-
-This means that you cannot automate the creation of accounts. But if you want to create a single machine user for automating tasks such as deploy scripts in your project or organization, that is totally cool.
-
-{% endtip %}
+> [!TIP]
+> Our [terms of service][tos] state:
+>
+> > _Accounts registered by "bots" or other automated methods are not permitted._
+>
+> This means that you cannot automate the creation of accounts. But if you want to create a single machine user for automating tasks such as deploy scripts in your project or organization, that is totally cool.
 
 {% endif %}
 

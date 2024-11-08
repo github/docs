@@ -28,11 +28,8 @@ In order to use ARC, ensure you have the following.
   * For a managed cloud environment, you can use AKS. For more information, see [Azure Kubernetes Service](https://azure.microsoft.com/en-us/products/kubernetes-service) in the Azure documentation.
   * For a local setup, you can use minikube or kind. For more information, see [minikube start](https://minikube.sigs.k8s.io/docs/start/) in the minikube documentation and [kind](https://kind.sigs.k8s.io/) in the kind documentation.
 
-    {% note %}
-
-    **Note:** OpenShift clusters are currently unsupported.
-
-    {% endnote %}
+    > [!NOTE]
+    > OpenShift clusters are currently unsupported.
 
 * Helm 3
   * For more information, see [Installing Helm](https://helm.sh/docs/intro/install/) in the Helm documentation.
@@ -69,13 +66,9 @@ In order to use ARC, ensure you have the following.
     * Set `GITHUB_CONFIG_URL` to the URL of your repository, organization, or enterprise. This is the entity that the runners will belong to.
     * This example command installs the latest version of the Helm chart. To install a specific version, you can pass the `--version` argument with the version of the chart you wish to install. You can find the list of releases in the [GitHub Container Registry](https://github.com/actions/actions-runner-controller/pkgs/container/actions-runner-controller-charts%2Fgha-runner-scale-set).
 
-        {% note %}
-
-        **Note:**
-        * {% data reusables.actions.actions-runner-controller-security-practices-namespace %}
-        * {% data reusables.actions.actions-runner-controller-security-practices-secret %} For more information, see "[AUTOTITLE](/actions/hosting-your-own-runners/managing-self-hosted-runners-with-actions-runner-controller/deploying-runner-scale-sets-with-actions-runner-controller)."
-
-        {% endnote %}
+        > [!NOTE]
+        > * {% data reusables.actions.actions-runner-controller-security-practices-namespace %}
+        > * {% data reusables.actions.actions-runner-controller-security-practices-secret %} For more information, see "[AUTOTITLE](/actions/hosting-your-own-runners/managing-self-hosted-runners-with-actions-runner-controller/deploying-runner-scale-sets-with-actions-runner-controller)."
 
         ```bash copy
         INSTALLATION_NAME="arc-runner-set"

@@ -25,11 +25,8 @@ If a hotpatch is available for an upgrade, the `.hpkg` will download automatical
 
 ## Enabling automatic update checks
 
-{% tip %}
-
-**Tip:** To enable automatic update checks, {% data variables.location.product_location %} must be able to connect to `https://github-enterprise.s3.amazonaws.com`.
-
-{% endtip %}
+> [!TIP]
+> To enable automatic update checks, {% data variables.location.product_location %} must be able to connect to `https://github-enterprise.s3.amazonaws.com`.
 
 {% data reusables.enterprise_site_admin_settings.access-settings %}
 {% data reusables.enterprise_site_admin_settings.management-console %}

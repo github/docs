@@ -21,11 +21,8 @@ You can authorize an existing SSH key, or create a new SSH key and then authoriz
 
 {% data reusables.saml.authorized-creds-info %}
 
-{% note %}
-
-**Note:** If your SSH key authorization is revoked by an organization, you will not be able to reauthorize the same key. You will need to create a new SSH key and authorize it. For more information about creating a new SSH key, see "[AUTOTITLE](/authentication/connecting-to-github-with-ssh/generating-a-new-ssh-key-and-adding-it-to-the-ssh-agent)."
-
-{% endnote %}
+> [!NOTE]
+> If your SSH key authorization is revoked by an organization, you will not be able to reauthorize the same key. You will need to create a new SSH key and authorize it. For more information about creating a new SSH key, see "[AUTOTITLE](/authentication/connecting-to-github-with-ssh/generating-a-new-ssh-key-and-adding-it-to-the-ssh-agent)."
 
 You do not need to authorize SSH certificates signed by your organization's SSH certificate authority (CA).
 

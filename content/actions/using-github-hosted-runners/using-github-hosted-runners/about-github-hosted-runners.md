@@ -125,11 +125,8 @@ While the job runs, the logs and output can be viewed in the {% data variables.p
 > [!NOTE]
 > The `-latest` runner images are the latest stable images that {% data variables.product.prodname_dotcom %} provides, and might not be the most recent version of the operating system available from the operating system vendor.
 
-{% warning %}
-
-**Warning:** Beta and Deprecated Images are provided "as-is", "with all faults" and "as available" and are excluded from the service level agreement and warranty. Beta Images may not be covered by customer support.
-
-{% endwarning %}
+> [!WARNING]
+> Beta and Deprecated Images are provided "as-is", "with all faults" and "as available" and are excluded from the service level agreement and warranty. Beta Images may not be covered by customer support.
 
 {% endif %}
 
