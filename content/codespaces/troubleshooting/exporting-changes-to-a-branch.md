@@ -20,11 +20,8 @@ You can export your changes in one of several ways, depending on how you created
 * If you created the codespace from a repository to which you only have read access, you can export your changes to a fork of the repository. {% data variables.product.prodname_github_codespaces %} will create a new fork for you, or link your codespace to an existing fork if you already have one for the repository, and export your changes to a new branch of the fork. For more information, see "[AUTOTITLE](/codespaces/developing-in-a-codespace/using-source-control-in-your-codespace#about-automatic-forking)."
 * If you created the codespace from a template, and have not yet published it, you can publish the codespace to a new repository.
 
-{% note %}
-
-**Note:** {% data variables.product.prodname_dotcom %} blocks pushes containing files larger than 100 MiB. If your codespace contains large files you will not be able to export your changes to a branch or fork. For more information, see "[AUTOTITLE](/repositories/working-with-files/managing-large-files/about-large-files-on-github)."
-
-{% endnote %}
+> [!NOTE]
+> {% data variables.product.prodname_dotcom %} blocks pushes containing files larger than 100 MiB. If your codespace contains large files you will not be able to export your changes to a branch or fork. For more information, see "[AUTOTITLE](/repositories/working-with-files/managing-large-files/about-large-files-on-github)."
 
 ## Exporting changes to a branch
 

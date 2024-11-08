@@ -26,11 +26,8 @@ The `Dismiss low impact issues for development-scoped dependencies` rule is a {%
 * At worst, have limited effects like slow builds or long-running tests.
 * Are not indicative of issues in production.
 
-{% note %}
-
-**Note:** Automatic dismissal of low impact development alerts is currently only supported for npm.
-
-{% endnote %}
+> [!NOTE]
+> Automatic dismissal of low impact development alerts is currently only supported for npm.
 
 The `Dismiss low impact issues for development-scoped dependencies` rule includes vulnerabilities relating to resource management, programming and logic, and information disclosure issues. For more information, see "[Publicly disclosed CWEs used by the `Dismiss low impact issues for development-scoped dependencies` rule](#publicly-disclosed-cwes-used-by-the-dismiss-low-impact-issues-for-development-scoped-dependencies-rule)."
 

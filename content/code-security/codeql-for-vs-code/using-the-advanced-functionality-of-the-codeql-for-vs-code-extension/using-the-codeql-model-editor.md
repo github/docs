@@ -33,11 +33,8 @@ The rest of this article covers the practical aspects of modelling dependencies 
 
 ## Displaying the {% data variables.product.prodname_codeql %} model editor
 
-{% note %}
-
-**Note:** To use this {% data variables.release-phases.public_preview %} functionality, install the latest version of the {% data variables.product.prodname_codeql %} extension for {% data variables.product.prodname_vscode %}.
-
-{% endnote %}
+> [!NOTE]
+> To use this {% data variables.release-phases.public_preview %} functionality, install the latest version of the {% data variables.product.prodname_codeql %} extension for {% data variables.product.prodname_vscode %}.
 
 1. Open your {% data variables.product.prodname_codeql %} workspace in {% data variables.product.prodname_vscode_shortname %}. For example, the [`vscode-codeql-starter` workspace](https://github.com/github/vscode-codeql-starter). If you are using the starter workspace, update the `ql` submodule from `main` to ensure that you have the queries used to gather data for the model editor.
 
@@ -51,11 +48,8 @@ The rest of this article covers the practical aspects of modelling dependencies 
 
 1. When the telemetry queries are complete, the APIs that have been identified are shown in the editor.
 
-{% tip %}
-
-**Tip:** You can move the {% data variables.product.prodname_codeql %} "Method Modeling" view from the primary sidebar to the secondary sidebar, if you want more space while you are modeling calls or methods. If you close the view, you can reopen it from the "View" menu in {% data variables.product.prodname_vscode_shortname %} and clicking **Open View...**.
-
-{% endtip %}
+> [!TIP]
+> You can move the {% data variables.product.prodname_codeql %} "Method Modeling" view from the primary sidebar to the secondary sidebar, if you want more space while you are modeling calls or methods. If you close the view, you can reopen it from the "View" menu in {% data variables.product.prodname_vscode_shortname %} and clicking **Open View...**.
 
 ## Modeling the calls your codebase makes to external APIs
 

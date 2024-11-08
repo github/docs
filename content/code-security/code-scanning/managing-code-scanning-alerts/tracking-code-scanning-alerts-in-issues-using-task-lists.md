@@ -72,10 +72,9 @@ Instead of tracking a {% data variables.product.prodname_code_scanning %} alert 
    * The title contains the name of the {% data variables.product.prodname_code_scanning %} alert.
    * The body contains the task list item with the full URL to the {% data variables.product.prodname_code_scanning %} alert.
 1. Optionally, edit the title and the body of the issue.
-   {% warning %}
 
-    **Warning:** You may want to edit the title of the issue as it may expose security information. You can also edit the body of the issue. Make sure that you keep the task list item with a link to the alert otherwise the issue will no longer track the alert.
-   {% endwarning %}
+    > [!WARNING]
+    > You may want to edit the title of the issue as it may expose security information. You can also edit the body of the issue. Make sure that you keep the task list item with a link to the alert otherwise the issue will no longer track the alert.
 
 1. Click **Submit new issue**.
 

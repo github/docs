@@ -20,11 +20,8 @@ At the top of a page on {% data variables.product.prodname_docs %}, select the d
 
 ![Screenshot of the header of {% data variables.product.prodname_docs %}. The "Version" dropdown menu is expanded and highlighted with an orange outline.](/assets/images/help/docs/version-picker.png)
 
-{% note %}
-
-**Note**: You can try changing the version now. You're viewing {% ifversion ghes %}a{% else %}the{% endif %} **{% ifversion fpt %}Free, Pro, & Team{% else %}{% data variables.product.product_name %}{% endif %}** version of this article.
-
-{% endnote %}
+> [!NOTE]
+> You can try changing the version now. You're viewing {% ifversion ghes %}a{% else %}the{% endif %} **{% ifversion fpt %}Free, Pro, & Team{% else %}{% data variables.product.product_name %}{% endif %}** version of this article.
 
 ## Determining which {% data variables.product.company_short %} product you use
 

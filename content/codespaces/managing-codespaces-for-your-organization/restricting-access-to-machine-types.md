@@ -26,11 +26,8 @@ If there are existing codespaces that no longer conform to a policy you have def
 
 If you remove higher specification machine types that are required by the {% data variables.product.prodname_github_codespaces %} configuration for an individual repository in your organization, then it won't be possible to create a codespace for that repository. When someone attempts to create a codespace they will see a message telling them that there are no valid machine types available that meet the requirements of the repository's {% data variables.product.prodname_github_codespaces %} configuration.
 
-{% note %}
-
-**Note**: Anyone who can edit the `devcontainer.json` configuration file in a repository can set a minimum specification for machines that can be used for codespaces for that repository. For more information, see "[AUTOTITLE](/codespaces/setting-up-your-project-for-codespaces/configuring-dev-containers/setting-a-minimum-specification-for-codespace-machines)."
-
-{% endnote %}
+> [!NOTE]
+> Anyone who can edit the `devcontainer.json` configuration file in a repository can set a minimum specification for machines that can be used for codespaces for that repository. For more information, see "[AUTOTITLE](/codespaces/setting-up-your-project-for-codespaces/configuring-dev-containers/setting-a-minimum-specification-for-codespace-machines)."
 
 If setting a policy for machine types prevents people from using {% data variables.product.prodname_github_codespaces %} for a particular repository there are two options:
 

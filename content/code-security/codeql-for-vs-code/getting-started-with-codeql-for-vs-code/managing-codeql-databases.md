@@ -31,11 +31,8 @@ You can check if a repository has any {% data variables.product.prodname_codeql 
 
 1. Once you've chosen a database, it will be displayed in the "Databases" view. To see the menu options for interacting with a database, right-click an entry in the list. You can select multiple databases at once.
 
-{% note %}
-
-**Note:** You can also analyze test databases. Test databases (folders with a `.testproj` extension) are generated when you run regression tests on custom queries using the {% data variables.product.prodname_codeql_cli %}. If a query fails a regression test, you may want to import the test database into {% data variables.product.prodname_vscode %} to debug the failure. For more information about running query tests, see "[AUTOTITLE](/code-security/codeql-cli/using-the-codeql-cli/testing-custom-queries)."
-
-{% endnote %}
+> [!NOTE]
+> You can also analyze test databases. Test databases (folders with a `.testproj` extension) are generated when you run regression tests on custom queries using the {% data variables.product.prodname_codeql_cli %}. If a query fails a regression test, you may want to import the test database into {% data variables.product.prodname_vscode %} to debug the failure. For more information about running query tests, see "[AUTOTITLE](/code-security/codeql-cli/using-the-codeql-cli/testing-custom-queries)."
 
 ## Filtering databases and queries by language
 

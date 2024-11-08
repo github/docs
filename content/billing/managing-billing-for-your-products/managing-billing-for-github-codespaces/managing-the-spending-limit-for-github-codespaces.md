@@ -51,11 +51,8 @@ You can set a spending limit for {% data variables.product.prodname_github_codes
 
 Organizations owners and billing managers can manage the spending limit for {% data variables.product.prodname_github_codespaces %} for an organization.
 
-{% note %}
-
-**Note**: Organizations that are owned by an enterprise account cannot specify their own spending limit as this is specified in the enterprise settings.
-
-{% endnote %}
+> [!NOTE]
+> Organizations that are owned by an enterprise account cannot specify their own spending limit as this is specified in the enterprise settings.
 
 {% data reusables.organizations.billing-settings %}
 {% data reusables.dotcom_billing.manage-spending-limit %}

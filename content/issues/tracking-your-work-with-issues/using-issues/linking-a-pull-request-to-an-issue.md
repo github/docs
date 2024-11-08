@@ -18,11 +18,9 @@ topics:
   - Pull requests
 shortTitle: Link PR to issue
 ---
-{% note %}
 
-**Note:** The special keywords in a pull request description are interpreted when the pull request targets the repository's _default_ branch. However, if the PR's base is _any other branch_, then these keywords are ignored, no links are created and merging the PR has no effect on the issues. **If you want to link a pull request to an issue using a keyword, the PR must be on the default branch.**
-
-{% endnote %}
+> [!NOTE]
+> The special keywords in a pull request description are interpreted when the pull request targets the repository's _default_ branch. However, if the PR's base is _any other branch_, then these keywords are ignored, no links are created and merging the PR has no effect on the issues. **If you want to link a pull request to an issue using a keyword, the PR must be on the default branch.**
 
 ## About linked issues and pull requests
 

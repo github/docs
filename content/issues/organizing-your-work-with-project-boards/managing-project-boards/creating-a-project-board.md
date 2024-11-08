@@ -60,11 +60,10 @@ You can also configure workflow automations to keep your {% data variables.proje
 {% data reusables.projects.classic-project-creation %}
 
 {% ifversion classic-project-visibility-permissions %}
-{% note %}
 
-**Note:** {% data reusables.projects.owners-can-limit-visibility-permissions %}
+> [!NOTE]
+> {% data reusables.projects.owners-can-limit-visibility-permissions %}
 
-{% endnote %}
 {% endif %}
 
 {% data reusables.profile.access_org %}

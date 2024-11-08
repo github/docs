@@ -82,11 +82,8 @@ Deleting a comment creates a timeline event that is visible to anyone with read 
 
 ![Screenshot of a timeline event, which says "octo-org deleted a comment from hubot 6 minutes ago."](/assets/images/help/issues/anonymized-timeline-entry-for-deleted-comment.png)
 
-{% note %}
-
-**Note:** The initial comment (or body) of an issue or pull request can't be deleted. Instead, you can edit issue and pull request bodies to remove unwanted content.
-
-{% endnote %}
+> [!NOTE]
+> The initial comment (or body) of an issue or pull request can't be deleted. Instead, you can edit issue and pull request bodies to remove unwanted content.
 
 ### Steps to delete a comment
 

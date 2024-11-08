@@ -43,11 +43,8 @@ For more information about Live Share, see "[What is {% data variables.product.p
 
 1. Send the link in your clipboard to anyone you want to join you in your Live Share session.
 
-   {% note %}
-
-   **Important**: Given the level of access Live Share sessions can provide to guests, you should only share with people you trust, and you should think through the implications of what you are sharing. For more information, see "[Security features of Live Share](https://learn.microsoft.com/en-us/visualstudio/liveshare/reference/security)" in the {% data variables.product.prodname_vs %} documentation.
-
-   {% endnote %}
+   > [!IMPORTANT]
+   > Given the level of access Live Share sessions can provide to guests, you should only share with people you trust, and you should think through the implications of what you are sharing. For more information, see "[Security features of Live Share](https://learn.microsoft.com/en-us/visualstudio/liveshare/reference/security)" in the {% data variables.product.prodname_vs %} documentation.
 
 ## Stopping a Live Share session
 
