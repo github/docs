@@ -1,7 +1,7 @@
 ---
 title: Configuration options for the dependabot.yml file
 intro: 'Detailed information for all the options you can use to customize how {% data variables.product.prodname_dependabot %} maintains your repositories.'
-permissions: 'People with write permissions to a repository can configure {% data variables.product.prodname_dependabot %} for the repository.'
+permissions: '{% data reusables.permissions.dependabot-yml-configure %}'
 allowTitleToDifferFromFilename: true
 redirect_from:
   - /github/administering-a-repository/configuration-options-for-dependency-updates

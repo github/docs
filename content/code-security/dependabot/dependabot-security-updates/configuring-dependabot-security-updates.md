@@ -2,6 +2,7 @@
 title: Configuring Dependabot security updates
 intro: 'You can use {% data variables.product.prodname_dependabot_security_updates %} or manual pull requests to easily update vulnerable dependencies.'
 shortTitle: Configure security updates
+permissions: '{% data reusables.permissions.dependabot-yml-configure %}'
 redirect_from:
   - /articles/configuring-automated-security-fixes
   - /github/managing-security-vulnerabilities/configuring-automated-security-fixes

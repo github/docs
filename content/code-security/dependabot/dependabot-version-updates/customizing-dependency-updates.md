@@ -1,7 +1,7 @@
 ---
 title: Customizing dependency updates
 intro: 'You can customize how {% data variables.product.prodname_dependabot %} maintains your dependencies.'
-permissions: 'People with write permissions to a repository can configure {% data variables.product.prodname_dependabot %} for the repository.'
+permissions: '{% data reusables.permissions.dependabot-yml-configure %}'
 redirect_from:
   - /github/administering-a-repository/customizing-dependency-updates
   - /code-security/supply-chain-security/customizing-dependency-updates
