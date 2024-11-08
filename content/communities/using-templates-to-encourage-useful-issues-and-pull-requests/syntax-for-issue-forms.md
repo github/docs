@@ -19,11 +19,8 @@ Issue forms are not supported for pull requests. You can create pull request tem
 
 This example YAML configuration file defines an issue form using several inputs to report a bug.
 
-{% note %}
-
-**Note:** The `required` field key is only supported in public repositories. In private and internal repositories, all fields are optional.
-
-{% endnote %}
+> [!NOTE]
+> The `required` field key is only supported in public repositories. In private and internal repositories, all fields are optional.
 
 {% data reusables.community.issue-forms-sample %}
 

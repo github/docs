@@ -14,11 +14,8 @@ We recommend using Azure Repos to convert your Team Foundation Version Control (
 
 ## Migrating with Azure Repos (recommended)
 
-{% note %}
-
-**Note:** Azure Repos only migrates up to 180 days of history. The state of your repository before the 180-day threshold will be migrated in a single initial commit. To retain more history, see "[Migrating with `git-tfs`](#migrating-with-git-tfs)."
-
-{% endnote %}
+> [!NOTE]
+> Azure Repos only migrates up to 180 days of history. The state of your repository before the 180-day threshold will be migrated in a single initial commit. To retain more history, see "[Migrating with `git-tfs`](#migrating-with-git-tfs)."
 
 To follow these steps, you must use a macOS or Linux system and have the following tools installed:
 

@@ -65,11 +65,8 @@ The Dockerfile is a text file that contains the instructions needed to create a 
 
 The Dockerfile for a dev container is typically located in the `.devcontainer` folder, alongside the `devcontainer.json` in which it is referenced.
 
-{% note %}
-
-**Note**: As an alternative to using a Dockerfile you can use the `image` property in the `devcontainer.json` file to refer directly to an existing image you want to use. The image you specify here must be allowed by any organization image policy that has been set. See "[AUTOTITLE](/codespaces/managing-codespaces-for-your-organization/restricting-the-base-image-for-codespaces)." If neither a Dockerfile nor an image is found then the default container image is used. See "[Using the default dev container configuration](#using-the-default-dev-container-configuration)."
-
-{% endnote %}
+> [!NOTE]
+> As an alternative to using a Dockerfile you can use the `image` property in the `devcontainer.json` file to refer directly to an existing image you want to use. The image you specify here must be allowed by any organization image policy that has been set. See "[AUTOTITLE](/codespaces/managing-codespaces-for-your-organization/restricting-the-base-image-for-codespaces)." If neither a Dockerfile nor an image is found then the default container image is used. See "[Using the default dev container configuration](#using-the-default-dev-container-configuration)."
 
 #### Simple Dockerfile example
 
@@ -100,11 +97,8 @@ COPY ./script-in-your-repo.sh /tmp/scripts/script-in-codespace.sh
 RUN apt-get update && bash /tmp/scripts/script-in-codespace.sh
 ```
 
-{% note %}
-
-**Note**: In the above example, the script that's copied to the codespace (`script-in-your-repo.sh`) must exist in your repository.
-
-{% endnote %}
+> [!NOTE]
+> In the above example, the script that's copied to the codespace (`script-in-your-repo.sh`) must exist in your repository.
 
 For more information about Dockerfile instructions, see "[Dockerfile reference](https://docs.docker.com/engine/reference/builder)" in the Docker documentation.
 
@@ -130,11 +124,8 @@ If you don't add a dev container configuration to your repository, or if your co
 
 The default configuration is a good option if you're working on a small project that uses the languages and tools that {% data variables.product.prodname_github_codespaces %} provides.
 
-{% note %}
-
-**Note**: {% data variables.product.prodname_dotcom %} does not charge for storage of containers built from the default dev container image. For more information about billing for codespace storage, see "[AUTOTITLE](/billing/managing-billing-for-your-products/managing-billing-for-github-codespaces/about-billing-for-github-codespaces#about-billing-for-storage-usage)." {% data reusables.codespaces.check-for-default-image %}
-
-{% endnote %}
+> [!NOTE]
+> {% data variables.product.prodname_dotcom %} does not charge for storage of containers built from the default dev container image. For more information about billing for codespace storage, see "[AUTOTITLE](/billing/managing-billing-for-your-products/managing-billing-for-github-codespaces/about-billing-for-github-codespaces#about-billing-for-storage-usage)." {% data reusables.codespaces.check-for-default-image %}
 
 ## Using a predefined dev container configuration
 
@@ -174,13 +165,9 @@ If none of the predefined configurations meets your needs, you can create a cust
 * If you're adding a single `devcontainer.json` file that will be used by everyone who creates a codespace from your repository, create the file within a `.devcontainer` directory at the root of the repository.
 * If you want to offer users a choice of configuration, you can create multiple custom `devcontainer.json` files, each located within a separate subdirectory of the `.devcontainer` directory.
 
-   {% note %}
-
-   **Notes**:
-  * You can't locate your `devcontainer.json` files in directories more than one level below `.devcontainer`. For example, a file at `.devcontainer/teamA/devcontainer.json` will work, but `.devcontainer/teamA/testing/devcontainer.json` will not.
-  * {% data reusables.codespaces.configuration-choice-templates %} See "[AUTOTITLE](/codespaces/setting-up-your-project-for-codespaces/setting-up-your-repository/setting-up-a-template-repository-for-github-codespaces)."
-
-   {% endnote %}
+  > [!NOTE]
+  > * You can't locate your `devcontainer.json` files in directories more than one level below `.devcontainer`. For example, a file at `.devcontainer/teamA/devcontainer.json` will work, but `.devcontainer/teamA/testing/devcontainer.json` will not.
+  > * {% data reusables.codespaces.configuration-choice-templates %} See "[AUTOTITLE](/codespaces/setting-up-your-project-for-codespaces/setting-up-your-repository/setting-up-a-template-repository-for-github-codespaces)."
 
    If multiple `devcontainer.json` files are found in the repository, they are listed in the **Dev container configuration** dropdown on the codespace creation options page. See "[AUTOTITLE](/codespaces/developing-in-a-codespace/creating-a-codespace-for-a-repository#creating-a-codespace-for-a-repository)."
 
@@ -212,11 +199,8 @@ You can add and edit the supported configuration keys in the `devcontainer.json`
 
 The `devcontainer.json` file is written using the JSONC (JSON with comments) format. This allows you to include comments within the configuration file. See "[Editing JSON with {% data variables.product.prodname_vscode_shortname %}](https://code.visualstudio.com/docs/languages/json#_json-with-comments)" in the {% data variables.product.prodname_vscode_shortname %} documentation.
 
-{% note %}
-
-**Note**: If you use a linter to validate the `devcontainer.json` file, make sure it is set to JSONC and not JSON or comments will be reported as errors.
-
-{% endnote %}
+> [!NOTE]
+> If you use a linter to validate the `devcontainer.json` file, make sure it is set to JSONC and not JSON or comments will be reported as errors.
 
 ### Interface settings for {% data variables.product.prodname_vscode_shortname %}
 

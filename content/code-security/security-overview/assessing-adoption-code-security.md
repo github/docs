@@ -41,7 +41,7 @@ You can view data to assess the enablement of code security features across repo
 
 {% data reusables.organizations.navigate-to-org %}
 {% data reusables.organizations.security-overview %}
-1. To display the "Security coverage" view, in the sidebar, click **{% octicon "meter" aria-hidden="true"  %} Coverage**.
+1. To display the "Security coverage" view, in the sidebar, click **{% octicon "meter" aria-hidden="true" %} Coverage**.
 {% data reusables.code-scanning.using-security-overview-coverage %}
 
    ![Screenshot of the "Security coverage" view. The options for filtering are outlined in dark orange.](/assets/images/help/security-overview/security-coverage-view-highlights.png)

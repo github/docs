@@ -40,11 +40,9 @@ Some workflows require or benefit from rebasing instead of merging. By rebasing 
 {% data reusables.desktop.choose-a-branch-to-merge %}
 {% data reusables.desktop.confirm-merging-branch %}
 
-   {% note %}
+   > [!NOTE]
+   > If there are merge conflicts, {% data variables.product.prodname_desktop %} will warn you above the **Merge BRANCH into BRANCH** button. You will not be able to merge the branches until you have resolved all conflicts.
 
-   **Note:** If there are merge conflicts, {% data variables.product.prodname_desktop %} will warn you above the **Merge BRANCH into BRANCH** button. You will not be able to merge the branches until you have resolved all conflicts.
-
-   {% endnote %}
 {% data reusables.desktop.push-origin %}
 
 ## Rebasing your project branch onto another branch
@@ -88,11 +86,9 @@ Some workflows require or benefit from rebasing instead of merging. By rebasing 
 
 1. In the "Squash and merge" window, click the branch you want to merge into the current branch, then click **Squash and merge**.
 
-   {% note %}
+   > [!NOTE]
+   > If there are merge conflicts, {% data variables.product.prodname_desktop %} will warn you above the **Squash and merge** button. You will not be able to squash and merge the branch until you have resolved all conflicts.
 
-   **Note:** If there are merge conflicts, {% data variables.product.prodname_desktop %} will warn you above the **Squash and merge** button. You will not be able to squash and merge the branch until you have resolved all conflicts.
-
-   {% endnote %}
 {% data reusables.desktop.push-origin %}
 
 ## Further Reading

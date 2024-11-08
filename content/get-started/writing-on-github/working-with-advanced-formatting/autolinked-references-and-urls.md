@@ -25,11 +25,8 @@ For more information on creating links, see "[AUTOTITLE](/get-started/writing-on
 
 Within conversations on {% data variables.product.product_name %}, references to issues and pull requests are automatically converted to shortened links.
 
-{% note %}
-
-**Note:** Autolinked references are not created in wikis or files in a repository.
-
-{% endnote %}
+> [!NOTE]
+> Autolinked references are not created in wikis or files in a repository.
 
 | Reference type | Raw reference | Short link |
 | --- | --- | --- |
@@ -53,11 +50,8 @@ The URL of a label can be found by navigating to the labels page and clicking on
 https://github.com/github/docs/labels/enhancement
 ```
 
-{% note %}
-
-**Note:** If the label name contains a period (`.`), the label will not automatically render from the label URL.
-
-{% endnote %}
+> [!NOTE]
+> If the label name contains a period (`.`), the label will not automatically render from the label URL.
 
 ## Commit SHAs
 

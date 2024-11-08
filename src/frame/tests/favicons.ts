@@ -15,7 +15,10 @@ describe('favicon assets', () => {
     expect(res.headers['cache-control']).toContain('public')
     expect(res.headers['cache-control']).toContain('immutable')
     expect(res.headers['cache-control']).toMatch(/max-age=\d+/)
-    const maxAgeSeconds = parseInt(res.headers['cache-control'].match(/max-age=(\d+)/)[1], 10)
+    const maxAgeSeconds = parseInt(
+      (res.headers['cache-control'] || '').match(/max-age=(\d+)/)?.[1] || '',
+      10,
+    )
     // Let's not be too specific in the tests, just as long as it's testing
     // that it's a reasonably large number of seconds.
     expect(maxAgeSeconds).toBeGreaterThanOrEqual(60 * 60)
@@ -25,13 +28,16 @@ describe('favicon assets', () => {
   test('should serve a valid and aggressively caching /apple-touch-icon.png', async () => {
     const res = await get('/apple-touch-icon.png')
     expect(res.statusCode).toBe(200)
-    expect(parseInt(res.headers['content-length'], 10)).toBeGreaterThan(0)
+    expect(parseInt(res.headers['content-length'] || '', 10)).toBeGreaterThan(0)
     expect(res.headers['content-type']).toBe('image/png')
     expect(res.headers['set-cookie']).toBeUndefined()
     expect(res.headers['cache-control']).toContain('public')
     expect(res.headers['cache-control']).toContain('immutable')
     expect(res.headers['cache-control']).toMatch(/max-age=\d+/)
-    const maxAgeSeconds = parseInt(res.headers['cache-control'].match(/max-age=(\d+)/)[1], 10)
+    const maxAgeSeconds = parseInt(
+      (res.headers['cache-control'] || '').match(/max-age=(\d+)/)?.[1] || '',
+      10,
+    )
     // Let's not be too specific in the tests, just as long as it's testing
     // that it's a reasonably large number of seconds.
     expect(maxAgeSeconds).toBeGreaterThanOrEqual(60 * 60)

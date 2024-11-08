@@ -28,7 +28,7 @@ The campaign templates contain filters for the most common alert selections. {% 
 
 {% data reusables.organizations.navigate-to-org %}
 {% data reusables.organizations.security-overview %}
-1. In the left sidebar, next to "Campaigns", click the {% octicon "plus"  aria-label="New campaign" %} icon to start creating a campaign.
+1. In the left sidebar, next to "Campaigns", click the {% octicon "plus" aria-label="New campaign" %} icon to start creating a campaign.
 1. Select one of the pre-defined filter templates to open a "New campaign from TEMPLATE_NAME template" dialog box.
 1. If the message "This looks like a big campaign" is displayed, click **Back to filters** to display the {% data variables.product.prodname_code_scanning %} alerts view with the campaign template filter shown.
    1. Add further filters to reduce the number of alerts shown, for example, filtering by "Team" or by custom property.

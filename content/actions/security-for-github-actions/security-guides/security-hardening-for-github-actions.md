@@ -46,11 +46,8 @@ To help prevent accidental disclosure, {% data variables.product.product_name %}
 * **Consider requiring review for access to secrets**
   * You can use required reviewers to protect environment secrets. A workflow job cannot access environment secrets until approval is granted by a reviewer. For more information about storing secrets in environments or requiring reviews for environments, see "[AUTOTITLE](/actions/security-guides/using-secrets-in-github-actions)" and "[AUTOTITLE](/actions/deployment/targeting-different-environments/managing-environments-for-deployment)."
 
-{% warning %}
-
-**Warning**: Any user with write access to your repository has read access to all secrets configured in your repository. Therefore, you should ensure that the credentials being used within workflows have the least privileges required.
-
-{% endwarning %}
+> [!WARNING]
+> Any user with write access to your repository has read access to all secrets configured in your repository. Therefore, you should ensure that the credentials being used within workflows have the least privileges required.
 
 ## Using `CODEOWNERS` to monitor changes
 
@@ -155,7 +152,7 @@ With this approach, the value of the {% raw %}`${{ github.event.issue.title }}`{
 ### Using workflow templates for {% data variables.product.prodname_code_scanning %}
 
 {% data reusables.advanced-security.starter-workflows-beta %}
-{% data variables.product.prodname_code_scanning_caps %} allows you to find security vulnerabilities before they reach production. {% data variables.product.product_name %} provides workflow templates for {% data variables.product.prodname_code_scanning %}. You can use these suggested workflows to construct your {% data variables.product.prodname_code_scanning %} workflows, instead of starting from scratch. {% data variables.product.company_short%}'s workflow, the {% data variables.code-scanning.codeql_workflow %}, is powered by {% data variables.product.prodname_codeql %}. There are also third-party workflow templates available.
+{% data variables.product.prodname_code_scanning_caps %} allows you to find security vulnerabilities before they reach production. {% data variables.product.product_name %} provides workflow templates for {% data variables.product.prodname_code_scanning %}. You can use these suggested workflows to construct your {% data variables.product.prodname_code_scanning %} workflows, instead of starting from scratch. {% data variables.product.company_short %}'s workflow, the {% data variables.code-scanning.codeql_workflow %}, is powered by {% data variables.product.prodname_codeql %}. There are also third-party workflow templates available.
 
 For more information, see "[AUTOTITLE](/code-security/code-scanning/introduction-to-code-scanning/about-code-scanning)" and "[AUTOTITLE](/code-security/code-scanning/creating-an-advanced-setup-for-code-scanning/configuring-advanced-setup-for-code-scanning#configuring-code-scanning-using-third-party-actions)."
 
@@ -237,11 +234,8 @@ These sections consider some of the steps an attacker can take if they're able t
 
 {% ifversion fpt or ghec %}
 
-{% note %}
-
-**Note:** {% data variables.product.prodname_dotcom %}-hosted runners do not scan for malicious code downloaded by a user during their job, such as a compromised third party library.
-
-{% endnote %}
+> [!NOTE]
+> {% data variables.product.prodname_dotcom %}-hosted runners do not scan for malicious code downloaded by a user during their job, such as a compromised third party library.
 
 {% endif %}
 
@@ -353,11 +347,8 @@ Some customers might attempt to partially mitigate these risks by implementing s
 
 To improve runner registration security, you can use the REST API to create ephemeral, just-in-time (JIT) runners. These self-hosted runners perform at most one job before being automatically removed from the repository, organization, or enterprise. For more information about configuring JIT runners, see "[AUTOTITLE](/rest/actions/self-hosted-runners#create-configuration-for-a-just-in-time-runner-for-an-organization)."
 
-{% note %}
-
-**Note:** Re-using hardware to host JIT runners can risk exposing information from the environment. Use automation to ensure the JIT runner uses a clean environment. For more information, see "[AUTOTITLE](/actions/hosting-your-own-runners/managing-self-hosted-runners/autoscaling-with-self-hosted-runners#using-ephemeral-runners-for-autoscaling)."
-
-{% endnote %}
+> [!NOTE]
+> Re-using hardware to host JIT runners can risk exposing information from the environment. Use automation to ensure the JIT runner uses a clean environment. For more information, see "[AUTOTITLE](/actions/hosting-your-own-runners/managing-self-hosted-runners/autoscaling-with-self-hosted-runners#using-ephemeral-runners-for-autoscaling)."
 
 Once you have the config file from the REST API response, you can pass it to the runner at startup.
 

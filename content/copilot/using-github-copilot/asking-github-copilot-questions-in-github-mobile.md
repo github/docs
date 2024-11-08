@@ -34,9 +34,9 @@ With {% data variables.product.prodname_copilot_enterprise_short %}, you can als
 
 ## Limitations
 
-The following {% ifversion fpt%}limitation applies{% else %} limitations apply{% endif %} to {% data variables.product.prodname_copilot_mobile_short %}:
+The following {% ifversion fpt %}limitation applies{% else %} limitations apply{% endif %} to {% data variables.product.prodname_copilot_mobile_short %}:
 
-{% ifversion ghec%}
+{% ifversion ghec %}
 * Chat responses may be suboptimal if you ask questions about a specific repository that you've selected as a context, and the repository has not been indexed for semantic code search. {% data reusables.copilot.indexing-who-can-do-this %}{% endif %}
 * The quality of the results from {% data variables.product.prodname_copilot_chat_short %} may, in some situations, be degraded if very large files, or a large number of files, are used as a context for a question.
 

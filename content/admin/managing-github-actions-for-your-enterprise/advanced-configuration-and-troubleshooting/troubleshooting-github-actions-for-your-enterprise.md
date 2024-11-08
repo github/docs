@@ -110,11 +110,9 @@ If any of these services are at or near 100% CPU utilization, or the memory is n
 
    For CPU and memory, this shows how much is allocated to the **total** of **all** services (the left value) and how much is available (the right value). In the example above, there is 23 GiB of memory allocated out of 32 GiB total. This means there is 9 GiB of memory available for allocation.
 
-   {% warning %}
+   > [!WARNING]
+   > Be careful not to allocate more than the total available resources, or services will fail to start.
 
-   **Warning:** Be careful not to allocate more than the total available resources, or services will fail to start.
-
-   {% endwarning %}
 1. Change directory to `/etc/consul-templates/etc/nomad-jobs/actions`:
 
    ```shell

@@ -31,7 +31,7 @@ You can enforce certain workflows or requirements before a collaborator can push
 
 By default, each branch protection rule disables force pushes to the matching branches and prevents the matching branches from being deleted. You can optionally disable these restrictions and enable additional branch protection settings.
 
-By default, the restrictions of a branch protection rule don't apply to people with admin permissions to the repository or custom roles with the "bypass branch protections" permission. You can optionally apply the restrictions to administrators and roles with the "bypass branch protections" permission, too. For more information, see "[AUTOTITLE](/enterprise-cloud@latest/organizations/managing-user-access-to-your-organizations-repositories/managing-repository-roles/managing-custom-repository-roles-for-an-organization)".
+By default, the restrictions of a branch protection rule don't apply to people with admin permissions to the repository or custom roles with the "bypass branch protections" permission. You can optionally apply the restrictions to administrators and roles with the "bypass branch protections" permission, too. For more information, see "[AUTOTITLE](/enterprise-cloud@latest/organizations/managing-user-access-to-your-organizations-repositories/managing-repository-roles/managing-custom-repository-roles-for-an-organization)."
 
 {% data reusables.repositories.branch-rules-example %} For more information about branch name patterns, see "[AUTOTITLE](/repositories/configuring-branches-and-merges-in-your-repository/managing-protected-branches/managing-a-branch-protection-rule)."
 
@@ -176,13 +176,13 @@ You can require that changes are successfully deployed to specific environments 
 Locking a branch will make the branch read-only and ensures that no commits can be made to the branch. Locked branches can also not be deleted.
 
 By default, a forked repository does not support syncing from its upstream repository. You can enable **Allow fork syncing** to pull changes from the upstream repository while preventing other contributions to the fork's branch.
-{%  endif %}
+{% endif %}
 
 ### Do not allow bypassing the above settings
 
 By default, the restrictions of a branch protection rule do not apply to people with admin permissions to the repository or custom roles with the "bypass branch protections" permission in a repository.
 
-You can enable this setting to apply the restrictions to admins and roles with the "bypass branch protections" permission, too.  For more information, see "[AUTOTITLE](/enterprise-cloud@latest/organizations/managing-user-access-to-your-organizations-repositories/managing-repository-roles/managing-custom-repository-roles-for-an-organization)".
+You can enable this setting to apply the restrictions to admins and roles with the "bypass branch protections" permission, too.  For more information, see "[AUTOTITLE](/enterprise-cloud@latest/organizations/managing-user-access-to-your-organizations-repositories/managing-repository-roles/managing-custom-repository-roles-for-an-organization)."
 
 ### Restrict who can push to matching branches
 

@@ -34,20 +34,16 @@ Organizations can enable members and outside collaborators to create and use cod
 {% data reusables.codespaces.when-you-can-create-codespaces %}
 
 {% ifversion ghec %}
-{% note %}
 
-**Note:** {% data reusables.codespaces.emus-create-codespaces %}
+> [!NOTE]
+> {% data reusables.codespaces.emus-create-codespaces %}
 
-{% endnote %}
 {% endif %}
 
 {% data reusables.codespaces.starting-new-project-template %} For more information, see "[AUTOTITLE](/codespaces/developing-in-a-codespace/creating-a-codespace-from-a-template)."
 
-{% note %}
-
-**Note**: If you use a JetBrains IDE, you can use {% data variables.product.prodname_cli %} to create a codespace. You can then use the JetBrains Gateway application to open the codespace in a JetBrains IDE. For more information, see "[AUTOTITLE](/codespaces/developing-in-a-codespace/using-github-codespaces-in-your-jetbrains-ide)."
-
-{% endnote %}
+> [!NOTE]
+> If you use a JetBrains IDE, you can use {% data variables.product.prodname_cli %} to create a codespace. You can then use the JetBrains Gateway application to open the codespace in a JetBrains IDE. For more information, see "[AUTOTITLE](/codespaces/developing-in-a-codespace/using-github-codespaces-in-your-jetbrains-ide)."
 
 If you create a codespace from a repository, the codespace will be associated with a specific branch, which cannot be empty. You can create more than one codespace per repository or even per branch.
 
@@ -107,17 +103,12 @@ If you want to use Git hooks for your codespace, then you should set up hooks us
 
          The options page may also display the names of one or more secrets that it's recommended you create in your {% data variables.product.prodname_codespaces %} settings. For more information, see "[Recommended secrets](#recommended-secrets)."
 
-         {% note %}
-
-         **Notes**
-
-         * You can bookmark the options page to give you a quick way to create a codespace for this repository and branch.
-         * The [https://github.com/codespaces/new](https://github.com/codespaces/new) page provides a quick way to create a codespace for any repository and branch. You can get to this page quickly by typing `codespace.new` into your browser's address bar.
-         * For more information about dev container configuration files, see "[AUTOTITLE](/codespaces/setting-up-your-project-for-codespaces/adding-a-dev-container-configuration/introduction-to-dev-containers)."
-         * For more information about machine types, see "[AUTOTITLE](/codespaces/customizing-your-codespace/changing-the-machine-type-for-your-codespace#about-machine-types)."
-         * {% data reusables.codespaces.codespaces-machine-type-availability %}
-
-         {% endnote %}
+         > [!NOTE]
+         > * You can bookmark the options page to give you a quick way to create a codespace for this repository and branch.
+         > * The [https://github.com/codespaces/new](https://github.com/codespaces/new) page provides a quick way to create a codespace for any repository and branch. You can get to this page quickly by typing `codespace.new` into your browser's address bar.
+         > * For more information about dev container configuration files, see "[AUTOTITLE](/codespaces/setting-up-your-project-for-codespaces/adding-a-dev-container-configuration/introduction-to-dev-containers)."
+         > * For more information about machine types, see "[AUTOTITLE](/codespaces/customizing-your-codespace/changing-the-machine-type-for-your-codespace#about-machine-types)."
+         > * {% data reusables.codespaces.codespaces-machine-type-availability %}
 
       1. Click **Create codespace**.
 

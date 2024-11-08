@@ -35,11 +35,8 @@ Repository administrators can also enable rulesets. Rulesets can be used to requ
 
 ## Creating a branch
 
-{% tip %}
-
-**Tip:** The first new branch you create will be based on the default branch. If you have more than one branch, you can choose to base the new branch on the currently checked out branch or the default branch.
-
-{% endtip %}
+> [!TIP]
+> The first new branch you create will be based on the default branch. If you have more than one branch, you can choose to base the new branch on the currently checked out branch or the default branch.
 
 {% data reusables.desktop.click-base-branch-in-drop-down %}
 {% data reusables.desktop.create-new-branch %}
@@ -72,11 +69,9 @@ If you create a branch on {% data variables.product.product_name %}, you'll need
 ## Switching between branches
 
 You can view and make commits to any of your repository's branches. If you have uncommitted, saved changes, you'll need to decide what to do with your changes before you can switch branches. You can commit your changes on the current branch, stash your changes to temporarily save them on the current branch, or bring the changes to your new branch. If you want to commit your changes before switching branches, see "[AUTOTITLE](/desktop/making-changes-in-a-branch/committing-and-reviewing-changes-to-your-project-in-github-desktop)."
-{% tip %}
 
-**Tip**: You can set a default behavior for switching branches in the **Prompts** settings. For more information, see "[AUTOTITLE](/desktop/configuring-and-customizing-github-desktop/configuring-basic-settings-in-github-desktop)."
-
-{% endtip %}
+> [!TIP]
+> You can set a default behavior for switching branches in the **Prompts** settings. For more information, see "[AUTOTITLE](/desktop/configuring-and-customizing-github-desktop/configuring-basic-settings-in-github-desktop)."
 
 1. In the repository bar, click {% octicon "git-branch" aria-hidden="true" %} **Current Branch**, then click the branch that you want to switch to.
    ![Screenshot of the "Current Branch" dropdown view. Under "Recent Branches", a branch, named "my-feature", is highlighted with an orange outline.](/assets/images/help/desktop/select-branch-from-dropdown.png)

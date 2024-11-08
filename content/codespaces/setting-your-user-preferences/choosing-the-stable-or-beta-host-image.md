@@ -19,14 +19,9 @@ The VM for a codespace is built using a host image that defines the operating sy
 
 The stable image is the default selected setting. Changing the setting to the beta host image gives you early access to improvements and new features on the host VM, but may also introduce incompatibilities with your current dev container configuration. This gives you the opportunity to alter your dev container configuration to avoid problems before the beta image is promoted to the stable image. If you do encounter problems with the beta host image, you can switch back to the stable host image at any time.
 
-{% note %}
-
-**Notes**:
-
-* It's unlikely you will encounter problems using the beta host image unless your dev container configuration has dependencies on components of the VM host kernel.
-* The virtual machine host image should not be confused with the dev container image, which provides the environment of your codespace. For more information, see "[AUTOTITLE](/codespaces/managing-codespaces-for-your-organization/restricting-the-base-image-for-codespaces#overview)."
-
-{% endnote %}
+> [!NOTE]
+> * It's unlikely you will encounter problems using the beta host image unless your dev container configuration has dependencies on components of the VM host kernel.
+> * The virtual machine host image should not be confused with the dev container image, which provides the environment of your codespace. For more information, see "[AUTOTITLE](/codespaces/managing-codespaces-for-your-organization/restricting-the-base-image-for-codespaces#overview)."
 
 If you choose to use the beta host image but no beta image is currently available, your codespaces will be built using the stable host image.
 

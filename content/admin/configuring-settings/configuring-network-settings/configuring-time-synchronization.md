@@ -35,13 +35,9 @@ shortTitle: Configure time settings
 
 The NTP protocol continuously corrects small time synchronization discrepancies. You can use the administrative shell to synchronize time immediately.
 
-{% note %}
-
-**Notes:**
-* You can't modify the Coordinated Universal Time (UTC) zone.
-* You should prevent your hypervisor from trying to set the virtual machine's clock. For more information, see the documentation provided by the virtualization provider.
-
-{% endnote %}
+> [!NOTE]
+> * You can't modify the Coordinated Universal Time (UTC) zone.
+> * You should prevent your hypervisor from trying to set the virtual machine's clock. For more information, see the documentation provided by the virtualization provider.
 
 * Use the `chronyc` command to synchronize the server with the configured NTP server. For example:
 

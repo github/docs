@@ -45,11 +45,9 @@ If your instance uses clustering, you cannot enable the dependency graph with th
     ghe-config app.dependency-graph.enabled true
     ```
 
-   {% note %}
+   > [!NOTE]
+   > For more information about enabling access to the administrative shell via SSH, see "[AUTOTITLE](/admin/configuration/configuring-your-enterprise/accessing-the-administrative-shell-ssh)."
 
-   **Note**: For more information about enabling access to the administrative shell via SSH, see "[AUTOTITLE](/admin/configuration/configuring-your-enterprise/accessing-the-administrative-shell-ssh)."
-
-   {% endnote %}
 1. Apply the configuration.
 
     ```shell

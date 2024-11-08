@@ -25,8 +25,5 @@ For more information, see "[AUTOTITLE](/codespaces/setting-up-your-project-for-c
 1. Apply the changes by rebuilding the container. For more information, see "[AUTOTITLE](/codespaces/setting-up-your-project-for-codespaces/adding-a-dev-container-configuration/introduction-to-dev-containers#applying-configuration-changes-to-a-codespace)."
 1. After everything looks good, we also recommend creating a new codespace from your test branch to ensure everything is working. You can then commit your changes to your repository's default branch or an active feature branch, triggering an update of the prebuild for that branch.
 
-   {% note %}
-
-   **Note**: Creating this codespace will take longer than usual because it will not be created from a prebuild.
-
-   {% endnote %}
+   > [!NOTE]
+   > Creating this codespace will take longer than usual because it will not be created from a prebuild.

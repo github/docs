@@ -34,11 +34,8 @@ If your machine has access to both systems at the same time, you can do the sync
 
 The `actions-sync` tool can only download actions from {% data variables.product.prodname_dotcom_the_website %} that are stored in public repositories.
 
-{% note %}
-
-**Note:** The `actions-sync` tool is intended for use in systems where {% data variables.product.prodname_github_connect %} is not enabled. If you run the tool on a system with {% data variables.product.prodname_github_connect %} enabled, you may see the error `The repository <repo_name> has been retired and cannot be reused`. This indicates that a workflow has used that action directly on {% data variables.product.prodname_dotcom_the_website %} and the namespace is retired on {% data variables.location.product_location %}. See "[AUTOTITLE](/admin/github-actions/managing-access-to-actions-from-githubcom/enabling-automatic-access-to-githubcom-actions-using-github-connect#automatic-retirement-of-namespaces-for-actions-accessed-on-githubcom)."
-
-{% endnote %}
+> [!NOTE]
+> The `actions-sync` tool is intended for use in systems where {% data variables.product.prodname_github_connect %} is not enabled. If you run the tool on a system with {% data variables.product.prodname_github_connect %} enabled, you may see the error `The repository <repo_name> has been retired and cannot be reused`. This indicates that a workflow has used that action directly on {% data variables.product.prodname_dotcom_the_website %} and the namespace is retired on {% data variables.location.product_location %}. See "[AUTOTITLE](/admin/github-actions/managing-access-to-actions-from-githubcom/enabling-automatic-access-to-githubcom-actions-using-github-connect#automatic-retirement-of-namespaces-for-actions-accessed-on-githubcom)."
 
 ## Prerequisites
 
@@ -46,11 +43,8 @@ The `actions-sync` tool can only download actions from {% data variables.product
 * You must create a {% data variables.product.pat_generic %} on your enterprise that can create and write to repositories in the destination organizations. See "[AUTOTITLE](/authentication/keeping-your-account-and-data-secure/creating-a-personal-access-token)."{% ifversion ghes %}
 * If you want to sync the bundled actions in the `actions` organization on {% data variables.location.product_location %}, you must be an owner of the `actions` organization.
 
-  {% note %}
-
-  **Note:** By default, even site administrators are not owners of the bundled `actions` organization.
-
-  {% endnote %}
+  > [!NOTE]
+  > By default, even site administrators are not owners of the bundled `actions` organization.
 
   Site administrators can use the `ghe-org-admin-promote` command in the administrative shell to promote a user to be an owner of the bundled `actions` organization. See "[AUTOTITLE](/admin/configuration/configuring-your-enterprise/accessing-the-administrative-shell-ssh)" and "[AUTOTITLE](/admin/configuration/configuring-your-enterprise/command-line-utilities#ghe-org-admin-promote)."
 
@@ -62,11 +56,8 @@ The `actions-sync` tool can only download actions from {% data variables.product
 
 This example demonstrates using the `actions-sync` tool to sync an individual action from {% data variables.product.prodname_dotcom_the_website %} to an enterprise instance.
 
-{% note %}
-
-**Note:** This example uses the `actions-sync sync` command, which requires concurrent access to both the {% data variables.product.prodname_dotcom_the_website %} API and your enterprise instance's API from your machine. If you can only access one system at a time, you can use the `actions-sync pull` and `push` commands. See the [`actions-sync` README](https://github.com/actions/actions-sync#not-connected-instances).
-
-{% endnote %}
+> [!NOTE]
+> This example uses the `actions-sync sync` command, which requires concurrent access to both the {% data variables.product.prodname_dotcom_the_website %} API and your enterprise instance's API from your machine. If you can only access one system at a time, you can use the `actions-sync pull` and `push` commands. See the [`actions-sync` README](https://github.com/actions/actions-sync#not-connected-instances).
 
 1. Download and extract the latest [`actions-sync` release](https://github.com/actions/actions-sync/releases) for your machine's operating system.
 1. Create a directory to store cache files for the tool.

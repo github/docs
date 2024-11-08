@@ -80,14 +80,9 @@ If reported content is enabled for a public repository, you can also report cont
 1. In the lower-right corner of the template chooser, click **Report abuse**.
 1. Complete the contact form to tell {% data variables.contact.github_support %} about the contact link's behavior, then click **Send request**.
 
-{% note %}
-
-**Notes:**
-
-* In order to get accurate information about the abuse, the abuse report form will direct you to use the in-product abuse report links. If an in-product link is not available, contact {% data variables.contact.contact_support %} to report abuse or report content.
-* Users in India can contact {% data variables.product.prodname_dotcom %}'s Grievance Officer for India through [support.github.com/contact/india-grievance-officer](https://support.github.com/contact/india-grievance-officer).
-
-{% endnote %}
+> [!NOTE]
+> * In order to get accurate information about the abuse, the abuse report form will direct you to use the in-product abuse report links. If an in-product link is not available, contact {% data variables.contact.contact_support %} to report abuse or report content.
+> * Users in India can contact {% data variables.product.prodname_dotcom %}'s Grievance Officer for India through [support.github.com/contact/india-grievance-officer](https://support.github.com/contact/india-grievance-officer).
 
 ## Further reading
 

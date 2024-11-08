@@ -93,21 +93,15 @@ The table below describes the locations for various PowerShell modules in each {
 
 {% endrowheaders %}
 
-{% note %}
-
-**Note:** On Ubuntu runners, Azure PowerShell modules are stored in `/usr/share/` instead of the default location of PowerShell add-on modules (i.e. `/usr/local/share/powershell/Modules/`).
-
-{% endnote %}
+> [!NOTE]
+> On Ubuntu runners, Azure PowerShell modules are stored in `/usr/share/` instead of the default location of PowerShell add-on modules (i.e. `/usr/local/share/powershell/Modules/`).
 
 ## Installing dependencies
 
 {% data variables.product.prodname_dotcom %}-hosted runners have PowerShell 7 and Pester installed. You can use `Install-Module` to install additional dependencies from the PowerShell Gallery before building and testing your code.
 
-{% note %}
-
-**Note:** The pre-installed packages (such as Pester) used by {% data variables.product.prodname_dotcom %}-hosted runners are regularly updated, and can introduce significant changes. As a result, it is recommended that you always specify the required package versions by using `Install-Module` with `-MaximumVersion`.
-
-{% endnote %}
+> [!NOTE]
+> The pre-installed packages (such as Pester) used by {% data variables.product.prodname_dotcom %}-hosted runners are regularly updated, and can introduce significant changes. As a result, it is recommended that you always specify the required package versions by using `Install-Module` with `-MaximumVersion`.
 
 You can also cache dependencies to speed up your workflow. For more information, see "[AUTOTITLE](/actions/using-workflows/caching-dependencies-to-speed-up-workflows)."
 
@@ -127,11 +121,8 @@ jobs:
           Install-Module SqlServer, PSScriptAnalyzer
 ```
 
-{% note %}
-
-**Note:** By default, no repositories are trusted by PowerShell. When installing modules from the PowerShell Gallery, you must explicitly set the installation policy for `PSGallery` to `Trusted`.
-
-{% endnote %}
+> [!NOTE]
+> By default, no repositories are trusted by PowerShell. When installing modules from the PowerShell Gallery, you must explicitly set the installation policy for `PSGallery` to `Trusted`.
 
 ### Caching dependencies
 

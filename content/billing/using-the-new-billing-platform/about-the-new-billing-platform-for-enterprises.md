@@ -26,7 +26,7 @@ The following products are available in the new billing platform:
 * {% data variables.product.prodname_registry %}
 * {% data variables.large_files.product_name_long %}
 
-{% ifversion metered-ghe-ghas%}
+{% ifversion metered-ghe-ghas %}
 
 {% data reusables.billing.actions-usage-delay %}
 

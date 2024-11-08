@@ -211,13 +211,10 @@ Content-Type: application/json
 
 For more information, see "[Get an organization migration status](/rest/migrations/orgs#get-an-organization-migration-status)".
 
-{% note %}
-
-**Note:** If your migration moves to the `failed` state rather than the `exported` state, try starting the migration again. If the migration fails repeatedly, we recommend generating the archives using `ghe-migrator` instead of the API.
-
-Follow the steps in "[Exporting migration data from your enterprise]({% ifversion not ghes%}/enterprise-server@latest{% endif %}/admin/user-management/migrating-data-to-and-from-your-enterprise/exporting-migration-data-from-your-enterprise)," adding only one repository to the migration. At the end of the process, you will have a single migration archive with your Git source and metadata, and you can move to step 6 in this article.
-
-{% endnote %}
+> [!NOTE]
+> If your migration moves to the `failed` state rather than the `exported` state, try starting the migration again. If the migration fails repeatedly, we recommend generating the archives using `ghe-migrator` instead of the API.
+>
+>Follow the steps in "[Exporting migration data from your enterprise]({% ifversion not ghes %}/enterprise-server@latest{% endif %}/admin/user-management/migrating-data-to-and-from-your-enterprise/exporting-migration-data-from-your-enterprise)," adding only one repository to the migration. At the end of the process, you will have a single migration archive with your Git source and metadata, and you can move to step 6 in this article.
 
 After the `state` of a migration moves to `exported`, you can fetch the migration's URL using the "Download an organization migration archive" API.
 
@@ -361,23 +358,17 @@ After you set up blob storage with a supported cloud provider, you must configur
 
 #### Configuring blob storage in the {% data variables.enterprise.management_console %} of {% data variables.location.product_location_enterprise %}
 
-{% note %}
-
-**Note:** You only need to configure blob storage in the {% data variables.enterprise.management_console %} if you use {% data variables.product.prodname_ghe_server %} 3.8 or higher. If you use 3.7 or lower, configure your credentials in the {% data variables.product.prodname_cli %} instead.
-
-{% endnote %}
+> [!NOTE]
+> You only need to configure blob storage in the {% data variables.enterprise.management_console %} if you use {% data variables.product.prodname_ghe_server %} 3.8 or higher. If you use 3.7 or lower, configure your credentials in the {% data variables.product.prodname_cli %} instead.
 
 {% data reusables.enterprise-migration-tool.blob-storage-management-console %}
 
 ### Configuring your blob storage credentials in the {% data variables.product.prodname_cli %}
 
-{% note %}
-
-**Note:** You only need to configure your blob storage credentials in the {% data variables.product.prodname_cli %} if you use {% data variables.product.prodname_ghe_server %} 3.7 or lower. If you use 3.8 or higher, configure blob storage in the {% data variables.enterprise.management_console %} instead.
-
-If you configure your blob storage credentials in the {% data variables.product.prodname_cli %}, you will not be able to perform migrations where your Git source or metadata exports exceed 2GB. To perform these migrations, upgrade to {% data variables.product.prodname_ghe_server %} 3.8 or higher.
-
-{% endnote %}
+> [!NOTE]
+> You only need to configure your blob storage credentials in the {% data variables.product.prodname_cli %} if you use {% data variables.product.prodname_ghe_server %} 3.7 or lower. If you use 3.8 or higher, configure blob storage in the {% data variables.enterprise.management_console %} instead.
+>
+> If you configure your blob storage credentials in the {% data variables.product.prodname_cli %}, you will not be able to perform migrations where your Git source or metadata exports exceed 2GB. To perform these migrations, upgrade to {% data variables.product.prodname_ghe_server %} 3.8 or higher.
 
 #### Configuring AWS S3 credentials in the {% data variables.product.prodname_cli %}
 

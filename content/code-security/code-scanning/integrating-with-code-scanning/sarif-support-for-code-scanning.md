@@ -129,11 +129,8 @@ If you upload a second SARIF file for a commit with the same category and from t
 
 If you use a code analysis engine other than {% data variables.product.prodname_codeql %}, you can review the supported SARIF properties to optimize how your analysis results will appear on {% data variables.product.prodname_dotcom %}.
 
-{% note %}
-
-**Note:** You must supply an explicit value for any property marked as "required". The empty string is not supported for required properties.
-
-{% endnote %}
+> [!NOTE]
+> You must supply an explicit value for any property marked as "required". The empty string is not supported for required properties.
 
 Any valid SARIF 2.1.0 output file can be uploaded, however, {% data variables.product.prodname_code_scanning %} will only use the following supported properties.
 
@@ -294,6 +291,86 @@ This SARIF output file has example values to show the minimum required propertie
               "physicalLocation": {
                 "artifactLocation": {
                   "uri": "fileURI"
+                },
+                "region": {
+                  "startLine": 2,
+                  "startColumn": 7,
+                  "endColumn": 10
+                }
+              }
+            }
+          ],
+          "partialFingerprints": {
+            "primaryLocationLineHash": "39fa2ee980eb94b0:1"
+          }
+        }
+      ]
+    }
+  ]
+}
+```
+
+### Relative URI Guidance for SARIF Producers
+
+This SARIF output file has example of values for the field `originalUriBaseIds`, showing the minimum required properties a SARIF producer should include when using relative URI references.
+
+{% note %}
+
+**Note:** While this property is not required by {% data variables.product.prodname_dotcom %} for the {% data variables.product.prodname_code_scanning %} results to be displayed correctly, it is required to produce a valid SARIF output when using relative URI references.
+
+{% endnote %}
+
+```json
+{
+  "$schema": "https://json.schemastore.org/sarif-2.1.0.json",
+  "version": "2.1.0",
+  "runs": [
+    {
+      "tool": {
+        "driver": {
+          "name": "Tool Name",
+          "rules": [
+            {
+              "id": "R01"
+                      ...
+              "properties" : {
+                 "id" : "java/unsafe-deserialization",
+                 "kind" : "path-problem",
+                 "name" : "...",
+                 "problem.severity" : "error",
+                 "security-severity" : "9.8",
+               }
+            }
+          ]
+        }
+      },
+      "originalUriBaseIds": {
+        "PROJECTROOT": {
+         "uri": "file:///C:/Users/Mary/code/TheProject/",
+           "description": {
+             "text": "The root directory for all project files."
+           }
+        },
+         "%SRCROOT%": {
+           "uri": "src/",
+           "uriBaseId": "PROJECTROOT",
+           "description": {
+             "text": "The root of the source tree."
+           }
+         }
+      },
+      "results": [
+        {
+          "ruleId": "R01",
+          "message": {
+            "text": "Result text. This result does not have a rule associated."
+          },
+          "locations": [
+            {
+              "physicalLocation": {
+                "artifactLocation": {
+                  "uri": "fileURI",
+                  "uriBaseId": "%SRCROOT%"
                 },
                 "region": {
                   "startLine": 2,

@@ -118,7 +118,7 @@ If you enable prebuilding of codespaces this will incur additional charges. See 
 
 Billing for {% data variables.product.prodname_github_codespaces %} shares your account's existing payment method, and receipt. See "[AUTOTITLE](/billing/managing-your-github-billing-settings/viewing-your-subscriptions-and-billing-date)."
 
-If you are an organization owner{% ifversion ghec %} or enterprise owner{% endif%}, you can connect an Azure Subscription ID to your organization {% ifversion ghec %}or enterprise{% endif%} account to enable and pay for {% data variables.product.prodname_github_codespaces %} usage. See "[AUTOTITLE](/billing/managing-the-plan-for-your-github-account/connecting-an-azure-subscription)."
+If you are an organization owner{% ifversion ghec %} or enterprise owner{% endif %}, you can connect an Azure Subscription ID to your organization {% ifversion ghec %}or enterprise{% endif %} account to enable and pay for {% data variables.product.prodname_github_codespaces %} usage. See "[AUTOTITLE](/billing/managing-the-plan-for-your-github-account/connecting-an-azure-subscription)."
 
 ## About billing for compute usage
 

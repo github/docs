@@ -41,11 +41,10 @@ If an organization chooses for codespaces to be **organization-owned**, the orga
 For more information about enabling {% data variables.product.prodname_github_codespaces %} for members and collaborators, see "[AUTOTITLE](/codespaces/managing-codespaces-for-your-organization/enabling-or-disabling-github-codespaces-for-your-organization)."
 
 {% ifversion ghec %}
-{% note %}
 
-**Note:** If you own an {% data variables.enterprise.prodname_emu_org %} and do not allow {% data variables.product.prodname_github_codespaces %} to be billed to your organization, members with {% data variables.enterprise.prodname_managed_users %} will not be able to use {% data variables.product.prodname_github_codespaces %}. See "[AUTOTITLE](/admin/identity-and-access-management/using-enterprise-managed-users-for-iam/about-enterprise-managed-users#abilities-and-restrictions-of-managed-user-accounts)."
+> [!NOTE]
+> If you own an {% data variables.enterprise.prodname_emu_org %} and do not allow {% data variables.product.prodname_github_codespaces %} to be billed to your organization, members with {% data variables.enterprise.prodname_managed_users %} will not be able to use {% data variables.product.prodname_github_codespaces %}. See "[AUTOTITLE](/admin/identity-and-access-management/using-enterprise-managed-users-for-iam/about-enterprise-managed-users#abilities-and-restrictions-of-managed-user-accounts)."
 
-{% endnote %}
 {% endif %}
 
 ## About ownership of codespaces
@@ -72,11 +71,8 @@ If you change from **user ownership** to **organization ownership**, existing co
 
 ## Choosing who owns and pays for codespaces
 
-{% note %}
-
-**Note:** If you cannot access the option to make codespaces **organization-owned**, this may be because you have disabled {% data variables.product.prodname_github_codespaces %} for all users in your organization's private{% ifversion ghec %} and internal{% endif %} repositories. See "[About choosing who pays for codespaces](#about-choosing-who-pays-for-codespaces)."
-
-{% endnote %}
+> [!NOTE]
+> If you cannot access the option to make codespaces **organization-owned**, this may be because you have disabled {% data variables.product.prodname_github_codespaces %} for all users in your organization's private{% ifversion ghec %} and internal{% endif %} repositories. See "[About choosing who pays for codespaces](#about-choosing-who-pays-for-codespaces)."
 
 {% data reusables.profile.access_org %}
 {% data reusables.profile.org_settings %}

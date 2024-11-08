@@ -30,7 +30,7 @@ Alternatively, if you want stricter control over which actions are allowed in yo
 
 {% data reusables.actions.github-connect-resolution %}
 
-If a user has already created an organization and repository in your enterprise that matches an organization and repository name on {% data variables.product.prodname_dotcom_the_website %}, the repository on your enterprise will be used instead of the {% data variables.product.prodname_dotcom_the_website %} repository. For more information, see "[Automatic retirement of namespaces for actions accessed on {% data variables.product.prodname_dotcom_the_website%}](#automatic-retirement-of-namespaces-for-actions-accessed-on-githubcom)."
+If a user has already created an organization and repository in your enterprise that matches an organization and repository name on {% data variables.product.prodname_dotcom_the_website %}, the repository on your enterprise will be used instead of the {% data variables.product.prodname_dotcom_the_website %} repository. For more information, see "[Automatic retirement of namespaces for actions accessed on {% data variables.product.prodname_dotcom_the_website %}](#automatic-retirement-of-namespaces-for-actions-accessed-on-githubcom)."
 
 ## Enabling automatic access to public {% data variables.product.prodname_dotcom_the_website %} actions
 
@@ -45,7 +45,7 @@ Before enabling access to public actions from {% data variables.product.prodname
 
 ## Automatic retirement of namespaces for actions accessed on {% data variables.product.prodname_dotcom_the_website %}
 
-When you enable {% data variables.product.prodname_github_connect %}, users see no change in behavior for existing workflows because {% data variables.product.prodname_actions %} searches {% data variables.location.product_location %} for each action before falling back to {% data variables.product.prodname_dotcom_the_website%}. This ensures that any custom versions of actions your enterprise has created are used in preference to their counterparts on {% data variables.product.prodname_dotcom_the_website%}.
+When you enable {% data variables.product.prodname_github_connect %}, users see no change in behavior for existing workflows because {% data variables.product.prodname_actions %} searches {% data variables.location.product_location %} for each action before falling back to {% data variables.product.prodname_dotcom_the_website %}. This ensures that any custom versions of actions your enterprise has created are used in preference to their counterparts on {% data variables.product.prodname_dotcom_the_website %}.
 
 {% data reusables.actions.namespace-retirement-ghecom %}
 
@@ -56,8 +56,5 @@ After using an action from {% data variables.product.prodname_dotcom_the_website
 1. To the right of the namespace that you want use in {% data variables.location.product_location %}, click **Unretire**.
 1. Go to the relevant organization and create a new repository.
 
-   {% tip %}
-
-   **Tip:** When you unretire a namespace, always create the new repository with that name as soon as possible. If a workflow calls the associated action on {% data variables.product.prodname_dotcom_the_website %} before you create the local repository, the namespace will be retired again. For actions used in workflows that run frequently, you may find that a namespace is retired again before you have time to create the local repository. In this case, you can temporarily disable the relevant workflows until you have created the new repository.
-
-   {% endtip %}
+   > [!TIP]
+   > When you unretire a namespace, always create the new repository with that name as soon as possible. If a workflow calls the associated action on {% data variables.product.prodname_dotcom_the_website %} before you create the local repository, the namespace will be retired again. For actions used in workflows that run frequently, you may find that a namespace is retired again before you have time to create the local repository. In this case, you can temporarily disable the relevant workflows until you have created the new repository.

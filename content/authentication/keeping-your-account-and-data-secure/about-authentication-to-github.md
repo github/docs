@@ -58,11 +58,10 @@ If you need to use multiple accounts on {% data variables.location.product_locat
   * In addition to authentication with a TOTP application{% ifversion fpt or ghec %} or a text message{% endif %}, you can optionally add an alternative method of authentication with {% ifversion fpt or ghec %}{% data variables.product.prodname_mobile %} or{% endif %} a security key using WebAuthn. For more information, see {% ifversion fpt or ghec %}"[AUTOTITLE](/authentication/securing-your-account-with-two-factor-authentication-2fa/configuring-two-factor-authentication#configuring-two-factor-authentication-using-github-mobile)" and {% endif %}"[AUTOTITLE](/authentication/securing-your-account-with-two-factor-authentication-2fa/configuring-two-factor-authentication#configuring-two-factor-authentication-using-a-security-key)."
 
     {% ifversion fpt or ghec %}
-    {% note %}
 
-    **Note:** {% data reusables.two_fa.unlink-email-address %}
+    > [!NOTE]
+    > {% data reusables.two_fa.unlink-email-address %}
 
-    {% endnote %}
     {% endif %}{% ifversion passkeys %}
 * **Passkey**
   * You can add a passkey to your account to enable a secure, passwordless login. Passkeys satisfy both password and 2FA requirements, so you can complete your sign in with a single step. See "[AUTOTITLE](/authentication/authenticating-with-a-passkey/about-passkeys)."{% endif %}

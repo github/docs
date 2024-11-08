@@ -45,11 +45,8 @@ settings to allow incoming emails](#configuring-dns-and-firewall-settings-to-all
 1. Under "Send test email to," type an address to send the test email to.
 1. Click **Send test email**.
 
-   {% tip %}
-
-   **Tip:** If SMTP errors occur while sending a test email—such as an immediate delivery failure or an outgoing mail configuration error—you will see them in the Test email settings dialog box.
-
-   {% endtip %}
+   > [!TIP]
+   > If SMTP errors occur while sending a test email—such as an immediate delivery failure or an outgoing mail configuration error—you will see them in the Test email settings dialog box.
 
 1. If the test email fails, [troubleshoot your email settings](#troubleshooting-email-delivery).
 1. When the test email succeeds, under the "Settings" sidebar, click **Save settings**.

@@ -44,17 +44,11 @@ Write-Output "::workflow-command parameter1={data},parameter2={data}::{command v
 
 {% endpowershell %}
 
-{% note %}
+> [!NOTE]
+> Workflow command and parameter names are case insensitive.
 
-**Note:** Workflow command and parameter names are case insensitive.
-
-{% endnote %}
-
-{% warning %}
-
-**Warning:** If you are using Command Prompt, omit double quote characters (`"`) when using workflow commands.
-
-{% endwarning %}
+> [!WARNING]
+> If you are using Command Prompt, omit double quote characters (`"`) when using workflow commands.
 
 ## Using workflow commands to access toolkit functions
 
@@ -293,11 +287,8 @@ Write-Output "::add-mask::Mona The Octocat"
 
 {% endpowershell %}
 
-{% warning %}
-
-**Warning:** Make sure you register the secret with 'add-mask' before outputting it in the build logs or using it in any other workflow commands.
-
-{% endwarning %}
+> [!WARNING]
+> Make sure you register the secret with 'add-mask' before outputting it in the build logs or using it in any other workflow commands.
 
 ### Example: Masking an environment variable
 
@@ -395,11 +386,8 @@ If you want to pass a masked secret between jobs or workflows, you should store 
 
 #### Workflow
 
-{% note %}
-
-**Note**: This workflow uses an imaginary secret store, `secret-store`, which has imaginary commands `store-secret` and `retrieve-secret`. `some/secret-store@ 27b31702a0e7fc50959f5ad993c78deac1bdfc29` is an imaginary action that installs the `secret-store` application and configures it to connect to an `instance` with `credentials`.
-
-{% endnote %}
+> [!NOTE]
+> This workflow uses an imaginary secret store, `secret-store`, which has imaginary commands `store-secret` and `retrieve-secret`. `some/secret-store@ 27b31702a0e7fc50959f5ad993c78deac1bdfc29` is an imaginary action that installs the `secret-store` application and configures it to connect to an `instance` with `credentials`.
 
 {% bash %}
 
@@ -492,11 +480,8 @@ Stops processing any workflow commands. This special command allows you to log a
 
 To stop the processing of workflow commands, pass a unique token to `stop-commands`. To resume processing workflow commands, pass the same token that you used to stop workflow commands.
 
-{% warning %}
-
-**Warning:** Make sure the token you're using is randomly generated and unique for each run.
-
-{% endwarning %}
+> [!WARNING]
+> Make sure the token you're using is randomly generated and unique for each run.
 
 ```text copy
 ::{endtoken}::
@@ -605,33 +590,30 @@ steps:
 
 {% powershell %}
 
-{% note %}
-
-**Note:** PowerShell versions 5.1 and below (`shell: powershell`) do not use UTF-8 by default, so you must specify the UTF-8 encoding. For example:
-
-```yaml copy
-jobs:
-  legacy-powershell-example:
-    runs-on: windows-latest
-    steps:
-      - shell: powershell
-        run: |
-          "mypath" | Out-File -FilePath $env:GITHUB_PATH -Encoding utf8 -Append
-```
-
-PowerShell Core versions 6 and higher (`shell: pwsh`) use UTF-8 by default. For example:
-
-```yaml copy
-jobs:
-  powershell-core-example:
-    runs-on: windows-latest
-    steps:
-      - shell: pwsh
-        run: |
-          "mypath" >> $env:GITHUB_PATH
-```
-
-{% endnote %}
+> [!NOTE]
+> PowerShell versions 5.1 and below (`shell: powershell`) do not use UTF-8 by default, so you must specify the UTF-8 encoding. For example:
+>
+> ```yaml copy
+> jobs:
+>   legacy-powershell-example:
+>     runs-on: windows-latest
+>     steps:
+>       - shell: powershell
+>         run: |
+>           "mypath" | Out-File -FilePath $env:GITHUB_PATH -Encoding utf8 -Append
+> ```
+>
+> PowerShell Core versions 6 and higher (`shell: pwsh`) use UTF-8 by default. For example:
+>
+> ```yaml copy
+> jobs:
+>   powershell-core-example:
+>     runs-on: windows-latest
+>     steps:
+>       - shell: pwsh
+>         run: |
+>           "mypath" >> $env:GITHUB_PATH
+> ```
 
 {% endpowershell %}
 
@@ -667,11 +649,12 @@ You can make an environment variable available to any subsequent steps in a work
 
 {% data reusables.actions.environment-variables-are-fixed %} For more information about the default environment variables, see "[AUTOTITLE](/actions/learn-github-actions/environment-variables#default-environment-variables)."
 
-{% ifversion github-env-node-options %}{% note %}
+{% ifversion github-env-node-options %}
 
-**Note:** Due to security restrictions, `GITHUB_ENV` cannot be used to set the `NODE_OPTIONS` environment variable.
+> [!NOTE]
+> Due to security restrictions, `GITHUB_ENV` cannot be used to set the `NODE_OPTIONS` environment variable.
 
-{% endnote %}{% endif %}
+{% endif %}
 
 ### Example of writing an environment variable to `GITHUB_ENV`
 
@@ -717,11 +700,8 @@ For multiline strings, you may use a delimiter with the following syntax.
 {delimiter}
 ```
 
-{% warning %}
-
-**Warning:** Make sure the delimiter you're using won't occur on a line of its own within the value. If the value is completely arbitrary then you shouldn't use this format. Write the value to a file instead.
-
-{% endwarning %}
+> [!WARNING]
+> Make sure the delimiter you're using won't occur on a line of its own within the value. If the value is completely arbitrary then you shouldn't use this format. Write the value to a file instead.
 
 #### Example of a multiline string
 

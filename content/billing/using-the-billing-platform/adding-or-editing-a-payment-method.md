@@ -28,14 +28,15 @@ topics:
 shortTitle: Manage a payment method
 ---
 
-
-{% data reusables.billing.us-sales-tax-note %}
->
->If you're exempt from sales tax, you can upload a certificate to your account. See "[AUTOTITLE](/billing/managing-your-github-billing-settings/adding-a-sales-tax-certificate)."
-
 {% data reusables.dotcom_billing.payment-methods %} {% data reusables.dotcom_billing.same-payment-method %}
 
 We don't support purchase orders for personal accounts. We email receipts monthly or yearly on your account's billing date. If your company, country, or accountant requires your receipts to provide more detail, you can add extra information to your receipts. For more information, see "[AUTOTITLE](/billing/managing-your-github-billing-settings/adding-information-to-your-receipts)."
+
+{% ifversion us-sales-tax %}
+
+{% data reusables.billing.us-sales-tax %}
+
+{% endif %}
 
 ## Updating your personal account's payment method
 
@@ -71,11 +72,8 @@ You can update your enterprise account's credit card or PayPal details, or you c
 
 ### Updating your enterprise account's credit card or PayPal details
 
-{% note %}
-
-**Note:** If your enterprise account is invoiced, you cannot change your payment method on {% data variables.product.prodname_dotcom %}. Instead, contact {% data variables.contact.contact_enterprise_sales %}.
-
-{% endnote %}
+> [!NOTE]
+> If your enterprise account is invoiced, you cannot change your payment method on {% data variables.product.prodname_dotcom %}. Instead, contact {% data variables.contact.contact_enterprise_sales %}.
 
 {% data reusables.enterprise-accounts.access-enterprise %}
 {% data reusables.enterprise-accounts.settings-tab %}

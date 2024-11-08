@@ -10,15 +10,12 @@ shortTitle: Apply to Campus Experts
 
 To apply to the {% data variables.product.prodname_student_leader_program %} program, you must first submit an application form, then submit a video resume. Applications to the program open in February and August, and you’ll have a full month to apply.
 
-{% note %}
-
-**Note:** The application process helps us get to know the applicant. Here are some things we want to learn about you:
-* Motivation: What makes you tick? What drives you?
-* Interest: Why do you want to be part of the program?
-* Growth and potential: What skills do you want to learn, and how will they help you grow personally and professionally?
-* Contribution: What impact do you want to make on your campus?
-
-{% endnote %}
+> [!NOTE]
+> The application process helps us get to know the applicant. Here are some things we want to learn about you:
+> * Motivation: What makes you tick? What drives you?
+> * Interest: Why do you want to be part of the program?
+> * Growth and potential: What skills do you want to learn, and how will they help you grow personally and professionally?
+> * Contribution: What impact do you want to make on your campus?
 
 ### Eligibility criteria
 
@@ -48,11 +45,8 @@ In the application form, we’re looking for students to tell us about the chall
 
 In your video resume, we look forward to getting to know you as an individual.
 
-{% note %}
-
-**Note:** A video using your webcam and computer microphone is more than enough! We understand this process might not be accessible to all students. If you require an alternative method to make your submission, please reach out to the GitHub Education team.
-
-{% endnote %}
+> [!NOTE]
+> A video using your webcam and computer microphone is more than enough! We understand this process might not be accessible to all students. If you require an alternative method to make your submission, please reach out to the GitHub Education team.
 
 1. Open the email you received after submitting your application form.
 1. Using the guidelines included in the application status email, record your video resume.

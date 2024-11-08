@@ -55,11 +55,10 @@ During the installation process, the app owner will direct you to a {% data vari
 1. Select the location where you want to install the {% data variables.product.prodname_github_app %}. You can select your personal account or an organization that you are a member of.
 
    {% ifversion ghec %}
-   {% note %}
 
-   **Note**: {% data reusables.apps.github_app_install_saml %}
+   > [!NOTE]
+   > {% data reusables.apps.github_app_install_saml %}
 
-   {% endnote %}
    {% endif %}
 
 1. If the app requires repository permissions, select **All repositories** or **Only select repositories**. The app will always have at least read-only access to all public repositories on {% data variables.product.company_short %}.

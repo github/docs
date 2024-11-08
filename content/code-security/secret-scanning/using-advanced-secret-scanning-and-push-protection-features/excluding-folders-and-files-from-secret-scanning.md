@@ -45,13 +45,9 @@ You can configure a `secret_scanning.yml` file to exclude directories from {% da
       - "foo/bar/*.js"
     ```
 
-    {% note %}
-
-    **Notes:**
-    * If there are more than 1,000 entries in `paths-ignore`, {% data variables.product.prodname_secret_scanning %} will only exclude the first 1,000 directories from scans.
-    * If `secret_scanning.yml` is larger than 1 MB, {% data variables.product.prodname_secret_scanning %} will ignore the entire file.
-
-    {% endnote %}
+    > [!NOTE]
+    > * If there are more than 1,000 entries in `paths-ignore`, {% data variables.product.prodname_secret_scanning %} will only exclude the first 1,000 directories from scans.
+    > * If `secret_scanning.yml` is larger than 1 MB, {% data variables.product.prodname_secret_scanning %} will ignore the entire file.
 
 ## Verifying that the folder is excluded from {% data variables.product.prodname_secret_scanning %}
 

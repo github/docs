@@ -228,11 +228,8 @@ defaultTool: cli
 * Type: `String`. This should reference learning tracks' names defined in [`data/learning-tracks/*.yml`](https://github.com/github/docs/tree/main/data/learning-tracks).
 * Optional
 
-{% note %}
-
-**Note:** the featured track is set by a specific property in the learning tracks YAML. See that [README](https://github.com/github/docs/blob/main/data/learning-tracks/README.md) for details.
-
-{% endnote %}
+> [!NOTE]
+> The featured track is set by a specific property in the learning tracks YAML. See that [README](https://github.com/github/docs/blob/main/data/learning-tracks/README.md) for details.
 
 ### `includeGuides`
 
@@ -274,11 +271,8 @@ includeGuides:
 * Type: `string` YEAR-MONTH-DAY e.g. 2021-10-04 is October 4th, 2021
 * Optional.
 
-{% note %}
-
-**Note:** The `effectiveDate` frontmatter value is for use by {% data variables.product.company_short %} staff only.
-
-{% endnote %}
+> [!NOTE]
+> The `effectiveDate` frontmatter value is for use by {% data variables.product.company_short %} staff only.
 
 ## Escaping single quotes
 
@@ -304,11 +298,8 @@ When adding a new article, make sure the filename is a [kebab-cased](https://en.
 
 Index pages are the table of contents files for the Docs site. Every product, category, and map topic subdirectory has an `index.md` file that provides an overview of the content and links to every child article. Each `index.md` must contain a `children` frontmatter property with a list of relative links to the child pages of the product, category, or map topic. Index pages require a `versions` frontmatter property, and the actual value will be computed at runtime based on the versions of children articles.
 
-{% note %}
-
-**Note**: The site only knows about paths included in `children` frontmatter. If a directory or article exists but is **not** included in `children`, its path will return a 404.
-
-{% endnote %}
+> [!NOTE]
+> The site only knows about paths included in `children` frontmatter. If a directory or article exists but is **not** included in `children`, its path will return a 404.
 
 ## Homepage
 

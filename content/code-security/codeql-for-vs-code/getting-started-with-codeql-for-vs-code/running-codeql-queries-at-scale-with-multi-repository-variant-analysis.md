@@ -124,11 +124,8 @@ You can export your results for further analysis or to discuss them with collabo
 
 ## Creating a custom list of repositories
 
-{% note %}
-
-**Note:** {% data variables.product.prodname_codeql %} analysis always requires a {% data variables.product.prodname_codeql %} database to run queries against. When you run variant analysis against a list of repositories, your query will only be executed against the repositories that currently have a {% data variables.product.prodname_codeql %} database available to download.  The best way to make a repository available for variant analysis is to enable {% data variables.product.prodname_code_scanning %} with {% data variables.product.prodname_codeql %}. For information about enabling {% data variables.product.prodname_code_scanning %} using {% data variables.product.prodname_codeql %}, see "[AUTOTITLE](/code-security/code-scanning/automatically-scanning-your-code-for-vulnerabilities-and-errors/configuring-code-scanning-for-a-repository#configuring-code-scanning-automatically)."
-
-{% endnote %}
+> [!NOTE]
+> {% data variables.product.prodname_codeql %} analysis always requires a {% data variables.product.prodname_codeql %} database to run queries against. When you run variant analysis against a list of repositories, your query will only be executed against the repositories that currently have a {% data variables.product.prodname_codeql %} database available to download.  The best way to make a repository available for variant analysis is to enable {% data variables.product.prodname_code_scanning %} with {% data variables.product.prodname_codeql %}. For information about enabling {% data variables.product.prodname_code_scanning %} using {% data variables.product.prodname_codeql %}, see "[AUTOTITLE](/code-security/code-scanning/automatically-scanning-your-code-for-vulnerabilities-and-errors/configuring-code-scanning-for-a-repository#configuring-code-scanning-automatically)."
 
 1. In the "Variant Analysis Repositories" view, click the "Add list" icon.
 
@@ -161,11 +158,8 @@ You can then insert the `new-repo-list` of repositories into `databases.json`for
 
 ### Using {% data variables.product.github %} code search to add repositories to a custom list
 
-{% note %}
-
-**Note:** This feature uses the legacy code search via the {% data variables.product.github %} code search API. For more information on the syntax to use, see "[AUTOTITLE](/search-github/searching-on-github/searching-code)."
-
-{% endnote %}
+> [!NOTE]
+> This feature uses the legacy code search via the {% data variables.product.github %} code search API. For more information on the syntax to use, see "[AUTOTITLE](/search-github/searching-on-github/searching-code)."
 
 You can use code search directly in the {% data variables.product.prodname_codeql %} extension to add a subset of repositories from {% data variables.product.github %} to a custom list.
 
@@ -175,7 +169,7 @@ You can add a maximum of 1,000 repositories to a custom list per search.
 
 1. In the "Variant Analysis Repositories" view, choose the list that you want to add repositories to. You can create a new list or choose an existing list that already contains repositories.
 
-1. Right-click on the list you have chosen and then click **Add repositories with {% data variables.product.prodname_dotcom%} code search**.
+1. Right-click on the list you have chosen and then click **Add repositories with {% data variables.product.prodname_dotcom %} code search**.
 
 1. In the pop-up that appears at the top of the application, under the search bar, select a language for your search from the choices in the dropdown.
 

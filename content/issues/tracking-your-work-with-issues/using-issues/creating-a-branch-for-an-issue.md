@@ -13,11 +13,8 @@ redirect_from:
   - /issues/tracking-your-work-with-issues/creating-a-branch-for-an-issue
 ---
 
-{% note %}
-
-**Note:** The ability to create a branch for an issue is currently in {% data variables.release-phases.public_preview %} and subject to change.
-
-{% endnote %}
+> [!NOTE]
+> The ability to create a branch for an issue is currently in {% data variables.release-phases.public_preview %} and subject to change.
 
 ## About branches connected to an issue
 

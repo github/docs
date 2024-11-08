@@ -54,11 +54,8 @@ After an organization's plan is downgraded, the organization will lose access to
 
 Downgrading from {% data variables.product.prodname_ghe_cloud %} disables any SAML settings. If you later purchase {% data variables.product.prodname_enterprise %}, you will need to reconfigure SAML.
 
-{% note %}
-
-**Note:** If your organization is owned by an enterprise account, billing cannot be managed at the organization level. To downgrade, you must remove the organization from the enterprise account first. For more information, see "[AUTOTITLE](/enterprise-cloud@latest/admin/user-management/managing-organizations-in-your-enterprise/removing-organizations-from-your-enterprise)."
-
-{% endnote %}
+> [!NOTE]
+> If your organization is owned by an enterprise account, billing cannot be managed at the organization level. To downgrade, you must remove the organization from the enterprise account first. For more information, see "[AUTOTITLE](/enterprise-cloud@latest/admin/user-management/managing-organizations-in-your-enterprise/removing-organizations-from-your-enterprise)."
 
 {% data reusables.organizations.billing-settings %}
 1. Under "Current plan", use the **Edit** drop-down and click the downgrade option you want.
@@ -102,11 +99,8 @@ To downgrade the plan of an individual organization within the enterprise accoun
 
 {% data reusables.enterprise-accounts.billing-perms %}
 
-{% note %}
-
-**Note:** If your enterprise account is invoiced, you cannot remove seats on {% data variables.product.prodname_dotcom %}. Instead, contact {% data variables.contact.contact_enterprise_sales %}.
-
-{% endnote %}
+> [!NOTE]
+> If your enterprise account is invoiced, you cannot remove seats on {% data variables.product.prodname_dotcom %}. Instead, contact {% data variables.contact.contact_enterprise_sales %}.
 
 {% data reusables.enterprise-accounts.access-enterprise %}
 {% data reusables.enterprise-accounts.settings-tab %}
