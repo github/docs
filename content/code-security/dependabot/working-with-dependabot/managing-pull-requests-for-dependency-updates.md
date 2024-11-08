@@ -1,6 +1,7 @@
 ---
 title: Managing pull requests for dependency updates
 intro: 'You manage pull requests raised by {% data variables.product.prodname_dependabot %} in much the same way as other pull requests, but there are some extra options.'
+permissions: '{% data reusables.permissions.dependabot-various-tasks %}'
 redirect_from:
   - /github/administering-a-repository/managing-pull-requests-for-dependency-updates
   - /code-security/supply-chain-security/managing-pull-requests-for-dependency-updates

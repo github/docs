@@ -2,6 +2,7 @@
 title: Configuring Dependabot alerts
 intro: 'Enable {% data variables.product.prodname_dependabot_alerts %} to be generated when a new vulnerable dependency is found in one of your repositories.'
 shortTitle: Configure Dependabot alerts
+permissions: '{% data reusables.permissions.dependabot-alerts %}'
 versions:
   fpt: '*'
   ghes: '*'

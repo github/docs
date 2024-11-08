@@ -2,6 +2,7 @@
 title: Viewing Dependabot job logs
 intro: 'To support debugging of {% data variables.product.prodname_dependabot %} pull requests, {% data variables.product.product_name %} provides logs of all {% data variables.product.prodname_dependabot %} jobs.'
 shortTitle: Viewing Dependabot logs
+permissions: '{% data reusables.permissions.dependabot-various-tasks %}'
 versions:
   feature: dependabot-job-log
 type: how_to
@@ -15,7 +16,7 @@ topics:
 
 ## About {% data variables.product.prodname_dependabot %} job logs
 
-Anyone with write permissions to a repository can view {% data variables.product.prodname_dependabot %} job logs for the repository. Job logs are only available if {% data variables.product.prodname_dependabot_version_updates %} are enabled for the repository.
+Job logs are only available if {% data variables.product.prodname_dependabot_version_updates %} are enabled for the repository.
 
 Whenever a {% data variables.product.prodname_dependabot %} job runs, the details of the job are captured in the job logs list, which is accessible from the dependency graph.
 

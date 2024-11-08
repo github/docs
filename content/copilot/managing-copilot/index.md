@@ -11,5 +11,5 @@ children:
   - /managing-github-copilot-in-your-organization
   - /managing-copilot-as-an-individual-subscriber
   - /configure-personal-settings
+  - /configuring-and-auditing-content-exclusion
 ---
-
