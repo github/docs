@@ -6,6 +6,9 @@ product: 'Organizations with a subscription to {% data variables.product.prodnam
 versions:
   feature: copilot
 redirect_from:
+  - /copilot/managing-copilot/managing-github-copilot-in-your-organization/setting-policies-for-copilot-in-your-organization/managing-policies-for-copilot-in-your-organization
+  - /copilot/managing-copilot/managing-github-copilot-in-your-organization/setting-policies-for-copilot-in-your-organization
+  - /copilot/managing-copilot/managing-github-copilot-in-your-organization/managing-github-copilot-features-in-your-organization
   - /copilot/managing-github-copilot-in-your-organization/managing-policies-for-copilot-business-in-your-organization
   - /copilot/managing-copilot-for-business/managing-policies-for-copilot-for-business-in-your-organization
   - /copilot/managing-copilot-business/managing-policies-for-copilot-business-in-your-organization
