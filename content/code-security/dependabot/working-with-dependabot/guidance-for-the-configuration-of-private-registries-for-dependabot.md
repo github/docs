@@ -1,6 +1,7 @@
 ---
 title: Guidance for the configuration of private registries for Dependabot
 intro: 'This article contains detailed information about configuring private registries, as well as commands you can run from the command line to configure your package managers locally.'
+permissions: '{% data reusables.permissions.dependabot-various-tasks %}'
 versions:
   fpt: '*'
   ghec: '*'

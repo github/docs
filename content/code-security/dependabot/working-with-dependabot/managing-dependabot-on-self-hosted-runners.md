@@ -2,7 +2,7 @@
 title: Managing Dependabot on self-hosted runners
 intro: 'You can configure self-hosted runners that {% data variables.product.prodname_dependabot %} uses to access your private registries and internal network resources.'
 shortTitle: Manage Dependabot on self-hosted runners
-permissions: 'Organization owners and repository administrators can configure {% data variables.product.prodname_dependabot %} to run on self-hosted runners.'
+permissions: '{% data reusables.permissions.dependabot-actions %}'
 versions:
   feature: dependabot-on-actions-self-hosted
 type: how_to
