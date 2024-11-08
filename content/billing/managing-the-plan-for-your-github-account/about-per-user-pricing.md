@@ -41,7 +41,9 @@ In addition to licensed seats, your bill may include other charges, such as {% d
 
 ## Two billing models for {% data variables.product.prodname_enterprise %} licenses
 
-If you created a trial of {% data variables.product.prodname_ghe_cloud %} on or after August 1, 2024, you use usage-based billing to pay for your licenses. With usage-based billing, you pay for the number of licenses you use each month. You do not need to buy a predefined number of licenses in advance. See, "[AUTOTITLE](/billing/using-the-new-billing-platform/about-usage-based-billing-for-licenses)."
+With usage-based billing, you pay for the number of licenses you use each month. You do not need to buy a predefined number of licenses in advance. See, "[AUTOTITLE](/billing/using-the-new-billing-platform/about-usage-based-billing-for-licenses)."
+
+You are already enrolled in usage-based billing if you created a trial of {% data variables.product.prodname_ghe_cloud %} on or after August 1, 2024.
 
 If you currently pay for your {% data variables.product.prodname_enterprise %} licenses by invoice with a volume, subscription, or prepaid agreement, you will continue to be billed in this way until your agreement expires. At renewal, you have the option to switch to the metered billing model.
 
@@ -60,14 +62,10 @@ If you currently pay for your {% data variables.product.prodname_enterprise %} l
 * Anyone with a pending invitation to become an outside collaborator on private or internal repositories owned by your organization, excluding forks
 * Dormant users
 
-{% note %}
-
-**Notes:**
-* {% data variables.product.company_short %} counts each outside collaborator once for billing purposes, even if the user account has access to multiple repositories owned by your organization.
-* {% data reusables.organizations.org-invite-scim %}
-* Inviting an outside collaborator to a repository using their email address temporarily uses an available seat, even if they already have access to other repositories. After they accept the invite, the seat will be freed up again. However, inviting them using their username does not temporarily use a seat.
-
-{% endnote %}
+> [!NOTE]
+> * {% data variables.product.company_short %} counts each outside collaborator once for billing purposes, even if the user account has access to multiple repositories owned by your organization.
+> * {% data reusables.organizations.org-invite-scim %}
+> * Inviting an outside collaborator to a repository using their email address temporarily uses an available seat, even if they already have access to other repositories. After they accept the invite, the seat will be freed up again. However, inviting them using their username does not temporarily use a seat.
 
 {% data variables.product.company_short %} does not bill for the following people:
 
@@ -93,14 +91,10 @@ If your enterprise does not use {% data variables.product.prodname_emus %}, you 
 * Anyone with a pending invitation to become an organization owner or member
 * Anyone with a pending invitation to become an outside collaborator on private or internal repositories owned by your organization, excluding forks
 
-{% note %}
-
-**Notes:**
-* {% data variables.product.company_short %} counts each member or outside collaborator once for billing purposes, even if the user account has membership in multiple organizations in an enterprise or access to multiple repositories owned by your organization.
-* {% data reusables.organizations.org-invite-scim %}
-* Inviting an outside collaborator to a repository using their email address temporarily uses an available seat, even if they already have access to other repositories. After they accept the invite, the seat will be freed up again. However, inviting them using their username does not temporarily use a seat.
-
-{% endnote %}
+> [!NOTE]
+> * {% data variables.product.company_short %} counts each member or outside collaborator once for billing purposes, even if the user account has membership in multiple organizations in an enterprise or access to multiple repositories owned by your organization.
+> * {% data reusables.organizations.org-invite-scim %}
+> * Inviting an outside collaborator to a repository using their email address temporarily uses an available seat, even if they already have access to other repositories. After they accept the invite, the seat will be freed up again. However, inviting them using their username does not temporarily use a seat.
 
 {% data variables.product.company_short %} does not bill for any of the following accounts:
 

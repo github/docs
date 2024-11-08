@@ -32,11 +32,8 @@ graph TD;
 
 ![Screenshot of a rendered Mermaid flow chart with four lavender boxes labeled A, B, C, and D. Arrows extend from A to B, B to D, A to C, and C to D.](/assets/images/help/writing/mermaid-flow-chart.png)
 
-{% note %}
-
-**Note:** You may observe errors if you run a third-party Mermaid plugin when using Mermaid syntax on {% data variables.product.company_short %}.
-
-{% endnote %}
+> [!NOTE]
+> You may observe errors if you run a third-party Mermaid plugin when using Mermaid syntax on {% data variables.product.company_short %}.
 
 ### Checking your version of Mermaid
 
@@ -51,6 +48,12 @@ To ensure {% data variables.product.company_short %} supports your Mermaid synta
 ## Creating GeoJSON and TopoJSON maps
 
 You can use GeoJSON or TopoJSON syntax to create interactive maps. To create a map, add GeoJSON or TopoJSON inside a fenced code block with the `geojson` or `topojson` syntax identifier. For more information, see "[AUTOTITLE](/get-started/writing-on-github/working-with-advanced-formatting/creating-and-highlighting-code-blocks)."
+
+{% ifversion ghec %}
+
+>[!NOTE] GeoJSON and TopoJSON maps are not available on subdomains of {% data variables.enterprise.data_residency_site %}, such as `octocorp.ghe.com`.
+
+{% endif %}
 
 {% data reusables.advanced-formatting.administrator-must-enable-mapping %}
 

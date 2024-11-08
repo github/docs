@@ -39,8 +39,5 @@ You can purchase other subscriptions and usage-based billing with your existing 
 
 {% data reusables.user-settings.context_switcher %}
 
-{% tip %}
-
-**Tip:** {% data variables.product.prodname_dotcom %} has programs for verified students and academic faculty, which include academic discounts. For more information, visit [{% data variables.product.prodname_education %}](https://education.github.com/).
-
-{% endtip %}
+> [!TIP]
+> {% data variables.product.prodname_dotcom %} has programs for verified students and academic faculty, which include academic discounts. For more information, visit [{% data variables.product.prodname_education %}](https://education.github.com/).

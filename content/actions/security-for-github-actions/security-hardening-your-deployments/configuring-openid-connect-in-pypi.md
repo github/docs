@@ -25,6 +25,8 @@ This guide gives an overview of how to configure PyPI to trust {% data variables
 
 {% data reusables.actions.oidc-security-notice %}
 
+{% data reusables.actions.oidc-on-ghecom %}
+
 ## Adding the identity provider to PyPI
 
 To use OIDC with PyPI, add a trust configuration that links each project on PyPI to each repository and workflow combination that's allowed to publish for it.
@@ -33,12 +35,8 @@ To use OIDC with PyPI, add a trust configuration that links each project on PyPI
 
 1. Configure a trust relationship between the PyPI project and a {% data variables.product.prodname_dotcom %} repository (and workflow within the repository). For example, if your {% data variables.product.prodname_dotcom %} repository is at `myorg/myproject` and your release workflow is defined in `release.yml` with an environment of `release`, you should use the following settings for your trusted publisher on PyPI.
 
-   {% note %}
-
-   **Note:** Enter these values carefully. Giving the incorrect user, repository, or workflow
-   the ability to publish to your PyPI project is equivalent to sharing an API token.
-
-   {% endnote %}
+   > [!NOTE]
+   > Enter these values carefully. Giving the incorrect user, repository, or workflow the ability to publish to your PyPI project is equivalent to sharing an API token.
 
    * Owner: `myorg`
    * Repository name: `myproject`

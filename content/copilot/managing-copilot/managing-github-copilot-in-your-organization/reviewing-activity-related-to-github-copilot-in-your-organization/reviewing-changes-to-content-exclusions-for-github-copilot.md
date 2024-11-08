@@ -47,7 +47,7 @@ redirect_from:
 
 {% data reusables.copilot.more-details-content-exclusion-logs %}
 
-{% ifversion ghec%}
+{% ifversion ghec %}
 
 ## Reviewing changes in your enterprise
 

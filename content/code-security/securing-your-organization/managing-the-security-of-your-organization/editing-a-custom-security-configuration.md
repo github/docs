@@ -2,7 +2,7 @@
 title: Editing a custom security configuration
 shortTitle: Edit custom configuration
 intro: 'Change the enablement settings in your {% data variables.product.prodname_custom_security_configuration %} to better meet the security needs of your repositories.'
-permissions: '{% data reusables.security-configurations.security-configurations-permissions %}'
+permissions: '{% data reusables.permissions.security-org-enable %}'
 versions:
   feature: security-configurations
 topics:
@@ -17,11 +17,8 @@ After creating and applying a {% data variables.product.prodname_custom_security
 
 To determine if your {% data variables.product.prodname_custom_security_configuration %} is meeting your security needs, see "[AUTOTITLE](/code-security/securing-your-organization/managing-the-security-of-your-organization/interpreting-security-findings)."
 
-{% note %}
-
-**Note:** The {% data variables.product.prodname_github_security_configuration %} is managed by {% data variables.product.company_short %} and cannot be edited. If you would like to customize your security enablement settings, you need to create a {% data variables.product.prodname_custom_security_configuration %}. For more information, see "[AUTOTITLE](/code-security/securing-your-organization/meeting-your-specific-security-needs-with-custom-security-configurations/creating-a-custom-security-configuration)."
-
-{% endnote %}
+> [!NOTE]
+> The {% data variables.product.prodname_github_security_configuration %} is managed by {% data variables.product.company_short %} and cannot be edited. If you would like to customize your security enablement settings, you need to create a {% data variables.product.prodname_custom_security_configuration %}. For more information, see "[AUTOTITLE](/code-security/securing-your-organization/meeting-your-specific-security-needs-with-custom-security-configurations/creating-a-custom-security-configuration)."
 
 ## Modifying your {% data variables.product.prodname_custom_security_configuration %}
 

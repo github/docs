@@ -19,11 +19,8 @@ To direct people to specific support resources, you can add a SUPPORT file to yo
 
 You can create default support resources for your organization or personal account. For more information, see "[AUTOTITLE](/communities/setting-up-your-project-for-healthy-contributions/creating-a-default-community-health-file)."
 
-{% tip %}
-
-**Tip:** To help people find your support guidelines, you can link to your SUPPORT file from other places in your repository, such as your [README file](/repositories/managing-your-repositorys-settings-and-features/customizing-your-repository/about-readmes).
-
-{% endtip %}
+> [!TIP]
+> To help people find your support guidelines, you can link to your SUPPORT file from other places in your repository, such as your [README file](/repositories/managing-your-repositorys-settings-and-features/customizing-your-repository/about-readmes).
 
 ## Adding support resources to your project
 

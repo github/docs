@@ -60,7 +60,7 @@ You can configure additional policies to restrict the actions available to {% if
 
 ## 2. Deploy the self-hosted runner for your enterprise
 
-Next, add a self-hosted runner to your enterprise. {% data variables.product.product_name %} will guide you through installation of the necessary software on the runner machine. After you deploy the runner, you can verify connectivity between the runner machine and {%ifversion ghec %}your enterprise{% elsif ghes %}{% data variables.location.product_location %}{% endif %}.
+Next, add a self-hosted runner to your enterprise. {% data variables.product.product_name %} will guide you through installation of the necessary software on the runner machine. After you deploy the runner, you can verify connectivity between the runner machine and {% ifversion ghec %}your enterprise{% elsif ghes %}{% data variables.location.product_location %}{% endif %}.
 
 ### Adding the self-hosted runner
 
@@ -81,15 +81,11 @@ You can create a runner group to manage access to the runner that you added to y
 {%- ifversion ghec or ghes %}
 1. Optionally, to allow public repositories in the selected organizations to use runners in the group, select **Allow public repositories**.
 
-   {% warning %}
+   > [!WARNING]
+   > {% data reusables.actions.self-hosted-runner-security %}
+   >
+   > For more information, see "[AUTOTITLE](/actions/hosting-your-own-runners/managing-self-hosted-runners/about-self-hosted-runners#self-hosted-runner-security-with-public-repositories)."
 
-   **Warning**:
-
-   {% data reusables.actions.self-hosted-runner-security %}
-
-   For more information, see "[AUTOTITLE](/actions/hosting-your-own-runners/managing-self-hosted-runners/about-self-hosted-runners#self-hosted-runner-security-with-public-repositories)."
-
-   {% endwarning %}
 {%- endif %}
 {% data reusables.actions.create-runner-group %}
 1. Click the "Runners" tab.

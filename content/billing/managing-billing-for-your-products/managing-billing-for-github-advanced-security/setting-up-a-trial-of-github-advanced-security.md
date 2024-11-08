@@ -47,7 +47,7 @@ To set up a trial of {% data variables.product.prodname_GH_advanced_security %},
 
 You can finish your trial at any time by purchasing {% data variables.product.prodname_GH_advanced_security %}. If you haven't purchased {% data variables.product.prodname_GH_advanced_security %} by the end of the 30 days, your trial will expire.
 
-{% ifversion metered-ghe-ghas%}
+{% ifversion metered-ghe-ghas %}
 
 If you pay for {% data variables.product.prodname_ghe_cloud %} with usage-based billing, but did not set up a free trial of {% data variables.product.prodname_GH_advanced_security %}, you can still use usage-based billing to pay for {% data variables.product.prodname_GH_advanced_security %} after the {% data variables.product.prodname_ghe_cloud %} trial ends. For more information, contact [{% data variables.product.prodname_dotcom %}'s Sales team](https://enterprise.github.com/contact).
 

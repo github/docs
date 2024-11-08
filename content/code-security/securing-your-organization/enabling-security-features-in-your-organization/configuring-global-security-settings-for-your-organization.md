@@ -2,7 +2,7 @@
 title: Configuring global security settings for your organization
 shortTitle: Configure global settings
 intro: 'Customize {% data variables.product.prodname_GH_advanced_security %} features and create security managers to strengthen the security of your organization.'
-permissions: '{% data reusables.security-configurations.security-configurations-permissions %}'
+permissions: '{% data reusables.permissions.security-org-enable %}'
 versions:
   feature: security-configurations
 topics:
@@ -70,7 +70,8 @@ To update private dependencies of repositories in your organization, {% data var
 You can customize several {% data variables.product.prodname_global_settings %} for {% data variables.product.prodname_code_scanning %}:
 
 * [Recommending the extended query suite for default setup](#recommending-the-extended-query-suite-for-default-setup){% ifversion code-scanning-autofix %}
-* [Enabling {% data variables.product.prodname_copilot_autofix_short %} for {% data variables.product.prodname_codeql %}](#enabling-copilot-autofix-for-codeql) {% endif %}
+* [Enabling {% data variables.product.prodname_copilot_autofix_short %} for {% data variables.product.prodname_codeql %}](#enabling-copilot-autofix-for-codeql)
+* [Enabling {% data variables.product.prodname_copilot_autofix_short %} for third-party {% data variables.product.prodname_code_scanning %} tools](#enabling-copilot-autofix-for-third-party-code-scanning-tools) {% endif %}
 * [Setting a failure threshold for {% data variables.product.prodname_code_scanning %} checks in pull requests](#setting-a-failure-threshold-for-code-scanning-checks-in-pull-requests)
 
 ### Recommending the extended query suite for default setup
@@ -82,6 +83,13 @@ You can customize several {% data variables.product.prodname_global_settings %} 
 ### Enabling {% data variables.product.prodname_copilot_autofix_short %} for {% data variables.product.prodname_codeql %}
 
 You can select **{% data variables.product.prodname_copilot_autofix_short %}** to enable {% data variables.product.prodname_copilot_autofix_short %} for all the repositories in your organization that use {% data variables.product.prodname_codeql %} default setup or {% data variables.product.prodname_codeql %} advanced setup. {% data variables.product.prodname_copilot_autofix_short %} is an expansion of {% data variables.product.prodname_code_scanning %} that suggests fixes for {% data variables.product.prodname_code_scanning %} alerts. For more information, see "[AUTOTITLE](/code-security/code-scanning/managing-code-scanning-alerts/responsible-use-autofix-code-scanning)."
+
+### Enabling {% data variables.product.prodname_copilot_autofix_short %} for third-party {% data variables.product.prodname_code_scanning %} tools
+
+>[!NOTE]
+> Third-party {% data variables.product.prodname_code_scanning %} tool support is in {% data variables.release-phases.public_preview %}, and subject to change. Currently, the third-party tool ESLint is supported. For more information, see "[AUTOTITLE](/code-security/code-scanning/managing-code-scanning-alerts/responsible-use-autofix-code-scanning)."
+
+You can select **{% data variables.product.prodname_copilot_autofix_short %} for third-party tools** to enable {% data variables.product.prodname_copilot_autofix_short %} for all the repositories in your organization that use third-party tools. {% data variables.product.prodname_copilot_autofix_short %} is an expansion of {% data variables.product.prodname_code_scanning %} that suggests fixes for {% data variables.product.prodname_code_scanning %} alerts.
 
 {% endif %}
 
@@ -97,7 +105,7 @@ You can customize several {% data variables.product.prodname_global_settings %} 
 
 {% ifversion ghes < 3.15 %}
 * [Scanning for non-provider patterns](#scanning-for-non-provider-patterns){% endif %}{% ifversion secret-scanning-ai-generic-secret-detection %}
-* [Generic secret detection](#generic-secret-detection){% endif %}
+* [Generic secret detection with {% data variables.secret-scanning.copilot-secret-scanning %}](#generic-secret-detection-with-copilot-secret-scanning){% endif %}
 * [Adding a resource link for blocked commits](#adding-a-resource-link-for-blocked-commits){% ifversion ghec or ghes %}
 * [Defining custom patterns](#defining-custom-patterns){% endif %}
 
@@ -113,11 +121,11 @@ You can choose to scan for non-provider patterns, such as private keys, to detec
 
 {% ifversion secret-scanning-ai-generic-secret-detection %}
 
-### Generic secret detection
+### {% data variables.secret-scanning.generic-secret-detection-caps %} with {% data variables.secret-scanning.copilot-secret-scanning %}
 
-Generic secret detection is an AI-powered expansion of {% data variables.product.prodname_secret_scanning %} that scans and creates alerts for unstructured secrets, such as passwords. To enable these scans, select **Use AI detection to find additional secrets**. Be aware that generic secrets often have a higher rate of false positives than other types of alert. To learn more about generic secrets, see "[AUTOTITLE](/code-security/secret-scanning/using-advanced-secret-scanning-and-push-protection-features/generic-secret-detection/responsible-ai-generic-secrets)."
+{% data variables.secret-scanning.copilot-secret-scanning %}'s {% data variables.secret-scanning.generic-secret-detection %} is an AI-powered expansion of {% data variables.product.prodname_secret_scanning %} that scans and creates alerts for unstructured secrets, such as passwords. To enable these scans, select **Scan for generic secrets**. Be aware that generic secrets often have a higher rate of false positives than other types of alert. To learn more about generic secrets, see "[AUTOTITLE](/code-security/secret-scanning/copilot-secret-scanning/responsible-ai-generic-secrets)."
 
-{% data reusables.secret-scanning.generic-secret-detection-ai %}
+{% data reusables.secret-scanning.copilot-secret-scanning-generic-secrets-subscription-note %}
 
 {% endif %}
 

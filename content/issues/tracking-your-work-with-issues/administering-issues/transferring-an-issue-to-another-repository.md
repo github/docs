@@ -17,11 +17,8 @@ shortTitle: Transfer an issue
 ---
 To transfer an open issue to another repository, you must have write access to the repository the issue is in and the repository you're transferring the issue to. For more information, see "[AUTOTITLE](/organizations/managing-user-access-to-your-organizations-repositories/managing-repository-roles/repository-roles-for-an-organization)."
 
-{% note %}
-
-**Note**: You can only transfer issues between repositories owned by the same user or organization account. A private repository issue cannot be transferred to a public repository.
-
-{% endnote %}
+> [!NOTE]
+> You can only transfer issues between repositories owned by the same user or organization account. A private repository issue cannot be transferred to a public repository.
 
 When you transfer an issue, comments and assignees are retained. Labels and milestones are also retained if they're present in the target repository, with labels matching by name and milestones matching by both name and due date. {% ifversion projects-v1 %}This issue will stay on any user-owned or organization-wide {% data variables.projects.projects_v1_boards %} and be removed from any repository {% data variables.projects.projects_v1_boards %}. For more information, see "[AUTOTITLE](/issues/organizing-your-work-with-project-boards/managing-project-boards/about-project-boards)."{% endif %}
 

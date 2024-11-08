@@ -2,7 +2,7 @@
 title: Filtering repositories in your organization using the repository table
 shortTitle: Filter repositories
 intro: 'You can filter the repository table for your organization to better manage the security settings of specific repositories.'
-permissions: '{% data reusables.security-configurations.security-configurations-permissions %}'
+permissions: '{% data reusables.permissions.security-org-enable %}'
 versions:
   feature: security-configurations
 topics:

@@ -21,11 +21,8 @@ shortTitle: Billing cycle
 ---
 When you change your billing cycle's duration, your {% data variables.product.prodname_dotcom %} subscription, along with any other paid features and products, will be moved to your new billing cycle on your next billing date.
 
-{% note %}
-
-**Note:** Certain products, such as {% data variables.product.prodname_copilot_for_business %} and {% data variables.product.prodname_copilot_enterprise %}, {% data variables.product.prodname_actions %}, and {% data variables.product.prodname_registry %}, only offer monthly billing.
-
-{% endnote %}
+> [!NOTE]
+> Certain products, such as {% data variables.product.prodname_copilot_for_business %} and {% data variables.product.prodname_copilot_enterprise %}, {% data variables.product.prodname_actions %}, and {% data variables.product.prodname_registry %}, only offer monthly billing.
 
 ## Changing the duration of your personal account's billing cycle
 
@@ -58,11 +55,8 @@ When you change your billing cycle's duration, your {% data variables.product.pr
 
 {% data reusables.enterprise-accounts.billing-perms %}
 
-{% note %}
-
-**Note:** You cannot change the duration of your billing cycle if your enterprise account is invoiced.
-
-{% endnote %}
+> [!NOTE]
+> You cannot change the duration of your billing cycle if your enterprise account is invoiced.
 
 {% data reusables.enterprise-accounts.access-enterprise %}
 {% data reusables.enterprise-accounts.settings-tab %}

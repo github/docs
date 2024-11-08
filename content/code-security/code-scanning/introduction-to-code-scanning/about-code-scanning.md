@@ -29,7 +29,7 @@ If {% data variables.product.prodname_code_scanning %} finds a potential vulnera
 
 {% ifversion code-scanning-autofix %}
 
-{% data variables.product.prodname_copilot_autofix %} will suggest fixes for alerts from {% data variables.product.prodname_codeql %} analysis in private repositories, allowing developers to prevent and reduce vulnerabilities with less effort. For more information, see "[AUTOTITLE](/code-security/code-scanning/managing-code-scanning-alerts/responsible-use-autofix-code-scanning)."
+{% data variables.product.prodname_copilot_autofix %} will suggest fixes for alerts from {% data variables.product.prodname_code_scanning %} analysis in private repositories, allowing developers to prevent and reduce vulnerabilities with less effort. For more information, see "[AUTOTITLE](/code-security/code-scanning/managing-code-scanning-alerts/responsible-use-autofix-code-scanning)."
 
 {% endif %}
 
@@ -50,7 +50,7 @@ To use {% data variables.product.prodname_code_scanning %} on a private reposito
 
 ## About tools for {% data variables.product.prodname_code_scanning %}
 
-You can configure {% data variables.product.prodname_code_scanning %} to use the {% data variables.product.prodname_codeql %} product maintained by {% data variables.product.company_short%} or a third-party {% data variables.product.prodname_code_scanning %} tool.
+You can configure {% data variables.product.prodname_code_scanning %} to use the {% data variables.product.prodname_codeql %} product maintained by {% data variables.product.company_short %} or a third-party {% data variables.product.prodname_code_scanning %} tool.
 
 ### About {% data variables.product.prodname_codeql %} analysis
 

@@ -17,7 +17,7 @@ topics:
   - Action development
   - Fundamentals
 ---
- 
+
 {% data reusables.actions.enterprise-github-hosted-runners %}
 
 ## About custom actions
@@ -76,14 +76,18 @@ Storing an action in its own repository makes it easier for the {% data variable
 
 {% ifversion fpt or ghec %}If you're building an action that you don't plan to make available to others, you {% else %} You{% endif %} can store the action's files in any location in your repository. If you plan to combine action, workflow, and application code in a single repository, we recommend storing actions in the `.github` directory. For example, `.github/actions/action-a` and `.github/actions/action-b`.
 
-## Compatibility with {% data variables.product.prodname_ghe_server %}
+## Ensuring compatibility with other platforms
 
-To ensure that your action is compatible with {% data variables.product.prodname_ghe_server %}, you should make sure that you do not use any hard-coded references to {% ifversion fpt or ghec %}{% data variables.product.prodname_dotcom %}{% else %}{% data variables.product.product_name %}{% endif %} API URLs. You should instead use environment variables to refer to the {% ifversion fpt or ghec %}{% data variables.product.prodname_dotcom %}{% else %}{% data variables.product.product_name %}{% endif %} API:
+Many people access {% data variables.product.github %} at a domain other than {% data variables.product.prodname_dotcom_the_website %}, such as {% data variables.enterprise.data_residency_site %} or a custom domain for {% data variables.product.prodname_ghe_server %}.
 
-* For the REST API, use the `GITHUB_API_URL` environment variable.
-* For GraphQL, use the `GITHUB_GRAPHQL_URL` environment variable.
+To ensure that your action is compatible with other platforms, do not use any hard-coded references to API URLs such as `https://api.github.com`. Instead, you can:
 
-For more information, see "[AUTOTITLE](/actions/learn-github-actions/variables#default-environment-variables)."
+* Use environment variables (see "[AUTOTITLE](/actions/learn-github-actions/variables#default-environment-variables)"):
+
+  * For the REST API, use the `GITHUB_API_URL` environment variable.
+  * For GraphQL, use the `GITHUB_GRAPHQL_URL` environment variable.
+
+* Use a toolkit such as [`@actions/github`](https://github.com/actions/toolkit/tree/main/packages/github), which can automatically set the correct URLs.
 
 ## Using release management for actions
 

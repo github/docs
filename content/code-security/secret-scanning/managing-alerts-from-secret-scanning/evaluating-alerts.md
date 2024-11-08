@@ -91,18 +91,18 @@ Tokens, like {% data variables.product.pat_generic %} and other credentials, are
 
 {% ifversion secret-scanning-user-owned-repos %}{% data reusables.secret-scanning.secret-scanning-user-owned-repo-access %} If access is granted, {% data variables.product.prodname_dotcom %} will notify the owner of the repository containing the leaked secret, report the action in the repository owner and enterprise audit logs, and enable access for 2 hours.{% ifversion ghec %} For more information, see "[AUTOTITLE](/admin/managing-accounts-and-repositories/managing-repositories-in-your-enterprise/accessing-user-owned-repositories-in-your-enterprise)."{% endif %}{% endif %}
 
-{% ifversion secret-scanning-multi-repo-public-leak %}
+{% ifversion secret-scanning-multi-repo-public-leak-deduped-alerts or secret-scanning-multi-repo-public-leak %}
 
 ## Reviewing alert labels
 
 In the alert view, you can review any labels assigned to the alert. The labels provide additional details about the alert, which can inform the approach you take for remediation.
 
-{% data variables.product.prodname_secret_scanning_caps %} alerts can have the following labels assigned to them:
+{% data variables.product.prodname_secret_scanning_caps %} alerts can have the following labels assigned to them. Depending on the labels assigned, you'll see additional information in the alert view.
 
-|Label|Description|
-|-------------------------|--------------------------------------------------------------------------------|
-|`public leak`| The secret detected in your repository has also been found as publicly leaked by at least one of {% data variables.product.github %}'s scans of code, discussions, gists, issues, pull requests, and wikis. This may require you to address the alert with greater urgency, or remediate the alert differently compared to a privately exposed token.|
-|`multi-repo`| The secret detected in your repository has been found across multiple repositories in your organization{% ifversion ghec or ghes %} or enterprise{% endif %}. This information may help you more easily dedupe the alert across your organization{% ifversion ghec or ghes %} or enterprise{% endif %}. |
+|Label|Description|Alert view information|
+|-------------------------|--------------------------------------------------------------------------------|-------------------------|
+|`public leak`| The secret detected in your repository has also been found as publicly leaked by at least one of {% data variables.product.github %}'s scans of code, discussions, gists, issues, pull requests, and wikis. This may require you to address the alert with greater urgency, or remediate the alert differently compared to a privately exposed token. | You'll see links to any specific public locations where the leaked secret has been detected. |
+|`multi-repo`| The secret detected in your repository has been found across multiple repositories in your organization or enterprise. This information may help you more easily dedupe the alert across your organization or enterprise. | If you have appropriate permissions, you'll see links to any specific alerts for the same secret in your organization or enterprise. |
 
 {% endif %}
 

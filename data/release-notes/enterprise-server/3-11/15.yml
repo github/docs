@@ -5,6 +5,8 @@ sections:
       **MEDIUM:** An attacker could steal sensitive information by exploiting a Cross-Site Scripting vulnerability in the repository transfer feature. This exploitation would require social engineering. GitHub has requested CVE ID [CVE-2024-8770](https://www.cve.org/cverecord?id=CVE-2024-8770) for this vulnerability, which was reported via the [GitHub Bug Bounty program](https://bounty.github.com/).
     - |
       **MEDIUM:** An attacker could push a commit with changes to a workflow using a PAT or OAuth app that lacks the appropriate `workflow` scope by pushing a triple-nested tag pointing at the associated commit. GitHub has requested CVE ID [CVE-2024-8263](https://www.cve.org/cverecord?id=CVE-2024-8263) for this vulnerability, which was reported via the [GitHub Bug Bounty program](https://bounty.github.com/).
+    - |
+      **HIGH:** A GitHub App installed in organizations could upgrade some permissions from read to write access without approval from an organization administrator. An attacker would require an account with administrator access to install a malicious GitHub App. GitHub has requested [CVE ID CVE-2024-8810](https://www.cve.org/cverecord?id=CVE-2024-8810) for this vulnerability, which was reported via the [GitHub Bug Bounty Program](https://bounty.github.com/). [Updated: 2024-11-07]
   bugs:
     - |
       For instances deployed on AWS with IMDSv2 enforced, fallback to private IPs was not successful.

@@ -39,7 +39,7 @@ You can use filters to produce views for very specific purposes. For example, yo
 | <code>label:<em>LABEL</em></code> | **label:bug** will show items with the "bug" label applied.
 | <code>field:<em>VALUE</em></code> | **status:done** will show items with the "status" field set to "done."
 | <code>reviewers:<em>USERNAME</em> | **reviewers:octocat** will show items that have been reviewed by @octocat.
-| <code>milestone:&quot;<em>MILESTONE</em>&quot; | **milestone:"Beta release"** will show items assigned to the "Beta release" milestone.
+| <code>milestone:&quot;<em>MILESTONE</em>&quot; | **milestone:"QA release"** will show items assigned to the "QA release" milestone.
 
 ## Combining filters
 

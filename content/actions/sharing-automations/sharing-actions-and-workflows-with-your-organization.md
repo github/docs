@@ -18,13 +18,9 @@ You can share actions and reusable workflows within your organization, without p
 
 Any actions or reusable workflows stored in the private repository can be used in workflows defined in other private repositories owned by the same organization. Actions and reusable workflows stored in private repositories cannot be used in public repositories.
 
-{% warning %}
-
-**Warning**:
-* {% data reusables.actions.outside-collaborators-actions %}
-* {% data reusables.actions.scoped-token-note %}
-
-{% endwarning %}
+> [!WARNING]
+> * {% data reusables.actions.outside-collaborators-actions %}
+> * {% data reusables.actions.scoped-token-note %}
 
 ## Sharing actions and workflows with your organization
 

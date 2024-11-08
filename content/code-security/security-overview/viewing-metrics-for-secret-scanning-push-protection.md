@@ -3,8 +3,7 @@ title: Viewing metrics for secret scanning push protection
 shortTitle: View secret scanning metrics
 allowTitleToDifferFromFilename: true
 intro: 'You can use security overview to see how {% data variables.product.prodname_secret_scanning %} push protection is performing in repositories across your organization{% ifversion security-overview-enterprise-secret-scanning-metrics %} or enterprise{% endif %}, and to identify repositories where you may need to take action.'
-permissions: '{% data reusables.security-overview.permissions %}'
-product: '{% data reusables.gated-features.security-overview %}'
+permissions: '{% data reusables.permissions.security-overview %}'
 type: how_to
 redirect_from:
 - /code-security/security-overview/viewing-metrics-for-secret-scanning-push-protection-in-your-organization
@@ -56,7 +55,7 @@ The metrics are based on activity from the default period or your selected perio
 
 {% data reusables.organizations.navigate-to-org %}
 {% data reusables.organizations.security-overview %}
-1. In the sidebar, under "Metrics", click **{% octicon "graph" aria-hidden="true"  %} {% data variables.product.prodname_secret_scanning_caps %}**.
+1. In the sidebar, under "Metrics", click **{% octicon "graph" aria-hidden="true" %} {% data variables.product.prodname_secret_scanning_caps %}**.
 1. Click on an individual secret type or repository to see the associated {% data variables.secret-scanning.alerts %} for your organization.
 {% data reusables.security-overview.filter-secret-scanning-metrics %}
 

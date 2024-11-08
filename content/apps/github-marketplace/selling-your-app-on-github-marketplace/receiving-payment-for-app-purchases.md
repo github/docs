@@ -26,8 +26,5 @@ Once your revenue reaches a minimum of 500 US dollars for the month, you'll rece
 
 For transactions made before January 1, 2021, {% data variables.product.company_short %} retains 25% of transaction income. For transactions made after that date, only 5% is retained by {% data variables.product.company_short %}. This change will be reflected in payments received from the end of January 2021 onward.
 
-{% note %}
-
-**Note:** For details of the current pricing and payment terms, see "[AUTOTITLE](/free-pro-team@latest/site-policy/github-terms/github-marketplace-developer-agreement)."
-
-{% endnote %}
+> [!NOTE]
+> For details of the current pricing and payment terms, see "[AUTOTITLE](/free-pro-team@latest/site-policy/github-terms/github-marketplace-developer-agreement)."

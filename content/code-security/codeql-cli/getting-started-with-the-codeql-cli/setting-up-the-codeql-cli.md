@@ -35,11 +35,8 @@ If you are setting up the {% data variables.product.prodname_codeql_cli %} in yo
 If you are using macOS on Apple Silicon (for example, Apple M1), ensure that the [Xcode command-line developer
 tools](https://developer.apple.com/downloads/index.action) and [Rosetta 2](https://support.apple.com/en-us/HT211861) are installed.
 
-{% note %}
-
-**Note:** The {% data variables.product.prodname_codeql_cli %} is currently not compatible with non-glibc Linux distributions such as (muslc-based) Alpine Linux.
-
-{% endnote %}
+> [!NOTE]
+> The {% data variables.product.prodname_codeql_cli %} is currently not compatible with non-glibc Linux distributions such as (muslc-based) Alpine Linux.
 
 ### 1. Download the {% data variables.product.prodname_codeql_cli %} tar archive
 
@@ -53,12 +50,8 @@ Extract the {% data variables.product.prodname_codeql_cli %} tar archive to a di
 
 {% data reusables.codeql-cli.launch-codeql %}
 
-{% note %}
-
-**Note:** If you add `codeql` to your `PATH`, it can be accessed by {% data variables.product.prodname_codeql %} for {% data variables.product.prodname_vscode %} to compile and run queries.
- For more information about configuring {% data variables.product.prodname_vscode_shortname %} to access the {% data variables.product.prodname_codeql_cli %}, see "[AUTOTITLE](/code-security/codeql-for-vs-code/using-the-advanced-functionality-of-the-codeql-for-vs-code-extension/configuring-access-to-the-codeql-cli)."
-
- {% endnote %}
+> [!NOTE]
+> If you add `codeql` to your `PATH`, it can be accessed by {% data variables.product.prodname_codeql %} for {% data variables.product.prodname_vscode %} to compile and run queries. For more information about configuring {% data variables.product.prodname_vscode_shortname %} to access the {% data variables.product.prodname_codeql_cli %}, see "[AUTOTITLE](/code-security/codeql-for-vs-code/using-the-advanced-functionality-of-the-codeql-for-vs-code-extension/configuring-access-to-the-codeql-cli)."
 
 ## Testing the {% data variables.product.prodname_codeql_cli %} configuration
 

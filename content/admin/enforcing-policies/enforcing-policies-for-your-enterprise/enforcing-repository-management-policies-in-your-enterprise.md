@@ -112,11 +112,10 @@ People with admin permissions can set a more granular forking policy. For more i
 {% endif %}
 
 {% ifversion enterprise-namespace-repo-setting %}
-{% note %}
 
-**Note:** If {% ifversion ghec %}your enterprise uses {% data variables.product.prodname_emus %} and {% endif %}your "Repository creation" policy prevents enterprise members from creating repositories owned by their user accounts, members will not be allowed to fork a repository in their user accounts, regardless of your "Repository forking" policy.
+> [!NOTE]
+> If {% ifversion ghec %}your enterprise uses {% data variables.product.prodname_emus %} and {% endif %}your "Repository creation" policy prevents enterprise members from creating repositories owned by their user accounts, members will not be allowed to fork a repository in their user accounts, regardless of your "Repository forking" policy.
 
-{% endnote %}
 {% endif %}
 
 {% data reusables.enterprise-accounts.access-enterprise %}
@@ -150,6 +149,24 @@ Across all organizations owned by your enterprise, you can set the default branc
 1. Under "Default branch name", enter the default branch name that new repositories should use.
 1. Optionally, to enforce the default branch name for all organizations in the enterprise, select **Enforce across this enterprise**.
 1. Click **Update**.
+
+{% ifversion deploy-keys-enterprise-org-policy %}
+
+## Enforcing a policy for deploy keys
+
+Across all organizations owned by your enterprise, you can allow members to create deploy keys in repositories, restrict deploy key creation, or allow owners to administer the setting on the organization level.
+
+For more information about using deploy keys, see "[AUTOTITLE](/authentication/connecting-to-github-with-ssh/managing-deploy-keys#deploy-keys)." If you want fine-grained control over permissions, consider using a {% data variables.product.prodname_github_app %} instead. See "[AUTOTITLE](/apps/overview)."
+
+> [!WARNING]
+> Changing this setting to disabled will result in **existing deploy keys being disabled** in all repositories in the enterprise. Scripts, apps, or workflows that create, use, or delete deploy keys will no longer work.
+
+{% data reusables.enterprise-accounts.access-enterprise %}
+{% data reusables.enterprise-accounts.policies-tab %}
+{% data reusables.enterprise-accounts.repositories-tab %}
+1. Under "Deploy keys", review the information about changing the setting, then select a policy.
+1. Click **Save**.
+{% endif %}
 
 ## Enforcing a policy for changes to repository visibility
 
@@ -207,11 +224,8 @@ Across all organizations owned by your enterprise, you can allow members to see 
 
 ![Screenshot of an issue comment. The header says "ashtom (Thomas Dohmke) commented 1 minute ago," with "(Thomas Dohmke)" outlined in dark orange.](/assets/images/help/issues/commenter-full-name.png)
 
-{% note %}
-
-**Note:** When this policy is enforced for all repositories in the enterprise, it overrides the organization setting for private repositories. For more information, see "[AUTOTITLE](/organizations/managing-organization-settings/managing-the-display-of-member-names-in-your-organization)".
-
-{% endnote %}
+> [!NOTE]
+> When this policy is enforced for all repositories in the enterprise, it overrides the organization setting for private repositories. For more information, see "[AUTOTITLE](/organizations/managing-organization-settings/managing-the-display-of-member-names-in-your-organization)".
 
 {% data reusables.enterprise-accounts.access-enterprise %}
 {% data reusables.enterprise-accounts.policies-tab %}

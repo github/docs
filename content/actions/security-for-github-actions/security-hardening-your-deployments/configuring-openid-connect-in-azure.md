@@ -27,14 +27,14 @@ This guide gives an overview of how to configure Azure to trust {% data variable
 
 {% data reusables.actions.oidc-security-notice %}
 
+{% data reusables.actions.oidc-on-ghecom %}
+
 {% ifversion ghes %}
 {% data reusables.actions.oidc-endpoints %}
   <!-- This note is indented to align with the above reusable. -->
-  {% note %}
 
-  **Note:** Microsoft Entra ID (previously known as Azure AD) does not have fixed IP ranges defined for these endpoints.
-
-  {% endnote %}
+  > [!NOTE]
+  > Microsoft Entra ID (previously known as Azure AD) does not have fixed IP ranges defined for these endpoints.
 
 * Make sure that the value of the issuer claim that's included with the JSON Web Token (JWT) is set to a publicly routable URL. For more information, see "[AUTOTITLE](/enterprise-server@latest/actions/deployment/security-hardening-your-deployments/about-security-hardening-with-openid-connect)."
 {% endif %}

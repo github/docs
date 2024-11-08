@@ -16,11 +16,8 @@ shortTitle: Refresh user access tokens
 ---
 ## About user access tokens that expire
 
-{% note %}
-
-**Note:** User access tokens that expire are currently an optional feature and are subject to change. For more information, see "[Expiring user-to-server access tokens for GitHub Apps](https://developer.github.com/changes/2020-04-30-expiring-user-to-server-access-tokens-for-github-apps)."
-
-{% endnote %}
+> [!NOTE]
+> User access tokens that expire are currently an optional feature and are subject to change. For more information, see "[Expiring user-to-server access tokens for GitHub Apps](https://developer.github.com/changes/2020-04-30-expiring-user-to-server-access-tokens-for-github-apps)."
 
 To enforce regular token rotation and reduce the impact of a compromised token, you can configure your {% data variables.product.prodname_github_app %} to use user access tokens that expire. If your app uses user access tokens that expire, then you will receive a refresh token when you generate a user access token. The user access token expires after eight hours, and the refresh token expires after six months. For more information, see "[AUTOTITLE](/apps/creating-github-apps/authenticating-with-a-github-app/generating-a-user-access-token-for-a-github-app)."
 
@@ -33,8 +30,7 @@ If your refresh token expires before you use it, you can regenerate a user acces
 When you create your app, expiration of user access tokens is enabled unless you opt out. For more information, see "[AUTOTITLE](/apps/creating-github-apps/setting-up-a-github-app/creating-a-github-app)." You can also configure this setting after your app has been created.
 
 {% data reusables.apps.settings-step %}
-{% data reusables.user-settings.developer_settings %}
-{% data reusables.user-settings.github_apps %}
+{% data reusables.apps.enterprise-apps-steps %}
 1. Next to the {% data variables.product.prodname_github_app %} that you want to modify, click **Edit**.
 1. In the {% data variables.product.prodname_github_apps %} settings sidebar, click **Optional Features**.
 1. Next to "User-to-server token expiration", click **Opt-in** or **Opt-out**. This setting may take a couple of seconds to apply.

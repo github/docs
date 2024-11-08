@@ -1,6 +1,7 @@
 ---
 title: Configuring the dependency graph
 intro: You can allow users to identify their projects' dependencies by enabling the dependency graph.
+permissions: '{% data reusables.permissions.dependency-graph %}'
 redirect_from:
   - /code-security/supply-chain-security/understanding-your-software-supply-chain/about-the-dependency-graph#enabling-the-dependency-graph
 versions:

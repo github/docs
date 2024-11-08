@@ -40,9 +40,9 @@ This tutorial assumes you have a basic understanding of JavaScript and ES6 synta
 
 The following sections will lead you through setting up the following components:
 
-* a repository to store the code for your app
-* a way to receive webhooks locally
-* a {% data variables.product.prodname_github_app %} registration that is subscribed to "pull request" webhook events, has permission to add comments to pull requests, and uses a webhook URL that you can receive locally
+* A repository to store the code for your app
+* A way to receive webhooks locally
+* A {% data variables.product.prodname_github_app %} registration that is subscribed to "pull request" webhook events, has permission to add comments to pull requests, and uses a webhook URL that you can receive locally
 
 ### Create a repository to store code for your app
 
@@ -73,10 +73,9 @@ For this tutorial, you must have a {% data variables.product.prodname_github_app
 The following steps will guide you through registering a {% data variables.product.prodname_github_app %} with these settings. For more information about {% data variables.product.prodname_github_app %} settings, see "[AUTOTITLE](/apps/creating-github-apps/creating-github-apps/creating-a-github-app)."
 
 {% data reusables.apps.settings-step %}
-{% data reusables.user-settings.developer_settings %}
-{% data reusables.user-settings.github_apps %}
-1. Click **New GitHub App**.
-1. Under "GitHub App name", enter a name for your app. For example, `USERNAME-webhook-test-app` where `USERNAME` is your {% data variables.product.company_short %} username.
+{% data reusables.apps.enterprise-apps-steps %}
+1. Click **New {% data variables.product.prodname_github_app %}**.
+1. Under "{% data variables.product.prodname_github_app %} name", enter a name for your app. For example, `USERNAME-webhook-test-app` where `USERNAME` is your {% data variables.product.company_short %} username.
 1. Under "Homepage URL", enter a URL for your app. For example, you can use the URL of the repository that you created to store the code for your app.
 1. Skip the "Identifying and authorizing users" and "Post installation" sections for this tutorial. For more information about these settings, see "[AUTOTITLE](/apps/creating-github-apps/creating-github-apps/creating-a-github-app)."
 1. Make sure that **Active** is selected under "Webhooks."
@@ -84,8 +83,9 @@ The following steps will guide you through registering a {% data variables.produ
 1. Under "Webhook secret", enter a random string. You will use this string later.
 1. Under "Repository permissions", next to "Pull requests," select **Read & write**.
 1. Under "Subscribe to events", select **Pull request**.
-1. Under "Where can this GitHub App be installed?", select **Only on this account**. You can change this later if you want to publish your app.
-1. Click **Create GitHub App**.
+1. Under "Where can this {% data variables.product.prodname_github_app %} be installed?", select **Only on this account**. You can change this later if you want to publish your app.{% ifversion enterprise-apps-public-beta %}
+    >[!NOTE] If your {% data variables.product.prodname_github_app %} is registered under an enterprise, this step does not apply.{% endif %}
+1. Click **Create {% data variables.product.prodname_github_app %}**.
 
 ## Write code for your app
 

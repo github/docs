@@ -318,7 +318,7 @@ If there is no global registry defined in a `.npmrc` file, you can set `replaces
 
 {% data reusables.dependabot.access-private-dependencies-link %}
 
-For scoped dependencies (`@my-org/my-dep`), {% data variables.product.prodname_dependabot %} requires that the private registry is defined in the project's `.npmrc file`. To define private registries for individual scopes, use `@myscope:registry=https://private_registry_url`.
+For scoped dependencies (`@my-org/my-dep`), {% data variables.product.prodname_dependabot %} requires that the private registry is defined in the project's `.npmrc` file. To define private registries for individual scopes, use `@myscope:registry=https://private_registry_url`.
 
 Registries should be configured using the `https` protocol.
 
@@ -624,7 +624,7 @@ You can check whether the private registry is successfully accessed by looking a
 
 ### Cloudsmith
 
-For information about Cloudsmith and instructions on how to configure {% data variables.product.prodname_dependabot %} to work with Cloudsmith, see [Getting Started with Cloudsmith](https://help.cloudsmith.io/docs/welcome-to-cloudsmith-docs) and [Integrate Github Dependabot with Cloudsmith](https://help.cloudsmith.io/docs/dependabot) in the Cloudsmith documentation.
+For information about Cloudsmith and instructions on how to configure {% data variables.product.prodname_dependabot %} to work with Cloudsmith, see [Getting Started with Cloudsmith](https://help.cloudsmith.io/docs/welcome-to-cloudsmith-docs) and [Integrate {% data variables.product.company_short %} {% data variables.product.prodname_dependabot %} with Cloudsmith](https://help.cloudsmith.io/docs/dependabot) in the Cloudsmith documentation.
 
 ### {% data variables.product.prodname_registry %} registry
 

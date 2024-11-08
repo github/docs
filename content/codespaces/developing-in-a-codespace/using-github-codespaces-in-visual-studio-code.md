@@ -58,11 +58,8 @@ Use the {% data variables.product.prodname_vscode_marketplace %} to install the 
 
 {% data reusables.codespaces.codespaces-machine-types %} You can change the machine type of your codespace at any time.
 
-{% note %}
-
-**Note**: {% data reusables.codespaces.codespaces-machine-type-availability %}
-
-{% endnote %}
+> [!NOTE]
+> {% data reusables.codespaces.codespaces-machine-type-availability %}
 
 {% data reusables.codespaces.changing-machine-type-in-vscode %}
 

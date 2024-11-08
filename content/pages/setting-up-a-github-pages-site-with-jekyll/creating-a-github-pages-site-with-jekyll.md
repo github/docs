@@ -82,7 +82,7 @@ Before you can use Jekyll to create a {% data variables.product.prodname_pages %
     # Removes the contents from your default branch from the working directory
     ```
 
-1. To create a new Jekyll site, use the `jekyll new` command:
+1. To create a new Jekyll site, use the `jekyll new` command in your repository's root directory:
 
    ```shell
    $ jekyll new --skip-bundle .

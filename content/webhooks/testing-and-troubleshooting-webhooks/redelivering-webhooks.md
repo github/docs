@@ -49,8 +49,7 @@ The owner of a {% data variables.product.prodname_github_app %} can redeliver we
 You can use the {% data variables.product.company_short %} web interface or the REST API to redeliver webhooks for a {% data variables.product.prodname_github_app %}. For more information about using the REST API redeliver, see "[AUTOTITLE](/rest/apps/webhooks)."
 
 {% data reusables.apps.settings-step %}
-{% data reusables.user-settings.developer_settings %}
-{% data reusables.user-settings.github_apps %}
+{% data reusables.apps.enterprise-apps-steps %}
 1. Next to the {% data variables.product.prodname_github_app %} that you want to redeliver a webhook for, click **Edit**.
 1. In the sidebar, click **Advanced**.
 {% data reusables.webhooks.webhook_recent_deliveries_redeliver %}

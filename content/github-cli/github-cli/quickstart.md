@@ -22,11 +22,8 @@ shortTitle: Quickstart
 
 ## Some useful commands
 
-{% note %}
-
-**Note**: When you use some commands for the first time - for example, `gh codespace SUBCOMMAND` - you'll be prompted to add extra scopes to your authentication token. Follow the onscreen instructions.
-
-{% endnote %}
+> [!NOTE]
+> When you use some commands for the first time - for example, `gh codespace SUBCOMMAND` - you'll be prompted to add extra scopes to your authentication token. Follow the onscreen instructions.
 
 ### Viewing your status
 
@@ -87,6 +84,12 @@ You can change configuration settings and add aliases or extensions, to make {% 
 * Define aliases for commands that you commonly run. For example, if you run `gh alias set prd "pr create --draft"`, you will then be able to run `gh prd` to quickly open a draft pull request. For more information, see [`gh alias`](https://cli.github.com/manual/gh_alias).
 
 * Create or add custom commands with {% data variables.product.prodname_cli %} extensions. For more information, see "[AUTOTITLE](/github-cli/github-cli/using-github-cli-extensions)" and "[AUTOTITLE](/github-cli/github-cli/creating-github-cli-extensions)."
+
+## Using {% data variables.product.prodname_cli %} with multiple accounts
+
+If you have multiple accounts on the same {% data variables.product.github %} platform, such as {% data variables.location.product_location %}, you can authenticate to each one and switch between them using the `gh auth switch` command. See [gh auth switch](https://cli.github.com/manual/gh_auth_switch) in the {% data variables.product.prodname_cli %} manual.
+
+If you need to use the {% data variables.product.prodname_cli %} across multiple {% data variables.product.github %} platforms, such as a personal account on {% data variables.product.prodname_dotcom_the_website %} and a {% data variables.enterprise.prodname_managed_user %} on {% data variables.enterprise.data_residency_site %}, see "[AUTOTITLE](/github-cli/github-cli/using-multiple-accounts)."
 
 ## Further reading
 

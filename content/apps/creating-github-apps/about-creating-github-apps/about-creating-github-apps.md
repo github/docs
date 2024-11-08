@@ -25,13 +25,17 @@ A {% data variables.product.prodname_github_app %} is a type of integration that
 
 Common use cases for {% data variables.product.prodname_github_apps %} include:
 * Automating tasks or background processes
-* Supporting "Sign in with GitHub," which allows users to sign in with their {% data variables.product.prodname_dotcom %} account to provide their identity in your ecosystem
+* Supporting "Sign in with {% data variables.product.company_short %}," which allows users to sign in with their {% data variables.product.prodname_dotcom %} account to provide their identity in your ecosystem
 * As a developer tool, allowing users to work with {% data variables.product.prodname_dotcom %} by signing into your  {% data variables.product.prodname_github_app %}, which can then act on their behalf
 * Integrating your tool or external service with {% data variables.product.company_short %}
 
 Like {% data variables.product.prodname_oauth_apps %}, {% data variables.product.prodname_github_apps %} use OAuth 2.0 and can act on behalf of a user. Unlike {% data variables.product.prodname_oauth_apps %}, {% data variables.product.prodname_github_apps %} can also act independently of a user.
 
 {% data variables.product.prodname_github_apps %} can be installed directly on organizations and personal accounts and granted access to specific repositories. They come with built-in webhooks and narrow, specific permissions.
+
+{% ifversion enterprise-apps-public-beta %}
+You can also create an enterprise-owned {% data variables.product.prodname_github_app %} that can only be installed on organizations within your enterprise, and can only be authorized by members of your enterprise. For more information, see "[AUTOTITLE](/admin/managing-your-enterprise-account/creating-github-apps-for-your-enterprise)."
+{% endif %}
 
 {% data reusables.apps.app_manager_role %}
 
@@ -43,7 +47,13 @@ Then, you need to write code to add functionality to your {% data variables.prod
 
 Once you have written the code for your {% data variables.product.prodname_github_app %}, your app needs to run somewhere. If your app is a website or web app, you might host your app on a server like [Azure App Service](https://azure.microsoft.com/products/app-service/). If your app is a client-side app, it might run on a user's device.
 
-In order to use your {% data variables.product.prodname_github_app %}, you must install the app on your organization or personal account. If your {% data variables.product.prodname_github_app %} is private, you can only install the {% data variables.product.prodname_github_app %} on the account that owns the app. If your {% data variables.product.prodname_github_app %} is public, other users and organizations can install your app. For more information, see "[AUTOTITLE](/apps/using-github-apps/installing-your-own-github-app)" and "[AUTOTITLE](/apps/sharing-github-apps/sharing-your-github-app)."
+To use your {% data variables.product.prodname_github_app %}, you need to install it on your organization or personal account.
+
+* If your {% data variables.product.prodname_github_app %} is **private**, you can only install it on the account that owns the app.
+* If your {% data variables.product.prodname_github_app %} is **public**, other users and organizations can also install it.{% ifversion enterprise-apps-public-beta %}
+* If your {% data variables.product.prodname_github_app %} is owned by an **enterprise**, you can install it on any organization within that enterprise.{% endif %}
+
+For more information, see "[AUTOTITLE](/apps/using-github-apps/installing-your-own-github-app)" and "[AUTOTITLE](/apps/sharing-github-apps/sharing-your-github-app)."
 
 ## Understanding what type of {% data variables.product.prodname_github_app %} to build
 

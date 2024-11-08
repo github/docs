@@ -3,6 +3,8 @@ sections:
   security_fixes:
     - |
       **MEDIUM:** An attacker could steal sensitive information by exploiting a Cross-Site Scripting vulnerability in the repository transfer feature. This exploitation would require social engineering. GitHub has requested CVE ID [CVE-2024-8770](https://www.cve.org/cverecord?id=CVE-2024-8770) for this vulnerability, which was reported via the [GitHub Bug Bounty program](https://bounty.github.com/).
+    - |
+      **HIGH:** A GitHub App installed in organizations could upgrade some permissions from read to write access without approval from an organization administrator. An attacker would require an account with administrator access to install a malicious GitHub App. GitHub has requested [CVE ID CVE-2024-8810](https://www.cve.org/cverecord?id=CVE-2024-8810) for this vulnerability, which was reported via the [GitHub Bug Bounty Program](https://bounty.github.com/). [Updated: 2024-11-07]
   bugs:
     - |
       On an instance with GitHub Actions enabled, due to an insufficient wait time, MS SQL and MySQL replication could fail with the error message `Failed to start nomad service!`.
@@ -72,3 +74,5 @@ sections:
       When restoring from a backup snapshot, a large number of `mapper_parsing_exception` errors may be displayed.
     - |
       Services may respond with a `503` status due to an out of date `haproxy` configuration. This can usually be resolved with a `ghe-config-apply` run.
+    - |
+      Images embedded in wiki pages may stop rendering shortly after being published. [Updated: 2024-10-16]

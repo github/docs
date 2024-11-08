@@ -39,15 +39,13 @@ GitHub Actions usage is free for {% data variables.product.prodname_ghe_server %
 {% ifversion fpt or ghec %}
 There are some limits on {% data variables.product.prodname_actions %} usage when using {% data variables.product.prodname_dotcom %}-hosted runners. These limits are subject to change.
 
-{% note %}
-
-**Note:** For self-hosted runners, different usage limits apply. For more information, see "[AUTOTITLE](/actions/hosting-your-own-runners/managing-self-hosted-runners/about-self-hosted-runners#usage-limits)."
-
-{% endnote %}
+> [!NOTE]
+> For self-hosted runners, different usage limits apply. For more information, see "[AUTOTITLE](/actions/hosting-your-own-runners/managing-self-hosted-runners/about-self-hosted-runners#usage-limits)."
 
 * **Job execution time** - Each job in a workflow can run for up to 6 hours of execution time. If a job reaches this limit, the job is terminated and fails to complete.
 {% data reusables.actions.usage-workflow-run-time %}
 {% data reusables.actions.usage-api-requests %}
+* **Webhook rate limit** - Each repository is limited to 1500 triggered events every 10 seconds.
 * **Concurrent jobs** - The number of concurrent jobs you can run in your account depends on your {% data variables.product.prodname_dotcom %} plan, as well as the type of runner used. If exceeded, any additional jobs are queued.
 
   **Standard {% data variables.product.prodname_dotcom %}-hosted runners**
@@ -66,14 +64,9 @@ There are some limits on {% data variables.product.prodname_actions %} usage whe
   | Team | 1000 | 5 | 100 |
   | Enterprise | 1000 | 50 | 100 |
 
-  {% note %}
-
-  **Notes:**
-
-  * If required, customers on enterprise plans can request a higher limit for concurrent jobs. For more information, contact us through the {% data variables.contact.contact_support_portal %}, or contact your sales representative.
-  * The maximum concurrent macOS jobs is shared across standard {% data variables.product.prodname_dotcom %}-hosted runner and {% data variables.product.prodname_dotcom %}-hosted {% data variables.actions.hosted_runner %}s.
-
-  {% endnote %}
+  > [!NOTE]
+  > * If required, customers on enterprise plans can request a higher limit for concurrent jobs. For more information, contact us through the {% data variables.contact.contact_support_portal %}, or contact your sales representative.
+  > * The maximum concurrent macOS jobs is shared across standard {% data variables.product.prodname_dotcom %}-hosted runner and {% data variables.product.prodname_dotcom %}-hosted {% data variables.actions.hosted_runner %}s.
 
 * **Job matrix** - {% data reusables.actions.usage-matrix-limits %}
 {% data reusables.actions.usage-workflow-queue-limits %}
@@ -93,7 +86,7 @@ In addition to the usage limits, you must ensure that you use {% data variables.
 
 ## {% data variables.product.prodname_actions %} usage metrics
 
-Organization owners and users with the "View organization Actions usage metrics" permission can view {% data variables.product.prodname_actions %} usage metrics for their organization. These metrics can help you understand how and where your Actions minutes are being used. For more information, see "[AUTOTITLE](/enterprise-cloud@latest/organizations/collaborating-with-groups-in-organizations/viewing-usage-metrics-for-github-actions)."
+Organization owners and users with the "View organization Actions metrics" permission can view {% data variables.product.prodname_actions %} usage metrics for their organization. These metrics can help you understand how and where your Actions minutes are being used. For more information, see "[AUTOTITLE](/enterprise-cloud@latest/organizations/collaborating-with-groups-in-organizations/viewing-usage-metrics-for-github-actions)."
 
 When you view usage metrics, it is important to remember that {% data reusables.actions.actions-usage-metrics-not-billing-metrics %}
 

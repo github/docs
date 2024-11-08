@@ -71,11 +71,8 @@ In the board layout, you can choose which columns to display. The available colu
 
 You can sort items by a field value.
 
-{% note %}
-
-**Note:** When a board is sorted, you cannot manually reorder items within a column. You can continue to move items from column to column.
-
-{% endnote %}
+> [!NOTE]
+> When a board is sorted, you cannot manually reorder items within a column. You can continue to move items from column to column.
 
 {% data reusables.projects.customize.sort %}
 

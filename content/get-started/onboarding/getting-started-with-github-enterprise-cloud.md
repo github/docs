@@ -69,10 +69,10 @@ To audit access to enterprise-owned resources or user license usage, you can vie
 
 ## Part 3: Managing security with {% data variables.product.prodname_ghe_cloud %}
 
-* [Managing security with {% data variables.product.prodname_emus  %}](#managing-security-with-enterprise-managed-users)
-* [Managing security without {% data variables.product.prodname_emus  %}](#managing-security-without-enterprise-managed-users)
+* [Managing security with {% data variables.product.prodname_emus %}](#managing-security-with-enterprise-managed-users)
+* [Managing security without {% data variables.product.prodname_emus %}](#managing-security-without-enterprise-managed-users)
 
-### Managing security with {% data variables.product.prodname_emus  %}
+### Managing security with {% data variables.product.prodname_emus %}
 
 With {% data variables.product.prodname_emus %}, access and identity is managed centrally through your identity provider. Two-factor authentication and other access requirements should be enabled and enforced on your IdP.
 
@@ -92,7 +92,7 @@ You can configure an allow list for specific IP addresses to restrict access to 
 
 {% data reusables.getting-started.enterprise-advanced-security %}
 
-### Managing security without {% data variables.product.prodname_emus  %}
+### Managing security without {% data variables.product.prodname_emus %}
 
 To manage security for your enterprise, you can require two-factor authentication, manage allowed IP addresses, enable SAML single sign-on and team synchronization, and sign up for and enforce GitHub Advanced Security features.
 
@@ -177,3 +177,7 @@ For more information, see "[AUTOTITLE](/get-started/start-your-journey/git-and-g
 {% data reusables.getting-started.contact-support %}
 
 {% data variables.product.prodname_ghe_cloud %} allows you to submit priority support requests with a target eight-hour response time. For more information, see "[AUTOTITLE](/support/learning-about-github-support/about-github-support)."
+
+## Further reading
+
+* "[AUTOTITLE](/enterprise-cloud@latest/admin/overview/feature-overview-for-github-enterprise-cloud)"

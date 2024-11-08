@@ -1,1 +1,0 @@
-{% data variables.product.prodname_copilot_chat %} is intended to answer exclusively coding related questions that you ask in natural language. For example, you can ask {% data variables.product.prodname_copilot_chat %} to help you write a function that returns the sum of two numbers.

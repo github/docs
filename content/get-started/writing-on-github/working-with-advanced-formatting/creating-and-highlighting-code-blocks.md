@@ -26,11 +26,8 @@ function test() {
 
 ![Screenshot of rendered {% data variables.product.prodname_dotcom %} Markdown showing how triple backticks render code blocks in raw formatting. The block begins with "function test() {."](/assets/images/help/writing/fenced-code-block-rendered.png)
 
-{% tip %}
-
-**Tip:** To preserve your formatting within a list, make sure to indent non-fenced code blocks by eight spaces.
-
-{% endtip %}
+> [!TIP]
+> To preserve your formatting within a list, make sure to indent non-fenced code blocks by eight spaces.
 
 To display triple backticks in a fenced code block, wrap them inside quadruple backticks.
 

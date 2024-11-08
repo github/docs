@@ -49,11 +49,8 @@ Organization owners and billing managers can view {% data variables.product.prod
 
 Enterprise owners and billing managers can view {% data variables.product.prodname_registry %} usage for an enterprise account.
 
-{% note %}
-
-**Note:** Billing details for enterprise accounts only summarize the storage data usage per organization. {% data reusables.actions.enterprise-billing-details %}
-
-{% endnote %}
+> [!NOTE]
+> Billing details for enterprise accounts only summarize the storage data usage per organization. {% data reusables.actions.enterprise-billing-details %}
 
 {% data reusables.enterprise-accounts.access-enterprise %}
 {% data reusables.enterprise-accounts.settings-tab %}

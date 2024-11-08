@@ -100,11 +100,10 @@ For more information, see {% ifversion ghec %}"[AUTOTITLE](/admin/identity-and-a
 ### Configure your personal account
 
 {% ifversion ghec or ghes %}
-{% note %}
 
-**Note**: Depending on the authentication method that {% ifversion ghec %}an enterprise owner{% elsif ghes %}a site administrator{% endif %} has configured, you may not be able to enable 2FA for your personal account.
+> [!NOTE]
+> Depending on the authentication method that {% ifversion ghec %}an enterprise owner{% elsif ghes %}a site administrator{% endif %} has configured, you may not be able to enable 2FA for your personal account.
 
-{% endnote %}
 {% endif %}
 
 {% data variables.product.product_name %} supports several options for 2FA, and while any of them is better than nothing, the most secure option is a WebAuthn credential. WebAuthn requires an authenticator such as a FIDO2 hardware security key, a platform authenticator like Windows Hello, an Apple or Google phone, or a password manager. It's possible, although difficult, to phish other forms of 2FA (for example, someone asking you to read them your 6 digit one-time password). However WebAuthn is much more resistant to phishing, because domain scoping is built into the protocol, which prevents credentials from a website impersonating the login page from being used on {% data variables.product.product_name %}.
@@ -114,11 +113,10 @@ When you set up 2FA, you should always download the recovery codes and set up mo
 ### Configure your organization account
 
 {% ifversion ghec or ghes %}
-{% note %}
 
-**Note**: Depending on the authentication method that {% ifversion ghec %}an enterprise owner{% elsif ghes %}a site administrator{% endif %} has configured, you may not be able to require 2FA for your organization.
+> [!NOTE]
+> Depending on the authentication method that {% ifversion ghec %}an enterprise owner{% elsif ghes %}a site administrator{% endif %} has configured, you may not be able to require 2FA for your organization.
 
-{% endnote %}
 {% endif %}
 
 If you're an organization owner, you can see which users don't have 2FA enabled, help them get set up, and then require 2FA for your organization. To guide you through that process, see:

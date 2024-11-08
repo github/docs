@@ -15,19 +15,13 @@ topics:
   - OAuth apps
 ---
 
-{% note %}
-
-**Note**: Consider building a {% data variables.product.prodname_github_app %} instead of an {% data variables.product.prodname_oauth_app %}. {% data variables.product.prodname_github_apps %} use fine-grained permissions instead of scopes, which give you more control over what your app can do. For more information, see "[AUTOTITLE](/apps/oauth-apps/building-oauth-apps/differences-between-github-apps-and-oauth-apps)" and "[AUTOTITLE](/apps/creating-github-apps/setting-up-a-github-app/about-creating-github-apps)."
-
-{% endnote %}
+> [!NOTE]
+> Consider building a {% data variables.product.prodname_github_app %} instead of an {% data variables.product.prodname_oauth_app %}. {% data variables.product.prodname_github_apps %} use fine-grained permissions instead of scopes, which give you more control over what your app can do. For more information, see "[AUTOTITLE](/apps/oauth-apps/building-oauth-apps/differences-between-github-apps-and-oauth-apps)" and "[AUTOTITLE](/apps/creating-github-apps/setting-up-a-github-app/about-creating-github-apps)."
 
 When setting up an {% data variables.product.prodname_oauth_app %} on GitHub, requested scopes are displayed to the user on the authorization form.
 
-{% note %}
-
-**Note:** If you're building a GitHub App, you don’t need to provide scopes in your authorization request. For more on this, see "[AUTOTITLE](/apps/creating-github-apps/authenticating-with-a-github-app/identifying-and-authorizing-users-for-github-apps)."
-
-{% endnote %}
+> [!NOTE]
+> If you're building a GitHub App, you don’t need to provide scopes in your authorization request. For more on this, see "[AUTOTITLE](/apps/creating-github-apps/authenticating-with-a-github-app/identifying-and-authorizing-users-for-github-apps)."
 
 If your {% data variables.product.prodname_oauth_app %} doesn't have access to a browser, such as a CLI tool, then you don't need to specify a scope for users to authenticate to your app. For more information, see "[AUTOTITLE](/apps/oauth-apps/building-oauth-apps/authorizing-oauth-apps#device-flow)."
 
@@ -49,7 +43,7 @@ Name | Description
 -----|-----------|
 **`(no scope)`** | Grants read-only access to public information (including user profile info, repository info, and gists){% ifversion ghes %}
 **`site_admin`** | Grants site administrators access to [{% data variables.product.prodname_ghe_server %} Administration API endpoints](/rest/enterprise-admin).{% endif %}
-**`repo`** | Grants full access to public{% ifversion ghec or ghes %}, internal,{% endif %} and private repositories including read and write access to code, commit statuses, repository invitations, collaborators, deployment statuses, and repository webhooks. **Note**: In addition to repository related resources, the `repo` scope also grants access to manage organization-owned resources including projects, invitations, team memberships and webhooks. This scope also grants the ability to manage projects owned by users.
+**`repo`** | Grants full access to public{% ifversion ghec or ghes %}, internal,{% endif %} and private repositories including read and write access to code, commit statuses, repository invitations, collaborators, deployment statuses, and repository webhooks. **Note:** In addition to repository related resources, the `repo` scope also grants access to manage organization-owned resources including projects, invitations, team memberships and webhooks. This scope also grants the ability to manage projects owned by users.
 &emsp;`repo:status`| Grants read/write access to commit statuses in {% ifversion fpt %}public and private{% elsif ghec or ghes %}public, private, and internal{% endif %} repositories. This scope is only necessary to grant other users or services access to private repository commit statuses _without_ granting access to the code.
 &emsp;`repo_deployment`| Grants access to [deployment statuses](/rest/repos#deployments) for public and private repositories. This scope is only necessary to grant other users or services access to deployment statuses, _without_ granting access to the code.
 &emsp;`public_repo`| Limits access to public repositories. That includes read/write access to code, commit statuses, repository projects, collaborators, and deployment statuses for public repositories and organizations. Also required for starring public repositories.
@@ -89,16 +83,15 @@ Name | Description
 &emsp;`manage_billing:enterprise` | Read and write enterprise billing data. For more information, see "[AUTOTITLE](/rest/billing)." {% endif %}
 &emsp;`read:enterprise` | Read all data on an enterprise profile. Does not include profile data of enterprise members or organizations.{% endif %}{% ifversion read-audit-scope %}
 **`read:audit_log`** | Read audit log data.{% endif %}
-{% note %}
 
-**Note:** Your {% data variables.product.prodname_oauth_app %} can request the scopes in the initial redirection. You
-can specify multiple scopes by separating them with a space using `%20`:
-
-    https://github.com/login/oauth/authorize?
-      client_id=...&
-      scope=user%20repo_deployment
-
-{% endnote %}
+> [!NOTE]
+> Your {% data variables.product.prodname_oauth_app %} can request the scopes in the initial redirection. You can specify multiple scopes by separating them with a space using `%20`:
+>
+> ```text
+> https://github.com/login/oauth/authorize?
+>   client_id=...&
+>   scope=user%20repo_deployment
+> ```
 
 ## Requested scopes and granted scopes
 

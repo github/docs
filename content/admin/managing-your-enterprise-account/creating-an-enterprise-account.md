@@ -28,11 +28,12 @@ In most cases, you can create an enterprise account **yourself**.
 * When you start a free trial of {% data variables.product.prodname_ghe_cloud %}, you'll create an enterprise account as part of the process. See "[AUTOTITLE](/admin/overview/setting-up-a-trial-of-github-enterprise-cloud)."
 * If you currently use {% data variables.product.prodname_ghe_cloud %} with a single organization, you can upgrade to an enterprise account by following the steps later in this article.
 
-You'll **need help** creating an enterprise account for:
+You'll **need help** creating an enterprise account if you require:
 
 * {% data variables.product.prodname_ghe_server %}
+* {% data variables.enterprise.data_residency %}
 * Invoicing
-* Managing {% data variables.product.prodname_copilot_for_business %} licenses without adopting {% data variables.product.prodname_enterprise %}
+* A dedicated enterprise for managing {% data variables.product.prodname_copilot_for_business %} licenses without adopting {% data variables.product.prodname_enterprise %}
 
 In these cases, contact {% data variables.contact.contact_enterprise_sales %}.
 

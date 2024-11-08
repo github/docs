@@ -35,7 +35,7 @@ If system notifications are disabled for {% data variables.product.prodname_desk
 {% mac %}
 
 {% data reusables.desktop.mac-select-desktop-menu %}
-1. In the "Preferences" window, on the "Notifications" pane, select **Enable notifications**.
+1. In the "Settings" window, on the "Notifications" pane, select **Enable notifications**.
 1. In the "Enable notifications" description field, click the **Notification Settings** link to open the "Notifications" pane in the macOS "System Settings" window.
 1. In the "Application Notifications" list, select **{% data variables.product.prodname_desktop %}**.
 1. Click **Allow Notifications**.

@@ -13,7 +13,7 @@ shortTitle: Custom properties
 
 Custom properties allow you to decorate your repositories with information such as compliance frameworks, data sensitivity, or project details. Custom properties are private and can only be viewed by people with read permissions to the repository.
 
-{% ifversion ghec or ghes  %}
+{% ifversion ghec or ghes %}
 You can use repository properties to determine which repositories to target with a ruleset. For more information, see "[AUTOTITLE](/organizations/managing-organization-settings/creating-rulesets-for-repositories-in-your-organization#targeting-repositories-by-properties-in-your-organization)."
 {% endif %}
 
@@ -64,7 +64,7 @@ People with read permissions to a repository can view the values of custom prope
 
 {% data reusables.repositories.navigate-to-repo %}
 {% data reusables.repositories.sidebar-settings %}
-1. In the "Code and automation" section of the sidebar, click **{% octicon "tools" aria-hidden="true"%} Custom properties**.
+1. In the "Code and automation" section of the sidebar, click **{% octicon "tools" aria-hidden="true" %} Custom properties**.
 
 ## Searching and filtering repositories by custom properties values
 

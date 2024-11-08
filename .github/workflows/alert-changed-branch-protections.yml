@@ -3,6 +3,8 @@ name: Alert Changed Branch Protections
 on:
   branch_protection_rule:
   workflow_dispatch:
+  schedule:
+    - cron: '20 16 * * 3' # Run every Wednesday at 16:30 UTC / 8:30 PST
 
 permissions:
   contents: read

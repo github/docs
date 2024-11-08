@@ -57,14 +57,11 @@ packs. Along with the queries themselves, {% data variables.product.prodname_cod
 that tells the {% data variables.product.prodname_codeql_cli %} how to process the query files. For more information,
 see "[AUTOTITLE](/code-security/codeql-cli/using-the-advanced-functionality-of-the-codeql-cli/creating-and-working-with-codeql-packs)."
 
-{% note %}
-
-**Note:** There are different versions of the {% data variables.product.prodname_codeql %} queries available for different users. Check out the correct version for your use case:
-
-* For the queries that are intended to be used with the latest {% data variables.product.prodname_codeql_cli %} release, check out the branch tagged `codeql-cli/latest`. You should use this branch for databases you’ve built using the {% data variables.product.prodname_codeql_cli %} or recently downloaded from {% data variables.product.github %}.
-* For the most up to date {% data variables.product.prodname_codeql %} queries, check out the `main` branch. This branch represents the very latest version of {% data variables.product.prodname_codeql %}’s analysis.
-
-{% endnote %}
+> [!NOTE]
+> There are different versions of the {% data variables.product.prodname_codeql %} queries available for different users. Check out the correct version for your use case:
+>
+> * For the queries that are intended to be used with the latest {% data variables.product.prodname_codeql_cli %} release, check out the branch tagged `codeql-cli/latest`. You should use this branch for databases you’ve built using the {% data variables.product.prodname_codeql_cli %} or recently downloaded from {% data variables.product.github %}.
+> * For the most up to date {% data variables.product.prodname_codeql %} queries, check out the `main` branch. This branch represents the very latest version of {% data variables.product.prodname_codeql %}’s analysis.
 
 ### 4. Extract the {% data variables.product.prodname_codeql_cli %} tar archive
 

@@ -25,11 +25,8 @@ In order to access your enterprise account this way, you must have previously do
 
 ## Using a recovery code
 
-{% note %}
-
-**Note:** If your enterprises uses {% data variables.product.prodname_emus %}, you must sign in as the setup user to use a recovery code.
-
-{% endnote %}
+> [!NOTE]
+> If your enterprises uses {% data variables.product.prodname_emus %}, you must sign in as the setup user to use a recovery code.
 
 1. Attempt to access the enterprise account.
 {% data reusables.saml.recovery-code-access %}

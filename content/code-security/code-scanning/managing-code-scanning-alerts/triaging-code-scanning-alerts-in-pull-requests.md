@@ -33,15 +33,12 @@ If the lines of code changed in the pull request generate {% data variables.prod
 * The **Conversation** tab of the pull request, as part of a pull request review
 * The **Files changed** tab of the pull request
 
-{% note %}
-
-**Note:** {% data variables.product.prodname_code_scanning_caps %} displays alerts in pull requests only when all the lines of code identified by the alert exist in the pull request diff. For more information, see "[AUTOTITLE](/code-security/code-scanning/integrating-with-code-scanning/sarif-support-for-code-scanning#specifying-the-location-for-source-files)."
-
-{% endnote %}
+> [!NOTE]
+> {% data variables.product.prodname_code_scanning_caps %} displays alerts in pull requests only when all the lines of code identified by the alert exist in the pull request diff. For more information, see "[AUTOTITLE](/code-security/code-scanning/integrating-with-code-scanning/sarif-support-for-code-scanning#specifying-the-location-for-source-files)."
 
 {% ifversion code-scanning-autofix %}
 
-{% data variables.product.prodname_copilot_autofix %} will suggest fixes for alerts from {% data variables.product.prodname_codeql %} analysis in private repositories. For more information on working with suggestions from {% data variables.product.prodname_copilot_autofix_short %} in pull requests, see "[Working with {% data variables.product.prodname_copilot_autofix_short %} suggestions for alerts on a pull request](#working-with-copilot-autofix-suggestions-for-alerts-on-a-pull-request)."
+{% data variables.product.prodname_copilot_autofix %} will suggest fixes for alerts from {% data variables.product.prodname_code_scanning %} analysis (including {% data variables.product.prodname_codeql %} analysis) in private repositories. For more information on working with suggestions from {% data variables.product.prodname_copilot_autofix_short %} in pull requests, see "[Working with {% data variables.product.prodname_copilot_autofix_short %} suggestions for alerts on a pull request](#working-with-copilot-autofix-suggestions-for-alerts-on-a-pull-request)."
 
 {% endif %}
 
@@ -119,7 +116,7 @@ Anyone with push access to a pull request can fix a {% data variables.product.pr
 
 ## Working with {% data variables.product.prodname_copilot_autofix_short %} suggestions for alerts on a pull request
 
-{% data variables.product.prodname_copilot_autofix %} is an expansion of {% data variables.product.prodname_code_scanning %} that provides you with targeted recommendations to help you fix {% data variables.product.prodname_code_scanning %} alerts in pull requests. The potential fixes are generated automatically by large language models (LLMs) using data from the codebase, the pull request, and from {% data variables.product.prodname_codeql %} analysis.
+{% data variables.product.prodname_copilot_autofix %} is an expansion of {% data variables.product.prodname_code_scanning %} that provides you with targeted recommendations to help you fix {% data variables.product.prodname_code_scanning %} alerts (including {% data variables.product.prodname_codeql %} alerts) in pull requests. The potential fixes are generated automatically by large language models (LLMs) using data from the codebase, the pull request, and from {% data variables.product.prodname_code_scanning %} analysis.
 
 {% data reusables.rai.code-scanning.copilot-autofix-note %}
 
@@ -127,16 +124,12 @@ Anyone with push access to a pull request can fix a {% data variables.product.pr
 
 ### Generating {% data variables.product.prodname_copilot_autofix_short %} suggestions and publishing to a pull request
 
-When {% data variables.product.prodname_copilot_autofix_short %} is enabled for a repository, alerts are displayed in pull requests as normal and information from any alerts found by {% data variables.product.prodname_codeql %} is automatically sent to the LLM for processing. When LLM analysis is complete, any results are published as comments on relevant alerts. For more information, see "[AUTOTITLE](/code-security/code-scanning/managing-code-scanning-alerts/responsible-use-autofix-code-scanning)."
+When {% data variables.product.prodname_copilot_autofix_short %} is enabled for a repository, alerts are displayed in pull requests as normal and information from any alerts found by {% data variables.product.prodname_code_scanning %} is automatically sent to the LLM for processing. When LLM analysis is complete, any results are published as comments on relevant alerts. For more information, see "[AUTOTITLE](/code-security/code-scanning/managing-code-scanning-alerts/responsible-use-autofix-code-scanning)."
 
-{% note %}
-
-**Notes:**
-* {% data variables.product.prodname_copilot_autofix_short %} supports a subset of {% data variables.product.prodname_codeql %} queries. For information about the availability of {% data variables.product.prodname_copilot_autofix_short %}, see the query tables linked from "[AUTOTITLE](/code-security/code-scanning/managing-your-code-scanning-configuration/codeql-query-suites#query-lists-for-the-default-query-suites)."
-* When analysis is complete, all relevant results are published to the pull request at once. If at least one alert in your pull request has an {% data variables.product.prodname_copilot_autofix_short %} suggestion, you should assume that the LLM has finished identifying potential fixes for your code.
-* On alerts generated from queries that are not supported by {% data variables.product.prodname_copilot_autofix_short %}, you will see a note telling you that the query is not supported. If a suggestion for a supported query fails to generate, you will see a note on the alert prompting you to try pushing another commit or to contact support.
-
-{% endnote %}
+> [!NOTE]
+> * {% data variables.product.prodname_copilot_autofix_short %} supports a subset of {% data variables.product.prodname_codeql %} queries. For information about the availability of {% data variables.product.prodname_copilot_autofix_short %}, see the query tables linked from "[AUTOTITLE](/code-security/code-scanning/managing-your-code-scanning-configuration/codeql-query-suites#query-lists-for-the-default-query-suites)."
+> * When analysis is complete, all relevant results are published to the pull request at once. If at least one alert in your pull request has an {% data variables.product.prodname_copilot_autofix_short %} suggestion, you should assume that the LLM has finished identifying potential fixes for your code.
+> * On alerts generated from queries that are not supported by {% data variables.product.prodname_copilot_autofix_short %}, you will see a note telling you that the query is not supported. If a suggestion for a supported query fails to generate, you will see a note on the alert prompting you to try pushing another commit or to contact support.
 
 Usually, when you suggest changes to a pull request, your comment contains changes for a single file that is changed in the pull request. The following screenshot shows an {% data variables.product.prodname_copilot_autofix_short %} comment that suggests changes to the `index.js` file where the alert is displayed. Since the potential fix requires a new dependency on `escape-html`, the comment also suggests adding this dependency to the `package.json` file, even though the original pull request makes no changes to this file.
 
@@ -144,11 +137,14 @@ Usually, when you suggest changes to a pull request, your comment contains chang
 
 ### Assessing and committing an {% data variables.product.prodname_copilot_autofix_short %} suggestion
 
-Each {% data variables.product.prodname_copilot_autofix_short %} suggestion demonstrates a potential solution for a {% data variables.product.prodname_code_scanning %} alert in your codebase. You must assess the suggested changes to determine whether they are a good solution for your codebase and to ensure that they maintain the intended behavior. For information about the limitations of {% data variables.product.prodname_copilot_autofix_short %} suggestions, see "[Limitations of suggestions](/code-security/code-scanning/managing-code-scanning-alerts/responsible-use-autofix-code-scanning#limitations-of-suggestions)" and "[Mitigating the limitations of suggestions](/code-security/code-scanning/managing-code-scanning-alerts/responsible-use-autofix-code-scanning#mitigating-the-limitations-of-suggestions)" in "About {% data variables.product.prodname_copilot_autofix_short %} for {% data variables.product.prodname_codeql %} {% data variables.product.prodname_code_scanning %}."
+Each {% data variables.product.prodname_copilot_autofix_short %} suggestion demonstrates a potential solution for a {% data variables.product.prodname_code_scanning %} alert in your codebase. You must assess the suggested changes to determine whether they are a good solution for your codebase and to ensure that they maintain the intended behavior. For information about the limitations of {% data variables.product.prodname_copilot_autofix_short %} suggestions, see "[Limitations of suggestions](/code-security/code-scanning/managing-code-scanning-alerts/responsible-use-autofix-code-scanning#limitations-of-suggestions)" and "[Mitigating the limitations of suggestions](/code-security/code-scanning/managing-code-scanning-alerts/responsible-use-autofix-code-scanning#mitigating-the-limitations-of-suggestions)" in "Responsible use of {% data variables.product.prodname_copilot_autofix_short %} for {% data variables.product.prodname_code_scanning %}."
 
 1. Click **Edit** to display the editing options and select your preferred method.
    * Under **Edit with {% data variables.product.prodname_cli %}**, follow the instructions for checking out the pull request locally and applying the suggested fix.
    * Select **Edit FILENAME** to edit the file directly on {% data variables.product.prodname_dotcom %} with the suggested fix applied.
+
+    {% data reusables.rai.code-scanning.copilot-workspaces-prs-autofix-note %}
+
 1. Optionally, if you prefer to apply the fix on a local repository or branch, select the {% octicon "copy" aria-hidden="true" %} dropdown menu on the suggestion.
    * Select **View autofix patch** to display instructions for applying the suggested fix to any local repository or branch.
    * Select **Copy modified line LINE_NUMBER** to copy a specific line of the suggestion.

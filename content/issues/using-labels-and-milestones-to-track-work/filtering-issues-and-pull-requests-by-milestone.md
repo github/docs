@@ -13,15 +13,11 @@ topics:
   - Pull requests
 shortTitle: Filter by milestone
 ---
-{% tip %}
 
-**Tips:**
-
-* If you'd rather filter issues and pull requests using the Search bar, you can use the milestone search syntax. For a milestone called My Milestone, the search syntax would be: `milestone:"My Milestone"`.
-* To clear your filter selection, click **Clear current search query, filters, and sorts**.
-* You can also filter issues or pull requests using the {% data variables.product.prodname_cli %}. For more information, see "[`gh issue list`](https://cli.github.com/manual/gh_issue_list)" or "[`gh pr list`](https://cli.github.com/manual/gh_pr_list)" in the {% data variables.product.prodname_cli %} documentation.
-
-{% endtip %}
+> [!TIP]
+> * If you'd rather filter issues and pull requests using the Search bar, you can use the milestone search syntax. For a milestone called My Milestone, the search syntax would be: `milestone:"My Milestone"`.
+> * To clear your filter selection, click **Clear current search query, filters, and sorts**.
+> * You can also filter issues or pull requests using the {% data variables.product.prodname_cli %}. For more information, see "[`gh issue list`](https://cli.github.com/manual/gh_issue_list)" or "[`gh pr list`](https://cli.github.com/manual/gh_pr_list)" in the {% data variables.product.prodname_cli %} documentation.
 
 {% data reusables.repositories.navigate-to-repo %}
 {% data reusables.repositories.sidebar-issue-pr %}

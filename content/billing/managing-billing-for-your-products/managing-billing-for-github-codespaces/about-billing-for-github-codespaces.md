@@ -59,14 +59,23 @@ The following storage and core hours of usage are included, free of charge, for 
 | {% data variables.product.prodname_dotcom %} Free for personal accounts | 15 GB-month | 120 |
 | {% data variables.product.prodname_dotcom %} Pro                        | 20 GB-month | 180 |
 
-{% note %}
+### Understanding GB-months and core hours
 
-**Notes**
+The included usage for personal accounts is measured in GB-months and core hours.
 
-* The GB-month unit of storage is a time-based measurement, 1 GB-month being 1 GB of storage usage for one whole month. The disk space used by all of your codespaces and prebuilds is assessed once an hour and your current GB-month usage is recalculated. Therefore, while you have codespaces and prebuilds, your GB-month usage will increase throughout the month. For example, if the storage totals 15 GB, and remains unchanged throughout your monthly billing cycle, then you will have used 7.5 GB halfway through the month, and 15 GB at the end of the month. See "[About billing for storage usage](#about-billing-for-storage-usage)" later in this article.
-* A "core hour" is a measure used for included compute usage. To calculate core hours, multiply the number of hours for which a codespace has been active by the multiplier in the pricing table later in this article. For the basic machine types, the multiplier is the number of processor cores in the machine that hosts the codespace. For example, if you use a 2-core machine for your codespace and it's active for an hour, you have used 2 core hours. If you use an 8-core machine for an hour, you have used 8 core hours. If you use an 8-core machine for two hours, you have used 16 core hours.
+#### GB-month
 
-{% endnote %}
+The GB-month unit of storage is a time-based measurement, 1 GB-month being 1 GB of storage usage for one whole month. The disk space used by all of your codespaces and prebuilds is assessed once an hour and your current GB-month usage is recalculated. Therefore, while you have codespaces and prebuilds, your GB-month usage will increase throughout the month. For example, if the storage totals 15 GB, and remains unchanged throughout your monthly billing cycle, then you will have used 7.5 GB halfway through the month, and 15 GB at the end of the month. See "[About billing for storage usage](#about-billing-for-storage-usage)" later in this article.
+
+#### Core hour
+
+A "core hour" is a measure used for included compute usage. To calculate core hours, multiply the number of hours for which a codespace has been active by the multiplier in the pricing table later in this article. For the basic machine types, the multiplier is the number of processor cores in the machine that hosts the codespace. For example:
+
+* A 2-core machine used for 1 hour equals 2 core hours
+* An 8-core machine used for 1 hour equals 8 core hours
+* An 8-core machine used for 2 hours equals 16 core hours
+
+### Using your included usage
 
 You will be notified by email when you have used 75%, 90%, and 100% of your included quotas. Notifications are also displayed in a "toast" message within {% data variables.product.prodname_vscode_shortname %} and the {% data variables.product.prodname_vscode_shortname %} web client. You can turn off email notifications if required. See "[AUTOTITLE](/billing/managing-billing-for-your-products/managing-billing-for-github-codespaces/managing-the-spending-limit-for-github-codespaces#managing-usage-and-spending-limit-email-notifications)."
 
@@ -109,7 +118,7 @@ If you enable prebuilding of codespaces this will incur additional charges. See 
 
 Billing for {% data variables.product.prodname_github_codespaces %} shares your account's existing payment method, and receipt. See "[AUTOTITLE](/billing/managing-your-github-billing-settings/viewing-your-subscriptions-and-billing-date)."
 
-If you are an organization owner{% ifversion ghec %} or enterprise owner{% endif%}, you can connect an Azure Subscription ID to your organization {% ifversion ghec %}or enterprise{% endif%} account to enable and pay for {% data variables.product.prodname_github_codespaces %} usage. See "[AUTOTITLE](/billing/managing-the-plan-for-your-github-account/connecting-an-azure-subscription)."
+If you are an organization owner{% ifversion ghec %} or enterprise owner{% endif %}, you can connect an Azure Subscription ID to your organization {% ifversion ghec %}or enterprise{% endif %} account to enable and pay for {% data variables.product.prodname_github_codespaces %} usage. See "[AUTOTITLE](/billing/managing-the-plan-for-your-github-account/connecting-an-azure-subscription)."
 
 ## About billing for compute usage
 
@@ -123,17 +132,17 @@ You can control compute usage by stopping your codespaces. For information, see 
 
 For {% data variables.product.prodname_github_codespaces %} billing purposes, storage comprises the disk space used by all of the codespaces and prebuilds in your account. This includes any files you use in a codespace, such as cloned repositories, configuration files, data loaded to the codespace (for example as input or output of the software running in the repository), and extensions, among others. Storage is billed for all of your existing codespaces, regardless of whether they are active or inactive with the exception of blocked usage due to exhausted included usage quota or reaching your spending limit. The storage billing for a codespace ends when it is deleted. However, deleting a codespace does not reduce your used storage amount for the current billing month as this is a cumulative figure.
 
-{% note %}
+### Storage billing for containers based on the default image
 
-**Note**
+When you use the default dev container configuration, your container is built from the default Linux image for codespaces. See "[AUTOTITLE](/codespaces/setting-up-your-project-for-codespaces/adding-a-dev-container-configuration/introduction-to-dev-containers#using-the-default-dev-container-configuration)."
 
-When you use the default dev container configuration, your dev container will be built from the default Linux image for codespaces. See "[AUTOTITLE](/codespaces/setting-up-your-project-for-codespaces/adding-a-dev-container-configuration/introduction-to-dev-containers#using-the-default-dev-container-configuration)." Containers based on the default image are not counted as used storage, irrespective of whether you have added features in your dev container configuration. See "[AUTOTITLE](/codespaces/setting-up-your-project-for-codespaces/configuring-dev-containers/adding-features-to-a-devcontainer-file)."
+Containers based on the default image are not counted as used storage, even if you add features in your dev container configuration. See "[AUTOTITLE](/codespaces/setting-up-your-project-for-codespaces/configuring-dev-containers/adding-features-to-a-devcontainer-file)."
 
 If you use the default image, the storage usage for your codespace will be based on the files in your repository, and any files you subsequently add to the codespace. If you use an alternative base image, then the resulting container and all of the files in the codespace will be counted as used storage.
 
 {% data reusables.codespaces.check-for-default-image %}
 
-{% endnote %}
+### Reporting storage usage
 
 Codespace storage is reported in GB-months. Your billing month runs from a fixed day in one month until the same day in the next month. In most cases the day of the month is determined by the day you started on your current {% data variables.product.prodname_dotcom %} plan. Your GB-month storage is calculated as follows. Once every hour, the storage used by all of your currently active and stopped codespaces is assessed. This figure is then divided by the number of hours in the current billing month: `total storage size / hours this month`. The result is added to the running total for codespace storage for the month.
 
@@ -187,13 +196,9 @@ To limit the storage costs associated with prebuilds, you can choose to create p
 
 If you delete a prebuild configuration, all the associated prebuilds are deleted, reducing your storage consumption from that point onward. See "[AUTOTITLE](/codespaces/prebuilding-your-codespaces/managing-prebuilds#deleting-a-prebuild-configuration)."
 
-{% note %}
+Prebuilds can be updated multiple times during a billing month. Each update may change the size of the prebuild, which affects your storage charges. For details of how storage is calculated during a billing month, see "[About billing for storage usage](#about-billing-for-storage-usage)" earlier in this article.
 
-**Notes**:
-* Prebuilds may be updated several times during a billing month. Newer versions of a prebuild may be larger or smaller than the previous versions. This will affect the storage charges. For details of how storage is calculated during a billing month, see "[About billing for storage usage](#about-billing-for-storage-usage)" earlier in this article.
-* As with deleting codespaces, deleting prebuilds does not reduce your used storage amount for the current billing month as this is a cumulative figure.
-
-{% endnote %}
+>[!TIP] As with deleting codespaces, deleting prebuilds does not reduce your used storage amount for the current billing month as this is a cumulative figure.
 
 ### Cost of codespaces created from prebuilds
 
@@ -253,15 +258,12 @@ If a user publishes a codespace created from a template, the codespace is publis
 
 {% ifversion ghec %}
 
-{% note %}
+A {% data variables.enterprise.prodname_managed_user %} cannot be the billable owner of a codespace. Therefore:
 
-**Note:** A {% data variables.enterprise.prodname_managed_user %} cannot be the billable owner of a codespace. Therefore:
 * A {% data variables.enterprise.prodname_managed_user %} can only create a codespace from a template if the codespace is billed to an organization.
 * A {% data variables.enterprise.prodname_managed_user %} cannot publish a codespace created from a template to a new repository.
 
 See "[AUTOTITLE](/admin/identity-and-access-management/using-enterprise-managed-users-for-iam/about-enterprise-managed-users)."
-
-{% endnote %}
 
 {% endif %}
 

@@ -81,11 +81,9 @@ This example configuration uses a primary and two replicas, which are located in
    (replica2)$ ghe-repl-node --datacenter [SECOND REPLICA DC NAME]
    ```
 
-   {% tip %}
+   > [!TIP]
+   > You can set the `--datacenter` and `--active` options at the same time.
 
-   **Tip:** You can set the `--datacenter` and `--active` options at the same time.
-
-   {% endtip %}
 1. An active replica node will store copies of the appliance data and service end user requests. An inactive node will store copies of the appliance data but will be unable to service end user requests. Enable active mode using the `--active` flag or inactive mode using the `--inactive` flag.
 
    On the first replica:

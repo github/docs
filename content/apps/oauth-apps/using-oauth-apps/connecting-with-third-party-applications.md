@@ -37,17 +37,11 @@ _Scopes_ are named groups of permissions that an application can request to acce
 
 When you want to use a third-party application that integrates with {% data variables.product.product_name %}, that application lets you know what type of access to your data will be required. If you grant access to the application, then the application will be able to perform actions on your behalf, such as reading or modifying data. For example, if you want to use an app that requests `user:email` scope, the app will have read-only access to your private email addresses. For more information, see "[AUTOTITLE](/apps/oauth-apps/building-oauth-apps/scopes-for-oauth-apps)."
 
-{% tip %}
+> [!NOTE]
+> Currently, you can't scope source code access to read-only.
 
-**Note:** Currently, you can't scope source code access to read-only.
-
-{% endtip %}
-
-{% tip %}
-
-**Tip:** {% data reusables.user-settings.review_oauth_tokens_tip %}
-
-{% endtip %}
+> [!TIP]
+> {% data reusables.user-settings.review_oauth_tokens_tip %}
 
 ### Types of requested data
 

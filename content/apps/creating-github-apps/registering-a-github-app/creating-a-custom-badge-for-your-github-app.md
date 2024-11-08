@@ -35,8 +35,7 @@ For more information about badges for {% data variables.product.prodname_github_
 ## Creating a custom badge
 
 {% data reusables.apps.settings-step %}
-{% data reusables.user-settings.developer_settings %}
-{% data reusables.user-settings.github_apps %}
+{% data reusables.apps.enterprise-apps-steps %}
 {% data reusables.user-settings.modify_github_app %}
 1. Under "Display information", drag and drop an image from a local folder or click **Upload a logo** to select an image from your computer.
 1. Optionally, crop your image.
@@ -44,11 +43,10 @@ For more information about badges for {% data variables.product.prodname_github_
 1. Under "Badge background color", type the hexadecimal color code of the background color for your badge.
 
 {% ifversion fpt or ghec %}
-   {% note %}
 
-   **Note:** The "Badge background color" input field will only appear after you upload a logo.
+   > [!NOTE]
+   > The "Badge background color" input field will only appear after you upload a logo.
 
-   {% endnote %}
 {% endif %}
 
 {% ifversion fpt or ghec %}

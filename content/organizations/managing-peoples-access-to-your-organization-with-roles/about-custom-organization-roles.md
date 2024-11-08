@@ -56,8 +56,8 @@ Manage organization OAuth application policies | Access to the "OAuth applicatio
 | Manage organization runners and runner groups | Access to create and manage GitHub-hosted runners, self-hosted runners, and runner groups, and control where self-hosted runners can be created. | "[AUTOTITLE](/actions/using-github-hosted-runners/about-github-hosted-runners/about-github-hosted-runners#overview-of-github-hosted-runners)"<br><br>"[AUTOTITLE](/actions/hosting-your-own-runners/managing-self-hosted-runners/about-self-hosted-runners)" |
 | Manage organization Actions secrets | Access to create and manage Actions organization secrets. | "[AUTOTITLE](/actions/security-guides/using-secrets-in-github-actions#creating-secrets-for-an-organization)" |
 | Manage organization Actions variables | Access to create and manage Actions organization variables. | "[AUTOTITLE](/actions/learn-github-actions/variables#creating-configuration-variables-for-an-organization)" |
-|  {% ifversion actions-usage-metrics %} |
-| View organization Actions metrics | View {% data variables.product.prodname_actions %} usage metrics for your organization. | "[AUTOTITLE](/organizations/collaborating-with-groups-in-organizations/viewing-usage-metrics-for-github-actions)" |
+|  {% ifversion actions-metrics %} |
+| View organization Actions metrics | View {% data variables.product.prodname_actions %} metrics for your organization. | "[AUTOTITLE](/organizations/collaborating-with-groups-in-organizations/viewing-usage-metrics-for-github-actions)" |
 |  {% endif %} |
 |  {% ifversion push-protection-bypass-fine-grained-permissions %} |
 | Review and manage {% data variables.product.prodname_secret_scanning %} bypass requests | Review and manage {% data variables.product.prodname_secret_scanning %} bypass requests for your organization. | "[AUTOTITLE](/code-security/secret-scanning/using-advanced-secret-scanning-and-push-protection-features/delegated-bypass-for-push-protection)" |
