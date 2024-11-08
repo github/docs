@@ -2,7 +2,7 @@
 title: Interpreting security findings
 shortTitle: Interpret security data
 intro: 'You can analyze security data on repositories in your organization to determine if you need to make changes to your security setup.'
-permissions: '{% data reusables.security-configurations.security-configurations-permissions %}'
+permissions: '{% data reusables.permissions.security-org-enable %}'
 versions:
   feature: security-configurations
 topics:
@@ -15,7 +15,9 @@ redirect_from:
 
 ## About security findings
 
-After you apply a {% data variables.product.prodname_security_configuration %} to a repository, the enabled security features will likely raise security findings on that repository. These findings may show up as feature-specific alerts, or as automatically generated pull requests designed to keep your repository secure. To best secure your organization, you should encourage contributors to those repositories to review and resolve these alerts and pull requests. You can analyze the findings across the organization and make any necessary adjustments to your {% data variables.product.prodname_security_configuration %}.
+After you apply a {% data variables.product.prodname_security_configuration %} to a repository, the enabled security features will likely raise security findings on that repository. These findings may show up as feature-specific alerts, or as automatically generated pull requests designed to keep your repositories secure. You can analyze the findings across the organization and make any necessary adjustments to your {% data variables.product.prodname_security_configuration %}.
+
+To best secure your organization, you should encourage contributors to review and resolve security alerts and pull requests. {% ifversion security-campaigns %}In addition, you can collaborate with contributors to fix historical security alerts, see "[AUTOTITLE](/code-security/securing-your-organization/fixing-security-alerts-at-scale/best-practice-fix-alerts-at-scale)."{% endif %}
 
 {% ifversion ghec or ghes %}
 
@@ -26,7 +28,7 @@ After you apply a {% data variables.product.prodname_security_configuration %} t
 {% data reusables.organizations.security-overview %}
 1. By default, the overview shows alerts for all native {% data variables.product.github %} tools (filter: `tool:github`). To display alerts for a specific tool, replace `tool:github` in the filter text box. For example:
     * `tool:dependabot` to show only alerts for dependencies identified by {% data variables.product.prodname_dependabot %}.
-    * `tool:secret-scanning` to only show alerts for secrets indentified by {% data variables.product.prodname_secret_scanning %}.
+    * `tool:secret-scanning` to only show alerts for secrets identified by {% data variables.product.prodname_secret_scanning %}.
     * `tool:codeql` to show only alerts for potential security vulnerabilities identified by {% data variables.product.prodname_codeql %} {% data variables.product.prodname_code_scanning %}.
 1. You can add further filters to show only the repositories you want to assess. The list of repositories and metrics displayed on the page automatically update to match your current selection. For more information on filtering, see "[AUTOTITLE](/code-security/security-overview/filtering-alerts-in-security-overview)."
     * Use the **Teams** dropdown to show information only for the repositories owned by one or more teams.
@@ -68,11 +70,8 @@ For an introduction to {% data variables.product.prodname_dependabot_alerts %}, 
 
 To learn how to interpret and resolve {% data variables.product.prodname_dependabot_alerts %}, see "[AUTOTITLE](/code-security/dependabot/dependabot-alerts/viewing-and-updating-dependabot-alerts)."
 
-{% note %}
-
-**Note:** If you enabled {% data variables.product.prodname_dependabot_security_updates %}, {% data variables.product.prodname_dependabot %} can also automatically raise pull requests to update the dependencies used in the repositories of the organization. For more information, see "[AUTOTITLE](/code-security/dependabot/dependabot-security-updates/about-dependabot-security-updates)."
-
-{% endnote %}
+> [!NOTE]
+> If you enabled {% data variables.product.prodname_dependabot_security_updates %}, {% data variables.product.prodname_dependabot %} can also automatically raise pull requests to update the dependencies used in the repositories of the organization. For more information, see "[AUTOTITLE](/code-security/dependabot/dependabot-security-updates/about-dependabot-security-updates)."
 
 ## Next steps
 

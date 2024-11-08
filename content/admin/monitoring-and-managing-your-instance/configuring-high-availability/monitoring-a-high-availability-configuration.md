@@ -20,7 +20,7 @@ redirect_from:
 
 {% data reusables.enterprise.about-ha %} For more information, see "[AUTOTITLE](/admin/enterprise-management/configuring-high-availability/about-high-availability-configuration)."
 
-After you configure high availability, you can proactively ensure redundancy by monitoring the overall health of replication and the status of each of your instance's replica nodes. You can use command-line utilities on the instance, an overview dashboard, {% ifversion replication-management-api %}the instance's REST API, {%endif %}or a remote monitoring system such as Nagios.
+After you configure high availability, you can proactively ensure redundancy by monitoring the overall health of replication and the status of each of your instance's replica nodes. You can use command-line utilities on the instance, an overview dashboard, {% ifversion replication-management-api %}the instance's REST API, {% endif %}or a remote monitoring system such as Nagios.
 
 With high availability, your instance uses several approaches to replicate data between primary and replica nodes. Database services that support a native replication mechanism, such as MySQL, replicate using the service's native mechanism. Other services, such as Git repositories, replicate using a custom mechanism developed for {% data variables.product.product_name %}, or using platform tools like rsync.
 

@@ -18,7 +18,7 @@ shortTitle: Feature preview
 
 | Phase | Description |
 |-------|-------------|
-| {% data variables.release-phases.private_preview_caps %} | The product or feature is under heavy development and often has changing requirements and scope. The feature is available for demonstration and test purposes but may not be documented. {% data variables.release-phases.private_preview_caps %} releases are not necessarily feature complete, no service level agreements (SLAs) are provided, and there are no technical support obligations. <br><br> **Note**: A product or feature released as a "Technology Preview" is considered to be in the {% data variables.release-phases.private_preview %} release stage. Technology Preview releases share the same characteristics of {% data variables.release-phases.private_preview %} releases as described above.|
+| {% data variables.release-phases.private_preview_caps %} | The product or feature is under heavy development and often has changing requirements and scope. The feature is available for demonstration and test purposes but may not be documented. {% data variables.release-phases.private_preview_caps %} releases are not necessarily feature complete, no service level agreements (SLAs) are provided, and there are no technical support obligations. <br><br> **Note:** A product or feature released as a "Technology Preview" is considered to be in the {% data variables.release-phases.private_preview %} release stage. Technology Preview releases share the same characteristics of {% data variables.release-phases.private_preview %} releases as described above.|
 | {% data variables.release-phases.public_preview_caps %} | The product or feature is ready for broader distribution. {% data variables.release-phases.public_preview_caps %} releases can be public or private, are documented, but do not have any SLAs or technical support obligations. |
 | General availability (GA) | The product or feature is fully tested and open publicly to all users. GA releases are ready for production use, and associated SLA and technical support obligations apply. |
 
@@ -26,6 +26,6 @@ shortTitle: Feature preview
 
 You can see a list of features that are available in {% data variables.release-phases.public_preview %} and a brief description for each feature. Each feature includes a link to give feedback.
 
-{% data reusables.feature-preview.feature-preview-setting  %}
+{% data reusables.feature-preview.feature-preview-setting %}
 1. To view details for a feature, in the left sidebar, click the feature's name.
 1. Optionally, to the right of a feature's name, click **Enable** or **Disable**.

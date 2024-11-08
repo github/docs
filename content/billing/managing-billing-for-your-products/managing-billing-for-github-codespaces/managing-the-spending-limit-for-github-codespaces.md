@@ -35,7 +35,7 @@ Once you've reached your spending limit, you will no longer be able to create ne
 
 ## Using your Azure Subscription
 
-If you are an organization owner{% ifversion ghec %} or enterprise owner{% endif%}, you can connect an Azure Subscription ID to your organization {% ifversion ghec %}or enterprise{% endif%} account to enable and pay for {% data variables.product.prodname_github_codespaces %} usage. See "[AUTOTITLE](/billing/managing-the-plan-for-your-github-account/connecting-an-azure-subscription)."
+If you are an organization owner{% ifversion ghec %} or enterprise owner{% endif %}, you can connect an Azure Subscription ID to your organization {% ifversion ghec %}or enterprise{% endif %} account to enable and pay for {% data variables.product.prodname_github_codespaces %} usage. See "[AUTOTITLE](/billing/managing-the-plan-for-your-github-account/connecting-an-azure-subscription)."
 
 ## Managing the {% data variables.product.prodname_github_codespaces %} spending limit for your personal account
 
@@ -51,11 +51,8 @@ You can set a spending limit for {% data variables.product.prodname_github_codes
 
 Organizations owners and billing managers can manage the spending limit for {% data variables.product.prodname_github_codespaces %} for an organization.
 
-{% note %}
-
-**Note**: Organizations that are owned by an enterprise account cannot specify their own spending limit as this is specified in the enterprise settings.
-
-{% endnote %}
+> [!NOTE]
+> Organizations that are owned by an enterprise account cannot specify their own spending limit as this is specified in the enterprise settings.
 
 {% data reusables.organizations.billing-settings %}
 {% data reusables.dotcom_billing.manage-spending-limit %}

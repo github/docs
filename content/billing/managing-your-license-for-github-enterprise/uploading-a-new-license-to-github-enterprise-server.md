@@ -19,11 +19,10 @@ After you purchase or upgrade a license for {% data variables.product.prodname_e
 ## Uploading your license from the {% data variables.enterprise.management_console %}
 
 {% ifversion ghes < 3.13 %}
-{% warning %}
 
-**Warning:** Updating your license causes a small amount of downtime for {% data variables.location.product_location %}.
+> [!WARNING]
+> Updating your license causes a small amount of downtime for {% data variables.location.product_location %}.
 
-{% endwarning %}
 {% endif %}
 
 1. Sign into {% data variables.location.product_location_enterprise %} as a site administrator.

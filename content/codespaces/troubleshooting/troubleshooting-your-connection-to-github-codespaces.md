@@ -52,7 +52,7 @@ If you still can't connect and the message you're seeing isn't in this list, che
 
 To be able to use a codespace in JupyterLab, you must ensure that your codespace has it installed. The default dev container image that's used by {% data variables.product.prodname_github_codespaces %} includes JupyterLab, but if you have customized your dev container configuration you will have to manually install JupyterLab.
 
-If your codespace uses a Debian-based image, you can install JupyterLab in the dev container by adding the `python` feature to your `devcontainer.json` file, with the `installJupyterlab` option set to `true`. Otherwise, install it directly in your Dockerfile. For installation instructions, see "[Installation](https://jupyterlab.readthedocs.io/en/stable/getting_started/installation.html)" in the JupyterLab documentation.
+If your codespace uses a Debian-based image, you can install JupyterLab in the dev container by adding the `python` feature to your `devcontainer.json` file, with the `installJupyterlab` option set to `true`. Otherwise, install it directly in your Dockerfile. For installation instructions, see [Installation](https://jupyterlab.readthedocs.io/en/stable/getting_started/installation.html) in the JupyterLab documentation.
 
 For more information about the `python` feature, see the README page in the [`devcontainers/features` repository](https://github.com/devcontainers/features/tree/main/src/python). For more information about the `devcontainer.json` file and the Dockerfile, see "[AUTOTITLE](/codespaces/setting-up-your-project-for-codespaces/adding-a-dev-container-configuration/introduction-to-dev-containers#devcontainerjson)."
 

@@ -14,11 +14,8 @@ topics:
 shortTitle: Suspend an installation
 ---
 
-{% note %}
-
-**Note**: If you want to suspend a {% data variables.product.prodname_github_app %} that you use but do not own, see "[AUTOTITLE](/apps/using-github-apps/reviewing-and-modifying-installed-github-apps#blocking-access)" instead.
-
-{% endnote %}
+> [!NOTE]
+> If you want to suspend a {% data variables.product.prodname_github_app %} that you use but do not own, see "[AUTOTITLE](/apps/using-github-apps/reviewing-and-modifying-installed-github-apps#blocking-access)" instead.
 
 When a {% data variables.product.prodname_github_app %} is suspended for an installation, the {% data variables.product.prodname_github_app %} cannot access resources owned by that installation account. For example, you might want to suspend your {% data variables.product.prodname_github_app %} if you are worried that your app's credentials were leaked.
 

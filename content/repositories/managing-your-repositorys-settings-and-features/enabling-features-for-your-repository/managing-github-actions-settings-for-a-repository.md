@@ -124,7 +124,7 @@ By default, when you create a new repository in your personal account, workflows
 
 {% ifversion internal-actions %}Actions and reusable workflows in your internal repositories can be shared with internal and private repositories in the same organization or enterprise.{% else %}Members of your enterprise can use internal repositories to work on projects without sharing information publicly.{% endif %} For information about internal repositories, see "[AUTOTITLE](/repositories/creating-and-managing-repositories/about-repositories#about-internal-repositories)."
 
-You can use the steps below to configure whether {% ifversion internal-actions%}actions and {% endif %}reusable workflows in an internal repository can be accessed from outside the repository.{% ifversion internal-actions %} For more information, see "[AUTOTITLE](/actions/creating-actions/sharing-actions-and-workflows-with-your-enterprise)." Alternatively, you can use the REST API to set, or get details of the level of access. For more information, see "[AUTOTITLE](/rest/actions/permissions#get-the-level-of-access-for-workflows-outside-of-the-repository)" and "[AUTOTITLE](/rest/actions/permissions#set-the-level-of-access-for-workflows-outside-of-the-repository)."{% endif %}
+You can use the steps below to configure whether {% ifversion internal-actions %}actions and {% endif %}reusable workflows in an internal repository can be accessed from outside the repository.{% ifversion internal-actions %} For more information, see "[AUTOTITLE](/actions/creating-actions/sharing-actions-and-workflows-with-your-enterprise)." Alternatively, you can use the REST API to set, or get details of the level of access. For more information, see "[AUTOTITLE](/rest/actions/permissions#get-the-level-of-access-for-workflows-outside-of-the-repository)" and "[AUTOTITLE](/rest/actions/permissions#set-the-level-of-access-for-workflows-outside-of-the-repository)."{% endif %}
 
 1. On {% data variables.product.prodname_dotcom %}, navigate to the main page of the internal repository.
 1. Under your repository name, click {% octicon "gear" aria-hidden="true" %} **Settings**.
@@ -201,7 +201,7 @@ You can also define a custom retention period for a specific artifact created by
 {% data reusables.repositories.navigate-to-repo %}
 {% data reusables.repositories.sidebar-settings %}
 {% data reusables.repositories.settings-sidebar-actions-general %}
-{% data reusables.actions.change-retention-period-for-artifacts-logs  %}
+{% data reusables.actions.change-retention-period-for-artifacts-logs %}
 
 {% ifversion actions-cache-policy-apis %}
 

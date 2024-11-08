@@ -66,9 +66,11 @@ The requirements to publish a {% data variables.product.prodname_copilot_extensi
 * Your extension can be in {% data variables.release-phases.public_preview %} as long as that is clearly communicated in the listing description. If you are using a waitlist, you must also include a link to sign up at the top of the description. Someone from the {% data variables.product.github %} review team will join the waitlist and email your technical lead requesting access for testing.
 * You must include links to two videos that demonstrate the following:
     * A few example prompts and responses from your extension
-    * A net new user installing, authenticating, and sending their first prompt to your extension. These videos are private to {% data variables.product.github %} and are used solely for reviewing your listing submission. It's okay if the videos are brief and unedited.
+    * A net new user installing, authenticating, and sending their first prompt to your extension
+
+  These videos are private to {% data variables.product.github %} and are used solely for reviewing your listing submission. The videos can be brief, and you don't need to edit them.
 * Your extension must provide a stable and reliable user experience, and be able to perform the capabilities listed in the description.
-* A pathway must be provided for new users to install, setup and authorize your extension with minimal friction. If the {% data variables.product.github %} review team is not able to successfully onboard to your extension for testing, it will not be approved for publishing.
+* You must provide a pathway for new users to install, set up, and authorize your extension with minimal friction. If the {% data variables.product.github %} review team is not able to successfully test your extension, it will not be approved for publishing.
 
 ## Requirements for paid apps
 
@@ -84,11 +86,8 @@ To publish a paid app (or an app that offers a paid plan), you must also meet th
 
 When you are ready to publish the app on {% data variables.product.prodname_marketplace %} you must request verification for the app listing.
 
-{% note %}
-
-**Note:** {% data reusables.marketplace.app-transfer-to-org-for-verification %} For information on how to transfer an app to an organization, see: "[AUTOTITLE](/apps/github-marketplace/listing-an-app-on-github-marketplace/submitting-your-listing-for-publication#transferring-an-app-to-an-organization-before-you-submit)."
-
-{% endnote %}
+> [!NOTE]
+> {% data reusables.marketplace.app-transfer-to-org-for-verification %} For information on how to transfer an app to an organization, see: "[AUTOTITLE](/apps/github-marketplace/listing-an-app-on-github-marketplace/submitting-your-listing-for-publication#transferring-an-app-to-an-organization-before-you-submit)."
 
 ## Billing requirements for paid apps
 

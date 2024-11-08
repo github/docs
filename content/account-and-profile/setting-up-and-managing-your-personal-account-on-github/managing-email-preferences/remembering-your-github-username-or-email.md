@@ -53,11 +53,8 @@ YOUR-USERNAME
 
 If you have any local copies of personal repositories you have created or forked, you can check the URL of the remote repository.
 
-{% tip %}
-
-**Tip**: This method only works if you have an original repository or your own fork of someone else's repository. If you clone someone else's repository, their username will show instead of yours. Similarly, organization repositories will show the name of the organization instead of a particular user in the remote URL.
-
-{% endtip %}
+> [!TIP]
+> This method only works if you have an original repository or your own fork of someone else's repository. If you clone someone else's repository, their username will show instead of yours. Similarly, organization repositories will show the name of the organization instead of a particular user in the remote URL.
 
 ```shell
 $ cd YOUR-REPOSITORY

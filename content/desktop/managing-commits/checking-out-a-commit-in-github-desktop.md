@@ -14,11 +14,8 @@ Checking out a commit allows you to view your repository in a previous state wit
 
 Checking out a commit puts your repository in a "detached HEAD" state. In Git terminology "HEAD" is the reference that points to the tip, or latest commit, of a named branch in your repository. A "detached HEAD" state means that HEAD refers to a specific commit, but not on a named branch in your repository.
 
-{% note %}
-
-**Note:** Any commits made in a "detached HEAD" state will be lost when switching branches, since these commits have not been made on a named branch. If you need to recover the lost commits, see "[Troubleshooting](#troubleshooting)."
-
-{% endnote %}
+> [!NOTE]
+> Any commits made in a "detached HEAD" state will be lost when switching branches, since these commits have not been made on a named branch. If you need to recover the lost commits, see "[Troubleshooting](#troubleshooting)."
 
 ## Checking out a commit
 

@@ -61,15 +61,9 @@ Under "Individual or group assignment", select the drop-down menu, then click **
 
 If you've already created a group assignment for the classroom, you can reuse a set of teams for the new assignment. To create a new set with the teams that your students create for the assignment, type the name for the set. Optionally, type the maximum number of team members and total teams.
 
-{% note %}
-
-**Note**:
-
-* We recommend including details about the set of teams in the name for the set. For example, if you want to use the set of teams for one assignment, name the set after the assignment. If you want to reuse the set throughout a semester or course, name the set after the semester or course.
-
-* If you'd like to assign students to a specific team, give your students a name for the team and provide a list of members.
-
-{% endnote %}
+> [!NOTE]
+> * We recommend including details about the set of teams in the name for the set. For example, if you want to use the set of teams for one assignment, name the set after the assignment. If you want to reuse the set throughout a semester or course, name the set after the semester or course.
+> * If you'd like to assign students to a specific team, give your students a name for the team and provide a list of members.
 
 ### Choosing a visibility for assignment repositories
 

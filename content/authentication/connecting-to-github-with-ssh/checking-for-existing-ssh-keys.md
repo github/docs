@@ -39,11 +39,8 @@ Before you generate a new SSH key, you should check your local machine for exist
    * _id_ecdsa.pub_
    * _id_ed25519.pub_
 
-   {% tip %}
-
-   **Tip**: If you receive an error that _~/.ssh_ doesn't exist, you do not have an existing SSH key pair in the default location. You can create a new SSH key pair in the next step.
-
-   {% endtip %}
+   > [!TIP]
+   > If you receive an error that _~/.ssh_ doesn't exist, you do not have an existing SSH key pair in the default location. You can create a new SSH key pair in the next step.
 
 1. Either generate a new SSH key or upload an existing key.
    * If you don't have a supported public and private key pair, or don't wish to use any that are available, generate a new SSH key.

@@ -16,11 +16,8 @@ The documentation repository is the place to discuss and collaborate on the docu
 
 If you've found something in the documentation content, or something about the docs.github.com website, that should be updated, search the open issues to see if someone else has reported the same thing. If it's something new, open an issue using a [template](https://github.com/github/docs/issues/new/choose). We'll use the issue to have a conversation about the problem you'd like to be fixed.<!-- markdownlint-disable-line search-replace -->
 
-{% note %}
-
-**Note**: {% data variables.product.prodname_dotcom %} employees should open issues in the private `docs-content` repository.
-
-{% endnote %}
+> [!NOTE]
+> {% data variables.product.prodname_dotcom %} employees should open issues in the private `docs-content` repository.
 
 ## Pull requests
 

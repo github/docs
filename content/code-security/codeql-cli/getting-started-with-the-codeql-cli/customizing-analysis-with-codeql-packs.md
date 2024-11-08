@@ -49,7 +49,7 @@ You can publish {% data variables.product.prodname_codeql %} packs that you have
 
 ## Downloading and using {% data variables.product.prodname_codeql %} query packs
 
-The {% data variables.product.prodname_codeql_cli %} bundle includes queries that are maintained by {% data variables.product.company_short %} experts, security researchers, and community contributors. If you want to run queries developed by other organizations, {% data variables.product.prodname_codeql %} query packs provide an efficient and reliable way to download and run queries{% ifversion codeql-model-packs %}, while model packs (beta) can be used to expand {% data variables.product.prodname_code_scanning %} analysis to recognize libraries and frameworks that are not supported by default{% endif %}. For more information about query packs, see "[AUTOTITLE](/code-security/code-scanning/introduction-to-code-scanning/about-code-scanning-with-codeql#about-codeql-queries)." {% ifversion codeql-model-packs %} For information about writing your own model packs, see "[AUTOTITLE](/code-security/codeql-cli/using-the-advanced-functionality-of-the-codeql-cli/creating-and-working-with-codeql-packs#creating-a-model-pack)."{% endif %}
+The {% data variables.product.prodname_codeql_cli %} bundle includes queries that are maintained by {% data variables.product.company_short %} experts, security researchers, and community contributors. If you want to run queries developed by other organizations, {% data variables.product.prodname_codeql %} query packs provide an efficient and reliable way to download and run queries{% ifversion codeql-model-packs %}, while model packs ({% data variables.release-phases.public_preview %}) can be used to expand {% data variables.product.prodname_code_scanning %} analysis to recognize libraries and frameworks that are not supported by default{% endif %}. For more information about query packs, see "[AUTOTITLE](/code-security/code-scanning/introduction-to-code-scanning/about-code-scanning-with-codeql#about-codeql-queries)." {% ifversion codeql-model-packs %} For information about writing your own model packs, see "[AUTOTITLE](/code-security/codeql-cli/using-the-advanced-functionality-of-the-codeql-cli/creating-and-working-with-codeql-packs#creating-a-model-pack)."{% endif %}
 
 Before you can use a {% data variables.product.prodname_codeql %} query pack to analyze a database, you must download any packages you require from the {% data variables.product.company_short %} {% data variables.product.prodname_container_registry %}. This can be done either by using the `--download` flag as part of the `codeql database analyze` command, or running `codeql pack download`. If a package is not publicly available, you will need to use a {% data variables.product.prodname_github_app %} or {% data variables.product.pat_generic %} to authenticate. For more information and an example, see "[AUTOTITLE](/code-security/codeql-cli/getting-started-with-the-codeql-cli/uploading-codeql-analysis-results-to-github#uploading-results-to-github)."
 
@@ -58,13 +58,10 @@ Before you can use a {% data variables.product.prodname_codeql %} query pack to 
 | <code><span style="white-space: nowrap;"><scope/name@version:path></span></code> | {% octicon "check" aria-label="Required" %} | Specify the scope and name of one or more {% data variables.product.prodname_codeql %} query packs to download using a comma-separated list. Optionally, include the version to download and unzip. By default the latest version of this pack is downloaded. Optionally, include a path to a query, directory, or query suite to run. If no path is included, then run the default queries of this pack. |
 | <code><span style="white-space: nowrap;">--github-auth-stdin</span></code> | {% octicon "x" aria-label="Optional" %}  | Pass the CLI the {% data variables.product.prodname_github_app %} or {% data variables.product.pat_generic %} created for authentication with {% data variables.product.company_short %}'s REST API from your secret store via standard input. This is not needed if the command has access to a `GITHUB_TOKEN` environment variable set with this token.
 
-{% note %}
-
-**Note:** If you specify a particular version of a query pack to use, be aware that the version you specify may eventually become too old for the latest version of {% data variables.product.prodname_codeql %} to make efficient use of. To ensure optimal performance, if you need to specify exact query pack versions, you should reevaluate which versions you pin to whenever you upgrade the {% data variables.product.prodname_codeql_cli %} you're using.
-
-For more information about pack compatibility, see "[AUTOTITLE](/code-security/codeql-cli/using-the-advanced-functionality-of-the-codeql-cli/publishing-and-using-codeql-packs#about-codeql-pack-compatibility)."
-
-{% endnote %}
+> [!NOTE]
+> If you specify a particular version of a query pack to use, be aware that the version you specify may eventually become too old for the latest version of {% data variables.product.prodname_codeql %} to make efficient use of. To ensure optimal performance, if you need to specify exact query pack versions, you should reevaluate which versions you pin to whenever you upgrade the {% data variables.product.prodname_codeql_cli %} you're using.
+>
+> For more information about pack compatibility, see "[AUTOTITLE](/code-security/codeql-cli/using-the-advanced-functionality-of-the-codeql-cli/publishing-and-using-codeql-packs#about-codeql-pack-compatibility)."
 
 ### Basic example of downloading and using query packs
 
@@ -148,21 +145,14 @@ pack.
 
 * `suites/my-suite.qls` - All queries in the `suites/my-suite.qls` file relative to the current working directory.
 
-{% note %}
-
-**Tip**
-
-The default query suite of the standard {% data variables.product.prodname_codeql %} query packs are `codeql-suites/<lang>-code-scanning.qls`. Several other useful query suites can also be found in the `codeql-suites` directory of each pack. For example, the `codeql/cpp-queries` pack contains the following query suites:
-
-* `cpp-code-scanning.qls` - Standard Code Scanning queries for C++. The default query suite for this pack.
-
-* `cpp-security-extended.qls` - Queries from the default  `cpp-code-scanning.qls` suite for C++, plus lower severity and precision queries.
-
-* `cpp-security-and-quality.qls` - Queries from `cpp-security-extended.qls`, plus maintainability and reliability queries.
-
-You can see the sources for these query suites in the [{% data variables.product.prodname_codeql %} repository](https://github.com/github/codeql/tree/main/cpp/ql/src/codeql-suites). Query suites for other languages are similar.
-
-{% endnote %}
+> [!TIP]
+> The default query suite of the standard {% data variables.product.prodname_codeql %} query packs are `codeql-suites/<lang>-code-scanning.qls`. Several other useful query suites can also be found in the `codeql-suites` directory of each pack. For example, the `codeql/cpp-queries` pack contains the following query suites:
+>
+> * `cpp-code-scanning.qls` - Standard Code Scanning queries for C++. The default query suite for this pack.
+> * `cpp-security-extended.qls` - Queries from the default  `cpp-code-scanning.qls` suite for C++, plus lower severity and precision queries.
+> * `cpp-security-and-quality.qls` - Queries from `cpp-security-extended.qls`, plus maintainability and reliability queries.
+>
+> You can see the sources for these query suites in the [{% data variables.product.prodname_codeql %} repository](https://github.com/github/codeql/tree/main/cpp/ql/src/codeql-suites). Query suites for other languages are similar.
 
 {% ifversion codeql-model-packs %}
 

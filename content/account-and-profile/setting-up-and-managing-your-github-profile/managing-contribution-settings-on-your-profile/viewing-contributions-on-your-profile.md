@@ -17,11 +17,8 @@ shortTitle: View contributions
 ---
 Your contribution graph and Achievements show activity from public repositories. You can choose to show activity from both public and private repositories, with specific details of your activity in private repositories anonymized. For more information, see "[AUTOTITLE](/account-and-profile/setting-up-and-managing-your-github-profile/managing-contribution-settings-on-your-profile/showing-your-private-contributions-and-achievements-on-your-profile)."
 
-{% note %}
-
-**Note:** Commits will only appear on your contributions graph if the email address you used to author the commits is connected to your account on {% data variables.product.product_name %}. For more information, see "[AUTOTITLE](/account-and-profile/setting-up-and-managing-your-github-profile/managing-contribution-settings-on-your-profile/why-are-my-contributions-not-showing-up-on-my-profile#your-local-git-commit-email-isnt-connected-to-your-account)"
-
-{% endnote %}
+> [!NOTE]
+> Commits will only appear on your contributions graph if the email address you used to author the commits is connected to your account on {% data variables.product.product_name %}. For more information, see "[AUTOTITLE](/account-and-profile/setting-up-and-managing-your-github-profile/managing-contribution-settings-on-your-profile/why-are-my-contributions-not-showing-up-on-my-profile#your-local-git-commit-email-isnt-connected-to-your-account)"
 
 ## What counts as a contribution
 
@@ -57,11 +54,8 @@ Your contributions calendar shows your contribution activity.
 * Click on a day's square to show the contributions made during that 24-hour period.
 * Press _Shift_ and click on another day's square to show contributions made during that time span.
 
-{% note %}
-
-**Note:** You can select up to a one-month range on your contributions calendar. If you select a larger time span, we will only display one month of contributions.
-
-{% endnote %}
+> [!NOTE]
+> You can select up to a one-month range on your contributions calendar. If you select a larger time span, we will only display one month of contributions.
 
 ![Screenshot of the contributions graph on a user profile.](/assets/images/help/profile/contributions-graph.png)
 

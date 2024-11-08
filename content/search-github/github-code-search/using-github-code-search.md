@@ -8,7 +8,7 @@ topics:
   - GitHub search
 ---
 
-## About using {% data variables.product.prodname_dotcom%} code search
+## About using {% data variables.product.prodname_dotcom %} code search
 
 {% data variables.product.prodname_dotcom %} indexes repositories you own and repositories in organizations you are a member of, whether public, private, or internal. This means that you can search across all of your repositories, in addition to the public repositories on {% data variables.product.prodname_dotcom %} that have already been indexed. Only users with permission to view your code will be able to see your code in search results. Forks are indexed and searchable in the same way as other repositories.
 

@@ -27,6 +27,7 @@
   },
   "exclude": [
     "node_modules",
+    "docs-internal-data",
     "src/code-scanning/scripts/generate-code-scanning-query-list.ts"
   ],
   "include": [

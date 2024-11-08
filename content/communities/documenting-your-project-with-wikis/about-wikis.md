@@ -25,20 +25,16 @@ If you create a wiki in a public repository, the wiki is available to {% ifversi
 You can edit wikis directly on {% data variables.product.product_name %}, or you can edit wiki files locally. By default, only people with write access to your repository can make changes to wikis, although you can allow everyone on {% data variables.location.product_location %} to contribute to a wiki in a public repository. For more information, see "[AUTOTITLE](/communities/documenting-your-project-with-wikis/changing-access-permissions-for-wikis)."
 
 {% ifversion fpt or ghec %}
-{% note %}
 
-**Note:** Search engines will only index wikis with 500 or more stars that you configure to prevent public editing. For more information, see "[AUTOTITLE](/communities/documenting-your-project-with-wikis/changing-access-permissions-for-wikis)."
+> [!NOTE]
+> Search engines will only index wikis with 500 or more stars that you configure to prevent public editing. For more information, see "[AUTOTITLE](/communities/documenting-your-project-with-wikis/changing-access-permissions-for-wikis)."
+>
+> If you need search engines to index your content, you can use {% data variables.product.prodname_pages %} in a public repository. For more information, see "[{% data variables.product.prodname_pages %}](/pages)."
 
-If you need search engines to index your content, you can use {% data variables.product.prodname_pages %} in a public repository. For more information, see "[{% data variables.product.prodname_pages %}](/pages)."
-
-{% endnote %}
 {% endif %}
 
-{% note %}
-
-**Note:** For performance reasons, wikis have a soft limit of 5,000 total files, regardless of file type. If you exceed this limit, some pages may be inaccessible to users. If you need a larger wiki, we recommend using {% data variables.product.prodname_pages %}. For more information, see "[{% data variables.product.prodname_pages %}](/pages)."
-
-{% endnote %}
+> [!NOTE]
+> For performance reasons, wikis have a soft limit of 5,000 total files, regardless of file type. If you exceed this limit, some pages may be inaccessible to users. If you need a larger wiki, we recommend using {% data variables.product.prodname_pages %}. For more information, see "[{% data variables.product.prodname_pages %}](/pages)."
 
 ## Further reading
 

@@ -2,8 +2,7 @@
 title: Reviewing requests to bypass push protection
 shortTitle: Review bypass requests
 intro: 'You can use security overview to review requests to bypass push protection from contributors pushing to repositories across your organization.'
-permissions: '{% data reusables.security-overview.permissions %}'
-product: '{% data reusables.gated-features.security-overview %}'
+permissions: '{% data reusables.permissions.security-overview %}'
 type: how_to
 topics:
   - Security overview
@@ -28,7 +27,7 @@ For more information, see "[AUTOTITLE](/code-security/secret-scanning/using-adva
 
 {% data reusables.organizations.navigate-to-org %}
 {% data reusables.organizations.security-overview %}
-1. In the sidebar, under "Requests", click **{% octicon "key" aria-hidden="true"  %} Push protection bypass**.
+1. In the sidebar, under "Requests", click **{% octicon "key" aria-hidden="true" %} Push protection bypass**.
 1. Select the **All statuses** dropdown menu, then click **Open** to view requests that are awaiting review, or that have been approved but for which the commits haven't been pushed to the repository yet.
 1. Click the request that you want to review.
 1. Review the details of the request.

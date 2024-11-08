@@ -1545,6 +1545,11 @@
     "docs_reference_links": "/code-security/secret-scanning/push-protection-for-repositories-and-organizations"
   },
   {
+    "action": "org.security_center_export_code_scanning_metrics",
+    "description": "A CSV export was requested on the CodeQL pull request alerts page.",
+    "docs_reference_links": "N/A"
+  },
+  {
     "action": "org.security_center_export_coverage",
     "description": "A CSV export was requested on the Coverage page.",
     "docs_reference_links": "N/A"
@@ -3017,6 +3022,11 @@
   {
     "action": "secret_scanning_alert.create",
     "description": "GitHub detected a secret and created a secret scanning alert.",
+    "docs_reference_links": "/code-security/secret-scanning/managing-alerts-from-secret-scanning"
+  },
+  {
+    "action": "secret_scanning_alert.public_leak",
+    "description": "A secret scanning alert was leaked in a public repo.",
     "docs_reference_links": "/code-security/secret-scanning/managing-alerts-from-secret-scanning"
   },
   {

@@ -1,6 +1,7 @@
 ---
 title: Exploring the dependencies of a repository
 intro: 'You can use the dependency graph to see the packages your project depends on{% ifversion fpt or ghec %} and the repositories that depend on it{% endif %}. In addition, you can see any vulnerabilities detected in its dependencies.'
+permissions: '{% data reusables.permissions.dependency-graph-view-dependencies %}'
 redirect_from:
   - /articles/listing-the-packages-that-a-repository-depends-on
   - /github/visualizing-repository-data-with-graphs/listing-the-packages-that-a-repository-depends-on
@@ -64,11 +65,10 @@ Dependencies submitted to a project using the {% data variables.dependency-submi
 If vulnerabilities have been detected in the repository, these are shown at the top of the view for users with access to {% data variables.product.prodname_dependabot_alerts %}.
 
 {% ifversion ghes %}
-{% note %}
 
-**Note:** {% data variables.product.product_name %} does not populate the **Dependents** view.
+> [!NOTE]
+> {% data variables.product.product_name %} does not populate the **Dependents** view.
 
-{% endnote %}
 {% endif %}
 
 {% ifversion fpt or ghec %}

@@ -26,13 +26,17 @@ If you want to use {% data variables.product.prodname_copilot_short %} in your I
 
 If you want to use {% data variables.product.prodname_copilot_short %} in the command line, install the {% data variables.product.prodname_copilot_short %} extension for the {% data variables.product.prodname_cli %}. See "[AUTOTITLE](/copilot/managing-copilot/configure-personal-settings/installing-github-copilot-in-the-cli)."
 
-## 4. Set up networking (if necessary)
+## 4. Use {% data variables.product.prodname_copilot_short %} in {% data variables.product.prodname_windows_terminal %}
+
+If you want to chat with {% data variables.product.prodname_copilot_short %} in {% data variables.product.prodname_windows_terminal %}, connect {% data variables.product.prodname_copilot_short %} with Terminal Chat in {% data variables.product.prodname_windows_terminal %} Canary. See "[AUTOTITLE](/copilot/quickstart?tool=windowsterminal)."
+
+## 5. Set up networking (if necessary)
 
 If you connect through an HTTP proxy server or firewall, ensure that key URLs are added to the allowlist for the proxy server or firewall. See "[AUTOTITLE](/copilot/managing-copilot/managing-github-copilot-in-your-organization/configuring-your-proxy-server-or-firewall-for-copilot)."
 
 You may also need to install a custom SSL certificate on your machine. See "[AUTOTITLE](/copilot/managing-copilot/configure-personal-settings/configuring-network-settings-for-github-copilot#installing-custom-certificates)."
 
-## 5. Configure settings (optional)
+## 6. Configure settings (optional)
 
 All users can configure {% data variables.product.prodname_copilot_short %} settings in their IDE or in the CLI. See "[AUTOTITLE](/copilot/managing-copilot/configure-personal-settings/configuring-github-copilot-in-your-environment)" and "[AUTOTITLE](/copilot/managing-copilot/configure-personal-settings/configuring-github-copilot-in-the-cli)."
 
@@ -41,7 +45,7 @@ If you have your own subscription to {% data variables.product.prodname_copilot_
 * **Install {% data variables.product.prodname_copilot_extensions_short %}** to integrate other tools with {% data variables.product.prodname_copilot_chat_short %}. See "[AUTOTITLE](/copilot/managing-copilot/managing-copilot-as-an-individual-subscriber/installing-github-copilot-extensions-for-your-personal-account)."
 * **Manage policies**. See "[AUTOTITLE](/copilot/managing-copilot/managing-copilot-as-an-individual-subscriber/managing-copilot-policies-as-an-individual-subscriber)."
 
-## 6. Start using {% data variables.product.prodname_copilot_short %}
+## 7. Start using {% data variables.product.prodname_copilot_short %}
 
 Start using {% data variables.product.prodname_copilot_short %} to help you write code faster and more efficiently. For all the ways you can use {% data variables.product.prodname_copilot_short %}, see "[AUTOTITLE](/copilot/using-github-copilot)." {% data variables.product.prodname_copilot_short %} code suggestions, {% data variables.product.prodname_copilot_chat_dotcom_short %}, and {% data variables.product.prodname_copilot_chat_short %} in your IDE are a great place to start.
 

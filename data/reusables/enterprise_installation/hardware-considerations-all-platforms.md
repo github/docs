@@ -21,7 +21,7 @@ We recommend a high-performance SSD with high input/output operations per second
 Your instance requires a persistent data disk separate from the root disk. For more information, see "[AUTOTITLE](/admin/overview/system-overview)."
 
 >[!WARNING]
->Root storage refers to the total size of your instance's root disk. When the instance is booted you will see 200GB available on the root filesystem. The remaining 200GB is reserved for upgrades. For more information, see "[AUTOTITLE](/admin/overview/system-overview#storage-architecture)."
+>Root storage refers to the total size of your instance's root disk. When the instance is booted you will see {% ifversion ghes > 3.14 %}200GB available on the root filesystem. The remaining 200GB{% else %}100GB available on the root filesystem. The remaining 100GB{% endif %} is reserved for upgrades. For more information, see "[AUTOTITLE](/admin/overview/system-overview#storage-architecture)."
 
 {% ifversion ghes %}
 
@@ -35,7 +35,7 @@ The available space on the root filesystem will be 50% of the total disk size. Y
 
 The CPU and memory resources that {% data variables.product.prodname_ghe_server %} requires depend on the levels of activity for users, automations, and integrations.
 
-Any VMs you provision for {% data variables.location.product_location %} must use the x86-64 CPU architecture. Other architectures are not supported, such as Aarch64 or arm64.
+Any VMs you provision for {% data variables.location.product_location %} must use the x86-64 CPU architecture. Other architectures are not supported, such as AArch64 or arm64.
 
 {% ifversion ghes %}
 

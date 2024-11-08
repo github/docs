@@ -1,1 +1,0 @@
-{% data variables.product.prodname_copilot_chat_dotcom %} is available to all users with a {% data variables.product.prodname_copilot_individuals_short %} subscription, as well as those assigned a seat in {% data variables.product.prodname_copilot_business_short %} or {% data variables.product.prodname_copilot_enterprise_short %}.

@@ -62,11 +62,8 @@ We do not recommend customizing UFW as it can complicate some troubleshooting is
 
 ## Adding custom firewall rules
 
-{% warning %}
-
-**Warning:** Before you add custom firewall rules, back up your current rules in case you need to reset to a known working state. If you're locked out of your server, visit {% data variables.contact.contact_ent_support %} and contact us to reconfigure the original firewall rules. Restoring the original firewall rules involves downtime for your server.
-
-{% endwarning %}
+> [!WARNING]
+> Before you add custom firewall rules, back up your current rules in case you need to reset to a known working state. If you're locked out of your server, visit {% data variables.contact.contact_ent_support %} and contact us to reconfigure the original firewall rules. Restoring the original firewall rules involves downtime for your server.
 
 1. Configure a custom firewall rule.
 1. Check the status of each new rule with the `status numbered` command.
@@ -87,11 +84,8 @@ After you upgrade {% data variables.location.product_location %}, you must reapp
 
 If something goes wrong after you change the firewall rules, you can reset the rules from your original backup.
 
-{% warning %}
-
-**Warning:** If you didn't back up the original rules before making changes to the firewall, visit {% data variables.contact.contact_ent_support %} and contact us for further assistance.
-
-{% endwarning %}
+> [!WARNING]
+> If you didn't back up the original rules before making changes to the firewall, visit {% data variables.contact.contact_ent_support %} and contact us for further assistance.
 
 {% data reusables.enterprise_installation.ssh-into-instance %}
 

@@ -18,11 +18,8 @@ shortTitle: Organization news feed
 
 
 {% ifversion fpt or ghec %}
-{% note %}
+>[!NOTE] The organization news feed is not available with {% data variables.product.prodname_emus %}.
 
-**Note:** The organization news feed is not available with {% data variables.product.prodname_emus %}.
-
-{% endnote %}
 {% endif %}
 
 An organization's news feed shows other people's activity on repositories owned by that organization. You can use your organization's news feed to see when someone opens, closes, or merges an issue or pull request, creates or deletes a branch, creates a tag or release, comments on an issue, pull request, or commit, or pushes new commits to {% data variables.product.product_name %}.

@@ -2,7 +2,7 @@
 title: Working with push protection from the command line
 shortTitle: Push protection on the command line
 intro: 'Learn your options for unblocking your push from the command line to {% data variables.product.prodname_dotcom %} if {% data variables.product.prodname_secret_scanning %} detects a secret in your changes.'
-product: '{% data reusables.gated-features.secret-scanning %}'
+permissions: '{% data reusables.permissions.push-protection-resolve-block %}'
 versions:
   fpt: '*'
   ghes: '*'

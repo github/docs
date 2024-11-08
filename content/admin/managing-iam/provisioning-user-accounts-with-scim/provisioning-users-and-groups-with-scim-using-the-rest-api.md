@@ -105,11 +105,8 @@ To ensure that your environment has a single source of truth, you should only pr
 
 However, you can safely retrieve information from {% data variables.product.company_short %}'s APIs with `GET` requests in scripts or ad hoc requests by an enterprise owner.
 
-{% warning %}
-
-**Warning:** If you use a partner IdP for SCIM provisioning, the application on the IdP must be the only system that makes write requests to the API. If you make ad hoc requests using the  `POST`, `PUT`, `PATCH`, or `DELETE` methods, subsequent synchronization attempts will fail, and provisioning won't function properly for your enterprise.
-
-{% endwarning %}
+> [!WARNING]
+> If you use a partner IdP for SCIM provisioning, the application on the IdP must be the only system that makes write requests to the API. If you make ad hoc requests using the  `POST`, `PUT`, `PATCH`, or `DELETE` methods, subsequent synchronization attempts will fail, and provisioning won't function properly for your enterprise.
 
 ### Send valid requests to REST API endpoints
 
@@ -117,6 +114,9 @@ However, you can safely retrieve information from {% data variables.product.comp
 
 * Requests that don't match the API's expectations will return a `400 Bad Request` error.
 * REST API endpoints for provisioning users with SCIM require a `User-Agent` header. {% data variables.product.product_name %} will reject requests without this header.
+{%- ifversion ghec %}
+* If your enterprise is on {% data variables.enterprise.data_residency_site %}, ensure you send API requests to the endpoint for your enterprise at `{% data variables.enterprise.data_residency_api %}`.
+{%- endif %}
 
 ### Provision users before you provision groups
 

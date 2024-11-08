@@ -1,7 +1,6 @@
 ---
 title: About security overview
 intro: 'You can gain insights into the overall security landscape of your organization or enterprise and identify repositories that require intervention using security overview.'
-permissions: '{% data reusables.security-overview.permissions %}'
 product: '{% data reusables.gated-features.security-overview %}'
 redirect_from:
   - /code-security/security-overview/exploring-security-alerts
@@ -64,6 +63,10 @@ Security overview has multiple views that provide different ways to explore enab
 * **Enablement trends:** see how quickly different teams are adopting security features.{% endif %}{% ifversion security-overview-org-codeql-pr-alerts %}
 * **CodeQL pull request alerts:** assess the impact of running CodeQL on pull requests and how development teams are resolving code scanning alerts, see "[AUTOTITLE](/code-security/security-overview/viewing-metrics-for-pull-request-alerts)."{% endif %}{% ifversion security-overview-push-protection-metrics-page %}
 * **Secret scanning:** find out which types of secret are blocked by push protection{% ifversion security-overview-delegated-bypass-requests %} and which teams are bypassing push protection{% endif %}, see "[AUTOTITLE](/code-security/security-overview/viewing-metrics-for-secret-scanning-push-protection){% ifversion security-overview-delegated-bypass-requests %}" and "[AUTOTITLE](/code-security/security-overview/reviewing-requests-to-bypass-push-protection){% endif %}."{% endif %}
+
+{% ifversion security-campaigns %}
+You also create and manage security campaigns to remediate alerts from security overview, see "[AUTOTITLE](/code-security/securing-your-organization/fixing-security-alerts-at-scale/creating-tracking-security-campaigns)" and "[AUTOTITLE](/code-security/securing-your-organization/fixing-security-alerts-at-scale/best-practice-fix-alerts-at-scale)."
+{% endif %}
 
 ## About security overview for enterprises
 

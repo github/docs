@@ -21,11 +21,9 @@ topics:
   - User account
 shortTitle: Discounted plans
 ---
-{% tip %}
 
-**Tip**: Discounts for an account's plan do not apply to other subscriptions or usage-based billing.
-
-{% endtip %}
+> [!TIP]
+> Discounts for an account's plan do not apply to other subscriptions or usage-based billing.
 
 ## Discounts for personal accounts
 

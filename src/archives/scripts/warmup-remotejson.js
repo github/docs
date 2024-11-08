@@ -41,9 +41,7 @@ function version2url(version) {
     semver.coerce(version).raw,
     semver.coerce(firstReleaseStoredInBlobStorage).raw,
   )
-  return inBlobStorage
-    ? `https://githubdocs.azureedge.net/enterprise/${version}/redirects.json`
-    : `https://github.github.com/help-docs-archived-enterprise-versions/${version}/redirects.json`
+  return `https://github.github.com/docs-ghes-${version}/redirects.json`
 }
 
 function withArchivedRedirectsFile(version) {

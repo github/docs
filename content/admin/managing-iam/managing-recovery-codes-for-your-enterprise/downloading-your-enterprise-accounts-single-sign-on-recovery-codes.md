@@ -25,11 +25,11 @@ If you did not save your recovery codes when you configured SSO, you can still a
 {% data reusables.enterprise-accounts.security-tab %}
 
 1. Under{% ifversion oidc-for-emu %} either{% endif %} "Require SAML authentication"{% ifversion oidc-for-emu %} or "Require OIDC authentication"{% endif %}, click **Save your recovery codes**.{% ifversion oidc-for-emu %}
-   {% note %}
 
-   **Note:** OIDC SSO is only available for {% data variables.product.prodname_emus %}. For more information, see "[AUTOTITLE](/admin/identity-and-access-management/using-enterprise-managed-users-for-iam/about-enterprise-managed-users)."
+   > [!NOTE]
+   > OIDC SSO is only available for {% data variables.product.prodname_emus %}. For more information, see "[AUTOTITLE](/admin/identity-and-access-management/using-enterprise-managed-users-for-iam/about-enterprise-managed-users)."
 
-   {% endnote %}{% endif %}
+   {% endif %}
 
    ![Screenshot of the "Authentication security" screen. The "Save your recovery codes" hyperlink is highlighted with an orange outline.](/assets/images/help/enterprises/saml-recovery-codes-link.png)
 1. To save your recovery codes, click **Download**, **Print**, or **Copy**.

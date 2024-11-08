@@ -28,11 +28,7 @@ For more information about configuring {% data variables.product.prodname_regist
 
 {% ifversion ghes %}
 
-{% note %}
-
-**Note**: {% data reusables.package_registry.container-registry-ghes-migration-availability %}
-
-{% endnote %}
+>[!NOTE] {% data reusables.package_registry.container-registry-ghes-migration-availability %}
 
 {% endif %}
 
@@ -44,17 +40,19 @@ You can start a migration of all your organizations' Docker images to the {% dat
 
 If a site administrator has configured email notifications for {% data variables.location.product_location %}, you will receive an email after the migration is complete. For more information, see "[AUTOTITLE](/admin/configuration/configuring-your-enterprise/configuring-email-for-notifications)."
 
-{% note %}
+### During the migration
 
-**Notes**:
+During the migration, the CPU and memory usage for your instance will increase. To ensure the performance of the instance for your users, {% data variables.product.company_short %} recommends that you begin a migration during a period of reduced activity.
 
-* During the migration, the CPU and memory usage for your instance will increase. To ensure the performance of the instance for your users, {% data variables.product.company_short %} recommends that you begin a migration during a period of reduced activity.
-* During the migration, do not modify settings for your enterprise or run `ghe-config-apply` from an administrative SSH session. These actions will trigger a configuration run, which can restart services and may interrupt the migration.
-* After the migration, storage pressure on your instance will increase due to the duplication of image files in the Docker registry and the {% data variables.product.prodname_container_registry %}. A future release of {% data variables.product.product_name %} will remove the duplicated files when all migrations are complete.
+>[!WARNING] Do not modify settings for your enterprise or run `ghe-config-apply` from an administrative SSH session. These actions will trigger a configuration run, which can restart services and may interrupt the migration.
+
+### After the migration
+
+After the migration, storage pressure on your instance will increase due to the duplication of image files in the Docker registry and the {% data variables.product.prodname_container_registry %}. A future release of {% data variables.product.product_name %} will remove the duplicated files when all migrations are complete.
 
 For more information about monitoring the performance and storage of {% data variables.location.product_location %}, see "[AUTOTITLE](/admin/enterprise-management/monitoring-your-appliance/accessing-the-monitor-dashboard)."
 
-{% endnote %}
+### Starting a migration
 
 {% data reusables.enterprise-accounts.access-enterprise %}
 {% data reusables.enterprise-accounts.settings-tab %}

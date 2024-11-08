@@ -1,6 +1,6 @@
 ---
 title: Working with the Container registry
-intro: 'You can store and manage Docker and OCI images in the {% data variables.product.prodname_container_registry %}, which uses the package namespace `https://{% data reusables.package_registry.container-registry-hostname %}`.'
+intro: 'You can store and manage Docker and OCI images in the {% data variables.product.prodname_container_registry %}.'
 product: '{% data reusables.gated-features.packages %}'
 redirect_from:
   - /packages/managing-container-images-with-github-container-registry/pushing-and-pulling-docker-images
@@ -28,6 +28,16 @@ shortTitle: Container registry
 {% ifversion ghes %}
 
 To use the {% data variables.product.prodname_container_registry %} on {% data variables.product.product_name %}, your site administrator must first configure {% data variables.product.prodname_registry %} for your instance **and** enable subdomain isolation. For more information, see "[AUTOTITLE](/admin/packages/getting-started-with-github-packages-for-your-enterprise)" and "[AUTOTITLE](/admin/configuration/configuring-network-settings/enabling-subdomain-isolation)."
+
+{% endif %}
+
+{% ifversion ghec %}
+
+## URL for the {% data variables.product.prodname_container_registry %}
+
+If you access {% data variables.product.github %} at {% data variables.product.prodname_dotcom_the_website %}, you will publish packages to {% data reusables.package_registry.container-registry-hostname %}. Examples in this article use this URL.
+
+If you access {% data variables.product.github %} at another domain, such as `octocorp.ghe.com`, replace "{% data reusables.package_registry.container-registry-hostname %}" with `https://containers.SUBDOMAIN.ghe.com`, where `SUBDOMAIN` is your enterprise's unique subdomain.
 
 {% endif %}
 

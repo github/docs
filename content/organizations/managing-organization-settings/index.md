@@ -31,6 +31,7 @@ children:
   - /enabling-or-disabling-github-discussions-for-an-organization
   - /managing-discussion-creation-for-repositories-in-your-organization
   - /managing-the-commit-signoff-policy-for-your-organization
+  - /restricting-deploy-keys-in-your-organization
   - /setting-team-creation-permissions-in-your-organization
   - /creating-an-announcement-banner-for-your-organization
   - /managing-scheduled-reminders-for-your-organization

@@ -27,7 +27,7 @@ topics:
 allowTitleToDifferFromFilename: true
 ---
 
-With {% data variables.product.prodname_emus %}, you manage the lifecycle and authentication of your users on {% data variables.product.prodname_dotcom %} from an external identity management system, or IdP:
+With {% data variables.product.prodname_emus %}, you manage the lifecycle and authentication of your users on {% data variables.product.prodname_dotcom_the_website %} or {% data variables.enterprise.data_residency_site %} from an external identity management system, or IdP:
 
 * Your IdP **provisions new user accounts** on {% data variables.product.prodname_dotcom %}, with access to your enterprise.
 * Users must **authenticate on your IdP** to access your enterprise's resources on {% data variables.product.prodname_dotcom %}.

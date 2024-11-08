@@ -4,30 +4,39 @@ import { useRouter } from 'next/router'
 import { useEffect, useState } from 'react'
 import cx from 'classnames'
 
-import type { SearchResultsT, SearchResultHitT, SearchQueryT } from './types'
 import { useTranslation } from 'src/languages/components/useTranslation'
 import { Link } from 'src/frame/components/Link'
 import { sendEvent, EventType } from 'src/events/components/events'
 
 import styles from './SearchResults.module.scss'
 
+import type { SearchQueryContentT } from 'src/search/components/types'
+import type { GeneralSearchHitWithoutIncludes, GeneralSearchResponse } from 'src/search/types'
+import type { SearchTotalHits } from '@elastic/elasticsearch/lib/api/types'
+
 type Props = {
-  results: SearchResultsT
-  search: SearchQueryT
+  results: GeneralSearchResponse
+  searchParams: SearchQueryContentT
 }
-export function SearchResults({ results, search }: Props) {
-  const pages = Math.ceil(results.meta.found.value / results.meta.size)
+export function SearchResults({ results, searchParams }: Props) {
+  const pages = Math.ceil((results.meta.found as SearchTotalHits).value / results.meta.size)
   const { page } = results.meta
 
   return (
     <div>
-      <SearchResultHits hits={results.hits} search={search} />
+      <SearchResultHits hits={results.hits} searchParams={searchParams} />
       {pages > 1 && <ResultsPagination page={page} totalPages={pages} />}
     </div>
   )
 }
 
-function SearchResultHits({ hits, search }: { hits: SearchResultHitT[]; search: SearchQueryT }) {
+function SearchResultHits({
+  hits,
+  searchParams,
+}: {
+  hits: GeneralSearchHitWithoutIncludes[]
+  searchParams: SearchQueryContentT
+}) {
   return (
     <div>
       {hits.length === 0 && <NoSearchResults />}
@@ -35,10 +44,10 @@ function SearchResultHits({ hits, search }: { hits: SearchResultHitT[]; search: 
         <SearchResultHit
           key={hit.id}
           hit={hit}
-          query={search.query}
+          query={searchParams.query}
           totalHits={hits.length}
           index={index}
-          debug={search.debug}
+          debug={searchParams.debug}
         />
       ))}
     </div>
@@ -64,7 +73,7 @@ function SearchResultHit({
   index,
   debug,
 }: {
-  hit: SearchResultHitT
+  hit: GeneralSearchHitWithoutIncludes
   query: string
   totalHits: number
   index: number

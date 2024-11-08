@@ -101,11 +101,8 @@ The best way to explain subtree merges is to show by example. We will:
 
 Although we've only added one subproject, any number of subprojects can be incorporated into a Git repository.
 
-{% tip %}
-
-**Tip**: If you create a fresh clone of the repository in the future,  the remotes you've added will not be created for you. You will have to add them again using [the `git remote add` command](/get-started/getting-started-with-git/managing-remote-repositories).
-
-{% endtip %}
+> [!TIP]
+> If you create a fresh clone of the repository in the future,  the remotes you've added will not be created for you. You will have to add them again using [the `git remote add` command](/get-started/getting-started-with-git/managing-remote-repositories).
 
 ## Synchronizing with updates and changes
 

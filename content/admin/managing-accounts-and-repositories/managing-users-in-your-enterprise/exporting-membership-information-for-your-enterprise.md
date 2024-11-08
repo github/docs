@@ -17,11 +17,8 @@ You can export aggregated information about your enterprise's members as a membe
 
 The membership information report includes the following information.
 
-{% note %}
-
-**Note:** You can only export the datetime of the user's last activity at the organization level. For more information, see "[AUTOTITLE](/organizations/managing-membership-in-your-organization/exporting-member-information-for-your-organization#about-export-of-membership-information)."
-
-{% endnote %}
+> [!NOTE]
+> You can only export the datetime of the user's last activity at the organization level. For more information, see "[AUTOTITLE](/organizations/managing-membership-in-your-organization/exporting-member-information-for-your-organization#about-export-of-membership-information)."
 
 * Username and display name details
 * Whether the user has two-factor authentication enabled {% ifversion mandatory-2fa-required-overview %}or is required to enable it{% endif %}

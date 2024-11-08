@@ -37,11 +37,8 @@ Once you are a verified {% data variables.product.prodname_global_campus %} stud
 * **{% data variables.product.prodname_copilot %}**: Verified students receive a free subscription for {% data variables.product.prodname_copilot %}. See "[AUTOTITLE](/copilot/managing-copilot/managing-copilot-as-an-individual-subscriber/getting-free-access-to-copilot-as-a-student-teacher-or-maintainer)."
 * **{% data variables.product.prodname_github_codespaces %}**: {% data reusables.education.student-codespaces-benefit %} For more information on getting started with {% data variables.product.prodname_github_codespaces %}, see "[AUTOTITLE](/codespaces/overview)."
 
-{% note %}
-
-**Note:** {% data reusables.education.note-on-student-codespaces-usage %} For more information, see "[AUTOTITLE](/education/manage-coursework-with-github-classroom/integrate-github-classroom-with-an-ide/using-github-codespaces-with-github-classroom)."
-
-{% endnote %}
+> [!NOTE]
+> {% data reusables.education.note-on-student-codespaces-usage %} For more information, see "[AUTOTITLE](/education/manage-coursework-with-github-classroom/integrate-github-classroom-with-an-ide/using-github-codespaces-with-github-classroom)."
 
 ## Further reading
 

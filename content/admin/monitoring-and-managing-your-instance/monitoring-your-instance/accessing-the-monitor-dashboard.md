@@ -98,4 +98,4 @@ System services graphs contain data related to the major databases on {% data va
 * Cluster: Graphs related to {% data variables.product.prodname_ghe_server %} high availability or clustering.
 * Babeld: Git proxy.
 * Alive: Service powering live updates.
-* ghes-manage: Service powering GHES Manage API.
+* Ghes-manage: Service powering GHES Manage API.

@@ -36,19 +36,13 @@ Some information that {% data variables.contact.github_support %} will request c
 
   Self-hosted runner log file names are be formatted: `Runner_YYYY####-xxxxxx-utc.log` and `Worker_YYYY####-xxxxxx-utc.log`.
 
-{% note %}
+> [!NOTE]
+> Attach files to your support ticket by changing the file's extension to `.txt` or `.zip`. If you include textual data such as log or workflow file snippets inline in your ticket, ensure they are formatted correctly as Markdown code blocks. For more information about proper Markdown formatting, see "[AUTOTITLE](/get-started/writing-on-github/getting-started-with-writing-and-formatting-on-github/basic-writing-and-formatting-syntax#quoting-code)."
+>
+> If the information you provide is unreadable due to the loss of formatting by improper Markdown syntax, {% data variables.contact.github_support %} may request that resubmit the information either as an attachment or with the correct Markdown formatting.
 
-**Note:** Attach files to your support ticket by changing the file's extension to `.txt` or `.zip`. If you include textual data such as log or workflow file snippets inline in your ticket, ensure they are formatted correctly as Markdown code blocks. For more information about proper Markdown formatting, see "[AUTOTITLE](/get-started/writing-on-github/getting-started-with-writing-and-formatting-on-github/basic-writing-and-formatting-syntax#quoting-code)."
-
-If the information you provide is unreadable due to the loss of formatting by improper Markdown syntax, {% data variables.contact.github_support %} may request that resubmit the information either as an attachment or with the correct Markdown formatting.
-
-{% endnote %}
-
-{% warning %}
-
-**Warning:** Ensure all files and text provided to {% data variables.contact.github_support %} have been properly redacted to remove sensitive information such as tokens and other secrets.
-
-{% endwarning %}
+> [!WARNING]
+> Ensure all files and text provided to {% data variables.contact.github_support %} have been properly redacted to remove sensitive information such as tokens and other secrets.
 
 {% ifversion ghes %}
 Depending on the nature of your inquiry, {% data variables.contact.github_support %} may also request that you generate and upload a support bundle for further review and analysis. For more information about providing data to {% data variables.contact.github_support %} and support bundles, see "[AUTOTITLE](/support/contacting-github-support/providing-data-to-github-support)."

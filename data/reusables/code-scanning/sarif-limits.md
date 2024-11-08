@@ -9,5 +9,6 @@
 | Thread Flow Locations per result | 10,000 | Only the top 1,000 Thread Flow Locations will be included, using prioritization. |
 | Location per result |  1,000 | Only 100 locations will be included. |
 | Tags per rule |  20 | Only 10 tags will be included. |
+| Alert Limit | 1,000,000 | None |
 
 {% endrowheaders %}

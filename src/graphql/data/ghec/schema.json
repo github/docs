@@ -632,6 +632,22 @@
           "description": "<p>A list of classifications to filter advisories by.</p>"
         },
         {
+          "name": "epssPercentage",
+          "type": "Float",
+          "id": "float",
+          "kind": "scalars",
+          "href": "/graphql/reference/scalars#float",
+          "description": "<p>The EPSS percentage to filter advisories by.</p>"
+        },
+        {
+          "name": "epssPercentile",
+          "type": "Float",
+          "id": "float",
+          "kind": "scalars",
+          "href": "/graphql/reference/scalars#float",
+          "description": "<p>The EPSS percentile to filter advisories by.</p>"
+        },
+        {
           "name": "first",
           "type": "Int",
           "id": "int",
@@ -7662,6 +7678,48 @@
           "kind": "scalars",
           "href": "/graphql/reference/scalars#string",
           "description": "<p>A message confirming the result of updating the base repository permission setting.</p>"
+        }
+      ]
+    },
+    {
+      "name": "updateEnterpriseDeployKeySetting",
+      "kind": "mutations",
+      "id": "updateenterprisedeploykeysetting",
+      "href": "/graphql/reference/mutations#updateenterprisedeploykeysetting",
+      "description": "<p>Sets whether deploy keys are allowed to be created and used for an enterprise.</p>",
+      "inputFields": [
+        {
+          "name": "input",
+          "type": "UpdateEnterpriseDeployKeySettingInput!",
+          "id": "updateenterprisedeploykeysettinginput",
+          "kind": "input-objects",
+          "href": "/graphql/reference/input-objects#updateenterprisedeploykeysettinginput"
+        }
+      ],
+      "returnFields": [
+        {
+          "name": "clientMutationId",
+          "type": "String",
+          "id": "string",
+          "kind": "scalars",
+          "href": "/graphql/reference/scalars#string",
+          "description": "<p>A unique identifier for the client performing the mutation.</p>"
+        },
+        {
+          "name": "enterprise",
+          "type": "Enterprise",
+          "id": "enterprise",
+          "kind": "objects",
+          "href": "/graphql/reference/objects#enterprise",
+          "description": "<p>The enterprise with the updated deploy key setting.</p>"
+        },
+        {
+          "name": "message",
+          "type": "String",
+          "id": "string",
+          "kind": "scalars",
+          "href": "/graphql/reference/scalars#string",
+          "description": "<p>A message confirming the result of updating the deploy key setting.</p>"
         }
       ]
     },
@@ -21044,6 +21102,31 @@
           "id": "datetime",
           "kind": "scalars",
           "href": "/graphql/reference/scalars#datetime"
+        }
+      ]
+    },
+    {
+      "name": "EPSS",
+      "kind": "objects",
+      "id": "epss",
+      "href": "/graphql/reference/objects#epss",
+      "description": "<p>The Exploit Prediction Scoring System.</p>",
+      "fields": [
+        {
+          "name": "percentage",
+          "description": "<p>The EPSS percentage represents the likelihood of a CVE being exploited.</p>",
+          "type": "Float",
+          "id": "float",
+          "kind": "scalars",
+          "href": "/graphql/reference/scalars#float"
+        },
+        {
+          "name": "percentile",
+          "description": "<p>The EPSS percentile represents the relative rank of the CVE's likelihood of being exploited compared to other CVEs.</p>",
+          "type": "Float",
+          "id": "float",
+          "kind": "scalars",
+          "href": "/graphql/reference/scalars#float"
         }
       ]
     },
@@ -66884,6 +66967,14 @@
           "href": "/graphql/reference/scalars#string"
         },
         {
+          "name": "epss",
+          "description": "<p>The Exploit Prediction Scoring System.</p>",
+          "type": "EPSS",
+          "id": "epss",
+          "kind": "objects",
+          "href": "/graphql/reference/objects#epss"
+        },
+        {
           "name": "ghsaId",
           "description": "<p>The GitHub Security Advisory ID.</p>",
           "type": "String!",
@@ -77602,6 +77693,14 @@
           "href": "/graphql/reference/scalars#uri"
         },
         {
+          "name": "userViewType",
+          "description": "<p>Whether the request returns publicly visible information or privately visible information about the user.</p>",
+          "type": "UserViewType!",
+          "id": "userviewtype",
+          "kind": "enums",
+          "href": "/graphql/reference/enums#userviewtype"
+        },
+        {
           "name": "viewerCanChangePinnedItems",
           "description": "<p>Can the viewer pin repositories and gists to the profile?.</p>",
           "type": "Boolean!",
@@ -88040,6 +88139,10 @@
       "description": "<p>Software or company that hosts social media accounts.</p>",
       "values": [
         {
+          "name": "BLUESKY",
+          "description": "<p>Decentralized microblogging social platform.</p>"
+        },
+        {
           "name": "FACEBOOK",
           "description": "<p>Social media and networking website.</p>"
         },
@@ -89775,6 +89878,23 @@
         {
           "name": "UPDATED_AT",
           "description": "<p>Order user statuses by when they were updated.</p>"
+        }
+      ]
+    },
+    {
+      "name": "UserViewType",
+      "kind": "enums",
+      "id": "userviewtype",
+      "href": "/graphql/reference/enums#userviewtype",
+      "description": "<p>Whether a user being viewed contains public or private information.</p>",
+      "values": [
+        {
+          "name": "PRIVATE",
+          "description": "<p>A user containing information only visible to the authenticated user.</p>"
+        },
+        {
+          "name": "PUBLIC",
+          "description": "<p>A user that is publicly visible.</p>"
         }
       ]
     },
@@ -103189,6 +103309,40 @@
           "id": "enterprisedefaultrepositorypermissionsettingvalue",
           "kind": "enums",
           "href": "/graphql/reference/enums#enterprisedefaultrepositorypermissionsettingvalue"
+        }
+      ]
+    },
+    {
+      "name": "UpdateEnterpriseDeployKeySettingInput",
+      "kind": "inputObjects",
+      "id": "updateenterprisedeploykeysettinginput",
+      "href": "/graphql/reference/input-objects#updateenterprisedeploykeysettinginput",
+      "description": "<p>Autogenerated input type of UpdateEnterpriseDeployKeySetting.</p>",
+      "inputFields": [
+        {
+          "name": "clientMutationId",
+          "description": "<p>A unique identifier for the client performing the mutation.</p>",
+          "type": "String",
+          "id": "string",
+          "kind": "scalars",
+          "href": "/graphql/reference/scalars#string"
+        },
+        {
+          "name": "enterpriseId",
+          "description": "<p>The ID of the enterprise on which to set the deploy key setting.</p>",
+          "type": "ID!",
+          "id": "id",
+          "kind": "scalars",
+          "href": "/graphql/reference/scalars#id",
+          "isDeprecated": false
+        },
+        {
+          "name": "settingValue",
+          "description": "<p>The value for the deploy key setting on the enterprise.</p>",
+          "type": "EnterpriseEnabledDisabledSettingValue!",
+          "id": "enterpriseenableddisabledsettingvalue",
+          "kind": "enums",
+          "href": "/graphql/reference/enums#enterpriseenableddisabledsettingvalue"
         }
       ]
     },

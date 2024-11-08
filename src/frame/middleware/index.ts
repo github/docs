@@ -61,7 +61,7 @@ import fastlyCacheTest from './fastly-cache-test'
 import trailingSlashes from './trailing-slashes'
 import mockVaPortal from './mock-va-portal'
 import dynamicAssets from '@/assets/middleware/dynamic-assets'
-import contextualizeSearch from '@/search/middleware/contextualize.js'
+import generalSearchMiddleware from '@/search/middleware/general-search-middleware'
 import shielding from '@/shielding/middleware'
 import tracking from '@/tracking/middleware'
 import { MAX_REQUEST_TIMEOUT } from '@/frame/lib/constants.js'
@@ -275,7 +275,7 @@ export default function (app: Express) {
   app.use(asyncMiddleware(productExamples))
   app.use(asyncMiddleware(productGroups))
   app.use(asyncMiddleware(glossaries))
-  app.use(asyncMiddleware(contextualizeSearch))
+  app.use(asyncMiddleware(generalSearchMiddleware))
   app.use(asyncMiddleware(featuredLinks))
   app.use(asyncMiddleware(learningTrack))
 

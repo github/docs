@@ -51,7 +51,7 @@ To align the `last_activity_at` data point with _actual usage_, the system retur
 {%- ifversion ghec %}
 * Creating or updating a knowledge base
 * Creating a pull request summary
-* Interacting with Copilot Chat on GitHub.com
+* Interacting with Copilot Chat in GitHub
 {%- endif %}
 * Interacting with Copilot on a mobile device
 * Interacting with Copilot Chat for CLI
@@ -72,7 +72,7 @@ For more information about enabling telemetry in various IDEs, see:
 
 ## Further reading
 
-{% ifversion ghec%}
+{% ifversion ghec %}
 * "[AUTOTITLE](/copilot/managing-copilot/managing-copilot-for-your-enterprise/viewing-copilot-usage-for-your-enterprise)"{% endif %}
 * [{% data variables.product.prodname_copilot %} Trust Center](https://resources.github.com/copilot-trust-center)
 * "[AUTOTITLE](/copilot/managing-github-copilot-in-your-organization/granting-access-to-copilot-for-members-of-your-organization)."

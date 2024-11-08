@@ -67,11 +67,8 @@ You can sort items by a field value.
 
 {% ifversion projects-v2-consistent-sorting %}{% else %}
 
-{% note %}
-
-**Note:** When a table is sorted, you cannot manually reorder rows.
-
-{% endnote %}
+> [!NOTE]
+> When a table is sorted, you cannot manually reorder rows.
 
 {% endif %}
 

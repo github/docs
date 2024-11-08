@@ -29,7 +29,7 @@ To migrate your repositories from {% data variables.product.prodname_ghe_server 
 1. For each repository you want to migrate, repeat these steps.
    * Use the REST API on {% data variables.location.product_location_enterprise %} to generate migration archives for your repository
    * Upload your migration archives to a location where they can be accessed by {% data variables.product.prodname_dotcom %}
-   * Start your migration using the GraphQL API for {% data variables.product.prodname_dotcom %}, passing in your archive URLs
+   * Start your migration using the GraphQL API for your migration destination, passing in your archive URLs
    * Check the status of your migration via the GraphQL API
    * Validate your migration and check the error log
 
@@ -96,6 +96,10 @@ Blob storage is required to migrate repositories with large Git source or metada
 ### Configuring blob storage in the {% data variables.enterprise.management_console %} of {% data variables.location.product_location_enterprise %}
 
 {% data reusables.enterprise-migration-tool.blob-storage-management-console %}
+
+### Allowing network access
+
+If you have configured firewall rules on your storage account, ensure you have allowed access to the IP ranges for your migration destination. See "[AUTOTITLE](/migrations/using-github-enterprise-importer/migrating-between-github-products/managing-access-for-a-migration-between-github-products#configuring-ip-allow-lists-for-migrations)."
 
 ## Step 4: Set up a migration source in {% data variables.product.prodname_ghe_cloud %}
 
@@ -207,13 +211,10 @@ Content-Type: application/json
 
 For more information, see "[Get an organization migration status](/rest/migrations/orgs#get-an-organization-migration-status)".
 
-{% note %}
-
-**Note:** If your migration moves to the `failed` state rather than the `exported` state, try starting the migration again. If the migration fails repeatedly, we recommend generating the archives using `ghe-migrator` instead of the API.
-
-Follow the steps in "[Exporting migration data from your enterprise]({% ifversion not ghes%}/enterprise-server@latest{% endif %}/admin/user-management/migrating-data-to-and-from-your-enterprise/exporting-migration-data-from-your-enterprise)," adding only one repository to the migration. At the end of the process, you will have a single migration archive with your Git source and metadata, and you can move to step 6 in this article.
-
-{% endnote %}
+> [!NOTE]
+> If your migration moves to the `failed` state rather than the `exported` state, try starting the migration again. If the migration fails repeatedly, we recommend generating the archives using `ghe-migrator` instead of the API.
+>
+>Follow the steps in "[Exporting migration data from your enterprise]({% ifversion not ghes %}/enterprise-server@latest{% endif %}/admin/user-management/migrating-data-to-and-from-your-enterprise/exporting-migration-data-from-your-enterprise)," adding only one repository to the migration. At the end of the process, you will have a single migration archive with your Git source and metadata, and you can move to step 6 in this article.
 
 After the `state` of a migration moves to `exported`, you can fetch the migration's URL using the "Download an organization migration archive" API.
 
@@ -357,23 +358,17 @@ After you set up blob storage with a supported cloud provider, you must configur
 
 #### Configuring blob storage in the {% data variables.enterprise.management_console %} of {% data variables.location.product_location_enterprise %}
 
-{% note %}
-
-**Note:** You only need to configure blob storage in the {% data variables.enterprise.management_console %} if you use {% data variables.product.prodname_ghe_server %} 3.8 or higher. If you use 3.7 or lower, configure your credentials in the {% data variables.product.prodname_cli %} instead.
-
-{% endnote %}
+> [!NOTE]
+> You only need to configure blob storage in the {% data variables.enterprise.management_console %} if you use {% data variables.product.prodname_ghe_server %} 3.8 or higher. If you use 3.7 or lower, configure your credentials in the {% data variables.product.prodname_cli %} instead.
 
 {% data reusables.enterprise-migration-tool.blob-storage-management-console %}
 
 ### Configuring your blob storage credentials in the {% data variables.product.prodname_cli %}
 
-{% note %}
-
-**Note:** You only need to configure your blob storage credentials in the {% data variables.product.prodname_cli %} if you use {% data variables.product.prodname_ghe_server %} 3.7 or lower. If you use 3.8 or higher, configure blob storage in the {% data variables.enterprise.management_console %} instead.
-
-If you configure your blob storage credentials in the {% data variables.product.prodname_cli %}, you will not be able to perform migrations where your Git source or metadata exports exceed 2GB. To perform these migrations, upgrade to {% data variables.product.prodname_ghe_server %} 3.8 or higher.
-
-{% endnote %}
+> [!NOTE]
+> You only need to configure your blob storage credentials in the {% data variables.product.prodname_cli %} if you use {% data variables.product.prodname_ghe_server %} 3.7 or lower. If you use 3.8 or higher, configure blob storage in the {% data variables.enterprise.management_console %} instead.
+>
+> If you configure your blob storage credentials in the {% data variables.product.prodname_cli %}, you will not be able to perform migrations where your Git source or metadata exports exceed 2GB. To perform these migrations, upgrade to {% data variables.product.prodname_ghe_server %} 3.8 or higher.
 
 #### Configuring AWS S3 credentials in the {% data variables.product.prodname_cli %}
 
@@ -382,6 +377,10 @@ If you configure your blob storage credentials in the {% data variables.product.
 #### Configuring Azure Blob Storage account credentials in the {% data variables.product.prodname_cli %}
 
 {% data reusables.enterprise-migration-tool.azure-credentials-cli %}
+
+### Allowing network access
+
+If you have configured firewall rules on your storage account, ensure you have allowed access to the IP ranges for your migration destination. See "[AUTOTITLE](/migrations/using-github-enterprise-importer/migrating-between-github-products/managing-access-for-a-migration-between-github-products#configuring-ip-allow-lists-for-migrations)."
 
 ## Step 5: Generate a migration script
 
@@ -414,13 +413,19 @@ gh gei generate-script --github-source-org SOURCE \
   --aws-bucket-name AWS-BUCKET-NAME
 ```
 
-{% data reusables.enterprise-migration-tool.ssl-flag %}
-
-{% data reusables.enterprise-migration-tool.download-migration-logs-flag %}
+#### Placeholders
 
 {% data reusables.enterprise-migration-tool.generate-script-table %}
 {% data reusables.enterprise-migration-tool.ghes-api-url-placeholder %}
 {% data reusables.enterprise-migration-tool.aws-bucket-name-placeholder %}
+
+#### Additional arguments
+
+| Argument | Description |
+| -------- | ----------- |
+| `--target-api-url TARGET-API-URL` | {% data reusables.enterprise-migration-tool.add-target-api-url %} |
+| `--no-ssl-verify` | {% data reusables.enterprise-migration-tool.ssl-flag %} |
+| `--download-migration-logs` | Download the migration log for each migrated repository. For more information about migration logs, see "[AUTOTITLE](/migrations/using-github-enterprise-importer/completing-your-migration-with-github-enterprise-importer/accessing-your-migration-logs-for-github-enterprise-importer#downloading-all-migration-logs-for-an-organization)." |
 
 ### Reviewing the migration script
 
@@ -449,8 +454,8 @@ If you're migrating from {% data variables.product.prodname_ghe_server %} 3.7 or
 
    {% data reusables.enterprise-migration-tool.azure-storage-connection-key %}
 * For AWS S3, set the following environment variables.
-  * `AWS_ACCESS_KEY`: The access key for your bucket
-  * `AWS_SECRET_KEY`: The secret key for your bucket
+  * `AWS_ACCESS_KEY_ID`: The access key id for your bucket
+  * `AWS_SECRET_ACCESS_KEY`: The secret key for your bucket
   * `AWS_REGION`: The AWS region where your bucket is located
   * `AWS_SESSION_TOKEN`: The session token, if you're using AWS temporary credentials (see [Using temporary credentials with AWS resources](https://docs.aws.amazon.com/IAM/latest/UserGuide/id_credentials_temp_use-resources.html) in the AWS documentation)
 
@@ -482,16 +487,23 @@ gh gei migrate-repo --github-source-org SOURCE --source-repo CURRENT-NAME --gith
     --ghes-api-url GHES-API-URL --aws-bucket-name "AWS-BUCKET-NAME"
 ```
 
-{% data reusables.enterprise-migration-tool.ssl-flag %}
-
-{% data reusables.enterprise-migration-tool.skip-releases %}
-
-{% data reusables.enterprise-migration-tool.set-repository-visibility %}
+#### Placeholders
 
 {% data reusables.enterprise-migration-tool.migrate-repo-table-ec %}
 {% data reusables.enterprise-migration-tool.ghes-api-url-placeholder %}
 {% data reusables.enterprise-migration-tool.azure-storage-connection-string-placeholder %}
 {% data reusables.enterprise-migration-tool.aws-bucket-name-placeholder %}
+
+#### Additional arguments
+
+| Argument | Description |
+| -------- | ----------- |
+| `--target-api-url TARGET-API-URL` | {% data reusables.enterprise-migration-tool.add-target-api-url %} |
+| `--no-ssl-verify` | {% data reusables.enterprise-migration-tool.ssl-flag %} |
+| `--skip-releases` | {% data reusables.enterprise-migration-tool.skip-releases %} |
+| `--target-repo-visibility TARGET-VISIBILITY` | {% data reusables.enterprise-migration-tool.set-repository-visibility %} |
+
+#### Aborting the migration
 
 {% data reusables.enterprise-migration-tool.abort-migration %}
 

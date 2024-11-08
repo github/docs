@@ -72,7 +72,7 @@ You can filter issues and pull requests based on whether they're open or closed 
 | `is:open` | [**performance is:open is:issue**](https://github.com/search?q=performance+is%3Aopen+is%3Aissue&type=Issues) matches open issues with the word "performance."
 | `is:closed` | [**android is:closed**](https://github.com/search?utf8=%E2%9C%93&q=android+is%3Aclosed&type=) matches closed issues and pull requests with the word "android."
 
-{% ifversion merge-queue  %}
+{% ifversion merge-queue %}
 
 ## Search for pull requests in the merge queue
 

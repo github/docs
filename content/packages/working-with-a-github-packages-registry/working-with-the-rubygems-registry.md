@@ -19,6 +19,16 @@ shortTitle: RubyGems registry
 
 {% data reusables.package_registry.admins-can-configure-package-types %}
 
+{% ifversion ghec %}
+
+## URL for the RubyGems registry
+
+If you access {% data variables.product.github %} at {% data variables.product.prodname_dotcom_the_website %}, you will publish packages to https://rubygems.pkg.github.com. Examples in this article use this URL.
+
+If you access {% data variables.product.github %} at another domain, such as `octocorp.ghe.com`, replace "https://rubygems.pkg.github.com" with `https://rubygems.SUBDOMAIN.ghe.com`, where `SUBDOMAIN` is your enterprise's unique subdomain.
+
+{% endif %}
+
 ## Prerequisites
 
 * You must have RubyGems 2.4.1 or higher. To find your RubyGems version:

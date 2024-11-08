@@ -57,11 +57,10 @@ You can customize your {% data variables.product.prodname_codeql %} analysis by 
 {% data reusables.code-scanning.billing %}
 
 {% ifversion fpt %}
-  {% note %}
 
-  **Note:** You can configure {% data variables.product.prodname_code_scanning %} for any public repository where you have write access.
+  > [!NOTE]
+  > You can configure {% data variables.product.prodname_code_scanning %} for any public repository where you have write access.
 
-  {% endnote %}
 {% endif %}
 
 {% data reusables.repositories.navigate-to-repo %}
@@ -69,11 +68,8 @@ You can customize your {% data variables.product.prodname_codeql %} analysis by 
 {% data reusables.user-settings.security-analysis %}
 1. Scroll down to the "{% data variables.product.prodname_code_scanning_caps %}" section, select **Set up** {% octicon "triangle-down" aria-hidden="true" %}, then click **Advanced**.
 
-   {% note %}
-
-   **Note:** If you are switching from default setup to advanced setup, in the "{% data variables.product.prodname_code_scanning_caps %}" section, select {% octicon "kebab-horizontal" aria-label="Menu" %}, then click {% octicon "workflow" aria-hidden="true" %} **Switch to advanced**. In the pop-up window that appears, click **Disable {% data variables.product.prodname_codeql %}**.
-
-   {% endnote %}
+   > [!NOTE]
+   > If you are switching from default setup to advanced setup, in the "{% data variables.product.prodname_code_scanning_caps %}" section, select {% octicon "kebab-horizontal" aria-label="Menu" %}, then click {% octicon "workflow" aria-hidden="true" %} **Switch to advanced**. In the pop-up window that appears, click **Disable {% data variables.product.prodname_codeql %}**.
 
    ![Screenshot of the "{% data variables.product.prodname_code_scanning_caps %}" section of "Code security and analysis" settings. The "Advanced setup" button is highlighted with an orange outline.](/assets/images/help/security/advanced-code-scanning-setup.png)
 

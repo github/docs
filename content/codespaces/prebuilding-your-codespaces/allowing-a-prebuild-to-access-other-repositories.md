@@ -19,14 +19,9 @@ By default, the {% data variables.product.prodname_actions %} workflow for a pre
 
 You can configure read access to other {% data variables.product.prodname_dotcom %} repositories, with the same repository owner, by specifying permissions in the `devcontainer.json` file used by your prebuild configuration. For more information, see "[AUTOTITLE](/codespaces/managing-your-codespaces/managing-repository-access-for-your-codespaces)."
 
-{% note %}
-
-**Notes**:
-
-* You can only authorize read permissions in this way, and the owner of the target repository must be the same as the owner of the repository for which you're creating a prebuild. For example, if you're creating a prebuild configuration for the `octo-org/octocatrepository`, then you'll be able to grant read permissions for other repositories, such `asocto-org/octodemo`, if this is specified in the `devcontainer.json` file, and provided you have the permissions yourself.
-* You can't use wildcards to specify repositories. You must define permissions for each repository for which you want to grant access.
-
-{% endnote %}
+> [!NOTE]
+> * You can only authorize read permissions in this way, and the owner of the target repository must be the same as the owner of the repository for which you're creating a prebuild. For example, if you're creating a prebuild configuration for the `octo-org/octocatrepository`, then you'll be able to grant read permissions for other repositories, such `asocto-org/octodemo`, if this is specified in the `devcontainer.json` file, and provided you have the permissions yourself.
+> * You can't use wildcards to specify repositories. You must define permissions for each repository for which you want to grant access.
 
 When you create or edit a prebuild configuration for a `devcontainer.json` file that sets up read access to other repositories with the same repository owner, you'll be prompted to grant these permissions when you click **Create** or **Update**. For more information, see "[AUTOTITLE](/codespaces/prebuilding-your-codespaces/configuring-prebuilds#configuring-prebuilds)."
 
@@ -38,11 +33,9 @@ You will need to create a new personal account and then use this account to crea
 
 1. Create a new personal account on {% data variables.product.prodname_dotcom %}.
 
-   {% warning %}
+   > [!WARNING]
+   > Although you can generate the {% data variables.product.pat_v1 %} using your existing personal account, we strongly recommend creating a new account with access only to the target repositories required for your scenario. This is because the access token's `repository` permission grants access to all of the repositories that the account has access to. For more information, see "[AUTOTITLE](/get-started/start-your-journey/creating-an-account-on-github)" and "[AUTOTITLE](/actions/security-guides/security-hardening-for-github-actions#considering-cross-repository-access)."
 
-   **Warning**: Although you can generate the {% data variables.product.pat_v1 %} using your existing personal account, we strongly recommend creating a new account with access only to the target repositories required for your scenario. This is because the access token's `repository` permission grants access to all of the repositories that the account has access to. For more information, see "[AUTOTITLE](/get-started/start-your-journey/creating-an-account-on-github)" and "[AUTOTITLE](/actions/security-guides/security-hardening-for-github-actions#considering-cross-repository-access)."
-
-   {% endwarning %}
 1. Give the new account read access to the required repositories. For more information, see "[AUTOTITLE](/organizations/managing-user-access-to-your-organizations-repositories/managing-repository-roles/managing-an-individuals-access-to-an-organization-repository)."
 1. While signed into the new account, create a {% data variables.product.pat_v1 %} with the `repo` scope. Optionally, if the prebuild will need to download packages from the {% data variables.product.company_short %} {% data variables.product.prodname_container_registry %}, also select the `read:packages` scope. For more information, see "[AUTOTITLE](/authentication/keeping-your-account-and-data-secure/managing-your-personal-access-tokens)."
 

@@ -55,7 +55,7 @@ To support the developer process in the next section, add two {% data variables.
 
 ### Example developer process
 
-Here is an example process that you can follow to automatically run tests, create a release{% ifversion fpt or ghec%} and publish to {% data variables.product.prodname_marketplace %}{% endif %}, and publish your action.
+Here is an example process that you can follow to automatically run tests, create a release{% ifversion fpt or ghec %} and publish to {% data variables.product.prodname_marketplace %}{% endif %}, and publish your action.
 
 1. Do feature work in branches per GitHub flow. For more information, see "[AUTOTITLE](/get-started/using-github/github-flow)."
    * Whenever a commit is pushed to the feature branch, your testing workflow will automatically run the tests.

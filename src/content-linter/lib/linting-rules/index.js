@@ -31,6 +31,7 @@ import { imageNoGif } from './image-no-gif.js'
 import { expiredContent, expiringSoon } from './expired-content.js'
 import { tableLiquidVersioning } from './table-liquid-versioning.js'
 import { thirdPartyActionPinning } from './third-party-action-pinning.js'
+import { liquidTagWhitespace } from './liquid-tag-whitespace.js'
 
 const noDefaultAltText = markdownlintGitHub.find((elem) =>
   elem.names.includes('no-default-alt-text'),
@@ -77,5 +78,6 @@ export const gitHubDocsMarkdownlint = {
     expiringSoon,
     tableLiquidVersioning,
     thirdPartyActionPinning,
+    liquidTagWhitespace,
   ],
 }

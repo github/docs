@@ -1,9 +1,8 @@
 ---
 title: Enforcing dependency review across an organization
 intro: 'Dependency review lets you catch insecure dependencies before you introduce them to your environment. You can enforce the use of the {% data variables.dependency-review.action_name %} across your organization.'
-product: '{% data reusables.gated-features.dependency-review %}'
 shortTitle: Enforce dependency review
-permissions: 'Organization owners can enforce use of the {% data variables.dependency-review.action_name %} in repositories within their organization.'
+permissions: '{% data reusables.permissions.security-org-enable %}'
 versions:
   feature: repo-rules
 type: overview
