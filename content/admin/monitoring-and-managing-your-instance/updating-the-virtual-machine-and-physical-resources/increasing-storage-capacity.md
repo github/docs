@@ -90,6 +90,12 @@ Root storage refers to the total size of your instance's root disk. The availabl
    ghe-upgrade PACKAGE-NAME.pkg -s -t /dev/xvdg1
    ```
 
+1. Run the command on the secondary partition of the newly added disk:
+
+   ```shell
+   sudo mkfs.ext4 -L fallback /dev/xvdg2
+   ```
+
 1. Shut down the appliance:
 
    ```shell
