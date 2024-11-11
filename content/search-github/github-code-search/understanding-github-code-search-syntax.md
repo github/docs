@@ -317,4 +317,8 @@ If code search guesses wrong, you can always get the search you wanted by using 
 
 ## Case sensitivity
 
-By default, code search is case-insensitive. Searching for `True` will include results for _uppercase_ `TRUE` and _lowercase_ `true`. You can do case-sensitive searches by using a regular expression with case insensitivity turned off, for example `/(?-i)True/`.
+By default, code search is case-insensitive, and results will include both uppercase and lowercase results. You can do case-sensitive searches by using a regular expression with case insensitivity turned off. For example, to search for the string "True",  you would use:
+
+```text
+/(?-i)True/
+```
