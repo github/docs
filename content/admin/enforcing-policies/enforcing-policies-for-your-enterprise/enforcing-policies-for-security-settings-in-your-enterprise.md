@@ -36,21 +36,21 @@ You can enforce policies to control the security settings for organizations owne
 
 {% ifversion ghes %}If {% data variables.location.product_location %} uses LDAP or built-in authentication, enterprise{% else %}Enterprise{% endif %} owners can require that organization members, billing managers, and outside collaborators in all organizations owned by an enterprise use two-factor authentication to secure their user accounts.{% ifversion ghec %} This policy is not available for enterprises with managed users.{% endif %}
 
-Before you can require 2FA for all organizations owned by your enterprise, you must enable two-factor authentication for your own account. For more information, see "[AUTOTITLE](/authentication/securing-your-account-with-two-factor-authentication-2fa)."
+Before you can require two-factor authentication for all organizations owned by your enterprise, you must enable 2FA for your own account. For more information, see "[AUTOTITLE](/authentication/securing-your-account-with-two-factor-authentication-2fa)."
 
 Before you require use of two-factor authentication, we recommend notifying organization members, outside collaborators, and billing managers and asking them to set up 2FA for their accounts. Organization owners can see if members and outside collaborators already use 2FA on each organization's People page. For more information, see "[AUTOTITLE](/organizations/keeping-your-organization-secure/managing-two-factor-authentication-for-your-organization/viewing-whether-users-in-your-organization-have-2fa-enabled)."
 
 {% data reusables.two_fa.ghes_ntp %}
 
 > [!WARNING]
-> * When you require two-factor authentication for your enterprise, members, outside collaborators, and billing managers (including bot accounts) in all organizations owned by your enterprise who do not use 2FA will be removed from the organization and lose access to its repositories. They will also lose access to their forks of the organization's private repositories. You can reinstate their access privileges and settings if they enable two-factor authentication for their account within three months of their removal from your organization. For more information, see "[AUTOTITLE](/organizations/managing-membership-in-your-organization/reinstating-a-former-member-of-your-organization)."
-> * Any organization owner, member, billing manager, or outside collaborator in any of the organizations owned by your enterprise who disables 2FA for their account after you've enabled required two-factor authentication will automatically be removed from the organization.
-> * If you're the sole owner of an enterprise that requires two-factor authentication, you won't be able to disable 2FA for your user account without disabling required two-factor authentication for the enterprise.
+> * When you require two-factor authentication for your enterprise, outside collaborators (including bot accounts) in all organizations owned by your enterprise who do not use 2FA will be removed from the organization and lose access to its repositories. They will also lose access to their forks of the organization's private repositories. You can reinstate their access privileges and settings if they enable 2FA for their account within three months of their removal from your organization. For more information, see "[AUTOTITLE](/organizations/managing-membership-in-your-organization/reinstating-a-former-member-of-your-organization)."
+> * Any outside collaborator in any of the organizations owned by your enterprise who disables 2FA for their account after you've enabled required two-factor authentication will automatically be removed from the organization. Members and billing managers who disable 2FA will not be able to access organization resources until they re-enable it.
+> * If you're the sole owner of an enterprise that requires two-factor authentication, you won't be able to disable 2FA for your user account without disabling required 2FA for the enterprise.
 
 {% ifversion mandatory-2fa-dotcom-contributors %}
 
 > [!NOTE]
-> Some of the users in your organizations may have been selected for mandatory two-factor authentication enrollment by  {% data variables.product.prodname_dotcom_the_website %}, but it has no impact on how you enable the 2FA requirement for the organizations in your enterprise. If you enable the 2FA requirement for organizations in your enterprise, all users without 2FA currently enabled will be removed from the organizations, including those that are required to enable it by {% data variables.product.prodname_dotcom_the_website %}.
+> Some of the users in your organizations may have been selected for mandatory two-factor authentication enrollment by {% data variables.product.prodname_dotcom_the_website %}, but it has no impact on how you enable the 2FA requirement for the organizations in your enterprise. If you enable the 2FA requirement for organizations in your enterprise, outside collaborators without 2FA currently enabled will be removed from the organizations, including those that are required to enable it by {% data variables.product.prodname_dotcom_the_website %}.
 
 {% endif %}
 
@@ -59,8 +59,8 @@ Before you require use of two-factor authentication, we recommend notifying orga
 {% data reusables.enterprise-accounts.security-tab %}
 1. Under "Two-factor authentication", review the information about changing the setting. {% data reusables.enterprise-accounts.view-current-policy-config-orgs %}
 1. Under "Two-factor authentication", select **Require two-factor authentication for all organizations in your business**, then click **Save**.
-1. If prompted, read the information about members and outside collaborators who will be removed from the organizations owned by your enterprise. To confirm the change, type your enterprise's name, then click **Remove members & require two-factor authentication**.
-1. Optionally, if any members or outside collaborators are removed from the organizations owned by your enterprise, we recommend sending them an invitation to reinstate their former privileges and access to your organization. Each person must enable two-factor authentication before they can accept your invitation.
+1. If prompted, read the information about how user access to organization resources will be affected by a 2FA requirement. To confirm the change, click **Confirm**.
+1. Optionally, if any outside collaborators are removed from the organizations owned by your enterprise, we recommend sending them an invitation to reinstate their former privileges and access to your organization. Each person must enable two-factor authentication before they can accept your invitation.
 
 {% endif %}
 
