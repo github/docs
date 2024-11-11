@@ -18,7 +18,7 @@ topics:
 
 ## Renaming a file on {% data variables.product.product_name %}
 
-Renaming a file also gives you the opportunity to [move the file to a new location](/repositories/working-with-files/managing-files/moving-a-file-to-a-new-location)
+Renaming a file also gives you the opportunity to [move the file to a new location](/repositories/working-with-files/managing-files/moving-a-file-to-a-new-location).
 
 {% tip %}
 

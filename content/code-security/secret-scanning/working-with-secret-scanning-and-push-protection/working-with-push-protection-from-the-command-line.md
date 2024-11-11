@@ -45,7 +45,7 @@ To resolve a blocked push, you must remove the secret from all of the commits it
 If the blocked secret was introduced by the latest commit on your branch, you can follow the guidance below.
 
 1. Remove the secret from your code.
-1. To commit the changes, run `git commit --amend`. This updates the original commit that introduced the secret instead of creating a new commit.
+1. To commit the changes, run `git commit --amend --all`. This updates the original commit that introduced the secret instead of creating a new commit.
 1. Push your changes with `git push`.
 
 ### Removing a secret introduced by an earlier commit on your branch
@@ -107,6 +107,12 @@ You can also remove the secret if the secret appears in an earlier commit in the
 
 1. Save and close the editor to start the interactive rebase.
 1. Remove the secret from your code.
+1. Add your changes to the staging area using `git add .`.
+
+   >[!NOTE] The full command is `git add .`:
+   > * There is a space between `add` and `.`.
+   > * The period following the space is part of the command.
+
 1. Commit your changes using `git commit --amend`.
 1. Run `git rebase --continue` to finish the rebase.
 1. Push your changes with `git push`.

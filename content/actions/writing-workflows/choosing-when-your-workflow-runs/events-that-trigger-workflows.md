@@ -838,7 +838,7 @@ jobs:
 > The webhook payload available to GitHub Actions does not include the `added`, `removed`, and `modified` attributes in the `commit` object. You can retrieve the full commit object using the API. For information, see "[AUTOTITLE](/graphql/reference/objects#commit)" in the GraphQL API documentation or "[AUTOTITLE](/rest/commits#get-a-commit)."
 
 > [!NOTE]
-> {% ifversion fpt or ghec or ghes > 3.13 %}Events will not be created if more than 5,000 branches are pushed at once. {% endif %}Events will not be created for tags when more than three tags are pushed at once.
+> {% ifversion fpt or ghec or ghes > 3.14 %}Events will not be created if more than 5,000 branches are pushed at once. {% endif %}Events will not be created for tags when more than three tags are pushed at once.
 
 Runs your workflow when you push a commit or tag, or when you create a repository from a template.
 
