@@ -18,7 +18,7 @@ topics:
 
 ## Renaming a file on {% data variables.product.product_name %}
 
-Renaming a file also gives you the opportunity to [move the file to a new location](/repositories/working-with-files/managing-files/moving-a-file-to-a-new-location)
+Renaming a file also gives you the opportunity to [move the file to a new location](/repositories/working-with-files/managing-files/moving-a-file-to-a-new-location).
 
 > [!TIP]
 > * If you try to rename a file in a repository that you don’t have access to, we will fork the project to your personal account and help you send [a pull request](/pull-requests/collaborating-with-pull-requests/proposing-changes-to-your-work-with-pull-requests/about-pull-requests) to the original repository after you commit your change.
