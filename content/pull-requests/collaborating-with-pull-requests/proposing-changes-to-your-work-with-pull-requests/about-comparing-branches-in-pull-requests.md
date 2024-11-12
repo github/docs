@@ -14,11 +14,9 @@ topics:
   - Pull requests
 shortTitle: Compare branches
 ---
-{% note %}
 
-**Note:** When creating your pull request, you can change the base branch that you're comparing your changes against. For more information, see "[AUTOTITLE](/pull-requests/collaborating-with-pull-requests/proposing-changes-to-your-work-with-pull-requests/creating-a-pull-request#changing-the-branch-range-and-destination-repository)."
-
-{% endnote %}
+> [!NOTE]
+> When creating your pull request, you can change the base branch that you're comparing your changes against. For more information, see "[AUTOTITLE](/pull-requests/collaborating-with-pull-requests/proposing-changes-to-your-work-with-pull-requests/creating-a-pull-request#changing-the-branch-range-and-destination-repository)."
 
 You can view proposed changes in a pull request in the Files changed tab.
 ![Screenshot of the tabs for a pull request. The "Files changed" tab is outlined in dark orange.](/assets/images/help/pull_requests/pull-request-tabs-changed-files.png)
@@ -27,11 +25,8 @@ Rather than viewing the commits themselves, you can view the proposed changes as
 
 ## Diff view options
 
-{% tip %}
-
-**Tip:** If you're having a hard time understanding the context of a change, you can click **View** in the Files changed tab to view the whole file with the proposed changes.
-
-{% endtip %}
+> [!TIP]
+> If you're having a hard time understanding the context of a change, you can click **View** in the Files changed tab to view the whole file with the proposed changes.
 
 You have several options for viewing a diff:
 * The unified view shows updated and existing content together in a linear view.

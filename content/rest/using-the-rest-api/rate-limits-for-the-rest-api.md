@@ -68,11 +68,8 @@ curl -u YOUR_CLIENT_ID:YOUR_CLIENT_SECRET -I {% data variables.product.rest_url 
 
 For these requests, the rate limit is 5,000 requests per hour per {% data variables.product.prodname_oauth_app %}. If the app is owned by a {% data variables.product.prodname_ghe_cloud %} organization, the rate limit is 15,000 requests per hour.
 
-{% note %}
-
-**Note:** Never include your app's client secret in client-side code or in code that runs on a user device. The client secret can be used to generate OAuth access tokens for users who have authorized your app, so you should always keep the client secret secure.
-
-{% endnote %}
+> [!NOTE]
+> Never include your app's client secret in client-side code or in code that runs on a user device. The client secret can be used to generate OAuth access tokens for users who have authorized your app, so you should always keep the client secret secure.
 
 ### Primary rate limit for `GITHUB_TOKEN` in {% data variables.product.prodname_actions %}
 

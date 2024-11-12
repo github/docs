@@ -18,17 +18,12 @@ versions:
 topics:
   - Repositories
 ---
-{% tip %}
 
-**Tip:** Owners can restrict repository creation permissions in an organization. For more information, see "[AUTOTITLE](/organizations/managing-organization-settings/restricting-repository-creation-in-your-organization)."
+> [!TIP]
+> Owners can restrict repository creation permissions in an organization. For more information, see "[AUTOTITLE](/organizations/managing-organization-settings/restricting-repository-creation-in-your-organization)."
 
-{% endtip %}
-
-{% tip %}
-
-**Tip**: You can also create a repository using the {% data variables.product.prodname_cli %}. For more information, see "[`gh repo create`](https://cli.github.com/manual/gh_repo_create)" in the {% data variables.product.prodname_cli %} documentation.
-
-{% endtip %}
+> [!TIP]
+> You can also create a repository using the {% data variables.product.prodname_cli %}. For more information, see "[`gh repo create`](https://cli.github.com/manual/gh_repo_create)" in the {% data variables.product.prodname_cli %} documentation.
 
 {% ifversion create-new-repos-with-query-params %}
 

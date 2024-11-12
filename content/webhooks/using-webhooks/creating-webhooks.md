@@ -84,11 +84,8 @@ You can use the {% data variables.product.company_short %} web interface or the 
 {% data reusables.webhooks.content_type_and_secret %}
 1. Optionally, if your payload URL is HTTPS and you would not like {% data variables.product.prodname_ghe_server %} to verify SSL certificates when delivering payloads, under "SSL verification", select **Disable**. Read the information about SSL verification, then click **Disable, I understand my webhooks may not be secure**.
 
-   {% warning %}
-
-   **Warning:** SSL verification helps ensure that hook payloads are delivered securely. We do not recommend disabling SSL verification.
-
-   {% endwarning %}
+   > [!WARNING]
+   > SSL verification helps ensure that hook payloads are delivered securely. We do not recommend disabling SSL verification.
 
 1. Under "Which events would you like to trigger this webhook?", select the types of webhooks you'd like to receive. You should only subscribe to the webhook events that you need.
 1. If you chose **Let me select individual events**, select the events that will trigger the webhook.

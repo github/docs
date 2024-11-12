@@ -45,8 +45,8 @@ ARC consists of a set of resources, some of which are created specifically for A
 
 Each resource that is deployed by ARC is given a name composed of:
 
-* an installation name, which is the installation name you specify when you install the Helm chart.
-* a resource identification suffix, which is a string that identifies the resource type. This value is not configurable.
+* An installation name, which is the installation name you specify when you install the Helm chart.
+* A resource identification suffix, which is a string that identifies the resource type. This value is not configurable.
 
 > [!NOTE]
 > Different versions of Kubernetes have different length limits for names of resources. The length limit for the resource name is calculated by adding the length of the installation name and the length of the resource identification suffix. If the resource name is longer than the reserved length, you will receive an error.

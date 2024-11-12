@@ -15,11 +15,9 @@ topics:
   - Repositories
 shortTitle: View releases & tags
 ---
-{% tip %}
 
-**Tip**: You can also view a release using the {% data variables.product.prodname_cli %}. For more information, see "[`gh release view`](https://cli.github.com/manual/gh_release_view)" in the {% data variables.product.prodname_cli %} documentation.
-
-{% endtip %}
+> [!TIP]
+> You can also view a release using the {% data variables.product.prodname_cli %}. For more information, see "[`gh release view`](https://cli.github.com/manual/gh_release_view)" in the {% data variables.product.prodname_cli %} documentation.
 
 ## Viewing releases
 

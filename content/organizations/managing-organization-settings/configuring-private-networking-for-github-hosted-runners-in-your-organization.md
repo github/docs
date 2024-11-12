@@ -88,11 +88,8 @@ https://api.github.com/graphql
 
 ### 2. Create a runner group for your organization
 
-{% note %}
-
-**Note:** For the runner group to be accessible by repositories within your organizations, those repositories must have access to that runner group at the organization level. For more information, see "[AUTOTITLE](/actions/using-github-hosted-runners/controlling-access-to-larger-runners#changing-which-repositories-can-access-a-runner-group)."
-
-{% endnote %}
+> [!NOTE]
+> For the runner group to be accessible by repositories within your organizations, those repositories must have access to that runner group at the organization level. For more information, see "[AUTOTITLE](/actions/using-github-hosted-runners/controlling-access-to-larger-runners#changing-which-repositories-can-access-a-runner-group)."
 
 1. Create a new runner group for your organization. For more information about how to create a runner group, see "[AUTOTITLE](/actions/using-github-hosted-runners/about-larger-runners/controlling-access-to-larger-runners#creating-a-runner-group-for-an-organization)."
 1. To choose a policy for repository access, select the **Repository access** dropdown menu and click a policy. You can configure a runner group to be accessible to a specific list of repositories, or all repositories in the organization.
@@ -101,11 +98,8 @@ https://api.github.com/graphql
 
 ### 3. Add the {% data variables.product.company_short %}-hosted runner to the organization runner group
 
-{% note %}
-
-**Note:** When adding your {% data variables.product.company_short %}-hosted runner to a runner group, select the runner group you created in the previous procedures.
-
-{% endnote %}
+> [!NOTE]
+> When adding your {% data variables.product.company_short %}-hosted runner to a runner group, select the runner group you created in the previous procedures.
 
 1. Add the {% data variables.product.company_short %}-hosted runner to the runner group. For more information, see "[AUTOTITLE](/actions/using-github-hosted-runners/about-larger-runners/managing-larger-runners#adding-a-larger-runner-to-an-organization)."
 

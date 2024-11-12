@@ -197,7 +197,12 @@ sections:
     - |
       ...
 
-  deprecations:
+  closing_down:
+    # LINK TO RELEASE ISSUE
+    - |
+      ...
+
+  retired:
     # LINK TO RELEASE ISSUE
     - |
       ...
