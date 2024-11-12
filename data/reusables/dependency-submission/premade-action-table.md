@@ -7,11 +7,8 @@ Mill | [Mill Dependency Submission](https://github.com/marketplace/actions/mill-
 Scala | [Sbt Dependency Submission](https://github.com/marketplace/actions/sbt-dependency-submission) |
 NuGet and others | [Component Detection dependency submission action](https://github.com/marketplace/actions/component-detection-dependency-submission-action) |
 
-{% note %}
-
-**Note:** For the Component Detection dependency submission action, other supported ecosystems include Vcpkg, Conan, Conda, Crates, as well as NuGet.
-
-{% endnote %}
+> [!NOTE]
+> For the Component Detection dependency submission action, other supported ecosystems include Vcpkg, Conan, Conda, Crates, as well as NuGet.
 
 For example, the following [Go Dependency Submission](https://github.com/actions/go-dependency-submission) workflow calculates the dependencies for a Go build-target (a Go file with a `main` function) and submits the list to the {% data variables.dependency-submission-api.name %}.
 
