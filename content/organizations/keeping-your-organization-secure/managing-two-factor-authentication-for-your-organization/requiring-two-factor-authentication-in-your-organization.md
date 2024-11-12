@@ -28,25 +28,17 @@ product: 'Requiring two-factor authentication is available to organizations on a
 
 You can also require two-factor authentication for organizations in an enterprise. For more information, see "[AUTOTITLE](/admin/policies/enforcing-policies-for-your-enterprise/enforcing-policies-for-security-settings-in-your-enterprise)."
 
-{% note %}
-
-**Note**: Some of the users in your organization may have been selected for mandatory two-factor authentication enrollment by {% data variables.product.prodname_dotcom %}, but it has no impact on how you enable the 2FA requirement for your organization. If you enable the 2FA requirement in your organization, all users without 2FA currently enabled will be removed from your organization, including those that are required to enable it by {% data variables.product.prodname_dotcom %}.
-
-{% endnote %}
+> [!NOTE]
+> Some of the users in your organization may have been selected for mandatory two-factor authentication enrollment by {% data variables.product.prodname_dotcom %}, but it has no impact on how you enable the 2FA requirement for your organization. If you enable the 2FA requirement in your organization, all users without 2FA currently enabled will be removed from your organization, including those that are required to enable it by {% data variables.product.prodname_dotcom %}.
 
 {% endif %}
 
-{% warning %}
-
-**Warnings:**
-
-* When you require use of two-factor authentication for your organization, {% ifversion fpt or ghec %}members and billing managers{% else %}members{% endif %} who do not use 2FA will not be able to access your organization's resources until they enable 2FA on their account. They will retain membership even without 2FA, including occupying seats in your organization.
-* When you require use of two-factor authentication for your organization, outside collaborators who do not use 2FA will be removed from the organization and lose access to its repositories. They will also lose access to their forks of the organization's private repositories. You can reinstate their access privileges and settings if they enable 2FA for their personal account within three months of their removal from your organization. For more information, see "[AUTOTITLE](/organizations/managing-membership-in-your-organization/reinstating-a-former-member-of-your-organization)."
-* You will also need to enable two-factor authentication for unattended or shared access accounts that are outside collaborators, such as bots and service accounts. If you do not configure 2FA for these unattended outside collaborator accounts after you've enabled required 2FA, the accounts will be removed from the organization and lose access to their repositories. For more information, see "[AUTOTITLE](/organizations/keeping-your-organization-secure/managing-two-factor-authentication-for-your-organization/managing-bots-and-service-accounts-with-two-factor-authentication)."
-* If an outside collaborator disables two-factor authentication for their personal account after you've enabled required 2FA, they will automatically be removed from the organization.
-* If you're the sole owner of an organization that requires two-factor authentication, you won't be able to disable 2FA for your personal account without disabling required 2FA for the organization.
-
-{% endwarning %}
+> [!WARNING]
+> * When you require use of two-factor authentication for your organization, {% ifversion fpt or ghec %}members and billing managers{% else %}members{% endif %} who do not use 2FA will not be able to access your organization's resources until they enable 2FA on their account. They will retain membership even without 2FA, including occupying seats in your organization.
+> * When you require use of two-factor authentication for your organization, outside collaborators who do not use 2FA will be removed from the organization and lose access to its repositories. They will also lose access to their forks of the organization's private repositories. You can reinstate their access privileges and settings if they enable 2FA for their personal account within three months of their removal from your organization. For more information, see "[AUTOTITLE](/organizations/managing-membership-in-your-organization/reinstating-a-former-member-of-your-organization)."
+> * You will also need to enable two-factor authentication for unattended or shared access accounts that are outside collaborators, such as bots and service accounts. If you do not configure 2FA for these unattended outside collaborator accounts after you've enabled required 2FA, the accounts will be removed from the organization and lose access to their repositories. For more information, see "[AUTOTITLE](/organizations/keeping-your-organization-secure/managing-two-factor-authentication-for-your-organization/managing-bots-and-service-accounts-with-two-factor-authentication)."
+> * If an outside collaborator disables two-factor authentication for their personal account after you've enabled required 2FA, they will automatically be removed from the organization.
+> * If you're the sole owner of an organization that requires two-factor authentication, you won't be able to disable 2FA for your personal account without disabling required 2FA for the organization.
 
 {% data reusables.two_fa.auth_methods_2fa %}
 
