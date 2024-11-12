@@ -46,11 +46,9 @@ Next, we'll add some basic information about yourself to share with other {% dat
 1. On your profile page, under your profile picture, click **Edit profile**.
 1. Under "Bio", write one or two sentences about yourself, such as who you are and what you do.
 
-   {% note %}
+   > [!NOTE]
+   > Keep the bio short; we'll add a longer description of your interests in your profile README in the section below.
 
-   **Note:** Keep the bio short; we'll add a longer description of your interests in your profile README in the section below.
-
-   {% endnote %}
 1. To add an emoji to your bio, visit "[Emoji cheat sheet](https://www.webfx.com/tools/emoji-cheat-sheet/)" and copy and paste an emoji into the "Bio" dialog box.
 1. Optionally, add your {% ifversion profile-pronouns %}preferred pronouns,{% endif %} workplace, location and timezone{% ifversion profile-social-links %}, and any links to your personal website and social accounts{% endif %}. {% ifversion profile-pronouns %}{% data reusables.profile.pronouns-visibility %}{% endif %}
 1. Click **Save**.

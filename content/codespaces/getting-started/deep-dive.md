@@ -28,11 +28,8 @@ Your codespace can be ephemeral if you need to test something or you can return 
 
 For more information, see "[AUTOTITLE](/codespaces/developing-in-a-codespace/creating-a-codespace-for-a-repository)," "[AUTOTITLE](/codespaces/developing-in-a-codespace/creating-a-codespace-from-a-template)," and "[AUTOTITLE](/codespaces/developing-in-a-codespace/opening-an-existing-codespace)."
 
-{% note %}
-
-**Note**: You can create more than one codespace per repository or even per branch. However, there are limits to the number of codespaces you can create, and the number of codespaces you can run at the same time. If you reach the maximum number of codespaces and try to create another, a message is displayed telling you that you must remove an existing codespace before you can create a new one.
-
-{% endnote %}
+> [!NOTE]
+> You can create more than one codespace per repository or even per branch. However, there are limits to the number of codespaces you can create, and the number of codespaces you can run at the same time. If you reach the maximum number of codespaces and try to create another, a message is displayed telling you that you must remove an existing codespace before you can create a new one.
 
 ### The codespace creation process
 
@@ -48,13 +45,10 @@ A [shallow clone](https://github.blog/2020-12-21-get-up-to-speed-with-partial-cl
 
 {% data variables.product.prodname_github_codespaces %} uses a Docker container as the development environment. This container is created based on configurations that you can define in a `devcontainer.json` file and, optionally, a Dockerfile. If you create a codespace from {% data variables.product.company_short %}'s blank template, or from a repository with no `devcontainer.json` file, {% data variables.product.prodname_github_codespaces %} uses a default image, which has many languages and runtimes available. For more information, see "[AUTOTITLE](/codespaces/setting-up-your-project-for-codespaces/adding-a-dev-container-configuration/introduction-to-dev-containers)." For details of what the default image for dev containers includes, see the [`devcontainers/images`](https://github.com/devcontainers/images/tree/main/src/universal) repository.
 
-{% note %}
-
-**Note:** If you want to use Git hooks in your codespace and apply anything in the [git template directory](https://git-scm.com/docs/git-init#_template_directory) to your codespace, then you must set up hooks during step 4 after the container is created.
-
-Since your repository is cloned onto the host VM before the container is created, anything in the [git template directory](https://git-scm.com/docs/git-init#_template_directory) will not apply in your codespace unless you set up hooks in your `devcontainer.json` configuration file using the `postCreateCommand` in step 4. For more information, see "[Step 4: Post-creation setup](#step-4-post-creation-setup)."
-
-{% endnote %}
+> [!NOTE]
+> If you want to use Git hooks in your codespace and apply anything in the [git template directory](https://git-scm.com/docs/git-init#_template_directory) to your codespace, then you must set up hooks during step 4 after the container is created.
+>
+> Since your repository is cloned onto the host VM before the container is created, anything in the [git template directory](https://git-scm.com/docs/git-init#_template_directory) will not apply in your codespace unless you set up hooks in your `devcontainer.json` configuration file using the `postCreateCommand` in step 4. For more information, see "[Step 4: Post-creation setup](#step-4-post-creation-setup)."
 
 ### Step 3: Connecting to the codespace
 
@@ -128,11 +122,8 @@ If you're working in a codespace created from a template, Git is installed by de
 
 For more information, see "[AUTOTITLE](/codespaces/developing-in-a-codespace/using-source-control-in-your-codespace)."
 
-{% note %}
-
-**Note:** Commits from your codespace will be attributed to the name and public email configured at https://github.com/settings/profile. A token scoped to the repository, included in the environment as `GITHUB_TOKEN`, and your GitHub credentials will be used to authenticate.
-
-{% endnote %}
+> [!NOTE]
+> Commits from your codespace will be attributed to the name and public email configured at https://github.com/settings/profile. A token scoped to the repository, included in the environment as `GITHUB_TOKEN`, and your GitHub credentials will be used to authenticate.
 
 ## Personalizing your codespace with extensions or plugins
 

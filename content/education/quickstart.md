@@ -13,11 +13,8 @@ Educators who teach a course on software development can use discounts, partners
 
 In this guide, you'll get started with {% data variables.product.product_name %}, sign up for accounts and discounted services through {% data variables.product.prodname_education %}, and create a space for your course and assignment on {% data variables.product.prodname_classroom %}.
 
-{% tip %}
-
-**Tip**: If you're a student and you'd like to take advantage of an academic discount, see "[AUTOTITLE](/education/explore-the-benefits-of-teaching-and-learning-with-github-education/github-education-for-students/apply-to-github-education-as-a-student)."
-
-{% endtip %}
+> [!TIP]
+> If you're a student and you'd like to take advantage of an academic discount, see "[AUTOTITLE](/education/explore-the-benefits-of-teaching-and-learning-with-github-education/github-education-for-students/apply-to-github-education-as-a-student)."
 
 ## Creating accounts on {% data variables.product.product_name %}
 
@@ -39,11 +36,8 @@ For more information, see "[AUTOTITLE](/get-started/learning-about-github/types-
 
 Next, you'll sign up for teacher benefits and resources from {% data variables.product.company_short %} by applying to {% data variables.product.prodname_global_campus %}, a portal that allows you to access your education benefits all in one place.  {% data reusables.education.educator-requirements %}
 
-{% tip %}
-
-**Tip** In addition to individual discounts, {% data variables.product.company_short %} offers partnerships with educational institutions through the {% data variables.product.prodname_campus_program %}. For more information, see the [{% data variables.product.prodname_campus_program %}](https://education.github.com/schools) website.
-
-{% endtip %}
+> [!TIP]
+> In addition to individual discounts, {% data variables.product.company_short %} offers partnerships with educational institutions through the {% data variables.product.prodname_campus_program %}. For more information, see the [{% data variables.product.prodname_campus_program %}](https://education.github.com/schools) website.
 
 {% data reusables.education.benefits-page %}
 {% data reusables.education.click-get-teacher-benefits %}
@@ -63,11 +57,8 @@ With your personal account and organization account, you're ready to get started
 1. To authorize {% data variables.product.prodname_classroom %} to access your personal account on {% data variables.product.prodname_dotcom %}, review the information, then click **Authorize {% data variables.product.prodname_classroom %}**.
 1. Review the information. To authorize {% data variables.product.prodname_classroom %} to access your organization account on {% data variables.product.prodname_dotcom %}, click **Grant**.
 
-   {% tip %}
-
-   **Tip**: If you see a **Request** button instead of a **Grant** button, you are a member of the organization, not an owner. An owner must approve your request for {% data variables.product.prodname_classroom %}. You must be an organization owner to create and manage classrooms and assignments in {% data variables.product.prodname_classroom %}. For more information, see "[AUTOTITLE](/apps/oauth-apps/using-oauth-apps/authorizing-oauth-apps#oauth-apps-and-organizations)."
-
-   {% endtip %}
+   > [!TIP]
+   > If you see a **Request** button instead of a **Grant** button, you are a member of the organization, not an owner. An owner must approve your request for {% data variables.product.prodname_classroom %}. You must be an organization owner to create and manage classrooms and assignments in {% data variables.product.prodname_classroom %}. For more information, see "[AUTOTITLE](/apps/oauth-apps/using-oauth-apps/authorizing-oauth-apps#oauth-apps-and-organizations)."
 
 1. Click **Authorize github**.
 

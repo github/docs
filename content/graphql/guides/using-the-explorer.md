@@ -14,11 +14,10 @@ topics:
 ## About the GraphQL Explorer
 
 {% ifversion ghec %}
-{% note %}
 
-**Note**: If your {% data variables.product.prodname_ghe_cloud %} organization uses {% data variables.product.prodname_dotcom %}'s IP allow list, you won't be able to use the GraphQL Explorer. Instead, we recommend using an alternative GraphQL client IDE.
+> [!NOTE]
+> If your {% data variables.product.prodname_ghe_cloud %} organization uses {% data variables.product.prodname_dotcom %}'s IP allow list, you won't be able to use the GraphQL Explorer. Instead, we recommend using an alternative GraphQL client IDE.
 
-{% endnote %}
 {% endif %}
 
 {% ifversion fpt or ghec %}
@@ -92,11 +91,8 @@ There are many open source GraphQL client IDEs. For example, you can use Altair 
 1. In Altair, click on **Docs** on the top right, then the three dots and **Load Schema...**
 1. Select the file public schema that you downloaded in an earlier step.
 
-{% note %}
-
-**Note**: For more information about why `POST` is the method, see "[AUTOTITLE](/graphql/guides/forming-calls-with-graphql#communicating-with-graphql)."
-
-{% endnote %}
+> [!NOTE]
+> For more information about why `POST` is the method, see "[AUTOTITLE](/graphql/guides/forming-calls-with-graphql#communicating-with-graphql)."
 
 You can test your access by querying yourself:
 
@@ -155,8 +151,5 @@ It's possible you might run into an unexpected error that is not related to the 
 }
 ```
 
-{% note %}
-
-**Note:** {% data variables.product.prodname_dotcom %} recommends checking for errors before using data in a production environment. In GraphQL, failure is not total: portions of GraphQL queries may succeed while others fail.
-
-{% endnote %}
+> [!NOTE]
+> {% data variables.product.prodname_dotcom %} recommends checking for errors before using data in a production environment. In GraphQL, failure is not total: portions of GraphQL queries may succeed while others fail.

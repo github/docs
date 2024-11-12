@@ -28,11 +28,8 @@ While a migration is in progress, access to the destination repository is locked
 
 {% data variables.product.prodname_importer_proper_name %} does not lock source repositories by default. Source repositories will only be locked if you specify the `--lock-source-repo` option in the {% data variables.product.prodname_cli %}, or the `lockSource` attribute in the `startRepositoryMigration` GraphQL mutation.
 
-{% note %}
-
-**Note:** We do not recommend locking source repositories unless you are certain you will not want to unlock them later. Consider archiving the repositories instead. For more information, see "[AUTOTITLE](/repositories/archiving-a-github-repository/archiving-repositories)."
-
-{% endnote %}
+> [!NOTE]
+> We do not recommend locking source repositories unless you are certain you will not want to unlock them later. Consider archiving the repositories instead. For more information, see "[AUTOTITLE](/repositories/archiving-a-github-repository/archiving-repositories)."
 
 For information about how to unlock repositories that were locked by {% data variables.product.prodname_importer_proper_name %}, see "[AUTOTITLE](/migrations/using-github-enterprise-importer/completing-your-migration-with-github-enterprise-importer/troubleshooting-your-migration-with-github-enterprise-importer#locked-repositories)."
 

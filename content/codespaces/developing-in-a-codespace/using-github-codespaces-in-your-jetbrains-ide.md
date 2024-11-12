@@ -23,11 +23,8 @@ After installing the JetBrains Gateway, you can set JetBrains as your default ed
 
 When you work in a codespace, you use the JetBrains thin client application on your local computer. This provides the graphical interface for the full JetBrains IDE of your choice, which runs on the remote virtual machine that hosts your codespace. The thin client is always used, even if the full JetBrains IDE is installed locally. Any local JetBrains IDE settings are imported and used by the thin client.
 
-{% note %}
-
-**Note:** Only existing codespaces are available in the JetBrains Gateway. You can create codespaces in {% data variables.product.github %}, or by using {% data variables.product.prodname_cli %}. For more information, see "[AUTOTITLE](/codespaces/developing-in-a-codespace/creating-a-codespace-for-a-repository)."
-
-{% endnote %}
+> [!NOTE]
+> Only existing codespaces are available in the JetBrains Gateway. You can create codespaces in {% data variables.product.github %}, or by using {% data variables.product.prodname_cli %}. For more information, see "[AUTOTITLE](/codespaces/developing-in-a-codespace/creating-a-codespace-for-a-repository)."
 
 ### The JetBrains remote development connection process
 
@@ -72,11 +69,8 @@ You must have an existing codespace to connect to, and the virtual machine that 
 
 For more information about the `devcontainer.json` file and the default container image, see "[AUTOTITLE](/codespaces/setting-up-your-project-for-codespaces/adding-a-dev-container-configuration/introduction-to-dev-containers)."
 
-{% note %}
-
-**Note**: For help with connecting to your codespace over SSH, see "[AUTOTITLE](/codespaces/troubleshooting/troubleshooting-github-codespaces-clients?tool=jetbrains#ssh-connection-issues)."
-
-{% endnote %}
+> [!NOTE]
+> For help with connecting to your codespace over SSH, see "[AUTOTITLE](/codespaces/troubleshooting/troubleshooting-github-codespaces-clients?tool=jetbrains#ssh-connection-issues)."
 
 ## Setting up the JetBrains Gateway
 

@@ -12,11 +12,8 @@ Team maintainers and organization owners can enable or disable notifications for
 
 Disabling team notifications won't unsubscribe people that are already subscribed to threads.
 
-{% note %}
-
-**Note:** This setting does not affect notifications for reviews requested from the team.
-
-{% endnote %}
+> [!NOTE]
+> This setting does not affect notifications for reviews requested from the team.
 
 {% data reusables.profile.access_org %}
 {% data reusables.user-settings.access_org %}

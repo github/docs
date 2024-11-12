@@ -18,11 +18,8 @@ redirect_from:
 
 This data will not be shared with any parties outside of {% data variables.product.company_short %}. IP addresses and installation IDs will be retained for a maximum of 30 days. Anonymous data will be retained for a maximum of 180 days.
 
-{% note %}
-
-**Note:** Telemetry collection is disabled by default in {% data variables.product.prodname_codeql %} for {% data variables.product.prodname_vscode %}. When telemetry collection is disabled, no data will be sent to {% data variables.product.company_short %} servers.
-
-{% endnote %}
+> [!NOTE]
+> Telemetry collection is disabled by default in {% data variables.product.prodname_codeql %} for {% data variables.product.prodname_vscode %}. When telemetry collection is disabled, no data will be sent to {% data variables.product.company_short %} servers.
 
 ## Why we collect data
 

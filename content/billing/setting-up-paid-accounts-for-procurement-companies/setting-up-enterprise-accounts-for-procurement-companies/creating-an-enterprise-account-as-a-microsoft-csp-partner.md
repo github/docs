@@ -18,6 +18,7 @@ As a Microsoft Cloud Solution Provider (CSP) partner, you can create an enterpri
 
 Before you start, make sure you know:
 * The {% data variables.product.prodname_dotcom %} username of the client who will become the owner of the enterprise account you create
+* The {% data variables.product.prodname_dotcom %} username for the CSP partner that must be assigned to the customer’s enterprise account to manage metered billing and access support
 * The name your client would like to use for the enterprise account
 * The email address where you would like receipts to be sent
 

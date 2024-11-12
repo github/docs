@@ -41,11 +41,8 @@ git fetch REMOTE
 This safely copies information from the remote repository to your local clone without making any changes to the files you have checked out.
 You can use `git fetch upstream` to get information from a repository you've forked, or `git fetch origin` to get information from a repository you've only cloned.
 
-{% tip %}
-
-**Tip**: For more information, read about [managing remotes and fetching data](https://git-scm.com/book/en/v2/Git-Basics-Working-with-Remotes) in the [Pro Git](https://git-scm.com/book) book.
-
-{% endtip %}
+> [!TIP]
+> For more information, read about [managing remotes and fetching data](https://git-scm.com/book/en/v2/Git-Basics-Working-with-Remotes) in the [Pro Git](https://git-scm.com/book) book.
 
 ## The branch that contained the commit was deleted
 

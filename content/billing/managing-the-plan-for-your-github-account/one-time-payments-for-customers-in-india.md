@@ -52,11 +52,8 @@ Existing sponsorships will remain in place during this period and maintainers wi
 
 ## Making a one-time payment for a GitHub subscription
 
-{% note %}
-
-**Note**: Affected customers will receive an email notification with a link to their billing settings when payment is due. Two further reminder emails will be sent 7 and 14 days later if payment has not been made. After 14 days, paid features and services will be locked until payment is made.
-
-{% endnote %}
+> [!NOTE]
+> Affected customers will receive an email notification with a link to their billing settings when payment is due. Two further reminder emails will be sent 7 and 14 days later if payment has not been made. After 14 days, paid features and services will be locked until payment is made.
 
 {% data reusables.user-settings.access_settings %}
 {% data reusables.user-settings.billing_plans_payment %}

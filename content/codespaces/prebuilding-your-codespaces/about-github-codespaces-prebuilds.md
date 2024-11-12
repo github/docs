@@ -26,11 +26,8 @@ When prebuilds are available for a particular branch of a repository, a particul
 
 When you create a codespace from a template on the "Your codespaces" page, {% data variables.product.prodname_dotcom %} may automatically use a prebuild to speed up creation time. For more information on templates, see "[AUTOTITLE](/codespaces/developing-in-a-codespace/creating-a-codespace-from-a-template)."
 
-{% note %}
-
-**Note**: Each prebuild that's created consumes storage space that will either incur a billable charge or, for repositories owned by your personal {% data variables.product.prodname_dotcom %} account, will use some of your monthly included storage. For more information, see "[AUTOTITLE](/billing/managing-billing-for-your-products/managing-billing-for-github-codespaces/about-billing-for-github-codespaces#about-billing-for-codespaces-prebuilds)."
-
-{% endnote %}
+> [!NOTE]
+> Each prebuild that's created consumes storage space that will either incur a billable charge or, for repositories owned by your personal {% data variables.product.prodname_dotcom %} account, will use some of your monthly included storage. For more information, see "[AUTOTITLE](/billing/managing-billing-for-your-products/managing-billing-for-github-codespaces/about-billing-for-github-codespaces#about-billing-for-codespaces-prebuilds)."
 
 ## The prebuild process
 

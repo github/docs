@@ -19,19 +19,13 @@ Setting {% data variables.product.prodname_github_codespaces %} as the preferred
 
 For assignments with complex setup environments, teachers can customize the dev container configuration for a repository's codespaces. This ensures that when a student creates a codespace, it automatically opens with the development environment configured by the teacher. For more information on dev containers, see "[AUTOTITLE](/codespaces/setting-up-your-project-for-codespaces/adding-a-dev-container-configuration/introduction-to-dev-containers)."
 
-{% note %}
-
-**Note**: Individual codespaces are automatically deleted if they are stopped and left unused for a prolonged period. See "[AUTOTITLE](/codespaces/setting-your-user-preferences/configuring-automatic-deletion-of-your-codespaces)."
-
-{% endnote %}
+> [!NOTE]
+> Individual codespaces are automatically deleted if they are stopped and left unused for a prolonged period. See "[AUTOTITLE](/codespaces/setting-your-user-preferences/configuring-automatic-deletion-of-your-codespaces)."
 
 {% data reusables.education.student-codespaces-benefit %}
 
-{% note %}
-
-**Note:** {% data reusables.education.note-on-student-codespaces-usage %}
-
-{% endnote %}
+> [!NOTE]
+> {% data reusables.education.note-on-student-codespaces-usage %}
 
 ## About the {% data variables.product.prodname_codespaces %} Education benefit for verified teachers
 

@@ -262,11 +262,8 @@ If you added manual build steps for compiled languages and {% data variables.pro
 * [Building Java and Kotlin](#building-java-and-kotlin)
 * [Building Swift](#building-swift)
 
-{% note %}
-
-**Note**: If your workflow uses a `language` matrix, `autobuild` attempts to build each of the compiled languages listed in the matrix. Without a matrix `autobuild` attempts to build the supported compiled language that has the most source files in the repository. With the exception of Go, analysis of other compiled languages in your repository will fail unless you supply explicit build commands.
-
-{% endnote %}
+> [!NOTE]
+> If your workflow uses a `language` matrix, `autobuild` attempts to build each of the compiled languages listed in the matrix. Without a matrix `autobuild` attempts to build the supported compiled language that has the most source files in the repository. With the exception of Go, analysis of other compiled languages in your repository will fail unless you supply explicit build commands.
 
 ## Building C/C++
 
@@ -431,11 +428,8 @@ The `autobuild` process attempts to autodetect a suitable way to install the dep
 1. Finally, if configurations files for these dependency managers are not found, rearrange the repository directory structure suitable for addition to `GOPATH`, and use `go get` to install dependencies. The directory structure reverts to normal after extraction completes.
 1. Extract all Go code in the repository, similar to running `go build ./...`.
 
-{% note %}
-
-**Note:** If you use default setup, it will look for a `go.mod` file to automatically install a compatible version of the Go language.{% ifversion code-scanning-default-setup-self-hosted-310 %} If you're using a self-hosted runner with default setup that doesn't have internet access, you can manually install a compatible version of Go.{% endif %}
-
-{% endnote %}
+> [!NOTE]
+> If you use default setup, it will look for a `go.mod` file to automatically install a compatible version of the Go language.{% ifversion code-scanning-default-setup-self-hosted-310 %} If you're using a self-hosted runner with default setup that doesn't have internet access, you can manually install a compatible version of Go.{% endif %}
 
 ### Extractor options for Go
 

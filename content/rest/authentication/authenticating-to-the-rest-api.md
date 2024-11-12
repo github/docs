@@ -29,11 +29,8 @@ curl --request GET \
 --header "X-GitHub-Api-Version: {{ allVersions[currentVersion].latestApiVersion }}"
 ```
 
-{% note %}
-
-**Note:** {% data reusables.getting-started.bearer-vs-token %}
-
-{% endnote %}
+> [!NOTE]
+> {% data reusables.getting-started.bearer-vs-token %}
 
 ### Failed login limit
 

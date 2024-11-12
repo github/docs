@@ -24,17 +24,16 @@ You must install and import the `octokit` gem in order to use the Octokit.rb lib
 
 ## Instantiating and authenticating
 
-{% warning %}
-
-**Warning**: Treat your authentication credentials like a password.
-
-To keep your credentials secure, you can store your credentials as a secret and run your script through  {% data variables.product.prodname_actions %}. For more information, see "[AUTOTITLE](/actions/security-guides/encrypted-secrets)."
-
-{% ifversion ghec or fpt %}You can also store your credentials as a {% data variables.product.prodname_codespaces %} secret and run your script in {% data variables.product.prodname_codespaces %}. For more information, see "[AUTOTITLE](/codespaces/managing-your-codespaces/managing-encrypted-secrets-for-your-codespaces)."{% endif %}
-
-If {% ifversion ghec or fpt %}these options are not possible{% else %}this is not possible{% endif %}, consider using another CLI service to store your credentials securely.
-
-{% endwarning %}
+> [!WARNING]
+> Treat your authentication credentials like a password.
+>
+> To keep your credentials secure, you can store your credentials as a secret and run your script through  {% data variables.product.prodname_actions %}. For more information, see "[AUTOTITLE](/actions/security-guides/encrypted-secrets)."
+{% ifversion ghec or fpt %}
+>
+> You can also store your credentials as a {% data variables.product.prodname_codespaces %} secret and run your script in {% data variables.product.prodname_codespaces %}. For more information, see "[AUTOTITLE](/codespaces/managing-your-codespaces/managing-encrypted-secrets-for-your-codespaces)."
+{% endif %}
+>
+> If {% ifversion ghec or fpt %}these options are not possible{% else %}this is not possible{% endif %}, consider using another CLI service to store your credentials securely.
 
 ### Authenticating with a {% data variables.product.pat_generic %}
 
@@ -319,11 +318,8 @@ comment_url = comment_if_data_files_changed(octokit, owner, repo, pull_number)
 puts "A comment was added to the pull request: #{comment_url}"
 ```
 
-{% note %}
-
-**Note:** This is just a basic example. In practice, you may want to use error handling and conditional checks to handle various scenarios.
-
-{% endnote %}
+> [!NOTE]
+> This is just a basic example. In practice, you may want to use error handling and conditional checks to handle various scenarios.
 
 ## Next steps
 

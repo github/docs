@@ -18,11 +18,8 @@ redirect_from:
 
 {% data variables.product.prodname_dotcom %} sets default environment variables for every codespace. Commands run in codespaces can create, read, and modify environment variables.
 
-{% note %}
-
-**Note**: Environment variables are case-sensitive.
-
-{% endnote %}
+> [!NOTE]
+> Environment variables are case-sensitive.
 
 ## List of default environment variables
 

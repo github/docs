@@ -30,11 +30,8 @@ If you're configuring {% data variables.product.prodname_code_scanning %} for a 
 
 You must run {% data variables.product.prodname_codeql %} inside the container in which you build your code. This applies whether you are using the {% data variables.product.prodname_codeql_cli %} or {% data variables.product.prodname_actions %}. For the {% data variables.product.prodname_codeql_cli %}, see "[AUTOTITLE](/code-security/code-scanning/integrating-with-code-scanning/using-code-scanning-with-your-existing-ci-system)" for more information. If you're using {% data variables.product.prodname_actions %}, configure your workflow to run all the actions in the same container. For more information, see "[Example workflow](#example-workflow)."
 
-{% note %}
-
-**Note:** {% data reusables.code-scanning.non-glibc-linux-support %}
-
-{% endnote %}
+> [!NOTE]
+> {% data reusables.code-scanning.non-glibc-linux-support %}
 
 ## Dependencies for {% data variables.product.prodname_codeql %} {% data variables.product.prodname_code_scanning %}
 

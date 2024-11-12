@@ -24,11 +24,8 @@ Recommended secrets are listed at the bottom of the page.
 
 <img src="/assets/images/help/codespaces/recommended-secrets.png" style="max-height:50rem"  alt='Screenshot of the "Create codespace" page with four recommended secrets highlighted with a dark orange outline.' />
 
-{% note %}
-
-**Note**: The names of the recommended secrets are only listed on this page when the container configuration on the selected branch specifies these secrets.
-
-{% endnote %}
+> [!NOTE]
+> The names of the recommended secrets are only listed on this page when the container configuration on the selected branch specifies these secrets.
 
 Each recommended secret is displayed in one of three ways:
 

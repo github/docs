@@ -60,8 +60,5 @@ To use the token to authenticate in your codespace, you have the following optio
 
   This will store the access token for the specific repository, so you will be able to push to and pull from the repository without overriding the existing credential helper.
 
-  {% note %}
-
-  **Note:** If you clone in this way, the token will be visible in your Git configuration. You should only use this method when working in a codespace created from a repository you trust, and you should limit the scope of the access token as much as possible.
-
-  {% endnote %}
+  > [!NOTE]
+  > If you clone in this way, the token will be visible in your Git configuration. You should only use this method when working in a codespace created from a repository you trust, and you should limit the scope of the access token as much as possible.

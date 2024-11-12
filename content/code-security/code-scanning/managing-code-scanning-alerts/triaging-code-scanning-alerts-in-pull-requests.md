@@ -33,11 +33,8 @@ If the lines of code changed in the pull request generate {% data variables.prod
 * The **Conversation** tab of the pull request, as part of a pull request review
 * The **Files changed** tab of the pull request
 
-{% note %}
-
-**Note:** {% data variables.product.prodname_code_scanning_caps %} displays alerts in pull requests only when all the lines of code identified by the alert exist in the pull request diff. For more information, see "[AUTOTITLE](/code-security/code-scanning/integrating-with-code-scanning/sarif-support-for-code-scanning#specifying-the-location-for-source-files)."
-
-{% endnote %}
+> [!NOTE]
+> {% data variables.product.prodname_code_scanning_caps %} displays alerts in pull requests only when all the lines of code identified by the alert exist in the pull request diff. For more information, see "[AUTOTITLE](/code-security/code-scanning/integrating-with-code-scanning/sarif-support-for-code-scanning#specifying-the-location-for-source-files)."
 
 {% ifversion code-scanning-autofix %}
 
@@ -129,14 +126,10 @@ Anyone with push access to a pull request can fix a {% data variables.product.pr
 
 When {% data variables.product.prodname_copilot_autofix_short %} is enabled for a repository, alerts are displayed in pull requests as normal and information from any alerts found by {% data variables.product.prodname_code_scanning %} is automatically sent to the LLM for processing. When LLM analysis is complete, any results are published as comments on relevant alerts. For more information, see "[AUTOTITLE](/code-security/code-scanning/managing-code-scanning-alerts/responsible-use-autofix-code-scanning)."
 
-{% note %}
-
-**Notes:**
-* {% data variables.product.prodname_copilot_autofix_short %} supports a subset of {% data variables.product.prodname_codeql %} queries. For information about the availability of {% data variables.product.prodname_copilot_autofix_short %}, see the query tables linked from "[AUTOTITLE](/code-security/code-scanning/managing-your-code-scanning-configuration/codeql-query-suites#query-lists-for-the-default-query-suites)."
-* When analysis is complete, all relevant results are published to the pull request at once. If at least one alert in your pull request has an {% data variables.product.prodname_copilot_autofix_short %} suggestion, you should assume that the LLM has finished identifying potential fixes for your code.
-* On alerts generated from queries that are not supported by {% data variables.product.prodname_copilot_autofix_short %}, you will see a note telling you that the query is not supported. If a suggestion for a supported query fails to generate, you will see a note on the alert prompting you to try pushing another commit or to contact support.
-
-{% endnote %}
+> [!NOTE]
+> * {% data variables.product.prodname_copilot_autofix_short %} supports a subset of {% data variables.product.prodname_codeql %} queries. For information about the availability of {% data variables.product.prodname_copilot_autofix_short %}, see the query tables linked from "[AUTOTITLE](/code-security/code-scanning/managing-your-code-scanning-configuration/codeql-query-suites#query-lists-for-the-default-query-suites)."
+> * When analysis is complete, all relevant results are published to the pull request at once. If at least one alert in your pull request has an {% data variables.product.prodname_copilot_autofix_short %} suggestion, you should assume that the LLM has finished identifying potential fixes for your code.
+> * On alerts generated from queries that are not supported by {% data variables.product.prodname_copilot_autofix_short %}, you will see a note telling you that the query is not supported. If a suggestion for a supported query fails to generate, you will see a note on the alert prompting you to try pushing another commit or to contact support.
 
 Usually, when you suggest changes to a pull request, your comment contains changes for a single file that is changed in the pull request. The following screenshot shows an {% data variables.product.prodname_copilot_autofix_short %} comment that suggests changes to the `index.js` file where the alert is displayed. Since the potential fix requires a new dependency on `escape-html`, the comment also suggests adding this dependency to the `package.json` file, even though the original pull request makes no changes to this file.
 

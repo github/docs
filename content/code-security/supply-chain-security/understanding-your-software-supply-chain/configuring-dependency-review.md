@@ -72,11 +72,9 @@ Here is a list of common configuration options.  For more information, and a ful
 | `external-repo-token` | {% octicon "x" aria-label="Optional" %} | Specifies a token for fetching the configuration file, if the file resides in a private external repository. The token must have read access to the repository.|
 
 {% ifversion dependency-review-action-licenses %}
-{% tip %}
 
-**Tip:** The  `allow-licenses` and  `deny-licenses` options are mutually exclusive.
-
-{% endtip %}
+> [!TIP]
+> The  `allow-licenses` and  `deny-licenses` options are mutually exclusive.
 
 ## Configuring the {% data variables.dependency-review.action_name %}
 
