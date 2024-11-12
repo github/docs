@@ -22,20 +22,16 @@ You can only make commits on pull request branches that:
 
 Only the user who created the pull request can give you permission to push commits to the user-owned fork. For more information, see "[AUTOTITLE](/pull-requests/collaborating-with-pull-requests/working-with-forks/allowing-changes-to-a-pull-request-branch-created-from-a-fork)."
 
-{% note %}
-
-**Note:** You can also make commits to a pull request branch from a fork of your repository through {% data variables.location.product_location %} by creating your own copy (or fork) of the fork of your repository and committing changes to the same head branch that the original pull request changes were created on. For some general guidelines, see "[AUTOTITLE](/pull-requests/collaborating-with-pull-requests/proposing-changes-to-your-work-with-pull-requests/creating-a-pull-request-from-a-fork)."
-
-{% endnote %}
+> [!NOTE]
+> You can also make commits to a pull request branch from a fork of your repository through {% data variables.location.product_location %} by creating your own copy (or fork) of the fork of your repository and committing changes to the same head branch that the original pull request changes were created on. For some general guidelines, see "[AUTOTITLE](/pull-requests/collaborating-with-pull-requests/proposing-changes-to-your-work-with-pull-requests/creating-a-pull-request-from-a-fork)."
 
 1. On {% data variables.product.product_name %}, navigate to the main page of the fork (or copy of your repository) where the pull request branch was created.
 {% data reusables.repositories.copy-clone-url %}
 {% data reusables.command_line.open_the_multi_os_terminal %}
-   {% tip %}
 
-   **Tip:** If you prefer to clone the fork using {% data variables.product.prodname_desktop %}, then see "[AUTOTITLE](/repositories/creating-and-managing-repositories/cloning-a-repository#cloning-a-repository-to-github-desktop)."
+   > [!TIP]
+   > If you prefer to clone the fork using {% data variables.product.prodname_desktop %}, then see "[AUTOTITLE](/repositories/creating-and-managing-repositories/cloning-a-repository#cloning-a-repository-to-github-desktop)."
 
-   {% endtip %}
 1. Change the current working directory to the location where you want to download the cloned directory.
 
    ```shell
@@ -59,11 +55,9 @@ Only the user who created the pull request can give you permission to push commi
    > Unpacking objects: 100% (10/10), done.
    ```
 
-   {% tip %}
+   > [!TIP]
+   > The error message "fatal: destination path 'REPOSITORY-NAME' already exists and is not an empty directory" means that your current working directory already contains a repository with the same name. To resolve the error, you must clone the fork in a different directory.
 
-   **Tip:** The error message "fatal: destination path 'REPOSITORY-NAME' already exists and is not an empty directory" means that your current working directory already contains a repository with the same name. To resolve the error, you must clone the fork in a different directory.
-
-   {% endtip %}
 1. Navigate into your new cloned repository.
 
    ```shell
@@ -78,11 +72,9 @@ Only the user who created the pull request can give you permission to push commi
    git checkout TEST-BRANCH
    ```
 
-   {% tip %}
+   > [!TIP]
+   > For more information about pull request branches, including examples, see "[AUTOTITLE](/pull-requests/collaborating-with-pull-requests/proposing-changes-to-your-work-with-pull-requests/creating-a-pull-request#changing-the-branch-range-and-destination-repository)."
 
-   **Tip:** For more information about pull request branches, including examples, see "[AUTOTITLE](/pull-requests/collaborating-with-pull-requests/proposing-changes-to-your-work-with-pull-requests/creating-a-pull-request#changing-the-branch-range-and-destination-repository)."
-
-   {% endtip %}
 1. At this point, you can do anything you want with this branch. You can push new commits to it, run some local tests, or merge other branches into the branch. Make modifications as you like.
 1. After you commit your changes to the head branch of the pull request you can push your changes up to the original pull request directly. In this example, the head branch is `test-branch`:
 

@@ -34,11 +34,8 @@ Deleting a fork will not delete the original upstream repository. Code pushed to
 
 For instructions for forking a repository, see "[AUTOTITLE](/pull-requests/collaborating-with-pull-requests/working-with-forks/fork-a-repo)." For more information about when you can create forks, and the permission and visibility settings of forks, see "[AUTOTITLE](/pull-requests/collaborating-with-pull-requests/working-with-forks/about-permissions-and-visibility-of-forks)."
 
-{% tip %}
-
-**Tip:** {% data reusables.repositories.desktop-fork %}
-
-{% endtip %}
+> [!TIP]
+> {% data reusables.repositories.desktop-fork %}
 
 ## Forking a repository versus duplicating a repository
 

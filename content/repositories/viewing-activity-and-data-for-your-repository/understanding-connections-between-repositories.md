@@ -29,11 +29,8 @@ The network graph displays the branch history of the entire repository network, 
 
 ![Screenshot of the repository network graph.](/assets/images/help/graphs/repo-network-graph.png)
 
-{% tip %}
-
-**Tip:** To see older branches, click and drag within the graph.
-
-{% endtip %}
+> [!TIP]
+> To see older branches, click and drag within the graph.
 
 ### Accessing the network graph
 

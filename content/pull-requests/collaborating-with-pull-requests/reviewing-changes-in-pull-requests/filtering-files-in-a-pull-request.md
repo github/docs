@@ -19,11 +19,8 @@ You can filter files in a pull request by file extension type, such as `.html` o
 
 ## Using the file filter dropdown
 
-{% tip %}
-
-**Tip:** To simplify your pull request diff view, you can also temporarily hide deleted files or files you have already viewed in the pull request diff from the file filter drop-down menu.
-
-{% endtip %}
+> [!TIP]
+> To simplify your pull request diff view, you can also temporarily hide deleted files or files you have already viewed in the pull request diff from the file filter drop-down menu.
 
 {% data reusables.repositories.sidebar-pr %}
 1. In the list of pull requests, click the pull request you'd like to filter.
@@ -46,11 +43,8 @@ You can filter files in a pull request by file extension type, such as `.html` o
 
 1. Click on a file in the file tree to view the corresponding file diff. If the file tree is hidden, click {% octicon "sidebar-collapse" aria-label="The sidebar collapse icon" %} to display the file tree.
 
-   {% note %}
-
-   **Note**: The file tree will not display if your screen width is too narrow or if the pull request only includes one file.
-
-   {% endnote %}
+   > [!NOTE]
+   > The file tree will not display if your screen width is too narrow or if the pull request only includes one file.
 
    ![Screenshot of the "Files changed" tab of a pull request. In the left sidebar, the file tree is outlined in dark orange.](/assets/images/help/repository/file-tree.png)
 1. To filter by file path, enter part or all of the file path in the **Filter changed files** search box. Alternatively, use the file filter dropdown. For more information, see "[Using the file filter dropdown](#using-the-file-filter-dropdown)."

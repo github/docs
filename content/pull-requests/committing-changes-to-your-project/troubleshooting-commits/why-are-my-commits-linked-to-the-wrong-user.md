@@ -12,11 +12,9 @@ versions:
   ghec: '*'
 shortTitle: Linked to wrong user
 ---
-{% tip %}
 
-**Note**: If your commits are linked to another user, that does not mean the user can access your repository. A user can only access a repository you own if you add them as a collaborator or add them to a team that has access to the repository.
-
-{% endtip %}
+> [!NOTE]
+> If your commits are linked to another user, that does not mean the user can access your repository. A user can only access a repository you own if you add them as a collaborator or add them to a team that has access to the repository.
 
 ## Commits are linked to another user
 

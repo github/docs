@@ -38,13 +38,9 @@ shortTitle: Working with non-code files
 
 {% data variables.product.product_name %} can display several common image formats, including PNG, JPG, GIF, PSD, and SVG. In addition to simply displaying them, there are several ways to compare differences between versions of those image formats.
 
-{% note %}
-
-**Note:**
-* {% data variables.product.prodname_dotcom %} does not support comparing the differences between PSD files.
-* If you are using the Firefox browser, SVGs on {% data variables.product.prodname_dotcom %} may not render.
-
-{% endnote %}
+> [!NOTE]
+> * {% data variables.product.prodname_dotcom %} does not support comparing the differences between PSD files.
+> * If you are using the Firefox browser, SVGs on {% data variables.product.prodname_dotcom %} may not render.
 
 ### Viewing images
 
@@ -109,11 +105,8 @@ For example, if your model's URL is [`github.com/skalnik/secret-bear-clip/blob/m
 
 By default, the embedded renderer is 420 pixels wide by 620 pixels high, but you can customize the output by passing height and width variables as parameters at the end of the URL, such as `?height=300&width=500`.
 
-{% tip %}
-
-**Note**: `ref` can be a branch or the hash to an individual commit (like `2391ae`).
-
-{% endtip %}
+> [!NOTE]
+> `ref` can be a branch or the hash to an individual commit (like `2391ae`).
 
 ### Rendering in Markdown
 
@@ -256,11 +249,8 @@ For example, if your map's URL is [github.com/benbalter/dc-wifi-social/blob/mast
 
 By default, the embedded map 420px x 620px, but you can customize the output by passing height and width variables as parameters at the end, such as `?height=300&width=500`.
 
-{% tip %}
-
-**Note**: `ref` can be a branch or the hash to an individual commit (like `2391ae`).
-
-{% endtip %}
+> [!NOTE]
+> `ref` can be a branch or the hash to an individual commit (like `2391ae`).
 
 ### Mapping in Markdown
 
