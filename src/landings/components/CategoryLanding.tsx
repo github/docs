@@ -1,16 +1,20 @@
 import { useRouter } from 'next/router'
 import cx from 'classnames'
+import { CookBookArticleCard } from './CookBookArticleCard'
+import { CookBookFilter } from './CookBookFilter'
 
-import { useCategoryLandingContext } from 'src/frame/components/context/CategoryLandingContext'
+//import { useTranslation } from 'src/languages/components/useTranslation'
 import { DefaultLayout } from 'src/frame/components/DefaultLayout'
 import { ArticleTitle } from 'src/frame/components/article/ArticleTitle'
 import { Lead } from 'src/frame/components/ui/Lead'
+import { useCategoryLandingContext } from 'src/frame/components/context/CategoryLandingContext'
 import { ClientSideRedirects } from 'src/rest/components/ClientSideRedirects'
 import { RestRedirect } from 'src/rest/components/RestRedirect'
 import { Breadcrumbs } from 'src/frame/components/page-header/Breadcrumbs'
 
 export const CategoryLanding = () => {
   const router = useRouter()
+  //const { t } = useTranslation('toc')
   const { title, intro, tocItems } = useCategoryLandingContext()
 
   // tocItems contains directories and its children, we only want the child articles
@@ -28,38 +32,31 @@ export const CategoryLanding = () => {
           <Breadcrumbs />
         </div>
         <ArticleTitle>{title}</ArticleTitle>
-
         {intro && <Lead data-search="lead">{intro}</Lead>}
 
         <h2 className="py-5">Spotlight</h2>
-        <div className="container-lg clearfix">
-          <div className="col-4 float-left border p-4">Spotlight 1</div>
-          <div className="col-4 float-left border p-4">Spotlight 2</div>
-          <div className="col-4 float-left border p-4">Spotlight 3</div>
+        <div className="d-md-flex d-sm-block">
+          <CookBookArticleCard image="DeleteMe" spotlight={true} />
+          <CookBookArticleCard image="DeleteMe" spotlight={true} />
+          <CookBookArticleCard image="DeleteMe" spotlight={true} />
         </div>
 
         <div className="pt-8">
-          <div className="py-5 clearfix border-bottom">
-            <div className="col-5 float-left p-3">
+          <div className="py-5 border-bottom">
+            <div className="col-lg-4 col-sm-12 float-md-left pb-3 mr-5 ml-1">
               <h2>Explore {onlyFlatItems.length} prompt articles</h2>
             </div>
-            <div className="col-3 float-left p-4">Searchbar</div>
-            <div className="col-1 float-left p-4">Category</div>
-            <div className="col-1 float-left p-4">Complexity</div>
-            <div className="col-1 float-left p-4">Industry</div>
-            <div className="col-1 float-left p-4">Reset</div>
+            <div>
+              <CookBookFilter />
+            </div>
           </div>
-          <div className="clearfix gutter-md-spacious">
-            {/* TODO: replace with card components */}
+          <ul className="clearfix gutter-md-spacious">
             {onlyFlatItems.map((item, index) => (
-              <div key={index} className="col-4 float-left p-4">
-                <div className="px-3 pb-3 border-bottom">
-                  <div>{item.title}</div>
-                  <div>{item.intro}</div>
-                </div>
-              </div>
+              <li key={index} className="col-md-4 col-sm-12 list-style-none float-left p-4">
+                <CookBookArticleCard title={item.title} description={item.intro} />
+              </li>
             ))}
-          </div>
+          </ul>
         </div>
       </div>
     </DefaultLayout>
