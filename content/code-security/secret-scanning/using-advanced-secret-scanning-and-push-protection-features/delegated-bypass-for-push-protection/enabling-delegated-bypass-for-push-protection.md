@@ -49,7 +49,7 @@ When you enable this feature, you will create a bypass list of roles and teams w
 
 You must configure delegated bypass for your organization using a custom security configuration. You can then apply the security configuration to all (or selected) repositories in your organization.
 
-1. Create a new custom security configuration, or edit an existing one. See "[AUTOTITLE](/code-security/securing-your-organization/meeting-your-specific-security-needs-with-custom-security-configurations/creating-a-custom-security-configuration#creating-a-custom-security-configuration)."
+1. Create a new custom security configuration, or edit an existing one. See "[AUTOTITLE](/code-security/securing-your-organization/enabling-security-features-in-your-organization/creating-a-custom-security-configuration#creating-a-custom-security-configuration)."
 1. When creating the custom security configuration, under "{% data variables.product.prodname_secret_scanning_caps %}", ensure that the dropdown menus for "Alerts" and "Push protection" are set to **Enabled**.
 1. Under "Push protection", to the right of "Bypass privileges", select the dropdown menu, then click **Specific actors**.
   
@@ -64,7 +64,7 @@ You must configure delegated bypass for your organization using a custom securit
    > In addition to assigning bypass privileges to roles and teams, you can also grant _individual_ organization members the ability to review and manage bypass requests using fine-grained permissions. See "[Using fine-grained permissions to control who can review and manage bypass requests](#using-fine-grained-permissions-to-control-who-can-review-and-manage-bypass-requests)."
 
 1. Click **Save configuration**.
-1. Apply the security configuration to all (or selected) repositories in your organization. See "[AUTOTITLE](/code-security/securing-your-organization/meeting-your-specific-security-needs-with-custom-security-configurations/applying-a-custom-security-configuration)."
+1. Apply the security configuration to all (or selected) repositories in your organization. See "[AUTOTITLE](/code-security/securing-your-organization/enabling-security-features-in-your-organization/applying-a-custom-security-configuration)."
 
 To learn more about security configurations, see "[AUTOTITLE](/code-security/securing-your-organization/introduction-to-securing-your-organization-at-scale/about-enabling-security-features-at-scale)."
 

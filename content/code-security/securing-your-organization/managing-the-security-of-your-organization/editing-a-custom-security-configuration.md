@@ -17,8 +17,12 @@ After creating and applying a {% data variables.product.prodname_custom_security
 
 To determine if your {% data variables.product.prodname_custom_security_configuration %} is meeting your security needs, see "[AUTOTITLE](/code-security/securing-your-organization/managing-the-security-of-your-organization/interpreting-security-findings)."
 
+{% ifversion security-configurations-cloud %}
+
 > [!NOTE]
-> The {% data variables.product.prodname_github_security_configuration %} is managed by {% data variables.product.company_short %} and cannot be edited. If you would like to customize your security enablement settings, you need to create a {% data variables.product.prodname_custom_security_configuration %}. For more information, see "[AUTOTITLE](/code-security/securing-your-organization/meeting-your-specific-security-needs-with-custom-security-configurations/creating-a-custom-security-configuration)."
+> The {% data variables.product.prodname_github_security_configuration %} is managed by {% data variables.product.company_short %} and cannot be edited. If you would like to customize your security enablement settings, you need to create a {% data variables.product.prodname_custom_security_configuration %}. For more information, see "[AUTOTITLE](/code-security/securing-your-organization/enabling-security-features-in-your-organization/creating-a-custom-security-configuration)."
+
+{% endif %}
 
 ## Modifying your {% data variables.product.prodname_custom_security_configuration %}
 
