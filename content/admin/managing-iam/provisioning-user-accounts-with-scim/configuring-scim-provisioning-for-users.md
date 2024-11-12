@@ -181,10 +181,10 @@ If you don't use a partner IdP, or if you only use a partner IdP for authenticat
    > {% data reusables.enterprise-accounts.emu-password-reset-session %}
 
 {% data reusables.enterprise-accounts.access-enterprise-emu %}
-{% data reusables.enterprise-accounts.settings-tab %}
-{% data reusables.enterprise-accounts.security-tab %}
+{% data reusables.enterprise-accounts.identity-provider-tab %}
+{% data reusables.enterprise-accounts.sso-configuration %}
 1. Under "Open SCIM Configuration", select "Enable open SCIM configuration".
-1. Manage the lifecycle of your users by making calls to the REST API endpoints for SCIM provisioning. For more information, see "[AUTOTITLE](/admin/identity-and-access-management/provisioning-user-accounts-for-enterprise-managed-users/provisioning-users-and-groups-with-scim-using-the-rest-api)."
+1. Manage the lifecycle of your users by making calls to the REST API endpoints for SCIM provisioning. See "[AUTOTITLE](/admin/identity-and-access-management/provisioning-user-accounts-for-enterprise-managed-users/provisioning-users-and-groups-with-scim-using-the-rest-api)."
 
 {% endif %}
 
