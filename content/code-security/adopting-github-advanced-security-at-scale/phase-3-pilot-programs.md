@@ -80,7 +80,15 @@ To enable secret scanning for your {% data variables.product.prodname_ghe_server
 
 {% ifversion security-configurations %}
 
-You need to enable {% data variables.product.prodname_secret_scanning %} and push protection for each pilot project. You can do this with the {% data variables.product.prodname_github_security_configuration %}, or you can create a {% data variables.product.prodname_custom_security_configuration %}. For more information, see "[AUTOTITLE](/code-security/securing-your-organization/enabling-security-features-in-your-organization/applying-the-github-recommended-security-configuration-in-your-organization)" and "[AUTOTITLE](/code-security/securing-your-organization/meeting-your-specific-security-needs-with-custom-security-configurations/creating-a-custom-security-configuration)."
+{% ifversion security-configurations-cloud %}
+
+You need to enable {% data variables.product.prodname_secret_scanning %} and push protection for each pilot project. You can do this with the {% data variables.product.prodname_github_security_configuration %}, or you can create a {% data variables.product.prodname_custom_security_configuration %}. For more information, see "[AUTOTITLE](/code-security/securing-your-organization/enabling-security-features-in-your-organization/applying-the-github-recommended-security-configuration-in-your-organization)" and "[AUTOTITLE](/code-security/securing-your-organization/enabling-security-features-in-your-organization/creating-a-custom-security-configuration)."
+
+{% elsif security-configurations-ghes-only %}
+
+You need to enable {% data variables.product.prodname_secret_scanning %} and push protection for each pilot project. You can do this with a {% data variables.product.prodname_security_configuration %}. For more information, see "[AUTOTITLE](/code-security/securing-your-organization/enabling-security-features-in-your-organization/creating-a-custom-security-configuration)."
+
+{% endif %}
 
 {% else %}
 

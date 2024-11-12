@@ -39,7 +39,7 @@ You must also enable {% data variables.product.prodname_actions %} for the repos
 
 Repository administrators can enable or disable automatic dependency submission for a repository by following the steps outlined in this procedure.
 
-Organization owners can enable automatic dependency submission for multiple repositories using a security configuration. For more information, see "[AUTOTITLE](/code-security/securing-your-organization/meeting-your-specific-security-needs-with-custom-security-configurations/creating-a-custom-security-configuration)."
+Organization owners can enable automatic dependency submission for multiple repositories using a security configuration. For more information, see "[AUTOTITLE](/code-security/securing-your-organization/enabling-security-features-in-your-organization/creating-a-custom-security-configuration)."
 
 {% data reusables.repositories.navigate-to-repo %}
 {% data reusables.repositories.sidebar-settings %}

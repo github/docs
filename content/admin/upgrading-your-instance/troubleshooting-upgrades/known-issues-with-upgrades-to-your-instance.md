@@ -207,6 +207,14 @@ If your appliance averages more than 70% CPU utilization, {% data variables.prod
 As part of upgrading GitHub Enterprise Server to version 3.13 or later, the Elasticsearch service will be upgraded. {% data variables.product.company_short %} strongly recommends following the guidance in "[AUTOTITLE](/admin/upgrading-your-instance/performing-an-upgrade/preparing-for-the-elasticsearch-upgrade)."
 {% endif %}
 
+{% ifversion ghes > 3.14 and ghes < 3.17 %}
+
+## Required root disk size increased to 400GB
+
+New installations of 3.15 or later, or upgrades to 3.15 or later require root disk size of at least 400GB. This capacity is an enforced requirement for the system to boot successfully. {% data variables.product.company_short %} strongly recommends following the guidance in "[AUTOTITLE](/admin/monitoring-and-managing-your-instance/updating-the-virtual-machine-and-physical-resources/increasing-storage-capacity)."
+
+{% endif %}
+
 {% ifversion ghes > 3.12 and ghes < 3.15 %}
 
 ## Undecryptable records
