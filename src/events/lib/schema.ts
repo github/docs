@@ -1,7 +1,7 @@
 import { languageKeys } from '#src/languages/lib/languages.js'
 import { allVersionKeys } from '#src/versions/lib/all-versions.js'
 import { productIds } from '#src/products/lib/all-products.js'
-import { allTools } from '#src/tools/lib/all-tools.js'
+import { allTools } from 'src/tools/lib/all-tools.js'
 
 const versionPattern = '^\\d+(\\.\\d+)?(\\.\\d+)?$' // eslint-disable-line
 
@@ -552,7 +552,7 @@ export const hydroNames = {
   print: 'docs.v0.PrintEvent',
   preference: 'docs.v0.PreferenceEvent',
   validation: 'docs.v0.ValidationEvent',
-}
+} as Record<keyof typeof schemas, string>
 
 const schemasKeys = Object.keys(schemas)
 const hydroNamesKeys = Object.keys(hydroNames)

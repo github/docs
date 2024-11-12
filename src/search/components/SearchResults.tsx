@@ -6,7 +6,8 @@ import cx from 'classnames'
 
 import { useTranslation } from 'src/languages/components/useTranslation'
 import { Link } from 'src/frame/components/Link'
-import { sendEvent, EventType } from 'src/events/components/events'
+import { sendEvent } from 'src/events/components/events'
+import { EventType } from 'src/events/types'
 
 import styles from './SearchResults.module.scss'
 

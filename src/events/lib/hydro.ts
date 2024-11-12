@@ -2,9 +2,9 @@ import { createHmac } from 'crypto'
 import { Agent } from 'node:https'
 import got from 'got'
 import { isNil } from 'lodash-es'
-import statsd from '#src/observability/lib/statsd.js'
-import { report } from '#src/observability/lib/failbot.js'
-import { MAX_REQUEST_TIMEOUT } from '#src/frame/lib/constants.js'
+import statsd from 'src/observability/lib/statsd.js'
+import { report } from 'src/observability/lib/failbot.js'
+import { MAX_REQUEST_TIMEOUT } from 'src/frame/lib/constants.js'
 
 const TIME_OUT_TEXT = 'ms has passed since batch creation'
 const SERVER_DISCONNECT_TEXT = 'The server disconnected before a response was received'
@@ -22,14 +22,13 @@ if (inProd && (isNil(HYDRO_SECRET) || isNil(HYDRO_ENDPOINT))) {
   )
 }
 
-/*
-`events` can be either like:
-    {schema, value}
-  or
-    [{schema, value}, {schema, value}, ...]
-*/
+type EventT = {
+  schema: string
+  value: Record<string, any>
+}
+
 async function _publish(
-  events,
+  events: EventT | EventT[],
   { secret, endpoint } = { secret: HYDRO_SECRET, endpoint: HYDRO_ENDPOINT },
 ) {
   if (!secret || !endpoint) {

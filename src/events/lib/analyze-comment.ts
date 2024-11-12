@@ -13,71 +13,71 @@ export const SIGNAL_RATINGS = [
   {
     reduction: 1.0,
     name: 'email-only',
-    validator: (comment) => isEmailOnly(comment),
+    validator: (comment: string) => isEmailOnly(comment),
   },
   {
     reduction: 0.2,
     name: 'contains-email',
-    validator: (comment) => isContainingEmail(comment),
+    validator: (comment: string) => isContainingEmail(comment),
   },
   {
     reduction: 1.0,
     name: 'url-only',
-    validator: (comment) => isURL(comment),
+    validator: (comment: string) => isURL(comment),
   },
   {
     reduction: 1.0,
     name: 'numbers-only',
-    validator: (comment) => isNumbersOnly(comment),
+    validator: (comment: string) => isNumbersOnly(comment),
   },
   {
     reduction: 0.1,
     name: 'all-uppercase',
-    validator: (comment) => isAllUppercase(comment),
+    validator: (comment: string) => isAllUppercase(comment),
   },
   {
     reduction: 0.5,
     name: 'single-word',
-    validator: (comment) => isSingleWord(comment),
+    validator: (comment: string) => isSingleWord(comment),
   },
   {
     reduction: 0.2,
     name: 'too-short',
-    validator: (comment) => isTooShort(comment),
+    validator: (comment: string) => isTooShort(comment),
   },
   {
     reduction: 0.2,
     name: 'not-language',
-    validator: (comment, language) => isNotLanguage(comment, language),
+    validator: (comment: string, language: string) => isNotLanguage(comment, language),
   },
   {
     reduction: 0.3,
     name: 'cuss-words-likely',
-    validator: (comment, language) => isLikelyCussWords(comment, language),
+    validator: (comment: string, language: string) => isLikelyCussWords(comment, language),
   },
   {
     reduction: 0.1,
     name: 'cuss-words-maybe',
-    validator: (comment, language) => isMaybeCussWords(comment, language),
+    validator: (comment: string, language: string) => isMaybeCussWords(comment, language),
   },
   {
     reduction: 0.2,
     name: 'mostly-emoji',
-    validator: (comment) => isMostlyEmoji(comment),
+    validator: (comment: string) => isMostlyEmoji(comment),
   },
   {
     reduction: 1.0,
     name: 'spammy-words',
-    validator: (comment) => isSpammyWordList(comment),
+    validator: (comment: string) => isSpammyWordList(comment),
   },
 ]
 
-export async function getGuessedLanguage(comment) {
+export async function getGuessedLanguage(comment: string) {
   if (!comment || !comment.trim()) {
     return
   }
 
-  const bestGuess = language.guessBest(comment.trim())
+  const bestGuess = language.guessBest(comment.trim(), [])
   if (!bestGuess) return // Can happen if the text is just whitespace
   // // @horizon-rs/language-guesser is based on tri-grams and can lead
   // // to false positives. For example, it thinks that 'Thamk you ❤️🙏' is
@@ -88,10 +88,10 @@ export async function getGuessedLanguage(comment) {
   // // But are they useful comments? Given that this is just a signal,
   // // and not a hard blocker, it's more of a clue than a fact.
 
-  return bestGuess.alpha2
+  return bestGuess.alpha2 || undefined
 }
 
-export async function analyzeComment(text, language = 'en') {
+export async function analyzeComment(text: string, language = 'en') {
   const signals = []
   let rating = 1.0
   for (const { reduction, name, validator } of SIGNAL_RATINGS) {
@@ -105,7 +105,7 @@ export async function analyzeComment(text, language = 'en') {
   return { signals, rating }
 }
 
-function isEmailOnly(text) {
+function isEmailOnly(text: string) {
   if (text.includes('@') && !/\s/.test(text.trim()) && !text.includes('://')) {
     const atSigns = text.split('@').length
     if (atSigns === 2) {
@@ -114,7 +114,7 @@ function isEmailOnly(text) {
   }
 }
 
-function isContainingEmail(text) {
+function isContainingEmail(text: string) {
   if (text.includes('@') && !isEmailOnly(text)) {
     // Don't use splitWords() here because `foo@example.com` will be
     // split up into ['foo', 'example.com'].
@@ -123,35 +123,35 @@ function isContainingEmail(text) {
   return false
 }
 
-function isURL(text) {
+function isURL(text: string) {
   if (!text.trim().includes(' ')) {
     if (URL.canParse(text.trim())) return true
   }
 }
 
-function isNumbersOnly(text) {
+function isNumbersOnly(text: string) {
   return /^\d+$/.test(text.replace(/\s/g, ''))
 }
 
-function isAllUppercase(text) {
+function isAllUppercase(text: string) {
   return /[A-Z]/.test(text) && text === text.toUpperCase()
 }
 
-function isTooShort(text) {
+function isTooShort(text: string) {
   const split = text.trim().split(/\s+/)
   if (split.length <= 3) {
     return true
   }
 }
 
-function isSingleWord(text) {
+function isSingleWord(text: string) {
   const whitespaceSplit = text.trim().split(/\s+/)
   // E.g. `this-has-no-whitespace` or `snap/hooks/install`
   return whitespaceSplit.length === 1
 }
 
-function isNotLanguage(text, language_) {
-  const bestGuess = language.guessBest(text.trim())
+function isNotLanguage(text: string, language_: string) {
+  const bestGuess = language.guessBest(text.trim(), [])
   if (!bestGuess) return true // Can happen if the text is just whitespace
   // @horizon-rs/language-guesser is based on tri-grams and can lead
   // to false positives. For example, it thinks that 'Thamk you ❤️🙏' is
@@ -167,7 +167,7 @@ function isNotLanguage(text, language_) {
   return bestGuess.alpha2 !== language_ && bestGuess.alpha2 !== 'en'
 }
 
-function isMostlyEmoji(text) {
+function isMostlyEmoji(text: string) {
   text = text.replace(/\s/g, '')
   const emojiRegex = /\p{Emoji}/gu
   const emojiMatches = text.match(emojiRegex)
@@ -176,7 +176,7 @@ function isMostlyEmoji(text) {
   return emojiRatio > 0.25
 }
 
-function getCussWords(lang) {
+function getCussWords(lang: string) {
   switch (lang) {
     case 'pt':
       return cussPt
@@ -189,9 +189,9 @@ function getCussWords(lang) {
   }
 }
 
-function isLikelyCussWords(text, language_, rating = 2) {
+function isLikelyCussWords(text: string, language_: string, rating = 2) {
   const cussWords = getCussWords(language_)
-  const words = splitWords(text, language_ || 'en').map((word) => word.toLowerCase())
+  const words = splitWords(text).map((word) => word.toLowerCase())
   for (const word of words) {
     if (cussWords[word] && cussWords[word] === rating) {
       return true
@@ -200,21 +200,23 @@ function isLikelyCussWords(text, language_, rating = 2) {
   return false
 }
 
-function isMaybeCussWords(text, language_) {
+function isMaybeCussWords(text: string, language_: string) {
   return isLikelyCussWords(text, language_, 1)
 }
 
 const segmenter = new Intl.Segmenter([], { granularity: 'word' })
 
-function splitWords(text) {
+function splitWords(text: string) {
   const segmentedText = segmenter.segment(text)
   return [...segmentedText].filter((s) => s.isWordLike).map((s) => s.segment)
 }
 
-const surveyYaml = yaml.load(fs.readFileSync('data/survey-words.yml', 'utf8'))
-const surveyWords = surveyYaml.words.map((word) => word.toLowerCase())
+const surveyYaml = yaml.load(fs.readFileSync('data/survey-words.yml', 'utf8')) as {
+  words: string[]
+}
+const surveyWords = surveyYaml.words.map((word: string) => word.toLowerCase())
 
-function isSpammyWordList(text) {
+function isSpammyWordList(text: string) {
   const words = text.toLowerCase().split(/(\s+|\\n+)/g)
   // Currently, we're intentionally not checking for
   // survey words that are substrings of a comment word.
