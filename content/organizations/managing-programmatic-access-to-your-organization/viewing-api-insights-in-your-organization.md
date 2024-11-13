@@ -18,7 +18,7 @@ topics:
 
 As a {% data variables.product.prodname_ghe_cloud %} organization owner, you and your designated users can view REST API activity for your entire organization or specific apps and users. This helps you understand the sources of your REST API activity and manage against your primary rate limits, giving you visibility into the timeframe, apps, and API endpoints involved. To learn more about primary rate limits, see "[AUTOTITLE](/rest/using-the-rest-api/rate-limits-for-the-rest-api#about-primary-rate-limits)."
 
-> [!NOTE] Currently, this feature supports only the `core` category of REST API endpoints (non-search-related), and primary rate limits but not secondary rate limits. For information about API categories, see "[AUTOTITLE](/rest/rate-limit/rate-limit)." To learn more about primary and secondary rate limits, see "[AUTOTITLE](/rest/using-the-rest-api/rate-limits-for-the-rest-api)."
+> [!NOTE] Currently, this feature supports only the `core` category of REST API endpoints and primary rate limits. API activity for search, {% data variables.product.prodname_actions %} (using the [`GITHUB_TOKEN`](/actions/security-for-github-actions/security-guides/automatic-token-authentication) secret), and secondary rate-limiting are not supported. For information about API categories, see "[AUTOTITLE](/rest/rate-limit/rate-limit)." To learn more about primary and secondary rate limits, see "[AUTOTITLE](/rest/using-the-rest-api/rate-limits-for-the-rest-api)."
 
 ## Enabling access to API insights
   
