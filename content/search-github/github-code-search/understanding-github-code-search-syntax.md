@@ -316,3 +316,11 @@ By default, code search is case-insensitive, and results will include both upper
 ```text
 /(?-i)True/
 ```
+
+## Whole Words
+
+If you want your search string to be matched as a whole word, you need to use a regular expression that includes the word boundary token `\b`. For example, to search for the string "True" as a whole word, you would use:
+
+```text
+/\bTrue\b/
+```
