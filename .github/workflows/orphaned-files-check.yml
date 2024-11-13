@@ -56,7 +56,7 @@ jobs:
           # The `-s` is to make npm run silent and not print verbose
           # information about the npm script alias.
           assetFilesToRemove=$(npm run -s find-orphaned-assets)
-          reusableFilesToRemove=$(npm run -s reusables -- find unused | grep '^data/reusables')
+          reusableFilesToRemove=$(npm run -s reusables -- find unused | grep '^data/reusables' || true)
           [ -z "$assetFilesToRemove" ] && [ -z "$reusableFilesToRemove" ] && exit 0
 
           if [ -n "$assetFilesToRemove" ]; then

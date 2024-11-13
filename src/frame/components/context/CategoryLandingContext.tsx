@@ -14,6 +14,10 @@ export type TocItem = {
     fullPath: string
     title: string
     intro: string
+    octicon?: string
+    category?: string[]
+    complexity?: string[]
+    industry?: string[]
   }>
 }
 

@@ -1,6 +1,6 @@
 ---
 title: About billing for Git Large File Storage
-intro: 'Learn about billing for {% data variables.large_files.product_name_long %}.'
+intro: 'Learn about billing for {% data variables.large_files.product_name_long %} using the enhanced billing platform.'
 versions:
   feature: enhanced-billing-platform
 redirect_from:
@@ -10,8 +10,9 @@ topics:
   - Billing
   - LFS
   - Enterprise
+  - Team
 shortTitle: About Git LFS billing
-permissions: '{% data reusables.billing.new-billing-platform-permissions %}'
+product: '{% data reusables.billing.enhanced-billing-platform-product %}'
 ---
 
 ## About billing for {% data variables.large_files.product_name_long %}
