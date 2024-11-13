@@ -53,7 +53,16 @@ export const CategoryLanding = () => {
           <ul className="clearfix gutter-md-spacious">
             {onlyFlatItems.map((item, index) => (
               <li key={index} className="col-md-4 col-sm-12 list-style-none float-left p-4">
-                <CookBookArticleCard title={item.title} description={item.intro} />
+                <CookBookArticleCard
+                  title={item.title}
+                  description={item.intro}
+                  icon={item.octicon}
+                  tags={[
+                    ...(item.industry || []),
+                    ...(item.category || []),
+                    ...(item.complexity || []),
+                  ]}
+                />
               </li>
             ))}
           </ul>
