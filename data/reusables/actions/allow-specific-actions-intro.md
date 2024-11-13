@@ -21,11 +21,10 @@ When you choose {% data reusables.actions.policy-label-for-select-actions-workfl
   You can use the `*` wildcard character to match patterns. For example, to allow all actions{% ifversion actions-workflow-policy %} and reusable workflows{% endif %} in organizations that start with `space-org`, you can specify `space-org*/*`. To allow all actions{% ifversion actions-workflow-policy %} and reusable workflows{% endif %} in repositories that start with octocat, you can use `*/octocat**@*`. For more information about using the `*` wildcard, see "[AUTOTITLE](/actions/using-workflows/workflow-syntax-for-github-actions#filter-pattern-cheat-sheet)."
 
   {% ifversion fpt or ghec %}
-  {% note %}
 
-  **Note:** For {% data variables.product.prodname_free_user %}, {% data variables.product.prodname_pro %}, {% data variables.product.prodname_free_team %} for organizations, or {% data variables.product.prodname_team %} plans, the **Allow specified actions{% ifversion actions-workflow-policy %} and reusable workflows{% endif %}** option is only available in public repositories.
+  > [!NOTE]
+  > For {% data variables.product.prodname_free_user %}, {% data variables.product.prodname_pro %}, {% data variables.product.prodname_free_team %} for organizations, or {% data variables.product.prodname_team %} plans, the **Allow specified actions{% ifversion actions-workflow-policy %} and reusable workflows{% endif %}** option is only available in public repositories.
 
-  {% endnote %}
   {% endif %}
 
 This procedure demonstrates how to add specific actions{% ifversion actions-workflow-policy %} and reusable workflows{% endif %} to the allow list.

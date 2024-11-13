@@ -13,9 +13,7 @@ To enable automatic addition of IP addresses for {% data variables.product.prodn
 {% data reusables.enterprise-accounts.security-tab %}
 1. Under "IP allow list", select **Enable IP allow list configuration for installed GitHub Apps**.
 
-   {% note %}
+   > [!NOTE]
+   > If you're using {% data variables.product.prodname_emus %} with OIDC, you can only allow access by GitHub Apps if you use {% data variables.product.prodname_dotcom %} for your IP allow list configuration.
 
-   **Note:** If you're using {% data variables.product.prodname_emus %} with OIDC, you can only allow access by GitHub Apps if you use {% data variables.product.prodname_dotcom %} for your IP allow list configuration.
-
-   {% endnote %}
 1. Click **Save**.

@@ -6,8 +6,5 @@
 
    Click **Authorize and continue** to grant these permissions for creation of prebuilds. Alternatively, you can click **Continue without authorizing** but, if you do so, codespaces created from the resulting prebuilds may not work properly.
 
-   {% note %}
-
-   **Note**: Users who create codespaces using this prebuild will also be asked to grant these permissions.
-
-   {% endnote %}
+   > [!NOTE]
+   > Users who create codespaces using this prebuild will also be asked to grant these permissions.

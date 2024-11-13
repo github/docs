@@ -1,8 +1,5 @@
-{% note %}
-
-**Note:** You cannot group by title, labels, reviewers, or linked pull requests.
-
-{% endnote %}
+> [!NOTE]
+> You cannot group by title, labels, reviewers, or linked pull requests.
 
 {% data reusables.projects.open-view-menu %}
 1. Click {% octicon "rows" aria-hidden="true" %} **Group by**.
