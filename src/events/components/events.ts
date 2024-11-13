@@ -3,6 +3,7 @@ import Cookies from 'src/frame/components/lib/cookies'
 import { parseUserAgent } from './user-agent'
 import { Router } from 'next/router'
 import { isLoggedIn } from 'src/frame/components/hooks/useHasAccount'
+import { EventType, EventPropsByType } from '../types'
 
 const COOKIE_NAME = '_docs-events'
 
@@ -54,76 +55,6 @@ export function getUserEventsId() {
   return cookieValue
 }
 
-export enum EventType {
-  page = 'page',
-  exit = 'exit',
-  link = 'link',
-  hover = 'hover',
-  search = 'search',
-  searchResult = 'searchResult',
-  survey = 'survey',
-  experiment = 'experiment',
-  preference = 'preference',
-  clipboard = 'clipboard',
-  print = 'print',
-}
-
-type SendEventProps = {
-  [EventType.clipboard]: {
-    clipboard_operation: string
-    clipboard_target?: string
-  }
-  [EventType.exit]: {
-    exit_render_duration?: number
-    exit_first_paint?: number
-    exit_dom_interactive?: number
-    exit_dom_complete?: number
-    exit_visit_duration?: number
-    exit_scroll_length?: number
-    exit_scroll_flip?: number
-  }
-  [EventType.experiment]: {
-    experiment_name: string
-    experiment_variation: string
-    experiment_success?: boolean
-  }
-  [EventType.hover]: {
-    hover_url: string
-    hover_samesite?: boolean
-  }
-  [EventType.link]: {
-    link_url: string
-    link_samesite?: boolean
-    link_samepage?: boolean
-    link_container?: string
-  }
-  [EventType.page]: {}
-  [EventType.preference]: {
-    preference_name: string
-    preference_value: string
-  }
-  [EventType.print]: {}
-  [EventType.search]: {
-    search_query: string
-    search_context?: string
-  }
-  [EventType.searchResult]: {
-    search_result_query: string
-    search_result_index: number
-    search_result_total: number
-    search_result_rank: number
-    search_result_url: string
-  }
-  [EventType.survey]: {
-    survey_token?: string // Honeypot, doesn't exist in schema
-    survey_vote: boolean
-    survey_comment?: string
-    survey_email?: string
-    survey_rating?: number
-    survey_comment_language?: string
-  }
-}
-
 function getMetaContent(name: string) {
   const metaTag = document.querySelector(`meta[name="${name}"]`) as HTMLMetaElement
   return metaTag?.content
@@ -136,7 +67,7 @@ export function sendEvent<T extends EventType>({
 }: {
   type: T
   version?: string
-} & SendEventProps[T]) {
+} & EventPropsByType[T]) {
   const body = {
     type,
 

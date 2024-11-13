@@ -29,12 +29,12 @@ If {% data variables.product.prodname_dotcom %} is unable to synchronize team me
 ## Viewing errors for team synchronization with an IdP group
 
 {% data reusables.enterprise-accounts.access-enterprise %}
+1. In the list of enterprises, click the enterprise you want to view.
 {% data reusables.enterprise-accounts.click-identity-provider %}
+1. Under **Identity provider**, click **Groups**.
 1. If synchronization for a group is experiencing problems, you'll see a message that reads "Some groups are failing to synchronize to teams. Check that you have available licenses."
 1. In the list of IdP groups, click the group you'd like to review.
 1. To review the synchronization error for the group, under the name of the group, click **Teams**.
-
-   ![Screenshot of the page for a synchronized IdP group. Under the name of the group, to the right, the "Teams" tab is highlighted in dark orange.](/assets/images/help/enterprises/idp-group-sync-teams-tab.png)
 
    If a team is unable to sync membership with a group on your IdP, you'll see a description of the problem under the team's name and membership count.
 

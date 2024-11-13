@@ -1,5 +1,6 @@
 import { pick, snakeCase } from 'lodash-es'
 import { randomUUID } from 'crypto'
+import { ErrorObject } from 'ajv'
 
 // https://ajv.js.org/api.html#error-objects
 const errorKeys = [
@@ -14,7 +15,7 @@ const errorKeys = [
   'data',
 ]
 
-export function formatErrors(errors, body) {
+export function formatErrors(errors: ErrorObject[], body: any) {
   return errors.map((error) => ({
     event_id: randomUUID(),
     version: '1.0.0',
@@ -33,6 +34,6 @@ export function formatErrors(errors, body) {
 }
 
 // Leave strings alone, otherwise convert to either string or undefined
-function makeString(value) {
+function makeString(value: any) {
   return typeof value === 'string' ? value : JSON.stringify(value)
 }

@@ -1,11 +1,11 @@
 import { describe, expect, test, vi } from 'vitest'
 
-import { post } from '#src/tests/helpers/e2etest.js'
+import { post } from 'src/tests/helpers/e2etest.js'
 
 describe('POST /events', () => {
   vi.setConfig({ testTimeout: 60 * 1000 })
 
-  async function checkEvent(data) {
+  async function checkEvent(data: any) {
     const body = JSON.stringify(data)
     const res = await post('/api/events', {
       body,

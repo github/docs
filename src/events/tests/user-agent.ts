@@ -1,6 +1,6 @@
 import { describe, expect, test } from 'vitest'
 
-import { parseUserAgent } from '../components/user-agent.ts'
+import { parseUserAgent } from '../components/user-agent'
 
 describe('parseUserAgent', () => {
   test('android, chrome', () => {

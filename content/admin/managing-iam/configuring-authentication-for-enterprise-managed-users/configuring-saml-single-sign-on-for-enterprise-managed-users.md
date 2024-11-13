@@ -104,16 +104,16 @@ After the initial configuration of SAML SSO, the only setting you can update on 
    > {% data reusables.enterprise-accounts.emu-password-reset-session %}
 
 {% data reusables.enterprise-accounts.access-enterprise-emu %}
-{% data reusables.enterprise-accounts.settings-tab %}
-{% data reusables.enterprise-accounts.security-tab %}
+{% data reusables.enterprise-accounts.identity-provider-tab %}
+{% data reusables.enterprise-accounts.sso-configuration %}
 
-1. Under "SAML single sign-on", select **Require SAML authentication**.
+1. Under "SAML single sign-on", select **Add SAML configuration**.
 1. Under **Sign on URL**, type the HTTPS endpoint of your IdP for SSO requests that you noted while configuring your IdP.
 1. Under **Issuer**, type your SAML issuer URL that you noted while configuring your IdP, to verify the authenticity of sent messages.
 1. Under **Public Certificate**, paste the certificate that you noted while configuring your IdP, to verify SAML responses.
-{% data reusables.saml.edit-signature-and-digest-methods %}
+1. Under **Public Certificate**, select the **Signature Method** and **Digest Method** dropdown menus, then click the hashing algorithm used by your SAML issuer.
 1. Before enabling SAML SSO for your enterprise, to ensure that the information you've entered is correct, click **Test SAML configuration**. {% data reusables.saml.test-must-succeed %}
-1. Click **Save**.
+1. Click **Save SAML settings**.
 
     > [!NOTE]
     > After you require SAML SSO for your enterprise and save SAML settings, the setup user will continue to have access to the enterprise and will remain signed in to GitHub along with the {% data variables.enterprise.prodname_managed_users %} provisioned by your IdP who will also have access to the enterprise.
