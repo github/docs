@@ -31,12 +31,9 @@ You can't merge a draft pull request. For more information about draft pull requ
 
 The repository may be configured so that the head branch for a pull request is automatically deleted when you merge a pull request. For more information, see "[AUTOTITLE](/repositories/configuring-branches-and-merges-in-your-repository/configuring-pull-request-merges/managing-the-automatic-deletion-of-branches)."
 
-{% note %}
-
-**Note:** {% data reusables.pull_requests.retargeted-on-branch-deletion %}
-For more information, see "[AUTOTITLE](/pull-requests/collaborating-with-pull-requests/proposing-changes-to-your-work-with-pull-requests/about-branches#working-with-branches)."
-
-{% endnote %}
+> [!NOTE]
+> {% data reusables.pull_requests.retargeted-on-branch-deletion %}
+> For more information, see "[AUTOTITLE](/pull-requests/collaborating-with-pull-requests/proposing-changes-to-your-work-with-pull-requests/about-branches#working-with-branches)."
 
 Pull requests are merged using [the `--no-ff` option](https://git-scm.com/docs/git-merge#_fast_forward_merge), except for [pull requests with squashed or rebased commits](/pull-requests/collaborating-with-pull-requests/incorporating-changes-from-a-pull-request/about-pull-request-merges), which are merged using the fast-forward option.
 
@@ -60,21 +57,17 @@ If you decide you don't want the changes in a topic branch to be merged to the u
 
     * [Rebase the commits individually onto the base branch](/pull-requests/collaborating-with-pull-requests/incorporating-changes-from-a-pull-request/about-pull-request-merges#rebase-and-merge-your-pull-request-commits) by clicking the merge dropdown menu, selecting **Rebase and merge** and then clicking **Rebase and merge**.
 
-    {% note %}
+    > [!NOTE]
+    > Rebase and merge will always update the committer information and create new commit SHAs. For more information, see "[About pull request merges](/articles/about-pull-request-merges#rebase-and-merge-your-pull-request-commits)."
 
-    **Note:** Rebase and merge will always update the committer information and create new commit SHAs. For more information, see "[About pull request merges](/articles/about-pull-request-merges#rebase-and-merge-your-pull-request-commits)."
-
-    {% endnote %}
 1. If prompted, type a commit message, or accept the default message.
 
    {% data reusables.pull_requests.default-commit-message-squash-merge %}
 {% data reusables.files.choose-commit-email %}
 
-   {% note %}
+   > [!NOTE]
+   > The email selector is not available for rebase merges, which do not create a merge commit{% ifversion squash-merge-email %}. For squash merges, the email selector is only shown if you are the pull request author and you have more than one email address associated with your account.{% else %}, or for squash merges, which credit the user who created the pull request as the author of the squashed commit.{% endif %}
 
-   **Note:** The email selector is not available for rebase merges, which do not create a merge commit{% ifversion squash-merge-email %}. For squash merges, the email selector is only shown if you are the pull request author and you have more than one email address associated with your account.{% else %}, or for squash merges, which credit the user who created the pull request as the author of the squashed commit.{% endif %}
-
-   {% endnote %}
 1. Click **Confirm merge**, **Confirm squash and merge**, or **Confirm rebase and merge**.
 1. Optionally, [delete the branch](/repositories/configuring-branches-and-merges-in-your-repository/managing-branches-in-your-repository/deleting-and-restoring-branches-in-a-pull-request). This keeps the list of branches in your repository tidy.
 

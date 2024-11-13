@@ -4,7 +4,7 @@ shortTitle: Apply recommended configuration
 intro: 'Secure your code with the security enablement settings created, managed, and recommended by {% data variables.product.company_short %}.'
 permissions: '{% data reusables.permissions.security-org-enable %}'
 versions:
-  feature: security-configurations
+  feature: security-configurations-cloud
 topics:
   - Advanced Security
   - Organizations

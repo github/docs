@@ -18,11 +18,9 @@ shortTitle: Delete organization
 ## About deletion of your organization account
 
 {% ifversion fpt or ghec %}
-{% tip %}
 
-**Tip**: If you want to cancel your paid subscription, you can [downgrade your organization to {% data variables.product.prodname_free_team %}](/billing/managing-the-plan-for-your-github-account/downgrading-your-accounts-plan) instead of deleting the organization and its content.
-
-{% endtip %}
+> [!TIP]
+> If you want to cancel your paid subscription, you can [downgrade your organization to {% data variables.product.prodname_free_team %}](/billing/managing-the-plan-for-your-github-account/downgrading-your-accounts-plan) instead of deleting the organization and its content.
 
 {% endif %}
 Deleting your organization account removes all repositories, forks of private repositories, wikis, issues, pull requests, and project or organization pages. {% ifversion fpt or ghec %}Your billing will end and, after 90 days, the organization name becomes available for use on a new user or organization account.
@@ -46,11 +44,10 @@ You can also archive an organization, instead of deleting it. Archiving an organ
 {% ifversion not ghes %} After you delete an organization, {% data variables.product.company_short %} **cannot restore your content**. Therefore, before{% else %}Before{% endif %} you delete your organization, make sure you have a copy of all repositories, wikis, issues, and projects from the account.
 
 {% ifversion ghes %}
-{% note %}
 
-**Note:** If necessary, a site administrator for {% data variables.location.product_location %} may be able to partially restore a deleted organization. For more information, see "[AUTOTITLE](/admin/managing-accounts-and-repositories/managing-organizations-in-your-enterprise/restoring-a-deleted-organization)."
+> [!NOTE]
+> If necessary, a site administrator for {% data variables.location.product_location %} may be able to partially restore a deleted organization. For more information, see "[AUTOTITLE](/admin/managing-accounts-and-repositories/managing-organizations-in-your-enterprise/restoring-a-deleted-organization)."
 
-{% endnote %}
 {% endif %}
 
 ## Deleting your organization account

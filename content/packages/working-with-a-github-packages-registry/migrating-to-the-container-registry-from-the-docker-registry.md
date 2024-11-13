@@ -29,11 +29,8 @@ topics:
 
 {% ifversion docker-ghcr-enterprise-migration %}
 
-{% note %}
-
-**Note**: {% data reusables.package_registry.container-registry-ghes-migration-availability %} For more information about finding the version of {% data variables.product.product_name %} that you use, see "[AUTOTITLE](/get-started/learning-about-github/about-versions-of-github-docs#github-enterprise-server)."
-
-{% endnote %}
+> [!NOTE]
+> {% data reusables.package_registry.container-registry-ghes-migration-availability %} For more information about finding the version of {% data variables.product.product_name %} that you use, see "[AUTOTITLE](/get-started/learning-about-github/about-versions-of-github-docs#github-enterprise-server)."
 
 {% endif %}
 

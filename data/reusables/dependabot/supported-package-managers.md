@@ -33,11 +33,8 @@ poetry         | `pip`            | v1               | {% octicon "check" aria-l
 [yarn](#yarn)           | `npm`            | v1, v2, v3       | {% octicon "check" aria-label="Supported" %} | {% octicon "check" aria-label="Supported" %} | {% octicon "check" aria-label="Supported" %} | {% octicon "check" aria-label="Supported" %} | {% octicon "check" aria-label="Supported" %}|{% else %}yarn           | `npm`            | v1               | {% octicon "check" aria-label="Supported" %} | {% octicon "check" aria-label="Supported" %} |  |
 | {% endif %} |
 
-{% tip %}
-
-**Tip:** For package managers such as `pipenv` and `poetry`, you need to use the `pip` YAML value. For example, if you use `poetry` to manage your Python dependencies and want {% data variables.product.prodname_dependabot %} to monitor your dependency manifest file for new versions, use `package-ecosystem: "pip"` in your `dependabot.yml` file.
-
-{% endtip %}
+> [!TIP]
+> For package managers such as `pipenv` and `poetry`, you need to use the `pip` YAML value. For example, if you use `poetry` to manage your Python dependencies and want {% data variables.product.prodname_dependabot %} to monitor your dependency manifest file for new versions, use `package-ecosystem: "pip"` in your `dependabot.yml` file.
 
 For further information about ecosystem support for {% data variables.product.prodname_dependabot_security_updates %}, see also "[AUTOTITLE](/code-security/supply-chain-security/understanding-your-software-supply-chain/dependency-graph-supported-package-ecosystems)."
 
@@ -98,14 +95,10 @@ For more information about using {% data variables.product.prodname_dependabot_v
 {% ifversion dependabot-security-updates-gradle-support %}
 For {% data variables.product.prodname_dependabot_security_updates %}, Gradle support is limited to manual uploads of the dependency graph data using the {% data variables.dependency-submission-api.name %}. For more information about the {% data variables.dependency-submission-api.name %}, see "[AUTOTITLE](/code-security/supply-chain-security/understanding-your-software-supply-chain/using-the-dependency-submission-api)."
 
-{% note %}
+> [!NOTE]
+> * When you upload Gradle dependencies to the dependency graph using the {% data variables.dependency-submission-api.name %}, all project dependencies are uploaded, even transitive dependencies that aren't explicitly mentioned in any dependency file. When an alert is detected in a transitive dependency, {% data variables.product.prodname_dependabot %} isn't able to find the vulnerable dependency in the repository, and therefore won't create a security update for that alert.
+> * {% data variables.product.prodname_dependabot_version_updates %} will, however, create pull requests when the parent dependency is explicitly declared as a direct dependency in the project's manifest file.
 
-**Notes:**
-
-* When you upload Gradle dependencies to the dependency graph using the {% data variables.dependency-submission-api.name %}, all project dependencies are uploaded, even transitive dependencies that aren't explicitly mentioned in any dependency file. When an alert is detected in a transitive dependency, {% data variables.product.prodname_dependabot %} isn't able to find the vulnerable dependency in the repository, and therefore won't create a security update for that alert.
-* {% data variables.product.prodname_dependabot_version_updates %} will, however, create pull requests when the parent dependency is explicitly declared as a direct dependency in the project's manifest file.
-
-{% endnote %}
 {% endif %}
 
 #### Maven

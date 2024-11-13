@@ -16,8 +16,5 @@
 
 1. Copy the token.
 
-   {% note %}
-
-   **Important**: Don't share this access token with anyone.
-
-   {% endnote %}
+   > [!IMPORTANT]
+   > Don't share this access token with anyone.

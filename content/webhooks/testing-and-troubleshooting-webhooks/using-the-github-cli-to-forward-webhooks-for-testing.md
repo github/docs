@@ -19,11 +19,8 @@ When you make changes to your integration code, running the code in a local envi
 
 Webhook forwarding in the {% data variables.product.prodname_cli %} only works with repository and organization webhooks. If you want to test other types of webhooks locally, you'll need to do this manually. For more information, see "[AUTOTITLE](/webhooks/testing-and-troubleshooting-webhooks/testing-webhooks)."
 
-{% warning %}
-
-**Warning**: Webhook forwarding is only designed for use during testing and development. It is not supported for use in production environments for handling live webhooks.
-
-{% endwarning %}
+> [!WARNING]
+> Webhook forwarding is only designed for use during testing and development. It is not supported for use in production environments for handling live webhooks.
 
 ## Receiving webhooks with {% data variables.product.prodname_cli %}
 
@@ -51,8 +48,5 @@ Webhook forwarding in the {% data variables.product.prodname_cli %} only works w
 
   Leave the command running in the background. It will receive all of the specified events for the specified repository and forward them to your webhook handler running at the specified URL.
 
-   {% note %}
-
-   **Note**: Only one person can use webhook forwarding at a time for each repository and organization. If you try to set up webhook forwarding and someone else is already working with that organization or repository, you'll receive a `Hook already exists` error.
-
-   {% endnote %}
+   > [!NOTE]
+   > Only one person can use webhook forwarding at a time for each repository and organization. If you try to set up webhook forwarding and someone else is already working with that organization or repository, you'll receive a `Hook already exists` error.

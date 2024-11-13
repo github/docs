@@ -31,11 +31,8 @@ shortTitle: Large files
 
 {% data variables.product.product_name %} limits the size of files allowed in repositories. If you attempt to add or update a file that is larger than {% data variables.large_files.warning_size %}, you will receive a warning from Git. The changes will still successfully push to your repository, but you can consider removing the commit to minimize performance impact. For more information, see "[Removing files from a repository's history](#removing-files-from-a-repositorys-history)."
 
-{% note %}
-
-**Note:** If you add a file to a repository via a browser, the file can be no larger than {% data variables.large_files.max_github_browser_size %}. For more information, see "[AUTOTITLE](/repositories/working-with-files/managing-files/adding-a-file-to-a-repository)."
-
-{% endnote %}
+> [!NOTE]
+> If you add a file to a repository via a browser, the file can be no larger than {% data variables.large_files.max_github_browser_size %}. For more information, see "[AUTOTITLE](/repositories/working-with-files/managing-files/adding-a-file-to-a-repository)."
 
 {% ifversion ghes %}By default, {% endif %}{% data variables.product.product_name %} blocks files larger than {% data variables.large_files.max_github_size %}. {% ifversion ghes %}However, a site administrator can configure a different limit for {% data variables.location.product_location %}.  For more information, see "[AUTOTITLE](/admin/policies/enforcing-policies-for-your-enterprise/enforcing-repository-management-policies-in-your-enterprise)."{% endif %}
 
@@ -67,11 +64,8 @@ You can prevent your repository from impacting your infrastructure by effectivel
 
 ## Removing files from a repository's history
 
-{% warning %}
-
-**Warning**: These procedures will permanently remove files from the repository on your computer and {% data variables.location.product_location %}. If the file is important, make a local backup copy in a directory outside of the repository.
-
-{% endwarning %}
+> [!WARNING]
+> These procedures will permanently remove files from the repository on your computer and {% data variables.location.product_location %}. If the file is important, make a local backup copy in a directory outside of the repository.
 
 ### Removing a file added in the most recent unpushed commit
 

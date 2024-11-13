@@ -23,11 +23,8 @@ If you are publishing from a branch, sometimes {% data variables.product.prodnam
 * You're pushing with a deploy key. If you want to automate pushes to your site's repository, you can set up a machine user instead. For more information, see "[AUTOTITLE](/authentication/connecting-to-github-with-ssh/managing-deploy-keys#machine-users)."
 * You're using a CI service that isn't configured to build your publishing source. For example, Travis CI won't build the `gh-pages` branch unless you add the branch to a safe list. For more information, see "[Customizing the build](https://docs.travis-ci.com/user/customizing-the-build/#safelisting-or-blocklisting-branches)" on Travis CI, or your CI service's documentation.
 
-{% note %}
-
-**Note:** It can take up to 10 minutes for changes to your site to publish after you push the changes to {% data variables.product.product_name %}.
-
-{% endnote %}
+> [!NOTE]
+> It can take up to 10 minutes for changes to your site to publish after you push the changes to {% data variables.product.product_name %}.
 
 {% ifversion build-pages-with-actions %}
 If Jekyll does attempt to build your site and encounters an error, you will receive a build error message.

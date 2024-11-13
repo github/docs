@@ -78,11 +78,10 @@ When you configure your site to publish with {% data variables.product.prodname_
 The workflow templates use a deployment environment called `github-pages`. If your repository does not already include an environment called `github-pages`, the environment will be created automatically. We recommend that you add a deployment protection rule so that only the default branch can deploy to this environment. For more information, see "[AUTOTITLE](/actions/deployment/targeting-different-environments/using-environments-for-deployment)."
 
 {% ifversion fpt or ghec %}
-{% note %}
 
-**Note**: A `CNAME` file in your repository file does not automatically add or remove a custom domain. Instead, you must configure the custom domain through your repository settings or through the API. For more information, see "[AUTOTITLE](/pages/configuring-a-custom-domain-for-your-github-pages-site/managing-a-custom-domain-for-your-github-pages-site#configuring-a-subdomain)" and "[AUTOTITLE](/rest/pages#update-information-about-a-github-pages-site)."
+> [!NOTE]
+> A `CNAME` file in your repository file does not automatically add or remove a custom domain. Instead, you must configure the custom domain through your repository settings or through the API. For more information, see "[AUTOTITLE](/pages/configuring-a-custom-domain-for-your-github-pages-site/managing-a-custom-domain-for-your-github-pages-site#configuring-a-subdomain)" and "[AUTOTITLE](/rest/pages#update-information-about-a-github-pages-site)."
 
-{% endnote %}
 {% endif %}
 
 ### Troubleshooting publishing with a custom {% data variables.product.prodname_actions %} workflow

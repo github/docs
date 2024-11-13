@@ -21,13 +21,10 @@ If a person chooses to keep their email address private, you should use their {%
 
 For more information, see "[AUTOTITLE](/account-and-profile/setting-up-and-managing-your-personal-account-on-github/managing-email-preferences/setting-your-commit-email-address)."
 
-  {% tip %}
-
-  **Tip:** You can help a co-author find their preferred email address by sharing this information:
-* To find your {% data variables.product.product_name %}-provided `no-reply` email, navigate to your email settings page under "Keep my email address private."
-* To find the email you used to configure Git on your computer, run `git config user.email` on the command line.
-
-  {% endtip %}
+> [!TIP]
+> You can help a co-author find their preferred email address by sharing this information:
+> * To find your {% data variables.product.product_name %}-provided `no-reply` email, navigate to your email settings page under "Keep my email address private."
+> * To find the email you used to configure Git on your computer, run `git config user.email` on the command line.
 
 {% endif %}
 
@@ -47,11 +44,8 @@ You can use {% data variables.product.prodname_desktop %} to create a commit wit
    >
    ```
 
-   {% tip %}
-
-   **Tip:** If you're using a text editor on the command line to type your commit message, ensure there are two newlines between the end of your commit description and the `Co-authored-by:` commit trailer.
-
-   {% endtip %}
+   > [!TIP]
+   > If you're using a text editor on the command line to type your commit message, ensure there are two newlines between the end of your commit description and the `Co-authored-by:` commit trailer.
 
 1. On the next line of the commit message, type `Co-authored-by: name <name@example.com>` with specific information for each co-author. After the co-author information, add a closing quotation mark.
 

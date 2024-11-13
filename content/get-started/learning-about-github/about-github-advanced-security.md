@@ -71,7 +71,7 @@ The table below summarizes the availability of {% data variables.product.prodnam
 For information about {% data variables.product.prodname_advanced_security %} features that are in development, see "[{% data variables.product.prodname_dotcom %} public roadmap](https://github.com/github/roadmap)." For an overview of all security features, see "[AUTOTITLE](/code-security/getting-started/github-security-features)."
 
 {% ifversion fpt or ghec %}
-{% data variables.product.prodname_GH_advanced_security %} features are enabled for all public repositories on {% data variables.product.prodname_dotcom_the_website %}. Organizations that use {% data variables.product.prodname_ghe_cloud %} with {% data variables.product.prodname_advanced_security %} can additionally enable these features for private and internal repositories. {% ifversion fpt %}See the [{% data variables.product.prodname_ghe_cloud %} documentation](/enterprise-cloud@latest/get-started/learning-about-github/about-github-advanced-security#enabling-advanced-security-features).
+{% data variables.product.prodname_GH_advanced_security %} features are enabled for all public repositories on {% data variables.product.prodname_dotcom_the_website %}. Organizations that use {% data variables.product.prodname_ghe_cloud %} with {% data variables.product.prodname_advanced_security %} can additionally enable these features for private and internal repositories. {% ifversion fpt %}See the [{% data variables.product.prodname_ghe_cloud %} documentation](/enterprise-cloud@latest/get-started/learning-about-github/about-github-advanced-security#enabling-advanced-security-features).{% endif %}
 {% endif %}
 
 {% ifversion ghes or ghec %}
@@ -79,10 +79,6 @@ For information about {% data variables.product.prodname_advanced_security %} fe
 ## Deploying GitHub Advanced Security in your enterprise
 
 To learn about what you need to know to plan your {% data variables.product.prodname_GH_advanced_security %} deployment at a high level and to review the rollout phases we recommended, see "[AUTOTITLE](/code-security/adopting-github-advanced-security-at-scale)."
-
-{% endif %}
-
-{% ifversion not fpt %}
 
 ## Enabling {% data variables.product.prodname_advanced_security %} features
 
@@ -103,9 +99,7 @@ For other repositories, once you have a license for your enterprise account, you
 {%- endif %}
 See "[AUTOTITLE](/organizations/keeping-your-organization-secure/managing-security-settings-for-your-organization/managing-security-and-analysis-settings-for-your-organization)" and "[AUTOTITLE](/repositories/managing-your-repositorys-settings-and-features/enabling-features-for-your-repository/managing-security-and-analysis-settings-for-your-repository)."
 
-{% ifversion ghec or ghes %}
 If you have an enterprise account, license use for the entire enterprise is shown on your enterprise license page. See "[AUTOTITLE](/billing/managing-billing-for-your-products/managing-billing-for-github-advanced-security/viewing-your-github-advanced-security-usage)."
-{% endif %}
 
 {% endif %}
 
@@ -123,5 +117,4 @@ You can highlight your code security knowledge by earning a {% data variables.pr
 
 * "[AUTOTITLE](/admin/policies/enforcing-policies-for-your-enterprise/enforcing-policies-for-code-security-and-analysis-for-your-enterprise)"
 
-{% endif %}
 {% endif %}
