@@ -2,13 +2,13 @@
 title: Charging business units
 intro: 'Learn how to create and use cost centers to manage business units at scale.'
 versions:
-  feature: enhanced-billing-platform
+  ghec: '*'
 redirect_from:
   - /billing/using-the-enhanced-billing-platform-for-enterprises/charging-business-units
 type: how_to
 topics:
   - Enterprise
-permissions: '{% data reusables.billing.new-billing-platform-permissions %}'
+product: '{% data reusables.billing.enhanced-billing-platform-product %}'
 shortTitle: Charge business units
 ---
 

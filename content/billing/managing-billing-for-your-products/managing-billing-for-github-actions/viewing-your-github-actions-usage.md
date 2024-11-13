@@ -17,11 +17,7 @@ topics:
 shortTitle: View your Actions usage
 ---
 
-{% ifversion enhanced-billing-platform %}
-
 {% data reusables.billing.enhanced-billing-platform %}
-
-{% endif %}
 
 You can also view the billable job execution minutes for an individual workflow run. For more information, see "[AUTOTITLE](/actions/monitoring-and-troubleshooting-workflows/viewing-job-execution-time)."
 

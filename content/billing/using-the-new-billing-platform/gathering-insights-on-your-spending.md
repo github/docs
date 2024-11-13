@@ -1,6 +1,6 @@
 ---
 title: Gathering insights on your spending
-intro: 'Get insights into the usage of your enterprise members.'
+intro: 'Get insights into the usage of your {% data variables.enterprise.enterprise_or_org %} members.'
 versions:
   feature: enhanced-billing-platform
 redirect_from:
@@ -8,21 +8,34 @@ redirect_from:
 type: how_to
 topics:
   - Enterprise
-permissions: The new billing platform is available to all enterprise accounts, and organizations owned by enterprise accounts, created after June 2, 2024. Enterprises that participated in the {% data variables.release-phases.public_preview %} program also have access to the enhanced billing platform.<br><br> As an enterprise owner or billing manager you can view and download your enterprise's usage. As an organization owner, you can view and download usage for the organizations you manage
+  - Team
+permissions: '{% data reusables.permissions.enhanced-billing-platform %}'
+product: '{% data reusables.billing.enhanced-billing-platform-product %}'
 shortTitle: Gather insights
 ---
 
 The new billing platform provides you with the tools to:
 
-* **Get insights** into the usage of your enterprise members to understand how your resources are being used.
-* **Generate reports** on the usage of your enterprise members to import into your own tools for visualization and analysis.
+* **Get insights** into the usage of your {% data variables.enterprise.enterprise_or_org %} members to understand how your resources are being used.
+* **Generate reports** on the usage of your {% data variables.enterprise.enterprise_or_org %} members to import into your own tools for visualization and analysis.
 
 ## Viewing usage
 
-You can view the usage of your enterprise members and download the usage data for further analysis.
+You can view the usage of your {% data variables.enterprise.enterprise_or_org %} members and download the usage data for further analysis.
+
+{% ifversion fpt %}
+
+{% data reusables.profile.access_org %}
+{% data reusables.profile.org_settings %}
+{% data reusables.billing.org-billing-menu %}
+
+{% elsif ghec %}
 
 {% data reusables.enterprise-accounts.access-enterprise %}
 {% data reusables.billing.enterprise-billing-menu %}
+
+{% endif %}
+
 1. Click **Usage**.
 1. To search or filter the graph, click the search bar. Then click the filter you want to use.
 1. To further filter the graph, use the dropdown menus.
@@ -39,7 +52,17 @@ You can view the usage of your enterprise members and download the usage data fo
 
 ## Viewing license usage
 
-You can view the license usage of your enterprise members and download the usage data for further analysis. The following license types are available:
+You can view the license usage of your {% data variables.enterprise.enterprise_or_org %} members and download the usage data for further analysis.
+
+{% ifversion fpt %}
+
+{% data reusables.profile.access_org %}
+{% data reusables.profile.org_settings %}
+{% data reusables.billing.org-billing-menu %}
+
+{% elsif ghec %}
+
+The following license types are available:
 
 * User
 * {% data variables.product.prodname_GH_advanced_security %}
@@ -49,9 +72,14 @@ You can also view your active {% data variables.product.prodname_enterprise %} i
 
 {% data reusables.enterprise-accounts.access-enterprise %}
 {% data reusables.billing.enterprise-billing-menu %}
+
+{% endif %}
+
 1. Click **Licensing**.
 1. To download a CSV report of the license usage, click {% octicon "kebab-horizontal" aria-label="Licensing dropdown" %} to the right of the usage you want to download, then click {% octicon "download" aria-hidden="true" %} **CSV report**.
 
 ## Further reading
 
-* "[AUTOTITLE](/rest/enterprise-admin/billing)"
+{% ifversion ghec %}
+* "[AUTOTITLE](/rest/enterprise-admin/billing)"{% endif %}
+* "[AUTOTITLE](/billing/using-the-new-billing-platform/adding-seats-to-your-account)"

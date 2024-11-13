@@ -61,7 +61,7 @@ Administrators for your enterprise account on {% data variables.product.prodname
 
 You have access to the new billing platform if you have an enterprise account, or if you are part of an organization owned by an enterprise account, created after June 2, 2024. Enterprises that participated in the {% data variables.release-phases.private_preview %} also have access to the new billing platform. See "[AUTOTITLE](/billing/using-the-new-billing-platform/about-the-new-billing-platform-for-enterprises)."
 
-{% data reusables.billing.new-billing-platform-permissions %}
+{% data reusables.billing.enhanced-billing-platform-product %}
 
 To check if you have access:
 

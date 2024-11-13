@@ -16,11 +16,7 @@ topics:
 shortTitle: About Git LFS billing
 ---
 
-{% ifversion enhanced-billing-platform %}
-
 {% data reusables.billing.enhanced-billing-platform %}
-
-{% endif %}
 
 ## About billing for {% data variables.large_files.product_name_long %}
 
