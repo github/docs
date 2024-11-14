@@ -42,6 +42,8 @@ Using an **incognito or private browsing window**:
 
 {% data reusables.enterprise-accounts.emu-password-reset-session %}
 
+We strongly recommend **storing the credentials for the setup user** in your company's password management tool. Someone will need to sign in as this user to update authentication settings, migrate to another identity provider or authentication method, or use your enterprise's recovery codes.
+
 ## Create a {% data variables.product.pat_generic %}
 
 {% data reusables.enterprise-accounts.emu-create-a-pat %}
