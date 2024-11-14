@@ -174,6 +174,10 @@ sections:
       When enabling log forwarding, specific service logs, including babeld, are duplicated. For more information, see "[AUTOTITLE](/admin/monitoring-activity-in-your-enterprise/exploring-user-activity-in-your-enterprise/log-forwarding#enabling-log-forwarding)."
     - |
       {% data reusables.release-notes.2024-06-possible-frontend-5-minute-outage-during-hotpatch-upgrade %} [Updated: 2024-06-17]
+    - |
+      {% data reusables.release-notes.2024-11-ghe-repl-promote-primary-down %}
+
+      [Updated: 2024-11-13]
 
   deprecations:
     # https://github.com/github/releases/issues/2732
