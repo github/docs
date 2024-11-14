@@ -10,6 +10,8 @@ shortTitle: Set up Copilot Extensions
 
 {% data reusables.copilot.copilot-extensions.beta-note %}
 
+This article is designed to help you build an entirely new {% data variables.product.prodname_copilot_extension %}. To instead learn how to quickly build and test a demo {% data variables.product.prodname_copilot_extension_short %} created by {% data variables.product.github %}, see "[AUTOTITLE](/copilot/building-copilot-extensions/quickstart-for-github-copilot-extensions)."
+
 ## 1. Learn about {% data variables.product.prodname_copilot_agents_short %}
 
 {% data variables.product.prodname_copilot_agents_short %} contain the custom code for your {% data variables.product.prodname_copilot_extension_short %}, and integrate with a {% data variables.product.prodname_github_app %} to form the {% data variables.product.prodname_copilot_extension_short %} itself. For more information, see "[AUTOTITLE](/copilot/building-copilot-extensions/building-a-copilot-agent-for-your-copilot-extension/about-copilot-agents)."

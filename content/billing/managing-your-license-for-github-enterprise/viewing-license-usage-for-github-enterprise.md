@@ -36,9 +36,9 @@ To learn more about the license data associated with your enterprise account and
 
 ## Viewing license usage on {% ifversion ghec %}{% data variables.product.prodname_ghe_cloud %}{% elsif ghes %}{% data variables.location.product_location %}{% endif %}
 
-You can view the license usage for your enterprise and download a file with license details. If you're not seeing expected license counts in this report, it's possible that the subscriber’s assigned {% data variables.product.prodname_vs %} subscription email address and {% data variables.product.prodname_dotcom_the_website %} email address aren't exactly the same. For further information, see "[AUTOTITLE](/billing/managing-your-license-for-github-enterprise/troubleshooting-license-usage-for-github-enterprise)."
-
 {% ifversion ghec %}
+
+You can view the license usage for your enterprise and download a file with license details. If you're not seeing expected license counts in this report, it's possible that the subscriber’s assigned {% data variables.product.prodname_vs %} subscription email address and {% data variables.product.prodname_dotcom_the_website %} email address aren't exactly the same. For further information, see "[AUTOTITLE](/billing/managing-your-license-for-github-enterprise/troubleshooting-license-usage-for-github-enterprise)."
 
 {% data reusables.enterprise-accounts.access-enterprise-on-dotcom %}
 {% data reusables.enterprise-accounts.settings-tab %}
@@ -54,11 +54,12 @@ You can view the license usage for your enterprise and download a file with lice
 {% data reusables.enterprise-accounts.access-enterprise %}
 {% data reusables.enterprise-accounts.settings-tab %}
 {% data reusables.enterprise-accounts.license-tab %}
-1. Review your current {% data variables.product.prodname_enterprise %} license, as well as consumed and available user licenses.{% ifversion ghes %}
-    * To download the consumed license report as a JSON file, in the top right under "Quick links", choose **Export license usage**. For more information about reviewing the data in this report, see "[AUTOTITLE](/billing/managing-your-license-for-github-enterprise/troubleshooting-license-usage-for-github-enterprise)."
-    * If you have purchased {% data variables.product.prodname_GH_advanced_security %}, you can review your total {% ifversion ghas-billing-UI-update %}licenses{% else %}seats{% endif %} used as well as a per-organization breakdown of active committers. See "[AUTOTITLE](/admin/code-security/managing-github-advanced-security-for-your-enterprise)."{% endif %}
+1. Review your current {% data variables.product.prodname_enterprise %} license, as well as consumed and available user licenses.
+
+   If you have purchased {% data variables.product.prodname_GH_advanced_security %}, you can review your total {% ifversion ghas-billing-UI-update %}licenses{% else %}seats{% endif %} used as well as a per-organization breakdown of active committers. See "[AUTOTITLE](/admin/code-security/managing-github-advanced-security-for-your-enterprise)."
 
 {% endif %}
+
 {% ifversion ghec %}
 
 ## Viewing the last license sync date

@@ -18,7 +18,7 @@ topics:
 
 ## About display of IP addresses in the audit log
 
-By default, {% data variables.product.product_name %} does not display the source IP address for events in your organization's audit log. {% data reusables.audit_log.about-ip-display %}
+By default, {% data variables.product.product_name %} does not display the source IP address for events in your organization's audit log. {% data reusables.audit_log.about-ip-display %} If you enable this setting, the IP address will be displayed for **new and existing events** in the audit log.
 
 You are responsible for meeting any legal obligations that accompany the viewing or storage of IP addresses displayed within your organization's audit log.
 

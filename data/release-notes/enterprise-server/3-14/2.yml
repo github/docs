@@ -78,3 +78,7 @@ sections:
       Services may respond with a `503` status due to an out of date `haproxy` configuration. This can usually be resolved with a `ghe-config-apply` run.
     - |
       Images embedded in wiki pages may stop rendering shortly after being published. [Updated: 2024-10-16]
+    - |
+      {% data reusables.release-notes.2024-11-ghe-repl-promote-primary-down %}
+
+      [Updated: 2024-11-13]

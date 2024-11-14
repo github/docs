@@ -1,3 +1,4 @@
+import { useState } from 'react'
 import { useRouter } from 'next/router'
 import cx from 'classnames'
 import { CookBookArticleCard } from './CookBookArticleCard'
@@ -11,6 +12,7 @@ import { useCategoryLandingContext } from 'src/frame/components/context/Category
 import { ClientSideRedirects } from 'src/rest/components/ClientSideRedirects'
 import { RestRedirect } from 'src/rest/components/RestRedirect'
 import { Breadcrumbs } from 'src/frame/components/page-header/Breadcrumbs'
+import { ArticleCardItems } from '../types'
 
 export const CategoryLanding = () => {
   const router = useRouter()
@@ -18,7 +20,23 @@ export const CategoryLanding = () => {
   const { title, intro, tocItems } = useCategoryLandingContext()
 
   // tocItems contains directories and its children, we only want the child articles
-  const onlyFlatItems = tocItems.flatMap((item) => item.childTocItems || [])
+  const onlyFlatItems: ArticleCardItems = tocItems.flatMap((item) => item.childTocItems || [])
+
+  const [searchResults, setSearchResults] = useState<ArticleCardItems>(onlyFlatItems)
+
+  const handleSearch = (query: string) => {
+    const results = onlyFlatItems.filter((token) => {
+      return Object.values(token).some((value) => {
+        if (typeof value === 'string') {
+          return value.toLowerCase().includes(query.toLowerCase())
+        } else if (Array.isArray(value)) {
+          return value.some((item) => item.toLowerCase().includes(query.toLowerCase()))
+        }
+        return false
+      })
+    })
+    setSearchResults(results)
+  }
 
   return (
     <DefaultLayout>
@@ -44,14 +62,14 @@ export const CategoryLanding = () => {
         <div className="pt-8">
           <div className="py-5 border-bottom">
             <div className="col-lg-4 col-sm-12 float-md-left pb-3 mr-5 ml-1">
-              <h2>Explore {onlyFlatItems.length} prompt articles</h2>
+              <h2>Explore {searchResults.length} prompt articles</h2>
             </div>
             <div>
-              <CookBookFilter />
+              <CookBookFilter tokens={onlyFlatItems} onSearch={handleSearch} />
             </div>
           </div>
           <ul className="clearfix gutter-md-spacious">
-            {onlyFlatItems.map((item, index) => (
+            {searchResults.map((item, index) => (
               <li key={index} className="col-md-4 col-sm-12 list-style-none float-left p-4">
                 <CookBookArticleCard
                   title={item.title}

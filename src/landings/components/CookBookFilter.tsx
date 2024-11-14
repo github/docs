@@ -1,16 +1,39 @@
 import { TextInput, ActionMenu, ActionList, Button } from '@primer/react'
 import { SearchIcon } from '@primer/octicons-react'
+import { useRef, useEffect } from 'react'
+import { ArticleCardItems } from '#src/landings/types.ts'
 
-export const CookBookFilter = () => {
+type Props = {
+  tokens: ArticleCardItems
+  onSearch: (query: string) => void
+  isSearchOpen?: boolean
+}
+
+export const CookBookFilter = ({ onSearch, isSearchOpen }: Props) => {
+  const inputRef = useRef<HTMLInputElement>(null)
+  useEffect(() => {
+    if (isSearchOpen) {
+      inputRef.current?.focus()
+    }
+  }, [isSearchOpen])
+
   return (
     <>
       <div>
-        <TextInput
-          leadingVisual={SearchIcon}
-          className="float-lg-left m-1"
-          sx={{ minWidth: ['stretch', 'stretch', 'stretch', 250] }}
-          placeholder="Search articles"
-        />
+        <form onSubmit={(e) => e.preventDefault()}>
+          <TextInput
+            leadingVisual={SearchIcon}
+            className="float-lg-left m-1"
+            sx={{ minWidth: ['stretch', 'stretch', 'stretch', 250] }}
+            placeholder="Search articles"
+            ref={inputRef}
+            autoComplete="false"
+            onChange={(e) => {
+              const query = e.target.value || ''
+              onSearch(query)
+            }}
+          />
+        </form>
       </div>
       <div className="d-flex">
         <ActionMenu>
