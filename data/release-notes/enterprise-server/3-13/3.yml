@@ -127,6 +127,11 @@ sections:
       {% data reusables.release-notes.2024-08-resolvconf-wont-start %}
 
       [Updated: 2024-08-26]
+    - |
+      {% data reusables.release-notes.2024-11-ghe-repl-promote-primary-down %}
+
+      [Updated: 2024-11-13]
+
   errata:
     - |
       These release notes previously indicated as a known issue that on GitHub Enterprise Server 3.13.3 when log forwarding is enabled, some forwarded log entries may be duplicated.
