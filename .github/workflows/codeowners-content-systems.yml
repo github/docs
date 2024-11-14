@@ -11,14 +11,14 @@ on:
       - 'content/contributing/**.md'
 
 jobs:
-  codeowners-content-strategy:
+  codeowners-content-systems:
     if: ${{ github.repository == 'github/docs-internal' }}
     runs-on: ubuntu-latest
     steps:
       - name: Check out repo
         uses: actions/checkout@b4ffde65f46336ab88eb53be808477a3936bae11 # v4.1.1
 
-      - name: Add Content Strategy as a reviewer
+      - name: Add Content Systems as a reviewer
         env:
           GH_TOKEN: ${{ secrets.DOCS_BOT_PAT_WRITEORG_PROJECT }}
           PR: ${{ github.event.pull_request.html_url }}
@@ -29,5 +29,5 @@ jobs:
           )
           if ! $has_reviewer
           then
-            gh pr edit $PR --add-reviewer github/docs-content-strategy
+            gh pr edit $PR --add-reviewer github/docs-content-systems
           fi
