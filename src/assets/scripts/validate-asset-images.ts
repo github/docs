@@ -19,6 +19,7 @@ import path from 'path'
 import { program } from 'commander'
 import chalk from 'chalk'
 import cheerio from 'cheerio'
+// @ts-ignore see https://github.com/sindresorhus/file-type/issues/652
 import { fileTypeFromFile } from 'file-type'
 import walk from 'walk-sync'
 import isSVG from 'is-svg'
@@ -43,7 +44,7 @@ const EXPECT = {
   '.ico': 'image/x-icon',
   '.pdf': 'application/pdf',
   '.webp': 'image/webp',
-}
+} as Record<string, string>
 
 const CRITICAL = 'critical'
 const WARNING = 'warning'
@@ -56,7 +57,7 @@ program
 
 main(program.opts())
 
-async function main(opts) {
+async function main(opts: { dryRun: boolean; verbose: boolean }) {
   let errors = 0
 
   const files = walk(ASSETS_ROOT, { includeBasePath: true, directories: false }).filter(
@@ -71,7 +72,11 @@ async function main(opts) {
       )
     },
   )
-  const results = (await Promise.all(files.map(checkFile))).filter(Boolean)
+  const results = (await Promise.all(files.map(checkFile))).filter(Boolean) as [
+    level: string,
+    filePath: string,
+    error: string,
+  ][]
   for (const [level, filePath, error] of results) {
     console.log(
       level === CRITICAL ? chalk.red(level) : chalk.yellow(level),
@@ -94,7 +99,7 @@ async function main(opts) {
   process.exitCode = errors
 }
 
-async function checkFile(filePath) {
+async function checkFile(filePath: string) {
   const ext = path.extname(filePath)
 
   const { size } = await fs.stat(filePath)
@@ -113,7 +118,7 @@ async function checkFile(filePath) {
     }
     try {
       checkSVGContent(content)
-    } catch (error) {
+    } catch (error: any) {
       return [CRITICAL, filePath, error.message]
     }
   } else if (EXPECT[ext]) {
@@ -135,15 +140,15 @@ async function checkFile(filePath) {
   // All is well. Nothing to complain about.
 }
 
-function checkSVGContent(content) {
+function checkSVGContent(content: string) {
   const $ = cheerio.load(content)
   const disallowedTagNames = new Set(['script', 'object', 'iframe', 'embed'])
   $('*').each((i, element) => {
-    const { tagName } = element
+    const { tagName } = $(element).get(0)
     if (disallowedTagNames.has(tagName)) {
       throw new Error(`contains a <${tagName}> tag`)
     }
-    for (const key in element.attribs) {
+    for (const key in $(element).get(0).attribs) {
       // Looks for suspicious event handlers on tags.
       // For example `<path oNload="alert(1)"" d="M28 0l4.59 4.59-9.76`
       // We don't need to do a case-sensitive regex here because cheerio

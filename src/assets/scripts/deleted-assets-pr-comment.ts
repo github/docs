@@ -13,16 +13,22 @@ if (!GITHUB_TOKEN) {
 // When this file is invoked directly from action as opposed to being imported
 if (import.meta.url.endsWith(process.argv[1])) {
   const owner = context.repo.owner
-  const repo = context.payload.repository.name
-  const baseSHA = context.payload.pull_request.base.sha
-  const headSHA = context.payload.pull_request.head.sha
+  const repo = context.payload.repository?.name || ''
+  const baseSHA = context.payload.pull_request?.base.sha
+  const headSHA = context.payload.pull_request?.head.sha
 
-  const markdown = await main(owner, repo, baseSHA, headSHA)
+  const markdown = await main({ owner, repo, baseSHA, headSHA })
   core.setOutput('markdown', markdown)
 }
 
-async function main(owner, repo, baseSHA, headSHA) {
-  const octokit = github.getOctokit(GITHUB_TOKEN)
+type MainArgs = {
+  owner: string
+  repo: string
+  baseSHA: string
+  headSHA: string
+}
+async function main({ owner, repo, baseSHA, headSHA }: MainArgs) {
+  const octokit = github.getOctokit(GITHUB_TOKEN as string)
   // get the list of file changes from the PR
   const response = await octokit.rest.repos.compareCommitsWithBasehead({
     owner,
@@ -31,6 +37,10 @@ async function main(owner, repo, baseSHA, headSHA) {
   })
 
   const { files } = response.data
+
+  if (!files) {
+    throw new Error('No files found in the PR')
+  }
 
   const oldFilenames = []
   for (const file of files) {
