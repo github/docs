@@ -1,11 +1,7 @@
 {
   "compilerOptions": {
     "target": "ES2022",
-    "lib": [
-      "dom",
-      "dom.iterable",
-      "esnext"
-    ],
+    "lib": ["dom", "dom.iterable", "esnext"],
     "allowJs": true,
     "skipLibCheck": true,
     "strict": true,
@@ -30,9 +26,5 @@
     "docs-internal-data",
     "src/code-scanning/scripts/generate-code-scanning-query-list.ts"
   ],
-  "include": [
-    "*.d.ts",
-    "**/*.ts",
-    "**/*.tsx"
-  ]
+  "include": ["*.d.ts", "**/*.ts", "**/*.tsx"]
 }

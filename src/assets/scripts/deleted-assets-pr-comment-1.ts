@@ -18,14 +18,19 @@
 // [end-readme]
 
 import { program } from 'commander'
-import main from './deleted-assets-pr-comment.js'
+import main from './deleted-assets-pr-comment'
 
 program
   .description('If applicable, print a snippet of Markdown about deleted assets')
-  .arguments('owner repo base_sha head_sha', 'Simulate what the Actions workflow does')
+  .arguments('owner repo base_sha head_sha')
   .parse(process.argv)
 
-const opts = program.opts()
-const args = program.args
+type MainArgs = {
+  owner: string
+  repo: string
+  baseSHA: string
+  headSHA: string
+}
+const opts = program.opts() as MainArgs
 
-console.log(await main(...args, { ...opts }))
+console.log(await main(opts))

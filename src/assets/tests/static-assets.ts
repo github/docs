@@ -6,7 +6,7 @@ import { describe, expect, test, vi } from 'vitest'
 import { get } from '#src/tests/helpers/e2etest.js'
 import { checkCachingHeaders } from '#src/tests/helpers/caching-headers.js'
 
-function getNextStaticAsset(directory) {
+function getNextStaticAsset(directory: string) {
   const root = path.join('.next', 'static', directory)
   const files = fs.readdirSync(root)
   if (!files.length) throw new Error(`Can't find any files in ${root}`)
