@@ -43,7 +43,7 @@ If you have already pushed the commit to {% data variables.location.product_loca
 
 {% warning %}
 
-We strongly discourage force pushing, since this changes the history of your repository. If you force push, people who have already cloned your repository will have to manually fix their local history. For more information, see "[Recovering from upstream rebase](https://git-scm.com/docs/git-rebase#_recovering_from_upstream_rebase)" in the Git manual.
+We strongly discourage force pushing, since this changes the history of your repository. If you force push, people who have already cloned your repository will have to manually fix their local history. For more information, see [Recovering from upstream rebase](https://git-scm.com/docs/git-rebase#_recovering_from_upstream_rebase) in the Git manual.
 
 {% endwarning %}
 
