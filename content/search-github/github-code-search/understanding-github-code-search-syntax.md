@@ -120,11 +120,8 @@ To search within a set of repositories, you can combine multiple `repo:` qualifi
 repo:github-linguist/linguist OR repo:tree-sitter/tree-sitter
 ```
 
-{% note %}
-
-**Note:** Code search does not currently support regular expressions or partial matching for repository names, so you will have to type the entire repository name (including the user prefix) for the `repo:` qualifier to work.
-
-{% endnote %}
+> [!NOTE]
+> Code search does not currently support regular expressions or partial matching for repository names, so you will have to type the entire repository name (including the user prefix) for the `repo:` qualifier to work.
 
 ### Organization and user qualifiers
 
@@ -140,11 +137,8 @@ To search for files within a personal account, use the `user:` qualifier. For ex
 user:octocat
 ```
 
-{% note %}
-
-**Note:** Code search does not currently support regular expressions or partial matching for organization or user names, so you will have to type the entire organization or user name for the qualifier to work.
-
-{% endnote %}
+> [!NOTE]
+> Code search does not currently support regular expressions or partial matching for organization or user names, so you will have to type the entire organization or user name for the qualifier to work.
 
 ### Language qualifier
 
@@ -317,4 +311,8 @@ If code search guesses wrong, you can always get the search you wanted by using 
 
 ## Case sensitivity
 
-Code search is case-insensitive. Searching for `True` will include results for _uppercase_ `TRUE` and _lowercase_ `true`. You cannot do case-sensitive searches. Regular expression searches (e.g. for `[t][H][i][S]`) are also case-insensitive, and thus would return `This`, `THIS` and `this` in addition to any instances of `tHiS`.
+By default, code search is case-insensitive, and results will include both uppercase and lowercase results. You can do case-sensitive searches by using a regular expression with case insensitivity turned off. For example, to search for the string "True", you would use:
+
+```text
+/(?-i)True/
+```

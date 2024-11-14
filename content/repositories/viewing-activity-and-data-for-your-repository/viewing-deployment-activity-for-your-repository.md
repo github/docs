@@ -13,11 +13,9 @@ topics:
   - Repositories
 shortTitle: View deployment activity
 ---
-{% note %}
 
-**Note:** The deployments dashboard is currently in beta and subject to change.
-
-{% endnote %}
+> [!NOTE]
+> The deployments dashboard is currently in {% data variables.release-phases.public_preview %} and subject to change.
 
 People with read access to a repository can see an overview of all current deployments and a log of past deployment activity, if the repository's deployment workflow is integrated with {% data variables.product.product_name %} through the Deployments API or an app from [{% data variables.product.prodname_marketplace %}](https://github.com/marketplace/category/deployment). For more information, see "[AUTOTITLE](/rest/repos#deployments)."
 

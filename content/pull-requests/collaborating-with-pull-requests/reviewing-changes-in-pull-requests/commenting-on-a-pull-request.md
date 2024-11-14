@@ -25,21 +25,14 @@ You can also comment on specific {% ifversion pull-request-comment-on-file %}fil
 
 For more information on adding line {% ifversion pull-request-comment-on-file %}or file {% endif %}comments to a pull request review, see "[AUTOTITLE](/pull-requests/collaborating-with-pull-requests/reviewing-changes-in-pull-requests/reviewing-proposed-changes-in-a-pull-request)."
 
-{% note %}
-
-**Note:** If you reply to a pull request via email, your comment will be added on the **Conversation** tab and will not be part of a pull request review.
-
-{% endnote %}
+> [!NOTE]
+> If you reply to a pull request via email, your comment will be added on the **Conversation** tab and will not be part of a pull request review.
 
 To reply to an existing line {% ifversion pull-request-comment-on-file %}or file {% endif %}comment, you'll need to navigate to the comment on either the **Conversation** tab or **Files changed** tab and add an additional comment below it.
 
-{% tip %}
-
-**Tips:**
-* Pull request comments support the same [formatting](/get-started/writing-on-github) as regular comments on {% data variables.product.product_name %}, such as @mentions, emoji, and references.
-* You can add reactions to comments in pull requests in the **Files changed** tab.
-
-{% endtip %}
+> [!TIP]
+> * Pull request comments support the same [formatting](/get-started/writing-on-github) as regular comments on {% data variables.product.product_name %}, such as @mentions, emoji, and references.
+> * You can add reactions to comments in pull requests in the **Files changed** tab.
 
 ## Adding comments to a pull request
 

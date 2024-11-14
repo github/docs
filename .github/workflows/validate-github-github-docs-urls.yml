@@ -8,15 +8,16 @@ on:
   workflow_dispatch:
   schedule:
     - cron: '20 16 * * 1' # Run every Monday at 16:20 UTC / 8:20 PST
-  pull_request:
-    paths:
-      - 'content/**'
-      # In case a relevant dependency changes
-      - 'package*.json'
-      # The scripts
-      - 'src/links/scripts/validate-github-github-docs-urls/**'
-      # The workflow
-      - .github/workflows/validate-github-github-docs-urls.yml
+  # See https://gh.io/AAsyyao before uncommenting:
+  # pull_request:
+  #   paths:
+  #     - 'content/**'
+  #     # In case a relevant dependency changes
+  #     - 'package*.json'
+  #     # The scripts
+  #     - 'src/links/scripts/validate-github-github-docs-urls/**'
+  #     # The workflow
+  #     - .github/workflows/validate-github-github-docs-urls.yml
 
 permissions:
   contents: read
@@ -108,7 +109,7 @@ jobs:
       - name: Get changed content/data files
         if: ${{ github.event_name == 'pull_request' }}
         id: changed-files
-        uses: tj-actions/changed-files@1754cd4b9e661d1f0eced3b33545a8d8b3bc46d8 # v44.5.0
+        uses: tj-actions/changed-files@40853de9f8ce2d6cfdc73c1b96f14e22ba44aec4 # v45.0.0
         with:
           # No need to escape the file names because we make the output of
           # tj-actions/changed-files be set as an environment variable. Not

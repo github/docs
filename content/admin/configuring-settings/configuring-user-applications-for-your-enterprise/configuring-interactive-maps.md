@@ -21,11 +21,8 @@ To enable interactive maps, you must provide authentication credentials for Azur
 {% ifversion azure-maps-auth-2023 %}
 {% ifversion ghes < 3.13 %}
 
-{% warning %}
-
-**Warning**: Authentication with Azure Maps using an API token is deprecated in {% data variables.product.product_name %} {{ allVersions[currentVersion].currentRelease }}.{% ifversion ghes = 3.10 %}4{% elsif ghes = 3.11 %}1{% endif %} and later. If you upgrade to the latest release of {% data variables.product.product_name %} on an instance already configured to authenticate with an API token, interactive maps will be disabled. You must reconfigure authentication using role-based access control (RBAC) for an application on a Microsoft Entra ID (previously known as Azure AD) tenant. {% data reusables.enterprise.azure-maps-auth-deprecation-link %}
-
-{% endwarning %}
+> [!WARNING]
+> Authentication with Azure Maps using an API token is {% data variables.release-phases.retired %} in {% data variables.product.product_name %} {{ allVersions[currentVersion].currentRelease }}.{% ifversion ghes = 3.10 %}4{% elsif ghes = 3.11 %}1{% endif %} and later. If you upgrade to the latest release of {% data variables.product.product_name %} on an instance already configured to authenticate with an API token, interactive maps will be disabled. You must reconfigure authentication using role-based access control (RBAC) for an application on a Microsoft Entra ID (previously known as Azure AD) tenant. {% data reusables.enterprise.azure-maps-auth-deprecation-link %}
 
 {% endif %}
 {% endif %}

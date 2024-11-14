@@ -22,7 +22,7 @@ This article is part of a series on adopting {% data variables.product.prodname_
 Rolling {% data variables.product.prodname_code_scanning %} out across hundreds of repositories can be difficult, especially when done inefficiently. Following these steps will ensure your rollout is both efficient and successful.{% ifversion default-setup-ghas-enablement %}{% else %} As part of your preparation, you will work with your teams, use automation to collect data about your repositories, and enable {% data variables.product.prodname_code_scanning %}.{% endif %}
 
 {% ifversion ghec %}
-{% data variables.product.prodname_code_scanning_caps %} is also available for all public repositories on {% data variables.product.prodname_dotcom_the_website %} without a license for {% data variables.product.prodname_GH_advanced_security %}.{% endif %}
+{% data variables.product.prodname_code_scanning_caps %} is also available for all public repositories on {% data variables.product.prodname_dotcom %} without a license for {% data variables.product.prodname_GH_advanced_security %}.{% endif %}
 
 ### Preparing teams for {% data variables.product.prodname_code_scanning %}
 
@@ -31,7 +31,7 @@ First, prepare your teams to use {% data variables.product.prodname_code_scannin
 For an introduction to {% data variables.product.prodname_code_scanning %}, see:
 * "[AUTOTITLE](/code-security/code-scanning/introduction-to-code-scanning/about-code-scanning)"
 * "[AUTOTITLE](/code-security/code-scanning/managing-code-scanning-alerts/about-code-scanning-alerts)"
-* "[AUTOTITLE](/code-security/code-scanning/managing-code-scanning-alerts/managing-code-scanning-alerts-for-your-repository)"
+* "[AUTOTITLE](/code-security/code-scanning/managing-code-scanning-alerts/assessing-code-scanning-alerts-for-your-repository)"
 {% else %} During this phase, you should focus on leveraging APIs and running internal enablement events.{% endif %}
 
 Your core focus should be preparing as many teams to use {% data variables.product.prodname_code_scanning %} as possible. You can also encourage teams to remediate appropriately, but we recommend prioritizing enablement and use of {% data variables.product.prodname_code_scanning %} over fixing issues during this phase.
@@ -42,11 +42,8 @@ Your core focus should be preparing as many teams to use {% data variables.produ
 
 You can programmatically gather information about the different programming languages used in your repositories and use that data to enable {% data variables.product.prodname_code_scanning %} on all repositories that use the same language, using {% data variables.product.product_name %}'s GraphQL API.
 
-{% note %}
-
-**Note:** To gather this data without manually running the GraphQL queries described in this article, you can use our publicly available tool. For more information, see the "[ghas-enablement tool](https://github.com/NickLiffen/ghas-enablement)" repository.
-
-{% endnote %}
+> [!NOTE]
+> To gather this data without manually running the GraphQL queries described in this article, you can use our publicly available tool. For more information, see the "[ghas-enablement tool](https://github.com/NickLiffen/ghas-enablement)" repository.
 
 If you want to gather information from repositories belonging to multiple organizations in your enterprise, you can use the query below to obtain the names of your organizations and then feed those into repository query. Replace OCTO-ENTERPRISE with your enterprise name.
 
@@ -128,17 +125,14 @@ Before you can proceed with pilot programs and rolling out {% data variables.pro
 
 ## Preparing to enable {% data variables.product.prodname_secret_scanning %}
 
-{% note %}
-
-**Note:** When a secret is detected in a repository that has enabled {% data variables.product.prodname_secret_scanning %}, {% data variables.product.prodname_dotcom %} alerts all users with access to security alerts for the repository. {% ifversion ghec %}
-
-Secrets found in public repositories using {% data variables.secret-scanning.partner_alerts %} are reported directly to the partner, without creating an alert on {% data variables.product.product_name %}. For details about the supported partner patterns, see "[AUTOTITLE](/code-security/secret-scanning/introduction/supported-secret-scanning-patterns#supported-secrets)."{% endif %}
-
-{% endnote %}
+> [!NOTE]
+> When a secret is detected in a repository that has enabled {% data variables.product.prodname_secret_scanning %}, {% data variables.product.prodname_dotcom %} alerts all users with access to security alerts for the repository. {% ifversion ghec %}
+>
+> Secrets found in public repositories using {% data variables.secret-scanning.partner_alerts %} are reported directly to the partner, without creating an alert on {% data variables.product.product_name %}. For details about the supported partner patterns, see "[AUTOTITLE](/code-security/secret-scanning/introduction/supported-secret-scanning-patterns#supported-secrets)."{% endif %}
 
 If a project communicates with an external service, it might use a token or private key for authentication. If you check a secret into a repository, anyone who has read access to the repository can use the secret to access the external service with your privileges. {% data variables.product.prodname_secret_scanning_caps %} will scan your entire Git history on all branches present in your {% data variables.product.prodname_dotcom %} repositories for secrets and alert you or block the push containing the secret. For more information, see "[AUTOTITLE](/code-security/secret-scanning/introduction/about-secret-scanning)."
 
-{% ifversion ghec %}{% data variables.secret-scanning.partner_alerts_caps %} runs automatically on public repositories and public npm packages to notify service providers about leaked secrets on {% data variables.product.prodname_dotcom_the_website %}.
+{% ifversion ghec %}{% data variables.secret-scanning.partner_alerts_caps %} runs automatically on public repositories and public npm packages to notify service providers about leaked secrets on {% data variables.product.prodname_dotcom %}.
 
 {% data variables.secret-scanning.user_alerts_caps %} are available for free on all public repositories.{% endif %}
 

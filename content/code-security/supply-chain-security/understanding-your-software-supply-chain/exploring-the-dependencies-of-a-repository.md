@@ -1,6 +1,7 @@
 ---
 title: Exploring the dependencies of a repository
 intro: 'You can use the dependency graph to see the packages your project depends on{% ifversion fpt or ghec %} and the repositories that depend on it{% endif %}. In addition, you can see any vulnerabilities detected in its dependencies.'
+permissions: '{% data reusables.permissions.dependency-graph-view-dependencies %}'
 redirect_from:
   - /articles/listing-the-packages-that-a-repository-depends-on
   - /github/visualizing-repository-data-with-graphs/listing-the-packages-that-a-repository-depends-on
@@ -23,7 +24,7 @@ shortTitle: Explore dependencies
 
 ## Viewing the dependency graph
 
-The dependency graph shows the dependencies{% ifversion fpt or ghec %} and dependents{% endif %} of your repository. {% ifversion dependency-graph-repository-view-update %} {% data reusables.dependency-graph.repository-view-update %}{% endif %} For information about the detection of dependencies and which ecosystems are supported, see "[AUTOTITLE](/code-security/supply-chain-security/understanding-your-software-supply-chain/about-the-dependency-graph)."
+The dependency graph shows the dependencies{% ifversion fpt or ghec %} and dependents{% endif %} of your repository. {% ifversion dependency-graph-repository-view-update %} {% data reusables.dependency-graph.repository-view-update %}{% endif %} For information about the detection of dependencies and which ecosystems are supported, see "[AUTOTITLE](/code-security/supply-chain-security/understanding-your-software-supply-chain/dependency-graph-supported-package-ecosystems)."
 
 {% data reusables.repositories.navigate-to-repo %}
 {% data reusables.repositories.accessing-repository-graphs %}
@@ -64,11 +65,10 @@ Dependencies submitted to a project using the {% data variables.dependency-submi
 If vulnerabilities have been detected in the repository, these are shown at the top of the view for users with access to {% data variables.product.prodname_dependabot_alerts %}.
 
 {% ifversion ghes %}
-{% note %}
 
-**Note:** {% data variables.product.product_name %} does not populate the **Dependents** view.
+> [!NOTE]
+> {% data variables.product.product_name %} does not populate the **Dependents** view.
 
-{% endnote %}
 {% endif %}
 
 {% ifversion fpt or ghec %}

@@ -14,20 +14,18 @@ shortTitle: About mandatory 2FA
 ## About eligibility for mandatory 2FA
 
 Your account is selected for mandatory 2FA if you have taken some action on {% data variables.product.product_name %} that shows you are a contributor. Eligible actions include:
-* Publishing an app or action for others.
-* Creating a release for your repository.
-* Contributing to specific high-importance repositories, such as [the projects tracked by the Open Source Security Foundation](https://github.com/ossf/wg-securing-critical-projects#current-work).
-* Being an administrator of a high-importance repository.
-* Being an organization owner for an organization containing repositories or other users.
-* Being an enterprise administrator.
+* Publishing an app or action for others
+* Creating a release for your repository
+* Contributing to specific high-importance repositories, such as [the projects tracked by the Open Source Security Foundation](https://github.com/ossf/wg-securing-critical-projects#current-work)
+* Being an administrator or a contributor of a high-importance repository
+* Being an organization owner for an organization containing repositories or other users
+* Being an administrator or a contributor for repositories that published one or more packages
+* Being an enterprise administrator
 
 {% data variables.product.prodname_dotcom %} is continually assessing improvements to our account security features and 2FA requirements, so these criteria may change over time.
 
-{% note %}
-
-**Note:** If your account has an education coupon active, it is exempt from mandatory 2FA.
-
-{% endnote %}
+> [!NOTE]
+> If your account has an education coupon active, it is exempt from mandatory 2FA.
 
 ### About mandatory 2FA for organizations and enterprises
 
@@ -35,11 +33,8 @@ Mandatory 2FA is required by {% data variables.product.prodname_dotcom %} itself
 
 Your account's eligibility for mandatory 2FA **does not** impact the eligibility of other individuals. For example, if you are an organization owner, and your account is eligible for mandatory 2FA, that does not impact the eligibility of other accounts within your organization.
 
-{% note %}
-
-**Note:** {% data variables.product.prodname_dotcom %} {% data variables.product.prodname_emus %} and on-premise {% data variables.product.prodname_ghe_server %} users are **not** required to enable 2FA. Mandatory 2FA enablement only applies to users with a password on {% data variables.product.prodname_dotcom_the_website %}.
-
-{% endnote %}
+> [!NOTE]
+> {% data variables.product.prodname_dotcom %} {% data variables.product.prodname_emus %} and on-premise {% data variables.product.prodname_ghe_server %} users are **not** required to enable 2FA. Mandatory 2FA enablement only applies to users with a password on {% data variables.product.prodname_dotcom_the_website %}.
 
 ## About failure to enable mandatory 2FA
 
@@ -57,11 +52,8 @@ Currently, we don't support passkeys or security keys as primary 2FA methods sin
 * [About SAML SSO and mandatory 2FA](#about-saml-sso-and-mandatory-2fa)
 * [About email verification and mandatory 2FA](#about-email-verification-and-mandatory-2fa)
 
-{% note %}
-
-**Note:** We recommend retaining cookies on {% data variables.product.prodname_dotcom_the_website %}. If you set your browser to wipe your cookies every day, you'll never have a verified device for account recovery purposes, as the [`_device_id` cookie](https://github.com/privacy/cookies) is used to securely prove you've used that device previously. For more information, see "[AUTOTITLE](/authentication/securing-your-account-with-two-factor-authentication-2fa/recovering-your-account-if-you-lose-your-2fa-credentials#authenticating-with-a-verified-device-ssh-token-or-personal-access-token)."
-
-{% endnote %}
+> [!NOTE]
+> We recommend retaining cookies on {% data variables.product.prodname_dotcom_the_website %}. If you set your browser to wipe your cookies every day, you'll never have a verified device for account recovery purposes, as the [`_device_id` cookie](https://github.com/privacy/cookies) is used to securely prove you've used that device previously. For more information, see "[AUTOTITLE](/authentication/securing-your-account-with-two-factor-authentication-2fa/recovering-your-account-if-you-lose-your-2fa-credentials#authenticating-with-a-verified-device-ssh-token-or-personal-access-token)."
 
 ### About TOTP apps and mandatory 2FA
 
@@ -71,11 +63,8 @@ If you do not want to download an app on your mobile device, there are multiple 
 
 You can also manually set up any app that generates a code compatible with RFC 6238. For more information on manually setting up a TOTP app, see "[AUTOTITLE](/authentication/securing-your-account-with-two-factor-authentication-2fa/configuring-two-factor-authentication#configuring-two-factor-authentication-using-a-totp-app)." For more information on RFC 6238, see [TOTP: Time-Based One-Time Password Algorithm](https://datatracker.ietf.org/doc/html/rfc6238) in the IETF documentation.
 
-{% note %}
-
-**Note:** If you are using FreeOTP for 2FA, you may see a warning about weak cryptographic parameters. {% data variables.product.prodname_dotcom %} uses an 80 bit secret to ensure compatibility with older versions of Google Authenticator. 80 bits is lower than the 128 bits recommended by the HOTP RFC, but at this time we have no plans to change this and recommend ignoring this message. For more information, see [HOTP: An HMAC-Based One-Time Password Algorithm](https://www.ietf.org/rfc/rfc4226.txt) in the IETF documentation.
-
-{% endnote %}
+> [!NOTE]
+> If you are using FreeOTP for 2FA, you may see a warning about weak cryptographic parameters. {% data variables.product.prodname_dotcom %} uses an 80 bit secret to ensure compatibility with older versions of Google Authenticator. 80 bits is lower than the 128 bits recommended by the HOTP RFC, but at this time we have no plans to change this and recommend ignoring this message. For more information, see [HOTP: An HMAC-Based One-Time Password Algorithm](https://www.ietf.org/rfc/rfc4226.txt) in the IETF documentation.
 
 ### About SAML SSO and mandatory 2FA
 
@@ -95,8 +84,5 @@ Unattended or shared access accounts in your organization, such as bots and serv
 
 If you have been selected for mandatory 2FA, that **does not** mean you have to provide {% data variables.product.prodname_dotcom %} with your phone number. You only have to provide your phone number if you use SMS for 2FA. Instead, we recommend configuring a TOTP app as your primary 2FA method. For more information, see "[AUTOTITLE](/authentication/securing-your-account-with-two-factor-authentication-2fa/configuring-two-factor-authentication#configuring-two-factor-authentication-using-a-totp-app)."
 
-{% note %}
-
-**Note:** Your region may not be listed in the available SMS options. We monitor SMS delivery success rates on a per region basis, and disallow setup for regions that have poor delivery rates. If you don't see your region on the list, you must set up a TOTP app instead. For more information on supported regions for SMS, see "[AUTOTITLE](/authentication/securing-your-account-with-two-factor-authentication-2fa/countries-where-sms-authentication-is-supported)."
-
-{% endnote %}
+> [!NOTE]
+> Your region may not be listed in the available SMS options. We monitor SMS delivery success rates on a per region basis, and disallow setup for regions that have poor delivery rates. If you don't see your region on the list, you must set up a TOTP app instead. For more information on supported regions for SMS, see "[AUTOTITLE](/authentication/securing-your-account-with-two-factor-authentication-2fa/countries-where-sms-authentication-is-supported)."

@@ -41,11 +41,8 @@ Before enabling {% data variables.product.prodname_actions %}, make sure you hav
 {% data reusables.actions.enterprise-s3-storage-setup %}
 1. Under "Authentication", select **Credentials-based**, and enter your storage bucket's details:
 
-   {% note %}
-
-   **Note:** For MinIO, you cannot use OpenID Connect (OIDC) authentication. You must use credentials-based authentication.
-
-   {% endnote %}
+   > [!NOTE]
+   > For MinIO, you cannot use OpenID Connect (OIDC) authentication. You must use credentials-based authentication.
 
    {% data reusables.actions.enterprise-minio-storage-credential-fields %}
 {%- else %}

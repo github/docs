@@ -55,25 +55,19 @@ You can use the REST API to generate a migration archive for a repository. For m
 
 These archives are designed for moving data between {% data variables.product.prodname_dotcom %} products, but they can also be used {% ifversion fpt or ghec %}to back up a repository for archiving purposes{% else %} as backups.{% endif %}
 
-{% warning %}
-
-**Warning:** Migration archives do not include all data related to a repository. For example, {% data variables.large_files.product_name_long %} objects, discussions, or packages are not included. For more information on what is included in migration archives, see "[AUTOTITLE](/migrations/using-github-enterprise-importer/migrating-between-github-products/about-migrations-between-github-products)."
-
-{% endwarning %}
+> [!WARNING]
+> Migration archives do not include all data related to a repository. For example, {% data variables.large_files.product_name_long %} objects, discussions, or packages are not included. For more information on what is included in migration archives, see "[AUTOTITLE](/migrations/using-github-enterprise-importer/migrating-between-github-products/about-migrations-between-github-products)."
 
 Once you have generated an archive, you can move it to a location of your choice for safe-keeping.
 
 {% ifversion ghes %}
 Migration archives can be restored to your {% data variables.product.prodname_ghe_server %} instance using the `ghe-migrator` tool, which is accessible over SSH. For more information, see "[AUTOTITLE](/migrations/using-ghe-migrator/migrating-data-to-github-enterprise-server)."
 
-{% warning %}
-
-**Warning:** Migration archives are not designed to be used as backups, and it is not guaranteed that a migration archive generated today will be restorable in future versions of {% data variables.product.prodname_ghe_server %}.
-
-{% endwarning %}
+> [!WARNING]
+> Migration archives are not designed to be used as backups, and it is not guaranteed that a migration archive generated today will be restorable in future versions of {% data variables.product.prodname_ghe_server %}.
 
 {% else %}
-There is no supported, documented way to restore migration archives on {% data variables.product.prodname_dotcom_the_website %}, so these backups are only suitable for archiving purposes.
+There is no supported, documented way to restore migration archives on {% data variables.product.prodname_dotcom %}, so these backups are only suitable for archiving purposes.
 {% endif %}
 
 {% ifversion fpt or ghec %}
@@ -82,5 +76,5 @@ There is no supported, documented way to restore migration archives on {% data v
 
 A number of self-service tools exist that automate backups of repositories. Backup tools will download data from _specific_ repositories and organize it within a new branch or directory.
 
-For more information about self-service backup tools, see the [Backup Utilities category on {% data variables.product.prodname_marketplace %}](https://github.com/marketplace?category=backup-utilities).
+For more information about self-service backup tools, see the [Backup Utilities category on {% data variables.product.prodname_marketplace %}](https://github.com/marketplace?type=apps&category=backup-utilities).
 {% endif %}

@@ -10,6 +10,7 @@ const layoutNames = [
   'product-guides',
   'release-notes',
   'inline',
+  'category-landing',
   false,
 ]
 
@@ -248,6 +249,20 @@ export const schema = {
       type: 'string',
       enum: ['audit-logs', 'codeql-cli', 'github-apps', 'graphql', 'rest', 'webhooks'],
     },
+    // START category-landing tags
+    category: {
+      type: 'array',
+    },
+    complexity: {
+      type: 'array',
+    },
+    industry: {
+      type: 'array',
+    },
+    octicon: {
+      type: 'string',
+    },
+    // END category landing tags
   },
 }
 

@@ -13,11 +13,8 @@ versions:
  
 {% data reusables.actions.enterprise-github-hosted-runners %}
 
-{% note %}
-
-**Note**: Workflow badges in a private repository are not accessible externally, so you won't be able to embed them or link to them from an external site.
-
-{% endnote %}
+> [!NOTE]
+> Workflow badges in a private repository are not accessible externally, so you won't be able to embed them or link to them from an external site.
 
 {% data reusables.repositories.actions-workflow-status-badge-intro %}
 

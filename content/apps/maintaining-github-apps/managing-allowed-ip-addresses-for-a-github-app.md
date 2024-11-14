@@ -32,10 +32,9 @@ or
 {% data reusables.identity-and-permissions.ip-address-add-or-remove-caching %}
 
 {% data reusables.apps.settings-step %}
-{% data reusables.user-settings.developer_settings %}
-{% data reusables.user-settings.github_apps %}
+{% data reusables.apps.enterprise-apps-steps %}
 {% data reusables.user-settings.modify_github_app %}
 {% data reusables.identity-and-permissions.ip-allow-lists-add-ip %}
 {% data reusables.identity-and-permissions.ip-allow-lists-add-description %}
-  The description is for your reference and is not used in the allow list of organizations where the {% data variables.product.prodname_github_app %} is installed. Instead, organization allow lists will include "Managed by the NAME GitHub App" as the description.
+  The description is for your reference and is not used in the allow list of organizations where the {% data variables.product.prodname_github_app %} is installed. Instead, organization allow lists will include "Managed by the NAME {% data variables.product.prodname_github_app %}" as the description.
 {% data reusables.identity-and-permissions.ip-allow-lists-add-entry %}

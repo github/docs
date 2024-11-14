@@ -10,7 +10,9 @@ redirect_from:
   - /actions/advanced-guides/caching-dependencies-to-speed-up-workflows
   - /actions/using-workflows/caching-dependencies-to-speed-up-workflows
 versions:
-  feature: actions-caching
+  fpt: '*'
+  ghec: '*'
+  ghes: '*'
 type: tutorial
 topics:
   - Workflows
@@ -33,16 +35,13 @@ To cache dependencies for a job, you can use {% data variables.product.prodname_
 | Go `go.sum` | [setup-go](https://github.com/actions/setup-go#caching-dependency-files-and-build-outputs) |
 | .NET NuGet | [setup-dotnet](https://github.com/actions/setup-dotnet?tab=readme-ov-file#caching-nuget-packages) |
 
-{% warning %}
-
-**Warning**: {% ifversion fpt or ghec %}Be mindful of the following when using caching with {% data variables.product.prodname_actions %}:
-
-* {% endif %}We recommend that you don't store any sensitive information in the cache. For example, sensitive information can include access tokens or login credentials stored in a file in the cache path. Also, command line interface (CLI) programs like `docker login` can save access credentials in a configuration file. Anyone with read access can create a pull request on a repository and access the contents of a cache. Forks of a repository can also create pull requests on the base branch and access caches on the base branch.
+> [!WARNING]
+> {% ifversion fpt or ghec %}Be mindful of the following when using caching with {% data variables.product.prodname_actions %}:
+>
+> * {% endif %}We recommend that you don't store any sensitive information in the cache. For example, sensitive information can include access tokens or login credentials stored in a file in the cache path. Also, command line interface (CLI) programs like `docker login` can save access credentials in a configuration file. Anyone with read access can create a pull request on a repository and access the contents of a cache. Forks of a repository can also create pull requests on the base branch and access caches on the base branch.
 {%- ifversion fpt or ghec %}
-* When using self-hosted runners, caches from workflow runs are stored on {% data variables.product.company_short %}-owned cloud storage. A customer-owned storage solution is only available with {% data variables.product.prodname_ghe_server %}.
+> * When using self-hosted runners, caches from workflow runs are stored on {% data variables.product.company_short %}-owned cloud storage. A customer-owned storage solution is only available with {% data variables.product.prodname_ghe_server %}.
 {%- endif %}
-
-{% endwarning %}
 
 {% data reusables.actions.comparing-artifacts-caching %}
 
@@ -287,11 +286,8 @@ There are multiple ways to manage caches for your repositories:
 * Using the REST API. For more information, see "[AUTOTITLE](/rest/actions/cache)."
 * Installing the `gh cache` subcommand to manage your caches from the command line. For more information, see the [GitHub CLI documentation](https://cli.github.com/manual/gh_cache).
 
-    {% note %}
-
-    **Note:** If you are doing this manually, ensure you have version 2.32.0 or higher of the CLI installed.
-
-    {% endnote %}
+    > [!NOTE]
+    > If you are doing this manually, ensure you have version 2.32.0 or higher of the CLI installed.
 
 {% else %}
 
@@ -336,11 +332,11 @@ Users with `write` access to a repository can use the {% data variables.product.
 
 ### Force deleting cache entries
 
-Caches have branch scope restrictions in place, which means some caches have limited usage options. For more information on cache scope restrictions, see "[AUTOTITLE](/actions/using-workflows/caching-dependencies-to-speed-up-workflows#restrictions-for-accessing-a-cache)." If caches limited to a specific branch are using a lot of storage quota, it may cause caches from the `default` branch to be created and deleted at a high frequency.
+Caches have branch scope restrictions in place, which means some caches have limited usage options. For more information on cache scope restrictions, see "[Restrictions for accessing a cache](#restrictions-for-accessing-a-cache)," earlier in this article. If caches limited to a specific branch are using a lot of storage quota, it may cause caches from the `default` branch to be created and deleted at a high frequency.
 
-For example, a repository could have many new pull requests opened, each with their own caches that are restricted to that branch. These caches could take up the majority of the cache storage for that repository. {% data reusables.actions.cache-eviction-policy %} In order to prevent cache thrashing when this happens, you can set up workflows to delete caches on a faster cadence than the cache eviction policy will. You can use the [`gh-actions-cache`](https://github.com/actions/gh-actions-cache/) CLI extension to delete caches for specific branches.
+For example, a repository could have many new pull requests opened, each with their own caches that are restricted to that branch. These caches could take up the majority of the cache storage for that repository. {% data reusables.actions.cache-eviction-policy %} In order to prevent cache thrashing when this happens, you can set up workflows to delete caches on a faster cadence than the cache eviction policy will. You can use the {% data variables.product.prodname_cli %} to delete caches for specific branches.
 
-The following example workflow uses `gh-actions-cache` to delete up to 100 caches created by a branch once a pull request is closed.
+The following example workflow uses `gh cache` to delete up to 100 caches created by a branch once a pull request is closed.
 
 To run the following example on cross-repository pull requests or pull requests from forks, you can trigger the workflow with the `pull_request_target` event. If you do use `pull_request_target` to trigger the workflow, there are security considerations to keep in mind. For more information, see "[AUTOTITLE](/actions/using-workflows/events-that-trigger-workflows#pull_request_target)."
 
@@ -357,22 +353,20 @@ jobs:
     steps:
       - name: Cleanup
         run: |
-          gh extension install actions/gh-actions-cache
-
           echo "Fetching list of cache key"
-          cacheKeysForPR=$(gh actions-cache list -R $REPO -B $BRANCH -L 100 | cut -f 1 )
+          cacheKeysForPR=$(gh cache list --ref $BRANCH --limit 100 --json id --jq '.[].id')
 
           ## Setting this to not fail the workflow while deleting cache keys.
           set +e
           echo "Deleting caches..."
           for cacheKey in $cacheKeysForPR
           do
-              gh actions-cache delete $cacheKey -R $REPO -B $BRANCH --confirm
+              gh cache delete $cacheKey
           done
           echo "Done"
         env:
           GH_TOKEN: {% raw %}${{ secrets.GITHUB_TOKEN }}{% endraw %}
-          REPO: {% raw %}${{ github.repository }}{% endraw %}
+          GH_REPO: {% raw %}${{ github.repository }}{% endraw %}
           BRANCH: refs/pull/{% raw %}${{ github.event.pull_request.number }}{% endraw %}/merge
 ```
 

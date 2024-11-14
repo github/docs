@@ -166,7 +166,7 @@ The same process can be used to create mappings for each record that supports cu
 
 1. Using the `ghe-migrator import` command, start the import process. You'll need:
    * Your Migration GUID. For more information, see "[Preparing the migrated data for import to {% data variables.product.prodname_ghe_server %}](#preparing-the-migrated-data)."
-   * Your {% data variables.product.pat_generic %} for authentication. The {% data variables.product.pat_generic %} that you use is only for authentication as a site administrator, and does not require any specific scope{% ifversion pat-v2 %} or permissions{% endif %}. For more information, see "[AUTOTITLE](/authentication/keeping-your-account-and-data-secure/creating-a-personal-access-token)."
+   * Your {% data variables.product.pat_generic %} for authentication. The {% data variables.product.pat_generic %} that you use is only for authentication as a site administrator, and does not require any specific scope or permissions. For more information, see "[AUTOTITLE](/authentication/keeping-your-account-and-data-secure/creating-a-personal-access-token)."
 
    ```shell
    $ ghe-migrator import /home/admin/MIGRATION-GUID.tar.gz -g MIGRATION-GUID -u USERNAME -p TOKEN
@@ -262,13 +262,12 @@ After your migration is applied to your target instance and you have reviewed th
 {% data reusables.enterprise_installation.ssh-into-instance %}
 {% data reusables.enterprise_migrations.unlocking-on-instances %}
 
-{% warning %}
-
-**Warning:** If your repository contains {% data variables.product.prodname_actions %} workflows using the `schedule` trigger, the workflows will not run automatically after an import. To start the scheduled workflows once again, push a commit to the repository. For more information, see "[AUTOTITLE](/actions/using-workflows/events-that-trigger-workflows#schedule)."
-
-{% endwarning %}
+> [!WARNING]
+> If your repository contains {% data variables.product.prodname_actions %} workflows using the `schedule` trigger, the workflows will not run automatically after an import. To start the scheduled workflows once again, push a commit to the repository. For more information, see "[AUTOTITLE](/actions/using-workflows/events-that-trigger-workflows#schedule)."
 
 ## Unlocking repositories on the source
+
+After your migration is complete, you should unlock the repositories on the source.
 
 ### Unlocking repositories from an organization on {% data variables.product.prodname_dotcom_the_website %}
 

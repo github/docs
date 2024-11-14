@@ -13,15 +13,20 @@ versions:
   ghec: '*'
 shortTitle: macOS Keychain credentials
 ---
-{% note %}
 
-**Note:** Updating credentials from the macOS Keychain only applies to users who manually configured a {% data variables.product.pat_generic %} using the `osxkeychain` helper that is built-in to macOS.
-
-We recommend you either [configure SSH](/authentication/connecting-to-github-with-ssh) or upgrade to the [Git Credential Manager](/get-started/getting-started-with-git/caching-your-github-credentials-in-git) (GCM) instead. GCM can manage authentication on your behalf (no more manual {% data variables.product.pat_generic %}s) including 2FA (two-factor auth).
-
-{% endnote %}
+> [!NOTE]
+> Updating credentials from the macOS Keychain only applies to users who manually configured a {% data variables.product.pat_generic %} using the `osxkeychain` helper that is built-in to macOS.
+>
+> We recommend you either [configure SSH](/authentication/connecting-to-github-with-ssh) or upgrade to the [Git Credential Manager](/get-started/getting-started-with-git/caching-your-github-credentials-in-git) (GCM) instead. GCM can manage authentication on your behalf (no more manual {% data variables.product.pat_generic %}s) including 2FA (two-factor auth).
 
 {% data reusables.user-settings.password-authentication-deprecation %}
+
+{% ifversion ghec %}
+
+> [!NOTE]
+> {% data reusables.enterprise-data-residency.access-domain %}
+
+{% endif %}
 
 ## Updating your credentials via Keychain Access
 
@@ -42,7 +47,7 @@ protocol=https
 > [Press Return]
 ```
 
-If it's successful, nothing will print out. To test that it works, try and clone a private repository from {% data variables.location.product_location %}. If you are prompted for a password, the keychain entry was deleted.
+If it's successful, nothing will print out. To test that it works, try and clone a private repository. If you are prompted for a password, the keychain entry was deleted.
 
 ## Further reading
 

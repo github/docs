@@ -26,11 +26,8 @@ Even if you restrict {% data variables.product.prodname_oauth_apps %} access in 
 
 {% data reusables.organizations.oauth_app_restrictions_default %}
 
-{% tip %}
-
-**Tip**: When an organization has not set up {% data variables.product.prodname_oauth_app %} access restrictions, any {% data variables.product.prodname_oauth_app %} authorized by an organization member can also access the organization's private resources.
-
-{% endtip %}
+> [!TIP]
+> When an organization has not set up {% data variables.product.prodname_oauth_app %} access restrictions, any {% data variables.product.prodname_oauth_app %} authorized by an organization member can also access the organization's private resources.
 
 {% ifversion fpt %}
 To further protect your organization's resources, you can upgrade to {% data variables.product.prodname_ghe_cloud %}, which includes security features like SAML single sign-on. {% data reusables.enterprise.link-to-ghec-trial %}

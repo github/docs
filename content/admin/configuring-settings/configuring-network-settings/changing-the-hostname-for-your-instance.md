@@ -38,9 +38,7 @@ In this article, the term "source instance" refers to the instance with the old 
 1. Optionally, while the destination instance is in maintenance mode, validate the instance's configuration and verify that user data is intact. For more information, see "[AUTOTITLE](/admin/administering-your-instance/configuring-maintenance-mode/enabling-and-scheduling-maintenance-mode#validating-changes-in-maintenance-mode-using-the-ip-exception-list)."
 1. To direct traffic to the destination instance, update the DNS `CNAME` record with the source instance's hostname to resolve to the IP address of the destination instance.
 
-   {% note %}
+   > [!NOTE]
+   > Restored user-generated content in the instance's web application will likely contain URLs that reference the source instance's old hostname. Optionally, to ensure that these links continue to resolve to the destination instance, you can configure a redirect using DNS. In addition to the `CNAME` record that resolves to the new instance's hostname, configure a second DNS `CNAME` record that directs traffic from the original hostname to the new hostname. For more information, see the documentation for your DNS provider.
 
-   **Note**: Restored user-generated content in the instance's web application will likely contain URLs that reference the source instance's old hostname. Optionally, to ensure that these links continue to resolve to the destination instance, you can configure a redirect using DNS. In addition to the `CNAME` record that resolves to the new instance's hostname, configure a second DNS `CNAME` record that directs traffic from the original hostname to the new hostname. For more information, see the documentation for your DNS provider.
-
-   {% endnote %}
 1. On the destination instance, disable maintenance mode.

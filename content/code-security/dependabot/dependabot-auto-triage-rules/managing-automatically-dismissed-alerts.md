@@ -2,6 +2,7 @@
 title: Managing alerts that have been automatically dismissed by a Dependabot auto-triage rule
 intro: 'You can filter to see which alerts have been auto-dismissed by a rule, and you can reopen dismissed alerts.'
 allowTitleToDifferFromFilename: true
+permissions: '{% data reusables.permissions.dependabot-auto-triage-rules %}'
 versions:
   feature: dependabot-auto-triage-rules
 type: how_to
@@ -18,11 +19,8 @@ redirect_from:
 
 ## Managing automatically dismissed alerts
 
-{% note %}
-
-**Note:** The {% data variables.product.prodname_dependabot_alerts %} page defaults to showing open alerts. To filter and view auto-dismissed alerts, you must first clear the `is:open` default filter from the view.
-
-{% endnote %}
+> [!NOTE]
+> The {% data variables.product.prodname_dependabot_alerts %} page defaults to showing open alerts. To filter and view auto-dismissed alerts, you must first clear the `is:open` default filter from the view.
 
 {% data reusables.repositories.navigate-to-repo %}
 {% data reusables.repositories.sidebar-security %}

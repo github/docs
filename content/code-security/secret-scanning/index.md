@@ -20,6 +20,7 @@ children:
   - /managing-alerts-from-secret-scanning
   - /working-with-secret-scanning-and-push-protection
   - /using-advanced-secret-scanning-and-push-protection-features
+  - /copilot-secret-scanning
   - /troubleshooting-secret-scanning-and-push-protection
   - /secret-scanning-partnership-program
 ---

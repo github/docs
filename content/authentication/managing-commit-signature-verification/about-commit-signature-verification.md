@@ -26,9 +26,10 @@ You can sign commits and tags locally, to give other people confidence about the
 If a commit or tag has a signature that can't be verified, {% data variables.product.product_name %} marks the commit or tag "Unverified."
 {% endif %}
 
-For most individual users, GPG or SSH will be the best choice for signing commits. S/MIME signatures are usually required in the context of a larger organization. SSH signatures are the simplest to generate. You can even upload your existing authentication key to {% data variables.product.product_name %} to also use as a signing key. Generating a GPG signing key is more involved than generating an SSH key, but GPG has features that SSH does not. A GPG key can expire or be revoked when no longer used. {% data variables.product.product_name %} shows commits that were signed with such a key as "Verified" unless the key was marked as compromised. SSH keys don't have this capability.
+For most individual users, GPG or SSH will be the best choice for signing commits. S/MIME signatures are usually required in the context of a larger organization. SSH signatures are the simplest to generate. You can even upload your existing authentication key to {% data variables.product.product_name %} to also use as a signing key. Generating a GPG signing key is more involved than generating an SSH key, but GPG has features that SSH does not. A GPG key can expire or be revoked when no longer used. The GPG signature may include the information about it being expired or revoked.
 
 {% ifversion fpt or ghec %}
+
 Commits and tags have the following verification statuses, depending on whether you have enabled vigilant mode. By default vigilant mode is not enabled. For information on how to enable vigilant mode, see "[AUTOTITLE](/authentication/managing-commit-signature-verification/displaying-verification-statuses-for-all-of-your-commits)."
 
 Signing commits differs from signing off on a commit. For more information about signing off on commits, see "[AUTOTITLE](/repositories/managing-your-repositorys-settings-and-features/managing-repository-settings/managing-the-commit-signoff-policy-for-your-repository)."
@@ -40,6 +41,24 @@ Signing commits differs from signing off on a commit. For more information about
 | **Verified**   | The commit is signed and the signature was successfully verified.
 | **Unverified** | The commit is signed but the signature could not be verified.
 | No verification status | The commit is not signed.
+
+### Persistent commit signature verification
+
+Regardless of the signature choice - GPG, SSH, or S/MIME - once a commit signature is verified, it remains verified within its repository's network. See "[AUTOTITLE](/repositories/viewing-activity-and-data-for-your-repository/understanding-connections-between-repositories)."
+
+When a commit signature is verified upon being pushed to {% data variables.product.product_name %}, a verification record is stored alongside the commit. This record can't be edited and will persist so that signatures remain verified over time, even if signing keys are rotated, revoked, or if contributors leave the organization.
+
+The verification record includes a timestamp marking when the verification was completed. This persistent record ensures a consistent verified state, providing a stable history of contributions within the repository. You can view this timestamp by hovering over the "Verified" badge on {% data variables.product.product_name %} or by accessing the commit via the REST API, which includes a `verified_at` field. See "[AUTOTITLE](/rest/commits/commits)."
+
+Persistent commit signature verification applies to new commits pushed to {% data variables.product.product_name %}. For any commits that predate this feature, a persistent record will be created the next time the commit's signature is verified on {% data variables.product.product_name %}, helping ensure that verified statuses remain stable and reliable across the repository's history.
+
+#### Records persist even after revocation and expiration
+
+Persistent commit signature verification reflects the verified state of a commit at the time of verification. This means that if a signing key is later revoked, expired, or otherwise altered, previously verified commits retain their verified status based on the record created during the initial verification. {% data variables.product.product_name %} will not re-verify previously signed commits or retroactively adjust their verification status in response to changes in the key's state. Organizations may need to manage key states directly to align with their security policies, especially if frequent key rotation or revocation is planned.
+
+#### The verification record is scoped to its repository network
+
+The verification record is persistent across the repository network, meaning that if the same commit is pushed again to the same repository or to any of its forks, the existing verification record is reused. This allows {% data variables.product.product_name %} to maintain a consistent verified status across related repositories without re-verifying the commit each time it appears within the network. This persistence reinforces a unified and reliable view of commit authenticity across all instances of the commit within the repository network.
 
 {% endif %}
 

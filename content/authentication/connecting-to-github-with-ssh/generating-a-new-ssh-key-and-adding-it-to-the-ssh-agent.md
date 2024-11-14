@@ -32,7 +32,7 @@ You can generate a new SSH key on your local machine. After you generate the key
 
 {% ifversion ghes %}
 
-If you are a site administrator for {% data variables.location.product_location %}, you can use the same key to grant yourself administrative SSH access to the instance. For more information, see "[AUTOTITLE](/admin/configuration/configuring-your-enterprise/accessing-the-administrative-shell-ssh)."
+If you are a site administrator for {% data variables.location.product_location_enterprise %}, you can use the same key to grant yourself administrative SSH access to the instance. For more information, see "[AUTOTITLE](/admin/configuration/configuring-your-enterprise/accessing-the-administrative-shell-ssh)."
 
 {% endif %}
 
@@ -45,15 +45,12 @@ If you are a site administrator for {% data variables.location.product_location 
    ssh-keygen -t ed25519 -C "your_email@example.com"
    ```
 
-   {% note %}
-
-   **Note:** If you are using a legacy system that doesn't support the Ed25519 algorithm, use:
-
-   ```shell
-    ssh-keygen -t rsa -b 4096 -C "your_email@example.com"
-   ```
-
-   {% endnote %}
+   > [!NOTE]
+   > If you are using a legacy system that doesn't support the Ed25519 algorithm, use:
+   >
+   > ```shell
+   > ssh-keygen -t rsa -b 4096 -C "your_email@example.com"
+   > ```
 
    This creates a new SSH key, using the provided email as a label.
 
@@ -126,20 +123,14 @@ Before adding a new SSH key to the ssh-agent to manage your keys, you should hav
        IdentityFile ~/.ssh/id_ed25519
      ```
 
-     {% note %}
-
-     **Notes:**
-
-     * If you chose not to add a passphrase to your key, you should omit the `UseKeychain` line.
-
-     * If you see a `Bad configuration option: usekeychain` error, add an additional line to the configuration's' `Host *.{% ifversion ghes %}HOSTNAME{% else %}github.com{% endif %}` section.
-
-       ```text copy
-       Host {% ifversion ghes %}HOSTNAME{% else %}github.com{% endif %}
-         IgnoreUnknown UseKeychain
-       ```
-
-     {% endnote %}
+     > [!NOTE]
+     > * If you chose not to add a passphrase to your key, you should omit the `UseKeychain` line.
+     > * If you see a `Bad configuration option: usekeychain` error, add an additional line to the configuration's' `Host *.{% ifversion ghes %}HOSTNAME{% else %}github.com{% endif %}` section.
+     >
+     > ```text copy
+     > Host {% ifversion ghes %}HOSTNAME{% else %}github.com{% endif %}
+     >   IgnoreUnknown UseKeychain
+     > ```
 
 1. Add your SSH private key to the ssh-agent and store your passphrase in the keychain. {% data reusables.ssh.add-ssh-key-to-ssh-agent %}
 
@@ -223,15 +214,12 @@ If you are using macOS or Linux, you may need to update your SSH client or insta
 
    {% endlinux %}
 
-   {% note %}
-
-   **Note:** If the command fails and you receive the error `invalid format` or `feature not supported,` you may be using a hardware security key that does not support the Ed25519 algorithm. Enter the following command instead.
-
-   ```shell
-    ssh-keygen -t ecdsa-sk -C "your_email@example.com"
-   ```
-
-   {% endnote %}
+   > [!NOTE]
+   > If the command fails and you receive the error `invalid format` or `feature not supported,` you may be using a hardware security key that does not support the Ed25519 algorithm. Enter the following command instead.
+   >
+   > ```shell
+   > ssh-keygen -t ecdsa-sk -C "your_email@example.com"
+   > ```
 
 1. When you are prompted, touch the button on your hardware security key.
 1. When you are prompted to "Enter a file in which to save the key," press Enter to accept the default file location.

@@ -142,10 +142,9 @@ For this tutorial, you must register a {% data variables.product.prodname_github
 The following steps will guide you through configuring a {% data variables.product.prodname_github_app %} with these settings. For more information about {% data variables.product.prodname_github_app %} settings, see "[AUTOTITLE](/apps/creating-github-apps/creating-github-apps/creating-a-github-app)."
 
 {% data reusables.apps.settings-step %}
-{% data reusables.user-settings.developer_settings %}
-{% data reusables.user-settings.github_apps %}
-1. Click **New GitHub App**.
-1. Under "GitHub App name", enter a name for your app. For example, `USERNAME-ci-test-app` where `USERNAME` is your {% data variables.product.company_short %} username.
+{% data reusables.apps.enterprise-apps-steps %}
+1. Click **New {% data variables.product.prodname_github_app %}**.
+1. Under "{% data variables.product.prodname_github_app %} name", enter a name for your app. For example, `USERNAME-ci-test-app` where `USERNAME` is your {% data variables.product.company_short %} username.
 1. Under "Homepage URL", enter a URL for your app. For example, you can use the URL of the repository that you created to store the code for your app.
 1. Skip the "Identifying and authorizing users" and "Post installation" sections for this tutorial.
 1. Make sure that **Active** is selected under "Webhooks".
@@ -153,8 +152,9 @@ The following steps will guide you through configuring a {% data variables.produ
 1. Under "Webhook secret", enter a random string. This secret is used to verify that webhooks are sent by {% data variables.product.prodname_dotcom %}. Save this string; you will use it later.
 1. Under "Repository permissions", next to "Checks", select **Read & write**.
 1. Under "Subscribe to events", select **Check suite** and **Check run**.
-1. Under "Where can this GitHub App be installed?", select **Only on this account**. You can change this later if you want to publish your app.
-1. Click **Create GitHub App**.
+1. Under "Where can this {% data variables.product.prodname_github_app %} be installed?", select **Only on this account**. You can change this later if you want to publish your app.{% ifversion enterprise-apps-public-beta %}
+    >[!NOTE] If your {% data variables.product.prodname_github_app %} is registered under an enterprise, this step does not apply.{% endif %}
+1. Click **Create {% data variables.product.prodname_github_app %}**.
 
 ### Store your app's identifying information and credentials
 
@@ -861,7 +861,7 @@ To clone a repository, the code will use your {% data variables.product.prodname
 git clone https://x-access-token:TOKEN@github.com/OWNER/REPO.git
 ```
 
-The command above clones a repository over HTTP. It requires the full repository name, which includes the repository owner (user or organization) and the repository name. For example, the [octocat Hello-World](https://github.com/octocat/Hello-World) repository has a full name of `octocat/hello-world`.
+The command above clones a repository over HTTPS. It requires the full repository name, which includes the repository owner (user or organization) and the repository name. For example, the [octocat Hello-World](https://github.com/octocat/Hello-World) repository has a full name of `octocat/hello-world`.
 
 Open your `server.rb` file. In the code block that starts with `helpers do`, where it says `# ADD CLONE_REPOSITORY HELPER METHOD HERE #`, add the following code:
 

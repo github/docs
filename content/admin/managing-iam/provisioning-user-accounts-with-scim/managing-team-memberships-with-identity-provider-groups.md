@@ -30,11 +30,8 @@ topics:
 
 When a change to an IdP group or a new team connection results in a user joining a team in an organization they were not already a member of, the user will automatically be added to the organization. When you disconnect a group from a team, users who became members of the organization via team membership are removed from the organization if they are not assigned membership in the organization by any other means.
 
-{% note %}
-
-**Note:** Organization owners can also add users to organizations manually, as long as the accounts have already been provisioned via SCIM.
-
-{% endnote %}
+> [!NOTE]
+> Organization owners can also add users to organizations manually, as long as the accounts have already been provisioned via SCIM.
 
 When group membership changes on your IdP, your IdP sends a SCIM request with the changes to {% data variables.product.prodname_dotcom %} according to the schedule determined by your IdP, so change may not be immediate. Any requests that change team or organization membership will register in the audit log as changes made by the account used to configure user provisioning.
 
@@ -71,11 +68,8 @@ Any member of an organization can create a new team and connect the team to an I
 
 Organization owners {% ifversion ghes %}and team maintainers {% endif %}can manage the existing connection between an IdP group and a team.{% ifversion ghec %} If your enterprise does not use {% data variables.enterprise.prodname_managed_users %}, team maintainers can also manage the connection.{% endif %}
 
-{% note %}
-
-**Note**: Before you connect an existing team on {% data variables.product.prodname_dotcom %} to an IdP group for the first time, all members of the team on {% data variables.product.prodname_dotcom %} must first be removed. For more information, see "[AUTOTITLE](/organizations/organizing-members-into-teams/removing-organization-members-from-a-team)."
-
-{% endnote %}
+> [!NOTE]
+> Before you connect an existing team on {% data variables.product.prodname_dotcom %} to an IdP group for the first time, all members of the team on {% data variables.product.prodname_dotcom %} must first be removed. For more information, see "[AUTOTITLE](/organizations/organizing-members-into-teams/removing-organization-members-from-a-team)."
 
 {% data reusables.profile.access_profile %}
 
@@ -94,9 +88,8 @@ Enterprise owners can review a list of IdP groups, each group's memberships, and
 
 {% data reusables.enterprise-accounts.access-enterprise %}
 {% data reusables.enterprise-accounts.click-identity-provider %}
-
 1. To see the members and teams connected to an IdP group, click the group's name.
-
+1. {% data reusables.enterprise-accounts.groups-tab %}
 1. To view the teams connected to the IdP group, click **Teams**.
 
 If a team cannot sync with the group on your IdP, the team will display an error. For more information, see "[AUTOTITLE](/admin/identity-and-access-management/using-enterprise-managed-users-for-iam/troubleshooting-team-membership-with-identity-provider-groups)."

@@ -20,11 +20,8 @@ You can comment on a pull request, approve the changes, or request improvements 
 
 {% data reusables.search.requested_reviews_search %}
 
-{% tip %}
-
-**Tip**: If a pull request you approved has changed significantly, you can dismiss your review. The pull request will need a new review before it can be merged. For more information, see "[AUTOTITLE](/pull-requests/collaborating-with-pull-requests/reviewing-changes-in-pull-requests/dismissing-a-pull-request-review)."
-
-{% endtip %}
+> [!TIP]
+> If a pull request you approved has changed significantly, you can dismiss your review. The pull request will need a new review before it can be merged. For more information, see "[AUTOTITLE](/pull-requests/collaborating-with-pull-requests/reviewing-changes-in-pull-requests/dismissing-a-pull-request-review)."
 
 {% data reusables.repositories.sidebar-pr %}
 {% data reusables.repositories.choose-pr-review %}

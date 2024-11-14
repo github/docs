@@ -24,14 +24,9 @@ For information on how to remove a passkey from your account, see "[Removing a p
 
 ## Upgrading an existing security key to a passkey
 
-{% note %}
-
-**Notes:**
-
-* Platform support for upgrading security keys is inconsistent, so if you're seeing failures from your operating system or browser when trying to register an existing credential, we suggest that you remove and re-register the security key.
-* If you have used a security key recently and it's eligible for an upgrade, an upgrade button will be shown next to the security key in the settings menu. You can use the button to trigger the upgrade flow. You can also attempt to upgrade other keys by registering them as a passkey, even if the upgrade button isn't shown.
-
-{% endnote %}
+> [!NOTE]
+> * Platform support for upgrading security keys is inconsistent, so if you're seeing failures from your operating system or browser when trying to register an existing credential, we suggest that you remove and re-register the security key.
+> * If you have used a security key recently and it's eligible for an upgrade, an upgrade button will be shown next to the security key in the settings menu. You can use the button to trigger the upgrade flow. You can also attempt to upgrade other keys by registering them as a passkey, even if the upgrade button isn't shown.
 
 Before starting the upgrade procedure, make sure that you are using the device that's linked to the existing security key. Then, when you click **Add a passkey** in your account settings, {% data variables.product.company_short %} will automatically bump you into the "Upgrade to a passkey" flow.
 

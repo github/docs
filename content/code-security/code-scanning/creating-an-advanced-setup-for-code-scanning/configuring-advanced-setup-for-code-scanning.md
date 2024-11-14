@@ -2,8 +2,8 @@
 title: Configuring advanced setup for code scanning
 shortTitle: Configure advanced setup
 intro: 'You can configure advanced setup for a repository to find security vulnerabilities in your code using a highly customizable {% data variables.product.prodname_code_scanning %} configuration.'
+permissions: '{% data reusables.permissions.security-repo-enable %}'
 product: '{% data reusables.gated-features.code-scanning %}'
-permissions: 'People with admin permissions to a repository, or the security manager role for the repository, can enable {% data variables.product.prodname_code_scanning %} for that repository.'
 redirect_from:
    - /code-security/code-scanning/automatically-scanning-your-code-for-vulnerabilities-and-errors/configuring-advanced-setup-for-code-scanning
 versions:
@@ -57,11 +57,10 @@ You can customize your {% data variables.product.prodname_codeql %} analysis by 
 {% data reusables.code-scanning.billing %}
 
 {% ifversion fpt %}
-  {% note %}
 
-  **Note:** You can configure {% data variables.product.prodname_code_scanning %} for any public repository where you have write access.
+  > [!NOTE]
+  > You can configure {% data variables.product.prodname_code_scanning %} for any public repository where you have write access.
 
-  {% endnote %}
 {% endif %}
 
 {% data reusables.repositories.navigate-to-repo %}
@@ -69,11 +68,8 @@ You can customize your {% data variables.product.prodname_codeql %} analysis by 
 {% data reusables.user-settings.security-analysis %}
 1. Scroll down to the "{% data variables.product.prodname_code_scanning_caps %}" section, select **Set up** {% octicon "triangle-down" aria-hidden="true" %}, then click **Advanced**.
 
-   {% note %}
-
-   **Note:** If you are switching from default setup to advanced setup, in the "{% data variables.product.prodname_code_scanning_caps %}" section, select {% octicon "kebab-horizontal" aria-label="Menu" %}, then click {% octicon "workflow" aria-hidden="true" %} **Switch to advanced**. In the pop-up window that appears, click **Disable {% data variables.product.prodname_codeql %}**.
-
-   {% endnote %}
+   > [!NOTE]
+   > If you are switching from default setup to advanced setup, in the "{% data variables.product.prodname_code_scanning_caps %}" section, select {% octicon "kebab-horizontal" aria-label="Menu" %}, then click {% octicon "workflow" aria-hidden="true" %} **Switch to advanced**. In the pop-up window that appears, click **Disable {% data variables.product.prodname_codeql %}**.
 
    ![Screenshot of the "{% data variables.product.prodname_code_scanning_caps %}" section of "Code security and analysis" settings. The "Advanced setup" button is highlighted with an orange outline.](/assets/images/help/security/advanced-code-scanning-setup.png)
 
@@ -101,23 +97,23 @@ For information on bulk enablement, see "[AUTOTITLE](/code-security/code-scannin
 
 ## Configuring {% data variables.product.prodname_code_scanning %} using third-party actions
 
-{% data variables.product.product_name %} includes starter workflows for third-party actions, as well as the {% data variables.product.prodname_codeql %} action. Using a starter workflow is much easier than writing a workflow unaided.
+{% data variables.product.product_name %} includes workflow templates for third-party actions, as well as the {% data variables.product.prodname_codeql %} action. Using a workflow template is much easier than writing a workflow unaided.
 
 {% data reusables.code-scanning.billing %}
 
 {% data reusables.repositories.navigate-to-repo %}
 {% data reusables.repositories.actions-tab %}
-1. If the repository has already at least one workflow configured and running, click **New workflow** to display starter workflows. If there are currently no workflows configured for the repository, go to the next step.
+1. If the repository has already at least one workflow configured and running, click **New workflow** to display workflow templates. If there are currently no workflows configured for the repository, go to the next step.
 
    ![Screenshot of the Actions tab for a repository. The "New workflow" button is outlined in dark orange.](/assets/images/help/security/actions-new-workflow-button.png)
 
 1. In the "Choose a workflow" or "Get started with {% data variables.product.prodname_actions %}" view, scroll down to the "Security" category and click **Configure** under the workflow you want to configure. You may need to click **View all** to find the security workflow you want to configure.
 
-   ![Screenshot of the Security category of starter workflows. The Configure button and "View all" link are highlighted with an orange outline.](/assets/images/help/security/actions-workflows-security-section.png)
+   ![Screenshot of the Security category of workflow templates. The Configure button and "View all" link are highlighted with an orange outline.](/assets/images/help/security/actions-workflows-security-section.png)
 
 1. Follow any instructions in the workflow to customize it to your needs. For more general assistance about workflows, click **Documentation** on the right pane of the workflow page.
 
-   ![Screenshot showing a starter workflow file open for editing. The "Documentation" button is highlighted with an orange outline.](/assets/images/help/security/actions-workflows-documentation.png)
+   ![Screenshot showing a workflow template file open for editing. The "Documentation" button is highlighted with an orange outline.](/assets/images/help/security/actions-workflows-documentation.png)
 
    For more information, see "[AUTOTITLE](/actions/learn-github-actions/using-starter-workflows#choosing-and-using-a-starter-workflow)" and "[AUTOTITLE](/code-security/code-scanning/creating-an-advanced-setup-for-code-scanning/customizing-your-advanced-setup-for-code-scanning)."
 
@@ -125,7 +121,7 @@ For information on bulk enablement, see "[AUTOTITLE](/code-security/code-scannin
 
 ## Next steps
 
-After your workflow runs successfully at least once, you are ready to start examining and resolving {% data variables.product.prodname_code_scanning %} alerts. For more information on {% data variables.product.prodname_code_scanning %} alerts, see "[AUTOTITLE](/code-security/code-scanning/managing-code-scanning-alerts/about-code-scanning-alerts)" and "[AUTOTITLE](/code-security/code-scanning/managing-code-scanning-alerts/managing-code-scanning-alerts-for-your-repository)."
+After your workflow runs successfully at least once, you are ready to start examining and resolving {% data variables.product.prodname_code_scanning %} alerts. For more information on {% data variables.product.prodname_code_scanning %} alerts, see "[AUTOTITLE](/code-security/code-scanning/managing-code-scanning-alerts/about-code-scanning-alerts)" and "[AUTOTITLE](/code-security/code-scanning/managing-code-scanning-alerts/assessing-code-scanning-alerts-for-your-repository)."
 
 Learn how {% data variables.product.prodname_code_scanning %} runs behave as checks on pull requests, see "[AUTOTITLE](/code-security/code-scanning/managing-code-scanning-alerts/triaging-code-scanning-alerts-in-pull-requests#about-code-scanning-as-a-pull-request-check)."
 

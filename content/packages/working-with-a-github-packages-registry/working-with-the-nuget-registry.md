@@ -20,6 +20,16 @@ shortTitle: NuGet registry
 
 {% data reusables.package_registry.admins-can-configure-package-types %}
 
+{% ifversion ghec %}
+
+## URL for the NuGet registry
+
+If you access {% data variables.product.github %} at {% data variables.product.prodname_dotcom_the_website %}, you will publish packages to https://nuget.pkg.github.com. Examples in this article use this URL.
+
+If you access {% data variables.product.github %} at another domain, such as `octocorp.ghe.com`, replace "https://nuget.pkg.github.com" with `https://nuget.SUBDOMAIN.ghe.com`, where `SUBDOMAIN` is your enterprise's unique subdomain.
+
+{% endif %}
+
 ## Authenticating to {% data variables.product.prodname_registry %}
 
 {% data reusables.package_registry.authenticate-packages %}
@@ -32,7 +42,7 @@ This registry supports granular permissions. {% data reusables.package_registry.
 Use the following command to authenticate to {% data variables.product.prodname_registry %} in a {% data variables.product.prodname_actions %} workflow using the `GITHUB_TOKEN` instead of hardcoding a {% data variables.product.pat_generic %} in a nuget.config file in the repository:
 
 ```shell
-dotnet nuget add source --username USERNAME --password {%raw%}${{ secrets.GITHUB_TOKEN }}{% endraw %} --store-password-in-clear-text --name github "https://{% ifversion fpt or ghec %}nuget.pkg.github.com{% else %}nuget.HOSTNAME{% endif %}/NAMESPACE/index.json"
+dotnet nuget add source --username USERNAME --password {% raw %}${{ secrets.GITHUB_TOKEN }}{% endraw %} --store-password-in-clear-text --name github "https://{% ifversion fpt or ghec %}nuget.pkg.github.com{% else %}nuget.HOSTNAME{% endif %}/NAMESPACE/index.json"
 ```
 
 Replace `NAMESPACE` with the name of the personal account or organization {% ifversion packages-nuget-v2 %}to which your packages are scoped{% else %}that owns the repository where your packages are hosted{% endif %}.
@@ -108,7 +118,7 @@ You can publish a package to {% data variables.product.prodname_registry %} by a
 Replace `OWNER` with your username or company name, and `YOUR_GITHUB_PAT` with your {% data variables.product.pat_generic %}.
 
 ```shell
-dotnet nuget add source --username OWNER --password {%raw%}YOUR_GITHUB_PAT{% endraw %} --store-password-in-clear-text --name github "https://{% ifversion fpt or ghec %}nuget.pkg.github.com{% else %}nuget.HOSTNAME{% endif %}/OWNER/index.json"
+dotnet nuget add source --username OWNER --password {% raw %}YOUR_GITHUB_PAT{% endraw %} --store-password-in-clear-text --name github "https://{% ifversion fpt or ghec %}nuget.pkg.github.com{% else %}nuget.HOSTNAME{% endif %}/OWNER/index.json"
 ```
 
 {% ifversion packages-nuget-v2 %}
@@ -123,7 +133,7 @@ If you specify a `RepositoryURL` in your project's _.csproj_ file, the published
 
 ### Publishing a package using a GitHub {% data variables.product.pat_generic %} as your API key
 
-If you don't already have a {% data variables.product.pat_generic %} to use for your account on {% data variables.location.product_location %}, see "[AUTOTITLE](/authentication/keeping-your-account-and-data-secure/creating-a-personal-access-token)."
+If you don't already have a {% data variables.product.pat_generic %} to use for your account on {% data variables.product.github %}, see "[AUTOTITLE](/authentication/keeping-your-account-and-data-secure/creating-a-personal-access-token)."
 
 1. Create a new project. Replace `PROJECT_NAME` with the name you'd like to give the project.
 

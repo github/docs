@@ -17,14 +17,11 @@ topics:
   - Enterprise
   - Upgrades
 ---
-{% note %}
 
-**Notes:**
-* Upgrade packages are available at [enterprise.github.com](https://enterprise.github.com/releases) for supported versions. Verify the availability of the upgrade packages you will need to complete the upgrade. If a package is not available, visit {% data variables.contact.contact_ent_support %} and contact us for assistance.
-* If you're using {% data variables.product.prodname_ghe_server %} Clustering, see "[AUTOTITLE](/admin/enterprise-management/configuring-clustering/upgrading-a-cluster)" in the {% data variables.product.prodname_ghe_server %} Clustering Guide for specific instructions unique to clustering.
-* The release notes for {% data variables.product.prodname_ghe_server %} provide a comprehensive list of new features for every version of {% data variables.product.prodname_ghe_server %}. For more information, see the [releases page](https://enterprise.github.com/releases).
-
-{% endnote %}
+> [!NOTE]
+> * Upgrade packages are available at [enterprise.github.com](https://enterprise.github.com/releases) for supported versions. Verify the availability of the upgrade packages you will need to complete the upgrade. If a package is not available, visit {% data variables.contact.contact_ent_support %} and contact us for assistance.
+> * If you're using {% data variables.product.prodname_ghe_server %} Clustering, see "[AUTOTITLE](/admin/enterprise-management/configuring-clustering/upgrading-a-cluster)" in the {% data variables.product.prodname_ghe_server %} Clustering Guide for specific instructions unique to clustering.
+> * The release notes for {% data variables.product.prodname_ghe_server %} provide a comprehensive list of new features for every version of {% data variables.product.prodname_ghe_server %}. For more information, see the [releases page](https://enterprise.github.com/releases).
 
 ## Recommendations
 
@@ -33,7 +30,7 @@ topics:
 * Use the latest patch release when upgrading. {% data reusables.enterprise_installation.enterprise-download-upgrade-pkg %}
 * Use a staging instance to test the upgrade steps. For more information, see "[AUTOTITLE](/admin/installation/setting-up-a-github-enterprise-server-instance/setting-up-a-staging-instance)."
 * When running multiple upgrades, {% ifversion ghes-upgrade-complete-indicator %}ensure data migrations and upgrade tasks running in the background are fully complete before proceeding to the next feature upgrade. To check the status of these processes, you can use the `ghe-migrations` and `ghe-check-background-upgrade-jobs` command-line utilities. {% ifversion ghes < 3.12 %} To use `ghe-check-background-upgrade-jobs` with {% data variables.product.product_name %} {{ allVersions[currentVersion].currentRelease }}, your instance must run version {{ allVersions[currentVersion].currentRelease }}.{% ifversion ghes = 3.10 %}4{% elsif ghes = 3.11 %}1{% endif %} or later. {% endif %}For more information, see "[AUTOTITLE](/admin/configuration/configuring-your-enterprise/command-line-utilities#upgrading-github-enterprise-server)."{% else %}wait at least 24 hours between feature upgrades to allow data migrations and upgrade tasks running in the background to fully complete.{% endif %}
-* Take a snapshot before upgrading your virtual machine. For more information, see "[AUTOTITLE](/admin/enterprise-management/updating-the-virtual-machine-and-physical-resources/upgrading-github-enterprise-server#taking-a-snapshot)."
+* Take a snapshot before upgrading your virtual machine. For more information, see "[AUTOTITLE](/admin/upgrading-your-instance/preparing-to-upgrade/taking-a-snapshot)."
 * Ensure you have a recent, successful backup of your instance. For more information, see the [{% data variables.product.prodname_enterprise_backup_utilities %} README.md file](https://github.com/github/backup-utils#readme).
 
 ## Requirements
@@ -64,4 +61,4 @@ Review known issues that may apply to your upgrade. For more information, see "[
 
 ## Next steps
 
-After reviewing these recommendations and requirements, you can upgrade {% data variables.product.prodname_ghe_server %}. For more information, see "[AUTOTITLE](/admin/enterprise-management/updating-the-virtual-machine-and-physical-resources/upgrading-github-enterprise-server)."
+After reviewing these recommendations and requirements, you can upgrade {% data variables.product.prodname_ghe_server %}. For more information, see "[AUTOTITLE](/admin/upgrading-your-instance/preparing-to-upgrade/overview-of-the-upgrade-process)."

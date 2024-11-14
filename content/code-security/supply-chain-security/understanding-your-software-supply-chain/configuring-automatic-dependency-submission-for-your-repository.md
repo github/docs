@@ -2,7 +2,7 @@
 title: Configuring automatic dependency submission for your repository
 shortTitle: Automatic dependency submission
 intro: 'You can use automatic dependency submission to submit transitive dependency data in your repository. This enables you to analyze these transitive dependencies using the dependency graph.'
-permissions: 'People with admin permissions to a repository, or the security manager role for the repository, can configure automatic dependency submission for that repository.'
+permissions: '{% data reusables.permissions.security-repo-enable %}'
 redirect_from:
   - /early-access/ghas/automatic-dependency-submission-for-maven
 versions:
@@ -39,7 +39,7 @@ You must also enable {% data variables.product.prodname_actions %} for the repos
 
 Repository administrators can enable or disable automatic dependency submission for a repository by following the steps outlined in this procedure.
 
-Organization owners can enable automatic dependency submission for multiple repositories using a security configuration. For more information, see "[AUTOTITLE](/code-security/securing-your-organization/meeting-your-specific-security-needs-with-custom-security-configurations/creating-a-custom-security-configuration)."
+Organization owners can enable automatic dependency submission for multiple repositories using a security configuration. For more information, see "[AUTOTITLE](/code-security/securing-your-organization/enabling-security-features-in-your-organization/creating-a-custom-security-configuration)."
 
 {% data reusables.repositories.navigate-to-repo %}
 {% data reusables.repositories.sidebar-settings %}

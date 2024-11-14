@@ -38,17 +38,13 @@ shortTitle: Working with non-code files
 
 {% data variables.product.product_name %} can display several common image formats, including PNG, JPG, GIF, PSD, and SVG. In addition to simply displaying them, there are several ways to compare differences between versions of those image formats.
 
-{% note %}
-
-**Note:**
-* {% data variables.product.prodname_dotcom %} does not support comparing the differences between PSD files.
-* If you are using the Firefox browser, SVGs on {% data variables.product.prodname_dotcom %} may not render.
-
-{% endnote %}
+> [!NOTE]
+> * {% data variables.product.prodname_dotcom %} does not support comparing the differences between PSD files.
+> * If you are using the Firefox browser, SVGs on {% data variables.product.prodname_dotcom %} may not render.
 
 ### Viewing images
 
-You can directly browse and view images in your repository on {% data variables.location.product_location %}.
+You can directly browse and view images in your repository on {% data variables.product.prodname_dotcom %}.
 
 SVGs don't currently support inline scripting or animation.
 
@@ -109,11 +105,8 @@ For example, if your model's URL is [`github.com/skalnik/secret-bear-clip/blob/m
 
 By default, the embedded renderer is 420 pixels wide by 620 pixels high, but you can customize the output by passing height and width variables as parameters at the end of the URL, such as `?height=300&width=500`.
 
-{% tip %}
-
-**Note**: `ref` can be a branch or the hash to an individual commit (like `2391ae`).
-
-{% endtip %}
+> [!NOTE]
+> `ref` can be a branch or the hash to an individual commit (like `2391ae`).
 
 ### Rendering in Markdown
 
@@ -125,7 +118,7 @@ You can embed ASCII STL syntax directly in Markdown. For more information, see "
 
 ![Screenshot of a rendered CSV file, with data shown in a table format.](/assets/images/help/repository/rendered-csv.png)
 
-When viewed, any _.csv_ or _.tsv_ file committed to a repository on {% data variables.location.product_location %} automatically renders as an interactive table, complete with headers and row numbering. By default, we'll always assume the first row is your header row.
+When viewed, any _.csv_ or _.tsv_ file committed to a repository on {% data variables.product.prodname_dotcom %} automatically renders as an interactive table, complete with headers and row numbering. By default, we'll always assume the first row is your header row.
 
 You can link to a particular row by clicking the row number, or select multiple rows by holding down the shift key. Just copy the URL and send it to a friend.
 
@@ -256,11 +249,8 @@ For example, if your map's URL is [github.com/benbalter/dc-wifi-social/blob/mast
 
 By default, the embedded map 420px x 620px, but you can customize the output by passing height and width variables as parameters at the end, such as `?height=300&width=500`.
 
-{% tip %}
-
-**Note**: `ref` can be a branch or the hash to an individual commit (like `2391ae`).
-
-{% endtip %}
+> [!NOTE]
+> `ref` can be a branch or the hash to an individual commit (like `2391ae`).
 
 ### Mapping in Markdown
 
@@ -296,9 +286,9 @@ It may still be possible to render the data by converting the `.geojson` file to
 
 ## Working with Jupyter Notebook files on {% data variables.product.prodname_dotcom %}
 
-When you add Jupyter Notebook or IPython Notebook files with a _.ipynb_ extension on {% data variables.location.product_location %}, they will render as static HTML files in your repository.
+When you add Jupyter Notebook or IPython Notebook files with a _.ipynb_ extension on {% data variables.product.prodname_dotcom %}, they will render as static HTML files in your repository.
 
-The interactive features of the notebook, such as custom JavaScript plots, will not work in your repository on {% data variables.location.product_location %}. For an example, see [_Linking and Interactions.ipynb_](https://github.com/bokeh/bokeh-notebooks/blob/main/tutorial/06%20-%20Linking%20and%20Interactions.ipynb).
+The interactive features of the notebook, such as custom JavaScript plots, will not work in your repository on {% data variables.product.prodname_dotcom %}. For an example, see [_Linking and Interactions.ipynb_](https://github.com/bokeh/bokeh-notebooks/blob/main/tutorial/06%20-%20Linking%20and%20Interactions.ipynb).
 
 To view your Jupyter notebook with JavaScript content rendered or to share your notebook files with others you can use [nbviewer](https://nbviewer.jupyter.org/). For an example, see [_Linking and Interactions.ipynb_](https://nbviewer.jupyter.org/github/bokeh/bokeh-notebooks/blob/main/tutorial/06%20-%20Linking%20and%20Interactions.ipynb) rendered on nbviewer.
 

@@ -30,6 +30,8 @@ topics:
 
 {% data variables.product.prodname_dependabot_security_updates %} make it easier for you to fix vulnerable dependencies in your repository. You typically add a `dependabot.yml` file to your repository to enable {% data variables.product.prodname_dependabot_security_updates %}. You then configure options in this file to tell {% data variables.product.prodname_dependabot %} how to maintain your repository.
 
+{% data reusables.dependabot.dependabot-updates-supported-repos-ecosystems %}
+
 If you enable {% data variables.product.prodname_dependabot_security_updates %}, when a {% data variables.product.prodname_dependabot %} alert is raised for a vulnerable dependency in the dependency graph of your repository, {% data variables.product.prodname_dependabot %} automatically tries to fix it. For more information, see "[AUTOTITLE](/code-security/dependabot/dependabot-alerts/about-dependabot-alerts)" and "[AUTOTITLE](/code-security/dependabot/dependabot-security-updates/configuring-dependabot-security-updates)."
 
 > [!NOTE]
@@ -45,11 +47,8 @@ If you enable {% data variables.product.prodname_dependabot_security_updates %},
 
 The {% data variables.product.prodname_dependabot_security_updates %} feature is available for repositories where you have enabled the dependency graph and {% data variables.product.prodname_dependabot_alerts %}. You will see a {% data variables.product.prodname_dependabot %} alert for every vulnerable dependency identified in your full dependency graph. However, security updates are triggered only for dependencies that are specified in a manifest or lock file. For more information, see "[AUTOTITLE](/code-security/supply-chain-security/understanding-your-software-supply-chain/about-the-dependency-graph#dependencies-included)."
 
-{% note %}
-
-**Note**: For npm, {% data variables.product.prodname_dependabot %} will raise a pull request to update an explicitly defined dependency to a secure version, even if it means updating the parent dependency or dependencies, or even removing a sub-dependency that is no longer needed by the parent. For other ecosystems, {% data variables.product.prodname_dependabot %} is unable to update an indirect or transitive dependency if it would also require an update to the parent dependency. For more information, see "[AUTOTITLE](/code-security/dependabot/working-with-dependabot/troubleshooting-dependabot-errors#dependabot-tries-to-update-dependencies-without-an-alert)."
-
-{% endnote %}
+> [!NOTE]
+> For npm, {% data variables.product.prodname_dependabot %} will raise a pull request to update an explicitly defined dependency to a secure version, even if it means updating the parent dependency or dependencies, or even removing a sub-dependency that is no longer needed by the parent. For other ecosystems, {% data variables.product.prodname_dependabot %} is unable to update an indirect or transitive dependency if it would also require an update to the parent dependency. For more information, see "[AUTOTITLE](/code-security/dependabot/working-with-dependabot/troubleshooting-dependabot-errors#dependabot-tries-to-update-dependencies-without-an-alert)."
 
 You can enable a related feature, {% data variables.product.prodname_dependabot_version_updates %}, so that {% data variables.product.prodname_dependabot %} raises pull requests to update the manifest to the latest version of the dependency, whenever it detects an outdated dependency. For more information, see "[AUTOTITLE](/code-security/dependabot/dependabot-version-updates/about-dependabot-version-updates)."
 
@@ -94,13 +93,9 @@ For security updates, {% data variables.product.prodname_dependabot %} will only
 
 {% endif %}
 
-{% ifversion dependabot-updates-paused %}
-
 ## About automatic deactivation of {% data variables.product.prodname_dependabot_updates %}
 
 {% data reusables.dependabot.automatically-pause-dependabot-updates %}
-
-{% endif %}
 
 ## About notifications for {% data variables.product.prodname_dependabot %} security updates
 

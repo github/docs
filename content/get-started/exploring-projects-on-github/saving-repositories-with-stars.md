@@ -49,11 +49,8 @@ To view everyone who has starred a repository, add `/stargazers` to the end of t
 
 ## Organizing starred repositories with lists
 
-{% note %}
-
-**Note:** Lists are currently in public beta and subject to change.
-
-{% endnote %}
+> [!NOTE]
+> Lists are currently in {% data variables.release-phases.public_preview %} and subject to change.
 
 Curate repositories that you've starred with public lists. You can create public lists that appear on your stars page at `https://github.com/USERNAME?tab=stars`.
 

@@ -21,6 +21,12 @@ Before testing your SSH connection, you should have already:
 
 You'll need to authenticate this action using your password, which is the SSH key passphrase you created earlier. See "[AUTOTITLE](/authentication/connecting-to-github-with-ssh/working-with-ssh-key-passphrases)."
 
+{% ifversion ghec %}
+
+> [!NOTE] {% data reusables.enterprise-data-residency.access-domain %}
+
+{% endif %}
+
 {% data reusables.command_line.open_the_multi_os_terminal %}
 1. Enter the following:
 
@@ -59,10 +65,7 @@ You'll need to authenticate this action using your password, which is the SSH ke
 
    {% endlinux %}
 
-   {% note %}
-
-   **Note:** The remote command should exit with code 1.
-
-   {% endnote %}
+   > [!NOTE]
+   > The remote command should exit with code 1.
 
 1. Verify that the resulting message contains your username. If you receive a "permission denied" message, see "[AUTOTITLE](/authentication/troubleshooting-ssh/error-permission-denied-publickey)."

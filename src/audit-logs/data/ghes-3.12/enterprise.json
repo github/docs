@@ -31,7 +31,7 @@
   },
   {
     "action": "api.request",
-    "description": "An API request was made to a security-significant endpoint for the enterprise. This event is only included if API Request Events is enabled in the enterprise's audit log settings. This event is only available via audit log streaming.",
+    "description": "An API request was made to an endpoint for the enterprise, or an enterprise owned resource. This event is only included if API Request Events is enabled in the enterprise's audit log settings. This event is only available via audit log streaming.",
     "docs_reference_links": "/admin/monitoring-activity-in-your-enterprise/reviewing-audit-logs-for-your-enterprise/streaming-the-audit-log-for-your-enterprise#enabling-audit-log-streaming-of-api-requests"
   },
   {
@@ -735,6 +735,21 @@
     "docs_reference_links": "/actions/deployment/targeting-different-environments/using-environments-for-deployment#deployment-protection-rules"
   },
   {
+    "action": "gist.create",
+    "description": "A gist was created.",
+    "docs_reference_links": "N/A"
+  },
+  {
+    "action": "gist.destroy",
+    "description": "A gist was deleted.",
+    "docs_reference_links": "N/A"
+  },
+  {
+    "action": "gist.visibility_change",
+    "description": "The visibility of a gist was updated.",
+    "docs_reference_links": "N/A"
+  },
+  {
     "action": "git.clone",
     "description": "A repository was cloned.",
     "docs_reference_links": "N/A"
@@ -1261,7 +1276,7 @@
   },
   {
     "action": "org.delete",
-    "description": "An organization was deleted by a user-initiated background job.",
+    "description": "An organization was deleted by a user or staff.",
     "docs_reference_links": "N/A"
   },
   {

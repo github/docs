@@ -2,11 +2,8 @@
 
 {% data reusables.enterprise-migration-tool.how-to-reclaim %} For more information, see "[AUTOTITLE](/migrations/using-github-enterprise-importer/completing-your-migration-with-github-enterprise-importer/reclaiming-mannequins-for-github-enterprise-importer)."
 
-{% note %}
-
-**Note:** Only organization owners can reclaim mannequins. If you've been granted the migrator role, contact an organization owner to perform this step.
-
-{% endnote %}
+> [!NOTE]
+> Only organization owners can reclaim mannequins. If you've been granted the migrator role, contact an organization owner to perform this step.
 
 1. Decide if you want to reclaim mannequins.
 1. Plan when you'll complete reclaims.

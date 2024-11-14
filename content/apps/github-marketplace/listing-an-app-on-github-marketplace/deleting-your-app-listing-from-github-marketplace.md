@@ -16,7 +16,7 @@ redirect_from:
 
 You can follow these steps to remove your app from {% data variables.product.prodname_marketplace %}. The listing will be removed from {% data variables.product.prodname_marketplace %} immediately. Existing subscriptions will be canceled at the end of the current billing cycle. Although the app will be removed from {% data variables.product.prodname_marketplace %}, you will not be able to delete your app until the current billing cycle ends.
 
-{% data reusables.apps.settings-step %}
+{% data reusables.apps.settings-step-personal-orgs %}
 
 {% data reusables.user-settings.developer_settings %}
 
@@ -30,4 +30,4 @@ You can follow these steps to remove your app from {% data variables.product.pro
 
    ![Screenshot of the left sidebar on the app listing page. The overview option for the marketplace draft listing is outlined in dark orange.](/assets/images/marketplace/edit-marketplace-listing-overview.png)
 
-1. Under "Remove your listing from GitHub Marketplace", click **Delist this Listing**
+1. Under "Remove your listing from {% data variables.product.prodname_marketplace %}", click **Delist this Listing**

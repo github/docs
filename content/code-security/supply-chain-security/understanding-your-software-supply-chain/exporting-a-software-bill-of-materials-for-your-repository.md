@@ -5,7 +5,7 @@ versions:
   fpt: '*'
   ghes: '*'
   ghec: '*'
-permissions: 'Anyone can export the dependency graph of a repository as a software bill of materials. The SBOM export will contain a list of the dependencies that are used in the repository.'
+permissions: '{% data reusables.permissions.dependency-graph-export-sbom %}'
 type: how_to
 topics:
   - Dependency graph

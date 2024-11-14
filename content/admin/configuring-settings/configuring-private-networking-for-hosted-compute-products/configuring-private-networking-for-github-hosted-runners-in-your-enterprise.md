@@ -56,7 +56,9 @@ Variables
 }
 ```
 
-Alternatively, you can use the following curl command to find your `databaseId`.
+#### Example for {% data variables.product.prodname_dotcom_the_website %}
+
+You can use the following curl command to find your `databaseId`.
 
 ```shell copy
 curl -H "Authorization: Bearer BEARER_TOKEN" -X POST \
@@ -67,6 +69,16 @@ curl -H "Authorization: Bearer BEARER_TOKEN" -X POST \
       }' \
 https://api.github.com/graphql
 ```
+
+#### Example for {% data variables.enterprise.data_residency_site %}
+
+You can use the following {% data variables.product.prodname_cli %} commands to retrieve the `databaseId`. Replace SUBDOMAIN with your enterprise's subdomain of {% data variables.enterprise.data_residency_site %}.
+
+  ```shell copy
+  gh auth login -s 'read:enterprise' -h SUBDOMAIN.ghe.com
+
+  gh api graphql --hostname SUBDOMAIN.ghe.com -f query='query($slug: String!) { enterprise (slug: $slug) { slug databaseId } }' -f slug='SUBDOMAIN'
+  ```
 
 {% data reusables.actions.azure-vnet-configure-azure-resources-script %}
 
@@ -87,11 +99,8 @@ https://api.github.com/graphql
 
 ### 2. Create a runner group for your enterprise
 
-{% note %}
-
-**Note:** For the runner group to be accessible by repositories within your organizations, those repositories must have access to that runner group at the organization level. For more information, see "[AUTOTITLE](/actions/using-github-hosted-runners/controlling-access-to-larger-runners#changing-which-repositories-can-access-a-runner-group)."
-
-{% endnote %}
+> [!NOTE]
+> For the runner group to be accessible by repositories within your organizations, those repositories must have access to that runner group at the organization level. For more information, see "[AUTOTITLE](/actions/using-github-hosted-runners/controlling-access-to-larger-runners#changing-which-repositories-can-access-a-runner-group)."
 
 1. Create a new runner group for your enterprise. For more information about how to create a runner group, see "[AUTOTITLE](/actions/using-github-hosted-runners/controlling-access-to-larger-runners#creating-a-runner-group-for-an-enterprise)."
 {% data reusables.actions.workflows.runner-groups-enterprise-organization-access %}
@@ -100,11 +109,8 @@ https://api.github.com/graphql
 
 ### 3. Add the {% data variables.product.company_short %}-hosted runner to the enterprise runner group
 
-{% note %}
-
-**Note:** When adding your {% data variables.product.company_short %}-hosted runner to a runner group, select the runner group you created in the previous procedures.
-
-{% endnote %}
+> [!NOTE]
+> When adding your {% data variables.product.company_short %}-hosted runner to a runner group, select the runner group you created in the previous procedures.
 
 1. Add the {% data variables.product.company_short %}-hosted runner to the runner group. For more information, see "[AUTOTITLE](/enterprise-cloud@latest/actions/using-github-hosted-runners/managing-larger-runners#adding-a-larger-runner-to-an-enterprise)."
 

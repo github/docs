@@ -16,10 +16,32 @@
       },
       {
         "category": "copilot",
+        "slug": "get-copilot-metrics-for-an-enterprise",
+        "subcategory": "copilot-metrics",
+        "verb": "get",
+        "requestPath": "/enterprises/{enterprise}/copilot/metrics",
+        "access": "read",
+        "user-to-server": false,
+        "server-to-server": false,
+        "additional-permissions": false
+      },
+      {
+        "category": "copilot",
         "slug": "get-a-summary-of-copilot-usage-for-enterprise-members",
         "subcategory": "copilot-usage",
         "verb": "get",
         "requestPath": "/enterprises/{enterprise}/copilot/usage",
+        "access": "read",
+        "user-to-server": false,
+        "server-to-server": false,
+        "additional-permissions": false
+      },
+      {
+        "category": "copilot",
+        "slug": "get-copilot-metrics-for-an-enterprise-team",
+        "subcategory": "copilot-metrics",
+        "verb": "get",
+        "requestPath": "/enterprises/{enterprise}/team/{team_slug}/copilot/metrics",
         "access": "read",
         "user-to-server": false,
         "server-to-server": false,
@@ -35,28 +57,111 @@
         "user-to-server": false,
         "server-to-server": false,
         "additional-permissions": false
-      },
+      }
+    ]
+  },
+  "organization_api_insights": {
+    "title": "API Insights",
+    "displayTitle": "Organization permissions for \"API Insights\"",
+    "permissions": [
       {
-        "category": "copilot",
-        "slug": "get-a-summary-of-copilot-usage-for-organization-members",
-        "subcategory": "copilot-usage",
+        "category": "orgs",
+        "slug": "get-route-stats-by-actor",
+        "subcategory": "api-insights",
         "verb": "get",
-        "requestPath": "/orgs/{org}/copilot/usage",
+        "requestPath": "/orgs/{org}/insights/api/route-stats/{actor_type}/{actor_id}",
         "access": "read",
         "user-to-server": true,
         "server-to-server": true,
-        "additional-permissions": true
+        "additional-permissions": false
       },
       {
-        "category": "copilot",
-        "slug": "get-a-summary-of-copilot-usage-for-a-team",
-        "subcategory": "copilot-usage",
+        "category": "orgs",
+        "slug": "get-subject-stats",
+        "subcategory": "api-insights",
         "verb": "get",
-        "requestPath": "/orgs/{org}/team/{team_slug}/copilot/usage",
+        "requestPath": "/orgs/{org}/insights/api/subject-stats",
         "access": "read",
         "user-to-server": true,
         "server-to-server": true,
-        "additional-permissions": true
+        "additional-permissions": false
+      },
+      {
+        "category": "orgs",
+        "slug": "get-summary-stats",
+        "subcategory": "api-insights",
+        "verb": "get",
+        "requestPath": "/orgs/{org}/insights/api/summary-stats",
+        "access": "read",
+        "user-to-server": true,
+        "server-to-server": true,
+        "additional-permissions": false
+      },
+      {
+        "category": "orgs",
+        "slug": "get-summary-stats-by-user",
+        "subcategory": "api-insights",
+        "verb": "get",
+        "requestPath": "/orgs/{org}/insights/api/summary-stats/users/{user_id}",
+        "access": "read",
+        "user-to-server": true,
+        "server-to-server": true,
+        "additional-permissions": false
+      },
+      {
+        "category": "orgs",
+        "slug": "get-summary-stats-by-actor",
+        "subcategory": "api-insights",
+        "verb": "get",
+        "requestPath": "/orgs/{org}/insights/api/summary-stats/{actor_type}/{actor_id}",
+        "access": "read",
+        "user-to-server": true,
+        "server-to-server": true,
+        "additional-permissions": false
+      },
+      {
+        "category": "orgs",
+        "slug": "get-time-stats",
+        "subcategory": "api-insights",
+        "verb": "get",
+        "requestPath": "/orgs/{org}/insights/api/time-stats",
+        "access": "read",
+        "user-to-server": true,
+        "server-to-server": true,
+        "additional-permissions": false
+      },
+      {
+        "category": "orgs",
+        "slug": "get-time-stats-by-user",
+        "subcategory": "api-insights",
+        "verb": "get",
+        "requestPath": "/orgs/{org}/insights/api/time-stats/users/{user_id}",
+        "access": "read",
+        "user-to-server": true,
+        "server-to-server": true,
+        "additional-permissions": false
+      },
+      {
+        "category": "orgs",
+        "slug": "get-time-stats-by-actor",
+        "subcategory": "api-insights",
+        "verb": "get",
+        "requestPath": "/orgs/{org}/insights/api/time-stats/{actor_type}/{actor_id}",
+        "access": "read",
+        "user-to-server": true,
+        "server-to-server": true,
+        "additional-permissions": false
+      },
+      {
+        "category": "orgs",
+        "slug": "get-user-stats",
+        "subcategory": "api-insights",
+        "verb": "get",
+        "requestPath": "/orgs/{org}/insights/api/user-stats/{user_id}",
+        "access": "read",
+        "user-to-server": true,
+        "server-to-server": true,
+        "additional-permissions": false
       }
     ]
   },
@@ -418,6 +523,17 @@
       },
       {
         "category": "copilot",
+        "slug": "get-copilot-metrics-for-an-organization",
+        "subcategory": "copilot-metrics",
+        "verb": "get",
+        "requestPath": "/orgs/{org}/copilot/metrics",
+        "access": "read",
+        "user-to-server": true,
+        "server-to-server": true,
+        "additional-permissions": true
+      },
+      {
+        "category": "copilot",
         "slug": "get-a-summary-of-copilot-usage-for-organization-members",
         "subcategory": "copilot-usage",
         "verb": "get",
@@ -624,6 +740,17 @@
         "user-to-server": true,
         "server-to-server": true,
         "additional-permissions": false
+      },
+      {
+        "category": "copilot",
+        "slug": "get-copilot-metrics-for-a-team",
+        "subcategory": "copilot-metrics",
+        "verb": "get",
+        "requestPath": "/orgs/{org}/team/{team_slug}/copilot/metrics",
+        "access": "read",
+        "user-to-server": true,
+        "server-to-server": true,
+        "additional-permissions": true
       },
       {
         "category": "copilot",
@@ -899,6 +1026,17 @@
       },
       {
         "category": "copilot",
+        "slug": "get-copilot-metrics-for-an-organization",
+        "subcategory": "copilot-metrics",
+        "verb": "get",
+        "requestPath": "/orgs/{org}/copilot/metrics",
+        "access": "read",
+        "user-to-server": true,
+        "server-to-server": true,
+        "additional-permissions": true
+      },
+      {
+        "category": "copilot",
         "slug": "get-a-summary-of-copilot-usage-for-organization-members",
         "subcategory": "copilot-usage",
         "verb": "get",
@@ -914,6 +1052,17 @@
         "subcategory": "copilot-user-management",
         "verb": "get",
         "requestPath": "/orgs/{org}/members/{username}/copilot",
+        "access": "read",
+        "user-to-server": true,
+        "server-to-server": true,
+        "additional-permissions": true
+      },
+      {
+        "category": "copilot",
+        "slug": "get-copilot-metrics-for-a-team",
+        "subcategory": "copilot-metrics",
+        "verb": "get",
+        "requestPath": "/orgs/{org}/team/{team_slug}/copilot/metrics",
         "access": "read",
         "user-to-server": true,
         "server-to-server": true,
@@ -2046,6 +2195,149 @@
     "title": "Self-hosted runners",
     "displayTitle": "Organization permissions for \"Self-hosted runners\"",
     "permissions": [
+      {
+        "category": "actions",
+        "slug": "list-self-hosted-runner-groups-for-an-organization",
+        "subcategory": "self-hosted-runner-groups",
+        "verb": "get",
+        "requestPath": "/orgs/{org}/actions/runner-groups",
+        "access": "read",
+        "user-to-server": true,
+        "server-to-server": true,
+        "additional-permissions": false
+      },
+      {
+        "category": "actions",
+        "slug": "create-a-self-hosted-runner-group-for-an-organization",
+        "subcategory": "self-hosted-runner-groups",
+        "verb": "post",
+        "requestPath": "/orgs/{org}/actions/runner-groups",
+        "access": "write",
+        "user-to-server": true,
+        "server-to-server": true,
+        "additional-permissions": false
+      },
+      {
+        "category": "actions",
+        "slug": "get-a-self-hosted-runner-group-for-an-organization",
+        "subcategory": "self-hosted-runner-groups",
+        "verb": "get",
+        "requestPath": "/orgs/{org}/actions/runner-groups/{runner_group_id}",
+        "access": "read",
+        "user-to-server": true,
+        "server-to-server": true,
+        "additional-permissions": false
+      },
+      {
+        "category": "actions",
+        "slug": "update-a-self-hosted-runner-group-for-an-organization",
+        "subcategory": "self-hosted-runner-groups",
+        "verb": "patch",
+        "requestPath": "/orgs/{org}/actions/runner-groups/{runner_group_id}",
+        "access": "write",
+        "user-to-server": true,
+        "server-to-server": true,
+        "additional-permissions": false
+      },
+      {
+        "category": "actions",
+        "slug": "delete-a-self-hosted-runner-group-from-an-organization",
+        "subcategory": "self-hosted-runner-groups",
+        "verb": "delete",
+        "requestPath": "/orgs/{org}/actions/runner-groups/{runner_group_id}",
+        "access": "write",
+        "user-to-server": true,
+        "server-to-server": true,
+        "additional-permissions": false
+      },
+      {
+        "category": "actions",
+        "slug": "list-repository-access-to-a-self-hosted-runner-group-in-an-organization",
+        "subcategory": "self-hosted-runner-groups",
+        "verb": "get",
+        "requestPath": "/orgs/{org}/actions/runner-groups/{runner_group_id}/repositories",
+        "access": "read",
+        "user-to-server": true,
+        "server-to-server": true,
+        "additional-permissions": false
+      },
+      {
+        "category": "actions",
+        "slug": "set-repository-access-for-a-self-hosted-runner-group-in-an-organization",
+        "subcategory": "self-hosted-runner-groups",
+        "verb": "put",
+        "requestPath": "/orgs/{org}/actions/runner-groups/{runner_group_id}/repositories",
+        "access": "write",
+        "user-to-server": true,
+        "server-to-server": true,
+        "additional-permissions": false
+      },
+      {
+        "category": "actions",
+        "slug": "add-repository-access-to-a-self-hosted-runner-group-in-an-organization",
+        "subcategory": "self-hosted-runner-groups",
+        "verb": "put",
+        "requestPath": "/orgs/{org}/actions/runner-groups/{runner_group_id}/repositories/{repository_id}",
+        "access": "write",
+        "user-to-server": true,
+        "server-to-server": true,
+        "additional-permissions": true
+      },
+      {
+        "category": "actions",
+        "slug": "remove-repository-access-to-a-self-hosted-runner-group-in-an-organization",
+        "subcategory": "self-hosted-runner-groups",
+        "verb": "delete",
+        "requestPath": "/orgs/{org}/actions/runner-groups/{runner_group_id}/repositories/{repository_id}",
+        "access": "write",
+        "user-to-server": true,
+        "server-to-server": true,
+        "additional-permissions": true
+      },
+      {
+        "category": "actions",
+        "slug": "list-self-hosted-runners-in-a-group-for-an-organization",
+        "subcategory": "self-hosted-runner-groups",
+        "verb": "get",
+        "requestPath": "/orgs/{org}/actions/runner-groups/{runner_group_id}/runners",
+        "access": "read",
+        "user-to-server": true,
+        "server-to-server": true,
+        "additional-permissions": false
+      },
+      {
+        "category": "actions",
+        "slug": "set-self-hosted-runners-in-a-group-for-an-organization",
+        "subcategory": "self-hosted-runner-groups",
+        "verb": "put",
+        "requestPath": "/orgs/{org}/actions/runner-groups/{runner_group_id}/runners",
+        "access": "write",
+        "user-to-server": true,
+        "server-to-server": true,
+        "additional-permissions": false
+      },
+      {
+        "category": "actions",
+        "slug": "add-a-self-hosted-runner-to-a-group-for-an-organization",
+        "subcategory": "self-hosted-runner-groups",
+        "verb": "put",
+        "requestPath": "/orgs/{org}/actions/runner-groups/{runner_group_id}/runners/{runner_id}",
+        "access": "write",
+        "user-to-server": true,
+        "server-to-server": true,
+        "additional-permissions": false
+      },
+      {
+        "category": "actions",
+        "slug": "remove-a-self-hosted-runner-from-a-group-for-an-organization",
+        "subcategory": "self-hosted-runner-groups",
+        "verb": "delete",
+        "requestPath": "/orgs/{org}/actions/runner-groups/{runner_group_id}/runners/{runner_id}",
+        "access": "write",
+        "user-to-server": true,
+        "server-to-server": true,
+        "additional-permissions": false
+      },
       {
         "category": "actions",
         "slug": "list-self-hosted-runners-for-an-organization",
@@ -3661,6 +3953,17 @@
         "additional-permissions": false
       },
       {
+        "category": "code-security",
+        "slug": "get-the-code-security-configuration-associated-with-a-repository",
+        "subcategory": "configurations",
+        "verb": "get",
+        "requestPath": "/repos/{owner}/{repo}/code-security-configuration",
+        "access": "read",
+        "user-to-server": true,
+        "server-to-server": true,
+        "additional-permissions": false
+      },
+      {
         "category": "collaborators",
         "slug": "add-a-repository-collaborator",
         "subcategory": "collaborators",
@@ -4025,7 +4328,7 @@
       },
       {
         "category": "repos",
-        "slug": "deprecated---list-tag-protection-states-for-a-repository",
+        "slug": "closing-down---list-tag-protection-states-for-a-repository",
         "subcategory": "tags",
         "verb": "get",
         "requestPath": "/repos/{owner}/{repo}/tags/protection",
@@ -4036,7 +4339,7 @@
       },
       {
         "category": "repos",
-        "slug": "deprecated---create-a-tag-protection-state-for-a-repository",
+        "slug": "closing-down---create-a-tag-protection-state-for-a-repository",
         "subcategory": "tags",
         "verb": "post",
         "requestPath": "/repos/{owner}/{repo}/tags/protection",
@@ -4047,7 +4350,7 @@
       },
       {
         "category": "repos",
-        "slug": "deprecated---delete-a-tag-protection-state-for-a-repository",
+        "slug": "closing-down---delete-a-tag-protection-state-for-a-repository",
         "subcategory": "tags",
         "verb": "delete",
         "requestPath": "/repos/{owner}/{repo}/tags/protection/{tag_protection_id}",
@@ -4948,6 +5251,17 @@
       },
       {
         "category": "code-scanning",
+        "slug": "delete-a-codeql-database",
+        "subcategory": "code-scanning",
+        "verb": "delete",
+        "requestPath": "/repos/{owner}/{repo}/code-scanning/codeql/databases/{language}",
+        "access": "write",
+        "user-to-server": true,
+        "server-to-server": true,
+        "additional-permissions": false
+      },
+      {
+        "category": "code-scanning",
         "slug": "create-a-codeql-variant-analysis",
         "subcategory": "code-scanning",
         "verb": "post",
@@ -5164,7 +5478,7 @@
         "access": "read",
         "user-to-server": true,
         "server-to-server": true,
-        "additional-permissions": true
+        "additional-permissions": false
       },
       {
         "category": "dependency-graph",
@@ -5648,6 +5962,17 @@
         "access": "read",
         "user-to-server": true,
         "server-to-server": true,
+        "additional-permissions": false
+      },
+      {
+        "category": "secret-scanning",
+        "slug": "create-a-push-protection-bypass",
+        "subcategory": "secret-scanning",
+        "verb": "post",
+        "requestPath": "/repos/{owner}/{repo}/secret-scanning/push-protection-bypasses",
+        "access": "write",
+        "user-to-server": true,
+        "server-to-server": false,
         "additional-permissions": false
       },
       {
@@ -6541,6 +6866,28 @@
       },
       {
         "category": "actions",
+        "slug": "add-repository-access-to-a-self-hosted-runner-group-in-an-organization",
+        "subcategory": "self-hosted-runner-groups",
+        "verb": "put",
+        "requestPath": "/orgs/{org}/actions/runner-groups/{runner_group_id}/repositories/{repository_id}",
+        "access": "read",
+        "user-to-server": true,
+        "server-to-server": true,
+        "additional-permissions": true
+      },
+      {
+        "category": "actions",
+        "slug": "remove-repository-access-to-a-self-hosted-runner-group-in-an-organization",
+        "subcategory": "self-hosted-runner-groups",
+        "verb": "delete",
+        "requestPath": "/orgs/{org}/actions/runner-groups/{runner_group_id}/repositories/{repository_id}",
+        "access": "read",
+        "user-to-server": true,
+        "server-to-server": true,
+        "additional-permissions": true
+      },
+      {
+        "category": "actions",
         "slug": "add-selected-repository-to-an-organization-secret",
         "subcategory": "secrets",
         "verb": "put",
@@ -7002,6 +7349,39 @@
         "additional-permissions": false
       },
       {
+        "category": "activity",
+        "slug": "check-if-a-repository-is-starred-by-the-authenticated-user",
+        "subcategory": "starring",
+        "verb": "get",
+        "requestPath": "/user/starred/{owner}/{repo}",
+        "access": "read",
+        "user-to-server": true,
+        "server-to-server": false,
+        "additional-permissions": true
+      },
+      {
+        "category": "activity",
+        "slug": "star-a-repository-for-the-authenticated-user",
+        "subcategory": "starring",
+        "verb": "put",
+        "requestPath": "/user/starred/{owner}/{repo}",
+        "access": "read",
+        "user-to-server": true,
+        "server-to-server": false,
+        "additional-permissions": true
+      },
+      {
+        "category": "activity",
+        "slug": "unstar-a-repository-for-the-authenticated-user",
+        "subcategory": "starring",
+        "verb": "delete",
+        "requestPath": "/user/starred/{owner}/{repo}",
+        "access": "read",
+        "user-to-server": true,
+        "server-to-server": false,
+        "additional-permissions": true
+      },
+      {
         "category": "repos",
         "slug": "list-repositories-for-a-user",
         "subcategory": "repos",
@@ -7425,17 +7805,6 @@
         "user-to-server": true,
         "server-to-server": true,
         "additional-permissions": false
-      },
-      {
-        "category": "dependency-graph",
-        "slug": "get-a-diff-of-the-dependencies-between-commits",
-        "subcategory": "dependency-review",
-        "verb": "get",
-        "requestPath": "/repos/{owner}/{repo}/dependency-graph/compare/{basehead}",
-        "access": "read",
-        "user-to-server": true,
-        "server-to-server": true,
-        "additional-permissions": true
       },
       {
         "category": "issues",
@@ -9408,7 +9777,7 @@
         "access": "read",
         "user-to-server": true,
         "server-to-server": false,
-        "additional-permissions": false
+        "additional-permissions": true
       },
       {
         "category": "activity",
@@ -9419,7 +9788,7 @@
         "access": "write",
         "user-to-server": true,
         "server-to-server": false,
-        "additional-permissions": false
+        "additional-permissions": true
       },
       {
         "category": "activity",
@@ -9430,7 +9799,7 @@
         "access": "write",
         "user-to-server": true,
         "server-to-server": false,
-        "additional-permissions": false
+        "additional-permissions": true
       },
       {
         "category": "activity",

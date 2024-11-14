@@ -19,18 +19,13 @@ You can authenticate to the GraphQL API using a {% data variables.product.pat_ge
 
 ### Authenticating with a {% data variables.product.pat_generic %}
 
-To authenticate with a {% data variables.product.pat_generic %}, follow the steps in "[AUTOTITLE](/authentication/keeping-your-account-and-data-secure/creating-a-personal-access-token)." The data that you are requesting will dictate which scopes {% ifversion pat-v2 %}or permissions {% endif %}you will need.
+To authenticate with a {% data variables.product.pat_generic %}, follow the steps in "[AUTOTITLE](/authentication/keeping-your-account-and-data-secure/creating-a-personal-access-token)." The data that you are requesting will dictate which scopes or permissions you will need.
 
-{% ifversion pat-v2 %}
 For example, select the "issues:read" permission to read all of the issues in the repositories your token has access to.
 
 All {% data variables.product.pat_v2 %}s include read access to public repositories. To access public repositories with a {% data variables.product.pat_v1 %}, select the "public_repo" scope.
 
-{% else %}
-For example, select the "read:user" scope to request data about users. Select the "public_repo" scope to request data about public repositories.
-
-{% endif %}
-If your token does not have the required scopes {% ifversion pat-v2 %}or permissions {% endif %}to access a resource, the API will return an error message that states the scopes {% ifversion pat-v2 %}or permissions {% endif %}your token needs.
+If your token does not have the required scopes or permissions to access a resource, the API will return an error message that states the scopes or permissions your token needs.
 
 ### Authenticating with a {% data variables.product.prodname_github_app %}
 
@@ -42,11 +37,15 @@ To authenticate with an OAuth token from an {% data variables.product.prodname_o
 
 ## The GraphQL endpoint
 
-The REST API has numerous endpoints; the GraphQL API has a single endpoint:
+The REST API has numerous endpoints. With the GraphQL API, the endpoint remains constant, no matter what operation you perform. For {% ifversion fpt or ghec %}{% data variables.product.prodname_dotcom_the_website %}{% else %}{% data variables.product.prodname_ghe_server %}{% endif %}, that endpoint is:
 
 <pre>{% data variables.product.graphql_url %}</pre>
 
-The endpoint remains constant no matter what operation you perform.
+{% ifversion ghec %}
+
+If you access {% data variables.product.github %} at a different domain, such as `{% data variables.enterprise.data_residency_example_domain %}`, the endpoint will reflect that domain. For example: `https://api.octocorp.ghe.com/graphql`.
+
+{% endif %}
 
 ## Communicating with GraphQL
 
@@ -64,11 +63,8 @@ curl -H "Authorization: bearer TOKEN" -X POST -d " \
 " {% data variables.product.graphql_url %}
 ```
 
-{% tip %}
-
-**Note**: The string value of `"query"` must escape newline characters or the schema will not parse it correctly. For the `POST` body, use outer double quotes and escaped inner double quotes.
-
-{% endtip %}
+> [!NOTE]
+> The string value of `"query"` must escape newline characters or the schema will not parse it correctly. For the `POST` body, use outer double quotes and escaped inner double quotes.
 
 ### About query and mutation operations
 
@@ -116,11 +112,8 @@ For a real-world example, see "[Example mutation](#example-mutation)."
 
 [Variables](https://graphql.org/learn/queries/#variables) can make queries more dynamic and powerful, and they can reduce complexity when passing mutation input objects.
 
-{% note %}
-
-**Note**: If you're using the Explorer, make sure to enter variables in the separate [Query Variables pane](/graphql/guides/using-the-explorer#using-the-variable-pane), and do not include the word `variables` before the JSON object.
-
-{% endnote %}
+> [!NOTE]
+> If you're using the Explorer, make sure to enter variables in the separate [Query Variables pane](/graphql/guides/using-the-explorer#using-the-variable-pane), and do not include the word `variables` before the JSON object.
 
 Here's an example query with a single variable:
 
@@ -320,11 +313,8 @@ Let's examine the query line by line:
 
 When we run the query, we get the `id`: `MDU6SXNzdWUyMzEzOTE1NTE=`
 
-{% tip %}
-
-**Note**: The `id` returned in the query is the value we'll pass as the `subjectID` in the mutation. Neither the docs nor schema introspection will indicate this relationship; you'll need to understand the concepts behind the names to figure this out.
-
-{% endtip %}
+> [!NOTE]
+> The `id` returned in the query is the value we'll pass as the `subjectID` in the mutation. Neither the docs nor schema introspection will indicate this relationship; you'll need to understand the concepts behind the names to figure this out.
 
 With the ID known, we can proceed with the mutation:
 

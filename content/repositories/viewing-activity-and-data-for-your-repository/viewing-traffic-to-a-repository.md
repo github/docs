@@ -18,11 +18,8 @@ You can navigate to referring sites, excluding search engines and {% data variab
 
 Referring sites and popular content are ordered by views and unique visitors. Full clones and visitor information update hourly, while referring sites and popular content sections update daily. All data in the traffic graph uses the UTC+0 timezone, regardless of your location.
 
-{% tip %}
-
-**Tip:** You can hover over a specific day in the traffic graph to view the exact data for that day.
-
-{% endtip %}
+> [!TIP]
+> You can hover over a specific day in the traffic graph to view the exact data for that day.
 
 ![Screenshot showing two line graphs for repository traffic. The lines are marked with dots for specific dates.](/assets/images/help/graphs/repo-traffic-graphs-tooltip-dotcom.png)
 

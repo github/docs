@@ -19,7 +19,7 @@ This tutorial will show you how to upload a group of files to a {% data variable
 
 Uploading your files to a {% data variables.product.prodname_dotcom %} repository lets you:
 * **Apply version control** when you make edits to the files, so your project's history is protected and manageable.
-* **Back up** your work{% ifversion fpt or ghec%}, because your files are now stored in the cloud{% endif %}.
+* **Back up** your work{% ifversion fpt or ghec %}, because your files are now stored in the cloud{% endif %}.
 * **Pin** the repository to your personal profile, so that others can see your work.
 * **Share** and discuss your work with others, either publicly or privately.
 
@@ -64,13 +64,12 @@ In this step, we'll edit your project's `README.md` using Markdown so that it in
 1. Delete the existing text apart from `#`, then type a proper title for your project.
    * Example: `# About my first project on GitHub`.
 1. Next, add some information about your project, such as a description of the project's purpose or its main features.
-   {% note %}
 
-   **Note:** If you're not sure what to write, take a look at other repositories on {% data variables.product.product_name %} to see how other people describe their projects.
+   > [!NOTE]
+   > If you're not sure what to write, take a look at other repositories on {% data variables.product.product_name %} to see how other people describe their projects.
+   >
+   > To apply more sophisticated formatting, such as adding images, links, and footnotes, see "[AUTOTITLE](/get-started/writing-on-github/getting-started-with-writing-and-formatting-on-github/basic-writing-and-formatting-syntax)."
 
-   To apply more sophisticated formatting, such as adding images, links, and footnotes, see "[AUTOTITLE](/get-started/writing-on-github/getting-started-with-writing-and-formatting-on-github/basic-writing-and-formatting-syntax)."
-
-   {% endnote %}
 {% data reusables.files.preview_change %}
 1. Take a look at how the file will render once we save our changes, then toggle back to "Edit".
 1. Continue to edit and preview the text until you're happy with the content of your README.

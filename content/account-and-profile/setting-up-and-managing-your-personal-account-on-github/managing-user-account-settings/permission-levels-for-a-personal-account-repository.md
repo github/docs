@@ -21,11 +21,8 @@ Repositories owned by personal accounts have one owner. Ownership permissions ca
 
 You can also {% ifversion fpt or ghec %}invite{% else %}add{% endif %} users on {% data variables.product.product_name %} to your repository as collaborators. For more information, see "[AUTOTITLE](/account-and-profile/setting-up-and-managing-your-personal-account-on-github/managing-access-to-your-personal-repositories/inviting-collaborators-to-a-personal-repository)."
 
-{% tip %}
-
-**Tip:** If you require more granular access to a repository owned by your personal account, consider transferring the repository to an organization. For more information, see "[AUTOTITLE](/repositories/creating-and-managing-repositories/transferring-a-repository#transferring-a-repository-owned-by-your-personal-account)."
-
-{% endtip %}
+> [!TIP]
+> If you require more granular access to a repository owned by your personal account, consider transferring the repository to an organization. For more information, see "[AUTOTITLE](/repositories/creating-and-managing-repositories/transferring-a-repository#transferring-a-repository-owned-by-your-personal-account)."
 
 ## Owner access for a repository owned by a personal account
 
@@ -70,11 +67,8 @@ The repository owner has full control of the repository. In addition to the acti
 
 Collaborators on a personal repository can pull (read) the contents of the repository and push (write) changes to the repository.
 
-{% note %}
-
-**Note:** In a private repository, repository owners can only grant write access to collaborators. Collaborators can't have read-only access to repositories owned by a personal account.
-
-{% endnote %}
+> [!NOTE]
+> In a private repository, repository owners can only grant write access to collaborators. Collaborators can't have read-only access to repositories owned by a personal account.
 
 Collaborators can also perform the following actions.
 

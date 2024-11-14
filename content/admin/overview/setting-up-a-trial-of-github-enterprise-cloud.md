@@ -14,9 +14,11 @@ topics:
 shortTitle: Enterprise Cloud trial
 ---
 
-{% data reusables.enterprise.about-ghec %} For more information, see "[AUTOTITLE](/enterprise-cloud@latest/admin/overview/about-github-enterprise-cloud)."
+{% data reusables.enterprise.about-ghec %} See "[AUTOTITLE](/enterprise-cloud@latest/admin/overview/about-github-enterprise-cloud)."
 
 You can set up a trial to evaluate the additional features that come with {% data variables.product.prodname_ghe_cloud %}, such as SAML single sign-on (SSO), internal repositories, and audit log streaming. For a list of available features, see our [Pricing](https://github.com/pricing) page.
+
+Your trial **won't** include {% data variables.enterprise.data_residency_short %} on {% data variables.enterprise.data_residency_site %} or access to {% data variables.product.prodname_ghe_server %}. To test these features, contact {% data variables.contact.contact_enterprise_sales %}.
 
 <a href="https://github.com/account/enterprises/new?ref_cta=GHEC+trial&ref_loc=setting+up+a+trial+of+github+enterprise+cloud&ref_page=docs" target="_blank" class="btn btn-primary mt-3 mr-3 no-underline"><span>Set up a trial of {% data variables.product.prodname_ghe_cloud %}</span> {% octicon "link-external" height:16 %}</a>
 
@@ -30,15 +32,14 @@ You do not need to provide a payment method during the trial.
 
 The trial lasts for **{% data reusables.enterprise.ghec-trial-length %} days** and includes the following features.
 
-* Access to **most** {% data variables.product.prodname_ghe_cloud %} features.{% ifversion metered-ghe-ghas%}
-* Access to the **enhanced billing platform**. See "[AUTOTITLE](/billing/using-the-enhanced-billing-platform-for-enterprises/about-the-enhanced-billing-platform-for-enterprises)."{% endif %}
+* Access to **most** {% data variables.product.prodname_ghe_cloud %} features.{% ifversion metered-ghe-ghas %}
+* Access to the **new billing platform**. See "[AUTOTITLE](/billing/using-the-new-billing-platform/about-the-new-billing-platform-for-enterprises)."{% endif %}
 * An **enterprise account**, which allows you to manage multiple organizations. See "[AUTOTITLE](/enterprise-cloud@latest/get-started/learning-about-github/types-of-github-accounts)."
 * Up to **50 seats** to grant access to users.
-* The option to set up a free trial of **{% data variables.product.prodname_GH_advanced_security %}** to test features such as {% data variables.product.prodname_code_scanning %} and {% data variables.product.prodname_secret_scanning %}. See "[AUTOTITLE](/enterprise-cloud@latest/billing/managing-billing-for-github-advanced-security/setting-up-a-trial-of-github-advanced-security)."
+* The option to set up a free trial of **{% data variables.product.prodname_GH_advanced_security %}** to test features such as {% data variables.product.prodname_code_scanning %} and {% data variables.product.prodname_secret_scanning %}. See "[AUTOTITLE](/enterprise-cloud@latest/billing/managing-billing-for-your-products/managing-billing-for-github-advanced-security/setting-up-a-trial-of-github-advanced-security)."
 
 ## Features not included in the trial
 
-* {% data variables.product.prodname_ghe_server %}
 * {% data variables.product.prodname_github_codespaces %}
 * {% data variables.product.prodname_copilot_for_business %} or {% data variables.product.prodname_copilot_enterprise %}
 * {% data variables.product.prodname_sponsors %}
@@ -63,10 +64,12 @@ You can create up to **three new organizations** in the trial enterprise, or tra
 
 You can end your trial at any time by purchasing {% data variables.product.prodname_enterprise %} or canceling the trial. Otherwise, after {% data reusables.enterprise.ghec-trial-length %} days, your trial will expire.
 
+{% data variables.product.prodname_enterprise %} trial accounts are automatically deleted 90 days after the trial period ends if the account has not been converted to a paid account.
+
 If you **purchase {% data variables.product.prodname_enterprise %}**:
 
-{% ifversion metered-ghe-ghas%}
-* You can use usage-based billing for {% data variables.product.prodname_ghe_cloud %} and {% data variables.product.prodname_GH_advanced_security %}, which means you pay monthly for the number of licenses you use. You will not need to buy a predefined number of licenses in advance. See, "[AUTOTITLE](/billing/using-the-enhanced-billing-platform-for-enterprises/about-usage-based-billing-for-licenses)."
+{% ifversion metered-ghe-ghas %}
+* You can use usage-based billing for {% data variables.product.prodname_ghe_cloud %} and {% data variables.product.prodname_GH_advanced_security %}, which means you pay monthly for the number of licenses you use. You will not need to buy a predefined number of licenses in advance. See, "[AUTOTITLE](/billing/using-the-new-billing-platform/about-usage-based-billing-for-licenses)."
 
   If you did not set up a free trial and you want to use usage-based billing to pay for {% data variables.product.prodname_GH_advanced_security %} after the {% data variables.product.prodname_ghe_cloud %} trial ends, contact [{% data variables.product.prodname_dotcom %}'s Sales team](https://enterprise.github.com/contact).{% endif %}
 
@@ -89,10 +92,21 @@ For more information about the effects of downgrading an organization, see "[AUT
 
 You can end a trial by purchasing {% data variables.product.prodname_enterprise %} or by canceling the trial. If a trial has expired, you can delete the trial.
 
+### Purchasing {% data variables.product.prodname_enterprise %}
+
+You can purchase {% data variables.product.prodname_enterprise %} at any time during the trial.
+
+{% data reusables.enterprise-accounts.access-enterprise %}
+1. To end the trial period and purchase {% data variables.product.prodname_enterprise %}, click **Activate Enterprise** in the blue banner at the top of the page.
+
+### Canceling or deleting a trial
+
+You can cancel a trial at any time. Once the trial has expired, you can delete the trial.
+
 {% data reusables.enterprise-accounts.access-enterprise %}
 {% data reusables.enterprise-accounts.settings-tab %}
-{% data reusables.enterprise-accounts.billing-tab %}
-1. Click **Buy Enterprise**, **Cancel trial**, or **Delete trial**.
+1. Under {% octicon "gear" aria-hidden="true" %} **Settings**, click **Profile**.
+1. At the bottom of the page, in the "Danger zone" section, click **Cancel trial** or **Delete trial**.
 
 ## Further reading
 

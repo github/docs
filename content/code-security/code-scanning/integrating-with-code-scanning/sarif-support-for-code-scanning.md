@@ -29,7 +29,7 @@ To upload a SARIF file from a third-party static code analysis engine, you'll ne
 
 If you're using {% data variables.product.prodname_actions %} with the {% data variables.code-scanning.codeql_workflow %} or using the {% data variables.product.prodname_codeql_cli %}, then the {% data variables.product.prodname_code_scanning %} results will automatically use the supported subset of SARIF 2.1.0. For more information, see "[AUTOTITLE](/code-security/code-scanning/creating-an-advanced-setup-for-code-scanning/configuring-advanced-setup-for-code-scanning)" or "[AUTOTITLE](/code-security/code-scanning/integrating-with-code-scanning/using-code-scanning-with-your-existing-ci-system)."
 
-{% data variables.product.prodname_dotcom %} uses properties in the SARIF file to display alerts. For example, the `shortDescription` and `fullDescription` appear at the top of a {% data variables.product.prodname_code_scanning %} alert. The `location` allows {% data variables.product.prodname_dotcom %} to show annotations in your code file. For more information, see "[AUTOTITLE](/code-security/code-scanning/managing-code-scanning-alerts/managing-code-scanning-alerts-for-your-repository)."
+{% data variables.product.prodname_dotcom %} uses properties in the SARIF file to display alerts. For example, the `shortDescription` and `fullDescription` appear at the top of a {% data variables.product.prodname_code_scanning %} alert. The `location` allows {% data variables.product.prodname_dotcom %} to show annotations in your code file. For more information, see "[AUTOTITLE](/code-security/code-scanning/managing-code-scanning-alerts/about-code-scanning-alerts)."
 
 If you're new to SARIF and want to learn more, see Microsoft's [`SARIF tutorials`](https://github.com/microsoft/sarif-tutorials) repository.
 
@@ -65,8 +65,6 @@ Specifying source file locations and lines of code ensures code scanning alerts 
 
 This precision enhances the efficiency of code review and resolution processes, streamlining development workflows by enabling developers to address issues directly in the context of their codebase.
 
-{% ifversion code-scanning-alerts-in-pr-diff %}
-
 {% data variables.product.prodname_code_scanning_caps %} will also display alerts in pull request check results when all the lines of code identified by the alert exist in the pull request diff.
 
 For display in a pull request check, an alert must meet all the following conditions:
@@ -76,8 +74,6 @@ For display in a pull request check, an alert must meet all the following condit
 
 The `physicalLocation` object in a submitted SARIF file identifies the lines of code for an alert. For more information, see "[`physicalLocation` object](#physicallocation-object)."
 
-{% endif %}
-
 ### Specifying the root for source files
 
 {% data variables.product.prodname_code_scanning_caps %} interprets results that are reported with relative paths as relative to the root of the repository analyzed. If a result contains an absolute URI, the URI is converted to a relative URI. The relative URI can then be matched against a file committed to the repository.
@@ -86,7 +82,7 @@ You can provide the source root for conversion from absolute to relative URIs in
 
 * [`checkout_path`](https://github.com/github/codeql-action/blob/c2c0a2908e95769d01b907f9930050ecb5cf050d/analyze/action.yml#L44-L47) input to the `github/codeql-action/analyze` action
 * `checkout_uri` parameter to the SARIF upload API endpoint. For more information, see "[AUTOTITLE](/rest/code-scanning/code-scanning#upload-an-analysis-as-sarif-data)."
-* [`invocation.workingDirectory.uri`](https://docs.oasis-open.org/sarif/sarif/v2.1.0/csprd01/sarif-v2.1.0-csprd01.html#_Toc9244365) property in the SARIF file
+* [`invocations[0].workingDirectory.uri`](https://docs.oasis-open.org/sarif/sarif/v2.1.0/csprd01/sarif-v2.1.0-csprd01.html#_Toc9244365) property in the `run` object in the SARIF file
 
 If you provide a source root, any location of an artifact specified using an absolute URI must use the same URI scheme. If there is a mismatch between the URI scheme for the source root and one or more of the absolute URIs, the upload is rejected.
 
@@ -133,11 +129,8 @@ If you upload a second SARIF file for a commit with the same category and from t
 
 If you use a code analysis engine other than {% data variables.product.prodname_codeql %}, you can review the supported SARIF properties to optimize how your analysis results will appear on {% data variables.product.prodname_dotcom %}.
 
-{% note %}
-
-**Note:** You must supply an explicit value for any property marked as "required". The empty string is not supported for required properties.
-
-{% endnote %}
+> [!NOTE]
+> You must supply an explicit value for any property marked as "required". The empty string is not supported for required properties.
 
 Any valid SARIF 2.1.0 output file can be uploaded, however, {% data variables.product.prodname_code_scanning %} will only use the following supported properties.
 
@@ -243,11 +236,11 @@ Use the category to distinguish between multiple analyses for the same tool or c
 
 | `id` | category | `run_id` |
 |----|----|----|
-| my-analysis/tool1/2021-02-01 | my-analysis/tool1 | 2021-02-01
+| my-analysis/tool1/2022-01-02 | my-analysis/tool1 | 2022-01-02
 | my-analysis/tool1/ | my-analysis/tool1 | None
 | my-analysis for tool1 | None | my-analysis for tool1
 
-* The run with an `id` of "my-analysis/tool1/2021-02-01" belongs to the category "my-analysis/tool1". Presumably, this is the run from February 2, 2021.
+* The run with an `id` of "my-analysis/tool1/2021-02-01" belongs to the category "my-analysis/tool1".
 * The run with an `id` of "my-analysis/tool1/" belongs to the category "my-analysis/tool1" but is not distinguished from other runs in that category.
 * The run whose `id` is "my-analysis for tool1 " has a unique identifier but cannot be inferred to belong to any category.
 
@@ -298,6 +291,86 @@ This SARIF output file has example values to show the minimum required propertie
               "physicalLocation": {
                 "artifactLocation": {
                   "uri": "fileURI"
+                },
+                "region": {
+                  "startLine": 2,
+                  "startColumn": 7,
+                  "endColumn": 10
+                }
+              }
+            }
+          ],
+          "partialFingerprints": {
+            "primaryLocationLineHash": "39fa2ee980eb94b0:1"
+          }
+        }
+      ]
+    }
+  ]
+}
+```
+
+### Relative URI Guidance for SARIF Producers
+
+This SARIF output file has example of values for the field `originalUriBaseIds`, showing the minimum required properties a SARIF producer should include when using relative URI references.
+
+{% note %}
+
+**Note:** While this property is not required by {% data variables.product.prodname_dotcom %} for the {% data variables.product.prodname_code_scanning %} results to be displayed correctly, it is required to produce a valid SARIF output when using relative URI references.
+
+{% endnote %}
+
+```json
+{
+  "$schema": "https://json.schemastore.org/sarif-2.1.0.json",
+  "version": "2.1.0",
+  "runs": [
+    {
+      "tool": {
+        "driver": {
+          "name": "Tool Name",
+          "rules": [
+            {
+              "id": "R01"
+                      ...
+              "properties" : {
+                 "id" : "java/unsafe-deserialization",
+                 "kind" : "path-problem",
+                 "name" : "...",
+                 "problem.severity" : "error",
+                 "security-severity" : "9.8",
+               }
+            }
+          ]
+        }
+      },
+      "originalUriBaseIds": {
+        "PROJECTROOT": {
+         "uri": "file:///C:/Users/Mary/code/TheProject/",
+           "description": {
+             "text": "The root directory for all project files."
+           }
+        },
+         "%SRCROOT%": {
+           "uri": "src/",
+           "uriBaseId": "PROJECTROOT",
+           "description": {
+             "text": "The root of the source tree."
+           }
+         }
+      },
+      "results": [
+        {
+          "ruleId": "R01",
+          "message": {
+            "text": "Result text. This result does not have a rule associated."
+          },
+          "locations": [
+            {
+              "physicalLocation": {
+                "artifactLocation": {
+                  "uri": "fileURI",
+                  "uriBaseId": "%SRCROOT%"
                 },
                 "region": {
                   "startLine": 2,

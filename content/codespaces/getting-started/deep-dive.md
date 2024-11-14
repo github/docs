@@ -17,7 +17,7 @@ topics:
 
 There are a number of entry points to create a codespace.
 
-* From a {% data variables.product.company_short %} template or any template repository on {% data variables.product.prodname_dotcom_the_website %} to start a new project
+* From a {% data variables.product.company_short %} template or any template repository on {% data variables.product.github %} to start a new project
 * From a branch in your repository for new feature work
 * From an open pull request to explore work-in-progress
 * From a commit in a repository's history to investigate a bug at a specific point in time
@@ -28,11 +28,8 @@ Your codespace can be ephemeral if you need to test something or you can return 
 
 For more information, see "[AUTOTITLE](/codespaces/developing-in-a-codespace/creating-a-codespace-for-a-repository)," "[AUTOTITLE](/codespaces/developing-in-a-codespace/creating-a-codespace-from-a-template)," and "[AUTOTITLE](/codespaces/developing-in-a-codespace/opening-an-existing-codespace)."
 
-{% note %}
-
-**Note**: You can create more than one codespace per repository or even per branch. However, there are limits to the number of codespaces you can create, and the number of codespaces you can run at the same time. If you reach the maximum number of codespaces and try to create another, a message is displayed telling you that you must remove an existing codespace before you can create a new one.
-
-{% endnote %}
+> [!NOTE]
+> You can create more than one codespace per repository or even per branch. However, there are limits to the number of codespaces you can create, and the number of codespaces you can run at the same time. If you reach the maximum number of codespaces and try to create another, a message is displayed telling you that you must remove an existing codespace before you can create a new one.
 
 ### The codespace creation process
 
@@ -40,7 +37,7 @@ When you create a codespace, various steps happen in the background before the c
 
 ### Step 1: VM and storage are assigned to your codespace
 
-When you create a codespace, a virtual machine (VM) is created using either the stable or beta release of the VM host image. For more information, see "[AUTOTITLE](/codespaces/setting-your-user-preferences/choosing-the-stable-or-beta-host-image)." The host image defines the version of Linux that is used for the VM. The VM is both dedicated and private to you. Having a dedicated VM ensures that you have the entire set of compute resources from that machine available to you. If necessary, this also allows you to have full root access to your container.
+When you create a codespace, a virtual machine (VM) is created using either the stable or {% data variables.release-phases.public_preview %} release of the VM host image. For more information, see "[AUTOTITLE](/codespaces/setting-your-user-preferences/choosing-the-stable-or-beta-host-image)." The host image defines the version of Linux that is used for the VM. The VM is both dedicated and private to you. Having a dedicated VM ensures that you have the entire set of compute resources from that machine available to you. If necessary, this also allows you to have full root access to your container.
 
 A [shallow clone](https://github.blog/2020-12-21-get-up-to-speed-with-partial-clone-and-shallow-clone/) is then made of your repository, or of the template repository if you're creating a codespace from a template. This is cloned into the `/workspaces` directory of the VM and subsequently mounted into the dev container. For more information, see "[About the directory structure of a codespace](#about-the-directory-structure-of-a-codespace)" below.
 
@@ -48,13 +45,10 @@ A [shallow clone](https://github.blog/2020-12-21-get-up-to-speed-with-partial-cl
 
 {% data variables.product.prodname_github_codespaces %} uses a Docker container as the development environment. This container is created based on configurations that you can define in a `devcontainer.json` file and, optionally, a Dockerfile. If you create a codespace from {% data variables.product.company_short %}'s blank template, or from a repository with no `devcontainer.json` file, {% data variables.product.prodname_github_codespaces %} uses a default image, which has many languages and runtimes available. For more information, see "[AUTOTITLE](/codespaces/setting-up-your-project-for-codespaces/adding-a-dev-container-configuration/introduction-to-dev-containers)." For details of what the default image for dev containers includes, see the [`devcontainers/images`](https://github.com/devcontainers/images/tree/main/src/universal) repository.
 
-{% note %}
-
-**Note:** If you want to use Git hooks in your codespace and apply anything in the [git template directory](https://git-scm.com/docs/git-init#_template_directory) to your codespace, then you must set up hooks during step 4 after the container is created.
-
-Since your repository is cloned onto the host VM before the container is created, anything in the [git template directory](https://git-scm.com/docs/git-init#_template_directory) will not apply in your codespace unless you set up hooks in your `devcontainer.json` configuration file using the `postCreateCommand` in step 4. For more information, see "[Step 4: Post-creation setup](#step-4-post-creation-setup)."
-
-{% endnote %}
+> [!NOTE]
+> If you want to use Git hooks in your codespace and apply anything in the [git template directory](https://git-scm.com/docs/git-init#_template_directory) to your codespace, then you must set up hooks during step 4 after the container is created.
+>
+> Since your repository is cloned onto the host VM before the container is created, anything in the [git template directory](https://git-scm.com/docs/git-init#_template_directory) will not apply in your codespace unless you set up hooks in your `devcontainer.json` configuration file using the `postCreateCommand` in step 4. For more information, see "[Step 4: Post-creation setup](#step-4-post-creation-setup)."
 
 ### Step 3: Connecting to the codespace
 
@@ -128,11 +122,8 @@ If you're working in a codespace created from a template, Git is installed by de
 
 For more information, see "[AUTOTITLE](/codespaces/developing-in-a-codespace/using-source-control-in-your-codespace)."
 
-{% note %}
-
-**Note:** Commits from your codespace will be attributed to the name and public email configured at https://github.com/settings/profile. A token scoped to the repository, included in the environment as `GITHUB_TOKEN`, and your GitHub credentials will be used to authenticate.
-
-{% endnote %}
+> [!NOTE]
+> Commits from your codespace will be attributed to the name and public email configured at https://github.com/settings/profile. A token scoped to the repository, included in the environment as `GITHUB_TOKEN`, and your GitHub credentials will be used to authenticate.
 
 ## Personalizing your codespace with extensions or plugins
 

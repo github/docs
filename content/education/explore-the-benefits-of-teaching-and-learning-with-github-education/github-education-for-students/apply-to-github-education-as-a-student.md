@@ -10,7 +10,7 @@ redirect_from:
   - /education/explore-the-benefits-of-teaching-and-learning-with-github-education/github-global-campus-for-students/apply-to-github-global-campus-as-a-student
 versions:
   fpt: '*'
-shortTitle: Apply to Github Education
+shortTitle: Apply to GitHub Education
 ---
 {% data reusables.education.about-github-education-link %}
 
@@ -26,11 +26,8 @@ Documents that prove your current student status include a picture of your schoo
 
 During your tenure as a student, you may be prompted to periodically re-verify your current academic status.
 
-{% note %}
-
-**Note:** You cannot transfer academic discounts from one account to another. If you have more than one account you want to apply the discount to, consider [merging](/account-and-profile/setting-up-and-managing-your-personal-account-on-github/managing-your-personal-account/merging-multiple-personal-accounts) your personal accounts and [renaming](/account-and-profile/setting-up-and-managing-your-personal-account-on-github/managing-personal-account-settings/changing-your-github-username) the retained account if desired.
-
-{% endnote %}
+> [!NOTE]
+> You cannot transfer academic discounts from one account to another. If you have more than one account you want to apply the discount to, consider [merging](/account-and-profile/setting-up-and-managing-your-personal-account-on-github/managing-your-personal-account/merging-multiple-personal-accounts) your personal accounts and [renaming](/account-and-profile/setting-up-and-managing-your-personal-account-on-github/managing-personal-account-settings/changing-your-github-username) the retained account if desired.
 
 For information about renewing your {% data variables.product.prodname_global_campus %} access, see "[AUTOTITLE](/education/explore-the-benefits-of-teaching-and-learning-with-github-education/github-global-campus-for-students/apply-to-github-global-campus-as-a-student#expiration-and-renewals)."
 

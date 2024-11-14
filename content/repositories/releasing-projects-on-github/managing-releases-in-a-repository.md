@@ -58,7 +58,7 @@ You can choose whether {% data variables.large_files.product_name_long %} ({% da
 1. Follow the interactive prompts. Alternatively, you can specify arguments to skip these prompts. For more information about possible arguments, see [the {% data variables.product.prodname_cli %} manual](https://cli.github.com/manual/gh_release_create). For example, this command creates a prerelease with the specified title and notes.
 
    ```shell
-   gh release create v1.3.2 --title "v1.3.2 (beta)" --notes "this is a beta release" --prerelease
+   gh release create v1.3.2 --title "v1.3.2 (beta)" --notes "this is a {% data variables.release-phases.public_preview %} release" --prerelease
    ```
 
 If you @mention any {% data variables.product.product_name %} users in the notes, the published release on {% data variables.product.prodname_dotcom_the_website %} will include a **Contributors** section with an avatar list of all the mentioned users.

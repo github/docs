@@ -3,6 +3,7 @@ title: About the tool status page for code scanning
 shortTitle: Code scanning tool status
 allowTitleToDifferFromFilename: true
 intro: The {% data variables.code-scanning.tool_status_page %} shows useful information about all of your code scanning tools. If code scanning is not working as you'd expect, the {% data variables.code-scanning.tool_status_page %} is a good starting point for debugging problems.
+permissions: '{% data reusables.permissions.code-scanning-all-alerts %}'
 product: '{% data reusables.gated-features.code-scanning %}'
 versions:
   fpt: '*'
@@ -27,11 +28,8 @@ Using the {% data variables.code-scanning.tool_status_page %}, you can see how w
 
 You can also see the rules your code was checked against by each configuration of a {% data variables.product.prodname_code_scanning %} tool and download a summary of the results.
 
-{% note %}
-
-**Note:** The {% data variables.code-scanning.tool_status_page %} shows how tools are working at the repository level, not the organization level. The tool status is only shown for the default branch of the repository for which that tool is configured.
-
-{% endnote %}
+> [!NOTE]
+> The {% data variables.code-scanning.tool_status_page %} shows how tools are working at the repository level, not the organization level. The tool status is only shown for the default branch of the repository for which that tool is configured.
 
 ## Viewing the {% data variables.code-scanning.tool_status_page %} for a repository
 
@@ -91,19 +89,16 @@ You can download the list of rules that {% data variables.product.prodname_code_
 * The SARIF identifier.
 * How many alerts were found.
 
-To download a report, select a configuration you're interested in. Then click **{% octicon "kebab-horizontal" aria-label="Configuration menu"  %}** on the top right of the page, and select **{% octicon "download" aria-hidden="true"  %} Download list of rules used**.
+To download a report, select a configuration you're interested in. Then click **{% octicon "kebab-horizontal" aria-label="Configuration menu" %}** on the top right of the page, and select **{% octicon "download" aria-hidden="true" %} Download list of rules used**.
 
 ### Removing configurations
 
 You can remove stale, duplicate, or unwanted configurations for the default branch of your repository.
 
-To remove a configuration, select the configuration you want to delete. Then click **{% octicon "kebab-horizontal" aria-label="Configuration menu"  %}** on the top right of the page, and select **{% octicon "trash" aria-hidden="true"  %} Delete configuration**. Once you have read the warning about alerts, to confirm the deletion, click the **Delete** button.
+To remove a configuration, select the configuration you want to delete. Then click **{% octicon "kebab-horizontal" aria-label="Configuration menu" %}** on the top right of the page, and select **{% octicon "trash" aria-hidden="true" %} Delete configuration**. Once you have read the warning about alerts, to confirm the deletion, click the **Delete** button.
 
-{% note %}
-
-**Note:** You can only use the {% data variables.code-scanning.tool_status_page %} to remove configurations for the default branch of a repository. For information about removing configurations from non-default branches, see "[AUTOTITLE](/code-security/code-scanning/managing-code-scanning-alerts/managing-code-scanning-alerts-for-your-repository#removing-stale-configurations-and-alerts-from-a-branch)."
-
-{% endnote %}
+> [!NOTE]
+> You can only use the {% data variables.code-scanning.tool_status_page %} to remove configurations for the default branch of a repository. For information about removing configurations from non-default branches, see "[AUTOTITLE](/code-security/code-scanning/managing-code-scanning-alerts/resolving-code-scanning-alerts#removing-stale-configurations-and-alerts-from-a-branch)."
 
 ## Debugging using the {% data variables.code-scanning.tool_status_page %}
 
@@ -115,10 +110,7 @@ For integrated tools such as {% data variables.product.prodname_codeql %}, you c
 * If the language has a low scanned percentage, you may wish to investigate diagnostic output produced by {% data variables.product.prodname_codeql %} for that language: for more information see "[AUTOTITLE](/code-security/code-scanning/troubleshooting-code-scanning/codeql-scanned-fewer-lines-than-expected)."
 * If the language has a scanned percentage of zero, you may have source code in your repository written in languages supported by {% data variables.product.prodname_codeql %} but not currently being analyzed with {% data variables.product.prodname_codeql %}. In this case, you may wish to update your setup to start analyzing these additional languages. For more information, see "[AUTOTITLE](/code-security/code-scanning/creating-an-advanced-setup-for-code-scanning/customizing-your-advanced-setup-for-code-scanning#changing-the-languages-that-are-analyzed)."
 
-{% note %}
-
-**Note:** If you have set up {% data variables.product.prodname_codeql %} using advanced setup and then set up default setup on the same repository, the {% data variables.code-scanning.tool_status_page %} will only show default setup.
-
-{% endnote %}
+> [!NOTE]
+> If you have set up {% data variables.product.prodname_codeql %} using advanced setup and then set up default setup on the same repository, the {% data variables.code-scanning.tool_status_page %} will only show default setup.
 
 For more information, see "[AUTOTITLE](/code-security/code-scanning/troubleshooting-code-scanning)" and "[AUTOTITLE](/code-security/code-scanning/troubleshooting-sarif-uploads)."

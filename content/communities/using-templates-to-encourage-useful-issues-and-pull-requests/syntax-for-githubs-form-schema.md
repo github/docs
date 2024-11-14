@@ -9,11 +9,8 @@ topics:
   - Community
 ---
 
-{% note %}
-
-**Note:** {% data variables.product.company_short %}'s form schema is currently in beta and subject to change.
-
-{% endnote %}
+> [!NOTE]
+> {% data variables.product.company_short %}'s form schema is currently in {% data variables.release-phases.public_preview %} and subject to change.
 
 ## About {% data variables.product.company_short %}'s form schema
 
@@ -89,13 +86,10 @@ You can use a `markdown` element to display Markdown in your form that provides 
 | --- | ----------- | -------- | ---- | ------- | ------- |
 | `value` | The text that is rendered. Markdown formatting is supported. | {% octicon "check" aria-label="Required" %} | String | {% octicon "dash" aria-label="Not applicable" %} | {% octicon "dash" aria-label="Not applicable" %} |
 
-{% tip %}
-
-**Tips:** YAML processing will treat the hash symbol as a comment. To insert Markdown headers, wrap your text in quotes.
-
-For multi-line text, you can use the pipe operator.
-
-{% endtip %}
+> [!TIP]
+> YAML processing will treat the hash symbol as a comment. To insert Markdown headers, wrap your text in quotes.
+>
+> For multi-line text, you can use the pipe operator.
 
 #### Example of `markdown`
 

@@ -16,19 +16,13 @@ shortTitle: Required status checks
 ---
 If you have a check and a status with the same name, and you select that name as a required status check, both the check and the status are required. For more information, see "[AUTOTITLE](/rest/checks)."
 
-{% note %}
-
-**Note:** To be required, status checks must have completed successfully within the chosen repository during the past seven days.
-
-{% endnote %}
+> [!NOTE]
+> To be required, status checks must have completed successfully within the chosen repository during the past seven days.
 
 After you enable required status checks, your branch may need to be up-to-date with the base branch before merging. This ensures that your branch has been tested with the latest code from the base branch. If your branch is out of date, you'll need to merge the base branch into your branch. For more information, see "[AUTOTITLE](/repositories/configuring-branches-and-merges-in-your-repository/managing-protected-branches/about-protected-branches#require-status-checks-before-merging)."
 
-{% note %}
-
-**Note:** You can also bring your branch up to date with the base branch using Git rebase. For more information, see "[AUTOTITLE](/get-started/using-git/about-git-rebase)."
-
-{% endnote %}
+> [!NOTE]
+> You can also bring your branch up to date with the base branch using Git rebase. For more information, see "[AUTOTITLE](/get-started/using-git/about-git-rebase)."
 
 You won't be able to push local changes to a protected branch until all required status checks pass. Instead, you'll receive an error message similar to the following.
 
@@ -37,11 +31,8 @@ remote: error: GH006: Protected branch update failed for refs/heads/main.
 remote: error: Required status check "ci-build" is failing
 ```
 
-{% note %}
-
-**Note:** Pull requests that are up-to-date and pass required status checks can be merged locally and pushed to the protected branch. This can be done without status checks running on the merge commit itself.
-
-{% endnote %}
+> [!NOTE]
+> Pull requests that are up-to-date and pass required status checks can be merged locally and pushed to the protected branch. This can be done without status checks running on the merge commit itself.
 
 ## Required check needs to succeed against the latest commit SHA
 
@@ -55,16 +46,14 @@ If there is a conflict between the test merge commit and head commit, the checks
 
 ## Handling skipped but required checks
 
-{% warning %}
-
-**Warning:** If a workflow is skipped due to [path filtering](/actions/using-workflows/workflow-syntax-for-github-actions#onpushpull_requestpull_request_targetpathspaths-ignore), [branch filtering](/actions/using-workflows/workflow-syntax-for-github-actions#onpull_requestpull_request_targetbranchesbranches-ignore) or a [commit message](/actions/managing-workflow-runs/skipping-workflow-runs), then checks associated with that workflow will remain in a "Pending" state. A pull request that requires those checks to be successful will be blocked from merging.
-
-{% data reusables.pull_requests.path-filtering-required-workflows %}
-
-If, however, a job within a workflow is skipped due to a conditional, it will report its status as "Success". For more information, see "[AUTOTITLE](/actions/using-jobs/using-conditions-to-control-job-execution)."
-
-When a job fails, any jobs that depend on the failed job are skipped and do not report a failure. A pull request that requires the check may not be blocked. To use a required check on a job that depends on other jobs, use the `always()` conditional expression in addition to `needs`, see "[AUTOTITLE](/actions/using-jobs/using-jobs-in-a-workflow#defining-prerequisite-jobs)."
-{% endwarning %}
+> [!WARNING]
+> If a workflow is skipped due to [path filtering](/actions/using-workflows/workflow-syntax-for-github-actions#onpushpull_requestpull_request_targetpathspaths-ignore), [branch filtering](/actions/using-workflows/workflow-syntax-for-github-actions#onpull_requestpull_request_targetbranchesbranches-ignore) or a [commit message](/actions/managing-workflow-runs/skipping-workflow-runs), then checks associated with that workflow will remain in a "Pending" state. A pull request that requires those checks to be successful will be blocked from merging.
+>
+> {% data reusables.pull_requests.path-filtering-required-workflows %}
+>
+> If, however, a job within a workflow is skipped due to a conditional, it will report its status as "Success". For more information, see "[AUTOTITLE](/actions/using-jobs/using-conditions-to-control-job-execution)."
+>
+> When a job fails, any jobs that depend on the failed job are skipped and do not report a failure. A pull request that requires the check may not be blocked. To use a required check on a job that depends on other jobs, use the `always()` conditional expression in addition to `needs`, see "[AUTOTITLE](/actions/using-jobs/using-jobs-in-a-workflow#defining-prerequisite-jobs)."
 
 ### Example
 
@@ -104,11 +93,8 @@ Due to [path filtering](/actions/using-workflows/workflow-syntax-for-github-acti
 
 You **must** use the `merge_group` event to trigger your {% data variables.product.prodname_actions %}  workflow when a pull request is added to a merge queue.
 
-{% note %}
-
-**Note:** {% data reusables.actions.merge-group-event-with-required-checks %}
-
-{% endnote %}
+> [!NOTE]
+> {% data reusables.actions.merge-group-event-with-required-checks %}
 
 A workflow that reports a check which is required by the target branch's protections would look like this:
 

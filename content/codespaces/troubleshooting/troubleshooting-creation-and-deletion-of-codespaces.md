@@ -10,6 +10,12 @@ topics:
 shortTitle: Creation and deletion
 ---
 
+{% ifversion ghec %}
+
+{% data reusables.codespaces.data-residency-availability %}
+
+{% endif %}
+
 ## Creating codespaces
 
 ### No access to create a codespace
@@ -27,7 +33,7 @@ If you can't create a codespace for a repository, this may be due to one of the 
 
 For information about other organization and enterprise settings that can affect whether you can create a codespace, see "[AUTOTITLE](/codespaces/managing-codespaces-for-your-organization/enabling-or-disabling-github-codespaces-for-your-organization#prerequisites-for-enabling-github-codespaces)."
 
-For more information about included usage for personal accounts, and setting a spending limit, see "[AUTOTITLE](/free-pro-team@latest/billing/managing-billing-for-github-codespaces/about-billing-for-github-codespaces)" and "[AUTOTITLE](/billing/managing-billing-for-github-codespaces/managing-the-spending-limit-for-github-codespaces)."
+For more information about included usage for personal accounts, and setting a spending limit, see "[AUTOTITLE](/free-pro-team@latest/billing/managing-billing-for-your-products/managing-billing-for-github-codespaces/about-billing-for-github-codespaces)" and "[AUTOTITLE](/billing/managing-billing-for-your-products/managing-billing-for-github-codespaces/managing-the-spending-limit-for-github-codespaces)."
 
 ### Codespace does not open when created
 
@@ -43,11 +49,8 @@ If you still cannot create a codespace for a repository where {% data variables.
 
 If the creation of a codespace fails, it's likely to be due to a temporary infrastructure issue in the cloud - for example, a problem provisioning a virtual machine for the codespace. A less common reason for failure is if it takes longer than an hour to build the container. In this case, the build is canceled and codespace creation will fail.
 
-{% note %}
-
-**Note:** A codespace that was not successfully created is never going to be usable and should be deleted. For more information, see "[AUTOTITLE](/codespaces/developing-in-a-codespace/deleting-a-codespace)."
-
-{% endnote %}
+> [!NOTE]
+> A codespace that was not successfully created is never going to be usable and should be deleted. For more information, see "[AUTOTITLE](/codespaces/developing-in-a-codespace/deleting-a-codespace)."
 
 If you create a codespace and the creation fails:
 
@@ -57,28 +60,26 @@ If you create a codespace and the creation fails:
 
    One common scenario where this could happen is if you have a script running that is prompting for user input and waiting for an answer. If this is the case, remove the interactive prompt so that the build can complete non-interactively.
 
-   {% note %}
+  > [!NOTE]
+  > To view the logs during a build:
+  > * **In the browser**, if the initial steps of the build process take more than a few seconds, the "Setting up your codespace" page is displayed. Click **View logs.**
+  >
+  >   ![Screenshot of the "Setting up your codespace" page in a browser. The link "View logs" is highlighted with a dark orange outline.](/assets/images/help/codespaces/web-ui-view-logs.png)
+  >
+  > * **In the {% data variables.product.prodname_vscode_shortname %} desktop application**, click **Building codespace** in the "Setting up remote connection" popup message that's displayed.
+  >
+  >   ![Screenshot of a popup message in {% data variables.product.prodname_vscode_shortname %}, reading "Setting up remote connection: Building codespace."](/assets/images/help/codespaces/vs-code-building-codespace.png)
+  >
+  >   Log messages are printed to the Terminal in {% data variables.product.prodname_vscode_shortname %}
 
-   **Note**: To view the logs during a build:
-   * **In the browser**, if the initial steps of the build process take more than a few seconds, the "Setting up your codespace" page is displayed. Click **View logs.**
-
-     ![Screenshot of the "Setting up your codespace" page in a browser. The link "View logs" is highlighted with a dark orange outline.](/assets/images/help/codespaces/web-ui-view-logs.png)
-
-   * **In the {% data variables.product.prodname_vscode_shortname %} desktop application**, click **Building codespace** in the "Setting up remote connection" popup message that's displayed.
-
-     ![Screenshot of a popup message in {% data variables.product.prodname_vscode_shortname %}, reading "Setting up remote connection: Building codespace."](/assets/images/help/codespaces/vs-code-building-codespace.png)
-
-     Log messages are printed to the Terminal in {% data variables.product.prodname_vscode_shortname %}
-
-    {% endnote %}
 1. If you have a container that takes a long time to build, consider using prebuilds to speed up codespace creations. For more information, see "[AUTOTITLE](/codespaces/prebuilding-your-codespaces/configuring-prebuilds#configuring-prebuilds)."
 
 ## Deleting codespaces
 
 A codespace can only be deleted by:
-* The person who created the codespace.
-* An organization owner for an organization-owned codespace.
-* Automatic deletion at the end of a retention period.
+* The person who created the codespace
+* An organization owner for an organization-owned codespace
+* Automatic deletion at the end of a retention period
 
 For more information, see "[AUTOTITLE](/codespaces/developing-in-a-codespace/deleting-a-codespace)" and "[AUTOTITLE](/codespaces/setting-your-user-preferences/configuring-automatic-deletion-of-your-codespaces)."
 

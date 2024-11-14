@@ -1,6 +1,6 @@
 ---
 title: About programmatic access in your organization
-intro: 'As an organization owner, you can control access to your organization by {% ifversion pat-v2%}{% data variables.product.pat_generic %}s, {% data variables.product.prodname_github_apps %}, and {% data variables.product.prodname_oauth_apps %}{% else %} {% data variables.product.prodname_github_apps %} and {% data variables.product.prodname_oauth_apps %}{% endif %}.'
+intro: 'As an organization owner, you can control access to your organization by {% data variables.product.pat_generic %}s, {% data variables.product.prodname_github_apps %}, and {% data variables.product.prodname_oauth_apps %}.'
 permissions: Organization owners can control programmatic access in their organization.
 topics:
   - Organizations
@@ -20,7 +20,7 @@ versions:
 
 ## {% data variables.product.prodname_github_apps %}
 
-Organization owners can install {% data variables.product.prodname_github_apps %} on their organization. Repository admins can also install a {% data variables.product.prodname_github_app %} on the organization if the app does not request organization resources and if they only grant the app access to repositories where they are an admin. Organization members can submit a request for their organization owner to install a {% data variables.product.prodname_github_app %} on the organization. For more information, see {% ifversion fpt or ghec%}"[AUTOTITLE](/apps/using-github-apps/installing-an-app-in-your-organization)."{% else %}"[AUTOTITLE](/apps/maintaining-github-apps/installing-github-apps)."{% endif %}
+Organization owners can install {% data variables.product.prodname_github_apps %} on their organization. Repository admins can also install a {% data variables.product.prodname_github_app %} on the organization if the app does not request organization resources and if they only grant the app access to repositories where they are an admin. Organization members can submit a request for their organization owner to install a {% data variables.product.prodname_github_app %} on the organization. For more information, see {% ifversion fpt or ghec %}"[AUTOTITLE](/apps/using-github-apps/installing-an-app-in-your-organization)."{% else %}"[AUTOTITLE](/apps/maintaining-github-apps/installing-github-apps)."{% endif %}
 
 {% ifversion limit-app-access-requests %}Organization owners can prevent outside collaborators from requesting {% data variables.product.prodname_github_apps %} or from installing a {% data variables.product.prodname_github_app %} even if the collaborator is a repository admin. For more information, see "[AUTOTITLE](/organizations/managing-programmatic-access-to-your-organization/limiting-oauth-app-and-github-app-access-requests)."{% endif %}
 
@@ -38,13 +38,9 @@ Organization managers can restrict {% data variables.product.prodname_oauth_apps
 
 ## {% data variables.product.pat_generic_caps %}s
 
-{% ifversion pat-v2%}
-
 Organization owners can prevent {% data variables.product.pat_v2 %}s and {% data variables.product.pat_v1_plural %} from accessing resources owned by the organization. Organization owners can also require approval for each {% data variables.product.pat_v2 %} that can access the organization. For more information, see "[AUTOTITLE](/organizations/managing-programmatic-access-to-your-organization/setting-a-personal-access-token-policy-for-your-organization)."
 
 Organization owners can view all {% data variables.product.pat_v2 %}s that can access resources owned by the organization. Organization owners can also revoke access by {% data variables.product.pat_v2 %}s. For more information, see "[AUTOTITLE](/organizations/managing-programmatic-access-to-your-organization/reviewing-and-revoking-personal-access-tokens-in-your-organization)."
-
-{% endif %}
 
 {% ifversion ghec %}
 

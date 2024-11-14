@@ -19,7 +19,7 @@ shortTitle: Manage from your inbox
 
 {% data reusables.notifications-v2.notifications-inbox-required-setting %} For more information, see "[AUTOTITLE](/account-and-profile/managing-subscriptions-and-notifications-on-github/setting-up-notifications/configuring-notifications#choosing-your-notification-settings)."
 
-To access your notifications inbox, in the upper-right corner of any page, click {% octicon "bell" aria-label="The notifications bell" %}.
+To access your notifications inbox, in the upper-right corner of any page, click {% octicon "inbox" aria-label="The notifications inbox" %}.
 
 Your inbox shows all of the notifications that you haven't unsubscribed to or marked as **Done.** You can customize your inbox to best suit your workflow using filters, viewing all or just unread notifications, and grouping your notifications to get a quick overview.
 
@@ -58,11 +58,8 @@ You can add up to 15 of your own custom filters.
 {% data reusables.notifications.access_notifications %}
 1. To open the filter settings, in the left sidebar, next to "Filters", click {% octicon "gear" aria-label="Customize filters" %}.
 
-   {% tip %}
-
-   **Tip:** You can quickly preview a filter's inbox results by creating a query in your inbox view and clicking **Save**, which opens the custom filter settings.
-
-   {% endtip %}
+   > [!TIP]
+   > You can quickly preview a filter's inbox results by creating a query in your inbox view and clicking **Save**, which opens the custom filter settings.
 
 1. Add a name for your filter and a filter query. For example, to only see notifications for a specific repository, you can create a filter using the query `repo:octocat/open-source-project-name reason:participating`. You can also add emojis with a native emoji keyboard. For a list of supported search queries, see "[Supported queries for custom filters](#supported-queries-for-custom-filters)."
 

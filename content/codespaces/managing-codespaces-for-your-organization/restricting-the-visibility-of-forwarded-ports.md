@@ -22,11 +22,8 @@ As an organization owner, you may want to configure constraints on the visibilit
 
 If there are existing codespaces that no longer conform to a policy you have defined, these codespaces will continue to operate until they are stopped or time out. When the user resumes the codespace, it will be subject to the policy constraints.
 
-{% note %}
-
-**Note**: You can't disable private port forwarding, as private port forwarding is required by {% data variables.product.prodname_github_codespaces %} to continue working as designed, for example to forward SSH on port 22.
-
-{% endnote %}
+> [!NOTE]
+> You can't disable private port forwarding, as private port forwarding is required by {% data variables.product.prodname_github_codespaces %} to continue working as designed, for example to forward SSH on port 22.
 
 ### Setting organization-wide and repository-specific policies
 

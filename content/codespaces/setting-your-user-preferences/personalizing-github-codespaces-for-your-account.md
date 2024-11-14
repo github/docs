@@ -81,22 +81,16 @@ Your updates will take effect in new codespaces. However, you can turn on Settin
 
 ### Turning on Settings Sync in a codespace
 
-{% note %}
-
-**Note:** You should only turn on Settings Sync in codespaces created from repositories you trust. For more information, see "[AUTOTITLE](/codespaces/reference/security-in-github-codespaces#using-settings-sync)."
-
-{% endnote %}
+> [!NOTE]
+> You should only turn on Settings Sync in codespaces created from repositories you trust. For more information, see "[AUTOTITLE](/codespaces/reference/security-in-github-codespaces#using-settings-sync)."
 
 The following procedure describes how to turn on Settings Sync in a codespace opened in the web client. For information about turning on Settings Sync in the {% data variables.product.prodname_vscode_shortname %} desktop application, see [Settings Sync](https://code.visualstudio.com/docs/editor/settings-sync#_turning-on-settings-sync) in the {% data variables.product.prodname_vscode_shortname %} documentation.
 
 1. In {% data variables.product.prodname_vscode_shortname %}, at the bottom of the Activity Bar, select {% octicon "gear" aria-label="Manage" %}, then click **Sign in to Sync Settings**.
 1. If the repository from which you created the codespace is not in your list of trusted repositories, a browser window will open asking you to authorize additional permissions for Settings Sync. If you trust the repository, click **Authorize**, then close the browser window. The codespace will reload and display your latest synced settings.
 
-   {% note %}
-
-   **Note:** If you have Settings Sync disabled in your user preferences, and have set your trusted repositories to all repositories, you will see a warning about enabling Settings Sync for all repositories. Review the warning and choose whether to enable Settings Sync for all repositories or revise your list of trusted repositories.
-
-   {% endnote %}
+   > [!NOTE]
+   > If you have Settings Sync disabled in your user preferences, and have set your trusted repositories to all repositories, you will see a warning about enabling Settings Sync for all repositories. Review the warning and choose whether to enable Settings Sync for all repositories or revise your list of trusted repositories.
 
 1. To configure which settings you want to sync, open the Command Palette with <kbd>Shift</kbd>+<kbd>Command</kbd>+<kbd>P</kbd> (Mac) / <kbd>Ctrl</kbd>+<kbd>Shift</kbd>+<kbd>P</kbd> (Windows/Linux), then start typing "Settings Sync". Click **Settings Sync: Configure...**.
 1. Select the settings you want to sync, then click **OK**.
@@ -117,34 +111,28 @@ You can configure {% data variables.product.prodname_github_codespaces %} to use
 
 When you create a new codespace, {% data variables.product.prodname_dotcom %} clones your selected dotfiles repository to the codespace environment, and looks for one of the following files to set up the environment.
 
-* _install.sh_
-* _install_
-* _bootstrap.sh_
-* _bootstrap_
-* _script/bootstrap_
-* _setup.sh_
-* _setup_
-* _script/setup_
+* `install.sh`
+* `install`
+* `bootstrap.sh`
+* `bootstrap`
+* `script/bootstrap`
+* `setup.sh`
+* `setup`
+* `script/setup`
 
 If none of these files are found, then any files or folders in your selected dotfiles repository starting with `.` are symlinked to the codespace's `~` or `$HOME` directory.
 
 Any changes to your selected dotfiles repository will apply only to each new codespace, and do not affect any existing codespace.
 
-{% note %}
-
-**Note:** Currently, {% data variables.product.prodname_codespaces %} does not support personalizing the User-scoped settings for {% data variables.product.prodname_vscode_shortname %} with your `dotfiles` repository. You can set default Workspace and Remote [Codespaces] settings for a specific project in the project's repository. For more information, see "[AUTOTITLE](/codespaces/setting-up-your-project-for-codespaces/adding-a-dev-container-configuration/introduction-to-dev-containers#creating-a-custom-dev-container-configuration)."
-
-{% endnote %}
+> [!NOTE]
+> Currently, {% data variables.product.prodname_codespaces %} does not support personalizing the User-scoped settings for {% data variables.product.prodname_vscode_shortname %} with your `dotfiles` repository. You can set default Workspace and Remote [Codespaces] settings for a specific project in the project's repository. For more information, see "[AUTOTITLE](/codespaces/setting-up-your-project-for-codespaces/adding-a-dev-container-configuration/introduction-to-dev-containers#creating-a-custom-dev-container-configuration)."
 
 ### Enabling your dotfiles repository for {% data variables.product.prodname_codespaces %}
 
 You can use your selected dotfiles repository to personalize your {% data variables.product.prodname_github_codespaces %} environment. Once you choose your dotfiles repository, you can add your scripts, preferences, and configurations to it. You then need to enable your dotfiles from your personal {% data variables.product.prodname_github_codespaces %} settings page.
 
-{% warning %}
-
-**Warning:** Dotfiles have the ability to run arbitrary scripts, which may contain unexpected or malicious code. Before installing a dotfiles repo, we recommend checking scripts to ensure they don't perform any unexpected actions.
-
-{% endwarning %}
+> [!WARNING]
+> Dotfiles have the ability to run arbitrary scripts, which may contain unexpected or malicious code. Before installing a dotfiles repo, we recommend checking scripts to ensure they don't perform any unexpected actions.
 
 {% data reusables.user-settings.access_settings %}
 {% data reusables.user-settings.codespaces-tab %}

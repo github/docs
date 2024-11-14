@@ -8,4 +8,6 @@ topics:
   - Copilot
 children:
   - /example-prompts-for-copilot-chat
+  - /refactoring-code-with-github-copilot
+  - /writing-tests-with-github-copilot
 ---

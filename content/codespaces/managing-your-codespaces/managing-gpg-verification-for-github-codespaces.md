@@ -26,11 +26,8 @@ By default, GPG verification is disabled for codespaces you create. If you enabl
 
 For more information about managing your preferences for Settings Sync, see "[AUTOTITLE](/codespaces/setting-your-user-preferences/personalizing-github-codespaces-for-your-account#managing-your-preferences-for-settings-sync)."
 
-{% note %}
-
-**Note:** If you have linked a dotfiles repository with {% data variables.product.prodname_github_codespaces %}, the Git configuration in your dotfiles may conflict with the configuration that {% data variables.product.prodname_github_codespaces %} requires to sign commits. For more information, see "[AUTOTITLE](/codespaces/troubleshooting/troubleshooting-gpg-verification-for-github-codespaces)."
-
-{% endnote %}
+> [!NOTE]
+> If you have linked a dotfiles repository with {% data variables.product.prodname_github_codespaces %}, the Git configuration in your dotfiles may conflict with the configuration that {% data variables.product.prodname_github_codespaces %} requires to sign commits. For more information, see "[AUTOTITLE](/codespaces/troubleshooting/troubleshooting-gpg-verification-for-github-codespaces)."
 
 ## Enabling or disabling GPG verification
 

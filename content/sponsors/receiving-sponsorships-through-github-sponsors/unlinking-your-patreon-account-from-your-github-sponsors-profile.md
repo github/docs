@@ -11,11 +11,8 @@ topics:
 shortTitle: Unlink Patreon
 ---
 
-{% note %}
-
-**Note:** Unlinking your Patreon account from your {% data variables.product.prodname_sponsors %} profile will prevent new sponsors from sponsoring you through Patreon, but it **will not** cancel existing sponsorships through Patreon. Instead, they will appear as cancelled on {% data variables.product.prodname_dotcom_the_website %} and your sponsors will have to cancel those sponsorships themselves on Patreon. For more information, see [How do I cancel?](https://support.patreon.com/hc/en-us/articles/360005502572-How-do-I-cancel-) in the Patreon documentation.
-
-{% endnote %}
+> [!NOTE]
+> Unlinking your Patreon account from your {% data variables.product.prodname_sponsors %} profile will prevent new sponsors from sponsoring you through Patreon, but it **will not** cancel existing sponsorships through Patreon. Instead, they will appear as cancelled on {% data variables.product.prodname_dotcom %} and your sponsors will have to cancel those sponsorships themselves on Patreon. For more information, see [How do I cancel?](https://support.patreon.com/hc/en-us/articles/360005502572-How-do-I-cancel-) in the Patreon documentation.
 
 ## Unlinking your Patreon account from your {% data variables.product.company_short %} account
 

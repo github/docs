@@ -67,10 +67,12 @@ You can search for a discussion that has been locked using the `is` qualifier. F
 
 You can filter by the visibility of the repository containing the discussions using the `is` qualifier. For more information, see "[AUTOTITLE](/repositories/creating-and-managing-repositories/about-repositories#about-repository-visibility)."
 
-| Qualifier  | Example
+| Qualifier  | Example |
 | :- | :- |
-| `is:public` | [**is:public**](https://github.com/search?q=is%3Apublic&type=Discussions) matches discussions in public repositories.{% ifversion ghec %}
-| `is:internal` | [**is:internal**](https://github.com/search?q=is%3Ainternal&type=Discussions) matches discussions in internal repositories.{% endif %}
+| `is:public` | [**is:public**](https://github.com/search?q=is%3Apublic&type=Discussions) matches discussions in public repositories. |
+|  {% ifversion ghec %} |
+| `is:internal` | [**is:internal**](https://github.com/search?q=is%3Ainternal&type=Discussions) matches discussions in internal repositories. |
+|  {% endif %} |
 | `is:private` | [**is:private tiramisu**](https://github.com/search?q=is%3Aprivate+tiramisu&type=Discussions) matches discussions that contain the word "tiramisu" in private repositories you can access.
 
 ## Search by author
@@ -105,7 +107,7 @@ You can use the `involves` qualifier to find discussions that involve a certain 
 | Qualifier | Example |
 | :- | :- |
 | <code>involves:<em>USERNAME</em></code> | **[involves:becca involves:octocat](https://github.com/search?q=involves%3Abecca+involves%3Aoctocat&type=Discussions)** matches discussions either @becca or @octocat are involved in.
-| `in:body` <code>involves:<em>USERNAME</em></code> | [**NOT beta in:body involves:becca**](https://github.com/search?q=NOT+beta+in%3Abody+involves%3Abecca&type=Discussions) matches discussions @becca is involved in that do not contain the word "beta" in the body.
+| `in:body` <code>involves:<em>USERNAME</em></code> | [**NOT free in:body involves:becca**](https://github.com/search?q=NOT+free+in%3Abody+involves%3Abecca&type=Discussions) matches discussions @becca is involved in that do not contain the word "free" in the body.
 
 ## Search by number of comments
 

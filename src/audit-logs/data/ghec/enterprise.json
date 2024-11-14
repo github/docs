@@ -36,7 +36,7 @@
   },
   {
     "action": "api.request",
-    "description": "An API request was made to a security-significant endpoint for the enterprise. This event is only included if API Request Events is enabled in the enterprise's audit log settings. This event is only available via audit log streaming.",
+    "description": "An API request was made to an endpoint for the enterprise, or an enterprise owned resource. This event is only included if API Request Events is enabled in the enterprise's audit log settings. This event is only available via audit log streaming.",
     "docs_reference_links": "/admin/monitoring-activity-in-your-enterprise/reviewing-audit-logs-for-your-enterprise/streaming-the-audit-log-for-your-enterprise#enabling-audit-log-streaming-of-api-requests"
   },
   {
@@ -217,6 +217,11 @@
   {
     "action": "business.code_scanning_autofix_policy_update",
     "description": "The policy for Code scanning autofix was updated for an enterprise.",
+    "docs_reference_links": "N/A"
+  },
+  {
+    "action": "business.code_scanning_autofix_third_party_tools_policy_update",
+    "description": "The policy for Code scanning autofix third party tools was updated for an enterprise.",
     "docs_reference_links": "N/A"
   },
   {
@@ -552,6 +557,26 @@
   {
     "action": "business.secret_scanning_repo_admin_settings_policy_update",
     "description": "N/A",
+    "docs_reference_links": "N/A"
+  },
+  {
+    "action": "business.security_center_export_code_scanning_metrics",
+    "description": "A CSV export was requested on the \"CodeQL pull request alerts\" page.",
+    "docs_reference_links": "N/A"
+  },
+  {
+    "action": "business.security_center_export_coverage",
+    "description": "A CSV export was requested on the \"Coverage\" page.",
+    "docs_reference_links": "N/A"
+  },
+  {
+    "action": "business.security_center_export_overview_dashboard",
+    "description": "A CSV export was requested on the \"Overview Dashboard\" page.",
+    "docs_reference_links": "N/A"
+  },
+  {
+    "action": "business.security_center_export_risk",
+    "description": "A CSV export was requested on the \"Risk\" page.",
     "docs_reference_links": "N/A"
   },
   {
@@ -1205,6 +1230,16 @@
     "docs_reference_links": "N/A"
   },
   {
+    "action": "external_group.scim_api_failure",
+    "description": "Failed external group SCIM API request.",
+    "docs_reference_links": "/rest/scim/scim"
+  },
+  {
+    "action": "external_group.scim_api_success",
+    "description": "Successful external group SCIM API request. Excludes GET API requests.",
+    "docs_reference_links": "/rest/scim/scim"
+  },
+  {
     "action": "external_group.unlink",
     "description": "An external group was unlinked to a GitHub team.",
     "docs_reference_links": "N/A"
@@ -1228,6 +1263,16 @@
     "action": "external_identity.provision",
     "description": "An external identity was created and linked to a GitHub user.",
     "docs_reference_links": "N/A"
+  },
+  {
+    "action": "external_identity.scim_api_failure",
+    "description": "Failed external identity SCIM API request.",
+    "docs_reference_links": "/rest/scim/scim"
+  },
+  {
+    "action": "external_identity.scim_api_success",
+    "description": "Successful external identity SCIM API request. Excludes GET API requests.",
+    "docs_reference_links": "/rest/scim/scim"
   },
   {
     "action": "external_identity.update",
@@ -1410,6 +1455,11 @@
     "docs_reference_links": "N/A"
   },
   {
+    "action": "ip_allow_list.disable_idp_ip_allowlist_for_web",
+    "description": "Identity Provider based IP allow list for web interactions was disabled.",
+    "docs_reference_links": "N/A"
+  },
+  {
     "action": "ip_allow_list.disable_skip_idp_ip_allowlist_app_access",
     "description": "N/A",
     "docs_reference_links": "N/A"
@@ -1427,6 +1477,11 @@
   {
     "action": "ip_allow_list.enable_for_installed_apps",
     "description": "An IP allow list was enabled for installed GitHub Apps.",
+    "docs_reference_links": "N/A"
+  },
+  {
+    "action": "ip_allow_list.enable_idp_ip_allowlist_for_web",
+    "description": "Identity Provider based IP allow list for web interactions was enabled.",
     "docs_reference_links": "N/A"
   },
   {
@@ -1795,6 +1850,16 @@
     "docs_reference_links": "N/A"
   },
   {
+    "action": "org.code_scanning_autofix_third_party_tools_disabled",
+    "description": "Autofix for third party tools for code scanning alerts was disabled for an organization.",
+    "docs_reference_links": "N/A"
+  },
+  {
+    "action": "org.code_scanning_autofix_third_party_tools_enabled",
+    "description": "Autofix for third party tools for code scanning alerts was enabled for an organization.",
+    "docs_reference_links": "N/A"
+  },
+  {
     "action": "org.codeql_disabled",
     "description": "Code scanning using the default setup was disabled for an organization.",
     "docs_reference_links": "/code-security/code-scanning/enabling-code-scanning/configuring-default-setup-for-code-scanning-at-scale"
@@ -1918,6 +1983,11 @@
     "action": "org_credential_authorization.revoke",
     "description": "An owner revoked authorized credentials.",
     "docs_reference_links": "/organizations/granting-access-to-your-organization-with-saml-single-sign-on/viewing-and-managing-a-members-saml-access-to-your-organization"
+  },
+  {
+    "action": "org.delete",
+    "description": "An organization was deleted by a user or staff.",
+    "docs_reference_links": "N/A"
   },
   {
     "action": "org.disable_member_team_creation_permission",
@@ -2515,6 +2585,11 @@
     "docs_reference_links": "/organizations/managing-peoples-access-to-your-organization-with-roles/about-custom-organization-roles"
   },
   {
+    "action": "organization_wide_project_base_role.update",
+    "description": "An organization's default project base role was updated.",
+    "docs_reference_links": "N/A"
+  },
+  {
     "action": "packages.package_deleted",
     "description": "An entire package was deleted.",
     "docs_reference_links": "/packages/learn-github-packages/deleting-and-restoring-a-package"
@@ -2667,6 +2742,11 @@
   {
     "action": "project.access",
     "description": "A project board visibility was changed.",
+    "docs_reference_links": "N/A"
+  },
+  {
+    "action": "project_base_role.update",
+    "description": "A project's base role was updated.",
     "docs_reference_links": "N/A"
   },
   {
@@ -3047,6 +3127,16 @@
   {
     "action": "repo.code_scanning_autofix_enabled",
     "description": "Autofix for code scanning alerts was enabled for a repository.",
+    "docs_reference_links": "N/A"
+  },
+  {
+    "action": "repo.code_scanning_autofix_third_party_tools_disabled",
+    "description": "Autofix for third party tools for code scanning alerts was disabled for a repository.",
+    "docs_reference_links": "N/A"
+  },
+  {
+    "action": "repo.code_scanning_autofix_third_party_tools_enabled",
+    "description": "Autofix for third party tools for code scanning alerts was enabled for a repository.",
     "docs_reference_links": "N/A"
   },
   {
@@ -3585,6 +3675,26 @@
     "docs_reference_links": "/code-security/secret-scanning/protecting-pushes-with-secret-scanning"
   },
   {
+    "action": "repository_security_configuration.applied",
+    "description": "A code security configuration was applied to a repository.",
+    "docs_reference_links": "N/A"
+  },
+  {
+    "action": "repository_security_configuration.failed",
+    "description": "A code security configuration failed to attach to the repository.",
+    "docs_reference_links": "N/A"
+  },
+  {
+    "action": "repository_security_configuration.removed",
+    "description": "A code security configuration was removed from a repository.",
+    "docs_reference_links": "N/A"
+  },
+  {
+    "action": "repository_security_configuration.removed_by_settings_change",
+    "description": "A code security configuration was removed due to a change in repository or enterprise settings.",
+    "docs_reference_links": "N/A"
+  },
+  {
     "action": "repository_visibility_change.clear",
     "description": "The repository visibility change setting was cleared for an organization or enterprise.",
     "docs_reference_links": "/organizations/managing-organization-settings/restricting-repository-visibility-changes-in-your-organization, /admin/policies/enforcing-policies-for-your-enterprise/enforcing-repository-management-policies-in-your-enterprise#enforcing-a-policy-for-changes-to-repository-visibility"
@@ -3700,9 +3810,19 @@
     "docs_reference_links": "/code-security/secret-scanning/managing-alerts-from-secret-scanning"
   },
   {
+    "action": "secret_scanning_alert.public_leak",
+    "description": "A secret scanning alert was leaked in a public repo.",
+    "docs_reference_links": "/code-security/secret-scanning/managing-alerts-from-secret-scanning"
+  },
+  {
     "action": "secret_scanning_alert.reopen",
     "description": "A secret scanning alert was reopened.",
     "docs_reference_links": "N/A"
+  },
+  {
+    "action": "secret_scanning_alert.report",
+    "description": "A leaked secret was reported to the secret's provider by secret scanning.",
+    "docs_reference_links": "/code-security/secret-scanning/managing-alerts-from-secret-scanning/resolving-alerts"
   },
   {
     "action": "secret_scanning_alert.resolve",

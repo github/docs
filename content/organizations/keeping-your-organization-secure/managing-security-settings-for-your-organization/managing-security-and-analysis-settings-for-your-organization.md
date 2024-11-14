@@ -26,12 +26,10 @@ shortTitle: Manage security & analysis
 {% ifversion security-configurations %}
 {% data reusables.security-configurations.enable-security-features-with-gh-config %}
 
-{% data reusables.security-configurations.security-configurations-beta-note-short %}
-
 {% endif %}
 {% data reusables.security.security-and-analysis-features-enable-read-only %}
 
-{% ifversion security-configurations-beta-and-pre-beta %}
+{% ifversion pre-security-configurations %}
 
 ## Displaying the security and analysis settings
 
@@ -39,32 +37,13 @@ shortTitle: Manage security & analysis
 {% data reusables.profile.org_settings %}
 {% data reusables.organizations.security-and-analysis %}
 
-{% ifversion security-configurations %}
-    >[!NOTE] If your organization is enrolled in the {% data variables.product.prodname_security_configurations %} and {% data variables.product.prodname_global_settings %} public beta, instead of "Code security and analysis", you will see a **Code security** dropdown menu. You can manage your repository-level security settings with {% data variables.product.prodname_security_configurations %}, and your organization-level security settings with {% data variables.product.prodname_global_settings %}. See "[AUTOTITLE](/code-security/securing-your-organization/enabling-security-features-in-your-organization/applying-the-github-recommended-security-configuration-in-your-organization)" and "[AUTOTITLE](/code-security/securing-your-organization/enabling-security-features-in-your-organization/configuring-global-security-settings-for-your-organization)."
-{% endif %}
-
 The page that's displayed allows you to enable or disable all security and analysis features for the repositories in your organization.
 
-{% ifversion ghec %}If your organization belongs to an enterprise with a license for {% data variables.product.prodname_GH_advanced_security %}, the page will also contain options to enable and disable {% data variables.product.prodname_advanced_security %} features. Any repositories that use {% data variables.product.prodname_GH_advanced_security %} are listed at the bottom of the page.{% endif %}
-
-{% ifversion ghes %}If you have a license for {% data variables.product.prodname_GH_advanced_security %}, the page will also contain options to enable and disable {% data variables.product.prodname_advanced_security %} features. Any repositories that use {% data variables.product.prodname_GH_advanced_security %} are listed at the bottom of the page.{% endif %}
+If you have a license for {% data variables.product.prodname_GH_advanced_security %}, the page will also contain options to enable and disable {% data variables.product.prodname_advanced_security %} features. Any repositories that use {% data variables.product.prodname_GH_advanced_security %} are listed at the bottom of the page.
 
 ## Enabling or disabling a feature for all existing repositories
 
 You can enable or disable features for all repositories.
-{% ifversion fpt or ghec %}The impact of your changes on repositories in your organization is determined by their visibility:
-
-* **Private vulnerability reporting** - Your changes affect public repositories only.
-* **Dependency graph** - Your changes affect only private repositories because the feature is always enabled for public repositories.
-* **{% data variables.product.prodname_dependabot_alerts %}** - Your changes affect all repositories.
-* **{% data variables.product.prodname_dependabot_security_updates %}** - Your changes affect all repositories.
-{%- ifversion ghec %}
-* **{% data variables.product.prodname_GH_advanced_security %}** - Your changes affect only private repositories because {% data variables.product.prodname_GH_advanced_security %} and the related features are always enabled for public repositories.{% endif %}
-* **{% data variables.product.prodname_secret_scanning_caps %}** - Your changes affect {% ifversion fpt %}public repositories and public npm packages these repositories may depend on.{% endif %}{% ifversion ghec %}public repositories, and private or internal repositories where {% data variables.product.prodname_GH_advanced_security %} is enabled.{% endif %} This option controls whether or not {% data variables.secret-scanning.user_alerts %} are enabled. {% data variables.secret-scanning.partner_alerts_caps %} always runs on all public repositories.
-
-* **{% data variables.product.prodname_code_scanning_caps %}** - Your changes affect {% ifversion fpt %}public repositories{% elsif ghec %}public repositories, and private or internal repositories where {% data variables.product.prodname_GH_advanced_security %} is enabled{% elsif ghes %}repositories that are eligible for default setup using {% data variables.product.prodname_codeql %} where {% data variables.product.prodname_GH_advanced_security %} is enabled{% endif %}. {% data reusables.code-scanning.default-setup-info-link %} For repositories that are not eligible for default setup, you can configure advanced setup at the repository level. For more information, see "[AUTOTITLE](/code-security/code-scanning/creating-an-advanced-setup-for-code-scanning/configuring-advanced-setup-for-code-scanning)."
-
-{% endif %}
 
 {% ifversion code-security-multi-repo-enablement %}
 You can use security overview to find a set of repositories and enable or disable security features for them all at the same time. For more information, see "[AUTOTITLE](/code-security/security-overview/enabling-security-features-for-multiple-repositories)."
@@ -72,27 +51,20 @@ You can use security overview to find a set of repositories and enable or disabl
 
 {% data reusables.advanced-security.note-org-enable-uses-seats %}
 
-{% ifversion ghes or ghec %}
-{% note %}
-
-**Note:** If you encounter an error that reads "GitHub Advanced Security cannot be enabled because of a policy setting for the organization," contact your enterprise admin and ask them to change the GitHub Advanced Security policy for your enterprise. For more information, see "[AUTOTITLE](/admin/policies/enforcing-policies-for-your-enterprise/enforcing-policies-for-code-security-and-analysis-for-your-enterprise)."
-{% endnote %}
-{% endif %}
+> [!NOTE]
+> If you encounter an error that reads "GitHub Advanced Security cannot be enabled because of a policy setting for the organization," contact your enterprise admin and ask them to change the GitHub Advanced Security policy for your enterprise. For more information, see "[AUTOTITLE](/admin/policies/enforcing-policies-for-your-enterprise/enforcing-policies-for-code-security-and-analysis-for-your-enterprise)."
 
 {% ifversion dependabot-alerts-enterprise-enablement %}
 
-{% note %}
-
-**Note:** When {% data variables.product.prodname_dependabot_alerts %} are enabled or disabled at the enterprise level, it overrides the organization level settings for {% data variables.product.prodname_dependabot_alerts %}. For more information, see "[AUTOTITLE](/code-security/dependabot/dependabot-alerts/configuring-dependabot-alerts#managing-dependabot-alerts-for-your-enterprise)."
-
-{% endnote %}
+> [!NOTE]
+> When {% data variables.product.prodname_dependabot_alerts %} are enabled or disabled at the enterprise level, it overrides the organization level settings for {% data variables.product.prodname_dependabot_alerts %}. For more information, see "[AUTOTITLE](/code-security/dependabot/dependabot-alerts/configuring-dependabot-alerts#managing-dependabot-alerts-for-your-enterprise)."
 
 {% endif %}
 
 1. Go to the security and analysis settings for your organization. For more information, see "[Displaying the security and analysis settings](#displaying-the-security-and-analysis-settings)."
-1. Under "Code security and analysis", to the right of the feature, click **Disable all** or **Enable all** to display a confirmation dialog box. {% ifversion ghes or ghec %}The control for "{% data variables.product.prodname_GH_advanced_security %}" is disabled if you have no available {% ifversion ghas-billing-UI-update %}licenses{% else %}seats{% endif %} for {% data variables.product.prodname_GH_advanced_security %}.{% endif %}
+1. Under "Code security and analysis", to the right of the feature, click **Disable all** or **Enable all** to display a confirmation dialog box. The control for "{% data variables.product.prodname_GH_advanced_security %}" is disabled if you have no available {% ifversion ghas-billing-UI-update %}licenses{% else %}seats{% endif %} for {% data variables.product.prodname_GH_advanced_security %}.
 1. Review the information in the dialog box.
-1. Optionally, if you are enabling private vulnerability reporting, dependency graph, or {% data variables.product.prodname_dependabot %}, select **Enable by default for new {% ifversion fpt or ghec %}private {% endif %}repositories**.
+1. Optionally, if you are enabling private vulnerability reporting, dependency graph, or {% data variables.product.prodname_dependabot %}, select **Enable by default for new repositories**.
 
     ![Screenshot of the "Enable FEATURE" modal dialog, with the "Enable by default for new private repositories" option highlighted with a dark orange outline.](/assets/images/help/organizations/security-and-analysis-enable-by-default-in-modal.png)
 
@@ -101,30 +73,20 @@ You can use security overview to find a set of repositories and enable or disabl
      * Automatic enablement for a specific type of repository
      * Feature-specific settings, such as recommending the extended query suite for {% data variables.product.prodname_code_scanning %} default setup throughout your organization, or automatic secret validation for {% data variables.product.prodname_secret_scanning %}
 
-   {% note %}
-
-   **Notes:**
-   * {% data reusables.code-scanning.limitation-org-enable-all %}{% ifversion bulk-code-scanning-query-suite %}
-   * Enabling {% data variables.product.prodname_code_scanning %} for all eligible repositories in an organization will not override existing {% data variables.product.prodname_code_scanning %} configurations. For information on configuring default setup with different settings for specific repositories, see "[AUTOTITLE](/code-security/code-scanning/enabling-code-scanning/configuring-default-setup-for-code-scanning){% ifversion code-security-multi-repo-enablement %}" and "[AUTOTITLE](/code-security/code-scanning/enabling-code-scanning/configuring-default-setup-for-code-scanning-at-scale#configuring-default-setup-for-a-subset-of-repositories-in-an-organization){% endif %}."{% endif %}
-
-   {% endnote %}
+   > [!NOTE]
+   > * {% data reusables.code-scanning.limitation-org-enable-all %}{% ifversion bulk-code-scanning-query-suite %}
+   > * Enabling {% data variables.product.prodname_code_scanning %} for all eligible repositories in an organization will not override existing {% data variables.product.prodname_code_scanning %} configurations. For information on configuring default setup with different settings for specific repositories, see "[AUTOTITLE](/code-security/code-scanning/enabling-code-scanning/configuring-default-setup-for-code-scanning){% ifversion code-security-multi-repo-enablement %}" and "[AUTOTITLE](/code-security/code-scanning/enabling-code-scanning/configuring-default-setup-for-code-scanning-at-scale#configuring-default-setup-for-a-subset-of-repositories-in-an-organization){% endif %}."{% endif %}
 
 {% data reusables.security.displayed-information %}
 
 ## Enabling or disabling a feature automatically when new repositories are added
 
 1. Go to the security and analysis settings for your organization. For more information, see "[Displaying the security and analysis settings](#displaying-the-security-and-analysis-settings)."
-1. Under "Code security and analysis", locate the feature, enable or disable the feature by default for new repositories{% ifversion fpt or ghec %}, or all new private repositories,{% endif %} in your organization.
+1. Under "Code security and analysis", locate the feature, enable or disable the feature by default for new repositories in your organization.
 
 {% endif %}
 
 ## Allowing {% data variables.product.prodname_dependabot %} to access private{% ifversion ghec or ghes %} or internal{% endif %} dependencies
-
-{% ifversion security-configurations-ga %}
-
-You can use {% data variables.product.prodname_security_configurations %} to allow {% data variables.product.prodname_dependabot %} to access private{% ifversion ghec or ghes %} or internal{% endif %} dependencies. For more information, see "[AUTOTITLE](/code-security/securing-your-organization/enabling-security-features-in-your-organization/configuring-global-security-settings-for-your-organization#granting-dependabot-access-to-private-and-internal-repositories)."
-
-{% elsif security-configurations-beta-and-pre-beta %}
 
 {% data variables.product.prodname_dependabot %} can check for outdated dependency references in a project and automatically generate a pull request to update them. To do this, {% data variables.product.prodname_dependabot %} must have access to all of the targeted dependency files. Typically, version updates will fail if one or more dependencies are inaccessible. For more information, see "[AUTOTITLE](/code-security/dependabot/dependabot-version-updates/about-dependabot-version-updates)."
 
@@ -133,17 +95,22 @@ By default, {% data variables.product.prodname_dependabot %} can't update depend
 If your code depends on packages in a private{% ifversion ghec or ghes %} or internal{% endif %} registry, you can allow {% data variables.product.prodname_dependabot %} to update the versions of these dependencies by configuring this at the repository level. You do this by adding authentication details to the `dependabot.yml` file for the repository. For more information, see "[AUTOTITLE](/code-security/dependabot/dependabot-version-updates/configuration-options-for-the-dependabot.yml-file#configuration-options-for-private-registries)."
 
 {% ifversion ghec %}
-{% note %}
 
-**Note:** For the option to grant  {% data variables.product.prodname_dependabot %} access to private or internal repositories to be available, you need {% data variables.product.prodname_dependabot_version_updates %} or {% data variables.product.prodname_dependabot_security_updates %} to be enabled on at least one repository within the organization.
+> [!NOTE]
+> For the option to grant  {% data variables.product.prodname_dependabot %} access to private or internal repositories to be available, you need {% data variables.product.prodname_dependabot_version_updates %} or {% data variables.product.prodname_dependabot_security_updates %} to be enabled on at least one repository within the organization.
 
-{% endnote %}
 {% endif %}
 
-To allow {% data variables.product.prodname_dependabot %} to access a private{% ifversion ghec or ghes %} or internal{% endif %} {% data variables.product.prodname_dotcom %} repository:
+{% ifversion security-configurations %}
+
+ For more information on how to grant {% data variables.product.prodname_dependabot %} access to private{% ifversion ghec or ghes %} or internal{% endif %} dependencies, see "[AUTOTITLE](/code-security/securing-your-organization/enabling-security-features-in-your-organization/configuring-global-security-settings-for-your-organization#granting-dependabot-access-to-private-and-internal-repositories)."
+
+{% else %}
+
+To allow {% data variables.product.prodname_dependabot %} to access a private or internal {% data variables.product.prodname_dotcom %} repository:
 
 1. Go to the security and analysis settings for your organization. For more information, see "[Displaying the security and analysis settings](#displaying-the-security-and-analysis-settings)."
-1. Under "Grant {% data variables.product.prodname_dependabot %} private repository access", click {% ifversion fpt %}**Add private repositories**{% else %}**Add internal and private repositories**{% endif %} to display a repository search field.
+1. Under "Grant {% data variables.product.prodname_dependabot %} private repository access", click **Add internal and private repositories** to display a repository search field.
 
    ![Screenshot of the dropdown that you can use to search for repositories. As you type, repositories whose name matches your search criteria will appear in the list. The search text field is highlighted with a dark orange outline.](/assets/images/help/organizations/dependabot-private-repo-choose.png)
 
@@ -153,15 +120,13 @@ To allow {% data variables.product.prodname_dependabot %} to access a private{% 
 
 {% endif %}
 
-{% ifversion ghes or ghec %}
-
 ## Removing access to {% data variables.product.prodname_GH_advanced_security %} from individual repositories in an organization
 
-{% ifversion security-configurations-ga %}
+{% ifversion security-configurations %}
 
 You can use {% data variables.product.prodname_security_configurations %} to remove access to {% data variables.product.prodname_GH_advanced_security %} from individual repositories in an organization. For more information, see "[AUTOTITLE](/code-security/securing-your-organization/managing-the-security-of-your-organization/managing-your-github-advanced-security-license-usage#turning-off-github-advanced-security-features-on-select-repositories-in-your-organization)."
 
-{% elsif security-configurations-beta-and-pre-beta %}
+{% else %}
 
 You can manage access to {% data variables.product.prodname_GH_advanced_security %} features for a repository from its "Settings" tab. For more information, see "[AUTOTITLE](/repositories/managing-your-repositorys-settings-and-features/enabling-features-for-your-repository/managing-security-and-analysis-settings-for-your-repository)." However, you can also disable {% data variables.product.prodname_GH_advanced_security %} features for a repository from the "Settings" tab for the organization.
 
@@ -172,13 +137,9 @@ You can manage access to {% data variables.product.prodname_GH_advanced_security
 1. To remove access to {% data variables.product.prodname_GH_advanced_security %} from a repository and free up {% ifversion ghas-billing-UI-update %}licenses{% else %}seats{% endif %} used by any active committers that are unique to the repository, click the adjacent {% octicon "x" aria-label="X symbol" %}.
 1. In the confirmation dialog, click **Remove repository** to remove access to the features of {% data variables.product.prodname_GH_advanced_security %}.
 
-{% note %}
+> [!NOTE]
+> If you remove access to {% data variables.product.prodname_GH_advanced_security %} for a repository, you should communicate with the affected development team so that they know that the change was intended. This ensures that they don't waste time debugging failed runs of code scanning.
 
-**Note:** If you remove access to {% data variables.product.prodname_GH_advanced_security %} for a repository, you should communicate with the affected development team so that they know that the change was intended. This ensures that they don't waste time debugging failed runs of code scanning.
-
-{% endnote %}
-
-{% endif %}
 {% endif %}
 
 ## Further reading

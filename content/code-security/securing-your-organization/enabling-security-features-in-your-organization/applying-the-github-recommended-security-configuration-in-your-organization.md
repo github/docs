@@ -2,16 +2,14 @@
 title: Applying the GitHub-recommended security configuration in your organization
 shortTitle: Apply recommended configuration
 intro: 'Secure your code with the security enablement settings created, managed, and recommended by {% data variables.product.company_short %}.'
-permissions: '{% data reusables.security-configurations.security-configurations-permissions %}'
+permissions: '{% data reusables.permissions.security-org-enable %}'
 versions:
-  feature: security-configurations
+  feature: security-configurations-cloud
 topics:
   - Advanced Security
   - Organizations
   - Security
 ---
-
-{% data reusables.security-configurations.security-configurations-beta-note-opt-out %}
 
 ## About the {% data variables.product.prodname_github_security_configuration %}
 
@@ -46,16 +44,7 @@ The {% data variables.product.prodname_github_security_configuration %} is a col
 
 {% data reusables.security-configurations.apply-configuration %}
 
-{% ifversion enforce-security-configurations %}
-
 ## Enforcing the {% data variables.product.prodname_github_security_configuration %}
-
-{% ifversion enforce-security-configurations-beta %}
-
->[!NOTE]
-> This feature is in beta, and is subject to change.
-
-{% endif %}
 
 {% data reusables.profile.access_org %}
 {% data reusables.organizations.org_settings %}
@@ -65,8 +54,6 @@ The {% data variables.product.prodname_github_security_configuration %} is a col
 
 >[!NOTE]
 {% data reusables.code-scanning.custom-security-configuration-enforcement-edge-cases %}
-
-{% endif %}
 
 ## Next steps
 

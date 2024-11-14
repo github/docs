@@ -15,6 +15,12 @@ versions:
 shortTitle: Gradle registry
 ---
 
+{% ifversion ghec %}
+
+> [!NOTE] The Gradle registry is not available for {% data variables.enterprise.data_residency %}.
+
+{% endif %}
+
 {% data reusables.package_registry.packages-ghes-release-stage %}
 
 {% data reusables.package_registry.admins-can-configure-package-types %}
@@ -37,11 +43,8 @@ Replace REGISTRY_URL with the URL for your instance's Maven registry. If your in
 
 Replace USERNAME with your {% data variables.product.prodname_dotcom %} username, TOKEN with your {% data variables.product.pat_v1 %}, REPOSITORY with the name of the repository containing the package you want to publish, and OWNER with the name of the personal account or organization on {% data variables.product.prodname_dotcom %} that owns the repository. Because uppercase letters aren't supported, you must use lowercase letters for the repository owner even if the {% data variables.product.prodname_dotcom %} user or organization name contains uppercase letters.
 
-{% note %}
-
-**Note:** {% data reusables.package_registry.apache-maven-snapshot-versions-supported %} For an example, see "[AUTOTITLE](/packages/working-with-a-github-packages-registry/working-with-the-apache-maven-registry)."
-
-{% endnote %}
+> [!NOTE]
+> {% data reusables.package_registry.apache-maven-snapshot-versions-supported %} For an example, see "[AUTOTITLE](/packages/working-with-a-github-packages-registry/working-with-the-apache-maven-registry)."
 
 #### Example using Gradle Groovy for a single package in a repository
 

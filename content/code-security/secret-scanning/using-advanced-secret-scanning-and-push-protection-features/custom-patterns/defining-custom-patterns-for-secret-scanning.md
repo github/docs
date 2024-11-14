@@ -2,7 +2,8 @@
 title: Defining custom patterns for secret scanning
 shortTitle: Define custom patterns
 intro: 'You can define your own custom patterns to extend the capabilities of {% data variables.product.prodname_secret_scanning %} by generating one or more regular expressions.'
-product: '{% data reusables.gated-features.secret-scanning %}'
+product: '{% data reusables.gated-features.secret-scanning-custom-patterns %}'
+permissions: '{% data reusables.permissions.security-enterprise-enable %}'
 redirect_from:
   - /code-security/secret-security/defining-custom-patterns-for-secret-scanning
   - /code-security/secret-scanning/defining-custom-patterns-for-secret-scanning
@@ -46,7 +47,7 @@ For simple tokens you will usually only need to specify a secret format. The oth
 
 ### Using the regular expression generator
 
-{% data reusables.secret-scanning.regular-expression-generator-overview %} For more information, see "[AUTOTITLE](/code-security/secret-scanning/using-advanced-secret-scanning-and-push-protection-features/custom-patterns/about-generating-regular-expressions-with-ai)" and "[AUTOTITLE](/code-security/secret-scanning/using-advanced-secret-scanning-and-push-protection-features/custom-patterns/generating-regular-expressions-for-custom-patterns-with-ai)."
+{% data reusables.secret-scanning.regular-expression-generator-overview %} For more information, see "[AUTOTITLE](/code-security/secret-scanning/copilot-secret-scanning/responsible-use-ai-regex-generator)" and "[AUTOTITLE](/code-security/secret-scanning/copilot-secret-scanning/generating-regular-expressions-for-custom-patterns-with-ai)."
 
 {% endif %}
 
@@ -65,11 +66,9 @@ Before defining a custom pattern, you must ensure that {% data variables.product
 {% endif %}
 {% data reusables.advanced-security.secret-scanning-create-custom-pattern %}{% ifversion secret-scanning-push-protection-custom-patterns %}
 1. Optionally, to enable push protection for your custom pattern, click **Enable**.
-   {% note %}
 
-   **Note**: The "Enable" button isn't available until after the dry run succeeds and you publish the pattern.
-
-   {% endnote %}
+   > [!NOTE]
+   > The "Enable" button isn't available until after the dry run succeeds and you publish the pattern.
 
    For more information about push protection, see "[AUTOTITLE](/code-security/secret-scanning/protecting-pushes-with-secret-scanning)."
 
@@ -108,26 +107,17 @@ aAAAe9
 
 ## Defining a custom pattern for an organization
 
-Before defining a custom pattern, you must ensure that you enable {% data variables.product.prodname_secret_scanning %} for the repositories that you want to scan in your organization. {% ifversion security-configurations-ga %} You can use {% data variables.product.prodname_security_configurations %} to enable {% data variables.product.prodname_secret_scanning %} on all repositories in your organization using the {% data variables.product.prodname_github_security_configuration %}, or you can create a {% data variables.product.prodname_custom_security_configuration %}. For more information, see "[AUTOTITLE](/code-security/securing-your-organization/enabling-security-features-in-your-organization/applying-the-github-recommended-security-configuration-in-your-organization)" and "[AUTOTITLE](/code-security/securing-your-organization/meeting-your-specific-security-needs-with-custom-security-configurations/creating-a-custom-security-configuration)."{% else %}
+Before defining a custom pattern, you must ensure that you enable {% data variables.product.prodname_secret_scanning %} for the repositories that you want to scan in your organization. {% ifversion security-configurations %} You can use {% data variables.product.prodname_security_configurations %} to enable {% data variables.product.prodname_secret_scanning %} on all repositories in your organization. For more information, see "[AUTOTITLE](/code-security/securing-your-organization/introduction-to-securing-your-organization-at-scale/about-enabling-security-features-at-scale)."{% else %}
 To enable {% data variables.product.prodname_secret_scanning %} on all repositories in your organization, see "[AUTOTITLE](/organizations/keeping-your-organization-secure/managing-security-settings-for-your-organization/managing-security-and-analysis-settings-for-your-organization)."
 {% endif %}
 
 {% data reusables.profile.access_org %}
 {% data reusables.profile.org_settings %}
-{% ifversion security-configurations-beta-and-pre-beta %}
+{% ifversion security-configurations %}
+1. In the "Security" section of the sidebar, select the **Code security** dropdown menu, then click **{% data variables.product.prodname_global_settings_caps %}**.
+{% else %}
 {% data reusables.organizations.security-and-analysis %}
-{% else %}
-1. In the "Security" section of the sidebar, click **{% octicon "codescan" aria-hidden="true" %} Code security** then **Global settings**.
-{% endif %}
-
-{% ifversion security-configurations-beta-only %}
-    {% data reusables.security-configurations.changed-org-settings-global-settings-callout %} For next steps on defining a custom pattern for your organization with {% data variables.product.prodname_global_settings %}, see "[AUTOTITLE](/code-security/securing-your-organization/enabling-security-features-in-your-organization/configuring-global-security-settings-for-your-organization#defining-custom-patterns)."
-{% endif %}
-
-{% ifversion security-configurations-beta-and-pre-beta %}
 {% data reusables.repositories.navigate-to-ghas-settings %}
-{% else %}
-1. Find "{% data variables.product.prodname_GH_advanced_security %}."
 {% endif %}
 {% data reusables.advanced-security.secret-scanning-new-custom-pattern-org %}
 {% data reusables.advanced-security.secret-scanning-add-custom-pattern-details %}
@@ -147,18 +137,13 @@ After your pattern is created, {% data variables.product.prodname_secret_scannin
 
 Before defining a custom pattern, you must ensure that you enable secret scanning for your enterprise account. For more information, see "[Enabling {% data variables.product.prodname_GH_advanced_security %} for your enterprise]({% ifversion fpt or ghec %}/enterprise-server@latest/{% endif %}/admin/advanced-security/enabling-github-advanced-security-for-your-enterprise)."
 
-{% note %}
-
+> [!NOTE]
 {% ifversion custom-pattern-dry-run-ga %}
-**Notes:**
-* At the enterprise level, only the creator of a custom pattern can edit the pattern, and use it in a dry run.
-* {% data reusables.secret-scanning.dry-runs-enterprise-permissions %}
+> * At the enterprise level, only the creator of a custom pattern can edit the pattern, and use it in a dry run.
+> * {% data reusables.secret-scanning.dry-runs-enterprise-permissions %}
 {% else %}
-**Note:** As there is no dry-run functionality, we recommend that you test your custom patterns in a repository before defining them for your entire enterprise. That way, you can avoid creating excess false-positive {% data variables.secret-scanning.alerts %}.
-
+> As there is no dry-run functionality, we recommend that you test your custom patterns in a repository before defining them for your entire enterprise. That way, you can avoid creating excess false-positive {% data variables.secret-scanning.alerts %}.
 {% endif %}
-
-{% endnote %}
 
 {% data reusables.enterprise-accounts.access-enterprise %}
 {% data reusables.enterprise-accounts.policies-tab %}{% ifversion security-feature-enablement-policies %}

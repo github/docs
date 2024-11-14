@@ -14,6 +14,12 @@ redirect_from:
   - /codespaces/developing-in-codespaces/creating-a-codespace-from-a-template
 ---
 
+{% ifversion ghec %}
+
+{% data reusables.codespaces.data-residency-availability %}
+
+{% endif %}
+
 ## About templates for {% data variables.product.prodname_github_codespaces %}
 
 If you're starting a new project, you can get started with development work quickly by creating a codespace from a template. You'll be able to work on your project in a cloud-based development environment, save your files in the cloud, and publish your work to a new remote repository that you can share with others or clone to your local machine.
@@ -21,11 +27,10 @@ If you're starting a new project, you can get started with development work quic
 You can start from a blank template, choose from templates maintained by {% data variables.product.company_short %} for popular technologies such as React or Jupyter Notebook, or launch a codespace from any template repository on {% data variables.product.prodname_dotcom %}.
 
 {% ifversion ghec %}
-{% note %}
 
-**Note:** If you have a {% data variables.enterprise.prodname_managed_user %}, you cannot use {% data variables.product.company_short %}'s public templates for {% data variables.product.prodname_github_codespaces %}, because you can only create codespaces that are owned and paid for by your organization or enterprise. For more information, see "[AUTOTITLE](/admin/identity-and-access-management/using-enterprise-managed-users-for-iam/about-enterprise-managed-users#abilities-and-restrictions-of-managed-user-accounts)."
+> [!NOTE]
+> If you have a {% data variables.enterprise.prodname_managed_user %}, you cannot use {% data variables.product.company_short %}'s public templates for {% data variables.product.prodname_github_codespaces %}, because you can only create codespaces that are owned and paid for by your organization or enterprise. For more information, see "[AUTOTITLE](/admin/identity-and-access-management/using-enterprise-managed-users-for-iam/about-enterprise-managed-users#abilities-and-restrictions-of-managed-user-accounts)."
 
-{% endnote %}
 {% endif %}
 
 With a blank template, you'll start with an empty directory, with access to cloud-based compute resources and the tools, languages, and runtime environments that come preinstalled with the default dev container image. With other templates, you'll get starter files for the technology you're working with, plus typically some extra files such as a README file, a `.gitignore` file, and dev container configuration files containing some custom environment configuration. For more information on dev containers and the default image, see "[AUTOTITLE](/codespaces/setting-up-your-project-for-codespaces/adding-a-dev-container-configuration/introduction-to-dev-containers)."
@@ -36,11 +41,8 @@ As an example, if you create a codespace from {% data variables.product.company_
 
 The files and configuration included in templates are defined in template repositories. The template repository is cloned into your codespace when you create the codespace. After that, the link is severed, and your codespace won't be linked to a remote repository until you publish to one.
 
-{% tip %}
-
-**Tip:** To help people get started with your framework, library, or other project, you can set up a template repository for use with {% data variables.product.prodname_github_codespaces %}. For more information, see "[AUTOTITLE](/codespaces/setting-up-your-project-for-codespaces/setting-up-your-repository/setting-up-a-template-repository-for-github-codespaces)."
-
-{% endtip %}
+> [!TIP]
+> To help people get started with your framework, library, or other project, you can set up a template repository for use with {% data variables.product.prodname_github_codespaces %}. For more information, see "[AUTOTITLE](/codespaces/setting-up-your-project-for-codespaces/setting-up-your-repository/setting-up-a-template-repository-for-github-codespaces)."
 
 ## Creating a codespace from a {% data variables.product.company_short %} template
 
@@ -63,11 +65,8 @@ You can create a codespace from any template repository, then publish your work 
 {% data reusables.repositories.navigate-to-repo %}
 {% data reusables.codespaces.use-this-template %}
 
-   {% note %}
-
-   **Note:** If you're a maintainer of the template repository, and want to commit changes to the template repository itself, you should create a codespace from the **{% octicon "code" aria-hidden="true" %} Code** dropdown. For more information, see "[AUTOTITLE](/codespaces/developing-in-a-codespace/creating-a-codespace-for-a-repository#creating-a-codespace-for-a-repository)."
-
-   {% endnote %}
+   > [!NOTE]
+   > If you're a maintainer of the template repository, and want to commit changes to the template repository itself, you should create a codespace from the **{% octicon "code" aria-hidden="true" %} Code** dropdown. For more information, see "[AUTOTITLE](/codespaces/developing-in-a-codespace/creating-a-codespace-for-a-repository#creating-a-codespace-for-a-repository)."
 
 {% data reusables.codespaces.template-codespaces-default-editor %}
 
@@ -85,9 +84,9 @@ When a codespace is published, you have access to a greater range of options to 
 * Allow {% data variables.product.prodname_dotcom %} to automatically use GPG to sign commits you make in your codespace (see "[AUTOTITLE](/codespaces/managing-your-codespaces/managing-gpg-verification-for-github-codespaces)").
 * Share secrets with your codespace (see "[AUTOTITLE](/codespaces/managing-your-codespaces/managing-your-account-specific-secrets-for-github-codespaces)").
 
-### Publishing from {% data variables.product.prodname_dotcom_the_website %}
+### Publishing from {% data variables.product.github %}
 
-You can publish an unpublished codespace from the "Your codespaces" page on {% data variables.product.prodname_dotcom_the_website %}. This is useful if you want to publish a codespace that you don't currently have open in your browser. If you do this, your work will be preserved in a repository, but there won't be a link between your existing codespace and the new repository. However, you can navigate to the new repository and create a codespace from there, and this codespace will be connected to the repository.
+You can publish an unpublished codespace from the "Your codespaces" page on {% data variables.product.github %}. This is useful if you want to publish a codespace that you don't currently have open in your browser. If you do this, your work will be preserved in a repository, but there won't be a link between your existing codespace and the new repository. However, you can navigate to the new repository and create a codespace from there, and this codespace will be connected to the repository.
 
 {% data reusables.codespaces.your-codespaces-procedure-step %}
 1. Next to the unpublished codespace, click the ellipsis (**...**), then select **Publish to a new repository**.

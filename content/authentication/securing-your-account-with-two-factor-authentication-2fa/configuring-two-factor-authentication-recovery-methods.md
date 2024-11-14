@@ -26,7 +26,7 @@ In addition to securely storing your two-factor authentication (2FA) recovery co
 
 To keep your account secure, don't share or distribute your recovery codes. We recommend saving them with a secure password manager.
 
-If you generate new recovery codes or disable and re-enable 2FA, the recovery codes in your security settings automatically update.{% ifversion 2fa-reconfiguration-inline-update %} Reconfiguring your 2FA settings without disabling 2FA will not change your recovery codes.{% endif %}
+If you generate new recovery codes or disable and re-enable 2FA, the recovery codes in your security settings automatically update. Reconfiguring your 2FA settings without disabling 2FA will not change your recovery codes.
 
 {% data reusables.user-settings.access_settings %}
 {% data reusables.user-settings.security %}

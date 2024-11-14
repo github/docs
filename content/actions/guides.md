@@ -16,14 +16,14 @@ learningTracks:
 includeGuides:
   - /actions/writing-workflows/quickstart
   - /actions/about-github-actions/understanding-github-actions
-  - /actions/creating-actions/creating-a-docker-container-action
-  - /actions/writing-workflows/using-starter-workflows
+  - /actions/sharing-automations/creating-actions/creating-a-docker-container-action
+  - /actions/writing-workflows/using-workflow-templates
   - /actions/use-cases-and-examples/building-and-testing/building-and-testing-python
   - /actions/use-cases-and-examples/building-and-testing/building-and-testing-nodejs
   - /actions/use-cases-and-examples/publishing-packages/about-packaging-with-github-actions
   - /actions/use-cases-and-examples/publishing-packages/publishing-docker-images
   - /actions/writing-workflows/choosing-what-your-workflow-does/caching-dependencies-to-speed-up-workflows
-  - /actions/about-github-actions/about-continuous-integration
+  - /actions/about-github-actions/about-continuous-integration-with-github-actions
   - /actions/use-cases-and-examples/building-and-testing/building-and-testing-powershell
   - /actions/use-cases-and-examples/building-and-testing/building-and-testing-ruby
   - /actions/use-cases-and-examples/building-and-testing/building-and-testing-java-with-maven
@@ -35,15 +35,15 @@ includeGuides:
   - /actions/use-cases-and-examples/publishing-packages/publishing-nodejs-packages
   - /actions/use-cases-and-examples/publishing-packages/publishing-java-packages-with-maven
   - /actions/use-cases-and-examples/publishing-packages/publishing-java-packages-with-gradle
-  - /actions/writing-workflows/choosing-what-your-workflow-does/storing-workflow-data-as-artifacts
+  - /actions/writing-workflows/choosing-what-your-workflow-does/storing-and-sharing-data-from-a-workflow
   - /actions/use-cases-and-examples/using-containerized-services/about-service-containers
   - /actions/use-cases-and-examples/using-containerized-services/creating-redis-service-containers
   - /actions/use-cases-and-examples/using-containerized-services/creating-postgresql-service-containers
   - /actions/use-cases-and-examples/deploying/deploying-to-amazon-elastic-container-service
   - /actions/use-cases-and-examples/deploying/deploying-to-google-kubernetes-engine
-  - /actions/creating-actions/about-custom-actions
-  - /actions/creating-actions/creating-a-javascript-action
-  - /actions/creating-actions/creating-a-composite-action
+  - /actions/sharing-automations/creating-actions/about-custom-actions
+  - /actions/sharing-automations/creating-actions/creating-a-javascript-action
+  - /actions/sharing-automations/creating-actions/creating-a-composite-action
   - /actions/migrating-to-github-actions/manually-migrating-to-github-actions/migrating-from-azure-pipelines-to-github-actions
   - /actions/migrating-to-github-actions/manually-migrating-to-github-actions/migrating-from-circleci-to-github-actions
   - /actions/migrating-to-github-actions/manually-migrating-to-github-actions/migrating-from-gitlab-cicd-to-github-actions

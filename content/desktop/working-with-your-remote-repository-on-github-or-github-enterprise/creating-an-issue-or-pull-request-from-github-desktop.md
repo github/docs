@@ -43,11 +43,8 @@ Before you create a pull request, you'll need to push changes to a branch on {% 
 
 1. On {% data variables.product.prodname_dotcom %}, click **Get started** to open an issue template or click **Open a blank issue**.
 
-{% note %}
-
-**Note**: If issue templates aren't enabled in your current repository, {% data variables.product.prodname_desktop %} will direct you to a blank issue on {% data variables.product.prodname_dotcom %}.
-
-{% endnote %}
+> [!NOTE]
+> If issue templates aren't enabled in your current repository, {% data variables.product.prodname_desktop %} will direct you to a blank issue on {% data variables.product.prodname_dotcom %}.
 
 ## Creating a pull request
 

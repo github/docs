@@ -35,9 +35,8 @@ Only repository owners and administrators can edit repository-level security adv
 1. Navigate to https://github.com/advisories.
 1. Select the security advisory you would like to contribute to.
 1. On the right-hand side of the page, click the **Suggest improvements for this vulnerability** link.
-1. In the "Improve security advisory" form, make the desired improvements. You can edit or add any detail.{% ifversion fpt or ghec %} For information about correctly specifying information on the form, including affected versions, see "[AUTOTITLE](/code-security/security-advisories/guidance-on-reporting-and-writing-information-about-vulnerabilities/best-practices-for-writing-repository-security-advisories)."{% endif %}{% ifversion security-advisories-reason-for-change %}
+1. In the "Improve security advisory" form, make the desired improvements. You can edit or add any detail.{% ifversion fpt or ghec %} For information about correctly specifying information on the form, including affected versions, see "[AUTOTITLE](/code-security/security-advisories/guidance-on-reporting-and-writing-information-about-vulnerabilities/best-practices-for-writing-repository-security-advisories)."{% endif %}
 1. Under **Reason for change**, explain why you want to make this improvement. If you include links to supporting material this will help our reviewers.
-{% endif %}
 1. When you finish editing the advisory, click **Submit improvements**.
 1. Once you submit your improvements, a pull request containing your changes will be created for review in [github/advisory-database](https://github.com/github/advisory-database) by the {% data variables.product.prodname_security %} curation team. If the advisory originated from a {% data variables.product.prodname_dotcom %} repository, we will also tag the original publisher for optional commentary. You can view the pull request and get notifications when it is updated or closed.
 
@@ -45,12 +44,12 @@ You can also open a pull request directly on an advisory file in the [github/adv
 
 {% ifversion security-advisories-ghes %}
 
-## Editing advisories from {% data variables.location.product_location %}
+## Editing advisories from {% data variables.product.prodname_ghe_server %}
 
-If you have {% data variables.product.prodname_github_connect %} enabled for {% data variables.location.product_location %}, you will be able to see advisories by adding `/advisories` to the instance url.
+If you have {% data variables.product.prodname_github_connect %} enabled on your instance, you will be able to see advisories by adding `/advisories` to the instance url.
 
 1. Navigate to `https://HOSTNAME/advisories`.
 1. Select the security advisory you would like to contribute to.
-1. On the right-hand side of the page, click the **Suggest improvements for this vulnerability on {% data variables.product.prodname_dotcom_the_website %}.** link. A new tab opens with the same security advisory on {% data variables.product.prodname_dotcom_the_website %}.
+1. On the right-hand side of the page, click the **Suggest improvements for this vulnerability on {% data variables.product.prodname_dotcom %}.** link. A new tab opens with the same security advisory on {% data variables.product.prodname_dotcom %}.
 1. Edit the advisory, following steps four through six in "[Editing advisories in the GitHub Advisory Database](#editing-advisories-in-the-github-advisory-database)" above.
 {% endif %}

@@ -63,11 +63,8 @@ The sections below give example commands for each of the available operations.
 
 For a complete reference of `gh` commands for {% data variables.product.prodname_github_codespaces %}, including details of all available options for each command, see the {% data variables.product.prodname_cli %} online help for "[gh codespace](https://cli.github.com/manual/gh_codespace)." Alternatively, on the command line, use `gh codespace --help` for general help or `gh codespace SUBCOMMAND --help` for help with a specific subcommand.
 
-{% note %}
-
-**Note**: The `-c CODESPACE_NAME` flag, used with many commands, is optional. If you omit it a list of codespaces is displayed for you to choose from.
-
-{% endnote %}
+> [!NOTE]
+> The `-c CODESPACE_NAME` flag, used with many commands, is optional. If you omit it a list of codespaces is displayed for you to choose from.
 
 ### List all of your codespaces
 
@@ -148,13 +145,10 @@ To run commands on the remote codespace machine, from your terminal, you can SSH
 gh codespace ssh -c CODESPACE-NAME
 ```
 
-{% note %}
-
-**Note**: {% data reusables.codespaces.ssh-server-installed %}
-
-<br>For more information about the `devcontainer.json` file and the default container image, see "[AUTOTITLE](/codespaces/setting-up-your-project-for-codespaces/adding-a-dev-container-configuration/introduction-to-dev-containers)."
-
-{% endnote %}
+> [!NOTE]
+> {% data reusables.codespaces.ssh-server-installed %}
+>
+> For more information about the `devcontainer.json` file and the default container image, see "[AUTOTITLE](/codespaces/setting-up-your-project-for-codespaces/adding-a-dev-container-configuration/introduction-to-dev-containers)."
 
 {% data variables.product.prodname_github_codespaces %} creates a local SSH key automatically to provide a seamless authentication experience. For more information on connecting with SSH, see [`gh codespace ssh`](https://cli.github.com/manual/gh_codespace_ssh).
 
@@ -254,11 +248,8 @@ For more information about the creation log, see "[AUTOTITLE](/codespaces/troubl
 
 You can use the {% data variables.product.prodname_cli %} extension to create a bridge between a codespace and your local machine, so that the codespace can access any remote resource that is accessible from your machine. For more information on using the extension, see "[Using {% data variables.product.prodname_cli %} to access remote resources](https://github.com/github/gh-net#codespaces-network-bridge)."
 
-{% note %}
-
-**Note**: The {% data variables.product.prodname_cli %} extension is currently in beta and subject to change.
-
-{% endnote %}
+> [!NOTE]
+> The {% data variables.product.prodname_cli %} extension is currently in {% data variables.release-phases.public_preview %} and subject to change.
 
 ### Change the machine type of a codespace
 

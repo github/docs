@@ -14,7 +14,7 @@ shortTitle: Enforce SAML single sign-on
 
 ## About enforcement of SAML SSO for your organization
 
-When you enable SAML SSO, {% data variables.product.prodname_dotcom %} will prompt members who visit the organization's resources on {% data variables.product.prodname_dotcom_the_website %} to authenticate on your IdP, which links the member's personal account to an identity on the IdP. Members can still access the organization's resources before authentication with your IdP.
+When you enable SAML SSO, {% data variables.product.prodname_dotcom %} will prompt members who visit the organization's resources on {% data variables.product.prodname_dotcom %} to authenticate on your IdP, which links the member's personal account to an identity on the IdP. Members can still access the organization's resources before authentication with your IdP.
 
 You can also enforce SAML SSO for your organization. {% data reusables.saml.when-you-enforce %} Enforcement removes any members and administrators who have not authenticated via your IdP from the organization. {% data variables.product.company_short %} sends an email notification to each removed user.
 
@@ -26,11 +26,8 @@ Bots and service accounts that do not have external identities set up in your or
 
 If your organization is owned by an enterprise account, requiring SAML for the enterprise account will override your organization-level SAML configuration and enforce SAML SSO for every organization in the enterprise. For more information, see "[AUTOTITLE](/enterprise-cloud@latest/admin/identity-and-access-management/using-saml-for-enterprise-iam/configuring-saml-single-sign-on-for-your-enterprise)."
 
-{% tip %}
-
-**Tip:** {% data reusables.saml.testing-saml-sso %}
-
-{% endtip %}
+> [!TIP]
+> {% data reusables.saml.testing-saml-sso %}
 
 ## Enforcing SAML SSO for your organization
 

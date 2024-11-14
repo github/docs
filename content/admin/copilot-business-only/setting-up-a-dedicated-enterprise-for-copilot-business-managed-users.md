@@ -20,12 +20,16 @@ This article describes the setup for an **enterprise with managed users**. If yo
 
 ## Prerequisites
 
-* To provision users, you must connect the enterprise account to an identity management system. {% data variables.product.company_short %} partners with some developers of identity management systems to provide a "paved-path" integration with {% data variables.product.prodname_emus %}. See "[AUTOTITLE](/admin/identity-and-access-management/understanding-iam-for-enterprises/about-enterprise-managed-users#identity-management-systems)."
+* To provision users, you must connect the enterprise account to an identity management system. {% data variables.product.company_short %} partners with some developers of identity management systems to provide a "paved-path" integration with {% data variables.product.prodname_emus %}. Alternatively, you can use any system, or combination of systems, that conforms to SAML 2.0 and SCIM 2.0. However, support for resolving problems with these systems may be limited. See "[AUTOTITLE](/admin/identity-and-access-management/understanding-iam-for-enterprises/about-enterprise-managed-users#identity-management-systems)."
 {% data reusables.copilot-business-for-non-ghe.prerequisites %}
 
 ## Requesting an enterprise account
 
 {% data reusables.copilot-business-for-non-ghe.request-access %}
+
+After we create your enterprise, you will receive an email inviting you to choose a password for the setup user, which is used to configure authentication and provisioning. The username is your enterprise's shortcode suffixed with `_admin`, for example `fabrikam_admin`. Make sure to open the password reset link using an **incognito or private browsing window**. The link can only be opened once and if done incorrectly you will need to contact {% data variables.contact.github_support %} to send you a new link.
+
+>[!NOTE] {% data reusables.enterprise-accounts.emu-password-reset-session %}
 
 ## Adding users to the enterprise
 

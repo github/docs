@@ -1,6 +1,6 @@
 ---
 title: Reviewing your SSH keys
-intro: 'To keep your credentials secure, you should regularly audit your SSH keys, deploy keys, and review authorized applications that access your account on {% data variables.location.product_location %}.'
+intro: 'To keep your credentials secure, you should regularly audit your SSH keys, deploy keys, and review authorized applications that access your account.'
 redirect_from:
   - /articles/keeping-your-application-access-tokens-safe
   - /articles/keeping-your-ssh-keys-and-application-access-tokens-safe
@@ -23,11 +23,8 @@ You can delete unauthorized (or possibly compromised) SSH keys to ensure that an
 {% data reusables.user-settings.ssh %}
 1. Under "SSH keys", take note of the SSH keys associated with your account. For those that you don't recognize, or that are out-of-date, click **Delete**. If there are valid SSH keys you'd like to keep, click **Approve**.
 
-   {% note %}
-
-   **Note:** If you're auditing your SSH keys due to an unsuccessful Git operation, the unverified key that caused the [SSH key audit error](/articles/error-we-re-doing-an-ssh-key-audit) will be highlighted in the list of SSH keys.
-
-   {% endnote %}
+   > [!NOTE]
+   > If you're auditing your SSH keys due to an unsuccessful Git operation, the unverified key that caused the [SSH key audit error](/articles/error-we-re-doing-an-ssh-key-audit) will be highlighted in the list of SSH keys.
 
 1. Open Terminal.
 
@@ -50,11 +47,8 @@ You can delete unauthorized (or possibly compromised) SSH keys to ensure that an
 {% data reusables.user-settings.ssh %}
 1. Under "SSH keys", take note of the SSH keys associated with your account. For those that you don't recognize, or that are out-of-date, click **Delete**. If there are valid SSH keys you'd like to keep, click **Approve**.
 
-   {% note %}
-
-   **Note:** If you're auditing your SSH keys due to an unsuccessful Git operation, the unverified key that caused the [SSH key audit error](/articles/error-we-re-doing-an-ssh-key-audit) will be highlighted in the list of SSH keys.
-
-   {% endnote %}
+   > [!NOTE]
+   > If you're auditing your SSH keys due to an unsuccessful Git operation, the unverified key that caused the [SSH key audit error](/articles/error-we-re-doing-an-ssh-key-audit) will be highlighted in the list of SSH keys.
 
 1. Open Git Bash.
 
@@ -81,11 +75,8 @@ You can delete unauthorized (or possibly compromised) SSH keys to ensure that an
 {% data reusables.user-settings.ssh %}
 1. Under "SSH keys", take note of the SSH keys associated with your account. For those that you don't recognize, or that are out-of-date, click **Delete**. If there are valid SSH keys you'd like to keep, click **Approve**.
 
-   {% note %}
-
-   **Note:** If you're auditing your SSH keys due to an unsuccessful Git operation, the unverified key that caused the [SSH key audit error](/articles/error-we-re-doing-an-ssh-key-audit) will be highlighted in the list of SSH keys.
-
-   {% endnote %}
+   > [!NOTE]
+   > If you're auditing your SSH keys due to an unsuccessful Git operation, the unverified key that caused the [SSH key audit error](/articles/error-we-re-doing-an-ssh-key-audit) will be highlighted in the list of SSH keys.
 
 1. Open Terminal.
 
@@ -102,8 +93,5 @@ You can delete unauthorized (or possibly compromised) SSH keys to ensure that an
 
 {% endlinux %}
 
-{% warning %}
-
-**Warning**: If you see an SSH key you're not familiar with on {% data variables.product.product_name %}, delete it immediately and contact {% data variables.contact.contact_support %} for further help. An unidentified public key may indicate a possible security concern.
-
-{% endwarning %}
+> [!WARNING]
+> If you see an SSH key you're not familiar with on {% data variables.product.product_name %}, delete it immediately and contact {% data variables.contact.contact_support %} for further help. An unidentified public key may indicate a possible security concern.

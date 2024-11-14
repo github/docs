@@ -1,7 +1,11 @@
-{%- ifversion fpt or ghec %}
-{% data variables.product.prodname_dependabot_security_updates %} are free to use for all repositories on {% data variables.product.prodname_dotcom_the_website %}.
+{% data variables.product.prodname_dependabot_security_updates %} is available for the following repositories:
 
-{%- else %}
-{% data variables.product.prodname_dependabot_security_updates %} are free to use for repositories (user-owned and organization-owned) on {% data variables.product.prodname_ghe_server %}, provided enterprise administrators enable the feature for your enterprise.
+{% ifversion fpt or ghec %}
+
+* All repositories on {% data variables.product.prodname_dotcom %}
+
+{% else %}
+
+* All repositories on {% data variables.product.prodname_ghe_server %}
 
 {% endif %}

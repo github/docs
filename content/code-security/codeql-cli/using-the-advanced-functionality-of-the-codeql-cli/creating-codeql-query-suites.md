@@ -20,7 +20,7 @@ redirect_from:
 {% data reusables.code-scanning.codeql-cli-version-ghes %}
 
 {% data variables.product.prodname_codeql %} query suites provide a way of selecting queries, based on their
-filename, location on disk{% ifversion codeql-packs %} or in a {% data variables.product.prodname_codeql %} pack{% endif %}, or metadata properties.
+filename, location on disk or in a {% data variables.product.prodname_codeql %} pack, or metadata properties.
 Create query suites for the queries that you want to frequently use in
 your {% data variables.product.prodname_codeql %} analyses.
 
@@ -29,13 +29,8 @@ mapping with (usually) a single key. The instructions are executed in the order
 they appear in the query suite definition. After all the instructions in the
 suite definition have been executed, the result is a set of selected queries.
 
-{% ifversion codeql-packs %}
-{% note %}
-
-**Note:** Any custom queries that you want to add to a query suite must be in a "[{% data variables.product.prodname_codeql %} pack](/code-security/codeql-cli/getting-started-with-the-codeql-cli/customizing-analysis-with-codeql-packs)" and contain the correct query metadata. For more information, see "[Using custom queries with the {% data variables.product.prodname_codeql_cli %}](/code-security/codeql-cli/using-the-advanced-functionality-of-the-codeql-cli/using-custom-queries-with-the-codeql-cli)."
-
-{% endnote %}
-{% endif %}
+> [!NOTE]
+> Any custom queries that you want to add to a query suite must be in a "[{% data variables.product.prodname_codeql %} pack](/code-security/codeql-cli/getting-started-with-the-codeql-cli/customizing-analysis-with-codeql-packs)" and contain the correct query metadata. For more information, see "[Using custom queries with the {% data variables.product.prodname_codeql_cli %}](/code-security/codeql-cli/using-the-advanced-functionality-of-the-codeql-cli/using-custom-queries-with-the-codeql-cli)."
 
 ## Locating queries to add to a query suite
 
@@ -87,11 +82,8 @@ named {% data variables.product.prodname_codeql %} pack:
   The `version` field is optional and specifies a range of compatible versions of this {% data variables.product.prodname_codeql %} pack.
   If you don’t specify a version, then the most recent version of the pack is used.
 
-{% note %}
-
-**Note:** When pathnames appear in query suite definitions, they must always be given with a forward slash, `/`, as a directory separator. This ensures that query suite definitions work on all operating systems.
-
-{% endnote %}
+> [!NOTE]
+> When pathnames appear in query suite definitions, they must always be given with a forward slash, `/`, as a directory separator. This ensures that query suite definitions work on all operating systems.
 
 You must add at least one `query`, `queries`, or `qlpack` instruction to
 your suite definition, otherwise no queries will be selected. If the suite
@@ -246,12 +238,8 @@ use:
     - very-high
 ```
 
-<!--Changed this to a note to fit with style guide -->
-{% note %}
-
-**Note:** You can use the `codeql resolve queries /path/to/suite.qls` command to see which queries are selected by a query suite definition. For more information, see "[AUTOTITLE](/code-security/codeql-cli/codeql-cli-manual/resolve-queries)."
-
-{% endnote %}
+> [!NOTE]
+> You can use the `codeql resolve queries /path/to/suite.qls` command to see which queries are selected by a query suite definition. For more information, see "[AUTOTITLE](/code-security/codeql-cli/codeql-cli-manual/resolve-queries)."
 
 ## Reusing existing query suite definitions
 

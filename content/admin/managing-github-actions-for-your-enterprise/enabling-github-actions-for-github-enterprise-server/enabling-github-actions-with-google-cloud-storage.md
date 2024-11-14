@@ -15,11 +15,8 @@ redirect_from:
   - /admin/github-actions/enabling-github-actions-for-github-enterprise-server/enabling-github-actions-with-google-cloud-storage
 ---
 
-{% note %}
-
-**Note:** {% data variables.product.prodname_actions %} support for Google Cloud Storage is currently in beta and subject to change.
-
-{% endnote %}
+> [!NOTE]
+> {% data variables.product.prodname_actions %} support for Google Cloud Storage is currently in {% data variables.release-phases.public_preview %} and subject to change.
 
 {% data reusables.actions.enterprise-storage-about %}
 
@@ -91,11 +88,9 @@ To configure {% data variables.product.prodname_ghe_server %} to use OIDC with G
      google.subject == "my-ghes-host.example.com"
      ```
 
-     {% note %}
+     > [!NOTE]
+     > The hostname of {% data variables.location.product_location_enterprise %} used here _must not_ include the protocol.
 
-     **Note:** The hostname of {% data variables.location.product_location_enterprise %} used here _must not_ include the protocol.
-
-     {% endnote %}
    * Click **Save**.
 1. After creating the identity pool, at the top of the identity pool's page, click **Grant access**.
    * Under "Select service account", select the service account that you created in the previous procedure.

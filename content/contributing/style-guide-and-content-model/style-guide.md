@@ -52,12 +52,12 @@ Provides additional context that users may need to take into account. Tasks can 
 
 Notes are particularly useful for communicating parenthetical information that is not central to the process being described:
 * Caveats that might affect the outcome of a process, such as specific user settings.
-* Products and features that are subject to changes in availability, such as those in beta or being deprecated.
+* Products and features that are subject to changes in availability, such as those in {% data variables.release-phases.public_preview %} or {% data variables.release-phases.closing_down %}.
 
-For example, "[AUTOTITLE](/code-security/secret-scanning/managing-alerts-from-secret-scanning/evaluating-alerts#reviewing-github-token-metadata)" uses a note to inform users that metadata for {% data variables.product.prodname_dotcom %} tokens is currently in beta.
+For example, "[AUTOTITLE](/code-security/secret-scanning/managing-alerts-from-secret-scanning/evaluating-alerts#reviewing-github-token-metadata)" uses a note to inform users that metadata for {% data variables.product.prodname_dotcom %} tokens is currently in {% data variables.release-phases.public_preview %}.
 
 > [!NOTE]
-> Metadata for {% data variables.product.prodname_dotcom %} tokens is currently in public beta and subject to change.
+> Metadata for {% data variables.product.prodname_dotcom %} tokens is currently in {% data variables.release-phases.public_preview %} and subject to change.
 
 #### Tip
 
@@ -277,10 +277,14 @@ Workflow runs are delayed when too many workflows run at once. Since many users 
 
 ## Emphasis
 
-Use italics to emphasize words or parts of a sentence. Use emphasis sparingly for terminology or context that someone must be aware of to successfully complete the task that they're working on. Do not use italics to emphasize words that have other formatting applied such as all caps for placeholder text or bold for UI elements.
+Use bold to emphasize words or parts of a sentence. Use emphasis sparingly (no more than five contiguous words), and remember that it is a visual aid for scannability for sighted users.
 
-* **Use:** _{% data variables.product.pat_v2 %}s_ have several security advantages over {% data variables.product.pat_v1_plural %}.
-* **Use:** _For types of packages other than containers_, to the right of the package version click **Delete**.
+* Do not bold words that have other formatting applied, such as all caps for placeholder text.
+* For accessibility, do not use bolding as the only way to convey meaning or emphasis.
+
+For example:
+
+* **Use:** Managed user accounts **cannot create public content** or collaborate outside your enterprise.
 * **Avoid:** Next to _**Title**_, add a descriptive label for your new key.
 
 ## Error messages
@@ -328,19 +332,22 @@ Note that regardless of the identifier you use (letters, words), footnotes will 
 
 ## Headers
 
-Headers must adequately describe the content under them. Headers can either follow the guidelines for writing titles or can be written as questions. Use sentence casing for headers. Each header on a page must be unique.
+Headers must adequately describe the content under them. Headers can either follow the [guidelines for writing titles](/contributing/style-guide-and-content-model/contents-of-a-github-docs-article#titles) or can be written as questions. Use sentence casing for headers.
 
 If an article has headers, the headers must start with an H2 level header. You can use H3 and H4 level headers to further organize content into related groups, but you cannot skip header levels. There must be text content between a header and subheader, such as an introduction.
 * **Use:**
 
   ```markdown
   ## HEADER (H2)
+
   TEXT
 
   ### SUBHEADER (H3)
+  
   TEXT
 
   #### SUBHEADER (H4)
+  
   TEXT
   ```
 
@@ -352,10 +359,59 @@ If an article has headers, the headers must start with an H2 level header. You c
   #### SUBHEADER (H4)
   ```
 
-When referring to headers, surround the header name with quotation marks.
-* **Use:** Under "User licenses," view your total licenses.
+Each header at the same level on a page must be unique.
 
-For more information, see the "[AUTOTITLE](/contributing/style-guide-and-content-model/contents-of-a-github-docs-article)."
+* **Use:**
+
+  ```markdown
+  ## Examples  (H2)
+  
+  TEXT
+
+  ### Prompts for writing code (H3)
+  
+  TEXT
+
+  ### Prompts for writing tests (H3)
+  
+  TEXT
+  ```
+
+* **Use:**
+
+  ```markdown
+  ## Prompts for writing code (H2)
+  
+  TEXT
+
+  ### Example (H3)
+  
+  TEXT
+
+  ## Prompts for writing tests (H2)
+  
+  TEXT
+
+  ### Example (H3)
+  
+  TEXT
+  ```
+
+* **Avoid:**
+
+  ```markdown
+  ## Example prompts (H2)
+  
+  TEXT
+
+  ### Example (H3)
+  
+  TEXT
+
+  ### Example (H3)
+  
+  TEXT
+  ```
 
 ## Images
 
@@ -411,7 +467,7 @@ Use alt text to express the core idea of the image, without duplicating the webp
 
 > Diagram showing a five-step process by which a {% data variables.product.prodname_actions %} runner can be automatically added to named classes of runners and then requested by specific jobs.
 
-For example, see [accompanying explanation of this diagram in the Actions documentation](/free-pro-team@latest/actions/using-github-hosted-runners/using-larger-runners#architectural-overview-of-larger-runners).
+For example, see [accompanying explanation of this diagram in the Actions documentation](/free-pro-team@latest/actions/using-github-hosted-runners/using-larger-runners/about-larger-runners#architectural-overview-of-larger-runners).
 
 #### Alt text for images of command-line interfaces
 
@@ -919,7 +975,12 @@ Each release note in a set describes one of the following changes.
 * [Bug fixes](#bug-fixes): fixes to flaws or unexpected behavior
 * [Changes](#changes): notable changes to past behavior
 * [Known issues](#known-issues): issues that {% data variables.product.company_short %} has identified, but cannot or has not yet prioritized
+{%- ifversion ghes < 3.16 %}
 * [Deprecations](#deprecations): removal of a feature or behavior
+{%- else %}
+* [Closing down](#closing-down): the process of being retired and should no longer be relied upon for future work
+* [Retired](#retired): end of a product or feature lifecycle
+{%- endif %}
 * [Errata](#errata): correction to inaccurate release note or documentation
 
 You can also review guidelines for updating release notes in "[Adding or updating a release note](#adding-or-updating-a-release-note)" and "[Removing a release note](#removing-a-release-note)."
@@ -1062,6 +1123,8 @@ A release note for a known issue answers the following questions.
 
 * > After an administrator begins a configuration run, a `No such object error` may occur during the validation phase for the Notebook and Viewscreen services. This error can be ignored as the services should still correctly start.
 
+{% ifversion ghes < 3.16 %}
+
 ### Deprecations
 
 A deprecation release note summarizes a behavior or feature that {% data variables.product.company_short %} has removed or plans to remove. Generally, notes for deprecations are only part of feature releases.
@@ -1087,6 +1150,60 @@ A release note for a deprecation answers the following questions.
 * > **Upcoming deprecation**: In {% data variables.product.prodname_ghe_server %} 3.8 and later, to ensure instance security, unsecure algorithms will be disabled for SSH connections to the administrative shell.
 
 * > Commit comments, which are comments that users add directly to a commit outside of a pull request, no longer appear in the pull request timeline. Users could not reply to or resolve these comments. The Timeline events REST API and the GraphQL API's `PullRequest` object also no longer return commit comments.
+
+{% else %}
+
+### Closing down
+
+A release note for a feature that is closing down summarizes a behavior or feature that {% data variables.product.github %} plans to remove. These features are still available for production use and come with the associated support SLAs and technical support obligations. However, they are in the process of being retired and should no longer be relied upon for future work. Closing down is a transitional stage where users are advised to stop using the feature and prepare for its retirement.
+
+#### Writing release notes features that are closing down
+
+A release note for a feature that is closing down answers the following questions.
+
+1. Does this existing functionality apply to me, with my role or access?
+1. What is the functionality that's closing down?
+1. If applicable, what replaces the closing down functionality?
+1. If applicable, where can I read more?
+
+> _AUDIENCE_ (**1**) _DESCRIPTION OF CLOSING DOWN FUNCTIONALITY_ (**2**) _REPLACEMENT FUNCTIONALITY_ (**3**) For more information, see "[_ARTICLE TITLE_](/)" (**4**).
+
+* Notes are in the present tense, or the future tense for upcoming changes. If applicable, specify the upcoming release when the retirement will occur.
+* To reduce repetition and unnecessary words, "now" is usually implied.
+* To clarify actors and impact, avoid passive language when possible.
+* Categorize each feature in a section, under a feature heading.
+
+#### Examples of release notes for features that are closing down
+
+* > **Closing down**: In {% data variables.product.prodname_ghe_server %} 3.8 and later, to ensure instance security, unsecure algorithms will be disabled for SSH connections to the administrative shell.
+
+* > Commit comments, which are comments that users add directly to a commit outside of a pull request, no longer appear in the pull request timeline. Users could not reply to or resolve these comments. The Timeline events REST API and the GraphQL API's `PullRequest` object also no longer return commit comments.
+
+### Retired
+
+Retired products or features are no longer available for new customers, marketed, supported, or documented. At this stage, the product is effectively discontinued, and no new development or fixes will be provided. The only support for retired products may come from existing commitments, such as those required for previously released versions of {% data variables.product.prodname_ghe_server %}. Retiring marks the official end of a product or feature's lifecycle, with no further updates, bug fixes, or user support, signaling a complete transition to newer tools or services.
+
+#### Writing release notes for retired features
+
+A release note for a retired feature answers the following questions.
+
+1. Does this functionality apply to me, with my role or access?
+1. What is the functionality that's retired?
+1. If applicable, what replaces the retired functionality?
+1. If applicable, where can I read more?
+
+> _AUDIENCE_ (**1**) _DESCRIPTION OF RETIRED FUNCTIONALITY_ (**2**) _REPLACEMENT FUNCTIONALITY_ (**3**) For more information, see "[_ARTICLE TITLE_](/)" (**4**).
+
+* Notes are in the present tense.
+* To reduce repetition and unnecessary words, "now" is usually implied.
+* To clarify actors and impact, avoid passive language when possible.
+* Categorize each feature in a section, under a feature heading.
+
+#### Examples of release notes for retired features
+
+* > **Retired**: {% data variables.product.github %} no longer supports required workflows for {% data variables.product.prodname_actions %} in {% data variables.product.prodname_ghe_server %} 3.11 and later. Use repository rulesets instead. For more information, see "[AUTOTITLE](/repositories/configuring-branches-and-merges-in-your-repository/managing-rulesets/available-rules-for-rulesets#require-workflows-to-pass-before-merging)."
+
+{% endif %}
 
 ### Errata
 

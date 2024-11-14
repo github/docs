@@ -9,9 +9,8 @@
     ![Screenshot of the {% data variables.product.prodname_marketplace %} app purchase screen. A collapsed gray dropdown menu labeled "Account" is outlined in dark orange.](/assets/images/help/marketplace/marketplace-confirm-org-no-org-details.png)
 
    {% ifversion ghec %}
-   {% note %}
 
-   **Note**: {% data reusables.apps.github_app_install_saml %}
+   > [!NOTE]
+   > {% data reusables.apps.github_app_install_saml %}
 
-   {% endnote %}
    {% endif %}

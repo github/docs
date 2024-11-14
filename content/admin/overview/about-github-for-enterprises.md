@@ -71,8 +71,9 @@ When businesses adopt {% data variables.product.prodname_enterprise %}, their re
 
 **With {% data variables.product.prodname_ghe_cloud %}**:
 
-* Your repositories and other resources are hosted on {% data variables.product.prodname_dotcom_the_website %}.
-* To access your resources, members of your enterprise can use their personal account or, if you use {% data variables.product.prodname_emus %}, you can provision accounts for users using an external system.
+* Your repositories and other resources are hosted by {% data variables.product.company_short %}, and you'll automatically have access to the latest features and bugfixes.
+* You can choose for your enterprise to be hosted on {% data variables.product.prodname_dotcom_the_website %} or, for more control over where your company's code and data reside, on your own subdomain of {% data variables.enterprise.data_residency_site %}.
+* To access your resources, members of your enterprise can use their personal account or, if you use {% data variables.product.prodname_emus %}, you will provision accounts for users using an external system.
 
 **With {% data variables.product.prodname_ghe_server %}**:
 
@@ -84,7 +85,7 @@ When businesses adopt {% data variables.product.prodname_enterprise %}, their re
 
 1. Learn more about {% data variables.product.prodname_enterprise %}.
 
-   * "[AUTOTITLE](/enterprise-cloud@latest/admin/overview/about-github-enterprise-cloud)"{% ifversion not ghec %} in the {% data variables.product.prodname_ghe_cloud%} documentation{% endif %}
+   * "[AUTOTITLE](/enterprise-cloud@latest/admin/overview/about-github-enterprise-cloud)"{% ifversion not ghec %} in the {% data variables.product.prodname_ghe_cloud %} documentation{% endif %}
    * "[AUTOTITLE]({% ifversion not ghes %}/enterprise-server@latest{% endif %}/admin/overview/about-github-enterprise-server){% ifversion not ghes %}" in the {% data variables.product.prodname_ghe_server %} documentation.{% else %}."{% endif %}
 1. Set up a trial.
 
@@ -94,6 +95,7 @@ When businesses adopt {% data variables.product.prodname_enterprise %}, their re
 ## Further reading
 
 * "[AUTOTITLE](/admin/overview/about-enterprise-accounts)"
+* "[AUTOTITLE](/enterprise-cloud@latest/admin/data-residency/about-github-enterprise-cloud-with-data-residency)"{% ifversion ghes %} in the {% data variables.product.prodname_ghe_cloud %} documentation{% endif %}
 * "[AUTOTITLE](/get-started/learning-about-github/about-github-advanced-security)"
 * "[AUTOTITLE](/support/learning-about-github-support/about-github-premium-support)"
 * "[AUTOTITLE](/enterprise-server@latest/admin/configuration/configuring-github-connect/about-github-connect)"

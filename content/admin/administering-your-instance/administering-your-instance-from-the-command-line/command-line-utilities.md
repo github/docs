@@ -100,11 +100,8 @@ ghe-cleanup-caches
 
 This utility wipes all existing {% data variables.enterprise.management_console %} settings.
 
-{% tip %}
-
-**Tip**: {% data reusables.enterprise_enterprise_support.support_will_ask_you_to_run_command %}
-
-{% endtip %}
+> [!TIP]
+> {% data reusables.enterprise_enterprise_support.support_will_ask_you_to_run_command %}
 
 ```shell
 ghe-cleanup-settings
@@ -140,9 +137,7 @@ $ ghe-config app.github.rate-limiting-exempt-users "hubot github-actions[bot]"
 
 ### ghe-config-apply
 
-This utility applies {% data variables.enterprise.management_console %} settings, reloads system services, prepares a storage device, reloads application services, and runs any pending database migrations. It is equivalent to clicking **Save settings** in the {% data variables.enterprise.management_console %}'s web UI or to sending a POST request to [the `/setup/api/configure` endpoint](/rest/enterprise-admin/management-console).
-
-You will probably never need to run this manually, but it's available if you want to automate the process of saving your settings via SSH.
+This utility applies {% data variables.enterprise.management_console %} settings, reloads system services, prepares a storage device, reloads application services, and runs any pending database migrations. It is equivalent to clicking **Save settings** in the {% data variables.enterprise.management_console %}'s web UI or to sending a POST request to {% ifversion management-console-manage-ghes-parity %}[the `/manage/v1/config/apply` endpoint](/rest/enterprise-admin/manage-ghes#trigger-a-ghe-config-apply-run){% else %}[the `/setup/api/configure` endpoint](/rest/enterprise-admin/management-console){% endif %}.
 
 ```shell
 ghe-config-apply
@@ -210,7 +205,7 @@ $ ghe-es-index-status -do | column -ts,
 
 ### ghe-legacy-github-services-report
 
-This utility lists repositories on your appliance that use {% data variables.product.prodname_dotcom %} Services, an integration method that will be discontinued on October 1, 2018. Users on your appliance may have set up {% data variables.product.prodname_dotcom %} Services to create notifications for pushes to certain repositories. For more information, see "[Announcing the deprecation of {% data variables.product.prodname_dotcom %} Services](https://developer.github.com/changes/2018-04-25-github-services-deprecation/)" on {% data variables.product.prodname_blog %}. For more information about this command or for additional options, use the `-h` flag.
+This utility lists repositories on your appliance that use {% data variables.product.prodname_dotcom %} Services, an integration that was discontinued on October 1, 2018. Users on your appliance may have set up {% data variables.product.prodname_dotcom %} Services to create notifications for pushes to certain repositories. For more information, see "[Announcing the deprecation of {% data variables.product.prodname_dotcom %} Services](https://developer.github.com/changes/2018-04-25-github-services-deprecation/)" on {% data variables.product.prodname_blog %}. For more information about this command or for additional options, use the `-h` flag.
 
 ```shell
 ghe-legacy-github-services-report
@@ -325,7 +320,6 @@ This utility lists all of the services that have been started or stopped (are ru
 
 ```shell
 $ ghe-service-list
-{% ifversion viewscreen-and-notebooks %}
 active
   - alambic
   - alive
@@ -378,26 +372,6 @@ active
 
 inactive
   - wireguard
-{% else %}
-start/running
-  - github-resqued, process 12711
-  - github-unicorn, process 12726
-  - github-gitauth, process 12743
-  - git-daemon, process 12755
-  - babeld, process 12771
-  - github-svn-proxy, process 12802
-  - gist-unicorn, process 12832
-  - gist-resqued, process 12881
-  - render-unicorn, process 12939
-  - hookshot-unicorn, process 13076
-  - nodeload2, process 13192
-  - slumlord-unicorn, process 13304
-  - ghe-storage, process 2012
-  - enterprise-manage-unicorn, process 2024
-  - enterprise-manage-resque, process 2053
-stop/waiting
-  - ghe-replica-mode
-  {% endif %}
 ```
 
 ### ghe-set-password
@@ -661,7 +635,7 @@ $ ghe-cluster-maintenance -u
 
 ### ghe-cluster-repl-bootstrap
 
-This utility configures high availability replication to a secondary set of cluster nodes. For more information, see "[AUTOTITLE](/admin/monitoring-managing-and-updating-your-instance/configuring-clustering/configuring-high-availability-replication-for-a-cluster)."
+This utility configures high availability replication to a secondary set of cluster nodes. For more information, see "[AUTOTITLE](/admin/monitoring-and-managing-your-instance/configuring-clustering/configuring-high-availability-replication-for-a-cluster)."
 
 ```shell
 ghe-cluster-repl-bootstrap
@@ -669,7 +643,7 @@ ghe-cluster-repl-bootstrap
 
 ### ghe-cluster-repl-teardown
 
-This utility disables replication to replica nodes for a cluster in a high availability configuration. For more information, see "[AUTOTITLE](/admin/monitoring-managing-and-updating-your-instance/configuring-clustering/configuring-high-availability-replication-for-a-cluster#disabling-high-availability-replication-for-a-cluster)."
+This utility disables replication to replica nodes for a cluster in a high availability configuration. For more information, see "[AUTOTITLE](/admin/monitoring-and-managing-your-instance/configuring-clustering/configuring-high-availability-replication-for-a-cluster#disabling-high-availability-replication-for-a-cluster)."
 
 ```shell
 ghe-cluster-repl-teardown
@@ -729,7 +703,7 @@ ssh -p 122 admin@HOSTNAME -- 'ghe-cluster-support-bundle -t TICKET_ID'
 
 {% endif %}
 
-With the `ghe-cluster-failover` utility, you can fail over to your replica cluster. For more information, see "[AUTOTITLE](/admin/monitoring-managing-and-updating-your-instance/configuring-clustering/initiating-a-failover-to-your-replica-cluster)."
+With the `ghe-cluster-failover` utility, you can fail over to your replica cluster. For more information, see "[AUTOTITLE](/admin/monitoring-and-managing-your-instance/configuring-clustering/initiating-a-failover-to-your-replica-cluster)."
 
 ```shell
 ghe-cluster-failover
@@ -797,9 +771,9 @@ ghe-dpages evacuate pages-server-UUID
 
 ### ghe-remove-node
 
-This utility removes a node from a cluster. If you're replacing a node, after you've set up a replacement node, you can use this command to take the old node offline. For more information, see "[AUTOTITLE](/admin/monitoring-managing-and-updating-your-instance/configuring-clustering/replacing-a-cluster-node)."
+This utility removes a node from a cluster. If you're replacing a node, after you've set up a replacement node, you can use this command to take the old node offline. For more information, see "[AUTOTITLE](/admin/monitoring-and-managing-your-instance/configuring-clustering/replacing-a-cluster-node)."
 
-You must run this command from the primary MySQL node in your cluster, which is typically the node designated as `mysql-master` in your cluster configuration file (`cluster.conf`). You can use this command to remove any node, with the exception of the `mysql-master` or `redis-master` node. For more information, see "[AUTOTITLE](/admin/monitoring-managing-and-updating-your-instance/configuring-clustering/initializing-the-cluster#about-the-cluster-configuration-file)."
+You must run this command from the primary MySQL node in your cluster, which is typically the node designated as `mysql-master` in your cluster configuration file (`cluster.conf`). You can use this command to remove any node, with the exception of the `mysql-master` or `redis-master` node. For more information, see "[AUTOTITLE](/admin/monitoring-and-managing-your-instance/configuring-clustering/initializing-the-cluster#about-the-cluster-configuration-file)."
 
 ```shell
 ghe-remove-node HOSTNAME
@@ -817,14 +791,9 @@ Flag | Description
 `-v/--verbose` | Prints additional information to the console.
 `-h/--help` | Displays help text for the command.
 
-{% note %}
-
-**Notes:**
-
-* This command can only be used to remove a node from a cluster configuration. It cannot be used to remove a node from a high availability configuration.
-* This command does not support parallel execution. To remove multiple nodes, you must wait until this command has finished before running it for another node.
-
-{% endnote %}
+> [!NOTE]
+> * This command can only be used to remove a node from a cluster configuration. It cannot be used to remove a node from a high availability configuration.
+> * This command does not support parallel execution. To remove multiple nodes, you must wait until this command has finished before running it for another node.
 
 {% endif %}
 
@@ -993,10 +962,16 @@ ghe-repo USERNAME/REPONAME
 
 This utility manually repackages a repository network to optimize pack storage. If you have a large repository, running this command may help reduce its overall size. {% data variables.product.prodname_enterprise %} automatically runs this command throughout your interaction with a repository network.
 
-You can add the optional `--prune` argument to remove unreachable Git objects that aren't referenced from a branch, tag, or any other ref. This is particularly useful for immediately removing [previously expunged sensitive information](/authentication/keeping-your-account-and-data-secure/removing-sensitive-data-from-a-repository).
-
 ```shell
 ghe-repo-gc USERNAME/REPONAME
+```
+
+You can add the optional `--prune` argument to remove unreachable Git objects that aren't referenced from a branch, tag, or any other ref. This is particularly useful for immediately removing previously expunged sensitive information. See "[AUTOTITLE](/authentication/keeping-your-account-and-data-secure/removing-sensitive-data-from-a-repository)."
+
+If you use a deployment topology with multiple nodes, to prevent sensitive data from persisting on other nodes and potentially being exposed during a failover, you must run the command on all nodes. For example, for a cluster configuration, you can use the following command.
+
+```shell
+ghe-cluster-each -r git -- "ghe-repo-gc --prune USERNAME/REPONAME"
 ```
 
 ## {% data variables.product.prodname_actions %}
@@ -1016,11 +991,10 @@ This utility tests the blob storage configuration for {% data variables.product.
 For more information about the configuration of {% data variables.product.prodname_actions %}, see "[AUTOTITLE](/admin/github-actions/getting-started-with-github-actions-for-your-enterprise/getting-started-with-github-actions-for-github-enterprise-server)."
 
 {% ifversion ghes-actions-storage-oidc %}
-{% note %}
 
-**Note:** This utility only works with configurations that use a credentials-based connection to the storage provider. To test OpenID Connect (OIDC) configurations, use [`ghe-actions-test-storage-with-oidc`](#ghe-actions-test-storage-with-oidc).
+> [!NOTE]
+> This utility only works with configurations that use a credentials-based connection to the storage provider. To test OpenID Connect (OIDC) configurations, use [`ghe-actions-test-storage-with-oidc`](#ghe-actions-test-storage-with-oidc).
 
-{% endnote %}
 {% endif %}
 
 ```shell
@@ -1039,11 +1013,8 @@ All Storage tests passed
 
 This utility checks that the blob storage provider for {% data variables.product.prodname_actions %} on {% data variables.location.product_location %} is valid when OpenID Connect (OIDC) is used.
 
-{% note %}
-
-**Note:** This utility only works with configurations that use an OpenID Connect (OIDC) configuration. To test credentials-based configurations, use [`ghe-actions-precheck`](#ghe-actions-precheck).
-
-{% endnote %}
+> [!NOTE]
+> This utility only works with configurations that use an OpenID Connect (OIDC) configuration. To test credentials-based configurations, use [`ghe-actions-precheck`](#ghe-actions-precheck).
 
 ```shell
 ghe-actions-test-storage-with-oidc -p [PROVIDER] -cs ["CONNECTION-STRING"]
@@ -1055,27 +1026,17 @@ ghe-actions-test-storage-with-oidc -p [PROVIDER] -cs ["CONNECTION-STRING"]
 
 This utility stops {% data variables.product.prodname_actions %} from running on {% data variables.location.product_location %}.
 
-{% note %}
-
-**Notes**:
-
-* {% data reusables.enterprise_enterprise_support.support_will_ask_you_to_run_command %}
-* In high availability configurations, run this command from the primary.
-
-{% endnote %}
+> [!NOTE]
+> * {% data reusables.enterprise_enterprise_support.support_will_ask_you_to_run_command %}
+> * In high availability configurations, run this command from the primary.
 
 ### ghe-actions-start
 
 This utility starts {% data variables.product.prodname_actions %} on {% data variables.location.product_location %} after it has been previously stopped.
 
-{% note %}
-
-**Notes**:
-
-* {% data reusables.enterprise_enterprise_support.support_will_ask_you_to_run_command %}
-* In high availability configurations, run this command from the primary.
-
-{% endnote %}
+> [!NOTE]
+> * {% data reusables.enterprise_enterprise_support.support_will_ask_you_to_run_command %}
+> * In high availability configurations, run this command from the primary.
 
 If your system is configured correctly, you'll see the following output:
 
@@ -1180,11 +1141,11 @@ ghe-repl-teardown
 
 ### ghe-repl-stop-all
 
-This utility disables replication of all datastores on all replica nodes. Run this utility from the primary node before upgrading replicas. For more information, see "[AUTOTITLE](/admin/monitoring-managing-and-updating-your-instance/updating-the-virtual-machine-and-physical-resources/upgrading-github-enterprise-server)."
+This utility disables replication of all datastores on all replica nodes. Run this utility from the primary node before upgrading replicas. For more information, see "[AUTOTITLE](/admin/upgrading-your-instance/performing-an-upgrade/upgrading-with-an-upgrade-package)."
 
 ### ghe-repl-start-all
 
-This utility begins replication of all datastores on all replica nodes. Run this utility from the primary node after upgrading replicas. For more information, see "[AUTOTITLE](/admin/monitoring-managing-and-updating-your-instance/updating-the-virtual-machine-and-physical-resources/upgrading-github-enterprise-server)."
+This utility begins replication of all datastores on all replica nodes. Run this utility from the primary node after upgrading replicas. For more information, see "[AUTOTITLE](/admin/upgrading-your-instance/performing-an-upgrade/upgrading-with-an-upgrade-package)."
 {% endif %}
 
 ## Import and export
@@ -1382,11 +1343,10 @@ In this example, `ghe-repl-status -vv` sends verbose status information from a r
 During an upgrade to a feature release, this utility displays the status of background jobs on {% data variables.location.product_location %}. If you're running back-to-back upgrades, you should use this utility to check that all background jobs are complete before proceeding with the next upgrade.
 
 {% ifversion ghes < 3.12 %}
-{% note %}
 
-**Note:** To use `ghe-check-background-upgrade-jobs` with {% data variables.product.product_name %} {{ allVersions[currentVersion].currentRelease }}, your instance must run version {{ allVersions[currentVersion].currentRelease }}.{% ifversion ghes = 3.10 %}4{% elsif ghes = 3.11 %}1{% endif %} or later.
+> [!NOTE]
+> To use `ghe-check-background-upgrade-jobs` with {% data variables.product.product_name %} {{ allVersions[currentVersion].currentRelease }}, your instance must run version {{ allVersions[currentVersion].currentRelease }}.{% ifversion ghes = 3.10 %}4{% elsif ghes = 3.11 %}1{% endif %} or later.
 
-{% endnote %}
 {% endif %}
 
 ```shell
@@ -1435,7 +1395,7 @@ ssh -p 122 admin@HOSTNAME -- 'ghe-update-check'
 
 ### ghe-upgrade
 
-This utility installs or verifies an upgrade package. You can also use this utility to roll back a patch release if an upgrade fails or is interrupted. For more information, see "[AUTOTITLE](/admin/enterprise-management/updating-the-virtual-machine-and-physical-resources/upgrading-github-enterprise-server)."
+This utility installs or verifies an upgrade package. You can also use this utility to roll back a patch release if an upgrade fails or is interrupted. For more information, see "[AUTOTITLE](/admin/upgrading-your-instance/preparing-to-upgrade/overview-of-the-upgrade-process)."
 
 To verify an upgrade package:
 

@@ -17,24 +17,31 @@ topics:
   - Accounts
 shortTitle: User into an organization
 ---
-{% warning %}
 
-**Warning**: Before converting a user into an organization, keep these points in mind.
+> [!WARNING]
+> Before converting a user into an organization, keep these points in mind.
+>
+> * You will **no longer** be able to sign into the converted personal account.
+> * You will **no longer** be able to create or modify gists owned by the converted personal account.
+> * An organization **cannot** be converted back to a user.
+> * The SSH keys, OAuth tokens, job profile, reactions, and associated user information, **will not** be transferred to the organization. This is only true for the personal account that's being converted, not any of the personal account's collaborators.
+> * Any {% data variables.product.prodname_github_apps %} installed on the converted personal account will be uninstalled.
+> * Any commits made with the converted personal account **will no longer be linked** to that account. The commits themselves **will** remain intact.
+> * Any existing comments made by the converted personal account **will no longer be linked** to that account. The comments themselves **will** remain intact, but will be associated with the `ghost` user.
+> * Any forks of private repositories made with the converted personal account will be deleted.
+> * Since organizations cannot star repositories, you will no longer have access to your original list of starred repositories.
+> * You will no longer have access to the list of users you were following from your user account.
+> * Any followers of your user account will not automatically follow the new organization.
+{% ifversion projects-v2 %}> * Any existing collaborators on your projects will still have access to those projects in the new organization.{% endif %}
+> * {% data variables.product.prodname_actions %} is not automatically enabled on the account after converting it to an organization, and will have to be re-enabled. To re-enable {% data variables.product.prodname_actions %}, create a new workflow file in the `.github/workflows` directory of your repository.
 
-* You will **no longer** be able to sign into the converted personal account.
-* You will **no longer** be able to create or modify gists owned by the converted personal account.
-* An organization **cannot** be converted back to a user.
-* The SSH keys, OAuth tokens, job profile, reactions, and associated user information, **will not** be transferred to the organization. This is only true for the personal account that's being converted, not any of the personal account's collaborators.
-* Any {% data variables.product.prodname_github_apps %} installed on the converted personal account will be uninstalled.
-* Any commits made with the converted personal account **will no longer be linked** to that account. The commits themselves **will** remain intact.
-* Any existing comments made by the converted personal account **will no longer be linked** to that account. The comments themselves **will** remain intact, but will be associated with the `ghost` user.
-* Any forks of private repositories made with the converted personal account will be deleted.
-* Since organizations cannot star repositories, you will no longer have access to your original list of starred repositories.
-* You will no longer have access to the list of users you were following from your user account.
-* Any followers of your user account will not automatically follow the new organization.
-{% ifversion projects-v2 %}- Any existing collaborators on your projects will still have access to those projects in the new organization.{% endif %}
-* {% data variables.product.prodname_actions %} is not automatically enabled on the account after converting it to an organization, and will have to be re-enabled. To re-enable {% data variables.product.prodname_actions %}, create a new workflow file in the `.github/workflows` directory of your repository.
-{% endwarning %}
+## Prerequisites
+
+The personal account you want to convert cannot be a member of any organizations. If the personal account you want to convert is a member of an organization, you must leave the organization before you can convert the account.
+
+{% ifversion ghes %}
+You may not be able to convert a personal account into an organization, if an enterprise owner has set a policy at the enterprise level. See, "[AUTOTITLE](/admin/managing-accounts-and-repositories/managing-organizations-in-your-enterprise/preventing-users-from-creating-organizations)."
+{% endif %}
 
 ## Keep your personal account and create a new organization manually
 

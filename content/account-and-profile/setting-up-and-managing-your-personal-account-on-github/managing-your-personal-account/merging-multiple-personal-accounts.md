@@ -16,29 +16,23 @@ topics:
   - Accounts
 shortTitle: Merge multiple accounts
 ---
-{% tip %}
 
+> [!TIP]
 {% ifversion ghec %}
 
-**Tip:** {% data variables.product.prodname_emus %} allow an enterprise to provision unique personal accounts for its members through an identity provider (IdP). For more information, see "[AUTOTITLE](/admin/identity-and-access-management/using-enterprise-managed-users-for-iam/about-enterprise-managed-users)." For other use cases, we recommend using only one personal account to manage both personal and professional repositories.
+> {% data variables.product.prodname_emus %} allow an enterprise to provision unique personal accounts for its members through an identity provider (IdP). For more information, see "[AUTOTITLE](/admin/identity-and-access-management/using-enterprise-managed-users-for-iam/about-enterprise-managed-users)." For other use cases, we recommend using only one personal account to manage both personal and professional repositories.
 
 {% else %}
 
-**Tip:** We recommend using only one personal account to manage both personal and professional repositories.
+> We recommend using only one personal account to manage both personal and professional repositories.
 
 {% endif %}
 
-{% endtip %}
-
-{% warning %}
-
-**Warning:**
-* Organization and repository access permissions aren't transferable between accounts. If the account you want to delete has an existing access permission, an organization owner or repository administrator will need to invite the account that you want to keep.
-* Any commits authored with a {% data variables.product.company_short %}-provided `noreply` email address cannot be transferred from one account to another. If the account you want to delete used the **Keep my email address private** option, it won't be possible to transfer the commits authored by the account you are deleting to the account you want to keep.
-* Issues, pull requests, and discussions will not be attributed to the new account.
-* Achievements are not able to be transferred between accounts.
-
-{% endwarning %}
+> [!WARNING]
+> * Organization and repository access permissions aren't transferable between accounts. If the account you want to delete has an existing access permission, an organization owner or repository administrator will need to invite the account that you want to keep.
+> * Any commits authored with a {% data variables.product.company_short %}-provided `noreply` email address cannot be transferred from one account to another. If the account you want to delete used the **Keep my email address private** option, it won't be possible to transfer the commits authored by the account you are deleting to the account you want to keep.
+> * Issues, pull requests, and discussions will not be attributed to the new account.
+> * Achievements are not able to be transferred between accounts.
 
 1. [Transfer any repositories](/repositories/creating-and-managing-repositories/transferring-a-repository) from the account you want to delete to the account you want to keep. Issues, pull requests, and wikis are transferred as well. Verify the repositories exist on the account you want to keep.
 1. [Update the remote URLs](/get-started/getting-started-with-git/managing-remote-repositories) in any local clones of the repositories that were moved.

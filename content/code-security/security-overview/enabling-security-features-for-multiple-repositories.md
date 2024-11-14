@@ -2,8 +2,7 @@
 title: Enabling security features for multiple repositories
 shortTitle: Enable security features
 intro: You can use security overview to select a subset of repositories and enable security features for them all.
-permissions: '{% data reusables.security-overview.permissions %}'
-product: '{% data reusables.gated-features.security-overview %}'
+permissions: '{% data reusables.permissions.security-org-enable %}'
 allowTitleToDifferFromFilename: true
 versions:
   feature: security-configurations-beta-and-pre-beta
@@ -29,7 +28,7 @@ You can use checkboxes to select which repositories you want to include, or use 
 
 For more information on filters you can use in different parts of security overview, see "[AUTOTITLE](/code-security/security-overview/filtering-alerts-in-security-overview)."
 
-For more information about the different ways of enabling security features in an organization, see {% ifversion security-configurations-ga %}"[AUTOTITLE](/code-security/securing-your-organization)."{% else %}"[AUTOTITLE](/code-security/getting-started/quickstart-for-securing-your-organization)."{% endif %}
+For more information about the different ways of enabling security features in an organization, see {% ifversion security-configurations %}"[AUTOTITLE](/code-security/securing-your-organization)."{% else %}"[AUTOTITLE](/code-security/getting-started/quickstart-for-securing-your-organization)."{% endif %}
 
 ## Enabling security features for multiple repositories
 

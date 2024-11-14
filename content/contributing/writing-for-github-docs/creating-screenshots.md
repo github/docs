@@ -150,21 +150,16 @@ The stroke is the color `fg.severe` in the [Primer Design System](https://primer
    * Pixel depth: 144dpi (equivalent to "2x" on Snagit for Mac)
    * Pixel width: 1000 pixels maximum
 
-   {% note %}
+   > [!NOTE]
+   > On Windows, you may need to select **Advanced** to change the resolution. Ensure **Use resampling** is disabled.
 
-   **Note:** On Windows, you may need to select **Advanced** to change the resolution. Ensure **Use resampling** is disabled.
-
-   {% endnote %}
 1. With the {% data variables.product.prodname_docs %} theme open in the Shapes sidebar, select the dark orange rectangle.
 1. Drag and drop across the image to create a rectangle.
 1. Adjust the rectangle's height and width by dragging edges. Do not adjust the corner rounding, which should remain 4 px. Adjust the space between the UI element and the stroke so it's about the width of the stroke itself.
 1. Export image to PNG.
 
-{% note %}
-
-**Note:** A bug in Snagit may corrupt the corner rounding, causing rectangles to become ovals. If this occurs, delete and reinstall the {% data variables.product.prodname_docs %} theme (Windows and Mac), or click and drag the yellow dot at the top right of the shape to reset corner rounding to 4 px (Mac only).
-
-{% endnote %}
+> [!NOTE]
+> A bug in Snagit may corrupt the corner rounding, causing rectangles to become ovals. If this occurs, delete and reinstall the {% data variables.product.prodname_docs %} theme (Windows and Mac), or click and drag the yellow dot at the top right of the shape to reset corner rounding to 4 px (Mac only).
 
 ## Replacing screenshots
 
@@ -172,7 +167,7 @@ When replacing an existing image, best practice is to retain the image's filenam
 
 If you must change an image filename, search the repository for other references to that image and update all references to the original filename.
 
-If the image is used in deprecated versions of {% data variables.product.prodname_ghe_server %} documentation, don't change the filename.
+If the image is used in documentation for versions of {% data variables.product.prodname_ghe_server %} that are {% data variables.release-phases.closing_down %}, don't change the filename.
 
 ## Versioning images in Markdown content
 
@@ -220,6 +215,6 @@ Your Liquid conditional would look like this:
 {% endif %}{% endraw %}
 ```
 
-When the 3.10 release is deprecated, the `/assets/images/enterprise/3.10` directory will be removed.
+When the 3.10 release is {% data variables.release-phases.closing_down %}, the `/assets/images/enterprise/3.10` directory will be removed.
 
 The numbered release directory should contain images that apply to that release number only or to that release number and earlier. For example, images in `/assets/images/enterprise/2.22` should contain images that apply to 2.22 only or 2.22 and earlier.

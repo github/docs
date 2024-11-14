@@ -25,6 +25,7 @@ redirect_from:
   Analysis SARIF file exceeded alert limits
   Rule tags in SARIF file exceed limits
   Alert in SARIF upload exceeded thread flow location limits
+  Repository is at risk of exceeding the alert limit.
 
 # SARIF results exceed hard limit
   Alert(s) in SARIF file exceeded thread flow location limits
@@ -34,6 +35,7 @@ redirect_from:
   Analysis SARIF file rejected due to result limits
   Analysis SARIF file rejected due to rule limits
   Analysis SARIF file rejected due to run limits
+  All analysis uploads blocked due to alert limit
 ```
 
 {% data variables.product.prodname_code_scanning_caps %} sets two types of limits on fields in SARIF results files.
@@ -85,3 +87,23 @@ The best way to resolve this problem is usually to identify the query that repor
 ## Fixing "Analysis SARIF file rejected due to rule tag limits"
 
 You need to update the SARIF file or the generator so that the array of tags reported for each `reportingDescriptor` object is fewer than 10. For more information, see `properties.tags[]` in "[AUTOTITLE](/code-security/code-scanning/integrating-with-code-scanning/sarif-support-for-code-scanning#reportingdescriptor-object)."
+
+## Fixing "Repository is at risk of exceeding the alert limit" & "All analysis uploads blocked due to alert limit"
+
+This limit is triggered by a repository producing more unique alerts than should ever exist as part of a well functioning {% data variables.product.prodname_code_scanning %} configuration.
+It is possible that this is due to the output of a third-party tool being used, and may not be a user configuration error.
+Both user configuration error and tool vendor error are possible causes.
+
+There are a few steps to fix this problem.
+
+1. Look at the SARIF files you are producing to identify the cause of {% data variables.product.prodname_code_scanning %} alerts being classed as distinct across runs of a tool. Usually this is due to one of the following:
+    * The SARIF `artifactLocation.uri` property (filepath in the {% data variables.product.prodname_code_scanning %} alert user interface) is not deterministic due to the inclusion of temporary directories or generated file names.
+    * The tool used produces unstable SARIF rule names or `artifactLocation object uri property` values, which is usually the result of using hashes (from git commits or docker image SHAs, for example) or other sources of data that change across runs or environments.
+1. Once you have identified the source of the issue, you should update your configuration accordingly, and contact the tool vendor if their tool is the source of the unstable SARIF results.
+1. Stop uploading code scanning results for any third-party tools that produce non-deterministic output until they have been fixed by the tool vendor.
+
+### Additional steps for "All analysis uploads blocked due to alert limit"
+
+On top of fixing the code scanning configuration and removing or fixing the output of third-party tools, you will need to contact {% data variables.contact.contact_support %} to assist you in deleting the alerts for any offending configurations.
+
+**There is no self-service method for deleting alerts at this time, so contacting customer support is necessary before code-scanning can be re-enabled.**

@@ -16,13 +16,12 @@ topics:
   - GitHub search
 ---
 {% ifversion code-search-upgrade %}
-{% note %}
 
-**Note:** This article covers the syntax for legacy code search, which you should only need to use for the [REST API endpoint for searching code](/rest/search/search#search-code).
+> [!NOTE]
+> This article covers the syntax for legacy code search, which you should only need to use for the [REST API endpoint for searching code](/rest/search/search#search-code).
+>
+> For information on the code search syntax that you can use on {% data variables.product.prodname_dotcom %}, see "[AUTOTITLE](/search-github/github-code-search/understanding-github-code-search-syntax)."
 
-For information on the code search syntax that you can use on {% data variables.product.prodname_dotcom_the_website %}, see "[AUTOTITLE](/search-github/github-code-search/understanding-github-code-search-syntax)."
-
-{% endnote %}
 {% endif %}
 
 {% data reusables.search.you-can-search-globally %} For more information, see "[AUTOTITLE](/search-github/getting-started-with-searching-on-github/about-searching-on-github)."

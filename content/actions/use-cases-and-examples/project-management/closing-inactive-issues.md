@@ -67,11 +67,8 @@ In the tutorial, you will first make a workflow file that uses the [`actions/sta
 
 Based on the `schedule` parameter (for example, every day at 1:30 UTC), your workflow will find issues that have been inactive for the specified period of time and will add the specified comment and label. Additionally, your workflow will close any previously labeled issues if no additional activity has occurred for the specified period of time.
 
-{% note %}
-
-**Note:** {% data reusables.actions.schedule-delay %}
-
-{% endnote %}
+> [!NOTE]
+> {% data reusables.actions.schedule-delay %}
 
 You can view the history of your workflow runs to see this workflow run periodically. For more information, see "[AUTOTITLE](/actions/monitoring-and-troubleshooting-workflows/viewing-workflow-run-history)."
 

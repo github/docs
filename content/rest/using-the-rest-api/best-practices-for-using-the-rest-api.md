@@ -17,11 +17,8 @@ shortTitle: Best practices
 
 {% ifversion ghes %}
 
-{% note %}
-
-**Note**: Rate limits are only enabled for your instance if your site administrator has enabled them. Even if rate limits are disabled for your instance, you may still want to follow the best practices that are intended to help you avoid exceeding the rate limit. This can help reduce load on your servers.
-
-{% endnote %}
+> [!NOTE]
+> Rate limits are only enabled for your instance if your site administrator has enabled them. Even if rate limits are disabled for your instance, you may still want to follow the best practices that are intended to help you avoid exceeding the rate limit. This can help reduce load on your servers.
 
 {% endif %}
 
@@ -50,6 +47,8 @@ If you receive a rate limit error, you should stop making requests temporarily a
 * Otherwise, wait for at least one minute before retrying. If your request continues to fail due to a secondary rate limit, wait for an exponentially increasing amount of time between retries, and throw an error after a specific number of retries.
 
 Continuing to make requests while you are rate limited may result in the banning of your integration.
+
+{% data reusables.organizations.api-insights-learn-about %}
 
 ## Follow redirects
 

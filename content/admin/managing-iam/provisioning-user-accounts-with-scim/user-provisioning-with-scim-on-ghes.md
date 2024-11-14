@@ -45,7 +45,7 @@ The following IdPs are partner IdPs. They offer an application that you can use 
 * Okta
 * PingFederate (beta)
 
-When you use a single partner IdP for both authentication and provisioning, {% data variables.product.company_short %} provides support for the application on the partner IdP and the IdP's integration with {% data variables.product.prodname_dotcom %}. Support for PingFederate is in beta.
+When you use a single partner IdP for both authentication and provisioning, {% data variables.product.company_short %} provides support for the application on the partner IdP and the IdP's integration with {% data variables.product.prodname_dotcom %}. Support for PingFederate is in {% data variables.release-phases.public_preview %}.
 
 ### Other identity management systems
 
@@ -57,7 +57,7 @@ If you cannot use a single partner IdP for both authentication and provisioning,
 
 {% else %}
 
-During the private beta, your account team will provide documentation for the configuration of SCIM for {% data variables.product.product_name %} on a supported IdP.
+During the {% data variables.release-phases.private_preview %}, your account team will provide documentation for the configuration of SCIM for {% data variables.product.product_name %} on a supported IdP.
 
 {% endif %}
 
@@ -139,16 +139,12 @@ After you enable SCIM on a {% data variables.product.product_name %} instance, a
 1. Sign into your instance as the new enterprise owner.
 1. Create a {% data variables.product.pat_v1 %} with **admin:enterprise** scope. Do not specify an expiration date for the {% data variables.product.pat_v1 %}. For more information, see "[AUTOTITLE](/authentication/keeping-your-account-and-data-secure/creating-a-personal-access-token)."
 
-   {% warning %}
+   > [!WARNING]
+   > Ensure that you don't specify an expiration date for the {% data variables.product.pat_v1 %}. If you specify an expiration date, SCIM will no longer function after the expiration date passes.
 
-   **Warning**: Ensure that you don't specify an expiration date for the {% data variables.product.pat_v1 %}. If you specify an expiration date, SCIM will no longer function after the expiration date passes.
+   > [!NOTE]
+   > You'll need this {% data variables.product.pat_generic %} to test the SCIM configuration, and to configure the application for SCIM on your IdP. Store the token securely in a password manager until you need the token again later in these instructions.
 
-   {% endwarning %}
-   {% note %}
-
-   **Note**: You'll need this {% data variables.product.pat_generic %} to test the SCIM configuration, and to configure the application for SCIM on your IdP. Store the token securely in a password manager until you need the token again later in these instructions.
-
-   {% endnote %}
 {% data reusables.enterprise_installation.ssh-into-instance %}
 1. To enable SCIM, run the commands provided to you by your account manager on {% data variables.contact.contact_enterprise_sales %}.
 {% data reusables.enterprise_site_admin_settings.wait-for-configuration-run %}

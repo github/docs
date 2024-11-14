@@ -3,7 +3,9 @@ title: Testing custom queries
 intro: 'You can set up tests for your {% data variables.product.prodname_codeql %} queries to ensure that they continue to return the expected results with new releases of the {% data variables.product.prodname_codeql_cli %}.'
 product: '{% data reusables.gated-features.codeql %}'
 versions:
-  feature: codeql-packs
+  fpt: '*'
+  ghes: '*'
+  ghec: '*'
 topics:
   - Advanced Security
   - Code scanning
@@ -73,17 +75,12 @@ the example code, by creating a file with the extension `.expected`. Alternative
 
 For an example showing how to create and test a query, see the [example](#example) below.
 
-{% note %}
-
-**Note:** Your `.ql`, `.qlref`, and `.expected` files must have consistent names:
-
-* If you want to directly specify the `.ql` file itself in the test command, it must have the same base name as the corresponding `.expected` file. For example, if the query is `MyJavaQuery.ql`, the expected results file must be `MyJavaQuery.expected`.
-
-* If you want to specify a `.qlref` file in the command, it must have the same base name as the corresponding `.expected` file, but the query itself may have a different name.
-
-* The names of the example code files don’t have to be consistent with the other test files. All example code files found next to the `.qlref` (or `.ql`) file and in any subdirectories will be used to create a test database. Therefore, for simplicity, we recommend you don’t save test files in directories that are ancestors of each other.
-
-{% endnote %}
+> [!NOTE]
+> Your `.ql`, `.qlref`, and `.expected` files must have consistent names:
+>
+> * If you want to directly specify the `.ql` file itself in the test command, it must have the same base name as the corresponding `.expected` file. For example, if the query is `MyJavaQuery.ql`, the expected results file must be `MyJavaQuery.expected`.
+> * If you want to specify a `.qlref` file in the command, it must have the same base name as the corresponding `.expected` file, but the query itself may have a different name.
+> * The names of the example code files don’t have to be consistent with the other test files. All example code files found next to the `.qlref` (or `.ql`) file and in any subdirectories will be used to create a test database. Therefore, for simplicity, we recommend you don’t save test files in directories that are ancestors of each other.
 
 ## Running `codeql test run`
 
@@ -231,5 +228,5 @@ into {% data variables.product.prodname_codeql %} for {% data variables.product.
 
 ## Further reading
 
-* "[{% data variables.product.prodname_codeql %} queries](https://codeql.github.com/docs/writing-codeql-queries/codeql-queries/#codeql-queries)"
+* [{% data variables.product.prodname_codeql %} queries](https://codeql.github.com/docs/writing-codeql-queries/codeql-queries/#codeql-queries)
 * "[AUTOTITLE](/code-security/codeql-for-vs-code/using-the-advanced-functionality-of-the-codeql-for-vs-code-extension/testing-codeql-queries-in-vs-code)."

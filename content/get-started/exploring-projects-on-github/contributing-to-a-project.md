@@ -26,7 +26,7 @@ You can contribute by submitting pull requests from your fork to the upstream re
 
 ## Forking a repository
 
-This tutorial uses [the Spoon-Knife project](https://github.com/octocat/Spoon-Knife), a test repository that's hosted on {% data variables.product.prodname_dotcom_the_website %} that lets you test the fork and pull request workflow.
+This tutorial uses [the Spoon-Knife project](https://github.com/octocat/Spoon-Knife), a test repository that's hosted on {% data variables.product.prodname_dotcom %} that lets you test the fork and pull request workflow.
 
 1. Navigate to the `Spoon-Knife` project at https://github.com/octocat/Spoon-Knife.
 1. In the top-right corner of the page, click **Fork**.
@@ -41,11 +41,8 @@ This tutorial uses [the Spoon-Knife project](https://github.com/octocat/Spoon-Kn
     For many forking scenarios, such as contributing to open-source projects, you only need to copy the default branch. If you do not select this option, all branches will be copied into the new fork.
 1. Click **Create fork**.
 
-{% note %}
-
-**Note:** If you want to copy additional branches from the upstream repository, you can do so from the **Branches** page. For more information, see "[AUTOTITLE](/pull-requests/collaborating-with-pull-requests/proposing-changes-to-your-work-with-pull-requests/creating-and-deleting-branches-within-your-repository)."
-
-{% endnote %}
+> [!NOTE]
+> If you want to copy additional branches from the upstream repository, you can do so from the **Branches** page. For more information, see "[AUTOTITLE](/pull-requests/collaborating-with-pull-requests/proposing-changes-to-your-work-with-pull-requests/creating-and-deleting-branches-within-your-repository)."
 
 ## Cloning a fork
 

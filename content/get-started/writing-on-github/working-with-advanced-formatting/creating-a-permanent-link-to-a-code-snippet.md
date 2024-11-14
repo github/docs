@@ -21,11 +21,8 @@ This type of permanent link will render as a code snippet only in the repository
 
 ![Screenshot of an issue comment. A code snippet has a header that lists the file name and line numbers, and a body that lists the code on those lines.](/assets/images/help/repository/rendered-code-snippet.png)
 
-{% tip %}
-
-**Tip:** To create a permalink for an entire file, see "[AUTOTITLE](/repositories/working-with-files/using-files/getting-permanent-links-to-files)."
-
-{% endtip %}
+> [!TIP]
+> To create a permalink for an entire file, see "[AUTOTITLE](/repositories/working-with-files/using-files/getting-permanent-links-to-files)."
 
 {% data reusables.repositories.navigate-to-repo %}
 1. Locate the code you'd like to link to:

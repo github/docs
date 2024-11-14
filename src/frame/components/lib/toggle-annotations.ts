@@ -1,5 +1,6 @@
 import Cookies from 'src/frame/components/lib/cookies'
-import { sendEvent, EventType } from 'src/events/components/events'
+import { sendEvent } from 'src/events/components/events'
+import { EventType } from 'src/events/types'
 
 enum annotationMode {
   Beside = 'beside',
@@ -19,7 +20,7 @@ function validateMode(mode?: string) {
 }
 
 export default function toggleAnnotation() {
-  const annotationButtons = Array.from(document.querySelectorAll('div.BtnGroup button'))
+  const annotationButtons = Array.from(document.querySelectorAll('.annotate-toggle button'))
   if (!annotationButtons.length) return
 
   const cookie = validateMode(Cookies.get('annotate-mode')) // will default to beside

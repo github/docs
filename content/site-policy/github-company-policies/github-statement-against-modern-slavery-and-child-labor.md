@@ -48,7 +48,7 @@ GitHub complies with laws prohibiting trafficking and child labor in the jurisdi
 
 In addition, GitHub established a partnership with the FairHotel Program, which means GitHub encourages its employees to choose FairHotel endorsed hotels-where workers have fair wages, adequate benefits, and a voice on the job. Being a FairHotel partner also signifies that GitHub provides business to hotels as a fair employer.
 
-Going forward, GitHub will communicate this Statement to all employees, contractors, and suppliers, including recruiters and employment agencies. In addition, GitHub is developing training for all GitHub employees on modern slavery and child labor. GitHub [posts its Statement Against Modern Slavery and Child Labor publicly](/site-policy/github-company-policies/github-statement-against-modern-slavery-and-child-labor).
+Going forward, GitHub will communicate this Statement to all employees, contractors, and suppliers, including recruiters and employment agencies. In addition, GitHub is developing training for all GitHub employees on modern slavery and child labor. GitHub posts its Statement Against Modern Slavery and Child Labor publicly.
 
 GitHub has a non-retaliation policy for reporting workplace-related concerns. Consistent with this Statement, GitHub allows employees and contractors to report issues regarding modern slavery and child labor without fear of retaliation.
 
@@ -88,17 +88,17 @@ Although GitHub knows of no actual or alleged modern slavery or child labor in i
 GitHub complies and will continue to comply with laws related to modern slavery and child labor.
 
 Going forward, GitHub now requires its suppliers to comply with this Statement, as well as laws related to modern slavery and child labor. GitHub now also requires its suppliers to:
-   * not use, participate in, support, or tolerate modern slavery or child labor
-   * not use misleading or fraudulent recruitment or engagement practices for employees or contract workers
-   * not charge employees or contract workers recruitment or engagement fees
-   * not destroy, conceal, confiscate, or otherwise deny access by an employee or any contract worker to passport, driver's license, or other identity documents;
-   * allow us to terminate our agreements with them for any violation of its obligations related to modern slavery or child labor; and
-   * remediate any harms caused to any worker found to be subjected to any form of modern slavery or child labor, if required by law.
+   * Not use, participate in, support, or tolerate modern slavery or child labor
+   * Not use misleading or fraudulent recruitment or engagement practices for employees or contract workers
+   * Not charge employees or contract workers recruitment or engagement fees
+   * Not destroy, conceal, confiscate, or otherwise deny access by an employee or any contract worker to passport, driver's license, or other identity documents;
+   * Allow us to terminate our agreements with them for any violation of its obligations related to modern slavery or child labor; and
+   * Remediate any harms caused to any worker found to be subjected to any form of modern slavery or child labor, if required by law.
 
 In addition, GitHub strongly encourages its suppliers to:
-   * conduct anti-modern slavery and child labor due diligence processes, including risk assessments, for their suppliers;
-   * take steps to address risks identified; and
-   * use similar anti-modern slavery and child labor language with their suppliers.
+   * Conduct anti-modern slavery and child labor due diligence processes, including risk assessments, for their suppliers;
+   * Take steps to address risks identified; and
+   * Use similar anti-modern slavery and child labor language with their suppliers.
 
 GitHub's procurement instructions to employees making company purchases now includes a reference to the requirement for suppliers to comply with Microsoft's Supplier Code of Conduct or this Statement.
 

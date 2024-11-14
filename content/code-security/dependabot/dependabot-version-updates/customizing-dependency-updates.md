@@ -1,7 +1,7 @@
 ---
 title: Customizing dependency updates
 intro: 'You can customize how {% data variables.product.prodname_dependabot %} maintains your dependencies.'
-permissions: 'People with write permissions to a repository can configure {% data variables.product.prodname_dependabot %} for the repository.'
+permissions: '{% data reusables.permissions.dependabot-yml-configure %}'
 redirect_from:
   - /github/administering-a-repository/customizing-dependency-updates
   - /code-security/supply-chain-security/customizing-dependency-updates
@@ -45,11 +45,12 @@ If you customize the `dependabot.yml` file, you may notice some changes to the p
 
 For an example, see "[Setting custom labels](#setting-custom-labels)" below.
 
-{% ifversion dependabot-grouped-security-updates-config %}{% note %}
+{% ifversion dependabot-grouped-security-updates-config %}
 
-**Note:** If you use grouped security updates, the grouped pull requests will also inherit non-group configuration settings from the `dependabot.yml` file, and any group rules specified with `applies-to: security-updates` will apply. For more information, see "[AUTOTITLE](/code-security/dependabot/dependabot-security-updates/about-dependabot-security-updates#about-grouped-security-updates)."
+> [!NOTE]
+> If you use grouped security updates, the grouped pull requests will also inherit non-group configuration settings from the `dependabot.yml` file, and any group rules specified with `applies-to: security-updates` will apply. For more information, see "[AUTOTITLE](/code-security/dependabot/dependabot-security-updates/about-dependabot-security-updates#about-grouped-security-updates)."
 
-{% endnote %}{% endif %}
+{% endif %}
 
 ## Modifying scheduling
 
@@ -108,11 +109,8 @@ You can use `labels` to override the default labels and specify alternative labe
 
 The example `dependabot.yml` file below changes the npm configuration so that all pull requests opened with version and security updates for npm will have custom labels. It also changes the Docker configuration to check for version updates against a custom branch and to raise pull requests with custom labels against that custom branch. The changes to Docker will not affect security update pull requests because security updates are always made against the default branch.
 
-{% note %}
-
-**Note:** The new `target-branch` must contain a Dockerfile to update, otherwise this change will have the effect of disabling version updates for Docker.
-
-{% endnote %}
+> [!NOTE]
+> The new `target-branch` must contain a Dockerfile to update, otherwise this change will have the effect of disabling version updates for Docker.
 
 ```yaml
 # `dependabot.yml` file with
@@ -183,11 +181,10 @@ If you would like to un-ignore a dependency or ignore condition, you can delete 
 * Un-ignore all ignore conditions for all dependencies in a {% data variables.product.prodname_dependabot %} pull request
 
 {% ifversion dependabot-grouped-security-updates-config %}{% else %}
-{% note %}
 
-**Note:** The `@dependabot unignore` comment commands only work on pull requests for grouped version updates.
+> [!NOTE]
+> The `@dependabot unignore` comment commands only work on pull requests for grouped version updates.
 
-{% endnote %}
 {% endif %}
 
 For more information, see "[AUTOTITLE](/code-security/dependabot/working-with-dependabot/managing-pull-requests-for-dependency-updates#managing-dependabot-pull-requests-for-grouped-{% ifversion dependabot-grouped-security-updates-config %}{% else %}version-{% endif %}updates-with-comment-commands)."{% endif %}

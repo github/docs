@@ -34,11 +34,8 @@ The time required to failover depends on how long it takes to manually promote t
 
    * When the number of active Git operations, MySQL queries, and Resque jobs reaches zero, wait 30 seconds.
 
-     {% note %}
-
-     **Note:** Nomad will always have jobs running, even in maintenance mode, so you can safely ignore these jobs.
-
-     {% endnote %}
+     > [!NOTE]
+     > Nomad will always have jobs running, even in maintenance mode, so you can safely ignore these jobs.
 
    * To verify all replication channels report `OK`, use the `ghe-repl-status -vv` command.
 
@@ -54,11 +51,8 @@ The time required to failover depends on how long it takes to manually promote t
    ghe-repl-promote
    ```
 
-   {% note %}
-
-   **Note:** If the primary node is unavailable, warnings and timeouts may occur but can be ignored.
-
-   {% endnote %}
+   > [!NOTE]
+   > If the primary node is unavailable, warnings and timeouts may occur but can be ignored.
 
 1. Update the DNS record to point to the IP address of the replica. Traffic is directed to the replica after the TTL period elapses. If you are using a load balancer, ensure it is configured to send traffic to the replica.
 1. Notify users that they can resume normal operations.

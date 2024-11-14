@@ -33,14 +33,14 @@ If you're a member of an {% data variables.enterprise.prodname_emu_enterprise %}
 
 For more information about repository roles, see "[AUTOTITLE](/account-and-profile/setting-up-and-managing-your-personal-account-on-github/managing-personal-account-settings/permission-levels-for-a-personal-account-repository)" and "[AUTOTITLE](/organizations/managing-user-access-to-your-organizations-repositories/managing-repository-roles/repository-roles-for-an-organization)."
 
-![Screenshot of the "Manage access" page for a repository.](/assets/images/help/repository/manage-access-overview.png)
-
 ## Filtering the list of teams and people
 
 {% data reusables.repositories.navigate-to-repo %}
 {% data reusables.repositories.sidebar-settings %}
 {% data reusables.repositories.click-collaborators-teams %}
-1. Under "Manage access", in the search field, start typing the name of the team or person you'd like to find. Optionally, use the dropdown menus to filter your search.
+1. Under "Manage access", in the search field, start typing the name of the team or person you'd like to find. Optionally, use the dropdown menus to filter your search. {% ifversion org-custom-role-with-repo-permissions %}
+
+   You can also toggle between the **Direct access** and **Organization access** tabs to view who has direct access to the repository and who can access the repository via a team or organization role.{% endif %}
 
 ## Changing permissions for a team or person
 

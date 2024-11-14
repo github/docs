@@ -1,6 +1,6 @@
 ---
 title: Getting permanent links to files
-intro: 'When viewing a file on {% data variables.location.product_location %}, you can press the "y" key to update the URL to a permalink to the exact version of the file you see.'
+intro: 'When viewing a file on {% data variables.product.prodname_dotcom %}, you can press the "y" key to update the URL to a permalink to the exact version of the file you see.'
 redirect_from:
   - /articles/getting-a-permanent-link-to-a-file
   - /articles/how-do-i-get-a-permanent-link-from-file-view-to-permanent-blob-url
@@ -15,15 +15,13 @@ topics:
   - Repositories
 shortTitle: Permanent links to files
 ---
-{% tip %}
 
-**Tip**: Press "?" on any page in {% data variables.product.product_name %} to see all available keyboard shortcuts.
-
-{% endtip %}
+> [!TIP]
+> Press "?" on any page in {% data variables.product.product_name %} to see all available keyboard shortcuts.
 
 ## File views show the latest version on a branch
 
-When viewing a file on {% data variables.location.product_location %}, you usually see the version at the current head of a branch.  For example:
+When viewing a file on {% data variables.product.prodname_dotcom %}, you usually see the version at the current head of a branch.  For example:
 
 * [https://github.com/github/codeql/blob/**main**/README.md](https://github.com/github/codeql/blob/main/README.md)
 
@@ -41,11 +39,8 @@ replaces `main` with a specific commit ID and the file content will not change.
 
 Looking up the commit SHA by hand is inconvenient, however, so as a shortcut you can type <kbd>y</kbd> to automatically update the URL to the permalink version.  Then you can copy the URL knowing that anyone you share it with will see exactly what you saw.
 
-{% tip %}
-
-**Tip**: You can put any identifier that can be resolved to a commit in the URL, including branch names, specific commit SHAs, or tags!
-
-{% endtip %}
+> [!TIP]
+> You can put any identifier that can be resolved to a commit in the URL, including branch names, specific commit SHAs, or tags!
 
 ## Creating a permanent link to a code snippet
 

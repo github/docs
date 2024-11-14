@@ -50,7 +50,7 @@ You can create a webhook to subscribe to events that occur in a specific organiz
 
 You can use the {% data variables.product.prodname_dotcom %} web interface or the REST API to create an organization webhook. For more information about using the REST API to create an organization webhook, see "[AUTOTITLE](/rest/orgs/webhooks#create-an-organization-webhook)."
 
-1. In the upper-right corner of any page on {% data variables.location.product_location %}, click your profile photo.
+1. In the upper-right corner of any page on {% data variables.product.github %}, click your profile photo.
 1. Click **Your organizations**.
 1. To the right of the organization, click **Settings**.
 {% data reusables.webhooks.sidebar_webhooks %}
@@ -84,11 +84,8 @@ You can use the {% data variables.product.company_short %} web interface or the 
 {% data reusables.webhooks.content_type_and_secret %}
 1. Optionally, if your payload URL is HTTPS and you would not like {% data variables.product.prodname_ghe_server %} to verify SSL certificates when delivering payloads, under "SSL verification", select **Disable**. Read the information about SSL verification, then click **Disable, I understand my webhooks may not be secure**.
 
-   {% warning %}
-
-   **Warning:** SSL verification helps ensure that hook payloads are delivered securely. We do not recommend disabling SSL verification.
-
-   {% endwarning %}
+   > [!WARNING]
+   > SSL verification helps ensure that hook payloads are delivered securely. We do not recommend disabling SSL verification.
 
 1. Under "Which events would you like to trigger this webhook?", select the types of webhooks you'd like to receive. You should only subscribe to the webhook events that you need.
 1. If you chose **Let me select individual events**, select the events that will trigger the webhook.
@@ -139,8 +136,7 @@ For more information about configuring a webhook when you register a {% data var
 To configure a webhook for an existing {% data variables.product.prodname_github_app %} registration:
 
 {% data reusables.apps.settings-step %}
-{% data reusables.user-settings.developer_settings %}
-{% data reusables.user-settings.github_apps %}
+{% data reusables.apps.enterprise-apps-steps %}
 1. Next to the {% data variables.product.prodname_github_app %} that you want to configure the webhook for, click **Edit**.
 1. Under "Webhook," select **Active**.
 1. Under "Webhook URL", type the URL where you'd like to receive payloads.

@@ -19,11 +19,8 @@ shortTitle: Repository visibility
 
 ## About repository visibility changes
 
-{% note %}
-
-**Note:** If you can't change a repository's visibility, the organization owner may have restricted the ability to change repository visibility to organization owners only. For more information, see "[AUTOTITLE](/organizations/managing-organization-settings/restricting-repository-visibility-changes-in-your-organization)."
-
-{% endnote %}
+> [!NOTE]
+> If you can't change a repository's visibility, the organization owner may have restricted the ability to change repository visibility to organization owners only. For more information, see "[AUTOTITLE](/organizations/managing-organization-settings/restricting-repository-visibility-changes-in-your-organization)."
 
 {% ifversion ghec %}
 
@@ -35,15 +32,11 @@ We recommend reviewing the following caveats before you change the visibility of
 
 {% ifversion ghes %}
 
-{% warning %}
-
-**Warning:** Changes to the visibility of a large repository or repository network may affect data integrity. Visibility changes can also have unintended effects on forks. {% data variables.product.company_short %} recommends the following before changing the visibility of a repository network.
-
-* Wait for a period of reduced activity on {% data variables.location.product_location %}.
-
-* Contact your site administrator before proceeding. Your site administrator can contact us for further assistance by visiting {% data variables.contact.contact_ent_support %}.
-
-{% endwarning %}
+> [!WARNING]
+> Changes to the visibility of a large repository or repository network may affect data integrity. Visibility changes can also have unintended effects on forks. {% data variables.product.company_short %} recommends the following before changing the visibility of a repository network.
+>
+> * Wait for a period of reduced activity on {% data variables.location.product_location %}.
+> * Contact your site administrator before proceeding. Your site administrator can contact us for further assistance by visiting {% data variables.contact.contact_ent_support %}.
 
 {% endif %}
 
@@ -77,9 +70,57 @@ We recommend reviewing the following caveats before you change the visibility of
 * {% data variables.product.product_name %} will detach private forks and turn them into a standalone private repository. For more information, see "[AUTOTITLE](/pull-requests/collaborating-with-pull-requests/working-with-forks/what-happens-to-forks-when-a-repository-is-deleted-or-changes-visibility#changing-a-private-repository-to-a-public-repository)"{% ifversion fpt or ghec %}
 * If you're converting your private repository to a public repository as part of a move toward creating an open source project, see the [Open Source Guides](http://opensource.guide) for helpful tips and guidelines. You can also take a free course on managing an open source project with [{% data variables.product.prodname_learning %}]({% data variables.product.prodname_learning_link %}). Once your repository is public, you can also view your repository's community profile to see whether your project meets best practices for supporting contributors. For more information, see "[AUTOTITLE](/communities/setting-up-your-project-for-healthy-contributions/about-community-profiles-for-public-repositories)."
 * The repository will automatically gain access to {% data variables.product.prodname_GH_advanced_security %} features.
-* Actions history and logs will be visible to everyone. If your repository had reusable or required workflows that were shared from a different repository in your organization, the workflow file path including the repository name will be visible in the logs. For more information on how to remove workflow runs and artifacts see "[AUTOTITLE](/actions/managing-workflow-runs#deleting-logs)" and "[AUTOTITLE](/rest/actions/workflow-runs)".
+* Actions history and logs will be visible to everyone. If your repository had reusable or required workflows that were shared from a different repository in your organization, the workflow file path including the repository name will be visible in the logs. For more information on how to remove workflow runs and artifacts see "[AUTOTITLE](/actions/managing-workflow-runs#deleting-logs)" and "[AUTOTITLE](/rest/actions/workflow-runs)."
 
 For information about improving repository security, see "[AUTOTITLE](/code-security/getting-started/securing-your-repository)."{% endif %}
+
+## Consequences of changing a repository's visibility
+
+>[!CAUTION]Before you change your repository's visibility, understand the consequences of this change.
+
+### Changing from public to private
+
+* Stars and watchers for this repository will be permanently erased, which will affect repository rankings.
+* Custom {% data variables.product.prodname_dependabot %} alert rules will be disabled unless {% data variables.product.prodname_GH_advanced_security %} is enabled for this repository. Dependency graph and {% data variables.product.prodname_dependabot_alerts %} will remain enabled with permission to perform read-only analysis on this repository.
+* Code scanning will become unavailable.
+* Current forks will remain public and will be detached from this repository.
+
+### Changing from private to public
+
+* The code will be visible to everyone who can visit {% data variables.product.prodname_dotcom_the_website %}.
+* Anyone can fork your repository.
+* All push rulesets will be disabled.
+* Your changes will be published as activity.
+* Actions history and logs will be visible to everyone.
+* Stars and watchers for this repository will be permanently erased.
+
+### Changing from private to internal
+
+* All members of the enterprise will be given read access.
+* Outside collaborators can no longer be added to forks unless they're added to the root.
+* Stars and watchers for this repository will be permanently erased.
+
+### Changing from internal to private
+
+* Stars and watchers for this repository will be permanently erased, which will affect repository rankings.
+* Custom {% data variables.product.prodname_dependabot %} alert rules will be disabled unless GitHub Advanced Security is enabled for this repository. Dependency graph and {% data variables.product.prodname_dependabot_alerts %} will remain enabled with permission to perform read-only analysis on this repository.
+* Code scanning will become unavailable.
+* Current forks will remain public and will be detached from this repository.
+
+### Changing from internal to public
+
+* The code will be visible to everyone who can visit {% data variables.product.prodname_dotcom_the_website %}.
+* Anyone can fork your repository.
+* All push rulesets will be disabled.
+* Your changes will be published as activity.
+* Actions history and logs will be visible to everyone.
+* Stars and watchers for this repository will be permanently erased.
+
+### Changing from public to internal
+
+* All members of the enterprise will be given read access.
+* Outside collaborators can no longer be added to forks unless they're added to the root.
+* Stars and watchers for this repository will be permanently erased.
 
 ## Changing a repository's visibility
 

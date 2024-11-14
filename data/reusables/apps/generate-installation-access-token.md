@@ -23,14 +23,11 @@
 
    Optionally, use the `permissions` body parameter to specify the permissions that the installation access token should have. If `permissions` is not specified, the installation access token will have all of the permissions that were granted to the app. The installation access token cannot be granted permissions that the app was not granted.
 
-   {% ifversion fpt or ghec or ghes > 3.13 %}When using the `permissions` parameters to reduce the access of the token, the complexity of the token is increased due to the number of permissions in the request and the number of repositories the token will have access to. If the complexity is too large, you will get an error message that indicates the maximum number of repositories that can be supported. In this case, you should request fewer permissions with the `permissions` parameter, use the `repositories` or `repository_ids` parameter to request fewer repositories, or install the app on `all` repositories in your organization.{% endif %}
+   {% ifversion ghes > 3.13 and ghes < 3.16 %}When using the `permissions` parameters to reduce the access of the token, the complexity of the token is increased due to the number of permissions in the request and the number of repositories the token will have access to. If the complexity is too large, you will get an error message that indicates the maximum number of repositories that can be supported. In this case, you should request fewer permissions with the `permissions` parameter, use the `repositories` or `repository_ids` parameter to request fewer repositories, or install the app on `all` repositories in your organization.{% endif %}
 
    The response will include an installation access token, the time that the token expires, the permissions that the token has, and the repositories that the token can access. The installation access token will expire after 1 hour.
 
    For more information about this endpoint, see "[AUTOTITLE](/rest/apps/apps)".
 
-   {% note %}
-
-   **Note:** {% data reusables.getting-started.bearer-vs-token %}
-
-   {% endnote %}
+   > [!NOTE]
+   > {% data reusables.getting-started.bearer-vs-token %}

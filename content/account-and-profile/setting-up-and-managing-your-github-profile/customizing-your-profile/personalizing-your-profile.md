@@ -19,12 +19,8 @@ topics:
 shortTitle: Personalize
 ---
 
-{% note %}
-
-**Note:**
-  Any details you add to your public {% data variables.product.product_name %} profile will be visible to all {% data variables.product.product_name %} users, including in regions where local laws, regulations, or cultural norms may pose risks to expressing your identity. We respect everyone’s decision about whether or not to share information about themselves on their {% data variables.product.product_name %} profile.
-
-{% endnote %}
+> [!NOTE]
+> Any details you add to your public {% data variables.product.product_name %} profile will be visible to all {% data variables.product.product_name %} users, including in regions where local laws, regulations, or cultural norms may pose risks to expressing your identity. We respect everyone’s decision about whether or not to share information about themselves on their {% data variables.product.product_name %} profile.
 
 ## Changing your profile picture
 
@@ -32,14 +28,9 @@ Your profile picture helps identify you across {% data variables.product.product
 
 When you sign up for an account, {% data variables.product.product_name %} provides you with a randomly generated "identicon". [Your identicon](https://github.com/blog/1586-identicons) generates from a hash of your user ID, so there's no way to control its color or pattern. You can replace your identicon with an image that represents you.
 
-{% note %}
-
-**Note{% ifversion ghec %}s{% endif %}**: {% ifversion ghec %}
-
-* {% endif %}Your profile picture should be a PNG, JPG, or GIF file, and it must be less than 1 MB in size and smaller than 3000 by 3000 pixels. For the best quality rendering, we recommend keeping the image at about 500 by 500 pixels.
-{% ifversion ghec %}* Gravatar profile pictures are not supported with {% data variables.product.prodname_emus %}.{% endif %}
-
-{% endnote %}
+> [!NOTE] {% ifversion ghec %}
+> * {% endif %}Your profile picture should be a PNG, JPG, or GIF file, and it must be less than 1 MB in size and smaller than 3000 by 3000 pixels. For the best quality rendering, we recommend keeping the image at about 500 by 500 pixels.
+{% ifversion ghec %}> * Gravatar profile pictures are not supported with {% data variables.product.prodname_emus %}.{% endif %}
 
 If you use Gravatar, and your Gravatar image is associated with the email you use for {% data variables.product.product_name %}, the image will be shown as your {% data variables.product.product_name %} profile picture by default (rather than an identicon). To change your {% data variables.product.product_name %} profile picture, you can either upload a new image to Gravatar, or upload a new image to {% data variables.product.product_name %} and override the Gravatar image.
 
@@ -62,11 +53,10 @@ If you use Gravatar, and your Gravatar image is associated with the email you us
 You can change the name that is displayed on your profile. This name may also be displayed next to comments you make on private repositories owned by an organization. For more information, see "[AUTOTITLE](/organizations/managing-organization-settings/managing-the-display-of-member-names-in-your-organization)."
 
 {% ifversion fpt or ghec %}
-{% note %}
 
-**Note:** If you're a member of an {% data variables.enterprise.prodname_emu_enterprise %}, any changes to your profile name must be made through your identity provider instead of {% data variables.product.prodname_dotcom %}. {% data reusables.enterprise-accounts.emu-more-info-account %}
+> [!NOTE]
+> If you're a member of an {% data variables.enterprise.prodname_emu_enterprise %}, any changes to your profile name must be made through your identity provider instead of {% data variables.product.prodname_dotcom %}. {% data reusables.enterprise-accounts.emu-more-info-account %}
 
-{% endnote %}
 {% endif %}
 
 {% data reusables.user-settings.access_settings %}
@@ -78,21 +68,14 @@ Add a bio to your profile to share information about yourself with other {% data
 
 For a longer-form and more prominent way of displaying customized information about yourself, you can also use a profile README. For more information, see "[AUTOTITLE](/account-and-profile/setting-up-and-managing-your-github-profile/customizing-your-profile/managing-your-profile-readme)."
 
-{% note %}
-
-**Note:**
-  If you have the activity overview section enabled for your profile and you @mention an organization you're a member of in your profile bio, then that organization will be featured first in your activity overview. For more information, see "[AUTOTITLE](/account-and-profile/setting-up-and-managing-your-github-profile/managing-contribution-settings-on-your-profile/showing-an-overview-of-your-activity-on-your-profile)."
-
-{% endnote %}
+> [!NOTE]
+> If you have the activity overview section enabled for your profile and you @mention an organization you're a member of in your profile bio, then that organization will be featured first in your activity overview. For more information, see "[AUTOTITLE](/account-and-profile/setting-up-and-managing-your-github-profile/managing-contribution-settings-on-your-profile/showing-an-overview-of-your-activity-on-your-profile)."
 
 {% data reusables.user-settings.access_settings %}
 1. Under "Public profile", in the "Bio" field, type the content that you want displayed on your profile. The bio field is limited to 160 characters.
 
-   {% tip %}
-
-   **Tip:** When you @mention an organization, only those that you're a member of will autocomplete. You can still @mention organizations that you're not a member of, like a previous employer, but the organization name won't autocomplete for you.
-
-   {% endtip %}
+   > [!TIP]
+   > When you @mention an organization, only those that you're a member of will autocomplete. You can still @mention organizations that you're not a member of, like a previous employer, but the organization name won't autocomplete for you.
 
 {% data reusables.profile.update-profile %}
 
@@ -210,11 +193,8 @@ Achievements celebrate specific events and actions that happen on {% data variab
 
 To stop private contributions from counting toward your Achievements, or to turn off Achievements entirely, see "[AUTOTITLE](/account-and-profile/setting-up-and-managing-your-github-profile/managing-contribution-settings-on-your-profile/showing-your-private-contributions-and-achievements-on-your-profile)."
 
-{% note %}
-
-**Note:** This feature is currently in beta and subject to change.
-
-{% endnote %}
+> [!NOTE]
+> This feature is currently in {% data variables.release-phases.public_preview %} and subject to change.
 
 {% endif %}
 

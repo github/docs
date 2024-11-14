@@ -23,6 +23,8 @@ With {% data variables.product.prodname_emus %}, your enterprise uses your ident
 
 {% data reusables.enterprise-accounts.emu-cap-validates %} See "[AUTOTITLE](/admin/identity-and-access-management/using-enterprise-managed-users-for-iam/about-support-for-your-idps-conditional-access-policy)."
 
+{% data reusables.enterprise-accounts.emu-cap-public-preview %}
+
 You can adjust the lifetime of a session, and how often a {% data variables.enterprise.prodname_managed_user %} needs to reauthenticate with your IdP, by changing the lifetime policy property of the ID tokens issued for {% data variables.product.prodname_dotcom %} from your IdP. The default lifetime is one hour. See "[Configure token lifetime policies](https://learn.microsoft.com/en-us/entra/identity-platform/configure-token-lifetimes#create-a-policy-and-assign-it-to-a-service-principal)" in the Microsoft documentation.
 
 To change the lifetime policy property, you will need the object ID associated with your {% data variables.product.prodname_emus %} OIDC. See "[AUTOTITLE](/admin/identity-and-access-management/configuring-authentication-for-enterprise-managed-users/finding-the-object-id-for-your-entra-oidc-application)."
@@ -44,10 +46,10 @@ OIDC does not support IdP-initiated authentication.
 ## Configuring OIDC for Enterprise Managed Users
 
 1. Sign into {% data variables.product.prodname_dotcom %} as the setup user for your new enterprise with the username **@SHORT-CODE_admin**.
-{% data reusables.enterprise-accounts.access-enterprise %}
-{% data reusables.enterprise-accounts.settings-tab %}
-{% data reusables.enterprise-accounts.security-tab %}
-1. Under "OpenID Connect single sign-on", select **Require OIDC single sign-on**.
+{% data reusables.enterprise-accounts.access-enterprise-emu %}
+{% data reusables.enterprise-accounts.identity-provider-tab %}
+{% data reusables.enterprise-accounts.sso-configuration %}
+1. Under "OIDC single sign-on", select **Enable OIDC configuration**.
 1. To continue setup and be redirected to Entra ID, click **Save**.
 {% data reusables.enterprise-accounts.emu-azure-admin-consent %}
 {% data reusables.enterprise-accounts.download-recovery-codes %}

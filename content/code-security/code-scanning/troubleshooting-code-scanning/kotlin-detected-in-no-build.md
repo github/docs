@@ -2,12 +2,10 @@
 title: 'Warning: Detected X Kotlin files in your project that could not be processed without a build'
 shortTitle: Kotlin detected in no build
 allowTitleToDifferFromFilename: true
-intro: '{% data variables.product.prodname_codeql %} databases can be created for {% data variables.code-scanning.no_build_support %} without building the code, but Kotlin files are excluded unless the code is built.'
+intro: '{% data variables.product.prodname_codeql %} databases can be created for Java without building the code, but Kotlin files are excluded unless the code is built.'
 versions:
   feature: codeql-no-build
 ---
-
-{% data reusables.code-scanning.beta-no-build %}
 
 ## About this warning
 
@@ -21,7 +19,7 @@ This warning is reported when Kotlin files are detected in a repository that ran
 
 This warning is only displayed when the build mode of `none` is used for a repository with both Java and Kotlin files.
 
-The {% data variables.product.prodname_codeql %} action and {% data variables.product.prodname_codeql_cli %} support a build mode of `none` for {% data variables.code-scanning.no_build_support %}. This provides an easy way to enable analysis for Java code without building the codebase. However, Kotlin files are not included in the resulting {% data variables.product.prodname_codeql %} database.
+The {% data variables.product.prodname_codeql %} action and {% data variables.product.prodname_codeql_cli %} support a build mode of `none` for Java. This provides an easy way to enable analysis for Java code without building the codebase. However, Kotlin files are not included in the resulting {% data variables.product.prodname_codeql %} database.
 
 You can verify the presence of Kotlin files by looking at the repository or pull request that triggered the warning. The `none` build mode is used only in the following circumstances:
 

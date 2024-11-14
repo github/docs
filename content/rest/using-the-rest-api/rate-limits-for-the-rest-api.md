@@ -18,7 +18,7 @@ Rate limits are disabled by default for {% data variables.product.product_name %
 
 If you are a site administrator, you can set rate limits, including secondary rate limits, for your instance. See "[AUTOTITLE](/admin/configuration/configuring-user-applications-for-your-enterprise/configuring-rate-limits)."
 
-If you are developing an app for users or organizations outside of your instance, the standard {% data variables.product.prodname_dotcom_the_website %} rate limits apply. See "[AUTOTITLE](/free-pro-team@latest/rest/overview/rate-limits-for-the-rest-api)" in the {% data variables.product.prodname_free_user %} documentation.
+If you are developing an app for users or organizations outside of your instance, the standard {% data variables.product.github %} rate limits apply. See "[AUTOTITLE](/free-pro-team@latest/rest/overview/rate-limits-for-the-rest-api)" in the {% data variables.product.prodname_free_user %} documentation.
 
 ## About secondary rate limits
 
@@ -31,6 +31,8 @@ If you are developing an app for users or organizations outside of your instance
 {% data variables.product.company_short %} limits the number of REST API requests that you can make within a specific amount of time. This limit helps prevent abuse and denial-of-service attacks, and ensures that the API remains available for all users.
 
 Some endpoints, like the search endpoints, have more restrictive limits. For more information about these endpoints, see "[AUTOTITLE](/rest/rate-limit/rate-limit)." The GraphQL API also has a separate primary rate limit. See "[AUTOTITLE](/graphql/overview/resource-limitations)."
+
+{% data reusables.organizations.api-insights-learn-about %}
 
 In general, you can calculate your primary rate limit for the REST API based on your method of authentication, as described below.
 
@@ -66,11 +68,8 @@ curl -u YOUR_CLIENT_ID:YOUR_CLIENT_SECRET -I {% data variables.product.rest_url 
 
 For these requests, the rate limit is 5,000 requests per hour per {% data variables.product.prodname_oauth_app %}. If the app is owned by a {% data variables.product.prodname_ghe_cloud %} organization, the rate limit is 15,000 requests per hour.
 
-{% note %}
-
-**Note:** Never include your app's client secret in client-side code or in code that runs on a user device. The client secret can be used to generate OAuth access tokens for users who have authorized your app, so you should always keep the client secret secure.
-
-{% endnote %}
+> [!NOTE]
+> Never include your app's client secret in client-side code or in code that runs on a user device. The client secret can be used to generate OAuth access tokens for users who have authorized your app, so you should always keep the client secret secure.
 
 ### Primary rate limit for `GITHUB_TOKEN` in {% data variables.product.prodname_actions %}
 

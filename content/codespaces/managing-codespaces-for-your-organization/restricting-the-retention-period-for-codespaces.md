@@ -18,13 +18,10 @@ product: '{% data reusables.gated-features.codespaces-org %}'
 
 {% data variables.product.prodname_dotcom %} users can set a personal retention period of less than 30 days for codespaces they create. For more information, see "[AUTOTITLE](/codespaces/setting-your-user-preferences/configuring-automatic-deletion-of-your-codespaces)."
 
-As an organization owner, you may want to configure constraints on the maximum retention period for codespaces created for the repositories owned by your organization. This can help you to limit the storage costs associated with codespaces that are stopped and then left unused until they are automatically deleted. For more information about storage charges, see "[AUTOTITLE](/billing/managing-billing-for-github-codespaces/about-billing-for-github-codespaces#codespaces-pricing)." You can set a maximum retention period for all, or for specific, repositories owned by your organization.
+As an organization owner, you may want to configure constraints on the maximum retention period for codespaces created for the repositories owned by your organization. This can help you to limit the storage costs associated with codespaces that are stopped and then left unused until they are automatically deleted. For more information about storage charges, see "[AUTOTITLE](/billing/managing-billing-for-your-products/managing-billing-for-github-codespaces/about-billing-for-github-codespaces#codespaces-pricing)." You can set a maximum retention period for all, or for specific, repositories owned by your organization.
 
-{% note %}
-
-**Note**: Setting a maximum retention policy for a repository prevents people from exempting a codespace from automatic deletion. The "Keep codespace" option will be unavailable for codespaces created for that repository. For more information, see "[AUTOTITLE](/codespaces/setting-your-user-preferences/configuring-automatic-deletion-of-your-codespaces?tool=webui#avoiding-automatic-deletion-of-codespaces)."
-
-{% endnote %}
+> [!NOTE]
+> Setting a maximum retention policy for a repository prevents people from exempting a codespace from automatic deletion. The "Keep codespace" option will be unavailable for codespaces created for that repository. For more information, see "[AUTOTITLE](/codespaces/setting-your-user-preferences/configuring-automatic-deletion-of-your-codespaces?tool=webui#avoiding-automatic-deletion-of-codespaces)."
 
 ### Setting organization-wide and repository-specific policies
 
@@ -45,14 +42,10 @@ If you add an organization-wide policy with a retention constraint, you should s
 
    ![Screenshot of a dropdown with a field labeled "Maximum value" set to 8 days. Below this are "Cancel" and "Save" buttons.](/assets/images/help/codespaces/maximum-days-retention.png)
 
-   {% note %}
-
-   **Notes**
-   * A day, in this context, is a 24-hour period, beginning at the time of day when the codespace was stopped.
-   * The valid range is 0-30 days.
-   * Setting the period to `0` will result in codespaces being immediately deleted when they are stopped, or when they timeout due to inactivity.
-
-   {% endnote %}
+   > [!NOTE]
+   > * A day, in this context, is a 24-hour period, beginning at the time of day when the codespace was stopped.
+   > * The valid range is 0-30 days.
+   > * Setting the period to `0` will result in codespaces being immediately deleted when they are stopped, or when they timeout due to inactivity.
 
 {% data reusables.codespaces.codespaces-policy-targets %}
 1. If you want to add another constraint to the policy, click **Add constraint** and choose another constraint. For information about other constraints, see:

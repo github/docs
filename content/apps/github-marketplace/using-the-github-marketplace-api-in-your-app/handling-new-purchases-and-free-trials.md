@@ -45,11 +45,8 @@ If your app is a {% data variables.product.prodname_github_app %}, {% data varia
 
 At this point, if you specified a **Setup URL** in your {% data variables.product.prodname_github_app %} settings, {% data variables.product.product_name %} will redirect the customer to that URL. If you do not specify a setup URL, you will not be able to handle purchases of your {% data variables.product.prodname_github_app %}.
 
-{% note %}
-
-**Note:** The **Setup URL** is described as optional in {% data variables.product.prodname_github_app %} settings, but it is a required field if you want to offer your app in {% data variables.product.prodname_marketplace %}. For more information, see "[AUTOTITLE](/apps/creating-github-apps/registering-a-github-app/about-the-setup-url)."
-
-{% endnote %}
+> [!NOTE]
+> The **Setup URL** is described as optional in {% data variables.product.prodname_github_app %} settings, but it is a required field if you want to offer your app in {% data variables.product.prodname_marketplace %}. For more information, see "[AUTOTITLE](/apps/creating-github-apps/registering-a-github-app/about-the-setup-url)."
 
 If your app is an {% data variables.product.prodname_oauth_app %}, {% data variables.product.product_name %} does not install it anywhere. Instead, {% data variables.product.product_name %} redirects the customer to the **Installation URL** you specified in your [{% data variables.product.prodname_marketplace %} listing](/apps/github-marketplace/listing-an-app-on-github-marketplace/writing-a-listing-description-for-your-app#listing-urls).
 
@@ -67,11 +64,8 @@ For either type of app, the first step is to redirect the customer to [https://g
 
 After the customer completes the authorization, your app receives an OAuth access token for the customer. You'll need this token for the next step.
 
-{% note %}
-
-**Note:** When authorizing a customer on a free trial, grant them the same access they would have on the paid plan.  You'll move them to the paid plan after the trial period ends.
-
-{% endnote %}
+> [!NOTE]
+> When authorizing a customer on a free trial, grant them the same access they would have on the paid plan.  You'll move them to the paid plan after the trial period ends.
 
 ## Step 4. Provisioning customer accounts
 
