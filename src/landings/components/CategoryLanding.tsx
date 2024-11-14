@@ -4,7 +4,6 @@ import cx from 'classnames'
 import { CookBookArticleCard } from './CookBookArticleCard'
 import { CookBookFilter } from './CookBookFilter'
 
-//import { useTranslation } from 'src/languages/components/useTranslation'
 import { DefaultLayout } from 'src/frame/components/DefaultLayout'
 import { ArticleTitle } from 'src/frame/components/article/ArticleTitle'
 import { Lead } from 'src/frame/components/ui/Lead'
@@ -12,32 +11,65 @@ import { useCategoryLandingContext } from 'src/frame/components/context/Category
 import { ClientSideRedirects } from 'src/rest/components/ClientSideRedirects'
 import { RestRedirect } from 'src/rest/components/RestRedirect'
 import { Breadcrumbs } from 'src/frame/components/page-header/Breadcrumbs'
-import { ArticleCardItems } from '../types'
+import { ArticleCardItems } from 'src/landings/types'
 
 export const CategoryLanding = () => {
   const router = useRouter()
-  //const { t } = useTranslation('toc')
   const { title, intro, tocItems } = useCategoryLandingContext()
 
   // tocItems contains directories and its children, we only want the child articles
   const onlyFlatItems: ArticleCardItems = tocItems.flatMap((item) => item.childTocItems || [])
 
-  const [searchResults, setSearchResults] = useState<ArticleCardItems>(onlyFlatItems)
+  const [searchQuery, setSearchQuery] = useState('')
+  const [selectedCategory, setSelectedCategory] = useState('All')
+  const [selectedComplexity, setSelectedComplexity] = useState('All')
 
-  const handleSearch = (query: string) => {
-    const results = onlyFlatItems.filter((token) => {
-      return Object.values(token).some((value) => {
-        if (typeof value === 'string') {
-          return value.toLowerCase().includes(query.toLowerCase())
-        } else if (Array.isArray(value)) {
-          return value.some((item) => item.toLowerCase().includes(query.toLowerCase()))
-        }
-        return false
+  const applyFilters = () => {
+    let results = onlyFlatItems
+
+    if (searchQuery) {
+      results = results.filter((token) => {
+        return Object.values(token).some((value) => {
+          if (typeof value === 'string') {
+            return value.toLowerCase().includes(searchQuery.toLowerCase())
+          } else if (Array.isArray(value)) {
+            return value.some((item) => item.toLowerCase().includes(searchQuery.toLowerCase()))
+          }
+          return false
+        })
       })
-    })
-    setSearchResults(results)
+    }
+
+    if (selectedCategory !== 'All') {
+      results = results.filter((item) => item.category?.includes(selectedCategory))
+    }
+
+    if (selectedComplexity !== 'All') {
+      results = results.filter((item) => item.complexity?.includes(selectedComplexity))
+    }
+
+    return results
   }
 
+  const searchResults = applyFilters()
+
+  const handleSearch = (query: string) => {
+    setSearchQuery(query)
+  }
+
+  const handleFilter = (option: string, type: 'category' | 'complexity') => {
+    if (type === 'category') {
+      setSelectedCategory(option)
+    } else if (type === 'complexity') {
+      setSelectedComplexity(option)
+    }
+  }
+
+  const handleResetFilter = () => {
+    setSearchQuery('')
+    setSelectedCategory('All')
+    setSelectedComplexity('All')
+  }
   return (
     <DefaultLayout>
       {router.route === '/[versionId]/rest/[category]' && <RestRedirect />}
@@ -65,7 +97,12 @@ export const CategoryLanding = () => {
               <h2>Explore {searchResults.length} prompt articles</h2>
             </div>
             <div>
-              <CookBookFilter tokens={onlyFlatItems} onSearch={handleSearch} />
+              <CookBookFilter
+                tokens={onlyFlatItems}
+                onSearch={handleSearch}
+                handleFilter={handleFilter}
+                handleResetFilter={handleResetFilter}
+              />
             </div>
           </div>
           <ul className="clearfix gutter-md-spacious">
@@ -80,6 +117,7 @@ export const CategoryLanding = () => {
                     ...(item.category || []),
                     ...(item.complexity || []),
                   ]}
+                  url={item.fullPath}
                 />
               </li>
             ))}
