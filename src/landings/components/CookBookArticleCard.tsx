@@ -1,4 +1,4 @@
-import { Label, LabelGroup } from '@primer/react'
+import { Label, LabelGroup, Link } from '@primer/react'
 import { BugIcon } from '@primer/octicons-react'
 
 type Props = {
@@ -55,6 +55,7 @@ export const CookBookArticleCard = ({
   tags = defaultProps.tags,
   description = defaultProps.description,
   image = '',
+  url,
   spotlight = false,
 }: Props) => {
   return (
@@ -66,7 +67,9 @@ export const CookBookArticleCard = ({
         {spotlight ? setImage(image) : null}
         {spotlight ? setIcon('none') : setIcon(icon)}
         <div>
-          <h3 className="h4">{title}</h3>
+          <Link href={url}>
+            <h3 className="h4">{title}</h3>
+          </Link>
           <div className="fgColor-muted mb-3 mt-2">{description}</div>
           <LabelGroup>
             {tags.map((tag, index) => (
