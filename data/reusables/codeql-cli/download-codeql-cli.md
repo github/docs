@@ -3,7 +3,7 @@ various {% data variables.product.prodname_codeql %}-specific files. If you donâ
 downloading this archive, you are agreeing to the [{% data variables.product.prodname_dotcom %} {% data variables.product.prodname_codeql %} Terms and
 Conditions](https://securitylab.github.com/tools/codeql/license).
 
-You should download the {% data variables.product.prodname_codeql %} bundle from https://github.com/github/codeql-action/releases. The bundle contains:
+You should download the {% data variables.product.prodname_codeql %} bundle from https://github.com/github/codeql-cli-binaries/releases. The bundle contains:
 
 * {% data variables.product.prodname_codeql_cli %} product
 * A compatible version of the queries and libraries from https://github.com/github/codeql
