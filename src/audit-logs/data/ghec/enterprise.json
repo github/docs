@@ -66,12 +66,12 @@
   },
   {
     "action": "auto_approve_personal_access_token_requests.disable",
-    "description": "Triggered when the organization must approve fine-grained personal access tokens before the tokens can access organization resources.",
+    "description": "Triggered when the organization must approve fine-grained personal access tokens before the tokens can access organization resources. See also: personal_access_token.auto_approve_grant_requests_disabled",
     "docs_reference_links": "/organizations/managing-programmatic-access-to-your-organization/setting-a-personal-access-token-policy-for-your-organization"
   },
   {
     "action": "auto_approve_personal_access_token_requests.enable",
-    "description": "Triggered when fine-grained personal access tokens can access organization resources without prior approval.",
+    "description": "Triggered when fine-grained personal access tokens can access organization resources without prior approval. See also: personal_access_token.auto_approve_grant_requests_enabled",
     "docs_reference_links": "/organizations/managing-programmatic-access-to-your-organization/setting-a-personal-access-token-policy-for-your-organization"
   },
   {
@@ -1278,16 +1278,6 @@
     "action": "external_identity.update",
     "description": "An external identity was updated.",
     "docs_reference_links": "N/A"
-  },
-  {
-    "action": "forbid_auto_approve_personal_access_token_requests.disable",
-    "description": "Auto-approve policy for fine-grained personal access tokens was enabled for the organization.",
-    "docs_reference_links": "/organizations/managing-programmatic-access-to-your-organization/setting-a-personal-access-token-policy-for-your-organization#enforcing-an-approval-policy-for-fine-grained-personal-access-tokens"
-  },
-  {
-    "action": "forbid_auto_approve_personal_access_token_requests.enable",
-    "description": "Auto-approve policy for fine-grained personal access tokens was disabled for the organization.",
-    "docs_reference_links": "/organizations/managing-programmatic-access-to-your-organization/setting-a-personal-access-token-policy-for-your-organization#enforcing-an-approval-policy-for-fine-grained-personal-access-tokens"
   },
   {
     "action": "git.clone",
@@ -3878,6 +3868,36 @@
     "action": "secret_scanning_push_protection_request.request",
     "description": "A user requested to bypass secret scanning push protection.",
     "docs_reference_links": "/code-security/secret-scanning/working-with-push-protection#requesting-bypass-privileges-when-working-with-the-command-line"
+  },
+  {
+    "action": "security_configuration.create",
+    "description": "A security configuration was created",
+    "docs_reference_links": "N/A"
+  },
+  {
+    "action": "security_configuration_default.delete",
+    "description": "A default security configuration setting for new repositories was removed.",
+    "docs_reference_links": "N/A"
+  },
+  {
+    "action": "security_configuration_default.update",
+    "description": "A default security configuration setting for new repositories was updated.",
+    "docs_reference_links": "N/A"
+  },
+  {
+    "action": "security_configuration.delete",
+    "description": "A security configuration was deleted",
+    "docs_reference_links": "N/A"
+  },
+  {
+    "action": "security_configuration_policy.update",
+    "description": "A security configuration policy was updated",
+    "docs_reference_links": "N/A"
+  },
+  {
+    "action": "security_configuration.update",
+    "description": "A security configuration was updated",
+    "docs_reference_links": "N/A"
   },
   {
     "action": "sponsors.agreement_sign",
