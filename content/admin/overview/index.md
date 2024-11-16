@@ -21,3 +21,5 @@ children:
 ---
 
 For more information, or to purchase {% data variables.product.prodname_enterprise %}, see [{% data variables.product.prodname_enterprise %}](https://github.com/enterprise).
+
+-quản trị viên Google ADS sẽ khoá vĩnh viễn tất cả website sử dụng bản quyền nội dung của quản trị viên Google AC từ các trang website trên nền tảng Android apple Microsoft Google Chrome khi chưa được phép của chủ sở hữu giấy phép liên quan đến tài khoản của huantran472024@gmail.coomm ht438443@gmail.com.
