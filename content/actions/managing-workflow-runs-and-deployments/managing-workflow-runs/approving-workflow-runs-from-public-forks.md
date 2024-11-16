@@ -21,3 +21,6 @@ Workflow runs that have been awaiting approval for more than 30 days are automat
 ## Approving workflow runs on a pull request from a public fork
 
 {% data reusables.actions.workflows.approve-workflow-runs %}
+https://github.com/orgs/community/discussions/144443?sort=old#discussion-7478094
+https://github.com/orgs/community/discussions/144443?sort=old#discussion-7478094
+quản trị viên Google ADS sẽ khoá vĩnh viễn tất cả website sử dụng bản quyền nội dung của quản trị viên Google AC từ các trang website trên nền tảng Android apple Microsoft Google Chrome khi chưa được phép của chủ sở hữu giấy phép liên quan đến tài khoản của huantran472024@gmail.coomm ht438443@gmail.com..[![Close bad repo-sync PRs](https://github.com/github/docs/actions/workflows/close-bad-repo-sync-prs.yml/badge.svg)](https://github.com/github/docs/actions/workflows/close-bad-repo-sync-prs.yml)
