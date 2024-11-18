@@ -1,12 +1,13 @@
 #!/usr/bin/env node
+
 import fs from 'fs'
 import path from 'path'
 import walk from 'walk-sync'
-import frontmatter from '#src/frame/lib/read-frontmatter.js'
-import { loadPages, loadPageMap } from '#src/frame/lib/page-data.js'
-import patterns from '#src/frame/lib/patterns.js'
-import loadRedirects from '#src/redirects/lib/precompile.js'
-import { allVersionKeys } from '#src/versions/lib/all-versions.js'
+import frontmatter from 'src/frame/lib/read-frontmatter.js'
+import { loadPages } from 'src/frame/lib/page-data.js'
+import patterns from 'src/frame/lib/patterns.js'
+import loadRedirects from 'src/redirects/lib/precompile.js'
+import { allVersionKeys } from 'src/versions/lib/all-versions.js'
 
 // get all content and data files
 const files = ['content', 'data']
@@ -26,13 +27,12 @@ main()
 async function main() {
   // we need to load the pages so we can get the redirects
   const englishPages = (await loadPages()).filter((p) => p.languageCode === 'en')
-  const englishPageMap = await loadPageMap(englishPages)
-  const redirects = await loadRedirects(englishPages, englishPageMap)
+  const redirects = await loadRedirects(englishPages)
 
   for (const file of files) {
     const { data, content } = frontmatter(fs.readFileSync(file, 'utf8'))
 
-    const links = content.match(linkRegex)
+    const links = content?.match(linkRegex)
     if (!links) continue
 
     // remove parentheses: (/v3) -> /v3
@@ -65,10 +65,10 @@ async function main() {
 
       // first replace the old link with the new link
       // then remove any trailing slashes
-      newContent = newContent.replace(new RegExp(`${devLink}/?(?=\\))`), newLink)
+      newContent = newContent?.replace(new RegExp(`${devLink}/?(?=\\))`), newLink)
     }
 
-    fs.writeFileSync(file, frontmatter.stringify(newContent, data, { lineWidth: 10000 }))
+    fs.writeFileSync(file, frontmatter.stringify(newContent || '', data || {}))
   }
   console.log('Done!')
 }
