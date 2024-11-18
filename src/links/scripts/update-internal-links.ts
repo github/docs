@@ -17,8 +17,8 @@ import chalk from 'chalk'
 import yaml from 'js-yaml'
 
 import { updateInternalLinks } from '#src/links/lib/update-internal-links.js'
-import frontmatter from '#src/frame/lib/read-frontmatter.js'
-import walkFiles from '#src/workflows/walk-files.js'
+import frontmatter from 'src/frame/lib/read-frontmatter.js'
+import walkFiles from 'src/workflows/walk-files.js'
 
 program
   .description('Update internal links in content files')
@@ -31,12 +31,24 @@ program
   .option('--aggregate-stats', 'Display aggregate numbers about all possible changes')
   .option('--strict', "Throw an error (instead of a warning) if a link can't be processed")
   .option('--exclude [paths...]', 'Specific files to exclude')
-  .arguments('[files-or-directories...]', '')
+  .arguments('[files-or-directories...]')
   .parse(process.argv)
 
 main(program.args, program.opts())
 
-async function main(files, opts) {
+type Options = {
+  verbose: boolean
+  debug: boolean
+  dryRun: boolean
+  dontSetAutotitle: boolean
+  dontFixHref: boolean
+  check: boolean
+  aggregateStats: boolean
+  strict: boolean
+  exclude: string[]
+  filesOrDirectories?: string[]
+}
+async function main(files: string[], opts: Options) {
   const { debug } = opts
 
   const excludeFilePaths = new Set(opts.exclude || [])
@@ -142,11 +154,7 @@ async function main(files, opts) {
           } else {
             // Remember the `content` and `newContent` is the "meat" of the
             // Markdown page. To save it you need the frontmatter data too.
-            fs.writeFileSync(
-              file,
-              frontmatter.stringify(newContent, newData, { lineWidth: 10000 }),
-              'utf-8',
-            )
+            fs.writeFileSync(file, frontmatter.stringify(newContent || '', newData || {}), 'utf-8')
           }
         }
       }
@@ -201,7 +209,7 @@ async function main(files, opts) {
     } else if (opts.check) {
       console.log(chalk.green('No changes needed or necessary. 🌈'))
     }
-  } catch (err) {
+  } catch (err: any) {
     if (debug) {
       throw err
     }
@@ -210,7 +218,12 @@ async function main(files, opts) {
   }
 }
 
-function printObjectDifference(objFrom, objTo, rawContent, parentKey = '') {
+function printObjectDifference(
+  objFrom: Record<string, any>,
+  objTo: Record<string, any>,
+  rawContent: string,
+  parentKey = '',
+) {
   // Assume both object are of the same shape, but if a key's value is
   // an array, and it's different, print that difference.
   for (const [key, value] of Object.entries(objFrom)) {
@@ -243,7 +256,7 @@ function printObjectDifference(objFrom, objTo, rawContent, parentKey = '') {
 }
 
 // This assumes them to be the same shape with possibly different node values
-function equalObject(obj1, obj2) {
+function equalObject(obj1: Record<string, any>, obj2: Record<string, any>) {
   if (!equalSet(new Set(Object.keys(obj1)), new Set(Object.keys(obj2)))) {
     return false
   }
@@ -275,21 +288,36 @@ function equalObject(obj1, obj2) {
   return true
 }
 
-function isObject(thing) {
+function isObject(thing: any) {
   return typeof thing === 'object' && thing !== null && !Array.isArray(thing)
 }
 
-function equalSet(set1, set2) {
+function equalSet(set1: Set<any>, set2: Set<any>) {
   return set1.size === set2.size && [...set1].every((x) => set2.has(x))
 }
 
-function equalArray(arr1, arr2) {
+function equalArray(arr1: any[], arr2: any[]) {
   return arr1.length === arr2.length && arr1.every((item, i) => item === arr2[i])
 }
 
-function countByTree(results) {
-  const files = {}
-  const changes = {}
+function countByTree(
+  results: {
+    data: {
+      [key: string]: any
+    }
+    content: string
+    rawContent: string
+    newContent: string
+    replacements: any[]
+    warnings: any[]
+    newData: {
+      [key: string]: any
+    }
+    file: string
+  }[],
+) {
+  const files: Record<string, number> = {}
+  const changes: Record<string, number> = {}
   for (const { file, replacements } of results) {
     const split = path.dirname(file).split(path.sep)
     while (split.length > 1) {
@@ -299,7 +327,9 @@ function countByTree(results) {
       split.pop()
     }
   }
-  const longest = Math.max(...Object.keys(changes).map((x) => x.split(path.sep).at(-1).length))
+  const longest = Math.max(
+    ...Object.keys(changes).map((x: string) => Number(x.split(path.sep).at(-1)?.length)),
+  )
   const padding = longest + 10
   const col0 = 'TREE'
   const col1 = 'FILES '
@@ -312,7 +342,7 @@ function countByTree(results) {
     const indentation = split.length - 1
     const indentationPad = indentation ? `${'   '.repeat(indentation)} ↳ ` : ''
     console.log(
-      `${indentationPad}${last.padEnd(padding - indentationPad.length)} ${String(
+      `${indentationPad}${last?.padEnd(padding - indentationPad.length)} ${String(
         files[each],
       ).padEnd(col1.length)} ${changes[each]}`,
     )

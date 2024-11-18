@@ -7,7 +7,7 @@ import fs from 'fs'
  * @param {string} name - name of artifact
  * @param {string} contents - string contents of artifact
  */
-export async function uploadArtifact(name, contents) {
+export async function uploadArtifact(name: string, contents: string) {
   if (!fs.existsSync('./artifacts')) {
     fs.mkdirSync('./artifacts/')
   }
