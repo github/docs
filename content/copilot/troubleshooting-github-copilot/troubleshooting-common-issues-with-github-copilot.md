@@ -52,6 +52,12 @@ If you cannot connect to the server, you can create a discussion in our [discuss
 
 This is a known issue and our team is working towards a fix. For more information, see this comment on a [{% data variables.product.prodname_github_community %} discussion](https://github.com/orgs/community/discussions/40522#discussioncomment-4701470).
 
+## Error: "No valid OAuth token detected" in {% data variables.product.prodname_copilot_cli %}
+
+This error suggests that a classic or fine-grained {% data variables.product.pat_generic %} might be in use, either via the `GITHUB_TOKEN` or `GH_TOKEN` environment variables, or during a `gh auth login` attempt. {% data variables.product.prodname_copilot_cli %} currently only supports using the {% data variables.product.prodname_cli %} OAuth app.
+
+For more information, see the [{% data variables.product.prodname_copilot_cli_short %} extension repository](https://github.com/github/gh-copilot).
+
 ## Further reading
 
 * "[AUTOTITLE](/free-pro-team@latest/site-policy/other-site-policies/github-and-trade-controls)"
