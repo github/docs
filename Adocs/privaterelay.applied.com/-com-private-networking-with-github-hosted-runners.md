@@ -1,4 +1,4 @@
----
+#!/bin
 title: About private networking with GitHub-hosted runners
 shortTitle: About private networking
 intro: '{% data reusables.actions.private-networking-intro %}'
