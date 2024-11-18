@@ -87,7 +87,7 @@ For information about improving repository security, see "[AUTOTITLE](/code-secu
 
 ### Changing from private to public
 
-* The code will be visible to everyone who can visit {% data variables.product.prodname_dotcom_the_website %}.
+* The code will be visible to everyone who can visit {% data variables.location.product_location %}.
 * Anyone can fork your repository.
 * All push rulesets will be disabled.
 * Your changes will be published as activity.
@@ -109,7 +109,7 @@ For information about improving repository security, see "[AUTOTITLE](/code-secu
 
 ### Changing from internal to public
 
-* The code will be visible to everyone who can visit {% data variables.product.prodname_dotcom_the_website %}.
+* The code will be visible to everyone who can visit {% data variables.location.product_location %}.
 * Anyone can fork your repository.
 * All push rulesets will be disabled.
 * Your changes will be published as activity.
