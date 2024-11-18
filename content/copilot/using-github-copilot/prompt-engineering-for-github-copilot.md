@@ -57,7 +57,7 @@ For example, instead of asking {% data variables.product.prodname_copilot_short 
 
 * Write a function to generate a 10 by 10 grid of letters.
 * Write a function to find all words in a grid of letters, given a list of valid words.
-* Write a function to that uses the previous functions to generate a 10 by 10 grid of letters that contains at least 10 words.
+* Write a function that uses the previous functions to generate a 10 by 10 grid of letters that contains at least 10 words.
 * Update the previous function to print the grid of letters and 10 random words from the grid.
 
 ## Avoid ambiguity
