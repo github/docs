@@ -16,7 +16,7 @@ topics:
 
 ## About enabling push protection
 
-To enable push protection for a repository, you must first enable {% data variables.product.prodname_secret_scanning %}. You can then enable push protection in the repository's "Code security and analysis" settings page following the steps outlined in this article.
+To enable push protection for a repository, you must first enable {% data variables.product.prodname_secret_scanning %}. You can then enable push protection in the repository's "Code security" settings page following the steps outlined in this article.
 
 {% ifversion secret-scanning-push-protection-for-users %}
 

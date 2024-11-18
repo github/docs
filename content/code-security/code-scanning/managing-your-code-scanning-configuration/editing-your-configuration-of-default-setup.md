@@ -104,9 +104,9 @@ For more information about {% data variables.product.prodname_codeql %} model pa
 {% data reusables.profile.access_org %}
 {% data reusables.organizations.org_settings %}
 {% ifversion security-configurations %}
-1. Click **Code security** then **Global settings**.
+1. Click **{% octicon "codescan" aria-hidden="true" %} Code security** then **Global settings**.
 {% else %}
-1. Click **Code security and analysis**.
+1. Click **{% octicon "codescan" aria-hidden="true" %} Code security**.
 {% endif %}
 1. Find the "{% data variables.product.prodname_code_scanning_caps %}" section.
 1. Next to "Expand {% data variables.product.prodname_codeql %} analysis", click **Configure**.

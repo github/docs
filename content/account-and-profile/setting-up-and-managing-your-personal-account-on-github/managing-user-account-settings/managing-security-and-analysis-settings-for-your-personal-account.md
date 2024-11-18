@@ -32,7 +32,7 @@ For an overview of repository-level security, see "[AUTOTITLE](/code-security/ge
 
 {% data reusables.user-settings.access_settings %}
 {% data reusables.user-settings.security-analysis %}
-1. Under "Code security and analysis", to the right of the feature, click **Disable all** or **Enable all**.
+1. Under "Code security", to the right of the feature, click **Disable all** or **Enable all**.
 1. Optionally, enable the feature by default for new repositories that you own.{% ifversion not ghes %}
 
    ![Screenshot of the "Enable FEATURE" modal dialog, with the "Enable by default for new private repositories" option highlighted with a dark orange outline.](/assets/images/help/settings/security-and-analysis-enable-by-default-in-modal.png){% endif %}
@@ -45,7 +45,7 @@ For an overview of repository-level security, see "[AUTOTITLE](/code-security/ge
 
 {% data reusables.user-settings.access_settings %}
 {% data reusables.user-settings.security-analysis %}
-1. Under "Code security and analysis", to the right of the feature, enable or disable the feature by default for new repositories that you own.
+1. Under "Code security", to the right of the feature, enable or disable the feature by default for new repositories that you own.
 
 ## Further reading
 

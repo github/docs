@@ -44,7 +44,7 @@ Dependency review is available when dependency graph is enabled for the instance
 {% data reusables.repositories.navigate-to-code-security-and-analysis %}
 1. Under "Configure security and analysis features", check if the dependency graph is enabled.
 1. If dependency graph is enabled, click **Enable** next to "{% data variables.product.prodname_GH_advanced_security %}" to enable {% data variables.product.prodname_advanced_security %}, including dependency review. The enable button is disabled if your enterprise has no available licenses for {% data variables.product.prodname_advanced_security %}.{% ifversion ghes %}
-    ![Screenshot of "Code security and analysis features".](/assets/images/enterprise/3.4/repository/code-security-and-analysis-enable-ghas-3.4.png){% endif %}
+    ![Screenshot of "Code security" feature.](/assets/images/enterprise/3.4/repository/code-security-and-analysis-enable-ghas-3.4.png){% endif %}
 
 {% endif %}
 

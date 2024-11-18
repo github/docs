@@ -70,7 +70,7 @@ You also create and manage security campaigns to remediate alerts from security 
 
 ## About security overview for enterprises
 
-You can find security overview on the **Code Security** tab for your enterprise. Each page displays aggregated and repository-specific security information for your enterprise.
+You can find security overview on the **{% octicon "codescan" aria-hidden="true" %} Code security** tab for your enterprise. Each page displays aggregated and repository-specific security information for your enterprise.
 
 As with security overview for organizations, security overview for enterprises has multiple views that provide different ways to explore data.
 

@@ -36,4 +36,4 @@ You can disable push protection for users through your personal account settings
 {% data reusables.user-settings.security-analysis %}
 1. Under "User", to the right of "Push protection for yourself", click **Disable**.
 
-   ![Screenshot of the "User" section of the "Code security and analysis" settings page. A button labeled "Disable" is outlined in dark orange.](/assets/images/help/security/push-protection-for-yourself.png)
+   ![Screenshot of the "User" section of the "Code security" settings page. A button labeled "Disable" is outlined in dark orange.](/assets/images/help/security/push-protection-for-yourself.png)

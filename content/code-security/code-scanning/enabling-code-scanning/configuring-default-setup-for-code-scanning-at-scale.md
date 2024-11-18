@@ -76,7 +76,7 @@ If the code in a repository changes to include {% ifversion code-scanning-defaul
 
 {% ifversion security-configurations %} You can enable default setup for all eligible repositories in your organization. For more information, see "[AUTOTITLE](/code-security/securing-your-organization/introduction-to-securing-your-organization-at-scale/about-enabling-security-features-at-scale)."
 {% else %}
-Through the "Code security and analysis" page of your organization's settings, you can enable default setup for all eligible repositories in your organization. For more information on repository eligibility, see "[Eligible repositories for {% data variables.product.prodname_codeql %} default setup at scale](#eligible-repositories-default-setup)."
+Through the "Code security" page of your organization's settings, you can enable default setup for all eligible repositories in your organization. For more information on repository eligibility, see "[Eligible repositories for {% data variables.product.prodname_codeql %} default setup at scale](#eligible-repositories-default-setup)."
 
 {% data reusables.code-scanning.beta-org-enable-all %}
 
