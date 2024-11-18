@@ -7,6 +7,6 @@ versions:
 children:
   - /about-github-sponsors
   - /quickstart-for-finding-contributors-to-sponsor
+  - /navigating-your-sponsors-dashboard
 shortTitle: Getting started
 ---
-

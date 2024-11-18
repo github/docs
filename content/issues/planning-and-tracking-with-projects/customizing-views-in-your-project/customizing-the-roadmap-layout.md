@@ -3,7 +3,9 @@ title: Customizing the roadmap layout
 shortTitle: Customizing roadmaps
 intro: You can use the roadmap layout to view your project's items on a timeline.
 versions:
-  feature: projects-v2-roadmaps
+  fpt: '*'
+  ghes: '*'
+  ghec: '*'
 type: tutorial
 topics:
   - Projects
@@ -49,6 +51,14 @@ You can choose the density of items on your roadmap. You can zoom in to show one
    ![Screenshot showing the menu items for a roadmap layout. The "Zoom" button is highlighted with an orange rectangle.](/assets/images/help/projects-v2/roadmap-zoom-button.png)
 
 1. Select either **Month**, **Quarter**, or **Year**.
+
+{% ifversion projects-v2-slice-panel %}
+
+## Slicing by field values
+
+{% data reusables.projects.customize.slice-panel %}
+
+{% endif %}
 
 {% ifversion projects-v2-consistent-sorting %}
 

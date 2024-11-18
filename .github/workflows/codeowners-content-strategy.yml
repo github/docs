@@ -7,15 +7,27 @@ name: Codeowners - Content Strategy
 on:
   pull_request:
     paths:
-      - '/contributing/content-*.md'
+      - 'contributing/content-*.md'
+      - 'content/contributing/**.md'
 
 jobs:
   codeowners-content-strategy:
     if: ${{ github.repository == 'github/docs-internal' }}
     runs-on: ubuntu-latest
     steps:
+      - name: Check out repo
+        uses: actions/checkout@b4ffde65f46336ab88eb53be808477a3936bae11 # v4.1.1
+
       - name: Add Content Strategy as a reviewer
         env:
           GH_TOKEN: ${{ secrets.DOCS_BOT_PAT_WRITEORG_PROJECT }}
           PR: ${{ github.event.pull_request.html_url }}
-        run: gh pr edit $PR --add-reviewer github/docs-content-strategy
+        run: |
+          has_reviewer=$(
+            gh pr view $PR --json reviews |
+            jq 'any(.reviews[]; select(length > 0))'
+          )
+          if ! $has_reviewer
+          then
+            gh pr edit $PR --add-reviewer github/docs-content-strategy
+          fi

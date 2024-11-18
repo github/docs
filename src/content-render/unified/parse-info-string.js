@@ -26,6 +26,6 @@ function strToObj(str) {
     str
       .split(/\s+/g)
       .map((k) => k.split(':'))
-      .map(([k, ...v]) => [k, v.length ? v.join(':') : true])
+      .map(([k, ...v]) => [k, v.length ? v.join(':') : true]),
   )
 }

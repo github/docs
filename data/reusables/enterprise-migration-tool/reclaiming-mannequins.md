@@ -10,5 +10,5 @@
 
 1. Decide if you want to reclaim mannequins.
 1. Plan when you'll complete reclaims.
-3. Reclaim mannequins.
-1. If any of the members do not already have appropriate access to the repository via team membership, give the members access to the repository. For more information, see "[AUTOTITLE](/organizations/managing-user-access-to-your-organizations-repositories/managing-an-individuals-access-to-an-organization-repository)."
+1. Reclaim mannequins.
+1. If any of the members do not already have appropriate access to the repository via team membership, give the members access to the repository. For more information, see "[AUTOTITLE](/organizations/managing-user-access-to-your-organizations-repositories/managing-repository-roles/managing-an-individuals-access-to-an-organization-repository)."

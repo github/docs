@@ -12,7 +12,6 @@ redirect_from:
 versions:
   fpt: '*'
   ghes: '*'
-  ghae: '*'
   ghec: '*'
 topics:
   - GitHub Apps
@@ -31,6 +30,8 @@ When a user installs an app on their account or organization, they grant the app
 Once a user has authorized your app, you can generate a user access token, which is a type of OAuth token. You should send the user access token in the `Authorization` header of your subsequent API requests. For more information about prompting a user to authorize your app and generating a user access token, see "[AUTOTITLE](/apps/creating-github-apps/authenticating-with-a-github-app/generating-a-user-access-token-for-a-github-app)."
 
 Requests made with a user access token are sometimes called "user-to-server" requests.
+
+{% data reusables.user-settings.token_access_capabilities %}
 
 If you want to attribute app activity to the app instead of to a user, you should authenticate as an app installation instead. For more information, see "[AUTOTITLE](/apps/creating-github-apps/authenticating-with-a-github-app/authenticating-as-a-github-app-installation)."
 

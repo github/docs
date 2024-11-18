@@ -6,7 +6,6 @@ versions:
   fpt: '*'
   ghes: '*'
   ghec: '*'
-  ghae: '*'
 ---
 
 {% data reusables.migrations.about-migrations %}

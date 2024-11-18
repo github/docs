@@ -12,4 +12,4 @@ You can request up to 365 days of metrics in a single {% data variables.product.
 
 Before you can use the {% data variables.product.prodname_server_statistics %} REST API, you must enable {% data variables.product.prodname_server_statistics %}. For more information, see "[AUTOTITLE](/admin/configuration/configuring-github-connect/enabling-server-statistics-for-your-enterprise)."
 
-For more information about using the REST API to request server statistics, see "[AUTOTITLE](/enterprise-cloud@latest/rest/enterprise-admin/admin-stats#get-github-enterprise-server-statistics)" in the {% data variables.product.prodname_ghe_cloud %} REST API documentation.
+For more information about using the REST API to request server statistics, see "[AUTOTITLE](/enterprise-cloud@latest/rest/enterprise-admin/admin-stats#get-github-enterprise-server-statistics)" in the {% data variables.product.prodname_ghe_cloud %} documentation.

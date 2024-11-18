@@ -1,0 +1,462 @@
+# These urls went from being free-pro-team, but are now versioned for more than one enterprise version and enterprise-cloud
+# Shipped in pull #20947 on 10/15/21
+
+/enterprise-cloud@latest/admin/managing-your-enterprise-account/about-enterprise-accounts
+- /articles/about-github-business-accounts
+- /articles/about-enterprise-accounts
+- /github/setting-up-and-managing-your-enterprise-account/about-enterprise-accounts
+- /github/setting-up-and-managing-your-enterprise/about-enterprise-accounts
+- /github/setting-up-and-managing-your-enterprise/managing-your-enterprise-account/about-enterprise-accounts
+
+/enterprise-cloud@latest/admin/managing-accounts-and-repositories/managing-users-in-your-enterprise/roles-in-an-enterprise
+- /github/setting-up-and-managing-your-enterprise/managing-users-in-your-enterprise/roles-in-an-enterprise
+- /github/setting-up-and-managing-your-enterprise-account/roles-for-an-enterprise-account
+- /articles/permission-levels-for-a-business-account
+- /articles/roles-for-an-enterprise-account
+- /github/setting-up-and-managing-your-enterprise/roles-in-an-enterprise
+
+/enterprise-cloud@latest/admin/configuring-settings/configuring-user-applications-for-your-enterprise/verifying-or-approving-a-domain-for-your-enterprise
+- /admin/configuration/configuring-your-enterprise/verifying-or-approving-a-domain-for-your-enterprise-account
+- /github/setting-up-and-managing-your-enterprise/managing-your-enterprise-account/verifying-or-approving-a-domain-for-your-enterprise-account
+- /github/setting-up-and-managing-your-enterprise/verifying-your-enterprise-accounts-domain
+- /github/articles/verifying-your-enterprise-accounts-domain
+- /early-access/github/articles/verifying-your-enterprise-accounts-domain
+- /github/setting-up-and-managing-your-enterprise/verifying-or-approving-a-domain-for-your-enterprise-account
+
+/enterprise-cloud@latest/billing/managing-the-plan-for-your-github-account/viewing-the-subscription-and-usage-for-your-enterprise-account
+- /billing/managing-billing-for-your-github-account/viewing-the-subscription-and-usage-for-your-enterprise-account
+- /github/setting-up-and-managing-your-enterprise/managing-your-enterprise-account/viewing-the-subscription-and-usage-for-your-enterprise-account
+- /github/setting-up-and-managing-your-enterprise-account/viewing-the-subscription-and-usage-for-your-enterprise-account
+- /articles/viewing-the-subscription-and-usage-for-your-enterprise-account
+- /github/setting-up-and-managing-your-enterprise/viewing-the-subscription-and-usage-for-your-enterprise-account
+
+/enterprise-cloud@latest/admin/managing-iam/understanding-iam-for-enterprises/about-saml-for-enterprise-iam
+- /github/setting-up-and-managing-your-enterprise/about-identity-and-access-management-for-your-enterprise-account
+- /github/setting-up-and-managing-your-enterprise/configuring-identity-and-access-management-for-your-enterprise-account/about-identity-and-access-management-for-your-enterprise-account
+- /github/setting-up-and-managing-your-enterprise/about-user-provisioning-for-organizations-in-your-enterprise-account
+- /github/setting-up-and-managing-your-enterprise/configuring-saml-single-sign-on-and-scim-for-your-enterprise-account-using-okta
+- /admin/authentication/managing-identity-and-access-for-your-enterprise/about-identity-and-access-management-for-your-enterprise
+
+/enterprise-cloud@latest/admin/managing-iam/using-saml-for-enterprise-iam/configuring-saml-single-sign-on-for-your-enterprise
+- /github/setting-up-and-managing-your-enterprise/enabling-saml-single-sign-on-for-organizations-in-your-enterprise-account
+- /github/setting-up-and-managing-your-enterprise/configuring-identity-and-access-management-for-your-enterprise-account/enabling-saml-single-sign-on-for-organizations-in-your-enterprise-account
+- /github/setting-up-and-managing-your-enterprise/configuring-identity-and-access-management-for-your-enterprise-account/enforcing-saml-single-sign-on-for-organizations-in-your-enterprise-account
+- /admin/authentication/managing-identity-and-access-for-your-enterprise/configuring-saml-single-sign-on-for-your-enterprise-using-okta
+
+/enterprise-cloud@latest/admin/enforcing-policies/enforcing-policies-for-your-enterprise/enforcing-repository-management-policies-in-your-enterprise
+- /articles/enforcing-repository-management-settings-for-organizations-in-your-business-account
+- /articles/enforcing-repository-management-policies-for-organizations-in-your-enterprise-account
+- /articles/enforcing-repository-management-policies-in-your-enterprise-account
+- /github/setting-up-and-managing-your-enterprise-account/enforcing-repository-management-policies-in-your-enterprise-account
+- /github/setting-up-and-managing-your-enterprise/enforcing-repository-management-policies-in-your-enterprise-account
+
+/enterprise-cloud@latest/admin/enforcing-policies/enforcing-policies-for-your-enterprise/enforcing-policies-for-github-actions-in-your-enterprise
+- /github/setting-up-and-managing-your-enterprise-account/enforcing-github-actions-policies-in-your-enterprise-account
+- /github/setting-up-and-managing-your-enterprise/enforcing-github-actions-policies-in-your-enterprise-account
+- /admin/policies/enforcing-policies-for-your-enterprise/enforcing-github-actions-policies-for-your-enterprise
+- /github/setting-up-and-managing-your-enterprise-account/configuring-the-retention-period-for-github-actions-artifacts-and-logs-in-your-enterprise-account
+- /github/setting-up-and-managing-your-enterprise/configuring-the-retention-period-for-github-actions-artifacts-and-logs-in-your-enterprise-account
+
+/enterprise-cloud@latest/admin/enforcing-policies/enforcing-policies-for-your-enterprise/enforcing-policies-for-code-security-and-analysis-for-your-enterprise
+- /github/setting-up-and-managing-your-enterprise/enforcing-policies-for-advanced-security-in-your-enterprise-account
+
+/enterprise-cloud@latest/admin/managing-accounts-and-repositories/managing-users-in-your-enterprise/viewing-people-in-your-enterprise
+- /github/setting-up-and-managing-your-enterprise-account/viewing-people-in-your-enterprise-account
+- /articles/viewing-people-in-your-enterprise-account
+- /github/setting-up-and-managing-your-enterprise/viewing-people-in-your-enterprise
+- /github/setting-up-and-managing-your-enterprise/managing-users-in-your-enterprise/viewing-people-in-your-enterprise
+
+/enterprise-cloud@latest/admin/monitoring-activity-in-your-enterprise/exploring-user-activity-in-your-enterprise/managing-global-webhooks
+- /github/setting-up-and-managing-your-enterprise/managing-organizations-in-your-enterprise-account/configuring-webhooks-for-organization-events-in-your-enterprise-account
+- /articles/configuring-webhooks-for-organization-events-in-your-business-account
+- /articles/configuring-webhooks-for-organization-events-in-your-enterprise-account
+- /github/setting-up-and-managing-your-enterprise-account/configuring-webhooks-for-organization-events-in-your-enterprise-account
+- /github/setting-up-and-managing-your-enterprise/configuring-webhooks-for-organization-events-in-your-enterprise-account
+
+/enterprise-server@3.12/admin/enforcing-policies/enforcing-policies-for-your-enterprise/enforcing-team-policies-in-your-enterprise
+- /articles/enforcing-team-settings-for-organizations-in-your-business-account
+- /articles/enforcing-team-policies-for-organizations-in-your-enterprise-account
+- /articles/enforcing-team-policies-in-your-enterprise-account
+- /github/setting-up-and-managing-your-enterprise-account/enforcing-team-policies-in-your-enterprise-account
+- /github/setting-up-and-managing-your-enterprise/enforcing-team-policies-in-your-enterprise-account
+
+/enterprise-cloud@latest/admin/enforcing-policies/enforcing-policies-for-your-enterprise/enforcing-policies-for-projects-in-your-enterprise
+- /articles/enforcing-project-board-settings-for-organizations-in-your-business-account
+- /articles/enforcing-project-board-policies-for-organizations-in-your-enterprise-account
+- /articles/enforcing-project-board-policies-in-your-enterprise-account
+- /github/setting-up-and-managing-your-enterprise-account/enforcing-project-board-policies-in-your-enterprise-account
+- /github/setting-up-and-managing-your-enterprise/enforcing-project-board-policies-in-your-enterprise-account
+
+/enterprise-cloud@latest/admin/enforcing-policies/enforcing-policies-for-your-enterprise/restricting-email-notifications-for-your-enterprise
+- /github/setting-up-and-managing-your-enterprise/restricting-email-notifications-for-your-enterprise-account-to-approved-domains
+- /github/setting-up-and-managing-your-enterprise/restricting-email-notifications-for-your-enterprise-account
+
+/enterprise-cloud@latest/admin/enforcing-policies/enforcing-policies-for-your-enterprise/enforcing-policies-for-security-settings-in-your-enterprise
+- /articles/enforcing-security-settings-for-organizations-in-your-business-account
+- /articles/enforcing-security-settings-for-organizations-in-your-enterprise-account
+- /articles/enforcing-security-settings-in-your-enterprise-account
+- /github/articles/managing-allowed-ip-addresses-for-organizations-in-your-enterprise-account
+- /github/setting-up-and-managing-your-enterprise-account/enforcing-security-settings-in-your-enterprise-account
+- /github/setting-up-and-managing-your-enterprise/enforcing-security-settings-in-your-enterprise-account
+
+/enterprise-cloud@latest/billing/managing-your-license-for-github-enterprise/viewing-license-usage-for-github-enterprise
+- /billing/managing-your-license-for-github-enterprise/viewing-license-usage-for-github-enterprise
+
+/enterprise-cloud@latest/graphql/guides/managing-enterprise-accounts
+- /graphql/guides/managing-enterprise-accounts
+- /v4/guides/managing-enterprise-accounts
+
+/enterprise-cloud@latest/billing/managing-your-github-billing-settings/about-billing-for-your-enterprise
+- /admin/overview/managing-billing-for-your-enterprise
+- /admin/overview/managing-billing-for-github-enterprise
+
+/enterprise-cloud@latest/billing/managing-your-license-for-github-enterprise/downloading-your-license-for-github-enterprise
+- /billing/managing-your-license-for-github-enterprise/downloading-your-license-for-github-enterprise
+
+/enterprise-cloud@latest/billing/managing-your-license-for-github-enterprise
+- /billing/managing-your-license-for-github-enterprise
+
+/enterprise-cloud@latest/admin
+- /github/setting-up-and-managing-your-enterprise/managing-your-enterprise-account
+
+/enterprise-cloud@latest/admin/managing-accounts-and-repositories/managing-users-in-your-enterprise
+- /github/setting-up-and-managing-your-enterprise/managing-users-in-your-enterprise-account
+- /github/setting-up-and-managing-your-enterprise-account/managing-users-in-your-enterprise-account
+- /articles/managing-users-in-your-enterprise-account
+- /articles/managing-users-in-your-enterprise
+
+/enterprise-cloud@latest/admin/managing-iam/using-saml-for-enterprise-iam
+- /github/setting-up-and-managing-your-enterprise/configuring-identity-and-access-management-for-your-enterprise-account
+- /admin/authentication/managing-identity-and-access-for-your-enterprise
+
+# These URLs went from being in free-pro-team to ONLY to being in enterprise-cloud only.
+# Shipped in pull #20947 on 10/15/21
+
+/enterprise-cloud@latest/admin/managing-iam/using-saml-for-enterprise-iam/managing-team-synchronization-for-organizations-in-your-enterprise
+- /github/setting-up-and-managing-your-enterprise/managing-team-synchronization-for-organizations-in-your-enterprise-account
+- /github/setting-up-and-managing-your-enterprise/configuring-identity-and-access-management-for-your-enterprise-account/managing-team-synchronization-for-organizations-in-your-enterprise-account
+- /admin/authentication/managing-identity-and-access-for-your-enterprise/managing-team-synchronization-for-organizations-in-your-enterprise
+
+/enterprise-cloud@latest/admin/managing-iam/using-saml-for-enterprise-iam/configuring-saml-single-sign-on-for-your-enterprise-using-okta
+- /github/setting-up-and-managing-your-enterprise/configuring-single-sign-on-for-your-enterprise-account-using-okta
+- /github/setting-up-and-managing-your-enterprise-account/configuring-saml-single-sign-on-for-your-enterprise-account-using-okta
+- /github/setting-up-and-managing-your-enterprise/configuring-saml-single-sign-on-for-your-enterprise-account-using-okta
+- /github/setting-up-and-managing-your-enterprise/configuring-identity-and-access-management-for-your-enterprise-account/configuring-saml-single-sign-on-for-your-enterprise-account-using-okta
+- /admin/authentication/managing-identity-and-access-for-your-enterprise/configuring-saml-single-sign-on-for-your-enterprise-using-okta
+
+/enterprise-cloud@latest/admin/managing-iam/using-saml-for-enterprise-iam/switching-your-saml-configuration-from-an-organization-to-an-enterprise-account
+- /github/setting-up-and-managing-your-enterprise/configuring-identity-and-access-management-for-your-enterprise-account/switching-your-saml-configuration-from-an-organization-to-an-enterprise-account
+- /admin/authentication/managing-identity-and-access-for-your-enterprise/switching-your-saml-configuration-from-an-organization-to-an-enterprise-account
+
+/enterprise-cloud@latest/admin/managing-iam/understanding-iam-for-enterprises/about-enterprise-managed-users
+- /github/setting-up-and-managing-your-enterprise/managing-your-enterprise-users-with-your-identity-provider
+- /admin/authentication/managing-your-enterprise-users-with-your-identity-provider
+- /admin/identity-and-access-management/using-enterprise-managed-users-and-saml-for-iam
+- /early-access/github/articles/get-started-with-managed-users-for-your-enterprise
+- /github/setting-up-and-managing-your-enterprise/managing-your-enterprise-users-with-your-identity-provider/about-enterprise-managed-users
+- /admin/authentication/managing-your-enterprise-users-with-your-identity-provider/about-enterprise-managed-users
+- /admin/identity-and-access-management/using-enterprise-managed-users-and-saml-for-iam/about-enterprise-managed-users
+
+/enterprise-cloud@latest/admin/managing-iam/configuring-authentication-for-enterprise-managed-users/configuring-saml-single-sign-on-for-enterprise-managed-users
+- /github/setting-up-and-managing-your-enterprise/managing-your-enterprise-users-with-your-identity-provider/configuring-saml-single-sign-on-for-enterprise-managed-users
+- /admin/authentication/managing-your-enterprise-users-with-your-identity-provider/configuring-saml-single-sign-on-for-enterprise-managed-users
+- /admin/identity-and-access-management/using-enterprise-managed-users-and-saml-for-iam/configuring-saml-single-sign-on-for-enterprise-managed-users
+
+/enterprise-cloud@latest/admin/managing-iam/provisioning-user-accounts-with-scim/configuring-scim-provisioning-with-okta
+- /early-access/github/articles/configuring-provisioning-for-managed-users-with-okta
+- /github/setting-up-and-managing-your-enterprise/managing-your-enterprise-users-with-your-identity-provider/configuring-scim-provisioning-for-enterprise-managed-users-with-okta
+- /admin/authentication/managing-your-enterprise-users-with-your-identity-provider/configuring-scim-provisioning-for-enterprise-managed-users-with-okta
+
+/enterprise-cloud@latest/admin/managing-iam/provisioning-user-accounts-with-scim/configuring-scim-provisioning-for-users
+- /github/setting-up-and-managing-your-enterprise/managing-your-enterprise-users-with-your-identity-provider/configuring-scim-provisioning-for-enterprise-managed-users
+- /admin/authentication/managing-your-enterprise-users-with-your-identity-provider/configuring-scim-provisioning-for-enterprise-managed-users
+- /admin/identity-and-access-management/using-enterprise-managed-users-and-saml-for-iam/configuring-scim-provisioning-for-enterprise-managed-users
+
+/enterprise-cloud@latest/admin/managing-iam/provisioning-user-accounts-with-scim/managing-team-memberships-with-identity-provider-groups
+- /github/setting-up-and-managing-your-enterprise/managing-your-enterprise-users-with-your-identity-provider/managing-team-memberships-with-identity-provider-groups
+- /admin/authentication/managing-your-enterprise-users-with-your-identity-provider/managing-team-memberships-with-identity-provider-groups
+- /admin/identity-and-access-management/using-enterprise-managed-users-and-saml-for-iam/managing-team-memberships-with-identity-provider-groups
+
+/enterprise-cloud@latest/admin/monitoring-activity-in-your-enterprise/reviewing-audit-logs-for-your-enterprise/about-the-audit-log-for-your-enterprise
+- /github/setting-up-and-managing-your-enterprise/managing-your-enterprise-users-with-your-identity-provider/auditing-activity-in-your-enterprise
+- /admin/authentication/managing-your-enterprise-users-with-your-identity-provider/auditing-activity-in-your-enterprise
+
+/enterprise-cloud@latest/admin/managing-accounts-and-repositories/managing-users-in-your-enterprise/managing-support-entitlements-for-your-enterprise
+- /github/setting-up-and-managing-your-enterprise/managing-users-in-your-enterprise/managing-support-entitlements-for-your-enterprise
+- /admin/user-management/managing-users-in-your-enterprise/managing-support-entitlements-for-your-enterprise
+
+/enterprise-cloud@latest/admin/managing-accounts-and-repositories/managing-users-in-your-enterprise/viewing-and-managing-a-users-saml-access-to-your-enterprise
+- /github/setting-up-and-managing-your-enterprise/viewing-and-managing-a-users-saml-access-to-your-enterprise-account
+- /github/setting-up-and-managing-your-enterprise-account/viewing-and-managing-a-users-saml-access-to-your-enterprise-account
+- /github/setting-up-and-managing-your-enterprise/viewing-and-managing-a-users-saml-access-to-your-enterprise
+- /github/setting-up-and-managing-your-enterprise/managing-users-in-your-enterprise/viewing-and-managing-a-users-saml-access-to-your-enterprise
+- /admin/user-management/managing-users-in-your-enterprise/viewing-and-managing-a-users-saml-access-to-your-enterprise
+
+/enterprise-cloud@latest/admin/managing-accounts-and-repositories/managing-organizations-in-your-enterprise/adding-organizations-to-your-enterprise
+- /github/setting-up-and-managing-your-enterprise/managing-organizations-in-your-enterprise-account/adding-organizations-to-your-enterprise-account
+- /articles/adding-organizations-to-your-enterprise-account
+- /github/setting-up-and-managing-your-enterprise-account/adding-organizations-to-your-enterprise-account
+- /github/setting-up-and-managing-your-enterprise/adding-organizations-to-your-enterprise-account
+- /admin/user-management/managing-organizations-in-your-enterprise/adding-organizations-to-your-enterprise
+
+/enterprise-cloud@latest/admin/managing-accounts-and-repositories/managing-organizations-in-your-enterprise
+- /github/setting-up-and-managing-your-enterprise/managing-organizations-in-your-enterprise-account/managing-unowned-organizations-in-your-enterprise-account
+- /github/setting-up-and-managing-your-enterprise-account/managing-unowned-organizations-in-your-enterprise-account
+- /github/setting-up-and-managing-your-enterprise/managing-unowned-organizations-in-your-enterprise-account
+- /admin/user-management/managing-organizations-in-your-enterprise/managing-unowned-organizations-in-your-enterprise
+
+/enterprise-cloud@latest/admin/monitoring-activity-in-your-enterprise/reviewing-audit-logs-for-your-enterprise/accessing-the-audit-log-for-your-enterprise
+- /github/setting-up-and-managing-your-enterprise/managing-organizations-in-your-enterprise-account/viewing-the-audit-logs-for-organizations-in-your-enterprise-account
+- /articles/viewing-the-audit-logs-for-organizations-in-your-business-account
+- /articles/viewing-the-audit-logs-for-organizations-in-your-enterprise-account
+- /github/setting-up-and-managing-your-enterprise-account/viewing-the-audit-logs-for-organizations-in-your-enterprise-account
+- /github/setting-up-and-managing-your-enterprise/viewing-the-audit-logs-for-organizations-in-your-enterprise-account
+- /admin/user-management/managing-organizations-in-your-enterprise/viewing-the-audit-logs-for-organizations-in-your-enterprise
+
+/enterprise-cloud@latest/admin/monitoring-activity-in-your-enterprise/reviewing-audit-logs-for-your-enterprise/streaming-the-audit-log-for-your-enterprise
+- /github/setting-up-and-managing-your-enterprise/managing-organizations-in-your-enterprise-account/streaming-the-audit-logs-for-organizations-in-your-enterprise-account
+- /admin/user-management/managing-organizations-in-your-enterprise/streaming-the-audit-logs-for-organizations-in-your-enterprise-account
+
+/enterprise-cloud@latest/admin/enforcing-policies/enforcing-policies-for-your-enterprise/enforcing-policies-for-code-security-and-analysis-for-your-enterprise
+- /articles/enforcing-a-policy-on-dependency-insights
+- /articles/enforcing-a-policy-on-dependency-insights-in-your-enterprise-account
+- /github/setting-up-and-managing-your-enterprise-account/enforcing-a-policy-on-dependency-insights-in-your-enterprise-account
+- /github/setting-up-and-managing-your-enterprise/enforcing-a-policy-on-dependency-insights-in-your-enterprise-account
+
+/enterprise-cloud@latest/billing/managing-licenses-for-visual-studio-subscriptions-with-github-enterprise/about-visual-studio-subscriptions-with-github-enterprise
+- /github/setting-up-and-managing-your-enterprise/managing-your-enterprise-account/managing-licenses-for-visual-studio-subscription-with-github-enterprise
+- /github/setting-up-and-managing-your-enterprise/managing-licenses-for-the-github-enterprise-and-visual-studio-bundle
+- /github/setting-up-and-managing-your-enterprise-account/managing-licenses-for-the-github-enterprise-and-visual-studio-bundle
+- /github/articles/about-the-github-and-visual-studio-bundle
+- /articles/about-the-github-and-visual-studio-bundle
+- /github/setting-up-and-managing-your-enterprise-account/managing-licenses-for-visual-studio-subscription-with-github-enterprise
+- /github/setting-up-and-managing-your-enterprise/managing-licenses-for-visual-studio-subscription-with-github-enterprise
+
+/enterprise-cloud@latest/admin/managing-accounts-and-repositories/managing-users-in-your-enterprise/inviting-people-to-manage-your-enterprise
+- /github/setting-up-and-managing-your-enterprise/managing-users-in-your-enterprise/inviting-people-to-manage-your-enterprise
+- /github/setting-up-and-managing-your-enterprise-account/inviting-people-to-manage-your-enterprise-account
+- /articles/inviting-people-to-collaborate-in-your-business-account
+- /articles/inviting-people-to-manage-your-enterprise-account
+- /github/setting-up-and-managing-your-enterprise/inviting-people-to-manage-your-enterprise
+
+/enterprise-cloud@latest/admin/managing-accounts-and-repositories/managing-organizations-in-your-enterprise
+- /articles/managing-organizations-in-your-enterprise-account
+- /github/setting-up-and-managing-your-enterprise-account/managing-organizations-in-your-enterprise-account
+- /github/setting-up-and-managing-your-enterprise/managing-organizations-in-your-enterprise-account
+
+/enterprise-cloud@latest/billing/managing-the-plan-for-your-github-account/managing-invoices-for-your-enterprise
+- /billing/managing-billing-for-your-github-account/managing-invoices-for-your-enterprise
+
+/enterprise-cloud@latest/organizations/managing-user-access-to-your-organizations-repositories/managing-repository-roles/managing-custom-repository-roles-for-an-organization
+- /organizations/managing-peoples-access-to-your-organization-with-roles/managing-custom-repository-roles-for-an-organization
+
+# FPT versioning for these files were removed as part of github/docs-content#4511
+
+/enterprise-cloud@latest/organizations/managing-saml-single-sign-on-for-your-organization
+- /articles/managing-member-identity-and-access-in-your-organization-with-saml-single-sign-on
+- /articles/managing-saml-single-sign-on-for-your-organization
+- /github/setting-up-and-managing-organizations-and-teams/managing-saml-single-sign-on-for-your-organization
+- /organizations/managing-saml-single-sign-on-for-your-organization
+
+/enterprise-cloud@latest/organizations/managing-saml-single-sign-on-for-your-organization/about-identity-and-access-management-with-saml-single-sign-on
+- /articles/about-identity-and-access-management-with-saml-single-sign-on
+- /github/setting-up-and-managing-organizations-and-teams/about-identity-and-access-management-with-saml-single-sign-on
+- /organizations/managing-saml-single-sign-on-for-your-organization/about-identity-and-access-management-with-saml-single-sign-on
+
+/enterprise-cloud@latest/organizations/managing-saml-single-sign-on-for-your-organization/about-scim-for-organizations
+- /articles/about-scim
+- /github/setting-up-and-managing-organizations-and-teams/about-scim
+- /organizations/managing-saml-single-sign-on-for-your-organization/about-scim
+
+/enterprise-cloud@latest/organizations/managing-saml-single-sign-on-for-your-organization/connecting-your-identity-provider-to-your-organization
+- /articles/connecting-your-identity-provider-to-your-organization
+- /github/setting-up-and-managing-organizations-and-teams/connecting-your-identity-provider-to-your-organization
+- /organizations/managing-saml-single-sign-on-for-your-organization/connecting-your-identity-provider-to-your-organization
+
+/enterprise-cloud@latest/organizations/managing-saml-single-sign-on-for-your-organization/configuring-saml-single-sign-on-and-scim-using-okta
+- /github/setting-up-and-managing-organizations-and-teams/configuring-saml-single-sign-on-and-scim-using-okta
+- /organizations/managing-saml-single-sign-on-for-your-organization/configuring-saml-single-sign-on-and-scim-using-okta
+
+/enterprise-cloud@latest/organizations/managing-saml-single-sign-on-for-your-organization/enabling-and-testing-saml-single-sign-on-for-your-organization
+- /articles/enabling-and-testing-saml-single-sign-on-for-your-organization
+- /github/setting-up-and-managing-organizations-and-teams/enabling-and-testing-saml-single-sign-on-for-your-organization
+- /organizations/managing-saml-single-sign-on-for-your-organization/enabling-and-testing-saml-single-sign-on-for-your-organization
+
+/enterprise-cloud@latest/organizations/managing-saml-single-sign-on-for-your-organization/preparing-to-enforce-saml-single-sign-on-in-your-organization
+- /articles/preparing-to-enforce-saml-single-sign-on-in-your-organization
+- /github/setting-up-and-managing-organizations-and-teams/preparing-to-enforce-saml-single-sign-on-in-your-organization
+- /organizations/managing-saml-single-sign-on-for-your-organization/preparing-to-enforce-saml-single-sign-on-in-your-organization
+
+/enterprise-cloud@latest/organizations/managing-saml-single-sign-on-for-your-organization/downloading-your-organizations-saml-single-sign-on-recovery-codes
+- /articles/downloading-your-organization-s-saml-single-sign-on-recovery-codes
+- /articles/downloading-your-organizations-saml-single-sign-on-recovery-codes
+- /github/setting-up-and-managing-organizations-and-teams/downloading-your-organizations-saml-single-sign-on-recovery-codes
+- /organizations/managing-saml-single-sign-on-for-your-organization/downloading-your-organizations-saml-single-sign-on-recovery-codes
+
+/enterprise-cloud@latest/organizations/managing-saml-single-sign-on-for-your-organization/managing-team-synchronization-for-your-organization
+- /articles/synchronizing-teams-between-your-identity-provider-and-github
+- /github/setting-up-and-managing-organizations-and-teams/synchronizing-teams-between-your-identity-provider-and-github
+- /github/articles/synchronizing-teams-between-okta-and-github
+- /github/setting-up-and-managing-organizations-and-teams/managing-team-synchronization-for-your-organization
+- /organizations/managing-saml-single-sign-on-for-your-organization/managing-team-synchronization-for-your-organization
+
+/enterprise-cloud@latest/organizations/managing-saml-single-sign-on-for-your-organization/accessing-your-organization-if-your-identity-provider-is-unavailable
+- /articles/accessing-your-organization-if-your-identity-provider-is-unavailable
+- /github/setting-up-and-managing-organizations-and-teams/accessing-your-organization-if-your-identity-provider-is-unavailable
+- /organizations/managing-saml-single-sign-on-for-your-organization/accessing-your-organization-if-your-identity-provider-is-unavailable
+
+/enterprise-cloud@latest/organizations/managing-saml-single-sign-on-for-your-organization/troubleshooting-identity-and-access-management-for-your-organization
+- /organizations/managing-saml-single-sign-on-for-your-organization/troubleshooting-identity-and-access-management
+
+/enterprise-cloud@latest/organizations/granting-access-to-your-organization-with-saml-single-sign-on
+- /articles/granting-access-to-your-organization-with-saml-single-sign-on
+- /github/setting-up-and-managing-organizations-and-teams/granting-access-to-your-organization-with-saml-single-sign-on
+- /organizations/granting-access-to-your-organization-with-saml-single-sign-on
+
+/enterprise-cloud@latest/organizations/granting-access-to-your-organization-with-saml-single-sign-on/managing-bots-and-service-accounts-with-saml-single-sign-on
+- /articles/managing-bots-and-service-accounts-with-saml-single-sign-on
+- /github/setting-up-and-managing-organizations-and-teams/managing-bots-and-service-accounts-with-saml-single-sign-on
+- /organizations/granting-access-to-your-organization-with-saml-single-sign-on/managing-bots-and-service-accounts-with-saml-single-sign-on
+
+/enterprise-cloud@latest/organizations/granting-access-to-your-organization-with-saml-single-sign-on/viewing-and-managing-a-members-saml-access-to-your-organization
+- /articles/viewing-and-revoking-organization-members-authorized-access-tokens
+- /github/setting-up-and-managing-organizations-and-teams/viewing-and-revoking-organization-members-authorized-access-tokens
+- /github/setting-up-and-managing-organizations-and-teams/viewing-and-managing-a-members-saml-access-to-your-organization
+- /organizations/granting-access-to-your-organization-with-saml-single-sign-on/viewing-and-managing-a-members-saml-access-to-your-organization
+
+/enterprise-cloud@latest/organizations/granting-access-to-your-organization-with-saml-single-sign-on/about-two-factor-authentication-and-saml-single-sign-on
+- /articles/about-two-factor-authentication-and-saml-single-sign-on
+- /github/setting-up-and-managing-organizations-and-teams/about-two-factor-authentication-and-saml-single-sign-on
+- /organizations/granting-access-to-your-organization-with-saml-single-sign-on/about-two-factor-authentication-and-saml-single-sign-on
+
+/enterprise-cloud@latest/authentication/authenticating-with-saml-single-sign-on
+- /articles/authenticating-to-a-github-organization-with-saml-single-sign-on
+- /articles/authenticating-with-saml-single-sign-on
+- /github/authenticating-to-github/authenticating-with-saml-single-sign-on
+- /authentication/authenticating-with-saml-single-sign-on
+
+/enterprise-cloud@latest/authentication/authenticating-with-saml-single-sign-on/about-authentication-with-saml-single-sign-on
+- /articles/about-authentication-with-saml-single-sign-on
+- /github/authenticating-to-github/about-authentication-with-saml-single-sign-on
+- /github/authenticating-to-github/authenticating-with-saml-single-sign-on/about-authentication-with-saml-single-sign-on
+- /authentication/authenticating-with-saml-single-sign-on/about-authentication-with-saml-single-sign-on
+
+/enterprise-cloud@latest/authentication/authenticating-with-saml-single-sign-on/authorizing-an-ssh-key-for-use-with-saml-single-sign-on
+- /articles/authorizing-an-ssh-key-for-use-with-a-saml-single-sign-on-organization
+- /articles/authorizing-an-ssh-key-for-use-with-saml-single-sign-on
+- /github/authenticating-to-github/authorizing-an-ssh-key-for-use-with-saml-single-sign-on
+- /github/authenticating-to-github/authenticating-with-saml-single-sign-on/authorizing-an-ssh-key-for-use-with-saml-single-sign-on
+- /authentication/authenticating-with-saml-single-sign-on/authorizing-an-ssh-key-for-use-with-saml-single-sign-on
+
+/enterprise-cloud@latest/authentication/authenticating-with-saml-single-sign-on/authorizing-a-personal-access-token-for-use-with-saml-single-sign-on
+- /articles/authorizing-a-personal-access-token-for-use-with-a-saml-single-sign-on-organization
+- /articles/authorizing-a-personal-access-token-for-use-with-saml-single-sign-on
+- /github/authenticating-to-github/authorizing-a-personal-access-token-for-use-with-saml-single-sign-on
+- /github/authenticating-to-github/authenticating-with-saml-single-sign-on/authorizing-a-personal-access-token-for-use-with-saml-single-sign-on
+- /authentication/authenticating-with-saml-single-sign-on/authorizing-a-personal-access-token-for-use-with-saml-single-sign-on
+
+/enterprise-cloud@latest/authentication/authenticating-with-saml-single-sign-on/viewing-and-managing-your-active-saml-sessions
+- /articles/viewing-and-managing-your-active-saml-sessions
+- /github/authenticating-to-github/viewing-and-managing-your-active-saml-sessions
+- /github/authenticating-to-github/authenticating-with-saml-single-sign-on/viewing-and-managing-your-active-saml-sessions
+- /authentication/authenticating-with-saml-single-sign-on/viewing-and-managing-your-active-saml-sessions
+
+/enterprise-cloud@latest/organizations/organizing-members-into-teams/synchronizing-a-team-with-an-identity-provider-group
+- /github/setting-up-and-managing-organizations-and-teams/synchronizing-a-team-with-an-identity-provider-group
+- /organizations/organizing-members-into-teams/synchronizing-a-team-with-an-identity-provider-group
+
+# "About Premium Support" is the combination of three older articles and is now versioned for GHEC and GHES. As it is still
+# linked from site policy and the UI, this ensures those version-less URLs redirect correctly.
+# Shipped in #23217
+
+/enterprise-cloud@latest/support/learning-about-github-support/about-github-premium-support
+- /articles/about-github-premium-support
+- /articles/about-github-premium-support-for-github-enterprise-cloud
+- /github/working-with-github-support/about-github-premium-support-for-github-enterprise-cloud
+- /support/about-github-support/about-github-premium-support
+- /support/learning-about-github-support/about-github-premium-support
+
+# FPT versioning for these files was removed as part of github/docs-content#5642
+
+/enterprise-cloud@latest/code-security/secret-scanning/using-advanced-secret-scanning-and-push-protection-features/custom-patterns/defining-custom-patterns-for-secret-scanning
+- /code-security/secret-security/defining-custom-patterns-for-secret-scanning
+- /code-security/secret-scanning/using-advanced-secret-scanning-and-push-protection-features/custom-patterns/defining-custom-patterns-for-secret-scanning
+
+/enterprise-cloud@latest/organizations/managing-organization-settings/setting-permissions-for-adding-outside-collaborators
+- /articles/restricting-the-ability-to-add-outside-collaborators-to-organization-repositories
+- /articles/setting-permissions-for-adding-outside-collaborators
+- /github/setting-up-and-managing-organizations-and-teams/setting-permissions-for-adding-outside-collaborators
+- /organizations/managing-organization-settings/setting-permissions-for-adding-outside-collaborators
+
+/enterprise-cloud@latest/organizations/keeping-your-organization-secure/managing-security-settings-for-your-organization/managing-allowed-ip-addresses-for-your-organization
+- /github/setting-up-and-managing-organizations-and-teams/managing-allowed-ip-addresses-for-your-organization
+- /organizations/keeping-your-organization-secure/managing-allowed-ip-addresses-for-your-organization
+- /organizations/keeping-your-organization-secure/managing-security-settings-for-your-organization/managing-allowed-ip-addresses-for-your-organization
+
+/enterprise-cloud@latest/code-security/security-overview/viewing-the-security-overview
+- /code-security/security-overview/assessing-code-security-risk
+
+/enterprise-cloud@latest/code-security/security-overview/assessing-code-security-risk
+- /code-security/security-overview/assessing-code-security-risk
+
+/enterprise-cloud@latest/code-security/security-overview/assessing-adoption-code-security
+- /code-security/security-overview/assessing-adoption-code-security
+
+/enterprise-cloud@latest/code-security/security-overview/filtering-alerts-in-security-overview
+- /code-security/security-overview/filtering-alerts-in-security-overview
+
+/enterprise-cloud@latest/organizations/keeping-your-organization-secure/managing-security-settings-for-your-organization/restricting-email-notifications-for-your-organization
+- /organizations/keeping-your-organization-secure/managing-security-settings-for-your-organization/restricting-email-notifications-for-your-organization
+- /articles/restricting-email-notifications-about-organization-activity-to-an-approved-email-domain
+- /articles/restricting-email-notifications-to-an-approved-domain
+- /github/setting-up-and-managing-organizations-and-teams/restricting-email-notifications-to-an-approved-domain
+- /organizations/keeping-your-organization-secure/restricting-email-notifications-to-an-approved-domain
+- /organizations/keeping-your-organization-secure/restricting-email-notifications-for-your-organization
+
+/enterprise-cloud@latest/organizations/managing-git-access-to-your-organizations-repositories
+- /organizations/managing-git-access-to-your-organizations-repositories
+- /articles/managing-git-access-to-your-organizations-repositories-using-ssh-certificate-authorities
+- /articles/managing-git-access-to-your-organizations-repositories
+- /github/setting-up-and-managing-organizations-and-teams/managing-git-access-to-your-organizations-repositories
+
+/enterprise-cloud@latest/organizations/managing-git-access-to-your-organizations-repositories/about-ssh-certificate-authorities
+- /organizations/managing-git-access-to-your-organizations-repositories/about-ssh-certificate-authorities
+- /articles/about-ssh-certificate-authorities
+- /github/setting-up-and-managing-organizations-and-teams/about-ssh-certificate-authorities
+
+/enterprise-cloud@latest/organizations/managing-git-access-to-your-organizations-repositories/managing-your-organizations-ssh-certificate-authorities
+- /organizations/managing-git-access-to-your-organizations-repositories/managing-your-organizations-ssh-certificate-authorities
+- /articles/managing-your-organizations-ssh-certificate-authorities
+- /github/setting-up-and-managing-organizations-and-teams/managing-your-organizations-ssh-certificate-authorities
+
+/enterprise-cloud@latest/pages/getting-started-with-github-pages/changing-the-visibility-of-your-github-pages-site
+- /pages/getting-started-with-github-pages/changing-the-visibility-of-your-github-pages-site
+- /github/working-with-github-pages/changing-the-visibility-of-your-github-pages-site
+
+/enterprise-cloud@latest/billing/managing-billing-for-github-advanced-security/viewing-your-github-advanced-security-usage
+- /billing/managing-billing-for-github-advanced-security/viewing-your-github-advanced-security-usage
+- /billing/managing-licensing-for-github-advanced-security/viewing-your-github-advanced-security-usage
+- /admin/advanced-security/viewing-your-github-advanced-security-usage
+- /github/setting-up-and-managing-billing-and-payments-on-github/managing-licensing-for-github-advanced-security/viewing-your-github-advanced-security-usage
+- /github/setting-up-and-managing-your-enterprise/managing-use-of-advanced-security-for-organizations-in-your-enterprise-account
+- /github/setting-up-and-managing-billing-and-payments-on-github/viewing-your-github-advanced-security-usage
+
+/enterprise-cloud@latest/organizations/collaborating-with-groups-in-organizations/viewing-insights-for-dependencies-in-your-organization
+- /organizations/collaborating-with-groups-in-organizations/viewing-insights-for-dependencies-in-your-organization
+- /organizations/collaborating-with-groups-in-organizations/viewing-insights-for-your-organization
+- /articles/viewing-insights-for-your-organization
+- /github/setting-up-and-managing-organizations-and-teams/viewing-insights-for-your-organization
+
+/enterprise-cloud@latest/organizations/managing-organization-settings/changing-the-visibility-of-your-organizations-dependency-insights
+- /organizations/managing-organization-settings/changing-the-visibility-of-your-organizations-dependency-insights
+- /articles/changing-the-visibility-of-your-organizations-dependency-insights
+- /github/setting-up-and-managing-organizations-and-teams/changing-the-visibility-of-your-organizations-dependency-insights
+
+/enterprise-server@latest/search-github/getting-started-with-searching-on-github/enabling-githubcom-repository-search-from-your-private-enterprise-environment
+- /search-github/getting-started-with-searching-on-github/enabling-githubcom-repository-search-from-your-private-enterprise-environment
+- /articles/enabling-private-githubcom-repository-search-in-your-github-enterprise-account
+- /articles/enabling-private-github-com-repository-search-in-your-github-enterprise-server-account
+- /articles/enabling-private-githubcom-repository-search-in-your-github-enterprise-server-account
+- /articles/enabling-githubcom-repository-search-in-github-enterprise-server
+- /github/searching-for-information-on-github/enabling-githubcom-repository-search-in-github-enterprise-server
+- /github/searching-for-information-on-github/getting-started-with-searching-on-github/enabling-githubcom-repository-search-in-github-enterprise-server

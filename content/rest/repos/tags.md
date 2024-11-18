@@ -1,9 +1,9 @@
 ---
-title: Repository tags
+title: REST API endpoints for repository tags
 allowTitleToDifferFromFilename: true
 shortTitle: Tags
 intro: Use the REST API to manage tags for a repository.
-versions:
+versions: # DO NOT MANUALLY EDIT. CHANGES WILL BE OVERWRITTEN BY A 🤖
   fpt: '*'
   ghec: '*'
   ghes: '*'

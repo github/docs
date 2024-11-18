@@ -11,7 +11,6 @@ intro: 'If you''re [cloning {% data variables.product.product_name %} repositori
 versions:
   fpt: '*'
   ghes: '*'
-  ghae: '*'
   ghec: '*'
 shortTitle: Caching credentials
 ---
@@ -28,14 +27,14 @@ shortTitle: Caching credentials
 
 1. [Install](https://github.com/cli/cli#installation) {% data variables.product.prodname_cli %} on macOS, Windows, or Linux.
 1. In the command line, enter `gh auth login`, then follow the prompts.
-   - When prompted for your preferred protocol for Git operations, select `HTTPS`.
-   - When asked if you would like to authenticate to Git with your {% data variables.product.product_name %} credentials, enter `Y`.
+   * When prompted for your preferred protocol for Git operations, select `HTTPS`.
+   * When asked if you would like to authenticate to Git with your {% data variables.product.product_name %} credentials, enter `Y`.
 
 For more information about authenticating with {% data variables.product.prodname_cli %}, see [`gh auth login`](https://cli.github.com/manual/gh_auth_login).
 
 ## Git Credential Manager
 
-[Git Credential Manager](https://github.com/GitCredentialManager/git-credential-manager) (GCM) is another way to store your credentials securely and connect to GitHub over HTTPS. With GCM, you don't have to manually [create and store a {% data variables.product.pat_generic %}](/authentication/keeping-your-account-and-data-secure/creating-a-personal-access-token), as GCM manages authentication on your behalf, including 2FA (two-factor authentication).
+[Git Credential Manager](https://github.com/GitCredentialManager/git-credential-manager) (GCM) is another way to store your credentials securely and connect to GitHub over HTTPS. With GCM, you don't have to manually [create and store a {% data variables.product.pat_generic %}](/authentication/keeping-your-account-and-data-secure/managing-your-personal-access-tokens), as GCM manages authentication on your behalf, including 2FA (two-factor authentication).
 
 {% mac %}
 
@@ -48,11 +47,10 @@ For more information about authenticating with {% data variables.product.prodnam
 1. Install GCM using Homebrew:
 
    ```shell
-   brew tap microsoft/git
-   brew install --cask git-credential-manager-core
+   brew install --cask git-credential-manager
    ```
 
-  For MacOS, you don't need to run `git config` because GCM automatically configures Git for you.
+  For macOS, you don't need to run `git config` because GCM automatically configures Git for you.
 
 {% data reusables.gcm-core.next-time-you-clone %}
 

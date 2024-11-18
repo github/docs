@@ -20,7 +20,7 @@ redirect_from:
 
 {% webui %}
 
-1. Navigate to your repository on {% data variables.product.prodname_dotcom_the_website %}, find your `devcontainer.json` file, and click {% octicon "pencil" aria-label="Edit this file" %} to edit the file.
+1. Navigate to your repository on {% data variables.product.github %}, find your `devcontainer.json` file, and click {% octicon "pencil" aria-label="Edit this file" %} to edit the file.
 
    If you don't already have a `devcontainer.json` file, you can create one now. For more information, see "[AUTOTITLE](/codespaces/setting-up-your-project-for-codespaces/adding-a-dev-container-configuration/introduction-to-dev-containers#creating-a-custom-dev-container-configuration)."
 1. To the right of the file editor, in the **Marketplace** tab, browse or search for the feature you want to add, then click the name of the feature.
@@ -31,11 +31,11 @@ redirect_from:
 
    ![Screenshot of the "Marketplace" tab showing the installation code snippet for Terraform.](/assets/images/help/codespaces/feature-installation-code.png)
 
-   ```JSON
+   ```jsonc
    "features": {
-        ...
+        // ...
         "ghcr.io/devcontainers/features/terraform:1": {},
-        ...
+        // ...
 	}
     ```
 
@@ -43,14 +43,14 @@ redirect_from:
 
    ![Screenshot of the "Options" section of the "Marketplace" tab, with the "version" and "tflint" properties expanded.](/assets/images/help/codespaces/feature-options.png)
 
-   ```JSON
+   ```jsonc
    "features": {
-        ...
+        // ...
         "ghcr.io/devcontainers/features/terraform:1": {
             "version": "1.1",
             "tflint": "latest"
         },
-        ...
+        // ...
 	}
     ```
 

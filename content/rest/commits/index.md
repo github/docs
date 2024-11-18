@@ -1,11 +1,11 @@
 ---
-title: Commits
+title: REST API endpoints for commits
+shortTitle: Commits
 intro: Use the REST API to interact with commits.
 allowTitleToDifferFromFilename: true
 versions:
   fpt: '*'
   ghes: '*'
-  ghae: '*'
   ghec: '*'
 topics:
   - API

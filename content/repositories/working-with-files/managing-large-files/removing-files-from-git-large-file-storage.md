@@ -8,7 +8,6 @@ redirect_from:
 versions:
   fpt: '*'
   ghes: '*'
-  ghae: '*'
   ghec: '*'
 shortTitle: Remove files
 ---
@@ -17,11 +16,11 @@ shortTitle: Remove files
 1. Remove the file from the repository's Git history using either the `filter-repo` command or BFG Repo-Cleaner. For detailed information on using these, see "[AUTOTITLE](/authentication/keeping-your-account-and-data-secure/removing-sensitive-data-from-a-repository)."
 1. Navigate to your _.gitattributes_ file.
 
-  {% note %}
+   {% note %}
 
-  **Note:** Your _.gitattributes_ file is generally saved within your local repository. In some cases, you may have created a global _.gitattributes_ file that contains all of your {% data variables.large_files.product_name_short %} associations.
+   **Note:** Your _.gitattributes_ file is generally saved within your local repository. In some cases, you may have created a global _.gitattributes_ file that contains all of your {% data variables.large_files.product_name_short %} associations.
 
-  {% endnote %}
+   {% endnote %}
 1. Find and remove the associated {% data variables.large_files.product_name_short %} tracking rule within the _.gitattributes_ file.
 1. Save and exit the _.gitattributes_ file.
 
@@ -54,6 +53,6 @@ To remove {% data variables.large_files.product_name_short %} objects from a rep
 
 ## Further reading
 
-- "[AUTOTITLE](/repositories/working-with-files/managing-large-files/about-git-large-file-storage)"
-- "[AUTOTITLE](/repositories/working-with-files/managing-large-files/collaboration-with-git-large-file-storage)"
-- "[AUTOTITLE](/repositories/working-with-files/managing-large-files/installing-git-large-file-storage)"
+* "[AUTOTITLE](/repositories/working-with-files/managing-large-files/about-git-large-file-storage)"
+* "[AUTOTITLE](/repositories/working-with-files/managing-large-files/collaboration-with-git-large-file-storage)"
+* "[AUTOTITLE](/repositories/working-with-files/managing-large-files/installing-git-large-file-storage)"

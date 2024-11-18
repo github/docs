@@ -25,7 +25,7 @@ shortTitle: Container registry
 
 {% data reusables.package_registry.container-registry-benefits %}
 
-{% ifversion ghes > 3.4 %}
+{% ifversion ghes %}
 
 To use the {% data variables.product.prodname_container_registry %} on {% data variables.product.product_name %}, your site administrator must first configure {% data variables.product.prodname_registry %} for your instance **and** enable subdomain isolation. For more information, see "[AUTOTITLE](/admin/packages/getting-started-with-github-packages-for-your-enterprise)" and "[AUTOTITLE](/admin/configuration/configuring-network-settings/enabling-subdomain-isolation)."
 
@@ -35,8 +35,8 @@ To use the {% data variables.product.prodname_container_registry %} on {% data v
 
 The {% data variables.product.prodname_container_registry %} currently supports the following container image formats:
 
-- [Docker Image Manifest V2, Schema 2](https://docs.docker.com/registry/spec/manifest-v2-2/)
-- [Open Container Initiative (OCI) Specifications](https://github.com/opencontainers/image-spec)
+* [Docker Image Manifest V2, Schema 2](https://docs.docker.com/registry/spec/manifest-v2-2/)
+* [Open Container Initiative (OCI) Specifications](https://github.com/opencontainers/image-spec)
 
 When installing or publishing a Docker image, the {% data variables.product.prodname_container_registry %} supports foreign layers, such as Windows images.
 
@@ -77,7 +77,7 @@ docker push {% data reusables.package_registry.container-registry-hostname %}/NA
 
 {% data reusables.package_registry.publishing-user-scoped-packages %} You can link a published package to a repository using the user interface or command line. For more information, see "[AUTOTITLE](/packages/learn-github-packages/connecting-a-repository-to-a-package)."
 
-When you push a container image from the command line, the image is not linked to a repository by default. This is the case even if you tag the image with a namespace that matches the name of the repository, such as `{% ifversion fpt or ghec %}ghcr.io{% elsif ghes > 3.4 %}{% data reusables.package_registry.container-registry-example-hostname %}{% endif %}/octocat/my-repo:latest`.
+When you push a container image from the command line, the image is not linked to a repository by default. This is the case even if you tag the image with a namespace that matches the name of the repository, such as `{% ifversion fpt or ghec %}ghcr.io{% elsif ghes %}{% data reusables.package_registry.container-registry-example-hostname %}{% endif %}/octocat/my-repo:latest`.
 
 The easiest way to connect a repository to a container package is to publish the package from a workflow using `${% raw %}{{secrets.GITHUB_TOKEN}}{% endraw %}`, as the repository that contains the workflow is linked automatically. Note that the `GITHUB_TOKEN` will not have permission to push the package if you have previously pushed a package to the same namespace, but have not connected the package to the repository.
 
@@ -235,3 +235,8 @@ For example, the following {% data variables.product.prodname_actions %} workflo
     push: true
     outputs: type=image,name=target,annotation-index.org.opencontainers.image.description=My multi-arch image
 ```
+
+## Troubleshooting
+
+* The {% data variables.product.prodname_container_registry %} has a 10 GB size limit for each layer.
+* The {% data variables.product.prodname_container_registry %} has a 10 minute timeout limit for uploads.

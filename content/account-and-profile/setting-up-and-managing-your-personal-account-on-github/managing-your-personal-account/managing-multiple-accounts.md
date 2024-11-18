@@ -16,6 +16,12 @@ In some cases, you may need to use multiple accounts on {% data variables.locati
 
 You cannot use your {% data variables.enterprise.prodname_managed_user %} to contribute to public projects on {% data variables.location.product_location %}, so you must contribute to those resources using your personal account. For more information, see "[About  {% data variables.product.prodname_emus %}]({% ifversion fpt %}/enterprise-cloud@latest{% endif %}/admin/identity-and-access-management/using-enterprise-managed-users-for-iam/about-enterprise-managed-users#abilities-and-restrictions-of-managed-user-accounts){% ifversion fpt %}" in the {% data variables.product.prodname_ghe_cloud %} documentation.{% elsif ghec %}."{% endif %}
 
+{% ifversion account-switcher %}
+
+If you need to use multiple accounts on {% data variables.location.product_location %}, you can stay signed in to your accounts and switch between them. For example, switching between a personal account and a service account. For more information, see "[AUTOTITLE](/authentication/keeping-your-account-and-data-secure/switching-between-accounts)."
+
+{% endif %}
+
 If you want to use one workstation to contribute from both accounts, you can simplify contribution with Git by using a mixture of protocols to access repository data, or by using credentials on a per-repository basis.
 
 {% warning %}
@@ -46,17 +52,21 @@ Alternatively, if you want to use the HTTPS protocol for both accounts, you can 
 {% data reusables.git.confirm-credential-manager %}
 {% data reusables.git.clear-the-stored-credentials %}
    {% data reusables.git.no-credential-manager %}
-   - If the output is `osxkeychain`, you're using the macOS keychain. To clear the credentials, enter the following command.
+   * If the output is `osxkeychain`, you're using the macOS keychain. To clear the credentials, you can use the credential helper on the command line:
 
-     ```shell copy
-     git credential-osxkeychain erase https://github.com
+     ```shell
+     $ git credential-osxkeychain erase
+     host={% data variables.product.product_url %}
+     protocol=https
+     > [Press Return]
+     >
      ```
 
    {% data reusables.git.clear-stored-gcm-credentials %}
 
-    ```shell copy
-    echo "protocol=https\nhost=github.com" | git credential-manager erase
-    ```
+     ```shell copy
+     echo "protocol=https\nhost=github.com" | git credential-manager erase
+     ```
 {% data reusables.git.cache-on-repository-path %}
 {% data reusables.accounts.create-personal-access-tokens %}
 {% data reusables.git.provide-credentials %}
@@ -74,7 +84,8 @@ Alternatively, if you want to use the HTTPS protocol for both accounts, you can 
     ```shell copy
     echo "protocol=https`nhost=github.com" | git credential-manager erase
     ```
-   - If the output is `wincred`, you're using the Windows Credential Manager. To clear the credentials, enter the following command.
+
+   * If the output is `wincred`, you're using the Windows Credential Manager. To clear the credentials, enter the following command.
 
      ```shell copy
      cmdkey /delete:LegacyGeneric:target=git:https://github.com
@@ -114,6 +125,6 @@ To use a different SSH key for different repositories that you clone to your wor
 
 For example, the following command sets the `GIT_SSH_COMMAND` environment variable to specify an SSH command that uses the private key file at **_PATH/TO/KEY/FILE_** for authentication to clone the repository named OWNER/REPOSITORY on {% data variables.location.product_location %}.
 
-<pre>
-GIT_SSH_COMMAND='ssh -i <em>PATH/TO/KEY/FILE</em> -o IdentitiesOnly=yes' git clone git@github.com:<em>OWNER</em>/<em>REPOSITORY</em>
-</pre>
+```shell copy
+GIT_SSH_COMMAND='ssh -i PATH/TO/KEY/FILE -o IdentitiesOnly=yes' git clone git@github.com:OWNER/REPOSITORY
+```

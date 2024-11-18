@@ -1,0 +1,1 @@
+For in-depth information about available options, as well as recommendations and advice when configuring private registries, see "[AUTOTITLE](/code-security/dependabot/working-with-dependabot/guidance-for-the-configuration-of-private-registries-for-dependabot)."

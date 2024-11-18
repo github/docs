@@ -20,15 +20,17 @@ shortTitle: On behalf of a client
 ## Requirements
 
 Before you start, make sure you know:
-- The {% data variables.product.prodname_dotcom %} username of the client who will become the owner of the organization you create
-- The name your client would like to use for the organization
-- The email address where you would like receipts to be sent
-- The [product](/get-started/learning-about-github/githubs-products) your client would like to purchase
-- The number of [paid seats](/billing/managing-billing-for-your-github-account/about-per-user-pricing) your client would like you to purchase for the organization
+* The {% data variables.product.prodname_dotcom %} username of the client who will become the owner of the organization you create
+* The name your client would like to use for the organization
+* The email address where you would like receipts to be sent
+* The [product](/get-started/learning-about-github/githubs-plans) your client would like to purchase
+* The number of [paid seats](/billing/managing-the-plan-for-your-github-account/about-per-user-pricing) your client would like you to purchase for the organization
 
 ## Step 1: Create your personal {% data variables.product.prodname_dotcom %} account
 
 You will use your personal account to set up the organization. You'll also need to sign in to this account to renew or make changes to your client's subscription in the future.
+
+If you already have a personal account on {% data variables.product.prodname_dotcom %}, skip to [step 2](#step-2-create-the-organization).
 
 {% data reusables.billing.create-personal-account %}
 

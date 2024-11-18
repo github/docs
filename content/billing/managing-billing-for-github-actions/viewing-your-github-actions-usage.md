@@ -15,6 +15,13 @@ topics:
   - User account
 shortTitle: View your Actions usage
 ---
+
+{% ifversion enhanced-billing-platform %}
+
+{% data reusables.billing.enhanced-billing-platform %}
+
+{% endif %}
+
 You can also view the billable job execution minutes for an individual workflow run. For more information, see "[AUTOTITLE](/actions/monitoring-and-troubleshooting-workflows/viewing-job-execution-time)."
 
 ## Viewing {% data variables.product.prodname_actions %} usage for your personal account
@@ -29,6 +36,14 @@ Anyone can view {% data variables.product.prodname_actions %} usage for their ow
 
 ## Viewing {% data variables.product.prodname_actions %} usage for your organization
 
+{% ifversion billing-beta-enterprise %}
+{% note %}
+
+**Note:** If your organization belongs to an enterprise enrolled in the Billing private beta for {% data variables.product.prodname_actions %}, you will not see {% data variables.product.prodname_actions %} usage on the existing billing pages.
+
+{% endnote %}
+{% endif %}
+
 Organization owners and billing managers can view {% data variables.product.prodname_actions %} usage for an organization. For organizations managed by an enterprise account, only the organization owners can view {% data variables.product.prodname_actions %} usage in the organization billing page.
 
 {% data reusables.organizations.billing-settings %}
@@ -39,6 +54,14 @@ Organization owners and billing managers can view {% data variables.product.prod
 {% ifversion ghec %}
 
 ## Viewing {% data variables.product.prodname_actions %} usage for your enterprise account
+
+{% ifversion billing-beta-enterprise %}
+{% note %}
+
+**Note:** If your enterprise is enrolled in the Billing private beta for {% data variables.product.prodname_actions %}, you will not see {% data variables.product.prodname_actions %} usage on the existing billing pages.
+
+{% endnote %}
+{% endif %}
 
 Enterprise owners and billing managers can view {% data variables.product.prodname_actions %} usage for an enterprise account.
 

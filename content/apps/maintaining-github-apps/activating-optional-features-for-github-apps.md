@@ -8,7 +8,6 @@ redirect_from:
   - /apps/maintaining-github-apps/activating-optional-features-for-apps
 versions:
   fpt: '*'
-  ghae: '*'
   ghes: '*'
   ghec: '*'
 topics:
@@ -30,4 +29,4 @@ shortTitle: Activate optional features
 
 ## Further reading
 
-- "[AUTOTITLE](/apps/maintaining-github-apps/modifying-a-github-app)"
+* "[AUTOTITLE](/apps/maintaining-github-apps/modifying-a-github-app)"

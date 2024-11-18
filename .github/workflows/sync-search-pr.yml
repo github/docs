@@ -6,12 +6,15 @@ name: Sync search - PR
 # **Who does it impact**: Docs engineering
 
 on:
+  workflow_dispatch:
   pull_request:
     paths:
       - 'src/search/**'
       - 'package*.json'
       # Ultimately, for debugging this workflow itself
       - .github/workflows/sync-search-pr.yml
+      # Make sure we run this if the composite action changes
+      - .github/actions/setup-elasticsearch/action.yml
 
 permissions:
   contents: read
@@ -33,29 +36,25 @@ env:
 
 jobs:
   dryRunElasticsearchIndexes:
-    runs-on: ${{ fromJSON('["ubuntu-latest", "ubuntu-20.04-xl"]')[github.repository == 'github/docs-internal'] }}
-    if: github.repository == 'github/docs-internal' || github.repository == 'github/docs'
+    runs-on: ubuntu-20.04-xl
+    if: github.repository == 'github/docs-internal'
     steps:
       - name: Check out repo
-        uses: actions/checkout@8e5e7e5ab8b370d6c329ec480221332ada57f0ab
+        uses: actions/checkout@b4ffde65f46336ab88eb53be808477a3936bae11 # v4.1.1
 
-      - name: Clone docs-internal.popular-pages
-        uses: actions/checkout@8e5e7e5ab8b370d6c329ec480221332ada57f0ab
+      - name: Clone docs-internal-data
+        uses: actions/checkout@b4ffde65f46336ab88eb53be808477a3936bae11 # v4.1.1
         with:
-          repository: github/docs-internal.popular-pages
+          repository: github/docs-internal-data
           # This works because user `docs-bot` has read access to that private repo.
           token: ${{ secrets.DOCS_BOT_PAT_READPUBLICKEY }}
-          path: popular-pages
+          path: docs-internal-data
 
       - uses: ./.github/actions/setup-elasticsearch
 
       - uses: ./.github/actions/node-npm-setup
 
-      - name: Cache nextjs build
-        uses: actions/cache@88522ab9f39a2ea568f7027eddc7d8d8bc9d59c8
-        with:
-          path: .next/cache
-          key: ${{ runner.os }}-nextjs-${{ hashFiles('package*.json') }}
+      - uses: ./.github/actions/cache-nextjs
 
       - name: Build
         run: npm run build
@@ -90,8 +89,8 @@ jobs:
           THROW_ON_EMPTY: false
 
           # The sync-search-index recognizes this env var if you don't
-          # use the `--popular-pags <PATH>` option.
-          POPULAR_PAGES_JSON: popular-pages/records/popular-pages.json
+          # use the `--docs-internal-data <PATH>` option.
+          DOCS_INTERNAL_DATA: docs-internal-data
 
         run: |
           mkdir /tmp/records
@@ -107,7 +106,7 @@ jobs:
 
       - name: Index into Elasticsearch
         run: |
-          ./src/search/scripts/index-elasticsearch.js /tmp/records \
+          npm run index-elasticsearch -- /tmp/records \
             --language en \
             --version dotcom
 

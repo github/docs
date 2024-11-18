@@ -1,4 +1,4 @@
-3. Click the **Appearance** pane.
+1. Click the **Appearance** pane.
 
    {% mac %}
 

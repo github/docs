@@ -6,10 +6,7 @@ redirect_from:
   - /articles/managing-an-individuals-access-to-an-organization-project-board
   - /github/setting-up-and-managing-organizations-and-teams/managing-an-individuals-access-to-an-organization-project-board
 versions:
-  fpt: '*'
-  ghes: '*'
-  ghae: '*'
-  ghec: '*'
+  feature: projects-v1
 topics:
   - Organizations
   - Teams
@@ -67,4 +64,4 @@ When you remove a collaborator from a {% data variables.projects.projects_v1_boa
 
 ## Further reading
 
-- "[AUTOTITLE](/organizations/managing-access-to-your-organizations-project-boards/project-board-permissions-for-an-organization)"
+* "[AUTOTITLE](/organizations/managing-access-to-your-organizations-project-boards/project-board-permissions-for-an-organization)"

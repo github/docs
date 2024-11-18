@@ -6,7 +6,6 @@ allowTitleToDifferFromFilename: true
 versions:
   fpt: '*'
   ghes: '*'
-  ghae: '*'
   ghec: '*'
 topics:
   - GitHub Apps
@@ -16,7 +15,7 @@ redirect_from:
 
 ## Introduction
 
-{% data variables.product.prodname_github_app %}s let you automate processes or integrate other platforms with {% data variables.product.company_short %}. For more info, see "[AUTOTITLE](/apps/creating-github-apps/creating-github-apps/about-apps)."
+{% data variables.product.prodname_github_apps %} let you automate processes or integrate other platforms with {% data variables.product.company_short %}. For more info, see "[AUTOTITLE](/apps/creating-github-apps/creating-github-apps/about-apps)."
 
 This quickstart describes how to quickly create a {% data variables.product.prodname_github_app %}. When a pull request is opened in a repository that the app was granted access to, the app will add a comment to the pull request.
 
@@ -73,12 +72,12 @@ Your cloned repository includes `.env` in the `.gitignore` file. This will preve
 
 1. Navigate to the directory where your clone of [github/github-app-js-sample](https://github.com/github/github-app-js-sample) is stored.
 1. Create a file called `.env` at the top level of this directory.
-1. Add the following contents to your `.env` file. {% ifversion ghes or ghae %}Replace `YOUR_HOSTNAME` with the name of {% data variables.location.product_location %}. You will update the other values in a later step.{% else %}You will update the values in a later step.{% endif %}
+1. Add the following contents to your `.env` file. {% ifversion ghes %}Replace `YOUR_HOSTNAME` with the name of {% data variables.location.product_location %}. You will update the other values in a later step.{% else %}You will update the values in a later step.{% endif %}
 
    ```text copy
    APP_ID="YOUR_APP_ID"
    WEBHOOK_SECRET="YOUR_WEBHOOK_SECRET"
-   PRIVATE_KEY_PATH="YOUR_PRIVATE_KEY_PATH"{% ifversion ghes or ghae %}
+   PRIVATE_KEY_PATH="YOUR_PRIVATE_KEY_PATH"{% ifversion ghes %}
    HOSTNAME="YOUR_HOSTNAME"{% endif %}
    ```
 
@@ -121,7 +120,7 @@ For testing, you will use your computer or codespace as a server. Your app will 
 
    You should see output that looks like this, where `WEBHOOK_PROXY_URL` is your webhook proxy URL:
 
-   ```
+   ```shell
    Forwarding WEBHOOK_PROXY_URL to http://localhost:3000/api/webhook
    Connected WEBHOOK_PROXY_URL
    ```

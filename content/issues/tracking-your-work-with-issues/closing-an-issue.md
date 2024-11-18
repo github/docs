@@ -5,7 +5,6 @@ permissions: 'Anyone can close an issue they opened.<br><br>Repository owners, c
 versions:
   fpt: '*'
   ghes: '*'
-  ghae: '*'
   ghec: '*'
 topics:
   - Issues

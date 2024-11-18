@@ -9,7 +9,6 @@ redirect_from:
 versions:
   fpt: '*'
   ghes: '*'
-  ghae: '*'
   ghec: '*'
 shortTitle: Set your username
 ---
@@ -57,5 +56,5 @@ Changing the name associated with your Git commits using `git config` will only 
 
 ## Further reading
 
-- "[AUTOTITLE](/account-and-profile/setting-up-and-managing-your-personal-account-on-github/managing-email-preferences/setting-your-commit-email-address)"
-- ["Git Configuration" from the _Pro Git_ book](https://git-scm.com/book/en/Customizing-Git-Git-Configuration)
+* "[AUTOTITLE](/account-and-profile/setting-up-and-managing-your-personal-account-on-github/managing-email-preferences/setting-your-commit-email-address)"
+* ["Git Configuration" from the _Pro Git_ book](https://git-scm.com/book/en/Customizing-Git-Git-Configuration)

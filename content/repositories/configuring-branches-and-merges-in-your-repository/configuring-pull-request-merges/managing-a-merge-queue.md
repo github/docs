@@ -2,8 +2,7 @@
 title: Managing a merge queue
 intro: You can increase development velocity with a merge queue for pull requests in your repository.
 versions:
-  fpt: '*'
-  ghec: '*'
+  feature: merge-queue
 permissions: People with admin permissions can manage merge queues for pull requests targeting selected branches of a repository.
 product: '{% data reusables.gated-features.merge-queue %}'
 topics:
@@ -13,8 +12,6 @@ shortTitle: Managing merge queue
 redirect_from:
   - /repositories/configuring-branches-and-merges-in-your-repository/configuring-pull-request-merges/using-a-merge-queue
 ---
-
-{% data reusables.pull_requests.merge-queue-beta %}
 
 ## About merge queues
 
@@ -28,8 +25,9 @@ For more information on merging a pull request using a merge queue, see "[AUTOTI
 
 **Notes:**
 
-- A merge queue cannot be enabled with branch protection rules that use wildcard characters (`*`) in the branch name pattern.
-- A merge queue will wait for required checks to be reported before it can proceed with merging. You must update your CI configuration to trigger and report on merge group events when requiring a merge queue.
+* A merge queue cannot be enabled with branch protection rules that use wildcard characters (`*`) in the branch name pattern.
+* A merge queue will wait for required checks to be reported before it can proceed with merging. You must update your CI configuration to trigger and report on merge group events when requiring a merge queue.
+* Merge queue and pull requests checks are coupled and configured under branch protection rules or rulesets. For more information, see "[AUTOTITLE](/repositories/configuring-branches-and-merges-in-your-repository/configuring-pull-request-merges/managing-a-merge-queue#managing-a-merge-queue)."
 
 {% endnote %}
 
@@ -39,7 +37,7 @@ You **must** use the `merge_group` event to trigger your {% data variables.produ
 
 {% note %}
 
-**Note:** If your repository uses {% data variables.product.prodname_actions %} to perform required checks on pull requests in your repository, you need to update the workflows to include the `merge_group` event as an additional trigger. Otherwise, status checks will not be triggered when you add a pull request to a merge queue. The merge will fail as the required status check will not be reported. The `merge_group` event is separate from the `pull_request` and `push` events.
+**Note:** {% data reusables.actions.merge-group-event-with-required-checks %}
 
 {% endnote %}
 
@@ -63,21 +61,25 @@ Repository administrators can require a merge queue by enabling the branch prote
 
 Once you have enabled the "Require merge queue" setting, you can also access the following settings:
 
-- **Merge method**: Select which method to use when merging queued pull requests: merge, rebase, or squash.
+* **Merge method**: Select which method to use when merging queued pull requests: merge, rebase, or squash.
 
-- **Build concurrency**: The maximum number of `merge_group` webhooks to dispatch (beween `1` and `100`), throttling the total amount of concurrent CI builds. This affects the velocity of merges that a merge queue can complete.
--
-  **Only merge non-failing pull requests**: This setting determines how a merge queue forms groups of pull requests to be merged.
+* **Build concurrency**: The maximum number of `merge_group` webhooks to dispatch (between `1` and `100`), throttling the total amount of concurrent CI builds. This affects the velocity of merges that a merge queue can complete.
+* **Only merge non-failing pull requests**: This setting determines how a merge queue forms groups of pull requests to be merged.
 
   | Enabled? | Description |
   | -------- | ----------- |
   | Yes      | All pull requests must satisfy required checks to be merged. |
   | No       | Pull requests that have failed required checks can be added to a group as long as the last pull request in the group has passed required checks. If the last pull request in the group has passed required checks, this means that the checks have passed for the combined set of changes in the merge group. Leaving this checkbox unselected can be useful if you have intermittent test failures, but don't want false negatives to hold up the queue. |
 
-- **Status check timeout**: Choose how long the queue should wait for a response from CI before assuming that checks have failed.
+* **Status check timeout**: Choose how long the queue should wait for a response from CI before assuming that checks have failed.
 
--
-  **Merge limits**: Select the minimum and maximum number of pull requests to merge in a single group (between `1` and `100`), and a timeout after which the queue should stop waiting for more entries and merge with fewer than the minimum number of pull requests. Exactly how many PRs are included in a group depends on a merge queue's settings:
+* **Merge limits**: Select the minimum and maximum number of pull requests to merge into the base branch at the same time (between `1` and `100`), and a timeout after which the queue should stop waiting for more entries and merge with fewer than the minimum number.
+
+{% note %}
+
+**Note:** Merge limits do not combine `merge_group` **builds**. Merge limits only affect merges to the base branch once one or more `merge_group` has satisfied build checks.
+
+{% endnote %}
 
   | Merge Limit | Use Case |
   | ----------- | -------- |
@@ -93,7 +95,7 @@ A merge queue creates temporary branches with a special prefix to validate pull 
 
 For information about merge methods, see "[AUTOTITLE](/pull-requests/collaborating-with-pull-requests/incorporating-changes-from-a-pull-request/about-pull-request-merges)."
 
-#### Successful CI
+### Successful CI
 
 When multiple pull requests are added to the merge queue and when the temporary `merge_group` branches have successful CI results, they are both merged. In the following scenario, two pull requests are successfully added to the queue and merged to the target branch.
 
@@ -103,7 +105,7 @@ When multiple pull requests are added to the merge queue and when the temporary 
 1. The merge queue creates a temporary branch with the prefix of `main/pr-2` that contains code changes from the target branch, pull request #1, and pull request #2, and dispatches webhooks.
 1. When the {% data variables.product.product_name %} API receives successful CI responses for `merge_group` branches `main/pr-1` and `main/pr-2`, the temporary branch `main/pr-2` will be merged in to the target branch. The target branch now contains both changes from pull request #1 and #2.
 
-#### Failing CI
+### Failing CI
 
 {% data reusables.pull_requests.merge-queue-reject %}
 
@@ -113,13 +115,13 @@ The following scenario outlines what happens when a CI reports a failing status 
 1. The merge queue creates a temporary branch with the prefix of `main/pr-1` that contains code changes from the target branch and pull request #1. A `merge_group` webhook event of type `checks_requested` is dispatched and the merge queue will await a response from your CI provider.
 1. User adds pull request #2 to the merge queue.
 1. The merge queue creates a temporary branch with the prefix of `main/pr-2` that contains code changes from the target branch, pull request #1, and pull request #2, and dispatches webhooks.
-1.  When the {% data variables.product.product_name %} API receives a failing status for `main/pr-1`, the merge queue automatically removes pull request #1 from the merge queue.
+1. When the {% data variables.product.product_name %} API receives a failing status for `main/pr-1`, the merge queue automatically removes pull request #1 from the merge queue.
 1. The merge queue recreates the temporary branch with the prefix of `main/pr-2` to only contain changes from the target branch and pull request #2.
 1. When the {% data variables.product.product_name %} API receives successful CI responses for `merge_group` branch `main/pr-2`, the temporary branch `main/pr-2` will be merged in to the target branch without pull request #1 included.
 
 {% data reusables.pull_requests.merge-queue-removal-reasons %}
 
-#### Jumping to the top of the queue
+### Jumping to the top of the queue
 
 When adding a pull request to a merge queue, there is an option to move your pull request to the top of the queue.
 
@@ -141,5 +143,5 @@ The following scenario outlines what happens when a user jumps the queue.
 
 ## Further reading
 
-- "[AUTOTITLE](/pull-requests/collaborating-with-pull-requests/incorporating-changes-from-a-pull-request/merging-a-pull-request-with-a-merge-queue)"
-- "[AUTOTITLE](/repositories/configuring-branches-and-merges-in-your-repository/managing-protected-branches/about-protected-branches)"
+* "[AUTOTITLE](/pull-requests/collaborating-with-pull-requests/incorporating-changes-from-a-pull-request/merging-a-pull-request-with-a-merge-queue)"
+* "[AUTOTITLE](/repositories/configuring-branches-and-merges-in-your-repository/managing-protected-branches/about-protected-branches)"

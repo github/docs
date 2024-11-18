@@ -12,12 +12,10 @@ permissions: You must have at least read permissions to view a package.
 versions:
   fpt: '*'
   ghes: '*'
-  ghae: '*'
   ghec: '*'
 ---
 
 {% data reusables.package_registry.packages-ghes-release-stage %}
-{% data reusables.package_registry.packages-ghae-release-stage %}
 
 ## About package views
 
@@ -62,4 +60,4 @@ You can find and view any package you've published across all organizations and 
 
 ## Further reading
 
-- "[AUTOTITLE](/search-github/searching-on-github/searching-for-packages)"
+* "[AUTOTITLE](/search-github/searching-on-github/searching-for-packages)"

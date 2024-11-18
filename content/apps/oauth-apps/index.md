@@ -4,7 +4,6 @@ intro: Learn how to build and maintain {% data variables.product.prodname_oauth_
 versions:
   fpt: '*'
   ghes: '*'
-  ghae: '*'
   ghec: '*'
 topics:
   - OAuth apps

@@ -1,9 +1,10 @@
 ---
-title: Repository Pre-receive Hooks
+title: REST API endpoints for repository pre-receive hooks
+shortTitle: Repository pre-receive hooks
 intro: >-
   Use the REST API to view and modify enforcement of the pre-receive hooks that
   are available to a repository.
-versions:
+versions: # DO NOT MANUALLY EDIT. CHANGES WILL BE OVERWRITTEN BY A 🤖
   ghes: '*'
 topics:
   - API

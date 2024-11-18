@@ -35,7 +35,6 @@ jobs:
       uses: actions/hello-world-javascript-action@main
       with:
         who-to-greet: ${{ vars.GREET_NAME }}
-
 ```
 
 {% endraw %}

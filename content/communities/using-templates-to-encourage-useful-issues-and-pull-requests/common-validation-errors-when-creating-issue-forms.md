@@ -628,7 +628,7 @@ body:
 
 ## Body cannot be empty
 
-The template body `key:value` pair can not be empty. For more information about which top-level keys are required, see "[AUTOTITLE](/communities/using-templates-to-encourage-useful-issues-and-pull-requests/syntax-for-issue-forms#top-level-syntax)."
+The template body `key:value` pair cannot be empty. For more information about which top-level keys are required, see "[AUTOTITLE](/communities/using-templates-to-encourage-useful-issues-and-pull-requests/syntax-for-issue-forms#top-level-syntax)."
 
 The error can be fixed by adding the `body:` section.
 
@@ -658,5 +658,5 @@ body:
 
 ## Further reading
 
-- [YAML](https://yaml.org/)
-- [Syntax for issue forms](/communities/using-templates-to-encourage-useful-issues-and-pull-requests/syntax-for-issue-forms)
+* [YAML](https://yaml.org/)
+* [Syntax for issue forms](/communities/using-templates-to-encourage-useful-issues-and-pull-requests/syntax-for-issue-forms)

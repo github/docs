@@ -1,4 +1,4 @@
-{% ifversion fpt or ghec or ghes %}{% data variables.product.company_short %} bills for {% data variables.product.prodname_advanced_security %} on a per-committer basis. For more information, see "[AUTOTITLE](/billing/managing-billing-for-github-advanced-security)."{% elsif ghes %}For more information, see "[AUTOTITLE](/admin/code-security/managing-github-advanced-security-for-your-enterprise)."{% endif %}
+{% data variables.product.company_short %} bills for {% data variables.product.prodname_advanced_security %} on a per-committer basis. For more information, see "[AUTOTITLE](/billing/managing-billing-for-github-advanced-security)."
 
 You can enforce a policy that controls whether repository administrators are allowed to enable features for {% data variables.product.prodname_advanced_security %} in an organization's repositories. You can configure a policy for all organizations owned by your enterprise account, or for individual organizations that you choose.
 

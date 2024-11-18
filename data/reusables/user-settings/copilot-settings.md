@@ -1,1 +1,1 @@
-1. In the left sidebar, click **{% octicon "copilot" aria-hidden="true" %} GitHub Copilot**.
+1. In the left sidebar, click **{% octicon "copilot" aria-hidden="true" %} Copilot**.

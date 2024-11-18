@@ -1,0 +1,5 @@
+# Reference: #11898
+# Documentation for public SCIM schema for EMUs
+
+versions:
+  ghec: '*'

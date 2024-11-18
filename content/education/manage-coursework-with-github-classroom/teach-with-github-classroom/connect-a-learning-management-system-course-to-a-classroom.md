@@ -37,13 +37,13 @@ To configure an LMS to connect to {% data variables.product.prodname_classroom %
 
 ## Linking a Canvas course with a classroom
 
-You can link your Moodle course with a classroom in {% data variables.product.prodname_classroom %}. For more information about Canvas, see the [Canvas website](https://www.instructure.com/canvas/).
+You can link your Canvas course with a classroom in {% data variables.product.prodname_classroom %}. For more information about Canvas, see the [Canvas website](https://www.instructure.com/canvas/).
 
 An administrator needs to register your LMS instance with classroom before you can link an LMS course. For more information, see "[AUTOTITLE](/education/manage-coursework-with-github-classroom/teach-with-github-classroom/register-a-learning-management-system-with-github-classroom#configuring-canvas-for-github-classroom)."
 
 1. Sign into [Canvas](https://www.instructure.com/canvas/#login).
 1. Select the Canvas course to integrate with {% data variables.product.prodname_classroom %}.
-1. Click "Settings" in the left sidebar, then click the "Apps" tab.
+1. Click **Setting** in the left sidebar, then click the **Apps** tab.
 1. Click the **+ App** button.
 1. Under "Configuration Type", select **By Client ID** from the dropdown menu.
 1. Under "Client ID", input the Client ID that your LMS administrator created when registering your LMS instance with {% data variables.product.prodname_classroom %}.
@@ -101,8 +101,8 @@ Google Classroom does not use the LTI protocol so does not need to be connected 
 {% data reusables.classroom.click-classroom-in-list %}
 {% data reusables.classroom.click-students %}
 1. If your classroom already has a roster, you can either update the roster or delete the roster and create a new roster.
-    - For more information about deleting and creating a roster, see "[AUTOTITLE](/education/manage-coursework-with-github-classroom/teach-with-github-classroom/manage-classrooms#deleting-a-roster-for-a-classroom)" and "[AUTOTITLE](/education/manage-coursework-with-github-classroom/teach-with-github-classroom/manage-classrooms#creating-a-roster-for-your-classroom)."
-    - For more information about updating a roster, see "[AUTOTITLE](/education/manage-coursework-with-github-classroom/teach-with-github-classroom/manage-classrooms#adding-students-to-the-roster-for-your-classroom)."
+    * For more information about deleting and creating a roster, see "[AUTOTITLE](/education/manage-coursework-with-github-classroom/teach-with-github-classroom/manage-classrooms#deleting-a-roster-for-a-classroom)" and "[AUTOTITLE](/education/manage-coursework-with-github-classroom/teach-with-github-classroom/manage-classrooms#creating-a-roster-for-your-classroom)."
+    * For more information about updating a roster, see "[AUTOTITLE](/education/manage-coursework-with-github-classroom/teach-with-github-classroom/manage-classrooms#adding-students-to-the-roster-for-your-classroom)."
 1. In the list of LMSes, click **Google Classroom**.
 1. Sign in to Google, then select the Classroom to link to.
 

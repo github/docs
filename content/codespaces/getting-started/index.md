@@ -9,7 +9,7 @@ redirect_from:
   - /codespaces/getting-started-with-codespaces
 children:
   - /quickstart
-  - /the-codespace-lifecycle
+  - /understanding-the-codespace-lifecycle
   - /deep-dive
 ---
 

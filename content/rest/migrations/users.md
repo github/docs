@@ -1,13 +1,12 @@
 ---
-title: User migrations
+title: REST API endpoints for user migrations
 allowTitleToDifferFromFilename: true
 shortTitle: Users
 intro: >-
   Use the REST API to review, backup, or migrate your user data stored on {%
   data variables.product.product_name %}.com.
-versions:
+versions: # DO NOT MANUALLY EDIT. CHANGES WILL BE OVERWRITTEN BY A 🤖
   fpt: '*'
-  ghae: '*'
   ghec: '*'
   ghes: '*'
 topics:

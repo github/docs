@@ -8,9 +8,7 @@ redirect_from:
   - /github/importing-your-projects-to-github/working-with-subversion-on-github/what-are-the-differences-between-subversion-and-git
   - /get-started/importing-your-projects-to-github/working-with-subversion-on-github/what-are-the-differences-between-subversion-and-git
 versions:
-  fpt: '*'
-  ghes: '*'
-  ghec: '*'
+  ghes: '<3.13'
 shortTitle: Subversion & Git differences
 ---
 ## Directory structure
@@ -26,9 +24,9 @@ Each _reference_, or labeled snapshot of a commit, in a project is organized wit
 
 An SVN workflow looks like this:
 
-- The `trunk` directory represents the latest stable release of a project.
-- Active feature work is developed within subdirectories under `branches`.
-- When a feature is finished, the feature directory is merged into `trunk` and removed.
+* The `trunk` directory represents the latest stable release of a project.
+* Active feature work is developed within subdirectories under `branches`.
+* When a feature is finished, the feature directory is merged into `trunk` and removed.
 
 Git projects are also stored within a single directory. However, Git obscures the details of its references by storing them in a special _.git_ directory. For example, a Git project with two features under development might look like this:
 
@@ -38,10 +36,10 @@ Git projects are also stored within a single directory. However, Git obscures th
 
 A Git workflow looks like this:
 
-- A Git repository stores the full history of all of its branches and tags within the _.git_ directory.
-- The latest stable release is contained within the default branch.
-- Active feature work is developed in separate branches.
-- When a feature is finished, the feature branch is merged into the default branch and deleted.
+* A Git repository stores the full history of all of its branches and tags within the _.git_ directory.
+* The latest stable release is contained within the default branch.
+* Active feature work is developed in separate branches.
+* When a feature is finished, the feature branch is merged into the default branch and deleted.
 
 Unlike SVN, with Git the directory structure remains the same, but the contents of the files change based on your branch.
 
@@ -67,5 +65,5 @@ SVN is configured to assume that the history of a project never changes. Git all
 
 ## Further reading
 
-- ["Branching and Merging" from the _Git SCM_ book](https://git-scm.com/book/en/Git-Branching-Basic-Branching-and-Merging)
-- "[AUTOTITLE](/migrations/importing-source-code/using-the-command-line-to-import-source-code/importing-a-subversion-repository)"
+* ["Branching and Merging" from the _Git SCM_ book](https://git-scm.com/book/en/Git-Branching-Basic-Branching-and-Merging)
+* "[AUTOTITLE](/migrations/importing-source-code/using-the-command-line-to-import-source-code/importing-a-subversion-repository)"

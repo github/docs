@@ -27,7 +27,7 @@ export function formatErrors(errors, body) {
       Object.entries(pick(error, errorKeys)).map(([key, value]) => [
         snakeCase(key),
         makeString(value),
-      ])
+      ]),
     ),
   }))
 }

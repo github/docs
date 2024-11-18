@@ -8,6 +8,7 @@ name: Close bad repo-sync PRs
 # **Who does it impact**: Open-source.
 
 on:
+  # Necessary in lieu of `pull_request` so that PRs opened from forks can be closed if they try to push to a repo sync branch.
   pull_request_target:
 
 permissions:
@@ -21,7 +22,7 @@ jobs:
     runs-on: ubuntu-latest
     steps:
       - name: Close pull request if unwanted
-        uses: actions/github-script@d7906e4ad0b1822421a7e6a35d5ca353c962f410
+        uses: actions/github-script@e69ef5462fd455e02edcaf4dd7708eda96b9eda0
         with:
           github-token: ${{ secrets.DOCS_BOT_PAT_WRITEORG_PROJECT }}
           script: |
@@ -58,14 +59,5 @@ jobs:
               owner,
               repo,
               issue_number: prNumber,
-              body: "Please leave this `repo-sync` branch to the robots!\n\nI'm going to close this pull request now, but feel free to open a new issue or ask any questions in [discussions](https://github.com/github/docs/discussions)!"
+              body: "Please leave this `repo-sync` branch to the robots!\n\nI'm going to close this pull request now, but feel free to open a new issue in the repository!"
             })
-
-      - name: Send Slack notification if workflow fails
-        uses: someimportantcompany/github-actions-slack-message@1d367080235edfa53df415bd8e0bbab480f29bad
-        if: failure()
-        with:
-          channel: ${{ secrets.DOCS_ALERTS_SLACK_CHANNEL_ID }}
-          bot-token: ${{ secrets.SLACK_DOCS_BOT_TOKEN }}
-          color: failure
-          text: The last close-bad-repo-sync-prs run for ${{github.repository}} failed. See https://github.com/${{github.repository}}/actions?query=Close+bad+repo-sync+PRs

@@ -18,7 +18,7 @@ shortTitle: Troubleshoot a custom domain
 
 ## CNAME errors
 
-{% ifversion pages-custom-workflow %}If you are publishing from a custom {% data variables.product.prodname_actions %} workflow, any CNAME file is ignored and is not required.{% endif %}
+If you are publishing from a custom {% data variables.product.prodname_actions %} workflow, any CNAME file is ignored and is not required.
 
 If you are publishing from a branch, custom domains are stored in a CNAME file in the root of your publishing source. You can add or update this file through your repository settings or manually. For more information, see "[AUTOTITLE](/pages/configuring-a-custom-domain-for-your-github-pages-site/managing-a-custom-domain-for-your-github-pages-site)."
 
@@ -26,10 +26,10 @@ For your site to render at the correct domain, make sure your CNAME file still e
 
 Then, make sure the CNAME file is formatted correctly.
 
-- The CNAME filename must be all uppercase.
-- The CNAME file can contain only one domain. To point multiple domains to your site, you must set up a redirect through your DNS provider.
-- The CNAME file must contain the domain name only. For example, `www.example.com`, `blog.example.com`, or `example.com`.
-- The domain name must be unique across all {% data variables.product.prodname_pages %} sites. For example, if another repository's CNAME file contains `example.com`, you cannot use `example.com` in the CNAME file for your repository.
+* The CNAME filename must be all uppercase.
+* The CNAME file can contain only one domain. To point multiple domains to your site, you must set up a redirect through your DNS provider.
+* The CNAME file must contain the domain name only. For example, `www.example.com`, `blog.example.com`, or `example.com`.
+* The domain name must be unique across all {% data variables.product.prodname_pages %} sites. For example, if another repository's CNAME file contains `example.com`, you cannot use `example.com` in the CNAME file for your repository.
 
 ## DNS misconfiguration
 
@@ -37,17 +37,17 @@ If you have trouble pointing the default domain for your site to your custom dom
 
 You can also use one of the following methods to test whether your custom domain's DNS records are configured correctly:
 
-- A CLI tool such as `dig`. For more information, see "[AUTOTITLE](/pages/configuring-a-custom-domain-for-your-github-pages-site/managing-a-custom-domain-for-your-github-pages-site)".
-- An online DNS lookup tool.
+* A CLI tool such as `dig`. For more information, see "[AUTOTITLE](/pages/configuring-a-custom-domain-for-your-github-pages-site/managing-a-custom-domain-for-your-github-pages-site)".
+* An online DNS lookup tool.
 
 ## Custom domain names that are unsupported
 
 If your custom domain is unsupported, you may need to change your domain to a supported domain. You can also contact your DNS provider to see if they offer forwarding services for domain names.
 
 Make sure your site does not:
-- Use more than one apex domain. For example, both `example.com` and `anotherexample.com`.
-- Use more than one `www` subdomain. For example, both `www.example.com` and `www.anotherexample.com`.
-- Use both an apex domain and custom subdomain. For example, both `example.com` and `docs.example.com`.
+* Use more than one apex domain. For example, both `example.com` and `anotherexample.com`.
+* Use more than one `www` subdomain. For example, both `www.example.com` and `www.anotherexample.com`.
+* Use both an apex domain and custom subdomain. For example, both `example.com` and `docs.example.com`.
 
   The one exception is the `www` subdomain. If configured correctly, the `www` subdomain is automatically redirected to the apex domain. For more information, see "[AUTOTITLE](/pages/configuring-a-custom-domain-for-your-github-pages-site/managing-a-custom-domain-for-your-github-pages-site#configuring-an-apex-domain)."
 
@@ -70,3 +70,7 @@ If the URL for your site contains a username or organization name that begins or
 ## Browser cache
 
 If you've recently changed or removed your custom domain and can't access the new URL in your browser, you may need to clear your browser's cache to reach the new URL. For more information on clearing your cache, see your browser's documentation.
+
+## Domain name taken
+
+If you're trying to use a custom domain and it says the domain is already in use, you can make the domain available for your own use by verifying it first. For more information, see "[AUTOTITLE](/pages/configuring-a-custom-domain-for-your-github-pages-site/verifying-your-custom-domain-for-github-pages)."

@@ -1,2 +1,2 @@
-1. To assign a static IP address to the runner, under "Networking," check **Assign a unique & static public IP address range for this runner**.
+1. To assign static IP addresses to the runner, under "Networking," check **Assign unique & static public IP address ranges for this runner**.
 1. Click **Save**.

@@ -5,7 +5,7 @@ name: Hubber contribution help
 # **Who does it impact**: docs-internal contributors
 
 on:
-  pull_request_target:
+  pull_request:
     types:
       - opened
     paths:
@@ -13,15 +13,19 @@ on:
       - 'data/**'
 
 permissions:
+  contents: read
   pull-requests: write
 
 jobs:
   check-team-membership:
-    if: github.repository == 'github/docs-internal' && github.actor != 'github-openapi-bot'
+    if: github.repository == 'github/docs-internal' && github.actor != 'github-openapi-bot' && github.actor != 'docs-bot'
     runs-on: ubuntu-latest
     steps:
+      - name: Check out repo
+        uses: actions/checkout@b4ffde65f46336ab88eb53be808477a3936bae11 # v4.1.1
+
       - id: membership_check
-        uses: actions/github-script@98814c53be79b1d30f795b907e553d8679345975
+        uses: actions/github-script@e69ef5462fd455e02edcaf4dd7708eda96b9eda0
         with:
           github-token: ${{ secrets.DOCS_BOT_PAT_WORKFLOW_READORG }}
           script: |

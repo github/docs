@@ -4,7 +4,6 @@ intro: 'Learn about building {% data variables.product.prodname_github_apps %}.'
 versions:
   fpt: '*'
   ghes: '*'
-  ghae: '*'
   ghec: '*'
 redirect_from:
   - /apps/building-github-apps

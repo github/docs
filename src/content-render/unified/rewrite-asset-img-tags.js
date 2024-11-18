@@ -1,31 +1,12 @@
 import { visit, SKIP } from 'unist-util-visit'
-
-/**
- * `structuredClone` was added in Node 17 and onwards.
- * https://developer.mozilla.org/en-US/docs/Web/API/structuredClone#browser_compatibility
- *
- * At the time of writing, we use Node 18 in CI and in production, but
- * someone might be previewing locally with an older version so
- * let's make a quick polyfill.
- * We could add a specific (`js-core`) package for this polyfill, but it's
- * fortunately not necessary in this context because it's safe enough
- * clone by turning into a string and back again.
- */
-function structuredClonePolyfill(obj) {
-  if (typeof structuredClone !== 'undefined') {
-    return structuredClone(obj)
-  } else {
-    // Note, that this naive clone would turn Date objects into strings.
-    // So don't use this polyfill if certain values aren't primitives
-    // that JSON.parse can handle.
-    return JSON.parse(JSON.stringify(obj))
-  }
-}
+import { IMAGE_DENSITY } from '../../assets/lib/image-density.js'
 
 // This number must match a width we're willing to accept in a dynamic
 // asset URL.
 // (note this is exported for the sake of end-to-end tests' assertions)
 export const MAX_WIDTH = 1440
+
+const DEFAULT_IMAGE_DENSITY = '2x'
 
 // Matches any <img> tags with an href that starts with `/assets/`
 const matcher = (node) =>
@@ -52,13 +33,18 @@ export default function rewriteAssetImgTags() {
   return (tree) => {
     visit(tree, matcher, (node) => {
       if (node.properties.src.endsWith('.png')) {
-        const copyPNG = structuredClonePolyfill(node)
+        const copyPNG = structuredClone(node)
+
+        const originalSrc = node.properties.src
+        const originalSrcWithoutCb = originalSrc.replace(/cb-\w+\//, '')
+        const webpSrc = injectMaxWidth(node.properties.src.replace(/\.png$/, '.webp'), MAX_WIDTH)
+        const srcset = `${webpSrc} ${IMAGE_DENSITY[originalSrcWithoutCb] || DEFAULT_IMAGE_DENSITY}`
 
         const sourceWEBP = {
           type: 'element',
           tagName: 'source',
           properties: {
-            srcset: injectMaxWidth(node.properties.src.replace(/\.png$/, '.webp'), MAX_WIDTH),
+            srcset,
             type: 'image/webp',
           },
           children: [],

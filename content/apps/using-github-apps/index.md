@@ -8,7 +8,6 @@ redirect_from:
 versions:
   fpt: '*'
   ghes: '*'
-  ghae: '*'
   ghec: '*'
 shortTitle: 'Using {% data variables.product.prodname_github_apps %}'
 children:
@@ -23,5 +22,5 @@ children:
   - /reviewing-and-revoking-authorization-of-github-apps
   - /reviewing-and-modifying-installed-github-apps
   - /saml-and-github-apps
+  - /internal-github-apps
 ---
-

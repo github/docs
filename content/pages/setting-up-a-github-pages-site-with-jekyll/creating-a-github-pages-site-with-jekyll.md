@@ -9,7 +9,6 @@ permissions: 'People with admin permissions for a repository can create a {% dat
 versions:
   fpt: '*'
   ghes: '*'
-  ghae: '*'
   ghec: '*'
 topics:
   - Pages
@@ -20,7 +19,7 @@ shortTitle: Create site with Jekyll
 
 ## Prerequisites
 
-Before you can use Jekyll to create a {% data variables.product.prodname_pages %} site, you must install Jekyll and Git. For more information, see [Installation](https://jekyllrb.com/docs/installation/) in the Jekyll documentation and "[AUTOTITLE](/get-started/quickstart/set-up-git)."
+Before you can use Jekyll to create a {% data variables.product.prodname_pages %} site, you must install Jekyll and Git. For more information, see [Installation](https://jekyllrb.com/docs/installation/) in the Jekyll documentation and "[AUTOTITLE](/get-started/getting-started-with-git/set-up-git)."
 
 {% data reusables.pages.recommend-bundler %}
 
@@ -53,7 +52,7 @@ Before you can use Jekyll to create a {% data variables.product.prodname_pages %
 
    ```shell
    $ git init REPOSITORY-NAME
-   > Initialized empty Git repository in /Users/octocat/my-site/.git/
+   > Initialized empty Git repository in /REPOSITORY-NAME/.git/
    # Creates a new folder on your computer, initialized as a Git repository
    ```
 
@@ -68,20 +67,20 @@ Before you can use Jekyll to create a {% data variables.product.prodname_pages %
 {% data reusables.pages.navigate-publishing-source %}
   For example, if you chose to publish your site from the `docs` folder on the default branch, create and change directories to the `docs` folder.
 
- ```shell
- $ mkdir docs
- # Creates a new folder called docs
- $ cd docs
- ```
+    ```shell
+    $ mkdir docs
+    # Creates a new folder called docs
+    $ cd docs
+    ```
 
- If you chose to publish your site from the `gh-pages` branch, create and checkout the `gh-pages` branch.
+    If you chose to publish your site from the `gh-pages` branch, create and checkout the `gh-pages` branch.
 
- ```shell
- $ git checkout --orphan gh-pages
- # Creates a new branch, with no history or contents, called gh-pages, and switches to the gh-pages branch
- $ git rm -rf .
- # Removes the contents from your default branch from the working directory
- ```
+    ```shell
+    $ git checkout --orphan gh-pages
+    # Creates a new branch, with no history or contents, called gh-pages, and switches to the gh-pages branch
+    $ git rm -rf .
+    # Removes the contents from your default branch from the working directory
+    ```
 
 1. To create a new Jekyll site, use the `jekyll new` command:
 
@@ -94,7 +93,7 @@ Before you can use Jekyll to create a {% data variables.product.prodname_pages %
 1. Add "#" to the beginning of the line that starts with `gem "jekyll"` to comment out this line.
 1. Add the `github-pages` gem by editing the line starting with `# gem "github-pages"`. Change this line to:
 
-   ```shell
+   ```ruby
    gem "github-pages", "~> GITHUB-PAGES-VERSION", group: :jekyll_plugins
    ```
 
@@ -103,9 +102,15 @@ Before you can use Jekyll to create a {% data variables.product.prodname_pages %
    The correct version Jekyll will be installed as a dependency of the `github-pages` gem.
 1. Save and close the Gemfile.
 1. From the command line, run `bundle install`.
+1. Open the `.gitignore` file that Jekyll created and ignore the gems lock file by adding this line:
+
+   ```shell
+   Gemfile.lock
+   ```
+
 1. Optionally, make any necessary edits to the `_config.yml` file. This is required for relative paths when the repository is hosted in a subdirectory.  For more information, see "[AUTOTITLE](/get-started/using-git/splitting-a-subfolder-out-into-a-new-repository)."
 
-   ```yml
+   ```yaml
    domain: my-site.github.io       # if you want to force HTTPS, specify the domain without the http at the start, e.g. example.com
    url: https://my-site.github.io  # the base hostname and protocol for your site, e.g. http://example.com
    baseurl: /REPOSITORY-NAME/      # place folder name if the site is served in a subfolder
@@ -119,7 +124,7 @@ Before you can use Jekyll to create a {% data variables.product.prodname_pages %
    git commit -m 'Initial GitHub pages site with Jekyll'
    ```
 
-1. Add your repository on {% ifversion ghae %}{% data variables.product.product_name %}{% else %}{% data variables.location.product_location %}{% endif %} as a remote, replacing {% ifversion ghes or ghae %}HOSTNAME with your enterprise's hostname,{% endif %} USER with the account that owns the repository{% ifversion ghes or ghae %},{% endif %} and REPOSITORY with the name of the repository.
+1. Add your repository on {% data variables.location.product_location %} as a remote, replacing {% ifversion ghes %}HOSTNAME with your enterprise's hostname,{% endif %} USER with the account that owns the repository{% ifversion ghes %},{% endif %} and REPOSITORY with the name of the repository.
 
    ```shell
    {% ifversion fpt or ghec %}

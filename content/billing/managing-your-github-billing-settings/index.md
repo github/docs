@@ -14,16 +14,26 @@ redirect_from:
 versions:
   fpt: '*'
   ghec: '*'
+  ghes: '*'
 children:
   - /about-billing-on-github
+  - /about-billing-for-your-enterprise
   - /viewing-your-subscriptions-and-billing-date
   - /adding-or-editing-a-payment-method
   - /viewing-your-payment-history-and-receipts
   - /adding-information-to-your-receipts
-  - /receiving-an-invoice
+  - /adding-a-sales-tax-certificate
   - /setting-your-billing-email
   - /changing-the-duration-of-your-billing-cycle
   - /redeeming-a-coupon
   - /troubleshooting-a-declined-credit-card-charge
   - /unlocking-a-locked-account
 ---
+
+{% ifversion us-sales-tax %}
+
+{% data reusables.billing.us-sales-tax-note %}{% ifversion fpt or ghec %} For more information about updating your billing information, see "[AUTOTITLE](/billing/managing-your-github-billing-settings/adding-or-editing-a-payment-method)."{% endif %}
+>
+>If you're exempt from sales tax, you can upload a certificate to your account. See "[AUTOTITLE](/billing/managing-your-github-billing-settings/adding-a-sales-tax-certificate)."
+
+{% endif %}

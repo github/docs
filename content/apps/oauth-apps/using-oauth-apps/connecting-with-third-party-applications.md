@@ -10,7 +10,6 @@ redirect_from:
 versions:
   fpt: '*'
   ghes: '*'
-  ghae: '*'
   ghec: '*'
 topics:
   - Identity
@@ -21,7 +20,7 @@ When a third-party application wants to identify you by your {% data variables.p
 
 ## Contacting the application developer
 
-Because an application is developed by a third-party who isn't {% data variables.product.product_name %}, we don't know exactly how an application uses the data it's requesting access to. If you have questions or concerns about an application, you should contact the application developer. To find contact information for an application, you can click the account name of the developer at the top of of the app's authorization page.
+Because an application is developed by a third-party who isn't {% data variables.product.product_name %}, we don't know exactly how an application uses the data it's requesting access to. If you have questions or concerns about an application, you should contact the application developer. To find contact information for an application, you can click the account name of the developer at the top of the app's authorization page.
 
 If the developer has chosen to supply further information, the right-hand side of the authorization page may also provide a detailed description of the application, as well as its associated website.
 
@@ -29,8 +28,8 @@ If the developer has chosen to supply further information, the right-hand side o
 
 Applications can have _read_ or _write_ access to your {% data variables.product.product_name %} data.
 
-- **Read access** only allows an application to _look at_ your data.
-- **Write access** allows an application to _change_ your data.
+* **Read access** only allows an application to _look at_ your data.
+* **Write access** allows an application to _change_ your data.
 
 ### About OAuth scopes
 
@@ -58,7 +57,7 @@ There are several types of data that applications can request.
 | --- | --- |
 | Commit status | You can grant access for a third-party application to report your commit status. Commit status access allows applications to determine if a build is a successful against a specific commit. Applications won't have access to your code, but they <em>can</em> read and write status information against a specific commit. |
 | Deployments | Deployment status access allows applications to determine if a deployment is successful against a specific commit for a repository. Applications won't have access to your code. |
-| Gists | [Gist](https://gist.github.com) access allows applications to read or write to {% ifversion not ghae %}both your public and{% else %}both your internal and{% endif %} secret Gists. |
+| Gists | [Gist](https://gist.github.com) access allows applications to read or write to both your public and secret Gists. |
 | Hooks | [Webhooks](/webhooks-and-events/webhooks/about-webhooks) access allows applications to read or write hook configurations on repositories you manage. |
 | Notifications | Notification access allows applications to read your {% data variables.product.product_name %} notifications, such as comments on issues and pull requests. However, applications remain unable to access anything in your repositories. |
 | Organizations and teams | Organization and teams access allows apps to access and manage organization and team membership. |

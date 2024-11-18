@@ -9,7 +9,6 @@ redirect_from:
 versions:
   fpt: '*'
   ghes: '*'
-  ghae: '*'
   ghec: '*'
 topics:
   - API
@@ -28,10 +27,10 @@ Check out [Steve Friedl's Tech Tips guide][tech-tips] for a more detailed explan
 
 Ensure that your own SSH key is set up and working. You can use [our guide on generating SSH keys][generating-keys] if you've not done this yet.
 
-You can test that your local key works by entering `ssh -T git@{% ifversion ghes or ghae %}hostname{% else %}github.com{% endif %}` in the terminal:
+You can test that your local key works by entering `ssh -T git@{% ifversion ghes %}hostname{% else %}github.com{% endif %}` in the terminal:
 
 ```shell
-$ ssh -T git@{% ifversion ghes or ghae %}hostname{% else %}github.com{% endif %}
+$ ssh -T git@{% ifversion ghes %}hostname{% else %}github.com{% endif %}
 # Attempt to SSH in to github
 > Hi USERNAME! You've successfully authenticated, but GitHub does not provide
 > shell access.
@@ -54,7 +53,7 @@ We're off to a great start. Let's set up SSH to allow agent forwarding to your s
 
 ## Testing SSH agent forwarding
 
-To test that agent forwarding is working with your server, you can SSH into your server and run `ssh -T git@{% ifversion ghes or ghae %}hostname{% else %}github.com{% endif %}` once more.  If all is well, you'll get back the same prompt as you did locally.
+To test that agent forwarding is working with your server, you can SSH into your server and run `ssh -T git@{% ifversion ghes %}hostname{% else %}github.com{% endif %}` once more.  If all is well, you'll get back the same prompt as you did locally.
 
 If you're unsure if your local key is being used, you can also inspect the `SSH_AUTH_SOCK` variable on your server:
 
@@ -70,7 +69,7 @@ If the variable is not set, it means that agent forwarding is not working:
 $ echo "$SSH_AUTH_SOCK"
 # Print out the SSH_AUTH_SOCK variable
 > [No output]
-$ ssh -T git@{% ifversion ghes or ghae %}hostname{% else %}github.com{% endif %}
+$ ssh -T git@{% ifversion ghes %}hostname{% else %}github.com{% endif %}
 # Try to SSH to github
 > Permission denied (publickey).
 ```
@@ -85,7 +84,7 @@ SSH forwarding only works with SSH URLs, not HTTP(s) URLs. Check the `.git/confi
 
 ```shell
 [remote "origin"]
-  url = git@{% ifversion ghes or ghae %}hostname{% else %}github.com{% endif %}:YOUR_ACCOUNT/YOUR_PROJECT.git
+  url = git@{% ifversion ghes %}hostname{% else %}github.com{% endif %}:YOUR_ACCOUNT/YOUR_PROJECT.git
   fetch = +refs/heads/*:refs/remotes/origin/*
 ```
 
@@ -100,7 +99,7 @@ Sometimes, system configurations disallow SSH agent forwarding. You can check if
 ```shell
 $ ssh -v URL
 # Connect to the specified URL with verbose debug output
-> OpenSSH_8.1p1, LibreSSL 2.7.3</span>
+> OpenSSH_8.1p1, LibreSSL 2.7.3
 > debug1: Reading configuration data /Users/YOU/.ssh/config
 > debug1: Applying options for example.com
 > debug1: Reading configuration data /etc/ssh_config
@@ -159,9 +158,9 @@ On macOS, `ssh-agent` will "forget" this key, once it gets restarted during rebo
 ssh-add --apple-use-keychain YOUR-KEY
 ```
 
-For MacOS versions prior to Monterey (12.0), use `-K` instead of `--apple-use-keychain`. For more information, see "[AUTOTITLE](/authentication/connecting-to-github-with-ssh/generating-a-new-ssh-key-and-adding-it-to-the-ssh-agent#adding-your-ssh-key-to-the-ssh-agent)."
-
 {% endtip %}
+
+{% data reusables.ssh.apple-use-keychain %}
 
 [tech-tips]: http://www.unixwiz.net/techtips/ssh-agent-forwarding.html
 [generating-keys]: /authentication/connecting-to-github-with-ssh

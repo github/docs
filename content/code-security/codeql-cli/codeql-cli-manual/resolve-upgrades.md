@@ -1,8 +1,7 @@
 ---
 title: resolve upgrades
-versions:
+versions: # DO NOT MANUALLY EDIT. CHANGES WILL BE OVERWRITTEN BY A 🤖
   fpt: '*'
-  ghae: '*'
   ghec: '*'
   ghes: '*'
 topics:
@@ -39,7 +38,9 @@ and is exposed as a separate plumbing command in order to (a) help with
 troubleshooting, and (b) provide a starting point for modifying the path
 in extraordinary cases where exact control is needed.
 
-## Primary options
+## Options
+
+### Primary Options
 
 #### `--dbscheme=<file>`
 
@@ -84,8 +85,8 @@ doesn't matter; it is an error if a pack name is found in two different
 places through this list.
 
 This is useful if you're temporarily developing a new version of a pack
-that also appears in the default path. On the other hand it is *not
-recommended* to override this option in a config file; some internal
+that also appears in the default path. On the other hand it is _not
+recommended_ to override this option in a config file; some internal
 actions will add this option on the fly, overriding any configured
 value.
 
@@ -139,3 +140,13 @@ the running subcommand.
 
 (To write a log file with a name you have full control over, instead
 give `--log-to-stderr` and redirect stderr as desired.)
+
+#### `--common-caches=<dir>`
+
+\[Advanced] Controls the location of cached data on disk that will
+persist between several runs of the CLI, such as downloaded QL packs and
+compiled query plans. If not set explicitly, this defaults to a
+directory named `.codeql` in the user's home directory; it will be
+created if it doesn't already exist.
+
+Available since `v2.15.2`.

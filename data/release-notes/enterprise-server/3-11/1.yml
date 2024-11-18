@@ -1,0 +1,125 @@
+date: '2023-12-21'
+intro: |
+  {% warning %}
+
+  **Warning**: Hotpatch upgrades from GitHub Enterprise Server version `3.11.0` to `3.11.1` will result in the instance losing network connectivity after a reboot. We have removed the hotpatch upgrade package for the `3.11.1` version of GitHub Enterprise Server to ensure this upgrade path is not executed accidentally. Before you upgrade, please make sure you have read the "[Known issues](#3.11.1-known-issues)" section of these release notes.
+
+  {% endwarning %}
+sections:
+  security_fixes:
+    - |
+      **HIGH**: An improper authentication vulnerability was identified in GitHub Enterprise Server that allowed a bypass of private mode by using a specially crafted API request. Private mode is the mechanism that enforces authentication for publicly-scoped resources. For more information, see "[AUTOTITLE](/admin/configuration/hardening-security-for-your-enterprise/enabling-private-mode)."
+
+      This vulnerability would allow unauthenticated attackers to gain access to various types of resources set as public on the instance. To exploit this vulnerability, an attacker would need network access to the GitHub Enterprise Server instance configured in private mode. This vulnerability was reported via the [GitHub Bug Bounty](https://bounty.github.com/) program and assigned [CVE-2023-6847](https://www.cve.org/cverecord?id=CVE-2023-6847).
+    - |
+      **HIGH**: A path traversal vulnerability was identified in GitHub Enterprise Server that allowed arbitrary file reading when building a GitHub Pages site. To exploit this vulnerability, an attacker would need permission to create and build a GitHub Pages site on the GitHub Enterprise Server instance. This vulnerability was reported via the [GitHub Bug Bounty](https://bounty.github.com/) program and assigned [CVE-2023-46645](https://www.cve.org/cverecord?id=CVE-2023-46645).
+    - |
+      **MEDIUM**: An attacker could maintain admin access via a race condition when an organization was converted from a user. GitHub has requested CVE ID [CVE-2023-46649](https://www.cve.org/cverecord?id=CVE-2023-46649) for this vulnerability, which was reported via the [GitHub Bug Bounty program](https://bounty.github.com/).
+    - |
+      **MEDIUM**: An insertion of sensitive information into log file in the audit log in GitHub Enterprise Server was identified that that could allow an attacker to gain access to the Management Console. To exploit this, an attacker would need access to the log files for the GitHub Enterprise Server instance, a backup archive created with GitHub Enterprise Server Backup Utilities, or a service which received streamed logs. GitHub has requested CVE ID [CVE-2023-6802](https://www.cve.org/CVERecord?id=CVE-2023-6802) for this vulnerability.
+    - |
+      **MEDIUM**: A race condition in GitHub Enterprise Server allowed an outside collaborator to be added while a repository is being transferred. GitHub has requested CVE ID [CVE-2023-6803](https://www.cve.org/cverecord?id=CVE-2023-6803) for this vulnerability, which was reported via the [GitHub Bug Bounty program](https://bounty.github.com/).
+    - |
+      **MEDIUM:** Due to an insufficient entropy vulnerability, an attacker could brute force a user invitation to the Management Console. To exploit this vulnerability, an attacker would have needed knowledge that a user invitation was pending. This vulnerability was reported via the [GitHub Bug Bounty](https://bounty.github.com/) program and assigned [CVE-2023-46648](https://www.cve.org/CVERecord?id=CVE-2023-46648).
+    - |
+      **MEDIUM**: An insertion of sensitive information into log file vulnerability was identified in the log files for a GitHub Enterprise Server backend service that could permit an adversary in the middle attack when combined with other phishing techniques. To exploit this, an attacker would need access to the log files for the GitHub Enterprise Server instance, a backup archive created with GitHub Enterprise Server Backup Utilities, or a service which received streamed logs. GitHub has requested CVE ID [CVE-2023-6746](https://www.cve.org/CVERecord?id=CVE-2023-6746) for this vulnerability.
+    - |
+      **MEDIUM:** An attacker could maintain admin access to a transferred repository in a race condition by making a GraphQL mutation to alter repository permissions during the transfer. GitHub has requested CVE ID [CVE-2023-6690](https://www.cve.org/CVERecord?id=CVE-2023-6690) for this vulnerability, which reported via the [GitHub Bug Bounty program](https://bounty.github.com/).
+    - |
+      **MEDIUM**: Improper privilege management allowed arbitrary workflows to be committed and run using an improperly scoped {% data variables.product.pat_generic %}. To exploit this, a workflow must have already existed in the target repository. GitHub has requested CVE ID [CVE-2023-6804](https://www.cve.org/CVERecord?id=CVE-2023-6804) for this vulnerability, which was reported via the [GitHub Bug Bounty program](https://bounty.github.com/).
+    - |
+      **MEDIUM**: An incorrect authorization vulnerability was identified that allowed issue comments to be updated with an improperly scoped token. This vulnerability did not allow unauthorized access to any repository content as it also required `contents.write` and `issues.read` permissions. This vulnerability was reported via the [GitHub Bug Bounty Program](https://bounty.github.com/) and has been assigned [CVE-2023-51379](https://www.cve.org/CVERecord?id=CVE-2023-51379).
+    - |
+      **MEDIUM**: An incorrect authorization vulnerability was identified that allowed issue comments to be read with an improperly scoped token. This vulnerability was reported via the [GitHub Bug Bounty Program](https://bounty.github.com/) and has been assigned [CVE-2023-51380](https://www.cve.org/CVERecord?id=CVE-2023-51380).
+    - |
+      **LOW:** To render interactive maps in an instance's web UI using Azure Maps, GitHub Enterprise Server has migrated from use of an unsecure Azure Maps API token to a more secure access token provided by role-based access control (RBAC) in Entra ID. After upgrading to this release, to re-enable interactive maps, an administrator must reconfigure authentication to Azure Maps in the Management Console. For more information, see "[AUTOTITLE](/admin/configuration/configuring-user-applications-for-your-enterprise/configuring-interactive-maps)."
+    - |
+      To address scenarios that could lead to denial of service, HAProxy has been upgraded to version 2.8.4.
+    - |
+      Packages have been updated to the latest security versions.
+  bugs:
+    - |
+      In rare cases, on an instance with GitHub Actions enabled, a failed check on a deleted repository could cause upgrades to a new version of GitHub Enterprise Server to fail.
+    - |
+      Error messages were not shown when `ghe-config-apply` encountered specific kinds of errors.
+    - |
+      In some environments, stale `.backup` log files could accumulate in the system.
+    - |
+      On an instance hosted on AWS, when configuring GitHub Packages, virtual-hosted-style AWS S3 URLs would default to path-style URLs if a `region-code` was included. For more information, see [Virtual hosting of buckets](https://docs.aws.amazon.com/AmazonS3/latest/userguide/VirtualHosting.html) in the AWS documentation.
+    - |
+      In some cases, when an administrator uploaded a custom TLS certificate, the certificate was not correctly installed on the instance.
+    - |
+      Because the `|` character was not permitted, administrators could not add an SMTP username to authenticate with the Azure Communication Service.
+    - |
+      In some cases, upgrades to GitHub Enterprise Server 3.11 could fail due to the Consul server failing to start.
+    - |
+      Endpoints for the REST API's Manage GitHub Enterprise Server operation returned `internal service error` if `cluster.conf` was not found on the instance.
+    - |
+      On an instance with GitHub Actions enabled, an issue with `GH_TOKEN` sometimes prevented GitHub Pages sites from building successfully in workflows.
+    - |
+      An administrator could enable GitHub Connect on an instance with a license that does not support GitHub Connect.
+    - |
+      On an instance with GitHub Connect enabled, some system users were incorrectly counted as consuming a license following license sync.
+    - |
+      A user in the process of being converted into an organization could be added as a collaborator on a repository. This resulted in the new organizations owners unexpectedly receiving access to the repository.
+    - |
+      When using `ghe-migrator` to import repositories into GitHub Enterprise Server, the `conflicts` and `audit` subcommands produced an invalid CSV file due to an extra log line appended to the file.
+    - |
+      On an instance with a GitHub Advanced Security license and secret scanning enabled, dry runs sometimes incorrectly reported no results for custom patterns.
+    - |
+      On an instance with a GitHub Advanced Security license and secret scanning enabled, webhooks for alert locations did not contain information about push protection bypasses.
+  changes:
+    - |
+      On an instance with Dependabot updates enabled, Dependabot relies on the node installation provided by the actions runner instead of dynamically downloading.
+    - |
+      To avoid negative effects on disk utilization, `babeld` log files have a maximum size of 15 GB.
+    - |
+      When using `ghe-migrator prepare` to import an archive, a missing `schema.json` file results in an `UnsupportedArchive` error rather than an `UnsupportedSchemaVersion` error.
+    - |
+      The audit log now tracks all failed password attempts individually. Previously, duplicate failed password attempts in sequence within the same day would be grouped into one failed password attempt, with a `count` field.
+    - |
+      On an instance in a cluster configuration, administrators can identify the repository networks or gists that are common across a specified set of storage nodes using the `spokesctl find-on-replicas` command.
+  known_issues:
+    - |
+      {% data reusables.release-notes.2023-12-networking-issue-in-ghes-3-11-1 %} [Updated 2023-12-27]
+    - |
+      Custom firewall rules are removed during the upgrade process.
+    - |
+      The GitHub Packages npm registry no longer returns a time value in metadata responses. This was done to allow for substantial performance improvements. We continue to have all the data necessary to return a time value as part of the metadata response and will resume returning this value in the future once we have solved the existing performance issues.
+    - |
+      During the validation phase of a configuration run, a `No such object` error may occur for the Notebook and Viewscreen services. This error can be ignored as the services should still correctly start.
+    - |
+      If the root site administrator is locked out of the Management Console after failed login attempts, the account does not unlock automatically after the defined lockout time. Someone with administrative SSH access to the instance must unlock the account using the administrative shell. For more information, see "[AUTOTITLE](/admin/configuration/administering-your-instance-from-the-management-console/troubleshooting-access-to-the-management-console#unlocking-the-root-site-administrator-account)."
+    - |
+      If an instance is configured to forward logs to a target server with TLS enabled, certificate authority (CA) bundles that a site administrator uploads using `ghe-ssl-ca-certificate-install` are not respected, and connections to the server fail.
+    - |
+      The `mbind: Operation not permitted` error in the `/var/log/mysql/mysql.err` file can be ignored. MySQL 8 does not gracefully handle when the `CAP_SYS_NICE` capability isn't required, and outputs an error instead of a warning.
+    - |
+      On an instance hosted in AWS, system time may lose synchronization with Amazon's servers after an administrator reboots the instance.
+    - |
+      On an instance with the HTTP `X-Forwarded-For` header configured for use behind a load balancer, all client IP addresses in the instance's audit log erroneously appear as 127.0.0.1.
+    - |
+      {% data reusables.release-notes.2023-10-git-push-made-but-not-registered %}
+    - |
+      {% data reusables.release-notes.large-adoc-files-issue %}
+    - |
+      {% data reusables.release-notes.2023-11-cluster-ha-failover-git-push-failure %}
+    - |
+      Restoring backups with `ghe-restore` on a GHES cluster will exit prematurely if `redis` has not restarted properly.
+    - |
+      {% data reusables.release-notes.2024-01-haproxy-upgrade-causing-increased-errors %} [Updated 2024-01-03]
+    - |
+      {% data reusables.release-notes.2024-01-ha-proxy-out-of-memory %} [Updated 2024-01-23]
+    - |
+      {% data reusables.release-notes.scheduled-reminders-unintentional %} [Updated: 2024-02-22]
+    - |
+      {% data reusables.release-notes.2024-03-increased-log-volume-in-syslog %} [Updated: 2024-03-08]
+    - |
+      {% data reusables.release-notes.2024-06-possible-frontend-5-minute-outage-during-hotpatch-upgrade %} [Updated: 2024-06-17]
+  deprecations:
+    - heading: Interactive maps in the web UI no longer allow authentication using an Azure Maps API key
+      notes:
+        - |
+          To allow users to render interactive maps in an instance's web UI by writing GeoJSON or TopoJSON syntax, GitHub Enterprise Server previously required a potentially unsecure API key for authentication with Azure Maps. If an administrator previously enabled interactive maps on an instance, the feature is disabled upon upgrade to this release.
+
+          To re-enable interactive maps for your instance, you must configure an application on an Entra ID tenant that has access to Azure Maps using role-based access control (RBAC). For more information, see "[AUTOTITLE](/admin/configuration/configuring-user-applications-for-your-enterprise/configuring-interactive-maps)" and the security fixes for this release.

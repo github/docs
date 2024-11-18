@@ -18,9 +18,9 @@ allowTitleToDifferFromFilename: true
 {% tip %}
 
 **Tips:**
-- You can format your note using Markdown syntax. For example, you can use headings, links, task lists, or emoji. For more information, see "[AUTOTITLE](/get-started/writing-on-github/getting-started-with-writing-and-formatting-on-github/basic-writing-and-formatting-syntax)."
-- You can drag and drop or use keyboard shortcuts to reorder notes and move them between columns. {% data reusables.project-management.for-more-info-project-keyboard-shortcuts %}
-- Your {% data variables.projects.projects_v1_board %} must have at least one column before you can add notes. For more information, see "[AUTOTITLE](/issues/organizing-your-work-with-project-boards/managing-project-boards/creating-a-project-board)."
+* You can format your note using Markdown syntax. For example, you can use headings, links, task lists, or emoji. For more information, see "[AUTOTITLE](/get-started/writing-on-github/getting-started-with-writing-and-formatting-on-github/basic-writing-and-formatting-syntax)."
+* You can drag and drop or use keyboard shortcuts to reorder notes and move them between columns. {% data reusables.project-management.for-more-info-project-keyboard-shortcuts %}
+* Your {% data variables.projects.projects_v1_board %} must have at least one column before you can add notes.{% ifversion projects-v1-can-create %} For more information, see "[AUTOTITLE](/issues/organizing-your-work-with-project-boards/managing-project-boards/creating-a-project-board)."{% endif %}
 
 {% endtip %}
 
@@ -30,14 +30,14 @@ When you add a URL for an issue, pull request, or another {% data variables.proj
 
 1. Navigate to the {% data variables.projects.projects_v1_board %} where you want to add notes.
 1. In the column you want to add a note to, click {% octicon "plus" aria-label="Add a note to this column" %}.
-![Screenshot showing a project column. The 'add a note to this column' button is highlighted with an orange outline.](/assets/images/help/projects/add-note-button.png)
+   ![Screenshot showing a project column. The 'add a note to this column' button is highlighted with an orange outline.](/assets/images/help/projects/add-note-button.png)
 1. Type your note, then click **Add**.
 
-  {% tip %}
+   {% tip %}
 
-  **Tip:** You can reference an issue or pull request in your note by typing its URL in the card.
+   **Tip:** You can reference an issue or pull request in your note by typing its URL in the card.
 
-  {% endtip %}
+   {% endtip %}
 
 ## Converting a note to an issue
 
@@ -68,7 +68,7 @@ When you convert a note to an issue, the issue is automatically created using th
 
 ## Further reading
 
-- "[AUTOTITLE](/issues/organizing-your-work-with-project-boards/managing-project-boards/about-project-boards)"
-- "[AUTOTITLE](/issues/organizing-your-work-with-project-boards/managing-project-boards/creating-a-project-board)"
-- "[AUTOTITLE](/issues/organizing-your-work-with-project-boards/managing-project-boards/editing-a-project-board)"
-- "[AUTOTITLE](/issues/organizing-your-work-with-project-boards/tracking-work-with-project-boards/adding-issues-and-pull-requests-to-a-project-board)"
+* "[AUTOTITLE](/issues/organizing-your-work-with-project-boards/managing-project-boards/about-project-boards)"
+{%- ifversion projects-v1-can-create %}- "[AUTOTITLE](/issues/organizing-your-work-with-project-boards/managing-project-boards/creating-a-project-board)"{% endif %}
+* "[AUTOTITLE](/issues/organizing-your-work-with-project-boards/managing-project-boards/editing-a-project-board)"
+* "[AUTOTITLE](/issues/organizing-your-work-with-project-boards/tracking-work-with-project-boards/adding-issues-and-pull-requests-to-a-project-board)"

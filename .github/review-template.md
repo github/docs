@@ -1,9 +1,11 @@
 ## Author self-review
 
 - [ ] The changes in this PR meet the user experience and goals outlined in the content design plan.
-- [ ] I've compared my PR's source changes to staging and reviewed for versioning issues, redirects, the [style guide](https://github.com/github/docs/blob/main/contributing/content-style-guide.md), [content model](https://github.com/github/docs/blob/main/contributing/content-model.md), or [translations guide for writers](https://github.com/github/docs/blob/main/contributing/translations/for-writers.md) rendering problems, typos, and wonky screenshots.
-- [ ] I've worked through build failures and tests are passing.
-- [ ] For REST API content, I've verified that endpoints, parameters, and responses are correct and work as expected and provided curl samples below.
+- [ ] The changes in this PR adhere to our [style guide](https://docs.github.com/en/contributing/style-guide-and-content-model/style-guide), [content model](https://docs.github.com/en/contributing/writing-for-github-docs/content-model), and "[Writing content to be translated](https://docs.github.com/en/contributing/writing-for-github-docs/writing-content-to-be-translated)."
+- [ ] Compare this PR's source changes to the preview deployment and review for versioning issues, redirects, rendering problems, typos, and wonky screenshots.
+- [ ] All screenshots in this PR adhere to the guidance in "[Creating screenshots](https://docs.github.com/en/contributing/writing-for-github-docs/creating-screenshots)."
+- [ ] All checks are passing.
+- [ ] For REST API content, verify that endpoints, parameters, and responses are correct and work as expected and provided curl samples below.
   
 For more information, check out our [review process](https://github.com/github/docs-team/blob/main/contributing-to-docs/review-process.md).
 

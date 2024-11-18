@@ -9,7 +9,6 @@ redirect_from:
 versions:
   fpt: '*'
   ghes: '*'
-  ghae: '*'
   ghec: '*'
 type: how_to
 topics:
@@ -18,7 +17,7 @@ topics:
   - Pull requests
 shortTitle: Manage GitHub Actions settings
 ---
- 
+
 {% data reusables.actions.enterprise-github-hosted-runners %}
 
 ## About {% data variables.product.prodname_actions %} permissions for your repository
@@ -33,18 +32,14 @@ Alternatively, you can enable {% data variables.product.prodname_actions %} in y
 
 You can disable {% data variables.product.prodname_actions %} for a repository, or set a policy that configures which actions{% ifversion actions-workflow-policy %} and reusable workflows{% endif %} can be used in the repository.
 
-{% note %}
-
-**Note:** You might not be able to manage these settings if your organization has an overriding policy or is managed by an enterprise that has overriding policy. For more information, see "[AUTOTITLE](/organizations/managing-organization-settings/disabling-or-limiting-github-actions-for-your-organization)" or "[AUTOTITLE](/admin/policies/enforcing-policies-for-your-enterprise/enforcing-policies-for-github-actions-in-your-enterprise)."
-
-{% endnote %}
+{% data reusables.repositories.settings-permissions-org-policy-note %}
 
 {% data reusables.repositories.navigate-to-repo %}
 {% data reusables.repositories.sidebar-settings %}
 {% data reusables.repositories.settings-sidebar-actions-general %}
 1. Under "Actions permissions", select an option.
 
-   {% indented_data_reference reusables.actions.actions-use-policy-settings spaces=3 %}
+   {% data reusables.actions.actions-use-policy-settings %}
 1. Click **Save**.
 
 {% data reusables.actions.allow-specific-actions-intro %}
@@ -75,7 +70,7 @@ You can configure this behavior for a repository using the procedure below. Modi
 
 {% data reusables.actions.private-repository-forks-overview %}
 
-If a policy is disabled for an {% ifversion ghec or ghae or ghes %}enterprise or{% endif %} organization, it cannot be enabled for a repository.
+If a policy is disabled for an {% ifversion ghec or ghes %}enterprise or{% endif %} organization, it cannot be enabled for a repository.
 
 {% data reusables.actions.private-repository-forks-options %}
 
@@ -103,7 +98,7 @@ By default, when you create a new repository in your personal account, `GITHUB_T
 {% data reusables.repositories.navigate-to-repo %}
 {% data reusables.repositories.sidebar-settings %}
 {% data reusables.repositories.settings-sidebar-actions-general %}
-1. Under "Workflow permissions", choose whether you want the `GITHUB_TOKEN` to have read and write access for all scopes, or just read access for the `contents` {% ifversion actions-default-workflow-permissions-restrictive %}and `packages` scopes{% else %}scope{% endif %}.
+{% data reusables.actions.workflows.github-token-access %}
 1. Click **Save** to apply the settings.
 
 {% ifversion allow-actions-to-approve-pr-with-ent-repo %}
@@ -123,7 +118,7 @@ By default, when you create a new repository in your personal account, workflows
 1. Click **Save** to apply the settings.
 {% endif %}
 
-{% ifversion ghes or ghae or ghec %}
+{% ifversion ghes or ghec %}
 
 ## Allowing access to components in an internal repository
 
@@ -136,9 +131,9 @@ You can use the steps below to configure whether {% ifversion internal-actions%}
 {% data reusables.repositories.settings-sidebar-actions-general %}
 1. Under **Access**, choose one of the access settings:
 
-   - **Not accessible** - Workflows in other repositories cannot access this repository.
-   - **Accessible from repositories in the 'ORGANIZATION NAME' organization** - {% ifversion ghes > 3.4 or ghae > 3.4 or ghec %}Workflows in other repositories that are part of the 'ORGANIZATION NAME' organization can access the actions and reusable workflows in this repository. Access is allowed only from private or internal repositories.{% else %}Workflows in other repositories can use workflows in this repository if they are part of the same organization and their visibility is private or internal.{% endif %}
-   - **Accessible from repositories in the 'ENTERPRISE NAME' enterprise** - {% ifversion ghes > 3.4 or ghae > 3.4 or ghec %}Workflows in other repositories that are part of the 'ENTERPRISE NAME' enterprise can access the actions and reusable workflows in this repository. Access is allowed only from private or internal repositories.{% else %}Workflows in other repositories can use workflows in this repository if they are part of the same enterprise and their visibility is private or internal.{% endif %}
+   * **Not accessible** - Workflows in other repositories cannot access this repository.
+   * **Accessible from repositories in the 'ORGANIZATION NAME' organization** - {% ifversion ghes or ghec %}Workflows in other repositories that are part of the 'ORGANIZATION NAME' organization can access the actions and reusable workflows in this repository. Access is allowed only from private or internal repositories.{% else %}Workflows in other repositories can use workflows in this repository if they are part of the same organization and their visibility is private or internal.{% endif %}
+   * **Accessible from repositories in the 'ENTERPRISE NAME' enterprise** - {% ifversion ghes or ghec %}Workflows in other repositories that are part of the 'ENTERPRISE NAME' enterprise can access the actions and reusable workflows in this repository. Access is allowed only from private or internal repositories.{% else %}Workflows in other repositories can use workflows in this repository if they are part of the same enterprise and their visibility is private or internal.{% endif %}
 1. Click **Save** to apply the settings.
 {% endif %}
 
@@ -159,8 +154,8 @@ You can use the steps below to configure whether actions and reusable workflows 
 {% data reusables.repositories.settings-sidebar-actions-general %}
 1. Under **Access**, choose one of the access settings:
 
-   - **Not accessible** - Workflows in other repositories cannot access this repository.
-   - **Accessible from repositories owned by 'USER NAME' user** - Workflows in other repositories that are owned by the same user can access the actions and reusable workflows in this repository. Access is allowed only from private repositories.
+   * **Not accessible** - Workflows in other repositories cannot access this repository.
+   * **Accessible from repositories owned by 'USER NAME' user** - Workflows in other repositories that are owned by the same user can access the actions and reusable workflows in this repository. Access is allowed only from private repositories.
 1. Click **Save** to apply the settings.
 
 {% endif %}
@@ -174,8 +169,8 @@ You can use the steps below to configure whether actions and reusable workflows 
 {% data reusables.repositories.settings-sidebar-actions-general %}
 1. Under **Access**, choose one of the access settings:
 
-   - **Not accessible** - Workflows in other repositories cannot access this repository.
-   - **Accessible from repositories in the 'ORGANIZATION NAME' organization** - Workflows in other repositories that are part of the 'ORGANIZATION NAME' organization can access the actions and reusable workflows in this repository. Access is allowed only from private repositories.
+   * **Not accessible** - Workflows in other repositories cannot access this repository.
+   * **Accessible from repositories in the 'ORGANIZATION NAME' organization** - Workflows in other repositories that are part of the 'ORGANIZATION NAME' organization can access the actions and reusable workflows in this repository. Access is allowed only from private repositories.
 1. Click **Save** to apply the settings.
 
 {% endif %}
@@ -186,9 +181,9 @@ You can use the steps below to configure whether actions and reusable workflows 
 1. Under your repository name, click {% octicon "gear" aria-hidden="true" %} **Settings**.
 {% data reusables.repositories.settings-sidebar-actions-general %}
 1. Under **Access**, choose one of the access settings:
-   - **Not accessible** - Workflows in other repositories cannot access this repository.
-   - **Accessible from repositories in the 'ORGANIZATION NAME' organization** - Workflows in other repositories that are part of the 'ORGANIZATION NAME' organization can access the actions and reusable workflows in this repository. Access is allowed only from private repositories.
-   - **Accessible from repositories in the 'ENTERPRISE NAME' enterprise** - Workflows in other repositories that are part of the 'ENTERPRISE NAME' enterprise can access the actions and reusable workflows in this repository. Access is allowed only from private repositories.
+   * **Not accessible** - Workflows in other repositories cannot access this repository.
+   * **Accessible from repositories in the 'ORGANIZATION NAME' organization** - Workflows in other repositories that are part of the 'ORGANIZATION NAME' organization can access the actions and reusable workflows in this repository. Access is allowed only from private repositories.
+   * **Accessible from repositories in the 'ENTERPRISE NAME' enterprise** - Workflows in other repositories that are part of the 'ENTERPRISE NAME' enterprise can access the actions and reusable workflows in this repository. Access is allowed only from private repositories.
 1. Click **Save** to apply the settings.
 {% endif %}
 {% endif %}
@@ -221,17 +216,7 @@ You can set a total cache storage size for your repository up to the maximum siz
 {% data reusables.repositories.navigate-to-repo %}
 {% data reusables.repositories.sidebar-settings %}
 {% data reusables.repositories.settings-sidebar-actions-general %}
-{% data reusables.actions.change-cache-size-limit  %}
-
-{% elsif ghes < 3.8 %}
-
-The repository settings for {% data variables.product.prodname_actions %} cache storage can currently only be modified using the REST API:
-
-- To view the current cache storage limit for a repository, see "[AUTOTITLE](/rest/actions/cache#get-github-actions-cache-usage-policy-for-a-repository)."
-- To change the cache storage limit for a repository, see "[AUTOTITLE](/rest/actions/cache#set-github-actions-cache-usage-policy-for-a-repository)."
-
-{% data reusables.actions.cache-no-org-policy %}
+{% data reusables.actions.change-cache-size-limit %}
 
 {% endif %}
-
 {% endif %}

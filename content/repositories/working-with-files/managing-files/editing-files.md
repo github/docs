@@ -12,7 +12,6 @@ redirect_from:
 versions:
   fpt: '*'
   ghes: '*'
-  ghae: '*'
   ghec: '*'
 topics:
   - Repositories
@@ -44,7 +43,7 @@ shortTitle: Edit files
 
 ## Editing files in another user's repository
 
-When you edit a file in another user's repository, we'll automatically [fork the repository](/get-started/quickstart/fork-a-repo) and [open a pull request](/pull-requests/collaborating-with-pull-requests/proposing-changes-to-your-work-with-pull-requests/creating-a-pull-request) for you.
+When you edit a file in another user's repository, we'll automatically [fork the repository](/pull-requests/collaborating-with-pull-requests/working-with-forks/fork-a-repo) and [open a pull request](/pull-requests/collaborating-with-pull-requests/proposing-changes-to-your-work-with-pull-requests/creating-a-pull-request) for you.
 
 1. In another user's repository, browse to the folder that contains the file you want to edit. Click the name of the file you want to edit.
 1. Above the file content, click {% octicon "pencil" aria-label="Edit file" %}. At this point, {% data variables.product.prodname_dotcom %} forks the repository for you.

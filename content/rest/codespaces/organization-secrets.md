@@ -1,11 +1,11 @@
 ---
-title: Codespaces organization secrets
+title: REST API endpoints for Codespaces organization secrets
 allowTitleToDifferFromFilename: true
 shortTitle: Organization secrets
 intro: >-
   Use the REST API to manage your organization-level {% data
   variables.product.prodname_codespaces %} secrets.
-versions:
+versions: # DO NOT MANUALLY EDIT. CHANGES WILL BE OVERWRITTEN BY A 🤖
   fpt: '*'
   ghec: '*'
 topics:

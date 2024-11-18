@@ -17,7 +17,6 @@ redirect_from:
 versions:
   fpt: '*'
   ghes: '*'
-  ghae: '*'
   ghec: '*'
 topics:
   - Repositories
@@ -28,7 +27,7 @@ shortTitle: Connections between repositories
 
 The network graph displays the branch history of the entire repository network, including fork branches. This graph is a timeline of the most recent commits, and shows up to 100 of the most recently pushed-to branches. The first row references the date and the first column references the branch owner. Use arrow keys or other keyboard shortcuts to more easily navigate the graph. They are provided in the “Keyboard shortcuts available” pop up under the graph.
 
-![Screenshot of the repository network graph.](/assets/images/help/graphs/repo_network_graph.png)
+![Screenshot of the repository network graph.](/assets/images/help/graphs/repo-network-graph.png)
 
 {% tip %}
 
@@ -41,17 +40,17 @@ The network graph displays the branch history of the entire repository network, 
 {% data reusables.repositories.navigate-to-repo %}
 {% data reusables.repositories.accessing-repository-graphs %}
 1. In the left sidebar, click **Network**.
-![Screenshot of the left sidebar. The "Network" tab is highlighted with a dark orange outline.](/assets/images/help/graphs/network_tab.png)
+![Screenshot of the left sidebar. The "Network" tab is highlighted with a dark orange outline.](/assets/images/help/graphs/network-tab.png)
 
 ## Listing the forks of a repository
 
 The{% ifversion repositories-forks-page-improvement %} forks page {% else %} Members graph {% endif %} lists the forks of a repository. {% ifversion repositories-forks-page-improvement %}For each fork, you can see:
-- how many times the fork has been starred
-- the number of direct forks (of the fork)
-- the number of open issues
-- the number of open pull requests
-- when the fork was last updated (that is, the last push to any branch)
-- when the fork was created
+* how many times the fork has been starred
+* the number of direct forks (of the fork)
+* the number of open issues
+* the number of open pull requests
+* when the fork was last updated (that is, the last push to any branch)
+* when the fork was created
 
 You can filter the list of forks to display active, inactive, starred, or archived forks, or to only display forks that have been updated within a specified time period (up to a period of five years). To view the most useful or most active forks, you can sort the list of forks by most starred forks or most recently updated forks, or by the number of open issues or open pull requests.
 

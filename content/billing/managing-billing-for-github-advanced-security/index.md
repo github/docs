@@ -1,7 +1,7 @@
 ---
 title: Managing billing for GitHub Advanced Security
 shortTitle: GitHub Advanced Security
-intro: 'You can view and manage your use of seats on a license for {% data variables.product.prodname_advanced_security %}.'
+intro: 'You can view and manage your use of seats on a license for {% data variables.product.prodname_GH_advanced_security %}.'
 product: '{% data reusables.gated-features.ghas %}'
 redirect_from:
   - /billing/managing-licensing-for-github-advanced-security
@@ -19,4 +19,3 @@ children:
   - /viewing-your-github-advanced-security-usage
 
 ---
-

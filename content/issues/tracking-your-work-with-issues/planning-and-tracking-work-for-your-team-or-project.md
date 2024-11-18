@@ -4,7 +4,6 @@ intro: 'The essentials for using {% data variables.product.prodname_dotcom %}''s
 versions:
   fpt: '*'
   ghes: '*'
-  ghae: '*'
   ghec: '*'
 type: overview
 topics:
@@ -13,9 +12,9 @@ topics:
 ---
 ## Introduction
 
-You can use {% data variables.product.prodname_dotcom %} repositories, issues, project boards, and other tools to plan and track your work, whether working on an individual project or cross-functional team.
+You can use {% data variables.product.prodname_dotcom %} repositories, issues, projects, and other tools to plan and track your work, whether working on an individual project or cross-functional team.
 
-In this guide, you will learn how to create and set up a repository for collaborating with a group of people, create issue templates{% ifversion issue-forms %} and forms{% endif %}, open issues and use task lists to break down work, and establish a project board for organizing and tracking issues.
+In this guide, you will learn how to create and set up a repository for collaborating with a group of people, create issue templates{% ifversion issue-forms %} and forms{% endif %}, open issues and use task lists to break down work, and establish a {% data variables.projects.projects_v1_board %} for organizing and tracking issues.
 
 ## Creating a repository
 
@@ -23,10 +22,10 @@ When starting a new project, initiative, or feature, the first step is to create
 
 You can set up repositories for different purposes based on your needs. The following are some common use cases:
 
-- **Product repositories**: Larger organizations that track their work and goals around specific products may have one or more repositories containing the code and other files. These repositories can also be used for documentation, reporting on product health or future plans for the product.
-- **Project repositories**: You can create a repository for an individual project you are working on, or for a project you are collaborating on with others. For an organization that tracks work for short-lived initiatives or projects, such as a consulting firm, there is a need to report on the health of a project and move people between different projects based on skills and needs. Code for the project is often contained in a single repository.
-- **Team repositories**: For an organization that groups people into teams, and brings projects to them, such as a dev tools team, code may be scattered across many repositories for the different work they need to track. In this case it may be helpful to have a team-specific repository as one place to track all the work the team is involved in.
-- **Personal repositories**: You can create a personal repository to track all your work in one place, plan future tasks, or even add notes or information you want to save. You can also add collaborators if you want to share this information with others.
+* **Product repositories**: Larger organizations that track their work and goals around specific products may have one or more repositories containing the code and other files. These repositories can also be used for documentation, reporting on product health or future plans for the product.
+* **Project repositories**: You can create a repository for an individual project you are working on, or for a project you are collaborating on with others. For an organization that tracks work for short-lived initiatives or projects, such as a consulting firm, there is a need to report on the health of a project and move people between different projects based on skills and needs. Code for the project is often contained in a single repository.
+* **Team repositories**: For an organization that groups people into teams, and brings projects to them, such as a dev tools team, code may be scattered across many repositories for the different work they need to track. In this case it may be helpful to have a team-specific repository as one place to track all the work the team is involved in.
+* **Personal repositories**: You can create a personal repository to track all your work in one place, plan future tasks, or even add notes or information you want to save. You can also add collaborators if you want to share this information with others.
 
 You can create multiple, separate repositories if you want different access permissions for the source code and for tracking issues and discussions. For more information, see "[AUTOTITLE](/repositories/creating-and-managing-repositories/creating-an-issues-only-repository)."
 
@@ -48,10 +47,10 @@ We can create a README.md to introduce our new project, Project Octocat.
 
 You can use issues to track the different types of work that your cross-functional team or project covers, as well as gather information from those outside of your project. The following are a few common use cases for issues.
 
-- Release tracking: You can use an issue to track the progress for a release or the steps to complete the day of a launch.
-- Large initiatives: You can use an issue to track progress on a large initiative or project, which is then linked to the smaller issues.
-- Feature requests: Your team or users can create issues to request an improvement to your product or project.
-- Bugs: Your team or users can create issues to report a bug.
+* Release tracking: You can use an issue to track the progress for a release or the steps to complete the day of a launch.
+* Large initiatives: You can use an issue to track progress on a large initiative or project, which is then linked to the smaller issues.
+* Feature requests: Your team or users can create issues to request an improvement to your product or project.
+* Bugs: Your team or users can create issues to report a bug.
 
 Depending on the type of repository and project you are working on, you may prioritize certain types of issues over others. Once you have identified the most common issue types for your team, you can create issue templates {% ifversion issue-forms %}and forms{% endif %} for your repository. Issue templates {% ifversion issue-forms %}and forms{% endif %} allow you to create a standardized list of templates that a contributor can choose from when they open an issue in your repository. For more information, see "[AUTOTITLE](/communities/using-templates-to-encourage-useful-issues-and-pull-requests/configuring-issue-templates-for-your-repository)."
 
@@ -85,7 +84,7 @@ Below we have added a task list to our Project Octocat issue, breaking it down i
 
 ## Making decisions as a team
 
-You can use issues and discussions to communicate and make decisions as a team on planned improvements or priorities for your project. Issues are useful when you create them for discussion of specific details, such as bug or performance reports, planning for the next quarter, or design for a new initiative. Discussions are useful for open-ended brainstorming or feedback, outside the codebase and across repositories. For more information, see "[AUTOTITLE](/get-started/quickstart/communicating-on-github#which-discussion-tool-should-i-use)."
+You can use issues and discussions to communicate and make decisions as a team on planned improvements or priorities for your project. Issues are useful when you create them for discussion of specific details, such as bug or performance reports, planning for the next quarter, or design for a new initiative. Discussions are useful for open-ended brainstorming or feedback, outside the codebase and across repositories. For more information, see "[AUTOTITLE](/get-started/using-github/communicating-on-github#which-discussion-tool-should-i-use)."
 
 As a team, you can also communicate updates on day-to-day tasks within issues so that everyone knows the status of work. For example, you can create an issue for a large feature that multiple people are working on, and each team member can add updates with their status or open questions in that issue.
 
@@ -109,7 +108,7 @@ Below is an example of a `front-end` label that we created and added to the issu
 
 ![Screenshot of an issue called "Front-end work for Project Octocat." In the right sidebar, in the "Labels" section, the "front-end" label is applied.](/assets/images/help/issues/quickstart-add-label-to-issue.png)
 
-## Adding issues to a project board
+## Adding issues to a {% data variables.projects.projects_v1_board %}
 
 {% ifversion projects-v2 %}
 
@@ -128,13 +127,13 @@ We can also view the same project as a board.
 {% endif %}
 {% ifversion projects-v1 %}
 
-You can {% ifversion projects-v2 %} also use the existing{% else %} use{% endif %} {% data variables.product.prodname_projects_v1 %} on {% data variables.product.prodname_dotcom %} to plan and track your or your team's work. Project boards are made up of issues, pull requests, and notes that are categorized as cards in columns of your choosing. You can create project boards for feature work, high-level roadmaps, or even release checklists. For more information, see "[AUTOTITLE](/issues/organizing-your-work-with-project-boards/managing-project-boards/about-project-boards)."
+You can {% ifversion projects-v2 %} also use the existing{% else %} use{% endif %} {% data variables.product.prodname_projects_v1 %} on {% data variables.product.prodname_dotcom %} to plan and track your or your team's work. {% data variables.projects.projects_v1_boards_caps %} are made up of issues, pull requests, and notes that are categorized as cards in columns of your choosing. You can create {% data variables.projects.projects_v1_boards %} for feature work, high-level roadmaps, or even release checklists. For more information, see "[AUTOTITLE](/issues/organizing-your-work-with-project-boards/managing-project-boards/about-project-boards)."
 
-### Project board example
+### {% data variables.projects.projects_v1_board_caps %} example
 
-Below is a project board for our example Project Octocat with the issue we created, and the smaller issues we broke it down into, added to it.
+Below is a {% data variables.projects.projects_v1_board %} for our example Project Octocat with the issue we created, and the smaller issues we broke it down into, added to it.
 
-![Screenshot of a project board called "Project Octocat Board," with issues organized into columns for "To do", "In progress," and "Done."](/assets/images/help/issues/quickstart-project-board.png)
+![Screenshot of a {% data variables.projects.projects_v1_board %} called "Project Octocat Board," with issues organized into columns for "To do", "In progress," and "Done."](/assets/images/help/issues/quickstart-project-board.png)
 
 {% endif %}
 
@@ -142,11 +141,11 @@ Below is a project board for our example Project Octocat with the issue we creat
 
 You have now learned about the tools {% data variables.product.prodname_dotcom %} offers for planning and tracking your work, and made a start in setting up your cross-functional team or project repository! Here are some helpful resources for further customizing your repository and organizing your work.
 
-- "[AUTOTITLE](/repositories/creating-and-managing-repositories/about-repositories)" for learning more about creating repositories
-- "[AUTOTITLE](/issues/tracking-your-work-with-issues)" for learning more about different ways to create and manage issues
-- "[AUTOTITLE](/communities/using-templates-to-encourage-useful-issues-and-pull-requests/about-issue-and-pull-request-templates)" for learning more about issue templates
-- "[AUTOTITLE](/issues/using-labels-and-milestones-to-track-work/managing-labels)" for learning how to create, edit and delete labels
-- "[AUTOTITLE](/get-started/writing-on-github/working-with-advanced-formatting/about-task-lists)" for learning more about task lists
+* "[AUTOTITLE](/repositories/creating-and-managing-repositories/about-repositories)" for learning more about creating repositories
+* "[AUTOTITLE](/issues/tracking-your-work-with-issues)" for learning more about different ways to create and manage issues
+* "[AUTOTITLE](/communities/using-templates-to-encourage-useful-issues-and-pull-requests/about-issue-and-pull-request-templates)" for learning more about issue templates
+* "[AUTOTITLE](/issues/using-labels-and-milestones-to-track-work/managing-labels)" for learning how to create, edit and delete labels
+* "[AUTOTITLE](/get-started/writing-on-github/working-with-advanced-formatting/about-task-lists)" for learning more about task lists
 {% ifversion projects-v2 %} - "[AUTOTITLE](/issues/planning-and-tracking-with-projects/learning-about-projects/about-projects)" for learning more about projects
-- "[AUTOTITLE](/issues/planning-and-tracking-with-projects/customizing-views-in-your-project/changing-the-layout-of-a-view)" for learning how to customize views for projects{% endif %}
-{% ifversion projects-v1 %}- "[AUTOTITLE](/issues/organizing-your-work-with-project-boards/managing-project-boards/about-project-boards)" for learning how to manage project boards{% endif %}
+* "[AUTOTITLE](/issues/planning-and-tracking-with-projects/customizing-views-in-your-project/changing-the-layout-of-a-view)" for learning how to customize views for projects{% endif %}
+{% ifversion projects-v1 %}- "[AUTOTITLE](/issues/organizing-your-work-with-project-boards/managing-project-boards/about-project-boards)" for learning how to manage {% data variables.projects.projects_v1_boards %}{% endif %}

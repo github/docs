@@ -25,7 +25,13 @@ Prebuilds are created using {% data variables.product.prodname_actions %}. As a 
 
 You can set up prebuilds in any repository owned by a personal account. The prebuild will consume storage space that will either incur a billable charge or, for repositories owned by your personal account, will use some of your monthly included storage.
 
-For repositories owned by an organization, you can set up prebuilds if the organization is on a {% data variables.product.prodname_team %} or {% data variables.product.prodname_enterprise %} plan. Additionally, you must have added a payment method and set a spending limit for {% data variables.product.prodname_github_codespaces %} on the organization account or its parent enterprise. For more information, see "[AUTOTITLE](/billing/managing-billing-for-github-codespaces/managing-the-spending-limit-for-github-codespaces#managing-the-github-codespaces-spending-limit-for-your-organization-account)" and "[AUTOTITLE](/get-started/learning-about-github/githubs-products)."
+{% note %}
+
+**Note**: {% data reusables.codespaces.prebuilds-billing-for-forks %} For more information, see "[AUTOTITLE](/billing/managing-billing-for-github-codespaces/about-billing-for-github-codespaces#how-billing-is-handled-for-forked-repositories)."
+
+{% endnote %}
+
+For repositories owned by an organization, you can set up prebuilds if the organization is on a {% data variables.product.prodname_team %} or {% data variables.product.prodname_enterprise %} plan. Additionally, you must have added a payment method and set a spending limit for {% data variables.product.prodname_github_codespaces %} on the organization account or its parent enterprise. For more information, see "[AUTOTITLE](/billing/managing-billing-for-github-codespaces/managing-the-spending-limit-for-github-codespaces#managing-the-github-codespaces-spending-limit-for-your-organization-account)" and "[AUTOTITLE](/get-started/learning-about-github/githubs-plans)."
 
 ## Configuring prebuilds
 
@@ -50,10 +56,10 @@ For repositories owned by an organization, you can set up prebuilds if the organ
 
 1. Choose how you want to automatically trigger prebuild updates.
 
-   - **Every push** (the default setting) - With this setting, prebuilds will be updated on every push made to the given branch. This will ensure that codespaces generated from a prebuild always contain the latest codespace configuration, including any recently added or updated dependencies.
+   * **Every push** (the default setting) - With this setting, prebuilds will be updated on every push made to the given branch. This will ensure that codespaces generated from a prebuild always contain the latest codespace configuration, including any recently added or updated dependencies.
 
-   - **On configuration change** - With this setting, prebuilds will be updated every time any of the following files is changed:
-     - `.devcontainer/devcontainer.json`
+   * **On configuration change** - With this setting, prebuilds will be updated every time any of the following files is changed:
+     * `.devcontainer/devcontainer.json`
 
        {% note %}
 
@@ -61,11 +67,11 @@ For repositories owned by an organization, you can set up prebuilds if the organ
 
        {% endnote %}
 
-     - The Dockerfile referenced in the `build.dockerfile` property of the `.devcontainer/devcontainer.json` file.
+     * The Dockerfile referenced in the `build.dockerfile` property of the `.devcontainer/devcontainer.json` file.
 
      This setting ensures that changes to the dev container configuration files for the repository are used when a codespace is generated from a prebuild. The {% data variables.product.prodname_actions %} workflow that updates the prebuilds will run less often, so this option will use fewer {% data variables.product.prodname_actions %} minutes. However, this option will not guarantee that codespaces always include recently added or updated dependencies, so these may have to be added or updated manually after a codespace has been created.
 
-   - **Scheduled** - With this setting, you can have your prebuilds updated on a custom schedule that's defined by you. This can reduce consumption of {% data variables.product.prodname_actions %} minutes, however, with this option, codespaces may be created that do not use the latest dev container configuration changes.
+   * **Scheduled** - With this setting, you can have your prebuilds updated on a custom schedule that's defined by you. This can reduce consumption of {% data variables.product.prodname_actions %} minutes, however, with this option, codespaces may be created that do not use the latest dev container configuration changes.
 
    ![Screenshot of the "Prebuild triggers" settings. The "Scheduled" option is selected and set to "Every day" at "1pm" and "3:30pm."](/assets/images/help/codespaces/prebuilds-triggers.png)
 
@@ -78,8 +84,8 @@ For repositories owned by an organization, you can set up prebuilds if the organ
    {% note %}
 
    **Notes**:
-   - The prebuild in each region incurs individual storage charges. You should, therefore, only enable prebuilds for regions in which you know they'll be used. For more information, see "[AUTOTITLE](/billing/managing-billing-for-github-codespaces/about-billing-for-github-codespaces#about-billing-for-codespaces-prebuilds)."
-   - Developers can set their default region for {% data variables.product.prodname_github_codespaces %}, which can allow you to enable prebuilds for fewer regions. For more information, see "[AUTOTITLE](/codespaces/customizing-your-codespace/setting-your-default-region-for-github-codespaces)."
+   * The prebuild in each region incurs individual storage charges. You should, therefore, only enable prebuilds for regions in which you know they'll be used. For more information, see "[AUTOTITLE](/billing/managing-billing-for-github-codespaces/about-billing-for-github-codespaces#about-billing-for-codespaces-prebuilds)."
+   * Developers can set their default region for {% data variables.product.prodname_github_codespaces %}, which can allow you to enable prebuilds for fewer regions. For more information, see "[AUTOTITLE](/codespaces/setting-your-user-preferences/setting-your-default-region-for-github-codespaces)."
 
    {% endnote %}
 
@@ -121,7 +127,7 @@ For information about editing and deleting prebuild configurations, see "[AUTOTI
 
 ## Configuring environment variables
 
-To allow the prebuild process to access environment variables required to create your development environment, you can set these either as {% data variables.product.prodname_codespaces %} repository secrets or as {% data variables.product.prodname_codespaces %} organization secrets. Secrets that you create in this way will be accessible by anyone who creates a codespace from this repository. For more information, see "[AUTOTITLE](/codespaces/managing-codespaces-for-your-organization/managing-encrypted-secrets-for-your-repository-and-organization-for-github-codespaces#adding-secrets-for-a-repository)" and "[AUTOTITLE](/codespaces/managing-codespaces-for-your-organization/managing-encrypted-secrets-for-your-repository-and-organization-for-github-codespaces#adding-secrets-for-an-organization)."
+To allow the prebuild process to access environment variables required to create your development environment, you can set these either as {% data variables.product.prodname_codespaces %} repository secrets or as {% data variables.product.prodname_codespaces %} organization secrets. Secrets that you create in this way will be accessible by anyone who creates a codespace from this repository. For more information, see "[AUTOTITLE](/codespaces/managing-codespaces-for-your-organization/managing-development-environment-secrets-for-your-repository-or-organization#adding-secrets-for-a-repository)."
 
 Prebuilds cannot use any user-level secrets while building your environment, because these are not available until after the codespace has been created.
 
@@ -133,5 +139,5 @@ You can use the `onCreateCommand` and `updateContentCommand` commands in your `d
 
 ## Further reading
 
-- "[AUTOTITLE](/codespaces/prebuilding-your-codespaces/allowing-a-prebuild-to-access-other-repositories)"
-- "[AUTOTITLE](/codespaces/troubleshooting/troubleshooting-prebuilds)"
+* "[AUTOTITLE](/codespaces/prebuilding-your-codespaces/allowing-a-prebuild-to-access-other-repositories)"
+* "[AUTOTITLE](/codespaces/troubleshooting/troubleshooting-prebuilds)"

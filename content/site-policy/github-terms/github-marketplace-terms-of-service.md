@@ -10,15 +10,15 @@ topics:
   - Legal
 ---
 
-Welcome to GitHub Marketplace ("Marketplace")! We're happy you're here. Please read these Terms of Service ("Marketplace Terms") carefully before accessing or using GitHub Marketplace. GitHub Marketplace is a platform that allows you to select developer apps or actions (for free or for a charge) that can be used with your GitHub.com account ("Developer Products"). Although offered by GitHub, Inc. ("GitHub", "we", "us"), Developer Products may be developed and maintained by either GitHub or by third-party software providers. Your selection or use of Developer Products is subject to these Marketplace Terms and any applicable fees, and may require you to agree to additional terms as provided by the third party licensor of that Developer Product (the "Product Provider").
+Welcome to GitHub Marketplace ("Marketplace")! We're happy you're here. Please read these Terms of Service ("Marketplace Terms") carefully before accessing or using GitHub Marketplace. GitHub Marketplace is a platform that allows you to select developer apps or actions (for free or for a charge) that can be used with your GitHub.com account ("Developer Products"). Although offered by GitHub, Inc. ("GitHub", "we", "us"), Developer Products may be developed and maintained by either GitHub or by third-party software providers. Your selection or use of Developer Products is subject to these Marketplace Terms and any applicable fees, and may require you to agree to additional terms as provided by the third party licensor of that Developer Product (the "Product Provider"). Your use of GitHub Models is subject to the [GitHub Terms for Additional Products and Features](/site-policy/github-terms/github-terms-for-additional-products-and-features).
 
 By using Marketplace, you are agreeing to be bound by these Marketplace Terms.
 
-Effective Date: November 20, 2020
+Effective Date: August 1, 2024
 
 ## A. GitHub.com's Terms of Service
 
-Marketplace is provided by GitHub, and is governed by either the [Terms of Service](/site-policy/github-terms/github-terms-of-service) or the [Corporate Terms of Service](/site-policy/github-terms/github-corporate-terms-of-service) ("GitHub Terms"), depending on the type of account you're on, as well as these Marketplace Terms. If you configure the Developer Products to work with one or more accounts on the GitHub.com website, your use of the Developer Products will also be governed by your applicable GitHub Terms. Any capitalized terms not defined in this document will be defined in your applicable GitHub Terms.
+Marketplace is provided by GitHub, and is governed by these Marketplace Terms combined with your main agreement with us — the [GitHub Terms of Service](/site-policy/github-terms/github-terms-of-service) or GitHub Customer Agreement, or the [GitHub Corporate Terms of Service](/site-policy/github-terms/github-corporate-terms-of-service) or other legacy GitHub contract, or a Microsoft volume licensing agreement. If you configure the Developer Products to work with one or more accounts on the GitHub.com website, your use of the Developer Products will also be governed by your applicable GitHub Terms. Any capitalized terms not defined in this document will be defined in your applicable GitHub Terms.
 
 You may not use a Developer Product to violate your applicable GitHub Terms. Many of these Developer Products are used exclusively for performing automated tasks. In addition, multiple Users may direct the actions of a Developer Product. However, if you purchase and/or set up a Developer Product on your account, or you are an owner of an account with an integrated Developer Product, then you will be responsible for the Developer Product's actions that are performed on or through your account.
 
@@ -40,7 +40,7 @@ All payments for Developer Products will go through GitHub. The terms of your pa
 
 **Billing Schedule; No Refunds.** Your payment schedule is determined by the payment schedule you chose when you created your GitHub account (e.g. free, monthly, annual). For monthly or yearly payment plans, Marketplace purchases are billed in advance on a monthly or yearly basis respectively and are non-refundable. There will be no refunds or credits for partial months of service, downgrade refunds, or refunds for months unused; however, the service will remain active for the length of the paid billing period. If you would like to cancel the Developer Product services, you can do so by going into your Settings in the global navigation bar at the top of the screen.
 
-If you would have a question, concern, or dispute regarding your billing, please contact [GitHub Support](https://support.github.com/contact?tags=docs-policy).
+If you would have a question, concern, or dispute regarding your billing, please contact us through the [GitHub Support portal](https://support.github.com/).
 
 ## E. Your Data and GitHub's Privacy Policy
 
@@ -88,4 +88,4 @@ You agree to indemnify us, defend us, and hold us harmless from and against any 
 
 1. **License to GitHub Policies.** These Marketplace Terms are licensed under this [Creative Commons Zero license](https://creativecommons.org/publicdomain/zero/1.0/). For details, see our [site-policy repository](https://github.com/github/site-policy#license).
 
-1. **Contact Us.** Questions about the Marketplace Terms? [Contact us](https://support.github.com/contact?tags=docs-policy).
+1. **Contact Us.** Questions about the Marketplace Terms? Contact us through the [GitHub Support portal](https://support.github.com/).

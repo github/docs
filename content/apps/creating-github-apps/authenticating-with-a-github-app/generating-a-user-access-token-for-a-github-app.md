@@ -4,7 +4,6 @@ intro: 'You can generate a user access token for your {% data variables.product.
 versions:
   fpt: '*'
   ghes: '*'
-  ghae: '*'
   ghec: '*'
 topics:
   - GitHub Apps
@@ -39,13 +38,14 @@ If your app runs in the browser, you should use the web application flow to gene
 
 1. Direct the user to this URL, and add any necessary query parameters from the following list of parameters: `{% data variables.product.oauth_host_code %}/login/oauth/authorize`. For example, this URL specifies the `client_id` and `state` parameters: `{% data variables.product.oauth_host_code %}/login/oauth/authorize?client_id=12345&state=abcdefg`.
 
-   Query parameter | Type | Description
-   -----|------|------------
-   `client_id` | `string` | **Required.** The client ID for your {% data variables.product.prodname_github_app %}. The client ID is different from the app ID. You can find the client ID on the settings page for your app. For more information about navigating to the settings page for your {% data variables.product.prodname_github_app %}, see "[AUTOTITLE](/apps/maintaining-github-apps/modifying-a-github-app-registration#navigating-to-your-github-app-settings)."
-   `redirect_uri` | `string` | The URL in your application where users will be sent after authorization. This must be an exact match to one of the URLs you provided as a "Callback URL" in your app's settings and can't contain any additional parameters.
-   `state` | `string` | When specified, the value should contain a random string to protect against forgery attacks, and it can also contain any other arbitrary data.
-   `login` | `string` | When specified, the web application flow will prompt users with a specific account they can use for signing in and authorizing your app.
-   `allow_signup` | `boolean` | Whether unauthenticated users will be offered an option to sign up for {% data variables.product.prodname_dotcom %} during the OAuth flow. The default is `true`. Use `false` when a policy prohibits signups.
+   Query parameter | Type | Required? | Description
+   -----|------|------------|------
+   `client_id` | `string` | Required | The client ID for your {% data variables.product.prodname_github_app %}. The client ID is different from the app ID. You can find the client ID on the settings page for your app. For more information about navigating to the settings page for your {% data variables.product.prodname_github_app %}, see "[AUTOTITLE](/apps/maintaining-github-apps/modifying-a-github-app-registration#navigating-to-your-github-app-settings)."
+   `redirect_uri` | `string` | Strongly recommended |  The URL in your application where users will be sent after authorization. This must be an exact match to one of the URLs you provided as a "Callback URL" in your app's settings and can't contain any additional parameters.
+   `state` | `string` | Strongly recommended |  When specified, the value should contain a random string to protect against forgery attacks, and it can also contain any other arbitrary data.
+   `login` | `string` | Optional | When specified, the web application flow will prompt users with a specific account they can use for signing in and authorizing your app.
+   `allow_signup` | `boolean` | Optional |  Whether unauthenticated users will be offered an option to sign up for {% data variables.product.prodname_dotcom %} during the OAuth flow. The default is `true`. Use `false` when a policy prohibits signups.
+{% ifversion oauth_account_picker %}   `prompt` | `string` | Optional | Forces the account picker to appear if set to `select_account`. The account picker will also appear if the application has a non-HTTP redirect URI or if the user has multiple accounts signed in. {% endif %}
 
 1. If the user accepts your authorization request, {% data variables.product.company_short %} will redirect the user to one of the callback URLs in your app settings, and provide a `code` query parameter you can use in the next step to create a user access token. If you specified `redirect_uri` in the previous step, that callback URL will be used. Otherwise, the first callback URL on your app's settings page will be used.
 
@@ -67,7 +67,7 @@ If your app runs in the browser, you should use the web application flow to gene
 
 If your app is headless or does not have access to a browser, you should use the device flow to generate a user access token. For example, CLI tools, simple Raspberry Pis, and desktop applications should use the device flow. For a tutorial that uses device flow, see "[AUTOTITLE](/apps/creating-github-apps/guides/building-a-cli-with-a-github-app)."
 
-{% ifversion device-flow-is-opt-in %}Before you can use the device flow, you must first enable it in your app's settings. For more information on enabling device flow, see "[AUTOTITLE](/apps/maintaining-github-apps/modifying-a-github-app)." {% endif %}
+Before you can use the device flow, you must first enable it in your app's settings. For more information on enabling device flow, see "[AUTOTITLE](/apps/maintaining-github-apps/modifying-a-github-app)."
 
 The device flow uses the OAuth 2.0 Device Authorization Grant.
 
@@ -105,8 +105,8 @@ The device flow uses the OAuth 2.0 Device Authorization Grant.
    | `unsupported_grant_type` | The grant type must be `urn:ietf:params:oauth:grant-type:device_code` and included as an input parameter when you poll the OAuth token request `POST {% data variables.product.oauth_host_code %}/login/oauth/access_token`.
    | `incorrect_client_credentials` | For the device flow, you must pass your app's client ID, which you can find on your app settings page. The client ID is different from the app ID and client secret.
    | `incorrect_device_code` | The `device_code` provided is not valid.
-   | `access_denied` | When a user clicks cancel during the authorization process, you'll receive an `access_denied` error, and the user won't be able to use the verification code again.{% ifversion device-flow-is-opt-in %}
-   | `device_flow_disabled` | Device flow has not been enabled in the app's settings. For more information on enabling device flow, see "[AUTOTITLE](/apps/maintaining-github-apps/modifying-a-github-app)."{% endif %}
+   | `access_denied` | When a user clicks cancel during the authorization process, you'll receive an `access_denied` error, and the user won't be able to use the verification code again.
+   | `device_flow_disabled` | Device flow has not been enabled in the app's settings. For more information on enabling device flow, see "[AUTOTITLE](/apps/maintaining-github-apps/modifying-a-github-app)."
 
 1. Once the user has entered the `user_code`, {% data variables.product.company_short %} will give a response that includes the following query parameters:
 
@@ -135,4 +135,43 @@ You can generate a user access token with this method regardless of whether the 
 
 By default, user access tokens expires after 8 hours. If you receive a user access token with an expiration, you will also receive a refresh token. The refresh token expire after 6 months. You can use this refresh token to regenerate a user access token. For more information, see "[AUTOTITLE](/apps/creating-github-apps/authenticating-with-a-github-app/refreshing-user-access-tokens)."
 
-{% data variables.product.company_short %} strongly encourages you to use user access tokens that expire. If you previously opted out of using user access tokens that expire but want to reenable this feature, see "[AUTOTITLE](/apps/maintaining-github-apps/activating-optional-features-for-github-apps)".
+{% data variables.product.company_short %} strongly encourages you to use user access tokens that expire. If you previously opted out of using user access tokens that expire but want to re-enable this feature, see "[AUTOTITLE](/apps/maintaining-github-apps/activating-optional-features-for-github-apps)".
+
+## Troubleshooting
+
+The following sections outline some errors you may receive when generating a user access token.
+
+### Incorrect client credentials
+
+If the `client_id` or `client_secret` that you specify are incorrect, you will receive an `incorrect_client_credentials` error.
+
+To resolve this error, make sure to use the correct credentials for your {% data variables.product.prodname_github_app %}. You can find the client ID and client secret on the settings page for your {% data variables.product.prodname_github_app %}. For more information about navigating to your {% data variables.product.prodname_github_app %} settings page, see "[AUTOTITLE](/apps/maintaining-github-apps/modifying-a-github-app-registration#navigating-to-your-github-app-settings)."
+
+### Redirect URI mismatch
+
+If you specify a `redirect_uri` that doesn't match one of the callback URLs in your {% data variables.product.prodname_github_app %} registration, you will receive a `redirect_uri_mismatch` error.
+
+To resolve this error, either provide a `redirect_uri` that matches one of the callback URLs for your {% data variables.product.prodname_github_app %} registration, or omit this parameter to default to the first callback URL that is listed on your {% data variables.product.prodname_github_app %} registration. For more information, see "[AUTOTITLE](/apps/creating-github-apps/registering-a-github-app/about-the-user-authorization-callback-url)."
+
+### Bad verification code
+
+If you are using device flow and the verification code (`device_code`) that you specified is incorrect, expired, or doesn't
+match the value that you received from the initial request to `{% data variables.product.oauth_host_code %}/login/device/code`, you will receive a `bad_verification_code` error.
+
+To resolve this error, you should start the device flow again to get a new code. For more information, see "[Using the device flow to generate a user access token](#using-the-device-flow-to-generate-a-user-access-token)."
+
+### Bad refresh token
+
+If the refresh token that you specified is invalid or expired, you will receive a `bad_refresh_token` error.
+
+To resolve this error, you must restart the web application flow or device flow to get a new user access token and refresh token. You will only receive a refresh token if your {% data variables.product.prodname_github_app %} has opted in to expiring user access tokens. For more information, see "[AUTOTITLE](/apps/creating-github-apps/authenticating-with-a-github-app/refreshing-user-access-tokens)."
+
+### Unsupported grant type
+
+When you request a user access token via the device flow, the `grant_type` parameter must be `urn:ietf:params:oauth:grant-type:device_code`. When you refresh a user access token by using a refresh token, the `grant_type` parameter must be `refresh_token`. If you don't use the correct grant type, you will receive an `unsupported_grant_type` error.
+
+### Unverified user email
+
+If the user for whom you are trying to generate a user access token has not verified their primary email address with {% data variables.product.company_short %}, you will receive an `unverified_user_email` error.
+
+To resolve this error, prompt the user to verify the primary email address on their {% data variables.product.company_short %} account. For more information, see {% ifversion fpt or ghec %}"[AUTOTITLE](/account-and-profile/setting-up-and-managing-your-personal-account-on-github/managing-email-preferences/verifying-your-email-address)."{% else %}"[AUTOTITLE](/free-pro-team@latest/account-and-profile/setting-up-and-managing-your-personal-account-on-github/managing-email-preferences/verifying-your-email-address)" in the  {% data variables.product.prodname_free_user %} documentation.{% endif %}

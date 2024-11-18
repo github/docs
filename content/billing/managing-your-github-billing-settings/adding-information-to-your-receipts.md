@@ -23,7 +23,8 @@ topics:
   - User account
 shortTitle: Add to your receipts
 ---
-Your receipts include your {% data variables.product.prodname_dotcom %} subscription as well as any subscriptions for [other paid features and products](/billing/managing-your-github-billing-settings/about-billing-on-github).
+
+Your receipts include your {% data variables.product.prodname_dotcom %} subscription as well as any subscriptions for other paid features and products. For more information, see "[AUTOTITLE](/billing/managing-your-github-billing-settings/about-billing-on-github)."
 
 {% warning %}
 
@@ -31,18 +32,18 @@ Your receipts include your {% data variables.product.prodname_dotcom %} subscrip
 
 {% endwarning %}
 
-You can also receive an invoice alongside your receipts. For more information, see "[AUTOTITLE](/billing/managing-your-github-billing-settings/receiving-an-invoice)."
-
 ## Adding information to your personal account's receipts
+
+You can add information to your personal account's receipts, such as a VAT or GST identification number, or your full business name or address of record.
 
 {% data reusables.user-settings.access_settings %}
 {% data reusables.user-settings.billing_plans_payment %}
-1. At the bottom of the page, next to "Additional information," click **Add information**.
-   ![Screenshot of the "Additional information" section. A link, labeled "Add information", is highlighted with an orange outline.](/assets/images/help/billing/settings_billing_personal_add_extra.png)
-
+{% data reusables.user-settings.additional-information %}
 {% data reusables.dotcom_billing.extra_info_receipt %}
 
 ## Adding information to your organization's receipts
+
+You can add information to your organization's receipts, such as a VAT or GST identification number, or your full business name or address of record.
 
 {% note %}
 
@@ -55,8 +56,5 @@ You can also receive an invoice alongside your receipts. For more information, s
 
    ![Screenshot of the "Billing Summary" section of the settings page. A link, labeled "Payment information," is highlighted with an orange outline.](/assets/images/help/settings/payment-info-link.png)
 
-1. Under "Payment information", next to "Additional information click **Add information**.
-
-   ![Screenshot of the "Payment information" section. A link, labeled "Add information", is highlighted with an orange outline.](/assets/images/help/billing/settings_billing_add_billing_extra.png)
-
+{% data reusables.user-settings.additional-information %}
 {% data reusables.dotcom_billing.extra_info_receipt %}

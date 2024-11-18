@@ -11,13 +11,11 @@ redirect_from:
 versions:
   fpt: '*'
   ghes: '*'
-  ghae: '*'
   ghec: '*'
 shortTitle: Gradle registry
 ---
 
 {% data reusables.package_registry.packages-ghes-release-stage %}
-{% data reusables.package_registry.packages-ghae-release-stage %}
 
 {% data reusables.package_registry.admins-can-configure-package-types %}
 
@@ -35,8 +33,6 @@ You can authenticate to {% data variables.product.prodname_registry %} with Grad
 
 {% ifversion ghes %}
 Replace REGISTRY_URL with the URL for your instance's Maven registry. If your instance has subdomain isolation enabled, use `maven.HOSTNAME`. If your instance has subdomain isolation disabled, use `HOSTNAME/_registry/maven`. In either case, replace HOSTNAME with the host name of your {% data variables.product.prodname_ghe_server %} instance.
-{% elsif ghae %}
-Replace REGISTRY_URL with the URL for your enterprise's Maven registry, `maven.HOSTNAME`. Replace HOSTNAME with the host name of {% data variables.location.product_location %}.
 {% endif %}
 
 Replace USERNAME with your {% data variables.product.prodname_dotcom %} username, TOKEN with your {% data variables.product.pat_v1 %}, REPOSITORY with the name of the repository containing the package you want to publish, and OWNER with the name of the personal account or organization on {% data variables.product.prodname_dotcom %} that owns the repository. Because uppercase letters aren't supported, you must use lowercase letters for the repository owner even if the {% data variables.product.prodname_dotcom %} user or organization name contains uppercase letters.
@@ -118,7 +114,7 @@ publishing {
         }
     }
     publications {
-        register&lt;MavenPublication>("gpr") {
+        register<MavenPublication>("gpr") {
             from(components["java"])
         }
     }
@@ -133,7 +129,7 @@ plugins {
 }
 subprojects {
     apply(plugin = "maven-publish")
-    configure&lt;PublishingExtension> {
+    configure<PublishingExtension> {
         repositories {
             maven {
                 name = "GitHubPackages"
@@ -145,7 +141,7 @@ subprojects {
             }
         }
         publications {
-            register&lt;MavenPublication>("gpr") {
+            register<MavenPublication>("gpr") {
                 from(components["java"])
             }
         }
@@ -221,5 +217,5 @@ To use a published package from {% data variables.product.prodname_registry %}, 
 
 ## Further reading
 
-- "[AUTOTITLE](/packages/working-with-a-github-packages-registry/working-with-the-apache-maven-registry)"
-- "[AUTOTITLE](/packages/learn-github-packages/deleting-and-restoring-a-package)"
+* "[AUTOTITLE](/packages/working-with-a-github-packages-registry/working-with-the-apache-maven-registry)"
+* "[AUTOTITLE](/packages/learn-github-packages/deleting-and-restoring-a-package)"

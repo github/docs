@@ -10,7 +10,6 @@ redirect_from:
 versions:
   fpt: '*'
   ghes: '*'
-  ghae: '*'
   ghec: '*'
 topics:
   - Repositories
@@ -36,4 +35,4 @@ shortTitle: View releases & tags
 
 ## Further reading
 
-- "[AUTOTITLE](/authentication/managing-commit-signature-verification/signing-tags)"
+* "[AUTOTITLE](/authentication/managing-commit-signature-verification/signing-tags)"

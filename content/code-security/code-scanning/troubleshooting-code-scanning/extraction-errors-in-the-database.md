@@ -2,15 +2,12 @@
 title: 'Extraction errors in the database'
 intro: 'You can check whether or not extraction errors affect the health of the {% data variables.product.prodname_codeql %} database created.'
 allowTitleToDifferFromFilename: true
-product: '{% data reusables.gated-features.code-scanning %}'
 versions:
   fpt: '*'
   ghes: '*'
-  ghae: '*'
   ghec: '*'
 ---
 
-{% data reusables.code-scanning.beta %}
 {% data reusables.code-scanning.codeql-action-version-ghes %}
 
 The {% data variables.product.prodname_codeql %} team constantly works on critical extraction errors to make sure that all source files can be scanned. However, the {% data variables.product.prodname_codeql %} extractors do occasionally generate errors during database creation. {% data variables.product.prodname_codeql %} provides information about extraction errors and warnings generated during database creation in a log file.

@@ -9,14 +9,13 @@ redirect_from:
 versions:
   fpt: '*'
   ghes: '*'
-  ghae: '*'
   ghec: '*'
 topics:
   - GitHub Apps
 shortTitle: Transfer ownership
 ---
 
-## About transferring {% data variables.product.prodname_github_app %}s
+## About transferring {% data variables.product.prodname_github_apps %}
 
 The owner of a {% data variables.product.prodname_github_app %} registration can transfer ownership of the {% data variables.product.prodname_github_app %} registration to another user or organization. If an organization has designated any app managers for an app owned by the organization, the app managers can also transfer ownership of the {% data variables.product.prodname_github_app %} registration. For more information about app managers, see "[AUTOTITLE](/organizations/managing-programmatic-access-to-your-organization/adding-and-removing-github-app-managers-in-your-organization)."
 

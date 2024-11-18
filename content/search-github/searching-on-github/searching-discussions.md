@@ -67,10 +67,12 @@ You can search for a discussion that has been locked using the `is` qualifier. F
 
 You can filter by the visibility of the repository containing the discussions using the `is` qualifier. For more information, see "[AUTOTITLE](/repositories/creating-and-managing-repositories/about-repositories#about-repository-visibility)."
 
-| Qualifier  | Example
-| :- | :- |{% ifversion fpt or ghes or ghec %}
-| `is:public` | [**is:public**](https://github.com/search?q=is%3Apublic&type=Discussions) matches discussions in public repositories.{% endif %}{% ifversion ghec %}
-| `is:internal` | [**is:internal**](https://github.com/search?q=is%3Ainternal&type=Discussions) matches discussions in internal repositories.{% endif %}
+| Qualifier  | Example |
+| :- | :- |
+| `is:public` | [**is:public**](https://github.com/search?q=is%3Apublic&type=Discussions) matches discussions in public repositories. |
+|  {% ifversion ghec %} |
+| `is:internal` | [**is:internal**](https://github.com/search?q=is%3Ainternal&type=Discussions) matches discussions in internal repositories. |
+|  {% endif %} |
 | `is:private` | [**is:private tiramisu**](https://github.com/search?q=is%3Aprivate+tiramisu&type=Discussions) matches discussions that contain the word "tiramisu" in private repositories you can access.
 
 ## Search by author
@@ -129,6 +131,22 @@ Both qualifiers take a date as a parameter. {% data reusables.time_date.date_for
 | <code>created:<em>YYYY-MM-DD</em></code> | [**created:>2020-11-15**](https://github.com/search?q=created%3A%3E%3D2020-11-15&type=discussions) matches discussions that were created after November 15, 2020.
 | <code>updated:<em>YYYY-MM-DD</em></code> | [**weird in:body updated:>=2020-02-01**](https://github.com/search?q=weird+in%3Abody+updated%3A%3E%3D2020-12-01&type=Discussions) matches discussions with the word "weird" in the body that were updated after December 2020.
 
+## Search by category
+
+You can filter discussions by specific discussions categories.
+
+| Qualifier | Example |
+| :- | :- |
+| <code>category:<em>CATEGORYNAME</em></code> | [**category:Ideas**](https://github.com/search?utf8=%E2%9C%93&q=category%3Aideas) matches discussions categories that match the name "Ideas".
+
+## Search by label
+
+You can filter discussions by specific labels that are applied to discussions.
+
+| Qualifier | Example |
+| :- | :- |
+| <code>label: <em>"LABEL NAME"</em></code> | [**label:"Product Feedback"**](https://github.com/search?utf8=%E2%9C%93&q=label%3A%22product+feedback%22&type=discussions) matches discussions that match the label "Product Feedback".
+
 ## Further reading
 
-- "[AUTOTITLE](/search-github/getting-started-with-searching-on-github/sorting-search-results)"
+* "[AUTOTITLE](/search-github/getting-started-with-searching-on-github/sorting-search-results)"

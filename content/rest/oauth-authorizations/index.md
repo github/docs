@@ -1,6 +1,8 @@
 ---
-title: OAuth authorizations
-intro: Use the REST API to manage the access {% data variables.product.prodname_oauth_app %}s have to your account.
+title: REST API endpoints for OAuth app authorizations
+shortTitle: OAuth app authorizations
+allowTitleToDifferFromFilename: true
+intro: Use the REST API to manage the access {% data variables.product.prodname_oauth_apps %} have to your account.
 versions:
   ghes: '*'
 topics:

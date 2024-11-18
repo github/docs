@@ -1,1 +1,1 @@
-1. Under "Team synchronization", click **Enable for Azure AD**.
+1. Under "Team synchronization", click **Enable for Entra ID**.

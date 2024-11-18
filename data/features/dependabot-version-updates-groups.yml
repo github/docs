@@ -1,0 +1,7 @@
+# Reference: Issue #10346
+# Dependabot Grouped Updates - [Public Beta]
+
+versions:
+  fpt: '*'
+  ghec: '*'
+  ghes: '>=3.11'

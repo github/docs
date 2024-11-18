@@ -1,0 +1,5 @@
+1. To jump back into a previous conversation you had with {% data variables.product.prodname_copilot_short %}, tap {% octicon "kebab-horizontal" %} in the top right corner of the screen. Either tap on one of the last three recently modified conversations shown, or tap **View all conversations {% octicon "comment-discussion" aria-hidden="true" %}**. This takes you to a list of all your previous conversations with {% data variables.product.prodname_copilot_short %}.
+1. To delete a conversation, tap {% octicon "kebab-horizontal" %} in the top right corner of the screen, and then tap **Delete conversation {% octicon "trash" aria-hidden="true" %}**. This removes the conversation from the list of previous conversations you've had with {% data variables.product.prodname_copilot_short %}.
+1. To start over, with a new conversation, tap {% octicon "kebab-horizontal" %} in the top right corner of the screen, and then tap **New conversation {% octicon "plus" aria-hidden="true" %}**.
+
+   You should always start a new conversation if you want to ask a question that's unrelated to the current conversation.

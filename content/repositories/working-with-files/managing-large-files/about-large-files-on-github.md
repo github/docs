@@ -19,14 +19,13 @@ redirect_from:
 versions:
   fpt: '*'
   ghes: '*'
-  ghae: '*'
   ghec: '*'
 shortTitle: Large files
 ---
 
 ## About size limits on {% data variables.product.product_name %}
 
-{% data variables.product.product_name %} tries to provide abundant storage for all Git repositories, although there are hard limits for file {% ifversion fpt or ghec or ghae %}and repository sizes{% else %} sizes and recommendations for repository sizes{% endif %}. {% ifversion fpt or ghec %}To ensure performance and reliability for our users, we actively monitor signals of overall repository health. Repository health is a function of various interacting factors, including size, commit frequency, contents, and structure.{% endif %}
+{% data variables.product.product_name %} tries to provide abundant storage for all Git repositories, although there are hard limits for file {% ifversion fpt or ghec %}and repository sizes{% else %} sizes and recommendations for repository sizes{% endif %}. {% ifversion fpt or ghec %}To ensure performance and reliability for our users, we actively monitor signals of overall repository health. Repository health is a function of various interacting factors, including size, commit frequency, contents, and structure.{% endif %}
 
 ### File size limits
 
@@ -44,13 +43,13 @@ To track files beyond this limit, you must use {% data variables.large_files.pro
 
 If you need to distribute large files within your repository, you can create releases on {% data variables.location.product_location %} instead of tracking the files. For more information, see "[Distributing large binaries](#distributing-large-binaries)."
 
-Git is not designed to handle large SQL files. To share large databases with other developers, we recommend using [Dropbox](https://www.dropbox.com/).
+Git is not designed to handle large SQL files. To share large databases with other developers, we recommend using a file sharing service.
 
-{% ifversion fpt or ghec or ghae %}
+{% ifversion fpt or ghec %}
 
 ### Repository size limits
 
-We recommend repositories remain small, ideally less than 1 GB, and less than 5 GB is strongly recommended. {% ifversion ghae %}The maximum size for a repository on {% data variables.product.product_name %} is 100 GB. {% endif %}Smaller repositories are faster to clone and easier to work with and maintain. If your repository excessively impacts our infrastructure, you might receive an email from {% data variables.contact.github_support %} asking you to take corrective action. We try to be flexible, especially with large projects that have many collaborators, and will work with you to find a resolution whenever possible. You can prevent your repository from impacting our infrastructure by effectively managing your repository's size and overall health. You can find advice and a tool for repository analysis in the [`github/git-sizer`](https://github.com/github/git-sizer) repository.
+We recommend repositories remain small, ideally less than 1 GB, and less than 5 GB is strongly recommended. Smaller repositories are faster to clone and easier to work with and maintain. If your repository excessively impacts our infrastructure, you might receive an email from {% data variables.contact.github_support %} asking you to take corrective action. We try to be flexible, especially with large projects that have many collaborators, and will work with you to find a resolution whenever possible. You can prevent your repository from impacting our infrastructure by effectively managing your repository's size and overall health. You can find advice and a tool for repository analysis in the [`github/git-sizer`](https://github.com/github/git-sizer) repository.
 
 External dependencies can cause Git repositories to become very large. To avoid filling a repository with external dependencies, we recommend you use a package manager. Popular package managers for common languages include [Bundler](http://bundler.io/), [Node's Package Manager](http://npmjs.org/), and [Maven](https://maven.apache.org/). These package managers support using Git repositories directly, so you don't need pre-packaged sources.
 

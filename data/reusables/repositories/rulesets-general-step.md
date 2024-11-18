@@ -1,4 +1,2 @@
-1. In the "General" section:
-   - Type a name for the ruleset.
-   - Select the enforcement status. You must set the status to **Active** if you want the ruleset to be enforced. {% ifversion repo-rules-enterprise %}Alternatively, if you set the status to **Evaluate**, the ruleset will not be enforced, but you will be able to monitor which actions would or would not violate rules on the "Rule Insights" page. For more information, see "[Viewing insights for rulesets](#viewing-insights-for-rulesets)."{% endif %}
-   - If you want repository or organization owners to be able to bypass the rules in the ruleset, change the selection in the dropdown menu under "Bypass mode."
+1. Under "Ruleset name," type a name for the ruleset.
+1. Optionally, to change the default enforcement status, click {% octicon "skip" aria-hidden="true" %} **Disabled** {% octicon "triangle-down" aria-hidden="true" %} and select an enforcement status. For more information about enforcement statuses, see "[AUTOTITLE](/repositories/configuring-branches-and-merges-in-your-repository/managing-rulesets/about-rulesets#using-ruleset-enforcement-statuses)."

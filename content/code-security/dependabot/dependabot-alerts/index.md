@@ -1,12 +1,11 @@
 ---
 title: Identifying vulnerabilities in your project's dependencies with Dependabot alerts
 shortTitle: Dependabot alerts
-intro: '{% data variables.product.prodname_dependabot %} generates {% data variables.product.prodname_dependabot_alerts %} when known vulnerabilites are detected in dependencies that your project uses.'
+intro: '{% data variables.product.prodname_dependabot %} generates {% data variables.product.prodname_dependabot_alerts %} when known vulnerabilities are detected in dependencies that your project uses.'
 allowTitleToDifferFromFilename: true
 versions:
   fpt: '*'
   ghes: '*'
-  ghae: '*'
   ghec: '*'
 topics:
   - Dependabot
@@ -18,7 +17,5 @@ children:
   - /about-dependabot-alerts
   - /configuring-dependabot-alerts
   - /viewing-and-updating-dependabot-alerts
-  - /using-alert-rules-to-prioritize-dependabot-alerts
   - /configuring-notifications-for-dependabot-alerts
 ---
-

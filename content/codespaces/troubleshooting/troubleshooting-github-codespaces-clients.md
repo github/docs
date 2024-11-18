@@ -12,11 +12,11 @@ redirect_from:
   - /codespaces/troubleshooting/troubleshooting-codespaces-clients
 ---
 
-{% jetbrains %}
+{% jetbrains_beta %}
 
 {% data reusables.codespaces.codespaces-jetbrains-beta-note %}
 
-{% endjetbrains %}
+{% endjetbrains_beta %}
 
 {% webui %}
 
@@ -68,7 +68,7 @@ If the problem isn't fixed in {% data variables.product.prodname_vscode %} Stabl
 
 {% endvscode %}
 
-{% jetbrains %}
+{% jetbrains_beta %}
 
 ## Troubleshooting JetBrains IDEs
 
@@ -80,12 +80,12 @@ If you are using a machine with 4 or more cores and the performance you are expe
 
 The recommended heap size varies according to the machine type of your codespace.
 
-| Machine type        | Maximum heap size |
-| ------------------- | ----------------- |
-| 4 core, 8 GB RAM    | 2048 MiB          |
-| 8 core, 16 GB RAM   | 4096 MiB          |
-| 16 cores, 32 GB RAM | 8192 MiB          |
-| 32 cores, 64 GB RAM | 16,384 MiB        |
+| Machine type         | Maximum heap size |
+| -------------------- | ----------------- |
+| 4 core, 16 GB RAM    | 2048 MiB          |
+| 8 core, 32 GB RAM    | 4096 MiB          |
+| 16 cores, 64 GB RAM  | 8192 MiB          |
+| 32 cores, 128 GB RAM | 16,384 MiB        |
 
 If the heap size is below the recommended value, a message is displayed when your codespace starts, suggesting that you increase the heap size. You can click the link in the message to increase the heap size automatically.
 
@@ -107,9 +107,9 @@ Depending on the size of your codebase, and the memory needed to run your applic
 
 1. Click **Save and restart**.
 
-### Client can't be opened in MacOS Ventura
+### Client can't be opened in macOS Ventura
 
-In MacOS Ventura, using versions of the JetBrains Gateway prior to version 2022.3, the first time you try to connect to a codespace from the JetBrains Gateway a message was displayed telling you that the JetBrains client application "is damaged and can't be opened."
+In macOS Ventura, using versions of the JetBrains Gateway prior to version 2022.3, the first time you try to connect to a codespace from the JetBrains Gateway a message was displayed telling you that the JetBrains client application "is damaged and can't be opened."
 
 <img src="/assets/images/help/codespaces/jetbrains-ventura-error1.png" alt="Screenshot of the 'cannot be opened' error message" style="width:230px;"/>
 
@@ -123,7 +123,7 @@ To work around this problem with older versions of the Gateway:
 1. Click the Apple icon, top left of the screen, and click **System Settings**.
 1. Click **Privacy & Security** and scroll down to the "Security" section.
 
-   ![Screenshot of MacOS "Privacy & Security" dialog, with a security message above the JetBrains Client and the "Open Anyway" button.](/assets/images/help/codespaces/jetbrains-privacy-and-security.png)
+   ![Screenshot of macOS "Privacy & Security" dialog, with a security message above the JetBrains Client and the "Open Anyway" button.](/assets/images/help/codespaces/jetbrains-privacy-and-security.png)
 
    You will see a message telling you that the JetBrains Client was blocked from use.
 
@@ -138,7 +138,7 @@ To work around this problem with older versions of the Gateway:
 
 ### SSH connection issues
 
-To connect via the SSH server running in your codespace, you must have an SSH key in your `~/.ssh` directory (MacOS and Linux) or `%HOMEPATH%\.ssh` directory (Windows) that has already been added to your {% data variables.product.prodname_dotcom %} account. If you do not have any keys in this directory, {% data variables.product.prodname_cli %} will generate keys for you. For more information, see "[AUTOTITLE](/authentication/connecting-to-github-with-ssh/adding-a-new-ssh-key-to-your-github-account?platform=windows&tool=webui)."
+To connect via the SSH server running in your codespace, you must have an SSH key in your `~/.ssh` directory (macOS and Linux) or `%HOMEPATH%\.ssh` directory (Windows) that has already been added to your {% data variables.product.prodname_dotcom %} account. If you do not have any keys in this directory, {% data variables.product.prodname_cli %} will generate keys for you. For more information, see "[AUTOTITLE](/authentication/connecting-to-github-with-ssh/adding-a-new-ssh-key-to-your-github-account?platform=windows&tool=webui)."
 
 If you encounter problems with key validation, try upgrading your version of {% data variables.product.prodname_cli %}. For information, see the [upgrade instructions](https://github.com/cli/cli#installation) in the README for {% data variables.product.prodname_cli %}.
 
@@ -146,4 +146,4 @@ If you encounter problems with key validation, try upgrading your version of {% 
 
 For help with issues specific to the JetBrains IDE you are using, or the JetBrains Gateway application, see "[Product Support](https://www.jetbrains.com/support/)" on the JetBrains website.
 
-{% endjetbrains %}
+{% endjetbrains_beta %}

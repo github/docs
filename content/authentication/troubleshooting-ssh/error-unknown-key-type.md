@@ -4,7 +4,6 @@ intro: 'This error means that the SSH key type you used was unrecognized or is u
 versions:
   fpt: '*'
   ghes: '*'
-  ghae: '*'
   ghec: '*'
 topics:
   - SSH

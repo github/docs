@@ -4,7 +4,6 @@ intro: You can choose the way your repository functions by managing repository s
 versions:
   fpt: '*'
   ghes: '*'
-  ghae: '*'
   ghec: '*'
 topics:
   - Repositories

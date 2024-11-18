@@ -9,14 +9,13 @@ intro: 'If a commit message contains unclear, incorrect, or sensitive informatio
 versions:
   fpt: '*'
   ghes: '*'
-  ghae: '*'
   ghec: '*'
 ---
 ## Rewriting the most recent commit message
 
 You can change the most recent commit message using the `git commit --amend` command.
 
-In Git, the text of the commit message is part of the commit. Changing the commit message will change the commit ID--i.e., the SHA1 checksum that names the commit. Effectively, you are creating a new commit that replaces the old one.
+In Git, the text of the commit message is part of the commit. Changing the commit message will change the commit ID—i.e., the SHA1 checksum that names the commit. Effectively, you are creating a new commit that replaces the old one.
 
 ## Commit has not been pushed online
 
@@ -25,9 +24,9 @@ If the commit only exists in your local repository and has not been pushed to {%
 1. On the command line, navigate to the repository that contains the commit you want to amend.
 1. Type `git commit --amend` and press **Enter**.
 1. In your text editor, edit the commit message, and save the commit.
-    - You can add a co-author by adding a trailer to the commit. For more information, see "[AUTOTITLE](/pull-requests/committing-changes-to-your-project/creating-and-editing-commits/creating-a-commit-with-multiple-authors)."
+    * You can add a co-author by adding a trailer to the commit. For more information, see "[AUTOTITLE](/pull-requests/committing-changes-to-your-project/creating-and-editing-commits/creating-a-commit-with-multiple-authors)."
 {% ifversion fpt or ghec %}
-    - You can create commits on behalf of your organization by adding a trailer to the commit. For more information, see "[AUTOTITLE](/pull-requests/committing-changes-to-your-project/creating-and-editing-commits/creating-a-commit-on-behalf-of-an-organization)"
+    * You can create commits on behalf of your organization by adding a trailer to the commit. For more information, see "[AUTOTITLE](/pull-requests/committing-changes-to-your-project/creating-and-editing-commits/creating-a-commit-on-behalf-of-an-organization)."
 {% endif %}
 
 The new commit and message will appear on {% data variables.location.product_location %} the next time you push.
@@ -115,7 +114,7 @@ For more information on interactive rebase, see "[Interactive mode](https://git-
 
 {% tip %}
 
-As before, amending the commit message will result in a new commit with a new ID. However, in this case, every commit that follows the amended commit will also get a new ID because each commit also contains the id of its parent.
+As before, amending the commit message will result in a new commit with a new ID. However, in this case, every commit that follows the amended commit will also get a new ID because each commit also contains the ID of its parent.
 
 {% endtip %}
 
@@ -127,4 +126,4 @@ If you have included sensitive information in a commit message, force pushing a 
 
 ## Further reading
 
-- "[AUTOTITLE](/authentication/managing-commit-signature-verification/signing-commits)"
+* "[AUTOTITLE](/authentication/managing-commit-signature-verification/signing-commits)"

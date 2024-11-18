@@ -11,7 +11,6 @@ permissions: Organization owners can promote any member of an organization to an
 versions:
   fpt: '*'
   ghes: '*'
-  ghae: '*'
   ghec: '*'
 topics:
   - Organizations
@@ -32,7 +31,7 @@ Organization owners have full administrative access to the organization. {% data
 {% endnote %}
 
 {% ifversion enterprise-owner-join-org %}
-If your organization is owned by an enterprise account, any enterprise owner can make themself an owner of your organization. For more information, see "[AUTOTITLE](/admin/user-management/managing-organizations-in-your-enterprise/managing-your-role-in-an-organization-owned-by-your-enterprise)."
+If your organization is owned by an enterprise account, any enterprise owner can make themselves an owner of your organization. For more information, see "[AUTOTITLE](/admin/user-management/managing-organizations-in-your-enterprise/managing-your-role-in-an-organization-owned-by-your-enterprise)."
 {% endif %}
 
 ## Appointing an organization owner

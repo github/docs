@@ -1,13 +1,13 @@
 import { createContext, useContext } from 'react'
 import pick from 'lodash/pick'
 
-export type FeaturedTrack = {
+export type LearningTrack = {
   trackName: string
   trackProduct: string
   title: string
   description: string
   guides?: Array<{ href: string; page?: { type: string }; title: string; intro: string }>
-} | null
+}
 
 export type ArticleGuide = {
   href: string
@@ -20,10 +20,8 @@ export type ArticleGuide = {
 export type ProductGuidesContextT = {
   title: string
   intro: string
-  featuredTrack?: FeaturedTrack
-  learningTracks?: Array<FeaturedTrack>
+  learningTracks: Array<LearningTrack>
   includeGuides?: Array<ArticleGuide>
-  allTopics?: Array<string>
 }
 
 export const ProductGuidesContext = createContext<ProductGuidesContextT | null>(null)
@@ -33,7 +31,7 @@ export const useProductGuidesContext = (): ProductGuidesContextT => {
 
   if (!context) {
     throw new Error(
-      '"useProductGuidesContext" may only be used inside "ProductGuidesContext.Provider"'
+      '"useProductGuidesContext" may only be used inside "ProductGuidesContext.Provider"',
     )
   }
 
@@ -43,22 +41,16 @@ export const useProductGuidesContext = (): ProductGuidesContextT => {
 export const getProductGuidesContextFromRequest = (req: any): ProductGuidesContextT => {
   const page = req.context.page
 
+  const learningTracks: LearningTrack[] = (page.learningTracks || []).map((track: any) => ({
+    ...pick(track, ['title', 'description', 'trackName', 'trackProduct']),
+    guides: (track.guides || []).map((guide: any) => {
+      return pick(guide, ['title', 'intro', 'href', 'page.type'])
+    }),
+  }))
+
   return {
-    ...pick(page, ['title', 'intro', 'allTopics']),
-    featuredTrack: page.featuredTrack
-      ? {
-          ...pick(page.featuredTrack, ['title', 'description', 'trackName', 'trackProduct']),
-          guides: (page.featuredTrack?.guides || []).map((guide: any) => {
-            return pick(guide, ['title', 'intro', 'href', 'page.type'])
-          }),
-        }
-      : null,
-    learningTracks: (page.learningTracks || []).map((track: any) => ({
-      ...pick(track, ['title', 'description', 'trackName', 'trackProduct']),
-      guides: (track.guides || []).map((guide: any) => {
-        return pick(guide, ['title', 'intro', 'href', 'page.type'])
-      }),
-    })),
+    ...pick(page, ['title', 'intro']),
+    learningTracks,
     includeGuides: (page.includeGuides || []).map((guide: any) => {
       return {
         ...pick(guide, ['href', 'title', 'intro']),

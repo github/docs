@@ -15,14 +15,14 @@ name: "My {% data variables.product.prodname_codeql %} config"
 disable-default-queries: true
 
 queries:
-  - name: Use an in-repository {% data variables.product.prodname_ql %} pack (run queries in the my-queries directory)
+  - name: Use an in-repository {% data variables.product.prodname_codeql %} pack (run queries in the my-queries directory)
     uses: ./my-queries
-  - name: Use an external JavaScript {% data variables.product.prodname_ql %} pack (run queries from an external repo)
-    uses: octo-org/javascript-qlpack@main
-  - name: Use an external query (run a single query from an external {% data variables.product.prodname_ql %} pack)
-    uses: octo-org/python-qlpack/show_ifs.ql@main
+  - name: Use an external JavaScript {% data variables.product.prodname_codeql %} pack (run queries from an external repo)
+    uses: octo-org/javascript-codeql-pack@main
+  - name: Use an external query (run a single query from an external {% data variables.product.prodname_codeql %} pack)
+    uses: octo-org/python-codeql-pack/show_ifs.ql@main
   - name: Use a query suite file (run queries from a query suite in this repo)
-    uses: ./codeql-qlpacks/complex-python-qlpack/rootAndBar.qls
+    uses: ./codeql-packs/complex-python-codeql-pack/rootAndBar.qls
 
 paths:
   - src 
@@ -37,7 +37,7 @@ The following configuration file only runs queries that generate alerts of sever
 
 ``` yaml
 queries:
-  - name: Use an in-repository QL pack (run queries in the my-queries directory)
+  - name: Use an in-repository CodeQL query pack (run queries in the my-queries directory)
     uses: ./my-queries
 packs:
   - codeql/java-queries

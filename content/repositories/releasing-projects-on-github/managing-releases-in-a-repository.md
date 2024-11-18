@@ -14,7 +14,6 @@ permissions: 'Repository collaborators and people with write access to a reposit
 versions:
   fpt: '*'
   ghes: '*'
-  ghae: '*'
   ghec: '*'
 topics:
   - Repositories
@@ -41,7 +40,7 @@ You can choose whether {% data variables.large_files.product_name_long %} ({% da
 {% data reusables.releases.release-title %}
 1. In the "Describe this release" field, type a description for your release.
    If you @mention anyone in the description, the published release will include a **Contributors** section with an avatar list of all the mentioned users.
-   {% ifversion fpt or ghec or ghes %} Alternatively, you can automatically generate your release notes by clicking {% ifversion previous-release-tag %}**Generate release notes**{% else %}**Auto-generate release notes**{% endif %}.{% endif %}
+    Alternatively, you can automatically generate your release notes by clicking **Generate release notes**.
 {% data reusables.releases.finish-release %}
 
 {% endwebui %}
@@ -79,7 +78,13 @@ If you @mention any {% data variables.product.product_name %} users in the notes
 
 {% cli %}
 
-Releases cannot currently be edited with {% data variables.product.prodname_cli %}.
+1. To edit a release, use the `gh release edit` subcommand. Replace `TAG` with the tag representing the release you wish to edit. For example, to edit the title for a release, use the following code, replacing `NEW-TITLE` with the updated title:
+
+   ```shell
+   gh release edit TAG -t "NEW-TITLE"
+   ```
+
+   For more information about possible arguments, see [the {% data variables.product.prodname_cli %} manual](https://cli.github.com/manual/gh_release_edit).
 
 {% endcli %}
 

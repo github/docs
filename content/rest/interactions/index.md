@@ -1,5 +1,7 @@
 ---
-title: Interactions
+title: REST API endpoints for interactions
+shortTitle: Interactions
+allowTitleToDifferFromFilename: true
 intro: Use the REST API to set the interaction limit for the users in your organizations and repositories.
 permissions: People with owner or admin access can set the interaction limit for the users in their organizations and repositories.
 redirect_from:

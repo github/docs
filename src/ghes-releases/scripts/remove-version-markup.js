@@ -10,15 +10,15 @@
 import fs from 'fs'
 import { program } from 'commander'
 
-import frontmatter from '../../../lib/read-frontmatter.js'
+import frontmatter from '#src/frame/lib/read-frontmatter.js'
 import removeLiquidStatements from './remove-liquid-statements.js'
 import removeDeprecatedFrontmatter from './remove-deprecated-frontmatter.js'
-import { all, getNextReleaseNumber } from '../../../lib/enterprise-server-releases.js'
-import walkFiles from '../../../script/helpers/walk-files.js'
+import { all, getNextReleaseNumber } from '#src/versions/lib/enterprise-server-releases.js'
+import walkFiles from '#src/workflows/walk-files.js'
 
 program
   .description(
-    'Remove Liquid conditionals and update versions frontmatter for a given Enterprise Server release.'
+    'Remove Liquid conditionals and update versions frontmatter for a given Enterprise Server release.',
   )
   .option('-r, --release <NUMBER>', 'Enterprise Server release number. Example: 2.19')
   .parse(process.argv)
@@ -37,7 +37,7 @@ if (!release) {
 
 if (!all.includes(release)) {
   console.log(
-    `You specified ${release}! Please specify a supported or deprecated release number from lib/enterprise-server-releases.js`
+    `You specified ${release}! Please specify a supported or deprecated release number from lib/enterprise-server-releases.js`,
   )
   process.exit(1)
 }
@@ -69,7 +69,7 @@ async function main() {
       content,
       release,
       nextOldestRelease,
-      file
+      file,
     )
     fileChanged ||= contentChanged
 
@@ -81,7 +81,7 @@ async function main() {
           value,
           release,
           nextOldestRelease,
-          file
+          file,
         )
         fileChanged ||= contentChanged
         data[key] = newContent

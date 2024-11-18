@@ -1,13 +1,12 @@
 ---
-title: Git trees
+title: REST API endpoints for Git trees
 shortTitle: Trees
 allowTitleToDifferFromFilename: true
 intro: >-
   Use the REST API to interact with tree objects in your Git database on {% data
   variables.product.product_name %}.
-versions:
+versions: # DO NOT MANUALLY EDIT. CHANGES WILL BE OVERWRITTEN BY A 🤖
   fpt: '*'
-  ghae: '*'
   ghec: '*'
   ghes: '*'
 topics:

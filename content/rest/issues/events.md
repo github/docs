@@ -1,13 +1,12 @@
 ---
-title: Issue events
+title: REST API endpoints for issue events
 allowTitleToDifferFromFilename: true
 shortTitle: Events
 intro: >-
   Use the REST API to retrieve events triggered by activity in issues and pull
   requests.
-versions:
+versions: # DO NOT MANUALLY EDIT. CHANGES WILL BE OVERWRITTEN BY A 🤖
   fpt: '*'
-  ghae: '*'
   ghec: '*'
   ghes: '*'
 topics:

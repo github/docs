@@ -1,13 +1,12 @@
 ---
-title: Repository invitations
+title: REST API endpoints for repository invitations
 allowTitleToDifferFromFilename: true
 shortTitle: Invitations
 intro: >-
   Use the REST API to view and manage invitations to collaborate on a
   repository.
-versions:
+versions: # DO NOT MANUALLY EDIT. CHANGES WILL BE OVERWRITTEN BY A 🤖
   fpt: '*'
-  ghae: '*'
   ghec: '*'
   ghes: '*'
 topics:

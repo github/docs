@@ -14,10 +14,10 @@ shortTitle: Participate in discussion
 
 In addition to starting or viewing discussions and polls, you can:
 
-- Comment in response to the original comment from the author of the discussion
-- Create a comment thread by replying to an individual comment that another community member made within the discussion
-- React to comments with emoji
-- Upvote discussions and top-level comments to give them more visibility
+* Comment in response to the original comment from the author of the discussion
+* Create a comment thread by replying to an individual comment that another community member made within the discussion
+* React to comments with emoji
+* Upvote discussions and top-level comments to give them more visibility
 
 {% ifversion fpt or ghec %}You can block users and report disruptive content to maintain a safe and pleasant environment for yourself on {% data variables.product.product_name %}. For more information, see "[AUTOTITLE](/communities/maintaining-your-safety-on-github)."{% endif %}
 

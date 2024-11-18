@@ -5,7 +5,6 @@ intro: You can make your {% data variables.product.prodname_github_app %} authen
 versions:
   fpt: '*'
   ghes: '*'
-  ghae: '*'
   ghec: '*'
 topics:
   - GitHub Apps
@@ -19,15 +18,15 @@ For example, if you want your app to change the `Status` field of an issue on a 
 
 To make an API request as an installation, you must first generate an installation access token. Then, you will send the installation access token in the `Authorization` header of your subsequent API requests. You can also use {% data variables.product.company_short %}'s Octokit SDKs, which can generate an installation access token for you.
 
-If a REST API endpoint works with a {% data variables.product.prodname_github_app %} installation access token, the REST reference documentation for that endpoint will say "Works with {% data variables.product.prodname_github_apps %}." Additionally, your app must have the required permissions to use the endpoint. For more information, see "[AUTOTITLE](/apps/creating-github-apps/setting-up-a-github-app/choosing-permissions-for-a-github-app)."
+Some REST API endpoints do not accept installation access tokens, and most REST API endpoints require your app to have certain permissions to use an endpoint. To see whether a REST API endpoint accepts installation access tokens and to see what permissions are required, refer to the documentation for the endpoint.
 
-App installations can also use the GraphQL API. Similar to the REST API, the app must have certain permissions to access objects in the GraphQL API. For GraphQL requests, you should test you app to ensure that your app has the required permissions for the GraphQL queries and mutations that you want to make.
+App installations can also use the GraphQL API. Similar to the REST API, the app must have certain permissions to access objects in the GraphQL API. For GraphQL requests, you should test that your app has the required permissions for the GraphQL queries and mutations that you want to make.
 
-You can also use an installation access token to authenticate for HTTP-based Git access. You app must have the "Contents" repository permission. You can then use the installation access token as the HTTP password. Replace `TOKEN` with the installation access token: `git clone https://x-access-token:TOKEN@github.com/owner/repo.git"`.
+You can also use an installation access token to authenticate for HTTP-based Git access. Your app must have the "Contents" repository permission. You can then use the installation access token as the HTTP password. Replace `TOKEN` with the installation access token: `git clone https://x-access-token:TOKEN@github.com/owner/repo.git`.
 
 Requests made with an installation access token are sometimes called "server-to-server" requests.
 
-For more information about authenticating as an app on behalf of a user instead of as an app installation, see "[AUTOTITLE](/apps/creating-github-apps/authenticating-with-a-github-app/identifying-and-authorizing-users-for-github-apps)".
+For more information about authenticating as an app on behalf of a user instead of as an app installation, see "[AUTOTITLE](/apps/creating-github-apps/authenticating-with-a-github-app/identifying-and-authorizing-users-for-github-apps)."
 
 ## Using an installation access token to authenticate as an app installation
 
@@ -47,10 +46,10 @@ In the following example, replace `INSTALLATION_ACCESS_TOKEN` with an installati
 
 ```shell
 curl --request GET \
---url "{% data variables.product.api_url_pre %}/meta" \
+--url "{% data variables.product.rest_url %}/meta" \
 --header "Accept: application/vnd.github+json" \
---header "Authorization: Bearer INSTALLATION_ACCESS_TOKEN"{% ifversion api-date-versioning %} \
---header "X-GitHub-Api-Version: {{ allVersions[currentVersion].latestApiVersion }}"{% endif %}
+--header "Authorization: Bearer INSTALLATION_ACCESS_TOKEN" \
+--header "X-GitHub-Api-Version: {{ allVersions[currentVersion].latestApiVersion }}"
 ```
 
 ## Using the Octokit.js SDK to authenticate as an app installation
@@ -139,10 +138,9 @@ The Octokit.js SDK also passes a pre-authenticated `octokit` instance to webhook
          repo: payload.repository.name,
          issue_number: payload.issue.number,
          body: `This is a bot post in response to this issue being opened.`,
-         {% ifversion api-date-versioning %}
          headers: {
            "x-github-api-version": "{{ allVersions[currentVersion].latestApiVersion }}",
-         },{% endif %}
+         },
        }
      )
    });

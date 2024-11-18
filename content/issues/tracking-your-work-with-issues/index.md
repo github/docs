@@ -5,7 +5,6 @@ intro: 'Use {% data variables.product.prodname_github_issues %} to track ideas a
 versions:
   fpt: '*'
   ghes: '*'
-  ghae: '*'
   ghec: '*'
 topics:
   - Issues
@@ -13,7 +12,6 @@ children:
   - /about-issues
   - /quickstart
   - /creating-an-issue
-  - /about-tasklists
   - /about-slash-commands
   - /linking-a-pull-request-to-an-issue
   - /creating-a-branch-for-an-issue

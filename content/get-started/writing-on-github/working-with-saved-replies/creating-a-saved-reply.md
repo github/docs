@@ -8,7 +8,6 @@ redirect_from:
 versions:
   fpt: '*'
   ghes: '*'
-  ghae: '*'
   ghec: '*'
 ---
 {% data reusables.user-settings.access_settings %}
@@ -22,6 +21,6 @@ versions:
 
 ## Further reading
 
-- "[AUTOTITLE](/get-started/writing-on-github/working-with-saved-replies/using-saved-replies)"
-- "[AUTOTITLE](/get-started/writing-on-github/working-with-saved-replies/editing-a-saved-reply)"
-- "[AUTOTITLE](/get-started/writing-on-github/working-with-saved-replies/deleting-a-saved-reply)"
+* "[AUTOTITLE](/get-started/writing-on-github/working-with-saved-replies/using-saved-replies)"
+* "[AUTOTITLE](/get-started/writing-on-github/working-with-saved-replies/editing-a-saved-reply)"
+* "[AUTOTITLE](/get-started/writing-on-github/working-with-saved-replies/deleting-a-saved-reply)"

@@ -17,15 +17,15 @@ The custom scripts are automatically triggered when a specific environment varia
 
 The following scripting languages are supported:
 
-- **Bash**: Uses `bash` and can fallback to `sh`. Executes by running `-e {pathtofile}`.
-- **PowerShell**: Uses `pwsh` and can fallback to `powershell`. Executes by running `-command \". '{pathtofile}'\"`.
+* **Bash**: Uses `bash` and can fallback to `sh`. Executes by running `-e {pathtofile}`.
+* **PowerShell**: Uses `pwsh` and can fallback to `powershell`. Executes by running `-command \". '{pathtofile}'\"`.
 
 ## Writing the scripts
 
 Your custom scripts can use the following features:
 
-- **Variables**:  Scripts have access to the default variables. The full webhook event payload can be found in `GITHUB_EVENT_PATH`. For more information, see "[AUTOTITLE](/actions/learn-github-actions/variables#default-environment-variables)."
-- **Workflow commands**: Scripts can use workflow commands. For more information, see "[AUTOTITLE](/actions/using-workflows/workflow-commands-for-github-actions)"{% ifversion actions-save-state-set-output-envs %}{% else %}, with the exception of `save-state` and `set-output`, which are not supported by these scripts{% endif %}. Scripts can also use environment files. For more information, see [Environment files](/actions/using-workflows/workflow-commands-for-github-actions#environment-files).
+* **Variables**:  Scripts have access to the default variables. The full webhook event payload can be found in `GITHUB_EVENT_PATH`. For more information, see "[AUTOTITLE](/actions/learn-github-actions/variables#default-environment-variables)."
+* **Workflow commands**: Scripts can use workflow commands. For more information, see "[AUTOTITLE](/actions/using-workflows/workflow-commands-for-github-actions)". Scripts can also use environment files. For more information, see [Environment files](/actions/using-workflows/workflow-commands-for-github-actions#environment-files).
 
 Your script files must use a file extension for the relevant language, such as `.sh` or `.ps1`, in order to run successfully.
 
@@ -52,16 +52,32 @@ The custom scripts must be located on the runner, but should not be stored in th
 {% endnote %}
 
 The scripts are automatically executed when the runner has the following environment variables containing an absolute path to the script:
-- `ACTIONS_RUNNER_HOOK_JOB_STARTED`: The script defined in this environment variable is triggered when a job has been assigned to a runner, but before the job starts running.
-- `ACTIONS_RUNNER_HOOK_JOB_COMPLETED`: The script defined in this environment variable is triggered after the job has finished processing.
+* `ACTIONS_RUNNER_HOOK_JOB_STARTED`: The script defined in this environment variable is triggered when a job has been assigned to a runner, but before the job starts running.
+* `ACTIONS_RUNNER_HOOK_JOB_COMPLETED`: The script defined in this environment variable is triggered at the end of the job, after all the steps defined in the workflow have run.
 
-To set these environment variables, you can either add them to the operating system, or add them to a file named `.env` within the self-hosted runner application directory. For example, the following `.env` entry will have the runner automatically run a script named `cleanup_script.sh` before each job runs:
+To set these environment variables, you can either add them to the operating system, or add them to a file named `.env` within the self-hosted runner application directory (that is, the directory into which you downloaded and unpacked the runner software). For example, the following `.env` entry will have the runner automatically run a script, saved as `/opt/runner/cleanup_script.sh` on the runner machine, before each job runs:
 
 ```bash
-ACTIONS_RUNNER_HOOK_JOB_STARTED=/cleanup_script.sh
+ACTIONS_RUNNER_HOOK_JOB_STARTED=/opt/runner/cleanup_script.sh
 ```
 
+{% note %}
+
+**Note**: The script defined in `ACTIONS_RUNNER_HOOK_JOB_COMPLETED` is executed at the end of the job, before the job completes. This makes it unsuitable for use cases that may interrupt a runner, such as deleting the runner machine as part of an autoscaling implementation.
+
+{% endnote %}
+
 ## Troubleshooting
+
+### Permission denied
+
+If you get a "permission denied" error when you attempt to run a script, make sure that the script is executable. For example, in a terminal on Linux or macOS you can use the following command to make a file executable.
+
+```bash
+chmod +x PATH/TO/FILE
+```
+
+For information about using workflows to run scripts, see "[AUTOTITLE](/actions/writing-workflows/choosing-what-your-workflow-does/adding-scripts-to-your-workflow)."
 
 ### No timeout setting
 

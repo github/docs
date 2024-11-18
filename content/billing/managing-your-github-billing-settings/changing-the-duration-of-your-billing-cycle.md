@@ -20,12 +20,18 @@ shortTitle: Billing cycle
 ---
 When you change your billing cycle's duration, your {% data variables.product.prodname_dotcom %} subscription, along with any other paid features and products, will be moved to your new billing cycle on your next billing date.
 
+{% note %}
+
+**Note:** Certain products, such as {% data variables.product.prodname_copilot_for_business %} and {% data variables.product.prodname_copilot_enterprise %}, {% data variables.product.prodname_actions %}, and {% data variables.product.prodname_registry %}, only offer monthly billing.
+
+{% endnote %}
+
 ## Changing the duration of your personal account's billing cycle
 
 {% data reusables.user-settings.access_settings %}
 {% data reusables.user-settings.billing_plans %}
 {% data reusables.dotcom_billing.change_plan_duration %}
-{% data reusables.dotcom_billing.confirm_duration_change %}
+1. Review your new payment details, then click **Change your account's billing cycle**.
 
 ## Changing the duration of your organization's billing cycle
 
@@ -35,7 +41,7 @@ When you change your billing cycle's duration, your {% data variables.product.pr
 
 {% data reusables.organizations.billing-settings %}
 {% data reusables.dotcom_billing.change_plan_duration %}
-{% data reusables.dotcom_billing.confirm_duration_change %}
+1. Review your new payment details, then click **Change your organization's billing cycle**.
 
 ### Changing the duration of a legacy per-repository plan
 
@@ -46,6 +52,8 @@ When you change your billing cycle's duration, your {% data variables.product.pr
 {% ifversion ghec %}
 
 ## Changing the duration of your enterprise account's billing cycle
+
+>[!IMPORTANT] If you are on the new billing platform, this procedure does not apply to you. For more information about the billing cycle for your enterprise account, see "[AUTOTITLE](/billing/using-the-enhanced-billing-platform-for-enterprises/about-the-billing-cycle)."
 
 {% data reusables.enterprise-accounts.billing-perms %}
 

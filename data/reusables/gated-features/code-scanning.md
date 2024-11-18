@@ -7,7 +7,4 @@
 {%- elsif ghes %}
 {% data variables.product.prodname_code_scanning_caps %} is available for organization-owned repositories in {% data variables.product.product_name %}. This feature requires a license for {% data variables.product.prodname_GH_advanced_security %}.
 
-{%- elsif ghae %}
-{% data variables.product.prodname_code_scanning_caps %} is available for organization-owned repositories in {% data variables.product.product_name %}. This is a {% data variables.product.prodname_GH_advanced_security %} feature (free during the beta release).
-
 {%- endif %} {% data reusables.advanced-security.more-info-ghas %}

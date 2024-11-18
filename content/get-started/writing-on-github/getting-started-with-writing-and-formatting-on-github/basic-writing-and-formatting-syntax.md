@@ -8,7 +8,6 @@ redirect_from:
 versions:
   fpt: '*'
   ghes: '*'
-  ghae: '*'
   ghec: '*'
 shortTitle: Basic formatting syntax
 ---
@@ -35,12 +34,12 @@ You can indicate emphasis with bold, italic, strikethrough, subscript, or supers
 | Style | Syntax | Keyboard shortcut | Example | Output |
 | --- | --- | --- | --- | --- |
 | Bold | `** **` or `__ __`| <kbd>Command</kbd>+<kbd>B</kbd> (Mac) or <kbd>Ctrl</kbd>+<kbd>B</kbd> (Windows/Linux) | `**This is bold text**` | **This is bold text** |
-| Italic | `* *` or `_ _`     | <kbd>Command</kbd>+<kbd>I</kbd> (Mac) or <kbd>Ctrl</kbd>+<kbd>I</kbd> (Windows/Linux) | `_This text is italicized_` | *This text is italicized* |
+| Italic | `* *` or `_ _`     | <kbd>Command</kbd>+<kbd>I</kbd> (Mac) or <kbd>Ctrl</kbd>+<kbd>I</kbd> (Windows/Linux) | `_This text is italicized_` | _This text is italicized_ |
 | Strikethrough | `~~ ~~` | None | `~~This was mistaken text~~` | ~~This was mistaken text~~ |
 | Bold and nested italic | `** **` and `_ _` | None | `**This text is _extremely_ important**` | **This text is _extremely_ important** |
-| All bold and italic | `*** ***` | None | `***All this text is important***` | ***All this text is important*** |
-| Subscript | `<sub> </sub>` | None | `<sub>This is a subscript text</sub>` | <sub>This is a subscript text</sub> |
-| Superscript | `<sup> </sup>` | None | `<sup>This is a superscript text</sup>` | <sup>This is a superscript text</sup> |
+| All bold and italic | `*** ***` | None | `***All this text is important***` | ***All this text is important*** | <!-- markdownlint-disable-line emphasis-style -->
+| Subscript | `<sub> </sub>` | None | `This is a <sub>subscript</sub> text` | This is a <sub>subscript</sub> text |
+| Superscript | `<sup> </sup>` | None | `This is a <sup>superscript</sup> text` | This is a <sup>superscript</sup> text |
 
 ## Quoting text
 
@@ -56,11 +55,8 @@ Quoted text is indented, with a different type color.
 
 ![Screenshot of rendered GitHub Markdown showing sample quoted text. The quote is indented with a vertical line on the left, and its text is dark gray rather than black.](/assets/images/help/writing/quoted-text-rendered.png)
 
-{% tip %}
-
-**Tip:** When viewing a conversation, you can automatically quote text in a comment by highlighting the text, then typing <kbd>R</kbd>. You can quote an entire comment by clicking {% octicon "kebab-horizontal" aria-label="The horizontal kebab icon" %}, then **Quote reply**. For more information about keyboard shortcuts, see "[AUTOTITLE](/get-started/using-github/keyboard-shortcuts)."
-
-{% endtip %}
+> [!NOTE]
+> When viewing a conversation, you can automatically quote text in a comment by highlighting the text, then typing <kbd>R</kbd>. You can quote an entire comment by clicking {% octicon "kebab-horizontal" aria-label="The horizontal kebab icon" %}, then **Quote reply**. For more information about keyboard shortcuts, see "[AUTOTITLE](/get-started/accessibility/keyboard-shortcuts)."
 
 ## Quoting code
 
@@ -74,14 +70,14 @@ Use `git status` to list all new or modified files that haven't yet been committ
 
 To format code or text into its own distinct block, use triple backticks.
 
-<pre>
+````markdown
 Some basic Git commands are:
 ```
 git status
 git add
 git commit
 ```
-</pre>
+````
 
 ![Screenshot of rendered GitHub Markdown showing a code block. The words "git status," "git add," and "git commit" appear in a fixed-width typeface, highlighted in light gray.](/assets/images/help/writing/code-block-rendered.png)
 
@@ -107,30 +103,22 @@ Here are the currently supported color models.
 | RGB | <code>\`rgb(R,G,B)\`</code> | <code>\`rgb(9, 105, 218)\`</code> | ![Screenshot of rendered GitHub Markdown showing how RGB value 9, 105, 218 appears with a blue circle.](/assets/images/help/writing/supported-color-models-rgb-rendered.png) |
 | HSL | <code>\`hsl(H,S,L)\`</code> | <code>\`hsl(212, 92%, 45%)\`</code> | ![Screenshot of rendered GitHub Markdown showing how HSL value 212, 92%, 45% appears with a blue circle.](/assets/images/help/writing/supported-color-models-hsl-rendered.png) |
 
-{% note %}
-
-**Notes:**
-
-- A supported color model cannot have any leading or trailing spaces within the backticks.
-- The visualization of the color is only supported in issues, pull requests, and discussions.
-
-{% endnote %}
+> [!NOTE]
+> * A supported color model cannot have any leading or trailing spaces within the backticks.
+> * The visualization of the color is only supported in issues, pull requests, and discussions.
 
 ## Links
 
 You can create an inline link by wrapping link text in brackets `[ ]`, and then wrapping the URL in parentheses `( )`. You can also use the keyboard shortcut <kbd>Command</kbd>+<kbd>K</kbd> to create a link. When you have text selected, you can paste a URL from your clipboard to automatically create a link from the selection.
 
-{% ifversion fpt or ghae > 3.5 or ghes > 3.5 or ghec %} You can also create a Markdown hyperlink by highlighting the text and using the keyboard shortcut <kbd>Command</kbd>+<kbd>V</kbd>. If you'd like to replace the text with the link, use the keyboard shortcut <kbd>Command</kbd>+<kbd>Shift</kbd>+<kbd>V</kbd>.{% endif %}
+You can also create a Markdown hyperlink by highlighting the text and using the keyboard shortcut <kbd>Command</kbd>+<kbd>V</kbd>. If you'd like to replace the text with the link, use the keyboard shortcut <kbd>Command</kbd>+<kbd>Shift</kbd>+<kbd>V</kbd>.
 
 `This site was built using [GitHub Pages](https://pages.github.com/).`
 
 ![Screenshot of rendered GitHub Markdown showing how text within brackets, "GitHub Pages," appears as a blue hyperlink.](/assets/images/help/writing/link-rendered.png)
 
-{% tip %}
-
-**Tip:** {% data variables.product.product_name %} automatically creates links when valid URLs are written in a comment. For more information, see "[AUTOTITLE](/get-started/writing-on-github/working-with-advanced-formatting/autolinked-references-and-urls)."
-
-{% endtip %}
+> [!NOTE]
+> {% data variables.product.product_name %} automatically creates links when valid URLs are written in a comment. For more information, see "[AUTOTITLE](/get-started/writing-on-github/working-with-advanced-formatting/autolinked-references-and-urls)."
 
 ## Section links
 
@@ -150,11 +138,8 @@ You can display an image by adding <kbd>!</kbd> and wrapping the alt text in `[ 
 
 {% data variables.product.product_name %} supports embedding images into your issues, pull requests{% ifversion fpt or ghec %}, discussions{% endif %}, comments  and `.md` files. You can display an image from your repository, add a link to an online image, or upload an image. For more information, see "[Uploading assets](#uploading-assets)."
 
-{% tip %}
-
-**Tip:** When you want to display an image that is in your repository, use relative links instead of absolute links.
-
-{% endtip %}
+> [!NOTE]
+> When you want to display an image that is in your repository, use relative links instead of absolute links.
 
 Here are some examples for using relative links to display an image.
 
@@ -166,11 +151,8 @@ Here are some examples for using relative links to display an image.
 | In a `.md` file in another repository | `/../../../../github/docs/blob/main/assets/images/electrocat.png` |
 | In issues, pull requests and comments of another repository | `../../../github/docs/blob/main/assets/images/electrocat.png?raw=true` |
 
-{% note %}
-
-**Note**: The last two relative links in the table above will work for images in a private repository only if the viewer has at least read access to the private repository that contains these images.
-
-{% endnote %}
+> [!NOTE]
+> The last two relative links in the table above will work for images in a private repository only if the viewer has at least read access to the private repository that contains these images.
 
 For more information, see "[Relative Links](#relative-links)."
 
@@ -200,8 +182,8 @@ To order your list, precede each line with a number.
 
 ```markdown
 1. James Madison
-1. James Monroe
-1. John Quincy Adams
+2. James Monroe
+3. John Quincy Adams
 ```
 
 ![Screenshot of rendered GitHub Markdown showing a numbered list of the names of the fourth, fifth, and sixth American presidents.](/assets/images/help/writing/ordered-list-rendered.png)
@@ -218,19 +200,16 @@ To create a nested list using the web editor on {% data variables.product.produc
      - Second nested list item
 ```
 
-{% tip %}
+> [!NOTE]
+> In the web-based editor, you can indent or dedent one or more lines of text by first highlighting the desired lines and then using <kbd>Tab</kbd> or <kbd>Shift</kbd>+<kbd>Tab</kbd> respectively.
 
-**Note**: In the web-based editor, you can indent or dedent one or more lines of text by first highlighting the desired lines and then using <kbd>Tab</kbd> or <kbd>Shift</kbd>+<kbd>Tab</kbd> respectively.
-
-{% endtip %}
-
-![Screenshot of Markdown in Visual Studio Code showing how indented bullets align vertically with the first letter of the text lines above them.](/assets/images/help/writing/nested-list-alignment.png)
+![Screenshot of Markdown in {% data variables.product.prodname_vscode %} showing how indented bullets align vertically with the first letter of the text lines above them.](/assets/images/help/writing/nested-list-alignment.png)
 
 ![Screenshot of rendered GitHub Markdown showing a numbered item followed by a bulleted item nested one level to the right, and another bulleted item nested yet further to the right.](/assets/images/help/writing/nested-list-example-1.png)
 
 To create a nested list in the comment editor on {% data variables.product.product_name %}, which doesn't use a monospaced font, you can look at the list item immediately above the nested list and count the number of characters that appear before the content of the item. Then type that number of space characters in front of the nested list item.
 
-In this example, you could add a nested list item under the list item `100. First list item` by indenting the nested list item a minimum of five spaces, since there are five characters (`100 .`) before `First list item`.
+In this example, you could add a nested list item under the list item `100. First list item` by indenting the nested list item a minimum of five spaces, since there are five characters (`100. `) before `First list item`.
 
 ```markdown
 100. First list item
@@ -243,8 +222,8 @@ You can create multiple levels of nested lists using the same method. For exampl
 
 ```markdown
 100. First list item
-       - First nested list item
-         - Second nested list item
+     - First nested list item
+       - Second nested list item
 ```
 
 ![Screenshot of rendered GitHub Markdown showing a list item prefaced by the number 100 followed by a bulleted item nested one level to the right, and another bulleted item nested yet further to the right.](/assets/images/help/writing/nested-list-example-2.png)
@@ -265,11 +244,8 @@ For more information, see "[AUTOTITLE](/get-started/writing-on-github/working-wi
 
 You can mention a person or [team](/organizations/organizing-members-into-teams) on {% data variables.product.product_name %} by typing <kbd>@</kbd> plus their username or team name. This will trigger a notification and bring their attention to the conversation. People will also receive a notification if you edit a comment to mention their username or team name. For more information about notifications, see "[AUTOTITLE](/account-and-profile/managing-subscriptions-and-notifications-on-github/setting-up-notifications/about-notifications)."
 
-{% note %}
-
-**Note:** A person will only be notified about a mention if the person has read access to the repository and, if the repository is owned by an organization, the person is a member of the organization.
-
-{% endnote %}
+> [!NOTE]
+> A person will only be notified about a mention if the person has read access to the repository and, if the repository is owned by an organization, the person is a member of the organization.
 
 `@github/support What do you think about these updates?`
 
@@ -295,7 +271,7 @@ For more information, see "[AUTOTITLE](/get-started/writing-on-github/working-wi
 
 You can upload assets like images by dragging and dropping, selecting from a file browser, or pasting. You can upload assets to issues, pull requests, comments, and `.md` files in your repository.
 
-## Using emoji
+## Using emojis
 
 You can add emoji to your writing by typing `:EMOJICODE:`, a colon followed by the name of the emoji.
 
@@ -315,7 +291,7 @@ You can create a new paragraph by leaving a blank line between lines of text.
 
 You can add footnotes to your content by using this bracket syntax:
 
-```
+```text
 Here is a simple footnote[^1].
 
 A footnote can also have multiple lines[^2].
@@ -329,21 +305,49 @@ The footnote will render like this:
 
 ![Screenshot of rendered Markdown showing superscript numbers used to indicate footnotes, along with optional line breaks inside a note.](/assets/images/help/writing/footnote-rendered.png)
 
-{% tip %}
+> [!NOTE]
+> The position of a footnote in your Markdown does not influence where the footnote will be rendered. You can write a footnote right after your reference to the footnote, and the footnote will still render at the bottom of the Markdown. Footnotes are not supported in wikis.
 
-**Note**: The position of a footnote in your Markdown does not influence where the footnote will be rendered. You can write a footnote right after your reference to the footnote, and the footnote will still render at the bottom of the Markdown.
+{% ifversion markdown-alerts %}
 
-Footnotes are not supported in wikis.
+## Alerts
 
-{% endtip %}
+Alerts are a Markdown extension based on the blockquote syntax that you can use to emphasize critical information. On {% data variables.product.product_name %}, they are displayed with distinctive colors and icons to indicate the significance of the content.
+
+Use alerts only when they are crucial for user success and limit them to one or two per article to prevent overloading the reader. Additionally, you should avoid placing alerts consecutively. Alerts cannot be nested within other elements.
+
+To add an alert, use a special blockquote line specifying the alert type, followed by the alert information in a standard blockquote. Five types of alerts are available:
+
+```markdown
+> [!NOTE]
+> Useful information that users should know, even when skimming content.
+
+> [!TIP]
+> Helpful advice for doing things better or more easily.
+
+> [!IMPORTANT]
+> Key information users need to know to achieve their goal.
+
+> [!WARNING]
+> Urgent info that needs immediate user attention to avoid problems.
+
+> [!CAUTION]
+> Advises about risks or negative outcomes of certain actions.
+```
+
+Here are the rendered alerts:
+
+![Screenshot of rendered Markdown alerts showing how Note, Tip, Important, Warning, and Caution render with different colored text and icons.](/assets/images/help/writing/alerts-rendered.png)
+
+{% endif %}
 
 ## Hiding content with comments
 
 You can tell {% data variables.product.product_name %} to hide content from the rendered Markdown by placing the content in an HTML comment.
 
-<pre>
-&lt;!-- This content will not appear in the rendered Markdown --&gt;
-</pre>
+```text
+<!-- This content will not appear in the rendered Markdown -->
+```
 
 ## Ignoring Markdown formatting
 
@@ -355,11 +359,8 @@ You can tell {% data variables.product.product_name %} to ignore (or escape) Mar
 
 For more information on backslashes, see Daring Fireball's "[Markdown Syntax](https://daringfireball.net/projects/markdown/syntax#backslash)."
 
-{% tip %}
-
-**Note**: The Markdown formatting will not be ignored in the title of an issue or a pull request.
-
-{% endtip %}
+> [!NOTE]
+> The Markdown formatting will not be ignored in the title of an issue or a pull request.
 
 ## Disabling Markdown rendering
 
@@ -367,7 +368,7 @@ For more information on backslashes, see Daring Fireball's "[Markdown Syntax](ht
 
 ## Further reading
 
-- [{% data variables.product.prodname_dotcom %} Flavored Markdown Spec](https://github.github.com/gfm/)
-- "[AUTOTITLE](/get-started/writing-on-github/getting-started-with-writing-and-formatting-on-github/about-writing-and-formatting-on-github)"
-- "[AUTOTITLE](/get-started/writing-on-github/working-with-advanced-formatting)"
-- "[AUTOTITLE](/get-started/writing-on-github/getting-started-with-writing-and-formatting-on-github/quickstart-for-writing-on-github)"
+* [{% data variables.product.prodname_dotcom %} Flavored Markdown Spec](https://github.github.com/gfm/)
+* "[AUTOTITLE](/get-started/writing-on-github/getting-started-with-writing-and-formatting-on-github/about-writing-and-formatting-on-github)"
+* "[AUTOTITLE](/get-started/writing-on-github/working-with-advanced-formatting)"
+* "[AUTOTITLE](/get-started/writing-on-github/getting-started-with-writing-and-formatting-on-github/quickstart-for-writing-on-github)"

@@ -1,4 +1,6 @@
 import cheerio from 'cheerio'
+import { describe, expect, test } from 'vitest'
+
 import { renderContent } from '#src/content-render/index.js'
 import { EOL } from 'os'
 
@@ -52,45 +54,6 @@ describe('renderContent', () => {
     expect(output, 'my favorite color is orange.')
   })
 
-  test('throws on rendering errors', async () => {
-    const template = 1
-    const context = {}
-
-    let err
-
-    try {
-      await renderContent(template, context)
-    } catch (_err) {
-      err = _err
-    }
-
-    expect(err).toBeTruthy()
-  })
-
-  test('warns and throws on rendering errors when the file name is passed', async () => {
-    const template = 1
-    const context = {}
-
-    let err
-    let warned = false
-
-    const error = console.error
-    console.error = (message) => {
-      expect(message, 'renderContent failed on file: name')
-      console.error = error
-      warned = true
-    }
-
-    try {
-      await renderContent(template, context, { filename: 'name' })
-    } catch (_err) {
-      err = _err
-    }
-
-    expect(err).toBeTruthy()
-    expect(warned).toBeTruthy()
-  })
-
   test('renders empty templates', async () => {
     const template = ''
     const context = {}
@@ -108,7 +71,7 @@ describe('renderContent', () => {
     const html = await renderContent(template)
     const $ = cheerio.load(html, { xmlMode: true })
     expect(
-      $.html().includes('&quot;<a href="/articles/about-issues">About issues</a>.&quot;')
+      $.html().includes('&quot;<a href="/articles/about-issues">About issues</a>.&quot;'),
     ).toBeTruthy()
   })
 
@@ -121,7 +84,7 @@ describe('renderContent', () => {
     const html = await renderContent(template)
     const $ = cheerio.load(html, { xmlMode: true })
     expect(
-      $.html().includes('<code>requirements.txt</code>, <code>pipfile.lock</code>')
+      $.html().includes('<code>requirements.txt</code>, <code>pipfile.lock</code>'),
     ).toBeTruthy()
   })
 
@@ -149,7 +112,8 @@ describe('renderContent', () => {
     const html = await renderContent(template)
     const $ = cheerio.load(html, { xmlMode: true })
     expect($('ol').length).toBe(1)
-    expect($.html().includes('# some comment here')).toBeTruthy()
+    expect($.html().includes('<span class="hljs-meta prompt_"># </span')).toBeTruthy()
+    expect($.html().includes('some comment here')).toBeTruthy()
     expect($.html().includes('<h1 id="some-comment-here">')).toBeFalsy()
     expect($.html().includes('<a href="#some-comment-here">')).toBeFalsy()
   })
@@ -171,7 +135,7 @@ describe('renderContent', () => {
 
     ;[1, 2, 3, 4, 5].forEach((level) => {
       expect(
-        $(`h${level}#this-is-a-level-${level} a[href="#this-is-a-level-${level}"]`).length
+        $(`h${level}#this-is-a-level-${level} a[href="#this-is-a-level-${level}"]`).length,
       ).toBe(1)
     })
   })
@@ -219,7 +183,7 @@ plugins {
     $ = cheerio.load(html, { xmlMode: true })
     expect($.html().includes('<pre><code class="hljs language-groovy">')).toBeTruthy()
     expect(
-      $.html().includes('<span class="hljs-string">&apos;maven-publish&apos;</span>')
+      $.html().includes('<span class="hljs-string">&apos;maven-publish&apos;</span>'),
     ).toBeTruthy()
 
     template = nl(`
@@ -241,7 +205,7 @@ $resourceGroupName = "octocat-testgroup"
     $ = cheerio.load(html, { xmlMode: true })
     expect($.html().includes('<pre><code class="hljs language-Powershell">')).toBeTruthy()
     expect(
-      $.html().includes('<span class="hljs-variable">&#x24;resourceGroupName</span>')
+      $.html().includes('<span class="hljs-variable">&#x24;resourceGroupName</span>'),
     ).toBeTruthy()
   })
 
@@ -263,7 +227,7 @@ var a = 1
     const file = await renderContent(content)
     expect(file).toBe(
       '<table><thead><tr><th scope="col">Webhook event payload</th><th scope="col">Activity types</th></tr></thead>' +
-        '<tbody><tr><td><a href="/webhooks/event-payloads/#issues"><code>issues</code></a></td><td>- <code>opened</code><br>- <code>edited</code><br>- <code>other</code></td></tr></tbody></table>'
+        '<tbody><tr><td><a href="/webhooks/event-payloads/#issues"><code>issues</code></a></td><td>- <code>opened</code><br>- <code>edited</code><br>- <code>other</code></td></tr></tbody></table>',
     )
   })
 

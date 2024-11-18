@@ -1,10 +1,11 @@
 ---
-title: Dependency review
+title: REST API endpoints for dependency review
+shortTitle: Dependency review
 intro: Use the REST API to interact with dependency changes.
-versions:
+versions: # DO NOT MANUALLY EDIT. CHANGES WILL BE OVERWRITTEN BY A 🤖
   fpt: '*'
   ghec: '*'
-  ghes: '>=3.6'
+  ghes: '*'
 topics:
   - API
 allowTitleToDifferFromFilename: true

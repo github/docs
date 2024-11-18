@@ -11,7 +11,6 @@ redirect_from:
 versions:
   fpt: '*'
   ghes: '*'
-  ghae: '*'
   ghec: '*'
 topics:
   - Repositories
@@ -24,14 +23,14 @@ With the raw view, you can view or copy the raw content of a file without any st
 {% data reusables.repositories.navigate-to-repo %}
 1. Click the file that you want to view.
 1. In the upper-right corner of the file view, click **Raw**.
-{% ifversion code-search-code-view %}
+{% ifversion code-view-ui %}
 
    ![Screenshot of a file. In the header, a button, labeled "Raw," outlined in dark orange.](/assets/images/help/repository/raw-file-button.png)
 {% else %}
 
    ![Screenshot of a file. In the header, a button, labeled "Raw," outlined in dark orange.](/assets/images/enterprise/repository/raw-file-button.png)
 {% endif %}
-1. Optionally, to copy the raw file content, in the upper-right corner of the file view, click **{% octicon "copy" aria-label="Copy raw content" %}**. {% ifversion code-search-code-view %} To download the raw file, click **{% octicon "download" aria-label="Download raw file" %}**.{% endif %}
+1. Optionally, to copy the raw file content, in the upper-right corner of the file view, click **{% octicon "copy" aria-label="Copy raw content" %}**. {% ifversion code-view-ui %} To download the raw file, click **{% octicon "download" aria-label="Download raw file" %}**.{% endif %}
 
 ## Viewing the line-by-line revision history for a file
 
@@ -45,14 +44,14 @@ Within the blame view, you can view the line-by-line revision history for an ent
 
 {% data reusables.repositories.navigate-to-repo %}
 1. Click to open the file whose line history you want to view.
-{% ifversion code-search-code-view %}
+{% ifversion code-view-ui %}
 1. Above the file content, click **Blame**. This view gives you a line-by-line revision history, with the code in a file separated by commit. Each commit lists the author, commit description, and commit date.
 1. To see versions of a file before a particular commit, click {% octicon "versions" aria-label="View blame prior to this change" %}. Alternatively, to see more detail about a particular commit, click the commit message.
 
       ![Screenshot of a commit in the blame view. The commit message and versions icon are outlined in dark orange.](/assets/images/help/repository/code-view-blame-commit-options.png)
 
 1. To return to the raw code view, above the file content, click **Code**.
-   - If you are viewing a Markdown file, above the file content, you can also click **Preview** to return to the view with Markdown formatting applied.
+   * If you are viewing a Markdown file, above the file content, you can also click **Preview** to return to the view with Markdown formatting applied.
 {% else %}
 1. In the upper-right corner of the file view, click **Blame** to open the blame view.
 
@@ -62,8 +61,6 @@ Within the blame view, you can view the line-by-line revision history for an ent
    ![Screenshot of the "Blame" view of a file. To the right of a commit message, the versions icon is outlined in dark orange.](/assets/images/enterprise/repository/git-blame.png)
 {% endif %}
 
-{% ifversion blame-ignore-revs %}
-
 ## Ignore commits in the blame view
 
 All revisions specified in the `.git-blame-ignore-revs` file, which must be in the root directory of your repository, are hidden from the blame view using Git's `git blame --ignore-revs-file` configuration setting. For more information, see [`git blame --ignore-revs-file`](https://git-scm.com/docs/git-blame#Documentation/git-blame.txt---ignore-revs-fileltfilegt) in the Git documentation.
@@ -71,7 +68,7 @@ All revisions specified in the `.git-blame-ignore-revs` file, which must be in t
 1. In the root directory of your repository, create a file named `.git-blame-ignore-revs`.
 1. Add the commit hashes you want to exclude from the blame view to that file. We recommend the file to be structured as follows, including comments:
 
-    ```ini
+    ```shell
     # .git-blame-ignore-revs
     # Removed semi-colons from the entire codebase
     a8940f7fbddf7fad9d7d50014d4e8d46baf30592
@@ -102,8 +99,6 @@ You can also configure your local git so it always ignores the revs in that file
 ```shell
 git config blame.ignoreRevsFile .git-blame-ignore-revs
 ```
-
-{% endif %}
 
 ## Bypassing `.git-blame-ignore-revs` in the blame view
 

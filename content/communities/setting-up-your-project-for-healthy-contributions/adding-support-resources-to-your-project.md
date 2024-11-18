@@ -7,7 +7,6 @@ redirect_from:
 versions:
   fpt: '*'
   ghes: '*'
-  ghae: '*'
   ghec: '*'
 topics:
   - Community
@@ -16,13 +15,9 @@ shortTitle: Add support resources
 
 To direct people to specific support resources, you can add a SUPPORT file to your repository's root, `docs`, or `.github` folder. When someone creates an issue in your repository, they will see a link to your project's SUPPORT file.
 
-![Screenshot of the new issue form. In the right sidebar, in the "Helpful resources" section, a link labeled "Support" is outlined in dark orange.](/assets/images/help/issues/support_guidelines_in_issue.png)
-
-{% ifversion fpt or ghes or ghec %}
+![Screenshot of the new issue form. In the right sidebar, in the "Helpful resources" section, a link labeled "Support" is outlined in dark orange.](/assets/images/help/issues/support-guidelines-in-issue.png)
 
 You can create default support resources for your organization or personal account. For more information, see "[AUTOTITLE](/communities/setting-up-your-project-for-healthy-contributions/creating-a-default-community-health-file)."
-
-{% endif %}
 
 {% tip %}
 

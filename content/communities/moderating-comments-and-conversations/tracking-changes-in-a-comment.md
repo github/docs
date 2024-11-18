@@ -7,7 +7,6 @@ redirect_from:
 versions:
   fpt: '*'
   ghes: '*'
-  ghae: '*'
   ghec: '*'
 topics:
   - Community
@@ -37,4 +36,4 @@ When you delete sensitive information from the comment's edit history, the perso
 ## Further reading
 
 {% ifversion fpt or ghec %}- "[AUTOTITLE](/communities/maintaining-your-safety-on-github/reporting-abuse-or-spam)"{% endif %}
-- "[AUTOTITLE](/communities/moderating-comments-and-conversations/managing-disruptive-comments)"
+* "[AUTOTITLE](/communities/moderating-comments-and-conversations/managing-disruptive-comments)"

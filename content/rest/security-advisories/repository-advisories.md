@@ -1,9 +1,9 @@
 ---
-title: Repository security advisories
+title: REST API endpoints for repository security advisories
+shortTitle: Repository security advisories
 allowTitleToDifferFromFilename: true
-intro: >-
-  Use the REST API to view and manage repository security advisories.
-versions:
+intro: Use the REST API to view and manage repository security advisories.
+versions: # DO NOT MANUALLY EDIT. CHANGES WILL BE OVERWRITTEN BY A 🤖
   fpt: '*'
   ghec: '*'
 topics:

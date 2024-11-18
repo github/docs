@@ -1,7 +1,7 @@
 ---
 title: Deleting a GitHub App
 shortTitle: Delete your app
-intro: 'You can delete {% data variables.product.prodname_github_app %}s that you own if you no longer want to use or maintain the app.'
+intro: 'You can delete {% data variables.product.prodname_github_apps %} that you own if you no longer want to use or maintain the app.'
 redirect_from:
   - /apps/building-integrations/managing-github-apps/deleting-a-github-app
   - /apps/managing-github-apps/deleting-a-github-app
@@ -10,7 +10,6 @@ redirect_from:
 versions:
   fpt: '*'
   ghes: '*'
-  ghae: '*'
   ghec: '*'
 topics:
   - GitHub Apps
@@ -22,7 +21,7 @@ topics:
 
 {% endnote %}
 
-## About deleting {% data variables.product.prodname_github_app %}s
+## About deleting {% data variables.product.prodname_github_apps %}
 
 If you own a {% data variables.product.prodname_github_app %} or are an app manager for a {% data variables.product.prodname_github_app %}, you can delete the {% data variables.product.prodname_github_app %} registration. For more information about {% data variables.product.prodname_github_app %} managers, see "[AUTOTITLE](/apps/maintaining-github-apps/about-github-app-managers)."
 
@@ -32,7 +31,7 @@ When you delete a {% data variables.product.prodname_github_app %} registration,
 
 {% note %}
 
-**Note**: If your {% data variables.product.prodname_github_app %} is published on {% data variables.product.prodname_marketplace %}, you must contact {% data variables.product.company_short %} Support and ask them to remove your app from {% data variables.product.prodname_marketplace %} before you can delete your app. For more information, see "[AUTOTITLE](/apps/publishing-apps-to-github-marketplace/listing-an-app-on-github-marketplace/deleting-your-github-app-listing-from-github-marketplace)."
+**Note**: If your {% data variables.product.prodname_github_app %} is published on {% data variables.product.prodname_marketplace %}, you must remove your app from {% data variables.product.prodname_marketplace %} before you can delete your app. For more information, see "[AUTOTITLE](/apps/publishing-apps-to-github-marketplace/listing-an-app-on-github-marketplace/deleting-your-github-app-listing-from-github-marketplace)."
 
 {% endnote %}
 

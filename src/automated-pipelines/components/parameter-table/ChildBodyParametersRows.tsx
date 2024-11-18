@@ -1,6 +1,6 @@
 import cx from 'classnames'
 
-import { useTranslation } from 'components/hooks/useTranslation'
+import { useTranslation } from 'src/languages/components/useTranslation'
 import { ParameterRow } from './ParameterRow'
 import type { ChildParameter } from './types'
 
@@ -23,10 +23,10 @@ export function ChildBodyParametersRows({
   childParamsGroups,
   oneOfObject = false,
 }: Props) {
-  const { t } = useTranslation(['parameter_table', 'products'])
+  const { t } = useTranslation(['parameter_table'])
   return (
     <tr className={cx(styles.childBodyParametersRows, 'color-bg-subtle border-top-0')}>
-      <td colSpan={4} className="has-nested-table">
+      <td className="has-nested-table">
         <details className="box px-3 ml-1 mb-0" open={open}>
           <summary role="button" aria-expanded="false" className="mb-2 keyboard-focus">
             {oneOfObject ? (

@@ -1,3 +1,7 @@
+import cx from 'classnames'
+import styles from './Landings.module.scss'
+const { hoverShadowLarge } = styles
+
 type Props = {
   repo: {
     repo: string
@@ -8,7 +12,10 @@ type Props = {
 export const RepoCard = ({ repo, href }: Props) => {
   return (
     <a
-      className="Box d-flex height-full color-shadow-medium hover-shadow-large no-underline color-fg-default p-4"
+      className={cx(
+        'Box d-flex height-full color-shadow-medium no-underline color-fg-default p-4',
+        hoverShadowLarge,
+      )}
       href={href || `https://github.com/${repo.repo}`}
     >
       <div className="flex-shrink-0 mr-3">
@@ -19,7 +26,7 @@ export const RepoCard = ({ repo, href }: Props) => {
         />
       </div>
       <div className="flex-auto">
-        <h4>{repo.repo}</h4>
+        <h3 className="wb-break-word">{repo.repo}</h3>
         <p className="mt-1 color-fg-muted">{repo.description}</p>
       </div>
     </a>

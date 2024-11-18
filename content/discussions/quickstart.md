@@ -10,13 +10,13 @@ shortTitle: Quickstart
 
 ## Introduction
 
-{% data variables.product.prodname_discussions %} is a collaborative communication forum for the community around an open source or internal project. Discussions are for conversations that need to be transparent and accessible but do not need to be tracked on a project board and are not related to code, unlike {% data variables.product.prodname_github_issues %}. Discussions enable fluid, open conversation in a public forum.
+{% data variables.product.prodname_discussions %} is a collaborative communication forum for the community around an open source or internal project. Discussions are for conversations that need to be transparent and accessible but do not need to be tracked on a project and are not related to code, unlike {% data variables.product.prodname_github_issues %}. Discussions enable fluid, open conversation in a public forum.
 
 Discussions give a space for more collaborative conversations by connecting and giving a more centralized area to connect and find information.
 
 ## Enabling {% data variables.product.prodname_discussions %} on your repository
 
-Repository owners and people with write access can enable {% data variables.product.prodname_discussions %} for a community on their public{% ifversion ghes > 3.5 %}, internal{% endif %} and private repositories. The visibility of a discussion is inherited from the repository the discussion is created in.
+Repository owners and people with write access can enable {% data variables.product.prodname_discussions %} for a community on their public{% ifversion ghes %}, internal{% endif %} and private repositories. The visibility of a discussion is inherited from the repository the discussion is created in.
 
 When you first enable {% data variables.product.prodname_discussions %}, you will be invited to configure a welcome post.
 
@@ -24,7 +24,15 @@ When you first enable {% data variables.product.prodname_discussions %}, you wil
 1. Under your repository name, click {% octicon "gear" aria-label="The gear icon" %}
 **Settings**.
 
+{% ifversion global-nav-update %}
+
+   ![Screenshot of the tabs in a {% data variables.product.company_short %} repository. The "Settings" option is outlined in dark orange.](/assets/images/help/discussions/public-repo-settings-global-nav-update.png)
+
+{% else %}
+
    ![Screenshot of the tabs in a {% data variables.product.company_short %} repository. The "Settings" option is outlined in dark orange.](/assets/images/help/discussions/public-repo-settings.png)
+
+{% endif %}
 
 1. Scroll down to the "Features" section and click **Set up discussions**.
 

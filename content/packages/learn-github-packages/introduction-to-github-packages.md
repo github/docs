@@ -1,6 +1,6 @@
 ---
 title: Introduction to GitHub Packages
-intro: '{% data variables.product.prodname_registry %} is a software package hosting service that allows you to host your software packages privately {% ifversion ghae %} for specified users or internally for your enterprise{% else %}or publicly{% endif %} and use packages as dependencies in your projects.'
+intro: '{% data variables.product.prodname_registry %} is a software package hosting service that allows you to host your software packages privately or publicly and use packages as dependencies in your projects.'
 product: '{% data reusables.gated-features.packages %}'
 redirect_from:
   - /articles/about-github-package-registry
@@ -13,13 +13,11 @@ redirect_from:
 versions:
   fpt: '*'
   ghes: '*'
-  ghae: '*'
   ghec: '*'
 shortTitle: Introduction
 ---
 
 {% data reusables.package_registry.packages-ghes-release-stage %}
-{% data reusables.package_registry.packages-ghae-release-stage %}
 
 ## About {% data variables.product.prodname_registry %}
 
@@ -39,17 +37,7 @@ For more information about the configuration of {% data variables.product.prodna
 
 ### Overview of package permissions
 
-{% ifversion packages-registries-v2 %}
-
 The permissions for a package are either inherited from the repository where the package is hosted, or can be defined for specific users or organizations. Some registries only support permissions inherited from a repository. For a list of these registries, see "[AUTOTITLE](/packages/learn-github-packages/about-permissions-for-github-packages#permissions-for-repository-scoped-packages)." For more information on package access, see "[AUTOTITLE](/packages/learn-github-packages/configuring-a-packages-access-control-and-visibility)."
-
-{% else %}
-
-Each package inherits the permissions of the repository where the package is hosted.
-
-For example, anyone with read permissions for a repository can install a package as a dependency in a project, and anyone with write permissions can publish a new package version.
-
-{% endif %}
 
 ### Overview of package visibility
 
@@ -106,7 +94,7 @@ You can delete a package in the {% data variables.product.product_name %} user i
 
 When you use the GraphQL API to query and delete private packages, you must use the same {% data variables.product.pat_v1 %} you use to authenticate to {% data variables.product.prodname_registry %}.
 
-For more information, see {% ifversion ghes or ghae %}"[AUTOTITLE](/packages/learn-github-packages/deleting-and-restoring-a-package)" and {% endif %}"[AUTOTITLE](/graphql/guides/forming-calls-with-graphql)."
+For more information, see {% ifversion ghes %}"[AUTOTITLE](/packages/learn-github-packages/deleting-and-restoring-a-package)" and {% endif %}"[AUTOTITLE](/graphql/guides/forming-calls-with-graphql)."
 
 You can configure webhooks to subscribe to package-related events, such as when a package is published or updated. For more information, see the "[AUTOTITLE](/webhooks-and-events/webhooks/webhook-events-and-payloads#package)."
 
@@ -115,11 +103,11 @@ You can configure webhooks to subscribe to package-related events, such as when 
 {% ifversion fpt or ghec %}
 If you have feedback or feature requests for {% data variables.product.prodname_registry %}, use a [{% data variables.product.prodname_github_community %} discussion](https://github.com/orgs/community/discussions/categories/actions-and-packages).
 
-Contact {% data variables.contact.github_support %} about {% data variables.product.prodname_registry %} using [our contact form](https://support.github.com/contact?form%5Bsubject%5D=Re:%20GitHub%20Packages) if:
+Contact us through the {% data variables.contact.contact_support_portal %} about {% data variables.product.prodname_registry %} if:
 
-- You experience anything that contradicts the documentation
-- You encounter vague or unclear errors
-- Your published package contains sensitive data, such as GDPR violations, API Keys, or personally identifying information
+* You experience anything that contradicts the documentation
+* You encounter vague or unclear errors
+* Your published package contains sensitive data, such as GDPR violations, API Keys, or personally identifying information
 
 {% else %}
 If you need support for {% data variables.product.prodname_registry %}, please contact your site administrators.

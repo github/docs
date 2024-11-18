@@ -37,5 +37,5 @@ For applications to function, you must allow TCP ports 22, 80, and 443 via our I
 
 ## Further reading
 
-- "[AUTOTITLE](/get-started/using-github/troubleshooting-connectivity-problems)"
-- "[AUTOTITLE](/get-started/using-github/allowing-access-to-githubs-services-from-a-restricted-network)"
+* "[AUTOTITLE](/get-started/using-github/troubleshooting-connectivity-problems)"
+* "[AUTOTITLE](/get-started/using-github/allowing-access-to-githubs-services-from-a-restricted-network)"

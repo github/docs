@@ -16,21 +16,21 @@ The following GitHub Supplemental Terms (including any applicable Order Forms) s
 
 These Supplemental Terms apply to the following GitHub Offerings, as further defined below (collectively, the "**Products**"):
 
-- GitHub Enterprise (comprised of GitHub Enterprise Server, which may include Add-on Software, and GitHub Enterprise Cloud);
+* GitHub Enterprise (comprised of GitHub Enterprise Server, which may include Add-on Software, and GitHub Enterprise Cloud);
 
-- Any related Support; and
+* Any related Support; and
 
-- Any related Professional Services.
+* Any related Professional Services.
 
 These GitHub Supplemental Terms include the following Sections and Exhibits, each of which is incorporated by reference herein:
 
-- SECTION 1: GitHub Enterprise Server License Terms;
+* SECTION 1: GitHub Enterprise Server License Terms;
 
-- SECTION 2: GitHub Enterprise Cloud Terms of Service;
+* SECTION 2: GitHub Enterprise Cloud Terms of Service;
 
-- SECTION 3: General Provisions; and
+* SECTION 3: General Provisions; and
 
-- EXHIBIT A: Definitions.
+* EXHIBIT A: Definitions.
 
 ## SECTION 1: GITHUB ENTERPRISE SERVER LICENSE TERMS
 
@@ -102,7 +102,7 @@ In order to create an account, Customer must adhere to the following:
 
 #### 2.1.3 Account Security.
 
-Customer is responsible for: (i) all Content posted and activity that occurs under its Corporate Account; (ii) maintaining the security of its account login credentials; and (iii) promptly [notifying GitHub](https://support.github.com/contact?tags=docs-policy) upon becoming aware of any unauthorized use of, or access to, the Service through its account.  GitHub will not be liable for any loss or damage from Customer’s failure to comply with this Section 2.1.3.
+Customer is responsible for: (i) all Content posted and activity that occurs under its Corporate Account; (ii) maintaining the security of its account login credentials; and (iii) promptly notifying GitHub using the contact form available at [GitHub Support](https://support.github.com/) upon becoming aware of any unauthorized use of, or access to, the Service through its account.  GitHub will not be liable for any loss or damage from Customer’s failure to comply with this Section 2.1.3.
 
 #### 2.1.4 Additional Terms.
 
@@ -178,7 +178,7 @@ If GitHub has reason to believe the Content of a Private Repository is in violat
 
 #### 2.5.1 GitHub's Rights to Content.
 
-The look and feel of the Service is copyright © GitHub, Inc. All rights reserved. Customer may not duplicate, copy, or reuse any portion of the HTML/CSS, Javascript, or visual design elements or concepts without express written permission from GitHub.
+The look and feel of the Service is copyright © GitHub, Inc. All rights reserved. Customer may not duplicate, copy, or reuse any portion of the HTML/CSS, JavaScript, or visual design elements or concepts without express written permission from GitHub.
 
 #### 2.5.2 Copyright Infringement and DMCA Policy.
 

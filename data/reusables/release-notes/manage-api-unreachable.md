@@ -6,4 +6,4 @@ sudo chown -R ghes-manage-gateway:ghes-manage-gateway /data/ghes-manage-gateway/
 sudo systemctl restart ghes-manage-gateway ghes-manage-gateway-consul
 ```
 
-For more information about the Manage GitHub Enterprise Server API, see "[Manage GitHub Enterprise Server](/rest/enterprise-admin/manage-ghes?apiVersion=2022-11-28)" in the REST API documentation. [Updated: 2023-06-22]
+For more information about the Manage GitHub Enterprise Server API, see "[Manage GitHub Enterprise Server](/rest/enterprise-admin/manage-ghes?apiVersion=2022-11-28)."

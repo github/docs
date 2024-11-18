@@ -1,8 +1,9 @@
 ---
-title: Announcement
+title: REST API endpoints for global announcements
+shortTitle: Announcement
+allowTitleToDifferFromFilename: true
 intro: Use the REST API to manage the global announcement banner in your enterprise.
-versions:
-  ghae: '*'
+versions: # DO NOT MANUALLY EDIT. CHANGES WILL BE OVERWRITTEN BY A 🤖
   ghes: '*'
 topics:
   - API

@@ -9,7 +9,6 @@ product: '{% data reusables.gated-features.pages %}'
 versions:
   fpt: '*'
   ghes: '*'
-  ghae: '*'
   ghec: '*'
 topics:
   - Pages
@@ -36,4 +35,4 @@ shortTitle: Create custom 404 page
 
 ## Further reading
 
-- [Front matter](https://jekyllrb.com/docs/frontmatter) in the Jekyll documentation
+* [Front matter](https://jekyllrb.com/docs/frontmatter) in the Jekyll documentation
