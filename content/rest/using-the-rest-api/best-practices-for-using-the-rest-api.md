@@ -17,8 +17,11 @@ shortTitle: Best practices
 
 {% ifversion ghes %}
 
-> [!NOTE]
-> Rate limits are only enabled for your instance if your site administrator has enabled them. Even if rate limits are disabled for your instance, you may still want to follow the best practices that are intended to help you avoid exceeding the rate limit. This can help reduce load on your servers.
+{% note %}
+
+**Note**: Rate limits are only enabled for your instance if your site administrator has enabled them. Even if rate limits are disabled for your instance, you may still want to follow the best practices that are intended to help you avoid exceeding the rate limit. This can help reduce load on your servers.
+
+{% endnote %}
 
 {% endif %}
 

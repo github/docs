@@ -14,9 +14,11 @@ topics:
   - Pull requests
 shortTitle: Change the base branch
 ---
+{% warning %}
 
-> [!WARNING]
-> When you change the base branch of your pull request, some commits may be removed from the timeline. Review comments may also become outdated, as the line of code that the comment referenced may no longer be part of the changes in the pull request.
+**Warning**: When you change the base branch of your pull request, some commits may be removed from the timeline. Review comments may also become outdated, as the line of code that the comment referenced may no longer be part of the changes in the pull request.
+
+{% endwarning %}
 
 {% data reusables.repositories.sidebar-pr %}
 1. In the "Pull Requests" list, click the pull request you'd like to modify.
@@ -30,8 +32,11 @@ shortTitle: Change the base branch
 
 1. Read the information about changing the base branch and click **Change base**.
 
-> [!TIP]
-> When you open a pull request, {% data variables.product.product_name %} will set the base to the commit that branch references. If the branch is updated in the future, {% data variables.product.product_name %} will not update the base branch's commit.
+{% tip %}
+
+**Tip:** When you open a pull request, {% data variables.product.product_name %} will set the base to the commit that branch references. If the branch is updated in the future, {% data variables.product.product_name %} will not update the base branch's commit.
+
+{% endtip %}
 
 ## Further reading
 

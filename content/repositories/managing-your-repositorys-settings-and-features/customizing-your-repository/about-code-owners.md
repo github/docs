@@ -55,11 +55,14 @@ To reduce the size of your CODEOWNERS file, consider using wildcard patterns to 
 
 ## CODEOWNERS syntax
 
-> [!WARNING]
-> There are some syntax rules for gitignore files that _do not work_ in CODEOWNERS files:
-> * Escaping a pattern starting with `#` using `\` so it is treated as a pattern and not a comment doesn't work
-> * Using `!` to negate a pattern doesn't work
-> * Using `[ ]` to define a character range doesn't work
+{% warning %}
+
+**Warning:** There are some syntax rules for gitignore files that _do not work_ in CODEOWNERS files:
+* Escaping a pattern starting with `#` using `\` so it is treated as a pattern and not a comment doesn't work
+* Using `!` to negate a pattern doesn't work
+* Using `[ ]` to define a character range doesn't work
+
+{% endwarning %}
 
 A CODEOWNERS file uses a pattern that follows most of the same rules used in [gitignore](https://git-scm.com/docs/gitignore#_pattern_format) files. The pattern is followed by one or more {% data variables.product.prodname_dotcom %} usernames or team names using the standard `@username` or `@org/team-name` format. Users and teams must have explicit `write` access to the repository, even if the team's members already have access.
 
@@ -149,14 +152,17 @@ apps/ @octocat
 
 Repository owners can update branch protection rules to ensure that changed code is reviewed by the owners of the changed files. Edit your branch protection rule and enable the option "Require review from Code Owners". For more information, see "[AUTOTITLE](/repositories/configuring-branches-and-merges-in-your-repository/managing-protected-branches/about-protected-branches)."
 
-> [!NOTE]
-> When reviews from code owners are required, an approval from _any_ of the owners is sufficient to meet this requirement. For example, let's say that your CODEOWNERS file contains the following line:
->
-> ```text
-> *.js     @global-owner1 @global-owner2
-> ```
->
-> This means that changes to JavaScript files could be approved by either `@global-owner1` _or_ `@global-owner2`, but approvals from _both_ are not required.
+{% note %}
+
+**Note:** When reviews from code owners are required, an approval from _any_ of the owners is sufficient to meet this requirement. For example, let's say that your CODEOWNERS file contains the following line:
+
+```text
+*.js     @global-owner1 @global-owner2
+```
+
+This means that changes to JavaScript files could be approved by either `@global-owner1` _or_ `@global-owner2`, but approvals from _both_ are not required.
+
+{% endnote %}
 
 To protect a repository fully against unauthorized changes, you also need to define an owner for the CODEOWNERS file itself. The most secure method is to define a CODEOWNERS file in the `.github` directory of the repository and define the repository owner as the owner of either the CODEOWNERS file (``/.github/CODEOWNERS @owner_username``) or the whole directory (``/.github/ @owner_username``).
 

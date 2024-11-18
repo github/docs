@@ -42,8 +42,11 @@ When you convert an organization member to an outside collaborator, their privil
 
 ## Converting an organization member to an outside collaborator
 
-> [!NOTE]
-> You may not be able to convert an organization member to an outside collaborator, if an organization owner{% ifversion not fpt %} or enterprise owner{% endif %} has restricted your ability to add outside collaborators.
+{% note %}
+
+**Note:** You may not be able to convert an organization member to an outside collaborator, if an organization owner{% ifversion not fpt %} or enterprise owner{% endif %} has restricted your ability to add outside collaborators.
+
+{% endnote %}
 
 {% data reusables.profile.access_org %}
 {% data reusables.user-settings.access_org %}

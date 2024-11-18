@@ -38,8 +38,11 @@ When creating a topic:
 
 ## Adding topics to your repository
 
-> [!NOTE]
-> Topic names are always public, even if you create the topic from within a private repository.
+{% note %}
+
+**Note:** Topic names are always public, even if you create the topic from within a private repository.
+
+{% endnote %}
 
 {% data reusables.repositories.navigate-to-repo %}
 1. In the top right corner of the page, to the right of "About", click {% octicon "gear" aria-label="Edit repository metadata" %}.

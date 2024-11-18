@@ -21,8 +21,11 @@ shortTitle: Access organization settings
 ---
 {% ifversion fpt or ghec %}
 
-> [!TIP]
-> Only organization owners and billing managers can see and change the billing information and the full set of account settings for an organization. Organization moderators only see moderation settings. {% data reusables.organizations.new-org-permissions-more-info %}
+{% tip %}
+
+**Tip:** Only organization owners and billing managers can see and change the billing information and the full set of account settings for an organization. Organization moderators only see moderation settings. {% data reusables.organizations.new-org-permissions-more-info %}
+
+{% endtip %}
 
 {% endif %}
 

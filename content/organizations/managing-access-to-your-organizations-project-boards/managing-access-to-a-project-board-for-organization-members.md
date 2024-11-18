@@ -19,8 +19,11 @@ By default, organization members have write access to their organization's {% da
 
 ## Setting a baseline permission level for all organization members
 
-> [!TIP]
-> You can give an organization member higher permissions to {% data variables.projects.projects_v1_board %}. For more information, see "[AUTOTITLE](/organizations/managing-access-to-your-organizations-project-boards/project-board-permissions-for-an-organization)."
+{% tip %}
+
+**Tip:** You can give an organization member higher permissions to {% data variables.projects.projects_v1_board %}. For more information, see "[AUTOTITLE](/organizations/managing-access-to-your-organizations-project-boards/project-board-permissions-for-an-organization)."
+
+{% endtip %}
 
 {% data reusables.profile.access_org %}
 {% data reusables.user-settings.access_org %}

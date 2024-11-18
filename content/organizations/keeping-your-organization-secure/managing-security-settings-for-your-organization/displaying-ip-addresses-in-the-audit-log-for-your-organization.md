@@ -13,8 +13,11 @@ topics:
   - Security
 ---
 
-> [!NOTE]
-> Displaying IP addresses in the audit log for an organization is in {% data variables.release-phases.public_preview %} and subject to change.
+{% note %}
+
+**Note:** Displaying IP addresses in the audit log for an organization is in {% data variables.release-phases.public_preview %} and subject to change.
+
+{% endnote %}
 
 ## About display of IP addresses in the audit log
 

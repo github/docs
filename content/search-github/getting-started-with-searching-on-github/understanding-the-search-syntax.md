@@ -16,10 +16,11 @@ shortTitle: Understand search syntax
 ---
 
 {% ifversion code-search-upgrade %}
+  {% note %}
 
-> [!NOTE]
-> The syntax below applies to non-code search. For more information on code search syntax, see "[AUTOTITLE](/search-github/github-code-search/understanding-github-code-search-syntax)."
+  **Note:** The syntax below applies to non-code search. For more information on code search syntax, see "[AUTOTITLE](/search-github/github-code-search/understanding-github-code-search-syntax)."
 
+  {% endnote %}
 {% endif %}
 
 ## Query for values greater or less than another value

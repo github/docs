@@ -8,8 +8,11 @@ topics:
   - Education
 ---
 
-> [!NOTE]
-> The below Educational Use Agreement is related to the GitHub Campus Program Partner Schools, also found [here](https://education.github.com/schools/terms), and is considered the program terms and conditions.<!-- markdownlint-disable-line no-generic-link-text -->
+{% note %}
+
+**Note:** The below Educational Use Agreement is related to the GitHub Campus Program Partner Schools, also found [here](https://education.github.com/schools/terms), and is considered the program terms and conditions.<!-- markdownlint-disable-line no-generic-link-text -->
+
+{% endnote %}
 
 ## EDUCATIONAL USE AGREEMENT
 

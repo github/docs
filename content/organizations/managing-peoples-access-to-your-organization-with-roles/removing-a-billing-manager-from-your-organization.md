@@ -14,8 +14,11 @@ topics:
 shortTitle: Remove billing manager
 ---
 
-> [!NOTE]
-> {% data reusables.dotcom_billing.org-billing-perms %}
+{% warning %}
+
+**Note:** {% data reusables.dotcom_billing.org-billing-perms %}
+
+{% endwarning %}
 
 {% data reusables.organizations.billing-settings %}
 1. Under "Billing management", in the "Billing managers" list, next to the name of the person you want to remove, click **Remove**.

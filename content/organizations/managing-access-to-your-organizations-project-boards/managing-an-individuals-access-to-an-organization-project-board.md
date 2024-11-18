@@ -16,8 +16,11 @@ allowTitleToDifferFromFilename: true
 
 {% data reusables.projects.project_boards_old %}
 
-> [!NOTE]
-> {% data reusables.project-management.cascading-permissions %} For more information, see "[AUTOTITLE](/organizations/managing-access-to-your-organizations-project-boards/project-board-permissions-for-an-organization)."
+{% note %}
+
+**Note:** {% data reusables.project-management.cascading-permissions %} For more information, see "[AUTOTITLE](/organizations/managing-access-to-your-organizations-project-boards/project-board-permissions-for-an-organization)."
+
+{% endnote %}
 
 ## Giving an organization member access to a {% data variables.projects.projects_v1_board %}
 

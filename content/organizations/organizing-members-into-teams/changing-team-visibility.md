@@ -15,8 +15,11 @@ topics:
 
 {% data reusables.organizations.types-of-team-visibility %}
 
-> [!TIP]
-> If a team has [child or parent teams](/organizations/organizing-members-into-teams/about-teams), you cannot make it a secret team.
+{% tip %}
+
+**Tip:** If a team has [child or parent teams](/organizations/organizing-members-into-teams/about-teams), you cannot make it a secret team.
+
+{% endtip %}
 
 {% data reusables.profile.access_org %}
 {% data reusables.user-settings.access_org %}

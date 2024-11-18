@@ -140,11 +140,17 @@ To authenticate your request, you will need to provide an authentication token w
 
 For an example of a request that uses an authentication token, see "[Making a request](#making-a-request)."
 
-> [!NOTE]
-> If you don't want to create a token, you can use {% data variables.product.prodname_cli %}. {% data variables.product.prodname_cli %} will take care of authentication for you, and help keep your account secure. For more information, see the [{% data variables.product.prodname_cli %} version of this page](/rest/guides/getting-started-with-the-rest-api?tool=cli).
+{% note %}
 
-> [!WARNING]
-> Treat your access token the same way you would treat your passwords or other sensitive credentials. For more information, see "[AUTOTITLE](/rest/overview/keeping-your-api-credentials-secure)."
+**Note:** If you don't want to create a token, you can use {% data variables.product.prodname_cli %}. {% data variables.product.prodname_cli %} will take care of authentication for you, and help keep your account secure. For more information, see the [{% data variables.product.prodname_cli %} version of this page](/rest/guides/getting-started-with-the-rest-api?tool=cli).
+
+{% endnote %}
+
+{% warning %}
+
+**Warning:** Treat your access token the same way you would treat your passwords or other sensitive credentials. For more information, see "[AUTOTITLE](/rest/overview/keeping-your-api-credentials-secure)."
+
+{% endwarning %}
 
 {% endcurl %}
 
@@ -160,8 +166,11 @@ To authenticate your request, you will need to provide an authentication token w
 
 For an example of a request that uses an authentication token, see "[Making a request](#making-a-request)."
 
-> [!WARNING]
-> Treat your access token the same way you would treat your passwords or other sensitive credentials. For more information, see "[AUTOTITLE](/rest/overview/keeping-your-api-credentials-secure)."
+{% warning %}
+
+**Warning:** Treat your access token the same way you would treat your passwords or other sensitive credentials. For more information, see "[AUTOTITLE](/rest/overview/keeping-your-api-credentials-secure)."
+
+{% endwarning %}
 
 {% endjavascript %}
 
@@ -351,8 +360,11 @@ curl --request GET \
 
 The following example uses the "[Create an issue](/rest/issues/issues#create-an-issue)" endpoint to create a new issue in {% ifversion ghes %}a specified{% else %}the octocat/Spoon-Knife{% endif %} repository.{% ifversion ghes %} Replace `HOSTNAME` with the name of {% data variables.location.product_location %}. Replace `REPO-NAME` with the name of the repository where you want to create a new issue, and replace `REPO-OWNER` with the name of the account that owns the repository.{% endif %} Replace `YOUR-TOKEN` with the authentication token you created in a previous step.
 
-> [!NOTE]
-> If you are using a {% data variables.product.pat_v2 %}, you must replace `{% ifversion ghes %}REPO-OWNER` and `REPO-NAME{% else %}octocat/Spoon-Knife{% endif %}` with a repository that you own or that is owned by an organization that you are a member of. Your token must have access to that repository and have read and write permissions for repository issues. For more information, see "[AUTOTITLE](/authentication/keeping-your-account-and-data-secure/creating-a-personal-access-token)."
+{% note %}
+
+**Note**: If you are using a {% data variables.product.pat_v2 %}, you must replace `{% ifversion ghes %}REPO-OWNER` and `REPO-NAME{% else %}octocat/Spoon-Knife{% endif %}` with a repository that you own or that is owned by an organization that you are a member of. Your token must have access to that repository and have read and write permissions for repository issues. For more information, see "[AUTOTITLE](/authentication/keeping-your-account-and-data-secure/creating-a-personal-access-token)."
+
+{% endnote %}
 
 ```shell copy
 curl \
@@ -413,8 +425,11 @@ Create an access token to authenticate your request. You can save your token and
 
    In the following example request, the HTTP method is `POST`, the path is `/repos/{owner}/{repo}/issues`, the path parameters are `owner: "{% ifversion ghes %}REPO-OWNER{% else %}octocat{% endif %}"` and `repo: "{% ifversion ghes %}REPO-NAME{% else %}Spoon-Knife{% endif %}"`, and the body parameters are `title: "Created with the REST API"` and `body: "This is a test issue created by the REST API"`.{% ifversion ghes %} Replace `REPO-OWNER` with the name of the account that owns the repository, and `REPO-NAME` with the name of the repository.{% endif %}
 
-   > [!NOTE]
-   > If you are using a {% data variables.product.pat_v2 %}, you must replace `{% ifversion ghes %}REPO-OWNER` and `REPO-NAME{% else %}octocat/Spoon-Knife{% endif %}` with a repository that you own or that is owned by an organization that you are a member of. Your token must have access to that repository and have read and write permissions for repository issues. For more information, see "[AUTOTITLE](/authentication/keeping-your-account-and-data-secure/creating-a-personal-access-token)."
+   {% note %}
+
+   **Note**: If you are using a {% data variables.product.pat_v2 %}, you must replace `{% ifversion ghes %}REPO-OWNER` and `REPO-NAME{% else %}octocat/Spoon-Knife{% endif %}` with a repository that you own or that is owned by an organization that you are a member of. Your token must have access to that repository and have read and write permissions for repository issues. For more information, see "[AUTOTITLE](/authentication/keeping-your-account-and-data-secure/creating-a-personal-access-token)."
+
+   {% endnote %}
 
    ```javascript copy
    await octokit.request("POST /repos/{owner}/{repo}/issues", {

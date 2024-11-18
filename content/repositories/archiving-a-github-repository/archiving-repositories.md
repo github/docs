@@ -19,17 +19,19 @@ topics:
 ## About repository archival
 
 {% ifversion fpt or ghec %}
+{% note %}
 
-> [!NOTE]
-> If you have a legacy per-repository billing plan, you will still be charged for your archived repository. If you don't want to be charged for an archived repository, you must upgrade to a new product. For more information, see "[AUTOTITLE](/get-started/learning-about-github/githubs-plans)."
+**Note:** If you have a legacy per-repository billing plan, you will still be charged for your archived repository. If you don't want to be charged for an archived repository, you must upgrade to a new product. For more information, see "[AUTOTITLE](/get-started/learning-about-github/githubs-plans)."
 
+{% endnote %}
 {% endif %}
 
 {% ifversion ghec or ghes %}
+{% note %}
 
-> [!NOTE]
-> Customers who use {% data variables.product.prodname_GH_advanced_security %} can enable {% data variables.product.prodname_secret_scanning %} on archived repositories. For more information, see "[AUTOTITLE](/code-security/secret-scanning/introduction/about-secret-scanning)."
+**Note:** Customers who use {% data variables.product.prodname_GH_advanced_security %} can enable {% data variables.product.prodname_secret_scanning %} on archived repositories. For more information, see "[AUTOTITLE](/code-security/secret-scanning/introduction/about-secret-scanning)."
 
+{% endnote %}
 {% endif %}
 
 {% data reusables.repositories.archiving-repositories-recommendation %}

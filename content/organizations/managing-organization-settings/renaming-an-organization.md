@@ -14,8 +14,11 @@ topics:
   - Teams
 ---
 
-> [!TIP]
-> Only organization owners can rename an organization. {% data reusables.organizations.new-org-permissions-more-info %}
+{% tip %}
+
+**Tip:** Only organization owners can rename an organization. {% data reusables.organizations.new-org-permissions-more-info %}
+
+{% endtip %}
 
 ## What happens when I change my organization's name?
 

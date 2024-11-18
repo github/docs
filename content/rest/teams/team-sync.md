@@ -19,7 +19,10 @@ To use these endpoints, the authenticated user must be a team maintainer or an o
 
 You can manage {% data variables.product.product_name %} team members through your IdP with team synchronization. Team synchronization must be enabled to use these endpoints. For more information, see "[AUTOTITLE](/enterprise-cloud@latest/organizations/managing-saml-single-sign-on-for-your-organization/managing-team-synchronization-for-your-organization)."
 
-> [!NOTE]
-> These endpoints cannot be used with {% data variables.product.prodname_emus %}. To learn more about managing an {% data variables.enterprise.prodname_emu_org %}, see "[AUTOTITLE](/enterprise-cloud@latest/rest/teams/external-groups)".
+{% note %}
+
+**Note:** These endpoints cannot be used with {% data variables.product.prodname_emus %}. To learn more about managing an {% data variables.enterprise.prodname_emu_org %}, see "[AUTOTITLE](/enterprise-cloud@latest/rest/teams/external-groups)".
+
+{% endnote %}
 
 <!-- Content after this section is automatically generated -->

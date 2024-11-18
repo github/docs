@@ -102,16 +102,19 @@ You can use Octokit.js to interact with the {% data variables.product.prodname_d
 
 1. Create an access token. For example, create a {% data variables.product.pat_generic %} or a {% data variables.product.prodname_github_app %} user access token. You will use this token to authenticate your request, so you should give it any scopes or permissions that are required to access that endpoint. For more information, see "[AUTOTITLE](/rest/overview/authenticating-to-the-rest-api)" or "[Identifying and authorizing users for GitHub Apps](/developers/apps/building-github-apps/identifying-and-authorizing-users-for-github-apps)."
 
-   > [!WARNING]
-   > Treat your access token like a password.
-   >
-   > To keep your token secure, you can store your token as a secret and run your script through {% data variables.product.prodname_actions %}. For more information, see the "[Using Octokit.js in {% data variables.product.prodname_actions %}](#using-octokitjs-in-github-actions)" section.
+   {% warning %}
+
+   **Warning**: Treat your access token like a password.
+
+   To keep your token secure, you can store your token as a secret and run your script through {% data variables.product.prodname_actions %}. For more information, see the "[Using Octokit.js in {% data variables.product.prodname_actions %}](#using-octokitjs-in-github-actions)" section.
+
    {%- ifversion fpt or ghec %}
-   >
-   You can also store your token as a {% data variables.product.prodname_codespaces %} secret and run your script in {% data variables.product.prodname_codespaces %}. For more information, see "[Managing encrypted secrets for your codespaces](/codespaces/managing-your-codespaces/managing-encrypted-secrets-for-your-codespaces)."
-   {% endif %}
-   >
-   > If these options are not possible, consider using another CLI service to store your token securely.
+
+   You can also store your token as a {% data variables.product.prodname_codespaces %} secret and run your script in {% data variables.product.prodname_codespaces %}. For more information, see "[Managing encrypted secrets for your codespaces](/codespaces/managing-your-codespaces/managing-encrypted-secrets-for-your-codespaces)."{% endif %}
+
+   If these options are not possible, consider using another CLI service to store your token securely.
+
+   {% endwarning %}
 
 1. Install `octokit`. For example, `npm install octokit`. For other ways to install or load `octokit`, see [the Octokit.js README](https://github.com/octokit/octokit.js/#readme).
 1. Import `octokit` in your script. For example, `import { Octokit } from "octokit";`. For other ways to import `octokit`, see [the Octokit.js README](https://github.com/octokit/octokit.js/#readme).
@@ -256,23 +259,29 @@ If you are authenticating with a {% data variables.product.prodname_github_app %
 
 ## Using `curl` in the command line
 
-> [!NOTE]
-> If you want to make API requests from the command line, {% data variables.product.prodname_dotcom %} recommends that you use {% data variables.product.prodname_cli %}, which simplifies authentication and requests. For more information about getting started with the REST API using {% data variables.product.prodname_cli %}, see the {% data variables.product.prodname_cli %} version of this article.
+{% note %}
+
+**Note:** If you want to make API requests from the command line, {% data variables.product.prodname_dotcom %} recommends that you use {% data variables.product.prodname_cli %}, which simplifies authentication and requests. For more information about getting started with the REST API using {% data variables.product.prodname_cli %}, see the {% data variables.product.prodname_cli %} version of this article.
+
+{% endnote %}
 
 1. Install `curl` if it isn't already installed on your machine. To check if `curl` is installed, execute `curl --version` in the command line. If the output provides information about the version of `curl`, that means `curl` is installed. If you get a message similar to `command not found: curl`, you need to download and install `curl`. For more information, see [the curl project download page](https://curl.se/download.html).
 
 1. Create an access token. For example, create a {% data variables.product.pat_generic %} or a {% data variables.product.prodname_github_app %} user access token. You will use this token to authenticate your request, so you should give it any scopes or permissions that are required to access the endpoint. For more information, see "[AUTOTITLE](/rest/overview/authenticating-to-the-rest-api)."
 
-   > [!WARNING]
-   > Treat your access token like a password.
+   {% warning %}
+
+   **Warning**: Treat your access token like a password.
+
    {%- ifversion fpt or ghec %}
-   >
-   > To keep your token secure, you can store your token as a {% data variables.product.prodname_codespaces %} secret and use the command line through {% data variables.product.prodname_codespaces %}. For more information, see "[Managing encrypted secrets for your codespaces](/codespaces/managing-your-codespaces/managing-encrypted-secrets-for-your-codespaces)."
-   {% endif %}
-   >
-   > You can also use {% data variables.product.prodname_cli %} instead of `curl`. {% data variables.product.prodname_cli %} will take care of authentication for you. For more information, see the {% data variables.product.prodname_cli %} version of this page.
-   >
-   > If these options are not possible, consider using another CLI service to store your token securely.
+
+   To keep your token secure, you can store your token as a {% data variables.product.prodname_codespaces %} secret and use the command line through {% data variables.product.prodname_codespaces %}. For more information, see "[Managing encrypted secrets for your codespaces](/codespaces/managing-your-codespaces/managing-encrypted-secrets-for-your-codespaces)."{% endif %}
+
+   You can also use {% data variables.product.prodname_cli %} instead of `curl`. {% data variables.product.prodname_cli %} will take care of authentication for you. For more information, see the {% data variables.product.prodname_cli %} version of this page.
+
+   If these options are not possible, consider using another CLI service to store your token securely.
+
+   {% endwarning %}
 
 1. Use the `curl` command to make your request. Pass your token in an `Authorization` header.{% ifversion ghes %} Replace `HOSTNAME` with the name of {% data variables.location.product_location %}. Replace `REPO-OWNER` with the name of the account that owns the repository. Replace `REPO-NAME` with the name of the repository.{% endif %} Replace `YOUR-TOKEN` with your token.
 
@@ -283,8 +292,11 @@ If you are authenticating with a {% data variables.product.prodname_github_app %
    --header "Authorization: Bearer YOUR-TOKEN"
    ```
 
-   > [!NOTE]
-   > {% data reusables.getting-started.bearer-vs-token %}
+   {% note %}
+
+   **Note:** {% data reusables.getting-started.bearer-vs-token %}
+
+   {% endnote %}
 
 ## Using `curl` commands in {% data variables.product.prodname_actions %}
 

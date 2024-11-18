@@ -22,9 +22,15 @@ topics:
   - Support
 ---
 
-> [!NOTE]
-> * The terms of {% data variables.contact.premium_support %} are subject to change without notice and are effective as of November 2021.
-> * {% data reusables.support.data-protection-and-privacy %}
+{% note %}
+
+**Notes:**
+
+* The terms of {% data variables.contact.premium_support %} are subject to change without notice and are effective as of November 2021.
+
+* {% data reusables.support.data-protection-and-privacy %}
+
+{% endnote %}
 
 ## About {% data variables.contact.premium_support %}
 
@@ -56,8 +62,11 @@ Incident management | None | For urgent priority tickets, as needed
 
 {% endrowheaders %}
 
-  > [!NOTE]
-  > Enterprise owners and billing managers automatically have a support entitlement. Enterprise owners can add support entitlements to members of organizations owned by their enterprise account. For more information, see "[AUTOTITLE](/enterprise-cloud@latest/admin/user-management/managing-users-in-your-enterprise/managing-support-entitlements-for-your-enterprise)."
+  {% note %}
+
+  **Note:** Enterprise owners and billing managers automatically have a support entitlement. Enterprise owners can add support entitlements to members of organizations owned by their enterprise account. For more information, see "[AUTOTITLE](/enterprise-cloud@latest/admin/user-management/managing-users-in-your-enterprise/managing-support-entitlements-for-your-enterprise)."
+
+  {% endnote %}
 
 ## Billing for {% data variables.contact.premium_support %}
 

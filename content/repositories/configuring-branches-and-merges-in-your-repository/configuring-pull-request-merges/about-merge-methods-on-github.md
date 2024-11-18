@@ -16,10 +16,11 @@ shortTitle: About merge methods
 {% data reusables.pull_requests.configure_pull_request_merges_intro %} You can enforce one type of merge method, such as commit squashing or rebasing, by only enabling the desired method for your repository.
 
 {% ifversion merge-queue %}
+{% note %}
 
-> [!NOTE]
-> When using the merge queue, you no longer get to choose the merge method, as this is controlled by the queue. {% data reusables.pull_requests.merge-queue-references %}
+**Note:** When using the merge queue, you no longer get to choose the merge method, as this is controlled by the queue. {% data reusables.pull_requests.merge-queue-references %}
 
+{% endnote %}
 {% endif %}
 
 {% data reusables.pull_requests.default_merge_option %}

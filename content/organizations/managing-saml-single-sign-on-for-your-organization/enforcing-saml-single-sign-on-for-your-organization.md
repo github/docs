@@ -26,8 +26,11 @@ Bots and service accounts that do not have external identities set up in your or
 
 If your organization is owned by an enterprise account, requiring SAML for the enterprise account will override your organization-level SAML configuration and enforce SAML SSO for every organization in the enterprise. For more information, see "[AUTOTITLE](/enterprise-cloud@latest/admin/identity-and-access-management/using-saml-for-enterprise-iam/configuring-saml-single-sign-on-for-your-enterprise)."
 
-> [!TIP]
-> {% data reusables.saml.testing-saml-sso %}
+{% tip %}
+
+**Tip:** {% data reusables.saml.testing-saml-sso %}
+
+{% endtip %}
 
 ## Enforcing SAML SSO for your organization
 

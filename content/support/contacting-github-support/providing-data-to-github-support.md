@@ -100,8 +100,11 @@ For more information, see "[AUTOTITLE](/admin/monitoring-activity-in-your-enterp
 
 Support bundles include logs from the past two days by default. You can specify an exact duration in days. To provide logs from the past eight days, you can download an extended support bundle. For more information, see "[Creating and sharing extended support bundles](#creating-and-sharing-extended-support-bundles)."
 
-> [!TIP]
-> When you contact {% data variables.contact.github_support %}, you'll be sent a confirmation email that will contain a ticket reference link. If {% data variables.contact.github_support %} asks you to upload a support bundle, you can use the ticket reference link to upload the support bundle.
+{% tip %}
+
+**Tip:** When you contact {% data variables.contact.github_support %}, you'll be sent a confirmation email that will contain a ticket reference link. If {% data variables.contact.github_support %} asks you to upload a support bundle, you can use the ticket reference link to upload the support bundle.
+
+{% endtip %}
 
 ### Creating a support bundle from the {% data variables.enterprise.management_console %}
 

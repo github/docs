@@ -15,9 +15,11 @@ topics:
   - Repositories
 shortTitle: Permanent links to files
 ---
+{% tip %}
 
-> [!TIP]
-> Press "?" on any page in {% data variables.product.product_name %} to see all available keyboard shortcuts.
+**Tip**: Press "?" on any page in {% data variables.product.product_name %} to see all available keyboard shortcuts.
+
+{% endtip %}
 
 ## File views show the latest version on a branch
 
@@ -39,8 +41,11 @@ replaces `main` with a specific commit ID and the file content will not change.
 
 Looking up the commit SHA by hand is inconvenient, however, so as a shortcut you can type <kbd>y</kbd> to automatically update the URL to the permalink version.  Then you can copy the URL knowing that anyone you share it with will see exactly what you saw.
 
-> [!TIP]
-> You can put any identifier that can be resolved to a commit in the URL, including branch names, specific commit SHAs, or tags!
+{% tip %}
+
+**Tip**: You can put any identifier that can be resolved to a commit in the URL, including branch names, specific commit SHAs, or tags!
+
+{% endtip %}
 
 ## Creating a permanent link to a code snippet
 

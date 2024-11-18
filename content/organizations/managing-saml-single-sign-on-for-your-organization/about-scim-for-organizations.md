@@ -37,8 +37,11 @@ These identity providers (IdPs) are compatible with the {% data variables.produc
 
 Before you authorize the {% data variables.product.prodname_oauth_app %}, you must have an active SAML session. For more information, see "[AUTOTITLE](/authentication/authenticating-with-saml-single-sign-on/about-authentication-with-saml-single-sign-on#about-oauth-apps-github-apps-and-saml-sso)."
 
-> [!NOTE]
-> {% data reusables.scim.nameid-and-username-must-match %}
+{% note %}
+
+**Note:** {% data reusables.scim.nameid-and-username-must-match %}
+
+{% endnote %}
 
 ## Further reading
 

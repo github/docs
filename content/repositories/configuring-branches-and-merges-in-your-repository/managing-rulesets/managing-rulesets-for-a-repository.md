@@ -15,10 +15,11 @@ After creating a ruleset, you can still make changes to it. For example, you can
 You can use the REST and GraphQL APIs to manage rulesets. For more information, see "[AUTOTITLE](/rest/repos/rules)" and "[AUTOTITLE](/graphql/reference/mutations#createrepositoryruleset)."
 
 {% ifversion repo-rules-enterprise %}
+{% tip %}
 
-> [!TIP]
-> If you're the owner of an organization, you can create rulesets at the organization level. You can apply these rulesets to specific repositories in your organization, and to specific branches in those repositories. For more information, see "[AUTOTITLE](/organizations/managing-organization-settings/creating-rulesets-for-repositories-in-your-organization)."
+**Tip:** If you're the owner of an organization, you can create rulesets at the organization level. You can apply these rulesets to specific repositories in your organization, and to specific branches in those repositories. For more information, see "[AUTOTITLE](/organizations/managing-organization-settings/creating-rulesets-for-repositories-in-your-organization)."
 
+{% endtip %}
 {% endif %}
 
 ## Viewing rulesets for a repository
@@ -40,10 +41,11 @@ For push rulesets for forked repositories, the "Rulesets" page will indicate tha
 ## Editing a ruleset
 
 {% ifversion repo-rules-enterprise %}
+{% note %}
 
-> [!NOTE]
-> If a ruleset was created at the organization level, you cannot edit the ruleset from the repository's settings. If you have permission to edit the ruleset, you can do so in your organization's settings. For more information, see "[AUTOTITLE](/organizations/managing-organization-settings/managing-rulesets-for-repositories-in-your-organization#editing-a-ruleset)."
+**Note:** If a ruleset was created at the organization level, you cannot edit the ruleset from the repository's settings. If you have permission to edit the ruleset, you can do so in your organization's settings. For more information, see "[AUTOTITLE](/organizations/managing-organization-settings/managing-rulesets-for-repositories-in-your-organization#editing-a-ruleset)."
 
+{% endnote %}
 {% endif %}
 
 {% data reusables.repositories.about-editing-rulesets %}

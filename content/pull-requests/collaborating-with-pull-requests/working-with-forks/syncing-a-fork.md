@@ -100,5 +100,8 @@ Before you can sync your fork with an upstream repository, you must configure a 
 
    If your local branch had unique commits, you may need to resolve conflicts. For more information, see "[AUTOTITLE](/pull-requests/collaborating-with-pull-requests/addressing-merge-conflicts)."
 
-> [!TIP]
-> Syncing your fork only updates your local copy of the repository. To update your fork on {% data variables.location.product_location %}, you must [push your changes](/get-started/using-git/pushing-commits-to-a-remote-repository).
+{% tip %}
+
+**Tip**: Syncing your fork only updates your local copy of the repository. To update your fork on {% data variables.location.product_location %}, you must [push your changes](/get-started/using-git/pushing-commits-to-a-remote-repository).
+
+{% endtip %}

@@ -17,8 +17,11 @@ shortTitle: Review audit log
 
 ## Accessing the audit log
 
-> [!NOTE]
-> {% data reusables.webhooks.webhooks-as-audit-log-alternative %}
+{% note %}
+
+**Note:**  {% data reusables.webhooks.webhooks-as-audit-log-alternative %}
+
+{% endnote %}
 
 The audit log lists events triggered by activities that affect your organization within the last 180 days. Only owners can access an organization's audit log.
 
@@ -158,8 +161,11 @@ For example:
 * `created:<=2014-07-08` finds all events that occurred on or before July 8th, 2014.
 * `created:2014-07-01..2014-07-31` finds all events that occurred in the month of July 2014.
 
-> [!NOTE]
-> The audit log contains data for the last 180 days.
+{% note %}
+
+**Note**: The audit log contains data for the last 180 days.
+
+{% endnote %}
 
 ### Search based on location
 
@@ -200,8 +206,11 @@ You can interact with the audit log using the GraphQL API{% ifversion fpt or ghe
 
 {% ifversion ghec %}
 
-> [!NOTE]
-> To use the audit log API, your organization must use {% data variables.product.prodname_ghe_cloud %}. {% data reusables.enterprise.link-to-ghec-trial %}
+{% note %}
+
+**Note:** To use the audit log API, your organization must use {% data variables.product.prodname_ghe_cloud %}. {% data reusables.enterprise.link-to-ghec-trial %}
+
+{% endnote %}
 
 ### Using the GraphQL API
 

@@ -22,8 +22,11 @@ product: '{% data reusables.gated-features.merge-queue %}'
 
 {% webui %}
 
-> [!NOTE]
-> You can use {% data variables.product.prodname_cli %} to add a pull request to a merge queue. For more information, click the "{% data variables.product.prodname_cli %}" tab at the top of this article.
+{% note %}
+
+**Note:** You can use {% data variables.product.prodname_cli %} to add a pull request to a merge queue. For more information, click the "{% data variables.product.prodname_cli %}" tab at the top of this article.
+
+{% endnote %}
 
 {% data reusables.repositories.navigate-to-repo %}
 {% data reusables.repositories.sidebar-pr %}
@@ -36,8 +39,11 @@ product: '{% data reusables.gated-features.merge-queue %}'
 
    ![Screenshot of the merge queue options for a pull request.](/assets/images/help/pull_requests/merge-queue-options.png)
 
-   > [!NOTE]
-   > You can click  **Merge when ready** whenever you're ready to merge your proposed changes. {% data variables.product.product_name %} will automatically add the pull request to the merge queue once required approval and status checks conditions are met.
+   {% note %}
+
+   **Note:** You can click  **Merge when ready** whenever you're ready to merge your proposed changes. {% data variables.product.product_name %} will automatically add the pull request to the merge queue once required approval and status checks conditions are met.
+
+   {% endnote %}
 
 1. Confirm you want to add the pull request to the merge queue by clicking  **Confirm merge when ready**.
 

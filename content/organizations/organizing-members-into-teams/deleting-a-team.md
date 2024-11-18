@@ -13,8 +13,11 @@ topics:
   - Teams
 ---
 
-> [!TIP]
-> Only organization owners can delete parent teams. For more information, see "[AUTOTITLE](/organizations/organizing-members-into-teams/about-teams)."
+{% tip %}
+
+**Tip:** Only organization owners can delete parent teams. For more information, see "[AUTOTITLE](/organizations/organizing-members-into-teams/about-teams)."
+
+{% endtip %}
 
 {% data reusables.profile.access_org %}
 {% data reusables.user-settings.access_org %}

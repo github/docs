@@ -25,10 +25,11 @@ shortTitle: Restrict email notifications
 When restricted email notifications are enabled in an organization, members can only use an email address associated with a verified or approved domain to receive email notifications about organization activity. For more information, see "[AUTOTITLE](/organizations/managing-organization-settings/verifying-or-approving-a-domain-for-your-organization)."
 
 {% ifversion ghec %}
+{% note %}
 
-> [!NOTE]
-> To restrict email notifications, your organization must use {% data variables.product.prodname_ghe_cloud %}. {% data reusables.enterprise.link-to-ghec-trial %}
+**Note:** To restrict email notifications, your organization must use {% data variables.product.prodname_ghe_cloud %}. {% data reusables.enterprise.link-to-ghec-trial %}
 
+{% endnote %}
 {% endif %}
 
 {% data reusables.notifications.email-restrictions-verification %}
