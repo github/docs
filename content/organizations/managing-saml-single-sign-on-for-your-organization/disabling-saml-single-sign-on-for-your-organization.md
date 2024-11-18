@@ -15,11 +15,9 @@ After you disable SAML SSO for your organization, all external identities for yo
 {% data reusables.profile.access_org %}
 {% data reusables.profile.org_settings %}
 
-    {% note %}
+    > [!NOTE]
+    > If you're unable to access the organization because your identity provider (IdP) is unavailable, you can use a recovery code to bypass SSO. For more information, see "[AUTOTITLE](/organizations/managing-saml-single-sign-on-for-your-organization/accessing-your-organization-if-your-identity-provider-is-unavailable)."
 
-    **Note:** If you're unable to access the organization because your identity provider (IdP) is unavailable, you can use a recovery code to bypass SSO. For more information, see "[AUTOTITLE](/organizations/managing-saml-single-sign-on-for-your-organization/accessing-your-organization-if-your-identity-provider-is-unavailable)."
-
-    {% endnote %}
 {% data reusables.organizations.security %}
 1. Under "SAML single sign-on", deselect **Enable SAML authentication**.
 1. Click **Save**.

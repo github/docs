@@ -110,7 +110,7 @@ Pull requests are the heart of collaboration on {% data variables.product.produc
 
 As soon as you make a commit, you can open a pull request and start a discussion, even before the code is finished.
 
-In this step, you'll open a pull request in your own repository and then merge it yourself. It's a great way to practise the {% data variables.product.product_name %} flow before working on larger projects.
+In this step, you'll open a pull request in your own repository and then merge it yourself. It's a great way to practice the {% data variables.product.product_name %} flow before working on larger projects.
 
 1. Click the **Pull requests** tab of your `hello-world` repository.
 1. Click **New pull request**.

@@ -18,11 +18,8 @@ redirect_from:
 
 This data will not be shared with any parties outside of {% data variables.product.company_short %}. IP addresses and installation IDs will be retained for a maximum of 30 days. Anonymous data will be retained for a maximum of 180 days.
 
-{% note %}
-
-**Note:** Telemetry collection is disabled by default in {% data variables.product.prodname_codeql %} for {% data variables.product.prodname_vscode %}. When telemetry collection is disabled, no data will be sent to {% data variables.product.company_short %} servers.
-
-{% endnote %}
+> [!NOTE]
+> Telemetry collection is disabled by default in {% data variables.product.prodname_codeql %} for {% data variables.product.prodname_vscode %}. When telemetry collection is disabled, no data will be sent to {% data variables.product.company_short %} servers.
 
 ## Why we collect data
 
@@ -34,7 +31,7 @@ If you opt in, {% data variables.product.company_short %} collects the following
 
 * The identifiers of any {% data variables.product.prodname_codeql %}-related {% data variables.product.prodname_vscode_shortname %} commands that are run. For each command, these are: the timestamp, time taken, and whether or not the command completed successfully.
 
-* Interactions with UI elements, including buttons, links, and other inputs. Intereacts that are not recorded are: link targets, text inputs, mouse movement, and mouse hovering.
+* Interactions with UI elements, including buttons, links, and other inputs. Interacts that are not recorded are: link targets, text inputs, mouse movement, and mouse hovering.
 
 * Occurrence of exceptions and errors. All sensitive information such as file paths and non-static exception message content are removed before uploading.
 

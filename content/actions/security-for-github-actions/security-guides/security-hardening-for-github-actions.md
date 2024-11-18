@@ -46,11 +46,8 @@ To help prevent accidental disclosure, {% data variables.product.product_name %}
 * **Consider requiring review for access to secrets**
   * You can use required reviewers to protect environment secrets. A workflow job cannot access environment secrets until approval is granted by a reviewer. For more information about storing secrets in environments or requiring reviews for environments, see "[AUTOTITLE](/actions/security-guides/using-secrets-in-github-actions)" and "[AUTOTITLE](/actions/deployment/targeting-different-environments/managing-environments-for-deployment)."
 
-{% warning %}
-
-**Warning**: Any user with write access to your repository has read access to all secrets configured in your repository. Therefore, you should ensure that the credentials being used within workflows have the least privileges required.
-
-{% endwarning %}
+> [!WARNING]
+> Any user with write access to your repository has read access to all secrets configured in your repository. Therefore, you should ensure that the credentials being used within workflows have the least privileges required.
 
 ## Using `CODEOWNERS` to monitor changes
 
@@ -152,10 +149,10 @@ With this approach, the value of the {% raw %}`${{ github.event.issue.title }}`{
 
 {% ifversion fpt or ghec %}
 
-### Using starter workflows for {% data variables.product.prodname_code_scanning %}
+### Using workflow templates for {% data variables.product.prodname_code_scanning %}
 
 {% data reusables.advanced-security.starter-workflows-beta %}
-{% data variables.product.prodname_code_scanning_caps %} allows you to find security vulnerabilities before they reach production. {% data variables.product.product_name %} provides starter workflows for {% data variables.product.prodname_code_scanning %}. You can use these suggested workflows to construct your {% data variables.product.prodname_code_scanning %} workflows, instead of starting from scratch. {% data variables.product.company_short%}'s workflow, the {% data variables.code-scanning.codeql_workflow %}, is powered by {% data variables.product.prodname_codeql %}. There are also third-party starter workflows available.
+{% data variables.product.prodname_code_scanning_caps %} allows you to find security vulnerabilities before they reach production. {% data variables.product.product_name %} provides workflow templates for {% data variables.product.prodname_code_scanning %}. You can use these suggested workflows to construct your {% data variables.product.prodname_code_scanning %} workflows, instead of starting from scratch. {% data variables.product.company_short %}'s workflow, the {% data variables.code-scanning.codeql_workflow %}, is powered by {% data variables.product.prodname_codeql %}. There are also third-party workflow templates available.
 
 For more information, see "[AUTOTITLE](/code-security/code-scanning/introduction-to-code-scanning/about-code-scanning)" and "[AUTOTITLE](/code-security/code-scanning/creating-an-advanced-setup-for-code-scanning/configuring-advanced-setup-for-code-scanning#configuring-code-scanning-using-third-party-actions)."
 
@@ -229,7 +226,7 @@ For more information on how to configure this setting, see {% ifversion ghes or 
 
 ## Using OpenSSF Scorecards to secure workflows
 
-[Scorecards](https://github.com/ossf/scorecard) is an automated security tool that flags risky supply chain practices. You can use the [Scorecards action](https://github.com/marketplace/actions/ossf-scorecard-action) and [starter workflow](https://github.com/actions/starter-workflows) to follow best security practices. Once configured, the Scorecards action runs automatically on repository changes, and alerts developers about risky supply chain practices using the built-in {% data variables.product.prodname_code_scanning %} experience. The Scorecards project runs a number of checks, including script injection attacks, token permissions, and pinned actions.
+[Scorecards](https://github.com/ossf/scorecard) is an automated security tool that flags risky supply chain practices. You can use the [Scorecards action](https://github.com/marketplace/actions/ossf-scorecard-action) and [workflow template](https://github.com/actions/starter-workflows) to follow best security practices. Once configured, the Scorecards action runs automatically on repository changes, and alerts developers about risky supply chain practices using the built-in {% data variables.product.prodname_code_scanning %} experience. The Scorecards project runs a number of checks, including script injection attacks, token permissions, and pinned actions.
 
 ## Potential impact of a compromised runner
 
@@ -237,11 +234,8 @@ These sections consider some of the steps an attacker can take if they're able t
 
 {% ifversion fpt or ghec %}
 
-{% note %}
-
-**Note:** {% data variables.product.prodname_dotcom %}-hosted runners do not scan for malicious code downloaded by a user during their job, such as a compromised third party library.
-
-{% endnote %}
+> [!NOTE]
+> {% data variables.product.prodname_dotcom %}-hosted runners do not scan for malicious code downloaded by a user during their job, such as a compromised third party library.
 
 {% endif %}
 
@@ -297,7 +291,7 @@ This list describes the recommended approaches for accessing repository data wit
     * {% data variables.product.prodname_github_apps %} can be installed on select repositories, and even have granular permissions on the resources within them. You could create a {% data variables.product.prodname_github_app %} internal to your organization, install it on the repositories you need access to within your workflow, and authenticate as the installation within your workflow to access those repositories. For more information, see "[AUTOTITLE](/apps/creating-github-apps/guides/making-authenticated-api-requests-with-a-github-app-in-a-github-actions-workflow)."
 1. **{% data variables.product.pat_generic %}s**
     * You should never use a {% data variables.product.pat_v1 %}. These tokens grant access to all repositories within the organizations that you have access to, as well as all personal repositories in your personal account. This indirectly grants broad access to all write-access users of the repository the workflow is in.
-    * If you do use a {% data variables.product.pat_generic %}, you should never use a {% data variables.product.pat_generic %} from your own account. If you later leave an organization, workflows using this token will immediately break, and debugging this issue can be challenging. Instead, you should use a {% ifversion pat-v2%}{% data variables.product.pat_v2 %}s{% else %}{% data variables.product.pat_generic %}s{% endif %} for a new account that belongs to your organization and that is only granted access to the specific repositories that are needed for the workflow. Note that this approach is not scalable and should be avoided in favor of alternatives, such as deploy keys.
+    * If you do use a {% data variables.product.pat_generic %}, you should never use a {% data variables.product.pat_generic %} from your own account. If you later leave an organization, workflows using this token will immediately break, and debugging this issue can be challenging. Instead, you should use a {% data variables.product.pat_v2 %}for a new account that belongs to your organization and that is only granted access to the specific repositories that are needed for the workflow. Note that this approach is not scalable and should be avoided in favor of alternatives, such as deploy keys.
 1. **SSH keys on a personal account**
     * Workflows should never use the SSH keys on a personal account. Similar to {% data variables.product.pat_v1_plural %}, they grant read/write permissions to all of your personal repositories as well as all the repositories you have access to through organization membership.  This indirectly grants broad access to all write-access users of the repository the workflow is in. If you're intending to use an SSH key because you only need to perform repository clones or pushes, and do not need to interact with public APIs, then you should use individual deploy keys instead.
 
@@ -337,11 +331,7 @@ For third-party images, such as the images for ARM-powered runners, you can find
 
 {% ifversion fpt or ghec %}As a result, self-hosted runners should almost [never be used for public repositories](/actions/hosting-your-own-runners/managing-self-hosted-runners/about-self-hosted-runners#self-hosted-runner-security) on {% data variables.product.product_name %}, because any user can open pull requests against the repository and compromise the environment. Similarly, be{% elsif ghes %}Be{% endif %} cautious when using self-hosted runners on private or internal repositories, as anyone who can fork the repository and open a pull request (generally those with read access to the repository) are able to compromise the self-hosted runner environment, including gaining access to secrets and the `GITHUB_TOKEN` which, depending on its settings, can grant write access to the repository. Although workflows can control access to environment secrets by using environments and required reviews, these workflows are not run in an isolated environment and are still susceptible to the same risks when run on a self-hosted runner.
 
-{% ifversion actions-disable-repo-runners %}
-
 {% data reusables.actions.disable-selfhosted-runners-crossrefs %}
-
-{% endif %}
 
 When a self-hosted runner is defined at the organization or enterprise level, {% data variables.product.product_name %} can schedule workflows from multiple repositories onto the same runner. Consequently, a security compromise of these environments can result in a wide impact. To help reduce the scope of a compromise, you can create boundaries by organizing your self-hosted runners into separate groups. You can restrict what {% ifversion restrict-groups-to-workflows %}workflows, {% endif %}organizations and repositories can access runner groups. For more information, see "[AUTOTITLE](/actions/hosting-your-own-runners/managing-self-hosted-runners/managing-access-to-self-hosted-runners-using-groups)."
 
@@ -357,11 +347,8 @@ Some customers might attempt to partially mitigate these risks by implementing s
 
 To improve runner registration security, you can use the REST API to create ephemeral, just-in-time (JIT) runners. These self-hosted runners perform at most one job before being automatically removed from the repository, organization, or enterprise. For more information about configuring JIT runners, see "[AUTOTITLE](/rest/actions/self-hosted-runners#create-configuration-for-a-just-in-time-runner-for-an-organization)."
 
-{% note %}
-
-**Note:** Re-using hardware to host JIT runners can risk exposing information from the environment. Use automation to ensure the JIT runner uses a clean environment. For more information, see "[AUTOTITLE](/actions/hosting-your-own-runners/managing-self-hosted-runners/autoscaling-with-self-hosted-runners#using-ephemeral-runners-for-autoscaling)."
-
-{% endnote %}
+> [!NOTE]
+> Re-using hardware to host JIT runners can risk exposing information from the environment. Use automation to ensure the JIT runner uses a clean environment. For more information, see "[AUTOTITLE](/actions/hosting-your-own-runners/managing-self-hosted-runners/autoscaling-with-self-hosted-runners#using-ephemeral-runners-for-autoscaling)."
 
 Once you have the config file from the REST API response, you can pass it to the runner at startup.
 

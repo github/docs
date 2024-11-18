@@ -31,18 +31,17 @@ You can configure environments with protection rules and secrets. When a workflo
 {% ifversion actions-break-glass %}Optionally, you can bypass an environment's protection rules and force all pending jobs referencing the environment to proceed. For more information, see "[AUTOTITLE](/actions/managing-workflow-runs/reviewing-deployments#bypassing-environment-protection-rules)."{% endif %}
 
 {% ifversion fpt %}
-{% note %}
 
-**Note:** Users with {% data variables.product.prodname_free_user %} plans can only configure environments for public repositories. If you convert a repository from public to private, any configured protection rules or environment secrets will be ignored, and you will not be able to configure any environments. If you convert your repository back to public, you will have access to any previously configured protection rules and environment secrets.
+> [!NOTE]
+> Users with {% data variables.product.prodname_free_user %} plans can only configure environments for public repositories. If you convert a repository from public to private, any configured protection rules or environment secrets will be ignored, and you will not be able to configure any environments. If you convert your repository back to public, you will have access to any previously configured protection rules and environment secrets.
+>
+> Organizations with {% data variables.product.prodname_team %} and users with {% data variables.product.prodname_pro %} can configure environments for private repositories. For more information, see "[AUTOTITLE](/get-started/learning-about-github/githubs-plans)."
 
-Organizations with {% data variables.product.prodname_team %} and users with {% data variables.product.prodname_pro %} can configure environments for private repositories. For more information, see "[AUTOTITLE](/get-started/learning-about-github/githubs-plans)."
-
-{% endnote %}
 {% endif %}
 
 ## Deployment protection rules
 
-Deployment protection rules require specific conditions to pass before a job referencing the environment can proceed. You can use deployment protection rules to require a manual approval, delay a job, or restrict the environment to certain branches.{% ifversion actions-custom-deployment-protection-rules-beta %} You can also create and implement custom protection rules powered by {% data variables.product.prodname_github_apps %} to use third-party systems to control deployments referencing environments configured on {% data variables.location.product_location %}.
+Deployment protection rules require specific conditions to pass before a job referencing the environment can proceed. You can use deployment protection rules to require a manual approval, delay a job, or restrict the environment to certain branches.{% ifversion actions-custom-deployment-protection-rules-beta %} You can also create and implement custom protection rules powered by {% data variables.product.prodname_github_apps %} to use third-party systems to control deployments referencing environments configured on {% data variables.product.github %}.
 
 Third-party systems can be observability systems, change management systems, code quality systems, or other manual configurations that you use to assess readiness before deployments are safely rolled out to environments.
 
@@ -58,21 +57,23 @@ Use required reviewers to require a specific person or team to approve workflow 
 
 For more information on reviewing jobs that reference an environment with required reviewers, see "[AUTOTITLE](/actions/managing-workflow-runs/reviewing-deployments)."
 
-{% ifversion fpt %}{% note %}
+{% ifversion fpt %}
 
-**Note:** If you are on a {% data variables.product.prodname_free_user %}, {% data variables.product.prodname_pro %}, or {% data variables.product.prodname_team %} plan, required reviewers are only available for public repositories.
+> [!NOTE]
+> If you are on a {% data variables.product.prodname_free_user %}, {% data variables.product.prodname_pro %}, or {% data variables.product.prodname_team %} plan, required reviewers are only available for public repositories.
 
-{% endnote %}{% endif %}
+{% endif %}
 
 ### Wait timer
 
 Use a wait timer to delay a job for a specific amount of time after the job is initially triggered. The time (in minutes) must be an integer between 1 and 43,200 (30 days).
 
-{% ifversion fpt %}{% note %}
+{% ifversion fpt %}
 
-**Note:** If you are on a {% data variables.product.prodname_free_user %}, {% data variables.product.prodname_pro %}, or {% data variables.product.prodname_team %} plan, wait timers are only available for public repositories.
+> [!NOTE]
+> If you are on a {% data variables.product.prodname_free_user %}, {% data variables.product.prodname_pro %}, or {% data variables.product.prodname_team %} plan, wait timers are only available for public repositories.
 
-{% endnote %}{% endif %}
+{% endif %}
 
 ### Deployment branches{% ifversion deployment-protections-tag-patterns %} and tags{% endif %}
 
@@ -85,11 +86,10 @@ Use deployment branches{% ifversion deployment-protections-tag-patterns %} and t
 {%- endif %}
 * **Protected branches{% ifversion deployment-protections-tag-patterns %} only{% endif %}**: Only branches with branch protection rules enabled can deploy to the environment. If no branch protection rules are defined for any branch in the repository, then all branches can deploy. For more information about branch protection rules, see "[AUTOTITLE](/repositories/configuring-branches-and-merges-in-your-repository/managing-protected-branches/about-protected-branches)."{% ifversion actions-protected-branches-restrictions %}
 
-  {% note %}
+  > [!NOTE]
+  > Deployment workflow runs triggered by tags with the same name as a protected branch and forks with branches that match the protected branch name cannot deploy to the environment.
 
-  **Note:** Deployment workflow runs triggered by tags with the same name as a protected branch and forks with branches that match the protected branch name cannot deploy to the environment.
-
-  {% endnote %}{% endif %}
+  {% endif %}
 * **Selected branches{% ifversion deployment-protections-tag-patterns %} and tags{% endif %}**: Only branches{% ifversion deployment-protections-tag-patterns %} and tags{% endif %} that match your specified name patterns can deploy to the environment.
 
   If you specify `releases/*` as a deployment branch{% ifversion deployment-protections-tag-patterns %} or tag{% endif %} rule, only a branch{% ifversion deployment-protections-tag-patterns %} or tag{% endif %} whose name begins with `releases/` can deploy to the environment. (Wildcard characters will not match `/`. To match branches{% ifversion deployment-protections-tag-patterns %} or tags{% endif %} that begin with `release/` and contain an additional single slash, use `release/*/*`.) If you add `main` as a branch rule, a branch named `main` can also deploy to the environment. For more information about syntax options for deployment branches, see the [Ruby `File.fnmatch` documentation](https://ruby-doc.org/core-2.5.1/File.html#method-c-fnmatch).
@@ -100,11 +100,12 @@ Use deployment branches{% ifversion deployment-protections-tag-patterns %} and t
 
   {% endif %}
 
-{% ifversion fpt %}{% note %}
+{% ifversion fpt %}
 
-**Note:** Deployment branches{% ifversion deployment-protections-tag-patterns %} and tags{% endif %} are available for all public repositories. For users on {% data variables.product.prodname_pro %} or {% data variables.product.prodname_team %} plans, deployment branches{% ifversion deployment-protections-tag-patterns %} and tags{% endif %} are also available for private repositories.
+> [!NOTE]
+> Deployment branches{% ifversion deployment-protections-tag-patterns %} and tags{% endif %} are available for all public repositories. For users on {% data variables.product.prodname_pro %} or {% data variables.product.prodname_team %} plans, deployment branches{% ifversion deployment-protections-tag-patterns %} and tags{% endif %} are also available for private repositories.
 
-{% endnote %}{% endif %}
+{% endif %}
 
 {% ifversion actions-break-glass %}
 
@@ -114,11 +115,12 @@ By default, administrators can bypass the protection rules and force deployments
 
 Alternatively, you can configure environments to disallow bypassing the protection rules for all deployments to the environment.
 
-{% ifversion fpt %}{% note %}
+{% ifversion fpt %}
 
-**Note:** Allowing administrators to bypass protection rules is only available for public repositories for users on {% data variables.product.prodname_free_user %}, {% data variables.product.prodname_pro %}, and {% data variables.product.prodname_team %} plans.
+> [!NOTE]
+> Allowing administrators to bypass protection rules is only available for public repositories for users on {% data variables.product.prodname_free_user %}, {% data variables.product.prodname_pro %}, and {% data variables.product.prodname_team %} plans.
 
-{% endnote %}{% endif %}
+{% endif %}
 {% endif %}
 
 {% ifversion actions-custom-deployment-protection-rules-beta %}
@@ -131,11 +133,12 @@ Alternatively, you can configure environments to disallow bypassing the protecti
 
 Once custom deployment protection rules have been created and installed on a repository, you can enable the custom deployment protection rule for any environment in the repository. For more information about configuring and enabling custom deployment protection rules, see "[AUTOTITLE](/actions/deployment/protecting-deployments/configuring-custom-deployment-protection-rules)."
 
-{% ifversion fpt %}{% note %}
+{% ifversion fpt %}
 
-**Note:** Custom deployment protection rules are only available for public repositories for users on {% data variables.product.prodname_free_user %}, {% data variables.product.prodname_pro %}, and {% data variables.product.prodname_team %} plans.
+> [!NOTE]
+> Custom deployment protection rules are only available for public repositories for users on {% data variables.product.prodname_free_user %}, {% data variables.product.prodname_pro %}, and {% data variables.product.prodname_team %} plans.
 
-{% endnote %}{% endif %}
+{% endif %}
 
 {% endif %}
 
@@ -144,45 +147,38 @@ Once custom deployment protection rules have been created and installed on a rep
 Secrets stored in an environment are only available to workflow jobs that reference the environment. If the environment requires approval, a job cannot access environment secrets until one of the required reviewers approves it. For more information about secrets, see "[AUTOTITLE](/actions/security-guides/using-secrets-in-github-actions)."
 
 {% ifversion fpt %}
-{% note %}
+> [!NOTE]
+> * Workflows that run on self-hosted runners are not run in an isolated container, even if they use environments. Environment secrets should be treated with the same level of security as repository and organization secrets. For more information, see "[AUTOTITLE](/actions/security-guides/security-hardening-for-github-actions#hardening-for-self-hosted-runners)."
+> * Environment secrets are only available in public repositories if you are using {% data variables.product.prodname_free_user %}. For access to environment secrets in private or internal repositories, you must use {% data variables.product.prodname_pro %}, {% data variables.product.prodname_team %}, or {% data variables.product.prodname_enterprise %}. For more information on switching your plan, see "[AUTOTITLE](/billing/managing-the-plan-for-your-github-account/upgrading-your-accounts-plan)."
 
-**Notes:**
-
-* Workflows that run on self-hosted runners are not run in an isolated container, even if they use environments. Environment secrets should be treated with the same level of security as repository and organization secrets. For more information, see "[AUTOTITLE](/actions/security-guides/security-hardening-for-github-actions#hardening-for-self-hosted-runners)."
-* Environment secrets are only available in public repositories if you are using {% data variables.product.prodname_free_user %}. For access to environment secrets in private or internal repositories, you must use {% data variables.product.prodname_pro %}, {% data variables.product.prodname_team %}, or {% data variables.product.prodname_enterprise %}. For more information on switching your plan, see "[AUTOTITLE](/billing/managing-the-plan-for-your-github-account/upgrading-your-accounts-plan)."
-
-{% endnote %}
 {% else %}
-{% note %}
 
-**Note:** Workflows that run on self-hosted runners are not run in an isolated container, even if they use environments. Environment secrets should be treated with the same level of security as repository and organization secrets. For more information, see "[AUTOTITLE](/actions/security-guides/security-hardening-for-github-actions#hardening-for-self-hosted-runners)."
+> [!NOTE]
+> Workflows that run on self-hosted runners are not run in an isolated container, even if they use environments. Environment secrets should be treated with the same level of security as repository and organization secrets. For more information, see "[AUTOTITLE](/actions/security-guides/security-hardening-for-github-actions#hardening-for-self-hosted-runners)."
 
-{% endnote %}
 {% endif %}
 
 ## Environment variables
 
 Variables stored in an environment are only available to workflow jobs that reference the environment. These variables are only accessible using the [`vars`](/actions/learn-github-actions/contexts#vars-context) context. For more information, see "[AUTOTITLE](/actions/learn-github-actions/variables)."
 
-{% ifversion fpt %}{% note %}
+{% ifversion fpt %}
 
-**Note:** Environment variables are available for all public repositories. For users on {% data variables.product.prodname_pro %} or {% data variables.product.prodname_team %} plans, environment variables are also available for private repositories.
+> [!NOTE]
+> Environment variables are available for all public repositories. For users on {% data variables.product.prodname_pro %} or {% data variables.product.prodname_team %} plans, environment variables are also available for private repositories.
 
-{% endnote %}{% endif %}
+{% endif %}
 
 ## Creating an environment
 
 {% data reusables.actions.permissions-statement-environment %}
 
 {% ifversion fpt %}
-{% note %}
 
-**Notes:**
+> [!NOTE]
+> * Creation of an environment in a private repository is available to organizations with {% data variables.product.prodname_team %} and users with {% data variables.product.prodname_pro %}.
+> * Some features for environments have no or limited availability for private repositories. If you are unable to access a feature described in the instructions below, please see the documentation linked in the related step for availability information.
 
-* Creation of an environment in a private repository is available to organizations with {% data variables.product.prodname_team %} and users with {% data variables.product.prodname_pro %}.
-* Some features for environments have no or limited availability for private repositories. If you are unable to access a feature described in the instructions below, please see the documentation linked in the related step for availability information.
-
-{% endnote %}
 {% endif %}
 
 {% data reusables.repositories.navigate-to-repo %}

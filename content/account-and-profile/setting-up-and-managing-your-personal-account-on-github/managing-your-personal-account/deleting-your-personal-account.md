@@ -31,15 +31,12 @@ Deleting your personal account removes all repositories, forks of private reposi
 
 {% ifversion ghec %}
 
-{% note %}
-
-**Note**: If your enterprise manages your account and you sign into {% data variables.location.product_location %} through your company's identity provider (IdP), you cannot delete your account. For more information, see "[AUTOTITLE](/admin/identity-and-access-management/using-enterprise-managed-users-for-iam/about-enterprise-managed-users)."
-
-{% endnote %}
+> [!NOTE]
+> If your enterprise manages your account and you sign into {% data variables.product.github %} through your company's identity provider (IdP), you cannot delete your account. For more information, see "[AUTOTITLE](/admin/identity-and-access-management/using-enterprise-managed-users-for-iam/about-enterprise-managed-users)."
 
 {% endif %}
 
-{% ifversion fpt or ghec %}When you delete your account we stop billing you. The email address associated with the account becomes available for use with a different account on {% data variables.location.product_location %}. After 90 days, the account name also becomes available to anyone else to use on a new account. {% endif %}
+{% ifversion fpt or ghec %}When you delete your account we stop billing you. The email address associated with the account becomes available for use with a different account. After 90 days, the account name also becomes available to anyone else to use on a new account.{% endif %}
 
 If you're the only owner of an organization, you must transfer ownership to another person or delete the organization before you can delete your personal account. If there are other owners in the organization, you must remove yourself from the organization before you can delete your personal account.
 
@@ -58,11 +55,8 @@ For more information, see the following articles.
 
 Before you delete your personal account, make a copy of all repositories, private forks, wikis, issues, and pull requests owned by your account. For more information, see "[AUTOTITLE](/repositories/archiving-a-github-repository/backing-up-a-repository)."
 
-{% warning %}
-
-**Warning:** Once your personal account has been deleted, {% ifversion fpt or ghec %}{% data variables.product.company_short %}{% elsif ghes %}an enterprise owner{% endif %} cannot restore your content.
-
-{% endwarning %}
+> [!WARNING]
+> Once your personal account has been deleted, {% ifversion fpt or ghec %}{% data variables.product.company_short %}{% elsif ghes %}an enterprise owner{% endif %} cannot restore your content.
 
 ## Deleting your personal account
 

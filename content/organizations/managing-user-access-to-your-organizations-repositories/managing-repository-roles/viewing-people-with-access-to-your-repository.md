@@ -34,11 +34,10 @@ You can see a combined overview of teams and people with access to your reposito
 ## Exporting a list of people with access to your repository
 
 {% ifversion ghec %}
-{% note %}
 
-**Note:** Only organizations that use {% data variables.product.prodname_ghe_cloud %} can export a list of people with access to a repository. {% data reusables.enterprise.link-to-ghec-trial %}
+> [!NOTE]
+> Only organizations that use {% data variables.product.prodname_ghe_cloud %} can export a list of people with access to a repository. {% data reusables.enterprise.link-to-ghec-trial %}
 
-{% endnote %}
 {% endif %}
 
 {% data reusables.repositories.navigate-to-repo %}

@@ -25,7 +25,7 @@ shortTitle: Dependabot alerts
 
 {% data variables.product.prodname_dependabot_alerts %} tell you when your code depends on a package that is insecure. Often, software is built using open-source code packages from a large variety of sources. The complex relationships between these dependencies, and the ease with which malicious actors can insert malware into upstream code, mean that you may unknowingly be using dependencies that have security flaws, also known as vulnerabilities.
 
-If your code depends on a package with a security vulnerability, this can cause a range of problems for your project or the people who use it. Using a vulnerable package makes you a soft target for malicious users looking to exploit your system. For example, they may seek to get access to your code and data from your customers or contributors. You should upgrade to a secure version of the package as soon as possible.{% ifversion GH-advisory-db-supports-malware %} If your code uses malware, you need to replace the package with a secure alternative.{% endif %}
+If your code depends on a package with a security vulnerability, this can cause a range of problems for your project or the people who use it. Using a vulnerable package makes you a soft target for malicious users looking to exploit your system. For example, they may seek to get access to your code and data from your customers or contributors. You should upgrade to a secure version of the package as soon as possible. If your code uses malware, you need to replace the package with a secure alternative.
 
 {% data reusables.dependabot.no-dependabot-alerts-for-malware %}
 
@@ -37,29 +37,23 @@ If your code depends on a package with a security vulnerability, this can cause 
 
 {% ifversion fpt or ghec %}
 * A new advisory is added to the {% data variables.product.prodname_advisory_database %}. For more information, see "[AUTOTITLE](/code-security/security-advisories/working-with-global-security-advisories-from-the-github-advisory-database/browsing-security-advisories-in-the-github-advisory-database)."{% else %}
-* New advisory data is synchronized to {% data variables.location.product_location %} each hour from {% data variables.product.prodname_dotcom_the_website %}. {% data reusables.security-advisory.link-browsing-advisory-db %}{% endif %}
-  {% note %}
 
-  **Note:** Only advisories that have been reviewed by {% data variables.product.company_short %} will trigger {% data variables.product.prodname_dependabot_alerts %}.
+* New advisory data is synchronized to {% data variables.product.prodname_dotcom %} each hour from {% data variables.product.prodname_dotcom_the_website %}. {% data reusables.security-advisory.link-browsing-advisory-db %}{% endif %}
 
-  {% endnote %}
+  > [!NOTE]
+  > Only advisories that have been reviewed by {% data variables.product.company_short %} will trigger {% data variables.product.prodname_dependabot_alerts %}.
+
 * The dependency graph for a repository changes. For example, when a contributor pushes a commit to change the packages or versions it depends on{% ifversion fpt or ghec %}, or when the code of one of the dependencies changes{% endif %}. For more information, see "[AUTOTITLE](/code-security/supply-chain-security/understanding-your-software-supply-chain/about-the-dependency-graph)."
 
-{% note %}
-
-**Note:** {% data variables.product.prodname_dependabot %} doesn't scan archived repositories.
-
-{% endnote %}
+> [!NOTE]
+> {% data variables.product.prodname_dependabot %} doesn't scan archived repositories.
 
 {% data reusables.repositories.dependency-review %}
 
-As {% data variables.product.prodname_dependabot_alerts %} rely on the dependency graph, the ecosystems that are supported by {% data variables.product.prodname_dependabot_alerts %} are the same as those supported by the dependency graph. For a list of these ecosystems, see "[AUTOTITLE](/code-security/supply-chain-security/understanding-your-software-supply-chain/about-the-dependency-graph#supported-package-ecosystems)."
+As {% data variables.product.prodname_dependabot_alerts %} rely on the dependency graph, the ecosystems that are supported by {% data variables.product.prodname_dependabot_alerts %} are the same as those supported by the dependency graph. For a list of these ecosystems, see "[AUTOTITLE](/code-security/supply-chain-security/understanding-your-software-supply-chain/dependency-graph-supported-package-ecosystems#supported-package-ecosystems)."
 
-{% note %}
-
-**Note:** It is important to keep your manifest and lock files up to date. If the dependency graph doesn't accurately reflect your current dependencies and versions, then you could miss alerts for insecure dependencies that you use. You may also get alerts for dependencies that you no longer use.
-
-{% endnote %}
+> [!NOTE]
+> It is important to keep your manifest and lock files up to date. If the dependency graph doesn't accurately reflect your current dependencies and versions, then you could miss alerts for insecure dependencies that you use. You may also get alerts for dependencies that you no longer use.
 
 {% data reusables.dependabot.dependabot-alert-actions-semver %}
 
@@ -88,23 +82,28 @@ When {% data variables.product.product_name %} identifies a vulnerable dependenc
 
 {% endif %}
 
-{% warning %}
-
-**Note**: {% data variables.product.product_name %}'s security features do not claim to catch all vulnerabilities. We actively maintain {% data variables.product.prodname_advisory_database %} and generate alerts with the most up-to-date information. However, we cannot catch everything or tell you about known vulnerabilities within a guaranteed time frame. These features are not substitutes for human review of each dependency for potential vulnerabilities or any other issues, and we recommend consulting with a security service or conducting a thorough dependency review when necessary.
-
-{% endwarning %}
+> [!WARNING]
+> {% data variables.product.product_name %}'s security features do not claim to catch all vulnerabilities. We actively maintain {% data variables.product.prodname_advisory_database %} and generate alerts with the most up-to-date information. However, we cannot catch everything or tell you about known vulnerabilities within a guaranteed time frame. These features are not substitutes for human review of each dependency for potential vulnerabilities or any other issues, and we recommend consulting with a security service or conducting a thorough dependency review when necessary.
 
 ## Access to  {% data variables.product.prodname_dependabot_alerts %}
 
 You can see all of the alerts that affect a particular project{% ifversion fpt or ghec %} on the repository's **Security** tab or{% endif %} in the repository's dependency graph. For more information, see "[AUTOTITLE](/code-security/dependabot/dependabot-alerts/viewing-and-updating-dependabot-alerts)."
 
-By default, we notify people with {% ifversion dependabot-alerts-permissions-write-maintain %}write, maintain, or {% endif %}admin permissions in the affected repositories about new {% data variables.product.prodname_dependabot_alerts %}. {% ifversion fpt or ghec %}{% data variables.product.product_name %} never publicly discloses insecure dependencies for any repository. You can also make {% data variables.product.prodname_dependabot_alerts %} visible to additional people or teams working with repositories that you own or have admin permissions for. For more information, see "[AUTOTITLE](/repositories/managing-your-repositorys-settings-and-features/enabling-features-for-your-repository/managing-security-and-analysis-settings-for-your-repository#granting-access-to-security-alerts)."
+By default, we notify people with write, maintain, or admin permissions in the affected repositories about new {% data variables.product.prodname_dependabot_alerts %}. {% ifversion fpt or ghec %}{% data variables.product.product_name %} never publicly discloses insecure dependencies for any repository. You can also make {% data variables.product.prodname_dependabot_alerts %} visible to additional people or teams working with repositories that you own or have admin permissions for. For more information, see "[AUTOTITLE](/repositories/managing-your-repositorys-settings-and-features/enabling-features-for-your-repository/managing-security-and-analysis-settings-for-your-repository#granting-access-to-security-alerts)."
 {% endif %}
 
 {% data reusables.notifications.vulnerable-dependency-notification-enable %}
 {% data reusables.notifications.vulnerable-dependency-notification-delivery-method-customization2 %} For more information, see "[AUTOTITLE](/code-security/dependabot/dependabot-alerts/configuring-notifications-for-dependabot-alerts)."
 
 You can also see all the {% data variables.product.prodname_dependabot_alerts %} that correspond to a particular advisory in the {% data variables.product.prodname_advisory_database %}. {% data reusables.security-advisory.link-browsing-advisory-db %}
+
+{% ifversion copilot-chat-ghas-alerts %}
+
+## Asking {% data variables.product.prodname_copilot_chat %} about {% data variables.product.prodname_dependabot_alerts %}
+
+With a {% data variables.product.prodname_copilot_enterprise %} license, you can ask {% data variables.product.prodname_copilot_chat_short %} for help to better understand security alerts, including {% data variables.product.prodname_dependabot_alerts %}, in repositories in your organization. For more information, see "[AUTOTITLE](/copilot/using-github-copilot/asking-github-copilot-questions-in-githubcom#asking-questions-about-alerts-from-github-advanced-security-features)."
+
+{% endif %}
 
 ## Further reading
 

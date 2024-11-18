@@ -77,8 +77,6 @@ When specifying actions{% ifversion actions-workflow-policy %} and reusable work
    * To allow all actions{% ifversion actions-workflow-policy %} and reusable workflows{% endif %} in organizations that start with `space-org`, use `space-org*/*`.
    * To allow all actions{% ifversion actions-workflow-policy %} and reusable workflows{% endif %} in repositories that start with octocat, use `*/octocat**@*`.
 
-{% ifversion actions-disable-repo-runners %}
-
 ## Runners
 
 By default, anyone with admin access to a repository can add a self-hosted runner for the repository, and self-hosted runners come with risks:
@@ -94,8 +92,6 @@ In the "Runners" section, you can mediate these risks by disabling the use of re
 {% endif %}
 
 {% data reusables.actions.disable-selfhosted-runners-note %}
-
-{% endif %}
 
 ## {% ifversion ghes %}Artifact, log, and cache settings{% else %}Artifact and log retention{% endif %}
 
@@ -140,6 +136,8 @@ Anyone can fork a public repository, then submit a pull request to propose chang
 
 You can configure which pull requests require approval before they are run.
 
+>[!WARNING] When requiring approvals only for first-time contributors (the first two settings), a user that has had any commit or pull request merged into the repository will not require approval. A malicious user could meet this requirement by getting a simple typo or other innocuous change accepted by a maintainer, either as part of a pull request they have authored or as part of another user's pull request.
+
 * **Require approval for first-time contributors who are new to {% data variables.product.prodname_dotcom %}**. Requires approval for users who have never committed to the repository and have new {% data variables.product.prodname_dotcom %} accounts.
 * **Require approval for first-time contributors**. Requires approval for users who have never committed to the repository.
 * **Require approval for all outside collaborators**. Requires approval for all users who are not organization members.
@@ -155,9 +153,7 @@ You can control how users can run workflows on `pull_request` events in private 
 * **Run workflows from fork pull requests**. Users can run workflows from fork pull requests. By default, workflows will use a `GITHUB_TOKEN` with read-only permission, with no access to secrets.
 * **Send write tokens to workflows from pull requests**. Workflows will use a `GITHUB_TOKEN` with write permission.
 * **Send secrets to workflows from pull requests**. All secrets are available to the pull request.
-{%- ifversion actions-private-fork-workflow-approvals %}
 * **Require approval for fork pull request workflows**. Workflows on pull requests from collaborators without write permission will require approval from someone with write permission before they will run.
-{%- endif %}
 
 If a policy is enabled for an enterprise, the policy can be selectively disabled in individual organizations or repositories. If a policy is disabled for an enterprise, individual organizations or repositories cannot enable it.
 

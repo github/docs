@@ -36,11 +36,8 @@ With the raw view, you can view or copy the raw content of a file without any st
 
 Within the blame view, you can view the line-by-line revision history for an entire file.
 
-{% tip %}
-
-**Tip:** On the command line, you can also use `git blame` to view the revision history of lines within a file. For more information, see [Git's `git blame` documentation](https://git-scm.com/docs/git-blame).
-
-{% endtip %}
+> [!TIP]
+> On the command line, you can also use `git blame` to view the revision history of lines within a file. For more information, see [Git's `git blame` documentation](https://git-scm.com/docs/git-blame).
 
 {% data reusables.repositories.navigate-to-repo %}
 1. Click to open the file whose line history you want to view.

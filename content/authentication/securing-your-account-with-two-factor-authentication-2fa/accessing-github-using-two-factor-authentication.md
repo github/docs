@@ -19,7 +19,7 @@ shortTitle: Access GitHub with 2FA
 
 {% ifversion 2fa-check-up-period %}
 
-With two-factor authentication (2FA) enabled, you'll need to use a second factor when accessing {% data variables.product.product_name %} through your browser. When you first configure 2FA, your account will enter a check up period for 28 days to ensure your account's 2FA methods are setup correctly. You can exit the check up period by successfully performing 2FA within 28 days. If you don't authenticate within 28 days, you'll be asked to perform 2FA inside one of your existing {% data variables.product.prodname_dotcom_the_website %} sessions. If you cannot perform 2FA to pass the 28th day checkup, use the provided shortcut to reconfigure your 2FA settings and retain access to {% data variables.product.prodname_dotcom_the_website %}. For more information, see "[AUTOTITLE](/authentication/securing-your-account-with-two-factor-authentication-2fa/configuring-two-factor-authentication)."
+With two-factor authentication (2FA) enabled, you'll need to use a second factor when accessing {% data variables.product.product_name %} through your browser. When you first configure 2FA, your account will enter a check up period for 28 days to ensure your account's 2FA methods are setup correctly. You can exit the check up period by successfully performing 2FA within 28 days. If you don't authenticate within 28 days, you'll be asked to perform 2FA inside one of your existing {% data variables.product.prodname_dotcom %} sessions. If you cannot perform 2FA to pass the 28th day checkup, use the provided shortcut to reconfigure your 2FA settings and retain access to {% data variables.product.prodname_dotcom %}. For more information, see "[AUTOTITLE](/authentication/securing-your-account-with-two-factor-authentication-2fa/configuring-two-factor-authentication)."
 
 If you access {% data variables.product.product_name %} using other methods, such as the API or the command line, you'll authenticate using a token, application, or SSH key. For more information, see "[AUTOTITLE](/authentication/keeping-your-account-and-data-secure/about-authentication-to-github)."
 
@@ -70,11 +70,9 @@ If you have installed and signed in to {% data variables.product.prodname_mobile
 
 1. Sign in to {% data variables.product.product_name %} with your browser, using your username and password.
 1. {% data variables.product.product_name %} will send you a push notification to verify your sign in attempt. Opening the push notification or opening the {% data variables.product.prodname_mobile %} app will display a prompt, asking you to approve or reject this sign in attempt.
-   {% note %}
 
-   **Note**: This prompt may require you to enter a two-digit number displayed within the browser you are signing in to.
-
-   {% endnote %}
+   > [!NOTE]
+   > This prompt may require you to enter a two-digit number displayed within the browser you are signing in to.
 
    * Upon approving the login attempt using {% data variables.product.prodname_mobile %}, your browser will complete the sign in attempt automatically.
    * Rejecting the sign in attempt will prevent the authentication from finishing. For more information, see "[AUTOTITLE](/authentication/keeping-your-account-and-data-secure)."
@@ -119,11 +117,10 @@ When you access a repository via Subversion, you must provide a {% data variable
 If you lose access to your two-factor authentication credentials, you can use your recovery codes or another recovery method (if you've set one up) to regain access to your account. For more information, see "[AUTOTITLE](/authentication/securing-your-account-with-two-factor-authentication-2fa/recovering-your-account-if-you-lose-your-2fa-credentials)."
 
 {% ifversion fpt or ghec %}
-{% note %}
 
-**Note:** {% data reusables.two_fa.unlink-email-address %}
+> [!NOTE]
+> {% data reusables.two_fa.unlink-email-address %}
 
-{% endnote %}
 {% endif %}
 
 If your authentication fails several times, you may wish to synchronize your phone's clock with your mobile provider. Often, this involves checking the "Set automatically" option on your phone's clock, rather than providing your own time zone.

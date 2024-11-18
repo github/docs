@@ -16,19 +16,13 @@ allowTitleToDifferFromFilename: true
 
 ## Configuring access to the {% data variables.product.prodname_codeql_cli %}
 
-If you already have the {% data variables.product.prodname_codeql_cli %} installed and added to your `PATH`, the extension will use that version. This might be the case if you create your own {% data variables.product.prodname_codeql %} databases instead of downloading them from {% data variables.product.prodname_dotcom_the_website %}. For more information, see "[AUTOTITLE](/code-security/codeql-cli/getting-started-with-the-codeql-cli/preparing-your-code-for-codeql-analysis)."
+If you already have the {% data variables.product.prodname_codeql_cli %} installed and added to your `PATH`, the extension will use that version. This might be the case if you create your own {% data variables.product.prodname_codeql %} databases instead of downloading them from {% data variables.product.github %}. For more information, see "[AUTOTITLE](/code-security/codeql-cli/getting-started-with-the-codeql-cli/preparing-your-code-for-codeql-analysis)."
 
 Otherwise, the extension automatically manages access to the executable of the {% data variables.product.prodname_codeql_cli %} for you. This ensures that the {% data variables.product.prodname_codeql_cli %} is compatible with the {% data variables.product.prodname_codeql %} extension. You can also check for updates with the **{% data variables.product.prodname_codeql %}: Check for CLI Updates** command from the {% data variables.product.prodname_vscode_command_palette_shortname %}.
 
-{% note %}
-
-**Notes:**
-
-* The extension-managed {% data variables.product.prodname_codeql_cli %} is not accessible from the terminal. If you intend to use the CLI outside of the extension (for example to create databases), we recommend that you install your own copy of the {% data variables.product.prodname_codeql_cli %}."
-
-* To override the default behavior and use a specific version of the {% data variables.product.prodname_codeql_cli %}, you can specify the {% data variables.product.prodname_codeql_cli %} **Executable Path** in the extension settings. For more information, see "[AUTOTITLE](/code-security/codeql-for-vs-code/using-the-advanced-functionality-of-the-codeql-for-vs-code-extension/customizing-settings)."
-
-{% endnote %}
+> [!NOTE]
+> * The extension-managed {% data variables.product.prodname_codeql_cli %} is not accessible from the terminal. If you intend to use the CLI outside of the extension (for example to create databases), we recommend that you install your own copy of the {% data variables.product.prodname_codeql_cli %}."
+> * To override the default behavior and use a specific version of the {% data variables.product.prodname_codeql_cli %}, you can specify the {% data variables.product.prodname_codeql_cli %} **Executable Path** in the extension settings. For more information, see "[AUTOTITLE](/code-security/codeql-for-vs-code/using-the-advanced-functionality-of-the-codeql-for-vs-code-extension/customizing-settings)."
 
 ## Troubleshooting
 

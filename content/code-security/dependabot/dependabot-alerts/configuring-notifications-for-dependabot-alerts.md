@@ -51,11 +51,8 @@ You can configure notification settings for yourself or your organization from t
 ![Screenshot of the notification options for {% data variables.product.prodname_dependabot_alerts %}. A dropdown menu, showing notification frequency options, is highlighted with an orange outline.](/assets/images/help/dependabot/dependabot-notification-frequency.png){% endif %}{% ifversion ghes %}
 ![Screenshot of the notification options for {% data variables.product.prodname_dependabot_alerts %}.](/assets/images/help/enterprises/dependabot-alerts-options-no-ui.png){% endif %}
 
-{% note %}
-
-**Note:** You can filter your notifications on {% data variables.product.company_short %} to show  {% data variables.product.prodname_dependabot_alerts %}. For more information, see "[AUTOTITLE](/account-and-profile/managing-subscriptions-and-notifications-on-github/viewing-and-triaging-notifications/managing-notifications-from-your-inbox#dependabot-custom-filters)."
-
-{% endnote %}
+> [!NOTE]
+> You can filter your notifications on {% data variables.product.company_short %} to show  {% data variables.product.prodname_dependabot_alerts %}. For more information, see "[AUTOTITLE](/account-and-profile/managing-subscriptions-and-notifications-on-github/viewing-and-triaging-notifications/managing-notifications-from-your-inbox#dependabot-custom-filters)."
 
 {% data reusables.repositories.security-alerts-x-github-severity %} For more information, see "[AUTOTITLE](/account-and-profile/managing-subscriptions-and-notifications-on-github/setting-up-notifications/configuring-notifications#filtering-email-notifications)."
 

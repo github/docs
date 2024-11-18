@@ -16,14 +16,6 @@ topics:
   - Issues
 ---
 
-{% ifversion projects-v2-tasklists %}
-{% note %}
-
-**Note:** For more information about the new iteration of tasklists, which is currently in beta, see "[AUTOTITLE](/issues/managing-your-tasks-with-tasklists/creating-a-tasklist)."
-
-{% endnote %}
-{% endif %}
-
 ## About task lists
 
 A task list is a set of tasks that each render on a separate line with a clickable checkbox. You can select or deselect the checkboxes to mark the tasks as complete or incomplete.
@@ -51,11 +43,8 @@ If you add a task list to the body of an issue, the list has added functionality
 
 {% data reusables.repositories.task-list-markdown %}
 
-{% tip %}
-
-**Tip:** You cannot create task list items within closed issues or issues with linked pull requests.
-
-{% endtip %}
+> [!TIP]
+> You cannot create task list items within closed issues or issues with linked pull requests.
 
 ## Reordering tasks
 

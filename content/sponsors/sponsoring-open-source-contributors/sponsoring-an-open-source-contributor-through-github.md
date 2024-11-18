@@ -58,7 +58,7 @@ Before you can sponsor an account, you must have a verified email address. For m
 
    To sponsor these maintainers using the downloaded file, in the corresponding cells of the "Sponsorship amount in USD" column, input sponsorship amounts in US dollars for each maintainer you want to sponsor.
 
-1. On {% data variables.product.prodname_dotcom %}, in the "Bulk Sponsor" box above the list of developers who maintain your dependencies, click **Get started**.
+1. On {% data variables.product.prodname_dotcom %}, in the "Bulk Sponsor" box above the list of developers who maintain your dependencies, click **Get started**. Organizations can also access the "Bulk Sponsor" functionality from the sponsors dashboard.
 1. Optionally, to change which account or organization you are sponsoring as, select the **Sponsor as USERNAME** {% octicon "triangle-down" aria-hidden="true" %} dropdown menu, then click the desired account or organization from the options that appear.
 
     ![Screenshot of the first bulk sponsorship screen. A collapsed dropdown menu, labeled "octocat", is highlighted in dark orange.](/assets/images/help/sponsors/bulk-sponsors-sponsor-as-dropdown.png)
@@ -71,11 +71,8 @@ Before you can sponsor an account, you must have a verified email address. For m
     * {% data variables.product.prodname_dotcom %}'s template CSV file for bulk sponsorships edited to contain your desired sponsorships. To download the example CSV file, in the "Import a CSV" box, click **Download example CSV**.
     * A CSV file of your own creation containing your desired sponsorships. For {% data variables.product.prodname_dotcom %} to parse your CSV file correctly, the file must contain columns labeled "Maintainer username" and "Sponsorship amount in USD."
 
-   {% note %}
-
-   **Note:** Any errors in your file are reported at the top of the review page with instructions to resolve them.
-
-   {% endnote %}
+   > [!NOTE]
+   > Any errors in your file are reported at the top of the review page with instructions to resolve them.
 
 1. Optionally, to resolve any errors or make any changes to your sponsorship selections, click **Choose file**, then navigate to the new or updated CSV file you would like to upload. Select the CSV file, then click **Open**.
 1. To confirm your sponsorship elections, click **Continue to checkout**.

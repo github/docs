@@ -15,9 +15,15 @@ redirect_from:
 
 ## Introduction
 
-This tutorial demonstrates how to build a "Login with GitHub" button for a website. The website will use a {% data variables.product.prodname_github_app %} to generate a user access token via the web application flow. Then, the website uses the user access token to make API requests on behalf of the authenticated user.
+This tutorial demonstrates how to build a "Login with {% data variables.product.github %}" button for a website. The website will use a {% data variables.product.prodname_github_app %} to generate a user access token via the web application flow. Then, the website uses the user access token to make API requests on behalf of the authenticated user.
 
 This tutorial uses Ruby, but you can use the web application flow with any programming language that is used for web development.
+
+{% ifversion ghec %}
+
+> [!NOTE] {% data reusables.enterprise-data-residency.access-domain %}
+
+{% endif %}
 
 ### About web application flow and user access tokens
 
@@ -74,8 +80,7 @@ To follow this tutorial, you must install the Sinatra and dotenv gems in your Ru
 This tutorial will show you how to store the client ID and client secret in environment variables and access them with `ENV.fetch`. When you deploy your app, you will want to change how you store the client ID and client secret. For more information, see "[Securely store your client secret](#securely-store-your-client-secret)."
 
 {% data reusables.apps.settings-step %}
-{% data reusables.user-settings.developer_settings %}
-{% data reusables.user-settings.github_apps %}
+{% data reusables.apps.enterprise-apps-steps %}
 1. Next to the {% data variables.product.prodname_github_app %} that you want to work with, click **Edit**.
 1. On the app's settings page, find the client ID for your app. You will add it to a `.env` file in a following step. Note that the client ID is different from the app ID.
 1. On the app's settings page, click **Generate a new client secret**. You will add the client secret to a `.env` file in a following step.
@@ -161,13 +166,13 @@ These steps lead you through writing code to generate a user access token. To sk
    ```
 
    1. In your terminal, from the directory where `app.rb` is stored, run `ruby app.rb`. A local Sinatra server should start.
-   1. In your browser, navigate to `http://localhost:4567`. You should see a link with the text "Login with GitHub".
-   1. Click on the "Login with GitHub" link.
+   1. In your browser, navigate to `http://localhost:4567`. You should see a link with the text "Login with {% data variables.product.github %}".
+   1. Click on the "Login with {% data variables.product.github %}" link.
 
-      If you have not authorized the app, clicking on the link should take you to `{% data variables.product.oauth_host_code %}/login/oauth/authorize?client_id=CLIENT_ID`, where `CLIENT_ID` is the client ID of your app. This is a GitHub page that prompts users to authorize your app. If you click the button to authorize your app, you will go to the callback URL for your app.
+      If you have not authorized the app, clicking on the link should take you to `{% data variables.product.oauth_host_code %}/login/oauth/authorize?client_id=CLIENT_ID`, where `CLIENT_ID` is the client ID of your app. This is a {% data variables.product.github %} page that prompts users to authorize your app. If you click the button to authorize your app, you will go to the callback URL for your app.
 
       If you previously authorized your app and the authorization has not been revoked, you will skip the authorization prompt and go directly to the callback URL instead. You can revoke your previous authorization if you want to see the authorization prompt. For more information, see "[AUTOTITLE](/apps/using-github-apps/reviewing-your-authorized-integrations)."
-   1. The callback URL page, reached by clicking the "Login with GitHub" link and then authorizing the app if prompted to do so, should display the text similar to "Successfully authorized! Got code agc622abb6135be5d1f2."
+   1. The callback URL page, reached by clicking the "Login with {% data variables.product.github %}" link and then authorizing the app if prompted to do so, should display the text similar to "Successfully authorized! Got code agc622abb6135be5d1f2."
    1. In your terminal where Sinatra is running, stop the server by entering <kbd>Ctrl</kbd>+<kbd>C</kbd>.
 1. Replace the content of `app.rb` with the following code, where `CALLBACK_URL` is the callback URL for your app, minus the domain.
 
@@ -237,10 +242,10 @@ These steps lead you through writing code to generate a user access token. To sk
 
 1. Optionally, check your progress:
    1. In your terminal, from the directory where `app.rb` is stored, run `ruby app.rb`. A local Sinatra server should start.
-   1. In your browser, navigate to `http://localhost:4567`. You should see a link with the text "Login with GitHub".
-   1. Click on the "Login with GitHub" link.
+   1. In your browser, navigate to `http://localhost:4567`. You should see a link with the text "Login with {% data variables.product.github %}".
+   1. Click on the "Login with {% data variables.product.github %}" link.
    1. If prompted to do so, authorize your app.
-   1. The callback URL page, reached by clicking the "Login with GitHub" link and then authorizing the app if prompted to do so, should display the text similar to "Successfully authorized! Got code 4acd44861aeda86dacce and exchanged it for a user access token ending in 2zU5kQziE."
+   1. The callback URL page, reached by clicking the "Login with {% data variables.product.github %}" link and then authorizing the app if prompted to do so, should display the text similar to "Successfully authorized! Got code 4acd44861aeda86dacce and exchanged it for a user access token ending in 2zU5kQziE."
    1. In your terminal where Sinatra is running, stop the server by entering <kbd>Ctrl</kbd>+<kbd>C</kbd>.
 
 1. Now that you have a user access token, you can use the token to make API requests on behalf of the user. For example:
@@ -264,7 +269,7 @@ These steps lead you through writing code to generate a user access token. To sk
    end
    ```
 
-   Update the callback handler to call the `user_info` function and to display the user's name and GitHub login. Remember to replace `CALLBACK_URL` with the callback URL for your app, minus the domain.
+   Update the callback handler to call the `user_info` function and to display the user's name and {% data variables.product.github %} login. Remember to replace `CALLBACK_URL` with the callback URL for your app, minus the domain.
 
    ```ruby copy
    get "CALLBACK_URL" do
@@ -377,14 +382,14 @@ end
 This tutorial assumes that your app code is stored in a file named `app.rb` and that you are using the default URL for a local Sinatra application, `http://localhost:4567`.
 
 1. In your terminal, from the directory where `app.rb` is stored, run `ruby app.rb`. A local Sinatra server should start.
-1. In your browser, navigate to `http://localhost:4567`. You should see a link with the text "Login with GitHub".
-1. Click on the "Login with GitHub" link.
+1. In your browser, navigate to `http://localhost:4567`. You should see a link with the text "Login with {% data variables.product.github %}".
+1. Click on the "Login with {% data variables.product.github %}" link.
 
-   If you have not authorized the app, clicking on the link should take you to `{% data variables.product.oauth_host_code %}/login/oauth/authorize?client_id=CLIENT_ID`, where `CLIENT_ID` is the client ID of your app. This is a GitHub page that prompts users to authorize your app. If you click the button to authorize your app, you will go to the callback URL for your app.
+   If you have not authorized the app, clicking on the link should take you to `{% data variables.product.oauth_host_code %}/login/oauth/authorize?client_id=CLIENT_ID`, where `CLIENT_ID` is the client ID of your app. This is a {% data variables.product.github %} page that prompts users to authorize your app. If you click the button to authorize your app, you will go to the callback URL for your app.
 
    If you previously authorized your app and the authorization has not been revoked, you will skip the authorization prompt and go directly to the callback URL instead. You can revoke your previous authorization if you want to see the authorization prompt. For more information, see "[AUTOTITLE](/apps/using-github-apps/reviewing-your-authorized-integrations)."
 
-1. The callback URL page, reached by clicking the "Login with GitHub" link and then authorizing the app if prompted to do so, should display the text similar to "Successfully authorized! Welcome, Mona Lisa (octocat)."
+1. The callback URL page, reached by clicking the "Login with {% data variables.product.github %}" link and then authorizing the app if prompted to do so, should display the text similar to "Successfully authorized! Welcome, Mona Lisa (octocat)."
 1. In your terminal where Sinatra is running, stop the server by entering <kbd>Ctrl</kbd>+<kbd>C</kbd>.
 
 ## Next steps

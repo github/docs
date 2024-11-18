@@ -16,11 +16,9 @@ versions:
 topics:
   - Accounts
 ---
-{% tip %}
 
-**Tip:** Only organization owners can see and change the account settings for an organization.
-
-{% endtip %}
+> [!TIP]
+> Only organization owners can see and change the account settings for an organization.
 
 {% data reusables.profile.access_org %}
 {% data reusables.user-settings.access_org %}

@@ -35,11 +35,8 @@ There are two types of status checks on {% data variables.product.product_name %
 
 _Checks_ are different from _commit statuses_ in that they provide line annotations, more detailed messaging, and are only available for use with {% data variables.product.prodname_github_apps %}.
 
-{% note %}
-
-**Note:** {% data variables.product.prodname_actions %} generates checks, not commit statuses, when workflows are run.
-
-{% endnote %}
+> [!NOTE]
+> {% data variables.product.prodname_actions %} generates checks, not commit statuses, when workflows are run.
 
 Organization owners and users with push access to a repository can create checks and commit statuses with {% data variables.product.product_name %}'s API. For more information, see "[AUTOTITLE](/rest/checks)" and "[AUTOTITLE](/rest/commits/statuses)."
 
@@ -47,11 +44,8 @@ Organization owners and users with push access to a repository can create checks
 
 When _checks_ are set up in a repository, pull requests have a **Checks** tab where you can view detailed build output from checks and rerun failed checks.
 
-{% note %}
-
-**Note:** The **Checks** tab only gets populated for pull requests if you set up _checks_, not _commit statuses_, for the repository.
-
-{% endnote %}
+> [!NOTE]
+> The **Checks** tab only gets populated for pull requests if you set up _checks_, not _commit statuses_, for the repository.
 
 When a specific line in a commit causes a check to fail, you will see details about the failure, warning, or notice next to the relevant code in the **Files** tab of the pull request.
 
@@ -87,10 +81,6 @@ Alternatively, to skip or request _all_ checks for your commit, add one of the f
 
 {% data reusables.commits.about-commit-cleanup %}
 
-{% ifversion status-check-retention %}
-
 ### Retention of checks
 
 {% data reusables.pull_requests.retention-checks-data %}
-
-{% endif %}

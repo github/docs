@@ -17,11 +17,8 @@ When a token has expired or has been revoked, it can no longer be used to authen
 
 This article explains the possible reasons your {% data variables.product.product_name %} token might be revoked or expire.
 
-{% note %}
-
-**Note:** When a {% data variables.product.pat_generic %} or OAuth token expires or is revoked, you may see an `oauth_authorization.destroy` action in your security log. For more information, see "[AUTOTITLE](/authentication/keeping-your-account-and-data-secure/reviewing-your-security-log)."
-
-{% endnote %}
+> [!NOTE]
+> When a {% data variables.product.pat_generic %} or OAuth token expires or is revoked, you may see an `oauth_authorization.destroy` action in your security log. For more information, see "[AUTOTITLE](/authentication/keeping-your-account-and-data-secure/reviewing-your-security-log)."
 
 ## Token revoked after reaching its expiration date
 
@@ -46,7 +43,7 @@ If a valid OAuth token, {% data variables.product.prodname_github_app %} token, 
 
 You can revoke your authorization of a {% data variables.product.prodname_github_app %} or {% data variables.product.prodname_oauth_app %} from your account settings which will revoke any tokens associated with the app. For more information, see "[AUTOTITLE](/apps/using-github-apps/reviewing-your-authorized-integrations)" and "[AUTOTITLE](/apps/oauth-apps/using-oauth-apps/reviewing-your-authorized-applications-oauth)."
 
-Once an authorization is revoked, any tokens associated with the authorization will be revoked as well. To reauthorize an application, follow the instructions from the third-party application or website to connect your account on {% data variables.location.product_location %} again.
+Once an authorization is revoked, any tokens associated with the authorization will be revoked as well. To reauthorize an application, follow the instructions from the third-party application or website to connect your account on {% data variables.product.prodname_dotcom %} again.
 
 ## Token revoked by the {% data variables.product.prodname_oauth_app %}
 

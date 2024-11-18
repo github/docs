@@ -342,16 +342,16 @@ The language guide introduction should include the following in a short paragrap
 ## Starting with the <language> workflow template
 
 {% comment %}
-Language guides typically walk through and build upon a starter workflow template. If that format doesn't work, you can include a boilerplate workflow.
-- Link to the GitHub Actions CI starter workflow as the boilerplate reference code and then walk through and build on that code in this guide - https://github.com/actions/starter-workflows/tree/master/ci
-- Provide instructions for adding the starter workflow template to a repository.
+Language guides typically walk through and build upon a workflow template template. If that format doesn't work, you can include a boilerplate workflow.
+- Link to the GitHub Actions CI workflow template as the boilerplate reference code and then walk through and build on that code in this guide - https://github.com/actions/starter-workflows/tree/master/ci
+- Provide instructions for adding the workflow template template to a repository.
 - Include the starter template workflow code.
 {% endcomment %}
 
 ## Running on different operating systems
 
 {% comment %}
-Include a brief overview of how to choose the runner environment. These should be alternatives to what operating system is presented in the starter workflow/boilerplate template.
+Include a brief overview of how to choose the runner environment. These should be alternatives to what operating system is presented in the workflow template/boilerplate template.
 {% endcomment %}
 
 ## Configuring the <language> version

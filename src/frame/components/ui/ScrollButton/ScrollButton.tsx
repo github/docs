@@ -3,7 +3,7 @@ import cx from 'classnames'
 import { ChevronUpIcon } from '@primer/octicons-react'
 import styles from './ScrollButton.module.scss'
 
-const { transition200, opacity0, opacity100 } = styles
+const { transition200, opacity0, opacity100, customFocus } = styles
 
 export type ScrollButtonPropsT = {
   className?: string
@@ -59,8 +59,9 @@ export const ScrollButton = ({ className, ariaLabel }: ScrollButtonPropsT) => {
         onClick={onClick}
         className={cx(
           'ghd-scroll-to-top', // for data tracking, see events.ts
-          'tooltipped tooltipped-n tooltipped-no-delay color-bg-accent-emphasis color-fg-on-emphasis circle border-0',
+          'tooltipped tooltipped-n tooltipped-no-delay btn circle border-1',
           'd-flex flex-items-center flex-justify-center',
+          customFocus,
         )}
         style={{ width: 40, height: 40 }}
         aria-label={ariaLabel}

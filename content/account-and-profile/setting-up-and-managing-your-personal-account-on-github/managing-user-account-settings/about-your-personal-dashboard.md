@@ -49,11 +49,8 @@ You can also find a list of your recently visited repositories, teams, and proje
 
 {% ifversion feed %}
 
-{% note %}
-
-**Note:** The new feed is currently in public beta and subject to change.
-
-{% endnote %}
+> [!NOTE]
+> The new feed is currently in {% data variables.release-phases.public_preview %} and subject to change.
 
 The feed is designed to help you discover relevant content from projects you follow, keep up with your friends and community members, and track recent activity in your communities.
 
@@ -89,11 +86,8 @@ For more information about following people and starring repositories, see "[AUT
 
 ### For you feed
 
-{% note %}
-
-**Note:** This new tab is currently in public beta and subject to change.
-
-{% endnote %}
+> [!NOTE]
+> This new tab is currently in {% data variables.release-phases.public_preview %} and subject to change.
 
 This feed shows activity and recommendations based on your network on {% data variables.product.product_name %}. It's designed to provide updates that inspire you, keep you up-to-date, and help you find new communities you want to participate in. Your network includes:
 

@@ -34,16 +34,11 @@ topics:
 After typing a search query, you can press **Enter** to go to the full search results view, where you can see each match and a visual interface for applying filters. For more information, see "[Searching using a visual interface](#searching-using-a-visual-interface)."
 {% endif %}
 
-{% note %}
-
-**Notes:**
-
-* {% data reusables.search.required_login %}
-* {% data variables.product.prodname_pages %} sites are not searchable on {% data variables.product.product_name %}. However you can search the source content if it exists in the default branch of a repository, using code search. For more information, see "[AUTOTITLE]{% ifversion code-search-upgrade %}(/search-github/github-code-search/understanding-github-code-search-syntax){% else %}(/search-github/searching-on-github/searching-code){% endif %}." For more information about {% data variables.product.prodname_pages %}, see "[AUTOTITLE](/pages/getting-started-with-github-pages/about-github-pages)"
-* Currently our search doesn't support exact matching.{% ifversion ghes %}
-* Whenever you are searching in code files, only the first two results in each file will be returned.{% endif %}
-
-{% endnote %}
+> [!NOTE]
+> * {% data reusables.search.required_login %}
+> * {% data variables.product.prodname_pages %} sites are not searchable on {% data variables.product.product_name %}. However you can search the source content if it exists in the default branch of a repository, using code search. For more information, see "[AUTOTITLE]{% ifversion code-search-upgrade %}(/search-github/github-code-search/understanding-github-code-search-syntax){% else %}(/search-github/searching-on-github/searching-code){% endif %}." For more information about {% data variables.product.prodname_pages %}, see "[AUTOTITLE](/pages/getting-started-with-github-pages/about-github-pages)"
+> * Currently our search doesn't support exact matching.{% ifversion ghes %}
+> * Whenever you are searching in code files, only the first two results in each file will be returned.{% endif %}
 
 After running a search on {% data variables.product.product_name %}, you can sort the results, or further refine them by clicking one of the languages in the sidebar. For more information, see "[AUTOTITLE](/search-github/getting-started-with-searching-on-github/sorting-search-results)."
 
@@ -51,7 +46,7 @@ After running a search on {% data variables.product.product_name %}, you can sor
 
 ## Types of searches on {% data variables.product.prodname_dotcom %}
 
-You can search for the following information across all repositories you can access on {% data variables.location.product_location %}.
+You can search for the following information across all repositories you can access on {% data variables.product.prodname_dotcom %}.
 
 * [Repositories](/search-github/searching-on-github/searching-for-repositories)
 * [Topics](/search-github/searching-on-github/searching-topics)

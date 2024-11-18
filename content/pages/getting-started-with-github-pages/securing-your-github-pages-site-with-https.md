@@ -23,11 +23,8 @@ All {% data variables.product.prodname_pages %} sites, including sites that are 
 
 {% data reusables.pages.private_pages_are_public_warning %}
 
-{% note %}
-
-**Note:** RFC3280 states that the maximum length of the common name should be 64 characters. Therefore, the entire domain name of your {% data variables.product.prodname_pages %} site must be less than 64 characters long for a certificate to be successfully created.
-
-{% endnote %}
+> [!NOTE]
+> RFC3280 states that the maximum length of the common name should be 64 characters. Therefore, the entire domain name of your {% data variables.product.prodname_pages %} site must be less than 64 characters long for a certificate to be successfully created.
 
 ## Enforcing HTTPS for your {% data variables.product.prodname_pages %} site
 
@@ -54,11 +51,8 @@ Assets are commonly found in the following locations:
 * JavaScript is usually found in the `<head>` section or just before the closing `</body>` tag.
 * Images are often found in the `<body>` section.
 
-{% tip %}
-
-**Tip:** If you can't find your assets in your site's source files, try searching your site's source files for `http` in your text editor or on {% data variables.product.product_name %}.
-
-{% endtip %}
+> [!TIP]
+> If you can't find your assets in your site's source files, try searching your site's source files for `http` in your text editor or on {% data variables.product.product_name %}.
 
 ### Examples of assets referenced in an HTML file
 

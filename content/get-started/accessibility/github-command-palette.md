@@ -40,13 +40,9 @@ When you open the command palette, it shows your location at the top left and us
 
 ![Screenshot of the command palette. "octo-org" is highlighted with an orange outline.](/assets/images/help/command-palette/command-palette-launch.png)
 
-{% note %}
-
-**Notes:**
-* If you are editing Markdown text, open the command palette with <kbd>Ctrl</kbd>+<kbd>Alt</kbd>+<kbd>K</kbd> (Windows and Linux) or <kbd>Command</kbd>+<kbd>Option</kbd>+<kbd>K</kbd> (Mac).{% ifversion projects-v2 %}
-* If you are working on a {% data variables.projects.project_v2 %}, a project-specific command palette is displayed instead. For more information, see "[AUTOTITLE](/issues/planning-and-tracking-with-projects/customizing-views-in-your-project/changing-the-layout-of-a-view)."{% endif %}
-
-{% endnote %}
+> [!NOTE]
+> * If you are editing Markdown text, open the command palette with <kbd>Ctrl</kbd>+<kbd>Alt</kbd>+<kbd>K</kbd> (Windows and Linux) or <kbd>Command</kbd>+<kbd>Option</kbd>+<kbd>K</kbd> (Mac).{% ifversion projects-v2 %}
+> * If you are working on a {% data variables.projects.project_v2 %}, a project-specific command palette is displayed instead. For more information, see "[AUTOTITLE](/issues/planning-and-tracking-with-projects/customizing-views-in-your-project/changing-the-layout-of-a-view)."{% endif %}
 
 ### Customizing your {% data variables.product.prodname_command_palette %} keyboard shortcuts
 
@@ -70,7 +66,7 @@ You can use the command palette to navigate to any page that you have access to 
 
 ## Searching with the {% data variables.product.prodname_command_palette %}
 
-You can use the command palette to search for anything on {% data variables.location.product_location %}.
+You can use the command palette to search for anything on {% data variables.product.prodname_dotcom %}.
 
 {% data reusables.command-palette.open-palette %}
 

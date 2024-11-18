@@ -34,7 +34,7 @@ A codespace for this template will open in a web-based version of {% data variab
 
 ### Opening the image classifier notebook
 
-The default container image that's used by {% data variables.product.prodname_github_codespaces %} includes a set of machine learning libraries that are preinstalled in your codespace. For example, Numpy, pandas, SciPy, Matplotlib, seaborn, scikit-learn, Keras, PyTorch, Requests, and Plotly. For more information about the default image, see "[AUTOTITLE](/codespaces/setting-up-your-project-for-codespaces/adding-a-dev-container-configuration/introduction-to-dev-containers#using-the-default-dev-container-configuration)" and the [devcontainers/images](https://github.com/devcontainers/images/tree/main/src/universal) repository].
+The default container image that's used by {% data variables.product.prodname_github_codespaces %} includes a set of machine learning libraries that are preinstalled in your codespace. For example, Numpy, pandas, SciPy, Matplotlib, seaborn, scikit-learn, Keras, PyTorch, Requests, and Plotly. For more information about the default image, see "[AUTOTITLE](/codespaces/setting-up-your-project-for-codespaces/adding-a-dev-container-configuration/introduction-to-dev-containers#using-the-default-dev-container-configuration)" and the [devcontainers/images](https://github.com/devcontainers/images/tree/main/src/universal) repository.
 
 1. In the {% data variables.product.prodname_vscode_shortname %} editor, close any "Get Started" tabs that are displayed.
 1. Open the `notebooks/image-classifier.ipynb` notebook file.
@@ -63,11 +63,8 @@ You can open your codespace in JupyterLab from the "Your codespaces" page at [gi
 
 ## Configuring NVIDIA CUDA for your codespace
 
-{% note %}
-
-**Note**: This section only applies to customers who can create codespaces on machines that use a GPU. The ability to choose a machine type that uses a GPU was offered to selected customers during a trial period. This option is not generally available.
-
-{% endnote %}
+> [!NOTE]
+> This section only applies to customers who can create codespaces on machines that use a GPU. The ability to choose a machine type that uses a GPU was offered to selected customers during a trial period. This option is not generally available.
 
 Some software requires you to install NVIDIA CUDA to use your codespace’s GPU. Where this is the case, you can create your own custom configuration, by using a `devcontainer.json` file, and specify that CUDA should be installed. For more information on creating a custom configuration, see "[AUTOTITLE](/codespaces/setting-up-your-project-for-codespaces/adding-a-dev-container-configuration/introduction-to-dev-containers#creating-a-custom-dev-container-configuration)."
 

@@ -93,11 +93,8 @@ For more information, see "[Docker login](https://docs.docker.com/engine/referen
 
 {% data reusables.package_registry.docker_registry_deprecation_status %}
 
-{% note %}
-
-**Note:** Image names must only use lowercase letters.
-
-{% endnote %}
+> [!NOTE]
+> Image names must only use lowercase letters.
 
 {% data variables.product.prodname_registry %} supports multiple top-level Docker images per repository. A repository can have any number of image tags. You may experience degraded service publishing or installing Docker images larger than 10GB, layers are capped at 5GB each. For more information, see "[Docker tag](https://docs.docker.com/engine/reference/commandline/tag/)" in the Docker documentation.
 
@@ -187,11 +184,9 @@ For more information, see "[Docker login](https://docs.docker.com/engine/referen
 
    {% endif %}
    {% endif %}
-   {% note %}
 
-   **Note:** You must push your image using `IMAGE_NAME:VERSION` and not using `IMAGE_NAME:SHA`.
-
-   {% endnote %}
+   > [!NOTE]
+   > You must push your image using `IMAGE_NAME:VERSION` and not using `IMAGE_NAME:SHA`.
 
 ### Example publishing a Docker image
 
@@ -291,11 +286,8 @@ docker pull HOSTNAME/OWNER/REPOSITORY/IMAGE_NAME:TAG_NAME
 {% endif %}
 {% endif %}
 
-{% note %}
-
-**Note:** You must pull the image using `IMAGE_NAME:VERSION` and not using `IMAGE_NAME:SHA`.
-
-{% endnote %}
+> [!NOTE]
+> You must pull the image using `IMAGE_NAME:VERSION` and not using `IMAGE_NAME:SHA`.
 
 ## Further reading
 

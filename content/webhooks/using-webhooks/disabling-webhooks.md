@@ -39,7 +39,7 @@ To disable an organization webhook, you can deactivate or delete it. Only organi
 
 You can use the {% data variables.product.prodname_dotcom %} web interface or the REST API to delete an organization webhook. For more information about using the REST API to delete an organization webhook, see "[AUTOTITLE](/rest/orgs/webhooks#delete-an-organization-webhook)."
 
-1. In the upper-right corner of any page on {% data variables.location.product_location %}, click your profile photo.
+1. In the upper-right corner of any page on {% data variables.product.github %}, click your profile photo.
 1. Click **Your organizations**.
 1. To the right of the organization, click **Settings**.
 {% data reusables.webhooks.sidebar_webhooks %}
@@ -92,8 +92,7 @@ You can disable webhooks that were previously enabled for events relating to {% 
 Each {% data variables.product.prodname_github_app %} has one webhook. You cannot delete the webhook, but you can deactivate the webhook. The owner of a {% data variables.product.prodname_github_app %} can deactivate the webhook the app. If an organization has designated any app managers for a {% data variables.product.prodname_github_app %} owned by the organization, the app managers can also deactivate the webhook for the app.
 
 {% data reusables.apps.settings-step %}
-{% data reusables.user-settings.developer_settings %}
-{% data reusables.user-settings.github_apps %}
+{% data reusables.apps.enterprise-apps-steps %}
 1. Next to the {% data variables.product.prodname_github_app %} that you want to deactivate the webhook for, click **Edit**.
 1. Under "Webhook," deselect **Active** to disable the webhook.
 1. Click **Save changes**.

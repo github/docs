@@ -15,6 +15,8 @@ redirect_from:
   - /admin/policies/enforcing-policies-for-your-enterprise/enforcing-policies-for-github-codespaces-in-your-enterprise
 ---
 
+>[!NOTE] {% data variables.product.prodname_github_codespaces %} is not available for enterprises that use {% data variables.enterprise.data_residency %}.
+
 ## About enterprise policies for {% data variables.product.prodname_github_codespaces %}
 
 As an enterprise owner, you can set a policy to enable or disable {% data variables.product.prodname_github_codespaces %} across organizations in your enterprise. You can enable {% data variables.product.prodname_github_codespaces %} for all organizations, enable for specific organizations, or disable for all organizations.
@@ -27,11 +29,8 @@ If you're an organization owner, you can enable {% data variables.product.prodna
 
 ## Enabling or disabling {% data variables.product.prodname_github_codespaces %} in your enterprise
 
-{% note %}
-
-**Note:** If you remove a user's access to {% data variables.product.prodname_github_codespaces %}, the user will immediately be unable to open existing codespaces they have created from an organization's private {% ifversion ghec %}and internal {% endif %}repositories. For more information, see "[AUTOTITLE](/codespaces/managing-codespaces-for-your-organization/enabling-or-disabling-github-codespaces-for-your-organization#about-changing-your-settings)."
-
-{% endnote %}
+> [!NOTE]
+> If you remove a user's access to {% data variables.product.prodname_github_codespaces %}, the user will immediately be unable to open existing codespaces they have created from an organization's private {% ifversion ghec %}and internal {% endif %}repositories. For more information, see "[AUTOTITLE](/codespaces/managing-codespaces-for-your-organization/enabling-or-disabling-github-codespaces-for-your-organization#about-changing-your-settings)."
 
 {% data reusables.enterprise-accounts.access-enterprise %}
 {% data reusables.enterprise-accounts.policies-tab %}

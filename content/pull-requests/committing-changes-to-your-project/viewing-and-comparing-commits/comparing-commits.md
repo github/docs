@@ -36,11 +36,8 @@ To compare tags, you can select a tag name from the `compare` drop-down menu at 
 
 Here's an example of a [comparison between two tags](https://github.com/octocat/linguist/compare/v2.2.0...octocat:v2.3.3).
 
-{% note %}
-
-**Note:** If a branch and a tag have the same name, the branch will be used when comparing commits. You can compare the tag specifically by adding `tags/` to the tag name.
-
-{% endnote %}
+> [!NOTE]
+> If a branch and a tag have the same name, the branch will be used when comparing commits. You can compare the tag specifically by adding `tags/` to the tag name.
 
 ## Comparing commits
 
@@ -57,6 +54,8 @@ To learn more about other comparison options, see "[AUTOTITLE](/pull-requests/co
 You can compare your base repository and any forked repository. This is the view that's presented when a user performs a Pull Request to a project.
 
 To compare branches on different repositories, preface the branch names with user names. For example, by specifying `octocat:main` for `base` and `octo-org:main` for `compare`, you can compare the `main` branch of the repositories respectively owned by `octocat` and `octo-org`.
+
+You can also preface the branch name with a user name and a repository name. For example, specifying `octocat:awesome-app:main` would use the `main` branch in the `octocat/awesome-app` repository. This can be useful in large organizations, where you might have an upstream repository and a fork both owned by the organization. For more information, see "[AUTOTITLE](/pull-requests/collaborating-with-pull-requests/working-with-forks/about-forks)."
 
 Here's an example of a [comparison between two repositories](https://github.com/github-linguist/linguist/compare/master...octocat:master).
 

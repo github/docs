@@ -1,3 +1,4 @@
+* Audit logs
 * {% data variables.product.prodname_code_scanning_caps %} results
 * Commit status checks
 * {% data variables.product.prodname_dependabot %} alerts

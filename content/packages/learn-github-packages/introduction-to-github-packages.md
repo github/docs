@@ -68,11 +68,16 @@ The permissions for a package are either inherited from the repository where the
 | N/A | Docker container management | `Dockerfile` | `Docker` |
 
 {% ifversion ghes %}
-{% note %}
 
-**Note:** When enabling the Docker registry, we highly recommend also enabling subdomain isolation. For more information, see "[AUTOTITLE](/admin/configuration/configuring-network-settings/enabling-subdomain-isolation)."
+> [!NOTE]
+> When enabling the Docker registry, we highly recommend also enabling subdomain isolation. For more information, see "[AUTOTITLE](/admin/configuration/configuring-network-settings/enabling-subdomain-isolation)."
 
-{% endnote %}
+{% endif %}
+
+{% ifversion ghec %}
+
+> [!NOTE]
+> The Apache Maven and Gradle registries are not available for {% data variables.enterprise.data_residency %}.
 
 {% endif %}
 

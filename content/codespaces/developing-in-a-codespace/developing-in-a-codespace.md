@@ -24,12 +24,18 @@ shortTitle: Develop in a codespace
 
 ## About development with {% data variables.product.prodname_github_codespaces %}
 
+{% ifversion ghec %}
+
+{% data reusables.codespaces.data-residency-availability %}
+
+{% endif %}
+
 You can develop code in a codespace using your choice of tool:
 
-* A command shell, via an SSH connection initiated using {% data variables.product.prodname_cli %}.
-* One of the JetBrains IDEs, via the JetBrains Gateway.
-* The {% data variables.product.prodname_vscode %} desktop application.
-* A browser-based version of {% data variables.product.prodname_vscode %}.
+* A command shell, via an SSH connection initiated using {% data variables.product.prodname_cli %}
+* One of the JetBrains IDEs, via the JetBrains Gateway
+* The {% data variables.product.prodname_vscode %} desktop application
+* A browser-based version of {% data variables.product.prodname_vscode %}
 
 {% webui %}
 
@@ -89,6 +95,7 @@ Within the {% data variables.product.prodname_github_codespaces %} documentation
 ![Annotated screenshot of the six main components of the user interface for JetBrains IntelliJ IDEA.](/assets/images/help/codespaces/jetbrains-gui-with-callouts.png)
 
 The main components of the user interface are:
+
 1. **Navigation bar** - This displays the path to the currently selected file or directory. Use the buttons to the right of the navigation bar to perform various actions, including building, running, or debugging the project, or running Git commands to commit and push your changes.
 1. **Project tool window** - This shows you the structure of your project and allows you to open files in the editor.
 1. **{% data variables.product.prodname_github_codespaces %} tool window** - This is displayed by clicking the {% data variables.product.prodname_github_codespaces %} plugin in the bar to the left of the tool window. It displays information about your codespace, including its display name and machine type. The buttons at the top of this tool window allow you to:

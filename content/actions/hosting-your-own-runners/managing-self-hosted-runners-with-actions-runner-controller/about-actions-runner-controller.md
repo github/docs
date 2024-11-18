@@ -20,11 +20,8 @@ topics:
 
 The following diagram illustrates the architecture of ARC's autoscaling runner scaleset mode.
 
-{% note %}
-
-**Note:** To view the following diagram in a larger size, see the [Autoscaling Runner Scale Sets mode](https://github.com/actions/actions-runner-controller/blob/master/docs/gha-runner-scale-set-controller/README.md#how-it-works) documentation in the Actions Runner Controller repository.
-
-{% endnote %}
+> [!NOTE]
+> To view the following diagram in a larger size, see the [Autoscaling Runner Scale Sets mode](https://github.com/actions/actions-runner-controller/blob/master/docs/gha-runner-scale-set-controller/README.md#how-it-works) documentation in the Actions Runner Controller repository.
 
 ![Diagram showing ARC's autoscaling runner ScaleSet mode.](/assets/images/help/actions/arc-diagram.png)
 
@@ -48,14 +45,11 @@ ARC consists of a set of resources, some of which are created specifically for A
 
 Each resource that is deployed by ARC is given a name composed of:
 
-* an installation name, which is the installation name you specify when you install the Helm chart.
-* a resource identification suffix, which is a string that identifies the resource type. This value is not configurable.
+* An installation name, which is the installation name you specify when you install the Helm chart.
+* A resource identification suffix, which is a string that identifies the resource type. This value is not configurable.
 
-{% note %}
-
-**Note:** Different versions of Kubernetes have different length limits for names of resources. The length limit for the resource name is calculated by adding the length of the installation name and the length of the resource identification suffix. If the resource name is longer than the reserved length, you will receive an error.
-
-{% endnote %}
+> [!NOTE]
+> Different versions of Kubernetes have different length limits for names of resources. The length limit for the resource name is calculated by adding the length of the installation name and the length of the resource identification suffix. If the resource name is longer than the reserved length, you will receive an error.
 
 ### Resources deployed by `gha-runner-scale-set-controller`
 

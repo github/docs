@@ -138,7 +138,7 @@ Code annotations only work in articles with the `layout: inline` frontmatter pro
               PR_URL: ${{ github.event.pull_request.html_url }}
     ```
 
-For an example of an article that uses code annotations on {% data variables.product.prodname_docs %}, see "[AUTOTITLE](/actions/examples/using-scripts-to-test-your-code-on-a-runner)."
+For an example of an article that uses code annotations on {% data variables.product.prodname_docs %}, see "[AUTOTITLE](/packages/managing-github-packages-using-github-actions-workflows/publishing-and-installing-a-package-with-github-actions)."
 
 ## Octicons
 
@@ -376,7 +376,7 @@ For example, if you include the following link in a content file:
 /github/writing-on-github/creating-a-saved-reply
 ```
 
-When viewed on {% data variables.product.prodname_dotcom_the_website %} docs, the link gets rendered with the language code:
+When viewed on {% data variables.product.prodname_docs %}, the link gets rendered with the language code:
 
 ```text
 /en/github/writing-on-github/creating-a-saved-reply
@@ -394,11 +394,8 @@ For more information about links, see "[AUTOTITLE](/contributing/style-guide-and
 
 Because the site is dynamic, it does not build HTML files for each different version of an article. Instead it generates a "permalink" for every version of the article. It does this based on the article's [`versions` frontmatter](/contributing/syntax-and-versioning-for-github-docs/using-yaml-frontmatter#versions).
 
-{% note %}
-
-**Note**: As of early 2021, the `free-pro-team@latest` version is not included in URLs. A helper function called `lib/remove-fpt-from-path.js` removes the version from URLs.
-
-{% endnote %}
+> [!NOTE]
+> As of early 2021, the `free-pro-team@latest` version is not included in URLs. A helper function called `lib/remove-fpt-from-path.js` removes the version from URLs.
 
 For example, an article that is available in currently supported versions will have permalink URLs like the following:
 
@@ -414,11 +411,8 @@ An article that is not available in {% data variables.product.prodname_ghe_serve
 
 * `/en/get-started/getting-started-with-git/set-up-git`
 
-{% note %}
-
-**Note:** If you are a content contributor, you don't need to worry about supported versions when adding a link to a document. Following the examples above, if you want to reference an article, you can just use its relative location: `/github/getting-started-with-github/set-up-git`.
-
-{% endnote %}
+> [!NOTE]
+> If you are a content contributor, you don't need to worry about supported versions when adding a link to a document. Following the examples above, if you want to reference an article, you can just use its relative location: `/github/getting-started-with-github/set-up-git`.
 
 ### Internal links with AUTOTITLE
 
@@ -430,11 +424,8 @@ When linking to another {% data variables.product.prodname_docs %} page, use sta
 * `For more information, see "[AUTOTITLE](/path/to/page#section-link)."`
 * `For more information, see the TOOLNAME documentation in "[AUTOTITLE](/path/to/page?tool=TOOLNAME)."`
 
-{% note %}
-
-**Note:** Same-page section links do not work with this keyword. Type out the full header text instead.
-
-{% endnote %}
+> [!NOTE]
+> Same-page section links do not work with this keyword. Type out the full header text instead.
 
 ### Linking to the current article in a different version of the docs
 

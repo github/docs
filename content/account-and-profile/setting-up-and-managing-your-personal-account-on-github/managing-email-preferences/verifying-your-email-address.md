@@ -34,14 +34,9 @@ If you do not verify your email address, you will not be able to:
 * Sponsor developers with {% data variables.product.prodname_sponsors %}
 * Accept organization invitations
 
-{% warning %}
-
-**Warnings**:
-
-* {% data reusables.user-settings.no-verification-disposable-emails %}
-* {% data reusables.user-settings.verify-org-approved-email-domain %}
-
-{% endwarning %}
+> [!WARNING]
+> * {% data reusables.user-settings.no-verification-disposable-emails %}
+> * {% data reusables.user-settings.verify-org-approved-email-domain %}
 
 {% ifversion ghec %}
 
@@ -72,11 +67,11 @@ Having an unverified email address does not affect most actions you can take on 
 
 The verification link expires after 24 hours. If you don't verify your email within 24 hours, you can request another email verification link. For more information, see "[AUTOTITLE](/account-and-profile/setting-up-and-managing-your-personal-account-on-github/managing-email-preferences/verifying-your-email-address#verifying-your-email-address)."
 
-If you click on the link in the confirmation email within 24 hours and you are directed to an error page, you should ensure that you're signed into the correct account on {% data variables.location.product_location %}.
+If you click on the link in the confirmation email within 24 hours and you are directed to an error page, you should ensure that you're signed into the correct account on {% data variables.product.github %}.
 
-1. Sign out of your personal account on {% data variables.location.product_location %}.
+1. Sign out of your account.
 1. Quit and restart your browser.
-1. Sign in to your personal account on {% data variables.location.product_location %}.
+1. Sign in to your account.
 1. Click on the verification link in the email we sent you.
 
 {% ifversion ghec %}

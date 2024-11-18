@@ -11,24 +11,18 @@ topics:
   - Organizations
   - Teams
 shortTitle: Dependency insights
-permissions: Organization members can view organization insights.
+permissions: '{% data reusables.permissions.dependency-graph-view-org-insights %}'
 ---
 
-{% note %}
-
-**Note:** To view organization dependency insights, your organization must use {% data variables.product.prodname_ghe_cloud %}. {% data reusables.enterprise.link-to-ghec-trial %}
-
-{% endnote %}
+> [!NOTE]
+> To view organization dependency insights, your organization must use {% data variables.product.prodname_ghe_cloud %}. {% data reusables.enterprise.link-to-ghec-trial %}
 
 ## Viewing organization dependency insights
 
 Dependency insights can help you track, report, and act on your organization's open source usage.
 
-{% note %}
-
-**Note:** Please make sure you have enabled the [Dependency Graph](/code-security/supply-chain-security/understanding-your-software-supply-chain/configuring-the-dependency-graph).
-
-{% endnote %}
+> [!NOTE]
+> Please make sure you have enabled the [Dependency Graph](/code-security/supply-chain-security/understanding-your-software-supply-chain/configuring-the-dependency-graph).
 
 With dependency insights you can view vulnerabilities, licenses, and other important information for the open source projects your organization depends on.
 

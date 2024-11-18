@@ -41,7 +41,7 @@ Additionally, you can enforce policies for the use of {% data variables.product.
 
 {% data reusables.advanced-security.ghas-helps-developers %} For more information, see "[AUTOTITLE](/get-started/learning-about-github/about-github-advanced-security)."
 
-{% ifversion ghes %}If you purchase a license for {% data variables.product.prodname_GH_advanced_security %}, any{% else %}Any{% endif %} organization on {% data variables.location.product_location %} can use {% data variables.product.prodname_advanced_security %} features. You can enforce policies to control how members of your enterprise on {% data variables.product.product_name %} use {% data variables.product.prodname_advanced_security %}.
+{% ifversion ghes %}If you purchase a license for {% data variables.product.prodname_GH_advanced_security %}, any{% else %}Any{% endif %} organization on {% data variables.product.prodname_ghe_server %} can use {% data variables.product.prodname_advanced_security %} features. You can enforce policies to control how members of your enterprise on {% data variables.product.product_name %} use {% data variables.product.prodname_advanced_security %}.
 
 {% endif %}
 
@@ -118,9 +118,9 @@ Across all of your enterprise's organizations, you can allow or disallow people 
 
 {% ifversion secret-scanning-ai-generic-secret-detection %}
 
-## Enforcing a policy to manage the use of generic secret detection for {% data variables.product.prodname_secret_scanning %} in your enterprise's repositories
+## Enforcing a policy to manage the use of {% data variables.secret-scanning.generic-secret-detection %} for {% data variables.product.prodname_secret_scanning %} in your enterprise's repositories
 
-Across all of your enterprise's organizations, you can allow or disallow people with admin access to repositories to manage and configure generic secret detection for {% data variables.product.prodname_secret_scanning %} for the repositories. {% data reusables.advanced-security.ghas-must-be-enabled %}
+Across all of your enterprise's organizations, you can allow or disallow people with admin access to repositories to manage and configure AI detection in {% data variables.product.prodname_secret_scanning %} for the repositories. {% data reusables.advanced-security.ghas-must-be-enabled %}
 
 {% data reusables.enterprise-accounts.access-enterprise %}
 {% data reusables.enterprise-accounts.policies-tab %}

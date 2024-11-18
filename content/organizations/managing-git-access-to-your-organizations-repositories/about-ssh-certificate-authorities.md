@@ -49,11 +49,8 @@ If your organization doesn't require SSH certificates, contributors can continue
 
 When you issue each certificate, you must include an extension that specifies which {% data variables.product.product_name %} user the certificate is for. You can reference the user using their login handle{% ifversion ssh-ca-expires %} or their user ID{% endif %}. For example, you can use OpenSSH's `ssh-keygen` command, replacing KEY-IDENTITY with your key identity and USERNAME with a {% data variables.product.product_name %} username{% ifversion ssh-ca-expires %} or user ID{% endif %}. The certificate you generate will be authorized to act on behalf of that user for any of your organization's resources. Make sure you validate the user's identity before you issue the certificate.
 
-{% note %}
-
-**Note:** You must update to OpenSSH 7.6 or later to use these commands.
-
-{% endnote %}
+> [!NOTE]
+> You must update to OpenSSH 7.6 or later to use these commands.
 
 To use the `login` to identify the user, use `extension:login`:
 
@@ -69,11 +66,9 @@ ssh-keygen -s ./ca-key -V '+1d' -I KEY-IDENTITY -O extension:id@{% data variable
 ```
 
 {% endif %}
-{% warning %}
 
-**Warning**: After a certificate has been signed and issued, the certificate cannot be revoked.
-
-{% endwarning %}
+> [!WARNING]
+> After a certificate has been signed and issued, the certificate cannot be revoked.
 
 For CAs uploaded {% ifversion ghec %}after March 27th, 2024{% elsif ghes %}to {% data variables.product.prodname_ghe_server %} version 3.13 or later{% endif %}, you {% ifversion ghes < 3.13 %}will need to{% else %}must{% endif %} use the `-V` flag to configure a lifetime less than 366 days for the certificate. For CAs uploaded {% ifversion ghec %}before this date{% elsif ghes %}before version 3.13{% endif %}, the `-V` flag is optional, and you can create certificates that are irrevocable and live forever.
 

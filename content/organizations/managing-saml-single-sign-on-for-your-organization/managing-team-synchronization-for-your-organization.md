@@ -53,11 +53,8 @@ You must enable SAML single sign-on for your organization and your supported IdP
 
 You must have a linked SAML identity. To create a linked identity, you must authenticate to your organization using SAML SSO and the supported IdP at least once. For more information, see "[AUTOTITLE](/authentication/authenticating-with-saml-single-sign-on)."
 
-{% note %}
-
-**Note**: For team synchronization to work, your SAML settings must contain a valid IdP URL for the "Issuer" field. For more information, see "[Enabling and testing SAML single sign-on for your organization](/organizations/managing-saml-single-sign-on-for-your-organization/enabling-and-testing-saml-single-sign-on-for-your-organization#enabling-and-testing-saml-single-sign-on-for-your-organization)."
-
-{% endnote %}
+> [!NOTE]
+> For team synchronization to work, your SAML settings must contain a valid IdP URL for the "Issuer" field. For more information, see "[Enabling and testing SAML single sign-on for your organization](/organizations/managing-saml-single-sign-on-for-your-organization/enabling-and-testing-saml-single-sign-on-for-your-organization#enabling-and-testing-saml-single-sign-on-for-your-organization)."
 
 ### Enabling team synchronization for Entra ID
 

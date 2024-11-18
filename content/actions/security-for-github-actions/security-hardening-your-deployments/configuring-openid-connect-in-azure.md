@@ -27,14 +27,14 @@ This guide gives an overview of how to configure Azure to trust {% data variable
 
 {% data reusables.actions.oidc-security-notice %}
 
+{% data reusables.actions.oidc-on-ghecom %}
+
 {% ifversion ghes %}
 {% data reusables.actions.oidc-endpoints %}
   <!-- This note is indented to align with the above reusable. -->
-  {% note %}
 
-  **Note:** Microsoft Entra ID (previously known as Azure AD) does not have fixed IP ranges defined for these endpoints.
-
-  {% endnote %}
+  > [!NOTE]
+  > Microsoft Entra ID (previously known as Azure AD) does not have fixed IP ranges defined for these endpoints.
 
 * Make sure that the value of the issuer claim that's included with the JSON Web Token (JWT) is set to a publicly routable URL. For more information, see "[AUTOTITLE](/enterprise-server@latest/actions/deployment/security-hardening-your-deployments/about-security-hardening-with-openid-connect)."
 {% endif %}
@@ -66,7 +66,7 @@ To update your workflows for OIDC, you will need to make two changes to your YAM
 
 ### Adding permissions settings
 
- {% data reusables.actions.oidc-permissions-token %}
+{% data reusables.actions.oidc-permissions-token %}
 
 ### Requesting the access token
 
@@ -88,7 +88,7 @@ jobs:
     runs-on: ubuntu-latest
     steps:
       - name: 'Az CLI login'
-        uses: azure/login@v1
+        uses: azure/login@a1b2c3d4e5f6a7b8c9d0e1f2a3b4c5d6e7f8a9b0
         with:
           client-id: ${{ secrets.AZURE_CLIENT_ID }}
           tenant-id: ${{ secrets.AZURE_TENANT_ID }}

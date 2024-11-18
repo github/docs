@@ -28,11 +28,8 @@ Alternatively, you can enable {% data variables.product.prodname_actions %} for 
 
 You can choose to disable {% data variables.product.prodname_actions %} for all repositories in your organization, or only allow specific repositories. You can also limit the use of public actions{% ifversion actions-workflow-policy %} and reusable workflows{% endif %}, so that people can only use local actions {% ifversion actions-workflow-policy %}and reusable workflows{% endif %} that exist in your {% ifversion ghec or ghes %}enterprise{% else %}organization{% endif %}.
 
-{% note %}
-
-**Note:** You might not be able to manage these settings if your organization is managed by an enterprise that has overriding policy. For more information, see "[AUTOTITLE](/admin/policies/enforcing-policies-for-your-enterprise/enforcing-policies-for-github-actions-in-your-enterprise)."
-
-{% endnote %}
+> [!NOTE]
+> You might not be able to manage these settings if your organization is managed by an enterprise that has overriding policy. For more information, see "[AUTOTITLE](/admin/policies/enforcing-policies-for-your-enterprise/enforcing-policies-for-github-actions-in-your-enterprise)."
 
 {% data reusables.profile.access_org %}
 {% data reusables.profile.org_settings %}
@@ -50,19 +47,14 @@ You can choose to disable {% data variables.product.prodname_actions %} for all 
 1. Under "Policies", select {% data reusables.actions.policy-label-for-select-actions-workflows %} and add your required actions{% ifversion actions-workflow-policy %} and reusable workflows{% endif %} to the list.
 1. Click **Save**.
 
-{% ifversion actions-disable-repo-runners %}
-
 ## Limiting the use of self-hosted runners
 
 {% data reusables.actions.disable-selfhosted-runners-overview %}
 
 {% ifversion ghec or ghes %}
 
-{% note %}
-
-**Note**: If your organization belongs to an enterprise, creation of self-hosted runners at the repository level may have been disabled as an enterprise-wide setting. If this has been done, you cannot enable repository-level self-hosted runners in your organization settings. For more information, see "[AUTOTITLE](/admin/policies/enforcing-policies-for-your-enterprise/enforcing-policies-for-github-actions-in-your-enterprise)."
-
-{% endnote %}
+> [!NOTE]
+> If your organization belongs to an enterprise, creation of self-hosted runners at the repository level may have been disabled as an enterprise-wide setting. If this has been done, you cannot enable repository-level self-hosted runners in your organization settings. For more information, see "[AUTOTITLE](/admin/policies/enforcing-policies-for-your-enterprise/enforcing-policies-for-github-actions-in-your-enterprise)."
 
 {% endif %}
 
@@ -83,8 +75,6 @@ If a repository already has self-hosted runners when you disable their use, thes
    1. Click {% octicon "gear" aria-label="Select repositories" %}.
    1. Select the check boxes for the repositories for which you want to allow self-hosted runners.
    1. Click **Select repositories**.
-
-{% endif %}
 
 {% ifversion fpt or ghec %}
 
@@ -224,6 +214,6 @@ You can configure the size limit for {% data variables.product.prodname_actions 
 {% data reusables.profile.access_org %}
 {% data reusables.profile.org_settings %}
 {% data reusables.organizations.settings-sidebar-actions-general %}
-{% data reusables.actions.change-cache-size-limit  %}
+{% data reusables.actions.change-cache-size-limit %}
 
 {% endif %}

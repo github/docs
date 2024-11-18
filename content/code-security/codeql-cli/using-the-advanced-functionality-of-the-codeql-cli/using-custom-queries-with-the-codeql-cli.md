@@ -43,13 +43,8 @@ When running queries with the `database analyze` command, you must include the f
 
 For more information about these metadata properties, see "[Metadata for {% data variables.product.prodname_codeql %} queries](https://codeql.github.com/docs/writing-codeql-queries/metadata-for-codeql-queries/#metadata-for-codeql-queries)" and the [Query metadata style guide](https://github.com/github/codeql/blob/main/docs/query-metadata-style-guide.md).
 
-{% note %}
-
-**Note:** Metadata requirements may differ if you want to use your query with other applications. For more information, see "[Metadata for {% data variables.product.prodname_codeql %} queries](https://codeql.github.com/docs/writing-codeql-queries/metadata-for-codeql-queries/#metadata-for-codeql-queries)."
-
-{% endnote %}
-
-{% ifversion codeql-packs %}
+> [!NOTE]
+> Metadata requirements may differ if you want to use your query with other applications. For more information, see "[Metadata for {% data variables.product.prodname_codeql %} queries](https://codeql.github.com/docs/writing-codeql-queries/metadata-for-codeql-queries/#metadata-for-codeql-queries)."
 
 ## Packaging custom QL queries
 
@@ -60,8 +55,6 @@ When you write your own queries with the intention to share them with others, yo
 {% data variables.product.prodname_codeql %} packs organize the files used in {% data variables.product.prodname_codeql %} analysis and can store queries, library files, query suites, and important metadata. Their root directory must contain a file named `qlpack.yml`. Your custom queries should be saved in the {% data variables.product.prodname_codeql %} pack root, or its subdirectories.
 
 For each {% data variables.product.prodname_codeql %} pack, the `qlpack.yml` file includes information that tells the {% data variables.product.prodname_codeql_cli %} how to compile the queries, which other {% data variables.product.prodname_codeql %} packs and libraries the pack depends on, and where to find query suite definitions. For more information about what to include in this file, see "[AUTOTITLE](/code-security/codeql-cli/getting-started-with-the-codeql-cli/customizing-analysis-with-codeql-packs#codeqlpack-yml-properties)."
-
-{% endif %}
 
 ## Including query help for custom {% data variables.product.prodname_codeql %} queries in SARIF files
 

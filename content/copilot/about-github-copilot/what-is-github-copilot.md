@@ -43,8 +43,9 @@ redirect_from:
 
 * In your IDE
 * In {% data variables.product.prodname_mobile %}, as a chat interface
+* In {% data variables.product.prodname_windows_terminal %} Canary, through the Terminal Chat chat interface
 * On the command line, through the {% data variables.product.prodname_cli %}
-* On {% data variables.product.prodname_dotcom_the_website %}, with a subscription to {% data variables.product.prodname_copilot_enterprise_short %}
+* On the {% data variables.product.github %} website
 
 For more information, see "[AUTOTITLE](/copilot/about-github-copilot/github-copilot-features)."
 

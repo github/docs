@@ -22,15 +22,9 @@ topics:
   - Support
 ---
 
-{% note %}
-
-**Notes:**
-
-* The terms of {% data variables.contact.premium_support %} are subject to change without notice and are effective as of November 2021.
-
-* {% data reusables.support.data-protection-and-privacy %}
-
-{% endnote %}
+> [!NOTE]
+> * The terms of {% data variables.contact.premium_support %} are subject to change without notice and are effective as of November 2021.
+> * {% data reusables.support.data-protection-and-privacy %}
 
 ## About {% data variables.contact.premium_support %}
 
@@ -48,7 +42,7 @@ There are two {% data variables.contact.premium_support %} plans: Premium and Pr
 | Initial response time | <ul><li>30 minutes for {% data variables.product.support_ticket_priority_urgent %} (including initial troubleshooting)</li><li>4 hours for {% data variables.product.support_ticket_priority_high %}</li></ul> | <ul><li>30 minutes for {% data variables.product.support_ticket_priority_urgent %} (including initial troubleshooting)</li><li>4 hours for {% data variables.product.support_ticket_priority_high %}</li></ul> |
 | Support channels | <ul><li>Online ticket submission</li><li>Phone support in English via callback request (when required for ticket resolution)</li><li>Screen share request for critical issues</li></ul> | <ul><li>Online ticket submission</li><li>Phone support in English via callback request (when required for ticket resolution)</li><li>Screen share request for critical issues</li></ul> |
 | Training | Access to premium content  | <ul><li>Access to premium content</li><li>1 virtual training class per year</li></ul> |
-| Members with support entitlements | 20 | 20 |
+| Members with support entitlements | 20 | 40 |
 | Resources | Priority ticket handling | <ul><li>Priority ticket handling</li><li>Named Customer Reliability Engineer</li></ul>   |
 Escalation management | For high and urgent priority tickets | For High and Urgent priority tickets
 Incident management | None | For urgent priority tickets, as needed
@@ -62,11 +56,26 @@ Incident management | None | For urgent priority tickets, as needed
 
 {% endrowheaders %}
 
-  {% note %}
+  > [!NOTE]
+  > Enterprise owners and billing managers automatically have a support entitlement. Enterprise owners can add support entitlements to members of organizations owned by their enterprise account. For more information, see "[AUTOTITLE](/enterprise-cloud@latest/admin/user-management/managing-users-in-your-enterprise/managing-support-entitlements-for-your-enterprise)."
 
-  **Note:** Enterprise owners and billing managers automatically have a support entitlement. Enterprise owners can add support entitlements to members of organizations owned by their enterprise account. For more information, see "[AUTOTITLE](/enterprise-cloud@latest/admin/user-management/managing-users-in-your-enterprise/managing-support-entitlements-for-your-enterprise)."
+## Billing for {% data variables.contact.premium_support %}
 
-  {% endnote %}
+How you are charged for {% data variables.contact.premium_support %} will depend on your {% data variables.product.github %} products and how you are charged for them.
+
+* If you are a **licensed billing** customer, the support fee percentage is applied to the cost of licenses for the current year.
+
+* If you are a **metered billing** customer, the support fee percentage for **{% data variables.product.premium_support_plan %}**, **Premium Plus plan**, and **{% data variables.product.microsoft_premium_plus_support_plan %}** is calculated as either a percentage of your estimated metered spending or a set minimum annual fee—whichever amount is higher. For {% data variables.product.microsoft_premium_plus_support_plan %} customers, this is in addition to the Unified Support contract fee.
+
+  The support fee for metered billing is estimated from the previous 12 months' spending. If you have less than 12 months of spending history, {% data variables.product.github %} will take a 12-month run rate based on your spending history. If your last 3 to 6 months spending is vastly different to the last 6 to 9 months, the last 3 to 6 month period will be used.
+
+  If you are switching from **licensed billing to metered billing**, your support fee at contract renewal is estimated based on the previous year's purchased licenses. Minimum thresholds remain in place.
+
+* If you are both a licensed and metered billing customer (hybrid), your charge will be calculated from the support fee percentage applied to the current year's license purchases **plus** the support fee percentage applied to your estimated metered billing spend.
+
+New {% data variables.product.github %} customers who are only planning to use metered products will be required to pay the annual minimum for {% data variables.product.premium_support_plan %} or {% data variables.product.premium_plus_support_plan %}.
+
+If you would like a quote for {% data variables.contact.premium_support %}, contact [{% data variables.product.github %}'s Sales team](https://github.com/enterprise/contact?scid=&utm_campaign=2023q3-site-ww-PremiumSupport&utm_content=Premium+Support&utm_medium=referral&utm_source=github).
 
 ## Signing up for {% data variables.contact.premium_support %}
 

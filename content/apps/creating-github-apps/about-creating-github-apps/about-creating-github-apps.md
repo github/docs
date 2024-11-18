@@ -25,13 +25,17 @@ A {% data variables.product.prodname_github_app %} is a type of integration that
 
 Common use cases for {% data variables.product.prodname_github_apps %} include:
 * Automating tasks or background processes
-* Supporting "Sign in with GitHub," which allows users to sign in with their {% data variables.product.prodname_dotcom %} account to provide their identity in your ecosystem
+* Supporting "Sign in with {% data variables.product.company_short %}," which allows users to sign in with their {% data variables.product.prodname_dotcom %} account to provide their identity in your ecosystem
 * As a developer tool, allowing users to work with {% data variables.product.prodname_dotcom %} by signing into your  {% data variables.product.prodname_github_app %}, which can then act on their behalf
 * Integrating your tool or external service with {% data variables.product.company_short %}
 
 Like {% data variables.product.prodname_oauth_apps %}, {% data variables.product.prodname_github_apps %} use OAuth 2.0 and can act on behalf of a user. Unlike {% data variables.product.prodname_oauth_apps %}, {% data variables.product.prodname_github_apps %} can also act independently of a user.
 
 {% data variables.product.prodname_github_apps %} can be installed directly on organizations and personal accounts and granted access to specific repositories. They come with built-in webhooks and narrow, specific permissions.
+
+{% ifversion enterprise-apps-public-beta %}
+You can also create an enterprise-owned {% data variables.product.prodname_github_app %} that can only be installed on organizations within your enterprise, and can only be authorized by members of your enterprise. For more information, see "[AUTOTITLE](/admin/managing-your-enterprise-account/creating-github-apps-for-your-enterprise)."
+{% endif %}
 
 {% data reusables.apps.app_manager_role %}
 
@@ -43,7 +47,13 @@ Then, you need to write code to add functionality to your {% data variables.prod
 
 Once you have written the code for your {% data variables.product.prodname_github_app %}, your app needs to run somewhere. If your app is a website or web app, you might host your app on a server like [Azure App Service](https://azure.microsoft.com/products/app-service/). If your app is a client-side app, it might run on a user's device.
 
-In order to use your {% data variables.product.prodname_github_app %}, you must install the app on your organization or personal account. If your {% data variables.product.prodname_github_app %} is private, you can only install the {% data variables.product.prodname_github_app %} on the account that owns the app. If your {% data variables.product.prodname_github_app %} is public, other users and organizations can install your app. For more information, see "[AUTOTITLE](/apps/using-github-apps/installing-your-own-github-app)" and "[AUTOTITLE](/apps/sharing-github-apps/sharing-your-github-app)."
+To use your {% data variables.product.prodname_github_app %}, you need to install it on your organization or personal account.
+
+* If your {% data variables.product.prodname_github_app %} is **private**, you can only install it on the account that owns the app.
+* If your {% data variables.product.prodname_github_app %} is **public**, other users and organizations can also install it.{% ifversion enterprise-apps-public-beta %}
+* If your {% data variables.product.prodname_github_app %} is owned by an **enterprise**, you can install it on any organization within that enterprise.{% endif %}
+
+For more information, see "[AUTOTITLE](/apps/using-github-apps/installing-your-own-github-app)" and "[AUTOTITLE](/apps/sharing-github-apps/sharing-your-github-app)."
 
 ## Understanding what type of {% data variables.product.prodname_github_app %} to build
 
@@ -55,14 +65,14 @@ If you want your app to take actions on behalf of a user, you should use a user 
 
 Some examples of automations you could create with a {% data variables.product.prodname_github_app %}, where the app acts on a user's behalf, include:
 * A {% data variables.product.prodname_github_app %} that uses {% data variables.product.prodname_dotcom %} as an identity provider for your ecosystem.
-* A {% data variables.product.prodname_github_app %} that adds a service on top of {% data variables.product.prodname_dotcom_the_website %} that might be useful to a {% data variables.product.prodname_dotcom %} user. You can share the app with other developers via {% data variables.product.prodname_marketplace %} or by making the app public.
+* A {% data variables.product.prodname_github_app %} that adds a service on top of {% data variables.product.github %} that might be useful to a {% data variables.product.prodname_dotcom %} user. You can share the app with other developers via {% data variables.product.prodname_marketplace %} or by making the app public.
 
 ### {% data variables.product.prodname_github_apps %} that act on their own behalf
 
 If you want your app to take actions on behalf of itself, rather than a user, you should use an installation access token for authentication. This type of request is sometimes called "server-to-server," and it means that the app will be limited by the permissions that have been given to the app. For more information, see "[AUTOTITLE](/apps/creating-github-apps/authenticating-with-a-github-app/authenticating-as-a-github-app-installation)."
 
 Some examples of automations you could create with a {% data variables.product.prodname_github_app %}, where the app acts on its own behalf, include:
-* A {% data variables.product.prodname_github_app %} that uses webhooks to react to an event given a certain set of criteria. {% ifversion pat-v2 %}For example, you could create an automation around the REST API endpoints for [reviewing requests for {% data variables.product.pat_v2 %}](/rest/orgs/personal-access-tokens?apiVersion=2022-11-28#review-requests-to-access-organization-resources-with-fine-grained-personal-access-tokens) that approves a request given a certain policy.{% else %}For example, you could create an automation that uses [the REST API endpoints for labels](/rest/issues/labels) to add a label to each new issue created in a repository, given a certain set of criteria.{% endif %}
+* A {% data variables.product.prodname_github_app %} that uses webhooks to react to an event given a certain set of criteria. For example, you could create an automation around the REST API endpoints for [reviewing requests for {% data variables.product.pat_v2 %}](/rest/orgs/personal-access-tokens?apiVersion=2022-11-28#review-requests-to-access-organization-resources-with-fine-grained-personal-access-tokens) that approves a request given a certain policy.
 * A {% data variables.product.prodname_github_app %} that helps repository contributors. For example, the app could post helpful resources after a contributor creates a pull request or makes a comment.
 * A {% data variables.product.prodname_github_app %} that generates short-lived tokens to give to other CI/CD tools, or to pull information from a repository.
 

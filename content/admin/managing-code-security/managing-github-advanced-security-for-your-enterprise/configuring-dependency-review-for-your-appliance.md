@@ -1,7 +1,7 @@
 ---
 title: Configuring dependency review for your appliance
 shortTitle: Configuring dependency review
-intro: 'To help users understand dependency changes when reviewing pull requests, you can enable, configure, and disable dependency review for {% data variables.location.product_location %}.'
+intro: 'To help users understand dependency changes when reviewing pull requests, you can enable, configure, and disable dependency review for {% data variables.product.prodname_ghe_server %}.'
 product: '{% data reusables.gated-features.dependency-review %}'
 versions:
   feature: dependency-review-action-ghes
@@ -27,7 +27,7 @@ Some additional features, such as license checks, blocking of pull requests, and
 
 ## Prerequisites for dependency review
 
-* A license for {% data variables.product.prodname_GH_advanced_security %}{% ifversion ghes %} (see "[AUTOTITLE](/billing/managing-billing-for-github-advanced-security/about-billing-for-github-advanced-security)").{% endif %}
+* A license for {% data variables.product.prodname_GH_advanced_security %}{% ifversion ghes %} (see "[AUTOTITLE](/billing/managing-billing-for-your-products/managing-billing-for-github-advanced-security/about-billing-for-github-advanced-security)").{% endif %}
 
 * The dependency graph enabled for the instance. Site administrators can enable the dependency graph via the management console or the administrative shell (see "[AUTOTITLE](/admin/code-security/managing-supply-chain-security-for-your-enterprise/enabling-the-dependency-graph-for-your-enterprise)").
 

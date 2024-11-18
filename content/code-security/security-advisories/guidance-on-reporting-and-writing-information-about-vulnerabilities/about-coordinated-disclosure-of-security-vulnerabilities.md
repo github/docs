@@ -58,19 +58,16 @@ There are two processes available on {% data variables.product.prodname_dotcom %
 
 ### Standard process
 
-The process for reporting and disclosing vulnerabilities for projects on {% data variables.product.prodname_dotcom_the_website %} is as follows:
+The process for reporting and disclosing vulnerabilities for projects on {% data variables.product.prodname_dotcom %} is as follows:
 
  If you are a vulnerability reporter (for example, a security researcher) who would like report a vulnerability, first check if there is a security policy for the related repository. For more information, see "[AUTOTITLE](/code-security/getting-started/adding-a-security-policy-to-your-repository#about-security-policies)." If there is one, follow it to understand the process before contacting the security team for that repository.
 
  If there isn't a security policy in place, the most efficient way to establish a private means of communication with maintainers is to create an issue asking for a preferred security contact. It's worth noting that the issue will be immediately publicly visible, so it should not include any information about the bug. Once communication is established, you can suggest the maintainers define a security policy for future use.
 
-{% note %}
+> [!NOTE]
+> _For npm only_ - If we receive a report of malware in an npm package, we try to contact you privately. If you don't address the issue in a timely manner, we will disclose it. For more information, see "[Reporting malware in an npm package](https://docs.npmjs.com/reporting-malware-in-an-npm-package)" on the npm Docs website.
 
-**Note**: _For npm only_ - If we receive a report of malware in an npm package, we try to contact you privately. If you don't address the issue in a timely manner, we will disclose it. For more information, see "[Reporting malware in an npm package](https://docs.npmjs.com/reporting-malware-in-an-npm-package)" on the npm Docs website.
-
-{% endnote %}
-
- If you've found a security vulnerability in {% data variables.product.prodname_dotcom_the_website %}, please report the vulnerability through our coordinated disclosure process. For more information, see the [{% data variables.product.prodname_dotcom %} Security Bug Bounty](https://bounty.github.com/) website.
+ If you've found a security vulnerability in {% data variables.product.prodname_dotcom %}, please report the vulnerability through our coordinated disclosure process. For more information, see the [{% data variables.product.prodname_dotcom %} Security Bug Bounty](https://bounty.github.com/) website.
 
  If you are a maintainer, you can take ownership of the process at the very beginning of the pipeline by setting up a security policy for your repository, or otherwise making security reporting instructions clearly available, for example in your project’s README file. For information about adding a security policy, see "[AUTOTITLE](/code-security/getting-started/adding-a-security-policy-to-your-repository#about-security-policies)." If there is no security policy, it's likely that a vulnerability reporter will try to email you or otherwise privately contact you. Alternatively, someone may open a (public) issue with details of a security issue.
 
@@ -84,9 +81,5 @@ The process for reporting and disclosing vulnerabilities for projects on {% data
 
  Private vulnerability reporting provides an easy way for vulnerability reporters to privately disclose security risks to repository maintainers, within {% data variables.product.prodname_dotcom %}, and in a way that immediately notifies the repository maintainers of the issue. For more information for security researchers and repository maintainers, see "[AUTOTITLE](/code-security/security-advisories/guidance-on-reporting-and-writing-information-about-vulnerabilities/privately-reporting-a-security-vulnerability)" and "[AUTOTITLE](/code-security/security-advisories/guidance-on-reporting-and-writing-information-about-vulnerabilities/managing-privately-reported-security-vulnerabilities)", respectively.
 
-{% note %}
-
-**Note**:
-If the repository containing the vulnerability doesn't have private vulnerability reporting enabled, both security researchers and repository maintainers need to follow the instructions described in the "[Standard process](#standard-process)" section above.
-
-{% endnote %}
+> [!NOTE]
+> If the repository containing the vulnerability doesn't have private vulnerability reporting enabled, both security researchers and repository maintainers need to follow the instructions described in the "[Standard process](#standard-process)" section above.

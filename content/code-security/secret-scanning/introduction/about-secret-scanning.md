@@ -24,7 +24,7 @@ shortTitle: Secret scanning
 
 {% data variables.product.prodname_secret_scanning_caps %} is a security feature that helps detect and prevent the accidental inclusion of sensitive information such as API keys, passwords, tokens, and other secrets in your repository. When enabled, {% data variables.product.prodname_secret_scanning %} scans commits in repositories for known types of secrets and alerts repository administrators upon detection.
 
-{% data variables.product.prodname_secret_scanning_caps %} scans your entire Git history on all branches present in your {% data variables.product.prodname_dotcom %} repository for secrets{% ifversion ghec or ghes %}, even if the repository is archived{% endif %}.{% ifversion ghes < 3.11 %} {% data variables.product.prodname_secret_scanning_caps %} does not scan issues.{% endif %}{% ifversion secret-scanning-backfills %} {% data variables.product.prodname_dotcom %} will also periodically run a full Git history scan of existing content in {% ifversion fpt %}public{% else %}{% data variables.product.prodname_GH_advanced_security %}{% endif %} repositories where {% data variables.product.prodname_secret_scanning %} is enabled.{% endif %}
+{% data variables.product.prodname_secret_scanning_caps %} scans your entire Git history on all branches present in your {% data variables.product.prodname_dotcom %} repository for secrets{% ifversion ghec or ghes %}, even if the repository is archived{% endif %}.{% ifversion ghes < 3.11 %} {% data variables.product.prodname_secret_scanning_caps %} does not scan issues.{% endif %} {% data variables.product.prodname_dotcom %} will also periodically run a full Git history scan of existing content in {% ifversion fpt %}public{% else %}{% data variables.product.prodname_GH_advanced_security %}{% endif %} repositories where {% data variables.product.prodname_secret_scanning %} is enabled.
 
 {% data reusables.secret-scanning.what-is-scanned %}
 
@@ -32,7 +32,7 @@ When a supported secret is leaked, {% data variables.product.product_name %} gen
 
 {% ifversion fpt or ghec %}Service providers can partner with {% data variables.product.company_short %} to provide their secret formats for scanning. We automatically run {% data variables.product.prodname_secret_scanning %} for partner patterns on all public repositories and public npm packages.{% data reusables.secret-scanning.partner-program-link %}
 
-Any strings that match patterns that were provided by secret scanning partners are reported directly to the relevant partner, and aren't displayed on  {% data variables.product.prodname_dotcom_the_website %}. For more information about partner patterns, see "[AUTOTITLE](/code-security/secret-scanning/managing-alerts-from-secret-scanning/about-alerts)."{% endif %}
+Any strings that match patterns that were provided by secret scanning partners are reported directly to the relevant partner, and aren't displayed on  {% data variables.product.prodname_dotcom %}. For more information about partner patterns, see "[AUTOTITLE](/code-security/secret-scanning/managing-alerts-from-secret-scanning/about-alerts)."{% endif %}
 
 For information about the secrets and service providers supported by {% data variables.product.prodname_secret_scanning %}, see "[AUTOTITLE](/code-security/secret-scanning/introduction/supported-secret-scanning-patterns#supported-secrets)."
 
@@ -54,7 +54,7 @@ Below is a typical workflow that explains how {% data variables.product.prodname
 
 * **Review**: When a secret is detected, you'll need to review the alert details provided.
 
-* **Remediation**: You then need take appropriate actions to remediate the exposure. This might include:
+* **Remediation**: You then need to take appropriate actions to remediate the exposure. This might include:
   * Rotating the affected credential to ensure it is no longer usable.
   * Removing the secret from the repository's history (using tools like BFG Repo-Cleaner or {% data variables.product.prodname_dotcom %}'s built-in features).
 
@@ -104,14 +104,6 @@ Scan for and detect secrets that are not specific to a service provider, such as
 
 {% endif %}
 
-{% ifversion secret-scanning-ai-generic-secret-detection %}
-
-### Generic secret detection
-
-Leverage {% data variables.product.prodname_secret_scanning %}'s AI capabilities to detect unstructured secrets, such as passwords, in your repository. For more information, see "[AUTOTITLE](/code-security/secret-scanning/using-advanced-secret-scanning-and-push-protection-features/generic-secret-detection/about-the-detection-of-generic-secrets-with-secret-scanning)."
-
-{% endif %}
-
 ### Performing validity checks
 
 Validity checks help you prioritize alerts by telling you which secrets are `active` or `inactive`. For more information, see{% ifversion secret-scanning-validity-check-partner-patterns %} "[AUTOTITLE](/code-security/secret-scanning/enabling-secret-scanning-features/enabling-validity-checks-for-your-repository)" and{% endif %} "[AUTOTITLE](/code-security/secret-scanning/managing-alerts-from-secret-scanning/evaluating-alerts#checking-a-secrets-validity)."
@@ -122,11 +114,14 @@ Validity checks help you prioritize alerts by telling you which secrets are `act
 
 Define your own patterns for secrets used by your organization that {% data variables.product.prodname_secret_scanning %} can scan for and detect. For more information, see "[AUTOTITLE](/code-security/secret-scanning/using-advanced-secret-scanning-and-push-protection-features/custom-patterns/defining-custom-patterns-for-secret-scanning)."
 
-{% ifversion secret-scanning-custom-pattern-ai-generated %}
-
-You can also leverage AI to generate regular expressions that will capture all your custom patterns. For more information, see "[AUTOTITLE](/code-security/secret-scanning/using-advanced-secret-scanning-and-push-protection-features/custom-patterns/about-generating-regular-expressions-with-ai)."
-
 {% endif %}
+
+{% ifversion secret-scanning-ai-generic-secret-detection %}
+
+### {% data variables.secret-scanning.copilot-secret-scanning %}
+
+* **{% data variables.secret-scanning.generic-secret-detection-caps %}**: Leverage {% data variables.product.prodname_secret_scanning %}'s AI capabilities to detect unstructured secrets, such as passwords, in your repository. For more information, see "[AUTOTITLE](/code-security/secret-scanning/copilot-secret-scanning/responsible-ai-generic-secrets)."{% ifversion secret-scanning-custom-pattern-ai-generated %}
+* **{% data variables.secret-scanning.custom-pattern-regular-expression-generator-caps %}**: Leverage {% data variables.product.prodname_secret_scanning %}'s AI capabilities to generate regular expressions that will capture all your custom patterns. For more information, see "[AUTOTITLE](/code-security/secret-scanning/copilot-secret-scanning/responsible-use-ai-regex-generator).{% endif %}
 
 {% endif %}
 

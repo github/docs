@@ -53,7 +53,7 @@ For more information about the different types of versioning, see "[Versioning d
 
 This frontmatter value is used by the docs site to generate "permalinks" for each version of an article. For more information, see [Permalinks](/contributing/writing-for-github-docs/using-markdown-and-liquid-in-github-docs#permalinks).
 
-Example that applies to {% data variables.product.prodname_dotcom_the_website %} and recent versions of {% data variables.product.prodname_ghe_server %}:
+Example that applies to Free, Pro, & Team and {% data variables.product.prodname_ghe_server %} version 3.11 and later:
 
 ```yaml
 title: About your personal dashboard
@@ -62,7 +62,7 @@ versions:
   ghes: '>=3.11'
 ```
 
-Example that applies to all supported versions of {% data variables.product.prodname_ghe_server %}, but not {% data variables.product.prodname_dotcom_the_website %}:
+Example that applies only to {% data variables.product.prodname_ghe_server %}:
 
 ```yaml
 title: Downloading your license
@@ -70,7 +70,7 @@ versions:
   ghes: '*'
 ```
 
-You can also version a page for a range of releases. This would version the page for {% data variables.product.prodname_dotcom_the_website %}, and {% data variables.product.prodname_ghe_server %} versions 3.1 and 3.2 only:
+You can also version a page for a range of releases. This would version the page for Free, Pro, & Team, and {% data variables.product.prodname_ghe_server %} versions 3.1 and 3.2 only:
 
 ```yaml
 versions:
@@ -228,11 +228,8 @@ defaultTool: cli
 * Type: `String`. This should reference learning tracks' names defined in [`data/learning-tracks/*.yml`](https://github.com/github/docs/tree/main/data/learning-tracks).
 * Optional
 
-{% note %}
-
-**Note:** the featured track is set by a specific property in the learning tracks YAML. See that [README](https://github.com/github/docs/blob/main/data/learning-tracks/README.md) for details.
-
-{% endnote %}
+> [!NOTE]
+> The featured track is set by a specific property in the learning tracks YAML. See that [README](https://github.com/github/docs/blob/main/data/learning-tracks/README.md) for details.
 
 ### `includeGuides`
 
@@ -258,7 +255,7 @@ includeGuides:
 
 ### `topics`
 
-* Purpose: Indicate the topics covered by the article. The topics are used to filter guides on some landing pages. For example, the guides at the bottom of "[Guides for {% data variables.product.prodname_actions %}](/actions/guides#all-guides)" can be filtered by topics, and the topics are listed under the guide intro. Refer to the content models for more details about adding topics. A full list of  existing topics is located in the [allowed topics file](https://github.com/github/docs/blob/main/data/allowed-topics.js). If topics in article frontmatter and the allow-topics list become out of sync, the [topics CI test](https://github.com/github/docs/blob/main/src/search/tests/topics.js) will fail.
+* Purpose: Indicate the topics covered by the article. Refer to the content models for more details about adding topics. A full list of existing topics is located in the [allowed topics file](https://github.com/github/docs/blob/main/data/allowed-topics.js). If topics in article frontmatter and the allow-topics list become out of sync, the [topics CI test](https://github.com/github/docs/blob/main/src/search/tests/topics.ts) will fail.
 * Type: Array of `String`s
 * Optional: Topics are preferred for each article, but, there may be cases where existing articles don't yet have topics, or adding a topic to a new article may not add value.
 
@@ -274,11 +271,8 @@ includeGuides:
 * Type: `string` YEAR-MONTH-DAY e.g. 2021-10-04 is October 4th, 2021
 * Optional.
 
-{% note %}
-
-**Note:** The `effectiveDate` frontmatter value is for use by {% data variables.product.company_short %} staff only.
-
-{% endnote %}
+> [!NOTE]
+> The `effectiveDate` frontmatter value is for use by {% data variables.product.company_short %} staff only.
 
 ## Escaping single quotes
 
@@ -304,11 +298,8 @@ When adding a new article, make sure the filename is a [kebab-cased](https://en.
 
 Index pages are the table of contents files for the Docs site. Every product, category, and map topic subdirectory has an `index.md` file that provides an overview of the content and links to every child article. Each `index.md` must contain a `children` frontmatter property with a list of relative links to the child pages of the product, category, or map topic. Index pages require a `versions` frontmatter property, and the actual value will be computed at runtime based on the versions of children articles.
 
-{% note %}
-
-**Note**: The site only knows about paths included in `children` frontmatter. If a directory or article exists but is **not** included in `children`, its path will return a 404.
-
-{% endnote %}
+> [!NOTE]
+> The site only knows about paths included in `children` frontmatter. If a directory or article exists but is **not** included in `children`, its path will return a 404.
 
 ## Homepage
 

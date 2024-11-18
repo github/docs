@@ -53,11 +53,9 @@ The log contains a record of each command you issued and all of the API requests
 ### Unable to run migrations
 
 If you see an error like `No access to createMigrationMutation` or `Missing permissions`, your personal account does not have the required access to run the migration. Make sure you're either an organization owner or have been granted the migrator role. For more information about granting the migrator role, see "[AUTOTITLE](/migrations/using-github-enterprise-importer/migrating-repositories-with-github-enterprise-importer)."
-{% note %}
 
-**Note:** If you're migrating between {% data variables.product.company_short %} products, make sure you're an organization owner or have been granted the migrator role for both the source and target organizations.
-
-{% endnote %}
+> [!NOTE]
+> If you're migrating between {% data variables.product.company_short %} products, make sure you're an organization owner or have been granted the migrator role for both the source and target organizations.
 
 ### Resource is protected by organization SAML enforcement
 
@@ -85,7 +83,7 @@ If that doesn't work, we'd recommend upgrading to {% data variables.product.prod
 
 1. Generate a migration archive for your repository. You must only export one repository at a time. For instructions, see "[Exporting migration data from your enterprise]({% ifversion fpt or ghec %}/enterprise-server@latest{% endif %}/admin/user-management/migrating-data-to-and-from-your-enterprise/exporting-migration-data-from-your-enterprise){% ifversion ghes %}."{% else %}" in the {% data variables.product.prodname_ghe_server %} documentation.{% endif %}
 1. Upload your migration archive to your choice of blob storage provider.
-1. Generate a short-lived URL for your migration archive which is accessible to {% data variables.product.prodname_dotcom_the_website %}, such as an AWS S3 pre-signed URL or Azure Blob Storage SAS URL.
+1. Generate a short-lived URL for your migration archive which is accessible to {% data variables.product.prodname_dotcom %}, such as an AWS S3 pre-signed URL or Azure Blob Storage SAS URL.
 1. Call the `migrate-repo` command with the `--git-archive-url` and `--metadata-archive-url` flags both set to the URL of your archive from the previous step.
 
 ### `cipher name is not supported` error
@@ -153,11 +151,8 @@ If you see "Repository metadata too big to migrate" in the "Migration Log" issue
 
 If you're migrating from Azure DevOps, pull request comments on lines that were never changed in the pull request cannot be migrated to {% data variables.product.prodname_dotcom %}. You'll see this warning for every comment that cannot be migrated for this reason.
 
-{% note %}
-
-**Note:** Only comments on lines that weren't changed in a pull request are affected by this limitation. Comments on lines that were changed in a pull request are migrated.
-
-{% endnote %}
+> [!NOTE]
+> Only comments on lines that weren't changed in a pull request are affected by this limitation. Comments on lines that were changed in a pull request are migrated.
 
 Be aware that the affected comments will not be in the migrated repository, but these warnings do not require further action from you.
 
@@ -186,11 +181,8 @@ The process for unlocking a repository depends on the {% data variables.product.
 * If the locked repository is on {% data variables.product.prodname_ghe_server %}, a site administrator can unlock the repository using the site admin dashboard. For more information, see "[AUTOTITLE]({% ifversion not ghes %}/enterprise-server@latest{% endif %}/admin/user-management/managing-repositories-in-your-enterprise/locking-a-repository){% ifversion ghes %}."{% else %}" in the {% data variables.product.prodname_ghe_server %} documentation.{% endif %}
 * If the locked repository is on {% data variables.product.prodname_dotcom_the_website %}, you can contact {% data variables.contact.contact_support %} to unlock the repository.
 
-{% note %}
-
-**Note:** If your migration failed, not all of your data was migrated. If you choose to unlock and use the repository, there will be data loss. Deleting the locked repository and retrying the migration may be a better option.
-
-{% endnote %}
+> [!NOTE]
+> If your migration failed, not all of your data was migrated. If you choose to unlock and use the repository, there will be data loss. Deleting the locked repository and retrying the migration may be a better option.
 
 ## Contacting {% data variables.contact.github_support %}
 

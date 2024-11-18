@@ -1,0 +1,1 @@
+The simplest way to use the {% data variables.dependency-submission-api.name %} is by adding a pre-made action to your repository that will gather and convert the list of dependencies to the required snapshot format and submit the list to the API.

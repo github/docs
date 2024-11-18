@@ -1,7 +1,7 @@
 ---
 title: Troubleshooting SAML authentication
 shortTitle: Troubleshoot SAML SSO
-intro: 'If you use SAML single sign-on (SSO) and people are unable to authenticate to access {% data variables.location.product_location %}, you can troubleshoot the problem.'
+intro: 'If you use SAML single sign-on (SSO) and people are unable to authenticate to access {% data variables.product.github %}, you can troubleshoot the problem.'
 versions:
   ghes: '*'
   ghec: '*'
@@ -30,21 +30,16 @@ For more information about SAML response requirements, see "[AUTOTITLE](/admin/i
 
 You can configure {% data variables.product.product_name %} to write verbose debug logs for every SAML authentication attempt. You may be able to troubleshoot failed authentication attempts with this extra output.
 
-{% warning %}
-
-**Warnings**:
-
-* Only enable SAML debugging temporarily, and disable debugging immediately after you finish troubleshooting. If you leave debugging enabled, the size of the {% ifversion opentelemetry-and-otel-log-migration-phase-1 %}logs{% endif %} increases much faster than usual, which can negatively impact the performance of {% data variables.product.product_name %}.
-* Test new authentication settings for {% data variables.location.product_location %} in a staging environment before you apply the settings in your production environment. For more information, see "[AUTOTITLE](/admin/installation/setting-up-a-github-enterprise-server-instance/setting-up-a-staging-instance)."
-
-{% endwarning %}
+> [!WARNING]
+> * Only enable SAML debugging temporarily, and disable debugging immediately after you finish troubleshooting. If you leave debugging enabled, the size of the {% ifversion opentelemetry-and-otel-log-migration-phase-1 %}logs{% endif %} increases much faster than usual, which can negatively impact the performance of {% data variables.product.product_name %}.
+> * Test new authentication settings for {% data variables.location.product_location %} in a staging environment before you apply the settings in your production environment. For more information, see "[AUTOTITLE](/admin/installation/setting-up-a-github-enterprise-server-instance/setting-up-a-staging-instance)."
 
 {% data reusables.enterprise-accounts.access-enterprise %}
 {% data reusables.enterprise-accounts.policies-tab %}
 {% data reusables.enterprise-accounts.options-tab %}
 1. Under "SAML debugging", select the drop-down and click **Enabled**.
 1. Attempt to sign into {% data variables.location.product_location %} through your SAML IdP.
-1. Review the debug output in {% ifversion opentelemetry-and-otel-log-migration-phase-1 %}the systemd journal for `github-unicorn`{% endif %} on {% data variables.location.product_location %}. {% ifversion opentelemetry-and-otel-log-migration-phase-1 %}For more information, see "[AUTOTITLE](/admin/monitoring-managing-and-updating-your-instance/monitoring-your-appliance/about-system-logs#system-logs-in-the-systemd-journal-for-github-enterprise-server)."{% endif %}
+1. Review the debug output in {% ifversion opentelemetry-and-otel-log-migration-phase-1 %}the systemd journal for `github-unicorn`{% endif %} on {% data variables.location.product_location %}. {% ifversion opentelemetry-and-otel-log-migration-phase-1 %}For more information, see "[AUTOTITLE](/admin/monitoring-and-managing-your-instance/monitoring-your-instance/about-system-logs#system-logs-in-the-systemd-journal-for-github-enterprise-server)."{% endif %}
 1. When you're done troubleshooting, select the drop-down and click **Disabled**.
 
 ## Decoding responses

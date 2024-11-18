@@ -48,7 +48,7 @@ After you create your ticket, you can view your ticket and the responses from {%
 ## Prerequisites
 
 {% ifversion ghec %}If you use an enterprise account, there{% else %}There{% endif %} are some steps you should follow before you start using the {% data variables.contact.enterprise_portal %}. For more information, see "[Getting started with the {% data variables.contact.enterprise_portal %}](/support/contacting-github-support/getting-started-with-the-github-support-portal)."
-{% endif%}
+{% endif %}
 
 ## What to include in your support ticket
 
@@ -77,11 +77,8 @@ Especially for tickets with {% data variables.product.support_ticket_priority_ur
 
 ## Creating a support ticket{% ifversion ghes %} using the {% data variables.contact.enterprise_portal %}{% endif %}
 
-{% note %}
-
-**Note:** Before you submit a ticket, you have the option of using {% data variables.product.prodname_copilot_in_support %} to receive an immediate response to your question. If {% data variables.product.prodname_copilot_in_support %} is unable to resolve your issue, you can continue submitting your ticket. For more information, see "[AUTOTITLE](/support/learning-about-github-support/about-copilot-in-github-support)."
-
-{% endnote %}
+> [!NOTE]
+> Before you submit a ticket, you have the option of using {% data variables.product.prodname_copilot_in_support %} to receive an immediate response to your question. If {% data variables.product.prodname_copilot_in_support %} is unable to resolve your issue, you can continue submitting your ticket. For more information, see "[AUTOTITLE](/support/learning-about-github-support/about-copilot-in-github-support)."
 
 1. Navigate to the {% data variables.contact.contact_landing_page_portal %} and choose one of the following options:
 

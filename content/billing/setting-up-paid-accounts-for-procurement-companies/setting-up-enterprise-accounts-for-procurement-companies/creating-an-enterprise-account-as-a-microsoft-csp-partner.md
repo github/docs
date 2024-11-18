@@ -18,6 +18,7 @@ As a Microsoft Cloud Solution Provider (CSP) partner, you can create an enterpri
 
 Before you start, make sure you know:
 * The {% data variables.product.prodname_dotcom %} username of the client who will become the owner of the enterprise account you create
+* The {% data variables.product.prodname_dotcom %} username for the CSP partner that must be assigned to the customer’s enterprise account to manage metered billing and access support
 * The name your client would like to use for the enterprise account
 * The email address where you would like receipts to be sent
 
@@ -34,7 +35,7 @@ As a Microsoft CSP partner, you can get started with {% data variables.product.p
 
 ## Step 2: Purchase {% data variables.product.prodname_enterprise %}
 
-At any time during the trial, you can purchase {% data variables.product.prodname_enterprise %} for your client by adding your Azure subscription. If you ever hand over the enterprise account to your customer, you will need to remove your Azure subscription.
+At any time during the trial, you can purchase {% data variables.product.prodname_enterprise %} for your client by linking it to their Azure subscription. If the account is later transferred to the customer, ensure the Azure subscription is fully managed by them.
 
 {% data reusables.enterprise-accounts.access-enterprise %}
 1. At the top of the page, in the blue banner, click **Activate Enterprise**.

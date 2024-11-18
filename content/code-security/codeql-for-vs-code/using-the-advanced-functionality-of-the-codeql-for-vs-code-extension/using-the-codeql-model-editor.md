@@ -29,15 +29,12 @@ The model editor has two different modes:
 
 * **Dependency mode**: The editor identifies all of the publicly accessible APIs in the selected {% data variables.product.prodname_codeql %} database. This view guides you through modeling each public API that the codebase makes available. When you have finished modeling the entire API, you can save the model and use it to improve the {% data variables.product.prodname_codeql %} analysis for all codebases that use the dependency.
 
-The rest of this article covers the practical aspects of modelling dependencies using the {% data variables.product.prodname_codeql %} model editor. For technical information, see [Customizing library models for Java and Kotlin](https://codeql.github.com/docs/codeql-language-guides/customizing-library-models-for-java-and-kotlin/){% ifversion fpt or ghec or ghes > 3.12 %}, [Customizing Library Models for Ruby](https://codeql.github.com/docs/codeql-language-guides/customizing-library-models-for-ruby/), and [Customizing library models for C#](https://codeql.github.com/docs/codeql-language-guides/customizing-library-models-for-csharp/){% endif %} in the {% data variables.product.prodname_codeql %} language documentation.
+The rest of this article covers the practical aspects of modelling dependencies using the {% data variables.product.prodname_codeql %} model editor. For technical information, see [Customizing library models for Java and Kotlin](https://codeql.github.com/docs/codeql-language-guides/customizing-library-models-for-java-and-kotlin/){% ifversion fpt or ghec or ghes > 3.14 %}, [Customizing Library Models for Python](https://codeql.github.com/docs/codeql-language-guides/customizing-library-models-for-python/), [Customizing Library Models for Ruby](https://codeql.github.com/docs/codeql-language-guides/customizing-library-models-for-ruby/), and [Customizing library models for C#](https://codeql.github.com/docs/codeql-language-guides/customizing-library-models-for-csharp/){% elsif ghes > 3.12 %}, [Customizing Library Models for Ruby](https://codeql.github.com/docs/codeql-language-guides/customizing-library-models-for-ruby/), and [Customizing library models for C#](https://codeql.github.com/docs/codeql-language-guides/customizing-library-models-for-csharp/){% endif %} in the {% data variables.product.prodname_codeql %} language documentation.
 
 ## Displaying the {% data variables.product.prodname_codeql %} model editor
 
-{% note %}
-
-**Note:** To use this beta functionality, install the latest version of the {% data variables.product.prodname_codeql %} extension for {% data variables.product.prodname_vscode %}.
-
-{% endnote %}
+> [!NOTE]
+> To use this {% data variables.release-phases.public_preview %} functionality, install the latest version of the {% data variables.product.prodname_codeql %} extension for {% data variables.product.prodname_vscode %}.
 
 1. Open your {% data variables.product.prodname_codeql %} workspace in {% data variables.product.prodname_vscode_shortname %}. For example, the [`vscode-codeql-starter` workspace](https://github.com/github/vscode-codeql-starter). If you are using the starter workspace, update the `ql` submodule from `main` to ensure that you have the queries used to gather data for the model editor.
 
@@ -51,11 +48,8 @@ The rest of this article covers the practical aspects of modelling dependencies 
 
 1. When the telemetry queries are complete, the APIs that have been identified are shown in the editor.
 
-{% tip %}
-
-**Tip:** You can move the {% data variables.product.prodname_codeql %} "Method Modeling" view from the primary sidebar to the secondary sidebar, if you want more space while you are modeling calls or methods. If you close the view, you can reopen it from the "View" menu in {% data variables.product.prodname_vscode_shortname %} and clicking **Open View...**.
-
-{% endtip %}
+> [!TIP]
+> You can move the {% data variables.product.prodname_codeql %} "Method Modeling" view from the primary sidebar to the secondary sidebar, if you want more space while you are modeling calls or methods. If you close the view, you can reopen it from the "View" menu in {% data variables.product.prodname_vscode_shortname %} and clicking **Open View...**.
 
 ## Modeling the calls your codebase makes to external APIs
 

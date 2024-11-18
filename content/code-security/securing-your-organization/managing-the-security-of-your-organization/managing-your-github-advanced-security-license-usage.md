@@ -2,7 +2,7 @@
 title: Managing your GitHub Advanced Security license usage
 shortTitle: Manage GHAS licenses
 intro: 'You can understand and control {% data variables.product.prodname_GH_advanced_security %} license usage for repositories in your organization.'
-permissions: '{% data reusables.security-configurations.security-configurations-permissions %}'
+permissions: '{% data reusables.permissions.security-org-enable %}'
 versions:
   feature: security-configurations
 topics:
@@ -10,8 +10,6 @@ topics:
   - Organizations
   - Security
 ---
-
-{% data reusables.security-configurations.security-configurations-beta-note %}
 
 ## About {% data variables.product.prodname_GH_advanced_security %} billing and licenses
 
@@ -25,7 +23,7 @@ For information on managing your {% data variables.product.prodname_GH_advanced_
 
 To use {% data variables.product.prodname_GH_advanced_security %} (GHAS) features on private or internal repositories with unique active committers, you must have available GHAS licenses. With {% data variables.product.prodname_security_configurations %}, you can easily understand the GHAS license usage of repositories in your organization, as well as the number of available GHAS licenses in your enterprise. Additionally, if you need to make more GHAS licenses available to secure a high-impact repository, you can quickly disable GHAS features on private and internal repositories at scale.
 
-To learn about GHAS licenses, as well as unique and active committers, see "[AUTOTITLE](/billing/managing-billing-for-github-advanced-security/about-billing-for-github-advanced-security)."
+To learn about GHAS licenses, as well as unique and active committers, see "[AUTOTITLE](/billing/managing-billing-for-your-products/managing-billing-for-github-advanced-security/about-billing-for-github-advanced-security)."
 
 ## Understanding your {% data variables.product.prodname_GH_advanced_security %} license usage
 
@@ -57,12 +55,11 @@ To learn about GHAS licenses, as well as unique and active committers, see "[AUT
 1. Select the **Apply configuration** {% octicon "triangle-down" aria-hidden="true" %} dropdown menu, then click **Disable {% data variables.product.prodname_GH_advanced_security %}**.
 1. To finish disabling GHAS features on the selected private or internal repositories, in the "Disable {% data variables.product.prodname_GH_advanced_security %}?" window, click **Disable {% data variables.product.prodname_GH_advanced_security %}**.
 
-    {% note %}
-
-    **Notes:**
-    * Disabling GHAS features for a private or internal repository will also detach that repository from any linked {% data variables.product.prodname_security_configuration %}.
-    * Disabling GHAS features through the repository table _will not_ disable those features on public repositories since they do not require {% data variables.product.prodname_GH_advanced_security %} licenses.
-
-    {% endnote %}
+    >[!NOTE]
+    {%- ifversion security-configurations-cloud %}
+    > * Disabling GHAS features for a private or internal repository will also detach that repository from any linked {% data variables.product.prodname_security_configuration %}.
+    > * On {% data variables.product.prodname_dotcom_the_website %}, disabling GHAS features through the repository table _will not_ disable those features on public repositories since they do not require {% data variables.product.prodname_GH_advanced_security %} licenses.{% elsif security-configurations-ghes-only %}
+    > * Disabling GHAS features for a repository will also detach that repository from any linked {% data variables.product.prodname_security_configuration %}.
+    {% endif %}
 
 {% endif %}

@@ -27,11 +27,8 @@ When you become a sponsored developer or sponsored organization, additional term
 
 ## About the {% data variables.product.prodname_matching_fund %}
 
-{% note %}
-
-**Note:** {% data reusables.sponsors.matching-fund-eligible %}
-
-{% endnote %}
+> [!NOTE]
+> {% data reusables.sponsors.matching-fund-eligible %}
 
 The {% data variables.product.prodname_matching_fund %} aims to benefit members of the {% data variables.product.prodname_dotcom %} community who develop open source software that promotes the [{% data variables.product.prodname_dotcom %} Community Guidelines](/free-pro-team@latest/site-policy/github-terms/github-community-guidelines). Payments to sponsored organizations and payments from organizations are not eligible for {% data variables.product.prodname_matching_fund %}.
 
@@ -159,6 +156,7 @@ Anyone in any region can sponsor eligible maintainers, but you must reside in a 
 
 * "[AUTOTITLE](/sponsors/sponsoring-open-source-contributors)"
 * "[AUTOTITLE](/sponsors/receiving-sponsorships-through-github-sponsors)"
+* "[AUTOTITLE](/sponsors/getting-started-with-github-sponsors/navigating-your-sponsors-dashboard)"
 * "[AUTOTITLE](/search-github/searching-on-github/searching-users#search-based-on-ability-to-sponsor)"
 * "[AUTOTITLE](/search-github/searching-on-github/searching-for-repositories#search-based-on-ability-to-sponsor)"
 * "[FAQ with the {% data variables.product.prodname_sponsors %} team](https://github.blog/2019-06-12-faq-with-the-github-sponsors-team/)" on {% data variables.product.prodname_blog %}

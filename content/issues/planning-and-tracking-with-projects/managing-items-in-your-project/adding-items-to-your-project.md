@@ -10,11 +10,8 @@ topics:
 allowTitleToDifferFromFilename: true
 ---
 
-{% note %}
-
-**Note:** A project can contain a maximum of {% data variables.projects.item_limit %} items and {% data variables.projects.archived_item_limit %} archived items. To learn more about automatically archiving items when they meet specific criteria, see "[AUTOTITLE](/issues/planning-and-tracking-with-projects/automating-your-project/archiving-items-automatically)."
-
-{% endnote %}
+> [!NOTE]
+> A project can contain a maximum of {% data variables.projects.item_limit %} items and {% data variables.projects.archived_item_limit %} archived items. To learn more about automatically archiving items when they meet specific criteria, see "[AUTOTITLE](/issues/planning-and-tracking-with-projects/automating-your-project/archiving-items-automatically)."
 
 ## Adding issues and pull requests to a project
 
@@ -22,11 +19,8 @@ You have several options for adding issues and pull requests to your project. Yo
 
 {% ifversion projects-v2-timeline-events %}
 
-{% note %}
-
-**Note:** Timeline events for Projects is currently in beta and subject to change.
-
-{% endnote %}
+> [!NOTE]
+> Timeline events for Projects is currently in {% data variables.release-phases.public_preview %} and subject to change.
 
 When you add an issue or pull request to your project, an event will be added to the issue or pull request's timeline. Timeline events will also be added when you remove issues or pull requests and when changes are made to its `status` field for those items. Timeline events are only visible to people who have at least read permission for the project. If a change is made by a built-in workflow, the activity will be attributed to **@github-project-automation**.
 
@@ -70,7 +64,7 @@ You can add multiple issues and pull requests from your project and use filters,
 
 You can also add issues and pull requests to your project from a repository's issue and pull request lists.
 
-1. On {% data variables.location.product_location %}, navigate to the repository that contains the issues or pull requests you want to add to your project.
+1. On {% data variables.product.prodname_dotcom %}, navigate to the repository that contains the issues or pull requests you want to add to your project.
 {% data reusables.repositories.sidebar-issue-pr %}
 1. Select the issues or pull requests you want to add to your project.
 
@@ -119,8 +113,5 @@ Draft issues are useful to quickly capture ideas. Unlike issues and pull request
 
 Draft issues can have a title, text body, assignees, and any custom fields from your project. In order to populate the repository, labels, or milestones for a draft issue, you must first convert the draft issue to an issue. For more information, see "[AUTOTITLE](/issues/planning-and-tracking-with-projects/managing-items-in-your-project/converting-draft-issues-to-issues)."
 
-{% note %}
-
-**Note**: Users will not receive notifications when they are assigned to or mentioned in a draft issue unless the draft issue is converted to an issue.
-
-{% endnote %}
+> [!NOTE]
+> Users will not receive notifications when they are assigned to or mentioned in a draft issue unless the draft issue is converted to an issue.

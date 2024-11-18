@@ -24,13 +24,10 @@ shortTitle: Amazon S3 storage
 
 ## Prerequisites
 
-{% note %}
-
-**Note:** The only {% data variables.product.prodname_dotcom %}-supported S3 storage providers are Amazon S3 and MinIO Gateway for NAS.
-
-{% data reusables.actions.enterprise-s3-tech-partners %}
-
-{% endnote %}
+> [!NOTE]
+> The only {% data variables.product.prodname_dotcom %}-supported S3 storage providers are Amazon S3 and MinIO Gateway for NAS.
+>
+> {% data reusables.actions.enterprise-s3-tech-partners %}
 
 Before enabling {% data variables.product.prodname_actions %}, make sure you have completed the following steps:
 
@@ -93,11 +90,8 @@ To configure {% data variables.product.prodname_ghe_server %} to use OIDC with a
 
    For more information on installing the AWS CLI, see the [Amazon documentation](https://docs.aws.amazon.com/cli/latest/userguide/getting-started-install.html).
 
-   {% warning %}
-
-   **Warning:** If the certificate for {% data variables.location.product_location_enterprise %} changes in the future, you must update the thumbprint value in the Amazon OIDC provider for the OIDC trust to continue to work.
-
-   {% endwarning %}
+   > [!WARNING]
+   > If the certificate for {% data variables.location.product_location_enterprise %} changes in the future, you must update the thumbprint value in the Amazon OIDC provider for the OIDC trust to continue to work.
 
 ### 2. Create an IAM role
 

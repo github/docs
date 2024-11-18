@@ -28,11 +28,8 @@ If you're unable to add specific accounts to your external authentication provid
 
 If you configure built-in authentication and a person successfully authenticates with SAML or CAS, the person will no longer have the option to authenticate with a username and password. If a user successfully authenticates with LDAP, the credentials are no longer considered internal.
 
-{% warning %}
-
-**Warning:** If you disable built-in authentication, you must individually suspend any users that should no longer have access to the instance. For more information, see "[AUTOTITLE](/admin/user-management/managing-users-in-your-enterprise/suspending-and-unsuspending-users)."
-
-{% endwarning %}
+> [!WARNING]
+> If you disable built-in authentication, you must individually suspend any users that should no longer have access to the instance. For more information, see "[AUTOTITLE](/admin/user-management/managing-users-in-your-enterprise/suspending-and-unsuspending-users)."
 
 ## Configuring built-in authentication for users outside your provider
 

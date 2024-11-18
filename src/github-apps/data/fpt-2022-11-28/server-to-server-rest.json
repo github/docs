@@ -85,6 +85,84 @@
       "requestPath": "/orgs/{org}/actions/permissions/workflow"
     },
     {
+      "slug": "list-self-hosted-runner-groups-for-an-organization",
+      "subcategory": "self-hosted-runner-groups",
+      "verb": "get",
+      "requestPath": "/orgs/{org}/actions/runner-groups"
+    },
+    {
+      "slug": "create-a-self-hosted-runner-group-for-an-organization",
+      "subcategory": "self-hosted-runner-groups",
+      "verb": "post",
+      "requestPath": "/orgs/{org}/actions/runner-groups"
+    },
+    {
+      "slug": "get-a-self-hosted-runner-group-for-an-organization",
+      "subcategory": "self-hosted-runner-groups",
+      "verb": "get",
+      "requestPath": "/orgs/{org}/actions/runner-groups/{runner_group_id}"
+    },
+    {
+      "slug": "update-a-self-hosted-runner-group-for-an-organization",
+      "subcategory": "self-hosted-runner-groups",
+      "verb": "patch",
+      "requestPath": "/orgs/{org}/actions/runner-groups/{runner_group_id}"
+    },
+    {
+      "slug": "delete-a-self-hosted-runner-group-from-an-organization",
+      "subcategory": "self-hosted-runner-groups",
+      "verb": "delete",
+      "requestPath": "/orgs/{org}/actions/runner-groups/{runner_group_id}"
+    },
+    {
+      "slug": "list-repository-access-to-a-self-hosted-runner-group-in-an-organization",
+      "subcategory": "self-hosted-runner-groups",
+      "verb": "get",
+      "requestPath": "/orgs/{org}/actions/runner-groups/{runner_group_id}/repositories"
+    },
+    {
+      "slug": "set-repository-access-for-a-self-hosted-runner-group-in-an-organization",
+      "subcategory": "self-hosted-runner-groups",
+      "verb": "put",
+      "requestPath": "/orgs/{org}/actions/runner-groups/{runner_group_id}/repositories"
+    },
+    {
+      "slug": "add-repository-access-to-a-self-hosted-runner-group-in-an-organization",
+      "subcategory": "self-hosted-runner-groups",
+      "verb": "put",
+      "requestPath": "/orgs/{org}/actions/runner-groups/{runner_group_id}/repositories/{repository_id}"
+    },
+    {
+      "slug": "remove-repository-access-to-a-self-hosted-runner-group-in-an-organization",
+      "subcategory": "self-hosted-runner-groups",
+      "verb": "delete",
+      "requestPath": "/orgs/{org}/actions/runner-groups/{runner_group_id}/repositories/{repository_id}"
+    },
+    {
+      "slug": "list-self-hosted-runners-in-a-group-for-an-organization",
+      "subcategory": "self-hosted-runner-groups",
+      "verb": "get",
+      "requestPath": "/orgs/{org}/actions/runner-groups/{runner_group_id}/runners"
+    },
+    {
+      "slug": "set-self-hosted-runners-in-a-group-for-an-organization",
+      "subcategory": "self-hosted-runner-groups",
+      "verb": "put",
+      "requestPath": "/orgs/{org}/actions/runner-groups/{runner_group_id}/runners"
+    },
+    {
+      "slug": "add-a-self-hosted-runner-to-a-group-for-an-organization",
+      "subcategory": "self-hosted-runner-groups",
+      "verb": "put",
+      "requestPath": "/orgs/{org}/actions/runner-groups/{runner_group_id}/runners/{runner_id}"
+    },
+    {
+      "slug": "remove-a-self-hosted-runner-from-a-group-for-an-organization",
+      "subcategory": "self-hosted-runner-groups",
+      "verb": "delete",
+      "requestPath": "/orgs/{org}/actions/runner-groups/{runner_group_id}/runners/{runner_id}"
+    },
+    {
       "slug": "list-self-hosted-runners-for-an-organization",
       "subcategory": "self-hosted-runners",
       "verb": "get",
@@ -1243,6 +1321,12 @@
       "requestPath": "/repos/{owner}/{repo}/code-scanning/codeql/databases/{language}"
     },
     {
+      "slug": "delete-a-codeql-database",
+      "subcategory": "code-scanning",
+      "verb": "delete",
+      "requestPath": "/repos/{owner}/{repo}/code-scanning/codeql/databases/{language}"
+    },
+    {
       "slug": "create-a-codeql-variant-analysis",
       "subcategory": "code-scanning",
       "verb": "post",
@@ -1345,6 +1429,12 @@
       "subcategory": "configurations",
       "verb": "get",
       "requestPath": "/orgs/{org}/code-security/configurations/{configuration_id}/repositories"
+    },
+    {
+      "slug": "get-the-code-security-configuration-associated-with-a-repository",
+      "subcategory": "configurations",
+      "verb": "get",
+      "requestPath": "/repos/{owner}/{repo}/code-security-configuration"
     }
   ],
   "codes-of-conduct": [
@@ -1675,6 +1765,12 @@
       "requestPath": "/orgs/{org}/copilot/billing/selected_users"
     },
     {
+      "slug": "get-copilot-metrics-for-an-organization",
+      "subcategory": "copilot-metrics",
+      "verb": "get",
+      "requestPath": "/orgs/{org}/copilot/metrics"
+    },
+    {
       "slug": "get-a-summary-of-copilot-usage-for-organization-members",
       "subcategory": "copilot-usage",
       "verb": "get",
@@ -1685,6 +1781,18 @@
       "subcategory": "copilot-user-management",
       "verb": "get",
       "requestPath": "/orgs/{org}/members/{username}/copilot"
+    },
+    {
+      "slug": "get-copilot-metrics-for-a-team",
+      "subcategory": "copilot-metrics",
+      "verb": "get",
+      "requestPath": "/orgs/{org}/team/{team_slug}/copilot/metrics"
+    },
+    {
+      "slug": "get-a-summary-of-copilot-usage-for-a-team",
+      "subcategory": "copilot-usage",
+      "verb": "get",
+      "requestPath": "/orgs/{org}/team/{team_slug}/copilot/usage"
     }
   ],
   "dependabot": [
@@ -2589,6 +2697,60 @@
       "subcategory": "webhooks",
       "verb": "post",
       "requestPath": "/orgs/{org}/hooks/{hook_id}/pings"
+    },
+    {
+      "slug": "get-route-stats-by-actor",
+      "subcategory": "api-insights",
+      "verb": "get",
+      "requestPath": "/orgs/{org}/insights/api/route-stats/{actor_type}/{actor_id}"
+    },
+    {
+      "slug": "get-subject-stats",
+      "subcategory": "api-insights",
+      "verb": "get",
+      "requestPath": "/orgs/{org}/insights/api/subject-stats"
+    },
+    {
+      "slug": "get-summary-stats",
+      "subcategory": "api-insights",
+      "verb": "get",
+      "requestPath": "/orgs/{org}/insights/api/summary-stats"
+    },
+    {
+      "slug": "get-summary-stats-by-user",
+      "subcategory": "api-insights",
+      "verb": "get",
+      "requestPath": "/orgs/{org}/insights/api/summary-stats/users/{user_id}"
+    },
+    {
+      "slug": "get-summary-stats-by-actor",
+      "subcategory": "api-insights",
+      "verb": "get",
+      "requestPath": "/orgs/{org}/insights/api/summary-stats/{actor_type}/{actor_id}"
+    },
+    {
+      "slug": "get-time-stats",
+      "subcategory": "api-insights",
+      "verb": "get",
+      "requestPath": "/orgs/{org}/insights/api/time-stats"
+    },
+    {
+      "slug": "get-time-stats-by-user",
+      "subcategory": "api-insights",
+      "verb": "get",
+      "requestPath": "/orgs/{org}/insights/api/time-stats/users/{user_id}"
+    },
+    {
+      "slug": "get-time-stats-by-actor",
+      "subcategory": "api-insights",
+      "verb": "get",
+      "requestPath": "/orgs/{org}/insights/api/time-stats/{actor_type}/{actor_id}"
+    },
+    {
+      "slug": "get-user-stats",
+      "subcategory": "api-insights",
+      "verb": "get",
+      "requestPath": "/orgs/{org}/insights/api/user-stats/{user_id}"
     },
     {
       "slug": "list-app-installations-for-an-organization",
@@ -3933,19 +4095,19 @@
       "requestPath": "/repos/{owner}/{repo}/tags"
     },
     {
-      "slug": "deprecated---list-tag-protection-states-for-a-repository",
+      "slug": "closing-down---list-tag-protection-states-for-a-repository",
       "subcategory": "tags",
       "verb": "get",
       "requestPath": "/repos/{owner}/{repo}/tags/protection"
     },
     {
-      "slug": "deprecated---create-a-tag-protection-state-for-a-repository",
+      "slug": "closing-down---create-a-tag-protection-state-for-a-repository",
       "subcategory": "tags",
       "verb": "post",
       "requestPath": "/repos/{owner}/{repo}/tags/protection"
     },
     {
-      "slug": "deprecated---delete-a-tag-protection-state-for-a-repository",
+      "slug": "closing-down---delete-a-tag-protection-state-for-a-repository",
       "subcategory": "tags",
       "verb": "delete",
       "requestPath": "/repos/{owner}/{repo}/tags/protection/{tag_protection_id}"

@@ -14,11 +14,8 @@ shortTitle: Manage your subscriptions
 ---
 To help you understand your subscriptions and decide whether to unsubscribe, see "[AUTOTITLE](/account-and-profile/managing-subscriptions-and-notifications-on-github/managing-subscriptions-for-activity-on-github/viewing-your-subscriptions)."
 
-{% note %}
-
-**Note:** Instead of unsubscribing, you have the option to ignore a repository. If you ignore a repository, you won't receive any notifications. We don't recommend ignoring repositories as you won't be notified if you're @mentioned. {% ifversion fpt or ghec %}If you're experiencing abuse and want to ignore a repository, please visit {% data variables.contact.contact_support_page %} so we can help. {% data reusables.policies.abuse %}{% endif %}
-
-{% endnote %}
+> [!NOTE]
+> Instead of unsubscribing, you have the option to ignore a repository. If you ignore a repository, you won't receive any notifications. We don't recommend ignoring repositories as you won't be notified if you're @mentioned. {% ifversion fpt or ghec %}If you're experiencing abuse and want to ignore a repository, please visit {% data variables.contact.contact_support_page %} so we can help. {% data reusables.policies.abuse %}{% endif %}
 
 ## Choosing how to unsubscribe
 

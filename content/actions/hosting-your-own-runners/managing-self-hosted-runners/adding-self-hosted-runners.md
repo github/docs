@@ -21,13 +21,10 @@ If you are an organization or enterprise administrator, you might want to add yo
 
 For information on supported operating systems for self-hosted runners, or using self-hosted runners with a proxy server, see "[AUTOTITLE](/actions/hosting-your-own-runners/managing-self-hosted-runners/about-self-hosted-runners)."
 
-{% warning %}
-
-**Warning:** {% data reusables.actions.self-hosted-runner-security %}
-
-For more information, see "[AUTOTITLE](/actions/hosting-your-own-runners/managing-self-hosted-runners/about-self-hosted-runners#self-hosted-runner-security-with-public-repositories)."
-
-{% endwarning %}
+> [!WARNING]
+> {% data reusables.actions.self-hosted-runner-security %}
+>
+> For more information, see "[AUTOTITLE](/actions/hosting-your-own-runners/managing-self-hosted-runners/about-self-hosted-runners#self-hosted-runner-security-with-public-repositories)."
 
 You can set up automation to scale the number of self-hosted runners. For more information, see "[AUTOTITLE](/actions/hosting-your-own-runners/managing-self-hosted-runners/autoscaling-with-self-hosted-runners)."
 
@@ -49,15 +46,8 @@ You can add self-hosted runners to a single repository. To add a self-hosted run
 
 For information about how to add a self-hosted runner with the REST API, see "[AUTOTITLE](/rest/actions/self-hosted-runners)."
 
-{% ifversion actions-disable-repo-runners %}
-
-{% note %}
-
-**Note**: {% data reusables.actions.disable-selfhosted-runners-crossrefs %}
-
-{% endnote %}
-
-{% endif %}
+> [!NOTE]
+> {% data reusables.actions.disable-selfhosted-runners-crossrefs %}
 
 {% data reusables.repositories.navigate-to-repo %}
 {% data reusables.repositories.sidebar-settings %}

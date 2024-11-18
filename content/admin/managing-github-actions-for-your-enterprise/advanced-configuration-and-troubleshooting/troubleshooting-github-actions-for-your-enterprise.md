@@ -110,11 +110,9 @@ If any of these services are at or near 100% CPU utilization, or the memory is n
 
    For CPU and memory, this shows how much is allocated to the **total** of **all** services (the left value) and how much is available (the right value). In the example above, there is 23 GiB of memory allocated out of 32 GiB total. This means there is 9 GiB of memory available for allocation.
 
-   {% warning %}
+   > [!WARNING]
+   > Be careful not to allocate more than the total available resources, or services will fail to start.
 
-   **Warning:** Be careful not to allocate more than the total available resources, or services will fail to start.
-
-   {% endwarning %}
 1. Change directory to `/etc/consul-templates/etc/nomad-jobs/actions`:
 
    ```shell
@@ -183,15 +181,15 @@ If any of these services are at or near 100% CPU utilization, or the memory is n
 
 ## Troubleshooting bundled actions in {% data variables.product.prodname_actions %}
 
-If you receive the following error when installing {% data variables.product.prodname_actions %} in {% data variables.product.prodname_ghe_server %}, you can resolve the problem by installing the official bundled actions and starter workflows.
+If you receive the following error when installing {% data variables.product.prodname_actions %} in {% data variables.product.prodname_ghe_server %}, you can resolve the problem by installing the official bundled actions and workflow templates.
 
 ```shell
 A part of the Actions setup had problems and needs an administrator to resolve.
 ```
 
-To install the official bundled actions and starter workflows within a designated organization in {% data variables.product.prodname_ghe_server %}, follow this procedure.
+To install the official bundled actions and workflow templates within a designated organization in {% data variables.product.prodname_ghe_server %}, follow this procedure.
 
-1. Identify an organization that will store the official bundled actions and starter workflows. You can create a new organization or reuse an existing one.
+1. Identify an organization that will store the official bundled actions and workflow templates. You can create a new organization or reuse an existing one.
     * To create a new organization, see "[AUTOTITLE](/organizations/collaborating-with-groups-in-organizations/creating-a-new-organization-from-scratch)."
     * For assistance with choosing a name for this organization, see "[AUTOTITLE](/admin/github-actions/getting-started-with-github-actions-for-your-enterprise/getting-started-with-github-actions-for-github-enterprise-server#reserved-names)."
 

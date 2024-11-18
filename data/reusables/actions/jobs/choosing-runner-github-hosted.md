@@ -12,17 +12,11 @@ For more information, see "[AUTOTITLE](/actions/using-github-hosted-runners/abou
 
 In addition to the standard {% data variables.product.prodname_dotcom %}-hosted runners, {% data variables.product.prodname_dotcom %} offers customers on {% data variables.product.prodname_team %} and {% data variables.product.prodname_ghe_cloud %} plans a range of managed virtual machines with advanced features - for example, more cores and disk space, GPU-powered machines, and ARM-powered machines. For more information, see "[AUTOTITLE](/actions/using-github-hosted-runners/about-larger-runners/about-larger-runners)."
 
-{% note %}
+> [!NOTE]
+> The `-latest` runner images are the latest stable images that {% data variables.product.prodname_dotcom %} provides, and might not be the most recent version of the operating system available from the operating system vendor.
 
-**Note:** The `-latest` runner images are the latest stable images that {% data variables.product.prodname_dotcom %} provides, and might not be the most recent version of the operating system available from the operating system vendor.
-
-{% endnote %}
-
-{% warning %}
-
-**Warning:** Beta and Deprecated Images are provided "as-is", "with all faults" and "as available" and are excluded from the service level agreement and warranty. Beta Images may not be covered by customer support.
-
-{% endwarning %}
+> [!WARNING]
+> Beta and Deprecated Images are provided "as-is", "with all faults" and "as available" and are excluded from the service level agreement and warranty. Beta Images may not be covered by customer support.
 
 #### Example: Specifying an operating system
 

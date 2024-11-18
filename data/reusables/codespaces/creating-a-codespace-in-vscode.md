@@ -1,4 +1,4 @@
-After you connect your account on {% data variables.product.prodname_dotcom_the_website %} to the {% data variables.product.prodname_github_codespaces %} extension, you can create a new codespace. For more information about the {% data variables.product.prodname_github_codespaces %} extension, see the [{% data variables.product.prodname_vs_marketplace_shortname %}](https://marketplace.visualstudio.com/items?itemName=GitHub.codespaces).
+After you connect your account on {% data variables.product.github %} to the {% data variables.product.prodname_github_codespaces %} extension, you can create a new codespace. For more information about the {% data variables.product.prodname_github_codespaces %} extension, see the [{% data variables.product.prodname_vs_marketplace_shortname %}](https://marketplace.visualstudio.com/items?itemName=GitHub.codespaces).
 
 {% data reusables.codespaces.click-remote-explorer-icon-vscode %}
 1. Hover over the "Remote Explorer" side bar and click {% octicon "plus" aria-label="The plus icon" %}.
@@ -17,8 +17,5 @@ After you connect your account on {% data variables.product.prodname_dotcom_the_
 1. If prompted to choose a dev container configuration file, choose a file from the list.
 1. Click the machine type you want to use.
 
-   {% note %}
-
-   **Note**: {% data reusables.codespaces.codespaces-machine-type-availability %}
-
-   {% endnote %}
+   > [!NOTE]
+   > {% data reusables.codespaces.codespaces-machine-type-availability %}

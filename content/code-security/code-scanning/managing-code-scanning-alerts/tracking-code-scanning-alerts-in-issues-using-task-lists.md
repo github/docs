@@ -2,8 +2,7 @@
 title: Tracking code scanning alerts in issues using task lists
 shortTitle: Track alerts in issues
 intro: You can add code scanning alerts to issues using task lists. This makes it easy to create a plan for development work that includes fixing alerts.
-product: '{% data reusables.gated-features.code-scanning %}'
-permissions: 'If you have write permission to a repository you can track {% data variables.product.prodname_code_scanning %} alerts in issues using task lists.'
+permissions: '{% data reusables.permissions.code-scanning-all-alerts %}'
 versions:
   feature: code-scanning-task-lists
 redirect_from:
@@ -63,7 +62,7 @@ Instead of tracking a {% data variables.product.prodname_code_scanning %} alert 
 {% data reusables.repositories.sidebar-security %}
 {% data reusables.repositories.sidebar-code-scanning-alerts %}
 {% data reusables.code-scanning.explore-alert %}
-1. Optionally, to find the alert to track, you can use the free-text search or the drop-down menus to filter and locate the alert. For more information, see "[AUTOTITLE](/code-security/code-scanning/managing-code-scanning-alerts/managing-code-scanning-alerts-for-your-repository#filtering-code-scanning-alerts)."
+1. Optionally, to find the alert to track, you can use the free-text search or the drop-down menus to filter and locate the alert. For more information, see "[AUTOTITLE](/code-security/code-scanning/managing-code-scanning-alerts/assessing-code-scanning-alerts-for-your-repository#filtering-code-scanning-alerts)."
 1. Towards the top of the page, on the right side, click **Create issue**.
 
    ![Screenshot of a {% data variables.product.prodname_code_scanning %} alert. The "Create issue" button is outlined in dark orange.](/assets/images/help/repository/code-scanning-create-issue-for-alert.png)
@@ -73,10 +72,9 @@ Instead of tracking a {% data variables.product.prodname_code_scanning %} alert 
    * The title contains the name of the {% data variables.product.prodname_code_scanning %} alert.
    * The body contains the task list item with the full URL to the {% data variables.product.prodname_code_scanning %} alert.
 1. Optionally, edit the title and the body of the issue.
-   {% warning %}
 
-    **Warning:** You may want to edit the title of the issue as it may expose security information. You can also edit the body of the issue. Make sure that you keep the task list item with a link to the alert otherwise the issue will no longer track the alert.
-   {% endwarning %}
+    > [!WARNING]
+    > You may want to edit the title of the issue as it may expose security information. You can also edit the body of the issue. Make sure that you keep the task list item with a link to the alert otherwise the issue will no longer track the alert.
 
 1. Click **Submit new issue**.
 

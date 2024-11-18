@@ -34,11 +34,8 @@ The `dig` command, which can be used to verify correct configuration of DNS reco
 
 {% endwindows %}
 
-{% note %}
-
-**Note:** DNS changes can take up to 24 hours to propagate.
-
-{% endnote %}
+> [!NOTE]
+> DNS changes can take up to 24 hours to propagate.
 
 ## Configuring an apex domain
 
@@ -97,11 +94,8 @@ To set up an apex domain, such as `example.com`, you must configure a custom dom
 
 ### Configuring an apex domain and the `www` subdomain variant
 
-{% note %}
-
-**Note:** Setting up a `www` subdomain alongside an apex domain is recommended for HTTPS secured websites.
-
-{% endnote %}
+> [!NOTE]
+> Setting up a `www` subdomain alongside an apex domain is recommended for HTTPS secured websites.
 
 {% data reusables.pages.www-and-apex-domain-recommendation %} For more information, see "[Configuring a subdomain](#configuring-a-subdomain)."
 
@@ -118,13 +112,10 @@ To set up a `www` or custom subdomain, such as `www.example.com` or `blog.exampl
 {% data reusables.pages.sidebar-pages %}
 1. Under "Custom domain", type your custom domain, then click **Save**. If you are publishing your site from a branch, this will create a commit that adds a `CNAME` file directly to the root of your source branch. If you are publishing your site with a custom {% data variables.product.prodname_actions %} workflow, no `CNAME` file is created, so you need to create one manually (containing only a line of text with your custom domain). For more information about your publishing source, see "[AUTOTITLE](/pages/getting-started-with-github-pages/configuring-a-publishing-source-for-your-github-pages-site)."
 
-   {% note %}
-
-   **Note:** If your custom domain is an internationalized domain name, you must enter the Punycode encoded version.
-
-   For more information on Punycodes, see [Internationalized domain name](https://en.wikipedia.org/wiki/Internationalized_domain_name).
-
-   {% endnote %}
+   > [!NOTE]
+   > If your custom domain is an internationalized domain name, you must enter the Punycode encoded version.
+   >
+   > For more information on Punycodes, see [Internationalized domain name](https://en.wikipedia.org/wiki/Internationalized_domain_name).
 
 1. Navigate to your DNS provider and create a `CNAME` record that points your subdomain to the default domain for your site. For example, if you want to use the subdomain `www.example.com` for your user site, create a `CNAME` record that points `www.example.com` to `<user>.github.io`. If you want to use the subdomain `another.example.com` for your organization site, create a `CNAME` record that points `another.example.com` to `<organization>.github.io`. The `CNAME` record should always point to `<user>.github.io` or `<organization>.github.io`, excluding the repository name. {% data reusables.pages.contact-dns-provider %} {% data reusables.pages.default-domain-information %}
 
@@ -143,11 +134,8 @@ To set up a `www` or custom subdomain, such as `www.example.com` or `blog.exampl
 {% data reusables.pages.build-locally-download-cname %}
 {% data reusables.pages.enforce-https-custom-domain %}
 
-   {% note %}
-
-   **Note:** If you point your custom subdomain to your apex domain, you will encounter issues with enforcing HTTPS to your website, and you may encounter issues where your subdomain does not reach your {% data variables.product.prodname_pages %} site at all.
-
-   {% endnote %}
+   > [!NOTE]
+   > If you point your custom subdomain to your apex domain, you will encounter issues with enforcing HTTPS to your website, and you may encounter issues where your subdomain does not reach your {% data variables.product.prodname_pages %} site at all.
 
 ## DNS records for your custom domain
 
@@ -162,7 +150,7 @@ To configure an apex domain, you only need to pick a single DNS record type from
 | Apex domain<br />(`example.com`) | `A` | `@` | `185.199.108.153`<br />`185.199.109.153`<br />`185.199.110.153`<br />`185.199.111.153` |
 | Apex domain<br />(`example.com`) | `AAAA` | `@` | `2606:50c0:8000::153`<br />`2606:50c0:8001::153`<br />`2606:50c0:8002::153`<br />`2606:50c0:8003::153` |
 | Apex domain<br />(`example.com`) | `ALIAS` or `ANAME` | `@` | `USERNAME.github.io` or<br /> `ORGANIZATION.github.io` |
-| Subdomain<br />(`ww​w.example.com`,<br />`blog.example.com`) | `CNAME` | `SUBDOMAIN` | `USERNAME.github.io` or<br /> `ORGANIZATION.github.io` |
+| Subdomain<br />(`ww​w.example.com`,<br />`blog.example.com`) | `CNAME` | `SUBDOMAIN.example.com.` | `USERNAME.github.io` or<br /> `ORGANIZATION.github.io` |
 
 ## Removing a custom domain
 

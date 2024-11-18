@@ -16,11 +16,8 @@ After unblocking a user from your organization, they'll be able to contribute to
 
 If you selected a specific amount of time to block the user, they will be automatically unblocked when that period of time ends. For more information, see "[AUTOTITLE](/communities/maintaining-your-safety-on-github/blocking-a-user-from-your-organization)."
 
-{% tip %}
-
-**Tip**: Any settings that were removed when you blocked the user from your organization, such as collaborator status, stars, and watches, will not be restored when you unblock the user.
-
-{% endtip %}
+> [!TIP]
+> Any settings that were removed when you blocked the user from your organization, such as collaborator status, stars, and watches, will not be restored when you unblock the user.
 
 ## Unblocking a user in a comment
 

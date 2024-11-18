@@ -19,7 +19,7 @@ topics:
 
 There are many ways to work with {% data variables.product.prodname_dotcom %}, and you can choose a method that suits your level of experience, personal preferences, and the repositories you work with. For example, you can choose whether you want to work in the browser or from your desktop, how you want to use Git, and what capabilities you need from your editor and other software. You may choose to work with different repositories in different ways.
 
-If you're new to {% data variables.product.prodname_dotcom %}, a good way to start contributing is to make changes in the browser on {% data variables.location.product_location %}. As you become more familiar with {% data variables.product.prodname_dotcom %} and start contributing larger changes, you may want to start working with other tools. This article explains how to progress through these stages and helps you choose the best tool for your requirements at each stage. To quickly compare all the tools available for working with {% data variables.product.prodname_dotcom %}, see "[Comparison of tools for connecting to GitHub](#comparison-of-tools-for-connecting-to-github)."
+If you're new to {% data variables.product.prodname_dotcom %}, a good way to start contributing is to make changes in the browser on {% data variables.location.product_location %}. As you become more familiar with {% data variables.product.prodname_dotcom %} and start contributing larger changes, you may want to start working with other tools. This article explains how to progress through these stages and helps you choose the best tool for your requirements at each stage. To quickly compare all the tools available for working with {% data variables.product.prodname_dotcom %}, see "[Comparison of tools for connecting to {% data variables.product.prodname_dotcom %}](#comparison-of-tools-for-connecting-to-github)."
 
 ## Getting started
 
@@ -60,7 +60,7 @@ There are several tools you can use to connect to {% data variables.product.prod
 * If you'd prefer to use a visual interface, you can use a visual Git client such as {% data variables.product.prodname_desktop %}. With {% data variables.product.prodname_desktop %}, you can visualize the changes you're making and access most Git commands through a visual interface, so you don't need to memorize any commands. For more information, see "[AUTOTITLE](/desktop/overview/about-github-desktop)."
 * If you want to work in one place, you can often do most things from your editor. An editor such as {% data variables.product.prodname_vscode_shortname %} includes an integrated terminal and buttons for common Git commands, so you can edit files and push your changes to {% data variables.product.prodname_dotcom %} all from one place. You can also install an extension to work directly with pull requests and issues on {% data variables.product.prodname_dotcom %}. To get started, see [Download {% data variables.product.prodname_vscode_shortname %}](https://code.visualstudio.com/download).
 
-## Comparison of tools for connecting to GitHub
+## Comparison of tools for connecting to {% data variables.product.prodname_dotcom %}
 
 The following table provides a comparison between the tools you can use to work with repositories on {% data variables.product.prodname_dotcom %}, both in your browser and from your desktop.
 

@@ -39,11 +39,8 @@ To create a {% data variables.product.prodname_marketplace %} listing:
 {% data reusables.user-settings.developer_settings %}
 1. In the left sidebar, click either **OAuth Apps** or **GitHub Apps** depending on the app you're adding to {% data variables.product.prodname_marketplace %}.
 
-   {% note %}
-
-   **Note**: You can also add a listing by navigating to https://github.com/marketplace/new, viewing your available apps, and clicking **Create draft listing**.
-
-   {% endnote %}
+   > [!NOTE]
+   > You can also add a listing by navigating to https://github.com/marketplace/new, viewing your available apps, and clicking **Create draft listing**.
 
    ![Screenshot of the sidebar on the "Developer Settings" page of {% data variables.product.prodname_dotcom %}. Options labeled "{% data variables.product.prodname_github_apps %}" and "{% data variables.product.prodname_oauth_apps %}" are outlined in dark orange.](/assets/images/settings/apps-choose-app.png)
 
@@ -53,11 +50,8 @@ To create a {% data variables.product.prodname_marketplace %} listing:
 
    ![Screenshot of a draft {% data variables.product.prodname_marketplace %} listing. In a section labeled "Publish your app to Marketplace," unfinished action items such as "Add your contact info" are marked with orange circles.](/assets/images/marketplace/marketplace-listing-overview.png)
 
-{% note %}
-
-**Note:** In the "Contact info" section of your listing, we recommend using individual email addresses, rather than group emails addresses like support@domain.com. GitHub will use these email addresses to contact you about updates to {% data variables.product.prodname_marketplace %} that might affect your listing, new feature releases, marketing opportunities, payouts, and information on conferences and sponsorships.
-
-{% endnote %}
+> [!NOTE]
+> In the "Contact info" section of your listing, we recommend using individual email addresses, rather than group emails addresses like support@domain.com. GitHub will use these email addresses to contact you about updates to {% data variables.product.prodname_marketplace %} that might affect your listing, new feature releases, marketing opportunities, payouts, and information on conferences and sponsorships.
 
 ## Editing your listing
 

@@ -31,6 +31,7 @@ Platform | Syntax
 [Tidelift](https://tidelift.com/) | `tidelift: PLATFORM-NAME/PACKAGE-NAME`
 [Polar](https://www.polar.sh/) | `polar: USERNAME`
 [Buy Me a Coffee](https://www.buymeacoffee.com/) | `buy_me_a_coffee: USERNAME`
+[thanks.dev](https://thanks.dev/) | `thanks_dev: USERNAME`
 Custom URL | `custom: LINK1` or `custom: [LINK1, LINK2, LINK3, LINK4]`
 
 For Tidelift, use the `platform-name/package-name` syntax with the following platform names.
@@ -53,11 +54,8 @@ tidelift: npm/octo-package
 custom: ["https://www.paypal.me/octocat", octocat.com]
 ```
 
-{% note %}
-
-**Note:** If a custom URL in an array includes `:`, you must wrap the URL in quotes. For example, `"https://www.paypal.me/octocat"`.
-
-{% endnote %}
+> [!NOTE]
+> If a custom URL in an array includes `:`, you must wrap the URL in quotes. For example, `"https://www.paypal.me/octocat"`.
 
 You can create a default sponsor button for your organization or personal account. For more information, see "[AUTOTITLE](/communities/setting-up-your-project-for-healthy-contributions/creating-a-default-community-health-file)."
 

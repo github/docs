@@ -27,16 +27,13 @@ Repository administrators can also enable rulesets for a branch, which will prev
 
 ## Pushing changes to {% data variables.product.prodname_dotcom %}
 
-{% note %}
-
-**Note:** {% data variables.product.prodname_desktop %} will reject a push if it exceeds certain limits.
-
-* A push contains a large file over {% data variables.large_files.max_github_size %} in size.
-* A push is over {% data variables.large_files.max_file_size %} in total size.
-
-If you configure {% data variables.large_files.product_name_long %} to track your large files, you can push large files that would normally be rejected. For more information, see "[AUTOTITLE](/desktop/configuring-and-customizing-github-desktop/about-git-large-file-storage-and-github-desktop)."
-
-{% endnote %}
+> [!NOTE]
+> {% data variables.product.prodname_desktop %} will reject a push if it exceeds certain limits.
+>
+> * A push contains a large file over {% data variables.large_files.max_github_size %} in size.
+> * A push is over {% data variables.large_files.max_file_size %} in total size.
+>
+> If you configure {% data variables.large_files.product_name_long %} to track your large files, you can push large files that would normally be rejected. For more information, see "[AUTOTITLE](/desktop/configuring-and-customizing-github-desktop/about-git-large-file-storage-and-github-desktop)."
 
 {% data reusables.desktop.push-origin %}
 1. If there are commits on the remote branch that you don't have on your local branch, {% data variables.product.prodname_desktop %} prompts you to fetch new commits from the remote. In the "New Commits on Remote" window, click **Fetch**.

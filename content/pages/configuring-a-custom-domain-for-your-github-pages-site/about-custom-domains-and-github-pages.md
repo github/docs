@@ -20,7 +20,7 @@ shortTitle: Custom domains in GitHub Pages
 
 {% data reusables.pages.custom-domain-warning %}
 
-On {% data variables.product.prodname_dotcom_the_website %}, {% data variables.product.prodname_pages %} works with two types of domains: subdomains and apex domains. For a list of unsupported custom domains, see "[AUTOTITLE](/pages/configuring-a-custom-domain-for-your-github-pages-site/troubleshooting-custom-domains-and-github-pages#custom-domain-names-that-are-unsupported)."
+{% data variables.product.prodname_pages %} works with two types of domains: subdomains and apex domains. For a list of unsupported custom domains, see "[AUTOTITLE](/pages/configuring-a-custom-domain-for-your-github-pages-site/troubleshooting-custom-domains-and-github-pages#custom-domain-names-that-are-unsupported)."
 
 | Supported custom domain type | Example |
 |---|---|
@@ -40,11 +40,8 @@ For example, if the custom domain for your user site is `www.octocat.com`, and y
 
 You can override the default custom domain by adding a custom domain to the individual repository.
 
-{% note %}
-
-**Note:** The URLs for project sites that are privately published are not affected by the custom domain for your user or organization site. For more information about privately published sites, see "[AUTOTITLE](/enterprise-cloud@latest/pages/getting-started-with-github-pages/changing-the-visibility-of-your-github-pages-site){% ifversion not ghec %}" in the {% data variables.product.prodname_ghe_cloud %} documentation.{% else %}."{% endif %}
-
-{% endnote %}
+> [!NOTE]
+> The URLs for project sites that are privately published are not affected by the custom domain for your user or organization site. For more information about privately published sites, see "[AUTOTITLE](/enterprise-cloud@latest/pages/getting-started-with-github-pages/changing-the-visibility-of-your-github-pages-site){% ifversion not ghec %}" in the {% data variables.product.prodname_ghe_cloud %} documentation.{% else %}."{% endif %}
 
 To remove the default custom domain, you must remove the custom domain from your user or organization site.
 

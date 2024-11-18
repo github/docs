@@ -18,6 +18,8 @@ shortTitle: Install from Marketplace for user
 
 This article applies to installing and purchasing {% data variables.product.prodname_github_apps %} from {% data variables.product.prodname_marketplace %}. For more information on installing {% data variables.product.prodname_github_apps %} from a source other than {% data variables.product.prodname_marketplace %}, see "[AUTOTITLE](/apps/using-github-apps/installing-a-github-app-from-a-third-party)."
 
+{% data reusables.data-residency.github-marketplace-apps-unsupported %}
+
 If you install a {% data variables.product.prodname_github_app %} on your personal account and you choose a paid plan, you will pay for your app subscription on your personal account's current billing date using your existing payment method.
 
 {% data reusables.marketplace.free-trials %}

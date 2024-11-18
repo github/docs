@@ -27,13 +27,9 @@ For example:
 If {% data variables.large_files.product_name_long %} ({% data variables.large_files.product_name_short %}) objects are included in [source code archives](/repositories/working-with-files/using-files/downloading-source-code-archives) for your repository, downloads of those archives will count towards bandwidth usage for the repository. For more information, see "[AUTOTITLE](/repositories/managing-your-repositorys-settings-and-features/managing-repository-settings/managing-git-lfs-objects-in-archives-of-your-repository)."
 {% endif %}
 
-{% tip %}
-
-**Tips**:
-* {% data reusables.large_files.owner_quota_only %}
-* {% data reusables.large_files.does_not_carry %}
-
-{% endtip %}
+> [!TIP]
+> * {% data reusables.large_files.owner_quota_only %}
+> * {% data reusables.large_files.does_not_carry %}
 
 ## Storage quota
 
@@ -45,5 +41,5 @@ If you use more than {% data variables.large_files.initial_bandwidth_quota %} of
 
 ## Further reading
 
-* "[AUTOTITLE](/billing/managing-billing-for-git-large-file-storage/viewing-your-git-large-file-storage-usage)"
-* "[AUTOTITLE](/billing/managing-billing-for-git-large-file-storage)"
+* "[AUTOTITLE](/billing/managing-billing-for-your-products/managing-billing-for-git-large-file-storage/viewing-your-git-large-file-storage-usage)"
+* "[AUTOTITLE](/billing/managing-billing-for-your-products/managing-billing-for-git-large-file-storage)"

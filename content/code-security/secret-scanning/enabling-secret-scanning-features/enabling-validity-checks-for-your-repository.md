@@ -42,7 +42,7 @@ For more information on using validity checks, see "[AUTOTITLE](/code-security/s
 
 You can also use the REST API to enable validity checks for partner patterns for your repository. For more information, see "[AUTOTITLE](/rest/repos/repos#update-a-repository)."
 
-Alternatively, organization owners and enterprise administrators can enable the feature for all repositories in the organization or enterprise settings. For more information on enabling at the organization-level, see "[AUTOTITLE](/code-security/securing-your-organization/meeting-your-specific-security-needs-with-custom-security-configurations/creating-a-custom-security-configuration)." For more information on enabling at the enterprise-level, see "[AUTOTITLE](/admin/code-security/managing-github-advanced-security-for-your-enterprise/managing-github-advanced-security-features-for-your-enterprise)" and "[AUTOTITLE](/rest/enterprise-admin/code-security-and-analysis#update-code-security-and-analysis-features-for-an-enterprise)."
+Alternatively, organization owners and enterprise administrators can enable the feature for all repositories in the organization or enterprise settings. For more information on enabling at the organization-level, see "[AUTOTITLE](/code-security/securing-your-organization/enabling-security-features-in-your-organization/creating-a-custom-security-configuration)." For more information on enabling at the enterprise-level, see "[AUTOTITLE](/admin/code-security/managing-github-advanced-security-for-your-enterprise/managing-github-advanced-security-features-for-your-enterprise)" and "[AUTOTITLE](/rest/enterprise-admin/code-security-and-analysis#update-code-security-and-analysis-features-for-an-enterprise)."
 
 ## Further reading
 

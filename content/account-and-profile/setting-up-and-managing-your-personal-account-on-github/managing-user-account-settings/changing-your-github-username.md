@@ -22,19 +22,17 @@ shortTitle: Change your username
 
 {% ifversion ghec or ghes %}
 
-{% note %}
-
 {% ifversion ghec %}
 
-**Note**: Members of an {% data variables.enterprise.prodname_emu_enterprise %} cannot change usernames. Your enterprise's IdP administrator controls your username for {% data variables.product.product_name %}. For more information, see "[AUTOTITLE](/admin/identity-and-access-management/using-enterprise-managed-users-for-iam/about-enterprise-managed-users)."
+> [!NOTE]
+> Members of an {% data variables.enterprise.prodname_emu_enterprise %} cannot change usernames. Your enterprise's IdP administrator controls your username for {% data variables.product.product_name %}. For more information, see "[AUTOTITLE](/admin/identity-and-access-management/using-enterprise-managed-users-for-iam/about-enterprise-managed-users)."
 
 {% elsif ghes %}
 
-**Note**: If you sign into {% data variables.location.product_location %} with LDAP credentials or single sign-on (SSO), only your local administrator can change your username. For more information about authentication methods for {% data variables.product.product_name %}, see "[AUTOTITLE](/admin/identity-and-access-management/managing-iam-for-your-enterprise)."
+> [!NOTE]
+> If you sign into {% data variables.location.product_location %} with LDAP credentials or single sign-on (SSO), only your local administrator can change your username. For more information about authentication methods for {% data variables.product.product_name %}, see "[AUTOTITLE](/admin/identity-and-access-management/managing-iam-for-your-enterprise)."
 
 {% endif %}
-
-{% endnote %}
 
 {% endif %}
 
@@ -46,7 +44,7 @@ If you hold a trademark for the username, you can find more information about ma
 
 If you do not hold a trademark for the name, you can choose another username or keep your current username. {% data variables.contact.github_support %} cannot release the unavailable username for you. For more information, see "[Changing your username](#changing-your-username)."{% endif %}
 
-After changing your username, your old username becomes available for anyone else to claim. Most references to your repositories under the old username automatically change to the new username. However, some links to your profile won't automatically redirect.
+After changing your username, your previous username will be unavailable for anyone to claim for 90 days. Most references to your repositories under the previous username automatically change to the new username. However, some links to your profile won't automatically redirect.
 
 {% data variables.product.product_name %} cannot set up redirects for:
 * [@mentions](/get-started/writing-on-github/getting-started-with-writing-and-formatting-on-github/basic-writing-and-formatting-syntax#mentioning-people-and-teams) using your old username
@@ -76,7 +74,11 @@ If the new owner of your old username creates a repository with the same name as
 
 ## Links to your previous profile page
 
-After changing your username, links to your previous profile page, such as `https://{% data variables.product.product_url %}/previoususername`, will return a 404 error. We recommend updating any links to your account on {% data variables.location.product_location %} from elsewhere{% ifversion fpt or ghec %}, such as your LinkedIn or Twitter profile{% endif %}.
+After changing your username, links to your previous profile page, such as `https://{% data variables.product.product_url %}/previoususername`, will return a 404 error. We recommend updating any links to your profile from elsewhere{% ifversion fpt or ghec %}, such as your LinkedIn or Twitter profile{% endif %}.
+
+## Accounts logged in on GitHub Mobile
+
+Accounts logged in on the {% data variables.product.prodname_mobile %} app may continue to display your original username until you log out. To ensure your updated username is displayed, we recommend you sign out and back in to your account on each mobile device.
 
 ## Your Git commits
 
@@ -84,14 +86,9 @@ If your Git commits are associated with another email address you've added to yo
 
 {% ifversion fpt or ghec %}If you've been using a {% data variables.product.prodname_dotcom %}-provided private commit email address, whether or not your commit history will be retained after an account rename depends on the format of the email address. Git commits that are associated with your {% data variables.product.product_name %}-provided `noreply` email address won't be attributed to your new username and won't appear in your contributions graph, unless your `noreply` email address is in the form of `ID+USERNAME@users.noreply.github.com`. Older versions of the `noreply` email address that do not contain a numeric ID will not be associated with your {% data variables.product.prodname_dotcom %} account after changing your username.{% endif %}
 
-{% warning %}
-
-**Warnings:**
-
-* After a username change, verified commits signed using the previous {% data variables.product.product_name %}-provided `noreply` email address will lose their "Verified" status.
-* When verifying a signature, {% data variables.product.product_name %} checks that the email address of the committer or tagger exactly matches one of the email addresses associated with the GPG key's identities. Additionally, {% data variables.product.product_name %} confirms that the email address is verified and linked to the user's account. This ensures that the key belongs to you and that you created the commit or tag. Because the username of the `noreply` email address changes, these commits can no longer be verified.
-
-{% endwarning %}
+> [!WARNING]
+> * After a username change, verified commits signed using the previous {% data variables.product.product_name %}-provided `noreply` email address will lose their "Verified" status.
+> * When verifying a signature, {% data variables.product.product_name %} checks that the email address of the committer or tagger exactly matches one of the email addresses associated with the GPG key's identities. Additionally, {% data variables.product.product_name %} confirms that the email address is verified and linked to the user's account. This ensures that the key belongs to you and that you created the commit or tag. Because the username of the `noreply` email address changes, these commits can no longer be verified.
 
 ## Your gists
 

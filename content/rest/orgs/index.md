@@ -15,6 +15,7 @@ versions:
 topics:
   - API
 children:
+  - /api-insights
   - /blocking
   - /custom-properties
   - /custom-roles

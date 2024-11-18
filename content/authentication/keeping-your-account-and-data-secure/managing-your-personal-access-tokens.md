@@ -20,12 +20,8 @@ topics:
   - Access management
 ---
 
-{% warning %}
-
-**Warning**: Treat your access tokens like passwords. {% ifversion pat-v2 %}
-For more information, see "[Keeping your {% data variables.product.pat_generic %}s secure](#keeping-your-personal-access-tokens-secure)."{% endif %}
-
-{% endwarning %}
+> [!WARNING]
+> Treat your access tokens like passwords. For more information, see "[Keeping your {% data variables.product.pat_generic %}s secure](#keeping-your-personal-access-tokens-secure)."
 
 ## About {% data variables.product.pat_generic %}s
 
@@ -35,19 +31,13 @@ For more information, see "[Keeping your {% data variables.product.pat_generic %
 
 {% data reusables.user-settings.token_access_capabilities %} For example, a {% data variables.product.pat_generic %} can be configured with an `admin:org` scope, but if the owner of the token is not an organization owner, the token will not give administrative access to the organization.
 
-{% ifversion pat-v2 %}
-
 ### Types of {% data variables.product.pat_generic %}s
 
 {% data variables.product.company_short %} currently supports two types of {% data variables.product.pat_generic %}s: {% data variables.product.pat_v2 %}s and {% data variables.product.pat_v1_plural %}. {% data variables.product.company_short %} recommends that you use {% data variables.product.pat_v2 %}s instead of {% data variables.product.pat_v1_plural %} whenever possible.
 
 Both {% data variables.product.pat_v2 %}s and {% data variables.product.pat_v1_plural %} are tied to the user who generated them and will become inactive if the user loses access to the resource.
 
-{% ifversion pat-v2 %}
-
-Organization owners can set a policy to restrict the access of {% data variables.product.pat_v1_plural %} to their organization{% ifversion ghec or ghes %}, and enterprise owners can restrict the access of {% data variables.product.pat_v1_plural %} to the enterprise or organizations owned by the enterprise{% endif %}. For more information, see "[AUTOTITLE](/organizations/managing-programmatic-access-to-your-organization/setting-a-personal-access-token-policy-for-your-organization#restricting-access-by-personal-access-tokens-classic)."
-
-{% endif %}
+Organization owners can set a policy to restrict the access of {% data variables.product.pat_v1_plural %} to their organization{% ifversion ghec or ghes %}, and enterprise owners can restrict the access of {% data variables.product.pat_v1_plural %} to the enterprise or organizations owned by the enterprise{% endif %}. For more information, see "[AUTOTITLE](/organizations/managing-programmatic-access-to-your-organization/setting-a-personal-access-token-policy-for-your-organization#restricting-access-by-personal-access-tokens)."
 
 #### {% data variables.product.pat_v2_caps %}s
 
@@ -56,7 +46,6 @@ Organization owners can set a policy to restrict the access of {% data variables
 * Each token can only access resources owned by a single user or organization.
 * Each token can only access specific repositories.
 * Each token is granted specific permissions, which offer more control than the scopes granted to {% data variables.product.pat_v1_plural %}.
-* Each token must have an expiration date.
 * Organization owners can require approval for any {% data variables.product.pat_v2 %}s that can access resources in the organization.{% ifversion ghec or ghes %}
 * Enterprise owners can require approval for any {% data variables.product.pat_v2 %}s that can access resources in organizations owned by the enterprise.{% endif %}
 
@@ -66,12 +55,8 @@ Organization owners can set a policy to restrict the access of {% data variables
 
 If you choose to use a {% data variables.product.pat_v1 %}, keep in mind that it will grant access to all repositories within the organizations that you have access to, as well as all personal repositories in your personal account.
 
-{% endif %}
-
 {% ifversion fpt or ghec %}{% data reusables.user-settings.removes-personal-access-tokens %}
 {% endif %}
-
-{% ifversion pat-v2 %}
 
 ### Keeping your {% data variables.product.pat_generic %}s secure
 
@@ -88,11 +73,8 @@ For more information about best practices, see "[AUTOTITLE](/rest/overview/keepi
 
 ## Creating a {% data variables.product.pat_v2 %}
 
-{% note %}
-
-**Note**: {% data reusables.user-settings.pat-v2-beta %}
-
-{% endnote %}
+> [!NOTE]
+> {% data reusables.user-settings.pat-v2-beta %}
 
 {% ifversion fpt or ghec %}1. [Verify your email address](/account-and-profile/setting-up-and-managing-your-personal-account-on-github/managing-email-preferences/verifying-your-email-address), if it hasn't been verified yet.{% endif %}
 {% data reusables.user-settings.access_settings %}
@@ -100,9 +82,9 @@ For more information about best practices, see "[AUTOTITLE](/rest/overview/keepi
 1. In the left sidebar, under **{% octicon "key" aria-hidden="true" %} {% data variables.product.pat_generic_caps %}s**, click **Fine-grained tokens**.
 1. Click **Generate new token**.
 1. Under **Token name**, enter a name for the token.
-1. Under **Expiration**, select an expiration for the token.
+1. Under **Expiration**, select an expiration for the token. Infinite lifetimes are allowed but may be blocked by a maximum lifetime policy set by your organization or enterprise owner. For more information, See "[Enforcing a maximum lifetime policy for {% data variables.product.pat_generic_plural %}](/organizations/managing-programmatic-access-to-your-organization/setting-a-personal-access-token-policy-for-your-organization#enforcing-a-maximum-lifetime-policy-for-personal-access-tokens)".
 1. Optionally, under **Description**, add a note to describe the purpose of the token.
-1. Under **Resource owner**, select a resource owner. The token will only be able to access resources owned by the selected resource owner. Organizations that you are a member of will not appear unless the organization opted in to {% data variables.product.pat_v2 %}s. For more information, see "[AUTOTITLE](/organizations/managing-programmatic-access-to-your-organization/setting-a-personal-access-token-policy-for-your-organization)."{% ifversion ghec %} You may be required to perform SAML single sign-on (SSO) if the selected organization requires it and you do not already have an active SAML session.{% endif %}
+1. Under **Resource owner**, select a resource owner. The token will only be able to access resources owned by the selected resource owner. Organizations that you are a member of will not appear unless the organization opted in to {% data variables.product.pat_v2 %}s. For more information, see "[AUTOTITLE](/organizations/managing-programmatic-access-to-your-organization/setting-a-personal-access-token-policy-for-your-organization)."{% ifversion ghec %} You may be required to perform single sign-on (SSO) if the selected organization requires it and you do not already have an active session.{% endif %}
 1. Optionally, if the resource owner is an organization that requires approval for {% data variables.product.pat_v2 %}s, below the resource owner, in the box, enter a justification for the request.
 1. Under **Repository access**, select which repositories you want the token to access. You should choose the minimal repository access that meets your needs. Tokens always include read-only access to all public repositories on {% data variables.product.prodname_dotcom %}.
 1. If you selected **Only select repositories** in the previous step, under the **Selected repositories** dropdown, select the repositories that you want the token to access.
@@ -114,35 +96,19 @@ For more information about best practices, see "[AUTOTITLE](/rest/overview/keepi
 
 If you selected an organization as the resource owner and the organization requires approval for {% data variables.product.pat_v2 %}s, then your token will be marked as `pending` until it is reviewed by an organization administrator. Your token will only be able to read public resources until it is approved. If you are an owner of the organization, your request is automatically approved. For more information, see "[AUTOTITLE](/organizations/managing-programmatic-access-to-your-organization/reviewing-and-revoking-personal-access-tokens-in-your-organization)."
 
-{% endif %}
-
 ## Creating a {% data variables.product.pat_v1 %}
 
-{% ifversion pat-v2 %}
+> [!NOTE]
+> Organization owners can restrict the access of {% data variables.product.pat_v1 %} to their organization. If you try to use a {% data variables.product.pat_v1 %} to access resources in an organization that has disabled {% data variables.product.pat_v1 %} access, your request will fail with a 403 response. Instead, you must use a {% data variables.product.prodname_github_app %}, {% data variables.product.prodname_oauth_app %}, or {% data variables.product.pat_v2 %}.
 
-{% note %}
-
-**Note**: Organization owners can restrict the access of {% data variables.product.pat_v1 %} to their organization. If you try to use a {% data variables.product.pat_v1 %} to access resources in an organization that has disabled {% data variables.product.pat_v1 %} access, your request will fail with a 403 response. Instead, you must use a {% data variables.product.prodname_github_app %}, {% data variables.product.prodname_oauth_app %}, or {% data variables.product.pat_v2 %}.
-
-{% endnote %}
-
-{% endif %}
-
-{% ifversion pat-v2 %}
-
-{% warning %}
-
-**Note**: Your {% data variables.product.pat_v1 %} can access every repository that you can access. {% data variables.product.company_short %} recommends that you use {% data variables.product.pat_v2 %}s instead, which you can restrict to specific repositories. {% data variables.product.pat_v2_caps %}s also enable you to specify fine-grained permissions instead of broad scopes.
-
-{% endwarning %}
-
-{% endif %}
+> [!WARNING]
+> Your {% data variables.product.pat_v1 %} can access every repository that you can access. {% data variables.product.company_short %} recommends that you use {% data variables.product.pat_v2 %}s instead, which you can restrict to specific repositories. {% data variables.product.pat_v2_caps %}s also enable you to specify fine-grained permissions instead of broad scopes.
 
 {% ifversion fpt or ghec %}1. [Verify your email address](/account-and-profile/setting-up-and-managing-your-personal-account-on-github/managing-email-preferences/verifying-your-email-address), if it hasn't been verified yet.{% endif %}
 {% data reusables.user-settings.access_settings %}
 {% data reusables.user-settings.developer_settings %}
-{% ifversion pat-v2 %}1. In the left sidebar, under **{% octicon "key" aria-hidden="true" %} {% data variables.product.pat_generic_caps %}s**, click **Tokens (classic)**.{% else %}{% data reusables.user-settings.personal_access_tokens %}{% endif %}
-{% ifversion pat-v2%}1. Select **Generate new token**, then click **Generate new token (classic)**.{% else %}{% data reusables.user-settings.generate_new_token %}{% endif %}
+1. In the left sidebar, under **{% octicon "key" aria-hidden="true" %} {% data variables.product.pat_generic_caps %}s**, click **Tokens (classic)**.
+1. Select **Generate new token**, then click **Generate new token (classic)**.
 1. In the "Note" field, give your token a descriptive name.
 1. To give your token an expiration, select **Expiration**, then choose a default option or click **Custom** to enter a date.
 1. Select the scopes you'd like to grant this token. To use your token to access repositories from the command line, select **repo**. A token with no assigned scopes can only access public information. For more information, see "[AUTOTITLE](/apps/oauth-apps/building-oauth-apps/scopes-for-oauth-apps#available-scopes)."
@@ -158,7 +124,7 @@ You should delete a {% data variables.product.pat_generic %} if it is no longer 
 
 {% data reusables.user-settings.access_settings %}
 {% data reusables.user-settings.developer_settings %}
-{% ifversion pat-v2 %}1. In the left sidebar, under **{% octicon "key" aria-hidden="true" %} {% data variables.product.pat_generic_caps %}s**, click either **Fine-grained tokens** or **Tokens (classic)**, depending on which type of {% data variables.product.pat_generic %} you'd like to delete.{% else %}{% data reusables.user-settings.personal_access_tokens %}{% endif %}
+1. In the left sidebar, under **{% octicon "key" aria-hidden="true" %} {% data variables.product.pat_generic_caps %}s**, click either **Fine-grained tokens** or **Tokens (classic)**, depending on which type of {% data variables.product.pat_generic %} you'd like to delete.
 1. To the right of the {% data variables.product.pat_generic %} you want to delete, click **Delete**.
 
 ## Using a {% data variables.product.pat_generic %} on the command line

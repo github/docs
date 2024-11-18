@@ -23,7 +23,7 @@ To help users find your template and get started quickly, you can share a link t
 
 When someone creates a codespace from your template, the contents of your template repository will be cloned into their codespace. When the user is ready, they will be able to publish their work to a new repository on {% data variables.product.product_name %} belonging to their personal account. For more information, see "[AUTOTITLE](/codespaces/developing-in-a-codespace/creating-a-codespace-from-a-template)."
 
-Organizations can pay for members of the organization and outside collaborators to use {% data variables.product.prodname_github_codespaces %} at the organization's expense. This includes codespaces created from template repositories owned by the organization. However, if a user publishes a codespace created from a template to their personal account, ownership and billing of the codespace transfers to the user who created the codespace. For more information, see "[AUTOTITLE](/billing/managing-billing-for-github-codespaces/about-billing-for-github-codespaces#how-billing-is-handled-for-github-codespaces-templates)."
+Organizations can pay for members of the organization and outside collaborators to use {% data variables.product.prodname_github_codespaces %} at the organization's expense. This includes codespaces created from template repositories owned by the organization. However, if a user publishes a codespace created from a template to their personal account, ownership and billing of the codespace transfers to the user who created the codespace. For more information, see "[AUTOTITLE](/billing/managing-billing-for-your-products/managing-billing-for-github-codespaces/about-billing-for-github-codespaces#how-billing-is-handled-for-github-codespaces-templates)."
 
 ## Describe your template
 
@@ -49,11 +49,8 @@ For guidance on the kinds of files to include, you can look at the starter files
 
 You can add dev container configuration files to your template repository to customize the development environment for people using your template with {% data variables.product.prodname_github_codespaces %}. You can choose from a list of predefined configuration settings in {% data variables.product.prodname_vscode %}, or you can create a custom configuration by writing your own `devcontainer.json` file. If you don't add configuration files, the default container image will be used. For more information, see "[AUTOTITLE](/codespaces/setting-up-your-project-for-codespaces/adding-a-dev-container-configuration/introduction-to-dev-containers)" and "[AUTOTITLE](/codespaces/setting-up-your-project-for-codespaces/adding-a-dev-container-configuration)."
 
-{% note %}
-
-**Note:** {% data reusables.codespaces.configuration-choice-templates %}
-
-{% endnote %}
+> [!NOTE]
+> {% data reusables.codespaces.configuration-choice-templates %}
 
 You should configure your dev container with the tools and customization to give users the best experience with your template. For example, in your `devcontainer.json` file:
 * You can use the `openFiles` property to define a list of files to be opened automatically in the {% data variables.product.prodname_vscode_shortname %} web client when a codespace is created from your template.

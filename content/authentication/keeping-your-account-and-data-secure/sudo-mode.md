@@ -27,20 +27,14 @@ After you authenticate to perform a sensitive action, your session is temporaril
 
 {% ifversion ghes %}
 
-{% note %}
-
-**Note**: If {% data variables.location.product_location %} uses an external authentication method like CAS or SAML SSO, you will not receive prompts to enter sudo mode. For more information, contact your site administrator.
-
-{% endnote %}
+> [!NOTE]
+> If {% data variables.location.product_location_enterprise %} uses an external authentication method like CAS or SAML SSO, you will not receive prompts to enter sudo mode. For more information, contact your site administrator.
 
 {% endif %}
 {% ifversion ghec %}
 
-{% note %}
-
-**Note**: If your enterprise uses {% data variables.product.prodname_emus %}, only the setup user will receive prompts to enter sudo mode, as {% data variables.enterprise.prodname_managed_users %} don't have credentials stored on {% data variables.product.product_name %}.
-
-{% endnote %}
+> [!NOTE]
+> If your enterprise uses {% data variables.product.prodname_emus %}, only the setup user will receive prompts to enter sudo mode, as {% data variables.enterprise.prodname_managed_users %} don't have credentials stored on {% data variables.product.product_name %}.
 
 {% endif %}
 
@@ -83,7 +77,7 @@ When prompted to authenticate for sudo mode, click **Use security key**, then fo
 
 You must install and sign into {% data variables.product.prodname_mobile %} to confirm access to your account for sudo mode using the app. For more information, see "[AUTOTITLE](/get-started/using-github/github-mobile)."
 
-1. When prompted to authenticate for sudo mode, click **Use GitHub Mobile**.
+1. When prompted to authenticate for sudo mode, click **Use {% data variables.product.prodname_mobile %}**.
 1. Open {% data variables.product.prodname_mobile %}. {% data variables.product.prodname_dotcom %} will display numbers that you must enter in {% data variables.product.prodname_mobile %} to approve the request.
 1. In {% data variables.product.prodname_mobile %}, type the numbers displayed.
 

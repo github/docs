@@ -73,11 +73,10 @@ The email address in the `From:` field is the address that was set in the [local
 If the email address used for the commit is not connected to your account on {% data variables.product.prodname_dotcom %}, you must [add the email address](/account-and-profile/setting-up-and-managing-your-personal-account-on-github/managing-email-preferences/adding-an-email-address-to-your-github-account) to your account on {% data variables.product.prodname_dotcom %}. Your contributions graph will be rebuilt automatically when you add the new address.
 
 {% ifversion fpt or ghec %}
-{% note %}
 
-**Note**: If you use a {% data variables.enterprise.prodname_managed_user %}, you cannot add additional email addresses to the account, even if multiple email addresses are registered with your identity provider (IdP). Therefore, only commits that are authored by the primary email address registered with your IdP can be associated with your {% data variables.enterprise.prodname_managed_user %}.
+> [!NOTE]
+> If you use a {% data variables.enterprise.prodname_managed_user %}, you cannot add additional email addresses to the account, even if multiple email addresses are registered with your identity provider (IdP). Therefore, only commits that are authored by the primary email address registered with your IdP can be associated with your {% data variables.enterprise.prodname_managed_user %}.
 
-{% endnote %}
 {% endif %}
 
 Generic email addresses, such as `jane@computer.local`, cannot be added to {% data variables.product.prodname_dotcom %} accounts and linked to commits. If you've authored any commits using a generic email address, the commits will not be linked to your {% data variables.product.prodname_dotcom %} profile and will not show up in your contribution graph.
@@ -90,11 +89,8 @@ If your commits are in a non-default or non-`gh-pages` branch and you'd like the
 * [Open a pull request](/pull-requests/collaborating-with-pull-requests/proposing-changes-to-your-work-with-pull-requests/creating-a-pull-request) to have your changes merged into the default branch or the `gh-pages` branch.
 * [Change the default branch](/repositories/configuring-branches-and-merges-in-your-repository/managing-branches-in-your-repository/changing-the-default-branch) of the repository.
 
-{% warning %}
-
-**Warning**: Changing the default branch of the repository will change it for all repository collaborators. Only do this if you want the new branch to become the base against which all future pull requests and commits will be made.
-
-{% endwarning %}
+> [!WARNING]
+> Changing the default branch of the repository will change it for all repository collaborators. Only do this if you want the new branch to become the base against which all future pull requests and commits will be made.
 
 ### Commit was made in a fork
 

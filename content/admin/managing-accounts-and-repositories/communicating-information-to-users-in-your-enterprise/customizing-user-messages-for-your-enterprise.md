@@ -7,7 +7,7 @@ redirect_from:
   - /admin/user-management/customizing-user-messages-on-your-instance
   - /admin/user-management/customizing-user-messages-for-your-enterprise
   - /admin/user-management/managing-users-in-your-enterprise/customizing-user-messages-for-your-enterprise
-intro: 'You can create custom messages that users will see on {% data variables.location.product_location %}.'
+intro: 'You can create custom messages that users will see on {% data variables.product.github %}.'
 versions:
   ghec: '*'
   ghes: '*'
@@ -32,11 +32,9 @@ There are several types of user messages.
 {% endif %}
 
 {% ifversion ghes %}
-{% note %}
 
-**Note:** If you are using SAML for authentication, the sign in page is presented by your identity provider and is not customizable via {% data variables.product.prodname_ghe_server %}.
-
-{% endnote %}
+> [!NOTE]
+> If you are using SAML for authentication, the sign in page is presented by your identity provider and is not customizable via {% data variables.product.prodname_ghe_server %}.
 
 {% data reusables.enterprise.user-messages-markdown %}
 
@@ -87,11 +85,10 @@ If you include Markdown checkboxes in the message, all checkboxes must be select
 Each time a user sees a mandatory message, an audit log event is created. The event includes the version of the message that the user saw. For more information see "[AUTOTITLE](/admin/monitoring-activity-in-your-enterprise/reviewing-audit-logs-for-your-enterprise/audit-log-events-for-your-enterprise)."
 
 {% ifversion display-mandatory-message-again %} {% else %}
-{% note %}
 
-**Note:** If you change the mandatory message for {% data variables.location.product_location %}, users who have already acknowledged the message will not see the new message.
+> [!NOTE]
+> If you change the mandatory message for {% data variables.location.product_location %}, users who have already acknowledged the message will not see the new message.
 
-{% endnote %}
 {% endif %}
 
 {% data reusables.enterprise-accounts.access-enterprise %}
@@ -124,11 +121,11 @@ You can also set an announcement banner{% ifversion ghes %} in the administrativ
 1. Under "Announcement", in the text field, type the announcement you want displayed in a banner.
 1. Optionally, under "Expires on", select the calendar drop-down menu and click an expiration date.
    {% ifversion ghe-announce-dismiss %}
-   {% note %}
 
-   **Note:** Announcements must either have an expiration date, be user dismissible, or both.
+   > [!NOTE]
+   > Announcements must either have an expiration date, be user dismissible, or both.
 
-   {% endnote %}{% endif %}
+   {% endif %}
 {%- ifversion ghe-announce-dismiss %}
 1. Optionally, to allow each user to dismiss the announcement, select **User dismissible**.
 {%- endif %}{% ifversion custom-banner-messages %}

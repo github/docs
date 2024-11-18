@@ -270,8 +270,6 @@ jobs:
 
 Travis CI and {% data variables.product.prodname_actions %} let you manually cache dependencies for later reuse.
 
-{% ifversion actions-caching %}
-
 These examples demonstrate the cache syntax for each system.
 
 ### Travis CI syntax for caching
@@ -295,12 +293,6 @@ cache: npm
     key: {% raw %}v1-npm-deps-${{ hashFiles('**/package-lock.json') }}{% endraw %}
     restore-keys: v1-npm-deps-
 ```
-
-{% else %}
-
-{% data reusables.actions.caching-availability %}
-
-{% endif %}
 
 ## Examples of common tasks
 

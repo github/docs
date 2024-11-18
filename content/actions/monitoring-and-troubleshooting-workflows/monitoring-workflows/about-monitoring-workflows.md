@@ -1,6 +1,6 @@
 ---
 title: About monitoring workflows
-intro: 'You can use the tools in {% data variables.product.prodname_actions %} to monitor your workflows.'
+intro: 'You can use the tools in {% data variables.product.prodname_actions %} to monitor your workflows, metrics, and self-hosted runners.'
 versions:
   fpt: '*'
   ghes: '*'
@@ -44,6 +44,13 @@ To identify how long a job took to run, you can view its execution time. For mor
 ### Viewing workflow run history
 
 You can view the status of each job and step in a workflow. For more information, see "[AUTOTITLE](/actions/monitoring-and-troubleshooting-workflows/viewing-workflow-run-history)."
+
+{% ifversion actions-metrics %}
+
+## Monitoring {% data variables.product.prodname_actions %} metrics
+
+To analyze the efficiency and reliability of your workflows using metrics, see "[AUTOTITLE](/actions/administering-github-actions/viewing-github-actions-metrics)".
+{% endif %}
 
 ## Monitoring self-hosted runners
 

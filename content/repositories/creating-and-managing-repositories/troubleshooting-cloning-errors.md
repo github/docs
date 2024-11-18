@@ -49,7 +49,7 @@ There's no minimum Git version necessary to interact with {% data variables.prod
 
 ### Ensure the remote is correct
 
-The repository you're trying to fetch must exist on {% data variables.location.product_location %}, and the URL is case-sensitive.
+The repository you're trying to fetch must exist on {% data variables.location.product_location %}.
 
 You can find the URL of the local repository by opening the command line and
 typing `git remote -v`:
@@ -57,8 +57,8 @@ typing `git remote -v`:
 ```shell
 $ git remote -v
 # View existing remotes
-> origin  https://github.com/ghost/reactivecocoa.git (fetch)
-> origin  https://github.com/ghost/reactivecocoa.git (push)
+> origin  https://github.com/ghost/cocoareactive.git (fetch)
+> origin  https://github.com/ghost/cocoareactive.git (push)
 
 $ git remote set-url origin https://github.com/ghost/ReactiveCocoa.git
 # Change the 'origin' remote's URL
@@ -82,11 +82,8 @@ To access {% data variables.product.prodname_dotcom %}, you must authenticate wi
 
 When prompted for a username and password, make sure you use an account that has access to the repository.
 
-{% tip %}
-
-**Tip**: If you don't want to enter your credentials every time you interact with the remote repository, you can turn on [credential caching](/get-started/getting-started-with-git/caching-your-github-credentials-in-git). If you are already using credential caching, please make sure that your computer has the correct credentials cached. Incorrect or out of date credentials will cause authentication to fail.
-
-{% endtip %}
+> [!TIP]
+> If you don't want to enter your credentials every time you interact with the remote repository, you can turn on [credential caching](/get-started/getting-started-with-git/caching-your-github-credentials-in-git). If you are already using credential caching, please make sure that your computer has the correct credentials cached. Incorrect or out of date credentials will cause authentication to fail.
 
 ### Use SSH instead
 

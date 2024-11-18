@@ -24,6 +24,7 @@ GitHub only supports the latest Autoscaling Runner Sets version of ARC. Support 
 If your support request is outside of the scope of what our team can help you with, we may recommend next steps to resolve your issue outside of {% data variables.contact.github_support %}. Your support request is possibly out of {% data variables.contact.github_support %}'s scope if the request is primarily about:
 
 * The legacy community-maintained version of ARC
+* Installing, configuring, or maintaining dependencies
 * Template spec customization
 * Container orchestration, such as Kubernetes setup, networking, building images in ARC (DinD), etc.
 * Applying Kubernetes policies
@@ -42,14 +43,9 @@ If you're uncertain if the issue is out of scope, open a ticket and we're happy 
 
 For more information about contacting {% data variables.contact.github_support %}, see [AUTOTITLE](/support/contacting-github-support).
 
-{% note %}
-
-**Note:**
-
-* OpenShift clusters are currently unsupported.
-* ARC is only supported on GitHub Enterprise Server versions 3.9 and greater.
-
-{% endnote %}
+> [!NOTE]
+> * OpenShift clusters are currently unsupported.
+> * ARC is only supported on GitHub Enterprise Server versions 3.9 and greater.
 
 ## Working with {% data variables.contact.github_support %} for Actions Runner Controller
 

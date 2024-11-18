@@ -40,6 +40,10 @@ jobs:
 
             ${process.env.URL}
 
+            ### Reason for SME review
+
+            @${context.payload.sender.login} (Optional) _Insert short answer regarding why SME assistance is required to review this contribution_
+
             ### Location SME review was requested
 
             _Insert link to the location SME review was initially requested_
