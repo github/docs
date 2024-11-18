@@ -216,6 +216,10 @@ sections:
       In the header bar displayed to site administrators, some icons are not available.
     - |
       When restoring from a backup snapshot, a large number of `mapper_parsing_exception` errors may be displayed.
+    - |
+      {% data reusables.release-notes.2024-11-ghe-repl-promote-primary-down %}
+
+      [Updated: 2024-11-13]
 
   deprecations:
     - |

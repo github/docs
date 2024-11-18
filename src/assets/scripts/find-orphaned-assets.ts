@@ -32,7 +32,7 @@ const EXCEPTIONS = new Set([
   'assets/images/site/apple-touch-icon-76x76.png',
 ])
 
-function isExceptionPath(imagePath) {
+function isExceptionPath(imagePath: string) {
   // We also check for .DS_Store because any macOS user that has opened
   // a folder with images will have this on disk. It won't get added
   // to git anyway thanks to our .DS_Store.
@@ -53,9 +53,15 @@ program
   .option('--exclude-translations', "Don't search in translations/")
   .parse(process.argv)
 
-main(program.opts(), program.args)
+type MainOptions = {
+  json: boolean
+  verbose: boolean
+  exit: boolean
+  excludeTranslations: boolean
+}
+main(program.opts())
 
-async function main(opts) {
+async function main(opts: MainOptions) {
   const { json, verbose, exit, excludeTranslations } = opts
 
   const walkOptions = {
@@ -164,7 +170,7 @@ async function main(opts) {
   }
 }
 
-function getTotalDiskSize(filePaths) {
+function getTotalDiskSize(filePaths: Set<string>) {
   let sum = 0
   for (const filePath of filePaths) {
     sum += fs.statSync(filePath).size

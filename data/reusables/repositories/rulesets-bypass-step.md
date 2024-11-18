@@ -3,7 +3,9 @@ You can grant certain roles, teams, or apps bypass permissions {% ifversion push
 * Repository admins, organization owners, and enterprise owners
 * The maintain or write role, or custom repository roles based on the write role
 * Teams
+{%- ifversion ghes > 3.13 %}
 * Deploy keys
+{%- endif %}
 * {% data variables.product.prodname_github_apps %}{% ifversion repo-rules-dependabot-bypass %}
 * {% data variables.product.prodname_dependabot %}. For more information about {% data variables.product.prodname_dependabot %}, see "[AUTOTITLE](/code-security/getting-started/dependabot-quickstart-guide)."{% endif %}
 

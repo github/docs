@@ -8,6 +8,7 @@ topics:
   - Copilot
 children:
   - /about-building-copilot-extensions
+  - /quickstart-for-github-copilot-extensions
   - /setting-up-copilot-extensions
   - /building-a-copilot-agent-for-your-copilot-extension
   - /creating-a-copilot-extension

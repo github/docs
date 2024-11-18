@@ -103,6 +103,7 @@ After the initial configuration of SAML SSO, the only setting you can update on 
    > [!NOTE]
    > {% data reusables.enterprise-accounts.emu-password-reset-session %}
 
+1. If you're using a **non-partner IdP** (an IdP other than Okta, PingFederate or Entra ID), before enabling SAML, you must update a setting so that you will be able to set up SCIM using the REST API. See "[AUTOTITLE](/admin/managing-iam/provisioning-user-accounts-with-scim/configuring-scim-provisioning-for-users#configuring-provisioning-for-other-identity-management-systems)."
 {% data reusables.enterprise-accounts.access-enterprise-emu %}
 {% data reusables.enterprise-accounts.identity-provider-tab %}
 {% data reusables.enterprise-accounts.sso-configuration %}

@@ -1,9 +1,11 @@
+import coreLib from '@actions/core'
+
 const timeInstances = new Map()
 
 /* Meant to be called before debugTimeEnd with the same instanceName to behave like console.time() */
-export function debugTimeStart(core, instanceName) {
+export function debugTimeStart(core: typeof coreLib, instanceName: string) {
   if (timeInstances.has(instanceName)) {
-    core.warn(`instanceName: ${instanceName} has already been used for a debug instance.`)
+    core.warning(`instanceName: ${instanceName} has already been used for a debug instance.`)
     return
   }
 
@@ -11,9 +13,9 @@ export function debugTimeStart(core, instanceName) {
 }
 
 /* Meant to be called after debugTimeStart with the same instanceName to behave like console.timeEnd() */
-export function debugTimeEnd(core, instanceName) {
+export function debugTimeEnd(core: typeof coreLib, instanceName: string) {
   if (!timeInstances.has(instanceName)) {
-    core.warn(
+    core.warning(
       `Invalid instanceName: ${instanceName} in debugTimeEnd. Did you call debugTimeStart first with the same instanceName?`,
     )
     return
