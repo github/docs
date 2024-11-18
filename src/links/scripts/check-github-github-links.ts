@@ -17,7 +17,7 @@ import fs from 'fs/promises'
 import got, { RequestError } from 'got'
 import { program } from 'commander'
 
-import { getContents, getPathsWithMatchingStrings } from '#src/workflows/git-utils.js'
+import { getContents, getPathsWithMatchingStrings } from 'src/workflows/git-utils.js'
 
 if (!process.env.GITHUB_TOKEN) {
   throw new Error('Error! You must have a GITHUB_TOKEN set in an .env file to run this script.')
@@ -60,7 +60,11 @@ const timeoutConfiguration = {
   request: 3000,
 }
 
-async function main(opts, args) {
+type MainOptions = {
+  check: boolean
+  outputFile: string | null
+}
+async function main(opts: MainOptions, args: string[]) {
   const { check } = opts
   let outputFile = null
   if (args && args.length > 0 && args[0] !== '-') {
@@ -71,7 +75,7 @@ async function main(opts, args) {
   const foundFiles = []
   try {
     foundFiles.push(...JSON.parse(await fs.readFile('/tmp/foundFiles.json', 'utf-8')))
-  } catch (error) {
+  } catch (error: any) {
     if (!(error.code && error.code === 'ENOENT')) {
       throw error
     }
@@ -101,7 +105,7 @@ async function main(opts, args) {
 
   try {
     docsLinksFiles.push(...JSON.parse(await fs.readFile('/tmp/docsLinksFiles.json', 'utf-8')))
-  } catch (error) {
+  } catch (error: any) {
     if (!(error.code && error.code === 'ENOENT')) {
       throw error
     }
@@ -123,6 +127,7 @@ async function main(opts, args) {
           docsIndices.forEach((numIndex) => {
             // Assuming we don't have links close to 500 characters long
             const docsLink = contents.substring(numIndex, numIndex + 500).match(urlRegEx)
+            if (!docsLink) return
             const linkURL = new URL(docsLink[0].toString().replace(/[^a-zA-Z0-9]*$|\\n$/g, ''))
             const linkPath = linkURL.pathname + linkURL.hash
             docsLinksFiles.push({ linkPath, file })
@@ -177,7 +182,7 @@ async function main(opts, args) {
       'utf-8',
     )
   }
-  const brokenLinks = []
+  const brokenLinks: {}[] = []
 
   // Break up the long list of URLs to test into batches
   for (const batch of [...Array(Math.floor(docsLinksFiles.length / BATCH_SIZE)).keys()]) {
@@ -224,7 +229,7 @@ async function main(opts, args) {
   }
 }
 
-function endsWithAny(suffixes, string) {
+function endsWithAny(suffixes: string[], string: string) {
   for (const suffix of suffixes) {
     if (string.endsWith(suffix)) return true
   }
@@ -232,7 +237,7 @@ function endsWithAny(suffixes, string) {
   return false
 }
 
-function getIndicesOf(searchString, string) {
+function getIndicesOf(searchString: string, string: string) {
   const searchStrLen = searchString.length
   if (searchStrLen === 0) return []
 
@@ -248,7 +253,7 @@ function getIndicesOf(searchString, string) {
   return indices
 }
 
-function regexIndexOf(string, regex, startPos) {
+function regexIndexOf(string: string, regex: RegExp, startPos: number) {
   const indexOf = string.substring(startPos || 0).search(regex)
 
   return indexOf >= 0 ? indexOf + (startPos || 0) : indexOf

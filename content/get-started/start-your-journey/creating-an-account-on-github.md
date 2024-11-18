@@ -36,6 +36,8 @@ Note that the steps in this article don't apply to {% data variables.product.pro
 
 During sign up, you'll be asked to verify your email address. Without a verified email address, you won't be able to complete some basic {% data variables.product.prodname_dotcom %} tasks, such as creating a repository.
 
+Some enterprises create {% data variables.enterprise.prodname_managed_users %} for their users. You can't sign up for a personal account with an email address that's already verified for a {% data variables.enterprise.prodname_managed_user %}.
+
 If you're having problems verifying your email address, there are some troubleshooting steps you can take. For more information, see "[AUTOTITLE](/account-and-profile/setting-up-and-managing-your-personal-account-on-github/managing-email-preferences/verifying-your-email-address#troubleshooting-email-verification)."
 
 ## Next steps

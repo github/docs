@@ -60,7 +60,7 @@ Once the policy controller has been deployed, you need to add the GitHub `TrustR
 helm upgrade trust-policies --install --atomic \
  --namespace artifact-attestations \
  oci://ghcr.io/github/artifact-attestations-helm-charts/trust-policies \
- --version v0.6.1 \
+ --version v0.6.2 \
  --set policy.enabled=true \
  --set policy.organization=MY-ORGANIZATION
 ```
@@ -98,7 +98,7 @@ For example, to enforce attestations for images that match the pattern `ghcr.io/
 helm upgrade trust-policies --install --atomic \
  --namespace artifact-attestations \
  oci://ghcr.io/github/artifact-attestations-helm-charts/trust-policies \
- --version v0.6.1 \
+ --version v0.6.2 \
  --set policy.enabled=true \
  --set policy.organization=MY-ORGANIZATION \
  --set-json 'policy.exemptImages=["index.docker.io/library/busybox**"]' \
@@ -137,7 +137,7 @@ helm show values oci://ghcr.io/github/artifact-attestations-helm-charts/policy-c
 For trust policy options:
 
 ```bash copy
-helm show values oci://ghcr.io/github/artifact-attestations-helm-charts/trust-policies --version v0.6.1
+helm show values oci://ghcr.io/github/artifact-attestations-helm-charts/trust-policies --version v0.6.2
 ```
 
 For more information on the Sigstore Policy Controller, see the [Sigstore Policy Controller documentation](https://docs.sigstore.dev/policy-controller/overview/).

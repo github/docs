@@ -1,24 +1,26 @@
 import fs from 'fs'
 import path from 'path'
 
-import { visit } from 'unist-util-visit'
+// eslint-disable-next-line import/named
+import { visit, Test } from 'unist-util-visit'
 import { fromMarkdown } from 'mdast-util-from-markdown'
 import { toMarkdown } from 'mdast-util-to-markdown'
+import { Node, Nodes, Definition, Link } from 'mdast'
 import yaml from 'js-yaml'
 
-import frontmatter from '#src/frame/lib/read-frontmatter.js'
+import frontmatter from 'src/frame/lib/read-frontmatter.js'
 import {
   getPathWithLanguage,
   getPathWithoutLanguage,
   getPathWithoutVersion,
   getVersionStringFromPath,
-} from '#src/frame/lib/path-utils.js'
-import loadRedirects from '#src/redirects/lib/precompile.js'
-import patterns from '#src/frame/lib/patterns.js'
-import { loadUnversionedTree, loadPages, loadPageMap } from '#src/frame/lib/page-data.js'
-import getRedirect, { splitPathByLanguage } from '#src/redirects/lib/get-redirect.js'
-import nonEnterpriseDefaultVersion from '#src/versions/lib/non-enterprise-default-version.js'
-import { deprecated } from '#src/versions/lib/enterprise-server-releases.js'
+} from 'src/frame/lib/path-utils.js'
+import loadRedirects from 'src/redirects/lib/precompile.js'
+import patterns from 'src/frame/lib/patterns.js'
+import { loadUnversionedTree, loadPages, loadPageMap } from 'src/frame/lib/page-data.js'
+import getRedirect, { splitPathByLanguage } from 'src/redirects/lib/get-redirect.js'
+import nonEnterpriseDefaultVersion from 'src/versions/lib/non-enterprise-default-version.js'
+import { deprecated } from 'src/versions/lib/enterprise-server-releases.js'
 
 // That magical string that can be turned into the actual title when
 // we, at runtime, render out the links
@@ -31,7 +33,7 @@ const Options = {
   strict: false,
 }
 
-export async function updateInternalLinks(files, options = {}) {
+export async function updateInternalLinks(files: string[], options = {}) {
   const opts = Object.assign({}, Options, options)
 
   const results = []
@@ -63,9 +65,20 @@ export async function updateInternalLinks(files, options = {}) {
   return results
 }
 
-async function updateFile(file, context, opts) {
+async function updateFile(
+  file: string,
+  context: {
+    pages: Record<string, any>
+    redirects: any
+    currentLanguage: string
+    userLanguage: string
+  },
+  opts: typeof Options,
+) {
   const rawContent = fs.readFileSync(file, 'utf8')
-  const { data, content } = frontmatter(rawContent)
+  let { data, content } = frontmatter(rawContent)
+  data = data || {}
+  content = content || ''
 
   // Since this function can process both `.md` and `.yml` files,
   // when treating a `.md` file, the `data` from `frontmatter(rawContent)`
@@ -80,8 +93,8 @@ async function updateFile(file, context, opts) {
   let newContent = content
   const ast = fromMarkdown(newContent)
 
-  const replacements = []
-  const warnings = []
+  const replacements: any[] = []
+  const warnings: any[] = []
 
   const newData = structuredClone(data)
 
@@ -90,7 +103,7 @@ async function updateFile(file, context, opts) {
 
   // This configuration determines which nested things to bother looking
   // into.
-  const HAS_LINKS = {
+  const HAS_LINKS: Record<string, any> = {
     featuredLinks: ['gettingStarted', 'startHere', 'guideCards', 'popular'],
     introLinks: ANY,
     includeGuides: IS_ARRAY,
@@ -154,39 +167,37 @@ async function updateFile(file, context, opts) {
 
   const lineOffset = rawContent.replace(content, '').split(/\n/g).length - 1
 
-  visit(ast, definitionMatcher, (node) => {
+  visit(ast, definitionMatcher as Test, (node: Nodes) => {
     const asMarkdown = toMarkdown(node).trim()
     // E.g. `[foo]: /bar`
-    if (content.includes(asMarkdown)) {
-      if (opts.fixHref) {
-        let newHref = node.url
-        const { label } = node
-        const betterHref = getNewHref(newHref, context, opts, file)
-        // getNewHref() might return a deliberate `undefined` if the
-        // new href value could not be computed for some reason.
-        if (betterHref !== undefined) {
-          newHref = betterHref
-        }
-        const newAsMarkdown = `[${label}]: ${newHref}`
-        if (asMarkdown !== newAsMarkdown) {
-          // Something can be improved!
-          const column = node.position.start.column
-          const line = node.position.start.line + lineOffset
-          replacements.push({
-            asMarkdown,
-            newAsMarkdown,
-            line,
-            column,
-          })
-          newContent = newContent.replace(asMarkdown, newAsMarkdown)
-        }
+    if (opts.fixHref && content.includes(asMarkdown) && isDefinition(node)) {
+      let newHref = node.url
+      const { label } = node
+      const betterHref = getNewHref(newHref, context, opts, file)
+      // getNewHref() might return a deliberate `undefined` if the
+      // new href value could not be computed for some reason.
+      if (betterHref !== undefined) {
+        newHref = betterHref
+      }
+      const newAsMarkdown = `[${label}]: ${newHref}`
+      if (asMarkdown !== newAsMarkdown) {
+        // Something can be improved!
+        const column = node.position?.start.column
+        const line = node.position?.start.line || 0 + lineOffset
+        replacements.push({
+          asMarkdown,
+          newAsMarkdown,
+          line,
+          column,
+        })
+        newContent = newContent.replace(asMarkdown, newAsMarkdown)
       }
     }
   })
 
-  visit(ast, linkMatcher, (node) => {
+  visit(ast, linkMatcher as Test, (node: Nodes) => {
     const asMarkdown = toMarkdown(node).trim()
-    if (content.includes(asMarkdown)) {
+    if (content.includes(asMarkdown) && isLink(node)) {
       // The title part of the link might be more Markdown.
       // For example...
       //
@@ -198,12 +209,15 @@ async function updateFile(file, context, opts) {
       // Now the title of the above-mentioned example becomes 'This *is* cool'
       // which is unlikely to attempt to be the document's title, that
       // it links to.
-      const title = node.children.map((child) => toMarkdown(child).slice(0, -1)).join('')
+      const title = node.children.map((child: Nodes) => toMarkdown(child).slice(0, -1)).join('')
 
       let newTitle = title
       let newHref = node.url
 
       const hasQuotesAroundLink = content.includes(`"${asMarkdown}`)
+
+      // @ts-ignore
+      const xValue = node?.children?.[0]?.value
 
       if (opts.setAutotitle) {
         if (hasQuotesAroundLink) {
@@ -234,19 +248,19 @@ async function updateFile(file, context, opts) {
            *
            *   ["This is the title"](/foo/bar).
            */
-          if (node.children && node.children.length > 0 && node.children[0].value) {
-            if (singleStartingQuote(node.children[0].value)) {
-              const column = node.position.start.column
-              const line = node.position.start.line + lineOffset
+          if (xValue) {
+            if (singleStartingQuote(xValue)) {
+              const column = node.position?.start.column
+              const line = node.position?.start.line || 0 + lineOffset
               warnings.push({
                 warning: 'Starts with a single " inside the text',
                 asMarkdown,
                 line,
                 column,
               })
-            } else if (isSimpleQuote(node.children[0].value)) {
-              const column = node.position.start.column
-              const line = node.position.start.line + lineOffset
+            } else if (isSimpleQuote(xValue)) {
+              const column = node.position?.start.column
+              const line = node.position?.start.line || 0 + lineOffset
               warnings.push({
                 warning: 'Starts and ends with a " inside the text',
                 asMarkdown,
@@ -268,8 +282,8 @@ async function updateFile(file, context, opts) {
       const newAsMarkdown = `[${newTitle}](${newHref})`
       if (asMarkdown !== newAsMarkdown) {
         // Something can be improved!
-        const column = node.position.start.column
-        const line = node.position.start.line + lineOffset
+        const column = node.position?.start.column
+        const line = node.position?.start.line || 0 + lineOffset
         replacements.push({
           asMarkdown,
           newAsMarkdown,
@@ -296,16 +310,25 @@ async function updateFile(file, context, opts) {
   }
 }
 
-function definitionMatcher(node) {
-  const { type, url } = node
-  if (type === 'definition' && url) {
+function isDefinition(node: Node): node is Definition {
+  return node.type === 'definition'
+}
+
+function isLink(node: Node): node is Link {
+  return node.type === 'link'
+}
+
+function definitionMatcher(node: Node) {
+  if (!isDefinition(node)) return false
+  const { url } = node
+  if (url) {
     return url.startsWith('/')
   }
   return false
 }
 
-function linkMatcher(node) {
-  if (node.type === 'link' && node.url) {
+function linkMatcher(node: Node) {
+  if (isLink(node) && node.url) {
     const { url } = node
     if (url.startsWith('/') || url.startsWith('./')) {
       // Sometimes there's a link to view the asset as a separate link.
@@ -347,7 +370,23 @@ function linkMatcher(node) {
   return false
 }
 
-function getNewFrontmatterLinkList(list, context, opts, file, rawContent) {
+function getNewFrontmatterLinkList(
+  list: any[],
+  context: {
+    pages: Record<string, any>
+    redirects: any
+    currentLanguage: string
+    userLanguage: string
+  },
+  opts: {
+    setAutotitle: boolean
+    fixHref: boolean
+    verbose: boolean
+    strict: boolean
+  },
+  file: string,
+  rawContent: string,
+) {
   /**
    * The `list` is expected to all be strings. Sometimes they're like this:
    *
@@ -409,7 +448,7 @@ function getNewFrontmatterLinkList(list, context, opts, file, rawContent) {
 // Try to return the line in the raw content that entry was on.
 // It's hard to know exactly because the `entry` is the result of parsing
 // the YAML, most likely, from the front
-function findLineNumber(entry, rawContent) {
+function findLineNumber(entry: any, rawContent: string) {
   let number = 0
   for (const line of rawContent.split(/\n/g)) {
     number++
@@ -433,7 +472,7 @@ const liquidEndRex = /{%-?\s*endif\s*-?%}$/
 //   {% ifversion ghes%}/foo/bar{%endif %}
 //
 // And if no liquid, just return as is.
-function stripLiquid(text) {
+function stripLiquid(text: string) {
   if (liquidStartRex.test(text) && liquidEndRex.test(text)) {
     return text.replace(liquidStartRex, '').replace(liquidEndRex, '').trim()
   } else if (text.includes('{')) {
@@ -442,11 +481,26 @@ function stripLiquid(text) {
   return text
 }
 
-function equalArray(arr1, arr2) {
+function equalArray(arr1: any[], arr2: any[]) {
   return arr1.length === arr2.length && arr1.every((item, i) => item === arr2[i])
 }
 
-function getNewHref(href, context, opts, file) {
+function getNewHref(
+  href: string,
+  context: {
+    pages: Record<string, any>
+    redirects: any
+    currentLanguage: string
+    userLanguage: string
+  },
+  opts: {
+    setAutotitle: boolean
+    fixHref: boolean
+    verbose: boolean
+    strict: boolean
+  },
+  file: string,
+) {
   const { currentLanguage } = context
   const parsed = new URL(href, 'https://docs.github.com')
   const hash = parsed.hash
@@ -544,10 +598,10 @@ function getNewHref(href, context, opts, file) {
   return newHref
 }
 
-function singleStartingQuote(text) {
+function singleStartingQuote(text: string) {
   return text.startsWith('"') && text.split('"').length === 2
 }
 
-function isSimpleQuote(text) {
+function isSimpleQuote(text: string) {
   return text.startsWith('"') && text.endsWith('"') && text.split('"').length === 3
 }

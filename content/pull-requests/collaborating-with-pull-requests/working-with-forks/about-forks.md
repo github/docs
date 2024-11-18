@@ -39,7 +39,7 @@ For instructions for forking a repository, see "[AUTOTITLE](/pull-requests/colla
 
 ## Forking a repository versus duplicating a repository
 
-If you want to create a new repository from the contents of an existing repository but don't want to merge your changes to the upstream in the future, you can duplicate the repository or, if the repository is a template, you can use the repository as a template. For more information, see "[AUTOTITLE](/repositories/creating-and-managing-repositories/duplicating-a-repository)" and "[AUTOTITLE](/repositories/creating-and-managing-repositories/creating-a-repository-from-a-template)".
+If you want to create a new repository from the contents of an existing repository but don't want to merge your changes to the upstream in the future, you can duplicate the repository or, if the repository is a template, you can use the repository as a template. For more information, see "[AUTOTITLE](/repositories/creating-and-managing-repositories/duplicating-a-repository)" and "[AUTOTITLE](/repositories/creating-and-managing-repositories/creating-a-repository-from-a-template)."
 
 Forking a repository is similar to duplicating a repository, with the following differences.
 
