@@ -63,8 +63,8 @@ For more information, see "[AUTOTITLE](/code-security/supply-chain-security/unde
 {% data reusables.dependabot.quickstart-link %}
 
 {% ifversion fpt or ghec %}
-1. Click your profile photo, then click **Settings**.
-1. In the "Security" section of the sidebar, click **{% octicon "codescan" aria-hidden="true" %} Code security**.
+1. Click your profile photo, then click **{% octicon "gear" aria-hidden="true" %} Settings**.
+1. In the "Security" section of the sidebar, click **{% octicon "shield" aria-hidden="true" %} Code security**.
 1. Click **Enable all** next to {% data variables.product.prodname_dependabot_alerts %}.
 {% endif %}
 
