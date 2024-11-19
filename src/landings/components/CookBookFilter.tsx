@@ -71,7 +71,7 @@ export const CookBookFilter = ({
           />
         </form>
       </div>
-      <div className="d-flex">
+      <div className="d-flex flex-wrap flex-md-nowrap ">
         <ActionMenu>
           <ActionMenu.Button className="col-md-1 col-sm-2 m-1">
             <Box
