@@ -1,6 +1,7 @@
 ---
 title: Organizing information with collapsed sections
 intro: You can streamline your Markdown by creating a collapsed section with the `<details>` tag.
+product: '{% data reusables.gated-features.markdown-ui %}'
 versions:
   fpt: '*'
   ghes: '*'

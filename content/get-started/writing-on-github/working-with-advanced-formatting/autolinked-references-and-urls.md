@@ -1,6 +1,7 @@
 ---
 title: Autolinked references and URLs
 intro: 'References to URLs, issues, pull requests, and commits are automatically shortened and converted into links.'
+product: '{% data reusables.gated-features.markdown-ui %}'
 redirect_from:
   - /articles/autolinked-references-and-urls
   - /github/writing-on-github/autolinked-references-and-urls

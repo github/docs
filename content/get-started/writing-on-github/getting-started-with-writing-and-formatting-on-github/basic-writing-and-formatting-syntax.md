@@ -1,6 +1,7 @@
 ---
 title: Basic writing and formatting syntax
 intro: Create sophisticated formatting for your prose and code on GitHub with simple syntax.
+product: '{% data reusables.gated-features.markdown-ui %}'
 redirect_from:
   - /articles/basic-writing-and-formatting-syntax
   - /github/writing-on-github/basic-writing-and-formatting-syntax

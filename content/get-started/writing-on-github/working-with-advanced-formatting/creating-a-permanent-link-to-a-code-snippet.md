@@ -1,6 +1,7 @@
 ---
 title: Creating a permanent link to a code snippet
 intro: You can create a permanent link to a specific line or range of lines of code in a specific version of a file or pull request.
+product: '{% data reusables.gated-features.markdown-ui %}'
 redirect_from:
   - /github/managing-your-work-on-github/managing-your-work-with-issues-and-pull-requests/creating-a-permanent-link-to-a-code-snippet
   - /articles/creating-a-permanent-link-to-a-code-snippet
