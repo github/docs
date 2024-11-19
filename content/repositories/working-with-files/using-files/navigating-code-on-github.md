@@ -79,8 +79,8 @@ Symbol search is a feature of code search. For more information, see "[AUTOTITLE
    * To search for a symbol in the repository as a whole, in the symbols pane, click **Search for this symbol in this repository**. To search for a symbol in all repositories on {% data variables.product.prodname_dotcom %}, click **all repositories**.
 
 1. To navigate between references to a symbol, click {% octicon "chevron-down" aria-label="The downwards-facing chevron icon" %} or {% octicon "chevron-up" aria-label="The upwards-facing chevron icon" %}.
-1. To navigate to a specific reference to a symbol, click a result of the symbol search under {% octicon "chevron-down" aria-label="The downwards-facing chevron icon" %} **In this file**.
-1. To exit the search for a specific symbol, click {% octicon "arrow-left" aria-label="The left arrow icon" %} **All Symbols**.
+1. To navigate to a specific reference to a symbol, click a result of the symbol search under **{% octicon "chevron-down" aria-label="The downwards-facing chevron icon" %} In this file**.
+1. To exit the search for a specific symbol, click **{% octicon "arrow-left" aria-label="The left arrow icon" %} All Symbols**.
 {% endif %}
 
 ## Jumping to the definition of a function or method

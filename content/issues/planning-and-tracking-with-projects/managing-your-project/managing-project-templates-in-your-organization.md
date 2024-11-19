@@ -71,7 +71,7 @@ You can filter the list of projects in your organization to only show projects s
 If you have write or admin permissions for a project in your organization, you can choose to copy the project as a template. This will make a duplicate of the current project—copying the {% data reusables.projects.what-gets-copied %} —and set that copied project as a template for your organization.
 
 {% data reusables.projects.project-settings %}
-1. In the "Templates" section, click {% octicon "duplicate" aria-hidden="true" %} **Copy as template**.
+1. In the "Templates" section, click **{% octicon "duplicate" aria-hidden="true" %} Copy as template**.
 
 {% ifversion projects-v2-org-templates-GA-updates %}
 
