@@ -9,7 +9,7 @@ shortTitle: Extensions Glossary
 type: reference
 ---
 
-{% data reusables.copilot.copilot-extensions.beta-note %}
+{% data reusables.copilot.copilot-extensions.public-preview-note %}
 
 The following terms are used in the context of {% data variables.product.prodname_copilot_extensions_short %}, and are defined here for clarity.
 
@@ -55,7 +55,11 @@ An extension that is visible and installable by any {% data variables.product.co
 
 #### Skill
 
-A piece of code that retrieves context or executes an action in response to a user’s prompt (e.g., "findIssueByID(id: number)").
+A piece of code that retrieves context or executes an action in response to a user’s prompt (for example, "findIssueByID(id: number)"). For a list of a skills, see "[Currently available skills](/copilot/using-github-copilot/asking-github-copilot-questions-in-your-ide#currently-available-skills)".
+
+#### Skillset
+
+A collection of skills in the form of an implementation in {% data variables.product.prodname_copilot_extensions %} that allows developers to connect external services or custom API endpoints to Copilot with minimal complexity. The {% data variables.product.prodname_copilot_extensibility_platform_short %} handles prompt crafting, function evaluation, and response generation. The developer handles only the API call.
 
 #### Tool/Function Calling
 

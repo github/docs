@@ -14,7 +14,7 @@ redirect_from:
   - /copilot/github-copilot-chat/github-copilot-extensions
 ---
 
-{% data reusables.copilot.copilot-extensions.beta-note %}
+{% data reusables.copilot.copilot-extensions.public-preview-note %}
 
 ## About {% data variables.product.prodname_copilot_extensions %}
 

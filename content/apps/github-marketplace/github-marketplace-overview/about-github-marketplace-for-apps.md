@@ -46,7 +46,7 @@ If you're interested in creating an app for {% data variables.product.prodname_m
 
 ### {% data variables.product.prodname_copilot_extensions %}
 
-{% data reusables.copilot.copilot-extensions.beta-note %}
+{% data reusables.copilot.copilot-extensions.public-preview-note %}
 
 {% data reusables.copilot.copilot-extensions.copilot-extensions-intro %}
 

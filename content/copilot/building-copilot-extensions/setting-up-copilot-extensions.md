@@ -1,6 +1,7 @@
 ---
 title: Setting up Copilot Extensions
 intro: 'Follow these steps to start building {% data variables.product.prodname_copilot_extensions_short %}.'
+defaultTool: agents
 versions:
   feature: copilot-extensions
 topics:
@@ -8,9 +9,15 @@ topics:
 shortTitle: Set up Copilot Extensions
 ---
 
-{% data reusables.copilot.copilot-extensions.beta-note %}
+{% data reusables.copilot.copilot-extensions.public-preview-note %}
 
 This article is designed to help you build an entirely new {% data variables.product.prodname_copilot_extension %}. To instead learn how to quickly build and test a demo {% data variables.product.prodname_copilot_extension_short %} created by {% data variables.product.github %}, see "[AUTOTITLE](/copilot/building-copilot-extensions/quickstart-for-github-copilot-extensions)."
+
+{% data reusables.copilot.copilot-extensions.differences-between-agents-and-skillsets-1 %}
+For more information about skillsets, see "[AUTOTITLE](/copilot/building-copilot-extensions/building-a-copilot-skillset-for-your-copilot-extension/about-copilot-skillsets)."
+{% data reusables.copilot.copilot-extensions.differences-between-agents-and-skillsets-2 %}
+
+{% agents %}
 
 ## 1. Learn about {% data variables.product.prodname_copilot_agents_short %}
 
@@ -59,3 +66,43 @@ To learn how to change the visibility of your {% data variables.product.prodname
 ## Next steps
 
 To learn how to use your {% data variables.product.prodname_copilot_extension_short %}, see "[AUTOTITLE](/copilot/using-github-copilot/using-extensions-to-integrate-external-tools-with-copilot-chat)."
+
+{% endagents %}
+
+{% skillsets %}
+
+## 1. Learn about {% data variables.product.prodname_copilot_skillsets %}
+
+{% data variables.product.prodname_copilot_skillsets %} contain the custom code for your {% data variables.product.prodname_copilot_extension_short %}, and integrate with a {% data variables.product.prodname_github_app %} to form the {% data variables.product.prodname_copilot_extension_short %} itself.
+
+Unlike {% data variables.product.prodname_copilot_agents_short %}, {% data variables.product.prodname_copilot_skillsets_short %} handle the logic behind prompt crafting, function evaluation, and response generation, making them an ideal choice for developers seeking quick and effective integrations with minimal effort.  For more information, see "[AUTOTITLE](/copilot/building-copilot-extensions/building-a-copilot-skillset-for-your-copilot-extension/about-copilot-skillsets)."
+
+## 2. Build a {% data variables.product.prodname_copilot_skillset_short %}
+
+To explore an example of a skillset implementation, see the [skillset-example](https://github.com/copilot-extensions/skillset-example) repository in the [`copilot-extensions`](https://github.com/copilot-extensions) organization.
+
+To build a skillset, see "[AUTOTITLE](/copilot/building-copilot-extensions/building-a-copilot-skillset-for-your-copilot-extension/building-copilot-skillsets)."
+
+## 3. Deploy your {% data variables.product.prodname_copilot_skillset_short %}
+
+To make your {% data variables.product.prodname_copilot_skillset_short %} accessible to the {% data variables.product.prodname_copilot_short %} platform and {% data variables.product.github %}, you need to deploy it to a server that is reachable by HTTP request. See "[AUTOTITLE](/copilot/building-copilot-extensions/creating-a-copilot-extension/configuring-your-server-to-deploy-your-copilot-agent)."
+
+## 4. Create a {% data variables.product.prodname_github_app %} and integrate it with your {% data variables.product.prodname_copilot_skillset_short %}
+
+To create a {% data variables.product.prodname_copilot_extension_short %}, you need to create and configure a {% data variables.product.prodname_github_app %}, then integrate it with your {% data variables.product.prodname_copilot_skillset_short %}. See "[AUTOTITLE](/copilot/building-copilot-extensions/creating-a-copilot-extension/creating-a-github-app-for-your-copilot-extension)" and "[AUTOTITLE](/copilot/building-copilot-extensions/creating-a-copilot-extension/configuring-your-github-app-for-your-copilot-agent)."
+
+## 5. Choose the availability of your {% data variables.product.prodname_copilot_skillset_short %}
+
+Choose one of two visibility levels for your {% data variables.product.prodname_copilot_extension_short %}:
+* **Public**: Any user or organization account with the installation page link for the extension can install it.
+* **Private**: Only the user or organization account that created the extension can install it.
+
+If you make your {% data variables.product.prodname_copilot_extension_short %} public, you can then choose to list it on the {% data variables.product.prodname_marketplace %}.
+
+To learn how to change the visibility of your {% data variables.product.prodname_copilot_extension_short %} and list it on the {% data variables.product.prodname_marketplace %}, see "[AUTOTITLE](/copilot/building-copilot-extensions/managing-the-availability-of-your-copilot-extension)."
+
+## Next steps
+
+To learn how to use your {% data variables.product.prodname_copilot_extension_short %}, see "[AUTOTITLE](/copilot/using-github-copilot/using-extensions-to-integrate-external-tools-with-copilot-chat)."
+
+{% endskillsets %}

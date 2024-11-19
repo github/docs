@@ -9,7 +9,7 @@ shortTitle: About building Extensions
 type: overview
 ---
 
-{% data reusables.copilot.copilot-extensions.beta-note %}
+{% data reusables.copilot.copilot-extensions.public-preview-note %}
 
 ## About {% data variables.product.prodname_copilot_extensions_short %}
 
@@ -44,6 +44,12 @@ type: overview
     * Offer their service to a broader audience
     * Integrate their tool into the developer workflow on {% data variables.product.company_short %} and the IDE
     * Leverage the {% data variables.product.company_short %} ecosystem to raise awareness for their product
+
+### About skillsets and agents
+
+{% data reusables.copilot.copilot-extensions.differences-between-agents-and-skillsets-1 %}
+For more information about skillsets, see "[AUTOTITLE](/copilot/building-copilot-extensions/building-a-copilot-skillset-for-your-copilot-extension/about-copilot-skillsets)."
+{% data reusables.copilot.copilot-extensions.differences-between-agents-and-skillsets-2 %}
 
 ### Resources for building {% data variables.product.prodname_copilot_extensions %}
 

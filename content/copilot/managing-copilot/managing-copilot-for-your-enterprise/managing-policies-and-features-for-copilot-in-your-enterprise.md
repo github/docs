@@ -61,7 +61,7 @@ You can chat with {% data variables.product.prodname_copilot %} in your IDE to g
 
 ### {% data variables.product.prodname_copilot_extensions %}
 
-{% data reusables.copilot.copilot-extensions.beta-note %}
+{% data reusables.copilot.copilot-extensions.public-preview-note %}
 
 {% data variables.product.prodname_copilot_extensions %} integrate external tools with {% data variables.product.prodname_copilot_chat %}, helping members of your enterprise reduce context switching, interact with tools using natural language, and customize their {% data variables.product.prodname_copilot_chat_short %} experience.
 

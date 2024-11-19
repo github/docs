@@ -9,7 +9,7 @@ shortTitle: Communicate with GitHub
 type: reference
 ---
 
-{% data reusables.copilot.copilot-extensions.beta-note %}
+{% data reusables.copilot.copilot-extensions.public-preview-note %}
 
 ## Prerequisites
 

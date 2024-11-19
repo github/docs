@@ -9,7 +9,7 @@ shortTitle: Manage Extension availability
 type: how_to
 ---
 
-{% data reusables.copilot.copilot-extensions.beta-note %}
+{% data reusables.copilot.copilot-extensions.public-preview-note %}
 
 When you build a {% data variables.product.prodname_copilot_extension_short %}, you have two options for the visibility of your {% data variables.product.prodname_github_app %}:
 

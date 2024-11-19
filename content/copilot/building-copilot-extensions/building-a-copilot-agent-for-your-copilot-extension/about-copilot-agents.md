@@ -9,7 +9,7 @@ shortTitle: About Copilot agents
 type: overview
 ---
 
-{% data reusables.copilot.copilot-extensions.beta-note %}
+{% data reusables.copilot.copilot-extensions.public-preview-note %}
 
 {% data variables.product.prodname_copilot_agents_short %} are custom tools embedded in {% data variables.product.prodname_copilot_extensions_short %}. They integrate with {% data variables.product.prodname_copilot_chat_short %} to provide additional functionalities tailored to specific needs. {% data variables.product.prodname_copilot_agents_short %} can perform various tasks such as querying documentation, retrieving data, executing specific actions, or providing AI-assisted coding suggestions. They enhance the capabilities of {% data variables.product.prodname_copilot %} by allowing developers to build and integrate custom features directly into the {% data variables.product.prodname_copilot_chat_short %} interface.
 
