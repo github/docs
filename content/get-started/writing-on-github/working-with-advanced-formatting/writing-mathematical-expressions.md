@@ -1,6 +1,7 @@
 ---
 title: Writing mathematical expressions
 intro: 'Use Markdown to display mathematical expressions on {% data variables.product.company_short %}.'
+product: '{% data reusables.gated-features.markdown-ui %}'
 versions:
   feature: math
 shortTitle: Mathematical expressions
