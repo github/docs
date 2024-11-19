@@ -1,4 +1,4 @@
-1. Under your organization name, click {% octicon "gear" aria-hidden="true" %} **Settings**. If you cannot see the "Settings" tab, select the **{% octicon "kebab-horizontal" aria-label="More" %}** dropdown menu, then click **Settings**.
+1. Under your organization name, click **{% octicon "gear" aria-hidden="true" %} Settings**. If you cannot see the "Settings" tab, select the **{% octicon "kebab-horizontal" aria-label="More" %}** dropdown menu, then click **Settings**.
 
 {% ifversion global-nav-update %}
 

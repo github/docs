@@ -3,5 +3,5 @@ You can configure a view to show the sum of one of more number fields, including
 In a board layout, field sums are displayed at the top of each column. In table and roadmap layouts, when you enable grouping by a field, field sums are included in each group's header.
 
 {% data reusables.projects.open-view-menu %}
-1. Click {% octicon "number" aria-hidden="true" %} **Field sum**.
+1. Click **{% octicon "number" aria-hidden="true" %} Field sum**.
 1. Select the fields you want to include.
