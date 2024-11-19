@@ -164,11 +164,11 @@ import (
 )
 
 func main() {
-  payload := `[{"token":"some_token","type":"some_type","url":"some_url","source":"some_source"}]`
+  payload := `[{"source":"commit","token":"some_token","type":"some_type","url":"https://example.com/base-repo-url/"}]`
 
-  kID := "f9525bf080f75b3506ca1ead061add62b8633a346606dc5fe544e29231c6ee0d"
+  kID := "bcb53661c06b4728e59d897fb6165d5c9cda0fd9cdf9d09ead458168deb7518c"
 
-  kSig := "MEUCIFLZzeK++IhS+y276SRk2Pe5LfDrfvTXu6iwKKcFGCrvAiEAhHN2kDOhy2I6eGkOFmxNkOJ+L2y8oQ9A2T9GGJo6WJY="
+  kSig := "MEQCIQDaMKqrGnE27S0kgMrEK0eYBmyG0LeZismAEz/BgZyt7AIfXt9fErtRS4XaeSt/AO1RtBY66YcAdjxji410VQV4xg=="
 
   // Fetch the list of GitHub Public Keys
   req, err := http.NewRequest("GET", "https://api.github.com/meta/public_keys/secret_scanning", nil)
@@ -284,14 +284,14 @@ require 'json'
 require 'base64'
 
 payload = <<-EOL
-[{"token":"some_token","type":"some_type","url":"some_url","source":"some_source"}]
+[{"source":"commit","token":"some_token","type":"some_type","url":"https://example.com/base-repo-url/"}]
 EOL
 
 payload = payload
 
-signature = "MEUCIFLZzeK++IhS+y276SRk2Pe5LfDrfvTXu6iwKKcFGCrvAiEAhHN2kDOhy2I6eGkOFmxNkOJ+L2y8oQ9A2T9GGJo6WJY="
+signature = "MEQCIQDaMKqrGnE27S0kgMrEK0eYBmyG0LeZismAEz/BgZyt7AIfXt9fErtRS4XaeSt/AO1RtBY66YcAdjxji410VQV4xg=="
 
-key_id = "f9525bf080f75b3506ca1ead061add62b8633a346606dc5fe544e29231c6ee0d"
+key_id = "bcb53661c06b4728e59d897fb6165d5c9cda0fd9cdf9d09ead458168deb7518c"
 
 url = URI.parse('https://api.github.com/meta/public_keys/secret_scanning')
 
