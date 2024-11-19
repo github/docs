@@ -86,14 +86,14 @@ export const CategoryLanding = () => {
 
         <h2 className="py-5">Spotlight</h2>
         <div className="d-md-flex d-sm-block">
-          <CookBookArticleCard image="DeleteMe" spotlight={true} />
-          <CookBookArticleCard image="DeleteMe" spotlight={true} />
-          <CookBookArticleCard image="DeleteMe" spotlight={true} />
+          <CookBookArticleCard image="DeleteMe" spotlight={true} url="#" />
+          <CookBookArticleCard image="DeleteMe" spotlight={true} url="#" />
+          <CookBookArticleCard image="DeleteMe" spotlight={true} url="#" />
         </div>
 
         <div className="pt-8">
           <div className="py-5 border-bottom">
-            <div className="col-lg-4 col-sm-12 float-md-left pb-3 mr-5 ml-1">
+            <div className="pb-3 mr-5 ml-1 float-xl-left">
               <h2>Explore {searchResults.length} prompt articles</h2>
             </div>
             <div>

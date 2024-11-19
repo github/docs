@@ -96,9 +96,9 @@ export const CookBookArticleCard = ({
               />
             )}
         <div>
-          <Link href={url}>
-            <h3 className="h4">{title}</h3>
-          </Link>
+          <h3 className="h4">
+            <Link href={url}>{title}</Link>
+          </h3>
           <div className="fgColor-muted mb-3 mt-2">{description}</div>
           <LabelGroup>
             {tags.map((tag, index) => (
