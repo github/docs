@@ -12,7 +12,7 @@ redirect_from:
 To enable default setup when a language previously failed, you must reconfigure default setup, deselecting all failing languages for analysis.
 
 1. If default setup fails, navigate to the main page of your repository, then click **{% octicon "gear" aria-hidden="true" %} Settings**.
-1. In the "Security" section of the sidebar, click **{% octicon "codescan" aria-hidden="true" %} Code security and analysis**.
+1. In the "Security" section of the sidebar, click **{% octicon "codescan" aria-hidden="true" %} Code security**.
 1. Navigate to the "{% data variables.product.prodname_code_scanning_caps %}" section. Then, in the error message reading "{% data variables.product.prodname_codeql %} default configuration **failed**", click **failed**.
 1. In the "Jobs" section of the workflow run summary for default setup, identify any failing jobs associated with specific languages. These jobs will be labeled **{% octicon "x-circle-fill" aria-label="failed" %} Analyze (LANGUAGE)**.
 1. Once you have determined which language-specific jobs are failing, configure default setup once more and deselect the failing languages for analysis. For more information, see "[AUTOTITLE](/code-security/code-scanning/enabling-code-scanning/configuring-default-setup-for-code-scanning)."
