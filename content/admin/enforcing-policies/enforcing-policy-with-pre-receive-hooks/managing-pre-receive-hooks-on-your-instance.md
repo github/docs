@@ -61,5 +61,5 @@ A repository owner can only configure a hook if the site administrator selected 
 {% data reusables.profile.enterprise_access_profile %}
 1. Navigate to the repository that you want to configure pre-receive hooks for.
 {% data reusables.repositories.sidebar-settings %}
-1. In the left sidebar, click {% octicon "webhook" aria-hidden="true" %} **Hooks**.
+1. In the left sidebar, click **{% octicon "webhook" aria-hidden="true" %} Hooks**.
 1. Next to the pre-receive hook that you want to configure, select the **Hook permissions** dropdown menu, then click whether to enable or disable the pre-receive hook.

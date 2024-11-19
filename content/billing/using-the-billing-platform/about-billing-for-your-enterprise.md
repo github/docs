@@ -67,7 +67,7 @@ To check if you have access:
 
 {% data reusables.enterprise-accounts.access-enterprise %}
 
-If you have access, there will be a {% octicon "credit-card" aria-hidden="true" %} **Billing & Licensing** option in the enterprise account sidebar.
+If you have access, there will be a **{% octicon "credit-card" aria-hidden="true" %} Billing & Licensing** option in the enterprise account sidebar.
 
 {% endif %}
 
