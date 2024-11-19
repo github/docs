@@ -1,1 +1,1 @@
-1. Click {% octicon "file-zip" aria-hidden="true" %} **Download ZIP**.
+1. Click **{% octicon "file-zip" aria-hidden="true" %} Download ZIP**.

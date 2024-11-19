@@ -1,4 +1,4 @@
-1. Under your repository name, click {% octicon "issue-opened" aria-hidden="true" %} **Issues** or {% octicon "git-pull-request" aria-hidden="true" %} **Pull requests**.
+1. Under your repository name, click **{% octicon "issue-opened" aria-hidden="true" %} Issues** or **{% octicon "git-pull-request" aria-hidden="true" %} Pull requests**.
 
 {% ifversion global-nav-update %}
 
