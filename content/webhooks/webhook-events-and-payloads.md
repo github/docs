@@ -53,7 +53,7 @@ To see what each header might look like in a webhook payload, see "[Example webh
 You can choose to have payloads delivered in JSON format (`application/json`) or as URL-encoded data (`x-www-form-urlencoded`). Following is an example of a webhook POST request that uses the JSON format.
 
 ```shell
-> POST /payload HTTP/2
+> POST /payload HTTP/1.1
 
 > X-GitHub-Delivery: 72d3162e-cc78-11e3-81ab-4c9367dc0958{% ifversion ghes %}
 > X-GitHub-Enterprise-Version: 2.15.0

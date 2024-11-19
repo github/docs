@@ -64,7 +64,7 @@ If an organization member is assigned a seat by multiple organizations with diff
 
 ## Setting a policy for {% data variables.product.prodname_copilot_extensions %} in your organization
 
-{% data reusables.copilot.copilot-extensions.beta-note %}
+{% data reusables.copilot.copilot-extensions.public-preview-note %}
 
 {% data variables.product.prodname_copilot_extensions %} integrate external tools with {% data variables.product.prodname_copilot_chat %}. See "[AUTOTITLE](/copilot/using-github-copilot/using-extensions-to-integrate-external-tools-with-copilot-chat)."
 

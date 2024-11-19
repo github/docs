@@ -10,7 +10,7 @@ type: reference
 allowTitleToDifferFromFilename: true
 ---
 
-{% data reusables.copilot.copilot-extensions.beta-note %}
+{% data reusables.copilot.copilot-extensions.public-preview-note %}
 
 ## About {% data variables.product.prodname_copilot_short %}'s Language Learning Model (LLM)
 
