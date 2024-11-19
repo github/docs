@@ -11,6 +11,7 @@ redirect_from:
   - /packages/guides/configuring-docker-for-use-with-github-packages
 versions:
   fpt: '*'
+
   ghes: '*'
   ghec: '*'
 shortTitle: Docker registry
