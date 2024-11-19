@@ -1,6 +1,7 @@
 ---
 title: Organizing information with tables
 intro: 'You can build tables to organize information in comments, issues, pull requests, and wikis.'
+product: '{% data reusables.gated-features.markdown-ui %}'
 redirect_from:
   - /articles/organizing-information-with-tables
   - /github/writing-on-github/organizing-information-with-tables

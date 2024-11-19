@@ -1,6 +1,7 @@
 ---
 title: Creating diagrams
 intro: Create diagrams to convey information through charts and graphs
+product: '{% data reusables.gated-features.markdown-ui %}'
 versions:
   feature: mermaid
 shortTitle: Create diagrams

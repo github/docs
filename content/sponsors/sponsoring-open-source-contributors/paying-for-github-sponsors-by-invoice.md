@@ -73,7 +73,7 @@ You can view your {% data variables.product.company_short %} Invoiced Sponsor Ag
 
 1. Navigate to the organization.
 {% data reusables.organizations.navigate-to-sponsoring %}
-1. In the sidebar, click {% octicon "graph" aria-label="The graph icon" %} **Insights**.
+1. In the sidebar, click **{% octicon "graph" aria-label="The graph icon" %} Insights**.
 1. Under your balance, click **{% data variables.product.company_short %} Invoiced Sponsor Agreement** to view the agreement.
 
 ## Understanding your {% data variables.product.prodname_sponsors %} invoice

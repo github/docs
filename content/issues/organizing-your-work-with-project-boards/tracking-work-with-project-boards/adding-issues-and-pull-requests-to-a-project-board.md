@@ -32,7 +32,7 @@ You can put a maximum of 2,500 cards into each project column. If a column has r
 ## Adding issues and pull requests to a {% data variables.projects.projects_v1_board %}
 
 1. Navigate to the {% data variables.projects.projects_v1_board %} where you want to add issues and pull requests.
-1. In your {% data variables.projects.projects_v1_board %}, click {% octicon "plus" aria-hidden="true" %} **Add cards**.
+1. In your {% data variables.projects.projects_v1_board %}, click **{% octicon "plus" aria-hidden="true" %} Add cards**.
 ![Screenshot showing the header of a project. The "Add cards" button is highlighted with an orange outline.](/assets/images/help/projects/add-cards-button.png)
 1. Search for issues and pull requests to add to your {% data variables.projects.projects_v1_board %} using search qualifiers such as `is:issue is:open`. For more information on search qualifiers you can use, see "[AUTOTITLE](/search-github/searching-on-github/searching-issues-and-pull-requests)."
 

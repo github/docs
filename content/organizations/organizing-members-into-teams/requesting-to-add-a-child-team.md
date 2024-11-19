@@ -24,7 +24,7 @@ If you're an organization owner or you have team maintainer permissions in both 
 {% data reusables.user-settings.access_org %}
 {% data reusables.organizations.teams %}
 1. In the list of teams, click the name of the team where you'd like to add the child team.
-1. At the top of the team page, click {% octicon "people" aria-hidden="true" %} **Teams**.
+1. At the top of the team page, click **{% octicon "people" aria-hidden="true" %} Teams**.
 
 {% ifversion global-nav-update %}
 

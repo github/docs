@@ -120,7 +120,7 @@ To enable {% data variables.product.prodname_dependabot_version_updates %}, you 
 
 You can configure {% data variables.product.prodname_code_scanning %} to automatically identify vulnerabilities and errors in the code stored in your repository by using a {% data variables.code-scanning.codeql_workflow %} or third-party tool. Depending on the programming languages in your repository, you can configure {% data variables.product.prodname_code_scanning %} with {% data variables.product.prodname_codeql %} using default setup, in which {% data variables.product.prodname_dotcom %} automatically determines the languages to scan, query suites to run, and events that will trigger a new scan. For more information, see "[AUTOTITLE](/code-security/code-scanning/enabling-code-scanning/configuring-default-setup-for-code-scanning)."
 
-1. From the main page of your repository, click {% octicon "gear" aria-hidden="true" %} **Settings**.
+1. From the main page of your repository, click **{% octicon "gear" aria-hidden="true" %} Settings**.
 1. In the "Security" section of the sidebar, click **{% octicon "shield-lock" aria-hidden="true" %} Code security and analysis**.
 1. In the "{% data variables.product.prodname_code_scanning_caps %}" section, select **Set up** {% octicon "triangle-down" aria-hidden="true" %}, then click **Default**.
 1. In the pop-up window that appears, review the default configuration settings for your repository, then click **Enable {% data variables.product.prodname_codeql %}**.

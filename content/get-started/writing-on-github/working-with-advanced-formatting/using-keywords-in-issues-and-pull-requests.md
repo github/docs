@@ -1,6 +1,7 @@
 ---
 title: Using keywords in issues and pull requests
 intro: Use keywords to link an issue and pull request or to mark an issue or pull request as a duplicate.
+product: '{% data reusables.gated-features.markdown-ui %}'
 versions:
   fpt: '*'
   ghes: '*'
