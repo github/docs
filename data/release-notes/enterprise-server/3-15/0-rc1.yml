@@ -215,14 +215,19 @@ sections:
     # https://github.com/github/releases/issues/4964
     - |
       In GitHub Enterprise Server 3.16, the `/explore` functionality, including the `Activity` and `Trending` pages, will be removed.
-
-  retired:
     # https://github.com/github/releases/issues/4110 and https://github.com/github/releases/issues/4193 and https://github.com/github/releases/issues/4231
     - |
       We are closing down the API endpoints and parameters that complemented the old organization-level code security settings UI experience. These have been replaced by a new API for security configurations. See "[AUTOTITLE](/rest/code-security/configurations)."
-      * **Retired:** The GET response for security product status in an organization: [Get an organization](/rest/orgs/orgs?apiVersion=2022-11-28#get-an-organization) is deprecated. This attribute will return inaccurate information.
-      * **Retired:** The PATCH functionality for security products to set a default status for new repos in an organization: [Update an organization](/rest/orgs/orgs?apiVersion=2022-11-28#update-an-organization) is deprecated. The PATCH operation may return an error or will not perform the PATCH or will be ignored.
-      * **Retired:** The POST endpoint to enable or disable a security feature for all repositories in an organization: [Enable or disable a security feature for an organization](/rest/orgs/orgs?apiVersion=2022-11-28#enable-or-disable-a-security-feature-for-an-organization) is deprecated. The POST will be ignored.
+      * **Closing down:** The GET response for security product status in an organization: [Get an organization](/rest/orgs/orgs?apiVersion=2022-11-28#get-an-organization) is deprecated. This attribute will return inaccurate information.
+      * **Closing down:** The PATCH functionality for security products to set a default status for new repos in an organization: [Update an organization](/rest/orgs/orgs?apiVersion=2022-11-28#update-an-organization) is deprecated. The PATCH operation will be ignored.
+      * **Closing down:** The POST endpoint to enable or disable a security feature for all repositories in an organization: [Enable or disable a security feature for an organization](/rest/orgs/orgs?apiVersion=2022-11-28#enable-or-disable-a-security-feature-for-an-organization) is deprecated. Using the POST operation may result in a code security configuration being unintentionally removed from a repository.
+
+  retired:
     # https://github.com/github/releases/issues/4878
     - |
       The Management Console API has been removed. The Manage GHES API reached feature parity with the Management Console API in {% data variables.product.prodname_ghe_server %} version 3.12. For information about the Manage GHES API, see "[AUTOTITLE](/rest/enterprise-admin/manage-ghes)."
+
+  errata:
+    # https://github.com/github/docs-content/issues/16489
+    - |
+      "Retired" incorrectly indicated that the API endpoints and parameters that complemented the old organization-level code security settings UI experience were retired. They are closed down. [Updated: 2024-11-18]
