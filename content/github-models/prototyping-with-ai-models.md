@@ -12,7 +12,7 @@ See also "[AUTOTITLE](/github-models/responsible-use-of-github-models)."
 
 ## Finding AI models
 
-To find AI models, go to [{% data variables.product.prodname_marketplace %}](https://github.com/marketplace/models), then click {% octicon "ai-model" aria-hidden="true" %} **Models** in the sidebar.
+To find AI models, go to [{% data variables.product.prodname_marketplace %}](https://github.com/marketplace/models), then click **{% octicon "ai-model" aria-hidden="true" %} Models** in the sidebar.
 
 To view details about a model, click on the model's name.
 
@@ -26,11 +26,11 @@ To view details about a model, click on the model's name.
 
 {% data variables.product.prodname_marketplace %} provides a free playground where you can adjust model parameters and submit prompts to see how the model responds.
 
-To open the playground, go to [{% data variables.product.prodname_marketplace %}](https://github.com/marketplace/models), then click {% octicon "ai-model" aria-hidden="true" %} **Models** in the sidebar. Click on a model's name, then click {% octicon "command-palette" aria-hidden="true" %} **Playground**.
+To open the playground, go to [{% data variables.product.prodname_marketplace %}](https://github.com/marketplace/models), then click **{% octicon "ai-model" aria-hidden="true" %} Models** in the sidebar. Click on a model's name, then click **{% octicon "command-palette" aria-hidden="true" %} Playground**.
 
 To adjust parameters for the model, select the **Parameters** tab in the sidebar. To see code that corresponds to the parameters that you selected, switch from the **Chat** tab to the **Code** tab.
 
-You can also compare two models at once. In the menu bar for your model, click {% octicon "plus" aria-hidden="true" %} **Compare**, then select a model for comparison using the **Model: MODEL-NAME** {% octicon "chevron-down" aria-hidden="true" %} dropdown menu in the second chat window. When you type a prompt in either chat window, the prompt will automatically be mirrored to the other window, and you can compare the responses from each model.
+You can also compare two models at once. In the menu bar for your model, click **{% octicon "plus" aria-hidden="true" %} Compare**, then select a model for comparison using the **Model: MODEL-NAME** {% octicon "chevron-down" aria-hidden="true" %} dropdown menu in the second chat window. When you type a prompt in either chat window, the prompt will automatically be mirrored to the other window, and you can compare the responses from each model.
 
 The playground is rate limited. See [Rate limits](#rate-limits) below.
 
@@ -42,7 +42,7 @@ The playground is rate limited. See [Rate limits](#rate-limits) below.
 
 {% data variables.product.company_short %} provides free API usage so that you can experiment with AI models in your own application.
 
-To learn how to use a model in your application, go to [{% data variables.product.prodname_marketplace %}](https://github.com/marketplace/models), then click {% octicon "ai-model" aria-hidden="true" %} **Models** in the sidebar. Click on a model's name, then click {% octicon "command-palette" aria-hidden="true" %} **Playground**. In the menu bar at the top of your chat window, click {% octicon "code" aria-hidden="true" %} **Code**.
+To learn how to use a model in your application, go to [{% data variables.product.prodname_marketplace %}](https://github.com/marketplace/models), then click **{% octicon "ai-model" aria-hidden="true" %} Models** in the sidebar. Click on a model's name, then click **{% octicon "command-palette" aria-hidden="true" %} Playground**. In the menu bar at the top of your chat window, click **{% octicon "code" aria-hidden="true" %} Code**.
 
 The steps to use each model are similar. In general, you will need to:
 
@@ -51,7 +51,7 @@ The steps to use each model are similar. In general, you will need to:
 
    All models can be used with the Azure AI Inference SDK, and some models support additional SDKs. If you want to easily switch between models, you should select "Azure AI Inference SDK". If you selected "REST" as the language, you won't use an SDK. Instead, you will use the API endpoint directly.
 1. Either open a codespace, or set up your local environment:
-   * To run in a codespace, click {% octicon "codespaces" aria-hidden="true" %} **Run codespace**, then click **Create new codespace**.
+   * To run in a codespace, click **{% octicon "codespaces" aria-hidden="true" %} Run codespace**, then click **Create new codespace**.
    * To run locally:
       * Create a {% data variables.product.company_short %} {% data variables.product.pat_generic %}. The token should not have any scopes or permissions. See "[AUTOTITLE](/authentication/keeping-your-account-and-data-secure/managing-your-personal-access-tokens)."
       * Save your token as an environment variable.
@@ -67,16 +67,16 @@ You can save and share your progress in the playground with presets. Presets sav
 * Your parameters
 * Your chat history (optional)
 
-To create a preset for your current context, select the **Preset: PRESET-NAME** {% octicon "triangle-down" aria-hidden="true" %} dropdown menu, then click {% octicon "plus" aria-hidden="true" %} **Create new preset**. You need to name your preset, and you can also choose to provide a preset description, include your chat history, and allow your preset to be shared.
+To create a preset for your current context, select the **Preset: PRESET-NAME** {% octicon "triangle-down" aria-hidden="true" %} dropdown menu, then click **{% octicon "plus" aria-hidden="true" %} Create new preset**. You need to name your preset, and you can also choose to provide a preset description, include your chat history, and allow your preset to be shared.
 
 There are two ways to load a preset:
 * Select the **Preset: PRESET-NAME** {% octicon "triangle-down" aria-hidden="true" %} dropdown menu, then click the preset you want to load.
 * Open a shared preset URL
 
 After you load a preset, you can edit, share, or delete the preset:
-* To edit the preset, change the parameters and prompt the model. Once you are satisfied with your changes, select the **Preset: PRESET-NAME** {% octicon "triangle-down" aria-hidden="true" %} dropdown menu, then click {% octicon "pencil" aria-hidden="true" %} **Edit preset** and save your updates.
-* To share the preset, select the **Preset: PRESET-NAME** {% octicon "triangle-down" aria-hidden="true" %} dropdown menu, then click {% octicon "share" aria-hidden="true" %} **Share preset** to get a shareable URL.
-* To delete the preset, select the **Preset: PRESET-NAME** {% octicon "triangle-down" aria-hidden="true" %} dropdown menu, then click {% octicon "trash" aria-hidden="true" %} **Delete preset** and confirm the deletion.
+* To edit the preset, change the parameters and prompt the model. Once you are satisfied with your changes, select the **Preset: PRESET-NAME** {% octicon "triangle-down" aria-hidden="true" %} dropdown menu, then click **{% octicon "pencil" aria-hidden="true" %} Edit preset** and save your updates.
+* To share the preset, select the **Preset: PRESET-NAME** {% octicon "triangle-down" aria-hidden="true" %} dropdown menu, then click **{% octicon "share" aria-hidden="true" %} Share preset** to get a shareable URL.
+* To delete the preset, select the **Preset: PRESET-NAME** {% octicon "triangle-down" aria-hidden="true" %} dropdown menu, then click **{% octicon "trash" aria-hidden="true" %} Delete preset** and confirm the deletion.
 
 ## Experimenting with AI models in {% data variables.product.prodname_vscode %}
 

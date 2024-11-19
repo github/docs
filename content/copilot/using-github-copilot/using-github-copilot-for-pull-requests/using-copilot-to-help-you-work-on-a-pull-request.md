@@ -146,9 +146,9 @@ You can type commands directly into the terminal, or you can use quick commands 
 
 You can configure **Build**, **Run**, and **Test** commands that you can use when you work on a specific project in {% data variables.product.prodname_copilot_workspace %}. If commands have already been configured for the repository, you can replace them with alternative commands for your own personal use.
 
-1. At the top of the {% data variables.product.prodname_copilot_workspace_short %} window, click {% octicon "gear" aria-hidden="true" %} **Configure**.
+1. At the top of the {% data variables.product.prodname_copilot_workspace_short %} window, click **{% octicon "gear" aria-hidden="true" %} Configure**.
 
-   If **Build**, **Run**, and **Test** quick commands have already been defined, the {% octicon "play" aria-hidden="true" %} **Build** button is displayed instead of {% octicon "gear" aria-hidden="true" %} **Configure**. Click the dropdown arrow beside the {% octicon "play" aria-hidden="true" %} **Build** button and then click {% octicon "gear" aria-hidden="true" %} **Configure** from the dropdown menu.
+   If **Build**, **Run**, and **Test** quick commands have already been defined, the **{% octicon "play" aria-hidden="true" %} Build** button is displayed instead of **{% octicon "gear" aria-hidden="true" %} Configure**. Click the dropdown arrow beside the **{% octicon "play" aria-hidden="true" %} Build** button and then click **{% octicon "gear" aria-hidden="true" %} Configure** from the dropdown menu.
 
    ![Screenshot of the "Commands" dropdown menu with the "Configure" option highlighted with a dark orange outline.](/assets/images/help/copilot/workspace-configure-commands.png)
 
