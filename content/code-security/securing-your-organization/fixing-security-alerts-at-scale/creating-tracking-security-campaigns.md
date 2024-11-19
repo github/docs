@@ -45,7 +45,7 @@ The security campaign is created and the campaign overview page is displayed.
 
 {% data reusables.organizations.navigate-to-org %}
 {% data reusables.organizations.security-overview %}
-1. In the left sidebar, under "Alerts" click {% octicon "codescan" aria-hidden="true" %} **{% data variables.product.prodname_code_scanning_caps %}** to show the alerts view.
+1. In the left sidebar, under "Alerts" click **{% octicon "codescan" aria-hidden="true" %} {% data variables.product.prodname_code_scanning_caps %}** to show the alerts view.
 1. Add filters to select a subset of alerts for your campaign. When you have chosen fewer than 1000 alerts, spread across fewer than 100 repositories, you are ready to create a campaign.
 1. Above the table of alerts, click **Create campaign** to start creating a campaign.
 1. If the message "This looks like a big campaign" is displayed, click **Back to filters** to display the {% data variables.product.prodname_code_scanning %} alerts view with your existing filters.

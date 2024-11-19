@@ -46,7 +46,7 @@ To best secure your organization, you should encourage contributors to review an
 * {% data variables.secret-scanning.user_alerts_caps %}, which appear on {% data variables.product.product_name %} and can be resolved
 
 {% endif %}
-You can view {% data variables.product.prodname_secret_scanning %} alerts for an organization by navigating to the main page of that organization, clicking the {% octicon "shield" aria-hidden="true" %} **Security** tab, then clicking {% octicon "key" aria-hidden="true" %} **{% data variables.product.prodname_secret_scanning_caps %}**.
+You can view {% data variables.product.prodname_secret_scanning %} alerts for an organization by navigating to the main page of that organization, clicking the **{% octicon "shield" aria-hidden="true" %} Security** tab, then clicking **{% octicon "key" aria-hidden="true" %} {% data variables.product.prodname_secret_scanning_caps %}**.
 
 For an introduction to {% data variables.product.prodname_secret_scanning %} alerts, see "[AUTOTITLE](/code-security/secret-scanning/managing-alerts-from-secret-scanning/about-alerts)."
 
@@ -56,7 +56,7 @@ To learn how to evaluate {% data variables.product.prodname_secret_scanning %} a
 
 {% data reusables.code-scanning.about-code-scanning %} These problems are raised as {% data variables.product.prodname_code_scanning %} alerts, which contain detailed information on the vulnerability or error detected.
 
-You can view the {% data variables.product.prodname_code_scanning %} alerts for an organization by navigating to the main page of that organization, clicking the {% octicon "shield" aria-hidden="true" %} **Security** tab, then clicking {% octicon "codescan" aria-hidden="true" %} **{% data variables.product.prodname_code_scanning_caps %}**.
+You can view the {% data variables.product.prodname_code_scanning %} alerts for an organization by navigating to the main page of that organization, clicking the **{% octicon "shield" aria-hidden="true" %} Security** tab, then clicking **{% octicon "codescan" aria-hidden="true" %} {% data variables.product.prodname_code_scanning_caps %}**.
 
 For an introduction to {% data variables.product.prodname_code_scanning %} alerts, see "[AUTOTITLE](/code-security/code-scanning/managing-code-scanning-alerts/about-code-scanning-alerts)."
 
@@ -64,7 +64,7 @@ To learn how to interpret and resolve {% data variables.product.prodname_code_sc
 
 ## Interpreting {% data variables.product.prodname_dependabot_alerts %}
 
-{% data variables.product.prodname_dependabot_alerts %} inform you about vulnerabilities in the dependencies that you use in repositories in your organization. You can view {% data variables.product.prodname_dependabot_alerts %} for an organization by navigating to the main page of that organization, clicking the {% octicon "shield" aria-hidden="true" %} **Security** tab, then clicking {% octicon "dependabot" aria-hidden="true" %} **{% data variables.product.prodname_dependabot %}**.
+{% data variables.product.prodname_dependabot_alerts %} inform you about vulnerabilities in the dependencies that you use in repositories in your organization. You can view {% data variables.product.prodname_dependabot_alerts %} for an organization by navigating to the main page of that organization, clicking the **{% octicon "shield" aria-hidden="true" %} Security** tab, then clicking **{% octicon "dependabot" aria-hidden="true" %} {% data variables.product.prodname_dependabot %}**.
 
 For an introduction to {% data variables.product.prodname_dependabot_alerts %}, see "[AUTOTITLE](/code-security/dependabot/dependabot-alerts/about-dependabot-alerts)."
 

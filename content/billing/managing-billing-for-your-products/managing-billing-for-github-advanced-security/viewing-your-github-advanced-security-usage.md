@@ -111,7 +111,7 @@ You can download the {% data variables.product.prodname_advanced_security %} lic
 
 {% data reusables.profile.access_org %}
 {% data reusables.profile.org_settings %}
-1. In the "Security" section of the sidebar, click {% octicon "codescan" aria-hidden="true" %} **Code security and analysis**.
+1. In the "Security" section of the sidebar, click **{% octicon "codescan" aria-hidden="true" %} Code security and analysis**.
 1. In the "{% data variables.product.prodname_GH_advanced_security %} repositories" section, next to the repository you want usage information for, select {% octicon "kebab-horizontal" aria-label="GHAS repository actions" %}, then click **Download CSV report**.
 
    ![Screenshot of the committers by repository table. The horizontal kebab icon and "Download CSV report" button are highlighted with an orange outline.](/assets/images/help/billing/ghas-billing-table-repository-csv.png)
@@ -144,7 +144,7 @@ You can download the {% data variables.product.prodname_advanced_security %} lic
    ![Screenshot of the "Manage" dropdown in the {% data variables.product.prodname_GH_advanced_security %} licensing screen. The "Download Report" button is highlighted with an orange outline.](/assets/images/help/enterprises/ghas-download-report.png)
 
 {%- elsif ghes %}
-1. Under "{% data variables.product.prodname_GH_advanced_security %}," click {% octicon "download" aria-hidden="true" %} **CSV report** in the header of the "Committers" table.
+1. Under "{% data variables.product.prodname_GH_advanced_security %}," click **{% octicon "download" aria-hidden="true" %} CSV report** in the header of the "Committers" table.
 
    ![Screenshot of the {% data variables.product.prodname_GH_advanced_security %} licensing screen. The "CSV Report" button is highlighted with an orange outline.](/assets/images/enterprise/ghas/download-csv-report-ghes-3.9.png)
 
