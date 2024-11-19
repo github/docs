@@ -11,6 +11,7 @@ on:
   pull_request:
     paths:
       - .github/workflows/orphaned-assets-check.yml
+      - .github/workflows/orphaned-files-check.yml
       # In case any of the dependencies affect the script
       - 'package*.json'
       - src/assets/scripts/find-orphaned-assets.js
@@ -96,7 +97,7 @@ jobs:
             The first responder should just spot-check some of the unused assets
             to make sure they aren't referenced anywhere
             and then approve and merge the pull request.
-            For more information, see [Doc: Orphaned Assets](https://github.com/github/docs-engineering/blob/main/docs/orphaned-assets.md) 
+            For more information, see [Doc: Orphaned Assets](https://github.com/github/docs-engineering/blob/main/docs/orphaned-assets.md)
             and [Doc: Reusables CLI](https://github.com/github/docs-internal/tree/main/src/content-render/scripts/reusables-cli).
           EOM
           )

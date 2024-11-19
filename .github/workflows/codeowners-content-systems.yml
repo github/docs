@@ -9,6 +9,7 @@ on:
     paths:
       - 'contributing/content-*.md'
       - 'content/contributing/**.md'
+      - .github/workflows/codeowners-content-systems.yml
 
 jobs:
   codeowners-content-systems:
