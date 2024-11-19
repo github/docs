@@ -24,4 +24,4 @@ jobs:
       - uses: ./.github/actions/node-npm-setup
 
       - name: Validate all asset images
-        run: src/assets/scripts/validate-asset-images.js
+        run: tsx src/assets/scripts/validate-asset-images.ts
