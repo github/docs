@@ -9,6 +9,7 @@ on:
   pull_request:
     paths:
       - 'assets/**'
+      - '.github/workflows/validate-asset-images.yml'
 
 permissions:
   contents: read
@@ -24,4 +25,4 @@ jobs:
       - uses: ./.github/actions/node-npm-setup
 
       - name: Validate all asset images
-        run: tsx src/assets/scripts/validate-asset-images.ts
+        run: npm run validate-asset-images
