@@ -7,7 +7,7 @@ name: Purge old workflow runs
 on:
   workflow_dispatch:
   schedule:
-    - cron: '20 */2 * * *' # Run every 2 hours at 20 minutes past the hour
+    - cron: '20 * * * *' # Run every hour at 20 minutes past the hour
 
 permissions:
   contents: write

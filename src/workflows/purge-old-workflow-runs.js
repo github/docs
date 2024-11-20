@@ -18,7 +18,7 @@
  * For every run found, it deletes its logs and its run.
  *
  * The total number of deletions is limited by the `MAX_DELETIONS`
- * environment variable. The default is 100.
+ * environment variable. The default is 2000.
  *  */
 
 import fs from 'fs'
@@ -29,7 +29,7 @@ import { getOctokit } from '@actions/github'
 main()
 async function main() {
   const DRY_RUN = Boolean(JSON.parse(process.env.DRY_RUN || 'false'))
-  const MAX_DELETIONS = parseInt(JSON.parse(process.env.MAX_DELETIONS || '100'))
+  const MAX_DELETIONS = parseInt(JSON.parse(process.env.MAX_DELETIONS || '2000'))
   const MIN_AGE_DAYS = parseInt(process.env.MIN_AGE_DAYS || '90', 10)
 
   const [owner, repo] = process.env.GITHUB_REPOSITORY.split('/')
@@ -134,11 +134,11 @@ async function deleteWorkflowRuns(
   owner,
   repo,
   workflow,
-  { dryRun = false, minAgeDays = 100, maxDeletions = 1000 },
+  { dryRun = false, minAgeDays = 90, maxDeletions = 2000 },
 ) {
   // https://docs.github.com/en/search-github/getting-started-with-searching-on-github/understanding-the-search-syntax#query-for-dates
   const minCreated = new Date(Date.now() - minAgeDays * 24 * 60 * 60 * 1000)
-  const minCreatedSearch = `<=${minCreated.toISOString().split('T')[0]}`
+  const minCreatedSearch = `<${minCreated.toISOString().split('T')[0]}`
   // Delete is 10, but max is 100. But if we're only going to delete,
   // 30, use 30. And if we're only going to delete 5, use the default
   // per_page value of 10.
