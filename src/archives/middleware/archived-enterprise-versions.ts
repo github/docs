@@ -10,7 +10,7 @@ import {
 } from '@/versions/lib/enterprise-server-releases.js'
 import patterns from '@/frame/lib/patterns.js'
 import versionSatisfiesRange from '@/versions/lib/version-satisfies-range.js'
-import { isArchivedVersion } from '@/archives/lib/is-archived-version.js'
+import { isArchivedVersion } from '@/archives/lib/is-archived-version'
 import {
   setFastlySurrogateKey,
   SURROGATE_ENUMS,

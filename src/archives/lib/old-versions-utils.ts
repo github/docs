@@ -1,8 +1,8 @@
 import path from 'path'
-import { supported, latest } from '#src/versions/lib/enterprise-server-releases.js'
-import patterns from '#src/frame/lib/patterns.js'
-import nonEnterpriseDefaultVersion from '#src/versions/lib/non-enterprise-default-version.js'
-import { allVersions } from '#src/versions/lib/all-versions.js'
+import { supported, latest } from '@/versions/lib/enterprise-server-releases.js'
+import patterns from '@/frame/lib/patterns.js'
+import nonEnterpriseDefaultVersion from '@/versions/lib/non-enterprise-default-version.js'
+import { allVersions } from '@/versions/lib/all-versions.js'
 const latestNewVersion = `enterprise-server@${latest}`
 const oldVersions = ['dotcom'].concat(supported)
 const newVersions = Object.keys(allVersions)
@@ -18,7 +18,7 @@ const newVersions = Object.keys(allVersions)
 // return an old version like 2.21.
 // Fall back to latest GHES version if one can't be found,
 // for example, if the new version is private-instances@latest.
-export function getOldVersionFromNewVersion(newVersion) {
+export function getOldVersionFromNewVersion(newVersion: string) {
   return newVersion === nonEnterpriseDefaultVersion
     ? 'dotcom'
     : oldVersions.find((oldVersion) => newVersion.includes(oldVersion)) || latest
@@ -27,7 +27,7 @@ export function getOldVersionFromNewVersion(newVersion) {
 // Given an old version like 2.21,
 // return a new version like enterprise-server@2.21.
 // Fall back to latest GHES version if one can't be found.
-export function getNewVersionFromOldVersion(oldVersion) {
+export function getNewVersionFromOldVersion(oldVersion: string) {
   return oldVersion === 'dotcom'
     ? nonEnterpriseDefaultVersion
     : newVersions.find((newVersion) => newVersion.includes(oldVersion)) || latestNewVersion
@@ -35,7 +35,7 @@ export function getNewVersionFromOldVersion(oldVersion) {
 
 // Given an old path like /enterprise/2.21/user/github/category/article,
 // return an old version like 2.21.
-export function getOldVersionFromOldPath(oldPath) {
+export function getOldVersionFromOldPath(oldPath: string) {
   // We should never be calling this function on a path that starts with a new version,
   // so we can assume the path either uses the old /enterprise format or it's dotcom.
   if (!patterns.enterprise.test(oldPath)) return 'dotcom'
@@ -46,7 +46,7 @@ export function getOldVersionFromOldPath(oldPath) {
 
 // Given an old path like /en/enterprise/2.21/user/github/category/article,
 // return a new path like /en/enterprise-server@2.21/github/category/article.
-export function getNewVersionedPath(oldPath, languageCode = '') {
+export function getNewVersionedPath(oldPath: string, languageCode = '') {
   // It's possible a new version has been injected into an old path
   // via syntax like: /en/enterprise/{{ currentVersion }}/admin/category/article
   // which could resolve to /en/enterprise/private-instances@latest/admin/category/article,
@@ -58,7 +58,7 @@ export function getNewVersionedPath(oldPath, languageCode = '') {
 
   // If no new version was found, assume path contains an old version, like 2.21
   if (!newVersion) {
-    const oldVersion = getOldVersionFromOldPath(oldPath, languageCode)
+    const oldVersion = getOldVersionFromOldPath(oldPath)
     newVersion = getNewVersionFromOldVersion(oldVersion)
   }
 

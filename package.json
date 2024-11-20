@@ -88,7 +88,7 @@
     "update-internal-links": "tsx src/links/scripts/update-internal-links.ts",
     "validate-asset-images": "tsx src/assets/scripts/validate-asset-images.ts",
     "validate-github-github-docs-urls": "tsx src/links/scripts/validate-github-github-docs-urls/index.ts",
-    "warmup-remotejson": "node src/archives/scripts/warmup-remotejson.js"
+    "warmup-remotejson": "tsx src/archives/scripts/warmup-remotejson.ts"
   },
   "lint-staged": {
     "*.{js,mjs,ts,tsx}": "eslint --cache --fix",
