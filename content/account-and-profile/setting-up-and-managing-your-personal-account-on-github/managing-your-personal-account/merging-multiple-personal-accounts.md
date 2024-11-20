@@ -19,13 +19,9 @@ shortTitle: Merge multiple accounts
 
 > [!TIP]
 {% ifversion ghec %}
-
 > {% data variables.product.prodname_emus %} allow an enterprise to provision unique personal accounts for its members through an identity provider (IdP). For more information, see "[AUTOTITLE](/admin/identity-and-access-management/using-enterprise-managed-users-for-iam/about-enterprise-managed-users)." For other use cases, we recommend using only one personal account to manage both personal and professional repositories.
-
 {% else %}
-
 > We recommend using only one personal account to manage both personal and professional repositories.
-
 {% endif %}
 
 > [!WARNING]
