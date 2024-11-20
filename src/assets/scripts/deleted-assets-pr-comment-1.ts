@@ -3,7 +3,7 @@
 // [start-readme]
 //
 // For testing the GitHub Action that executes
-// src/assets/scripts/deleted-assets-pr-comment.js but doing it
+// src/assets/scripts/deleted-assets-pr-comment.ts but doing it
 // locally.
 // This is more convenient and faster than relying on seeing that the
 // Action produces in a PR.
@@ -13,7 +13,7 @@
 // Example use:
 //
 //    export GITHUB_TOKEN=github_pat_11AAAG.....
-//    ./src/assets/scripts/deleted-assets-pr-comment.js github docs-internal main 4a0b0f2
+//    ./src/assets/scripts/deleted-assets-pr-comment.ts github docs-internal main 4a0b0f2
 //
 // [end-readme]
 
