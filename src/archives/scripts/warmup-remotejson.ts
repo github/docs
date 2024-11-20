@@ -19,12 +19,11 @@
 // [end-readme]
 
 import { program } from 'commander'
-import semver from 'semver'
+import semver, { SemVer } from 'semver'
 
-import getRemoteJSON from '#src/frame/lib/get-remote-json.js'
+import getRemoteJSON from '@/frame/lib/get-remote-json.js'
 import {
   deprecated,
-  firstReleaseStoredInBlobStorage,
   lastVersionWithoutArchivedRedirectsFile,
 } from '#src/versions/lib/enterprise-server-releases.js'
 
@@ -36,18 +35,14 @@ program
 
 main()
 
-function version2url(version) {
-  const inBlobStorage = semver.gte(
-    semver.coerce(version).raw,
-    semver.coerce(firstReleaseStoredInBlobStorage).raw,
-  )
+function version2url(version: string | SemVer) {
   return `https://github.github.com/docs-ghes-${version}/redirects.json`
 }
 
-function withArchivedRedirectsFile(version) {
+function withArchivedRedirectsFile(version: string | SemVer) {
   return semver.eq(
-    semver.coerce(version).raw,
-    semver.coerce(lastVersionWithoutArchivedRedirectsFile).raw,
+    semver.coerce(version)?.raw || '',
+    semver.coerce(lastVersionWithoutArchivedRedirectsFile)?.raw || '',
   )
 }
 
