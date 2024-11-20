@@ -297,7 +297,8 @@ To help improve security, compliance, and standardization, you can customize the
 Customizing the claims results in a new format for the entire `sub` claim, which replaces the default predefined `sub` format in the token described in "[AUTOTITLE](/actions/deployment/security-hardening-your-deployments/about-security-hardening-with-openid-connect#example-subject-claims)."
 
 > [!NOTE]
-> The `sub` claim uses the shortened form `repo` (for example, `repo:ORG-NAME/REPO-NAME`) instead of `repository` to reference the repository.
+> The `sub` claim uses the shortened form `repo` (for example, `repo:ORG-NAME/REPO-NAME`) instead of `repository` to reference the repository. {% ifversion fpt or ghec or ghes > 3.15 %}
+> Any `:` within the context value will be replaced with `%3A`. {% endif %}
 
 The following example templates demonstrate various ways to customize the subject claim. To configure these settings on {% data variables.product.prodname_dotcom %}, admins use the REST API to specify a list of claims that must be included in the subject (`sub`) claim.
 
@@ -419,6 +420,26 @@ or:
 ```
 
 In your cloud provider's OIDC configuration, configure the `sub` condition to require a `repository_owner_id` claim that matches the required value.
+
+{% ifversion fpt or ghec or ghes > 3.15 %}
+
+#### Example: Context value with `:`
+
+This example demonstrates how to handle context value with `:`. For example, when the job references an environment named `production:eastus`.
+
+{% data reusables.actions.use-request-body-api %}
+
+```json
+{
+   "include_claim_keys": [
+       "environment",
+       "repository_owner"
+   ]
+}
+```
+
+In your cloud provider's OIDC configuration, configure the `sub` condition to require that claims must include a specific value for `environment` and `repository_owner`. For example: `"sub": "environment:production%3Aeastus:repository_owner:octo-org"`.
+{% endif %}
 
 #### Resetting organization template customizations
 
