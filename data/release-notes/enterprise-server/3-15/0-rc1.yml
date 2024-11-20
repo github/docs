@@ -226,6 +226,8 @@ sections:
     # https://github.com/github/releases/issues/4878
     - |
       The Management Console API has been removed. The Manage GHES API reached feature parity with the Management Console API in {% data variables.product.prodname_ghe_server %} version 3.12. For information about the Manage GHES API, see "[AUTOTITLE](/rest/enterprise-admin/manage-ghes)."
+    - |
+      The option to "copy Storage settings from Actions" in the Management Console ("GitHub Packages" > "Packages Storage Settings") has been removed. [Updated: 2024-11-20]
 
   errata:
     # https://github.com/github/docs-content/issues/16489
