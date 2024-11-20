@@ -68,27 +68,27 @@ Below is a typical workflow that explains how {% data variables.product.prodname
 
 ## About the benefits of {% data variables.product.prodname_secret_scanning %}
 
-* **Enhanced security**—{% data variables.product.prodname_secret_scanning_caps %} scans your repositories for sensitive information like API keys, passwords, tokens, and other secrets. By detecting these early, you can mitigate potential security risks before they are exploited by malicious actors.
+* **Enhanced security**: {% data variables.product.prodname_secret_scanning_caps %} scans your repositories for sensitive information like API keys, passwords, tokens, and other secrets. By detecting these early, you can mitigate potential security risks before they are exploited by malicious actors.
 
-* **Automated detection**—The feature automatically scans your codebase, including commits, issues, and pull requests, ensuring continuous protection without requiring manual intervention. This automation helps in maintaining security even as your repository evolves.
+* **Automated detection**: The feature automatically scans your codebase, including commits, issues, and pull requests, ensuring continuous protection without requiring manual intervention. This automation helps in maintaining security even as your repository evolves.
 
-* **Real-time alerts**—When a secret is detected, {% data variables.product.prodname_secret_scanning %} provides real-time alerts to repository administrators and contributors. This immediate feedback allows for swift remediation actions.
+* **Real-time alerts**: When a secret is detected, {% data variables.product.prodname_secret_scanning %} provides real-time alerts to repository administrators and contributors. This immediate feedback allows for swift remediation actions.
 
 {% ifversion fpt or ghec %}
 
-* **Integration with service providers**—{% data variables.product.prodname_dotcom %} partners with various service providers to validate detected secrets. When a secret is identified, {% data variables.product.prodname_dotcom %} notifies the corresponding service provider to take appropriate actions, such as revoking the exposed credential. For more information, see "[AUTOTITLE](/code-security/secret-scanning/secret-scanning-partnership-program/secret-scanning-partner-program)."
+* **Integration with service providers**: {% data variables.product.prodname_dotcom %} partners with various service providers to validate detected secrets. When a secret is identified, {% data variables.product.prodname_dotcom %} notifies the corresponding service provider to take appropriate actions, such as revoking the exposed credential. For more information, see "[AUTOTITLE](/code-security/secret-scanning/secret-scanning-partnership-program/secret-scanning-partner-program)."
 
 {% endif %}
 
 {% ifversion ghec or ghes %}
 
-* **Custom pattern support**—Organizations can define custom patterns to detect proprietary or unique types of secrets that may not be covered by default patterns. This flexibility allows for tailored security measures specific to your environment.
+* **Custom pattern support**: Organizations can define custom patterns to detect proprietary or unique types of secrets that may not be covered by default patterns. This flexibility allows for tailored security measures specific to your environment.
 
 {% endif %}
 
 {% ifversion secret-scanning-non-provider-patterns %}
 
-* **Ability to detect non-provider patterns**—You can expand the detection to include non-provider patterns such as connection strings, authentication headers, and private keys, for your repository or organization.
+* **Ability to detect non-provider patterns**: You can expand the detection to include non-provider patterns such as connection strings, authentication headers, and private keys, for your repository or organization.
 
 {% endif %}
 

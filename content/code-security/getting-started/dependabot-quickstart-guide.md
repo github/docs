@@ -76,11 +76,11 @@ If {% data variables.product.prodname_dependabot_alerts %} are enabled for a rep
 
 1. Optionally, you can also explore the information on the right-side of the page. Some of the information shown in the screenshot may not apply to every alert.
    * Severity
-   * CVSS metrics—we use CVSS levels to assign severity levels. For more information, see "[AUTOTITLE](/code-security/security-advisories/working-with-global-security-advisories-from-the-github-advisory-database/about-the-github-advisory-database#about-cvss-levels)."
+   * CVSS metrics: We use CVSS levels to assign severity levels. For more information, see "[AUTOTITLE](/code-security/security-advisories/working-with-global-security-advisories-from-the-github-advisory-database/about-the-github-advisory-database#about-cvss-levels)."
    * Tags
-   * Weaknesses—list of CWEs related to the vulnerability, if applicable
-   * CVE ID—unique CVE identifier for the vulnerability, if applicable
-   * GHSA ID—unique identifier of the corresponding advisory on the {% data variables.product.prodname_advisory_database %}. For more information, see "[AUTOTITLE](/code-security/security-advisories/working-with-global-security-advisories-from-the-github-advisory-database/about-the-github-advisory-database#about-ghsa-ids)."
+   * Weaknesses: List of CWEs related to the vulnerability, if applicable
+   * CVE ID: Unique CVE identifier for the vulnerability, if applicable
+   * GHSA ID: Unique identifier of the corresponding advisory on the {% data variables.product.prodname_advisory_database %}. For more information, see "[AUTOTITLE](/code-security/security-advisories/working-with-global-security-advisories-from-the-github-advisory-database/about-the-github-advisory-database#about-ghsa-ids)."
    * Option to navigate to the advisory on the {% data variables.product.prodname_advisory_database %}
    * Option to see all of your repositories that are affected by this vulnerability
    * Option to suggest improvements for this advisory on the {% data variables.product.prodname_advisory_database %}
