@@ -1,8 +1,9 @@
 ---
-title: Generating regular expressions for custom patterns with AI
-shortTitle: Use the regular expression generator
-intro: 'You can use the {% data variables.secret-scanning.custom-pattern-regular-expression-generator %} to generate regular expressions for custom patterns. The generator uses an AI model to generate expressions that match your input, and optionally example strings.'
+title: Generating regular expressions for custom patterns with Copilot secret scanning
+shortTitle: Regular expression generator
+intro: 'You can use {% data variables.secret-scanning.copilot-secret-scanning %}''s {% data variables.secret-scanning.custom-pattern-regular-expression-generator %} to write regular expressions for custom patterns. The generator uses an AI model to generate expressions that match your input, and optionally example strings.'
 permissions: '{% data reusables.permissions.security-repo-enable %}'
+allowTitleToDifferFromFilename: true
 versions:
   feature: secret-scanning-custom-pattern-ai-generated
 type: how_to
@@ -14,9 +15,10 @@ topics:
 redirect_from:
   - /code-security/secret-scanning/generating-regular-expressions-for-custom-patterns-with-ai
   - /code-security/secret-scanning/using-advanced-secret-scanning-and-push-protection-features/custom-patterns/generating-regular-expressions-for-custom-patterns-with-ai
+  - /code-security/secret-scanning/copilot-secret-scanning/generating-regular-expressions-for-custom-patterns-with-ai
 ---
 
-## Generating a regular expression for a repository with AI
+## Generating a regular expression for a repository with {% data variables.secret-scanning.copilot-secret-scanning %}
 
 {% data reusables.secret-scanning.copilot-secret-scanning-expression-generator-subscription-note %}
 
@@ -32,7 +34,7 @@ redirect_from:
 
 {% data reusables.secret-scanning.link-to-push-protection %}
 
-## Generating a regular expression for an organization with AI
+## Generating a regular expression for an organization with {% data variables.secret-scanning.copilot-secret-scanning %}
 
 {% data reusables.profile.access_org %}
 {% data reusables.profile.org_settings %}
@@ -48,4 +50,4 @@ redirect_from:
 
 ## Further reading
 
-* "[AUTOTITLE](/code-security/secret-scanning/copilot-secret-scanning/responsible-use-ai-regex-generator)"
+* "[AUTOTITLE](/code-security/secret-scanning/copilot-secret-scanning/responsible-ai-regex-generator)"
