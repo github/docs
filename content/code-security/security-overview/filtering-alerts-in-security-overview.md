@@ -43,7 +43,7 @@ All security views have features to help you define filters. These provide an ea
 
 * **Interactive search text box.** When you click in the search box and press the keyboard "Space" key, a pop-up text box shows the filter options available in that view. You can use the mouse or keyboard arrow keys to select the options you want in the text box before pressing the keyboard "Return" key to add the filter. Supported for all views.
 * **Dropdown selectors and toggles.** Shown at the end of the "Search text box" or in the header of the data table. As you choose the data to view, the filters shown in the search text box are updated accordingly. Supported on the alert views.{% ifversion security-overview-3-13-overview %}
-* **Advanced filters dialog.** When you click the **{% octicon "filter" aria-label="Advanced filter dialog" %} Filter** button, you can use dropdown lists to select the "Qualifier", "Operator", and "Values" for each filter. Supported on the "Overview" and metric views.{% endif %}
+* **Advanced filters dialog.** When you click the **{% octicon "filter" aria-hidden="true" %} Filter** button, you can use dropdown lists to select the "Qualifier", "Operator", and "Values" for each filter. Supported on the "Overview" and metric views.{% endif %}
 
 ## Repository name, visibility, and status filters
 
@@ -148,8 +148,8 @@ The level of risk for a repository is determined by the number and severity of a
 | Qualifier | Description |
 | -------- | -------- |
 | `code-scanning-alerts` | Display data for repositories that have exactly (`=`), more than (`>`) or fewer than (`<`) a specific number of {% data variables.product.prodname_code_scanning %} alerts. For example: `code-scanning-alerts:>100` for repositories with more than 100 alerts. |
-| `dependabot-alerts` | Display data for repositories that have a specific number (`=`), more than (`>`) or fewer than (`<`) a specific number of  {% data variables.product.prodname_dependabot_alerts %}. For example: `dependabot-alerts:<=10` for repositories with fewer than or equal to 10 alerts.|
-| `secret-scanning-alerts` | Display data for repositories that have a specific number (`=`), more than (`>`) or fewer than (`<`) a specific number of  {% data variables.secret-scanning.alerts %}. For example: `secret-scanning-alerts:=10` for repositories with exactly 10 alerts.|
+| `dependabot-alerts` | Display data for repositories that have a specific number (`=`), more than (`>`) or fewer than (`<`) a specific number of {% data variables.product.prodname_dependabot_alerts %}. For example: `dependabot-alerts:<=10` for repositories with fewer than or equal to 10 alerts.|
+| `secret-scanning-alerts` | Display data for repositories that have a specific number (`=`), more than (`>`) or fewer than (`<`) a specific number of {% data variables.secret-scanning.alerts %}. For example: `secret-scanning-alerts:=10` for repositories with exactly 10 alerts.|
 
 {% ifversion security-overview-dashboard %}
 

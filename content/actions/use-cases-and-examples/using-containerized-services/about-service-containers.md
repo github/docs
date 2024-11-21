@@ -142,7 +142,7 @@ jobs:
           password: ${{ secrets.dockerhub_password }}
       db:
         # Private registry image
-        image:  ghcr.io/octocat/testdb:latest
+        image: ghcr.io/octocat/testdb:latest
         credentials:
           username: ${{ github.repository_owner }}
           password: ${{ secrets.ghcr_password }}

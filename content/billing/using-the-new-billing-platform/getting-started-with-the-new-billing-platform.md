@@ -9,7 +9,7 @@ type: overview
 topics:
   - Enterprise
   - Team
-product:  '{% data reusables.billing.enhanced-billing-platform-product %}'
+product: '{% data reusables.billing.enhanced-billing-platform-product %}'
 shortTitle: Get started
 ---
 

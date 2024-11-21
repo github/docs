@@ -377,7 +377,7 @@ container-job:
 
 {% endraw %}
 
-### {% data variables.product.prodname_actions %}  syntax for databases and service containers
+### {% data variables.product.prodname_actions %} syntax for databases and service containers
 
 ```yaml
 jobs:

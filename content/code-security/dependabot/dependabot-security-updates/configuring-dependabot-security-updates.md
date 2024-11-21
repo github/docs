@@ -149,7 +149,7 @@ updates:
 ```
 
 > [!NOTE]
-> In order for {% data variables.product.prodname_dependabot %} to use this configuration for security updates,  the `directory` must be the path to the manifest files, and you should not specify a `target-branch`.
+> In order for {% data variables.product.prodname_dependabot %} to use this configuration for security updates, the `directory` must be the path to the manifest files, and you should not specify a `target-branch`.
 
 ## Further reading
 

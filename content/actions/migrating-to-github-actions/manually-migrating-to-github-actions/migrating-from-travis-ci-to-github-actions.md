@@ -214,7 +214,7 @@ When migrating to {% data variables.product.prodname_actions %}, there are diffe
 
 ### Job error handling
 
-{% data variables.product.prodname_actions %} uses `if` conditionals to execute jobs or steps in certain situations. For example, you can run a step when another step results in a `failure()`. For more information, see "[AUTOTITLE](/actions/using-workflows/workflow-syntax-for-github-actions#example-using-status-check-functions)."  You can also use [`continue-on-error`](/actions/using-workflows/workflow-syntax-for-github-actions#jobsjob_idcontinue-on-error) to prevent a workflow run from stopping when a job fails.
+{% data variables.product.prodname_actions %} uses `if` conditionals to execute jobs or steps in certain situations. For example, you can run a step when another step results in a `failure()`. For more information, see "[AUTOTITLE](/actions/using-workflows/workflow-syntax-for-github-actions#example-using-status-check-functions)." You can also use [`continue-on-error`](/actions/using-workflows/workflow-syntax-for-github-actions#jobsjob_idcontinue-on-error) to prevent a workflow run from stopping when a job fails.
 
 ## Migrating syntax for conditionals and expressions
 
@@ -355,4 +355,4 @@ jobs:
 
 ## Next steps
 
-To continue learning about the main features of  {% data variables.product.prodname_actions %}, see "[AUTOTITLE](/actions/learn-github-actions)."
+To continue learning about the main features of {% data variables.product.prodname_actions %}, see "[AUTOTITLE](/actions/learn-github-actions)."

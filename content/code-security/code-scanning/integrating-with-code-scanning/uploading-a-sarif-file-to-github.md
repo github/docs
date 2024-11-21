@@ -49,7 +49,7 @@ You can upload the results using {% data variables.product.prodname_actions %}, 
 
 ## Uploading a {% data variables.product.prodname_code_scanning %} analysis with {% data variables.product.prodname_actions %}
 
-To use {% data variables.product.prodname_actions %} to upload a third-party SARIF file to a repository, you'll need a  workflow. For more information, see "[AUTOTITLE](/actions/learn-github-actions)."
+To use {% data variables.product.prodname_actions %} to upload a third-party SARIF file to a repository, you'll need a workflow. For more information, see "[AUTOTITLE](/actions/learn-github-actions)."
 
 Your workflow will need to use the `upload-sarif` action, which is part of the `github/codeql-action` repository. It has input parameters that you can use to configure the upload. The main input parameters you'll use are:
 
@@ -58,7 +58,7 @@ Your workflow will need to use the `upload-sarif` action, which is part of the `
 
 For more information, see the {% ifversion codeql-action-node16-deprecated %}[`upload-sarif` action](https://github.com/github/codeql-action/tree/v3/upload-sarif){% else %}[`upload-sarif` action](https://github.com/github/codeql-action/tree/v2/upload-sarif){% endif %}.
 
-The `upload-sarif` action can be configured to run when the `push` and `scheduled` event occur. For more information about {% data variables.product.prodname_actions %}  events, see "[AUTOTITLE](/actions/using-workflows/events-that-trigger-workflows)."
+The `upload-sarif` action can be configured to run when the `push` and `scheduled` event occur. For more information about {% data variables.product.prodname_actions %} events, see "[AUTOTITLE](/actions/using-workflows/events-that-trigger-workflows)."
 
 If your SARIF file doesn't include `partialFingerprints`, the `upload-sarif` action will calculate the `partialFingerprints` field for you and attempt to prevent duplicate alerts. {% data variables.product.prodname_dotcom %} can only create `partialFingerprints` when the repository contains both the SARIF file and the source code used in the static analysis. For more information about preventing duplicate alerts, see "[AUTOTITLE](/code-security/code-scanning/integrating-with-code-scanning/sarif-support-for-code-scanning#providing-data-to-track-code-scanning-alerts-across-runs)."
 

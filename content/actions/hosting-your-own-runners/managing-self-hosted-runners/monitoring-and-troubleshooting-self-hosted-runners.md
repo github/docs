@@ -76,9 +76,9 @@ If you have any failing checks, you should also verify that your self-hosted run
 ### Disabling TLS certificate verification
 
 {% ifversion ghes %}
-By default, the self-hosted runner application verifies the TLS certificate for {% data variables.product.product_name %}.  If your {% data variables.product.product_name %} has a self-signed or internally-issued certificate, you may wish to disable TLS certificate verification for testing purposes.
+By default, the self-hosted runner application verifies the TLS certificate for {% data variables.product.product_name %}. If your {% data variables.product.product_name %} has a self-signed or internally-issued certificate, you may wish to disable TLS certificate verification for testing purposes.
 {% else %}
-By default, the self-hosted runner application verifies the TLS certificate for {% data variables.product.product_name %}.  If you encounter network problems, you may wish to disable TLS certificate verification for testing purposes.
+By default, the self-hosted runner application verifies the TLS certificate for {% data variables.product.product_name %}. If you encounter network problems, you may wish to disable TLS certificate verification for testing purposes.
 {% endif %}
 
 To disable TLS certification verification in the self-hosted runner application, set the `GITHUB_ACTIONS_RUNNER_TLS_NO_VERIFY` environment variable to `1` before configuring and running the self-hosted runner application.

@@ -33,7 +33,7 @@ The {% data variables.product.prodname_emu_idp_application %} application on Okt
 
 1. In the application on Okta, click the **Assignments** tab and assign the application to your Okta account.
 1. Click the **Sign on** tab.
-1. Next to "Enterprise Name," type the name of your  {% data variables.enterprise.prodname_emu_enterprise %}.
+1. Next to "Enterprise Name," type the name of your {% data variables.enterprise.prodname_emu_enterprise %}.
 
    >[!NOTE]
    >For example, if you sign in to `github.com/enterprises/octocorp` or `{% data variables.enterprise.data_residency_example_domain %}`, your enterprise name is `octocorp`.

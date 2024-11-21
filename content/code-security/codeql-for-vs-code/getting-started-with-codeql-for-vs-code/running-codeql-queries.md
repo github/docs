@@ -121,7 +121,7 @@ The "Query History" view contains information including the date and time when t
 
 If a result links to a source code element, you can click it to display it in the source.
 
-To use standard code navigation features in the source code, you can right-click an element and use the commands **Go to Definition** or **Go to References**. This runs a {% data variables.product.prodname_codeql %}  query over the active file, which may take a few seconds. This query needs to run once for every file, so any additional references from the same file will be fast.
+To use standard code navigation features in the source code, you can right-click an element and use the commands **Go to Definition** or **Go to References**. This runs a {% data variables.product.prodname_codeql %} query over the active file, which may take a few seconds. This query needs to run once for every file, so any additional references from the same file will be fast.
 
 > [!NOTE]
 > If you're using an older database, code navigation commands such as **Go to Definition** and **Go to References** may not work. To use code navigation, try unzipping the database and running `codeql database cleanup <database>` on the unzipped database using the {% data variables.product.prodname_codeql_cli %}. Then, re-add the database to {% data variables.product.prodname_vscode %}. For more information, see "[AUTOTITLE](/code-security/codeql-cli/codeql-cli-manual/database-cleanup)."

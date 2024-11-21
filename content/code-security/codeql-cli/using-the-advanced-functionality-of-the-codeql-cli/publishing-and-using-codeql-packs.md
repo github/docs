@@ -55,7 +55,7 @@ You can publish packs and download private packs by authenticating to the approp
 
 {% endif %}
 
-You can authenticate to the {% data variables.product.prodname_container_registry %}  in two ways:
+You can authenticate to the {% data variables.product.prodname_container_registry %} in two ways:
 
 1. Pass the `--github-auth-stdin` option to the {% data variables.product.prodname_codeql_cli %}, then supply a {% data variables.product.prodname_github_apps %} token or {% data variables.product.pat_generic %} via standard input.
 1. Set the `GITHUB_TOKEN` environment variable to a {% data variables.product.prodname_github_apps %} token or {% data variables.product.pat_generic %}.
@@ -135,7 +135,7 @@ This command accepts arguments for multiple packs.
 If you write scripts that specify a particular version number of a
 query pack to download, keep in mind that when you update your version of
 {% data variables.product.prodname_codeql %} to a newer one, you may
-also need to switch to a newer version of the query pack.  Newer
+also need to switch to a newer version of the query pack. Newer
 versions of {% data variables.product.prodname_codeql %} _may_ provide
 degraded performance when used with query packs that have been pinned
 to a very old version. For more information, see "[About {% data variables.product.prodname_codeql %}
@@ -162,7 +162,7 @@ codeql <database> analyze <scope>/<pack> <scope>/<other-pack>
 ```
 
 > [!NOTE]
-> The `codeql pack download` command stores the pack it downloads in an internal location that is not intended for local modification.  Unexpected (and hard to troubleshoot) behavior may result if the pack is modified after downloading. For more information about customizing packs, see "[AUTOTITLE](/code-security/codeql-cli/using-the-advanced-functionality-of-the-codeql-cli/creating-and-working-with-codeql-packs)."
+> The `codeql pack download` command stores the pack it downloads in an internal location that is not intended for local modification. Unexpected (and hard to troubleshoot) behavior may result if the pack is modified after downloading. For more information about customizing packs, see "[AUTOTITLE](/code-security/codeql-cli/using-the-advanced-functionality-of-the-codeql-cli/creating-and-working-with-codeql-packs)."
 
 ## About {% data variables.product.prodname_codeql %} pack compatibility
 

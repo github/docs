@@ -43,7 +43,7 @@ On the node that will function as your primary MySQL node, install your {% data 
 
 To initialize the cluster, you need a cluster configuration file (`cluster.conf`). For more information, see "[AUTOTITLE](/admin/enterprise-management/configuring-clustering/initializing-the-cluster#about-the-cluster-configuration-file)".
 
-1. From the first node that was configured, run `ghe-cluster-config-init`.  This will initialize the cluster if there are nodes in the cluster configuration file that are not configured.
+1. From the first node that was configured, run `ghe-cluster-config-init`. This will initialize the cluster if there are nodes in the cluster configuration file that are not configured.
 1. Run `ghe-cluster-config-apply`. This will validate the `cluster.conf` file, apply the configuration to each node file and bring up the configured services on each node.
 
 To check the status of a running cluster use the `ghe-cluster-status` command.

@@ -394,7 +394,7 @@ You can use Base64 encoding to store small binary blobs as secrets. You can then
    ✓ Set secret CERTIFICATE_BASE64 for octocat/octorepo
    ```
 
-1. To access the Base64 string from your runner, pipe the secret to `base64 --decode`.  For example:
+1. To access the Base64 string from your runner, pipe the secret to `base64 --decode`. For example:
 
    ```yaml
    name: Retrieve Base64 secret

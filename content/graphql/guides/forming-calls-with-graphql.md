@@ -211,7 +211,7 @@ Looking at the composition line by line:
 
   * The [docs](/graphql/reference/objects#repository) tell us this object has the type `IssueConnection`.
   * Schema validation indicates this object requires a `last` or `first` number of results as an argument, so we provide `20`.
-  * The [docs](/graphql/reference/objects#repository) also tell us this object accepts a `states` argument, which is an  [`IssueState`](/graphql/reference/enums#issuestate) enum that accepts `OPEN` or `CLOSED` values. To find only closed issues, we give the `states` key a value of `CLOSED`.
+  * The [docs](/graphql/reference/objects#repository) also tell us this object accepts a `states` argument, which is an [`IssueState`](/graphql/reference/enums#issuestate) enum that accepts `OPEN` or `CLOSED` values. To find only closed issues, we give the `states` key a value of `CLOSED`.
 
 * `edges {`
 

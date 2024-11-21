@@ -12,7 +12,7 @@ type: how_to
 
 {% data reusables.cli.about-cli %} For more information, see "[AUTOTITLE](/github-cli/github-cli/about-github-cli)."
 
-You can work with {% data variables.product.prodname_classroom %} in the  {% data variables.product.prodname_cli %} to:
+You can work with {% data variables.product.prodname_classroom %} in the {% data variables.product.prodname_cli %} to:
 
 * [List classrooms](#list-classrooms)
 * [View classroom information](#view-classroom-information)

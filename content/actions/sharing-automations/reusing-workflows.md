@@ -68,7 +68,7 @@ The following table shows the accessibility of reusable workflows to a caller wo
 
 | Caller repository | Accessible workflows repositories |
 |----|----|
-| `private` | `private`{% ifversion ghes or ghec %}, `internal`,{% endif %} and  `public` |
+| `private` | `private`{% ifversion ghes or ghec %}, `internal`,{% endif %} and `public` |
 | {% ifversion ghes or ghec %} |
 | `internal` | `internal`, and `public` |
 | {% endif %} |
