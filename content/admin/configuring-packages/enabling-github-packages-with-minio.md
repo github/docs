@@ -34,7 +34,7 @@ Ensure your MinIO external storage access key ID and secret have these permissio
 
 ## Enabling {% data variables.product.prodname_registry %} with MinIO external storage
 
-Although MinIO does not currently appear in the user interface under "Package Storage", MinIO is still  supported by {% data variables.product.prodname_registry %} on {% data variables.product.prodname_enterprise %}. Also, note that MinIO's object storage is compatible with the S3 API and you can enter MinIO's bucket details in place of AWS S3 details.
+Although MinIO does not currently appear in the user interface under "Package Storage", MinIO is still supported by {% data variables.product.prodname_registry %} on {% data variables.product.prodname_enterprise %}. Also, note that MinIO's object storage is compatible with the S3 API and you can enter MinIO's bucket details in place of AWS S3 details.
 
 {% data reusables.enterprise_site_admin_settings.access-settings %}
 {% data reusables.enterprise_site_admin_settings.management-console %}

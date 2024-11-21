@@ -1,7 +1,7 @@
 ---
 title: Configuring rate limits
 intro: 'You can set rate limits for {% data variables.product.prodname_ghe_server %} using the {% data variables.enterprise.management_console %}.'
-permissions: 'Site administrators can configure rate limits for a {% data variables.product.prodname_ghe_server %}  instance.'
+permissions: 'Site administrators can configure rate limits for a {% data variables.product.prodname_ghe_server %} instance.'
 redirect_from:
   - /enterprise/admin/installation/configuring-rate-limits
   - /enterprise/admin/configuration/configuring-rate-limits
@@ -17,7 +17,7 @@ topics:
   - Performance
 ---
 
-## About rate limits for  {% data variables.product.product_name %}
+## About rate limits for {% data variables.product.product_name %}
 
 To prevent excessive use of resources on {% data variables.location.product_location %} that could affect the instance's availability or performance for all users, you can configure rate limits. Rate limits are configurable for the {% data variables.product.prodname_enterprise_api %} and {% data variables.product.prodname_actions %}.
 

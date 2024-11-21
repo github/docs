@@ -36,7 +36,7 @@ A deploy key is an SSH key that grants access to an individual repository. Becau
 
 ## Considerations for integrations and automations
 
-{% data variables.product.prodname_dotcom %} sends the originating IP address to your IdP for validation against your CAP. To make sure  actions and apps are not blocked by your IdP's CAP, you will need to make changes to your configuration.
+{% data variables.product.prodname_dotcom %} sends the originating IP address to your IdP for validation against your CAP. To make sure actions and apps are not blocked by your IdP's CAP, you will need to make changes to your configuration.
 
 {% data reusables.enterprise-accounts.oidc-gei-warning %}
 

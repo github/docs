@@ -102,7 +102,7 @@ To configure {% data variables.product.prodname_ghe_server %} to use OIDC with a
    * For "Identity provider", use the **Choose provider** drop-down menu and select the OIDC provider you created in the previous steps. It should be named `HOSTNAME/_services/token`, where `HOSTNAME` is the public hostname for {% data variables.location.product_location_enterprise %}.
    * For "Audience", select `sts.amazonaws.com`.
 1. Click **Next**.
-1. On the "Add permissions" page, use the filter to find and select the  `AmazonS3FullAccess` policy.
+1. On the "Add permissions" page, use the filter to find and select the `AmazonS3FullAccess` policy.
 1. Click **Next**.
 1. On the "Name, review, and create" page, enter a name for the role, and click **Create role**.
 1. On the IAM "Roles" page, select the role you just created.

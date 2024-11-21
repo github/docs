@@ -41,7 +41,7 @@ You cannot search for entries using text. You can, however, construct search que
 | `Yesterday's activity` | All actions created in the past day. |
 | `Enterprise account management` | All actions in the `business` category. |
 | `Organization membership` | All actions for when a new user was invited to join an organization. |
-| `Team management` | All actions related to team management.<br/>- When a user account or repository was added or removed from a team<br/>- When a team maintainer was promoted or demoted<br/>-  When a team was deleted |
+| `Team management` | All actions related to team management.<br/>- When a user account or repository was added or removed from a team<br/>- When a team maintainer was promoted or demoted<br/>- When a team was deleted |
 | `Repository management` | All actions for repository management.<br/>- When a repository was created or deleted<br/>- When the repository visibility was changed<br/>- When a team was added or removed from a repository |
 | {% ifversion ghec %} |
 | `Billing updates` | All actions concerning how your enterprise pays for {% data variables.product.prodname_dotcom %} and for when your billing email address was changed. |
