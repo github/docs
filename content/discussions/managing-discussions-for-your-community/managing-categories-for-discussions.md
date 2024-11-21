@@ -39,7 +39,7 @@ Each category must have a unique name and emoji pairing, and can be accompanied 
 {% data reusables.discussions.edit-categories %}
 1. Click **New category**.
 
-   ![Screenshot of the "Manage discussion categories" page.  A button, labeled "New category", is highlighted with an orange outline.](/assets/images/help/discussions/click-new-category-button.png)
+   ![Screenshot of the "Manage discussion categories" page. A button, labeled "New category", is highlighted with an orange outline.](/assets/images/help/discussions/click-new-category-button.png)
 
 1. {% data reusables.discussions.edit-category-details %}
 {% ifversion discussions-category-section %}
@@ -54,7 +54,7 @@ Each category must have a unique name and emoji pairing, and can be accompanied 
 {% data reusables.discussions.discussions-tab %}
 {% data reusables.discussions.edit-categories %}
 1. Click **New section**.
-   ![Screenshot of the "Manage discussion categories" page.  A button, labeled "New section", is highlighted with an orange outline.](/assets/images/help/discussions/click-new-section-button.png)
+   ![Screenshot of the "Manage discussion categories" page. A button, labeled "New section", is highlighted with an orange outline.](/assets/images/help/discussions/click-new-section-button.png)
 1. Edit the emoji and title of the section.
 1. Select the categories that you want to add to the section. A category can only belong to one section at a time.
 1. Click **Create**.

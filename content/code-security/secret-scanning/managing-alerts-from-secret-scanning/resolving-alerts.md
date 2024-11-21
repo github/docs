@@ -66,7 +66,7 @@ You will only see the option to report a privately exposed secret to {% data var
 ## Closing alerts
 
 > [!NOTE]
->{% data variables.product.prodname_secret_scanning_caps %} doesn't automatically close alerts when the corresponding token has been removed from the repository. You must manually close these alerts in the alert list on  {% data variables.product.prodname_dotcom %}.
+>{% data variables.product.prodname_secret_scanning_caps %} doesn't automatically close alerts when the corresponding token has been removed from the repository. You must manually close these alerts in the alert list on {% data variables.product.prodname_dotcom %}.
 
 {% data reusables.repositories.navigate-to-repo %}
 {% data reusables.repositories.sidebar-security %}

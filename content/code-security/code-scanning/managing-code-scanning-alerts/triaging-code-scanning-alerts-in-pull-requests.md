@@ -90,7 +90,7 @@ You can see any {% data variables.product.prodname_code_scanning %} alerts that 
 
 You can also view all {% data variables.product.prodname_code_scanning %} alerts that are inside the diff of the changes introduced in the pull request in the **Files changed** tab.
 
-If you add a new code scanning configuration in your pull request, you will see a comment on your pull request directing you to the **Security** tab of the repository so you can view all the alerts on the pull request branch. For more information about viewing the alerts for a repository, see  "[AUTOTITLE](/code-security/code-scanning/managing-code-scanning-alerts/assessing-code-scanning-alerts-for-your-repository#viewing-the-alerts-for-a-repository)."
+If you add a new code scanning configuration in your pull request, you will see a comment on your pull request directing you to the **Security** tab of the repository so you can view all the alerts on the pull request branch. For more information about viewing the alerts for a repository, see "[AUTOTITLE](/code-security/code-scanning/managing-code-scanning-alerts/assessing-code-scanning-alerts-for-your-repository#viewing-the-alerts-for-a-repository)."
 
 If you have write permission for the repository, some annotations contain links with extra context for the alert. In the example above, from {% data variables.product.prodname_codeql %} analysis, you can click **user-provided value** to see where the untrusted data enters the data flow (this is referred to as the source). In this case you can also view the full path from the source to the code that uses the data (the sink) by clicking **Show paths**. This makes it easy to check whether the data is untrusted or if the analysis failed to recognize a data sanitization step between the source and the sink. For information about analyzing data flow using {% data variables.product.prodname_codeql %}, see "[About data flow analysis](https://codeql.github.com/docs/writing-codeql-queries/about-data-flow-analysis/)."
 
@@ -104,7 +104,7 @@ In the detailed view for an alert, some {% data variables.product.prodname_code_
 
 ## Commenting on an alert in a pull request
 
-You can comment on any {% data variables.product.prodname_code_scanning %} alert that appears in a pull request. Alerts appear as annotations in the **Conversation** tab of a pull request, as part of a  pull request review, and also are shown in the **Files changed** tab.
+You can comment on any {% data variables.product.prodname_code_scanning %} alert that appears in a pull request. Alerts appear as annotations in the **Conversation** tab of a pull request, as part of a pull request review, and also are shown in the **Files changed** tab.
 
 You can choose to require all conversations in a pull request, including those on {% data variables.product.prodname_code_scanning %} alerts, to be resolved before a pull request can be merged. For more information, see "[AUTOTITLE](/repositories/configuring-branches-and-merges-in-your-repository/managing-protected-branches/about-protected-branches#require-conversation-resolution-before-merging)."
 

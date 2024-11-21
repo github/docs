@@ -18,7 +18,7 @@ shortTitle: Commit & review changes
 
 {% ifversion repo-rules %}
 
-Repository administrators can enable rulesets for a branch to enforce specific conventions when committing. For example, a ruleset can require a commit to be signed, or for an issue number to be referenced at the start of a commit message. {% data variables.product.prodname_desktop %} will display a warning and prevent committing if a commit does not follow the rulesets.  For more information, see "[AUTOTITLE](/enterprise-cloud@latest/repositories/configuring-branches-and-merges-in-your-repository/managing-rulesets/about-rulesets)."
+Repository administrators can enable rulesets for a branch to enforce specific conventions when committing. For example, a ruleset can require a commit to be signed, or for an issue number to be referenced at the start of a commit message. {% data variables.product.prodname_desktop %} will display a warning and prevent committing if a commit does not follow the rulesets. For more information, see "[AUTOTITLE](/enterprise-cloud@latest/repositories/configuring-branches-and-merges-in-your-repository/managing-rulesets/about-rulesets)."
 
 {% endif %}
 
@@ -34,7 +34,7 @@ Repository administrators can enable rulesets for a branch to enforce specific c
 You can change the way diffs are displayed in {% data variables.product.prodname_desktop %} to suit your reviewing needs.
 
 To change how you view diffs, in the top-right corner of the diff view, click {% octicon "gear" aria-label="The Gear icon" %}.
-* To change how the entire diff is displayed, under "Diff display", select  **Unified** or **Split**. The Unified view shows changes linearly, while the Split view shows old content on the left side and new content on the right side.
+* To change how the entire diff is displayed, under "Diff display", select **Unified** or **Split**. The Unified view shows changes linearly, while the Split view shows old content on the left side and new content on the right side.
 * To hide whitespace changes so you can focus on more substantive changes, select **Hide Whitespace Changes**.
 
 ![Screenshot of the diff view of a file. A gear icon is outlined in orange and expanded to display "Whitespace" and "Diff display" settings.](/assets/images/help/desktop/diff-selection.png)

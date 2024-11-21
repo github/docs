@@ -27,7 +27,7 @@ The advisories in the {% data variables.product.prodname_advisory_database %} ar
 Anyone can suggest improvements on any global security advisory in the {% data variables.product.prodname_advisory_database %}. You can edit or add any detail, including additionally affected ecosystems, severity level or description of who is impacted. The {% data variables.product.prodname_security %} curation team will review the submitted improvements and publish them onto the {% data variables.product.prodname_advisory_database %} if accepted.
 
 {% ifversion security-advisories-credit-types %}
-If we accept and publish the improvement, the person who submitted the improvement will automatically be assigned a credit type of  "Analyst". For more information, see "[AUTOTITLE](/code-security/security-advisories/working-with-repository-security-advisories/creating-a-repository-security-advisory#about-credits-for-repository-security-advisories)."{% endif %}
+If we accept and publish the improvement, the person who submitted the improvement will automatically be assigned a credit type of "Analyst". For more information, see "[AUTOTITLE](/code-security/security-advisories/working-with-repository-security-advisories/creating-a-repository-security-advisory#about-credits-for-repository-security-advisories)."{% endif %}
 
 {% ifversion fpt or ghec %}
 Only repository owners and administrators can edit repository-level security advisories. For more information, see "[AUTOTITLE](/code-security/security-advisories/working-with-repository-security-advisories/editing-a-repository-security-advisory)."{% endif %}

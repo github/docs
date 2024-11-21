@@ -148,8 +148,8 @@ The level of risk for a repository is determined by the number and severity of a
 | Qualifier | Description |
 | -------- | -------- |
 | `code-scanning-alerts` | Display data for repositories that have exactly (`=`), more than (`>`) or fewer than (`<`) a specific number of {% data variables.product.prodname_code_scanning %} alerts. For example: `code-scanning-alerts:>100` for repositories with more than 100 alerts. |
-| `dependabot-alerts` | Display data for repositories that have a specific number (`=`), more than (`>`) or fewer than (`<`) a specific number of  {% data variables.product.prodname_dependabot_alerts %}. For example: `dependabot-alerts:<=10` for repositories with fewer than or equal to 10 alerts.|
-| `secret-scanning-alerts` | Display data for repositories that have a specific number (`=`), more than (`>`) or fewer than (`<`) a specific number of  {% data variables.secret-scanning.alerts %}. For example: `secret-scanning-alerts:=10` for repositories with exactly 10 alerts.|
+| `dependabot-alerts` | Display data for repositories that have a specific number (`=`), more than (`>`) or fewer than (`<`) a specific number of {% data variables.product.prodname_dependabot_alerts %}. For example: `dependabot-alerts:<=10` for repositories with fewer than or equal to 10 alerts.|
+| `secret-scanning-alerts` | Display data for repositories that have a specific number (`=`), more than (`>`) or fewer than (`<`) a specific number of {% data variables.secret-scanning.alerts %}. For example: `secret-scanning-alerts:=10` for repositories with exactly 10 alerts.|
 
 {% ifversion security-overview-dashboard %}
 

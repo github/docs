@@ -45,7 +45,7 @@ Other supply chain features on {% data variables.product.prodname_dotcom %} rely
 
 * Dependency review uses the dependency graph to identify dependency changes and help you understand the security impact of these changes when you review pull requests.
 * {% data variables.product.prodname_dependabot %} cross-references dependency data provided by the dependency graph with the list of advisories published in the {% data variables.product.prodname_advisory_database %}, scans your dependencies and generates {% data variables.product.prodname_dependabot_alerts %} when a potential vulnerability is detected.
-* {% data variables.product.prodname_dependabot_security_updates %} use the dependency graph and  {% data variables.product.prodname_dependabot_alerts %} to help you update dependencies with known vulnerabilities in your repository.
+* {% data variables.product.prodname_dependabot_security_updates %} use the dependency graph and {% data variables.product.prodname_dependabot_alerts %} to help you update dependencies with known vulnerabilities in your repository.
 
 {% data variables.product.prodname_dependabot_version_updates %} don't use the dependency graph and rely on the semantic versioning of dependencies instead. {% data variables.product.prodname_dependabot_version_updates %} help you keep your dependencies updated, even when they don’t have any vulnerabilities.
 

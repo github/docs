@@ -87,7 +87,7 @@ If you need to update the starter code for your assignment after students have a
 1. Click **Sync assignments**. If changes are detected, an **Assignments are out of date** button will be shown.
 1. To open pull requests in all of your students' assignment repositories, click **Assignments are out of date**.
 
-The pull requests will be titled  "{% data variables.product.prodname_classroom %}: Sync Assignment". Ask your students to merge these pull requests.
+The pull requests will be titled "{% data variables.product.prodname_classroom %}: Sync Assignment". Ask your students to merge these pull requests.
 
 ## Further reading
 

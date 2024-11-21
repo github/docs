@@ -164,7 +164,7 @@ Any valid SARIF 2.1.0 output file can be uploaded, however, {% data variables.pr
 
 ### `reportingDescriptor` object
 
-This is where you store details of the rules that are run during analysis. Information in these objects should change infrequently, typically when you update the tool. For more information,  see "[Understanding rules and results](#understanding-rules-and-results)" above.
+This is where you store details of the rules that are run during analysis. Information in these objects should change infrequently, typically when you update the tool. For more information, see "[Understanding rules and results](#understanding-rules-and-results)" above.
 
 | Name | Required | Description |
 |----|----|----|
@@ -182,7 +182,7 @@ This is where you store details of the rules that are run during analysis. Infor
 
 ### `result` object
 
-Each `result` object contains details for one alert in the codebase. Within the `results` object, you can reference the rule that detected the alert. For more information,  see "[Understanding rules and results](#understanding-rules-and-results)" above.
+Each `result` object contains details for one alert in the codebase. Within the `results` object, you can reference the rule that detected the alert. For more information, see "[Understanding rules and results](#understanding-rules-and-results)" above.
 
 {% data reusables.code-scanning.upload-sarif-alert-limit %}
 
@@ -194,7 +194,7 @@ Each `result` object contains details for one alert in the codebase. Within the 
 | `level`| {% octicon "x" aria-label="Optional" %} | The severity of the result. This level overrides the default severity defined by the rule. {% data variables.product.prodname_code_scanning_caps %} uses the level to filter results by severity on {% data variables.product.prodname_dotcom %}.
 | `message.text`| {% octicon "check" aria-label="Required" %} | A message that describes the result. {% data variables.product.prodname_code_scanning_caps %} displays the message text as the title of the result. Only the first sentence of the message will be displayed when visible space is limited.
 | `locations[]`| {% octicon "check" aria-label="Required" %} | The set of locations where the result was detected up to a maximum of 10. Only one location should be included unless the problem can only be corrected by making a change at every specified location. **Note:** At least one location is required for {% data variables.product.prodname_code_scanning %} to display a result. {% data variables.product.prodname_code_scanning_caps %} will use this property to decide which file to annotate with the result. Only the first value of this array is used. All other values are ignored.
-| `partialFingerprints`| {% octicon "check" aria-label="Required" %} | A set of strings used to track the unique identity of the result. {% data variables.product.prodname_code_scanning_caps %} uses `partialFingerprints` to accurately identify which results are the same across commits and branches. {% data variables.product.prodname_code_scanning_caps %} will attempt to use `partialFingerprints` if they exist. If you are uploading third-party SARIF files with the `upload-action`, the action will create `partialFingerprints` for you when they are not included in the SARIF file. For more information, see "[Providing data to track code scanning alerts across runs](#providing-data-to-track-code-scanning-alerts-across-runs)."  **Note:** {% data variables.product.prodname_code_scanning_caps %} only uses the `primaryLocationLineHash`.
+| `partialFingerprints`| {% octicon "check" aria-label="Required" %} | A set of strings used to track the unique identity of the result. {% data variables.product.prodname_code_scanning_caps %} uses `partialFingerprints` to accurately identify which results are the same across commits and branches. {% data variables.product.prodname_code_scanning_caps %} will attempt to use `partialFingerprints` if they exist. If you are uploading third-party SARIF files with the `upload-action`, the action will create `partialFingerprints` for you when they are not included in the SARIF file. For more information, see "[Providing data to track code scanning alerts across runs](#providing-data-to-track-code-scanning-alerts-across-runs)." **Note:** {% data variables.product.prodname_code_scanning_caps %} only uses the `primaryLocationLineHash`.
 | `codeFlows[].threadFlows[].locations[]`| {% octicon "x" aria-label="Optional" %} | An array of `location` objects for a `threadFlow` object, which describes the progress of a program through a thread of execution. A `codeFlow` object describes a pattern of code execution used to detect a result. If code flows are provided, {% data variables.product.prodname_code_scanning %} will expand code flows on {% data variables.product.prodname_dotcom %} for the relevant result. For more information, see the [`location` object](#location-object).
 | `relatedLocations[]`| {% octicon "x" aria-label="Optional" %} | A set of locations relevant to this result. {% data variables.product.prodname_code_scanning_caps %} will link to related locations when they are embedded in the result message. For more information, see the [`location` object](#location-object).
 

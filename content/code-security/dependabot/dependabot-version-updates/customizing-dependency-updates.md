@@ -77,7 +77,7 @@ updates:
 
 By default, {% data variables.product.prodname_dependabot %} raises pull requests without any reviewers or assignees.
 
-You can use `reviewers` and `assignees`  to specify reviewers and assignees for all pull requests raised for a package manager. When you specify a team, you must use the full team name, as if you were @mentioning the team (including the organization).
+You can use `reviewers` and `assignees` to specify reviewers and assignees for all pull requests raised for a package manager. When you specify a team, you must use the full team name, as if you were @mentioning the team (including the organization).
 
 The example `dependabot.yml` file below changes the npm configuration so that all pull requests opened with version and security updates for npm will have two reviewers and one assignee.
 
