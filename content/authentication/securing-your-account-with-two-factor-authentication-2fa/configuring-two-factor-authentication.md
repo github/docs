@@ -74,6 +74,7 @@ A time-based one-time password (TOTP) application automatically generates an aut
 If you're unable to configure a TOTP app, you can also register your phone number to receive SMS messages.
 
 {% data reusables.two_fa.sms-warning %}
+{% data reusables.two_fa.sms-cap-note %}
 
 {% data reusables.user-settings.access_settings %}
 {% data reusables.user-settings.security %}
