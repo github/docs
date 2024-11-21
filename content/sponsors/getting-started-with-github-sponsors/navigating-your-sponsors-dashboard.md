@@ -61,13 +61,13 @@ You can also choose to attribute your paid sponsorships to another account by li
 
 {% data reusables.organizations.sponsors-dashboard %}
 {% data reusables.organizations.navigate-to-sponsoring %}
-1. From the left sidebar, click **{% octicon "gear" aria-label="The Gear icon" %} Settings**.
+1. From the left sidebar, click **{% octicon "gear" aria-hidden="true" %} Settings**.
 1. Under "Sponsorship log", click **log**.
 
 ### Link your sponsorships to another account
 
 {% data reusables.organizations.sponsors-dashboard %}
 {% data reusables.organizations.navigate-to-sponsoring %}
-1. From the left sidebar, click **{% octicon "gear" aria-label="The Gear icon" %} Settings**.
+1. From the left sidebar, click **{% octicon "gear" aria-hidden="true" %} Settings**.
 1. Select the **Linked account** dropdown and click the account to use.
 1. Click **Link account** to confirm your selection.

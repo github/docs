@@ -47,7 +47,7 @@ You can put a maximum of 2,500 cards into each project column. If a column has r
 
 ## Adding issues and pull requests to a {% data variables.projects.projects_v1_board %} from the sidebar
 
-1. On the right side of an issue or pull request, click **Projects {% octicon "gear" aria-label="The Gear icon" %}**.
+1. On the right side of an issue or pull request, click **Projects {% octicon "gear" aria-hidden="true" %}**.
 
    ![Screenshot showing an issue's sidebar. The "Projects" section header is highlighted with an orange outline.](/assets/images/help/projects-v2/issue-sidebar-projects.png)
 

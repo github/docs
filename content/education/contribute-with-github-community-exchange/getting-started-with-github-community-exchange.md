@@ -36,7 +36,7 @@ To star a repository: Go to your {% data variables.product.prodname_community_ex
 
 The {% data variables.product.prodname_community_exchange %} community moderates repository submissions. You can report abusive repositories, spammy, or disruptive content at any time.
 
-To report an abusive repository: Go to your {% data variables.product.prodname_community_exchange %} home page, find the repository you want to report, click the {% octicon "kebab-horizontal" aria-label="The edit icon" %} drop-down right by its name, then click **{% octicon "report" aria-label="The report symbol" %} Report abuse**.
+To report an abusive repository: Go to your {% data variables.product.prodname_community_exchange %} home page, find the repository you want to report, click the {% octicon "kebab-horizontal" aria-label="The edit icon" %} drop-down right by its name, then click **{% octicon "report" aria-hidden="true" %} Report abuse**.
 
 ## Further reading
 

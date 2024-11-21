@@ -30,11 +30,11 @@ You can specify custom patterns for {% data variables.product.prodname_secret_sc
 
 {% data variables.product.prodname_secret_scanning_caps %} uses the [Hyperscan library](https://github.com/intel/hyperscan) and only supports Hyperscan regex constructs, which are a subset of PCRE syntax. Hyperscan option modifiers are not supported.  For more information on Hyperscan pattern constructs, see "[Pattern support](http://intel.github.io/hyperscan/dev-reference/compilation.html#pattern-support)" in the Hyperscan documentation.
 
-{% ifversion secret-scanning-custom-pattern-ai-generated %}Regular expressions can be entered manually or generated using the regular expression generator.
+{% ifversion secret-scanning-custom-pattern-ai-generated %}Regular expressions can be entered manually or generated using {% data variables.secret-scanning.copilot-secret-scanning %}'s {% data variables.secret-scanning.custom-pattern-regular-expression-generator %}.
 
 ### Regular expression syntax for manually defining custom patterns {% endif %}
 
-The **More options {% octicon "chevron-down" aria-label="down" %}** section in the UI helps you write regular expressions manually.
+The **More options {% octicon "chevron-down" aria-hidden="true" %}** section in the UI helps you write regular expressions manually.
 
 * **Secret format:** an expression that describes the format of the secret itself.
 * **Before secret:** an expression that describes the characters that come before the secret. By default, this is set to `\A|[^0-9A-Za-z]` which means that the secret must be at the start of a line or be preceded by a non-alphanumeric character.
@@ -45,9 +45,9 @@ For simple tokens you will usually only need to specify a secret format. The oth
 
 {% ifversion secret-scanning-custom-pattern-ai-generated %}
 
-### Using the regular expression generator
+### Using {% data variables.secret-scanning.copilot-secret-scanning %}'s {% data variables.secret-scanning.custom-pattern-regular-expression-generator %}
 
-{% data reusables.secret-scanning.regular-expression-generator-overview %} For more information, see "[AUTOTITLE](/code-security/secret-scanning/copilot-secret-scanning/responsible-use-ai-regex-generator)" and "[AUTOTITLE](/code-security/secret-scanning/copilot-secret-scanning/generating-regular-expressions-for-custom-patterns-with-ai)."
+{% data reusables.secret-scanning.regular-expression-generator-overview %} For more information, see "[AUTOTITLE](/code-security/secret-scanning/copilot-secret-scanning/responsible-ai-regex-generator)" and "[AUTOTITLE](/code-security/secret-scanning/copilot-secret-scanning/generating-regular-expressions-for-custom-patterns-with-copilot-secret-scanning)."
 
 {% endif %}
 
