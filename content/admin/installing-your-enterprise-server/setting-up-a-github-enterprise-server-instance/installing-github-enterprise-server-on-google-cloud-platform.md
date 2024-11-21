@@ -42,7 +42,7 @@ Before launching {% data variables.location.product_location %} on Google Cloud 
    gcloud compute images list --project github-enterprise-public --no-standard-images
    ```
 
-1. Take note of the image name for the latest GCE image of  {% data variables.product.prodname_ghe_server %}.
+1. Take note of the image name for the latest GCE image of {% data variables.product.prodname_ghe_server %}.
 
 ## Configuring the firewall
 

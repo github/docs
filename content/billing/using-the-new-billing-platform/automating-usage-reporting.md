@@ -117,8 +117,8 @@ Example of the new response
 | Previous property	| Calculate from new API response |
 |------	|-----------	|
 | `days_left_in_billing_cycle` | Not available. This information can be inferred by subtracting the current day of the month from the number of days in the current month. |
-| `estimated_paid_storage_for_month`| This is now represented as a $ amount via `netAmount`. <br><br> Prerequisite: pass the `month` and `year` query parameters. <br><br>  <i> For Actions storage </i> <ul><li> Filter results by `"product": "Actions"` and  `"unitType": "GigabyteHours"`</li><li> Sum `netAmount`</li></ul>  <i> For Packages storage </i> <ul><li> Filter results by `"product": "Packages"` and  `"unitType": "GigabyteHours"`</li><li> Sum `netAmount`</li></ul>|
-| `estimated_storage_for_month` | Prerequisite: pass the `month` and `year` query parameters.  <br><br>  <i> For Actions storage </i> <ul><li> Filter results by `"product": "Actions"` and  `"unitType": "GigabyteHours"`</li><li> Sum `quantity`</li></ul>  <i> For Packages storage </i> <ul><li> Filter results by `"product": "Packages"` and  `"unitType": "GigabyteHours"`</li><li> Sum `quantity`</li></ul>|
+| `estimated_paid_storage_for_month`| This is now represented as a $ amount via `netAmount`. <br><br> Prerequisite: pass the `month` and `year` query parameters. <br><br>  <i> For Actions storage </i> <ul><li> Filter results by `"product": "Actions"` and `"unitType": "GigabyteHours"`</li><li> Sum `netAmount`</li></ul>  <i> For Packages storage </i> <ul><li> Filter results by `"product": "Packages"` and `"unitType": "GigabyteHours"`</li><li> Sum `netAmount`</li></ul>|
+| `estimated_storage_for_month` | Prerequisite: pass the `month` and `year` query parameters.  <br><br>  <i> For Actions storage </i> <ul><li> Filter results by `"product": "Actions"` and `"unitType": "GigabyteHours"`</li><li> Sum `quantity`</li></ul>  <i> For Packages storage </i> <ul><li> Filter results by `"product": "Packages"` and `"unitType": "GigabyteHours"`</li><li> Sum `quantity`</li></ul>|
 
 {% endrowheaders %}
 

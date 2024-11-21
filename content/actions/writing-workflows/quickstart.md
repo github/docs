@@ -19,7 +19,7 @@ shortTitle: Quickstart
 
 ## Introduction
 
-{% data reusables.actions.about-actions %}  You can create workflows that run tests whenever you push a change to your repository, or that deploy merged pull requests to production.
+{% data reusables.actions.about-actions %} You can create workflows that run tests whenever you push a change to your repository, or that deploy merged pull requests to production.
 
 This quickstart guide shows you how to use the user interface of {% data variables.product.github %} to add a workflow that demonstrates some of the essential features of {% data variables.product.prodname_actions %}.
 

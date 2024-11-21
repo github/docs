@@ -56,7 +56,7 @@ base64 --decode ENCODED_OUTPUT
 
 When a user signs into {% data variables.location.product_location %} for the first time with SAML authentication, {% data variables.product.product_name %} creates a user account on the instance and maps the SAML `NameID` and `nameid-format` to the account.
 
-When the user signs in again, {% data variables.product.prodname_ghe_server %} compares the account's `NameID` and `nameid-format` mapping to the IdP's response. If the `NameID`  or `nameid-format` in the IdP's response no longer matches the values that {% data variables.product.product_name %} expects for the user, the sign-in will fail. The user will see the following message.
+When the user signs in again, {% data variables.product.prodname_ghe_server %} compares the account's `NameID` and `nameid-format` mapping to the IdP's response. If the `NameID` or `nameid-format` in the IdP's response no longer matches the values that {% data variables.product.product_name %} expects for the user, the sign-in will fail. The user will see the following message.
 
 > Another user already owns the account. Please have your administrator check the authentication log.
 

@@ -36,14 +36,14 @@ You can use the former primary appliance as the new replica appliance if the fai
 1. On the former primary appliance, run `ghe-repl-setup` with the IP address of the former replica.
 
    ```shell
-   ghe-repl-setup  FORMER_REPLICA_IP
+   ghe-repl-setup FORMER_REPLICA_IP
    ```
 
 {% data reusables.enterprise_installation.add-ssh-key-to-primary %}
 1. To verify the connection to the new primary and enable replica mode for the new replica, run `ghe-repl-setup` again.
 
    ```shell
-   ghe-repl-setup  FORMER_REPLICA_IP
+   ghe-repl-setup FORMER_REPLICA_IP
    ```
 
 {% data reusables.enterprise_installation.replication-command %}

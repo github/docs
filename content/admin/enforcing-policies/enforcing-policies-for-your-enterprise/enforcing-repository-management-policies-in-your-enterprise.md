@@ -172,7 +172,7 @@ For more information about using deploy keys, see "[AUTOTITLE](/authentication/c
 
 Across all organizations owned by your enterprise, you can allow members with admin access to change a repository's visibility, restrict repository visibility changes to organization owners, or allow owners to administer the setting on the organization level. When you prevent members from changing repository visibility, only enterprise owners can change the visibility of a repository.
 
-If an enterprise owner has restricted repository creation to organization owners only, then members will not be able to change repository visibility.  For more information, see "[Enforcing a policy for repository creation](#enforcing-a-policy-for-repository-creation)."
+If an enterprise owner has restricted repository creation to organization owners only, then members will not be able to change repository visibility. For more information, see "[Enforcing a policy for repository creation](#enforcing-a-policy-for-repository-creation)."
 
 {% data reusables.enterprise-accounts.access-enterprise %}
 {% data reusables.enterprise-accounts.policies-tab %}

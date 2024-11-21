@@ -17,7 +17,7 @@ shortTitle: Pre-receive hook environments
 ---
 A pre-receive environment for {% data variables.product.prodname_ghe_server %} is a Linux [`chroot`](https://en.wikipedia.org/wiki/Chroot) environment. Because pre-receive hooks execute on every push event, they should be fast and lightweight. The environment needed for such checks will typically be minimal.
 
-{% data variables.product.prodname_ghe_server %} provides a default environment which includes these packages: `awk`,  `bash`, `coreutils`, `curl`, `find`, `gnupg`, `grep`, `jq`, `sed`.
+{% data variables.product.prodname_ghe_server %} provides a default environment which includes these packages: `awk`, `bash`, `coreutils`, `curl`, `find`, `gnupg`, `grep`, `jq`, `sed`.
 
 If you have a specific requirement that isn't met by this environment, such as support for a particular language, you can create and upload your own 64-bit Linux `chroot` environment.
 

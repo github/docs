@@ -39,7 +39,7 @@ You may also find it helpful to have a basic understanding of the following:
 
 ## About package configuration
 
-The `groupId` and `artifactId` fields in the _pom.xml_ file create a unique identifier for your package that registries use to link your package to a registry.  For more information see [Guide to uploading artifacts to the Central Repository](https://maven.apache.org/repository/guide-central-repository-upload.html) in the Apache Maven documentation.
+The `groupId` and `artifactId` fields in the _pom.xml_ file create a unique identifier for your package that registries use to link your package to a registry. For more information see [Guide to uploading artifacts to the Central Repository](https://maven.apache.org/repository/guide-central-repository-upload.html) in the Apache Maven documentation.
 
 The _pom.xml_ file also contains configuration for the distribution management repositories that Maven will deploy packages to. Each repository must have a name and a deployment URL. Authentication for these repositories can be configured in the _.m2/settings.xml_ file in the home directory of the user running Maven.
 
@@ -72,7 +72,7 @@ For example, if you were deploying to the Maven Central Repository through the O
 
 With this configuration, you can create a workflow that publishes your package to the Maven Central Repository by specifying the repository management `id` to the `setup-java` action. You’ll also need to provide environment variables that contain the username and password to authenticate to the repository.
 
-In the deploy step, you’ll need to set the environment variables to the username that you authenticate with to the repository, and to a secret that you’ve configured with the password or token to authenticate with.  For more information, see "[AUTOTITLE](/actions/security-guides/using-secrets-in-github-actions)."
+In the deploy step, you’ll need to set the environment variables to the username that you authenticate with to the repository, and to a secret that you’ve configured with the password or token to authenticate with. For more information, see "[AUTOTITLE](/actions/security-guides/using-secrets-in-github-actions)."
 
 ```yaml copy
 name: Publish package to the Maven Central Repository
@@ -212,7 +212,7 @@ jobs:
           GITHUB_TOKEN: {% raw %}${{ secrets.GITHUB_TOKEN }}{% endraw %}
 ```
 
-This workflow calls the `setup-java` action twice.  Each time the `setup-java` action runs, it overwrites the Maven _settings.xml_ file for publishing packages.  For authentication to the repository, the _settings.xml_ file references the distribution management repository `id`, and the username and password.
+This workflow calls the `setup-java` action twice. Each time the `setup-java` action runs, it overwrites the Maven _settings.xml_ file for publishing packages. For authentication to the repository, the _settings.xml_ file references the distribution management repository `id`, and the username and password.
 
 This workflow performs the following steps:
 

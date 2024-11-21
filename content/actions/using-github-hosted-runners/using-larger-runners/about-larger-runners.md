@@ -50,8 +50,8 @@ Compared to standard {% data variables.product.prodname_dotcom %}-hosted runners
 
 These features can enhance your CI/CD pipelines in the following ways.
 
-* Assigning {% data variables.actions.hosted_runners %}  static IP addresses from a specific range enables you to use this range to configure a firewall allowlist. For more information, see "[Networking for {% data variables.actions.hosted_runners %}](#networking-for-larger-runners)."
-* Autoscaling enables {% data variables.actions.hosted_runners %}  to scale up to a maximum limit set by you, so your workflows can run concurrently. For more information, see "[Autoscaling {% data variables.actions.hosted_runners %}](#autoscaling-larger-runners)."
+* Assigning {% data variables.actions.hosted_runners %} static IP addresses from a specific range enables you to use this range to configure a firewall allowlist. For more information, see "[Networking for {% data variables.actions.hosted_runners %}](#networking-for-larger-runners)."
+* Autoscaling enables {% data variables.actions.hosted_runners %} to scale up to a maximum limit set by you, so your workflows can run concurrently. For more information, see "[Autoscaling {% data variables.actions.hosted_runners %}](#autoscaling-larger-runners)."
 * Runner groups allow you to control access to {% data variables.actions.hosted_runners %} for your organizations, repositories, and workflows. For more information, see "[AUTOTITLE](/actions/using-github-hosted-runners/controlling-access-to-larger-runners)."
 
 ### Runner images

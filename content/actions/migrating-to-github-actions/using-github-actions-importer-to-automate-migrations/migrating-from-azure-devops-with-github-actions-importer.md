@@ -344,7 +344,7 @@ composite_actions:
 You can use this file to specify which repository and ref a reusable workflow or composite action should be added to. You can then use the `--config-file-path` argument to provide the `config.yml` file to {% data variables.product.prodname_actions_importer %}. For example, you can use this file when running a `migrate` command to open a pull request for each unique repository defined in the config file:
 
 ```shell
-gh actions-importer migrate azure-devops pipeline  --config-file-path config.yml --target-url https://github.com/my-org/my-repo
+gh actions-importer migrate azure-devops pipeline --config-file-path config.yml --target-url https://github.com/my-org/my-repo
 ```
 
 ### Supported syntax for Azure DevOps pipelines

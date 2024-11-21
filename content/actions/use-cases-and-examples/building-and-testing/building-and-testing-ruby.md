@@ -108,7 +108,7 @@ steps:
 - run: bundle exec rake
 ```
 
-Alternatively, you can check a `.ruby-version` file  into the root of your repository and `setup-ruby` will use the version defined in that file.
+Alternatively, you can check a `.ruby-version` file into the root of your repository and `setup-ruby` will use the version defined in that file.
 
 ## Testing with multiple versions of Ruby
 
