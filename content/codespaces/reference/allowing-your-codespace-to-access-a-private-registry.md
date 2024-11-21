@@ -92,7 +92,7 @@ Once you've added the secrets, you may need to stop and then start the codespace
 
 #### Accessing AWS Elastic Container Registry
 
-To access AWS Elastic Container Registry (ECR),  you can provide an AWS access key ID and secret key, and {% data variables.product.prodname_dotcom %}  can retrieve an access token for you and log in on your behalf.
+To access AWS Elastic Container Registry (ECR), you can provide an AWS access key ID and secret key, and {% data variables.product.prodname_dotcom %} can retrieve an access token for you and log in on your behalf.
 
 ```shell
 *_CONTAINER_REGISTRY_SERVER = <ECR_URL>

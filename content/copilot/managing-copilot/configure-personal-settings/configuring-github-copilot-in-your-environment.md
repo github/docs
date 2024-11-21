@@ -426,7 +426,7 @@ You can use the default keyboard shortcuts for inline suggestions in Xcode when 
 
 If you don't want to use the default keyboard shortcuts for {% data variables.product.prodname_copilot %}, you can rebind the shortcuts in the Key Bindings editor and use your preferred keyboard shortcuts.
 
-If you want to use something besides <kbd>Tab</kbd> to accept the first line of a suggestion, you need to disable the "Accept suggestions with Tab" option in the advanced settings in the  {% data variables.product.prodname_copilot %} for Xcode application. Additionally, we currently only support the <kbd>Option</kbd> key for the "View full suggestion" action.
+If you want to use something besides <kbd>Tab</kbd> to accept the first line of a suggestion, you need to disable the "Accept suggestions with Tab" option in the advanced settings in the {% data variables.product.prodname_copilot %} for Xcode application. Additionally, we currently only support the <kbd>Option</kbd> key for the "View full suggestion" action.
 
 1. In the Xcode menu bar, click **Settings**.
 1. Click **Key Bindings** and search for "{% data variables.product.prodname_copilot_short %}" to find the commands you want to rebind.

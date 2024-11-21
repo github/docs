@@ -149,9 +149,9 @@ You must be using Moodle version 3.0 or greater.
    * "LTI 1.3 Platform Issuer": The "LTI 1.3 Platform Issuer" field as provided by Sakai
    * "Domain": The base URL to your Sakai instance
    * "LTI 1.3 Client ID": The "LTI 1.3 Client ID" field as provided by Sakai
-   * "LTI 1.3 Platform OIDC Authentication URL":  The "LTI 1.3 Platform OIDC Authentication URL" field as provided by Sakai
+   * "LTI 1.3 Platform OIDC Authentication URL": The "LTI 1.3 Platform OIDC Authentication URL" field as provided by Sakai
    * "LTI 1.3 Platform OAuth2 Bearer Token Retrieval URL": The "LTI 1.3 Platform OAuth2 Bearer Token Retrieval URL" field as provided by Sakai
    * "LTI 1.3 Platform OAuth2 Well-Known/KeySet URL": The "LTI 1.3 Platform OAuth2 Well-Known/KeySet URL" field as provided by Sakai
 
 1. Click **Register**.
-1. You should see the "Successfully registered LMS" banner at the top of the screen, which means that you've  registered your LMS instance and teachers can now link their classrooms.
+1. You should see the "Successfully registered LMS" banner at the top of the screen, which means that you've registered your LMS instance and teachers can now link their classrooms.

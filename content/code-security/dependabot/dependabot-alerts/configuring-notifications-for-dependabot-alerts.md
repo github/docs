@@ -1,7 +1,7 @@
 ---
 title: Configuring notifications for Dependabot alerts
 shortTitle: Configure notifications
-intro: 'Optimize how you receive notifications about  {% data variables.product.prodname_dependabot_alerts %}.'
+intro: 'Optimize how you receive notifications about {% data variables.product.prodname_dependabot_alerts %}.'
 redirect_from:
   - /github/managing-security-vulnerabilities/configuring-notifications-for-vulnerable-dependencies
   - /code-security/supply-chain-security/configuring-notifications-for-vulnerable-dependencies
@@ -52,7 +52,7 @@ You can configure notification settings for yourself or your organization from t
 ![Screenshot of the notification options for {% data variables.product.prodname_dependabot_alerts %}.](/assets/images/help/enterprises/dependabot-alerts-options-no-ui.png){% endif %}
 
 > [!NOTE]
-> You can filter your notifications on {% data variables.product.company_short %} to show  {% data variables.product.prodname_dependabot_alerts %}. For more information, see "[AUTOTITLE](/account-and-profile/managing-subscriptions-and-notifications-on-github/viewing-and-triaging-notifications/managing-notifications-from-your-inbox#dependabot-custom-filters)."
+> You can filter your notifications on {% data variables.product.company_short %} to show {% data variables.product.prodname_dependabot_alerts %}. For more information, see "[AUTOTITLE](/account-and-profile/managing-subscriptions-and-notifications-on-github/viewing-and-triaging-notifications/managing-notifications-from-your-inbox#dependabot-custom-filters)."
 
 {% data reusables.repositories.security-alerts-x-github-severity %} For more information, see "[AUTOTITLE](/account-and-profile/managing-subscriptions-and-notifications-on-github/setting-up-notifications/configuring-notifications#filtering-email-notifications)."
 

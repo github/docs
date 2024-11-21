@@ -46,7 +46,7 @@ Alternatively, you can write your own action to submit dependencies for your pro
 ### Generating a software bill of materials (SBOM)
 
 To generate an SBOM, you can use:
-* The **{% data variables.product.prodname_dotcom %} UI**.  For more information about how to export an SBOM for a repository using information from the dependency graph, see "[AUTOTITLE](/code-security/supply-chain-security/understanding-your-software-supply-chain/exporting-a-software-bill-of-materials-for-your-repository)."
+* The **{% data variables.product.prodname_dotcom %} UI**. For more information about how to export an SBOM for a repository using information from the dependency graph, see "[AUTOTITLE](/code-security/supply-chain-security/understanding-your-software-supply-chain/exporting-a-software-bill-of-materials-for-your-repository)."
 * The **REST API**. For more information, see "[AUTOTITLE](/rest/dependency-graph/sboms)."
 * **{% data variables.product.prodname_actions %}**. The following actions will generate an SBOM for your repository and attach it as a workflow artifact which you can download and use in other applications. For more information about downloading workflow artifacts, see "[AUTOTITLE](/actions/managing-workflow-runs/downloading-workflow-artifacts)."
 

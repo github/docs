@@ -116,7 +116,7 @@ If you want to use Git hooks for your codespace, then you should set up hooks us
 
 The names of user-defined secrets may be displayed on the advanced options page when you create a codespace. This will happen if recommended secrets have been specified in the dev container configuration you have selected. For more information, see "[AUTOTITLE](/codespaces/setting-up-your-project-for-codespaces/configuring-dev-containers/specifying-recommended-secrets-for-a-repository)."
 
-<img src="/assets/images/help/codespaces/recommended-secrets.png" style="max-height:50rem"  alt='Screenshot of the "Create codespace" page with four recommended secrets highlighted with a dark orange outline.' />
+<img src="/assets/images/help/codespaces/recommended-secrets.png" style="max-height:50rem" alt='Screenshot of the "Create codespace" page with four recommended secrets highlighted with a dark orange outline.' />
 
 Entering values for these development environment secrets, when you're prompted to do so, is recommended because it's likely your project will need values for these secrets. However, supplying values is not required for you to create a codespace. You can set these secrets within the codespace if you prefer.
 

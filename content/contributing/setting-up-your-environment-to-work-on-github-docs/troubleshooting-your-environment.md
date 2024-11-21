@@ -22,7 +22,7 @@ git commit --allow-empty -m 'empty commit to redeploy staging'
 git push
 ```
 
-## Troubleshooting stalled or stuck  CI
+## Troubleshooting stalled or stuck CI
 
 If your tests are stuck on "In progress" or "Pending" for more than an hour, use the commands below to rerun CI by pushing an empty commit on the command line.
 

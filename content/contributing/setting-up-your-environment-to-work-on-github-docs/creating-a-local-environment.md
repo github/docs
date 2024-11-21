@@ -65,7 +65,7 @@ The [`src/bookmarklets`](https://github.com/github/docs/tree/main/src/bookmarkle
 
 ### Enabling different languages
 
-By default, the local server does not run with all supported languages enabled.  If you need to run a local server with a particular language, you can temporarily edit the `start` script in `package.json` and update the `ENABLED_LANGUAGES` variable.
+By default, the local server does not run with all supported languages enabled. If you need to run a local server with a particular language, you can temporarily edit the `start` script in `package.json` and update the `ENABLED_LANGUAGES` variable.
 
 For example, to enable Japanese and Portuguese in addition to English, you can edit `package.json` and set `ENABLED_LANGUAGES='en,ja,pt'` in the `start` script. Then restart the server for the change to take effect.
 
