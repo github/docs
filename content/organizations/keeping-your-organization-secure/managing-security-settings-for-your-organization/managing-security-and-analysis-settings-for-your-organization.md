@@ -97,7 +97,7 @@ If your code depends on packages in a private{% ifversion ghec or ghes %} or int
 {% ifversion ghec %}
 
 > [!NOTE]
-> For the option to grant  {% data variables.product.prodname_dependabot %} access to private or internal repositories to be available, you need {% data variables.product.prodname_dependabot_version_updates %} or {% data variables.product.prodname_dependabot_security_updates %} to be enabled on at least one repository within the organization.
+> For the option to grant {% data variables.product.prodname_dependabot %} access to private or internal repositories to be available, you need {% data variables.product.prodname_dependabot_version_updates %} or {% data variables.product.prodname_dependabot_security_updates %} to be enabled on at least one repository within the organization.
 
 {% endif %}
 

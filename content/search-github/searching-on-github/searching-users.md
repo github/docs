@@ -23,7 +23,7 @@ By default, searching users will return both personal and organizations. However
 | Qualifier        | Example
 | ------------- | -------------
 | `type:user` | [**mike in:name created:&lt;2011-01-01 type:user**](https://github.com/search?q=mike+in:name+created%3A%3C2011-01-01+type%3Auser&type=Users) matches personal accounts named "mike" that were created before 2011.
-| `type:org` | [**data in:email type:org**](https://github.com/search?q=data+in%3Aemail+type%3Aorg&type=Users) matches organizations  with the word "data" in their email.
+| `type:org` | [**data in:email type:org**](https://github.com/search?q=data+in%3Aemail+type%3Aorg&type=Users) matches organizations with the word "data" in their email.
 
 ## Search by account name, full name, or public email
 

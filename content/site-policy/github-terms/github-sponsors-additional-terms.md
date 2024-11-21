@@ -286,7 +286,7 @@ The terms and conditions of this Agreement are the Confidential Information of b
 
 ## B. Publicity.
 
-GitHub may issue press releases, blog posts, social media posts, and/or other public communication related to Sponsor’s (with Sponsor’s permission) or Sponsored Developer’s participation in the Program.  Other than as necessary for such use, GitHub shall acquire no rights to use or refer to, or interest in, such Sponsor’s logo, name or names under this Agreement.
+GitHub may issue press releases, blog posts, social media posts, and/or other public communication related to Sponsor’s (with Sponsor’s permission) or Sponsored Developer’s participation in the Program. Other than as necessary for such use, GitHub shall acquire no rights to use or refer to, or interest in, such Sponsor’s logo, name or names under this Agreement.
 
 ## C. Notices.
 

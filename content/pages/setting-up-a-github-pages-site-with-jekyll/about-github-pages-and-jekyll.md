@@ -97,7 +97,7 @@ You can download or create Jekyll plugins to extend the functionality of Jekyll 
 
 You can enable additional plugins by adding the plugin's gem to the `plugins` setting in your `_config.yml` file. For more information, see "[Configuration](https://jekyllrb.com/docs/configuration/)" in the Jekyll documentation.
 
-For a list of supported plugins, see "[Dependency versions](https://pages.github.com/versions/)" on the {% data variables.product.prodname_pages %} site.  For usage information for a specific plugin, see the plugin's documentation.
+For a list of supported plugins, see "[Dependency versions](https://pages.github.com/versions/)" on the {% data variables.product.prodname_pages %} site. For usage information for a specific plugin, see the plugin's documentation.
 
 > [!TIP]
 > You can make sure you're using the latest version of all plugins by keeping the {% data variables.product.prodname_pages %} gem updated. For more information, see "[AUTOTITLE](/pages/setting-up-a-github-pages-site-with-jekyll/testing-your-github-pages-site-locally-with-jekyll#updating-the-github-pages-gem)" and "[Dependency versions](https://pages.github.com/versions/)" on the {% data variables.product.prodname_pages %} site.

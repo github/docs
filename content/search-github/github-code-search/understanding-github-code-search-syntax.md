@@ -11,7 +11,7 @@ topics:
 
 ## About code search query structure
 
-The search syntax in this article only applies to searching code with {% data variables.product.prodname_dotcom %}  code search. {% data reusables.search.non-code-search-explanation %}
+The search syntax in this article only applies to searching code with {% data variables.product.prodname_dotcom %} code search. {% data reusables.search.non-code-search-explanation %}
 
 Search queries consist of search terms, comprising text you want to search for, and qualifiers, which narrow down the search.
 

@@ -7,7 +7,7 @@ versions:
   fpt: '*'
   ghes: '*'
   ghec: '*'
-permissions:  Organization owners{% ifversion custom-org-roles %} and users with the "Manage organization Actions policies" and "Manage runners and runner groups" fine-grained permissions{% endif %} can enable, disable, and limit {% data variables.product.prodname_actions %} for an organization. {% ifversion custom-org-roles %}<br><br>For more information, see "[AUTOTITLE](/organizations/managing-peoples-access-to-your-organization-with-roles/about-custom-organization-roles)."{% endif %}
+permissions: Organization owners{% ifversion custom-org-roles %} and users with the "Manage organization Actions policies" and "Manage runners and runner groups" fine-grained permissions{% endif %} can enable, disable, and limit {% data variables.product.prodname_actions %} for an organization. {% ifversion custom-org-roles %}<br><br>For more information, see "[AUTOTITLE](/organizations/managing-peoples-access-to-your-organization-with-roles/about-custom-organization-roles)."{% endif %}
 topics:
   - Organizations
   - Teams

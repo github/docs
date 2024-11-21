@@ -126,7 +126,7 @@ You can temporarily disable your rulesets during your migration, or you can use 
 
 ### `Your push would publish a private email address` error
 
-If you receive a `Git source migration failed` error with `GH007: Your push would publish a private email address`,  the Git source you're trying to migrate includes commits authored by an email address that you have blocked from being pushed to {% data variables.product.prodname_dotcom %}. For more information, see "[AUTOTITLE]({% ifversion not fpt or ghec %}/enterprise-cloud@latest{% endif %}/account-and-profile/setting-up-and-managing-your-personal-account-on-github/managing-email-preferences/blocking-command-line-pushes-that-expose-your-personal-email-address){% ifversion fpt or ghec %}."{% else %}" in the  {% data variables.product.prodname_ghe_cloud %} documentation.{% endif %}
+If you receive a `Git source migration failed` error with `GH007: Your push would publish a private email address`, the Git source you're trying to migrate includes commits authored by an email address that you have blocked from being pushed to {% data variables.product.prodname_dotcom %}. For more information, see "[AUTOTITLE]({% ifversion not fpt or ghec %}/enterprise-cloud@latest{% endif %}/account-and-profile/setting-up-and-managing-your-personal-account-on-github/managing-email-preferences/blocking-command-line-pushes-that-expose-your-personal-email-address){% ifversion fpt or ghec %}."{% else %}" in the {% data variables.product.prodname_ghe_cloud %} documentation.{% endif %}
 
 To resolve this error, you can either rewrite the Git history to remove the email address, or you can disable the "Block command line pushes that expose my email" setting.
 

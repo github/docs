@@ -28,7 +28,7 @@ For more information on merging a pull request using a merge queue, see "[AUTOTI
 
 ### Triggering merge group checks with {% data variables.product.prodname_actions %}
 
-You **must** use the `merge_group` event to trigger your {% data variables.product.prodname_actions %}  workflow when a pull request is added to a merge queue.
+You **must** use the `merge_group` event to trigger your {% data variables.product.prodname_actions %} workflow when a pull request is added to a merge queue.
 
 > [!NOTE]
 > {% data reusables.actions.merge-group-event-with-required-checks %}

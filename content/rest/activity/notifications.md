@@ -22,9 +22,9 @@ You can use the REST API to manage {% data variables.product.product_name %} not
 
 All calls to these endpoints require the `notifications` or `repo` scopes. You will need the `repo` scope to access issues and commits from their respective endpoints.
 
-Notifications are returned as "threads".  A thread contains information about the current discussion of an issue, pull request, or commit.
+Notifications are returned as "threads". A thread contains information about the current discussion of an issue, pull request, or commit.
 
-Notifications are optimized for polling with the `Last-Modified` header.  If there are no new notifications, you will see a `304 Not Modified` response, leaving your current rate limit untouched.  There is an `X-Poll-Interval` header that specifies how often (in seconds) you are allowed to poll.  In times of high server load, the time may increase.  Please obey the header.
+Notifications are optimized for polling with the `Last-Modified` header. If there are no new notifications, you will see a `304 Not Modified` response, leaving your current rate limit untouched. There is an `X-Poll-Interval` header that specifies how often (in seconds) you are allowed to poll. In times of high server load, the time may increase. Please obey the header.
 
 ``` shell
 # Add authentication to your requests
@@ -66,6 +66,6 @@ Reason Name | Description
 
 Note that the `reason` is modified on a per-thread basis, and can change, if the `reason` on a later notification is different.
 
-For example, if you are the author of an issue, subsequent notifications on that issue will have a `reason` of `author`. If you're then  **@mentioned** on the same issue, the notifications you fetch thereafter will have a `reason` of `mention`. The `reason` remains as `mention`, regardless of whether you're ever mentioned again.
+For example, if you are the author of an issue, subsequent notifications on that issue will have a `reason` of `author`. If you're then **@mentioned** on the same issue, the notifications you fetch thereafter will have a `reason` of `mention`. The `reason` remains as `mention`, regardless of whether you're ever mentioned again.
 
 <!-- Content after this section is automatically generated -->

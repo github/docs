@@ -27,7 +27,7 @@ Anyone with write permissions to a {% data variables.projects.projects_v1_board 
 1. Click **Link**. To unlink, click **Unlink**.
 
 > [!NOTE]
-> In order to link a repository to your organization or user owned {% data variables.projects.projects_v1_board %} the repository needs to have issues enabled. That is, the repository has an "Issues" tab (in forked repositories issues are disabled by default).  For information on how to enable or disable issues for a repository, see "[AUTOTITLE](/repositories/managing-your-repositorys-settings-and-features/enabling-features-for-your-repository/disabling-issues)."
+> In order to link a repository to your organization or user owned {% data variables.projects.projects_v1_board %} the repository needs to have issues enabled. That is, the repository has an "Issues" tab (in forked repositories issues are disabled by default). For information on how to enable or disable issues for a repository, see "[AUTOTITLE](/repositories/managing-your-repositorys-settings-and-features/enabling-features-for-your-repository/disabling-issues)."
 
 ## Further reading
 

@@ -55,7 +55,7 @@ If your locally-hosted code isn't tracked by any VCS, the first step is to initi
    git init -b main
    ```
 
-   If you’re using Git 2.27.1 or an earlier version, you can set the name of the default branch using  `git symbolic-ref`.
+   If you’re using Git 2.27.1 or an earlier version, you can set the name of the default branch using `git symbolic-ref`.
 
    ``` shell
    git init && git symbolic-ref HEAD refs/heads/main

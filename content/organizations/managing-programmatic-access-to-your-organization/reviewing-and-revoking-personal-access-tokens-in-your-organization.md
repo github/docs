@@ -10,7 +10,7 @@ shortTitle: Review token access
 
 {% data reusables.user-settings.pat-v2-org-opt-in %}
 
-## About reviewing and revoking  {% data variables.product.pat_v2 %}s
+## About reviewing and revoking {% data variables.product.pat_v2 %}s
 
 Organization owners can view all {% data variables.product.pat_v2 %}s that can access resources owned by the organization. Organization owners can also revoke access by {% data variables.product.pat_v2 %}s. When a {% data variables.product.pat_v2 %} is revoked, SSH keys created by the token will continue to work and the token will still be able to read public resources within the organization.
 
@@ -26,7 +26,7 @@ Organization owners can also use the REST API to review and revoke {% data varia
 
 {% endif %}
 
-## Reviewing and revoking  {% data variables.product.pat_v2 %}s
+## Reviewing and revoking {% data variables.product.pat_v2 %}s
 
 {% data reusables.profile.access_org %}
 {% data reusables.profile.org_settings %}

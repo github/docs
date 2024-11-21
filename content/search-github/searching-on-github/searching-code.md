@@ -58,7 +58,7 @@ With the `in` qualifier you can restrict your search to the contents of the sour
 
 ## Search within a user's or organization's repositories
 
-To search the code in all repositories owned by a certain user or organization, you can use the  `user` or `org` qualifier. To search the code in a specific repository, you can use the `repo` qualifier.
+To search the code in all repositories owned by a certain user or organization, you can use the `user` or `org` qualifier. To search the code in a specific repository, you can use the `repo` qualifier.
 
 | Qualifier  | Example
 | ------------- | -------------

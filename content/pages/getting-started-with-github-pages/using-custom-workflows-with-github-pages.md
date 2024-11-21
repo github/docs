@@ -77,7 +77,7 @@ jobs:
 
 ## Linking separate build and deploy jobs
 
-You can link your `build` and `deploy` jobs in a single workflow file,  eliminating the need to create two separate files to get the same result. To get started on your workflow file, under `jobs` you can define a `build` and `deploy` job to execute your jobs.
+You can link your `build` and `deploy` jobs in a single workflow file, eliminating the need to create two separate files to get the same result. To get started on your workflow file, under `jobs` you can define a `build` and `deploy` job to execute your jobs.
 
 ```yaml
 # ...

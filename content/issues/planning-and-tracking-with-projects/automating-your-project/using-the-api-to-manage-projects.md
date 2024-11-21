@@ -379,7 +379,7 @@ The following example will return the first 20 issues, pull requests, and draft 
 curl --request POST \
   --url https://api.github.com/graphql \
   --header 'Authorization: Bearer TOKEN' \
-  --data '{"query":"query{ node(id: \"PROJECT_ID\") { ... on ProjectV2 { items(first: 20) { nodes{ id fieldValues(first: 8) { nodes{ ... on ProjectV2ItemFieldTextValue { text field { ... on ProjectV2FieldCommon {  name }}} ... on ProjectV2ItemFieldDateValue { date field { ... on ProjectV2FieldCommon { name } } } ... on ProjectV2ItemFieldSingleSelectValue { name field { ... on ProjectV2FieldCommon { name }}}}} content{ ... on DraftIssue { title body } ...on Issue { title assignees(first: 10) { nodes{ login }}} ...on PullRequest { title assignees(first: 10) { nodes{ login }}}}}}}}}"}'
+  --data '{"query":"query{ node(id: \"PROJECT_ID\") { ... on ProjectV2 { items(first: 20) { nodes{ id fieldValues(first: 8) { nodes{ ... on ProjectV2ItemFieldTextValue { text field { ... on ProjectV2FieldCommon { name }}} ... on ProjectV2ItemFieldDateValue { date field { ... on ProjectV2FieldCommon { name } } } ... on ProjectV2ItemFieldSingleSelectValue { name field { ... on ProjectV2FieldCommon { name }}}}} content{ ... on DraftIssue { title body } ...on Issue { title assignees(first: 10) { nodes{ login }}} ...on PullRequest { title assignees(first: 10) { nodes{ login }}}}}}}}}"}'
 ```
 
 {% endcurl %}
@@ -649,7 +649,7 @@ The following example will update the value of a single select field for an item
 
 * `PROJECT_ID` - Replace this with the node ID of your project.
 * `ITEM_ID` - Replace this with the node ID of the item you want to update.
-* `FIELD_ID` -  Replace this with the ID of the single select field that you want to update.
+* `FIELD_ID` - Replace this with the ID of the single select field that you want to update.
 * `OPTION_ID` - Replace this with the ID of the desired single select option.
 
 {% curl %}
@@ -693,7 +693,7 @@ The following example will update the value of an iteration field for an item.
 
 * `PROJECT_ID` - Replace this with the node ID of your project.
 * `ITEM_ID` - Replace this with the node ID of the item you want to update.
-* `FIELD_ID` -  Replace this with the ID of the iteration field that you want to update.
+* `FIELD_ID` - Replace this with the ID of the iteration field that you want to update.
 * `ITERATION_ID` - Replace this with the ID of the desired iteration. This can be either an active or completed iteration.
 
 {% curl %}
