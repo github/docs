@@ -107,7 +107,7 @@ Once you are satisfied with your changes, run
 
 At this point, you can edit any of the files in your project to make any additional changes. For each change you make, you'll need to perform a new commit, and you can do that by entering the `git commit --amend` command. When you're finished making all your changes, you can run `git rebase --continue`.
 
-Git then gets to the `reword 4ca2acc` command.  It opens up your text editor one more time, and presents the following information:
+Git then gets to the `reword 4ca2acc` command. It opens up your text editor one more time, and presents the following information:
 
 ```text
 i cant' typ goods

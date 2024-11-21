@@ -16,7 +16,7 @@ topics:
 
 ## About the {% data variables.enterprise.management_console %}
 
-The {% data variables.enterprise.management_console %} allows you to manage the low-level configuration of  {% data variables.location.product_location %}. For example, you can complete initial setup, manage licensing and low-level settings, configure authentication, schedule maintenance windows, and monitor your instance.
+The {% data variables.enterprise.management_console %} allows you to manage the low-level configuration of {% data variables.location.product_location %}. For example, you can complete initial setup, manage licensing and low-level settings, configure authentication, schedule maintenance windows, and monitor your instance.
 
 You can always reach the {% data variables.enterprise.management_console %} using {% data variables.location.product_location %}'s IP address, even when the instance is in maintenance mode, or there is a critical application failure or hostname or SSL misconfiguration.
 

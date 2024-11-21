@@ -29,7 +29,7 @@ You can access the following logs:
 * {% data variables.product.prodname_codeql %} Tests
 
 > [!NOTE]
-> The {% data variables.product.prodname_codeql %} Language Server log contains more advanced debug logs for  {% data variables.product.prodname_codeql %} language maintainers. You should only need these to provide details in a bug report.
+> The {% data variables.product.prodname_codeql %} Language Server log contains more advanced debug logs for {% data variables.product.prodname_codeql %} language maintainers. You should only need these to provide details in a bug report.
 
 ## Accessing logs
 

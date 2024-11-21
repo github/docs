@@ -45,7 +45,7 @@ Use an upgrade package to upgrade a {% data variables.product.prodname_ghe_serve
 1. From the administrative shell of any node, use the `ghe-cluster-each` command combined with `curl` to download the release package to each node in a single step. Use the URL you copied in the previous step as an argument.
 
    ```shell
-   $ ghe-cluster-each -- "cd /home/admin && curl -L -O  https://PACKAGE-URL.pkg"
+   $ ghe-cluster-each -- "cd /home/admin && curl -L -O https://PACKAGE-URL.pkg"
    > ghe-app-node-1:   % Total    % Received % Xferd  Average Speed   Time    Time     Time  Current
    > ghe-app-node-1:                                  Dload  Upload   Total   Spent    Left  Speed
    > 100  496M  100  496M    0     0  24.2M      0  0:00:20  0:00:20 --:--:-- 27.4M

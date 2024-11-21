@@ -106,6 +106,6 @@ You can add an email address to receive billing notifications regarding payments
 1. Display the **Billing & Licensing** section of the sidebar of the enterprise settings.
 1. Click **Billing contacts**.
 1. Click **Add** in the upper-right corner and follow the prompt.
-1. Click {% octicon "pencil" aria-label="The edit icon" %} to edit the primary billing contact or  {% octicon "kebab-horizontal" aria-label="Show options" %} to either remove or make a contact the primary billing contact.
+1. Click {% octicon "pencil" aria-label="The edit icon" %} to edit the primary billing contact or {% octicon "kebab-horizontal" aria-label="Show options" %} to either remove or make a contact the primary billing contact.
 
 {% endif %}

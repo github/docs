@@ -72,7 +72,7 @@ Before you test any mitigation procedure in a production environment, back up yo
 
 To attempt to mitigate the performance impact, you can adjust InnoDB's flushing method to skip the `fsync()` system call after each write operation. For more information, see [`innodb_flush_method`](https://dev.mysql.com/doc/refman/8.0/en/innodb-parameters.html#sysvar_innodb_flush_method) in the MySQL 8.0 Reference Manual.
 
-The following instructions are only intended for  {% data variables.product.product_name %} 3.9 and later.
+The following instructions are only intended for {% data variables.product.product_name %} 3.9 and later.
 
 > [!WARNING]
 > Adjustment of the flushing method requires that your instance's storage device has a battery-backed cache. If the device's cache is not battery-backed, you risk data loss.
@@ -102,7 +102,7 @@ You can reduce pending operations, increase IOPS, and improve performance by pro
 
 ### Sharing data with {% data variables.product.company_short %}
 
-Finally, if you're willing to help {% data variables.product.company_short %}  understand the real-world impact of the upgrade to MySQL 8, you can provide the data you've collected to {% data variables.contact.github_support %}. Provide the baseline and post-upgrade observations from the monitor dashboard, along with a support bundle that covers the period when you collected data. For more information, see "[AUTOTITLE](/support/learning-about-github-support/about-github-support)" and "[AUTOTITLE](/support/contacting-github-support/providing-data-to-github-support)."
+Finally, if you're willing to help {% data variables.product.company_short %} understand the real-world impact of the upgrade to MySQL 8, you can provide the data you've collected to {% data variables.contact.github_support %}. Provide the baseline and post-upgrade observations from the monitor dashboard, along with a support bundle that covers the period when you collected data. For more information, see "[AUTOTITLE](/support/learning-about-github-support/about-github-support)" and "[AUTOTITLE](/support/contacting-github-support/providing-data-to-github-support)."
 
 The data you submit helps {% data variables.product.company_short %} continue to provide a performant product, but {% data variables.product.company_short %} does not guarantee any additional mitigation steps or changes to the product as a result of the data you provide.
 
@@ -231,7 +231,7 @@ If you are upgrading from {% data variables.product.prodname_ghe_server %} 3.11 
 
 At this stage, please note that these records will be deleted as part of the process. The script will warn you about the users who will need to re-enroll into 2FA after the upgrade. The impacted users' handles are logged in `/tmp/column_encryption_users_to_have_2fa_disabled.log`. These users will need to be re-enrolled into 2FA.
 
-If the script runs into unexpected issues, you will be prompted to [contact {% data variables.contact.github_support %}](/support/contacting-github-support). Errors related to these issues will be logged in  `/tmp/column_encryption_unexpected_errors.log`. If you are in a dire situation and are unable to have users re-enroll into 2FA, [contact {% data variables.contact.github_support %}](/support/contacting-github-support) for help.
+If the script runs into unexpected issues, you will be prompted to [contact {% data variables.contact.github_support %}](/support/contacting-github-support). Errors related to these issues will be logged in `/tmp/column_encryption_unexpected_errors.log`. If you are in a dire situation and are unable to have users re-enroll into 2FA, [contact {% data variables.contact.github_support %}](/support/contacting-github-support) for help.
 
 ### During the upgrade
 

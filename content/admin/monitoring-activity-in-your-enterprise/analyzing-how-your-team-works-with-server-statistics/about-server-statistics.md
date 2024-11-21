@@ -36,7 +36,7 @@ For a better understanding of how we store and secure {% data variables.product.
 
 {% data variables.product.company_short %} collects {% data variables.product.prodname_server_statistics %} data for as long as your {% data variables.product.prodname_ghe_server %} license is active and the {% data variables.product.prodname_server_statistics %} feature is enabled.
 
-If you would like to delete your data, you may do so by contacting GitHub Support, your {% data variables.product.prodname_dotcom %} account representative, or your Customer Success Manager.  Generally, we delete data in the timeframe specified in our privacy statement. For more information, see [{% data variables.product.company_short %}'s privacy statement](/free-pro-team@latest/site-policy/privacy-policies/github-privacy-statement#data-retention-and-deletion-of-data) in the {% data variables.product.prodname_dotcom_the_website %} documentation.
+If you would like to delete your data, you may do so by contacting GitHub Support, your {% data variables.product.prodname_dotcom %} account representative, or your Customer Success Manager. Generally, we delete data in the timeframe specified in our privacy statement. For more information, see [{% data variables.product.company_short %}'s privacy statement](/free-pro-team@latest/site-policy/privacy-policies/github-privacy-statement#data-retention-and-deletion-of-data) in the {% data variables.product.prodname_dotcom_the_website %} documentation.
 
 ### About data portability
 
@@ -108,7 +108,7 @@ The following aggregate metrics will be collected and transmitted on a daily bas
 | AY | `packages_stats.ecosystems.docker.internal_packages_count` | Number of internal Docker images |
 | AZ | `packages_stats.ecosystems.docker.user_packages_count` | Number of Docker images owned by users |
 | BA | `packages_stats.ecosystems.docker.organization_packages_count` | Number of Docker images owned by organizations |
-| BB | `packages_stats.ecosystems.docker.daily_download_count` | Number of downloads of  Docker images |
+| BB | `packages_stats.ecosystems.docker.daily_download_count` | Number of downloads of Docker images |
 | BC | `packages_stats.ecosystems.docker.daily_update_count` | Number of Docker images updated |
 | BD | `packages_stats.ecosystems.docker.daily_delete_count` | Number of Docker images deleted |
 | BE | `packages_stats.ecosystems.docker.daily_create_count` | Number of Docker images created |
@@ -118,19 +118,19 @@ The following aggregate metrics will be collected and transmitted on a daily bas
 | BI | `packages_stats.ecosystems.maven.public_packages_count` | Number of public Maven packages |
 | BJ | `packages_stats.ecosystems.maven.internal_packages_count` | Number of internal Maven packages |
 | BK | `packages_stats.ecosystems.maven.user_packages_count` | Number of Maven packages owned by user accounts |
-| BL | `packages_stats.ecosystems.maven.organization_packages_count` |  Number of Maven packages owned by organizations |
-| BM | `packages_stats.ecosystems.maven.daily_download_count` | Number of downloads of  Maven packages |
+| BL | `packages_stats.ecosystems.maven.organization_packages_count` | Number of Maven packages owned by organizations |
+| BM | `packages_stats.ecosystems.maven.daily_download_count` | Number of downloads of Maven packages |
 | BN | `packages_stats.ecosystems.maven.daily_update_count` | Number of Maven packages updated |
 | BO | `packages_stats.ecosystems.maven.daily_delete_count` | Number of Maven packages deleted |
 | BP | `packages_stats.ecosystems.maven.daily_create_count` | Number of Maven packages created |
 | BQ | `packages_stats.ecosystems.npm.registry_enabled` | Whether npm is enabled for {% data variables.product.prodname_registry %} |
 | BR | `packages_stats.ecosystems.npm.published_packages_count` | Number of published npm packages (private, public, and internal) |
 | BS | `packages_stats.ecosystems.npm.private_packages_count` | Number of private npm packages |
-| BT | `packages_stats.ecosystems.npm.public_packages_count` |  Number of public npm packages |
+| BT | `packages_stats.ecosystems.npm.public_packages_count` | Number of public npm packages |
 | BU | `packages_stats.ecosystems.npm.internal_packages_count` | Number of internal npm packages |
 | BV | `packages_stats.ecosystems.npm.user_packages_count` | Number of npm packages owned by user accounts |
 | BW | `packages_stats.ecosystems.npm.organization_packages_count` | Number of npm packages owned by organizations |
-| BX |  `packages_stats.ecosystems.npm.daily_download_count` | Number of downloads of npm packages |
+| BX | `packages_stats.ecosystems.npm.daily_download_count` | Number of downloads of npm packages |
 | BY | `packages_stats.ecosystems.npm.daily_update_count` | Number of npm packages updated |
 | BZ | `packages_stats.ecosystems.npm.daily_delete_count` | Number of npm packages deleted |
 | CA | `packages_stats.ecosystems.npm.daily_create_count` | Number of npm packages created |
