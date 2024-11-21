@@ -219,4 +219,4 @@ If you want to provide the VM for your primary MySQL node with more resources, o
    </pre>
 1. From the administrative shell of the node where you modified `cluster.conf`, run `ghe-cluster-config-apply`. This will reconfigure the cluster so that the newly added node becomes the primary MySQL node and the original primary MySQL node becomes a replica MySQL node.
 1. Check the status of MySQL replication from any node in the cluster by running `ghe-cluster-status -v`.
-1. If MySQL replication is finished, from any node in the cluster, disable maintenance mode.  For more information, see "[AUTOTITLE](/admin/administering-your-instance/configuring-maintenance-mode/enabling-and-scheduling-maintenance-mode#enabling-or-disabling-maintenance-mode-for-all-nodes-in-a-cluster-via-the-cli)."
+1. If MySQL replication is finished, from any node in the cluster, disable maintenance mode. For more information, see "[AUTOTITLE](/admin/administering-your-instance/configuring-maintenance-mode/enabling-and-scheduling-maintenance-mode#enabling-or-disabling-maintenance-mode-for-all-nodes-in-a-cluster-via-the-cli)."

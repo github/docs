@@ -126,7 +126,7 @@ To configure high availability, you must define a corresponding replica node for
 
 For an example configuration, see "[Review an example configuration](#3-review-an-example-configuration)."
 
-1. For each node in your cluster, provision a matching virtual machine with identical specifications, running the same version of  {% data variables.product.prodname_ghe_server %}. Note the IPv4 address and hostname for each new cluster node. For more information, see "[Prerequisites](#prerequisites)."
+1. For each node in your cluster, provision a matching virtual machine with identical specifications, running the same version of {% data variables.product.prodname_ghe_server %}. Note the IPv4 address and hostname for each new cluster node. For more information, see "[Prerequisites](#prerequisites)."
 
     > [!NOTE]
     > If you're reconfiguring high availability after a failover, you can use the old nodes from the primary datacenter instead.
@@ -315,7 +315,7 @@ To monitor the replication of all services, use the following command.
 ghe-cluster-repl-status
 ```
 
-You can use `ghe-cluster-status` to review the overall health of your cluster. For more information, see  "[AUTOTITLE](/enterprise/admin/configuration/command-line-utilities#ghe-cluster-status)."
+You can use `ghe-cluster-status` to review the overall health of your cluster. For more information, see "[AUTOTITLE](/enterprise/admin/configuration/command-line-utilities#ghe-cluster-status)."
 
 ## Reconfiguring high availability replication after a failover
 

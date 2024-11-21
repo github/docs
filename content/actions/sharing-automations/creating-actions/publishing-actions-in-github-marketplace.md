@@ -76,6 +76,6 @@ Actions published on {% data variables.product.prodname_marketplace %} are linke
 
 ## About badges in {% data variables.product.prodname_marketplace %}
 
-Actions with the {% octicon "verified" aria-label="The verified badge" %}, or  verified creator badge,  indicate that {% data variables.product.prodname_dotcom %} has verified the creator of the action as a partner organization. Partners can email <a href="mailto:partnerships@github.com">partnerships@github.com</a> to request the verified creator badge.
+Actions with the {% octicon "verified" aria-label="The verified badge" %}, or verified creator badge, indicate that {% data variables.product.prodname_dotcom %} has verified the creator of the action as a partner organization. Partners can email <a href="mailto:partnerships@github.com">partnerships@github.com</a> to request the verified creator badge.
 
 ![Screenshot of {% data variables.product.prodname_actions %} with the verified creator badge.](/assets/images/marketplace/verified-creator-badge-for-actions.png)

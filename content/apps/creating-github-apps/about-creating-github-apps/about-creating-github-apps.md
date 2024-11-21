@@ -26,7 +26,7 @@ A {% data variables.product.prodname_github_app %} is a type of integration that
 Common use cases for {% data variables.product.prodname_github_apps %} include:
 * Automating tasks or background processes
 * Supporting "Sign in with {% data variables.product.company_short %}," which allows users to sign in with their {% data variables.product.prodname_dotcom %} account to provide their identity in your ecosystem
-* As a developer tool, allowing users to work with {% data variables.product.prodname_dotcom %} by signing into your  {% data variables.product.prodname_github_app %}, which can then act on their behalf
+* As a developer tool, allowing users to work with {% data variables.product.prodname_dotcom %} by signing into your {% data variables.product.prodname_github_app %}, which can then act on their behalf
 * Integrating your tool or external service with {% data variables.product.company_short %}
 
 Like {% data variables.product.prodname_oauth_apps %}, {% data variables.product.prodname_github_apps %} use OAuth 2.0 and can act on behalf of a user. Unlike {% data variables.product.prodname_oauth_apps %}, {% data variables.product.prodname_github_apps %} can also act independently of a user.

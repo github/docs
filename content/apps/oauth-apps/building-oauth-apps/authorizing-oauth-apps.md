@@ -32,7 +32,7 @@ If you want to skip authorizing your app in the standard way, such as when testi
 To authorize your {% data variables.product.prodname_oauth_app %}, consider which authorization flow best fits your app.
 
 * [web application flow](#web-application-flow): Used to authorize users for standard {% data variables.product.prodname_oauth_apps %} that run in the browser. (The [implicit grant type](https://tools.ietf.org/html/rfc6749#section-4.2) is not supported.)
-* [device flow](#device-flow):  Used for headless apps, such as CLI tools.
+* [device flow](#device-flow): Used for headless apps, such as CLI tools.
 
 {% ifversion ghec %}
 

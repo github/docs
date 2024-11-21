@@ -596,7 +596,7 @@ on:
       - opened
 jobs:
   run_if:
-    if:  startsWith(github.head_ref, 'releases/')
+    if: startsWith(github.head_ref, 'releases/')
     runs-on: ubuntu-latest
     steps:
       - run: echo "The head of this PR starts with 'releases/'"
@@ -776,7 +776,7 @@ on:
       - opened
 jobs:
   run_if:
-    if:  startsWith(github.head_ref, 'releases/')
+    if: startsWith(github.head_ref, 'releases/')
     runs-on: ubuntu-latest
     steps:
       - run: echo "The head of this PR starts with 'releases/'"
@@ -981,7 +981,7 @@ on:
 
 You can use the {% data variables.product.product_name %} API to trigger a webhook event called [`repository_dispatch`](/webhooks-and-events/webhooks/webhook-events-and-payloads#repository_dispatch) when you want to trigger a workflow for activity that happens outside of {% data variables.product.product_name %}. For more information, see "[AUTOTITLE](/rest/repos/repos#create-a-repository-dispatch-event)."
 
-When you make a request to create a `repository_dispatch` event, you must specify an `event_type` to describe the activity type. By default, all `repository_dispatch`  activity types trigger a workflow to run. You can use the `types` keyword to limit your workflow to run when a specific `event_type` value is sent in the `repository_dispatch` webhook payload.
+When you make a request to create a `repository_dispatch` event, you must specify an `event_type` to describe the activity type. By default, all `repository_dispatch` activity types trigger a workflow to run. You can use the `types` keyword to limit your workflow to run when a specific `event_type` value is sent in the `repository_dispatch` webhook payload.
 
 ```yaml
 on:
@@ -1170,7 +1170,7 @@ You can configure custom-defined input properties, default input values, and req
 
 {% data reusables.actions.inputs-vs-github-event-inputs %}
 
-This example defines inputs called `logLevel`, `tags`, and `environment`. You pass values for these inputs to the workflow when you run it. This workflow then prints the values to the log, using the `inputs.logLevel`, `inputs.tags`, and  `inputs.environment` context properties.
+This example defines inputs called `logLevel`, `tags`, and `environment`. You pass values for these inputs to the workflow when you run it. This workflow then prints the values to the log, using the `inputs.logLevel`, `inputs.tags`, and `inputs.environment` context properties.
 
 ```yaml
 on:

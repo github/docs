@@ -240,7 +240,7 @@ These environment variables can be specified in a `.env.local` file that will be
 
 #### `--source-file-path`
 
-You can use the `--source-file-path` argument with the  `dry-run` or `migrate` subcommands.
+You can use the `--source-file-path` argument with the `dry-run` or `migrate` subcommands.
 
 By default, {% data variables.product.prodname_actions_importer %} fetches pipeline contents from the Bitbucket instance. The `--source-file-path` argument tells {% data variables.product.prodname_actions_importer %} to use the specified source file path instead.
 
@@ -315,7 +315,7 @@ The following table shows the type of properties that {% data variables.product.
 | :-------------------------------------   | :------------------------------------------------------                        |
 |  `CI`                                    | {% raw %}`true`{% endraw %}                                                    |
 |  `BITBUCKET_BUILD_NUMBER`                | {% raw %}`${{ github.run_number }}`{% endraw %}                                |
-|  `BITBUCKET_CLONE_DIR`                   | {% raw %}`${{ github.workspace  }}`{% endraw %}                                |
+|  `BITBUCKET_CLONE_DIR`                   | {% raw %}`${{ github.workspace }}`{% endraw %}                                 |
 |  `BITBUCKET_COMMIT`                      | {% raw %}`${{ github.sha }}`{% endraw %}                                       |
 |  `BITBUCKET_WORKSPACE`                   | {% raw %}`${{ github.repository_owner }}`{% endraw %}                          |
 |  `BITBUCKET_REPO_SLUG`                   | {% raw %}`${{ github.repository }}`{% endraw %}                                |
