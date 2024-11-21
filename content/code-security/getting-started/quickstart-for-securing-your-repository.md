@@ -31,7 +31,7 @@ Your security needs are unique to your repository, so you may not need to enable
 
 The first step to securing a repository is to establish who can see and modify your code. For more information, see "[AUTOTITLE](/repositories/managing-your-repositorys-settings-and-features)."
 
-From the main page of your repository, click **{% octicon "gear" aria-label="The Settings gear" %} Settings**, then scroll down to the "Danger Zone."
+From the main page of your repository, click **{% octicon "gear" aria-hidden="true" %} Settings**, then scroll down to the "Danger Zone."
 
 * To change who can view your repository, click **Change visibility**. For more information, see "[AUTOTITLE](/repositories/managing-your-repositorys-settings-and-features/managing-repository-settings/setting-repository-visibility)."
 * To change who can access your repository and adjust permissions, click **Manage access**. For more information, see"[AUTOTITLE](/repositories/managing-your-repositorys-settings-and-features/managing-repository-settings/managing-teams-and-people-with-access-to-your-repository)."
@@ -41,7 +41,7 @@ From the main page of your repository, click **{% octicon "gear" aria-label="The
 {% ifversion fpt or ghec %}
 {% data reusables.dependency-graph.feature-availability %} The dependency graph interprets manifest and lock files in a repository to identify dependencies.
 
-1. From the main page of your repository, click **{% octicon "gear" aria-label="The Settings gear" %} Settings**.
+1. From the main page of your repository, click **{% octicon "gear" aria-hidden="true" %} Settings**.
 1. Click **Security & analysis**.
 1. Next to Dependency graph, click **Enable** or **Disable**.
 {% endif %}
@@ -82,7 +82,7 @@ Dependency review lets you visualize dependency changes in pull requests before 
 
 Dependency review is a {% data variables.product.prodname_GH_advanced_security %} feature. {% ifversion fpt or ghec %}Dependency review is already enabled for all public repositories. {% ifversion fpt %}Organizations that use {% data variables.product.prodname_ghe_cloud %} with {% data variables.product.prodname_advanced_security %} can additionally enable dependency review for private and internal repositories. For more information, see the [{% data variables.product.prodname_ghe_cloud %} documentation](/enterprise-cloud@latest/code-security/getting-started/quickstart-for-securing-your-repository#managing-dependency-review). {% endif %}{% endif %}{% ifversion ghec or ghes %}To enable dependency review for a {% ifversion ghec %}private or internal {% endif %}repository, ensure that the dependency graph is enabled and enable {% data variables.product.prodname_GH_advanced_security %}.
 
-1. From the main page of your repository, click **{% octicon "gear" aria-label="The Settings gear" %}Settings**.
+1. From the main page of your repository, click **{% octicon "gear" aria-hidden="true" %} Settings**.
 1. Click **Security & analysis**.
 1. {% ifversion ghec %}If dependency graph is not already enabled, click **Enable**.{% elsif ghes %}Check that dependency graph is configured for your enterprise.{% endif %}
 1. If {% data variables.product.prodname_GH_advanced_security %} is not already enabled, click **Enable**.
@@ -93,7 +93,7 @@ Dependency review is a {% data variables.product.prodname_GH_advanced_security %
 
 For any repository that uses {% data variables.product.prodname_dependabot_alerts %}, you can enable {% data variables.product.prodname_dependabot_security_updates %} to raise pull requests with security updates when vulnerabilities are detected.
 
-1. From the main page of your repository, click **{% octicon "gear" aria-label="The Settings gear" %}Settings**.
+1. From the main page of your repository, click **{% octicon "gear" aria-hidden="true" %} Settings**.
 1. Click **Security & analysis**.
 1. Next to {% data variables.product.prodname_dependabot_security_updates %}, click **Enable**.
 
@@ -104,7 +104,7 @@ For more information, see "[AUTOTITLE](/code-security/dependabot/dependabot-secu
 You can enable {% data variables.product.prodname_dependabot %} to automatically raise pull requests to keep your dependencies up-to-date. For more information, see "[AUTOTITLE](/code-security/dependabot/dependabot-version-updates/about-dependabot-version-updates)."
 
 {% ifversion dependabot-settings-update-37 %}
-1. From the main page of your repository, click **{% octicon "gear" aria-label="The Settings gear" %} Settings**.
+1. From the main page of your repository, click **{% octicon "gear" aria-hidden="true" %} Settings**.
 1. Click **Security & analysis**.
 1. Next to {% data variables.product.prodname_dependabot_version_updates %}, click **Enable** to create a basic `dependabot.yml` configuration file.
 1. Specify the dependencies to update and any associated configuration options, then commit the file to the repository. For more information, see "[AUTOTITLE](/code-security/dependabot/dependabot-version-updates/configuring-dependabot-version-updates#enabling-dependabot-version-updates)."
@@ -131,7 +131,7 @@ Alternatively, you can use advanced setup, which generates a workflow file you c
 
 {% data reusables.gated-features.secret-scanning %}
 
-1. From the main page of your repository, click **{% octicon "gear" aria-label="The Settings gear" %}Settings**.
+1. From the main page of your repository, click **{% octicon "gear" aria-hidden="true" %} Settings**.
 1. Click **Code security & analysis**.
 {% ifversion ghec or ghes %}
 1. If {% data variables.product.prodname_GH_advanced_security %} is not already enabled, click **Enable**.{% endif %}
@@ -141,7 +141,7 @@ Alternatively, you can use advanced setup, which generates a workflow file you c
 
 If you are a repository maintainer, it's good practice to specify a security policy for your repository by creating a file named `SECURITY.md` in the repository. This file instructs users about how to best contact you and collaborate with you when they want to report security vulnerabilities in your repository. You can view the security policy of a repository from the repository’s **Security** tab.
 
-1. From the main page of your repository, click **{% octicon "shield" aria-label="The shield symbol" %} Security**.
+1. From the main page of your repository, click **{% octicon "shield" aria-hidden="true" %} Security**.
 1. Click **Security policy**.
 1. Click **Start setup**.
 1. Add information about supported versions of your project and how to report vulnerabilities.
