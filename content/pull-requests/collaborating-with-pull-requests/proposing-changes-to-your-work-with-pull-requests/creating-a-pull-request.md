@@ -94,7 +94,7 @@ To mark a pull request as a draft, use the `--draft` flag.
 gh pr create --draft
 ```
 
-To add a labels or milestones to the new pull request, use the `--label` and `--milestone`  flags.
+To add a labels or milestones to the new pull request, use the `--label` and `--milestone` flags.
 
 ```shell
 gh pr create --label "bug,help wanted" --milestone octocat-milestone
@@ -109,7 +109,7 @@ gh pr create --project octocat-project
 To assign an individual or team as reviewers, use the `--reviewer` flag.
 
 ```shell
-gh pr create --reviewer monalisa,hubot  --reviewer myorg/team-name
+gh pr create --reviewer monalisa,hubot --reviewer myorg/team-name
 ```
 
 To create the pull request in your default web browser, use the `--web` flag.

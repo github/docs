@@ -87,7 +87,7 @@ All API requests must include a valid `User-Agent` header. The `User-Agent` head
 
 {% cli %}
 
-By default, {% data variables.product.prodname_cli %} sends a valid `User-Agent` header. However,  {% data variables.product.prodname_dotcom %} recommends using your {% data variables.product.product_name %} username, or the name of your application, for the `User-Agent` header value. This allows {% data variables.product.prodname_dotcom %} to contact you if there are problems.
+By default, {% data variables.product.prodname_cli %} sends a valid `User-Agent` header. However, {% data variables.product.prodname_dotcom %} recommends using your {% data variables.product.product_name %} username, or the name of your application, for the `User-Agent` header value. This allows {% data variables.product.prodname_dotcom %} to contact you if there are problems.
 
 {% endcli %}
 
@@ -684,7 +684,7 @@ The documentation provides an example response for each API method. The example 
 
 #### Hypermedia
 
-All resources may have one or more `*_url` properties linking to other resources. These are meant to provide explicit URLs so that proper API clients don't need to construct URLs on their own.  It is highly recommended that API clients use these. Doing so will make future upgrades of the API easier for developers. All URLs are expected to be proper [RFC 6570](https://datatracker.ietf.org/doc/html/rfc6570) URI templates.
+All resources may have one or more `*_url` properties linking to other resources. These are meant to provide explicit URLs so that proper API clients don't need to construct URLs on their own. It is highly recommended that API clients use these. Doing so will make future upgrades of the API easier for developers. All URLs are expected to be proper [RFC 6570](https://datatracker.ietf.org/doc/html/rfc6570) URI templates.
 
 You can then expand these templates using something like the [uri_template](https://github.com/hannesg/uri_template) gem:
 

@@ -134,7 +134,7 @@ Code | Description
 `missing` | A resource does not exist.
 `missing_field` | A parameter that was required was not specified. Review the documentation for the endpoint to see what parameters are required.
 `invalid` | The formatting of a parameter is invalid. Review the endpoint documentation for more specific information.
-`already_exists` | Another resource has the same value as one of your parameters.  This can happen in resources that must have some unique key (such as label names).
+`already_exists` | Another resource has the same value as one of your parameters. This can happen in resources that must have some unique key (such as label names).
 `unprocessable` | The parameters that were provided were invalid.
 `custom` | Refer to the `message` property to diagnose the error.
 

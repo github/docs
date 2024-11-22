@@ -27,7 +27,7 @@ You must install and import the `octokit` gem in order to use the Octokit.rb lib
 > [!WARNING]
 > Treat your authentication credentials like a password.
 >
-> To keep your credentials secure, you can store your credentials as a secret and run your script through  {% data variables.product.prodname_actions %}. For more information, see "[AUTOTITLE](/actions/security-guides/encrypted-secrets)."
+> To keep your credentials secure, you can store your credentials as a secret and run your script through {% data variables.product.prodname_actions %}. For more information, see "[AUTOTITLE](/actions/security-guides/encrypted-secrets)."
 {% ifversion ghec or fpt %}
 >
 > You can also store your credentials as a {% data variables.product.prodname_codespaces %} secret and run your script in {% data variables.product.prodname_codespaces %}. For more information, see "[AUTOTITLE](/codespaces/managing-your-codespaces/managing-encrypted-secrets-for-your-codespaces)."
