@@ -1,12 +1,14 @@
 ---
-title: Example prompts for Copilot Chat
-intro: 'Get example prompts and use cases for {% data variables.product.prodname_copilot_chat_short %}.'
+title: Getting started with prompts for Copilot Chat
+intro: 'Get an overview of ways to use {% data variables.product.prodname_copilot_chat_short %}.'
 topics:
   - Copilot
 defaultTool: vscode
 versions:
   feature: copilot
-shortTitle: Example prompts for chat
+redirect_from:
+  - /copilot/using-github-copilot/example-use-cases/example-prompts-for-copilot-chat
+shortTitle: Getting started with chat
 ---
 
 You can ask {% data variables.product.prodname_copilot_chat_short %} specific questions about your project or general software questions. You can also ask {% data variables.product.prodname_copilot_chat_short %} to write code, fix errors, write tests, and document code.
