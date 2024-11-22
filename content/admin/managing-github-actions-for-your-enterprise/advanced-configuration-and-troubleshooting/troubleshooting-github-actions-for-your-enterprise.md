@@ -72,7 +72,7 @@ You may be hitting the CPU or memory limits if you notice that jobs are not star
 
 ### 1. Check the overall CPU and memory usage in the management console
 
-Access the management console and use the monitor dashboard to inspect the overall CPU and memory graphs under "System Health". For more information, see "[AUTOTITLE](/admin/enterprise-management/monitoring-your-appliance/accessing-the-monitor-dashboard)."
+Access the management console and use the monitor dashboard to inspect the overall CPU and memory graphs under "System Health". For more information, see "[AUTOTITLE](/admin/monitoring-and-managing-your-instance/monitoring-your-instance/about-the-monitor-dashboards)."
 
 If the overall "System Health" CPU usage is close to 100%, or there is no free memory left, then {% data variables.location.product_location %} is running at capacity and needs to be scaled up. For more information, see "[AUTOTITLE](/admin/enterprise-management/updating-the-virtual-machine-and-physical-resources/increasing-cpu-or-memory-resources)."
 
