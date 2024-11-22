@@ -1,4 +1,5 @@
 import path from 'path'
+import fsSync from 'fs'
 import fs from 'fs/promises'
 import assert from 'assert'
 import { isArray, isString } from 'lodash-es'
@@ -15,8 +16,13 @@ export async function writeIndexRecords(
   const recordsObject = Object.fromEntries(records.map((record) => [record.objectID, record]))
   const content = JSON.stringify(recordsObject, undefined, 0)
 
+  // If the outDirectory doesn't exist, create it
+  if (!fsSync.existsSync(outDirectory)) {
+    await fs.mkdir(outDirectory, { recursive: true })
+  }
+
   const filePath = path.join(outDirectory, `${name}-records.json`)
-  await fs.writeFile(filePath, content)
+  await fs.writeFile(filePath, content, { flag: 'w' })
 
   return filePath
 }

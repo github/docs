@@ -69,6 +69,16 @@ To set up the audit log stream, follow the instructions for your provider:
 
 {% endif %}
 
+{% ifversion ghec %}
+
+### Streaming to multiple endpoints
+
+>[!NOTE] This feature is currently in {% data variables.release-phases.public_preview %} and subject to change.
+
+You can stream audit logs to multiple endpoints. For example, you can stream your audit log to two endpoints of the same type, or you can stream to two different providers. To set up multiple streams, follow the instructions for each provider.
+
+{% endif %}
+
 ### Setting up streaming to Amazon S3
 
 {% ifversion ghes %}

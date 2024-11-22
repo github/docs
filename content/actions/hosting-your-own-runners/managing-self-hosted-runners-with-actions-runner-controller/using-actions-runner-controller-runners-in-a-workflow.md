@@ -34,7 +34,7 @@ helm install "${INSTALLATION_NAME}" \
     oci://ghcr.io/actions/actions-runner-controller-charts/gha-runner-scale-set
 ```
 
-To use this configuration in a workflow, set the value of the `runs-on` key in your workflow to  `arc-runner-set`, similar to the following example.
+To use this configuration in a workflow, set the value of the `runs-on` key in your workflow to `arc-runner-set`, similar to the following example.
 
 ```yaml
 jobs:

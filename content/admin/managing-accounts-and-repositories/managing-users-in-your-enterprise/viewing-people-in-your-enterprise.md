@@ -230,6 +230,18 @@ You can view a list of members in your enterprise who don't have an email addres
 
 ## Viewing whether members in your enterprise have 2FA enabled
 
+{% ifversion fpt or ghec %}
+
+You can see which people in your enterprise have enabled two-factor authentication.
+
+{% data reusables.enterprise-accounts.access-enterprise %}
+{% data reusables.enterprise-accounts.people-tab %}
+1. To view the two-factor authentication security levels of enterprise members, on the right, select **Two-factor authentication**, then click **Secure**, **Insecure**, or **Disabled**.
+
+   ![Screenshot of the list of enterprise members. A dropdown menu, labeled "Two-factor authentication", is expanded and outlined in orange.](/assets/images/help/2fa/filter-enterprise-members-by-2fa.png)
+
+{% else %}
+
 You can see which people in your enterprise have enabled two-factor authentication{% ifversion mandatory-2fa-required-overview %} or are required to do so{% endif %}.
 
 {% ifversion mandatory-2fa-required-overview %}
@@ -238,9 +250,11 @@ You can see which people in your enterprise have enabled two-factor authenticati
 
 {% data reusables.enterprise-accounts.access-enterprise %}
 {% data reusables.enterprise-accounts.people-tab %}
-1. To view enterprise members who have enabled or disabled two-factor authentication, on the right, select **2FA**, then click **Enabled** or **Disabled**. {% ifversion mandatory-2fa-required-overview %}Additionally, you can view which members are required to enable two-factor authentication by clicking **Required**.
+1. To view enterprise members who have enabled or disabled two-factor authentication, on the right, select **2FA**, then click **Enabled** or **Disabled**.
 
-   ![Screenshot of the list of organization members. A dropdown menu, labeled "2FA", is expanded and outlined in orange.](/assets/images/help/2fa/filter-org-members-by-2fa-required.png){% endif %}
+   ![Screenshot of the list of organization members. A dropdown menu, labeled "2FA", is expanded and outlined in orange.](/assets/images/help/2fa/legacy-filter-org-members-by-2fa.png)
+
+{% endif %}
 
 ## Further reading
 

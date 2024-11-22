@@ -63,7 +63,7 @@ You can manage {% data variables.product.prodname_dependabot %} on {% data varia
 {% data reusables.repositories.navigate-to-repo %}
 {% data reusables.repositories.sidebar-settings %}
 {% data reusables.repositories.navigate-to-code-security-and-analysis %}
-1. Under "Dependabot", to the right of "{% data variables.product.prodname_dependabot %} on Actions runners", click **Enable**  to enable the feature or **Disable** to disable it.
+1. Under "Dependabot", to the right of "{% data variables.product.prodname_dependabot %} on Actions runners", click **Enable** to enable the feature or **Disable** to disable it.
 
 ### Enabling or disabling for your organization
 

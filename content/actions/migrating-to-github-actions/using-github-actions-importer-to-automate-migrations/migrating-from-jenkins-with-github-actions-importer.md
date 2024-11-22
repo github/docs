@@ -217,7 +217,7 @@ This section contains reference information on environment variables, optional a
 
 * `JENKINS_USERNAME`: The username of the user account that created the Jenkins API token.
 * `JENKINS_INSTANCE_URL`: The URL of the Jenkins instance.
-* `JENKINSFILE_ACCESS_TOKEN` (Optional) The API token used to retrieve the contents of a `Jenkinsfile` stored in the build repository. This requires the `repo` scope.  If this is not provided, the `GITHUB_ACCESS_TOKEN` will be used instead.
+* `JENKINSFILE_ACCESS_TOKEN` (Optional) The API token used to retrieve the contents of a `Jenkinsfile` stored in the build repository. This requires the `repo` scope. If this is not provided, the `GITHUB_ACCESS_TOKEN` will be used instead.
 
 These environment variables can be specified in a `.env.local` file that is loaded by {% data variables.product.prodname_actions_importer %} when it is run.
 

@@ -978,7 +978,7 @@ ghe-cluster-each -r git -- "ghe-repo-gc --prune USERNAME/REPONAME"
 
 ### ghe-actions-check
 
-This utility checks that all services for {% data variables.product.prodname_actions %} are healthy. For more information, see  "[AUTOTITLE](/admin/github-actions/getting-started-with-github-actions-for-your-enterprise/getting-started-with-github-actions-for-github-enterprise-server)" and "[AUTOTITLE](/admin/github-actions/advanced-configuration-and-troubleshooting/troubleshooting-github-actions-for-your-enterprise)."
+This utility checks that all services for {% data variables.product.prodname_actions %} are healthy. For more information, see "[AUTOTITLE](/admin/github-actions/getting-started-with-github-actions-for-your-enterprise/getting-started-with-github-actions-for-github-enterprise-server)" and "[AUTOTITLE](/admin/github-actions/advanced-configuration-and-troubleshooting/troubleshooting-github-actions-for-your-enterprise)."
 
 ```shell
 ghe-actions-check

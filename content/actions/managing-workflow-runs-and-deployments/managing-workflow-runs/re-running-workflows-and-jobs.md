@@ -40,7 +40,7 @@ Re-running a workflow{% ifversion re-run-jobs %} or jobs in a workflow{% endif %
 
 {% data reusables.cli.cli-learn-more %}
 
-To re-run a failed workflow run, use the `run rerun` subcommand. Replace `run-id` with the ID of the failed run that you want to re-run.  If you don't specify a `run-id`, {% data variables.product.prodname_cli %} returns an interactive menu for you to choose a recent failed run.
+To re-run a failed workflow run, use the `run rerun` subcommand. Replace `run-id` with the ID of the failed run that you want to re-run. If you don't specify a `run-id`, {% data variables.product.prodname_cli %} returns an interactive menu for you to choose a recent failed run.
 
 ```shell
 gh run rerun RUN_ID

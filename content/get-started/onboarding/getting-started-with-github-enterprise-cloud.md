@@ -45,7 +45,7 @@ You can add any number of new or existing organizations to manage within your en
 
 ### 6. Viewing the subscription and usage for your enterprise account
 
-You can view your current subscription, license usage, invoices, payment history, and other billing information for your enterprise account at any time. Both enterprise owners and billing managers can access and manage billing settings for enterprise accounts. For more information, see  "[AUTOTITLE](/enterprise-cloud@latest/billing/managing-the-plan-for-your-github-account/viewing-the-subscription-and-usage-for-your-enterprise-account)."
+You can view your current subscription, license usage, invoices, payment history, and other billing information for your enterprise account at any time. Both enterprise owners and billing managers can access and manage billing settings for enterprise accounts. For more information, see "[AUTOTITLE](/enterprise-cloud@latest/billing/managing-the-plan-for-your-github-account/viewing-the-subscription-and-usage-for-your-enterprise-account)."
 
 ## Part 2: Managing your enterprise members with {% data variables.product.prodname_ghe_cloud %}
 
@@ -150,7 +150,7 @@ Members of your organization or enterprise can use tools from the {% data variab
 
 ### 5. Using {% data variables.product.prodname_pages %}
 
-{% data variables.product.prodname_pages %} is a static site hosting service that takes HTML, CSS, and JavaScript files straight from a repository and publishes a website. You can manage the publication of {% data variables.product.prodname_pages %} sites at the organization level. For more information, see  "[AUTOTITLE](/organizations/managing-organization-settings/managing-the-publication-of-github-pages-sites-for-your-organization)" and "[AUTOTITLE](/pages/getting-started-with-github-pages/about-github-pages)."
+{% data variables.product.prodname_pages %} is a static site hosting service that takes HTML, CSS, and JavaScript files straight from a repository and publishes a website. You can manage the publication of {% data variables.product.prodname_pages %} sites at the organization level. For more information, see "[AUTOTITLE](/organizations/managing-organization-settings/managing-the-publication-of-github-pages-sites-for-your-organization)" and "[AUTOTITLE](/pages/getting-started-with-github-pages/about-github-pages)."
 
 ## Part 6: Participating in {% data variables.product.prodname_dotcom %}'s community
 

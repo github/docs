@@ -1,8 +1,8 @@
 import { describe, expect, test, vi } from 'vitest'
 
-import enterpriseServerReleases from '#src/versions/lib/enterprise-server-releases.js'
-import { get, getDOM } from '#src/tests/helpers/e2etest.js'
-import { SURROGATE_ENUMS } from '#src/frame/middleware/set-fastly-surrogate-key.js'
+import enterpriseServerReleases from '@/versions/lib/enterprise-server-releases.js'
+import { get, getDOM } from '@/tests/helpers/e2etest-ts'
+import { SURROGATE_ENUMS } from '@/frame/middleware/set-fastly-surrogate-key.js'
 
 describe('enterprise deprecation', () => {
   vi.setConfig({ testTimeout: 60 * 1000 })
@@ -45,8 +45,8 @@ describe('enterprise deprecation', () => {
 
   test('handles requests for deprecated Enterprise pages ( >=2.13 )', async () => {
     expect(enterpriseServerReleases.deprecated.includes('2.13')).toBe(true)
-    const $ = await getDOM('/en/enterprise/2.13/user/articles/about-branches')
-    expect($.res.statusCode).toBe(200)
+    const { $, res } = await getDOM('/en/enterprise/2.13/user/articles/about-branches')
+    expect(res.statusCode).toBe(200)
     expect($('h1').first().text()).toBe('About branches')
   })
 
@@ -60,27 +60,27 @@ describe('enterprise deprecation', () => {
 
   test('handles requests for deprecated Enterprise pages ( <2.13 )', async () => {
     expect(enterpriseServerReleases.deprecated.includes('2.12')).toBe(true)
-    const $ = await getDOM('/enterprise/2.12/user/articles/about-branches')
-    expect($.res.statusCode).toBe(200)
+    const { $, res } = await getDOM('/enterprise/2.12/user/articles/about-branches')
+    expect(res.statusCode).toBe(200)
     expect($('h2').text()).toBe('About branches')
   })
 
   test('handles requests for deprecated Enterprise version 11.10.340', async () => {
     expect(enterpriseServerReleases.deprecated.includes('11.10.340')).toBe(true)
-    const $ = await getDOM('/enterprise/11.10.340/admin/articles/adding-teams')
-    expect($.res.statusCode).toBe(200)
+    const { $, res } = await getDOM('/enterprise/11.10.340/admin/articles/adding-teams')
+    expect(res.statusCode).toBe(200)
     expect($('h2').text()).toBe('Adding teams')
   })
 
   test('has working admin guide links ( <2.13 )', async () => {
     const guidesPath = '/enterprise/2.12/admin'
-    let $ = await getDOM(`${guidesPath}/guides`)
-    const firstLink = $('[class="guide-section"]').children('a').attr('href')
+    const { $: $1 } = await getDOM(`${guidesPath}/guides`)
+    const firstLink = $1('[class="guide-section"]').children('a').attr('href')
 
-    $ = await getDOM(`${guidesPath}/${firstLink}`)
-    expect($.res.statusCode).toBe(200)
+    const { $: $2, res } = await getDOM(`${guidesPath}/${firstLink}`)
+    expect(res.statusCode).toBe(200)
     // this test assumes the Installation guide is the first link on the guides page
-    expect($('h2').text()).toBe('Installing and configuring GitHub Enterprise')
+    expect($2('h2').text()).toBe('Installing and configuring GitHub Enterprise')
   })
 })
 
@@ -139,22 +139,22 @@ describe('recently deprecated redirects', () => {
 
 describe('deprecation banner', () => {
   test('renders a deprecation warning banner on oldest supported Enterprise version', async () => {
-    const $ = await getDOM(`/en/enterprise/${enterpriseServerReleases.oldestSupported}`)
+    const { $ } = await getDOM(`/en/enterprise/${enterpriseServerReleases.oldestSupported}`)
     expect($('[data-testid=deprecation-banner]').length).toBe(1)
   })
 
   test('does not render a deprecation warning banner on other Enterprise versions', async () => {
-    const $ = await getDOM(`/en/enterprise/${enterpriseServerReleases.latest}`)
+    const { $ } = await getDOM(`/en/enterprise/${enterpriseServerReleases.latest}`)
     expect($('[data-testid=deprecation-banner]').length).toBe(0)
   })
 
   test('deprecation warning banner includes a date', async () => {
-    const $ = await getDOM(`/en/enterprise/${enterpriseServerReleases.oldestSupported}`)
+    const { $ } = await getDOM(`/en/enterprise/${enterpriseServerReleases.oldestSupported}`)
     expect($('[data-testid=deprecation-banner] b').text().endsWith('discontinued on .')).toBe(false)
   })
 
   test('deprecation warning banner includes the right text depending on the date', async () => {
-    const $ = await getDOM(`/en/enterprise/${enterpriseServerReleases.oldestSupported}`)
+    const { $ } = await getDOM(`/en/enterprise/${enterpriseServerReleases.oldestSupported}`)
     const expectedString = enterpriseServerReleases.isOldestReleaseDeprecated
       ? 'was discontinued'
       : 'will be discontinued'
@@ -164,24 +164,28 @@ describe('deprecation banner', () => {
 
 describe('does not render survey prompt or contribution button', () => {
   test('does not render survey prompt', async () => {
-    let $ = await getDOM(`/en/enterprise/${enterpriseServerReleases.latest}/github`)
-    expect($('[data-testid="survey-form"]').length).toBeGreaterThan(0)
-    $ = await getDOM(`/en/enterprise/${enterpriseServerReleases.oldestSupported}/github`)
+    const { $: $1 } = await getDOM(`/en/enterprise/${enterpriseServerReleases.latest}/github`)
+    expect($1('[data-testid="survey-form"]').length).toBeGreaterThan(0)
+    const { $: $2 } = await getDOM(
+      `/en/enterprise/${enterpriseServerReleases.oldestSupported}/github`,
+    )
     if (enterpriseServerReleases.isOldestReleaseDeprecated) {
-      expect($('[data-testid="survey-form"]').length).toBe(0)
+      expect($2('[data-testid="survey-form"]').length).toBe(0)
     } else {
-      expect($('[data-testid="survey-form"]').length).toBeGreaterThan(0)
+      expect($2('[data-testid="survey-form"]').length).toBeGreaterThan(0)
     }
   })
 
   test('does not render contribution button', async () => {
-    let $ = await getDOM(`/en/enterprise/${enterpriseServerReleases.latest}/github`)
-    expect($('.contribution').length).toBeGreaterThan(0)
-    $ = await getDOM(`/en/enterprise/${enterpriseServerReleases.oldestSupported}/github`)
+    const { $: $1 } = await getDOM(`/en/enterprise/${enterpriseServerReleases.latest}/github`)
+    expect($1('.contribution').length).toBeGreaterThan(0)
+    const { $: $2 } = await getDOM(
+      `/en/enterprise/${enterpriseServerReleases.oldestSupported}/github`,
+    )
     if (enterpriseServerReleases.isOldestReleaseDeprecated) {
-      expect($('.contribution').length).toBe(0)
+      expect($2('.contribution').length).toBe(0)
     } else {
-      expect($('[data-testid=survey-form]').length).toBeGreaterThan(0)
+      expect($2('[data-testid=survey-form]').length).toBeGreaterThan(0)
     }
   })
 })

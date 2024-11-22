@@ -21,7 +21,7 @@ When you run MRVA against a list of repositories, your query is run against each
 
 You need to enable {% data variables.product.prodname_code_scanning %} using {% data variables.product.prodname_codeql %} on {% data variables.product.github %}, using either default setup or advanced setup, before adding your repository to a list for analysis. For information about enabling {% data variables.product.prodname_code_scanning %} using {% data variables.product.prodname_codeql %}, see "[AUTOTITLE](/code-security/code-scanning/automatically-scanning-your-code-for-vulnerabilities-and-errors/configuring-code-scanning-for-a-repository#configuring-code-scanning-automatically)."
 
-### How MRVA runs queries against  {% data variables.product.prodname_codeql %} databases on {% data variables.product.prodname_dotcom_the_website %}
+### How MRVA runs queries against {% data variables.product.prodname_codeql %} databases on {% data variables.product.prodname_dotcom_the_website %}
 
 When you run MRVA, the analysis is run entirely using {% data variables.product.prodname_actions %}. You don't need to create any workflows, but you must specify which repository the {% data variables.product.prodname_codeql %} for {% data variables.product.prodname_vscode %} extension should use as a controller repository. As the analysis of each repository completes, the results are sent to {% data variables.product.prodname_vscode_shortname %} for you to view.
 
@@ -125,7 +125,7 @@ You can export your results for further analysis or to discuss them with collabo
 ## Creating a custom list of repositories
 
 > [!NOTE]
-> {% data variables.product.prodname_codeql %} analysis always requires a {% data variables.product.prodname_codeql %} database to run queries against. When you run variant analysis against a list of repositories, your query will only be executed against the repositories that currently have a {% data variables.product.prodname_codeql %} database available to download.  The best way to make a repository available for variant analysis is to enable {% data variables.product.prodname_code_scanning %} with {% data variables.product.prodname_codeql %}. For information about enabling {% data variables.product.prodname_code_scanning %} using {% data variables.product.prodname_codeql %}, see "[AUTOTITLE](/code-security/code-scanning/automatically-scanning-your-code-for-vulnerabilities-and-errors/configuring-code-scanning-for-a-repository#configuring-code-scanning-automatically)."
+> {% data variables.product.prodname_codeql %} analysis always requires a {% data variables.product.prodname_codeql %} database to run queries against. When you run variant analysis against a list of repositories, your query will only be executed against the repositories that currently have a {% data variables.product.prodname_codeql %} database available to download. The best way to make a repository available for variant analysis is to enable {% data variables.product.prodname_code_scanning %} with {% data variables.product.prodname_codeql %}. For information about enabling {% data variables.product.prodname_code_scanning %} using {% data variables.product.prodname_codeql %}, see "[AUTOTITLE](/code-security/code-scanning/automatically-scanning-your-code-for-vulnerabilities-and-errors/configuring-code-scanning-for-a-repository#configuring-code-scanning-automatically)."
 
 1. In the "Variant Analysis Repositories" view, click the "Add list" icon.
 

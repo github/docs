@@ -72,7 +72,7 @@ The `prepare_job` command is called when a job is started. {% data variables.pro
 * `services`: **Optional**. An array of service containers to spin up.
   * `contextName`: **Required**. The name of the service in the Job context.
   * `image`: **Required**. A string containing the Docker image.
-  * `createOptions`: **Optional**. The optional _create_ options specified in the  YAML. For more information, see "[AUTOTITLE](/actions/using-jobs/running-jobs-in-a-container#example-running-a-job-within-a-container)."
+  * `createOptions`: **Optional**. The optional _create_ options specified in the YAML. For more information, see "[AUTOTITLE](/actions/using-jobs/running-jobs-in-a-container#example-running-a-job-within-a-container)."
   * `environmentVariables`: **Optional**. Sets a map of key environment variables.
   * `userMountVolumes`: **Optional**. An array of mounts to mount into the container, same fields as above.
     * `sourceVolumePath`: **Required**. The source path to the volume that will be mounted into the Docker container.

@@ -59,7 +59,7 @@ For more information about the {% data variables.product.prodname_advisory_datab
 
 * Smaller numbers are earlier versions than larger numbers. for example, `1.0.0` is a lower version than `2.0.0`
 * Earlier letters in the alphabet are earlier versions than later letters in the alphabet. For example, `2.0.0-a` is an earlier version than `2.0.0-b`.
-* Any letters that come after a number are considered part of a prerelease, so any versions with letters after the numbers are earlier versions than numbers without letters in the version number. For example,  `2.0.0-alpha`, `2.0.0-beta`, and `2.0.0-rc` are earlier than `2.0.0`.
+* Any letters that come after a number are considered part of a prerelease, so any versions with letters after the numbers are earlier versions than numbers without letters in the version number. For example, `2.0.0-alpha`, `2.0.0-beta`, and `2.0.0-rc` are earlier than `2.0.0`.
 * A fixed version cannot be smaller than the largest number in the VVR. For example, a vulnerable version is released and the maintainer recommends downgrading. The maintainer cannot label that lower version as a fixed or patched version in the `Fixed` field because that version is smaller than the vulnerable version.
 
 ### Supported operators

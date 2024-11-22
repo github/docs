@@ -50,7 +50,7 @@
     "index-general-search": "tsx src/search/scripts/index/index-cli general-search",
     "index-test-fixtures": "./src/search/scripts/index-test-fixtures.sh",
     "lint": "eslint '**/*.{js,mjs,ts,tsx}'",
-    "lint-content": "node src/content-linter/scripts/lint-content.js",
+    "lint-content": "tsx src/content-linter/scripts/lint-content.js",
     "lint-translation": "vitest src/content-linter/tests/lint-files.js",
     "liquid-markdown-tables": "tsx src/tools/scripts/liquid-markdown-tables/index.ts",
     "generate-code-scanning-query-list": "tsx src/code-scanning/scripts/generate-code-scanning-query-list.ts",
@@ -88,7 +88,7 @@
     "update-internal-links": "tsx src/links/scripts/update-internal-links.ts",
     "validate-asset-images": "tsx src/assets/scripts/validate-asset-images.ts",
     "validate-github-github-docs-urls": "tsx src/links/scripts/validate-github-github-docs-urls/index.ts",
-    "warmup-remotejson": "node src/archives/scripts/warmup-remotejson.js"
+    "warmup-remotejson": "tsx src/archives/scripts/warmup-remotejson.ts"
   },
   "lint-staged": {
     "*.{js,mjs,ts,tsx}": "eslint --cache --fix",

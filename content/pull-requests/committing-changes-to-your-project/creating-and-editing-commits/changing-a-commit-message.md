@@ -110,7 +110,7 @@ If you need to amend the message for multiple commits or an older commit, you ca
    git push --force origin EXAMPLE-BRANCH
    ```
 
-For more information on interactive rebase, see "[Interactive mode](https://git-scm.com/docs/git-rebase#_interactive_mode)" in the Git manual.
+For more information on interactive rebase, see [Interactive mode](https://git-scm.com/docs/git-rebase#_interactive_mode) in the Git manual.
 
 {% tip %}
 

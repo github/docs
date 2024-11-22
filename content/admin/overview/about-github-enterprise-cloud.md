@@ -49,4 +49,4 @@ If you require {% data variables.enterprise.data_residency_short %}, contact {% 
 
 * "[AUTOTITLE](/get-started/onboarding/getting-started-with-github-enterprise-cloud)"
 * "[AUTOTITLE](/admin/data-residency/about-github-enterprise-cloud-with-data-residency)"
-* [ {% data variables.product.prodname_roadmap %} ]( {% data variables.product.prodname_roadmap_link %} ) in the  `github/roadmap` repository
+* [ {% data variables.product.prodname_roadmap %} ]( {% data variables.product.prodname_roadmap_link %} ) in the `github/roadmap` repository

@@ -34,7 +34,7 @@ For more information, see "[AUTOTITLE](/get-started/learning-about-github/types-
 
 ## Applying for teacher benefits
 
-Next, you'll sign up for teacher benefits and resources from {% data variables.product.company_short %} by applying to {% data variables.product.prodname_global_campus %}, a portal that allows you to access your education benefits all in one place.  {% data reusables.education.educator-requirements %}
+Next, you'll sign up for teacher benefits and resources from {% data variables.product.company_short %} by applying to {% data variables.product.prodname_global_campus %}, a portal that allows you to access your education benefits all in one place. {% data reusables.education.educator-requirements %}
 
 > [!TIP]
 > In addition to individual discounts, {% data variables.product.company_short %} offers partnerships with educational institutions through the {% data variables.product.prodname_campus_program %}. For more information, see the [{% data variables.product.prodname_campus_program %}](https://education.github.com/schools) website.
@@ -72,7 +72,7 @@ With your personal account and organization account, you're ready to get started
 
 ## Next steps
 
-You've created a classroom, and you're ready to enrich your course with {% data variables.product.product_name %} and {% data variables.product.prodname_classroom %}!  🎉
+You've created a classroom, and you're ready to enrich your course with {% data variables.product.product_name %} and {% data variables.product.prodname_classroom %}! 🎉
 
 * Manage your classrooms and classroom admins, and create a roster of students for your classroom. For more information, see "[AUTOTITLE](/education/manage-coursework-with-github-classroom/teach-with-github-classroom/manage-classrooms)."
 * Use the Git and {% data variables.product.company_short %} starter assignment to give students an overview of Git and {% data variables.product.product_name %} fundamentals. For more information, see "[AUTOTITLE](/education/manage-coursework-with-github-classroom/teach-with-github-classroom/use-the-git-and-github-starter-assignment)."

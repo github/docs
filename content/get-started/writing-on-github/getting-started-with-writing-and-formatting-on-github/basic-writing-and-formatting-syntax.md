@@ -143,7 +143,7 @@ The code block below demonstrates the basic rules used to generate anchors from 
 
 ## Sample Section
 
-## This'll  be a _Helpful_ Section About the Greek Letter Θ!
+## This'll be a _Helpful_ Section About the Greek Letter Θ!
 A heading containing characters not allowed in fragments, UTF-8 characters, two consecutive spaces between the first and second words, and formatting.
 
 ## This heading is not unique in the file
@@ -207,7 +207,7 @@ You can display an image by adding <kbd>!</kbd> and wrapping the alt text in `[ 
 
 ![Screenshot of a comment on a GitHub issue showing an image, added in the Markdown, of an Octocat smiling and raising a tentacle.](/assets/images/help/writing/image-rendered.png)
 
-{% data variables.product.product_name %} supports embedding images into your issues, pull requests{% ifversion fpt or ghec %}, discussions{% endif %}, comments  and `.md` files. You can display an image from your repository, add a link to an online image, or upload an image. For more information, see "[Uploading assets](#uploading-assets)."
+{% data variables.product.product_name %} supports embedding images into your issues, pull requests{% ifversion fpt or ghec %}, discussions{% endif %}, comments and `.md` files. You can display an image from your repository, add a link to an online image, or upload an image. For more information, see "[Uploading assets](#uploading-assets)."
 
 > [!NOTE]
 > When you want to display an image that is in your repository, use relative links instead of absolute links.

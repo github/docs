@@ -109,8 +109,8 @@ steps:
     echo 'If you are using a "manual" build mode for one or more of the' \
       'languages you are analyzing, replace this with the commands to build' \
       'your code, for example:'
-    echo '  make bootstrap'
-    echo '  make release'
+    echo ' make bootstrap'
+    echo ' make release'
     exit 1
 ```
 
@@ -190,7 +190,7 @@ The basic {% data variables.code-scanning.codeql_workflow %} uses the `autobuild
 
 You can only specify manual build steps if you have enabled advanced setup, see "[AUTOTITLE](/code-security/code-scanning/creating-an-advanced-setup-for-code-scanning/configuring-advanced-setup-for-code-scanning#configuring-advanced-setup-for-a-repository)."
 
-{% data reusables.code-scanning.autobuild-add-build-steps %} For information on how to edit the workflow file, see  "[AUTOTITLE](/code-security/code-scanning/creating-an-advanced-setup-for-code-scanning/customizing-your-advanced-setup-for-code-scanning#editing-a-code-scanning-workflow)."
+{% data reusables.code-scanning.autobuild-add-build-steps %} For information on how to edit the workflow file, see "[AUTOTITLE](/code-security/code-scanning/creating-an-advanced-setup-for-code-scanning/customizing-your-advanced-setup-for-code-scanning#editing-a-code-scanning-workflow)."
 
 {% ifversion codeql-no-build %}
 Update your workflow to define the `build-mode` as `manual`.

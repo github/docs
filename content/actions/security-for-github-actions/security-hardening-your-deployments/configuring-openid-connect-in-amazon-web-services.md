@@ -150,7 +150,7 @@ jobs:
           role-session-name: samplerolesession
           aws-region: {% raw %}${{ env.AWS_REGION }}{% endraw %}
       # Upload a file to AWS s3
-      - name:  Copy index.html to s3
+      - name: Copy index.html to s3
         run: |
           aws s3 cp ./index.html s3://{% raw %}${{ env.BUCKET_NAME }}{% endraw %}/
 ```

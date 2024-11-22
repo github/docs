@@ -29,14 +29,14 @@ The {% data variables.product.prodname_dependabot %} configuration file, `depend
 
 You must store this file in the `.github` directory of your repository in the default branch. When you add or update the `dependabot.yml` file, this triggers an immediate check for version updates. For more information and an example, see "[AUTOTITLE](/code-security/dependabot/dependabot-version-updates/configuring-dependabot-version-updates#enabling-dependabot-version-updates)."
 
-Any options that also affect security updates are used the next time a security alert triggers a pull request for a security update.  For more information, see "[AUTOTITLE](/code-security/dependabot/dependabot-security-updates/configuring-dependabot-security-updates)."
+Any options that also affect security updates are used the next time a security alert triggers a pull request for a security update. For more information, see "[AUTOTITLE](/code-security/dependabot/dependabot-security-updates/configuring-dependabot-security-updates)."
 
 > [!NOTE]
 > You cannot configure {% data variables.product.prodname_dependabot_alerts %} using the `dependabot.yml` file.
 
 The `dependabot.yml` file has two mandatory top-level keys: `version`, and `updates`. You can, optionally, include a top-level `registries` key. The file must start with `version: 2`.
 
-For a real-world example of `dependabot.yml` file, see  [{% data variables.product.prodname_dependabot %}'s own configuration file](https://github.com/dependabot/dependabot-core/blob/main/.github/dependabot.yml).
+For a real-world example of `dependabot.yml` file, see [{% data variables.product.prodname_dependabot %}'s own configuration file](https://github.com/dependabot/dependabot-core/blob/main/.github/dependabot.yml).
 
 ## Configuration options for the `dependabot.yml` file
 
@@ -230,7 +230,7 @@ updates:
       interval: "weekly"
 ```
 
-{% data reusables.dependabot.multidirectory-vs-pr-grouping %}  For more information about grouping, see "[`groups`](#groups)."
+{% data reusables.dependabot.multidirectory-vs-pr-grouping %} For more information about grouping, see "[`groups`](#groups)."
 
 {% endif %}
 
@@ -1098,7 +1098,7 @@ registries:
 
 ### `docker-registry`
 
-{% data variables.product.prodname_dependabot %} works with any container registries that implement the OCI container registry spec. For more information, see [https://github.com/opencontainers/distribution-spec/blob/main/spec.md](https://github.com/opencontainers/distribution-spec/blob/main/spec.md).  {% data variables.product.prodname_dependabot %} supports authentication to private registries via a central token service or HTTP Basic Auth. For further details, see [Token Authentication Specification](https://docs.docker.com/registry/spec/auth/token/) in the Docker documentation and [Basic access authentication](https://en.wikipedia.org/wiki/Basic_access_authentication) on Wikipedia.
+{% data variables.product.prodname_dependabot %} works with any container registries that implement the OCI container registry spec. For more information, see [https://github.com/opencontainers/distribution-spec/blob/main/spec.md](https://github.com/opencontainers/distribution-spec/blob/main/spec.md). {% data variables.product.prodname_dependabot %} supports authentication to private registries via a central token service or HTTP Basic Auth. For further details, see [Token Authentication Specification](https://docs.docker.com/registry/spec/auth/token/) in the Docker documentation and [Basic access authentication](https://en.wikipedia.org/wiki/Basic_access_authentication) on Wikipedia.
 
 The `docker-registry` type supports username and password. {% data reusables.dependabot.password-definition %}
 

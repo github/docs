@@ -89,7 +89,7 @@ For example, if a workflow defined the `num-octocats` and `octocat-eye-color` in
 
 ## `outputs` for Docker container and JavaScript actions
 
-**Optional** Output parameters allow you to declare data that an action sets. Actions that run later in a workflow can use the output data set in previously run actions.  For example, if you had an action that performed the addition of two inputs (x + y = z), the action could output the sum (z) for other actions to use as an input.
+**Optional** Output parameters allow you to declare data that an action sets. Actions that run later in a workflow can use the output data set in previously run actions. For example, if you had an action that performed the addition of two inputs (x + y = z), the action could output the sum (z) for other actions to use as an input.
 
 {% data reusables.actions.output-limitations %}
 
@@ -304,15 +304,15 @@ steps:
 
 #### `runs.steps[*].env`
 
-**Optional**  Sets a `map` of environment variables for only that step. If you want to modify the environment variable stored in the workflow, use `echo "{name}={value}" >> $GITHUB_ENV` in a composite step.
+**Optional** Sets a `map` of environment variables for only that step. If you want to modify the environment variable stored in the workflow, use `echo "{name}={value}" >> $GITHUB_ENV` in a composite step.
 
 #### `runs.steps[*].working-directory`
 
-**Optional**  Specifies the working directory where the command is run.
+**Optional** Specifies the working directory where the command is run.
 
 #### `runs.steps[*].uses`
 
-**Optional**  Selects an action to run as part of a step in your job. An action is a reusable unit of code. You can use an action defined in the same repository as the workflow, a public repository, or in a [published Docker container image](https://hub.docker.com/).
+**Optional** Selects an action to run as part of a step in your job. An action is a reusable unit of code. You can use an action defined in the same repository as the workflow, a public repository, or in a [published Docker container image](https://hub.docker.com/).
 
 We strongly recommend that you include the version of the action you are using by specifying a Git ref, SHA, or Docker tag number. If you don't specify a version, it could break your workflows or cause unexpected behavior when the action owner publishes an update.
 * Using the commit SHA of a released action version is the safest for stability and security.
@@ -345,7 +345,7 @@ runs:
 
 #### `runs.steps[*].with`
 
-**Optional**  A `map` of the input parameters defined by the action. Each input parameter is a key/value pair. For more information, see [Example: Specifying inputs](#example-specifying-inputs).
+**Optional** A `map` of the input parameters defined by the action. Each input parameter is a key/value pair. For more information, see [Example: Specifying inputs](#example-specifying-inputs).
 
 ```yaml
 runs:
@@ -363,7 +363,7 @@ runs:
 
 #### `runs.steps[*].continue-on-error`
 
-**Optional**  Prevents the action from failing when a step fails. Set to `true` to allow the action to pass when this step fails.
+**Optional** Prevents the action from failing when a step fails. Set to `true` to allow the action to pass when this step fails.
 
 {% endif %}
 
@@ -425,7 +425,7 @@ For more information about how the `entrypoint` executes, see "[AUTOTITLE](/acti
 
 ### `runs.post-entrypoint`
 
-**Optional**  Allows you to run a cleanup script once the `runs.entrypoint` action has completed. {% data variables.product.prodname_actions %} uses `docker run` to launch this action. Because  {% data variables.product.prodname_actions %} runs the script inside a new container using the same base image, the runtime state is different from the main `entrypoint` container. You can access any state you need in either the workspace, `HOME`, or as a `STATE_` variable. The `post-entrypoint:` action always runs by default but you can override this using [`runs.post-if`](#runspost-if).
+**Optional** Allows you to run a cleanup script once the `runs.entrypoint` action has completed. {% data variables.product.prodname_actions %} uses `docker run` to launch this action. Because {% data variables.product.prodname_actions %} runs the script inside a new container using the same base image, the runtime state is different from the main `entrypoint` container. You can access any state you need in either the workspace, `HOME`, or as a `STATE_` variable. The `post-entrypoint:` action always runs by default but you can override this using [`runs.post-if`](#runspost-if).
 
 ```yaml
 runs:

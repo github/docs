@@ -82,3 +82,9 @@ sections:
       {% data reusables.release-notes.2024-11-ghe-repl-promote-primary-down %}
 
       [Updated: 2024-11-13]
+      
+  deprecations:
+    - |
+      The option to "copy Storage settings from Actions" in the Management Console ("GitHub Packages" > "Packages Storage Settings") has been removed. [Updated: 2024-11-20]
+      
+  

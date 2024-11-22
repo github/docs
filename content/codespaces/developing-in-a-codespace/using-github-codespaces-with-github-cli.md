@@ -19,7 +19,7 @@ redirect_from:
 
 {% data reusables.cli.about-cli %} For more information, see "[AUTOTITLE](/github-cli/github-cli/about-github-cli)."
 
-You can work with {% data variables.product.prodname_github_codespaces %} in the  {% data variables.product.prodname_cli %} to:
+You can work with {% data variables.product.prodname_github_codespaces %} in the {% data variables.product.prodname_cli %} to:
 * [List all of your codespaces](#list-all-of-your-codespaces)
 * [Create a new codespace](#create-a-new-codespace)
 * [View details of a codespace](#view-details-of-a-codespace)
