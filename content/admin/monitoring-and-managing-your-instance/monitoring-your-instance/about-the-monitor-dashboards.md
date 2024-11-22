@@ -1,6 +1,7 @@
 ---
-title: Accessing the monitor dashboard
-intro: '{% data variables.product.prodname_ghe_server %} includes a web-based monitoring dashboard that displays historical data about your {% data variables.product.prodname_ghe_server %} appliance, such as CPU and storage usage, application and authentication response times, and general system health.'
+title: 'About the monitor {% ifversion ghes > 3.15 %}dashboards{% else %}dashboard{% endif %}'
+allowTitleToDifferFromFilename: true
+intro: 'View historical data for details like CPU and storage usage, application and authentication response times, and general system health.'
 redirect_from:
   - /enterprise/admin/installation/accessing-the-monitor-dashboard
   - /enterprise/admin/enterprise-management/accessing-the-monitor-dashboard
@@ -8,6 +9,7 @@ redirect_from:
   - /admin/enterprise-management/monitoring-your-appliance/accessing-the-monitor-dashboard
   - /admin/monitoring-managing-and-updating-your-instance/monitoring-your-appliance/accessing-the-monitor-dashboard
   - /admin/monitoring-managing-and-updating-your-instance/monitoring-your-instance/accessing-the-monitor-dashboard
+  - /admin/monitoring-and-managing-your-instance/monitoring-your-instance/accessing-the-monitor-dashboard
 versions:
   ghes: '*'
 type: how_to
@@ -17,17 +19,40 @@ topics:
   - Infrastructure
   - Monitoring
   - Performance
-shortTitle: Access the monitor dashboard
+shortTitle: About the monitor {% ifversion ghes > 3.15 %}dashboards{% else %}dashboard{% endif %}
 ---
-## Accessing the monitor dashboard
+## Accessing the monitor {% ifversion ghes > 3.15 %}dashboards{% else %}dashboard{% endif %}
 
 {% data reusables.enterprise_site_admin_settings.access-settings %}
 {% data reusables.enterprise_site_admin_settings.management-console %}
 1. In the top navigation bar, click **Monitor**.
 
-   ![Screenshot of the header of the {% data variables.enterprise.management_console %}. A tab, labeled "Monitor", is highlighted with an orange outline.](/assets/images/enterprise/management-console/monitor-dash-link.png)
+   ![Screenshot of the header of the {% data variables.enterprise.management_console %}. A tab, labeled "Monitor", is highlighted with an orange outline.](/assets/images/enterprise/management-console/{% ifversion ghes > 3.15 %}monitor-dash-link.png{% else %}monitor-dash-link-old.png{% endif %})
 
 1. In HA and cluster environments you can switch between nodes using the dropdown and clicking on a different hostname.
+{% ifversion ghes > 3.15 %}
+
+## Using the monitor dashboards
+
+The dashboards visualize metrics which can be useful for troubleshooting performance issues and better understanding how your {% data variables.product.prodname_ghe_server %} appliance is being used. The data behind the graphs is gathered by the `collectd` service and sampled every 10 seconds.
+
+Within the pre-built dashboards you can find various sections grouping graphs of different types of system resources. Use the links on the page to navigate between the dashboards.
+
+![Screenshot of the {% data variables.enterprise.management_console %} header. The dashboard navigation links provided at the top right are highlighted in orange.](/assets/images/enterprise/management-console/monitor-dash-navigation.png)
+
+### "Operational Health" dashboard
+
+This is the default dashboard displayed on the "Monitor" page. It visualizes key metrics that help you to get a quick overview of the health of your {% data variables.product.prodname_ghe_server %} appliance.
+
+### "System & Application Insights" dashboard
+
+On this more detailed dashboard you can get further insights into all aspects of the services that are running on your appliance.
+
+## Creating new dashboards
+
+Building your own dashboard and alerts requires the data to be forwarded to an external instance, by enabling `collectd` forwarding. For more information, see "[AUTOTITLE](/admin/monitoring-and-managing-your-instance/monitoring-your-instance/configuring-collectd-for-your-instance)."
+
+{% else %}
 
 ## Using the monitor dashboard
 
@@ -36,12 +61,26 @@ The page visualizes metrics which can be useful for troubleshooting performance 
 Within the pre-built dashboard you can find various sections grouping graphs of different types of system resources.
 
 Building your own dashboard and alerts requires the data to be forwarded to an external instance, by enabling `collectd` forwarding. For more information, see "[AUTOTITLE](/admin/monitoring-and-managing-your-instance/monitoring-your-instance/configuring-collectd-for-your-instance)."
+{% endif %}
 
-## About the metrics on the monitor dashboard
+## About the metrics on the monitor dashboards
 
-### System health
+### System Health
 
 The system health graphs provide a general overview of services and system resource utilization. The CPU, memory, and load average graphs are useful for identifying trends or times where provisioned resource saturation has occurred. For more information, see "[AUTOTITLE](/admin/monitoring-and-managing-your-instance/monitoring-your-instance/recommended-alert-thresholds)."
+{% ifversion ghes > 3.15 %}
+
+### Application Health
+
+These graphs include key metrics for the resource utilization of services that power  {% data variables.product.prodname_ghe_server %}. They help visualize ongoing issues while processing requests.
+
+* **Nomad jobs**: The CPU and memory usage of individual services. {% data variables.product.prodname_ghe_server %} utilizes Nomad internally as the workload orchestrator.
+* **Response code**: The number of responses by status code returned across {% data variables.product.prodname_ghe_server %} services.
+* **Response time**: The speed of web requests at the 90th percentile in milliseconds.
+* **Active workers**: The number of web workers busy per {% data variables.product.prodname_ghe_server %} application.
+* **Queued requests**: The number of web requests queued per {% data variables.product.prodname_ghe_server %} application. It is expected for this panel to display 'No data' when no requests are queued up.
+* **ElasticSearch Cluster Health**: The health status of the ElasticSearch cluster, based on the state of its primary and replica shards. This cluster powers {% data variables.product.prodname_ghe_server %} search.
+{% endif %}
 
 ### Processes
 
@@ -65,7 +104,7 @@ The **App request/response** section looks at the rate of requests, how quickly 
 
 ### Actions
 
-The graphs break down different metrics about {% data variables.product.prodname_actions %} on {% data variables.location.product_location %} including an overview of {% data variables.product.prodname_actions %} services web requests.
+The graphs break down different metrics about {% data variables.product.prodname_actions %} on {% data variables.location.product_location %} including an overview of {% data variables.product.prodname_actions %} services web requests {% ifversion ghes > 3.15 %} and MSSQL database transaction log size{% endif %}.
 
 ### Background jobs
 
