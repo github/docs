@@ -61,6 +61,9 @@ Set up a new instance to act as your staging environment. You can use the same g
 
 If you plan to restore a backup of your production instance, continue to the next step. Alternatively, you can configure the instance manually and skip the following steps.
 
+> [!WARNING]
+> Restoring backups with {% data variables.product.prodname_actions %} will not succeed on a non-configured instance. To enable {% data variables.product.prodname_actions %}, an instance with a hostname configured is required. For more information, see "[AUTOTITLE](/admin/configuring-settings/configuring-network-settings/configuring-the-hostname-for-your-instance)."
+
 ### 3. Configure {% data variables.product.prodname_actions %}
 
 Optionally, if you use {% data variables.product.prodname_actions %} on your production instance, configure the feature on the staging instance before restoring your production backup. If you don't use {% data variables.product.prodname_actions %}, skip to "[1. Configure {% data variables.product.prodname_registry %}](#4-configure-github-packages)."
@@ -76,6 +79,12 @@ Optionally, if you use {% data variables.product.prodname_actions %} on your pro
 
    ```shell copy
    ghe-config app.actions.enabled true
+   ```
+
+1. To apply the configuration changes, enter the following command.
+
+   ```shell copy
+   ghe-config-apply
    ```
 
 ### 4. Configure {% data variables.product.prodname_registry %}

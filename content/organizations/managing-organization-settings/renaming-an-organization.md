@@ -19,7 +19,7 @@ topics:
 
 ## What happens when I change my organization's name?
 
-After changing your organization's name, your previous organization name will be unavailable for anyone to claim for 90 days. When you change your organization's name, most references to your repositories under the previous organization name automatically change to the new name. However, some links to your profile won't automatically redirect.
+After changing your organization's name, your old organization name becomes available for someone else to claim. When you change your organization's name, most references to your repositories under the old organization name automatically change to the new name. However, some links to your profile won't automatically redirect.
 
 ### Changes that occur automatically
 

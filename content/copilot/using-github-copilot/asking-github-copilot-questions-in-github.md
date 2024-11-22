@@ -82,12 +82,12 @@ The skills you can use in {% data variables.product.prodname_copilot_chat_dotcom
 > [!NOTE] If you use {% data variables.product.prodname_copilot_extensions_short %}, they may override the model you select.
 
 {% data reusables.copilot.model-picker-enable-o1-models %}
-1. In the bottom right of any page on {% data variables.product.github %}, click {% octicon "copilot" aria-label="Open Copilot Chat" %}.
+1. In the top right of any page on {% data variables.product.github %}, click the **{% octicon "copilot" aria-hidden="true" %}** {% data variables.product.prodname_copilot %} icon next to the search bar.
 1. If the panel contains a previous conversation you had with {% data variables.product.prodname_copilot_short %}, in the top right of the panel, click {% octicon "plus" aria-label="New conversation" %}.
 
    ![Screenshot of the new conversation button, highlighted with a dark orange outline.](/assets/images/help/copilot/chat-new-conversation-button.png)
 
-1. In the top right of the panel, select the {% octicon "kebab-horizontal" aria-label="Open conversation options" %} dropdown menu, then click **{% octicon "screen-full" aria-hidden="true" %} Take conversation to immersive**. Multi-model {% data variables.product.prodname_copilot_chat_short %} is currently only available in the immersive view.
+1. In the top right of the panel, click **{% octicon "screen-full" aria-hidden="true" %} Take conversation to immersive**. Multi-model {% data variables.product.prodname_copilot_chat_short %} is currently only available in the immersive view.
 1. In the top left of the immersive view, select the **CURRENT-MODEL** {% octicon "chevron-down" aria-hidden="true" %} dropdown menu, then click the AI model of your choice.
 
 ## Asking a general question about software development
@@ -131,7 +131,7 @@ Depending on the question you ask, and your enterprise and organization settings
 
 1. On the {% data variables.product.prodname_dotcom %} website, go to the repository you want to chat about.
 
-1. Click the **{% octicon "copilot" aria-hidden="true" %}** {% data variables.product.prodname_copilot %} icon at the bottom right of the page.
+1. In the top right of any page on {% data variables.product.github %}, click the **{% octicon "copilot" aria-hidden="true" %}** {% data variables.product.prodname_copilot %} icon next to the search bar.
 
    The {% data variables.product.prodname_copilot_chat %} panel is displayed. To resize the panel, click and drag the top or left edge.
 
@@ -281,7 +281,7 @@ You can chat with {% data variables.product.prodname_copilot_short %} about a fi
 1. You can continue the conversation by asking a follow-up question. For example, you could type "tell me more" to get {% data variables.product.prodname_copilot_short %} to expand on its last comment.
 1. To clear, delete, or rename the current conversation thread, or to start a new thread, type `/` in the "Ask {% data variables.product.prodname_copilot_short %}" box, select from the options that are displayed, then press <kbd>Enter</kbd>.
 
-1. To view a conversation in immersive mode, displaying just the conversation thread, click {% octicon "kebab-horizontal" aria-label="Open conversation options" %} at the top right of the conversation thread, then click **{% octicon "screen-full" aria-hidden="true" %} Take conversation to immersive**.
+1. To view a conversation in immersive mode, displaying just the conversation thread, click **{% octicon "screen-full" aria-hidden="true" %} Take conversation to immersive**.
 
 ## Asking questions about {% data variables.product.prodname_GH_advanced_security %} alerts
 
@@ -463,7 +463,7 @@ You can ask {% data variables.product.prodname_copilot_short %} a question about
 
 To give feedback about a particular {% data variables.product.prodname_copilot_chat_short %} response, click either the thumbs up or thumbs down icon at the bottom of each chat response.
 
-To give feedback about {% data variables.product.prodname_copilot_chat_short %} in general, click the ellipsis (**...**) at the top right of the chat panel, then click **Give feedback**.
+To give feedback about {% data variables.product.prodname_copilot_chat_short %} in general, click the ellipsis (**...**) at the top right of the chat panel, then click **{% octicon "comment-discussion" aria-hidden="true" %} Give feedback**.
 
 ## Further reading
 

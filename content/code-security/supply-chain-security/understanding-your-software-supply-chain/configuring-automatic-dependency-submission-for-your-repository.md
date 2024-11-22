@@ -81,6 +81,8 @@ Once enabled, automatic dependency submission jobs will run on the self-hosted r
 
 Automatic dependency submission is currently only supported for Maven. The feature uses the Maven Dependency Tree Submission action. For more information, see the documentation for the [Maven Dependency Tree Dependency Submission](https://github.com/marketplace/actions/maven-dependency-tree-dependency-submission) action in the {% data variables.product.prodname_marketplace %}. If your project uses a non-standard Maven configuration, it may not properly generate the dependencies and submit them to the dependency graph.
 
+Automatic dependency submission makes a best effort to cache package downloads between runs using the [Cache](https://github.com/marketplace/actions/cache) action to speed up workflows. For self-hosted runners, you may want to manage this cache within your own infrastructure. To do this, you can disable the built-in caching by setting an environment variable of `GH_DEPENDENCY_SUBMISSION_SKIP_CACHE` to `true`. For more information, see "[AUTOTITLE](/actions/learn-github-actions/variables)."
+
 ## Further reading
 
 * "[AUTOTITLE](/code-security/supply-chain-security/understanding-your-software-supply-chain/about-supply-chain-security)"
