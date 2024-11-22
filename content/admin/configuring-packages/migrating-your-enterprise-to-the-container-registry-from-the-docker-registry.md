@@ -50,7 +50,7 @@ During the migration, the CPU and memory usage for your instance will increase. 
 
 After the migration, storage pressure on your instance will increase due to the duplication of image files in the Docker registry and the {% data variables.product.prodname_container_registry %}. A future release of {% data variables.product.product_name %} will remove the duplicated files when all migrations are complete.
 
-For more information about monitoring the performance and storage of {% data variables.location.product_location %}, see "[AUTOTITLE](/admin/enterprise-management/monitoring-your-appliance/accessing-the-monitor-dashboard)."
+For more information about monitoring the performance and storage of {% data variables.location.product_location %}, see "[AUTOTITLE](/admin/monitoring-and-managing-your-instance/monitoring-your-instance/about-the-monitor-dashboards)."
 
 ### Starting a migration
 

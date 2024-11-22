@@ -36,7 +36,7 @@ For system-critical issues, and prior to making modifications to your appliance,
 * CPU of your instance is under-provisioned for your workload.
 * Upgrading to a new {% data variables.product.prodname_ghe_server %} releases often increases CPU and memory usage due to new features. Additionally, post-upgrade migration or reconciliation background jobs can temporarily degrade performance until they complete.
 * Elevated requests against Git or API. Increased requests to Git or API can occur due to various factors, such as excessive repository cloning, CI/CD processes, or unintentional usage by API scripts or new workloads.
-* Increased number of [GitHub Actions jobs](/admin/monitoring-and-managing-your-instance/monitoring-your-instance/accessing-the-monitor-dashboard#actions).
+* Increased number of [GitHub Actions jobs](/admin/monitoring-and-managing-your-instance/monitoring-your-instance/about-the-monitor-dashboards#actions).
 * Elevated amount of Git commands executed a large repository.
 
 ### Recommendations
@@ -60,10 +60,10 @@ For system-critical issues, and prior to making modifications to your appliance,
 ### Recommendations
 
 * Memory of your instance is under-provisioned for your workload, data volume, given usage over time may exceed the [minimum recommended requirements](/admin/installing-your-enterprise-server/setting-up-a-github-enterprise-server-instance/installing-github-enterprise-server-on-aws#minimum-recommended-requirements).
-* Within the Nomad graphs, identify services with out of memory trends which are often followed by free memory trends after they get restarted. For more information, see "[AUTOTITLE](/enterprise-server@3.14/admin/monitoring-and-managing-your-instance/monitoring-your-instance/accessing-the-monitor-dashboard#appliance-specific-system-services)."
+* Within the Nomad graphs, identify services with out of memory trends which are often followed by free memory trends after they get restarted. For more information, see "[AUTOTITLE](/enterprise-server@3.14/admin/monitoring-and-managing-your-instance/monitoring-your-instance/about-the-monitor-dashboards#appliance-specific-system-services)."
 * Check logs for processes going out of memory by running `rg -z 'kernel: Out of memory: Killed process' /var/log/syslog*` (for this, first log in to the administrative shell using SSH - see "[AUTOTITLE](/enterprise-server@3.14/admin/administering-your-instance/administering-your-instance-from-the-command-line/accessing-the-administrative-shell-ssh).")
 * Ensure the correct ratio of memory to CPU services is met (at least `6.5:1`).
-* Check the amount of tasks queued for background processing - see "[AUTOTITLE](/enterprise-server@3.14/admin/monitoring-and-managing-your-instance/monitoring-your-instance/accessing-the-monitor-dashboard#background-jobs)."
+* Check the amount of tasks queued for background processing - see "[AUTOTITLE](/enterprise-server@3.14/admin/monitoring-and-managing-your-instance/monitoring-your-instance/about-the-monitor-dashboards#background-jobs)."
 
 ## Low disk space availability
 
@@ -101,7 +101,7 @@ Keep in mind that the root storage volume is split into two equally-sized partit
 * Check the database logs for slow queries in `/var/log/github/exceptions.log` (for this, first log in to the administrative shell using SSH - see "[AUTOTITLE](/enterprise-server@3.14/admin/administering-your-instance/administering-your-instance-from-the-command-line/accessing-the-administrative-shell-ssh)"), for example by checking for Top 10 slow requests by URL: `grep SlowRequest github-logs/exceptions.log | jq '.url' | sort | uniq -c | sort -rn | head`.
 * Check the **Queued requests** graph for certain workers and consider adjusting their active worker count.
 * Increase the storage disks to ones with higher IOPS/throughput.
-* Check the amount of tasks queued for background processing - see "[AUTOTITLE](/enterprise-server@3.14/admin/monitoring-and-managing-your-instance/monitoring-your-instance/accessing-the-monitor-dashboard#background-jobs)."
+* Check the amount of tasks queued for background processing - see "[AUTOTITLE](/enterprise-server@3.14/admin/monitoring-and-managing-your-instance/monitoring-your-instance/about-the-monitor-dashboards#background-jobs)."
 
 ## Elevated error rates
 

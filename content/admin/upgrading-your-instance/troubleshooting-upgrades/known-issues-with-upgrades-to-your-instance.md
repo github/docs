@@ -42,7 +42,7 @@ Collect the baseline data before upgrading to {% data variables.product.prodname
 
 You may not be able to simulate the load that your instance experiences in a production environment. However, it's useful if you can collect baseline data while simulating patterns of usage from your production environment on the staging instance.
 
-1. Browse to your instance's monitor dashboard. For more information, see "[AUTOTITLE](/admin/enterprise-management/monitoring-your-appliance/accessing-the-monitor-dashboard)."
+1. Browse to your instance's monitor dashboard. For more information, see "[AUTOTITLE](/admin/monitoring-and-managing-your-instance/monitoring-your-instance/about-the-monitor-dashboards)."
 1. From the monitor dashboard, monitor relevant graphs.
 
    * Under "Processes", monitor the graphs for "I/O operations (Read IOPS)" and "I/O operations (Write IOPS)", filtering for `mysqld`. These graphs display I/O operations for all of the node's services.
@@ -52,7 +52,7 @@ You may not be able to simulate the load that your instance experiences in a pro
 
 After the upgrade to {% data variables.product.prodname_ghe_server %} 3.9, review the instance's I/O utilization. {% data variables.product.company_short %} recommends that you upgrade a staging instance of {% data variables.product.prodname_ghe_server %} running 3.7 or 3.8 that includes restored data from your production instance, or that you restore data from your production instance to a new staging instance running 3.9. For more information, see "[AUTOTITLE](/admin/installation/setting-up-a-github-enterprise-server-instance/setting-up-a-staging-instance)" and "[AUTOTITLE](/admin/configuration/configuring-your-enterprise/configuring-backups-on-your-appliance)."
 
-1. Browse to your instance's monitor dashboard. For more information, see "[AUTOTITLE](/admin/enterprise-management/monitoring-your-appliance/accessing-the-monitor-dashboard)."
+1. Browse to your instance's monitor dashboard. For more information, see "[AUTOTITLE](/admin/monitoring-and-managing-your-instance/monitoring-your-instance/about-the-monitor-dashboards)."
 1. From the monitor dashboard, monitor relevant graphs.
 
    * Under "Processes", monitor the graphs for "I/O operations (Read IOPS)" and "I/O operations (Write IOPS)", filtering for `mysqld`. These graphs display I/O operations for all of the node's services.
