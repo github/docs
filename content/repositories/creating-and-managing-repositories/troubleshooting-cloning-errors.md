@@ -87,7 +87,7 @@ When prompted for a username and password, make sure you use an account that has
 
 ### Use SSH instead
 
-If you've previously set up SSH keys, you can use the SSH clone URL instead of HTTPS.  For more information, see "[AUTOTITLE](/get-started/getting-started-with-git/about-remote-repositories)."
+If you've previously set up SSH keys, you can use the SSH clone URL instead of HTTPS. For more information, see "[AUTOTITLE](/get-started/getting-started-with-git/about-remote-repositories)."
 
 ## Error: Repository not found
 
@@ -95,7 +95,7 @@ If you've previously set up SSH keys, you can use the SSH clone URL instead of H
 
 ### Check your spelling
 
-Typos happen.  If you try to clone `git@{% data variables.product.product_url %}:owner/repotile.git`, but the repository is really named `owner/repoti1e` you will receive this error.
+Typos happen. If you try to clone `git@{% data variables.product.product_url %}:owner/repotile.git`, but the repository is really named `owner/repoti1e` you will receive this error.
 
 To avoid this error, when cloning, always copy and paste the clone URL from the repository's page. For more information, see "[AUTOTITLE](/repositories/creating-and-managing-repositories/cloning-a-repository)."
 

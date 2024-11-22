@@ -44,7 +44,7 @@ Besides using `in:readme`, it's not possible to find repositories by searching f
 
 ## Search within a user's or organization's repositories
 
-To search in all repositories owned by a certain user or organization, you can use the  `user` or `org` qualifier.
+To search in all repositories owned by a certain user or organization, you can use the `user` or `org` qualifier.
 
 | Qualifier  | Example
 | ------------- | -------------

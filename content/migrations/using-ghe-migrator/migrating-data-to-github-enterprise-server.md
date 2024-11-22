@@ -155,10 +155,10 @@ The same process can be used to create mappings for each record that supports cu
 1. Re-map the migration data using the `ghe-migrator map` command, passing in the path to your modified _.csv_ file and the Migration GUID:
 
    ```shell
-   ghe-migrator map -i conflicts.csv  -g MIGRATION-GUID
+   ghe-migrator map -i conflicts.csv -g MIGRATION-GUID
    ```
 
-1. If the `ghe-migrator map -i conflicts.csv  -g MIGRATION-GUID` command reports that conflicts still exist, run through the migration conflict resolution process again.
+1. If the `ghe-migrator map -i conflicts.csv -g MIGRATION-GUID` command reports that conflicts still exist, run through the migration conflict resolution process again.
 
 ## Applying the imported data on {% data variables.product.prodname_ghe_server %}
 
