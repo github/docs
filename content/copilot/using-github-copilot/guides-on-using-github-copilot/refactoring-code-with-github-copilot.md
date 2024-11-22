@@ -5,6 +5,8 @@ topics:
   - Copilot
 versions:
   feature: copilot
+redirect_from:
+  - /copilot/using-github-copilot/example-use-cases/refactoring-code-with-github-copilot
 shortTitle: Refactor code
 ---
 

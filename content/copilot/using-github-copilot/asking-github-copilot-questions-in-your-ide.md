@@ -35,7 +35,7 @@ You can ask {% data variables.product.prodname_copilot_chat_short %} to give cod
    >
    > For additional ways to access {% data variables.product.prodname_copilot_chat_short %}, including inline with your code, see [Additional ways to access {% data variables.product.prodname_copilot_chat_short %}](#additional-ways-to-access-copilot-chat) below.
 
-1. Enter a prompt in the prompt box, or click one of the suggested prompts. For example prompts, see "[AUTOTITLE](/copilot/using-github-copilot/example-use-cases/example-prompts-for-copilot-chat)."
+1. Enter a prompt in the prompt box, or click one of the suggested prompts. For an introduction to the kinds of prompts you can use, see "[AUTOTITLE](/copilot/using-github-copilot/guides-on-using-github-copilot/getting-started-with-prompts-for-copilot-chat)."
 
 1. Evaluate {% data variables.product.prodname_copilot_short %}'s response, and make a follow up request if needed.
 
@@ -45,7 +45,7 @@ You can ask {% data variables.product.prodname_copilot_chat_short %} to give cod
 
 ## Using keywords in your prompt
 
-You can use special keywords to help {% data variables.product.prodname_copilot_short %} understand your prompt. For examples, see "[AUTOTITLE](/copilot/using-github-copilot/example-use-cases/example-prompts-for-copilot-chat)."
+You can use special keywords to help {% data variables.product.prodname_copilot_short %} understand your prompt. For examples, see "[AUTOTITLE](/copilot/using-github-copilot/guides-on-using-github-copilot/getting-started-with-prompts-for-copilot-chat)."
 
 ### Chat participants
 
@@ -222,7 +222,7 @@ To leave feedback about the {% data variables.product.prodname_copilot_chat %} e
 You can ask {% data variables.product.prodname_copilot_chat_short %} to give code suggestions, explain code, generate unit tests, and suggest code fixes.
 
 1. In the {% data variables.product.prodname_vs %} menu bar, click **View**, then click **{% data variables.product.prodname_copilot_chat %}**.
-1. In the {% data variables.product.prodname_copilot_chat_short %} window, enter a prompt, then press **Enter**. For example prompts, see "[AUTOTITLE](/copilot/using-github-copilot/example-use-cases/example-prompts-for-copilot-chat)."
+1. In the {% data variables.product.prodname_copilot_chat_short %} window, enter a prompt, then press **Enter**. For example prompts, see "[AUTOTITLE](/copilot/using-github-copilot/guides-on-using-github-copilot/getting-started-with-prompts-for-copilot-chat)."
 1. Evaluate {% data variables.product.prodname_copilot_short %}'s response, and submit a follow up prompt if needed.
 
    The response often includes interactive elements. For example, the response may include buttons to copy, insert, or preview the result of a code block.
@@ -371,7 +371,7 @@ You can ask {% data variables.product.prodname_copilot_chat_short %} to give cod
 
    ![Screenshot of the {% data variables.product.prodname_copilot_chat_short %} icon in the Activity Bar.](/assets/images/help/copilot/jetbrains-copilot-chat-icon.png)
 
-1. Enter a prompt in the prompt box. For example prompts, see "[AUTOTITLE](/copilot/using-github-copilot/example-use-cases/example-prompts-for-copilot-chat)."
+1. Enter a prompt in the prompt box. For example prompts, see "[AUTOTITLE](/copilot/using-github-copilot/guides-on-using-github-copilot/getting-started-with-prompts-for-copilot-chat)."
 
 1. Evaluate {% data variables.product.prodname_copilot_short %}'s response, and submit a follow up prompt if needed.
 

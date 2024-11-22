@@ -27,6 +27,7 @@ children:
   - /about-github-copilot
   - /setting-up-github-copilot
   - /using-github-copilot
+  - /example-prompts-for-github-copilot-chat
   - /managing-copilot
   - /customizing-copilot
   - /building-copilot-extensions

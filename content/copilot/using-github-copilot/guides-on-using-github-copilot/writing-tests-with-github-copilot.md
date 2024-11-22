@@ -5,6 +5,8 @@ topics:
   - Copilot
 versions:
   feature: copilot
+redirect_from:
+  - /copilot/using-github-copilot/example-use-cases/writing-tests-with-github-copilot
 shortTitle: Write tests
 ---
 
