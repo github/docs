@@ -19,7 +19,7 @@ We create product documentation that helps, teaches, and engages everyone who us
 We provide a style guide and content models as building blocks and guidelines for anyone to design and create documentation.
 
 * Our style guide and content models apply to a range of scenarios.
-* Decisions are based on what is best for people using our docs, not simply what is right or wrong according to grammar or style rules.  We are flexible and open to change while maintaining consistency.
+* Decisions are based on what is best for people using our docs, not simply what is right or wrong according to grammar or style rules. We are flexible and open to change while maintaining consistency.
 * We focus our attention on documenting high-impact, high-value scenarios rather than attempting to comprehensively cover every possible use case for the many {% data variables.product.prodname_dotcom %} products and features.
 * Our highest priorities are clarity, meaning, correctness, and consistency.
 * When making a style or structure decision, we consider what people are trying to do with the information and how our content can best support their goals.

@@ -77,7 +77,7 @@ Now that you've made a few changes, you can use the integrated terminal or the s
 
    ![Screenshot of the "Source control" side bar showing the "Publish Branch" button.](/assets/images/help/codespaces/vscode-publish-branch-button.png)
 
-1. In the "Repository Name" dropdown, type a name for your new repository, then select **Publish to {% data variables.product.prodname_dotcom %}  private repository** or **Publish to {% data variables.product.prodname_dotcom %}  public repository**.
+1. In the "Repository Name" dropdown, type a name for your new repository, then select **Publish to {% data variables.product.prodname_dotcom %} private repository** or **Publish to {% data variables.product.prodname_dotcom %} public repository**.
 
    ![Screenshot of the repository name dropdown in {% data variables.product.prodname_vscode_shortname %}. Two options are shown, for publishing to a private or a public repository.](/assets/images/help/codespaces/choose-new-repository.png)
 

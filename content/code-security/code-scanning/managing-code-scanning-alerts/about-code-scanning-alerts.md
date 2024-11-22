@@ -97,7 +97,7 @@ The severity level for a {% data variables.product.prodname_code_scanning %} ale
 * **Severity.** All {% data variables.product.prodname_code_scanning %} alerts have a level of `Error`, `Warning`, or `Note`.
 * **Security severity.** Each security alert found using {% data variables.product.prodname_codeql %} also has a security severity level of `Critical`, `High`, `Medium`, or `Low`.
 
-When an alert has a security severity level, {% data variables.product.prodname_code_scanning %} displays and uses this level in preference to the `severity`. Security severity levels follow the industry-standard Common Vulnerability Scoring System (CVSS) that is also used for advisories in the {% data variables.product.prodname_advisory_database %}.  For more information, see [CVSS: Qualitative Severity Rating Scale](https://www.first.org/cvss/v3.1/specification-document#Qualitative-Severity-Rating-Scale).
+When an alert has a security severity level, {% data variables.product.prodname_code_scanning %} displays and uses this level in preference to the `severity`. Security severity levels follow the industry-standard Common Vulnerability Scoring System (CVSS) that is also used for advisories in the {% data variables.product.prodname_advisory_database %}. For more information, see [CVSS: Qualitative Severity Rating Scale](https://www.first.org/cvss/v3.1/specification-document#Qualitative-Severity-Rating-Scale).
 
 ### Pull request check failures for {% data variables.product.prodname_code_scanning %} alerts
 

@@ -51,7 +51,7 @@ Both {% data variables.codespaces.serverless %} and {% data variables.product.pr
 | **Cost** | Free.      | Free monthly quota of usage for personal accounts. For information on pricing, see "[AUTOTITLE](/free-pro-team@latest/billing/managing-billing-for-your-products/managing-billing-for-github-codespaces/about-billing-for-github-codespaces#about-github-codespaces-pricing)."|
 | **Availability** | Available to everyone on GitHub.com. | Available to everyone on GitHub.com. |
 | **Start up** | {% data variables.codespaces.serverless %} opens instantly with a key-press and you can start using it right away, without having to wait for additional configuration or installation. | When you create or resume a codespace, the codespace is assigned a VM and the container is configured based on the contents of a `devcontainer.json` file. This set up may take a few minutes to create the environment. See "[AUTOTITLE](/codespaces/developing-in-a-codespace/creating-a-codespace-for-a-repository)." |
-| **Compute**  | There is no associated compute, so you won’t be able to build and run your code or use the integrated terminal. | With  {% data variables.product.prodname_github_codespaces %}, you get the power of a dedicated VM on which you can run and debug your application.|
+| **Compute**  | There is no associated compute, so you won’t be able to build and run your code or use the integrated terminal. | With {% data variables.product.prodname_github_codespaces %}, you get the power of a dedicated VM on which you can run and debug your application.|
 | **Terminal access** | None. | {% data variables.product.prodname_github_codespaces %} provides a common set of tools by default, meaning that you can use the Terminal exactly as you would in your local environment.|
 | **Extensions**  | Only a subset of extensions that can run in the web will appear in the Extensions View and can be installed. See "[Using extensions](#using-extensions)."| With {% data variables.product.prodname_github_codespaces %}, you can use most extensions from the {% data variables.product.prodname_vscode_marketplace %}.|
 
@@ -82,7 +82,7 @@ Because {% data variables.codespaces.serverless %} uses the GitHub Repositories 
 
    ![Screenshot of the {% data variables.product.prodname_vscode_shortname %} Activity Bar with the source control button, labeled with a branch icon, highlighted with an orange outline.](/assets/images/help/codespaces/githubdotdev-source-control-activity-bar-button.png)
 
-1. To stage your changes, click  {% octicon "plus" aria-label="Stage changes" %} next to the file you've changed, or next to **Changes** if you've changed multiple files and you want to stage them all.
+1. To stage your changes, click {% octicon "plus" aria-label="Stage changes" %} next to the file you've changed, or next to **Changes** if you've changed multiple files and you want to stage them all.
 
    ![Screenshot of the "Source control" side bar with the staging button (a plus sign), to the right of "Changes," highlighted with a dark orange outline.](/assets/images/help/codespaces/githubdotdev-codespaces-commit-stage.png)
 
@@ -138,6 +138,6 @@ If you have issues opening {% data variables.codespaces.serverless %}, try the f
 ### Known limitations
 
 * The {% data variables.codespaces.serverless %} editor is currently supported in Chrome (and various other Chromium-based browsers), Edge, Firefox, and Safari. We recommend that you use the latest versions of these browsers.
-* Some keybindings may not work, depending on the browser you are using. These keybinding limitations are documented in the "[Known limitations and adaptations](https://code.visualstudio.com/docs/remote/codespaces#_known-limitations-and-adaptations)" section of the {% data variables.product.prodname_vscode_shortname %} documentation.
+* Some keybindings may not work, depending on the browser you are using. These keybinding limitations are documented in the [Known limitations and adaptations](https://code.visualstudio.com/docs/remote/codespaces#_known-limitations-and-adaptations) section of the {% data variables.product.prodname_vscode_shortname %} documentation.
 * `.` may not work to open {% data variables.codespaces.serverless %} according to your local keyboard layout. In that case, you can open any {% data variables.product.prodname_dotcom %} repository in {% data variables.codespaces.serverless %} by changing the URL from `github.com` to `github.dev`.
 * When intensively writing documentation or code in the web editor, you might encounter issues with pushing some commits. To resolve this, wait a few minutes for the API rate limit to reset.

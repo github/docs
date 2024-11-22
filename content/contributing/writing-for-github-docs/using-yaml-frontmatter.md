@@ -305,7 +305,7 @@ Index pages are the table of contents files for the Docs site. Every product, ca
 
 The homepage is the main Table of Contents file for the docs site. The homepage must have a complete list of `children`, like every [Index page](#index-pages) but must also specify the `childGroups` frontmatter property that will be highlighted in the main content area.
 
-`childGroups` is an array of mappings containing a `name` for the group, an optional `icon` for the group, and an array of `children`.  The `children` in the array must be present in the `children` frontmatter property.
+`childGroups` is an array of mappings containing a `name` for the group, an optional `icon` for the group, and an array of `children`. The `children` in the array must be present in the `children` frontmatter property.
 
 ## Creating new product guides pages
 

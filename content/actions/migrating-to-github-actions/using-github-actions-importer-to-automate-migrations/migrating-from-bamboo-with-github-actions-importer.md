@@ -258,7 +258,7 @@ These environment variables can be specified in a `.env.local` file that is load
 
 #### `--source-file-path`
 
-You can use the `--source-file-path` argument with the  `dry-run` or `migrate` subcommands.
+You can use the `--source-file-path` argument with the `dry-run` or `migrate` subcommands.
 
 By default, {% data variables.product.prodname_actions_importer %} fetches pipeline contents from the Bamboo instance. The `--source-file-path` argument tells {% data variables.product.prodname_actions_importer %} to use the specified source file path instead.
 

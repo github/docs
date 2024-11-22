@@ -22,7 +22,7 @@ After you specify recommended secrets, if people have not already created those 
 
 Recommended secrets are listed at the bottom of the page.
 
-<img src="/assets/images/help/codespaces/recommended-secrets.png" style="max-height:50rem"  alt='Screenshot of the "Create codespace" page with four recommended secrets highlighted with a dark orange outline.' />
+<img src="/assets/images/help/codespaces/recommended-secrets.png" style="max-height:50rem" alt='Screenshot of the "Create codespace" page with four recommended secrets highlighted with a dark orange outline.' />
 
 > [!NOTE]
 > The names of the recommended secrets are only listed on this page when the container configuration on the selected branch specifies these secrets.
@@ -54,7 +54,7 @@ Alternatively, for development environment secrets that the owner of the reposit
    }
    ```
 
-1. Add a property within `secrets` for each secret you want to recommend.  For example, change `NAME_OF_SECRET_1` and `NAME_OF_SECRET_2`, in the previous code example, to the names of the secrets that people should create in their personal settings for {% data variables.product.prodname_codespaces %}.
+1. Add a property within `secrets` for each secret you want to recommend. For example, change `NAME_OF_SECRET_1` and `NAME_OF_SECRET_2`, in the previous code example, to the names of the secrets that people should create in their personal settings for {% data variables.product.prodname_codespaces %}.
 1. Optionally, supply a description for each secret and a URL for more information about this secret.
 
    You can omit `description` and `documentationUrl`, as shown by `NAME_OF_SECRET_2` in the previous code example.

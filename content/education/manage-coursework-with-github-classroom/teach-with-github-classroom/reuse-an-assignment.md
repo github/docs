@@ -22,7 +22,7 @@ The copied assignment includes assignment details such as the name, source repos
 
    ![Screenshot of an assignment. The "Edit" dropdown is expanded and the "Reuse assignment" option is outlined in dark orange.](/assets/images/help/classroom/reuse-assignment-button.png)
 
-1. In the "Reuse assignment" modal, use the **Choose an organization** dropdown menu to select the organization you want the assignment to be in.  Then use the **Choose a classroom** dropdown menu to select the classroom within that organization that you want to copy the assignment to.
+1. In the "Reuse assignment" modal, use the **Choose an organization** dropdown menu to select the organization you want the assignment to be in. Then use the **Choose a classroom** dropdown menu to select the classroom within that organization that you want to copy the assignment to.
 1. Click **Create assignment**.
 1. The assignment is copied to the selected classroom, and a confirmation message is shown. If you chose to reuse an assignment with a template repository, the copying process may take a few minutes to complete, and you may need to refresh the page to see the completed message.
 
@@ -33,7 +33,7 @@ The copied assignment includes assignment details such as the name, source repos
 
     ![Screenshot of the tile for a classroom. The "Reuse assignment" option in the dropdown menu is outlined in dark orange.](/assets/images/help/classroom/classroom-reuse-assignment-modal.png)
 
-1. In the "Reuse assignments" modal, use the **Choose an organization** dropdown menu to select the organization you want the assignments to be in.  Then use the **Choose a classroom** dropdown menu to select the classroom within that organization that you want to copy the assignments to.
+1. In the "Reuse assignments" modal, use the **Choose an organization** dropdown menu to select the organization you want the assignments to be in. Then use the **Choose a classroom** dropdown menu to select the classroom within that organization that you want to copy the assignments to.
 1. To the left of each assignment, select the assignment you want to reuse.
 1. Click **Create assignments**.
 1. The assignments are copied to the selected classroom. If you chose to reuse an assignment with a template repository, the copying process may take a few minutes to complete.

@@ -12,7 +12,7 @@ You can encourage community members to include specific, structured information 
 
 {% data reusables.actions.learn-more-about-yaml %}
 
-To use a discussion category form in your repository, you must create a new file and add it to the  `/.github/DISCUSSION_TEMPLATE/` folder in your repository.
+To use a discussion category form in your repository, you must create a new file and add it to the `/.github/DISCUSSION_TEMPLATE/` folder in your repository.
 
 You can also create discussion category forms for your organization. For more information, see "[AUTOTITLE](/communities/setting-up-your-project-for-healthy-contributions/creating-a-default-community-health-file)."
 

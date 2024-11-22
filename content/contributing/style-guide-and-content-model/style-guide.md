@@ -541,7 +541,7 @@ Below are some usage highlights for how we present keyboard shortcuts in our doc
 * The basic syntax is to show keys with `+` between key combinations, without any spaces.
 
   * **Use:** `<kbd>Command</kbd>+<kbd>B</kbd>`, which is rendered as <kbd>Command</kbd>+<kbd>B</kbd>.
-  * **Avoid:** `<kbd>Command</kbd> + <kbd>B</kbd>` or `<kbd>Command + B</kbd>` which are  rendered as <kbd>Command</kbd> + <kbd>B</kbd> or <kbd>Command + B</kbd>.
+  * **Avoid:** `<kbd>Command</kbd> + <kbd>B</kbd>` or `<kbd>Command + B</kbd>` which are rendered as <kbd>Command</kbd> + <kbd>B</kbd> or <kbd>Command + B</kbd>.
 * Always capitalize letter keys for general references and keyboard shortcuts.
 
   * **Use:** <kbd>Command</kbd>+<kbd>B</kbd>

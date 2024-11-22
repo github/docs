@@ -95,7 +95,7 @@ registries:
 
 ### Cargo
 
-Cargo supports username, password  and token-based authentication. For more information, see `cargo-registry` in "[AUTOTITLE](/code-security/dependabot/dependabot-version-updates/configuration-options-for-the-dependabot.yml-file#cargo-registry)."
+Cargo supports username, password and token-based authentication. For more information, see `cargo-registry` in "[AUTOTITLE](/code-security/dependabot/dependabot-version-updates/configuration-options-for-the-dependabot.yml-file#cargo-registry)."
 
 The snippet below shows a `dependabot.yml` file configuration that uses a token.
 
@@ -575,7 +575,7 @@ If the `yarn.lock` file doesn't list the private registry as the dependency sour
 
 {% data reusables.dependabot.access-private-dependencies-link %}
 
-For scoped dependencies (`@my-org/my-dep`),  {% data variables.product.prodname_dependabot %} requires that the private registry is defined in the project's `.yarnrc file`. To define private registries for individual scopes, use `@myscope:registry" "https://private_registry_url"`.
+For scoped dependencies (`@my-org/my-dep`), {% data variables.product.prodname_dependabot %} requires that the private registry is defined in the project's `.yarnrc file`. To define private registries for individual scopes, use `@myscope:registry" "https://private_registry_url"`.
 
 ## Configuring private registry hosts
 
@@ -603,7 +603,7 @@ The `target branch` setting does not work with {% data variables.product.prodnam
 
 ### Azure Artifacts
 
-For information about Azure Artifacts and instructions on how to configure {% data variables.product.prodname_dependabot %} to work with  Azure Artifacts, see [Azure DevOps](https://learn.microsoft.com/en-us/azure/devops/artifacts/?view=azure-devops) in the Azure Artifacts documentation, and [Use Dependabot in GitHub with Azure Artifacts](https://josh-ops.com/posts/github-dependabot-with-azure-artifacts/), respectively.
+For information about Azure Artifacts and instructions on how to configure {% data variables.product.prodname_dependabot %} to work with Azure Artifacts, see [Azure DevOps](https://learn.microsoft.com/en-us/azure/devops/artifacts/?view=azure-devops) in the Azure Artifacts documentation, and [Use Dependabot in GitHub with Azure Artifacts](https://josh-ops.com/posts/github-dependabot-with-azure-artifacts/), respectively.
 
 Example of Azure Artifacts registry:
 

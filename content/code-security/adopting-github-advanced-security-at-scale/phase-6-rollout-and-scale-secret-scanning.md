@@ -58,7 +58,7 @@ Once enabled, you can do the following:
 
 1. **Provide guidance**: Configure a custom link in the message that contributors will see if their push is blocked by {% data variables.product.prodname_secret_scanning %}. The linked resource can provide guidance for contributors on how to resolve the blocked push. For more information, see "[AUTOTITLE](/code-security/secret-scanning/enabling-secret-scanning-features/enabling-push-protection-for-your-repository)."
 
-1. **Notify**: Define a webhook that specifically tracks {% data variables.secret-scanning.alerts %} created when someone bypasses push protection by using the alert property `"push_protection_bypassed": true`. Or, use the API to get updates on which  {% data variables.secret-scanning.alerts %} were the result of a push protection bypass by filtering the list of results for `"push_protection_bypassed": true`. For more information, see "[AUTOTITLE](/code-security/getting-started/auditing-security-alerts)."
+1. **Notify**: Define a webhook that specifically tracks {% data variables.secret-scanning.alerts %} created when someone bypasses push protection by using the alert property `"push_protection_bypassed": true`. Or, use the API to get updates on which {% data variables.secret-scanning.alerts %} were the result of a push protection bypass by filtering the list of results for `"push_protection_bypassed": true`. For more information, see "[AUTOTITLE](/code-security/getting-started/auditing-security-alerts)."
 
 {%- ifversion security-overview-push-protection-metrics-page %}
 

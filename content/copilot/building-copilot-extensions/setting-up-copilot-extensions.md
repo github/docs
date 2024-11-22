@@ -75,7 +75,7 @@ To learn how to use your {% data variables.product.prodname_copilot_extension_sh
 
 {% data variables.product.prodname_copilot_skillsets %} contain the custom code for your {% data variables.product.prodname_copilot_extension_short %}, and integrate with a {% data variables.product.prodname_github_app %} to form the {% data variables.product.prodname_copilot_extension_short %} itself.
 
-Unlike {% data variables.product.prodname_copilot_agents_short %}, {% data variables.product.prodname_copilot_skillsets_short %} handle the logic behind prompt crafting, function evaluation, and response generation, making them an ideal choice for developers seeking quick and effective integrations with minimal effort.  For more information, see "[AUTOTITLE](/copilot/building-copilot-extensions/building-a-copilot-skillset-for-your-copilot-extension/about-copilot-skillsets)."
+Unlike {% data variables.product.prodname_copilot_agents_short %}, {% data variables.product.prodname_copilot_skillsets_short %} handle the logic behind prompt crafting, function evaluation, and response generation, making them an ideal choice for developers seeking quick and effective integrations with minimal effort. For more information, see "[AUTOTITLE](/copilot/building-copilot-extensions/building-a-copilot-skillset-for-your-copilot-extension/about-copilot-skillsets)."
 
 ## 2. Build a {% data variables.product.prodname_copilot_skillset_short %}
 

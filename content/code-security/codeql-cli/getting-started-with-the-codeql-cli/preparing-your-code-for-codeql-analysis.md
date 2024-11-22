@@ -365,7 +365,7 @@ Based on your operating system, we recommend you run: ...
 The `codeql database init` command creates `<database>/temp/tracingEnvironment` with files that contain environment variables and values that will enable {% data variables.product.prodname_codeql %} to trace a sequence of build steps. These files are named `start-tracing.{json,sh,bat,ps1}`. Use one of these files with your CI system’s mechanism for setting environment variables for future steps. You can:
 
 * Read the JSON file, process it, and print out environment variables in the format expected by your CI system. For example, Azure DevOps expects `echo "##vso[task.setvariable variable=NAME]VALUE"`.
-* Or, if your CI system persists the environment,  source the appropriate `start-tracing` script to set the {% data variables.product.prodname_codeql %} variables in the shell environment of the CI system.
+* Or, if your CI system persists the environment, source the appropriate `start-tracing` script to set the {% data variables.product.prodname_codeql %} variables in the shell environment of the CI system.
 
 Build your code; optionally, unset the environment variables using an `end-tracing.{json,sh,bat,ps1}` script from the directory where the `start-tracing` scripts are stored; and then run the command `codeql database finalize <database>`.
 

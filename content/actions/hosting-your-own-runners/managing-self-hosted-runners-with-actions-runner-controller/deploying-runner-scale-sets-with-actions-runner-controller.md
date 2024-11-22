@@ -614,7 +614,7 @@ minRunners: 0
 
 runnerGroup: "my-custom-runner-group"
 
-## name of the runner scale set to create.  Defaults to the helm release name
+## name of the runner scale set to create. Defaults to the helm release name
 runnerScaleSetName: "my-awesome-scale-set"
 
 ## template is the PodSpec for each runner Pod
@@ -639,7 +639,7 @@ template:
           echo 'runner:x:1001:1001:runner:/home/runner:/bin/ash' >> /dind-etc/passwd
           echo 'runner:x:1001:' >> /dind-etc/group
           echo 'runner:100000:65536' >> /dind-etc/subgid
-          echo 'runner:100000:65536' >>  /dind-etc/subuid
+          echo 'runner:100000:65536' >> /dind-etc/subuid
           chmod 755 /dind-etc;
           chmod u=rwx,g=rx+s,o=rx /dind-home
           chown 1001:1001 /dind-home
@@ -716,7 +716,7 @@ minRunners: 0
 
 runnerGroup: "my-custom-runner-group"
 
-## name of the runner scale set to create.  Defaults to the helm release name
+## name of the runner scale set to create. Defaults to the helm release name
 runnerScaleSetName: "my-awesome-scale-set"
 
 ## template is the PodSpec for each runner Pod
@@ -741,7 +741,7 @@ template:
           echo 'runner:x:1001:1001:runner:/home/runner:/bin/ash' >> /dind-etc/passwd
           echo 'runner:x:1001:' >> /dind-etc/group
           echo 'runner:100000:65536' >> /dind-etc/subgid
-          echo 'runner:100000:65536' >>  /dind-etc/subuid
+          echo 'runner:100000:65536' >> /dind-etc/subuid
           chmod 755 /dind-etc;
           chmod u=rwx,g=rx+s,o=rx /dind-home
           chown 1001:1001 /dind-home

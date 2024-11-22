@@ -141,7 +141,7 @@ Get-Service "{{ service_win_name }}"
 
 {% endmac %}
 
- For more information on viewing the status of your self-hosted runner, see  "[AUTOTITLE](/actions/hosting-your-own-runners/managing-self-hosted-runners/monitoring-and-troubleshooting-self-hosted-runners)."
+ For more information on viewing the status of your self-hosted runner, see "[AUTOTITLE](/actions/hosting-your-own-runners/managing-self-hosted-runners/monitoring-and-troubleshooting-self-hosted-runners)."
 
 ## Stopping the service
 

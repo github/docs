@@ -208,7 +208,7 @@ Variables stored in an environment are only available to workflow jobs that refe
 1. Optionally, specify what branches{% ifversion deployment-protections-tag-patterns %} and tags{% endif %} can deploy to this environment. For more information, see "[Deployment branches{% ifversion deployment-protections-tag-patterns %} and tags{% endif %}](/actions/deployment/targeting-different-environments/managing-environments-for-deployment#deployment-branches{% ifversion deployment-protections-tag-patterns %}-and-tags{% endif %})."
    1. Select the desired option in the **Deployment branches** dropdown.
    1. If you chose **Selected branches{% ifversion deployment-protections-tag-patterns %} and tags{% endif %}**, to add a new rule, click **Add deployment branch{% ifversion deployment-protections-tag-patterns %} or tag{% endif %} rule**
-   {% ifversion deployment-protections-tag-patterns %}1. In the "Ref type" dropdown menu, depending on what rule you want to apply, click **{% octicon "git-branch" aria-label="The branch icon" %} Branch** or **{% octicon "tag" aria-label="The tag icon" %} Tag**.{% endif %}
+   {% ifversion deployment-protections-tag-patterns %}1. In the "Ref type" dropdown menu, depending on what rule you want to apply, click **{% octicon "git-branch" aria-hidden="true" %} Branch** or **{% octicon "tag" aria-hidden="true" %} Tag**.{% endif %}
    1. Enter the name pattern for the branch{% ifversion deployment-protections-tag-patterns %} or tag{% endif %} that you want to allow.
       {% ifversion deployment-protections-tag-patterns %}
 
