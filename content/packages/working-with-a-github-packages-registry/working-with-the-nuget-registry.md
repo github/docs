@@ -150,7 +150,7 @@ If you don't already have a {% data variables.product.pat_generic %} to use for 
 1. Publish the package using your {% data variables.product.pat_generic %} as the API key. Replace `PROJECT_NAME` with the name of the project, `1.0.0` with the version number of the package, and `YOUR_GITHUB_PAT` with your {% data variables.product.pat_generic %}.
 
    ```shell
-   dotnet nuget push "bin/Release/PROJECT_NAME.1.0.0.nupkg"  --api-key YOUR_GITHUB_PAT --source "github"
+   dotnet nuget push "bin/Release/PROJECT_NAME.1.0.0.nupkg" --api-key YOUR_GITHUB_PAT --source "github"
    ```
 
 {% data reusables.package_registry.viewing-packages %}
@@ -168,7 +168,7 @@ When publishing, {% ifversion packages-nuget-v2 %}if you are linking your packag
    dotnet new console --name PROJECT_NAME
    ```
 
-1. Add your project's specific information to your project's file, which ends in _.csproj_.  Make sure to replace:
+1. Add your project's specific information to your project's file, which ends in _.csproj_. Make sure to replace:
 
    * `1.0.0` with the version number of the package.
    * `OWNER` with the name of the personal account or organization that owns the repository to which you want to {% ifversion packages-nuget-v2 %}link your package{% else %}publish your package{% endif %}.

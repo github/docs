@@ -38,7 +38,7 @@ When creating a query suite, you first need to specify the locations of the
 queries that you want to select. You can define the location of one or more
 queries using:
 
-* A `query` instruction—tells {% data variables.product.prodname_codeql %} to look for one or more specified `.ql`
+* A `query` instruction: Tells {% data variables.product.prodname_codeql %} to look for one or more specified `.ql`
 files:
 
   ```yaml
@@ -48,7 +48,7 @@ files:
   The argument must be one or more file paths, relative to the {% data variables.product.prodname_codeql %} pack containing
   the suite definition.
 
-* A `queries` instruction—tells {% data variables.product.prodname_codeql %} to recursively scan a directory
+* A `queries` instruction: Tells {% data variables.product.prodname_codeql %} to recursively scan a directory
 for `.ql` files:
 
   ```yaml
@@ -68,7 +68,7 @@ for `.ql` files:
   The `version` field is optional and specifies a range of compatible versions of this {% data variables.product.prodname_codeql %} pack.
   If you don’t specify a version, then the most recent version of the pack is used.
 
-* A `qlpack` instruction—tells {% data variables.product.prodname_codeql %} to resolve queries in the default suite of the
+* A `qlpack` instruction: Tells {% data variables.product.prodname_codeql %} to resolve queries in the default suite of the
 named {% data variables.product.prodname_codeql %} pack:
 
   ```yaml
@@ -136,12 +136,12 @@ For more information about query metadata properties, see
 
 In addition to metadata tags, the keys in the constraint block can also be:
 
-* `query filename`—matches on the last path component of the query file name.
-* `query path`—matches on the path to the query file relative to its
+* `query filename`: Matches on the last path component of the query file name.
+* `query path`: Matches on the path to the query file relative to its
 enclosing {% data variables.product.prodname_codeql %} pack.
-* `tags contain`—one of the given match strings must match
+* `tags contain`: One of the given match strings must match
 one of the space-separated components of the value of the `@tags` metadata property.
-* `tags contain all`—each of the given match strings must match one of the
+* `tags contain all`: Each of the given match strings must match one of the
 components of the `@tags` metadata property.
 
 ### Examples of filtering which queries are run
@@ -245,7 +245,7 @@ use:
 
 Existing query suite definitions can be reused by specifying:
 
-* An `import` instruction—adds the queries selected by a
+* An `import` instruction: Adds the queries selected by a
 previously defined `.qls` file to the current suite:
 
   ```yaml
@@ -268,7 +268,7 @@ previously defined `.qls` file to the current suite:
   Queries added using an `import` instruction can be filtered using subsequent
   `exclude` instructions.
 
-* An `apply` instruction—adds all of the instructions from a
+* An `apply` instruction: Adds all of the instructions from a
 previously defined `.qls` file to the current suite. The instructions in the
 applied `.qls` file are executed as if they appear in place of `apply`.
 Any `include` and `exclude` instructions from the applied suite also act on

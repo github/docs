@@ -110,7 +110,7 @@ If you specify a user or team that doesn't exist or has insufficient access, a c
 # The `docs/*` pattern will match files like
 # `docs/getting-started.md` but not further nested files like
 # `docs/build-app/troubleshooting.md`.
-docs/*  docs@example.com
+docs/* docs@example.com
 
 # In this example, @octocat owns any file in an apps directory
 # anywhere in your repository.

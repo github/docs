@@ -22,7 +22,7 @@ topics:
 ---
 ## About forks
 
-{% data reusables.repositories.fork-definition-long %}  For more information, see "[AUTOTITLE](/pull-requests/collaborating-with-pull-requests/working-with-forks)."
+{% data reusables.repositories.fork-definition-long %} For more information, see "[AUTOTITLE](/pull-requests/collaborating-with-pull-requests/working-with-forks)."
 
 ### Propose changes to someone else's project
 

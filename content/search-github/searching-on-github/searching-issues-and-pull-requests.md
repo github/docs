@@ -51,7 +51,7 @@ With the `in` qualifier you can restrict your search to the title, body, comment
 
 ## Search within a user's or organization's repositories
 
-To search issues and pull requests in all repositories owned by a certain user or organization, you can use the  `user` or `org` qualifier. To search issues and pull requests in a specific repository, you can use the `repo` qualifier.
+To search issues and pull requests in all repositories owned by a certain user or organization, you can use the `user` or `org` qualifier. To search issues and pull requests in a specific repository, you can use the `repo` qualifier.
 
 {% data reusables.pull_requests.large-search-workaround %}
 

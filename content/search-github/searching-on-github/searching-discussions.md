@@ -28,7 +28,7 @@ With the `in` qualifier you can restrict your search for discussions to the titl
 
 ## Search within a user's or organization's repositories
 
-To search discussions in all repositories owned by a certain user or organization, you can use the  `user` or `org` qualifier. To search discussions in a specific repository, you can use the `repo` qualifier.
+To search discussions in all repositories owned by a certain user or organization, you can use the `user` or `org` qualifier. To search discussions in a specific repository, you can use the `repo` qualifier.
 
 | Qualifier | Example |
 | :- | :- |

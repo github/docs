@@ -109,7 +109,7 @@ To ensure you're always using the same image, you can specify the exact containe
 1. Remove image locally as needed.
 
    ```shell
-   docker rmi  {% data reusables.package_registry.container-registry-hostname %}/NAMESPACE/IMAGE_NAME:latest
+   docker rmi {% data reusables.package_registry.container-registry-hostname %}/NAMESPACE/IMAGE_NAME:latest
    ```
 
 1. Pull the container image with `@YOUR_SHA_VALUE` after the image name.

@@ -72,8 +72,8 @@ No matter how well you tighten your organization to prevent data leaks, some may
 {% ifversion fpt or ghec %}
 There are two forms of {% data variables.product.prodname_secret_scanning %} available: **{% data variables.secret-scanning.partner_alerts_caps %}** and **{% data variables.secret-scanning.user_alerts_caps %}**.
 
-* {% data variables.secret-scanning.partner_alerts_caps %}—These are enabled by default and automatically run on all public repositories and public npm packages.
-* {% data variables.secret-scanning.user_alerts_caps %}—To get additional scanning capabilities for your organization, you need to enable {% data variables.secret-scanning.user_alerts %}.
+* {% data variables.secret-scanning.partner_alerts_caps %}: These are enabled by default and automatically run on all public repositories and public npm packages.
+* {% data variables.secret-scanning.user_alerts_caps %}: To get additional scanning capabilities for your organization, you need to enable {% data variables.secret-scanning.user_alerts %}.
 
   When enabled, {% data variables.secret-scanning.user_alerts %} can be detected on the following types of repository:{% ifversion fpt %}
    * Public repositories owned by personal accounts on {% data variables.product.prodname_dotcom_the_website %}
