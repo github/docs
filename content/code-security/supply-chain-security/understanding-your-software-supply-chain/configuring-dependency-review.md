@@ -54,7 +54,7 @@ Dependency review is available when dependency graph is enabled for the instance
 
 {% data reusables.dependency-review.org-level-enforcement %}
 
-Here is a list of common configuration options.  For more information, and a full list of options, see [Dependency Review](https://github.com/marketplace/actions/dependency-review) on the {% data variables.product.prodname_marketplace %}.
+Here is a list of common configuration options. For more information, and a full list of options, see [Dependency Review](https://github.com/marketplace/actions/dependency-review) on the {% data variables.product.prodname_marketplace %}.
 
 | Option | Required | Usage |
 |------------------|-------------------------------|--------|
@@ -74,7 +74,7 @@ Here is a list of common configuration options.  For more information, and a ful
 {% ifversion dependency-review-action-licenses %}
 
 > [!TIP]
-> The  `allow-licenses` and  `deny-licenses` options are mutually exclusive.
+> The `allow-licenses` and `deny-licenses` options are mutually exclusive.
 
 ## Configuring the {% data variables.dependency-review.action_name %}
 

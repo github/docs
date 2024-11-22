@@ -2,7 +2,7 @@
 title: Managing Dependabot on self-hosted runners
 intro: 'You can configure self-hosted runners that {% data variables.product.prodname_dependabot %} uses to access your private registries and internal network resources.'
 shortTitle: Manage Dependabot on self-hosted runners
-permissions: 'Organization owners and repository administrators can configure {% data variables.product.prodname_dependabot %} to run on self-hosted runners.'
+permissions: '{% data reusables.permissions.dependabot-actions %}'
 versions:
   feature: dependabot-on-actions-self-hosted
 type: how_to
@@ -17,7 +17,7 @@ topics:
 
 ## About {% data variables.product.prodname_dependabot %} on {% data variables.product.prodname_actions %} self-hosted runners
 
-{% data reusables.dependabot.dependabot-updates-and-actions %}  For more information, see "[AUTOTITLE](/code-security/dependabot/working-with-dependabot/about-dependabot-on-github-actions-runners)."
+{% data reusables.dependabot.dependabot-updates-and-actions %} For more information, see "[AUTOTITLE](/code-security/dependabot/working-with-dependabot/about-dependabot-on-github-actions-runners)."
 
 {% data reusables.dependabot.dependabot-on-actions-future-note %}
 
@@ -84,7 +84,7 @@ You can manage {% data variables.product.prodname_dependabot %} on self-hosted r
 {% data reusables.repositories.navigate-to-repo %}
 {% data reusables.repositories.sidebar-settings %}
 {% data reusables.repositories.navigate-to-code-security-and-analysis %}
-1. Under "Dependabot", to the right of "{% data variables.product.prodname_dependabot %} on self-hosted runners", click **Enable**  to enable the feature or **Disable** to disable it.
+1. Under "Dependabot", to the right of "{% data variables.product.prodname_dependabot %} on self-hosted runners", click **Enable** to enable the feature or **Disable** to disable it.
 
 ### Enabling or disabling for your organization
 

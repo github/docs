@@ -19,7 +19,7 @@ shortTitle: Quickstart
 
 ## Introduction
 
-{% data reusables.actions.about-actions %}  You can create workflows that run tests whenever you push a change to your repository, or that deploy merged pull requests to production.
+{% data reusables.actions.about-actions %} You can create workflows that run tests whenever you push a change to your repository, or that deploy merged pull requests to production.
 
 This quickstart guide shows you how to use the user interface of {% data variables.product.github %} to add a workflow that demonstrates some of the essential features of {% data variables.product.prodname_actions %}.
 
@@ -40,7 +40,7 @@ This guide assumes that:
 * You have a repository on {% data variables.product.github %} where you can add files.
 * You have access to {% data variables.product.prodname_actions %}.
 
-  > [!NOTE] If the {% octicon "play" aria-hidden="true" %} **Actions** tab is not displayed under the name of your repository on {% data variables.product.prodname_dotcom %}, it may be because Actions is disabled for the repository. For more information, see "[AUTOTITLE](/repositories/managing-your-repositorys-settings-and-features/enabling-features-for-your-repository/managing-github-actions-settings-for-a-repository)."
+  > [!NOTE] If the **{% octicon "play" aria-hidden="true" %} Actions** tab is not displayed under the name of your repository on {% data variables.product.prodname_dotcom %}, it may be because Actions is disabled for the repository. For more information, see "[AUTOTITLE](/repositories/managing-your-repositorys-settings-and-features/enabling-features-for-your-repository/managing-github-actions-settings-for-a-repository)."
 
 ## Creating your first workflow
 

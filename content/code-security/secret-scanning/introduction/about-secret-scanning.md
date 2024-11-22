@@ -32,7 +32,7 @@ When a supported secret is leaked, {% data variables.product.product_name %} gen
 
 {% ifversion fpt or ghec %}Service providers can partner with {% data variables.product.company_short %} to provide their secret formats for scanning. We automatically run {% data variables.product.prodname_secret_scanning %} for partner patterns on all public repositories and public npm packages.{% data reusables.secret-scanning.partner-program-link %}
 
-Any strings that match patterns that were provided by secret scanning partners are reported directly to the relevant partner, and aren't displayed on  {% data variables.product.prodname_dotcom %}. For more information about partner patterns, see "[AUTOTITLE](/code-security/secret-scanning/managing-alerts-from-secret-scanning/about-alerts)."{% endif %}
+Any strings that match patterns that were provided by secret scanning partners are reported directly to the relevant partner, and aren't displayed on {% data variables.product.prodname_dotcom %}. For more information about partner patterns, see "[AUTOTITLE](/code-security/secret-scanning/managing-alerts-from-secret-scanning/about-alerts)."{% endif %}
 
 For information about the secrets and service providers supported by {% data variables.product.prodname_secret_scanning %}, see "[AUTOTITLE](/code-security/secret-scanning/introduction/supported-secret-scanning-patterns#supported-secrets)."
 
@@ -121,7 +121,7 @@ Define your own patterns for secrets used by your organization that {% data vari
 ### {% data variables.secret-scanning.copilot-secret-scanning %}
 
 * **{% data variables.secret-scanning.generic-secret-detection-caps %}**: Leverage {% data variables.product.prodname_secret_scanning %}'s AI capabilities to detect unstructured secrets, such as passwords, in your repository. For more information, see "[AUTOTITLE](/code-security/secret-scanning/copilot-secret-scanning/responsible-ai-generic-secrets)."{% ifversion secret-scanning-custom-pattern-ai-generated %}
-* **{% data variables.secret-scanning.custom-pattern-regular-expression-generator-caps %}**: Leverage {% data variables.product.prodname_secret_scanning %}'s AI capabilities to generate regular expressions that will capture all your custom patterns. For more information, see "[AUTOTITLE](/code-security/secret-scanning/copilot-secret-scanning/responsible-use-ai-regex-generator).{% endif %}
+* **{% data variables.secret-scanning.custom-pattern-regular-expression-generator-caps %}**: Leverage {% data variables.product.prodname_secret_scanning %}'s AI capabilities to generate regular expressions that will capture all your custom patterns. For more information, see "[AUTOTITLE](/code-security/secret-scanning/copilot-secret-scanning/responsible-ai-regex-generator).{% endif %}
 
 {% endif %}
 

@@ -80,7 +80,7 @@ The first time you use JetBrains Gateway for {% data variables.product.prodname_
 1. In the list of installed tools, click **Gateway**.
 1. Under **Install More Providers** click the **Install** link for {% data variables.product.prodname_github_codespaces %}.
 
-   ![Screenshot of the "Welcome to JetBrains Gateway" page, with  "{% data variables.product.prodname_github_codespaces %}" listed under "Install More Providers."](/assets/images/help/codespaces/jetbrains-gateway-initial-view.png)
+   ![Screenshot of the "Welcome to JetBrains Gateway" page, with "{% data variables.product.prodname_github_codespaces %}" listed under "Install More Providers."](/assets/images/help/codespaces/jetbrains-gateway-initial-view.png)
 
 1. Click **Connect to Codespace**.
 

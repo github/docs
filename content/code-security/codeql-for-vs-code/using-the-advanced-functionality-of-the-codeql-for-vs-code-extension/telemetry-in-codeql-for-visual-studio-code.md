@@ -41,7 +41,7 @@ If you opt in, {% data variables.product.company_short %} collects the following
 
 * IP address of the client sending the telemetry data. This is discarded before aggregation.
 
-* Whether any {% data variables.product.prodname_codeql %} for {% data variables.product.prodname_vscode_shortname %}  extension settings are configured. For more information about customizing settings, see "[AUTOTITLE](/code-security/codeql-for-vs-code/using-the-advanced-functionality-of-the-codeql-for-vs-code-extension/customizing-settings)."
+* Whether any {% data variables.product.prodname_codeql %} for {% data variables.product.prodname_vscode_shortname %} extension settings are configured. For more information about customizing settings, see "[AUTOTITLE](/code-security/codeql-for-vs-code/using-the-advanced-functionality-of-the-codeql-for-vs-code-extension/customizing-settings)."
 
 ## How long data is retained
 

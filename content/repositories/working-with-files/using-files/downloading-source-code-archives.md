@@ -28,14 +28,14 @@ You can download the source code archives in three ways.
 {% data reusables.repositories.navigate-to-repo %}
 {% data reusables.repositories.releases %}
 1. Scroll down to the "Assets" section of the release.
-1. To download the source code, click {% octicon "file-zip" aria-hidden="true" %} **Source code (zip)** or {% octicon "file-zip" aria-hidden="true" %} **Source code (tar.gz)**.
+1. To download the source code, click **{% octicon "file-zip" aria-hidden="true" %} Source code (zip)** or **{% octicon "file-zip" aria-hidden="true" %} Source code (tar.gz)**.
 
 ### Downloading source code archives from a tag
 
 {% data reusables.repositories.navigate-to-repo %}
 {% data reusables.repositories.releases %}
 1. At the top of the Releases page, click **Tags**.
-1. To download the source code, click {% octicon "file-zip" aria-label="The ZIP icon" %} **zip** or {% octicon "file-zip" aria-label="The ZIP icon" %} **tar.gz**.
+1. To download the source code, click **{% octicon "file-zip" aria-hidden="true" %} zip** or **{% octicon "file-zip" aria-hidden="true" %} tar.gz**.
 
    ![Screenshot of the "Tags" page of a repository. The zip and tar.gz options are outlined in dark orange.](/assets/images/help/repository/tags-download-zip-targz.png)
 
@@ -49,11 +49,8 @@ Source code archives are available at specific URLs for each repository. For exa
 | Tag             | `codeql-cli/v2.12.0` | [https://github.com/github/codeql/archive/refs/**tags/codeql-cli/v2.12.0**.zip](https://github.com/github/codeql/archive/refs/tags/codeql-cli/v2.12.0.zip)  |
 | Commit          | `aef66c4` | [https://github.com/github/codeql/archive/**aef66c462abe817e33aad91d97aa782a1e2ad2c7**.zip](https://github.com/github/codeql/archive/aef66c462abe817e33aad91d97aa782a1e2ad2c7.zip) |
 
-{% note %}
-
-**Note**: You can use either `.zip` or `.tar.gz` in the URLs above to request a zipball or tarball respectively.
-
-{% endnote %}
+> [!NOTE]
+> You can use either `.zip` or `.tar.gz` in the URLs above to request a zipball or tarball respectively.
 
 ## Stability of source code archives
 

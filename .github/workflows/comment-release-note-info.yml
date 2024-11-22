@@ -8,6 +8,7 @@ on:
       - opened
     paths:
       - data/release-notes/enterprise-server/**
+      - .github/workflows/comment-release-note-info.yml
 
 permissions:
   contents: read

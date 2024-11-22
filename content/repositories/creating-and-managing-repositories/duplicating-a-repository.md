@@ -15,11 +15,8 @@ topics:
 ---
 {% ifversion fpt or ghec %}
 
-{% note %}
-
-**Note:** If you have a project hosted on another Git-based hosting service, you can automatically import your project to {% data variables.product.prodname_dotcom %} using the {% data variables.product.prodname_importer %} tool. For more information, see "[AUTOTITLE](/migrations/importing-source-code/using-github-importer/about-github-importer)."
-
-{% endnote %}
+> [!NOTE]
+> If you have a project hosted on another Git-based hosting service, you can automatically import your project to {% data variables.product.prodname_dotcom %} using the {% data variables.product.prodname_importer %} tool. For more information, see "[AUTOTITLE](/migrations/importing-source-code/using-github-importer/about-github-importer)."
 
 {% endif %}
 

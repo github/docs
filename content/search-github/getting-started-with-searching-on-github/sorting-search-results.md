@@ -14,11 +14,10 @@ topics:
 ---
 
 {% ifversion code-search-upgrade %}
-  {% note %}
 
-  **Note:** Sorting search results is not supported for {% data variables.product.product_name %} code search. For more information on code search, see "[AUTOTITLE](/search-github/github-code-search/about-github-code-search)."
+> [!NOTE]
+> Sorting search results is not supported for {% data variables.product.product_name %} code search. For more information on code search, see "[AUTOTITLE](/search-github/github-code-search/about-github-code-search)."
 
-  {% endnote %}
 {% endif %}
 
 Use the **Sort** dropdown menu to sort results by relevance, number of stars, number of forks, and how recently the items were updated.

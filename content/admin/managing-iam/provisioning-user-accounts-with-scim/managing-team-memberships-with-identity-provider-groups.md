@@ -88,9 +88,8 @@ Enterprise owners can review a list of IdP groups, each group's memberships, and
 
 {% data reusables.enterprise-accounts.access-enterprise %}
 {% data reusables.enterprise-accounts.click-identity-provider %}
-
 1. To see the members and teams connected to an IdP group, click the group's name.
-
+1. {% data reusables.enterprise-accounts.groups-tab %}
 1. To view the teams connected to the IdP group, click **Teams**.
 
 If a team cannot sync with the group on your IdP, the team will display an error. For more information, see "[AUTOTITLE](/admin/identity-and-access-management/using-enterprise-managed-users-for-iam/troubleshooting-team-membership-with-identity-provider-groups)."

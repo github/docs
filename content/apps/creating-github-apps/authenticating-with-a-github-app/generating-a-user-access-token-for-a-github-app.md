@@ -74,7 +74,7 @@ The device flow uses the OAuth 2.0 Device Authorization Grant.
    --- | --- | ---
    `device_code` | `string` | A verification code that is used to verify the device. This code is 40 characters long.
    `user_code` | `string` | A verification code that your application should display so that the user can enter the code in a browser. This code is 8 characters with a hyphen in the middle. For example, `WDJB-MJHT`.
-   `verification_uri` | `string` | The URL where users need to enter their `user_code`. The URL is:  {% data variables.product.device_authorization_url %}.
+   `verification_uri` | `string` | The URL where users need to enter their `user_code`. The URL is: {% data variables.product.device_authorization_url %}.
    `expires_in` | `integer` | The number of seconds before the `device_code` and `user_code` expire. The default is 900 seconds (15 minutes).
    `interval` | `integer` | The minimum number of seconds that must pass before you can make a new access token request (`POST {% data variables.product.oauth_host_code %}/login/oauth/access_token`) to complete the device authorization. If you make a request before this interval passes, then you will hit the rate limit and receive a `slow_down` error. The default is 5 seconds.
 1. Prompt the user to enter the `user_code` from the previous step at {% data variables.product.device_authorization_url %}.
@@ -170,4 +170,4 @@ When you request a user access token via the device flow, the `grant_type` param
 
 If the user for whom you are trying to generate a user access token has not verified their primary email address with {% data variables.product.company_short %}, you will receive an `unverified_user_email` error.
 
-To resolve this error, prompt the user to verify the primary email address on their {% data variables.product.company_short %} account. For more information, see {% ifversion fpt or ghec %}"[AUTOTITLE](/account-and-profile/setting-up-and-managing-your-personal-account-on-github/managing-email-preferences/verifying-your-email-address)."{% else %}"[AUTOTITLE](/free-pro-team@latest/account-and-profile/setting-up-and-managing-your-personal-account-on-github/managing-email-preferences/verifying-your-email-address)" in the  {% data variables.product.prodname_free_user %} documentation.{% endif %}
+To resolve this error, prompt the user to verify the primary email address on their {% data variables.product.company_short %} account. For more information, see {% ifversion fpt or ghec %}"[AUTOTITLE](/account-and-profile/setting-up-and-managing-your-personal-account-on-github/managing-email-preferences/verifying-your-email-address)."{% else %}"[AUTOTITLE](/free-pro-team@latest/account-and-profile/setting-up-and-managing-your-personal-account-on-github/managing-email-preferences/verifying-your-email-address)" in the {% data variables.product.prodname_free_user %} documentation.{% endif %}

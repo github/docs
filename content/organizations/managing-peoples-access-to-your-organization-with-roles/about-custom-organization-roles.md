@@ -1,6 +1,6 @@
 ---
 title: About custom organization roles
-intro: "You can control access to your {% ifversion org-custom-role-with-repo-permissions %}organization and repository's{% else %} organization's{% endif %} settings with custom organization roles."
+intro: "You can control access to your {% ifversion org-custom-role-with-repo-permissions %}organization's settings and repositories{% else %}organization's settings{% endif %} with custom organization roles."
 versions:
   feature: 'custom-org-roles'
 topics:
@@ -16,9 +16,14 @@ You can create and assign custom organization roles in your organization's setti
 
 {% ifversion org-custom-role-with-repo-permissions %}
 
-You can also create a custom organization role that includes permissions for repositories. Repository permissions grant access to all current and future repositories in the organization. There are several ways to combine permissions for repositories and organizations. You can create a custom organization role with:
+You can also create a custom organization role that includes permissions for repositories. Repository permissions grant access to all current and future repositories in the organization.
 
-You can create a role that includes permissions for organization settings, a base role for repository access, or both. If you add a base role for repository access, you can also include additional repository permissions. You can't create a role with repository permissions unless it includes a base repository role. Without repository permissions or a base repository role, the organization role doesn't grant access to any repositories.
+There are several ways to combine permissions for repositories and organizations.
+
+* You can create a role that includes permissions for organization settings, a base role for repository access, or both.
+* If you add a base role for repository access, you can also include additional repository permissions. You can't add repository permissions without a base repository role.
+
+Without repository permissions or a base repository role, the organization role doesn't grant access to any repositories.
 
 >[!NOTE] Adding repository permissions to a custom organization role is currently in {% data variables.release-phases.public_preview %} and subject to change.
 

@@ -19,7 +19,7 @@ If your organization is owned by an enterprise, before you can approve a request
 
 {% data reusables.profile.access_org %}
 {% data reusables.organizations.org-list %}
-1. In the "Access" section of the sidebar, click {% octicon "bell" aria-label="The notifications bell" %} **Requests from members**.
+1. In the "Access" section of the sidebar, click **{% octicon "bell" aria-hidden="true" %} Requests from members**.
 1. To accept the request and grant the member access to {% data variables.product.prodname_copilot_for_business %}, click **Buy {% data variables.product.prodname_copilot_business_short %}**.
 
 All requests for {% data variables.product.prodname_copilot_for_business %} are grouped together under "{% data variables.product.prodname_copilot_business_short %}."

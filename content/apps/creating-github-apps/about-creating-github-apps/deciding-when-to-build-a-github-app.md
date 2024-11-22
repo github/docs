@@ -46,7 +46,7 @@ The rate limit for {% data variables.product.prodname_github_apps %} using an in
 
 ### {% data variables.product.prodname_github_apps %} have built in webhooks
 
-{% data variables.product.prodname_github_apps %} have built-in, centralized webhooks. {% data variables.product.prodname_github_apps %} can receive webhook events for all repositories and organizations the app can access. Conversely, {% data variables.product.prodname_oauth_apps %}  must configure webhooks individually for each repository and organization.
+{% data variables.product.prodname_github_apps %} have built-in, centralized webhooks. {% data variables.product.prodname_github_apps %} can receive webhook events for all repositories and organizations the app can access. Conversely, {% data variables.product.prodname_oauth_apps %} must configure webhooks individually for each repository and organization.
 
 ### API access differs slightly
 

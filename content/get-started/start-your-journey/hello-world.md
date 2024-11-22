@@ -110,7 +110,7 @@ Pull requests are the heart of collaboration on {% data variables.product.produc
 
 As soon as you make a commit, you can open a pull request and start a discussion, even before the code is finished.
 
-In this step, you'll open a pull request in your own repository and then merge it yourself. It's a great way to practise the {% data variables.product.product_name %} flow before working on larger projects.
+In this step, you'll open a pull request in your own repository and then merge it yourself. It's a great way to practice the {% data variables.product.product_name %} flow before working on larger projects.
 
 1. Click the **Pull requests** tab of your `hello-world` repository.
 1. Click **New pull request**.
@@ -131,7 +131,7 @@ We won't cover reviewing pull requests in this tutorial, but if you're intereste
 
 ## Step 5: Merge your pull request
 
-In this final step, you will merge your `readme-edits` branch into the `main` branch.  After you merge your pull request, the changes on your `readme-edits` branch will be incorporated into `main`.
+In this final step, you will merge your `readme-edits` branch into the `main` branch. After you merge your pull request, the changes on your `readme-edits` branch will be incorporated into `main`.
 
 Sometimes, a pull request may introduce changes to code that conflict with the existing code on `main`. If there are any conflicts, {% data variables.product.product_name %} will alert you about the conflicting code and prevent merging until the conflicts are resolved. You can make a commit that resolves the conflicts or use comments in the pull request to discuss the conflicts with your team members.
 

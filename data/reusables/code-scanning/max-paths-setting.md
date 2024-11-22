@@ -9,8 +9,5 @@
 
 * {% data variables.product.prodname_codeql_cli %} `database analyze`: update the database analysis command to include the `--max-paths=1` flag. For more information, see "[AUTOTITLE](/code-security/codeql-cli/codeql-cli-manual/database-analyze#--max-pathsmaxpaths)."
 
-{% note %}
-
-**Note:** The `max-paths` setting affects the results of all dataflow queries.
-
-{% endnote %}
+> [!NOTE]
+> The `max-paths` setting affects the results of all dataflow queries.

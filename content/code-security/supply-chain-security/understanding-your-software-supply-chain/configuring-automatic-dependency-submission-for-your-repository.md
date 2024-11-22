@@ -39,7 +39,7 @@ You must also enable {% data variables.product.prodname_actions %} for the repos
 
 Repository administrators can enable or disable automatic dependency submission for a repository by following the steps outlined in this procedure.
 
-Organization owners can enable automatic dependency submission for multiple repositories using a security configuration. For more information, see "[AUTOTITLE](/code-security/securing-your-organization/meeting-your-specific-security-needs-with-custom-security-configurations/creating-a-custom-security-configuration)."
+Organization owners can enable automatic dependency submission for multiple repositories using a security configuration. For more information, see "[AUTOTITLE](/code-security/securing-your-organization/enabling-security-features-in-your-organization/creating-a-custom-security-configuration)."
 
 {% data reusables.repositories.navigate-to-repo %}
 {% data reusables.repositories.sidebar-settings %}
@@ -67,7 +67,7 @@ Once enabled, automatic dependency submission jobs will run on the self-hosted r
 * The self-hosted runners are unavailable.
 * There aren't any runner groups tagged with a `dependency-submission` label.
 
->[!NOTE] When using self-hosted runners, you need to add access to the Maven server settings file to allow the dependency submission workflows to connect to private registries. Dependencies from private registries will be included in the dependency tree in the next `pom.xml` update.  For more information about the Maven server settings file, see [Security and Deployment Settings](https://maven.apache.org/guides/introduction/introduction-to-dependency-mechanism.html#transitive-dependencies) in the Maven documentation.
+>[!NOTE] When using self-hosted runners, you need to add access to the Maven server settings file to allow the dependency submission workflows to connect to private registries. Dependencies from private registries will be included in the dependency tree in the next `pom.xml` update. For more information about the Maven server settings file, see [Security and Deployment Settings](https://maven.apache.org/guides/introduction/introduction-to-dependency-mechanism.html#transitive-dependencies) in the Maven documentation.
 
 ## Using {% data variables.product.company_short %}-hosted {% data variables.actions.hosted_runners %} for automatic dependency submission
 

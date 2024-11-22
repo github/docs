@@ -16,11 +16,7 @@ topics:
 shortTitle: About billing
 ---
 
-{% ifversion enhanced-billing-platform %}
-
 {% data reusables.billing.enhanced-billing-platform %}
-
-{% endif %}
 
 ## About billing for {% data variables.product.prodname_registry %}
 
@@ -88,7 +84,7 @@ At the end of the month, {% data variables.product.prodname_dotcom %} rounds you
 
 You can also use this calculation in the middle of a billing cycle, to estimate what your total usage might be for the month. For example, if you have an organization that uses {% data variables.product.prodname_team %}, which provides 2 GB of free storage, and you use 0 GB for the first 5 days of April, 1.5 GB for the following 10 days, and you plan to use 3 GB for the last 15 days of the billing cycle, your projected storage usage for the month would be:
 
-* 0 GB x 5 days  x (24 hours per day) =   0 GB-Hours
+* 0 GB x 5 days x (24 hours per day) =   0 GB-Hours
 * 0.5 GB x 10 days x (24 hours per day) = 120 GB-Hours
 * 3 GB x 15 days x (24 hours per day) = 1080 GB-Hours
 * 0 GB-Hours + 120 GB-Hours + 1080 GB-Hours = 1200 total GB-Hours

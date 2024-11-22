@@ -33,7 +33,7 @@ If you encounter a crash when attempting to launch {% data variables.product.pro
 1. Drag the {% data variables.product.prodname_desktop %} application from your "Downloads" folder to the "Applications" folder.
 1. Approve the dialog asking if you want to replace the existing application.
 1. Launch {% data variables.product.prodname_desktop %}.
-1. Approve the prompt stating that that application was downloaded from the internet.
+1. Approve the prompt stating that application was downloaded from the internet.
 
 {% endmac %}
 

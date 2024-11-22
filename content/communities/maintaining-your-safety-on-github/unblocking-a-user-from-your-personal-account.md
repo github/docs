@@ -27,7 +27,7 @@ You can unblock a user in your account settings or from the user's profile page.
 ## Unblocking a user from their profile page
 
 {% data reusables.profile.user_profile_page_navigation %}
-1. In the left sidebar, below the user's profile information, click  **Unblock or report user**.
+1. In the left sidebar, below the user's profile information, click **Unblock or report user**.
 
    ![Screenshot of the sidebar of a user's profile page. A link, labeled "Unblock or report", is outlined in dark orange.](/assets/images/help/profile/profile-unblock-or-report-user.png)
 1. Click **Unblock user**.

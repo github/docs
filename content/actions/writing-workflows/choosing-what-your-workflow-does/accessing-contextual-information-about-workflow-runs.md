@@ -543,7 +543,7 @@ jobs:
     steps:
       - name: Generate 0 or 1
         id: generate_number
-        run:  echo "random_number=$(($RANDOM % 2))" >> $GITHUB_OUTPUT
+        run: echo "random_number=$(($RANDOM % 2))" >> $GITHUB_OUTPUT
       - name: Pass or fail
         run: |
           if [[ {% raw %}${{ steps.generate_number.outputs.random_number }}{% endraw %} == 0 ]]; then exit 0; else exit 1; fi

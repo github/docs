@@ -15,6 +15,7 @@ on:
       - synchronize
     paths:
       - 'content/**'
+      - .github/workflows/codeowners-legal.yml
 
 permissions:
   contents: read

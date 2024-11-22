@@ -14,11 +14,7 @@ redirect_from:
   - /billing/managing-billing-for-github-codespaces/viewing-your-github-codespaces-usage
 ---
 
-{% ifversion enhanced-billing-platform %}
-
 {% data reusables.billing.enhanced-billing-platform %}
-
-{% endif %}
 
 ## Viewing {% data variables.product.prodname_github_codespaces %} usage for your personal account
 

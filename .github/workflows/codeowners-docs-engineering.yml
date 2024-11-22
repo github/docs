@@ -25,6 +25,7 @@ on:
       - '.github/**'
       - '**Dockerfile'
       - 'package*.json'
+      - .github/workflows/codeowners-docs-engineering.yml
 
 jobs:
   codeowners-docs-engineering:

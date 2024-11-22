@@ -18,7 +18,7 @@ When you create a ruleset, you can allow certain users to bypass the rules in th
 
 {% ifversion not ghes %}
 
-For organizations on the {% data variables.product.prodname_enterprise %} and {% data variables.product.prodname_team %} plans, you can set up rulesets at the organization level to target multiple repositories in your organization. For more information, see "[AUTOTITLE](/organizations/managing-organization-settings/managing-rulesets-for-repositories-in-your-organization){% ifversion ghec %}."{% else %}" in the {% data variables.product.prodname_ghe_cloud %} documentation.{% endif %}
+For organizations on the {% data variables.product.prodname_enterprise %} plan, you can set up rulesets at the organization level to target multiple repositories in your organization. For more information, see "[AUTOTITLE](/organizations/managing-organization-settings/managing-rulesets-for-repositories-in-your-organization){% ifversion ghec %}."{% else %}" in the {% data variables.product.prodname_ghe_cloud %} documentation.{% endif %}
 
 {% endif %}
 

@@ -37,8 +37,9 @@ If you're a member of an {% data variables.enterprise.prodname_emu_enterprise %}
 {% endif %}
 
 > [!WARNING]
-> * If you're a member{% ifversion fpt or ghec %}, billing manager,{% endif %} or outside collaborator to a private repository of an organization that requires two-factor authentication, you must leave the organization before you can disable 2FA.
-> * If you disable 2FA, you will automatically lose access to the organization and any private forks you have of the organization's private repositories. To regain access to the organization and your forks, re-enable two-factor authentication and contact an organization owner.
+> * If you're an outside collaborator to a private repository of an organization that requires 2FA, you must leave the organization before you can disable 2FA.
+> * If you're a member{% ifversion fpt or ghec %} or billing manager{% endif %} of an organization that requires 2FA, you will be unable to access that organization's resources while you have 2FA disabled.
+> * If you disable 2FA, you will automatically lose access to the organization. To regain access to the organization, if you're a member{% ifversion fpt or ghec %} or billing manager{% endif %}, you must re-enable 2FA. If you're an outside collaborator, you will also lose access to any private forks you have of the organization's private repositories after disabling 2FA, and must re-enable 2FA and contact an organization owner to have access restored.
 
 {% ifversion 2fa-reconfiguration-inline-update %}
 
@@ -73,6 +74,7 @@ A time-based one-time password (TOTP) application automatically generates an aut
 If you're unable to configure a TOTP app, you can also register your phone number to receive SMS messages.
 
 {% data reusables.two_fa.sms-warning %}
+{% data reusables.two_fa.sms-cap-note %}
 
 {% data reusables.user-settings.access_settings %}
 {% data reusables.user-settings.security %}

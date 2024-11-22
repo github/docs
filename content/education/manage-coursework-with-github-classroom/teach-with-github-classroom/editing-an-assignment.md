@@ -14,7 +14,7 @@ After creating an assignment, you can edit many aspects of the assignment to bet
 
 {% data reusables.classroom.sign-into-github-classroom %}
 {% data reusables.classroom.click-classroom-in-list %}
-1. In the {% octicon "repo" aria-hidden="true" %} **Assignments** tab, next to the assignment you would like to edit, click {% octicon "pencil" aria-label="The pencil icon" %}.
+1. In the **{% octicon "repo" aria-hidden="true" %} Assignments** tab, next to the assignment you would like to edit, click {% octicon "pencil" aria-label="The pencil icon" %}.
 
     > [!NOTE]
     > You can also edit an assignment from the assignment's page. To access the assignment's page, in the **Assignments** tab, click the assignment name.
@@ -87,7 +87,7 @@ If you need to update the starter code for your assignment after students have a
 1. Click **Sync assignments**. If changes are detected, an **Assignments are out of date** button will be shown.
 1. To open pull requests in all of your students' assignment repositories, click **Assignments are out of date**.
 
-The pull requests will be titled  "{% data variables.product.prodname_classroom %}: Sync Assignment". Ask your students to merge these pull requests.
+The pull requests will be titled "{% data variables.product.prodname_classroom %}: Sync Assignment". Ask your students to merge these pull requests.
 
 ## Further reading
 

@@ -74,7 +74,7 @@ If the code in a repository changes to include {% ifversion code-scanning-defaul
 
 ## Configuring default setup for all eligible repositories in an organization
 
-{% ifversion security-configurations %} You can enable default setup for all eligible repositories in your organization. For more information, see "[AUTOTITLE](/code-security/securing-your-organization/enabling-security-features-in-your-organization/applying-the-github-recommended-security-configuration-in-your-organization)."
+{% ifversion security-configurations %} You can enable default setup for all eligible repositories in your organization. For more information, see "[AUTOTITLE](/code-security/securing-your-organization/introduction-to-securing-your-organization-at-scale/about-enabling-security-features-at-scale)."
 {% else %}
 Through the "Code security and analysis" page of your organization's settings, you can enable default setup for all eligible repositories in your organization. For more information on repository eligibility, see "[Eligible repositories for {% data variables.product.prodname_codeql %} default setup at scale](#eligible-repositories-default-setup)."
 
@@ -109,7 +109,7 @@ Through your organization's security settings page, you can extend coverage in d
 
 {% ifversion security-configurations %}
 
-You can filter for specific repositories you would like to configure default setup for. For more information, see "[AUTOTITLE](/code-security/securing-your-organization/meeting-your-specific-security-needs-with-custom-security-configurations/applying-a-custom-security-configuration)."
+You can filter for specific repositories you would like to configure default setup for. For more information, see "[AUTOTITLE](/code-security/securing-your-organization/enabling-security-features-in-your-organization/applying-a-custom-security-configuration)."
 
 {% endif %}
 

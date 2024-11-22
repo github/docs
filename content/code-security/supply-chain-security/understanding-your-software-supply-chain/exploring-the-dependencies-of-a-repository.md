@@ -85,7 +85,7 @@ For public repositories, the dependents view shows how the repository is used by
 
 You may notice some repositories have a "Used by" section in the sidebar of the **Code** tab. Your repository will have a "Used by" section if:
 * The dependency graph is enabled for the repository (see the above section for more details).
-* Your repository contains a package that is published on a [supported package ecosystem](/code-security/supply-chain-security/understanding-your-software-supply-chain/about-the-dependency-graph#supported-package-ecosystems).
+* Your repository contains a package that is published on a [supported package ecosystem](/code-security/supply-chain-security/understanding-your-software-supply-chain/dependency-graph-supported-package-ecosystems#supported-package-ecosystems).
 * Within the ecosystem, your package has a link to a _public_ repository where the source is stored.
 * More than 100 repositories depend on your package.
 

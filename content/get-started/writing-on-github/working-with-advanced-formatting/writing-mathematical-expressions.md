@@ -1,6 +1,7 @@
 ---
 title: Writing mathematical expressions
 intro: 'Use Markdown to display mathematical expressions on {% data variables.product.company_short %}.'
+product: '{% data reusables.gated-features.markdown-ui %}'
 versions:
   feature: math
 shortTitle: Mathematical expressions
@@ -23,7 +24,7 @@ To include a math expression inline within your text, delimit the expression wit
 {% endif %}
 
 ```text
-This sentence uses `$` delimiters to show math inline:  $\sqrt{3x-1}+(1+x)^2$
+This sentence uses `$` delimiters to show math inline: $\sqrt{3x-1}+(1+x)^2$
 ```
 
 ![Screenshot of rendered Markdown showing how a mathematical expression displays on {% data variables.product.prodname_dotcom %}. The equation is the square root of 3 x minus 1 plus open paren 1 plus x close paren squared.](/assets/images/help/writing/inline-math-markdown-rendering.png)
@@ -31,7 +32,7 @@ This sentence uses `$` delimiters to show math inline:  $\sqrt{3x-1}+(1+x)^2$
 {% ifversion math-backtick-syntax %}
 
 ```text
-This sentence uses $\` and \`$ delimiters to show math inline:  $`\sqrt{3x-1}+(1+x)^2`$
+This sentence uses $\` and \`$ delimiters to show math inline: $`\sqrt{3x-1}+(1+x)^2`$
 ```
 
 ![Screenshot of rendered Markdown showing how a mathematical expression displays inline on {% data variables.product.prodname_dotcom %}. The equation is the square root of 3 x minus 1 plus open paren 1 plus x close paren squared.](/assets/images/help/writing/inline-backtick-math-markdown-rendering.png)

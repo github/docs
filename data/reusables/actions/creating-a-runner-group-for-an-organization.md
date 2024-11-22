@@ -7,11 +7,8 @@ Always include a security admonition above this procedure. This is either one of
 
 {% endcomment %}
 
-{% note %}
-
-**Note:** When creating a runner group, you must choose a policy that defines which repositories{% ifversion restrict-groups-to-workflows %} and workflows{% endif %} have access to the runner group. To change which repositories and workflows can access the runner group, organization owners{% ifversion custom-org-roles %} and users with the “Manage organization runners and runner groups” permission{% endif %} can set a policy for the organization. For more information, see "[AUTOTITLE](/admin/policies/enforcing-policies-for-your-enterprise/enforcing-policies-for-github-actions-in-your-enterprise#disabling-repository-level-self-hosted-runners)."
-
-{% endnote %}
+> [!NOTE]
+> When creating a runner group, you must choose a policy that defines which repositories{% ifversion restrict-groups-to-workflows %} and workflows{% endif %} have access to the runner group. To change which repositories and workflows can access the runner group, organization owners{% ifversion custom-org-roles %} and users with the “Manage organization runners and runner groups” permission{% endif %} can set a policy for the organization. For more information, see "[AUTOTITLE](/admin/policies/enforcing-policies-for-your-enterprise/enforcing-policies-for-github-actions-in-your-enterprise#disabling-repository-level-self-hosted-runners)."
 
 All organizations have a single default runner group. {% ifversion fpt %}Organization owners using the {% data variables.product.prodname_team %} plan{% else %}Organization owners{% ifversion custom-org-roles %} and users with the "Manage organization runners and runner groups" permission{% endif %}{% endif %} can create additional organization-level runner groups. {% ifversion custom-org-roles %}For more information about custom organization roles, see "[AUTOTITLE](/organizations/managing-peoples-access-to-your-organization-with-roles/about-custom-organization-roles)."{% endif %}
 

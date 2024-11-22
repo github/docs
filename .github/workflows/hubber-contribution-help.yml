@@ -9,6 +9,7 @@ on:
     types:
       - opened
     paths:
+      - .github/workflows/hubber-contribution-help.yml
       - 'content/**'
       - 'data/**'
 

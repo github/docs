@@ -3,7 +3,7 @@
 
    ![Screenshot of the file tree view for a repository. A dropdown menu for branches is expanded and outlined in dark orange.](/assets/images/help/repository/file-tree-view-branch-dropdown-expanded.png)
 {% else %}
-1. Above the list of files, click {% octicon "git-branch" aria-hidden="true" %} **Branches**.
+1. Above the list of files, click **{% octicon "git-branch" aria-hidden="true" %} Branches**.
 
 {% ifversion global-nav-update %}
 

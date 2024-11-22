@@ -280,7 +280,7 @@ class GHAapp < Sinatra::Application
       begin
         @payload = JSON.parse @payload_raw
       rescue => e
-        fail  'Invalid JSON (#{e}): #{@payload_raw}'
+        fail 'Invalid JSON (#{e}): #{@payload_raw}'
       end
     end
 
@@ -620,7 +620,7 @@ Open the `server.rb` file that you created in "[Add code for your {% data variab
   end
 ```
 
-In the code block that starts with `post '/event_handler' do`, where it says `# ADD EVENT HANDLING HERE  #`, add the following code. This route will handle the `check_suite` event.
+In the code block that starts with `post '/event_handler' do`, where it says `# ADD EVENT HANDLING HERE #`, add the following code. This route will handle the `check_suite` event.
 
 ```ruby copy
     # Get the event type from the HTTP_X_GITHUB_EVENT header
@@ -920,7 +920,7 @@ In the code block that starts with `helpers do`, find the `initiate_check_run` h
         # ADD ANNOTATIONS CODE HERE #
 ```
 
-The code above runs RuboCop on all files in the repository's directory. The option `--format json` saves a copy of the linting results in a machine-parsable format. For more information, and an example of the JSON format, see "[JSON Formatter](https://docs.rubocop.org/rubocop/formatters.html#json-formatter)" in the RuboCop docs. This code also parses the JSON so you can easily access the keys and values in your {% data variables.product.prodname_github_app %} using the `@output`  variable.
+The code above runs RuboCop on all files in the repository's directory. The option `--format json` saves a copy of the linting results in a machine-parsable format. For more information, and an example of the JSON format, see "[JSON Formatter](https://docs.rubocop.org/rubocop/formatters.html#json-formatter)" in the RuboCop docs. This code also parses the JSON so you can easily access the keys and values in your {% data variables.product.prodname_github_app %} using the `@output` variable.
 
 After running RuboCop and saving the linting results, this code runs the command `rm -rf` to remove the checkout of the repository. Because the code stores the RuboCop results in a `@report` variable, it can safely remove the checkout of the repository.
 
@@ -1502,7 +1502,7 @@ class GHAapp < Sinatra::Application
       begin
         @payload = JSON.parse @payload_raw
       rescue => e
-        fail  'Invalid JSON (#{e}): #{@payload_raw}'
+        fail 'Invalid JSON (#{e}): #{@payload_raw}'
       end
     end
 

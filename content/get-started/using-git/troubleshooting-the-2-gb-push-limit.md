@@ -43,7 +43,7 @@ You can avoid hitting the limit by breaking your push into smaller parts, each o
 1. If this is the first time this repository is being pushed to {% data variables.product.prodname_dotcom %}, perform a final mirror push to ensure any remaining refs are pushed up.
 
    ```shell
-   git push REMOTE-NAME  --mirror
+   git push REMOTE-NAME --mirror
    ```
 
    If this is still too large, you'll need to push up other branches in stages using the same steps.

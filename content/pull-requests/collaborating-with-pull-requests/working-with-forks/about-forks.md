@@ -34,15 +34,12 @@ Deleting a fork will not delete the original upstream repository. Code pushed to
 
 For instructions for forking a repository, see "[AUTOTITLE](/pull-requests/collaborating-with-pull-requests/working-with-forks/fork-a-repo)." For more information about when you can create forks, and the permission and visibility settings of forks, see "[AUTOTITLE](/pull-requests/collaborating-with-pull-requests/working-with-forks/about-permissions-and-visibility-of-forks)."
 
-{% tip %}
-
-**Tip:** {% data reusables.repositories.desktop-fork %}
-
-{% endtip %}
+> [!TIP]
+> {% data reusables.repositories.desktop-fork %}
 
 ## Forking a repository versus duplicating a repository
 
-If you want to create a new repository from the contents of an existing repository but don't want to merge your changes to the upstream in the future, you can duplicate the repository or, if the repository is a template, you can use the repository as a template. For more information, see "[AUTOTITLE](/repositories/creating-and-managing-repositories/duplicating-a-repository)" and "[AUTOTITLE](/repositories/creating-and-managing-repositories/creating-a-repository-from-a-template)".
+If you want to create a new repository from the contents of an existing repository but don't want to merge your changes to the upstream in the future, you can duplicate the repository or, if the repository is a template, you can use the repository as a template. For more information, see "[AUTOTITLE](/repositories/creating-and-managing-repositories/duplicating-a-repository)" and "[AUTOTITLE](/repositories/creating-and-managing-repositories/creating-a-repository-from-a-template)."
 
 Forking a repository is similar to duplicating a repository, with the following differences.
 

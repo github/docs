@@ -255,7 +255,7 @@ includeGuides:
 
 ### `topics`
 
-* Purpose: Indicate the topics covered by the article. Refer to the content models for more details about adding topics. A full list of existing topics is located in the [allowed topics file](https://github.com/github/docs/blob/main/data/allowed-topics.js). If topics in article frontmatter and the allow-topics list become out of sync, the [topics CI test](https://github.com/github/docs/blob/main/src/search/tests/topics.js) will fail.
+* Purpose: Indicate the topics covered by the article. Refer to the content models for more details about adding topics. A full list of existing topics is located in the [allowed topics file](https://github.com/github/docs/blob/main/data/allowed-topics.js). If topics in article frontmatter and the allow-topics list become out of sync, the [topics CI test](https://github.com/github/docs/blob/main/src/search/tests/topics.ts) will fail.
 * Type: Array of `String`s
 * Optional: Topics are preferred for each article, but, there may be cases where existing articles don't yet have topics, or adding a topic to a new article may not add value.
 
@@ -305,7 +305,7 @@ Index pages are the table of contents files for the Docs site. Every product, ca
 
 The homepage is the main Table of Contents file for the docs site. The homepage must have a complete list of `children`, like every [Index page](#index-pages) but must also specify the `childGroups` frontmatter property that will be highlighted in the main content area.
 
-`childGroups` is an array of mappings containing a `name` for the group, an optional `icon` for the group, and an array of `children`.  The `children` in the array must be present in the `children` frontmatter property.
+`childGroups` is an array of mappings containing a `name` for the group, an optional `icon` for the group, and an array of `children`. The `children` in the array must be present in the `children` frontmatter property.
 
 ## Creating new product guides pages
 

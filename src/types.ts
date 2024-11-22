@@ -355,6 +355,10 @@ export type Page = {
   effectiveDate?: string
   fullTitle?: string
   render: (context: Context) => Promise<string>
+  octicon?: string
+  category?: string[]
+  complexity?: string[]
+  industry?: string[]
 }
 
 type ChangeLog = {

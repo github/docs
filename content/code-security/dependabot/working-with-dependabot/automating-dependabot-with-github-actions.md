@@ -1,7 +1,7 @@
 ---
 title: Automating Dependabot with GitHub Actions
 intro: 'Examples of how you can use {% data variables.product.prodname_actions %} to automate common {% data variables.product.prodname_dependabot %} related tasks.'
-permissions: 'People with write permissions to a repository can configure {% data variables.product.prodname_actions %} to respond to {% data variables.product.prodname_dependabot %}-created pull requests.'
+permissions: '{% data reusables.permissions.dependabot-various-tasks %}'
 versions:
   fpt: '*'
   ghec: '*'

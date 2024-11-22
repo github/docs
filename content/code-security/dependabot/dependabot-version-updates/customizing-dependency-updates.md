@@ -1,7 +1,7 @@
 ---
 title: Customizing dependency updates
 intro: 'You can customize how {% data variables.product.prodname_dependabot %} maintains your dependencies.'
-permissions: 'People with write permissions to a repository can configure {% data variables.product.prodname_dependabot %} for the repository.'
+permissions: '{% data reusables.permissions.dependabot-yml-configure %}'
 redirect_from:
   - /github/administering-a-repository/customizing-dependency-updates
   - /code-security/supply-chain-security/customizing-dependency-updates
@@ -77,7 +77,7 @@ updates:
 
 By default, {% data variables.product.prodname_dependabot %} raises pull requests without any reviewers or assignees.
 
-You can use `reviewers` and `assignees`  to specify reviewers and assignees for all pull requests raised for a package manager. When you specify a team, you must use the full team name, as if you were @mentioning the team (including the organization).
+You can use `reviewers` and `assignees` to specify reviewers and assignees for all pull requests raised for a package manager. When you specify a team, you must use the full team name, as if you were @mentioning the team (including the organization).
 
 The example `dependabot.yml` file below changes the npm configuration so that all pull requests opened with version and security updates for npm will have two reviewers and one assignee.
 

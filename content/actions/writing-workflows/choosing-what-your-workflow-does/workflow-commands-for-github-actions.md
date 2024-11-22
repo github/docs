@@ -529,7 +529,7 @@ jobs:
 
 ## Sending values to the pre and post actions
 
-You can create environment variables for sharing with your workflow's `pre:` or `post:` actions by writing to the file located at `GITHUB_STATE`. For example, you can create a file with the `pre:` action,  pass the file location to the `main:` action, and then use the `post:` action to delete the file. Alternatively, you could create a file with the `main:` action, pass the file location to the `post:` action, and also use the `post:` action to delete the file.
+You can create environment variables for sharing with your workflow's `pre:` or `post:` actions by writing to the file located at `GITHUB_STATE`. For example, you can create a file with the `pre:` action, pass the file location to the `main:` action, and then use the `post:` action to delete the file. Alternatively, you could create a file with the `main:` action, pass the file location to the `post:` action, and also use the `post:` action to delete the file.
 
 If you have multiple `pre:` or `post:` actions, you can only access the saved value in the action where it was written to `GITHUB_STATE`. For more information on the `post:` action, see "[AUTOTITLE](/actions/creating-actions/metadata-syntax-for-github-actions#runspost)."
 
@@ -549,7 +549,7 @@ fs.appendFileSync(process.env.GITHUB_STATE, `processID=12345${os.EOL}`, {
 The `STATE_processID` variable is then exclusively available to the cleanup script running under the `main` action. This example runs in `main` and uses JavaScript to display the value assigned to the `STATE_processID` environment variable:
 
 ```javascript copy
-console.log("The running PID from the main action is: " +  process.env.STATE_processID);
+console.log("The running PID from the main action is: " + process.env.STATE_processID);
 ```
 
 ## Environment files

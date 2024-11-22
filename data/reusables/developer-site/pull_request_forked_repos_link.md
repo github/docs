@@ -14,8 +14,5 @@ When a first-time contributor submits a pull request to a public repository, a m
 
 For pull requests from a forked repository to a private repository, workflows only run when they are enabled, see "[AUTOTITLE](/repositories/managing-your-repositorys-settings-and-features/enabling-features-for-your-repository/managing-github-actions-settings-for-a-repository#enabling-workflows-for-forks-of-private-repositories)."
 
-{% note %}
-
-**Note:** Workflows triggered by {% data variables.product.prodname_dependabot %} pull requests are treated as though they are from a forked repository, and are also subject to these restrictions.
-
-{% endnote %}
+> [!NOTE]
+> Workflows triggered by {% data variables.product.prodname_dependabot %} pull requests are treated as though they are from a forked repository, and are also subject to these restrictions.

@@ -19,11 +19,8 @@ shortTitle: Create & delete branches
 
 You can create a branch in different ways on {% data variables.product.product_name %}.
 
-{% note %}
-
-**Note:** You can only create a branch in a repository to which you have push access.
-
-{% endnote %}
+> [!NOTE]
+> You can only create a branch in a repository to which you have push access.
 
 ### Creating a branch via the branches overview
 
@@ -71,11 +68,8 @@ You can create a branch to work on an issue directly from the issue page and get
 
 {% data reusables.pull_requests.automatically-delete-branches %}
 
-{% note %}
-
-**Note:** If the branch you want to delete is the repository's default branch, you must choose a new default branch before deleting the branch. For more information, see "[AUTOTITLE](/repositories/configuring-branches-and-merges-in-your-repository/managing-branches-in-your-repository/changing-the-default-branch)."
-
-{% endnote %}
+> [!NOTE]
+> If the branch you want to delete is the repository's default branch, you must choose a new default branch before deleting the branch. For more information, see "[AUTOTITLE](/repositories/configuring-branches-and-merges-in-your-repository/managing-branches-in-your-repository/changing-the-default-branch)."
 
 If the branch you want to delete is associated with an open pull request, you must merge or close the pull request before deleting the branch. For more information, see "[AUTOTITLE](/pull-requests/collaborating-with-pull-requests/incorporating-changes-from-a-pull-request/merging-a-pull-request)" or "[AUTOTITLE](/pull-requests/collaborating-with-pull-requests/incorporating-changes-from-a-pull-request/closing-a-pull-request)."
 

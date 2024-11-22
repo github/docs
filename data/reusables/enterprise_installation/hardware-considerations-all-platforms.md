@@ -45,11 +45,8 @@ If you plan to enable {% data variables.product.prodname_actions %} for the user
 
 {% data reusables.enterprise_installation.increasing-cpus-req %}
 
-{% warning %}
-
-**Warning:** We recommend that users configure webhook events to notify external systems of activity on {% data variables.product.prodname_ghe_server %}. Automated checks for changes, or _polling_, will negatively impact the performance and scalability of your instance. For more information, see "[AUTOTITLE](/get-started/exploring-integrations/about-webhooks)."
-
-{% endwarning %}
+> [!WARNING]
+> We recommend that users configure webhook events to notify external systems of activity on {% data variables.product.prodname_ghe_server %}. Automated checks for changes, or _polling_, will negatively impact the performance and scalability of your instance. For more information, see "[AUTOTITLE](/get-started/exploring-integrations/about-webhooks)."
 
 For more information about monitoring the capacity and performance of {% data variables.product.prodname_ghe_server %}, see "[AUTOTITLE](/admin/enterprise-management/monitoring-your-appliance)."
 

@@ -22,7 +22,7 @@ To get started with {% data variables.product.product_name %}, you will need to 
 
 ### 1. Creating your enterprise account
 
-Before you install {% data variables.product.product_name %}, you can create an enterprise account on {% data variables.product.prodname_dotcom_the_website %} by contacting [{% data variables.product.prodname_dotcom %}'s Sales team](https://enterprise.github.com/contact). An enterprise account on {% data variables.product.prodname_dotcom_the_website %} is useful for billing and for shared features with {% data variables.product.prodname_dotcom_the_website %} via {% data variables.product.prodname_github_connect %}.  For more information, see "[AUTOTITLE](/admin/managing-your-enterprise-account/about-enterprise-accounts)."
+Before you install {% data variables.product.product_name %}, you can create an enterprise account on {% data variables.product.prodname_dotcom_the_website %} by contacting [{% data variables.product.prodname_dotcom %}'s Sales team](https://enterprise.github.com/contact). An enterprise account on {% data variables.product.prodname_dotcom_the_website %} is useful for billing and for shared features with {% data variables.product.prodname_dotcom_the_website %} via {% data variables.product.prodname_github_connect %}. For more information, see "[AUTOTITLE](/admin/managing-your-enterprise-account/about-enterprise-accounts)."
 
 ### 2. Installing {% data variables.product.product_name %}
 
@@ -30,7 +30,7 @@ To get started with {% data variables.product.product_name %}, you will need to 
 
 ### 3. Using the {% data variables.enterprise.management_console %}
 
-You will use the {% data variables.enterprise.management_console %} to walk through the initial setup process when first launching {% data variables.location.product_location %}. You can also use the  {% data variables.enterprise.management_console %} to manage instance settings such as the license, domain, authentication, and TLS. For more information, see "[AUTOTITLE](/admin/administering-your-instance/administering-your-instance-from-the-web-ui)."
+You will use the {% data variables.enterprise.management_console %} to walk through the initial setup process when first launching {% data variables.location.product_location %}. You can also use the {% data variables.enterprise.management_console %} to manage instance settings such as the license, domain, authentication, and TLS. For more information, see "[AUTOTITLE](/admin/administering-your-instance/administering-your-instance-from-the-web-ui)."
 
 ### 4. Configuring {% data variables.location.product_location %}
 
@@ -44,7 +44,7 @@ You can configure {% data variables.location.product_location %} for high availa
 
 ### 6. Setting up a staging instance
 
-You can set up a staging instance to test modifications, plan for disaster recovery, and try out updates before applying them to {% data variables.location.product_location %}.  For more information, see "[AUTOTITLE](/admin/installation/setting-up-a-github-enterprise-server-instance/setting-up-a-staging-instance)."
+You can set up a staging instance to test modifications, plan for disaster recovery, and try out updates before applying them to {% data variables.location.product_location %}. For more information, see "[AUTOTITLE](/admin/installation/setting-up-a-github-enterprise-server-instance/setting-up-a-staging-instance)."
 
 ### 7. Designating backups and disaster recovery
 

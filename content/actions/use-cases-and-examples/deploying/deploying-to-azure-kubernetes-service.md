@@ -80,7 +80,7 @@ jobs:
         azcliversion: 2.29.1
         inlineScript: |
           az configure --defaults acr={% raw %}${{ env.AZURE_CONTAINER_REGISTRY }}{% endraw %}
-          az acr build -t  -t {% raw %}${{ env.REGISTRY_URL }}{% endraw %}/{% raw %}${{ env.PROJECT_NAME }}{% endraw %}:{% raw %}${{ github.sha }}{% endraw %}
+          az acr build -t -t {% raw %}${{ env.REGISTRY_URL }}{% endraw %}/{% raw %}${{ env.PROJECT_NAME }}{% endraw %}:{% raw %}${{ github.sha }}{% endraw %}
 
     - name: Gets K8s context
       uses: azure/aks-set-context@94ccc775c1997a3fcfbfbce3c459fec87e0ab188

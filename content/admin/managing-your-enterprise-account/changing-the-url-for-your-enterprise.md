@@ -36,7 +36,7 @@ Before changing the slug, to ensure you will have access to your enterprise even
 
 Many {% data variables.product.company_short %} API endpoints for managing an enterprise take the enterprise slug as a parameter. If you use these endpoints in automations, you will need to update the API calls to use the new slug. API calls that use the old slug will stop working immediately. The enterprise ID, which can be used as an alternative to the slug in many cases, is not affected by a slug change.
 
-### OpenID Connect  with {% data variables.product.prodname_actions %} workflows
+### OpenID Connect with {% data variables.product.prodname_actions %} workflows
 
 If you use OpenID Connect (OIDC) in {% data variables.product.prodname_actions %} workflows, and have configured your cloud provider to only accept tokens from a unique URL that includes your enterprise slug, you will need to update the settings in your cloud provider. To prevent workflows from failing, the most robust option is to configure your provider to accept tokens from both the old and new slug just before you change the slug. For more information, see "[AUTOTITLE](/actions/deployment/security-hardening-your-deployments/about-security-hardening-with-openid-connect#customizing-the-issuer-value-for-an-enterprise)."
 

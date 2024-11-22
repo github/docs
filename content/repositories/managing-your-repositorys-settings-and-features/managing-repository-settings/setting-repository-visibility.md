@@ -19,11 +19,8 @@ shortTitle: Repository visibility
 
 ## About repository visibility changes
 
-{% note %}
-
-**Note:** If you can't change a repository's visibility, the organization owner may have restricted the ability to change repository visibility to organization owners only. For more information, see "[AUTOTITLE](/organizations/managing-organization-settings/restricting-repository-visibility-changes-in-your-organization)."
-
-{% endnote %}
+> [!NOTE]
+> If you can't change a repository's visibility, the organization owner may have restricted the ability to change repository visibility to organization owners only. For more information, see "[AUTOTITLE](/organizations/managing-organization-settings/restricting-repository-visibility-changes-in-your-organization)."
 
 {% ifversion ghec %}
 
@@ -35,15 +32,11 @@ We recommend reviewing the following caveats before you change the visibility of
 
 {% ifversion ghes %}
 
-{% warning %}
-
-**Warning:** Changes to the visibility of a large repository or repository network may affect data integrity. Visibility changes can also have unintended effects on forks. {% data variables.product.company_short %} recommends the following before changing the visibility of a repository network.
-
-* Wait for a period of reduced activity on {% data variables.location.product_location %}.
-
-* Contact your site administrator before proceeding. Your site administrator can contact us for further assistance by visiting {% data variables.contact.contact_ent_support %}.
-
-{% endwarning %}
+> [!WARNING]
+> Changes to the visibility of a large repository or repository network may affect data integrity. Visibility changes can also have unintended effects on forks. {% data variables.product.company_short %} recommends the following before changing the visibility of a repository network.
+>
+> * Wait for a period of reduced activity on {% data variables.location.product_location %}.
+> * Contact your site administrator before proceeding. Your site administrator can contact us for further assistance by visiting {% data variables.contact.contact_ent_support %}.
 
 {% endif %}
 
@@ -94,7 +87,7 @@ For information about improving repository security, see "[AUTOTITLE](/code-secu
 
 ### Changing from private to public
 
-* The code will be visible to everyone who can visit {% data variables.product.prodname_dotcom_the_website %}.
+* The code will be visible to everyone who can visit {% data variables.location.product_location %}.
 * Anyone can fork your repository.
 * All push rulesets will be disabled.
 * Your changes will be published as activity.
@@ -116,7 +109,7 @@ For information about improving repository security, see "[AUTOTITLE](/code-secu
 
 ### Changing from internal to public
 
-* The code will be visible to everyone who can visit {% data variables.product.prodname_dotcom_the_website %}.
+* The code will be visible to everyone who can visit {% data variables.location.product_location %}.
 * Anyone can fork your repository.
 * All push rulesets will be disabled.
 * Your changes will be published as activity.

@@ -33,7 +33,7 @@ runs:
     - name: Run script
       if: ${{ inputs.restore-only == '' }}
       shell: bash
-      run: node src/archives/scripts/warmup-remotejson.js
+      run: npm run warmup-remotejson
 
     - name: Cache .remotejson-cache (save)
       if: ${{ inputs.restore-only == '' }}

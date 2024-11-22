@@ -1,6 +1,7 @@
 ---
 title: Attaching files
 intro: You can convey information by attaching a variety of file types to your issues and pull requests.
+product: '{% data reusables.gated-features.markdown-ui %}'
 redirect_from:
   - /github/managing-your-work-on-github/managing-your-work-with-issues-and-pull-requests/file-attachments-on-issues-and-pull-requests
   - /articles/issue-attachments

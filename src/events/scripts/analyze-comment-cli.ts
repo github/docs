@@ -16,7 +16,7 @@ import util from 'node:util'
 import chalk from 'chalk'
 import { program } from 'commander'
 
-import { SIGNAL_RATINGS } from '../analyze-comment'
+import { SIGNAL_RATINGS } from '../lib/analyze-comment'
 
 type Options = {
   language?: string

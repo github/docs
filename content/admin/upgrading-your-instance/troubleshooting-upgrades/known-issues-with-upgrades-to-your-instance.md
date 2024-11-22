@@ -42,7 +42,7 @@ Collect the baseline data before upgrading to {% data variables.product.prodname
 
 You may not be able to simulate the load that your instance experiences in a production environment. However, it's useful if you can collect baseline data while simulating patterns of usage from your production environment on the staging instance.
 
-1. Browse to your instance's monitor dashboard. For more information, see "[AUTOTITLE](/admin/enterprise-management/monitoring-your-appliance/accessing-the-monitor-dashboard)."
+1. Browse to your instance's monitor dashboard. For more information, see "[AUTOTITLE](/admin/monitoring-and-managing-your-instance/monitoring-your-instance/about-the-monitor-dashboards)."
 1. From the monitor dashboard, monitor relevant graphs.
 
    * Under "Processes", monitor the graphs for "I/O operations (Read IOPS)" and "I/O operations (Write IOPS)", filtering for `mysqld`. These graphs display I/O operations for all of the node's services.
@@ -52,7 +52,7 @@ You may not be able to simulate the load that your instance experiences in a pro
 
 After the upgrade to {% data variables.product.prodname_ghe_server %} 3.9, review the instance's I/O utilization. {% data variables.product.company_short %} recommends that you upgrade a staging instance of {% data variables.product.prodname_ghe_server %} running 3.7 or 3.8 that includes restored data from your production instance, or that you restore data from your production instance to a new staging instance running 3.9. For more information, see "[AUTOTITLE](/admin/installation/setting-up-a-github-enterprise-server-instance/setting-up-a-staging-instance)" and "[AUTOTITLE](/admin/configuration/configuring-your-enterprise/configuring-backups-on-your-appliance)."
 
-1. Browse to your instance's monitor dashboard. For more information, see "[AUTOTITLE](/admin/enterprise-management/monitoring-your-appliance/accessing-the-monitor-dashboard)."
+1. Browse to your instance's monitor dashboard. For more information, see "[AUTOTITLE](/admin/monitoring-and-managing-your-instance/monitoring-your-instance/about-the-monitor-dashboards)."
 1. From the monitor dashboard, monitor relevant graphs.
 
    * Under "Processes", monitor the graphs for "I/O operations (Read IOPS)" and "I/O operations (Write IOPS)", filtering for `mysqld`. These graphs display I/O operations for all of the node's services.
@@ -72,7 +72,7 @@ Before you test any mitigation procedure in a production environment, back up yo
 
 To attempt to mitigate the performance impact, you can adjust InnoDB's flushing method to skip the `fsync()` system call after each write operation. For more information, see [`innodb_flush_method`](https://dev.mysql.com/doc/refman/8.0/en/innodb-parameters.html#sysvar_innodb_flush_method) in the MySQL 8.0 Reference Manual.
 
-The following instructions are only intended for  {% data variables.product.product_name %} 3.9 and later.
+The following instructions are only intended for {% data variables.product.product_name %} 3.9 and later.
 
 > [!WARNING]
 > Adjustment of the flushing method requires that your instance's storage device has a battery-backed cache. If the device's cache is not battery-backed, you risk data loss.
@@ -102,7 +102,7 @@ You can reduce pending operations, increase IOPS, and improve performance by pro
 
 ### Sharing data with {% data variables.product.company_short %}
 
-Finally, if you're willing to help {% data variables.product.company_short %}  understand the real-world impact of the upgrade to MySQL 8, you can provide the data you've collected to {% data variables.contact.github_support %}. Provide the baseline and post-upgrade observations from the monitor dashboard, along with a support bundle that covers the period when you collected data. For more information, see "[AUTOTITLE](/support/learning-about-github-support/about-github-support)" and "[AUTOTITLE](/support/contacting-github-support/providing-data-to-github-support)."
+Finally, if you're willing to help {% data variables.product.company_short %} understand the real-world impact of the upgrade to MySQL 8, you can provide the data you've collected to {% data variables.contact.github_support %}. Provide the baseline and post-upgrade observations from the monitor dashboard, along with a support bundle that covers the period when you collected data. For more information, see "[AUTOTITLE](/support/learning-about-github-support/about-github-support)" and "[AUTOTITLE](/support/contacting-github-support/providing-data-to-github-support)."
 
 The data you submit helps {% data variables.product.company_short %} continue to provide a performant product, but {% data variables.product.company_short %} does not guarantee any additional mitigation steps or changes to the product as a result of the data you provide.
 
@@ -207,6 +207,14 @@ If your appliance averages more than 70% CPU utilization, {% data variables.prod
 As part of upgrading GitHub Enterprise Server to version 3.13 or later, the Elasticsearch service will be upgraded. {% data variables.product.company_short %} strongly recommends following the guidance in "[AUTOTITLE](/admin/upgrading-your-instance/performing-an-upgrade/preparing-for-the-elasticsearch-upgrade)."
 {% endif %}
 
+{% ifversion ghes > 3.14 and ghes < 3.17 %}
+
+## Required root disk size increased to 400GB
+
+New installations of 3.15 or later, or upgrades to 3.15 or later require root disk size of at least 400GB. This capacity is an enforced requirement for the system to boot successfully. {% data variables.product.company_short %} strongly recommends following the guidance in "[AUTOTITLE](/admin/monitoring-and-managing-your-instance/updating-the-virtual-machine-and-physical-resources/increasing-storage-capacity)."
+
+{% endif %}
+
 {% ifversion ghes > 3.12 and ghes < 3.15 %}
 
 ## Undecryptable records
@@ -223,7 +231,7 @@ If you are upgrading from {% data variables.product.prodname_ghe_server %} 3.11 
 
 At this stage, please note that these records will be deleted as part of the process. The script will warn you about the users who will need to re-enroll into 2FA after the upgrade. The impacted users' handles are logged in `/tmp/column_encryption_users_to_have_2fa_disabled.log`. These users will need to be re-enrolled into 2FA.
 
-If the script runs into unexpected issues, you will be prompted to [contact {% data variables.contact.github_support %}](/support/contacting-github-support). Errors related to these issues will be logged in  `/tmp/column_encryption_unexpected_errors.log`. If you are in a dire situation and are unable to have users re-enroll into 2FA, [contact {% data variables.contact.github_support %}](/support/contacting-github-support) for help.
+If the script runs into unexpected issues, you will be prompted to [contact {% data variables.contact.github_support %}](/support/contacting-github-support). Errors related to these issues will be logged in `/tmp/column_encryption_unexpected_errors.log`. If you are in a dire situation and are unable to have users re-enroll into 2FA, [contact {% data variables.contact.github_support %}](/support/contacting-github-support) for help.
 
 ### During the upgrade
 

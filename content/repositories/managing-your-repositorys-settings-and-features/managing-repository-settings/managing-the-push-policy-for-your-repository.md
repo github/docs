@@ -11,11 +11,8 @@ shortTitle: Manage the push policy
 
 ## About the push policy
 
-{% note %}
-
-**Note:** The push policy is currently in {% data variables.release-phases.public_preview %} and subject to change.
-
-{% endnote %}
+> [!NOTE]
+> The push policy is currently in {% data variables.release-phases.public_preview %} and subject to change.
 
 By default, there is no limit to the number of branches and tags that can be updated in a single push.
 

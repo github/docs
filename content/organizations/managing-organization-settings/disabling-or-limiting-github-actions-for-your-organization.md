@@ -28,11 +28,8 @@ Alternatively, you can enable {% data variables.product.prodname_actions %} for 
 
 You can choose to disable {% data variables.product.prodname_actions %} for all repositories in your organization, or only allow specific repositories. You can also limit the use of public actions{% ifversion actions-workflow-policy %} and reusable workflows{% endif %}, so that people can only use local actions {% ifversion actions-workflow-policy %}and reusable workflows{% endif %} that exist in your {% ifversion ghec or ghes %}enterprise{% else %}organization{% endif %}.
 
-{% note %}
-
-**Note:** You might not be able to manage these settings if your organization is managed by an enterprise that has overriding policy. For more information, see "[AUTOTITLE](/admin/policies/enforcing-policies-for-your-enterprise/enforcing-policies-for-github-actions-in-your-enterprise)."
-
-{% endnote %}
+> [!NOTE]
+> You might not be able to manage these settings if your organization is managed by an enterprise that has overriding policy. For more information, see "[AUTOTITLE](/admin/policies/enforcing-policies-for-your-enterprise/enforcing-policies-for-github-actions-in-your-enterprise)."
 
 {% data reusables.profile.access_org %}
 {% data reusables.profile.org_settings %}
@@ -56,11 +53,8 @@ You can choose to disable {% data variables.product.prodname_actions %} for all 
 
 {% ifversion ghec or ghes %}
 
-{% note %}
-
-**Note**: If your organization belongs to an enterprise, creation of self-hosted runners at the repository level may have been disabled as an enterprise-wide setting. If this has been done, you cannot enable repository-level self-hosted runners in your organization settings. For more information, see "[AUTOTITLE](/admin/policies/enforcing-policies-for-your-enterprise/enforcing-policies-for-github-actions-in-your-enterprise)."
-
-{% endnote %}
+> [!NOTE]
+> If your organization belongs to an enterprise, creation of self-hosted runners at the repository level may have been disabled as an enterprise-wide setting. If this has been done, you cannot enable repository-level self-hosted runners in your organization settings. For more information, see "[AUTOTITLE](/admin/policies/enforcing-policies-for-your-enterprise/enforcing-policies-for-github-actions-in-your-enterprise)."
 
 {% endif %}
 
@@ -205,7 +199,7 @@ For each repository in your organization, you can see how much cache storage a r
 {% data reusables.profile.access_profile %}
 {% data reusables.profile.access_org %}
 {% data reusables.profile.org_settings %}
-1. In the left sidebar, click {% octicon "play" aria-hidden="true" %} **Actions**, then click **Caches**.
+1. In the left sidebar, click **{% octicon "play" aria-hidden="true" %} Actions**, then click **Caches**.
 1. Review the list of repositories for information about their {% data variables.product.prodname_actions %} caches. You can click on a repository name to see more detail about the repository's caches.
 
 {% ifversion actions-cache-admin-ui %}

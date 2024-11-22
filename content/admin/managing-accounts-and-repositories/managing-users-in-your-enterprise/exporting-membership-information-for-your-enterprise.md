@@ -21,7 +21,7 @@ The membership information report includes the following information.
 > You can only export the datetime of the user's last activity at the organization level. For more information, see "[AUTOTITLE](/organizations/managing-membership-in-your-organization/exporting-member-information-for-your-organization#about-export-of-membership-information)."
 
 * Username and display name details
-* Whether the user has two-factor authentication enabled {% ifversion mandatory-2fa-required-overview %}or is required to enable it{% endif %}
+* Whether the user has two-factor authentication enabled and how secure their 2FA configuration is
 * Whether the user is an organization owner or member
 * Organizations with pending invitations
 * Optionally, additional information that depends on the enterprise's configuration:

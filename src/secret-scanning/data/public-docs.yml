@@ -138,6 +138,7 @@
   versions:
     fpt: '*'
     ghec: '*'
+    ghes: '>=3.14'
   isPublic: false
   isPrivateWithGhas: true
   hasPushProtection: true
@@ -156,11 +157,23 @@
   hasValidityCheck: false
   isduplicate: false
 - provider: Anthropic
+  supportedSecret: Anthropic Management API Key
+  secretType: anthropic_management_api_key
+  versions:
+    fpt: '*'
+    ghec: '*'
+  isPublic: true
+  isPrivateWithGhas: true
+  hasPushProtection: false
+  hasValidityCheck: false
+  isduplicate: false
+- provider: Anthropic
   supportedSecret: Anthropic Session ID
   secretType: anthropic_session_id
   versions:
     fpt: '*'
     ghec: '*'
+    ghes: '>=3.14'
   isPublic: true
   isPrivateWithGhas: true
   hasPushProtection: true
@@ -183,6 +196,7 @@
   versions:
     fpt: '*'
     ghec: '*'
+    ghes: '>=3.14'
   isPublic: false
   isPrivateWithGhas: true
   hasPushProtection: false
@@ -254,6 +268,7 @@
   versions:
     fpt: '*'
     ghec: '*'
+    ghes: '>=3.14'
   isPublic: true
   isPrivateWithGhas: true
   hasPushProtection: false
@@ -265,6 +280,7 @@
   versions:
     fpt: '*'
     ghec: '*'
+    ghes: '>=3.14'
   isPublic: true
   isPrivateWithGhas: true
   hasPushProtection: true
@@ -276,6 +292,7 @@
   versions:
     fpt: '*'
     ghec: '*'
+    ghes: '>=3.14'
   isPublic: true
   isPrivateWithGhas: true
   hasPushProtection: true
@@ -287,6 +304,7 @@
   versions:
     fpt: '*'
     ghec: '*'
+    ghes: '>=3.14'
   isPublic: true
   isPrivateWithGhas: true
   hasPushProtection: true
@@ -298,6 +316,7 @@
   versions:
     fpt: '*'
     ghec: '*'
+    ghes: '>=3.14'
   isPublic: true
   isPrivateWithGhas: true
   hasPushProtection: true
@@ -309,6 +328,7 @@
   versions:
     fpt: '*'
     ghec: '*'
+    ghes: '>=3.14'
   isPublic: false
   isPrivateWithGhas: true
   hasPushProtection: false
@@ -344,6 +364,7 @@
   versions:
     fpt: '*'
     ghec: '*'
+    ghes: '>=3.14'
   isPublic: false
   isPrivateWithGhas: true
   hasPushProtection: false
@@ -391,6 +412,7 @@
   versions:
     fpt: '*'
     ghec: '*'
+    ghes: '>=3.14'
   isPublic: true
   isPrivateWithGhas: true
   hasPushProtection: true
@@ -414,6 +436,7 @@
   versions:
     fpt: '*'
     ghec: '*'
+    ghes: '>=3.14'
   isPublic: false
   isPrivateWithGhas: true
   hasPushProtection: false
@@ -425,6 +448,7 @@
   versions:
     fpt: '*'
     ghec: '*'
+    ghes: '>=3.14'
   isPublic: true
   isPrivateWithGhas: true
   hasPushProtection: true
@@ -436,6 +460,7 @@
   versions:
     fpt: '*'
     ghec: '*'
+    ghes: '>=3.14'
   isPublic: true
   isPrivateWithGhas: true
   hasPushProtection: true
@@ -447,6 +472,7 @@
   versions:
     fpt: '*'
     ghec: '*'
+    ghes: '>=3.14'
   isPublic: false
   isPrivateWithGhas: true
   hasPushProtection: false
@@ -458,6 +484,7 @@
   versions:
     fpt: '*'
     ghec: '*'
+    ghes: '>=3.14'
   isPublic: true
   isPrivateWithGhas: true
   hasPushProtection: true
@@ -469,6 +496,7 @@
   versions:
     fpt: '*'
     ghec: '*'
+    ghes: '>=3.14'
   isPublic: false
   isPrivateWithGhas: true
   hasPushProtection: false
@@ -504,6 +532,7 @@
   versions:
     fpt: '*'
     ghec: '*'
+    ghes: '>=3.15'
   isPublic: true
   isPrivateWithGhas: true
   hasPushProtection: true
@@ -515,6 +544,7 @@
   versions:
     fpt: '*'
     ghec: '*'
+    ghes: '>=3.14'
   isPublic: true
   isPrivateWithGhas: true
   hasPushProtection: true
@@ -562,6 +592,7 @@
   versions:
     fpt: '*'
     ghec: '*'
+    ghes: '>=3.14'
   isPublic: true
   isPrivateWithGhas: true
   hasPushProtection: true
@@ -573,6 +604,7 @@
   versions:
     fpt: '*'
     ghec: '*'
+    ghes: '>=3.14'
   isPublic: false
   isPrivateWithGhas: true
   hasPushProtection: false
@@ -620,6 +652,7 @@
   versions:
     fpt: '*'
     ghec: '*'
+    ghes: '>=3.14'
   isPublic: false
   isPrivateWithGhas: true
   hasPushProtection: false
@@ -631,6 +664,7 @@
   versions:
     fpt: '*'
     ghec: '*'
+    ghes: '>=3.14'
   isPublic: true
   isPrivateWithGhas: true
   hasPushProtection: false
@@ -690,6 +724,7 @@
   versions:
     fpt: '*'
     ghec: '*'
+    ghes: '>=3.14'
   isPublic: true
   isPrivateWithGhas: true
   hasPushProtection: true
@@ -713,6 +748,7 @@
   versions:
     fpt: '*'
     ghec: '*'
+    ghes: '>=3.14'
   isPublic: true
   isPrivateWithGhas: true
   hasPushProtection: true
@@ -783,6 +819,7 @@
   versions:
     fpt: '*'
     ghec: '*'
+    ghes: '>=3.14'
   isPublic: true
   isPrivateWithGhas: true
   hasPushProtection: true
@@ -806,6 +843,7 @@
   versions:
     fpt: '*'
     ghec: '*'
+    ghes: '>=3.14'
   isPublic: true
   isPrivateWithGhas: true
   hasPushProtection: true
@@ -817,6 +855,7 @@
   versions:
     fpt: '*'
     ghec: '*'
+    ghes: '>=3.14'
   isPublic: true
   isPrivateWithGhas: true
   hasPushProtection: true
@@ -1183,6 +1222,7 @@
   versions:
     fpt: '*'
     ghec: '*'
+    ghes: '>=3.14'
   isPublic: true
   isPrivateWithGhas: true
   hasPushProtection: false
@@ -1434,6 +1474,7 @@
   versions:
     fpt: '*'
     ghec: '*'
+    ghes: '>=3.14'
   isPublic: false
   isPrivateWithGhas: true
   hasPushProtection: false
@@ -1445,6 +1486,7 @@
   versions:
     fpt: '*'
     ghec: '*'
+    ghes: '>=3.14'
   isPublic: true
   isPrivateWithGhas: true
   hasPushProtection: true
@@ -1518,6 +1560,7 @@
   versions:
     fpt: '*'
     ghec: '*'
+    ghes: '>=3.14'
   isPublic: false
   isPrivateWithGhas: true
   hasPushProtection: true
@@ -1531,6 +1574,7 @@
   versions:
     fpt: '*'
     ghec: '*'
+    ghes: '>=3.14'
   isPublic: false
   isPrivateWithGhas: true
   hasPushProtection: true
@@ -1770,6 +1814,7 @@
   versions:
     fpt: '*'
     ghec: '*'
+    ghes: '>=3.14'
   isPublic: true
   isPrivateWithGhas: true
   hasPushProtection: true
@@ -1781,6 +1826,7 @@
   versions:
     fpt: '*'
     ghec: '*'
+    ghes: '>=3.15'
   isPublic: true
   isPrivateWithGhas: true
   hasPushProtection: false
@@ -1792,6 +1838,7 @@
   versions:
     fpt: '*'
     ghec: '*'
+    ghes: '>=3.15'
   isPublic: true
   isPrivateWithGhas: true
   hasPushProtection: false
@@ -1803,6 +1850,7 @@
   versions:
     fpt: '*'
     ghec: '*'
+    ghes: '>=3.15'
   isPublic: true
   isPrivateWithGhas: true
   hasPushProtection: false
@@ -1814,6 +1862,7 @@
   versions:
     fpt: '*'
     ghec: '*'
+    ghes: '>=3.14'
   isPublic: false
   isPrivateWithGhas: true
   hasPushProtection: false
@@ -1825,6 +1874,7 @@
   versions:
     fpt: '*'
     ghec: '*'
+    ghes: '>=3.14'
   isPublic: false
   isPrivateWithGhas: true
   hasPushProtection: false
@@ -2028,6 +2078,7 @@
   versions:
     fpt: '*'
     ghec: '*'
+    ghes: '>=3.14'
   isPublic: true
   isPrivateWithGhas: true
   hasPushProtection: true
@@ -2300,6 +2351,7 @@
   versions:
     fpt: '*'
     ghec: '*'
+    ghes: '>=3.14'
   isPublic: false
   isPrivateWithGhas: true
   hasPushProtection: false
@@ -2407,6 +2459,7 @@
   versions:
     fpt: '*'
     ghec: '*'
+    ghes: '>=3.14'
   isPublic: false
   isPrivateWithGhas: true
   hasPushProtection: true
@@ -2418,6 +2471,7 @@
   versions:
     fpt: '*'
     ghec: '*'
+    ghes: '>=3.14'
   isPublic: false
   isPrivateWithGhas: true
   hasPushProtection: true
@@ -2429,6 +2483,7 @@
   versions:
     fpt: '*'
     ghec: '*'
+    ghes: '>=3.14'
   isPublic: false
   isPrivateWithGhas: true
   hasPushProtection: true
@@ -2758,6 +2813,7 @@
   versions:
     fpt: '*'
     ghec: '*'
+    ghes: '>=3.15'
   isPublic: true
   isPrivateWithGhas: true
   hasPushProtection: true
@@ -2865,6 +2921,7 @@
   versions:
     fpt: '*'
     ghec: '*'
+    ghes: '>=3.15'
   isPublic: false
   isPrivateWithGhas: true
   hasPushProtection: false
@@ -2876,6 +2933,7 @@
   versions:
     fpt: '*'
     ghec: '*'
+    ghes: '>=3.15'
   isPublic: false
   isPrivateWithGhas: true
   hasPushProtection: false
@@ -2887,6 +2945,7 @@
   versions:
     fpt: '*'
     ghec: '*'
+    ghes: '>=3.15'
   isPublic: false
   isPrivateWithGhas: true
   hasPushProtection: false
@@ -2898,6 +2957,7 @@
   versions:
     fpt: '*'
     ghec: '*'
+    ghes: '>=3.15'
   isPublic: false
   isPrivateWithGhas: true
   hasPushProtection: false
@@ -2933,6 +2993,7 @@
   versions:
     fpt: '*'
     ghec: '*'
+    ghes: '>=3.15'
   isPublic: false
   isPrivateWithGhas: true
   hasPushProtection: false
@@ -3052,6 +3113,7 @@
   versions:
     fpt: '*'
     ghec: '*'
+    ghes: '>=3.15'
   isPublic: true
   isPrivateWithGhas: true
   hasPushProtection: true
@@ -3325,6 +3387,7 @@
   versions:
     fpt: '*'
     ghec: '*'
+    ghes: '>=3.15'
   isPublic: false
   isPrivateWithGhas: true
   hasPushProtection: true
@@ -3396,6 +3459,7 @@
   versions:
     fpt: '*'
     ghec: '*'
+    ghes: '>=3.14'
   isPublic: true
   isPrivateWithGhas: true
   hasPushProtection: false
@@ -3419,6 +3483,7 @@
   versions:
     fpt: '*'
     ghec: '*'
+    ghes: '>=3.14'
   isPublic: true
   isPrivateWithGhas: true
   hasPushProtection: true
@@ -3514,6 +3579,7 @@
   versions:
     fpt: '*'
     ghec: '*'
+    ghes: '>=3.14'
   isPublic: true
   isPrivateWithGhas: true
   hasPushProtection: true

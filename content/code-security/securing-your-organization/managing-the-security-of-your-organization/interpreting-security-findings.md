@@ -46,7 +46,7 @@ To best secure your organization, you should encourage contributors to review an
 * {% data variables.secret-scanning.user_alerts_caps %}, which appear on {% data variables.product.product_name %} and can be resolved
 
 {% endif %}
-You can view {% data variables.product.prodname_secret_scanning %} alerts for an organization by navigating to the main page of that organization, clicking the {% octicon "shield" aria-hidden="true" %} **Security** tab, then clicking {% octicon "key" aria-hidden="true" %} **{% data variables.product.prodname_secret_scanning_caps %}**.
+You can view {% data variables.product.prodname_secret_scanning %} alerts for an organization by navigating to the main page of that organization, clicking the **{% octicon "shield" aria-hidden="true" %} Security** tab, then clicking **{% octicon "key" aria-hidden="true" %} {% data variables.product.prodname_secret_scanning_caps %}**.
 
 For an introduction to {% data variables.product.prodname_secret_scanning %} alerts, see "[AUTOTITLE](/code-security/secret-scanning/managing-alerts-from-secret-scanning/about-alerts)."
 
@@ -56,7 +56,7 @@ To learn how to evaluate {% data variables.product.prodname_secret_scanning %} a
 
 {% data reusables.code-scanning.about-code-scanning %} These problems are raised as {% data variables.product.prodname_code_scanning %} alerts, which contain detailed information on the vulnerability or error detected.
 
-You can view the {% data variables.product.prodname_code_scanning %} alerts for an organization by navigating to the main page of that organization, clicking the {% octicon "shield" aria-hidden="true" %} **Security** tab, then clicking {% octicon "codescan" aria-hidden="true" %} **{% data variables.product.prodname_code_scanning_caps %}**.
+You can view the {% data variables.product.prodname_code_scanning %} alerts for an organization by navigating to the main page of that organization, clicking the **{% octicon "shield" aria-hidden="true" %} Security** tab, then clicking **{% octicon "codescan" aria-hidden="true" %} {% data variables.product.prodname_code_scanning_caps %}**.
 
 For an introduction to {% data variables.product.prodname_code_scanning %} alerts, see "[AUTOTITLE](/code-security/code-scanning/managing-code-scanning-alerts/about-code-scanning-alerts)."
 
@@ -64,7 +64,7 @@ To learn how to interpret and resolve {% data variables.product.prodname_code_sc
 
 ## Interpreting {% data variables.product.prodname_dependabot_alerts %}
 
-{% data variables.product.prodname_dependabot_alerts %} inform you about vulnerabilities in the dependencies that you use in repositories in your organization. You can view {% data variables.product.prodname_dependabot_alerts %} for an organization by navigating to the main page of that organization, clicking the {% octicon "shield" aria-hidden="true" %} **Security** tab, then clicking {% octicon "dependabot" aria-hidden="true" %} **{% data variables.product.prodname_dependabot %}**.
+{% data variables.product.prodname_dependabot_alerts %} inform you about vulnerabilities in the dependencies that you use in repositories in your organization. You can view {% data variables.product.prodname_dependabot_alerts %} for an organization by navigating to the main page of that organization, clicking the **{% octicon "shield" aria-hidden="true" %} Security** tab, then clicking **{% octicon "dependabot" aria-hidden="true" %} {% data variables.product.prodname_dependabot %}**.
 
 For an introduction to {% data variables.product.prodname_dependabot_alerts %}, see "[AUTOTITLE](/code-security/dependabot/dependabot-alerts/about-dependabot-alerts)."
 
@@ -75,8 +75,12 @@ To learn how to interpret and resolve {% data variables.product.prodname_dependa
 
 ## Next steps
 
-If you are using the {% data variables.product.prodname_github_security_configuration %}, and your findings indicate the security enablement settings are not meeting your needs, you should create a {% data variables.product.prodname_custom_security_configuration %}. To get started, see "[AUTOTITLE](/code-security/securing-your-organization/meeting-your-specific-security-needs-with-custom-security-configurations/creating-a-custom-security-configuration)."
+{% ifversion security-configurations-cloud %}
 
-If you are using a {% data variables.product.prodname_custom_security_configuration %}, and your findings indicate the security enablement settings are not meeting your needs, you can edit your existing configuration. For more information, see "[AUTOTITLE](/code-security/securing-your-organization/managing-the-security-of-your-organization/editing-a-custom-security-configuration)."
+If you are using the {% data variables.product.prodname_github_security_configuration %}, and your findings indicate the security enablement settings are not meeting your needs, you should create a {% data variables.product.prodname_custom_security_configuration %}. To get started, see "[AUTOTITLE](/code-security/securing-your-organization/enabling-security-features-in-your-organization/creating-a-custom-security-configuration)."
+
+{% endif %}
+
+If {% ifversion security-configurations-cloud %}you are using a {% data variables.product.prodname_custom_security_configuration %}, and {% endif %}your findings indicate the security enablement settings are not meeting your needs, you can edit your existing configuration. For more information, see "[AUTOTITLE](/code-security/securing-your-organization/managing-the-security-of-your-organization/editing-a-custom-security-configuration)."
 
 Lastly, you can also edit your organization-level security settings with {% data variables.product.prodname_global_settings %}. To learn more, see "[AUTOTITLE](/code-security/securing-your-organization/enabling-security-features-in-your-organization/configuring-global-security-settings-for-your-organization)."

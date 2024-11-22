@@ -35,11 +35,8 @@ Once the organization reaches the yearly minimum spend, they can opt out of bein
 
 If your organization currently pays for {% data variables.product.prodname_sponsors %} by credit card, you can switch to paying by invoice. Switching to paying by invoice will not affect the billing schedule for other {% data variables.product.company_short %} products like {% data variables.product.prodname_actions %} or {% data variables.product.prodname_registry %}.
 
-{% note %}
-
-**Note:** Changing your payment method to invoiced billing will cancel your current sponsorships and your current sponsored projects will receive a cancellation email. You will need to set up your sponsorships again after switching to paying by invoice. You can view your recently canceled sponsorships in your past sponsorships list. Additionally, {% data variables.product.prodname_dotcom %} will email you a list of your active sponsorships prior to switching to invoiced billing. You can re-sponsor projects by importing that list into the bulk sponsorship tool. For more information, see "[AUTOTITLE](/sponsors/sponsoring-open-source-contributors/sponsoring-an-open-source-contributor#sponsoring-accounts-in-bulk)."
-
-{% endnote %}
+> [!NOTE]
+> Changing your payment method to invoiced billing will cancel your current sponsorships and your current sponsored projects will receive a cancellation email. You will need to set up your sponsorships again after switching to paying by invoice. You can view your recently canceled sponsorships in your past sponsorships list. Additionally, {% data variables.product.prodname_dotcom %} will email you a list of your active sponsorships prior to switching to invoiced billing. You can re-sponsor projects by importing that list into the bulk sponsorship tool. For more information, see "[AUTOTITLE](/sponsors/sponsoring-open-source-contributors/sponsoring-an-open-source-contributor#sponsoring-accounts-in-bulk)."
 
 {% data reusables.profile.access_org %}
 {% data reusables.profile.org_settings %}
@@ -76,7 +73,7 @@ You can view your {% data variables.product.company_short %} Invoiced Sponsor Ag
 
 1. Navigate to the organization.
 {% data reusables.organizations.navigate-to-sponsoring %}
-1. In the sidebar, click {% octicon "graph" aria-label="The graph icon" %} **Insights**.
+1. In the sidebar, click **{% octicon "graph" aria-hidden="true" %} Insights**.
 1. Under your balance, click **{% data variables.product.company_short %} Invoiced Sponsor Agreement** to view the agreement.
 
 ## Understanding your {% data variables.product.prodname_sponsors %} invoice

@@ -2,7 +2,7 @@
 title: About Dependabot on GitHub Actions runners
 intro: '{% data variables.product.prodname_dotcom %} automatically runs the jobs that generate {% data variables.product.prodname_dependabot %} pull requests on {% data variables.product.prodname_actions %} if you have {% data variables.product.prodname_actions %} enabled for the repository.'
 shortTitle: About Dependabot on Actions
-permissions: 'Organization owners and repository administrators can enable {% data variables.product.prodname_dependabot %} on {% data variables.product.prodname_actions %}.'
+product: '{% data reusables.gated-features.dependabot-on-actions %}'
 versions:
   feature: dependabot-on-actions-opt-in
 type: how_to
@@ -63,7 +63,7 @@ You can manage {% data variables.product.prodname_dependabot %} on {% data varia
 {% data reusables.repositories.navigate-to-repo %}
 {% data reusables.repositories.sidebar-settings %}
 {% data reusables.repositories.navigate-to-code-security-and-analysis %}
-1. Under "Dependabot", to the right of "{% data variables.product.prodname_dependabot %} on Actions runners", click **Enable**  to enable the feature or **Disable** to disable it.
+1. Under "Dependabot", to the right of "{% data variables.product.prodname_dependabot %} on Actions runners", click **Enable** to enable the feature or **Disable** to disable it.
 
 ### Enabling or disabling for your organization
 
@@ -112,7 +112,7 @@ To re-run a {% data variables.product.prodname_dependabot_version_updates %} or 
 ### Re-running a {% data variables.product.prodname_dependabot_security_updates %} job
 
 {% data reusables.repositories.navigate-to-repo %}
-1. Under your repository name, click {% octicon "shield-lock" aria-hidden="true" %} **Security**.
+1. Under your repository name, click **{% octicon "shield-lock" aria-hidden="true" %} Security**.
 1. In the left sidebar, under "Vulnerability alerts", click **{% data variables.product.prodname_dependabot %}**.
 1. Under "{% data variables.product.prodname_dependabot %}", click the alert you want to view.
 1. In the section displaying the error details for the alert, click **Try again** to re-run the {% data variables.product.prodname_dependabot_security_updates %} job.

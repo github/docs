@@ -18,9 +18,18 @@ redirect_from:
 
 ## About management of {% data variables.product.prodname_advanced_security %} features
 
-You can use {% data variables.product.prodname_advanced_security %} features to harden security for the organizations in your enterprise. {% ifversion security-configurations %}{% data reusables.security-configurations.enable-security-features-with-gh-config %}
+You can use {% data variables.product.prodname_advanced_security %} features to harden security for the organizations in your enterprise.
+
+{% ifversion security-configurations %}{% data reusables.security-configurations.enable-security-features-with-gh-config %}
 
 To manage individual {% data variables.product.prodname_GH_advanced_security %} features, {% else %}To streamline management of {% data variables.product.prodname_advanced_security %}, {% endif %}you can enable or disable each feature for all existing and/or new repositories within the organizations owned by your enterprise.
+
+{% ifversion security-configurations-ghes-only %}
+
+> [!WARNING]
+> You should communicate any changes you plan to make to existing feature enablement settings to organization owners before making them, so as not to impact existing security configurations that have been rolled out by organizations in your enterprise.
+
+{% endif %}
 
 {% ifversion secret-scanning-enterprise-level-api %}{% data reusables.secret-scanning.secret-scanning-enterprise-level-api %}{% endif %}
 

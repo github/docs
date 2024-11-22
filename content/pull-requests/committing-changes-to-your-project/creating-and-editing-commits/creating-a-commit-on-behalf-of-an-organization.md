@@ -13,12 +13,12 @@ shortTitle: On behalf of an organization
 
 To create commits on behalf of an organization:
 
-* You must be a member of the organization indicated in the trailer
-* You must sign the commit
-* Your commit email and the organization email must be in a domain verified by the organization
-* Your commit message must end with the commit trailer `on-behalf-of: @org <name@organization.com>`
-  * `org` is the organization's login
-  * `name@organization.com` is in the organization's domain
+* You must be a member of the organization indicated in the trailer.
+* You must sign the commit.
+* Your commit email and the organization email must be in a domain verified by the organization.
+* Your commit message must end with the commit trailer `on-behalf-of: @org <name@organization.com>`.
+  * `org` is the organization's login.
+  * `name@organization.com` is in the organization's domain.
 
 Organizations can use the `name@organization.com` email as a public point of contact for open source efforts.
 
@@ -32,11 +32,8 @@ Organizations can use the `name@organization.com` email as a public point of con
    >
    ```
 
-   {% tip %}
-
-   **Tip:** If you're using a text editor on the command line to type your commit message, ensure there are two newlines between the end of your commit description and the `on-behalf-of:` commit trailer.
-
-   {% endtip %}
+   > [!TIP]
+   > If you're using a text editor on the command line to type your commit message, ensure there are two newlines between the end of your commit description and the `on-behalf-of:` commit trailer.
 
 1. On the next line of the commit message, type `on-behalf-of: @org <name@organization.com>`, then a closing quotation mark.
 

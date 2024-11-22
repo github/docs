@@ -33,7 +33,7 @@ You can add the {% data variables.product.prodname_codeql_cli %} to your third-p
 
 The {% data variables.product.prodname_codeql_cli %} is a standalone, command-line tool that you can use to analyze code. For more information, see "[AUTOTITLE](/code-security/codeql-cli/getting-started-with-the-codeql-cli/about-the-codeql-cli)."
 
-Alerts for {% data variables.product.prodname_code_scanning %} that you generate externally are displayed in the same way as those for  {% data variables.product.prodname_code_scanning %} that you generate within {% data variables.product.prodname_dotcom %}. {% data reusables.code-scanning.about-multiple-configurations-link %}
+Alerts for {% data variables.product.prodname_code_scanning %} that you generate externally are displayed in the same way as those for {% data variables.product.prodname_code_scanning %} that you generate within {% data variables.product.prodname_dotcom %}. {% data reusables.code-scanning.about-multiple-configurations-link %}
 
 {% data reusables.code-scanning.upload-sarif-ghas %}
 
@@ -41,7 +41,7 @@ Alerts for {% data variables.product.prodname_code_scanning %} that you generate
 
 You will first need to download your analysis tool of choice and set it up with your CI system.
 
-If you are using the {% data variables.product.prodname_codeql_cli %}, you need to make the full contents of the {% data variables.product.prodname_codeql_cli %} bundle available to every CI server that you want to run {% data variables.product.prodname_codeql %} {% data variables.product.prodname_code_scanning %} analysis on.  For more information, see "[AUTOTITLE](/code-security/codeql-cli/getting-started-with-the-codeql-cli/setting-up-the-codeql-cli)."
+If you are using the {% data variables.product.prodname_codeql_cli %}, you need to make the full contents of the {% data variables.product.prodname_codeql_cli %} bundle available to every CI server that you want to run {% data variables.product.prodname_codeql %} {% data variables.product.prodname_code_scanning %} analysis on. For more information, see "[AUTOTITLE](/code-security/codeql-cli/getting-started-with-the-codeql-cli/setting-up-the-codeql-cli)."
 
 Once you've made your analysis tool available to servers in your CI system, you're ready to generate data.
 
