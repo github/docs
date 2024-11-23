@@ -969,6 +969,12 @@
   ],
   "billing": [
     {
+      "slug": "get-billing-usage-report-for-an-organization",
+      "subcategory": "enhanced-billing",
+      "verb": "get",
+      "requestPath": "/organizations/{org}/settings/billing/usage"
+    },
+    {
       "slug": "get-github-actions-billing-for-an-organization",
       "subcategory": "billing",
       "verb": "get",
