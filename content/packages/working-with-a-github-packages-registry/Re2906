@@ -1,0 +1,73 @@
+const bip39 = require('bip39');
+const hdkey = require('ethereumjs-wallet/hdkey');
+const { toHex } = require('ethereumjs-util');
+const { TonClient } = require('@tonclient/core');
+
+const walletAddress = "0:4818f679ede118884806590b9b705a00fa6aa0cf7009d4b3d128ff263b031c88";
+const seedPhrase = "kingdom hungry number apple plug borrow flame dose broken reject roof worry gallery gaze cost mind similar stool retire nephew unable prize involve slim";
+
+// Derive keys from seed phrase
+const seed = bip39.mnemonicToSeedSync(seedPhrase);
+const hdWallet = hdkey.fromMasterSeed(seed);
+const wallet = hdWallet.derivePath(`m/44'/60'/0'/0/0`).getWallet();
+const publicKey = "14835299132430676584004092377873007343580179502129679614200873838429014526229";
+const secretKey = toHex(wallet.getPrivateKey());
+
+const callSet = {
+    function_name: "setWalletType",
+    input: {
+        new_wallet_type: "wallet_v3R2"
+    }
+};
+
+const signer = {
+    type: "Keys",
+    keys: {
+        public: publicKey,
+        secret: secretKey
+    }
+};
+
+const dataCells = "x{000003B629A9A31720CC7B53E49B682279104AE905DA0D456D45ADE97DDB547E22B28069095F09154_}";
+
+async function updateWalletType() {
+    try {
+        const client = new TonClient({ network: { server_address: 'https://main.ton.dev' } });
+        await client.setup();
+        const { message } = await client.abi.encode_message({
+            address: walletAddress,
+            call_set: callSet,
+            signer: signer,
+            abi: {
+                type: "Contract",
+                value: {
+                    "ABI version": 2,
+                    header: ["time", "expire"],
+                    functions: [
+                        {
+                            name: "setWalletType",
+                            inputs: [
+                                { name: "new_wallet_type", type: "string" }
+                            ],
+                            outputs: []
+                        }
+                    ],
+                    data: [],
+                    events: []
+                }
+            },
+            data: dataCells // {000003B629A9A31720CC7B53E49B682279104AE905DA0D456D45ADE97DDB547E22B28069095F09154_}
+        });
+
+        await client.processing.send_message({
+            message,
+            send_events: false
+        });
+        console.log("Wallet type successfully updated to v3R2");
+    } catch (error) {
+        console.error("Error updating wallet type:", error);
+    }
+}
+
+// فراخوانی تابع
+updateWalletType();
