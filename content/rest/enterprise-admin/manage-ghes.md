@@ -53,7 +53,7 @@ By default, the response includes information from about all configured nodes fo
 | Query parameter | Description |
 | :- | :- |
 | `uuid` | Unique identifier for the node. |
-| `cluster_role` | For nodes in a cluster, the roles that apply to the node. For more information, see "[AUTOTITLE)(/admin/enterprise-management/configuring-clustering/about-cluster-nodes)." |
+| `cluster_role` | For nodes in a cluster, the roles that apply to the node. For more information, see "[AUTOTITLE](/admin/enterprise-management/configuring-clustering/about-cluster-nodes)." |
 
 You can specify multiple values for the query parameter by delimiting the values with a comma. For example, the following request uses curl to return any nodes with the `web-server` or `storage-server` role.
 

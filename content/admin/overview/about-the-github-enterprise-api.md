@@ -16,11 +16,9 @@ shortTitle: GitHub Enterprise API
 ---
 
 With the APIs, you can automate many administrative tasks. Some examples include:
-* Perform changes to the {% data variables.enterprise.management_console %}. For more information, see
-{% ifversion management-console-manage-ghes-parity -%}
-"[AUTOTITLE](/rest/enterprise-admin/manage-ghes)."
-{%- else -%}
-"[AUTOTITLE](/rest/enterprise-admin/management-console)."
+
+{%- ifversion management-console-manage-ghes-parity %}
+* Perform a configuration run to apply changes to {% data variables.enterprise.management_console %} settings. For more information, see "[AUTOTITLE](/rest/enterprise-admin/manage-ghes)."
 {%- endif %}
 * Configure LDAP sync. For more information, see "[AUTOTITLE](/rest/enterprise-admin/ldap)."
 * Collect statistics about your enterprise. For more information, see "[AUTOTITLE](/rest/enterprise-admin/admin-stats)."
