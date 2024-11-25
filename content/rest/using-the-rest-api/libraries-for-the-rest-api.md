@@ -40,6 +40,10 @@ The following are examples of third-party libraries that you can use to interact
 
 These third-party libraries are not maintained by {% data variables.product.company_short %}. Libraries provided by third parties are governed by separate terms of service, privacy policy, and support documentation.
 
+### C/C++
+
+* libgithub: [briandowns/libgithub](https://github.com/briandowns/libgithub) 
+
 ### Clojure
 
 * Tentacles: [clj-commons/tentacles](https://github.com/clj-commons/tentacles)
