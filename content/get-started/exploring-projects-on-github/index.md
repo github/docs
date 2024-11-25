@@ -15,6 +15,7 @@ topics:
   - Projects
 children:
   - /finding-ways-to-contribute-to-open-source-on-github
+  - /using-github-copilot-to-explore-projects
   - /contributing-to-a-project
   - /saving-repositories-with-stars
   - /following-people

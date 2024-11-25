@@ -26,6 +26,14 @@ shortTitle: Install on Hyper-V
 
 {% data reusables.enterprise_installation.hardware-considerations-all-platforms %}
 
+## Should I use VMotion?
+
+VMotion can be exceptionally helpful for general resource management, however the impact to the guest instance can be significant. With larger {% data variables.product.prodname_ghe_server %} instances (8 CPU/64 GB RAM and above), a VMotion event may result in a full outage of the {% data variables.product.prodname_ghe_server %} to end users as a result of dramatically reduced CPU, RAM, and storage IOPS. With this in mind, {% data variables.product.prodname_ghe_server %} should be considered a "highly latency sensitive" application.
+
+For large(r) deployments on VMWare that have Distributed Resource Scheduler (DRS) enabled, we would recommend configuring a VM-to-Host affinity rule for your {% data variables.product.prodname_ghe_server %} to try and keep the virtual appliance on a single host. If a migration with VMotion is required, we'd recommend considering this a "planned outage", and placing {% data variables.product.prodname_ghe_server %} into maintenance mode until the migration is complete.
+
+We also recommend that the ESXi Power Management Setting be configured to "High Performance". We have seen cases where overall system performance can be negatively impacted if this is left at "Balanced".
+
 ## Downloading the {% data variables.product.prodname_ghe_server %} image
 
 {% data reusables.enterprise_installation.download-license %}
