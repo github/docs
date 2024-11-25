@@ -28,11 +28,8 @@ There are two types of {% data variables.dependabot.auto_triage_rules %}:
 
 ### About {% data variables.dependabot.github_presets %}
 
-{% note %}
-
-{% data reusables.dependabot.dependabot-github-preset-auto-triage-rules %}
-
-{% endnote %}
+> [!NOTE]
+> {% data reusables.dependabot.dependabot-github-preset-auto-triage-rules %}
 
 {% data variables.dependabot.github_presets %} are rules curated by {% data variables.product.company_short %}. {% data reusables.dependabot.dismiss-low-impact-rule %}
 
@@ -40,11 +37,8 @@ The rule is enabled by default for public repositories and can be opted into for
 
 ### About {% data variables.dependabot.custom_rules %}
 
-{% note %}
-
-{% data reusables.gated-features.dependabot-custom-auto-triage-rules %}
-
-{% endnote %}
+> [!NOTE]
+> {% data reusables.gated-features.dependabot-custom-auto-triage-rules %}
 
 With {% data variables.dependabot.custom_rules %}, you can create your own rules to automatically dismiss or reopen alerts based on targeted metadata, such as severity, package name, CWE, and more. You can also specify which alerts you want {% data variables.product.prodname_dependabot %} to open pull requests for. For more information, see "[AUTOTITLE](/code-security/dependabot/dependabot-auto-triage-rules/customizing-auto-triage-rules-to-prioritize-dependabot-alerts)."
 
