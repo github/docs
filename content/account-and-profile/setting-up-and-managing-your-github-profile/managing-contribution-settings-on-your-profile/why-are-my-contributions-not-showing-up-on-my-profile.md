@@ -90,6 +90,7 @@ If your commits are in a non-default or non-`gh-pages` branch and you'd like the
 * [Change the default branch](/repositories/configuring-branches-and-merges-in-your-repository/managing-branches-in-your-repository/changing-the-default-branch) of the repository.
 
 > [!WARNING]
+
 > Changing the default branch of the repository will change it for all repository collaborators. Only do this if you want the new branch to become the base against which all future pull requests and commits will be made.
 
 ### Commit was made in a fork
