@@ -37,6 +37,34 @@ For more information about the search syntax of code search, see "[AUTOTITLE](/s
 
 1. After typing your query, you can also press Enter to go to the full search results view, where you can see each match and a visual interface for applying filters. For more information, see "[Using the search results view](#using-the-search-results-view)."
 
+{% ifversion copilot %}
+
+## Getting answers with {% data variables.product.prodname_copilot_short %} from the search bar
+
+> [!NOTE] {% data reusables.copilot.copilot-requires-subscription %}
+
+You can use {% data variables.product.prodname_copilot %} to ask questions about an entire repository directly from the main search box. Simply type your question into the search bar, and {% data variables.product.prodname_copilot_short %} can provide insights or explanations about the repository’s structure, purpose, or specific components. This makes it easy to get quick answers without navigating through multiple files, helping you stay focused and maintain your workflow.
+
+1. Navigate to a repository on {% data variables.product.github %}.
+1. Press <kbd>/</kbd>, or click in the main search box at the top of the page.
+1. In the search box, after `repo:OWNER/REPO`, type the question you want to ask {% data variables.product.prodname_copilot_short %}.
+
+   For example, you could enter:
+
+   * `What does this repo do?`
+   * `Where is authentication implemented in this codebase?`
+   * `How does license file detection work in this repo?`
+
+1. Click **Ask {% data variables.product.prodname_copilot_short %}**.
+
+   ![Screenshot of the main search box on {% data variables.product.prodname_dotcom %}. The drop-down option "Ask {% data variables.product.prodname_copilot_short %}" is highlighted with an orange outline.](/assets/images/help/copilot/ask-copilot-from-search-bar.png)
+
+   The {% data variables.product.prodname_copilot_chat %} panel is displayed and {% data variables.product.prodname_copilot_short %} responds to your request.
+
+{% data reusables.copilot.stop-response-generation %}
+
+{% endif %}
+
 ## Creating and managing saved searches
 
 1. In the top navigation of {% data variables.product.prodname_dotcom %}, click the search bar and type `saved:`.
