@@ -7,6 +7,7 @@ versions:
 children:
   - /best-practices-for-github-docs
   - /about-githubs-documentation-philosophy
+  - /about-githubs-documentation-fundamentals
   - /content-design-principles
   - /writing-content-to-be-translated
   - /making-content-findable-in-search
