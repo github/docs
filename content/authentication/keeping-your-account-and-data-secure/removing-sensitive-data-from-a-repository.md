@@ -180,6 +180,23 @@ To illustrate how `git filter-repo` works, we'll show you how to remove your fil
 
 After using either the BFG tool or `git filter-repo` to remove the sensitive data and pushing your changes to {% data variables.product.product_name %}, you must take a few more steps to fully remove the data from {% data variables.product.product_name %}.
 
+{% ifversion ghec %}
+1. If the repository was migrated using the {% data variables.product.prodname_importer_proper_name %}, there may be some non-standard Git references that follow the pattern `refs/github-services`, that neither the BFG tool or `git filter-repo` can remove. In this case, remove those references running the following commands in your local copy of the repository:
+
+   ```shell
+   # fetch all refs
+   git ls-remote | grep refs/github-services | cut -f2 | sort -t'/' -k3,4n > github-services-refs.txt
+   
+   # inspect and validate refs to be deleted
+   cat github-services-refs.txt
+   
+   # delete refs in batches
+   export BATCH_SIZE=512
+   cat github-services-refs.txt | xargs -n $BATCH_SIZE git push origin --delete
+   ```
+
+{% endif %}
+
 1. Contact {% data variables.contact.contact_support %}, and ask to remove cached views and references to the sensitive data in pull requests on {% data variables.product.product_name %}. Please provide the name of the repository and/or a link to the commit you need removed.{% ifversion ghes %} For more information about how site administrators can remove unreachable Git objects, see "[AUTOTITLE](/admin/configuration/configuring-your-enterprise/command-line-utilities#ghe-repo-gc)." For more information about how site administrators can identify reachable commits, see "[Identifying reachable commits](#identifying-reachable-commits)."{% endif %}{% ifversion fpt or ghec %}
 
    > [!IMPORTANT] {% data variables.contact.github_support %} won't remove non-sensitive data, and will only assist in the removal of sensitive data in cases where we determine that the risk can't be mitigated by rotating affected credentials.
