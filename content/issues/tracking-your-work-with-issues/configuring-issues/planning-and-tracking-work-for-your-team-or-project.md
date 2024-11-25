@@ -94,6 +94,41 @@ Below we have added a task list to our Project Octocat issue, breaking it down i
 
 {% endif %}
 
+{% ifversion copilot %}
+
+## Understanding new issues
+
+> [!NOTE] {% data reusables.copilot.copilot-requires-subscription %}
+
+When working on an unfamiliar or complex issue, {% data variables.product.prodname_copilot %} can help you quickly understand the context, history, and key information, so you can get started faster and with more confidence.
+
+### Reviewing the issue
+
+1. Navigate to an issue on {% data variables.product.github %}.
+
+{% data reusables.copilot.open-copilot %}
+
+1. At the bottom of the {% data variables.product.prodname_copilot_short %} chat panel, in the "Ask {% data variables.product.prodname_copilot_short %}" box, type a question and press <kbd>Enter</kbd>. For example, you could enter:
+
+   * `Summarize the main points of this issue`
+   * `What’s the goal of this issue?`
+
+{% data variables.product.prodname_copilot_short %}'s summary will help you capture the purpose and scope of the work.
+
+### Understanding the history and comments
+
+Issues often contain a history of discussions and decisions that can provide important context. You can use {% data variables.product.prodname_copilot_short %} to summarize these conversations to identify key points, such as proposed solutions or unanswered questions. For example, you might ask {% data variables.product.prodname_copilot_short %} to summarize recent comments or highlight decisions that have already been made. This helps you focus on what’s most relevant and ensures your contributions are aligned with the team’s priorities.
+
+### Clarifying technical terms
+
+Issues often mention technical terms, code, or files that might not be immediately clear. You can use {% data variables.product.prodname_copilot_short %} to get explanations or context for these references. For example, you can ask about the purpose of a file or function, or the meaning of a specific term mentioned in the issue. This helps you understand the details without spending extra time searching through documentation or code.
+
+### Getting suggestions for next steps
+
+Once you understand the context of an issue, {% data variables.product.prodname_copilot_short %} can help you figure out how to move forward. You can ask for suggestions on how to approach the work, like fixing a bug or implementing a new feature. For example, you might ask, “What’s the best way to resolve this issue?” or “How can I start addressing this problem?” {% data variables.product.prodname_copilot_short %}'s suggestions can provide useful starting points, helping you plan your work more effectively.
+
+{% endif %}
+
 ## Making decisions as a team
 
 You can use issues and discussions to communicate and make decisions as a team on planned improvements or priorities for your project. Issues are useful when you create them for discussion of specific details, such as bug or performance reports, planning for the next quarter, or design for a new initiative. Discussions are useful for open-ended brainstorming or feedback, outside the codebase and across repositories. For more information, see "[AUTOTITLE](/get-started/using-github/communicating-on-github#which-discussion-tool-should-i-use)."
