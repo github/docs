@@ -18,13 +18,13 @@ redirect_from:
 
 ## About forking
 
-If you want to contribute to someone else's project but don't have write access to the repository, you can use a "fork and pull request" workflow.
+If you want to contribute to someone else's project but don’t have permission to make changes directly, you can create your own copy of the project, make updates, and then suggest those updates for inclusion in the main project. This process is often called a "fork and pull request" workflow.
 
-{% data reusables.repositories.fork-definition-long %}
+When you create your own copy (or "fork") of a project, it’s like making a new workspace that shares code with the original project. This is useful for open-source projects or anytime you don’t have write access to the original project.
 
-You can contribute by submitting pull requests from your fork to the upstream repository. For more information, see "[AUTOTITLE](/pull-requests/collaborating-with-pull-requests/working-with-forks/fork-a-repo)."
+Once you’ve made your changes in your copy, you can submit them as a pull request, which is a way to propose changes back to the main project. For more information, see "[AUTOTITLE](/pull-requests/collaborating-with-pull-requests/working-with-forks/fork-a-repo)."
 
-## Forking a repository
+## Creating your own copy of a project
 
 This tutorial uses [the Spoon-Knife project](https://github.com/octocat/Spoon-Knife), a test repository that's hosted on {% data variables.product.prodname_dotcom %} that lets you test the fork and pull request workflow.
 
@@ -44,7 +44,7 @@ This tutorial uses [the Spoon-Knife project](https://github.com/octocat/Spoon-Kn
 > [!NOTE]
 > If you want to copy additional branches from the upstream repository, you can do so from the **Branches** page. For more information, see "[AUTOTITLE](/pull-requests/collaborating-with-pull-requests/proposing-changes-to-your-work-with-pull-requests/creating-and-deleting-branches-within-your-repository)."
 
-## Cloning a fork
+## Cloning a fork to your computer
 
 You've successfully forked the Spoon-Knife repository, but so far, it only exists on {% data variables.product.product_name %}. To be able to work on the project, you will need to clone it to your computer.
 
@@ -99,7 +99,7 @@ gh repo fork REPOSITORY --clone=true
 
 ## Creating a branch to work on
 
-Before making changes to the project, you should create a new branch and check it out. By keeping changes in their own branch, you follow GitHub Flow and ensure that it will be easier to contribute to the same project again in the future. For more information, see "[AUTOTITLE](/get-started/using-github/github-flow#following-github-flow)."
+Before making changes to the project, you should create a new branch and check it out. By keeping changes in their own branch, you follow {% data variables.product.github %} flow and ensure that it will be easier to contribute to the same project again in the future. See "[AUTOTITLE](/get-started/using-github/github-flow#following-github-flow)."
 
 {% webui %}
 
@@ -127,7 +127,7 @@ For more information about how to create and manage branches in {% data variable
 
 ## Making and pushing changes
 
-Go ahead and make a few changes to the project using your favorite text editor, like [{% data variables.product.prodname_vscode %}](https://code.visualstudio.com). You could, for example, change the text in `index.html` to add your GitHub username.
+Go ahead and make a few changes to the project using your favorite text editor, like [{% data variables.product.prodname_vscode %}](https://code.visualstudio.com). You could, for example, change the text in `index.html` to add your {% data variables.product.github %} username.
 
 When you're ready to submit your changes, stage and commit your changes. `git add .` tells Git that you want to include all of your changes in the next commit. `git commit` takes a snapshot of those changes.
 
@@ -199,3 +199,9 @@ Pull requests are an area for discussion. Don't be offended if the project owner
 
 You've successfully forked and contributed back to a repository. Go forth, and
 contribute some more!{% ifversion fpt %} For more information, see "[AUTOTITLE](/get-started/exploring-projects-on-github/finding-ways-to-contribute-to-open-source-on-github)."{% endif %}
+
+{% ifversion copilot %}
+
+## Familiarizing yourself with a project
+
+If you're new to a project, you can use {% data variables.product.prodname_copilot_short %} to help you understand the purpose of the repository, examine files, and dive into specific lines of code. See "[AUTOTITLE](/get-started/exploring-projects-on-github/using-github-copilot-to-explore-projects)."{% endif %}

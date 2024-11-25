@@ -1,6 +1,6 @@
 ---
-title: Viewing a file
-intro: You can view raw file content or trace changes to lines in a file and discover how parts of the file evolved over time.
+title: Viewing and understanding files
+intro: Explore file content and trace changes over time to understand a new codebase and its evolution.
 redirect_from:
   - /articles/using-git-blame-to-trace-changes-in-a-file
   - /articles/tracing-changes-in-a-file
@@ -8,14 +8,18 @@ redirect_from:
   - /github/managing-files-in-a-repository/tracking-changes-in-a-file
   - /github/managing-files-in-a-repository/managing-files-on-github/tracking-changes-in-a-file
   - /repositories/working-with-files/using-files/tracking-changes-in-a-file
+  - /repositories/working-with-files/using-files/viewing-a-file
 versions:
   fpt: '*'
   ghes: '*'
   ghec: '*'
 topics:
   - Repositories
-shortTitle: View files and track file changes
+shortTitle: View and understand files
 ---
+
+{% data variables.product.github %} provides tools to view raw content, trace changes to specific lines, and explore how a file’s content has evolved over time. These insights reveal how code was developed, its current purpose, and its structure, helping you contribute effectively.
+
 ## Viewing or copying the raw file content
 
 With the raw view, you can view or copy the raw content of a file without any styling.
@@ -100,3 +104,15 @@ git config blame.ignoreRevsFile .git-blame-ignore-revs
 ## Bypassing `.git-blame-ignore-revs` in the blame view
 
 If the blame view for a file shows **Ignoring revisions in .git-blame-ignore-revs**, you can still bypass `.git-blame-ignore-revs` and see the normal blame view. In the URL, append a `~` to the SHA and the **Ignoring revisions in .git-blame-ignore-revs** banner will disappear.
+
+{% ifversion copilot %}
+
+## Understanding files with {% data variables.product.prodname_copilot_short %}
+
+> [!NOTE] {% data reusables.copilot.copilot-requires-subscription %}
+
+You can also use {% data variables.product.prodname_copilot_short %} to ask about specific lines of code in a file, helping you understand how the code works and reducing the risk of introducing new problems.
+
+{% data reusables.copilot.chat-about-specific-lines %}
+
+{% endif %}

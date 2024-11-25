@@ -56,7 +56,7 @@ Before you submit your review, your line comments are _pending_ and only visible
 You can use [{% data variables.product.prodname_github_codespaces %}](/codespaces/overview) to test, run, and review pull requests.
 
 1. Open the pull request in a codespace, as described in "[AUTOTITLE](/codespaces/developing-in-codespaces/using-github-codespaces-for-pull-requests#opening-a-pull-request-in-codespaces)."
-1. In the Activity Bar, click the **GitHub Pull Request** view. This view only appears when you open a pull request in a codespace.
+1. In the Activity Bar, click the **{% data variables.product.github %} Pull Request** view. This view only appears when you open a pull request in a codespace.
 
    ![Screenshot of the {% data variables.product.prodname_vscode_shortname %} Activity Bar. The mouse pointer is hovering over an icon displaying the tooltip "{% data variables.product.prodname_dotcom %} Pull Request."](/assets/images/help/codespaces/github-pr-view.png)
 
@@ -78,6 +78,33 @@ For more information on reviewing pull requests in {% data variables.product.pro
 
 {% endcodespaces %}
 {% endif %}
+
+{% webui %}
+{% ifversion copilot %}
+
+## Understanding changes in a pull request
+
+> [!NOTE] {% data reusables.copilot.copilot-requires-subscription %}
+
+{% data variables.product.prodname_copilot %} can help you quickly understand the changes in a pull request by providing context and explanations for specific commits. If you’re unsure about the purpose of a particular change or need more details about how it fits into the broader codebase, you can ask {% data variables.product.prodname_copilot_short %} questions about individual commits.
+
+1. Navigate to a commit on {% data variables.product.github %}.
+
+{% data reusables.copilot.open-copilot %}
+
+1. At the bottom of the {% data variables.product.prodname_copilot_short %} chat panel, in the "Ask {% data variables.product.prodname_copilot_short %}" box, type a question and press <kbd>Enter</kbd>. For example, you could enter:
+
+   * `Summarize the changes in this commit`
+   * `Who committed these changes?`
+   * `When was this commit made?`
+
+   > [!TIP]
+   > If you know the SHA for a commit, instead of navigating to the commit, you can ask {% data variables.product.prodname_copilot_short %} about the commit from any page in the repository on {% data variables.product.github %} by including the SHA in your message. For example, `What changed in commit a778e0eab?`
+
+{% data reusables.copilot.stop-response-generation %}
+
+{% endif %}
+{% endwebui %}
 
 ## Reviewing dependency changes
 
