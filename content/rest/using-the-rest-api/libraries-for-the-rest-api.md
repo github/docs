@@ -42,7 +42,7 @@ These third-party libraries are not maintained by {% data variables.product.comp
 
 ### C/C++
 
-* libgithub: [briandowns/libgithub](https://github.com/briandowns/libgithub) 
+* libgithub: [briandowns/libgithub](https://github.com/briandowns/libgithub)
 
 ### Clojure
 
