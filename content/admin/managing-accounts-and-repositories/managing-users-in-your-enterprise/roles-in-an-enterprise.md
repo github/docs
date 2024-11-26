@@ -19,13 +19,13 @@ topics:
 
 All users that are part of your enterprise have one of the following roles.
 
-* **Enterprise owner**: Can manage all enterprise settings, members, and policies
+* **Enterprise owner:** Can manage all enterprise settings, members, and policies
 {%- ifversion ghec %}
-* **Billing manager**: Can manage enterprise billing settings
+* **Billing manager:** Can manage enterprise billing settings
 {%- endif %}
-* **Enterprise member**: Is a member or owner of any organization in the enterprise
+* **Enterprise member:** Is a member or owner of any organization in the enterprise
 {%- ifversion guest-collaborators %}
-* **Guest collaborator**: Can be granted access to repositories or organizations, but has limited access by default ({% data variables.product.prodname_emus %} only)
+* **Guest collaborator:** Can be granted access to repositories or organizations, but has limited access by default ({% data variables.product.prodname_emus %} only)
 {%- endif %}
 
 {% ifversion ghec %}For information about which users consume a license, see "[AUTOTITLE](/billing/managing-the-plan-for-your-github-account/about-per-user-pricing#people-that-consume-a-license)."{% endif %}

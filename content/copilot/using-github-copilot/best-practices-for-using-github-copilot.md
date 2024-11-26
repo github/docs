@@ -12,14 +12,14 @@ shortTitle: Best practices
 
 {% data variables.product.prodname_copilot %} is an AI coding assistant that helps you write code faster and with less effort, allowing you to focus more energy on problem solving and collaboration. Before you start working with {% data variables.product.prodname_copilot_short %}, it's important to understand when you should and shouldn't use it.
 
-**Some of the things {% data variables.product.prodname_copilot_short %} does best include**:
+**Some of the things {% data variables.product.prodname_copilot_short %} does best include:**
 
 * Writing tests and repetitive code
 * Debugging and correcting syntax
 * Explaining and commenting code
 * Generating regular expressions
 
-**{% data variables.product.prodname_copilot_short %} is not designed to**:
+**{% data variables.product.prodname_copilot_short %} is not designed to:**
 
 * Respond to prompts unrelated to coding and technology
 * Replace your expertise and skills. Remember that you are in charge, and {% data variables.product.prodname_copilot_short %} is a powerful tool at your service.
@@ -28,14 +28,14 @@ shortTitle: Best practices
 
 While {% data variables.product.prodname_copilot_short %} code completions and {% data variables.product.prodname_copilot_chat_short %} share some functionality, the two tools are best used in different circumstances.
 
-**Code completions work best for**:
+**Code completions work best for:**
 
 * Completing code snippets, variable names, and functions as you write them
 * Generating repetitive code
 * Generating code from inline comments in natural language
 * Generating tests for test-driven development
 
-**Alternatively, {% data variables.product.prodname_copilot_chat_short %} is best suited for**:
+**Alternatively, {% data variables.product.prodname_copilot_chat_short %} is best suited for:**
 
 * Answering questions about code in natural language
 * Generating large sections of code, then iterating on that code to meet your needs
@@ -67,7 +67,7 @@ While {% data variables.product.prodname_copilot_short %} is very powerful, it i
 
 There are several adjustments you can make to steer {% data variables.product.prodname_copilot_short %} towards more valuable responses:
 
-* **Provide {% data variables.product.prodname_copilot_short %} with helpful context**:
+* **Provide {% data variables.product.prodname_copilot_short %} with helpful context:**
   * If you are using {% data variables.product.prodname_copilot_short %} in your IDE, open relevant files and close irrelevant files.
   * In {% data variables.product.prodname_copilot_chat_short %}, if a particular request is no longer helpful context, delete that request from the conversation. Alternatively, if none of the context of a particular conversation is helpful, start a new conversation.
   * If you are using {% data variables.product.prodname_copilot_chat_dotcom_short %}, provide specific repositories, files, symbols, and more as context. See "[AUTOTITLE](/copilot/using-github-copilot/asking-github-copilot-questions-in-githubcom)."

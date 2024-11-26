@@ -74,12 +74,12 @@ The system health graphs provide a general overview of services and system resou
 
 These graphs include key metrics for the resource utilization of services that power  {% data variables.product.prodname_ghe_server %}. They help visualize ongoing issues while processing requests.
 
-* **Nomad jobs**: The CPU and memory usage of individual services. {% data variables.product.prodname_ghe_server %} utilizes Nomad internally as the workload orchestrator.
-* **Response code**: The number of responses by status code returned across {% data variables.product.prodname_ghe_server %} services.
-* **Response time**: The speed of web requests at the 90th percentile in milliseconds.
-* **Active workers**: The number of web workers busy per {% data variables.product.prodname_ghe_server %} application.
-* **Queued requests**: The number of web requests queued per {% data variables.product.prodname_ghe_server %} application. It is expected for this panel to display 'No data' when no requests are queued up.
-* **ElasticSearch Cluster Health**: The health status of the ElasticSearch cluster, based on the state of its primary and replica shards. This cluster powers {% data variables.product.prodname_ghe_server %} search.
+* **Nomad jobs:** The CPU and memory usage of individual services. {% data variables.product.prodname_ghe_server %} utilizes Nomad internally as the workload orchestrator.
+* **Response code:** The number of responses by status code returned across {% data variables.product.prodname_ghe_server %} services.
+* **Response time:** The speed of web requests at the 90th percentile in milliseconds.
+* **Active workers:** The number of web workers busy per {% data variables.product.prodname_ghe_server %} application.
+* **Queued requests:** The number of web requests queued per {% data variables.product.prodname_ghe_server %} application. It is expected for this panel to display 'No data' when no requests are queued up.
+* **ElasticSearch Cluster Health:** The health status of the ElasticSearch cluster, based on the state of its primary and replica shards. This cluster powers {% data variables.product.prodname_ghe_server %} search.
 {% endif %}
 
 ### Processes

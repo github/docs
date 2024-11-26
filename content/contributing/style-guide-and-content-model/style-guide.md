@@ -29,10 +29,10 @@ We document each of the events that may appear in the audit logs for each type o
 
 When writing the description for an audit log event, describe the event that took place in a way that applies to all versions, using past tense and passive voice. Do not begin the sentence with phrases that are already implied by the context of the article, such as "Triggered by."
 
-* **Use**: The visibility of a repository was changed.
-* **Use**: Secret scanning was enabled for all new repositories.
-* **Avoid**: An organization owner disabled a two-factor authentication requirement for the organization.
-* **Avoid**: Triggered when a user updates which repositories a codespace can access.
+* **Use:** The visibility of a repository was changed.
+* **Use:** Secret scanning was enabled for all new repositories.
+* **Avoid:** An organization owner disabled a two-factor authentication requirement for the organization.
+* **Avoid:** Triggered when a user updates which repositories a codespace can access.
 
 ## Alerts
 
@@ -175,13 +175,13 @@ Within code blocks:
     ```
 
 * If your code example includes `{` or `}` that should render, wrap that section in <code>&#123;% raw %&#125;</code> <code>&#123;% endraw %&#125;</code> to disable Liquid processing for that section.
-  * **Use**:
+  * **Use:**
 
     <pre>
     GITHUB_TOKEN: &#123;% raw %&#125;$&#123;&#123; secrets.GITHUB_TOKEN &#125;&#125;&#123;% endraw %&#125;
     </pre>
 
-  * **Avoid**:
+  * **Avoid:**
 
     <pre>
     GITHUB_TOKEN: $&#123;&#123; secrets.GITHUB_TOKEN &#125;&#125;
@@ -1031,9 +1031,9 @@ A release note for a security fix answers the following questions.
 
 #### Examples of release notes for security fixes
 
-* > **MEDIUM**: An attacker could cause unbounded resource exhaustion on the instance by making parallel requests to the Markdown REST API. To mitigate this issue, {% data variables.product.company_short %} has updated [CommonMarker](https://github.com/gjtorikian/commonmarker). {% data variables.product.company_short %} has requested CVE ID [CVE-2022-39209](https://nvd.nist.gov/vuln/detail/CVE-2022-39209) for this vulnerability.
+* > **MEDIUM:** An attacker could cause unbounded resource exhaustion on the instance by making parallel requests to the Markdown REST API. To mitigate this issue, {% data variables.product.company_short %} has updated [CommonMarker](https://github.com/gjtorikian/commonmarker). {% data variables.product.company_short %} has requested CVE ID [CVE-2022-39209](https://nvd.nist.gov/vuln/detail/CVE-2022-39209) for this vulnerability.
 
-* > **MEDIUM**: An attacker could embed dangerous links in the instance's web UI because pull request preview links did not properly sanitize URLs. This vulnerability was reported via the [{% data variables.product.company_short %} Bug Bounty program](https://bounty.github.com).
+* > **MEDIUM:** An attacker could embed dangerous links in the instance's web UI because pull request preview links did not properly sanitize URLs. This vulnerability was reported via the [{% data variables.product.company_short %} Bug Bounty program](https://bounty.github.com).
 
 #### Base image and package updates
 
@@ -1147,7 +1147,7 @@ A release note for a deprecation answers the following questions.
 
 #### Examples of release notes for deprecations
 
-* > **Upcoming deprecation**: In {% data variables.product.prodname_ghe_server %} 3.8 and later, to ensure instance security, unsecure algorithms will be disabled for SSH connections to the administrative shell.
+* > **Upcoming deprecation:** In {% data variables.product.prodname_ghe_server %} 3.8 and later, to ensure instance security, unsecure algorithms will be disabled for SSH connections to the administrative shell.
 
 * > Commit comments, which are comments that users add directly to a commit outside of a pull request, no longer appear in the pull request timeline. Users could not reply to or resolve these comments. The Timeline events REST API and the GraphQL API's `PullRequest` object also no longer return commit comments.
 
@@ -1175,7 +1175,7 @@ A release note for a feature that is closing down answers the following question
 
 #### Examples of release notes for features that are closing down
 
-* > **Closing down**: In {% data variables.product.prodname_ghe_server %} 3.8 and later, to ensure instance security, unsecure algorithms will be disabled for SSH connections to the administrative shell.
+* > **Closing down:** In {% data variables.product.prodname_ghe_server %} 3.8 and later, to ensure instance security, unsecure algorithms will be disabled for SSH connections to the administrative shell.
 
 * > Commit comments, which are comments that users add directly to a commit outside of a pull request, no longer appear in the pull request timeline. Users could not reply to or resolve these comments. The Timeline events REST API and the GraphQL API's `PullRequest` object also no longer return commit comments.
 
@@ -1201,7 +1201,7 @@ A release note for a retired feature answers the following questions.
 
 #### Examples of release notes for retired features
 
-* > **Retired**: {% data variables.product.github %} no longer supports required workflows for {% data variables.product.prodname_actions %} in {% data variables.product.prodname_ghe_server %} 3.11 and later. Use repository rulesets instead. For more information, see "[AUTOTITLE](/repositories/configuring-branches-and-merges-in-your-repository/managing-rulesets/available-rules-for-rulesets#require-workflows-to-pass-before-merging)."
+* > **Retired:** {% data variables.product.github %} no longer supports required workflows for {% data variables.product.prodname_actions %} in {% data variables.product.prodname_ghe_server %} 3.11 and later. Use repository rulesets instead. For more information, see "[AUTOTITLE](/repositories/configuring-branches-and-merges-in-your-repository/managing-rulesets/available-rules-for-rulesets#require-workflows-to-pass-before-merging)."
 
 {% endif %}
 
