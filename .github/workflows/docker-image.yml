@@ -1,0 +1,169 @@
+name: Docker Image CI
+
+on:
+  push:
+    branches: [ "main" ]
+  pull_request:
+    branches: [ "main" ]
+
+jobs:
+
+  build:
+
+    runs-on: ubuntu-latest
+
+    steps:
+    - uses: actions/checkout@v4
+    - name: Build the Docker image
+      run: docker build . --file Dockerfile --tag my-image-name:$(date +%s)
+565eb352361fdede82cb3f41db68e3de5e278151.github/workflows/openssl x509 -in test/testx509.pem -pubkey -noout >pubkey.pem{
+  "compilerOptions": {
+    "target": "ES2022",
+    "lib": ["dom", "dom.iterable", "esnext"],
+    "allowJs": true,
+    "skipLibCheck": true,
+    "strict": true,
+    "forceConsistentCasingInFileNames": true,
+    "noImplicitThis": false,
+    "esModuleInterop": true,
+    "module": "esnext",
+    "moduleResolution": "Bundler",
+    "resolveJsonModule": true,
+    "isolatedModules": true,
+    "jsx": "preserve",
+    "baseUrl": ".",
+    "noEmit": true,
+    "allowSyntheticDefaultImports": true,
+    "incremental": true,
+    "paths": {
+      "@/*": ["./src/*"]
+    }
+  },
+  "exclude": [
+    "node_modules",
+    "docs-internal-data",
+    "src/code-scanning/scripts/generate-code-scanning-query-list.ts"
+  ],
+  "include": ["*.d.ts", "**/*.ts", "**/*.tsx"]
+}ee2fe6b34865ead3568697a114ca1dbb39abc685565eb352361fdede82cb3f41db68e3de5e278151git remote add origin https://github.com/Genebond/Hibidibity-.git
+git branch -M main
+git push -u origin mainopenssl asn1parse -in pca-cert.pemopenssl asn1parse -in pca-cert.pem -outopenssl x509 -in test/testx509.pem -pubIn my perception 
+I could be your deception 
+But I don't give false narrative 
+Only want wats imperative 
+To me is not unseen 
+But us written so loud 
+The words can be seen from the clouds
+I'm not explaining wats apparent
+I know you hear sirens
+There is no fire for you 
+Please keep in your hose
+I can't be washed off
+I'm sure if I said that it wouldn't 
+Be noticed 
+Not clear like wats in the air
+I'm unfair only to myself
+When speak I make you think I don't feel
+But I have the sense 
+Especially to comprehend 
+Wats between us isn't forever
+Cause to me you are illiterate my self wouldn't be read like I should hear 
+I hope that just was a good example to the misconception of who I am was your lack of experience https://support.google.com/chrome?p=android_connection_infoCtszr53Qhttps://www.bandlab.com/genebond151 0000 0000 1 000 11 000 1 0000 0000 1
+1 000 1 0000 0000 11 0000 0000 1 000 1
+1 000 1 0000 0000 11 0000 0000 1 000 1
+1 0000 0000 1 000 11 000 1 0000 0000 1
+1 000 1 0000 0000 11 0000 0000 1 000 1
+1 0000 0000 1 000 11 000 1 0000 0000 1
+1 0000 0000 1 000 11 000 1 0000 0000 1
+1 0000 0000 1 000 11 000 1 0000 0000 1
+1 0000 0000 1 000 11 000 1 0000 0000 1
+1 0000 0000 1 000 11 000 1 0000 0000 1
+1 0000 0000 1 000 11 000 1 0000 0000 1
+1 0000 0000 1 000 11 000 1 0000 0000 1
+1 0000 0000 1 000 11 0000 0000 1 000 1  1 000 1 0000 0000 11 0000 0000 1 000 1
+1 000 1 0000 0000 11 000 1 0000 0000 1
+1 0000 0000 1 000 11 000 1 0000 0000 1
+1 0000 0000 1 000 11 000 1 0000 0000 1
+1 0000 0000 1 000 11 000 1 0000 0000 1
+1 0000 0000 1 000 11 000 1 0000 0000 1
+1 0000 0000 1 000 11 0000 0000 1 000 1  1 0000 0000 1 000 11 000 1 0000 0000 1
+1 0000 0000 1 000 11 000 1 0000 0000 1
+1 0000 0000 1 000 11 000 1 0000 0000 1
+1 0000 0000 1 000 11 000 1 0000 0000 1
+1 0000 0000 1 000 11 000 1 0000 0000 1
+1 0000 0000 1 000 11 000 1 0000 0000 1
+1 0000 0000 1 000 11 000 1 0000 0000 1
+1 0000 0000 1 000 11 000 1 0000 0000 1
+1 0000 0000 1 000 11 000 1 0000 0000 1
+1 0000 0000 1 000 11 000 1 0000 0000 1
+1 0000 0000 1 000 11 000 1 0000 0000 1
+1 0000 0000 1 000 11 000 1 0000 0000 1
+1 0000 0000 1 000 11 000 1 0000 0000 1
+1 0000 0000 1 000 11 000 1 0000 0000 1
+1 0000 0000 1 000 11 000 1 0000 0000 1
+1 0000 0000 1 000 11 000 1 0000 0000 1
+1 0000 0000 1 000 11 000 1 0000 0000 1
+1 0000 0000 1 000 11 000 1 0000 0000 1
+1 0000 0000 1 000 11 000 1 0000 0000 1
+1 000 1 0000 0000 1  1 0000 0000 1 000 11 000 1 0000 0000 11 0000 0000 1 000 11 000 1 0000 0000 11 000 1 0000 0000 1
+1 0000 0000 1 000 11 000 1 0000 0000 1
+1 000 1 0000 0000 11 0000 0000 1 000 1
+
+1 000 1 0000 0000 11 0000 0000 1 000 1
+1 0000 0000 1 000 11 000 1 0000 0000 1
+
+1 000 1 0000 0000 11 0000 0000 1 000 1
+1 0000 0000 1 000 11 000 1 0000 0000 1
+1 0000 0000 1 000 11 000 1 0000 0000 1
+1 0000 0000 1 000 11 000 1 0000 0000 1
+1 0000 0000 1 000 11 000 1 0000 0000 1
+1 0000 0000 1 000 11 000 1 0000 0000 1
+1 0000 0000 1 000 11 000 1 0000 0000 1
+1 0000 0000 1 000 11 000 1 0000 0000 1
+1 0000 0000 1 000 11 0000 0000 1 000 11 000 1 0000 0000 11 0000 0000 1 000 1
+1 000 1 0000 0000 11 000 1 0000 0000 1
+
+1 0000 0000 1 000 11 000 1 0000 0000 1
+1 0000 0000 1 000 11 000 1 0000 0000 1
+1 0000 0000 1 000 11 000 1 0000 0000 1
+1 0000 0000 1 000 11 000 1 0000 0000 1
+1 0000 0000 1 000 11 0000 0000 1 000 11 0000 0000 1 000 11 000 1 0000 0000 1
+1 0000 0000 1 000 11 000 1 0000 0000 1
+1 0000 0000 1 000 11 000 1 0000 0000 1
+1 0000 0000 1 000 11 000 1 0000 0000 1
+1 0000 0000 1 000 11 000 1 0000 0000 1
+1 0000 0000 1 000 11 000 1 0000 0000 1
+1 0000 0000 1 000 11 000 1 0000 0000 1
+1 0000 0000 1 000 11 000 1 0000 0000 1
+1 0000 0000 1 000 11 000 1 0000 0000 1
+1 0000 0000 1 000 11 000 1 0000 0000 1
+1 0000 0000 1 000 11 000 1 0000 0000 1
+1 0000 0000 1 000 11 000 1 0000 0000 1
+1 0000 0000 1 000 11 000 1 0000 0000 1
+1 0000 0000 1 000 11 000 1 0000 0000 1
+1 0000 0000 1 000 11 000 1 0000 0000 1
+1 0000 0000 1 000 11 000 1 0000 0000 1
+1 0000 0000 1 000 11 000 1 0000 0000 1
+1 0000 0000 1 000 11 000 1 0000 0000 1
+1 0000 0000 1 000 11 000 1 0000 0000 1
+1 000 1 0000 0000 1
+1 0000 0000 1 000 11 000 1 0000 0000 1
+1 0000 0000 1 000 11 000 1 0000 0000 1
+
+
+
+
+
+
+
+1 000 1 0000 0000 1
+openssl rsautl -verify -in file -inkey key.pem -raw -hexdump
+
+0000 - 00 01 ff ff ff ff ff ff-ff ff ff ff ff ff ff ff   ................
+0010 - ff ff ff ff ff ff ff ff-ff ff ff ff ff ff ff ff   ................
+0020 - ff ff ff ff ff ff ff ff-ff ff ff ff ff ff ff ff   ................
+0030 - ff ff ff ff ff ff ff ff-ff ff ff ff ff ff ff ff   ................
+0040 - ff ff ff ff ff ff ff ff-ff ff ff ff ff ff ff ff   ................
+0050 - ff ff ff ff ff ff ff ff-ff ff ff ff ff ff ff ff   ................
+0060 - ff ff ff ff ff ff ff ff-ff ff ff ff ff ff ff ff   ................
+0070 - ff ff ff ff 00 68 65 6c-6c 6f 20
