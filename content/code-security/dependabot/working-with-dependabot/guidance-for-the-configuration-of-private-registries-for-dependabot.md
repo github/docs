@@ -34,7 +34,7 @@ You'll find detailed guidance for the setup of the following package managers:
 * [Gradle](#gradle)
 * [Maven](#maven)
 * [npm](#npm)
-* [Nuget](#nuget){% ifversion dependabot-updates-pub-private-registry %}
+* [NuGet](#nuget){% ifversion dependabot-updates-pub-private-registry %}
 * [pub](#pub){% endif %}
 * [Python](#python)
 * [Yarn](#yarn)
@@ -323,7 +323,7 @@ For scoped dependencies (`@my-org/my-dep`), {% data variables.product.prodname_d
 
 Registries should be configured using the `https` protocol.
 
-### Nuget
+### NuGet
 
 Supported by Artifactory, Artifacts, Cloudsmith, {% data variables.product.prodname_registry %} registry, Nexus, and ProGet.
 

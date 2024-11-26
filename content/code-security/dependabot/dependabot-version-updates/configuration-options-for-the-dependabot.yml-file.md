@@ -1027,7 +1027,7 @@ You can give {% data variables.product.prodname_dependabot %} access to private 
 > * Gradle
 > * Maven
 > * Npm
-> * Nuget{% ifversion dependabot-updates-pub-private-registry %}
+> * NuGet{% ifversion dependabot-updates-pub-private-registry %}
 > * Pub{% endif %}
 > * Python
 > * Yarn
