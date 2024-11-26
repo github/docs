@@ -22,7 +22,7 @@ On {% data variables.enterprise.data_residency_site %}, {% data variables.produc
 
 * **Administrative access:** You need administrative access to both an enterprise account on {% data variables.enterprise.data_residency_site %} and a {% data variables.product.prodname_ghe_server %} instance.
 * **Version requirement:** Your {% data variables.product.prodname_ghe_server %} instance must run {% data variables.product.prodname_ghe_server %} 3.12 or later.
-* **Proxy configuration**: If using a proxy server, allow connectivity to the following {% data variables.enterprise.data_residency_site %} hostnames (replace SUBDOMAIN with your enterprise's subdomain).
+* **Proxy configuration:** If using a proxy server, allow connectivity to the following {% data variables.enterprise.data_residency_site %} hostnames (replace SUBDOMAIN with your enterprise's subdomain).
 
    * `{% data variables.enterprise.data_residency_domain %}`
    * `{% data variables.enterprise.data_residency_api %}`

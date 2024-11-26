@@ -24,7 +24,7 @@ If you make a request with these endpoints whose content includes a supported se
 To resolve the error, you can either:
 
 * **Remove** the secret from the content of your API request before trying again.
-* **Create a push protection bypass**: You can bypass push protection using the "Create a push protection bypass" endpoint. For more information, see "[AUTOTITLE](/rest/secret-scanning/secret-scanning?apiVersion=2022-11-28#create-a-push-protection-bypass)."
+* **Create a push protection bypass:** You can bypass push protection using the "Create a push protection bypass" endpoint. For more information, see "[AUTOTITLE](/rest/secret-scanning/secret-scanning?apiVersion=2022-11-28#create-a-push-protection-bypass)."
 
 ## Further reading
 

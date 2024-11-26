@@ -42,7 +42,7 @@ topics:
 * Direct dependencies explicitly declared in a manifest or lockfile
 * Transitive dependencies declared in a lockfile
 
-**Check**: Is the uncaught vulnerability for a component that's not specified in the repository's manifest or lockfile?
+**Check:** Is the uncaught vulnerability for a component that's not specified in the repository's manifest or lockfile?
 
 ## Why don't I get {% data variables.product.prodname_dependabot_alerts %} for some ecosystems?
 
@@ -50,7 +50,7 @@ topics:
 
 It's worth noting that security advisories may exist for other ecosystems. The information in an unreviewed security advisory is provided by the maintainers of a particular repository. This data is not curated by {% data variables.product.prodname_dotcom %}. {% data reusables.security-advisory.link-browsing-advisory-db %}
 
-**Check**: Does the uncaught vulnerability apply to an unsupported ecosystem?
+**Check:** Does the uncaught vulnerability apply to an unsupported ecosystem?
 
 ## Does {% data variables.product.prodname_dependabot %} generate alerts for vulnerabilities that have been known for many years?
 
@@ -58,7 +58,7 @@ The {% data variables.product.prodname_advisory_database %} was launched in Nove
 
 Some information on older vulnerabilities is available, especially where these CVEs are particularly widespread, however some old vulnerabilities are not included in the {% data variables.product.prodname_advisory_database %}. If there's a specific old vulnerability that you need to be included in the database, contact {% data variables.contact.contact_support %}.
 
-**Check**: Does the uncaught vulnerability have a publish date earlier than 2017 in the National Vulnerability Database?
+**Check:** Does the uncaught vulnerability have a publish date earlier than 2017 in the National Vulnerability Database?
 
 ## Why does {% data variables.product.prodname_advisory_database %} use a subset of published vulnerability data?
 
@@ -80,7 +80,7 @@ Legacy {% data variables.product.prodname_dependabot_alerts %} were grouped into
 
 The {% data variables.product.prodname_dependabot_alerts %} count in {% data variables.product.prodname_dotcom %} shows a total for the number of alerts, which is the number of vulnerabilities, not the number of dependencies.
 
-**Check**: If there is a discrepancy in the totals you are seeing, check that you are not comparing alert numbers with dependency numbers. Also check that you are viewing all alerts and not a subset of filtered alerts.
+**Check:** If there is a discrepancy in the totals you are seeing, check that you are not comparing alert numbers with dependency numbers. Also check that you are viewing all alerts and not a subset of filtered alerts.
 {% endif %}
 
 ## Can Dependabot ignore specific dependencies?

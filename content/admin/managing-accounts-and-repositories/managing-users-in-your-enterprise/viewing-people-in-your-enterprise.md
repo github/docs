@@ -210,9 +210,9 @@ If you use SAML authentication and SCIM provisioning, you can filter members bas
 {% data reusables.enterprise-accounts.people-tab %}
 1. Select **Account Type**, then choose from the following options.
 
-   * **Built-in**: Users with local accounts on {% data variables.location.product_location %} who authenticate with a username and password.
-   * **SAML linked**: Users who authenticate with SAML via an identity provider, but were not provisioned by SCIM.
-   * **SAML and SCIM linked**: Users who authenticate with SAML via an identity provider, and were provisioned by SCIM.
+   * **Built-in:** Users with local accounts on {% data variables.location.product_location %} who authenticate with a username and password.
+   * **SAML linked:** Users who authenticate with SAML via an identity provider, but were not provisioned by SCIM.
+   * **SAML and SCIM linked:** Users who authenticate with SAML via an identity provider, and were provisioned by SCIM.
 
 {% endif %}
 

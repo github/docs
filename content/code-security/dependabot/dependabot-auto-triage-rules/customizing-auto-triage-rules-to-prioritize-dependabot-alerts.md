@@ -26,8 +26,8 @@ Repository administrators can create {% data variables.dependabot.custom_rules %
 
 Organization owners and security managers can set {% data variables.dependabot.custom_rules %} at the organization-level, and then choose if a rule is enforced or enabled across all public {% ifversion ghec %}and private {% endif %} repositories in the organization.
 
-   * **Enforced**: If an organization-level rule is "enforced", repository administrators cannot edit, disable, or delete the rule.
-   * **Enabled**: If an organization-level rule is "enabled", repository administrators can still disable the rule for their repository.
+   * **Enforced:** If an organization-level rule is "enforced", repository administrators cannot edit, disable, or delete the rule.
+   * **Enabled:** If an organization-level rule is "enabled", repository administrators can still disable the rule for their repository.
 
 > [!NOTE]
 > In the event that an organization-level rule and a repository-level rule specify conflicting behaviors, the action set out by the organization-level rule takes precedence. Dismissal rules always act before rules which trigger {% data variables.product.prodname_dependabot %} pull requests.
