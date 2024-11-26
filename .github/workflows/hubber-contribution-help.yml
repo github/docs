@@ -48,7 +48,7 @@ jobs:
 
           **🛎️ Is this PR ready for review?** A PR is ready for a docs review _after_ the self-review checklist is complete.
 
-           When this is ready for review, add the **\`ready-for-doc-review\`** label to this PR. The PR will then be automatically added to the [Docs Content review board](https://github.com/orgs/github/projects/2936). _Please allow at least 3 working days for a review, and longer if this is a substantial change._
+           When this is ready for review, add the **\`ready-for-doc-review\`** label to this PR. The PR will then be automatically added to the [Docs Content review board](https://github.com/orgs/github/projects/2936). _Please allow at least 3 working days for a review, and longer if this is a substantial change._"
 
         env:
           GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
