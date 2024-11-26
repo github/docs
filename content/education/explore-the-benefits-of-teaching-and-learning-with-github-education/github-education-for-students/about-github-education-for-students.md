@@ -34,8 +34,8 @@ Once you are a verified {% data variables.product.prodname_global_campus %} stud
 * Discover student-created repositories from {% data variables.product.prodname_community_exchange %}. For more information, see "[AUTOTITLE](/education/explore-the-benefits-of-teaching-and-learning-with-github-education/github-global-campus-for-students/about-github-community-exchange)."
 
 {% data variables.product.prodname_global_campus %} students also receive the following {% data variables.product.prodname_dotcom %} benefits.
-* **{% data variables.product.prodname_copilot %}**: Verified students receive a free subscription for {% data variables.product.prodname_copilot %}. See "[AUTOTITLE](/copilot/managing-copilot/managing-copilot-as-an-individual-subscriber/getting-free-access-to-copilot-as-a-student-teacher-or-maintainer)."
-* **{% data variables.product.prodname_github_codespaces %}**: {% data reusables.education.student-codespaces-benefit %} For more information on getting started with {% data variables.product.prodname_github_codespaces %}, see "[AUTOTITLE](/codespaces/overview)."
+* **{% data variables.product.prodname_copilot %}:** Verified students receive a free subscription for {% data variables.product.prodname_copilot %}. See "[AUTOTITLE](/copilot/managing-copilot/managing-copilot-as-an-individual-subscriber/getting-free-access-to-copilot-as-a-student-teacher-or-maintainer)."
+* **{% data variables.product.prodname_github_codespaces %}:** {% data reusables.education.student-codespaces-benefit %} For more information on getting started with {% data variables.product.prodname_github_codespaces %}, see "[AUTOTITLE](/codespaces/overview)."
 
 > [!NOTE]
 > {% data reusables.education.note-on-student-codespaces-usage %} For more information, see "[AUTOTITLE](/education/manage-coursework-with-github-classroom/integrate-github-classroom-with-an-ide/using-github-codespaces-with-github-classroom)."

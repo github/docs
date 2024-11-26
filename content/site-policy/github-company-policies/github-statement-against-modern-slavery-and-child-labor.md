@@ -56,19 +56,19 @@ GitHub has a non-retaliation policy for reporting workplace-related concerns. Co
 
 GitHub's labor practices are
 
-**fair**:
+**fair:**
    * GitHub pays its employees and contractors a fair wage, in accordance with applicable legal wages
    * GitHub maintains humane working conditions
    * GitHub does not require workers to exceed the maximum hours of daily labor set by local and national laws or regulations
    * GitHub pays its employees and contractors in a timely manner, with documentation (such as a pay stub) stating the basis on which they are paid, and keeps employee records in accordance with local and national laws
 
-**humane and ethical**:
+**humane and ethical:**
    * GitHub uses only voluntary labor
    * GitHub prohibits child labor
    * GitHub does not engage in physical discipline or abuse
    * GitHub does not tolerate harassment or unlawful discrimination in the workforce or workplace
 
-**respectful**:
+**respectful:**
    * GitHub protects its employees' rights to freedom of association and collective bargaining in accordance with legal requirements, including to post legal notices of employees' rights under the National Labor Relations Act
    * GitHub provides benefits to employees at or in excess of levels expected in the industry
    * GitHub encourages employees to report any workplace complaint and does not tolerate retaliation for reporting

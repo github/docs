@@ -53,7 +53,7 @@ done
 1. Open {% data variables.product.prodname_copilot_chat_short %} by clicking the chat icon in the activity bar or by using the keyboard shortcut:
 
    * **{% data variables.product.prodname_vscode_shortname %} and {% data variables.product.prodname_vs %}:** <kbd>Control</kbd>+<kbd>Command</kbd>+<kbd>i</kbd> (Mac) / <kbd>Ctrl</kbd>+<kbd>Alt</kbd>+<kbd>i</kbd> (Windows/Linux)
-   * **JetBrains**: <kbd>Control</kbd>+<kbd>Shift</kbd>+<kbd>c</kbd>
+   * **JetBrains:** <kbd>Control</kbd>+<kbd>Shift</kbd>+<kbd>c</kbd>
 
 1. In the input box at the bottom of the chat panel, type: `Can this script be improved?`
 

@@ -135,33 +135,33 @@ When you create a custom model, you can choose to allow {% data variables.produc
 
 ### What telemetry data is collected?
 
-* **Prompts**: This includes all the information sent to the {% data variables.product.prodname_copilot %} language model by the {% data variables.product.prodname_copilot_short %} extension, including context from your open files.
-* **Suggestions**: The code completion suggestions that {% data variables.product.prodname_copilot_short %} generates.
-* **Code snippet**: A snapshot of the code 30 seconds after a suggestion is accepted, capturing how the suggestion was integrated into the codebase. This helps determine whether the suggestion was accepted as is or modified by the user before final integration.
+* **Prompts:** This includes all the information sent to the {% data variables.product.prodname_copilot %} language model by the {% data variables.product.prodname_copilot_short %} extension, including context from your open files.
+* **Suggestions:** The code completion suggestions that {% data variables.product.prodname_copilot_short %} generates.
+* **Code snippet:** A snapshot of the code 30 seconds after a suggestion is accepted, capturing how the suggestion was integrated into the codebase. This helps determine whether the suggestion was accepted as is or modified by the user before final integration.
 
 ### How is telemetry data used?
 
 Telemetry data is primarily used to fine-tune the {% data variables.product.prodname_copilot_short %} custom model to better understand and predict your organization’s coding patterns. Specifically, it helps:
 
-* **Enhance model accuracy**: By analyzing the collected telemetry, {% data variables.product.prodname_copilot_short %} refines your custom model to increase the relevance and accuracy of future coding suggestions.
-* **Monitor performance**: Telemetry data allows {% data variables.product.company_short %} to monitor how well custom models are performing compared to the base model, enabling ongoing improvements.
-* **Feedback loops**: The data helps {% data variables.product.company_short %} create feedback loops where the model learns from real-world usage, adapting to your specific coding environment over time.
+* **Enhance model accuracy:** By analyzing the collected telemetry, {% data variables.product.prodname_copilot_short %} refines your custom model to increase the relevance and accuracy of future coding suggestions.
+* **Monitor performance:** Telemetry data allows {% data variables.product.company_short %} to monitor how well custom models are performing compared to the base model, enabling ongoing improvements.
+* **Feedback loops:** The data helps {% data variables.product.company_short %} create feedback loops where the model learns from real-world usage, adapting to your specific coding environment over time.
 
 ### Data storage and retention
 
-* **Data storage**: All telemetry data collected is stored in the {% data variables.product.prodname_copilot_short %} Data Store, a secure and restricted environment. The data is encrypted and isolated to prevent unauthorized access.
-* **Retention period**: Telemetry data is retained for a rolling 28-day period. After this period, the data is automatically deleted from {% data variables.product.company_short %}'s systems, ensuring that only recent and relevant data is used for model training and improvement.
+* **Data storage:** All telemetry data collected is stored in the {% data variables.product.prodname_copilot_short %} Data Store, a secure and restricted environment. The data is encrypted and isolated to prevent unauthorized access.
+* **Retention period:** Telemetry data is retained for a rolling 28-day period. After this period, the data is automatically deleted from {% data variables.product.company_short %}'s systems, ensuring that only recent and relevant data is used for model training and improvement.
 
 ### Privacy and data security
 
 {% data variables.product.company_short %} is committed to ensuring that your organization’s data remains private and secure.
 
-* **Exclusive use**: The telemetry data collected from your organization is used exclusively for training your custom model and is never shared with other organizations or used to train other customers’ models.
-* **Data leakage prevention**: {% data variables.product.company_short %} implements strict data isolation protocols to prevent cross-contamination between different organizations’ data. This means that your proprietary code and information are protected from exposure to other organizations or individuals.
+* **Exclusive use:** The telemetry data collected from your organization is used exclusively for training your custom model and is never shared with other organizations or used to train other customers’ models.
+* **Data leakage prevention:** {% data variables.product.company_short %} implements strict data isolation protocols to prevent cross-contamination between different organizations’ data. This means that your proprietary code and information are protected from exposure to other organizations or individuals.
 
 ### Important considerations
 
-* **Opt-in for telemetry**: Participation in telemetry data collection is optional and controlled via your organization’s admin policies. Telemetry data is only collected when explicitly enabled for training custom models.
-* **Potential risks**: Although {% data variables.product.company_short %} takes extensive measures to prevent data leakage, there are scenarios where sensitive data, such as internal links or names, could be included in the telemetry and subsequently used in training. We recommend reviewing and filtering the data you submit for training to minimize these risks.
+* **Opt-in for telemetry:** Participation in telemetry data collection is optional and controlled via your organization’s admin policies. Telemetry data is only collected when explicitly enabled for training custom models.
+* **Potential risks:** Although {% data variables.product.company_short %} takes extensive measures to prevent data leakage, there are scenarios where sensitive data, such as internal links or names, could be included in the telemetry and subsequently used in training. We recommend reviewing and filtering the data you submit for training to minimize these risks.
 
   For more details about our data-handling practices, see the [{% data variables.product.prodname_copilot %} Trust Center](https://resources.github.com/copilot-trust-center) or review {% data variables.product.company_short %}’s [data protection agreement](https://github.com/customer-terms/github-data-protection-agreement).

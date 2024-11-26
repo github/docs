@@ -56,8 +56,8 @@ To create a {% data variables.product.prodname_copilot_extension_short %}, you n
 ## 6. Choose the availability of your {% data variables.product.prodname_copilot_extension_short %}
 
 Choose one of two visibility levels for your {% data variables.product.prodname_copilot_extension_short %}:
-* **Public**: Any user or organization account with the installation page link for the extension can install it.
-* **Private**: Only the user or organization account that created the extension can install it.
+* **Public:** Any user or organization account with the installation page link for the extension can install it.
+* **Private:** Only the user or organization account that created the extension can install it.
 
 If you make your {% data variables.product.prodname_copilot_extension_short %} public, you can then choose to list it on the {% data variables.product.prodname_marketplace %}.
 
@@ -94,8 +94,8 @@ To create a {% data variables.product.prodname_copilot_extension_short %}, you n
 ## 5. Choose the availability of your {% data variables.product.prodname_copilot_skillset_short %}
 
 Choose one of two visibility levels for your {% data variables.product.prodname_copilot_extension_short %}:
-* **Public**: Any user or organization account with the installation page link for the extension can install it.
-* **Private**: Only the user or organization account that created the extension can install it.
+* **Public:** Any user or organization account with the installation page link for the extension can install it.
+* **Private:** Only the user or organization account that created the extension can install it.
 
 If you make your {% data variables.product.prodname_copilot_extension_short %} public, you can then choose to list it on the {% data variables.product.prodname_marketplace %}.
 

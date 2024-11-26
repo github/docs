@@ -103,9 +103,9 @@ To configure language settings in the `github-copilot.xml` file, you must edit t
 
 The file is located in the following directory:
 
-* **macOS**: `~/Library/Application Support/JetBrains/<product><version>/options/github-copilot.xml`
-* **Windows**: `%APPDATA%\JetBrains\<product><version>\options\github-copilot.xml`
-* **Linux**: `~/.config/JetBrains/<product><version>/options/github-copilot.xml`
+* **macOS:** `~/Library/Application Support/JetBrains/<product><version>/options/github-copilot.xml`
+* **Windows:** `%APPDATA%\JetBrains\<product><version>\options\github-copilot.xml`
+* **Linux:** `~/.config/JetBrains/<product><version>/options/github-copilot.xml`
 
 For example, if you are using IntelliJ IDEA 2021.1 on macOS, the file is located at `~/Library/Application Support/JetBrains/IdeaIC2021.1/options/github-copilot.xml`.
 
