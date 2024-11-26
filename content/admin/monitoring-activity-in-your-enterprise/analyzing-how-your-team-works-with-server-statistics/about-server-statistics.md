@@ -141,7 +141,7 @@ The following aggregate metrics will be collected and transmitted on a daily bas
 | CF | `packages_stats.ecosystems.nuget.internal_packages_count` | Number of internal NuGet packages |
 | CG | `packages_stats.ecosystems.nuget.user_packages_count` | Number of NuGet packages owned by user accounts |
 | CH | `packages_stats.ecosystems.nuget.organization_packages_count` | Number of NuGet packages owned by organizations |
-| CI | `packages_stats.ecosystems.nuget.daily_download_count` | Number of downloads of Nuget packages |
+| CI | `packages_stats.ecosystems.nuget.daily_download_count` | Number of downloads of NuGet packages |
 | CJ | `packages_stats.ecosystems.nuget.daily_update_count` | Number of NuGet packages updated |
 | CK | `packages_stats.ecosystems.nuget.daily_delete_count` | Number of NuGet packages deleted |
 | CL | `packages_stats.ecosystems.nuget.daily_create_count` | Number of NuGet packages created |
