@@ -34,9 +34,9 @@ You may not be able to create a self-hosted runner for an organization-owned rep
 
     The status can be one of the following:
 
-    * **Idle**: The runner is connected to {% data variables.product.product_name %} and is ready to execute jobs.
-    * **Active**: The runner is currently executing a job.
-    * **Offline**: The runner is not connected to {% data variables.product.product_name %}. This could be because the machine is offline, the self-hosted runner application is not running on the machine, or the self-hosted runner application cannot communicate with {% data variables.product.product_name %}.
+    * **Idle:** The runner is connected to {% data variables.product.product_name %} and is ready to execute jobs.
+    * **Active:** The runner is currently executing a job.
+    * **Offline:** The runner is not connected to {% data variables.product.product_name %}. This could be because the machine is offline, the self-hosted runner application is not running on the machine, or the self-hosted runner application cannot communicate with {% data variables.product.product_name %}.
 
 ## Troubleshooting network connectivity
 

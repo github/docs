@@ -27,10 +27,10 @@ Most features are released on {% data variables.product.prodname_dotcom_the_webs
 
 You can also configure optional features on {% data variables.product.product_name %} to improve the software development lifecycle for your enterprise.
 
-* **{% data variables.product.prodname_actions %}**: Automate CI/CD and development workflows
-* **{% data variables.product.prodname_GH_advanced_security %}**: Scan code for secrets and vulnerabilities
-* **{% data variables.product.prodname_github_connect %}**: Benefit from data and features on {% data variables.product.prodname_dotcom_the_website %}
-* **{% data variables.product.prodname_registry %}**: Host software packages for your enterprise
+* **{% data variables.product.prodname_actions %}:** Automate CI/CD and development workflows
+* **{% data variables.product.prodname_GH_advanced_security %}:** Scan code for secrets and vulnerabilities
+* **{% data variables.product.prodname_github_connect %}:** Benefit from data and features on {% data variables.product.prodname_dotcom_the_website %}
+* **{% data variables.product.prodname_registry %}:** Host software packages for your enterprise
 
 ## How do I deploy {% data variables.product.product_name %}?
 

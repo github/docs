@@ -51,9 +51,9 @@ For more information about the {% data variables.product.prodname_advisory_datab
 
 ### Glossary
 
-* **Vulnerable Version Range (VVR)**: the range of versions that are vulnerable to a particular software bug.
-* **Operator**: any symbol that indicates the boundary of a vulnerable version range.
-* **Open Source Vulnerability format (OSV)**: format that the {% data variables.product.prodname_advisory_database %} data strives to be compatible with.
+* **Vulnerable Version Range (VVR):** the range of versions that are vulnerable to a particular software bug.
+* **Operator:** any symbol that indicates the boundary of a vulnerable version range.
+* **Open Source Vulnerability format (OSV):** format that the {% data variables.product.prodname_advisory_database %} data strives to be compatible with.
 
 ### Version syntax
 

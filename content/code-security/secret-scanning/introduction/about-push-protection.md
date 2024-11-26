@@ -57,19 +57,19 @@ By default, anyone with write access to the repository can choose to bypass push
 
 ## About the benefits of push protection
 
-* **Preventative security**: Push protection acts as a frontline defense mechanism by scanning code for secrets at the time of the push. This preventative approach helps to catch potential issues before they are merged into your repository.
+* **Preventative security:** Push protection acts as a frontline defense mechanism by scanning code for secrets at the time of the push. This preventative approach helps to catch potential issues before they are merged into your repository.
 
-* **Immediate feedback**: Developers receive instant feedback if a potential secret is detected during a push attempt. This immediate notification allows for quick remediation, reducing the likelihood of sensitive information being exposed.
+* **Immediate feedback:** Developers receive instant feedback if a potential secret is detected during a push attempt. This immediate notification allows for quick remediation, reducing the likelihood of sensitive information being exposed.
 
-* **Reduced risk of data leaks**: By blocking commits that contain sensitive information, push protection significantly reduces the risk of accidental data leaks. This helps in safeguarding against unauthorized access to your infrastructure, services, and data.
+* **Reduced risk of data leaks:** By blocking commits that contain sensitive information, push protection significantly reduces the risk of accidental data leaks. This helps in safeguarding against unauthorized access to your infrastructure, services, and data.
 
-* **Efficient secret management**: Instead of retrospectively dealing with exposed secrets, developers can address issues at the source. This makes secret management more efficient and less time-consuming.
+* **Efficient secret management:** Instead of retrospectively dealing with exposed secrets, developers can address issues at the source. This makes secret management more efficient and less time-consuming.
 
-* **Integration with CI/CD pipelines**: Push Protection can be integrated into your Continuous Integration/Continuous Deployment (CI/CD) pipelines, ensuring that every push is scanned for secrets before it gets deployed. This adds an extra layer of security to your DevOps practices.
+* **Integration with CI/CD pipelines:** Push Protection can be integrated into your Continuous Integration/Continuous Deployment (CI/CD) pipelines, ensuring that every push is scanned for secrets before it gets deployed. This adds an extra layer of security to your DevOps practices.
 
-{% ifversion secret-scanning-push-protection-custom-patterns %}* **Ability to detect custom patterns**: Organizations can define custom patterns for detecting secrets unique to their environment. This customization ensures that push Protection can effectively identify and block even non-standard secrets.{% endif %}
+{% ifversion secret-scanning-push-protection-custom-patterns %}* **Ability to detect custom patterns:** Organizations can define custom patterns for detecting secrets unique to their environment. This customization ensures that push Protection can effectively identify and block even non-standard secrets.{% endif %}
 
-{% ifversion push-protection-delegated-bypass %}* **Delegated bypass for flexibility**: For cases where false positives occur or when certain patterns are necessary, the delegated bypass feature allows designated users to approve specific pushes. This provides flexibility without compromising overall security.{% endif %}
+{% ifversion push-protection-delegated-bypass %}* **Delegated bypass for flexibility:** For cases where false positives occur or when certain patterns are necessary, the delegated bypass feature allows designated users to approve specific pushes. This provides flexibility without compromising overall security.{% endif %}
 
 {% ifversion secret-scanning-push-protection-for-users %}
 

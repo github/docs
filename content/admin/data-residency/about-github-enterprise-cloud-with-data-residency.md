@@ -20,7 +20,7 @@ Access to this feature is currently managed by {% data variables.contact.contact
 
 {% data variables.product.github %} is a complete developer platform for building, scaling, and delivering secure software. In addition to these capabilities, {% data variables.product.product_name %} offers several key features designed to further optimize and secure your use of the platform:
 
-* Includes an **enterprise account**: a dedicated, shared space for your company to store code, collaborate, and access {% data variables.product.company_short %} features
+* Includes an **enterprise account:** a dedicated, shared space for your company to store code, collaborate, and access {% data variables.product.company_short %} features
 * Centralizes billing, administration, governance, and audit of your company’s resources and activity
 * Is accessible only to authorized users, isolated from the wider {% data variables.product.prodname_dotcom_the_website %} community
 * Includes management of authentication and user lifecycles from an external identity management system:
