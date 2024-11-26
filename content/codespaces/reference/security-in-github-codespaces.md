@@ -42,9 +42,9 @@ Every time a codespace is created or restarted, it's assigned a new {% data vari
 
 The token's scope will vary depending on the access you have to the repository where the codespace was created:
 
-* **If you have write access to the repository**: The token will be scoped for read/write access to the repository.
-* **If you only have read access to the repository**: The token will only allow the code to be cloned from the source repository. If you make a commit in the codespace, or push a new branch, {% data variables.product.prodname_github_codespaces %} automatically creates a fork of the repository, or links the codespace to an existing fork if you already have one for the upstream repository. The token is updated to have read and write access to the fork. For more information, see "[AUTOTITLE](/codespaces/developing-in-a-codespace/using-source-control-in-your-codespace#about-automatic-forking)."
-* **If you've authorized your codespace to access other repositories**: The token will be scoped for read or read/write access to the source repository and to any other repositories to which you've authorized access. For more information, see "[AUTOTITLE](/codespaces/managing-your-codespaces/managing-repository-access-for-your-codespaces#authorizing-requested-permissions)."
+* **If you have write access to the repository:** The token will be scoped for read/write access to the repository.
+* **If you only have read access to the repository:** The token will only allow the code to be cloned from the source repository. If you make a commit in the codespace, or push a new branch, {% data variables.product.prodname_github_codespaces %} automatically creates a fork of the repository, or links the codespace to an existing fork if you already have one for the upstream repository. The token is updated to have read and write access to the fork. For more information, see "[AUTOTITLE](/codespaces/developing-in-a-codespace/using-source-control-in-your-codespace#about-automatic-forking)."
+* **If you've authorized your codespace to access other repositories:** The token will be scoped for read or read/write access to the source repository and to any other repositories to which you've authorized access. For more information, see "[AUTOTITLE](/codespaces/managing-your-codespaces/managing-repository-access-for-your-codespaces#authorizing-requested-permissions)."
 
 ### Codespace connections
 
@@ -58,11 +58,11 @@ If you need to connect to a service (such as a development web server) running w
 
 Organization owners can restrict the ability to make forward ports available publicly or within the organization. For more information, see "[AUTOTITLE](/codespaces/managing-codespaces-for-your-organization/restricting-the-visibility-of-forwarded-ports)."
 
-**Privately forwarded ports**: Are accessible on the internet, but only the codespace creator can access them, after authenticating to {% data variables.product.product_name %}.
+**Privately forwarded ports:** Are accessible on the internet, but only the codespace creator can access them, after authenticating to {% data variables.product.product_name %}.
 
-**Publicly forwarded ports within your organization**: Are accessible on the internet, but only to members of the same organization as the codespace, after authenticating to {% data variables.product.product_name %}.
+**Publicly forwarded ports within your organization:** Are accessible on the internet, but only to members of the same organization as the codespace, after authenticating to {% data variables.product.product_name %}.
 
-**Publicly forwarded ports**: Are accessible on the internet, and anyone on the internet can access them. No authentication is needed to access public forwarded ports.
+**Publicly forwarded ports:** Are accessible on the internet, and anyone on the internet can access them. No authentication is needed to access public forwarded ports.
 
 All forwarded ports are private by default, which means that you will need to authenticate before you can access the port. Access to a codespace's private forwarded ports is controlled by authentication cookies with a 3-hour expiry period. When the cookie expires, you will need to reauthenticate.
 

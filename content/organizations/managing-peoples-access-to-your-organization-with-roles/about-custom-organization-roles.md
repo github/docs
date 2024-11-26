@@ -78,11 +78,11 @@ The base repository role determines the initial set of permissions included in t
 
 The base repository roles are:
 
-* **Read**: Grants read access to all repositories in the organization.
-* **Write**: Grants write access to all repositories in the organization.
-* **Triage**: Grants triage access to all repositories in the organization.
-* **Maintain**: Grants maintenance access to all repositories in the organization.
-* **Admin**: Grants admin access to all repositories in the organization.
+* **Read:** Grants read access to all repositories in the organization.
+* **Write:** Grants write access to all repositories in the organization.
+* **Triage:** Grants triage access to all repositories in the organization.
+* **Maintain:** Grants maintenance access to all repositories in the organization.
+* **Admin:** Grants admin access to all repositories in the organization.
 
 ## Additional permissions for repository access
 
