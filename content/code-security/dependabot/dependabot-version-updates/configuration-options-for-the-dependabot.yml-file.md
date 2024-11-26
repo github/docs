@@ -190,7 +190,7 @@ updates:
       interval: "daily"
 ```
 
->[!TIP]
+> [!NOTE]
 > The `directories` key supports globbing and the wildcard character `*`. These features are not supported by the `directory` key.
 
 ```yaml
