@@ -69,13 +69,13 @@ When businesses adopt {% data variables.product.prodname_enterprise %}, their re
 
 {% data reusables.enterprise.ghe-includes-ghec-and-ghes %} You can choose to use **one or both** of these deployment options.
 
-**With {% data variables.product.prodname_ghe_cloud %}**:
+**With {% data variables.product.prodname_ghe_cloud %}:**
 
 * Your repositories and other resources are hosted by {% data variables.product.company_short %}, and you'll automatically have access to the latest features and bugfixes.
 * You can choose for your enterprise to be hosted on {% data variables.product.prodname_dotcom_the_website %} or, for more control over where your company's code and data reside, on your own subdomain of {% data variables.enterprise.data_residency_site %}.
 * To access your resources, members of your enterprise can use their personal account or, if you use {% data variables.product.prodname_emus %}, you will provision accounts for users using an external system.
 
-**With {% data variables.product.prodname_ghe_server %}**:
+**With {% data variables.product.prodname_ghe_server %}:**
 
 * You run your own {% data variables.product.prodname_dotcom %} instance, either on-premises or on a public cloud service.
 * You create accounts for users, and authenticate users using either built-in authentication or an external system.

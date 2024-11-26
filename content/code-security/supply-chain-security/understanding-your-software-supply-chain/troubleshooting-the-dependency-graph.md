@@ -28,7 +28,7 @@ The dependency graph doesn't automatically include "loose" dependencies. "Loose"
 
 However, you can use the {% data variables.dependency-submission-api.name %} to add dependencies to a project's dependency graph, even if the dependencies are not declared in a manifest or lock file, such as dependencies resolved when a project is built. {% data reusables.dependency-graph.dependency-submission-API-short %} For more information on the {% data variables.dependency-submission-api.name %}, see "[AUTOTITLE](/code-security/supply-chain-security/understanding-your-software-supply-chain/using-the-dependency-submission-api)."
 
-**Check**: Is the missing dependency for a component that's not specified in the repository's manifest or lockfile?
+**Check:** Is the missing dependency for a component that's not specified in the repository's manifest or lockfile?
 
 ## Does the dependency graph detect dependencies specified using variables?
 
@@ -36,7 +36,7 @@ The dependency graph analyzes manifests as they’re pushed to {% data variables
 
 However, you can use the {% data variables.dependency-submission-api.name %} to add dependencies to a project's dependency graph, even if the dependencies are only resolved when a project is built. For more information on the {% data variables.dependency-submission-api.name %}, see "[AUTOTITLE](/code-security/supply-chain-security/understanding-your-software-supply-chain/using-the-dependency-submission-api)."
 
-**Check**: Is the missing dependency declared in the manifest by using a variable for its name or version?
+**Check:** Is the missing dependency declared in the manifest by using a variable for its name or version?
 
 ## Are there limits which affect the dependency graph data?
 
