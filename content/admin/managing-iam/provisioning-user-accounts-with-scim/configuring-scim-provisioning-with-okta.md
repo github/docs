@@ -73,13 +73,11 @@ In addition:
 
 ## 1. Configure SAML
 
-During the {% data variables.release-phases.public_preview %} of SCIM on {% data variables.product.prodname_ghe_server %}, you will use the **GitHub AE** application in Okta to configure SAML authentication and SCIM provisioning. Do **not** use the "{% data variables.product.prodname_ghe_server %}" application, which is incompatible with {% data variables.product.prodname_dotcom %}'s latest SCIM API endpoints.
-
 Before starting this section, ensure you have followed steps **1 and 2** in "[AUTOTITLE](/admin/managing-iam/provisioning-user-accounts-with-scim/configuring-scim-provisioning-for-users)."
 
 ### In Okta
 
-1. Go to the [GitHub AE](https://www.okta.com/integrations/github-ae/) application in Okta.
+1. Go to the [GitHub Enterprise Server](https://www.okta.com/integrations/github-enterprise-server/) application in Okta.
 1. Click **Add integration**.
 1. In the general settings, for the base URL, enter your {% data variables.product.prodname_ghe_server %} host URL (`https://HOSTNAME.com`).
 1. Click the **Sign On** tab.

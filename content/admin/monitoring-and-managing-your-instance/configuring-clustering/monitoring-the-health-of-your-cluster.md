@@ -76,11 +76,8 @@ You can configure [Nagios](https://www.nagios.org/) to monitor {% data variables
    > Your public key has been saved in /home/nagiosuser/.ssh/id_ed25519.pub.
    ```
 
-   {% danger %}
-
-   **Security Warning:** An SSH key without a passphrase can pose a security risk if authorized for full access to a host. Limit this key's authorization to a single read-only command.
-
-   {% enddanger %}
+   > [!CAUTION]
+   > An SSH key without a passphrase can pose a security risk if authorized for full access to a host. Limit this key's authorization to a single read-only command.
 
    > [!NOTE]
    > If you're using a distribution of Linux that doesn't support the Ed25519 algorithm, use the command:
