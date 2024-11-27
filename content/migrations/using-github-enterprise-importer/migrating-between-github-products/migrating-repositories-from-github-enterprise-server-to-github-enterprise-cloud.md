@@ -73,13 +73,10 @@ Because many {% data variables.product.prodname_ghe_server %} instances sit behi
 
 You must first set up blob storage with a supported cloud provider, then configure your settings in the {% data variables.enterprise.management_console %} of {% data variables.location.product_location_enterprise %}.
 
-{% note %}
-
-**Note**: You only need to configure blob storage if you use {% data variables.product.prodname_ghe_server %} versions 3.8 or higher. If you use {% data variables.product.prodname_ghe_server %} versions 3.7 or lower, skip to "[Step 4: Set up a migration source in {% data variables.product.prodname_ghe_cloud %}](#step-4-set-up-a-migration-source-in-github-enterprise-cloud)."
-
-Blob storage is required to migrate repositories with large Git source or metadata. If you use {% data variables.product.prodname_ghe_server %} versions 3.7 or lower, you will not be able to perform migrations where your Git source or metadata exports exceed 2GB. To perform these migrations, update to {% data variables.product.prodname_ghe_server %} versions 3.8 or higher.
-
-{% endnote %}
+> [!NOTE]
+> You only need to configure blob storage if you use {% data variables.product.prodname_ghe_server %} versions 3.8 or higher. If you use {% data variables.product.prodname_ghe_server %} versions 3.7 or lower, skip to "[Step 4: Set up a migration source in {% data variables.product.prodname_ghe_cloud %}](#step-4-set-up-a-migration-source-in-github-enterprise-cloud)."
+>
+> Blob storage is required to migrate repositories with large Git source or metadata. If you use {% data variables.product.prodname_ghe_server %} versions 3.7 or lower, you will not be able to perform migrations where your Git source or metadata exports exceed 2GB. To perform these migrations, update to {% data variables.product.prodname_ghe_server %} versions 3.8 or higher.
 
 ### Setting up blob storage with a supported cloud provider
 
