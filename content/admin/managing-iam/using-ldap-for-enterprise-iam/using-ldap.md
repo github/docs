@@ -158,20 +158,15 @@ A synchronization job will also run at the specified time interval to perform th
 
 {% data reusables.enterprise_user_management.ldap-sync-nested-teams %}
 
-{% warning %}
-
-**Security Warning:**
-
-When LDAP Sync is enabled, site admins and organization owners can search the LDAP directory for groups to map the team to.
-
-This has the potential to disclose sensitive organizational information to contractors or other unprivileged users, including:
-
-* The existence of specific LDAP Groups visible to the _Domain search user_.
-* Members of the LDAP group who have {% data variables.product.prodname_ghe_server %} user accounts, which is disclosed when creating a team synced with that LDAP group.
-
-If disclosing such information is not desired, your company or organization should restrict the permissions of the configured _Domain search user_ in the admin console. If such restriction isn't possible, contact us by visiting {% data variables.contact.contact_ent_support %}.
-
-{% endwarning %}
+> [!WARNING]
+> When LDAP Sync is enabled, site admins and organization owners can search the LDAP directory for groups to map the team to.
+>
+> This has the potential to disclose sensitive organizational information to contractors or other unprivileged users, including:
+>
+> * The existence of specific LDAP Groups visible to the _Domain search user_.
+> * Members of the LDAP group who have {% data variables.product.prodname_ghe_server %} user accounts, which is disclosed when creating a team synced with that LDAP group.
+>
+> If disclosing such information is not desired, your company or organization should restrict the permissions of the configured _Domain search user_ in the admin console. If such restriction isn't possible, contact us by visiting {% data variables.contact.contact_ent_support %}.
 
 ## Supported LDAP group object classes
 
