@@ -132,9 +132,9 @@ export const CategoryLanding = () => {
               />
             </div>
           </div>
-          <ul className="clearfix gutter-md-spacious">
+          <ul className="clearfix d-flex flex-wrap gutter-md-spacious">
             {searchResults.map((item, index) => (
-              <li key={index} className="col-md-4 col-sm-12 list-style-none float-left p-4">
+              <li key={index} className="col-md-6 col-lg-4 col-sm-12 list-style-none p-4">
                 <CookBookArticleCard
                   title={item.title}
                   description={item.intro!}

@@ -41,9 +41,9 @@ Alternatively, you can set up a self-serve workflow using the API. See "[Add tea
 
 ## 5. Share onboarding material
 
-* **Share onboarding material**: Share onboarding material with each member that you granted {% data variables.product.prodname_copilot_short %} access to. See "[AUTOTITLE](/copilot/setting-up-github-copilot/setting-up-github-copilot-for-yourself)" and "[AUTOTITLE](/copilot/using-github-copilot/best-practices-for-using-github-copilot)."
-* **Encourage adoption**: Encouragement from leadership can help drive adoption of {% data variables.product.prodname_copilot_short %} in your organization. Consider messaging your support of {% data variables.product.prodname_copilot_short %} and how it can help your organization.
-* **Set up training sessions or workshops**: Training sessions or workshops can help members learn how to use {% data variables.product.prodname_copilot_short %} effectively.
+* **Share onboarding material:** Share onboarding material with each member that you granted {% data variables.product.prodname_copilot_short %} access to. See "[AUTOTITLE](/copilot/setting-up-github-copilot/setting-up-github-copilot-for-yourself)" and "[AUTOTITLE](/copilot/using-github-copilot/best-practices-for-using-github-copilot)."
+* **Encourage adoption:** Encouragement from leadership can help drive adoption of {% data variables.product.prodname_copilot_short %} in your organization. Consider messaging your support of {% data variables.product.prodname_copilot_short %} and how it can help your organization.
+* **Set up training sessions or workshops:** Training sessions or workshops can help members learn how to use {% data variables.product.prodname_copilot_short %} effectively.
 
 ## 6. Enhance the {% data variables.product.prodname_copilot_short %} experience
 

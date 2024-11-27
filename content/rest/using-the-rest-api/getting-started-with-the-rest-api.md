@@ -234,19 +234,19 @@ Use the {% data variables.product.prodname_cli %} `api` subcommand to make your 
 In your request, specify the following options and values:
 
 {%- ifversion not fpt %}
-* **--hostname**: If you are authenticated to multiple accounts across {% data variables.product.github %} platforms, specify where you are making the request. For example: `--hostname {% data variables.enterprise.data_residency_example_domain %}`.
+* **--hostname:** If you are authenticated to multiple accounts across {% data variables.product.github %} platforms, specify where you are making the request. For example: `--hostname {% data variables.enterprise.data_residency_example_domain %}`.
 {%- endif %}
 * **--method** followed by the HTTP method and the path of the endpoint. For more information, see "[HTTP method](#http-method)" and "[Path](#path)."
-* **--header**:
-  * **`Accept`**: Pass the media type in an `Accept` header. To pass multiple media types in an `Accept` header, separate the media types with a comma: `Accept: application/vnd.github+json,application/vnd.github.diff`. For more information, see "[`Accept`](#accept)" and "[Media types](#media-types)."
-  * **`X-GitHub-Api-Version`**: Pass the API version in a `X-GitHub-Api-Version` header. For more information, see "[`X-GitHub-Api-Version`](#x-github-api-version)."
+* **--header:**
+  * **`Accept`:** Pass the media type in an `Accept` header. To pass multiple media types in an `Accept` header, separate the media types with a comma: `Accept: application/vnd.github+json,application/vnd.github.diff`. For more information, see "[`Accept`](#accept)" and "[Media types](#media-types)."
+  * **`X-GitHub-Api-Version`:** Pass the API version in a `X-GitHub-Api-Version` header. For more information, see "[`X-GitHub-Api-Version`](#x-github-api-version)."
 * **`-f`** or **`-F`** followed by any body parameters or query parameters in `key=value` format. Use the `-F` option to pass a parameter that is a number, Boolean, or null. Use the `-f` option to pass string parameters.
 
   Some endpoints use query parameters that are arrays. To send an array in the query string, use the query parameter once per array item, and append `[]` after the query parameter name. For example, to provide an array of two repository IDs, use `-f repository_ids[]=REPOSITORY_A_ID -f repository_ids[]=REPOSITORY_B_ID`.
 
   If you do not need to specify any body parameters or query parameters in your request, omit this option. For more information, see "[Body parameters](#body-parameters)" and "[Query parameters](#query-parameters)." For examples, see "[Example request using body parameters](#example-request-using-body-parameters)" and "[Example request using query parameters](#example-request-using-query-parameters)."
 {%- ifversion not fpt %}
-* **--hostname**: If you are authenticated to multiple accounts across {% data variables.product.github %} platforms, specify where you are making the request. For example: `--hostname {% data variables.enterprise.data_residency_example_domain %}`.
+* **--hostname:** If you are authenticated to multiple accounts across {% data variables.product.github %} platforms, specify where you are making the request. For example: `--hostname {% data variables.enterprise.data_residency_example_domain %}`.
 {%- endif %}
 
 #### Example request
@@ -318,10 +318,10 @@ Specify the following options and values in your request:
 * **`--url`** followed by the full path as the value. The full path is a URL that includes the base URL for the GitHub REST API (`{% data variables.product.rest_url %}`{% ifversion ghec %} or `https://{% data variables.enterprise.data_residency_api %}`, depending on where you access {% data variables.product.github %}{% endif %}) and the path of the endpoint, like this: `{% data variables.product.rest_url %}/PATH`.{% ifversion ghes %} Replace `HOSTNAME` with the name of {% data variables.location.product_location %}.{% endif %} Replace `PATH` with the path of the endpoint. For more information, see "[Path](#path)."
 
   To use query parameters, add a `?` to the end of the path, then append your query parameter name and value in the form `parameter_name=value`. Separate multiple query parameters with `&`. If you need to send an array in the query string, use the query parameter once per array item, and append `[]` after the query parameter name. For example, to provide an array of two repository IDs, use `?repository_ids[]=REPOSITORY_A_ID&repository_ids[]=REPOSITORY_B_ID`. For more information, see "[Query parameters](#query-parameters)." For an example, see "[Example request using query parameters](#example-request-using-query-parameters-1)."
-* **`--header` or `-H`**:
-  * **`Accept`**: Pass the media type in an `Accept` header. To pass multiple media types in an `Accept` header, separate the media types with a comma, for example: `Accept: application/vnd.github+json,application/vnd.github.diff`. For more information, see "[`Accept`](#accept)" and "[Media types](#media-types)."
-  * **`X-GitHub-Api-Version`**: Pass the API version in a `X-GitHub-Api-Version` header. For more information, see "[`X-GitHub-Api-Version`](#x-github-api-version)."
-  * **`Authorization`**: Pass your authentication token in an `Authorization` header. Note that in most cases you can use `Authorization: Bearer` or `Authorization: token` to pass a token. However, if you are passing a JSON web token (JWT), you must use `Authorization: Bearer`. For more information, see "[Authentication](#authentication)." For an example of a request that uses an `Authorization` header, see "[Example request using body parameters](#example-request-using-body-parameters-1)."
+* **`--header` or `-H`:**
+  * **`Accept`:** Pass the media type in an `Accept` header. To pass multiple media types in an `Accept` header, separate the media types with a comma, for example: `Accept: application/vnd.github+json,application/vnd.github.diff`. For more information, see "[`Accept`](#accept)" and "[Media types](#media-types)."
+  * **`X-GitHub-Api-Version`:** Pass the API version in a `X-GitHub-Api-Version` header. For more information, see "[`X-GitHub-Api-Version`](#x-github-api-version)."
+  * **`Authorization`:** Pass your authentication token in an `Authorization` header. Note that in most cases you can use `Authorization: Bearer` or `Authorization: token` to pass a token. However, if you are passing a JSON web token (JWT), you must use `Authorization: Bearer`. For more information, see "[Authentication](#authentication)." For an example of a request that uses an `Authorization` header, see "[Example request using body parameters](#example-request-using-body-parameters-1)."
 * **`--data` or `-d`** followed by any body parameters within a JSON object. If you do not need to specify any body parameters in your request, omit this option. For more information, see "[Body parameters](#body-parameters)." For an example, see "[Example request using body parameters](#example-request-using-body-parameters-1)."
 
 #### Example request

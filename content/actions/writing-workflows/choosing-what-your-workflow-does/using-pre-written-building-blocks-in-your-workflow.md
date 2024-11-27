@@ -26,10 +26,10 @@ You can use pre-written building blocks, called actions, in your workflow. An ac
 
 Actions can be:
 
-* **Reusable**: actions can be used across different workflows and repositories, allowing you to avoid rewriting the same code.
-* **Pre-written**: many actions are available in the {% data variables.product.prodname_marketplace %}, covering a wide range of tasks like checking out code, setting up environments, running tests, and deploying applications.
-* **Configurable**: you can configure actions with inputs, outputs, and environment variables to tailor them to your specific needs.
-* **Community-driven**: you can create your own actions and share them with others or use actions developed by the community.
+* **Reusable:** actions can be used across different workflows and repositories, allowing you to avoid rewriting the same code.
+* **Pre-written:** many actions are available in the {% data variables.product.prodname_marketplace %}, covering a wide range of tasks like checking out code, setting up environments, running tests, and deploying applications.
+* **Configurable:** you can configure actions with inputs, outputs, and environment variables to tailor them to your specific needs.
+* **Community-driven:** you can create your own actions and share them with others or use actions developed by the community.
 
 The actions you use in your workflow can be defined in:
 

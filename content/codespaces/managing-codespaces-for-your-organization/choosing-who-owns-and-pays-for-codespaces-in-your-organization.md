@@ -79,8 +79,8 @@ If you change from **user ownership** to **organization ownership**, existing co
 {% data reusables.organizations.click-codespaces %}
 {% data reusables.organizations.click-general %}
 1. On the {% data variables.product.prodname_codespaces %} settings page, under "Codespace ownership," select the setting you want for your organization:
-   * **Organization ownership**: Codespaces can be owned and paid for by your organization.
-   * **User ownership**: Codespaces are always owned and paid for by the user who creates the codespace.
+   * **Organization ownership:** Codespaces can be owned and paid for by your organization.
+   * **User ownership:** Codespaces are always owned and paid for by the user who creates the codespace.
 
 1. Optionally, under "Codespaces access," review the members and collaborators for whom you have enabled {% data variables.product.prodname_codespaces %}. These are the only users who can create codespaces that your organization pays for. See "[AUTOTITLE](/codespaces/managing-codespaces-for-your-organization/enabling-or-disabling-github-codespaces-for-your-organization)."
 

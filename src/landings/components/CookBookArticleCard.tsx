@@ -11,6 +11,8 @@ import {
   LogIcon,
   TerminalIcon,
   BookIcon,
+  ShieldLockIcon,
+  LockIcon,
 } from '@primer/octicons-react'
 
 const Icons = {
@@ -25,6 +27,8 @@ const Icons = {
   log: LogIcon,
   terminal: TerminalIcon,
   book: BookIcon,
+  'shield-lock': ShieldLockIcon,
+  lock: LockIcon,
 }
 
 type IconType = keyof typeof Icons

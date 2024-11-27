@@ -80,17 +80,17 @@ Use a wait timer to delay a job for a specific amount of time after the job is i
 Use deployment branches{% ifversion deployment-protections-tag-patterns %} and tags{% endif %} to restrict which branches{% ifversion deployment-protections-tag-patterns %} and tags{% endif %} can deploy to the environment. Below are the options for deployment branches{% ifversion deployment-protections-tag-patterns %} and tags{% endif %} for an environment:
 
 {% ifversion deployment-protections-tag-patterns %}
-* **No restriction**: No restriction on which branch or tag can deploy to the environment.
+* **No restriction:** No restriction on which branch or tag can deploy to the environment.
 {%- else %}
-* **All branches**: All branches in the repository can deploy to the environment.
+* **All branches:** All branches in the repository can deploy to the environment.
 {%- endif %}
-* **Protected branches{% ifversion deployment-protections-tag-patterns %} only{% endif %}**: Only branches with branch protection rules enabled can deploy to the environment. If no branch protection rules are defined for any branch in the repository, then all branches can deploy. For more information about branch protection rules, see "[AUTOTITLE](/repositories/configuring-branches-and-merges-in-your-repository/managing-protected-branches/about-protected-branches)."{% ifversion actions-protected-branches-restrictions %}
+* **Protected branches{% ifversion deployment-protections-tag-patterns %} only{% endif %}:** Only branches with branch protection rules enabled can deploy to the environment. If no branch protection rules are defined for any branch in the repository, then all branches can deploy. For more information about branch protection rules, see "[AUTOTITLE](/repositories/configuring-branches-and-merges-in-your-repository/managing-protected-branches/about-protected-branches)."{% ifversion actions-protected-branches-restrictions %}
 
   > [!NOTE]
   > Deployment workflow runs triggered by tags with the same name as a protected branch and forks with branches that match the protected branch name cannot deploy to the environment.
 
   {% endif %}
-* **Selected branches{% ifversion deployment-protections-tag-patterns %} and tags{% endif %}**: Only branches{% ifversion deployment-protections-tag-patterns %} and tags{% endif %} that match your specified name patterns can deploy to the environment.
+* **Selected branches{% ifversion deployment-protections-tag-patterns %} and tags{% endif %}:** Only branches{% ifversion deployment-protections-tag-patterns %} and tags{% endif %} that match your specified name patterns can deploy to the environment.
 
   If you specify `releases/*` as a deployment branch{% ifversion deployment-protections-tag-patterns %} or tag{% endif %} rule, only a branch{% ifversion deployment-protections-tag-patterns %} or tag{% endif %} whose name begins with `releases/` can deploy to the environment. (Wildcard characters will not match `/`. To match branches{% ifversion deployment-protections-tag-patterns %} or tags{% endif %} that begin with `release/` and contain an additional single slash, use `release/*/*`.) If you add `main` as a branch rule, a branch named `main` can also deploy to the environment. For more information about syntax options for deployment branches, see the [Ruby `File.fnmatch` documentation](https://ruby-doc.org/core-2.5.1/File.html#method-c-fnmatch).
 

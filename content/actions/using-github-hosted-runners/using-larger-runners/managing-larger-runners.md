@@ -48,8 +48,8 @@ Repositories are granted access to {% data variables.actions.hosted_runner %}s t
 
 Organization owners can use and configure enterprise-level runner groups for the repositories in their organization, or they can create organization-level runner groups to control access.{% ifversion custom-org-roles %} Users with the "Manage organization runners and runner groups" can only manage organization-level runner groups. For more information, see "[AUTOTITLE](/organizations/managing-peoples-access-to-your-organization-with-roles/about-custom-organization-roles)."{% endif %}
 
-* **For enterprise-level runner groups**: {% data reusables.actions.about-enterprise-level-runner-groups %}
-* **For organization-level runner groups**: {% data reusables.actions.about-organization-level-runner-groups %}
+* **For enterprise-level runner groups:** {% data reusables.actions.about-enterprise-level-runner-groups %}
+* **For organization-level runner groups:** {% data reusables.actions.about-organization-level-runner-groups %}
 
 Once a repository has access to {% data variables.actions.hosted_runner %}s, the {% data variables.actions.hosted_runner %}s can be added to workflow files. For more information, see "[AUTOTITLE](/actions/using-github-hosted-runners/running-jobs-on-larger-runners)."
 

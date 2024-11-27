@@ -144,9 +144,9 @@ To configure {% data variables.product.prodname_ghe_server %} to use OIDC with a
 {% data reusables.actions.enterprise-enable-checkbox %}
 {% data reusables.actions.enterprise-s3-storage-setup %}
 1. Under "Authentication", select **OpenID Connect (OIDC)**, and enter the values for your storage:
-   * **AWS S3 Bucket**: The name of your S3 bucket.
-   * **AWS Role**: The ARN for the role you created in the previous procedures. For example, `arn:aws:iam::123456789:role/my-role-name`.
-   * **AWS Region**: The AWS region for your bucket. For example, `us-east-1`.
+   * **AWS S3 Bucket:** The name of your S3 bucket.
+   * **AWS Role:** The ARN for the role you created in the previous procedures. For example, `arn:aws:iam::123456789:role/my-role-name`.
+   * **AWS Region:** The AWS region for your bucket. For example, `us-east-1`.
 {% data reusables.enterprise_management_console.test-storage-button %}
 {% data reusables.enterprise_management_console.save-settings %}
 

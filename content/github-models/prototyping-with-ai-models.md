@@ -6,7 +6,7 @@ versions:
   feature: github-models
 ---
 
-If you want to develop a generative AI application, you can use {% data variables.product.prodname_github_models %} to find and experiment with AI models for free. Once you are ready to bring your application to production, you can switch to a token from a paid Azure account. See the [Azure AI](https://ai.azure.com/github/model/docs) documentation.
+If you want to develop a generative AI application, you can use {% data variables.product.prodname_github_models %} to find and experiment with AI models for free. Once you are ready to bring your application to production, you can switch to a token from a paid Azure account. See the [Azure AI](https://aka.ms/azureai/github-models) documentation.
 
 See also "[AUTOTITLE](/github-models/responsible-use-of-github-models)."
 

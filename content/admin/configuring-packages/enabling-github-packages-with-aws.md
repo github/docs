@@ -45,7 +45,7 @@ Ensure your AWS access key ID and secret have the following permissions:
       For more information, see "[AWS service endpoints](https://docs.aws.amazon.com/general/latest/gr/rande.html)" in the AWS documentation.
 
     * **AWS S3 Bucket:** The name of your S3 bucket dedicated to {% data variables.product.prodname_registry %}.
-    * **AWS S3 Access Key** and **AWS S3 Secret Key**: The AWS access key ID and secret key to access your bucket.
+    * **AWS S3 Access Key** and **AWS S3 Secret Key:** The AWS access key ID and secret key to access your bucket.
 
       For more information on managing AWS access keys, see the "[AWS Identity and Access Management Documentation](https://docs.aws.amazon.com/iam/index.html)."
 {%- endif %}

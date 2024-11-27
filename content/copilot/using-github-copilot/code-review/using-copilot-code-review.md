@@ -24,8 +24,8 @@ redirect_from:
 
 {% data variables.copilot.copilot_code-review_short %} supports two types of review:
 
-* **Review selection**: Highlight code and ask for an initial review _({% data variables.product.prodname_vscode %} only)_
-* **Review changes**: Request a deeper review of all your changes _({% data variables.product.github %} website and {% data variables.product.prodname_vscode %})_
+* **Review selection:** Highlight code and ask for an initial review _({% data variables.product.prodname_vscode %} only)_
+* **Review changes:** Request a deeper review of all your changes _({% data variables.product.github %} website and {% data variables.product.prodname_vscode %})_
 
 The current functionality and availability of the two types of review is summarized in the following table:
 

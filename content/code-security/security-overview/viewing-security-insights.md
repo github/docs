@@ -34,9 +34,9 @@ You can view a variety of metrics about the security alerts in your organization
 
 {% ifversion security-overview-3-tab-dashboard %}
 The dashboard is divided into three tabs, each focused around a different security goal:
-* **Detection**: this tab shows metrics about the status and age of alerts in your organization{% ifversion security-overview-dashboard-enterprise %} or enterprise{% endif %}, the secrets that have been blocked or bypassed, and the top repositories and vulnerabilities that pose the highest potential security risk.
-* **Remediation**: this tab shows metrics about how alerts are resolved and alert activity over time.
-* **Prevention**: this tab shows metrics about how vulnerabilities have been prevented and fixed.
+* **Detection:** this tab shows metrics about the status and age of alerts in your organization{% ifversion security-overview-dashboard-enterprise %} or enterprise{% endif %}, the secrets that have been blocked or bypassed, and the top repositories and vulnerabilities that pose the highest potential security risk.
+* **Remediation:** this tab shows metrics about how alerts are resolved and alert activity over time.
+* **Prevention:** this tab shows metrics about how vulnerabilities have been prevented and fixed.
 
 >[!NOTE]
 > Unlike the **Detection** and **Remediation** tabs which report alerts on the default branch, the **Prevention** tab gives you insights for {% data variables.product.prodname_codeql %} alerts found in merged pull requests.

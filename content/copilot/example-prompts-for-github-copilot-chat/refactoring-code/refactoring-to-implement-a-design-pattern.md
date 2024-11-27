@@ -60,9 +60,9 @@ getAge("Mario");
 
 {% data variables.product.prodname_copilot_short %} suggests the following patterns:
 
-* **Singleton pattern**: to ensure that there is only one instance of the `people` object.
-* **Factory pattern**: to create a factory for creating `Person` objects.
-* **Module pattern**: to encapsulate the `people` object and related functions within a module to avoid polluting the global namespace.
+* **Singleton pattern:** to ensure that there is only one instance of the `people` object.
+* **Factory pattern:** to create a factory for creating `Person` objects.
+* **Module pattern:** to encapsulate the `people` object and related functions within a module to avoid polluting the global namespace.
 
 ## Example prompt 2
 

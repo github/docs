@@ -226,11 +226,11 @@ If the `yarn.lock` file doesn't list the private registry as the dependency sour
 > [!NOTE]
 > For scoped dependencies (`@my-org/my-dep`), {% data variables.product.prodname_dependabot %} requires that the private registry is defined in the project's `.yarnrc` file. To define private registries for individual scopes, use `"@myscope:registry" "https://private_registry_url"`.
 
-## Nuget
+## NuGet
 
-To allow the Nuget ecosystem to only access private registries, you can configure the `dependabot.yml` file. For more information, see "[AUTOTITLE](/code-security/dependabot/dependabot-version-updates/configuration-options-for-the-dependabot.yml-file#nuget-feed)."
+To allow the NuGet ecosystem to only access private registries, you can configure the `dependabot.yml` file. For more information, see "[AUTOTITLE](/code-security/dependabot/dependabot-version-updates/configuration-options-for-the-dependabot.yml-file#nuget-feed)."
 
-The Nuget ecosystem additionally requires a `nuget.config` file to be checked into the repository, with either a `< clear />` tag in `<packageSources>` section or a key `nuget.org` as true in the `disabledPackageSources` section of the `nuget.config` file.
+The NuGet ecosystem additionally requires a `nuget.config` file to be checked into the repository, with either a `< clear />` tag in `<packageSources>` section or a key `nuget.org` as true in the `disabledPackageSources` section of the `nuget.config` file.
 
 This is an example of a `< clear />` tag in the `packageSources` section of the `nuget.config`.
 

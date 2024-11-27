@@ -13,8 +13,8 @@ shortTitle: Set a token policy
 ## Restricting access by {% data variables.product.pat_generic_plural %}
 
 Organization owners can prevent {% data variables.product.pat_generic_plural %} from accessing resources owned by the organization with the following options:
-* **Restrict access via {% data variables.product.pat_generic_plural %}**: {% data variables.product.pat_v1_caps_plural %} or {% data variables.product.pat_v2_plural %} cannot access resources owned by the organization. SSH keys created by {% data variables.product.pat_generic_plural %} will continue to work.
-* **Allow access via {% data variables.product.pat_generic_plural %}**: {% data variables.product.pat_v1_caps_plural %} or {% data variables.product.pat_v2_plural %} can access resources owned by the organization.
+* **Restrict access via {% data variables.product.pat_generic_plural %}:** {% data variables.product.pat_v1_caps_plural %} or {% data variables.product.pat_v2_plural %} cannot access resources owned by the organization. SSH keys created by {% data variables.product.pat_generic_plural %} will continue to work.
+* **Allow access via {% data variables.product.pat_generic_plural %}:** {% data variables.product.pat_v1_caps_plural %} or {% data variables.product.pat_v2_plural %} can access resources owned by the organization.
 
 Regardless of the chosen policy, {% data variables.product.pat_generic_caps_plural %} will have access to public resources within the organization.
 
@@ -48,8 +48,8 @@ When you set a policy, tokens with non-compliant lifetimes will be blocked from 
 ## Enforcing an approval policy for {% data variables.product.pat_v2_plural %}
 
 Organization owners can manage approval requirements for each {% data variables.product.pat_v2 %} that can access the organization with the following options:
-  * **Require administrator approval**: An organization owner must approve each {% data variables.product.pat_v2 %} that can access the organization. {% data variables.product.pat_v2_caps_plural %} created by organization owners will not need approval.
-  * **Do not require administrator approval**: {% data variables.product.pat_v2_caps %}s created by organization members can access resources in the organization without prior approval.
+  * **Require administrator approval:** An organization owner must approve each {% data variables.product.pat_v2 %} that can access the organization. {% data variables.product.pat_v2_caps_plural %} created by organization owners will not need approval.
+  * **Do not require administrator approval:** {% data variables.product.pat_v2_caps %}s created by organization members can access resources in the organization without prior approval.
 
 {% data variables.product.pat_v2_caps %}s will still be able to read public resources within the organization without approval.
 

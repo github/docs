@@ -24,10 +24,10 @@ When starting a new project, initiative, or feature, the first step is to create
 
 You can set up repositories for different purposes based on your needs. The following are some common use cases:
 
-* **Product repositories**: Larger organizations that track their work and goals around specific products may have one or more repositories containing the code and other files. These repositories can also be used for documentation, reporting on product health or future plans for the product.
-* **Project repositories**: You can create a repository for an individual project you are working on, or for a project you are collaborating on with others. For an organization that tracks work for short-lived initiatives or projects, such as a consulting firm, there is a need to report on the health of a project and move people between different projects based on skills and needs. Code for the project is often contained in a single repository.
-* **Team repositories**: For an organization that groups people into teams, and brings projects to them, such as a dev tools team, code may be scattered across many repositories for the different work they need to track. In this case it may be helpful to have a team-specific repository as one place to track all the work the team is involved in.
-* **Personal repositories**: You can create a personal repository to track all your work in one place, plan future tasks, or even add notes or information you want to save. You can also add collaborators if you want to share this information with others.
+* **Product repositories:** Larger organizations that track their work and goals around specific products may have one or more repositories containing the code and other files. These repositories can also be used for documentation, reporting on product health or future plans for the product.
+* **Project repositories:** You can create a repository for an individual project you are working on, or for a project you are collaborating on with others. For an organization that tracks work for short-lived initiatives or projects, such as a consulting firm, there is a need to report on the health of a project and move people between different projects based on skills and needs. Code for the project is often contained in a single repository.
+* **Team repositories:** For an organization that groups people into teams, and brings projects to them, such as a dev tools team, code may be scattered across many repositories for the different work they need to track. In this case it may be helpful to have a team-specific repository as one place to track all the work the team is involved in.
+* **Personal repositories:** You can create a personal repository to track all your work in one place, plan future tasks, or even add notes or information you want to save. You can also add collaborators if you want to share this information with others.
 
 You can create multiple, separate repositories if you want different access permissions for the source code and for tracking issues and discussions. For more information, see "[AUTOTITLE](/repositories/creating-and-managing-repositories/creating-an-issues-only-repository)."
 
@@ -91,6 +91,41 @@ Below we have added a task list to our Project Octocat issue, breaking it down i
 {% data reusables.issues.release-stage %}
 
 {% data reusables.issues.about-sub-issues %} See "[AUTOTITLE](/issues/tracking-your-work-with-issues/using-issues/adding-sub-issues)" and "[AUTOTITLE](/issues/tracking-your-work-with-issues/using-issues/browsing-sub-issues)."
+
+{% endif %}
+
+{% ifversion copilot %}
+
+## Understanding new issues
+
+> [!NOTE] {% data reusables.copilot.copilot-requires-subscription %}
+
+When working on an unfamiliar or complex issue, {% data variables.product.prodname_copilot %} can help you quickly understand the context, history, and key information, so you can get started faster and with more confidence.
+
+### Reviewing the issue
+
+1. Navigate to an issue on {% data variables.product.github %}.
+
+{% data reusables.copilot.open-copilot %}
+
+1. At the bottom of the {% data variables.product.prodname_copilot_short %} chat panel, in the "Ask {% data variables.product.prodname_copilot_short %}" box, type a question and press <kbd>Enter</kbd>. For example, you could enter:
+
+   * `Summarize the main points of this issue`
+   * `What’s the goal of this issue?`
+
+{% data variables.product.prodname_copilot_short %}'s summary will help you capture the purpose and scope of the work.
+
+### Understanding the history and comments
+
+Issues often contain a history of discussions and decisions that can provide important context. You can use {% data variables.product.prodname_copilot_short %} to summarize these conversations to identify key points, such as proposed solutions or unanswered questions. For example, you might ask {% data variables.product.prodname_copilot_short %} to summarize recent comments or highlight decisions that have already been made. This helps you focus on what’s most relevant and ensures your contributions are aligned with the team’s priorities.
+
+### Clarifying technical terms
+
+Issues often mention technical terms, code, or files that might not be immediately clear. You can use {% data variables.product.prodname_copilot_short %} to get explanations or context for these references. For example, you can ask about the purpose of a file or function, or the meaning of a specific term mentioned in the issue. This helps you understand the details without spending extra time searching through documentation or code.
+
+### Getting suggestions for next steps
+
+Once you understand the context of an issue, {% data variables.product.prodname_copilot_short %} can help you figure out how to move forward. You can ask for suggestions on how to approach the work, like fixing a bug or implementing a new feature. For example, you might ask, “What’s the best way to resolve this issue?” or “How can I start addressing this problem?” {% data variables.product.prodname_copilot_short %}'s suggestions can provide useful starting points, helping you plan your work more effectively.
 
 {% endif %}
 
