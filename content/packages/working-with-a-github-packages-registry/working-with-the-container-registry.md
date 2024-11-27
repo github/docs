@@ -186,7 +186,7 @@ Replace `NAMESPACE` with the name of the personal account or organization to whi
 
 {% data reusables.package_registry.about-annotation-keys %} Values for supported keys will appear on the package page for the image.
 
-For most images, you can use Docker labels to add the annotation keys to an image. For more information, see [LABEL](https://docs.docker.com/engine/reference/builder/#label) in the official Docker documentation and [Pre-Defined Annotation Keys](https://github.com/opencontainers/image-spec/blob/master/annotations.md#pre-defined-annotation-keys) in the `opencontainers/image-spec` repository.
+For most images, you can use Docker labels to add the annotation keys to an image. For more information, see [LABEL](https://docs.docker.com/engine/reference/builder/#label) in the official Docker documentation and [Pre-Defined Annotation Keys](https://github.com/opencontainers/image-spec/blob/main/annotations.md#pre-defined-annotation-keys) in the `opencontainers/image-spec` repository.
 
 For multi-arch images, you can add a description to the image by adding the appropriate annotation key to the `annotations` field in the image's manifest. For more information, see "[Adding a description to multi-arch images](#adding-a-description-to-multi-arch-images)."
 

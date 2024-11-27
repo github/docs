@@ -148,7 +148,7 @@ To narrow down to a specific languages, use the `language:` qualifier. For examp
 language:ruby OR language:cpp OR language:csharp
 ```
 
-For a complete list of supported language names, see [languages.yaml](https://github.com/github-linguist/linguist/blob/master/lib/linguist/languages.yml) in [github-linguist/linguist](https://github.com/github-linguist/linguist). If your preferred language is not on the list, you can open a pull request to add it.
+For a complete list of supported language names, see [languages.yaml](https://github.com/github-linguist/linguist/blob/main/lib/linguist/languages.yml) in [github-linguist/linguist](https://github.com/github-linguist/linguist). If your preferred language is not on the list, you can open a pull request to add it.
 
 ### Path qualifier
 
