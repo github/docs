@@ -5063,6 +5063,12 @@
       "subcategory": "secret-scanning",
       "verb": "post",
       "requestPath": "/repos/{owner}/{repo}/secret-scanning/push-protection-bypasses"
+    },
+    {
+      "slug": "get-secret-scanning-scan-history-for-a-repository",
+      "subcategory": "secret-scanning",
+      "verb": "get",
+      "requestPath": "/repos/{owner}/{repo}/secret-scanning/scan-history"
     }
   ],
   "security-advisories": [
