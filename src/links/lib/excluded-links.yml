@@ -79,4 +79,3 @@
 - startsWith: https://platform.openai.com/docs/models
 - startsWith: https://openai.com/index
 - is: https://github.com/github-linguist/linguist/compare/master...octocat:master
-- is: https://www.servicenow.com/docs/bundle/utah-devops/page/product/enterprise-dev-ops/concept/github-integration-dev-ops.html
