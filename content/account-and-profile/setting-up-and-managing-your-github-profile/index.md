@@ -13,6 +13,7 @@ topics:
   - Profiles
 children:
   - /customizing-your-profile
-  - /managing-contribution-settings-on-your-profile
+  - /managing-contribution-setting-on-your-profile
+  - /adding icons to linked profiles
 ---
 
