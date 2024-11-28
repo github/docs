@@ -1,3 +1,4 @@
+![1000001179](https://github.com/user-attachments/assets/4fb8d74a-f0d3-4c21-b375-32166c44677f)
 ---
 title: Managing security managers in your organization
 intro: You can give your security team the least access they need to configure and monitor code security for your organization by assigning a team to the security manager role.
