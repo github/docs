@@ -12,11 +12,9 @@ topics:
   - SSH
 shortTitle: Use SSH over HTTPS port
 ---
-{% tip %}
 
-**{% data variables.product.prodname_ghe_server %} users:** Accessing {% data variables.product.prodname_ghe_server %} via SSH over the HTTPS port is currently not supported.
-
-{% endtip %}
+> [!TIP]
+> **{% data variables.product.prodname_ghe_server %} users:** Accessing {% data variables.product.prodname_ghe_server %} via SSH over the HTTPS port is currently not supported.
 
 To test if SSH over the HTTPS port is possible, run this SSH command:
 

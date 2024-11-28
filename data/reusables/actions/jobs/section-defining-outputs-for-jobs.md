@@ -75,6 +75,5 @@ jobs:
 
 {% endraw %}
 
-{% warning %}
-Actions does not guarantee the order that matrix jobs will run in. Ensure that the output name is unique, otherwise the last matrix job that runs will override the output value.
-{% endwarning %}
+> [!WARNING]
+> Actions does not guarantee the order that matrix jobs will run in. Ensure that the output name is unique, otherwise the last matrix job that runs will override the output value.

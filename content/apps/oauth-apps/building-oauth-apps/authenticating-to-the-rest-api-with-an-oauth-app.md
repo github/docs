@@ -20,11 +20,8 @@ In this section, we're going to focus on the basics of authentication. Specifica
 we're going to create a Ruby server (using [Sinatra](http://www.sinatrarb.com/)) that implements
 the [web flow](/apps/oauth-apps/building-oauth-apps/authorizing-oauth-apps) of an application in several different ways.
 
-{% tip %}
-
-You can download the complete source code for this project [from the platform-samples repo](https://github.com/github/platform-samples/tree/master/api/).
-
-{% endtip %}
+> [!TIP]
+> You can download the complete source code for this project [from the platform-samples repo](https://github.com/github/platform-samples/tree/master/api/).
 
 ## Registering your app
 

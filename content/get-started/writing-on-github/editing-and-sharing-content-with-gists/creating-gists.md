@@ -55,13 +55,10 @@ Gist supports mapping GeoJSON files. These maps are displayed in embedded gists,
 
 Follow the steps below to create a gist.
 
-{% note %}
-
-You can also create a gist using the {% data variables.product.prodname_cli %}. For more information, see "[`gh gist create`](https://cli.github.com/manual/gh_gist_create)" in the {% data variables.product.prodname_cli %} documentation.
-
-Alternatively, you can drag and drop a text file from your desktop directly into the editor.
-
-{% endnote %}
+> [!NOTE]
+> You can also create a gist using the {% data variables.product.prodname_cli %}. For more information, see "[`gh gist create`](https://cli.github.com/manual/gh_gist_create)" in the {% data variables.product.prodname_cli %} documentation.
+>
+> Alternatively, you can drag and drop a text file from your desktop directly into the editor.
 
 1. Sign in to {% data variables.product.product_name %}.
 1. Navigate to your {% data variables.gists.gist_homepage %}.

@@ -305,11 +305,8 @@ jobs:
         echo 'publishing'
 ```
 
-{% note %}
-
-{% data reusables.gated-features.environments %}
-
-{% endnote %}
+> [!NOTE]
+> {% data reusables.gated-features.environments %}
 
 ## Available events
 

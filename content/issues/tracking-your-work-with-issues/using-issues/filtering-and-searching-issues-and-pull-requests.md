@@ -118,11 +118,8 @@ Once you've [assigned an issue or pull request to someone](/issues/tracking-your
    ![Screenshot of a list of issues. In the header above the list, a dropdown menu, labeled "Assignees", is outlined in dark orange.](/assets/images/help/issues/issues-assignee-dropdown.png)
 1. The Assignee drop-down menu lists everyone who has write access to your repository. Click the name of the person whose assigned items you want to see, or click **Assigned to nobody** to see which issues are unassigned.
 
-{% tip %}
-
-To clear your filter selection, click **Clear current search query, filters, and sorts**.
-
-{% endtip %}
+> [!TIP]
+> To clear your filter selection, click **Clear current search query, filters, and sorts**.
 
 ## Filtering issues and pull requests by labels
 
