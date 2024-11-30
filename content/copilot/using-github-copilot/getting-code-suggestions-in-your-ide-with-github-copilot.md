@@ -1,5 +1,5 @@
 ---
-title: Getting code suggestions in your IDE with GitHub Copilot
+title: Getting code suggestions in your IDE with GitHub CopilotExpertAI-Agents
 shortTitle: Get code suggestions
 intro: 'Use {% data variables.product.prodname_copilot %} to get code suggestions in your editor.'
 redirect_from:
