@@ -3,13 +3,17 @@ name: Enterprise date updater
 # **What it does**: Runs on a schedule to update lib/enterprise-dates.json.
 # **Why we have it**: The lib/enterprise-dates.json file needs to be up-to-date
 # for the .github/workflows/open-enterprise-issue.yml workflow and the
-# tests/content/algolia-search.js test.
+# tests/content/search.js test.
 # **Who does it impact**: Docs engineering, docs content.
 
 on:
   workflow_dispatch:
   schedule:
-    - cron: '39 2 * * 2' # At 02:39 on Tuesday
+    - cron: '20 16 * * 2' # Run every Tuesday at 16:20 UTC / 8:20 PST
+
+permissions:
+  contents: write
+  pull-requests: write
 
 # **IMPORTANT:** Do not change the FREEZE environment variable set here!
 # This workflow runs on a recurring basis. To temporarily disable it (e.g.,
@@ -32,20 +36,22 @@ jobs:
           exit 1 # prevents further steps from running
 
       - name: Checkout repository code
-        uses: actions/checkout@5a4ac9002d0be2fb38bd78e4b4dbde5606d7042f
+        uses: actions/checkout@93ea575cb5d8a053eaa0ac8fa3b40d7e05a33cc8
 
-      - name: Install Node.js dependencies
-        run: npm ci
+      - uses: ./.github/actions/node-npm-setup
 
       - name: Run script/update-enterprise-dates.js
         run: |
           script/update-enterprise-dates.js
         env:
-          GITHUB_TOKEN: ${{ secrets.DOCS_BOT }}
+          GITHUB_TOKEN: ${{ secrets.DOCS_BOT_FR }}
 
       - name: Create pull request
         id: create-pull-request
-        uses: peter-evans/create-pull-request@8c603dbb04b917a9fc2dd991dc54fef54b640b43
+        uses: peter-evans/create-pull-request@2b011faafdcbc9ceb11414d64d0573f37c774b04
+        env:
+          # Disable pre-commit hooks; they don't play nicely here
+          HUSKY: '0'
         with:
           # need to use a token with repo and workflow scopes for this step
           token: ${{ secrets.GITHUB_TOKEN }}
@@ -55,11 +61,17 @@ jobs:
             "Hello! The GitHub Enterprise Server release dates have changed.\n\n
             If CI passes, this PR will be auto-merged. :green_heart:\n\n
             If CI does not pass or other problems arise, contact #docs-engineering on slack.\n\nThis PR was 🤖-crafted by `.github/workflows/enterprise-dates.yml`. 🧶"
-          labels: automerge,autoupdate
           branch: enterprise-server-dates-update
           delete-branch: true
 
-      - if: ${{ failure() }}
+      - name: Enable GitHub auto-merge
+        if: ${{ steps.create-pull-request.outputs.pull-request-number }}
+        env:
+          GITHUB_TOKEN: ${{ secrets.DOCUBOT_REPO_PAT }}
+          AUTOMERGE_PR_NUMBER: ${{ steps.create-pull-request.outputs.pull-request-number }}
+        run: node .github/actions-scripts/enable-automerge.js
+
+      - if: ${{ failure() && env.FREEZE != 'true' }}
         name: Delete remote branch (if previous steps failed)
         uses: dawidd6/action-delete-branch@47743101a121ad657031e6704086271ca81b1911
         with:
@@ -68,14 +80,14 @@ jobs:
 
       - if: ${{ steps.create-pull-request.outputs.pull-request-number }}
         name: Approve
-        uses: juliangruber/approve-pull-request-action@c530832d4d346c597332e20e03605aa94fa150a8
+        uses: juliangruber/approve-pull-request-action@c67a4808d52e44ea03656f6646ba24a010304f03
         with:
           github-token: ${{ secrets.DOCUBOT_REPO_PAT }}
           number: ${{ steps.create-pull-request.outputs.pull-request-number }}
 
       - name: Send Slack notification if workflow fails
-        uses: someimportantcompany/github-actions-slack-message@0b470c14b39da4260ed9e3f9a4f1298a74ccdefd
-        if: failure()
+        uses: someimportantcompany/github-actions-slack-message@1d367080235edfa53df415bd8e0bbab480f29bad
+        if: ${{ failure() && env.FREEZE != 'true' }}
         with:
           channel: ${{ secrets.DOCS_ALERTS_SLACK_CHANNEL_ID }}
           bot-token: ${{ secrets.SLACK_DOCS_BOT_TOKEN }}

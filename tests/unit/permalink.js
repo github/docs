@@ -1,44 +1,62 @@
-const Permalink = require('../../lib/permalink')
-const enterpriseServerReleases = require('../../lib/enterprise-server-releases')
-const nonEnterpriseDefaultVersion = require('../../lib/non-enterprise-default-version')
+import Permalink from '../../lib/permalink.js'
+import enterpriseServerReleases from '../../lib/enterprise-server-releases.js'
+import nonEnterpriseDefaultVersion from '../../lib/non-enterprise-default-version.js'
+import getApplicableVersions from '../../lib/get-applicable-versions.js'
 
 // Permalink constructor requires: languageCode, pageVersion, relativePath, title
 // Permalink.derive requires: languageCode, relativePath, title, versions (<- FM prop)
 
 describe('Permalink class', () => {
-  // We can only use Permalink.derive to get the special 'homepage' permalink
   test('derives info for unversioned homepage', () => {
     const versions = {
       'free-pro-team': '*',
-      'enterprise-server': '*'
+      'enterprise-server': '*',
     }
-    const permalinks = Permalink.derive('en', 'index.md', 'Hello World', versions)
+    const permalinks = Permalink.derive(
+      'en',
+      'index.md',
+      'Hello World',
+      getApplicableVersions(versions)
+    )
     expect(permalinks.length).toBeGreaterThan(1)
-    const homepagePermalink = permalinks.find(permalink => permalink.pageVersion === 'homepage')
+    const homepagePermalink = permalinks.find(
+      (permalink) => permalink.pageVersion === nonEnterpriseDefaultVersion
+    )
     expect(homepagePermalink.href).toBe('/en')
   })
 
   test('derives info for non-enterprise versioned homepage', () => {
     const permalink = new Permalink('en', nonEnterpriseDefaultVersion, 'index.md', 'Hello World')
-    expect(permalink.pageVersionTitle).toBe('GitHub.com')
     expect(permalink.href).toBe('/en')
   })
 
   test('derives info for enterprise server versioned homepage', () => {
-    const permalink = new Permalink('en', `enterprise-server@${enterpriseServerReleases.latest}`, 'index.md', 'Hello World')
-    expect(permalink.pageVersionTitle).toBe(`Enterprise Server ${enterpriseServerReleases.latest}`)
+    const permalink = new Permalink(
+      'en',
+      `enterprise-server@${enterpriseServerReleases.latest}`,
+      'index.md',
+      'Hello World'
+    )
     expect(permalink.href).toBe(`/en/enterprise-server@${enterpriseServerReleases.latest}`)
   })
 
-  test('derives info for GitHub.com homepage', () => {
-    const permalink = new Permalink('en', nonEnterpriseDefaultVersion, 'github/index.md', 'Hello World')
-    expect(permalink.pageVersionTitle).toBe('GitHub.com')
+  test('derives info for free-pro-team homepage', () => {
+    const permalink = new Permalink(
+      'en',
+      nonEnterpriseDefaultVersion,
+      'github/index.md',
+      'Hello World'
+    )
     expect(permalink.href).toBe('/en/github')
   })
 
   test('derives info for enterprise version of GitHub.com homepage', () => {
-    const permalink = new Permalink('en', `enterprise-server@${enterpriseServerReleases.latest}`, 'github/index.md', 'Hello World')
-    expect(permalink.pageVersionTitle).toBe(`Enterprise Server ${enterpriseServerReleases.latest}`)
+    const permalink = new Permalink(
+      'en',
+      `enterprise-server@${enterpriseServerReleases.latest}`,
+      'github/index.md',
+      'Hello World'
+    )
     expect(permalink.href).toBe(`/en/enterprise-server@${enterpriseServerReleases.latest}/github`)
   })
 

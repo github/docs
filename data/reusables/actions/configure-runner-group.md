@@ -1,0 +1,2 @@
+1. In the "Runners" section of the settings page, next to the runner group you'd like to configure, click {% octicon "kebab-horizontal" aria-label="The horizontal kebab icon" %}, then click **Edit name and [organization|repository] access**.
+    ![Manage repository permissions](/assets/images/help/settings/actions-runner-manage-permissions.png)

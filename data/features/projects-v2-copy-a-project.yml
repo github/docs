@@ -1,0 +1,4 @@
+# Issue 9040
+versions:
+  fpt: '*'
+  ghec: '*'

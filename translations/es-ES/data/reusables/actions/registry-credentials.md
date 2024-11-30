@@ -1,1 +1,0 @@
-Si el registro del contenedor de la imagen requiere autenticación para extraerla, puedes utilizar `credentials` para configurar un `map` del `username` y `password`. Las credenciales son los mismos valores que proporcionarías al comando de [`docker login`](https://docs.docker.com/engine/reference/commandline/login/).

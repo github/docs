@@ -1,18 +1,20 @@
 ---
 title: Blocking a user from your organization
-intro: Organization owners can block a user to remove the user's ability to collaborate in the organization's repositories.
+intro: Organization owners and moderators can block anyone who is not a member of the organization from collaborating on the organization's repositories.
 redirect_from:
   - /articles/blocking-a-user-from-your-organization
   - /github/building-a-strong-community/blocking-a-user-from-your-organization
 versions:
-  free-pro-team: '*'
+  fpt: '*'
+  ghec: '*'
 topics:
   - Community
+shortTitle: Block from your org
 ---
 
-You can block a user from within your organization's settings or from a specific comment made by the user. When you block a user in a comment, you can choose to send the user a notification explaining that they were blocked and why. Otherwise, the user is not directly notified that you've blocked them. Blocked users can still delete their existing content.
+You can block non-members from within your organization's settings or from a specific comment made by a user. When you block a user in a comment, you can choose to send the user a notification explaining that they were blocked and why. Otherwise, the user is not directly notified that you've blocked them. Blocked users can still delete their existing content.
 
-When you block a user, you can choose to block them indefinitely or for a specific amount of time. If you block someone for a specific amount of time, they are automatically unblocked after the chosen time expires. If you block someone indefinitely, you can unblock them manually at any time. For more information, see "[Unblocking a user from your organization](/communities/maintaining-your-safety-on-github/unblocking-a-user-from-your-organization)."
+{% data reusables.organizations.blocking-a-user %}
 
 {% tip %}
 
@@ -26,7 +28,7 @@ At the time that you block a user from your organization:
 - The user's votes on discussions or comments in your organization's repositories are deleted
 - The user is removed as a collaborator on your organization's repositories
 - The user's contributions to your organization's repositories are no longer counted as contributions for them
-- Any pending repository or organization invitations to the blocked user are cancelled
+- Any pending repository or organization invitations to the blocked user are canceled
 
 After you've blocked a user from your organization, they cannot:
 - Cross-reference your organization's repositories in comments
@@ -38,7 +40,7 @@ In your organization's repositories, blocked users also cannot:
 - Comment on issues, pull requests, or commits
 - Add or edit wiki pages
 
-### Blocking a user in a comment
+## Blocking a user in a comment
 
 1. Navigate to the comment whose author you would like to block.
 2. In the upper-right corner of the comment, click {% octicon "kebab-horizontal" aria-label="The horizontal kebab icon" %}, then click **Block user**.
@@ -52,7 +54,7 @@ In your organization's repositories, blocked users also cannot:
 6. To block the user, click **Block user from organization** or **Block user from organization and send message**.
 ![Block user button](/assets/images/help/organizations/org-block-user-button-in-comment.png)
 
-### Blocking a user in the organization settings
+## Blocking a user in the organization settings
 
 1. To block an organization member, first [remove the user](/articles/removing-a-member-from-your-organization) from the organization.
 
@@ -66,7 +68,7 @@ In your organization's repositories, blocked users also cannot:
 8. Click **Block user**.
 ![Block button](/assets/images/help/organizations/org-block-user-button.png)
 
-### Further reading
+## Further reading
 
 - "[Viewing users who are blocked from your organization](/communities/maintaining-your-safety-on-github/viewing-users-who-are-blocked-from-your-organization)"
 - "[Unblocking a user from your organization](/communities/maintaining-your-safety-on-github/unblocking-a-user-from-your-organization)"

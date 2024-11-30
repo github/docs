@@ -1,6 +1,7 @@
-module.exports = async function breadcrumbs (req, res, next) {
+export default function breadcrumbs(req, res, next) {
   if (!req.context.page) return next()
-  if (req.context.page.hidden) return next()
+  const isEarlyAccess = req.context.page.relativePath.startsWith('early-access')
+  if (req.context.page.hidden && !isEarlyAccess) return next()
 
   req.context.breadcrumbs = []
 
@@ -9,36 +10,81 @@ module.exports = async function breadcrumbs (req, res, next) {
     return next()
   }
 
-  const currentSiteTree = req.context.siteTree[req.context.currentLanguage][req.context.currentVersion]
-
-  await createBreadcrumb(
-    // Array of child pages on the root, i.e., the product level.
-    currentSiteTree.childPages,
-    req.context
-  )
+  req.context.breadcrumbs = getBreadcrumbs(req, isEarlyAccess)
 
   return next()
 }
 
-async function createBreadcrumb (pageArray, context) {
-  // Find each page in the siteTree's array of child pages that starts with the requested path.
-  let childPage = pageArray.find(page => context.currentPath.startsWith(page.href))
+const earlyAccessExceptions = ['insights', 'enterprise-importer']
 
-  // Fall back to English if needed
-  if (!childPage) {
-    childPage = pageArray.find(page => context.currentPath.startsWith(page.href.replace(`/${context.currentLanguage}`, '/en')))
-    if (!childPage) return
+function getBreadcrumbs(req, isEarlyAccess) {
+  let cutoff = 0
+  // When in Early access docs consider the "root" be much higher.
+  // E.g. /en/early-access/github/migrating/understanding/about
+  // we only want it start at /migrating/understanding/about
+  // Essentially, we're skipping "/early-access" and its first
+  // top-level like "/github"
+  if (isEarlyAccess) {
+    const split = req.context.currentPath.split('/')
+    // There are a few exceptions to this rule for the
+    // /{version}/early-access/<product-name>/... URLs because they're a
+    // bit different.
+    // If there are more known exceptions, add them to the array above.
+    if (earlyAccessExceptions.some((product) => split.includes(product))) {
+      cutoff = 1
+    } else {
+      cutoff = 2
+    }
   }
 
-  context.breadcrumbs.push({
-    documentType: childPage.page.documentType,
-    href: childPage.href,
-    title: childPage.renderedShortTitle || childPage.renderedFullTitle
-  })
+  const breadcrumbs = traverseTreeTitles(
+    req.context.currentPath,
+    req.context.currentProductTreeTitles
+  )
+  ;[...Array(cutoff)].forEach(() => breadcrumbs.shift())
 
-  // Recursively loop through the siteTree and create each breadcrumb, until we reach the
-  // point where the current siteTree page is the same as the requested page. Then stop.
-  if (childPage.childPages && context.currentPath !== childPage.href) {
-    createBreadcrumb(childPage.childPages, context)
+  return breadcrumbs
+}
+
+// Return an array as if you'd traverse down a tree. Imagine a tree like
+//
+//            (root /)
+//           /       \
+//        (/foo)     (/bar)
+//       /      \
+//    (/foo/bar)  (/foo/buzz)
+//
+// If the "currentPath" is `/foo/buzz` what you want to return is:
+//
+//  [
+//    {href: /, title: TITLE},
+//    {href: /foo, title: TITLE}
+//    {href: /foo/buzz, title: TITLE}
+//  ]
+//
+function traverseTreeTitles(currentPath, tree) {
+  const { href, title, shortTitle } = tree
+  const crumbs = [
+    {
+      href,
+      title: shortTitle || title,
+    },
+  ]
+  const currentPathSplit = Array.isArray(currentPath) ? currentPath : currentPath.split('/')
+  for (const child of tree.childPages) {
+    if (isParentOrEqualArray(child.href.split('/'), currentPathSplit)) {
+      crumbs.push(...traverseTreeTitles(currentPathSplit, child))
+      // Only ever going down 1 of the children
+      break
+    }
   }
+  return crumbs
+}
+
+// Return true if an array is part of another array or equal.
+// Like `/foo/bar` is part of `/foo/bar/buzz`.
+// But also include `/foo/bar/buzz`.
+// Don't include `/foo/ba` if the final path is `/foo/baring`.
+function isParentOrEqualArray(base, final) {
+  return base.every((part, i) => part === final[i])
 }

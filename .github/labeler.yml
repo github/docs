@@ -1,8 +1,6 @@
 engineering:
   - lib/*
   - lib/**/*
-  - layouts/*
-  - layouts/**/*
   - middleware/*
   - middleware/**/*
   - tests/*
@@ -11,5 +9,7 @@ engineering:
   - stylesheets/**/*
   - script/*
   - script/**/*
-  - javascripts/*
-  - javascripts/**/*
+  - components/*
+  - components/**/*
+  - pages/*
+  - pages/**/*

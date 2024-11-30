@@ -1,1 +1,0 @@
-您无法从一次性域名验证电子邮件地址。 如果要对个人电子邮件地址保密，可以使用 {% data variables.product.product_name %} 提供的 `noreply` 电子邮件地址。 更多信息请参阅“[在 {% data variables.product.prodname_dotcom %} 上设置提交电子邮件地址](/articles/setting-your-commit-email-address#setting-your-commit-email-address-on-github)”。

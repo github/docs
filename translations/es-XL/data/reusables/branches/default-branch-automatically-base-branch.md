@@ -1,1 +1,0 @@
-La rama predeterminada es la rama base en tu repositorio, contra la cual se hacen automáticamente todas las solicitudes de extracción y confirmaciones de código, a menos de que especifiques una rama diferente.

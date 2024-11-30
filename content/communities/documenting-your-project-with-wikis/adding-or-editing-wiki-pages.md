@@ -2,22 +2,24 @@
 title: Adding or editing wiki pages
 intro: 'You can add and edit wiki pages directly on {% data variables.product.product_name %} or locally using the command line.'
 redirect_from:
-  - /articles/adding-wiki-pages-via-the-online-interface/
-  - /articles/editing-wiki-pages-via-the-online-interface/
-  - /articles/adding-and-editing-wik-pages-locally/
-  - /articles/adding-and-editing-wiki-pages-locally/
+  - /articles/adding-wiki-pages-via-the-online-interface
+  - /articles/editing-wiki-pages-via-the-online-interface
+  - /articles/adding-and-editing-wik-pages-locally
+  - /articles/adding-and-editing-wiki-pages-locally
   - /articles/adding-or-editing-wiki-pages
   - /github/building-a-strong-community/adding-or-editing-wiki-pages
 product: '{% data reusables.gated-features.wikis %}'
 versions:
-  free-pro-team: '*'
-  enterprise-server: '*'
-  github-ae: '*'
+  fpt: '*'
+  ghes: '*'
+  ghae: '*'
+  ghec: '*'
 topics:
   - Community
+shortTitle: Manage wiki pages
 ---
 
-### Adding wiki pages
+## Adding wiki pages
 
 {% data reusables.repositories.navigate-to-repo %}
 {% data reusables.repositories.sidebar-wiki %}
@@ -31,35 +33,35 @@ topics:
   ![Wiki commit message](/assets/images/help/wiki/wiki_commit_message.png)
 7. To commit your changes to the wiki, click **Save Page**.
 
-### Editing wiki pages
+## Editing wiki pages
 
 {% data reusables.repositories.navigate-to-repo %}
 {% data reusables.repositories.sidebar-wiki %}
 4. Using the wiki sidebar, navigate to the page you want to change. In the upper-right corner of the page, click **Edit**.
    ![Wiki edit page button](/assets/images/help/wiki/wiki_edit_page_button.png)
-5. Use the text editor edit the page's content.
+5. Use the text editor to edit the page's content.
    ![Wiki WYSIWYG](/assets/images/help/wiki/wiki_wysiwyg.png)
 6. Type a commit message describing your changes.
    ![Wiki commit message](/assets/images/help/wiki/wiki_commit_message.png)
 7. To commit your changes to the wiki, click **Save Page**.
 
-### Adding or editing wiki pages locally
+## Adding or editing wiki pages locally
 
 Wikis are part of Git repositories, so you can make changes locally and push them to your repository using a Git workflow.
 
-#### Cloning wikis to your computer
+### Cloning wikis to your computer
 
 Every wiki provides an easy way to clone its contents down to your computer.
-You can clone the repository to your computer with the provided URL:
+Once you've created an initial page on {% data variables.product.product_name %}, you can clone the repository to your computer with the provided URL:
 
 ```shell
-$ git clone https://github.com/<em>YOUR_USERNAME</em>/<em>YOUR_REPOSITORY</em>.wiki.git
+$ git clone https://github.com/YOUR_USERNAME/YOUR_REPOSITORY.wiki.git
 # Clones the wiki locally
 ```
 
 Once you have cloned the wiki, you can add new files, edit existing ones, and commit your changes. You and your collaborators can create branches when working on wikis, but only changes pushed to the default branch will be made live and available to your readers.
 
-### About wiki filenames
+## About wiki filenames
 
 The filename determines the title of your wiki page, and the file extension determines how your wiki content is rendered.
 

@@ -1,0 +1,5 @@
+# Reference: #6672
+# Documentation for GitHub Code Search limited public beta
+versions:
+  fpt: '*'
+  ghec: '*'

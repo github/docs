@@ -1,1 +1,0 @@
-1. （可选）过滤警报列表。 您可以单击下拉过滤菜单中的多个过滤器以缩小搜索范围。 您也可以在 **Search repositories（搜索仓库）**字段中输入搜索限定符。 有关可用限定符的更多信息，请参阅“[筛选警报列表](#filtering-the-list-of-alerts)”。 ![安全概览中的下拉过滤菜单和搜索仓库字段](/assets/images/help/organizations/security-overview-filter-alerts.png)

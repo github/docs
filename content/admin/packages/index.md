@@ -4,7 +4,7 @@ intro: 'You can enable {% data variables.product.prodname_registry %} for your e
 redirect_from:
   - /enterprise/admin/packages
 versions:
-  enterprise-server: '>=2.22'
+  ghes: '*'
 topics:
   - Enterprise
 children:
@@ -14,7 +14,9 @@ children:
   - /enabling-github-packages-with-minio
   - /quickstart-for-configuring-your-minio-storage-bucket-for-github-packages
   - /configuring-package-ecosystem-support-for-your-enterprise
+  - /migrating-your-enterprise-to-the-container-registry-from-the-docker-registry
+shortTitle: Manage GitHub Packages
 ---
 {% data reusables.package_registry.packages-ghes-release-stage %}
-  {% if currentVersion ver_gt "enterprise-server@2.22" %}
+  {% ifversion ghes %}
   {% endif %}

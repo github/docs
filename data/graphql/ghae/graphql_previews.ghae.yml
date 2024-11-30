@@ -25,7 +25,7 @@
     - CreateDeploymentInput
     - CreateDeploymentPayload
   owning_teams:
-    - '@github/ecosystem-api'
+    - '@github/c2c-actions-service'
 - title: >-
     MergeInfoPreview - More detailed information about a pull request's merge
     state.
@@ -53,6 +53,22 @@
     - UpdateRefsPayload
   owning_teams:
     - '@github/reponauts'
+- title: Access to a Repository's Dependency Graph
+  description: This preview adds support for reading a dependency graph for a repository.
+  toggled_by: ':hawkgirl-preview'
+  announcement: null
+  updates: null
+  toggled_on:
+    - DependencyGraphManifest
+    - Repository.dependencyGraphManifests
+    - DependencyGraphManifestEdge
+    - DependencyGraphManifestConnection
+    - DependencyGraphDependency
+    - DependencyGraphDependencyEdge
+    - DependencyGraphDependencyConnection
+    - DependencyGraphPackageRelease.dependencies
+  owning_teams:
+    - '@github/dependency-graph'
 - title: Project Event Details
   description: >-
     This preview adds project, project card, and project column details to
@@ -75,15 +91,6 @@
     - RemovedFromProjectEvent.projectColumnName
   owning_teams:
     - '@github/github-projects'
-- title: Create content attachments
-  description: This preview adds support for creating content attachments.
-  toggled_by: ':corsair-preview'
-  announcement: null
-  updates: null
-  toggled_on:
-    - Mutation.createContentAttachment
-  owning_teams:
-    - '@github/feature-lifecycle'
 - title: Labels Preview
   description: >-
     This preview adds support for adding, updating, creating and deleting

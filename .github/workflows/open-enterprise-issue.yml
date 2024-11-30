@@ -5,8 +5,12 @@ name: Open Enterprise release or deprecation issue
 # **Who does it impact**: Docs engineering, docs content.
 
 on:
+  workflow_dispatch:
   schedule:
-    - cron: '49 14 * * *' # At 14:49 UTC daily
+    - cron: '20 16 * * *' # Run every day at 16:20 UTC / 8:20 PST
+
+permissions:
+  contents: read
 
 jobs:
   open_enterprise_issue:
@@ -14,38 +18,35 @@ jobs:
     if: github.repository == 'github/docs-internal'
     runs-on: ubuntu-latest
     steps:
+      - name: Checkout repository code
+        uses: actions/checkout@93ea575cb5d8a053eaa0ac8fa3b40d7e05a33cc8
+
+      - uses: ./.github/actions/node-npm-setup
+
       - name: Check for existing release or deprecation issues
         id: existingIssue
         run: |
           .github/actions-scripts/check-for-enterprise-issues-by-label.js
         env:
-          GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
-
-      - uses: actions/checkout@5a4ac9002d0be2fb38bd78e4b4dbde5606d7042f
-        if: steps.existingIssue.outputs.deprecationIssue == 'false' ||  steps.existingIssue.outputs.releaseIssue == 'false'
-
-      - name: npm ci
-        if: steps.existingIssue.outputs.deprecationIssue == 'false' || steps.existingIssue.outputs.releaseIssue == 'false'
-        run: npm ci
-
-      - name: npm run build
-        if: steps.existingIssue.outputs.deprecationIssue == 'false' ||  steps.existingIssue.outputs.releaseIssue == 'false'
-        run: npm run build
+          GITHUB_TOKEN: ${{ secrets.DOCS_BOT_FR }}
 
       - name: Update enterprise dates
-        if: steps.existingIssue.outputs.deprecationIssue == 'false' ||  steps.existingIssue.outputs.releaseIssue == 'false'
+        if: steps.existingIssue.outputs.deprecationIssue == 'false' || steps.existingIssue.outputs.releaseIssue == 'false'
         run: |
           script/update-enterprise-dates.js
+        env:
+          GITHUB_TOKEN: ${{ secrets.DOCS_BOT_FR }}
 
       - name: Create an enterprise release issue
         if: steps.existingIssue.outputs.releaseIssue == 'false'
         run: |
           .github/actions-scripts/create-enterprise-issue.js release
         env:
-          GITHUB_TOKEN: ${{ secrets.DOCUBOT_FR_PROJECT_BOARD_WORKFLOWS_REPO_ORG_READ_SCOPES }}
+          GITHUB_TOKEN: ${{ secrets.DOCS_BOT_FR }}
+
       - name: Create an enterprise deprecation issue
         if: steps.existingIssue.outputs.deprecationIssue == 'false'
         run: |
           .github/actions-scripts/create-enterprise-issue.js deprecation
         env:
-          GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
+          GITHUB_TOKEN: ${{ secrets.DOCS_BOT_FR }}

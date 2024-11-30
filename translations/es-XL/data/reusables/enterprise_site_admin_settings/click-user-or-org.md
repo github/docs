@@ -1,1 +1,0 @@
-1. En los resultados de búsqueda, da clic en el nombre de usuario u organización. ![Opciones de búsqueda de la configuración de administrador para el sitio](/assets/images/enterprise/site-admin-settings/click-user.png)

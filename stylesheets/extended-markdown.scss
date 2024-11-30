@@ -1,17 +1,40 @@
-.extended-markdown p {
-  margin: 0;
+.extended-markdown {
+  .note,
+  .tip,
+  .warning,
+  .danger {
+    // remove extra space under lists inside of notes
+    ul,
+    ol {
+      margin-bottom: 0;
+    }
+  }
+
+  p:not(:first-child) {
+    margin-top: 1rem;
+  }
+
+  &.note pre code {
+    color: var(--color-fg-default);
+    margin: 1rem;
+  }
+
+  &.note pre {
+    background: none;
+    padding: 0.5rem 0.5rem 0.5rem 0;
+    margin-bottom: 0;
+  }
+
+  &.note,
+  &.warning,
+  &.tip,
+  &.danger {
+    p:last-child {
+      margin-bottom: 0;
+    }
+  }
 }
 
-.extended-markdown p:not(:first-child) {
-  margin-top: 15px;
-}
-
-.extended-markdown.note pre {
-  background: none;
-  padding: 10px 10px 10px 0;
-  margin-bottom: 0;
-}
-
-.extended-markdown.note pre code {
-  color: var(--color-text-primary);
+.warning {
+  font-weight: normal;
 }

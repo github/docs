@@ -1,0 +1,7 @@
+# Reference: #7792
+# Documentation for incremental improvements to community contributions
+versions:
+  fpt: '*'
+  ghec: '*'
+  ghes: '>=3.8'
+  ghae: '>= 3.8'

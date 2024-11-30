@@ -1,0 +1,7 @@
+# Reference: #8273
+# New Actions `save-state`` and `set-output` env file commands, which deprecates their stdout counterparts.
+versions:
+  fpt: '*'
+  ghec: '*'
+  ghes: '>= 3.8'
+  ghae: '>= 3.8'

@@ -1,1 +1,0 @@
-Se você habilitou o modo privado na sua instância, abrir esta porta só é necessário se você também habilitou o acesso de leitura anônimo do Git. Para obter mais informações, consulte "[Aplicar políticas de gerenciamento do repositório na sua empresa](/admin/policies/enforcing-repository-management-policies-in-your-enterprise#configuring-anonymous-git-read-access)".

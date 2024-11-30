@@ -1,4 +1,4 @@
-1. To mark the failed node offline, on any node, modify the [cluster configuration file](/enterprise/{{ currentVersion }}/admin/guides/clustering/initializing-the-cluster/#about-the-cluster-configuration-file) (`cluster.conf`) in the relevant node section to include the text `offline = true`.
+1. To mark the failed node offline, on any node, modify the [cluster configuration file](/enterprise/admin/guides/clustering/initializing-the-cluster/#about-the-cluster-configuration-file) (`cluster.conf`) in the relevant node section to include the text `offline = true`.
 
   For example, this modified `cluster.conf` will mark the `ghe-data-node-3` node as offline:
 

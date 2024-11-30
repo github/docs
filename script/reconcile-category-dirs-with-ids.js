@@ -1,20 +1,5 @@
 #!/usr/bin/env node
 
-const fs = require('fs')
-const path = require('path')
-const frontmatter = require('../lib/read-frontmatter')
-const walk = require('walk-sync')
-const slash = require('slash')
-const GithubSlugger = require('github-slugger')
-const { XmlEntities } = require('html-entities')
-const loadSiteData = require('../lib/site-data')
-const renderContent = require('../lib/render-content')
-
-const slugger = new GithubSlugger()
-const entities = new XmlEntities()
-
-const contentDir = path.join(process.cwd(), 'content')
-
 // [start-readme]
 //
 // An automated test checks for discrepancies between category directory names and
@@ -27,6 +12,19 @@ const contentDir = path.join(process.cwd(), 'content')
 //
 // [end-readme]
 
+import fs from 'fs'
+import path from 'path'
+import frontmatter from '../lib/read-frontmatter.js'
+import walk from 'walk-sync'
+import slash from 'slash'
+import GithubSlugger from 'github-slugger'
+import { decode } from 'html-entities'
+import renderContent from '../lib/render-content/index.js'
+
+const slugger = new GithubSlugger()
+
+const contentDir = path.join(process.cwd(), 'content')
+
 // TODO fix path separators in the redirect
 if (process.platform.startsWith('win')) {
   console.log('This script cannot be run on Windows at this time! Exiting...')
@@ -36,9 +34,8 @@ if (process.platform.startsWith('win')) {
 // Execute!
 main()
 
-async function main () {
+async function main() {
   const englishCategoryIndices = getEnglishCategoryIndices()
-  const siteData = await getEnglishSiteData()
 
   for (const categoryIndex of englishCategoryIndices) {
     const contents = fs.readFileSync(categoryIndex, 'utf8')
@@ -48,9 +45,9 @@ async function main () {
     const categoryDirPath = path.dirname(categoryIndex)
     const categoryDirName = path.basename(categoryDirPath)
 
-    const title = await renderContent(data.title, { site: siteData }, { textOnly: true })
+    const title = await renderContent(data.title, {}, { textOnly: true })
     slugger.reset()
-    const expectedSlug = slugger.slug(entities.decode(title))
+    const expectedSlug = slugger.slug(decode(title))
 
     // If the directory name already matches the expected slug, bail out now
     if (categoryDirName === expectedSlug) continue
@@ -85,7 +82,10 @@ Redirect: "${redirectPath}"
       const articlePath = path.join(categoryDirPath, articleFileName)
 
       // Figure out redirect path
-      const articlePathMinusExtension = path.join(categoryDirPath, path.basename(articleFileName, '.md'))
+      const articlePathMinusExtension = path.join(
+        categoryDirPath,
+        path.basename(articleFileName, '.md')
+      )
       const redirectArticlePath = '/' + slash(path.relative(contentDir, articlePathMinusExtension))
 
       // Log it
@@ -108,7 +108,10 @@ Redirect: "${redirectArticlePath}"
       articleData.redirect_from.push(redirectArticlePath)
 
       // Update the article file on disk
-      fs.writeFileSync(articlePath, frontmatter.stringify(articleContent, articleData, { lineWidth: 10000 }))
+      fs.writeFileSync(
+        articlePath,
+        frontmatter.stringify(articleContent, articleData, { lineWidth: 10000 })
+      )
     }
 
     // Update the reference to this category in the product index file on disk
@@ -118,8 +121,14 @@ Redirect: "${redirectArticlePath}"
     const productIndexPath = path.join(categoryDirParentDir, 'index.md')
     const productIndexContents = fs.readFileSync(productIndexPath, 'utf8')
     const { data: productIndexData, content: productIndex } = frontmatter(productIndexContents)
-    const revisedProductIndex = productIndex.replace(new RegExp(`(\\s+)(?:/${categoryDirName})(\\s+)`, 'g'), `$1/${expectedSlug}$2`)
-    fs.writeFileSync(productIndexPath, frontmatter.stringify(revisedProductIndex, productIndexData, { lineWidth: 10000 }))
+    const revisedProductIndex = productIndex.replace(
+      new RegExp(`(\\s+)(?:/${categoryDirName})(\\s+)`, 'g'),
+      `$1/${expectedSlug}$2`
+    )
+    fs.writeFileSync(
+      productIndexPath,
+      frontmatter.stringify(revisedProductIndex, productIndexData, { lineWidth: 10000 })
+    )
 
     console.log(`*** Updated product index "${productIndexPath}" for ☝️\n`)
 
@@ -128,18 +137,13 @@ Redirect: "${redirectArticlePath}"
   }
 }
 
-function getEnglishCategoryIndices () {
+function getEnglishCategoryIndices() {
   const walkOptions = {
     globs: ['*/*/**/index.md'],
     ignore: ['{rest,graphql,developers}/**', 'enterprise/admin/index.md', '**/articles/**'],
     directories: false,
-    includeBasePath: true
+    includeBasePath: true,
   }
 
   return walk(contentDir, walkOptions)
-}
-
-async function getEnglishSiteData () {
-  const siteData = await loadSiteData()
-  return siteData.en.site
 }

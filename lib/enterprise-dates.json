@@ -97,14 +97,46 @@
   },
   "3.1": {
     "releaseDate": "2021-05-06",
-    "deprecationDate": "2022-06-01"
+    "deprecationDate": "2022-06-30"
   },
   "3.2": {
-    "releaseDate": "2021-07-27",
-    "deprecationDate": "2022-08-24"
+    "releaseDate": "2021-09-09",
+    "deprecationDate": "2022-10-12"
   },
   "3.3": {
     "releaseDate": "2021-11-09",
-    "deprecationDate": "2022-12-07"
+    "deprecationDate": "2023-01-18"
+  },
+  "3.4": {
+    "releaseDate": "2022-02-15",
+    "deprecationDate": "2023-03-15"
+  },
+  "3.5": {
+    "releaseDate": "2022-05-10",
+    "deprecationDate": "2023-05-31"
+  },
+  "3.6": {
+    "releaseDate": "2022-07-26",
+    "deprecationDate": "2023-08-16"
+  },
+  "3.7": {
+    "releaseDate": "2022-10-25",
+    "deprecationDate": "2023-11-08"
+  },
+  "3.8": {
+    "releaseDate": "2023-02-07",
+    "deprecationDate": "2024-03-07"
+  },
+  "3.9": {
+    "releaseDate": "2023-05-09",
+    "deprecationDate": "2024-06-06"
+  },
+  "3.10": {
+    "releaseDate": "2023-08-08",
+    "deprecationDate": "2024-08-29"
+  },
+  "3.11": {
+    "releaseDate": "2023-10-31",
+    "deprecationDate": "2024-11-28"
   }
 }

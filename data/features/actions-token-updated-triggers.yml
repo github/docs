@@ -1,0 +1,7 @@
+# Reference: #7987
+# Allow customers to trigger workflow_dispatch and repository_dispatch with GITHUB_TOKEN
+versions:
+  fpt: '*'
+  ghec: '*'
+  ghes: '> 3.7'
+  ghae: '>= 3.8'

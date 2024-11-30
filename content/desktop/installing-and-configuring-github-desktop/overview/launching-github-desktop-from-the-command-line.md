@@ -6,7 +6,7 @@ redirect_from:
   - /desktop/getting-started-with-github-desktop/launching-github-desktop-from-the-command-line
   - /desktop/installing-and-configuring-github-desktop/launching-github-desktop-from-the-command-line
 versions:
-  free-pro-team: '*'
+  fpt: '*'
 ---
 {% mac %}
 
@@ -16,13 +16,13 @@ versions:
 3. {% data reusables.desktop.launch-desktop-from-command-line %}
 
   ```shell
-  $ github <em>/path/to/repo</em>
+  $ github /PATH/TO/REPO
   ```
 
   You can also change to your repository path and then type `github .` to open that repository.
 
   ```shell
-  $ cd <em>/path/to/repo</em>
+  $ cd /PATH/TO/REPO
   [repo]$ github .
   ```
 
@@ -34,13 +34,13 @@ versions:
 2. {% data reusables.desktop.launch-desktop-from-command-line %}
 
   ```shell
-  C:\Users\octocat> github <em>path\to\repo</em>
+  C:\Users\octocat> github PATH\TO\REPO
   ```
 
  You can also change to your repository path and then type `github .` to open that repository.
 
   ```shell
-  C:\Users\octocat> cd <em>repo\myrepo</em>
+  C:\Users\octocat> cd REPO\MY-REPO
   C:\Users\octocat\repo\myrepo> github .
   ```
 

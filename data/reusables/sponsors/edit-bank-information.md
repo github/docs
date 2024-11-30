@@ -1,2 +1,2 @@
-4. Under "Payouts information", click **Edit your bank information**.
+1. Under "Payouts information", click **Edit your bank information**. If you use a fiscal host to receive payouts, you cannot edit your payout information directly but can click the **Contact support** link to get help changing payout information.
    ![Edit your bank information link](/assets/images/help/sponsors/edit-bank-info.png)

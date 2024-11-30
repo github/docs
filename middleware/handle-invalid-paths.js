@@ -1,41 +1,12 @@
-const patterns = require('../lib/patterns')
+import statsd from '../lib/statsd.js'
 
-module.exports = function handleInvalidPaths (req, res, next) {
-  // prevent open redirect vulnerability
-  if (req.path.match(patterns.multipleSlashes)) {
+const STATSD_KEY = 'middleware.handle_invalid_paths'
+
+export default function handleInvalidPaths(req, res, next) {
+  // Prevent various malicious injection attacks targeting Next.js
+  if (req.path.match(/^\/_next[^/]/) || req.path === '/_next/data' || req.path === '/_next/data/') {
+    statsd.increment(STATSD_KEY, 1, ['check:nextjs-injection-attack'])
     return next(404)
-  }
-
-  // Prevent Express from blowing up with `URIError: Failed to decode param`
-  // for paths like /%7B%
-  try {
-    decodeURIComponent(req.path)
-  } catch (err) {
-    if (process.env.NODE_ENV !== 'test') {
-      console.error('unable to decode path', req.path, err)
-    }
-
-    return res.sendStatus(400)
-  }
-
-  // Prevent spammy request URLs from getting through by checking how they
-  // handle being normalized twice in a row
-  try {
-    const origin = 'https://docs.github.com'
-    const normalizedPath = new URL(req.path, origin).pathname
-
-    // This may also throw an error with code `ERR_INVALID_URL`
-    const reNormalizedPath = new URL(normalizedPath, origin).pathname
-
-    if (reNormalizedPath !== normalizedPath) {
-      throw new Error('URI keeps changing')
-    }
-  } catch (err) {
-    if (process.env.NODE_ENV !== 'test') {
-      console.error('unable to normalize path', req.path, err)
-    }
-
-    return res.sendStatus(400)
   }
 
   return next()

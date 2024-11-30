@@ -3,15 +3,16 @@ title: Documenting your project with wikis
 shortTitle: Using wikis
 intro: 'You can use a wiki to share detailed, long-form information about your project.'
 redirect_from:
-  - /categories/49/articles/
-  - /categories/wiki/
+  - /categories/49/articles
+  - /categories/wiki
   - /articles/documenting-your-project-with-wikis
   - /github/building-a-strong-community/documenting-your-project-with-wikis
 product: '{% data reusables.gated-features.wikis %}'
 versions:
-  free-pro-team: '*'
-  enterprise-server: '*'
-  github-ae: '*'
+  fpt: '*'
+  ghes: '*'
+  ghae: '*'
+  ghec: '*'
 topics:
   - Community
 children:

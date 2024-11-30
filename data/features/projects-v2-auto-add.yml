@@ -1,0 +1,4 @@
+# Issue 8996
+# ProjectV2 auto-adding
+versions:
+  ghec: '*'

@@ -1,1 +1,0 @@
-Deaktiviere die Kontrollkästchen neben den auszuschließenden Dateien, um **alle Änderungen in einer oder mehreren Dateien** zu einem einzelnen Commit hinzuzufügen, wodurch nur die Dateien bleiben, die im Commit verwendet werden sollen. Nach der Auswahl einer Datei kannst Du das Kontrollkästchen mithilfe der `Leertasten` oder `Eingabetaste` umschalten.

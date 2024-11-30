@@ -1,0 +1,1 @@
+If an invitee does not accept the invitation within seven days, the pending invitation expires automatically. After expiration, {% data variables.product.company_short %} will no longer bill you for the pending invitation.{% ifversion ghec %} If a SCIM request from your identity provider (IdP) generates the invitation, the invitation will not expire.{% endif %}

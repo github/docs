@@ -1,15 +1,16 @@
 ---
 title: Use autograding
 intro: You can automatically provide feedback on code submissions from your students by configuring tests to run in the assignment repository.
-miniTocMaxHeadingLevel: 4
+miniTocMaxHeadingLevel: 3
 versions:
-  free-pro-team: '*'
+  fpt: '*'
+permissions: 'Organization owners who are admins for a classroom can set up and use autograding on assignments in a classroom. {% data reusables.classroom.classroom-admins-link %}'
 redirect_from:
   - /education/manage-coursework-with-github-classroom/adding-tests-for-auto-grading
   - /education/manage-coursework-with-github-classroom/reviewing-auto-graded-work-teachers
   - /education/manage-coursework-with-github-classroom/use-autograding
 ---
-### About autograding
+## About autograding
 
 {% data reusables.classroom.about-autograding %}
 
@@ -19,13 +20,13 @@ You can use a testing framework, run a custom command, write input/output tests,
 
 You can see an overview of which students are passing autograding tests by navigating to the assignment in {% data variables.product.prodname_classroom %}. A green checkmark means that all tests are passing for the student, and a red X means that some or all tests are failing for the student. If you award points for one or more tests, then a bubble shows the score for the tests out of the maximum possible score for the assignment.
 
-![Overview for an assignment with autograding results](/assets/images/help/classroom/autograding-hero.png)
+![Overview for an assignment with autograding results](/assets/images/help/classroom/assignment-individual-hero.png)
 
-### Grading methods
+## Grading methods
 
 There are two grading methods: input/output tests and run command tests.
 
-#### Input/output test
+### Input/output test
 
 An input/output test optionally runs a setup command, then provides standard input to a test command. {% data variables.product.prodname_classroom %} evaluates the test command's output against an expected result.
 
@@ -40,7 +41,7 @@ An input/output test optionally runs a setup command, then provides standard inp
 | **Timeout** | In minutes, how long a test should run before resulting in failure |
 | **Points** | _Optional_. The number of points the test is worth toward a total score |
 
-#### Run command test
+### Run command test
 
 A run command test runs a setup command, then runs a test command. {% data variables.product.prodname_classroom %} checks the exit status of the test command. An exit code of `0` results in success, and any other exit code results in failure.
 
@@ -54,11 +55,11 @@ A run command test runs a setup command, then runs a test command. {% data varia
 | **Timeout** | In minutes, how long a test should run before resulting in failure |
 | **Points** | _Optional_. The number of points the test is worth toward a total score |
 
-### Configuring autograding tests for an assignment
+## Configuring autograding tests for an assignment
 
 You can add autograding tests during the creation of a new assignment. {% data reusables.classroom.for-more-information-about-assignment-creation %}
 
-You can add, edit, or delete autograding tests for an existing assignment. If you change the autograding tests for an existing assignment, existing assignment repositories will not be affected. A student or team must accept the assignment and create a new assignment repository to use the new tests.
+You can add, edit, or delete autograding tests for an existing assignment. All changes made via the Classroom UI will be pushed to the existing student repositories, so use caution when editing your tests.
 
 {% data reusables.classroom.sign-into-github-classroom %}
 {% data reusables.classroom.click-classroom-in-list %}
@@ -79,8 +80,15 @@ You can add, edit, or delete autograding tests for an existing assignment. If yo
 1. At the bottom of the page, click **Update assignment**.
   !["Update assignment" button at the bottom of the page](/assets/images/help/classroom/assignments-click-update-assignment.png)
 
-### Viewing logs from autograding tests
+## Viewing and downloading results from autograding tests
 
+### Download autograding results
+
+You can also download a CSV of your students' autograding scores via the "Download" button. This will generate and download a CSV containing a link to the student's repository, their {% data variables.product.prodname_dotcom %} handle, roster identifier, submission timestamp, and autograding score.
+
+!["Download" button selected showing "Download grades highlighted" and an additional option to "Download repositories"](/assets/images/help/classroom/download-grades.png)
+
+### View individual logs
 {% data reusables.classroom.sign-into-github-classroom %}
 {% data reusables.classroom.click-classroom-in-list %}
 {% data reusables.classroom.click-assignment-in-list %}
@@ -88,6 +96,6 @@ You can add, edit, or delete autograding tests for an existing assignment. If yo
   !["View test" button for an assignment submission](/assets/images/help/classroom/assignments-click-view-test.png)
 1. Review the test output. For more information, see "[Using workflow run logs](/actions/managing-workflow-runs/using-workflow-run-logs)."
 
-### Further reading
+## Further reading
 
 - [{% data variables.product.prodname_actions %} documentation](/actions)

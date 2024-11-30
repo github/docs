@@ -1,5 +1,5 @@
 1. Navigate to your sponsorship dashboard for the account.
-   - If you're sponsoring a user account, under the user's name, click **Sponsoring**.
+   - If you're sponsoring a personal account, under the user's name, click **Sponsoring**.
      ![Sponsoring button](/assets/images/help/profile/sponsoring-button.png)
    -  If you're sponsoring an organization, to the right of the organization's name, click **Sponsoring**.
      ![Sponsoring button](/assets/images/help/sponsors/org-sponsoring-button.png)

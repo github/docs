@@ -1,1 +1,0 @@
-El uso de {% data variables.product.prodname_actions %} es gratuito para los repositorios públicos. Para los repositorios privados, cada cuenta de {% data variables.product.prodname_dotcom %} recibe una cantidad determinada de minutos y almacenamiento gratuitos dependiendo del producto que se utilice con la cuenta.

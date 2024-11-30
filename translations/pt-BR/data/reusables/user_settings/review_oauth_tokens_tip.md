@@ -1,1 +1,0 @@
-Recomendamos que você revise regularmente as integrações autorizadas. Remova todos os aplicativos e tokens que não tenham sido usados por um tempo. Para obter mais informações, consulte "[Revisar integrações autorizadas](/articles/reviewing-your-authorized-integrations)".

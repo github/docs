@@ -1,0 +1,7 @@
+# Reference: #6046
+# Repo Policies: Admins can block pushes that destructively use --mirror - [GA]
+versions:
+  fpt: '*'
+  ghec: '*'
+  ghes: '>=3.7'
+  ghae: '>=3.7'

@@ -1,1 +1,0 @@
-- **Solicitudes de la API** - Puedes ejecutar hasta 1000 solicitudes de API en una hora en todas las acciones dentro de un repositorio. Si esto se excede, los llamados adicionales a la API fallarán, lo cual puede ocasionar que los jobs fallen también.

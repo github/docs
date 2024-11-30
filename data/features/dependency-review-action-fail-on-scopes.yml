@@ -1,0 +1,7 @@
+# Reference: Issue #7739 - Dependency review action, new config option "fail-on-scopes" added.
+
+versions:
+  fpt: '*'
+  ghec: '*'
+  ghes: '> 3.7'
+  ghae: '> 3.7'

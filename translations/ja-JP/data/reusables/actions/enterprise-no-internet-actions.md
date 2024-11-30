@@ -1,1 +1,0 @@
-{% data variables.product.product_name %}上の{% data variables.product.prodname_actions %}は、完全なインターネットアクセスのない環境で動作するように設計されています。 デフォルトでは、ワークフローは{% data variables.product.prodname_dotcom_the_website %}及び[{% data variables.product.prodname_marketplace %}](https://github.com/marketplace?type=actions)からのアクションを使うことができません。

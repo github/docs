@@ -1,0 +1,3 @@
+This article refers to the classic GitHub search experience. If you are participating in the new code search and code view beta and have enabled the new functionality, the syntax for searching code and the GitHub.com search interface will differ. However, the search syntax for non-code search types will stay the same.
+
+For information about the new code search and code view, currently in limited public beta, see "[About GitHub Code Search (beta)](/search-github/github-code-search/about-github-code-search)." To try out the new code search and code view beta, join the [waitlist](https://github.com/features/code-search-code-view/signup).

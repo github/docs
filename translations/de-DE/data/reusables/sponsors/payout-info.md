@@ -1,1 +1,0 @@
-Informationen zum Zeitpunkt der Zahlungen von {% data variables.product.prodname_sponsors %} findest Du auf „[Zusätzliche Bedingungen für GitHub-Sponsoren".](/github/site-policy/github-sponsors-additional-terms#43-payment-timing)

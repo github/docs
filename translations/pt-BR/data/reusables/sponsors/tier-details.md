@@ -1,3 +1,0 @@
-Você pode criar até dez camadas de patrocínio para escolher. Each tier has its own monthly or one-time payment amount in US dollars and benefits, such as receiving early access to new versions or being featured in the project's README. In addition, you can choose to enable tiers for custom amounts (monthly and one-time).
-
-Após publicar uma camada, você não pode editar o preço dessa camada. Em vez disso, você deve se retirar a camada e criar uma nova. Existing sponsors will remain on the retired tier until they change their sponsorship tier, cancel their sponsorship, or their one-time sponsorship period expires.

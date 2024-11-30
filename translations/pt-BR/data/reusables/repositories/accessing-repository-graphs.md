@@ -1,1 +1,0 @@
-1. No nome do repositório, clique em {% octicon "graph" aria-label="The bar graph icon" %} **Insights**. ![Aba de insights na barra de navegação do repositório principal](/assets/images/help/repository/repo-nav-insights-tab.png)

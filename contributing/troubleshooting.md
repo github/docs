@@ -95,9 +95,9 @@ Broken images include `assets/images/` in the URL and are often caused by images
 For broken links to articles on our site, find the file that contains the link by searching the `docs` repository for the file name (e.g., `incorporating-feedback-in-your-pull-request`). Try the following fixes:
 
 1. Make sure the link is versioned correctly. For example, if the article only exists for 2.17+, make sure the link is versioned for 2.17+.
-2. If an article that is available for GHES links to a dotcom-only article, use a dotcom-only class to prevent the URL from automatically converting to include a GHES version number:
+2. If an article that is available for GHES links to a dotcom-only article, include the version in the path to prevent the URL from automatically converting to include a GHES version number:
   ```
-  <a href="/articles/github-connect-addendum-to-the-github-enterprise-license-agreement/" class="dotcom-only">{{ site.data.variables.product.prodname_github_connect }} Addendum to the {{ site.data.variables.product.prodname_enterprise }} License Agreement</a>
+  [{{ site.data.variables.product.prodname_github_connect }} Addendum to the {{ site.data.variables.product.prodname_enterprise }} License Agreement](/free-pro-team@latest/articles/github-connect-addendum-to-the-github-enterprise-license-agreement/)"
   ```
 
 ## Check external links
@@ -115,3 +115,19 @@ During development, you can visit any page on `http://localhost:4000` and add `?
 | `redirect_from` | Shows the hardcoded redirects in the [`redirect_from` frontmatter](content#redirect_from).
 | `redirects` | Shows all redirects that the site is generating for the page.
 | `includesPlatformSpecificContent` | Shows whether the site detects any [platform-specific content](#operating-system-tags) on the page.
+
+## Liquid processing
+
+If your text or code example includes `{` or `}` that should render, you need to wrap it in `{% raw %}` `{% endraw %}` to disable Liquid processing for that section. For example:
+
+- **Use**:
+
+  ```
+  GITHUB_TOKEN: {% raw %}${{ secrets.GITHUB_TOKEN }}{% endraw %}
+  ```
+
+- **Avoid**:
+
+  ```
+  GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
+  ```

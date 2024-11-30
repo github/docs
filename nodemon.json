@@ -2,10 +2,14 @@
   "ext": "js,json,yml,md,html,scss",
   "ignore": [
     "assets",
-    "scripts",
-    "translations",
-    "dist",
-    "javascripts",
-    "stylesheets"
+    "script",
+    "stylesheets",
+    "tests",
+    "content",
+    "data/reusables",
+    "data/variables",
+    "data/glossaries",
+    "data/product-examples",
+    "data/learning-tracks"
   ]
 }

@@ -5,11 +5,13 @@ redirect_from:
   - /articles/adding-a-billing-manager-to-your-organization
   - /github/setting-up-and-managing-organizations-and-teams/adding-a-billing-manager-to-your-organization
 versions:
-  free-pro-team: '*'
+  fpt: '*'
+  ghec: '*'
 topics:
   - Organizations
   - Teams
   - Billing
+shortTitle: Add a billing manager
 ---
 
 Members of your organization's Owners team can give *billing manager* permissions to people. Once a person accepts their invitation to become a billing manager for your organization, they can invite additional people to be billing managers.
@@ -20,7 +22,7 @@ Members of your organization's Owners team can give *billing manager* permission
 
 {% endnote %}
 
-### Permissions for billing managers
+## Permissions for billing managers
 
 Billing managers can:
 
@@ -29,6 +31,7 @@ Billing managers can:
 - View payment history
 - Download receipts
 - View, invite, and remove billing managers
+- Start, modify, or cancel sponsorships
 
 In addition, all billing managers will receive billing receipts by email on the organization's billing date.
 
@@ -45,14 +48,24 @@ Billing managers **are not** able to:
 
 {% endtip %}
 
-### Inviting a billing manager
+## Inviting a billing manager
+
+{% ifversion ghec %}
+{% note %}
+
+**Note:** If your organization is owned by an enterprise account, you cannot invite billing managers at the organization level. For more information, see "[About enterprise accounts](/admin/overview/about-enterprise-accounts)."
+
+{% endnote %}
+{% endif %}
 
 The invited person will receive an invitation email asking them to become a billing manager for your organization. Once the invited person clicks the accept link in their invitation email, they will automatically be added to the organization as a billing manager. If they don't already have a GitHub account, they will be directed to sign up for one, and they will be automatically added to the organization as a billing manager after they create an account.
 
-{% data reusables.profile.access_org %}
-{% data reusables.profile.org_settings %}
-{% data reusables.organizations.billing_plans %}
+{% data reusables.organizations.billing-settings %}
 1. Under "Billing management", next to "Billing managers", click **Add**.
   ![Invite billing manager](/assets/images/help/billing/settings_billing_managers_list.png)
 6. Type the username or email address of the person you want to add and click **Send invitation**.
   ![Invite billing manager page](/assets/images/help/billing/billing_manager_invite.png)
+
+## Further reading
+
+- "[Inviting people to manage your enterprise](/enterprise-cloud@latest/admin/user-management/managing-users-in-your-enterprise/inviting-people-to-manage-your-enterprise)"{% ifversion fpt %} in the {% data variables.product.prodname_ghe_cloud %} documentation{% endif %}

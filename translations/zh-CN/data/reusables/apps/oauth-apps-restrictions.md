@@ -1,1 +1,0 @@
-{% if currentVersion == "free-pro-team@latest" %}如果将 OAuth 应用程序与 GitHub Actions 一起使用并且想要修改工作流程文件， 您的 OAuth 令牌必须具有 `workflow` 作用域，并且用户必须对包含工作流程文件的仓库具有所有者或写入权限。 更多信息请参阅“[了解 OAuth 应用程序的作用域](/apps/building-oauth-apps/understanding-scopes-for-oauth-apps/#available-scopes)”。{% endif %}

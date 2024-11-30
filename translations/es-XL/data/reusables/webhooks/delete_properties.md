@@ -1,4 +1,0 @@
-| Clave      | Tipo        | Descripción                                                                                                                                                                                      |
-| ---------- | ----------- | ------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------ |
-| `ref`      | `secuencia` | {% if currentVersion == "free-pro-team@latest" or currentVersion ver_gt "enterprise-server@2.18" %}El recurso [`git ref`](/v3/git/refs/#get-a-reference).{% else %}El recurso [`git ref`](/v3/git/refs/#get-a-reference).{% endif %}
-| `ref_type` | `secuencia` | El tipo de objeto de Git ref que se borró en el repositorio. Puede ser `branch` o `tag`.                                                                                                         |

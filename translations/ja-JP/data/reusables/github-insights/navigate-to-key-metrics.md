@@ -1,1 +1,0 @@
-1. {% data variables.product.prodname_insights %}で**{% octicon "graph" aria-label="The graph icon" %} Key metrics（主要なメトリクス）**をクリックしてください。 ![主要なメトリクスタブ](/assets/images/help/insights/key-metrics-tab.png)

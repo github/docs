@@ -1,1 +1,0 @@
-Se você for um cliente que paga mensalmente, a sua conta terá um limite de gastos padrão de $ 0, que impede o uso adicional de armazenamento ou transferência de dados após atingir o valor incluído. Se você pagar a sua conta por fatura, sua conta terá um limite de gastos padrão ilimitado.

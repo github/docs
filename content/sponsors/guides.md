@@ -3,9 +3,10 @@ title: GitHub Sponsors guides
 shortTitle: Guides
 intro: 'Learn how to make the most of {% data variables.product.prodname_sponsors %}.'
 allowTitleToDifferFromFilename: true
-layout: product-sublanding
+layout: product-guides
 versions:
-  free-pro-team: '*'
+  fpt: '*'
+  ghec: '*'
 includeGuides:
   - /sponsors/getting-started-with-github-sponsors/quickstart-for-finding-contributors-to-sponsor
   - /sponsors/sponsoring-open-source-contributors/attributing-sponsorships-to-your-organization
@@ -15,3 +16,4 @@ includeGuides:
   - /sponsors/receiving-sponsorships-through-github-sponsors/setting-up-github-sponsors-for-your-organization
   - /sponsors/integrating-with-github-sponsors/configuring-webhooks-for-events-in-your-sponsored-account
 ---
+

@@ -1,0 +1,1 @@
+The board layout spreads your issues, pull requests, and draft issues across customizable columns. You can create a kanban board by setting your column field to a "Status" field or set any other single select or iteration field as the column field. Moving items from column to column will adjust the value of the column field for that item.

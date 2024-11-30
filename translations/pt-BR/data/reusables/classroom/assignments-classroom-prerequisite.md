@@ -1,1 +1,0 @@
-Você deve criar uma sala de aula antes de poder criar uma atividade. Para obter mais informações, consulte "[Gerenciar salas de aula](/education/manage-coursework-with-github-classroom/manage-classrooms)".

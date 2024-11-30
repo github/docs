@@ -6,5 +6,5 @@ includeGuides:
   - /path/guide1
   - /path/guide2
   - /path/guide3
-layout: product-sublanding
+layout: product-guides
 ---

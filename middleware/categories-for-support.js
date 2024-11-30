@@ -1,19 +1,20 @@
-const path = require('path')
-const renderOpts = { textOnly: true, encodeEntities: true }
+import path from 'path'
+
+import { defaultCacheControl } from './cache-control.js'
+
+const renderOpts = { textOnly: true }
 
 // This middleware exposes a list of all categories and child articles at /categories.json.
 // GitHub Support uses this for internal ZenDesk search functionality.
-module.exports = async function categoriesForSupport (req, res, next) {
+export default async function categoriesForSupport(req, res) {
   const englishSiteTree = req.context.siteTree.en
-
   const allCategories = []
 
-  await Promise.all(Object.keys(englishSiteTree).map(async (version) => {
-    await Promise.all(englishSiteTree[version].childPages.map(async (productPage) => {
-      if (productPage.page.relativePath.startsWith('early-access')) return
-      if (!productPage.childPages) return
-
-      await Promise.all(productPage.childPages.map(async (categoryPage) => {
+  for (const productPage of Object.values(englishSiteTree['free-pro-team@latest'].childPages)) {
+    if (productPage.page.relativePath.startsWith('early-access')) continue
+    if (!productPage.childPages || !productPage.childPages.length) continue
+    await Promise.all(
+      productPage.childPages.map(async (categoryPage) => {
         // We can't get the rendered titles from middleware/render-tree-titles
         // here because that middleware only runs on the current version, and this
         // middleware processes all versions.
@@ -23,16 +24,20 @@ module.exports = async function categoriesForSupport (req, res, next) {
 
         allCategories.push({
           name,
-          published_articles: await findArticlesPerCategory(categoryPage, [], req.context)
+          published_articles: await findArticlesPerCategory(categoryPage, [], req.context),
         })
-      }))
-    }))
-  }))
+      })
+    )
+  }
+
+  // Cache somewhat aggressively but note that it will be soft-purged
+  // in every prod deployment.
+  defaultCacheControl(res)
 
   return res.json(allCategories)
 }
 
-async function findArticlesPerCategory (currentPage, articlesArray, context) {
+async function findArticlesPerCategory(currentPage, articlesArray, context) {
   if (currentPage.page.documentType === 'article') {
     const title = currentPage.page.title.includes('{')
       ? await currentPage.page.renderProp('title', context, renderOpts)
@@ -40,16 +45,18 @@ async function findArticlesPerCategory (currentPage, articlesArray, context) {
 
     articlesArray.push({
       title,
-      slug: path.basename(currentPage.href)
+      slug: path.basename(currentPage.href),
     })
   }
 
   if (!currentPage.childPages) return articlesArray
 
   // Run recursively to find any articles deeper in the tree.
-  await Promise.all(currentPage.childPages.map(async (childPage) => {
-    await findArticlesPerCategory(childPage, articlesArray, context)
-  }))
+  await Promise.all(
+    currentPage.childPages.map(async (childPage) => {
+      await findArticlesPerCategory(childPage, articlesArray, context)
+    })
+  )
 
   return articlesArray
 }

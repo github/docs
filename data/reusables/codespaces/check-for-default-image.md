@@ -1,0 +1,1 @@
+For information on how to check whether a codespace was built from the default image, see "[Getting the most out of your included usage](/codespaces/troubleshooting/troubleshooting-included-usage#storage-usage-for-your-base-dev-container)."

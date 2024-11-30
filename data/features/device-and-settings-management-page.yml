@@ -1,0 +1,6 @@
+# Reference: #8482.
+# Device and session management settings page
+versions:
+  fpt: '*'
+  ghec: '*'
+  ghes: '>=3.8'

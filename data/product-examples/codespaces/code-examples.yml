@@ -1,0 +1,54 @@
+- title: .NET sample project
+  description: Try a .NET project with a custom dev container
+  languages: .NET
+  href: microsoft/vscode-remote-try-dotnet
+  tags:
+    - development containers
+- title: C++ sample project
+  description: Try a C++ project with a custom dev container
+  languages: C++
+  href: microsoft/vscode-remote-try-cpp
+  tags:
+    - development containers
+- title: Java sample project
+  description: Try a Java project with a custom dev container
+  languages: Java
+  href: microsoft/vscode-remote-try-java
+  tags:
+    - development containers
+- title: Node.js sample project
+  description: Try a Node.js project with a custom dev container
+  languages: Javascript
+  href: microsoft/vscode-remote-try-node
+  tags:
+    - development containers
+- title: Go sample project
+  description: Try a Go project with a custom dev container
+  languages: Go
+  href: microsoft/vscode-remote-try-go
+  tags:
+    - development containers
+- title: Python sample project
+  description: Try a Python project with a custom dev container
+  languages: Python
+  href: microsoft/vscode-remote-try-python
+  tags:
+    - development containers
+- title: Rust sample project
+  description: Try a Rust project with a custom dev container
+  languages: Rust
+  href: microsoft/vscode-remote-try-rust
+  tags:
+    - development containers
+- title: PHP sample project
+  description: Try a PHP project with a custom dev container
+  languages: PHP
+  href: microsoft/vscode-remote-try-php
+  tags:
+    - development containers
+- title: Azure SQL and SQL Server sample project
+  description: Try an Azure SQL or SQL Server project with a custom dev container
+  languages: SQL
+  href: microsoft/vscode-remote-try-sqlserver
+  tags:
+    - development containers

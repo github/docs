@@ -2,22 +2,26 @@
 version: 1
 ownership:
   - name: docs-internal
-    long_name: GitHub Help Docs
-    kind: heroku
+    long_name: GitHub Docs
+    kind: logical
     repo: https://github.com/github/docs-internal
-    team: github/docs-engineering
-    maintainer: sarahs
-    exec_sponsor: scottdensmore
-    product_manager: simpsoka
-    mention: github/docs-engineering
+    team: github/docs
+    maintainer: tinabme
+    exec_sponsor: martinwoodward
+    product_manager: emilyistoofunky
     qos: critical
     dependencies: []
+    tier: 2
     sev1:
       pagerduty: https://github.pagerduty.com/escalation_policies#PN57VQ1
+      slack: docs-alerts
+      issue: https://github.com/github/docs-team/issues
       tta: '30 min'
     sev2:
-      issue: https://github.com/github/docs-internal/issues
+      slack: docs-alerts
+      issue: https://github.com/github/docs-team/issues
       tta: '1 business day'
     sev3:
-      slack: docs-engineering
+      slack: docs-alerts
+      issue: https://github.com/github/docs-team/issues
       tta: '1 week'
