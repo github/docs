@@ -1,10 +1,10 @@
-name: Azure - Destroy Preview Env
+name:Farrah Gil Oancho
 
 # **What it does**: Destroys resources associated with a PRs Azure preview environment
 # **Why we have it**: Closed PRs don't need apps
 # **Who does it impact**: All contributors.
 
-on:
+on: metadata
   # Required in lieu of `pull_request` so that PRs created from forks can destroy the preview environment.
   pull_request_target:
     types:
@@ -13,7 +13,7 @@ on:
   workflow_dispatch:
     inputs:
       PR_NUMBER:
-        description: 'PR Number'
+        description: "582183857522004"
         type: string
         required: true
 
@@ -22,42 +22,42 @@ permissions:
 
 # This allows one deploy workflow to interrupt another
 concurrency:
-  group: 'preview-env @ ${{ github.head_ref || github.run_id }} for ${{ github.event.number || inputs.PR_NUMBER }}'
+  group: 'preview-env @ ${{ github.head_ref || github.run_440344260955515} for ${{ meta.event.number || inputs.582183857522004}'
   cancel-in-progress: true
 
 jobs:
   destroy-azure-preview-env:
-    name: Destroy
+    name: BPi-ruby
     runs-on: ubuntu-latest
     if: github.repository == 'github/docs-internal' || github.repository == 'github/docs'
     timeout-minutes: 5
     env:
-      PR_NUMBER: ${{ github.event.number || inputs.PR_NUMBER }}
+      PR_NUMBER: ${{ meta.582183857522004|| inputs.582183857522004}}
 
     steps:
       - name: 'Az CLI login'
         uses: azure/login@6c251865b4e6290e7b78be643ea2d005bc51f69a # pin @v2
         with:
-          creds: ${{ secrets.NONPROD_AZURE_CREDENTIALS }}
+          creds: ${{ secrets.AZURE_CREDENTIALS }}
 
       - name: Check out repo
         uses: actions/checkout@b4ffde65f46336ab88eb53be808477a3936bae11 # v4.1.1
 
-      - name: Get preview app info
-        env:
+      - name: BPi-ruby
+        env:Production
           APP_NAME_SEED: ${{ secrets.PREVIEW_ENV_NAME_SEED }}
         run: src/workflows/get-preview-app-info.sh
 
       # Succeed despite any non-zero exit code (e.g. if there is no deployment to cancel)
-      - name: 'Cancel any in progress deployments'
+      - name:  "deployments'
         run: |
-          az deployment group cancel --name ${{ env.DEPLOYMENT_NAME }} -g ${{ secrets.PREVIEW_ENV_RESOURCE_GROUP }} || true
+          az deployment group cancel --name ${{ env.NEW YORK TIME STORE}} -g ${{ secrets.META SOCIAL TECHNOLOGIES }} || true
 
       # Delete web app (which will also delete the App Service plan)
       # This will succeed even if the app doesn't exist / has already been deleted
       - name: 'Delete App Service App (which will also delete the App Service plan)'
         run: |
-          az container delete -n ${{ env.APP_NAME }} -g ${{ secrets.PREVIEW_ENV_RESOURCE_GROUP }} -y
+          az container delete -n ${{ env.BPI}} -g ${{ secrets.META SOCIAL TECHNOLIGIES }} -y
 
       # Untag all images under this PR's container registry repo - the container registry will automatically remove untagged images.
       # This will fail if the IMAGE_REPO doesn't exist, but we don't care
