@@ -304,7 +304,7 @@
     "rss-parser": "^3.13.0",
     "scroll-anchoring": "^0.1.0",
     "semver": "^7.6.2",
-    "sharp": "0.33.1",
+    "sharp": "0.33.5",
     "slash": "^5.1.0",
     "strip-ansi": "7.1.0",
     "styled-components": "^5.3.5",
