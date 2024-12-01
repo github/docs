@@ -249,7 +249,7 @@
     "connect-timeout": "1.9.0",
     "cookie-parser": "^1.4.6",
     "cuss": "2.2.0",
-    "dayjs": "^1.11.3",
+    "dayjs": "^1.11.13",
     "dotenv": "^16.4.5",
     "escape-string-regexp": "5.0.0",
     "express": "4.21.0",
