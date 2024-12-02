@@ -68,8 +68,6 @@ Billing managers are users who can manage the billing settings for your organiza
 
 {% endif %}
 
-{% ifversion security-managers %}
-
 ### Security managers
 
 {% data reusables.organizations.security-manager-beta-note %}
@@ -77,7 +75,6 @@ Billing managers are users who can manage the billing settings for your organiza
 {% data reusables.organizations.about-security-managers %}
 
 If your organization has a security team, you can use the security manager role to give members of the team the least access they need to the organization. For more information, see "[AUTOTITLE](/organizations/managing-peoples-access-to-your-organization-with-roles/managing-security-managers-in-your-organization)."
-{% endif %}
 
 ### {% data variables.product.prodname_github_app %} managers
 
@@ -275,60 +272,6 @@ Some of the features listed below are limited to organizations using {% data var
 | {% ifversion pull-request-approval-limit %} |
 | Manage pull request reviews in the organization (see "[AUTOTITLE](/organizations/managing-organization-settings/managing-pull-request-reviews-in-your-organization)") | {% octicon "check" aria-label="Yes" %} | {% octicon "x" aria-label="No" %} | {% octicon "x" aria-label="No" %} | {% octicon "x" aria-label="No" %} |
 | {% endif %} |
-
-{% endrowheaders %}
-
-{% else %}
-<!-- Older versions of GHES don't have columns for Moderators, Billing managers or Security managers. -->
-
-{% rowheaders %}
-
-| Organization action | Owners | Members |
-|:--------------------|:------:|:-------:|
-| Invite people to join the organization | {% octicon "check" aria-label="Yes" %} | {% octicon "x" aria-label="No" %} |
-| Edit and cancel invitations to join the organization | {% octicon "check" aria-label="Yes" %} | {% octicon "x" aria-label="No" %} |
-| Remove members from the organization | {% octicon "check" aria-label="Yes" %} |{% octicon "x" aria-label="No" %} |
-| Reinstate former members to the organization | {% octicon "check" aria-label="Yes" %} | {% octicon "x" aria-label="No" %} |
-| Add and remove people from **all teams** | {% octicon "check" aria-label="Yes" %} | {% octicon "x" aria-label="No" %} |
-| Promote organization members to _team maintainer_ | {% octicon "check" aria-label="Yes" %} | {% octicon "x" aria-label="No" %} |
-| Configure code review assignments (see "[AUTOTITLE](/organizations/organizing-members-into-teams/managing-code-review-settings-for-your-team)")) | {% octicon "check" aria-label="Yes" %} | {% octicon "x" aria-label="No" %} |
-| Add collaborators to **all repositories** | {% octicon "check" aria-label="Yes" %} | {% octicon "x" aria-label="No" %} |
-| Access the organization audit log | {% octicon "check" aria-label="Yes" %} | {% octicon "x" aria-label="No" %} |
-| Edit the organization's profile page (see "[AUTOTITLE](/account-and-profile/setting-up-and-managing-your-github-profile/customizing-your-profile/about-your-organizations-profile)") | {% octicon "check" aria-label="Yes" %} | {% octicon "x" aria-label="No" %} |
-| {% ifversion ghes %} |
-| Verify the organization's domains (see "[AUTOTITLE](/organizations/managing-organization-settings/verifying-or-approving-a-domain-for-your-organization)") | {% octicon "check" aria-label="Yes" %} | {% octicon "x" aria-label="No" %} |
-| Restrict email notifications to verified or approved domains (see "[AUTOTITLE](/organizations/keeping-your-organization-secure/managing-security-settings-for-your-organization/restricting-email-notifications-for-your-organization)") | {% octicon "check" aria-label="Yes" %} | {% octicon "x" aria-label="No" %} |
-| {% endif %} |
-| Delete **all teams** | {% octicon "check" aria-label="Yes" %} | {% octicon "x" aria-label="No" %} |
-| Delete the organization account, including all repositories | {% octicon "check" aria-label="Yes" %} | {% octicon "x" aria-label="No" %} |
-| Create teams (see "[AUTOTITLE](/organizations/managing-organization-settings/setting-team-creation-permissions-in-your-organization)") | {% octicon "check" aria-label="Yes" %} | {% octicon "check" aria-label="Yes" %} |
-| See all organization members and teams | {% octicon "check" aria-label="Yes" %} | {% octicon "check" aria-label="Yes" %} |
-| @mention any visible team | {% octicon "check" aria-label="Yes" %} | {% octicon "check" aria-label="Yes" %} |
-| Can be made a _team maintainer_ | {% octicon "check" aria-label="Yes" %} | {% octicon "check" aria-label="Yes" %} |
-| Transfer repositories | {% octicon "check" aria-label="Yes" %} | {% octicon "x" aria-label="No" %} |
-| Manage an organization's SSH certificate authorities (see "[AUTOTITLE](/organizations/managing-git-access-to-your-organizations-repositories/managing-your-organizations-ssh-certificate-authorities)") | {% octicon "check" aria-label="Yes" %} | {% octicon "x" aria-label="No" %} |
-| {% ifversion projects-v1 %} |
-| Create {% data variables.projects.projects_v1_boards %} (see "[AUTOTITLE](/organizations/managing-access-to-your-organizations-project-boards/project-board-permissions-for-an-organization)") | {% octicon "check" aria-label="Yes" %} | {% octicon "check" aria-label="Yes" %} | {% octicon "x" aria-label="No" %} |
-| {% endif %} |
-| {% ifversion team-discussions %} |
-| View and post public team discussions to **all teams** (see "[AUTOTITLE](/organizations/collaborating-with-your-team/about-team-discussions)") | {% octicon "check" aria-label="Yes" %} | {% octicon "check" aria-label="Yes" %} | {% octicon "x" aria-label="No" %} |
-| View and post private team discussions to **all teams** (see "[AUTOTITLE](/organizations/collaborating-with-your-team/about-team-discussions)") | {% octicon "check" aria-label="Yes" %} | {% octicon "x" aria-label="No" %} |
-| Edit and delete team discussions in **all teams** (for more information, see "[AUTOTITLE](/communities/moderating-comments-and-conversations/managing-disruptive-comments)) | {% octicon "check" aria-label="Yes" %} | {% octicon "x" aria-label="No" %} |
-| {% endif %} |
-| Hide comments on commits, pull requests, and issues (see "[AUTOTITLE](/communities/moderating-comments-and-conversations/managing-disruptive-comments#hiding-a-comment)") | {% octicon "check" aria-label="Yes" %} | {% octicon "check" aria-label="Yes" %} | {% octicon "check" aria-label="Yes" %} |
-| {% ifversion team-discussions %} |
-| Disable team discussions for an organization (see "[AUTOTITLE](/organizations/organizing-members-into-teams/disabling-team-discussions-for-your-organization)") | {% octicon "check" aria-label="Yes" %} | {% octicon "x" aria-label="No" %} |
-| {% endif %} |
-| Set a team profile picture in **all teams** (see "[AUTOTITLE](/organizations/organizing-members-into-teams/setting-your-teams-profile-picture)") | {% octicon "check" aria-label="Yes" %} | {% octicon "x" aria-label="No" %} |
-| {% ifversion ghes %} |
-| Manage the publication of {% data variables.product.prodname_pages %} sites from repositories in the organization (see "[AUTOTITLE](/organizations/managing-organization-settings/managing-the-publication-of-github-pages-sites-for-your-organization)") | {% octicon "check" aria-label="Yes" %} | {% octicon "x" aria-label="No" %} |
-| {% endif %} |
-| [Move teams in an organization's hierarchy](/organizations/organizing-members-into-teams/moving-a-team-in-your-organizations-hierarchy) | {% octicon "check" aria-label="Yes" %} | {% octicon "x" aria-label="No" %} |
-| Pull (read), push (write), and clone (copy) _all repositories_ in the organization | {% octicon "check" aria-label="Yes" %} | {% octicon "x" aria-label="No" %} |
-| Convert organization members to {% ifversion repository-collaborators %}[outside collaborators or repository collaborators](#outside-collaborators-or-repository-collaborators){% else %}[outside collaborators](#outside-collaborators){% endif %} | {% octicon "check" aria-label="Yes" %} | {% octicon "x" aria-label="No" %} |
-| [View people with access to an organization repository](/organizations/managing-user-access-to-your-organizations-repositories/managing-repository-roles/viewing-people-with-access-to-your-repository) | {% octicon "check" aria-label="Yes" %} | {% octicon "x" aria-label="No" %} |
-| [Export a list of people with access to an organization repository](/organizations/managing-user-access-to-your-organizations-repositories/managing-repository-roles/viewing-people-with-access-to-your-repository#exporting-a-list-of-people-with-access-to-your-repository) | {% octicon "check" aria-label="Yes" %} | {% octicon "x" aria-label="No" %} |
-| Manage default labels (see "[AUTOTITLE](/organizations/managing-organization-settings/managing-default-labels-for-repositories-in-your-organization)") | {% octicon "check" aria-label="Yes" %} | {% octicon "x" aria-label="No" %} |
 
 {% endrowheaders %}
 

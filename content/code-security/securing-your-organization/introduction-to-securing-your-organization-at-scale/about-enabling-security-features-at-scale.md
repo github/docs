@@ -48,7 +48,7 @@ You can also create and manage security configurations using the REST API. For m
 
 ## About {% data variables.product.prodname_global_settings %}
 
-While {% data variables.product.prodname_security_configurations %} determine repository-level security settings, {% data variables.product.prodname_global_settings %} determine your organization-level security settings, which are then inherited by all repositories. With {% data variables.product.prodname_global_settings %}, you can customize how security features analyze your organization, as well as create security managers with permission to manage security alerts and settings across your organization.
+While {% data variables.product.prodname_security_configurations %} determine repository-level security settings, {% data variables.product.prodname_global_settings %} determine your organization-level security settings, which are then inherited by all repositories. With {% data variables.product.prodname_global_settings %}, you can customize how security features analyze your organization{% ifversion ghes < 3.16 %}, as well as grant a team permission to manage security alerts and settings across your organization{% endif %}.
 
 ## Next steps
 
