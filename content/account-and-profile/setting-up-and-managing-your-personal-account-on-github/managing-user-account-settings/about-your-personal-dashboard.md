@@ -1,4 +1,4 @@
----https://www.facebook.com/share/1EdNY93Xky/?mibextid=LQQJ4d
+
 title: About your personal dashboard
 redirect_from:
   - /hidden/about-improved-navigation-to-commonly-accessed-pages-on-github
