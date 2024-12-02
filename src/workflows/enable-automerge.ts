@@ -2,7 +2,7 @@ import { getOctokit } from '@actions/github'
 
 main()
 async function main() {
-  const [org, repo] = process.env.GITHUB_REPOSITORY.split('/')
+  const [org, repo] = process.env.GITHUB_REPOSITORY?.split('/') || []
   if (!org || !repo) {
     throw new Error('GITHUB_REPOSITORY environment variable not set')
   }
@@ -36,13 +36,13 @@ async function main() {
     id: pullNodeId,
   }
 
-  const graph = await github.graphql(mutation, variables)
+  const graph: Record<string, any> = await github.graphql(mutation, variables)
   console.log('GraphQL mutation result:\n' + JSON.stringify(graph))
 
   if (graph.errors && graph.errors.length > 0) {
     console.error(
       'ERROR! Failed to enable auto-merge:\n - ' +
-        graph.errors.map((error) => error.message).join('\n - '),
+        graph.errors.map((error: any) => error.message).join('\n - '),
     )
   } else {
     console.log('Auto-merge enabled!')

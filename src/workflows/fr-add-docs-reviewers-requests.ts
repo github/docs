@@ -12,9 +12,9 @@ import {
 async function getAllOpenPRs() {
   let prsRemaining = true
   let cursor
-  let prData = []
+  let prData: any[] = []
   while (prsRemaining) {
-    const data = await graphql(
+    const data: Record<string, any> = await graphql(
       `
         query ($organization: String!, $repo: String!) {
           repository(name: $repo, owner: $organization) {
@@ -83,13 +83,14 @@ async function run() {
   const prs = prData.filter(
     (pr) =>
       !pr.isDraft &&
-      !pr.labels.nodes.find((label) => label.name === 'Deploy train 🚂') &&
+      !pr.labels.nodes.find((label: Record<string, any>) => label.name === 'Deploy train 🚂') &&
       pr.reviewRequests.nodes.find(
-        (requestedReviewers) => requestedReviewers.requestedReviewer?.name === process.env.REVIEWER,
+        (requestedReviewers: Record<string, any>) =>
+          requestedReviewers.requestedReviewer?.name === process.env.REVIEWER,
       ) &&
       !pr.reviews.nodes
-        .flatMap((review) => review.onBehalfOf.nodes)
-        .find((behalf) => behalf.name === process.env.REVIEWER),
+        .flatMap((review: Record<string, any>) => review.onBehalfOf.nodes)
+        .find((behalf: Record<string, any>) => behalf.name === process.env.REVIEWER),
   )
   if (prs.length === 0) {
     console.log('No PRs found. Exiting.')
@@ -101,7 +102,7 @@ async function run() {
   console.log(`PRs found: ${prIDs}`)
 
   // Get info about the docs-content review board project
-  const projectData = await graphql(
+  const projectData: Record<string, any> = await graphql(
     `
       query ($organization: String!, $projectNumber: Int!) {
         organization(login: $organization) {
@@ -134,7 +135,7 @@ async function run() {
     `,
     {
       organization: process.env.ORGANIZATION,
-      projectNumber: parseInt(process.env.PROJECT_NUMBER),
+      projectNumber: parseInt(process.env.PROJECT_NUMBER || ''),
       headers: {
         authorization: `token ${process.env.TOKEN}`,
       },
@@ -148,7 +149,9 @@ async function run() {
   // Until we have a way to check from a PR whether the PR is in a project,
   // this is how we (roughly) avoid overwriting PRs that are already on the board.
   // If we are overwriting items, query for more items.
-  const existingItemIDs = projectData.organization.projectV2.items.nodes.map((node) => node.id)
+  const existingItemIDs = projectData.organization.projectV2.items.nodes.map(
+    (node: Record<string, any>) => node.id,
+  )
 
   // Get the ID of the fields that we want to populate
   const datePostedID = findFieldID('Date posted', projectData)
@@ -172,8 +175,8 @@ async function run() {
   // Exclude existing items going forward.
   // Until we have a way to check from a PR whether the PR is in a project,
   // this is how we (roughly) avoid overwriting PRs that are already on the board
-  const newItemIDs = []
-  const newItemAuthors = []
+  const newItemIDs: any[] = []
+  const newItemAuthors: any[] = []
   itemIDs.forEach((id, index) => {
     if (!existingItemIDs.includes(id)) {
       newItemIDs.push(id)

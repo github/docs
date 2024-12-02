@@ -11,18 +11,29 @@ const actionHashRegexp = /^[A-Za-z0-9-/]+@[0-9a-f]{40}$/
 const checkoutRegexp = /^[actions/checkout]+@[0-9a-f]{40}$/
 const permissionsRegexp = /(read|write)/
 
+type WorkflowMeta = {
+  filename: string
+  fullpath: string
+  data: {
+    name: string
+    on: Record<string, any>
+    permissions: Record<string, any>
+    jobs: Record<string, any>
+  }
+}
+
 const __dirname = path.dirname(fileURLToPath(import.meta.url))
 const workflowsDir = path.join(__dirname, '../../../.github/workflows')
-const workflows = fs
+const workflows: WorkflowMeta[] = fs
   .readdirSync(workflowsDir)
   .filter((filename) => filename.endsWith('.yml') || filename.endsWith('.yaml'))
   .map((filename) => {
     const fullpath = path.join(workflowsDir, filename)
-    const data = yaml.load(fs.readFileSync(fullpath, 'utf8'), { fullpath })
+    const data = yaml.load(fs.readFileSync(fullpath, 'utf8')) as WorkflowMeta['data']
     return { filename, fullpath, data }
   })
 
-function actionsUsedInWorkflow(workflow) {
+function actionsUsedInWorkflow(workflow: WorkflowMeta) {
   return Object.keys(flatten(workflow))
     .filter((key) => key.endsWith('.uses'))
     .map((key) => get(workflow, key))
@@ -54,7 +65,7 @@ const alertWorkflows = workflows
 // to generate list, console.log(new Set(workflows.map(({ data }) => Object.keys(data.on)).flat()))
 
 const dailyWorkflows = scheduledWorkflows.filter(({ data }) =>
-  data.on.schedule.find(({ cron }) => /^20 [^*]/.test(cron)),
+  data.on.schedule.find(({ cron }: { cron: string }) => /^20 [^*]/.test(cron)),
 )
 
 describe('GitHub Actions workflows', () => {
@@ -90,7 +101,7 @@ describe('GitHub Actions workflows', () => {
     },
   )
 
-  test.each(workflows)('limits repository scope $filename', ({ filename, data }) => {
+  test.each(workflows)('limits repository scope $filename', ({ data }) => {
     for (const condition of Object.values(data.jobs).map((job) => job.if)) {
       expect(condition).toContain('github.repository')
     }
@@ -100,7 +111,11 @@ describe('GitHub Actions workflows', () => {
     'scheduled workflows slack alert on fail $filename',
     ({ filename, data }) => {
       for (const [name, job] of Object.entries(data.jobs)) {
-        if (!job.steps.find((step) => step.uses === './.github/actions/slack-alert')) {
+        if (
+          !job.steps.find(
+            (step: Record<string, any>) => step.uses === './.github/actions/slack-alert',
+          )
+        ) {
           throw new Error(`Job ${filename} # ${name} missing slack alert on fail`)
         }
       }
@@ -111,7 +126,7 @@ describe('GitHub Actions workflows', () => {
     'performs a checkout before calling composite action $filename',
     ({ filename, data }) => {
       for (const [name, job] of Object.entries(data.jobs)) {
-        if (!job.steps.find((step) => checkoutRegexp.test(step.uses))) {
+        if (!job.steps.find((step: Record<string, any>) => checkoutRegexp.test(step.uses))) {
           throw new Error(
             `Job ${filename} # ${name} missing a checkout before calling the composite action`,
           )

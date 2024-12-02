@@ -5,7 +5,7 @@
  *
  * @returns {Object} - key value of expected env variables and their values
  */
-export function getEnvInputs(options) {
+export function getEnvInputs(options: string[]) {
   return Object.fromEntries(
     options.map((envVarName) => {
       const envVarValue = process.env[envVarName]
@@ -29,7 +29,7 @@ export function getEnvInputs(options) {
  *
  * @returns {boolean}
  */
-export function boolEnvVar(key) {
+export function boolEnvVar(key: string) {
   const value = process.env[key] || ''
   if (value === '' || value === 'false' || value === '0') return false
   if (value === 'true' || value === '1') return true

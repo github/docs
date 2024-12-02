@@ -17,22 +17,22 @@ import got from 'got'
  * For engineers to test this locally do the following:
  *
  *   1. Start `npm run dev` in one terminal
- *   2. Run `src/workflows/test-local-dev.js` in another terminal
+ *   2. Run `src/workflows/test-local-dev.ts` in another terminal
  *
  */
 
 main()
 
-async function get(path, options) {
+async function get(path: string, options?: Record<string, any>) {
   // By default, got() will use retries and follow redirects.
   const t0 = new Date()
   const response = await got(makeURL(path), options)
-  const took = new Date() - t0
+  const took = new Date().getTime() - t0.getTime()
   console.log(`GET ${path} => ${response.statusCode} (${took}ms)`)
   return response
 }
 
-function makeURL(path) {
+function makeURL(path: string) {
   return `http://localhost:4000${path}`
 }
 

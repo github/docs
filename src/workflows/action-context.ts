@@ -21,7 +21,7 @@ export function getActionContext() {
     context.owner = context.repository.owner.login
     context.repo = context.repository.name
   } else {
-    const [owner, repo] = process.env.GITHUB_REPOSITORY.split('/')
+    const [owner, repo] = process.env.GITHUB_REPOSITORY?.split('/') || []
     context.owner = owner
     context.repo = repo
   }

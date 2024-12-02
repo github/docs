@@ -1,3 +1,14 @@
+import { type Octokit } from '@octokit/rest'
+import coreLib from '@actions/core'
+
+type CRIArgs = {
+  core: typeof coreLib
+  octokit: Octokit
+  reportTitle: string
+  reportBody: string
+  reportRepository: string
+  reportLabel: string
+}
 export async function createReportIssue({
   core,
   octokit,
@@ -5,7 +16,7 @@ export async function createReportIssue({
   reportBody,
   reportRepository,
   reportLabel,
-}) {
+}: CRIArgs) {
   const [owner, repo] = reportRepository.split('/')
   // Create issue
   let newReport
@@ -19,7 +30,7 @@ export async function createReportIssue({
     })
     newReport = data
     core.info(`Created new report issue at ${newReport.html_url}\n`)
-  } catch (error) {
+  } catch (error: any) {
     core.error(error)
     core.setFailed('Error creating new issue')
     throw error
@@ -28,6 +39,14 @@ export async function createReportIssue({
   return newReport
 }
 
+type LRArgs = {
+  core: typeof coreLib
+  octokit: Octokit
+  newReport: any
+  reportRepository: string
+  reportAuthor: string
+  reportLabel: string
+}
 export async function linkReports({
   core,
   octokit,
@@ -35,7 +54,7 @@ export async function linkReports({
   reportRepository,
   reportAuthor,
   reportLabel,
-}) {
+}: LRArgs) {
   const [owner, repo] = reportRepository.split('/')
 
   core.info('Attempting to link reports...')
@@ -88,7 +107,7 @@ export async function linkReports({
     }
 
     //  If an old report is not assigned to someone we close it
-    const shouldClose = !previousReport.assignees.length
+    const shouldClose = !previousReport.assignees?.length
     let body = `➡️ [Newer report](${newReport.html_url})`
     if (shouldClose) {
       body += '\n\nClosing in favor of newer report since there are no assignees on this issue'

@@ -1,6 +1,6 @@
 #!/usr/bin/env node
-import { SURROGATE_ENUMS } from '#src/frame/middleware/set-fastly-surrogate-key.js'
-import purgeEdgeCache from './purge-edge-cache.js'
+import { SURROGATE_ENUMS } from '@/frame/middleware/set-fastly-surrogate-key'
+import purgeEdgeCache from './purge-edge-cache'
 
 // This will purge every response that *contains*
 // `process.env.FASTLY_SURROGATE_KEY || SURROGATE_ENUMS.DEFAULT`.

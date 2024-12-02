@@ -16,7 +16,7 @@ on:
       - 'package*.json'
       - src/assets/scripts/find-orphaned-assets.js
       - src/content-render/scripts/reusables-cli/find/unused.ts
-      - src/workflows/walk-files.js
+      - src/workflows/walk-files.ts
       - src/languages/lib/languages.js
       - .github/actions/clone-translations/action.yml
       - .github/actions/node-npm-setup/action.yml

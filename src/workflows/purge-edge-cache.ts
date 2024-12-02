@@ -13,9 +13,17 @@ import got from 'got'
 const DELAY_BEFORE_FIRST_PURGE = 0 * 1000
 const DELAY_BEFORE_SECOND_PURGE = 2 * 1000
 
-const sleep = (ms) => new Promise((resolve) => setTimeout(resolve, ms))
+const sleep = (ms: number) => new Promise((resolve) => setTimeout(resolve, ms))
 
-async function purgeFastlyBySurrogateKey({ apiToken, serviceId, surrogateKey }) {
+async function purgeFastlyBySurrogateKey({
+  apiToken,
+  serviceId,
+  surrogateKey,
+}: {
+  apiToken: string
+  serviceId: string
+  surrogateKey: string
+}) {
   const safeServiceId = encodeURIComponent(serviceId)
 
   const headers = {
@@ -28,7 +36,7 @@ async function purgeFastlyBySurrogateKey({ apiToken, serviceId, surrogateKey }) 
 }
 
 export default async function purgeEdgeCache(
-  surrogateKey,
+  surrogateKey: string,
   {
     purgeTwice = true,
     delayBeforeFirstPurge = DELAY_BEFORE_FIRST_PURGE,

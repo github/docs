@@ -1,10 +1,22 @@
 /* See function main in this file for documentation */
 
 import coreLib from '@actions/core'
+import { type Octokit } from '@octokit/rest'
+import { CoreInject } from '@/links/scripts/action-injections'
 
-import github from '#src/workflows/github.js'
-import { getActionContext } from '#src/workflows/action-context.js'
-import { boolEnvVar } from '#src/workflows/get-env-inputs.js'
+import github from '#src/workflows/github.ts'
+import { getActionContext } from '#src/workflows/action-context.ts'
+import { boolEnvVar } from '#src/workflows/get-env-inputs.ts'
+
+type Options = {
+  addLabels?: string[]
+  removeLabels?: string[]
+  ignoreIfAssigned?: boolean
+  ignoreIfLabeled?: boolean
+  issue_number?: number
+  owner?: string
+  repo?: string
+}
 
 // When this file is invoked directly from action as opposed to being imported
 if (import.meta.url.endsWith(process.argv[1])) {
@@ -16,28 +28,19 @@ if (import.meta.url.endsWith(process.argv[1])) {
 
   const octokit = github()
 
-  const opts = {
-    addLabels: ADD_LABELS,
-    removeLabels: REMOVE_LABELS,
+  const opts: Options = {
     ignoreIfAssigned: boolEnvVar('IGNORE_IF_ASSIGNED'),
     ignoreIfLabeled: boolEnvVar('IGNORE_IF_LABELED'),
   }
 
   // labels come in comma separated from actions
-  let addLabels
-
-  if (opts.addLabels) {
-    addLabels = [...opts.addLabels.split(',')]
-    opts.addLabels = addLabels.map((l) => l.trim())
+  if (typeof ADD_LABELS === 'string') {
+    opts.addLabels = [...ADD_LABELS.split(',')].map((l) => l.trim())
   } else {
     opts.addLabels = []
   }
-
-  let removeLabels
-
-  if (opts.removeLabels) {
-    removeLabels = [...opts.removeLabels.split(',')]
-    opts.removeLabels = removeLabels.map((l) => l.trim())
+  if (typeof REMOVE_LABELS === 'string') {
+    opts.removeLabels = [...REMOVE_LABELS.split(',')].map((l) => l.trim())
   } else {
     opts.removeLabels = []
   }
@@ -54,7 +57,7 @@ if (import.meta.url.endsWith(process.argv[1])) {
   opts.owner = owner
   opts.repo = repo
 
-  main(coreLib, octokit, opts, {})
+  main(coreLib, octokit, opts)
 }
 
 /*
@@ -69,22 +72,31 @@ if (import.meta.url.endsWith(process.argv[1])) {
  *  ignoreIfAssigned {boolean} don't apply labels if there are assignees
  *  ignoreIfLabeled {boolean} don't apply labels if there are already labels added
  */
-export default async function main(core, octokit, opts = {}) {
+export default async function main(
+  core: typeof coreLib | CoreInject,
+  octokit: Octokit,
+  opts: Options = {},
+) {
   if (opts.addLabels?.length === 0 && opts.removeLabels?.length === 0) {
     core.info('No labels to add or remove specified, nothing to do.')
     return
   }
 
+  if (!opts.issue_number || !opts.owner || !opts.repo) {
+    throw new Error(`Missing required parameters ${JSON.stringify(opts)}`)
+  }
+  const issueOpts = {
+    issue_number: opts.issue_number,
+    owner: opts.owner,
+    repo: opts.repo,
+  }
+
   if (opts.ignoreIfAssigned || opts.ignoreIfLabeled) {
     try {
-      const { data } = await octokit.issues.get({
-        issue_number: opts.issue_number,
-        owner: opts.owner,
-        repo: opts.repo,
-      })
+      const { data } = await octokit.issues.get(issueOpts)
 
       if (opts.ignoreIfAssigned) {
-        if (data.assignees.length > 0) {
+        if (data.assignees?.length) {
           core.info(
             `ignore-if-assigned is true: not applying labels since there's ${data.assignees.length} assignees`,
           )
@@ -105,31 +117,24 @@ export default async function main(core, octokit, opts = {}) {
     }
   }
 
-  if (opts.removeLabels?.length > 0) {
+  if (opts.removeLabels?.length) {
     // removing a label fails if the label isn't already applied
     let appliedLabels = []
 
     try {
-      const { data } = await octokit.issues.get({
-        issue_number: opts.issue_number,
-        owner: opts.owner,
-        repo: opts.repo,
-      })
-
-      appliedLabels = data.labels.map((l) => l.name)
+      const { data } = await octokit.issues.get(issueOpts)
+      appliedLabels = data.labels.map((l) => (typeof l === 'string' ? l : l.name))
     } catch (err) {
       throw new Error(`Error getting issue: ${err}`)
     }
 
-    opts.removeLabels = opts.removeLabels.filter((l) => appliedLabels.includes(l))
+    opts.removeLabels = opts.removeLabels?.filter((l) => appliedLabels.includes(l))
 
     await Promise.all(
       opts.removeLabels.map(async (label) => {
         try {
           await octokit.issues.removeLabel({
-            issue_number: opts.issue_number,
-            owner: opts.owner,
-            repo: opts.repo,
+            ...issueOpts,
             name: label,
           })
         } catch (err) {
@@ -138,17 +143,15 @@ export default async function main(core, octokit, opts = {}) {
       }),
     )
 
-    if (opts.removeLabels.length > 0) {
+    if (opts.removeLabels?.length) {
       core.info(`Removed labels: ${opts.removeLabels.join(', ')}`)
     }
   }
 
-  if (opts.addLabels?.length > 0) {
+  if (opts.addLabels?.length) {
     try {
       await octokit.issues.addLabels({
-        issue_number: opts.issue_number,
-        owner: opts.owner,
-        repo: opts.repo,
+        ...issueOpts,
         labels: opts.addLabels,
       })
 
