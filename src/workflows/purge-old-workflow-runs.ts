@@ -32,7 +32,7 @@ async function main() {
   const MAX_DELETIONS = parseInt(JSON.parse(process.env.MAX_DELETIONS || '500'))
   const MIN_AGE_DAYS = parseInt(process.env.MIN_AGE_DAYS || '90', 10)
 
-  const [owner, repo] = process.env.GITHUB_REPOSITORY.split('/')
+  const [owner, repo] = process.env.GITHUB_REPOSITORY?.split('/') || []
   if (!owner || !repo) {
     throw new Error('GITHUB_REPOSITORY environment variable not set')
   }
@@ -53,7 +53,7 @@ async function main() {
       owner,
       repo,
     })
-  } catch (error) {
+  } catch (error: any) {
     console.log('Error happened when getting workflows')
     console.warn('Status: %O', error.status)
     console.warn('Message: %O', error.message)
@@ -71,7 +71,8 @@ async function main() {
 
   const validWorkflows = allWorkflows.filter((w) => !w.path.startsWith('dynamic/'))
 
-  const sortByDate = (a, b) => a.updated_at.localeCompare(b.updated_at)
+  const sortByDate = (a: Record<string, any>, b: Record<string, any>) =>
+    a.updated_at.localeCompare(b.updated_at)
   const workflows = [
     ...validWorkflows.filter((w) => !fs.existsSync(w.path)).sort(sortByDate),
     ...validWorkflows.filter((w) => fs.existsSync(w.path)).sort(sortByDate),
@@ -91,7 +92,7 @@ async function main() {
         minAgeDays: MIN_AGE_DAYS,
         maxDeletions: MAX_DELETIONS - deletions,
       })
-    } catch (error) {
+    } catch (error: any) {
       console.log("Error happened when calling 'deleteWorkflowRuns'")
       console.warn('Status: %O', error.status)
       console.warn('Message: %O', error.message)
@@ -115,7 +116,7 @@ async function main() {
   console.log(`Deleted ${deletions} runs in total`)
 }
 
-function isOperationalError(status, message) {
+function isOperationalError(status: number, message: string) {
   if (status && status >= 500) {
     return true
   }
@@ -130,10 +131,10 @@ function isOperationalError(status, message) {
 }
 
 async function deleteWorkflowRuns(
-  github,
-  owner,
-  repo,
-  workflow,
+  github: ReturnType<typeof getOctokit>,
+  owner: string,
+  repo: string,
+  workflow: Record<string, any>,
   { dryRun = false, minAgeDays = 90, maxDeletions = 500 },
 ) {
   // https://docs.github.com/en/search-github/getting-started-with-searching-on-github/understanding-the-search-syntax#query-for-dates
@@ -191,7 +192,7 @@ async function deleteWorkflowRuns(
             },
           )
           assert(status === 204, `Unexpected status deleting logs for run ${run.id}: ${status}`)
-        } catch (error) {
+        } catch (error: any) {
           console.warn('ERROR trying to delete the logs for run', run.id, error.message)
           if (error.message && error.message.includes('API rate limit exceeded')) {
             // This can not be recovered by continuing on to the next run.
@@ -211,7 +212,7 @@ async function deleteWorkflowRuns(
             },
           )
           assert(status === 204, `Unexpected status deleting logs for run ${run.id}: ${status}`)
-        } catch (error) {
+        } catch (error: any) {
           console.warn('ERROR trying to delete run', run.id, error.message)
           if (error.message && error.message.includes('API rate limit exceeded')) {
             // This can not be recovered by continuing on to the next run.

@@ -14,7 +14,7 @@ import {
 
 async function run() {
   // Get info about the docs-content review board project
-  const data = await graphql(
+  const data: Record<string, any> = await graphql(
     `
       query ($organization: String!, $projectNumber: Int!, $id: ID!) {
         organization(login: $organization) {
@@ -55,7 +55,7 @@ async function run() {
     {
       id: process.env.ITEM_NODE_ID,
       organization: process.env.ORGANIZATION,
-      projectNumber: parseInt(process.env.PROJECT_NUMBER),
+      projectNumber: parseInt(process.env.PROJECT_NUMBER || ''),
       headers: {
         authorization: `token ${process.env.TOKEN}`,
       },
@@ -81,7 +81,7 @@ async function run() {
   const osContributorTypeID = findSingleSelectID('OS contributor', 'Contributor type', data)
 
   // Add the PR to the project
-  const newItemID = await addItemToProject(process.env.ITEM_NODE_ID, projectID)
+  const newItemID = await addItemToProject(process.env.ITEM_NODE_ID || '', projectID)
 
   // Determine the feature and size
   const feature = getFeature(data)
@@ -92,7 +92,7 @@ async function run() {
   // If yes, set the author to 'first time contributor' instead of to the author login
   let firstTimeContributor
   if (process.env.REPO === 'github/docs') {
-    const contributorData = await graphql(
+    const contributorData: Record<string, any> = await graphql(
       `
         query ($author: String!) {
           user(login: $author) {
@@ -126,13 +126,13 @@ async function run() {
     )
     const docsPRData =
       contributorData.user.contributionsCollection.pullRequestContributionsByRepository.filter(
-        (item) => item.repository.nameWithOwner === 'github/docs',
+        (item: Record<string, any>) => item.repository.nameWithOwner === 'github/docs',
       )[0]
     const prCount = docsPRData ? docsPRData.contributions.totalCount : 0
 
     const docsIssueData =
       contributorData.user.contributionsCollection.issueContributionsByRepository.filter(
-        (item) => item.repository.nameWithOwner === 'github/docs',
+        (item: Record<string, any>) => item.repository.nameWithOwner === 'github/docs',
       )[0]
     const issueCount = docsIssueData ? docsIssueData.contributions.totalCount : 0
 
@@ -144,16 +144,16 @@ async function run() {
   // Generate a mutation to populate fields for the new project item
   const updateProjectV2ItemMutation = generateUpdateProjectV2ItemFieldMutation({
     item: newItemID,
-    author: firstTimeContributor ? ':star: first time contributor' : process.env.AUTHOR_LOGIN,
+    author: firstTimeContributor ? ':star: first time contributor' : process.env.AUTHOR_LOGIN || '',
     turnaround,
     feature,
   })
 
   // Determine which variable to use for the contributor type
   let contributorType
-  if (await isDocsTeamMember(process.env.AUTHOR_LOGIN)) {
+  if (await isDocsTeamMember(process.env.AUTHOR_LOGIN || '')) {
     contributorType = docsMemberTypeID
-  } else if (await isGitHubOrgMember(process.env.AUTHOR_LOGIN)) {
+  } else if (await isGitHubOrgMember(process.env.AUTHOR_LOGIN || '')) {
     contributorType = hubberTypeID
   } else if (process.env.REPO === 'github/docs') {
     contributorType = osContributorTypeID

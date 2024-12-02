@@ -10,7 +10,7 @@ async function main() {
   const MAX_DELETIONS = parseInt(JSON.parse(process.env.MAX_DELETIONS || '10'))
   const MIN_AGE_DAYS = parseInt(process.env.MIN_AGE_DAYS || '90', 10)
 
-  const [owner, repo] = process.env.GITHUB_REPOSITORY.split('/')
+  const [owner, repo] = (process.env.GITHUB_REPOSITORY || '').split('/') || []
   if (!owner || !repo) {
     throw new Error('GITHUB_REPOSITORY environment variable not set')
   }

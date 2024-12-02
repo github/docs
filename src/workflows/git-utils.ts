@@ -8,7 +8,7 @@ import { retryingGithub } from './github.js'
 const github = retryingGithub()
 
 // https://docs.github.com/rest/reference/git#get-a-reference
-export async function getCommitSha(owner, repo, ref) {
+export async function getCommitSha(owner: string, repo: string, ref: string) {
   try {
     const { data } = await github.git.getRef({
       owner,
@@ -23,7 +23,7 @@ export async function getCommitSha(owner, repo, ref) {
 }
 
 // based on https://docs.github.com/rest/reference/git#get-a-reference
-export async function hasMatchingRef(owner, repo, ref) {
+export async function hasMatchingRef(owner: string, repo: string, ref: string) {
   try {
     await github.git.getRef({
       owner,
@@ -41,7 +41,7 @@ export async function hasMatchingRef(owner, repo, ref) {
 }
 
 // https://docs.github.com/rest/reference/git#get-a-commit
-export async function getTreeSha(owner, repo, commitSha) {
+export async function getTreeSha(owner: string, repo: string, commitSha: string) {
   try {
     const { data } = await github.git.getCommit({
       owner,
@@ -56,7 +56,7 @@ export async function getTreeSha(owner, repo, commitSha) {
 }
 
 // https://docs.github.com/rest/reference/git#get-a-tree
-export async function getTree(owner, repo, ref) {
+export async function getTree(owner: string, repo: string, ref: string) {
   const commitSha = await getCommitSha(owner, repo, ref)
   const treeSha = await getTreeSha(owner, repo, commitSha)
   try {
@@ -64,7 +64,7 @@ export async function getTree(owner, repo, ref) {
       owner,
       repo,
       tree_sha: treeSha,
-      recursive: 1,
+      recursive: 'true',
     })
     // only return files that match the patterns in allowedPaths
     // skip actions/changes files
@@ -76,7 +76,7 @@ export async function getTree(owner, repo, ref) {
 }
 
 // https://docs.github.com/rest/reference/git#get-a-blob
-export async function getContentsForBlob(owner, repo, sha) {
+export async function getContentsForBlob(owner: string, repo: string, sha: string) {
   const { data } = await github.git.getBlob({
     owner,
     repo,
@@ -87,7 +87,7 @@ export async function getContentsForBlob(owner, repo, sha) {
 }
 
 // https://docs.github.com/rest/reference/repos#get-repository-content
-export async function getContents(owner, repo, ref, path) {
+export async function getContents(owner: string, repo: string, ref: string, path: string) {
   const { data } = await getContent(owner, repo, ref, path)
   if (!data.content) {
     return await getContentsForBlob(owner, repo, data.sha)
@@ -97,7 +97,7 @@ export async function getContents(owner, repo, ref, path) {
 }
 
 // https://docs.github.com/rest/reference/repos#get-repository-content
-export async function getContentAndData(owner, repo, ref, path) {
+export async function getContentAndData(owner: string, repo: string, ref: string, path: string) {
   const { data } = await getContent(owner, repo, ref, path)
   const content = data.content
     ? Buffer.from(data.content, 'base64').toString()
@@ -106,7 +106,12 @@ export async function getContentAndData(owner, repo, ref, path) {
   return { content, blobSha: data.sha }
 }
 
-async function getContent(owner, repo, ref, path) {
+async function getContent(
+  owner: string,
+  repo: string,
+  ref: string,
+  path: string,
+): Promise<Record<string, any>> {
   try {
     return await github.repos.getContent({
       owner,
@@ -121,7 +126,7 @@ async function getContent(owner, repo, ref, path) {
 }
 
 // https://docs.github.com/en/rest/reference/pulls#list-pull-requests
-export async function listPulls(owner, repo) {
+export async function listPulls(owner: string, repo: string) {
   try {
     const { data } = await github.pulls.list({
       owner,
@@ -135,7 +140,12 @@ export async function listPulls(owner, repo) {
   }
 }
 
-export async function createIssueComment(owner, repo, pullNumber, body) {
+export async function createIssueComment(
+  owner: string,
+  repo: string,
+  pullNumber: number,
+  body: string,
+) {
   try {
     const { data } = await github.issues.createComment({
       owner,
@@ -152,9 +162,9 @@ export async function createIssueComment(owner, repo, pullNumber, body) {
 
 // Search for a string in a file in code and return the array of paths to files that contain string
 export async function getPathsWithMatchingStrings(
-  strArr,
-  org,
-  repo,
+  strArr: string[],
+  org: string,
+  repo: string,
   { cache = true, forceDownload = false } = {},
 ) {
   const perPage = 100
@@ -169,7 +179,7 @@ export async function getPathsWithMatchingStrings(
 
       do {
         const data = await searchCode(q, perPage, currentPage, cache, forceDownload)
-        data.items.map((el) => paths.add(el.path))
+        data.items.map((el: Record<string, any>) => paths.add(el.path))
         totalCount = data.total_count
         currentCount += data.items.length
         currentPage++
@@ -183,7 +193,13 @@ export async function getPathsWithMatchingStrings(
   return paths
 }
 
-async function searchCode(q, perPage, currentPage, cache = true, forceDownload = false) {
+async function searchCode(
+  q: string,
+  perPage: number,
+  currentPage: number,
+  cache = true,
+  forceDownload = false,
+) {
   const cacheKey = `searchCode-${q}-${perPage}-${currentPage}`
   const tempFilename = `/tmp/searchCode-${crypto
     .createHash('md5')
@@ -193,7 +209,7 @@ async function searchCode(q, perPage, currentPage, cache = true, forceDownload =
   if (!forceDownload && cache) {
     try {
       return JSON.parse(await fs.readFile(tempFilename, 'utf8'))
-    } catch (error) {
+    } catch (error: any) {
       if (error.code !== 'ENOENT') {
         throw error
       }
@@ -219,11 +235,16 @@ async function searchCode(q, perPage, currentPage, cache = true, forceDownload =
   }
 }
 
-async function secondaryRateLimitRetry(callable, args, maxAttempts = 10, sleepTime = 1000) {
+async function secondaryRateLimitRetry(
+  callable: Function,
+  args: Record<string, any>,
+  maxAttempts = 10,
+  sleepTime = 1000,
+) {
   try {
     const response = await callable(args)
     return response
-  } catch (err) {
+  } catch (err: any) {
     // If you get a secondary rate limit error (403) you'll get a data
     // response that includes:
     //
@@ -260,9 +281,14 @@ async function secondaryRateLimitRetry(callable, args, maxAttempts = 10, sleepTi
 // array of file contents. This function could be modified to return an array
 // of objects that include the path and the content of the file if needed
 // in the future.
-export async function getDirectoryContents(owner, repo, branch, path) {
+export async function getDirectoryContents(
+  owner: string,
+  repo: string,
+  branch: string,
+  path: string,
+) {
   const { data } = await getContent(owner, repo, branch, path)
-  const files = []
+  const files: any[] = []
 
   for (const blob of data) {
     if (blob.type === 'dir') {

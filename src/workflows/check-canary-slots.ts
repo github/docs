@@ -2,14 +2,14 @@
 import { execSync } from 'child_process'
 import yaml from 'js-yaml'
 
-const slotName = process.env.SLOT_NAME
-const appServiceName = process.env.APP_SERVICE_NAME
-const resourceGroupName = process.env.RESOURCE_GROUP_NAME
-const expectedSHA = process.env.EXPECTED_SHA
-const waitDuration = parseInt(process.env.CHECK_INTERVAL, 10) || 10000
-const maxWaitingTimeSeconds = parseInt(process.MAX_WAITING_TIME || 10 * 60 * 1000, 10)
+const slotName = process.env.SLOT_NAME || ''
+const appServiceName = process.env.APP_SERVICE_NAME || ''
+const resourceGroupName = process.env.RESOURCE_GROUP_NAME || ''
+const expectedSHA = process.env.EXPECTED_SHA || ''
+const waitDuration = parseInt(process.env.CHECK_INTERVAL || '', 10) || 10000
+const maxWaitingTimeSeconds = parseInt(process.env.MAX_WAITING_TIME || '', 10) || 10 * 60 * 1000
 
-function getBuildSha(slot, appService, resourceGroup) {
+function getBuildSha(slot: string, appService: string, resourceGroup: string) {
   console.log('Getting Canary App Service Docker config')
   const t0 = Date.now()
   let config
@@ -20,7 +20,7 @@ function getBuildSha(slot, appService, resourceGroup) {
         { encoding: 'utf8' },
       ),
     )
-  } catch (err) {
+  } catch {
     console.log('Error getting the Canary App Service Slot config')
     return null
   }
@@ -31,13 +31,13 @@ function getBuildSha(slot, appService, resourceGroup) {
   // The value key contains the stringified YAML file, so we
   // need to parse it to JSON to extract the image sha.
   const dockerComposeYaml = config.find(
-    (obj) => obj.name === 'DOCKER_CUSTOM_IMAGE_NAME_DECODED',
+    (obj: Record<string, any>) => obj.name === 'DOCKER_CUSTOM_IMAGE_NAME_DECODED',
   ).value
 
   let dockerComposeConfig
   try {
-    dockerComposeConfig = yaml.load(dockerComposeYaml)
-  } catch (err) {
+    dockerComposeConfig = yaml.load(dockerComposeYaml) as Record<string, any>
+  } catch {
     console.log('Error loading the YAML configuration data from the Canary App Service Slot config')
     return null
   }
@@ -48,7 +48,7 @@ function getBuildSha(slot, appService, resourceGroup) {
   return sha
 }
 
-function getStatesForSlot(slot, appService, resourceGroup) {
+function getStatesForSlot(slot: string, appService: string, resourceGroup: string) {
   return JSON.parse(
     execSync(
       `az webapp list-instances --slot ${slot} --query "[].state" -n ${appService} -g ${resourceGroup}`,
@@ -67,7 +67,7 @@ async function doCheck() {
   const states = getStatesForSlot(slotName, appServiceName, resourceGroupName)
   console.log('Instance states:', states)
 
-  const isAllReady = states.every((s) => s === 'READY')
+  const isAllReady = states.every((s: string) => s === 'READY')
 
   if (buildSha === expectedSHA && isAllReady) {
     console.log('Got the expected build SHA and all slots are ready! 🚀')
