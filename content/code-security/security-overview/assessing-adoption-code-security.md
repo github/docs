@@ -66,7 +66,7 @@ You can view data to assess the enablement of code security features across orga
 In the enterprise-level view, you can view data about the enablement of features, but you cannot enable or disable features.
 {% endif %}
 
-{% data reusables.enterprise-accounts.access-enterprise-on-dotcom %}
+{% ifversion ghes %}{% data reusables.enterprise-accounts.access-enterprise-ghes %}{% else %}{% data reusables.enterprise-accounts.access-enterprise-on-dotcom %}{% endif %}
 {% data reusables.code-scanning.click-code-security-enterprise %}
 1. To display the "Security coverage" view, in the sidebar, click **Coverage**.
 {% data reusables.code-scanning.using-security-overview-coverage %}
@@ -111,7 +111,7 @@ You can view data to assess the enablement status and enablement status trends o
 
 You can view data to assess the enablement status and enablement status trends of code security features across organizations in an enterprise.
 
-{% data reusables.enterprise-accounts.access-enterprise-on-dotcom %}
+{% ifversion ghes %}{% data reusables.enterprise-accounts.access-enterprise-ghes %}{% else %}{% data reusables.enterprise-accounts.access-enterprise-on-dotcom %}{% endif %}
 {% data reusables.code-scanning.click-code-security-enterprise %}
 1. To display the "Enablement trends" view, in the sidebar, click **Enablement trends**.
 1. Click on one of the tabs for "{% data variables.product.prodname_dependabot %}", "{% data variables.product.prodname_code_scanning_caps %}", or "{% data variables.product.prodname_secret_scanning_caps %}" to view enablement trends and the percentage of repositories across organizations in your enterprise with that feature enabled. This data is displayed as a graph and a detailed table.

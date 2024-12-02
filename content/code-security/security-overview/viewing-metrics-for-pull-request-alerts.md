@@ -38,8 +38,6 @@ You can also view:
 
 You can apply filters to the data. The metrics are based on activity from the default period or your selected period.
 
-![Screenshot of the "CodeQL pull request alerts" view for an organization, showing status and trends over 90 days.](/assets/images/help/security-overview/security-overview-codeql-pull-requests-alerts-report.png)
-
 {% ifversion code-scanning-autofix %}
 > [!NOTE] Metrics for {% data variables.product.prodname_copilot_autofix_short %} will be shown only for repositories where {% data variables.product.prodname_copilot_autofix_short %} is enabled.
 {% else %}
