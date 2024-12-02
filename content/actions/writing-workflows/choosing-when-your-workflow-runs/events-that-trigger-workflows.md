@@ -1353,19 +1353,26 @@ jobs:
                artifact_id: matchArtifact.id,
                archive_format: 'zip',
             });
-            let fs = require('fs');
-            fs.writeFileSync(`${process.env.GITHUB_WORKSPACE}/pr_number.zip`, Buffer.from(download.data));
+            const fs = require('fs');
+            const path = require('path');
+            const temp = '{% raw %}${{ runner.temp }}{% endraw %}/artifacts';
+            if (!fs.existsSync(temp)){
+              fs.mkdirSync(temp);
+            }
+            fs.writeFileSync(path.join(temp, 'pr_number.zip'), Buffer.from(download.data));
 
       - name: 'Unzip artifact'
-        run: unzip pr_number.zip
+        run: unzip pr_number.zip -d "{% raw %}${{ runner.temp }}{% endraw %}/artifacts"
 
       - name: 'Comment on PR'
         uses: {% data reusables.actions.action-github-script %}
         with:
           github-token: {% raw %}${{ secrets.GITHUB_TOKEN }}{% endraw %}
           script: |
-            let fs = require('fs');
-            let issue_number = Number(fs.readFileSync('./pr_number'));
+            const fs = require('fs');
+            const path = require('path');
+            const temp = '{% raw %}${{ runner.temp }}{% endraw %}/artifacts';
+            const issue_number = Number(fs.readFileSync(path.join(temp, 'pr_number')));
             await github.rest.issues.createComment({
               owner: context.repo.owner,
               repo: context.repo.repo,
