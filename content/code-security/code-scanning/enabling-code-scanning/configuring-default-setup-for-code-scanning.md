@@ -62,9 +62,9 @@ Your repository is eligible for default setup for {% data variables.product.prod
 If your repository includes at least one {% data variables.product.prodname_codeql %}-supported language, you can use default setup even if your repository also includes languages that aren't supported by {% data variables.product.prodname_codeql %}, such as R. Unsupported languages will not be scanned by default setup. For more information on {% data variables.product.prodname_codeql %}-supported languages, see "[AUTOTITLE](/code-security/code-scanning/introduction-to-code-scanning/about-code-scanning-with-codeql#about-codeql)."
 {% endif %}
 
-{% ifversion code-scanning-default-setup-self-hosted-310 or default-setup-self-hosted-runners-GHEC %}
-You can use default setup with self-hosted runners for all {% data variables.product.prodname_codeql %}-supported languages{% ifversion codeql-swift-advanced-setup %} except Swift{% endif %}. {% ifversion codeql-no-build %}Default setup uses the `none` build mode for {% data variables.code-scanning.no_build_support %} and uses the `autobuild` build mode for other compiled languages. You should configure your self-hosted runners to make sure they can run all the necessary commands for C/C++, C#, and Swift analysis. Analysis of JavaScript/TypeScript, Go, Ruby, Python, and Kotlin code does not currently require special configuration.{% else %}Default setup runs the `autobuild` action, so you should configure your self-hosted runners to make sure they can run all the necessary commands for {% data variables.code-scanning.compiled_languages %} analysis. Analysis of JavaScript/TypeScript, Go, Ruby, Python, and Kotlin code does not currently require special configuration.{% endif %}
-{% endif %}
+You can use default setup for all {% data variables.product.prodname_codeql %}-supported languages{% ifversion codeql-swift-advanced-setup %} except Swift{% endif %} for self-hosted runners or {% data variables.product.prodname_dotcom %}-hosted runners. See "[Assigning labels to runners](#assigning-labels-to-runners)", later in this article.
+
+{% ifversion codeql-no-build %}Default setup uses the `none` build mode for {% data variables.code-scanning.no_build_support %} and uses the `autobuild` build mode for other compiled languages. You should configure your self-hosted runners to make sure they can run all the necessary commands for C/C++, C#, and Swift analysis. Analysis of JavaScript/TypeScript, Go, Ruby, Python, and Kotlin code does not currently require special configuration.{% else %}Default setup runs the `autobuild` action, so you should configure your self-hosted runners to make sure they can run all the necessary commands for {% data variables.code-scanning.compiled_languages %} analysis. Analysis of JavaScript/TypeScript, Go, Ruby, Python, and Kotlin code does not currently require special configuration.{% endif %}
 
 ### Customizing default setup
 
@@ -126,6 +126,11 @@ When you initially configure default setup for {% data variables.product.prodnam
    > [!NOTE]
    > If you configure {% data variables.product.prodname_code_scanning %} to use the **Extended** query suite, you may experience a higher rate of false positive alerts.
 
+{% ifversion code-scanning-default-setup-customize-labels %}
+
+1. Optionally, to use labeled runners, in the "Runner type" section, select **Standard {% data variables.product.company_short %} runner** {% octicon "triangle-down" aria-hidden="true" %} then select **Labeled runner**. Then, next to "Runner label", enter the label of an existing self-hosted or {% data variables.product.company_short %}-hosted runner. See "[Assigning labels to runners](#assigning-labels-to-runners)", later in this article.
+
+{%- endif %}
 {%- endif %}
 
 1. Review the settings for default setup on your repository, then click **Enable {% data variables.product.prodname_codeql %}**. This will trigger a workflow that tests the new, automatically generated configuration.
@@ -134,6 +139,34 @@ When you initially configure default setup for {% data variables.product.prodnam
    > If you are switching to default setup from advanced setup, you will see a warning informing you that default setup will override existing {% data variables.product.prodname_code_scanning %} configurations. This warning means default setup will disable the existing workflow file and block any {% data variables.product.prodname_codeql %} analysis API uploads.
 
 1. Optionally, to view your default setup configuration after enablement, select {% octicon "kebab-horizontal" aria-label="Menu" %}, then click **{% octicon "gear" aria-hidden="true" %} View {% data variables.product.prodname_codeql %} configuration**.
+
+## Assigning labels to runners
+
+>[!NOTE]{% data variables.product.prodname_code_scanning_caps %} sees assigned runners when default setup is enabled. If a runner is assigned to a repository that is already running default setup, you must disable and re-enable default setup to start using the runner. If you add a runner and want to start using it, you can change the configuration manually without needing to disable and re-enable default setup.
+
+You can also assign self-hosted runners{% ifversion code-scanning-default-setup-customize-labels %} with the default `code-scanning` label, or you can optionally give them custom labels so that individual repositories can use different runners.{% else %}with the `code-scanning` label.{% endif %} For information about assigning labels to self-hosted runners, see "[AUTOTITLE](/actions/hosting-your-own-runners/managing-self-hosted-runners/using-labels-with-self-hosted-runners)."
+
+{% ifversion code-scanning-default-setup-customize-labels %}
+
+Specifying custom labels for self-hosted runners is optional. Unless you have a specific use case, we recommend that you only assign runners with the default `code-scanning` label. For example, you may want to:
+
+* Assign more powerful self-hosted runners to critical repositories for faster {% data variables.product.prodname_code_scanning %} analysis.
+* Run your {% data variables.product.prodname_code_scanning %} analyses on a particular platform (for example, macOS).
+* Have granular control over the workload for your {% data variables.product.prodname_dotcom %}-hosted runners and self-hosted runners.
+
+Once you've assigned custom labels to self-hosted runners, your repositories can use those runners for {% data variables.product.prodname_code_scanning %} default setup. For more information, see "[Configuring default setup for a repository](#configuring-default-setup-for-a-repository)", earlier in this article.
+
+You can also use {% data variables.product.prodname_security_configurations %} to assign labels to self-hosted runners for {% data variables.product.prodname_code_scanning %}. See "[AUTOTITLE](/code-security/securing-your-organization/meeting-your-specific-security-needs-with-custom-security-configurations/creating-a-custom-security-configuration#creating-a-custom-security-configuration)."
+
+{% endif %}
+
+{% ifversion fpt or ghec %}
+
+### Assigning {% data variables.actions.hosted_runners %}
+
+To assign a {% data variables.actions.hosted_runner %}, name the runner `code-scanning`. This will automatically add the `code-scanning` label to the {% data variables.actions.hosted_runner %}. An organization can only have one {% data variables.actions.hosted_runner %} with the `code-scanning` label, and that runner will handle all {% data variables.product.prodname_code_scanning %} jobs from repositories within your organization with access to the runner's group. See "[AUTOTITLE](/code-security/code-scanning/managing-your-code-scanning-configuration/configuring-larger-runners-for-default-setup#provisioning-organization-level-larger-runners-for-default-setup)."
+
+{% endif %}
 
 ## Next steps
 
