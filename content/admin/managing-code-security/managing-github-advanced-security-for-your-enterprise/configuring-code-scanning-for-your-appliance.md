@@ -67,7 +67,9 @@ You can configure {% data variables.product.prodname_code_scanning %} to run {% 
 {% ifversion code-scanning-runner-label or default-setup-self-hosted-runners-GHEC %}
 If you are provisioning a self-hosted runner for {% data variables.product.prodname_codeql %} analysis, your runner must use a {% data variables.product.prodname_codeql %}-supported operating system version and CPU architecture. See the [{% data variables.product.prodname_codeql %} system requirements](https://codeql.github.com/docs/codeql-overview/system-requirements/).
 
-If you are using default setup for {% data variables.product.prodname_code_scanning %}, assign the `code-scanning` label to your self-hosted runner. For more information about using labels with self-hosted runners, see "[AUTOTITLE](/actions/hosting-your-own-runners/managing-self-hosted-runners/using-labels-with-self-hosted-runners)."{% ifversion code-scanning-default-setup-self-hosted-310 or default-setup-self-hosted-runners-GHEC %} For more information about using default setup for code scanning analysis of compiled languages, see "[AUTOTITLE](/code-security/code-scanning/automatically-scanning-your-code-for-vulnerabilities-and-errors/codeql-code-scanning-for-compiled-languages)."{% endif %}
+If you are using default setup for {% data variables.product.prodname_code_scanning %}, you can assign self-hosted runners {% ifversion code-scanning-default-setup-customize-labels %}with the default `code-scanning` label, or you can optionally give them custom labels so that individual repositories can use different runners.{% else %}with the `code-scanning` label.{% endif %} See "[AUTOTITLE](/code-security/code-scanning/enabling-code-scanning/configuring-default-setup-for-code-scanning#assigning-labels-to-runners)."
+
+{% ifversion code-scanning-default-setup-self-hosted-310 or default-setup-self-hosted-runners-GHEC %} For information about using default setup for code scanning analysis of compiled languages, see "[AUTOTITLE](/code-security/code-scanning/automatically-scanning-your-code-for-vulnerabilities-and-errors/codeql-code-scanning-for-compiled-languages)."{% endif %}
 
 {% endif %}
 

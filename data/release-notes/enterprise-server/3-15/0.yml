@@ -1,14 +1,9 @@
-date: '2024-11-12'
-release_candidate: true
-deprecated: true
+date: '2024-12-03'
+release_candidate: false
+deprecated: false
 intro: |
-  > [!NOTE] Release candidate (RC) builds are intended solely for use in a test environment. Do not install an RC in a production environment.
-  >
-  > Do not upgrade to an RC from a supported, earlier version.
-  >
-  > If {% data variables.location.product_location %} is running an RC, you cannot upgrade to the general availability (GA) release. You also cannot upgrade with a hotpatch.
-
   For upgrade instructions, see "[AUTOTITLE](/admin/upgrading-your-instance/preparing-to-upgrade/overview-of-the-upgrade-process)."
+
 sections:
   # Remove section heading if the section contains no notes.
 
@@ -165,8 +160,6 @@ sections:
 
   known_issues:
     - |
-      **Note:** This list is not complete. Any new known issues that are identified for the 3.15 release will be added between now and the GA.
-    - |
       An organization-level code scanning configuration page is displayed on instances that do not use GitHub Advanced Security or code scanning.
     - |
       When initializing a new GHES cluster, nodes with the `consul-server` role should be added to the cluster before adding additional nodes. Adding all nodes simultaneously creates a race condition between nomad server registration and nomad client registration.
@@ -209,16 +202,18 @@ sections:
     - |
       {% data reusables.release-notes.2024-11-ghe-repl-promote-primary-down %}
 
-      [Updated: 2024-11-29]
-
-
   closing_down:
+    # https://github.com/github/releases/issues/3525
+    - |
+      In GitHub Enterprise Server 3.16, tag protection rules will be migrated to a ruleset and the tag protection rule feature will no longer be available.
     # https://github.com/github/releases/issues/4964
     - |
       In GitHub Enterprise Server 3.16, the `/explore` functionality, including the `Activity` and `Trending` pages, will be removed.
     # https://github.com/github/releases/issues/4110 and https://github.com/github/releases/issues/4193 and https://github.com/github/releases/issues/4231
     - |
       We are closing down the API endpoints and parameters that complemented the old organization-level code security settings UI experience. These have been replaced by a new API for security configurations. See "[AUTOTITLE](/rest/code-security/configurations)."
+
+      The following things are scheduled for removal in GitHub Enterprise Server 3.16.
       * **Closing down:** The GET response for security product status in an organization: [Get an organization](/rest/orgs/orgs?apiVersion=2022-11-28#get-an-organization) is deprecated. This attribute will return inaccurate information.
       * **Closing down:** The PATCH functionality for security products to set a default status for new repos in an organization: [Update an organization](/rest/orgs/orgs?apiVersion=2022-11-28#update-an-organization) is deprecated. The PATCH operation will be ignored.
       * **Closing down:** The POST endpoint to enable or disable a security feature for all repositories in an organization: [Enable or disable a security feature for an organization](/rest/orgs/orgs?apiVersion=2022-11-28#enable-or-disable-a-security-feature-for-an-organization) is deprecated. Using the POST operation may result in a code security configuration being unintentionally removed from a repository.
@@ -228,9 +223,4 @@ sections:
     - |
       The Management Console API has been removed. The Manage GHES API reached feature parity with the Management Console API in {% data variables.product.prodname_ghe_server %} version 3.12. For information about the Manage GHES API, see "[AUTOTITLE](/rest/enterprise-admin/manage-ghes)."
     - |
-      The option to "copy Storage settings from Actions" in the Management Console ("GitHub Packages" > "Packages Storage Settings") has been removed. [Updated: 2024-11-20]
-
-  errata:
-    # https://github.com/github/docs-content/issues/16489
-    - |
-      "Retired" incorrectly indicated that the API endpoints and parameters that complemented the old organization-level code security settings UI experience were retired. They are closed down. [Updated: 2024-11-18]
+      The option to "copy Storage settings from Actions" in the Management Console ("GitHub Packages" > "Packages Storage Settings") has been removed.
