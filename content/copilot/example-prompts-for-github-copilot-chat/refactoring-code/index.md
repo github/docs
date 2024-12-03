@@ -12,4 +12,5 @@ children:
   - /fixing-lint-errors
   - /refactoring-to-implement-a-design-pattern
   - /refactoring-for-performance-optimization
+  - /fixing-database-deadlocks-or-data-integrity-issues
 ---

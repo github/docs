@@ -121,10 +121,10 @@ test.describe('ProductDetails Component', () => {
 
   test('displays product details correctly', async ({ page }) => {
     await page.goto('/product/1');
-    
+
     // Wait for loading to disappear
     await expect(page.getByText('Loading...')).toBeHidden();
-    
+
     // Check all product details
     await expect(page.locator('h2')).toHaveText('Test Product');
     await expect(page.locator('text=This is a test product')).toBeVisible();
@@ -133,10 +133,10 @@ test.describe('ProductDetails Component', () => {
 
   test('displays error message when product not found', async ({ page }) => {
     await page.goto('/product/999');
-    
+
     // Wait for loading to disappear
     await expect(page.getByText('Loading...')).toBeHidden();
-    
+
     // Check error message
     await expect(page.locator('text=Error: Product not found')).toBeVisible();
   });

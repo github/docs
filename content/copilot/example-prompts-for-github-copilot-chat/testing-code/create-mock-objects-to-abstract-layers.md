@@ -70,7 +70,7 @@ describe('load function', () => {
   beforeEach(() => {
     // Reset mock before each test
     vi.resetAllMocks();
-    
+
     // Setup default mock implementation
     (service.getRunner as any).mockResolvedValue(mockRunner);
   });

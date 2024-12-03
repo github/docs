@@ -20,3 +20,6 @@ code_scanning_threat_model_support: 'Java/Kotlin{% ifversion fpt or ghec or ghes
 
 # List of languages that Copilot Autofix Agent supports
 codeql_autofix_languages: ' C#, C/C++, Go, Java/Kotlin, Swift, JavaScript/TypeScript, Python, and Ruby'
+
+# List of languages that CodeQL dependency caching supports
+codeql_dependency_caching_languages: 'Java, Go, and C#'
