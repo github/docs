@@ -1,5 +1,0 @@
-# Reference: #16198
-# Documentation for the GitHub Models CLI extension
-versions:
-  fpt: '*'
-  ghec: '*'
