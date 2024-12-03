@@ -50,6 +50,12 @@ The basic {% data variables.code-scanning.codeql_workflow %} uses the `autobuild
 
 {% endif %}
 
+{% ifversion codeql-dependency-caching %}
+
+You can use dependency caching with {% data variables.product.prodname_codeql %} to store dependencies as a {% data variables.product.prodname_actions %} cache instead of downloading them from registries. For more information, see "[About dependency caching for {% data variables.product.prodname_codeql %}](#about-dependency-caching-for-codeql)" later in this article.
+
+{% endif %}
+
 {% ifversion codeql-no-build %}
 
 ## {% data variables.product.prodname_codeql %} build modes
@@ -117,6 +123,41 @@ steps:
 {% endif %}
 
 For information about the languages, libraries, and frameworks that are supported in the latest version of {% data variables.product.prodname_codeql %}, see "[Supported languages and frameworks](https://codeql.github.com/docs/codeql-overview/supported-languages-and-frameworks)" in the {% data variables.product.prodname_codeql %} documentation. For information about the system requirements for running the latest version of {% data variables.product.prodname_codeql %}, see "[System requirements](https://codeql.github.com/docs/codeql-overview/system-requirements/#additional-software-requirements)" in the {% data variables.product.prodname_codeql %} documentation.
+
+{% ifversion codeql-dependency-caching %}
+
+## About dependency caching for {% data variables.product.prodname_codeql %}
+
+You can use dependency caching with {% data variables.product.prodname_codeql %} to store dependencies as a {% data variables.product.prodname_actions %} cache instead of downloading them from registries. This reduces the risk of losing alerts when third party registries don't work well, and may result in a performance improvement for projects that have a large number of dependencies or work with slow registries. To read more about how caching dependencies can speed up workflows, see "[AUTOTITLE](/actions/writing-workflows/choosing-what-your-workflow-does/caching-dependencies-to-speed-up-workflows)."
+
+Dependency caching works with all build modes, and is supported by {% data variables.code-scanning.codeql_dependency_caching_languages %}.
+
+>[!NOTE]
+> Using dependency caching will store {% data variables.product.prodname_codeql %}-specific caches that will be subject to cache quotas for a repository. See "[AUTOTITLE](/actions/writing-workflows/choosing-what-your-workflow-does/caching-dependencies-to-speed-up-workflows#usage-limits-and-eviction-policy)."
+
+### Enabling dependency caching for {% data variables.product.prodname_codeql %}
+
+For default setup workflows, dependency caching is enabled by default for {% data variables.product.github %}-hosted runners in public repositories.
+
+For advanced setup workflows, dependency caching is disabled by default. To enable dependency caching for {% data variables.product.prodname_codeql %}, use the `dependency-caching` setting for the {% data variables.product.prodname_codeql %} action in your advanced setup workflow. This setting accepts the following values:
+
+* `false`/`none`/`off`: Dependency caching is disabled (default)
+* `restore`: Only restore existing caches, do not store new caches
+* `store`: Only store new caches, do not restore existing caches
+* `true`/`full`/`on`: Restore existing caches, and store new caches
+
+For example, the following settings would enable dependency caching for the {% data variables.product.prodname_codeql %} action:
+
+```yaml
+    # Initializes CodeQL with dependency caching enabled
+    - name: Initialize CodeQL
+      uses: {% data reusables.actions.action-codeql-action-init %}
+      with:
+        languages: java
+        dependency-caching: true
+```
+
+{% endif %}
 
 {% ifversion codeql-no-build %}
 
