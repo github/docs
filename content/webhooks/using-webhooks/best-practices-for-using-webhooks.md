@@ -16,7 +16,9 @@ You should only subscribe to the webhook events that you need. This will reduce 
 
 ## Use a webhook secret
 
-You should set a webhook secret for your webhook and verify that the signature of each webhook delivery matches the secret. This helps to ensure that the webhook delivery is from {% data variables.product.company_short %}. For more information, see "[AUTOTITLE](/webhooks/using-webhooks/securing-your-webhooks)."
+> [!WARNING]
+> To avoid accidental exposure of sensitive information, do **not** include sensitive information in your payload URL.
+> This includes your own API keys and other authentication credentials. Instead, to validate that webhook deliveries were sent by {% data variables.product.github %} and have not been tampered with, use a webhook secret. For more information, see "[AUTOTITLE](/webhooks/using-webhooks/validating-webhook-deliveries)."
 
 The webhook secret should be a random string of text with high entropy. You should securely store your webhook secret in a way that your server can access.
 
