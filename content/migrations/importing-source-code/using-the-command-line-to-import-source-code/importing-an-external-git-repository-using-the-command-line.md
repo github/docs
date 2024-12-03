@@ -18,7 +18,7 @@ Before you start, make sure you know:
 * Your {% data variables.product.product_name %} username
 * The clone URL for the external repository, such as `https://external-host.com/user/repo.git` or `git://external-host.com/user/repo.git` (perhaps with a `user@` in front of the `external-host.com` domain name)
 
-> [!TIP]
+> [!NOTE]
 > For purposes of demonstration, we'll use:
 >
 > * An external account named **extuser**

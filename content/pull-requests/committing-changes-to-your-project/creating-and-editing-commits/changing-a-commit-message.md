@@ -106,7 +106,7 @@ If you need to amend the message for multiple commits or an older commit, you ca
 
 For more information on interactive rebase, see [Interactive mode](https://git-scm.com/docs/git-rebase#_interactive_mode) in the Git manual.
 
-> [!TIP]
+> [!NOTE]
 > As before, amending the commit message will result in a new commit with a new ID. However, in this case, every commit that follows the amended commit will also get a new ID because each commit also contains the ID of its parent.
 
 > [!WARNING]
