@@ -5,7 +5,7 @@ import {
   FeaturedLink,
   getFeaturedLinksFromReq,
 } from 'src/landings/components/ProductLandingContext'
-import { TocItem } from '#src/landings/types.ts'
+import { TocItem, Spotlight } from '#src/landings/types.ts'
 
 export type CategoryLandingContextT = {
   title: string
@@ -18,6 +18,7 @@ export type CategoryLandingContextT = {
   renderedPage: string
   currentLearningTrack?: LearningTrack
   currentLayout: string
+  currentSpotlight: Array<Spotlight>
 }
 
 export const CategoryLandingContext = createContext<CategoryLandingContextT | null>(null)
@@ -48,5 +49,6 @@ export const getCategoryLandingContextFromRequest = (req: any): CategoryLandingC
     renderedPage: req.context.renderedPage,
     currentLearningTrack: req.context.currentLearningTrack,
     currentLayout: req.context.currentLayoutName,
+    currentSpotlight: req.context.page.spotlight,
   }
 }

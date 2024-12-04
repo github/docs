@@ -8,14 +8,12 @@ import { DefaultLayout } from 'src/frame/components/DefaultLayout'
 import { ArticleTitle } from 'src/frame/components/article/ArticleTitle'
 import { Lead } from 'src/frame/components/ui/Lead'
 import { useCategoryLandingContext } from 'src/frame/components/context/CategoryLandingContext'
-import { ClientSideRedirects } from 'src/rest/components/ClientSideRedirects'
-import { RestRedirect } from 'src/rest/components/RestRedirect'
 import { Breadcrumbs } from 'src/frame/components/page-header/Breadcrumbs'
 import { ArticleCardItems } from 'src/landings/types'
 
 export const CategoryLanding = () => {
   const router = useRouter()
-  const { title, intro, tocItems } = useCategoryLandingContext()
+  const { title, intro, tocItems, currentSpotlight } = useCategoryLandingContext()
 
   // tocItems contains directories and its children, we only want the child articles
   const onlyFlatItems: ArticleCardItems = tocItems.flatMap((item) => item.childTocItems || [])
@@ -72,11 +70,6 @@ export const CategoryLanding = () => {
   }
   return (
     <DefaultLayout>
-      {router.route === '/[versionId]/rest/[category]' && <RestRedirect />}
-      {/* Doesn't matter *where* this is included because it will
-      never render anything. It always just return null. */}
-      <ClientSideRedirects />
-
       <div className="container-xl px-3 px-md-6 my-4">
         <div className={cx('d-none d-xl-block mt-3 mr-auto width-full')}>
           <Breadcrumbs />
@@ -86,36 +79,39 @@ export const CategoryLanding = () => {
 
         <h2 className="py-5">Spotlight</h2>
         <div className="d-md-flex d-sm-block col-md-12">
-          <div className="col-md-4">
-            <CookBookArticleCard
-              image={'/assets/images/copilot-landing/generating_unit_tests.png'}
-              title="Generate unit tests"
-              description="Copilot Chat can help with generating unit tests for a function."
-              spotlight={true}
-              url="/en/copilot/example-prompts-for-github-copilot-chat/testing-code/generate-unit-tests"
-              tags={[]}
-            />
-          </div>
-          <div className="col-md-4">
-            <CookBookArticleCard
-              image={'/assets/images/copilot-landing/improving_code_readability.png'}
-              title="Improving code readability and maintainability"
-              description="Learn how to improve your code readability and maintainability."
-              spotlight={true}
-              url="/en/copilot/example-prompts-for-github-copilot-chat/refactoring-code/improving-code-readability-and-maintainability"
-              tags={[]}
-            />
-          </div>
-          <div className="col-md-4">
-            <CookBookArticleCard
-              image={'/assets/images/copilot-landing/debugging_invalid_json.png'}
-              title="Debugging invalid JSON"
-              description="Copilot can identify and resolve syntax errors or structural issues in JSON data."
-              spotlight={true}
-              tags={[]}
-              url="/en/copilot/example-prompts-for-github-copilot-chat/debugging-errors/debugging-invalid-json"
-            />
-          </div>
+          {
+            // The articles in the spotlight should be contained within the page's children. If not, we throw.
+            currentSpotlight.map((spotlightItem, index) => {
+              const matchedItem = onlyFlatItems.find((item) =>
+                item.fullPath.endsWith(spotlightItem.article),
+              )
+              if (
+                !matchedItem ||
+                !matchedItem.title ||
+                !matchedItem.intro ||
+                !matchedItem.fullPath
+              ) {
+                throw new Error(
+                  `Couldn't find the articles defined in the spotlight region defined for ${router.asPath}. Check that page's spotlight frontmater property.`,
+                )
+              }
+
+              // A missing image is possible, in that case the CookBookArticleCard component can handle a placeholder at a future iteration.
+              return (
+                <div className="col-md-4">
+                  <CookBookArticleCard
+                    key={index}
+                    image={spotlightItem.image}
+                    title={matchedItem.title}
+                    description={matchedItem.intro}
+                    spotlight={true}
+                    url={matchedItem.fullPath}
+                    tags={[]}
+                  />
+                </div>
+              )
+            })
+          }
         </div>
 
         <div className="pt-8">
