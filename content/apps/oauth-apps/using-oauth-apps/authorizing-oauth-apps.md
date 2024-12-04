@@ -1,4 +1,4 @@
----
+
 title: Authorizing OAuth apps
 intro: 'You can connect your {% data variables.product.product_name %} identity to third-party applications using OAuth. When authorizing an {% data variables.product.prodname_oauth_app %}, you should ensure you trust the application, review who it''s developed by, and review the kinds of information the application wants to access.'
 redirect_from:
@@ -13,7 +13,7 @@ versions:
 topics:
   - Identity
   - Access management
----
+
 When an {% data variables.product.prodname_oauth_app %} wants to identify you by your account on {% data variables.product.github %}, you'll see a page with the app's developer contact information and a list of the specific data that's being requested.
 
 {% ifversion fpt or ghec %}
