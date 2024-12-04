@@ -19,45 +19,13 @@ Code navigation helps you to read, navigate, and understand code by showing and 
 
 ![Screenshot showing a code file with a function called "request" highlighted and a pop-up window with information about the function underneath. The pop-up has two tabs: "Definition" and "Reference".](/assets/images/help/repository/code-navigation-popover.png)
 
-Code navigation uses the open source [`tree-sitter`](https://github.com/tree-sitter/tree-sitter) library. The following languages and navigation strategies are supported.
+Code navigation uses the open source [`tree-sitter`](https://github.com/tree-sitter/tree-sitter) library. The following languages support code navigation.
 
-{% rowheaders %}
+{% data reusables.search.code-nav-supported-languages %}
 
-| Language         | Search-based code navigation                 | Precise code navigation                      |
-|------------------|:--------------------------------------------:|:--------------------------------------------:|
-| Bash             | {% octicon "check" aria-label="Supported" %} | {% octicon "x" aria-label="Not supported" %} |
-| C                | {% octicon "check" aria-label="Supported" %} | {% octicon "x" aria-label="Not supported" %} |
-| C#               | {% octicon "check" aria-label="Supported" %} | {% octicon "x" aria-label="Not supported" %} |
-| C++              | {% octicon "check" aria-label="Supported" %} | {% octicon "x" aria-label="Not supported" %} |
-| CodeQL           | {% octicon "check" aria-label="Supported" %} | {% octicon "x" aria-label="Not supported" %} |
-| Elixir           | {% octicon "check" aria-label="Supported" %} | {% octicon "x" aria-label="Not supported" %} |
-| Go               | {% octicon "check" aria-label="Supported" %} | {% octicon "x" aria-label="Not supported" %} |
-| JSX              | {% octicon "check" aria-label="Supported" %} | {% octicon "x" aria-label="Not supported" %} |
-| Java             | {% octicon "check" aria-label="Supported" %} | {% octicon "x" aria-label="Not supported" %} |
-| JavaScript       | {% octicon "check" aria-label="Supported" %} | {% octicon "x" aria-label="Not supported" %} |
-| Lua              | {% octicon "check" aria-label="Supported" %} | {% octicon "x" aria-label="Not supported" %} |
-| PHP              | {% octicon "check" aria-label="Supported" %} | {% octicon "x" aria-label="Not supported" %} |
-| Protocol Buffers | {% octicon "check" aria-label="Supported" %} | {% octicon "x" aria-label="Not supported" %} |
-| Python           | {% octicon "check" aria-label="Supported" %} | {% octicon "check" aria-label="Supported" %} |
-| R                | {% octicon "check" aria-label="Supported" %} | {% octicon "x" aria-label="Not supported" %} |
-| Ruby             | {% octicon "check" aria-label="Supported" %} | {% octicon "x" aria-label="Not supported" %} |
-| Rust             | {% octicon "check" aria-label="Supported" %} | {% octicon "x" aria-label="Not supported" %} |
-| Scala            | {% octicon "check" aria-label="Supported" %} | {% octicon "x" aria-label="Not supported" %} |
-| Starlark         | {% octicon "check" aria-label="Supported" %} | {% octicon "x" aria-label="Not supported" %} |
-| Swift            | {% octicon "check" aria-label="Supported" %} | {% octicon "x" aria-label="Not supported" %} |
-| TypeScript       | {% octicon "check" aria-label="Supported" %} | {% octicon "check" aria-label="Supported" %} |
+You do not need to configure anything in your repository to enable code navigation. We will automatically extract code navigation information for these supported languages in all repositories.
 
-{% endrowheaders %}
-
-You do not need to configure anything in your repository to enable code navigation. We will automatically extract search-based and precise code navigation information for these supported languages in all repositories and you can switch between the two supported code navigation approaches if your programming language is supported by both.
-
-{% data variables.product.prodname_dotcom %} has developed two code navigation approaches based on the open source [`tree-sitter`](https://github.com/tree-sitter/tree-sitter) and [`stack-graphs`](https://github.com/github/stack-graphs) library:
-* Search-based - searches all definitions and references across a repository to find entities with a given name
-* Precise - resolves definitions and references based on the set of classes, functions, and imported definitions at a given point in your code
-
-To learn more about these approaches, see "[Precise and search-based navigation](#precise-and-search-based-navigation)."
-
-Future releases will add _precise code navigation_ for more languages, which is a code navigation approach that can give more accurate results.
+{% data variables.product.prodname_dotcom %} has developed a code navigation approach based on the open source [`tree-sitter`](https://github.com/tree-sitter/tree-sitter) library that searches all definitions and references across a repository to find entities with a given name.
 
 {% ifversion code-view-ui %}You can use keyboard shortcuts to navigate within a code file. For more information, see "[AUTOTITLE](/get-started/accessibility/keyboard-shortcuts#navigating-within-code-files)."{% endif %}
 
@@ -94,22 +62,6 @@ You can jump to a function or method's definition within the same repository by 
 You can find all references for a function or method within the same repository by clicking the function or method call in a file.
 
 ![Screenshot of the function window. A section, titled "3 References," is outlined in dark orange.](/assets/images/help/repository/find-all-references-tab.png)
-
-## Precise and search-based navigation
-
-Certain languages supported by {% data variables.product.prodname_dotcom %} have access to _precise code navigation_, which uses an algorithm (based on the open source [`stack-graphs`](https://github.com/github/stack-graphs) library) that resolves definitions and references based on the set of classes, functions, and imported definitions that are visible at any given point in your code. Other languages use _search-based code navigation_, which searches all definitions and references across a repository to find entities with a given name. Both strategies are effective at finding results and both make sure to avoid inappropriate results such as comments, but precise code navigation can give more accurate results, especially when a repository contains multiple methods or functions with the same name.
-
-If you don't see the results you expect from a precise code navigation query, you can click on the "search-based" link in the displayed popover to perform search-based navigation.
-
-![Screenshot of the function window. Two links, labeled, "Search for this symbol in this repository" and "all repositories," are outlined in dark orange.](/assets/images/help/repository/search-based-code-navigation-link.png)
-
-If your precise results appear inaccurate, you can file a support request.
-
-## Cross-repository precise code navigation
-
-Cross-repo code navigation is available for languages that are supported by precise code navigation and the dependency graph. For more information, see "[AUTOTITLE](/code-security/supply-chain-security/understanding-your-software-supply-chain/about-the-dependency-graph)." With cross-repo code navigation, you can jump to the definition of functions or variables defined in dependencies imported by your project if that dependency is a repository hosted by {% data variables.product.prodname_dotcom %}. Cross-repo code navigation does not support find-all-references requests at this time.
-
-![Screenshot of a code file on {% data variables.product.prodname_dotcom %}. On the line "import o.s.", the module name "o.s." is highlighted, and a "Definitions" modal shows a result tagged with "cross-repo result".](/assets/images/help/repository/cross-repository-code-navigation.png)
 
 ## Troubleshooting code navigation
 
