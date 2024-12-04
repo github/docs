@@ -48,7 +48,11 @@ shortTitle: Repository management policies
 
 ## About policies for repository management in your enterprise
 
-You can enforce policies to control how members of your enterprise on {% data variables.product.product_name %} manage repositories. You can also allow organization owners to manage policies for repository management. For more information, see "[AUTOTITLE](/repositories/creating-and-managing-repositories)" and "[AUTOTITLE](/organizations)."
+You can enforce policies to control how members of your enterprise on {% data variables.product.product_name %} manage repositories. You can also allow organization owners to manage policies for repository management.
+
+{% ifversion repo-policy-rules %}
+>[!NOTE] This page describes the policies you can set on the "Member privileges" page in your enterprise settings. Certain restrictions, such as who can create, delete, or transfer repositories, are also available in a **repository policy**. Repository policies give you more flexibility over which users are affected and which organizations and repositories are targeted. See "[AUTOTITLE](/admin/managing-accounts-and-repositories/managing-repositories-in-your-enterprise/governing-how-people-use-repositories-in-your-enterprise)."
+{% endif %}
 
 {% ifversion ghes %}
 
@@ -197,7 +201,8 @@ Across all organizations owned by your enterprise, you can allow members with ad
 
 {% data reusables.enterprise-accounts.access-enterprise %}
 {% data reusables.enterprise-accounts.policies-tab %}
-1. On the **Repository policies** tab, under "Repository issue deletion", review the information about changing the setting. {% data reusables.enterprise-accounts.view-current-policy-config-orgs %}
+{% data reusables.enterprise-accounts.repositories-tab %}
+1. Under "Repository issue deletion", review the information about changing the setting. {% data reusables.enterprise-accounts.view-current-policy-config-orgs %}
 1. Under "Repository issue deletion", select the dropdown menu and click a policy.
 
 {% ifversion ghes %}

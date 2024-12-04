@@ -16,6 +16,7 @@ children:
   - /verifying-or-approving-a-domain-for-your-organization
   - /renaming-an-organization
   - /transferring-organization-ownership
+  - /governing-how-people-use-repositories-in-your-organization
   - /restricting-repository-creation-in-your-organization
   - /setting-permissions-for-deleting-or-transferring-repositories
   - /restricting-repository-visibility-changes-in-your-organization

@@ -74,7 +74,7 @@ See "[AUTOTITLE](/get-started/getting-started-with-git/managing-remote-repositor
 
 ### Repository transfers and organizations
 
-To transfer repositories to an organization, you must have repository creation permissions in the receiving organization. If organization owners have disabled repository creation by organization members, only organization owners can transfer repositories out of or into the organization.
+To transfer repositories to an organization, you must have permission to create repositories in the receiving organization, and to transfer repositories out of the origin organization. An organization or enterprise owner may have set a policy that prevents certain users from doing these things.
 
 Once a repository is transferred to an organization, the organization's default repository permission settings and default membership privileges will apply to the transferred repository.
 

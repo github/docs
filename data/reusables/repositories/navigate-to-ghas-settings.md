@@ -1,1 +1,1 @@
-1. Under "Code security and analysis", find "{% data variables.product.prodname_GH_advanced_security %}."
+1. Under {% ifversion code-security-wording-only %}"Code security"{% else %}"Code security and analysis"{% endif %}, find "{% data variables.product.prodname_GH_advanced_security %}."
