@@ -29,7 +29,7 @@ For more information about signature verification, see "[Verifying that payloads
 
 ## Configuration requirements
 
-Each skillset is defined within a {% data variables.product.prodname_github_app %}. A single{% data variables.product.prodname_github_app %} can contain up to five skills. Each individual skill needs:
+Each skillset is defined within a {% data variables.product.prodname_github_app %}. A single {% data variables.product.prodname_github_app %} can contain up to five skills. Each individual skill needs:
 * **Name:** A clear and descriptive name (for example, "Get Issues").
 * **Inference description:** A detailed explanation of what the skill does and when to use it (for example, "Searches for external issues matching specific criteria like status and labels").
 * **API endpoint:** A POST endpoint that accepts JSON requests.
