@@ -13,16 +13,19 @@ shortTitle: Custom properties
 
 Custom properties allow you to decorate your repositories with information such as compliance frameworks, data sensitivity, or project details. Custom properties are private and can only be viewed by people with read permissions to the repository.
 
+An organization can have up to 100 property definitions. An allowed value list can have up to 200 items.
+
 {% ifversion ghec or ghes %}
 You can use repository properties to determine which repositories to target with a ruleset. For more information, see "[AUTOTITLE](/organizations/managing-organization-settings/creating-rulesets-for-repositories-in-your-organization#targeting-repositories-by-properties-in-your-organization)."
 {% endif %}
 
+{% ifversion ghec %}
+You can define custom properties at the enterprise level to create a consistent experience across organizations. See "[AUTOTITLE](/admin/managing-accounts-and-repositories/managing-repositories-in-your-enterprise/managing-custom-properties-for-repositories-in-your-enterprise)".
+{% endif %}
+
 ## Allowed characters
 
-Custom property names and values may only contain certain characters:
-
-* Names: `a-z`, `A-Z`, `0-9`, `_`, `-`, `$`, `#`.
-* Values: All printable ASCII characters except `"`.
+{% data reusables.repositories.custom-property-allowed-characters %}
 
 ## Adding custom properties
 
