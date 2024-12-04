@@ -26,7 +26,7 @@ Even if you restrict {% data variables.product.prodname_oauth_apps %} access in 
 
 {% data reusables.organizations.oauth_app_restrictions_default %}
 
-> [!TIP]
+> [!WARNING]
 > When an organization has not set up {% data variables.product.prodname_oauth_app %} access restrictions, any {% data variables.product.prodname_oauth_app %} authorized by an organization member can also access the organization's private resources.
 
 {% ifversion fpt %}
