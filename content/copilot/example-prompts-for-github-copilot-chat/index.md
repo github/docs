@@ -9,6 +9,7 @@ topics:
 layout: category-landing
 children:
   - /debugging-errors
+  - /functionality-analysis-and-feature-suggestions
   - /refactoring-code
   - /documenting-code
   - /testing-code
