@@ -40,6 +40,28 @@ You can interact with your custom-built or installed extension in a {% data vari
 
 {% data reusables.copilot.copilot-extensions.supported-clients-and-ides-table %}
 
+## About context passing in {% data variables.product.prodname_copilot_extensions %}
+
+{% data reusables.copilot.copilot-extensions.context-passing-public-preview-note %}
+
+{% data variables.product.prodname_copilot_extensions %} can access certain contextual information depending on where you're using them. This context passing happens automatically when you interact with an extension, but requires your explicit authorization through {% data variables.product.prodname_github_app %} permissions for use in any organization-owned repositories.
+
+Context passing helps extensions understand your current work environment to provide more relevant assistance, while maintaining security through permission controls. Context passing also respects content exclusions, `.env` files, and files listed in your content exclusion settings.
+
+The following table shows the contexts that are passed to {% data variables.product.prodname_copilot_extensions %} based on the client or IDE you are using.
+
+{% rowheaders %}
+
+| Client or IDE   | client.file | client.selection | github.repository | github.current-url | Additional contexts                               |
+| ------------------ | ----------- | ---------------- | ----------------- | ------------------ | ------------------------------------------------- |
+| {% data variables.product.prodname_vscode %} | Yes           | Yes                | Yes                 |      No              | Repository owner and branch                       |
+| {% data variables.product.prodname_vs %}      | Yes           | Yes                | Yes                 |         No           | Repository owner and branch                       |
+| {% data variables.product.prodname_dotcom_the_website %}         |    No         |        No          | Yes                 | Yes                  | Repository information and other {% data variables.product.github %} resources |
+| {% data variables.product.prodname_mobile %}      |        No     |     No            |     No              | Yes                  |             Not applicable                                        |
+| JetBrains IDEs     |         No    |       No           |           No        | Yes                  |                      Not applicable                             |
+
+{% endrowheaders %}
+
 ## Prerequisites
 
 **If you have a {% data variables.product.prodname_copilot_individuals_short %} subscription**, you need to install a {% data variables.product.prodname_copilot_extension_short %} before you can use the extension in {% data variables.product.prodname_copilot_chat_short %}. See "[AUTOTITLE](/copilot/github-copilot-chat/github-copilot-extensions/installing-github-copilot-extensions-for-your-personal-account)."
@@ -82,7 +104,7 @@ For questions and issues related to {% data variables.product.prodname_copilot_e
 * **{% data variables.product.github %} Technology Partners:** Email the partnerships team directly for assistance.
 * **{% data variables.product.prodname_copilot_extensions_vsc %}:** For more information on this type of {% data variables.product.prodname_copilot_extension_short %}, see [Chat extensions](https://code.visualstudio.com/api/extension-guides/chat) in the {% data variables.product.prodname_vscode %} documentation.
 
-> [!NOTE] {% data variables.product.github %} Support is not able to answer questions regarding {% data variables.product.prodname_copilot_extensions_vsc %}, as this implementation path is owned and maintained by the {% data variables.product.prodname_vscode_shortname %} team.
+> [!NOTE] {% data variables.contact.github_support %} is not able to answer questions regarding {% data variables.product.prodname_copilot_extensions_vsc %}, as this implementation path is owned and maintained by the {% data variables.product.prodname_vscode_shortname %} team.
 
 ## Further reading
 

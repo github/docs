@@ -36,7 +36,7 @@ Once you have configured your server and created your {% data variables.product.
 
 1. In the left sidebar, click **Permissions & events**.
 1. To expand the "Account permissions" section, click anywhere in the section.
-1. In the "{% data variables.product.prodname_copilot_chat %}" row, select the **Access:** dropdown menu, then click **Read-only**. Click **Save changes**.
+{% data reusables.copilot.copilot-extensions.account-permissions %}
 1. In the left sidebar, click **{% data variables.product.prodname_copilot_short %}**.
 1. Read the {% data variables.product.prodname_marketplace %} Developer Agreement and the {% data variables.product.github %} Pre-release License Terms, then accept the terms for creating a {% data variables.product.prodname_copilot_extension_short %}.
 
@@ -68,7 +68,7 @@ Once you have configured your server and created your {% data variables.product.
 
 1. In the left sidebar, click **Permissions & events**.
 1. To expand the "Account permissions" section, click anywhere in the section.
-1. In the "{% data variables.product.prodname_copilot_chat %}" row, select the **Access:** dropdown menu, then click **Read-only**. Click **Save changes**.
+{% data reusables.copilot.copilot-extensions.account-permissions %}
 1. In the left sidebar, click **{% data variables.product.prodname_copilot_short %}**.
 1. Read the {% data variables.product.prodname_marketplace %} Developer Agreement and the {% data variables.product.github %} Pre-release License Terms, then accept the terms for creating a {% data variables.product.prodname_copilot_extension_short %}.
 
