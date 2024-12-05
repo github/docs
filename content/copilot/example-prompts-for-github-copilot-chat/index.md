@@ -1,7 +1,8 @@
 ---
-title: Example prompts for GitHub Copilot Chat
+title: Copilot Chat Cookbook
 shortTitle: Example prompts
 intro: 'Find examples of prompts to use with {% data variables.product.prodname_copilot_chat %}.'
+allowTitleToDifferFromFilename: true
 versions:
   feature: copilot
 topics:
@@ -14,11 +15,4 @@ children:
   - /documenting-code
   - /testing-code
   - /security-analysis
-spotlight:
-  - article: /testing-code/generate-unit-tests
-    image: /assets/images/copilot-landing/generating_unit_tests.png
-  - article: /refactoring-code/improving-code-readability-and-maintainability
-    image: /assets/images/copilot-landing/improving_code_readability.png
-  - article: /debugging-errors/debugging-invalid-json
-    image: /assets/images/copilot-landing/debugging_invalid_json.png
 ---

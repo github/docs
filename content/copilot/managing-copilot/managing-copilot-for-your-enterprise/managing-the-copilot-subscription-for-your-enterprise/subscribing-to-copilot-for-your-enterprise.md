@@ -17,8 +17,9 @@ redirect_from:
 > {% data reusables.copilot.signup-procedure-enterprise-msft-ea %}
 
 1. Ensure you are signed in as an enterprise admin on {% data variables.product.github %}.
-1. Navigate to the [{% data variables.product.prodname_copilot %} sign up page](https://github.com/github-copilot/purchase).
-1. Ensure you are signed in to the right enterprise account. If you are not, click **{% octicon "arrow-switch" aria-hidden="true" %} Switch** and select the enterprise for which you want to purchase {% data variables.product.prodname_copilot %}. You can also append `?enterprise=YOUR-ENTERPRISE` to the URL to pre-select the enterprise.
+1. Navigate to the {% data variables.product.prodname_copilot_short %} signup page:
+   * For **{% data variables.product.prodname_copilot_business_short %}**, go to the [signup page for {% data variables.product.prodname_copilot_business_short %}](https://github.com/github-copilot/business_signup/choose_business_type).
+   * For **{% data variables.product.prodname_copilot_enterprise_short %}**, go to the [signup page for {% data variables.product.prodname_copilot_enterprise_short %}](https://github.com/github-copilot/enterprise_signup/choose_enterprise).
 1. Follow the steps to sign up and enable {% data variables.product.prodname_copilot_short %} for organizations in your enterprise. If you purchased {% data variables.product.prodname_copilot_enterprise_short %}, you will be able to assign either {% data variables.product.prodname_copilot_enterprise_short %} or {% data variables.product.prodname_copilot_business_short %} to each individual organization in the enterprise.
 
 ## Next steps

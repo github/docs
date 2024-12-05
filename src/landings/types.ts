@@ -27,8 +27,3 @@ export type TocItem = BaseTocItem & {
 }
 
 export type ArticleCardItems = ChildTocItem[]
-
-export type Spotlight = {
-  article: string
-  image: string
-}

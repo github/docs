@@ -262,22 +262,6 @@ export const schema = {
     octicon: {
       type: 'string',
     },
-    spotlight: {
-      type: 'array',
-      minItems: 3,
-      maxItems: 3,
-      items: {
-        type: 'object',
-        properties: {
-          article: {
-            type: 'string',
-          },
-          image: {
-            type: 'string',
-          },
-        },
-      },
-    },
     // END category landing tags
   },
 }
