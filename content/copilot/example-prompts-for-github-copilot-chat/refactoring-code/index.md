@@ -12,6 +12,7 @@ children:
   - /refactoring-to-implement-a-design-pattern
   - /refactoring-data-access-layers
   - /decoupling-business-logic-from-ui-components
+  - /handling-cross-cutting-concerns
   - /simplifying-complex-inheritance-hierarchies
   - /fixing-database-deadlocks-or-data-integrity-issues
 ---
