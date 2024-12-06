@@ -18,6 +18,7 @@ children:
   - /audit-log
   - /billing
   - /code-security-and-analysis
+  - /custom-properties
   - /global-webhooks
   - /ldap
   - /license
