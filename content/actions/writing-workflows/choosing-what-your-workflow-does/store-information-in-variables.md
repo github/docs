@@ -80,8 +80,6 @@ When you set an environment variable, you cannot use any of the default environm
 
 ## Defining configuration variables for multiple workflows
 
-{% data reusables.actions.configuration-variables-beta-note %}
-
 You can create configuration variables for use across multiple workflows, and can define them at either the [organization](#creating-configuration-variables-for-an-organization), [repository](#creating-configuration-variables-for-a-repository), or [environment](#creating-configuration-variables-for-an-environment) level.
 
 For example, you can use configuration variables to set default values for parameters passed to build tools at an organization level, but then allow repository owners to override these parameters on a case-by-case basis.
