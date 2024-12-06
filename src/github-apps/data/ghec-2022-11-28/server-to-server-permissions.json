@@ -1,4 +1,65 @@
 {
+  "enterprise_custom_properties": {
+    "title": "Custom properties",
+    "displayTitle": "Business permissions for \"Custom properties\"",
+    "permissions": [
+      {
+        "category": "enterprise-admin",
+        "slug": "get-custom-properties-for-an-enterprise",
+        "subcategory": "custom-properties",
+        "verb": "get",
+        "requestPath": "/enterprises/{enterprise}/properties/schema",
+        "access": "read",
+        "user-to-server": true,
+        "server-to-server": true,
+        "additional-permissions": false
+      },
+      {
+        "category": "enterprise-admin",
+        "slug": "create-or-update-custom-properties-for-an-enterprise",
+        "subcategory": "custom-properties",
+        "verb": "patch",
+        "requestPath": "/enterprises/{enterprise}/properties/schema",
+        "access": "write",
+        "user-to-server": true,
+        "server-to-server": true,
+        "additional-permissions": false
+      },
+      {
+        "category": "enterprise-admin",
+        "slug": "get-a-custom-property-for-an-enterprise",
+        "subcategory": "custom-properties",
+        "verb": "get",
+        "requestPath": "/enterprises/{enterprise}/properties/schema/{custom_property_name}",
+        "access": "read",
+        "user-to-server": true,
+        "server-to-server": true,
+        "additional-permissions": false
+      },
+      {
+        "category": "enterprise-admin",
+        "slug": "create-or-update-a-custom-property-for-an-enterprise",
+        "subcategory": "custom-properties",
+        "verb": "put",
+        "requestPath": "/enterprises/{enterprise}/properties/schema/{custom_property_name}",
+        "access": "write",
+        "user-to-server": true,
+        "server-to-server": true,
+        "additional-permissions": false
+      },
+      {
+        "category": "enterprise-admin",
+        "slug": "remove-a-custom-property-for-an-enterprise",
+        "subcategory": "custom-properties",
+        "verb": "delete",
+        "requestPath": "/enterprises/{enterprise}/properties/schema/{custom_property_name}",
+        "access": "write",
+        "user-to-server": true,
+        "server-to-server": true,
+        "additional-permissions": false
+      }
+    ]
+  },
   "enterprise_administration": {
     "title": "Enterprise administration",
     "displayTitle": "Business permissions for \"Enterprise administration\"",
