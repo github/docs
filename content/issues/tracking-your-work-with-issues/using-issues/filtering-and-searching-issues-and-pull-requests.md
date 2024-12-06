@@ -51,8 +51,6 @@ type: how_to
 
 Issues and pull requests come with a set of default filters you can apply to organize your listings.
 
-{% data reusables.search.requested_reviews_search %}
-
 You can filter issues and pull requests to find:
 * All open issues and pull requests
 * Issues and pull requests that you've created

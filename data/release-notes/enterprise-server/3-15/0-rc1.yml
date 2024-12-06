@@ -1,6 +1,6 @@
 date: '2024-11-12'
 release_candidate: true
-deprecated: false
+deprecated: true
 intro: |
   > [!NOTE] Release candidate (RC) builds are intended solely for use in a test environment. Do not install an RC in a production environment.
   >
@@ -208,7 +208,8 @@ sections:
       Customers doing feature version upgrade to 3.14.3 may experience issues with database migrations due to data issues during database conversions.
     - |
       {% data reusables.release-notes.2024-11-ghe-repl-promote-primary-down %}
-      [Updated: 2024-11-13]
+
+      [Updated: 2024-11-29]
 
 
   closing_down:

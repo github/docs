@@ -11,7 +11,7 @@ import { fileURLToPath } from 'url'
 import path from 'path'
 import fs from 'fs/promises'
 
-import { getContents } from '#src/workflows/git-utils.js'
+import { getContents } from '#src/workflows/git-utils.ts'
 
 const __dirname = path.dirname(fileURLToPath(import.meta.url))
 const enterpriseDatesFile = path.join(__dirname, '../lib/enterprise-dates.json')

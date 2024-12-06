@@ -19,6 +19,10 @@ shortTitle: About merge methods
 
 > [!NOTE]
 > When using the merge queue, you no longer get to choose the merge method, as this is controlled by the queue. {% data reusables.pull_requests.merge-queue-references %}
+{% ifversion repo-rules-merge-type -%}
+>
+> Merge methods set on the repository that conflict with the merge method rule will prevent merging. For example if you do not allow rebase merging for the repository, and the merge rule only allows rebase on a branch, that merge will not be possible. For more information, see "[AUTOTITLE](/repositories/configuring-branches-and-merges-in-your-repository/managing-rulesets/available-rules-for-rulesets#require-a-pull-request-before-merging)."
+{%- endif %}
 
 {% endif %}
 

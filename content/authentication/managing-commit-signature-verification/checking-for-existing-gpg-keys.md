@@ -27,7 +27,7 @@ shortTitle: Existing GPG keys
 
       ```shell
       $ gpg --armor --export 3AA5C34371567BD2
-      # Prints the GPG key ID, in ASCII armor format
+      # Prints the GPG public key, in ASCII armor format
       ```
 
       You can then [add your GPG key to your GitHub account](/authentication/managing-commit-signature-verification/adding-a-gpg-key-to-your-github-account).

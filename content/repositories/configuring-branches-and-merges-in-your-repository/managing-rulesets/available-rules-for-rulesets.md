@@ -130,6 +130,13 @@ For complex pull requests that require many reviews, requiring an approval from 
 
 Optionally, you can require all comments on the pull request to be resolved before it can be merged to a branch. This ensures that all comments are addressed or acknowledged before merge.
 
+{% ifversion repo-rules-merge-type %}
+> [!NOTE]
+> Allowed merge method is currently in public preview, the rule is currently non-bypassable, and subject to change.
+
+Optionally, you can require a merge type of merge, squash or rebase. This means the targeted branches may only be merged based on the allowed type. Additionally if the repository has disabled a merge method and the ruleset required a different method, the merge will be blocked. For more information, see "[AUTOTITLE](/repositories/configuring-branches-and-merges-in-your-repository/configuring-pull-request-merges/about-merge-methods-on-github)."
+{% endif %}
+
 ## Require status checks to pass before merging
 
 Required status checks ensure that all required CI tests are passing before collaborators can make changes to a branch or tag targeted by your ruleset. Required status checks can be checks or statuses. For more information, see "[AUTOTITLE](/pull-requests/collaborating-with-pull-requests/collaborating-on-repositories-with-code-quality-features/about-status-checks)."

@@ -29,7 +29,7 @@ jobs:
         env:
           # Necessary to be able to delete deployment environments
           GITHUB_TOKEN: ${{ secrets.DOCS_BOT_PAT_WORKFLOW_READORG }}
-        run: src/workflows/purge-old-deployment-environments.js
+        run: npm run purge-old-deployment-environments
 
       - uses: ./.github/actions/slack-alert
         if: ${{ failure() && github.event_name != 'workflow_dispatch' }}

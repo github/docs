@@ -58,7 +58,7 @@ jobs:
 
       - name: Run script
         run: |
-          node src/workflows/ready-for-docs-review.js
+          npm run ready-for-docs-review
         env:
           TOKEN: ${{ secrets.DOCS_BOT_PAT_WRITEORG_PROJECT }}
           PROJECT_NUMBER: 2936

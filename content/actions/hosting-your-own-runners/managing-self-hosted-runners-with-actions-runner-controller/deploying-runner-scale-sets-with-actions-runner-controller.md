@@ -914,7 +914,7 @@ You can also use ARC with {% data variables.product.prodname_codeql %} to identi
 
 {% data variables.product.prodname_actions_runner_controller %} does not use multiple labels to route jobs to specific runner scale sets. Instead, to designate a runner scale set for {% data variables.product.prodname_dependabot %} updates or {% data variables.product.prodname_code_scanning %} with {% data variables.product.prodname_codeql %}, use a descriptive installation name in your Helm chart, such as `dependabot` or `code-scanning`. You can then set the `runs-on` value in your workflows to the installation name as the single label, and use the designated runner scale set for {% data variables.product.prodname_dependabot %} updates or {% data variables.product.prodname_code_scanning %} jobs.
 
-If you're using default setup for {% data variables.product.prodname_code_scanning %}, the analysis will automatically look for a runner scale set with the installation name `code-scanning`.
+If you're using default setup for {% data variables.product.prodname_code_scanning %}, the analysis will automatically look for a runner scale set with the installation name `code-scanning` {% ifversion code-scanning-default-setup-customize-labels %} but you can specify a custom name in the configuration, so that individual repositories can use different runner scale sets. See "[AUTOTITLE](/code-security/code-scanning/enabling-code-scanning/configuring-default-setup-for-code-scanning#assigning-labels-to-runners){% endif %}.
 
 {% note %}
 

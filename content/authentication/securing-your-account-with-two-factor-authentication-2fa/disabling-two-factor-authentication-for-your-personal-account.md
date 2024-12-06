@@ -47,9 +47,9 @@ To remove yourself from your organization:
 {% data reusables.user-settings.access_settings %}
 {% data reusables.user-settings.security %}
 
-1. Hover over **Enabled**, then click **Disable**.
+1. Click {% octicon "kebab-horizontal" aria-label="The horizontal kebab icon" %}, then select **Disable two-factor authentication**.
 
-   ![Screenshot of an account's 2FA settings. A green button labeled "Enabled" is outlined in orange.](/assets/images/help/2fa/disable-two-factor-authentication.png)
+   ![Screenshot of an account's 2FA settings. The ellipsis button (three dots) is highlighted with a dark orange outline.](/assets/images/help/2fa/disable-two-factor-authentication.png)
 
 1. If necessary, enter your password or perform 2FA once more to disable 2FA for your {% data variables.product.prodname_dotcom %} account.
 

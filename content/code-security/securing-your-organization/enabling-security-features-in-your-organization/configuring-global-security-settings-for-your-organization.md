@@ -1,7 +1,7 @@
 ---
 title: Configuring global security settings for your organization
 shortTitle: Configure global settings
-intro: 'Customize {% data variables.product.prodname_GH_advanced_security %} features and create security managers to strengthen the security of your organization.'
+intro: 'Customize {% data variables.product.prodname_GH_advanced_security %} features to strengthen the security of your organization.'
 permissions: '{% data reusables.permissions.security-org-enable %}'
 versions:
   feature: security-configurations
@@ -13,7 +13,7 @@ topics:
 
 ## About {% data variables.product.prodname_global_settings %}
 
-Alongside {% data variables.product.prodname_security_configurations %}, which determine repository-level security settings, you should also configure {% data variables.product.prodname_global_settings %} for your organization. {% data variables.product.prodname_global_settings_caps %} apply to your entire organization, and can customize {% data variables.product.prodname_GH_advanced_security %} features based on your needs. You can also create security managers on the {% data variables.product.prodname_global_settings %} page to monitor and maintain your organization's security.
+Alongside {% data variables.product.prodname_security_configurations %}, which determine repository-level security settings, you should also configure {% data variables.product.prodname_global_settings %} for your organization. {% data variables.product.prodname_global_settings_caps %} apply to your entire organization, and can customize {% data variables.product.prodname_GH_advanced_security %} features based on your needs. {% ifversion ghes < 3.16 %}You can also create a team of security managers to monitor and maintain your organization's security.{% endif %}
 
 ## Accessing the {% data variables.product.prodname_global_settings %} page for your organization
 
@@ -131,6 +131,12 @@ You can define custom patterns for {% data variables.product.prodname_secret_sca
 
 ## Creating security managers for your organization
 
-The security manager role grants members of your organization the ability to manage security settings and alerts across your organization. To grant all members of a team the security manager role, in the "Search for teams" text box, type the name of the desired team. In the dropdown menu that appears, click the team, then click **I understand, grant security manager permissions**.
+The security manager role grants members of your organization the ability to manage security settings and alerts across your organization. Security managers can view data for all repositories in your organization through security overview.
 
-Security managers can view data for all repositories in your organization through security overview. To learn more about the security manager role, see "[AUTOTITLE](/organizations/managing-peoples-access-to-your-organization-with-roles/managing-security-managers-in-your-organization)."
+To learn more about the security manager role, see "[AUTOTITLE](/organizations/managing-peoples-access-to-your-organization-with-roles/managing-security-managers-in-your-organization)."
+
+{% ifversion ghes < 3.16 %}
+
+To grant all members of a team the security manager role, in the "Search for teams" text box, type the name of the desired team. In the dropdown menu that appears, click the team, then click **I understand, grant security manager permissions**.
+
+{% endif %}

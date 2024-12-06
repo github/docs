@@ -38,6 +38,13 @@ If you need to change any other aspects of your {% data variables.product.prodna
 1. In the "{% data variables.product.prodname_codeql %} default configuration" window, click **{% octicon "pencil" aria-hidden="true" %} Edit**.
 1. Optionally, in the "Languages" section, select or deselect languages for analysis.
 1. Optionally, in the "Query suite" row of the "Scan settings" section, select a different query suite to run against your code.{% ifversion codeql-threat-models %}
+
+{% ifversion code-scanning-default-setup-customize-labels %}
+
+1. Optionally, to use labeled runners, in the "Runner type" section of the "{% data variables.product.prodname_codeql %} default configuration" modal dialog, select **Standard {% data variables.product.company_short %} runner** {% octicon "triangle-down" aria-hidden="true" %} to open a dropdown menu, then select **Labeled runner**. Then, next to "Runner label", enter the label of an existing self-hosted or {% data variables.product.company_short %}-hosted runner. For more information, see "[AUTOTITLE](/code-security/code-scanning/enabling-code-scanning/configuring-default-setup-for-code-scanning#assigning-labels-to-runners)."
+
+{% endif %}
+
 1. ({% data variables.release-phases.public_preview_caps %}) Optionally, in the "Threat model" row of the "Scan settings" section, select **Remote and local sources**.
 {% endif %}
 1. To update your configuration, as well as run an initial analysis of your code with the new configuration, click **Save changes**. All future analyses will use your new configuration.

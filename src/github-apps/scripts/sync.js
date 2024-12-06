@@ -8,7 +8,7 @@ import { slug } from 'github-slugger'
 import yaml from 'js-yaml'
 import walk from 'walk-sync'
 
-import { getContents, getDirectoryContents } from '#src/workflows/git-utils.js'
+import { getContents, getDirectoryContents } from '#src/workflows/git-utils.ts'
 import permissionSchema from './permission-list-schema.js'
 import enabledSchema from './enabled-list-schema.js'
 import { validateJson } from '#src/tests/lib/validate-json-schema.js'

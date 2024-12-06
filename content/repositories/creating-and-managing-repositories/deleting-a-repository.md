@@ -14,7 +14,8 @@ versions:
 topics:
   - Repositories
 ---
-{% data reusables.organizations.owners-and-admins-can %} delete an organization repository. If **Allow members to delete or transfer repositories for this organization** has been disabled, only organization owners can delete organization repositories. {% data reusables.organizations.new-repo-permissions-more-info %}
+
+{% data reusables.organizations.owners-and-admins-can %} delete an organization repository, and these users may be prevented from deleting a repository by an organization or enterprise policy. {% data reusables.organizations.new-repo-permissions-more-info %}
 
 Deleting a public repository will not delete any forks of the repository.
 

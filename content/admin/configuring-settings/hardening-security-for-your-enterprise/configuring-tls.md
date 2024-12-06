@@ -27,7 +27,7 @@ The {% data variables.product.prodname_ghe_server %} appliance will send HTTP St
 
 {% data reusables.enterprise_installation.terminating-tls %}
 
-To allow users to use FIDO U2F for two-factor authentication, you must enable TLS for your instance. For more information, see "[AUTOTITLE](/authentication/securing-your-account-with-two-factor-authentication-2fa/configuring-two-factor-authentication)."
+To allow users to use FIDO U2F for two-factor authentication or deploy {% data variables.product.prodname_pages %} sites with {% data variables.product.prodname_actions %}, you must enable TLS for your instance. For more information, see "[AUTOTITLE](/authentication/securing-your-account-with-two-factor-authentication-2fa/configuring-two-factor-authentication)."
 
 ## Prerequisites
 
