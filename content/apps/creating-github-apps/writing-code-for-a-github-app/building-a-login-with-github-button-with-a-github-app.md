@@ -257,12 +257,10 @@ These steps lead you through writing code to generate a user access token. To sk
      uri = URI("{% data variables.product.rest_url %}/user")
 
      result = Net::HTTP.start(uri.host, uri.port, use_ssl: true) do |http|
-       body = {"access_token" => token}.to_json
-
        auth = "Bearer #{token}"
        headers = {"Accept" => "application/json", "Content-Type" => "application/json", "Authorization" => auth}
 
-       http.send_request("GET", uri.path, body, headers)
+       http.send_request("GET", uri.path, nil, headers)
      end
 
      parse_response(result)
@@ -340,12 +338,10 @@ def user_info(token)
   uri = URI("{% data variables.product.rest_url %}/user")
 
   result = Net::HTTP.start(uri.host, uri.port, use_ssl: true) do |http|
-    body = {"access_token" => token}.to_json
-
     auth = "Bearer #{token}"
     headers = {"Accept" => "application/json", "Content-Type" => "application/json", "Authorization" => auth}
 
-    http.send_request("GET", uri.path, body, headers)
+    http.send_request("GET", uri.path, nil, headers)
   end
 
   parse_response(result)
