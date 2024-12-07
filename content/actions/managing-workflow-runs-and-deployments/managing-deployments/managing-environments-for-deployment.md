@@ -149,7 +149,7 @@ Secrets stored in an environment are only available to workflow jobs that refere
 {% ifversion fpt %}
 > [!NOTE]
 > * Workflows that run on self-hosted runners are not run in an isolated container, even if they use environments. Environment secrets should be treated with the same level of security as repository and organization secrets. For more information, see "[AUTOTITLE](/actions/security-guides/security-hardening-for-github-actions#hardening-for-self-hosted-runners)."
-> * Environment secrets are only available in public repositories if you are using {% data variables.product.prodname_free_user %}. For access to environment secrets in private or internal repositories, you must use {% data variables.product.prodname_pro %}, {% data variables.product.prodname_team %}, or {% data variables.product.prodname_enterprise %}. For more information on switching your plan, see "[AUTOTITLE](/billing/managing-the-plan-for-your-github-account/upgrading-your-accounts-plan)."
+> * If you are using {% data variables.product.prodname_free_user %}, environment secrets are only available in public repositories. For access to environment secrets in private or internal repositories, you must use {% data variables.product.prodname_pro %}, {% data variables.product.prodname_team %}, or {% data variables.product.prodname_enterprise %}. For more information on switching your plan, see "[AUTOTITLE](/billing/managing-the-plan-for-your-github-account/upgrading-your-accounts-plan)."
 
 {% else %}
 
