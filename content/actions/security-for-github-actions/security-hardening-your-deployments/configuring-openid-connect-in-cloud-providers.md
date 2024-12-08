@@ -68,7 +68,6 @@ The following example demonstrates how to use `actions/github-script` with the `
 ```yaml
 jobs:
   job:
-    environment: Production
     runs-on: ubuntu-latest
     steps:
     - name: Install OIDC Client from Core Package
@@ -87,42 +86,22 @@ jobs:
 
 The following example demonstrates how to use environment variables to request a JSON Web Token.
 
-For your deployment job, you will need to define the token settings, using `actions/github-script` with the `core` toolkit. For more information, see "[AUTOTITLE](/actions/creating-actions/creating-a-javascript-action#adding-actions-toolkit-packages)."
-
-For example:
+You can then use `curl` to retrieve a JWT from the {% data variables.product.prodname_dotcom %} OIDC provider. For example:
 
 ```yaml
 jobs:
   job:
     runs-on: ubuntu-latest
     steps:
-    - uses: {% data reusables.actions.action-github-script %}
-      id: script
-      timeout-minutes: 10
-      with:
-        debug: true
-        script: |
-          const token = process.env['ACTIONS_RUNTIME_TOKEN']
-          const runtimeUrl = process.env['ACTIONS_ID_TOKEN_REQUEST_URL']
-          core.setOutput('TOKEN', token.trim())
-          core.setOutput('IDTOKENURL', runtimeUrl.trim())
-```
-
-You can then use `curl` to retrieve a JWT from the {% data variables.product.prodname_dotcom %} OIDC provider. For example:
-
-```yaml
-    - run: |
-        IDTOKEN=$(curl -H "Authorization: bearer {% raw %} ${{steps.script.outputs.TOKEN}}" ${{steps.script.outputs.IDTOKENURL}} {% endraw %} -H "Accept: application/json; api-version=2.0" -H "Content-Type: application/json" -d "{}" | jq -r '.value')
-        echo $IDTOKEN
-        jwtd() {
-            if [[ -x $(command -v jq) ]]; then
-                jq -R 'split(".") | .[0],.[1] | @base64d | fromjson' <<< "${1}"
-                echo "Signature: $(echo "${1}" | awk -F'.' '{print $3}')"
-            fi
-        }
-        jwtd $IDTOKEN
-        echo "idToken=${IDTOKEN}" >> $GITHUB_OUTPUT
-      id: tokenid
+    - name: Get Id Token
+      id: idtoken
+      run: |
+        ID_TOKEN=$(curl -s -H "Authorization: bearer ${ACTIONS_ID_TOKEN_REQUEST_TOKEN}" \
+                          "${ACTIONS_ID_TOKEN_REQUEST_URL}" \
+                          -H "Accept: application/json" \
+                          -H "Content-Type: application/json" \
+                          | jq -r '.value')
+        echo "idToken=${ID_TOKEN}" >> $GITHUB_OUTPUT
 ```
 
 ### Getting the access token from the cloud provider
