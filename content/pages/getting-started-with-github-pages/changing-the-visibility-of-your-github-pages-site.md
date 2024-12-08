@@ -42,8 +42,4 @@ To use a shorter and more memorable domain for your privately published site, yo
 
    ![Screenshot of a confirmation message for {% data variables.product.prodname_pages %} listing the site's URL. To the right of a long blue URL, a button labeled "Visit site" is outlined in dark orange.](/assets/images/help/pages/click-private-pages-url-to-preview.png)
 
-  {% note %}
-
   {% data reusables.pages.twenty-minutes-to-publish %}
-
-  {% endnote %}

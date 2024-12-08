@@ -9,11 +9,8 @@ topics:
 shortTitle: 2. Preparation
 ---
 
-{% note %}
-
-This article is part of a series on adopting {% data variables.product.prodname_GH_advanced_security %} at scale. For the previous article in this series, see "[AUTOTITLE](/code-security/adopting-github-advanced-security-at-scale/phase-1-align-on-your-rollout-strategy-and-goals)."
-
-{% endnote %}
+> [!NOTE]
+> This article is part of a series on adopting {% data variables.product.prodname_GH_advanced_security %} at scale. For the previous article in this series, see "[AUTOTITLE](/code-security/adopting-github-advanced-security-at-scale/phase-1-align-on-your-rollout-strategy-and-goals)."
 
 ## Preparing to enable {% data variables.product.prodname_code_scanning %}
 
@@ -172,8 +169,5 @@ Next, familiarize yourself with the different options for managing and monitorin
 
 For more information, see "[AUTOTITLE](/code-security/secret-scanning/introduction/about-push-protection)."
 
-{% note %}
-
-For the next article in this series, see "[AUTOTITLE](/code-security/adopting-github-advanced-security-at-scale/phase-3-pilot-programs)."
-
-{% endnote %}
+> [!NOTE]
+> For the next article in this series, see "[AUTOTITLE](/code-security/adopting-github-advanced-security-at-scale/phase-3-pilot-programs)."

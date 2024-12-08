@@ -55,11 +55,8 @@ For more information, see "[Git Tools Submodules](https://git-scm.com/book/en/v2
 
 SVN is configured to assume that the history of a project never changes. Git allows you to modify previous commits and changes using tools like [`git rebase`](/get-started/using-git/about-git-rebase).
 
-{% tip %}
-
-[GitHub supports Subversion clients](/get-started/working-with-subversion-on-github/support-for-subversion-clients), which may produce some unexpected results if you're using both Git and SVN on the same project. If you've manipulated Git's commit history, those same commits will always remain within SVN's history. If you accidentally committed some sensitive data, we have [an article that will help you remove it from Git's history](/authentication/keeping-your-account-and-data-secure/removing-sensitive-data-from-a-repository).
-
-{% endtip %}
+> [!TIP]
+> [GitHub supports Subversion clients](/get-started/working-with-subversion-on-github/support-for-subversion-clients), which may produce some unexpected results if you're using both Git and SVN on the same project. If you've manipulated Git's commit history, those same commits will always remain within SVN's history. If you accidentally committed some sensitive data, we have [an article that will help you remove it from Git's history](/authentication/keeping-your-account-and-data-secure/removing-sensitive-data-from-a-repository).
 
 {% data reusables.subversion.sunset %}
 

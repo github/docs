@@ -68,11 +68,8 @@ In repositories you own, blocked users also cannot:
 1. Optionally, add a note to describe why a user was blocked. The note will only be visible to you.
 1. Click **Block user**.
 
-{% note %}
-
-If you're being harassed, visit {% data variables.contact.contact_support_page %} to report abuse. {% data reusables.policies.abuse %}
-
-{% endnote %}
+> [!NOTE]
+> If you're being harassed, visit {% data variables.contact.contact_support_page %} to report abuse. {% data reusables.policies.abuse %}
 
 ## Further reading
 

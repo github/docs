@@ -886,7 +886,7 @@ Code examples that use third-party actions must include the following disclaimer
 # documentation.
 ```
 
-To insert this disclaimer, use the `{% raw %}{% data reusables.actions.actions-not-certified-by-github-comment %}{% endnote %}{% endraw %}` reusable.
+To insert this disclaimer, use the `{% raw %}{% data reusables.actions.actions-not-certified-by-github-comment %}{% endraw %}` reusable.
 
 For {% data variables.product.prodname_docs %} purposes, a third-party action is any action that doesn't have the `actions/`, `github/` or `octo-org/` prefix. For example, this is a first-party action:
 

@@ -73,18 +73,14 @@ You must specify `<database>`, `--format`, and `--output`. You can specify addit
 | <code><span style="white-space: nowrap;">--verbose</span></code> | {% octicon "x" aria-label="Optional" %}  | Use to get more detailed information about the analysis process and diagnostic data from the database creation process. |
 | <code><span style="white-space: nowrap;">--threat-model</span></code> | {% octicon "x" aria-label="Optional" %}  | ({% data variables.release-phases.public_preview_caps %}) Use to add threat models to configure additional sources in your {% data variables.product.prodname_codeql %} analysis. During the {% data variables.release-phases.public_preview %}, threat models are supported only by Java analysis. For more information, see "[AUTOTITLE](/code-security/codeql-cli/codeql-cli-manual/database-analyze#--threat-modelname)." |
 
-{% note %}
-
-**Upgrading databases**
-
-For databases that were created by {% data variables.product.prodname_codeql_cli %} v2.3.3 or earlier, you will need to explicitly upgrade the database before you can run an analysis with a newer
+> [!NOTE]
+> **Upgrading databases**
+>
+> For databases that were created by {% data variables.product.prodname_codeql_cli %} v2.3.3 or earlier, you will need to explicitly upgrade the database before you can run an analysis with a newer
 version of the {% data variables.product.prodname_codeql_cli %}. If this step is necessary, then you will see a message telling you
 that your database needs to be upgraded when you run `database analyze`.
-
-For databases that were created by {% data variables.product.prodname_codeql_cli %} v2.3.4 or later, the CLI will implicitly run any
-required upgrades. Explicitly running the upgrade command is not necessary.
-
-{% endnote %}
+>
+> For databases that were created by {% data variables.product.prodname_codeql_cli %} v2.3.4 or later, the CLI will implicitly run any required upgrades. Explicitly running the upgrade command is not necessary.
 
 For full details of all the options you can use when analyzing databases, see "[AUTOTITLE](/code-security/codeql-cli/codeql-cli-manual/database-analyze)."
 

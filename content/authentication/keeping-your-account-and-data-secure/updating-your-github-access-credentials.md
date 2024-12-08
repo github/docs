@@ -43,11 +43,8 @@ shortTitle: Update access credentials
 1. In the text field under **Password**, type a new password. Then, in the text field under **Confirm password**, type the password again.
 1. Click **Change password**. For help creating a strong password, see "[AUTOTITLE](/authentication/keeping-your-account-and-data-secure/creating-a-strong-password)."
 
-{% tip %}
-
-To avoid losing your password in the future, we suggest using a secure password manager.
-
-{% endtip %}
+> [!TIP]
+> To avoid losing your password in the future, we suggest using a secure password manager.
 
 ## Changing an existing password
 
@@ -59,11 +56,8 @@ To avoid losing your password in the future, we suggest using a secure password 
 1. Under "Change password", type your old password, a strong new password, and confirm your new password. For help creating a strong password, see "[AUTOTITLE](/authentication/keeping-your-account-and-data-secure/creating-a-strong-password)."
 1. Click **Update password**.
 
-{% tip %}
-
-For greater security, enable two-factor authentication in addition to changing your password. See [About two-factor authentication](/authentication/securing-your-account-with-two-factor-authentication-2fa/about-two-factor-authentication) for more details.
-
-{% endtip %}
+> [!TIP]
+> For greater security, enable two-factor authentication in addition to changing your password. See [About two-factor authentication](/authentication/securing-your-account-with-two-factor-authentication-2fa/about-two-factor-authentication) for more details.
 
 ## Updating your access tokens
 

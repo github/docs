@@ -29,11 +29,8 @@ Because you can only create draft {% data variables.product.prodname_marketplace
 
 Once you have a development app with a draft listing, you can use it to test changes you make to your app while integrating with the {% data variables.product.prodname_marketplace %} API and webhooks.
 
-{% warning %}
-
-Do not make test purchases with an app that is live in {% data variables.product.prodname_marketplace %}.
-
-{% endwarning %}
+> [!WARNING]
+> Do not make test purchases with an app that is live in {% data variables.product.prodname_marketplace %}.
 
 ### Simulating Marketplace purchase events
 
