@@ -66,3 +66,6 @@
     "memory": "8gb"
   }
 }
+
+[![Azure - Deploy Preview Environment (public)](https://github.com/github/docs/actions/workflows/azure-preview-env-deploy-public.yml/badge.svg?branch=main&event=workflow_run)](https://github.com/github/docs/actions/workflows/azure-preview-env-deploy-public.yml)
+
