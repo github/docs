@@ -11,6 +11,6 @@ Push rulesets allow you to:
 * **Restrict file extensions:** Prevent commits that include files with specified file extensions from being pushed.
 * **Restrict file size:** Prevent commits that exceed a specified file size limit from being pushed.
 
-#### About push rulesets for forked repositories
+### About push rulesets for forked repositories
 
 {% data reusables.repositories.rulesets-push-rulesets-fork-network-information %}
