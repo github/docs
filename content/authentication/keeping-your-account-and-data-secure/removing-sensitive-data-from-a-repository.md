@@ -1,6 +1,6 @@
 ---
 title: Removing sensitive data from a repository
-intro: 'If you commit sensitive data into a Git repository, you can remove it from the history.'
+intro: 'Sensitive data can be removed from the history of a repository _if_ you can carefully coordinate with everyone who has cloned it and you are willing to manage the side effects.'
 redirect_from:
   - /remove-sensitive-data
   - /removing-sensitive-data
@@ -20,13 +20,33 @@ shortTitle: Remove sensitive data
 
 ## About removing sensitive data from a repository
 
-When altering your repository's history using tools like `git filter-repo`, it's crucial to understand the implications, especially regarding open pull requests and sensitive data.
+When altering your repository's history using tools like `git filter-repo`, it's crucial to understand the implications.  Rewriting history requires careful coordination with collaborators to successfully execute, and has a number of side effects that must be managed.
 
-The `git filter-repo` tool rewrites your repository's history, which changes the SHAs for existing commits that you alter and any dependent commits. Changed commit SHAs may affect open pull requests in your repository. We recommend merging or closing all open pull requests before removing files from your repository.
+It is important to note that if the sensitive data you need to remove is a secret (e.g. password/token/credential), as is often the case, then as a first step you need to revoke and/or rotate that secret.  Once the secret is revoked or rotated, it can no longer be used for access, and that may be sufficient to solve your problem.  Going through the extra steps to rewrite the history and remove the secret may not be warranted.
+
+## Side effects of rewriting history
+
+There are numerous side effects to rewriting history; these include:
+
+ * High risk of recontamination: It is unfortunately easy to re-push the sensitive data to the repository and make a bigger mess.  If a fellow developer has a clone from before your rewrite, and after your rewrite simply runs `git pull` followed by `git push`, the sensitive data will return.  They need to either discard their clone and re-clone, or carefully walk through multiple steps to clean up their clone first.
+ * Risk of losing other developers' work: If other developers continue updating branches which contain the sensitive data while you are trying to clean up, you will be forced to either redo the cleanup, or to discard their work.
+ * Changed commit hashes: Rewriting history will change the hashes of the commits that introduced the sensitive data _and_ all commits that came after.  Any tooling or automation that depends on commit hashes not changing will be broken or have problems.
+ * Branch protection challenges: If you have any branch protections that prevent force pushes, those protections will have to be turned off (at least temporarily) for the sensitive data to be removed.
+ * Broken diff view for closed pull requests: Removing the sensitive data will require removing the internal references used for displaying the diff view in pull requests, so you will no longer be able to see these diffs.  This is true not only for the PR that introduced the sensitive data, but any PR that builds on a version of history after the sensitive data PR was merged (even if those later PRs didn't add or modify any file with sensitive data).
+ * Poor interaction with open pull requests: Changed commit SHAs will result in a different PR diff, and comments on the old PR diff may become invalidated and lost, which may cause confusion for authors and reviewers.  We recommend merging or closing all open pull requests before removing files from your repository.
+ * Lost signatures on commits and tags: Signatures for commits or tags depend on commit hashes; since commit hashes are modified by history rewrites, signatures would no longer be valid and many history rewriting tools (including `git filter-repo`) will simply remove the signatures.  In fact, `git filter-repo` will remove commit signatures and tag signatures for commits that pre-date the sensitive data removal as well.  (Technically one can workaround this with the `--refs` option to `git filter-repo` if needed, but then you will need to be careful to ensure you specify all refs that have sensitive data in their history and that include the commits that introduced the sensitive data in your range).
+ * Leading others directly to the sensitive data: Git was designed with cryptographic checks built into commit identifiers so that nefarious individuals could not break into a server and modify history without being noticed.  That's helpful from a security perspective, but from a sensitive data perspective it means that expunging sensitive data is a very involved process of coordination; it further means that when you do modify history, clueful users with an existing clone will notice the history divergence and can use it to quickly and easily find the sensitive data still in their clone that you removed from the central repository.
 
 ## About sensitive data exposure
 
-This article tells you how to make commits with sensitive data unreachable from any branches or tags in your repository on {% data variables.location.product_location %}. However, those commits may still be accessible elsewhere:
+Removing sensitive data from a repository involves four high-level steps:
+
+  * Rewrite the repository locally, using git-filter-repo
+  * Update the repository on GitHub, using your locally rewritten history
+  * Coordinate with colleagues to clean up other clones that exist
+  * Prevent repeats and avoid future sensitive data spills
+
+If you only rewrite your history and force push it, the commits with sensitive data may still be accessible elsewhere:
 
 * In any clones or forks of your repository
 * Directly via their SHA-1 hashes in cached views on {% data variables.product.product_name %}
@@ -39,8 +59,6 @@ You cannot remove sensitive data from other users' clones of your repository, bu
 > [!IMPORTANT] {% data variables.contact.github_support %} won't remove non-sensitive data, and will only assist in the removal of sensitive data in cases where we determine that the risk can't be mitigated by rotating affected credentials.
 
 {% endif %}
-
-Once you have pushed a commit to {% data variables.product.product_name %}, you should consider any sensitive data in the commit compromised. If you have committed a password, you should change it. If you have committed a key, generate a new one.
 
 If the commit that introduced the sensitive data exists in any forks, it will continue to be accessible there. You will need to coordinate with the owners of the forks, asking them to remove the sensitive data or delete the fork entirely. {% ifversion fpt or ghec %}{% data variables.product.company_short %} cannot provide contact information for these owners. {% endif %}
 
