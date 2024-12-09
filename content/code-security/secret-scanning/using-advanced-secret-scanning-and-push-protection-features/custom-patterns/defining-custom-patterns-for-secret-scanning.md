@@ -138,12 +138,8 @@ After your pattern is created, {% data variables.product.prodname_secret_scannin
 Before defining a custom pattern, you must ensure that you enable secret scanning for your enterprise account. For more information, see "[Enabling {% data variables.product.prodname_GH_advanced_security %} for your enterprise]({% ifversion fpt or ghec %}/enterprise-server@latest/{% endif %}/admin/advanced-security/enabling-github-advanced-security-for-your-enterprise)."
 
 > [!NOTE]
-{% ifversion custom-pattern-dry-run-ga %}
 > * At the enterprise level, only the creator of a custom pattern can edit the pattern, and use it in a dry run.
 > * {% data reusables.secret-scanning.dry-runs-enterprise-permissions %}
-{% else %}
-> As there is no dry-run functionality, we recommend that you test your custom patterns in a repository before defining them for your entire enterprise. That way, you can avoid creating excess false-positive {% data variables.secret-scanning.alerts %}.
-{% endif %}
 
 {% data reusables.enterprise-accounts.access-enterprise %}
 {% data reusables.enterprise-accounts.policies-tab %}{% ifversion security-feature-enablement-policies %}

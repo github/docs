@@ -88,6 +88,10 @@ By default, {% data variables.product.prodname_copilot_chat_short %} uses the `G
 * `o1-preview`: This model is focused on advanced reasoning and solving complex problems, in particular in math and science. It responds more slowly than the `gpt-4o` model. Each member of your enterprise can make 10 requests to this model per day.
 * `o1-mini`: This is the faster version of the `o1-preview` model, balancing the use of complex reasoning with the need for faster responses. It is best suited for code generation and small context operations. Each member of your enterprise can make 50 requests to this model per day.
 
+### {% data variables.product.prodname_copilot_short %} Metrics API access
+
+Enable this policy to allow users to use the {% data variables.product.prodname_copilot_short %} Metrics API. See "[AUTOTITLE](/rest/copilot/copilot-metrics)."
+
 ## Configuring policies for {% data variables.product.prodname_copilot %}
 
 {% data reusables.enterprise-accounts.access-enterprise %}
