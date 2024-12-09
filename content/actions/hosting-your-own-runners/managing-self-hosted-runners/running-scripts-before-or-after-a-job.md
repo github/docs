@@ -58,6 +58,9 @@ ACTIONS_RUNNER_HOOK_JOB_STARTED=/opt/runner/cleanup_script.sh
 > [!NOTE]
 > The script defined in `ACTIONS_RUNNER_HOOK_JOB_COMPLETED` is executed at the end of the job, before the job completes. This makes it unsuitable for use cases that may interrupt a runner, such as deleting the runner machine as part of an autoscaling implementation.
 
+> [!NOTE]
+> If the runner application is running as a service, it reads the `.env` file only when the service starts. So after creating or editing the `.env` file, you need to stop and restart the service.
+
 ## Troubleshooting
 
 ### Permission denied
