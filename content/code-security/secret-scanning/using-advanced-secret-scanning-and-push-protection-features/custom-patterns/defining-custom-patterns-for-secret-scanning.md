@@ -148,7 +148,7 @@ Before defining a custom pattern, you must ensure that you enable secret scannin
 {% data reusables.enterprise-accounts.access-enterprise %}
 {% data reusables.enterprise-accounts.policies-tab %}{% ifversion security-feature-enablement-policies %}
 {% data reusables.enterprise-accounts.code-security-and-analysis-policies %}
-1. Under "Code security and analysis", click **Security features**.{% else %}
+1. Under "{% ifversion code-security-wording-only-enterprise %}Code security{% else %}Code security and analysis{% endif %}", click **Security features**.{% else %}
 {% data reusables.enterprise-accounts.advanced-security-policies %}
 {% data reusables.enterprise-accounts.advanced-security-security-features %}{% endif %}
 1. Under "Secret scanning custom patterns", click **New pattern**.

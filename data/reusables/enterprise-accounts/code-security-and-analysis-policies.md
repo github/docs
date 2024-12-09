@@ -1,1 +1,1 @@
-1. Under {% octicon "law" aria-hidden="true" %} "Policies", click **Code security and analysis**.
+1. Under {% octicon "law" aria-hidden="true" %} "Policies", click {% ifversion code-security-wording-only-enterprise %}**Code security**{% else %}**Code security and analysis**{% endif %}.
