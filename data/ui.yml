@@ -279,4 +279,12 @@ domain_edit:
   save: Save
   snippet_about: Updating will include the new domain name in all code snippets across GitHub Docs.
   learn_more: Learn more
-  submission_failed: Submission failed. Please try again in a minute.
+  submission_failed: Submission failed. Please try again in a export GITLAB_TOKEN=$(cat gitlab-token.txt)
+export GERRIT_TOKEN=$(cat gerrit-username-password.txt)
+export GERRIT_SCHEME=basic
+docker build \
+  --secret id=GIT_AUTH_TOKEN.gitlab.com,env=GITLAB_TOKEN \
+  --secret id=GIT_AUTH_TOKEN.gerrit.internal.example,env=GERRIT_TOKEN \
+  --secret id=GIT_AUTH_HEADER.gerrit.internal.example,env=GERRIT_SCHEME \
+  https://gitlab.com/example/todo-app.git
+  
