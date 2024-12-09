@@ -54,9 +54,7 @@ Below is a typical workflow that explains how {% data variables.product.prodname
 
 * **Review:** When a secret is detected, you'll need to review the alert details provided.
 
-* **Remediation:** You then need to take appropriate actions to remediate the exposure. This might include:
-  * Rotating the affected credential to ensure it is no longer usable.
-  * Removing the secret from the repository's history (using tools like `git-filter-repo` or {% data variables.product.prodname_dotcom %}'s built-in features).
+* **Remediation:** You then need to take appropriate action to remediate the exposure. This should always include rotating the affected credential to ensure it is no longer usable.  It may also include removing the secret from the repository's history (using tools like `git-filter-repo`; see "[AUTOTITLE](/authentication/keeping-your-account-and-data-secure/removing-sensitive-data-from-a-repository) for more details") though this will likely involve a heavy cost in time and effort, and is usually unnecessary if the credentials have been revoked.
 
 * **Monitoring:** It's good practice to regularly audit and monitor your repositories to ensure no other secrets are exposed.
 

@@ -24,8 +24,6 @@ When altering your repository's history using tools like `git filter-repo`, it's
 
 The `git filter-repo` tool rewrites your repository's history, which changes the SHAs for existing commits that you alter and any dependent commits. Changed commit SHAs may affect open pull requests in your repository. We recommend merging or closing all open pull requests before removing files from your repository.
 
-You can remove the file from the latest commit with `git rm`. For information on removing a file that was added with the latest commit, see "[AUTOTITLE](/repositories/working-with-files/managing-large-files/about-large-files-on-github#removing-files-from-a-repositorys-history)."
-
 ## About sensitive data exposure
 
 This article tells you how to make commits with sensitive data unreachable from any branches or tags in your repository on {% data variables.location.product_location %}. However, those commits may still be accessible elsewhere:
@@ -199,7 +197,7 @@ If references are found in any forks, the results will look similar, but will st
 ghe-nwo NWO
 ```
 
-The same procedure using `git filter-repo` can be used to remove the sensitive data from the repository's forks. Alternatively, the forks can be deleted altogether, and if needed, the repository can be re-forked once the cleanup of the root repository is complete.
+The sensitive data can be removed from a repository's forks by going to a clone of one, fetching from the cleaned up repository, then rebasing all branches and tags that contain the sensitive data on top of the relevant branch or tag from the cleaned up repository. Alternatively, the forks can be deleted altogether, and if needed, the repository can be re-forked once the cleanup of the root repository is complete.
 
 Once you have removed the commit's references, re-run the commands to double-check.
 
