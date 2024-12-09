@@ -101,16 +101,6 @@ To illustrate how `git filter-repo` works, we'll show you how to remove your fil
 
       > [!IMPORTANT] If the file with sensitive data used to exist at any other paths (because it was moved or renamed), you must run this command on those paths, as well.
 
-1. Add your file with sensitive data to `.gitignore` to ensure that you don't accidentally commit it again.
-
-   ```shell
-   $ echo "YOUR-FILE-WITH-SENSITIVE-DATA" >> .gitignore
-   $ git add .gitignore
-   $ git commit -m "Add YOUR-FILE-WITH-SENSITIVE-DATA to .gitignore"
-   > [main 051452f] Add YOUR-FILE-WITH-SENSITIVE-DATA to .gitignore
-   >  1 files changed, 1 insertions(+), 0 deletions(-)
-   ```
-
 1. Double-check that you've removed everything you wanted to from your repository's history, and that all of your branches are checked out.
 1. The `git filter-repo` tool will automatically remove your configured remotes. Use the `git remote set-url` command to restore your remotes, replacing `OWNER` and `REPO` with your repository details. For more information, see "[AUTOTITLE](/get-started/getting-started-with-git/managing-remote-repositories#adding-a-remote-repository)."
 
@@ -215,8 +205,11 @@ Once garbage collection has successfully removed the commit, you'll want to brow
 
 Preventing contributors from making accidental commits can help you prevent sensitive information from being exposed. For more information see "[AUTOTITLE](/code-security/getting-started/best-practices-for-preventing-data-leaks-in-your-organization)."
 
-There are a few simple tricks to avoid committing things you don't want committed:
+There are a few things you can do to avoid committing or pushing things that should not be shared:
 
+* If the sensitive data is likely to be found in a file that should not be tracked by git, add that filename to `.gitignore` (and make sure to commit and push that change to `.gitignore` so other developers are protected).
+* Avoid hardcoding secrets in code. Use environment variables, or secret management services like Azure Key Vault, AWS Secrets Manager, or HashiCorp Vault to manage and inject secrets at runtime.
+* Create a pre-commit hook to check for sensitive data before it is committed or pushed anywhere, or use a well-known tool in a pre-commit hook like git-secrets or gitleaks.  (Make sure to ask each collaborator to set up the pre-commit hook you have chosen.)
 * Use a visual program like [{% data variables.product.prodname_desktop %}](https://desktop.github.com/) or [gitk](https://git-scm.com/docs/gitk) to commit changes. Visual programs generally make it easier to see exactly which files will be added, deleted, and modified with each commit.
 * Avoid the catch-all commands `git add .` and `git commit -a` on the command line—use `git add filename` and `git rm filename` to individually stage files, instead.
 * Use `git add --interactive` to individually review and stage changes within each file.
