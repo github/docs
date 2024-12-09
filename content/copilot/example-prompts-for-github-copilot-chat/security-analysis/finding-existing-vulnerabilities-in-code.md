@@ -25,6 +25,7 @@ The JavaScript code below has a potential XSS vulnerability that could be exploi
 function displayName(name) {
   const nameElement = document.getElementById('name-display');
   nameElement.innerHTML = `Showing results for "${name}"`
+}
 ```
 
 ## Example prompt
