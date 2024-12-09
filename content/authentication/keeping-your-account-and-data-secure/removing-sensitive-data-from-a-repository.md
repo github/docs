@@ -20,9 +20,9 @@ shortTitle: Remove sensitive data
 
 ## About removing sensitive data from a repository
 
-When altering your repository's history using tools like `git filter-repo` or the BFG Repo-Cleaner, it's crucial to understand the implications, especially regarding open pull requests and sensitive data.
+When altering your repository's history using tools like `git filter-repo`, it's crucial to understand the implications, especially regarding open pull requests and sensitive data.
 
-The `git filter-repo` tool and the BFG Repo-Cleaner rewrite your repository's history, which changes the SHAs for existing commits that you alter and any dependent commits. Changed commit SHAs may affect open pull requests in your repository. We recommend merging or closing all open pull requests before removing files from your repository.
+The `git filter-repo` tool rewrites your repository's history, which changes the SHAs for existing commits that you alter and any dependent commits. Changed commit SHAs may affect open pull requests in your repository. We recommend merging or closing all open pull requests before removing files from your repository.
 
 You can remove the file from the latest commit with `git rm`. For information on removing a file that was added with the latest commit, see "[AUTOTITLE](/repositories/working-with-files/managing-large-files/about-large-files-on-github#removing-files-from-a-repositorys-history)."
 
@@ -48,37 +48,7 @@ If the commit that introduced the sensitive data exists in any forks, it will co
 
 Consider these limitations and challenges in your decision to rewrite your repository's history.
 
-## Purging a file from your repository's history
-
-You can purge a file from your repository's history using either the `git filter-repo` tool or the BFG Repo-Cleaner open source tool.
-
-> [!NOTE] If sensitive data is located in a file that's identified as a binary file, you'll need to remove the file from the history, as you can't modify it to remove or replace the data.
-
-### Using the BFG
-
-The [BFG Repo-Cleaner](https://rtyley.github.io/bfg-repo-cleaner/) is a tool that's built and maintained by the open source community. It provides a faster, simpler alternative to `git filter-repo` for removing unwanted data.
-
-For example, to remove your file with sensitive data and leave your latest commit untouched, run:
-
-```shell
-bfg --delete-files YOUR-FILE-WITH-SENSITIVE-DATA
-```
-
-To replace all text listed in `passwords.txt` wherever it can be found in your repository's history, run:
-
-```shell
-bfg --replace-text passwords.txt
-```
-
-After the sensitive data is removed, you must force push your changes to {% data variables.product.product_name %}. Force pushing rewrites the repository history, which removes sensitive data from the commit history. If you force push, it may overwrite commits that other people have based their work on.
-
-```shell
-git push --force
-```
-
-See the [BFG Repo-Cleaner](https://rtyley.github.io/bfg-repo-cleaner/)'s documentation for full usage and download instructions.
-
-### Using git filter-repo
+## Purging a file from your repository's history using git-filter-repo
 
 > [!WARNING]  If you run `git filter-repo` after stashing changes, you won't be able to retrieve your changes with other stash commands. Before running `git filter-repo`, we recommend unstashing any changes you've made. To unstash the last set of changes you've stashed, run `git stash show -p | git apply -R`. For more information, see [Git Tools - Stashing and Cleaning](https://git-scm.com/book/en/v2/Git-Tools-Stashing-and-Cleaning).
 
@@ -178,7 +148,7 @@ To illustrate how `git filter-repo` works, we'll show you how to remove your fil
 
 ## Fully removing the data from {% data variables.product.prodname_dotcom %}
 
-After using either the BFG tool or `git filter-repo` to remove the sensitive data and pushing your changes to {% data variables.product.product_name %}, you must take a few more steps to fully remove the data from {% data variables.product.product_name %}.
+After using `git filter-repo` to remove the sensitive data and pushing your changes to {% data variables.product.product_name %}, you must take a few more steps to fully remove the data from {% data variables.product.product_name %}.
 
 {% ifversion ghec %}
 1. If the repository was migrated using the {% data variables.product.prodname_importer_proper_name %}, there may be some non-standard Git references that follow the pattern `refs/github-services`, that neither the BFG tool or `git filter-repo` can remove. In this case, remove those references running the following commands in your local copy of the repository:
@@ -205,22 +175,6 @@ After using either the BFG tool or `git filter-repo` to remove the sensitive dat
 
 1. Tell your collaborators to [rebase](https://git-scm.com/book/en/v2/Git-Branching-Rebasing), _not_ merge, any branches they created off of your old (tainted) repository history. One merge commit could reintroduce some or all of the tainted history that you just went to the trouble of purging.
 
-1. If you used `git filter-repo`, you can skip this step.
-
-   If you used the BFG tool, after rewriting, you can clean up references in your local repository to the old history to be dereferenced and garbage collected with the following commands (using Git 1.8.5 or newer):
-
-   ```shell
-   $ git reflog expire --expire=now --all
-   $ git gc --prune=now
-   > Counting objects: 2437, done.
-   > Delta compression using up to 4 threads.
-   > Compressing objects: 100% (1378/1378), done.
-   > Writing objects: 100% (2437/2437), done.
-   > Total 2437 (delta 1461), reused 1802 (delta 1048)
-   ```
-
-   > [!NOTE] You can also achieve this by pushing your filtered history to a new or empty repository and then making a fresh clone from {% data variables.product.product_name %}.
-
 {% ifversion ghes %}
 
 ## Identifying reachable commits
@@ -245,7 +199,7 @@ If references are found in any forks, the results will look similar, but will st
 ghe-nwo NWO
 ```
 
-The same procedure using the BFG tool or `git filter-repo` can be used to remove the sensitive data from the repository's forks. Alternatively, the forks can be deleted altogether, and if needed, the repository can be re-forked once the cleanup of the root repository is complete.
+The same procedure using `git filter-repo` can be used to remove the sensitive data from the repository's forks. Alternatively, the forks can be deleted altogether, and if needed, the repository can be re-forked once the cleanup of the root repository is complete.
 
 Once you have removed the commit's references, re-run the commands to double-check.
 

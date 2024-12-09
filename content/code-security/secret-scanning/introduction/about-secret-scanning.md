@@ -56,7 +56,7 @@ Below is a typical workflow that explains how {% data variables.product.prodname
 
 * **Remediation:** You then need to take appropriate actions to remediate the exposure. This might include:
   * Rotating the affected credential to ensure it is no longer usable.
-  * Removing the secret from the repository's history (using tools like BFG Repo-Cleaner or {% data variables.product.prodname_dotcom %}'s built-in features).
+  * Removing the secret from the repository's history (using tools like `git-filter-repo` or {% data variables.product.prodname_dotcom %}'s built-in features).
 
 * **Monitoring:** It's good practice to regularly audit and monitor your repositories to ensure no other secrets are exposed.
 
