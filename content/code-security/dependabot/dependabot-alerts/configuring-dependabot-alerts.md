@@ -130,7 +130,7 @@ You can enable or disable {% data variables.product.prodname_dependabot_alerts %
 {% ifversion dependabot-alerts-enterprise-enablement or ghes %}
 {% data reusables.enterprise-accounts.access-enterprise %}
 {% data reusables.enterprise-accounts.settings-tab %}
-1. In the left sidebar, click **Code security and analysis**.
+1. In the left sidebar, click {% ifversion code-security-wording-only-enterprise %}**Code security**{% else %}**Code security and analysis**{% endif %}.
 1. In the "{% data variables.product.prodname_dependabot %}" section, to the right of {% data variables.product.prodname_dependabot_alerts %}, click **Disable all** or **Enable all**.
 1. Optionally, select **Automatically enable for new repositories** to enable {% data variables.product.prodname_dependabot_alerts %} by default for your organizations' new repositories.
 {% endif %}
