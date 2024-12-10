@@ -120,7 +120,7 @@ FIRST also provides additional information around the distribution of their EPSS
 
 >[!NOTE] {% data variables.product.company_short %} keeps EPSS data up to date with a daily synchronization action. While EPSS score percentages will always be fully synchronized, score percentiles will only be updated when significantly different.
 
-At {% data variables.product.company_short %}, we do not author this data, but rather source it from FIRST, which means that this data is not editable in community contributions.
+At {% data variables.product.company_short %}, we do not author this data, but rather source it from FIRST, which means that this data is not editable in community contributions. For more information about community contributions, see "[AUTOTITLE](/code-security/security-advisories/working-with-global-security-advisories-from-the-github-advisory-database/editing-security-advisories-in-the-github-advisory-database)."
 
 ## Further reading
 
