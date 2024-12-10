@@ -76,7 +76,7 @@ jobs:
       - name: Setup Node.js
         uses: {% data reusables.actions.action-setup-node %}
         with:
-          node-version: '18.x'
+          node-version: '20.x'
 
       # This step installs the octokit library. The script that this workflow will run uses the octokit library.
       - name: Install dependencies
@@ -98,18 +98,18 @@ jobs:
           WORKFLOW_REPO: {% raw %}${{ github.event.repository.name }}{% endraw %}
           WORKFLOW_REPO_OWNER: {% raw %}${{ github.repository_owner }}{% endraw %}
         run: |
-          node .github/workflows/scripts/redeliver-failed-deliveries.js
+          node .github/workflows/scripts/redeliver-failed-deliveries.mjs
 ```
 
 ## Adding the script
 
 This section demonstrates how you can write a script to find and redeliver failed deliveries.
 
-Copy this script into a file called `.github/workflows/scripts/redeliver-failed-deliveries.js` in the same repository where you saved the {% data variables.product.prodname_actions %} workflow file above.
+Copy this script into a file called `.github/workflows/scripts/redeliver-failed-deliveries.mjs` in the same repository where you saved the {% data variables.product.prodname_actions %} workflow file above.
 
 ```javascript copy annotate
 // This script uses {% data variables.product.company_short %}'s Octokit SDK to make API requests. For more information, see "[AUTOTITLE](/rest/guides/scripting-with-the-rest-api-and-javascript)."
-const { App, Octokit } = require("octokit");
+import { App, Octokit } from "octokit";
 
 //
 async function checkAndRedeliverWebhooks() {
