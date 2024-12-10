@@ -286,6 +286,8 @@ To stream audit logs to Splunk's HTTP Event Collector (HEC) endpoint, make sure 
      If you're using the free trial version of Splunk Cloud, `Port` should be `8088`.
 
    * A token that {% data variables.product.prodname_dotcom %} can use to authenticate to the third-party application.
+
+   * A Splunk API `endpoint` from the dropdown menu. Available endpoints will be listed, with `services/collector` set as the default selection.
 1. Leave the **Enable SSL verification** check box selected.
 
     Audit logs are always streamed as encrypted data, however, with this option selected, {% data variables.product.prodname_dotcom %} verifies the SSL certificate of your Splunk instance when delivering events. SSL verification helps ensure that events are delivered to your URL endpoint securely. Verification is optional, but we recommend you leave SSL verification enabled.
