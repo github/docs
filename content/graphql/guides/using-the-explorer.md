@@ -38,11 +38,8 @@ You can use query autocompletion to help you build queries. In the main pane, wi
 
 All types in a GraphQL schema include a `description` field compiled into documentation. The collapsible **Docs** pane on the right side of the Explorer page allows you to browse documentation about the type system. The docs are automatically updated and will drop fields that are {% data variables.release-phases.closing_down %}.
 
-{% note %}
-
-The **Docs** sidebar contains the same content that is automatically generated from the schema under "[AUTOTITLE](/graphql)," though it is formatted differently in places.
-
-{% endnote %}
+> [!NOTE]
+> The **Docs** sidebar contains the same content that is automatically generated from the schema under "[AUTOTITLE](/graphql)," though it is formatted differently in places.
 
 ## Using the variable pane
 

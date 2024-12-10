@@ -62,11 +62,8 @@ The configuration changes will take effect in new codespaces created from the re
 
 {% vscode %}
 
-{% note %}
-
-To add features in {% data variables.product.prodname_vscode_shortname %} while you are working locally, and not connected to a codespace, you must have the "Dev Containers" extension installed and enabled. For more information about this extension, see the [{% data variables.product.prodname_vs_marketplace_shortname %}](https://marketplace.visualstudio.com/items?itemName=ms-vscode-remote.remote-containers).
-
-{% endnote %}
+> [!NOTE]
+> To add features in {% data variables.product.prodname_vscode_shortname %} while you are working locally, and not connected to a codespace, you must have the "Dev Containers" extension installed and enabled. For more information about this extension, see the [{% data variables.product.prodname_vs_marketplace_shortname %}](https://marketplace.visualstudio.com/items?itemName=ms-vscode-remote.remote-containers).
 
 {% data reusables.codespaces.command-palette %}
 1. Start typing "add dev" then click **Codespaces: Add Dev Container Configuration Files**.

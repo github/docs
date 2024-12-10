@@ -38,11 +38,8 @@ If your commits are not linked to any user, the commit author's name will not be
    * **Unrecognized author (no email address)** If you see this message without an email address, you used a generic email address that can't be connected to your account on {% data variables.product.product_name %}. You will need to [set your commit email address in Git](/account-and-profile/setting-up-and-managing-your-personal-account-on-github/managing-email-preferences/setting-your-commit-email-address), then [add the new address to your GitHub email settings](/account-and-profile/setting-up-and-managing-your-personal-account-on-github/managing-email-preferences/adding-an-email-address-to-your-github-account) to link your future commits. Old commits will not be linked.
    * **Invalid email** The email address in your local Git configuration settings is either blank or not formatted as an email address. You will need to [set your commit email address in Git](/account-and-profile/setting-up-and-managing-your-personal-account-on-github/managing-email-preferences/setting-your-commit-email-address), then [add the new address to your GitHub email settings](/account-and-profile/setting-up-and-managing-your-personal-account-on-github/managing-email-preferences/adding-an-email-address-to-your-github-account) to link your future commits. Old commits will not be linked.
 
-{% warning %}
-
-If your local Git configuration contained a generic email address, or an email address that was already attached to another user's account, then your previous commits will not be linked to your account. While Git does allow you to change the email address used for previous commits, we strongly discourage this, especially in a shared repository.
-
-{% endwarning %}
+> [!WARNING]
+> If your local Git configuration contained a generic email address, or an email address that was already attached to another user's account, then your previous commits will not be linked to your account. While Git does allow you to change the email address used for previous commits, we strongly discourage this, especially in a shared repository.
 
 ## Further reading
 
