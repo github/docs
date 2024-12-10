@@ -110,6 +110,10 @@ For more information, see:
 * "[AUTOTITLE](/organizations/managing-organization-settings/configuring-the-retention-period-for-github-actions-artifacts-and-logs-in-your-organization)"
 * "[AUTOTITLE](/admin/policies/enforcing-policies-for-your-enterprise/enforcing-policies-for-github-actions-in-your-enterprise#enforcing-a-policy-for-artifact-and-log-retention-in-your-enterprise)"
 
+## Workflow run history retention policy
+
+The workflow runs in a repository's workflow run history are retained for 400 days. After 400 days, workflow runs are archived. 10 days after archival, they are permanently deleted. The retention period for workflow runs cannot be modified. For more information, see "[AUTOTITLE](/actions/monitoring-and-troubleshooting-workflows/monitoring-workflows/viewing-workflow-run-history)."
+
 ## Disabling or limiting {% data variables.product.prodname_actions %} for your repository or organization
 
 {% data reusables.actions.disabling-github-actions %}
