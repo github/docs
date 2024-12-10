@@ -3,7 +3,7 @@
 In a terminal on your local computer, enter:
 
 ```shell
-curl ADDRESS -H "X-Github-Token: TOKEN"
+curl ADDRESS -H "X-GitHub-Token: TOKEN"
 ```
 
 Replace `ADDRESS` and `TOKEN` with the values you copied previously.
@@ -16,7 +16,7 @@ Replace `ADDRESS` and `TOKEN` with the values you copied previously.
 
    ![Screenshot of the URL for the forwarded port, pasted into Postman as the GET request URL. The URL is highlighted.](/assets/images/help/codespaces/postman-screenshot-url.png)
 
-1. In the **Headers** tab, create a new entry where the key is "X-Github-Token" and the value is the `GITHUB_TOKEN` you copied previously.
+1. In the **Headers** tab, create a new entry where the key is "X-GitHub-Token" and the value is the `GITHUB_TOKEN` you copied previously.
 
    ![Screenshot of a dummy GITHUB_TOKEN, pasted into Postman as the value of the X-GitHub-Token key. The key and value are highlighted.](/assets/images/help/codespaces/postman-screenshot-key-token.png)
 
