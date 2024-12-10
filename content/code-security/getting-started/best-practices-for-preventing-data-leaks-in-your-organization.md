@@ -105,11 +105,9 @@ To ensure that all code is properly reviewed prior to being merged into the defa
 
 ## Mitigate data leaks
 
-If a user pushes sensitive data, ask them to remove it by using the `git filter-repo` tool. For more information, see "[AUTOTITLE](/authentication/keeping-your-account-and-data-secure/removing-sensitive-data-from-a-repository)." Also, it is possible to revert almost anything in Git. For more information, see [{% data variables.product.prodname_blog %}](https://github.blog/2015-06-08-how-to-undo-almost-anything-with-git/).
+If a user pushes sensitive data, ask them to remove it by using the `git filter-repo` tool. For more information, see "[AUTOTITLE](/authentication/keeping-your-account-and-data-secure/removing-sensitive-data-from-a-repository)." Also, if the sensitive data has not been pushed yet, you can just undo those changes locally; for more information, see [{% data variables.product.prodname_blog %}](https://github.blog/2015-06-08-how-to-undo-almost-anything-with-git/) (but note that `git revert` is not a valid way to undo the addition of sensitive data as it leaves the original sensitive commit in Git history).
 
-At the organization level, if you're unable to coordinate with the user who pushed the sensitive data to remove it, we recommend you contact {% data variables.contact.contact_support %} with the concerning commit SHA.
-
-If you're unable to coordinate directly with the repository owner to remove data that you're confident you own, you can fill out a DMCA takedown notice form and tell GitHub Support. For more information, see [DMCA takedown notice](https://support.github.com/contact/dmca-takedown).
+If you're unable to coordinate directly with the repository owner to remove data that you're confident you own, you can fill out a DMCA takedown notice form and tell GitHub Support.  Make sure to include the problematic commit hashes.  For more information, see [DMCA takedown notice](https://support.github.com/contact/dmca-takedown).
 
 > [!NOTE]
 > If one of your repositories has been taken down due to a false claim, you should fill out a DMCA

@@ -46,6 +46,9 @@ The contributor is notified of the decision by email and must take the required 
 1. Select the **All statuses** dropdown menu, then click **Open** to view requests that are awaiting review, and those that have been approved but for which the commits haven't been pushed to the repository yet.
 1. Click the request that you want to review.
 1. Review the details of the request.
+{% ifversion push-protection-bypass-reviewer-comment -%}
+{% data reusables.repositories.bypass-requests-reviewer-comment %}
+{%- endif %}
 1. To allow the contributor to push the commit containing the secret, click **Approve bypass request**. Or, to require the contributor to remove the secret from the commit, click **Deny bypass request**.
 
 {% ifversion security-overview-delegated-bypass-requests %}
