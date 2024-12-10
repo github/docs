@@ -25,7 +25,7 @@ Before you begin, make sure you have the following:
     * Be able to verify the signature of requests from {% data variables.product.github %} to authenticate their origin and prevent unauthorized access
     * Be publicly accessible via HTTPS
 
-For more information about signature verification, see "[Verifying that payloads are coming from Github](/copilot/building-copilot-extensions/building-a-copilot-agent-for-your-copilot-extension/configuring-your-copilot-agent-to-communicate-with-github#verifying-that-payloads-are-coming-from-github)".
+For more information about signature verification, see "[Verifying that payloads are coming from GitHub](/copilot/building-copilot-extensions/building-a-copilot-agent-for-your-copilot-extension/configuring-your-copilot-agent-to-communicate-with-github#verifying-that-payloads-are-coming-from-github)".
 
 ## Configuration requirements
 

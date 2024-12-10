@@ -482,9 +482,9 @@ Vary: Accept, Authorization, Cookie, Accept-Encoding, Accept, X-Requested-With
 X-Accepted-Oauth-Scopes: repo
 X-Content-Type-Options: nosniff
 X-Frame-Options: deny
-X-Github-Api-Version-Selected: 2022-08-09
-X-Github-Media-Type: github.v3; format=json
-X-Github-Request-Id: 1C73:26D4:E2E500:1EF78F4:62EC2479
+X-GitHub-Api-Version-Selected: 2022-08-09
+X-GitHub-Media-Type: github.v3; format=json
+X-GitHub-Request-Id: 1C73:26D4:E2E500:1EF78F4:62EC2479
 X-Oauth-Client-Id: 178c6fc778ccc68e1d6a
 X-Oauth-Scopes: gist, read:org, repo, workflow
 X-Ratelimit-Limit: 15000
