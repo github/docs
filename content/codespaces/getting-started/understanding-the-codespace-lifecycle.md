@@ -15,11 +15,8 @@ redirect_from:
   - /codespaces/getting-started/the-codespace-lifecycle
 ---
 
-{% note %}
-
-This article explains the stages in the life of a codespace, from creation to deletion. If you have read the "[AUTOTITLE](/codespaces/getting-started/quickstart)" article and you now want to start using {% data variables.product.prodname_github_codespaces %} for your own work, see the articles under "[AUTOTITLE](/codespaces/developing-in-a-codespace)."
-
-{% endnote %}
+> [!NOTE]
+> This article explains the stages in the life of a codespace, from creation to deletion. If you have read the "[AUTOTITLE](/codespaces/getting-started/quickstart)" article and you now want to start using {% data variables.product.prodname_github_codespaces %} for your own work, see the articles under "[AUTOTITLE](/codespaces/developing-in-a-codespace)."
 
 ## About the lifecycle of a codespace
 

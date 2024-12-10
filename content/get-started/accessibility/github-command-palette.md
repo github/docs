@@ -81,11 +81,8 @@ You can use the command palette to search for anything on {% data variables.prod
 
 1. Begin entering your search terms. The command palette will offer you a range of suggested searches based on your search scope.
 
-   {% tip %}
-
-   You can also use the full syntax of {% data variables.product.prodname_dotcom %}'s integrated search within the command palette. For more information, see "[AUTOTITLE](/search-github)."
-
-   {% endtip %}
+   > [!TIP]
+   > You can also use the full syntax of {% data variables.product.prodname_dotcom %}'s integrated search within the command palette. For more information, see "[AUTOTITLE](/search-github)."
 
 1. Use the arrow keys to highlight the search result you want and use <kbd>Enter</kbd> to jump to your chosen location. Alternatively, use <kbd>Ctrl</kbd>+<kbd>Enter</kbd> (Windows and Linux) or <kbd>Command</kbd>+<kbd>Enter</kbd> (Mac) to open the location in a new browser tab.
 

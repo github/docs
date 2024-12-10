@@ -9,11 +9,8 @@ topics:
 shortTitle: 5. Rollout code scanning
 ---
 
-{% note %}
-
-This article is part of a series on adopting {% data variables.product.prodname_GH_advanced_security %} at scale. For the previous article in this series, see "[AUTOTITLE](/code-security/adopting-github-advanced-security-at-scale/phase-4-create-internal-documentation)."
-
-{% endnote %}
+> [!NOTE]
+> This article is part of a series on adopting {% data variables.product.prodname_GH_advanced_security %} at scale. For the previous article in this series, see "[AUTOTITLE](/code-security/adopting-github-advanced-security-at-scale/phase-4-create-internal-documentation)."
 
 {% ifversion security-configurations %}
 
@@ -78,8 +75,5 @@ With a {% data variables.product.prodname_copilot_enterprise %} license, you can
 
 {% endif %}
 
-{% note %}
-
-For the next article in this series, see "[AUTOTITLE](/code-security/adopting-github-advanced-security-at-scale/phase-6-rollout-and-scale-secret-scanning)."
-
-{% endnote %}
+> [!NOTE]
+> For the next article in this series, see "[AUTOTITLE](/code-security/adopting-github-advanced-security-at-scale/phase-6-rollout-and-scale-secret-scanning)."

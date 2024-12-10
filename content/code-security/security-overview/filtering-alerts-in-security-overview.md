@@ -22,11 +22,8 @@ redirect_from:
 
 You can use filters in a security overview to narrow your focus based on a range of factors, like alert risk level, alert type, and feature enablement. Different filters are available depending on the specific view, and whether you are viewing data at the enterprise or organization level.
 
-{% note %}
-
-{% data reusables.security-overview.information-varies-GHAS %}
-
-{% endnote %}
+> [!NOTE]
+> {% data reusables.security-overview.information-varies-GHAS %}
 
 ## Filter logic for security overview
 

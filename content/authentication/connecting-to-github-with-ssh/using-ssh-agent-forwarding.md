@@ -147,15 +147,12 @@ If the command says that no identity is available, you'll need to add your key:
 ssh-add YOUR-KEY
 ```
 
-{% tip %}
-
-On macOS, `ssh-agent` will "forget" this key, once it gets restarted during reboots. But you can import your SSH keys into Keychain using this command:
-
-```shell
-ssh-add --apple-use-keychain YOUR-KEY
-```
-
-{% endtip %}
+> [!TIP]
+> On macOS, `ssh-agent` will "forget" this key, once it gets restarted during reboots. But you can import your SSH keys into Keychain using this command:
+>
+> ```shell
+> ssh-add --apple-use-keychain YOUR-KEY
+> ```
 
 {% data reusables.ssh.apple-use-keychain %}
 

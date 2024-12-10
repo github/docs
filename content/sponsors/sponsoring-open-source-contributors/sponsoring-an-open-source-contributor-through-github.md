@@ -35,13 +35,10 @@ Before you can sponsor an account, you must have a verified email address. For m
 {% data reusables.sponsors.select-sponsorship-billing %}
 {% data reusables.sponsors.setting-an-end-date %}
 {% data reusables.sponsors.who-can-see-your-sponsorship %}
-{% data reusables.sponsors.choose-updates %}<br><br>
+{% data reusables.sponsors.choose-updates %}
 
-   {% note %}
-
-   {% data reusables.sponsors.org-email-updates %}
-
-   {% endnote %}
+   > [!NOTE]
+   > {% data reusables.sponsors.org-email-updates %}
 
 {% data reusables.sponsors.sponsor-as-business %}
 {% data reusables.sponsors.sponsor-account %}
@@ -80,13 +77,10 @@ Before you can sponsor an account, you must have a verified email address. For m
 {% data reusables.sponsors.select-sponsorship-billing %}
 
 1. In the "Who can see your sponsorships?" section, choose a visibility option.
-1. Decide whether you want to receive email updates from the sponsored accounts, then select or deselect **Receive email updates from the maintainers you're sponsoring**.<br><br>
+1. Decide whether you want to receive email updates from the sponsored accounts, then select or deselect **Receive email updates from the maintainers you're sponsoring**.
 
-   {% note %}
-
-   {% data reusables.sponsors.org-email-updates %}
-
-   {% endnote %}
+   > [!NOTE]
+   > {% data reusables.sponsors.org-email-updates %}
 
 {% data reusables.sponsors.sponsor-as-business %}
 
