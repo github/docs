@@ -38,4 +38,5 @@ If your secret is in the supported list, there are various reasons why push prot
 * The version of your secret may be old. {% data reusables.secret-scanning.push-protection-older-tokens %}
 * The push may be too large, for example, if you're trying to push thousands of large files. A push protection scan may time out and not block a user if the push is too large. {% data variables.product.prodname_dotcom %} will still scan and create alerts, if needed, after the push.
 * If the push results in the detection of over five new secrets, we will only show you the first five (we will always show you a maximum of five secrets at one time).
-* If a push contains over 1,000 existing secrets (that is, secrets for which alerts have already been created), push protection will not block the push.
+* If a push contains over 1,000 existing secrets (that is, secrets for which alerts have already been created), push protection will not block the push. {% ifversion fpt or ghec %}
+* If a push in a public repository is larger than 50 MB, push protection will skip it and won't scan it.{% endif %}
