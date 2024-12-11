@@ -15,13 +15,16 @@ topics:
 ## About using rulesets for {% data variables.product.prodname_code_scanning %} merge protection
 
 > [!NOTE]
-> * This feature is currently in {% data variables.release-phases.public_preview %} and subject to change.
 > * Merge protection with rulesets is not related to status checks. For more information about status checks, see "[AUTOTITLE](/pull-requests/collaborating-with-pull-requests/collaborating-on-repositories-with-code-quality-features/about-status-checks)."
 > * Merge protection with rulesets will not apply to merge queue groups or {% data variables.product.prodname_dependabot %} pull requests analyzed by default setup.
 
 You can use rulesets to prevent pull requests from being merged when one of the following conditions is met:
 
 {% data reusables.code-scanning.merge-protection-rulesets-conditions %}
+
+Typically you should use rulesets target long-lived feature branches, where you would like to guarantee that code has been analyzed before pull requests can be merged.
+
+Configuring a {% data variables.product.prodname_code_scanning %} rule will not automatically enable {% data variables.product.prodname_code_scanning %}. For more information about how to enable code scanning, see "[AUTOTITLE](/code-security/code-scanning/enabling-code-scanning/configuring-default-setup-for-code-scanning)."
 
 For more information about {% data variables.product.prodname_code_scanning %} alerts, see "[AUTOTITLE](/code-security/code-scanning/managing-code-scanning-alerts/about-code-scanning-alerts)."
 
