@@ -32,6 +32,8 @@ To use {% data variables.product.prodname_copilot_chat %}, make sure you are usi
 
 You can use {% data variables.product.prodname_copilot_chat %} in {% data variables.product.prodname_vscode %} and {% data variables.product.prodname_vs %}. You can use the tabs at the top of this article for troubleshooting information relevant to the editor you're using.
 
+{% data reusables.copilot.sign-in-ghecom %} See "[AUTOTITLE](/copilot/managing-copilot/configure-personal-settings/using-github-copilot-with-an-account-on-ghecom)."
+
 {% vscode %}
 
 ### Troubleshooting authentication issues in {% data variables.product.prodname_vscode %}

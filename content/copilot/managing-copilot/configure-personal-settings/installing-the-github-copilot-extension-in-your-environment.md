@@ -68,6 +68,8 @@ The following procedure will guide you through installation of the {% data varia
 
 1. After your JetBrains IDE has restarted, click the **Tools** menu. Click **{% data variables.product.prodname_copilot %}**, then click **Login to {% data variables.product.prodname_dotcom %}**.
 
+   >[!NOTE] {% data reusables.copilot.sign-in-ghecom %} See "[AUTOTITLE](/copilot/managing-copilot/configure-personal-settings/using-github-copilot-with-an-account-on-ghecom?tool=jetbrains#authenticating-from-jetbrains-ides)."
+
    ![Screenshot of the expanded "Tools" menu and "{% data variables.product.prodname_copilot %}" sub-menu. The "Login to {% data variables.product.prodname_dotcom %}" option is highlighted in blue.](/assets/images/help/copilot/jetbrains-tools-menu.png)
 
 1. In the "Sign in to {% data variables.product.prodname_dotcom %}" dialog box, to copy the device code and open the device activation window, click **Copy and Open**.
@@ -154,6 +156,8 @@ Starting from {% data variables.product.prodname_vs %} 2022 Version 17.10, the u
 
 1. After installing the {% data variables.product.prodname_copilot %} extension, to enable {% data variables.product.prodname_copilot %}, ensure you have added your {% data variables.product.prodname_dotcom %} account to {% data variables.product.prodname_vs %}. For more information, see [Add your {% data variables.product.prodname_dotcom %} accounts to your {% data variables.product.prodname_vs %} keychain](https://learn.microsoft.com/en-us/visualstudio/ide/work-with-github-accounts) in the Microsoft documentation.
 
+   >[!NOTE] {% data reusables.copilot.sign-in-ghecom %} See "[AUTOTITLE](/copilot/managing-copilot/configure-personal-settings/using-github-copilot-with-an-account-on-ghecom?tool=visualstudio#authenticating-from-visual-studio)."
+
 {% endvisualstudio %}
 
 {% vscode %}
@@ -175,6 +179,8 @@ To see instructions for other popular coding environments, use the tool switcher
 1. Install {% data variables.product.prodname_vscode %}. See the [{% data variables.product.prodname_vscode %} download page](https://code.visualstudio.com/Download).
 
 1. Install the [{% data variables.product.prodname_copilot %} extension](https://marketplace.visualstudio.com/items?itemName=GitHub.copilot) in {% data variables.product.prodname_vscode %}. For detailed instructions, see "[Set up {% data variables.product.prodname_copilot %} in {% data variables.product.prodname_vscode %}](https://code.visualstudio.com/docs/copilot/setup)" in the {% data variables.product.prodname_vscode %} documentation.
+
+   >[!NOTE] {% data reusables.copilot.sign-in-ghecom %} See "[AUTOTITLE](/copilot/managing-copilot/configure-personal-settings/using-github-copilot-with-an-account-on-ghecom?tool=vscode#authenticating-from-vs-code)."
 
 {% endvscode %}
 
@@ -209,6 +215,8 @@ After granting the required permissions, restart Xcode. You will see a new item 
 ## Signing in to {% data variables.product.prodname_copilot %}
 
 Before you can use the {% data variables.product.prodname_copilot %} extension for Xcode, you need to authorize the extension to access your {% data variables.product.github %} account.
+
+>[!NOTE] {% data reusables.copilot.sign-in-ghecom %} See "[AUTOTITLE](/copilot/managing-copilot/configure-personal-settings/using-github-copilot-with-an-account-on-ghecom?tool=xcode#authenticating-from-xcode)."
 
 1. Open the {% data variables.product.prodname_copilot %} extension application.
 1. Click **Login to {% data variables.product.github %}** and follow the prompts to authorize the extension.
