@@ -451,3 +451,7 @@ After updating the extension, Xcode must be restarted for the changes to take ef
 {% data reusables.copilot.dotcom-settings %}
 
 {% endxcode %}
+
+## Authenticating to an account on {% data variables.enterprise.data_residency_site %}
+
+{% data reusables.copilot.sign-in-ghecom %} See "[AUTOTITLE](/copilot/managing-copilot/configure-personal-settings/using-github-copilot-with-an-account-on-ghecom)."

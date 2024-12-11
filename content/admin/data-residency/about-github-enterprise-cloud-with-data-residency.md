@@ -57,6 +57,7 @@ The developer experience on {% data variables.enterprise.data_residency_site %} 
 * [Functionality for managed user accounts](#functionality-for-managed-user-accounts)
 * [Repository visibility](#repository-visibility)
 * [API access](#api-access)
+* [{% data variables.product.prodname_copilot %}](#github-copilot)
 * [Documentation](#documentation)
 
 ### Identity and access
@@ -86,6 +87,13 @@ Public repositories are not available in an {% data variables.enterprise.prodnam
 Users can simplify API requests by using the {% data variables.product.prodname_cli %}. However, if they also need to access resources on {% data variables.product.prodname_dotcom_the_website %} or {% data variables.product.prodname_ghe_server %}, they will need to authenticate to multiple accounts and specify a target platform for most requests. See "[AUTOTITLE](/github-cli/github-cli/using-multiple-accounts)."
 
 Rate limits apply for requests to the REST API. See "[AUTOTITLE](/rest/overview/rate-limits-for-the-rest-api)."
+
+### {% data variables.product.prodname_copilot %}
+
+Your developers can access {% data variables.product.prodname_copilot %} if you grant them access to a {% data variables.product.prodname_copilot_business_short %} or {% data variables.product.prodname_copilot_enterprise_short %} subscription. {% data variables.enterprise.prodname_managed_users_caps %} cannot sign up for {% data variables.product.prodname_copilot_individuals_short %}.
+
+* Users must perform some additional setup to authenticate to their account from their development environment. See "[AUTOTITLE](/copilot/managing-copilot/configure-personal-settings/using-github-copilot-with-an-account-on-ghecom)."
+* Certain {% data variables.product.prodname_copilot %} features are currently unavailable on {% data variables.enterprise.data_residency_site %}. See "[AUTOTITLE](/admin/data-residency/feature-overview-for-github-enterprise-cloud-with-data-residency#currently-unavailable-features)."
 
 ### Documentation
 

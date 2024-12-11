@@ -27,7 +27,8 @@ The following features are currently unavailable on {% data variables.enterprise
 | Achievements | Currently unavailable. | "[AUTOTITLE](/account-and-profile/setting-up-and-managing-your-github-profile/managing-contribution-settings-on-your-profile/viewing-contributions-on-your-profile)" |
 | Microsoft Teams integrations | Currently unavailable. | "[AUTOTITLE](/get-started/exploring-integrations/featured-github-integrations#team-communication-tools)" |
 | {% data variables.product.prodname_importer %} | Currently unavailable | "[AUTOTITLE](/migrations/importing-source-code/using-github-importer/about-github-importer)" |
-| {% data variables.product.prodname_copilot %} Workspaces | Currently unavailable | |
+| {% data variables.product.prodname_copilot %} Workspaces | Currently unavailable | N/A |
+| {% data variables.product.prodname_copilot_extensions %} | Currently unavailable | "[AUTOTITLE](/copilot/using-github-copilot/using-extensions-to-integrate-external-tools-with-copilot-chat)" |
 | Interactive maps | Currently can't use GeoJSON/TopoJSON syntax to create interactive maps. | "[AUTOTITLE](/get-started/writing-on-github/working-with-advanced-formatting/creating-diagrams#creating-geojson-and-topojson-maps)" |
 | Usage metrics for {% data variables.product.prodname_actions %} | Currently unavailable | "[AUTOTITLE](/organizations/collaborating-with-groups-in-organizations/viewing-usage-metrics-for-github-actions)" |
 | Some features currently in {% data variables.release-phases.public_preview %} or {% data variables.release-phases.private_preview %} | Certain features that are in a preview phase on {% data variables.product.prodname_dotcom_the_website %} may not be available on {% data variables.enterprise.data_residency_site %} | |
