@@ -36,6 +36,8 @@ You can enable push protection:
 
 For information about the secrets and service providers supported by push protection, see "[AUTOTITLE](/code-security/secret-scanning/introduction/supported-secret-scanning-patterns#supported-secrets)."
 
+Push protection has some limitations. For more information, see "[AUTOTITLE](/code-security/secret-scanning/troubleshooting-secret-scanning-and-push-protection/troubleshooting-secret-scanning#push-protection-limitations)."
+
 ## How push protection works
 
 Push protection works:
