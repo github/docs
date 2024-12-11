@@ -193,13 +193,13 @@ describe('analyzeComment', () => {
 
   test('cuss-words-likely', async () => {
     // The "CK" makes the final word a mix or lower and upper case.
-    const { signals, rating } = await analyzeComment('f*CK you'.replace('*', 'u'))
+    const { signals, rating } = await analyzeComment('f*CK you'.replace(/\*/g, 'u'))
     expect(signals.includes('cuss-words-likely')).toBeTruthy()
     expect(rating).toBeLessThan(1.0)
   })
 
   test('cuss-words-maybe', async () => {
-    const { signals, rating } = await analyzeComment('oh s**t'.replace('**', 'hi'))
+    const { signals, rating } = await analyzeComment('oh s**t'.replace(/\*\*/g, 'hi'))
     expect(signals.includes('cuss-words-maybe')).toBeTruthy()
     expect(rating).toBeLessThan(1.0)
   })
