@@ -185,8 +185,7 @@ If you have enabled automatic access to {% data variables.product.prodname_dotco
 github.com
 api.github.com
 codeload.github.com
-ghcr.io
-*.actions.githubusercontent.com
+pkg.actions.githubusercontent.com
 ```
 
 {% data reusables.actions.domain-name-cname-recursive-firewall-rules %}
