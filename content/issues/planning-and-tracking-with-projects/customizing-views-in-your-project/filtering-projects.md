@@ -77,6 +77,16 @@ You can invert any filter, including combinations, by prefixing with a hyphen.
 |<code>-field:<em>VALUE</em></code> | **-status:done** will not show any items with a status of "done."
 |<code>-field:<em>VALUE,VALUE</em></code> | **-priority:1,2** will not show any items with a priority of either 1 or 2.
 
+## Filtering for items that have a value
+
+You can use `has:` to filter for items that have a value
+
+| Qualifier  | Example
+| ---------- | -------------
+|<code>has:assignee</code> | **has:assignee** will show items with an assignee.
+|<code>has:label</code> | **has:label** will show items with a label.
+|<code>has:<em>FIELD</em> | **has:priority** will show items with a priority field value.
+
 ## Filtering for items that are missing a value
 
 You can use `no:` to filter for items that are missing a value

@@ -1,4 +1,10 @@
 version: 2
+registries:
+  ghcr: # Define access for a private registry
+    type: docker-registry
+    url: ghcr.io
+    username: PAT
+    password: ${{secrets.CONTAINER_BUILDER_TOKEN}}
 updates:
   - package-ecosystem: npm
     directory: '/'
@@ -23,11 +29,18 @@ updates:
       - dependency-name: '*'
         update-types:
           ['version-update:semver-patch', 'version-update:semver-minor']
+      - dependency-name: 'github/internal-actions'
 
   - package-ecosystem: 'docker'
+    registries:
+      - ghcr
     directory: '/'
     schedule:
       interval: weekly
       day: thursday
+    groups:
+      baseImages:
+        patterns:
+          - '*'
     ignore:
       - dependency-name: 'node'
