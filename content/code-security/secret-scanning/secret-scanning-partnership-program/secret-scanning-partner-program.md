@@ -82,10 +82,10 @@ Create a public, internet accessible HTTP endpoint at the URL you provided to us
 
 The message body is a JSON array that contains one or more objects, with each object representing a single secret match. Your endpoint should be able to handle requests with a large number of matches without timing out. The keys for each secret match are:
 
-* **token**: The value of the secret match.
-* **type**: The unique name you provided to identify your regular expression.
-* **url**: The public URL where the match was found (may be empty)
-* **source**: Where the token was found on {% data variables.product.prodname_dotcom %}.
+* **token:** The value of the secret match.
+* **type:** The unique name you provided to identify your regular expression.
+* **url:** The public URL where the match was found (may be empty)
+* **source:** Where the token was found on {% data variables.product.prodname_dotcom %}.
 
 The list of valid values for `source` are:
 

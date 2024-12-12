@@ -46,7 +46,7 @@ When you publish a package that is scoped to a personal account or an organizati
    LABEL org.opencontainers.image.source=https://{% ifversion fpt or ghec %}github.com{% else %}{% data reusables.package_registry.container-registry-example-hostname %}{% endif %}/octocat/my-repo
    ```
 
-   For more information, see "[LABEL](https://docs.docker.com/engine/reference/builder/#label)" in the official Docker documentation and "[Pre-defined Annotation Keys](https://github.com/opencontainers/image-spec/blob/master/annotations.md#pre-defined-annotation-keys)" in the `opencontainers/image-spec` repository.
+   For more information, see "[LABEL](https://docs.docker.com/engine/reference/builder/#label)" in the official Docker documentation and "[Pre-defined Annotation Keys](https://github.com/opencontainers/image-spec/blob/main/annotations.md#pre-defined-annotation-keys)" in the `opencontainers/image-spec` repository.
 
 1. Build your container image. This example builds an image from the Dockerfile in the current directory and assigns the image name `hello_docker`.
 

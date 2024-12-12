@@ -12,11 +12,9 @@ topics:
   - SSH
 shortTitle: Use SSH over HTTPS port
 ---
-{% tip %}
 
-**{% data variables.product.prodname_ghe_server %} users**: Accessing {% data variables.product.prodname_ghe_server %} via SSH over the HTTPS port is currently not supported.
-
-{% endtip %}
+> [!WARNING]
+> **{% data variables.product.prodname_ghe_server %} users:** Accessing {% data variables.product.prodname_ghe_server %} via SSH over the HTTPS port is currently not supported.
 
 To test if SSH over the HTTPS port is possible, run this SSH command:
 
@@ -74,4 +72,4 @@ that the host wasn't found in `known_hosts`, or that it was found by another nam
 ```
 
 It is safe to answer "yes" to this question, assuming that the SSH fingerprint matches
-one of {% data variables.product.prodname_dotcom %}'s published fingerprints. For the list of fingerprints, see "[AUTOTITLE](/authentication/keeping-your-account-and-data-secure/githubs-ssh-key-fingerprints)."
+one of {% data variables.product.prodname_dotcom %}'s published fingerprints. For the list of fingerprints, see [AUTOTITLE](/authentication/keeping-your-account-and-data-secure/githubs-ssh-key-fingerprints).

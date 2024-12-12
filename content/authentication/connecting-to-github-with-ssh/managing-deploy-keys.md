@@ -69,7 +69,7 @@ See [our guide on creating a {% data variables.product.pat_generic %}](/authenti
 
 {% data reusables.repositories.deploy-keys-write-access %}
 
-For enhanced security and fine-grained control over repository access and permissions, we recommend using a GitHub App instead. See "[AUTOTITLE](/apps/creating-github-apps/about-creating-github-apps/deciding-when-to-build-a-github-app#github-apps-offer-enhanced-security)."
+For enhanced security and fine-grained control over repository access and permissions, we recommend using a GitHub App instead. See [AUTOTITLE](/apps/creating-github-apps/about-creating-github-apps/deciding-when-to-build-a-github-app#github-apps-offer-enhanced-security).
 
 ### Pros of deploy keys
 
@@ -88,7 +88,7 @@ For enhanced security and fine-grained control over repository access and permis
 
 {% ifversion deploy-keys-enterprise-org-policy %}
 
-> [!NOTE] If your organization is owned by an enterprise, and your enterprise owner has restricted the use of deploy keys in repositories, then you cannot override the policy in your organization to create a deploy key. For more information, see "[AUTOTITLE](/admin/policies/enforcing-policies-for-your-enterprise/enforcing-repository-management-policies-in-your-enterprise#enforcing-a-policy-for-deploy-keys)."
+> [!NOTE] If your organization is owned by an enterprise, and your enterprise owner has restricted the use of deploy keys in repositories, then you cannot override the policy in your organization to create a deploy key. For more information, see [AUTOTITLE](/admin/policies/enforcing-policies-for-your-enterprise/enforcing-repository-management-policies-in-your-enterprise#enforcing-a-policy-for-deploy-keys).
 {% endif %}
 
 1. [Run the `ssh-keygen` procedure][generating-ssh-keys] on your server, and remember where you save the generated public and private rsa key pair.
@@ -101,7 +101,7 @@ For enhanced security and fine-grained control over repository access and permis
 1. Select **Allow write access** if you want this key to have write access to the repository. A deploy key with write access lets a deployment push to the repository.
 1. Click **Add key**.
 
-You can also use the REST API to create deploy keys. For more information, see "[AUTOTITLE](/rest/deploy-keys/deploy-keys)."
+You can also use the REST API to create deploy keys. For more information, see [AUTOTITLE](/rest/deploy-keys/deploy-keys).
 
 ### Using multiple repositories on one server
 
@@ -159,7 +159,7 @@ Since {% data variables.product.prodname_github_apps %} are a first class actor 
 1. Generate an installation access token using the corresponding REST API endpoint, [Create an installation access token for an app](/rest/apps#create-an-installation-access-token-for-an-app). This requires authenticating as a {% data variables.product.prodname_github_app %} using a JWT, for more information see [Authenticating as a {% data variables.product.prodname_github_app %}](/apps/creating-github-apps/authenticating-with-a-github-app/authenticating-as-a-github-app), and [Authenticating as an installation](/apps/creating-github-apps/authenticating-with-a-github-app/authenticating-as-a-github-app-installation).
 1. Use this installation access token to interact with your repositories, either via the REST or GraphQL APIs, or via a Git client.
 
-For more information, see "[AUTOTITLE](/apps/creating-github-apps/authenticating-with-a-github-app/generating-an-installation-access-token-for-a-github-app)."
+For more information, see [AUTOTITLE](/apps/creating-github-apps/authenticating-with-a-github-app/generating-an-installation-access-token-for-a-github-app).
 
 ## Machine users
 

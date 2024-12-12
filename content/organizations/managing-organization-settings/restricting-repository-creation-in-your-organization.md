@@ -14,6 +14,12 @@ topics:
 shortTitle: Restrict repository creation
 ---
 
+{% ifversion repo-policy-rules %}
+
+## Setting a blanket policy
+
+{% endif %}
+
 You can choose whether members and {% data variables.product.prodname_github_apps %} can create repositories in your organization. {% ifversion ghec or ghes %}If you allow members and {% data variables.product.prodname_github_apps %} to create repositories, you can choose which types of repositories they can create.{% elsif fpt %}If you allow members and {% data variables.product.prodname_github_apps %} to create repositories, you can choose whether they can create both public and private repositories or public repositories only.{% endif %} Organization owners can always create any type of repository.
 
 {% ifversion fpt %}
@@ -42,3 +48,11 @@ Organization owners can restrict the type of repositories members can create to 
    {%- endif %}
 
 1. Click **Save**.
+
+{% ifversion repo-policy-rules %}
+
+## Setting a more flexible policy ({% data variables.release-phases.public_preview %})
+
+{% data reusables.enterprise.repo-policy-rules-more-flexible %}
+
+{% endif %}

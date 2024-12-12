@@ -27,11 +27,11 @@ You should be familiar with the concepts described in "[AUTOTITLE](/actions/usin
 
 When combined with OpenID Connect (OIDC), reusable workflows let you enforce consistent deployments across your repository, organization, or enterprise. You can do this by defining trust conditions on cloud roles based on reusable workflows. The available options will vary depending on your cloud provider:
 
-* **Using `job_workflow_ref`**:
+* **Using `job_workflow_ref`:**
   * To create trust conditions based on reusable workflows, your cloud provider must support custom claims for `job_workflow_ref`. This allows your cloud provider to identify which repository the job originally came from.
   * For clouds that only support the standard claims (audience (`aud`) and subject (`sub`)), you can use the API to customize the `sub` claim to include `job_workflow_ref`. For more information, see "[AUTOTITLE](/actions/deployment/security-hardening-your-deployments/about-security-hardening-with-openid-connect#customizing-the-token-claims)". Support for custom claims is currently available for Google Cloud Platform and HashiCorp Vault.
 
-* **Customizing the token claims**:
+* **Customizing the token claims:**
   * You can configure more granular trust conditions by customizing the {% ifversion ghec %}issuer (`iss`) and {% endif %}subject (`sub`) claim{% ifversion ghec %}s that are{% else %} that's{% endif %} included with the JWT. For more information, see "[AUTOTITLE](/actions/deployment/security-hardening-your-deployments/about-security-hardening-with-openid-connect#customizing-the-token-claims)".
 
 ## How the token works with reusable workflows
@@ -83,11 +83,11 @@ If your reusable workflow performs deployment steps, then it will typically need
 
 You can configure a custom claim that filters for any reusable workflow in a specific repository. In this example, the workflow run must have originated from a job defined in a reusable workflow in the `octo-org/octo-automation` repository, and in any repository that is owned by the `octo-org` organization.
 
-* **Subject**:
+* **Subject:**
   * Syntax: `repo:ORG_NAME/*`
   * Example: `repo:octo-org/*`
 
-* **Custom claim**:
+* **Custom claim:**
   * Syntax: `job_workflow_ref:ORG_NAME/REPO_NAME`
   * Example: `job_workflow_ref:octo-org/octo-automation@*`
 
@@ -95,10 +95,10 @@ You can configure a custom claim that filters for any reusable workflow in a spe
 
 You can configure a custom claim that filters for a specific reusable workflow. In this example, the workflow run must have originated from a job defined in the reusable workflow `octo-org/octo-automation/.github/workflows/deployment.yml`, and in any repository that is owned by the `octo-org` organization.
 
-* **Subject**:
+* **Subject:**
   * Syntax: `repo:ORG_NAME/*`
   * Example: `repo:octo-org/*`
 
-* **Custom claim**:
+* **Custom claim:**
   * Syntax: `job_workflow_ref:ORG_NAME/REPO_NAME/.github/workflows/WORKFLOW_FILE@ref`
   * Example: `job_workflow_ref:octo-org/octo-automation/.github/workflows/deployment.yml@ 10040c56a8c0253d69db7c1f26a0d227275512e2`

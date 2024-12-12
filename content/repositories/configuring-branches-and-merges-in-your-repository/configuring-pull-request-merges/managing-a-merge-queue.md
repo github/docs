@@ -53,19 +53,19 @@ Repository administrators can require a merge queue by enabling the branch prote
 
 Once you have enabled the "Require merge queue" setting, you can also access the following settings:
 
-* **Merge method**: Select which method to use when merging queued pull requests: merge, rebase, or squash.
+* **Merge method:** Select which method to use when merging queued pull requests: merge, rebase, or squash.
 
-* **Build concurrency**: The maximum number of `merge_group` webhooks to dispatch (between `1` and `100`), throttling the total amount of concurrent CI builds. This affects the velocity of merges that a merge queue can complete.
-* **Only merge non-failing pull requests**: This setting determines how a merge queue forms groups of pull requests to be merged.
+* **Build concurrency:** The maximum number of `merge_group` webhooks to dispatch (between `1` and `100`), throttling the total amount of concurrent CI builds. This affects the velocity of merges that a merge queue can complete.
+* **Only merge non-failing pull requests:** This setting determines how a merge queue forms groups of pull requests to be merged.
 
   | Enabled? | Description |
   | -------- | ----------- |
   | Yes      | All pull requests must satisfy required checks to be merged. |
   | No       | Pull requests that have failed required checks can be added to a group as long as the last pull request in the group has passed required checks. If the last pull request in the group has passed required checks, this means that the checks have passed for the combined set of changes in the merge group. Leaving this checkbox unselected can be useful if you have intermittent test failures, but don't want false negatives to hold up the queue. |
 
-* **Status check timeout**: Choose how long the queue should wait for a response from CI before assuming that checks have failed.
+* **Status check timeout:** Choose how long the queue should wait for a response from CI before assuming that checks have failed.
 
-* **Merge limits**: Select the minimum and maximum number of pull requests to merge into the base branch at the same time (between `1` and `100`), and a timeout after which the queue should stop waiting for more entries and merge with fewer than the minimum number.
+* **Merge limits:** Select the minimum and maximum number of pull requests to merge into the base branch at the same time (between `1` and `100`), and a timeout after which the queue should stop waiting for more entries and merge with fewer than the minimum number.
 
   > [!NOTE]
   > Merge limits do not combine `merge_group` **builds**. Merge limits only affect merges to the base branch once one or more `merge_group` has satisfied build checks.

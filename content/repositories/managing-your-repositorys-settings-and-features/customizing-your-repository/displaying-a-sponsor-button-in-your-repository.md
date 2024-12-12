@@ -31,7 +31,7 @@ Platform | Syntax
 [Tidelift](https://tidelift.com/) | `tidelift: PLATFORM-NAME/PACKAGE-NAME`
 [Polar](https://www.polar.sh/) | `polar: USERNAME`
 [Buy Me a Coffee](https://www.buymeacoffee.com/) | `buy_me_a_coffee: USERNAME`
-[thanks.dev](https://thanks.dev/) | `thanks_dev: USERNAME`
+[thanks.dev](https://thanks.dev/) | `thanks_dev: u/gh/USERNAME`
 Custom URL | `custom: LINK1` or `custom: [LINK1, LINK2, LINK3, LINK4]`
 
 For Tidelift, use the `platform-name/package-name` syntax with the following platform names.
@@ -59,11 +59,8 @@ custom: ["https://www.paypal.me/octocat", octocat.com]
 
 You can create a default sponsor button for your organization or personal account. For more information, see "[AUTOTITLE](/communities/setting-up-your-project-for-healthy-contributions/creating-a-default-community-health-file)."
 
-{% note %}
-
-Funding links provide a way for open source projects to receive direct financial support from their community. We don’t support the use of funding links for other purposes, such as for advertising, or supporting political, community, or charity groups. If you have questions about whether your intended use is supported, please visit {% data variables.contact.contact_support_page %}.
-
-{% endnote %}
+> [!NOTE]
+> Funding links provide a way for open source projects to receive direct financial support from their community. We don’t support the use of funding links for other purposes, such as for advertising, or supporting political, community, or charity groups. If you have questions about whether your intended use is supported, please visit {% data variables.contact.contact_support_page %}.
 
 ## Displaying a sponsor button in your repository
 

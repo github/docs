@@ -18,13 +18,13 @@ topics:
 
 {% data reusables.dependency-review.action-enterprise %}
 
-{% data reusables.dependency-review.about-dependency-review-action %} For more information, see "[AUTOTITLE](/code-security/supply-chain-security/understanding-your-software-supply-chain/about-dependency-review)."
+{% data reusables.dependency-review.about-dependency-review-action %} For more information, see "[AUTOTITLE](/code-security/supply-chain-security/understanding-your-software-supply-chain/about-dependency-review#about-the-dependency-review-action)."
 
 You can enforce the use of the {% data variables.dependency-review.action_name %} in your organization by setting up a repository ruleset that will require the `dependency-review-action` workflow to pass before pull requests can be merged. Repository rulesets are rule settings that allow you to control how users can interact with selected branches and tags in your repositories. For more information, see "[AUTOTITLE](/repositories/configuring-branches-and-merges-in-your-repository/managing-rulesets/about-rulesets)" and "[Require workflows to pass before merging](/repositories/configuring-branches-and-merges-in-your-repository/managing-rulesets/available-rules-for-rulesets#require-workflows-to-pass-before-merging)."
 
 ## Prerequisites
 
-You need to add the {% data variables.dependency-review.action_name %} to one of the repositories in your organization, and configure the action. For more information, see "[Configuring the dependency review action](/code-security/supply-chain-security/understanding-your-software-supply-chain/configuring-dependency-review#configuring-the-dependency-review-action)."
+You need to add the {% data variables.dependency-review.action_name %} to one of the repositories in your organization, and configure the action. For more information, see "[Configuring the dependency review action](/code-security/supply-chain-security/understanding-your-software-supply-chain/configuring-the-dependency-review-action)."
 
 ## Enforcing dependency review for your organization
 

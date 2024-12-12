@@ -20,11 +20,8 @@ In this section, we're going to focus on the basics of authentication. Specifica
 we're going to create a Ruby server (using [Sinatra](http://www.sinatrarb.com/)) that implements
 the [web flow](/apps/oauth-apps/building-oauth-apps/authorizing-oauth-apps) of an application in several different ways.
 
-{% tip %}
-
-You can download the complete source code for this project [from the platform-samples repo](https://github.com/github/platform-samples/tree/master/api/).
-
-{% endtip %}
+> [!TIP]
+> You can download the complete source code for this project [from the platform-samples repo](https://github.com/github/platform-samples/tree/master/api/).
 
 ## Registering your app
 
@@ -87,7 +84,7 @@ Next, in _views/index.erb_, paste this content:
 </html>
 ```
 
-(If you're unfamiliar with how Sinatra works, we recommend [reading the Sinatra guide](https://github.com/sinatra/sinatra-book/blob/master/book/Introduction.markdown#hello-world-application).)
+(If you're unfamiliar with how Sinatra works, we recommend [reading the Sinatra guide](https://github.com/sinatra/sinatra-book/blob/main/book/Introduction.markdown#hello-world-application).)
 
 Also, notice that the URL uses the `scope` query parameter to define the
 [scopes](/apps/oauth-apps/building-oauth-apps/scopes-for-oauth-apps) requested by the application. For our application, we're

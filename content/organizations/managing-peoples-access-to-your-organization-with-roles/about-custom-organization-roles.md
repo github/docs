@@ -47,7 +47,7 @@ Organization permissions do not grant read, write, or administrator access to an
 | View custom repository roles | Access to view the organization's custom repository roles. | "[AUTOTITLE](/organizations/managing-peoples-access-to-your-organization-with-roles/managing-custom-repository-roles-for-an-organization)" |
 | Manage organization webhooks | Access to register and manage webhooks for the organization. Users with this permission will be able to view webhook payloads, which may contain metadata for repositories in the organization. | "[AUTOTITLE](/rest/orgs/webhooks#about-organization-webhooks)" |
 |  {% ifversion ghec %} |
-Manage organization OAuth application policies | Access to the "OAuth application policy" settings for the organization. | "[AUTOTITLE](/organizations/managing-oauth-access-to-your-organizations-data/about-oauth-app-access-restrictions)" |
+Manage organization OAuth app policies | Access to the "OAuth app policy" settings for the organization. | "[AUTOTITLE](/organizations/managing-oauth-access-to-your-organizations-data/about-oauth-app-access-restrictions)" |
 |  {% endif %} |
 |  {% ifversion repository-properties %} |
 | Edit custom properties values at the organization level | Access to set custom property values on all repositories in the organization. | "[AUTOTITLE](/organizations/managing-organization-settings/managing-custom-properties-for-repositories-in-your-organization)" |
@@ -78,11 +78,11 @@ The base repository role determines the initial set of permissions included in t
 
 The base repository roles are:
 
-* **Read**: Grants read access to all repositories in the organization.
-* **Write**: Grants write access to all repositories in the organization.
-* **Triage**: Grants triage access to all repositories in the organization.
-* **Maintain**: Grants maintenance access to all repositories in the organization.
-* **Admin**: Grants admin access to all repositories in the organization.
+* **Read:** Grants read access to all repositories in the organization.
+* **Write:** Grants write access to all repositories in the organization.
+* **Triage:** Grants triage access to all repositories in the organization.
+* **Maintain:** Grants maintenance access to all repositories in the organization.
+* **Admin:** Grants admin access to all repositories in the organization.
 
 ## Additional permissions for repository access
 

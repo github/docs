@@ -51,7 +51,7 @@ By default, file finder results do not include files in the following directorie
 
 You can override these default exclusions using a `.gitattributes` file.
 
-To do this, create or update a file called `.gitattributes` in your repository root, setting the [`linguist-generated`](https://github.com/github-linguist/linguist/blob/master/docs/overrides.md) attribute to `false` for each directory that should be included in file finder results.
+To do this, create or update a file called `.gitattributes` in your repository root, setting the [`linguist-generated`](https://github.com/github-linguist/linguist/blob/main/docs/overrides.md) attribute to `false` for each directory that should be included in file finder results.
 
 For example, the following `.gitattributes` file would cause files in the `build/` directory to be available to the file finder:
 

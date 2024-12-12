@@ -9,11 +9,8 @@ topics:
 shortTitle: 3. Pilot programs
 ---
 
-{% note %}
-
-This article is part of a series on adopting {% data variables.product.prodname_GH_advanced_security %} at scale. For the previous article in this series, see "[AUTOTITLE](/code-security/adopting-github-advanced-security-at-scale/phase-2-preparing-to-enable-at-scale)."
-
-{% endnote %}
+> [!NOTE]
+> This article is part of a series on adopting {% data variables.product.prodname_GH_advanced_security %} at scale. For the previous article in this series, see "[AUTOTITLE](/code-security/adopting-github-advanced-security-at-scale/phase-2-preparing-to-enable-at-scale)."
 
 ## About pilot programs
 
@@ -110,8 +107,5 @@ If you have collated any custom patterns specific to your enterprise, especially
 
 To learn how to view and close alerts for secrets checked into your repository, see "[AUTOTITLE](/code-security/secret-scanning/managing-alerts-from-secret-scanning)."
 
-{% note %}
-
-For the next article in this series, see "[AUTOTITLE](/code-security/adopting-github-advanced-security-at-scale/phase-4-create-internal-documentation)."
-
-{% endnote %}
+> [!NOTE]
+> For the next article in this series, see "[AUTOTITLE](/code-security/adopting-github-advanced-security-at-scale/phase-4-create-internal-documentation)."

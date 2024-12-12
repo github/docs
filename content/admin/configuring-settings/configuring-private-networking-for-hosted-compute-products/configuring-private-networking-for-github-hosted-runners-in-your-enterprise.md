@@ -35,7 +35,7 @@ redirect_from:
 
 ### 1. Obtain the `databaseId` for your enterprise
 
-You can use the following GraphQL query to retrieve your enterprise `databaseId`. You will use the enterprise `databaseId` for the value of the `DATABASE_ID` environment variable in the next step. For more information on working with GraphQL, see "[AUTOTITLE](/graphql/guides/forming-calls-with-graphql)."
+You can use the following GraphQL query to retrieve your enterprise `databaseId`. You will use the enterprise `databaseId` for the value of the `DATABASE_ID` environment variable in the next step. For more information on working with GraphQL, see [AUTOTITLE](/graphql/guides/forming-calls-with-graphql).
 
 {% data reusables.enterprise_migrations.retrieve-enterprise-id-graphql %}
 
@@ -100,9 +100,9 @@ You can use the following {% data variables.product.prodname_cli %} commands to 
 ### 2. Create a runner group for your enterprise
 
 > [!NOTE]
-> For the runner group to be accessible by repositories within your organizations, those repositories must have access to that runner group at the organization level. For more information, see "[AUTOTITLE](/actions/using-github-hosted-runners/controlling-access-to-larger-runners#changing-which-repositories-can-access-a-runner-group)."
+> For the runner group to be accessible by repositories within your organizations, those repositories must have access to that runner group at the organization level. For more information, see [AUTOTITLE](/actions/using-github-hosted-runners/controlling-access-to-larger-runners#changing-which-repositories-can-access-a-runner-group).
 
-1. Create a new runner group for your enterprise. For more information about how to create a runner group, see "[AUTOTITLE](/actions/using-github-hosted-runners/controlling-access-to-larger-runners#creating-a-runner-group-for-an-enterprise)."
+1. Create a new runner group for your enterprise. For more information about how to create a runner group, see [AUTOTITLE](/actions/using-github-hosted-runners/controlling-access-to-larger-runners#creating-a-runner-group-for-an-enterprise).
 {% data reusables.actions.workflows.runner-groups-enterprise-organization-access %}
 1. While configuring your runner group, under "Network configurations," use the dropdown menu to select the network configuration you created for the Azure VNET.
 1. To create the group and apply the policy, click **Create group**.
@@ -112,7 +112,7 @@ You can use the following {% data variables.product.prodname_cli %} commands to 
 > [!NOTE]
 > When adding your {% data variables.product.company_short %}-hosted runner to a runner group, select the runner group you created in the previous procedures.
 
-1. Add the {% data variables.product.company_short %}-hosted runner to the runner group. For more information, see "[AUTOTITLE](/enterprise-cloud@latest/actions/using-github-hosted-runners/managing-larger-runners#adding-a-larger-runner-to-an-enterprise)."
+1. Add the {% data variables.product.company_short %}-hosted runner to the runner group. For more information, see [AUTOTITLE](/enterprise-cloud@latest/actions/using-github-hosted-runners/managing-larger-runners#adding-a-larger-runner-to-an-enterprise).
 
 ### 4. Optionally, manage network configurations
 

@@ -13,7 +13,7 @@ shortTitle: Remove files
 ---
 ## Removing a single file
 
-1. Remove the file from the repository's Git history using either the `filter-repo` command or BFG Repo-Cleaner. For detailed information on using these, see "[AUTOTITLE](/authentication/keeping-your-account-and-data-secure/removing-sensitive-data-from-a-repository)."
+1. Remove the file from the repository's Git history using the `filter-repo` command. For detailed information on using these, see "[AUTOTITLE](/authentication/keeping-your-account-and-data-secure/removing-sensitive-data-from-a-repository)."
 1. Navigate to your _.gitattributes_ file.
 
    > [!NOTE]
@@ -24,7 +24,7 @@ shortTitle: Remove files
 
 ## Removing all files within a {% data variables.large_files.product_name_short %} repository
 
-1. Remove the files from the repository's Git history using either the `filter-repo` command or BFG Repo-Cleaner. For detailed information on using these, see "[AUTOTITLE](/authentication/keeping-your-account-and-data-secure/removing-sensitive-data-from-a-repository)."
+1. Remove the files from the repository's Git history using the `filter-repo` command. For detailed information on using these, see "[AUTOTITLE](/authentication/keeping-your-account-and-data-secure/removing-sensitive-data-from-a-repository)."
 1. Optionally, to uninstall {% data variables.large_files.product_name_short %} in the repository, run:
 
    ```shell

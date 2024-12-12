@@ -64,7 +64,7 @@ The auto-add workflow is limited per plan.
 
 ## Duplicating the auto-add workflow
 
-You can create additional duplicates of the auto-add workflow. Each workflow can target a different repository, allowing you to add items from up to four repositories. You can target the same repository with multiple workflows if the filter is unique for each workflow.
+You can create additional duplicates of the auto-add workflow, up to a maximum defined for your plan (see the table earlier in this article). Each workflow can target a different repository. You can target the same repository with multiple workflows if the filter is unique for each workflow.
 
 Once you have duplicated a workflow, you can click **Edit** to start making changes to it. For more information, see "[Configuring the auto-add workflow in your project](#configuring-the-auto-add-workflow-in-your-project)."
 

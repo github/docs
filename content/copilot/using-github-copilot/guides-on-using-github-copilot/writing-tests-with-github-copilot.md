@@ -59,11 +59,11 @@ You can prompt Copilot with a request to write tests that cover a range of scena
 **Prompt:** _Develop a comprehensive suite of unit tests for the BankAccount() function in Python. Write multiple test methods that cover a wide range of scenarios, including edge cases, exception handling, and data validation._
 
 This prompt does a few important things:
-* **Scope**: It explicitly asks for a comprehensive suite of unit tests, so that {% data variables.product.prodname_copilot_short %} generates more than just basic tests, covering a variety of potential use cases.
-* **Scenarios**: The prompt specifies that the tests should include:
-  * **Edge cases**: Tests for boundary conditions (e.g., negative values for deposits or withdrawals, withdrawing more than the available balance).
-  * **Exception handling**: Tests for errors that should be raised when certain invalid actions occur (e.g., withdrawing more than the available balance, depositing negative amounts).
-  * **Data validation**: Ensures that inputs are correctly validated and handled by the methods.
+* **Scope:** It explicitly asks for a comprehensive suite of unit tests, so that {% data variables.product.prodname_copilot_short %} generates more than just basic tests, covering a variety of potential use cases.
+* **Scenarios:** The prompt specifies that the tests should include:
+  * **Edge cases:** Tests for boundary conditions (e.g., negative values for deposits or withdrawals, withdrawing more than the available balance).
+  * **Exception handling:** Tests for errors that should be raised when certain invalid actions occur (e.g., withdrawing more than the available balance, depositing negative amounts).
+  * **Data validation:** Ensures that inputs are correctly validated and handled by the methods.
 
 {% data variables.product.prodname_copilot_short %} will give you a response like the following.
 
@@ -188,10 +188,10 @@ Here we'll break down our request for {% data variables.product.prodname_copilot
 **Prompt:** _"Write integration tests for the `deposit` function in the `BankAccount` class. Use mocks to simulate the `NotificationSystem` and verify that it is called correctly after a deposit."_
 
 This prompt does a few important things:
-* **Scope**: It specifies integration tests, focusing on the interaction between the `deposit` function and the `NotificationSystem`, rather than just unit tests.
-* **Mocks**: It explicitly asks for the use of mocks to simulate the `NotificationSystem`, ensuring that the interaction with external systems is tested without relying on their actual implementation.
-* **Verification**: The prompt emphasizes verifying that the `NotificationSystem` is called correctly after a deposit, ensuring that the integration between the components works as expected.
-* **Specificity**: The prompt clearly states the method (`deposit`) and the class (`BankAccount`) to be tested.
+* **Scope:** It specifies integration tests, focusing on the interaction between the `deposit` function and the `NotificationSystem`, rather than just unit tests.
+* **Mocks:** It explicitly asks for the use of mocks to simulate the `NotificationSystem`, ensuring that the interaction with external systems is tested without relying on their actual implementation.
+* **Verification:** The prompt emphasizes verifying that the `NotificationSystem` is called correctly after a deposit, ensuring that the integration between the components works as expected.
+* **Specificity:** The prompt clearly states the method (`deposit`) and the class (`BankAccount`) to be tested.
 
 > [!TIP] If {% data variables.product.prodname_copilot_short %} is producing invalid tests, provide examples of inputs and outputs for the function you want to test. This will help {% data variables.product.prodname_copilot_short %} evaluate the expected behavior of the function.
 

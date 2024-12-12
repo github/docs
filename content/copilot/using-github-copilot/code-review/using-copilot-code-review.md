@@ -15,7 +15,9 @@ redirect_from:
 
 > [!NOTE]
 >
-> * {% data variables.copilot.copilot_code-review %} is in {% data variables.release-phases.public_preview %} and subject to change. Some functionality is available to all {% data variables.product.prodname_copilot_short %} subscribers, but other functionality is only available to a limited number of users. To join the waitlist, see "[Join the {% data variables.copilot.copilot_code-review_short %} waitlist](https://gh.io/copilot-code-review-waitlist)."
+> * {% data variables.copilot.copilot_code-review %} is in {% data variables.release-phases.public_preview %} and subject to change.
+> * To participate in the {% data variables.release-phases.public_preview %}, an administrator of your {% ifversion ghec %}enterprise or{% endif %} organization must opt in to the use of previews of {% data variables.product.prodname_copilot_short %} features. See {% ifversion ghec %}"[AUTOTITLE](/copilot/managing-copilot/managing-copilot-for-your-enterprise/managing-policies-and-features-for-copilot-in-your-enterprise#copilot-in-githubcom)" and{% endif %} "[AUTOTITLE](/copilot/managing-copilot/managing-github-copilot-in-your-organization/managing-policies-for-copilot-in-your-organization#enabling-copilot-features-in-your-organization)."
+> * Some functionality is available to all enabled {% data variables.product.prodname_copilot_short %} subscribers, but other functionality is only available to a limited number of users. To join the waitlist for additional functionality, see "[Join the {% data variables.copilot.copilot_code-review_short %} waitlist](https://gh.io/copilot-code-review-waitlist)."
 > * The "[AUTOTITLE](/free-pro-team@latest/site-policy/github-terms/github-pre-release-license-terms)" apply to your use of this product.
 
 ## About {% data variables.copilot.copilot_code-review_short %}
@@ -24,8 +26,8 @@ redirect_from:
 
 {% data variables.copilot.copilot_code-review_short %} supports two types of review:
 
-* **Review selection**: Highlight code and ask for an initial review _({% data variables.product.prodname_vscode %} only)_
-* **Review changes**: Request a deeper review of all your changes _({% data variables.product.github %} website and {% data variables.product.prodname_vscode %})_
+* **Review selection:** Highlight code and ask for an initial review _({% data variables.product.prodname_vscode %} only)_
+* **Review changes:** Request a deeper review of all your changes _({% data variables.product.github %} website and {% data variables.product.prodname_vscode %})_
 
 The current functionality and availability of the two types of review is summarized in the following table:
 
@@ -33,10 +35,10 @@ The current functionality and availability of the two types of review is summari
 
 | Feature   | Review selection  | Review changes  |
 | --------- | ----------------- | --------------- |
+| Environment | {% data variables.product.prodname_vscode %} | {% data variables.product.prodname_vscode %} and the {% data variables.product.github %} website |
 | Description | Initial review of a highlighted section of code with feedback and suggestions  | Deeper review of all changes |
 | Language support | All | C#, Go, Java, JavaScript, Markdown, Python, Ruby, TypeScript |
 | Custom coding guidelines support | No | Yes, see [Customizing {% data variables.product.prodname_copilot_short %}'s reviews with coding guidelines](#customizing-copilots-reviews-with-coding-guidelines) |
-| Environment | {% data variables.product.prodname_vscode %} | {% data variables.product.prodname_vscode %} and the {% data variables.product.github %} website |
 | Availability | {% data variables.release-phases.public_preview_caps %}, available to all {% data variables.product.prodname_copilot_short %} subscribers | {% data variables.release-phases.public_preview_caps %} with waitlist, see "[Join the {% data variables.copilot.copilot_code-review_short %} waitlist](https://gh.io/copilot-code-review-waitlist)" |
 
 {% endrowheaders %}

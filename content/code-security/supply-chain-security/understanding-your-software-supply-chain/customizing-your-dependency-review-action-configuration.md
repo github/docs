@@ -1,6 +1,7 @@
 ---
 title: Customizing your dependency review action configuration
-intro: 'Learn how to add a basic customization to your dependency review configuration.'
+shortTitle: Customize dependency review action
+intro: 'Learn how to add a basic customization to your dependency review action configuration.'
 permissions: '{% data reusables.permissions.security-repo-enable %}'
 versions:
   fpt: '*'
@@ -11,7 +12,6 @@ topics:
   - Dependency graph
   - Dependencies
   - Repositories
-shortTitle: Customize dependency review
 ---
 
 ## Introduction
@@ -144,5 +144,5 @@ When customizing your dependency review configuration, there are some best pract
 
 ## Further reading
 
-* "[AUTOTITLE](/code-security/supply-chain-security/understanding-your-software-supply-chain/configuring-dependency-review#about-configuring-the-dependency-review-action)"{% ifversion repo-rules %}
+* "[AUTOTITLE](/code-security/supply-chain-security/understanding-your-software-supply-chain/configuring-the-dependency-review-action)"{% ifversion repo-rules %}
 * "[AUTOTITLE](/code-security/supply-chain-security/understanding-your-software-supply-chain/enforcing-dependency-review-across-an-organization)"{% endif %}

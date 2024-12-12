@@ -40,7 +40,7 @@ An input/output test optionally runs a setup command, then provides standard inp
 | **Run command** | The command to run the test and generate standard output for evaluation |
 | **Inputs** | Standard input for run command |
 | **Expected output** | The output that you want to see as standard output from the run command |
-| **Comparison** | The type of comparison between the run command's output and the expected output<br/><br/><ul><li>**Included**: Passes when the expected output appears<br/>anywhere in the standard output from the run command</li><li>**Exact**: Passes when the expected output is completely identical<br/>to the standard output from the run command</li><li>**Regex**: Passes if the regular expression in expected<br/>output matches against the standard output from the run command</li></ul> |
+| **Comparison** | The type of comparison between the run command's output and the expected output<br/><br/><ul><li>**Included:** Passes when the expected output appears<br/>anywhere in the standard output from the run command</li><li>**Exact:** Passes when the expected output is completely identical<br/>to the standard output from the run command</li><li>**Regex:** Passes if the regular expression in expected<br/>output matches against the standard output from the run command</li></ul> |
 | **Timeout** | In minutes, how long a test should run before resulting in failure |
 | **Points** | _Optional_. The number of points the test is worth toward a total score |
 
@@ -106,9 +106,9 @@ By default, autograding tests will automatically run whenever a student pushes t
 {% data reusables.classroom.assignments-click-pencil %}
 1. In the left sidebar, click **Grading and feedback**.
 1. Below your list of autograding tests, you can configure when autograding tests are run.
-    * **Every time a student submits an assignment**: This is the default behavior.
-    * **On a schedule**: You can set a time every day or every week for autograding tests to be run.
-    * **Manually**: Autograding test runs will be manually triggered by you from the assignment dashboard.
+    * **Every time a student submits an assignment:** This is the default behavior.
+    * **On a schedule:** You can set a time every day or every week for autograding tests to be run.
+    * **Manually:** Autograding test runs will be manually triggered by you from the assignment dashboard.
 
 ## Viewing and downloading results from autograding tests
 

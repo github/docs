@@ -145,6 +145,17 @@
   hasValidityCheck: '{% ifversion fpt or ghes %}false{% else %}true{% endif %}'
   isduplicate: false
 - provider: Anthropic
+  supportedSecret: Anthropic Admin API Key
+  secretType: anthropic_admin_api_key
+  versions:
+    fpt: '*'
+    ghec: '*'
+  isPublic: true
+  isPrivateWithGhas: true
+  hasPushProtection: true
+  hasValidityCheck: false
+  isduplicate: false
+- provider: Anthropic
   supportedSecret: Anthropic API Key
   secretType: anthropic_api_key
   versions:
@@ -154,17 +165,6 @@
   isPublic: true
   isPrivateWithGhas: true
   hasPushProtection: true
-  hasValidityCheck: false
-  isduplicate: false
-- provider: Anthropic
-  supportedSecret: Anthropic Management API Key
-  secretType: anthropic_management_api_key
-  versions:
-    fpt: '*'
-    ghec: '*'
-  isPublic: true
-  isPrivateWithGhas: true
-  hasPushProtection: false
   hasValidityCheck: false
   isduplicate: false
 - provider: Anthropic
@@ -656,6 +656,17 @@
   isPublic: false
   isPrivateWithGhas: true
   hasPushProtection: false
+  hasValidityCheck: false
+  isduplicate: false
+- provider: Azure
+  supportedSecret: Microsoft Azure Entra ID Token
+  secretType: microsoft_azure_entra_id_token
+  versions:
+    fpt: '*'
+    ghec: '*'
+  isPublic: false
+  isPrivateWithGhas: true
+  hasPushProtection: true
   hasValidityCheck: false
   isduplicate: false
 - provider: Azure
@@ -2226,6 +2237,17 @@
   hasPushProtection: false
   hasValidityCheck: false
   isduplicate: false
+- provider: MongoDB
+  supportedSecret: MongoDB Atlas Database URI with credentials
+  secretType: mongodb_atlas_db_uri_with_credentials
+  versions:
+    fpt: '*'
+    ghec: '*'
+  isPublic: true
+  isPrivateWithGhas: false
+  hasPushProtection: false
+  hasValidityCheck: false
+  isduplicate: false
 - provider: Netflix
   supportedSecret: Netflix NetKey
   secretType: netflix_netkey
@@ -2865,6 +2887,17 @@
   isPublic: true
   isPrivateWithGhas: true
   hasPushProtection: true
+  hasValidityCheck: false
+  isduplicate: false
+- provider: Scalr
+  supportedSecret: Scalr API Token
+  secretType: scalr_api_token
+  versions:
+    fpt: '*'
+    ghec: '*'
+  isPublic: true
+  isPrivateWithGhas: true
+  hasPushProtection: false
   hasValidityCheck: false
   isduplicate: false
 - provider: Segment

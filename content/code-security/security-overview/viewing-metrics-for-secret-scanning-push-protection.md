@@ -41,13 +41,9 @@ You can see {% data variables.product.prodname_secret_scanning %} metrics if you
 
 The metrics are based on activity from the default period or your selected period.
 
-![Screenshot of the top section of the "Metrics" view for secret scanning on the "Security" tab for an organization.](/assets/images/help/security-overview/security-overview-secret-scanning-metrics-additional-tools.png)
-
 {% else %}
 
 The metrics are based on activity from the default period or your selected period.
-
-![Screenshot of the top section of the "Metrics" view for secret scanning on the "Security" tab for an organization.](/assets/images/help/security-overview/security-overview-secret-scanning-metrics.png)
 
 {% endif %}
 
@@ -67,7 +63,7 @@ You can view metrics for {% data variables.product.prodname_secret_scanning %} p
 
 {% data reusables.security-overview.enterprise-filters-tip %}
 
-{% data reusables.enterprise-accounts.access-enterprise-on-dotcom %}
+{% ifversion ghes %}{% data reusables.enterprise-accounts.access-enterprise-ghes %}{% else %}{% data reusables.enterprise-accounts.access-enterprise-on-dotcom %}{% endif %}
 {% data reusables.code-scanning.click-code-security-enterprise %}
 1. In the sidebar, click **{% data variables.product.prodname_secret_scanning_caps %} metrics**.
 1. Click on an individual secret type or repository to see the associated {% data variables.secret-scanning.alerts %} for your enterprise.

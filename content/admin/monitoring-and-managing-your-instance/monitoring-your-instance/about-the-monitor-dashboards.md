@@ -50,7 +50,7 @@ On this more detailed dashboard you can get further insights into all aspects of
 
 ## Creating new dashboards
 
-Building your own dashboard and alerts requires the data to be forwarded to an external instance, by enabling `collectd` forwarding. For more information, see "[AUTOTITLE](/admin/monitoring-and-managing-your-instance/monitoring-your-instance/configuring-collectd-for-your-instance)."
+Building your own dashboard and alerts requires the data to be forwarded to an external instance, by enabling `collectd` forwarding. For more information, see [AUTOTITLE](/admin/monitoring-and-managing-your-instance/monitoring-your-instance/configuring-collectd-for-your-instance).
 
 {% else %}
 
@@ -60,26 +60,26 @@ The page visualizes metrics which can be useful for troubleshooting performance 
 
 Within the pre-built dashboard you can find various sections grouping graphs of different types of system resources.
 
-Building your own dashboard and alerts requires the data to be forwarded to an external instance, by enabling `collectd` forwarding. For more information, see "[AUTOTITLE](/admin/monitoring-and-managing-your-instance/monitoring-your-instance/configuring-collectd-for-your-instance)."
+Building your own dashboard and alerts requires the data to be forwarded to an external instance, by enabling `collectd` forwarding. For more information, see [AUTOTITLE](/admin/monitoring-and-managing-your-instance/monitoring-your-instance/configuring-collectd-for-your-instance).
 {% endif %}
 
 ## About the metrics on the monitor dashboards
 
 ### System Health
 
-The system health graphs provide a general overview of services and system resource utilization. The CPU, memory, and load average graphs are useful for identifying trends or times where provisioned resource saturation has occurred. For more information, see "[AUTOTITLE](/admin/monitoring-and-managing-your-instance/monitoring-your-instance/recommended-alert-thresholds)."
+The system health graphs provide a general overview of services and system resource utilization. The CPU, memory, and load average graphs are useful for identifying trends or times where provisioned resource saturation has occurred. For more information, see [AUTOTITLE](/admin/monitoring-and-managing-your-instance/monitoring-your-instance/recommended-alert-thresholds).
 {% ifversion ghes > 3.15 %}
 
 ### Application Health
 
 These graphs include key metrics for the resource utilization of services that power  {% data variables.product.prodname_ghe_server %}. They help visualize ongoing issues while processing requests.
 
-* **Nomad jobs**: The CPU and memory usage of individual services. {% data variables.product.prodname_ghe_server %} utilizes Nomad internally as the workload orchestrator.
-* **Response code**: The number of responses by status code returned across {% data variables.product.prodname_ghe_server %} services.
-* **Response time**: The speed of web requests at the 90th percentile in milliseconds.
-* **Active workers**: The number of web workers busy per {% data variables.product.prodname_ghe_server %} application.
-* **Queued requests**: The number of web requests queued per {% data variables.product.prodname_ghe_server %} application. It is expected for this panel to display 'No data' when no requests are queued up.
-* **ElasticSearch Cluster Health**: The health status of the ElasticSearch cluster, based on the state of its primary and replica shards. This cluster powers {% data variables.product.prodname_ghe_server %} search.
+* **Nomad jobs:** The CPU and memory usage of individual services. {% data variables.product.prodname_ghe_server %} utilizes Nomad internally as the workload orchestrator.
+* **Response code:** The number of responses by status code returned across {% data variables.product.prodname_ghe_server %} services.
+* **Response time:** The speed of web requests at the 90th percentile in milliseconds.
+* **Active workers:** The number of web workers busy per {% data variables.product.prodname_ghe_server %} application.
+* **Queued requests:** The number of web requests queued per {% data variables.product.prodname_ghe_server %} application. It is expected for this panel to display 'No data' when no requests are queued up.
+* **ElasticSearch Cluster Health:** The health status of the ElasticSearch cluster, based on the state of its primary and replica shards. This cluster powers {% data variables.product.prodname_ghe_server %} search.
 {% endif %}
 
 ### Processes
@@ -92,7 +92,7 @@ The authentication graphs break down the rates at which users and applications a
 
 ### LDAP
 
-LDAP graphs will only display data if LDAP authentication is enabled on the {% data variables.product.prodname_ghe_server %} appliance. For more information, see "[AUTOTITLE](/admin/managing-iam/using-ldap-for-enterprise-iam/using-ldap)." These graphs can help you to identify slow responses from your LDAP server, as well as the overall volume of LDAP password based authentications.
+LDAP graphs will only display data if LDAP authentication is enabled on the {% data variables.product.prodname_ghe_server %} appliance. For more information, see [AUTOTITLE](/admin/managing-iam/using-ldap-for-enterprise-iam/using-ldap). These graphs can help you to identify slow responses from your LDAP server, as well as the overall volume of LDAP password based authentications.
 
 ### App servers
 
@@ -116,7 +116,7 @@ The network interface graphs can be useful in profiling user activity, and throu
 
 ### Storage
 
-{% data variables.product.prodname_ghe_server %} repository performance is very dependent on the underlying storage system. Low latency, local SSD disks provide the highest performance. For more information on the {% data variables.product.prodname_enterprise %} storage architecture, see "[AUTOTITLE](/enterprise-server@3.14/admin/overview/system-overview)."
+{% data variables.product.prodname_ghe_server %} repository performance is very dependent on the underlying storage system. Low latency, local SSD disks provide the highest performance. For more information on the {% data variables.product.prodname_enterprise %} storage architecture, see [AUTOTITLE](/enterprise-server@3.14/admin/overview/system-overview).
 
 ### Appliance-specific system services
 

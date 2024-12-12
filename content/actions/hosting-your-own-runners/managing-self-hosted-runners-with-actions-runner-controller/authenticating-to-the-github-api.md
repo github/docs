@@ -28,15 +28,15 @@ You can authenticate {% data variables.product.prodname_actions_runner_controlle
    1. For "Homepage URL," enter `https://github.com/actions/actions-runner-controller`.
 
    1. Under "Permissions," click **Repository permissions**. Then use the dropdown menus to select the following access permissions.
-      * **Administration**: Read and write
+      * **Administration:** Read and write
 
         > [!NOTE]
         > `Administration: Read and write` is only required when configuring {% data variables.product.prodname_actions_runner_controller %} to register at the repository scope. It is not required to register at the organization scope.
 
-      * **Metadata**: Read-only
+      * **Metadata:** Read-only
 
    1. Under "Permissions," click **Organization permissions**. Then use the dropdown menus to select the following access permissions.
-      * **Self-hosted runners**: Read and write
+      * **Self-hosted runners:** Read and write
 
 {% data reusables.actions.arc-app-post-install-steps %}
 

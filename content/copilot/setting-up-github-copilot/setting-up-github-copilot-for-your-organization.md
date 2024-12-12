@@ -39,11 +39,13 @@ To help drive adoption of {% data variables.product.prodname_copilot_short %} in
 
 Alternatively, you can set up a self-serve workflow using the API. See "[Add teams to the Copilot subscription for an organization](/rest/copilot/copilot-user-management?apiVersion=2022-11-28#add-teams-to-the-copilot-subscription-for-an-organization)" and "[Add users to the Copilot subscription for an organization](/rest/copilot/copilot-user-management?apiVersion=2022-11-28#add-users-to-the-copilot-subscription-for-an-organization)" in the REST API documentation.
 
+If your organization is part of an enterprise on {% data variables.enterprise.data_residency_site %}, users must perform some additional setup to authenticate to their account from their development environment. See "[AUTOTITLE](/copilot/managing-copilot/configure-personal-settings/using-github-copilot-with-an-account-on-ghecom)."
+
 ## 5. Share onboarding material
 
-* **Share onboarding material**: Share onboarding material with each member that you granted {% data variables.product.prodname_copilot_short %} access to. See "[AUTOTITLE](/copilot/setting-up-github-copilot/setting-up-github-copilot-for-yourself)" and "[AUTOTITLE](/copilot/using-github-copilot/best-practices-for-using-github-copilot)."
-* **Encourage adoption**: Encouragement from leadership can help drive adoption of {% data variables.product.prodname_copilot_short %} in your organization. Consider messaging your support of {% data variables.product.prodname_copilot_short %} and how it can help your organization.
-* **Set up training sessions or workshops**: Training sessions or workshops can help members learn how to use {% data variables.product.prodname_copilot_short %} effectively.
+* **Share onboarding material:** Share onboarding material with each member that you granted {% data variables.product.prodname_copilot_short %} access to. See "[AUTOTITLE](/copilot/setting-up-github-copilot/setting-up-github-copilot-for-yourself)" and "[AUTOTITLE](/copilot/using-github-copilot/best-practices-for-using-github-copilot)."
+* **Encourage adoption:** Encouragement from leadership can help drive adoption of {% data variables.product.prodname_copilot_short %} in your organization. Consider messaging your support of {% data variables.product.prodname_copilot_short %} and how it can help your organization.
+* **Set up training sessions or workshops:** Training sessions or workshops can help members learn how to use {% data variables.product.prodname_copilot_short %} effectively.
 
 ## 6. Enhance the {% data variables.product.prodname_copilot_short %} experience
 

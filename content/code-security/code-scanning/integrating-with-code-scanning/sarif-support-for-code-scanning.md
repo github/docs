@@ -314,11 +314,8 @@ This SARIF output file has example values to show the minimum required propertie
 
 This SARIF output file has example of values for the field `originalUriBaseIds`, showing the minimum required properties a SARIF producer should include when using relative URI references.
 
-{% note %}
-
-**Note:** While this property is not required by {% data variables.product.prodname_dotcom %} for the {% data variables.product.prodname_code_scanning %} results to be displayed correctly, it is required to produce a valid SARIF output when using relative URI references.
-
-{% endnote %}
+> [!NOTE]
+> While this property is not required by {% data variables.product.prodname_dotcom %} for the {% data variables.product.prodname_code_scanning %} results to be displayed correctly, it is required to produce a valid SARIF output when using relative URI references.
 
 ```json
 {

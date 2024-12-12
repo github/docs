@@ -19,6 +19,8 @@ We recommend you follow the quickstart guide for {% data variables.product.prodn
 
 The {% data variables.product.prodname_copilot %} extension is frequently updated to fix bugs and add new features. It's important to keep your extension up to date because older clients cannot communicate with the {% data variables.product.prodname_copilot %} servers. Update your {% data variables.product.prodname_copilot %} extension on all the machines you have it installed.
 
+{% data reusables.copilot.sign-in-ghecom %} See "[AUTOTITLE](/copilot/managing-copilot/configure-personal-settings/using-github-copilot-with-an-account-on-ghecom)."
+
 For more information about configuring {% data variables.product.prodname_copilot %} in a supported IDE, see "[AUTOTITLE](/copilot/configuring-github-copilot/configuring-github-copilot-in-your-environment)."
 
 ## {% data variables.product.prodname_copilot %} not working in some files

@@ -91,8 +91,8 @@ version 2.1.0 (this is the default version of SARIF used by CodeQL).
 By default, the CLI will wait for GitHub to process the SARIF file for a
 maximum of 2 minutes, returning a non-zero exit code if there were any
 errors during processing of the analysis results. You can customize how
-long the CLI will wait with `--wait-for-processing-timeout`, or
-disable the feature with `--no-wait-for-processing`.
+long the CLI will wait with `--wait-for-processing-timeout`, or disable
+the feature with `--no-wait-for-processing`.
 
 #### `--wait-for-processing-timeout=<waitForProcessingTimeout>`
 

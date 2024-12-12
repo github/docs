@@ -34,9 +34,9 @@ You can view a variety of metrics about the security alerts in your organization
 
 {% ifversion security-overview-3-tab-dashboard %}
 The dashboard is divided into three tabs, each focused around a different security goal:
-* **Detection**: this tab shows metrics about the status and age of alerts in your organization{% ifversion security-overview-dashboard-enterprise %} or enterprise{% endif %}, the secrets that have been blocked or bypassed, and the top repositories and vulnerabilities that pose the highest potential security risk.
-* **Remediation**: this tab shows metrics about how alerts are resolved and alert activity over time.
-* **Prevention**: this tab shows metrics about how vulnerabilities have been prevented and fixed.
+* **Detection:** this tab shows metrics about the status and age of alerts in your organization{% ifversion security-overview-dashboard-enterprise %} or enterprise{% endif %}, the secrets that have been blocked or bypassed, and the top repositories and vulnerabilities that pose the highest potential security risk.
+* **Remediation:** this tab shows metrics about how alerts are resolved and alert activity over time.
+* **Prevention:** this tab shows metrics about how vulnerabilities have been prevented and fixed.
 
 >[!NOTE]
 > Unlike the **Detection** and **Remediation** tabs which report alerts on the default branch, the **Prevention** tab gives you insights for {% data variables.product.prodname_codeql %} alerts found in merged pull requests.
@@ -49,8 +49,8 @@ The dashboard is divided into three tabs, each focused around a different securi
 
 You can filter the overview dashboard by selecting a specific time period, and apply additional filters to focus on narrower areas of interest. All data and metrics across the dashboard will change as you apply filters. By default, the dashboard displays all alerts from {% data variables.product.prodname_dotcom %} tools, but you can use the tool filter to show alerts from a specific tool ({% data variables.product.prodname_secret_scanning %}, {% data variables.product.prodname_dependabot %}, {% data variables.product.prodname_code_scanning %} using {% data variables.product.prodname_codeql %}, a specific third-party tool) or all third-party {% data variables.product.prodname_code_scanning %} tools. For more information, see "[AUTOTITLE](/code-security/security-overview/filtering-alerts-in-security-overview)."
 
-{% ifversion security-overview-export-dashboard-data %}
-You can download a CSV file of the overview dashboard data for your organization. This data file can integrate easily with external datasets, so you may find it useful for security research, data analysis, and more. For more information, see "[AUTOTITLE](/code-security/security-overview/exporting-data-from-security-overview)."
+{% ifversion security-overview-export-data %}
+You can download a CSV file of the overview dashboard data for your organization or enterprise. This data file can integrate easily with external datasets, so you may find it useful for security research, data analysis, and more. For more information, see "[AUTOTITLE](/code-security/security-overview/exporting-data-from-security-overview)."
 {% endif %}
 
 {% ifversion security-overview-dashboard-enterprise %}Enterprise members can access the overview page for organizations in their enterprise. {% endif %}The metrics you see will depend on your role and repository permissions. For more information, see "[AUTOTITLE](/code-security/security-overview/about-security-overview#permission-to-view-data-in-security-overview)."
@@ -75,7 +75,7 @@ Keep in mind that the overview page tracks changes over time for security alert 
 
 ## Viewing the security overview dashboard for your enterprise
 
-{% data reusables.enterprise-accounts.access-enterprise-on-dotcom %}
+{% ifversion ghes %}{% data reusables.enterprise-accounts.access-enterprise-ghes %}{% else %}{% data reusables.enterprise-accounts.access-enterprise-on-dotcom %}{% endif %}
 {% data reusables.code-scanning.click-code-security-enterprise %}{% ifversion security-overview-3-tab-dashboard %}
 1. By default, the **Detection** tab is displayed. If you want to switch to another tab to see other metrics, click **Remediation** or **Prevention**.{% endif %}
 {% data reusables.security-overview.filter-and-toggle %}

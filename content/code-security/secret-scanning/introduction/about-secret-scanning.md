@@ -24,7 +24,7 @@ shortTitle: Secret scanning
 
 {% data variables.product.prodname_secret_scanning_caps %} is a security feature that helps detect and prevent the accidental inclusion of sensitive information such as API keys, passwords, tokens, and other secrets in your repository. When enabled, {% data variables.product.prodname_secret_scanning %} scans commits in repositories for known types of secrets and alerts repository administrators upon detection.
 
-{% data variables.product.prodname_secret_scanning_caps %} scans your entire Git history on all branches present in your {% data variables.product.prodname_dotcom %} repository for secrets{% ifversion ghec or ghes %}, even if the repository is archived{% endif %}.{% ifversion ghes < 3.11 %} {% data variables.product.prodname_secret_scanning_caps %} does not scan issues.{% endif %} {% data variables.product.prodname_dotcom %} will also periodically run a full Git history scan of existing content in {% ifversion fpt %}public{% else %}{% data variables.product.prodname_GH_advanced_security %}{% endif %} repositories where {% data variables.product.prodname_secret_scanning %} is enabled.
+{% data variables.product.prodname_secret_scanning_caps %} scans your entire Git history on all branches present in your {% data variables.product.prodname_dotcom %} repository for secrets{% ifversion ghec or ghes %}, even if the repository is archived{% endif %}.{% ifversion ghes < 3.11 %} {% data variables.product.prodname_secret_scanning_caps %} does not scan issues.{% endif %} {% data variables.product.prodname_dotcom %} will also periodically run a full Git history scan for new secret types in existing content in {% ifversion fpt %}public{% else %}{% data variables.product.prodname_GH_advanced_security %}{% endif %} repositories where {% data variables.product.prodname_secret_scanning %} is enabled when new supported secret types are added.
 
 {% data reusables.secret-scanning.what-is-scanned %}
 
@@ -48,47 +48,45 @@ You can also use security overview to see an organization-level view of which re
 
 Below is a typical workflow that explains how {% data variables.product.prodname_secret_scanning %} works:
 
-* **Detection**: {% data variables.product.prodname_secret_scanning_caps %} automatically scans your repository's contents for sensitive data, such as API keys, passwords, tokens, and other secrets. It looks for patterns and heuristics that match known types of secrets.
+* **Detection:** {% data variables.product.prodname_secret_scanning_caps %} automatically scans your repository's contents for sensitive data, such as API keys, passwords, tokens, and other secrets. It looks for patterns and heuristics that match known types of secrets.
 
-* **Alerts**: When a potential secret is detected, {% data variables.product.prodname_dotcom %} generates an alert and notifies the relevant repository administrators and users. This notification includes details about the detected secret, such as its location in the repository. For more information about alert types and alert details, see "[AUTOTITLE](/code-security/secret-scanning/managing-alerts-from-secret-scanning/about-alerts)."
+* **Alerts:** When a potential secret is detected, {% data variables.product.prodname_dotcom %} generates an alert and notifies the relevant repository administrators and users. This notification includes details about the detected secret, such as its location in the repository. For more information about alert types and alert details, see "[AUTOTITLE](/code-security/secret-scanning/managing-alerts-from-secret-scanning/about-alerts)."
 
-* **Review**: When a secret is detected, you'll need to review the alert details provided.
+* **Review:** When a secret is detected, you'll need to review the alert details provided.
 
-* **Remediation**: You then need to take appropriate actions to remediate the exposure. This might include:
-  * Rotating the affected credential to ensure it is no longer usable.
-  * Removing the secret from the repository's history (using tools like BFG Repo-Cleaner or {% data variables.product.prodname_dotcom %}'s built-in features).
+* **Remediation:** You then need to take appropriate action to remediate the exposure. This should always include rotating the affected credential to ensure it is no longer usable.  It may also include removing the secret from the repository's history (using tools like `git-filter-repo`; see "[AUTOTITLE](/authentication/keeping-your-account-and-data-secure/removing-sensitive-data-from-a-repository) for more details") though this will likely involve a heavy cost in time and effort, and is usually unnecessary if the credentials have been revoked.
 
-* **Monitoring**: It's good practice to regularly audit and monitor your repositories to ensure no other secrets are exposed.
+* **Monitoring:** It's good practice to regularly audit and monitor your repositories to ensure no other secrets are exposed.
 
 {% ifversion fpt or ghec %}
 
-* **Integration with partners**: {% data variables.product.prodname_dotcom %} works with various service providers to validate secrets. When a partner secret is detected, {% data variables.product.prodname_dotcom %} notifies the provider so they can take appropriate action, such as revoking the credential. For more information about the partnership program, see "[AUTOTITLE](/code-security/secret-scanning/secret-scanning-partnership-program/secret-scanning-partner-program)."
+* **Integration with partners:** {% data variables.product.prodname_dotcom %} works with various service providers to validate secrets. When a partner secret is detected, {% data variables.product.prodname_dotcom %} notifies the provider so they can take appropriate action, such as revoking the credential. For more information about the partnership program, see "[AUTOTITLE](/code-security/secret-scanning/secret-scanning-partnership-program/secret-scanning-partner-program)."
 
 {% endif %}
 
 ## About the benefits of {% data variables.product.prodname_secret_scanning %}
 
-* **Enhanced security**: {% data variables.product.prodname_secret_scanning_caps %} scans your repositories for sensitive information like API keys, passwords, tokens, and other secrets. By detecting these early, you can mitigate potential security risks before they are exploited by malicious actors.
+* **Enhanced security:** {% data variables.product.prodname_secret_scanning_caps %} scans your repositories for sensitive information like API keys, passwords, tokens, and other secrets. By detecting these early, you can mitigate potential security risks before they are exploited by malicious actors.
 
-* **Automated detection**: The feature automatically scans your codebase, including commits, issues, and pull requests, ensuring continuous protection without requiring manual intervention. This automation helps in maintaining security even as your repository evolves.
+* **Automated detection:** The feature automatically scans your codebase, including commits, issues, and pull requests, ensuring continuous protection without requiring manual intervention. This automation helps in maintaining security even as your repository evolves.
 
-* **Real-time alerts**: When a secret is detected, {% data variables.product.prodname_secret_scanning %} provides real-time alerts to repository administrators and contributors. This immediate feedback allows for swift remediation actions.
+* **Real-time alerts:** When a secret is detected, {% data variables.product.prodname_secret_scanning %} provides real-time alerts to repository administrators and contributors. This immediate feedback allows for swift remediation actions.
 
 {% ifversion fpt or ghec %}
 
-* **Integration with service providers**: {% data variables.product.prodname_dotcom %} partners with various service providers to validate detected secrets. When a secret is identified, {% data variables.product.prodname_dotcom %} notifies the corresponding service provider to take appropriate actions, such as revoking the exposed credential. For more information, see "[AUTOTITLE](/code-security/secret-scanning/secret-scanning-partnership-program/secret-scanning-partner-program)."
+* **Integration with service providers:** {% data variables.product.prodname_dotcom %} partners with various service providers to validate detected secrets. When a secret is identified, {% data variables.product.prodname_dotcom %} notifies the corresponding service provider to take appropriate actions, such as revoking the exposed credential. For more information, see "[AUTOTITLE](/code-security/secret-scanning/secret-scanning-partnership-program/secret-scanning-partner-program)."
 
 {% endif %}
 
 {% ifversion ghec or ghes %}
 
-* **Custom pattern support**: Organizations can define custom patterns to detect proprietary or unique types of secrets that may not be covered by default patterns. This flexibility allows for tailored security measures specific to your environment.
+* **Custom pattern support:** Organizations can define custom patterns to detect proprietary or unique types of secrets that may not be covered by default patterns. This flexibility allows for tailored security measures specific to your environment.
 
 {% endif %}
 
 {% ifversion secret-scanning-non-provider-patterns %}
 
-* **Ability to detect non-provider patterns**: You can expand the detection to include non-provider patterns such as connection strings, authentication headers, and private keys, for your repository or organization.
+* **Ability to detect non-provider patterns:** You can expand the detection to include non-provider patterns such as connection strings, authentication headers, and private keys, for your repository or organization.
 
 {% endif %}
 
@@ -120,8 +118,8 @@ Define your own patterns for secrets used by your organization that {% data vari
 
 ### {% data variables.secret-scanning.copilot-secret-scanning %}
 
-* **{% data variables.secret-scanning.generic-secret-detection-caps %}**: Leverage {% data variables.product.prodname_secret_scanning %}'s AI capabilities to detect unstructured secrets, such as passwords, in your repository. For more information, see "[AUTOTITLE](/code-security/secret-scanning/copilot-secret-scanning/responsible-ai-generic-secrets)."{% ifversion secret-scanning-custom-pattern-ai-generated %}
-* **{% data variables.secret-scanning.custom-pattern-regular-expression-generator-caps %}**: Leverage {% data variables.product.prodname_secret_scanning %}'s AI capabilities to generate regular expressions that will capture all your custom patterns. For more information, see "[AUTOTITLE](/code-security/secret-scanning/copilot-secret-scanning/responsible-ai-regex-generator).{% endif %}
+* **{% data variables.secret-scanning.generic-secret-detection-caps %}:** Leverage {% data variables.product.prodname_secret_scanning %}'s AI capabilities to detect unstructured secrets, such as passwords, in your repository. For more information, see "[AUTOTITLE](/code-security/secret-scanning/copilot-secret-scanning/responsible-ai-generic-secrets)."{% ifversion secret-scanning-custom-pattern-ai-generated %}
+* **{% data variables.secret-scanning.custom-pattern-regular-expression-generator-caps %}:** Leverage {% data variables.product.prodname_secret_scanning %}'s AI capabilities to generate regular expressions that will capture all your custom patterns. For more information, see "[AUTOTITLE](/code-security/secret-scanning/copilot-secret-scanning/responsible-ai-regex-generator).{% endif %}
 
 {% endif %}
 

@@ -415,11 +415,8 @@ template:
 
 You can customize the PodSpec of the listener pod and the controller will apply the configuration you specify. The following is an example pod specification.
 
-{% note %}
-
-It's important to not change the `listenerTemplate.spec.containers.name` value of the listener container. Otherwise, the configuration you specify will be applied to a new side-car container.
-
-{% endnote %}
+> [!NOTE]
+> It's important to not change the `listenerTemplate.spec.containers.name` value of the listener container. Otherwise, the configuration you specify will be applied to a new side-car container.
 
 ```yaml
 listenerTemplate:
@@ -914,13 +911,10 @@ You can also use ARC with {% data variables.product.prodname_codeql %} to identi
 
 {% data variables.product.prodname_actions_runner_controller %} does not use multiple labels to route jobs to specific runner scale sets. Instead, to designate a runner scale set for {% data variables.product.prodname_dependabot %} updates or {% data variables.product.prodname_code_scanning %} with {% data variables.product.prodname_codeql %}, use a descriptive installation name in your Helm chart, such as `dependabot` or `code-scanning`. You can then set the `runs-on` value in your workflows to the installation name as the single label, and use the designated runner scale set for {% data variables.product.prodname_dependabot %} updates or {% data variables.product.prodname_code_scanning %} jobs.
 
-If you're using default setup for {% data variables.product.prodname_code_scanning %}, the analysis will automatically look for a runner scale set with the installation name `code-scanning`.
+If you're using default setup for {% data variables.product.prodname_code_scanning %}, the analysis will automatically look for a runner scale set with the installation name `code-scanning` {% ifversion code-scanning-default-setup-customize-labels %} but you can specify a custom name in the configuration, so that individual repositories can use different runner scale sets. See "[AUTOTITLE](/code-security/code-scanning/enabling-code-scanning/configuring-default-setup-for-code-scanning#assigning-labels-to-runners){% endif %}.
 
-{% note %}
-
-The [Dependabot Action](https://github.com/github/dependabot-action) is used to run {% data variables.product.prodname_dependabot %} updates via {% data variables.product.prodname_actions %}. This action requires Docker as a dependency. For this reason, you can only use {% data variables.product.prodname_actions_runner_controller %} with {% data variables.product.prodname_dependabot %} when Docker-in-Docker (DinD) mode is enabled. For more information, see "[AUTOTITLE](/admin/github-actions/enabling-github-actions-for-github-enterprise-server/managing-self-hosted-runners-for-dependabot-updates#system-requirements-for-dependabot-runners)" and "[AUTOTITLE](/actions/hosting-your-own-runners/managing-self-hosted-runners-with-actions-runner-controller/deploying-runner-scale-sets-with-actions-runner-controller#using-docker-in-docker-or-kubernetes-mode-for-containers)."
-
-{% endnote %}
+> [!NOTE]
+> The [Dependabot Action](https://github.com/github/dependabot-action) is used to run {% data variables.product.prodname_dependabot %} updates via {% data variables.product.prodname_actions %}. This action requires Docker as a dependency. For this reason, you can only use {% data variables.product.prodname_actions_runner_controller %} with {% data variables.product.prodname_dependabot %} when Docker-in-Docker (DinD) mode is enabled. For more information, see "[AUTOTITLE](/admin/github-actions/enabling-github-actions-for-github-enterprise-server/managing-self-hosted-runners-for-dependabot-updates#system-requirements-for-dependabot-runners)" and "[AUTOTITLE](/actions/hosting-your-own-runners/managing-self-hosted-runners-with-actions-runner-controller/deploying-runner-scale-sets-with-actions-runner-controller#using-docker-in-docker-or-kubernetes-mode-for-containers)."
 
 {% endif %}
 

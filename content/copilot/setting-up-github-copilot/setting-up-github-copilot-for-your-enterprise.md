@@ -32,8 +32,10 @@ You may also need to install custom SSL certificates on your users' machines. Se
 
 Enable {% data variables.product.prodname_copilot_short %} for some or all organizations in your enterprise. See "[AUTOTITLE](/copilot/managing-copilot/managing-copilot-for-your-enterprise/managing-access-to-copilot-in-your-enterprise/enabling-copilot-for-organizations-in-your-enterprise)." Each organization owner can then grant {% data variables.product.prodname_copilot_short %} access to some or all of the members of their organization.
 
+If your enterprise is on {% data variables.enterprise.data_residency_site %}, users must perform some additional setup to authenticate to their account from their development environment. See "[AUTOTITLE](/copilot/managing-copilot/configure-personal-settings/using-github-copilot-with-an-account-on-ghecom)."
+
 ## 5. Share onboarding material
 
-* **Share onboarding material**: Share onboarding material with each organization that you granted {% data variables.product.prodname_copilot_short %} access to. See "[AUTOTITLE](/copilot/setting-up-github-copilot/setting-up-github-copilot-for-your-organization)."
-* **Encourage adoption**: Encouragement from leadership can help drive adoption of {% data variables.product.prodname_copilot_short %} in your enterprise. Consider messaging your support of {% data variables.product.prodname_copilot_short %} and how it can help your enterprise.
-* **Set up training sessions or workshops**: Training sessions or workshops can help members learn how to use {% data variables.product.prodname_copilot_short %} effectively.
+* **Share onboarding material:** Share onboarding material with each organization that you granted {% data variables.product.prodname_copilot_short %} access to. See "[AUTOTITLE](/copilot/setting-up-github-copilot/setting-up-github-copilot-for-your-organization)."
+* **Encourage adoption:** Encouragement from leadership can help drive adoption of {% data variables.product.prodname_copilot_short %} in your enterprise. Consider messaging your support of {% data variables.product.prodname_copilot_short %} and how it can help your enterprise.
+* **Set up training sessions or workshops:** Training sessions or workshops can help members learn how to use {% data variables.product.prodname_copilot_short %} effectively.

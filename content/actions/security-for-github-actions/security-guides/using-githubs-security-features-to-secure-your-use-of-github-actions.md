@@ -56,13 +56,9 @@ When you open pull requests to update your workflows, it is good practice to use
 
 If any of the changes you made to your workflows are flagged as vulnerable, you can avoid adding them to your project or update them to a secure version.
 
-For more information about dependency review, see "[AUTOTITLE](/code-security/supply-chain-security/understanding-your-software-supply-chain/about-dependency-review)" and "[AUTOTITLE](/code-security/supply-chain-security/understanding-your-software-supply-chain/configuring-dependency-review)."
+For more information about dependency review, see "[AUTOTITLE](/code-security/supply-chain-security/understanding-your-software-supply-chain/about-dependency-review)."
 
-{% data reusables.dependency-review.about-dependency-review-action %}
-
-![Screenshot of a workflow run that uses the dependency review action.](/assets/images/help/graphs/dependency-review-action.png)
-
-{% data reusables.dependency-review.about-dependency-review-action2 %}
+{% data reusables.dependency-review.about-dependency-review-action %} For more information, see "[AUTOTITLE](/code-security/supply-chain-security/understanding-your-software-supply-chain/about-dependency-review#about-the-dependency-review-action)."
 
 ## Keeping the actions in your workflows secure and up to date
 

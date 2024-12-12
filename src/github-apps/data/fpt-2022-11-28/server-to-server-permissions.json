@@ -1,65 +1,4 @@
 {
-  "enterprise_administration": {
-    "title": "Enterprise administration",
-    "displayTitle": "Business permissions for \"Enterprise administration\"",
-    "permissions": [
-      {
-        "category": "copilot",
-        "slug": "list-all-copilot-seat-assignments-for-an-enterprise",
-        "subcategory": "copilot-user-management",
-        "verb": "get",
-        "requestPath": "/enterprises/{enterprise}/copilot/billing/seats",
-        "access": "read",
-        "user-to-server": false,
-        "server-to-server": false,
-        "additional-permissions": false
-      },
-      {
-        "category": "copilot",
-        "slug": "get-copilot-metrics-for-an-enterprise",
-        "subcategory": "copilot-metrics",
-        "verb": "get",
-        "requestPath": "/enterprises/{enterprise}/copilot/metrics",
-        "access": "read",
-        "user-to-server": false,
-        "server-to-server": false,
-        "additional-permissions": false
-      },
-      {
-        "category": "copilot",
-        "slug": "get-a-summary-of-copilot-usage-for-enterprise-members",
-        "subcategory": "copilot-usage",
-        "verb": "get",
-        "requestPath": "/enterprises/{enterprise}/copilot/usage",
-        "access": "read",
-        "user-to-server": false,
-        "server-to-server": false,
-        "additional-permissions": false
-      },
-      {
-        "category": "copilot",
-        "slug": "get-copilot-metrics-for-an-enterprise-team",
-        "subcategory": "copilot-metrics",
-        "verb": "get",
-        "requestPath": "/enterprises/{enterprise}/team/{team_slug}/copilot/metrics",
-        "access": "read",
-        "user-to-server": false,
-        "server-to-server": false,
-        "additional-permissions": false
-      },
-      {
-        "category": "copilot",
-        "slug": "get-a-summary-of-copilot-usage-for-an-enterprise-team",
-        "subcategory": "copilot-usage",
-        "verb": "get",
-        "requestPath": "/enterprises/{enterprise}/team/{team_slug}/copilot/usage",
-        "access": "read",
-        "user-to-server": false,
-        "server-to-server": false,
-        "additional-permissions": false
-      }
-    ]
-  },
   "organization_api_insights": {
     "title": "API Insights",
     "displayTitle": "Organization permissions for \"API Insights\"",
@@ -6706,6 +6645,50 @@
       },
       {
         "category": "issues",
+        "slug": "remove-sub-issue",
+        "subcategory": "sub-issues",
+        "verb": "delete",
+        "requestPath": "/repos/{owner}/{repo}/issues/{issue_number}/sub_issue",
+        "access": "write",
+        "user-to-server": true,
+        "server-to-server": true,
+        "additional-permissions": false
+      },
+      {
+        "category": "issues",
+        "slug": "list-sub-issues",
+        "subcategory": "sub-issues",
+        "verb": "get",
+        "requestPath": "/repos/{owner}/{repo}/issues/{issue_number}/sub_issues",
+        "access": "read",
+        "user-to-server": true,
+        "server-to-server": true,
+        "additional-permissions": false
+      },
+      {
+        "category": "issues",
+        "slug": "add-sub-issue",
+        "subcategory": "sub-issues",
+        "verb": "post",
+        "requestPath": "/repos/{owner}/{repo}/issues/{issue_number}/sub_issues",
+        "access": "write",
+        "user-to-server": true,
+        "server-to-server": true,
+        "additional-permissions": false
+      },
+      {
+        "category": "issues",
+        "slug": "reprioritize-sub-issue",
+        "subcategory": "sub-issues",
+        "verb": "patch",
+        "requestPath": "/repos/{owner}/{repo}/issues/{issue_number}/sub_issues/priority",
+        "access": "write",
+        "user-to-server": true,
+        "server-to-server": true,
+        "additional-permissions": false
+      },
+      {
+        "category": "issues",
         "slug": "list-timeline-events-for-an-issue",
         "subcategory": "timeline",
         "verb": "get",
@@ -8627,6 +8610,17 @@
         "subcategory": "secret-scanning",
         "verb": "get",
         "requestPath": "/repos/{owner}/{repo}/secret-scanning/alerts/{alert_number}/locations",
+        "access": "read",
+        "user-to-server": true,
+        "server-to-server": true,
+        "additional-permissions": false
+      },
+      {
+        "category": "secret-scanning",
+        "slug": "get-secret-scanning-scan-history-for-a-repository",
+        "subcategory": "secret-scanning",
+        "verb": "get",
+        "requestPath": "/repos/{owner}/{repo}/secret-scanning/scan-history",
         "access": "read",
         "user-to-server": true,
         "server-to-server": true,
