@@ -19,9 +19,9 @@ topics:
 
 ## About reusable workflows
 
-Rather than copying and pasting deployment jobs from one workflow to another, you can create a reusable workflow that performs the deployment steps. A reusable workflow can be used by another workflow if it meets one of the access requirements described in "[AUTOTITLE](/actions/using-workflows/reusing-workflows#access-to-reusable-workflows)."
+Rather than copying and pasting deployment jobs from one workflow to another, you can create a reusable workflow that performs the deployment steps. A reusable workflow can be used by another workflow if it meets one of the access requirements described in [AUTOTITLE](/actions/using-workflows/reusing-workflows#access-to-reusable-workflows).
 
-You should be familiar with the concepts described in "[AUTOTITLE](/actions/using-workflows/reusing-workflows)" and "[AUTOTITLE](/actions/deployment/security-hardening-your-deployments/about-security-hardening-with-openid-connect)."
+You should be familiar with the concepts described in [AUTOTITLE](/actions/using-workflows/reusing-workflows) and [AUTOTITLE](/actions/deployment/security-hardening-your-deployments/about-security-hardening-with-openid-connect).
 
 ## Defining the trust conditions
 
@@ -29,10 +29,10 @@ When combined with OpenID Connect (OIDC), reusable workflows let you enforce con
 
 * **Using `job_workflow_ref`:**
   * To create trust conditions based on reusable workflows, your cloud provider must support custom claims for `job_workflow_ref`. This allows your cloud provider to identify which repository the job originally came from.
-  * For clouds that only support the standard claims (audience (`aud`) and subject (`sub`)), you can use the API to customize the `sub` claim to include `job_workflow_ref`. For more information, see "[AUTOTITLE](/actions/deployment/security-hardening-your-deployments/about-security-hardening-with-openid-connect#customizing-the-token-claims)". Support for custom claims is currently available for Google Cloud Platform and HashiCorp Vault.
+  * For clouds that only support the standard claims (audience (`aud`) and subject (`sub`)), you can use the API to customize the `sub` claim to include `job_workflow_ref`. For more information, see [AUTOTITLE](/actions/deployment/security-hardening-your-deployments/about-security-hardening-with-openid-connect#customizing-the-token-claims). Support for custom claims is currently available for Google Cloud Platform and HashiCorp Vault.
 
 * **Customizing the token claims:**
-  * You can configure more granular trust conditions by customizing the {% ifversion ghec %}issuer (`iss`) and {% endif %}subject (`sub`) claim{% ifversion ghec %}s that are{% else %} that's{% endif %} included with the JWT. For more information, see "[AUTOTITLE](/actions/deployment/security-hardening-your-deployments/about-security-hardening-with-openid-connect#customizing-the-token-claims)".
+  * You can configure more granular trust conditions by customizing the {% ifversion ghec %}issuer (`iss`) and {% endif %}subject (`sub`) claim{% ifversion ghec %}s that are{% else %} that's{% endif %} included with the JWT. For more information, see [AUTOTITLE](/actions/deployment/security-hardening-your-deployments/about-security-hardening-with-openid-connect#customizing-the-token-claims).
 
 ## How the token works with reusable workflows
 
