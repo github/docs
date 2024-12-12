@@ -27,7 +27,7 @@ Runners are the machines that execute jobs in a {% data variables.product.prodna
 
 {% ifversion not ghes %}
 
-You can choose one of the standard {% data variables.product.prodname_dotcom %}-hosted runner options or, if you are on the {% data variables.product.prodname_team %} or {% data variables.product.prodname_ghe_cloud %} plan, you can provision a runner with more cores, or a runner that's powered by a GPU or ARM processor. These machines are referred to as "{% data variables.actions.hosted_runner %}." For more information, see "[AUTOTITLE](/enterprise-cloud@latest/actions/using-github-hosted-runners/about-larger-runners/about-larger-runners)."
+You can choose one of the standard {% data variables.product.prodname_dotcom %}-hosted runner options or, if you are on the {% data variables.product.prodname_team %} or {% data variables.product.prodname_ghe_cloud %} plan, you can provision a runner with more cores, or a runner that's powered by a GPU or ARM processor. These machines are referred to as "{% data variables.actions.hosted_runner %}." For more information, see [AUTOTITLE](/enterprise-cloud@latest/actions/using-github-hosted-runners/about-larger-runners/about-larger-runners).
 
 Using {% data variables.product.prodname_dotcom %}-hosted runners requires network access with at least 70 kilobits per second upload and download speeds.
 
@@ -36,7 +36,7 @@ Using {% data variables.product.prodname_dotcom %}-hosted runners requires netwo
 {% ifversion github-hosted-runners-emus-entitlements %}
 
 > [!NOTE]
-> {% data reusables.actions.entitlement-minutes-emus %} For more information, see "[AUTOTITLE](/admin/identity-and-access-management/using-enterprise-managed-users-for-iam/about-enterprise-managed-users)."
+> {% data reusables.actions.entitlement-minutes-emus %} For more information, see [AUTOTITLE](/admin/identity-and-access-management/using-enterprise-managed-users-for-iam/about-enterprise-managed-users).
 
 {% endif %}
 
@@ -44,7 +44,7 @@ Using {% data variables.product.prodname_dotcom %}-hosted runners requires netwo
 
 ## Using a {% data variables.product.prodname_dotcom %}-hosted runner
 
-To use a {% data variables.product.prodname_dotcom %}-hosted runner, create a job and use `runs-on` to specify the type of runner that will process the job, such as `ubuntu-latest`, `windows-latest`, or `macos-latest`. For the full list of runner types, see "[AUTOTITLE](/actions/using-github-hosted-runners/about-github-hosted-runners/about-github-hosted-runners#supported-runners-and-hardware-resources)."{% ifversion repository-actions-runners %} If you have `repo: write` access to a repository, you can view a list of the runners available to use in workflows in the repository. For more information, see "[Viewing available runners for a repository](#viewing-available-runners-for-a-repository)."{% endif %}
+To use a {% data variables.product.prodname_dotcom %}-hosted runner, create a job and use `runs-on` to specify the type of runner that will process the job, such as `ubuntu-latest`, `windows-latest`, or `macos-latest`. For the full list of runner types, see [AUTOTITLE](/actions/using-github-hosted-runners/about-github-hosted-runners/about-github-hosted-runners#supported-runners-and-hardware-resources).{% ifversion repository-actions-runners %} If you have `repo: write` access to a repository, you can view a list of the runners available to use in workflows in the repository. For more information, see [Viewing available runners for a repository](#viewing-available-runners-for-a-repository).{% endif %}
 
 When the job begins, {% data variables.product.prodname_dotcom %} automatically provisions a new VM for that job. All steps in the job execute on the VM, allowing the steps in that job to share information using the runner's filesystem. You can run workflows directly on the VM or in a Docker container. When the job has finished, the VM is automatically decommissioned.
 
@@ -132,7 +132,7 @@ While the job runs, the logs and output can be viewed in the {% data variables.p
 
 {% data reusables.actions.supported-github-runners %}
 
-Workflow logs list the runner used to run a job. For more information, see "[AUTOTITLE](/actions/monitoring-and-troubleshooting-workflows/viewing-workflow-run-history)."
+Workflow logs list the runner used to run a job. For more information, see [AUTOTITLE](/actions/monitoring-and-troubleshooting-workflows/viewing-workflow-run-history).
 
 ### Limitations for arm64 macOS runners
 
@@ -142,7 +142,7 @@ Workflow logs list the runner used to run a job. For more information, see "[AUT
 
 {% data reusables.actions.about-larger-runners %}
 
-For more information, see "[AUTOTITLE](/actions/using-github-hosted-runners/about-larger-runners)."
+For more information, see [AUTOTITLE](/actions/using-github-hosted-runners/about-larger-runners).
 
 ## Supported software
 
@@ -152,13 +152,13 @@ The software tools included in {% data variables.product.prodname_dotcom %}-host
 
 Workflow logs include a link to the preinstalled tools on the exact runner. To find this information in the workflow log, expand the `Set up job` section. Under that section, expand the `Runner Image` section. The link following `Included Software` will describe the preinstalled tools on the runner that ran the workflow.
 
-For more information, see "[AUTOTITLE](/actions/monitoring-and-troubleshooting-workflows/viewing-workflow-run-history)." For the overall list of included tools for each runner operating system, see the [Available Images](https://github.com/actions/runner-images#available-images) documentation the runner images repository.
+For more information, see [AUTOTITLE](/actions/monitoring-and-troubleshooting-workflows/viewing-workflow-run-history). For the overall list of included tools for each runner operating system, see the [Available Images](https://github.com/actions/runner-images#available-images) documentation the runner images repository.
 
 {% data variables.product.prodname_dotcom %}-hosted runners include the operating system's default built-in tools, in addition to the packages listed in the above references. For example, Ubuntu and macOS runners include `grep`, `find`, and `which`, among other default tools.
 
 {% ifversion actions-sbom %}
 
-You can also view a software bill of materials (SBOM) for each build of the Windows and Ubuntu runner images. For more information, see "[AUTOTITLE](/actions/security-guides/security-hardening-for-github-actions#reviewing-the-supply-chain-for-github-hosted-runners)."
+You can also view a software bill of materials (SBOM) for each build of the Windows and Ubuntu runner images. For more information, see [AUTOTITLE](/actions/security-guides/security-hardening-for-github-actions#reviewing-the-supply-chain-for-github-hosted-runners).
 
 {% endif %}
 
@@ -172,7 +172,7 @@ If there is a tool that you'd like to request, please open an issue at [actions/
 
 ### Installing additional software
 
-You can install additional software on {% data variables.product.prodname_dotcom %}-hosted runners. For more information, see "[AUTOTITLE](/actions/using-github-hosted-runners/customizing-github-hosted-runners)".
+You can install additional software on {% data variables.product.prodname_dotcom %}-hosted runners. For more information, see [AUTOTITLE](/actions/using-github-hosted-runners/customizing-github-hosted-runners).
 
 ## Cloud hosts used by {% data variables.product.prodname_dotcom %}-hosted runners
 
@@ -190,17 +190,17 @@ In addition, if the workflow run has been successfully queued, but has not been 
 
 ## Administrative privileges
 
-The Linux and macOS virtual machines both run using passwordless `sudo`. When you need to execute commands or install tools that require more privileges than the current user, you can use `sudo` without needing to provide a password. For more information, see the "[Sudo Manual](https://www.sudo.ws/man/1.8.27/sudo.man.html)."
+The Linux and macOS virtual machines both run using passwordless `sudo`. When you need to execute commands or install tools that require more privileges than the current user, you can use `sudo` without needing to provide a password. For more information, see the [Sudo Manual](https://www.sudo.ws/man/1.8.27/sudo.man.html).
 
-Windows virtual machines are configured to run as administrators with User Account Control (UAC) disabled. For more information, see "[How User Account Control works](https://docs.microsoft.com/windows/security/identity-protection/user-account-control/how-user-account-control-works)" in the Windows documentation.
+Windows virtual machines are configured to run as administrators with User Account Control (UAC) disabled. For more information, see [How User Account Control works](https://docs.microsoft.com/windows/security/identity-protection/user-account-control/how-user-account-control-works) in the Windows documentation.
 
 ## IP addresses
 
-To get a list of IP address ranges that {% data variables.product.prodname_actions %} uses for {% data variables.product.prodname_dotcom %}-hosted runners, you can use the {% data variables.product.prodname_dotcom %} REST API. For more information, see the `actions` key in the response of the `GET /meta` endpoint. For more information, see "[AUTOTITLE](/rest/meta/meta#get-github-meta-information)."
+To get a list of IP address ranges that {% data variables.product.prodname_actions %} uses for {% data variables.product.prodname_dotcom %}-hosted runners, you can use the {% data variables.product.prodname_dotcom %} REST API. For more information, see the `actions` key in the response of the `GET /meta` endpoint. For more information, see [AUTOTITLE](/rest/meta/meta#get-github-meta-information).
 
 Windows and Ubuntu runners are hosted in Azure and subsequently have the same IP address ranges as the Azure datacenters. macOS runners are hosted in {% data variables.product.prodname_dotcom %}'s own macOS cloud.
 
-Since there are so many IP address ranges for {% data variables.product.prodname_dotcom %}-hosted runners, we do not recommend that you use these as allowlists for your internal resources. Instead, we recommend you use {% data variables.actions.hosted_runner %}s with a static IP address range, or self-hosted runners. For more information, see "[AUTOTITLE](/actions/using-github-hosted-runners/about-larger-runners)" or "[AUTOTITLE](/actions/hosting-your-own-runners/managing-self-hosted-runners/about-self-hosted-runners)."
+Since there are so many IP address ranges for {% data variables.product.prodname_dotcom %}-hosted runners, we do not recommend that you use these as allowlists for your internal resources. Instead, we recommend you use {% data variables.actions.hosted_runner %}s with a static IP address range, or self-hosted runners. For more information, see [AUTOTITLE](/actions/using-github-hosted-runners/about-larger-runners) or [AUTOTITLE](/actions/hosting-your-own-runners/managing-self-hosted-runners/about-self-hosted-runners).
 
 The list of {% data variables.product.prodname_actions %} IP addresses returned by the API is updated once a week.
 
@@ -228,7 +228,7 @@ To ensure proper communications for {% data variables.product.prodname_dotcom %}
 | `workspace` | `GITHUB_WORKSPACE` | Actions and shell commands execute in this directory. An action can modify the contents of this directory, which subsequent actions can access. |
 | `workflow/event.json` | `GITHUB_EVENT_PATH` | The `POST` payload of the webhook event that triggered the workflow. {% data variables.product.prodname_dotcom %} rewrites this each time an action executes to isolate file content between actions.
 
-For a list of the environment variables {% data variables.product.prodname_dotcom %} creates for each workflow, see "[AUTOTITLE](/actions/learn-github-actions/variables#default-environment-variables)."
+For a list of the environment variables {% data variables.product.prodname_dotcom %} creates for each workflow, see [AUTOTITLE](/actions/learn-github-actions/variables#default-environment-variables).
 
 ### Docker container filesystem
 
@@ -242,7 +242,7 @@ Actions that run in Docker containers have static directories under the `/github
 
 ## Further reading
 
-* "[AUTOTITLE](/billing/managing-billing-for-github-actions)"
-* You can use a matrix strategy to run your jobs on multiple images. For more information, see "[AUTOTITLE](/actions/using-jobs/using-a-matrix-for-your-jobs)."
+* [AUTOTITLE](/billing/managing-billing-for-github-actions)
+* You can use a matrix strategy to run your jobs on multiple images. For more information, see [AUTOTITLE](/actions/using-jobs/using-a-matrix-for-your-jobs).
 
 {% endif %}

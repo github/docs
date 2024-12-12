@@ -24,10 +24,10 @@ Any actions or reusable workflows stored in the internal {% ifversion private-ac
 
 ## Sharing actions and workflows with your enterprise
 
-1. Store the action or reusable workflow in an internal {% ifversion private-actions %}or private {% endif %}repository. For more information, see "[AUTOTITLE](/repositories/creating-and-managing-repositories/about-repositories)."
-1. Configure the repository to allow access to workflows in other internal {% ifversion private-actions %}or private {% endif %}repositories. For more information, see {% ifversion private-actions %}"[AUTOTITLE](/repositories/managing-your-repositorys-settings-and-features/enabling-features-for-your-repository/managing-github-actions-settings-for-a-repository#allowing-access-to-components-in-a-private-repository)" and {% endif %}"[AUTOTITLE](/repositories/managing-your-repositorys-settings-and-features/enabling-features-for-your-repository/managing-github-actions-settings-for-a-repository#allowing-access-to-components-in-an-internal-repository)."
+1. Store the action or reusable workflow in an internal {% ifversion private-actions %}or private {% endif %}repository. For more information, see [AUTOTITLE](/repositories/creating-and-managing-repositories/about-repositories).
+1. Configure the repository to allow access to workflows in other internal {% ifversion private-actions %}or private {% endif %}repositories. For more information, see {% ifversion private-actions %}[AUTOTITLE](/repositories/managing-your-repositorys-settings-and-features/enabling-features-for-your-repository/managing-github-actions-settings-for-a-repository#allowing-access-to-components-in-a-private-repository) and {% endif %}[AUTOTITLE](/repositories/managing-your-repositorys-settings-and-features/enabling-features-for-your-repository/managing-github-actions-settings-for-a-repository#allowing-access-to-components-in-an-internal-repository).
 
 ## Further reading
 
-* "[AUTOTITLE](/admin/overview/about-enterprise-accounts)"
-* "[AUTOTITLE](/actions/using-workflows/reusing-workflows)"
+* [AUTOTITLE](/admin/overview/about-enterprise-accounts)
+* [AUTOTITLE](/actions/using-workflows/reusing-workflows)

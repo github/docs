@@ -43,7 +43,7 @@ The system scans for passwords using the LLM. No additional data is collected by
 
 The LLM scans for strings that resemble passwords and verifies that the identified strings included in the response actually exist in the input.
 
-These detected strings are surfaced as alerts on the {% data variables.product.prodname_secret_scanning %} alerts page, but they are displayed in an additional list that is separate from regular {% data variables.secret-scanning.alerts %}. The intent is that this separate list is triaged with more scrutiny to verify the validity of the findings. Each alert notes that it was detected using AI. {% ifversion secret-scanning-ai-generic-secret-detection %}For information on how to view alerts for generic secrets, see "[AUTOTITLE](/code-security/secret-scanning/managing-alerts-from-secret-scanning/viewing-alerts)."{% endif %}
+These detected strings are surfaced as alerts on the {% data variables.product.prodname_secret_scanning %} alerts page, but they are displayed in an additional list that is separate from regular {% data variables.secret-scanning.alerts %}. The intent is that this separate list is triaged with more scrutiny to verify the validity of the findings. Each alert notes that it was detected using AI. {% ifversion secret-scanning-ai-generic-secret-detection %}For information on how to view alerts for generic secrets, see [AUTOTITLE](/code-security/secret-scanning/managing-alerts-from-secret-scanning/viewing-alerts).{% endif %}
 
 ## Improving the performance of {% data variables.secret-scanning.generic-secret-detection %}
 

@@ -28,17 +28,17 @@ topics:
 
 {% ifversion security-configurations %}
 
-If you're an organization owner, you can enable {% data variables.product.prodname_secret_scanning %} for multiple repositories at a time using {% data variables.product.prodname_security_configurations %}. For more information, see "[AUTOTITLE](/code-security/securing-your-organization/introduction-to-securing-your-organization-at-scale/about-enabling-security-features-at-scale)."
+If you're an organization owner, you can enable {% data variables.product.prodname_secret_scanning %} for multiple repositories at a time using {% data variables.product.prodname_security_configurations %}. For more information, see [AUTOTITLE](/code-security/securing-your-organization/introduction-to-securing-your-organization-at-scale/about-enabling-security-features-at-scale).
 
 {% else %}
 
-If you're an organization owner, you can enable {% data variables.product.prodname_secret_scanning %} for multiple repositories at a time. For more information, see "[AUTOTITLE](/code-security/getting-started/quickstart-for-securing-your-organization#enabling-security-features-in-your-organization)."
+If you're an organization owner, you can enable {% data variables.product.prodname_secret_scanning %} for multiple repositories at a time. For more information, see [AUTOTITLE](/code-security/getting-started/quickstart-for-securing-your-organization#enabling-security-features-in-your-organization).
 
 {% endif %}
 
 {% ifversion secret-scanning-enterprise-level %}
 
-If your organization is owned by an enterprise account, an enterprise owner can also enable {% data variables.product.prodname_secret_scanning %} at the enterprise level. For more information, see "[AUTOTITLE](/admin/code-security/managing-github-advanced-security-for-your-enterprise/managing-github-advanced-security-features-for-your-enterprise)."
+If your organization is owned by an enterprise account, an enterprise owner can also enable {% data variables.product.prodname_secret_scanning %} at the enterprise level. For more information, see [AUTOTITLE](/admin/code-security/managing-github-advanced-security-for-your-enterprise/managing-github-advanced-security-features-for-your-enterprise).
 
 {% endif %}
 
@@ -56,9 +56,9 @@ If your organization is owned by an enterprise account, an enterprise owner can 
 
    ![Screenshot of the "{% data variables.product.prodname_secret_scanning_caps %}" section of the {% ifversion code-security-wording-only %}"Code security"{% else %}"Code security and analysis"{% endif %} page, with the "Enable" button highlighted in a dark orange outline.](/assets/images/help/repository/enable-secret-scanning-alerts.png){% endif %}
 
-A repository administrator can choose to disable {% data variables.product.prodname_secret_scanning %} for a repository at any time. For more information, see "[AUTOTITLE](/repositories/managing-your-repositorys-settings-and-features/enabling-features-for-your-repository/managing-security-and-analysis-settings-for-your-repository)."
+A repository administrator can choose to disable {% data variables.product.prodname_secret_scanning %} for a repository at any time. For more information, see [AUTOTITLE](/repositories/managing-your-repositorys-settings-and-features/enabling-features-for-your-repository/managing-security-and-analysis-settings-for-your-repository).
 
 ## Next steps
 
-* "[AUTOTITLE](/code-security/secret-scanning/managing-alerts-from-secret-scanning/viewing-alerts)"
-* "[AUTOTITLE](/code-security/secret-scanning/managing-alerts-from-secret-scanning/about-alerts)"
+* [AUTOTITLE](/code-security/secret-scanning/managing-alerts-from-secret-scanning/viewing-alerts)
+* [AUTOTITLE](/code-security/secret-scanning/managing-alerts-from-secret-scanning/about-alerts)

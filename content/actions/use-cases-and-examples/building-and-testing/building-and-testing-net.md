@@ -21,7 +21,7 @@ This guide shows you how to build, test, and publish a .NET package.
 
 ## Prerequisites
 
-You should already be familiar with YAML syntax and how it's used with {% data variables.product.prodname_actions %}. For more information, see "[AUTOTITLE](/actions/using-workflows/workflow-syntax-for-github-actions)."
+You should already be familiar with YAML syntax and how it's used with {% data variables.product.prodname_actions %}. For more information, see [AUTOTITLE](/actions/using-workflows/workflow-syntax-for-github-actions).
 
 We recommend that you have a basic understanding of the .NET Core SDK. For more information, see [Getting started with .NET](https://dotnet.microsoft.com/learn).
 
@@ -140,7 +140,7 @@ steps:
 
 You can cache NuGet dependencies for future workflows using the optional `cache` input. For example, the YAML below caches the NuGet `global-packages` folder, and then installs the `Newtonsoft` package. A second optional input, `cache-dependency-path`, can be used to specify the path to a dependency file: `packages.lock.json`.
 
-For more information, see "[AUTOTITLE](/actions/using-workflows/caching-dependencies-to-speed-up-workflows)."
+For more information, see [AUTOTITLE](/actions/using-workflows/caching-dependencies-to-speed-up-workflows).
 
 ```yaml
 steps:
@@ -180,7 +180,7 @@ steps:
 
 After a workflow completes, you can upload the resulting artifacts for analysis. For example, you may need to save log files, core dumps, test results, or screenshots. The following example demonstrates how you can use the `upload-artifact` action to upload test results.
 
-For more information, see "[AUTOTITLE](/actions/using-workflows/storing-workflow-data-as-artifacts)."
+For more information, see [AUTOTITLE](/actions/using-workflows/storing-workflow-data-as-artifacts).
 
 ```yaml
 name: dotnet package

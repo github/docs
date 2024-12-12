@@ -32,7 +32,7 @@ The {% data variables.product.prodname_github_security_configuration %} is a col
 {% data reusables.profile.access_org %}
 {% data reusables.organizations.org_settings %}
 {% data reusables.security-configurations.view-configurations-page %}
-1. Optionally, in the "Apply configurations" section, filter the view to find the repositories you would like to apply the {% data variables.product.prodname_github_security_configuration %} to. To learn how to filter the repository table, see "[AUTOTITLE](/code-security/securing-your-organization/managing-the-security-of-your-organization/filtering-repositories-in-your-organization-using-the-repository-table)."
+1. Optionally, in the "Apply configurations" section, filter the view to find the repositories you would like to apply the {% data variables.product.prodname_github_security_configuration %} to. To learn how to filter the repository table, see [AUTOTITLE](/code-security/securing-your-organization/managing-the-security-of-your-organization/filtering-repositories-in-your-organization-using-the-repository-table).
 1. In the repository table, select repositories with one of three methods:
      * Select each individual repository you would like to apply the {% data variables.product.prodname_security_configuration %} to.
      * To select all repositories on the current page of the repository table, select **NUMBER repositories**.
@@ -57,6 +57,6 @@ The {% data variables.product.prodname_github_security_configuration %} is a col
 
 ## Next steps
 
-After you apply the {% data variables.product.prodname_github_security_configuration %}, you can customize your organization-level security settings with {% data variables.product.prodname_global_settings %}. See "[AUTOTITLE](/code-security/securing-your-organization/enabling-security-features-in-your-organization/configuring-global-security-settings-for-your-organization)."
+After you apply the {% data variables.product.prodname_github_security_configuration %}, you can customize your organization-level security settings with {% data variables.product.prodname_global_settings %}. See [AUTOTITLE](/code-security/securing-your-organization/enabling-security-features-in-your-organization/configuring-global-security-settings-for-your-organization).
 
 {% data reusables.security-configurations.troubleshooting-next-step %}

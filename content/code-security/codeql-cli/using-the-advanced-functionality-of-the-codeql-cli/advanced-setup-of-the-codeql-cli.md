@@ -20,7 +20,7 @@ If you plan to use {% data variables.product.prodname_codeql %} for more than ju
 * If you want to use the latest {% data variables.product.prodname_codeql %} features to generate code scanning alerts for a codebase, but also want to analyze another codebase that is only compatible with a specific version of the {% data variables.product.prodname_codeql_cli %}, you may want to install multiple versions of the {% data variables.product.prodname_codeql_cli %}.
 * If you are researching or developing queries, you may want to download interesting or unique databases from {% data variables.product.prodname_dotcom_the_website %}.
 
-For information on the most simple setup of the {% data variables.product.prodname_codeql_cli %}, see "[AUTOTITLE](/code-security/codeql-cli/getting-started-with-the-codeql-cli/setting-up-the-codeql-cli)."
+For information on the most simple setup of the {% data variables.product.prodname_codeql_cli %}, see [AUTOTITLE](/code-security/codeql-cli/getting-started-with-the-codeql-cli/setting-up-the-codeql-cli).
 
 ## Checking out the {% data variables.product.prodname_codeql %} source code directly
 
@@ -55,7 +55,7 @@ clone and rename the repository in a single step by running
 Within this repository, the queries and libraries are organized into {% data variables.product.prodname_codeql %}
 packs. Along with the queries themselves, {% data variables.product.prodname_codeql %} packs contain important metadata
 that tells the {% data variables.product.prodname_codeql_cli %} how to process the query files. For more information,
-see "[AUTOTITLE](/code-security/codeql-cli/using-the-advanced-functionality-of-the-codeql-cli/creating-and-working-with-codeql-packs)."
+see [AUTOTITLE](/code-security/codeql-cli/using-the-advanced-functionality-of-the-codeql-cli/creating-and-working-with-codeql-packs).
 
 > [!NOTE]
 > There are different versions of the {% data variables.product.prodname_codeql %} queries available for different users. Check out the correct version for your use case:
@@ -93,7 +93,7 @@ If you want to use the latest {% data variables.product.prodname_codeql %} featu
 
 {% data variables.product.github %} stores {% data variables.product.prodname_codeql %} databases for over 200,000 repositories on {% data variables.product.prodname_dotcom_the_website %}, which you can download using the REST API. The list of repositories is constantly growing and evolving to make sure that it includes the most interesting codebases for security research.
 
-You can also analyze databases from {% data variables.product.prodname_dotcom_the_website %} using the {% data variables.product.prodname_codeql %} for {% data variables.product.prodname_vscode_shortname %} extension. For more information, see "[AUTOTITLE](/code-security/codeql-for-vs-code/getting-started-with-codeql-for-vs-code/running-codeql-queries)."
+You can also analyze databases from {% data variables.product.prodname_dotcom_the_website %} using the {% data variables.product.prodname_codeql %} for {% data variables.product.prodname_vscode_shortname %} extension. For more information, see [AUTOTITLE](/code-security/codeql-for-vs-code/getting-started-with-codeql-for-vs-code/running-codeql-queries).
 
 You can check if a repository has any {% data variables.product.prodname_codeql %} databases available for download using the `/repos/<owner>/<repo>/code-scanning/codeql/databases` endpoint. For example, to check for {% data variables.product.prodname_codeql %} databases using the [{% data variables.product.prodname_cli %}](https://cli.github.com/manual/gh_api) you would run:
 

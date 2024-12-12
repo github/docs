@@ -19,11 +19,11 @@ redirect_from:
 
 This guide shows you how to build, test, and publish a Go package.
 
-{% data variables.product.prodname_dotcom %}-hosted runners have a tools cache with preinstalled software, which includes the dependencies for Go. For a full list of up-to-date software and the preinstalled versions of Go, see "[AUTOTITLE](/actions/using-github-hosted-runners/about-github-hosted-runners#preinstalled-software)."
+{% data variables.product.prodname_dotcom %}-hosted runners have a tools cache with preinstalled software, which includes the dependencies for Go. For a full list of up-to-date software and the preinstalled versions of Go, see [AUTOTITLE](/actions/using-github-hosted-runners/about-github-hosted-runners#preinstalled-software).
 
 ## Prerequisites
 
-You should already be familiar with YAML syntax and how it's used with {% data variables.product.prodname_actions %}. For more information, see "[AUTOTITLE](/actions/using-workflows/workflow-syntax-for-github-actions)."
+You should already be familiar with YAML syntax and how it's used with {% data variables.product.prodname_actions %}. For more information, see [AUTOTITLE](/actions/using-workflows/workflow-syntax-for-github-actions).
 
 We recommend that you have a basic understanding of the Go language. For more information, see [Getting started with Go](https://golang.org/doc/tutorial/getting-started).
 
@@ -187,7 +187,7 @@ Alternatively, you can use the `cache-dependency-path` parameter for cases when 
 
 {% endif %}
 
-If you have a custom requirement or need finer controls for caching, you can use the [`cache` action](https://github.com/marketplace/actions/cache). For more information, see "[AUTOTITLE](/actions/using-workflows/caching-dependencies-to-speed-up-workflows)."
+If you have a custom requirement or need finer controls for caching, you can use the [`cache` action](https://github.com/marketplace/actions/cache). For more information, see [AUTOTITLE](/actions/using-workflows/caching-dependencies-to-speed-up-workflows).
 
 ## Building and testing your code
 
@@ -219,7 +219,7 @@ jobs:
 
 After a workflow completes, you can upload the resulting artifacts for analysis. For example, you may need to save log files, core dumps, test results, or screenshots. The following example demonstrates how you can use the `upload-artifact` action to upload test results.
 
-For more information, see "[AUTOTITLE](/actions/using-workflows/storing-workflow-data-as-artifacts)."
+For more information, see [AUTOTITLE](/actions/using-workflows/storing-workflow-data-as-artifacts).
 
 ```yaml copy
 name: Upload Go test results

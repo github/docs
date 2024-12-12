@@ -20,13 +20,13 @@ redirect_from:
 This guide explains how to use {% data variables.product.prodname_actions %} to build and deploy a project to [Azure Kubernetes Service](https://azure.microsoft.com/services/kubernetes-service/).
 
 > [!NOTE]
-> {% data reusables.actions.about-oidc-short-overview %} and "[AUTOTITLE](/actions/deployment/security-hardening-your-deployments/configuring-openid-connect-in-azure)."
+> {% data reusables.actions.about-oidc-short-overview %} and [AUTOTITLE](/actions/deployment/security-hardening-your-deployments/configuring-openid-connect-in-azure).
 
 ## Prerequisites
 
 Before creating your {% data variables.product.prodname_actions %} workflow, you will first need to complete the following setup steps:
 
-1. Create a target AKS cluster and an Azure Container Registry (ACR). For more information, see "[Quickstart: Deploy an AKS cluster by using the Azure portal - Azure Kubernetes Service](https://docs.microsoft.com/azure/aks/kubernetes-walkthrough-portal)" and "[Quickstart - Create registry in portal - Azure Container Registry](https://docs.microsoft.com/azure/container-registry/container-registry-get-started-portal)" in the Azure documentation.
+1. Create a target AKS cluster and an Azure Container Registry (ACR). For more information, see [Quickstart: Deploy an AKS cluster by using the Azure portal - Azure Kubernetes Service](https://docs.microsoft.com/azure/aks/kubernetes-walkthrough-portal) and [Quickstart - Create registry in portal - Azure Container Registry](https://docs.microsoft.com/azure/container-registry/container-registry-get-started-portal) in the Azure documentation.
 
 1. Create a secret called `AZURE_CREDENTIALS` to store your Azure credentials. For more information about how to find this information and structure the secret, see [the `Azure/login` action documentation](https://github.com/Azure/login#configure-a-service-principal-with-a-secret).
 

@@ -27,7 +27,7 @@ In the tutorial, you will first make a workflow file that uses the [`alex-page/g
 ## Creating the workflow
 
 1. {% data reusables.actions.choose-repo %}
-1. In your repository, choose a {% data variables.projects.projects_v1_board %}. {% ifversion projects-v1-can-create %} You can use an existing project, or you can create a new project. For more information about creating a project, see "[AUTOTITLE](/issues/organizing-your-work-with-project-boards/managing-project-boards/creating-a-project-board)."{% endif %}
+1. In your repository, choose a {% data variables.projects.projects_v1_board %}. {% ifversion projects-v1-can-create %} You can use an existing project, or you can create a new project. For more information about creating a project, see [AUTOTITLE](/issues/organizing-your-work-with-project-boards/managing-project-boards/creating-a-project-board).{% endif %}
 1. {% data reusables.actions.make-workflow-file %}
 1. Copy the following YAML contents into your workflow file.
 
@@ -56,8 +56,8 @@ In the tutorial, you will first make a workflow file that uses the [`alex-page/g
    * Change the value for `project` to the name of your {% data variables.projects.projects_v1_board %}. If you have multiple {% data variables.projects.projects_v1_boards %} with the same name, the `alex-page/github-project-automation-plus` action will act on all projects with the specified name.
    * Change the value for `column` to the name of the column where you want issues to move when they are assigned.
    * Change the value for `repo-token`:
-     1. Create a {% data variables.product.pat_v1 %} with the `repo` scope. For more information, see "[AUTOTITLE](/authentication/keeping-your-account-and-data-secure/creating-a-personal-access-token)."
-     1. Store this {% data variables.product.pat_generic %} as a secret in your repository. For more information about storing secrets, see "[AUTOTITLE](/actions/security-guides/using-secrets-in-github-actions)."
+     1. Create a {% data variables.product.pat_v1 %} with the `repo` scope. For more information, see [AUTOTITLE](/authentication/keeping-your-account-and-data-secure/creating-a-personal-access-token).
+     1. Store this {% data variables.product.pat_generic %} as a secret in your repository. For more information about storing secrets, see [AUTOTITLE](/actions/security-guides/using-secrets-in-github-actions).
      1. In your workflow file, replace `PERSONAL_ACCESS_TOKEN` with the name of your secret.
 1. {% data reusables.actions.commit-workflow %}
 
@@ -69,9 +69,9 @@ If your repository is user-owned, the `alex-page/github-project-automation-plus`
 
 Test your workflow by assigning an issue in your repository.
 
-1. Open an issue in your repository. For more information, see "[AUTOTITLE](/issues/tracking-your-work-with-issues/creating-an-issue)."
-1. Assign the issue. For more information, see "[AUTOTITLE](/issues/tracking-your-work-with-issues/assigning-issues-and-pull-requests-to-other-github-users)."
-1. To see the workflow run that assigning the issue triggered, view the history of your workflow runs. For more information, see "[AUTOTITLE](/actions/monitoring-and-troubleshooting-workflows/viewing-workflow-run-history)."
+1. Open an issue in your repository. For more information, see [AUTOTITLE](/issues/tracking-your-work-with-issues/creating-an-issue).
+1. Assign the issue. For more information, see [AUTOTITLE](/issues/tracking-your-work-with-issues/assigning-issues-and-pull-requests-to-other-github-users).
+1. To see the workflow run that assigning the issue triggered, view the history of your workflow runs. For more information, see [AUTOTITLE](/actions/monitoring-and-troubleshooting-workflows/viewing-workflow-run-history).
 1. When the workflow completes, the issue that you assigned should be added to the specified {% data variables.projects.projects_v1_board %} column.
 
 ## Next steps
