@@ -52,7 +52,6 @@ The {% data variables.product.prodname_github_security_configuration %} is a col
 1. In the "Code security configurations" section, select "{% data variables.product.company_short %} recommended".
 1. In the "Policy" section, next to "Enforce configuration", select **Enforce** from the dropdown menu.
 
->[!NOTE]
 {% data reusables.code-scanning.custom-security-configuration-enforcement-edge-cases %}
 
 ## Next steps

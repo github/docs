@@ -37,7 +37,6 @@ You will only ever see enablement settings for features that have been installed
 
 {% endif %}
 
->[!NOTE]
 {% data reusables.code-scanning.custom-security-configuration-enforcement-edge-cases %}
 
 Each repository can only have one {% data variables.product.prodname_security_configuration %} applied to it. {% ifversion security-configurations-cloud %}To find out how you should get started with {% data variables.product.prodname_security_configurations %}, see [AUTOTITLE](/code-security/securing-your-organization/introduction-to-securing-your-organization-at-scale/choosing-a-security-configuration-for-your-repositories).{% endif %}
