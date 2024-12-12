@@ -123,7 +123,7 @@ To configure {% data variables.product.prodname_ghe_server %} to use OIDC with G
 
 ## Enabling {% data variables.product.prodname_actions %} with Google Cloud Storage{% ifversion ghes-actions-storage-oidc %} using a HMAC key{% endif %}
 
-1. Create a Google Cloud service account that can access the bucket, and create a Hash-based Message Authentication Code (HMAC) key for the service account. For more information, see "[Manage HMAC keys for service accounts](https://cloud.google.com/storage/docs/authentication/managing-hmackeys)" in the Google Cloud documentation.
+1. Create a Google Cloud service account that can access the bucket, and create a Hash-based Message Authentication Code (HMAC) key for the service account. For more information, see [Manage HMAC keys for service accounts](https://cloud.google.com/storage/docs/authentication/managing-hmackeys) in the Google Cloud documentation.
 
    The service account must have the following [Identity and Access Management (IAM) permissions](https://cloud.google.com/storage/docs/access-control/iam-permissions) for the bucket:
 

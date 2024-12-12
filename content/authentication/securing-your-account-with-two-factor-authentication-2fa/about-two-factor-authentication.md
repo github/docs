@@ -23,14 +23,14 @@ For {% data variables.product.product_name %}, the second form of authentication
 {% data reusables.two_fa.after-2fa-add-security-key %}
 
 {% ifversion passkeys %}
-{% data reusables.passkeys.after-2fa-optional-add-passkey %} See "[AUTOTITLE](/authentication/authenticating-with-a-passkey/about-passkeys)."
+{% data reusables.passkeys.after-2fa-optional-add-passkey %} See [AUTOTITLE](/authentication/authenticating-with-a-passkey/about-passkeys).
 {% endif %}
 
 {% ifversion fpt or ghec %}
 You can also use {% data variables.product.prodname_mobile %} for 2FA after configuring a TOTP mobile app or text messages. {% data variables.product.prodname_mobile %} uses public-key cryptography to secure your account, allowing you to use any mobile device that you've used to sign in to {% data variables.product.prodname_mobile %} as your second factor.
 {% endif %}
 
-You can also configure additional recovery methods in case you lose access to your two-factor authentication credentials. For more information on setting up 2FA, see "[AUTOTITLE](/authentication/securing-your-account-with-two-factor-authentication-2fa/configuring-two-factor-authentication)" and "[AUTOTITLE](/authentication/securing-your-account-with-two-factor-authentication-2fa/configuring-two-factor-authentication-recovery-methods)."
+You can also configure additional recovery methods in case you lose access to your two-factor authentication credentials. For more information on setting up 2FA, see [AUTOTITLE](/authentication/securing-your-account-with-two-factor-authentication-2fa/configuring-two-factor-authentication) and [AUTOTITLE](/authentication/securing-your-account-with-two-factor-authentication-2fa/configuring-two-factor-authentication-recovery-methods).
 
 {% ifversion fpt or ghec %}
 
@@ -42,24 +42,24 @@ You can also configure additional recovery methods in case you lose access to yo
 We **strongly** urge you to enable 2FA for the safety of your account, not only on {% data variables.product.product_name %}, but on other websites and apps that support 2FA. You can enable 2FA to access {% data variables.product.product_name %} and {% data variables.product.prodname_desktop %}.
 
 {% ifversion fpt or ghec %}
-If you don't enable 2FA, {% data variables.product.product_name %} may ask for additional verification to confirm that it is you when you sign in for the first time from a new or unrecognized device. See "[AUTOTITLE](/authentication/keeping-your-account-and-data-secure/verifying-new-devices-when-signing-in)."
+If you don't enable 2FA, {% data variables.product.product_name %} may ask for additional verification to confirm that it is you when you sign in for the first time from a new or unrecognized device. See [AUTOTITLE](/authentication/keeping-your-account-and-data-secure/verifying-new-devices-when-signing-in).
 {% endif %}
 
-For more information, see "[AUTOTITLE](/authentication/securing-your-account-with-two-factor-authentication-2fa/accessing-github-using-two-factor-authentication)."
+For more information, see [AUTOTITLE](/authentication/securing-your-account-with-two-factor-authentication-2fa/accessing-github-using-two-factor-authentication).
 
 ## Two-factor authentication recovery codes
 
-{% data reusables.two_fa.about-recovery-codes %} For more information, see "[AUTOTITLE](/authentication/securing-your-account-with-two-factor-authentication-2fa/recovering-your-account-if-you-lose-your-2fa-credentials)."
+{% data reusables.two_fa.about-recovery-codes %} For more information, see [AUTOTITLE](/authentication/securing-your-account-with-two-factor-authentication-2fa/recovering-your-account-if-you-lose-your-2fa-credentials).
 
 {% ifversion fpt or ghec %}
 
 > [!WARNING]
-> {% data reusables.two_fa.support-may-not-help %} For more information, see "[AUTOTITLE](/authentication/securing-your-account-with-two-factor-authentication-2fa/recovering-your-account-if-you-lose-your-2fa-credentials)."
+> {% data reusables.two_fa.support-may-not-help %} For more information, see [AUTOTITLE](/authentication/securing-your-account-with-two-factor-authentication-2fa/recovering-your-account-if-you-lose-your-2fa-credentials).
 
 {% endif %}
 
 ## Requiring two-factor authentication in your organization
 
-Organization owners can require that organization members{% ifversion fpt or ghec %}, billing managers,{% endif %} and outside collaborators use two-factor authentication to secure their personal accounts. For more information, see "[AUTOTITLE](/organizations/keeping-your-organization-secure/managing-two-factor-authentication-for-your-organization/requiring-two-factor-authentication-in-your-organization)."
+Organization owners can require that organization members{% ifversion fpt or ghec %}, billing managers,{% endif %} and outside collaborators use two-factor authentication to secure their personal accounts. For more information, see [AUTOTITLE](/organizations/keeping-your-organization-secure/managing-two-factor-authentication-for-your-organization/requiring-two-factor-authentication-in-your-organization).
 
 {% data reusables.two_fa.auth_methods_2fa %}

@@ -18,7 +18,7 @@ You can adjust the lifetime of a session, and how often a managed user account n
 
 You will need the object ID associated with your {% data variables.product.prodname_emus %} OIDC app to complete these steps. You can find this ID in the Microsoft Entra ID admin center or by using the Microsoft Graph Explorer.
 
-Once you have your object ID, you must use the Microsoft Graph API to configure and assign a lifetime policy to that ID token. See "[Configure token lifetime policies](https://learn.microsoft.com/en-us/entra/identity-platform/configure-token-lifetimes#create-a-policy-and-assign-it-to-a-service-principal)" in the Microsoft documentation.
+Once you have your object ID, you must use the Microsoft Graph API to configure and assign a lifetime policy to that ID token. See [Configure token lifetime policies](https://learn.microsoft.com/en-us/entra/identity-platform/configure-token-lifetimes#create-a-policy-and-assign-it-to-a-service-principal) in the Microsoft documentation.
 
 For help completing these steps or configuring the OIDC session lifetime for your IdP, contact [Microsoft Support](https://support.microsoft.com/).
 

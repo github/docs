@@ -22,7 +22,7 @@ shortTitle: Downgrade Git LFS storage
 
 {% data reusables.billing.enhanced-billing-platform %}
 
-When you downgrade your number of data packs, your change takes effect on your next billing date. For more information, see "[AUTOTITLE](/billing/managing-billing-for-your-products/managing-billing-for-git-large-file-storage/about-billing-for-git-large-file-storage)."
+When you downgrade your number of data packs, your change takes effect on your next billing date. For more information, see [AUTOTITLE](/billing/managing-billing-for-your-products/managing-billing-for-git-large-file-storage/about-billing-for-git-large-file-storage).
 
 ## Downgrading storage and bandwidth for a personal account
 
