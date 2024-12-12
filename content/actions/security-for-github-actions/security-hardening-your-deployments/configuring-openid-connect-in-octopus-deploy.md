@@ -40,7 +40,7 @@ To use OIDC with Octopus Deploy, first establish a trust relationship between {%
 
 {% data reusables.actions.oidc-permissions-token %}
 
-#### Requesting the access token
+### Requesting the access token
 
 The [`octopus/login`](https://github.com/OctopusDeploy/login) action receives a JWT from the {% data variables.product.prodname_dotcom %} OIDC provider, and then requests an access token from your Octopus Server instance. For more information, see the [`octopus/login`](https://github.com/OctopusDeploy/login) documentation.
 
