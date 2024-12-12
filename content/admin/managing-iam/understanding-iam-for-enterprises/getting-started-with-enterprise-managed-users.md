@@ -21,7 +21,7 @@ Before your developers can use {% data variables.product.prodname_ghe_cloud %} w
 
 To use {% data variables.product.prodname_emus %}, you need a **separate type of enterprise account** with {% data variables.product.prodname_emus %} enabled.
 
-* To create an enterprise on {% data variables.product.prodname_dotcom_the_website %}, start a free 30-day trial of {% data variables.product.prodname_ghe_cloud %}, and choose **Enterprise with managed users**. See "[AUTOTITLE](/admin/overview/setting-up-a-trial-of-github-enterprise-cloud)."
+* To create an enterprise on {% data variables.product.prodname_dotcom_the_website %}, start a free 30-day trial of {% data variables.product.prodname_ghe_cloud %}, and choose **Enterprise with managed users**. See [AUTOTITLE](/admin/overview/setting-up-a-trial-of-github-enterprise-cloud).
 * If you require {% data variables.enterprise.data_residency_short %}, contact {% data variables.contact.contact_enterprise_sales %}.
 
 ### Understand where your enterprise is hosted
@@ -38,7 +38,7 @@ Using an **incognito or private browsing window**:
 
 1. Set the user's password.
 1. Save the user's recovery codes.
-1. Enable two-factor authentication. See "[AUTOTITLE](/authentication/securing-your-account-with-two-factor-authentication-2fa/configuring-two-factor-authentication)."
+1. Enable two-factor authentication. See [AUTOTITLE](/authentication/securing-your-account-with-two-factor-authentication-2fa/configuring-two-factor-authentication).
 
 {% data reusables.enterprise-accounts.emu-password-reset-session %}
 
@@ -52,7 +52,7 @@ We strongly recommend **storing the credentials for the setup user** in your com
 
 {% data reusables.enterprise-accounts.emu-configure-authentication %}
 
-{% data variables.product.company_short %} offers a "paved-path" integration and full support if you use a partner IdP for both authentication and provisioning. Alternatively, you can use any system, or combination of systems, that conforms to SAML 2.0 and SCIM 2.0. However, support for resolving problems with these systems may be limited. For more details, see "[AUTOTITLE](/admin/identity-and-access-management/understanding-iam-for-enterprises/about-enterprise-managed-users#identity-management-systems)."
+{% data variables.product.company_short %} offers a "paved-path" integration and full support if you use a partner IdP for both authentication and provisioning. Alternatively, you can use any system, or combination of systems, that conforms to SAML 2.0 and SCIM 2.0. However, support for resolving problems with these systems may be limited. For more details, see [AUTOTITLE](/admin/identity-and-access-management/understanding-iam-for-enterprises/about-enterprise-managed-users#identity-management-systems).
 
 ## Configure provisioning
 
@@ -66,5 +66,5 @@ We strongly recommend **storing the credentials for the setup user** in your com
 
 Developers may need to maintain separate, personal accounts for their work outside of your {% data variables.enterprise.prodname_emu_enterprise %}. You can help them manage multiple accounts by providing the following resources:
 
-* **On the command line**, developers can configure Git to simplify the process of using multiple accounts. See "[AUTOTITLE](/account-and-profile/setting-up-and-managing-your-personal-account-on-github/managing-your-personal-account/managing-multiple-accounts)."
-* **In the web interface**, developers can switch between accounts without always needing to re-authenticate. See "[AUTOTITLE](/authentication/keeping-your-account-and-data-secure/switching-between-accounts)."
+* **On the command line**, developers can configure Git to simplify the process of using multiple accounts. See [AUTOTITLE](/account-and-profile/setting-up-and-managing-your-personal-account-on-github/managing-your-personal-account/managing-multiple-accounts).
+* **In the web interface**, developers can switch between accounts without always needing to re-authenticate. See [AUTOTITLE](/authentication/keeping-your-account-and-data-secure/switching-between-accounts).

@@ -15,7 +15,7 @@ shortTitle: Govern repository usage
 
 {% data reusables.enterprise.repo-policy-rules-intro %}
 
->[!TIP] If you're an **organization owner**, you can create a repository policy for a specific organization. See "[AUTOTITLE](/organizations/managing-organization-settings/governing-how-people-use-repositories-in-your-organization)."
+>[!TIP] If you're an **organization owner**, you can create a repository policy for a specific organization. See [AUTOTITLE](/organizations/managing-organization-settings/governing-how-people-use-repositories-in-your-organization).
 
 ## Examples
 
@@ -61,7 +61,7 @@ Choose which organizations and repositories the policy applies to.
 
 Select all organizations, choose a selection of existing organizations, or set a dynamic list by name. If you use {% data variables.product.prodname_emus %}, you can also choose to target all repositories owned by users in your enterprise.
 
-If you set a dynamic list, you'll add one or more naming patterns using `fnmatch` syntax. For example, the string `*open-source` would match any organization with a name that ends with `open-source`. For syntax details, see "[AUTOTITLE](/repositories/configuring-branches-and-merges-in-your-repository/managing-rulesets/creating-rulesets-for-a-repository#using-fnmatch-syntax)."
+If you set a dynamic list, you'll add one or more naming patterns using `fnmatch` syntax. For example, the string `*open-source` would match any organization with a name that ends with `open-source`. For syntax details, see [AUTOTITLE](/repositories/configuring-branches-and-merges-in-your-repository/managing-rulesets/creating-rulesets-for-a-repository#using-fnmatch-syntax).
 
 #### Target repositories
 
@@ -73,4 +73,4 @@ Choose which repositories (current or future) to target in the selected organiza
 
 ## Further reading
 
-To set additional policies for repository management, see "[AUTOTITLE](/admin/enforcing-policies/enforcing-policies-for-your-enterprise/enforcing-repository-management-policies-in-your-enterprise)."
+To set additional policies for repository management, see [AUTOTITLE](/admin/enforcing-policies/enforcing-policies-for-your-enterprise/enforcing-repository-management-policies-in-your-enterprise).
