@@ -26,5 +26,5 @@ You can manually select the region that your codespaces will be created in, allo
 
 ## Further reading
 
-* "[AUTOTITLE](/codespaces/customizing-your-codespace)"
-* "[AUTOTITLE](/codespaces/managing-your-codespaces)"
+* [AUTOTITLE](/codespaces/customizing-your-codespace)
+* [AUTOTITLE](/codespaces/managing-your-codespaces)

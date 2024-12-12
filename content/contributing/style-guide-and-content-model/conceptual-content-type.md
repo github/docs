@@ -11,7 +11,7 @@ We create conceptual articles and conceptual sections within other articles. Mos
 
 ## How to write conceptual content
 
-For the conceptual content template, see "[AUTOTITLE](/contributing/writing-for-github-docs/templates#conceptual-article-template)."
+For the conceptual content template, see [AUTOTITLE](/contributing/writing-for-github-docs/templates#conceptual-article-template).
 
 * Describe in plain language what the feature, product, or topic is.
 * Describe its purpose and why it’s useful to the reader.
