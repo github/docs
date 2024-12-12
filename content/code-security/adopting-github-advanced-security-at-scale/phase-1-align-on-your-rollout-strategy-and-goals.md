@@ -10,7 +10,7 @@ shortTitle: 1. Align on strategy
 ---
 
 > [!NOTE]
-> This article is part of a series on adopting {% data variables.product.prodname_GH_advanced_security %} at scale. For the introduction to this series, see "[AUTOTITLE](/code-security/adopting-github-advanced-security-at-scale/introduction-to-adopting-github-advanced-security-at-scale)."
+> This article is part of a series on adopting {% data variables.product.prodname_GH_advanced_security %} at scale. For the introduction to this series, see [AUTOTITLE](/code-security/adopting-github-advanced-security-at-scale/introduction-to-adopting-github-advanced-security-at-scale).
 
 ## Set clear goals for your company’s rollout
 
@@ -59,4 +59,4 @@ If your company is interested in custom {% data variables.product.prodname_codeq
 When {% data variables.product.prodname_code_scanning %} is run from a pull request, the scan will include the full codebase and not just the changes made in the pull request. Scanning the entire codebase is an important step to ensure the change has been reviewed against all interactions in the codebase.
 
 > [!NOTE]
-> For the next article in this series, see "[AUTOTITLE](/code-security/adopting-github-advanced-security-at-scale/phase-2-preparing-to-enable-at-scale)."
+> For the next article in this series, see [AUTOTITLE](/code-security/adopting-github-advanced-security-at-scale/phase-2-preparing-to-enable-at-scale).

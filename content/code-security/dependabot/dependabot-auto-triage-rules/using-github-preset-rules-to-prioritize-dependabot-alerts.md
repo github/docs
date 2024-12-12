@@ -29,7 +29,7 @@ The `Dismiss low impact issues for development-scoped dependencies` rule is a {%
 > [!NOTE]
 > Automatic dismissal of low impact development alerts is currently only supported for npm.
 
-The `Dismiss low impact issues for development-scoped dependencies` rule includes vulnerabilities relating to resource management, programming and logic, and information disclosure issues. For more information, see "[Publicly disclosed CWEs used by the `Dismiss low impact issues for development-scoped dependencies` rule](#publicly-disclosed-cwes-used-by-the-dismiss-low-impact-issues-for-development-scoped-dependencies-rule)."
+The `Dismiss low impact issues for development-scoped dependencies` rule includes vulnerabilities relating to resource management, programming and logic, and information disclosure issues. For more information, see [Publicly disclosed CWEs used by the `Dismiss low impact issues for development-scoped dependencies` rule](#publicly-disclosed-cwes-used-by-the-dismiss-low-impact-issues-for-development-scoped-dependencies-rule).
 
 Filtering out these low impact alerts allows you to focus on alerts that matter to you, without having to worry about missing potentially high-risk development-scoped alerts.
 
@@ -37,7 +37,7 @@ The `Dismiss low impact issues for development-scoped dependencies` rule is enab
 
 ## Enabling the `Dismiss low impact issues for development-scoped dependencies` rule for your private repository
 
-{% ifversion fpt or ghec %}You first need to enable {% data variables.product.prodname_dependabot_alerts %} for the repository. For more information, see "[AUTOTITLE](/code-security/dependabot/dependabot-alerts/configuring-dependabot-alerts#managing-dependabot-alerts-for-your-repository)."{% elsif ghes %}{% data variables.product.prodname_dependabot_alerts %} for your repository can be enabled or disabled by your enterprise owner. For more information, see "[AUTOTITLE](/admin/configuration/configuring-github-connect/enabling-dependabot-for-your-enterprise)."{% endif %}
+{% ifversion fpt or ghec %}You first need to enable {% data variables.product.prodname_dependabot_alerts %} for the repository. For more information, see [AUTOTITLE](/code-security/dependabot/dependabot-alerts/configuring-dependabot-alerts#managing-dependabot-alerts-for-your-repository).{% elsif ghes %}{% data variables.product.prodname_dependabot_alerts %} for your repository can be enabled or disabled by your enterprise owner. For more information, see [AUTOTITLE](/admin/configuration/configuring-github-connect/enabling-dependabot-for-your-enterprise).{% endif %}
 
 {% data reusables.repositories.navigate-to-repo %}
 {% data reusables.repositories.sidebar-settings %}
