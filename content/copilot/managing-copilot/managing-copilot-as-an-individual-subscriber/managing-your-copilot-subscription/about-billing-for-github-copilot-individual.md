@@ -22,7 +22,7 @@ You can change to a monthly or yearly billing cycle at any time. The change will
 
 {% data reusables.billing.authorization-charge %}
 
-> [!NOTE] If you are an eligible student, teacher, or open-source maintainer, you can access {% data variables.product.prodname_copilot_for_individuals %} for free. See "[AUTOTITLE](/copilot/managing-copilot/managing-copilot-as-an-individual-subscriber/managing-your-copilot-subscription/getting-free-access-to-copilot-as-a-student-teacher-or-maintainer)."
+> [!NOTE] If you are an eligible student, teacher, or open-source maintainer, you can access {% data variables.product.prodname_copilot_for_individuals %} for free. See [AUTOTITLE](/copilot/managing-copilot/managing-copilot-as-an-individual-subscriber/managing-your-copilot-subscription/getting-free-access-to-copilot-as-a-student-teacher-or-maintainer).
 
 {% endif %}
 
@@ -32,7 +32,7 @@ You can change to a monthly or yearly billing cycle at any time. The change will
 
 Before starting a paid subscription for a personal account, you can set up a one-time {% data reusables.copilot.trial-period %}-day trial to evaluate {% data variables.product.prodname_copilot %}. To begin a trial, you will need to choose a monthly or yearly billing cycle, and provide a payment method. If you do not cancel the trial before the end of the {% data reusables.copilot.trial-period %} days, the trial will automatically convert to a paid subscription.
 
-You can cancel your {% data variables.product.prodname_copilot %} trial at any time during the {% data reusables.copilot.trial-period %} days and you won't be charged. If you cancel before the end of the trial, you will continue to have access to {% data variables.product.prodname_copilot %} until the {% data reusables.copilot.trial-period %}-day trial period ends. For more information, see "[AUTOTITLE](/copilot/managing-copilot/managing-copilot-as-an-individual-subscriber/canceling-your-copilot-trial-as-an-individual-user)."
+You can cancel your {% data variables.product.prodname_copilot %} trial at any time during the {% data reusables.copilot.trial-period %} days and you won't be charged. If you cancel before the end of the trial, you will continue to have access to {% data variables.product.prodname_copilot %} until the {% data reusables.copilot.trial-period %}-day trial period ends. For more information, see [AUTOTITLE](/copilot/managing-copilot/managing-copilot-as-an-individual-subscriber/canceling-your-copilot-trial-as-an-individual-user).
 
 {% data reusables.copilot.tp-users-trial-eligibility %}{% endif %}
 
@@ -40,7 +40,7 @@ You can cancel your {% data variables.product.prodname_copilot %} trial at any t
 
 {% data reusables.copilot.copilot-one-account %}
 
-You can cancel your {% data variables.product.prodname_copilot_individuals_short %} subscription at any time. The cancellation will take effect at the end of your current billing cycle. For more information, see "[AUTOTITLE](/copilot/managing-copilot/managing-copilot-as-an-individual-subscriber/managing-your-copilot-subscription/canceling-copilot-as-an-individual-user)."
+You can cancel your {% data variables.product.prodname_copilot_individuals_short %} subscription at any time. The cancellation will take effect at the end of your current billing cycle. For more information, see [AUTOTITLE](/copilot/managing-copilot/managing-copilot-as-an-individual-subscriber/managing-your-copilot-subscription/canceling-copilot-as-an-individual-user).
 
 ## Determining your billing date
 
@@ -52,6 +52,6 @@ Your billing date will depend on whether or not you are already being billed by 
 
 ## Further reading
 
-* "[AUTOTITLE](/copilot/about-github-copilot/subscription-plans-for-github-copilot)"
-* "[AUTOTITLE](/copilot/managing-copilot/managing-copilot-as-an-individual-subscriber/managing-your-copilot-subscription)"
-* "[AUTOTITLE](/billing/managing-your-github-billing-settings/adding-information-to-your-receipts)"
+* [AUTOTITLE](/copilot/about-github-copilot/subscription-plans-for-github-copilot)
+* [AUTOTITLE](/copilot/managing-copilot/managing-copilot-as-an-individual-subscriber/managing-your-copilot-subscription)
+* [AUTOTITLE](/billing/managing-your-github-billing-settings/adding-information-to-your-receipts)

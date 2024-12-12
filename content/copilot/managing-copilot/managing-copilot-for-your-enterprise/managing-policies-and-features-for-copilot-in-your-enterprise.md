@@ -77,7 +77,7 @@ You can chat with {% data variables.product.prodname_copilot %} in your IDE to g
 
 ### {% data variables.product.prodname_copilot_short %} access to {% data variables.copilot.copilot_claude_sonnet %}
 
-If you grant access to **Anthropic {% data variables.copilot.copilot_claude_sonnet %} in {% data variables.product.prodname_copilot_short %}**, members of your enterprise can choose to use this model rather than the default `GPT 4o` model. For more information, see "[AUTOTITLE](/copilot/using-github-copilot/using-claude-sonnet-in-github-copilot)."
+If you grant access to **Anthropic {% data variables.copilot.copilot_claude_sonnet %} in {% data variables.product.prodname_copilot_short %}**, members of your enterprise can choose to use this model rather than the default `GPT 4o` model. For more information, see [AUTOTITLE](/copilot/using-github-copilot/using-claude-sonnet-in-github-copilot).
 
 ### {% data variables.product.prodname_copilot_short %} access to the o1 family of models
 
@@ -90,7 +90,7 @@ By default, {% data variables.product.prodname_copilot_chat_short %} uses the `G
 
 ### {% data variables.product.prodname_copilot_short %} Metrics API access
 
-Enable this policy to allow users to use the {% data variables.product.prodname_copilot_short %} Metrics API. See "[AUTOTITLE](/rest/copilot/copilot-metrics)."
+Enable this policy to allow users to use the {% data variables.product.prodname_copilot_short %} Metrics API. See [AUTOTITLE](/rest/copilot/copilot-metrics).
 
 ## Configuring policies for {% data variables.product.prodname_copilot %}
 
