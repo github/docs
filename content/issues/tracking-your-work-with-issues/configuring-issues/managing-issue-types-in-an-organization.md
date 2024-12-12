@@ -16,7 +16,7 @@ You can use issue types to classify and manage different types of issues across 
 
 Default issue types are included in every organization, but these can edited, disabled, or deleted. The default types are task, bug, and feature.
 
-When you add an issue type to an issue, the type will be shown on any lists of issues and in the issues themselves. You can filter and search by issue type and use issue types when creating filters and views in your projects. See "[AUTOTITLE](/issues/tracking-your-work-with-issues/using-issues/filtering-and-searching-issues-and-pull-requests#filtering-by-issue-type)" and "[AUTOTITLE](/issues/planning-and-tracking-with-projects/customizing-views-in-your-project/filtering-projects#filtering-by-issue-type)."
+When you add an issue type to an issue, the type will be shown on any lists of issues and in the issues themselves. You can filter and search by issue type and use issue types when creating filters and views in your projects. See [AUTOTITLE](/issues/tracking-your-work-with-issues/using-issues/filtering-and-searching-issues-and-pull-requests#filtering-by-issue-type) and [AUTOTITLE](/issues/planning-and-tracking-with-projects/customizing-views-in-your-project/filtering-projects#filtering-by-issue-type).
 
 ## Adding an issue type
 

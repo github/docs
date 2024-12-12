@@ -31,8 +31,8 @@ Your issue and pull request dashboards are available at the top of any page. On 
    ![Screenshot of the header of any page on {% data variables.product.prodname_dotcom %}. The "Pull requests" and "Issues" tabs are highlighted with an orange outline.](/assets/images/help/navigation/issues-and-pr-dashboard.png)
 
 {% endif %}
-1. Optionally, choose a filter or use the search bar to filter for more specific results. For more information, see "[AUTOTITLE](/issues/tracking-your-work-with-issues/filtering-and-searching-issues-and-pull-requests)."
+1. Optionally, choose a filter or use the search bar to filter for more specific results. For more information, see [AUTOTITLE](/issues/tracking-your-work-with-issues/filtering-and-searching-issues-and-pull-requests).
 
 ## Further reading
 
-* "[AUTOTITLE](/account-and-profile/managing-subscriptions-and-notifications-on-github/managing-subscriptions-for-activity-on-github/viewing-your-subscriptions#reviewing-repositories-that-youre-watching)"
+* [AUTOTITLE](/account-and-profile/managing-subscriptions-and-notifications-on-github/managing-subscriptions-for-activity-on-github/viewing-your-subscriptions#reviewing-repositories-that-youre-watching)

@@ -43,7 +43,7 @@ You can review the scope and tooling for your migration to {% data variables.pro
 * **Scope:** Source, history, and metadata
 * **Tooling:** {% data variables.product.prodname_importer_proper_name %}
 * **More information:**
-  * "[AUTOTITLE](/migrations/using-github-enterprise-importer)"
+  * [AUTOTITLE](/migrations/using-github-enterprise-importer)
   * [{% data variables.product.prodname_expert_services %}](https://github.com/services/) website
 * **Caveats:**
   * {% data reusables.migrations.large-repositories-require-expert-services %}
@@ -54,7 +54,7 @@ You can review the scope and tooling for your migration to {% data variables.pro
 * **Scope:** Source, history, and metadata
 * **Tooling:** {% data variables.product.prodname_importer_proper_name %}
 * **More information:**
-  * "[AUTOTITLE](/migrations/using-github-enterprise-importer)"
+  * [AUTOTITLE](/migrations/using-github-enterprise-importer)
   * [{% data variables.product.prodname_expert_services %}](https://github.com/services/) website
 * **Caveats:**
   * {% data reusables.migrations.large-repositories-require-expert-services %}
@@ -67,7 +67,7 @@ Migrations from {% data variables.product.prodname_dotcom_the_website %} include
 * **Scope:** Source, history, and metadata
 * **Tooling:** {% data variables.product.prodname_importer_proper_name %} or {% data variables.product.prodname_expert_services %}
 * **More information:**
-  * "[AUTOTITLE](/migrations/using-github-enterprise-importer)"
+  * [AUTOTITLE](/migrations/using-github-enterprise-importer)
   * [{% data variables.product.prodname_expert_services %}](https://github.com/services/) website
 * **Caveats:**
   * {% data reusables.migrations.large-repositories-require-expert-services %}
@@ -77,7 +77,7 @@ Migrations from {% data variables.product.prodname_dotcom_the_website %} include
 
 * **Scope:** Source, history, and metadata
 * **Tooling:** {% data variables.product.prodname_importer_proper_name %}
-* **More information:** "[AUTOTITLE](/migrations/using-github-enterprise-importer)"
+* **More information:** [AUTOTITLE](/migrations/using-github-enterprise-importer)
 
 ### Azure DevOps Server to {% data variables.product.prodname_dotcom_the_website %}
 
@@ -85,23 +85,23 @@ Migrations from {% data variables.product.prodname_dotcom_the_website %} include
 * **Tooling:** Migration to Azure DevOps Services, then {% data variables.product.prodname_importer_proper_name %}
 * **More information:**
   * [Migrate data from Azure DevOps Server to Azure DevOps Services](https://learn.microsoft.com/en-us/azure/devops/migrate/migration-overview?view=azure-devops) in the Microsoft Docs
-  * "[AUTOTITLE](/migrations/using-github-enterprise-importer)"
-* **Caveats:** If you can't migrate to Azure DevOps Services first, you must perform a "source and history" migration instead. For more information, "[Migrations from any Git repository to {% data variables.product.prodname_dotcom_the_website %}](#any-git-repository-to-githubcom)."
+  * [AUTOTITLE](/migrations/using-github-enterprise-importer)
+* **Caveats:** If you can't migrate to Azure DevOps Services first, you must perform a "source and history" migration instead. For more information, [Migrations from any Git repository to {% data variables.product.prodname_dotcom_the_website %}](#any-git-repository-to-githubcom).
 
 ### Bitbucket Cloud (Bitbucket.org) to {% data variables.product.prodname_dotcom_the_website %}
 
 * **Scope:** Source and history
 * **Tooling:** Git CLI or {% data variables.product.prodname_importer %}
 * **More information:**
-  * "[AUTOTITLE](/migrations/importing-source-code/using-the-command-line-to-import-source-code/importing-an-external-git-repository-using-the-command-line)"
-  * "[AUTOTITLE]({% ifversion ghes %}/free-pro-team@latest{% endif %}/migrations/importing-source-code/using-github-importer/about-github-importer)"
+  * [AUTOTITLE](/migrations/importing-source-code/using-the-command-line-to-import-source-code/importing-an-external-git-repository-using-the-command-line)
+  * [AUTOTITLE]({% ifversion ghes %}/free-pro-team@latest{% endif %}/migrations/importing-source-code/using-github-importer/about-github-importer)
 
 ### Bitbucket Server or Bitbucket Data Center to {% data variables.product.prodname_dotcom_the_website %}
 
 * **Scope:** Source, history, and metadata
 * **Tooling:** {% data variables.product.prodname_importer_proper_name %}
 * **More information:**
-  * "[AUTOTITLE](/migrations/using-github-enterprise-importer)"
+  * [AUTOTITLE](/migrations/using-github-enterprise-importer)
   * [{% data variables.product.prodname_expert_services %}](https://github.com/services/) website
 * **Caveats:**
   * For complex repositories larger than around 5 GB, you may need to use `bbs-exporter` and Enterprise Cloud Importer instead. Enterprise Cloud Importer is only available for expert-led migrations.
@@ -121,26 +121,26 @@ Migrations from {% data variables.product.prodname_dotcom_the_website %} include
 * **Scope:** Source and history
 * **Tooling:** Git CLI or {% data variables.product.prodname_importer %} if the repository is accessible over the public internet
 * **More information:**
-  * "[AUTOTITLE](/migrations/importing-source-code/using-the-command-line-to-import-source-code/importing-an-external-git-repository-using-the-command-line)"
-  * "[AUTOTITLE]({% ifversion ghes %}/free-pro-team@latest{% endif %}/migrations/importing-source-code/using-github-importer/about-github-importer)"
+  * [AUTOTITLE](/migrations/importing-source-code/using-the-command-line-to-import-source-code/importing-an-external-git-repository-using-the-command-line)
+  * [AUTOTITLE]({% ifversion ghes %}/free-pro-team@latest{% endif %}/migrations/importing-source-code/using-github-importer/about-github-importer)
 
 ### Any Mercurial repository to {% data variables.product.prodname_dotcom_the_website %}
 
 * **Scope:** Source and history
 * **Tooling:** Mercurial, Git CLI, and Python
-* **More information:** "[AUTOTITLE](/migrations/importing-source-code/using-the-command-line-to-import-source-code/importing-a-mercurial-repository)"
+* **More information:** [AUTOTITLE](/migrations/importing-source-code/using-the-command-line-to-import-source-code/importing-a-mercurial-repository)
 
 ### Any Subversion (SVN) repository to {% data variables.product.prodname_dotcom_the_website %}
 
 * **Scope:** Source and history
 * **Tooling:** Subversion and Git CLI
-* **More information:** "[AUTOTITLE](/migrations/importing-source-code/using-the-command-line-to-import-source-code/importing-a-subversion-repository)"
+* **More information:** [AUTOTITLE](/migrations/importing-source-code/using-the-command-line-to-import-source-code/importing-a-subversion-repository)
 
 ### Any Team Foundation Version Control (TFVC) repository to {% data variables.product.prodname_dotcom_the_website %}
 
 * **Scope:** Source and history
 * **Tooling:** Azure Repos, then Git CLI
-* **More information:** "[AUTOTITLE](/migrations/importing-source-code/using-the-command-line-to-import-source-code/importing-a-team-foundation-version-control-repository)"
+* **More information:** [AUTOTITLE](/migrations/importing-source-code/using-the-command-line-to-import-source-code/importing-a-team-foundation-version-control-repository)
 
 ### Any Perforce repository to {% data variables.product.prodname_dotcom_the_website %}
 
@@ -148,13 +148,13 @@ Migrations from {% data variables.product.prodname_dotcom_the_website %} include
 * **Tooling:** `git-p4`, then Git CLI
 * **More information:**
   * [git-p4](https://git-scm.com/docs/git-p4) in the Git documentation
-  * "[AUTOTITLE](/migrations/importing-source-code/using-the-command-line-to-import-source-code/adding-locally-hosted-code-to-github#importing-a-git-repository-with-the-command-line)"
+  * [AUTOTITLE](/migrations/importing-source-code/using-the-command-line-to-import-source-code/adding-locally-hosted-code-to-github#importing-a-git-repository-with-the-command-line)
 
 ### Any other repository to {% data variables.product.prodname_dotcom_the_website %}
 
 * **Scope:** Source snapshot
 * **Tooling:** {% data variables.product.prodname_cli %} or Git CLI
-* **More information:** "[AUTOTITLE](/migrations/importing-source-code/using-the-command-line-to-import-source-code/adding-locally-hosted-code-to-github)"
+* **More information:** [AUTOTITLE](/migrations/importing-source-code/using-the-command-line-to-import-source-code/adding-locally-hosted-code-to-github)
 
 ### {% data variables.enterprise.data_residency_site %} to {% data variables.product.prodname_dotcom_the_website %}
 
@@ -188,7 +188,7 @@ Follow a link below to review the scope and tooling for your migration to {% dat
 * **Scope:** Source, history, and metadata
 * **Tooling:** {% data variables.product.prodname_importer_proper_name %}
 * **More information:**
-  * "[AUTOTITLE](/migrations/using-github-enterprise-importer)"
+  * [AUTOTITLE](/migrations/using-github-enterprise-importer)
   * [{% data variables.product.prodname_expert_services %}](https://github.com/services/) website
 * **Caveats:**
   * {% data reusables.migrations.large-repositories-require-expert-services-ghecom %}
@@ -199,7 +199,7 @@ Follow a link below to review the scope and tooling for your migration to {% dat
 * **Scope:** Source, history, and metadata
 * **Tooling:** {% data variables.product.prodname_importer_proper_name %}
 * **More information:**
-  * "[AUTOTITLE](/migrations/using-github-enterprise-importer)"
+  * [AUTOTITLE](/migrations/using-github-enterprise-importer)
   * [{% data variables.product.prodname_expert_services %}](https://github.com/services/) website
 * **Caveats:**
   * {% data reusables.migrations.large-repositories-require-expert-services-ghecom %}
@@ -210,7 +210,7 @@ Follow a link below to review the scope and tooling for your migration to {% dat
 * **Scope:** Source, history, and metadata
 * **Tooling:** {% data variables.product.prodname_importer_proper_name %} or {% data variables.product.prodname_expert_services %}
 * **More information:**
-  * "[AUTOTITLE](/migrations/using-github-enterprise-importer)"
+  * [AUTOTITLE](/migrations/using-github-enterprise-importer)
   * [{% data variables.product.prodname_expert_services %}](https://github.com/services/) website
 * **Caveats:**
   * {% data reusables.migrations.large-repositories-require-expert-services-ghecom %}
@@ -220,7 +220,7 @@ Follow a link below to review the scope and tooling for your migration to {% dat
 
 * **Scope:** Source, history, and metadata
 * **Tooling:** {% data variables.product.prodname_importer_proper_name %}
-* **More information:** "[AUTOTITLE](/migrations/using-github-enterprise-importer)"
+* **More information:** [AUTOTITLE](/migrations/using-github-enterprise-importer)
 
 ### Azure DevOps Server to {% data variables.enterprise.data_residency_site %}
 
@@ -228,22 +228,22 @@ Follow a link below to review the scope and tooling for your migration to {% dat
 * **Tooling:** Migration to Azure DevOps Services, then {% data variables.product.prodname_importer_proper_name %}
 * **More information:**
   * [Migrate data from Azure DevOps Server to Azure DevOps Services](https://learn.microsoft.com/en-us/azure/devops/migrate/migration-overview?view=azure-devops) in the Microsoft Docs
-  * "[AUTOTITLE](/migrations/using-github-enterprise-importer)"
-* **Caveats:** If you can't migrate to Azure DevOps Services first, you must perform a "source and history" migration instead. For more information, see "[Migrations from any Git repository to {% data variables.enterprise.data_residency_site %}](#any-git-repository-to-githubcom)."
+  * [AUTOTITLE](/migrations/using-github-enterprise-importer)
+* **Caveats:** If you can't migrate to Azure DevOps Services first, you must perform a "source and history" migration instead. For more information, see [Migrations from any Git repository to {% data variables.enterprise.data_residency_site %}](#any-git-repository-to-githubcom).
 
 ### Bitbucket Cloud (Bitbucket.org) to {% data variables.enterprise.data_residency_site %}
 
 * **Scope:** Source and history
 * **Tooling:** Git CLI
 * **More information:**
-  * "[AUTOTITLE](/migrations/importing-source-code/using-the-command-line-to-import-source-code/importing-an-external-git-repository-using-the-command-line)"
+  * [AUTOTITLE](/migrations/importing-source-code/using-the-command-line-to-import-source-code/importing-an-external-git-repository-using-the-command-line)
 
 ### Bitbucket Server or Bitbucket Data Center to {% data variables.enterprise.data_residency_site %}
 
 * **Scope:** Source, history, and metadata
 * **Tooling:** {% data variables.product.prodname_importer_proper_name %}
 * **More information:**
-  * "[AUTOTITLE](/migrations/using-github-enterprise-importer)"
+  * [AUTOTITLE](/migrations/using-github-enterprise-importer)
   * [{% data variables.product.prodname_expert_services %}](https://github.com/services/) website
 * **Caveats:**
   * {% data reusables.migrations.large-repositories-require-expert-services-ghecom %}
@@ -262,25 +262,25 @@ Follow a link below to review the scope and tooling for your migration to {% dat
 * **Scope:** Source and history
 * **Tooling:** Git CLI
 * **More information:**
-  * "[AUTOTITLE](/migrations/importing-source-code/using-the-command-line-to-import-source-code/importing-an-external-git-repository-using-the-command-line)"
+  * [AUTOTITLE](/migrations/importing-source-code/using-the-command-line-to-import-source-code/importing-an-external-git-repository-using-the-command-line)
 
 ### Any Mercurial repository to {% data variables.enterprise.data_residency_site %}
 
 * **Scope:** Source and history
 * **Tooling:** Mercurial, Git CLI, and Python
-* **More information:** "[AUTOTITLE](/migrations/importing-source-code/using-the-command-line-to-import-source-code/importing-a-mercurial-repository)"
+* **More information:** [AUTOTITLE](/migrations/importing-source-code/using-the-command-line-to-import-source-code/importing-a-mercurial-repository)
 
 ### Any Subversion (SVN) repository to {% data variables.enterprise.data_residency_site %}
 
 * **Scope:** Source and history
 * **Tooling:** Subversion and Git CLI
-* **More information:** "[AUTOTITLE](/migrations/importing-source-code/using-the-command-line-to-import-source-code/importing-a-subversion-repository)"
+* **More information:** [AUTOTITLE](/migrations/importing-source-code/using-the-command-line-to-import-source-code/importing-a-subversion-repository)
 
 ### Any Team Foundation Version Control (TFVC) repository to {% data variables.enterprise.data_residency_site %}
 
 * **Scope:** Source and history
 * **Tooling:** Azure Repos, then Git CLI
-* **More information:** "[AUTOTITLE](/migrations/importing-source-code/using-the-command-line-to-import-source-code/importing-a-team-foundation-version-control-repository)"
+* **More information:** [AUTOTITLE](/migrations/importing-source-code/using-the-command-line-to-import-source-code/importing-a-team-foundation-version-control-repository)
 
 ### Any Perforce repository to {% data variables.enterprise.data_residency_site %}
 
@@ -288,13 +288,13 @@ Follow a link below to review the scope and tooling for your migration to {% dat
 * **Tooling:** `git-p4`, then Git CLI
 * **More information:**
   * [git-p4](https://git-scm.com/docs/git-p4) in the Git documentation
-  * "[AUTOTITLE](/migrations/importing-source-code/using-the-command-line-to-import-source-code/adding-locally-hosted-code-to-github#importing-a-git-repository-with-the-command-line)"
+  * [AUTOTITLE](/migrations/importing-source-code/using-the-command-line-to-import-source-code/adding-locally-hosted-code-to-github#importing-a-git-repository-with-the-command-line)
 
 ### Any other repository to {% data variables.enterprise.data_residency_site %}
 
 * **Scope:** Source snapshot
 * **Tooling:** {% data variables.product.prodname_cli %} or Git CLI
-* **More information:** "[AUTOTITLE](/migrations/importing-source-code/using-the-command-line-to-import-source-code/adding-locally-hosted-code-to-github)"
+* **More information:** [AUTOTITLE](/migrations/importing-source-code/using-the-command-line-to-import-source-code/adding-locally-hosted-code-to-github)
 
 ## Migrations to {% data variables.product.prodname_ghe_server %}
 
@@ -321,28 +321,28 @@ Migrations from {% data variables.product.prodname_dotcom_the_website %} include
 * **Scope:** Source, history, and metadata
 * **Tooling:** Organization migrations API, then `ghe-migrator`
 * **More information:**
-  * "[AUTOTITLE](/enterprise-server/migrations/using-ghe-migrator/exporting-migration-data-from-githubcom)"
-  * "[AUTOTITLE](/enterprise-server/migrations/using-ghe-migrator/migrating-data-to-github-enterprise-server)"
+  * [AUTOTITLE](/enterprise-server/migrations/using-ghe-migrator/exporting-migration-data-from-githubcom)
+  * [AUTOTITLE](/enterprise-server/migrations/using-ghe-migrator/migrating-data-to-github-enterprise-server)
 
 ### {% data variables.product.prodname_ghe_server %} to {% data variables.product.prodname_ghe_server %}
 
 * **Scope:** Source, history, and metadata
 * **Tooling:** Organization migrations API, then `ghe-migrator`
 * **More information:**
-  * "[AUTOTITLE](/enterprise-server/migrations/using-ghe-migrator/exporting-migration-data-from-github-enterprise-server)"
-  * "[AUTOTITLE](/enterprise-server/migrations/using-ghe-migrator/migrating-data-to-github-enterprise-server)"
+  * [AUTOTITLE](/enterprise-server/migrations/using-ghe-migrator/exporting-migration-data-from-github-enterprise-server)
+  * [AUTOTITLE](/enterprise-server/migrations/using-ghe-migrator/migrating-data-to-github-enterprise-server)
 
 ### Azure DevOps to {% data variables.product.prodname_ghe_server %}
 
 * **Scope:** Source and history
 * **Tooling:** Git CLI
-* **More information:** "[AUTOTITLE](/migrations/importing-source-code/using-the-command-line-to-import-source-code/importing-an-external-git-repository-using-the-command-line)"
+* **More information:** [AUTOTITLE](/migrations/importing-source-code/using-the-command-line-to-import-source-code/importing-an-external-git-repository-using-the-command-line)
 
 ### Bitbucket Cloud (Bitbucket.org) to {% data variables.product.prodname_ghe_server %}
 
 * **Scope:** Source and history
 * **Tooling:** Git CLI
-* **More information:** "[AUTOTITLE](/migrations/importing-source-code/using-the-command-line-to-import-source-code/importing-an-external-git-repository-using-the-command-line)"
+* **More information:** [AUTOTITLE](/migrations/importing-source-code/using-the-command-line-to-import-source-code/importing-an-external-git-repository-using-the-command-line)
 
 ### Bitbucket Server or Bitbucket Data Center to {% data variables.product.prodname_ghe_server %}
 
@@ -350,7 +350,7 @@ Migrations from {% data variables.product.prodname_dotcom_the_website %} include
 * **Tooling:** `bbs-exporter` (expert-led migrations only), then `ghe-migrator`
 * **More information:**
   * [{% data variables.product.prodname_expert_services %}](https://github.com/services/) website
-  * "[AUTOTITLE](/enterprise-server/migrations/using-ghe-migrator/migrating-data-to-github-enterprise-server)"
+  * [AUTOTITLE](/enterprise-server/migrations/using-ghe-migrator/migrating-data-to-github-enterprise-server)
 * **Caveats:** {% data reusables.migrations.migration-instructions-for-any-git-repository-to-ghes %}
 
 ### GitLab to {% data variables.product.prodname_ghe_server %}
@@ -359,32 +359,32 @@ Migrations from {% data variables.product.prodname_dotcom_the_website %} include
 * **Tooling:** `gl-exporter` (expert-led migrations only), then `ghe-migrator`
 * **More information:**
   * [{% data variables.product.prodname_expert_services %}](https://github.com/services/) website
-  * "[AUTOTITLE](/enterprise-server/migrations/using-ghe-migrator/migrating-data-to-github-enterprise-server)"
+  * [AUTOTITLE](/enterprise-server/migrations/using-ghe-migrator/migrating-data-to-github-enterprise-server)
 * **Caveats:** {% data reusables.migrations.migration-instructions-for-any-git-repository-to-ghes %}
 
 ### Any Git repository to {% data variables.product.prodname_ghe_server %}
 
 * **Scope:** Source and history
 * **Tooling:** Git CLI
-* **More information:** "[AUTOTITLE](/enterprise-server/migrations/importing-source-code/using-the-command-line-to-import-source-code/importing-an-external-git-repository-using-the-command-line)"
+* **More information:** [AUTOTITLE](/enterprise-server/migrations/importing-source-code/using-the-command-line-to-import-source-code/importing-an-external-git-repository-using-the-command-line)
 
 ### Any Mercurial repository to {% data variables.product.prodname_ghe_server %}
 
 * **Scope:** Source and history
 * **Tooling:** Mercurial, Git CLI, and Python
-* **More information:** "[AUTOTITLE](/enterprise-server/migrations/importing-source-code/using-the-command-line-to-import-source-code/importing-a-mercurial-repository)"
+* **More information:** [AUTOTITLE](/enterprise-server/migrations/importing-source-code/using-the-command-line-to-import-source-code/importing-a-mercurial-repository)
 
 ### Any Subversion (SVN) repository to {% data variables.product.prodname_ghe_server %}
 
 * **Scope:** Source and history
 * **Tooling:** Subversion and Git CLI
-* **More information:** "[AUTOTITLE](/enterprise-server/migrations/importing-source-code/using-the-command-line-to-import-source-code/importing-a-subversion-repository)"
+* **More information:** [AUTOTITLE](/enterprise-server/migrations/importing-source-code/using-the-command-line-to-import-source-code/importing-a-subversion-repository)
 
 ### Any Team Foundation Version Control (TFVC) repository to {% data variables.product.prodname_ghe_server %}
 
 * **Scope:** Source and history
 * **Tooling:** Azure Repos, then Git CLI
-* **More information:** "[AUTOTITLE](/enterprise-server/migrations/importing-source-code/using-the-command-line-to-import-source-code/importing-a-team-foundation-version-control-repository)"
+* **More information:** [AUTOTITLE](/enterprise-server/migrations/importing-source-code/using-the-command-line-to-import-source-code/importing-a-team-foundation-version-control-repository)
 
 ### Any Perforce repository to {% data variables.product.prodname_ghe_server %}
 
@@ -392,13 +392,13 @@ Migrations from {% data variables.product.prodname_dotcom_the_website %} include
 * **Tooling:** `git-p4`, then Git CLI
 * **More information:**
   * [git-p4](https://git-scm.com/docs/git-p4) in the Git documentation
-  * "[AUTOTITLE](/enterprise-server/migrations/importing-source-code/using-the-command-line-to-import-source-code/adding-locally-hosted-code-to-github#importing-a-git-repository-with-the-command-line)"
+  * [AUTOTITLE](/enterprise-server/migrations/importing-source-code/using-the-command-line-to-import-source-code/adding-locally-hosted-code-to-github#importing-a-git-repository-with-the-command-line)
 
 ### Any other repository to {% data variables.product.prodname_ghe_server %}
 
 * **Scope:** Source snapshot
 * **Tooling:** {% data variables.product.prodname_cli %} or Git CLI
-* **More information:** "[AUTOTITLE](/migrations/importing-source-code/using-the-command-line-to-import-source-code/adding-locally-hosted-code-to-github)"
+* **More information:** [AUTOTITLE](/migrations/importing-source-code/using-the-command-line-to-import-source-code/adding-locally-hosted-code-to-github)
 
 ### {% data variables.enterprise.data_residency_site %} to {% data variables.product.prodname_ghe_server %}
 

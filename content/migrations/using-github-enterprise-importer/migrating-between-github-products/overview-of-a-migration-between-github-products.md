@@ -14,9 +14,9 @@ redirect_from:
 
 ## Overview
 
-With {% data variables.product.prodname_importer_proper_name %}, you can migrate to {% data variables.product.prodname_ghe_cloud %}. For more information, see "[AUTOTITLE](/migrations/using-github-enterprise-importer/understanding-github-enterprise-importer/about-github-enterprise-importer)".
+With {% data variables.product.prodname_importer_proper_name %}, you can migrate to {% data variables.product.prodname_ghe_cloud %}. For more information, see [AUTOTITLE](/migrations/using-github-enterprise-importer/understanding-github-enterprise-importer/about-github-enterprise-importer).
 
-If you're migrating between {% data variables.product.company_short %} products, such as from {% data variables.product.prodname_ghe_server %} to {% data variables.product.prodname_ghe_cloud %}, you can use this guide to plan and implement your migration and complete follow-up tasks. For a full list of supported migration paths, see "[AUTOTITLE](/migrations/using-github-enterprise-importer/understanding-github-enterprise-importer/about-github-enterprise-importer#supported-migration-paths)."
+If you're migrating between {% data variables.product.company_short %} products, such as from {% data variables.product.prodname_ghe_server %} to {% data variables.product.prodname_ghe_cloud %}, you can use this guide to plan and implement your migration and complete follow-up tasks. For a full list of supported migration paths, see [AUTOTITLE](/migrations/using-github-enterprise-importer/understanding-github-enterprise-importer/about-github-enterprise-importer#supported-migration-paths).
 
 ## Planning your migration
 
@@ -61,7 +61,7 @@ Migration timing is largely based on the number of pull requests and issues in a
 
 Ensure that you and your stakeholders understand what data can be migrated by {% data variables.product.prodname_importer_proper_name %}.
 
-1. Review the data that's migrated for your migration source. For more information, see "[AUTOTITLE](/migrations/using-github-enterprise-importer/migrating-between-github-products/about-migrations-between-github-products)."
+1. Review the data that's migrated for your migration source. For more information, see [AUTOTITLE](/migrations/using-github-enterprise-importer/migrating-between-github-products/about-migrations-between-github-products).
 1. Make a list of any data that you'll need to manually migrate or recreate.
 
 ### Who will run the migration?
@@ -75,20 +75,20 @@ To migrate an organization, you must be an organization owner for the source org
 Additionally, you must be an enterprise owner on the destination enterprise account. You cannot grant the migrator role for enterprise accounts.
 
 1. Confirm that the person who will run your migrations is an enterprise owner of the destination enterprise account.
-1. If that person is not an organization owner for the source organization, grant them the migrator role for the organization. For more information, see "[AUTOTITLE](/migrations/using-github-enterprise-importer/migrating-between-github-products/managing-access-for-a-migration-between-github-products#about-the-migrator-role)."
-{% data reusables.enterprise-migration-tool.confirm-migrator-has-correct-pats %} For more information, see "[AUTOTITLE](/migrations/using-github-enterprise-importer/migrating-between-github-products/managing-access-for-a-migration-between-github-products#required-scopes-for-personal-access-tokens)."
+1. If that person is not an organization owner for the source organization, grant them the migrator role for the organization. For more information, see [AUTOTITLE](/migrations/using-github-enterprise-importer/migrating-between-github-products/managing-access-for-a-migration-between-github-products#about-the-migrator-role).
+{% data reusables.enterprise-migration-tool.confirm-migrator-has-correct-pats %} For more information, see [AUTOTITLE](/migrations/using-github-enterprise-importer/migrating-between-github-products/managing-access-for-a-migration-between-github-products#required-scopes-for-personal-access-tokens).
 
 #### Deciding who will run repository migrations
 
 To migrate a repository, you must be an organization owner for both the source organization and the destination organization, or an organization owner must grant you the migrator role for each organization where you're not an owner.
 
 1. Decide whether you want an organization owner to perform your migrations, or whether you need to grant the migrator role to someone else.
-{% data reusables.enterprise-migration-tool.grant-migrator-tasks %} For more information, see "[AUTOTITLE](/migrations/using-github-enterprise-importer/migrating-between-github-products/managing-access-for-a-migration-between-github-products#about-the-migrator-role)."
+{% data reusables.enterprise-migration-tool.grant-migrator-tasks %} For more information, see [AUTOTITLE](/migrations/using-github-enterprise-importer/migrating-between-github-products/managing-access-for-a-migration-between-github-products#about-the-migrator-role).
 
    > [!NOTE]
    > Remember to grant the migrator role for both the source organization and the destination organization.
 
-{% data reusables.enterprise-migration-tool.confirm-migrator-has-correct-pats %} For more information, see "[AUTOTITLE](/migrations/using-github-enterprise-importer/migrating-between-github-products/managing-access-for-a-migration-between-github-products#required-scopes-for-personal-access-tokens)."
+{% data reusables.enterprise-migration-tool.confirm-migrator-has-correct-pats %} For more information, see [AUTOTITLE](/migrations/using-github-enterprise-importer/migrating-between-github-products/managing-access-for-a-migration-between-github-products#required-scopes-for-personal-access-tokens).
 
 ### Do we want to maintain a similar organization structure after migrating?
 
@@ -110,11 +110,11 @@ Even if you change your organizational structure, you can still prepare a script
 For repository migrations, we recommend creating a test organization to use as a destination for your trial migrations. {% data reusables.enterprise-migration-tool.about-test-organizations %}
 
 1. If you're running a repository migration, create a test organization for your trial migrations.
-1. If your source organization uses IP allow lists, configure the list to allow access by {% data variables.product.prodname_importer_proper_name %}. For more information, see "[AUTOTITLE](/migrations/using-github-enterprise-importer/migrating-between-github-products/managing-access-for-a-migration-between-github-products#configuring-ip-allow-lists-for-migrations)."
+1. If your source organization uses IP allow lists, configure the list to allow access by {% data variables.product.prodname_importer_proper_name %}. For more information, see [AUTOTITLE](/migrations/using-github-enterprise-importer/migrating-between-github-products/managing-access-for-a-migration-between-github-products#configuring-ip-allow-lists-for-migrations).
 {% data reusables.enterprise-migration-tool.trial-migrations-tasks %}
-{% data reusables.enterprise-migration-tool.configure-destination-ip-allow-list %} For more information, see "[AUTOTITLE](/migrations/using-github-enterprise-importer/migrating-between-github-products/managing-access-for-a-migration-between-github-products#configuring-ip-allow-lists-for-migrations)."
-1. If you're running a repository migration and you want to migrate {% data variables.product.prodname_GH_advanced_security %} settings, enable {% data variables.product.prodname_GH_advanced_security %} for the destination organization. For more information, see "[AUTOTITLE](/organizations/keeping-your-organization-secure/managing-security-settings-for-your-organization/managing-security-and-analysis-settings-for-your-organization)."
-1. Run your production migrations. For more information, see "[AUTOTITLE](/migrations/using-github-enterprise-importer/migrating-repositories-with-github-enterprise-importer)" or "[AUTOTITLE](/migrations/using-github-enterprise-importer/migrating-organizations-with-github-enterprise-importer)."
+{% data reusables.enterprise-migration-tool.configure-destination-ip-allow-list %} For more information, see [AUTOTITLE](/migrations/using-github-enterprise-importer/migrating-between-github-products/managing-access-for-a-migration-between-github-products#configuring-ip-allow-lists-for-migrations).
+1. If you're running a repository migration and you want to migrate {% data variables.product.prodname_GH_advanced_security %} settings, enable {% data variables.product.prodname_GH_advanced_security %} for the destination organization. For more information, see [AUTOTITLE](/organizations/keeping-your-organization-secure/managing-security-settings-for-your-organization/managing-security-and-analysis-settings-for-your-organization).
+1. Run your production migrations. For more information, see [AUTOTITLE](/migrations/using-github-enterprise-importer/migrating-repositories-with-github-enterprise-importer) or [AUTOTITLE](/migrations/using-github-enterprise-importer/migrating-organizations-with-github-enterprise-importer).
 {% data reusables.enterprise-migration-tool.delete-test-organization %}
 
 ## Completing follow-up tasks
@@ -143,7 +143,7 @@ For repository migrations, we recommend creating a test organization to use as a
 
 ### Migrating {% data variables.large_files.product_name_short %} objects
 
-{% data variables.product.prodname_importer_proper_name %} does not migrate {% data variables.large_files.product_name_short %} objects. If the source repository uses {% data variables.large_files.product_name_short %}, you can manually push {% data variables.large_files.product_name_short %} objects to the migrated repository locally. For more information, see "[AUTOTITLE](/repositories/creating-and-managing-repositories/duplicating-a-repository#mirroring-a-repository-that-contains-git-large-file-storage-objects)."
+{% data variables.product.prodname_importer_proper_name %} does not migrate {% data variables.large_files.product_name_short %} objects. If the source repository uses {% data variables.large_files.product_name_short %}, you can manually push {% data variables.large_files.product_name_short %} objects to the migrated repository locally. For more information, see [AUTOTITLE](/repositories/creating-and-managing-repositories/duplicating-a-repository#mirroring-a-repository-that-contains-git-large-file-storage-objects).
 
 ### Setting repository visibility
 
@@ -162,28 +162,28 @@ If you were using {% data variables.actions.hosted_runner %}s, self-hosted runne
 
 1. If you use self-hosted runners, reconfigure your runners.
 
-   * Add runners to the appropriate repository, organization, or enterprise. For more information, see "[AUTOTITLE](/actions/hosting-your-own-runners/managing-self-hosted-runners/adding-self-hosted-runners)."
-   * To use runners at the organization or enterprise level, update your workflows. For more information, see "[AUTOTITLE](/actions/hosting-your-own-runners/managing-self-hosted-runners/using-self-hosted-runners-in-a-workflow)."
+   * Add runners to the appropriate repository, organization, or enterprise. For more information, see [AUTOTITLE](/actions/hosting-your-own-runners/managing-self-hosted-runners/adding-self-hosted-runners).
+   * To use runners at the organization or enterprise level, update your workflows. For more information, see [AUTOTITLE](/actions/hosting-your-own-runners/managing-self-hosted-runners/using-self-hosted-runners-in-a-workflow).
 1. If you use {% data variables.actions.hosted_runner %}s, reconfigure your runners.
 
-   * Configure runner groups to control access to your runners. For more information, see "[AUTOTITLE]({% ifversion ghes %}/enterprise-cloud@latest{% endif %}/actions/using-github-hosted-runners/controlling-access-to-larger-runners)."
-   * Set up your {% data variables.actions.hosted_runner %}s. For more information, see "[AUTOTITLE]({% ifversion ghes %}/enterprise-cloud@latest{% endif %}/actions/using-github-hosted-runners/managing-larger-runners)."
-   * Update your workflows to point to your runners. For more information, see "[AUTOTITLE]({% ifversion ghes %}/enterprise-cloud@latest{% endif %}/actions/using-github-hosted-runners/running-jobs-on-larger-runners)."
+   * Configure runner groups to control access to your runners. For more information, see [AUTOTITLE]({% ifversion ghes %}/enterprise-cloud@latest{% endif %}/actions/using-github-hosted-runners/controlling-access-to-larger-runners).
+   * Set up your {% data variables.actions.hosted_runner %}s. For more information, see [AUTOTITLE]({% ifversion ghes %}/enterprise-cloud@latest{% endif %}/actions/using-github-hosted-runners/managing-larger-runners).
+   * Update your workflows to point to your runners. For more information, see [AUTOTITLE]({% ifversion ghes %}/enterprise-cloud@latest{% endif %}/actions/using-github-hosted-runners/running-jobs-on-larger-runners).
 1. Re-add any encrypted secrets.
 
-   * To use the browser, see "[AUTOTITLE](/actions/security-guides/encrypted-secrets#creating-encrypted-secrets-for-a-repository)."
+   * To use the browser, see [AUTOTITLE](/actions/security-guides/encrypted-secrets#creating-encrypted-secrets-for-a-repository).
    * To use {% data variables.product.prodname_cli %}, see [`gh secret`](https://cli.github.com/manual/gh_secret) in the {% data variables.product.prodname_cli %} documentation.
-1. Reconfigure environments. For more information, see "[AUTOTITLE](/actions/deployment/targeting-different-environments/using-environments-for-deployment)."
+1. Reconfigure environments. For more information, see [AUTOTITLE](/actions/deployment/targeting-different-environments/using-environments-for-deployment).
 
 ### Configuring IP allow lists
 
 If you added the IP ranges for {% data variables.product.prodname_importer_proper_name %} to the IP allow lists for your source or destination organizations, you can remove those entries. {% data reusables.enterprise-migration-tool.reenable-idp-ip-restrictions %}
 
-For more information, see "[AUTOTITLE](/migrations/using-github-enterprise-importer/migrating-between-github-products/managing-access-for-a-migration-between-github-products#configuring-ip-allow-lists-for-migrations)."
+For more information, see [AUTOTITLE](/migrations/using-github-enterprise-importer/migrating-between-github-products/managing-access-for-a-migration-between-github-products#configuring-ip-allow-lists-for-migrations).
 
 ### Managing {% data variables.product.prodname_GH_advanced_security %}
 
-If you enabled {% data variables.product.prodname_GH_advanced_security %} for the destination organization before migrating repositories, the settings for individual features were migrated. If not, you'll need to re-enable individual features after the migration. For more information, see "[AUTOTITLE](/enterprise-cloud@latest/repositories/managing-your-repositorys-settings-and-features/enabling-features-for-your-repository/managing-security-and-analysis-settings-for-your-repository)."
+If you enabled {% data variables.product.prodname_GH_advanced_security %} for the destination organization before migrating repositories, the settings for individual features were migrated. If not, you'll need to re-enable individual features after the migration. For more information, see [AUTOTITLE](/enterprise-cloud@latest/repositories/managing-your-repositorys-settings-and-features/enabling-features-for-your-repository/managing-security-and-analysis-settings-for-your-repository).
 
 There are additional post-migration steps for each feature.
 
@@ -191,13 +191,13 @@ There are additional post-migration steps for each feature.
 
 When secret scanning is enabled for the destination repository, a scan of the entire repository will be performed. After the scan is complete, all alerts will be populated, but without remediation states.
 
-You can use the REST API to update the alerts to mirror any remediations in the source repository. For more information, see "[AUTOTITLE](/enterprise-cloud@latest/rest/secret-scanning)."
+You can use the REST API to update the alerts to mirror any remediations in the source repository. For more information, see [AUTOTITLE](/enterprise-cloud@latest/rest/secret-scanning).
 
 The user associated with these updated remediations will be the user who owns the {% data variables.product.pat_generic %} that was used for the API calls, not the user who remediated the alert in the source repository, and the date associated with the remediation will be the date of the API call, not the date the alert was remediated in the source repository.
 
 #### {% data variables.product.prodname_code_scanning_caps %}
 
-{% data variables.product.prodname_code_scanning_caps %} alerts are not migrated by {% data variables.product.prodname_importer_proper_name %}. However, the alerts are available as SARIF data in the source repository. You can use the REST API to upload this data to the destination repository. For more information, see "[AUTOTITLE](/enterprise-cloud@latest/rest/code-scanning)."
+{% data variables.product.prodname_code_scanning_caps %} alerts are not migrated by {% data variables.product.prodname_importer_proper_name %}. However, the alerts are available as SARIF data in the source repository. You can use the REST API to upload this data to the destination repository. For more information, see [AUTOTITLE](/enterprise-cloud@latest/rest/code-scanning).
 
 {% data variables.product.prodname_code_scanning_caps %} alerts that are populated this way will differ from the original alerts in the source repository.
 
@@ -210,11 +210,11 @@ The user associated with these updated remediations will be the user who owns th
 
 When {% data variables.product.prodname_dependabot_alerts %} and the dependency graph are enabled, {% data variables.product.prodname_dependabot_alerts %} will be rebuilt from the current state of the default branch. Remediation states of these alerts are not migrated, and any previous alerts are also not migrated.
 
-You'll need to re-add any encrypted secrets for {% data variables.product.prodname_dependabot %}. For more information, see "[AUTOTITLE](/enterprise-cloud@latest/code-security/dependabot/working-with-dependabot/configuring-access-to-private-registries-for-dependabot)."
+You'll need to re-add any encrypted secrets for {% data variables.product.prodname_dependabot %}. For more information, see [AUTOTITLE](/enterprise-cloud@latest/code-security/dependabot/working-with-dependabot/configuring-access-to-private-registries-for-dependabot).
 
 ### Reconfiguring features for {% data variables.enterprise.data_residency_short %}
 
-If you have migrated from {% data variables.product.prodname_dotcom_the_website %} to {% data variables.enterprise.data_residency %}, some features work differently, and some features will require different or additional configuration. See "[AUTOTITLE](/enterprise-cloud@latest/admin/data-residency/feature-overview-for-github-enterprise-cloud-with-data-residency)."
+If you have migrated from {% data variables.product.prodname_dotcom_the_website %} to {% data variables.enterprise.data_residency %}, some features work differently, and some features will require different or additional configuration. See [AUTOTITLE](/enterprise-cloud@latest/admin/data-residency/feature-overview-for-github-enterprise-cloud-with-data-residency).
 
 ### Enabling webhooks
 
@@ -229,7 +229,7 @@ All active webhooks in the source repository are migrated. However, the migrated
 
 ### Reinstalling {% data variables.product.prodname_github_apps %}
 
-If you had any {% data variables.product.prodname_github_apps %} installed on the source repository, you'll need to reinstall them on the migrated repository. For more information, see "[AUTOTITLE](/apps/maintaining-github-apps/installing-github-apps)."
+If you had any {% data variables.product.prodname_github_apps %} installed on the source repository, you'll need to reinstall them on the migrated repository. For more information, see [AUTOTITLE](/apps/maintaining-github-apps/installing-github-apps).
 
 ### Recreating teams
 
@@ -239,17 +239,17 @@ If you migrated on an organization-by-organization basis, you only need to reins
 
 Teams and their repository access are migrated as part of an organization migration, but team membership is not. After your migration, you must add users to the migrated teams.
 
-We highly recommend using team synchronization to manage team membership through your identity provider (IdP). For more information, see "[AUTOTITLE](/enterprise-cloud@latest/admin/identity-and-access-management/using-enterprise-managed-users-for-iam/configuring-scim-provisioning-for-enterprise-managed-users)" or, for enterprises that do not use {% data variables.product.prodname_emus %}, "[AUTOTITLE](/enterprise-cloud@latest/admin/identity-and-access-management/using-saml-for-enterprise-iam/managing-team-synchronization-for-organizations-in-your-enterprise)."
+We highly recommend using team synchronization to manage team membership through your identity provider (IdP). For more information, see [AUTOTITLE](/enterprise-cloud@latest/admin/identity-and-access-management/using-enterprise-managed-users-for-iam/configuring-scim-provisioning-for-enterprise-managed-users) or, for enterprises that do not use {% data variables.product.prodname_emus %}, [AUTOTITLE](/enterprise-cloud@latest/admin/identity-and-access-management/using-saml-for-enterprise-iam/managing-team-synchronization-for-organizations-in-your-enterprise).
 
-Otherwise, you can manually add members to your organization, and then add organization members to teams. For more information, see "[AUTOTITLE](/organizations/organizing-members-into-teams/adding-organization-members-to-a-team)."
+Otherwise, you can manually add members to your organization, and then add organization members to teams. For more information, see [AUTOTITLE](/organizations/organizing-members-into-teams/adding-organization-members-to-a-team).
 
 #### Recreating teams for repository migrations
 
 Teams are not migrated as part of a repository migration. You must manually recreate teams and give each team access to the repository.
 
-1. Re-create teams. For more information, see "[AUTOTITLE](/organizations/organizing-members-into-teams/creating-a-team)."
-1. Add organization members to teams. For more information, see "[AUTOTITLE](/organizations/organizing-members-into-teams/adding-organization-members-to-a-team)."
-1. Give each team access to the repository. For more information, see "[AUTOTITLE](/organizations/managing-user-access-to-your-organizations-repositories/managing-repository-roles/managing-team-access-to-an-organization-repository)."
+1. Re-create teams. For more information, see [AUTOTITLE](/organizations/organizing-members-into-teams/creating-a-team).
+1. Add organization members to teams. For more information, see [AUTOTITLE](/organizations/organizing-members-into-teams/adding-organization-members-to-a-team).
+1. Give each team access to the repository. For more information, see [AUTOTITLE](/organizations/managing-user-access-to-your-organizations-repositories/managing-repository-roles/managing-team-access-to-an-organization-repository).
 
 ### Reclaiming mannequins
 
