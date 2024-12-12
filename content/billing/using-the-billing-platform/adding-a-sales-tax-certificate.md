@@ -27,7 +27,7 @@ You can upload a sales tax exemption certificate to your organization account if
 {% ifversion fpt or ghec %}
 
 > [!NOTE]
-> This option is not available for accounts that use the {% data variables.product.company_short %} Standard Terms of Service. For information about updating your organization, see "[AUTOTITLE](/organizations/managing-organization-settings/upgrading-to-the-github-customer-agreement)."
+> This option is not available for accounts that use the {% data variables.product.company_short %} Standard Terms of Service. For information about updating your organization, see [AUTOTITLE](/organizations/managing-organization-settings/upgrading-to-the-github-customer-agreement).
 
 {% endif %}
 

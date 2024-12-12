@@ -38,10 +38,10 @@ shortTitle: Update access credentials
      * If you have set up [{% data variables.product.prodname_mobile %}](https://github.com/mobile), click **Authenticate with {% data variables.product.prodname_mobile %}** instead.
      {% endif %}
      {% ifversion 2fa-recovery-flow %}
-     * If you have forgotten your password and you've lost access to your two-factor authentication credentials, click **Start a 2FA recovery request**. For more information, see "[AUTOTITLE](/authentication/securing-your-account-with-two-factor-authentication-2fa/recovering-your-account-if-you-lose-your-2fa-credentials)."
+     * If you have forgotten your password and you've lost access to your two-factor authentication credentials, click **Start a 2FA recovery request**. For more information, see [AUTOTITLE](/authentication/securing-your-account-with-two-factor-authentication-2fa/recovering-your-account-if-you-lose-your-2fa-credentials).
      {% endif %}
 1. In the text field under **Password**, type a new password. Then, in the text field under **Confirm password**, type the password again.
-1. Click **Change password**. For help creating a strong password, see "[AUTOTITLE](/authentication/keeping-your-account-and-data-secure/creating-a-strong-password)."
+1. Click **Change password**. For help creating a strong password, see [AUTOTITLE](/authentication/keeping-your-account-and-data-secure/creating-a-strong-password).
 
 > [!TIP]
 > To avoid losing your password in the future, we suggest using a secure password manager.
@@ -53,7 +53,7 @@ shortTitle: Update access credentials
 1. Sign in to {% data variables.product.product_name %}.
 {% data reusables.user-settings.access_settings %}
 {% data reusables.user-settings.security %}
-1. Under "Change password", type your old password, a strong new password, and confirm your new password. For help creating a strong password, see "[AUTOTITLE](/authentication/keeping-your-account-and-data-secure/creating-a-strong-password)."
+1. Under "Change password", type your old password, a strong new password, and confirm your new password. For help creating a strong password, see [AUTOTITLE](/authentication/keeping-your-account-and-data-secure/creating-a-strong-password).
 1. Click **Update password**.
 
 > [!TIP]
@@ -61,18 +61,18 @@ shortTitle: Update access credentials
 
 ## Updating your access tokens
 
-See "[AUTOTITLE](/apps/using-github-apps/reviewing-your-authorized-integrations)" for instructions on reviewing and deleting access tokens. To generate new access tokens, see "[AUTOTITLE](/authentication/keeping-your-account-and-data-secure/creating-a-personal-access-token)."
+See [AUTOTITLE](/apps/using-github-apps/reviewing-your-authorized-integrations) for instructions on reviewing and deleting access tokens. To generate new access tokens, see [AUTOTITLE](/authentication/keeping-your-account-and-data-secure/creating-a-personal-access-token).
 
-If you have reset your account password and would also like to trigger a sign-out from the {% data variables.product.prodname_mobile %} app, you can revoke your authorization of the "GitHub iOS" or "GitHub Android" {% data variables.product.prodname_oauth_app %}. This will sign out all instances of the {% data variables.product.prodname_mobile %} app associated with your account. For additional information, see "[AUTOTITLE](/apps/using-github-apps/reviewing-your-authorized-integrations)."
+If you have reset your account password and would also like to trigger a sign-out from the {% data variables.product.prodname_mobile %} app, you can revoke your authorization of the "GitHub iOS" or "GitHub Android" {% data variables.product.prodname_oauth_app %}. This will sign out all instances of the {% data variables.product.prodname_mobile %} app associated with your account. For additional information, see [AUTOTITLE](/apps/using-github-apps/reviewing-your-authorized-integrations).
 
 ## Updating your SSH keys
 
-See "[AUTOTITLE](/authentication/keeping-your-account-and-data-secure/reviewing-your-ssh-keys)" for instructions on reviewing and deleting SSH keys. To generate and add new SSH keys, see "[AUTOTITLE](/authentication/connecting-to-github-with-ssh)."
+See [AUTOTITLE](/authentication/keeping-your-account-and-data-secure/reviewing-your-ssh-keys) for instructions on reviewing and deleting SSH keys. To generate and add new SSH keys, see [AUTOTITLE](/authentication/connecting-to-github-with-ssh).
 
 ## Resetting API tokens
 
-If you have any applications registered with {% data variables.product.product_name %}, you'll want to reset their OAuth tokens. For more information, see the `PATCH /applications/{client_id}/token` endpoint in "[AUTOTITLE](/rest/apps/oauth-applications#reset-a-token)."
+If you have any applications registered with {% data variables.product.product_name %}, you'll want to reset their OAuth tokens. For more information, see the `PATCH /applications/{client_id}/token` endpoint in [AUTOTITLE](/rest/apps/oauth-applications#reset-a-token).
 
 ## Preventing unauthorized access
 
-For more tips on securing your account and preventing unauthorized access, see "[AUTOTITLE](/authentication/keeping-your-account-and-data-secure/preventing-unauthorized-access)."
+For more tips on securing your account and preventing unauthorized access, see [AUTOTITLE](/authentication/keeping-your-account-and-data-secure/preventing-unauthorized-access).

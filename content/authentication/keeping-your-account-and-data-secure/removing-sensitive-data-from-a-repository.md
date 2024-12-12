@@ -120,7 +120,7 @@ To illustrate how `git filter-repo` works, we'll show you how to remove your fil
       > [!IMPORTANT] If the file with sensitive data used to exist at any other paths (because it was moved or renamed), you must run this command on those paths, as well.
 
 1. Double-check that you've removed everything you wanted to from your repository's history.
-1. The `git filter-repo` tool will automatically remove your configured remotes. Use the `git remote set-url` command to restore your remotes, replacing `OWNER` and `REPO` with your repository details. For more information, see "[AUTOTITLE](/get-started/getting-started-with-git/managing-remote-repositories#adding-a-remote-repository)."
+1. The `git filter-repo` tool will automatically remove your configured remotes. Use the `git remote set-url` command to restore your remotes, replacing `OWNER` and `REPO` with your repository details. For more information, see [AUTOTITLE](/get-started/getting-started-with-git/managing-remote-repositories#adding-a-remote-repository).
 
    ```shell
    git remote add origin https://github.com/OWNER/REPOSITORY.git
@@ -173,7 +173,7 @@ After using `git filter-repo` to remove the sensitive data and pushing your chan
 
 {% endif %}
 
-1. Contact {% data variables.contact.contact_support %}, and ask to remove cached views and references to the sensitive data in pull requests on {% data variables.product.product_name %}. Please provide the name of the repository and/or a link to the commit you need removed.{% ifversion ghes %} For more information about how site administrators can remove unreachable Git objects, see "[AUTOTITLE](/admin/configuration/configuring-your-enterprise/command-line-utilities#ghe-repo-gc)." For more information about how site administrators can identify reachable commits, see "[Identifying reachable commits](#identifying-reachable-commits)."{% endif %}{% ifversion fpt or ghec %}
+1. Contact {% data variables.contact.contact_support %}, and ask to remove cached views and references to the sensitive data in pull requests on {% data variables.product.product_name %}. Please provide the name of the repository and/or a link to the commit you need removed.{% ifversion ghes %} For more information about how site administrators can remove unreachable Git objects, see [AUTOTITLE](/admin/configuration/configuring-your-enterprise/command-line-utilities#ghe-repo-gc). For more information about how site administrators can identify reachable commits, see [Identifying reachable commits](#identifying-reachable-commits).{% endif %}{% ifversion fpt or ghec %}
 
    > [!IMPORTANT] {% data variables.contact.github_support %} won't remove non-sensitive data, and will only assist in the removal of sensitive data in cases where we determine that the risk can't be mitigated by rotating affected credentials.
 
@@ -221,7 +221,7 @@ Once garbage collection has successfully removed the commit, you'll want to brow
 
 ## Avoiding accidental commits in the future
 
-Preventing contributors from making accidental commits can help you prevent sensitive information from being exposed. For more information see "[AUTOTITLE](/code-security/getting-started/best-practices-for-preventing-data-leaks-in-your-organization)."
+Preventing contributors from making accidental commits can help you prevent sensitive information from being exposed. For more information see [AUTOTITLE](/code-security/getting-started/best-practices-for-preventing-data-leaks-in-your-organization).
 
 There are a few things you can do to avoid committing or pushing things that should not be shared:
 
@@ -232,10 +232,10 @@ There are a few things you can do to avoid committing or pushing things that sho
 * Avoid the catch-all commands `git add .` and `git commit -a` on the command line—use `git add filename` and `git rm filename` to individually stage files, instead.
 * Use `git add --interactive` to individually review and stage changes within each file.
 * Use `git diff --cached` to review the changes that you have staged for commit. This is the exact diff that `git commit` will produce as long as you don't use the `-a` flag.
-* Enable push protection for your repository to detect and prevent pushes which contain hardcoded secrets from being committed to your codebase. For more information, see "[AUTOTITLE](/code-security/secret-scanning/introduction/about-push-protection)."
+* Enable push protection for your repository to detect and prevent pushes which contain hardcoded secrets from being committed to your codebase. For more information, see [AUTOTITLE](/code-security/secret-scanning/introduction/about-push-protection).
 
 ## Further reading
 
 * [`git filter-repo` man page](https://htmlpreview.github.io/?https://github.com/newren/git-filter-repo/blob/docs/html/git-filter-repo.html)
 * [Pro Git: Git Tools - Rewriting History](https://git-scm.com/book/en/v2/Git-Tools-Rewriting-History)
-* "[AUTOTITLE](/code-security/secret-scanning/introduction/about-secret-scanning)"
+* [AUTOTITLE](/code-security/secret-scanning/introduction/about-secret-scanning)

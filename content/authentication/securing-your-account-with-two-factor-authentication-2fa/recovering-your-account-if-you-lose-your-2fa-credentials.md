@@ -27,7 +27,7 @@ shortTitle: Recover an account with 2FA
 
 ## Using a two-factor authentication recovery code
 
-Use one of your recovery codes to automatically regain entry into your account. You may have saved your recovery codes to a password manager or your computer's downloads folder. The default filename for recovery codes is `github-recovery-codes.txt`. For more information about recovery codes, see "[AUTOTITLE](/authentication/securing-your-account-with-two-factor-authentication-2fa/configuring-two-factor-authentication-recovery-methods#downloading-your-two-factor-authentication-recovery-codes)."
+Use one of your recovery codes to automatically regain entry into your account. You may have saved your recovery codes to a password manager or your computer's downloads folder. The default filename for recovery codes is `github-recovery-codes.txt`. For more information about recovery codes, see [AUTOTITLE](/authentication/securing-your-account-with-two-factor-authentication-2fa/configuring-two-factor-authentication-recovery-methods#downloading-your-two-factor-authentication-recovery-codes).
 
 1. Type your username and password to prompt authentication.
 
@@ -41,13 +41,13 @@ Use one of your recovery codes to automatically regain entry into your account. 
 
 ## Authenticating with a passkey
 
-If you have added a passkey to your account, you can use your passkey to automatically regain access to your account. Passkeys satisfy both password and 2FA requirements, so you don't need to know your password in order to recover your account. See "[AUTOTITLE](/authentication/authenticating-with-a-passkey/about-passkeys)."
+If you have added a passkey to your account, you can use your passkey to automatically regain access to your account. Passkeys satisfy both password and 2FA requirements, so you don't need to know your password in order to recover your account. See [AUTOTITLE](/authentication/authenticating-with-a-passkey/about-passkeys).
 
 {% endif %}
 
 ## Authenticating with a security key
 
-If you configured two-factor authentication using a security key, you can use your security key as a secondary authentication method to automatically regain access to your account. For more information, see "[AUTOTITLE](/authentication/securing-your-account-with-two-factor-authentication-2fa/configuring-two-factor-authentication#configuring-two-factor-authentication-using-a-security-key)."
+If you configured two-factor authentication using a security key, you can use your security key as a secondary authentication method to automatically regain access to your account. For more information, see [AUTOTITLE](/authentication/securing-your-account-with-two-factor-authentication-2fa/configuring-two-factor-authentication#configuring-two-factor-authentication-using-a-security-key).
 
 {% ifversion fpt or ghec %}
 
@@ -97,7 +97,7 @@ If you have forgotten your password and you've lost access to your two-factor au
 
 ### Unlinking your email address
 
-Alternatively, if no recovery methods are available, you can choose to unlink your email address from your account. The email address is then available for you to link it to a new or existing account, maintaining your commit history. For more information, see "[AUTOTITLE](/account-and-profile/setting-up-and-managing-your-personal-account-on-github/managing-your-personal-account/unlinking-your-email-address-from-a-locked-account)."
+Alternatively, if no recovery methods are available, you can choose to unlink your email address from your account. The email address is then available for you to link it to a new or existing account, maintaining your commit history. For more information, see [AUTOTITLE](/account-and-profile/setting-up-and-managing-your-personal-account-on-github/managing-your-personal-account/unlinking-your-email-address-from-a-locked-account).
 
 {% data reusables.accounts.unlinking-email-address %}
 
@@ -105,4 +105,4 @@ Alternatively, if no recovery methods are available, you can choose to unlink yo
 
 ## Further reading
 
-* "[AUTOTITLE](/authentication/securing-your-account-with-two-factor-authentication-2fa/configuring-two-factor-authentication-recovery-methods)"
+* [AUTOTITLE](/authentication/securing-your-account-with-two-factor-authentication-2fa/configuring-two-factor-authentication-recovery-methods)

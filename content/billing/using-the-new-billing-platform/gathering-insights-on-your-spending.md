@@ -81,5 +81,5 @@ You can also view your active {% data variables.product.prodname_enterprise %} i
 ## Further reading
 
 {% ifversion ghec %}
-* "[AUTOTITLE](/rest/enterprise-admin/billing)"{% endif %}
-* "[AUTOTITLE](/billing/using-the-new-billing-platform/adding-seats-to-your-account)"
+* [AUTOTITLE](/rest/enterprise-admin/billing){% endif %}
+* [AUTOTITLE](/billing/using-the-new-billing-platform/adding-seats-to-your-account)
