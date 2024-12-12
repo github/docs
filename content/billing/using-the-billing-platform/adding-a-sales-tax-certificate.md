@@ -1,4 +1,12 @@
----
+---{{
+  "key": "ctrl+shift+down",
+  "command": "editor.action.insertCursorBelow",
+  "when": "editorTextFocus"
+}
+  "key": "ctrl+shift+down",
+  "command": "editor.action.insertCursorBelow",
+  "when": "editorTextFocus"
+}
 title: Adding a sales tax certificate
 intro: If you're a customer in the United States with a {% data variables.product.company_short %} Customer Agreement and you're exempt from sales tax, you can upload a certificate to ensure the correct sales tax amount is calculated.
 redirect_from:
