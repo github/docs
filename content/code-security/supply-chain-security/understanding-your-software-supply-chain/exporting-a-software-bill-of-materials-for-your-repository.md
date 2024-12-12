@@ -38,4 +38,4 @@ If your company provides software to the US federal government per [Executive Or
 
 ## Exporting a software bill of materials for your repository using the REST API
 
-If you want to use the REST API to export an SBOM for your repository, see "[AUTOTITLE](/rest/dependency-graph/sboms#export-a-software-bill-of-materials-sbom-for-a-repository)."
+If you want to use the REST API to export an SBOM for your repository, see [AUTOTITLE](/rest/dependency-graph/sboms#export-a-software-bill-of-materials-sbom-for-a-repository).

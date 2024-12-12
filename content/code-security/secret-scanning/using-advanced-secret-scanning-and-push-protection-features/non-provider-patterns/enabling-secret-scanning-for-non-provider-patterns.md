@@ -38,10 +38,10 @@ For more information about non-provider patterns, see "{% ifversion fpt or ghec 
 
 ### Enabling detection of non-provider patterns for an organization
 
-You can enable scanning for non-provider patterns at the organization level {% ifversion security-configurations-cloud %}using the {% data variables.product.prodname_github_security_configuration %} or {% endif %}by applying a custom security configuration. For more information, see {% ifversion security-configurations-cloud %}"[AUTOTITLE](/code-security/securing-your-organization/enabling-security-features-in-your-organization/applying-the-github-recommended-security-configuration-in-your-organization)" and {% endif %}"[AUTOTITLE](/code-security/securing-your-organization/enabling-security-features-in-your-organization/creating-a-custom-security-configuration)."
+You can enable scanning for non-provider patterns at the organization level {% ifversion security-configurations-cloud %}using the {% data variables.product.prodname_github_security_configuration %} or {% endif %}by applying a custom security configuration. For more information, see {% ifversion security-configurations-cloud %}[AUTOTITLE](/code-security/securing-your-organization/enabling-security-features-in-your-organization/applying-the-github-recommended-security-configuration-in-your-organization) and {% endif %}[AUTOTITLE](/code-security/securing-your-organization/enabling-security-features-in-your-organization/creating-a-custom-security-configuration).
 
 {% endif %}
 
 ## Further reading
 
-* "[AUTOTITLE](/code-security/secret-scanning/managing-alerts-from-secret-scanning)"
+* [AUTOTITLE](/code-security/secret-scanning/managing-alerts-from-secret-scanning)

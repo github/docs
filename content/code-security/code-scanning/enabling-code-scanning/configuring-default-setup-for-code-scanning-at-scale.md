@@ -23,21 +23,21 @@ With default setup for {% data variables.product.prodname_code_scanning %}, you 
 
 You can enable {% data variables.product.prodname_code_scanning %} for all repositories in your organization that are eligible for default setup. After enabling default setup, the code written in {% data variables.product.prodname_codeql %}-supported languages in repositories in the organization will be scanned:
 
-* On each push to the repository's default branch, or any protected branch. For more information on protected branches, see "[AUTOTITLE](/repositories/configuring-branches-and-merges-in-your-repository/managing-protected-branches/about-protected-branches)."
+* On each push to the repository's default branch, or any protected branch. For more information on protected branches, see [AUTOTITLE](/repositories/configuring-branches-and-merges-in-your-repository/managing-protected-branches/about-protected-branches).
 * When creating or committing to a pull request based against the repository's default branch, or any protected branch, excluding pull requests from forks.{% ifversion default-setup-scan-on-schedule %}
 * On a weekly schedule.{% endif %}
 
-For more information, see "[Configuring default setup for all eligible repositories in an organization](#configuring-default-setup-for-all-eligible-repositories-in-an-organization)."
+For more information, see [Configuring default setup for all eligible repositories in an organization](#configuring-default-setup-for-all-eligible-repositories-in-an-organization).
 
 {% ifversion code-security-multi-repo-enablement %}
 
-You can also use security overview to find a set of repositories in your organization and enable or disable default setup for all of them at the same time. For more information, see "[Configuring default setup for a subset of repositories in an organization](#configuring-default-setup-for-a-subset-of-repositories-in-an-organization)."
+You can also use security overview to find a set of repositories in your organization and enable or disable default setup for all of them at the same time. For more information, see [Configuring default setup for a subset of repositories in an organization](#configuring-default-setup-for-a-subset-of-repositories-in-an-organization).
 
 {% endif %}
 
-You can also create different default setup configurations for individual repositories. For more information on configuring default setup at the repository level, see "[AUTOTITLE](/code-security/code-scanning/enabling-code-scanning/configuring-default-setup-for-code-scanning)."
+You can also create different default setup configurations for individual repositories. For more information on configuring default setup at the repository level, see [AUTOTITLE](/code-security/code-scanning/enabling-code-scanning/configuring-default-setup-for-code-scanning).
 
-For repositories that are not eligible for default setup, you can configure advanced setup at the repository level, or at the organization level using a script. For more information, see "[AUTOTITLE](/code-security/code-scanning/creating-an-advanced-setup-for-code-scanning/configuring-advanced-setup-for-code-scanning-with-codeql-at-scale)."
+For repositories that are not eligible for default setup, you can configure advanced setup at the repository level, or at the organization level using a script. For more information, see [AUTOTITLE](/code-security/code-scanning/creating-an-advanced-setup-for-code-scanning/configuring-advanced-setup-for-code-scanning-with-codeql-at-scale).
 
 <!-- Anchor to maintain the UI link to this heading -->
 <a name="eligible-repositories-default-setup"></a>
@@ -74,9 +74,9 @@ If the code in a repository changes to include {% ifversion code-scanning-defaul
 
 ## Configuring default setup for all eligible repositories in an organization
 
-{% ifversion security-configurations %} You can enable default setup for all eligible repositories in your organization. For more information, see "[AUTOTITLE](/code-security/securing-your-organization/introduction-to-securing-your-organization-at-scale/about-enabling-security-features-at-scale)."
+{% ifversion security-configurations %} You can enable default setup for all eligible repositories in your organization. For more information, see [AUTOTITLE](/code-security/securing-your-organization/introduction-to-securing-your-organization-at-scale/about-enabling-security-features-at-scale).
 {% else %}
-Through the "Code security and analysis" page of your organization's settings, you can enable default setup for all eligible repositories in your organization. For more information on repository eligibility, see "[Eligible repositories for {% data variables.product.prodname_codeql %} default setup at scale](#eligible-repositories-default-setup)."
+Through the "Code security and analysis" page of your organization's settings, you can enable default setup for all eligible repositories in your organization. For more information on repository eligibility, see [Eligible repositories for {% data variables.product.prodname_codeql %} default setup at scale](#eligible-repositories-default-setup).
 
 {% data reusables.code-scanning.beta-org-enable-all %}
 
@@ -84,14 +84,14 @@ Through the "Code security and analysis" page of your organization's settings, y
 {% data reusables.profile.org_settings %}
 {% data reusables.organizations.security-and-analysis %}
 1. Click **Enable all** next to "{% data variables.product.prodname_code_scanning_caps %}".{% ifversion bulk-code-scanning-query-suite %}
-1. In the "Query suites" section of the "Enable {% data variables.product.prodname_code_scanning %} default setup" dialog box displayed, select the query suite your configuration of default setup will run. For more information, see "[AUTOTITLE](/code-security/code-scanning/managing-your-code-scanning-configuration/codeql-query-suites)."
+1. In the "Query suites" section of the "Enable {% data variables.product.prodname_code_scanning %} default setup" dialog box displayed, select the query suite your configuration of default setup will run. For more information, see [AUTOTITLE](/code-security/code-scanning/managing-your-code-scanning-configuration/codeql-query-suites).
 1. To enable your configuration of default setup, click **Enable for eligible repositories**.
 1. Optionally, to recommend the "Extended" query suite throughout your organization when enabling default setup, select "Recommend the extended query suite for repositories enabling default setup."{% else %}
 1. In the "Enable {% data variables.product.prodname_code_scanning %} for eligible repositories" dialog box displayed, click **Enable for eligible repositories** to enable your configuration of default setup.{% endif %}
 
 > [!NOTE]
 > * {% data reusables.code-scanning.limitation-org-enable-all %}
-> * Enabling {% data variables.product.prodname_code_scanning %} for all eligible repositories in an organization will not override existing {% data variables.product.prodname_code_scanning %} configurations. For information on configuring default setup with different settings for specific repositories, see "[AUTOTITLE](/code-security/code-scanning/enabling-code-scanning/configuring-default-setup-for-code-scanning){% ifversion code-security-multi-repo-enablement %}" and "[Configuring default setup for a subset of repositories in an organization](#configuring-default-setup-for-a-subset-of-repositories-in-an-organization){% endif %}."{% ifversion default-setup-pre-enablement %}
+> * Enabling {% data variables.product.prodname_code_scanning %} for all eligible repositories in an organization will not override existing {% data variables.product.prodname_code_scanning %} configurations. For information on configuring default setup with different settings for specific repositories, see [AUTOTITLE](/code-security/code-scanning/enabling-code-scanning/configuring-default-setup-for-code-scanning){% ifversion code-security-multi-repo-enablement %} and [Configuring default setup for a subset of repositories in an organization](#configuring-default-setup-for-a-subset-of-repositories-in-an-organization){% endif %}.{% ifversion default-setup-pre-enablement %}
 > * Enabling default setup for all eligible repositories in an organization includes eligible repositories without {% data variables.product.prodname_codeql %}-supported languages. If a {% data variables.product.prodname_codeql %}-supported language is later added to one of these repositories, default setup will begin scanning that repository and consuming {% data variables.product.prodname_actions %} minutes.{% endif %}
 
 {% endif %}
@@ -100,7 +100,7 @@ Through the "Code security and analysis" page of your organization's settings, y
 
 ### Extending {% data variables.product.prodname_codeql %} coverage in default setup
 
-Through your organization's security settings page, you can extend coverage in default setup using model packs for all eligible repositories in your organization. For more information, see "[AUTOTITLE](/code-security/code-scanning/managing-your-code-scanning-configuration/editing-your-configuration-of-default-setup#extending-coverage-for-all-repositories-in-an-organization)."
+Through your organization's security settings page, you can extend coverage in default setup using model packs for all eligible repositories in your organization. For more information, see [AUTOTITLE](/code-security/code-scanning/managing-your-code-scanning-configuration/editing-your-configuration-of-default-setup#extending-coverage-for-all-repositories-in-an-organization).
 {% endif %}
 
 {% ifversion code-security-multi-repo-enablement %}
@@ -109,11 +109,11 @@ Through your organization's security settings page, you can extend coverage in d
 
 {% ifversion security-configurations %}
 
-You can filter for specific repositories you would like to configure default setup for. For more information, see "[AUTOTITLE](/code-security/securing-your-organization/enabling-security-features-in-your-organization/applying-a-custom-security-configuration)."
+You can filter for specific repositories you would like to configure default setup for. For more information, see [AUTOTITLE](/code-security/securing-your-organization/enabling-security-features-in-your-organization/applying-a-custom-security-configuration).
 
 {% endif %}
 
-Through security overview for your organization, you can find eligible repositories for default setup, then enable default setup across each of those repositories simultaneously. For more information on repository eligibility, see "[Eligible repositories for {% data variables.product.prodname_codeql %} default setup at scale](#eligible-repositories-default-setup)."
+Through security overview for your organization, you can find eligible repositories for default setup, then enable default setup across each of those repositories simultaneously. For more information on repository eligibility, see [Eligible repositories for {% data variables.product.prodname_codeql %} default setup at scale](#eligible-repositories-default-setup).
 
 ### Finding repositories that are eligible for default setup
 
@@ -144,7 +144,7 @@ Through security overview for your organization, you can find eligible repositor
 
 {% ifversion pre-security-configurations %}
 
-You can select all of the displayed repositories, or a subset of them, and enable or disable default setup for {% data variables.product.prodname_code_scanning %} for them all at the same time. For more information, see step 5 of "[Configuring default setup at scale for multiple repositories in an organization](#configuring-default-setup-at-scale-for-multiple-repositories-in-an-organization)."
+You can select all of the displayed repositories, or a subset of them, and enable or disable default setup for {% data variables.product.prodname_code_scanning %} for them all at the same time. For more information, see step 5 of [Configuring default setup at scale for multiple repositories in an organization](#configuring-default-setup-at-scale-for-multiple-repositories-in-an-organization).
 
 ### Configuring default setup at scale for multiple repositories in an organization
 
@@ -157,7 +157,7 @@ You can select all of the displayed repositories, or a subset of them, and enabl
    * To enable {% data variables.product.prodname_code_scanning %} for all repositories that match the current search, select the checkbox next to **NUMBER Active**, then click **Select all NUMBER repos**.
 1. Click **Security settings** next to **NUMBER selected**.
 1. In the side panel, in the "{% data variables.product.prodname_codeql %} Default Setup" section, select **No change**, then click **Enable**.{% ifversion bulk-code-scanning-query-suite %}
-1. Optionally, to choose a different query suite than your organization's default query suite, select **Query suite: SUITE NAME**, then click the query suite your configuration of default setup should use. For more information, see "[AUTOTITLE](/code-security/code-scanning/managing-your-code-scanning-configuration/codeql-query-suites)."{% endif %}
+1. Optionally, to choose a different query suite than your organization's default query suite, select **Query suite: SUITE NAME**, then click the query suite your configuration of default setup should use. For more information, see [AUTOTITLE](/code-security/code-scanning/managing-your-code-scanning-configuration/codeql-query-suites).{% endif %}
 1. To confirm the enablement of {% data variables.product.prodname_code_scanning %} for the selected repositories, click **Apply changes NUMBER**. Alternatively, to select or deselect more repositories for {% data variables.product.prodname_code_scanning %} enablement, click {% octicon "x" aria-label="Close" %} to close the panel without applying your changes.
 
 > [!NOTE]
@@ -170,7 +170,7 @@ You can select all of the displayed repositories, or a subset of them, and enabl
 
   ![Screenshot of the "Security coverage" view with the side panel open. The "Apply changes" button is highlighted in a dark orange outline.](/assets/images/help/security-overview/security-coverage-view-multi-repo-side-panel.png)
 
-  If you're blocked from enabling {% data variables.product.prodname_code_scanning %} due to an enterprise policy, you will still be able to see the affected repository in the "Security Coverage" view and access the side panel from the **{% octicon "gear" aria-hidden="true" %} Security settings** button. However, you will see a message in the side panel indicating that you cannot enable {% data variables.product.prodname_code_scanning %} for the selected repositories. For more information about enterprise policies, see "[AUTOTITLE](/admin/policies/enforcing-policies-for-your-enterprise/enforcing-policies-for-code-security-and-analysis-for-your-enterprise)."
+  If you're blocked from enabling {% data variables.product.prodname_code_scanning %} due to an enterprise policy, you will still be able to see the affected repository in the "Security Coverage" view and access the side panel from the **{% octicon "gear" aria-hidden="true" %} Security settings** button. However, you will see a message in the side panel indicating that you cannot enable {% data variables.product.prodname_code_scanning %} for the selected repositories. For more information about enterprise policies, see [AUTOTITLE](/admin/policies/enforcing-policies-for-your-enterprise/enforcing-policies-for-code-security-and-analysis-for-your-enterprise).
 
 {% endif %}
 
@@ -185,7 +185,7 @@ You can use rulesets to prevent pull requests from being merged when one of the 
 
 {% data reusables.code-scanning.merge-protection-rulesets-conditions %}
 
-For more information, see "[AUTOTITLE](/code-security/code-scanning/managing-your-code-scanning-configuration/set-code-scanning-merge-protection#creating-a-merge-protection-ruleset-for-all-repositories-in-an-organization)." For more general information about rulesets, see "[AUTOTITLE](/repositories/configuring-branches-and-merges-in-your-repository/managing-rulesets/about-rulesets)."
+For more information, see [AUTOTITLE](/code-security/code-scanning/managing-your-code-scanning-configuration/set-code-scanning-merge-protection#creating-a-merge-protection-ruleset-for-all-repositories-in-an-organization). For more general information about rulesets, see [AUTOTITLE](/repositories/configuring-branches-and-merges-in-your-repository/managing-rulesets/about-rulesets).
 
 {% endif %}
 {% endif %}
