@@ -67,34 +67,6 @@ The alert details page of alerts on development-scoped packages shows a "Tags" s
 
 ![Screenshot showing the "Tags" section in the alert details page. The label is highlighted with a dark orange outline.](/assets/images/help/repository/dependabot-alerts-tags-section.png)
 
-{% ifversion dependabot-alerts-vulnerable-calls %}
-
-## About the detection of calls to vulnerable functions
-
-{% data reusables.dependabot.vulnerable-calls-beta %}
-
-When {% data variables.product.prodname_dependabot %} tells you that your repository uses a vulnerable dependency, you need to determine what the vulnerable functions are and check whether you are using them. Once you have this information, then you can determine how urgently you need to upgrade to a secure version of the dependency.
-
-For supported languages, {% data variables.product.prodname_dependabot %} automatically detects whether you use a vulnerable function and adds the label "Vulnerable call" to affected alerts. You can use this information in the {% data variables.product.prodname_dependabot_alerts %} view to triage and prioritize remediation work more effectively.
-
-> [!NOTE]
-> During the {% data variables.release-phases.public_preview %} release, this feature is available only for new Python advisories created _after_ April 14, 2022, and for a subset of historical Python advisories. {% data variables.product.prodname_dotcom %} is working to backfill data across additional historical Python advisories, which are added on a rolling basis. Vulnerable calls are highlighted only on the {% data variables.product.prodname_dependabot_alerts %} pages.
-
-![Screenshot showing an alert with the "Vulnerable call" label. The label is outlined in orange.](/assets/images/help/repository/dependabot-alerts-vulnerable-call-label.png)
-
-You can filter the view to show only alerts where {% data variables.product.prodname_dependabot %} detected at least one call to a vulnerable function using the `has:vulnerable-calls` filter in the search field.
-
-For alerts where vulnerable calls are detected, the alert details page shows additional information:
-
-* One or more code blocks showing where the function is used.
-* An annotation listing the function itself, with a link to the line where the function is called.
-
-![Screenshot showing a {% data variables.product.prodname_dependabot %} alert with a "Vulnerable call" label. A code block, showing "Vulnerable function called", and a link, titled "See all your affected repositories", are highlighted with a dark orange outline.](/assets/images/help/repository/review-calls-to-vulnerable-functions.png)
-
-For more information, see [Reviewing and fixing alerts](#reviewing-and-fixing-alerts) below.
-
-{% endif %}
-
 ## Viewing {% data variables.product.prodname_dependabot_alerts %}
 
 {% data reusables.dependabot.where-to-view-dependabot-alerts %} You can sort and filter {% data variables.product.prodname_dependabot_alerts %} by selecting a filter from the dropdown menu.
@@ -119,12 +91,6 @@ It’s important to ensure that all of your dependencies are clean of any securi
 If a patched version of the dependency is available, you can generate a {% data variables.product.prodname_dependabot %} pull request to update this dependency directly from a {% data variables.product.prodname_dependabot %} alert. If you have {% data variables.product.prodname_dependabot_security_updates %} enabled, the pull request may be linked in the {% data variables.product.prodname_dependabot %} alert.
 
 In cases where a patched version is not available, or you can’t update to the secure version, {% data variables.product.prodname_dependabot %} shares additional information to help you determine next steps. When you click through to view a {% data variables.product.prodname_dependabot %} alert, you can see the full details of the security advisory for the dependency including the affected functions. You can then check whether your code calls the impacted functions. This information can help you further assess your risk level, and determine workarounds or if you’re able to accept the risk represented by the security advisory.
-
-{% ifversion dependabot-alerts-vulnerable-calls %}
-
-For supported languages, {% data variables.product.prodname_dependabot %} detects calls to vulnerable functions for you. When you view an alert labeled as "Vulnerable call", the details include the name of the function and a link to the code that calls it. Often you will be able to take decisions based on this information, without exploring further.
-
-{% endif %}
 
 {% ifversion copilot-chat-ghas-alerts %}
 
