@@ -16,7 +16,7 @@ topics:
 {% ifversion fpt or ghec %}
 
 > [!NOTE]
-> If you have a project hosted on another Git-based hosting service, you can automatically import your project to {% data variables.product.prodname_dotcom %} using the {% data variables.product.prodname_importer %} tool. For more information, see "[AUTOTITLE](/migrations/importing-source-code/using-github-importer/about-github-importer)."
+> If you have a project hosted on another Git-based hosting service, you can automatically import your project to {% data variables.product.prodname_dotcom %} using the {% data variables.product.prodname_importer %} tool. For more information, see [AUTOTITLE](/migrations/importing-source-code/using-github-importer/about-github-importer).
 
 {% endif %}
 
@@ -116,7 +116,7 @@ If you want to mirror a repository in another location, including getting update
 
 ## Further reading
 
-* "[AUTOTITLE](/desktop/making-changes-in-a-branch/pushing-changes-to-github-from-github-desktop#pushing-changes-to-github)"
-* "[AUTOTITLE](/desktop/configuring-and-customizing-github-desktop/about-git-large-file-storage-and-github-desktop)"
+* [AUTOTITLE](/desktop/making-changes-in-a-branch/pushing-changes-to-github-from-github-desktop#pushing-changes-to-github)
+* [AUTOTITLE](/desktop/configuring-and-customizing-github-desktop/about-git-large-file-storage-and-github-desktop)
 
 {% endif %}
