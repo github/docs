@@ -33,4 +33,4 @@ You can see all recently starred gists from other users by going to the {% data 
 
 ## Further reading
 
-* "[AUTOTITLE](/get-started/exploring-projects-on-github/saving-repositories-with-stars)"
+* [AUTOTITLE](/get-started/exploring-projects-on-github/saving-repositories-with-stars)
