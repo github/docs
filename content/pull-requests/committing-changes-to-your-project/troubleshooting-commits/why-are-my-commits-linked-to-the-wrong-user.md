@@ -20,8 +20,8 @@ shortTitle: Linked to wrong user
 
 If your commits are linked to another user, that means the email address in your local Git configuration settings is connected to that user's account on {% data variables.product.product_name %}. In this case, you can change the email in your local Git configuration settings and add the new email address to your account on {% data variables.location.product_location %} account to link future commits to your account.
 
-1. To change the email address in your local Git configuration, follow the steps in "[AUTOTITLE](/account-and-profile/setting-up-and-managing-your-personal-account-on-github/managing-email-preferences/setting-your-commit-email-address#setting-your-commit-email-address-in-git)." If you work on multiple machines, you will need to change this setting on each one.
-1. Add the email address from step 2 to your account settings by following the steps in "[AUTOTITLE](/account-and-profile/setting-up-and-managing-your-personal-account-on-github/managing-email-preferences/adding-an-email-address-to-your-github-account)."
+1. To change the email address in your local Git configuration, follow the steps in [AUTOTITLE](/account-and-profile/setting-up-and-managing-your-personal-account-on-github/managing-email-preferences/setting-your-commit-email-address#setting-your-commit-email-address-in-git). If you work on multiple machines, you will need to change this setting on each one.
+1. Add the email address from step 2 to your account settings by following the steps in [AUTOTITLE](/account-and-profile/setting-up-and-managing-your-personal-account-on-github/managing-email-preferences/adding-an-email-address-to-your-github-account).
 
 Commits you make from this point forward will be linked to your account.
 
@@ -43,4 +43,4 @@ If your commits are not linked to any user, the commit author's name will not be
 
 ## Further reading
 
-* "[AUTOTITLE](/search-github/searching-on-github/searching-commits)"
+* [AUTOTITLE](/search-github/searching-on-github/searching-commits)

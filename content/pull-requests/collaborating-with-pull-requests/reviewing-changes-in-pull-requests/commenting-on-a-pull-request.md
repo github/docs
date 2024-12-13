@@ -21,9 +21,9 @@ shortTitle: Comment on a PR
 
 You can comment on a pull request's **Conversation** tab to leave general comments, questions, or props. You can also suggest changes that the author of the pull request can apply directly from your comment.
 
-You can also comment on specific {% ifversion pull-request-comment-on-file %}files or {% endif %}sections of a file in a pull request's **Files changed** tab in the form of individual line {% ifversion pull-request-comment-on-file %}or file {% endif %}comments, or as part of a pull request review. Adding line {% ifversion pull-request-comment-on-file %}or file {% endif %}comments is a great way to discuss questions about implementation or provide feedback to the author. For more information about pull request reviews, see "[AUTOTITLE](/pull-requests/collaborating-with-pull-requests/reviewing-changes-in-pull-requests/about-pull-request-reviews)."
+You can also comment on specific {% ifversion pull-request-comment-on-file %}files or {% endif %}sections of a file in a pull request's **Files changed** tab in the form of individual line {% ifversion pull-request-comment-on-file %}or file {% endif %}comments, or as part of a pull request review. Adding line {% ifversion pull-request-comment-on-file %}or file {% endif %}comments is a great way to discuss questions about implementation or provide feedback to the author. For more information about pull request reviews, see [AUTOTITLE](/pull-requests/collaborating-with-pull-requests/reviewing-changes-in-pull-requests/about-pull-request-reviews).
 
-For more information on adding line {% ifversion pull-request-comment-on-file %}or file {% endif %}comments to a pull request review, see "[AUTOTITLE](/pull-requests/collaborating-with-pull-requests/reviewing-changes-in-pull-requests/reviewing-proposed-changes-in-a-pull-request)."
+For more information on adding line {% ifversion pull-request-comment-on-file %}or file {% endif %}comments to a pull request review, see [AUTOTITLE](/pull-requests/collaborating-with-pull-requests/reviewing-changes-in-pull-requests/reviewing-proposed-changes-in-a-pull-request).
 
 > [!NOTE]
 > If you reply to a pull request via email, your comment will be added on the **Conversation** tab and will not be part of a pull request review.
@@ -53,6 +53,6 @@ Anyone watching the pull request or repository will receive a notification of yo
 
 ## Further reading
 
-* "[AUTOTITLE](/get-started/writing-on-github)"
-{% ifversion fpt or ghec %}- "[AUTOTITLE](/communities/maintaining-your-safety-on-github/reporting-abuse-or-spam)"
+* [AUTOTITLE](/get-started/writing-on-github)
+{% ifversion fpt or ghec %}- [AUTOTITLE](/communities/maintaining-your-safety-on-github/reporting-abuse-or-spam)
 {% endif %}
