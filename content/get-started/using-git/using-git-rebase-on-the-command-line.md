@@ -141,4 +141,4 @@ $ git push origin main --force
 
 ## Further reading
 
-* "[AUTOTITLE](/get-started/using-git/resolving-merge-conflicts-after-a-git-rebase)"
+* [AUTOTITLE](/get-started/using-git/resolving-merge-conflicts-after-a-git-rebase)

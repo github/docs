@@ -23,7 +23,7 @@ This type of permanent link will render as a code snippet only in the repository
 ![Screenshot of an issue comment. A code snippet has a header that lists the file name and line numbers, and a body that lists the code on those lines.](/assets/images/help/repository/rendered-code-snippet.png)
 
 > [!TIP]
-> To create a permalink for an entire file, see "[AUTOTITLE](/repositories/working-with-files/using-files/getting-permanent-links-to-files)."
+> To create a permalink for an entire file, see [AUTOTITLE](/repositories/working-with-files/using-files/getting-permanent-links-to-files).
 
 {% data reusables.repositories.navigate-to-repo %}
 1. Locate the code you'd like to link to:
@@ -44,5 +44,5 @@ You can link to a specific line in the Markdown file the same way you can in cod
 
 ## Further reading
 
-* "[AUTOTITLE](/issues/tracking-your-work-with-issues/creating-an-issue)"
-* "[AUTOTITLE](/pull-requests/collaborating-with-pull-requests/reviewing-changes-in-pull-requests)"
+* [AUTOTITLE](/issues/tracking-your-work-with-issues/creating-an-issue)
+* [AUTOTITLE](/pull-requests/collaborating-with-pull-requests/reviewing-changes-in-pull-requests)
