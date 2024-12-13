@@ -10,9 +10,6 @@ FROM node:22-alpine@sha256:c13b26e7e602ef2f1074aef304ce6e9b7dd284c419b35d89fcf3c
 # This directory is owned by the node user
 ARG APP_HOME=/home/node/app
 
-# Make sure there's a translations directory available to not error the COPY command
-RUN mkdir -p translations && chown -R node:node translations
-
 # Make sure we don't run anything as the root user
 USER node
 
@@ -112,4 +109,4 @@ FROM preview AS production
 ENV ENABLED_LANGUAGES "en,zh,es,pt,ru,ja,fr,de,ko"
 
 # Copy in all translations
-COPY --chown=node:node --from=base translations ./translations
+COPY --chown=node:node translations ./translations
