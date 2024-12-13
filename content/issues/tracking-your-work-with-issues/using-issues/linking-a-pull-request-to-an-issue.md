@@ -28,7 +28,7 @@ You can link an issue to a pull request manually or using a supported keyword in
 
 When you link a pull request to the issue the pull request addresses, collaborators can see that someone is working on the issue.
 
-When you merge a linked pull request into the default branch of a repository, its linked issue is automatically closed. For more information about the default branch, see "[AUTOTITLE](/repositories/configuring-branches-and-merges-in-your-repository/managing-branches-in-your-repository/changing-the-default-branch)."
+When you merge a linked pull request into the default branch of a repository, its linked issue is automatically closed. For more information about the default branch, see [AUTOTITLE](/repositories/configuring-branches-and-merges-in-your-repository/managing-branches-in-your-repository/changing-the-default-branch).
 
 ## Linking a pull request to an issue using a keyword
 
@@ -90,4 +90,4 @@ You can manually link up to ten issues to each pull request. The issue can be in
 
 ## Further reading
 
-* "[AUTOTITLE](/get-started/writing-on-github/working-with-advanced-formatting/autolinked-references-and-urls#issues-and-pull-requests)"
+* [AUTOTITLE](/get-started/writing-on-github/working-with-advanced-formatting/autolinked-references-and-urls#issues-and-pull-requests)

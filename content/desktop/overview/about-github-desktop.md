@@ -36,10 +36,10 @@ You can use {% data variables.product.prodname_desktop %} alongside any tools yo
 
 ## Getting started
 
-{% data variables.product.prodname_desktop %} is available for Windows and macOS. For information about installing and getting started with {% data variables.product.prodname_desktop %}, see "[AUTOTITLE](/desktop/overview/getting-started-with-github-desktop)."
+{% data variables.product.prodname_desktop %} is available for Windows and macOS. For information about installing and getting started with {% data variables.product.prodname_desktop %}, see [AUTOTITLE](/desktop/overview/getting-started-with-github-desktop).
 
 If you're interested in the open source {% data variables.product.prodname_desktop %} project, you can see the roadmap, contribute to the project, or open an issue to provide feedback in the [`desktop/desktop`](https://github.com/desktop/desktop) repository.
 
 ## Further reading
 
-* "[AUTOTITLE](/get-started/using-git/about-git)"
+* [AUTOTITLE](/get-started/using-git/about-git)

@@ -24,7 +24,7 @@ You have the option to use {% data variables.product.prodname_copilot_short %}'s
 
 You can call {% data variables.product.prodname_copilot_short %}'s LLM deployment at `{% data variables.copilot.chat_completions_api %}` with a POST request. The request and responses should be in the same format as the OpenAI API.
 
-To authenticate, use the same `X-Github-Token` header sent to your agent. For more information, see "[AUTOTITLE](/copilot/building-copilot-extensions/building-a-copilot-agent-for-your-copilot-extension/configuring-your-copilot-agent-to-communicate-with-github#fetching-resources-from-the-github-api)."
+To authenticate, use the same `X-Github-Token` header sent to your agent. For more information, see [AUTOTITLE](/copilot/building-copilot-extensions/building-a-copilot-agent-for-your-copilot-extension/configuring-your-copilot-agent-to-communicate-with-github#fetching-resources-from-the-github-api).
 
 Here is an example of how {% data variables.product.prodname_copilot_short %}'s LLM deployment is used by the Blackbeard extension to generate completions for a user message:
 

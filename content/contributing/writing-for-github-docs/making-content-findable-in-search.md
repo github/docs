@@ -33,12 +33,12 @@ Craft content around **search intent**: the task, question, or problem that driv
 
 ### Use clear language
 
-Follow guidance in "[AUTOTITLE](/contributing/writing-for-github-docs/best-practices-for-github-docs)," including:
+Follow guidance in [AUTOTITLE](/contributing/writing-for-github-docs/best-practices-for-github-docs), including:
 
 * Ensure every article has a clear, discrete topic.
 * Put higher priority content first in an article.
 * Structure articles with clear headings.
-* Edit content for consistency following the "[AUTOTITLE](/contributing/style-guide-and-content-model/style-guide)."
+* Edit content for consistency following the [AUTOTITLE](/contributing/style-guide-and-content-model/style-guide).
 
 ### Incorporate keywords
 
@@ -48,19 +48,19 @@ Google and Bing both offer keyword research tools to help you discover relevant 
 
 ### Include metadata
 
-Use complete metadata in the frontmatter. To see the values available, see "[AUTOTITLE](/contributing/writing-for-github-docs/using-yaml-frontmatter)."
+Use complete metadata in the frontmatter. To see the values available, see [AUTOTITLE](/contributing/writing-for-github-docs/using-yaml-frontmatter).
 
 On {% data variables.product.prodname_docs %}, the `intro` element displays as an on-page subhead and serves as the HTML metadata description. The article title serves as the HTML page title. For good SEO:
 
 * Write the title and `intro` to be complementary and keyword-rich. Consider how they will render in research.
-* Accompany all images with keyword-rich alt text, which is also metadata used by search engines. See "[Alt text](/contributing/style-guide-and-content-model/style-guide#alt-text)" in the {% data variables.product.prodname_docs %} Style Guide.
+* Accompany all images with keyword-rich alt text, which is also metadata used by search engines. See [Alt text](/contributing/style-guide-and-content-model/style-guide#alt-text) in the {% data variables.product.prodname_docs %} Style Guide.
 
 ### Link strategically
 
-Link frugally to other task-relevant pages on {% data variables.product.prodname_docs %} and high-quality peer sites, following "[Links](/contributing/style-guide-and-content-model/style-guide#links)" in the {% data variables.product.prodname_docs %} Style Guide.
+Link frugally to other task-relevant pages on {% data variables.product.prodname_docs %} and high-quality peer sites, following [Links](/contributing/style-guide-and-content-model/style-guide#links) in the {% data variables.product.prodname_docs %} Style Guide.
 
 Ensure that incoming links do not break by carefully maintaining redirects.
 
 ### Maintain accuracy
 
-Ensure content is free of errors in fact, spelling, and style. Audit content periodically to remove errors such as broken links and to retire unneeded content. See "[AUTOTITLE](/contributing/writing-for-github-docs/configuring-redirects)."
+Ensure content is free of errors in fact, spelling, and style. Audit content periodically to remove errors such as broken links and to retire unneeded content. See [AUTOTITLE](/contributing/writing-for-github-docs/configuring-redirects).

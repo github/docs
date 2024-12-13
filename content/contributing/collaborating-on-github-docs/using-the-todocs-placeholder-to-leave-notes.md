@@ -14,7 +14,7 @@ Sometimes technical writers use placeholders while writing documentation to remi
 To prevent slips, use the string `TODOCS` as your placeholder. The Docs test suite includes a [linting test](https://github.com/github/docs/tree/main/src/content-linter) that will fail if it finds this string anywhere in a Markdown or YAML file.
 
 > [!NOTE]
-> If you use {% data variables.product.prodname_vscode_shortname %} as your text editor, the "[TODO Highlight](https://marketplace.visualstudio.com/items?itemName=wayou.vscode-todo-highlight)" extension is useful for highlighting instances of "TODOCS" in your files. Add "TODOCS" and other varieties of casing, such as "todocs," to the settings for this extension.
+> If you use {% data variables.product.prodname_vscode_shortname %} as your text editor, the [TODO Highlight](https://marketplace.visualstudio.com/items?itemName=wayou.vscode-todo-highlight) extension is useful for highlighting instances of "TODOCS" in your files. Add "TODOCS" and other varieties of casing, such as "todocs," to the settings for this extension.
 
 ### Example
 

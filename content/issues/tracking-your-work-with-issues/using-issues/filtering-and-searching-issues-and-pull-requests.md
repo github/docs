@@ -280,4 +280,4 @@ For example, if you filter on issues assigned to Hubot, and sort on the oldest o
 
 ## Further reading
 
-* "[AUTOTITLE](/search-github/searching-on-github/searching-issues-and-pull-requests)"
+* [AUTOTITLE](/search-github/searching-on-github/searching-issues-and-pull-requests)

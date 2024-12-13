@@ -19,7 +19,7 @@ Code with poor readability is difficult for other developers to maintain and ext
 * [Reducing nested logic](#reducing-nested-logic)
 * [Splitting large methods into smaller, more readable ones](#splitting-up-large-methods)
 
-Documenting your code is another way to improve the maintainability of your code. For information about using {% data variables.product.prodname_copilot_chat_short %} to help you add useful comments to your code, see the example prompts in "[Documenting code](/copilot/example-prompts-for-github-copilot-chat/documenting-code)."
+Documenting your code is another way to improve the maintainability of your code. For information about using {% data variables.product.prodname_copilot_chat_short %} to help you add useful comments to your code, see the example prompts in [Documenting code](/copilot/example-prompts-for-github-copilot-chat/documenting-code).
 
 > [!NOTE] The responses shown in this article are examples. {% data variables.product.prodname_copilot_chat_short %} responses are non-deterministic, so you may get different responses from the ones shown here.
 

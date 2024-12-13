@@ -84,7 +84,7 @@ For other tasks, such as downloading a migration log, you only need one {% data 
 The scopes that are required for your {% data variables.product.prodname_dotcom %} {% data variables.product.pat_v1 %} depend on your role and the task you want to complete.
 
 > [!NOTE]
-> {% data reusables.user-settings.generic-classic-pat-only %} This means that you cannot use {% data variables.product.prodname_importer_proper_name %} if your organization uses the "Restrict {% data variables.product.pat_v1_plural %} from accessing your organizations" policy. For more information, see "[AUTOTITLE](/enterprise-cloud@latest/admin/policies/enforcing-policies-for-your-enterprise/enforcing-policies-for-personal-access-tokens-in-your-enterprise#restricting-access-by-personal-access-tokens)."
+> {% data reusables.user-settings.generic-classic-pat-only %} This means that you cannot use {% data variables.product.prodname_importer_proper_name %} if your organization uses the "Restrict {% data variables.product.pat_v1_plural %} from accessing your organizations" policy. For more information, see [AUTOTITLE](/enterprise-cloud@latest/admin/policies/enforcing-policies-for-your-enterprise/enforcing-policies-for-personal-access-tokens-in-your-enterprise#restricting-access-by-personal-access-tokens).
 
 Task | Enterprise owner | Organization owner | Migrator
 ---- | ------------------ | -------- | ----- |
@@ -97,18 +97,18 @@ Running an organization migration (destination enterprise) | `read:enterprise`, 
 
 ## Granting the migrator role
 
-To allow someone other than an organization owner to run a repository migration or download migration logs, you can grant the migrator role to a user or team. For more information, see "[About the migrator role](#about-the-migrator-role)."
+To allow someone other than an organization owner to run a repository migration or download migration logs, you can grant the migrator role to a user or team. For more information, see [About the migrator role](#about-the-migrator-role).
 
 You can grant the migrator role using either the {% data variables.product.prodname_gei_cli %} or the GraphQL API.
 
-* "[Granting the migrator role with the {% data variables.product.prodname_gei_cli_short %}](#granting-the-migrator-role-with-the-gei-extension)"
-* "[Granting the migrator role with the GraphQL API](#granting-the-migrator-role-with-the-graphql-api)"
+* [Granting the migrator role with the {% data variables.product.prodname_gei_cli_short %}](#granting-the-migrator-role-with-the-gei-extension)
+* [Granting the migrator role with the GraphQL API](#granting-the-migrator-role-with-the-graphql-api)
 
 ### Granting the migrator role with the {% data variables.product.prodname_gei_cli_short %}
 
-To grant the migrator role using the CLI, you must have installed the {% data variables.product.prodname_gei_cli %}. For more information, see "[AUTOTITLE](/migrations/using-github-enterprise-importer/migrating-between-github-products/migrating-repositories-from-githubcom-to-github-enterprise-cloud#step-1-install-the-gei-extension-of-the-github-cli)."
+To grant the migrator role using the CLI, you must have installed the {% data variables.product.prodname_gei_cli %}. For more information, see [AUTOTITLE](/migrations/using-github-enterprise-importer/migrating-between-github-products/migrating-repositories-from-githubcom-to-github-enterprise-cloud#step-1-install-the-gei-extension-of-the-github-cli).
 
-1. On {% data variables.product.prodname_dotcom_the_website %}, create and record a {% data variables.product.pat_generic %} that meets all the requirements for granting the migrator role. For more information, see "[Creating a {% data variables.product.pat_generic %} for {% data variables.product.prodname_importer_proper_name %}](#creating-a-personal-access-token-for-github-enterprise-importer)."
+1. On {% data variables.product.prodname_dotcom_the_website %}, create and record a {% data variables.product.pat_generic %} that meets all the requirements for granting the migrator role. For more information, see [Creating a {% data variables.product.pat_generic %} for {% data variables.product.prodname_importer_proper_name %}](#creating-a-personal-access-token-for-github-enterprise-importer).
 {% data reusables.enterprise-migration-tool.grant-migrator-role-pat %}
 1. Use the `gh gei grant-migrator-role` command, replacing ORGANIZATION with the organization you want to grant the migrator role for, ACTOR with the user or team name, and TYPE with `USER` or `TEAM`.
 
@@ -146,4 +146,4 @@ In addition, if you are migrating from {% data variables.product.prodname_ghe_se
 
 ## Further reading
 
-* "[AUTOTITLE](/organizations/managing-peoples-access-to-your-organization-with-roles/roles-in-an-organization)"
+* [AUTOTITLE](/organizations/managing-peoples-access-to-your-organization-with-roles/roles-in-an-organization)

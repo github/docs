@@ -26,15 +26,15 @@ redirect_from:
 
 {% endjetbrains_beta %}
 
-You can reopen any of your active or stopped codespaces on {% data variables.product.github %}, in a JetBrains IDE, in {% data variables.product.prodname_vscode %}, or by using {% data variables.product.prodname_cli %}. You can't reopen a codespace that has been deleted. See "[AUTOTITLE](/codespaces/getting-started/understanding-the-codespace-lifecycle)."
+You can reopen any of your active or stopped codespaces on {% data variables.product.github %}, in a JetBrains IDE, in {% data variables.product.prodname_vscode %}, or by using {% data variables.product.prodname_cli %}. You can't reopen a codespace that has been deleted. See [AUTOTITLE](/codespaces/getting-started/understanding-the-codespace-lifecycle).
 
 You can view all your codespaces on the "Your codespaces" page at [github.com/codespaces](https://github.com/codespaces). From this page, you can:
 
 * Open, stop, or delete your codespaces.
-* See who owns (and may be billed for) your codespaces: your personal account, or organizations you belong to. See "[AUTOTITLE](/billing/managing-billing-for-your-products/managing-billing-for-github-codespaces/about-billing-for-github-codespaces)."
+* See who owns (and may be billed for) your codespaces: your personal account, or organizations you belong to. See [AUTOTITLE](/billing/managing-billing-for-your-products/managing-billing-for-github-codespaces/about-billing-for-github-codespaces).
 * See the machine type, size, and status of your codespaces.
-* Create a new codespace, either by choosing one of {% data variables.product.company_short %}'s templates or by clicking **New codespace**. See "[AUTOTITLE](/codespaces/developing-in-a-codespace/creating-a-codespace-from-a-template)" and "[AUTOTITLE](/codespaces/developing-in-a-codespace/creating-a-codespace-for-a-repository)."
-* Prevent automatic deletion of a codespace. See "[AUTOTITLE](/codespaces/setting-your-user-preferences/configuring-automatic-deletion-of-your-codespaces?tool=webui#avoiding-automatic-deletion-of-codespaces)."
+* Create a new codespace, either by choosing one of {% data variables.product.company_short %}'s templates or by clicking **New codespace**. See [AUTOTITLE](/codespaces/developing-in-a-codespace/creating-a-codespace-from-a-template) and [AUTOTITLE](/codespaces/developing-in-a-codespace/creating-a-codespace-for-a-repository).
+* Prevent automatic deletion of a codespace. See [AUTOTITLE](/codespaces/setting-your-user-preferences/configuring-automatic-deletion-of-your-codespaces?tool=webui#avoiding-automatic-deletion-of-codespaces).
 
 {% webui %}
 
@@ -60,7 +60,7 @@ You can bookmark the address of this page if you want to get back to it quickly 
 ## Opening an existing codespace from the "Your codespaces" page
 
 {% data reusables.codespaces.your-codespaces-procedure-step %}
-1. To open a codespace in your default editor, click the name of the codespace. {% data reusables.codespaces.about-changing-default-editor %} See "[AUTOTITLE](/codespaces/setting-your-user-preferences/setting-your-default-editor-for-github-codespaces)."
+1. To open a codespace in your default editor, click the name of the codespace. {% data reusables.codespaces.about-changing-default-editor %} See [AUTOTITLE](/codespaces/setting-your-user-preferences/setting-your-default-editor-for-github-codespaces).
 
    To open the codespace in an editor other than your default:
 
@@ -89,7 +89,7 @@ You can bookmark the address of this page if you want to get back to it quickly 
 ## Reopening an existing codespace
 
 > [!NOTE]
-> {% data reusables.codespaces.using-codespaces-in-vscode %} See "[AUTOTITLE](/codespaces/developing-in-a-codespace/using-github-codespaces-in-visual-studio-code)."
+> {% data reusables.codespaces.using-codespaces-in-vscode %} See [AUTOTITLE](/codespaces/developing-in-a-codespace/using-github-codespaces-in-visual-studio-code).
 
 1. In the {% data variables.product.prodname_vscode_shortname %} desktop application, open the Command Palette with <kbd>Command</kbd>+<kbd>Shift</kbd>+<kbd>P</kbd> (Mac) or <kbd>Ctrl</kbd>+<kbd>Shift</kbd>+<kbd>P</kbd> (Windows/Linux).
 1. Type "Codespaces" and select one of the following commands.
@@ -123,7 +123,7 @@ You can also access the commands listed above by navigating to the Remote Explor
      ```
 
      > [!NOTE]
-     > You must have {% data variables.product.prodname_vscode_shortname %} installed on your local machine. See "[Setting up {% data variables.product.prodname_vscode %}](https://code.visualstudio.com/docs/setup/setup-overview)" in the {% data variables.product.prodname_vscode_shortname %} documentation.
+     > You must have {% data variables.product.prodname_vscode_shortname %} installed on your local machine. See [Setting up {% data variables.product.prodname_vscode %}](https://code.visualstudio.com/docs/setup/setup-overview) in the {% data variables.product.prodname_vscode_shortname %} documentation.
 
    * To open a codespace in the browser, enter:
 
@@ -163,4 +163,4 @@ See [`gh codespace code`](https://cli.github.com/manual/gh_codespace_code) in th
 
 ## Further reading
 
-* "[AUTOTITLE](/rest/codespaces/organizations)"
+* [AUTOTITLE](/rest/codespaces/organizations)
