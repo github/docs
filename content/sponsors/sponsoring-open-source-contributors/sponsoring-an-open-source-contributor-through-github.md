@@ -24,7 +24,7 @@ shortTitle: Sponsor through {% data variables.product.prodname_dotcom %}
 
 ## Sponsoring an account
 
-Before you can sponsor an account, you must have a verified email address. For more information, see "[AUTOTITLE](/account-and-profile/setting-up-and-managing-your-personal-account-on-github/managing-email-preferences/verifying-your-email-address)."
+Before you can sponsor an account, you must have a verified email address. For more information, see [AUTOTITLE](/account-and-profile/setting-up-and-managing-your-personal-account-on-github/managing-email-preferences/verifying-your-email-address).
 
 {% data reusables.sponsors.navigate-to-maintainer-profile %}
 {% data reusables.sponsors.navigate-to-sponsorship-dashboard %}

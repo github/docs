@@ -18,7 +18,7 @@ shortTitle: Understand search syntax
 {% ifversion code-search-upgrade %}
 
 > [!NOTE]
-> The syntax below applies to non-code search. For more information on code search syntax, see "[AUTOTITLE](/search-github/github-code-search/understanding-github-code-search-syntax)."
+> The syntax below applies to non-code search. For more information on code search syntax, see [AUTOTITLE](/search-github/github-code-search/understanding-github-code-search-syntax).
 
 {% endif %}
 
@@ -104,7 +104,7 @@ If your search query contains a qualifier that requires a username, such as `use
 | `QUALIFIER:USERNAME` | [`author:nat`](https://github.com/search?q=author%3Anat&type=Commits) matches commits authored by @nat |
 | `QUALIFIER:@me` | [`is:issue assignee:@me`](https://github.com/search?q=is%3Aissue+assignee%3A%40me&type=Issues) matches issues assigned to the person viewing the results |
 | {% ifversion copilot %} |
-| `QUALIFIER:@copilot` | [`is:pr reviewed-by:@copilot`](https://github.com/search?q=is:pr+reviewed-by:@copilot&type=pullrequests) matches pull requests reviewed by {% data variables.product.prodname_copilot_short %}. For more information, see "[AUTOTITLE](/copilot/using-github-copilot/code-review/using-copilot-code-review)." |
+| `QUALIFIER:@copilot` | [`is:pr reviewed-by:@copilot`](https://github.com/search?q=is:pr+reviewed-by:@copilot&type=pullrequests) matches pull requests reviewed by {% data variables.product.prodname_copilot_short %}. For more information, see [AUTOTITLE](/copilot/using-github-copilot/code-review/using-copilot-code-review). |
 | {% endif %} |
 
 You can only use `@me` {% ifversion copilot %} or `@copilot` {% endif %} with a qualifier, and not as a search term, such as `@me main.workflow`.
