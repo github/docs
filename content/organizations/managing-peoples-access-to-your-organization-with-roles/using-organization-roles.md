@@ -21,7 +21,7 @@ You can have more granular, scalable control over the access you grant to your o
 
 {% ifversion ghec or ghes %}
 
-In addition to pre-defined roles, you can also create up to 10 custom roles that define groups of permissions. For more information, see "[AUTOTITLE](/organizations/managing-peoples-access-to-your-organization-with-roles/about-custom-organization-roles)."
+In addition to pre-defined roles, you can also create up to 10 custom roles that define groups of permissions. For more information, see [AUTOTITLE](/organizations/managing-peoples-access-to-your-organization-with-roles/about-custom-organization-roles).
 
 {% endif %}
 
