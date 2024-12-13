@@ -44,6 +44,6 @@ To provide context for developers when {% data variables.product.prodname_secret
 
 {% data reusables.secret-scanning.copilot-secret-scanning-generic-secrets-subscription-note %}
 
-To learn more about generic secrets, see "[AUTOTITLE](/code-security/secret-scanning/copilot-secret-scanning/responsible-ai-generic-secrets)."
+To learn more about generic secrets, see [AUTOTITLE](/code-security/secret-scanning/copilot-secret-scanning/responsible-ai-generic-secrets).
 
 {% endif %}

@@ -12,7 +12,7 @@ versions:
   fpt: '*'
   ghes: '*'
   ghec: '*'
-permissions: 'Organization owners can create teams and can control whether all organization members can also create teams. For more information, see "[AUTOTITLE](/organizations/managing-organization-settings/setting-team-creation-permissions-in-your-organization)."'
+permissions: 'Organization owners can create teams and can control whether all organization members can also create teams. For more information, see [AUTOTITLE](/organizations/managing-organization-settings/setting-team-creation-permissions-in-your-organization).'
 topics:
   - Organizations
   - Teams
@@ -34,19 +34,19 @@ topics:
 {% data reusables.organizations.create-team-choose-parent %}
 {% ifversion ghec %}
 1. Optionally, if your organization or enterprise account uses team synchronization or your enterprise uses {% data variables.product.prodname_emus %}, connect an identity provider group to your team.
-    * If your enterprise uses {% data variables.product.prodname_emus %}, use the "Identity Provider Groups" drop-down menu, and select a single identity provider group to connect to the new team. For more information, "[AUTOTITLE](/enterprise-cloud@latest/admin/identity-and-access-management/using-enterprise-managed-users-for-iam/managing-team-memberships-with-identity-provider-groups)."
-    * If your organization or enterprise account uses team synchronization, under "Identity Provider Groups," select the **Select Groups** dropdown menu, and click up to five identity provider groups to connect to the new team. For more information, see "[AUTOTITLE](/organizations/organizing-members-into-teams/synchronizing-a-team-with-an-identity-provider-group)."
+    * If your enterprise uses {% data variables.product.prodname_emus %}, use the "Identity Provider Groups" drop-down menu, and select a single identity provider group to connect to the new team. For more information, [AUTOTITLE](/enterprise-cloud@latest/admin/identity-and-access-management/using-enterprise-managed-users-for-iam/managing-team-memberships-with-identity-provider-groups).
+    * If your organization or enterprise account uses team synchronization, under "Identity Provider Groups," select the **Select Groups** dropdown menu, and click up to five identity provider groups to connect to the new team. For more information, see [AUTOTITLE](/organizations/organizing-members-into-teams/synchronizing-a-team-with-an-identity-provider-group).
 {% endif %}
 {% data reusables.organizations.team_visibility %}
 {% data reusables.organizations.team-notifications %}
 {% data reusables.organizations.create_team %}
-1. Optionally, give the team access to organization repositories. For more information, see "[AUTOTITLE](/organizations/managing-user-access-to-your-organizations-repositories/managing-repository-roles/managing-team-access-to-an-organization-repository)."
+1. Optionally, give the team access to organization repositories. For more information, see [AUTOTITLE](/organizations/managing-user-access-to-your-organizations-repositories/managing-repository-roles/managing-team-access-to-an-organization-repository).
 
 {% ifversion ghes %}
 
 ## Creating teams with LDAP Sync enabled
 
-Instances using LDAP for user authentication can use LDAP Sync to manage a team's members. Setting the group's **Distinguished Name** (DN) in the **LDAP group** field will map a team to an LDAP group on your LDAP server. If you use LDAP Sync to manage a team's members, you won't be able to manage your team within {% data variables.location.product_location %}. The mapped team will sync its members in the background and periodically at the interval configured when LDAP Sync is enabled. For more information, see "[AUTOTITLE](/admin/identity-and-access-management/using-ldap-for-enterprise-iam/using-ldap#enabling-ldap-sync)."
+Instances using LDAP for user authentication can use LDAP Sync to manage a team's members. Setting the group's **Distinguished Name** (DN) in the **LDAP group** field will map a team to an LDAP group on your LDAP server. If you use LDAP Sync to manage a team's members, you won't be able to manage your team within {% data variables.location.product_location %}. The mapped team will sync its members in the background and periodically at the interval configured when LDAP Sync is enabled. For more information, see [AUTOTITLE](/admin/identity-and-access-management/using-ldap-for-enterprise-iam/using-ldap#enabling-ldap-sync).
 
 You must be a site admin and an organization owner to create a team with LDAP sync enabled.
 

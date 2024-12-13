@@ -14,7 +14,7 @@ shortTitle: Govern repository usage
 
 {% data reusables.enterprise.repo-policy-rules-intro %}
 
->[!TIP] If you're an **enterprise owner**, you can create a repository policy that applies to multiple organizations. See "[AUTOTITLE](/admin/managing-accounts-and-repositories/managing-repositories-in-your-enterprise/governing-how-people-use-repositories-in-your-enterprise)."
+>[!TIP] If you're an **enterprise owner**, you can create a repository policy that applies to multiple organizations. See [AUTOTITLE](/admin/managing-accounts-and-repositories/managing-repositories-in-your-enterprise/governing-how-people-use-repositories-in-your-enterprise).
 
 ## Examples
 
@@ -56,7 +56,7 @@ Use something descriptive to communicate the purpose of the policy. For example:
 Choose which repositories in the organization the policy applies to. You can select all repositories, choose a selection of existing repositories, or create a dynamic rule by name or custom property for current and future repositories.
 
 If you set a dynamic list by name, you'll add one or more naming patterns using `fnmatch` syntax.
-* For example, the string `*open-source` would match any repository with a name that ends with `open-source`. For syntax details, see "[AUTOTITLE](/repositories/configuring-branches-and-merges-in-your-repository/managing-rulesets/creating-rulesets-for-a-repository#using-fnmatch-syntax)."
+* For example, the string `*open-source` would match any repository with a name that ends with `open-source`. For syntax details, see [AUTOTITLE](/repositories/configuring-branches-and-merges-in-your-repository/managing-rulesets/creating-rulesets-for-a-repository#using-fnmatch-syntax).
 * Optionally, you can prevent anyone outside the allow list from renaming the selected repositories. Alternatively, you can control the format of names in the "Policies" section.
 
 ### Policies

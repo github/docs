@@ -31,4 +31,4 @@ After you create a {% data variables.product.prodname_custom_security_configurat
 
 ## Next steps
 
-To learn how to edit your {% data variables.product.prodname_custom_security_configuration %}, see "[AUTOTITLE](/admin/managing-code-security/securing-your-enterprise/editing-a-custom-security-configuration)."
+To learn how to edit your {% data variables.product.prodname_custom_security_configuration %}, see [AUTOTITLE](/admin/managing-code-security/securing-your-enterprise/editing-a-custom-security-configuration).

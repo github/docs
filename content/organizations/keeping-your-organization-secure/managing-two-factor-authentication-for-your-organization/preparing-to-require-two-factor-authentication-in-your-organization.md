@@ -25,12 +25,12 @@ Members and billing managers will retain membership but not be able to access yo
 
 Before requiring 2FA in your organization, we recommend that you:
 
-* Enable 2FA on your personal account{% ifversion fpt or ghec %} with a secure method {% endif %}. For more information, see "[AUTOTITLE](/authentication/securing-your-account-with-two-factor-authentication-2fa)."
+* Enable 2FA on your personal account{% ifversion fpt or ghec %} with a secure method {% endif %}. For more information, see [AUTOTITLE](/authentication/securing-your-account-with-two-factor-authentication-2fa).
 * Ask the people in your organization to set up 2FA for their accounts{% ifversion fpt or ghec %} with secure methods{% endif %}.
 {% ifversion fpt or ghec %}
-* View the 2FA security levels of users in your organization, to judge the impact of adding a 2FA requirement. For more information, see "[AUTOTITLE](/organizations/keeping-your-organization-secure/managing-two-factor-authentication-for-your-organization/viewing-whether-users-in-your-organization-have-2fa-enabled)."
+* View the 2FA security levels of users in your organization, to judge the impact of adding a 2FA requirement. For more information, see [AUTOTITLE](/organizations/keeping-your-organization-secure/managing-two-factor-authentication-for-your-organization/viewing-whether-users-in-your-organization-have-2fa-enabled).
 {% else %}
-* See whether users in your organization have 2FA enabled. For more information, see "[AUTOTITLE](/organizations/keeping-your-organization-secure/managing-two-factor-authentication-for-your-organization/viewing-whether-users-in-your-organization-have-2fa-enabled)."
+* See whether users in your organization have 2FA enabled. For more information, see [AUTOTITLE](/organizations/keeping-your-organization-secure/managing-two-factor-authentication-for-your-organization/viewing-whether-users-in-your-organization-have-2fa-enabled).
 {% endif %}
-* Enable 2FA for unattended or shared access accounts, such as bots and service accounts. For more information, see "[AUTOTITLE](/organizations/keeping-your-organization-secure/managing-two-factor-authentication-for-your-organization/managing-bots-and-service-accounts-with-two-factor-authentication)."
+* Enable 2FA for unattended or shared access accounts, such as bots and service accounts. For more information, see [AUTOTITLE](/organizations/keeping-your-organization-secure/managing-two-factor-authentication-for-your-organization/managing-bots-and-service-accounts-with-two-factor-authentication).
 * Warn users that once 2FA is enabled, outside collaborators without 2FA are automatically removed from the organization, and members and billing managers will not be able to access your organization resources until they enable 2FA.
