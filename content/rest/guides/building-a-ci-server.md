@@ -16,7 +16,7 @@ topics:
 
 You can use the REST API to tie together commits with
 a testing service, so that every push you make can be tested and represented
-in a {% data variables.product.product_name %} pull request. For more information about the relevant endpoints, see "[AUTOTITLE](/rest/commits/statuses)."
+in a {% data variables.product.product_name %} pull request. For more information about the relevant endpoints, see [AUTOTITLE](/rest/commits/statuses).
 
 This guide will use that API to demonstrate a setup that you can use.
 In our scenario, we will:
@@ -35,7 +35,7 @@ applications to the internet.
 {% ifversion cli-webhook-forwarding %}
 
 > [!NOTE]
-> Alternatively, you can use webhook forwarding to set up your local environment to receive webhooks. For more information, see "[AUTOTITLE](/webhooks-and-events/webhooks/receiving-webhooks-with-the-github-cli)."
+> Alternatively, you can use webhook forwarding to set up your local environment to receive webhooks. For more information, see [AUTOTITLE](/webhooks-and-events/webhooks/receiving-webhooks-with-the-github-cli).
 
 {% endif %}
 
@@ -139,9 +139,9 @@ end
 
 We're doing three very basic things here:
 
-* we're looking up the full name of the repository
-* we're looking up the last SHA of the pull request
-* we're setting the status to "pending"
+* We're looking up the full name of the repository
+* We're looking up the last SHA of the pull request
+* We're setting the status to "pending"
 
 That's it! From here, you can run whatever process you need to in order to execute
 your test suite. Maybe you're going to pass off your code to Jenkins, or call
