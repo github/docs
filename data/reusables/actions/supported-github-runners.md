@@ -38,15 +38,6 @@ For public repositories, jobs using the workflow labels shown in the table below
     </tr>
     <tr>
       <td>macOS</td>
-      <td>3</td>
-      <td>14 GB</td>
-      <td>14 GB</td>
-      <td>
-        <code><a href="https://github.com/actions/runner-images/blob/main/images/macos/macos-12-Readme.md">macos-12</a></code>
-      </td>
-    </tr>
-    <tr>
-      <td>macOS</td>
       <td>4</td>
       <td>14 GB</td>
       <td>14 GB</td>
@@ -105,15 +96,6 @@ For {% ifversion ghec %}internal and{% endif %} private repositories, jobs using
         <code><a href="https://github.com/actions/runner-images/blob/main/images/windows/Windows2022-Readme.md">windows-latest</a></code>,
         <code><a href="https://github.com/actions/runner-images/blob/main/images/windows/Windows2022-Readme.md">windows-2022</a></code>,
         <code><a href="https://github.com/actions/runner-images/blob/main/images/windows/Windows2019-Readme.md">windows-2019</a></code>
-      </td>
-    </tr>
-    <tr>
-      <td>macOS</td>
-      <td>3</td>
-      <td>14 GB</td>
-      <td>14 GB</td>
-      <td>
-        <code><a href="https://github.com/actions/runner-images/blob/main/images/macos/macos-12-Readme.md">macos-12</a></code>
       </td>
     </tr>
     <tr>
