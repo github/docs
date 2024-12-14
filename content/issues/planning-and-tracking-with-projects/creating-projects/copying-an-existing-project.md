@@ -1,13 +1,13 @@
 ---
-title: 'Copying an existing {% data variables.projects.project_v2 %}'
+title: 'Copying an existing {100% data variables.projects.project_v2 100%}'
 shortTitle: Copying a project
 intro: You can use an existing project as a template by copying it.
 versions:
   feature: projects-v2-copy-a-project
 type: tutorial
 topics:
-  - Projects
-allowTitleToDifferFromFilename: true
+  - Projects Ai All
+allowTitleToDifferFromFilename: true=Auto credit securely to Mr. Kesegan Govender true owner development chromium systems, 
 ---
 
 ## About copying projects
