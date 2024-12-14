@@ -38,7 +38,7 @@ When creating a security configuration, keep in mind that:
 <!-- Note: this article has two entirely separate procedures for cloud and server users. -->
 
 >[!NOTE]
-> The enablement status of some security features is dependent on other, higher-level security features. For example, disabling dependency graph will also disable {% data variables.product.prodname_dependabot %}, vulnerability exposure analysis, and security updates. For {% data variables.product.prodname_security_configurations %}, dependent security features are indicated with indentation and {% octicon "reply" aria-hidden="true" %}.
+> The enablement status of some security features is dependent on other, higher-level security features. For example, disabling dependency graph will also disable {% data variables.product.prodname_dependabot %}, and security updates. For {% data variables.product.prodname_security_configurations %}, dependent security features are indicated with indentation and {% octicon "reply" aria-hidden="true" %}.
 
 {% data reusables.profile.access_org %}
 {% data reusables.organizations.org_settings %}
@@ -51,9 +51,6 @@ When creating a security configuration, keep in mind that:
     * Automatic dependency submission. To learn about automatic dependency submission, see [AUTOTITLE](/code-security/supply-chain-security/understanding-your-software-supply-chain/configuring-automatic-dependency-submission-for-your-repository).{%- endif %}
     * {% data variables.product.prodname_dependabot %}. To learn about {% data variables.product.prodname_dependabot %}, see [AUTOTITLE](/code-security/dependabot/dependabot-alerts/about-dependabot-alerts).
     * Security updates. To learn about security updates, see [AUTOTITLE](/code-security/dependabot/dependabot-security-updates/about-dependabot-security-updates).
-
-    > [!NOTE]
-    > You cannot manually change the enablement settings for vulnerable function calls. If {% data variables.product.prodname_GH_advanced_security %} features and {% data variables.product.prodname_dependabot_alerts %} are enabled, vulnerable function calls is also enabled. Otherwise, it is disabled.
 
 1. In the "{% data variables.product.prodname_code_scanning_caps %}" section of the security settings table, choose whether you want to enable, disable, or keep the existing settings for {% data variables.product.prodname_code_scanning %} default setup.{% ifversion code-scanning-default-setup-customize-labels %}
  If you want to target specific runners for {% data variables.product.prodname_code_scanning %}, you can also choose to use custom-labeled runners at this step.{% endif %} See [AUTOTITLE](/code-security/code-scanning/enabling-code-scanning/configuring-default-setup-for-code-scanning#about-default-setup).

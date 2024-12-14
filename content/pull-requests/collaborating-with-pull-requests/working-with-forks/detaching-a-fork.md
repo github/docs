@@ -18,7 +18,7 @@ The new repository will no longer automatically sync with changes from the origi
 
 > [!NOTE]
 > * The new repository will not retain any of its issues, pull requests, wikis, stars, watchers, comments, child forks, or other metadata that may currently be associated with your current fork.
-> * All git commit metadata will be preserved. Commits may become eligible to be counted as contributions if they meet certain criteria. For more information, see "[AUTOTITLE](/account-and-profile/setting-up-and-managing-your-github-profile/managing-contribution-settings-on-your-profile/why-are-my-contributions-not-showing-up-on-my-profile#your-local-git-commit-email-isnt-connected-to-your-account)."
+> * All git commit metadata will be preserved. Commits may become eligible to be counted as contributions if they meet certain criteria. For more information, see [AUTOTITLE](/account-and-profile/setting-up-and-managing-your-github-profile/managing-contribution-settings-on-your-profile/why-are-my-contributions-not-showing-up-on-my-profile#your-local-git-commit-email-isnt-connected-to-your-account).
 
 {% ifversion ghes %}
 
@@ -38,12 +38,12 @@ You can delete a fork and recreate the same repository, without the connection t
    git clone --bare https://{% data variables.product.product_url %}/EXAMPLE-USER/FORK-NAME.git
    ```
 
-1. Delete the forked repository. For more information, see "[AUTOTITLE](/repositories/creating-and-managing-repositories/deleting-a-repository)."<br><br>
+1. Delete the forked repository. For more information, see [AUTOTITLE](/repositories/creating-and-managing-repositories/deleting-a-repository).<br><br>
 
    > [!WARNING]
    > Deleting a fork will **permanently** delete any associated pull requests and configurations. This action **cannot** be undone.
 
-1. Create a new repository with the same name in the same location. For more information, see "[AUTOTITLE](/repositories/creating-and-managing-repositories/creating-a-new-repository)."
+1. Create a new repository with the same name in the same location. For more information, see [AUTOTITLE](/repositories/creating-and-managing-repositories/creating-a-new-repository).
 1. Mirror-push the repository back to the same remote URL.
 
    ```shell
