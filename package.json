@@ -278,7 +278,7 @@
     "flat": "^6.0.1",
     "github-slugger": "^2.0.0",
     "glob": "11.0.0",
-    "got": "^14.4.2",
+    "got": "^14.4.5",
     "gray-matter": "^4.0.3",
     "hast-util-from-parse5": "^8.0.1",
     "hast-util-to-string": "^3.0.1",
