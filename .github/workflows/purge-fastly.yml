@@ -16,10 +16,9 @@ on:
         description: "Comma separated languages. E.g. 'en,ja, es' (defaults to all)"
         required: false
         default: ''
-  workflow_run:
-    workflows: ['Azure Production - Build and Deploy']
-    types:
-      - completed
+  push:
+    branches:
+      - main
 
 permissions:
   contents: read
@@ -42,6 +41,23 @@ jobs:
         uses: actions/checkout@b4ffde65f46336ab88eb53be808477a3936bae11 # v4.1.1
 
       - uses: ./.github/actions/node-npm-setup
+
+      - name: Wait for production to match build number
+        run: |
+          needs=$(git rev-parse HEAD)
+          start_time=$(date +%s)
+          timeout_seconds=1200
+          while [[ $needs != $(curl -s --fail --retry-connrefused --retry 5 https://docs.github.com/_build) ]]
+          do
+            if [[ $(($(date +%s) - $start_time)) -gt $timeout_seconds ]]
+            then
+              echo "Production did not match the build number within $timeout_seconds seconds"
+              exit 1
+            fi
+            echo "Production is not up to date with the build commit"
+            sleep 10
+          done
+          echo "Production is up to date with the build commit"
 
       - name: Purge Fastly edge cache independent of language
         if: ${{ inputs.nuke_all }}
