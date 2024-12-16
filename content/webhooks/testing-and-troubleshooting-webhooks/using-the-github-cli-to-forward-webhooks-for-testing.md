@@ -17,7 +17,7 @@ redirect_from:
 
 When you make changes to your integration code, running the code in a local environment lets you test and iterate quickly without deploying the code. You can use {% data variables.product.prodname_cli %} to forward webhooks to your local environment.
 
-Webhook forwarding in the {% data variables.product.prodname_cli %} only works with repository and organization webhooks. If you want to test other types of webhooks locally, you'll need to do this manually. For more information, see "[AUTOTITLE](/webhooks/testing-and-troubleshooting-webhooks/testing-webhooks)."
+Webhook forwarding in the {% data variables.product.prodname_cli %} only works with repository and organization webhooks. If you want to test other types of webhooks locally, you'll need to do this manually. For more information, see [AUTOTITLE](/webhooks/testing-and-troubleshooting-webhooks/testing-webhooks).
 
 > [!WARNING]
 > Webhook forwarding is only designed for use during testing and development. It is not supported for use in production environments for handling live webhooks.

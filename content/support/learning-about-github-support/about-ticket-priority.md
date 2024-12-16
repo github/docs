@@ -71,4 +71,4 @@ If you are uncertain if the issue is out of scope, contact {% data variables.con
 
 ## Further reading
 
-* "[AUTOTITLE](/support/contacting-github-support/creating-a-support-ticket)"
+* [AUTOTITLE](/support/contacting-github-support/creating-a-support-ticket)

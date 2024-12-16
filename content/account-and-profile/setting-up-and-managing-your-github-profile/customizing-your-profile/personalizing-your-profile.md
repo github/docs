@@ -50,7 +50,7 @@ If you use Gravatar, and your Gravatar image is associated with the email you us
 
 ## Changing your profile name
 
-You can change the name that is displayed on your profile. This name may also be displayed next to comments you make on private repositories owned by an organization. For more information, see "[AUTOTITLE](/organizations/managing-organization-settings/managing-the-display-of-member-names-in-your-organization)."
+You can change the name that is displayed on your profile. This name may also be displayed next to comments you make on private repositories owned by an organization. For more information, see [AUTOTITLE](/organizations/managing-organization-settings/managing-the-display-of-member-names-in-your-organization).
 
 {% ifversion fpt or ghec %}
 
@@ -66,10 +66,10 @@ You can change the name that is displayed on your profile. This name may also be
 
 Add a bio to your profile to share information about yourself with other {% data variables.product.product_name %} users. With the help of [@mentions](/get-started/writing-on-github/getting-started-with-writing-and-formatting-on-github/basic-writing-and-formatting-syntax) and emoji, you can include information about where you currently or have previously worked, what type of work you do, or even what kind of coffee you drink.
 
-For a longer-form and more prominent way of displaying customized information about yourself, you can also use a profile README. For more information, see "[AUTOTITLE](/account-and-profile/setting-up-and-managing-your-github-profile/customizing-your-profile/managing-your-profile-readme)."
+For a longer-form and more prominent way of displaying customized information about yourself, you can also use a profile README. For more information, see [AUTOTITLE](/account-and-profile/setting-up-and-managing-your-github-profile/customizing-your-profile/managing-your-profile-readme).
 
 > [!NOTE]
-> If you have the activity overview section enabled for your profile and you @mention an organization you're a member of in your profile bio, then that organization will be featured first in your activity overview. For more information, see "[AUTOTITLE](/account-and-profile/setting-up-and-managing-your-github-profile/managing-contribution-settings-on-your-profile/showing-an-overview-of-your-activity-on-your-profile)."
+> If you have the activity overview section enabled for your profile and you @mention an organization you're a member of in your profile bio, then that organization will be featured first in your activity overview. For more information, see [AUTOTITLE](/account-and-profile/setting-up-and-managing-your-github-profile/managing-contribution-settings-on-your-profile/showing-an-overview-of-your-activity-on-your-profile).
 
 {% data reusables.user-settings.access_settings %}
 1. Under "Public profile", in the "Bio" field, type the content that you want displayed on your profile. The bio field is limited to 160 characters.
@@ -142,12 +142,12 @@ If you're a researcher with an ORCID iD, you can identify yourself by adding you
 You can set a status to display information about your current availability on {% data variables.product.product_name %}. Your status will show:
 * On your {% data variables.product.product_name %} profile page
 * When people hover over your username or avatar on {% data variables.product.product_name %}
-* On a team page for a team where you're a team member. For more information, see "[AUTOTITLE](/organizations/organizing-members-into-teams/about-teams#team-pages)."
-* On the organization dashboard in an organization where you're a member. For more information, see "[AUTOTITLE](/organizations/collaborating-with-groups-in-organizations/about-your-organization-dashboard)."
+* On a team page for a team where you're a team member. For more information, see [AUTOTITLE](/organizations/organizing-members-into-teams/about-teams#team-pages).
+* On the organization dashboard in an organization where you're a member. For more information, see [AUTOTITLE](/organizations/collaborating-with-groups-in-organizations/about-your-organization-dashboard).
 
 When you set your status, you can also let people know that you have limited availability on {% data variables.product.product_name %}.
 
-If you select the "Busy" option, when people @mention your username, assign you an issue or pull request, or request a pull request review from you, a note next to your username will show that you're busy. You will also be excluded from automatic review assignment for pull requests assigned to any teams you belong to. For more information, see "[AUTOTITLE](/organizations/organizing-members-into-teams/managing-code-review-settings-for-your-team)."
+If you select the "Busy" option, when people @mention your username, assign you an issue or pull request, or request a pull request review from you, a note next to your username will show that you're busy. You will also be excluded from automatic review assignment for pull requests assigned to any teams you belong to. For more information, see [AUTOTITLE](/organizations/organizing-members-into-teams/managing-code-review-settings-for-your-team).
 
 ![Screenshot of a draft comment. "@octocat" is written in the text field, and "The Octocat (busy)" is suggested.](/assets/images/help/profile/username-with-limited-availability-text.png)
 
@@ -178,7 +178,7 @@ When you participate in certain programs, {% data variables.product.prodname_dot
 | Badge | Program | Description |
 | --- | --- | --- |
 | {% octicon "cpu" aria-label="The Developer Program icon" %} | **Developer Program Member** | If you're a registered member of the {% data variables.product.prodname_dotcom %} Developer Program, building an app with the {% ifversion fpt or ghec %}{% data variables.product.prodname_dotcom %}{% else %}{% data variables.product.product_name %}{% endif %} API, you'll get a Developer Program Member badge on your profile. For more information on the {% data variables.product.prodname_dotcom %} Developer Program, see [GitHub Developer](/get-started/exploring-integrations/github-developer-program). |
-| {% octicon "star-fill" aria-label="The star icon" %} | **Pro** | If you use {% data variables.product.prodname_pro %} you'll get a PRO badge on your profile. For more information about {% data variables.product.prodname_pro %}, see "[AUTOTITLE](/get-started/learning-about-github/githubs-plans#github-pro)." |
+| {% octicon "star-fill" aria-label="The star icon" %} | **Pro** | If you use {% data variables.product.prodname_pro %} you'll get a PRO badge on your profile. For more information about {% data variables.product.prodname_pro %}, see [AUTOTITLE](/get-started/learning-about-github/githubs-plans#github-pro). |
 | {% octicon "lock" aria-label="The lock icon" %} | **Security Bug Bounty Hunter** | If you helped out hunting down security vulnerabilities, you'll get a Security Bug Bounty Hunter badge on your profile. For more information about the {% data variables.product.prodname_dotcom %} Security program, see [{% data variables.product.prodname_dotcom %} Security](https://bounty.github.com/). |
 | {% octicon "mortar-board" aria-label="The mortar-board icon" %} | **{% data variables.product.prodname_dotcom %} Campus Expert** | If you participate in the {% data variables.product.prodname_campus_program %}, you will get a {% data variables.product.prodname_dotcom %} Campus Expert badge on your profile. For more information about the Campus Experts program, see [Campus Experts](https://education.github.com/experts). |
 | {% octicon "shield" aria-label="The shield icon" %} | **Security advisory credit** | If a security advisory you submit to the [{% data variables.product.prodname_dotcom %} Advisory Database](https://github.com/advisories) is accepted, you'll get a Security advisory credit badge on your profile. For more information about {% data variables.product.prodname_dotcom %} Security Advisories, see [{% data variables.product.prodname_dotcom %} Security Advisories](/code-security/security-advisories/working-with-repository-security-advisories/about-repository-security-advisories). |
@@ -191,7 +191,7 @@ When you participate in certain programs, {% data variables.product.prodname_dot
 
 Achievements celebrate specific events and actions that happen on {% data variables.product.prodname_dotcom %}. They will appear as small badges listed in the sidebar of your profile. Clicking or hovering on an achievement will show a detailed view that hints at how the achievement was earned, with a short description and links to the contributing events. The event links will only be visible to users that have access to the repository or organization that the event took place in. Event links will appear inaccessible to all users without access.
 
-To stop private contributions from counting toward your Achievements, or to turn off Achievements entirely, see "[AUTOTITLE](/account-and-profile/setting-up-and-managing-your-github-profile/managing-contribution-settings-on-your-profile/showing-your-private-contributions-and-achievements-on-your-profile)."
+To stop private contributions from counting toward your Achievements, or to turn off Achievements entirely, see [AUTOTITLE](/account-and-profile/setting-up-and-managing-your-github-profile/managing-contribution-settings-on-your-profile/showing-your-private-contributions-and-achievements-on-your-profile).
 
 > [!NOTE]
 > This feature is currently in {% data variables.release-phases.public_preview %} and subject to change.
@@ -275,4 +275,4 @@ The Mars 2020 Helicopter Contributor achievement was given to those who had auth
 
 ## Further reading
 
-* "[AUTOTITLE](/account-and-profile/setting-up-and-managing-your-github-profile/customizing-your-profile/about-your-profile)"
+* [AUTOTITLE](/account-and-profile/setting-up-and-managing-your-github-profile/customizing-your-profile/about-your-profile)
