@@ -27,7 +27,7 @@ redirect_from:
 
 {% mac %}
 
-Once your runner type has been defined, you can update your workflow YAML files to send jobs to runner instances for processing. To run jobs on macOS {% data variables.actions.hosted_runner %}s, update the `runs-on` key in your workflow YAML files to use one of the {% data variables.product.company_short %}-defined labels for macOS runners. For more information, see "[Available macOS {% data variables.actions.hosted_runner %}s](#available-macos-larger-runners)."
+Once your runner type has been defined, you can update your workflow YAML files to send jobs to runner instances for processing. To run jobs on macOS {% data variables.actions.hosted_runner %}s, update the `runs-on` key in your workflow YAML files to use one of the {% data variables.product.company_short %}-defined labels for macOS runners. For more information, see [Available macOS {% data variables.actions.hosted_runner %}s](#available-macos-larger-runners).
 
 {% endmac %}
 
@@ -136,7 +136,7 @@ jobs:
 
 ## Targeting macOS {% data variables.actions.hosted_runner %}s in a workflow
 
-To run your workflows on macOS {% data variables.actions.hosted_runner %}s, set the value of the `runs-on` key to a label associated with a macOS {% data variables.actions.hosted_runner %}. For a list of macOS {% data variables.actions.hosted_runner %} labels, see "[Available macOS {% data variables.actions.hosted_runner %}s](#available-macos-larger-runners)."
+To run your workflows on macOS {% data variables.actions.hosted_runner %}s, set the value of the `runs-on` key to a label associated with a macOS {% data variables.actions.hosted_runner %}. For a list of macOS {% data variables.actions.hosted_runner %} labels, see [Available macOS {% data variables.actions.hosted_runner %}s](#available-macos-larger-runners).
 
 In this example, the workflow uses a label that is associated with macOS XL runners. The `runs-on` key sends the job to any available runner with a matching label:
 

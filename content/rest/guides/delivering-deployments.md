@@ -15,7 +15,7 @@ topics:
 
 
 
-You can use the REST API to deploy your projects hosted on {% data variables.product.product_name %} on a server that you own. For more information about the endpoints to manage deployments and statuses, see "[AUTOTITLE](/rest/deployments)." You can also use the REST API to coordinate your deployments the moment your code lands on the default branch. For more information, see "[AUTOTITLE](/rest/guides/building-a-ci-server)."
+You can use the REST API to deploy your projects hosted on {% data variables.product.product_name %} on a server that you own. For more information about the endpoints to manage deployments and statuses, see [AUTOTITLE](/rest/deployments). You can also use the REST API to coordinate your deployments the moment your code lands on the default branch. For more information, see [AUTOTITLE](/rest/guides/building-a-ci-server).
 
 This guide will use the REST API to demonstrate a setup that you can use.
 In our scenario, we will:
@@ -35,7 +35,7 @@ applications to the internet.
 {% ifversion cli-webhook-forwarding %}
 
 > [!NOTE]
-> Alternatively, you can use webhook forwarding to set up your local environment to receive webhooks. For more information, see "[AUTOTITLE](/webhooks-and-events/webhooks/receiving-webhooks-with-the-github-cli)."
+> Alternatively, you can use webhook forwarding to set up your local environment to receive webhooks. For more information, see [AUTOTITLE](/webhooks-and-events/webhooks/receiving-webhooks-with-the-github-cli).
 
 {% endif %}
 

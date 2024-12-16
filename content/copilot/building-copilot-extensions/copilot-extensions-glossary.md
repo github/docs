@@ -55,7 +55,7 @@ An extension that is visible and installable by any {% data variables.product.co
 
 #### Skill
 
-A piece of code that retrieves context or executes an action in response to a user’s prompt (for example, "findIssueByID(id: number)"). For a list of a skills, see "[Currently available skills](/copilot/using-github-copilot/asking-github-copilot-questions-in-your-ide#currently-available-skills)".
+A piece of code that retrieves context or executes an action in response to a user’s prompt (for example, "findIssueByID(id: number)"). For a list of a skills, see [Currently available skills](/copilot/using-github-copilot/asking-github-copilot-questions-in-your-ide#currently-available-skills).
 
 #### Skillset
 

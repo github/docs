@@ -25,7 +25,7 @@ topics:
 
 As an enterprise owner, you can allow end users to send anonymized contribution counts for their work from {% data variables.location.product_location %} to their contribution graph on {% data variables.product.prodname_dotcom_the_website %}{% ifversion ghecom-github-connect %} or {% data variables.enterprise.data_residency_site %}{% endif %}.
 
-After you enable {% data variables.enterprise.prodname_unified_contributions %}, before individual users can send contribution counts from {% data variables.location.product_location %} to {% data variables.product.prodname_ghe_cloud %}, each user must also connect their user account on {% data variables.product.product_name %} with an account on {% data variables.product.prodname_ghe_cloud %}. For more information, see "[AUTOTITLE](/account-and-profile/setting-up-and-managing-your-github-profile/managing-contribution-settings-on-your-profile/sending-enterprise-contributions-to-your-githubcom-profile)."
+After you enable {% data variables.enterprise.prodname_unified_contributions %}, before individual users can send contribution counts from {% data variables.location.product_location %} to {% data variables.product.prodname_ghe_cloud %}, each user must also connect their user account on {% data variables.product.product_name %} with an account on {% data variables.product.prodname_ghe_cloud %}. For more information, see [AUTOTITLE](/account-and-profile/setting-up-and-managing-your-github-profile/managing-contribution-settings-on-your-profile/sending-enterprise-contributions-to-your-githubcom-profile).
 
 {% data reusables.github-connect.sync-frequency %}
 
@@ -35,7 +35,7 @@ If the enterprise owner disables the functionality or individual users opt out o
 
 ## Enabling unified contributions
 
-Before enabling {% data variables.enterprise.prodname_unified_contributions %} on {% data variables.location.product_location %}, you must enable {% data variables.product.prodname_github_connect %}. See {% ifversion ghecom-github-connect %}"[AUTOTITLE](/admin/configuring-settings/configuring-github-connect/enabling-github-connect-for-ghecom) or {% endif %}"[AUTOTITLE](/admin/configuring-settings/configuring-github-connect/enabling-github-connect-for-githubcom)."
+Before enabling {% data variables.enterprise.prodname_unified_contributions %} on {% data variables.location.product_location %}, you must enable {% data variables.product.prodname_github_connect %}. See {% ifversion ghecom-github-connect %}[AUTOTITLE](/admin/configuring-settings/configuring-github-connect/enabling-github-connect-for-ghecom) or {% endif %}[AUTOTITLE](/admin/configuring-settings/configuring-github-connect/enabling-github-connect-for-githubcom).
 
 {% data reusables.github-connect.access-dotcom-and-enterprise %}
 {% data reusables.enterprise_site_admin_settings.access-settings %}

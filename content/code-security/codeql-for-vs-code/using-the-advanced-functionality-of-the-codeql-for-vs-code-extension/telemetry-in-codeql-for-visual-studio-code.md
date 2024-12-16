@@ -41,7 +41,7 @@ If you opt in, {% data variables.product.company_short %} collects the following
 
 * IP address of the client sending the telemetry data. This is discarded before aggregation.
 
-* Whether any {% data variables.product.prodname_codeql %} for {% data variables.product.prodname_vscode_shortname %} extension settings are configured. For more information about customizing settings, see "[AUTOTITLE](/code-security/codeql-for-vs-code/using-the-advanced-functionality-of-the-codeql-for-vs-code-extension/customizing-settings)."
+* Whether any {% data variables.product.prodname_codeql %} for {% data variables.product.prodname_vscode_shortname %} extension settings are configured. For more information about customizing settings, see [AUTOTITLE](/code-security/codeql-for-vs-code/using-the-advanced-functionality-of-the-codeql-for-vs-code-extension/customizing-settings).
 
 ## How long data is retained
 
@@ -69,11 +69,11 @@ We only collect the minimal amount of data we need to answer the questions about
 
 ## Disabling telemetry reporting
 
-You can disable telemetry collection by setting `codeQL.telemetry.enableTelemetry` to `false` in your settings. For more information, see "[AUTOTITLE](/code-security/codeql-for-vs-code/using-the-advanced-functionality-of-the-codeql-for-vs-code-extension/customizing-settings)."
+You can disable telemetry collection by setting `codeQL.telemetry.enableTelemetry` to `false` in your settings. For more information, see [AUTOTITLE](/code-security/codeql-for-vs-code/using-the-advanced-functionality-of-the-codeql-for-vs-code-extension/customizing-settings).
 
 Additionally, telemetry collection will be disabled if the global `telemetry.telemetryLevel` setting is set to `off`. For more information about global telemetry collection, see [Visual Studio Code FAQ](https://code.visualstudio.com/docs/supporting/faq#_how-to-disable-telemetry-reporting) in the {% data variables.product.prodname_vscode %} documentation.
 
 ## Further reading
 
-* "[AUTOTITLE](/free-pro-team@latest/site-policy/privacy-policies/github-general-privacy-statement)"
-* "[AUTOTITLE](/free-pro-team@latest/site-policy/github-terms/github-terms-of-service)"
+* [AUTOTITLE](/free-pro-team@latest/site-policy/privacy-policies/github-general-privacy-statement)
+* [AUTOTITLE](/free-pro-team@latest/site-policy/github-terms/github-terms-of-service)

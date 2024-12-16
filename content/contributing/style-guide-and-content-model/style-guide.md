@@ -1203,7 +1203,7 @@ A release note for a retired feature answers the following questions.
 
 #### Examples of release notes for retired features
 
-* > **Retired:** {% data variables.product.github %} no longer supports required workflows for {% data variables.product.prodname_actions %} in {% data variables.product.prodname_ghe_server %} 3.11 and later. Use repository rulesets instead. For more information, see "[AUTOTITLE](/repositories/configuring-branches-and-merges-in-your-repository/managing-rulesets/available-rules-for-rulesets#require-workflows-to-pass-before-merging)."
+* > **Retired:** {% data variables.product.github %} no longer supports required workflows for {% data variables.product.prodname_actions %} in {% data variables.product.prodname_ghe_server %} 3.11 and later. Use repository rulesets instead. For more information, see [AUTOTITLE](/repositories/configuring-branches-and-merges-in-your-repository/managing-rulesets/available-rules-for-rulesets#require-workflows-to-pass-before-merging).
 
 {% endif %}
 
@@ -1226,7 +1226,7 @@ Errata answers the following questions.
 
 #### Example of errata
 
-* > "[Features](/)" incorrectly indicated that users of the {% data variables.product.prodname_advisory_database %} can see advisories for Elixir, Erlang's Hex package manager, and more. This feature is unavailable in GitHub Enterprise Server 3.7, and will be available in a future release. [Updated 2023-06-01]
+* > [Features](/) incorrectly indicated that users of the {% data variables.product.prodname_advisory_database %} can see advisories for Elixir, Erlang's Hex package manager, and more. This feature is unavailable in GitHub Enterprise Server 3.7, and will be available in a future release. [Updated 2023-06-01]
 
 ### Adding or updating a release note
 
@@ -1349,7 +1349,7 @@ For example in the following table, in order to make sense of the "Yes" and "No"
   </tr>
 </table>
 
-To add row headers for a Markdown table, wrap the table in the Liquid tags `{% raw %}{% rowheaders %} {% endrowheaders %}{% endraw %}`. For more information about using row headers, see "[AUTOTITLE](/contributing/syntax-and-versioning-for-github-docs/using-markdown-and-liquid-in-github-docs#table-row-headers)."
+To add row headers for a Markdown table, wrap the table in the Liquid tags `{% raw %}{% rowheaders %} {% endrowheaders %}{% endraw %}`. For more information about using row headers, see [AUTOTITLE](/contributing/syntax-and-versioning-for-github-docs/using-markdown-and-liquid-in-github-docs#table-row-headers).
 
 ### Include a value for every cell
 

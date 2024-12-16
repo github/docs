@@ -19,7 +19,7 @@ redirect_from:
 
 ## About SAML configuration
 
-To use SAML single sign-on (SSO) for authentication to {% data variables.product.product_name %}, you must configure both your external SAML identity provider (IdP) and {% ifversion ghes %}{% data variables.location.product_location %}{% elsif ghec %}your enterprise or organization on {% data variables.product.github %}{% endif %}. In a SAML configuration, {% data variables.product.product_name %} functions as a SAML service provider (SP). For more information about authentication for your enterprise, see "[AUTOTITLE](/admin/identity-and-access-management/understanding-iam-for-enterprises/about-identity-and-access-management#authentication-methods)."
+To use SAML single sign-on (SSO) for authentication to {% data variables.product.product_name %}, you must configure both your external SAML identity provider (IdP) and {% ifversion ghes %}{% data variables.location.product_location %}{% elsif ghec %}your enterprise or organization on {% data variables.product.github %}{% endif %}. In a SAML configuration, {% data variables.product.product_name %} functions as a SAML service provider (SP). For more information about authentication for your enterprise, see [AUTOTITLE](/admin/identity-and-access-management/understanding-iam-for-enterprises/about-identity-and-access-management#authentication-methods).
 
  {% data variables.product.product_name %} provides integration according to the SAML 2.0 specification. For more information, see the [SAML Wiki](https://wiki.oasis-open.org/security) on the OASIS website.
 
@@ -35,7 +35,7 @@ If you use {% data variables.product.prodname_emus %}, you can only enable SAML 
 
 ### Organizations
 
-You can configure SAML SSO for an individual organization in your enterprise. You can also configure SAML SSO for an organization if you use an individual organization on {% data variables.product.product_name %} and do not use an enterprise account. For more information, see "[AUTOTITLE](/organizations/managing-saml-single-sign-on-for-your-organization)."
+You can configure SAML SSO for an individual organization in your enterprise. You can also configure SAML SSO for an organization if you use an individual organization on {% data variables.product.product_name %} and do not use an enterprise account. For more information, see [AUTOTITLE](/organizations/managing-saml-single-sign-on-for-your-organization).
 
 The SP metadata for an organization on {% data variables.product.github %} is available at `https://github.com/orgs/ORGANIZATION/saml/metadata`, where **ORGANIZATION** is the name of your organization on {% data variables.product.github %}.
 
@@ -72,18 +72,18 @@ The SP metadata for {% data variables.location.product_location %} is available 
 
 ## SAML attributes
 
-The following SAML attributes are available for {% data variables.product.product_name %}.{% ifversion ghes %} You can change the attribute names in the {% data variables.enterprise.management_console %}, with the exception of the `administrator` attribute. For more information, see "[AUTOTITLE](/admin/configuration/administering-your-instance-from-the-management-console)."{% endif %}
+The following SAML attributes are available for {% data variables.product.product_name %}.{% ifversion ghes %} You can change the attribute names in the {% data variables.enterprise.management_console %}, with the exception of the `administrator` attribute. For more information, see [AUTOTITLE](/admin/configuration/administering-your-instance-from-the-management-console).{% endif %}
 
 | Name | Required | Description |
 | :- | :- | :- |
-| `NameID` | {% octicon "check" aria-label="Required" %} | A persistent user identifier. Any persistent name identifier format may be used. {% ifversion ghec %}If you use an enterprise with {% data variables.product.prodname_emus %}, {% endif %}{% data variables.product.product_name %} will normalize the `NameID` element to use as a username unless one of the alternative assertions is provided. For more information, see "[AUTOTITLE](/admin/identity-and-access-management/managing-iam-for-your-enterprise/username-considerations-for-external-authentication)."<br><br> > [!NOTE] It's important to use a human-readable, persistent identifier. Using a transient identifier format like `urn:oasis:names:tc:SAML:2.0:nameid-format:transient` will result in re-linking of accounts on every sign-in, which can be detrimental to authorization management.  |
-| `SessionNotOnOrAfter` | {% octicon "x" aria-label="Optional" %} | The date that {% data variables.product.product_name %} invalidates the associated session. After invalidation, the person must authenticate once again to access {% ifversion ghec %}your enterprise's resources{% elsif ghes %}{% data variables.location.product_location %}{% endif %}. For more information, see "[Session duration and timeout](#session-duration-and-timeout)." |
+| `NameID` | {% octicon "check" aria-label="Required" %} | A persistent user identifier. Any persistent name identifier format may be used. {% ifversion ghec %}If you use an enterprise with {% data variables.product.prodname_emus %}, {% endif %}{% data variables.product.product_name %} will normalize the `NameID` element to use as a username unless one of the alternative assertions is provided. For more information, see [AUTOTITLE](/admin/identity-and-access-management/managing-iam-for-your-enterprise/username-considerations-for-external-authentication).<br><br> > [!NOTE] It's important to use a human-readable, persistent identifier. Using a transient identifier format like `urn:oasis:names:tc:SAML:2.0:nameid-format:transient` will result in re-linking of accounts on every sign-in, which can be detrimental to authorization management.  |
+| `SessionNotOnOrAfter` | {% octicon "x" aria-label="Optional" %} | The date that {% data variables.product.product_name %} invalidates the associated session. After invalidation, the person must authenticate once again to access {% ifversion ghec %}your enterprise's resources{% elsif ghes %}{% data variables.location.product_location %}{% endif %}. For more information, see [Session duration and timeout](#session-duration-and-timeout). |
 | {% ifversion ghes %} |
 | `administrator` | {% octicon "x" aria-label="Optional" %} | When the value is `true`, {% data variables.product.product_name %} will automatically promote the user to be a {% ifversion ghes %}site administrator{% endif %}. Setting this attribute to anything but `true` will result in demotion, as long as the value is not blank. Omitting this attribute or leaving the value blank will not change the role of the user. |
 | `username` | {% octicon "x" aria-label="Optional" %} | The username for {% data variables.location.product_location %}. |
 | {% endif %} |
 | `full_name` | {% octicon "x" aria-label="Optional" %} | {% ifversion ghec %}If you configure SAML SSO for an enterprise and you use {% data variables.product.prodname_emus %}, the{% else %}The{% endif %} full name of the user to display on the user's profile page. |
-| `emails` | {% octicon "x" aria-label="Optional" %} | The email addresses for the user.{% ifversion ghes %} You can specify more than one address.{% endif %}{% ifversion ghec or ghes %} If you sync license usage between {% data variables.product.prodname_ghe_server %} and {% data variables.product.prodname_ghe_cloud %}, {% data variables.product.prodname_github_connect %} uses `emails` to identify unique users across products. For more information, see "[AUTOTITLE](/billing/managing-your-license-for-github-enterprise/syncing-license-usage-between-github-enterprise-server-and-github-enterprise-cloud)."{% endif %} |
+| `emails` | {% octicon "x" aria-label="Optional" %} | The email addresses for the user.{% ifversion ghes %} You can specify more than one address.{% endif %}{% ifversion ghec or ghes %} If you sync license usage between {% data variables.product.prodname_ghe_server %} and {% data variables.product.prodname_ghe_cloud %}, {% data variables.product.prodname_github_connect %} uses `emails` to identify unique users across products. For more information, see [AUTOTITLE](/billing/managing-your-license-for-github-enterprise/syncing-license-usage-between-github-enterprise-server-and-github-enterprise-cloud).{% endif %} |
 | `public_keys` | {% octicon "x" aria-label="Optional" %} | {% ifversion ghec %}If you configure SAML SSO for an enterprise and you use {% data variables.product.prodname_emus %}, the{% else %}The{% endif %} public SSH keys for the user. You can specify more than one key. |
 | `gpg_keys` | {% octicon "x" aria-label="Optional" %} | {% ifversion ghec %}If you configure SAML SSO for an enterprise and you use {% data variables.product.prodname_emus %}, the{% else %}The{% endif %} GPG keys for the user. You can specify more than one key. |
 
@@ -142,7 +142,7 @@ If you define a customized session duration value less than 24 hours, {% data va
 {% data reusables.enterprise.ghes-user-inactivity-timeout %}
 
 {% ifversion ghec %}
-To prevent authentication errors, we recommend a minimum session duration of 4 hours. For more information, see "[AUTOTITLE](/admin/identity-and-access-management/using-saml-for-enterprise-iam/troubleshooting-saml-authentication#users-are-repeatedly-redirected-to-authenticate)."
+To prevent authentication errors, we recommend a minimum session duration of 4 hours. For more information, see [AUTOTITLE](/admin/identity-and-access-management/using-saml-for-enterprise-iam/troubleshooting-saml-authentication#users-are-repeatedly-redirected-to-authenticate).
 {% endif %}
 
 >[!NOTE] For Microsoft Entra ID (previously known as Azure AD), the configurable lifetime policy for SAML tokens does not control session timeout for {% data variables.product.product_name %}.

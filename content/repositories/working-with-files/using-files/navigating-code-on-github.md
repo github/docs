@@ -27,7 +27,7 @@ You do not need to configure anything in your repository to enable code navigati
 
 {% data variables.product.prodname_dotcom %} has developed a code navigation approach based on the open source [`tree-sitter`](https://github.com/tree-sitter/tree-sitter) library that searches all definitions and references across a repository to find entities with a given name.
 
-{% ifversion code-view-ui %}You can use keyboard shortcuts to navigate within a code file. For more information, see "[AUTOTITLE](/get-started/accessibility/keyboard-shortcuts#navigating-within-code-files)."{% endif %}
+{% ifversion code-view-ui %}You can use keyboard shortcuts to navigate within a code file. For more information, see [AUTOTITLE](/get-started/accessibility/keyboard-shortcuts#navigating-within-code-files).{% endif %}
 
 {% ifversion code-search-upgrade %}
 
@@ -35,7 +35,7 @@ You do not need to configure anything in your repository to enable code navigati
 
 You can now quickly view and navigate between symbols such as functions or classes in your code with the symbols pane. You can search for a symbol in a single file, in all files in a repository, or even in all public repositories on {% data variables.product.prodname_dotcom %}.
 
-Symbol search is a feature of code search. For more information, see "[AUTOTITLE](/search-github/github-code-search/understanding-github-code-search-syntax#symbol-qualifier)."
+Symbol search is a feature of code search. For more information, see [AUTOTITLE](/search-github/github-code-search/understanding-github-code-search-syntax#symbol-qualifier).
 
 1. Select a repository, then navigate to a file containing symbols.
 1. To bring up the symbols pane, above the file content, click {% octicon "code-square" aria-label="The code square icon" %}.
@@ -71,4 +71,4 @@ If code navigation is enabled for you but you don't see links to the definitions
 
 ## Further reading
 
-* "[AUTOTITLE]{% ifversion code-search-upgrade %}(/search-github/github-code-search/about-github-code-search){% else %}(/search-github/searching-on-github/searching-code){% endif %}"
+* [AUTOTITLE]{% ifversion code-search-upgrade %}(/search-github/github-code-search/about-github-code-search){% else %}(/search-github/searching-on-github/searching-code){% endif %}

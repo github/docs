@@ -110,7 +110,7 @@ By default, the embedded renderer is 420 pixels wide by 620 pixels high, but you
 
 ### Rendering in Markdown
 
-You can embed ASCII STL syntax directly in Markdown. For more information, see "[AUTOTITLE](/get-started/writing-on-github/working-with-advanced-formatting/creating-diagrams#creating-stl-3d-models)."
+You can embed ASCII STL syntax directly in Markdown. For more information, see [AUTOTITLE](/get-started/writing-on-github/working-with-advanced-formatting/creating-diagrams#creating-stl-3d-models).
 
 ## Rendering CSV and TSV data
 
@@ -254,7 +254,7 @@ By default, the embedded map 420px x 620px, but you can customize the output by 
 
 ### Mapping in Markdown
 
-You can embed GeoJSON and TopoJSON directly in Markdown. For more information, see "[AUTOTITLE](/get-started/writing-on-github/working-with-advanced-formatting/creating-diagrams#creating-geojson-and-topojson-maps)."
+You can embed GeoJSON and TopoJSON directly in Markdown. For more information, see [AUTOTITLE](/get-started/writing-on-github/working-with-advanced-formatting/creating-diagrams#creating-geojson-and-topojson-maps).
 
 {% data reusables.advanced-formatting.administrator-must-enable-mapping %}
 
@@ -340,7 +340,7 @@ If the chart displays, but does not appear as you'd expect, you can create a new
 
 ### Mermaid in Markdown
 
-You can embed Mermaid syntax directly in Markdown. For more information, see "[AUTOTITLE](/get-started/writing-on-github/working-with-advanced-formatting/creating-diagrams#creating-mermaid-diagrams)."
+You can embed Mermaid syntax directly in Markdown. For more information, see [AUTOTITLE](/get-started/writing-on-github/working-with-advanced-formatting/creating-diagrams#creating-mermaid-diagrams).
 
 ### Further reading about Mermaid
 

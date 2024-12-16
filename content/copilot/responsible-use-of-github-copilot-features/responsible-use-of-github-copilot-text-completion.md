@@ -40,7 +40,7 @@ The feature is intended to supplement rather than replace a human's work adding 
 
 Currently, our team is aware that there are limitations to this feature. Many of them are expected in leveraging our {% data variables.product.prodname_copilot_short %} API; however, there are a few that are specific to {% data variables.product.prodname_copilot_autocomplete_pr %} which pertain to limited scope for very large pull requests, and potentially inaccurate responses. We also note that users should expect terms used in their pull request to appear in the AI-generated suggestions.
 
-This feature has been subject to RAI Red Teaming and we will continue to monitor the efficacy and safety of the feature over time. For more information, see "[Microsoft AI Red Team building future of safer AI](https://www.microsoft.com/en-us/security/blog/2023/08/07/microsoft-ai-red-team-building-future-of-safer-ai/)" on the Microsoft security blog.
+This feature has been subject to RAI Red Teaming and we will continue to monitor the efficacy and safety of the feature over time. For more information, see [Microsoft AI Red Team building future of safer AI](https://www.microsoft.com/en-us/security/blog/2023/08/07/microsoft-ai-red-team-building-future-of-safer-ai/) on the Microsoft security blog.
 
 ### Limited scope
 

@@ -18,7 +18,7 @@ topics:
 ---
 ```
 
-For more information on adding topics to an article see, "[AUTOTITLE](/contributing/writing-for-github-docs/using-yaml-frontmatter#topics)". For a list of all allowed topics, see [`allowed-topics`](https://github.com/github/docs/blob/main/data/allowed-topics.js).
+For more information on adding topics to an article see, [AUTOTITLE](/contributing/writing-for-github-docs/using-yaml-frontmatter#topics). For a list of all allowed topics, see [`allowed-topics`](https://github.com/github/docs/blob/main/data/allowed-topics.js).
 
 ## Topics for all content types
 

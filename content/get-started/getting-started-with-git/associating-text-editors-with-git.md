@@ -20,7 +20,7 @@ shortTitle: Associate text editors
 
 {% mac %}
 
-1. Install [{% data variables.product.prodname_vscode %}](https://code.visualstudio.com/) ({% data variables.product.prodname_vscode_shortname %}). For more information, see "[Setting up {% data variables.product.prodname_vscode_shortname %}](https://code.visualstudio.com/Docs/setup/setup-overview)" in the {% data variables.product.prodname_vscode_shortname %} documentation.
+1. Install [{% data variables.product.prodname_vscode %}](https://code.visualstudio.com/) ({% data variables.product.prodname_vscode_shortname %}). For more information, see [Setting up {% data variables.product.prodname_vscode_shortname %}](https://code.visualstudio.com/Docs/setup/setup-overview) in the {% data variables.product.prodname_vscode_shortname %} documentation.
 {% data reusables.command_line.open_the_multi_os_terminal %}
 1. Type this command:
 
@@ -32,7 +32,7 @@ shortTitle: Associate text editors
 
 {% windows %}
 
-1. Install [{% data variables.product.prodname_vscode %}](https://code.visualstudio.com/) ({% data variables.product.prodname_vscode_shortname %}). For more information, see "[Setting up {% data variables.product.prodname_vscode_shortname %}](https://code.visualstudio.com/Docs/setup/setup-overview)" in the {% data variables.product.prodname_vscode_shortname %} documentation.
+1. Install [{% data variables.product.prodname_vscode %}](https://code.visualstudio.com/) ({% data variables.product.prodname_vscode_shortname %}). For more information, see [Setting up {% data variables.product.prodname_vscode_shortname %}](https://code.visualstudio.com/Docs/setup/setup-overview) in the {% data variables.product.prodname_vscode_shortname %} documentation.
 {% data reusables.command_line.open_the_multi_os_terminal %}
 1. Type this command:
 
@@ -44,7 +44,7 @@ shortTitle: Associate text editors
 
 {% linux %}
 
-1. Install [{% data variables.product.prodname_vscode %}](https://code.visualstudio.com/) ({% data variables.product.prodname_vscode_shortname %}). For more information, see "[Setting up {% data variables.product.prodname_vscode_shortname %}](https://code.visualstudio.com/Docs/setup/setup-overview)" in the {% data variables.product.prodname_vscode_shortname %} documentation.
+1. Install [{% data variables.product.prodname_vscode %}](https://code.visualstudio.com/) ({% data variables.product.prodname_vscode_shortname %}). For more information, see [Setting up {% data variables.product.prodname_vscode_shortname %}](https://code.visualstudio.com/Docs/setup/setup-overview) in the {% data variables.product.prodname_vscode_shortname %} documentation.
 {% data reusables.command_line.open_the_multi_os_terminal %}
 1. Type this command:
 
@@ -58,7 +58,7 @@ shortTitle: Associate text editors
 
 {% mac %}
 
-1. Install [Sublime Text](https://www.sublimetext.com/). For more information, see "[Installation](https://docs.sublimetext.io/guide/getting-started/installation.html)" in the Sublime Text documentation.
+1. Install [Sublime Text](https://www.sublimetext.com/). For more information, see [Installation](https://docs.sublimetext.io/guide/getting-started/installation.html) in the Sublime Text documentation.
 {% data reusables.command_line.open_the_multi_os_terminal %}
 1. Type this command:
 
@@ -70,7 +70,7 @@ shortTitle: Associate text editors
 
 {% windows %}
 
-1. Install [Sublime Text](https://www.sublimetext.com/). For more information, see "[Installation](https://docs.sublimetext.io/guide/getting-started/installation.html)" in the Sublime Text documentation.
+1. Install [Sublime Text](https://www.sublimetext.com/). For more information, see [Installation](https://docs.sublimetext.io/guide/getting-started/installation.html) in the Sublime Text documentation.
 {% data reusables.command_line.open_the_multi_os_terminal %}
 1. Type this command:
 
@@ -82,7 +82,7 @@ shortTitle: Associate text editors
 
 {% linux %}
 
-1. Install [Sublime Text](https://www.sublimetext.com/). For more information, see "[Installation](https://docs.sublimetext.io/guide/getting-started/installation.html)" in the Sublime Text documentation.
+1. Install [Sublime Text](https://www.sublimetext.com/). For more information, see [Installation](https://docs.sublimetext.io/guide/getting-started/installation.html) in the Sublime Text documentation.
 {% data reusables.command_line.open_the_multi_os_terminal %}
 1. Type this command:
 
@@ -97,7 +97,7 @@ shortTitle: Associate text editors
 ## Using TextMate as your editor
 
 1. Install [TextMate](https://macromates.com/).
-1. Install TextMate's `mate` shell utility. For more information, see "[`mate` and `rmate`](https://macromates.com/blog/2011/mate-and-rmate/)" in the TextMate documentation.
+1. Install TextMate's `mate` shell utility. For more information, see [`mate` and `rmate`](https://macromates.com/blog/2011/mate-and-rmate/) in the TextMate documentation.
 {% data reusables.command_line.open_the_multi_os_terminal %}
 1. Type this command:
 
@@ -111,7 +111,7 @@ shortTitle: Associate text editors
 
 ## Using Notepad++ as your editor
 
-1. Install Notepad++ from https://notepad-plus-plus.org/. For more information, see "[Getting started](https://github.com/notepad-plus-plus/npp-usermanual/blob/master/content/docs/getting-started.md)" in the Notepad++ documentation.
+1. Install Notepad++ from https://notepad-plus-plus.org/. For more information, see [Getting started](https://github.com/notepad-plus-plus/npp-usermanual/blob/master/content/docs/getting-started.md) in the Notepad++ documentation.
 {% data reusables.command_line.open_the_multi_os_terminal %}
 1. Type this command:
 

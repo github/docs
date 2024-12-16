@@ -150,6 +150,7 @@
   versions:
     fpt: '*'
     ghec: '*'
+    ghes: '>=3.16'
   isPublic: true
   isPrivateWithGhas: true
   hasPushProtection: true
@@ -664,6 +665,7 @@
   versions:
     fpt: '*'
     ghec: '*'
+    ghes: '>=3.16'
   isPublic: false
   isPrivateWithGhas: true
   hasPushProtection: true
@@ -2895,6 +2897,7 @@
   versions:
     fpt: '*'
     ghec: '*'
+    ghes: '>=3.16'
   isPublic: true
   isPrivateWithGhas: true
   hasPushProtection: false

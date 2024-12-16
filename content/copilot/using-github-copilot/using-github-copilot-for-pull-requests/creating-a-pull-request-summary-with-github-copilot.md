@@ -22,7 +22,7 @@ You can use {% data variables.product.prodname_copilot %} to generate a summary 
 * In the description of an existing pull request, by editing the opening comment
 * In a comment on the main timeline of a pull request
 
-To learn more about {% data variables.product.prodname_copilot_for_prs %} and how to use the feature most effectively, see "[AUTOTITLE](/copilot/github-copilot-enterprise/copilot-pull-request-summaries/about-copilot-pull-request-summaries)."
+To learn more about {% data variables.product.prodname_copilot_for_prs %} and how to use the feature most effectively, see [AUTOTITLE](/copilot/github-copilot-enterprise/copilot-pull-request-summaries/about-copilot-pull-request-summaries).
 
 ## Creating a summary for a pull request
 

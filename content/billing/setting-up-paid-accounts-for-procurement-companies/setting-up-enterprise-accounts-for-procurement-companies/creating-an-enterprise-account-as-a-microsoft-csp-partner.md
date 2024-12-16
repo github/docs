@@ -29,7 +29,7 @@ As a Microsoft CSP partner, you can get started with {% data variables.product.p
 1. Sign in to the Microsoft Azure portal.
 1. In the search bar, type "{% data variables.product.prodname_dotcom %}" and select **{% data variables.product.prodname_dotcom %}** to go the landing page.
 1. Select **Get started with {% data variables.product.prodname_enterprise %}**.
-1. Choose an enterprise type. To help you decide which choice is best for the enterprise, see "[AUTOTITLE](/admin/identity-and-access-management/understanding-iam-for-enterprises/choosing-an-enterprise-type-for-github-enterprise-cloud)."
+1. Choose an enterprise type. To help you decide which choice is best for the enterprise, see [AUTOTITLE](/admin/identity-and-access-management/understanding-iam-for-enterprises/choosing-an-enterprise-type-for-github-enterprise-cloud).
 1. Complete the form with your client's information.
 1. Click **Create your enterprise**.
 
@@ -43,7 +43,7 @@ At any time during the trial, you can purchase {% data variables.product.prodnam
 1. To sign in to your Microsoft account, follow the prompts.
 1. Review the "Permissions requested" prompt. If you agree with the terms, click **Accept**.
 
-   If you don't see a "Permissions requested" prompt, and instead see a message indicating that you need admin approval, see "[AUTOTITLE](/billing/managing-the-plan-for-your-github-account/connecting-an-azure-subscription#message-need-admin-approval)."
+   If you don't see a "Permissions requested" prompt, and instead see a message indicating that you need admin approval, see [AUTOTITLE](/billing/managing-the-plan-for-your-github-account/connecting-an-azure-subscription#message-need-admin-approval).
 
 1. Under "Select a subscription", select the Azure Subscription ID that you want to connect to your organization. {% data reusables.enterprise-accounts.tenant-app-permissions %}
    {% data reusables.enterprise-accounts.connect-azure %}
@@ -52,7 +52,7 @@ At any time during the trial, you can purchase {% data variables.product.prodnam
 
 ## Step 3: Invite your client as an enterprise owner
 
-Invite your client to become an enterprise owner. See "[AUTOTITLE](/enterprise-cloud@latest/admin/user-management/managing-users-in-your-enterprise/inviting-people-to-manage-your-enterprise#inviting-an-enterprise-administrator-to-your-enterprise-account)."
+Invite your client to become an enterprise owner. See [AUTOTITLE](/enterprise-cloud@latest/admin/user-management/managing-users-in-your-enterprise/inviting-people-to-manage-your-enterprise#inviting-an-enterprise-administrator-to-your-enterprise-account).
 
 ## Step 4: Change your role to billing manager
 
@@ -65,4 +65,4 @@ Optionally, you can change your role to billing manager to manage the billing fo
 
 ## Contacting support
 
-As a Microsoft CSP partner, you can use the [{% data variables.contact.github_support %} for Microsoft CSP](https://support.github.com/contact?tags=partner-microsoft-csp) landing page to speak to {% data variables.contact.github_support %}. For more information about creating a support ticket, see "[AUTOTITLE](/support/contacting-github-support/creating-a-support-ticket)."
+As a Microsoft CSP partner, you can use the [{% data variables.contact.github_support %} for Microsoft CSP](https://support.github.com/contact?tags=partner-microsoft-csp) landing page to speak to {% data variables.contact.github_support %}. For more information about creating a support ticket, see [AUTOTITLE](/support/contacting-github-support/creating-a-support-ticket).

@@ -39,11 +39,11 @@ fatal: The remote end hung up unexpectedly
 
 ## Scenarios where you cannot suspend users
 
-Before suspending site administrators, you must demote them to regular users. See "[AUTOTITLE](/admin/user-management/managing-users-in-your-enterprise/promoting-or-demoting-a-site-administrator)."
+Before suspending site administrators, you must demote them to regular users. See [AUTOTITLE](/admin/user-management/managing-users-in-your-enterprise/promoting-or-demoting-a-site-administrator).
 
 If you use certain external authentication features, you cannot manage user suspension from the site admin dashboard or command line:
 
-* If LDAP Sync is enabled for {% data variables.location.product_location %}, users are automatically suspended based on the scenarios that are described in "[AUTOTITLE](/admin/identity-and-access-management/using-ldap-for-enterprise-iam/using-ldap#enabling-ldap-sync)."
+* If LDAP Sync is enabled for {% data variables.location.product_location %}, users are automatically suspended based on the scenarios that are described in [AUTOTITLE](/admin/identity-and-access-management/using-ldap-for-enterprise-iam/using-ldap#enabling-ldap-sync).
 * If SCIM provisioning is enabled, SCIM-provisioned users must be suspended or unsuspended through your identity provider.
 
 ## Viewing suspended users in the site admin dashboard
@@ -108,4 +108,4 @@ You can create a custom message that suspended users will see when attempting to
 
 ## Further reading
 
-* "[AUTOTITLE](/rest/enterprise-admin/users#suspend-a-user)"
+* [AUTOTITLE](/rest/enterprise-admin/users#suspend-a-user)

@@ -13,7 +13,7 @@ shortTitle: Custom properties
 
 Custom properties allow you to decorate your repositories with information such as compliance frameworks, data sensitivity, or project details. Custom properties are private and can only be viewed by people with read permissions to the repository. An enterprise can have up to 100 property definitions. An allowed value list can have up to 200 items.
 
-Defining custom properties at the enterprise level allows you to create consistent values that users can apply to repositories. With custom properties in place, you can apply consistent governance across repositories in your enterprise by creating a ruleset or repository policy targeting repositories with certain properties. See "[AUTOTITLE](/admin/managing-accounts-and-repositories/managing-repositories-in-your-enterprise/governing-how-people-use-repositories-in-your-enterprise)."
+Defining custom properties at the enterprise level allows you to create consistent values that users can apply to repositories. With custom properties in place, you can apply consistent governance across repositories in your enterprise by creating a ruleset or repository policy targeting repositories with certain properties. See [AUTOTITLE](/admin/managing-accounts-and-repositories/managing-repositories-in-your-enterprise/governing-how-people-use-repositories-in-your-enterprise).
 
 ## Allowed characters
 
@@ -21,7 +21,7 @@ Defining custom properties at the enterprise level allows you to create consiste
 
 ## Who can set and view values for custom properties I define?
 
-After you define a custom property, users can set a value for that property in repositories in the enterprise. See "[AUTOTITLE](/organizations/managing-organization-settings/managing-custom-properties-for-repositories-in-your-organization#setting-values-for-repositories-in-your-organization)."
+After you define a custom property, users can set a value for that property in repositories in the enterprise. See [AUTOTITLE](/organizations/managing-organization-settings/managing-custom-properties-for-repositories-in-your-organization#setting-values-for-repositories-in-your-organization).
 
 * As an enterprise owner, you can set a default value for required properties.
 * Organization owners can set values in their organization, either across repositories or at the repository level.
@@ -29,7 +29,7 @@ After you define a custom property, users can set a value for that property in r
 
 People with read permissions to a repository can view the custom property values for that repository.
 
-Additionally, organization owners can search for repositories in their organization by custom property values. See "[AUTOTITLE](/organizations/managing-organization-settings/managing-custom-properties-for-repositories-in-your-organization#searching-and-filtering-repositories-by-custom-property-values)."
+Additionally, organization owners can search for repositories in their organization by custom property values. See [AUTOTITLE](/organizations/managing-organization-settings/managing-custom-properties-for-repositories-in-your-organization#searching-and-filtering-repositories-by-custom-property-values).
 
 ## Adding custom properties
 

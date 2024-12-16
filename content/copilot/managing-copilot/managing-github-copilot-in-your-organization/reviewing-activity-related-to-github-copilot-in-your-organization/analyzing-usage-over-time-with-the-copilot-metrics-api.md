@@ -35,15 +35,15 @@ Endpoints are available to get data for an enterprise, organization, organizatio
 
 ## Prerequisites
 
-* The **{% data variables.product.prodname_copilot_short %} metrics API access** policy must be enabled for your enterprise or organization. See "[AUTOTITLE](/copilot/managing-copilot/managing-github-copilot-in-your-organization/managing-policies-for-copilot-in-your-organization)" or "[AUTOTITLE](/enterprise-cloud@latest/copilot/managing-copilot/managing-copilot-for-your-enterprise/managing-policies-and-features-for-copilot-in-your-enterprise)."
+* The **{% data variables.product.prodname_copilot_short %} metrics API access** policy must be enabled for your enterprise or organization. See [AUTOTITLE](/copilot/managing-copilot/managing-github-copilot-in-your-organization/managing-policies-for-copilot-in-your-organization) or [AUTOTITLE](/enterprise-cloud@latest/copilot/managing-copilot/managing-copilot-for-your-enterprise/managing-policies-and-features-for-copilot-in-your-enterprise).
 * The organization, enterprise, or team that you're querying must have enough active {% data variables.product.prodname_copilot_short %} users. The API only returns results for a given day if there are **five or more members with active {% data variables.product.prodname_copilot_short %} licenses** for that day.
 * In this example, we'll create a JavaScript script for querying and analyzing the data. To run this script locally, you must install [Node.js](https://nodejs.org/en), then install the [Octokit.js SDK](https://github.com/octokit/octokit.js#usage) with `npm install -g octokit`.
 
 ## 1. Create a {% data variables.product.pat_generic %}
 
-For our example, to get metrics for an organization, we'll create a {% data variables.product.pat_v1 %} with the `manage_billing:copilot` scope. See "[AUTOTITLE](/authentication/keeping-your-account-and-data-secure/managing-your-personal-access-tokens#creating-a-personal-access-token-classic)."
+For our example, to get metrics for an organization, we'll create a {% data variables.product.pat_v1 %} with the `manage_billing:copilot` scope. See [AUTOTITLE](/authentication/keeping-your-account-and-data-secure/managing-your-personal-access-tokens#creating-a-personal-access-token-classic).
 
-If you're using another endpoint, you may need different scopes. See "[AUTOTITLE](/rest/copilot/copilot-metrics)."
+If you're using another endpoint, you may need different scopes. See [AUTOTITLE](/rest/copilot/copilot-metrics).
 
 ## 2. Connect to the API
 

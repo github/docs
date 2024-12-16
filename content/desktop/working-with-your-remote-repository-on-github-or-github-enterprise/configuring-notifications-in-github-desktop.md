@@ -20,11 +20,11 @@ Clicking the notification will switch application focus to {% data variables.pro
 
 When changes are made to a pull request branch, you will receive a system notification if the checks fail.
 
-Clicking the notification will display a dialog with details about the checks. Once you've reviewed why the checks have failed, you can re-run the checks, or quickly switch to the pull request branch to get started on fixing the errors. For more information, see "[AUTOTITLE](/desktop/working-with-your-remote-repository-on-github-or-github-enterprise/viewing-and-re-running-checks-in-github-desktop)."
+Clicking the notification will display a dialog with details about the checks. Once you've reviewed why the checks have failed, you can re-run the checks, or quickly switch to the pull request branch to get started on fixing the errors. For more information, see [AUTOTITLE](/desktop/working-with-your-remote-repository-on-github-or-github-enterprise/viewing-and-re-running-checks-in-github-desktop).
 
 ## Notifications for pull request reviews
 
-{% data variables.product.prodname_desktop %} will surface a system notification when a teammate has approved, commented, or requested changes in your pull request. See "[AUTOTITLE](/pull-requests/collaborating-with-pull-requests/reviewing-changes-in-pull-requests/about-pull-request-reviews)" for more information on pull request reviews.
+{% data variables.product.prodname_desktop %} will surface a system notification when a teammate has approved, commented, or requested changes in your pull request. See [AUTOTITLE](/pull-requests/collaborating-with-pull-requests/reviewing-changes-in-pull-requests/about-pull-request-reviews) for more information on pull request reviews.
 
 Clicking the notification will switch application focus to {% data variables.product.prodname_desktop %} and provide more context for the pull request review comment.
 
@@ -40,7 +40,7 @@ If system notifications are disabled for {% data variables.product.prodname_desk
 1. In the "Application Notifications" list, select **{% data variables.product.prodname_desktop %}**.
 1. Click **Allow Notifications**.
 
-For more information about macOS system notifications, see "[Use notifications on your Mac](https://support.apple.com/en-us/HT204079)."
+For more information about macOS system notifications, see [Use notifications on your Mac](https://support.apple.com/en-us/HT204079).
 
 {% endmac %}
 
@@ -52,6 +52,6 @@ For more information about macOS system notifications, see "[Use notifications o
 1. Under "Notifications", to enable notifications for Windows, click **On**.
 1. Under "Notifications from apps and other senders", find "{% data variables.product.prodname_desktop %}" in the application list and click **On**.
 
-For more information about Windows system notifications, see "[Change notification settings in Windows](https://support.microsoft.com/en-us/windows/change-notification-settings-in-windows-8942c744-6198-fe56-4639-34320cf9444e)."
+For more information about Windows system notifications, see [Change notification settings in Windows](https://support.microsoft.com/en-us/windows/change-notification-settings-in-windows-8942c744-6198-fe56-4639-34320cf9444e).
 
 {% endwindows %}

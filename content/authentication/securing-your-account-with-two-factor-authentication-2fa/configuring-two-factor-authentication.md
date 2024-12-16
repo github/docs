@@ -89,7 +89,7 @@ If you're unable to configure a TOTP app, you can also register your phone numbe
 
 ## Configuring two-factor authentication using a passkey
 
-{% data reusables.passkeys.about-passkeys %} See "[AUTOTITLE](/authentication/authenticating-with-a-passkey/about-passkeys)."
+{% data reusables.passkeys.about-passkeys %} See [AUTOTITLE](/authentication/authenticating-with-a-passkey/about-passkeys).
 
 > [!NOTE]
 > Platform authenticators like Windows Hello, Face ID, or Touch ID can be registered as a passkey instead.
@@ -124,7 +124,7 @@ Registering a security key for your account is available after enabling 2FA with
 1. Under "Security keys", click **Register new security key**.
 1. Type a nickname for the security key, then click **Add**.
 1. Following your security key's documentation, activate your security key.
-1. Confirm that you've downloaded and can access your recovery codes. If you haven't already, or if you'd like to generate another set of codes, download your codes and save them in a safe place. For more information, see "[AUTOTITLE](/authentication/securing-your-account-with-two-factor-authentication-2fa/configuring-two-factor-authentication-recovery-methods#downloading-your-two-factor-authentication-recovery-codes)."
+1. Confirm that you've downloaded and can access your recovery codes. If you haven't already, or if you'd like to generate another set of codes, download your codes and save them in a safe place. For more information, see [AUTOTITLE](/authentication/securing-your-account-with-two-factor-authentication-2fa/configuring-two-factor-authentication-recovery-methods#downloading-your-two-factor-authentication-recovery-codes).
 
 {% ifversion fpt or ghec %}
 
@@ -144,8 +144,8 @@ After signing in and turning on push notifications, you can now use your device 
 
 ## Further reading
 
-* "[AUTOTITLE](/authentication/securing-your-account-with-two-factor-authentication-2fa/about-two-factor-authentication)"
-* "[AUTOTITLE](/authentication/securing-your-account-with-two-factor-authentication-2fa/configuring-two-factor-authentication-recovery-methods)"
-* "[AUTOTITLE](/authentication/securing-your-account-with-two-factor-authentication-2fa/accessing-github-using-two-factor-authentication)"
-* "[AUTOTITLE](/authentication/securing-your-account-with-two-factor-authentication-2fa/recovering-your-account-if-you-lose-your-2fa-credentials)"
-* "[AUTOTITLE](/authentication/keeping-your-account-and-data-secure/creating-a-personal-access-token)"
+* [AUTOTITLE](/authentication/securing-your-account-with-two-factor-authentication-2fa/about-two-factor-authentication)
+* [AUTOTITLE](/authentication/securing-your-account-with-two-factor-authentication-2fa/configuring-two-factor-authentication-recovery-methods)
+* [AUTOTITLE](/authentication/securing-your-account-with-two-factor-authentication-2fa/accessing-github-using-two-factor-authentication)
+* [AUTOTITLE](/authentication/securing-your-account-with-two-factor-authentication-2fa/recovering-your-account-if-you-lose-your-2fa-credentials)
+* [AUTOTITLE](/authentication/keeping-your-account-and-data-secure/creating-a-personal-access-token)

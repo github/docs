@@ -53,4 +53,4 @@ no_proxy=example.com,myserver.local:443
 
 If you use Docker container actions or service containers in your workflows, you might also need to configure Docker to use your proxy server in addition to setting the above environment variables.
 
-For information on the required Docker configuration, see "[Configure Docker to use a proxy server](https://docs.docker.com/network/proxy/)" in the Docker documentation.
+For information on the required Docker configuration, see [Configure Docker to use a proxy server](https://docs.docker.com/network/proxy/) in the Docker documentation.

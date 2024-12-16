@@ -14,7 +14,7 @@ versions:
 ---
 
 {% ifversion fpt %}
-If you are on a free, pro, or team plan, you can only use {% data variables.product.prodname_code_scanning %} on repositories that are publicly available. To enable {% data variables.product.prodname_code_scanning %} for private or internal repositories, you must upgrade to GitHub Enterprise with {% data variables.product.prodname_GH_advanced_security %} and enable {% data variables.product.prodname_GH_advanced_security %} for the repository. For more information, see "[AUTOTITLE](/get-started/learning-about-github/githubs-products#github-enterprise)" and "[AUTOTITLE](/get-started/learning-about-github/about-github-advanced-security)."
+If you are on a free, pro, or team plan, you can only use {% data variables.product.prodname_code_scanning %} on repositories that are publicly available. To enable {% data variables.product.prodname_code_scanning %} for private or internal repositories, you must upgrade to GitHub Enterprise with {% data variables.product.prodname_GH_advanced_security %} and enable {% data variables.product.prodname_GH_advanced_security %} for the repository. For more information, see [AUTOTITLE](/get-started/learning-about-github/githubs-products#github-enterprise) and [AUTOTITLE](/get-started/learning-about-github/about-github-advanced-security).
 
 {% else %}
 
@@ -31,7 +31,7 @@ If you are on a free, pro, or team plan, you can only use {% data variables.prod
 
 ### Requesting access to {% data variables.product.prodname_GH_advanced_security %}
 
-1. In the "{% data variables.product.prodname_GH_advanced_security %}" settings, click the enterprise name to display a list of users with access to edit the policy that controls access to {% data variables.product.prodname_GH_advanced_security %}. For more information, see "[AUTOTITLE](/admin/policies/enforcing-policies-for-your-enterprise/enforcing-policies-for-code-security-and-analysis-for-your-enterprise#enforcing-a-policy-for-the-use-of-github-advanced-security-in-your-enterprises-organizations)."
+1. In the "{% data variables.product.prodname_GH_advanced_security %}" settings, click the enterprise name to display a list of users with access to edit the policy that controls access to {% data variables.product.prodname_GH_advanced_security %}. For more information, see [AUTOTITLE](/admin/policies/enforcing-policies-for-your-enterprise/enforcing-policies-for-code-security-and-analysis-for-your-enterprise#enforcing-a-policy-for-the-use-of-github-advanced-security-in-your-enterprises-organizations).
 1. Follow your company's policy for requesting access to additional features.
 
 ### Enabling {% data variables.product.prodname_GH_advanced_security %}

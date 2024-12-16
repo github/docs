@@ -2187,6 +2187,30 @@
       "requestPath": "/enterprises/{enterprise}/properties/schema/{custom_property_name}"
     },
     {
+      "slug": "create-an-enterprise-repository-ruleset",
+      "subcategory": "rules",
+      "verb": "post",
+      "requestPath": "/enterprises/{enterprise}/rulesets"
+    },
+    {
+      "slug": "get-an-enterprise-repository-ruleset",
+      "subcategory": "rules",
+      "verb": "get",
+      "requestPath": "/enterprises/{enterprise}/rulesets/{ruleset_id}"
+    },
+    {
+      "slug": "update-an-enterprise-repository-ruleset",
+      "subcategory": "rules",
+      "verb": "put",
+      "requestPath": "/enterprises/{enterprise}/rulesets/{ruleset_id}"
+    },
+    {
+      "slug": "delete-an-enterprise-repository-ruleset",
+      "subcategory": "rules",
+      "verb": "delete",
+      "requestPath": "/enterprises/{enterprise}/rulesets/{ruleset_id}"
+    },
+    {
       "slug": "get-github-actions-billing-for-an-enterprise",
       "subcategory": "billing",
       "verb": "get",

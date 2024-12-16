@@ -22,4 +22,4 @@ shortTitle: Packaging with GitHub Actions
 
 ## Further reading
 
-* "[AUTOTITLE](/actions/publishing-packages/publishing-nodejs-packages)"
+* [AUTOTITLE](/actions/publishing-packages/publishing-nodejs-packages)

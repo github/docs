@@ -28,7 +28,7 @@ You can enforce policies to control how enterprise members manage {% data variab
 
 {% ifversion projects-v1 %}
 
-Some policies apply to both {% data variables.product.prodname_projects_v2 %}, the new projects experience, and {% data variables.product.prodname_projects_v1 %}, the previous experience, while some apply only to {% data variables.product.prodname_projects_v1 %}. For more information about each experience, see "[AUTOTITLE](/issues/planning-and-tracking-with-projects/learning-about-projects/about-projects)" and "[AUTOTITLE](/issues/organizing-your-work-with-project-boards/managing-project-boards/about-project-boards)."
+Some policies apply to both {% data variables.product.prodname_projects_v2 %}, the new projects experience, and {% data variables.product.prodname_projects_v1 %}, the previous experience, while some apply only to {% data variables.product.prodname_projects_v1 %}. For more information about each experience, see [AUTOTITLE](/issues/planning-and-tracking-with-projects/learning-about-projects/about-projects) and [AUTOTITLE](/issues/organizing-your-work-with-project-boards/managing-project-boards/about-project-boards).
 
 {% endif %}
 

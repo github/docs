@@ -98,4 +98,4 @@ To fix this, please move the image to a service that is publicly available.
 
 ## Further reading
 
-* "[Proxying user images](https://github.com/blog/1766-proxying-user-images)" on {% data variables.product.prodname_blog %}
+* [Proxying user images](https://github.com/blog/1766-proxying-user-images) on {% data variables.product.prodname_blog %}

@@ -34,18 +34,18 @@ You can enable push protection:
 
 {% endif %}
 
-For information about the secrets and service providers supported by push protection, see "[AUTOTITLE](/code-security/secret-scanning/introduction/supported-secret-scanning-patterns#supported-secrets)."
+For information about the secrets and service providers supported by push protection, see [AUTOTITLE](/code-security/secret-scanning/introduction/supported-secret-scanning-patterns#supported-secrets).
 
-Push protection has some limitations. For more information, see "[AUTOTITLE](/code-security/secret-scanning/troubleshooting-secret-scanning-and-push-protection/troubleshooting-secret-scanning#push-protection-limitations)."
+Push protection has some limitations. For more information, see [AUTOTITLE](/code-security/secret-scanning/troubleshooting-secret-scanning-and-push-protection/troubleshooting-secret-scanning#push-protection-limitations).
 
 ## How push protection works
 
 Push protection works:
 
-* From the command line. See "[AUTOTITLE](/code-security/secret-scanning/working-with-secret-scanning-and-push-protection/working-with-push-protection-from-the-command-line)."
-* In the {% data variables.product.prodname_dotcom %} UI. See "[AUTOTITLE](/code-security/secret-scanning/working-with-secret-scanning-and-push-protection/working-with-push-protection-in-the-github-ui)."{% ifversion push-protection-delegated-bypass-file-upload-support %}
+* From the command line. See [AUTOTITLE](/code-security/secret-scanning/working-with-secret-scanning-and-push-protection/working-with-push-protection-from-the-command-line).
+* In the {% data variables.product.prodname_dotcom %} UI. See [AUTOTITLE](/code-security/secret-scanning/working-with-secret-scanning-and-push-protection/working-with-push-protection-in-the-github-ui).{% ifversion push-protection-delegated-bypass-file-upload-support %}
 * On files uploaded onto the repository on {% data variables.product.prodname_dotcom %}.{% endif %}{% ifversion secret-scanning-push-protection-content-endpoints %}
-* From the REST API. See "[AUTOTITLE](/code-security/secret-scanning/working-with-secret-scanning-and-push-protection/working-with-push-protection-from-the-rest-api)."{% endif %}
+* From the REST API. See [AUTOTITLE](/code-security/secret-scanning/working-with-secret-scanning-and-push-protection/working-with-push-protection-from-the-rest-api).{% endif %}
 
 Once enabled, if push protection detects a potential secret during a push attempt, it will block the push and provide a detailed message explaining the reason for the block. You will need to review the code in question, remove any sensitive information, and reattempt the push.
 
@@ -53,9 +53,9 @@ By default, anyone with write access to the repository can choose to bypass push
 
 {% data reusables.secret-scanning.bypass-reasons-and-alerts %}
 
-{% ifversion push-protection-delegated-bypass %} If you want greater control over which contributors can bypass push protection and which pushes containing secrets should be allowed, you can enable delegated bypass for push protection. Delegated bypass lets you configure a designated group of reviewers to oversee and manage requests to bypass push protection from contributors pushing to the repository. For more information, see "[AUTOTITLE](/code-security/secret-scanning/using-advanced-secret-scanning-and-push-protection-features/delegated-bypass-for-push-protection/about-delegated-bypass-for-push-protection)."{% endif %}
+{% ifversion push-protection-delegated-bypass %} If you want greater control over which contributors can bypass push protection and which pushes containing secrets should be allowed, you can enable delegated bypass for push protection. Delegated bypass lets you configure a designated group of reviewers to oversee and manage requests to bypass push protection from contributors pushing to the repository. For more information, see [AUTOTITLE](/code-security/secret-scanning/using-advanced-secret-scanning-and-push-protection-features/delegated-bypass-for-push-protection/about-delegated-bypass-for-push-protection).{% endif %}
 
-{% ifversion secret-scanning-push-protection-content-endpoints %}You can also bypass push protection using the REST API. For more information, see "[AUTOTITLE](/rest/secret-scanning/secret-scanning?apiVersion=2022-11-28#create-a-push-protection-bypass)."{% endif %}
+{% ifversion secret-scanning-push-protection-content-endpoints %}You can also bypass push protection using the REST API. For more information, see [AUTOTITLE](/rest/secret-scanning/secret-scanning?apiVersion=2022-11-28#create-a-push-protection-bypass).{% endif %}
 
 ## About the benefits of push protection
 
@@ -75,7 +75,7 @@ By default, anyone with write access to the repository can choose to bypass push
 
 {% ifversion secret-scanning-push-protection-for-users %}
 
-Every user across {% data variables.product.prodname_dotcom %} can also enable push protection for themselves within their individual settings. Enabling push protection for your user account means that your pushes are protected whenever you push to a public repository on {% data variables.product.prodname_dotcom %}, without relying on that repository to have push protection enabled. For more information, see "[AUTOTITLE](/code-security/secret-scanning/working-with-secret-scanning-and-push-protection/push-protection-for-users)."
+Every user across {% data variables.product.prodname_dotcom %} can also enable push protection for themselves within their individual settings. Enabling push protection for your user account means that your pushes are protected whenever you push to a public repository on {% data variables.product.prodname_dotcom %}, without relying on that repository to have push protection enabled. For more information, see [AUTOTITLE](/code-security/secret-scanning/working-with-secret-scanning-and-push-protection/push-protection-for-users).
 
 {% endif %}
 
@@ -91,7 +91,7 @@ Integrate push protection with your Continuous Integration/Continuous Deployment
 
 ### Define custom patterns
 
-Define custom patterns that push protection can use to identify secrets and block pushes containing these secrets. For more information, see "[AUTOTITLE](/code-security/secret-scanning/using-advanced-secret-scanning-and-push-protection-features/custom-patterns/defining-custom-patterns-for-secret-scanning)."
+Define custom patterns that push protection can use to identify secrets and block pushes containing these secrets. For more information, see [AUTOTITLE](/code-security/secret-scanning/using-advanced-secret-scanning-and-push-protection-features/custom-patterns/defining-custom-patterns-for-secret-scanning).
 
 {% endif %}
 
@@ -99,14 +99,14 @@ Define custom patterns that push protection can use to identify secrets and bloc
 
 ### Configure delegated bypass
 
-Define contributors who can bypass push protection and add an approval process for other contributors. For more information, see "[AUTOTITLE](/code-security/secret-scanning/using-advanced-secret-scanning-and-push-protection-features/delegated-bypass-for-push-protection/about-delegated-bypass-for-push-protection)."
+Define contributors who can bypass push protection and add an approval process for other contributors. For more information, see [AUTOTITLE](/code-security/secret-scanning/using-advanced-secret-scanning-and-push-protection-features/delegated-bypass-for-push-protection/about-delegated-bypass-for-push-protection).
 
 {% endif %}
 
 ## Further reading
 
-* "[AUTOTITLE](/code-security/secret-scanning/enabling-secret-scanning-features/enabling-push-protection-for-your-repository)"
-* "[AUTOTITLE](/code-security/secret-scanning/working-with-secret-scanning-and-push-protection/working-with-push-protection-from-the-command-line)"
-* "[AUTOTITLE](/code-security/secret-scanning/working-with-secret-scanning-and-push-protection/working-with-push-protection-in-the-github-ui)"{% ifversion secret-scanning-push-protection-custom-patterns %}
-* "[AUTOTITLE](/code-security/secret-scanning/using-advanced-secret-scanning-and-push-protection-features/custom-patterns/defining-custom-patterns-for-secret-scanning)"{% endif %}{% ifversion push-protection-delegated-bypass %}
-* "[AUTOTITLE](/code-security/secret-scanning/using-advanced-secret-scanning-and-push-protection-features/delegated-bypass-for-push-protection/about-delegated-bypass-for-push-protection)"{% endif %}
+* [AUTOTITLE](/code-security/secret-scanning/enabling-secret-scanning-features/enabling-push-protection-for-your-repository)
+* [AUTOTITLE](/code-security/secret-scanning/working-with-secret-scanning-and-push-protection/working-with-push-protection-from-the-command-line)
+* [AUTOTITLE](/code-security/secret-scanning/working-with-secret-scanning-and-push-protection/working-with-push-protection-in-the-github-ui){% ifversion secret-scanning-push-protection-custom-patterns %}
+* [AUTOTITLE](/code-security/secret-scanning/using-advanced-secret-scanning-and-push-protection-features/custom-patterns/defining-custom-patterns-for-secret-scanning){% endif %}{% ifversion push-protection-delegated-bypass %}
+* [AUTOTITLE](/code-security/secret-scanning/using-advanced-secret-scanning-and-push-protection-features/delegated-bypass-for-push-protection/about-delegated-bypass-for-push-protection){% endif %}
