@@ -23,7 +23,7 @@ topics:
 >
 > {% data variables.product.prodname_github_apps %} use fine-grained permissions, give the user more control over which repositories the app can access, and use short-lived tokens.
 >
-> For more information, see "[AUTOTITLE](/apps/oauth-apps/building-oauth-apps/differences-between-github-apps-and-oauth-apps)" and "[AUTOTITLE](/apps/creating-github-apps/setting-up-a-github-app/about-creating-github-apps)."
+> For more information, see [AUTOTITLE](/apps/oauth-apps/building-oauth-apps/differences-between-github-apps-and-oauth-apps) and [AUTOTITLE](/apps/creating-github-apps/setting-up-a-github-app/about-creating-github-apps).
 
 {% ifversion fpt or ghec %}
 
@@ -52,9 +52,9 @@ topics:
    > [!NOTE]
    > {% data variables.product.prodname_oauth_apps %} cannot have multiple callback URLs, unlike {% data variables.product.prodname_github_apps %}.
 
-1. If your {% data variables.product.prodname_oauth_app %} will use the device flow to identify and authorize users, click **Enable Device Flow**. For more information about the device flow, see "[AUTOTITLE](/apps/oauth-apps/building-oauth-apps/authorizing-oauth-apps#device-flow)."
+1. If your {% data variables.product.prodname_oauth_app %} will use the device flow to identify and authorize users, click **Enable Device Flow**. For more information about the device flow, see [AUTOTITLE](/apps/oauth-apps/building-oauth-apps/authorizing-oauth-apps#device-flow).
 1. Click **Register application**.
 
 ## Further reading
 
-* "[AUTOTITLE](/apps/oauth-apps/maintaining-oauth-apps/modifying-an-oauth-app)"
+* [AUTOTITLE](/apps/oauth-apps/maintaining-oauth-apps/modifying-an-oauth-app)
