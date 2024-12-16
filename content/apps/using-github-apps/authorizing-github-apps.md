@@ -17,7 +17,7 @@ redirect_from:
 
 ## About authorizing {% data variables.product.prodname_github_apps %}
 
-Third-party applications that need to verify your {% data variables.product.company_short %} identity or interact with {% data variables.product.company_short %} on your behalf can ask you to authorize a {% data variables.product.prodname_github_app %} to do so. If a third-party application wants you to authorize a {% data variables.product.prodname_github_app %}, the application will bring you to a {% data variables.product.company_short %} page that prompts you to authorize the app.
+Applications that are not owned by you, your organization, or {% data variables.product.prodname_marketplace %} may need to verify your {% data variables.product.github %} identity or interact with {% data variables.product.github %} on your behalf. These applications can request authorization for a {% data variables.product.prodname_github_app %} to perform these actions. If an application requests authorization, it will redirect you to a {% data variables.product.github %} page prompting you to authorize the app.
 
 When authorizing the {% data variables.product.prodname_github_app %}, you should ensure you trust the application owner and review the information that the application wants to access. During authorization, you'll be prompted to grant the {% data variables.product.prodname_github_app %} permission to do all of the following:
 
@@ -28,11 +28,10 @@ When authorizing the {% data variables.product.prodname_github_app %}, you shoul
 You can review and revoke your authorization at any time. For more information, see "[AUTOTITLE](/apps/using-github-apps/reviewing-your-authorized-integrations)."
 
 {% ifversion ghec %}
-{% note %}
 
-**Note**: If your organization uses SAML SSO and you cannot see your organization's resources after you authorize a {% data variables.product.prodname_github_app %}, you may need to reauthorize the app after starting an active SAML session for your organization. For more information, see "[AUTOTITLE](/apps/using-github-apps/saml-and-github-apps)."
+> [!NOTE]
+> If your organization uses SAML SSO and you cannot see your organization's resources after you authorize a {% data variables.product.prodname_github_app %}, you may need to reauthorize the app after starting an active SAML session for your organization. For more information, see "[AUTOTITLE](/apps/using-github-apps/saml-and-github-apps)."
 
-{% endnote %}
 {% endif %}
 
 ## About {% data variables.product.prodname_github_apps %} acting on your behalf

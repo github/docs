@@ -57,7 +57,7 @@ For example, instead of asking {% data variables.product.prodname_copilot_short 
 
 * Write a function to generate a 10 by 10 grid of letters.
 * Write a function to find all words in a grid of letters, given a list of valid words.
-* Write a function to that uses the previous functions to generate a 10 by 10 grid of letters that contains at least 10 words.
+* Write a function that uses the previous functions to generate a 10 by 10 grid of letters that contains at least 10 words.
 * Update the previous function to print the grid of letters and 10 random words from the grid.
 
 ## Avoid ambiguity
@@ -76,7 +76,7 @@ Ambiguity can also apply to libraries:
 
 If you are using {% data variables.product.prodname_copilot_short %} in your IDE to get suggestions as you code, open any relevant files and close irrelevant files. {% data variables.product.prodname_copilot_short %} will use the open files to understand your request.
 
-If you are using {% data variables.product.prodname_copilot_chat_short %} in your IDE, open the file or highlight the code that you want {% data variables.product.prodname_copilot_short %} to reference. You can also specify which files {% data variables.product.prodname_copilot_chat_short %} should reference. For example, in {% data variables.product.prodname_vscode_shortname %}, use the `#file` variable or the `@workspace` participant. For instructions on how to reference files in your IDE, see "[AUTOTITLE](/copilot/github-copilot-chat/copilot-chat-in-ides/using-github-copilot-chat-in-your-ide)."
+If you are using {% data variables.product.prodname_copilot_chat_short %} in your IDE, open the file or highlight the code that you want {% data variables.product.prodname_copilot_short %} to reference. You can also specify which files {% data variables.product.prodname_copilot_chat_short %} should reference. For example, in {% data variables.product.prodname_vscode_shortname %}, use the `#file` variable or the `@workspace` participant. For instructions on how to reference files in your IDE, see [AUTOTITLE](/copilot/github-copilot-chat/copilot-chat-in-ides/using-github-copilot-chat-in-your-ide).
 
 ## Experiment and iterate
 
@@ -121,5 +121,5 @@ Similarly, if you aren't getting the responses you want when you use {% data var
 
 * [How to use GitHub Copilot: Prompts, tips, and use cases](https://github.blog/2023-06-20-how-to-write-better-prompts-for-github-copilot/) in the {% data variables.product.company_short %} blog
 * [Using GitHub Copilot in your IDE: Tips, tricks, and best practices](https://github.blog/2024-03-25-how-to-use-github-copilot-in-your-ide-tips-tricks-and-best-practices/) in the {% data variables.product.company_short %} blog
-* [A developer’s guide to prompt engineering and LLMs](https://github.blog/2023-07-17-prompt-engineering-guide-generative-ai-llms/)  in the {% data variables.product.company_short %} blog
-* [Prompting GitHub Copilot Chat to become your personal AI assistant for accessibility](https://github.blog/2023-10-09-prompting-github-copilot-chat-to-become-your-personal-ai-assistant-for-accessibility/)  in the {% data variables.product.company_short %} blog
+* [A developer’s guide to prompt engineering and LLMs](https://github.blog/2023-07-17-prompt-engineering-guide-generative-ai-llms/) in the {% data variables.product.company_short %} blog
+* [Prompting GitHub Copilot Chat to become your personal AI assistant for accessibility](https://github.blog/2023-10-09-prompting-github-copilot-chat-to-become-your-personal-ai-assistant-for-accessibility/) in the {% data variables.product.company_short %} blog

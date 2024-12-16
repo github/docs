@@ -20,17 +20,12 @@ topics:
 shortTitle: Configure GitHub Pages
 ---
 
-{% ifversion ghes %}
-
 ## Enabling public sites for {% data variables.product.prodname_pages %}
 
 If private mode is enabled on your enterprise, the public cannot access {% data variables.product.prodname_pages %} sites hosted by your enterprise unless you enable public sites.
 
-{% warning %}
-
-**Warning:** If you enable public sites for {% data variables.product.prodname_pages %}, every site in every repository on your enterprise will be accessible to the public.
-
-{% endwarning %}
+> [!WARNING]
+> If you enable public sites for {% data variables.product.prodname_pages %}, every site in every repository on your enterprise will be accessible to the public.
 
 {% data reusables.enterprise_site_admin_settings.access-settings %}
 {% data reusables.enterprise_site_admin_settings.management-console %}
@@ -40,7 +35,7 @@ If private mode is enabled on your enterprise, the public cannot access {% data 
 
 ## Disabling {% data variables.product.prodname_pages %} for your enterprise
 
-If subdomain isolation is disabled for your enterprise, you should also disable {% data variables.product.prodname_pages %} to protect yourself from potential security vulnerabilities. For more information, see "[AUTOTITLE](/admin/configuration/configuring-network-settings/enabling-subdomain-isolation)."
+If subdomain isolation is disabled for your enterprise, you should also disable {% data variables.product.prodname_pages %} to protect yourself from potential security vulnerabilities. For more information, see [AUTOTITLE](/admin/configuration/configuring-network-settings/enabling-subdomain-isolation).
 
 {% data reusables.enterprise_site_admin_settings.access-settings %}
 {% data reusables.enterprise_site_admin_settings.management-console %}
@@ -48,19 +43,12 @@ If subdomain isolation is disabled for your enterprise, you should also disable 
 1. Deselect **Enable Pages**.
 {% data reusables.enterprise_management_console.save-settings %}
 
-{% endif %}
-
-{% ifversion ghes %}
-
 ## Configuring {% data variables.product.prodname_pages %} response headers for your enterprise
 
 You can add or override response headers for {% data variables.product.prodname_pages %} sites hosted by {% data variables.location.product_location %}.
 
-{% warning %}
-
-**Warning:** Ensure that your response headers are properly configured before saving. Improper configurations may negatively impact the security of {% data variables.location.product_location %}.
-
-{% endwarning %}
+> [!WARNING]
+> Ensure that your response headers are properly configured before saving. Improper configurations may negatively impact the security of {% data variables.location.product_location %}.
 
 {% data reusables.enterprise_site_admin_settings.access-settings %}
 {% data reusables.enterprise_site_admin_settings.management-console %}
@@ -70,11 +58,6 @@ You can add or override response headers for {% data variables.product.prodname_
 1. Click **Add headers**.
 {% data reusables.enterprise_management_console.save-settings %}
 
-{% endif %}
-
-{% ifversion ghes %}
-
 ## Further reading
 
-* "[AUTOTITLE](/admin/configuration/configuring-your-enterprise/enabling-private-mode)"
-{% endif %}
+* [AUTOTITLE](/admin/configuration/configuring-your-enterprise/enabling-private-mode)

@@ -22,11 +22,10 @@ shortTitle: Featured integrations
 You can connect to {% data variables.product.product_name %} repositories within third-party editor tools such as {% data variables.product.prodname_vs %}.
 
 {% ifversion fpt %}
-{% note %}
 
-**Note:** To see an example of how third-party editor tools connect to repositories for {% data variables.product.prodname_classroom %}, see "[AUTOTITLE](/education/manage-coursework-with-github-classroom/integrate-github-classroom-with-an-ide/integrate-github-classroom-with-an-ide)."
+> [!NOTE]
+> To see an example of how third-party editor tools connect to repositories for {% data variables.product.prodname_classroom %}, see [AUTOTITLE](/education/manage-coursework-with-github-classroom/integrate-github-classroom-with-an-ide/integrate-github-classroom-with-an-ide).
 
-{% endnote %}
 {% endif %}
 
 ### {% data variables.product.product_name %} for {% data variables.product.prodname_vs %}

@@ -45,7 +45,7 @@ The following IdPs are partner IdPs. They offer an application that you can use 
 * Okta
 * PingFederate (beta)
 
-When you use a single partner IdP for both authentication and provisioning, {% data variables.product.company_short %} provides support for the application on the partner IdP and the IdP's integration with {% data variables.product.prodname_dotcom %}. Support for PingFederate is in beta.
+When you use a single partner IdP for both authentication and provisioning, {% data variables.product.company_short %} provides support for the application on the partner IdP and the IdP's integration with {% data variables.product.prodname_dotcom %}. Support for PingFederate is in {% data variables.release-phases.public_preview %}.
 
 ### Other identity management systems
 
@@ -53,11 +53,11 @@ If you cannot use a single partner IdP for both authentication and provisioning,
 
 * Adhere to **{% data variables.product.company_short %}'s integration guidelines**
 * Provide **authentication using SAML**, adhering to SAML 2.0 specification
-* Provide **user lifecycle management using SCIM**, adhering to the SCIM 2.0 specification and communicating with {% data variables.product.company_short %}'s REST API (see "[AUTOTITLE](/admin/identity-and-access-management/provisioning-user-accounts-for-enterprise-managed-users/provisioning-users-with-scim-using-the-rest-api)")
+* Provide **user lifecycle management using SCIM**, adhering to the SCIM 2.0 specification and communicating with {% data variables.product.company_short %}'s REST API (see [AUTOTITLE](/admin/identity-and-access-management/provisioning-user-accounts-for-enterprise-managed-users/provisioning-users-with-scim-using-the-rest-api))
 
 {% else %}
 
-During the private beta, your account team will provide documentation for the configuration of SCIM for {% data variables.product.product_name %} on a supported IdP.
+During the {% data variables.release-phases.private_preview %}, your account team will provide documentation for the configuration of SCIM for {% data variables.product.product_name %} on a supported IdP.
 
 {% endif %}
 
@@ -79,11 +79,11 @@ If you currently use SAML SSO, and you are enabling SCIM, you should be aware of
 
 After an IdP administrator grants a person access to {% data variables.location.product_location %}, the user can authenticate through the IdP to access {% data variables.product.product_name %} using SAML SSO.
 
-* When a user authenticates through SAML, to associate a user with a SAML identity, {% data variables.product.prodname_dotcom %} compares a normalized `NameID` claim from the IdP (or another value you have configured) to the account's username. For details about normalization, see "[AUTOTITLE](/admin/identity-and-access-management/managing-iam-for-your-enterprise/username-considerations-for-external-authentication#about-username-normalization)."
+* When a user authenticates through SAML, to associate a user with a SAML identity, {% data variables.product.prodname_dotcom %} compares a normalized `NameID` claim from the IdP (or another value you have configured) to the account's username. For details about normalization, see [AUTOTITLE](/admin/identity-and-access-management/managing-iam-for-your-enterprise/username-considerations-for-external-authentication#about-username-normalization).
 * If there is no account with a matching username on the instance, the user will fail to sign in.
   * To make this match, {% data variables.product.product_name %} compares the SAML `NameId` claim from the IdP to the SCIM `userName` attribute for each user account provisioned by SCIM on the instance.
   * Additionally, for Entra ID, {% data variables.product.product_name %} compares the object identifier from the SAML request with an existing SCIM external ID.
-* If your environment does not use `NameID` to uniquely identify users, a site administrator can configure custom user attributes for the instance. {% data variables.product.product_name %} will respect this mapping when SCIM is configured. For more information about mapping user attributes, see "[AUTOTITLE](/admin/identity-and-access-management/using-saml-for-enterprise-iam/configuring-saml-single-sign-on-for-your-enterprise#configuring-saml-sso)."
+* If your environment does not use `NameID` to uniquely identify users, a site administrator can configure custom user attributes for the instance. {% data variables.product.product_name %} will respect this mapping when SCIM is configured. For more information about mapping user attributes, see [AUTOTITLE](/admin/identity-and-access-management/using-saml-for-enterprise-iam/configuring-saml-single-sign-on-for-your-enterprise#configuring-saml-sso).
 
 {% ifversion scim-for-ghes-public-beta %}
 
@@ -111,10 +111,10 @@ If SCIM is disabled on the instance:
 
 To get started with SCIM, you will:
 
-1. Complete initial setup, required regardless of which IdP you will use, in "[AUTOTITLE](/admin/managing-iam/provisioning-user-accounts-with-scim/configuring-scim-provisioning-for-users)."
+1. Complete initial setup, required regardless of which IdP you will use, in [AUTOTITLE](/admin/managing-iam/provisioning-user-accounts-with-scim/configuring-scim-provisioning-for-users).
 1. Configure settings in your IdP.
    * If you're using a partner IdP for authentication and provisioning, you'll follow a guide for your IdP.
-   * Otherwise, you'll set up a SCIM integration with the REST API, as described in "[AUTOTITLE](/admin/managing-iam/provisioning-user-accounts-with-scim/provisioning-users-and-groups-with-scim-using-the-rest-api)."
+   * Otherwise, you'll set up a SCIM integration with the REST API, as described in [AUTOTITLE](/admin/managing-iam/provisioning-user-accounts-with-scim/provisioning-users-and-groups-with-scim-using-the-rest-api).
 
 {% else %}
 
@@ -122,7 +122,7 @@ To get started with SCIM, you will:
 
 * {% data reusables.saml.ghes-you-must-configure-saml-sso %}
 
-* You must allow built-in authentication for users who don't have an account on your IdP. For more information, see "[AUTOTITLE](/admin/identity-and-access-management/managing-iam-for-your-enterprise/allowing-built-in-authentication-for-users-outside-your-provider)."
+* You must allow built-in authentication for users who don't have an account on your IdP. For more information, see [AUTOTITLE](/admin/identity-and-access-management/managing-iam-for-your-enterprise/allowing-built-in-authentication-for-users-outside-your-provider).
 
 * Your IdP must support making SCIM calls to a Service Provider (SP).
 
@@ -134,21 +134,17 @@ To perform provisioning actions on your instance, you will create a built-in use
 
 After you enable SCIM on a {% data variables.product.product_name %} instance, all user accounts are suspended. The built-in user account will continue to perform provisioning actions. After you grant a user access to your instance from your IdP, the IdP will communicate with the instance using SCIM to unsuspend the user's account.
 
-1. Create a built-in user account to perform provisioning actions on your instance. For more information, see "[AUTOTITLE](/admin/identity-and-access-management/managing-iam-for-your-enterprise/allowing-built-in-authentication-for-users-outside-your-provider#inviting-users-outside-your-provider-to-authenticate-to-your-instance)."
-1. Promote the dedicated user account to an enterprise owner. For more information, see "[AUTOTITLE](/admin/user-management/managing-users-in-your-enterprise/inviting-people-to-manage-your-enterprise#adding-an-enterprise-administrator-to-your-enterprise-account)."
+1. Create a built-in user account to perform provisioning actions on your instance. For more information, see [AUTOTITLE](/admin/identity-and-access-management/managing-iam-for-your-enterprise/allowing-built-in-authentication-for-users-outside-your-provider#inviting-users-outside-your-provider-to-authenticate-to-your-instance).
+1. Promote the dedicated user account to an enterprise owner. For more information, see [AUTOTITLE](/admin/user-management/managing-users-in-your-enterprise/inviting-people-to-manage-your-enterprise#adding-an-enterprise-administrator-to-your-enterprise-account).
 1. Sign into your instance as the new enterprise owner.
-1. Create a {% data variables.product.pat_v1 %} with **admin:enterprise** scope. Do not specify an expiration date for the {% data variables.product.pat_v1 %}. For more information, see "[AUTOTITLE](/authentication/keeping-your-account-and-data-secure/creating-a-personal-access-token)."
+1. Create a {% data variables.product.pat_v1 %} with **admin:enterprise** scope. Do not specify an expiration date for the {% data variables.product.pat_v1 %}. For more information, see [AUTOTITLE](/authentication/keeping-your-account-and-data-secure/creating-a-personal-access-token).
 
-   {% warning %}
+   > [!WARNING]
+   > Ensure that you don't specify an expiration date for the {% data variables.product.pat_v1 %}. If you specify an expiration date, SCIM will no longer function after the expiration date passes.
 
-   **Warning**: Ensure that you don't specify an expiration date for the {% data variables.product.pat_v1 %}. If you specify an expiration date, SCIM will no longer function after the expiration date passes.
+   > [!NOTE]
+   > You'll need this {% data variables.product.pat_generic %} to test the SCIM configuration, and to configure the application for SCIM on your IdP. Store the token securely in a password manager until you need the token again later in these instructions.
 
-   {% endwarning %}
-   {% note %}
-
-   **Note**: You'll need this {% data variables.product.pat_generic %} to test the SCIM configuration, and to configure the application for SCIM on your IdP. Store the token securely in a password manager until you need the token again later in these instructions.
-
-   {% endnote %}
 {% data reusables.enterprise_installation.ssh-into-instance %}
 1. To enable SCIM, run the commands provided to you by your account manager on {% data variables.contact.contact_enterprise_sales %}.
 {% data reusables.enterprise_site_admin_settings.wait-for-configuration-run %}

@@ -14,11 +14,9 @@ versions:
   fpt: '*'
 shortTitle: Application not approved
 ---
-{% tip %}
 
-**Tip:** {% data reusables.education.about-github-education-link %}
-
-{% endtip %}
+> [!TIP]
+> {% data reusables.education.about-github-education-link %}
 
 ## Unclear proof of affiliation documents
 
@@ -46,4 +44,4 @@ Teachers are not eligible for the partner offers that come with the [{% data var
 
 ## Further reading
 
-* "[AUTOTITLE](/education/explore-the-benefits-of-teaching-and-learning-with-github-education/github-global-campus-for-teachers/apply-to-github-global-campus-as-a-teacher)"
+* [AUTOTITLE](/education/explore-the-benefits-of-teaching-and-learning-with-github-education/github-global-campus-for-teachers/apply-to-github-global-campus-as-a-teacher)

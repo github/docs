@@ -15,10 +15,7 @@ In rare cases, an institution's network access policy may restrict access to spe
 
 You can use the REST API to retrieve a list of {% data variables.product.company_short %}'s domain names.
 
-{% warning %}
+> [!WARNING]
+> The list of domains from the REST API is not intended to be comprehensive. If you block access to services using DNS, but selectively allow access to {% data variables.product.company_short %}'s domain names, any or all of {% data variables.product.prodname_dotcom %} and related services may not function properly or at all for your end users.
 
-**Warning**: The list of domains from the REST API is not intended to be comprehensive. If you block access to services using DNS, but selectively allow access to {% data variables.product.company_short %}'s domain names, any or all of {% data variables.product.prodname_dotcom %} and related services may not function properly or at all for your end users.
-
-{% endwarning %}
-
-For more information, see "[AUTOTITLE](/rest/meta)."
+For more information, see [AUTOTITLE](/rest/meta).

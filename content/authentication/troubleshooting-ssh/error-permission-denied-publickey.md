@@ -13,6 +13,11 @@ topics:
   - SSH
 shortTitle: Permission denied (publickey)
 ---
+{% ifversion ghec %}
+
+> [!NOTE] {% data reusables.enterprise-data-residency.access-domain %}
+
+{% endif %}
 
 ## Should the `sudo` command or elevated privileges be used with Git?
 
@@ -114,11 +119,8 @@ You should see this output:
 
 The `ssh-add` command _should_ print out a long string of numbers and letters. If it does not print anything, you will need to [generate a new SSH key](/authentication/connecting-to-github-with-ssh/generating-a-new-ssh-key-and-adding-it-to-the-ssh-agent) and associate it with {% data variables.product.product_name %}.
 
-{% tip %}
-
-**Tip**: On most systems the default private keys (`~/.ssh/id_rsa` and `~/.ssh/identity`) are automatically added to the SSH authentication agent. You shouldn't need to run `ssh-add path/to/key` unless you override the file name when you generate a key.
-
-{% endtip %}
+> [!TIP]
+> On most systems the default private keys (`~/.ssh/id_rsa` and `~/.ssh/identity`) are automatically added to the SSH authentication agent. You shouldn't need to run `ssh-add path/to/key` unless you override the file name when you generate a key.
 
 ### Getting more details
 
@@ -242,8 +244,5 @@ You must provide your public key to {% data variables.product.product_name %} to
 
 If you don't see your public key in {% data variables.product.product_name %}, you'll need to [add your SSH key to {% data variables.product.product_name %}](/authentication/connecting-to-github-with-ssh/adding-a-new-ssh-key-to-your-github-account) to associate it with your computer.
 
-{% warning %}
-
-**Warning**: If you see an SSH key you're not familiar with on {% data variables.product.product_name %}, delete it immediately and contact {% data variables.contact.contact_support %} for further help. An unidentified public key may indicate a possible security concern. For more information, see "[AUTOTITLE](/authentication/keeping-your-account-and-data-secure/reviewing-your-ssh-keys)."
-
-{% endwarning %}
+> [!WARNING]
+> If you see an SSH key you're not familiar with on {% data variables.product.product_name %}, delete it immediately and contact {% data variables.contact.contact_support %} for further help. An unidentified public key may indicate a possible security concern. For more information, see [AUTOTITLE](/authentication/keeping-your-account-and-data-secure/reviewing-your-ssh-keys).

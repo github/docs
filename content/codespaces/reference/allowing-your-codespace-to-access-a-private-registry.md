@@ -24,7 +24,7 @@ To access other container image registries, you can create secrets in {% data va
 
 ## Accessing packages stored in registries with granular permissions
 
-{% data variables.product.prodname_registry %} registries that support granular permissions, including the {% data variables.product.prodname_container_registry %}, provide the easiest way for {% data variables.product.prodname_github_codespaces %} to consume packages. For the list of {% data variables.product.prodname_registry %} registries that support granular permissions and seamless {% data variables.product.prodname_github_codespaces %} access, see "[AUTOTITLE](/packages/learn-github-packages/about-permissions-for-github-packages#granular-permissions-for-userorganization-scoped-packages)."
+{% data variables.product.prodname_registry %} registries that support granular permissions, including the {% data variables.product.prodname_container_registry %}, provide the easiest way for {% data variables.product.prodname_github_codespaces %} to consume packages. For the list of {% data variables.product.prodname_registry %} registries that support granular permissions and seamless {% data variables.product.prodname_github_codespaces %} access, see [AUTOTITLE](/packages/learn-github-packages/about-permissions-for-github-packages#granular-permissions-for-userorganization-scoped-packages).
 
 ### Accessing a package published to the same repository as the codespace
 
@@ -36,23 +36,23 @@ By default, the package inherits the access setting of the repository from which
 
 This behavior is controlled by the **Inherit access from repo** option. **Inherit access from repo** is selected by default when publishing via {% data variables.product.prodname_actions %}, but not when publishing directly to a registry using a {% data variables.product.pat_generic %}.
 
-If the **Inherit access from repo** option was not selected when the package was published, you can manually add the repository to the published package's access controls. For more information, see "[AUTOTITLE](/packages/learn-github-packages/configuring-a-packages-access-control-and-visibility#inheriting-access-for-a-container-image-from-a-repository)."
+If the **Inherit access from repo** option was not selected when the package was published, you can manually add the repository to the published package's access controls. For more information, see [AUTOTITLE](/packages/learn-github-packages/configuring-a-packages-access-control-and-visibility#inheriting-access-for-a-container-image-from-a-repository).
 
 ### Accessing a package published to the organization a codespace will be launched in
 
 If you want a package to be accessible to all codespaces in an organization, we recommend that you publish the package with internal visibility. This will automatically make the package visible to all codespaces within the organization, unless the repository the codespace is launched from is public.
 
-If the codespace is being launched from a public repository referencing an internal or private package, you must manually allow the public repository access to the internal package. This prevents the internal package from being accidentally leaked publicly. For more information, see "[AUTOTITLE](/packages/learn-github-packages/configuring-a-packages-access-control-and-visibility#ensuring-codespaces-access-to-your-package)."
+If the codespace is being launched from a public repository referencing an internal or private package, you must manually allow the public repository access to the internal package. This prevents the internal package from being accidentally leaked publicly. For more information, see [AUTOTITLE](/packages/learn-github-packages/configuring-a-packages-access-control-and-visibility#ensuring-codespaces-access-to-your-package).
 
 ### Accessing a private package from a subset of repositories in an organization
 
-If you want to allow a subset of an organization's repositories to access a package, or allow an internal or private package to be accessed from a codespace launched in a public repository, you can manually add repositories to a package's access settings. For more information, see "[AUTOTITLE](/packages/learn-github-packages/configuring-a-packages-access-control-and-visibility#ensuring-codespaces-access-to-your-package)."
+If you want to allow a subset of an organization's repositories to access a package, or allow an internal or private package to be accessed from a codespace launched in a public repository, you can manually add repositories to a package's access settings. For more information, see [AUTOTITLE](/packages/learn-github-packages/configuring-a-packages-access-control-and-visibility#ensuring-codespaces-access-to-your-package).
 
 ### Publishing a package from a codespace
 
 Seamless access from a codespace to a registry is limited to pulling packages. If you want to publish a package from inside a codespace, you must use a {% data variables.product.pat_v1 %} with the `write:packages` scope.
 
-We recommend publishing packages via {% data variables.product.prodname_actions %}. For more information, see "[AUTOTITLE](/actions/publishing-packages/publishing-docker-images)" and "[AUTOTITLE](/actions/publishing-packages/publishing-nodejs-packages)."
+We recommend publishing packages via {% data variables.product.prodname_actions %}. For more information, see [AUTOTITLE](/actions/publishing-packages/publishing-docker-images) and [AUTOTITLE](/actions/publishing-packages/publishing-nodejs-packages).
 
 ## Accessing images stored in other registries
 
@@ -62,7 +62,7 @@ You can define secrets to allow {% data variables.product.prodname_github_codesp
 * `<*>_CONTAINER_REGISTRY_USER`
 * `<*>_CONTAINER_REGISTRY_PASSWORD`
 
-You can store secrets at the user, repository, or organization-level, allowing you to share them securely between different codespaces. When you create a set of secrets for a private image registry, you need to replace the "<*>" in the name with a consistent identifier. For more information, see "[AUTOTITLE](/codespaces/managing-your-codespaces/managing-your-account-specific-secrets-for-github-codespaces)" and "[AUTOTITLE](/codespaces/managing-codespaces-for-your-organization/managing-development-environment-secrets-for-your-repository-or-organization)."
+You can store secrets at the user, repository, or organization-level, allowing you to share them securely between different codespaces. When you create a set of secrets for a private image registry, you need to replace the "<*>" in the name with a consistent identifier. For more information, see [AUTOTITLE](/codespaces/managing-your-codespaces/managing-your-account-specific-secrets-for-github-codespaces) and [AUTOTITLE](/codespaces/managing-codespaces-for-your-organization/managing-development-environment-secrets-for-your-repository-or-organization).
 
 If you are setting the secrets at the user or organization level, make sure to assign those secrets to the repository you'll be creating the codespace in by choosing an access policy from the dropdown list.
 
@@ -84,15 +84,15 @@ ACR_CONTAINER_REGISTRY_USER = acr-user-here
 ACR_CONTAINER_REGISTRY_PASSWORD = <PERSONAL_ACCESS_TOKEN>
 ```
 
-For information on common image registries, see "[Common image registry servers](#common-image-registry-servers)." Note that accessing AWS Elastic Container Registry (ECR) is different.
+For information on common image registries, see [Common image registry servers](#common-image-registry-servers). Note that accessing AWS Elastic Container Registry (ECR) is different.
 
 ![Screenshot of the "Codespaces secrets" settings for a repository. Three secrets for ACR Container Registry are set.](/assets/images/help/codespaces/codespaces-image-registry-secret-example.png)
 
-Once you've added the secrets, you may need to stop and then start the codespace you are in for the new environment variables to be passed into the container. For more information, see "[AUTOTITLE](/codespaces/reference/using-the-vs-code-command-palette-in-codespaces#suspending-or-stopping-a-codespace)."
+Once you've added the secrets, you may need to stop and then start the codespace you are in for the new environment variables to be passed into the container. For more information, see [AUTOTITLE](/codespaces/reference/using-the-vs-code-command-palette-in-codespaces#suspending-or-stopping-a-codespace).
 
 #### Accessing AWS Elastic Container Registry
 
-To access AWS Elastic Container Registry (ECR),  you can provide an AWS access key ID and secret key, and {% data variables.product.prodname_dotcom %}  can retrieve an access token for you and log in on your behalf.
+To access AWS Elastic Container Registry (ECR), you can provide an AWS access key ID and secret key, and {% data variables.product.prodname_dotcom %} can retrieve an access token for you and log in on your behalf.
 
 ```shell
 *_CONTAINER_REGISTRY_SERVER = <ECR_URL>
@@ -114,7 +114,7 @@ Since these tokens are short lived and need to be refreshed periodically, we rec
 
 While these secrets can have any name, so long as the `*_CONTAINER_REGISTRY_SERVER` is an ECR URL, we recommend using `ECR_CONTAINER_REGISTRY_*` unless you are dealing with multiple ECR registries.
 
-For more information, see AWS ECR's "[Private registry authentication documentation](https://docs.aws.amazon.com/AmazonECR/latest/userguide/registry_auth.html)."
+For more information, see AWS ECR's [Private registry authentication documentation](https://docs.aws.amazon.com/AmazonECR/latest/userguide/registry_auth.html).
 
 ### Common image registry servers
 

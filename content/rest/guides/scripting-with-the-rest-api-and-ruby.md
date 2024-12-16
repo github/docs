@@ -18,27 +18,26 @@ If you want to write a script using Ruby to interact with the {% data variables.
 
 ## Prerequisites
 
-This guide assumes that you are familiar with Ruby and the {% data variables.product.company_short %} REST API. For more information about the REST API, see "[AUTOTITLE](/rest/guides/getting-started-with-the-rest-api)."
+This guide assumes that you are familiar with Ruby and the {% data variables.product.company_short %} REST API. For more information about the REST API, see [AUTOTITLE](/rest/guides/getting-started-with-the-rest-api).
 
 You must install and import the `octokit` gem in order to use the Octokit.rb library. This guide uses import statements in accordance with Ruby's conventions. For more information about different installation methods, see [the Octokit.rb README's Installation section](https://github.com/octokit/octokit.rb/#installation).
 
 ## Instantiating and authenticating
 
-{% warning %}
-
-**Warning**: Treat your authentication credentials like a password.
-
-To keep your credentials secure, you can store your credentials as a secret and run your script through  {% data variables.product.prodname_actions %}. For more information, see "[AUTOTITLE](/actions/security-guides/encrypted-secrets)."
-
-{% ifversion ghec or fpt %}You can also store your credentials as a {% data variables.product.prodname_codespaces %} secret and run your script in {% data variables.product.prodname_codespaces %}. For more information, see "[AUTOTITLE](/codespaces/managing-your-codespaces/managing-encrypted-secrets-for-your-codespaces)."{% endif %}
-
-If {% ifversion ghec or fpt %}these options are not possible{% else %}this is not possible{% endif %}, consider using another CLI service to store your credentials securely.
-
-{% endwarning %}
+> [!WARNING]
+> Treat your authentication credentials like a password.
+>
+> To keep your credentials secure, you can store your credentials as a secret and run your script through {% data variables.product.prodname_actions %}. For more information, see [AUTOTITLE](/actions/security-guides/encrypted-secrets).
+{% ifversion ghec or fpt %}
+>
+> You can also store your credentials as a {% data variables.product.prodname_codespaces %} secret and run your script in {% data variables.product.prodname_codespaces %}. For more information, see [AUTOTITLE](/codespaces/managing-your-codespaces/managing-encrypted-secrets-for-your-codespaces).
+{% endif %}
+>
+> If {% ifversion ghec or fpt %}these options are not possible{% else %}this is not possible{% endif %}, consider using another CLI service to store your credentials securely.
 
 ### Authenticating with a {% data variables.product.pat_generic %}
 
-If you want to use the {% data variables.product.company_short %} REST API for personal use, you can create a {% data variables.product.pat_generic %}. For more information about creating a {% data variables.product.pat_generic %}, see "[AUTOTITLE](/authentication/keeping-your-account-and-data-secure/managing-your-personal-access-tokens)."
+If you want to use the {% data variables.product.company_short %} REST API for personal use, you can create a {% data variables.product.pat_generic %}. For more information about creating a {% data variables.product.pat_generic %}, see [AUTOTITLE](/authentication/keeping-your-account-and-data-secure/managing-your-personal-access-tokens).
 
 First, require the `octokit` library. Then, create an instance of `Octokit` by passing your {% data variables.product.pat_generic %} as the `access_token` option. In the following example, replace `YOUR-TOKEN` with your {% data variables.product.pat_generic %}.
 
@@ -50,9 +49,9 @@ octokit = Octokit::Client.new(access_token: 'YOUR-TOKEN')
 
 ### Authenticating with a {% data variables.product.prodname_github_app %}
 
-If you want to use the API on behalf of an organization or another user, {% data variables.product.company_short %} recommends that you use a {% data variables.product.prodname_github_app %}. If an endpoint is available to {% data variables.product.prodname_github_apps %}, the REST reference documentation for that endpoint will indicate what type of {% data variables.product.prodname_github_app %} token is required. For more information, see "[AUTOTITLE](/apps/creating-github-apps/setting-up-a-github-app/creating-a-github-app)" and "[AUTOTITLE](/apps/creating-github-apps/authenticating-with-a-github-app/about-authentication-with-a-github-app)."
+If you want to use the API on behalf of an organization or another user, {% data variables.product.company_short %} recommends that you use a {% data variables.product.prodname_github_app %}. If an endpoint is available to {% data variables.product.prodname_github_apps %}, the REST reference documentation for that endpoint will indicate what type of {% data variables.product.prodname_github_app %} token is required. For more information, see [AUTOTITLE](/apps/creating-github-apps/setting-up-a-github-app/creating-a-github-app) and [AUTOTITLE](/apps/creating-github-apps/authenticating-with-a-github-app/about-authentication-with-a-github-app).
 
-Instead of requiring `octokit`, create an instance of `Octokit::Client` by passing your {% data variables.product.prodname_github_app %}'s information as options. In the following example, replace `APP_ID` with your app's ID, `PRIVATE_KEY` with your app's private key, and `INSTALLATION_ID` with the ID of the installation of your app that you want to authenticate on behalf of. You can find your app's ID and generate a private key on the settings page for your app. For more information, see "[AUTOTITLE](/apps/creating-github-apps/authenticating-with-a-github-app/managing-private-keys-for-github-apps)." You can get an installation ID with the `GET /users/{username}/installation`, `GET /repos/{owner}/{repo}/installation`, or `GET /orgs/{org}/installation` endpoints. For more information, see "[AUTOTITLE](/rest/apps/apps)."{% ifversion ghes %} Replace `HOSTNAME` with the name of {% data variables.location.product_location %}.{% endif %}
+Instead of requiring `octokit`, create an instance of `Octokit::Client` by passing your {% data variables.product.prodname_github_app %}'s information as options. In the following example, replace `APP_ID` with your app's ID, `PRIVATE_KEY` with your app's private key, and `INSTALLATION_ID` with the ID of the installation of your app that you want to authenticate on behalf of. You can find your app's ID and generate a private key on the settings page for your app. For more information, see [AUTOTITLE](/apps/creating-github-apps/authenticating-with-a-github-app/managing-private-keys-for-github-apps). You can get an installation ID with the `GET /users/{username}/installation`, `GET /repos/{owner}/{repo}/installation`, or `GET /orgs/{org}/installation` endpoints. For more information, see [AUTOTITLE](/rest/apps/apps).{% ifversion ghes %} Replace `HOSTNAME` with the name of {% data variables.location.product_location %}.{% endif %}
 
 ```ruby copy
 require 'octokit'
@@ -68,9 +67,9 @@ octokit = Octokit::Client.new(bearer_token: app.create_app_installation.access_t
 
 ### Authenticating in {% data variables.product.prodname_actions %}
 
-If you want to use the API in a {% data variables.product.prodname_actions %} workflow, {% data variables.product.company_short %} recommends that you authenticate with the built-in `GITHUB_TOKEN` instead of creating a token. You can grant permissions to the `GITHUB_TOKEN` with the `permissions` key. For more information about `GITHUB_TOKEN`, see "[AUTOTITLE](/actions/security-guides/automatic-token-authentication#permissions-for-the-github_token)."
+If you want to use the API in a {% data variables.product.prodname_actions %} workflow, {% data variables.product.company_short %} recommends that you authenticate with the built-in `GITHUB_TOKEN` instead of creating a token. You can grant permissions to the `GITHUB_TOKEN` with the `permissions` key. For more information about `GITHUB_TOKEN`, see [AUTOTITLE](/actions/security-guides/automatic-token-authentication#permissions-for-the-github_token).
 
-If your workflow needs to access resources outside of the workflow's repository, then you will not be able to use `GITHUB_TOKEN`. In that case, store your credentials as a secret and replace `GITHUB_TOKEN` in the examples below with the name of your secret. For more information about secrets, see "[AUTOTITLE](/actions/security-guides/using-secrets-in-github-actions)."
+If your workflow needs to access resources outside of the workflow's repository, then you will not be able to use `GITHUB_TOKEN`. In that case, store your credentials as a secret and replace `GITHUB_TOKEN` in the examples below with the name of your secret. For more information about secrets, see [AUTOTITLE](/actions/security-guides/using-secrets-in-github-actions).
 
 If you use the `run` keyword to execute your Ruby script in your {% data variables.product.prodname_actions %} workflows, you can store the value of `GITHUB_TOKEN` as an environment variable. Your script can access the environment variable as `ENV['VARIABLE_NAME']`.
 
@@ -176,7 +175,7 @@ You can use the `paginate` method with the `rest` endpoint methods as well. Pass
 iterator = octokit.paginate.iterator(octokit.rest.issues.list_for_repo, owner: "github", repo: "docs", per_page: 100)
 ```
 
-For more information about pagination, see "[AUTOTITLE](/rest/guides/using-pagination-in-the-rest-api)."
+For more information about pagination, see [AUTOTITLE](/rest/guides/using-pagination-in-the-rest-api).
 
 ## Catching errors
 
@@ -263,7 +262,7 @@ puts "The title of the first issue is: #{response.data[0]['title']}"
 
 ## Example script
 
-Here is a full example script that uses Octokit.rb. The script imports ``Octokit`` and creates a new instance of `Octokit`. If you want to authenticate with a {% data variables.product.prodname_github_app %} instead of a {% data variables.product.pat_generic %}, you would import and instantiate `App` instead of `Octokit`. For more information, see "[Authenticating with a {% data variables.product.prodname_github_app %}](#authenticating-with-a-github-app)" in this guide.
+Here is a full example script that uses Octokit.rb. The script imports ``Octokit`` and creates a new instance of `Octokit`. If you want to authenticate with a {% data variables.product.prodname_github_app %} instead of a {% data variables.product.pat_generic %}, you would import and instantiate `App` instead of `Octokit`. For more information, see [Authenticating with a {% data variables.product.prodname_github_app %}](#authenticating-with-a-github-app) in this guide.
 
 The `get_changed_files` function gets all of the files changed for a pull request. The `comment_if_data_files_changed` function calls the `get_changed_files` function. If any of the files that the pull request changed include `/data/` in the file path, then the function will comment on the pull request.
 
@@ -319,11 +318,8 @@ comment_url = comment_if_data_files_changed(octokit, owner, repo, pull_number)
 puts "A comment was added to the pull request: #{comment_url}"
 ```
 
-{% note %}
-
-**Note:** This is just a basic example. In practice, you may want to use error handling and conditional checks to handle various scenarios.
-
-{% endnote %}
+> [!NOTE]
+> This is just a basic example. In practice, you may want to use error handling and conditional checks to handle various scenarios.
 
 ## Next steps
 

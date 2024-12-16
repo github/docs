@@ -33,14 +33,11 @@ You can also use the "Filter cards" search bar at the top of each {% data variab
 1. Navigate to the {% data variables.projects.projects_v1_board %} that contains the cards you want to filter.
 1. Above the project card columns, click into the "Filter cards" search bar and type a search query to filter the cards.
 
-{% tip %}
-
-**Tip:** You can drag and drop filtered cards or use keyboard shortcuts to move them between columns. {% data reusables.project-management.for-more-info-project-keyboard-shortcuts %}
-
-{% endtip %}
+> [!TIP]
+> You can drag and drop filtered cards or use keyboard shortcuts to move them between columns. {% data reusables.project-management.for-more-info-project-keyboard-shortcuts %}
 
 ## Further reading
 
-* "[AUTOTITLE](/issues/organizing-your-work-with-project-boards/managing-project-boards/about-project-boards)"
-* "[AUTOTITLE](/issues/organizing-your-work-with-project-boards/tracking-work-with-project-boards/adding-issues-and-pull-requests-to-a-project-board)"
-* "[AUTOTITLE](/issues/organizing-your-work-with-project-boards/tracking-work-with-project-boards/adding-notes-to-a-project-board)"
+* [AUTOTITLE](/issues/organizing-your-work-with-project-boards/managing-project-boards/about-project-boards)
+* [AUTOTITLE](/issues/organizing-your-work-with-project-boards/tracking-work-with-project-boards/adding-issues-and-pull-requests-to-a-project-board)
+* [AUTOTITLE](/issues/organizing-your-work-with-project-boards/tracking-work-with-project-boards/adding-notes-to-a-project-board)

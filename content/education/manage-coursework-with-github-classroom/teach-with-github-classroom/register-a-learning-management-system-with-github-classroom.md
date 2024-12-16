@@ -8,13 +8,10 @@ shortTitle: Register an LMS
 ---
 ## About registering an LMS to your classroom
 
-Before you can connect your LMS to a classroom, an administrator for your LMS instance needs to configure your LMS to allow {% data variables.product.prodname_classroom %} and then register your LMS with {% data variables.product.prodname_classroom %} to initiate the OAuth handshake. An admin only needs to do this registration process once, then any teacher who uses their LMS instance may sync their LMS courses to classrooms. For more information on connecting an LMS course to a classroom, see "[AUTOTITLE](/education/manage-coursework-with-github-classroom/teach-with-github-classroom/connect-a-learning-management-system-course-to-a-classroom)."
+Before you can connect your LMS to a classroom, an administrator for your LMS instance needs to configure your LMS to allow {% data variables.product.prodname_classroom %} and then register your LMS with {% data variables.product.prodname_classroom %} to initiate the OAuth handshake. An admin only needs to do this registration process once, then any teacher who uses their LMS instance may sync their LMS courses to classrooms. For more information on connecting an LMS course to a classroom, see [AUTOTITLE](/education/manage-coursework-with-github-classroom/teach-with-github-classroom/connect-a-learning-management-system-course-to-a-classroom).
 
-{% note %}
-
-**Note:** {% data reusables.classroom.google-classroom-note %}
-
-{% endnote %}
+> [!NOTE]
+> {% data reusables.classroom.google-classroom-note %}
 
 ## Supported LMSes
 
@@ -35,7 +32,7 @@ You can register your Canvas installation with {% data variables.product.prodnam
     | Field in Canvas app configuration | Value or setting |
     | :- | :- |
     | **Method** | `Manual Entry` |
-    | **Title** | `GitHub Classroom` <br/><br/>**Note**: You can use any name, but if you set this to something else, be sure this is communicated to teachers.  |
+    | **Title** | `GitHub Classroom` <br/><br/>**Note:** You can use any name, but if you set this to something else, be sure this is communicated to teachers.  |
     | **Description** | `Sync Canvas course rosters to GitHub Classroom` (or something similar) |
     | **Target Link URI** | `https://classroom.github.com/context-link` |
     | **OpenID Connect Initiation URL** | `https://classroom.github.com/lti1p3/openid-connect/auth` |
@@ -44,7 +41,7 @@ You can register your Canvas installation with {% data variables.product.prodnam
     | **Redirect URIs** | `https://classroom.github.com/lti1p3/openid-connect/redirect` |
     | **LTI Advantage Services** dropdown | Select the "Can retrieve user data associated with the context the tool is installed in" checkbox. |
     | **Additional Settings** dropdown | Under "Privacy Level", select `Public` |
-    | **Placements** | Select `Course Settings Sub Navigation`. <br/><br/>**Note**: If you set the placement to something else, this must be communicated to teachers. Our documentation will expect that this is the placement of the button. |
+    | **Placements** | Select `Course Settings Sub Navigation`. <br/><br/>**Note:** If you set the placement to something else, this must be communicated to teachers. Our documentation will expect that this is the placement of the button. |
 1. Click **Save**.
 1. In the table on the "Developer Keys" page, in the row for the GitHub Classroom developer key, take note of the value of the client ID in the "Details" column -- this must be communicated to teachers for them to finish setup.
 1. In the table on the "Developer Keys" page, under the "State" column, toggle the state of the key to "On".
@@ -91,7 +88,7 @@ You must be using Moodle version 3.0 or greater.
 
     | Field in Moodle app configuration | Value or setting |
     | :- | :- |
-    | **Tool name** | `GitHub Classroom` <br/><br/>**Note**: You can use any name, but if you set this to something else, be sure this is communicated to teachers. |
+    | **Tool name** | `GitHub Classroom` <br/><br/>**Note:** You can use any name, but if you set this to something else, be sure this is communicated to teachers. |
     | **Tool URL** | `https://classroom.github.com` |
     | **LTI version** | `LTI 1.3` |
     | **Public Key type** | `Keyset URL` |
@@ -133,7 +130,7 @@ You must be using Moodle version 3.0 or greater.
 
     | Field in Sakai app configuration | Value or setting |
     | :- | :- |
-    | **Tool name** | GitHub Classroom - [Your Course Name] <br/><br/>**Note**: You can use any name, but if you set this to something else, be sure this is communicated to teachers. |
+    | **Tool name** | GitHub Classroom - [Your Course Name] <br/><br/>**Note:** You can use any name, but if you set this to something else, be sure this is communicated to teachers. |
     | **Button Text** (Text in tool menu) | What the teacher will see on the button to launch to {% data variables.product.prodname_classroom %}. For example, the value could be `sync`. |
     | **Launch URL** | `https://classroom.github.com/context-link` |
     | **Send User Names to External Tool** | Select this checkbox. |
@@ -152,9 +149,9 @@ You must be using Moodle version 3.0 or greater.
    * "LTI 1.3 Platform Issuer": The "LTI 1.3 Platform Issuer" field as provided by Sakai
    * "Domain": The base URL to your Sakai instance
    * "LTI 1.3 Client ID": The "LTI 1.3 Client ID" field as provided by Sakai
-   * "LTI 1.3 Platform OIDC Authentication URL":  The "LTI 1.3 Platform OIDC Authentication URL" field as provided by Sakai
+   * "LTI 1.3 Platform OIDC Authentication URL": The "LTI 1.3 Platform OIDC Authentication URL" field as provided by Sakai
    * "LTI 1.3 Platform OAuth2 Bearer Token Retrieval URL": The "LTI 1.3 Platform OAuth2 Bearer Token Retrieval URL" field as provided by Sakai
    * "LTI 1.3 Platform OAuth2 Well-Known/KeySet URL": The "LTI 1.3 Platform OAuth2 Well-Known/KeySet URL" field as provided by Sakai
 
 1. Click **Register**.
-1. You should see the "Successfully registered LMS" banner at the top of the screen, which means that you've  registered your LMS instance and teachers can now link their classrooms.
+1. You should see the "Successfully registered LMS" banner at the top of the screen, which means that you've registered your LMS instance and teachers can now link their classrooms.

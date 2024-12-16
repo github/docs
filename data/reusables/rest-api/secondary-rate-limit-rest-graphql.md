@@ -19,6 +19,6 @@ Some secondary rate limits are determined by the point values of requests. For G
 | GraphQL requests without mutations | 1 |
 | GraphQL requests with mutations | 5 |
 | Most REST API `GET`, `HEAD`, and `OPTIONS` requests | 1 |
-| Most REST API `POST`, `PATCH`, `PUT`, or `DELETE`  requests | 5 |
+| Most REST API `POST`, `PATCH`, `PUT`, or `DELETE` requests | 5 |
 
 Some REST API endpoints have a different point cost that is not shared publicly.

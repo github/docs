@@ -1,0 +1,4 @@
+# Reference: #15269
+# Documentation for security configurations on GitHub Enterprise Server, for aspects of the feature that are only applicable to GHES.
+versions:
+  ghes: '>3.14'

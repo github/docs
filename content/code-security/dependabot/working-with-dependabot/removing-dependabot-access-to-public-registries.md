@@ -1,9 +1,11 @@
 ---
 title: Removing Dependabot access to public registries
 intro: 'Examples of how you can configure {% data variables.product.prodname_dependabot %} to only access private registries by removing calls to public registries.'
-permissions: 'People with write permissions to a repository can configure {% data variables.product.prodname_dependabot %} for the repository.'
+permissions: '{% data reusables.permissions.dependabot-various-tasks %}'
 versions:
-  feature: dependabot-private-registries
+  fpt: '*'
+  ghes: '*'
+  ghec: '*'
 type: how_to
 topics:
   - Dependabot
@@ -15,7 +17,7 @@ redirect_from:
 
 ## About configuring {% data variables.product.prodname_dependabot %} to only access private registries
 
-{% data reusables.dependabot.private-registry-support %} For more information about private registry support and configuration, see "[AUTOTITLE](/code-security/dependabot/working-with-dependabot/configuring-access-to-private-registries-for-dependabot)." {% data reusables.dependabot.advanced-private-registry-config-link %}
+{% data reusables.dependabot.private-registry-support %} For more information about private registry support and configuration, see [AUTOTITLE](/code-security/dependabot/working-with-dependabot/configuring-access-to-private-registries-for-dependabot). {% data reusables.dependabot.advanced-private-registry-config-link %}
 
 {% data reusables.dependabot.dependabot-on-actions-self-hosted-link %}
 
@@ -23,17 +25,14 @@ You can configure {% data variables.product.prodname_dependabot %} to access _on
 
 {% ifversion dependabot-ghes-no-public-internet %}
 
-{% note %}
-
-**Note:** Before you remove access to public registries from your configuration for {% data variables.product.prodname_dependabot_updates %}, check that your site administrator has set up the {% data variables.product.prodname_dependabot %} runners with access to the private registries you need. For more information, see "[AUTOTITLE](/admin/code-security/managing-supply-chain-security-for-your-enterprise/configuring-dependabot-to-work-with-limited-internet-access)."
-
-{% endnote %}
+> [!NOTE]
+> Before you remove access to public registries from your configuration for {% data variables.product.prodname_dependabot_updates %}, check that your site administrator has set up the {% data variables.product.prodname_dependabot %} runners with access to the private registries you need. For more information, see [AUTOTITLE](/admin/code-security/managing-supply-chain-security-for-your-enterprise/configuring-dependabot-to-work-with-limited-internet-access).
 
 {% endif %}
 
 ## Bundler
 
-To configure the Bundler ecosystem to only access private registries, you can set `replaces-base` as `true` in the `dependabot.yml` file. For more information, see "[AUTOTITLE](/code-security/dependabot/dependabot-version-updates/configuration-options-for-the-dependabot.yml-file#rubygems-server)."
+To configure the Bundler ecosystem to only access private registries, you can set `replaces-base` as `true` in the `dependabot.yml` file. For more information, see [AUTOTITLE](/code-security/dependabot/dependabot-version-updates/configuration-options-for-the-dependabot.yml-file#rubygems-server).
 
 The Bundler ecosystem additionally requires a `Gemfile` file with the private registry URL to be checked into the repository.
 
@@ -49,13 +48,10 @@ To configure the Docker ecosystem to only access private registries, you can use
 
 **Option 1**
 
-Define the private registry configuration in a `dependabot.yml` file without `replaces-base`. For more information, see "[AUTOTITLE](/code-security/dependabot/dependabot-version-updates/configuration-options-for-the-dependabot.yml-file#docker-registry)."
+Define the private registry configuration in a `dependabot.yml` file without `replaces-base`. For more information, see [AUTOTITLE](/code-security/dependabot/dependabot-version-updates/configuration-options-for-the-dependabot.yml-file#docker-registry).
 
-{% note %}
-
-**Note:** Remove `replaces-base: true` from the configuration file.
-
-{% endnote %}
+> [!NOTE]
+> Remove `replaces-base: true` from the configuration file.
 
 ```yaml
 version: 2
@@ -75,19 +71,16 @@ In the `Dockerfile` file, add the image name in the format of `IMAGE[:TAG]`, whe
 
 **Option 2**
 
-Set `replaces-base` as `true` in the `dependabot.yml` file. For more information, see "[AUTOTITLE](/code-security/dependabot/dependabot-version-updates/configuration-options-for-the-dependabot.yml-file#docker-registry)." The registry configured with the `replaces-base` can be used as a mirror or a pull through cache. For further details, see [Registry as a pull through cache](https://docs.docker.com/registry/recipes/mirror/) in the Docker documentation.
+Set `replaces-base` as `true` in the `dependabot.yml` file. For more information, see [AUTOTITLE](/code-security/dependabot/dependabot-version-updates/configuration-options-for-the-dependabot.yml-file#docker-registry). The registry configured with the `replaces-base` can be used as a mirror or a pull through cache. For further details, see [Registry as a pull through cache](https://docs.docker.com/registry/recipes/mirror/) in the Docker documentation.
 
 ## Gradle
 
 To configure the Gradle ecosystem to only access private registries, you can use these configuration methods.
 
-Define the private registry configuration in a `dependabot.yml` file. For more information, see "[AUTOTITLE](/code-security/dependabot/dependabot-version-updates/configuration-options-for-the-dependabot.yml-file#maven-repository)."
+Define the private registry configuration in a `dependabot.yml` file. For more information, see [AUTOTITLE](/code-security/dependabot/dependabot-version-updates/configuration-options-for-the-dependabot.yml-file#maven-repository).
 
-{% note %}
-
-**Note**: Remove replaces-base: true from the configuration file.
-
-{% endnote %}
+> [!NOTE]
+> Remove replaces-base: true from the configuration file.
 
 Additionally, you also need to specify the private registry URL in the `repositories` section of the `build.gradle` file.
 
@@ -107,7 +100,7 @@ To configure the Maven ecosystem to only access private registries, you can use 
 
 **Option 1**
 
-Set `replaces-base` as `true` in the `dependabot.yml` file. For more information, see "[AUTOTITLE](/code-security/dependabot/dependabot-version-updates/configuration-options-for-the-dependabot.yml-file#maven-repository)."
+Set `replaces-base` as `true` in the `dependabot.yml` file. For more information, see [AUTOTITLE](/code-security/dependabot/dependabot-version-updates/configuration-options-for-the-dependabot.yml-file#maven-repository).
 
 **Option 2**
 
@@ -134,13 +127,10 @@ To configure the npm ecosystem to only access private registries, you can use th
 
 **Option 1**
 
-Define the private registry configuration in a `dependabot.yml` file. For more information, see "[AUTOTITLE](/code-security/dependabot/dependabot-version-updates/configuration-options-for-the-dependabot.yml-file#npm-registry)."
+Define the private registry configuration in a `dependabot.yml` file. For more information, see [AUTOTITLE](/code-security/dependabot/dependabot-version-updates/configuration-options-for-the-dependabot.yml-file#npm-registry).
 
-{% note %}
-
-**Note:** Remove `replaces-base: true` from the configuration file.
-
-{% endnote %}
+> [!NOTE]
+> Remove `replaces-base: true` from the configuration file.
 
 The npm ecosystem additionally requires a `.npmrc` file with the private registry URL to be checked into the repository.
 
@@ -150,13 +140,10 @@ The npm ecosystem additionally requires a `.npmrc` file with the private registr
 
 **Option 2**
 
-If there is no global registry defined in an `.npmrc` file, you can set `replaces-base` as `true` in the `dependabot.yml` file. For more information, see "[AUTOTITLE](/code-security/dependabot/dependabot-version-updates/configuration-options-for-the-dependabot.yml-file#npm-registry)."
+If there is no global registry defined in an `.npmrc` file, you can set `replaces-base` as `true` in the `dependabot.yml` file. For more information, see [AUTOTITLE](/code-security/dependabot/dependabot-version-updates/configuration-options-for-the-dependabot.yml-file#npm-registry).
 
-{% note %}
-
-**Note:** For scoped dependencies (`@my-org/my-dep`), {% data variables.product.prodname_dependabot %} requires that the private registry is defined in the project's `.npmrc` file. To define private registries for individual scopes, use `@myscope:registry=https://private_registry_url`.
-
-{% endnote %}
+> [!NOTE]
+> For scoped dependencies (`@my-org/my-dep`), {% data variables.product.prodname_dependabot %} requires that the private registry is defined in the project's `.npmrc` file. To define private registries for individual scopes, use `@myscope:registry=https://private_registry_url`.
 
 ### Yarn
 
@@ -168,13 +155,10 @@ To configure the Yarn Classic ecosystem to only access private registries, you c
 
 **Option 1**
 
-Define the private registry configuration in a `dependabot.yml` file. For more information, see "[AUTOTITLE](/code-security/dependabot/dependabot-version-updates/configuration-options-for-the-dependabot.yml-file#npm-registry)."
+Define the private registry configuration in a `dependabot.yml` file. For more information, see [AUTOTITLE](/code-security/dependabot/dependabot-version-updates/configuration-options-for-the-dependabot.yml-file#npm-registry).
 
-{% note %}
-
-**Note:** Delete `replaces-base: true` from the configuration file.
-
-{% endnote %}
+> [!NOTE]
+> Delete `replaces-base: true` from the configuration file.
 
 To ensure the private registry is listed as the dependency source in the project's `yarn.lock` file, run `yarn install` on a machine with private registry access. Yarn should update the `resolved` field to include the private registry URL.
 
@@ -199,13 +183,10 @@ If the `yarn.lock` file doesn't list the private registry as the dependency sour
 
 **Option 3**
 
-If there is no global registry defined in a `.yarnrc` file, you can set `replaces-base` as `true` in the `dependabot.yml` file. For more information, see "[AUTOTITLE](/code-security/dependabot/dependabot-version-updates/configuration-options-for-the-dependabot.yml-file#npm-registry)."
+If there is no global registry defined in a `.yarnrc` file, you can set `replaces-base` as `true` in the `dependabot.yml` file. For more information, see [AUTOTITLE](/code-security/dependabot/dependabot-version-updates/configuration-options-for-the-dependabot.yml-file#npm-registry).
 
-{% note %}
-
-**Note:** For scoped dependencies (`@my-org/my-dep`), {% data variables.product.prodname_dependabot %} requires that the private registry is defined in the project's `.npmrc` file. To define private registries for individual scopes, use `@myscope:registry=https://private_registry_url`.
-
-{% endnote %}
+> [!NOTE]
+> For scoped dependencies (`@my-org/my-dep`), {% data variables.product.prodname_dependabot %} requires that the private registry is defined in the project's `.npmrc` file. To define private registries for individual scopes, use `@myscope:registry=https://private_registry_url`.
 
 #### Yarn Berry
 
@@ -213,13 +194,10 @@ To configure the Yarn Berry ecosystem to only access private registries, you can
 
 **Option 1**
 
-Define the private registry configuration in a `dependabot.yml` file. For more information, see "[AUTOTITLE](/code-security/dependabot/dependabot-version-updates/configuration-options-for-the-dependabot.yml-file#npm-registry)."
+Define the private registry configuration in a `dependabot.yml` file. For more information, see [AUTOTITLE](/code-security/dependabot/dependabot-version-updates/configuration-options-for-the-dependabot.yml-file#npm-registry).
 
-{% note %}
-
-**Note:** Delete `replaces-base: true` from the configuration file.
-
-{% endnote %}
+> [!NOTE]
+> Delete `replaces-base: true` from the configuration file.
 
 To ensure the private registry is listed as the dependency source in the project's `yarn.lock` file, run `yarn install` on a machine with private registry access. Yarn should update the `resolved` field to include the private registry URL.
 
@@ -245,17 +223,14 @@ If the `yarn.lock` file doesn't list the private registry as the dependency sour
     npmRegistryServer: "https://private_registry_url"
     ```
 
-{% note %}
+> [!NOTE]
+> For scoped dependencies (`@my-org/my-dep`), {% data variables.product.prodname_dependabot %} requires that the private registry is defined in the project's `.yarnrc` file. To define private registries for individual scopes, use `"@myscope:registry" "https://private_registry_url"`.
 
-**Note:** For scoped dependencies (`@my-org/my-dep`), {% data variables.product.prodname_dependabot %} requires that the private registry is defined in the project's `.yarnrc` file. To define private registries for individual scopes, use `"@myscope:registry" "https://private_registry_url"`.
+## NuGet
 
-{% endnote %}
+To allow the NuGet ecosystem to only access private registries, you can configure the `dependabot.yml` file. For more information, see [AUTOTITLE](/code-security/dependabot/dependabot-version-updates/configuration-options-for-the-dependabot.yml-file#nuget-feed).
 
-## Nuget
-
-To allow the Nuget ecosystem to only access private registries, you can configure the `dependabot.yml` file. For more information, see "[AUTOTITLE](/code-security/dependabot/dependabot-version-updates/configuration-options-for-the-dependabot.yml-file#nuget-feed)."
-
-The Nuget ecosystem additionally requires a `nuget.config` file to be checked into the repository, with either a `< clear />` tag in `<packageSources>` section or a key `nuget.org` as true in the `disabledPackageSources` section of the `nuget.config` file.
+The NuGet ecosystem additionally requires a `nuget.config` file to be checked into the repository, with either a `< clear />` tag in `<packageSources>` section or a key `nuget.org` as true in the `disabledPackageSources` section of the `nuget.config` file.
 
 This is an example of a `< clear />` tag in the `packageSources` section of the `nuget.config`.
 
@@ -314,13 +289,10 @@ To configure the Pip ecosystem to only access private registries, you can use th
 
 **Option 1**
 
-Define the private registry configuration in a `dependabot.yml` file. For more information, see "[AUTOTITLE](/code-security/dependabot/dependabot-version-updates/configuration-options-for-the-dependabot.yml-file#npm-registry)."
+Define the private registry configuration in a `dependabot.yml` file. For more information, see [AUTOTITLE](/code-security/dependabot/dependabot-version-updates/configuration-options-for-the-dependabot.yml-file#npm-registry).
 
-{% note %}
-
-**Note:** Delete `replaces-base: true` from the configuration file.
-
-{% endnote %}
+> [!NOTE]
+> Delete `replaces-base: true` from the configuration file.
 
 Add the private registry URL to the `[global]` section of the `pip.conf` file and check the file into the repository.
 
@@ -332,7 +304,7 @@ Add the private registry URL to the `[global]` section of the `pip.conf` file an
 
 **Option 2**
 
-Set `replaces-base` as `true` in the `dependabot.yml` file. For more information, see "[AUTOTITLE](/code-security/dependabot/dependabot-version-updates/configuration-options-for-the-dependabot.yml-file#python-index)."
+Set `replaces-base` as `true` in the `dependabot.yml` file. For more information, see [AUTOTITLE](/code-security/dependabot/dependabot-version-updates/configuration-options-for-the-dependabot.yml-file#python-index).
 
 ### Pip-compile
 
@@ -340,17 +312,14 @@ To configure the Pip-compile ecosystem to only access private registries, you ca
 
 **Option 1**
 
-Set `replaces-base` as `true` in the `dependabot.yml` file. For more information, see "[AUTOTITLE](/code-security/dependabot/dependabot-version-updates/configuration-options-for-the-dependabot.yml-file#python-index)."
+Set `replaces-base` as `true` in the `dependabot.yml` file. For more information, see [AUTOTITLE](/code-security/dependabot/dependabot-version-updates/configuration-options-for-the-dependabot.yml-file#python-index).
 
 **Option 2**
 
-Define the private registry configuration in a `dependabot.yml` file. For more information, see "[AUTOTITLE](/code-security/dependabot/dependabot-version-updates/configuration-options-for-the-dependabot.yml-file#npm-registry)."
+Define the private registry configuration in a `dependabot.yml` file. For more information, see [AUTOTITLE](/code-security/dependabot/dependabot-version-updates/configuration-options-for-the-dependabot.yml-file#npm-registry).
 
-{% note %}
-
-**Note:** Delete `replaces-base: true` from the configuration file.
-
-{% endnote %}
+> [!NOTE]
+> Delete `replaces-base: true` from the configuration file.
 
 Add the private registry URL to the `requirements.txt` file and check the file into the repository.
 
@@ -360,13 +329,10 @@ Add the private registry URL to the `requirements.txt` file and check the file i
 
 ### Pipenv
 
-To configure Pipenv to only access private registries, remove `replaces-base` from the `dependabot.yml` file. For more information, see "[AUTOTITLE](/code-security/dependabot/dependabot-version-updates/configuration-options-for-the-dependabot.yml-file#python-index)."
+To configure Pipenv to only access private registries, remove `replaces-base` from the `dependabot.yml` file. For more information, see [AUTOTITLE](/code-security/dependabot/dependabot-version-updates/configuration-options-for-the-dependabot.yml-file#python-index).
 
-{% note %}
-
-**Note:** Delete `replaces-base: true` from the configuration file.
-
-{% endnote %}
+> [!NOTE]
+> Delete `replaces-base: true` from the configuration file.
 
 Add the private registry URL to the `[[source]]` section of the `Pipfile` file and check the file into the repository.
 
@@ -379,7 +345,7 @@ name = "pypi"
 
 ### Poetry
 
-To configure Poetry to only access private registries, set `replaces-base` as `true` in the `dependabot.yml` file. For more information, see "[AUTOTITLE](/code-security/dependabot/dependabot-version-updates/configuration-options-for-the-dependabot.yml-file#python-index)."
+To configure Poetry to only access private registries, set `replaces-base` as `true` in the `dependabot.yml` file. For more information, see [AUTOTITLE](/code-security/dependabot/dependabot-version-updates/configuration-options-for-the-dependabot.yml-file#python-index).
 
 Add the private registry url to the `[[tool.poetry.source]]` section of the `pyproject.toml` file and checked it in the repository.
 

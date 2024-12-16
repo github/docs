@@ -15,7 +15,7 @@ children:
   - /viewing-contributions-on-your-profile
   - /showing-an-overview-of-your-activity-on-your-profile
   - /showing-your-private-contributions-and-achievements-on-your-profile
-  - /sending-enterprise-contributions-to-your-githubcom-profile
+  - /sharing-contributions-from-github-enterprise-server
   - /why-are-my-contributions-not-showing-up-on-my-profile
   - /troubleshooting-commits-on-your-timeline
 shortTitle: Manage contribution settings

@@ -1,5 +1,6 @@
 import murmur from 'imurmurhash'
-import { getUserEventsId, sendEvent, EventType } from './events'
+import { getUserEventsId, sendEvent } from './events'
+import { EventType } from '../types'
 
 let initialized = false
 

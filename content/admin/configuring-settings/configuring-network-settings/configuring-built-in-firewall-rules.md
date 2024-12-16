@@ -19,9 +19,9 @@ shortTitle: Configure firewall rules
 ---
 ## About {% data variables.location.product_location %}'s firewall
 
-{% data variables.product.prodname_ghe_server %} uses Ubuntu's Uncomplicated Firewall (UFW) on the virtual appliance. For more information see "[UFW](https://help.ubuntu.com/community/UFW)" in the Ubuntu documentation. {% data variables.product.prodname_ghe_server %} automatically updates the firewall allowlist of allowed services with each release.
+{% data variables.product.prodname_ghe_server %} uses Ubuntu's Uncomplicated Firewall (UFW) on the virtual appliance. For more information see [UFW](https://help.ubuntu.com/community/UFW) in the Ubuntu documentation. {% data variables.product.prodname_ghe_server %} automatically updates the firewall allowlist of allowed services with each release.
 
-After you install {% data variables.product.prodname_ghe_server %}, all required network ports are automatically opened to accept connections. Every non-required port is automatically configured as `deny`, and the default outgoing policy is configured as `allow`. Stateful tracking is enabled for any new connections; these are typically network packets with the `SYN` bit set. For more information, see "[AUTOTITLE](/admin/configuration/configuring-network-settings/network-ports)."
+After you install {% data variables.product.prodname_ghe_server %}, all required network ports are automatically opened to accept connections. Every non-required port is automatically configured as `deny`, and the default outgoing policy is configured as `allow`. Stateful tracking is enabled for any new connections; these are typically network packets with the `SYN` bit set. For more information, see [AUTOTITLE](/admin/configuration/configuring-network-settings/network-ports).
 
 The UFW firewall also opens several other ports that are required for {% data variables.product.prodname_ghe_server %} to operate properly. For more information on the UFW rule set, see [the UFW README](https://github.com/jbq/ufw/blob/master/README#L213).
 
@@ -62,11 +62,8 @@ We do not recommend customizing UFW as it can complicate some troubleshooting is
 
 ## Adding custom firewall rules
 
-{% warning %}
-
-**Warning:** Before you add custom firewall rules, back up your current rules in case you need to reset to a known working state. If you're locked out of your server, visit {% data variables.contact.contact_ent_support %} and contact us to reconfigure the original firewall rules. Restoring the original firewall rules involves downtime for your server.
-
-{% endwarning %}
+> [!WARNING]
+> Before you add custom firewall rules, back up your current rules in case you need to reset to a known working state. If you're locked out of your server, visit {% data variables.contact.contact_ent_support %} and contact us to reconfigure the original firewall rules. Restoring the original firewall rules involves downtime for your server.
 
 1. Configure a custom firewall rule.
 1. Check the status of each new rule with the `status numbered` command.
@@ -87,11 +84,8 @@ After you upgrade {% data variables.location.product_location %}, you must reapp
 
 If something goes wrong after you change the firewall rules, you can reset the rules from your original backup.
 
-{% warning %}
-
-**Warning:** If you didn't back up the original rules before making changes to the firewall, visit {% data variables.contact.contact_ent_support %} and contact us for further assistance.
-
-{% endwarning %}
+> [!WARNING]
+> If you didn't back up the original rules before making changes to the firewall, visit {% data variables.contact.contact_ent_support %} and contact us for further assistance.
 
 {% data reusables.enterprise_installation.ssh-into-instance %}
 

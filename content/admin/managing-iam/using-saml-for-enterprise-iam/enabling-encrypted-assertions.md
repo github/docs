@@ -29,13 +29,10 @@ To enable encrypted assertions for authentication to {% data variables.product.p
 
 To enable encrypted assertions, you must provide {% data variables.location.product_location %}'s public certificate to your IdP, and configure encryption settings that match your IdP.
 
-{% note %}
+> [!NOTE]
+> {% data reusables.enterprise.test-in-staging %}
 
-**Note**: {% data reusables.enterprise.test-in-staging %}
-
-{% endnote %}
-
-1. Optionally, enable SAML debugging. SAML debugging records verbose entries in {% data variables.product.product_name %}'s authentication log, and may help you troubleshoot failed authentication attempts. For more information, see "[AUTOTITLE](/admin/identity-and-access-management/using-saml-for-enterprise-iam/troubleshooting-saml-authentication#configuring-saml-debugging)."
+1. Optionally, enable SAML debugging. SAML debugging records verbose entries in {% data variables.product.product_name %}'s authentication log, and may help you troubleshoot failed authentication attempts. For more information, see [AUTOTITLE](/admin/identity-and-access-management/using-saml-for-enterprise-iam/troubleshooting-saml-authentication#configuring-saml-debugging).
 {% data reusables.enterprise_site_admin_settings.access-settings %}
 {% data reusables.enterprise_site_admin_settings.management-console %}
 {% data reusables.enterprise_management_console.authentication %}
@@ -51,4 +48,4 @@ To enable encrypted assertions, you must provide {% data variables.location.prod
 1. Click **Save settings**.
 {% data reusables.enterprise_site_admin_settings.wait-for-configuration-run %}
 
-If you enabled SAML debugging to test authentication with encrypted assertions, disable SAML debugging when you're done testing. For more information, see "[AUTOTITLE](/admin/identity-and-access-management/using-saml-for-enterprise-iam/troubleshooting-saml-authentication#configuring-saml-debugging)."
+If you enabled SAML debugging to test authentication with encrypted assertions, disable SAML debugging when you're done testing. For more information, see [AUTOTITLE](/admin/identity-and-access-management/using-saml-for-enterprise-iam/troubleshooting-saml-authentication#configuring-saml-debugging).

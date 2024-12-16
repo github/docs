@@ -26,9 +26,9 @@ topics:
 ---
 ## Using Git
 
-To use Git on the command line, you will need to download, install, and configure Git on your computer. You can also install {% data variables.product.prodname_cli %} to use {% data variables.product.prodname_dotcom %} from the command line. For more information, see "[AUTOTITLE](/github-cli/github-cli/about-github-cli)."
+To use Git on the command line, you will need to download, install, and configure Git on your computer. You can also install {% data variables.product.prodname_cli %} to use {% data variables.product.prodname_dotcom %} from the command line. For more information, see [AUTOTITLE](/github-cli/github-cli/about-github-cli).
 
-If you want to work with Git locally, but do not want to use the command line, you can download and install the [{% data variables.product.prodname_desktop %}]({% data variables.product.desktop_link %}) client.  For more information, see "[AUTOTITLE](/desktop/overview/about-github-desktop)."
+If you want to work with Git locally, but do not want to use the command line, you can download and install the [{% data variables.product.prodname_desktop %}]({% data variables.product.desktop_link %}) client. For more information, see [AUTOTITLE](/desktop/overview/about-github-desktop).
 
 If you do not need to work with files locally, {% data variables.product.product_name %} lets you complete many Git-related actions directly in the browser, including:
 
@@ -40,16 +40,13 @@ If you do not need to work with files locally, {% data variables.product.product
 
 1. [Download and install the latest version of Git](https://git-scm.com/downloads).
 
-   {% note %}
-
-   **Note**: Most Chrome OS devices from 2020 onwards now have a built-in Linux environment, which includes Git. To enable it, go to the Launcher, search for Linux, and click **Turn on**.
-
-   If you are using an older Chrome OS device, another method is required:
-
-   1. Install a terminal emulator such as Termux from the Google Play Store on your Chrome OS device.
-   1. From the terminal emulator that you installed, install Git. For example, in Termux, enter `apt install git` and then type `y` when prompted.
-
-   {% endnote %}
+   > [!NOTE]
+   > Most Chrome OS devices from 2020 onwards now have a built-in Linux environment, which includes Git. To enable it, go to the Launcher, search for Linux, and click **Turn on**.
+   >
+   > If you are using an older Chrome OS device, another method is required:
+   >
+   > 1. Install a terminal emulator such as Termux from the Google Play Store on your Chrome OS device.
+   > 1. From the terminal emulator that you installed, install Git. For example, in Termux, enter `apt install git` and then type `y` when prompted.
 
 1. [Set your username in Git](/get-started/getting-started-with-git/setting-your-username-in-git).
 1. [Set your commit email address in Git](/account-and-profile/setting-up-and-managing-your-personal-account-on-github/managing-email-preferences/setting-your-commit-email-address).
@@ -58,19 +55,16 @@ If you do not need to work with files locally, {% data variables.product.product
 
 When you connect to a {% data variables.product.prodname_dotcom %} repository from Git, you will need to authenticate with {% data variables.product.product_name %} using either HTTPS or SSH.
 
-{% note %}
-
-**Note:** You can authenticate to {% data variables.product.product_name %} using {% data variables.product.prodname_cli %}, for either HTTP or SSH. For more information, see [`gh auth login`](https://cli.github.com/manual/gh_auth_login).
-
-{% endnote %}
+> [!NOTE]
+> You can authenticate to {% data variables.product.product_name %} using {% data variables.product.prodname_cli %}, for either HTTP or SSH. For more information, see [`gh auth login`](https://cli.github.com/manual/gh_auth_login).
 
 ### Connecting over HTTPS (recommended)
 
-If you clone with HTTPS, you can cache your {% data variables.product.prodname_dotcom %} credentials in Git using a credential helper. For more information, see "[AUTOTITLE](/get-started/getting-started-with-git/about-remote-repositories#cloning-with-https-urls)" and "[AUTOTITLE](/get-started/getting-started-with-git/caching-your-github-credentials-in-git)."
+If you clone with HTTPS, you can cache your {% data variables.product.prodname_dotcom %} credentials in Git using a credential helper. For more information, see [AUTOTITLE](/get-started/getting-started-with-git/about-remote-repositories#cloning-with-https-urls) and [AUTOTITLE](/get-started/getting-started-with-git/caching-your-github-credentials-in-git).
 
 ### Connecting over SSH
 
-If you clone with SSH, you must generate SSH keys on each computer you use to push or pull from {% data variables.product.product_name %}. For more information, see "[AUTOTITLE](/get-started/getting-started-with-git/about-remote-repositories#cloning-with-ssh-urls)" and "[AUTOTITLE](/authentication/connecting-to-github-with-ssh/generating-a-new-ssh-key-and-adding-it-to-the-ssh-agent)."
+If you clone with SSH, you must generate SSH keys on each computer you use to push or pull from {% data variables.product.product_name %}. For more information, see [AUTOTITLE](/get-started/getting-started-with-git/about-remote-repositories#cloning-with-ssh-urls) and [AUTOTITLE](/authentication/connecting-to-github-with-ssh/generating-a-new-ssh-key-and-adding-it-to-the-ssh-agent).
 
 ## Next steps
 

@@ -1,0 +1,5 @@
+## About {% data variables.product.prodname_actions %} metrics
+
+{% data variables.product.prodname_actions %} metrics provide insights into how your workflows and jobs are performing at the organization and repository levels. There are two types of metrics to help you analyze different aspects of your workflows:
+* **{% data variables.product.prodname_actions %} usage metrics:** Usage metrics help you track how many minutes your workflows and jobs consume. You can use this data to understand the cost of running Actions and ensure you're staying within your plan limits. This is especially useful for identifying high-usage workflows or repositories.
+* **{% data variables.product.prodname_actions %} performance metrics:** Performance metrics focus on the efficiency and reliability of your workflows and jobs. With performance metrics, you can monitor key indicators like job run times, queue times, and failure rates to identify bottlenecks, slow-running jobs, or frequently failing workflows.

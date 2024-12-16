@@ -23,7 +23,7 @@ runs:
   using: 'composite'
   steps:
     - name: Add label to an issue or pr
-      run: node .github/actions/labeler/labeler.js
+      run: npm run labeler
       shell: bash
       env:
         GITHUB_TOKEN: ${{ inputs.token }}

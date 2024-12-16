@@ -45,11 +45,8 @@ settings to allow incoming emails](#configuring-dns-and-firewall-settings-to-all
 1. Under "Send test email to," type an address to send the test email to.
 1. Click **Send test email**.
 
-   {% tip %}
-
-   **Tip:** If SMTP errors occur while sending a test email—such as an immediate delivery failure or an outgoing mail configuration error—you will see them in the Test email settings dialog box.
-
-   {% endtip %}
+   > [!TIP]
+   > If SMTP errors occur while sending a test email—such as an immediate delivery failure or an outgoing mail configuration error—you will see them in the Test email settings dialog box.
 
 1. If the test email fails, [troubleshoot your email settings](#troubleshooting-email-delivery).
 1. When the test email succeeds, under the "Settings" sidebar, click **Save settings**.
@@ -75,7 +72,7 @@ If you want to allow email replies to notifications, you must configure your DNS
 1. Ensure that port 25 on the instance is accessible to your SMTP server.
 1. Create an A record that points to `reply.[hostname]`. Depending on your DNS provider and instance host configuration, you may be able to instead create a single A record that points to `*.[hostname]`.
 1. Create an MX record that points to `reply.[hostname]` so that emails to that domain are routed to the instance.
-1. Create an MX record that points `noreply.[hostname]` to `[hostname]` so that replies to the `cc` address in notification emails are routed to the instance. For more information, see "[AUTOTITLE](/account-and-profile/managing-subscriptions-and-notifications-on-github/setting-up-notifications/configuring-notifications)."
+1. Create an MX record that points `noreply.[hostname]` to `[hostname]` so that replies to the `cc` address in notification emails are routed to the instance. For more information, see [AUTOTITLE](/account-and-profile/managing-subscriptions-and-notifications-on-github/setting-up-notifications/configuring-notifications).
 
 ## Troubleshooting email delivery
 
@@ -152,7 +149,7 @@ You'll notice that `metroplex` catches the inbound message, processes it, then m
 
 ### Verify your DNS settings
 
-In order to properly process inbound emails, you must configure a valid A Record (or CNAME), as well as an MX Record. For more information, see "[Configuring DNS and firewall settings to allow incoming emails](#configuring-dns-and-firewall-settings-to-allow-incoming-emails)."
+In order to properly process inbound emails, you must configure a valid A Record (or CNAME), as well as an MX Record. For more information, see [Configuring DNS and firewall settings to allow incoming emails](#configuring-dns-and-firewall-settings-to-allow-incoming-emails).
 
 ### Check firewall or AWS security group settings
 

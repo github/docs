@@ -27,7 +27,7 @@ redirect_from:
 
 {% mac %}
 
-Once your runner type has been defined, you can update your workflow YAML files to send jobs to runner instances for processing. To run jobs on macOS {% data variables.actions.hosted_runner %}s, update the `runs-on` key in your workflow YAML files to use one of the {% data variables.product.company_short %}-defined labels for macOS runners. For more information, see "[Available macOS {% data variables.actions.hosted_runner %}s](#available-macos-larger-runners)."
+Once your runner type has been defined, you can update your workflow YAML files to send jobs to runner instances for processing. To run jobs on macOS {% data variables.actions.hosted_runner %}s, update the `runs-on` key in your workflow YAML files to use one of the {% data variables.product.company_short %}-defined labels for macOS runners. For more information, see [Available macOS {% data variables.actions.hosted_runner %}s](#available-macos-larger-runners).
 
 {% endmac %}
 
@@ -39,11 +39,8 @@ Use the labels in the table below to run your workflows on the corresponding mac
 
 {% data reusables.actions.larger-runners-table %}
 
-{% note %}
-
-**Note:** For macOS {% data variables.actions.hosted_runner %}s, the `-latest` runner label uses the macOS 12 runner image. For macOS Xlarge, the `-latest` runner label uses the macOS 13 runner image
-
-{% endnote %}
+> [!NOTE]
+> For macOS {% data variables.actions.hosted_runner %}s, the `-latest` runner label uses the macOS 12 runner image. For macOS Xlarge, the `-latest` runner label uses the macOS 13 runner image
 
 {% endmac %}
 
@@ -139,7 +136,7 @@ jobs:
 
 ## Targeting macOS {% data variables.actions.hosted_runner %}s in a workflow
 
-To run your workflows on macOS {% data variables.actions.hosted_runner %}s, set the value of the `runs-on` key to a label associated with a macOS {% data variables.actions.hosted_runner %}. For a list of macOS {% data variables.actions.hosted_runner %} labels, see "[Available macOS {% data variables.actions.hosted_runner %}s](#available-macos-larger-runners)."
+To run your workflows on macOS {% data variables.actions.hosted_runner %}s, set the value of the `runs-on` key to a label associated with a macOS {% data variables.actions.hosted_runner %}. For a list of macOS {% data variables.actions.hosted_runner %} labels, see [Available macOS {% data variables.actions.hosted_runner %}s](#available-macos-larger-runners).
 
 In this example, the workflow uses a label that is associated with macOS XL runners. The `runs-on` key sends the job to any available runner with a matching label:
 
@@ -197,10 +194,7 @@ jobs:
 
 Because macOS arm64 does not support Node 12, macOS {% data variables.actions.hosted_runner %}s automatically use Node 16 to execute any JavaScript action written for Node 12. Some community actions may not be compatible with Node 16. If you use an action that requires a different Node version, you may need to manually install a specific version at runtime.
 
-{% note %}
-
-**Note:** ARM-powered runners are currently in beta and are subject to change.
-
-{% endnote %}
+> [!NOTE]
+> ARM-powered runners are currently in {% data variables.release-phases.public_preview %} and are subject to change.
 
 {% endmac %}

@@ -15,14 +15,10 @@ allowTitleToDifferFromFilename: true
 ---
 {% data reusables.projects.project_boards_old %}
 
-{% tip %}
-
-**Tips:**
-* You can format your note using Markdown syntax. For example, you can use headings, links, task lists, or emoji. For more information, see "[AUTOTITLE](/get-started/writing-on-github/getting-started-with-writing-and-formatting-on-github/basic-writing-and-formatting-syntax)."
-* You can drag and drop or use keyboard shortcuts to reorder notes and move them between columns. {% data reusables.project-management.for-more-info-project-keyboard-shortcuts %}
-* Your {% data variables.projects.projects_v1_board %} must have at least one column before you can add notes.{% ifversion projects-v1-can-create %} For more information, see "[AUTOTITLE](/issues/organizing-your-work-with-project-boards/managing-project-boards/creating-a-project-board)."{% endif %}
-
-{% endtip %}
+> [!TIP]
+> * You can format your note using Markdown syntax. For example, you can use headings, links, task lists, or emoji. For more information, see [AUTOTITLE](/get-started/writing-on-github/getting-started-with-writing-and-formatting-on-github/basic-writing-and-formatting-syntax).
+> * You can drag and drop or use keyboard shortcuts to reorder notes and move them between columns. {% data reusables.project-management.for-more-info-project-keyboard-shortcuts %}
+> * Your {% data variables.projects.projects_v1_board %} must have at least one column before you can add notes.{% ifversion projects-v1-can-create %} For more information, see [AUTOTITLE](/issues/organizing-your-work-with-project-boards/managing-project-boards/creating-a-project-board).{% endif %}
 
 When you add a URL for an issue, pull request, or another {% data variables.projects.projects_v1_board %} to a note, you'll see a preview in a summary card below your text.
 
@@ -33,11 +29,8 @@ When you add a URL for an issue, pull request, or another {% data variables.proj
    ![Screenshot showing a project column. The 'add a note to this column' button is highlighted with an orange outline.](/assets/images/help/projects/add-note-button.png)
 1. Type your note, then click **Add**.
 
-   {% tip %}
-
-   **Tip:** You can reference an issue or pull request in your note by typing its URL in the card.
-
-   {% endtip %}
+   > [!TIP]
+   > You can reference an issue or pull request in your note by typing its URL in the card.
 
 ## Converting a note to an issue
 
@@ -45,11 +38,8 @@ If you've created a note and find that it isn't sufficient for your needs, you c
 
 When you convert a note to an issue, the issue is automatically created using the content from the note. The first line of the note will be the issue title and any additional content from the note will be added to the issue description.
 
-{% tip %}
-
-**Tip:** You can add content in the body of your note to @mention someone, link to another issue or pull request, and add emoji. These {% data variables.product.prodname_dotcom %} Flavored Markdown features aren't supported within {% data variables.projects.projects_v1_board %} notes, but once your note is converted to an issue, they'll appear correctly. For more information on using these features, see "[AUTOTITLE](/get-started/writing-on-github/getting-started-with-writing-and-formatting-on-github/about-writing-and-formatting-on-github)."
-
-{% endtip %}
+> [!TIP]
+> You can add content in the body of your note to @mention someone, link to another issue or pull request, and add emoji. These {% data variables.product.prodname_dotcom %} Flavored Markdown features aren't supported within {% data variables.projects.projects_v1_board %} notes, but once your note is converted to an issue, they'll appear correctly. For more information on using these features, see [AUTOTITLE](/get-started/writing-on-github/getting-started-with-writing-and-formatting-on-github/about-writing-and-formatting-on-github).
 
 1. Navigate to the note that you want to convert to an issue.
 {% data reusables.project-management.project-note-more-options %}
@@ -68,7 +58,7 @@ When you convert a note to an issue, the issue is automatically created using th
 
 ## Further reading
 
-* "[AUTOTITLE](/issues/organizing-your-work-with-project-boards/managing-project-boards/about-project-boards)"
-{%- ifversion projects-v1-can-create %}- "[AUTOTITLE](/issues/organizing-your-work-with-project-boards/managing-project-boards/creating-a-project-board)"{% endif %}
-* "[AUTOTITLE](/issues/organizing-your-work-with-project-boards/managing-project-boards/editing-a-project-board)"
-* "[AUTOTITLE](/issues/organizing-your-work-with-project-boards/tracking-work-with-project-boards/adding-issues-and-pull-requests-to-a-project-board)"
+* [AUTOTITLE](/issues/organizing-your-work-with-project-boards/managing-project-boards/about-project-boards)
+{%- ifversion projects-v1-can-create %}- [AUTOTITLE](/issues/organizing-your-work-with-project-boards/managing-project-boards/creating-a-project-board){% endif %}
+* [AUTOTITLE](/issues/organizing-your-work-with-project-boards/managing-project-boards/editing-a-project-board)
+* [AUTOTITLE](/issues/organizing-your-work-with-project-boards/tracking-work-with-project-boards/adding-issues-and-pull-requests-to-a-project-board)

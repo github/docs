@@ -30,8 +30,5 @@ See these pages for details on how to authenticate when using the {% data variab
 * [Authorization options for {% data variables.product.prodname_oauth_apps %}](/apps/oauth-apps/building-oauth-apps/authorizing-oauth-apps)
 * [Authentication options for {% data variables.product.prodname_github_apps %}](/apps/creating-github-apps/authenticating-with-a-github-app/about-authentication-with-a-github-app)
 
-{% note %}
-
-**Note:** [Rate limits for the REST API](/rest/using-the-rest-api/rate-limits-for-the-rest-api) apply to all {% data variables.product.prodname_marketplace %} API endpoints.
-
-{% endnote %}
+> [!NOTE]
+> [Rate limits for the REST API](/rest/using-the-rest-api/rate-limits-for-the-rest-api) apply to all {% data variables.product.prodname_marketplace %} API endpoints.

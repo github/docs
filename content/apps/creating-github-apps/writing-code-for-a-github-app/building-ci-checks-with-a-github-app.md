@@ -142,10 +142,9 @@ For this tutorial, you must register a {% data variables.product.prodname_github
 The following steps will guide you through configuring a {% data variables.product.prodname_github_app %} with these settings. For more information about {% data variables.product.prodname_github_app %} settings, see "[AUTOTITLE](/apps/creating-github-apps/creating-github-apps/creating-a-github-app)."
 
 {% data reusables.apps.settings-step %}
-{% data reusables.user-settings.developer_settings %}
-{% data reusables.user-settings.github_apps %}
-1. Click **New GitHub App**.
-1. Under "GitHub App name", enter a name for your app. For example, `USERNAME-ci-test-app` where `USERNAME` is your {% data variables.product.company_short %} username.
+{% data reusables.apps.enterprise-apps-steps %}
+1. Click **New {% data variables.product.prodname_github_app %}**.
+1. Under "{% data variables.product.prodname_github_app %} name", enter a name for your app. For example, `USERNAME-ci-test-app` where `USERNAME` is your {% data variables.product.company_short %} username.
 1. Under "Homepage URL", enter a URL for your app. For example, you can use the URL of the repository that you created to store the code for your app.
 1. Skip the "Identifying and authorizing users" and "Post installation" sections for this tutorial.
 1. Make sure that **Active** is selected under "Webhooks".
@@ -153,8 +152,9 @@ The following steps will guide you through configuring a {% data variables.produ
 1. Under "Webhook secret", enter a random string. This secret is used to verify that webhooks are sent by {% data variables.product.prodname_dotcom %}. Save this string; you will use it later.
 1. Under "Repository permissions", next to "Checks", select **Read & write**.
 1. Under "Subscribe to events", select **Check suite** and **Check run**.
-1. Under "Where can this GitHub App be installed?", select **Only on this account**. You can change this later if you want to publish your app.
-1. Click **Create GitHub App**.
+1. Under "Where can this {% data variables.product.prodname_github_app %} be installed?", select **Only on this account**. You can change this later if you want to publish your app.{% ifversion enterprise-apps-public-beta %}
+    >[!NOTE] If your {% data variables.product.prodname_github_app %} is registered under an enterprise, this step does not apply.{% endif %}
+1. Click **Create {% data variables.product.prodname_github_app %}**.
 
 ### Store your app's identifying information and credentials
 
@@ -280,7 +280,7 @@ class GHAapp < Sinatra::Application
       begin
         @payload = JSON.parse @payload_raw
       rescue => e
-        fail  'Invalid JSON (#{e}): #{@payload_raw}'
+        fail 'Invalid JSON (#{e}): #{@payload_raw}'
       end
     end
 
@@ -620,7 +620,7 @@ Open the `server.rb` file that you created in "[Add code for your {% data variab
   end
 ```
 
-In the code block that starts with `post '/event_handler' do`, where it says `# ADD EVENT HANDLING HERE  #`, add the following code. This route will handle the `check_suite` event.
+In the code block that starts with `post '/event_handler' do`, where it says `# ADD EVENT HANDLING HERE #`, add the following code. This route will handle the `check_suite` event.
 
 ```ruby copy
     # Get the event type from the HTTP_X_GITHUB_EVENT header
@@ -920,7 +920,7 @@ In the code block that starts with `helpers do`, find the `initiate_check_run` h
         # ADD ANNOTATIONS CODE HERE #
 ```
 
-The code above runs RuboCop on all files in the repository's directory. The option `--format json` saves a copy of the linting results in a machine-parsable format. For more information, and an example of the JSON format, see "[JSON Formatter](https://docs.rubocop.org/rubocop/formatters.html#json-formatter)" in the RuboCop docs. This code also parses the JSON so you can easily access the keys and values in your {% data variables.product.prodname_github_app %} using the `@output`  variable.
+The code above runs RuboCop on all files in the repository's directory. The option `--format json` saves a copy of the linting results in a machine-parsable format. For more information, and an example of the JSON format, see "[JSON Formatter](https://docs.rubocop.org/rubocop/formatters.html#json-formatter)" in the RuboCop docs. This code also parses the JSON so you can easily access the keys and values in your {% data variables.product.prodname_github_app %} using the `@output` variable.
 
 After running RuboCop and saving the linting results, this code runs the command `rm -rf` to remove the checkout of the repository. Because the code stores the RuboCop results in a `@report` variable, it can safely remove the checkout of the repository.
 
@@ -1502,7 +1502,7 @@ class GHAapp < Sinatra::Application
       begin
         @payload = JSON.parse @payload_raw
       rescue => e
-        fail  'Invalid JSON (#{e}): #{@payload_raw}'
+        fail 'Invalid JSON (#{e}): #{@payload_raw}'
       end
     end
 

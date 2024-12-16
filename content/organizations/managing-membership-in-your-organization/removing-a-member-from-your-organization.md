@@ -20,35 +20,29 @@ permissions: Organization owners can remove members from an organization.
 
 {% ifversion fpt or ghec %}
 
-{% warning %}
-
-**Warning:** When you remove members from an organization:
-* The paid license count does not automatically downgrade. To pay for fewer licenses after removing users from your organization, follow the steps in "[AUTOTITLE](/billing/managing-the-plan-for-your-github-account/downgrading-your-accounts-plan)."
-* Removed members will lose access to private forks of your organization's private repositories, but they may still have local copies. However, they cannot sync local copies with your organization's repositories. Their private forks can be restored if the user is [reinstated as an organization member](/organizations/managing-membership-in-your-organization/reinstating-a-former-member-of-your-organization) within three months of being removed from the organization. Ultimately, you are responsible for ensuring that people who have lost access to a repository delete any confidential information or intellectual property.
-* When private repositories are forked to other organizations, those organizations are able to control access to the fork network. This means users may retain access to the forks even after losing access to the original organization because they will still have explicit access via a fork.
+> [!WARNING]
+> When you remove members from an organization:
+> * The paid license count does not automatically downgrade. To pay for fewer licenses after removing users from your organization, follow the steps in [AUTOTITLE](/billing/managing-the-plan-for-your-github-account/downgrading-your-accounts-plan).
+> * Removed members will lose access to private forks of your organization's private repositories, but they may still have local copies. However, they cannot sync local copies with your organization's repositories. Their private forks can be restored if the user is [reinstated as an organization member](/organizations/managing-membership-in-your-organization/reinstating-a-former-member-of-your-organization) within three months of being removed from the organization. Ultimately, you are responsible for ensuring that people who have lost access to a repository delete any confidential information or intellectual property.
+> * When private repositories are forked to other organizations, those organizations are able to control access to the fork network. This means users may retain access to the forks even after losing access to the original organization because they will still have explicit access via a fork.
 {%- ifversion ghec %}
-* Removed members will also lose access to private forks of your organization's internal repositories, if the removed member is not a member of any other organization owned by the same enterprise account. For more information, see "[AUTOTITLE](/admin/overview/about-enterprise-accounts)."
+> * Removed members will also lose access to private forks of your organization's internal repositories, if the removed member is not a member of any other organization owned by the same enterprise account. For more information, see [AUTOTITLE](/admin/overview/about-enterprise-accounts).
 {%- endif %}
-* Any organization invitations sent by a removed member, that have not been accepted, are canceled and will not be accessible.
-
-{% endwarning %}
+> * Any organization invitations sent by a removed member, that have not been accepted, are canceled and will not be accessible.
 
 {% else %}
 
-{% warning %}
-
-**Warning:** When you remove members from an organization:
-* Removed members will lose access to private forks of your organization's private repositories, but may still have local copies. However, they cannot sync local copies with your organization's repositories. Their private forks can be restored if the user is [reinstated as an organization member](/organizations/managing-membership-in-your-organization/reinstating-a-former-member-of-your-organization) within three months of being removed from the organization. Ultimately, you are responsible for ensuring that people who have lost access to a repository delete any confidential information or intellectual property.
-* Removed members will also lose access to private forks of your organization's internal repositories, if the removed member is not a member of any other organization in your enterprise.
-* Any organization invitations sent by the removed user, that have not been accepted, are canceled and will not be accessible.
-
-{% endwarning %}
+> [!WARNING]
+> When you remove members from an organization:
+> * Removed members will lose access to private forks of your organization's private repositories, but may still have local copies. However, they cannot sync local copies with your organization's repositories. Their private forks can be restored if the user is [reinstated as an organization member](/organizations/managing-membership-in-your-organization/reinstating-a-former-member-of-your-organization) within three months of being removed from the organization. Ultimately, you are responsible for ensuring that people who have lost access to a repository delete any confidential information or intellectual property.
+> * Removed members will also lose access to private forks of your organization's internal repositories, if the removed member is not a member of any other organization in your enterprise.
+> * Any organization invitations sent by the removed user, that have not been accepted, are canceled and will not be accessible.
 
 {% endif %}
 
 {% ifversion fpt or ghec %}
 
-To help the person you're removing from your organization transition and help ensure they delete confidential information or intellectual property, we recommend sharing a checklist of best practices for leaving your organization. For an example, see "[AUTOTITLE](/account-and-profile/setting-up-and-managing-your-personal-account-on-github/managing-your-personal-account/best-practices-for-leaving-your-company)."
+To help the person you're removing from your organization transition and help ensure they delete confidential information or intellectual property, we recommend sharing a checklist of best practices for leaving your organization. For an example, see [AUTOTITLE](/account-and-profile/setting-up-and-managing-your-personal-account-on-github/managing-your-personal-account/best-practices-for-leaving-your-company).
 
 {% endif %}
 
@@ -69,5 +63,5 @@ To help the person you're removing from your organization transition and help en
 
 ## Further reading
 
-* "[AUTOTITLE](/organizations/organizing-members-into-teams/removing-organization-members-from-a-team)"{% ifversion remove-enterprise-members %}
-* "[AUTOTITLE](/admin/user-management/managing-users-in-your-enterprise/removing-a-member-from-your-enterprise)"{% endif %}
+* [AUTOTITLE](/organizations/organizing-members-into-teams/removing-organization-members-from-a-team){% ifversion remove-enterprise-members %}
+* [AUTOTITLE](/admin/user-management/managing-users-in-your-enterprise/removing-a-member-from-your-enterprise){% endif %}

@@ -11,7 +11,7 @@ topics:
 allowTitleToDifferFromFilename: true
 ---
 
-You can customize which items appear in your views using filters for item metadata, such as assignees and the labels applied to issues, and by the fields in your project. You can combine filters and save them as views. For more information, see "[AUTOTITLE](/issues/planning-and-tracking-with-projects/customizing-views-in-your-project/managing-your-views)."
+You can customize which items appear in your views using filters for item metadata, such as assignees and the labels applied to issues, and by the fields in your project. You can combine filters and save them as views. For more information, see [AUTOTITLE](/issues/planning-and-tracking-with-projects/customizing-views-in-your-project/managing-your-views).
 
 To filter a view, click {% octicon "filter" aria-label="Filter by keyword or by field" %} and start typing the fields and values you would like to filter for. As you type, possible values will appear. You can also open the project command palette, by pressing {% data variables.projects.command-palette-shortcut %}, and type "Filter by" to choose from the available filters.
 
@@ -23,7 +23,7 @@ Using multiple filters will act as a logical AND filter. For example, `label:bug
 
 {% ifversion projects-v2-insights %}
 
-The same filters are available for charts you create using insights for {% data variables.product.prodname_projects_v2 %}, allowing you to filter the data used to create your charts. For more information, see "[AUTOTITLE](/issues/planning-and-tracking-with-projects/viewing-insights-from-your-project/about-insights-for-projects)."
+The same filters are available for charts you create using insights for {% data variables.product.prodname_projects_v2 %}, allowing you to filter the data used to create your charts. For more information, see [AUTOTITLE](/issues/planning-and-tracking-with-projects/viewing-insights-from-your-project/about-insights-for-projects).
 
 {% endif %}
 
@@ -39,7 +39,7 @@ You can use filters to produce views for very specific purposes. For example, yo
 | <code>label:<em>LABEL</em></code> | **label:bug** will show items with the "bug" label applied.
 | <code>field:<em>VALUE</em></code> | **status:done** will show items with the "status" field set to "done."
 | <code>reviewers:<em>USERNAME</em> | **reviewers:octocat** will show items that have been reviewed by @octocat.
-| <code>milestone:&quot;<em>MILESTONE</em>&quot; | **milestone:"Beta release"** will show items assigned to the "Beta release" milestone.
+| <code>milestone:&quot;<em>MILESTONE</em>&quot; | **milestone:"QA release"** will show items assigned to the "QA release" milestone.
 
 ## Combining filters
 
@@ -76,6 +76,16 @@ You can invert any filter, including combinations, by prefixing with a hyphen.
 |<code>-assignee:<em>USERNAME</em></code> | **-assignee:octocat** will not show any items assigned to @octocat.
 |<code>-field:<em>VALUE</em></code> | **-status:done** will not show any items with a status of "done."
 |<code>-field:<em>VALUE,VALUE</em></code> | **-priority:1,2** will not show any items with a priority of either 1 or 2.
+
+## Filtering for items that have a value
+
+You can use `has:` to filter for items that have a value
+
+| Qualifier  | Example
+| ---------- | -------------
+|<code>has:assignee</code> | **has:assignee** will show items with an assignee.
+|<code>has:label</code> | **has:label** will show items with a label.
+|<code>has:<em>FIELD</em> | **has:priority** will show items with a priority field value.
 
 ## Filtering for items that are missing a value
 
@@ -125,18 +135,6 @@ You can filter closed items by their close reason.
 |<code>reason:<em>CLOSE REASON</em></code> | **reason:completed** will show items closed because they were completed.
 |                                          | **reason:"not planned"** will show closed items with the "not planned" reason.
 |                                          | **reason:reopened** will show items that have been reopened after previously being closed.
-
-{% ifversion projects-v2-tasklists %}
-
-## Filtering by the tracked-by field
-
-You can filter for issues that are tracked by another issue in a tasklist. For more information, see "[AUTOTITLE](/issues/tracking-your-work-with-issues/about-tasklists)."
-
-| Qualifier  | Example
-| ---------- | -------------
-| <code>tracked-by:"<em>OWNER</em>/<em>REPO</em>#<em>ISSUE NUMBER</em>"</code> | **tracked-by:"octocat/game#11"** will show any issue tracked by a tasklist in issue #11 of the `octocat/game` repository.
-
-{% endif %}
 
 ## Filtering for when an item was last updated
 
@@ -204,8 +202,8 @@ You can filter by specific text fields or use a general text filter across all t
 
 | Qualifier  | Example
 | ---------- | -------------
-| <code>field:"<em>TEXT</em>"    | **title:"API deprecation"** will show items with titles that exactly match "API deprecation."
-| <code>field:<em>TEXT</em>      | **note:complete** will show items with a note text field that exactly match "complete."
+| <code>field:"<em>TEXT</em>"    | **title:"Bug fix"** will show items with titles that exactly match "Bug fix".
+| <code>field:<em>TEXT</em>      | **note:complete** will show items with a note text field that exactly match "complete".
 | <code><em>TEXT</em></code>     | **API** will show items with "API" in the title or any other text field.
 | <code>field:<em>TEXT</em> TEXT | **label:bug rendering** will show items with the "bug" label and with "rendering" in the title or any other text field.
 
@@ -218,5 +216,33 @@ You can also use a <code>&ast;</code> as a wildcard.
 | <code>field:&ast;<em>TEXT</em>&ast;    | **label:&ast;bug&ast;** will show items with a label that contains the word "bug."
 | <code>field:<em>TEXT</em>&ast;         | **title:API&ast;** will show items with a title that begins with "API."
 | <code>field:&ast;<em>TEXT</em>         | **label:&ast;support** will show items with a label that ends with "support."
+
+{% endif %}
+
+{% ifversion issue-types %}
+
+## Filtering by issue type
+
+If your organization uses issue types, you can filter for particular types.
+
+{% data reusables.issues.release-stage %}
+
+| Qualifier  | Example
+| ---------- | -------------
+| <code>type:&quot;<em>ISSUE TYPE</em>&quot;    | **type:&quot;bug&quot;** will show issues with the "bug" type.
+
+{% endif %}
+
+{% ifversion sub-issues %}
+
+## Filtering by parent issue
+
+You can filter your sub-issues by their parent issue.
+
+{% data reusables.issues.release-stage %}
+
+| Qualifier  | Example
+| ---------- | -------------
+| <code>parent-issue:<em>OWNER/REPO#ISSUE NUMBER</em></code> | **parent-issue:octocat/game#4** will show issues with issue #4 in octocat/game as their parent issue.
 
 {% endif %}

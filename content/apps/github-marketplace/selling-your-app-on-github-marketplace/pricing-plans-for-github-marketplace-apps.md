@@ -57,8 +57,5 @@ Free trials have a fixed length of 14 days. Customers are notified 4 days before
 
 For more information, see: "[AUTOTITLE](/apps/github-marketplace/using-the-github-marketplace-api-in-your-app/handling-new-purchases-and-free-trials)."
 
-{% note %}
-
-**Note:** GitHub expects you to delete any private customer data within 30 days of a canceled trial, beginning at the receipt of the cancellation event.
-
-{% endnote %}
+> [!NOTE]
+> GitHub expects you to delete any private customer data within 30 days of a canceled trial, beginning at the receipt of the cancellation event.

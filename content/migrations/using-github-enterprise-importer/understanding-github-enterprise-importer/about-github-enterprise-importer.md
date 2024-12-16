@@ -24,7 +24,7 @@ redirect_from:
 
 {% data variables.product.prodname_importer_proper_name %} is a highly customizable migration tool designed to help you move your enterprise to {% data variables.product.prodname_ghe_cloud %}.
 
-You can migrate on a repository-by-repository basis or, if your migration source and destination are both {% data variables.product.prodname_dotcom_the_website %}, on an organization-by-organization basis.
+You can migrate on a repository-by-repository basis or, if your migration source is {% data variables.product.prodname_dotcom_the_website %}, on an organization-by-organization basis.
 
 {% data variables.product.prodname_importer_proper_name %} allows you to customize your migration to meet your enterprise's unique needs with:
 * **A distinct migration permissions role** for repository migrations, which allows you to designate teams and/or individual users to run a migration and removes the need for organization owners to complete the migration.
@@ -43,6 +43,6 @@ You can migrate on a repository-by-repository basis or, if your migration source
 
 To learn more about the migration path you require, and the data that {% data variables.product.prodname_importer_proper_name %} migrates, see the following articles.
 
-* "[AUTOTITLE](/migrations/using-github-enterprise-importer/migrating-from-azure-devops-to-github-enterprise-cloud/about-migrations-from-azure-devops-to-github-enterprise-cloud)"
-* "[AUTOTITLE](/migrations/using-github-enterprise-importer/migrating-from-bitbucket-server-to-github-enterprise-cloud/about-migrations-from-bitbucket-server-to-github-enterprise-cloud)"
-* "[AUTOTITLE](/migrations/using-github-enterprise-importer/migrating-between-github-products/about-migrations-between-github-products)"
+* [AUTOTITLE](/migrations/using-github-enterprise-importer/migrating-from-azure-devops-to-github-enterprise-cloud/about-migrations-from-azure-devops-to-github-enterprise-cloud)
+* [AUTOTITLE](/migrations/using-github-enterprise-importer/migrating-from-bitbucket-server-to-github-enterprise-cloud/about-migrations-from-bitbucket-server-to-github-enterprise-cloud)
+* [AUTOTITLE](/migrations/using-github-enterprise-importer/migrating-between-github-products/about-migrations-between-github-products)

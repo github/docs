@@ -37,7 +37,7 @@ environment:
 
 {% endraw %}
 
-The value of `name` can be an expression. Allowed expression contexts:  [`github`](/actions/learn-github-actions/contexts#github-context), [`inputs`](/actions/learn-github-actions/contexts#inputs-context), [`vars`](/actions/learn-github-actions/contexts#vars-context), [`needs`](/actions/learn-github-actions/contexts#needs-context), [`strategy`](/actions/learn-github-actions/contexts#strategy-context), and [`matrix`](/actions/learn-github-actions/contexts#matrix-context). For more information about expressions, see "[AUTOTITLE](/actions/learn-github-actions/expressions)."
+The value of `name` can be an expression. Allowed expression contexts: [`github`](/actions/learn-github-actions/contexts#github-context), [`inputs`](/actions/learn-github-actions/contexts#inputs-context), [`vars`](/actions/learn-github-actions/contexts#vars-context), [`needs`](/actions/learn-github-actions/contexts#needs-context), [`strategy`](/actions/learn-github-actions/contexts#strategy-context), and [`matrix`](/actions/learn-github-actions/contexts#matrix-context). For more information about expressions, see "[AUTOTITLE](/actions/learn-github-actions/expressions)."
 
 ### Example: Using an expression as environment name
 

@@ -2,11 +2,8 @@ When an application running inside a codespace prints output to the terminal tha
 
 You can edit the dev container configuration for the repository to automatically forward one or more ports. You can also forward a port manually, label forwarded ports, share forwarded ports with members of your organization, share forwarded ports publicly, and add forwarded ports to the codespace configuration.
 
-{% note %}
-
-**Note**: {% data reusables.codespaces.restrict-port-visibility %}
-
-{% endnote %}
+> [!NOTE]
+> {% data reusables.codespaces.restrict-port-visibility %}
 
 ## Forwarding a port
 

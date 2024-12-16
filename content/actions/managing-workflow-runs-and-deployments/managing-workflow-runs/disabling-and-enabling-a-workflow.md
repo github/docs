@@ -22,13 +22,10 @@ Temporarily disabling a workflow can be useful in many scenarios. These are a fe
 * A workflow that sends requests to a service that is down.
 * Workflows on a forked repository that aren't needed (for example, scheduled workflows).
 
-{% warning %}
+> [!WARNING]
+> {% data reusables.actions.scheduled-workflows-disabled %}
 
-**Warning:** {% data reusables.actions.scheduled-workflows-disabled %}
-
-{% endwarning %}
-
-You can also disable and enable a workflow using the REST API. For more information, see "[AUTOTITLE](/rest/actions/workflows)."
+You can also disable and enable a workflow using the REST API. For more information, see [AUTOTITLE](/rest/actions/workflows).
 
 ## Disabling a workflow
 

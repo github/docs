@@ -18,7 +18,7 @@ The GitHub GraphQL API represents an architectural and conceptual shift from the
 
 ## Schema
 
-A schema defines a GraphQL API's type system. It describes the complete set of possible data (objects, fields, relationships, everything) that a client can access. Calls from the client are [validated](https://graphql.org/learn/validation/) and [executed](https://graphql.org/learn/execution/) against the schema. A client can find information about the schema via [introspection](#discovering-the-graphql-api). A schema resides on the GraphQL API server. For more information, see "[Discovering the GraphQL API](#discovering-the-graphql-api)."
+A schema defines a GraphQL API's type system. It describes the complete set of possible data (objects, fields, relationships, everything) that a client can access. Calls from the client are [validated](https://graphql.org/learn/validation/) and [executed](https://graphql.org/learn/execution/) against the schema. A client can find information about the schema via [introspection](#discovering-the-graphql-api). A schema resides on the GraphQL API server. For more information, see [Discovering the GraphQL API](#discovering-the-graphql-api).
 
 ## Field
 
@@ -64,17 +64,17 @@ In the reference docs, you'll find that:
 
 ## Connection
 
-Connections let you query related objects as part of the same call. With connections, you can use a single GraphQL call where you would have to use multiple calls to a REST API. For more information, see "[AUTOTITLE](/graphql/guides/migrating-from-rest-to-graphql)."
+Connections let you query related objects as part of the same call. With connections, you can use a single GraphQL call where you would have to use multiple calls to a REST API. For more information, see [AUTOTITLE](/graphql/guides/migrating-from-rest-to-graphql).
 
 It's helpful to picture a graph: dots connected by lines. The dots are nodes, the lines are edges. A connection defines a relationship between nodes.
 
 ## Edge
 
-Edges represent connections between nodes. When you query a connection, you traverse its edges to get to its nodes. Every `edges` field has a `node` field and a `cursor` field. Cursors are used for pagination. For more information, see "[AUTOTITLE](/graphql/guides/using-pagination-in-the-graphql-api)."
+Edges represent connections between nodes. When you query a connection, you traverse its edges to get to its nodes. Every `edges` field has a `node` field and a `cursor` field. Cursors are used for pagination. For more information, see [AUTOTITLE](/graphql/guides/using-pagination-in-the-graphql-api).
 
 ## Node
 
-_Node_ is a generic term for an object. You can look up a node directly, or you can access related nodes via a connection. If you specify a `node` that does not return a [scalar](/graphql/reference/scalars), you must include subfields until all fields return scalars. For information on accessing node IDs via the REST API and using them in GraphQL queries, see "[AUTOTITLE](/graphql/guides/using-global-node-ids)."
+_Node_ is a generic term for an object. You can look up a node directly, or you can access related nodes via a connection. If you specify a `node` that does not return a [scalar](/graphql/reference/scalars), you must include subfields until all fields return scalars. For information on accessing node IDs via the REST API and using them in GraphQL queries, see [AUTOTITLE](/graphql/guides/using-global-node-ids).
 
 ## Discovering the GraphQL API
 
@@ -118,12 +118,9 @@ GraphQL is [introspective](https://graphql.org/learn/introspection/). This means
   curl -H "Authorization: bearer TOKEN" {% data variables.product.graphql_url %}
   ```
 
-  {% note %}
-
-  **Note**: If you get the response `"message": "Bad credentials"` or `401 Unauthorized`, check that you are using a valid token. {% ifversion pat-v2 %}If you receive a `403` error with `Resource not accessible by {% data variables.product.pat_generic %}`, ensure that your {% data variables.product.pat_v2 %} is targeted to the correct resource owner. For example, it must target the organization that owns the repository you are trying to access.{% endif %}
-
-  {% endnote %}
-
+  > [!NOTE]
+  > If you get the response `"message": "Bad credentials"` or `401 Unauthorized`, check that you are using a valid token. If you receive a `403` error with `Resource not accessible by {% data variables.product.pat_generic %}`, ensure that your {% data variables.product.pat_v2 %} is targeted to the correct resource owner. For example, it must target the organization that owns the repository you are trying to access.
+  
   The results are in JSON, so we recommend pretty-printing them for easier reading and searching. You can use a command-line tool like [jq](https://stedolan.github.io/jq/) or pipe the results into `python -m json.tool` for this purpose.
 
   Alternatively, you can pass the `idl` media type to return the results in IDL format, which is a condensed version of the schema:
@@ -133,10 +130,7 @@ GraphQL is [introspective](https://graphql.org/learn/introspection/). This means
   {% data variables.product.graphql_url %}
   ```
 
-  {% note %}
+  > [!NOTE]
+  > The introspection query is probably the only `GET` request you'll run in GraphQL. If you're passing a body, the GraphQL request method is `POST`, whether it's a query or a mutation.
 
-  **Note**: The introspection query is probably the only `GET` request you'll run in GraphQL. If you're passing a body, the GraphQL request method is `POST`, whether it's a query or a mutation.
-
-  {% endnote %}
-
-  For more information about performing queries, see "[AUTOTITLE](/graphql/guides/forming-calls-with-graphql)."
+  For more information about performing queries, see [AUTOTITLE](/graphql/guides/forming-calls-with-graphql).

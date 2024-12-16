@@ -39,7 +39,7 @@ Additionally, you can enforce policies for the use of {% data variables.product.
 
 ## About policies for {% data variables.product.prodname_GH_advanced_security %} in your enterprise
 
-{% data reusables.advanced-security.ghas-helps-developers %} For more information, see "[AUTOTITLE](/get-started/learning-about-github/about-github-advanced-security)."
+{% data reusables.advanced-security.ghas-helps-developers %} For more information, see [AUTOTITLE](/get-started/learning-about-github/about-github-advanced-security).
 
 {% ifversion ghes %}If you purchase a license for {% data variables.product.prodname_GH_advanced_security %}, any{% else %}Any{% endif %} organization on {% data variables.product.prodname_ghe_server %} can use {% data variables.product.prodname_advanced_security %} features. You can enforce policies to control how members of your enterprise on {% data variables.product.product_name %} use {% data variables.product.prodname_advanced_security %}.
 
@@ -49,13 +49,13 @@ Additionally, you can enforce policies for the use of {% data variables.product.
 
 ## Enforcing a policy for visibility of dependency insights
 
-Dependency insights show all packages that repositories within your enterprise's organizations depend on. Dependency insights include aggregated information about security advisories and licenses. For more information, see "[AUTOTITLE](/organizations/collaborating-with-groups-in-organizations/viewing-insights-for-dependencies-in-your-organization)."
+Dependency insights show all packages that repositories within your enterprise's organizations depend on. Dependency insights include aggregated information about security advisories and licenses. For more information, see [AUTOTITLE](/organizations/collaborating-with-groups-in-organizations/viewing-insights-for-dependencies-in-your-organization).
 
-Across all organizations owned by your enterprise, you can control whether organization members can view dependency insights. You can also allow owners to administer the setting on the organization level. For more information, see "[AUTOTITLE](/organizations/managing-organization-settings/changing-the-visibility-of-your-organizations-dependency-insights)."
+Across all organizations owned by your enterprise, you can control whether organization members can view dependency insights. You can also allow owners to administer the setting on the organization level. For more information, see [AUTOTITLE](/organizations/managing-organization-settings/changing-the-visibility-of-your-organizations-dependency-insights).
 
 {% data reusables.enterprise-accounts.access-enterprise %}
 {% data reusables.enterprise-accounts.policies-tab %}
-1. Under "{% octicon "law" aria-hidden="true" %} Policies", click **Code security and analysis**.
+{% data reusables.enterprise-accounts.code-security-and-analysis-policies %}
 1. Under "Dependency insights", review the information about changing the setting.
 1. {% data reusables.enterprise-accounts.view-current-policy-config-orgs %}
 1. Under "Dependency insights", select the dropdown menu and click a policy.
@@ -118,9 +118,9 @@ Across all of your enterprise's organizations, you can allow or disallow people 
 
 {% ifversion secret-scanning-ai-generic-secret-detection %}
 
-## Enforcing a policy to manage the use of generic secret detection for {% data variables.product.prodname_secret_scanning %} in your enterprise's repositories
+## Enforcing a policy to manage the use of {% data variables.secret-scanning.generic-secret-detection %} for {% data variables.product.prodname_secret_scanning %} in your enterprise's repositories
 
-Across all of your enterprise's organizations, you can allow or disallow people with admin access to repositories to manage and configure generic secret detection for {% data variables.product.prodname_secret_scanning %} for the repositories. {% data reusables.advanced-security.ghas-must-be-enabled %}
+Across all of your enterprise's organizations, you can allow or disallow people with admin access to repositories to manage and configure AI detection in {% data variables.product.prodname_secret_scanning %} for the repositories. {% data reusables.advanced-security.ghas-must-be-enabled %}
 
 {% data reusables.enterprise-accounts.access-enterprise %}
 {% data reusables.enterprise-accounts.policies-tab %}

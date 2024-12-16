@@ -6,7 +6,7 @@ redirect_from:
   - /code-security/guides
 introLinks:
   overview: /code-security/getting-started/github-security-features
-  try_ghas_for_free: '{% ifversion ghec %}/billing/managing-billing-for-github-advanced-security/setting-up-a-trial-of-github-advanced-security{% endif %}'
+  try_ghas_for_free: '{% ifversion ghec %}/billing/managing-billing-for-your-products/managing-billing-for-github-advanced-security/setting-up-a-trial-of-github-advanced-security{% endif %}'
 featuredLinks:
   startHere:
     - /code-security/getting-started/quickstart-for-securing-your-repository

@@ -15,10 +15,10 @@ redirect_from:
 
 ## Prerequisites
 
-* **Access to {% data variables.product.prodname_copilot %}**. See "[AUTOTITLE](/copilot/about-github-copilot#getting-access-to-github-copilot)".
+* **Access to {% data variables.product.prodname_copilot %}**. See [AUTOTITLE](/copilot/about-github-copilot/what-is-github-copilot#getting-access-to-copilot).
 * **{% data variables.product.prodname_cli %} installed.** {% data reusables.cli.cli-installation %}
 
-If you have access to {% data variables.product.prodname_copilot %} via your organization or enterprise, you cannot use {% data variables.product.prodname_copilot_cli_short %} if your organization owner or enterprise administrator has disabled {% data variables.product.prodname_copilot_cli_short %}. See "[AUTOTITLE](/copilot/managing-copilot/managing-github-copilot-in-your-organization/managing-github-copilot-features-in-your-organization/managing-policies-for-copilot-in-your-organization)."
+If you have access to {% data variables.product.prodname_copilot %} via your organization or enterprise, you cannot use {% data variables.product.prodname_copilot_cli_short %} if your organization owner or enterprise administrator has disabled {% data variables.product.prodname_copilot_cli_short %}. See [AUTOTITLE](/copilot/managing-copilot/managing-github-copilot-in-your-organization/managing-github-copilot-features-in-your-organization/managing-policies-for-copilot-in-your-organization).
 
 ## Installing {% data variables.product.prodname_copilot_cli_short %}
 
@@ -44,5 +44,5 @@ gh extension upgrade gh-copilot
 
 ## Further reading
 
-* "[AUTOTITLE](/copilot/github-copilot-in-the-cli/using-github-copilot-in-the-cli)"
-* "[AUTOTITLE](/copilot/github-copilot-in-the-cli/configuring-github-copilot-in-the-cli)"
+* [AUTOTITLE](/copilot/github-copilot-in-the-cli/using-github-copilot-in-the-cli)
+* [AUTOTITLE](/copilot/github-copilot-in-the-cli/configuring-github-copilot-in-the-cli)

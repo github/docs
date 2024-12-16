@@ -1,6 +1,7 @@
 ---
 title: Organizing information with collapsed sections
 intro: You can streamline your Markdown by creating a collapsed section with the `<details>` tag.
+product: '{% data reusables.gated-features.markdown-ui %}'
 versions:
   fpt: '*'
   ghes: '*'
@@ -43,7 +44,13 @@ After a reader clicks {% octicon "triangle-right" aria-label="The right triangle
 
 ![Screenshot of the Markdown above on this page as rendered on {% data variables.product.prodname_dotcom %}, indicating that a collapsed section can contain headers, sentences of text, images, and code blocks.](/assets/images/help/writing/open-collapsed-section.png)
 
+Optionally, to make the section display as open by default, add the `open` attribute to the `<details>` tag:
+
+```html
+<details open>
+```
+
 ## Further reading
 
 * [{% data variables.product.prodname_dotcom %} Flavored Markdown Spec](https://github.github.com/gfm/)
-* "[AUTOTITLE](/get-started/writing-on-github/getting-started-with-writing-and-formatting-on-github/basic-writing-and-formatting-syntax)"
+* [AUTOTITLE](/get-started/writing-on-github/getting-started-with-writing-and-formatting-on-github/basic-writing-and-formatting-syntax)

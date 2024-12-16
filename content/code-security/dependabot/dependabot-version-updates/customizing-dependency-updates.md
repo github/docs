@@ -1,7 +1,7 @@
 ---
 title: Customizing dependency updates
 intro: 'You can customize how {% data variables.product.prodname_dependabot %} maintains your dependencies.'
-permissions: 'People with write permissions to a repository can configure {% data variables.product.prodname_dependabot %} for the repository.'
+permissions: '{% data reusables.permissions.dependabot-yml-configure %}'
 redirect_from:
   - /github/administering-a-repository/customizing-dependency-updates
   - /code-security/supply-chain-security/customizing-dependency-updates
@@ -35,21 +35,22 @@ After you've enabled version updates, you can customize how {% data variables.pr
 * Change the maximum number of open pull requests for version updates from the default of 5: `open-pull-requests-limit`
 * Open pull requests for version updates to target a specific branch, instead of the default branch: `target-branch`
 
-For more information about the configuration options, see "[AUTOTITLE](/code-security/dependabot/dependabot-version-updates/configuration-options-for-the-dependabot.yml-file)."
+For more information about the configuration options, see [AUTOTITLE](/code-security/dependabot/dependabot-version-updates/configuration-options-for-the-dependabot.yml-file).
 
-When you update the `dependabot.yml` file in your repository, {% data variables.product.prodname_dependabot %} runs an immediate check with the new configuration. Within minutes you will see an updated list of dependencies on the **{% data variables.product.prodname_dependabot %}** tab, this may take longer if the repository has many dependencies. You may also see new pull requests for version updates. For more information, see "[AUTOTITLE](/code-security/dependabot/dependabot-version-updates/listing-dependencies-configured-for-version-updates)."
+When you update the `dependabot.yml` file in your repository, {% data variables.product.prodname_dependabot %} runs an immediate check with the new configuration. Within minutes you will see an updated list of dependencies on the **{% data variables.product.prodname_dependabot %}** tab, this may take longer if the repository has many dependencies. You may also see new pull requests for version updates. For more information, see [AUTOTITLE](/code-security/dependabot/dependabot-version-updates/listing-dependencies-configured-for-version-updates).
 
 ## Impact of configuration changes on security updates
 
 If you customize the `dependabot.yml` file, you may notice some changes to the pull requests raised for security updates. These pull requests are always triggered by a security advisory for a dependency, rather than by the {% data variables.product.prodname_dependabot %} schedule. However, they inherit relevant configuration settings from the `dependabot.yml` file unless you specify a different target branch for version updates.
 
-For an example, see "[Setting custom labels](#setting-custom-labels)" below.
+For an example, see [Setting custom labels](#setting-custom-labels) below.
 
-{% ifversion dependabot-grouped-security-updates-config %}{% note %}
+{% ifversion dependabot-grouped-security-updates-config %}
 
-**Note:** If you use grouped security updates, the grouped pull requests will also inherit non-group configuration settings from the `dependabot.yml` file, and any group rules specified with `applies-to: security-updates` will apply. For more information, see "[AUTOTITLE](/code-security/dependabot/dependabot-security-updates/about-dependabot-security-updates#about-grouped-security-updates)."
+> [!NOTE]
+> If you use grouped security updates, the grouped pull requests will also inherit non-group configuration settings from the `dependabot.yml` file, and any group rules specified with `applies-to: security-updates` will apply. For more information, see [AUTOTITLE](/code-security/dependabot/dependabot-security-updates/about-dependabot-security-updates#about-grouped-security-updates).
 
-{% endnote %}{% endif %}
+{% endif %}
 
 ## Modifying scheduling
 
@@ -76,7 +77,7 @@ updates:
 
 By default, {% data variables.product.prodname_dependabot %} raises pull requests without any reviewers or assignees.
 
-You can use `reviewers` and `assignees`  to specify reviewers and assignees for all pull requests raised for a package manager. When you specify a team, you must use the full team name, as if you were @mentioning the team (including the organization).
+You can use `reviewers` and `assignees` to specify reviewers and assignees for all pull requests raised for a package manager. When you specify a team, you must use the full team name, as if you were @mentioning the team (including the organization).
 
 The example `dependabot.yml` file below changes the npm configuration so that all pull requests opened with version and security updates for npm will have two reviewers and one assignee.
 
@@ -108,11 +109,8 @@ You can use `labels` to override the default labels and specify alternative labe
 
 The example `dependabot.yml` file below changes the npm configuration so that all pull requests opened with version and security updates for npm will have custom labels. It also changes the Docker configuration to check for version updates against a custom branch and to raise pull requests with custom labels against that custom branch. The changes to Docker will not affect security update pull requests because security updates are always made against the default branch.
 
-{% note %}
-
-**Note:** The new `target-branch` must contain a Dockerfile to update, otherwise this change will have the effect of disabling version updates for Docker.
-
-{% endnote %}
+> [!NOTE]
+> The new `target-branch` must contain a Dockerfile to update, otherwise this change will have the effect of disabling version updates for Docker.
 
 ```yaml
 # `dependabot.yml` file with
@@ -163,7 +161,7 @@ You must configure groups per package ecosystem.
 
 {% data reusables.dependabot.dependabot-version-updates-groups-yaml-example %}
 
-For more information about configuring dependency groups in the `dependabot.yml` file, see "[AUTOTITLE](/code-security/dependabot/dependabot-version-updates/configuration-options-for-the-dependabot.yml-file#groups)."
+For more information about configuring dependency groups in the `dependabot.yml` file, see [AUTOTITLE](/code-security/dependabot/dependabot-version-updates/configuration-options-for-the-dependabot.yml-file#groups).
 
 {% endif %}
 
@@ -171,8 +169,8 @@ For more information about configuring dependency groups in the `dependabot.yml`
 
 If you are not ready to adopt changes from dependencies in your project, you can configure {% data variables.product.prodname_dependabot %} to ignore those dependencies when it opens pull requests for version updates{% ifversion dependabot-grouped-security-updates-config %} and security updates{% endif %}. You can do this using one of the following methods.
 
-* Configure the `ignore` option for the dependency in your `dependabot.yml` file. You can use this to ignore updates for specific dependencies, versions, and types of updates. For more information, see "[AUTOTITLE](/code-security/dependabot/dependabot-version-updates/configuration-options-for-the-dependabot.yml-file#ignore)."
-* Use `@dependabot ignore` comment commands on a {% data variables.product.prodname_dependabot %} pull request for version updates{% ifversion dependabot-grouped-security-updates-config %} and security updates{% endif %}. You can use comment commands to ignore updates for specific dependencies and versions. For more information, see "[AUTOTITLE](/code-security/dependabot/working-with-dependabot/managing-pull-requests-for-dependency-updates#managing-dependabot-pull-requests-with-comment-commands)."
+* Configure the `ignore` option for the dependency in your `dependabot.yml` file. You can use this to ignore updates for specific dependencies, versions, and types of updates. For more information, see [AUTOTITLE](/code-security/dependabot/dependabot-version-updates/configuration-options-for-the-dependabot.yml-file#ignore).
+* Use `@dependabot ignore` comment commands on a {% data variables.product.prodname_dependabot %} pull request for version updates{% ifversion dependabot-grouped-security-updates-config %} and security updates{% endif %}. You can use comment commands to ignore updates for specific dependencies and versions. For more information, see [AUTOTITLE](/code-security/dependabot/working-with-dependabot/managing-pull-requests-for-dependency-updates#managing-dependabot-pull-requests-with-comment-commands).
 
 If you would like to un-ignore a dependency or ignore condition, you can delete the ignore conditions from the `dependabot.yml` file or reopen the pull request.
 
@@ -183,15 +181,14 @@ If you would like to un-ignore a dependency or ignore condition, you can delete 
 * Un-ignore all ignore conditions for all dependencies in a {% data variables.product.prodname_dependabot %} pull request
 
 {% ifversion dependabot-grouped-security-updates-config %}{% else %}
-{% note %}
 
-**Note:** The `@dependabot unignore` comment commands only work on pull requests for grouped version updates.
+> [!NOTE]
+> The `@dependabot unignore` comment commands only work on pull requests for grouped version updates.
 
-{% endnote %}
 {% endif %}
 
-For more information, see "[AUTOTITLE](/code-security/dependabot/working-with-dependabot/managing-pull-requests-for-dependency-updates#managing-dependabot-pull-requests-for-grouped-{% ifversion dependabot-grouped-security-updates-config %}{% else %}version-{% endif %}updates-with-comment-commands)."{% endif %}
+For more information, see [AUTOTITLE](/code-security/dependabot/working-with-dependabot/managing-pull-requests-for-dependency-updates#managing-dependabot-pull-requests-for-grouped-{% ifversion dependabot-grouped-security-updates-config %}{% else %}version-{% endif %}updates-with-comment-commands).{% endif %}
 
 ## More examples
 
-For more examples, see "[AUTOTITLE](/code-security/dependabot/dependabot-version-updates/configuration-options-for-the-dependabot.yml-file)."
+For more examples, see [AUTOTITLE](/code-security/dependabot/dependabot-version-updates/configuration-options-for-the-dependabot.yml-file).

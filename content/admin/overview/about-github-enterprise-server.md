@@ -13,7 +13,9 @@ topics:
 
 {% data variables.product.product_name %} is suitable for enterprises that are subject to regulatory compliance. It runs on your infrastructure and is governed by access and security controls that you define, such as firewalls, network policies, IAM, monitoring, and VPNs.
 
-{% data variables.product.product_name %} is a deployment option for the {% data variables.product.prodname_enterprise %} plan. To learn about available features and assess other deployment options, see "[AUTOTITLE](/admin/overview/about-github-for-enterprises)."
+If your main compliance requirement is for your company's data to reside in a specific region, you may want to consider {% data variables.enterprise.data_residency %}. With this option, you won't need to schedule downtime for maintenance or upgrades, and your users will have access to the latest features from {% data variables.product.prodname_dotcom_the_website %}, such as {% data variables.product.prodname_copilot %}. See [AUTOTITLE](/enterprise-cloud@latest/admin/data-residency/about-github-enterprise-cloud-with-data-residency) in the {% data variables.product.prodname_ghe_cloud %} documentation.
+
+{% data variables.product.product_name %} is a deployment option for the {% data variables.product.prodname_enterprise %} plan. To learn about available features and assess other deployment options, see [AUTOTITLE](/admin/overview/about-github-for-enterprises).
 
 ## Features and releases
 
@@ -25,10 +27,10 @@ Most features are released on {% data variables.product.prodname_dotcom_the_webs
 
 You can also configure optional features on {% data variables.product.product_name %} to improve the software development lifecycle for your enterprise.
 
-* **{% data variables.product.prodname_actions %}**: Automate CI/CD and development workflows
-* **{% data variables.product.prodname_GH_advanced_security %}**: Scan code for secrets and vulnerabilities
-* **{% data variables.product.prodname_github_connect %}**: Benefit from data and features on {% data variables.product.prodname_dotcom_the_website %}
-* **{% data variables.product.prodname_registry %}**: Host software packages for your enterprise
+* **{% data variables.product.prodname_actions %}:** Automate CI/CD and development workflows
+* **{% data variables.product.prodname_GH_advanced_security %}:** Scan code for secrets and vulnerabilities
+* **{% data variables.product.prodname_github_connect %}:** Benefit from data and features on {% data variables.product.prodname_dotcom_the_website %}
+* **{% data variables.product.prodname_registry %}:** Host software packages for your enterprise
 
 ## How do I deploy {% data variables.product.product_name %}?
 
@@ -68,6 +70,6 @@ Administrators can:
 
 ## Getting started
 
-You can sign up for a free, 45-day trial of {% data variables.product.product_name %}. See "[AUTOTITLE](/admin/overview/setting-up-a-trial-of-github-enterprise-server)."
+You can sign up for a free, 45-day trial of {% data variables.product.product_name %}. See [AUTOTITLE](/admin/overview/setting-up-a-trial-of-github-enterprise-server).
 
-If you're ready to get started with a production instance, see "[AUTOTITLE](/get-started/onboarding/getting-started-with-github-enterprise-server)."
+If you're ready to get started with a production instance, see [AUTOTITLE](/get-started/onboarding/getting-started-with-github-enterprise-server).

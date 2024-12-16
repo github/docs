@@ -11,13 +11,10 @@ topics:
   - API
 ---
 
-You can access most objects in GitHub (users, issues, pull requests, etc.) using either the REST API or the GraphQL API. You can find the **global node ID** of many objects from within the REST API and use these IDs in your GraphQL operations. For more information, see "[Preview GraphQL API Node IDs in REST API resources](https://developer.github.com/changes/2017-12-19-graphql-node-id/)."
+You can access most objects in GitHub (users, issues, pull requests, etc.) using either the REST API or the GraphQL API. You can find the **global node ID** of many objects from within the REST API and use these IDs in your GraphQL operations. For more information, see [Preview GraphQL API Node IDs in REST API resources](https://developer.github.com/changes/2017-12-19-graphql-node-id/).
 
-{% note %}
-
-**Note:** In REST, the global node ID field is named `node_id`. In GraphQL, it's an `id` field on the `node` interface. For a refresher on what "node" means in GraphQL, see "[AUTOTITLE](/graphql/guides/introduction-to-graphql#node)."
-
-{% endnote %}
+> [!NOTE]
+> In REST, the global node ID field is named `node_id`. In GraphQL, it's an `id` field on the `node` interface. For a refresher on what "node" means in GraphQL, see [AUTOTITLE](/graphql/guides/introduction-to-graphql#node).
 
 ## Putting global node IDs to use
 
@@ -124,4 +121,4 @@ This type of query is the standard approach for looking up an object by its glob
 
 ## Using global node IDs in migrations
 
-When building integrations that use either the REST API or the GraphQL API, it's best practice to persist the global node ID so you can easily reference objects across API versions. For more information on handling the transition between REST and GraphQL, see "[AUTOTITLE](/graphql/guides/migrating-from-rest-to-graphql)."
+When building integrations that use either the REST API or the GraphQL API, it's best practice to persist the global node ID so you can easily reference objects across API versions. For more information on handling the transition between REST and GraphQL, see [AUTOTITLE](/graphql/guides/migrating-from-rest-to-graphql).

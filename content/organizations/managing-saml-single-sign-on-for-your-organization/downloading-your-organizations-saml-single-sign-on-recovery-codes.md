@@ -22,15 +22,12 @@ Recovery codes should not be shared or distributed. We recommend saving them wit
    ![Screenshot of the "SAML single sign-on" section. A link, labeled "Save your recovery codes," is highlighted with an orange outline.](/assets/images/help/saml/saml-recovery-codes.png)
 1. To save your recovery codes, click **Download**, **Print**, or **Copy**.
 
-   {% note %}
-
-   **Note:** Your recovery codes will help get you back into {% data variables.product.product_name %} if your IdP is unavailable. If you generate new recovery codes the recovery codes displayed on the "Single sign-on recovery codes" page are automatically updated.
-
-   {% endnote %}
+   > [!NOTE]
+   > Your recovery codes will help get you back into {% data variables.product.product_name %} if your IdP is unavailable. If you generate new recovery codes the recovery codes displayed on the "Single sign-on recovery codes" page are automatically updated.
 
 1. Once you use a recovery code to regain access to {% data variables.product.product_name %}, it cannot be reused. Access to {% data variables.product.product_name %} will only be available for 24 hours before you'll be asked to sign in using single sign-on.
 
 ## Further reading
 
-* "[AUTOTITLE](/organizations/managing-saml-single-sign-on-for-your-organization/about-identity-and-access-management-with-saml-single-sign-on)"
-* "[AUTOTITLE](/organizations/managing-saml-single-sign-on-for-your-organization/accessing-your-organization-if-your-identity-provider-is-unavailable)"
+* [AUTOTITLE](/organizations/managing-saml-single-sign-on-for-your-organization/about-identity-and-access-management-with-saml-single-sign-on)
+* [AUTOTITLE](/organizations/managing-saml-single-sign-on-for-your-organization/accessing-your-organization-if-your-identity-provider-is-unavailable)

@@ -16,7 +16,7 @@ redirect_from:
 
 ## About the {% data variables.product.prodname_github_codespaces %} plugin
 
-The JetBrains client application is launched when you connect to a codespace from the JetBrains Gateway application. It allows you to use {% data variables.product.prodname_github_codespaces %} with your favorite JetBrains IDE. For more information, see "[AUTOTITLE](/codespaces/developing-in-a-codespace/using-github-codespaces-in-your-jetbrains-ide)."
+The JetBrains client application is launched when you connect to a codespace from the JetBrains Gateway application. It allows you to use {% data variables.product.prodname_github_codespaces %} with your favorite JetBrains IDE. For more information, see [AUTOTITLE](/codespaces/developing-in-a-codespace/using-github-codespaces-in-your-jetbrains-ide).
 
 The {% data variables.product.prodname_github_codespaces %} plugin is already installed in the JetBrains client when you connect to a codespace from the JetBrains Gateway. The plugin adds the {% data variables.product.prodname_github_codespaces %} tool window to the user interface.
 
@@ -27,13 +27,13 @@ Click **{% data variables.product.prodname_github_codespaces %}** at the bottom 
 ## Using the {% data variables.product.prodname_github_codespaces %} tool window
 
 The {% data variables.product.prodname_github_codespaces %} tool window shows:
-* The repository from which you created this codespace.
-* The display name of the codespace.
-* The current branch.
-* The machine specifications.
-* The time for which this codespace can remain idle before it is automatically stopped.
-* The age of the codespace.
-* The period for which a stopped codespace will be retained before it is automatically deleted.
+* The repository from which you created this codespace
+* The display name of the codespace
+* The current branch
+* The machine specifications
+* The time for which this codespace can remain idle before it is automatically stopped
+* The age of the codespace
+* The period for which a stopped codespace will be retained before it is automatically deleted
 
 The icons at the top of the {% data variables.product.prodname_github_codespaces %} tool window provide the following functions.
 
@@ -53,4 +53,4 @@ The icons at the top of the {% data variables.product.prodname_github_codespaces
 
   ![Screenshot of the {% data variables.product.prodname_github_codespaces %} tool window. A document icon, which allows you to view a code space creation log, is highlighted.](/assets/images/help/codespaces/jetbrains-plugin-icon-log.png)
 
-  Open the codespace creation log in the editor window. For more information, see "[AUTOTITLE](/codespaces/troubleshooting/github-codespaces-logs)."
+  Open the codespace creation log in the editor window. For more information, see [AUTOTITLE](/codespaces/troubleshooting/github-codespaces-logs).

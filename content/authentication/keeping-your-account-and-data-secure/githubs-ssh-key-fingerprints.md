@@ -23,4 +23,4 @@ You can add the following ssh key entries to your `~/.ssh/known_hosts` file to a
 
 {% data reusables.ssh.known_hosts %}
 
-For more information, see "[AUTOTITLE](/rest/meta/meta#get-github-meta-information)."
+For more information, see [AUTOTITLE](/rest/meta/meta#get-github-meta-information).

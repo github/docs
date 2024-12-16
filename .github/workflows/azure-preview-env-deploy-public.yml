@@ -37,7 +37,15 @@ jobs:
   build-and-deploy-azure-preview-public:
     name: Build and deploy Azure preview environment (public)
     runs-on: ubuntu-latest
-    if: github.repository == 'github/docs'
+    # Ensure this is actually a pull request and not a merge group
+    # If its a merge group, report success without doing anything
+    # See https://bit.ly/3qB9nZW > If a job in a workflow is skipped due to a conditional, it will report its status as "Success".
+    if: |
+      (
+        (github.event.pull_request.head.sha)
+         && (github.event.number || github.run_id)
+       )
+       && github.repository == 'github/docs'
     timeout-minutes: 15
     environment:
       name: preview-env-${{ github.event.number }}
@@ -115,6 +123,7 @@ jobs:
         uses: docker/build-push-action@16ebe778df0e7752d2cfcbd924afdbbd89c1a755
         with:
           context: .
+          file: Dockerfile.azure
           push: true
           target: preview
           tags: ${{ env.DOCKER_IMAGE }}

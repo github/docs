@@ -8,13 +8,13 @@ redirect_from:
 ---
 ## assignment
 
-An assignment is coursework in {% data variables.product.prodname_classroom %}. A teacher can assign an assignment to an individual student or a group of students. Teachers can import starter code for the assignment, assign students, and create a deadline for each assignment. For more information, see the definitions for "[individual assignment](#individual-assignment)" and "[group assignment](#group-assignment)."
+An assignment is coursework in {% data variables.product.prodname_classroom %}. A teacher can assign an assignment to an individual student or a group of students. Teachers can import starter code for the assignment, assign students, and create a deadline for each assignment. For more information, see the definitions for [individual assignment](#individual-assignment) and [group assignment](#group-assignment).
 
 ---
 
 ## classroom
 
-A classroom is the basic unit of {% data variables.product.prodname_classroom %}. Teachers can use a classroom to organize and manage students, teaching assistants, and assignments for a single course. A classroom belongs to an organization on {% data variables.product.prodname_dotcom_the_website %}. To administer a classroom, you must be an organization owner for the organization on {% data variables.product.prodname_dotcom %}. For more information, see "[AUTOTITLE](/education/manage-coursework-with-github-classroom/teach-with-github-classroom/manage-classrooms)."
+A classroom is the basic unit of {% data variables.product.prodname_classroom %}. Teachers can use a classroom to organize and manage students, teaching assistants, and assignments for a single course. A classroom belongs to an organization on {% data variables.product.prodname_dotcom %}. To administer a classroom, you must be an organization owner for the organization. For more information, see [AUTOTITLE](/education/manage-coursework-with-github-classroom/teach-with-github-classroom/manage-classrooms).
 
 ---
 
@@ -26,7 +26,7 @@ A classroom is the basic unit of {% data variables.product.prodname_classroom %}
 
 ## group assignment
 
-{% data reusables.classroom.assignments-group-definition %} For more information, see "[AUTOTITLE](/education/manage-coursework-with-github-classroom/teach-with-github-classroom/create-a-group-assignment)."
+{% data reusables.classroom.assignments-group-definition %} For more information, see [AUTOTITLE](/education/manage-coursework-with-github-classroom/teach-with-github-classroom/create-a-group-assignment).
 
 ---
 
@@ -38,16 +38,16 @@ An identifier in {% data variables.product.prodname_classroom %} is a unique ID 
 
 ## individual assignment
 
-{% data reusables.classroom.assignments-individual-definition %} For more information, see "[AUTOTITLE](/education/manage-coursework-with-github-classroom/teach-with-github-classroom/create-an-individual-assignment)."
+{% data reusables.classroom.assignments-individual-definition %} For more information, see [AUTOTITLE](/education/manage-coursework-with-github-classroom/teach-with-github-classroom/create-an-individual-assignment).
 
 ---
 
 ## roster
 
-A roster allows a teacher to manage students and assignment submissions in a classroom on {% data variables.product.prodname_classroom %}. Teachers can create a roster by entering a list of student identifiers, or by connecting {% data variables.product.prodname_classroom %} to a learning management system (LMS). For more information about identifiers, see the definition of "[identifier](#identifier)." For more information about connecting {% data variables.product.prodname_classroom %} to an LMS, see "[AUTOTITLE](/education/manage-coursework-with-github-classroom/teach-with-github-classroom/connect-a-learning-management-system-course-to-a-classroom)."
+A roster allows a teacher to manage students and assignment submissions in a classroom on {% data variables.product.prodname_classroom %}. Teachers can create a roster by entering a list of student identifiers, or by connecting {% data variables.product.prodname_classroom %} to a learning management system (LMS). For more information about identifiers, see the definition of [identifier](#identifier). For more information about connecting {% data variables.product.prodname_classroom %} to an LMS, see [AUTOTITLE](/education/manage-coursework-with-github-classroom/teach-with-github-classroom/connect-a-learning-management-system-course-to-a-classroom).
 
 ---
 
 ## Further reading
 
-* "[AUTOTITLE](/get-started/learning-about-github/github-glossary)"
+* [AUTOTITLE](/get-started/learning-about-github/github-glossary)

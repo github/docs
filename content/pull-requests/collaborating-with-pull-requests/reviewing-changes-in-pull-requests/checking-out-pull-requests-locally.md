@@ -15,11 +15,9 @@ topics:
   - Pull requests
 shortTitle: Check out a PR locally
 ---
-{% note %}
 
-  **Note:** Pull request authors can give upstream repository maintainers, or those with push access to the upstream repository, permission to make commits to their pull request's compare branch in a user-owned fork. For more information, see "[AUTOTITLE](/pull-requests/collaborating-with-pull-requests/working-with-forks/allowing-changes-to-a-pull-request-branch-created-from-a-fork)."
-
-  {% endnote %}
+> [!NOTE]
+> Pull request authors can give upstream repository maintainers, or those with push access to the upstream repository, permission to make commits to their pull request's compare branch in a user-owned fork. For more information, see [AUTOTITLE](/pull-requests/collaborating-with-pull-requests/working-with-forks/allowing-changes-to-a-pull-request-branch-created-from-a-fork).
 
 ## Modifying an active pull request locally
 
@@ -106,8 +104,5 @@ The remote `refs/pull/` namespace is _read-only_. If you try to push any commits
 error: failed to push some refs to 'git@github.local:USERNAME/REPOSITORY.git'
 ```
 
-{% tip %}
-
-**Tip:** When you remove or rename a remote reference, your local `refs/pull/origin/` namespace will not be affected by calls to `git-remote`.
-
-{% endtip %}
+> [!TIP]
+> When you remove or rename a remote reference, your local `refs/pull/origin/` namespace will not be affected by calls to `git-remote`.

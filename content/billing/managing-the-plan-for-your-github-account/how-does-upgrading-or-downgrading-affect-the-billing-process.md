@@ -19,7 +19,7 @@ shortTitle: Billing process
 ---
 Changes to your paid personal account or organization subscription does not affect subscriptions or payments for other paid {% data variables.product.prodname_dotcom %} features, such as {% data variables.large_files.product_name_long %} or paid apps purchased in {% data variables.product.prodname_marketplace %}.
 
-For more information, see "[AUTOTITLE](/get-started/learning-about-github/githubs-plans)" and "[AUTOTITLE](/billing/managing-your-github-billing-settings/about-billing-on-github)."
+For more information, see [AUTOTITLE](/get-started/learning-about-github/githubs-plans) and [AUTOTITLE](/billing/using-the-billing-platform/about-billing-on-github).
 
 ## Example of canceling a paid subscription for a personal account or organization
 
@@ -39,7 +39,7 @@ Stefan's organization pays for 50 seats every year on May 20th. If Stefan remove
 
 ## Further reading
 
-* "[AUTOTITLE](/billing/managing-the-plan-for-your-github-account)"
-* "[AUTOTITLE](/billing/managing-billing-for-github-marketplace-apps)"
-* "[AUTOTITLE](/billing/managing-billing-for-git-large-file-storage)"
-* "[AUTOTITLE](/billing/managing-the-plan-for-your-github-account/about-per-user-pricing)"
+* [AUTOTITLE](/billing/managing-the-plan-for-your-github-account)
+* [AUTOTITLE](/billing/managing-billing-for-your-products/managing-billing-for-github-marketplace-apps)
+* [AUTOTITLE](/billing/managing-billing-for-your-products/managing-billing-for-git-large-file-storage)
+* [AUTOTITLE](/billing/managing-the-plan-for-your-github-account/about-per-user-pricing)

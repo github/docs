@@ -15,7 +15,7 @@ shortTitle: Connect an IdP
 
 ## About connection of your IdP to your organization
 
-When you enable SAML SSO for your {% data variables.product.product_name %} organization, you connect your identity provider (IdP) to your organization. For more information, see "[AUTOTITLE](/organizations/managing-saml-single-sign-on-for-your-organization/enabling-and-testing-saml-single-sign-on-for-your-organization)."
+When you enable SAML SSO for your {% data variables.product.product_name %} organization, you connect your identity provider (IdP) to your organization. For more information, see [AUTOTITLE](/organizations/managing-saml-single-sign-on-for-your-organization/enabling-and-testing-saml-single-sign-on-for-your-organization).
 
 {% data reusables.saml.ghec-only %}
 
@@ -27,14 +27,11 @@ You can find the SAML and SCIM implementation details for your IdP in the IdP's 
 * PingOne [SAML](https://support.pingidentity.com/s/marketplace-integration/a7i1W0000004ID3QAM/github-connector)
 * Shibboleth [SAML](https://shibboleth.atlassian.net/wiki/spaces/IDP4/overview)
 
-{% note %}
-
-**Note:** {% data variables.product.product_name %} supported identity providers for SCIM are Entra ID, Okta, and OneLogin. For more information about SCIM, see "[AUTOTITLE](/organizations/managing-saml-single-sign-on-for-your-organization/about-scim-for-organizations)."
-
-{% data reusables.scim.enterprise-account-scim %}
-
-{% endnote %}
+> [!NOTE]
+> {% data variables.product.product_name %} supported identity providers for SCIM are Entra ID, Okta, and OneLogin. For more information about SCIM, see [AUTOTITLE](/organizations/managing-saml-single-sign-on-for-your-organization/about-scim-for-organizations).
+>
+> {% data reusables.scim.enterprise-account-scim %}
 
 ## SAML metadata
 
-For more information about SAML metadata for your organization, see "[AUTOTITLE](/admin/identity-and-access-management/using-saml-for-enterprise-iam/saml-configuration-reference)."
+For more information about SAML metadata for your organization, see [AUTOTITLE](/admin/identity-and-access-management/using-saml-for-enterprise-iam/saml-configuration-reference).

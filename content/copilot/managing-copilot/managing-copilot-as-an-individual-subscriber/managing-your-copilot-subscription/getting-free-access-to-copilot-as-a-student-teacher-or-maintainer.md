@@ -15,9 +15,9 @@ redirect_from:
 
 There are three ways to qualify for free access to {% data variables.product.prodname_copilot_for_individuals %}:
 
-* **As a verified student on {% data variables.product.prodname_education %}.** To learn about becoming a verified student, see "[AUTOTITLE](/free-pro-team@latest/education/explore-the-benefits-of-teaching-and-learning-with-github-education/github-education-for-students/apply-to-github-education-as-a-student)."
-* **As a verified teacher on {% data variables.product.prodname_education %}.** To learn about becoming a verified teacher, see "[AUTOTITLE](/free-pro-team@latest/education/explore-the-benefits-of-teaching-and-learning-with-github-education/github-education-for-teachers/apply-to-github-education-as-a-teacher)."
-* **As a maintainer of a popular open-source repository.** To determine if you are an eligible maintainer, see "[Accessing {% data variables.product.prodname_copilot %} for free](#accessing-github-copilot-for-free)."
+* **As a verified student on {% data variables.product.prodname_education %}.** To learn about becoming a verified student, see [AUTOTITLE](/free-pro-team@latest/education/explore-the-benefits-of-teaching-and-learning-with-github-education/github-education-for-students/apply-to-github-education-as-a-student).
+* **As a verified teacher on {% data variables.product.prodname_education %}.** To learn about becoming a verified teacher, see [AUTOTITLE](/free-pro-team@latest/education/explore-the-benefits-of-teaching-and-learning-with-github-education/github-education-for-teachers/apply-to-github-education-as-a-teacher).
+* **As a maintainer of a popular open-source repository.** To determine if you are an eligible maintainer, see [Accessing {% data variables.product.prodname_copilot %} for free](#accessing-github-copilot-for-free).
 
 {% data variables.product.company_short %} reevaluates your eligibility every month.
 

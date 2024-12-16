@@ -16,17 +16,14 @@ type: how_to
 
 {% data reusables.codespaces.codespaces-machine-types %} You can choose an alternative machine type either when you create a codespace or at any time after you've created a codespace.
 
-For information on choosing a machine type when you create a codespace, see "[AUTOTITLE](/codespaces/developing-in-a-codespace/creating-a-codespace-for-a-repository#creating-a-codespace-for-a-repository)."
+For information on choosing a machine type when you create a codespace, see [AUTOTITLE](/codespaces/developing-in-a-codespace/creating-a-codespace-for-a-repository#creating-a-codespace-for-a-repository).
 
-{% data reusables.codespaces.machine-types-for-unpublished-codespaces %} For more information, see "[AUTOTITLE](/codespaces/developing-in-a-codespace/creating-a-codespace-from-a-template)."
+{% data reusables.codespaces.machine-types-for-unpublished-codespaces %} For more information, see [AUTOTITLE](/codespaces/developing-in-a-codespace/creating-a-codespace-from-a-template).
 
 ## Changing the machine type
 
-{% note %}
-
-**Note**: {% data reusables.codespaces.codespaces-machine-type-availability %}
-
-{% endnote %}
+> [!NOTE]
+> {% data reusables.codespaces.codespaces-machine-type-availability %}
 
 {% webui %}
 
@@ -102,9 +99,9 @@ You can use the `gh codespace edit --machine MACHINE-TYPE-NAME` {% data variable
 
 ## Further reading
 
-* "[AUTOTITLE](/rest/codespaces/machines)"
+* [AUTOTITLE](/rest/codespaces/machines)
 * [`gh codespace edit`](https://cli.github.com/manual/gh_codespace_edit) in the {% data variables.product.prodname_cli %} manual
-* "[AUTOTITLE](/codespaces/setting-your-user-preferences)"
-* "[AUTOTITLE](/codespaces/managing-your-codespaces)"
+* [AUTOTITLE](/codespaces/setting-your-user-preferences)
+* [AUTOTITLE](/codespaces/managing-your-codespaces)
 
 {% endcli %}

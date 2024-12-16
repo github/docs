@@ -1,0 +1,53 @@
+apiVersion: apps/v1
+kind: Deployment
+metadata:
+  name: webapp
+spec:
+  replicas: 2
+  selector:
+    matchLabels:
+      app: webapp
+  template:
+    metadata:
+      labels:
+        app: webapp
+      annotations:
+        # If you emit structured logs, you can specify a parser to use so your logs are parsed
+        # properly and are much nicer to query in splunk. For more details, see
+        # https://thehub.github.com/engineering/development-and-ops/observability/logging/fluent-bit/
+        # fluentbit.io/parser: logfmt
+    spec:
+      dnsPolicy: Default
+      containers:
+        - name: webapp
+          image: docs-internal
+          resources:
+            requests:
+              cpu: 4000m
+              memory: 5Gi
+            limits:
+              cpu: 4000m
+              memory: 14Gi
+          ports:
+            - name: http
+              containerPort: 4000
+              protocol: TCP
+          envFrom:
+            - secretRef:
+                name: vault-secrets
+            - configMapRef:
+                name: kube-cluster-metadata
+          # Zero-downtime deploys
+          # https://thehub.github.com/engineering/products-and-services/internal/moda/feature-documentation/pod-lifecycle/#required-prestop-hook
+          # https://kubernetes.io/docs/concepts/containers/container-lifecycle-hooks/#container-hooks
+          lifecycle:
+            preStop:
+              exec:
+                command: ['sleep', '5']
+          readinessProbe:
+            initialDelaySeconds: 5
+            httpGet:
+              # WARNING: This should be updated to a meaningful endpoint for your application which will return a 200 once the app is fully started.
+              # See: https://kubernetes.io/docs/tasks/configure-pod-container/configure-liveness-readiness-startup-probes/#define-readiness-probes
+              path: /healthz
+              port: http

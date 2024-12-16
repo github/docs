@@ -25,7 +25,7 @@ You can add development environment secrets to your personal account that you wa
 * Access tokens to cloud services
 * Service principals
 * Subscription identifiers
-* Credentials for a private image registry (for more information, see "[AUTOTITLE](/codespaces/reference/allowing-your-codespace-to-access-a-private-registry)")
+* Credentials for a private image registry (for more information, see [AUTOTITLE](/codespaces/reference/allowing-your-codespace-to-access-a-private-registry))
 
 You can choose which repositories should have access to each secret. Then, you can use the secret in any codespace you create for a repository that has access to the secret. To share a secret with a codespace created from a template, you will need to publish the codespace to a repository on {% data variables.product.prodname_dotcom %}, then give that repository access to the secret.
 
@@ -97,7 +97,7 @@ Development environment secrets cannot be used:
 
 ## Further reading
 
-* "[AUTOTITLE](/codespaces/managing-codespaces-for-your-organization/managing-development-environment-secrets-for-your-repository-or-organization)"
-* "[AUTOTITLE](/codespaces/developing-in-a-codespace/creating-a-codespace-for-a-repository#recommended-secrets)"
-* "[AUTOTITLE](/codespaces/setting-your-user-preferences)"
-* "[AUTOTITLE](/codespaces/customizing-your-codespace)"
+* [AUTOTITLE](/codespaces/managing-codespaces-for-your-organization/managing-development-environment-secrets-for-your-repository-or-organization)
+* [AUTOTITLE](/codespaces/developing-in-a-codespace/creating-a-codespace-for-a-repository#recommended-secrets)
+* [AUTOTITLE](/codespaces/setting-your-user-preferences)
+* [AUTOTITLE](/codespaces/customizing-your-codespace)

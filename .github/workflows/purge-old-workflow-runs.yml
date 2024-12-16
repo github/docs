@@ -7,7 +7,7 @@ name: Purge old workflow runs
 on:
   workflow_dispatch:
   schedule:
-    - cron: '20 */2 * * *' # Run every 2 hours at 20 minutes past the hour
+    - cron: '20 * * * *' # Run every hour at 20 minutes past the hour
 
 permissions:
   contents: write
@@ -26,7 +26,7 @@ jobs:
         env:
           # Necessary to be able to delete deployment environments
           GITHUB_TOKEN: ${{ secrets.DOCS_BOT_PAT_WORKFLOW_READORG }}
-        run: src/workflows/purge-old-workflow-runs.js
+        run: npm run purge-old-workflow-runs
 
       - uses: ./.github/actions/slack-alert
         if: ${{ failure() && github.event_name != 'workflow_dispatch' }}

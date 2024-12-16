@@ -155,6 +155,18 @@ const githubDocsConfig = {
     severity: 'error',
     'partial-markdown-files': true,
   },
+  'third-party-action-pinning': {
+    // GH041
+    severity: 'error',
+    'partial-markdown-files': true,
+    'yml-files': true,
+  },
+  'liquid-tag-whitespace': {
+    // GHD042
+    severity: 'error',
+    'partial-markdown-files': true,
+    'yml-files': true,
+  },
 }
 
 export const githubDocsFrontmatterConfig = {

@@ -1,6 +1,7 @@
 ---
 title: About secret scanning for partners
 intro: 'When {% data variables.product.prodname_secret_scanning %} detects authentication details for a service provider in a public repository on {% data variables.product.prodname_dotcom %}, an alert is sent directly to the provider. This allows service providers who are {% data variables.product.prodname_dotcom %} partners to promptly take action to secure their systems.'
+product: '{% data reusables.gated-features.secret-scanning-partner-alerts %}'
 versions:
   fpt: '*'
   ghec: '*'
@@ -23,10 +24,10 @@ The reason partner alerts are directly sent to the secret providers whenever a l
 
 ## What are the supported secrets
 
-For information about the secrets and service providers supported by push protection, see "[AUTOTITLE](/code-security/secret-scanning/introduction/supported-secret-scanning-patterns#supported-secrets)."
+For information about the secrets and service providers supported by push protection, see [AUTOTITLE](/code-security/secret-scanning/introduction/supported-secret-scanning-patterns#supported-secrets).
 
 ## Further reading
 
-* "[AUTOTITLE](/code-security/secret-scanning/introduction/about-secret-scanning)"
-* "[AUTOTITLE](/code-security/secret-scanning/introduction/supported-secret-scanning-patterns)"
-* "[AUTOTITLE](/code-security/secret-scanning/secret-scanning-partnership-program/secret-scanning-partner-program)"
+* [AUTOTITLE](/code-security/secret-scanning/introduction/about-secret-scanning)
+* [AUTOTITLE](/code-security/secret-scanning/introduction/supported-secret-scanning-patterns)
+* [AUTOTITLE](/code-security/secret-scanning/secret-scanning-partnership-program/secret-scanning-partner-program)

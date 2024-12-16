@@ -12,9 +12,9 @@ redirect_from:
   - /copilot/managing-copilot/managing-copilot-as-an-individual-subscriber/canceling-copilot-as-an-individual-user
 ---
 
-To cancel a free {% data variables.product.prodname_copilot_short %} trial, see "[AUTOTITLE](/copilot/managing-copilot/managing-copilot-as-an-individual-subscriber/canceling-your-copilot-trial-as-an-individual-user)."
+To cancel a free {% data variables.product.prodname_copilot_short %} trial, see [AUTOTITLE](/copilot/managing-copilot/managing-copilot-as-an-individual-subscriber/canceling-your-copilot-trial-as-an-individual-user).
 
-If you have been granted a free subscription to {% data variables.product.prodname_copilot_for_individuals %} as a verified student, teacher, or maintainer of a popular open source project, you will not be able to cancel your subscription. If you have access to {% data variables.product.prodname_copilot %} through an organization {% ifversion ghec %}or enterprise {% endif %}subscription, you will not be able to cancel your subscription. In these cases, you can disable {% data variables.product.prodname_copilot_for_individuals %} in your environment. For more information, see "[AUTOTITLE](/copilot/configuring-github-copilot/configuring-github-copilot-in-your-environment)."
+If you have been granted a free subscription to {% data variables.product.prodname_copilot_for_individuals %} as a verified student, teacher, or maintainer of a popular open source project, you will not be able to cancel your subscription. If you have access to {% data variables.product.prodname_copilot %} through an organization {% ifversion ghec %}or enterprise {% endif %}subscription, you will not be able to cancel your subscription. In these cases, you can disable {% data variables.product.prodname_copilot_for_individuals %} in your environment. For more information, see [AUTOTITLE](/copilot/configuring-github-copilot/configuring-github-copilot-in-your-environment).
 
 {% data reusables.copilot.copilot-one-account-short %}
 

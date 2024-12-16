@@ -19,11 +19,8 @@ If the email address that has been set in your Git configuration does not match 
 
 {% data variables.product.prodname_desktop %} also allows you to change the default branch name that you would like to use when creating new repositories. By default, {% data variables.product.prodname_desktop %} uses `main` as the default branch name in any new repositories you create.
 
-{% tip %}
-
-**Tip**: Anyone will be able to see the email address in your Git configuration if you make public commits. For more information, see "[AUTOTITLE](/account-and-profile/setting-up-and-managing-your-personal-account-on-github/managing-email-preferences/setting-your-commit-email-address)."
-
-{% endtip %}
+> [!TIP]
+> Anyone will be able to see the email address in your Git configuration if you make public commits. For more information, see [AUTOTITLE](/account-and-profile/setting-up-and-managing-your-personal-account-on-github/managing-email-preferences/setting-your-commit-email-address).
 
 ## Configuring your global author information
 
@@ -32,7 +29,7 @@ Configuring your global author information in {% data variables.product.prodname
 {% mac %}
 
 {% data reusables.desktop.mac-select-desktop-menu %}
-{% data reusables.desktop.preferences-git-pane %}
+{% data reusables.desktop.settings-git-pane %}
 {% data reusables.desktop.name-field-git-config %}
 {% data reusables.desktop.select-email-git-config %}
 {% data reusables.desktop.click-save-git-config %}
@@ -84,13 +81,13 @@ You can change the name and email address used to author commits in a specific r
 
 ## Configuring your default branch for new repositories
 
-You can configure the default branch that will be used when you create a new repository in {% data variables.product.prodname_desktop %}. For more information about the default branch, see "[AUTOTITLE](/pull-requests/collaborating-with-pull-requests/proposing-changes-to-your-work-with-pull-requests/about-branches#about-the-default-branch)."
+You can configure the default branch that will be used when you create a new repository in {% data variables.product.prodname_desktop %}. For more information about the default branch, see [AUTOTITLE](/pull-requests/collaborating-with-pull-requests/proposing-changes-to-your-work-with-pull-requests/about-branches#about-the-default-branch).
 
 {% mac %}
 
 {% data reusables.desktop.mac-select-desktop-menu %}
-{% data reusables.desktop.preferences-git-pane %}
-1. Under "Default branch name for new repositories", select the default branch name you would like to use, or, to enter a custom name, select "Other...".
+{% data reusables.desktop.settings-git-pane %}
+1. Optional, under "Default branch name for new repositories" edit the name of the default branch as needed.
 {% data reusables.desktop.click-save-git-config %}
 
 {% endmac %}
@@ -109,7 +106,7 @@ You can configure the default branch that will be used when you create a new rep
 
 ## Further reading
 
-* "[AUTOTITLE](/account-and-profile/setting-up-and-managing-your-personal-account-on-github/managing-email-preferences/adding-an-email-address-to-your-github-account)"
-* "[AUTOTITLE](/account-and-profile/setting-up-and-managing-your-personal-account-on-github/managing-email-preferences/setting-your-commit-email-address)"
-* "[AUTOTITLE](/pull-requests/collaborating-with-pull-requests/proposing-changes-to-your-work-with-pull-requests/about-branches)"
-* "[AUTOTITLE](/get-started/getting-started-with-git)"
+* [AUTOTITLE](/account-and-profile/setting-up-and-managing-your-personal-account-on-github/managing-email-preferences/adding-an-email-address-to-your-github-account)
+* [AUTOTITLE](/account-and-profile/setting-up-and-managing-your-personal-account-on-github/managing-email-preferences/setting-your-commit-email-address)
+* [AUTOTITLE](/pull-requests/collaborating-with-pull-requests/proposing-changes-to-your-work-with-pull-requests/about-branches)
+* [AUTOTITLE](/get-started/getting-started-with-git)

@@ -12,7 +12,12 @@ shortTitle: Generate a user access token
 
 ## About user access tokens
 
-{% data reusables.pre-release-program.expiring-user-access-tokens %}
+> [!NOTE] {% data reusables.pre-release-program.expiring-user-access-tokens %}
+>
+> {% data reusables.apps.github_app_auth_saml %}
+> {% ifversion ghec %}
+> {% data reusables.enterprise-data-residency.access-domain %}
+{% endif %}
 
 A user access token is a type of OAuth token. Unlike a traditional OAuth token, the user access token does not use scopes. Instead, it uses fine-grained permissions. A user access token only has permissions that both the user and the app have. For example, if the app was granted permission to write the contents of a repository, but the user can only read the contents, then the user access token can only read the contents.
 
@@ -25,12 +30,6 @@ By default, the user access token expires after 8 hours. You can use a refresh t
 Users can revoke their authorization of a {% data variables.product.prodname_github_app %}. For more information, see "[AUTOTITLE](/authentication/keeping-your-account-and-data-secure/token-expiration-and-revocation)." If a user revokes their authorization of a {% data variables.product.prodname_github_app %}, the app will receive the `github_app_authorization` webhook. {% data variables.product.prodname_github_apps %} cannot unsubscribe from this event. If your app receives this webhook, you should stop calling the API on behalf of the user who revoked the token. If your app continues to use a revoked access token, it will receive the `401 Bad Credentials` error. For more information about this webhook, see "[AUTOTITLE](/webhooks-and-events/webhooks/webhook-events-and-payloads#github_app_authorization)."
 
 You should keep user access tokens and refresh tokens secure. For more information, see "[AUTOTITLE](/apps/creating-github-apps/setting-up-a-github-app/best-practices-for-creating-a-github-app)."
-
-{% note %}
-
-**Note**: {% data reusables.apps.github_app_auth_saml %}
-
-{% endnote %}
 
 ## Using the web application flow to generate a user access token
 
@@ -59,11 +58,8 @@ If your app runs in the browser, you should use the web application flow to gene
 
 ## Using the device flow to generate a user access token
 
-{% note %}
-
-**Note:** The device flow is in public beta and subject to change.
-
-{% endnote %}
+> [!NOTE]
+> The device flow is in {% data variables.release-phases.public_preview %} and subject to change.
 
 If your app is headless or does not have access to a browser, you should use the device flow to generate a user access token. For example, CLI tools, simple Raspberry Pis, and desktop applications should use the device flow. For a tutorial that uses device flow, see "[AUTOTITLE](/apps/creating-github-apps/guides/building-a-cli-with-a-github-app)."
 
@@ -78,7 +74,7 @@ The device flow uses the OAuth 2.0 Device Authorization Grant.
    --- | --- | ---
    `device_code` | `string` | A verification code that is used to verify the device. This code is 40 characters long.
    `user_code` | `string` | A verification code that your application should display so that the user can enter the code in a browser. This code is 8 characters with a hyphen in the middle. For example, `WDJB-MJHT`.
-   `verification_uri` | `string` | The URL where users need to enter their `user_code`. The URL is:  {% data variables.product.device_authorization_url %}.
+   `verification_uri` | `string` | The URL where users need to enter their `user_code`. The URL is: {% data variables.product.device_authorization_url %}.
    `expires_in` | `integer` | The number of seconds before the `device_code` and `user_code` expire. The default is 900 seconds (15 minutes).
    `interval` | `integer` | The minimum number of seconds that must pass before you can make a new access token request (`POST {% data variables.product.oauth_host_code %}/login/oauth/access_token`) to complete the device authorization. If you make a request before this interval passes, then you will hit the rate limit and receive a `slow_down` error. The default is 5 seconds.
 1. Prompt the user to enter the `user_code` from the previous step at {% data variables.product.device_authorization_url %}.
@@ -174,4 +170,4 @@ When you request a user access token via the device flow, the `grant_type` param
 
 If the user for whom you are trying to generate a user access token has not verified their primary email address with {% data variables.product.company_short %}, you will receive an `unverified_user_email` error.
 
-To resolve this error, prompt the user to verify the primary email address on their {% data variables.product.company_short %} account. For more information, see {% ifversion fpt or ghec %}"[AUTOTITLE](/account-and-profile/setting-up-and-managing-your-personal-account-on-github/managing-email-preferences/verifying-your-email-address)."{% else %}"[AUTOTITLE](/free-pro-team@latest/account-and-profile/setting-up-and-managing-your-personal-account-on-github/managing-email-preferences/verifying-your-email-address)" in the  {% data variables.product.prodname_free_user %} documentation.{% endif %}
+To resolve this error, prompt the user to verify the primary email address on their {% data variables.product.company_short %} account. For more information, see {% ifversion fpt or ghec %}"[AUTOTITLE](/account-and-profile/setting-up-and-managing-your-personal-account-on-github/managing-email-preferences/verifying-your-email-address)."{% else %}"[AUTOTITLE](/free-pro-team@latest/account-and-profile/setting-up-and-managing-your-personal-account-on-github/managing-email-preferences/verifying-your-email-address)" in the {% data variables.product.prodname_free_user %} documentation.{% endif %}

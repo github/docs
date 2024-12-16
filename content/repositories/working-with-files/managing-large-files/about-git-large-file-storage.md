@@ -32,7 +32,7 @@ Using {% data variables.large_files.product_name_short %}, you can store files u
 
 {% data reusables.repositories.git-lfs %}
 
-You can also use {% data variables.large_files.product_name_short %} with {% data variables.product.prodname_desktop %}. For more information about cloning Git LFS repositories in {% data variables.product.prodname_desktop %}, see "[AUTOTITLE](/desktop/adding-and-cloning-repositories/cloning-a-repository-from-github-to-github-desktop)."
+You can also use {% data variables.large_files.product_name_short %} with {% data variables.product.prodname_desktop %}. For more information about cloning Git LFS repositories in {% data variables.product.prodname_desktop %}, see [AUTOTITLE](/desktop/adding-and-cloning-repositories/cloning-a-repository-from-github-to-github-desktop).
 
 {% data reusables.large_files.can-include-lfs-objects-archives %}
 
@@ -48,14 +48,10 @@ size 84977953
 
 It tracks the `version` of {% data variables.large_files.product_name_short %} you're using, followed by a unique identifier for the file (`oid`). It also stores the `size` of the final file.
 
-{% note %}
-
-**Notes**:
-* {% data variables.large_files.product_name_short %} cannot be used with {% data variables.product.prodname_pages %} sites.
-* {% data variables.large_files.product_name_short %} cannot be used with template repositories.
-
-{% endnote %}
+> [!NOTE]
+> * {% data variables.large_files.product_name_short %} cannot be used with {% data variables.product.prodname_pages %} sites.
+> * {% data variables.large_files.product_name_short %} cannot be used with template repositories.
 
 ## Further reading
 
-* "[AUTOTITLE](/repositories/working-with-files/managing-large-files/collaboration-with-git-large-file-storage)"
+* [AUTOTITLE](/repositories/working-with-files/managing-large-files/collaboration-with-git-large-file-storage)

@@ -37,7 +37,7 @@ There are some limitations when migrating from Jenkins to {% data variables.prod
 * Self-hosted runners
 * Unknown plugins
 
-For more information on manual migrations, see "[AUTOTITLE](/actions/migrating-to-github-actions/manually-migrating-to-github-actions/migrating-from-jenkins-to-github-actions)."
+For more information on manual migrations, see [AUTOTITLE](/actions/migrating-to-github-actions/manually-migrating-to-github-actions/migrating-from-jenkins-to-github-actions).
 
 ## Installing the {% data variables.product.prodname_actions_importer %} CLI extension
 
@@ -47,7 +47,7 @@ For more information on manual migrations, see "[AUTOTITLE](/actions/migrating-t
 
 The `configure` CLI command is used to set required credentials and options for {% data variables.product.prodname_actions_importer %} when working with Jenkins and {% data variables.product.prodname_dotcom %}.
 
-1. Create a {% data variables.product.prodname_dotcom %} {% data variables.product.pat_v1 %}. For more information, see "[AUTOTITLE](/authentication/keeping-your-account-and-data-secure/managing-your-personal-access-tokens#creating-a-personal-access-token-classic)."
+1. Create a {% data variables.product.prodname_dotcom %} {% data variables.product.pat_v1 %}. For more information, see [AUTOTITLE](/authentication/keeping-your-account-and-data-secure/managing-your-personal-access-tokens#creating-a-personal-access-token-classic).
 
    Your token must have the `workflow` scope.
 
@@ -212,15 +212,12 @@ This section contains reference information on environment variables, optional a
 * `GITHUB_INSTANCE_URL`: The URL to the target {% data variables.product.prodname_dotcom %} instance (for example, `https://github.com`).
 * `JENKINS_ACCESS_TOKEN`: The Jenkins API token used to view Jenkins resources.
 
-  {% note %}
-
-  **Note**: This token requires access to all jobs that you want to migrate or audit. In cases where a folder or job does not inherit access control lists from their parent, you must grant explicit permissions or full admin privileges.
-
-  {% endnote %}
+  > [!NOTE]
+  > This token requires access to all jobs that you want to migrate or audit. In cases where a folder or job does not inherit access control lists from their parent, you must grant explicit permissions or full admin privileges.
 
 * `JENKINS_USERNAME`: The username of the user account that created the Jenkins API token.
 * `JENKINS_INSTANCE_URL`: The URL of the Jenkins instance.
-* `JENKINSFILE_ACCESS_TOKEN` (Optional) The API token used to retrieve the contents of a `Jenkinsfile` stored in the build repository. This requires the `repo` scope.  If this is not provided, the `GITHUB_ACCESS_TOKEN` will be used instead.
+* `JENKINSFILE_ACCESS_TOKEN` (Optional) The API token used to retrieve the contents of a `Jenkinsfile` stored in the build repository. This requires the `repo` scope. If this is not provided, the `GITHUB_ACCESS_TOKEN` will be used instead.
 
 These environment variables can be specified in a `.env.local` file that is loaded by {% data variables.product.prodname_actions_importer %} when it is run.
 
@@ -276,7 +273,7 @@ source_files:
 
 ### Supported syntax for Jenkins pipelines
 
-The following tables show the type of properties {% data variables.product.prodname_actions_importer %} is currently able to convert. For more details about how Jenkins pipeline syntax aligns with {% data variables.product.prodname_actions %}, see "[AUTOTITLE](/actions/migrating-to-github-actions/manually-migrating-to-github-actions/migrating-from-jenkins-to-github-actions)".
+The following tables show the type of properties {% data variables.product.prodname_actions_importer %} is currently able to convert. For more details about how Jenkins pipeline syntax aligns with {% data variables.product.prodname_actions %}, see [AUTOTITLE](/actions/migrating-to-github-actions/manually-migrating-to-github-actions/migrating-from-jenkins-to-github-actions).
 
 For information about supported Jenkins plugins, see the [`github/gh-actions-importer` repository](https://github.com/github/gh-actions-importer/blob/main/docs/jenkins/index.md).
 

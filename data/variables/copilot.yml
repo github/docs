@@ -12,7 +12,7 @@ cfb_price_per_month: '$19 USD'
 # Copilot billing: price per month for Copilot Enterprise
 ce_price_per_month: '$39 USD'
 
-# Copilot Chat in GitHub.com: maximum number of repos that can be indexed for an org
+# Copilot Chat in GitHub: maximum number of repos that can be indexed for an org
 max-chat-indexed-repos: '50'
 
 # Copilot partners: builders who can develop Copilot extensions
@@ -22,3 +22,10 @@ copilot_partner_program: 'Copilot Partner Program'
 
 ## Copilot URLs
 chat_completions_api: 'https://api.githubcopilot.com/chat/completions'
+
+## Copilot code review - e.g. {% data variables.copilot.copilot_code-review %}
+copilot_code-review: 'GitHub Copilot code review'
+copilot_code-review_short: 'Copilot code review'
+
+## LLM models for Copilot
+copilot_claude_sonnet: 'Claude 3.5 Sonnet'

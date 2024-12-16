@@ -7,7 +7,7 @@ versions:
   fpt: '*'
   ghes: '*'
   ghec: '*'
-permissions:  Organization owners{% ifversion custom-org-roles %} and users with the "Manage organization Actions policies" and "Manage runners and runner groups" fine-grained permissions{% endif %} can enable, disable, and limit {% data variables.product.prodname_actions %} for an organization. {% ifversion custom-org-roles %}<br><br>For more information, see "[AUTOTITLE](/organizations/managing-peoples-access-to-your-organization-with-roles/about-custom-organization-roles)."{% endif %}
+permissions: Organization owners{% ifversion custom-org-roles %} and users with the "Manage organization Actions policies" and "Manage runners and runner groups" fine-grained permissions{% endif %} can enable, disable, and limit {% data variables.product.prodname_actions %} for an organization. {% ifversion custom-org-roles %}<br><br>For more information, see [AUTOTITLE](/organizations/managing-peoples-access-to-your-organization-with-roles/about-custom-organization-roles).{% endif %}
 topics:
   - Organizations
   - Teams
@@ -18,7 +18,7 @@ shortTitle: Disable or limit actions
 
 ## About {% data variables.product.prodname_actions %} permissions for your organization
 
-{% data reusables.actions.disabling-github-actions %} For more information about {% data variables.product.prodname_actions %}, see "[AUTOTITLE](/actions/learn-github-actions)."
+{% data reusables.actions.disabling-github-actions %} For more information about {% data variables.product.prodname_actions %}, see [AUTOTITLE](/actions/learn-github-actions).
 
 You can enable {% data variables.product.prodname_actions %} for all repositories in your organization. {% data reusables.actions.enabled-actions-description %} You can disable {% data variables.product.prodname_actions %} for all repositories in your organization. {% data reusables.actions.disabled-actions-description %}
 
@@ -28,11 +28,8 @@ Alternatively, you can enable {% data variables.product.prodname_actions %} for 
 
 You can choose to disable {% data variables.product.prodname_actions %} for all repositories in your organization, or only allow specific repositories. You can also limit the use of public actions{% ifversion actions-workflow-policy %} and reusable workflows{% endif %}, so that people can only use local actions {% ifversion actions-workflow-policy %}and reusable workflows{% endif %} that exist in your {% ifversion ghec or ghes %}enterprise{% else %}organization{% endif %}.
 
-{% note %}
-
-**Note:** You might not be able to manage these settings if your organization is managed by an enterprise that has overriding policy. For more information, see "[AUTOTITLE](/admin/policies/enforcing-policies-for-your-enterprise/enforcing-policies-for-github-actions-in-your-enterprise)."
-
-{% endnote %}
+> [!NOTE]
+> You might not be able to manage these settings if your organization is managed by an enterprise that has overriding policy. For more information, see [AUTOTITLE](/admin/policies/enforcing-policies-for-your-enterprise/enforcing-policies-for-github-actions-in-your-enterprise).
 
 {% data reusables.profile.access_org %}
 {% data reusables.profile.org_settings %}
@@ -50,19 +47,14 @@ You can choose to disable {% data variables.product.prodname_actions %} for all 
 1. Under "Policies", select {% data reusables.actions.policy-label-for-select-actions-workflows %} and add your required actions{% ifversion actions-workflow-policy %} and reusable workflows{% endif %} to the list.
 1. Click **Save**.
 
-{% ifversion actions-disable-repo-runners %}
-
 ## Limiting the use of self-hosted runners
 
 {% data reusables.actions.disable-selfhosted-runners-overview %}
 
 {% ifversion ghec or ghes %}
 
-{% note %}
-
-**Note**: If your organization belongs to an enterprise, creation of self-hosted runners at the repository level may have been disabled as an enterprise-wide setting. If this has been done, you cannot enable repository-level self-hosted runners in your organization settings. For more information, see "[AUTOTITLE](/admin/policies/enforcing-policies-for-your-enterprise/enforcing-policies-for-github-actions-in-your-enterprise)."
-
-{% endnote %}
+> [!NOTE]
+> If your organization belongs to an enterprise, creation of self-hosted runners at the repository level may have been disabled as an enterprise-wide setting. If this has been done, you cannot enable repository-level self-hosted runners in your organization settings. For more information, see [AUTOTITLE](/admin/policies/enforcing-policies-for-your-enterprise/enforcing-policies-for-github-actions-in-your-enterprise).
 
 {% endif %}
 
@@ -83,8 +75,6 @@ If a repository already has self-hosted runners when you disable their use, thes
    1. Click {% octicon "gear" aria-label="Select repositories" %}.
    1. Select the check boxes for the repositories for which you want to allow self-hosted runners.
    1. Click **Select repositories**.
-
-{% endif %}
 
 {% ifversion fpt or ghec %}
 
@@ -108,7 +98,7 @@ You can configure this behavior for an organization using the procedure below. M
 
 {% data reusables.actions.workflows.required-workflow-beta %}
 
-You can configure required workflows to run in all or selected repositories in an organization where you are an owner. Required workflows are triggered by {% ifversion actions-required-workflow-improvements %}`pull_request` and `pull_request_target` default events{% else %}pull requests{% endif %} and must pass before a pull request can be merged. For more information, see "[AUTOTITLE](/actions/using-workflows/required-workflows)."
+You can configure required workflows to run in all or selected repositories in an organization where you are an owner. Required workflows are triggered by {% ifversion actions-required-workflow-improvements %}`pull_request` and `pull_request_target` default events{% else %}pull requests{% endif %} and must pass before a pull request can be merged. For more information, see [AUTOTITLE](/actions/using-workflows/required-workflows).
 
 ### Prerequisites
 
@@ -204,12 +194,12 @@ Organization administrators can view {% ifversion actions-cache-admin-ui %}and m
 
 ### Viewing {% data variables.product.prodname_actions %} cache storage by repository
 
-For each repository in your organization, you can see how much cache storage a repository is using, the number of active caches, and if a repository is near the total cache size limit. For more information about the cache usage and eviction process, see "[AUTOTITLE](/actions/using-workflows/caching-dependencies-to-speed-up-workflows#usage-limits-and-eviction-policy)."
+For each repository in your organization, you can see how much cache storage a repository is using, the number of active caches, and if a repository is near the total cache size limit. For more information about the cache usage and eviction process, see [AUTOTITLE](/actions/using-workflows/caching-dependencies-to-speed-up-workflows#usage-limits-and-eviction-policy).
 
 {% data reusables.profile.access_profile %}
 {% data reusables.profile.access_org %}
 {% data reusables.profile.org_settings %}
-1. In the left sidebar, click {% octicon "play" aria-hidden="true" %} **Actions**, then click **Caches**.
+1. In the left sidebar, click **{% octicon "play" aria-hidden="true" %} Actions**, then click **Caches**.
 1. Review the list of repositories for information about their {% data variables.product.prodname_actions %} caches. You can click on a repository name to see more detail about the repository's caches.
 
 {% ifversion actions-cache-admin-ui %}
@@ -224,6 +214,6 @@ You can configure the size limit for {% data variables.product.prodname_actions 
 {% data reusables.profile.access_org %}
 {% data reusables.profile.org_settings %}
 {% data reusables.organizations.settings-sidebar-actions-general %}
-{% data reusables.actions.change-cache-size-limit  %}
+{% data reusables.actions.change-cache-size-limit %}
 
 {% endif %}

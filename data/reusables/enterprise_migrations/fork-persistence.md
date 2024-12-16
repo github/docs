@@ -1,5 +1,2 @@
-{% tip %}
-
-**Note:** Fork relationships do not persist after a migration.
-
-{% endtip %}
+> [!NOTE]
+> Fork relationships do not persist after a migration.

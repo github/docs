@@ -14,11 +14,11 @@ redirect_from:
 
 ## Prerequisites
 
-* **Access to {% data variables.product.prodname_copilot %}**. See "[AUTOTITLE](/copilot/about-github-copilot#getting-access-to-github-copilot)."
+* **Access to {% data variables.product.prodname_copilot %}**. See [AUTOTITLE](/copilot/about-github-copilot/what-is-github-copilot#getting-access-to-copilot).
 * **{% data variables.product.prodname_cli %} installed**. {% data reusables.cli.cli-installation %}
-* **{% data variables.product.prodname_copilot_cli_short %} extension installed**. See "[AUTOTITLE](/copilot/github-copilot-in-the-cli/installing-github-copilot-in-the-cli)."
+* **{% data variables.product.prodname_copilot_cli_short %} extension installed**. See [AUTOTITLE](/copilot/github-copilot-in-the-cli/installing-github-copilot-in-the-cli).
 
-If you have access to {% data variables.product.prodname_copilot %} via your organization or enterprise, you cannot use {% data variables.product.prodname_copilot_cli_short %} if your organization owner or enterprise administrator has disabled {% data variables.product.prodname_copilot_cli_short %}. See "[AUTOTITLE](/copilot/managing-copilot/managing-github-copilot-in-your-organization/managing-github-copilot-features-in-your-organization/managing-policies-for-copilot-in-your-organization)."
+If you have access to {% data variables.product.prodname_copilot %} via your organization or enterprise, you cannot use {% data variables.product.prodname_copilot_cli_short %} if your organization owner or enterprise administrator has disabled {% data variables.product.prodname_copilot_cli_short %}. See [AUTOTITLE](/copilot/managing-copilot/managing-github-copilot-in-your-organization/managing-github-copilot-features-in-your-organization/managing-policies-for-copilot-in-your-organization).
 
 ## Getting command explanations
 
@@ -40,7 +40,7 @@ gh copilot suggest "Undo the last commit"
 
 If you choose the **Execute command** option after {% data variables.product.prodname_copilot_cli_short %} suggests a command, {% data variables.product.prodname_copilot_cli_short %} will copy the command to your clipboard and exit the interactive session. Then you can manually paste the command into your CLI.
 
-If you want {% data variables.product.prodname_copilot_cli_short %} to be able to execute commands on your behalf, you must set up the `ghcs` alias. See "[AUTOTITLE](/copilot/github-copilot-in-the-cli/configuring-github-copilot-in-the-cli#setting-up-aliases)."
+If you want {% data variables.product.prodname_copilot_cli_short %} to be able to execute commands on your behalf, you must set up the `ghcs` alias. See [AUTOTITLE](/copilot/github-copilot-in-the-cli/configuring-github-copilot-in-the-cli#setting-up-aliases).
 
 ## Sharing feedback
 
@@ -51,4 +51,4 @@ You can also open an issue in the [{% data variables.product.prodname_copilot_cl
 ## Further reading
 
 * [{% data variables.product.prodname_copilot_cli_short %} extension README](https://github.com/github/gh-copilot?tab=readme-ov-file)
-* "[AUTOTITLE](/copilot/github-copilot-in-the-cli/configuring-github-copilot-in-the-cli)"
+* [AUTOTITLE](/copilot/github-copilot-in-the-cli/configuring-github-copilot-in-the-cli)

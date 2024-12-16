@@ -10,6 +10,12 @@ topics:
 shortTitle: Creation and deletion
 ---
 
+{% ifversion ghec %}
+
+{% data reusables.codespaces.data-residency-availability %}
+
+{% endif %}
+
 ## Creating codespaces
 
 ### No access to create a codespace
@@ -21,13 +27,13 @@ If you have remaining monthly included usage of {% data variables.product.prodna
 You can also create a codespace for any private repository to which you have at least read access, provided this private repository is owned by a personal account. If a repository is private {% ifversion ghec %}or internal {% endif %}and is owned by an organization, you may or may not be able to create a codespace for that repository, depending on the settings of the organization or its parent enterprise.
 
 If you can't create a codespace for a repository, this may be due to one of the following organization or enterprise settings.
-* Organization and enterprise owners can choose which users can access {% data variables.product.prodname_github_codespaces %} in an organization's private {% ifversion ghec %}and internal {% endif %} repositories. For more information, see "[AUTOTITLE](/codespaces/managing-codespaces-for-your-organization/enabling-or-disabling-github-codespaces-for-your-organization)."
-* Organization and enterprise owners can disable forking for some or all of an organization's private {% ifversion ghec %}and internal {% endif %}repositories. If you only have read access to a repository, and you cannot fork it, then you cannot create a codespace for that repository. For more information, see "[AUTOTITLE](/organizations/managing-organization-settings/managing-the-forking-policy-for-your-organization)."{% ifversion ghec %}
+* Organization and enterprise owners can choose which users can access {% data variables.product.prodname_github_codespaces %} in an organization's private {% ifversion ghec %}and internal {% endif %} repositories. For more information, see [AUTOTITLE](/codespaces/managing-codespaces-for-your-organization/enabling-or-disabling-github-codespaces-for-your-organization).
+* Organization and enterprise owners can disable forking for some or all of an organization's private {% ifversion ghec %}and internal {% endif %}repositories. If you only have read access to a repository, and you cannot fork it, then you cannot create a codespace for that repository. For more information, see [AUTOTITLE](/organizations/managing-organization-settings/managing-the-forking-policy-for-your-organization).{% ifversion ghec %}
 * {% data reusables.codespaces.emus-create-codespaces %}{% endif %}
 
-For information about other organization and enterprise settings that can affect whether you can create a codespace, see "[AUTOTITLE](/codespaces/managing-codespaces-for-your-organization/enabling-or-disabling-github-codespaces-for-your-organization#prerequisites-for-enabling-github-codespaces)."
+For information about other organization and enterprise settings that can affect whether you can create a codespace, see [AUTOTITLE](/codespaces/managing-codespaces-for-your-organization/enabling-or-disabling-github-codespaces-for-your-organization#prerequisites-for-enabling-github-codespaces).
 
-For more information about included usage for personal accounts, and setting a spending limit, see "[AUTOTITLE](/free-pro-team@latest/billing/managing-billing-for-github-codespaces/about-billing-for-github-codespaces)" and "[AUTOTITLE](/billing/managing-billing-for-github-codespaces/managing-the-spending-limit-for-github-codespaces)."
+For more information about included usage for personal accounts, and setting a spending limit, see [AUTOTITLE](/free-pro-team@latest/billing/managing-billing-for-your-products/managing-billing-for-github-codespaces/about-billing-for-github-codespaces) and [AUTOTITLE](/billing/managing-billing-for-your-products/managing-billing-for-github-codespaces/managing-the-spending-limit-for-github-codespaces).
 
 ### Codespace does not open when created
 
@@ -43,11 +49,8 @@ If you still cannot create a codespace for a repository where {% data variables.
 
 If the creation of a codespace fails, it's likely to be due to a temporary infrastructure issue in the cloud - for example, a problem provisioning a virtual machine for the codespace. A less common reason for failure is if it takes longer than an hour to build the container. In this case, the build is canceled and codespace creation will fail.
 
-{% note %}
-
-**Note:** A codespace that was not successfully created is never going to be usable and should be deleted. For more information, see "[AUTOTITLE](/codespaces/developing-in-a-codespace/deleting-a-codespace)."
-
-{% endnote %}
+> [!NOTE]
+> A codespace that was not successfully created is never going to be usable and should be deleted. For more information, see [AUTOTITLE](/codespaces/developing-in-a-codespace/deleting-a-codespace).
 
 If you create a codespace and the creation fails:
 
@@ -57,30 +60,28 @@ If you create a codespace and the creation fails:
 
    One common scenario where this could happen is if you have a script running that is prompting for user input and waiting for an answer. If this is the case, remove the interactive prompt so that the build can complete non-interactively.
 
-   {% note %}
+  > [!NOTE]
+  > To view the logs during a build:
+  > * **In the browser**, if the initial steps of the build process take more than a few seconds, the "Setting up your codespace" page is displayed. Click **View logs.**
+  >
+  >   ![Screenshot of the "Setting up your codespace" page in a browser. The link "View logs" is highlighted with a dark orange outline.](/assets/images/help/codespaces/web-ui-view-logs.png)
+  >
+  > * **In the {% data variables.product.prodname_vscode_shortname %} desktop application**, click **Building codespace** in the "Setting up remote connection" popup message that's displayed.
+  >
+  >   ![Screenshot of a popup message in {% data variables.product.prodname_vscode_shortname %}, reading "Setting up remote connection: Building codespace."](/assets/images/help/codespaces/vs-code-building-codespace.png)
+  >
+  >   Log messages are printed to the Terminal in {% data variables.product.prodname_vscode_shortname %}
 
-   **Note**: To view the logs during a build:
-   * **In the browser**, if the initial steps of the build process take more than a few seconds, the "Setting up your codespace" page is displayed. Click **View logs.**
-
-     ![Screenshot of the "Setting up your codespace" page in a browser. The link "View logs" is highlighted with a dark orange outline.](/assets/images/help/codespaces/web-ui-view-logs.png)
-
-   * **In the {% data variables.product.prodname_vscode_shortname %} desktop application**, click **Building codespace** in the "Setting up remote connection" popup message that's displayed.
-
-     ![Screenshot of a popup message in {% data variables.product.prodname_vscode_shortname %}, reading "Setting up remote connection: Building codespace."](/assets/images/help/codespaces/vs-code-building-codespace.png)
-
-     Log messages are printed to the Terminal in {% data variables.product.prodname_vscode_shortname %}
-
-    {% endnote %}
-1. If you have a container that takes a long time to build, consider using prebuilds to speed up codespace creations. For more information, see "[AUTOTITLE](/codespaces/prebuilding-your-codespaces/configuring-prebuilds#configuring-prebuilds)."
+1. If you have a container that takes a long time to build, consider using prebuilds to speed up codespace creations. For more information, see [AUTOTITLE](/codespaces/prebuilding-your-codespaces/configuring-prebuilds#configuring-prebuilds).
 
 ## Deleting codespaces
 
 A codespace can only be deleted by:
-* The person who created the codespace.
-* An organization owner for an organization-owned codespace.
-* Automatic deletion at the end of a retention period.
+* The person who created the codespace
+* An organization owner for an organization-owned codespace
+* Automatic deletion at the end of a retention period
 
-For more information, see "[AUTOTITLE](/codespaces/developing-in-a-codespace/deleting-a-codespace)" and "[AUTOTITLE](/codespaces/setting-your-user-preferences/configuring-automatic-deletion-of-your-codespaces)."
+For more information, see [AUTOTITLE](/codespaces/developing-in-a-codespace/deleting-a-codespace) and [AUTOTITLE](/codespaces/setting-your-user-preferences/configuring-automatic-deletion-of-your-codespaces).
 
 ## Container storage
 
@@ -104,6 +105,6 @@ Some more destructive options:
 This codespace is currently running in recovery mode due to a container error.
 ```
 
-Review the creation logs and update the dev container configuration as needed. For more information, see "[AUTOTITLE](/codespaces/troubleshooting/github-codespaces-logs)."
+Review the creation logs and update the dev container configuration as needed. For more information, see [AUTOTITLE](/codespaces/troubleshooting/github-codespaces-logs).
 
-You can then try restarting the codespace, or rebuilding the container. For more information on rebuilding the container, see "[AUTOTITLE](/codespaces/setting-up-your-project-for-codespaces/adding-a-dev-container-configuration/introduction-to-dev-containers#applying-configuration-changes-to-a-codespace)."
+You can then try restarting the codespace, or rebuilding the container. For more information on rebuilding the container, see [AUTOTITLE](/codespaces/setting-up-your-project-for-codespaces/adding-a-dev-container-configuration/introduction-to-dev-containers#applying-configuration-changes-to-a-codespace).

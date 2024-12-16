@@ -108,7 +108,7 @@ steps:
 - run: bundle exec rake
 ```
 
-Alternatively, you can check a `.ruby-version` file  into the root of your repository and `setup-ruby` will use the version defined in that file.
+Alternatively, you can check a `.ruby-version` file into the root of your repository and `setup-ruby` will use the version defined in that file.
 
 ## Testing with multiple versions of Ruby
 
@@ -124,7 +124,7 @@ strategy:
 
 {% endraw %}
 
-Each version of Ruby specified in the `ruby-version` array creates a job that runs the same steps. The {% raw %}`${{ matrix.ruby-version }}`{% endraw %} context is used to access the current job's version. For more information about matrix strategies and contexts, see "[AUTOTITLE](/actions/using-workflows/workflow-syntax-for-github-actions)" and "[AUTOTITLE](/actions/learn-github-actions/contexts)."
+Each version of Ruby specified in the `ruby-version` array creates a job that runs the same steps. The {% raw %}`${{ matrix.ruby-version }}`{% endraw %} context is used to access the current job's version. For more information about matrix strategies and contexts, see [AUTOTITLE](/actions/using-workflows/workflow-syntax-for-github-actions) and [AUTOTITLE](/actions/learn-github-actions/contexts).
 
 The full updated workflow with a matrix strategy could look like this:
 
@@ -175,8 +175,6 @@ steps:
 - run: bundle install
 ```
 
-{% ifversion actions-caching %}
-
 ### Caching dependencies
 
 The `setup-ruby` actions provides a method to automatically handle the caching of your gems between runs.
@@ -198,7 +196,7 @@ This will configure bundler to install your gems to `vendor/cache`. For each suc
 
 **Caching without setup-ruby**
 
-For greater control over caching, you can use the `actions/cache` action directly. For more information, see "[AUTOTITLE](/actions/using-workflows/caching-dependencies-to-speed-up-workflows)."
+For greater control over caching, you can use the `actions/cache` action directly. For more information, see [AUTOTITLE](/actions/using-workflows/caching-dependencies-to-speed-up-workflows).
 
 ```yaml
 steps:
@@ -229,8 +227,6 @@ steps:
     bundle config path vendor/bundle
     bundle install --jobs 4 --retry 3
 ```
-
-{% endif %}
 
 ## Matrix testing your code
 

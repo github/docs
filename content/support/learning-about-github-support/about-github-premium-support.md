@@ -22,15 +22,9 @@ topics:
   - Support
 ---
 
-{% note %}
-
-**Notes:**
-
-* The terms of {% data variables.contact.premium_support %} are subject to change without notice and are effective as of November 2021.
-
-* {% data reusables.support.data-protection-and-privacy %}
-
-{% endnote %}
+> [!NOTE]
+> * The terms of {% data variables.contact.premium_support %} are subject to change without notice and are effective as of November 2021.
+> * {% data reusables.support.data-protection-and-privacy %}
 
 ## About {% data variables.contact.premium_support %}
 
@@ -62,11 +56,26 @@ Incident management | None | For urgent priority tickets, as needed
 
 {% endrowheaders %}
 
-  {% note %}
+  > [!NOTE]
+  > Enterprise owners and billing managers automatically have a support entitlement. Enterprise owners can add support entitlements to members of organizations owned by their enterprise account. For more information, see "[AUTOTITLE](/enterprise-cloud@latest/admin/user-management/managing-users-in-your-enterprise/managing-support-entitlements-for-your-enterprise)."
 
-  **Note:** Enterprise owners and billing managers automatically have a support entitlement. Enterprise owners can add support entitlements to members of organizations owned by their enterprise account. For more information, see "[AUTOTITLE](/enterprise-cloud@latest/admin/user-management/managing-users-in-your-enterprise/managing-support-entitlements-for-your-enterprise)."
+## Billing for {% data variables.contact.premium_support %}
 
-  {% endnote %}
+How you are charged for {% data variables.contact.premium_support %} will depend on your {% data variables.product.github %} products and how you are charged for them.
+
+* If you are a **licensed billing** customer, the support fee percentage is applied to the cost of licenses for the current year.
+
+* If you are a **metered billing** customer, the support fee percentage for **{% data variables.product.premium_support_plan %}**, **Premium Plus plan**, and **{% data variables.product.microsoft_premium_plus_support_plan %}** is calculated as either a percentage of your estimated metered spending or a set minimum annual fee—whichever amount is higher. For {% data variables.product.microsoft_premium_plus_support_plan %} customers, this is in addition to the Unified Support contract fee.
+
+  The support fee for metered billing is estimated from the previous 12 months' spending. If you have less than 12 months of spending history, {% data variables.product.github %} will take a 12-month run rate based on your spending history. If your last 3 to 6 months spending is vastly different to the last 6 to 9 months, the last 3 to 6 month period will be used.
+
+  If you are switching from **licensed billing to metered billing**, your support fee at contract renewal is estimated based on the previous year's purchased licenses. Minimum thresholds remain in place.
+
+* If you are both a licensed and metered billing customer (hybrid), your charge will be calculated from the support fee percentage applied to the current year's license purchases **plus** the support fee percentage applied to your estimated metered billing spend.
+
+New {% data variables.product.github %} customers who are only planning to use metered products will be required to pay the annual minimum for {% data variables.product.premium_support_plan %} or {% data variables.product.premium_plus_support_plan %}.
+
+If you would like a quote for {% data variables.contact.premium_support %}, contact [{% data variables.product.github %}'s Sales team](https://github.com/enterprise/contact?scid=&utm_campaign=2023q3-site-ww-PremiumSupport&utm_content=Premium+Support&utm_medium=referral&utm_source=github).
 
 ## Signing up for {% data variables.contact.premium_support %}
 
@@ -120,7 +129,7 @@ If you use a custom or unsupported plug-in, module, or custom code, {% data vari
 
 ## Receiving credits for missed responses to support tickets
 
-If you don't receive an initial response within the guaranteed response time to more than four tickets in a given quarter based on {% data variables.product.company_short %}'s fiscal year, you're eligible for a credit. To honor the SLA, {% data variables.product.company_short %} will refund 20% of the quarterly {% data variables.contact.premium_support %} fee. To receive the refund, you must submit a credit request.
+If you are on the Premium or Premium Plus support plan, and you don't receive an initial response within the guaranteed response time to more than four tickets in a given quarter based on {% data variables.product.company_short %}'s fiscal year, you're eligible for a credit. To honor the SLA, {% data variables.product.company_short %} will refund 20% of the quarterly {% data variables.contact.premium_support %} fee. To receive the refund, you must submit a credit request.
 
 The credit request must be made within 30 days of the end of the quarter during which {% data variables.contact.premium_support %} did not respond to your tickets within the designated response time. Credit requests will not be honored if the respective deadline has passed. Once the respective deadline passes, you have waived the ability to claim a refund for the qualified credit. Credit requests may take the form of a refund or credit to your account, cannot be exchanged into a cash amount, require you to have paid any outstanding invoices, and expire upon termination of your agreement with {% data variables.product.company_short %}.
 

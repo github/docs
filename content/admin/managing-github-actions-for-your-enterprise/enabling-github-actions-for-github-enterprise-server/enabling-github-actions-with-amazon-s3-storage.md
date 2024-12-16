@@ -24,13 +24,10 @@ shortTitle: Amazon S3 storage
 
 ## Prerequisites
 
-{% note %}
-
-**Note:** The only {% data variables.product.prodname_dotcom %}-supported S3 storage providers are Amazon S3 and MinIO Gateway for NAS.
-
-{% data reusables.actions.enterprise-s3-tech-partners %}
-
-{% endnote %}
+> [!NOTE]
+> The only {% data variables.product.prodname_dotcom %}-supported S3 storage providers are Amazon S3 and MinIO Gateway for NAS.
+>
+> {% data reusables.actions.enterprise-s3-tech-partners %}
 
 Before enabling {% data variables.product.prodname_actions %}, make sure you have completed the following steps:
 
@@ -93,11 +90,8 @@ To configure {% data variables.product.prodname_ghe_server %} to use OIDC with a
 
    For more information on installing the AWS CLI, see the [Amazon documentation](https://docs.aws.amazon.com/cli/latest/userguide/getting-started-install.html).
 
-   {% warning %}
-
-   **Warning:** If the certificate for {% data variables.location.product_location_enterprise %} changes in the future, you must update the thumbprint value in the Amazon OIDC provider for the OIDC trust to continue to work.
-
-   {% endwarning %}
+   > [!WARNING]
+   > If the certificate for {% data variables.location.product_location_enterprise %} changes in the future, you must update the thumbprint value in the Amazon OIDC provider for the OIDC trust to continue to work.
 
 ### 2. Create an IAM role
 
@@ -108,7 +102,7 @@ To configure {% data variables.product.prodname_ghe_server %} to use OIDC with a
    * For "Identity provider", use the **Choose provider** drop-down menu and select the OIDC provider you created in the previous steps. It should be named `HOSTNAME/_services/token`, where `HOSTNAME` is the public hostname for {% data variables.location.product_location_enterprise %}.
    * For "Audience", select `sts.amazonaws.com`.
 1. Click **Next**.
-1. On the "Add permissions" page, use the filter to find and select the  `AmazonS3FullAccess` policy.
+1. On the "Add permissions" page, use the filter to find and select the `AmazonS3FullAccess` policy.
 1. Click **Next**.
 1. On the "Name, review, and create" page, enter a name for the role, and click **Create role**.
 1. On the IAM "Roles" page, select the role you just created.
@@ -150,9 +144,9 @@ To configure {% data variables.product.prodname_ghe_server %} to use OIDC with a
 {% data reusables.actions.enterprise-enable-checkbox %}
 {% data reusables.actions.enterprise-s3-storage-setup %}
 1. Under "Authentication", select **OpenID Connect (OIDC)**, and enter the values for your storage:
-   * **AWS S3 Bucket**: The name of your S3 bucket.
-   * **AWS Role**: The ARN for the role you created in the previous procedures. For example, `arn:aws:iam::123456789:role/my-role-name`.
-   * **AWS Region**: The AWS region for your bucket. For example, `us-east-1`.
+   * **AWS S3 Bucket:** The name of your S3 bucket.
+   * **AWS Role:** The ARN for the role you created in the previous procedures. For example, `arn:aws:iam::123456789:role/my-role-name`.
+   * **AWS Region:** The AWS region for your bucket. For example, `us-east-1`.
 {% data reusables.enterprise_management_console.test-storage-button %}
 {% data reusables.enterprise_management_console.save-settings %}
 
@@ -163,7 +157,7 @@ To configure {% data variables.product.prodname_ghe_server %} to use OIDC with a
 1. Using the AWS Console or CLI, create an access key for your storage bucket.
    {% data reusables.actions.enterprise-s3-permission %}
 
-   For more information on managing AWS access keys, see the "[AWS Identity and Access Management Documentation](https://docs.aws.amazon.com/iam/index.html)."
+   For more information on managing AWS access keys, see the [AWS Identity and Access Management Documentation](https://docs.aws.amazon.com/iam/index.html).
 {% data reusables.enterprise_site_admin_settings.access-settings %}
 {% data reusables.enterprise_site_admin_settings.management-console %}
 {% data reusables.enterprise_management_console.actions %}

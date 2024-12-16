@@ -16,7 +16,7 @@ topics:
   - PowerShell
 shortTitle: Build & test PowerShell
 ---
- 
+
 {% data reusables.actions.enterprise-github-hosted-runners %}
 
 ## Introduction
@@ -25,11 +25,11 @@ This guide shows you how to use PowerShell for CI. It describes how to use Peste
 
 {% data variables.product.prodname_dotcom %}-hosted runners have a tools cache with pre-installed software, which includes PowerShell and Pester.
 
-For a full list of up-to-date software and the pre-installed versions of PowerShell and Pester, see "[AUTOTITLE](/actions/using-github-hosted-runners/about-github-hosted-runners#supported-software)".
+For a full list of up-to-date software and the pre-installed versions of PowerShell and Pester, see [AUTOTITLE](/actions/using-github-hosted-runners/about-github-hosted-runners#supported-software).
 
 ## Prerequisites
 
-You should be familiar with YAML and the syntax for {% data variables.product.prodname_actions %}. For more information, see "[AUTOTITLE](/actions/learn-github-actions)."
+You should be familiar with YAML and the syntax for {% data variables.product.prodname_actions %}. For more information, see [AUTOTITLE](/actions/learn-github-actions).
 
 We recommend that you have a basic understanding of PowerShell and Pester. For more information, see:
 * [Getting started with PowerShell](https://docs.microsoft.com/powershell/scripting/learn/ps101/01-getting-started)
@@ -93,23 +93,17 @@ The table below describes the locations for various PowerShell modules in each {
 
 {% endrowheaders %}
 
-{% note %}
-
-**Note:** On Ubuntu runners, Azure PowerShell modules are stored in `/usr/share/` instead of the default location of PowerShell add-on modules (i.e. `/usr/local/share/powershell/Modules/`).
-
-{% endnote %}
+> [!NOTE]
+> On Ubuntu runners, Azure PowerShell modules are stored in `/usr/share/` instead of the default location of PowerShell add-on modules (i.e. `/usr/local/share/powershell/Modules/`).
 
 ## Installing dependencies
 
 {% data variables.product.prodname_dotcom %}-hosted runners have PowerShell 7 and Pester installed. You can use `Install-Module` to install additional dependencies from the PowerShell Gallery before building and testing your code.
 
-{% note %}
+> [!NOTE]
+> The pre-installed packages (such as Pester) used by {% data variables.product.prodname_dotcom %}-hosted runners are regularly updated, and can introduce significant changes. As a result, it is recommended that you always specify the required package versions by using `Install-Module` with `-MaximumVersion`.
 
-**Note:** The pre-installed packages (such as Pester) used by {% data variables.product.prodname_dotcom %}-hosted runners are regularly updated, and can introduce significant changes. As a result, it is recommended that you always specify the required package versions by using `Install-Module` with `-MaximumVersion`.
-
-{% endnote %}
-
-{% ifversion actions-caching %}You can also cache dependencies to speed up your workflow. For more information, see "[AUTOTITLE](/actions/using-workflows/caching-dependencies-to-speed-up-workflows)."{% endif %}
+You can also cache dependencies to speed up your workflow. For more information, see [AUTOTITLE](/actions/using-workflows/caching-dependencies-to-speed-up-workflows).
 
 For example, the following job installs the `SqlServer` and `PSScriptAnalyzer` modules:
 
@@ -127,17 +121,12 @@ jobs:
           Install-Module SqlServer, PSScriptAnalyzer
 ```
 
-{% note %}
-
-**Note:** By default, no repositories are trusted by PowerShell. When installing modules from the PowerShell Gallery, you must explicitly set the installation policy for `PSGallery` to `Trusted`.
-
-{% endnote %}
-
-{% ifversion actions-caching %}
+> [!NOTE]
+> By default, no repositories are trusted by PowerShell. When installing modules from the PowerShell Gallery, you must explicitly set the installation policy for `PSGallery` to `Trusted`.
 
 ### Caching dependencies
 
-You can cache PowerShell dependencies using a unique key, which allows you to restore the dependencies for future workflows with the [`cache`](https://github.com/marketplace/actions/cache) action. For more information, see "[AUTOTITLE](/actions/using-workflows/caching-dependencies-to-speed-up-workflows)."
+You can cache PowerShell dependencies using a unique key, which allows you to restore the dependencies for future workflows with the [`cache`](https://github.com/marketplace/actions/cache) action. For more information, see [AUTOTITLE](/actions/using-workflows/caching-dependencies-to-speed-up-workflows).
 
 PowerShell caches its dependencies in different locations, depending on the runner's operating system. For example, the `path` location used in the following Ubuntu example will be different for a Windows operating system.
 
@@ -157,8 +146,6 @@ steps:
       Set-PSRepository PSGallery -InstallationPolicy Trusted
       Install-Module SqlServer, PSScriptAnalyzer -ErrorAction Stop
 ```
-
-{% endif %}
 
 ## Testing your code
 
@@ -194,7 +181,7 @@ The following example installs `PSScriptAnalyzer` and uses it to lint all `ps1` 
 
 ## Packaging workflow data as artifacts
 
-You can upload artifacts to view after a workflow completes. For example, you may need to save log files, core dumps, test results, or screenshots. For more information, see "[AUTOTITLE](/actions/using-workflows/storing-workflow-data-as-artifacts)."
+You can upload artifacts to view after a workflow completes. For example, you may need to save log files, core dumps, test results, or screenshots. For more information, see [AUTOTITLE](/actions/using-workflows/storing-workflow-data-as-artifacts).
 
 The following example demonstrates how you can use the `upload-artifact` action to archive the test results received from `Invoke-Pester`. For more information, see the [`upload-artifact` action](https://github.com/actions/upload-artifact).
 
@@ -220,11 +207,11 @@ jobs:
     if: {% raw %}${{ always() }}{% endraw %}
 ```
 
-The `always()` function configures the job to continue processing even if there are test failures. For more information, see "[AUTOTITLE](/actions/learn-github-actions/contexts#always)."
+The `always()` function configures the job to continue processing even if there are test failures. For more information, see [AUTOTITLE](/actions/learn-github-actions/contexts#always).
 
 ## Publishing to PowerShell Gallery
 
-You can configure your workflow to publish your PowerShell module to the PowerShell Gallery when your CI tests pass. You can use secrets to store any tokens or credentials needed to publish your package. For more information, see "[AUTOTITLE](/actions/security-guides/using-secrets-in-github-actions)."
+You can configure your workflow to publish your PowerShell module to the PowerShell Gallery when your CI tests pass. You can use secrets to store any tokens or credentials needed to publish your package. For more information, see [AUTOTITLE](/actions/security-guides/using-secrets-in-github-actions).
 
 The following example creates a package and uses `Publish-Module` to publish it to the PowerShell Gallery:
 

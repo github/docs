@@ -32,7 +32,7 @@ The instructions below will guide you through configuring your environment to us
 There are some limitations when migrating from CircleCI to {% data variables.product.prodname_actions %} with {% data variables.product.prodname_actions_importer %}:
 
 * Automatic caching in between jobs of different workflows is not supported.
-* The `audit` command is only supported when using an organization account. However, the `dry-run` and `migrate` commands can be used with an organization or user account.
+* The `audit` command is only supported when you use a CircleCI organization account. The `dry-run` and `migrate` commands can be used with a CircleCI organization or user account.
 
 #### Manual tasks
 
@@ -51,7 +51,7 @@ Certain CircleCI constructs must be migrated manually. These include:
 
 The `configure` CLI command is used to set required credentials and options for {% data variables.product.prodname_actions_importer %} when working with CircleCI and {% data variables.product.prodname_dotcom %}.
 
-1. Create a {% data variables.product.prodname_dotcom %} {% data variables.product.pat_v1 %}. For more information, see "[AUTOTITLE](/authentication/keeping-your-account-and-data-secure/managing-your-personal-access-tokens#creating-a-personal-access-token-classic)."
+1. Create a {% data variables.product.prodname_dotcom %} {% data variables.product.pat_v1 %}. For more information, see [AUTOTITLE](/authentication/keeping-your-account-and-data-secure/managing-your-personal-access-tokens#creating-a-personal-access-token-classic).
 
    Your token must have the `workflow` scope.
 

@@ -29,7 +29,7 @@ Capitalized terms utilized in this Agreement and not defined shall otherwise hav
 
 “End User” means any person, company or other legal entity that will acquire licenses to a Developer Product via the GitHub Marketplace.
 
-“GitHub API” means any proprietary application programming interface developed by GitHub, and includes the GitHub Copilot API.  Access to and use of a GitHub API is governed by the ToS.
+“GitHub API” means any proprietary application programming interface developed by GitHub, and includes the GitHub Copilot API. Access to and use of a GitHub API is governed by the ToS.
 
 “GitHub Marketplace” or “Marketplace” means the proprietary online marketplace site operated by GitHub where Developer Products may be delivered to End Users.
 
@@ -43,15 +43,15 @@ Capitalized terms utilized in this Agreement and not defined shall otherwise hav
 
 ## 2.	PURPOSE AND LICENSE GRANT
 
-**2.1**	This Agreement sets forth the terms that govern a Developer publishing Listings on GitHub Marketplace for End Users to use Developer Products. This Agreement is applicable to all Developer Products, regardless if distributed for free or for a fee.  Developer agrees to use the GitHub Marketplace solely for the purposes permitted by this Agreement. Developer is solely responsible for its Developer Products.
+**2.1**	This Agreement sets forth the terms that govern a Developer publishing Listings on GitHub Marketplace for End Users to use Developer Products. This Agreement is applicable to all Developer Products, regardless if distributed for free or for a fee. Developer agrees to use the GitHub Marketplace solely for the purposes permitted by this Agreement. Developer is solely responsible for its Developer Products.
 
-**2.2**	Developer grants to GitHub a non-exclusive, worldwide, transferable, sublicensable, fully paid-up, royalty-free license  to process the Listing in any fashion (including testing and displaying it on Marketplace), and to display Developer’s Brand Features in connection with Marketplace.
+**2.2**	Developer grants to GitHub a non-exclusive, worldwide, transferable, sublicensable, fully paid-up, royalty-free license to process the Listing in any fashion (including testing and displaying it on Marketplace), and to display Developer’s Brand Features in connection with Marketplace.
 
-**2.3**	In addition to the licenses granted above, GitHub may include Developer Brand Features in any material marketing Marketplace.  If Developer stops distributing a Developer Product on Marketplace, GitHub will stop use of the discontinued products’ Brand Features.
+**2.3**	In addition to the licenses granted above, GitHub may include Developer Brand Features in any material marketing Marketplace. If Developer stops distributing a Developer Product on Marketplace, GitHub will stop use of the discontinued products’ Brand Features.
 
-**2.4**	Developer must include a separate end user license agreement (“EULA”) in its Developer Products that will govern the End User’s rights to the Developer Products.  Developer acknowledges and agrees that the applicable EULA for each Developer Product is solely between Developer and the End User.  GitHub shall not be responsible, nor have any liability whatsoever, under any EULA.
+**2.4**	Developer must include a separate end user license agreement (“EULA”) in its Developer Products that will govern the End User’s rights to the Developer Products. Developer acknowledges and agrees that the applicable EULA for each Developer Product is solely between Developer and the End User. GitHub shall not be responsible, nor have any liability whatsoever, under any EULA.
 
-**2.5**	Except for the license rights granted in this Agreement, (a) Developer retains all rights in the Developer Products; (b) each party retains all rights it has independent of this Agreement, including rights under the US Copyright Act or similar laws of other jurisdictions; and (c) each party owns all rights, title and interest in its respective Brand Features.  Each party is responsible for protecting and enforcing its own rights and neither party has an obligation to do so on the other’s behalf.
+**2.5**	Except for the license rights granted in this Agreement, (a) Developer retains all rights in the Developer Products; (b) each party retains all rights it has independent of this Agreement, including rights under the US Copyright Act or similar laws of other jurisdictions; and (c) each party owns all rights, title and interest in its respective Brand Features. Each party is responsible for protecting and enforcing its own rights and neither party has an obligation to do so on the other’s behalf.
 
 **2.6**	GitHub shall be entitled to provide Developer’s name, address and other contact details to any third party as required by law or that reasonably, in GitHub’s sole determination, claims that Developer does not possess all of the necessary intellectual property rights in or to the Developer Products.
 
@@ -59,7 +59,7 @@ Capitalized terms utilized in this Agreement and not defined shall otherwise hav
 
 Notwithstanding any of the requirements set forth in Section 2 (Purpose and License Grant) above, Developer's use of Marketplace is explicitly conditioned on Developer’s adherence to this Agreement, including the restrictions and compliance requirements set forth below.
 
-**3.1**	Developer agrees it will protect the privacy and legal rights of all End Users with respect to the use of Developer Products.  If an End User provides Developer with, or the Developer Product otherwise collects, discloses, accesses or uses, End User Personal Data, then the Developer must (a) inform End Users that such information will be available to the Developer Products; (b) provide a legally adequate privacy notice and protection to End Users; (c) obtain valid End User consent as required, and (d) comply with all other data privacy obligations applicable to Developer.
+**3.1**	Developer agrees it will protect the privacy and legal rights of all End Users with respect to the use of Developer Products. If an End User provides Developer with, or the Developer Product otherwise collects, discloses, accesses or uses, End User Personal Data, then the Developer must (a) inform End Users that such information will be available to the Developer Products; (b) provide a legally adequate privacy notice and protection to End Users; (c) obtain valid End User consent as required, and (d) comply with all other data privacy obligations applicable to Developer.
 
 **3.2**	In order to use and access a GitHub API, Developer must obtain a Token by becoming a subscriber. Developer may not share its Token with any third party, shall keep its Token and all login information secure, and shall use the Token as Developer’s sole means of accessing a GitHub API.
 
@@ -76,7 +76,7 @@ Notwithstanding any of the requirements set forth in Section 2 (Purpose and Lice
 * 3\. Have a mechanism for End Users to report feedback to GitHub and Developer related to errors, bugs, improper, or undesired outputs; and
 * 4\. Inform End Users the appropriate use cases, best practices, and limitations of the Developer Product.
   
-**3.5**	Developer shall not by any means repackage or resell Marketplace, a GitHub API, Personal Data, or Usage Data. Developer is not permitted to use a GitHub API or any Personal Data or Usage Data in any manner that does or could undermine the security of the Service, a GitHub API, Usage Data or any other data or information stored or transmitted using Marketplace. In addition, Developer shall not (a) interfere with, modify or disable any features, functionality or security controls of  Marketplace or a GitHub API; (b) circumvent in any fashion any protection mechanisms for Marketplace or a GitHub API; or (c) reverse engineer, decompile, disassemble or derive the source code, underlying ideas, algorithms, structure or organizational form from Marketplace or a GitHub API.
+**3.5**	Developer shall not by any means repackage or resell Marketplace, a GitHub API, Personal Data, or Usage Data. Developer is not permitted to use a GitHub API or any Personal Data or Usage Data in any manner that does or could undermine the security of the Service, a GitHub API, Usage Data or any other data or information stored or transmitted using Marketplace. In addition, Developer shall not (a) interfere with, modify or disable any features, functionality or security controls of Marketplace or a GitHub API; (b) circumvent in any fashion any protection mechanisms for Marketplace or a GitHub API; or (c) reverse engineer, decompile, disassemble or derive the source code, underlying ideas, algorithms, structure or organizational form from Marketplace or a GitHub API.
 
 **3.6**	Developer acknowledges that Developer is solely responsible, and that GitHub has no responsibility or liability of any kind, for any aspect of Developer Products. Developer will be solely responsible for:
 * (i) providing End Users instructions on installing and using its Developer Products;
@@ -105,7 +105,7 @@ If GitHub is notified by you or otherwise becomes aware and determines, in its s
 
 GitHub may: suspend the transfer of Personal Data to your Developer Product; prohibit the collection and processing of Personal Data via your Developer Product; remove the Listing from Marketplace; flag, filter, or modify related materials (including but not limited to descriptions, screenshots, or metadata); or reclassify the Listing at its sole discretion. If GitHub takes any of these actions on your Listing, you may appeal GitHub's action through the [GitHub Appeal and Reinstatement Process](https://docs.github.com/en/site-policy/acceptable-use-policies/github-appeal-and-reinstatement)
 
-**4.3**	Developer Product Updates. From time to time, GitHub may check for available updates to any Listing, including but not limited to bug fixes or enhanced functionality. If you update your Listing to Marketplace, you agree that such update will be automatically requested, downloaded, and installed without further notice to you.  GitHub makes no guarantees regarding the timing of such updates. Updates to a Listing are subject to the same terms and conditions as the Listing.
+**4.3**	Developer Product Updates. From time to time, GitHub may check for available updates to any Listing, including but not limited to bug fixes or enhanced functionality. If you update your Listing to Marketplace, you agree that such update will be automatically requested, downloaded, and installed without further notice to you. GitHub makes no guarantees regarding the timing of such updates. Updates to a Listing are subject to the same terms and conditions as the Listing.
 
 **4.4**	End-User Takedowns. If an End-User uses your Developer Product in a way that violates the Terms, then we have the right to suspend or terminate that End-User's access to the Developer Product without any liability to you.
 
@@ -131,7 +131,7 @@ Developer shall maintain and handle all Personal Data in accordance with privacy
 **6.1**	GitHub will be the merchant of record for Developer Products purchased by End Users via Marketplace.
 
 **6.2**	 Registration. Developer will be required to provide information about yourself (such as identification or contact details) as part of the registration process for Marketplace, or as part of your continued use of Marketplace including, but not limited to: (i) name, (ii) address, (iii) telephone number, (iv) e-mail address, and (v) payment account details. GitHub may publicize Developer’s information on Marketplace and retain Developer’s registration information as required by applicable law.
-**6.3** Pricing. Prices for Listings of Developer Applications will be set in US Dollars (USD). Developer has complete control over setting pricing for each Listing. The prices you set for Developer Products will determine the amount of payment you will receive. GitHub will remit 95% of the sale price in USD without reduction for Taxes except for any withholding taxes that are required under applicable law. The remaining 5% of the sales price will be allotted to and retained by GitHub.  At the end of each month and upon reaching a minimum value of $500 USD, GitHub will remit your share of payments.
+**6.3** Pricing. Prices for Listings of Developer Applications will be set in US Dollars (USD). Developer has complete control over setting pricing for each Listing. The prices you set for Developer Products will determine the amount of payment you will receive. GitHub will remit 95% of the sale price in USD without reduction for Taxes except for any withholding taxes that are required under applicable law. The remaining 5% of the sales price will be allotted to and retained by GitHub. At the end of each month and upon reaching a minimum value of $500 USD, GitHub will remit your share of payments.
 
 **6.3**	Refunds. You will be responsible for specifying the terms and conditions regarding refunds to your End Users. In no event shall GitHub be responsible for providing any support for refunds, nor shall GitHub be liable for payment of any refund.
 
@@ -165,7 +165,7 @@ Developer acknowledges and agrees that GitHub may modify this Agreement, Marketp
 
 ## 12.	ASSIGNMENT; ENTIRE AGREEMENT; REVISIONS
 
-**12.1**	Developer may not, directly or indirectly, by operation of law or otherwise, assign all or any part of this Agreement or Developer’s rights under this Agreement or delegate performance of Developer’s duties under this Agreement without GitHub’s prior written consent.  The rights granted in this Agreement may be assigned or transferred by GitHub without Developer’s prior approval.  In addition, GitHub may delegate its responsibilities or obligations under this Agreement without Developer’s consent.
+**12.1**	Developer may not, directly or indirectly, by operation of law or otherwise, assign all or any part of this Agreement or Developer’s rights under this Agreement or delegate performance of Developer’s duties under this Agreement without GitHub’s prior written consent. The rights granted in this Agreement may be assigned or transferred by GitHub without Developer’s prior approval. In addition, GitHub may delegate its responsibilities or obligations under this Agreement without Developer’s consent.
 
 **12.2**	This Agreement, together with the ToS, constitute the entire agreement between the parties with respect to the subject matter of this Agreement. GitHub’s failure to enforce at any time any provision of this Agreement does not constitute a waiver of that provision or of any other provision of this Agreement.
 
@@ -175,7 +175,7 @@ If any part of this Agreement is held to be unenforceable, the rest of the Agree
 
 ## 14. RELATIONSHIP OF THE PARTIES
 
-The parties are independent contractors. This Agreement does not create a partnership, franchise, joint venture, agency, fiduciary or employment relationship among the parties.  Developer agrees that each member of the group of companies to which GitHub belongs shall be a third party beneficiary to this Agreement and that such other companies shall be entitled to directly enforce, and rely upon, any provision of this Agreement that confers a benefit or grants a right in favor or GitHub.  No other person, company or legal entity shall be a third party beneficiary to the Agreement.
+The parties are independent contractors. This Agreement does not create a partnership, franchise, joint venture, agency, fiduciary or employment relationship among the parties. Developer agrees that each member of the group of companies to which GitHub belongs shall be a third party beneficiary to this Agreement and that such other companies shall be entitled to directly enforce, and rely upon, any provision of this Agreement that confers a benefit or grants a right in favor or GitHub. No other person, company or legal entity shall be a third party beneficiary to the Agreement.
 
 ## 15. NOTICE
 
@@ -189,9 +189,9 @@ This Agreement will be governed by and construed in accordance with the laws of 
 
 Developer Products distributed via Marketplace may be subject to export controls or restrictions by the United States or other countries or territories. Developer agrees to comply with all applicable US and international export laws and regulations. These laws may include restrictions on destinations, content and/or End Users.
 
-## 18.  USAGE DATA
+## 18. USAGE DATA
 
-In order to operate and improve Marketplace, GitHub may collect Usage Data from Marketplace or a GitHub API or anywhere previously purchased or downloaded Developer Products are stored on behalf of End Users by GitHub.  The Usage Data will be maintained in accordance with GitHub’s then in effect Privacy Statement.  Limited Usage Data may be available for use by Developer in GitHub’s sole discretion.
+In order to operate and improve Marketplace, GitHub may collect Usage Data from Marketplace or a GitHub API or anywhere previously purchased or downloaded Developer Products are stored on behalf of End Users by GitHub. The Usage Data will be maintained in accordance with GitHub’s then in effect Privacy Statement. Limited Usage Data may be available for use by Developer in GitHub’s sole discretion.
 
 ## 19. PRE-RELEASE ACCESS
 
@@ -210,7 +210,7 @@ GitHub maintains Personal Data from individuals all over the world, some of whom
    * The EU General Data Protection Regulation 2016/679 (“GDPR”), along with any implementing or corresponding equivalent national laws or regulations;
    * The California Consumer Privacy Act of 2018, Cal. Civ. Code §§1798.100 et seq. ("CCPA"); and
    * The UK Data Protection Act 2018 and implementation of GDPR contained therein.
-* (b) “Personal Data” means any information which relates to an individual GitHub End User, customer or employee which could, alone or together with other information,  identify them, whether supplied by GitHub for processing by the Developer or whether generated by the Developer in the course of performing its obligations under this Agreement.
+* (b) “Personal Data” means any information which relates to an individual GitHub End User, customer or employee which could, alone or together with other information, identify them, whether supplied by GitHub for processing by the Developer or whether generated by the Developer in the course of performing its obligations under this Agreement.
 * (c) “Processing” means any operation or set of operations performed on Personal Data, whether by manual or automatic means, including collection, recording, organization, storage, adaptation, alteration, retrieval, consultation, use, disclosure by transmission, dissemination or otherwise making available, blocking, erasure, or destruction.
 
 **A1-3. Compliance with Data Transfer Laws**

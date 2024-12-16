@@ -21,13 +21,13 @@ The Git & {% data variables.product.company_short %} starter assignment is a pre
 
 1. Sign into {% data variables.product.prodname_classroom_with_url %}.
 1. Navigate to a classroom.
-1. In the {% octicon "repo" aria-hidden="true" %} **Assignments** tab, click  **Use starter assignment**.
+1. In the **{% octicon "repo" aria-hidden="true" %} Assignments** tab, click **Use starter assignment**.
 
 ### If there already are existing assignments in the classroom
 
 1. Sign into {% data variables.product.prodname_classroom_with_url %}.
 1. Navigate to a classroom.
-1. In the {% octicon "repo" aria-hidden="true" %} **Assignments** tab, click the link in the blue banner.
+1. In the **{% octicon "repo" aria-hidden="true" %} Assignments** tab, click the link in the blue banner.
 
 ## Setting up the basics for an assignment
 
@@ -78,9 +78,9 @@ The Git & {% data variables.product.company_short %} starter assignment is only 
 
 ## Next steps
 
-* Make additional assignments customized to your course. For more information, see "[AUTOTITLE](/education/manage-coursework-with-github-classroom/teach-with-github-classroom/create-an-individual-assignment)," "[AUTOTITLE](/education/manage-coursework-with-github-classroom/teach-with-github-classroom/create-a-group-assignment)," and "[AUTOTITLE](/education/manage-coursework-with-github-classroom/teach-with-github-classroom/reuse-an-assignment)."
+* Make additional assignments customized to your course. For more information, see [AUTOTITLE](/education/manage-coursework-with-github-classroom/teach-with-github-classroom/create-an-individual-assignment), [AUTOTITLE](/education/manage-coursework-with-github-classroom/teach-with-github-classroom/create-a-group-assignment), and [AUTOTITLE](/education/manage-coursework-with-github-classroom/teach-with-github-classroom/reuse-an-assignment).
 
 ## Further reading
 
-* "[AUTOTITLE](/education/explore-the-benefits-of-teaching-and-learning-with-github-education/github-global-campus-for-teachers)"
-* "[AUTOTITLE](/education/manage-coursework-with-github-classroom/teach-with-github-classroom/connect-a-learning-management-system-course-to-a-classroom)"
+* [AUTOTITLE](/education/explore-the-benefits-of-teaching-and-learning-with-github-education/github-global-campus-for-teachers)
+* [AUTOTITLE](/education/manage-coursework-with-github-classroom/teach-with-github-classroom/connect-a-learning-management-system-course-to-a-classroom)

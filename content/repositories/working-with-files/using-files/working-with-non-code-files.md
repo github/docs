@@ -38,13 +38,9 @@ shortTitle: Working with non-code files
 
 {% data variables.product.product_name %} can display several common image formats, including PNG, JPG, GIF, PSD, and SVG. In addition to simply displaying them, there are several ways to compare differences between versions of those image formats.
 
-{% note %}
-
-**Note:**
-* {% data variables.product.prodname_dotcom %} does not support comparing the differences between PSD files.
-* If you are using the Firefox browser, SVGs on {% data variables.product.prodname_dotcom %} may not render.
-
-{% endnote %}
+> [!NOTE]
+> * {% data variables.product.prodname_dotcom %} does not support comparing the differences between PSD files.
+> * If you are using the Firefox browser, SVGs on {% data variables.product.prodname_dotcom %} may not render.
 
 ### Viewing images
 
@@ -109,15 +105,12 @@ For example, if your model's URL is [`github.com/skalnik/secret-bear-clip/blob/m
 
 By default, the embedded renderer is 420 pixels wide by 620 pixels high, but you can customize the output by passing height and width variables as parameters at the end of the URL, such as `?height=300&width=500`.
 
-{% tip %}
-
-**Note**: `ref` can be a branch or the hash to an individual commit (like `2391ae`).
-
-{% endtip %}
+> [!NOTE]
+> `ref` can be a branch or the hash to an individual commit (like `2391ae`).
 
 ### Rendering in Markdown
 
-You can embed ASCII STL syntax directly in Markdown. For more information, see "[AUTOTITLE](/get-started/writing-on-github/working-with-advanced-formatting/creating-diagrams#creating-stl-3d-models)."
+You can embed ASCII STL syntax directly in Markdown. For more information, see [AUTOTITLE](/get-started/writing-on-github/working-with-advanced-formatting/creating-diagrams#creating-stl-3d-models).
 
 ## Rendering CSV and TSV data
 
@@ -256,15 +249,12 @@ For example, if your map's URL is [github.com/benbalter/dc-wifi-social/blob/mast
 
 By default, the embedded map 420px x 620px, but you can customize the output by passing height and width variables as parameters at the end, such as `?height=300&width=500`.
 
-{% tip %}
-
-**Note**: `ref` can be a branch or the hash to an individual commit (like `2391ae`).
-
-{% endtip %}
+> [!NOTE]
+> `ref` can be a branch or the hash to an individual commit (like `2391ae`).
 
 ### Mapping in Markdown
 
-You can embed GeoJSON and TopoJSON directly in Markdown. For more information, see "[AUTOTITLE](/get-started/writing-on-github/working-with-advanced-formatting/creating-diagrams#creating-geojson-and-topojson-maps)."
+You can embed GeoJSON and TopoJSON directly in Markdown. For more information, see [AUTOTITLE](/get-started/writing-on-github/working-with-advanced-formatting/creating-diagrams#creating-geojson-and-topojson-maps).
 
 {% data reusables.advanced-formatting.administrator-must-enable-mapping %}
 
@@ -350,7 +340,7 @@ If the chart displays, but does not appear as you'd expect, you can create a new
 
 ### Mermaid in Markdown
 
-You can embed Mermaid syntax directly in Markdown. For more information, see "[AUTOTITLE](/get-started/writing-on-github/working-with-advanced-formatting/creating-diagrams#creating-mermaid-diagrams)."
+You can embed Mermaid syntax directly in Markdown. For more information, see [AUTOTITLE](/get-started/writing-on-github/working-with-advanced-formatting/creating-diagrams#creating-mermaid-diagrams).
 
 ### Further reading about Mermaid
 

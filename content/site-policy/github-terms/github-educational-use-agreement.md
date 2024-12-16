@@ -8,15 +8,12 @@ topics:
   - Education
 ---
 
-{% note %}
-
-**Note:** The below Educational Use Agreement is related to the GitHub Campus Program Partner Schools, also found [here](https://education.github.com/schools/terms), and is considered the program terms and conditions.<!-- markdownlint-disable-line no-generic-link-text -->
-
-{% endnote %}
+> [!NOTE]
+> The below Educational Use Agreement is related to the GitHub Campus Program Partner Schools, also found [here](https://education.github.com/schools/terms), and is considered the program terms and conditions.<!-- markdownlint-disable-line no-generic-link-text -->
 
 ## EDUCATIONAL USE AGREEMENT
 
-This EDUCATIONAL USE AGREEMENT (this "Agreement") is a legal agreement between you ("Education Partner", “you”, or "your") and GitHub, Inc. (“GitHub”, “we”, or “us”).  This Agreement sets forth the terms and conditions under which Education Partner may participate in GitHub’s Education Partner Program and receive Program benefits as defined herein.
+This EDUCATIONAL USE AGREEMENT (this "Agreement") is a legal agreement between you ("Education Partner", “you”, or "your") and GitHub, Inc. (“GitHub”, “we”, or “us”). This Agreement sets forth the terms and conditions under which Education Partner may participate in GitHub’s Education Partner Program and receive Program benefits as defined herein.
 
 If you are entering into this Agreement on behalf of an organization or other legal entity, you represent that you have the legal authority to do so.
 
@@ -44,7 +41,7 @@ Capitalized terms herein shall have the meanings set forth below. Capitalized te
 
 "_Request Effective Date_" means the date the Order Form is accepted and processed by the GitHub Program Manager.
 
-"_Service_" means the hosted GitHub Enterprise Cloud service. The Service includes: Organization account(s), SAML single sign-on, access provisioning, and any applicable Documentation. This list of features and services is non-exhaustive and may be updated from time to time.  Use of the Service is governed by the [GitHub Customer Agreement](https://github.com/customer-terms).
+"_Service_" means the hosted GitHub Enterprise Cloud service. The Service includes: Organization account(s), SAML single sign-on, access provisioning, and any applicable Documentation. This list of features and services is non-exhaustive and may be updated from time to time. Use of the Service is governed by the [GitHub Customer Agreement](https://github.com/customer-terms).
 
 "_Software_" includes any applicable Documentation, as well as any Updates to the Software that GitHub provides to you or that you can access under the [GitHub Customer Agreement](https://github.com/customer-terms) as applicable.
 
@@ -60,7 +57,7 @@ Benefits under the Program include the following:
 
 #### 2.1.1 GitHub Product Benefits.
 
-After the Agreement Effective Date, Qualified Users shall have free access to Subscription Licenses on the Service or the Software for each Organization  listed on completed Order Forms submitted by the Designated Admin to the GitHub Program Manager. Access to and use of the Service and Software are subject to the terms of the [GitHub Customer Agreement](https://github.com/customer-terms).
+After the Agreement Effective Date, Qualified Users shall have free access to Subscription Licenses on the Service or the Software for each Organization listed on completed Order Forms submitted by the Designated Admin to the GitHub Program Manager. Access to and use of the Service and Software are subject to the terms of the [GitHub Customer Agreement](https://github.com/customer-terms).
 
 #### 2.1.2 Additional Qualified Users.
 
@@ -88,7 +85,7 @@ You grant to GitHub the right to use your logo and other Partner Materials, subj
 
 #### 2.2.4 Qualified User Communications.
 
-You must provide channels of communications and information to enable GitHub to communicate information about GitHub products and services to Qualified Users. These channels of communications may include email, SMS, social media or other means of communications designed to reach the maximum number of potential Qualified Users. To the extent required by applicable law, you represent and warrant that you have permission to provide such channels of communication and for GitHub to communication with such Qualified Users.  Every potential Qualified User contacted by GitHub will have the ability to opt-out of any future communications.
+You must provide channels of communications and information to enable GitHub to communicate information about GitHub products and services to Qualified Users. These channels of communications may include email, SMS, social media or other means of communications designed to reach the maximum number of potential Qualified Users. To the extent required by applicable law, you represent and warrant that you have permission to provide such channels of communication and for GitHub to communication with such Qualified Users. Every potential Qualified User contacted by GitHub will have the ability to opt-out of any future communications.
 
 ### 2.3 Good Standing.
 
@@ -98,7 +95,7 @@ You must provide channels of communications and information to enable GitHub to 
 
 ### 3.1 General Restrictions.
 
-You agree: (i) not to resell the GitHub Products, or to charge any service or other fee to Qualified Users in connection with their use of the GitHub Products under this Agreement; (ii) that you are responsible and liable  for Qualified Users' use of the GitHub Products; and (iii) to cooperate with GitHub to enforce the terms of this Agreement in connection with Qualified Users' use of the GitHub Products, including, without limitation, sending appropriate notices to and terminating access to the GitHub Products for Qualified Users who misuse the GitHub Products in any way (iv) to support Qualified Users in the administration and maintenance of their accounts,; and (v) only your Designated Admin shall communicate with GitHub directly about program membership and administration of the Products and Services. You shall immediately terminate access to GitHub Products and Services for any Qualified User who no longer qualifies as such under this Agreement.
+You agree: (i) not to resell the GitHub Products, or to charge any service or other fee to Qualified Users in connection with their use of the GitHub Products under this Agreement; (ii) that you are responsible and liable for Qualified Users' use of the GitHub Products; and (iii) to cooperate with GitHub to enforce the terms of this Agreement in connection with Qualified Users' use of the GitHub Products, including, without limitation, sending appropriate notices to and terminating access to the GitHub Products for Qualified Users who misuse the GitHub Products in any way (iv) to support Qualified Users in the administration and maintenance of their accounts,; and (v) only your Designated Admin shall communicate with GitHub directly about program membership and administration of the Products and Services. You shall immediately terminate access to GitHub Products and Services for any Qualified User who no longer qualifies as such under this Agreement.
 
 ### 3.2 GitHub Product Support.
 
@@ -134,7 +131,7 @@ Either Party may terminate this Agreement and any Order Forms submitted and acce
 
 ### 5.3 Termination for Breach.
 
-If you breach this Agreement, we may terminate the Agreement or any Order Form thirty (30) days after we provide you with notice of the breach unless you cure the breach in that period. However, no such notice or cure period is required for any breach of any provision  relating to intellectual property (including compliance with the license or rights grant and any license or rights restrictions).
+If you breach this Agreement, we may terminate the Agreement or any Order Form thirty (30) days after we provide you with notice of the breach unless you cure the breach in that period. However, no such notice or cure period is required for any breach of any provision relating to intellectual property (including compliance with the license or rights grant and any license or rights restrictions).
 
 ### 5.4 Effect of Termination.
 
@@ -162,7 +159,7 @@ IN NO EVENT WILL EITHER PARTY’S AGGREGATE LIABILITY ARISING OUT OF OR RELATED 
 
 ### 8.1 No Assignment.
 
-You are not allowed to assign or transfer any of your rights or obligations in this Agreement, in whole or in part, by operation of law or otherwise, without our prior written consent, and any attempt by you to do so will be null and void. We can assign this Agreement in  its entirety, upon notice to you, in connection with a merger, acquisition, corporate reorganization, or sale of all or substantially all of our business or assets.
+You are not allowed to assign or transfer any of your rights or obligations in this Agreement, in whole or in part, by operation of law or otherwise, without our prior written consent, and any attempt by you to do so will be null and void. We can assign this Agreement in its entirety, upon notice to you, in connection with a merger, acquisition, corporate reorganization, or sale of all or substantially all of our business or assets.
 
 ### 8.2 Severability.
 
@@ -186,4 +183,4 @@ This Agreement and your use of the GitHub Products are governed under California
 
 ### 8.7 Changes to the Agreement; Complete Agreement.
 
-GitHub may amend this Agreement at any time. Should GitHub materially amends this Agreement,  it will notify you of such changes at least 30 days prior to the change taking effect by posting a notice on our Website. This Agreement, together with any applicable GitHub Products terms and GitHub's Privacy Statement, and Order Forms represent the complete and exclusive statement of the agreement between you and us and governs your use of the GitHub Products. This Agreement supersedes any proposal or prior agreement oral or written, and any other communications between you and GitHub relating to the subject matter of these terms (including, but not limited to, any prior versions of this Agreement).
+GitHub may amend this Agreement at any time. Should GitHub materially amends this Agreement, it will notify you of such changes at least 30 days prior to the change taking effect by posting a notice on our Website. This Agreement, together with any applicable GitHub Products terms and GitHub's Privacy Statement, and Order Forms represent the complete and exclusive statement of the agreement between you and us and governs your use of the GitHub Products. This Agreement supersedes any proposal or prior agreement oral or written, and any other communications between you and GitHub relating to the subject matter of these terms (including, but not limited to, any prior versions of this Agreement).

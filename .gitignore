@@ -51,3 +51,9 @@ assets/images/help/writing/unordered-list-rendered (1).png
 
 # Used by precompute-pageinfo
 .pageinfo-cache.json.br
+
+# Cloned and used for indexing Elasticsearch data
+docs-internal-data/
+
+# For intermediate data (like scraping for Elasticsearch indexing)
+tmp/

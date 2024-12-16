@@ -17,18 +17,15 @@ redirect_from:
 ## Overview
 
 By default, your codespace is assigned a token scoped with `read` permission or `read` and `write` permission to the repository from which it was created. The scope of this token changes automatically in the following circumstances.
-* If you create a codespace for a repository to which you only have read access, then make a commit in the codespace or push a new branch, {% data variables.product.prodname_github_codespaces %} automatically links your codespace to a new or existing fork of the repository and updates the token to have `read` and `write` permission to the fork. For more information, see "[AUTOTITLE](/codespaces/developing-in-a-codespace/using-source-control-in-your-codespace#about-automatic-forking)."
-* If you create a codespace from a template, then publish the codespace to a new repository, {% data variables.product.prodname_github_codespaces %} updates the token to have `read` and `write` permission to the new repository. For more information, see "[AUTOTITLE](/codespaces/developing-in-a-codespace/creating-a-codespace-from-a-template#publishing-to-a-repository-on-github)."
+* If you create a codespace for a repository to which you only have read access, then make a commit in the codespace or push a new branch, {% data variables.product.prodname_github_codespaces %} automatically links your codespace to a new or existing fork of the repository and updates the token to have `read` and `write` permission to the fork. For more information, see [AUTOTITLE](/codespaces/developing-in-a-codespace/using-source-control-in-your-codespace#about-automatic-forking).
+* If you create a codespace from a template, then publish the codespace to a new repository, {% data variables.product.prodname_github_codespaces %} updates the token to have `read` and `write` permission to the new repository. For more information, see [AUTOTITLE](/codespaces/developing-in-a-codespace/creating-a-codespace-from-a-template#publishing-to-a-repository-on-github).
 
-For more information, see "[AUTOTITLE](/codespaces/reference/security-in-github-codespaces#authentication)."
+For more information, see [AUTOTITLE](/codespaces/reference/security-in-github-codespaces#authentication).
 
-If your project needs additional permissions for other repositories, you can configure this in the `devcontainer.json` file, as described in "[Setting additional repository permissions](#setting-additional-repository-permissions)" later in this article. When permissions are listed in the `devcontainer.json` file, you will be prompted to review and authorize the additional permissions as part of codespace creation for that repository. Once you've authorized the listed permissions, {% data variables.product.prodname_github_codespaces %} will remember your choice and will not prompt you for authorization unless the permissions in the `devcontainer.json` file change.
+If your project needs additional permissions for other repositories, you can configure this in the `devcontainer.json` file, as described in [Setting additional repository permissions](#setting-additional-repository-permissions) later in this article. When permissions are listed in the `devcontainer.json` file, you will be prompted to review and authorize the additional permissions as part of codespace creation for that repository. Once you've authorized the listed permissions, {% data variables.product.prodname_github_codespaces %} will remember your choice and will not prompt you for authorization unless the permissions in the `devcontainer.json` file change.
 
-{% note %}
-
-**Note:** Updating the permissions in the `devcontainer.json` file does not change the permissions of existing codespaces. If you need additional permissions in an existing codespace, see "[AUTOTITLE](/codespaces/troubleshooting/troubleshooting-authentication-to-a-repository#authenticating-to-repositories-that-you-didnt-create-the-codespace-from)."
-
-{% endnote %}
+> [!NOTE]
+> Updating the permissions in the `devcontainer.json` file does not change the permissions of existing codespaces. If you need additional permissions in an existing codespace, see [AUTOTITLE](/codespaces/troubleshooting/troubleshooting-authentication-to-a-repository#authenticating-to-repositories-that-you-didnt-create-the-codespace-from).
 
 ## Creating codespaces with custom permissions
 
@@ -41,7 +38,7 @@ To create a codespace with custom permissions, you must use one of the following
 
 You configure repository permissions for {% data variables.product.prodname_github_codespaces %} in a `devcontainer.json` file. Any custom permissions you add or change will only apply to new codespaces created after your changes have been committed to the repository. If you add or change permissions from within a codespace those permissions will not apply to the current codespace, even if you rebuild the codespace.
 
-1. If your repository does not already contain a `devcontainer.json` file, add one now. For more information, see "[AUTOTITLE](/codespaces/setting-up-your-project-for-codespaces/adding-a-dev-container-configuration)."
+1. If your repository does not already contain a `devcontainer.json` file, add one now. For more information, see [AUTOTITLE](/codespaces/setting-up-your-project-for-codespaces/adding-a-dev-container-configuration).
 
 1. Edit the `devcontainer.json` file, adding the repository name and permissions needed to the `repositories` object:
 
@@ -61,13 +58,9 @@ You configure repository permissions for {% data variables.product.prodname_gith
    }
    ```
 
-   {% note %}
-
-   **Notes:**
-   * You can only reference repositories that belong to the same personal account or organization as the repository you are currently working in.
-   * You can use the `*` wildcard to grant permissions to multiple repositories in an organization. For example, to grant permissions to all repositories in the `my_org` organization use `my_org/*`. This syntax is only valid for codespaces. In any `devcontainer.json` files that are used for prebuilds, you must define permissions for each repository separately. For more information, see "[AUTOTITLE](/codespaces/prebuilding-your-codespaces/allowing-a-prebuild-to-access-other-repositories)."
-
-   {% endnote %}
+   > [!NOTE]
+   > * You can only reference repositories that belong to the same personal account or organization as the repository you are currently working in.
+   > * You can use the `*` wildcard to grant permissions to multiple repositories in an organization. For example, to grant permissions to all repositories in the `my_org` organization use `my_org/*`. This syntax is only valid for codespaces. In any `devcontainer.json` files that are used for prebuilds, you must define permissions for each repository separately. For more information, see [AUTOTITLE](/codespaces/prebuilding-your-codespaces/allowing-a-prebuild-to-access-other-repositories).
 
    You can grant as many or as few of the following permissions for each repository listed:
    * `actions` - read / write
@@ -129,5 +122,5 @@ You can only authorize permissions that your personal account already possesses.
 
 ## Further reading
 
-* "[AUTOTITLE](/codespaces/setting-your-user-preferences)"
-* "[AUTOTITLE](/codespaces/customizing-your-codespace)"
+* [AUTOTITLE](/codespaces/setting-your-user-preferences)
+* [AUTOTITLE](/codespaces/customizing-your-codespace)

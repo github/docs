@@ -17,6 +17,7 @@ on:
       - main
     paths:
       - 'assets/**'
+      - '.github/workflows/dont-delete-assets.yml'
 
 permissions:
   contents: read
@@ -37,7 +38,7 @@ jobs:
         id: comment
         env:
           GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
-        run: src/assets/scripts/deleted-assets-pr-comment.js
+        run: npm run deleted-assets-pr-comment
 
       - name: Find possible previous comment
         if: ${{ steps.comment.outputs.markdown != '' }}

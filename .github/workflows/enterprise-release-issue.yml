@@ -24,14 +24,12 @@ jobs:
       - uses: ./.github/actions/node-npm-setup
 
       - name: Create an enterprise release issue
-        run: |
-          src/ghes-releases/scripts/create-enterprise-issue.js release
+        run: npm run create-enterprise-issue -- release
         env:
           GITHUB_TOKEN: ${{ secrets.DOCS_BOT_PAT_WRITEORG_PROJECT }}
 
       - name: Create an enterprise deprecation issue
-        run: |
-          src/ghes-releases/scripts/create-enterprise-issue.js deprecation
+        run: npm run create-enterprise-issue -- deprecation
         env:
           GITHUB_TOKEN: ${{ secrets.DOCS_BOT_PAT_WRITEORG_PROJECT }}
 

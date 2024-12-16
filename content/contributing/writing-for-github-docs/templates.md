@@ -7,7 +7,7 @@ versions:
 
 ## Conceptual article template
 
-Use the content model for full instructions and examples on how to write conceptual content. For more information, see "[AUTOTITLE](/contributing/style-guide-and-content-model/conceptual-content-type)."
+Use the content model for full instructions and examples on how to write conceptual content. For more information, see [AUTOTITLE](/contributing/style-guide-and-content-model/conceptual-content-type).
 
 <!-- markdownlint-disable search-replace -->
 
@@ -59,7 +59,7 @@ Optionally, include a bulleted list of related articles the user can reference t
 
 ## Referential article template
 
-Use the content model for full instructions and examples on how to write referential content. For more information, see "[AUTOTITLE](/contributing/style-guide-and-content-model/referential-content-type)."
+Use the content model for full instructions and examples on how to write referential content. For more information, see [AUTOTITLE](/contributing/style-guide-and-content-model/referential-content-type).
 
 <!-- markdownlint-disable search-replace -->
 
@@ -111,7 +111,7 @@ Optionally, include a bulleted list of related articles the user can reference t
 
 ## Procedural article template
 
-Use the content model for full instructions and examples on how to write procedural content. For more information, see "[AUTOTITLE](/contributing/style-guide-and-content-model/procedural-content-type)."
+Use the content model for full instructions and examples on how to write procedural content. For more information, see [AUTOTITLE](/contributing/style-guide-and-content-model/procedural-content-type).
 
 <!-- markdownlint-disable search-replace -->
 
@@ -163,7 +163,7 @@ Optionally, include a bulleted list of related articles the user can reference t
 
 ## Quickstart article template
 
-Use the content model for full instructions and examples on how to write quickstarts. For more information, see "[AUTOTITLE](/contributing/style-guide-and-content-model/quickstart-content-type)."
+Use the content model for full instructions and examples on how to write quickstarts. For more information, see [AUTOTITLE](/contributing/style-guide-and-content-model/quickstart-content-type).
 
 <!-- markdownlint-disable search-replace -->
 
@@ -231,7 +231,7 @@ Provide a quick recap of what has been accomplished in the quick start as a mean
 
 ## Tutorial article template
 
-Use the content model for full instructions and examples on how to write tutorials. For more information, see "[AUTOTITLE](/contributing/style-guide-and-content-model/tutorial-content-type)."
+Use the content model for full instructions and examples on how to write tutorials. For more information, see [AUTOTITLE](/contributing/style-guide-and-content-model/tutorial-content-type).
 
 <!-- markdownlint-disable search-replace -->
 
@@ -306,7 +306,7 @@ Include a bulleted list of tutorials or articles the user can reference to exten
 
 ## Language guides for GitHub Actions
 
-Use the content model for full instructions and examples on how to write for {% data variables.product.prodname_docs %}. For more information, see "[AUTOTITLE](/contributing/style-guide-and-content-model/about-the-content-model)."
+Use the content model for full instructions and examples on how to write for {% data variables.product.prodname_docs %}. For more information, see [AUTOTITLE](/contributing/style-guide-and-content-model/about-the-content-model).
 
 <!-- markdownlint-disable search-replace -->
 
@@ -342,9 +342,9 @@ The language guide introduction should include the following in a short paragrap
 ## Starting with the <language> workflow template
 
 {% comment %}
-Language guides typically walk through and build upon a workflow template template. If that format doesn't work, you can include a boilerplate workflow.
+Language guides typically walk through and build upon a workflow template. If that format doesn't work, you can include a boilerplate workflow.
 - Link to the GitHub Actions CI workflow template as the boilerplate reference code and then walk through and build on that code in this guide - https://github.com/actions/starter-workflows/tree/master/ci
-- Provide instructions for adding the workflow template template to a repository.
+- Provide instructions for adding the workflow template to a repository.
 - Include the starter template workflow code.
 {% endcomment %}
 

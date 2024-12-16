@@ -19,6 +19,16 @@ shortTitle: RubyGems registry
 
 {% data reusables.package_registry.admins-can-configure-package-types %}
 
+{% ifversion ghec %}
+
+## URL for the RubyGems registry
+
+If you access {% data variables.product.github %} at {% data variables.product.prodname_dotcom_the_website %}, you will publish packages to https://rubygems.pkg.github.com. Examples in this article use this URL.
+
+If you access {% data variables.product.github %} at another domain, such as `octocorp.ghe.com`, replace "https://rubygems.pkg.github.com" with `https://rubygems.SUBDOMAIN.ghe.com`, where `SUBDOMAIN` is your enterprise's unique subdomain.
+
+{% endif %}
+
 ## Prerequisites
 
 * You must have RubyGems 2.4.1 or higher. To find your RubyGems version:
@@ -84,7 +94,7 @@ bundle config https://{% ifversion fpt or ghec %}rubygems.pkg.github.com{% else 
 
 ## Publishing a package
 
-{% ifversion packages-rubygems-v2 %}{% data reusables.package_registry.publishing-user-scoped-packages %}{% else %}By default, GitHub publishes the package to an existing repository with the same name as the package. For example, when you publish `GEM_NAME` to the `octo-org` organization, GitHub Packages publishes the gem to the `octo-org/GEM_NAME` repository.{% endif %} For more information on creating your gem, see "[Make your own gem](http://guides.rubygems.org/make-your-own-gem/)" in the RubyGems documentation.
+{% ifversion packages-rubygems-v2 %}{% data reusables.package_registry.publishing-user-scoped-packages %}{% else %}By default, GitHub publishes the package to an existing repository with the same name as the package. For example, when you publish `GEM_NAME` to the `octo-org` organization, GitHub Packages publishes the gem to the `octo-org/GEM_NAME` repository.{% endif %} For more information on creating your gem, see [Make your own gem](http://guides.rubygems.org/make-your-own-gem/) in the RubyGems documentation.
 
 {% data reusables.package_registry.auto-inherit-permissions-note %}
 
@@ -98,11 +108,8 @@ bundle config https://{% ifversion fpt or ghec %}rubygems.pkg.github.com{% else 
 
 1. Publish a package to {% data variables.product.prodname_registry %}, replacing `NAMESPACE` with the name of the personal account or organization {% ifversion packages-rubygems-v2 %}to which the package will be scoped{% else %}that owns the repository containing your project{% endif %} and `GEM_NAME` with the name of your gem package.{% ifversion ghes %} Replace `REGISTRY_URL` with the URL for your instance's Rubygems registry. If your instance has subdomain isolation enabled, use `rubygems.HOSTNAME`. If your instance has subdomain isolation disabled, use `HOSTNAME/_registry/rubygems`. In either case, replace `HOSTNAME` with the host name of your {% data variables.product.prodname_ghe_server %} instance.{% endif %}
 
-   {% note %}
-
-   **Note:** The maximum uncompressed size of a gem's `metadata.gz` file must be less than {% data variables.package_registry.limit_rubygems_max_metadata_size %}. Requests to push gems that exceed that limit will fail.
-
-   {% endnote %}
+   > [!NOTE]
+   > The maximum uncompressed size of a gem's `metadata.gz` file must be less than {% data variables.package_registry.limit_rubygems_max_metadata_size %}. Requests to push gems that exceed that limit will fail.
 
    ```shell
    $ gem push --key github \
@@ -122,7 +129,7 @@ You can ensure gems will be linked to a repository as soon as they are published
 gem.metadata = { "github_repo" => "ssh://{% ifversion fpt or ghec %}github.com{% else %}HOSTNAME{% endif %}/OWNER/REPOSITORY" }
 ```
 
-For information on linking a published package with a repository, see "[AUTOTITLE](/packages/learn-github-packages/connecting-a-repository-to-a-package)."
+For information on linking a published package with a repository, see [AUTOTITLE](/packages/learn-github-packages/connecting-a-repository-to-a-package).
 
 {% else %}
 
@@ -171,4 +178,4 @@ You can use gems from {% data variables.product.prodname_registry %} much like y
 
 ## Further reading
 
-* "[AUTOTITLE](/packages/learn-github-packages/deleting-and-restoring-a-package)"
+* [AUTOTITLE](/packages/learn-github-packages/deleting-and-restoring-a-package)

@@ -27,7 +27,7 @@ To determine timezone information for applicable API calls, we apply these rules
 
 For API calls that allow for a timestamp to be specified, we use that exact timestamp. These timestamps look something like `2014-02-27T15:05:06+01:00`.
 
-An example of this is the API to manage commits. For more information, see "[AUTOTITLE](/rest/git/commits#create-a-commit)."
+An example of this is the API to manage commits. For more information, see [AUTOTITLE](/rest/git/commits#create-a-commit).
 
 ### Using the `Time-Zone` header
 
@@ -39,7 +39,7 @@ curl -H "Time-Zone: Europe/Amsterdam" -X POST {% data variables.product.rest_url
 
 This means that we generate a timestamp for the moment your API call is made, in the timezone this header defines.
 
-For example, the API to manage contents generates a git commit for each addition or change, and it uses the current time as the timestamp. For more information, see "[AUTOTITLE](/rest/repos/contents)." The `Time-Zone` header will determine the timezone used for generating that current timestamp.
+For example, the API to manage contents generates a git commit for each addition or change, and it uses the current time as the timestamp. For more information, see [AUTOTITLE](/rest/repos/contents). The `Time-Zone` header will determine the timezone used for generating that current timestamp.
 
 ### Using the last known timezone for the user
 

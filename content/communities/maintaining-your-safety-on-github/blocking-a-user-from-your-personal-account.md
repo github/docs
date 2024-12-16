@@ -14,13 +14,10 @@ shortTitle: Block from your account
 
 ## About blocking users
 
-You can block a user in your account settings or from the user's profile. {% data variables.product.prodname_dotcom %} will not notify the user when you block them. If you want to avoid contributing to the same project as someone you've blocked, you can choose to display a warning on any repositories with prior contributions from a blocked user. For more information, see "[Blocking a user in your account settings](#blocking-a-user-in-your-account-settings)." You may still see the activity of blocked users in shared spaces and blocked users can delete their existing content.
+You can block a user in your account settings or from the user's profile. {% data variables.product.prodname_dotcom %} will not notify the user when you block them. If you want to avoid contributing to the same project as someone you've blocked, you can choose to display a warning on any repositories with prior contributions from a blocked user. For more information, see [Blocking a user in your account settings](#blocking-a-user-in-your-account-settings). You may still see the activity of blocked users in shared spaces and blocked users can delete their existing content.
 
-{% tip %}
-
-**Tip:** If you're blocking a user because of a heated conversation, consider locking the conversation so only collaborators can comment. For more information, see "[AUTOTITLE](/communities/moderating-comments-and-conversations/locking-conversations)."
-
-{% endtip %}
+> [!TIP]
+> If you're blocking a user because of a heated conversation, consider locking the conversation so only collaborators can comment. For more information, see [AUTOTITLE](/communities/moderating-comments-and-conversations/locking-conversations).
 
 When you block a user:
 * The user stops following you
@@ -71,17 +68,14 @@ In repositories you own, blocked users also cannot:
 1. Optionally, add a note to describe why a user was blocked. The note will only be visible to you.
 1. Click **Block user**.
 
-{% note %}
-
-If you're being harassed, visit {% data variables.contact.contact_support_page %} to report abuse. {% data reusables.policies.abuse %}
-
-{% endnote %}
+> [!NOTE]
+> If you're being harassed, visit {% data variables.contact.contact_support_page %} to report abuse. {% data reusables.policies.abuse %}
 
 ## Further reading
 
-* "[AUTOTITLE](/communities/maintaining-your-safety-on-github/viewing-users-youve-blocked-from-your-personal-account)"
-* "[AUTOTITLE](/communities/maintaining-your-safety-on-github/unblocking-a-user-from-your-personal-account)"
-* "[AUTOTITLE](/communities/maintaining-your-safety-on-github/blocking-a-user-from-your-organization)"
-* "[AUTOTITLE](/communities/maintaining-your-safety-on-github/unblocking-a-user-from-your-organization)"
-* "[AUTOTITLE](/communities/maintaining-your-safety-on-github/reporting-abuse-or-spam)"
-* "[AUTOTITLE](/communities/moderating-comments-and-conversations/limiting-interactions-in-your-repository)"
+* [AUTOTITLE](/communities/maintaining-your-safety-on-github/viewing-users-youve-blocked-from-your-personal-account)
+* [AUTOTITLE](/communities/maintaining-your-safety-on-github/unblocking-a-user-from-your-personal-account)
+* [AUTOTITLE](/communities/maintaining-your-safety-on-github/blocking-a-user-from-your-organization)
+* [AUTOTITLE](/communities/maintaining-your-safety-on-github/unblocking-a-user-from-your-organization)
+* [AUTOTITLE](/communities/maintaining-your-safety-on-github/reporting-abuse-or-spam)
+* [AUTOTITLE](/communities/moderating-comments-and-conversations/limiting-interactions-in-your-repository)

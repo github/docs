@@ -4,16 +4,11 @@ Use the following script to set up a subnet for Azure private networking. The sc
 
 To use the script, fill in the placeholder environment variable values with the actual values and run the script from a bash shell or Windows Subsystem for Linux.
 
-{% note %}
-
-**Notes**:
-
-* Run the following script in the same directory where you saved the `actions-nsg-deployment.bicep` file.
-* When setting the `YOUR_AZURE_LOCATION` environment variable, use your region’s name. This value is different than your region’s display name. To see a list of names and display names, use `az account list-locations -o table`.
-* When you create the network settings resource, a service association link is applied to the subnet that you provide. This link prevents accidental deletion of the subnet while in use by the {% data variables.product.prodname_actions %} service.
-* If you customize this script to use network resources in existing subnets, you must ensure any existing network interfaces (NICs) connected to the subnet are deleted before the subnet is delegated to the {% data variables.product.prodname_actions %} service. Otherwise, the service will fail to apply the service association link to the subnet.
-
-{% endnote %}
+> [!NOTE]
+> * Run the following script in the same directory where you saved the `actions-nsg-deployment.bicep` file.
+> * When setting the `YOUR_AZURE_LOCATION` environment variable, use your region’s name. This value is different than your region’s display name. To see a list of names and display names, use `az account list-locations -o table`.
+> * When you create the network settings resource, a service association link is applied to the subnet that you provide. This link prevents accidental deletion of the subnet while in use by the {% data variables.product.prodname_actions %} service.
+> * If you customize this script to use network resources in existing subnets, you must ensure any existing network interfaces (NICs) connected to the subnet are deleted before the subnet is delegated to the {% data variables.product.prodname_actions %} service. Otherwise, the service will fail to apply the service association link to the subnet.
 
 ```bash copy
 #!/bin/bash
@@ -40,6 +35,7 @@ export SUBNET_NAME=YOUR_SUBNET_NAME
 export NSG_NAME=YOUR_NSG_NAME
 export NETWORK_SETTINGS_RESOURCE_NAME=YOUR_NETWORK_SETTINGS_RESOURCE_NAME
 export DATABASE_ID=YOUR_DATABASE_ID
+export API_VERSION=2024-04-02
 
 # These are the default values. You can adjust your address and subnet prefixes.
 export ADDRESS_PREFIX=10.0.0.0/16
@@ -75,7 +71,7 @@ echo Delegate subnet to GitHub.Network/networkSettings and apply NSG rules
 
 echo
 echo Create network settings resource $NETWORK_SETTINGS_RESOURCE_NAME
-. az resource create --resource-group $RESOURCE_GROUP_NAME  --name $NETWORK_SETTINGS_RESOURCE_NAME --resource-type GitHub.Network/networkSettings --properties "{ \"location\": \"$AZURE_LOCATION\", \"properties\" : {  \"subnetId\": \"/subscriptions/$SUBSCRIPTION_ID/resourceGroups/$RESOURCE_GROUP_NAME/providers/Microsoft.Network/virtualNetworks/$VNET_NAME/subnets/$SUBNET_NAME\", \"businessId\": \"$DATABASE_ID\" }}" --is-full-object --output table --query "{GitHubId:tags.GitHubId, name:name}" --api-version 2024-04-02
+. az resource create --resource-group $RESOURCE_GROUP_NAME --name $NETWORK_SETTINGS_RESOURCE_NAME --resource-type GitHub.Network/networkSettings --properties "{ \"location\": \"$AZURE_LOCATION\", \"properties\" : { \"subnetId\": \"/subscriptions/$SUBSCRIPTION_ID/resourceGroups/$RESOURCE_GROUP_NAME/providers/Microsoft.Network/virtualNetworks/$VNET_NAME/subnets/$SUBNET_NAME\", \"businessId\": \"$DATABASE_ID\" }}" --is-full-object --output table --query "{GitHubId:tags.GitHubId, name:name}" --api-version $API_VERSION
 
 echo
 echo To clean up and delete resources run the following command:

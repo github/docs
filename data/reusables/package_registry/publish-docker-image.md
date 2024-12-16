@@ -1,11 +1,6 @@
-{% note %}
-
-**Notes:**
-
-* {% data reusables.actions.actions-not-certified-by-github %}
-* {% data reusables.actions.actions-use-sha-pinning %}
-
-{% endnote %}
+> [!NOTE]
+> * {% data reusables.actions.actions-not-certified-by-github %}
+> * {% data reusables.actions.actions-use-sha-pinning %}
 
 ```yaml annotate copy
 #
@@ -62,7 +57,7 @@ jobs:
       {% ifversion artifact-attestations %}
       # This step generates an artifact attestation for the image, which is an unforgeable statement about where and how it was built. It increases supply chain security for people who consume the image. For more information, see "[AUTOTITLE](/actions/security-guides/using-artifact-attestations-to-establish-provenance-for-builds)." 
       - name: Generate artifact attestation
-        uses: actions/attest-build-provenance@v1
+        uses: actions/attest-build-provenance@v2
         with:
           subject-name: {% raw %}${{ env.REGISTRY }}/${{ env.IMAGE_NAME}}{% endraw %}
           subject-digest: {% raw %}${{ steps.push.outputs.digest }}{% endraw %}

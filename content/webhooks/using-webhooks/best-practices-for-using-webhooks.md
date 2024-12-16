@@ -16,7 +16,9 @@ You should only subscribe to the webhook events that you need. This will reduce 
 
 ## Use a webhook secret
 
-You should set a webhook secret for your webhook and verify that the signature of each webhook delivery matches the secret. This helps to ensure that the webhook delivery is from {% data variables.product.company_short %}. For more information, see "[AUTOTITLE](/webhooks/using-webhooks/securing-your-webhooks)."
+> [!WARNING]
+> To avoid accidental exposure of sensitive information, do **not** include sensitive information in your payload URL.
+> This includes your own API keys and other authentication credentials. Instead, to validate that webhook deliveries were sent by {% data variables.product.github %} and have not been tampered with, use a webhook secret. For more information, see "[AUTOTITLE](/webhooks/using-webhooks/validating-webhook-deliveries)."
 
 The webhook secret should be a random string of text with high entropy. You should securely store your webhook secret in a way that your server can access.
 
@@ -54,11 +56,8 @@ If your server goes down, you should redeliver missed webhooks once your server 
 
 In a replay attack, a bad actor intercepts a webhook delivery and re-sends the delivery. To protect against replay attacks, you can use the `X-GitHub-Delivery` header to ensure that each delivery is unique per event.
 
-{% note %}
-
-**Note**: If you request a redelivery, the `X-GitHub-Delivery` header will be the same as in the original delivery.
-
-{% endnote %}
+> [!NOTE]
+> If you request a redelivery, the `X-GitHub-Delivery` header will be the same as in the original delivery.
 
 ## Further reading
 

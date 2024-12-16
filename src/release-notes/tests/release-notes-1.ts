@@ -14,15 +14,11 @@ describe('release notes', () => {
     await get('/')
 
     nock('https://github.github.com')
-      .get(
-        '/help-docs-archived-enterprise-versions/2.19/en/enterprise-server@2.19/admin/release-notes',
-      )
+      .get('/docs-ghes-2.19/en/enterprise-server@2.19/admin/release-notes')
       .reply(404)
-    nock('https://github.github.com')
-      .get('/help-docs-archived-enterprise-versions/2.19/redirects.json')
-      .reply(200, {
-        emp: 'ty',
-      })
+    nock('https://github.github.com').get('/docs-ghes-2.19/redirects.json').reply(200, {
+      emp: 'ty',
+    })
   })
 
   afterAll(() => nock.cleanAll())

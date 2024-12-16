@@ -23,11 +23,8 @@ You have a few options to convert your legacy Owners team:
 
 ## Give the Owners team a new name
 
-{% tip %}
-
-   **Note:** Because "admin" is a term for organization members with specific access to certain repositories in the organization, we recommend you avoid that term in any team name you decide on. For more information, see "[AUTOTITLE](/organizations/managing-user-access-to-your-organizations-repositories/managing-repository-roles/repository-roles-for-an-organization)."
-
-{% endtip %}
+> [!NOTE]
+> Because "admin" is a term for organization members with specific access to certain repositories in the organization, we recommend you avoid that term in any team name you decide on. For more information, see [AUTOTITLE](/organizations/managing-user-access-to-your-organizations-repositories/managing-repository-roles/repository-roles-for-an-organization).
 
 {% data reusables.profile.access_org %}
 {% data reusables.user-settings.access_org %}
@@ -37,15 +34,12 @@ You have a few options to convert your legacy Owners team:
     * If very few members of your organization were members of the Owners team, you might name the team "Core".
     * If all members of your organization were members of the Owners team so that they could [@mention teams](/get-started/writing-on-github/getting-started-with-writing-and-formatting-on-github/basic-writing-and-formatting-syntax#mentioning-people-and-teams), you might name the team "Employees".
 1. Under the team description, click **Save and continue**.
-1. Optionally, make the team public. For more information, see "[AUTOTITLE](/organizations/organizing-members-into-teams/changing-team-visibility)."
+1. Optionally, make the team public. For more information, see [AUTOTITLE](/organizations/organizing-members-into-teams/changing-team-visibility).
 
 ## Delete the legacy Owners team
 
-{% warning %}
-
-**Warning:** If there are members of your Owners team who are not members of other teams, deleting the team will remove those members from the organization. Before deleting the team, ensure members are already direct members of the organization, or have collaborator access to necessary repositories.
-
-{% endwarning %}
+> [!WARNING]
+> If there are members of your Owners team who are not members of other teams, deleting the team will remove those members from the organization. Before deleting the team, ensure members are already direct members of the organization, or have collaborator access to necessary repositories.
 
 {% data reusables.profile.access_org %}
 {% data reusables.user-settings.access_org %}

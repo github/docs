@@ -27,20 +27,17 @@ You can unblock a user in your account settings or from the user's profile page.
 ## Unblocking a user from their profile page
 
 {% data reusables.profile.user_profile_page_navigation %}
-1. In the left sidebar, below the user's profile information, click  **Unblock or report user**.
+1. In the left sidebar, below the user's profile information, click **Unblock or report user**.
 
    ![Screenshot of the sidebar of a user's profile page. A link, labeled "Unblock or report", is outlined in dark orange.](/assets/images/help/profile/profile-unblock-or-report-user.png)
 1. Click **Unblock user**.
 
-{% tip %}
-
-**Tip**: Settings that were removed when you blocked the user, such as collaborator status, stars, and follows, are not restored when you unblock the user.
-
-{% endtip %}
+> [!TIP]
+> Settings that were removed when you blocked the user, such as collaborator status, stars, and follows, are not restored when you unblock the user.
 
 ## Further reading
 
-* "[AUTOTITLE](/communities/maintaining-your-safety-on-github/blocking-a-user-from-your-personal-account)"
-* "[AUTOTITLE](/communities/maintaining-your-safety-on-github/blocking-a-user-from-your-organization)"
-* "[AUTOTITLE](/communities/maintaining-your-safety-on-github/unblocking-a-user-from-your-organization)"
-* "[AUTOTITLE](/communities/maintaining-your-safety-on-github/reporting-abuse-or-spam)"
+* [AUTOTITLE](/communities/maintaining-your-safety-on-github/blocking-a-user-from-your-personal-account)
+* [AUTOTITLE](/communities/maintaining-your-safety-on-github/blocking-a-user-from-your-organization)
+* [AUTOTITLE](/communities/maintaining-your-safety-on-github/unblocking-a-user-from-your-organization)
+* [AUTOTITLE](/communities/maintaining-your-safety-on-github/reporting-abuse-or-spam)

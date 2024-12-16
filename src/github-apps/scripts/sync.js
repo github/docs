@@ -6,8 +6,9 @@ import { readFile, writeFile } from 'fs/promises'
 import path from 'path'
 import { slug } from 'github-slugger'
 import yaml from 'js-yaml'
+import walk from 'walk-sync'
 
-import { getContents } from '#src/workflows/git-utils.js'
+import { getContents, getDirectoryContents } from '#src/workflows/git-utils.ts'
 import permissionSchema from './permission-list-schema.js'
 import enabledSchema from './enabled-list-schema.js'
 import { validateJson } from '#src/tests/lib/validate-json-schema.js'
@@ -16,6 +17,9 @@ const ENABLED_APPS_DIR = 'src/github-apps/data'
 const CONFIG_FILE = 'src/github-apps/lib/config.json'
 
 export async function syncGitHubAppsData(openApiSource, sourceSchemas, progAccessSource) {
+  console.log(
+    `Generating GitHub Apps data from ${openApiSource}, ${sourceSchemas} and ${progAccessSource}`,
+  )
   const { progAccessData, progActorResources } = await getProgAccessData(progAccessSource)
 
   for (const schemaName of sourceSchemas) {
@@ -65,6 +69,8 @@ export async function syncGitHubAppsData(openApiSource, sourceSchemas, progAcces
         for (const permissionSet of progAccessData[operation.operationId].permissions) {
           for (const [permissionName, readOrWrite] of Object.entries(permissionSet)) {
             const { title, displayTitle } = getDisplayTitle(permissionName, progActorResources)
+            if (progActorResources[permissionName]['visibility'] === 'private') continue
+
             const additionalPermissions =
               progAccessData[operation.operationId].permissions.length > 1 ||
               progAccessData[operation.operationId].permissions.some(
@@ -156,22 +162,26 @@ export async function getProgAccessData(progAccessSource, isRest = false) {
   let progAccessDataRaw
   let progActorResources
   const progAccessFilepath = 'config/access_control/programmatic_access.yaml'
-  const progActorFilepath = 'config/locales/programmatic_actor_fine_grained_resources.en.yml'
+  const progActorDirectory =
+    'config/access_control/fine_grained_permissions/programmatic_actor_fine_grained_resources'
 
   if (!useRemoteGitHubFiles) {
     progAccessDataRaw = yaml.load(
       await readFile(path.join(progAccessSource, progAccessFilepath), 'utf8'),
     )
-    progActorResources = yaml.load(
-      await readFile(path.join(progAccessSource, progActorFilepath), 'utf8'),
-    ).en.programmatic_actor_fine_grained_resources
+    progActorResources = await getProgActorResourceContent({
+      gitHubSourceDirectory: path.join(progAccessSource, progActorDirectory),
+    })
   } else {
     progAccessDataRaw = yaml.load(
       await getContents('github', 'github', 'master', progAccessFilepath),
     )
-    progActorResources = yaml.load(
-      await getContents('github', 'github', 'master', progActorFilepath),
-    ).en.programmatic_actor_fine_grained_resources
+    progActorResources = await getProgActorResourceContent({
+      owner: 'github',
+      repo: 'github',
+      branch: 'master',
+      path: progActorDirectory,
+    })
   }
 
   const progAccessData = {}
@@ -237,7 +247,7 @@ function getDisplayTitle(permissionName, progActorResources, isRest = false) {
   const permissionNameExists = progActorResources[permissionName]
   if (!permissionNameExists) {
     console.warn(
-      `The permission ${permissionName} is missing from config/locales/programmatic_actor_fine_grained_resources.en.yml. Creating a placeholder value of ${tempTitle} until it's added.`,
+      `The permission ${permissionName} is missing from the definitions in the config/access_control/fine_grained_permissions/programmatic_actor_fine_grained_resources directory. Creating a placeholder value of ${tempTitle} until it's added.`,
     )
   }
   const title = progActorResources[permissionName]?.title || tempTitle
@@ -290,4 +300,50 @@ async function validateAppData(data, pageType) {
       }
     }
   }
+}
+
+// When getting files from the GitHub repo locally (or in a Codespace)
+// you can pass the full or relative path to the `github` repository
+// directory on disk.
+// When the source directory is `rest-api-description` (which is more common)
+// you can pass the `owner`, `repo`, `branch`, and `path` (repository path)
+async function getProgActorResourceContent({
+  owner,
+  repo,
+  branch,
+  path,
+  gitHubSourceDirectory = null,
+}) {
+  // Get files either locally from disk or from the GitHub remote repo
+  let files
+  if (gitHubSourceDirectory) {
+    files = await getProgActorContentFromDisk(gitHubSourceDirectory)
+  } else {
+    files = await getDirectoryContents(owner, repo, branch, path)
+  }
+
+  // We need to format the file content into a single object. Each file
+  // contains a single key and a single value that needs to be added
+  // to the object.
+  const progActorResources = {}
+  for (const file of files) {
+    const fileContent = yaml.load(file)
+    // Each file should only contain a single key and value.
+    if (Object.keys(fileContent).length !== 1) {
+      throw new Error(`Error: The file ${JSON.stringify(fileContent)} must only have one key.`)
+    }
+    Object.entries(fileContent).forEach(([key, value]) => {
+      progActorResources[key] = value
+    })
+  }
+  return progActorResources
+}
+
+async function getProgActorContentFromDisk(directory) {
+  const files = walk(directory, {
+    includeBasePath: true,
+    directories: false,
+  })
+  const promises = files.map(async (file) => await readFile(file, 'utf8'))
+  return await Promise.all(promises)
 }

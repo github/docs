@@ -10,8 +10,13 @@ api.github.com
 
 ```shell copy
 codeload.github.com
+pkg.actions.githubusercontent.com
+```
+
+**Needed for publishing immutable actions:**
+
+```shell copy
 ghcr.io
-*.actions.githubusercontent.com
 ```
 
 **Needed for uploading/downloading job summaries, logs, workflow artifacts, and caches:**
@@ -49,3 +54,12 @@ ghcr.io
 github-cloud.githubusercontent.com
 github-cloud.s3.amazonaws.com
 ```
+
+{% ifversion fpt or ghec %}
+**Needed for jobs for {% data variables.product.prodname_dependabot_updates %}**
+
+```shell copy
+dependabot-actions.githubapp.com
+```
+
+{% endif %}

@@ -34,14 +34,11 @@ In addition to reviewing {% data variables.product.prodname_github_apps %} that 
 
 * For a repository where a {% data variables.product.prodname_github_app %} was granted access:
 
-   {% note %}
-
-   **Note**: In the following steps, you will be taken to the account settings for the organization or personal account where the {% data variables.product.prodname_github_app %} is installed. The settings will affect all repositories where the app is installed under that account, not just the repository where you navigated from.
-
-   {% endnote %}
+   > [!NOTE]
+   > In the following steps, you will be taken to the account settings for the organization or personal account where the {% data variables.product.prodname_github_app %} is installed. The settings will affect all repositories where the app is installed under that account, not just the repository where you navigated from.
 
    1. Navigate to the main page of the organization or repository.
-   1. Click {% octicon "gear" aria-label="The Settings gear" %} **Settings**.
+   1. Click **{% octicon "gear" aria-hidden="true" %} Settings**.
    1. Under "Integrations," click **GitHub Apps**. A list of the {% data variables.product.prodname_github_apps %} that have been granted access to your repository will be displayed.
 
    1. Next to the {% data variables.product.prodname_github_app %} you want to review or modify, click **Configure**.

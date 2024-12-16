@@ -10,7 +10,7 @@ versions:
 
 ## About migrations from Bitbucket Server
 
-You can use {% data variables.product.prodname_importer_proper_name %} to migrate repositories from Bitbucket Server to {% data variables.product.prodname_ghe_cloud %}. Migrations from Bitbucket Server are only supported for Bitbucket Server or Bitbucket Data Center version 5.14+ or higher.
+You can use {% data variables.product.prodname_importer_proper_name %} to migrate repositories from Bitbucket Server to {% data variables.product.prodname_ghe_cloud %} ({% data variables.product.prodname_dotcom_the_website %} or {% data variables.enterprise.data_residency_site %}). Migrations from Bitbucket Server are only supported for Bitbucket Server or Bitbucket Data Center version 5.14+ or higher.
 
 ## Data that is migrated
 
@@ -40,4 +40,4 @@ Currently, the following data is **not** migrated.
 
 Before you migrate from Bitbucket Server, you should plan out how you will run your migration. Before migrating any data, you will need to choose someone to run the migration. You must grant that person the necessary access for both the source and the destination of the migration. We also recommend you run a trial migration first.
 
-For an overview of the migration process from beginning to end, see "[AUTOTITLE](/migrations/using-github-enterprise-importer/migrating-from-bitbucket-server-to-github-enterprise-cloud/overview-of-a-migration-from-bitbucket-server-to-github-enterprise-cloud)."
+For an overview of the migration process from beginning to end, see [AUTOTITLE](/migrations/using-github-enterprise-importer/migrating-from-bitbucket-server-to-github-enterprise-cloud/overview-of-a-migration-from-bitbucket-server-to-github-enterprise-cloud).

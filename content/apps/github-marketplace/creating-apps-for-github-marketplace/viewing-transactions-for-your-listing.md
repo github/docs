@@ -16,11 +16,8 @@ shortTitle: View listing transactions
 
 {% data reusables.marketplace.marketplace-apps-not-actions %}
 
-{% note %}
-
-**Note:** Because it takes time to aggregate data, you'll notice a slight delay in the dates shown. When you select a time period, you can see exact dates for the metrics at the top of the page.
-
-{% endnote %}
+> [!NOTE]
+> Because it takes time to aggregate data, you'll notice a slight delay in the dates shown. When you select a time period, you can see exact dates for the metrics at the top of the page.
 
 You can view or download the transaction data to keep track of your subscription activity. Click the **Export CSV** button to download a `.csv` file. You can also select a period of time to view and search within the transaction page.
 

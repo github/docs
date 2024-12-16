@@ -1,6 +1,7 @@
 ---
 title: About writing and formatting on GitHub
 intro: GitHub combines a syntax for formatting text called GitHub Flavored Markdown with a few unique writing features.
+product: '{% data reusables.gated-features.markdown-ui %}'
 redirect_from:
   - /articles/about-writing-and-formatting-on-github
   - /github/writing-on-github/about-writing-and-formatting-on-github
@@ -15,7 +16,7 @@ shortTitle: About writing & formatting
 
 We've added some custom functionality to create {% data variables.product.prodname_dotcom %} Flavored Markdown, used to format prose and code across our site.
 
-You can also interact with other users in pull requests and issues using features like @-mentions, issue and PR references, and emoji. For more information, see "[AUTOTITLE](/get-started/writing-on-github/getting-started-with-writing-and-formatting-on-github/basic-writing-and-formatting-syntax)."
+You can also interact with other users in pull requests and issues using features like @-mentions, issue and PR references, and emoji. For more information, see [AUTOTITLE](/get-started/writing-on-github/getting-started-with-writing-and-formatting-on-github/basic-writing-and-formatting-syntax).
 
 ## Text formatting toolbar
 
@@ -39,6 +40,6 @@ You can enable a fixed-width font in every comment field on {% data variables.pr
 ## Further reading
 
 * [{% data variables.product.prodname_dotcom %} Flavored Markdown Spec](https://github.github.com/gfm/)
-* "[AUTOTITLE](/get-started/writing-on-github/getting-started-with-writing-and-formatting-on-github/basic-writing-and-formatting-syntax)"
-* "[AUTOTITLE](/get-started/writing-on-github/working-with-advanced-formatting)"
-* "[AUTOTITLE](/get-started/writing-on-github/getting-started-with-writing-and-formatting-on-github/quickstart-for-writing-on-github)"
+* [AUTOTITLE](/get-started/writing-on-github/getting-started-with-writing-and-formatting-on-github/basic-writing-and-formatting-syntax)
+* [AUTOTITLE](/get-started/writing-on-github/working-with-advanced-formatting)
+* [AUTOTITLE](/get-started/writing-on-github/getting-started-with-writing-and-formatting-on-github/quickstart-for-writing-on-github)

@@ -3,8 +3,7 @@ title: Assessing your code security risk
 shortTitle: Assess security risk to code
 allowTitleToDifferFromFilename: true
 intro: 'You can use security overview to see which teams and repositories are affected by security alerts, and identify repositories for urgent remedial action.'
-permissions: '{% data reusables.security-overview.permissions %}'
-product: '{% data reusables.gated-features.security-overview %}'
+permissions: '{% data reusables.permissions.security-overview %}'
 type: how_to
 topics:
   - Security overview
@@ -21,27 +20,25 @@ redirect_from:
 
 {% data reusables.security-overview.beta-org-risk-coverage %}
 
-## About security risks in your code
+## Exploring the security risks in your code
 
-You can use security overview to see which repositories and teams are free from any security alerts and which have unresolved security alerts. The "Security risk" page shows a summary and detailed information on which repositories in an organization {% ifversion security-overview-org-risk-coverage-enterprise %}or enterprise {% endif %}are affected by security alerts, with a breakdown of alert by severity. You can filter the view to show a subset of repositories using the "affected" and "unaffected" links, the links under "Open alerts", the "Teams" dropdown menu, and a search field in the page header. This view is a great way to understand the broader picture for a repository, team, or group of repositories because you can see security alerts of all types in one view.
+You can use the different views on your **Security** tab to explore the security risks in your code.
 
-![Screenshot of the header section of the "Security risk" view on the "Security" tab for an organization.](/assets/images/help/security-overview/security-risk-view-summary.png)
+* **Overview:** use to explore trends in **Detection**, **Remediation**, and **Prevention** of security alerts.
+* **Risk:** use to explore the current state of repositories, across all alert types.
+* **Alerts views:** use to explore {% data variables.product.prodname_code_scanning %}, {% data variables.product.prodname_dependabot %}, or {% data variables.product.prodname_secret_scanning %} alerts in greater detail.
 
-{% ifversion security-overview-export-data %}
-You can download a CSV file of the data displayed on the "Security risk" page. This data file can be used for efforts like security research and in-depth data analysis, and can integrate easily with external datasets. For more information, see "[AUTOTITLE](/code-security/security-overview/exporting-data-from-security-overview)."
-{% endif %}
+These views provide you with the data and filters to:
 
-{% note %}
+* Assess the landscape of your code security across all your repositories.
+* Identify the highest impact vulnerabilities to address.
+* Monitor your progress in remediating potential vulnerabilities. {% ifversion security-overview-export-data %}
+* Export your current selection of data for further analysis and reporting.  {% endif %}
 
-**Note:** It's important to understand that all repositories without open alerts are included in the set of unaffected repositories. That is, unaffected repositories include any repositories where the feature is not enabled, in addition to repositories that have been scanned and any alerts identified have been closed.
-
-{% endnote %}
+{% ifversion security-overview-dashboard %}
+For information about the **Overview**, see [AUTOTITLE](/code-security/security-overview/viewing-security-insights).{% endif %}
 
 ## Viewing organization-level code security risks
-
-{% data reusables.security-overview.information-varies-GHAS %}
-
-{% ifversion security-overview-org-risk-coverage %}
 
 {% data reusables.organizations.navigate-to-org %}
 {% data reusables.organizations.security-overview %}
@@ -50,44 +47,35 @@ You can download a CSV file of the data displayed on the "Security risk" page. T
 
    ![Screenshot of the "Security risk" view for an organization. The options for filtering are outlined in dark orange.](/assets/images/help/security-overview/security-risk-view-highlights.png)
 
-{% data reusables.organizations.security-overview-feature-specific-page %}
+    {% data reusables.security-overview.unaffected-repositories %}
 
-{% else %}
-
-{% data reusables.organizations.navigate-to-org %}
-{% data reusables.organizations.security-overview %}
-1. To view aggregate information about alert types, click **Show more**.
-{% data reusables.organizations.filter-security-overview %}
-{% ifversion security-overview-alert-views %}
-{% data reusables.organizations.security-overview-feature-specific-page %}
-
-   ![Screenshot of the {% data variables.product.prodname_code_scanning %} alerts page on the "Security" tab. Features apart from filters, dropdown menus, and sidebar are grayed out.](/assets/images/help/security-overview/security-overview-code-scanning-alerts.png)
-
-{% endif %}
-{% endif %}
+{% data reusables.organizations.security-overview-feature-specific-page %} {% ifversion security-overview-export-data %}
+1. Optionally, use the **{% octicon "download" aria-hidden="true" %} Export CSV** button to download a CSV file of the data currently displayed on the page for security research and in-depth data analysis. For more information, see [AUTOTITLE](/code-security/security-overview/exporting-data-from-security-overview). {% endif %}
 
 {% data reusables.security-overview.alert-differences %}
 
 ## Viewing enterprise-level code security risks
 
-{% ifversion security-overview-org-risk-coverage-enterprise %}
-
-You can view data for security alerts across organizations in an enterprise. {% data reusables.security-overview.information-varies-GHAS %}
+You can view data for security alerts across organizations in an enterprise.
 
 {% data reusables.security-overview.enterprise-filters-tip %}
 
-{% endif %}
-
-{% data reusables.enterprise-accounts.access-enterprise-on-dotcom %}
+{% ifversion ghes %}{% data reusables.enterprise-accounts.access-enterprise-ghes %}{% else %}{% data reusables.enterprise-accounts.access-enterprise-on-dotcom %}{% endif %}
 {% data reusables.code-scanning.click-code-security-enterprise %}
-{% ifversion security-overview-feature-specific-alert-page %}{% ifversion security-overview-org-risk-coverage-enterprise %}
-1. To display the "Security coverage" view, in the sidebar, click **Risk**.
+1. To display the "Security risk" view, in the sidebar, click **{% octicon "shield" aria-hidden="true" %} Risk**.
 {% data reusables.code-scanning.using-security-overview-risk %}
 
     ![Screenshot of the "Security risk" view for an enterprise. The options for filtering are outlined in dark orange.](/assets/images/help/security-overview/security-risk-view-highlights-enterprise.png)
 
-{% else %}
-{% data reusables.organizations.security-overview-feature-specific-page %}{% endif %}
-{% endif %}
+    {% data reusables.security-overview.unaffected-repositories %}
+{% data reusables.organizations.security-overview-feature-specific-page %}{% ifversion security-overview-export-data %}
+1. Optionally, use the {% octicon "download" aria-hidden="true" %} **Export CSV** button to download a CSV file of the data currently displayed on the page for security research and in-depth data analysis. For more information, see [AUTOTITLE](/code-security/security-overview/exporting-data-from-security-overview). {% endif %}
 
 {% data reusables.security-overview.alert-differences %}
+
+{% ifversion security-campaigns %}
+
+## Next steps
+
+When you have assessed your code security risks, you are ready to create a security campaign to collaborate with developers to remediate alerts. For information about fixing security alerts at scale, see [AUTOTITLE](/code-security/securing-your-organization/fixing-security-alerts-at-scale/creating-tracking-security-campaigns) and [AUTOTITLE](/code-security/securing-your-organization/fixing-security-alerts-at-scale/best-practice-fix-alerts-at-scale).
+{% endif %}

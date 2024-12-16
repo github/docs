@@ -14,11 +14,10 @@ topics:
 ## About the GraphQL Explorer
 
 {% ifversion ghec %}
-{% note %}
 
-**Note**: If your {% data variables.product.prodname_ghe_cloud %} organization uses {% data variables.product.prodname_dotcom %}'s IP allow list, you won't be able to use the GraphQL Explorer. Instead, we recommend using an alternative GraphQL client IDE.
+> [!NOTE]
+> If your {% data variables.product.prodname_ghe_cloud %} organization uses {% data variables.product.prodname_dotcom %}'s IP allow list, you won't be able to use the GraphQL Explorer. Instead, we recommend using an alternative GraphQL client IDE.
 
-{% endnote %}
 {% endif %}
 
 {% ifversion fpt or ghec %}
@@ -37,13 +36,10 @@ You can use query autocompletion to help you build queries. In the main pane, wi
 
 ## Accessing the sidebar docs
 
-All types in a GraphQL schema include a `description` field compiled into documentation. The collapsible **Docs** pane on the right side of the Explorer page allows you to browse documentation about the type system. The docs are automatically updated and will drop deprecated fields.
+All types in a GraphQL schema include a `description` field compiled into documentation. The collapsible **Docs** pane on the right side of the Explorer page allows you to browse documentation about the type system. The docs are automatically updated and will drop fields that are {% data variables.release-phases.closing_down %}.
 
-{% note %}
-
-The **Docs** sidebar contains the same content that is automatically generated from the schema under "[AUTOTITLE](/graphql)," though it is formatted differently in places.
-
-{% endnote %}
+> [!NOTE]
+> The **Docs** sidebar contains the same content that is automatically generated from the schema under [AUTOTITLE](/graphql), though it is formatted differently in places.
 
 ## Using the variable pane
 
@@ -87,16 +83,13 @@ There are many open source GraphQL client IDEs. For example, you can use Altair 
 1. In the "Header key" field, enter `Authorization`.
 1. In the "Header value" field, enter `Bearer TOKEN`, replacing `TOKEN` with your token from the first step.
 1. Click **Save** in the bottom right corner of the window to save your authorization header.
-1. In the "GraphQL Endpoint" field, enter `{% data variables.product.graphql_url %}`.
+1. In the "GraphQL Endpoint" field, enter your GraphQL URL, such as `{% data variables.product.graphql_url %}`.
 1. To load the {% data variables.product.company_short %} GraphQL schema, download the [public schema](/graphql/overview/public-schema).
 1. In Altair, click on **Docs** on the top right, then the three dots and **Load Schema...**
 1. Select the file public schema that you downloaded in an earlier step.
 
-{% note %}
-
-**Note**: For more information about why `POST` is the method, see "[AUTOTITLE](/graphql/guides/forming-calls-with-graphql#communicating-with-graphql)."
-
-{% endnote %}
+> [!NOTE]
+> For more information about why `POST` is the method, see [AUTOTITLE](/graphql/guides/forming-calls-with-graphql#communicating-with-graphql).
 
 You can test your access by querying yourself:
 
@@ -155,8 +148,5 @@ It's possible you might run into an unexpected error that is not related to the 
 }
 ```
 
-{% note %}
-
-**Note:** {% data variables.product.prodname_dotcom %} recommends checking for errors before using data in a production environment. In GraphQL, failure is not total: portions of GraphQL queries may succeed while others fail.
-
-{% endnote %}
+> [!NOTE]
+> {% data variables.product.prodname_dotcom %} recommends checking for errors before using data in a production environment. In GraphQL, failure is not total: portions of GraphQL queries may succeed while others fail.

@@ -76,3 +76,8 @@
 - is: https://jsonformatter.org/
 - is: https://mvnrepository.com/artifact/org.xwiki.platform/xwiki-platform-oldcore
 - is: https://mvnrepository.com/artifact/com.google.guava/guava
+- startsWith: https://platform.openai.com/docs/models
+- startsWith: https://openai.com/index
+- is: https://github.com/github-linguist/linguist/compare/master...octocat:master
+- is: https://www.servicenow.com/docs/bundle/utah-devops/page/product/enterprise-dev-ops/concept/github-integration-dev-ops.html
+- startsWith: https://www.ilo.org

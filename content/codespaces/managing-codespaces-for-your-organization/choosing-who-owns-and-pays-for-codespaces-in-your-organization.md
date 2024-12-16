@@ -11,7 +11,7 @@ topics:
   - Codespaces
   - Billing
   - Administrator
-product: 'Organizations on {% data variables.product.prodname_team %} and {% data variables.product.prodname_enterprise %} plans can pay for their members'' use of {% data variables.product.prodname_github_codespaces %}. These organizations can then access policies that apply to codespaces paid for by the organization. For more information, see "[AUTOTITLE](/get-started/learning-about-github/githubs-products)."'
+product: 'Organizations on {% data variables.product.prodname_team %} and {% data variables.product.prodname_enterprise %} plans can pay for their members'' use of {% data variables.product.prodname_github_codespaces %}. These organizations can then access policies that apply to codespaces paid for by the organization. See [AUTOTITLE](/get-started/learning-about-github/githubs-products).'
 ---
 
 ## Overview
@@ -20,13 +20,13 @@ If you're the owner of an organization on a {% data variables.product.prodname_t
 
 To pay for usage, you must do all of the following things:
 
-* Allow at least some of your members and collaborators to use {% data variables.product.prodname_github_codespaces %} in your organization's private {% ifversion ghec %}and internal {% endif %}repositories. For more information, see "[AUTOTITLE](/codespaces/managing-codespaces-for-your-organization/enabling-or-disabling-github-codespaces-for-your-organization#enabling-or-disabling-github-codespaces)."
-* Choose for codespaces created from your organization's repositories to be **organization-owned**. For more information, see "[Choosing who owns and pays for codespaces](#choosing-who-owns-and-pays-for-codespaces)."
-* Set a non-zero spending limit for {% data variables.product.prodname_github_codespaces %}. For more information, see "[AUTOTITLE](/billing/managing-billing-for-github-codespaces/managing-the-spending-limit-for-github-codespaces#managing-the-github-codespaces-spending-limit-for-your-organization-account)."
+* Allow at least some of your members and collaborators to use {% data variables.product.prodname_github_codespaces %} in your organization's private {% ifversion ghec %}and internal {% endif %}repositories. See [AUTOTITLE](/codespaces/managing-codespaces-for-your-organization/enabling-or-disabling-github-codespaces-for-your-organization#enabling-or-disabling-github-codespaces).
+* Choose for codespaces created from your organization's repositories to be **organization-owned**. See [Choosing who owns and pays for codespaces](#choosing-who-owns-and-pays-for-codespaces).
+* Set a non-zero spending limit for {% data variables.product.prodname_github_codespaces %}. See [AUTOTITLE](/billing/managing-billing-for-your-products/managing-billing-for-github-codespaces/managing-the-spending-limit-for-github-codespaces#managing-the-github-codespaces-spending-limit-for-your-organization-account).
 
 ## About choosing who pays for codespaces
 
-Paying for a codespace means paying for the storage and compute costs of the codespace over the codespace's lifetime. For more information, see "[AUTOTITLE](/billing/managing-billing-for-github-codespaces/about-billing-for-github-codespaces)."
+Paying for a codespace means paying for the storage and compute costs of the codespace over the codespace's lifetime. See [AUTOTITLE](/billing/managing-billing-for-your-products/managing-billing-for-github-codespaces/about-billing-for-github-codespaces).
 
 Organizations on a {% data variables.product.prodname_free_team %} plan cannot pay for {% data variables.product.prodname_github_codespaces %}, so the user who creates the codespace always pays.
 
@@ -38,14 +38,13 @@ If an organization chooses for codespaces to be **organization-owned**, the orga
 
 {% data reusables.codespaces.when-an-org-pays %}
 
-For more information about enabling {% data variables.product.prodname_github_codespaces %} for members and collaborators, see "[AUTOTITLE](/codespaces/managing-codespaces-for-your-organization/enabling-or-disabling-github-codespaces-for-your-organization)."
+For more information about enabling {% data variables.product.prodname_github_codespaces %} for members and collaborators, see [AUTOTITLE](/codespaces/managing-codespaces-for-your-organization/enabling-or-disabling-github-codespaces-for-your-organization).
 
 {% ifversion ghec %}
-{% note %}
 
-**Note:** If you own an {% data variables.enterprise.prodname_emu_org %} and do not allow {% data variables.product.prodname_github_codespaces %} to be billed to your organization, members with {% data variables.enterprise.prodname_managed_users %} will not be able to use {% data variables.product.prodname_github_codespaces %}. For more information, see "[AUTOTITLE](/admin/identity-and-access-management/using-enterprise-managed-users-for-iam/about-enterprise-managed-users#abilities-and-restrictions-of-managed-user-accounts)."
+> [!NOTE]
+> If you own an {% data variables.enterprise.prodname_emu_org %} and do not allow {% data variables.product.prodname_github_codespaces %} to be billed to your organization, members with {% data variables.enterprise.prodname_managed_users %} will not be able to use {% data variables.product.prodname_github_codespaces %}. See [AUTOTITLE](/admin/identity-and-access-management/using-enterprise-managed-users-for-iam/about-enterprise-managed-users#abilities-and-restrictions-of-managed-user-accounts).
 
-{% endnote %}
 {% endif %}
 
 ## About ownership of codespaces
@@ -72,24 +71,21 @@ If you change from **user ownership** to **organization ownership**, existing co
 
 ## Choosing who owns and pays for codespaces
 
-{% note %}
-
-**Note:** If you cannot access the option to make codespaces **organization-owned**, this may be because you have disabled {% data variables.product.prodname_github_codespaces %} for all users in your organization's private{% ifversion ghec %} and internal{% endif %} repositories. For more information, see "[About choosing who pays for codespaces](#about-choosing-who-pays-for-codespaces)."
-
-{% endnote %}
+> [!NOTE]
+> If you cannot access the option to make codespaces **organization-owned**, this may be because you have disabled {% data variables.product.prodname_github_codespaces %} for all users in your organization's private{% ifversion ghec %} and internal{% endif %} repositories. See [About choosing who pays for codespaces](#about-choosing-who-pays-for-codespaces).
 
 {% data reusables.profile.access_org %}
 {% data reusables.profile.org_settings %}
 {% data reusables.organizations.click-codespaces %}
 {% data reusables.organizations.click-general %}
 1. On the {% data variables.product.prodname_codespaces %} settings page, under "Codespace ownership," select the setting you want for your organization:
-   * **Organization ownership**: Codespaces can be owned and paid for by your organization.
-   * **User ownership**: Codespaces are always owned and paid for by the user who creates the codespace.
+   * **Organization ownership:** Codespaces can be owned and paid for by your organization.
+   * **User ownership:** Codespaces are always owned and paid for by the user who creates the codespace.
 
-1. Optionally, under "Codespaces access," review the members and collaborators for whom you have enabled {% data variables.product.prodname_codespaces %}. These are the only users who can create codespaces that your organization pays for. For more information, see "[AUTOTITLE](/codespaces/managing-codespaces-for-your-organization/enabling-or-disabling-github-codespaces-for-your-organization)."
+1. Optionally, under "Codespaces access," review the members and collaborators for whom you have enabled {% data variables.product.prodname_codespaces %}. These are the only users who can create codespaces that your organization pays for. See [AUTOTITLE](/codespaces/managing-codespaces-for-your-organization/enabling-or-disabling-github-codespaces-for-your-organization).
 
 ## Setting a spending limit
 
 {% data reusables.codespaces.codespaces-spending-limit-requirement %}
 
-For information on managing and changing your account's spending limit, see "[AUTOTITLE](/billing/managing-billing-for-github-codespaces/managing-the-spending-limit-for-github-codespaces#managing-the-github-codespaces-spending-limit-for-your-organization-account)."
+For information on managing and changing your account's spending limit, see [AUTOTITLE](/billing/managing-billing-for-your-products/managing-billing-for-github-codespaces/managing-the-spending-limit-for-github-codespaces#managing-the-github-codespaces-spending-limit-for-your-organization-account).

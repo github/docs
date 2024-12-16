@@ -18,17 +18,12 @@ topics:
 
 ## Renaming a file on {% data variables.product.product_name %}
 
-Renaming a file also gives you the opportunity to [move the file to a new location](/repositories/working-with-files/managing-files/moving-a-file-to-a-new-location)
+Renaming a file also gives you the opportunity to [move the file to a new location](/repositories/working-with-files/managing-files/moving-a-file-to-a-new-location).
 
-{% tip %}
-
-**Tips**:
-
-* If you try to rename a file in a repository that you don’t have access to, we will fork the project to your personal account and help you send [a pull request](/pull-requests/collaborating-with-pull-requests/proposing-changes-to-your-work-with-pull-requests/about-pull-requests) to the original repository after you commit your change.
-* File names created via the web interface can only contain alphanumeric characters and hyphens (`-`). To use other characters, create and commit the files locally and then push them to the repository.
-* Some files, such as images, require that you rename them from the command line. For more information, see "[Renaming a file using the command line](#renaming-a-file-using-the-command-line)."
-
-{% endtip %}
+> [!TIP]
+> * If you try to rename a file in a repository that you don’t have access to, we will fork the project to your personal account and help you send [a pull request](/pull-requests/collaborating-with-pull-requests/proposing-changes-to-your-work-with-pull-requests/about-pull-requests) to the original repository after you commit your change.
+> * File names created via the web interface can only contain alphanumeric characters and hyphens (`-`). To use other characters, create and commit the files locally and then push them to the repository.
+> * Some files, such as images, require that you rename them from the command line. For more information, see [Renaming a file using the command line](#renaming-a-file-using-the-command-line).
 
 1. In your repository, browse to the file you want to rename.
 {% data reusables.repositories.edit-file-button %}
