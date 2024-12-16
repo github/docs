@@ -37,6 +37,10 @@ spec:
                 name: vault-secrets
             - configMapRef:
                 name: kube-cluster-metadata
+            # application-config is crated at deploy time from
+            # configuration set in config/moda/configuration/*/env.yaml
+            - configMapRef:
+                name: application-config
           # Zero-downtime deploys
           # https://thehub.github.com/engineering/products-and-services/internal/moda/feature-documentation/pod-lifecycle/#required-prestop-hook
           # https://kubernetes.io/docs/concepts/containers/container-lifecycle-hooks/#container-hooks
