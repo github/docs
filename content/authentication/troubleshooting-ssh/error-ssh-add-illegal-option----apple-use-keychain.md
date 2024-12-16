@@ -31,6 +31,6 @@ To add your SSH private key to the ssh-agent, you can specify the path to the Ap
 
 ## Further reading
 
-* "[AUTOTITLE](/authentication/connecting-to-github-with-ssh/generating-a-new-ssh-key-and-adding-it-to-the-ssh-agent)"
+* [AUTOTITLE](/authentication/connecting-to-github-with-ssh/generating-a-new-ssh-key-and-adding-it-to-the-ssh-agent)
 * [Linux man page for ssh-add](http://man7.org/linux/man-pages/man1/ssh-add.1.html)
 * To view Apple's man page for SSH-ADD, run `man ssh-add` in Terminal

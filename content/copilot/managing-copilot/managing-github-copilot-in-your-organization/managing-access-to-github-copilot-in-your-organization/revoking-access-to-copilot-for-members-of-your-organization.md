@@ -14,7 +14,7 @@ redirect_from:
 
 ## How revoking access affects billing
 
-Revoking access takes effect from the start of the next billing cycle. If you remove a seat during a cycle, the user will have access to {% data variables.product.prodname_copilot_short %} for the remainder of the billing cycle. For more information, see "[AUTOTITLE](/billing/managing-billing-for-github-copilot/about-billing-for-github-copilot)."
+Revoking access takes effect from the start of the next billing cycle. If you remove a seat during a cycle, the user will have access to {% data variables.product.prodname_copilot_short %} for the remainder of the billing cycle. For more information, see [AUTOTITLE](/billing/managing-billing-for-github-copilot/about-billing-for-github-copilot).
 
 ## Revoking access to {% data variables.product.prodname_copilot %} for your whole organization
 
@@ -40,10 +40,10 @@ Removing a user from the organization(s) that had granted them {% data variables
 
 ## Using the API to revoke access to {% data variables.product.prodname_copilot %}
 
-You can use {% data variables.product.prodname_dotcom %}'s REST API to revoke access to {% data variables.product.prodname_copilot %} for teams, or specific users, in your organization. For example, you might want to write a script to automatically revoke seats for organization members who have not been using {% data variables.product.prodname_copilot_short %}. See "[Remove teams from the Copilot subscription for an organization](/rest/copilot/copilot-user-management?apiVersion=2022-11-28#remove-teams-from-the-copilot-subscription-for-an-organization)" and "[Remove users from the Copilot subscription for an organization](/rest/copilot/copilot-user-management?apiVersion=2022-11-28#remove-users-from-the-copilot-subscription-for-an-organization)."
+You can use {% data variables.product.prodname_dotcom %}'s REST API to revoke access to {% data variables.product.prodname_copilot %} for teams, or specific users, in your organization. For example, you might want to write a script to automatically revoke seats for organization members who have not been using {% data variables.product.prodname_copilot_short %}. See [Remove teams from the Copilot subscription for an organization](/rest/copilot/copilot-user-management?apiVersion=2022-11-28#remove-teams-from-the-copilot-subscription-for-an-organization) and [Remove users from the Copilot subscription for an organization](/rest/copilot/copilot-user-management?apiVersion=2022-11-28#remove-users-from-the-copilot-subscription-for-an-organization).
 
 ## Further reading
 
 * [{% data variables.product.prodname_copilot %} Trust Center](https://resources.github.com/copilot-trust-center)
-* "[AUTOTITLE](/copilot/managing-github-copilot-in-your-organization/granting-access-to-copilot-for-members-of-your-organization)."
-* "[AUTOTITLE](/copilot/managing-copilot/managing-github-copilot-in-your-organization/reviewing-github-copilot-activity-in-your-organization/reviewing-usage-data-for-github-copilot-in-your-organization)"
+* [AUTOTITLE](/copilot/managing-github-copilot-in-your-organization/granting-access-to-copilot-for-members-of-your-organization).
+* [AUTOTITLE](/copilot/managing-copilot/managing-github-copilot-in-your-organization/reviewing-github-copilot-activity-in-your-organization/reviewing-usage-data-for-github-copilot-in-your-organization)

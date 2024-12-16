@@ -38,7 +38,7 @@ A {% data variables.product.prodname_copilot %} seat is a license to use {% data
 
 Removing all assigned {% data variables.product.prodname_copilot %} seats in your organization will cancel your organization's {% data variables.product.prodname_copilot_short %} subscription.
 
-Seat assignment is managed by organization owners. See "[AUTOTITLE](/copilot/managing-copilot/managing-github-copilot-in-your-organization/managing-access-to-github-copilot-in-your-organization/granting-access-to-copilot-for-members-of-your-organization)."
+Seat assignment is managed by organization owners. See [AUTOTITLE](/copilot/managing-copilot/managing-github-copilot-in-your-organization/managing-access-to-github-copilot-in-your-organization/granting-access-to-copilot-for-members-of-your-organization).
 
 If you are a member of an organization with a {% data variables.product.prodname_copilot %} subscription, to use the subscription, you will need to be assigned a seat by an organization owner.
 
@@ -46,12 +46,12 @@ If you are a member of an organization with a {% data variables.product.prodname
 
 ### About billing through Azure
 
-When you connect an Azure subscription to your organization account and enable metered billing via Azure, metered usage will start to be sent to Azure. You will be billed through {% data variables.product.prodname_dotcom %} for usage from the start of the current billing cycle to when you enabled metered billing via Azure, on your next billing date. The period between the date you connected your Azure subscription and enabled metered billing via Azure, and the end of the calendar month will be charged in Azure on the first of the month. For more information, see "[AUTOTITLE](/billing/managing-the-plan-for-your-github-account/connecting-an-azure-subscription)."
+When you connect an Azure subscription to your organization account and enable metered billing via Azure, metered usage will start to be sent to Azure. You will be billed through {% data variables.product.prodname_dotcom %} for usage from the start of the current billing cycle to when you enabled metered billing via Azure, on your next billing date. The period between the date you connected your Azure subscription and enabled metered billing via Azure, and the end of the calendar month will be charged in Azure on the first of the month. For more information, see [AUTOTITLE](/billing/managing-the-plan-for-your-github-account/connecting-an-azure-subscription).
 
 > [!NOTE] Usage data is sent to Azure daily, but you are billed at the end of the month based on the number of seats used. This means that although you can track your daily spending (number of seats in this case), actual payments are processed monthly.
 
 ## Further reading
 
-* "[AUTOTITLE](/copilot/about-github-copilot/subscription-plans-for-github-copilot)"
-* "[AUTOTITLE](/copilot/managing-copilot/managing-github-copilot-in-your-organization/managing-the-copilot-subscription-for-your-organization)"
-* "[AUTOTITLE](/billing/managing-your-github-billing-settings/adding-information-to-your-receipts)"
+* [AUTOTITLE](/copilot/about-github-copilot/subscription-plans-for-github-copilot)
+* [AUTOTITLE](/copilot/managing-copilot/managing-github-copilot-in-your-organization/managing-the-copilot-subscription-for-your-organization)
+* [AUTOTITLE](/billing/managing-your-github-billing-settings/adding-information-to-your-receipts)

@@ -47,7 +47,7 @@ If you have a seat on the {% data variables.product.prodname_copilot_business_sh
 If you have a {% data variables.product.prodname_copilot_individuals_short %} (CI) plan, you are subject to an indexing limit and can index any repository that you have access to. However, you can still benefit from the indexes created by other users without affecting your limit.
 {% endif %}
 
-Both CE and CB plans can apply content exclusions to control the behavior of {% data variables.product.prodname_copilot %} for the {% data variables.product.prodname_copilot_short %} seats they manage. For more information, see "[AUTOTITLE](/copilot/managing-copilot/managing-github-copilot-in-your-organization/setting-policies-for-copilot-in-your-organization/excluding-content-from-github-copilot)." However, CI users can still index any repository they have access to, regardless of the content exclusion policies set by the organization.
+Both CE and CB plans can apply content exclusions to control the behavior of {% data variables.product.prodname_copilot %} for the {% data variables.product.prodname_copilot_short %} seats they manage. For more information, see [AUTOTITLE](/copilot/managing-copilot/managing-github-copilot-in-your-organization/setting-policies-for-copilot-in-your-organization/excluding-content-from-github-copilot). However, CI users can still index any repository they have access to, regardless of the content exclusion policies set by the organization.
 
 > [!WARNING] Indexing is permanent for each repository unless the repository itself is deleted. Use caution when selecting a repository to index. Repository indexing cannot be canceled once it starts.
 

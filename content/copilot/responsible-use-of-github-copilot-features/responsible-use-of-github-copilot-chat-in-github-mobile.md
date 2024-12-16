@@ -16,7 +16,7 @@ type: rai
 
 ## About {% data variables.product.prodname_copilot_mobile %}
 
-{% data variables.product.prodname_copilot_mobile %} is a chat interface that lets you interact with {% data variables.product.prodname_copilot %}, to ask and receive answers to coding-related questions within {% data variables.product.prodname_mobile %}. The chat interface provides access to coding information and support without requiring you to navigate documentation or search online forums. In addition to {% data variables.product.prodname_mobile %}, {% data variables.product.prodname_copilot_chat_short %} is currently supported in the {% data variables.product.github %} website, {% data variables.product.prodname_vscode %}, {% data variables.product.prodname_vs %}, and the JetBrains suite of IDEs. For more information about {% data variables.product.prodname_copilot %}, see "[AUTOTITLE](/copilot/about-github-copilot/what-is-github-copilot)."
+{% data variables.product.prodname_copilot_mobile %} is a chat interface that lets you interact with {% data variables.product.prodname_copilot %}, to ask and receive answers to coding-related questions within {% data variables.product.prodname_mobile %}. The chat interface provides access to coding information and support without requiring you to navigate documentation or search online forums. In addition to {% data variables.product.prodname_mobile %}, {% data variables.product.prodname_copilot_chat_short %} is currently supported in the {% data variables.product.github %} website, {% data variables.product.prodname_vscode %}, {% data variables.product.prodname_vs %}, and the JetBrains suite of IDEs. For more information about {% data variables.product.prodname_copilot %}, see [AUTOTITLE](/copilot/about-github-copilot/what-is-github-copilot).
 
 {% data variables.product.prodname_copilot_chat %} can answer a wide range of coding-related questions on topics including syntax, programming concepts, test cases, debugging, and more. {% data variables.product.prodname_copilot_chat %} is not designed to answer non-coding questions or provide general information on topics outside of coding.
 
@@ -28,5 +28,5 @@ The primary supported language for {% data variables.product.prodname_copilot_mo
 
 ## Further reading
 
-* "[AUTOTITLE](/free-pro-team@latest/site-policy/github-terms/github-copilot-pre-release-terms)"
+* [AUTOTITLE](/free-pro-team@latest/site-policy/github-terms/github-copilot-pre-release-terms)
 * [{% data variables.product.prodname_copilot %} Trust Center](https://resources.github.com/copilot-trust-center/)

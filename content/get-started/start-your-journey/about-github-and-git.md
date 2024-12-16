@@ -39,7 +39,7 @@ Typically, to do this in a Git-based workflow, you would:
 * Let Git intelligently **merge** your specific changes back into the main copy of files, so that your changes don't impact other people's updates.
 * Let Git **keep track** of your and other people's changes, so you all stay working on the most up-to-date version of the project.
 
-If you want to learn more about Git, see "[AUTOTITLE](/get-started/using-git/about-git)."
+If you want to learn more about Git, see [AUTOTITLE](/get-started/using-git/about-git).
 
 ### How do Git and {% data variables.product.prodname_dotcom %} work together?
 
@@ -58,7 +58,7 @@ Git figures out how to intelligently merge this flow of changes, and {% data var
 
 ## Where do I start?
 
-If you're new to {% data variables.product.prodname_dotcom %}, and unfamiliar with Git, we recommend working through the articles in the "[AUTOTITLE](/get-started/start-your-journey)" category. The articles focus on tasks you can complete directly in your browser on {% data variables.product.prodname_dotcom %} and will help you to:
+If you're new to {% data variables.product.prodname_dotcom %}, and unfamiliar with Git, we recommend working through the articles in the [AUTOTITLE](/get-started/start-your-journey) category. The articles focus on tasks you can complete directly in your browser on {% data variables.product.prodname_dotcom %} and will help you to:
 
 * **Create an account** on {% data variables.product.prodname_dotcom %}.
 * **Learn the "{% data variables.product.prodname_dotcom %} Flow"**, and the key principles of collaborative working (branches, commits, pull requests, merges).
@@ -71,10 +71,10 @@ If you're new to {% data variables.product.prodname_dotcom %}, and unfamiliar wi
 
 ## Next steps
 
-* "[AUTOTITLE](/get-started/start-your-journey/creating-an-account-on-github)"
+* [AUTOTITLE](/get-started/start-your-journey/creating-an-account-on-github)
 
 {% endif %}
 
 ## Further reading
 
-* "[AUTOTITLE](/get-started/using-github/connecting-to-github)"
+* [AUTOTITLE](/get-started/using-github/connecting-to-github)

@@ -25,7 +25,7 @@ Successful security campaigns to fix alerts at scale have many features in commo
 * Defining a realistic deadline for campaign, bearing in mind the number of alerts you aim to fix.
 * Publicizing the collaboration to developer teams and identifying the best way to engage them for your organization.
 
-For information about the developer experience, see "[AUTOTITLE](/code-security/code-scanning/managing-code-scanning-alerts/fixing-alerts-in-security-campaign)."
+For information about the developer experience, see [AUTOTITLE](/code-security/code-scanning/managing-code-scanning-alerts/fixing-alerts-in-security-campaign).
 
 ## Selecting security alerts for remediation
 
@@ -69,7 +69,7 @@ The OWASP Foundation provides many resources for learning about the most common 
 
 {% data variables.product.prodname_copilot_autofix %} is automatically triggered to suggest a resolution for each security alert. However, developers will often want more information about why the original code is insecure and how to test that the fix is correct and doesn't break other components.
 
-{% data variables.product.prodname_copilot %} is an important tool for developers who have questions about secure coding, how to fix security alerts, and test their fix. Check that all developers in your organization have access to {% data variables.product.prodname_copilot_short %} in both their IDE and {% data variables.product.github %}, see "[AUTOTITLE](/copilot/managing-copilot/managing-github-copilot-in-your-organization/managing-access-to-github-copilot-in-your-organization/granting-access-to-copilot-for-members-of-your-organization)."
+{% data variables.product.prodname_copilot %} is an important tool for developers who have questions about secure coding, how to fix security alerts, and test their fix. Check that all developers in your organization have access to {% data variables.product.prodname_copilot_short %} in both their IDE and {% data variables.product.github %}, see [AUTOTITLE](/copilot/managing-copilot/managing-github-copilot-in-your-organization/managing-access-to-github-copilot-in-your-organization/granting-access-to-copilot-for-members-of-your-organization).
 
 > [!TIP] The {% data variables.product.prodname_GH_advanced_security %} skill provides {% data variables.product.prodname_copilot_chat_short %} with additional context to answer questions about security alerts.
 
@@ -81,4 +81,4 @@ As with any other project, it's important to define realistic timescales to avoi
 
 ## Next steps
 
-* "[AUTOTITLE](/code-security/securing-your-organization/fixing-security-alerts-at-scale/creating-tracking-security-campaigns)"
+* [AUTOTITLE](/code-security/securing-your-organization/fixing-security-alerts-at-scale/creating-tracking-security-campaigns)

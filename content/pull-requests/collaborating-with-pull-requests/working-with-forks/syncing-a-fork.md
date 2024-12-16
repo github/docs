@@ -40,7 +40,7 @@ If the changes from the upstream repository cause conflicts, {% data variables.p
 
 ## Syncing a fork branch with the {% data variables.product.prodname_cli %}
 
-{% data reusables.cli.about-cli %} To learn more about {% data variables.product.prodname_cli %}, see "[AUTOTITLE](/github-cli/github-cli/about-github-cli)."
+{% data reusables.cli.about-cli %} To learn more about {% data variables.product.prodname_cli %}, see [AUTOTITLE](/github-cli/github-cli/about-github-cli).
 
 To update the remote fork from its parent, use the `gh repo sync -b BRANCH-NAME` subcommand and supply your fork and branch name as arguments.
 
@@ -52,7 +52,7 @@ If the changes from the upstream repository cause conflict then the {% data vari
 
 ## Syncing a fork branch from the command line
 
-Before you can sync your fork with an upstream repository, you must configure a remote that points to the upstream repository in Git. For more information, see "[AUTOTITLE](/pull-requests/collaborating-with-pull-requests/working-with-forks/configuring-a-remote-repository-for-a-fork)."
+Before you can sync your fork with an upstream repository, you must configure a remote that points to the upstream repository in Git. For more information, see [AUTOTITLE](/pull-requests/collaborating-with-pull-requests/working-with-forks/configuring-a-remote-repository-for-a-fork).
 
 {% data reusables.command_line.open_the_multi_os_terminal %}
 1. Change the current working directory to your local project.
@@ -98,7 +98,7 @@ Before you can sync your fork with an upstream repository, you must configure a 
    >  1 file changed, 3 insertions(+), 2 deletions(-)
    ```
 
-   If your local branch had unique commits, you may need to resolve conflicts. For more information, see "[AUTOTITLE](/pull-requests/collaborating-with-pull-requests/addressing-merge-conflicts)."
+   If your local branch had unique commits, you may need to resolve conflicts. For more information, see [AUTOTITLE](/pull-requests/collaborating-with-pull-requests/addressing-merge-conflicts).
 
 > [!TIP]
 > Syncing your fork only updates your local copy of the repository. To update your fork on {% data variables.location.product_location %}, you must [push your changes](/get-started/using-git/pushing-commits-to-a-remote-repository).

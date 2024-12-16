@@ -22,7 +22,7 @@ It's appropriate to lock a conversation when the entire conversation is not cons
 {% ifversion discussions-closable %}
 
 > [!NOTE]
-> You can also close a discussion. For more information, see "[Closing a discussion](/discussions/managing-discussions-for-your-community/managing-discussions#closing-a-discussion)."
+> You can also close a discussion. For more information, see [Closing a discussion](/discussions/managing-discussions-for-your-community/managing-discussions#closing-a-discussion).
 
 {% endif %}
 
@@ -42,7 +42,7 @@ It's appropriate to lock a conversation when the entire conversation is not cons
 
 ## Converting an issue to a discussion
 
-When you convert an issue to a discussion, the discussion is automatically created using the content from the issue. People with write access to a repository, or source repository for organization discussions, can bulk convert issues based on labels. For more information, see "[AUTOTITLE](/discussions/managing-discussions-for-your-community/managing-discussions)."
+When you convert an issue to a discussion, the discussion is automatically created using the content from the issue. People with write access to a repository, or source repository for organization discussions, can bulk convert issues based on labels. For more information, see [AUTOTITLE](/discussions/managing-discussions-for-your-community/managing-discussions).
 
 {% data reusables.discussions.navigate-to-repo-or-org %}
 {% data reusables.repositories.sidebar-issues %}
@@ -56,7 +56,7 @@ When you convert an issue to a discussion, the discussion is automatically creat
 
 ## Blocking a user from your organization
 
-Organization owners and moderators can block a user from the organization if their comments don't align with the community's code of conduct. When you block a user, they will no longer be able to comment on discussions. You can also hide all of the comments a user has made in the organization. For more information, see "[AUTOTITLE](/communities/maintaining-your-safety-on-github/blocking-a-user-from-your-organization)."
+Organization owners and moderators can block a user from the organization if their comments don't align with the community's code of conduct. When you block a user, they will no longer be able to comment on discussions. You can also hide all of the comments a user has made in the organization. For more information, see [AUTOTITLE](/communities/maintaining-your-safety-on-github/blocking-a-user-from-your-organization).
 
 {% data reusables.organizations.blocking-a-user %}
 {% endif %}

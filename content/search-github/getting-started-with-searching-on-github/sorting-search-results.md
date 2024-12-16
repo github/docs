@@ -16,7 +16,7 @@ topics:
 {% ifversion code-search-upgrade %}
 
 > [!NOTE]
-> Sorting search results is not supported for {% data variables.product.product_name %} code search. For more information on code search, see "[AUTOTITLE](/search-github/github-code-search/about-github-code-search)."
+> Sorting search results is not supported for {% data variables.product.product_name %} code search. For more information on code search, see [AUTOTITLE](/search-github/github-code-search/about-github-code-search).
 
 {% endif %}
 
@@ -76,5 +76,5 @@ The `sort:updated` qualifier sorts by how recently the items were updated.
 
 ## Further reading
 
-* "[AUTOTITLE](/search-github/getting-started-with-searching-on-github/about-searching-on-github)"
-* "[AUTOTITLE](/issues/tracking-your-work-with-issues/filtering-and-searching-issues-and-pull-requests)"
+* [AUTOTITLE](/search-github/getting-started-with-searching-on-github/about-searching-on-github)
+* [AUTOTITLE](/issues/tracking-your-work-with-issues/filtering-and-searching-issues-and-pull-requests)

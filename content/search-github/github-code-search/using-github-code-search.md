@@ -12,7 +12,7 @@ topics:
 
 {% data variables.product.prodname_dotcom %} indexes repositories you own and repositories in organizations you are a member of, whether public, private, or internal. This means that you can search across all of your repositories, in addition to the public repositories on {% data variables.product.prodname_dotcom %} that have already been indexed. Only users with permission to view your code will be able to see your code in search results. Forks are indexed and searchable in the same way as other repositories.
 
-Not all code is indexed, and you can currently only search the default branches of repositories. For more information on known limitations, see "[AUTOTITLE](/search-github/github-code-search/about-github-code-search#limitations)."
+Not all code is indexed, and you can currently only search the default branches of repositories. For more information on known limitations, see [AUTOTITLE](/search-github/github-code-search/about-github-code-search#limitations).
 
 {% data reusables.search.code-search-login-requirement %}
 
@@ -20,12 +20,12 @@ Not all code is indexed, and you can currently only search the default branches 
 
 You can search using the search interface on {% data variables.product.prodname_dotcom %}. Using suggestions, completions, and saved searches, you can quickly find what you are looking for, often without having to fully type a query or view the search results page.
 
-For more information about the search syntax of code search, see "[AUTOTITLE](/search-github/github-code-search/understanding-github-code-search-syntax)."
+For more information about the search syntax of code search, see [AUTOTITLE](/search-github/github-code-search/understanding-github-code-search-syntax).
 
 {% data reusables.search.non-code-search-explanation %}
 
 1. In the top navigation of {% data variables.product.prodname_dotcom %}, click the search bar.
-1. Under the search bar, you will see a list of suggestions organized by category, including recent searches and suggested repositories, teams, and projects that you have access to. You can also see a list of saved searches that you have created. For more information on saved searches, see "[Creating and managing saved searches](#creating-and-managing-saved-searches)."
+1. Under the search bar, you will see a list of suggestions organized by category, including recent searches and suggested repositories, teams, and projects that you have access to. You can also see a list of saved searches that you have created. For more information on saved searches, see [Creating and managing saved searches](#creating-and-managing-saved-searches).
 
    ![Screenshot of the {% data variables.product.prodname_dotcom %} search bar. There is a list of search suggestions by category below the search bar.](/assets/images/help/search/code-search-beta-search-bar.png)
 
@@ -35,7 +35,7 @@ For more information about the search syntax of code search, see "[AUTOTITLE](/s
 
    ![Screenshot of a search for "repo:octocat/spoon-knife". The code results are outlined in dark orange.](/assets/images/help/search/code-search-beta-search-bar-code-suggestions.png)
 
-1. After typing your query, you can also press Enter to go to the full search results view, where you can see each match and a visual interface for applying filters. For more information, see "[Using the search results view](#using-the-search-results-view)."
+1. After typing your query, you can also press Enter to go to the full search results view, where you can see each match and a visual interface for applying filters. For more information, see [Using the search results view](#using-the-search-results-view).
 
 {% ifversion copilot %}
 
@@ -84,7 +84,7 @@ On the search results view, you can navigate between different types of search r
 
 ## Using {% data variables.product.prodname_dotcom %} code search on {% data variables.product.prodname_mobile %}
 
-{% ifversion global-code-search-mobile %}On {% data variables.product.prodname_mobile %}, you can use code search directly from the search bar in the home screen.{% else %} On {% data variables.product.prodname_mobile %}, you can navigate to a repository and use code search on the code in that repository.{% endif %} Code search on {% data variables.product.prodname_mobile %} uses the same syntax as code search on {% data variables.product.prodname_dotcom %}. For more information, see "[AUTOTITLE](/search-github/github-code-search/about-github-code-search#limitations)."
+{% ifversion global-code-search-mobile %}On {% data variables.product.prodname_mobile %}, you can use code search directly from the search bar in the home screen.{% else %} On {% data variables.product.prodname_mobile %}, you can navigate to a repository and use code search on the code in that repository.{% endif %} Code search on {% data variables.product.prodname_mobile %} uses the same syntax as code search on {% data variables.product.prodname_dotcom %}. For more information, see [AUTOTITLE](/search-github/github-code-search/about-github-code-search#limitations).
 
 {% ifversion global-code-search-mobile %}
 

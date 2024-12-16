@@ -1,0 +1,13 @@
+required_builds:
+  - docs-internal-moda-config-bundle / docs-internal-moda-config-bundle
+  - docs-internal-docker-image / docs-internal-docker-image
+  - docs-internal-docker-security / docs-internal-docker-security
+environments:
+  - name: production
+    auto_deploy: true
+    cluster_selector:
+      profile: general
+      region: iad
+notifications:
+  slack_channels:
+    - '#docs-ops'

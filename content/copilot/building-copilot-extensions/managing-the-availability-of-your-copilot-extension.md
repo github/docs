@@ -34,9 +34,9 @@ If you make your app public, you can choose to publish it on the {% data variabl
  To list your {% data variables.product.prodname_copilot_extension_short %} on the {% data variables.product.prodname_marketplace %}, you must meet the following requirements:
 
 * You must publish your app from an organization that is a verified publisher on the {% data variables.product.prodname_marketplace %}.
-  * If your organization is not yet verified, see "[AUTOTITLE](/apps/github-marketplace/github-marketplace-overview/applying-for-publisher-verification-for-your-organization)."
-  * If you need to transfer ownership of your app from your personal account to your organization account, see "[AUTOTITLE](/apps/maintaining-github-apps/transferring-ownership-of-a-github-app)."
-* Your app must meet the requirements for all {% data variables.product.prodname_copilot_extension_short %} listings on the {% data variables.product.prodname_marketplace %}. See "[AUTOTITLE](/apps/github-marketplace/creating-apps-for-github-marketplace/requirements-for-listing-an-app#requirements-for-github-copilot-extensions)."
+  * If your organization is not yet verified, see [AUTOTITLE](/apps/github-marketplace/github-marketplace-overview/applying-for-publisher-verification-for-your-organization).
+  * If you need to transfer ownership of your app from your personal account to your organization account, see [AUTOTITLE](/apps/maintaining-github-apps/transferring-ownership-of-a-github-app).
+* Your app must meet the requirements for all {% data variables.product.prodname_copilot_extension_short %} listings on the {% data variables.product.prodname_marketplace %}. See [AUTOTITLE](/apps/github-marketplace/creating-apps-for-github-marketplace/requirements-for-listing-an-app#requirements-for-github-copilot-extensions).
 
 App managers cannot create, edit, or publish extensions on the {% data variables.product.prodname_marketplace %}. To manage a listing, you should be an organization owner for the publishing organization.
 

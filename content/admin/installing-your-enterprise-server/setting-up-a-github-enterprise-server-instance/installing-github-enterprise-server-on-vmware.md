@@ -53,11 +53,11 @@ shortTitle: Install on VMware
 
 {% data reusables.enterprise_installation.copy-the-vm-public-dns-name %}
 {% data reusables.enterprise_installation.upload-a-license-file %}
-{% data reusables.enterprise_installation.save-settings-in-web-based-mgmt-console %} For more information, see "[AUTOTITLE](/admin/configuration/configuring-your-enterprise)."
+{% data reusables.enterprise_installation.save-settings-in-web-based-mgmt-console %} For more information, see [AUTOTITLE](/admin/configuration/configuring-your-enterprise).
 {% data reusables.enterprise_installation.instance-will-restart-automatically %}
 {% data reusables.enterprise_installation.visit-your-instance %}
 
 ## Further reading
 
-* "[AUTOTITLE](/admin/overview/system-overview)"{% ifversion ghes %}
-* "[AUTOTITLE](/admin/overview/about-upgrades-to-new-releases)"{% endif %}
+* [AUTOTITLE](/admin/overview/system-overview){% ifversion ghes %}
+* [AUTOTITLE](/admin/overview/about-upgrades-to-new-releases){% endif %}

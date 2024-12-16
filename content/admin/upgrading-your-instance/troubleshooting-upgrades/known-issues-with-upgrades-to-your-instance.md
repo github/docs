@@ -19,7 +19,7 @@ redirect_from:
 
 {% data variables.product.company_short %} is aware of the following issues that could impact upgrades to new releases of {% data variables.product.prodname_ghe_server %}. For more information, see "Known issues" in the [{% data variables.product.prodname_ghe_server %} release notes](/admin/release-notes).
 
-{% data variables.product.company_short %} strongly recommends regular backups of your instance's configuration and data. Before you proceed with any upgrade, back up your instance, then validate the backup in a staging environment. For more information, see "[AUTOTITLE](/admin/configuration/configuring-your-enterprise/configuring-backups-on-your-appliance)" and "[AUTOTITLE](/admin/installation/setting-up-a-github-enterprise-server-instance/setting-up-a-staging-instance)."
+{% data variables.product.company_short %} strongly recommends regular backups of your instance's configuration and data. Before you proceed with any upgrade, back up your instance, then validate the backup in a staging environment. For more information, see [AUTOTITLE](/admin/configuration/configuring-your-enterprise/configuring-backups-on-your-appliance) and [AUTOTITLE](/admin/installation/setting-up-a-github-enterprise-server-instance/setting-up-a-staging-instance).
 
 {% ifversion mysql-8-upgrade %}
 
@@ -34,15 +34,15 @@ To future-proof {% data variables.product.prodname_ghe_server %} and provide the
 After the upgrade to {% data variables.product.prodname_ghe_server %} 3.9, if you experience unacceptable degradation in the performance of your instance, you can collect data from your instance's monitor dashboard to confirm the impact. You can attempt to mitigate the issue, and you can provide the data to {% data variables.contact.github_support %} to help profile and communicate the real-world impact of this change.
 
 > [!WARNING]
-> Due to the nature of this upgrade, back up your instance's configuration and data before proceeding. Validate the backup in a staging environment. For more information, see "[AUTOTITLE](/admin/configuration/configuring-your-enterprise/configuring-backups-on-your-appliance)" and "[AUTOTITLE](/admin/installation/setting-up-a-github-enterprise-server-instance/setting-up-a-staging-instance)."
+> Due to the nature of this upgrade, back up your instance's configuration and data before proceeding. Validate the backup in a staging environment. For more information, see [AUTOTITLE](/admin/configuration/configuring-your-enterprise/configuring-backups-on-your-appliance) and [AUTOTITLE](/admin/installation/setting-up-a-github-enterprise-server-instance/setting-up-a-staging-instance).
 
 ### Collecting baseline I/O utilization data before the MySQL upgrade
 
-Collect the baseline data before upgrading to {% data variables.product.prodname_ghe_server %} 3.9 or later. To collect baseline data, {% data variables.product.company_short %} recommends that you set up a staging instance of {% data variables.product.prodname_ghe_server %} running 3.7 or 3.8 and restore data from your production instance using {% data variables.product.prodname_enterprise_backup_utilities %}. For more information, see "[AUTOTITLE](/admin/installation/setting-up-a-github-enterprise-server-instance/setting-up-a-staging-instance)" and "[AUTOTITLE](/admin/configuration/configuring-your-enterprise/configuring-backups-on-your-appliance)."
+Collect the baseline data before upgrading to {% data variables.product.prodname_ghe_server %} 3.9 or later. To collect baseline data, {% data variables.product.company_short %} recommends that you set up a staging instance of {% data variables.product.prodname_ghe_server %} running 3.7 or 3.8 and restore data from your production instance using {% data variables.product.prodname_enterprise_backup_utilities %}. For more information, see [AUTOTITLE](/admin/installation/setting-up-a-github-enterprise-server-instance/setting-up-a-staging-instance) and [AUTOTITLE](/admin/configuration/configuring-your-enterprise/configuring-backups-on-your-appliance).
 
 You may not be able to simulate the load that your instance experiences in a production environment. However, it's useful if you can collect baseline data while simulating patterns of usage from your production environment on the staging instance.
 
-1. Browse to your instance's monitor dashboard. For more information, see "[AUTOTITLE](/admin/monitoring-and-managing-your-instance/monitoring-your-instance/about-the-monitor-dashboards)."
+1. Browse to your instance's monitor dashboard. For more information, see [AUTOTITLE](/admin/monitoring-and-managing-your-instance/monitoring-your-instance/about-the-monitor-dashboards).
 1. From the monitor dashboard, monitor relevant graphs.
 
    * Under "Processes", monitor the graphs for "I/O operations (Read IOPS)" and "I/O operations (Write IOPS)", filtering for `mysqld`. These graphs display I/O operations for all of the node's services.
@@ -50,9 +50,9 @@ You may not be able to simulate the load that your instance experiences in a pro
 
 ### Reviewing I/O utilization data after the MySQL upgrade
 
-After the upgrade to {% data variables.product.prodname_ghe_server %} 3.9, review the instance's I/O utilization. {% data variables.product.company_short %} recommends that you upgrade a staging instance of {% data variables.product.prodname_ghe_server %} running 3.7 or 3.8 that includes restored data from your production instance, or that you restore data from your production instance to a new staging instance running 3.9. For more information, see "[AUTOTITLE](/admin/installation/setting-up-a-github-enterprise-server-instance/setting-up-a-staging-instance)" and "[AUTOTITLE](/admin/configuration/configuring-your-enterprise/configuring-backups-on-your-appliance)."
+After the upgrade to {% data variables.product.prodname_ghe_server %} 3.9, review the instance's I/O utilization. {% data variables.product.company_short %} recommends that you upgrade a staging instance of {% data variables.product.prodname_ghe_server %} running 3.7 or 3.8 that includes restored data from your production instance, or that you restore data from your production instance to a new staging instance running 3.9. For more information, see [AUTOTITLE](/admin/installation/setting-up-a-github-enterprise-server-instance/setting-up-a-staging-instance) and [AUTOTITLE](/admin/configuration/configuring-your-enterprise/configuring-backups-on-your-appliance).
 
-1. Browse to your instance's monitor dashboard. For more information, see "[AUTOTITLE](/admin/monitoring-and-managing-your-instance/monitoring-your-instance/about-the-monitor-dashboards)."
+1. Browse to your instance's monitor dashboard. For more information, see [AUTOTITLE](/admin/monitoring-and-managing-your-instance/monitoring-your-instance/about-the-monitor-dashboards).
 1. From the monitor dashboard, monitor relevant graphs.
 
    * Under "Processes", monitor the graphs for "I/O operations (Read IOPS)" and "I/O operations (Write IOPS)", filtering for `mysqld`. These graphs display I/O operations for all of the node's services.
@@ -64,7 +64,7 @@ After the upgrade to {% data variables.product.prodname_ghe_server %} 3.9, revie
 
 To address unacceptable degradation of performance, {% data variables.product.company_short %} recommends the following solutions.
 
-Before you test any mitigation procedure in a production environment, back up your instance, validate the backup, then test the procedure in a staging environment. For more information, see "[AUTOTITLE](/admin/configuration/configuring-your-enterprise/configuring-backups-on-your-appliance)" and "[AUTOTITLE](/admin/installation/setting-up-a-github-enterprise-server-instance/setting-up-a-staging-instance)."
+Before you test any mitigation procedure in a production environment, back up your instance, validate the backup, then test the procedure in a staging environment. For more information, see [AUTOTITLE](/admin/configuration/configuring-your-enterprise/configuring-backups-on-your-appliance) and [AUTOTITLE](/admin/installation/setting-up-a-github-enterprise-server-instance/setting-up-a-staging-instance).
 * [Adjust InnoDB's flushing method](#adjust-innodbs-flushing-method)
 * [Upgrade your instance's storage](#upgrade-your-instances-storage)
 
@@ -98,11 +98,11 @@ The following instructions are only intended for {% data variables.product.produ
 
 #### Upgrade your instance's storage
 
-You can reduce pending operations, increase IOPS, and improve performance by provisioning faster storage for your instance's nodes. To upgrade your instance's storage, back up your instance and restore the backup to a new replacement instance. For more information, see "[AUTOTITLE](/admin/configuration/configuring-your-enterprise/configuring-backups-on-your-appliance)."
+You can reduce pending operations, increase IOPS, and improve performance by provisioning faster storage for your instance's nodes. To upgrade your instance's storage, back up your instance and restore the backup to a new replacement instance. For more information, see [AUTOTITLE](/admin/configuration/configuring-your-enterprise/configuring-backups-on-your-appliance).
 
 ### Sharing data with {% data variables.product.company_short %}
 
-Finally, if you're willing to help {% data variables.product.company_short %} understand the real-world impact of the upgrade to MySQL 8, you can provide the data you've collected to {% data variables.contact.github_support %}. Provide the baseline and post-upgrade observations from the monitor dashboard, along with a support bundle that covers the period when you collected data. For more information, see "[AUTOTITLE](/support/learning-about-github-support/about-github-support)" and "[AUTOTITLE](/support/contacting-github-support/providing-data-to-github-support)."
+Finally, if you're willing to help {% data variables.product.company_short %} understand the real-world impact of the upgrade to MySQL 8, you can provide the data you've collected to {% data variables.contact.github_support %}. Provide the baseline and post-upgrade observations from the monitor dashboard, along with a support bundle that covers the period when you collected data. For more information, see [AUTOTITLE](/support/learning-about-github-support/about-github-support) and [AUTOTITLE](/support/contacting-github-support/providing-data-to-github-support).
 
 The data you submit helps {% data variables.product.company_short %} continue to provide a performant product, but {% data variables.product.company_short %} does not guarantee any additional mitigation steps or changes to the product as a result of the data you provide.
 
@@ -190,7 +190,7 @@ Now that the nomad timeout for MySQL has been updated you can upgrade your {% da
 
 If you're affected by this problem, restore your {% data variables.product.prodname_ghe_server %} instance to the state it was in prior to the upgrade attempt, and then follow the steps from the previous section.
 
-For more information about restoring from a failed upgrade, see "[AUTOTITLE](/admin/upgrading-your-instance/troubleshooting-upgrades/restoring-from-a-failed-upgrade)."
+For more information about restoring from a failed upgrade, see [AUTOTITLE](/admin/upgrading-your-instance/troubleshooting-upgrades/restoring-from-a-failed-upgrade).
 
 {% endif %}
 {% ifversion ghes > 3.10 and ghes < 3.13 %}
@@ -204,14 +204,14 @@ If your appliance averages more than 70% CPU utilization, {% data variables.prod
 
 ## Elasticsearch Upgrade
 
-As part of upgrading GitHub Enterprise Server to version 3.13 or later, the Elasticsearch service will be upgraded. {% data variables.product.company_short %} strongly recommends following the guidance in "[AUTOTITLE](/admin/upgrading-your-instance/performing-an-upgrade/preparing-for-the-elasticsearch-upgrade)."
+As part of upgrading GitHub Enterprise Server to version 3.13 or later, the Elasticsearch service will be upgraded. {% data variables.product.company_short %} strongly recommends following the guidance in [AUTOTITLE](/admin/upgrading-your-instance/performing-an-upgrade/preparing-for-the-elasticsearch-upgrade).
 {% endif %}
 
 {% ifversion ghes > 3.14 and ghes < 3.17 %}
 
 ## Required root disk size increased to 400GB
 
-New installations of 3.15 or later, or upgrades to 3.15 or later require root disk size of at least 400GB. This capacity is an enforced requirement for the system to boot successfully. {% data variables.product.company_short %} strongly recommends following the guidance in "[AUTOTITLE](/admin/monitoring-and-managing-your-instance/updating-the-virtual-machine-and-physical-resources/increasing-storage-capacity)."
+New installations of 3.15 or later, or upgrades to 3.15 or later require root disk size of at least 400GB. This capacity is an enforced requirement for the system to boot successfully. {% data variables.product.company_short %} strongly recommends following the guidance in [AUTOTITLE](/admin/monitoring-and-managing-your-instance/updating-the-virtual-machine-and-physical-resources/increasing-storage-capacity).
 
 {% endif %}
 

@@ -21,15 +21,15 @@ People with admin access to a repository can manage team access to the repositor
 
 > [!WARNING]
 > * You can change a team's permission level if the team has direct access to a repository. If the team's access to the repository is inherited from a parent team, you must change the parent team's access to the repository.
-> * If you add or remove repository access for a parent team, each of that parent's child teams will also receive or lose access to the repository. For more information, see "[AUTOTITLE](/organizations/organizing-members-into-teams/about-teams)."
+> * If you add or remove repository access for a parent team, each of that parent's child teams will also receive or lose access to the repository. For more information, see [AUTOTITLE](/organizations/organizing-members-into-teams/about-teams).
 
 ## Giving a team access to a repository
 
-You can give a team access to a repository or change a team's level of access to a repository in your repository settings. For more information, see "[AUTOTITLE](/repositories/managing-your-repositorys-settings-and-features/managing-repository-settings/managing-teams-and-people-with-access-to-your-repository#inviting-a-team-or-person)."
+You can give a team access to a repository or change a team's level of access to a repository in your repository settings. For more information, see [AUTOTITLE](/repositories/managing-your-repositorys-settings-and-features/managing-repository-settings/managing-teams-and-people-with-access-to-your-repository#inviting-a-team-or-person).
 
 ## Removing a team's access to a repository
 
-You can remove a team's access to an organization repository in your repository settings. For more information, see "[AUTOTITLE](/repositories/managing-your-repositorys-settings-and-features/managing-repository-settings/managing-teams-and-people-with-access-to-your-repository#removing-access-for-a-team-or-person)."
+You can remove a team's access to an organization repository in your repository settings. For more information, see [AUTOTITLE](/repositories/managing-your-repositorys-settings-and-features/managing-repository-settings/managing-teams-and-people-with-access-to-your-repository#removing-access-for-a-team-or-person).
 
 If a team has direct access to a repository, you can remove that team's access to the repository. If a team's access to the repository is inherited from a parent team, you must remove the repository from the parent team in order to remove the repository from child teams.
 
@@ -37,4 +37,4 @@ If a team has direct access to a repository, you can remove that team's access t
 
 ## Further reading
 
-* "[AUTOTITLE](/organizations/managing-user-access-to-your-organizations-repositories/managing-repository-roles/repository-roles-for-an-organization)"
+* [AUTOTITLE](/organizations/managing-user-access-to-your-organizations-repositories/managing-repository-roles/repository-roles-for-an-organization)

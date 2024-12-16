@@ -17,7 +17,7 @@ You can block non-members from within your organization's settings or from a spe
 {% data reusables.organizations.blocking-a-user %}
 
 > [!TIP]
-> If you're blocking a user because of a heated conversation, consider locking the conversation so only collaborators can comment. For more information, see "[AUTOTITLE](/communities/moderating-comments-and-conversations/locking-conversations)."
+> If you're blocking a user because of a heated conversation, consider locking the conversation so only collaborators can comment. For more information, see [AUTOTITLE](/communities/moderating-comments-and-conversations/locking-conversations).
 
 At the time that you block a user from your organization:
 * The user stops watching your organization's repositories
@@ -76,8 +76,8 @@ In your organization's repositories, blocked users also cannot:
 
 ## Further reading
 
-* "[AUTOTITLE](/communities/maintaining-your-safety-on-github/viewing-users-who-are-blocked-from-your-organization)"
-* "[AUTOTITLE](/communities/maintaining-your-safety-on-github/unblocking-a-user-from-your-organization)"
-* "[AUTOTITLE](/communities/maintaining-your-safety-on-github/blocking-a-user-from-your-personal-account)"
-* "[AUTOTITLE](/communities/maintaining-your-safety-on-github/unblocking-a-user-from-your-personal-account)"
-* "[AUTOTITLE](/communities/maintaining-your-safety-on-github/reporting-abuse-or-spam)"
+* [AUTOTITLE](/communities/maintaining-your-safety-on-github/viewing-users-who-are-blocked-from-your-organization)
+* [AUTOTITLE](/communities/maintaining-your-safety-on-github/unblocking-a-user-from-your-organization)
+* [AUTOTITLE](/communities/maintaining-your-safety-on-github/blocking-a-user-from-your-personal-account)
+* [AUTOTITLE](/communities/maintaining-your-safety-on-github/unblocking-a-user-from-your-personal-account)
+* [AUTOTITLE](/communities/maintaining-your-safety-on-github/reporting-abuse-or-spam)

@@ -20,10 +20,10 @@ shortTitle: Subscriptions
 
 {% data reusables.copilot.differences-cfi-cfb-table %}
 
-For more information, see "[AUTOTITLE](/copilot/about-github-copilot/github-copilot-features)."
+For more information, see [AUTOTITLE](/copilot/about-github-copilot/github-copilot-features).
 
 ## Next steps
 
-* To subscribe to {% data variables.product.prodname_copilot_for_individuals %}, you can <a href="https://github.com/github-copilot/signup?ref_cta=Copilot+trial&ref_loc=about+github+copilot&ref_page=docs" target="_blank"><span>try {% data variables.product.prodname_copilot %} for free</span></a> with a one-time 30-day trial. To continue using {% data variables.product.prodname_copilot_short %} after the trial, you will need a paid subscription, unless you are a verified student, teacher, or maintainer of a popular open source project on {% data variables.product.prodname_dotcom %}. See "[AUTOTITLE](/copilot/managing-copilot/managing-copilot-as-an-individual-subscriber/subscribing-to-copilot-as-an-individual-user)."
-* To subscribe your organization to {% data variables.product.prodname_copilot_short %}, see "[AUTOTITLE](/copilot/managing-copilot/managing-github-copilot-in-your-organization/subscribing-to-copilot-for-your-organization)."
-* To subscribe your enterprise to {% data variables.product.prodname_copilot_short %}, see "[AUTOTITLE](/copilot/managing-copilot/managing-copilot-for-your-enterprise/subscribing-to-copilot-for-your-enterprise)."
+* To subscribe to {% data variables.product.prodname_copilot_for_individuals %}, you can <a href="https://github.com/github-copilot/signup?ref_cta=Copilot+trial&ref_loc=about+github+copilot&ref_page=docs" target="_blank"><span>try {% data variables.product.prodname_copilot %} for free</span></a> with a one-time 30-day trial. To continue using {% data variables.product.prodname_copilot_short %} after the trial, you will need a paid subscription, unless you are a verified student, teacher, or maintainer of a popular open source project on {% data variables.product.prodname_dotcom %}. See [AUTOTITLE](/copilot/managing-copilot/managing-copilot-as-an-individual-subscriber/subscribing-to-copilot-as-an-individual-user).
+* To subscribe your organization to {% data variables.product.prodname_copilot_short %}, see [AUTOTITLE](/copilot/managing-copilot/managing-github-copilot-in-your-organization/subscribing-to-copilot-for-your-organization).
+* To subscribe your enterprise to {% data variables.product.prodname_copilot_short %}, see [AUTOTITLE](/copilot/managing-copilot/managing-copilot-for-your-enterprise/subscribing-to-copilot-for-your-enterprise).

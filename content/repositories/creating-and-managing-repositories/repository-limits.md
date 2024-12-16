@@ -36,4 +36,4 @@ The maximum count of commits displayed on the Commits tab is **10,000**. Use oth
 
 ## Organization Limits
 
-If a repository owner exceeds **100,000** repositories, some UI experiences and API functionality may be degraded. For more information, see "[AUTOTITLE](/repositories/creating-and-managing-repositories/about-repositories#about-repository-ownership)."
+If a repository owner exceeds **100,000** repositories, some UI experiences and API functionality may be degraded. For more information, see [AUTOTITLE](/repositories/creating-and-managing-repositories/about-repositories#about-repository-ownership).

@@ -18,4 +18,4 @@ shortTitle: Troubleshoot Dependabot on Actions
 
 ## Troubleshooting failures when {% data variables.product.prodname_dependabot %} triggers existing workflows
 
-{% data reusables.dependabot.dependabot-on-actions-troubleshooting-workflows %} For more information, see "[AUTOTITLE](/code-security/dependabot/working-with-dependabot/automating-dependabot-with-github-actions#accessing-secrets)" and "[AUTOTITLE](/actions/using-workflows/workflow-syntax-for-github-actions#jobsjob_idpermissions)."
+{% data reusables.dependabot.dependabot-on-actions-troubleshooting-workflows %} For more information, see [AUTOTITLE](/code-security/dependabot/working-with-dependabot/automating-dependabot-with-github-actions#accessing-secrets) and [AUTOTITLE](/actions/using-workflows/workflow-syntax-for-github-actions#jobsjob_idpermissions).
