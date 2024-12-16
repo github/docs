@@ -1,6 +1,6 @@
 ---
 title: Finding the object ID for your Entra OIDC application
-shortTitle: Find ID for Entra OIDC
+shortTitle: Find ID for Entra OIDC app
 intro: 'Learn how to find the object ID associated with your {% data variables.product.prodname_emus %} OIDC app.'
 product: '{% data reusables.gated-features.emus %}'
 versions:
