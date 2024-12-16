@@ -16,7 +16,7 @@ shortTitle: Upgrade to Corporate ToS
 
 The Standard Terms of Service is an agreement between {% data variables.product.prodname_dotcom %} and you as an individual. To enter into an agreement with {% data variables.product.prodname_dotcom %} on behalf of an entity, such as a company, non-profit, or group, organization owners can upgrade to the {% data variables.product.company_short %} Customer Agreement.
 
-You can upgrade to the {% data variables.product.company_short %} Customer Agreement instead of using the Standard Terms of Service to help prevent sensitive information from being exposed. For more information see "[AUTOTITLE](/code-security/getting-started/best-practices-for-preventing-data-leaks-in-your-organization)."
+You can upgrade to the {% data variables.product.company_short %} Customer Agreement instead of using the Standard Terms of Service to help prevent sensitive information from being exposed. For more information see [AUTOTITLE](/code-security/getting-started/best-practices-for-preventing-data-leaks-in-your-organization).
 
 1. Navigate to your organization's settings and scroll to the "Terms of Service" section.
 1. Click **Read the {% data variables.product.company_short %} Customer Agreement**.
@@ -27,6 +27,6 @@ You can upgrade to the {% data variables.product.company_short %} Customer Agree
 
 ## Further reading
 
-* "[AUTOTITLE](/free-pro-team@latest/site-policy/github-terms/github-terms-of-service)"
+* [AUTOTITLE](/free-pro-team@latest/site-policy/github-terms/github-terms-of-service)
 * The [GitHub Customer Terms](https://github.com/customer-terms)
-* "[AUTOTITLE](/free-pro-team@latest/site-policy/github-terms/github-corporate-terms-of-service)"
+* [AUTOTITLE](/free-pro-team@latest/site-policy/github-terms/github-corporate-terms-of-service)

@@ -12,7 +12,7 @@ versions:
 topics:
   - GitHub search
 ---
-You can search for users globally across all of {% data variables.product.product_name %}. For more information, see "[AUTOTITLE](/search-github/getting-started-with-searching-on-github/about-searching-on-github)."
+You can search for users globally across all of {% data variables.product.product_name %}. For more information, see [AUTOTITLE](/search-github/getting-started-with-searching-on-github/about-searching-on-github).
 
 {% data reusables.search.syntax_tips %}
 
@@ -34,7 +34,7 @@ With the `in` qualifier you can restrict your search to the username (`login`), 
 | Qualifier        | Example
 | ------------- | -------------
 | `user:name` | [**user:octocat**](https://github.com/search?q=user%3Aoctocat&type=Users) matches the user with the username "octocat".
-| `org:name` | [**org:electron type:users**](https://github.com/search?q=org%3Aelectron+type%3Ausers&type=Users) matches the Electron organization's account name.
+| `org:name` | [**org:electron type:user**](https://github.com/search?q=org%3Aelectron+type%3Ausers&type=User) matches the Electron organization's account name.
 | `in:login` | [**kenya in:login**](https://github.com/search?q=kenya+in%3Alogin&type=Users) matches users with the word "kenya" in their username.
 | `in:name` | [**bolton in:name**](https://github.com/search?q=bolton+in%3Afullname&type=Users) matches users whose real name contains the word "bolton."
 | `fullname:firstname lastname` | [**fullname:nat friedman**](https://github.com/search?q=fullname%3Anat+friedman&type=Users) matches a user with the full name "Nat Friedman." Note: This search qualifier is sensitive to spacing.
@@ -92,7 +92,7 @@ You can filter users based on the number of followers that they have, using the 
 
 ## Search based on ability to sponsor
 
-You can search for users and organizations who can be sponsored on {% data variables.product.prodname_sponsors %} with the `is:sponsorable` qualifier. For more information, see "[AUTOTITLE](/sponsors/getting-started-with-github-sponsors/about-github-sponsors)."
+You can search for users and organizations who can be sponsored on {% data variables.product.prodname_sponsors %} with the `is:sponsorable` qualifier. For more information, see [AUTOTITLE](/sponsors/getting-started-with-github-sponsors/about-github-sponsors).
 
 | Qualifier  | Example
 | ------------- | -------------
@@ -102,4 +102,4 @@ You can search for users and organizations who can be sponsored on {% data varia
 
 ## Further reading
 
-* "[AUTOTITLE](/search-github/getting-started-with-searching-on-github/sorting-search-results)"
+* [AUTOTITLE](/search-github/getting-started-with-searching-on-github/sorting-search-results)

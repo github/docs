@@ -14,7 +14,7 @@ topics:
 
 {% data variables.product.prodname_server_statistics %} can help you anticipate the needs of your organization, understand how your team works, and show the value you get from {% data variables.product.prodname_ghe_server %}.
 
-Once enabled, {% data variables.product.prodname_server_statistics %} collects aggregate data on how much certain features are used on your instance over time. Unlike other [Admin Stats API](/rest/enterprise-admin/admin-stats) endpoints, which only return data for the last day, {% data variables.product.prodname_server_statistics %} provides historical data of all {% data variables.product.prodname_server_statistics %} metrics collected since the day you enabled the feature. For more information, see "[AUTOTITLE](/admin/configuration/configuring-github-connect/enabling-server-statistics-for-your-enterprise)."
+Once enabled, {% data variables.product.prodname_server_statistics %} collects aggregate data on how much certain features are used on your instance over time. Unlike other [Admin Stats API](/rest/enterprise-admin/admin-stats) endpoints, which only return data for the last day, {% data variables.product.prodname_server_statistics %} provides historical data of all {% data variables.product.prodname_server_statistics %} metrics collected since the day you enabled the feature. For more information, see [AUTOTITLE](/admin/configuration/configuring-github-connect/enabling-server-statistics-for-your-enterprise).
 
 When you enable {% data variables.product.prodname_server_statistics %}, you're helping to build a better {% data variables.product.prodname_dotcom %}. The aggregated data you'll provide gives us insights into how {% data variables.product.prodname_dotcom %} adds value to our customers. This information allows {% data variables.product.company_short %} to make better and more informed product decisions, ultimately benefiting you.
 
@@ -26,11 +26,11 @@ We collect no personal data. We also don't collect any {% data variables.product
 
 Only owners of the connected enterprise account or organization on {% data variables.product.prodname_ghe_cloud %} can access the data.
 
-Only certain aggregate metrics are collected on repositories, issues, pull requests, and other features. To see the list of aggregate metrics collected, see "[{% data variables.product.prodname_server_statistics %} data collected](#server-statistics-data-collected)."
+Only certain aggregate metrics are collected on repositories, issues, pull requests, and other features. To see the list of aggregate metrics collected, see [{% data variables.product.prodname_server_statistics %} data collected](#server-statistics-data-collected).
 
 Any updates to the collected metrics will happen in future feature releases of {% data variables.product.prodname_ghe_server %} and will be described in the [{% data variables.product.prodname_ghe_server %} release notes](/admin/release-notes). In addition, we will update this article with all metric updates.
 
-For a better understanding of how we store and secure {% data variables.product.prodname_server_statistics %} data, see "[GitHub Security](https://github.com/security)."
+For a better understanding of how we store and secure {% data variables.product.prodname_server_statistics %} data, see [GitHub Security](https://github.com/security).
 
 ### About data retention and deletion
 
@@ -40,11 +40,11 @@ If you would like to delete your data, you may do so by contacting GitHub Suppor
 
 ### About data portability
 
-As an organization owner or enterprise owner on {% data variables.product.prodname_ghe_cloud %}, you can access {% data variables.product.prodname_server_statistics %} data by exporting the data in a CSV or JSON file or through the {% data variables.product.prodname_server_statistics %} REST API. For more information, see "[AUTOTITLE](/admin/monitoring-activity-in-your-enterprise/analyzing-how-your-team-works-with-server-statistics/requesting-server-statistics-using-the-rest-api)" or "[AUTOTITLE](/admin/monitoring-activity-in-your-enterprise/analyzing-how-your-team-works-with-server-statistics/exporting-server-statistics)."
+As an organization owner or enterprise owner on {% data variables.product.prodname_ghe_cloud %}, you can access {% data variables.product.prodname_server_statistics %} data by exporting the data in a CSV or JSON file or through the {% data variables.product.prodname_server_statistics %} REST API. For more information, see [AUTOTITLE](/admin/monitoring-activity-in-your-enterprise/analyzing-how-your-team-works-with-server-statistics/requesting-server-statistics-using-the-rest-api) or [AUTOTITLE](/admin/monitoring-activity-in-your-enterprise/analyzing-how-your-team-works-with-server-statistics/exporting-server-statistics).
 
 ## About disabling data collection
 
-You can disable the {% data variables.product.prodname_server_statistics %} feature at any time. For more information, see "[AUTOTITLE](/admin/configuration/configuring-github-connect/enabling-server-statistics-for-your-enterprise)."
+You can disable the {% data variables.product.prodname_server_statistics %} feature at any time. For more information, see [AUTOTITLE](/admin/configuration/configuring-github-connect/enabling-server-statistics-for-your-enterprise).
 
 ## {% data variables.product.prodname_server_statistics %} data collected
 
@@ -54,7 +54,7 @@ The following aggregate metrics will be collected and transmitted on a daily bas
 
 | CSV column | Name | Description |
 | ---------- | ---- | ----------- |
-| A | `github_connect.features_enabled` | Array of {% data variables.product.prodname_github_connect %} features that are enabled for your instance (see "[AUTOTITLE](/admin/configuration/configuring-github-connect/about-github-connect#github-connect-features)" ) |
+| A | `github_connect.features_enabled` | Array of {% data variables.product.prodname_github_connect %} features that are enabled for your instance (see [AUTOTITLE](/admin/configuration/configuring-github-connect/about-github-connect#github-connect-features) ) |
 | B | `host_name` | The hostname for your instance |
 | C | `dormant_users.dormancy_threshold` | The length of time a user must be inactive to be considered dormant |
 | D | `dormant_users.total_dormant_users` | Number of dormant user accounts |
@@ -173,4 +173,4 @@ The following aggregate metrics will be collected and transmitted on a daily bas
 
 To see an example of the headings included in the CSV export for {% data variables.product.prodname_server_statistics %}, download the [{% data variables.product.prodname_server_statistics %} CSV example](/assets/server-statistics-csv-example.csv).
 
-To see an example of the response payload for the {% data variables.product.prodname_server_statistics %} API, see "[AUTOTITLE](/admin/monitoring-activity-in-your-enterprise/analyzing-how-your-team-works-with-server-statistics/requesting-server-statistics-using-the-rest-api)."
+To see an example of the response payload for the {% data variables.product.prodname_server_statistics %} API, see [AUTOTITLE](/admin/monitoring-activity-in-your-enterprise/analyzing-how-your-team-works-with-server-statistics/requesting-server-statistics-using-the-rest-api).

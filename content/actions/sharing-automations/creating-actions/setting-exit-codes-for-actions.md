@@ -35,7 +35,7 @@ try {
 }
 ```
 
-For more information, see "[AUTOTITLE](/actions/creating-actions/creating-a-javascript-action)."
+For more information, see [AUTOTITLE](/actions/creating-actions/creating-a-javascript-action).
 
 ## Setting a failure exit code in a Docker container action
 
@@ -48,4 +48,4 @@ if <condition> ; then
 fi
 ```
 
-For more information, see "[AUTOTITLE](/actions/creating-actions/creating-a-docker-container-action)."
+For more information, see [AUTOTITLE](/actions/creating-actions/creating-a-docker-container-action).

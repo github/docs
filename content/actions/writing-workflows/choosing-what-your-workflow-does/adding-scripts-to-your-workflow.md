@@ -18,7 +18,7 @@ jobs:
       - run: npm install -g bats
 ```
 
-To use a workflow to run a script stored in your repository you must first check out the repository to the runner. Having done this, you can use the `run` keyword to run the script on the runner. The following example runs two scripts, each in a separate job step. The location of the scripts on the runner is specified by setting a default working directory for run commands. For more information, see "[AUTOTITLE](/actions/using-jobs/setting-default-values-for-jobs)."
+To use a workflow to run a script stored in your repository you must first check out the repository to the runner. Having done this, you can use the `run` keyword to run the script on the runner. The following example runs two scripts, each in a separate job step. The location of the scripts on the runner is specified by setting a default working directory for run commands. For more information, see [AUTOTITLE](/actions/using-jobs/setting-default-values-for-jobs).
 
 ```yaml
 jobs:
@@ -56,4 +56,4 @@ jobs:
           ./my-other-script.sh
 ```
 
-For more information about the `run` keyword, see "[AUTOTITLE](/actions/using-workflows/workflow-syntax-for-github-actions#jobsjob_idstepsrun)."
+For more information about the `run` keyword, see [AUTOTITLE](/actions/using-workflows/workflow-syntax-for-github-actions#jobsjob_idstepsrun).

@@ -17,20 +17,20 @@ shortTitle: Restore deleted repository
 
 {% ifversion ghes %}
 
-Usually, deleted repositories can be restored within 90 days by an enterprise owner{% ifversion ghes %} on {% data variables.location.product_location %}{% endif %}. For more information, see "[AUTOTITLE](/admin/user-management/managing-repositories-in-your-enterprise/restoring-a-deleted-repository)."
+Usually, deleted repositories can be restored within 90 days by an enterprise owner{% ifversion ghes %} on {% data variables.location.product_location %}{% endif %}. For more information, see [AUTOTITLE](/admin/user-management/managing-repositories-in-your-enterprise/restoring-a-deleted-repository).
 
 {% else %}
 
 ## About repository restoration
 
-A deleted repository can be restored within 90 days, unless the repository was part of a fork network that is not currently empty. A fork network consists of a parent repository, the repository's forks, and forks of the repository's forks. If your repository was part of a fork network, it cannot be restored unless every other repository in the network is deleted or has been detached from the network. For more information about forks, see "[AUTOTITLE](/pull-requests/collaborating-with-pull-requests/working-with-forks/about-forks)."
+A deleted repository can be restored within 90 days, unless the repository was part of a fork network that is not currently empty. A fork network consists of a parent repository, the repository's forks, and forks of the repository's forks. If your repository was part of a fork network, it cannot be restored unless every other repository in the network is deleted or has been detached from the network. For more information about forks, see [AUTOTITLE](/pull-requests/collaborating-with-pull-requests/working-with-forks/about-forks).
 
 If you want to restore a repository that was part of a fork network that is not currently empty, you can contact {% data variables.contact.contact_support %}.
 
 {% ifversion fpt %}
 
 > [!IMPORTANT]
-> You can only contact {% data variables.contact.github_support %} to restore a repository if you are on a paid {% data variables.product.prodname_dotcom %} plan. For more information about the different plans, see "[AUTOTITLE](/get-started/learning-about-github/githubs-plans)."
+> You can only contact {% data variables.contact.github_support %} to restore a repository if you are on a paid {% data variables.product.prodname_dotcom %} plan. For more information about the different plans, see [AUTOTITLE](/get-started/learning-about-github/githubs-plans).
 
 {% endif %}
 
@@ -56,6 +56,6 @@ Restoring a repository will not restore release attachments or team permissions.
 
 ## Further reading
 
-* "[AUTOTITLE](/repositories/creating-and-managing-repositories/deleting-a-repository)"
+* [AUTOTITLE](/repositories/creating-and-managing-repositories/deleting-a-repository)
 
 {% endif %}

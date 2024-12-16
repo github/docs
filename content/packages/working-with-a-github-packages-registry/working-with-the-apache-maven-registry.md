@@ -174,7 +174,7 @@ For more information on creating a package, see the [maven.apache.org documentat
 
 ## Installing a package
 
-To install an Apache Maven package from {% data variables.product.prodname_registry %}, edit the _pom.xml_ file to include the package as a dependency. If you want to install packages from any repository for a specified repository owner, use a repository URL like `https://{% ifversion fpt or ghec %}maven.pkg.github.com{% else %}maven.HOSTNAME{% endif %}/OWNER/*`. For more information on using a _pom.xml_ file in your project, see "[Introduction to the POM](https://maven.apache.org/guides/introduction/introduction-to-the-pom.html)" in the Apache Maven documentation.
+To install an Apache Maven package from {% data variables.product.prodname_registry %}, edit the _pom.xml_ file to include the package as a dependency. If you want to install packages from any repository for a specified repository owner, use a repository URL like `https://{% ifversion fpt or ghec %}maven.pkg.github.com{% else %}maven.HOSTNAME{% endif %}/OWNER/*`. For more information on using a _pom.xml_ file in your project, see [Introduction to the POM](https://maven.apache.org/guides/introduction/introduction-to-the-pom.html) in the Apache Maven documentation.
 
 {% data reusables.package_registry.authenticate-step %}
 1. Add the package dependencies to the `dependencies` element of your project _pom.xml_ file, replacing `com.example:test` with your package.
@@ -197,5 +197,5 @@ To install an Apache Maven package from {% data variables.product.prodname_regis
 
 ## Further reading
 
-* "[AUTOTITLE](/packages/working-with-a-github-packages-registry/working-with-the-gradle-registry)"
-* "[AUTOTITLE](/packages/learn-github-packages/deleting-and-restoring-a-package)"
+* [AUTOTITLE](/packages/working-with-a-github-packages-registry/working-with-the-gradle-registry)
+* [AUTOTITLE](/packages/learn-github-packages/deleting-and-restoring-a-package)

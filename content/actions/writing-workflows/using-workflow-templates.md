@@ -35,7 +35,7 @@ Workflow templates are templates that help you to create your own {% data variab
 
 {% data reusables.actions.workflow-templates-repo-link %}
 
-You can also create your own workflow template to share with your organization. These workflow templates will appear alongside the {% data variables.product.product_name %}-provided workflow templates. Anyone with write access to the organization's `github` repository can set up a workflow template. For more information, see "[AUTOTITLE](/actions/using-workflows/creating-starter-workflows-for-your-organization)."
+You can also create your own workflow template to share with your organization. These workflow templates will appear alongside the {% data variables.product.product_name %}-provided workflow templates. Anyone with write access to the organization's `github` repository can set up a workflow template. For more information, see [AUTOTITLE](/actions/using-workflows/creating-starter-workflows-for-your-organization).
 
 ## Choosing and using a workflow template
 
@@ -45,18 +45,18 @@ You can also create your own workflow template to share with your organization. 
 1. The "Choose a workflow" page shows a selection of recommended workflow templates. Find the workflow template that you want to use, then click **Configure**. To help you find the workflow template that you want, you can search for keywords or filter by category.
 1. If the workflow template contains comments detailing additional setup steps, follow these steps.
 
-   There are guides to accompany many of the workflow templates for building and testing projects. For more information, see "[AUTOTITLE](/actions/automating-builds-and-tests)."
+   There are guides to accompany many of the workflow templates for building and testing projects. For more information, see [AUTOTITLE](/actions/automating-builds-and-tests).
 
-1. Some workflow templates use secrets. For example, {% raw %}`${{ secrets.npm_token }}`{% endraw %}. If the workflow template uses a secret, store the value described in the secret name as a secret in your repository. For more information, see "[AUTOTITLE](/actions/security-guides/using-secrets-in-github-actions)."
+1. Some workflow templates use secrets. For example, {% raw %}`${{ secrets.npm_token }}`{% endraw %}. If the workflow template uses a secret, store the value described in the secret name as a secret in your repository. For more information, see [AUTOTITLE](/actions/security-guides/using-secrets-in-github-actions).
 1. Optionally, make additional changes. For example, you might want to change the value of `on` to change when the workflow runs.
 1. Click **Start commit**.
 1. Write a commit message and decide whether to commit directly to the default branch or to open a pull request.
 
 ## Further reading
 
-* "[AUTOTITLE](/actions/automating-builds-and-tests/about-continuous-integration)"
-* "[AUTOTITLE](/actions/managing-workflow-runs)"
-* "[AUTOTITLE](/actions/monitoring-and-troubleshooting-workflows/about-monitoring-and-troubleshooting)"
+* [AUTOTITLE](/actions/automating-builds-and-tests/about-continuous-integration)
+* [AUTOTITLE](/actions/managing-workflow-runs)
+* [AUTOTITLE](/actions/monitoring-and-troubleshooting-workflows/about-monitoring-and-troubleshooting)
 {% ifversion fpt or ghec %}
-* "[AUTOTITLE](/billing/managing-billing-for-github-actions)"
+* [AUTOTITLE](/billing/managing-billing-for-github-actions)
 {% endif %}

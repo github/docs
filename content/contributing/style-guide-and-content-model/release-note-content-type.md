@@ -13,8 +13,8 @@ We publish the release notes for [{% data variables.product.prodname_ghe_server 
 
 ## Types of releases
 
-{% data variables.product.prodname_docs %} provides release notes for feature releases and patch releases of {% data variables.product.prodname_ghe_server %}. For more information, see "[AUTOTITLE](/enterprise-server@latest/admin/overview/about-upgrades-to-new-releases)" in the {% data variables.product.prodname_ghe_server %} documentation.
+{% data variables.product.prodname_docs %} provides release notes for feature releases and patch releases of {% data variables.product.prodname_ghe_server %}. For more information, see [AUTOTITLE](/enterprise-server@latest/admin/overview/about-upgrades-to-new-releases) in the {% data variables.product.prodname_ghe_server %} documentation.
 
 ## Guidance and example release notes
 
-You can review guidance for the format, style, and tone of release notes, as well as examples of each type of note. For more information, see "[AUTOTITLE](/contributing/style-guide-and-content-model/style-guide#release-notes)".
+You can review guidance for the format, style, and tone of release notes, as well as examples of each type of note. For more information, see [AUTOTITLE](/contributing/style-guide-and-content-model/style-guide#release-notes).

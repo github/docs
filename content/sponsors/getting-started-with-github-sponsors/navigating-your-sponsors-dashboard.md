@@ -45,7 +45,7 @@ You can create a bulk sponsorship from your organization's sponsorships page.
 
 ## Viewing invoices
 
-You can manage your open and paid invoices from your sponsors dashboard. To be able to add funds to your balance, you must first create a new invoice. For more information, see "[AUTOTITLE](/sponsors/sponsoring-open-source-contributors/paying-for-github-sponsors-by-invoice#creating-a-new-invoice)."
+You can manage your open and paid invoices from your sponsors dashboard. To be able to add funds to your balance, you must first create a new invoice. For more information, see [AUTOTITLE](/sponsors/sponsoring-open-source-contributors/paying-for-github-sponsors-by-invoice#creating-a-new-invoice).
 
 {% data reusables.organizations.sponsors-dashboard %}
 {% data reusables.organizations.navigate-to-sponsoring %}

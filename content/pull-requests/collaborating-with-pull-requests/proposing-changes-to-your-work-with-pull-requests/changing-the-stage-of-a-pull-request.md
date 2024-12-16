@@ -21,7 +21,7 @@ shortTitle: Change the state
 {% data reusables.pull_requests.mark-ready-review %}
 
 > [!TIP]
-> You can also mark a pull request as ready for review using the {% data variables.product.prodname_cli %}. For more information, see "[`gh pr ready`](https://cli.github.com/manual/gh_pr_ready)" in the {% data variables.product.prodname_cli %} documentation.
+> You can also mark a pull request as ready for review using the {% data variables.product.prodname_cli %}. For more information, see [`gh pr ready`](https://cli.github.com/manual/gh_pr_ready) in the {% data variables.product.prodname_cli %} documentation.
 
 {% data reusables.repositories.sidebar-pr %}
 1. In the "Pull requests" list, click the pull request you'd like to mark as ready for review.
@@ -43,4 +43,4 @@ You can convert a pull request to a draft at any time. For example, if you accid
 
 ## Further reading
 
-* "[AUTOTITLE](/pull-requests/collaborating-with-pull-requests/proposing-changes-to-your-work-with-pull-requests/about-pull-requests)"
+* [AUTOTITLE](/pull-requests/collaborating-with-pull-requests/proposing-changes-to-your-work-with-pull-requests/about-pull-requests)

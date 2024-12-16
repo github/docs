@@ -27,6 +27,7 @@ const workflowsDir = path.join(__dirname, '../../../.github/workflows')
 const workflows: WorkflowMeta[] = fs
   .readdirSync(workflowsDir)
   .filter((filename) => filename.endsWith('.yml') || filename.endsWith('.yaml'))
+  .filter((filename) => filename !== 'moda-ci.yaml') // Skip moda-ci
   .map((filename) => {
     const fullpath = path.join(workflowsDir, filename)
     const data = yaml.load(fs.readFileSync(fullpath, 'utf8')) as WorkflowMeta['data']

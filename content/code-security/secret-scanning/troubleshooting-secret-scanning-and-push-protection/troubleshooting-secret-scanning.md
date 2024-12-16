@@ -22,7 +22,7 @@ redirect_from:
 
 {% data variables.product.prodname_secret_scanning_caps %} will only detect pattern pairs, such as AWS Access Keys and Secrets, if the ID and the secret are found in the same file, and both are pushed to the repository. Pair matching helps reduce false positives since both elements of a pair (the ID and the secret) must be used together to access the provider's resource.
 
-Pairs pushed to different files, or not pushed to the same repository, will not result in alerts. For more information about the supported pattern pairs, see the table in "[AUTOTITLE](/code-security/secret-scanning/introduction/supported-secret-scanning-patterns)."
+Pairs pushed to different files, or not pushed to the same repository, will not result in alerts. For more information about the supported pattern pairs, see the table in [AUTOTITLE](/code-security/secret-scanning/introduction/supported-secret-scanning-patterns).
 
 ## About legacy GitHub tokens
 
@@ -30,7 +30,7 @@ For {% data variables.product.prodname_dotcom %} tokens, we check the validity o
 
 ## Push protection limitations
 
-If push protection did not detect a secret that you think should have been detected, then you should first check that push protection supports the secret type in the list of supported secrets. For further information, see "[AUTOTITLE](/code-security/secret-scanning/introduction/supported-secret-scanning-patterns#supported-secrets)."
+If push protection did not detect a secret that you think should have been detected, then you should first check that push protection supports the secret type in the list of supported secrets. For further information, see [AUTOTITLE](/code-security/secret-scanning/introduction/supported-secret-scanning-patterns#supported-secrets).
 
 If your secret is in the supported list, there are various reasons why push protection may not detect it.
 
@@ -38,4 +38,5 @@ If your secret is in the supported list, there are various reasons why push prot
 * The version of your secret may be old. {% data reusables.secret-scanning.push-protection-older-tokens %}
 * The push may be too large, for example, if you're trying to push thousands of large files. A push protection scan may time out and not block a user if the push is too large. {% data variables.product.prodname_dotcom %} will still scan and create alerts, if needed, after the push.
 * If the push results in the detection of over five new secrets, we will only show you the first five (we will always show you a maximum of five secrets at one time).
-* If a push contains over 1,000 existing secrets (that is, secrets for which alerts have already been created), push protection will not block the push.
+* If a push contains over 1,000 existing secrets (that is, secrets for which alerts have already been created), push protection will not block the push. {% ifversion fpt or ghec %}
+* If a push in a public repository is larger than 50 MB, push protection will skip it and won't scan it.{% endif %}

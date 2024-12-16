@@ -15,7 +15,7 @@ redirect_from:
 
 ## About repository restoration
 
-Usually, if someone deletes a repository, it will be available on disk for 90 days and can be restored via the site admin dashboard. For more information, see "[AUTOTITLE](/admin/configuration/configuring-your-enterprise/site-admin-dashboard)."
+Usually, if someone deletes a repository, it will be available on disk for 90 days and can be restored via the site admin dashboard. For more information, see [AUTOTITLE](/admin/configuration/configuring-your-enterprise/site-admin-dashboard).
 
 Unless a legal hold is in effect on a user or organization, after 90 days the repository is purged and deleted forever.
 
@@ -36,4 +36,4 @@ Restoring a repository will not restore release attachments or team permissions.
 
 ## Further reading
 
-* "[AUTOTITLE](/admin/user-management/managing-users-in-your-enterprise/placing-a-legal-hold-on-a-user-or-organization)"
+* [AUTOTITLE](/admin/user-management/managing-users-in-your-enterprise/placing-a-legal-hold-on-a-user-or-organization)

@@ -18,16 +18,13 @@ Before you start, make sure you know:
 * Your {% data variables.product.product_name %} username
 * The clone URL for the external repository, such as `https://external-host.com/user/repo.git` or `git://external-host.com/user/repo.git` (perhaps with a `user@` in front of the `external-host.com` domain name)
 
-{% tip %}
-
-For purposes of demonstration, we'll use:
-
-* An external account named **extuser**
-* An external Git host named `https://external-host.com`
-* A {% data variables.product.product_name %} personal account named **ghuser**
-* A repository on {% data variables.location.product_location %} named **repo.git**
-
-{% endtip %}
+> [!NOTE]
+> For purposes of demonstration, we'll use:
+>
+> * An external account named **extuser**
+> * An external Git host named `https://external-host.com`
+> * A {% data variables.product.product_name %} personal account named **ghuser**
+> * A repository on {% data variables.location.product_location %} named **repo.git**
 
 1. [Create a new repository on {% data variables.product.product_name %}](/repositories/creating-and-managing-repositories/creating-a-new-repository). You'll import your external Git repository to this new repository.
 1. On the command line, make a "bare" clone of the external repository using the external clone URL. This creates a full copy of the data, but without a working directory for editing files, and ensures a clean, fresh export of all the old data.
@@ -52,11 +49,11 @@ For purposes of demonstration, we'll use:
    rm -rf REPO.git
    ```
 
-If the repository you are importing contains large files, you may run into a warning or error. For more information on large files and how to manage them, see "[AUTOTITLE](/repositories/working-with-files/managing-large-files/about-large-files-on-github)."
+If the repository you are importing contains large files, you may run into a warning or error. For more information on large files and how to manage them, see [AUTOTITLE](/repositories/working-with-files/managing-large-files/about-large-files-on-github).
 
 {% ifversion fpt or ghec %}
 
 ## Further reading
 
-* "[AUTOTITLE](/get-started/using-git/troubleshooting-the-2-gb-push-limit)"
+* [AUTOTITLE](/get-started/using-git/troubleshooting-the-2-gb-push-limit)
 {% endif %}

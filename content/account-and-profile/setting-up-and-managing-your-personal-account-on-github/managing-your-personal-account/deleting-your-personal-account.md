@@ -32,7 +32,7 @@ Deleting your personal account removes all repositories, forks of private reposi
 {% ifversion ghec %}
 
 > [!NOTE]
-> If your enterprise manages your account and you sign into {% data variables.product.github %} through your company's identity provider (IdP), you cannot delete your account. For more information, see "[AUTOTITLE](/admin/identity-and-access-management/using-enterprise-managed-users-for-iam/about-enterprise-managed-users)."
+> If your enterprise manages your account and you sign into {% data variables.product.github %} through your company's identity provider (IdP), you cannot delete your account. For more information, see [AUTOTITLE](/admin/identity-and-access-management/using-enterprise-managed-users-for-iam/about-enterprise-managed-users).
 
 {% endif %}
 
@@ -42,9 +42,9 @@ If you're the only owner of an organization, you must transfer ownership to anot
 
 For more information, see the following articles.
 
-* "[AUTOTITLE](/organizations/managing-organization-settings/transferring-organization-ownership)"
-* "[AUTOTITLE](/organizations/managing-organization-settings/deleting-an-organization-account)"
-* "[AUTOTITLE](/account-and-profile/setting-up-and-managing-your-personal-account-on-github/managing-your-membership-in-organizations/removing-yourself-from-an-organization)"
+* [AUTOTITLE](/organizations/managing-organization-settings/transferring-organization-ownership)
+* [AUTOTITLE](/organizations/managing-organization-settings/deleting-an-organization-account)
+* [AUTOTITLE](/account-and-profile/setting-up-and-managing-your-personal-account-on-github/managing-your-membership-in-organizations/removing-yourself-from-an-organization)
 
 {% ifversion ghes %}
 > [!NOTE]
@@ -53,7 +53,7 @@ For more information, see the following articles.
 
 ## Back up your account data
 
-Before you delete your personal account, make a copy of all repositories, private forks, wikis, issues, and pull requests owned by your account. For more information, see "[AUTOTITLE](/repositories/archiving-a-github-repository/backing-up-a-repository)."
+Before you delete your personal account, make a copy of all repositories, private forks, wikis, issues, and pull requests owned by your account. For more information, see [AUTOTITLE](/repositories/archiving-a-github-repository/backing-up-a-repository).
 
 > [!WARNING]
 > Once your personal account has been deleted, {% ifversion fpt or ghec %}{% data variables.product.company_short %}{% elsif ghes %}an enterprise owner{% endif %} cannot restore your content.

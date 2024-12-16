@@ -85,18 +85,18 @@ When businesses adopt {% data variables.product.prodname_enterprise %}, their re
 
 1. Learn more about {% data variables.product.prodname_enterprise %}.
 
-   * "[AUTOTITLE](/enterprise-cloud@latest/admin/overview/about-github-enterprise-cloud)"{% ifversion not ghec %} in the {% data variables.product.prodname_ghe_cloud %} documentation{% endif %}
-   * "[AUTOTITLE]({% ifversion not ghes %}/enterprise-server@latest{% endif %}/admin/overview/about-github-enterprise-server){% ifversion not ghes %}" in the {% data variables.product.prodname_ghe_server %} documentation.{% else %}."{% endif %}
+   * [AUTOTITLE](/enterprise-cloud@latest/admin/overview/about-github-enterprise-cloud){% ifversion not ghec %} in the {% data variables.product.prodname_ghe_cloud %} documentation{% endif %}
+   * [AUTOTITLE]({% ifversion not ghes %}/enterprise-server@latest{% endif %}/admin/overview/about-github-enterprise-server){% ifversion not ghes %}" in the {% data variables.product.prodname_ghe_server %} documentation.{% else %}.{% endif %}
 1. Set up a trial.
 
-   * "[AUTOTITLE](/admin/overview/setting-up-a-trial-of-github-enterprise-cloud)"
-   * "[AUTOTITLE](/admin/overview/setting-up-a-trial-of-github-enterprise-server)"
+   * [AUTOTITLE](/admin/overview/setting-up-a-trial-of-github-enterprise-cloud)
+   * [AUTOTITLE](/admin/overview/setting-up-a-trial-of-github-enterprise-server)
 
 ## Further reading
 
-* "[AUTOTITLE](/admin/overview/about-enterprise-accounts)"
-* "[AUTOTITLE](/enterprise-cloud@latest/admin/data-residency/about-github-enterprise-cloud-with-data-residency)"{% ifversion ghes %} in the {% data variables.product.prodname_ghe_cloud %} documentation{% endif %}
-* "[AUTOTITLE](/get-started/learning-about-github/about-github-advanced-security)"
-* "[AUTOTITLE](/support/learning-about-github-support/about-github-premium-support)"
-* "[AUTOTITLE](/enterprise-server@latest/admin/configuration/configuring-github-connect/about-github-connect)"
+* [AUTOTITLE](/admin/overview/about-enterprise-accounts)
+* [AUTOTITLE](/enterprise-cloud@latest/admin/data-residency/about-github-enterprise-cloud-with-data-residency){% ifversion ghes %} in the {% data variables.product.prodname_ghe_cloud %} documentation{% endif %}
+* [AUTOTITLE](/get-started/learning-about-github/about-github-advanced-security)
+* [AUTOTITLE](/support/learning-about-github-support/about-github-premium-support)
+* [AUTOTITLE](/enterprise-server@latest/admin/configuration/configuring-github-connect/about-github-connect)
 * [Compare {% data variables.product.prodname_dotcom %} to other DevOps solutions](https://resources.github.com/devops/tools/compare/) in {% data variables.product.company_short %} Resources

@@ -22,7 +22,7 @@ permissions: Enterprise owners
 
 ## About audit log streaming
 
-You can help protect intellectual property and maintain compliance for your company by using streaming to keep copies of your audit log data. The audit log details events such as changes to settings and access, user membership, app permissions, and more. See "[AUTOTITLE](/admin/monitoring-activity-in-your-enterprise/reviewing-audit-logs-for-your-enterprise/audit-log-events-for-your-enterprise)", "[AUTOTITLE](/organizations/keeping-your-organization-secure/managing-security-settings-for-your-organization/audit-log-events-for-your-organization)", and "[AUTOTITLE](/authentication/keeping-your-account-and-data-secure/security-log-events)."
+You can help protect intellectual property and maintain compliance for your company by using streaming to keep copies of your audit log data. The audit log details events such as changes to settings and access, user membership, app permissions, and more. See [AUTOTITLE](/admin/monitoring-activity-in-your-enterprise/reviewing-audit-logs-for-your-enterprise/audit-log-events-for-your-enterprise), [AUTOTITLE](/organizations/keeping-your-organization-secure/managing-security-settings-for-your-organization/audit-log-events-for-your-organization), and [AUTOTITLE](/authentication/keeping-your-account-and-data-secure/security-log-events).
 
 Streaming audit log data has these benefits:
 
@@ -38,7 +38,7 @@ All streamed audit logs are sent as compressed JSON files. The filename format i
 
 {% ifversion ghes %}
 
-Enabling audit log streaming can cause a minor impact on the performance of {% data variables.location.product_location %}. To learn about increasing resources to mitigate this performance impact, see "[AUTOTITLE](/admin/monitoring-and-managing-your-instance/updating-the-virtual-machine-and-physical-resources/increasing-cpu-or-memory-resources)."
+Enabling audit log streaming can cause a minor impact on the performance of {% data variables.location.product_location %}. To learn about increasing resources to mitigate this performance impact, see [AUTOTITLE](/admin/monitoring-and-managing-your-instance/updating-the-virtual-machine-and-physical-resources/increasing-cpu-or-memory-resources).
 
 {% endif %}
 
@@ -48,7 +48,7 @@ Enabling audit log streaming can cause a minor impact on the performance of {% d
 
 Every 24 hours, a health check runs for each stream. If a stream is set up incorrectly, an email will be sent to the enterprise owners. To avoid audit log events being dropped from the stream, a misconfigured stream must be fixed within six days.
 
-To fix your streaming configuration, follow the steps in "[Setting up audit log streaming](#setting-up-audit-log-streaming)."
+To fix your streaming configuration, follow the steps in [Setting up audit log streaming](#setting-up-audit-log-streaming).
 
 {% endif %}
 
@@ -65,7 +65,7 @@ To set up the audit log stream, follow the instructions for your provider:
 
 {% ifversion ghec %}
 
->[!NOTE] To get a list of IP address ranges that {% data variables.product.prodname_dotcom %} uses for connections to the streaming endpoint, use the REST API. The `meta` endpoint for {% data variables.product.product_name %} includes a `hooks` key with a list of the IP addresses. See "[AUTOTITLE](/rest/meta/meta#get-github-enterprise-cloud-meta-information)."
+>[!NOTE] To get a list of IP address ranges that {% data variables.product.prodname_dotcom %} uses for connections to the streaming endpoint, use the REST API. The `meta` endpoint for {% data variables.product.product_name %} includes a `hooks` key with a list of the IP addresses. See [AUTOTITLE](/rest/meta/meta#get-github-enterprise-cloud-meta-information).
 
 {% endif %}
 
@@ -170,7 +170,7 @@ From {% data variables.product.prodname_dotcom %}:
 
 To disable streaming to S3 with OIDC, delete the {% data variables.product.prodname_dotcom %} OIDC provider you created in AWS when you set up streaming. See [Creating OpenID Connect (OIDC) identity providers](https://docs.aws.amazon.com/IAM/latest/UserGuide/id_roles_providers_create_oidc.html) in the AWS documentation.
 
-If you disable streaming due to a security vulnerability in OIDC, after you delete the provider, set up streaming with access keys until the vulnerability is resolved. See "[Setting up streaming to S3 with access keys](#setting-up-streaming-to-s3-with-access-keys)."
+If you disable streaming due to a security vulnerability in OIDC, after you delete the provider, set up streaming with access keys until the vulnerability is resolved. See [Setting up streaming to S3 with access keys](#setting-up-streaming-to-s3-with-access-keys).
 
 {% endif %}
 

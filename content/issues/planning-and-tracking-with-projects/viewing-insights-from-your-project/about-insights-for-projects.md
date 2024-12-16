@@ -21,11 +21,11 @@ Insights does not track items you have archived or deleted.
 
 You can create current charts to visualize your project items. For example, you can create charts to show how many items are assigned to each individual, or how many issues are assigned to each upcoming iteration.
 
-You can also use filters to manipulate the data used to build your chart. For example, you can create a chart showing how much upcoming work you have, but limit those results to particular labels or assignees. For more information, see "[AUTOTITLE](/issues/planning-and-tracking-with-projects/customizing-views-in-your-project/filtering-projects)."
+You can also use filters to manipulate the data used to build your chart. For example, you can create a chart showing how much upcoming work you have, but limit those results to particular labels or assignees. For more information, see [AUTOTITLE](/issues/planning-and-tracking-with-projects/customizing-views-in-your-project/filtering-projects).
 
 ![Screenshot of a stacked column chart, with a column for each iteration. Each column is divided into sections for "Bug", "Feedback", "Backend", and "UI."](/assets/images/help/issues/column-chart-example.png)
 
-For more information, see "[AUTOTITLE](/issues/planning-and-tracking-with-projects/viewing-insights-from-your-project/creating-charts)" and "[AUTOTITLE](/issues/planning-and-tracking-with-projects/viewing-insights-from-your-project/configuring-charts)."
+For more information, see [AUTOTITLE](/issues/planning-and-tracking-with-projects/viewing-insights-from-your-project/creating-charts) and [AUTOTITLE](/issues/planning-and-tracking-with-projects/viewing-insights-from-your-project/configuring-charts).
 
 ## About historical charts
 
@@ -35,11 +35,10 @@ The default "Burn up" chart allows you to visualize the progress of your issues 
 
 ![Screenshot of an example "Burn up" chart, showing the amount of issues over a two-week period split into the categories "Open", "Completed", and "Not planned". The chart uses horizontal lines to plot the number of issues in each category for each day in the two week period.](/assets/images/help/issues/burnup-example.png)
 
-To create a historical chart, set your chart's X-axis to "Time." You can also use filters to manipulate the data used to build your chart. For more information, see "[AUTOTITLE](/issues/planning-and-tracking-with-projects/customizing-views-in-your-project/filtering-projects)."
+To create a historical chart, set your chart's X-axis to "Time." You can also use filters to manipulate the data used to build your chart. For more information, see [AUTOTITLE](/issues/planning-and-tracking-with-projects/customizing-views-in-your-project/filtering-projects).
 
-For more information, see "[AUTOTITLE](/issues/planning-and-tracking-with-projects/viewing-insights-from-your-project/creating-charts)" and "[AUTOTITLE](/issues/planning-and-tracking-with-projects/viewing-insights-from-your-project/configuring-charts)."
+For more information, see [AUTOTITLE](/issues/planning-and-tracking-with-projects/viewing-insights-from-your-project/creating-charts) and [AUTOTITLE](/issues/planning-and-tracking-with-projects/viewing-insights-from-your-project/configuring-charts).
 
 ## Further reading
 
-* "[AUTOTITLE](/issues/planning-and-tracking-with-projects/learning-about-projects/about-projects)"
-* "[AUTOTITLE](/organizations/managing-organization-settings/disabling-insights-for-projects-in-your-organization)"
+* [AUTOTITLE](/issues/planning-and-tracking-with-projects/learning-about-projects/about-projects)

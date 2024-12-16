@@ -15,7 +15,7 @@ redirect_from:
 
 Enterprise members that are added to an organization via the bulk method will not receive an email inviting them to the organization. They are added immediately as a member to the selected organizations.
 
-Members can also be added or removed from an organization at the organization level. For more information, see {% ifversion ghec %}"[AUTOTITLE](/organizations/managing-membership-in-your-organization/inviting-users-to-join-your-organization)"{% else %}"[AUTOTITLE](/organizations/managing-membership-in-your-organization/adding-people-to-your-organization)"{% endif %} and "[AUTOTITLE](/organizations/managing-membership-in-your-organization/removing-a-member-from-your-organization)."
+Members can also be added or removed from an organization at the organization level. For more information, see {% ifversion ghec %}[AUTOTITLE](/organizations/managing-membership-in-your-organization/inviting-users-to-join-your-organization){% else %}[AUTOTITLE](/organizations/managing-membership-in-your-organization/adding-people-to-your-organization){% endif %} and [AUTOTITLE](/organizations/managing-membership-in-your-organization/removing-a-member-from-your-organization).
 
 {% data reusables.enterprise-accounts.access-enterprise %}
 {% data reusables.enterprise-accounts.people-tab %}

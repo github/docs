@@ -25,7 +25,7 @@ topics:
 
 ## About LDAP authentication for {% data variables.product.product_name %}
 
-LDAP is a popular application protocol for access and maintenance of directory information services, and is one of the most common protocols for integration of third-party software with large company user directories. For more information, see "[Lightweight Directory Access Protocol](https://en.wikipedia.org/wiki/Lightweight_Directory_Access_Protocol)" on Wikipedia.
+LDAP is a popular application protocol for access and maintenance of directory information services, and is one of the most common protocols for integration of third-party software with large company user directories. For more information, see [Lightweight Directory Access Protocol](https://en.wikipedia.org/wiki/Lightweight_Directory_Access_Protocol) on Wikipedia.
 
 If you use an LDAP directory for centralized authentication, you can configure LDAP authentication for the people who use {% data variables.location.product_location %}.
 
@@ -46,7 +46,7 @@ If you use an LDAP directory for centralized authentication, you can configure L
 
 ## Username considerations with LDAP
 
-{% data reusables.enterprise_user_management.consider-usernames-for-external-authentication %} For more information, see "[AUTOTITLE](/admin/identity-and-access-management/managing-iam-for-your-enterprise/username-considerations-for-external-authentication)."
+{% data reusables.enterprise_user_management.consider-usernames-for-external-authentication %} For more information, see [AUTOTITLE](/admin/identity-and-access-management/managing-iam-for-your-enterprise/username-considerations-for-external-authentication).
 
 ## Configuring LDAP with {% data variables.location.product_location %}
 
@@ -110,9 +110,9 @@ When this option is selected, the certificate is validated to make sure:
 
 ## Enabling LDAP Sync
 
-You can establish role-based access control for users from your LDAP server by synchronizing {% data variables.product.prodname_ghe_server %} users and team membership against your established LDAP groups. For more information, see "[AUTOTITLE](/organizations/organizing-members-into-teams/creating-a-team#creating-teams-with-ldap-sync-enabled)."
+You can establish role-based access control for users from your LDAP server by synchronizing {% data variables.product.prodname_ghe_server %} users and team membership against your established LDAP groups. For more information, see [AUTOTITLE](/organizations/organizing-members-into-teams/creating-a-team#creating-teams-with-ldap-sync-enabled).
 
-LDAP sync does not create user accounts on {% data variables.location.product_location %}. For more information, see "[Viewing and creating LDAP users](#viewing-and-creating-ldap-users)."
+LDAP sync does not create user accounts on {% data variables.location.product_location %}. For more information, see [Viewing and creating LDAP users](#viewing-and-creating-ldap-users).
 
 > [!NOTE]
 > Using LDAP Synchronization with groups that exceed 1499 members may lead to team membership synchronization failures.
@@ -211,11 +211,11 @@ You can also [use the API to trigger a manual sync](/rest/enterprise-admin/ldap)
 
 If [LDAP Sync is enabled](#enabling-ldap-sync), removing a user's LDAP credentials will suspend their account after the next synchronization run.
 
-If LDAP Sync is **not** enabled, you must manually suspend the {% data variables.product.prodname_ghe_server %} account after you remove the LDAP credentials. For more information, see "[AUTOTITLE](/admin/user-management/managing-users-in-your-enterprise/suspending-and-unsuspending-users)".
+If LDAP Sync is **not** enabled, you must manually suspend the {% data variables.product.prodname_ghe_server %} account after you remove the LDAP credentials. For more information, see [AUTOTITLE](/admin/user-management/managing-users-in-your-enterprise/suspending-and-unsuspending-users).
 
 ## About logging for LDAP
 
-Log events for LDAP appear in {% ifversion opentelemetry-and-otel-log-migration-phase-1 %}systemd journal logs{% else %}log files{% endif %} on {% data variables.location.product_location %}. You'll find events related to LDAP operations in {% ifversion opentelemetry-and-otel-log-migration-phase-1 %}the logs for `github-unicorn` and `github-resqued`{% else %}`auth.log`, `ldap-sync.log`, and `ldap.log`{% endif %}. For more information, see "[AUTOTITLE](/admin/monitoring-and-managing-your-instance/monitoring-your-instance/about-system-logs#{% ifversion opentelemetry-and-otel-log-migration-phase-1 %}journal-logs-for-the-github-application{% else %}log-files-for-authentication{% endif %})."
+Log events for LDAP appear in {% ifversion opentelemetry-and-otel-log-migration-phase-1 %}systemd journal logs{% else %}log files{% endif %} on {% data variables.location.product_location %}. You'll find events related to LDAP operations in {% ifversion opentelemetry-and-otel-log-migration-phase-1 %}the logs for `github-unicorn` and `github-resqued`{% else %}`auth.log`, `ldap-sync.log`, and `ldap.log`{% endif %}. For more information, see [AUTOTITLE](/admin/monitoring-and-managing-your-instance/monitoring-your-instance/about-system-logs#{% ifversion opentelemetry-and-otel-log-migration-phase-1 %}journal-logs-for-the-github-application{% else %}log-files-for-authentication{% endif %}).
 
 ## Limitations for LDAP on {% data variables.product.product_name %}
 
