@@ -49,6 +49,8 @@ For information about {% data variables.product.prodname_code_scanning %} alerts
 
 {% data reusables.code-scanning.codeql-languages-bullets %}
 
+{% data reusables.code-scanning.beta-actions-analysis %}
+
 {% ifversion fpt or ghec or ghes > 3.10 %}
 
 ## Modeling custom or niche frameworks
