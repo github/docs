@@ -1594,6 +1594,17 @@
   hasValidityCheck: false
   isduplicate: false
 - provider: Google
+  supportedSecret: GCP API Key Bound to a Service Account
+  secretType: google_gcp_api_key_bound_service_account
+  versions:
+    fpt: '*'
+    ghec: '*'
+  isPublic: true
+  isPrivateWithGhas: false
+  hasPushProtection: false
+  hasValidityCheck: false
+  isduplicate: false
+- provider: Google
   supportedSecret: Google OAuth Access Token
   secretType: google_oauth_access_token
   versions:
