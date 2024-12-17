@@ -254,7 +254,7 @@
     "@primer/live-region-element": "^0.7.0",
     "@primer/octicons": "^19.11.0",
     "@primer/octicons-react": "^19.11.0",
-    "@primer/react": "36.27.0",
+    "@primer/react": "37.8.0",
     "accept-language-parser": "^1.5.0",
     "ajv": "^8.17.1",
     "ajv-errors": "^3.0.0",
