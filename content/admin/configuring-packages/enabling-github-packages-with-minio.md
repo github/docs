@@ -21,7 +21,7 @@ redirect_from:
 
 ## Prerequisites
 
-Before you can enable and configure {% data variables.product.prodname_registry %} on {% data variables.location.product_location_enterprise %}, you need to prepare your MinIO storage bucket. To help you quickly set up a MinIO bucket and navigate MinIO's customization options, see the "[AUTOTITLE](/admin/packages/quickstart-for-configuring-your-minio-storage-bucket-for-github-packages)."
+Before you can enable and configure {% data variables.product.prodname_registry %} on {% data variables.location.product_location_enterprise %}, you need to prepare your MinIO storage bucket. To help you quickly set up a MinIO bucket and navigate MinIO's customization options, see the [AUTOTITLE](/admin/packages/quickstart-for-configuring-your-minio-storage-bucket-for-github-packages).
 
 Ensure your MinIO external storage access key ID and secret have these permissions:
 * `s3:PutObject`
@@ -34,7 +34,7 @@ Ensure your MinIO external storage access key ID and secret have these permissio
 
 ## Enabling {% data variables.product.prodname_registry %} with MinIO external storage
 
-Although MinIO does not currently appear in the user interface under "Package Storage", MinIO is still  supported by {% data variables.product.prodname_registry %} on {% data variables.product.prodname_enterprise %}. Also, note that MinIO's object storage is compatible with the S3 API and you can enter MinIO's bucket details in place of AWS S3 details.
+Although MinIO does not currently appear in the user interface under "Package Storage", MinIO is still supported by {% data variables.product.prodname_registry %} on {% data variables.product.prodname_enterprise %}. Also, note that MinIO's object storage is compatible with the S3 API and you can enter MinIO's bucket details in place of AWS S3 details.
 
 {% data reusables.enterprise_site_admin_settings.access-settings %}
 {% data reusables.enterprise_site_admin_settings.management-console %}
@@ -45,7 +45,7 @@ Although MinIO does not currently appear in the user interface under "Package St
 1. Enter your MinIO storage bucket's details in the AWS storage settings.
     * **AWS Service URL:** The hosting URL for your MinIO bucket.
     * **AWS S3 Bucket:** The name of your S3-compatible MinIO bucket dedicated to {% data variables.product.prodname_registry %}.
-    * **AWS S3 Access Key** and **AWS S3 Secret Key**: Enter the MinIO access key ID and secret key to access your bucket.
+    * **AWS S3 Access Key** and **AWS S3 Secret Key:** Enter the MinIO access key ID and secret key to access your bucket.
 {%- endif %}
 {% data reusables.enterprise_management_console.save-settings %}
 

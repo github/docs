@@ -57,12 +57,12 @@ All tickets regarding code security features follow this logic for ticket priori
 | {% data variables.product.support_ticket_priority_normal %} | {% data variables.product.prodname_advanced_security %} is functioning inconsistently, causing impaired end user usage and productivity. |
 | {% data variables.product.support_ticket_priority_low %} | {% data variables.product.prodname_advanced_security %} is functioning consistently, but the end user requests minor changes in the software, such as documentation updates, cosmetic defects, or enhancements.|
 
-## Ticket priorities for {% data variables.product.prodname_actions_runner_controller %}  (ARC)
+## Ticket priorities for {% data variables.product.prodname_actions_runner_controller %} (ARC)
 
 | Priority | Description | Examples |
 | :---: | --- | --- |
 | {% data variables.product.support_ticket_priority_urgent %}{% ifversion ghec %}<br><br>([{% data variables.contact.premium_support %}](/support/learning-about-github-support/about-github-premium-support) only){% endif %} | Issues that critically impact the functionality of GitHub-supported ARC in an existing production environment. This excludes disruptions caused by Kubernetes components, missing dependencies, third-party software (such as proxy servers), or other changes made by your teams. | ARC fails to create pods/start job/remove pods, or ARC has a significant bug affecting production and a rollback is not possible. |
-| {% data variables.product.support_ticket_priority_high %} | Issues that affect the performance of  {% data variables.product.prodname_dotcom %}-supported ARC in an existing production environment but do not result in a complete system failure. | Delays in pod termination or assignment of jobs to pods, where the delay is not in line with expectations but does not entirely halt the workflow. |
+| {% data variables.product.support_ticket_priority_high %} | Issues that affect the performance of {% data variables.product.prodname_dotcom %}-supported ARC in an existing production environment but do not result in a complete system failure. | Delays in pod termination or assignment of jobs to pods, where the delay is not in line with expectations but does not entirely halt the workflow. |
 | {% data variables.product.support_ticket_priority_normal %} / {% data variables.product.support_ticket_priority_low %} | Any other minor issues not classified as {% data variables.product.support_ticket_priority_urgent %} or {% data variables.product.support_ticket_priority_high %} should be directed to [the open source {% data variables.product.prodname_actions_runner_controller %} repository](https://github.com/actions/actions-runner-controller) issues/discussions.  | Customization, performance analysis, initial setup. |
 
 For more information about what {% data variables.contact.github_support %} can assist with, see [AUTOTITLE](/actions/hosting-your-own-runners/managing-self-hosted-runners-with-actions-runner-controller/about-support-for-actions-runner-controller).
@@ -71,4 +71,4 @@ If you are uncertain if the issue is out of scope, contact {% data variables.con
 
 ## Further reading
 
-* "[AUTOTITLE](/support/contacting-github-support/creating-a-support-ticket)"
+* [AUTOTITLE](/support/contacting-github-support/creating-a-support-ticket)

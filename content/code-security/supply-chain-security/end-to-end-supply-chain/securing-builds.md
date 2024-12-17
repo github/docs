@@ -37,7 +37,7 @@ There are several security capabilities a build system should have:
 
 In addition to the security benefits, {% data variables.product.prodname_actions %} lets you trigger builds manually, periodically, or on git events in your repository for frequent and fast builds.
 
-{% data variables.product.prodname_actions %} is a big topic, but a good place to get started is "[AUTOTITLE](/actions/learn-github-actions/understanding-github-actions)," as well as "[AUTOTITLE](/actions/using-workflows/workflow-syntax-for-github-actions#choosing-github-hosted-runners)," and "[AUTOTITLE](/actions/using-workflows/triggering-a-workflow)."
+{% data variables.product.prodname_actions %} is a big topic, but a good place to get started is [AUTOTITLE](/actions/learn-github-actions/understanding-github-actions), as well as [AUTOTITLE](/actions/using-workflows/workflow-syntax-for-github-actions#choosing-github-hosted-runners), and [AUTOTITLE](/actions/using-workflows/triggering-a-workflow).
 
 {% ifversion artifact-attestations %}
 
@@ -47,7 +47,7 @@ In addition to the security benefits, {% data variables.product.prodname_actions
 
 Artifact attestations include a signature over a built artifact, along with links to the source code and build instructions. If you sign your build with artifact attestations, you do not have to manage your own signing key material. {% data variables.product.prodname_dotcom %} handles this for you with the signing authority we operate.
 
-For more information, see "[AUTOTITLE](/actions/security-guides/using-artifact-attestations-to-establish-provenance-for-builds)."
+For more information, see [AUTOTITLE](/actions/security-guides/using-artifact-attestations-to-establish-provenance-for-builds).
 
 {% endif %}
 
@@ -57,18 +57,18 @@ After your build process is secure, you want to prevent someone from tampering w
 
 How exactly you sign your build will depend on what sort of code you're writing, and who your users are. Often it's difficult to know how to securely store the private key. One basic option here is to use {% data variables.product.prodname_actions %} encrypted secrets, although you'll need to be careful to limit who has access to those {% data variables.product.prodname_actions %} workflows. {% ifversion fpt or ghec %}If your private key is stored in another system accessible over the public internet (like Microsoft Azure, or HashiCorp Vault), a more advanced option is to authenticate with OpenID Connect, so you don't have to share secrets across systems.{% endif %} If your private key is only accessible from a private network, another option is to use self-hosted runners for {% data variables.product.prodname_actions %}.
 
-For more information, see "[AUTOTITLE](/actions/security-guides/encrypted-secrets)"{% ifversion fpt or ghec %}, "[AUTOTITLE](/actions/deployment/security-hardening-your-deployments/about-security-hardening-with-openid-connect)",{% endif %} and "[AUTOTITLE](/actions/hosting-your-own-runners/managing-self-hosted-runners/about-self-hosted-runners)."
+For more information, see [AUTOTITLE](/actions/security-guides/encrypted-secrets){% ifversion fpt or ghec %}, [AUTOTITLE](/actions/deployment/security-hardening-your-deployments/about-security-hardening-with-openid-connect),{% endif %} and [AUTOTITLE](/actions/hosting-your-own-runners/managing-self-hosted-runners/about-self-hosted-runners).
 
 ## Harden security for {% data variables.product.prodname_actions %}
 
 There are many further steps you can take to additionally secure {% data variables.product.prodname_actions %}. In particular, be careful when evaluating third-party workflows, and consider using `CODEOWNERS` to limit who can make changes to your workflows.
 
-For more information, see "[AUTOTITLE](/actions/security-guides/security-hardening-for-github-actions)" and "[AUTOTITLE](/actions/security-guides/using-githubs-security-features-to-secure-your-use-of-github-actions)."
+For more information, see [AUTOTITLE](/actions/security-guides/security-hardening-for-github-actions) and [AUTOTITLE](/actions/security-guides/using-githubs-security-features-to-secure-your-use-of-github-actions).
 
 ## Next steps
 
-* "[AUTOTITLE](/code-security/supply-chain-security/end-to-end-supply-chain/end-to-end-supply-chain-overview)"
+* [AUTOTITLE](/code-security/supply-chain-security/end-to-end-supply-chain/end-to-end-supply-chain-overview)
 
-* "[AUTOTITLE](/code-security/supply-chain-security/end-to-end-supply-chain/securing-accounts)"
+* [AUTOTITLE](/code-security/supply-chain-security/end-to-end-supply-chain/securing-accounts)
 
-* "[AUTOTITLE](/code-security/supply-chain-security/end-to-end-supply-chain/securing-code)"
+* [AUTOTITLE](/code-security/supply-chain-security/end-to-end-supply-chain/securing-code)

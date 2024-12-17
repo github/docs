@@ -22,7 +22,7 @@ versions:
 
 {% data reusables.dependabot.dependabot-overview %}
 
-For more information about {% data variables.product.prodname_dependabot %}, see "[AUTOTITLE](/code-security/getting-started/dependabot-quickstart-guide)."
+For more information about {% data variables.product.prodname_dependabot %}, see [AUTOTITLE](/code-security/getting-started/dependabot-quickstart-guide).
 
 In this article, you can see what the supported ecosystems and repositories are.
 
@@ -41,6 +41,6 @@ You can configure updates for repositories that contain a dependency manifest or
 > * {% data reusables.dependabot.private-dependencies-note %}
 > * {% data variables.product.prodname_dependabot %} doesn't support private {% data variables.product.prodname_dotcom %} dependencies for all package managers. See the details in the table below.
 
-If your repository already uses an integration for dependency management, you will need to disable this before enabling {% data variables.product.prodname_dependabot %}. {% ifversion fpt or ghec %}For more information, see "[AUTOTITLE](/get-started/exploring-integrations/about-integrations)."{% endif %}
+If your repository already uses an integration for dependency management, you will need to disable this before enabling {% data variables.product.prodname_dependabot %}. {% ifversion fpt or ghec %}For more information, see [AUTOTITLE](/get-started/exploring-integrations/about-integrations).{% endif %}
 
 {% data reusables.dependabot.supported-package-managers %}

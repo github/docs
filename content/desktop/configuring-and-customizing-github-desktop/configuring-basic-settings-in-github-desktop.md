@@ -34,4 +34,4 @@ shortTitle: Configure basic settings
 
 ## Further reading
 
-* "[AUTOTITLE](/desktop/configuring-and-customizing-github-desktop/setting-a-theme-for-github-desktop)"
+* [AUTOTITLE](/desktop/configuring-and-customizing-github-desktop/setting-a-theme-for-github-desktop)

@@ -15,7 +15,7 @@ You will use a script to automate configuring your Azure resources.
   If you use {% data variables.enterprise.data_residency %}, in the `AllowOutBoundGitHub` section, you must also include the egress IP ranges for {% data variables.enterprise.data_residency_site %}. See "[AUTOTITLE](/admin/data-residency/network-details-for-ghecom#ranges-for-egress-traffic)."
 
   > [!NOTE]
-  > As an alternative to using the following file, to allow {% data variables.product.prodname_actions %} to communicate with the runners, you can allow the same firewall domains that are required for communication between self-hosted runners and {% data variables.product.product_name %}. For more information, see "[AUTOTITLE](/actions/hosting-your-own-runners/managing-self-hosted-runners/about-self-hosted-runners#communication-between-self-hosted-runners-and-github-enterprise-cloud)." To determine the appropriate subnet IP address range,  we recommend adding a 30% buffer to the maximum job concurrency you anticipate. For instance, if your network configuration's runners are set to a maximum job concurrency of 300, it's recommended to utilize a subnet IP address range that can accommodate at least 390 runners. This buffer helps ensure that your network can handle unexpected increases in VM needs to meet job concurrency without running out of IP addresses.
+  > As an alternative to using the following file, to allow {% data variables.product.prodname_actions %} to communicate with the runners, you can allow the same firewall domains that are required for communication between self-hosted runners and {% data variables.product.product_name %}. For more information, see "[AUTOTITLE](/actions/hosting-your-own-runners/managing-self-hosted-runners/about-self-hosted-runners#communication-between-self-hosted-runners-and-github-enterprise-cloud)." To determine the appropriate subnet IP address range, we recommend adding a 30% buffer to the maximum job concurrency you anticipate. For instance, if your network configuration's runners are set to a maximum job concurrency of 300, it's recommended to utilize a subnet IP address range that can accommodate at least 390 runners. This buffer helps ensure that your network can handle unexpected increases in VM needs to meet job concurrency without running out of IP addresses.
 
   ```bicep copy
   @description('NSG for outbound rules')
@@ -132,18 +132,9 @@ You will use a script to automate configuring your Azure resources.
             direction: 'Outbound'
             destinationAddressPrefixes: [
               '140.82.112.0/20'
-              '140.82.112.33/32'
-              '140.82.112.34/32'
-              '140.82.113.33/32'
-              '140.82.113.34/32'
-              '140.82.114.33/32'
-              '140.82.114.34/32'
-              '140.82.121.33/32'
-              '140.82.121.34/32'
               '143.55.64.0/20'
               '185.199.108.0/22'
               '192.30.252.0/22'
-              '192.30.255.164/31'
               '20.175.192.146/32'
               '20.175.192.147/32'
               '20.175.192.149/32'

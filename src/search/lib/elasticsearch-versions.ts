@@ -30,7 +30,10 @@ export const versionToIndexVersionMap: { [key: string]: string } = {}
 // For each potential input (from request query string, CLI, etc), map it to the appropriate index version
 for (const versionSource of Object.values(allVersions)) {
   if (versionSource.hasNumberedReleases) {
+    // Map version number to corresponding release, e.g. `3.14` -> `ghes-3.14`
     versionToIndexVersionMap[versionSource.currentRelease] = versionSource.miscVersionName
+    // Map full release name to corresponding release, e.g. `enterprise-server@3.14` -> `ghes-3.14`
+    versionToIndexVersionMap[versionSource.version] = versionSource.miscVersionName
     // Map shortname or plan, e.g. `ghes` or `enterprise-server` to the latest release, e.g. `ghes-3.14`
     if (versionSource.latestRelease === versionSource.currentRelease) {
       versionToIndexVersionMap[versionSource.plan] = versionSource.miscVersionName

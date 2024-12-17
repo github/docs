@@ -12,7 +12,7 @@ versions:
 
 _These terms apply to Customers who licensed the Products prior to January 4, 2021. Customers who purchase GitHub Products after that date are directed to https://github.com/customer-terms for current terms._
 
-The following GitHub Supplemental Terms (including any applicable Order Forms) supplement Customer's Microsoft volume licensing agreement ("**Microsoft Customer Agreement**") and, together with the Microsoft Customer Agreement, govern Customer's use of the Products (as defined below). The Microsoft Customer Agreement is incorporated herein by this reference.  Capitalized terms used but not defined in these supplemental terms have the meanings assigned to them in the Microsoft Customer Agreement.
+The following GitHub Supplemental Terms (including any applicable Order Forms) supplement Customer's Microsoft volume licensing agreement ("**Microsoft Customer Agreement**") and, together with the Microsoft Customer Agreement, govern Customer's use of the Products (as defined below). The Microsoft Customer Agreement is incorporated herein by this reference. Capitalized terms used but not defined in these supplemental terms have the meanings assigned to them in the Microsoft Customer Agreement.
 
 These Supplemental Terms apply to the following GitHub Offerings, as further defined below (collectively, the "**Products**"):
 
@@ -102,7 +102,7 @@ In order to create an account, Customer must adhere to the following:
 
 #### 2.1.3 Account Security.
 
-Customer is responsible for: (i) all Content posted and activity that occurs under its Corporate Account; (ii) maintaining the security of its account login credentials; and (iii) promptly notifying GitHub using the contact form available at [GitHub Support](https://support.github.com/) upon becoming aware of any unauthorized use of, or access to, the Service through its account.  GitHub will not be liable for any loss or damage from Customer’s failure to comply with this Section 2.1.3.
+Customer is responsible for: (i) all Content posted and activity that occurs under its Corporate Account; (ii) maintaining the security of its account login credentials; and (iii) promptly notifying GitHub using the contact form available at [GitHub Support](https://support.github.com/) upon becoming aware of any unauthorized use of, or access to, the Service through its account. GitHub will not be liable for any loss or damage from Customer’s failure to comply with this Section 2.1.3.
 
 #### 2.1.4 Additional Terms.
 
@@ -168,7 +168,7 @@ GitHub considers Customer Content in Customer’s Private Repositories to be Cus
 
 #### 2.4.3 Access.
 
-GitHub may only access Customer’s Private Repositories (i) with Customer’s consent and knowledge, for support reasons, or (ii) when access is required for security reasons.  Customer may choose to enable additional access to its Private Repositories. For example, Customer may enable various GitHub services or features that require additional rights to Customer Content in Private Repositories. These rights may vary depending on the service or feature, but GitHub will continue to treat Customer Content in Customer’s Private Repositories as Customer’s Confidential Information. If those services or features require rights in addition to those it needs to provide the Service, GitHub will provide an explanation of those rights.
+GitHub may only access Customer’s Private Repositories (i) with Customer’s consent and knowledge, for support reasons, or (ii) when access is required for security reasons. Customer may choose to enable additional access to its Private Repositories. For example, Customer may enable various GitHub services or features that require additional rights to Customer Content in Private Repositories. These rights may vary depending on the service or feature, but GitHub will continue to treat Customer Content in Customer’s Private Repositories as Customer’s Confidential Information. If those services or features require rights in addition to those it needs to provide the Service, GitHub will provide an explanation of those rights.
 
 #### 2.4.4 Exclusions.
 
@@ -224,7 +224,7 @@ Either Party may terminate an Order Form or these GitHub Supplemental Terms, wit
 
 #### 3.1.3 Termination for Material Breach.
 
-Either Party may terminate these GitHub Supplemental Terms immediately upon notice if the other Party breaches a material obligation under these GitHub Supplemental Terms and fails to cure the breach within thirty (30) days from the date it receives notification.  GitHub may terminate these GitHub Supplemental Terms if Customer's Account has been suspended for more than 90 days.
+Either Party may terminate these GitHub Supplemental Terms immediately upon notice if the other Party breaches a material obligation under these GitHub Supplemental Terms and fails to cure the breach within thirty (30) days from the date it receives notification. GitHub may terminate these GitHub Supplemental Terms if Customer's Account has been suspended for more than 90 days.
 
 #### 3.1.4 Effect of Termination.
 
@@ -310,7 +310,7 @@ In the event of a conflict between the Supplemental Terms, on one hand, and an O
 
 **“Scraping”** means extracting data from the Service via an automated process, such as a bot or webcrawler, and does not include the collection of information through GitHub's API.
 
-**"Service"** means the hosted GitHub Enterprise Cloud service. The Service includes:  Organization account(s), SAML single sign-on, access provisioning, and any applicable Documentation. This list of features and services is non-exhaustive and may be updated from time to time.
+**"Service"** means the hosted GitHub Enterprise Cloud service. The Service includes: Organization account(s), SAML single sign-on, access provisioning, and any applicable Documentation. This list of features and services is non-exhaustive and may be updated from time to time.
 
 **"Service Credit"** means a dollar credit, calculated as set forth below, that GitHub may credit back to an eligible account.
 

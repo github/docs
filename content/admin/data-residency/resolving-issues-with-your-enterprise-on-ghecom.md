@@ -14,7 +14,7 @@ If you're experiencing problems with a service that usually works, like pull req
 
 If you need help to resolve an issue, contact {% data variables.contact.contact_ent_support %}. Ensure you are signed in to the support portal with your {% data variables.enterprise.data_residency_site %} account. You can also purchase {% data variables.contact.premium_support %}.
 
-Some requests, such as configuration of an external identity management system, may not be in the scope of what {% data variables.contact.github_support %} can help with. See "[AUTOTITLE](/support/learning-about-github-support/about-github-support#scope-of-support)."
+Some requests, such as configuration of an external identity management system, may not be in the scope of what {% data variables.contact.github_support %} can help with. See [AUTOTITLE](/support/learning-about-github-support/about-github-support#scope-of-support).
 
 ## Giving feedback
 
@@ -22,4 +22,4 @@ We encourage you to engage with your account team to provide feedback about your
 
 ## Further reading
 
-* "[AUTOTITLE](/support/learning-about-github-support/about-github-premium-support)"
+* [AUTOTITLE](/support/learning-about-github-support/about-github-premium-support)

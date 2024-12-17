@@ -66,4 +66,4 @@ ln -sf $PWD/.devcontainer/config $HOME/config && set +x
 
 ## Further reading
 
-* "[AUTOTITLE](/codespaces/setting-up-your-project-for-codespaces/adding-a-dev-container-configuration/introduction-to-dev-containers)"
+* [AUTOTITLE](/codespaces/setting-up-your-project-for-codespaces/adding-a-dev-container-configuration/introduction-to-dev-containers)

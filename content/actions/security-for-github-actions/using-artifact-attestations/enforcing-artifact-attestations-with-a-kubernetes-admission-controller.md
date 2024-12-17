@@ -47,7 +47,7 @@ First, install the Helm chart that deploys the Sigstore Policy Controller:
 helm upgrade policy-controller --install --atomic \
   --create-namespace --namespace artifact-attestations \
   oci://ghcr.io/github/artifact-attestations-helm-charts/policy-controller \
-  --version v0.10.0-github8
+  --version v0.10.0-github9
 ```
 
 This installs the Policy Controller into the `artifact-attestations` namespace. At this point, no policies have been configured, and it will not enforce any attestations.
@@ -131,7 +131,7 @@ To see the full set of options you may configure with the Helm chart, you can ru
 For policy controller options:
 
 ```bash copy
-helm show values oci://ghcr.io/github/artifact-attestations-helm-charts/policy-controller --version v0.10.0-github8
+helm show values oci://ghcr.io/github/artifact-attestations-helm-charts/policy-controller --version v0.10.0-github9
 ```
 
 For trust policy options:

@@ -15,11 +15,13 @@ If {% data variables.product.prodname_copilot %} stops working, check {% data va
 
 ## Unable to use the {% data variables.product.prodname_copilot %} extension in the IDE
 
-We recommend you follow the quickstart guide for {% data variables.product.prodname_copilot %} while setting up {% data variables.product.prodname_copilot %} on your machine. For more information, see "[AUTOTITLE](/copilot/quickstart)."
+We recommend you follow the quickstart guide for {% data variables.product.prodname_copilot %} while setting up {% data variables.product.prodname_copilot %} on your machine. For more information, see [AUTOTITLE](/copilot/quickstart).
 
 The {% data variables.product.prodname_copilot %} extension is frequently updated to fix bugs and add new features. It's important to keep your extension up to date because older clients cannot communicate with the {% data variables.product.prodname_copilot %} servers. Update your {% data variables.product.prodname_copilot %} extension on all the machines you have it installed.
 
-For more information about configuring {% data variables.product.prodname_copilot %} in a supported IDE, see "[AUTOTITLE](/copilot/configuring-github-copilot/configuring-github-copilot-in-your-environment)."
+{% data reusables.copilot.sign-in-ghecom %} See [AUTOTITLE](/copilot/managing-copilot/configure-personal-settings/using-github-copilot-with-an-account-on-ghecom).
+
+For more information about configuring {% data variables.product.prodname_copilot %} in a supported IDE, see [AUTOTITLE](/copilot/configuring-github-copilot/configuring-github-copilot-in-your-environment).
 
 ## {% data variables.product.prodname_copilot %} not working in some files
 
@@ -35,7 +37,7 @@ Content exclusion can be configured at the repository{% ifversion ghec %}, organ
 
 {% data reusables.copilot.content-exclusions-scope %}
 
-{% data reusables.copilot.content-exclusions-delay %} For more information, see "[AUTOTITLE](/copilot/managing-copilot/managing-github-copilot-in-your-organization/managing-github-copilot-features-in-your-organization/testing-changes-to-content-exclusions-in-your-ide#propagating-content-exclusion-changes-to-your-ide)."
+{% data reusables.copilot.content-exclusions-delay %} For more information, see [AUTOTITLE](/copilot/managing-copilot/managing-github-copilot-in-your-organization/managing-github-copilot-features-in-your-organization/testing-changes-to-content-exclusions-in-your-ide#propagating-content-exclusion-changes-to-your-ide).
 
 > [!NOTE]
 > {% data reusables.copilot.content-exclusion-limitations %}
@@ -46,7 +48,7 @@ This error indicates that you do not have a {% data variables.product.prodname_c
 
 To request another token from api.github.com, try signing in and out of {% data variables.product.prodname_copilot %} from your IDE. Once you've logged out, {% data variables.product.prodname_copilot %} will prompt you to sign back in.
 
-If you cannot connect to the server, you can create a discussion in our [discussion forum](https://github.com/orgs/community/discussions/categories/copilot). You can include log files from your IDE to help us troubleshoot the issue. For more information on obtaining log files from your specific IDE, see "[AUTOTITLE](/copilot/troubleshooting-github-copilot/viewing-logs-for-github-copilot-in-your-environment)."
+If you cannot connect to the server, you can create a discussion in our [discussion forum](https://github.com/orgs/community/discussions/categories/copilot). You can include log files from your IDE to help us troubleshoot the issue. For more information on obtaining log files from your specific IDE, see [AUTOTITLE](/copilot/troubleshooting-github-copilot/viewing-logs-for-github-copilot-in-your-environment).
 
 ## {% data variables.product.prodname_copilot %} not suggesting multiple lines of code
 
@@ -60,4 +62,4 @@ For more information, see the [{% data variables.product.prodname_copilot_cli_sh
 
 ## Further reading
 
-* "[AUTOTITLE](/free-pro-team@latest/site-policy/other-site-policies/github-and-trade-controls)"
+* [AUTOTITLE](/free-pro-team@latest/site-policy/other-site-policies/github-and-trade-controls)

@@ -29,4 +29,4 @@ You can view a list of devices that have logged into your account, and revoke an
 
 ## Further information
 
-* "[AUTOTITLE](/authentication/keeping-your-account-and-data-secure/about-authentication-to-github#session-cookies)"
+* [AUTOTITLE](/authentication/keeping-your-account-and-data-secure/about-authentication-to-github#session-cookies)

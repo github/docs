@@ -25,14 +25,14 @@ If your {% data variables.enterprise.prodname_emu_enterprise %} uses SAML SSO to
 
 When you migrate from SAML to OIDC, {% data variables.enterprise.prodname_managed_users %} and groups that were previously provisioned for SAML but are not provisioned by the {% data variables.product.prodname_emu_idp_oidc_application %} application will have "(SAML)" appended to their display names.
 
-If you're new to {% data variables.product.prodname_emus %} and haven't yet configured authentication for your enterprise, you do not need to migrate and can set up OIDC single sign-on immediately. For more information, see "[AUTOTITLE](/admin/identity-and-access-management/using-enterprise-managed-users-for-iam/configuring-oidc-for-enterprise-managed-users)."
+If you're new to {% data variables.product.prodname_emus %} and haven't yet configured authentication for your enterprise, you do not need to migrate and can set up OIDC single sign-on immediately. For more information, see [AUTOTITLE](/admin/identity-and-access-management/using-enterprise-managed-users-for-iam/configuring-oidc-for-enterprise-managed-users).
 
 > [!WARNING]
 > {% data reusables.enterprise_user_management.migration-teams-warning %}
 
 ## Prerequisites
 
-* Your enterprise on {% data variables.product.github %} must currently be configured to use SAML for authentication, with Entra ID as your identity provider (IdP). For more information, see "[AUTOTITLE](/admin/identity-and-access-management/using-enterprise-managed-users-for-iam/configuring-saml-single-sign-on-for-enterprise-managed-users)."
+* Your enterprise on {% data variables.product.github %} must currently be configured to use SAML for authentication, with Entra ID as your identity provider (IdP). For more information, see [AUTOTITLE](/admin/identity-and-access-management/using-enterprise-managed-users-for-iam/configuring-saml-single-sign-on-for-enterprise-managed-users).
 {% data reusables.emus.migration-roles-prereq %}
 {% data reusables.emus.migration-schedule-downtime %}
 
@@ -44,7 +44,7 @@ To migrate your enterprise from SAML to OIDC, you will disable your existing {% 
 > Migration of your enterprise from SAML to OIDC can take up to an hour. During the migration, users cannot access your enterprise on {% data variables.product.github %}.
 
 1. Before you begin the migration, sign in to Azure and disable provisioning in the existing {% data variables.product.prodname_emu_idp_application %} application.
-1. If you use [Conditional Access (CA) network location policies](https://docs.microsoft.com/en-us/azure/active-directory/conditional-access/location-condition) in Entra ID, and you're currently using an IP allow list with your enterprise account or any of the organizations owned by the enterprise account, disable the IP allow lists. See "[AUTOTITLE](/admin/policies/enforcing-policies-for-your-enterprise/enforcing-policies-for-security-settings-in-your-enterprise#managing-allowed-ip-addresses-for-organizations-in-your-enterprise)" and "[AUTOTITLE](/organizations/keeping-your-organization-secure/managing-security-settings-for-your-organization/managing-allowed-ip-addresses-for-your-organization)."
+1. If you use [Conditional Access (CA) network location policies](https://docs.microsoft.com/en-us/azure/active-directory/conditional-access/location-condition) in Entra ID, and you're currently using an IP allow list with your enterprise account or any of the organizations owned by the enterprise account, disable the IP allow lists. See [AUTOTITLE](/admin/policies/enforcing-policies-for-your-enterprise/enforcing-policies-for-security-settings-in-your-enterprise#managing-allowed-ip-addresses-for-organizations-in-your-enterprise) and [AUTOTITLE](/organizations/keeping-your-organization-secure/managing-security-settings-for-your-organization/managing-allowed-ip-addresses-for-your-organization).
 {% data reusables.emus.sign-in-as-setup-user %}
 {% data reusables.enterprise-accounts.access-enterprise-emu %}
 {% data reusables.emus.use-enterprise-recovery-code %}
@@ -60,7 +60,7 @@ To migrate your enterprise from SAML to OIDC, you will disable your existing {% 
    > [!WARNING]
    > Do not provision new users from the application on Entra ID during the migration.
 
-1. In a new tab or window, while signed in as the setup user, create a {% data variables.product.pat_v1 %} with the **scim:enterprise** scope and **no expiration** and copy it to your clipboard. For more information about creating a new token, see "[AUTOTITLE](/admin/identity-and-access-management/using-enterprise-managed-users-for-iam/configuring-scim-provisioning-for-enterprise-managed-users#creating-a-personal-access-token)."
+1. In a new tab or window, while signed in as the setup user, create a {% data variables.product.pat_v1 %} with the **scim:enterprise** scope and **no expiration** and copy it to your clipboard. For more information about creating a new token, see [AUTOTITLE](/admin/identity-and-access-management/using-enterprise-managed-users-for-iam/configuring-scim-provisioning-for-enterprise-managed-users#creating-a-personal-access-token).
 1. In the provisioning settings for the {% data variables.product.prodname_emu_idp_oidc_application %} application in the Microsoft Entra admin center, under "Tenant URL", the tenant URL for your enterprise:
     * For **{% data variables.product.prodname_dotcom_the_website %}**: `https://api.github.com/scim/v2/enterprises/YOUR_ENTERPRISE`, replacing YOUR_ENTERPRISE with the name of your enterprise account. For example, if your enterprise account's URL is `https://github.com/enterprises/octo-corp`, the name of the enterprise account is `octo-corp`.
     * For **{% data variables.enterprise.data_residency_site %}**: `https://api.SUBDOMAIN.ghe.com/scim/v2/enterprises/SUBDOMAIN`, where SUBDOMAIN is your enterprise's subdomain on {% data variables.enterprise.data_residency_site %}.

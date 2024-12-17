@@ -35,6 +35,7 @@ export SUBNET_NAME=YOUR_SUBNET_NAME
 export NSG_NAME=YOUR_NSG_NAME
 export NETWORK_SETTINGS_RESOURCE_NAME=YOUR_NETWORK_SETTINGS_RESOURCE_NAME
 export DATABASE_ID=YOUR_DATABASE_ID
+export API_VERSION=2024-04-02
 
 # These are the default values. You can adjust your address and subnet prefixes.
 export ADDRESS_PREFIX=10.0.0.0/16
@@ -70,7 +71,7 @@ echo Delegate subnet to GitHub.Network/networkSettings and apply NSG rules
 
 echo
 echo Create network settings resource $NETWORK_SETTINGS_RESOURCE_NAME
-. az resource create --resource-group $RESOURCE_GROUP_NAME  --name $NETWORK_SETTINGS_RESOURCE_NAME --resource-type GitHub.Network/networkSettings --properties "{ \"location\": \"$AZURE_LOCATION\", \"properties\" : {  \"subnetId\": \"/subscriptions/$SUBSCRIPTION_ID/resourceGroups/$RESOURCE_GROUP_NAME/providers/Microsoft.Network/virtualNetworks/$VNET_NAME/subnets/$SUBNET_NAME\", \"businessId\": \"$DATABASE_ID\" }}" --is-full-object --output table --query "{GitHubId:tags.GitHubId, name:name}" --api-version 2024-04-02
+. az resource create --resource-group $RESOURCE_GROUP_NAME --name $NETWORK_SETTINGS_RESOURCE_NAME --resource-type GitHub.Network/networkSettings --properties "{ \"location\": \"$AZURE_LOCATION\", \"properties\" : { \"subnetId\": \"/subscriptions/$SUBSCRIPTION_ID/resourceGroups/$RESOURCE_GROUP_NAME/providers/Microsoft.Network/virtualNetworks/$VNET_NAME/subnets/$SUBNET_NAME\", \"businessId\": \"$DATABASE_ID\" }}" --is-full-object --output table --query "{GitHubId:tags.GitHubId, name:name}" --api-version $API_VERSION
 
 echo
 echo To clean up and delete resources run the following command:

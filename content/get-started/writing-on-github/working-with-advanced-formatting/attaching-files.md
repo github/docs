@@ -1,6 +1,7 @@
 ---
 title: Attaching files
 intro: You can convey information by attaching a variety of file types to your issues and pull requests.
+product: '{% data reusables.gated-features.markdown-ui %}'
 redirect_from:
   - /github/managing-your-work-on-github/managing-your-work-with-issues-and-pull-requests/file-attachments-on-issues-and-pull-requests
   - /articles/issue-attachments
@@ -41,7 +42,7 @@ To attach a file to an issue or pull request conversation, drag and drop it into
 
 {% endif %}
 
-When you attach a file, it is uploaded immediately to {% data variables.product.product_name %} and the text field is updated to show the anonymized URL for the file. {% ifversion fpt or ghec %}For more information on anonymized URLs see "[AUTOTITLE](/authentication/keeping-your-account-and-data-secure/about-anonymized-urls)."{% endif %}
+When you attach a file, it is uploaded immediately to {% data variables.product.product_name %} and the text field is updated to show the anonymized URL for the file. {% ifversion fpt or ghec %}For more information on anonymized URLs see [AUTOTITLE](/authentication/keeping-your-account-and-data-secure/about-anonymized-urls).{% endif %}
 
 > [!NOTE]
 > In many browsers, you can copy-and-paste images directly into the box.

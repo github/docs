@@ -54,13 +54,13 @@ export const CookBookFilter = ({
   }, [isSearchOpen])
 
   return (
-    <>
-      <div>
+    <div className="d-lg-flex d-sm-block">
+      <div className="col-12 mr-2">
         <form onSubmit={(e) => e.preventDefault()}>
           <TextInput
             leadingVisual={SearchIcon}
-            className="float-lg-left m-1"
-            sx={{ minWidth: ['stretch', 'stretch', 'stretch', 250] }}
+            className="m-1"
+            sx={{ minWidth: ['stretch', 'stretch', 'stretch', 'stretch'] }}
             placeholder="Search articles"
             ref={inputRef}
             autoComplete="false"
@@ -71,9 +71,9 @@ export const CookBookFilter = ({
           />
         </form>
       </div>
-      <div className="d-flex">
+      <div className="d-flex flex-wrap flex-md-nowrap ">
         <ActionMenu>
-          <ActionMenu.Button className="col-md-1 col-sm-2 float-md-left m-1">
+          <ActionMenu.Button className="col-md-1 col-sm-2 m-1">
             <Box
               sx={{
                 color: 'fg.muted',
@@ -100,7 +100,7 @@ export const CookBookFilter = ({
         </ActionMenu>
 
         <ActionMenu>
-          <ActionMenu.Button className="col-md-1 col-sm-2 float-md-left m-1">
+          <ActionMenu.Button className="col-md-1 col-sm-2 m-1">
             <Box
               sx={{
                 color: 'fg.muted',
@@ -126,14 +126,10 @@ export const CookBookFilter = ({
           </ActionMenu.Overlay>
         </ActionMenu>
 
-        <Button
-          variant="invisible"
-          className="col-md-1 col-sm-2 float-left mt-1"
-          onClick={onResetFilter}
-        >
+        <Button variant="invisible" className="col-md-1 col-sm-2 mt-1" onClick={onResetFilter}>
           Reset filters
         </Button>
       </div>
-    </>
+    </div>
   )
 }

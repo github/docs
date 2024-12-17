@@ -1,4 +1,4 @@
-1. Under your repository or organization name, click {% octicon "comment-discussion" aria-hidden="true" %} **Discussions**.
+1. Under your repository or organization name, click **{% octicon "comment-discussion" aria-hidden="true" %} Discussions**.
 
 {% ifversion global-nav-update %}
 

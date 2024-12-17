@@ -52,13 +52,13 @@ or has force pushed over the branch, the missing commit may have been orphaned
 into your local clone.
 
 Fortunately, if any collaborator has a local clone of the repository with the
-missing commit, they can push it back to {% data variables.product.product_name %}.  They need to make sure the commit
+missing commit, they can push it back to {% data variables.product.product_name %}. They need to make sure the commit
 is referenced by a local branch and then push it as a new branch to {% data variables.product.product_name %}.
 
 Let's say that the person still has a local branch (call it `B`) that contains
-the commit.  This might be tracking the branch that was force pushed or deleted
-and they simply haven't updated yet.  To preserve the commit, they can push that
-local branch to a new branch (call it `recover-B`) on {% data variables.product.product_name %}.  For this example,
+the commit. This might be tracking the branch that was force pushed or deleted
+and they simply haven't updated yet. To preserve the commit, they can push that
+local branch to a new branch (call it `recover-B`) on {% data variables.product.product_name %}. For this example,
 let's assume they have a remote named `upstream` via which they have push access
 to `github.com/ACCOUNT/REPOSITORY`.
 

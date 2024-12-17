@@ -51,6 +51,6 @@ If you have multiple keys or are attempting to sign commits or tags with a key t
 
 ## Further reading
 
-* "[AUTOTITLE](/authentication/managing-commit-signature-verification/telling-git-about-your-signing-key)"
-* "[AUTOTITLE](/authentication/managing-commit-signature-verification/signing-tags)"{% ifversion fpt or ghec %}
-* "[AUTOTITLE](/codespaces/managing-your-codespaces/managing-gpg-verification-for-github-codespaces)"{% endif %}
+* [AUTOTITLE](/authentication/managing-commit-signature-verification/telling-git-about-your-signing-key)
+* [AUTOTITLE](/authentication/managing-commit-signature-verification/signing-tags){% ifversion fpt or ghec %}
+* [AUTOTITLE](/codespaces/managing-your-codespaces/managing-gpg-verification-for-github-codespaces){% endif %}

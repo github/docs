@@ -20,7 +20,7 @@ Anyone with admin permissions to a public repository can create and edit a secur
 
 ## About security advisories for repositories
 
-{% data reusables.security-advisory.security-advisory-overview %} For more information, see "[AUTOTITLE](/code-security/security-advisories/working-with-repository-security-advisories/about-repository-security-advisories)."
+{% data reusables.security-advisory.security-advisory-overview %} For more information, see [AUTOTITLE](/code-security/security-advisories/working-with-repository-security-advisories/about-repository-security-advisories).
 
 We recommend you use the syntax used in the {% data variables.product.prodname_advisory_database %}, especially the version formatting, when you write a repository security advisory, or make a community contribution to a global security advisory.
 
@@ -29,13 +29,13 @@ If you follow the syntax for the {% data variables.product.prodname_advisory_dat
 * {% data variables.product.prodname_dependabot %} will have the information to accurately identify repositories that are affected and send them {% data variables.product.prodname_dependabot_alerts %} to notify them.
 * Community members are less likely to suggest edits to your advisory to fix missing or incorrect information.
 
-You add or edit a repository advisory using the _Draft security advisory_ form. For more information, see "[AUTOTITLE](/code-security/security-advisories/working-with-repository-security-advisories/creating-a-repository-security-advisory)."
+You add or edit a repository advisory using the _Draft security advisory_ form. For more information, see [AUTOTITLE](/code-security/security-advisories/working-with-repository-security-advisories/creating-a-repository-security-advisory).
 
-You suggest an improvement to an existing global advisory using the _Improve security advisory_ form. For more information, see "[AUTOTITLE](/code-security/security-advisories/working-with-global-security-advisories-from-the-github-advisory-database/editing-security-advisories-in-the-github-advisory-database)."
+You suggest an improvement to an existing global advisory using the _Improve security advisory_ form. For more information, see [AUTOTITLE](/code-security/security-advisories/working-with-global-security-advisories-from-the-github-advisory-database/editing-security-advisories-in-the-github-advisory-database).
 
 ## Ecosystem
 
-You need to assign the advisory to one of our supported ecosystems using the **Ecosystem** field. For more information about the ecosystems we support, see "[AUTOTITLE](/code-security/security-advisories/working-with-global-security-advisories-from-the-github-advisory-database/browsing-security-advisories-in-the-github-advisory-database#github-reviewed-advisories)."
+You need to assign the advisory to one of our supported ecosystems using the **Ecosystem** field. For more information about the ecosystems we support, see [AUTOTITLE](/code-security/security-advisories/working-with-global-security-advisories-from-the-github-advisory-database/browsing-security-advisories-in-the-github-advisory-database#github-reviewed-advisories).
 
 ![Screenshot of the "Affected products" area of the security advisory form. The "Ecosystem" field is highlighted with a dark orange outline.](/assets/images/help/security/security-advisory-ecosystem.png)
 
@@ -51,15 +51,15 @@ For more information about the {% data variables.product.prodname_advisory_datab
 
 ### Glossary
 
-* **Vulnerable Version Range (VVR)**: the range of versions that are vulnerable to a particular software bug.
-* **Operator**: any symbol that indicates the boundary of a vulnerable version range.
-* **Open Source Vulnerability format (OSV)**: format that the {% data variables.product.prodname_advisory_database %} data strives to be compatible with.
+* **Vulnerable Version Range (VVR):** the range of versions that are vulnerable to a particular software bug.
+* **Operator:** any symbol that indicates the boundary of a vulnerable version range.
+* **Open Source Vulnerability format (OSV):** format that the {% data variables.product.prodname_advisory_database %} data strives to be compatible with.
 
 ### Version syntax
 
 * Smaller numbers are earlier versions than larger numbers. for example, `1.0.0` is a lower version than `2.0.0`
 * Earlier letters in the alphabet are earlier versions than later letters in the alphabet. For example, `2.0.0-a` is an earlier version than `2.0.0-b`.
-* Any letters that come after a number are considered part of a prerelease, so any versions with letters after the numbers are earlier versions than numbers without letters in the version number. For example,  `2.0.0-alpha`, `2.0.0-beta`, and `2.0.0-rc` are earlier than `2.0.0`.
+* Any letters that come after a number are considered part of a prerelease, so any versions with letters after the numbers are earlier versions than numbers without letters in the version number. For example, `2.0.0-alpha`, `2.0.0-beta`, and `2.0.0-rc` are earlier than `2.0.0`.
 * A fixed version cannot be smaller than the largest number in the VVR. For example, a vulnerable version is released and the maintainer recommends downgrading. The maintainer cannot label that lower version as a fixed or patched version in the `Fixed` field because that version is smaller than the vulnerable version.
 
 ### Supported operators

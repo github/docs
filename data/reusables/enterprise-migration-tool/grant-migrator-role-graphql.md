@@ -25,7 +25,7 @@ mutation grantMigratorRole (
 |----|----|
 | `organizationId` | The `ownerId` (or organization ID) for your organization, from the `GetOrgInfo` query.
 | `actor` | The team or username who you want to assign the migration role to.
-|  `actor_type` | Specify whether the migrator is a `USER` or `TEAM`.
+| `actor_type` | Specify whether the migrator is a `USER` or `TEAM`.
 
 #### `revokeMigratorRole` mutation
 

@@ -9,7 +9,6 @@ Before you submit your changes to the {% data variables.product.prodname_docs %}
 
 * Changes meet the **content goals and user needs** in the content design plan, if one has been created.
 * Content has been **confirmed for accuracy** by a subject matter expert (SME) in the technical area.
-* Content follows **quality guidelines** in "[AUTOTITLE](/contributing/writing-for-github-docs/best-practices-for-github-docs)" and "[AUTOTITLE](/contributing/writing-for-github-docs/writing-content-to-be-translated)."
-* Content is **free of errors** such as typos and adheres to the "[AUTOTITLE](/contributing/style-guide-and-content-model/style-guide)."
+* Content satisfies {% data variables.product.github %}'s **documentation fundamentals** that are required for all content. For more information, see [AUTOTITLE](/contributing/writing-for-github-docs/about-githubs-documentation-fundamentals).
 * The article **renders properly on staging** for each version of the article (Free Pro Team, GHEC, GHES).
 * All **pull request checks** are passing.

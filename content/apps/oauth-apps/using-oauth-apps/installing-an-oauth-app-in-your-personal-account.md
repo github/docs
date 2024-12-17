@@ -15,7 +15,7 @@ If you choose a paid plan, you'll pay for your app subscription on your personal
 
 {% data reusables.marketplace.free-trials %}
 
-For more information about installing a {% data variables.product.prodname_github_app %}, see "[AUTOTITLE](/apps/using-github-apps/installing-a-github-app-in-your-personal-account)."
+For more information about installing a {% data variables.product.prodname_github_app %}, see [AUTOTITLE](/apps/using-github-apps/installing-a-github-app-in-your-personal-account).
 
 ## Installing an {% data variables.product.prodname_oauth_app %} in your personal account
 
@@ -32,5 +32,5 @@ For more information about installing a {% data variables.product.prodname_githu
 
 ## Further reading
 
-* "[AUTOTITLE](/billing/managing-your-github-billing-settings/adding-or-editing-a-payment-method)"
-* "[AUTOTITLE](/apps/oauth-apps/using-oauth-apps/installing-an-oauth-app-in-your-organization)"
+* [AUTOTITLE](/billing/managing-your-github-billing-settings/adding-or-editing-a-payment-method)
+* [AUTOTITLE](/apps/oauth-apps/using-oauth-apps/installing-an-oauth-app-in-your-organization)

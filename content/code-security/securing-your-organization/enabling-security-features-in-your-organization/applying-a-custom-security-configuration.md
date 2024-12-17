@@ -15,14 +15,14 @@ redirect_from:
 
 ## About applying a {% data variables.product.prodname_custom_security_configuration %}
 
-After you create a {% data variables.product.prodname_custom_security_configuration %}, you need to apply it to repositories in your organization to enable the configuration's settings on those repositories. To learn how to create a {% data variables.product.prodname_custom_security_configuration %}, see "[AUTOTITLE](/code-security/securing-your-organization/enabling-security-features-in-your-organization/creating-a-custom-security-configuration)."
+After you create a {% data variables.product.prodname_custom_security_configuration %}, you need to apply it to repositories in your organization to enable the configuration's settings on those repositories. To learn how to create a {% data variables.product.prodname_custom_security_configuration %}, see [AUTOTITLE](/code-security/securing-your-organization/enabling-security-features-in-your-organization/creating-a-custom-security-configuration).
 
 ## Applying your {% data variables.product.prodname_custom_security_configuration %} to repositories in your organization
 
 {% data reusables.profile.access_org %}
 {% data reusables.organizations.org_settings %}
 {% data reusables.security-configurations.view-configurations-page %}
-1. Optionally, in the "Apply configurations" section, filter for specific repositories you would like to apply your {% data variables.product.prodname_custom_security_configuration %} to. To learn how to filter the repository table, see "[AUTOTITLE](/code-security/securing-your-organization/managing-the-security-of-your-organization/filtering-repositories-in-your-organization-using-the-repository-table)."
+1. Optionally, in the "Apply configurations" section, filter for specific repositories you would like to apply your {% data variables.product.prodname_custom_security_configuration %} to. To learn how to filter the repository table, see [AUTOTITLE](/code-security/securing-your-organization/managing-the-security-of-your-organization/filtering-repositories-in-your-organization-using-the-repository-table).
 1. In the repository table, select repositories with one of three methods:
      * Select each repository you would like to apply the {% data variables.product.prodname_security_configuration %} to.
      * To select all repositories displayed on the current page of the repository table, select **NUMBER repositories**.
@@ -38,7 +38,7 @@ After you create a {% data variables.product.prodname_custom_security_configurat
 
 ## Next steps
 
-To learn how to interpret security findings from your {% data variables.product.prodname_custom_security_configuration %} on a repository, see "[AUTOTITLE](/code-security/securing-your-organization/managing-the-security-of-your-organization/interpreting-security-findings)."
+To learn how to interpret security findings from your {% data variables.product.prodname_custom_security_configuration %} on a repository, see [AUTOTITLE](/code-security/securing-your-organization/managing-the-security-of-your-organization/interpreting-security-findings).
 
 {% data reusables.security-configurations.edit-configuration-next-step %}
 

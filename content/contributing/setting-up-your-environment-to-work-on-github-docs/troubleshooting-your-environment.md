@@ -9,7 +9,7 @@ versions:
 
 If you run tests locally and get failures in `tests/rendering/server.js` around static assets, stylesheets, or the client-side JavaScript bundle, but the same tests pass in CI on a PR, run the command `npm run build`. This is a one-time command that creates static assets locally.
 
-For more information, see "[AUTOTITLE](/contributing/setting-up-your-environment-to-work-on-github-docs/creating-a-local-environment)."
+For more information, see [AUTOTITLE](/contributing/setting-up-your-environment-to-work-on-github-docs/creating-a-local-environment).
 
 ## Troubleshooting stalled staging deployments
 
@@ -22,7 +22,7 @@ git commit --allow-empty -m 'empty commit to redeploy staging'
 git push
 ```
 
-## Troubleshooting stalled or stuck  CI
+## Troubleshooting stalled or stuck CI
 
 If your tests are stuck on "In progress" or "Pending" for more than an hour, use the commands below to rerun CI by pushing an empty commit on the command line.
 
@@ -56,7 +56,7 @@ npm start
 
 When the server is running, navigate to the problematic article on `https://localhost:4000` in your browser. The staging server will just show an "Oops" error, but the local server should show a stack trace for debugging.
 
-If you see an error resembling the one below, make sure single quotes are properly escaped in the frontmatter. Also, check the formatting in `redirect_from` blocks. For more information, see "[AUTOTITLE](/contributing/syntax-and-versioning-for-github-docs/using-yaml-frontmatter#escaping-single-quotes)."
+If you see an error resembling the one below, make sure single quotes are properly escaped in the frontmatter. Also, check the formatting in `redirect_from` blocks. For more information, see [AUTOTITLE](/contributing/syntax-and-versioning-for-github-docs/using-yaml-frontmatter#escaping-single-quotes).
 
 ```text
 error parsing file: /Users/z/git/github/docs/content/dotcom/articles/troubleshooting-custom-domains-and-github-pages.md
@@ -95,13 +95,13 @@ During development, you can visit any page on `http://localhost:4000` and add `?
 
 If your text or code example includes content between curly brackets (`{` and `}`), you need to wrap it between <code>&#123% raw %&#125;</code> and <code>&#123% raw %&#125;</code> tags to disable Liquid processing for that section. For example:
 
-* **Use**:
+* **Use:**
 
   <pre>
   GITHUB_TOKEN: &#123% raw %&#125;${% raw %}{{ secrets.GITHUB_TOKEN }}{% endraw %}&#123% endraw %&#125;
   </pre>
 
-* **Avoid**:
+* **Avoid:**
 
   <pre>
   GITHUB_TOKEN: ${% raw %}${{ secrets.GITHUB_TOKEN }}${% endraw %}

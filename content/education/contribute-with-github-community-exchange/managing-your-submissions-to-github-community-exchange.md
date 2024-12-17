@@ -8,11 +8,11 @@ versions:
 
 ## About your submissions
 
-During the {% data variables.product.prodname_community_exchange %} submission process, you will choose a purpose, topics, and offers for your repository. Once a repository has been submitted to {% data variables.product.prodname_community_exchange %}, it will be published with these details. For more information, see "[AUTOTITLE](/education/contribute-with-github-community-exchange/submitting-your-repository-to-github-community-exchange)."
+During the {% data variables.product.prodname_community_exchange %} submission process, you will choose a purpose, topics, and offers for your repository. Once a repository has been submitted to {% data variables.product.prodname_community_exchange %}, it will be published with these details. For more information, see [AUTOTITLE](/education/contribute-with-github-community-exchange/submitting-your-repository-to-github-community-exchange).
 
-After you've submitted, you can still edit the topics and offers associated with your repository. You can also update the purpose of your repository by changing the corresponding topic(s). For more information, see "[AUTOTITLE](/repositories/managing-your-repositorys-settings-and-features/customizing-your-repository/classifying-your-repository-with-topics)."
+After you've submitted, you can still edit the topics and offers associated with your repository. You can also update the purpose of your repository by changing the corresponding topic(s). For more information, see [AUTOTITLE](/repositories/managing-your-repositorys-settings-and-features/customizing-your-repository/classifying-your-repository-with-topics).
 
-The language associated with your repository is the primary language used and is automatically determined by {% data variables.product.prodname_dotcom %}. For more information, see "[AUTOTITLE](/repositories/managing-your-repositorys-settings-and-features/customizing-your-repository/about-repository-languages)."
+The language associated with your repository is the primary language used and is automatically determined by {% data variables.product.prodname_dotcom %}. For more information, see [AUTOTITLE](/repositories/managing-your-repositorys-settings-and-features/customizing-your-repository/about-repository-languages).
 
 The {% data variables.product.prodname_community_exchange %} community moderates all repository submissions.
 

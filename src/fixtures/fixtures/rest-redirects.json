@@ -418,7 +418,7 @@
   "/v3/enterprise-admin/global_webhooks": "/en/enterprise-server/rest/enterprise-admin/global-webhooks",
   "/v3/enterprise-admin/ldap": "/en/enterprise-server/rest/enterprise-admin/ldap",
   "/v3/enterprise-admin/license": "/en/enterprise-server/rest/enterprise-admin/license",
-  "/v3/enterprise-admin/management_console": "/en/enterprise-server/rest/enterprise-admin/management-console",
+  "/v3/enterprise-admin/management_console": "/en/enterprise-server/rest/enterprise-admin/manage-ghes",
   "/v3/enterprise-admin/orgs": "/en/enterprise-server/rest/enterprise-admin/orgs",
   "/v3/enterprise-admin/pre_receive_environments": "/en/enterprise-server/rest/enterprise-admin/pre-receive-environments",
   "/v3/enterprise-admin/pre_receive_hooks": "/en/enterprise-server/rest/enterprise-admin/pre-receive-hooks",

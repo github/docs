@@ -15,7 +15,7 @@ You can create custom issue forms by adding a YAML form definition file to the `
 
 When a contributor fills out an issue form, their responses for each input are converted to markdown and added to the body of an issue. Contributors can edit their issues that were created with issue forms and other people can interact with the issues like an issue created through other methods.
 
-Issue forms are not supported for pull requests. You can create pull request templates in your repositories for collaborators to use. For more information, see "[AUTOTITLE](/communities/using-templates-to-encourage-useful-issues-and-pull-requests/creating-a-pull-request-template-for-your-repository)."
+Issue forms are not supported for pull requests. You can create pull request templates in your repositories for collaborators to use. For more information, see [AUTOTITLE](/communities/using-templates-to-encourage-useful-issues-and-pull-requests/creating-a-pull-request-template-for-your-repository).
 
 This example YAML configuration file defines an issue form using several inputs to report a bug.
 
@@ -45,14 +45,14 @@ You can set the following top-level keys for each issue form.
 | `labels` | Labels that will automatically be added to issues created with this template. If a label does not already exist in the repository, it will not be automatically added to the issue. | Optional | Array or comma-delimited string |
 | `title` | A default title that will be pre-populated in the issue submission form. | Optional | String |
 | {% ifversion projects-in-issue-forms %} |
-| `projects` | Projects that any issues created with this template will automatically be added to. The format of this key is `PROJECT-OWNER/PROJECT-NUMBER`. {% note %} **Note:** The person opening the issue must have write permissions for the specified projects. {% ifversion projects-v2 %} If you don't expect people using this template to have write access, consider enabling your project's auto-add workflow. For more information, see "[Adding items automatically](/issues/planning-and-tracking-with-projects/automating-your-project/adding-items-automatically)."{% endif %} {% endnote %} | Optional | Array or comma-delimited string |
+| `projects` | Projects that any issues created with this template will automatically be added to. The format of this key is `PROJECT-OWNER/PROJECT-NUMBER`. > [!NOTE] The person opening the issue must have write permissions for the specified projects. {% ifversion projects-v2 %} If you don't expect people using this template to have write access, consider enabling your project's auto-add workflow. For more information, see [Adding items automatically](/issues/planning-and-tracking-with-projects/automating-your-project/adding-items-automatically).{% endif %} | Optional | Array or comma-delimited string |
 | {% endif %} |
 
-For the available `body` input types and their syntaxes, see "[AUTOTITLE](/communities/using-templates-to-encourage-useful-issues-and-pull-requests/syntax-for-githubs-form-schema)."
+For the available `body` input types and their syntaxes, see [AUTOTITLE](/communities/using-templates-to-encourage-useful-issues-and-pull-requests/syntax-for-githubs-form-schema).
 
 ## Converting a Markdown issue template to a YAML issue form template
 
-You can use both Markdown and YAML issue templates in your repository. If you want to convert a Markdown issue template to a YAML issue form template, you must create a new YAML file to define the issue form. You can manually transpose an existing Markdown issue template to a YAML issue form. For more information, see "[AUTOTITLE](/communities/using-templates-to-encourage-useful-issues-and-pull-requests/configuring-issue-templates-for-your-repository#creating-issue-forms)."
+You can use both Markdown and YAML issue templates in your repository. If you want to convert a Markdown issue template to a YAML issue form template, you must create a new YAML file to define the issue form. You can manually transpose an existing Markdown issue template to a YAML issue form. For more information, see [AUTOTITLE](/communities/using-templates-to-encourage-useful-issues-and-pull-requests/configuring-issue-templates-for-your-repository#creating-issue-forms).
 
 If you want to use the same file name for your YAML issue form, you must delete the Markdown issue template when you commit the new file to your repository.
 

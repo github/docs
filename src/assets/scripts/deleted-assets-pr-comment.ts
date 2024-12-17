@@ -60,11 +60,11 @@ async function main({ owner, repo, baseSHA, headSHA }: MainArgs) {
     return ''
   }
 
-  let markdown = '⚠️ 🙀 **You deleted some assets** 🙀 ⚠️\n\n'
+  let markdown = '**Please restore deleted assets**\n\n'
   markdown +=
-    "Even if you don't reference these assets anymore, as of this branch, you should not delete them.\n"
+    "Even if you don't reference these assets anymore, as of this branch, please do not delete them.\n"
   markdown += 'They might still be referenced in translated content.\n'
-  markdown += 'The weekly "Delete orphaned assets" workflow will worry about cleaning those up.\n\n'
+  markdown += 'The weekly "Delete orphaned assets" workflow will clean those up.\n\n'
   markdown += '**To *undo* these removals run this command:**\n\n'
   markdown += `
 \`\`\`sh

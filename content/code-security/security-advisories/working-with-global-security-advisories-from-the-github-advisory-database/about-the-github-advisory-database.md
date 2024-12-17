@@ -19,7 +19,7 @@ redirect_from:
 
 {% data reusables.repositories.tracks-vulnerabilities %}
 
-Security advisories are published as JSON files in the Open Source Vulnerability (OSV) format. For more information about the OSV format, see "[Open Source Vulnerability format](https://ossf.github.io/osv-schema/)."
+Security advisories are published as JSON files in the Open Source Vulnerability (OSV) format. For more information about the OSV format, see [Open Source Vulnerability format](https://ossf.github.io/osv-schema/).
 
 ## About types of security advisories
 
@@ -50,7 +50,7 @@ Generally, we name our supported ecosystems after the software programming langu
 
 If you have a suggestion for a new ecosystem we should support, please open an [issue](https://github.com/github/advisory-database/issues) for discussion.
 
-If you enable {% data variables.product.prodname_dependabot_alerts %} for your repositories, you are automatically notified when a new {% data variables.product.company_short %}-reviewed advisory reports a vulnerability for a package you depend on. For more information, see "[AUTOTITLE](/code-security/dependabot/dependabot-alerts/about-dependabot-alerts)."
+If you enable {% data variables.product.prodname_dependabot_alerts %} for your repositories, you are automatically notified when a new {% data variables.product.company_short %}-reviewed advisory reports a vulnerability for a package you depend on. For more information, see [AUTOTITLE](/code-security/dependabot/dependabot-alerts/about-dependabot-alerts).
 
 ### Unreviewed advisories
 
@@ -91,9 +91,9 @@ You can validate a GHSA ID using a regular expression.
 
 {% ifversion cvss-4 %} The {% data variables.product.prodname_advisory_database %} supports both CVSS version 3.1 and CVSS version 4.0.{% endif %}
 
-Each security advisory contains information about the vulnerability or malware, which may include the description, severity, affected package, package ecosystem, affected versions and patched versions, impact, and optional information such as references, workarounds, and credits. In addition, advisories from the National Vulnerability Database list contain a link to the CVE record, where you can read more details about the vulnerability, its CVSS scores, and its qualitative severity level. For more information, see the "[National Vulnerability Database](https://nvd.nist.gov/)" from the National Institute of Standards and Technology.
+Each security advisory contains information about the vulnerability or malware, which may include the description, severity, affected package, package ecosystem, affected versions and patched versions, impact, and optional information such as references, workarounds, and credits. In addition, advisories from the National Vulnerability Database list contain a link to the CVE record, where you can read more details about the vulnerability, its CVSS scores, and its qualitative severity level. For more information, see the [National Vulnerability Database](https://nvd.nist.gov/) from the National Institute of Standards and Technology.
 
-The severity level is one of four possible levels defined in the "[Common Vulnerability Scoring System (CVSS), Section 5](https://www.first.org/cvss/specification-document)."
+The severity level is one of four possible levels defined in the [Common Vulnerability Scoring System (CVSS), Section 5](https://www.first.org/cvss/specification-document).
 * Low
 * Medium/Moderate
 * High
@@ -107,7 +107,7 @@ The {% data variables.product.prodname_advisory_database %} uses the CVSS levels
 
 The Exploit Prediction Scoring System, or EPSS, is a system devised by the global Forum of Incident Response and Security Teams (FIRST) for quantifying the likelihood of vulnerability exploit. The model produces a probability score between 0 and 1 (0 and 100%), where the higher the score, the greater the probability that a vulnerability will be exploited. For more information about FIRST, see https://www.first.org/.
 
-The {% data variables.product.prodname_advisory_database %} includes EPSS scores from FIRST for advisories containing CVEs with corresponding EPSS data.  {% data variables.product.company_short %} also displays the EPSS score percentile, which is the proportion of all scored vulnerabilities with the same or a lower EPSS score.
+The {% data variables.product.prodname_advisory_database %} includes EPSS scores from FIRST for advisories containing CVEs with corresponding EPSS data. {% data variables.product.company_short %} also displays the EPSS score percentile, which is the proportion of all scored vulnerabilities with the same or a lower EPSS score.
 
 For example, if an advisory had an EPSS score that had a percentage of 90.534% at the 95th percentile, according to the [EPSS model](https://www.first.org/epss/model), this means that:
 
@@ -116,13 +116,13 @@ For example, if an advisory had an EPSS score that had a percentage of 90.534% a
 
 Extended information about how to interpret this data can be found in FIRST's EPSS User Guide. This information helps you understand how both percentage and percentile can be used to interpret the likelihood that a vulnerability could be exploited in the wild according to FIRST's model. For more information, see the [FIRST's EPSS User Guide](https://www.first.org/epss/user-guide) on the FIRST website.
 
-FIRST also provides additional information around the distribution of their EPSS data.  For more information, see [EPSS data and statistics documentation](https://www.first.org/epss/data_stats) on the FIRST website.
+FIRST also provides additional information around the distribution of their EPSS data. For more information, see [EPSS data and statistics documentation](https://www.first.org/epss/data_stats) on the FIRST website.
 
 >[!NOTE] {% data variables.product.company_short %} keeps EPSS data up to date with a daily synchronization action. While EPSS score percentages will always be fully synchronized, score percentiles will only be updated when significantly different.
 
-At {% data variables.product.company_short %}, we do not author this data, but rather source it from FIRST, which means that this data is not editable in community contributions.
+At {% data variables.product.company_short %}, we do not author this data, but rather source it from FIRST, which means that this data is not editable in community contributions. For more information about community contributions, see [AUTOTITLE](/code-security/security-advisories/working-with-global-security-advisories-from-the-github-advisory-database/editing-security-advisories-in-the-github-advisory-database).
 
 ## Further reading
 
-* "[AUTOTITLE](/code-security/dependabot/dependabot-alerts/about-dependabot-alerts)"
+* [AUTOTITLE](/code-security/dependabot/dependabot-alerts/about-dependabot-alerts)
 * The CVE Program's [definition of "vulnerability"](https://www.cve.org/ResourcesSupport/Glossary#glossaryVulnerability)

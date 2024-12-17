@@ -27,7 +27,7 @@ In public{% ifversion ghec %}, internal, {% endif %} and private projects, insig
 
 In private{% ifversion ghec %} and internal{% endif %} organization-owned projects, the avatars of users who are current making updates to the project are displayed in the project UI.
 
-Project admins can also manage write and admin access to their project and control read access for individual users. For more information, see "[AUTOTITLE](/issues/planning-and-tracking-with-projects/managing-your-project/managing-access-to-your-projects)."
+Project admins can also manage write and admin access to their project and control read access for individual users. For more information, see [AUTOTITLE](/issues/planning-and-tracking-with-projects/managing-your-project/managing-access-to-your-projects).
 
 ## Changing project visibility
 

@@ -15,7 +15,7 @@ shortTitle: Display a sponsor button
 ---
 ## About FUNDING files
 
-You can configure your sponsor button by editing a `FUNDING.yml` file in your repository's `.github` folder, on the default branch. You can configure the button to include sponsored developers in {% data variables.product.prodname_sponsors %}, external funding platforms, or a custom funding URL. For more information about {% data variables.product.prodname_sponsors %}, see "[AUTOTITLE](/sponsors/getting-started-with-github-sponsors/about-github-sponsors)."
+You can configure your sponsor button by editing a `FUNDING.yml` file in your repository's `.github` folder, on the default branch. You can configure the button to include sponsored developers in {% data variables.product.prodname_sponsors %}, external funding platforms, or a custom funding URL. For more information about {% data variables.product.prodname_sponsors %}, see [AUTOTITLE](/sponsors/getting-started-with-github-sponsors/about-github-sponsors).
 
 You can add one username, package name, or project name per external funding platform and up to four custom URLs. You can add one organization and up to four sponsored developers in {% data variables.product.prodname_sponsors %}. Add each platform on a new line, using the following syntax.
 
@@ -31,7 +31,7 @@ Platform | Syntax
 [Tidelift](https://tidelift.com/) | `tidelift: PLATFORM-NAME/PACKAGE-NAME`
 [Polar](https://www.polar.sh/) | `polar: USERNAME`
 [Buy Me a Coffee](https://www.buymeacoffee.com/) | `buy_me_a_coffee: USERNAME`
-[thanks.dev](https://thanks.dev/) | `thanks_dev: USERNAME`
+[thanks.dev](https://thanks.dev/) | `thanks_dev: u/gh/USERNAME`
 Custom URL | `custom: LINK1` or `custom: [LINK1, LINK2, LINK3, LINK4]`
 
 For Tidelift, use the `platform-name/package-name` syntax with the following platform names.
@@ -57,13 +57,10 @@ custom: ["https://www.paypal.me/octocat", octocat.com]
 > [!NOTE]
 > If a custom URL in an array includes `:`, you must wrap the URL in quotes. For example, `"https://www.paypal.me/octocat"`.
 
-You can create a default sponsor button for your organization or personal account. For more information, see "[AUTOTITLE](/communities/setting-up-your-project-for-healthy-contributions/creating-a-default-community-health-file)."
+You can create a default sponsor button for your organization or personal account. For more information, see [AUTOTITLE](/communities/setting-up-your-project-for-healthy-contributions/creating-a-default-community-health-file).
 
-{% note %}
-
-Funding links provide a way for open source projects to receive direct financial support from their community. We don’t support the use of funding links for other purposes, such as for advertising, or supporting political, community, or charity groups. If you have questions about whether your intended use is supported, please visit {% data variables.contact.contact_support_page %}.
-
-{% endnote %}
+> [!NOTE]
+> Funding links provide a way for open source projects to receive direct financial support from their community. We don’t support the use of funding links for other purposes, such as for advertising, or supporting political, community, or charity groups. If you have questions about whether your intended use is supported, please visit {% data variables.contact.contact_support_page %}.
 
 ## Displaying a sponsor button in your repository
 
@@ -80,5 +77,5 @@ Anyone with admin permissions can enable a sponsor button in a repository.
 
 ## Further reading
 
-* "[AUTOTITLE](/sponsors/receiving-sponsorships-through-github-sponsors/about-github-sponsors-for-open-source-contributors)"
-* "[FAQ with the {% data variables.product.prodname_sponsors %} team](https://github.blog/2019-06-12-faq-with-the-github-sponsors-team/)" on {% data variables.product.prodname_blog %}
+* [AUTOTITLE](/sponsors/receiving-sponsorships-through-github-sponsors/about-github-sponsors-for-open-source-contributors)
+* [FAQ with the {% data variables.product.prodname_sponsors %} team](https://github.blog/2019-06-12-faq-with-the-github-sponsors-team/) on {% data variables.product.prodname_blog %}

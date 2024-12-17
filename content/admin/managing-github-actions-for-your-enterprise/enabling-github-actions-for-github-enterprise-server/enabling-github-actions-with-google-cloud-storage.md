@@ -108,14 +108,14 @@ To configure {% data variables.product.prodname_ghe_server %} to use OIDC with G
 {% data reusables.actions.enterprise-enable-checkbox %}
 {% data reusables.actions.enterprise-gcp-storage-setup %}
 1. Under "Authentication", select **OpenID Connect (OIDC)**, and enter the values for your storage:
-   * **Service URL**: The service URL for your bucket. This is usually `https://storage.googleapis.com`.
-   * **Bucket name**: The name of your bucket.
-   * **Workload Identity Provider ID**: The identity provider ID for your identity pool.
+   * **Service URL:** The service URL for your bucket. This is usually `https://storage.googleapis.com`.
+   * **Bucket name:** The name of your bucket.
+   * **Workload Identity Provider ID:** The identity provider ID for your identity pool.
 
      This is in the format `projects/PROJECT-NUMBER/locations/global/workloadIdentityPools/POOL-NAME/providers/PROVIDER-NAME`. Note that you must remove the `https://iam.googleapis.com/` prefix from the value noted in the previous procedure.
 
      For example, `projects/1234567890/locations/global/workloadIdentityPools/my-pool/providers/my-provider`.
-   * **Service account**: The service account email address that you noted in the previous procedure. For example, `ghes-oidc-service-account@my-project.iam.gserviceaccount.com`.
+   * **Service account:** The service account email address that you noted in the previous procedure. For example, `ghes-oidc-service-account@my-project.iam.gserviceaccount.com`.
 {% data reusables.enterprise_management_console.test-storage-button %}
 {% data reusables.enterprise_management_console.save-settings %}
 
@@ -123,7 +123,7 @@ To configure {% data variables.product.prodname_ghe_server %} to use OIDC with G
 
 ## Enabling {% data variables.product.prodname_actions %} with Google Cloud Storage{% ifversion ghes-actions-storage-oidc %} using a HMAC key{% endif %}
 
-1. Create a Google Cloud service account that can access the bucket, and create a Hash-based Message Authentication Code (HMAC) key for the service account. For more information, see "[Manage HMAC keys for service accounts](https://cloud.google.com/storage/docs/authentication/managing-hmackeys)" in the Google Cloud documentation.
+1. Create a Google Cloud service account that can access the bucket, and create a Hash-based Message Authentication Code (HMAC) key for the service account. For more information, see [Manage HMAC keys for service accounts](https://cloud.google.com/storage/docs/authentication/managing-hmackeys) in the Google Cloud documentation.
 
    The service account must have the following [Identity and Access Management (IAM) permissions](https://cloud.google.com/storage/docs/access-control/iam-permissions) for the bucket:
 

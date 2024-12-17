@@ -85,6 +85,36 @@
     "docs_reference_links": "N/A"
   },
   {
+    "action": "code_scanning.alert_appeared_in_branch",
+    "description": "An existing code scanning alert appeared in a branch.",
+    "docs_reference_links": "/code-security/code-scanning/introduction-to-code-scanning/about-code-scanning"
+  },
+  {
+    "action": "code_scanning.alert_closed_became_fixed",
+    "description": "A code scanning alert was fixed.",
+    "docs_reference_links": "/code-security/code-scanning/introduction-to-code-scanning/about-code-scanning"
+  },
+  {
+    "action": "code_scanning.alert_closed_by_user",
+    "description": "A code scanning alert was manually dismissed.",
+    "docs_reference_links": "/code-security/code-scanning/introduction-to-code-scanning/about-code-scanning"
+  },
+  {
+    "action": "code_scanning.alert_created",
+    "description": "A code scanning alert was seen for the first time.",
+    "docs_reference_links": "/code-security/code-scanning/introduction-to-code-scanning/about-code-scanning"
+  },
+  {
+    "action": "code_scanning.alert_reappeared",
+    "description": "A code scanning alert that was previously fixed reappeared.",
+    "docs_reference_links": "/code-security/code-scanning/introduction-to-code-scanning/about-code-scanning"
+  },
+  {
+    "action": "code_scanning.alert_reopened_by_user",
+    "description": "A code scanning alert that was previously dismissed was reopened.",
+    "docs_reference_links": "/code-security/code-scanning/introduction-to-code-scanning/about-code-scanning"
+  },
+  {
     "action": "codespaces.allow_permissions",
     "description": "A codespace using custom permissions from its devcontainer.json file was launched.",
     "docs_reference_links": "N/A"
@@ -2957,6 +2987,11 @@
   {
     "action": "repository_vulnerability_alert.resolve",
     "description": "Changes were pushed to update and resolve a Dependabot alert in a project dependency.",
+    "docs_reference_links": "N/A"
+  },
+  {
+    "action": "repository_vulnerability_alert.withdraw",
+    "description": "A Dependabot alert was withdrawn.",
     "docs_reference_links": "N/A"
   },
   {

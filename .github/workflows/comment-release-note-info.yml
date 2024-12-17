@@ -8,6 +8,7 @@ on:
       - opened
     paths:
       - data/release-notes/enterprise-server/**
+      - .github/workflows/comment-release-note-info.yml
 
 permissions:
   contents: read
@@ -24,9 +25,9 @@ jobs:
         with:
           issue-number: ${{ github.event.pull_request.number }}
           body: |
-            Thank you for updating our GitHub Enterprise Server release notes. A member of the `docs-content-enterprise` team will review your changes.
+            Thank you for updating our GitHub Enterprise Server release notes. Please request a technical review for your changes. Once the technical review is complete, a member of the `docs-content-enterprise` team will review your changes.
 
             - If the change is urgent, post in `#docs-content-enterprise` on Slack.
             - Review the [style guide for release notes](https://docs.github.com/en/contributing/style-guide-and-content-model/style-guide#release-notes).
             - If you're updating or adding a note, add a datestamp in the format `[Updated: YYYY-MM-DD]`.
-            - If you're removing a note, add an "[Errata](https://docs.github.com/en/contributing/style-guide-and-content-model/style-guide#errata)" section with details of the change.
+            - If you're removing a note, add an [Errata](https://docs.github.com/en/contributing/style-guide-and-content-model/style-guide#errata) section with details of the change.

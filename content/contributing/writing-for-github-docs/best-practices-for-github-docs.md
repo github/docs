@@ -10,9 +10,10 @@ versions:
 
 At {% data variables.product.prodname_dotcom %}, we strive to create documentation that is accurate, valuable, inclusive, accessible, and easy to use.
 
-Before contributing to {% data variables.product.prodname_docs %}, please take a moment to familiarize yourself with {% data variables.product.prodname_dotcom %}'s documentation philosophy and content design principles:
+Before contributing to {% data variables.product.prodname_docs %}, please take a moment to familiarize yourself with {% data variables.product.prodname_dotcom %}'s documentation philosophy, fundamentals, and content design principles:
 
 * [AUTOTITLE](/contributing/writing-for-github-docs/about-githubs-documentation-philosophy)
+* [AUTOTITLE](/contributing/writing-for-github-docs/about-githubs-documentation-fundamentals)
 * [AUTOTITLE](/contributing/writing-for-github-docs/content-design-principles)
 
 ## Best practices for writing {% data variables.product.prodname_dotcom %} documentation
@@ -100,8 +101,8 @@ Once the article has a clearly defined purpose and structure, you can apply the 
 
 ## Further reading
 
-* "[AUTOTITLE](/contributing/style-guide-and-content-model/style-guide)"
-* "[AUTOTITLE](/contributing/style-guide-and-content-model/about-the-content-model)"
-* "[AUTOTITLE](/contributing/style-guide-and-content-model/contents-of-a-github-docs-article)"
-* "[Readability Guidelines](https://readabilityguidelines.co.uk/)," Content Design London
-* "[Rewriting Digital Content for Brevity](https://www.nngroup.com/articles/rewriting-content-brevity/)," Nielsen Norman Group
+* [AUTOTITLE](/contributing/style-guide-and-content-model/style-guide)
+* [AUTOTITLE](/contributing/style-guide-and-content-model/about-the-content-model)
+* [AUTOTITLE](/contributing/style-guide-and-content-model/contents-of-a-github-docs-article)
+* [Readability Guidelines](https://readabilityguidelines.co.uk/), Content Design London
+* [Rewriting Digital Content for Brevity](https://www.nngroup.com/articles/rewriting-content-brevity/), Nielsen Norman Group

@@ -24,5 +24,5 @@ shortTitle: About billing
 
 ## Further reading
 
-* "[AUTOTITLE](/sponsors/getting-started-with-github-sponsors/about-github-sponsors)"
-* "[AUTOTITLE](/sponsors/sponsoring-open-source-contributors)"
+* [AUTOTITLE](/sponsors/getting-started-with-github-sponsors/about-github-sponsors)
+* [AUTOTITLE](/sponsors/sponsoring-open-source-contributors)

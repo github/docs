@@ -1,6 +1,7 @@
 ---
 title: Organizing information with collapsed sections
 intro: You can streamline your Markdown by creating a collapsed section with the `<details>` tag.
+product: '{% data reusables.gated-features.markdown-ui %}'
 versions:
   fpt: '*'
   ghes: '*'
@@ -52,4 +53,4 @@ Optionally, to make the section display as open by default, add the `open` attri
 ## Further reading
 
 * [{% data variables.product.prodname_dotcom %} Flavored Markdown Spec](https://github.github.com/gfm/)
-* "[AUTOTITLE](/get-started/writing-on-github/getting-started-with-writing-and-formatting-on-github/basic-writing-and-formatting-syntax)"
+* [AUTOTITLE](/get-started/writing-on-github/getting-started-with-writing-and-formatting-on-github/basic-writing-and-formatting-syntax)

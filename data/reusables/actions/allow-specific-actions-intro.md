@@ -20,6 +20,8 @@ When you choose {% data reusables.actions.policy-label-for-select-actions-workfl
 
   You can use the `*` wildcard character to match patterns. For example, to allow all actions{% ifversion actions-workflow-policy %} and reusable workflows{% endif %} in organizations that start with `space-org`, you can specify `space-org*/*`. To allow all actions{% ifversion actions-workflow-policy %} and reusable workflows{% endif %} in repositories that start with octocat, you can use `*/octocat**@*`. For more information about using the `*` wildcard, see "[AUTOTITLE](/actions/using-workflows/workflow-syntax-for-github-actions#filter-pattern-cheat-sheet)."
 
+  Use `,` to separate patterns. For example, to allow `octocat` and `octokit`, you can specify `octocat/*, octokit/*`.
+
   {% ifversion fpt or ghec %}
 
   > [!NOTE]

@@ -20,5 +20,6 @@ children:
   - /charging-business-units
   - /preventing-overspending
   - /managing-your-payment-and-billing-information
+  - /automating-usage-reporting
   - /about-billing-for-git-large-file-storage
 ---
