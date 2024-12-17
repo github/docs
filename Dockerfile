@@ -140,20 +140,14 @@ COPY --chown=node:node --from=builder $APP_HOME/next.config.js ./
 COPY --chown=node:node --from=builder $APP_HOME/tsconfig.json ./
 
 # - - -
-# Environment variables
+# Environment variables are set in the Moda 
+# configuration: config/moda/configuration/*/env.yaml
 # - - -
+
 # This makes it possible to set `--build-arg BUILD_SHA=abc123`
 # and it then becomes available as an environment variable in the docker run.
 ARG BUILD_SHA
 ENV BUILD_SHA=$BUILD_SHA
-# We should always be running in production mode
-ENV NODE_ENV=production
-# Preferred port for server.js
-ENV PORT=4000
-# Include all languages
-ENV ENABLED_LANGUAGES="en,zh,es,pt,ru,ja,fr,de,ko"
-
-EXPOSE $PORT
 
 # Entrypoint to start the server
 # Note: Currently we have to use tsx because we have a mix of `.ts` and `.js` files with multiple import patterns
