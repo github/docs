@@ -79,8 +79,8 @@ When using {% data variables.secret-scanning.copilot-secret-scanning %}'s {% dat
 * {% data variables.secret-scanning.copilot-secret-scanning %} does not detect secrets in generated or vendored files.
 * {% data variables.secret-scanning.copilot-secret-scanning %} does not detect secrets in encrypted files.
 * {% data variables.secret-scanning.copilot-secret-scanning %} does not detect secrets in file types: SVG, PNG, JPEG, CSV, TXT, SQL, or ITEM.
-* {% data variables.secret-scanning.copilot-secret-scanning %} does not detect secrets in test code. {% data variables.secret-scanning.copilot-secret-scanning %} skips detections where:
-   * The file path contains "test", "mock", or "spec".
+* {% data variables.secret-scanning.copilot-secret-scanning %} does not detect secrets in test code. {% data variables.secret-scanning.copilot-secret-scanning %} skips detections when both conditions are met:
+   * The file path contains "test", "mock", or "spec", AND
    * The file extension is `.cs`, `.go`, `.java`, `.js`, `.kt`, `.php`, `.py`, `.rb`, `.scala`, `.swift`, or `.ts`.
 
 ## Evaluation of {% data variables.secret-scanning.generic-secret-detection %}
