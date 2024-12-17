@@ -322,6 +322,15 @@
         "access": "read"
       },
       {
+        "category": "orgs",
+        "slug": "list-push-rule-bypass-requests-within-an-organization",
+        "subcategory": "bypass-requests",
+        "verb": "get",
+        "requestPath": "/orgs/{org}/bypass-requests/push-rules",
+        "additional-permissions": false,
+        "access": "write"
+      },
+      {
         "category": "code-security",
         "slug": "get-code-security-configurations-for-an-organization",
         "subcategory": "configurations",
@@ -4316,6 +4325,24 @@
       },
       {
         "category": "code-scanning",
+        "slug": "get-the-status-of-an-autofix-for-a-code-scanning-alert",
+        "subcategory": "code-scanning",
+        "verb": "get",
+        "requestPath": "/repos/{owner}/{repo}/code-scanning/alerts/{alert_number}/autofix",
+        "additional-permissions": false,
+        "access": "read"
+      },
+      {
+        "category": "code-scanning",
+        "slug": "create-an-autofix-for-a-code-scanning-alert",
+        "subcategory": "code-scanning",
+        "verb": "post",
+        "requestPath": "/repos/{owner}/{repo}/code-scanning/alerts/{alert_number}/autofix",
+        "additional-permissions": false,
+        "access": "write"
+      },
+      {
+        "category": "code-scanning",
         "slug": "list-instances-of-a-code-scanning-alert",
         "subcategory": "code-scanning",
         "verb": "get",
@@ -4707,6 +4734,33 @@
         "subcategory": "branches",
         "verb": "post",
         "requestPath": "/repos/{owner}/{repo}/branches/{branch}/rename",
+        "additional-permissions": false,
+        "access": "write"
+      },
+      {
+        "category": "repos",
+        "slug": "list-repository-push-rule-bypass-requests",
+        "subcategory": "bypass-requests",
+        "verb": "get",
+        "requestPath": "/repos/{owner}/{repo}/bypass-requests/push-rules",
+        "additional-permissions": false,
+        "access": "write"
+      },
+      {
+        "category": "repos",
+        "slug": "get-a-repository-push-bypass-request",
+        "subcategory": "bypass-requests",
+        "verb": "get",
+        "requestPath": "/repos/{owner}/{repo}/bypass-requests/push-rules/{bypass_request_number}",
+        "additional-permissions": false,
+        "access": "write"
+      },
+      {
+        "category": "code-scanning",
+        "slug": "commit-an-autofix-for-a-code-scanning-alert",
+        "subcategory": "code-scanning",
+        "verb": "post",
+        "requestPath": "/repos/{owner}/{repo}/code-scanning/alerts/{alert_number}/autofix/commits",
         "additional-permissions": false,
         "access": "write"
       },
