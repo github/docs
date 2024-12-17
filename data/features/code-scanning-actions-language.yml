@@ -1,0 +1,6 @@
+# Reference: #16135
+# Code scanning is able to analyze Actions workflows.
+# This feature is not yet available for GitHub Enterprise Server.
+versions:
+  fpt: '*'
+  ghec: '*'

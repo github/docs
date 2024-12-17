@@ -224,7 +224,18 @@ The same principles described above for using third-party actions also apply to 
 
 For more information on how to configure this setting, see {% ifversion ghes or ghec %}[AUTOTITLE](/enterprise-cloud@latest/admin/policies/enforcing-policies-for-your-enterprise/enforcing-policies-for-github-actions-in-your-enterprise#preventing-github-actions-from-creating-or-approving-pull-requests),{% endif %} [Disabling or limiting {% data variables.product.prodname_actions %} for your organization](/github/setting-up-and-managing-organizations-and-teams/disabling-or-limiting-github-actions-for-your-organization#preventing-github-actions-from-creating-or-approving-pull-requests), and [AUTOTITLE](/repositories/managing-your-repositorys-settings-and-features/enabling-features-for-your-repository/managing-github-actions-settings-for-a-repository#preventing-github-actions-from-creating-or-approving-pull-requests).
 
-## Using OpenSSF Scorecards to secure workflows
+{% ifversion code-scanning-actions-language %}
+
+## Using {% data variables.product.prodname_code_scanning %} to secure workflows
+
+{% data reusables.code-scanning.beta-actions-analysis %}
+
+{% data variables.product.prodname_code_scanning_caps %} can automatically detect and suggest improvements for common vulnerable patterns used in {% data variables.product.prodname_actions %} workflows.
+For more information on how to enable {% data variables.product.prodname_code_scanning %}, see [AUTOTITLE](/code-security/code-scanning/enabling-code-scanning/configuring-default-setup-for-code-scanning).
+
+{% endif %}
+
+## Using OpenSSF Scorecards to secure workflow dependencies
 
 [Scorecards](https://github.com/ossf/scorecard) is an automated security tool that flags risky supply chain practices. You can use the [Scorecards action](https://github.com/marketplace/actions/ossf-scorecard-action) and [workflow template](https://github.com/actions/starter-workflows) to follow best security practices. Once configured, the Scorecards action runs automatically on repository changes, and alerts developers about risky supply chain practices using the built-in {% data variables.product.prodname_code_scanning %} experience. The Scorecards project runs a number of checks, including script injection attacks, token permissions, and pinned actions.
 
