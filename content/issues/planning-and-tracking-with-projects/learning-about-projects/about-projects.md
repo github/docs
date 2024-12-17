@@ -1,48 +1,104 @@
----
-title: 'About {% data variables.product.prodname_projects_v2 %}'
-intro: '{% data variables.product.prodname_projects_v2 %} is an adaptable, flexible tool for planning and tracking work on {% data variables.product.company_short %}.'
-allowTitleToDifferFromFilename: true
-versions:
-  feature: projects-v2
-redirect_from:
-  - /issues/trying-out-the-new-projects-experience/about-projects
-type: overview
-topics:
-  - Projects
----
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>GitHub Projects V2</title>
+    <script src="https://cdn.tailwindcss.com"></script>
+    <link href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0/css/all.min.css" rel="stylesheet">
+    <style>
+        @keyframes float {
+            0% { transform: translateY(0px); }
+            50% { transform: translateY(-10px); }
+            100% { transform: translateY(0px); }
+        }
+        .floating-icon {
+            animation: float 3s ease-in-out infinite;
+        }
+        @keyframes pulse {
+            0% { transform: scale(1); }
+            50% { transform: scale(1.05); }
+            100% { transform: scale(1); }
+        }
+        .pulse-button {
+            animation: pulse 2s infinite;
+        }
+    </style>
+</head>
+<body class="bg-gray-100 text-gray-900">
+    <div class="container mx-auto px-4 py-8">
+        <header class="text-center mb-12">
+            <h1 class="text-5xl font-bold mb-4 text-blue-600 flex items-center justify-center">
+                <svg class="w-16 h-16 mr-4 floating-icon" fill="currentColor" viewBox="0 0 24 24">
+                    <path d="M12 0L1 9h22L12 0zm0 3.84L17.65 9H6.35L12 3.84zM2 10v12h20V10h-2v10h-4v-6H8v6H4V10H2z"/>
+                </svg>
+                GitHub Projects V2 
+                <span class="ml-4 text-3xl">🚀</span>
+            </h1>
+            <p class="text-xl text-gray-600 mb-6">Adaptive Project Management for Modern Teams</p>
+        </header>
 
-## About {% data variables.product.prodname_projects_v2 %}
+        <div class="grid md:grid-cols-3 gap-6">
+            <div class="bg-white p-6 rounded-lg shadow-lg hover:shadow-xl transition-all">
+                <h2 class="text-2xl font-semibold mb-4 text-blue-500">🔧 Flexible Customization</h2>
+                <ul class="space-y-2">
+                    <li>✨ Dynamic View Creation</li>
+                    <li>📊 Advanced Filtering</li>
+                    <li>🏷️ Custom Metadata Fields</li>
+                </ul>
+                <button class="mt-4 bg-blue-500 text-white px-4 py-2 rounded pulse-button hover:bg-blue-600">
+                    Learn More
+                </button>
+            </div>
 
-A project is an adaptable spreadsheet, task-board, and road map that integrates with your issues and pull requests on {% data variables.product.company_short %} to help you plan and track your work effectively. You can create and customize multiple views by filtering, sorting, grouping your issues and pull requests,{% ifversion projects-v2-insights %} visualize work with configurable charts,{% endif %} and add custom fields to track metadata specific to your team. Rather than enforcing a specific methodology, a project provides flexible features you can customize to your team’s needs and processes.
+            <div class="bg-white p-6 rounded-lg shadow-lg hover:shadow-xl transition-all">
+                <h2 class="text-2xl font-semibold mb-4 text-green-500">🔄 Real-Time Sync</h2>
+                <ul class="space-y-2">
+                    <li>⚡ Instant Updates</li>
+                    <li>🔗 Direct Issue Connections</li>
+                    <li>🎯 Drag-and-Drop Management</li>
+                </ul>
+                <button class="mt-4 bg-green-500 text-white px-4 py-2 rounded pulse-button hover:bg-green-600">
+                    See Workflows
+                </button>
+            </div>
 
-To get started and create a project, see [AUTOTITLE](/issues/planning-and-tracking-with-projects/creating-projects/creating-a-project). To learn more about the different layouts, see [AUTOTITLE](/issues/planning-and-tracking-with-projects/customizing-views-in-your-project/changing-the-layout-of-a-view).
+            <div class="bg-white p-6 rounded-lg shadow-lg hover:shadow-xl transition-all">
+                <h2 class="text-2xl font-semibold mb-4 text-purple-500">🤖 Smart Automation</h2>
+                <ul class="space-y-2">
+                    <li>🔮 Predictive Workflows</li>
+                    <li>🚦 Automatic Archiving</li>
+                    <li>🔌 API & Actions Integration</li>
+                </ul>
+                <button class="mt-4 bg-purple-500 text-white px-4 py-2 rounded pulse-button hover:bg-purple-600">
+                    Explore Automation
+                </button>
+            </div>
+        </div>
 
-### Staying up-to-date
+        <div class="mt-12 text-center">
+            <h2 class="text-3xl font-bold mb-6">Quick Access 🔍</h2>
+            <div class="flex justify-center space-x-4">
+                <a href="#" class="bg-gray-800 text-white px-6 py-3 rounded-full hover:bg-gray-700 transition-all">
+                    <i class="fab fa-github mr-2"></i>Create Project
+                </a>
+                <a href="#" class="bg-blue-600 text-white px-6 py-3 rounded-full hover:bg-blue-500 transition-all">
+                    <i class="fas fa-book-open mr-2"></i>Documentation
+                </a>
+                <a href="#" class="bg-green-600 text-white px-6 py-3 rounded-full hover:bg-green-500 transition-all">
+                    <i class="fas fa-video mr-2"></i>Video Tutorials
+                </a>
+            </div>
+        </div>
 
-Your projects are built from the issues and pull requests you add, creating direct references between your project and your work. Information is synced automatically to your project as you make changes, updating your views and charts. This integration works both ways, so that when you change information about a pull request or issue in your project, the pull request or issue reflects that information. For example, change an assignee in your project and that change is shown in your issue. You can take this integration even further, group your project by assignee, and make changes to issue assignment by dragging issues into the different groups.
-
-To learn more about managing items in your project, see [AUTOTITLE](/issues/planning-and-tracking-with-projects/managing-items-in-your-project/adding-items-to-your-project){% ifversion projects-v2-bulk-table-editing %} and [AUTOTITLE](/issues/planning-and-tracking-with-projects/managing-items-in-your-project/editing-items-in-your-project){% endif %}.
-
-### Adding metadata to your items
-
-You can use custom fields to add metadata to your issues, pull requests, and draft issues and build a richer view of item attributes. You’re not limited to the built-in metadata (assignee, milestone, labels, etc.) that currently exists for issues and pull requests. For example, you can add the following metadata as custom fields:
-
-* A date field to track target ship dates.
-* A number field to track the complexity of a task.
-* A single select field to track whether a task is Low, Medium, or High priority.
-* A text field to add a quick note.
-* An iteration field to plan work week-by-week, including support for breaks.
-
-To learn more about the different fields you can add to a project, see [AUTOTITLE](/issues/planning-and-tracking-with-projects/understanding-fields).
-
-### Automating your projects
-
-There are a number of ways you can add automation to your project. Built-in workflows allow you to automatically set fields when items are added or changed, and you can also configure your project to automatically archive items when they meet certain criteria and automatically add items from a repository when they match set criteria. For more information, see [AUTOTITLE](/issues/planning-and-tracking-with-projects/automating-your-project/using-the-built-in-automations).
-
-You can also use the GraphQL API and {% data variables.product.prodname_actions %} to take even greater control of your project. For more information, see [AUTOTITLE](/issues/planning-and-tracking-with-projects/automating-your-project/using-the-api-to-manage-projects) and [AUTOTITLE](/issues/planning-and-tracking-with-projects/automating-your-project/automating-projects-using-actions).
-
-### Viewing your project from different perspectives
-
-Quickly answer your most pressing questions by tailoring your project view to give you the information you need. You can save these views, allowing you to quickly return to them as needed and make them available to your team. Views not only let you scope down the items listed but also offer two different layout options.
-
-You can view your project as a high-density table layout, as a kanban board, or a timeline-style roadmap. For more information about the different layout options, see [AUTOTITLE](/issues/planning-and-tracking-with-projects/customizing-views-in-your-project/changing-the-layout-of-a-view).
+        <footer class="mt-12 text-center text-gray-600">
+            <div class="flex justify-center space-x-4 mb-4">
+                <a href="#" class="text-blue-500 hover:text-blue-700"><i class="fab fa-twitter fa-2x"></i></a>
+                <a href="#" class="text-blue-800 hover:text-blue-900"><i class="fab fa-facebook fa-2x"></i></a>
+                <a href="#" class="text-purple-500 hover:text-purple-700"><i class="fab fa-instagram fa-2x"></i></a>
+                <a href="#" class="text-gray-800 hover:text-black"><i class="fab fa-github fa-2x"></i></a>
+            </div>
+            <p>© 2024 GitHub Projects V2. All rights reserved.</p>
+        </footer>
+    </div>
+</body>
+</html>
