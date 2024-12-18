@@ -48,7 +48,13 @@ With a {% data variables.product.prodname_copilot_enterprise %} license, you can
 1. Once the suggested fix has been generated, at the bottom of the page, you can click **Create PR with fix** to automatically generate a pull request with the suggested fix.
 A new branch is created from the default branch, the generated fix is committed and a draft pull request is created. You can test and edit the suggested fix as you would with any other fix.
 
-For information about the limitations of automatically generated fixes, see "[Limitations of suggestions](/code-security/code-scanning/managing-code-scanning-alerts/about-autofix-for-codeql-code-scanning#limitations-of-suggestions)
+You can also use the Autofix API for historical alerts endpoints to generate, get, and commit suggested fixes.
+
+* [Create an autofix for a code scanning alert](/rest/code-scanning/code-scanning#create-an-autofix-for-a-code-scanning-alert)
+* [Get the status of an autofix for a code scanning alert](/rest/code-scanning/code-scanning#get-the-status-of-an-autofix-for-a-code-scanning-alert)
+* [Commit an autofix for a code scanning alert](/rest/code-scanning/code-scanning#commit-an-autofix-for-a-code-scanning-alert)
+
+For information about the limitations of automatically generated fixes, see [Limitations of suggestions](/code-security/code-scanning/managing-code-scanning-alerts/about-autofix-for-codeql-code-scanning#limitations-of-suggestions).
 
 {% endif %}
 
