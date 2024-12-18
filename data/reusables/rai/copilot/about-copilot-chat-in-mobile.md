@@ -22,9 +22,9 @@ The options available to you in {% data variables.product.prodname_copilot_mobil
 
 * Only people with a {% data variables.product.prodname_copilot_enterprise %} subscription can access and have conversations using the data from private indexed repositories.
 * If you have a {% data variables.product.prodname_copilot_enterprise %} subscription and you have enabled Bing search integration ({% data variables.release-phases.public_preview %}), {% data variables.product.prodname_copilot_mobile_short %} may respond using information based on the results of a Bing search. For information on how to enable or disable Bing search integration, see "[AUTOTITLE](/copilot/managing-copilot/managing-copilot-for-your-enterprise/managing-policies-and-features-for-copilot-in-your-enterprise){% ifversion fpt %}" in the {% data variables.product.prodname_ghe_cloud %} documentation.{% else %}."{% endif %}
-* In addition to general coding conversations or conversations about a single file, people with a {% data variables.product.prodname_copilot_individuals_short %} subscription have the ability to discuss top popular public repositories using embeddings.
+* In addition to general coding conversations or conversations about a single file, people with a  {% data variables.product.prodname_copilot_pro_short %} subscription have the ability to discuss top popular public repositories using embeddings.
 
-If you do not have a {% data variables.product.prodname_copilot %} subscription, you can purchase a {% data variables.product.prodname_copilot_individuals_short %} subscription directly in the iOS version of {% data variables.product.prodname_mobile %}, or in the Google Play Store for the Android version of {% data variables.product.prodname_mobile %}.
+If you do not have a {% data variables.product.prodname_copilot %} subscription, you can purchase a {% data variables.product.prodname_copilot_pro_short %} subscription directly in the iOS version of {% data variables.product.prodname_mobile %}, or in the Google Play Store for the Android version of {% data variables.product.prodname_mobile %}.
 
 ## Use cases for {% data variables.product.prodname_copilot_mobile %}
 

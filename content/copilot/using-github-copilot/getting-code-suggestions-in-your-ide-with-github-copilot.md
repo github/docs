@@ -21,7 +21,23 @@ topics:
   - Copilot
 ---
 
-<a href="https://github.com/github-copilot/signup?ref_cta=Copilot+trial&ref_loc=getting+started+with+github+copilot&ref_page=docs" target="_blank" class="btn btn-primary mt-3 mr-3 no-underline"><span>Start a free trial</span> {% octicon "link-external" height:16 %}</a>
+<style>
+.button-container {
+    display: flex;
+    gap: 10px;
+}
+</style>
+
+<div class="button-container">
+    <a href="https://github.com/copilot?ref_cta=Copilot+free&ref_loc=getting+started+with+github+copilot&ref_page=docs" target="_blank" class="btn btn-primary mt-3 mr-3 no-underline">
+        <span>Get started for free</span> {% octicon "link-external" height:16 %}
+    </a>
+    {% vscode %}
+    <a href="vscode://GitHub.Copilot-Chat" target="_blank" class="btn btn-primary mt-3 mr-3 no-underline">
+        <span>Open in {% data variables.product.prodname_vscode %}</span> {% octicon "link-external" height:16 %}
+    </a>
+    {% endvscode %}
+</div>
 
 {% jetbrains %}
 
@@ -93,7 +109,7 @@ For example, type the following line in a Java file:
 
 {% data variables.product.prodname_copilot %} will show you a suggestion.
 
-To open a new tab with multiple additional suggestions, use the following keyboard shortcut, then click **Open GitHub Copilot**:
+To open a new tab with multiple additional suggestions, use the following keyboard shortcut, then click **Open {% data variables.product.prodname_copilot %}**:
 
 | OS | Open multiple suggestions |
 | :- | :- |

@@ -1,7 +1,7 @@
 ---
 title: About billing for GitHub Copilot
 shortTitle: Billing for GitHub Copilot
-intro: '{% data variables.product.prodname_dotcom %} offers multiple subscription options for enterprises, organizations, and individuals to use GitHub Copilot.'
+intro: '{% data variables.product.prodname_dotcom %} offers multiple subscription options for enterprises, organizations, and individuals to use {% data variables.product.prodname_copilot %}.'
 versions:
   feature: copilot
 topics:
@@ -20,9 +20,11 @@ Subscriptions to {% data variables.product.prodname_copilot_for_business %} are 
 
 ## {% data variables.product.prodname_copilot %} as an individual
 
-Subscriptions to {% data variables.product.prodname_copilot_for_individuals %} are available on a monthly or yearly cycle, for either {% data variables.copilot.cfi_price_per_month %} per calendar month or {% data variables.copilot.cfi_price_per_year %} per year. For more information, see [AUTOTITLE](/copilot/managing-copilot/managing-copilot-as-an-individual-subscriber/managing-your-copilot-subscription/about-billing-for-github-copilot-individual).
+Subscriptions to {% data variables.product.prodname_copilot_pro %} are available on a monthly or yearly cycle, for either {% data variables.copilot.cfi_price_per_month %} per calendar month or {% data variables.copilot.cfi_price_per_year %} per year. For more information, see [AUTOTITLE](/copilot/managing-copilot/managing-copilot-as-an-individual-subscriber/managing-your-copilot-subscription/about-billing-for-github-copilot-individual).
 
 > [!NOTE] {% data reusables.copilot.copilot-one-account %}
+
+If you want to try {% data variables.product.prodname_copilot_short %} before subscribing, you can use {% data variables.product.prodname_copilot_free %} for a limited experience. See [AUTOTITLE](/copilot/managing-copilot/managing-copilot-as-an-individual-subscriber/about-github-copilot-free).
 
 ## Further reading
 

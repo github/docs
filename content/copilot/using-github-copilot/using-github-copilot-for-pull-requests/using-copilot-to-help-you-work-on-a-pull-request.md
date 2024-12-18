@@ -2,6 +2,7 @@
 title: Using Copilot to help you work on a pull request
 shortTitle: Working on a PR
 intro: 'You can iterate, validate, and integrate suggested changes to code by using {% data variables.product.prodname_copilot_workspace %}.'
+product: '{% data reusables.gated-features.copilot-free-availability %}'
 versions:
   feature: copilot-hadron
 topics:

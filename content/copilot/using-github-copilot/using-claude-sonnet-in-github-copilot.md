@@ -33,7 +33,7 @@ You must enable access to {% data variables.copilot.copilot_claude_sonnet %} bef
 
 ### Setup for individual use
 
-If you have a {% data variables.product.prodname_copilot_individuals_short %} subscription, you can enable {% data variables.copilot.copilot_claude_sonnet %} in two ways:
+If you have a {% data variables.product.prodname_copilot_pro_short %} subscription, you can enable {% data variables.copilot.copilot_claude_sonnet %} in two ways:
 
 * The first time you choose to use {% data variables.copilot.copilot_claude_sonnet %} with {% data variables.product.prodname_copilot_chat_short %} in {% data variables.product.prodname_vscode %}, or in the immersive view of {% data variables.product.prodname_copilot_chat_short %}, you will be prompted to allow access to the model.
 

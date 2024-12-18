@@ -6,6 +6,7 @@ versions:
   feature: copilot
 topics:
   - Copilot
+product: '{% data reusables.gated-features.copilot-free-availability %}'
 redirect_from:
   - /copilot/using-github-copilot/creating-a-pull-request-summary-with-github-copilot
   - /copilot/github-copilot-enterprise/copilot-pull-request-summaries/creating-a-pull-request-summary-with-github-copilot
