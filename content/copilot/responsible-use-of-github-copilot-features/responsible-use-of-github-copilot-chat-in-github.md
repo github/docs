@@ -15,8 +15,6 @@ redirect_from:
   - /copilot/responsible-use-of-github-copilot-features/responsible-use-of-github-copilot-chat-in-githubcom
 ---
 
-> [!NOTE] {% data reusables.rai.copilot.copilot-chat-dotcom-beta %}
-
 ## About {% data variables.product.prodname_copilot_chat_dotcom %}
 
 {% data variables.product.prodname_copilot_chat_dotcom %} is a chat interface that lets you interact with {% data variables.product.prodname_copilot %}, to ask and receive answers to coding-related questions within {% data variables.product.github %}.

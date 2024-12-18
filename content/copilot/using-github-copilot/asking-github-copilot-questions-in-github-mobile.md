@@ -34,10 +34,8 @@ With {% data variables.product.prodname_copilot_enterprise_short %}, you can als
 
 ## Limitations
 
-The following {% ifversion fpt %}limitation applies{% else %} limitations apply{% endif %} to {% data variables.product.prodname_copilot_mobile_short %}:
+The following limitations apply to {% data variables.product.prodname_copilot_mobile_short %}:
 
-{% ifversion ghec %}
-* Chat responses may be suboptimal if you ask questions about a specific repository that you've selected as a context, and the repository has not been indexed for semantic code search. {% data reusables.copilot.indexing-who-can-do-this %}{% endif %}
 * The quality of the results from {% data variables.product.prodname_copilot_chat_short %} may, in some situations, be degraded if very large files, or a large number of files, are used as a context for a question.
 
 ## Prerequisites
@@ -92,9 +90,9 @@ You can ask questions about a specific repository, to get help with understandin
    * Are there any specific environment requirements for working on this project?
 
    > [!IMPORTANT]
-   > {% data variables.product.prodname_copilot_short %}'s ability to answer natural language questions like these in a repository context is improved when the repository has been indexed for semantic code search. {% data reusables.copilot.indexing-who-can-do-this %} Without indexing, {% data variables.product.prodname_copilot_mobile_short %} may not be able to provide the most relevant answers to your questions.
+   > {% data variables.product.prodname_copilot_short %}'s ability to answer natural language questions like these in a repository context is improved when the repository has been indexed for semantic code search. Without indexing, {% data variables.product.prodname_copilot_mobile_short %} may not be able to provide the most relevant answers to your questions.
    >
-   > You can't index a repository from {% data variables.product.prodname_mobile %}. Instead you must use {% data variables.product.prodname_copilot_chat_short %} in a web browser. See [AUTOTITLE](/copilot/managing-copilot/managing-github-copilot-in-your-organization/managing-github-copilot-features-in-your-organization/indexing-repositories-for-copilot-chat).
+   > You can't trigger the creation of a semantic code search index for a repository from {% data variables.product.prodname_mobile %}. Instead you must use {% data variables.product.prodname_copilot_chat_short %} in a web browser or {% data variables.product.prodname_vscode %}. See [AUTOTITLE](/copilot/managing-copilot/managing-github-copilot-in-your-organization/managing-github-copilot-features-in-your-organization/indexing-repositories-for-copilot-chat).
 
 {% data reusables.copilot.chat-mobile-conversation-buttons %}
 

@@ -87,7 +87,3 @@ Organization owners can delete a knowledge base created in their organization.
 1. In the left sidebar, click **{% octicon "copilot" aria-hidden="true" %} {% data variables.product.prodname_copilot_short %}** then click **Knowledge bases**.
 1. To the right of the knowledge base you want to delete, click {% octicon "trash" aria-label="The trash symbol" %}.
 1. In the "Confirm deletion" dialog box, review the information and click **Delete**.
-
-## Indexing repositories within a knowledge base
-
-For more information about indexing, see [AUTOTITLE](/copilot/managing-copilot/managing-github-copilot-in-your-organization/customizing-copilot-for-your-organization/indexing-repositories-for-copilot-chat)

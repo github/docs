@@ -51,7 +51,6 @@ If your organization is part of an enterprise on {% data variables.enterprise.da
 
 Enhance the {% data variables.product.prodname_copilot_short %} experience for your organization by:
 
-* **Indexing repositories** to improve {% data variables.product.prodname_copilot_short %}'s responses relating to {% data variables.product.prodname_dotcom %} repositories. See [AUTOTITLE](/copilot/managing-copilot/managing-github-copilot-in-your-organization/managing-github-copilot-features-in-your-organization/indexing-repositories-for-copilot-chat).
 * **Setting up knowledge bases** for use with {% data variables.product.prodname_copilot_chat_short %} _({% data variables.product.prodname_copilot_enterprise_short %} only)_. See [AUTOTITLE](/enterprise-cloud@latest/copilot/managing-copilot/managing-github-copilot-in-your-organization/managing-github-copilot-features-in-your-organization/managing-copilot-knowledge-bases).
 * **Fine tuning {% data variables.product.prodname_copilot_short %}** by creating a custom large language model. See [AUTOTITLE](/copilot/customizing-copilot/creating-a-custom-model-for-github-copilot).
 * **Installing {% data variables.product.prodname_copilot_extensions_short %}** to integrate other tools with {% data variables.product.prodname_copilot_chat_short %}. See [AUTOTITLE](/copilot/managing-copilot/managing-github-copilot-in-your-organization/managing-github-copilot-features-in-your-organization/installing-github-copilot-extensions-for-your-organization).
