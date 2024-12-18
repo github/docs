@@ -70,3 +70,20 @@ After configuring {% data variables.product.prodname_code_scanning %} for your r
 1. Optionally, to see more detail about the commit that triggered the workflow run, click the short commit hash. The short commit hash is 7 lowercase characters immediately following the commit author's username.
 
 1. Once all jobs are complete, you can view the details of any {% data variables.product.prodname_code_scanning %} alerts that were identified. For more information, see [AUTOTITLE](/code-security/code-scanning/managing-code-scanning-alerts/assessing-code-scanning-alerts-for-your-repository#viewing-the-alerts-for-a-repository).
+
+{% ifversion org-private-registry %}
+
+### Determining whether {% data variables.product.prodname_code_scanning %} default setup used any private registries
+
+{% data variables.product.prodname_code_scanning_caps %} default setup includes a `Setup proxy or registries` step. When you are looking at a log file for default setup, you can expand this step. If the step includes:
+
+* `Using registries_credentials input.` At least one private registry is configured for the organization.
+
+* `Credentials loaded for the following registries:`
+  * No further output in the step. Access was unsuccessful.
+  * `Type: nuget_feed;` Default set up accessed a private Nuget feed.
+  * `Type: maven_repository;` Default set up accessed a private Maven repository.
+
+For more information, see [AUTOTITLE](/code-security/securing-your-organization/enabling-security-features-in-your-organization/giving-org-access-private-registries).
+
+{% endif %}

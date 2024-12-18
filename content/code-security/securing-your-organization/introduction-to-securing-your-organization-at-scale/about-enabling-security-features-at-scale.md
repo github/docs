@@ -49,6 +49,14 @@ You can also create and manage security configurations using the REST API. For m
 
 While {% data variables.product.prodname_security_configurations %} determine repository-level security settings, {% data variables.product.prodname_global_settings %} determine your organization-level security settings, which are then inherited by all repositories. With {% data variables.product.prodname_global_settings %}, you can customize how security features analyze your organization{% ifversion ghes < 3.16 %}, as well as grant a team permission to manage security alerts and settings across your organization{% endif %}.
 
+{% ifversion org-private-registry %}
+
+## About enabling secure access to private registries
+
+If your organization uses private registries, providing {% data variables.product.prodname_code_scanning %} and {% data variables.product.prodname_dependabot %} secure access to these registries will improve code analysis and allow {% data variables.product.prodname_dependabot %} to update a wider range of dependencies. For information, see [AUTOTITLE](/code-security/securing-your-organization/enabling-security-features-in-your-organization/giving-org-access-private-registries).
+
+{% endif %}
+
 ## Next steps
 
 {% ifversion security-configurations-cloud %}

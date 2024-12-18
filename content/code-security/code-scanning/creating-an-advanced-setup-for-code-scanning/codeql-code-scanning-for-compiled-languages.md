@@ -360,14 +360,14 @@ When you enable default setup for a repository that contains C# code, the build 
 
 {% data variables.product.prodname_codeql %} restores dependencies and generates a few additional source files, to give more accurate results, before creating a database from all the source files and dependencies.
 
-Dependencies are restored using multiple heuristics and strategies. The following files are the primary source of information: `*.csproj`, `*.sln`, `nuget.config`, `packages.config`, `global.json`, and `project.assets.json`.
+Dependencies are restored using multiple heuristics and strategies. The following files are the primary source of information: `*.csproj`, `*.sln`, `nuget.config`, `packages.config`, `global.json`, and `project.assets.json`. {% ifversion org-private-registry %}If a private NuGet feed is defined for the organization, this is also used, see [Code scanning default setup access to private registries](/code-security/securing-your-organization/enabling-security-features-in-your-organization/giving-org-access-private-registries#code-scanning-default-setup-access-to-private-registries) and [Determining whether code scanning default setup used any private registries](/code-security/code-scanning/managing-your-code-scanning-configuration/viewing-code-scanning-logs#determining-whether-code-scanning-default-setup-used-any-private-registries).{% endif %}
 
 The following generated source files are optional, but significantly increase the correctness of the {% data variables.product.prodname_codeql %} database:
 
 * `global` generated `using` directives to handle the implicit `using` feature of MSbuild.
 * ASP.NET core view files, `.cshtml` files are converted to `.cs` files.
 
-The information from the dependency assembly names, generated source files, and the source files in the repository is compiled and used to create a {% data variables.product.prodname_codeql %} database.
+The information from the dependency assembly names, generated source files, {% ifversion org-private-registry %}dependencies stored in private feeds, {% endif %}and the source files in the repository is compiled and used to create a {% data variables.product.prodname_codeql %} database.
 
 #### Accuracy of no build analysis for C#
 
@@ -375,7 +375,7 @@ Creating a {% data variables.product.prodname_codeql %} database without buildin
 
 You can ensure a more accurate analysis by taking the following steps:
 
-* Provide access to the public internet or ensure that access to a private NuGet feed is available.
+* Provide access to the public internet or ensure that access to a private NuGet feed is available{% ifversion org-private-registry %}, see [Code scanning default setup access to private registries](/code-security/securing-your-organization/enabling-security-features-in-your-organization/giving-org-access-private-registries#code-scanning-default-setup-access-to-private-registries){% endif %}.
 * Check whether the repository requires multiple versions of the same NuGet dependency. {% data variables.product.prodname_codeql %} can use only one version and usually chooses the newer version where there are multiple versions. This approach may not work for all repositories.
 * Check whether multiple versions of .NET are referenced, for example, `net48`, `net5.0`, and `netstandard1.6`. {% data variables.product.prodname_codeql %} can use only one version and this may affect accuracy.
 * Avoid colliding class names, otherwise this may cause missing method call targets, which has an impact on dataflow analysis.
@@ -387,27 +387,7 @@ You can ensure a more accurate analysis by taking the following steps:
 | Operating system | Windows, macOS, and Linux |
 | Build system | .NET and MSbuild, as well as build scripts |
 
-### C# compiler flags injected by {% data variables.product.prodname_codeql %}
-
->[!NOTE] The following compiler flags only apply if you're using build mode `manual`.
-
-The {% data variables.product.prodname_codeql %} tracer enables the extraction of all compiled languages by intercepting build processes and forwarding information to the relevant {% data variables.product.prodname_codeql %} language extractors. The tracer injects certain flags into the C# compiler invocation to ensure every component is built and included in the {% data variables.product.prodname_codeql %} database, which may cause your C# code to build in a different way to what you expect during {% data variables.product.prodname_codeql %} analysis.
-
-#### `/p:MvcBuildViews=true`
-
-When this option is set to `true`, the views in ASP.NET model-view-controller (MVC) projects are precompiled as part of the build process, which can help to catch errors and improve performance. The tracer injects this flag to make sure {% data variables.product.prodname_codeql %} finds and highlights security issues that may involve dataflow through the code generated from these views. For more information, see [Adding a View to an MVC Application](https://learn.microsoft.com/en-us/aspnet/mvc/overview/getting-started/introduction/adding-a-view) in Microsoft Learn.
-
-#### `/p:UseSharedCompilation=false`
-
-Setting this option to `false` disables the use of the shared compilation feature, which may result in slower build times. When `/p:UseSharedCompilation=false` is **not** specified, `msbuild` starts a compiler server process, and all the compilation will be done by that single process. However, the {% data variables.product.prodname_codeql %} tracer depends on inspecting the arguments of newly created processes.
-
-#### `/p:EmitCompilerGeneratedFiles=true`
-
-Setting this option to `true` will emit compiler-generated files during the build process. This option causes the compiler to generate additional source files that are used to support features such as improved regular expression support, serialization, and web application view generation. These generated artifacts are typically not written to disk by the compiler, but setting the option to `true` forces writing the files to disk, and so the extractor can process the files.
-
-For some legacy projects, and projects that use `.sqlproj` files, you may see that the injected `/p:EmitCompilerGeneratedFiles=true` property causes unexpected issues with `msbuild`. For information about troubleshooting this, see [AUTOTITLE](/code-security/code-scanning/troubleshooting-code-scanning/c-sharp-compiler-unexpectedly-failing).
-
-### Windows autodetection
+#### Windows autodetection
 
 The `autobuild` process attempts to autodetect a suitable build method for C# using the following approach:
 
@@ -430,7 +410,7 @@ If you plan to create {% data variables.product.prodname_codeql %} databases usi
 
 {% endif %}
 
-### Linux and macOS autodetection
+#### Linux and macOS autodetection
 
 1. Invoke `dotnet build` on the solution (`.sln`) or project (`.csproj`) file closest to the root.
 1. Invoke `MSbuild` on the solution or project file closest to the root.
@@ -448,6 +428,24 @@ For .NET Framework application development, you will require Mono Runtime (to ru
 If you plan to create {% data variables.product.prodname_codeql %} databases using `build-mode: none`, you also need to provide access to the public internet, or you must ensure that access to a private NuGet feed is available.
 
 {% endif %}
+
+### C# compiler flags injected by {% data variables.product.prodname_codeql %} for manual builds
+
+The {% data variables.product.prodname_codeql %} tracer enables the extraction of all compiled languages by intercepting build processes and forwarding information to the relevant {% data variables.product.prodname_codeql %} language extractors. The tracer injects certain flags into the C# compiler invocation to ensure every component is built and included in the {% data variables.product.prodname_codeql %} database, which may cause your C# code to build in a different way to what you expect during {% data variables.product.prodname_codeql %} analysis.
+
+#### `/p:MvcBuildViews=true`
+
+When this option is set to `true`, the views in ASP.NET model-view-controller (MVC) projects are precompiled as part of the build process, which can help to catch errors and improve performance. The tracer injects this flag to make sure {% data variables.product.prodname_codeql %} finds and highlights security issues that may involve dataflow through the code generated from these views. For more information, see [Adding a View to an MVC Application](https://learn.microsoft.com/en-us/aspnet/mvc/overview/getting-started/introduction/adding-a-view) in Microsoft Learn.
+
+#### `/p:UseSharedCompilation=false`
+
+Setting this option to `false` disables the use of the shared compilation feature, which may result in slower build times. When `/p:UseSharedCompilation=false` is **not** specified, `msbuild` starts a compiler server process, and all the compilation will be done by that single process. However, the {% data variables.product.prodname_codeql %} tracer depends on inspecting the arguments of newly created processes.
+
+#### `/p:EmitCompilerGeneratedFiles=true`
+
+Setting this option to `true` will emit compiler-generated files during the build process. This option causes the compiler to generate additional source files that are used to support features such as improved regular expression support, serialization, and web application view generation. These generated artifacts are typically not written to disk by the compiler, but setting the option to `true` forces writing the files to disk, and so the extractor can process the files.
+
+For some legacy projects, and projects that use `.sqlproj` files, you may see that the injected `/p:EmitCompilerGeneratedFiles=true` property causes unexpected issues with `msbuild`. For information about troubleshooting this, see [AUTOTITLE](/code-security/code-scanning/troubleshooting-code-scanning/c-sharp-compiler-unexpectedly-failing).
 
 ## Building Go
 
@@ -493,6 +491,8 @@ If you later add Kotlin code to a repository that uses the `none` build mode, {%
 
 {% data variables.product.prodname_codeql %} will attempt to run Gradle or Maven to extract accurate dependency information (but not to invoke a build), before creating a database from all Java files present. Every root Maven or Gradle project file (a build script without any build script present in an ancestor directory) is queried for dependency information, and more recent dependency versions are preferred if there is a clash. For information about the runner requirements to run Maven or Gradle, see [Runner requirements for Java](#runner-requirements-for-java).
 
+ {% ifversion org-private-registry %}If a private Maven registry is defined for the organization, this is also used, see [Code scanning default setup access to private registries](/code-security/securing-your-organization/enabling-security-features-in-your-organization/giving-org-access-private-registries#code-scanning-default-setup-access-to-private-registries) and [Determining whether code scanning default setup used any private registries](/code-security/code-scanning/managing-your-code-scanning-configuration/viewing-code-scanning-logs#determining-whether-code-scanning-default-setup-used-any-private-registries).{% endif %}
+
 #### Accuracy of no build analysis for Java
 
 Creating a {% data variables.product.prodname_codeql %} Java database without a build may produce less accurate results than using `autobuild` or manual build steps if:
@@ -502,7 +502,7 @@ Creating a {% data variables.product.prodname_codeql %} Java database without a 
 
 You can ensure a more accurate analysis by taking the following steps:
 
-* Provide access to the public internet or ensure that access to a private artifact repository is available.
+* Provide access to the public internet or ensure that access to a private artifact repository is available{% ifversion org-private-registry %}, see [Code scanning default setup access to private registries](/code-security/securing-your-organization/enabling-security-features-in-your-organization/giving-org-access-private-registries#code-scanning-default-setup-access-to-private-registries){% endif %}.
 * Check whether the repository requires multiple versions of the same dependency. {% data variables.product.prodname_codeql %} can use only one version and usually chooses the newer version where there are multiple versions. This approach may not work for all repositories.
 * Check whether more than one version of the JDK API is required by different source Java files. When multiple versions are seen, {% data variables.product.prodname_codeql %} will use the highest version required by any build script. This may mean that some files that require a lower version of the JDK will be partially analyzed. For example, if some files require JDK 8 but a JDK 17 requirement is found in one or more build scripts, {% data variables.product.prodname_codeql %} will use JDK 17. Any files that require JDK 8 and could not be built using JDK 17 will be partially analyzed.
 * Avoid colliding class names (for example, multiple files defining `org.myproject.Test`), otherwise this may cause missing method call targets, which has an impact on dataflow analysis.
