@@ -28,7 +28,11 @@ To help you triage alerts more effectively, {% data variables.product.company_sh
 * **Default** alerts
 * **Experimental** alerts
 
-![Screenshot of the {% data variables.product.prodname_secret_scanning %} alert view. The button to toggle between "Default" and "Experimental" alerts is highlighted with an orange outline.](/assets/images/help/security/secret-scanning-default-alert-view.png)
+{% ifversion secret-scanning-alert-experimental-list-toggle %}
+![Screenshot of the {% data variables.product.prodname_secret_scanning %} alert view. The button to toggle between "Default" and "Experimental" alerts is highlighted with an orange outline.](/assets/images/enterprise/3.16/help/security/secret-scanning-default-alert-view.png)
+{% else %}
+![Screenshot of the {% data variables.product.prodname_secret_scanning %} alert view. The sidebar menu items for "Default" and "Experimental" alerts are highlighted with an orange outline.](/assets/images/help/security/secret-scanning-default-alert-view.png)
+{% endif %}
 
 {% else %}
 * **High confidence** alerts.
@@ -99,6 +103,10 @@ You can apply various filters to the alerts list to help you find the alerts you
 |---------|-----------|
 |`is:open`|Displays open alerts.|
 |`is:closed`|Displays closed alerts.|
+| {% ifversion secret-scanning-alert-plaid-filters %} |
+|`is:publicly-leaked`|Displays alerts for secrets that have been found in a public repository.|
+|`is:multi-repository`|Displays alerts for secrets that have been found in more than one repository within the same organization or enterprise.|
+| {% endif %} |
 | {% ifversion secret-scanning-bypass-filter %} |
 |`bypassed: true`|Displays alerts for secrets where push protection has been bypassed. For more information, see [AUTOTITLE](/code-security/secret-scanning/introduction/about-push-protection).|
 | {% endif %} |
