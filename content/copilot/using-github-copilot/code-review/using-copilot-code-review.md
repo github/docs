@@ -3,6 +3,7 @@ title: Using GitHub Copilot code review
 shortTitle: Using code review
 intro: "Learn how to request a code review from {% data variables.product.prodname_copilot %}."
 allowTitleToDifferFromFilename: true
+product: '{% data reusables.gated-features.copilot-free-availability %}'
 versions:
   feature: copilot
 topics:

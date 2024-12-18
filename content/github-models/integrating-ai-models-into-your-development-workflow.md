@@ -19,7 +19,7 @@ If you have a {% data variables.product.prodname_copilot_short %} subscription, 
 > [!NOTE] The {% data variables.product.prodname_github_models %} {% data variables.product.prodname_copilot_extension_short %} is in {% data variables.release-phases.public_preview %} and is subject to change.
 
 1. Install the [{% data variables.product.prodname_github_models %} {% data variables.product.prodname_copilot_extension_short %}](https://github.com/marketplace/models-github).
-     * If you have a {% data variables.product.prodname_copilot_individuals_short %} subscription, you can install the extension on your personal account.
+     * If you have a {% data variables.product.prodname_copilot_pro_short %} subscription, you can install the extension on your personal account.
      * If you have access to {% data variables.product.prodname_copilot_short %} through a {% data variables.product.prodname_copilot_business_short %} or {% data variables.product.prodname_copilot_enterprise_short %} subscription:
        * An organization owner or enterprise owner needs to enable the {% data variables.product.prodname_copilot_extensions_short %} policy for your organization or enterprise.
        * An organization owner needs to install the extension for your organization.

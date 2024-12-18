@@ -3,7 +3,7 @@ title: 'Setting up GitHub Copilot for yourself'
 shortTitle: Set up for self
 intro: "Follow these steps to start using Copilot."
 permissions: Individuals
-product: 'Individual user accounts with access to a {% data variables.product.prodname_copilot_enterprise_short %}, {% data variables.product.prodname_copilot_business_short %}, or {% data variables.product.prodname_copilot_individuals_short %} subscription'
+product: 'Individual user accounts with access to a {% data variables.product.prodname_copilot_enterprise_short %}, {% data variables.product.prodname_copilot_business_short %}, {% data variables.product.prodname_copilot_pro_short %}, or {% data variables.product.prodname_copilot_free_short %} subscription'
 versions:
   feature: copilot
 topics:
@@ -14,7 +14,8 @@ topics:
 
 There are a few ways that you can get access to {% data variables.product.prodname_copilot %}:
 
-* _Sign up for a subscription to {% data variables.product.prodname_copilot_for_individuals %}_. You can <a href="https://github.com/github-copilot/signup?ref_cta=Copilot+trial&ref_loc=about+github+copilot&ref_page=docs" target="_blank"><span>try {% data variables.product.prodname_copilot %} for free</span></a> with a one-time 30-day trial. After the free trial, you will need a paid subscription for continued use.
+* _Set up {% data variables.product.prodname_copilot_free %}_. You can set up {% data variables.product.prodname_copilot_free_short %} to get a limited experience of {% data variables.product.prodname_copilot_short %} without a subscription. See [AUTOTITLE](/copilot/managing-copilot/managing-copilot-as-an-individual-subscriber/about-github-copilot-free).
+* _Sign up for a subscription to {% data variables.product.prodname_copilot_pro %}_. You can <a href="https://github.com/github-copilot/signup?ref_cta=Copilot+trial&ref_loc=about+github+copilot&ref_page=docs" target="_blank"><span>try {% data variables.product.prodname_copilot %} for free</span></a> with a one-time 30-day trial. After the free trial, you will need a paid subscription for continued use.
 * _If you are a member of an organization or enterprise_ that has a subscription to {% data variables.product.prodname_copilot %}, you can request access to {% data variables.product.prodname_copilot_short %} by going to [https://github.com/settings/copilot](https://github.com/settings/copilot) and requesting access under "Get Copilot from an organization."
 * _If you are a verified student, teacher, or maintainer of a popular open source project_, {% data variables.product.prodname_copilot %} is free to use. See [AUTOTITLE](/copilot/managing-copilot/managing-copilot-as-an-individual-subscriber/getting-free-access-to-copilot-as-a-student-teacher-or-maintainer).
 
@@ -24,9 +25,13 @@ If you want to use {% data variables.product.prodname_copilot_short %} in your I
 
 ## 3. Install the {% data variables.product.prodname_copilot_short %} extension for the command line
 
+>[!NOTE] {% data reusables.gated-features.copilot-free-availability %}
+
 If you want to use {% data variables.product.prodname_copilot_short %} in the command line, install the {% data variables.product.prodname_copilot_short %} extension for the {% data variables.product.prodname_cli %}. See [AUTOTITLE](/copilot/managing-copilot/configure-personal-settings/installing-github-copilot-in-the-cli).
 
 ## 4. Use {% data variables.product.prodname_copilot_short %} in {% data variables.product.prodname_windows_terminal %}
+
+>[!NOTE] {% data reusables.gated-features.copilot-free-availability %}
 
 If you want to chat with {% data variables.product.prodname_copilot_short %} in {% data variables.product.prodname_windows_terminal %}, connect {% data variables.product.prodname_copilot_short %} with Terminal Chat in {% data variables.product.prodname_windows_terminal %} Canary. See [AUTOTITLE](/copilot/quickstart?tool=windowsterminal).
 
