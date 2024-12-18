@@ -36,6 +36,14 @@ To use OIDC with Octopus Deploy, first establish a trust relationship between {%
 1. Create or open the Service Account that will be granted access via the token request.
 1. Configure a new OIDC Identity, defining the relevant subject that the {% data variables.product.prodname_actions %} workflow token request will be validated against.
 
+## Updating your {% data variables.product.prodname_actions %} workflow
+
+To update your workflows for OIDC, you will need to make two changes to your YAML:
+1. Add permissions settings for the token.
+1. Use the [`OctopusDeploy/login`](https://github.com/OctopusDeploy/login) action to exchange the OIDC token (JWT) for a cloud access token.
+
+{% data reusables.actions.oidc-deployment-protection-rules %}
+
 ### Adding permissions settings
 
 {% data reusables.actions.oidc-permissions-token %}
