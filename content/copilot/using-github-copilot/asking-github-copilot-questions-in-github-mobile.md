@@ -93,7 +93,7 @@ You can ask questions about a specific repository, to get help with understandin
    > [!IMPORTANT]
    > {% data variables.product.prodname_copilot_short %}'s ability to answer natural language questions like these in a repository context is improved when the repository has been indexed for semantic code search. Without indexing, {% data variables.product.prodname_copilot_mobile_short %} may not be able to provide the most relevant answers to your questions.
    >
-   > You can't trigger the creation of a semantic code search index for a repository from {% data variables.product.prodname_mobile %}. Instead you must use {% data variables.product.prodname_copilot_chat_short %} in a web browser or {% data variables.product.prodname_vscode %}. See [AUTOTITLE](/copilot/managing-copilot/managing-github-copilot-in-your-organization/managing-github-copilot-features-in-your-organization/indexing-repositories-for-copilot-chat).
+   > You can't trigger the creation of a semantic code search index for a repository from {% data variables.product.prodname_mobile %}. Instead you must use {% data variables.product.prodname_copilot_chat_short %} in a web browser. See [AUTOTITLE](/copilot/managing-copilot/managing-github-copilot-in-your-organization/managing-github-copilot-features-in-your-organization/indexing-repositories-for-copilot-chat).
 
 {% data reusables.copilot.chat-mobile-conversation-buttons %}
 
