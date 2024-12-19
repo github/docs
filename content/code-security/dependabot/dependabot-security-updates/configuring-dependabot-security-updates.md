@@ -113,9 +113,9 @@ Use the `groups` option with the `applies-to: security-updates` key to create se
 
 If you only require _security_ updates and want to exclude _version_ updates, you can set `open-pull-requests-limit` to `0` in order to prevent version updates for a given `package-ecosystem`.
 
-For more information about the configuration options available for security updates, see [AUTOTITLE](/code-security/dependabot/dependabot-version-updates/configuration-options-for-the-dependabot.yml-file).
+For more information about the configuration options available for security updates, see [AUTOTITLE](/code-security/dependabot/dependabot-security-updates/customizing-dependabot-security-prs).
 
-```yaml
+```yaml copy
 # Example configuration file that:
 #  - Has a private registry
 #  - Ignores lodash dependency
