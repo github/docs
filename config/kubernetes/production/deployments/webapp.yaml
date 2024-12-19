@@ -12,10 +12,10 @@ spec:
       labels:
         app: webapp
       annotations:
-        # If you emit structured logs, you can specify a parser to use so your logs are parsed
-        # properly and are much nicer to query in splunk. For more details, see
-        # https://thehub.github.com/engineering/development-and-ops/observability/logging/fluent-bit/
-        # fluentbit.io/parser: logfmt
+        # Our internal logs aren't structured so we use logfmt_sloppy to just log stdout and error
+        # See https://thehub.github.com/epd/engineering/dev-practicals/observability/logging/ for more details
+        fluentbit.io/parser: logfmt_sloppy
+        observability.github.com/splunk_index: docs-internal
     spec:
       dnsPolicy: Default
       containers:
