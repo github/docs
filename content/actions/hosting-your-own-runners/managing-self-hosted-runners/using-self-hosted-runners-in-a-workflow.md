@@ -17,7 +17,7 @@ shortTitle: Use runners in a workflow
 
 You can target self-hosted runners for use in a workflow based on the labels assigned to the runners{% ifversion target-runner-groups %}, or their group membership, or a combination of these{% endif %}.
 
->[!NOTE]Actions Runner Controller does not support multiple labels, only the name of the runner can be used in place of a label
+>[!IMPORTANT]Runner Scale Sets do not support multiple labels, only the name of the runner can be used in place of a label. See [AUTOTITLE](/actions/hosting-your-own-runners/managing-self-hosted-runners-with-actions-runner-controller/deploying-runner-scale-sets-with-actions-runner-controller).
 
 ## About self-hosted runner labels
 
@@ -109,9 +109,9 @@ These labels operate cumulatively, so a self-hosted runner must have all four la
 
 ## Routing precedence for self-hosted runners
 
-When routing a job to a self-hosted runner, {% data variables.product.prodname_dotcom %} looks for a runner that matches the job's `runs-on` labels{% ifversion target-runner-groups %} and/or groups{% endif %}:
+When routing a job to a self-hosted runner, {% data variables.product.prodname_dotcom %} looks for a runner that matches the job's `runs-on` labels{% ifversion target-runner-groups %} and groups{% endif %}:
 
-* If {% data variables.product.prodname_dotcom %} finds an online and idle runner that matches the job's `runs-on` labels{% ifversion target-runner-groups %} and/or groups{% endif %}, the job is then assigned and sent to the runner.
+* If {% data variables.product.prodname_dotcom %} finds an online and idle runner that matches the job's `runs-on` labels{% ifversion target-runner-groups %} and groups{% endif %}, the job is then assigned and sent to the runner.
   * If the runner doesn't pick up the assigned job within 60 seconds, the job is re-queued so that a new runner can accept it.
-* If {% data variables.product.prodname_dotcom %} doesn't find an online and idle runner that matches the job's `runs-on` labels {% ifversion target-runner-groups %} and/or groups{% endif %}, then the job will remain queued until a runner comes online.
+* If {% data variables.product.prodname_dotcom %} doesn't find an online and idle runner that matches the job's `runs-on` labels {% ifversion target-runner-groups %} and groups{% endif %}, then the job will remain queued until a runner comes online.
 * If the job remains queued for more than 24 hours, the job will fail.
