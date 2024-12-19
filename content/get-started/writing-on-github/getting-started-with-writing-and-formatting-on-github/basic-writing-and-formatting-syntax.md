@@ -199,6 +199,44 @@ Some text I want to provide a direct link to, but which doesn't have its own hea
 > [!TIP]
 > Custom anchors are not considered by the automatic naming and numbering behavior of automatic heading links.
 
+## Line breaks
+
+If you're writing in issues, pull requests, or discussions in a repository, {% data variables.product.github %} will render a line break automatically:
+
+```markdown
+This example
+Will span two lines
+```
+
+However, if you are writing in an .md file, the example above would render on one line without a line break. To create a line break in an .md file, you will need to include one of the following:
+
+* Include two spaces at the end of the first line.
+  <pre>
+  This example&nbsp;&nbsp;
+  Will span two lines
+  </pre>
+* Include a backslash at the end of the first line.
+
+  ```markdown
+  This example\
+  Will span two lines
+  ```
+
+* Include an HTML single line break tag at the end of the first line.
+
+  ```markdown
+  This example<br/>
+  Will span two lines
+  ```
+
+If you leave a blank line between two lines, both .md files and Markdown in issues, pull requests, and discussions will render the two lines separated by the blank line:
+
+```markdown
+This example
+
+Will have a blank line separating both lines
+```
+
 ## Images
 
 You can display an image by adding <kbd>!</kbd> and wrapping the alt text in `[ ]`. Alt text is a short text equivalent of the information in the image. Then, wrap the link for the image in parentheses `()`.

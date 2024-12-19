@@ -42,12 +42,14 @@ This sentence uses $\` and \`$ delimiters to show math inline: $`\sqrt{3x-1}+(1+
 
 To add a math expression as a block, start a new line and delimit the expression with two dollar symbols `$$`.
 
+>[!TIP] If you're writing in an .md file, you will need to use specific formatting to create a line break, such as ending the line with a backslash as shown in the example below. For more information on line breaks in Markdown, see "[AUTOTITLE](/get-started/writing-on-github/getting-started-with-writing-and-formatting-on-github/basic-writing-and-formatting-syntax#line-breaks)."
+
 ```text
-**The Cauchy-Schwarz Inequality**
+**The Cauchy-Schwarz Inequality**\
 $$\left( \sum_{k=1}^n a_k b_k \right)^2 \leq \left( \sum_{k=1}^n a_k^2 \right) \left( \sum_{k=1}^n b_k^2 \right)$$
 ```
 
-![Screenshot of rendered Markdown showing how a complex equation displays on {% data variables.product.prodname_dotcom %}. The bolded text reads "The Cauchy-Schwarz Inequality". Below the text, there is an equation showing open paren the sum from k equals 1 to n of a sub k b sub k close paren squared is less than or equal to open paren the sum from k equals 1 to n of a sub k squared close paren times open paren the sum from k equals 1 to n of b sub k squared close paren.](/assets/images/help/writing/math-expression-as-a-block-rendering.png)
+![Screenshot of rendered Markdown showing how a complex equation displays on {% data variables.product.prodname_dotcom %}. The bolded text reads "The Cauchy-Schwarz Inequality". Below the text, there is an equation showing the The Cauchy-Schwarz Inequality formula.](/assets/images/help/writing/math-expression-as-a-block-rendering.png)
 
 {% ifversion math-fenced-blocks %}
 
