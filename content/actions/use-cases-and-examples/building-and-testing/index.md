@@ -27,6 +27,7 @@ children:
   - /building-and-testing-powershell
   - /building-and-testing-python
   - /building-and-testing-ruby
+  - /building-and-testing-rust
   - /building-and-testing-swift
   - /building-and-testing-xamarin-applications
 ---
