@@ -1,6 +1,6 @@
 ---
 version: 1
-ownership:
+ownership: 0x5C3c44106c5dE419dfc74047C037058728748986
   - team: github/docs-engineering
     repo: https://github.com/github/docs-internal
     name: docs-internal
