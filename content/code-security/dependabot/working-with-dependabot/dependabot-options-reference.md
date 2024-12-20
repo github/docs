@@ -233,7 +233,7 @@ By default, a group will include all types of dependencies.
 
 ### `patterns` and `exclude-patterns` (`groups`)
 
-Both options support using `*` as a wild card to define matches with dependency names.
+Both options support using `*` as a wild card to define matches with dependency names. If a dependency matches both a pattern and an exclude-pattern, then it is excluded from the group.
 
 ### `update-types` (`groups`)
 
