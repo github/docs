@@ -1,1 +1,1 @@
-You can request a trial to evaluate {% data variables.product.prodname_ghe_server %}. For more information, see "[Setting up a trial of {% data variables.product.prodname_ghe_server %}](/admin/overview/setting-up-a-trial-of-github-enterprise-server)."
+You can request a trial to evaluate {% data variables.product.prodname_ghe_server %}. For more information, see [Setting up a trial of {% data variables.product.prodname_ghe_server %}](/admin/overview/setting-up-a-trial-of-github-enterprise-server).

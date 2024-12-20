@@ -1,1 +1,1 @@
-You must have a {% data variables.product.prodname_enterprise %} license file. For more information, see "[AUTOTITLE](/admin/overview/setting-up-a-trial-of-github-enterprise-server)" and "[AUTOTITLE](/billing/managing-your-license-for-github-enterprise/about-licenses-for-github-enterprise)."
+You must have a {% data variables.product.prodname_enterprise %} license file. For more information, see [AUTOTITLE](/admin/overview/setting-up-a-trial-of-github-enterprise-server) and [AUTOTITLE](/billing/managing-your-license-for-github-enterprise/about-licenses-for-github-enterprise).
