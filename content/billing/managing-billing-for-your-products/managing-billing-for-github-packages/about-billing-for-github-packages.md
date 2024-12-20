@@ -28,15 +28,12 @@ shortTitle: About billing
 
 {% data reusables.package_registry.packages-billing %}
 
-{% data reusables.package_registry.packages-spending-limit-brief %} For more information, see "[About spending limits](#about-spending-limits)."
+{% data reusables.package_registry.packages-spending-limit-brief %} For more information, see [About spending limits](#about-spending-limits).
 
-{% note %}
+> [!NOTE]
+> **Billing update for container image storage:** The period of free use for container image storage and bandwidth for the {% data variables.product.prodname_container_registry %} has been extended. If you are using {% data variables.product.prodname_container_registry %} you'll be informed at least one month in advance of billing commencing and you'll be given an estimate of how much you should expect to pay. For more information about the {% data variables.product.prodname_container_registry %}, see [AUTOTITLE](/packages/working-with-a-github-packages-registry/working-with-the-container-registry).
 
-**Billing update for container image storage:** The period of free use for container image storage and bandwidth for the {% data variables.product.prodname_container_registry %} has been extended. If you are using {% data variables.product.prodname_container_registry %} you'll be informed at least one month in advance of billing commencing and you'll be given an estimate of how much you should expect to pay. For more information about the {% data variables.product.prodname_container_registry %}, see "[AUTOTITLE](/packages/working-with-a-github-packages-registry/working-with-the-container-registry)."
-
-{% endnote %}
-
-If you are an organization owner{% ifversion ghec %} or enterprise owner{% endif %}, you can connect an Azure Subscription ID to your organization {% ifversion ghec %}or enterprise{% endif %} account to enable and pay for {% data variables.product.prodname_registry %} usage beyond the amounts including with your account. For more information, see "[AUTOTITLE](/billing/managing-the-plan-for-your-github-account/connecting-an-azure-subscription)."
+If you are an organization owner{% ifversion ghec %} or enterprise owner{% endif %}, you can connect an Azure Subscription ID to your organization {% ifversion ghec %}or enterprise{% endif %} account to enable and pay for {% data variables.product.prodname_registry %} usage beyond the amounts including with your account. For more information, see [AUTOTITLE](/billing/managing-the-plan-for-your-github-account/connecting-an-azure-subscription).
 
 Data transfer resets every month, while storage usage does not.
 
@@ -63,7 +60,7 @@ All data transferred out, when triggered by {% data variables.product.prodname_a
 
 {% endrowheaders %}
 
-Storage usage is shared with build artifacts produced by {% data variables.product.prodname_actions %} for repositories owned by your account. For more information, see "[AUTOTITLE](/billing/managing-billing-for-github-actions/about-billing-for-github-actions)."
+Storage usage is shared with build artifacts produced by {% data variables.product.prodname_actions %} for repositories owned by your account. For more information, see [AUTOTITLE](/billing/managing-billing-for-github-actions/about-billing-for-github-actions).
 
 {% data variables.product.prodname_dotcom %} charges usage to the account that owns the repository where the package is published. If your account's usage surpasses these limits and you have set a spending limit above $0 USD, you will pay $0.008 USD per GB of storage per day and $0.50 USD per GB of data transfer.
 
@@ -106,6 +103,6 @@ You should set a spending limit that will cover your maximum projected storage u
 
 To avoid reaching your spending limit in the current billing cycle, you can delete some of your current storage usage to free up projected usage for the rest of the month. This method is more effective toward the beginning of a billing cycle. The closer you get to the end of a billing cycle, the less impact this method will have on projected monthly usage.
 
-For more information about managing and changing your account's spending limit, see "[AUTOTITLE](/billing/managing-billing-for-github-packages/managing-your-spending-limit-for-github-packages)."
+For more information about managing and changing your account's spending limit, see [AUTOTITLE](/billing/managing-billing-for-github-packages/managing-your-spending-limit-for-github-packages).
 
 {% data reusables.dotcom_billing.actions-packages-unpaid-account %}

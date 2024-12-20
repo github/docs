@@ -31,7 +31,7 @@ You can filter by validation status on the alerts page, to help you prioritize w
 > [!NOTE]
 > {% data variables.product.company_short %} typically makes GET requests to check the validity of the credential, picks the least intrusive endpoints, and selects endpoints that don't return any personal information.
 
-For more information on using validity checks, see "[AUTOTITLE](/code-security/secret-scanning/managing-alerts-from-secret-scanning/evaluating-alerts#checking-a-secrets-validity)."
+For more information on using validity checks, see [AUTOTITLE](/code-security/secret-scanning/managing-alerts-from-secret-scanning/evaluating-alerts#checking-a-secrets-validity).
 
 ## Enabling validity checks
 
@@ -40,10 +40,10 @@ For more information on using validity checks, see "[AUTOTITLE](/code-security/s
 {% data reusables.repositories.navigate-to-code-security-and-analysis %}
 {% data reusables.secret-scanning.validity-check-auto-enable %}
 
-You can also use the REST API to enable validity checks for partner patterns for your repository. For more information, see "[AUTOTITLE](/rest/repos/repos#update-a-repository)."
+You can also use the REST API to enable validity checks for partner patterns for your repository. For more information, see [AUTOTITLE](/rest/repos/repos#update-a-repository).
 
-Alternatively, organization owners and enterprise administrators can enable the feature for all repositories in the organization or enterprise settings. For more information on enabling at the organization-level, see "[AUTOTITLE](/code-security/securing-your-organization/enabling-security-features-in-your-organization/creating-a-custom-security-configuration)." For more information on enabling at the enterprise-level, see "[AUTOTITLE](/admin/code-security/managing-github-advanced-security-for-your-enterprise/managing-github-advanced-security-features-for-your-enterprise)" and "[AUTOTITLE](/rest/enterprise-admin/code-security-and-analysis#update-code-security-and-analysis-features-for-an-enterprise)."
+Alternatively, organization owners and enterprise administrators can enable the feature for all repositories in the organization or enterprise settings. For more information on enabling at the organization-level, see [AUTOTITLE](/code-security/securing-your-organization/enabling-security-features-in-your-organization/creating-a-custom-security-configuration). For more information on enabling at the enterprise-level, see [AUTOTITLE](/admin/code-security/managing-github-advanced-security-for-your-enterprise/managing-github-advanced-security-features-for-your-enterprise) and [AUTOTITLE](/rest/enterprise-admin/code-security-and-analysis#update-code-security-and-analysis-features-for-an-enterprise).
 
 ## Further reading
 
-* "[AUTOTITLE](/code-security/secret-scanning/managing-alerts-from-secret-scanning)"
+* [AUTOTITLE](/code-security/secret-scanning/managing-alerts-from-secret-scanning)

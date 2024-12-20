@@ -1,65 +1,4 @@
 {
-  "enterprise_administration": {
-    "title": "Enterprise administration",
-    "displayTitle": "Business permissions for \"Enterprise administration\"",
-    "permissions": [
-      {
-        "category": "copilot",
-        "slug": "list-all-copilot-seat-assignments-for-an-enterprise",
-        "subcategory": "copilot-user-management",
-        "verb": "get",
-        "requestPath": "/enterprises/{enterprise}/copilot/billing/seats",
-        "access": "read",
-        "user-to-server": false,
-        "server-to-server": false,
-        "additional-permissions": false
-      },
-      {
-        "category": "copilot",
-        "slug": "get-copilot-metrics-for-an-enterprise",
-        "subcategory": "copilot-metrics",
-        "verb": "get",
-        "requestPath": "/enterprises/{enterprise}/copilot/metrics",
-        "access": "read",
-        "user-to-server": false,
-        "server-to-server": false,
-        "additional-permissions": false
-      },
-      {
-        "category": "copilot",
-        "slug": "get-a-summary-of-copilot-usage-for-enterprise-members",
-        "subcategory": "copilot-usage",
-        "verb": "get",
-        "requestPath": "/enterprises/{enterprise}/copilot/usage",
-        "access": "read",
-        "user-to-server": false,
-        "server-to-server": false,
-        "additional-permissions": false
-      },
-      {
-        "category": "copilot",
-        "slug": "get-copilot-metrics-for-an-enterprise-team",
-        "subcategory": "copilot-metrics",
-        "verb": "get",
-        "requestPath": "/enterprises/{enterprise}/team/{team_slug}/copilot/metrics",
-        "access": "read",
-        "user-to-server": false,
-        "server-to-server": false,
-        "additional-permissions": false
-      },
-      {
-        "category": "copilot",
-        "slug": "get-a-summary-of-copilot-usage-for-an-enterprise-team",
-        "subcategory": "copilot-usage",
-        "verb": "get",
-        "requestPath": "/enterprises/{enterprise}/team/{team_slug}/copilot/usage",
-        "access": "read",
-        "user-to-server": false,
-        "server-to-server": false,
-        "additional-permissions": false
-      }
-    ]
-  },
   "organization_api_insights": {
     "title": "API Insights",
     "displayTitle": "Organization permissions for \"API Insights\"",
@@ -4764,6 +4703,28 @@
       },
       {
         "category": "code-scanning",
+        "slug": "get-the-status-of-an-autofix-for-a-code-scanning-alert",
+        "subcategory": "code-scanning",
+        "verb": "get",
+        "requestPath": "/repos/{owner}/{repo}/code-scanning/alerts/{alert_number}/autofix",
+        "access": "read",
+        "user-to-server": true,
+        "server-to-server": true,
+        "additional-permissions": false
+      },
+      {
+        "category": "code-scanning",
+        "slug": "create-an-autofix-for-a-code-scanning-alert",
+        "subcategory": "code-scanning",
+        "verb": "post",
+        "requestPath": "/repos/{owner}/{repo}/code-scanning/alerts/{alert_number}/autofix",
+        "access": "write",
+        "user-to-server": true,
+        "server-to-server": true,
+        "additional-permissions": false
+      },
+      {
+        "category": "code-scanning",
         "slug": "list-instances-of-a-code-scanning-alert",
         "subcategory": "code-scanning",
         "verb": "get",
@@ -5233,6 +5194,17 @@
         "subcategory": "branches",
         "verb": "post",
         "requestPath": "/repos/{owner}/{repo}/branches/{branch}/rename",
+        "access": "write",
+        "user-to-server": true,
+        "server-to-server": true,
+        "additional-permissions": false
+      },
+      {
+        "category": "code-scanning",
+        "slug": "commit-an-autofix-for-a-code-scanning-alert",
+        "subcategory": "code-scanning",
+        "verb": "post",
+        "requestPath": "/repos/{owner}/{repo}/code-scanning/alerts/{alert_number}/autofix/commits",
         "access": "write",
         "user-to-server": true,
         "server-to-server": true,

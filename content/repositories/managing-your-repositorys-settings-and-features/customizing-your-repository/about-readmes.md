@@ -18,7 +18,7 @@ topics:
 
 {% data reusables.repositories.about-READMEs %}
 
-For more information about providing guidelines for your project, see {% ifversion fpt or ghec %}"[AUTOTITLE](/communities/setting-up-your-project-for-healthy-contributions/adding-a-code-of-conduct-to-your-project)" and {% endif %}"[AUTOTITLE](/communities/setting-up-your-project-for-healthy-contributions)."
+For more information about providing guidelines for your project, see {% ifversion fpt or ghec %}[AUTOTITLE](/communities/setting-up-your-project-for-healthy-contributions/adding-a-code-of-conduct-to-your-project) and {% endif %}[AUTOTITLE](/communities/setting-up-your-project-for-healthy-contributions).
 
 A README is often the first item a visitor will see when visiting your repository. README files typically include information on:
 * What the project does
@@ -45,7 +45,7 @@ For the rendered view of any Markdown file in a repository, including README fil
 
 {% data reusables.repositories.section-links %}
 
-For more detailed information about section links, see "[Section links](/get-started/writing-on-github/getting-started-with-writing-and-formatting-on-github/basic-writing-and-formatting-syntax#section-links)."
+For more detailed information about section links, see [Section links](/get-started/writing-on-github/getting-started-with-writing-and-formatting-on-github/basic-writing-and-formatting-syntax#section-links).
 
 ## Relative links and image paths in README files
 
@@ -53,12 +53,12 @@ For more detailed information about section links, see "[Section links](/get-sta
 
 ## Wikis
 
-A README should contain only the necessary information for developers to get started using and contributing to your project. Longer documentation is best suited for wikis. For more information, see "[AUTOTITLE](/communities/documenting-your-project-with-wikis/about-wikis)."
+A README should contain only the necessary information for developers to get started using and contributing to your project. Longer documentation is best suited for wikis. For more information, see [AUTOTITLE](/communities/documenting-your-project-with-wikis/about-wikis).
 
 ## Further reading
 
-* "[AUTOTITLE](/repositories/working-with-files/managing-files/adding-a-file-to-a-repository)"
-* "[5 tips for making your {% data variables.product.company_short %} profile page accessible](https://github.blog/2023-10-26-5-tips-for-making-your-github-profile-page-accessible/)" in the {% data variables.product.company_short %} blog
+* [AUTOTITLE](/repositories/working-with-files/managing-files/adding-a-file-to-a-repository)
+* [5 tips for making your {% data variables.product.company_short %} profile page accessible](https://github.blog/2023-10-26-5-tips-for-making-your-github-profile-page-accessible/) in the {% data variables.product.company_short %} blog
 {%- ifversion fpt or ghec %}
-* "[AUTOTITLE](/codespaces/setting-up-your-project-for-codespaces/setting-up-your-repository/adding-a-codespaces-badge)"
+* [AUTOTITLE](/codespaces/setting-up-your-project-for-codespaces/setting-up-your-repository/adding-a-codespaces-badge)
 {%- endif %}

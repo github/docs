@@ -15,10 +15,10 @@ topics:
   - Pull requests
 shortTitle: Resolve merge conflicts in Git
 ---
-Merge conflicts occur when competing changes are made to the same line of a file, or when one person edits a file and another person deletes the same file. For more information, see "[AUTOTITLE](/pull-requests/collaborating-with-pull-requests/addressing-merge-conflicts/about-merge-conflicts)."
+Merge conflicts occur when competing changes are made to the same line of a file, or when one person edits a file and another person deletes the same file. For more information, see [AUTOTITLE](/pull-requests/collaborating-with-pull-requests/addressing-merge-conflicts/about-merge-conflicts).
 
 > [!TIP]
-> You can use the conflict editor on {% data variables.product.product_name %} to resolve competing line change merge conflicts between branches that are part of a pull request. For more information, see "[AUTOTITLE](/pull-requests/collaborating-with-pull-requests/addressing-merge-conflicts/resolving-a-merge-conflict-on-github)."
+> You can use the conflict editor on {% data variables.product.product_name %} to resolve competing line change merge conflicts between branches that are part of a pull request. For more information, see [AUTOTITLE](/pull-requests/collaborating-with-pull-requests/addressing-merge-conflicts/resolving-a-merge-conflict-on-github).
 
 ## Competing line change merge conflicts
 
@@ -85,7 +85,7 @@ You can now merge the branches on the command line or [push your changes to your
 
 To resolve a merge conflict caused by competing changes to a file, where a person deletes a file in one branch and another person edits the same file, you must choose whether to delete or keep the removed file in a new commit.
 
-For example, if you edited a file, such as _README.md_, and another person removed the same file in another branch in the same Git repository, you'll get a merge conflict error when you try to merge these branches. You must resolve this merge conflict with a new commit before you can merge these branches.
+For example, if you edited a file, such as `README.md`, and another person removed the same file in another branch in the same Git repository, you'll get a merge conflict error when you try to merge these branches. You must resolve this merge conflict with a new commit before you can merge these branches.
 
 {% data reusables.command_line.open_the_multi_os_terminal %}
 1. Navigate into the local Git repository that has the merge conflict.
@@ -94,7 +94,7 @@ For example, if you edited a file, such as _README.md_, and another person remov
    cd REPOSITORY-NAME
    ```
 
-1. Generate a list of the files affected by the merge conflict. In this example, the file _README.md_ has a merge conflict.
+1. Generate a list of the files affected by the merge conflict. In this example, the file `README.md` has a merge conflict.
 
    ```shell
    $ git status
@@ -141,5 +141,5 @@ You can now merge the branches on the command line or [push your changes to your
 
 ## Further reading
 
-* "[AUTOTITLE](/pull-requests/collaborating-with-pull-requests/addressing-merge-conflicts/about-merge-conflicts)"
-* "[AUTOTITLE](/pull-requests/collaborating-with-pull-requests/reviewing-changes-in-pull-requests/checking-out-pull-requests-locally)"
+* [AUTOTITLE](/pull-requests/collaborating-with-pull-requests/addressing-merge-conflicts/about-merge-conflicts)
+* [AUTOTITLE](/pull-requests/collaborating-with-pull-requests/reviewing-changes-in-pull-requests/checking-out-pull-requests-locally)

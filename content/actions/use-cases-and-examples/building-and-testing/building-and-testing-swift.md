@@ -21,13 +21,13 @@ shortTitle: Build & test Swift
 
 This guide shows you how to build and test a Swift package.
 
-{% data variables.product.prodname_dotcom %}-hosted runners have a tools cache with preinstalled software, and the Ubuntu and macOS runners include the dependencies for building Swift packages. For a full list of up-to-date software and the preinstalled versions of Swift and Xcode, see "[AUTOTITLE](/actions/using-github-hosted-runners/about-github-hosted-runners#supported-software)."
+{% data variables.product.prodname_dotcom %}-hosted runners have a tools cache with preinstalled software, and the Ubuntu and macOS runners include the dependencies for building Swift packages. For a full list of up-to-date software and the preinstalled versions of Swift and Xcode, see [AUTOTITLE](/actions/using-github-hosted-runners/about-github-hosted-runners#supported-software).
 
 ## Prerequisites
 
-You should already be familiar with YAML syntax and how it's used with {% data variables.product.prodname_actions %}. For more information, see "[AUTOTITLE](/actions/using-workflows/workflow-syntax-for-github-actions)."
+You should already be familiar with YAML syntax and how it's used with {% data variables.product.prodname_actions %}. For more information, see [AUTOTITLE](/actions/using-workflows/workflow-syntax-for-github-actions).
 
-We recommend that you have a basic understanding of Swift packages. For more information, see "[Swift Packages](https://developer.apple.com/documentation/xcode/swift-packages)" in the Apple developer documentation.
+We recommend that you have a basic understanding of Swift packages. For more information, see [Swift Packages](https://developer.apple.com/documentation/xcode/swift-packages) in the Apple developer documentation.
 
 ## Using a Swift workflow template
 

@@ -39,11 +39,11 @@ You can create and manage {% data variables.dependabot.auto_triage_rules %} to i
   * You can create a new rule by clicking **New rule**, then entering the details for your rule and clicking **Create rule**.
   * You can edit an existing rule by clicking {% octicon "pencil" aria-label="Edit CURATED-OR-CUSTOM rule" %}, then making the desired changes and clicking **Save rule**.
 
-For more information on {% data variables.dependabot.auto_triage_rules %}, see "[AUTOTITLE](/code-security/dependabot/dependabot-auto-triage-rules/about-dependabot-auto-triage-rules)" and "[AUTOTITLE](/code-security/dependabot/dependabot-auto-triage-rules/customizing-auto-triage-rules-to-prioritize-dependabot-alerts#adding-custom-auto-triage-rules-to-your-organization)."
+For more information on {% data variables.dependabot.auto_triage_rules %}, see [AUTOTITLE](/code-security/dependabot/dependabot-auto-triage-rules/about-dependabot-auto-triage-rules) and [AUTOTITLE](/code-security/dependabot/dependabot-auto-triage-rules/customizing-auto-triage-rules-to-prioritize-dependabot-alerts#adding-custom-auto-triage-rules-to-your-organization).
 
 ### Grouping {% data variables.product.prodname_dependabot_security_updates %}
 
-{% data variables.product.prodname_dependabot %} can group all automatically suggested security updates into a single pull request to reduce noise. To enable grouped security updates, select **Grouped security updates**. For more information about grouped updates and customization options, see "[AUTOTITLE](/code-security/dependabot/dependabot-security-updates/configuring-dependabot-security-updates#grouping-dependabot-security-updates-into-a-single-pull-request)."
+{% data variables.product.prodname_dependabot %} can group all automatically suggested security updates into a single pull request. To enable grouped security updates, select **Grouped security updates**. For more information about grouped updates and customization options, see [AUTOTITLE](/code-security/dependabot/dependabot-security-updates/configuring-dependabot-security-updates#grouping-dependabot-security-updates-into-a-single-pull-request).
 
 {% ifversion dependabot-on-actions-opt-in %}
 
@@ -53,7 +53,7 @@ If both {% data variables.product.prodname_dependabot %} and {% data variables.p
 
 Otherwise, to allow {% data variables.product.prodname_dependabot %} to use {% data variables.product.prodname_actions %} runners to perform dependency updates for all existing repositories in the organization, select "{% data variables.product.prodname_dependabot %} on Actions runners".
 
-For more information, see "[AUTOTITLE](/code-security/dependabot/working-with-dependabot/about-dependabot-on-github-actions-runners)."
+For more information, see [AUTOTITLE](/code-security/dependabot/working-with-dependabot/about-dependabot-on-github-actions-runners).
 
 {% data reusables.dependabot.dependabot-on-actions-self-hosted-link %}
 
@@ -61,7 +61,7 @@ For more information, see "[AUTOTITLE](/code-security/dependabot/working-with-de
 
 ### Granting {% data variables.product.prodname_dependabot %} access to private {% ifversion ghec or ghes %}and internal {% endif %}repositories
 
-To update private dependencies of repositories in your organization, {% data variables.product.prodname_dependabot %} needs access to those repositories. To grant {% data variables.product.prodname_dependabot %} access to the desired private {% ifversion ghec or ghes %}or internal {% endif %}repository, scroll down to the "Grant {% data variables.product.prodname_dependabot %} access to private repositories" section, then use the search bar to find and select the desired repository. Be aware that granting {% data variables.product.prodname_dependabot %} access to a repository means all users in your organization will have access to the contents of that repository through {% data variables.product.prodname_dependabot_updates %}. For more information about the supported ecosystems for private repositories, see "[AUTOTITLE](/code-security/dependabot/ecosystems-supported-by-dependabot/supported-ecosystems-and-repositories)."
+To update private dependencies of repositories in your organization, {% data variables.product.prodname_dependabot %} needs access to those repositories. To grant {% data variables.product.prodname_dependabot %} access to the desired private {% ifversion ghec or ghes %}or internal {% endif %}repository, scroll down to the "Grant {% data variables.product.prodname_dependabot %} access to private repositories" section, then use the search bar to find and select the desired repository. Be aware that granting {% data variables.product.prodname_dependabot %} access to a repository means all users in your organization will have access to the contents of that repository through {% data variables.product.prodname_dependabot_updates %}. For more information about the supported ecosystems for private repositories, see [AUTOTITLE](/code-security/dependabot/ecosystems-supported-by-dependabot/supported-ecosystems-and-repositories).
 
 ## Configuring global {% data variables.product.prodname_code_scanning %} settings
 
@@ -76,18 +76,18 @@ You can customize several {% data variables.product.prodname_global_settings %} 
 
 ### Recommending the extended query suite for default setup
 
-{% data variables.product.prodname_code_scanning_caps %} offers specific groups of {% data variables.product.prodname_codeql %} queries, called {% data variables.product.prodname_codeql %} query suites, to run against your code. By default, the "Default" query suite is run. {% data variables.product.company_short %} also offers the "Extended" query suite, which contains all the queries in the "Default" query suite, plus additional queries with lower precision and severity. To suggest the "Extended" query suite across your organization, select **Recommend the extended query suite for repositories enabling default setup**. For more information on built-in query suites for {% data variables.product.prodname_codeql %} default setup, see "[AUTOTITLE](/code-security/code-scanning/managing-your-code-scanning-configuration/codeql-query-suites)."
+{% data variables.product.prodname_code_scanning_caps %} offers specific groups of {% data variables.product.prodname_codeql %} queries, called {% data variables.product.prodname_codeql %} query suites, to run against your code. By default, the "Default" query suite is run. {% data variables.product.company_short %} also offers the "Extended" query suite, which contains all the queries in the "Default" query suite, plus additional queries with lower precision and severity. To suggest the "Extended" query suite across your organization, select **Recommend the extended query suite for repositories enabling default setup**. For more information on built-in query suites for {% data variables.product.prodname_codeql %} default setup, see [AUTOTITLE](/code-security/code-scanning/managing-your-code-scanning-configuration/codeql-query-suites).
 
 {% ifversion code-scanning-autofix %}
 
 ### Enabling {% data variables.product.prodname_copilot_autofix_short %} for {% data variables.product.prodname_codeql %}
 
-You can select **{% data variables.product.prodname_copilot_autofix_short %}** to enable {% data variables.product.prodname_copilot_autofix_short %} for all the repositories in your organization that use {% data variables.product.prodname_codeql %} default setup or {% data variables.product.prodname_codeql %} advanced setup. {% data variables.product.prodname_copilot_autofix_short %} is an expansion of {% data variables.product.prodname_code_scanning %} that suggests fixes for {% data variables.product.prodname_code_scanning %} alerts. For more information, see "[AUTOTITLE](/code-security/code-scanning/managing-code-scanning-alerts/responsible-use-autofix-code-scanning)."
+You can select **{% data variables.product.prodname_copilot_autofix_short %}** to enable {% data variables.product.prodname_copilot_autofix_short %} for all the repositories in your organization that use {% data variables.product.prodname_codeql %} default setup or {% data variables.product.prodname_codeql %} advanced setup. {% data variables.product.prodname_copilot_autofix_short %} is an expansion of {% data variables.product.prodname_code_scanning %} that suggests fixes for {% data variables.product.prodname_code_scanning %} alerts. For more information, see [AUTOTITLE](/code-security/code-scanning/managing-code-scanning-alerts/responsible-use-autofix-code-scanning).
 
 ### Enabling {% data variables.product.prodname_copilot_autofix_short %} for third-party {% data variables.product.prodname_code_scanning %} tools
 
 >[!NOTE]
-> Third-party {% data variables.product.prodname_code_scanning %} tool support is in {% data variables.release-phases.public_preview %}, and subject to change. Currently, the third-party tool ESLint is supported. For more information, see "[AUTOTITLE](/code-security/code-scanning/managing-code-scanning-alerts/responsible-use-autofix-code-scanning)."
+> Third-party {% data variables.product.prodname_code_scanning %} tool support is in {% data variables.release-phases.public_preview %}, and subject to change. Currently, the third-party tool ESLint is supported. For more information, see [AUTOTITLE](/code-security/code-scanning/managing-code-scanning-alerts/responsible-use-autofix-code-scanning).
 
 You can select **{% data variables.product.prodname_copilot_autofix_short %} for third-party tools** to enable {% data variables.product.prodname_copilot_autofix_short %} for all the repositories in your organization that use third-party tools. {% data variables.product.prodname_copilot_autofix_short %} is an expansion of {% data variables.product.prodname_code_scanning %} that suggests fixes for {% data variables.product.prodname_code_scanning %} alerts.
 
@@ -95,7 +95,7 @@ You can select **{% data variables.product.prodname_copilot_autofix_short %} for
 
 ### Setting a failure threshold for {% data variables.product.prodname_code_scanning %} checks in pull requests
 
-You can choose the severity levels at which {% data variables.product.prodname_code_scanning %} check runs on pull requests will fail. To choose a security severity level, select the **Security: SECURITY-SEVERITY-LEVEL** dropdown menu, then click a security severity level. To choose an alert severity level, select the **OTHER: ALERT-SEVERITY-LEVEL** dropdown menu, then click an alert severity level. For more information, see "[AUTOTITLE](/code-security/code-scanning/managing-code-scanning-alerts/about-code-scanning-alerts#about-alert-severity-and-security-severity-levels)."
+You can choose the severity levels at which {% data variables.product.prodname_code_scanning %} check runs on pull requests will fail. To choose a security severity level, select the **Security: SECURITY-SEVERITY-LEVEL** dropdown menu, then click a security severity level. To choose an alert severity level, select the **OTHER: ALERT-SEVERITY-LEVEL** dropdown menu, then click an alert severity level. For more information, see [AUTOTITLE](/code-security/code-scanning/managing-code-scanning-alerts/about-code-scanning-alerts#about-alert-severity-and-security-severity-levels).
 
 ## Configuring global {% data variables.product.prodname_secret_scanning %} settings
 
@@ -112,7 +112,7 @@ You can customize several {% data variables.product.prodname_global_settings %} 
 
 ### {% data variables.secret-scanning.generic-secret-detection-caps %} with {% data variables.secret-scanning.copilot-secret-scanning %}
 
-{% data variables.secret-scanning.copilot-secret-scanning %}'s {% data variables.secret-scanning.generic-secret-detection %} is an AI-powered expansion of {% data variables.product.prodname_secret_scanning %} that scans and creates alerts for unstructured secrets, such as passwords. To enable these scans, select **Scan for generic secrets**. Be aware that generic secrets often have a higher rate of false positives than other types of alert. To learn more about generic secrets, see "[AUTOTITLE](/code-security/secret-scanning/copilot-secret-scanning/responsible-ai-generic-secrets)."
+{% data variables.secret-scanning.copilot-secret-scanning %}'s {% data variables.secret-scanning.generic-secret-detection %} is an AI-powered expansion of {% data variables.product.prodname_secret_scanning %} that scans and creates alerts for unstructured secrets, such as passwords. To enable these scans, select **Scan for generic secrets**. Be aware that generic secrets often have a higher rate of false positives than other types of alert. To learn more about generic secrets, see [AUTOTITLE](/code-security/secret-scanning/copilot-secret-scanning/responsible-ai-generic-secrets).
 
 {% data reusables.secret-scanning.copilot-secret-scanning-generic-secrets-subscription-note %}
 
@@ -125,7 +125,7 @@ To provide context for developers when {% data variables.product.prodname_secret
 
 ### Defining custom patterns
 
-You can define custom patterns for {% data variables.product.prodname_secret_scanning %} with regular expressions. Custom patterns can identify secrets that are not detected by the default patterns supported by {% data variables.product.prodname_secret_scanning %}. To create a custom pattern, click **New pattern**, then enter the details for your pattern and click **Save and dry run**. For more information on custom patterns, see "[AUTOTITLE](/code-security/secret-scanning/using-advanced-secret-scanning-and-push-protection-features/custom-patterns/defining-custom-patterns-for-secret-scanning)."
+You can define custom patterns for {% data variables.product.prodname_secret_scanning %} with regular expressions. Custom patterns can identify secrets that are not detected by the default patterns supported by {% data variables.product.prodname_secret_scanning %}. To create a custom pattern, click **New pattern**, then enter the details for your pattern and click **Save and dry run**. For more information on custom patterns, see [AUTOTITLE](/code-security/secret-scanning/using-advanced-secret-scanning-and-push-protection-features/custom-patterns/defining-custom-patterns-for-secret-scanning).
 
 {% endif %}
 
@@ -133,7 +133,7 @@ You can define custom patterns for {% data variables.product.prodname_secret_sca
 
 The security manager role grants members of your organization the ability to manage security settings and alerts across your organization. Security managers can view data for all repositories in your organization through security overview.
 
-To learn more about the security manager role, see "[AUTOTITLE](/organizations/managing-peoples-access-to-your-organization-with-roles/managing-security-managers-in-your-organization)."
+To learn more about the security manager role, see [AUTOTITLE](/organizations/managing-peoples-access-to-your-organization-with-roles/managing-security-managers-in-your-organization).
 
 {% ifversion ghes < 3.16 %}
 

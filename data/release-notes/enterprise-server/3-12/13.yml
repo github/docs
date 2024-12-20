@@ -1,0 +1,56 @@
+date: '2024-12-17'
+sections:
+  security_fixes:
+    - |
+      Packages have been updated to the latest security versions.
+  bugs:
+    - |
+      The `--no-async` flag was not implemented for the `ghe-cluster-support-bundle` command, leading to a potentially increased load.
+    - |
+      In a high availability configuration, with GitHub Actions, replication would fail on nodes where MSSQL was not configured to run.
+    - |
+      The audit log cluster rebalance script incorrectly proceeded before all shards were ready. This caused the script to exit before the necessary data was available, potentially leading to issues with the audit log migration.
+    - |
+      For instances hosted on Azure, if a pre-upgrade check failed due to insufficient user disk size, the Management Console displayed an internal server error.
+    - |
+      On an instance with secret scanning enabled, when selecting repositories for a dry run of an enterprise-level custom pattern, searches for full repository names (`ORGANIZATION/REPOSITORY`) did not return results.
+    - |
+      When creating a pre-receive hook environment, attempts to include an image URL over 255 characters failed with a database error. The maximum length is still 255 characters, but the URL length is now validated before the process starts.
+    - |
+      Performing a browser back navigation to a pull request now displays up-to-date status checks.
+    - |
+      Subversion services were non-functional in some cases.
+  changes:
+    - |
+      When exporting repositories to blob storage using the migrations REST API endpoint to start an organization migration, the maximum compressed archive size is limited to 90 GB. This is an increase from 30 GB.
+    - |
+      Pull request merges are handled more efficiently, allowing more Git objects to be created before timeout. Additionally, loose objects created by merges that time out are now discarded, limiting the accumulation of these objects.
+    - |
+      When exporting repositories using the migrations REST API, prior to blob storage upload the tarball is staged in the root volume. For more disk capacity, the tarball will now be staged in the data volume.
+  known_issues:
+    - |
+      Custom firewall rules are removed during the upgrade process.
+    - |
+      During the validation phase of a configuration run, a `No such object` error may occur for the Notebook and Viewscreen services. This error can be ignored as the services should still correctly start.
+    - |
+      If the root site administrator is locked out of the Management Console after failed login attempts, the account does not unlock automatically after the defined lockout time. Someone with administrative SSH access to the instance must unlock the account using the administrative shell. For more information, see [AUTOTITLE](/admin/configuration/administering-your-instance-from-the-management-console/troubleshooting-access-to-the-management-console#unlocking-the-root-site-administrator-account).
+    - |
+      The `mbind: Operation not permitted` error in the `/var/log/mysql/mysql.err` file can be ignored. MySQL 8 does not gracefully handle when the `CAP_SYS_NICE` capability isn't required, and outputs an error instead of a warning.
+    - |
+      {% data reusables.release-notes.2023-11-aws-system-time %}
+    - |
+      On an instance with the HTTP `X-Forwarded-For` header configured for use behind a load balancer, all client IP addresses in the instance's audit log erroneously appear as 127.0.0.1.
+    - |
+      {% data reusables.release-notes.large-adoc-files-issue %}
+    - |
+      Repositories originally imported using ghe-migrator will not correctly track Advanced Security contributions.
+    - |
+      The `reply.[hostname]` subdomain is falsely always displaying as having no ssl and dns record, when testing the domain settings via management console **without subdomain isolation**. When regenerating the certificates with management console, the `subdomain reply.[hostname]` is missing from the ssl certification.
+    - |
+      Admin stats REST API endpoints may timeout on appliances with many users or repositories. Retrying the request until data is returned is advised.
+    - |
+      {% data reusables.release-notes.2024-06-possible-frontend-5-minute-outage-during-hotpatch-upgrade %}
+    - |
+      When restoring from a backup snapshot, a large number of `mapper_parsing_exception` errors may be displayed.
+    - |
+      Some customers upgrading from 3.11.x or 3.12.x may experience a bug with the feature "Automatic update checks", filling the root disk with logs causing a system degradation. To prevent this, you can turn off the feature [Enable automatic update check](/admin/upgrading-your-instance/preparing-to-upgrade/enabling-automatic-update-checks#enabling-automatic-update-checks) in the management console.

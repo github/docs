@@ -29,9 +29,9 @@ topics:
 
 ## About provisioning with Okta
 
-If you use Okta as an IdP, you can use Okta's application to provision user accounts, manage enterprise membership, and manage team memberships for organizations in your enterprise. Okta is a partner IdP, so you can simplify your authentication and provisioning configuration by using the Okta application {% ifversion ghec %}for {% data variables.product.prodname_emus %}. For more information, see "[AUTOTITLE](/admin/identity-and-access-management/understanding-iam-for-enterprises/about-enterprise-managed-users#about-authentication-and-user-provisioning)."{% else %}to manage both SAML single-sign on and SCIM provisioning on {% data variables.product.prodname_ghe_server %}.{% endif %}
+If you use Okta as an IdP, you can use Okta's application to provision user accounts, manage enterprise membership, and manage team memberships for organizations in your enterprise. Okta is a partner IdP, so you can simplify your authentication and provisioning configuration by using the Okta application {% ifversion ghec %}for {% data variables.product.prodname_emus %}. For more information, see [AUTOTITLE](/admin/identity-and-access-management/understanding-iam-for-enterprises/about-enterprise-managed-users#about-authentication-and-user-provisioning).{% else %}to manage both SAML single-sign on and SCIM provisioning on {% data variables.product.prodname_ghe_server %}.{% endif %}
 
-Alternatively, if you only intend to use Okta for SAML authentication and you want to use a different IdP for provisioning, you can integrate with {% data variables.product.prodname_dotcom %}'s REST API for SCIM. For more information, see "[AUTOTITLE](/admin/identity-and-access-management/provisioning-user-accounts-for-enterprise-managed-users/provisioning-users-with-scim-using-the-rest-api)."
+Alternatively, if you only intend to use Okta for SAML authentication and you want to use a different IdP for provisioning, you can integrate with {% data variables.product.prodname_dotcom %}'s REST API for SCIM. For more information, see [AUTOTITLE](/admin/identity-and-access-management/provisioning-user-accounts-for-enterprise-managed-users/provisioning-users-with-scim-using-the-rest-api).
 
 ## Supported features
 
@@ -55,14 +55,14 @@ Alternatively, if you only intend to use Okta for SAML authentication and you wa
 ## Prerequisites
 
 {% ifversion ghes %}
-The general prerequisites for using SCIM on {% data variables.product.product_name %} apply. See the "Prerequisites" section in "[AUTOTITLE](/admin/managing-iam/provisioning-user-accounts-with-scim/configuring-scim-provisioning-for-users#prerequisites)."
+The general prerequisites for using SCIM on {% data variables.product.product_name %} apply. See the "Prerequisites" section in [AUTOTITLE](/admin/managing-iam/provisioning-user-accounts-with-scim/configuring-scim-provisioning-for-users#prerequisites).
 
 In addition:
 
-* To configure SCIM, you must have completed **steps 1 to 4** in "[AUTOTITLE](/admin/managing-iam/provisioning-user-accounts-with-scim/configuring-scim-provisioning-for-users)."
+* To configure SCIM, you must have completed **steps 1 to 4** in [AUTOTITLE](/admin/managing-iam/provisioning-user-accounts-with-scim/configuring-scim-provisioning-for-users).
   * You will need the {% data variables.product.pat_v1 %} created for the setup user to authenticate requests from Okta.
 {% else %}
-If you're configuring SCIM provisioning for a new enterprise, make sure to complete all previous steps in the initial configuration process. See "[AUTOTITLE](/admin/managing-iam/understanding-iam-for-enterprises/getting-started-with-enterprise-managed-users)."
+If you're configuring SCIM provisioning for a new enterprise, make sure to complete all previous steps in the initial configuration process. See [AUTOTITLE](/admin/managing-iam/understanding-iam-for-enterprises/getting-started-with-enterprise-managed-users).
 
 In addition:
 {% endif %}
@@ -73,7 +73,7 @@ In addition:
 
 ## 1. Configure SAML
 
-Before starting this section, ensure you have followed steps **1 and 2** in "[AUTOTITLE](/admin/managing-iam/provisioning-user-accounts-with-scim/configuring-scim-provisioning-for-users)."
+Before starting this section, ensure you have followed steps **1 and 2** in [AUTOTITLE](/admin/managing-iam/provisioning-user-accounts-with-scim/configuring-scim-provisioning-for-users).
 
 ### In Okta
 
@@ -93,7 +93,7 @@ Before starting this section, ensure you have followed steps **1 and 2** in "[AU
 ### On {% data variables.product.product_name %}
 
 1. Sign in to {% data variables.location.product_location %} as a user with access to the Management Console.
-1. Configure SAML using the information you have gathered. See "[AUTOTITLE](/admin/managing-iam/using-saml-for-enterprise-iam/configuring-saml-single-sign-on-for-your-enterprise#configuring-saml-sso)."
+1. Configure SAML using the information you have gathered. See [AUTOTITLE](/admin/managing-iam/using-saml-for-enterprise-iam/configuring-saml-single-sign-on-for-your-enterprise#configuring-saml-sso).
 
 ## 2. Configure SCIM
 
@@ -103,14 +103,14 @@ After configuring your SAML settings, you can proceed to configure provisioning 
 
 ## Configuring SCIM
 
-After you have configured your SAML settings in Okta's app, you can proceed to configure provisioning settings. If you haven't already configured SAML settings, see "[AUTOTITLE](/admin/managing-iam/configuring-authentication-for-enterprise-managed-users/configuring-saml-single-sign-on-with-okta-for-enterprise-managed-users)."
+After you have configured your SAML settings in Okta's app, you can proceed to configure provisioning settings. If you haven't already configured SAML settings, see [AUTOTITLE](/admin/managing-iam/configuring-authentication-for-enterprise-managed-users/configuring-saml-single-sign-on-with-okta-for-enterprise-managed-users).
 
 {% endif %}
 
 {% ifversion ghec %}
-To configure provisioning, the setup user {% ifversion ghec %}with the **@<em>SHORT-CODE</em>_admin** username {% endif %}will need to provide a {% data variables.product.pat_v1 %} with the **scim:enterprise** scope. See "[AUTOTITLE](/admin/managing-iam/understanding-iam-for-enterprises/getting-started-with-enterprise-managed-users#create-a-personal-access-token)."
+To configure provisioning, the setup user {% ifversion ghec %}with the **@<em>SHORT-CODE</em>_admin** username {% endif %}will need to provide a {% data variables.product.pat_v1 %} with the **scim:enterprise** scope. See [AUTOTITLE](/admin/managing-iam/understanding-iam-for-enterprises/getting-started-with-enterprise-managed-users#create-a-personal-access-token).
 {% else %}
-Before starting this section, ensure you have followed steps **1 to 4** in "[AUTOTITLE](/admin/managing-iam/provisioning-user-accounts-with-scim/configuring-scim-provisioning-for-users)."
+Before starting this section, ensure you have followed steps **1 to 4** in [AUTOTITLE](/admin/managing-iam/provisioning-user-accounts-with-scim/configuring-scim-provisioning-for-users).
 {% endif %}
 
 1. Navigate to your {% data variables.product.prodname_emu_idp_application %} application on Okta.
@@ -131,7 +131,7 @@ Before starting this section, ensure you have followed steps **1 to 4** in "[AUT
 
 {% ifversion ghes %}
 
-When you have finished configuring SCIM, you may want to disable some SAML settings you enabled for the configuration process. See "[AUTOTITLE](/admin/managing-iam/provisioning-user-accounts-with-scim/configuring-scim-provisioning-for-users#6-disable-optional-settings)."
+When you have finished configuring SCIM, you may want to disable some SAML settings you enabled for the configuration process. See [AUTOTITLE](/admin/managing-iam/provisioning-user-accounts-with-scim/configuring-scim-provisioning-for-users#6-disable-optional-settings).
 
 {% endif %}
 
@@ -141,7 +141,7 @@ When you have finished configuring SCIM, you may want to disable some SAML setti
 
 {% data reusables.scim.emu-scim-rate-limit %}
 
-You can also automatically manage organization membership by adding groups to the "Push Groups" tab in Okta. When the group is provisioned successfully, it will be available to connect to teams in the enterprise's organizations. For more information about managing teams, see "[AUTOTITLE](/admin/identity-and-access-management/using-enterprise-managed-users-for-iam/managing-team-memberships-with-identity-provider-groups)."
+You can also automatically manage organization membership by adding groups to the "Push Groups" tab in Okta. When the group is provisioned successfully, it will be available to connect to teams in the enterprise's organizations. For more information about managing teams, see [AUTOTITLE](/admin/identity-and-access-management/using-enterprise-managed-users-for-iam/managing-team-memberships-with-identity-provider-groups).
 
 {% data reusables.enterprise-managed.assigning-roles %}
 

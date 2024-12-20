@@ -19,7 +19,7 @@ redirect_from:
 
 {% data reusables.repositories.tracks-vulnerabilities %}
 
-Security advisories are published as JSON files in the Open Source Vulnerability (OSV) format. For more information about the OSV format, see "[Open Source Vulnerability format](https://ossf.github.io/osv-schema/)."
+Security advisories are published as JSON files in the Open Source Vulnerability (OSV) format. For more information about the OSV format, see [Open Source Vulnerability format](https://ossf.github.io/osv-schema/).
 
 ## About types of security advisories
 
@@ -50,7 +50,7 @@ Generally, we name our supported ecosystems after the software programming langu
 
 If you have a suggestion for a new ecosystem we should support, please open an [issue](https://github.com/github/advisory-database/issues) for discussion.
 
-If you enable {% data variables.product.prodname_dependabot_alerts %} for your repositories, you are automatically notified when a new {% data variables.product.company_short %}-reviewed advisory reports a vulnerability for a package you depend on. For more information, see "[AUTOTITLE](/code-security/dependabot/dependabot-alerts/about-dependabot-alerts)."
+If you enable {% data variables.product.prodname_dependabot_alerts %} for your repositories, you are automatically notified when a new {% data variables.product.company_short %}-reviewed advisory reports a vulnerability for a package you depend on. For more information, see [AUTOTITLE](/code-security/dependabot/dependabot-alerts/about-dependabot-alerts).
 
 ### Unreviewed advisories
 
@@ -91,9 +91,9 @@ You can validate a GHSA ID using a regular expression.
 
 {% ifversion cvss-4 %} The {% data variables.product.prodname_advisory_database %} supports both CVSS version 3.1 and CVSS version 4.0.{% endif %}
 
-Each security advisory contains information about the vulnerability or malware, which may include the description, severity, affected package, package ecosystem, affected versions and patched versions, impact, and optional information such as references, workarounds, and credits. In addition, advisories from the National Vulnerability Database list contain a link to the CVE record, where you can read more details about the vulnerability, its CVSS scores, and its qualitative severity level. For more information, see the "[National Vulnerability Database](https://nvd.nist.gov/)" from the National Institute of Standards and Technology.
+Each security advisory contains information about the vulnerability or malware, which may include the description, severity, affected package, package ecosystem, affected versions and patched versions, impact, and optional information such as references, workarounds, and credits. In addition, advisories from the National Vulnerability Database list contain a link to the CVE record, where you can read more details about the vulnerability, its CVSS scores, and its qualitative severity level. For more information, see the [National Vulnerability Database](https://nvd.nist.gov/) from the National Institute of Standards and Technology.
 
-The severity level is one of four possible levels defined in the "[Common Vulnerability Scoring System (CVSS), Section 5](https://www.first.org/cvss/specification-document)."
+The severity level is one of four possible levels defined in the [Common Vulnerability Scoring System (CVSS), Section 5](https://www.first.org/cvss/specification-document).
 * Low
 * Medium/Moderate
 * High
@@ -120,9 +120,9 @@ FIRST also provides additional information around the distribution of their EPSS
 
 >[!NOTE] {% data variables.product.company_short %} keeps EPSS data up to date with a daily synchronization action. While EPSS score percentages will always be fully synchronized, score percentiles will only be updated when significantly different.
 
-At {% data variables.product.company_short %}, we do not author this data, but rather source it from FIRST, which means that this data is not editable in community contributions.
+At {% data variables.product.company_short %}, we do not author this data, but rather source it from FIRST, which means that this data is not editable in community contributions. For more information about community contributions, see [AUTOTITLE](/code-security/security-advisories/working-with-global-security-advisories-from-the-github-advisory-database/editing-security-advisories-in-the-github-advisory-database).
 
 ## Further reading
 
-* "[AUTOTITLE](/code-security/dependabot/dependabot-alerts/about-dependabot-alerts)"
+* [AUTOTITLE](/code-security/dependabot/dependabot-alerts/about-dependabot-alerts)
 * The CVE Program's [definition of "vulnerability"](https://www.cve.org/ResourcesSupport/Glossary#glossaryVulnerability)

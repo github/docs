@@ -22,7 +22,7 @@ By default, attestations are stored in GitHub's attestation API, which `gh attes
 
 This command can work without internet connectivity, but you need to supply the attestation bundle and the key material in the trusted root manually.
 
-Before starting this guide, you should be building with generating artifact attestations. See "[AUTOTITLE](/actions/security-guides/using-artifact-attestations-to-establish-provenance-for-builds)."
+Before starting this guide, you should be building with generating artifact attestations. See [AUTOTITLE](/actions/security-guides/using-artifact-attestations-to-establish-provenance-for-builds).
 
 ## Step 1: Download attestation bundle
 

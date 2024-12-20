@@ -88,17 +88,17 @@ sections:
     - |
       People deploying a GitHub Enterprise Server instance in AWS can now deploy in an environment that uses Instance Metadata Service Version 2 (IMDSv2).
     - |
-      On an instance in a cluster configuration, MySQL replica nodes can be configured to skip database seeding. For more information, see "[AUTOTITLE](/admin/monitoring-managing-and-updating-your-instance/configuring-clustering/deferring-database-seeding)."
+      On an instance in a cluster configuration, MySQL replica nodes can be configured to skip database seeding. For more information, see [AUTOTITLE](/admin/monitoring-managing-and-updating-your-instance/configuring-clustering/deferring-database-seeding).
       Gists can be deleted using the **Purge Gist** button on the Deleted Gists page in Staff Tools.
     - |
-      The payload for the `push` webhook event is now limited to 2,048 commits. If there are more than 2,048 commits in a push, the payload for the push webhook will not contain serialized diff information for each commit. If you need to fetch commit information, you can use the Commits endpoints of the REST API. For more information, see "[AUTOTITLE](/webhooks/webhook-events-and-payloads#push)" and "[AUTOTITLE](/rest/commits)."
+      The payload for the `push` webhook event is now limited to 2,048 commits. If there are more than 2,048 commits in a push, the payload for the push webhook will not contain serialized diff information for each commit. If you need to fetch commit information, you can use the Commits endpoints of the REST API. For more information, see [AUTOTITLE](/webhooks/webhook-events-and-payloads#push) and [AUTOTITLE](/rest/commits).
   known_issues:
     - |
       Custom firewall rules are removed during the upgrade process.
     - |
       During the validation phase of a configuration run, a `No such object` error may occur for the Notebook and Viewscreen services. This error can be ignored as the services should still correctly start.
     - |
-      If the root site administrator is locked out of the Management Console after failed login attempts, the account does not unlock automatically after the defined lockout time. Someone with administrative SSH access to the instance must unlock the account using the administrative shell. For more information, see "[AUTOTITLE](/admin/configuration/administering-your-instance-from-the-management-console/troubleshooting-access-to-the-management-console#unlocking-the-root-site-administrator-account)."
+      If the root site administrator is locked out of the Management Console after failed login attempts, the account does not unlock automatically after the defined lockout time. Someone with administrative SSH access to the instance must unlock the account using the administrative shell. For more information, see [AUTOTITLE](/admin/configuration/administering-your-instance-from-the-management-console/troubleshooting-access-to-the-management-console#unlocking-the-root-site-administrator-account).
     - |
       If an instance is configured to forward logs to a target server with TLS enabled, certificate authority (CA) bundles that a site administrator uploads using `ghe-ssl-ca-certificate-install` are not respected, and connections to the server fail.
     - |

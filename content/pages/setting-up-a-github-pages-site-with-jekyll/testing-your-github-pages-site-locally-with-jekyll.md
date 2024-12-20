@@ -22,7 +22,7 @@ Anyone with read permissions for a repository can test a {% data variables.produ
 
 Before you can use Jekyll to test a site, you must:
 * Install [Jekyll](https://jekyllrb.com/docs/installation/).
-* Create a Jekyll site. For more information, see "[AUTOTITLE](/pages/setting-up-a-github-pages-site-with-jekyll/creating-a-github-pages-site-with-jekyll)."
+* Create a Jekyll site. For more information, see [AUTOTITLE](/pages/setting-up-a-github-pages-site-with-jekyll/creating-a-github-pages-site-with-jekyll).
 
 {% data reusables.pages.recommend-bundler %}
 

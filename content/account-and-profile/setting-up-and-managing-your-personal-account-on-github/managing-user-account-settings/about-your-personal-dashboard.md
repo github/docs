@@ -82,7 +82,7 @@ This feed shows activity from repositories and users you have shown a direct int
 * Forks a public repository.
 * Publishes a new release.
 
-For more information about following people and starring repositories, see "[AUTOTITLE](/get-started/exploring-projects-on-github/following-people)" and "[AUTOTITLE](/get-started/exploring-projects-on-github/saving-repositories-with-stars)."
+For more information about following people and starring repositories, see [AUTOTITLE](/get-started/exploring-projects-on-github/following-people) and [AUTOTITLE](/get-started/exploring-projects-on-github/saving-repositories-with-stars).
 
 ### For you feed
 
@@ -101,8 +101,8 @@ This feed shows activity and recommendations based on your network on {% data va
 
 ## Exploring recommended repositories
 
-In the "Explore repositories" section on the right side of your dashboard, you can explore recommended repositories in your communities. Recommendations are based on repositories you've starred or visited, the people you follow, and activity within repositories that you have access to.{% ifversion fpt or ghec %} For more information, see "[AUTOTITLE](/get-started/exploring-projects-on-github/finding-ways-to-contribute-to-open-source-on-github)."{% endif %}
+In the "Explore repositories" section on the right side of your dashboard, you can explore recommended repositories in your communities. Recommendations are based on repositories you've starred or visited, the people you follow, and activity within repositories that you have access to.{% ifversion fpt or ghec %} For more information, see [AUTOTITLE](/get-started/exploring-projects-on-github/finding-ways-to-contribute-to-open-source-on-github).{% endif %}
 
 ## Further reading
 
-* "[AUTOTITLE](/organizations/collaborating-with-groups-in-organizations/about-your-organization-dashboard)"
+* [AUTOTITLE](/organizations/collaborating-with-groups-in-organizations/about-your-organization-dashboard)

@@ -16,7 +16,7 @@ topics:
 
 Welcome to GitHub's Guide to the Digital Millennium Copyright Act, commonly known as the "DMCA." This page is not meant as a comprehensive primer to the statute. However, if you've received a DMCA takedown notice targeting content you've posted on GitHub or if you're a rights-holder looking to issue such a notice, this page will hopefully help to demystify the law a bit as well as our policies for complying with it.
 
-(If you just want to submit a notice, you can skip to "[G. Submitting Notices](#g-submitting-notices).")
+(If you just want to submit a notice, you can skip to [G. Submitting Notices](#g-submitting-notices).)
 
 As with all legal matters, it is always best to consult with a professional about your specific questions or situation. We strongly encourage you to do so before taking any action that might impact your rights. This guide isn't legal advice and shouldn't be taken as such.
 
@@ -65,7 +65,7 @@ Here are the basic steps in the process.
 
 ## B. What About Forks? (or What's a Fork?)
 
-One of the best features of GitHub is the ability for users to "fork" one another's repositories. What does that mean? In essence, it means that users can make a copy of a project on GitHub into their own repositories. As the license or the law allows, users can then make changes to that fork to either push back to the main project or just keep as their own variation of a project. Each of these copies is a "[AUTOTITLE](/get-started/learning-about-github/github-glossary#fork)" of the original repository, which in turn may also be called the "parent" of the fork.
+One of the best features of GitHub is the ability for users to "fork" one another's repositories. What does that mean? In essence, it means that users can make a copy of a project on GitHub into their own repositories. As the license or the law allows, users can then make changes to that fork to either push back to the main project or just keep as their own variation of a project. Each of these copies is a [AUTOTITLE](/get-started/learning-about-github/github-glossary#fork) of the original repository, which in turn may also be called the "parent" of the fork.
 
 GitHub _will not_ automatically disable forks when disabling a parent repository. This is because forks belong to different users, may have been altered in significant ways, and may be licensed or used in a different way that is protected by the fair-use doctrine. GitHub does not conduct any independent investigation into forks. We expect copyright owners to conduct that investigation and, if they believe that the forks are also infringing, expressly include forks in their takedown notice.
 

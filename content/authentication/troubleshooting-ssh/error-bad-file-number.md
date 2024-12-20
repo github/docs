@@ -54,6 +54,6 @@ If using HTTPS is not an option, and your firewall admin refuses to allow SSH co
 
 ## Further reading
 
-* "[AUTOTITLE](/get-started/using-github/troubleshooting-connectivity-problems)"
+* [AUTOTITLE](/get-started/using-github/troubleshooting-connectivity-problems)
 
 {% endif %}

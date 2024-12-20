@@ -16,9 +16,9 @@ redirect_from:
 
 You can manage invitations to your enterprise or organizations within your enterprise.
 
-For more information about viewing people in your enterprise or managing enterprise owners and billing managers, see "[AUTOTITLE](/admin/managing-accounts-and-repositories/managing-users-in-your-enterprise/viewing-people-in-your-enterprise)" and "[AUTOTITLE](/admin/managing-accounts-and-repositories/managing-users-in-your-enterprise/inviting-people-to-manage-your-enterprise)."
+For more information about viewing people in your enterprise or managing enterprise owners and billing managers, see [AUTOTITLE](/admin/managing-accounts-and-repositories/managing-users-in-your-enterprise/viewing-people-in-your-enterprise) and [AUTOTITLE](/admin/managing-accounts-and-repositories/managing-users-in-your-enterprise/inviting-people-to-manage-your-enterprise).
 
-For more information about adding or removing members from your organization, see {% ifversion ghec %}"[AUTOTITLE](/organizations/managing-membership-in-your-organization/inviting-users-to-join-your-organization)"{% else %}"[AUTOTITLE](/organizations/managing-membership-in-your-organization/adding-people-to-your-organization)"{% endif %} and "[AUTOTITLE](/organizations/managing-membership-in-your-organization/removing-a-member-from-your-organization)."
+For more information about adding or removing members from your organization, see {% ifversion ghec %}[AUTOTITLE](/organizations/managing-membership-in-your-organization/inviting-users-to-join-your-organization){% else %}[AUTOTITLE](/organizations/managing-membership-in-your-organization/adding-people-to-your-organization){% endif %} and [AUTOTITLE](/organizations/managing-membership-in-your-organization/removing-a-member-from-your-organization).
 
 ## Retrying or canceling expired invitations
 

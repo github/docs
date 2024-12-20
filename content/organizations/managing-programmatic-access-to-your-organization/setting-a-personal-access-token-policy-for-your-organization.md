@@ -18,7 +18,7 @@ Organization owners can prevent {% data variables.product.pat_generic_plural %} 
 
 Regardless of the chosen policy, {% data variables.product.pat_generic_caps_plural %} will have access to public resources within the organization.
 
-{% ifversion ghec or ghes %} If your organization is owned by an enterprise, and your enterprise owner has restricted access by {% data variables.product.pat_generic_caps_plural %}, you cannot override the policy in your organization. For more information, see "[AUTOTITLE](/admin/policies/enforcing-policies-for-your-enterprise/enforcing-policies-for-personal-access-tokens-in-your-enterprise)."{% endif %}
+{% ifversion ghec or ghes %} If your organization is owned by an enterprise, and your enterprise owner has restricted access by {% data variables.product.pat_generic_caps_plural %}, you cannot override the policy in your organization. For more information, see [AUTOTITLE](/admin/policies/enforcing-policies-for-your-enterprise/enforcing-policies-for-personal-access-tokens-in-your-enterprise).{% endif %}
 
 {% data reusables.profile.access_org %}
 {% data reusables.profile.org_settings %}
@@ -31,7 +31,7 @@ Regardless of the chosen policy, {% data variables.product.pat_generic_caps_plur
 
 ## Enforcing a maximum lifetime policy for {% data variables.product.pat_generic_plural %}
 
-Organization owners can set maximum lifetime allowances for both {% data variables.product.pat_v2_plural %} and {% data variables.product.pat_v1_plural %} to control access to organization resources. {% ifversion ghec or ghes %} However, these policies cannot exceed the maximum lifetime set at the enterprise level or disable the expiration policy set at the enterprise level. See "[Enforcing a maximum lifetime policy for {% data variables.product.pat_generic_plural %}](/admin/enforcing-policies/enforcing-policies-for-your-enterprise/enforcing-policies-for-personal-access-tokens-in-your-enterprise#enforcing-a-maximum-lifetime-policy-for-personal-access-tokens)" {% endif %}
+Organization owners can set maximum lifetime allowances for both {% data variables.product.pat_v2_plural %} and {% data variables.product.pat_v1_plural %} to control access to organization resources. {% ifversion ghec or ghes %} However, these policies cannot exceed the maximum lifetime set at the enterprise level or disable the expiration policy set at the enterprise level. See [Enforcing a maximum lifetime policy for {% data variables.product.pat_generic_plural %}](/admin/enforcing-policies/enforcing-policies-for-your-enterprise/enforcing-policies-for-personal-access-tokens-in-your-enterprise#enforcing-a-maximum-lifetime-policy-for-personal-access-tokens) {% endif %}
 
 For {% data variables.product.pat_v2_plural %}, the default the maximum lifetime policy for organizations is set to expire within 366 days. {% data variables.product.pat_v1_caps_plural %} do not have an expiration requirement.
 
@@ -53,10 +53,10 @@ Organization owners can manage approval requirements for each {% data variables.
 
 {% data variables.product.pat_v2_caps %}s will still be able to read public resources within the organization without approval.
 
-{% ifversion ghec or ghes %} If your organization is owned by an enterprise, and your enterprise owner has set an approval policy for {% data variables.product.pat_v2 %}s, then you cannot override the policy in your organization. For more information, see "[AUTOTITLE](/admin/policies/enforcing-policies-for-your-enterprise/enforcing-policies-for-personal-access-tokens-in-your-enterprise)."{% endif %}
+{% ifversion ghec or ghes %} If your organization is owned by an enterprise, and your enterprise owner has set an approval policy for {% data variables.product.pat_v2 %}s, then you cannot override the policy in your organization. For more information, see [AUTOTITLE](/admin/policies/enforcing-policies-for-your-enterprise/enforcing-policies-for-personal-access-tokens-in-your-enterprise).{% endif %}
 
 > [!NOTE]
-> Only {% data variables.product.pat_v2_plural %}, not {% data variables.product.pat_v1_plural %}, are subject to approval. Unless the organization has restricted access by {% data variables.product.pat_v1_plural %}, any {% data variables.product.pat_v1 %} can access organization resources without prior approval. For more information, see "[Restricting access by {% data variables.product.pat_generic_plural %}](#restricting-access-by-personal-access-tokens)" on this page.
+> Only {% data variables.product.pat_v2_plural %}, not {% data variables.product.pat_v1_plural %}, are subject to approval. Unless the organization has restricted access by {% data variables.product.pat_v1_plural %}, any {% data variables.product.pat_v1 %} can access organization resources without prior approval. For more information, see [Restricting access by {% data variables.product.pat_generic_plural %}](#restricting-access-by-personal-access-tokens) on this page.
 
 {% data reusables.profile.access_org %}
 {% data reusables.profile.org_settings %}

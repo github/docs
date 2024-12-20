@@ -16,7 +16,7 @@ When you create a pull request, you’re asking your team to review your changes
 
 ## Making your changes easy to review
 
-Clear context in your pull requests helps reviewers quickly see what you’ve changed and why it matters. This makes the review process faster and smoother, with less back-and-forth, and helps your team give better feedback and make confident decisions. For information on creating a pull request, see "[AUTOTITLE](/pull-requests/collaborating-with-pull-requests/proposing-changes-to-your-work-with-pull-requests/creating-a-pull-request)."
+Clear context in your pull requests helps reviewers quickly see what you’ve changed and why it matters. This makes the review process faster and smoother, with less back-and-forth, and helps your team give better feedback and make confident decisions. For information on creating a pull request, see [AUTOTITLE](/pull-requests/collaborating-with-pull-requests/proposing-changes-to-your-work-with-pull-requests/creating-a-pull-request).
 
 ### Write small PRs
 
@@ -34,7 +34,7 @@ Write clear titles and descriptions for your pull requests so that reviewers can
 * An overview of what changed
 * Links to any additional context such as tracking issues or previous conversations
 
-To help reviewers, share the type of feedback you need. For example, do you need a quick look or a deeper critique?{% ifversion copilot %} Additionally, you can use {% data variables.product.prodname_copilot %} to generate a summary of your pull request. See "[Use {% data variables.product.prodname_copilot %} to generate pull request summaries](#use-github-copilot-to-generate-pull-request-summaries)," later in this article.{% endif %}
+To help reviewers, share the type of feedback you need. For example, do you need a quick look or a deeper critique?{% ifversion copilot %} Additionally, you can use {% data variables.product.prodname_copilot %} to generate a summary of your pull request. See [Use {% data variables.product.prodname_copilot %} to generate pull request summaries](#use-github-copilot-to-generate-pull-request-summaries), later in this article.{% endif %}
 
 If your pull request consists of changes to multiple files, provide guidance to reviewers about the order in which to review the files. Recommend where to start and how to proceed with the review.
 
@@ -75,8 +75,8 @@ You can use {% data variables.product.prodname_copilot_short %} to generate a su
 Connect your pull request to relevant issues or project boards to show how your work fits into the larger project.
 
 * Add keywords like `Closes ISSUE-LINK` in your description to automatically link and close the issue when the pull request is merged.
-* Use {% data variables.product.prodname_projects_v2 %} to track your work and link to the project from your pull request, making progress easy to track in one place. See "[AUTOTITLE](/issues/planning-and-tracking-with-projects/learning-about-projects/about-projects)."
+* Use {% data variables.product.prodname_projects_v2 %} to track your work and link to the project from your pull request, making progress easy to track in one place. See [AUTOTITLE](/issues/planning-and-tracking-with-projects/learning-about-projects/about-projects).
 
 ### Highlight the status with labels
 
-Add a status label to your pull request to show whether it’s ready for review, blocked, or in progress. This helps reviewers understand the state of your work at a glance. For more information, see "[AUTOTITLE](/issues/using-labels-and-milestones-to-track-work/managing-labels)."
+Add a status label to your pull request to show whether it’s ready for review, blocked, or in progress. This helps reviewers understand the state of your work at a glance. For more information, see [AUTOTITLE](/issues/using-labels-and-milestones-to-track-work/managing-labels).

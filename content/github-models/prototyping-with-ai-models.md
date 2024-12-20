@@ -8,7 +8,7 @@ versions:
 
 If you want to develop a generative AI application, you can use {% data variables.product.prodname_github_models %} to find and experiment with AI models for free. Once you are ready to bring your application to production, you can switch to a token from a paid Azure account. See the [Azure AI](https://aka.ms/azureai/github-models) documentation.
 
-See also "[AUTOTITLE](/github-models/responsible-use-of-github-models)."
+See also [AUTOTITLE](/github-models/responsible-use-of-github-models).
 
 ## Finding AI models
 
@@ -53,7 +53,7 @@ The steps to use each model are similar. In general, you will need to:
 1. Either open a codespace, or set up your local environment:
    * To run in a codespace, click **{% octicon "codespaces" aria-hidden="true" %} Run codespace**, then click **Create new codespace**.
    * To run locally:
-      * Create a {% data variables.product.company_short %} {% data variables.product.pat_generic %}. The token should not have any scopes or permissions. See "[AUTOTITLE](/authentication/keeping-your-account-and-data-secure/managing-your-personal-access-tokens)."
+      * Create a {% data variables.product.company_short %} {% data variables.product.pat_generic %}. The token should not have any scopes or permissions. See [AUTOTITLE](/authentication/keeping-your-account-and-data-secure/managing-your-personal-access-tokens).
       * Save your token as an environment variable.
       * Install the dependencies for the SDK, if required.
 1. Use the example code to make a request to the model.

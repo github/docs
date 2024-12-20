@@ -1329,6 +1329,24 @@
       "requestPath": "/repos/{owner}/{repo}/code-scanning/alerts/{alert_number}"
     },
     {
+      "slug": "get-the-status-of-an-autofix-for-a-code-scanning-alert",
+      "subcategory": "code-scanning",
+      "verb": "get",
+      "requestPath": "/repos/{owner}/{repo}/code-scanning/alerts/{alert_number}/autofix"
+    },
+    {
+      "slug": "create-an-autofix-for-a-code-scanning-alert",
+      "subcategory": "code-scanning",
+      "verb": "post",
+      "requestPath": "/repos/{owner}/{repo}/code-scanning/alerts/{alert_number}/autofix"
+    },
+    {
+      "slug": "commit-an-autofix-for-a-code-scanning-alert",
+      "subcategory": "code-scanning",
+      "verb": "post",
+      "requestPath": "/repos/{owner}/{repo}/code-scanning/alerts/{alert_number}/autofix/commits"
+    },
+    {
       "slug": "list-instances-of-a-code-scanning-alert",
       "subcategory": "code-scanning",
       "verb": "get",
@@ -2187,6 +2205,30 @@
       "requestPath": "/enterprises/{enterprise}/properties/schema/{custom_property_name}"
     },
     {
+      "slug": "create-an-enterprise-repository-ruleset",
+      "subcategory": "rules",
+      "verb": "post",
+      "requestPath": "/enterprises/{enterprise}/rulesets"
+    },
+    {
+      "slug": "get-an-enterprise-repository-ruleset",
+      "subcategory": "rules",
+      "verb": "get",
+      "requestPath": "/enterprises/{enterprise}/rulesets/{ruleset_id}"
+    },
+    {
+      "slug": "update-an-enterprise-repository-ruleset",
+      "subcategory": "rules",
+      "verb": "put",
+      "requestPath": "/enterprises/{enterprise}/rulesets/{ruleset_id}"
+    },
+    {
+      "slug": "delete-an-enterprise-repository-ruleset",
+      "subcategory": "rules",
+      "verb": "delete",
+      "requestPath": "/enterprises/{enterprise}/rulesets/{ruleset_id}"
+    },
+    {
       "slug": "get-github-actions-billing-for-an-enterprise",
       "subcategory": "billing",
       "verb": "get",
@@ -2857,6 +2899,12 @@
       "subcategory": "blocking",
       "verb": "delete",
       "requestPath": "/orgs/{org}/blocks/{username}"
+    },
+    {
+      "slug": "list-push-rule-bypass-requests-within-an-organization",
+      "subcategory": "bypass-requests",
+      "verb": "get",
+      "requestPath": "/orgs/{org}/bypass-requests/push-rules"
     },
     {
       "slug": "list-saml-sso-authorizations-for-an-organization",
@@ -4217,6 +4265,18 @@
       "subcategory": "repos",
       "verb": "delete",
       "requestPath": "/repos/{owner}/{repo}/automated-security-fixes"
+    },
+    {
+      "slug": "list-repository-push-rule-bypass-requests",
+      "subcategory": "bypass-requests",
+      "verb": "get",
+      "requestPath": "/repos/{owner}/{repo}/bypass-requests/push-rules"
+    },
+    {
+      "slug": "get-a-repository-push-bypass-request",
+      "subcategory": "bypass-requests",
+      "verb": "get",
+      "requestPath": "/repos/{owner}/{repo}/bypass-requests/push-rules/{bypass_request_number}"
     },
     {
       "slug": "list-codeowners-errors",

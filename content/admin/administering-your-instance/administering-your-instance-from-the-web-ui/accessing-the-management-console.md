@@ -16,7 +16,7 @@ topics:
 
 ## Accessing the {% data variables.enterprise.management_console %}
 
-The first time that you access the {% data variables.enterprise.management_console %} for {% data variables.location.product_location %}, you must upload your license file. For more information, see "[AUTOTITLE](/billing/managing-your-license-for-github-enterprise)."
+The first time that you access the {% data variables.enterprise.management_console %} for {% data variables.location.product_location %}, you must upload your license file. For more information, see [AUTOTITLE](/billing/managing-your-license-for-github-enterprise).
 
 {% data reusables.enterprise_site_admin_settings.access-settings %}
 {% data reusables.enterprise_site_admin_settings.management-console %}

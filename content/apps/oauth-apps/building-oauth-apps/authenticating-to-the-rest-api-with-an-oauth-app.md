@@ -20,11 +20,8 @@ In this section, we're going to focus on the basics of authentication. Specifica
 we're going to create a Ruby server (using [Sinatra](http://www.sinatrarb.com/)) that implements
 the [web flow](/apps/oauth-apps/building-oauth-apps/authorizing-oauth-apps) of an application in several different ways.
 
-{% tip %}
-
-You can download the complete source code for this project [from the platform-samples repo](https://github.com/github/platform-samples/tree/master/api/).
-
-{% endtip %}
+> [!TIP]
+> You can download the complete source code for this project [from the platform-samples repo](https://github.com/github/platform-samples/tree/master/api/).
 
 ## Registering your app
 
@@ -132,7 +129,7 @@ application, you should probably use [a library written in the language of your 
 
 ### Checking granted scopes
 
-Users can edit the scopes you requested by directly changing the URL. This can grant your application less access than you originally asked for. Before making any requests with the token, check the scopes that were granted for the token by the user. For more information about requested and granted scopes, see "[AUTOTITLE](/apps/oauth-apps/building-oauth-apps/scopes-for-oauth-apps#requested-scopes-and-granted-scopes)."
+Users can edit the scopes you requested by directly changing the URL. This can grant your application less access than you originally asked for. Before making any requests with the token, check the scopes that were granted for the token by the user. For more information about requested and granted scopes, see [AUTOTITLE](/apps/oauth-apps/building-oauth-apps/scopes-for-oauth-apps#requested-scopes-and-granted-scopes).
 
 The scopes that were granted are returned as a part of the response from
 exchanging a token.

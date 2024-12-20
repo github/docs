@@ -72,8 +72,8 @@ An action's listing page includes the action's version and the workflow syntax r
 1. Click to view the full marketplace listing for the action.
 1. Under "Installation", click {% octicon "copy" aria-label="Copy to clipboard" %} to copy the workflow syntax.
    ![Screenshot of the marketplace listing for an action. The "Copy to clipboard" icon for the action is highlighted with a dark orange outline.](/assets/images/help/repository/actions-sidebar-detailed-view.png)
-1. Paste the syntax as a new step in your workflow. For more information, see "[AUTOTITLE](/actions/using-workflows/workflow-syntax-for-github-actions#jobsjob_idsteps)."
-1. If the action requires you to provide inputs, set them in your workflow. For information on inputs an action might require, see "[AUTOTITLE](/actions/learn-github-actions/finding-and-customizing-actions#using-inputs-and-outputs-with-an-action)."
+1. Paste the syntax as a new step in your workflow. For more information, see [AUTOTITLE](/actions/using-workflows/workflow-syntax-for-github-actions#jobsjob_idsteps).
+1. If the action requires you to provide inputs, set them in your workflow. For information on inputs an action might require, see [AUTOTITLE](/actions/learn-github-actions/finding-and-customizing-actions#using-inputs-and-outputs-with-an-action).
 
 {% data reusables.dependabot.version-updates-for-actions %}
 
@@ -85,13 +85,13 @@ If an action is defined in the same repository where your workflow file uses the
 
 {% data reusables.actions.workflows.section-referencing-an-action-from-the-same-repository %}
 
-The `action.yml` file is used to provide metadata for the action. Learn about the content of this file in "[AUTOTITLE](/actions/creating-actions/metadata-syntax-for-github-actions)."
+The `action.yml` file is used to provide metadata for the action. Learn about the content of this file in [AUTOTITLE](/actions/creating-actions/metadata-syntax-for-github-actions).
 
 ### Adding an action from a different repository
 
 If an action is defined in a different repository than your workflow file, you can reference the action with the `{owner}/{repo}@{ref}` syntax in your workflow file.
 
-The action must be stored in a public repository{% ifversion internal-actions %} or an internal repository that is configured to allow access to workflows. For more information, see "[AUTOTITLE](/actions/creating-actions/sharing-actions-and-workflows-with-your-enterprise)."{% else %}.{% endif %}
+The action must be stored in a public repository{% ifversion internal-actions %} or an internal repository that is configured to allow access to workflows. For more information, see [AUTOTITLE](/actions/creating-actions/sharing-actions-and-workflows-with-your-enterprise).{% else %}.{% endif %}
 
 ```yaml
 jobs:
@@ -117,7 +117,7 @@ jobs:
         uses: docker://alpine:3.8
 ```
 
-For some examples of Docker actions, see the [Docker-image.yml workflow](https://github.com/actions/starter-workflows/blob/main/ci/docker-image.yml) and "[AUTOTITLE](/actions/creating-actions/creating-a-docker-container-action)."
+For some examples of Docker actions, see the [Docker-image.yml workflow](https://github.com/actions/starter-workflows/blob/main/ci/docker-image.yml) and [AUTOTITLE](/actions/creating-actions/creating-a-docker-container-action).
 
 ### Security hardening for using actions in your workflows
 
@@ -130,7 +130,7 @@ The creators of a community action have the option to use tags, branches, or SHA
 You will designate the version of the action in your workflow file. Check the action's documentation for information on their approach to release management, and to see which tag, branch, or SHA value to use.
 
 > [!NOTE]
-> We recommend that you use a SHA value when using third-party actions. However, it's important to note {% data variables.product.prodname_dependabot %} will only create {% data variables.product.prodname_dependabot_alerts %} for vulnerable {% data variables.product.prodname_actions %} that use semantic versioning. For more information, see "[AUTOTITLE](/actions/security-guides/security-hardening-for-github-actions#using-third-party-actions)" and "[AUTOTITLE](/code-security/dependabot/dependabot-alerts/about-dependabot-alerts)."
+> We recommend that you use a SHA value when using third-party actions. However, it's important to note {% data variables.product.prodname_dependabot %} will only create {% data variables.product.prodname_dependabot_alerts %} for vulnerable {% data variables.product.prodname_actions %} that use semantic versioning. For more information, see [AUTOTITLE](/actions/security-guides/security-hardening-for-github-actions#using-third-party-actions) and [AUTOTITLE](/code-security/dependabot/dependabot-alerts/about-dependabot-alerts).
 
 ### Using tags
 
@@ -159,7 +159,7 @@ steps:
   - uses: actions/javascript-action@main
 ```
 
-For more information, see "[AUTOTITLE](/actions/creating-actions/about-custom-actions#using-release-management-for-actions)."
+For more information, see [AUTOTITLE](/actions/creating-actions/about-custom-actions#using-release-management-for-actions).
 
 ## Using inputs and outputs with an action
 
@@ -184,4 +184,4 @@ outputs:
 
 ## Next steps
 
-To continue learning about {% data variables.product.prodname_actions %}, see "[AUTOTITLE](/actions/learn-github-actions/essential-features-of-github-actions)."
+To continue learning about {% data variables.product.prodname_actions %}, see [AUTOTITLE](/actions/learn-github-actions/essential-features-of-github-actions).

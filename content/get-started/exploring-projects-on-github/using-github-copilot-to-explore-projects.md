@@ -9,8 +9,6 @@ topics:
 shortTitle: Use Copilot to explore projects
 ---
 
-> [!NOTE] {% data variables.product.prodname_copilot_chat_dotcom %} is currently in {% data variables.release-phases.public_preview %} and is subject to change.
-
 In this guide, you’ll learn how to use {% data variables.product.prodname_copilot_chat_dotcom_short %} to understand a repository’s purpose, examine files, and dive into specific lines of code. By following these steps, you’ll gain insights into any project faster—making onboarding, code review, and project exploration easier and more efficient.
 
 ## Prerequisites

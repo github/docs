@@ -35,15 +35,15 @@ If you have low vision, you may benefit from a high contrast theme, with greater
     * If you chose a single theme, click a theme.
 
     * If you chose to follow your system settings, click a day theme and a night theme.{% ifversion fpt or ghec %}
-    * If you would like to choose a theme which is currently in {% data variables.release-phases.public_preview %}, you will first need to enable it with feature preview. For more information, see "[AUTOTITLE](/get-started/using-github/exploring-early-access-releases-with-feature-preview)."{% endif %}
+    * If you would like to choose a theme which is currently in {% data variables.release-phases.public_preview %}, you will first need to enable it with feature preview. For more information, see [AUTOTITLE](/get-started/using-github/exploring-early-access-releases-with-feature-preview).{% endif %}
 
 {% ifversion command-palette %}
 
 > [!NOTE]
-> You can also change your theme settings with the command palette. For more information, see "[AUTOTITLE](/get-started/accessibility/github-command-palette)."
+> You can also change your theme settings with the command palette. For more information, see [AUTOTITLE](/get-started/accessibility/github-command-palette).
 
 {% endif %}
 
 ## Further reading
 
-* "[AUTOTITLE](/desktop/configuring-and-customizing-github-desktop/setting-a-theme-for-github-desktop)"
+* [AUTOTITLE](/desktop/configuring-and-customizing-github-desktop/setting-a-theme-for-github-desktop)

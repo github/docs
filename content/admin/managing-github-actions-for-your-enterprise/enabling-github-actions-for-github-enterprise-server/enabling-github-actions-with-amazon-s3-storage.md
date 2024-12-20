@@ -157,7 +157,7 @@ To configure {% data variables.product.prodname_ghe_server %} to use OIDC with a
 1. Using the AWS Console or CLI, create an access key for your storage bucket.
    {% data reusables.actions.enterprise-s3-permission %}
 
-   For more information on managing AWS access keys, see the "[AWS Identity and Access Management Documentation](https://docs.aws.amazon.com/iam/index.html)."
+   For more information on managing AWS access keys, see the [AWS Identity and Access Management Documentation](https://docs.aws.amazon.com/iam/index.html).
 {% data reusables.enterprise_site_admin_settings.access-settings %}
 {% data reusables.enterprise_site_admin_settings.management-console %}
 {% data reusables.enterprise_management_console.actions %}

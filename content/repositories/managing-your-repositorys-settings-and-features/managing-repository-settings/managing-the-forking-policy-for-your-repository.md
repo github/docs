@@ -15,9 +15,9 @@ topics:
   - Repositories
 shortTitle: Manage the forking policy
 ---
-An organization owner must allow forks of private{% ifversion ghes or ghec %} and internal{% endif %} repositories on the organization level before you can allow or disallow forks for a specific repository. For more information, see "[AUTOTITLE](/organizations/managing-organization-settings/managing-the-forking-policy-for-your-organization)."
+An organization owner must allow forks of private{% ifversion ghes or ghec %} and internal{% endif %} repositories on the organization level before you can allow or disallow forks for a specific repository. For more information, see [AUTOTITLE](/organizations/managing-organization-settings/managing-the-forking-policy-for-your-organization).
 
-You can help prevent sensitive information from being exposed by disabling the ability to fork repositories in your organization. For more information, see "[AUTOTITLE](/code-security/getting-started/best-practices-for-preventing-data-leaks-in-your-organization)."
+You can help prevent sensitive information from being exposed by disabling the ability to fork repositories in your organization. For more information, see [AUTOTITLE](/code-security/getting-started/best-practices-for-preventing-data-leaks-in-your-organization).
 
 {% data reusables.repositories.navigate-to-repo %}
 {% data reusables.repositories.sidebar-settings %}
@@ -25,5 +25,5 @@ You can help prevent sensitive information from being exposed by disabling the a
 
 ## Further reading
 
-* "[AUTOTITLE](/pull-requests/collaborating-with-pull-requests/working-with-forks/about-forks)"
-* "[AUTOTITLE](/organizations/managing-user-access-to-your-organizations-repositories/managing-repository-roles/repository-roles-for-an-organization)"
+* [AUTOTITLE](/pull-requests/collaborating-with-pull-requests/working-with-forks/about-forks)
+* [AUTOTITLE](/organizations/managing-user-access-to-your-organizations-repositories/managing-repository-roles/repository-roles-for-an-organization)

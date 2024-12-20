@@ -199,7 +199,7 @@ The preferred colors for diagrams in {% data variables.product.prodname_docs %} 
 * File size of 250 KB or less
 * Descriptive file names, such as `merge-conflict-diagram.png` instead of `diagram-02.png`
 
-If you need to create a diagram that is difficult to view at small resolutions, include a link to a larger version of the diagram in a relevant repository or other appropriate location. See "[AUTOTITLE](/actions/hosting-your-own-runners/managing-self-hosted-runners-with-actions-runner-controller/about-actions-runner-controller)" for an example.
+If you need to create a diagram that is difficult to view at small resolutions, include a link to a larger version of the diagram in a relevant repository or other appropriate location. See [AUTOTITLE](/actions/hosting-your-own-runners/managing-self-hosted-runners-with-actions-runner-controller/about-actions-runner-controller) for an example.
 
 ## Tools for creating diagrams
 
@@ -211,7 +211,7 @@ Diagrams must have proper contrast and alt text.
 
 If you use colors defined in the Primer Design System, your diagram should have proper contrast. To check contrast on other background colors, use the [Color Contrast Analyzer](https://www.tpgi.com/color-contrast-checker/).
 
-Write alt text for a diagram that describes what the diagram looks like and why it is included in the article. Do not try to explain everything the diagram conveys in the alt text since it could become too long to be useful. For more information on writing alt text, see "[AUTOTITLE](/contributing/writing-for-github-docs/style-guide#alt-text)."
+Write alt text for a diagram that describes what the diagram looks like and why it is included in the article. Do not try to explain everything the diagram conveys in the alt text since it could become too long to be useful. For more information on writing alt text, see [AUTOTITLE](/contributing/writing-for-github-docs/style-guide#alt-text).
 
 All information in diagrams must be also conveyed in text accompanying the diagrams.
 
@@ -231,6 +231,6 @@ When you create a new diagram, add it to the Diagrams project in the Docs Figma 
 
 ## Examples
 
-This diagram {% ifversion fpt or ghec %}from "[AUTOTITLE](/codespaces/overview)"{% endif %} effectively uses rectangles within other rectangles to visually explain what parts of a codespace are contained in the cloud, and it uses arrows to show the relationship between a codespace hosted in the cloud and your local editor.
+This diagram {% ifversion fpt or ghec %}from [AUTOTITLE](/codespaces/overview){% endif %} effectively uses rectangles within other rectangles to visually explain what parts of a codespace are contained in the cloud, and it uses arrows to show the relationship between a codespace hosted in the cloud and your local editor.
 
 ![Diagram showing the relationship between a code editor and a codespace running on an Azure virtual machine.](/assets/images/help/codespaces/codespaces-diagram.png)
