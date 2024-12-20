@@ -343,11 +343,11 @@ If an article has headers, the headers must start with an H2 level header. You c
   TEXT
 
   ### SUBHEADER (H3)
-  
+
   TEXT
 
   #### SUBHEADER (H4)
-  
+
   TEXT
   ```
 
@@ -365,15 +365,15 @@ Each header at the same level on a page must be unique.
 
   ```markdown
   ## Examples  (H2)
-  
+
   TEXT
 
   ### Prompts for writing code (H3)
-  
+
   TEXT
 
   ### Prompts for writing tests (H3)
-  
+
   TEXT
   ```
 
@@ -381,19 +381,19 @@ Each header at the same level on a page must be unique.
 
   ```markdown
   ## Prompts for writing code (H2)
-  
+
   TEXT
 
   ### Example (H3)
-  
+
   TEXT
 
   ## Prompts for writing tests (H2)
-  
+
   TEXT
 
   ### Example (H3)
-  
+
   TEXT
   ```
 
@@ -401,15 +401,15 @@ Each header at the same level on a page must be unique.
 
   ```markdown
   ## Example prompts (H2)
-  
+
   TEXT
 
   ### Example (H3)
-  
+
   TEXT
 
   ### Example (H3)
-  
+
   TEXT
   ```
 
@@ -1380,7 +1380,7 @@ All columns in a table should be left-aligned, except for columns containing onl
 
 Table content is left-aligned by default. Use Markdown table formatting, colons (`:`) to either the right or left of the dashes in the header row, to specify the alignment of each column. Read [AUTOTITLE](/get-started/writing-on-github/working-with-advanced-formatting/organizing-information-with-tables#formatting-content-within-your-table) for more information.
 
-The following example shows part of a table from [AUTOTITLE](/free-pro-team@latest/code-security/dependabot/dependabot-version-updates/configuration-options-for-the-dependabot.yml-file).
+The following example shows part of a table from [AUTOTITLE](/code-security/dependabot/working-with-dependabot/dependabot-options-reference).
 
 <table>
 <thead>

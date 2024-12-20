@@ -13,6 +13,8 @@ topics:
   - Actions
   - Dependencies
   - Repositories
+redirect_from:
+  - /code-security/dependabot/working-with-dependabot/managing-dependabot-on-self-hosted-runners
 ---
 
 ## About {% data variables.product.prodname_dependabot %} on {% data variables.product.prodname_actions %} self-hosted runners
@@ -29,7 +31,7 @@ To have greater control over {% data variables.product.prodname_dependabot %} ac
 
 For security reasons, when running {% data variables.product.prodname_dependabot %} on {% data variables.product.prodname_actions %} self-hosted runners, {% data variables.product.prodname_dependabot_updates %} will not be run on public repositories.
 
-For more information about configuring {% data variables.product.prodname_dependabot %} access to private registries when using {% data variables.product.company_short %}-hosted runners, see [AUTOTITLE](/code-security/dependabot/working-with-dependabot/guidance-for-the-configuration-of-private-registries-for-dependabot). For information about which ecosystems are supported as private registries, see [AUTOTITLE](/code-security/dependabot/working-with-dependabot/removing-dependabot-access-to-public-registries).
+For more information about configuring {% data variables.product.prodname_dependabot %} access to private registries when using {% data variables.product.company_short %}-hosted runners, see [AUTOTITLE](/code-security/dependabot/working-with-dependabot/guidance-for-the-configuration-of-private-registries-for-dependabot). For information about which ecosystems are supported as private registries, see [AUTOTITLE](/code-security/dependabot/maintain-dependencies/removing-dependabot-access-to-public-registries).
 
 ## Prerequisites
 
@@ -68,8 +70,7 @@ If {% data variables.product.prodname_dependabot %} needs to interact with regis
    * Install any self-signed certificates for registries that {% data variables.product.prodname_dependabot %} will need to interact with.
 
 1. Assign a `dependabot` label to each runner you want {% data variables.product.prodname_dependabot %} to use. For more information, see [AUTOTITLE](/actions/hosting-your-own-runners/managing-self-hosted-runners/using-labels-with-self-hosted-runners#assigning-a-label-to-a-self-hosted-runner).
-
-1. Optionally, enable workflows triggered by {% data variables.product.prodname_dependabot %} to use more than read-only permissions and to have access to any secrets that are normally available. For more information, see [AUTOTITLE](/code-security/dependabot/working-with-dependabot/automating-dependabot-with-github-actions#responding-to-events).
+1. Optionally, enable workflows triggered by {% data variables.product.prodname_dependabot %} to use more than read-only permissions and to have access to any secrets that are normally available. For more information, see [AUTOTITLE](/code-security/dependabot/troubleshooting-dependabot/troubleshooting-dependabot-on-github-actions#restrictions-when-dependabot-triggers-events).
 
 ## Enabling self-hosted runners for {% data variables.product.prodname_dependabot_updates %}
 
