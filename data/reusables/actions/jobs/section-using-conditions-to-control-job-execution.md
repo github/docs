@@ -3,7 +3,7 @@ You can use the `jobs.<job_id>.if` conditional to prevent a job from running unl
 > [!NOTE]
 > The `jobs.<job_id>.if` condition is evaluated before [`jobs.<job_id>.strategy.matrix`](/actions/using-workflows/workflow-syntax-for-github-actions#jobsjob_idstrategymatrix) is applied.
 
-{% data reusables.actions.expression-syntax-if %} For more information, see "[AUTOTITLE](/actions/learn-github-actions/expressions)."
+{% data reusables.actions.expression-syntax-if %} For more information, see [AUTOTITLE](/actions/learn-github-actions/expressions).
 
 ### Example: Only run job for specific repository
 

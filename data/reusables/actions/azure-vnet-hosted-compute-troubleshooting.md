@@ -70,7 +70,7 @@ To fix this, either increase the size of the subnet you are using or reduce the 
 
 ### Cannot delete subnet
 
-In some cases, a subnet cannot be deleted because it has a Service Association Link (SAL) applied to it. For more information, see "[AUTOTITLE](/organizations/managing-organization-settings/configuring-private-networking-for-github-hosted-runners-in-your-organization#deleting-a-subnet)."
+In some cases, a subnet cannot be deleted because it has a Service Association Link (SAL) applied to it. For more information, see [AUTOTITLE](/organizations/managing-organization-settings/configuring-private-networking-for-github-hosted-runners-in-your-organization#deleting-a-subnet).
 
 If you need to identify the network settings resource associated with the subnet, you can run the following `curl` command.
 To obtain an Azure Entra token, please refer to the [Azure documentation](https://learn.microsoft.com/en-us/cli/azure/authenticate-azure-cli). Use the same `api-version` you used to create the resource.

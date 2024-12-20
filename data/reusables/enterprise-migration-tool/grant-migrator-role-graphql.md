@@ -1,6 +1,6 @@
 You can use the `grantMigratorRole` GraphQL mutation to assign the migrator role and the `revokeMigratorRole` mutation to revoke the migrator role.
 
-You must use a {% data variables.product.pat_generic %} (PAT) that meets all access requirements. For more information, see the "[Required scopes for {% data variables.product.pat_generic %}s](#required-scopes-for-personal-access-tokens)."
+You must use a {% data variables.product.pat_generic %} (PAT) that meets all access requirements. For more information, see the [Required scopes for {% data variables.product.pat_generic %}s](#required-scopes-for-personal-access-tokens).
 
 #### `grantMigratorRole` mutation
 
