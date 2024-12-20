@@ -52,7 +52,7 @@ If you enable _security updates_, {% data variables.product.prodname_dependabot 
 
 You specify how often to check each ecosystem for new versions in the configuration file: daily, weekly, or monthly.
 
-{% data reusables.dependabot.initial-updates %} For more information, see [AUTOTITLE](/code-security/dependabot/dependabot-version-updates/customizing-dependency-updates).
+{% data reusables.dependabot.initial-updates %} {% ifversion dependabot-version-updates-groups %}For more information, see [AUTOTITLE](/code-security/dependabot/dependabot-version-updates/optimizing-pr-creation-version-updates).{% endif %}
 
 If you've enabled security updates, you'll sometimes see extra pull requests for security updates. These are triggered by a {% data variables.product.prodname_dependabot %} alert for a dependency on your default branch. {% data variables.product.prodname_dependabot %} automatically raises a pull request to update the vulnerable dependency.
 
@@ -60,9 +60,7 @@ If you've enabled security updates, you'll sometimes see extra pull requests for
 
 ## About automatic deactivation of {% data variables.product.prodname_dependabot_updates %}
 
-{% data reusables.dependabot.automatically-pause-dependabot-updates %}
-
-{% data variables.product.prodname_dependabot %} also stops rebasing pull requests for version and security updates after 30 days, reducing notifications for inactive {% data variables.product.prodname_dependabot %} pull requests.
+{% data reusables.dependabot.automatic-deactivation-link %}
 
 ## About notifications for {% data variables.product.prodname_dependabot %} version updates
 

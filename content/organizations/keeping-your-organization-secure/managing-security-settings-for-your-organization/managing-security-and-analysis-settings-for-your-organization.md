@@ -66,7 +66,7 @@ You can use security overview to find a set of repositories and enable or disabl
 1. Review the information in the dialog box.
 1. Optionally, if you are enabling private vulnerability reporting, dependency graph, or {% data variables.product.prodname_dependabot %}, select **Enable by default for new repositories**.
 
-    ![Screenshot of the "Enable FEATURE" modal dialog, with the "Enable by default for new private repositories" option highlighted with a dark orange outline.](/assets/images/help/organizations/security-and-analysis-enable-by-default-in-modal.png)
+    ![Screenshot of the "Enable FEATURE" modal dialog, with the "Enable by default for new private repositories" option outlined in orange.](/assets/images/help/organizations/security-and-analysis-enable-by-default-in-modal.png)
 
 1. When you are ready to make the changes, click **Disable FEATURE** or **Enable FEATURE** to disable or enable the feature for all the repositories in your organization.
 1. Optionally, in your feature's section of the security and analysis settings, select additional enablement settings. Additional enablement settings may include:
@@ -92,7 +92,7 @@ You can use security overview to find a set of repositories and enable or disabl
 
 By default, {% data variables.product.prodname_dependabot %} can't update dependencies that are located in private{% ifversion ghec or ghes %} or internal{% endif %} repositories, or private{% ifversion ghec or ghes %} or internal{% endif %} package registries. However, if a dependency is in a private{% ifversion ghec or ghes %} or internal{% endif %} {% data variables.product.prodname_dotcom %} repository within the same organization as the project that uses that dependency, you can allow {% data variables.product.prodname_dependabot %} to update the version successfully by giving it access to the host repository.
 
-If your code depends on packages in a private{% ifversion ghec or ghes %} or internal{% endif %} registry, you can allow {% data variables.product.prodname_dependabot %} to update the versions of these dependencies by configuring this at the repository level. You do this by adding authentication details to the `dependabot.yml` file for the repository. For more information, see [AUTOTITLE](/code-security/dependabot/dependabot-version-updates/configuration-options-for-the-dependabot.yml-file#configuration-options-for-private-registries).
+If your code depends on packages in a private{% ifversion ghec or ghes %} or internal{% endif %} registry, you can allow {% data variables.product.prodname_dependabot %} to update the versions of these dependencies by configuring this at the repository level. You do this by adding authentication details to the `dependabot.yml` file for the repository. For more information, see [Top-level `registries` key](/code-security/dependabot/working-with-dependabot/dependabot-options-reference#top-level-registries-key).
 
 {% ifversion ghec %}
 
@@ -112,7 +112,7 @@ To allow {% data variables.product.prodname_dependabot %} to access a private or
 1. Go to the security and analysis settings for your organization. For more information, see [Displaying the security and analysis settings](#displaying-the-security-and-analysis-settings).
 1. Under "Grant {% data variables.product.prodname_dependabot %} private repository access", click **Add internal and private repositories** to display a repository search field.
 
-   ![Screenshot of the dropdown that you can use to search for repositories. As you type, repositories whose name matches your search criteria will appear in the list. The search text field is highlighted with a dark orange outline.](/assets/images/help/organizations/dependabot-private-repo-choose.png)
+   ![Screenshot of the search dropdown. As you type, repository names that match your search are shown. The search text field is outlined in orange.](/assets/images/help/organizations/dependabot-private-repo-choose.png)
 
 1. Start typing the name of the repository you want to grant {% data variables.product.prodname_dependabot %} access to.
 1. A list of matching repositories in the organization is displayed, click the repository you want to allow access to and this adds the repository to the allowed list.

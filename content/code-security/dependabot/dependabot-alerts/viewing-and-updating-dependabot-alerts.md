@@ -82,7 +82,7 @@ The alert details page of alerts on development-scoped packages shows a "Tags" s
 1. Click the alert that you would like to view.
 1. Optionally, to suggest an improvement to the related security advisory, on the right-hand side of the alert details page, click **Suggest improvements for this advisory on the {% data variables.product.prodname_advisory_database %}**. For more information, see [AUTOTITLE](/code-security/security-advisories/working-with-global-security-advisories-from-the-github-advisory-database/editing-security-advisories-in-the-github-advisory-database).
 
-   ![Screenshot of the right sidebar of a {% data variables.product.prodname_dependabot %} alert. A link, titled "Suggest improvements for this advisory on the {% data variables.product.prodname_advisory_database %}", is highlighted with an orange outline.](/assets/images/help/dependabot/dependabot-improve-security-advisory.png)
+   ![Screenshot of the right sidebar of a {% data variables.product.prodname_dependabot %} alert. A link, titled "Suggest improvements for this advisory...", is outlined in orange.](/assets/images/help/dependabot/dependabot-improve-security-advisory.png)
 
 ## Reviewing and fixing alerts
 
@@ -121,7 +121,7 @@ If you schedule extensive work to upgrade a dependency, or decide that an alert 
 1. Select the "Dismiss" dropdown, and click a reason for dismissing the alert. Unfixed dismissed alerts can be reopened later.
 1. Optionally, add a dismissal comment. The dismissal comment will be added to the alert timeline and can be used as justification during auditing and reporting. You can retrieve or set a comment by using the GraphQL API. The comment is contained in the `dismissComment` field. For more information, see [AUTOTITLE](/graphql/reference/objects#repositoryvulnerabilityalert) in the GraphQL API documentation.
 
-   ![Screenshot of the page for a Dependabot alert, with the "Dismiss" dropdown and the option to add a dismissal comment highlighted with a dark orange outline.](/assets/images/help/repository/dependabot-alerts-dismissal-comment.png)
+   ![Screenshot of a {% data variables.product.prodname_dependabot %} alert page, with the "Dismiss" dropdown and the option to add a dismissal comment outlined in orange.](/assets/images/help/repository/dependabot-alerts-dismissal-comment.png)
 
 1. Click **Dismiss alert**.
 
@@ -134,7 +134,7 @@ If you schedule extensive work to upgrade a dependency, or decide that an alert 
 1. Optionally, at the top of the list of alerts, select all alerts on the page.
    ![Screenshot of the header section of the {% data variables.product.prodname_dependabot_alerts %} view. The "Select all" checkbox is highlighted with a dark orange outline.](/assets/images/help/graphs/select-all-alerts.png)
 1. Select the "Dismiss alerts" dropdown, and click a reason for dismissing the alerts.
-   ![Screenshot of a list of alerts. Below the "Dismiss alerts" button, a dropdown labeled "Select a reason to dismiss" is expanded. The dropdown contains radio buttons for various options.](/assets/images/help/graphs/dismiss-multiple-alerts.png)
+   ![Screenshot of a list of alerts. Below the "Dismiss alerts" button, a dropdown labeled "Select a reason to dismiss" is expanded.](/assets/images/help/graphs/dismiss-multiple-alerts.png)
 
 ## Viewing and updating closed alerts
 
@@ -166,4 +166,4 @@ When a member of your organization {% ifversion not fpt %}or enterprise {% endif
 
 ![Screenshot of the audit log showing Dependabot alerts.](/assets/images/help/dependabot/audit-log-ui-dependabot-alert.png)
 
-Events in your audit log for {% data variables.product.prodname_dependabot_alerts %} include details such as who performed the action, what the action was, and when the action was performed. The event also includes a link to the alert itself. When a member of your organization dismisses an alert, the event displays the dismissal reason and comment. For information on the {% data variables.product.prodname_dependabot_alerts %} actions, see the `repository_vulnerability_alert` category in [AUTOTITLE](/organizations/keeping-your-organization-secure/managing-security-settings-for-your-organization/audit-log-events-for-your-organization#repository_vulnerability_alert){% ifversion not fpt %} and [AUTOTITLE](/admin/monitoring-activity-in-your-enterprise/reviewing-audit-logs-for-your-enterprise/audit-log-events-for-your-enterprise#repository_vulnerability_alert).{% else %}."{% endif %}
+Events in your audit log for {% data variables.product.prodname_dependabot_alerts %} include details such as who performed the action, what the action was, and when the action was performed. The event also includes a link to the alert itself. When a member of your organization dismisses an alert, the event displays the dismissal reason and comment. For information on the {% data variables.product.prodname_dependabot_alerts %} actions, see the `repository_vulnerability_alert` category in [AUTOTITLE](/organizations/keeping-your-organization-secure/managing-security-settings-for-your-organization/audit-log-events-for-your-organization#repository_vulnerability_alert){% ifversion not fpt %} and [AUTOTITLE](/admin/monitoring-activity-in-your-enterprise/reviewing-audit-logs-for-your-enterprise/audit-log-events-for-your-enterprise#repository_vulnerability_alert).{% else %}.{% endif %}

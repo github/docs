@@ -3,6 +3,6 @@
 >
 > The `--apple-use-keychain` option is in Apple's standard version of `ssh-add`. In macOS versions prior to Monterey (12.0), the `--apple-use-keychain` and `--apple-load-keychain` flags used the syntax `-K` and `-A`, respectively.
 >
-> If you don't have Apple's standard version of `ssh-add` installed, you may receive an error. For more information, see "[AUTOTITLE](/authentication/troubleshooting-ssh/error-ssh-add-illegal-option----apple-use-keychain)."
+> If you don't have Apple's standard version of `ssh-add` installed, you may receive an error. For more information, see [AUTOTITLE](/authentication/troubleshooting-ssh/error-ssh-add-illegal-option----apple-use-keychain).
 >
 > If you continue to be prompted for your passphrase, you may need to add the command to your `~/.zshrc` file (or your `~/.bashrc` file for bash).

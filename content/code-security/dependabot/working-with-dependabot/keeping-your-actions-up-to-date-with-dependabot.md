@@ -55,7 +55,7 @@ You can also enable {% data variables.product.prodname_dependabot_version_update
 
 The example `dependabot.yml` file below configures version updates for {% data variables.product.prodname_actions %}. The `directory` must be set to `"/"` to check for workflow files in `.github/workflows`. The `schedule.interval` is set to `"weekly"`. After this file has been checked in or updated, {% data variables.product.prodname_dependabot %} checks for new versions of your actions. {% data variables.product.prodname_dependabot %} will raise pull requests for version updates for any outdated actions that it finds. After the initial version updates, {% data variables.product.prodname_dependabot %} will continue to check for outdated versions of actions once a week.
 
-```yaml
+```yaml copy
 # Set update schedule for GitHub Actions
 
 version: 2
@@ -70,7 +70,7 @@ updates:
 
 ## Configuring {% data variables.product.prodname_dependabot_version_updates %} for actions
 
-When enabling {% data variables.product.prodname_dependabot_version_updates %} for actions, you must specify values for `package-ecosystem`, `directory`, and `schedule.interval`. There are many more optional properties that you can set to further customize your version updates. For more information, see [AUTOTITLE](/code-security/dependabot/dependabot-version-updates/configuration-options-for-the-dependabot.yml-file).
+When enabling {% data variables.product.prodname_dependabot_version_updates %} for actions, you must specify values for `package-ecosystem`, `directory`, and `schedule.interval`. There are many more optional properties that you can set to further customize your version updates. For more information, see [AUTOTITLE](/code-security/dependabot/working-with-dependabot/dependabot-options-reference).
 
 ## Further reading
 

@@ -113,7 +113,7 @@ sections:
         # https://github.com/github/releases/issues/3363
         # https://github.com/github/releases/issues/3364
         - |
-          To control how Dependabot structures pull requests and improve mergeability, users can implement flexible grouping options in `dependabot.yml`. You can also control Dependabot's behavior for groups using comment commands. For more information, see [AUTOTITLE](/code-security/dependabot/dependabot-version-updates/configuration-options-for-the-dependabot.yml-file#groups) and [AUTOTITLE](/code-security/dependabot/working-with-dependabot/managing-pull-requests-for-dependency-updates#managing-dependabot-pull-requests-with-comment-commands).
+          To control how Dependabot structures pull requests and improve mergeability, users can implement flexible grouping options in `dependabot.yml`. You can also control Dependabot's behavior for groups using comment commands. For more information, see [AUTOTITLE](/code-security/dependabot/working-with-dependabot/dependabot-options-reference#groups) and [AUTOTITLE](/code-security/dependabot/working-with-dependabot/managing-pull-requests-for-dependency-updates#managing-dependabot-pull-requests-with-comment-commands).
 
         # https://github.com/github/releases/issues/3270
         # https://github.com/github/releases/issues/3271

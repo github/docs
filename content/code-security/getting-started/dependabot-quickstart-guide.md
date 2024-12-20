@@ -108,7 +108,7 @@ You can fix or dismiss {% data variables.product.prodname_dependabot_alerts %} o
      * Go back to the alert details page.
      * On the top-right corner, click **Dismiss alert**.
 
-       ![Screenshot of the alert details page with the **Dismiss alert** button, dropdown menu options, and dismissal comment box highlighted with a dark orange outline.](/assets/images/help/repository/dismiss-alert-demo-repo.png)
+       ![Screenshot of the alert details page with the **Dismiss alert** button, dropdown menu options, and dismissal comment box outlined in orange.](/assets/images/help/repository/dismiss-alert-demo-repo.png)
 
      * Select a reason for dismissing the alert.
      * Optionally, add a dismissal comment. The dismissal comment will be added to the alert timeline and can be used as justification during auditing and reporting.
@@ -122,7 +122,7 @@ You may need to do some troubleshooting if:
 * {% data variables.product.prodname_dependabot %} is blocked from creating a pull request to fix an alert, or
 * The information reported by {% data variables.product.prodname_dependabot %} is not what you expect.
 
-For more information, see [AUTOTITLE](/code-security/dependabot/working-with-dependabot/troubleshooting-dependabot-errors) and [AUTOTITLE](/code-security/dependabot/working-with-dependabot/troubleshooting-the-detection-of-vulnerable-dependencies), respectively.
+For more information, see [AUTOTITLE](/code-security/dependabot/troubleshooting-dependabot/troubleshooting-dependabot-errors) and [AUTOTITLE](/code-security/dependabot/troubleshooting-dependabot/troubleshooting-the-detection-of-vulnerable-dependencies), respectively.
 
 ## Next steps
 

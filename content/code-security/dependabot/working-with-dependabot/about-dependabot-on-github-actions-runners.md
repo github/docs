@@ -53,7 +53,7 @@ Future releases of {% data variables.product.product_name %} will remove the abi
 
 If you restrict access to your organization's or repository's private resources, you may need to update your list of allowed IP addresses prior to enabling {% data variables.product.prodname_dependabot %} on {% data variables.product.prodname_actions %} runners. You can update your IP allow list to use the {% data variables.product.prodname_dotcom %}-hosted runners IP addresses (instead of the {% data variables.product.prodname_dependabot %} IP addresses), sourced from the [meta](/rest/meta) REST API endpoint.
 
->[!WARNING] You should not rely on the {% data variables.product.prodname_actions %} IP addresses for authentication to private registries. These {% data variables.product.prodname_actions %} addresses are not only used by {% data variables.product.prodname_dotcom %}, and should not be trusted for authentication. Instead, use a self-hosted runner to ensure greater control over your network access. For more information, see [AUTOTITLE](/code-security/dependabot/working-with-dependabot/managing-dependabot-on-self-hosted-runners).
+>[!WARNING] You should not rely on the {% data variables.product.prodname_actions %} IP addresses for authentication to private registries. These {% data variables.product.prodname_actions %} addresses are not only used by {% data variables.product.prodname_dotcom %}, and should not be trusted for authentication. Instead, use a self-hosted runner to ensure greater control over your network access. For more information, see [AUTOTITLE](/code-security/dependabot/maintain-dependencies/managing-dependabot-on-self-hosted-runners).
 
 Note, disabling and re-enabling the "{% data variables.product.prodname_dependabot %} on {% data variables.product.prodname_actions %} runners" settings will not trigger a new {% data variables.product.prodname_dependabot %} run.
 
@@ -91,11 +91,11 @@ If you run into {% data variables.product.prodname_dependabot %} timeouts and ou
 > [!NOTE] You can only enable {% data variables.actions.hosted_runners %} for {% data variables.product.prodname_dependabot %} _at the organization level_. {% data variables.product.prodname_dotcom %} will bill your organization at the regular Actions runner pricing. For more information, see [AUTOTITLE](/billing/managing-billing-for-github-actions/about-billing-for-github-actions#per-minute-rates).
 
 1. Add a {% data variables.actions.hosted_runner %} to your organization and ensure the name specified is `dependabot`. For more information, see [AUTOTITLE](/actions/using-github-hosted-runners/about-larger-runners/managing-larger-runners#adding-a-larger-runner-to-an-organization).
-1. Opt in the organization to self-hosted runners. For more information, see [AUTOTITLE](/code-security/dependabot/working-with-dependabot/managing-dependabot-on-self-hosted-runners#enabling-or-disabling-for-your-organization). This step is required, as it ensures that future {% data variables.product.prodname_dependabot %} jobs will run on the larger {% data variables.product.prodname_dotcom %}-hosted runner that has the `dependabot` name.
+1. Opt in the organization to self-hosted runners. For more information, see [AUTOTITLE](/code-security/dependabot/maintain-dependencies/managing-dependabot-on-self-hosted-runners#enabling-or-disabling-for-your-organization). This step is required, as it ensures that future {% data variables.product.prodname_dependabot %} jobs will run on the larger {% data variables.product.prodname_dotcom %}-hosted runner that has the `dependabot` name.
 
 ## Managing {% data variables.product.prodname_dependabot %} on {% data variables.product.prodname_actions %} runners
 
-When a {% data variables.product.prodname_dependabot %} on {% data variables.product.prodname_actions %} job is run, you can review the workflow run history directly from the Dependabot job logs. For more information, see [AUTOTITLE](/code-security/dependabot/working-with-dependabot/viewing-dependabot-job-logs).
+When a {% data variables.product.prodname_dependabot %} on {% data variables.product.prodname_actions %} job is run, you can review the workflow run history directly from the Dependabot job logs. For more information, see [AUTOTITLE](/code-security/dependabot/troubleshooting-dependabot/viewing-dependabot-job-logs).
 
 You can also navigate to a {% data variables.product.prodname_dependabot %} workflow run from the **Actions** tab in a repository. For more information, see [AUTOTITLE](/actions/monitoring-and-troubleshooting-workflows/viewing-workflow-run-history).
 
@@ -120,4 +120,4 @@ To re-run a {% data variables.product.prodname_dependabot_version_updates %} or 
 
 ## Further reading
 
-* [AUTOTITLE](/code-security/dependabot/working-with-dependabot/troubleshooting-dependabot-on-github-actions)
+* [AUTOTITLE](/code-security/dependabot/troubleshooting-dependabot/troubleshooting-dependabot-on-github-actions)

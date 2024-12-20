@@ -7,5 +7,5 @@
     {% endif %}
 
 {% ifversion security-overview-3-tab-dashboard %}{% else %}
-1. For the alert trends graph at the top of the page, you can click **{% octicon "shield" aria-hidden="true" %} Open alerts** or **{% octicon "shield-x" aria-hidden="true" %} Closed alerts** to toggle between showing the trends for open or closed alerts. The toggle will only affect the alert trends graph. For more information, see "[Alert trends graph](#alert-trends-graph)."
+1. For the alert trends graph at the top of the page, you can click **{% octicon "shield" aria-hidden="true" %} Open alerts** or **{% octicon "shield-x" aria-hidden="true" %} Closed alerts** to toggle between showing the trends for open or closed alerts. The toggle will only affect the alert trends graph. For more information, see [Alert trends graph](#alert-trends-graph).
 {% endif %}

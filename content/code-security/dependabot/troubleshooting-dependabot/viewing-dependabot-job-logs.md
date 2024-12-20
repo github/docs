@@ -12,6 +12,8 @@ topics:
   - Errors
   - Security updates
   - Dependencies
+redirect_from:
+  - /code-security/dependabot/working-with-dependabot/viewing-dependabot-job-logs
 ---
 
 ## About {% data variables.product.prodname_dependabot %} job logs
