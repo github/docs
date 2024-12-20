@@ -3915,6 +3915,11 @@
     "docs_reference_links": "/code-security/secret-scanning/working-with-push-protection#requesting-bypass-privileges-when-working-with-the-command-line"
   },
   {
+    "action": "secret_scanning_scan.completed",
+    "description": "A secret scanning scan has completed on this repository.",
+    "docs_reference_links": "/code-security/secret-scanning/about-secret-scanning"
+  },
+  {
     "action": "security_configuration.create",
     "description": "A security configuration was created",
     "docs_reference_links": "N/A"
