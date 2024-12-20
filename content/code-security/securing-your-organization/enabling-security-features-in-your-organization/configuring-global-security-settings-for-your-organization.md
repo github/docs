@@ -43,7 +43,7 @@ For more information on {% data variables.dependabot.auto_triage_rules %}, see [
 
 ### Grouping {% data variables.product.prodname_dependabot_security_updates %}
 
-{% data variables.product.prodname_dependabot %} can group all automatically suggested security updates into a single pull request to reduce noise. To enable grouped security updates, select **Grouped security updates**. For more information about grouped updates and customization options, see [AUTOTITLE](/code-security/dependabot/dependabot-security-updates/configuring-dependabot-security-updates#grouping-dependabot-security-updates-into-a-single-pull-request).
+{% data variables.product.prodname_dependabot %} can group all automatically suggested security updates into a single pull request. To enable grouped security updates, select **Grouped security updates**. For more information about grouped updates and customization options, see [AUTOTITLE](/code-security/dependabot/dependabot-security-updates/configuring-dependabot-security-updates#grouping-dependabot-security-updates-into-a-single-pull-request).
 
 {% ifversion dependabot-on-actions-opt-in %}
 

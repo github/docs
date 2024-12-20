@@ -6,4 +6,4 @@ You can determine whether a repository you are contributing to has compulsory co
 
 Before signing off on a commit, you should ensure that your commit is in compliance with the rules and licensing governing the repository you're committing to. The repository may use a sign off agreement, such as the Developer Certificate of Origin from the Linux Foundation. For more information, see the [Developer Certificate of Origin](https://developercertificate.org/).
 
-Signing off on a commit differs from signing a commit. For more information about signing a commit, see "[AUTOTITLE](/authentication/managing-commit-signature-verification/about-commit-signature-verification)."
+Signing off on a commit differs from signing a commit. For more information about signing a commit, see [AUTOTITLE](/authentication/managing-commit-signature-verification/about-commit-signature-verification).

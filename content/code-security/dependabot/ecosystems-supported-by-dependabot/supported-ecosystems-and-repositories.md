@@ -29,8 +29,8 @@ In this article, you can see what the supported ecosystems and repositories are.
 ## Supported ecosystems and repositories
 <!-- If you make changes to this feature, check whether any of the changes affect languages listed in /get-started/learning-about-github/github-language-support. If so, please update the language support article accordingly. -->
 
-You can configure updates for repositories that contain a dependency manifest or lock file for one of the supported package managers. For some package managers, you can also configure vendoring for dependencies. For more information, see [`vendor`](/code-security/dependabot/dependabot-version-updates/configuration-options-for-the-dependabot.yml-file#vendor).
-{% data variables.product.prodname_dependabot %} also supports dependencies in private registries. For more information, see [`registries`](/code-security/dependabot/dependabot-version-updates/configuration-options-for-the-dependabot.yml-file#registries).
+You can configure updates for repositories that contain a dependency manifest or lock file for one of the supported package managers. For some package managers, you can also configure vendoring for dependencies. For more information, see [`vendor`](/code-security/dependabot/working-with-dependabot/dependabot-options-reference#vendor).
+{% data variables.product.prodname_dependabot %} also supports dependencies in private registries. For more information, see [AUTOTITLE](/code-security/dependabot/working-with-dependabot/configuring-access-to-private-registries-for-dependabot).
 {% ifversion ghes %}
 
 > [!NOTE]
