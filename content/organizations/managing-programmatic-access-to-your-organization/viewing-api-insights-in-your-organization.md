@@ -12,8 +12,6 @@ topics:
   - REST
 ---
 
-> [!NOTE] This feature is currently in {% data variables.release-phases.public_preview %} and is subject to change. We welcome your feedback in [this {% data variables.product.prodname_github_community %} discussion](https://github.co/api-insights-discussion).
-
 ## About API insights
 
 As a {% data variables.product.prodname_ghe_cloud %} organization owner, you and your designated users can view REST API activity for your entire organization or specific apps and users. This helps you understand the sources of your REST API activity and manage against your primary rate limits, giving you visibility into the timeframe, apps, and API endpoints involved. To learn more about primary rate limits, see [AUTOTITLE](/rest/using-the-rest-api/rate-limits-for-the-rest-api#about-primary-rate-limits).

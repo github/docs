@@ -45,6 +45,7 @@ github-registry-files.githubusercontent.com
 
 ```shell copy
 *.pkg.github.com
+pkg-containers.githubusercontent.com
 ghcr.io
 ```
 
