@@ -445,7 +445,7 @@ This guide demonstrates how to get coding suggestions from {% data variables.pro
 {% data variables.product.prodname_copilot %} offers coding suggestions as you type. For example, type this function
 signature in a Swift file:
 
-```text copy
+```swift copy
 func calculateDaysBetweenDates(
 ```
 
