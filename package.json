@@ -300,7 +300,6 @@
     "lowdb": "7.0.1",
     "lowlight": "3.1.0",
     "markdownlint-rule-helpers": "^0.25.0",
-    "mdast": "^2.3.2",
     "mdast-util-from-markdown": "^2.0.0",
     "mdast-util-to-hast": "^13.2.0",
     "mdast-util-to-markdown": "2.1.0",
