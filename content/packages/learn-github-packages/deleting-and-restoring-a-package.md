@@ -19,10 +19,10 @@ shortTitle: Delete & restore a package
 ## Package deletion and restoration support on {% data variables.product.prodname_dotcom %}
 
 On {% data variables.product.prodname_dotcom %} if you have the required access, you can delete:
-* an entire private package
-* an entire public package, if there's not more than 5000 downloads of any version of the package
-* a specific version of a private package
-* a specific version of a public package, if the package version doesn't have more than 5,000 downloads
+* An entire private package
+* An entire public package, if there's not more than 5000 downloads of any version of the package
+* A specific version of a private package
+* A specific version of a public package, if the package version doesn't have more than 5,000 downloads
 
 > [!NOTE]
 > * You cannot delete a public package if any version of the package has more than 5,000 downloads. In this scenario, contact us through the {% data variables.contact.contact_support_portal %} for further assistance.
