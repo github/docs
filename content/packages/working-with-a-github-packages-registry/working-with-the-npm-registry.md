@@ -58,9 +58,9 @@ This registry supports granular permissions. {% data reusables.package_registry.
 
 {% data reusables.package_registry.required-scopes %}
 
-You can authenticate to {% data variables.product.prodname_registry %} with npm by either editing your per-user _~/.npmrc_ file to include your {% data variables.product.pat_v1 %} or by logging in to npm on the command line using your username and {% data variables.product.pat_generic %}.
+You can authenticate to {% data variables.product.prodname_registry %} with npm by either editing your per-user `~/.npmrc` file to include your {% data variables.product.pat_v1 %} or by logging in to npm on the command line using your username and {% data variables.product.pat_generic %}.
 
-To authenticate by adding your {% data variables.product.pat_v1 %} to your _~/.npmrc_ file, edit the _~/.npmrc_ file for your project to include the following line, replacing {% ifversion ghes %}HOSTNAME with the host name of {% data variables.location.product_location %} and {% endif %}TOKEN with your {% data variables.product.pat_generic %}. Create a new _~/.npmrc_ file if one doesn't exist.
+To authenticate by adding your {% data variables.product.pat_v1 %} to your `~/.npmrc` file, edit the `~/.npmrc` file for your project to include the following line, replacing {% ifversion ghes %}HOSTNAME with the host name of {% data variables.location.product_location %} and {% endif %}TOKEN with your {% data variables.product.pat_generic %}. Create a new `~/.npmrc` file if one doesn't exist.
 
 {% ifversion ghes %}
 If your instance has subdomain isolation enabled:
@@ -137,9 +137,9 @@ You can set up the scope mapping for your project using either a local `.npmrc` 
 
 {% data reusables.package_registry.viewing-packages %}
 
-### Publishing a package using a local _.npmrc_ file
+### Publishing a package using a local `.npmrc` file
 
-You can use an _.npmrc_ file to configure the scope mapping for your project. In the _.npmrc_ file, use the {% data variables.product.prodname_registry %} URL and account owner so {% data variables.product.prodname_registry %} knows where to route package requests. Using an _.npmrc_ file prevents other developers from accidentally publishing the package to npmjs.org instead of {% data variables.product.prodname_registry %}.
+You can use an `.npmrc` file to configure the scope mapping for your project. In the `.npmrc` file, use the {% data variables.product.prodname_registry %} URL and account owner so {% data variables.product.prodname_registry %} knows where to route package requests. Using an `.npmrc` file prevents other developers from accidentally publishing the package to npmjs.org instead of {% data variables.product.prodname_registry %}.
 
 {% data reusables.package_registry.authenticate-step %}
 {% data reusables.package_registry.create-npmrc-owner-step %}
@@ -194,7 +194,7 @@ You can install packages from {% data variables.product.prodname_registry %} by 
 
 By default, you can add packages from one organization. For more information, see [Installing packages from other organizations](#installing-packages-from-other-organizations).
 
-You also need to add the _.npmrc_ file to your project so that all requests to install packages will go through {% data variables.product.prodname_registry %}. When you route all package requests through {% data variables.product.prodname_registry %}, you can use both scoped and unscoped packages from _npmjs.org_. For more information, see [npm-scope](https://docs.npmjs.com/misc/scope) in the npm documentation.
+You also need to add the `.npmrc` file to your project so that all requests to install packages will go through {% data variables.product.prodname_registry %}. When you route all package requests through {% data variables.product.prodname_registry %}, you can use both scoped and unscoped packages from _npmjs.org_. For more information, see [npm-scope](https://docs.npmjs.com/misc/scope) in the npm documentation.
 
 {% data reusables.package_registry.authenticate-step %}
 {% data reusables.package_registry.create-npmrc-owner-step %}
@@ -223,7 +223,7 @@ You also need to add the _.npmrc_ file to your project so that all requests to i
 
 ### Installing packages from other organizations
 
-By default, you can only use {% data variables.product.prodname_registry %} packages from one organization. If you'd like to route package requests to multiple organizations and users, you can add additional lines to your _.npmrc_ file, replacing {% ifversion ghes %}`HOSTNAME` with the host name of {% data variables.location.product_location %} and {% endif %}`NAMESPACE` with the name of the personal account or organization {% ifversion packages-npm-v2 %}to which the package is scoped{% else %}that owns the repository containing the project{% endif %}.
+By default, you can only use {% data variables.product.prodname_registry %} packages from one organization. If you'd like to route package requests to multiple organizations and users, you can add additional lines to your `.npmrc` file, replacing {% ifversion ghes %}`HOSTNAME` with the host name of {% data variables.location.product_location %} and {% endif %}`NAMESPACE` with the name of the personal account or organization {% ifversion packages-npm-v2 %}to which the package is scoped{% else %}that owns the repository containing the project{% endif %}.
 
 {% ifversion ghes %}
 If your instance has subdomain isolation enabled:
