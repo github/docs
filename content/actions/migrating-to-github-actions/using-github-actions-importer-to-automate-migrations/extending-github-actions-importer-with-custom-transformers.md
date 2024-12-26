@@ -21,9 +21,9 @@ redirect_from:
 
 {% data variables.product.prodname_actions_importer %} offers the ability to extend its built-in mapping by creating custom transformers. Custom transformers can be used to:
 
-* Convert items that {% data variables.product.prodname_actions_importer %} does not automatically convert, or modify how items are converted. For more information, see "[Creating custom transformers for items](#creating-custom-transformers-for-items)."
-* Convert references to runners to use different runner labels. For more information, see "[Creating custom transformers for runners](#creating-custom-transformers-for-runners)."
-* Convert environment variable values from your existing pipelines to {% data variables.product.prodname_actions %} workflows. For more information, see "[Creating custom transformers for environment variables](#creating-custom-transformers-for-environment-variables)."
+* Convert items that {% data variables.product.prodname_actions_importer %} does not automatically convert, or modify how items are converted. For more information, see [Creating custom transformers for items](#creating-custom-transformers-for-items).
+* Convert references to runners to use different runner labels. For more information, see [Creating custom transformers for runners](#creating-custom-transformers-for-runners).
+* Convert environment variable values from your existing pipelines to {% data variables.product.prodname_actions %} workflows. For more information, see [Creating custom transformers for environment variables](#creating-custom-transformers-for-environment-variables).
 
 ## Using custom transformers with {% data variables.product.prodname_actions_importer %}
 
@@ -57,7 +57,7 @@ You can create custom transformers that {% data variables.product.prodname_actio
 {% data variables.product.prodname_actions_importer %} uses custom transformers that are defined using a DSL built on top of Ruby. In order to create custom transformers for build steps and triggers:
 
 * Each custom transformer file must contain at least one `transform` method.
-* Each `transform` method must return a `Hash`, an array of `Hash`'s, or `nil`. This returned value will correspond to an action defined in YAML. For more information about actions, see "[AUTOTITLE](/actions/learn-github-actions/understanding-github-actions)."
+* Each `transform` method must return a `Hash`, an array of `Hash`'s, or `nil`. This returned value will correspond to an action defined in YAML. For more information about actions, see [AUTOTITLE](/actions/learn-github-actions/understanding-github-actions).
 
 ### Example custom transformer for a build step
 
@@ -98,7 +98,7 @@ You can customize the mapping between runners in your source CI/CD instance and 
 {% data variables.product.prodname_actions_importer %} uses custom transformers that are defined using a DSL built on top of Ruby. To create custom transformers for runners:
 
 * The custom transformer file must have at least one `runner` method.
-* The `runner` method accepts two parameters. The first parameter is the source CI/CD instance's runner label, and the second parameter is the corresponding {% data variables.product.prodname_actions %} runner label. For more information on {% data variables.product.prodname_actions %} runners, see "[AUTOTITLE](/actions/using-github-hosted-runners/about-github-hosted-runners#supported-runners-and-hardware-resources)."
+* The `runner` method accepts two parameters. The first parameter is the source CI/CD instance's runner label, and the second parameter is the corresponding {% data variables.product.prodname_actions %} runner label. For more information on {% data variables.product.prodname_actions %} runners, see [AUTOTITLE](/actions/using-github-hosted-runners/about-github-hosted-runners#supported-runners-and-hardware-resources).
 
 ### Example custom transformers for runners
 
@@ -127,7 +127,7 @@ You can customize the mapping between environment variables in your source CI/CD
 {% data variables.product.prodname_actions_importer %} uses custom transformers that are defined using a DSL built on top of Ruby. To create custom transformers for environment variables:
 
 * The custom transformer file must have at least one `env` method.
-* The `env` method accepts two parameters. The first parameter is the name of the environment variable in the original pipeline, and the second parameter is the updated value for the environment variable for {% data variables.product.prodname_actions %}. For more information about {% data variables.product.prodname_actions %} environment variables, see "[AUTOTITLE](/actions/learn-github-actions/variables)."
+* The `env` method accepts two parameters. The first parameter is the name of the environment variable in the original pipeline, and the second parameter is the updated value for the environment variable for {% data variables.product.prodname_actions %}. For more information about {% data variables.product.prodname_actions %} environment variables, see [AUTOTITLE](/actions/learn-github-actions/variables).
 
 ### Example custom transformers for environment variables
 
@@ -151,7 +151,7 @@ There are several ways you can set up custom transformers to map your environmen
   env "MONALISA", secret("OCTOCAT")
   ```
 
-  This will set up a reference to a secret named `OCTOCAT` in the transformed workflow. For the secret to work, you will need to create the secret in your GitHub repository. For more information, see "[AUTOTITLE](/actions/security-guides/using-secrets-in-github-actions#creating-secrets-for-a-repository)."
+  This will set up a reference to a secret named `OCTOCAT` in the transformed workflow. For the secret to work, you will need to create the secret in your GitHub repository. For more information, see [AUTOTITLE](/actions/security-guides/using-secrets-in-github-actions#creating-secrets-for-a-repository).
 
 * You can also use regular expressions to update the values of multiple environment variables at once. For example, the following custom transformer removes all environment variables from the converted workflow:
 

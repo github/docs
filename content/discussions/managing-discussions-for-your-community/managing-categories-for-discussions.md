@@ -16,7 +16,7 @@ redirect_from:
 
 {% data reusables.discussions.about-announcement-format %}
 
-Each category must have a unique name and emoji pairing, and can be accompanied by a detailed description stating its purpose. Categories help maintainers organize how conversations are filed and are customizable to help distinguish categories that are Q&A or more open-ended conversations. {% data reusables.discussions.repository-category-limit %} For more information, see "[AUTOTITLE](/discussions/collaborating-with-your-community-using-discussions/about-discussions#about-categories-and-formats-for-discussions)."
+Each category must have a unique name and emoji pairing, and can be accompanied by a detailed description stating its purpose. Categories help maintainers organize how conversations are filed and are customizable to help distinguish categories that are Q&A or more open-ended conversations. {% data reusables.discussions.repository-category-limit %} For more information, see [AUTOTITLE](/discussions/collaborating-with-your-community-using-discussions/about-discussions#about-categories-and-formats-for-discussions).
 
 {% ifversion discussions-category-section %}
 {% data reusables.discussions.category-sections %}{% endif %}
@@ -39,7 +39,7 @@ Each category must have a unique name and emoji pairing, and can be accompanied 
 {% data reusables.discussions.edit-categories %}
 1. Click **New category**.
 
-   ![Screenshot of the "Manage discussion categories" page.  A button, labeled "New category", is highlighted with an orange outline.](/assets/images/help/discussions/click-new-category-button.png)
+   ![Screenshot of the "Manage discussion categories" page. A button, labeled "New category", is highlighted with an orange outline.](/assets/images/help/discussions/click-new-category-button.png)
 
 1. {% data reusables.discussions.edit-category-details %}
 {% ifversion discussions-category-section %}
@@ -54,7 +54,7 @@ Each category must have a unique name and emoji pairing, and can be accompanied 
 {% data reusables.discussions.discussions-tab %}
 {% data reusables.discussions.edit-categories %}
 1. Click **New section**.
-   ![Screenshot of the "Manage discussion categories" page.  A button, labeled "New section", is highlighted with an orange outline.](/assets/images/help/discussions/click-new-section-button.png)
+   ![Screenshot of the "Manage discussion categories" page. A button, labeled "New section", is highlighted with an orange outline.](/assets/images/help/discussions/click-new-section-button.png)
 1. Edit the emoji and title of the section.
 1. Select the categories that you want to add to the section. A category can only belong to one section at a time.
 1. Click **Create**.

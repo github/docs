@@ -7,8 +7,10 @@
 * Python
 * Ruby
 * Swift
+{% ifversion code-scanning-actions-language %}* {% data variables.product.prodname_actions %} workflows{% endif %}
 
 > [!NOTE]
+>
 > * Use {% ifversion codeql-language-identifiers-311 %}`java-kotlin`{% else %}`java`{% endif %} to analyze code written in Java, Kotlin or both.
 > * Use {% ifversion codeql-language-identifiers-311 %}`javascript-typescript`{% else %}`javascript`{% endif %} to analyze code written in JavaScript, TypeScript or both.
 

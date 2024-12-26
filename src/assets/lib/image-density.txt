@@ -95,10 +95,10 @@
 /assets/images/help/2fa/add-sms-number-option.png 1x
 /assets/images/help/2fa/disable-two-factor-authentication.png 2x
 /assets/images/help/2fa/edit-2fa-method-dropdown.png 1x
-/assets/images/help/2fa/filter-org-collaborator-by-2fa-required.png 1x
-/assets/images/help/2fa/filter-org-members-by-2fa-required.png 1x
-/assets/images/help/2fa/filter-org-members-by-2fa.png 2x
-/assets/images/help/2fa/filter-outside-collaborators-by-2fa.png 2x
+/assets/images/help/2fa/filter-enterprise-members-by-2fa.png 1x
+/assets/images/help/2fa/filter-org-members-by-2fa.png 1x
+/assets/images/help/2fa/legacy-filter-org-members-by-2fa.png 1x
+/assets/images/help/2fa/legacy-filter-org-collaborators-by-2fa.png 2x
 /assets/images/help/2fa/ghes-3.8-and-higher-2fa-wizard-app-click-code.png 1x
 /assets/images/help/2fa/unlink-this-email.png 2x
 /assets/images/help/2fa/view-recovery-codes-button.png 2x

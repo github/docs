@@ -10,7 +10,7 @@ versions:
 
 {% data reusables.education.about-github-community-exchange-intro %} {% data variables.product.prodname_community_exchange %} can help you make your first open source contribution or grow your own open source project.
 
-For more information about how {% data variables.product.prodname_community_exchange %} can help you as a student, see "[AUTOTITLE](/education/explore-the-benefits-of-teaching-and-learning-with-github-education/github-global-campus-for-students/about-github-community-exchange)."
+For more information about how {% data variables.product.prodname_community_exchange %} can help you as a student, see [AUTOTITLE](/education/explore-the-benefits-of-teaching-and-learning-with-github-education/github-global-campus-for-students/about-github-community-exchange).
 
 ## Accessing {% data variables.product.prodname_community_exchange %}
 
@@ -36,8 +36,8 @@ To star a repository: Go to your {% data variables.product.prodname_community_ex
 
 The {% data variables.product.prodname_community_exchange %} community moderates repository submissions. You can report abusive repositories, spammy, or disruptive content at any time.
 
-To report an abusive repository: Go to your {% data variables.product.prodname_community_exchange %} home page, find the repository you want to report, click the {% octicon "kebab-horizontal" aria-label="The edit icon" %} drop-down right by its name, then click **{% octicon "report" aria-label="The report symbol" %} Report abuse**.
+To report an abusive repository: Go to your {% data variables.product.prodname_community_exchange %} home page, find the repository you want to report, click the {% octicon "kebab-horizontal" aria-label="The edit icon" %} drop-down right by its name, then click **{% octicon "report" aria-hidden="true" %} Report abuse**.
 
 ## Further reading
 
-* ""[AUTOTITLE](/education/explore-the-benefits-of-teaching-and-learning-with-github-education/github-global-campus-for-students/about-github-community-exchange)""
+* [AUTOTITLE](/education/explore-the-benefits-of-teaching-and-learning-with-github-education/github-global-campus-for-students/about-github-community-exchange)

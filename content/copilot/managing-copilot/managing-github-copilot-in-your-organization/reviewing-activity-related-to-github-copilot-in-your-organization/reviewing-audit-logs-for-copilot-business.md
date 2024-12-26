@@ -50,10 +50,10 @@ You can search for any of the {% data variables.product.prodname_copilot %} audi
 * `action:copilot`: Returns all {% data variables.product.prodname_copilot %} audit log events for your organization{% ifversion ghec %} or enterprise{% endif %}.
 * `action:copilot.cfb_seat_assignment_created`: Returns all audit log events related to a {% data variables.product.prodname_copilot_business_short %} seat being assigned to a new user.
 
-For a full list of {% data variables.product.prodname_copilot %} audit log events, see{% ifversion ghec %} "[AUTOTITLE](/enterprise-cloud@latest/admin/monitoring-activity-in-your-enterprise/reviewing-audit-logs-for-your-enterprise/audit-log-events-for-your-enterprise#copilot)" and{% endif %} "[AUTOTITLE](/organizations/keeping-your-organization-secure/managing-security-settings-for-your-organization/audit-log-events-for-your-organization#copilot)."
+For a full list of {% data variables.product.prodname_copilot %} audit log events, see{% ifversion ghec %} [AUTOTITLE](/enterprise-cloud@latest/admin/monitoring-activity-in-your-enterprise/reviewing-audit-logs-for-your-enterprise/audit-log-events-for-your-enterprise#copilot) and{% endif %} [AUTOTITLE](/organizations/keeping-your-organization-secure/managing-security-settings-for-your-organization/audit-log-events-for-your-organization#copilot).
 
 ## Further reading
 
 {% ifversion ghec %}
-* "[AUTOTITLE](/admin/monitoring-activity-in-your-enterprise/reviewing-audit-logs-for-your-enterprise/searching-the-audit-log-for-your-enterprise)"{% endif %}
-* "[AUTOTITLE](/organizations/keeping-your-organization-secure/managing-security-settings-for-your-organization/reviewing-the-audit-log-for-your-organization)"
+* [AUTOTITLE](/admin/monitoring-activity-in-your-enterprise/reviewing-audit-logs-for-your-enterprise/searching-the-audit-log-for-your-enterprise){% endif %}
+* [AUTOTITLE](/organizations/keeping-your-organization-secure/managing-security-settings-for-your-organization/reviewing-the-audit-log-for-your-organization)

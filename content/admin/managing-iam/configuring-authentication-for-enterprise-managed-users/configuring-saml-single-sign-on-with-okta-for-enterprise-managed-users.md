@@ -33,7 +33,7 @@ The {% data variables.product.prodname_emu_idp_application %} application on Okt
 
 1. In the application on Okta, click the **Assignments** tab and assign the application to your Okta account.
 1. Click the **Sign on** tab.
-1. Next to "Enterprise Name," type the name of your  {% data variables.enterprise.prodname_emu_enterprise %}.
+1. Next to "Enterprise Name," type the name of your {% data variables.enterprise.prodname_emu_enterprise %}.
 
    >[!NOTE]
    >For example, if you sign in to `github.com/enterprises/octocorp` or `{% data variables.enterprise.data_residency_example_domain %}`, your enterprise name is `octocorp`.
@@ -48,8 +48,8 @@ The {% data variables.product.prodname_emu_idp_application %} application on Okt
 ## Configuring your enterprise
 
 1. Sign in to your {% data variables.enterprise.prodname_emu_enterprise %}.
-1. Using the details you noted from Okta, follow the steps in "[AUTOTITLE](/admin/managing-iam/configuring-authentication-for-enterprise-managed-users/configuring-saml-single-sign-on-for-enterprise-managed-users#configure-your-enterprise)."
+1. Using the details you noted from Okta, follow the steps in [AUTOTITLE](/admin/managing-iam/configuring-authentication-for-enterprise-managed-users/configuring-saml-single-sign-on-for-enterprise-managed-users#configure-your-enterprise).
 
 ## Enabling provisioning
 
-After you enable SAML SSO, enable provisioning. For more information, see "[AUTOTITLE](/admin/identity-and-access-management/provisioning-user-accounts-for-enterprise-managed-users/configuring-scim-provisioning-with-okta)."
+After you enable SAML SSO, enable provisioning. For more information, see [AUTOTITLE](/admin/identity-and-access-management/provisioning-user-accounts-for-enterprise-managed-users/configuring-scim-provisioning-with-okta).

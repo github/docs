@@ -29,9 +29,9 @@ If you don't want to use the default shell, you can open a new terminal session 
 
 If you want to use a shell that isn't already installed in the base image or dev container configuration for a codespace, you can install a new shell.
 
-If you're using the default dev container image, look for installation instructions for Ubuntu Linux. If you just want to use a different shell for one session, you can use the command line to install the shell in the codespace you're working in. However, you may lose programs you have installed if you rebuild the container in the codespace. For more information, see "[AUTOTITLE](/codespaces/getting-started/deep-dive#about-the-directory-structure-of-a-codespace)."
+If you're using the default dev container image, look for installation instructions for Ubuntu Linux. If you just want to use a different shell for one session, you can use the command line to install the shell in the codespace you're working in. However, you may lose programs you have installed if you rebuild the container in the codespace. For more information, see [AUTOTITLE](/codespaces/getting-started/deep-dive#about-the-directory-structure-of-a-codespace).
 
-A more robust option for installing new shells is to include the installation commands either in a dotfiles repository, or as a lifecycle command such as `postCreateCommand` in a `devcontainer.json` file. You should use a dotfiles repository to install a shell you want to use in all your own codespaces, and a `devcontainer.json` file for a shell that contributors to a specific repository should have installed. For more information, see "[AUTOTITLE](/codespaces/setting-your-user-preferences/personalizing-github-codespaces-for-your-account#dotfiles)" and "[AUTOTITLE](/codespaces/setting-up-your-project-for-codespaces/adding-a-dev-container-configuration/introduction-to-dev-containers)."
+A more robust option for installing new shells is to include the installation commands either in a dotfiles repository, or as a lifecycle command such as `postCreateCommand` in a `devcontainer.json` file. You should use a dotfiles repository to install a shell you want to use in all your own codespaces, and a `devcontainer.json` file for a shell that contributors to a specific repository should have installed. For more information, see [AUTOTITLE](/codespaces/setting-your-user-preferences/personalizing-github-codespaces-for-your-account#dotfiles) and [AUTOTITLE](/codespaces/setting-up-your-project-for-codespaces/adding-a-dev-container-configuration/introduction-to-dev-containers).
 
 ### Adding a {% data variables.product.prodname_vscode_shortname %} terminal profile for a new shell
 
@@ -96,7 +96,7 @@ You can set a default terminal profile to choose the default shell used for all 
 
 When you connect to a codespace from the command line over SSH, you connect to a `bash` session in the codespace by default.
 
-If you have enabled a dotfiles repository for {% data variables.product.prodname_github_codespaces %}, you can change the default shell you connect to by adding a command to an installation script such as `install.sh` in your dotfiles. For more information, see "[AUTOTITLE](/codespaces/developing-in-a-codespace/using-github-codespaces-with-github-cli#ssh-into-a-codespace)" and "[AUTOTITLE](/codespaces/setting-your-user-preferences/personalizing-github-codespaces-for-your-account#dotfiles)." For example, the following command changes the default shell to `zsh`.
+If you have enabled a dotfiles repository for {% data variables.product.prodname_github_codespaces %}, you can change the default shell you connect to by adding a command to an installation script such as `install.sh` in your dotfiles. For more information, see [AUTOTITLE](/codespaces/developing-in-a-codespace/using-github-codespaces-with-github-cli#ssh-into-a-codespace) and [AUTOTITLE](/codespaces/setting-your-user-preferences/personalizing-github-codespaces-for-your-account#dotfiles). For example, the following command changes the default shell to `zsh`.
 
 ```shell copy
 sudo chsh "$(id -un)" --shell "/usr/bin/zsh"
@@ -119,9 +119,9 @@ When you have connected to the codespace, for most shells, you can use the comma
 
 With most shells, you have the option of using a configuration file, such as `.bashrc`, to configure the shell with your preferred settings. These settings can include things like aliases and environment variables.
 
-By default, codespaces contain predefined configuration for the shells that come preinstalled. For example, the home directory in a codespace contains `.bashrc` and `.zshrc` files. You can change the contents of these files then use a command like `source ~/.bashrc` to update your shell configuration. However, you will lose any changes to these files if you rebuild the container in a codespace. For more information, see "[AUTOTITLE](/codespaces/getting-started/deep-dive#about-the-directory-structure-of-a-codespace)."
+By default, codespaces contain predefined configuration for the shells that come preinstalled. For example, the home directory in a codespace contains `.bashrc` and `.zshrc` files. You can change the contents of these files then use a command like `source ~/.bashrc` to update your shell configuration. However, you will lose any changes to these files if you rebuild the container in a codespace. For more information, see [AUTOTITLE](/codespaces/getting-started/deep-dive#about-the-directory-structure-of-a-codespace).
 
-Generally, you should use a dotfiles repository to configure shells with your preferred settings. The setup in your dotfiles applies to all codespaces you create, and persists over rebuilds of the container. For more information, see "[AUTOTITLE](/codespaces/setting-your-user-preferences/personalizing-github-codespaces-for-your-account#dotfiles)."
+Generally, you should use a dotfiles repository to configure shells with your preferred settings. The setup in your dotfiles applies to all codespaces you create, and persists over rebuilds of the container. For more information, see [AUTOTITLE](/codespaces/setting-your-user-preferences/personalizing-github-codespaces-for-your-account#dotfiles).
 
 ### Troubleshooting the `fish` shell
 
@@ -153,5 +153,5 @@ To access the web-based interface for `fish_config`:
 
 ## Further reading
 
-* "[AUTOTITLE](/codespaces/setting-your-user-preferences)"
-* "[AUTOTITLE](/codespaces/managing-your-codespaces)"
+* [AUTOTITLE](/codespaces/setting-your-user-preferences)
+* [AUTOTITLE](/codespaces/managing-your-codespaces)

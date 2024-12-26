@@ -14,6 +14,7 @@ children:
   - /asking-github-copilot-questions-in-github-mobile
   - /asking-github-copilot-questions-in-windows-terminal
   - /using-copilot-text-completion
+  - /indexing-repositories-for-copilot-chat
   - /code-review
   - /using-github-copilot-in-the-command-line
   - /prompt-engineering-for-github-copilot
@@ -21,9 +22,8 @@ children:
   - /using-claude-sonnet-in-github-copilot
   - /finding-public-code-that-matches-github-copilot-suggestions
   - /using-github-copilot-for-pull-requests
-  - /example-use-cases
+  - /guides-on-using-github-copilot
 redirect_from:
   - /copilot/github-copilot-chat
   - /copilot/github-copilot-in-the-cli
 ---
-

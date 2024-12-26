@@ -22,6 +22,6 @@ children:
 {% ifversion ghes %}
 
 > [!NOTE]
-> To configure {% data variables.product.prodname_actions %} or {% data variables.product.prodname_registry %} for your enterprise, see "[AUTOTITLE](/admin/github-actions)" or "[AUTOTITLE](/admin/packages)."
+> To configure {% data variables.product.prodname_actions %} or {% data variables.product.prodname_registry %} for your enterprise, see [AUTOTITLE](/admin/github-actions) or [AUTOTITLE](/admin/packages).
 
 {% endif %}

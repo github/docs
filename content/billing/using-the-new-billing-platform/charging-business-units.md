@@ -56,17 +56,17 @@ For seat-based products like usage-based billing for {% data variables.product.p
 
 ## Adding a budget to a cost center
 
-After you create a cost center, you can add a monthly budget and receive alerts from the cost center to monitor your spending and usage. See "[AUTOTITLE](/billing/using-the-enhanced-billing-platform-for-enterprises/preventing-overspending)."
+After you create a cost center, you can add a monthly budget and receive alerts from the cost center to monitor your spending and usage. See [AUTOTITLE](/billing/using-the-enhanced-billing-platform-for-enterprises/preventing-overspending).
 
 ## Viewing cost center usage
 
-You can view the usage of your cost centers and download the usage data for further analysis. See "[AUTOTITLE](/billing/using-the-enhanced-billing-platform-for-enterprises/gathering-insights-on-your-spending)."
+You can view the usage of your cost centers and download the usage data for further analysis. See [AUTOTITLE](/billing/using-the-enhanced-billing-platform-for-enterprises/gathering-insights-on-your-spending).
 
 ## Viewing, editing, and deleting cost centers
 
 You can view, edit, and delete cost centers to manage your business units effectively.
 
-To add or remove members from a cost center, you can use the API. See "[AUTOTITLE](/rest/enterprise-admin/billing)."
+To add or remove members from a cost center, you can use the API. See [AUTOTITLE](/rest/enterprise-admin/billing).
 
 >[!NOTE] For {% data variables.product.prodname_copilot_short %} seats, {% data variables.product.company_short %} checks if a user is part of a cost center. If they are, their usage is shown under that cost center. If not, their usage is displayed under their organization. In this case, costs are assumed to belong to the first organization the user was assigned to.
 
@@ -94,4 +94,4 @@ You can still view the cost center even after you delete it. To do so, select th
 
 ## Further reading
 
-* "[AUTOTITLE](/rest/enterprise-admin/billing)"
+* [AUTOTITLE](/rest/enterprise-admin/billing)

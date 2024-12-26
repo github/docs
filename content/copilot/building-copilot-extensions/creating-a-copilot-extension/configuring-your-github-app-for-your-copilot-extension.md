@@ -28,17 +28,15 @@ Once you have configured your server and created your {% data variables.product.
 {% data reusables.apps.settings-step %}
 {% data reusables.apps.enterprise-apps-steps %}
 1. To the right of the {% data variables.product.prodname_github_app %} you want to configure for your {% data variables.product.prodname_copilot_extension_short %}, click **Edit**.
-1. In the "Identifying and authorizing users" section, under "Callback URL", enter your server's hostname, then click **Save changes**.
+1. In the "Identifying and authorizing users" section, under "Callback URL", enter your callback endpoint URL, then click **Save changes**.
 
-    > [!NOTE] This step is only required if you intend to request user authorization (OAuth) during installation.
-    >
-    > Your server's hostname is the forwarding endpoint that you copied from your terminal when you configured your server. For more information, see "[AUTOTITLE](/copilot/building-copilot-extensions/creating-a-copilot-extension/configuring-your-server-to-deploy-your-copilot-agent)."
+    > [!NOTE] Your server's hostname is the forwarding endpoint that you copied from your terminal when you configured your server. See [AUTOTITLE](/copilot/building-copilot-extensions/creating-a-copilot-extension/configuring-your-server-to-deploy-your-copilot-agent).
     >
     > If you are using an ephemeral domain in ngrok, you will need to update this URL every time you restart your ngrok server.
 
 1. In the left sidebar, click **Permissions & events**.
 1. To expand the "Account permissions" section, click anywhere in the section.
-1. In the "{% data variables.product.prodname_copilot_chat %}" row, select the **Access:** dropdown menu, then click **Read-only**. Click **Save changes**.
+{% data reusables.copilot.copilot-extensions.account-permissions %}
 1. In the left sidebar, click **{% data variables.product.prodname_copilot_short %}**.
 1. Read the {% data variables.product.prodname_marketplace %} Developer Agreement and the {% data variables.product.github %} Pre-release License Terms, then accept the terms for creating a {% data variables.product.prodname_copilot_extension_short %}.
 
@@ -62,17 +60,15 @@ Once you have configured your server and created your {% data variables.product.
 {% data reusables.apps.settings-step %}
 {% data reusables.apps.enterprise-apps-steps %}
 1. To the right of the {% data variables.product.prodname_github_app %} you want to configure for your {% data variables.product.prodname_copilot_extension_short %}, click **Edit**.
-1. In the "Identifying and authorizing users" section, under "Callback URL", enter your server's hostname, then click **Save changes**.
+1. In the "Identifying and authorizing users" section, under "Callback URL", enter your callback endpoint URL, then click **Save changes**.
 
-    > [!NOTE] This step is only required if you intend to request user authorization (OAuth) during installation.
-    >
-    > Your server's hostname is the forwarding endpoint that you copied from your terminal when you configured your server. For more information, see "[AUTOTITLE](/copilot/building-copilot-extensions/creating-a-copilot-extension/configuring-your-server-to-deploy-your-copilot-agent)."
+    > [!NOTE] Your server's hostname is the forwarding endpoint that you copied from your terminal when you configured your server. See [AUTOTITLE](/copilot/building-copilot-extensions/creating-a-copilot-extension/configuring-your-server-to-deploy-your-copilot-agent).
     >
     > If you are using an ephemeral domain in ngrok, you will need to update this URL every time you restart your ngrok server.
 
 1. In the left sidebar, click **Permissions & events**.
 1. To expand the "Account permissions" section, click anywhere in the section.
-1. In the "{% data variables.product.prodname_copilot_chat %}" row, select the **Access:** dropdown menu, then click **Read-only**. Click **Save changes**.
+{% data reusables.copilot.copilot-extensions.account-permissions %}
 1. In the left sidebar, click **{% data variables.product.prodname_copilot_short %}**.
 1. Read the {% data variables.product.prodname_marketplace %} Developer Agreement and the {% data variables.product.github %} Pre-release License Terms, then accept the terms for creating a {% data variables.product.prodname_copilot_extension_short %}.
 

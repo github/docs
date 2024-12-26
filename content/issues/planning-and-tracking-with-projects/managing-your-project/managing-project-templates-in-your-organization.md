@@ -51,7 +51,7 @@ You can find all the templates in your organization on the "Templates" page.
 {% data reusables.projects.projects-tab %}
 {% data reusables.projects.templates-tab %}
 
-You can also add templates to teams and repositories, to make them accessible and more visible from the team or repository's "Templates" page. For more information, see "[AUTOTITLE](/issues/planning-and-tracking-with-projects/managing-your-project/adding-your-project-to-a-team)" and "[AUTOTITLE](/issues/planning-and-tracking-with-projects/managing-your-project/adding-your-project-to-a-repository)."
+You can also add templates to teams and repositories, to make them accessible and more visible from the team or repository's "Templates" page. For more information, see [AUTOTITLE](/issues/planning-and-tracking-with-projects/managing-your-project/adding-your-project-to-a-team) and [AUTOTITLE](/issues/planning-and-tracking-with-projects/managing-your-project/adding-your-project-to-a-repository).
 
 {% else %}
 
@@ -85,7 +85,7 @@ You can add up to six templates to your organization's recommended templates.
 
 {% data reusables.profile.access_org %}
 {% data reusables.profile.org_settings %}
-1. In the "Code, planning, and automation" section of the sidebar, click **{% octicon "table" aria-label="The table icon" %} Projects**.
+1. In the "Code, planning, and automation" section of the sidebar, click **{% octicon "table" aria-hidden="true" %} Projects**.
 1. Under "Recommended templates", click **Customize recommended templates**.
 1. In the list of templates owned by your organization, select up to six templates that you want to recommend to your members.
 
@@ -99,7 +99,7 @@ You can change the display order of your recommended templates in the "Create pr
 
 {% data reusables.profile.access_org %}
 {% data reusables.profile.org_settings %}
-1. In the "Code planning, and automation" section of the sidebar, click **{% octicon "table" aria-label="The table icon" %} Projects**.
+1. In the "Code planning, and automation" section of the sidebar, click **{% octicon "table" aria-hidden="true" %} Projects**.
 1. Under "Recommended templates", find the template you want to reposition, click on {% octicon "grabber" aria-label="Drag to reorder" %}, and drag the template to the new position.
 
    ![Screenshot of an organization's recommended templates settings. The 'Drag to reorder' handle is highlighted with an orange outline.](/assets/images/help/projects-v2/rec-template-handle.png)
@@ -108,4 +108,4 @@ You can change the display order of your recommended templates in the "Create pr
 
 ## Further reading
 
-* "[AUTOTITLE](/issues/planning-and-tracking-with-projects/creating-projects/creating-a-project)"
+* [AUTOTITLE](/issues/planning-and-tracking-with-projects/creating-projects/creating-a-project)

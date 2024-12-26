@@ -22,7 +22,7 @@ topics:
 
 In a cluster configuration for {% data variables.product.product_name %}, you may need to take an individual node offline. For example, you may need to replace the node's virtual machine (VM). If the node you want to replace operates in the storage tier, {% data variables.product.company_short %} recommends that you first evacuate the node's data services. Evacuation ensures that the remaining nodes contain the minimum expected copies of the data.
 
-For more information about nodes and service tiers for {% data variables.product.prodname_ghe_server %}, see "[AUTOTITLE](/admin/enterprise-management/configuring-clustering/about-cluster-nodes)."
+For more information about nodes and service tiers for {% data variables.product.prodname_ghe_server %}, see [AUTOTITLE](/admin/enterprise-management/configuring-clustering/about-cluster-nodes).
 
 > [!WARNING]
 > * To avoid data loss during replacement of a node, {% data variables.product.company_short %} strongly recommends evacuation of the applicable data services on the node before you take the node offline.

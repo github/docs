@@ -11,6 +11,8 @@ import {
   LogIcon,
   TerminalIcon,
   BookIcon,
+  ShieldLockIcon,
+  LockIcon,
 } from '@primer/octicons-react'
 
 const Icons = {
@@ -25,52 +27,44 @@ const Icons = {
   log: LogIcon,
   terminal: TerminalIcon,
   book: BookIcon,
+  'shield-lock': ShieldLockIcon,
+  lock: LockIcon,
 }
 
 type IconType = keyof typeof Icons
 
 type Props = {
-  title?: string
+  title: string
   icon?: IconType
-  url?: string
-  description?: string
-  tags?: string[]
+  url: string
+  description: string
+  tags: string[]
   spotlight?: boolean
   image?: string
   complexity?: string
 }
 
-const defaultProps = {
-  title: 'Article Name',
-  description:
-    'Man bun letterpress put a bird on it la croix offal, meh grailed hot chicken kombucha gochujang messenger bag fit before they sold out lyft.',
-  tags: ['Tag Example', 'Tag Example'],
-  icon: 'book',
-}
-
-function setImage(image: string) {
-  return (
-    // <div className="d-flex flex-column flex-align-center">
-    image ? (
-      <div
-        style={{
-          width: 'max-width',
-          height: 200,
-          backgroundColor: 'gray',
-          marginBottom: 20,
-          borderRadius: 5,
-        }}
-      ></div>
-    ) : null
-    // </div>
-  )
+function setImage(image: string, alt: string) {
+  return image ? (
+    <img
+      src={image}
+      alt={alt}
+      style={{
+        backgroundColor: 'gray',
+        marginBottom: 20,
+        borderRadius: 5,
+        width: '100%',
+        height: 'auto',
+      }}
+    />
+  ) : null
 }
 const spotlightClasses = 'd-flex flex-column align-items-center'
 export const CookBookArticleCard = ({
-  title = defaultProps.title,
-  icon = defaultProps.icon as IconType,
-  tags = defaultProps.tags,
-  description = defaultProps.description,
+  title,
+  icon,
+  tags,
+  description,
   image = '',
   url,
   spotlight = false,
@@ -86,7 +80,7 @@ export const CookBookArticleCard = ({
         style={{ minHeight: 200 }}
         className={spotlight ? spotlightClasses : 'd-flex pb-3 border-bottom'}
       >
-        {spotlight ? setImage(image) : null}
+        {spotlight ? setImage(image, title) : null}
         {spotlight
           ? null
           : IconComponent && (
@@ -104,7 +98,7 @@ export const CookBookArticleCard = ({
             {tags.map((tag, index) => (
               <Label key={index} variant="accent" sx={{ mr: 1 }} size="small">
                 {tag}
-              </Label> //fix this to have unique keys
+              </Label>
             ))}
           </LabelGroup>
         </div>

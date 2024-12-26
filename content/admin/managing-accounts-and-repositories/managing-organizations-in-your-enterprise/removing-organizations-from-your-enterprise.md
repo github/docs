@@ -35,7 +35,7 @@ As part of the downgrade to the free plan:
 ## Removing an organization from your enterprise
 
 {% data reusables.enterprise-accounts.access-enterprise %}
-1. In the left sidebar, click  **Organizations**.
+1. In the left sidebar, click **Organizations**.
 1. In the search bar, begin typing the organization's name until the organization appears in the search results.
 1. To the right of the organization's name, select the {% octicon "gear" aria-label="Organization settings" %} dropdown menu and click **Remove organization**.
 
@@ -44,4 +44,4 @@ As part of the downgrade to the free plan:
 
 ## Further reading
 
-* "[AUTOTITLE](/admin/overview/about-enterprise-accounts)"
+* [AUTOTITLE](/admin/overview/about-enterprise-accounts)

@@ -14,7 +14,7 @@ When you create a codespace from a template repository or a template on the "You
 ## Committing your changes
 
 {% data reusables.codespaces.source-control-activity-bar %}
-1. To stage your changes, click  {% octicon "plus" aria-label="Stage changes" %} next to the file you've changed, or next to **Changes** if you've changed multiple files and you want to stage them all.
+1. To stage your changes, click {% octicon "plus" aria-label="Stage changes" %} next to the file you've changed, or next to **Changes** if you've changed multiple files and you want to stage them all.
 
    ![Screenshot of the "Source control" side bar with the staging button (a plus sign), to the right of "Changes," highlighted with a dark orange outline.](/assets/images/help/codespaces/codespaces-commit-stage.png)
 

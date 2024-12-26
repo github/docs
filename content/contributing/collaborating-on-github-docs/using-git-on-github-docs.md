@@ -8,7 +8,7 @@ versions:
 
 This article describes the process of creating a topic branch for the documentation repository, committing changes, and pushing your changes back up to the remote repository.
 
-The article assumes you have already cloned the documentation repository locally and you will be making changes on your local computer rather than on {% data variables.product.prodname_dotcom %} or in a codespace. For more information, see "[AUTOTITLE](/repositories/creating-and-managing-repositories/cloning-a-repository?tool=webui)."
+The article assumes you have already cloned the documentation repository locally and you will be making changes on your local computer rather than on {% data variables.product.prodname_dotcom %} or in a codespace. For more information, see [AUTOTITLE](/repositories/creating-and-managing-repositories/cloning-a-repository?tool=webui).
 
 ## Setting up your topic branch and making changes
 
@@ -127,7 +127,7 @@ To keep your local branches in sync with their remotes and avoid merge conflicts
 * If a commit addresses an issue, you can reference the issue number in the commit, and a link to the commit will appear in the issue conversation timeline: "Addresses #1234 - adds steps for backing up the VM before upgrading."
 
   > [!NOTE]
-  > We generally don't close an issue via a commit. To close an issue, open a pull request and add "Closes #1234" to the description. The linked issue will be closed when the pull request is merged. For more information, see "[AUTOTITLE](/issues/tracking-your-work-with-issues/linking-a-pull-request-to-an-issue)."
+  > We generally don't close an issue via a commit. To close an issue, open a pull request and add "Closes #1234" to the description. The linked issue will be closed when the pull request is merged. For more information, see [AUTOTITLE](/issues/tracking-your-work-with-issues/linking-a-pull-request-to-an-issue).
 
 * Make commit messages clear, detailed, and imperative. For example: "Adds a conceptual article about 2FA," not "Add info."
 * Try not to leave uncommitted changes in your local branch when you finish working for the day. Get to a good stopping point and commit and push your changes so your work is backed up to the remote repository.
@@ -139,7 +139,7 @@ When you try to merge two branches that contain different changes to the same pa
 
 There are two ways to handle merge conflicts:
 * Edit the file in your text editor and choose which changes to keep. Then commit the updated file to your topic branch from the command line.
-* "[AUTOTITLE](/pull-requests/collaborating-with-pull-requests/addressing-merge-conflicts/resolving-a-merge-conflict-on-github)."
+* [AUTOTITLE](/pull-requests/collaborating-with-pull-requests/addressing-merge-conflicts/resolving-a-merge-conflict-on-github).
 
 ### Resolving merge conflicts by editing the file and committing the changes
 
@@ -191,4 +191,4 @@ We recommend you open your pull request on {% data variables.product.prodname_do
 > [!NOTE]
 > You can quickly access pull requests you've created by clicking **Pull requests** at the top of every page on {% data variables.product.prodname_dotcom %}.
 
-For more information, see "[AUTOTITLE](/pull-requests/collaborating-with-pull-requests/proposing-changes-to-your-work-with-pull-requests/creating-a-pull-request?tool=webui#creating-the-pull-request)."
+For more information, see [AUTOTITLE](/pull-requests/collaborating-with-pull-requests/proposing-changes-to-your-work-with-pull-requests/creating-a-pull-request?tool=webui#creating-the-pull-request).

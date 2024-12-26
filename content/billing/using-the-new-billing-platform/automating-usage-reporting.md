@@ -14,14 +14,14 @@ permissions: 'Enterprise owners and billing managers'
 product: '{% data reusables.billing.enhanced-billing-platform-product %}'
 ---
 
-You can automatically pull data from {% data variables.product.github %} to populate the business systems you use to monitor costs and usage using the REST API. If you haven't used the {% data variables.product.github %} REST API before, the following articles are a good starting point, see "[AUTOTITLE](/rest/using-the-rest-api).
+You can automatically pull data from {% data variables.product.github %} to populate the business systems you use to monitor costs and usage using the REST API. If you haven't used the {% data variables.product.github %} REST API before, the following articles are a good starting point, see [AUTOTITLE](/rest/using-the-rest-api).
 
 ## Using the billing platform `/usage` endpoint to retrieve metered usage details for an enterprise
 
 The enhanced billing platform provides a single REST API `/usage` endpoint that you can use to report on the use of all metered products. The usage data provided by this endpoint is available only to enterprise owners and enterprise billing managers, so you will need to authenticate with {% data variables.product.github %}.
 
 * If you use the GitHub CLI, use the `gh auth login` command to authenticate.
-* Otherwise, you will need to create a {% data variables.product.pat_v1 %}, see "[Creating a {% data variables.product.pat_v1 %}](/authentication/keeping-your-account-and-data-secure/managing-your-personal-access-tokens#creating-a-personal-access-token-classic)."
+* Otherwise, you will need to create a {% data variables.product.pat_v1 %}, see [Creating a {% data variables.product.pat_v1 %}](/authentication/keeping-your-account-and-data-secure/managing-your-personal-access-tokens#creating-a-personal-access-token-classic).
 
 When you call the `/usage` endpoint, you must specify the enterprise that you want data for and, by default, usage for the current year that does not belong to a cost center is reported. You can reduce the scope of data returned by the endpoint using query parameters.
 
@@ -117,8 +117,8 @@ Example of the new response
 | Previous property	| Calculate from new API response |
 |------	|-----------	|
 | `days_left_in_billing_cycle` | Not available. This information can be inferred by subtracting the current day of the month from the number of days in the current month. |
-| `estimated_paid_storage_for_month`| This is now represented as a $ amount via `netAmount`. <br><br> Prerequisite: pass the `month` and `year` query parameters. <br><br>  <i> For Actions storage </i> <ul><li> Filter results by `"product": "Actions"` and  `"unitType": "GigabyteHours"`</li><li> Sum `netAmount`</li></ul>  <i> For Packages storage </i> <ul><li> Filter results by `"product": "Packages"` and  `"unitType": "GigabyteHours"`</li><li> Sum `netAmount`</li></ul>|
-| `estimated_storage_for_month` | Prerequisite: pass the `month` and `year` query parameters.  <br><br>  <i> For Actions storage </i> <ul><li> Filter results by `"product": "Actions"` and  `"unitType": "GigabyteHours"`</li><li> Sum `quantity`</li></ul>  <i> For Packages storage </i> <ul><li> Filter results by `"product": "Packages"` and  `"unitType": "GigabyteHours"`</li><li> Sum `quantity`</li></ul>|
+| `estimated_paid_storage_for_month`| This is now represented as a $ amount via `netAmount`. <br><br> Prerequisite: pass the `month` and `year` query parameters. <br><br>  <i> For Actions storage </i> <ul><li> Filter results by `"product": "Actions"` and `"unitType": "GigabyteHours"`</li><li> Sum `netAmount`</li></ul>  <i> For Packages storage </i> <ul><li> Filter results by `"product": "Packages"` and `"unitType": "GigabyteHours"`</li><li> Sum `netAmount`</li></ul>|
+| `estimated_storage_for_month` | Prerequisite: pass the `month` and `year` query parameters.  <br><br>  <i> For Actions storage </i> <ul><li> Filter results by `"product": "Actions"` and `"unitType": "GigabyteHours"`</li><li> Sum `quantity`</li></ul>  <i> For Packages storage </i> <ul><li> Filter results by `"product": "Packages"` and `"unitType": "GigabyteHours"`</li><li> Sum `quantity`</li></ul>|
 
 {% endrowheaders %}
 

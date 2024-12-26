@@ -3,4 +3,4 @@
 * 3% credit card processing fee
 * 3% {% data variables.product.company_short %} service processing fee
 
-Organizations can save the 3% credit card processing fee by switching to invoiced billing for sponsorships. For more information, see "[AUTOTITLE](/sponsors/sponsoring-open-source-contributors/paying-for-github-sponsors-by-invoice)."
+Organizations can save the 3% credit card processing fee by switching to invoiced billing for sponsorships. For more information, see [AUTOTITLE](/sponsors/sponsoring-open-source-contributors/paying-for-github-sponsors-by-invoice).

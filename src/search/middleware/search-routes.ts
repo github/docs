@@ -16,8 +16,14 @@ import { getAutocompleteSearchResults } from '@/search/lib/get-elasticsearch-res
 import { getAISearchAutocompleteResults } from '@/search/lib/get-elasticsearch-results/ai-search-autocomplete'
 import { getSearchFromRequestParams } from '@/search/lib/search-request-params/get-search-from-request-params'
 import { getGeneralSearchResults } from '@/search/lib/get-elasticsearch-results/general-search'
+import { createRateLimiter } from '#src/shielding/middleware/rate-limit.js'
 
 const router = express.Router()
+if (process.env.NODE_ENV === 'development') {
+  router.use(createRateLimiter(10)) // just 1 worker in dev so 10 requests per minute allowed
+} else if (process.env.NODE_ENV === 'production') {
+  router.use(createRateLimiter(1)) // 1 * 25 requests per minute for prod
+}
 
 router.get('/legacy', (req: Request, res: Response) => {
   res.status(410).send('Use /api/search/v1 instead.')

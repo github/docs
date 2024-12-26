@@ -20,7 +20,7 @@ You can view analytics on your current and past sponsorships, the payments you'v
 
 ## About transaction metadata
 
-To track where your sponsorships are coming from, you can use custom URLs with metadata for your {% data variables.product.prodname_sponsors %} profile or checkout page. The metadata will be included in your transaction export in the metadata column. For more information about exporting transaction data, see "[Exporting your sponsorship data](#exporting-your-sponsorship-data)."
+To track where your sponsorships are coming from, you can use custom URLs with metadata for your {% data variables.product.prodname_sponsors %} profile or checkout page. The metadata will be included in your transaction export in the metadata column. For more information about exporting transaction data, see [Exporting your sponsorship data](#exporting-your-sponsorship-data).
 
 Metadata must use the `key=value` format and can be added to the end of these URLs.
 

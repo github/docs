@@ -17,7 +17,7 @@ You must accept the terms of service to publish actions in {% data variables.pro
 
 ## About publishing actions
 
-Before you can publish an action, you'll need to create an action in your repository. For more information, see "[AUTOTITLE](/actions/creating-actions)."
+Before you can publish an action, you'll need to create an action in your repository. For more information, see [AUTOTITLE](/actions/creating-actions).
 
 When you plan to publish your action to {% data variables.product.prodname_marketplace %}, you'll need to ensure that the repository only includes the metadata file, code, and files necessary for the action. Creating a single repository for the action allows you to tag, release, and package the code in a single unit. {% data variables.product.prodname_dotcom %} also uses the action's metadata on your {% data variables.product.prodname_marketplace %} page.
 
@@ -51,7 +51,7 @@ To draft a new release and publish the action to {% data variables.product.prodn
 1. Optionally, select the **Another Category** dropdown menu and click a secondary category.
 1. In the tag field, type a version for your action. This helps people know what changes or features the release includes. People will see the version in the action's dedicated {% data variables.product.prodname_marketplace %} page.
 1. In the title field, type a release title.
-1. Complete all other fields and click **Publish release**. Publishing requires you to use two-factor authentication. For more information, see "[AUTOTITLE](/authentication/securing-your-account-with-two-factor-authentication-2fa/configuring-two-factor-authentication)."
+1. Complete all other fields and click **Publish release**. Publishing requires you to use two-factor authentication. For more information, see [AUTOTITLE](/authentication/securing-your-account-with-two-factor-authentication-2fa/configuring-two-factor-authentication).
 
 ## Removing an action from {% data variables.product.prodname_marketplace %}
 
@@ -65,7 +65,7 @@ To remove a published action from {% data variables.product.prodname_marketplace
 
 ## Transferring an action repository
 
-You can transfer an action repository to another user or organization. For more information, see "[AUTOTITLE](/repositories/creating-and-managing-repositories/transferring-a-repository)."
+You can transfer an action repository to another user or organization. For more information, see [AUTOTITLE](/repositories/creating-and-managing-repositories/transferring-a-repository).
 
 When a repository admin transfers an action repository, {% data variables.product.prodname_dotcom %} automatically creates a redirect from the previous URL to the new URL, meaning workflows that use the affected action do not need to be updated.
 
@@ -76,6 +76,6 @@ Actions published on {% data variables.product.prodname_marketplace %} are linke
 
 ## About badges in {% data variables.product.prodname_marketplace %}
 
-Actions with the {% octicon "verified" aria-label="The verified badge" %}, or  verified creator badge,  indicate that {% data variables.product.prodname_dotcom %} has verified the creator of the action as a partner organization. Partners can email <a href="mailto:partnerships@github.com">partnerships@github.com</a> to request the verified creator badge.
+Actions with the {% octicon "verified" aria-label="The verified badge" %}, or verified creator badge, indicate that {% data variables.product.prodname_dotcom %} has verified the creator of the action as a partner organization. Partners can email <a href="mailto:partnerships@github.com">partnerships@github.com</a> to request the verified creator badge.
 
 ![Screenshot of {% data variables.product.prodname_actions %} with the verified creator badge.](/assets/images/marketplace/verified-creator-badge-for-actions.png)

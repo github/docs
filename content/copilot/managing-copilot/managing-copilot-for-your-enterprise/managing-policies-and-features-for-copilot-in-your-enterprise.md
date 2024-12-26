@@ -77,16 +77,24 @@ You can chat with {% data variables.product.prodname_copilot %} in your IDE to g
 
 ### {% data variables.product.prodname_copilot_short %} access to {% data variables.copilot.copilot_claude_sonnet %}
 
-If you grant access to **Anthropic {% data variables.copilot.copilot_claude_sonnet %} in {% data variables.product.prodname_copilot_short %}**, members of your enterprise can choose to use this model rather than the default `GPT 4o` model. For more information, see "[AUTOTITLE](/copilot/using-github-copilot/using-claude-sonnet-in-github-copilot)."
+{% data reusables.copilot.claude-sonnet-preview-note %}
+
+By default, {% data variables.product.prodname_copilot_chat_short %} uses the `GPT 4o` model. If you grant access to **Anthropic {% data variables.copilot.copilot_claude_sonnet %} in {% data variables.product.prodname_copilot_short %}**, members of your enterprise can choose to use this model rather than the default `GPT 4o` model. See [AUTOTITLE](/copilot/using-github-copilot/using-claude-sonnet-in-github-copilot).
 
 ### {% data variables.product.prodname_copilot_short %} access to the o1 family of models
 
 {% data reusables.models.o1-models-preview-note %}
 
-By default, {% data variables.product.prodname_copilot_chat_short %} uses the `GPT 4o` model. If you grant access to the o1 family of models, members of your enterprise can select the specific model {% data variables.product.prodname_copilot_chat_short %} will use in a conversation. The o1 family of models includes two models:
+By default, {% data variables.product.prodname_copilot_chat_short %} uses the `GPT 4o` model. If you grant access to the o1 family of models, members of your enterprise can select to use these models rather than the default `GPT 4o` model.
 
-* `o1-preview`: This model is focused on advanced reasoning and solving complex problems, in particular in math and science. It responds more slowly than the `gpt-4o` model. Each member of your enterprise can make 10 requests to this model per day.
-* `o1-mini`: This is the faster version of the `o1-preview` model, balancing the use of complex reasoning with the need for faster responses. It is best suited for code generation and small context operations. Each member of your enterprise can make 50 requests to this model per day.
+The o1 family of models includes three models:
+
+* `o1`/`o1-preview`: These models are focused on advanced reasoning and solving complex problems, in particular in math and science. They respond more slowly than the `gpt-4o` model. Each member of your enterprise can make 10 requests to each of these models per day.
+* `o1-mini`: This is the faster version of the `o1` model, balancing the use of complex reasoning with the need for faster responses. It is best suited for code generation and small context operations. Each member of your enterprise can make 50 requests to this model per day.
+
+### {% data variables.product.prodname_copilot_short %} Metrics API access
+
+Enable this policy to allow users to use the {% data variables.product.prodname_copilot_short %} Metrics API. See [AUTOTITLE](/rest/copilot/copilot-metrics).
 
 ## Configuring policies for {% data variables.product.prodname_copilot %}
 

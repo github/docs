@@ -6,8 +6,6 @@
 import languages from '@/languages/lib/languages'
 import { allIndexVersionKeys, versionToIndexVersionMap } from '@/search/lib/elasticsearch-versions'
 import { SearchTypes } from '@/search/types'
-import { versionAliases } from '@/search/lib/helpers/old-version-logic'
-import { allVersions } from '@/versions/lib/all-versions'
 
 import type { SearchRequestQueryParams } from '@/search/lib/search-request-params/types'
 
@@ -60,16 +58,6 @@ const SHARED_PARAMS_OBJ: SearchRequestQueryParams[] = [
 const GENERAL_SEARCH_PARAMS_OBJ: SearchRequestQueryParams[] = [
   ...SHARED_PARAMS_OBJ,
   { key: 'query' },
-  // TODO: Overwrite with old version logic for now
-  {
-    key: 'version',
-    default_: 'dotcom',
-    validate: (v) => {
-      if (versionAliases[v] || allVersions[v]) return true
-      const valid = [...Object.keys(versionAliases), ...Object.keys(allVersions)]
-      throw new ValidationError(`'${v}' not in ${valid}`)
-    },
-  },
   { key: 'language', default_: 'en', validate: (v) => v in languages },
   {
     key: 'size',

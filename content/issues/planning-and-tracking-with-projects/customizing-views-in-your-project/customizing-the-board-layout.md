@@ -13,7 +13,7 @@ topics:
 
 {% data reusables.projects.about-board-layout %}
 
-For more information about changing a view to use the board layout, see "[AUTOTITLE](/issues/planning-and-tracking-with-projects/customizing-views-in-your-project/changing-the-layout-of-a-view#changing-the-project-layout)."
+For more information about changing a view to use the board layout, see [AUTOTITLE](/issues/planning-and-tracking-with-projects/customizing-views-in-your-project/changing-the-layout-of-a-view#changing-the-project-layout).
 
 {% ifversion projects-v2-column-limits %}
 

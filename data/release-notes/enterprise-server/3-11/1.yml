@@ -2,13 +2,13 @@ date: '2023-12-21'
 intro: |
   {% warning %}
 
-  **Warning**: Hotpatch upgrades from GitHub Enterprise Server version `3.11.0` to `3.11.1` will result in the instance losing network connectivity after a reboot. We have removed the hotpatch upgrade package for the `3.11.1` version of GitHub Enterprise Server to ensure this upgrade path is not executed accidentally. Before you upgrade, please make sure you have read the "[Known issues](#3.11.1-known-issues)" section of these release notes.
+  **Warning**: Hotpatch upgrades from GitHub Enterprise Server version `3.11.0` to `3.11.1` will result in the instance losing network connectivity after a reboot. We have removed the hotpatch upgrade package for the `3.11.1` version of GitHub Enterprise Server to ensure this upgrade path is not executed accidentally. Before you upgrade, please make sure you have read the [Known issues](#3.11.1-known-issues) section of these release notes.
 
   {% endwarning %}
 sections:
   security_fixes:
     - |
-      **HIGH**: An improper authentication vulnerability was identified in GitHub Enterprise Server that allowed a bypass of private mode by using a specially crafted API request. Private mode is the mechanism that enforces authentication for publicly-scoped resources. For more information, see "[AUTOTITLE](/admin/configuration/hardening-security-for-your-enterprise/enabling-private-mode)."
+      **HIGH**: An improper authentication vulnerability was identified in GitHub Enterprise Server that allowed a bypass of private mode by using a specially crafted API request. Private mode is the mechanism that enforces authentication for publicly-scoped resources. For more information, see [AUTOTITLE](/admin/configuration/hardening-security-for-your-enterprise/enabling-private-mode).
 
       This vulnerability would allow unauthenticated attackers to gain access to various types of resources set as public on the instance. To exploit this vulnerability, an attacker would need network access to the GitHub Enterprise Server instance configured in private mode. This vulnerability was reported via the [GitHub Bug Bounty](https://bounty.github.com/) program and assigned [CVE-2023-6847](https://www.cve.org/cverecord?id=CVE-2023-6847).
     - |
@@ -32,7 +32,7 @@ sections:
     - |
       **MEDIUM**: An incorrect authorization vulnerability was identified that allowed issue comments to be read with an improperly scoped token. This vulnerability was reported via the [GitHub Bug Bounty Program](https://bounty.github.com/) and has been assigned [CVE-2023-51380](https://www.cve.org/CVERecord?id=CVE-2023-51380).
     - |
-      **LOW:** To render interactive maps in an instance's web UI using Azure Maps, GitHub Enterprise Server has migrated from use of an unsecure Azure Maps API token to a more secure access token provided by role-based access control (RBAC) in Entra ID. After upgrading to this release, to re-enable interactive maps, an administrator must reconfigure authentication to Azure Maps in the Management Console. For more information, see "[AUTOTITLE](/admin/configuration/configuring-user-applications-for-your-enterprise/configuring-interactive-maps)."
+      **LOW:** To render interactive maps in an instance's web UI using Azure Maps, GitHub Enterprise Server has migrated from use of an unsecure Azure Maps API token to a more secure access token provided by role-based access control (RBAC) in Entra ID. After upgrading to this release, to re-enable interactive maps, an administrator must reconfigure authentication to Azure Maps in the Management Console. For more information, see [AUTOTITLE](/admin/configuration/configuring-user-applications-for-your-enterprise/configuring-interactive-maps).
     - |
       To address scenarios that could lead to denial of service, HAProxy has been upgraded to version 2.8.4.
     - |
@@ -89,7 +89,7 @@ sections:
     - |
       During the validation phase of a configuration run, a `No such object` error may occur for the Notebook and Viewscreen services. This error can be ignored as the services should still correctly start.
     - |
-      If the root site administrator is locked out of the Management Console after failed login attempts, the account does not unlock automatically after the defined lockout time. Someone with administrative SSH access to the instance must unlock the account using the administrative shell. For more information, see "[AUTOTITLE](/admin/configuration/administering-your-instance-from-the-management-console/troubleshooting-access-to-the-management-console#unlocking-the-root-site-administrator-account)."
+      If the root site administrator is locked out of the Management Console after failed login attempts, the account does not unlock automatically after the defined lockout time. Someone with administrative SSH access to the instance must unlock the account using the administrative shell. For more information, see [AUTOTITLE](/admin/configuration/administering-your-instance-from-the-management-console/troubleshooting-access-to-the-management-console#unlocking-the-root-site-administrator-account).
     - |
       If an instance is configured to forward logs to a target server with TLS enabled, certificate authority (CA) bundles that a site administrator uploads using `ghe-ssl-ca-certificate-install` are not respected, and connections to the server fail.
     - |
@@ -122,4 +122,4 @@ sections:
         - |
           To allow users to render interactive maps in an instance's web UI by writing GeoJSON or TopoJSON syntax, GitHub Enterprise Server previously required a potentially unsecure API key for authentication with Azure Maps. If an administrator previously enabled interactive maps on an instance, the feature is disabled upon upgrade to this release.
 
-          To re-enable interactive maps for your instance, you must configure an application on an Entra ID tenant that has access to Azure Maps using role-based access control (RBAC). For more information, see "[AUTOTITLE](/admin/configuration/configuring-user-applications-for-your-enterprise/configuring-interactive-maps)" and the security fixes for this release.
+          To re-enable interactive maps for your instance, you must configure an application on an Entra ID tenant that has access to Azure Maps using role-based access control (RBAC). For more information, see [AUTOTITLE](/admin/configuration/configuring-user-applications-for-your-enterprise/configuring-interactive-maps) and the security fixes for this release.

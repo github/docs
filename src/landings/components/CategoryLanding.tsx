@@ -85,10 +85,37 @@ export const CategoryLanding = () => {
         {intro && <Lead data-search="lead">{intro}</Lead>}
 
         <h2 className="py-5">Spotlight</h2>
-        <div className="d-md-flex d-sm-block">
-          <CookBookArticleCard image="DeleteMe" spotlight={true} url="#" />
-          <CookBookArticleCard image="DeleteMe" spotlight={true} url="#" />
-          <CookBookArticleCard image="DeleteMe" spotlight={true} url="#" />
+        <div className="d-md-flex d-sm-block col-md-12">
+          <div className="col-md-4">
+            <CookBookArticleCard
+              image={'/assets/images/copilot-landing/generating_unit_tests.png'}
+              title="Generate unit tests"
+              description="Copilot Chat can help with generating unit tests for a function."
+              spotlight={true}
+              url="/en/copilot/example-prompts-for-github-copilot-chat/testing-code/generate-unit-tests"
+              tags={[]}
+            />
+          </div>
+          <div className="col-md-4">
+            <CookBookArticleCard
+              image={'/assets/images/copilot-landing/improving_code_readability.png'}
+              title="Improving code readability and maintainability"
+              description="Learn how to improve your code readability and maintainability."
+              spotlight={true}
+              url="/en/copilot/example-prompts-for-github-copilot-chat/refactoring-code/improving-code-readability-and-maintainability"
+              tags={[]}
+            />
+          </div>
+          <div className="col-md-4">
+            <CookBookArticleCard
+              image={'/assets/images/copilot-landing/debugging_invalid_json.png'}
+              title="Debugging invalid JSON"
+              description="Copilot can identify and resolve syntax errors or structural issues in JSON data."
+              spotlight={true}
+              tags={[]}
+              url="/en/copilot/example-prompts-for-github-copilot-chat/debugging-errors/debugging-invalid-json"
+            />
+          </div>
         </div>
 
         <div className="pt-8">
@@ -105,12 +132,12 @@ export const CategoryLanding = () => {
               />
             </div>
           </div>
-          <ul className="clearfix gutter-md-spacious">
+          <ul className="clearfix d-flex flex-wrap gutter-md-spacious">
             {searchResults.map((item, index) => (
-              <li key={index} className="col-md-4 col-sm-12 list-style-none float-left p-4">
+              <li key={index} className="col-md-6 col-lg-4 col-sm-12 list-style-none p-4">
                 <CookBookArticleCard
                   title={item.title}
-                  description={item.intro}
+                  description={item.intro!}
                   icon={item.octicon}
                   tags={[
                     ...(item.industry || []),

@@ -36,7 +36,7 @@ These views provide you with the data and filters to:
 * Export your current selection of data for further analysis and reporting.  {% endif %}
 
 {% ifversion security-overview-dashboard %}
-For information about the **Overview**, see "[AUTOTITLE](/code-security/security-overview/viewing-security-insights)."{% endif %}
+For information about the **Overview**, see [AUTOTITLE](/code-security/security-overview/viewing-security-insights).{% endif %}
 
 ## Viewing organization-level code security risks
 
@@ -50,7 +50,7 @@ For information about the **Overview**, see "[AUTOTITLE](/code-security/security
     {% data reusables.security-overview.unaffected-repositories %}
 
 {% data reusables.organizations.security-overview-feature-specific-page %} {% ifversion security-overview-export-data %}
-1. Optionally, use the **{% octicon "download" aria-hidden="true" %} Export CSV** button to download a CSV file of the data currently displayed on the page for security research and in-depth data analysis. For more information, see "[AUTOTITLE](/code-security/security-overview/exporting-data-from-security-overview)." {% endif %}
+1. Optionally, use the **{% octicon "download" aria-hidden="true" %} Export CSV** button to download a CSV file of the data currently displayed on the page for security research and in-depth data analysis. For more information, see [AUTOTITLE](/code-security/security-overview/exporting-data-from-security-overview). {% endif %}
 
 {% data reusables.security-overview.alert-differences %}
 
@@ -60,7 +60,7 @@ You can view data for security alerts across organizations in an enterprise.
 
 {% data reusables.security-overview.enterprise-filters-tip %}
 
-{% data reusables.enterprise-accounts.access-enterprise-on-dotcom %}
+{% ifversion ghes %}{% data reusables.enterprise-accounts.access-enterprise-ghes %}{% else %}{% data reusables.enterprise-accounts.access-enterprise-on-dotcom %}{% endif %}
 {% data reusables.code-scanning.click-code-security-enterprise %}
 1. To display the "Security risk" view, in the sidebar, click **{% octicon "shield" aria-hidden="true" %} Risk**.
 {% data reusables.code-scanning.using-security-overview-risk %}
@@ -68,7 +68,8 @@ You can view data for security alerts across organizations in an enterprise.
     ![Screenshot of the "Security risk" view for an enterprise. The options for filtering are outlined in dark orange.](/assets/images/help/security-overview/security-risk-view-highlights-enterprise.png)
 
     {% data reusables.security-overview.unaffected-repositories %}
-{% data reusables.organizations.security-overview-feature-specific-page %}
+{% data reusables.organizations.security-overview-feature-specific-page %}{% ifversion security-overview-export-data %}
+1. Optionally, use the {% octicon "download" aria-hidden="true" %} **Export CSV** button to download a CSV file of the data currently displayed on the page for security research and in-depth data analysis. For more information, see [AUTOTITLE](/code-security/security-overview/exporting-data-from-security-overview). {% endif %}
 
 {% data reusables.security-overview.alert-differences %}
 
@@ -76,5 +77,5 @@ You can view data for security alerts across organizations in an enterprise.
 
 ## Next steps
 
-When you have assessed your code security risks, you are ready to create a security campaign to collaborate with developers to remediate alerts. For information about fixing security alerts at scale, see "[AUTOTITLE](/code-security/securing-your-organization/fixing-security-alerts-at-scale/creating-tracking-security-campaigns)" and "[AUTOTITLE](/code-security/securing-your-organization/fixing-security-alerts-at-scale/best-practice-fix-alerts-at-scale)."
+When you have assessed your code security risks, you are ready to create a security campaign to collaborate with developers to remediate alerts. For information about fixing security alerts at scale, see [AUTOTITLE](/code-security/securing-your-organization/fixing-security-alerts-at-scale/creating-tracking-security-campaigns) and [AUTOTITLE](/code-security/securing-your-organization/fixing-security-alerts-at-scale/best-practice-fix-alerts-at-scale).
 {% endif %}

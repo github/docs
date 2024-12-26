@@ -44,7 +44,7 @@ Congratulations! You've successfully created your first repository, and initiali
 1. In the command line, navigate to the directory where you would like to create a local clone of your new project.
 1. To create a repository for your project, use the `gh repo create` subcommand. When prompted, select **Create a new repository on GitHub from scratch** and enter the name of your new project. If you want your project to belong to an organization instead of to your personal account, specify the organization name and project name with `organization-name/project-name`.
 1. Follow the interactive prompts. To clone the repository locally, confirm yes when asked if you would like to clone the remote project directory.
-1. Alternatively, to skip the prompts supply the repository name and a visibility flag (`--public`, `--private`, or `--internal`). For example, `gh repo create project-name --public`. To clone the repository locally, pass the `--clone` flag.  For more information about possible arguments, see the [GitHub CLI manual](https://cli.github.com/manual/gh_repo_create).
+1. Alternatively, to skip the prompts supply the repository name and a visibility flag (`--public`, `--private`, or `--internal`). For example, `gh repo create project-name --public`. To clone the repository locally, pass the `--clone` flag. For more information about possible arguments, see the [GitHub CLI manual](https://cli.github.com/manual/gh_repo_create).
 
 {% endcli %}
 
@@ -118,7 +118,7 @@ You have now created a repository, including a _README_ file, and created your f
 
 {% webui %}
 
-* You can now clone a {% data variables.product.prodname_dotcom %} repository to create a local copy on your computer. From your local repository you can commit, and create a pull request to update the changes in the upstream repository. For more information, see "[AUTOTITLE](/repositories/creating-and-managing-repositories/cloning-a-repository)" and "[AUTOTITLE](/get-started/getting-started-with-git/set-up-git)."
+* You can now clone a {% data variables.product.prodname_dotcom %} repository to create a local copy on your computer. From your local repository you can commit, and create a pull request to update the changes in the upstream repository. For more information, see [AUTOTITLE](/repositories/creating-and-managing-repositories/cloning-a-repository) and [AUTOTITLE](/get-started/getting-started-with-git/set-up-git).
 
 {% endwebui %}
 

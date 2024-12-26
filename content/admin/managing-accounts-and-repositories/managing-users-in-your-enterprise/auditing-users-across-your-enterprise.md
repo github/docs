@@ -40,7 +40,7 @@ The audit log lists the following information about actions made within your ent
 * [The date and time](#search-based-on-the-time-of-action) the action occurred
 
 > [!NOTE]
-> * While you can't use text to search for audit entries, you can construct search queries using a variety of filters. {% data variables.product.product_name %} supports many operators for searching across {% data variables.product.product_name %}. For more information, see "[AUTOTITLE](/search-github/getting-started-with-searching-on-github/about-searching-on-github)."
+> * While you can't use text to search for audit entries, you can construct search queries using a variety of filters. {% data variables.product.product_name %} supports many operators for searching across {% data variables.product.product_name %}. For more information, see [AUTOTITLE](/search-github/getting-started-with-searching-on-github/about-searching-on-github).
 > * Audit records are available for the last 180 days.
 
 ### Search based on the repository
@@ -73,7 +73,7 @@ The `org` qualifier limits actions to a specific organization. For example:
 
 ### Search based on the action performed
 
-The `action` qualifier searches for specific events, grouped within categories. For information on the events associated with these categories, see "[AUTOTITLE](/admin/monitoring-activity-in-your-enterprise/reviewing-audit-logs-for-your-enterprise/audit-log-events-for-your-enterprise)".
+The `action` qualifier searches for specific events, grouped within categories. For information on the events associated with these categories, see [AUTOTITLE](/admin/monitoring-activity-in-your-enterprise/reviewing-audit-logs-for-your-enterprise/audit-log-events-for-your-enterprise).
 
 | Category name | Description
 |------------------|-------------------

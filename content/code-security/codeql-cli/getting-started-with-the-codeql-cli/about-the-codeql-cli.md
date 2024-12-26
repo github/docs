@@ -25,7 +25,7 @@ redirect_from:
 ---
 
 Software developers and security researchers can secure their code
-using {% data variables.product.prodname_codeql %} analysis. For more information about {% data variables.product.prodname_codeql %}, see "[AUTOTITLE](/code-security/code-scanning/introduction-to-code-scanning/about-code-scanning-with-codeql#about-codeql)."
+using {% data variables.product.prodname_codeql %} analysis. For more information about {% data variables.product.prodname_codeql %}, see [AUTOTITLE](/code-security/code-scanning/introduction-to-code-scanning/about-code-scanning-with-codeql#about-codeql).
 
 {% data reusables.code-scanning.what-is-codeql-cli %}
 
@@ -43,27 +43,27 @@ The {% data variables.product.prodname_codeql_cli %} can analyze:
 * Codebases written in a mixture of languages.
 
 For information about setting up the {% data variables.product.prodname_codeql_cli %}, see
-"[AUTOTITLE](/code-security/codeql-cli/getting-started-with-the-codeql-cli/setting-up-the-codeql-cli)."
+[AUTOTITLE](/code-security/codeql-cli/getting-started-with-the-codeql-cli/setting-up-the-codeql-cli).
 
 ## About using the {% data variables.product.prodname_codeql_cli %} for {% data variables.product.prodname_code_scanning %}
 
-You can use the {% data variables.product.prodname_codeql_cli %} to run {% data variables.product.prodname_code_scanning %} on code that you're processing in a third-party continuous integration (CI) system. {% data reusables.code-scanning.about-code-scanning %} For an overview of using code scanning with external CI systems, see "[AUTOTITLE](/code-security/code-scanning/integrating-with-code-scanning/using-code-scanning-with-your-existing-ci-system)." For recommended specifications (RAM, CPU cores, and disk) for running {% data variables.product.prodname_codeql %} analysis, see "[AUTOTITLE](/code-security/code-scanning/creating-an-advanced-setup-for-code-scanning/recommended-hardware-resources-for-running-codeql)."
+You can use the {% data variables.product.prodname_codeql_cli %} to run {% data variables.product.prodname_code_scanning %} on code that you're processing in a third-party continuous integration (CI) system. {% data reusables.code-scanning.about-code-scanning %} For an overview of using code scanning with external CI systems, see [AUTOTITLE](/code-security/code-scanning/integrating-with-code-scanning/using-code-scanning-with-your-existing-ci-system). For recommended specifications (RAM, CPU cores, and disk) for running {% data variables.product.prodname_codeql %} analysis, see [AUTOTITLE](/code-security/code-scanning/creating-an-advanced-setup-for-code-scanning/recommended-hardware-resources-for-running-codeql).
 
-Alternatively, you can use {% data variables.product.prodname_actions %} or Azure DevOps pipelines to scan code using the {% data variables.product.prodname_codeql_cli %}. For more information, see "[AUTOTITLE](/code-security/code-scanning/enabling-code-scanning/configuring-default-setup-for-code-scanning)" or [Configure {% data variables.product.prodname_ghas_azdo %}](https://learn.microsoft.com/en-us/azure/devops/repos/security/configure-github-advanced-security-features) in Microsoft Learn.
+Alternatively, you can use {% data variables.product.prodname_actions %} or Azure DevOps pipelines to scan code using the {% data variables.product.prodname_codeql_cli %}. For more information, see [AUTOTITLE](/code-security/code-scanning/enabling-code-scanning/configuring-default-setup-for-code-scanning) or [Configure {% data variables.product.prodname_ghas_azdo %}](https://learn.microsoft.com/en-us/azure/devops/repos/security/configure-github-advanced-security-features) in Microsoft Learn.
 
-For an overview of all the options for using {% data variables.product.prodname_codeql %} analysis for code scanning, see "[AUTOTITLE](/code-security/code-scanning/introduction-to-code-scanning/about-code-scanning-with-codeql)."
+For an overview of all the options for using {% data variables.product.prodname_codeql %} analysis for code scanning, see [AUTOTITLE](/code-security/code-scanning/introduction-to-code-scanning/about-code-scanning-with-codeql).
 
 {% data reusables.code-scanning.licensing-note %}
 
 ## About generating code scanning results with the {% data variables.product.prodname_codeql_cli %}
 
-If you choose to run the {% data variables.product.prodname_codeql_cli %} directly, you first have to install the {% data variables.product.prodname_codeql_cli %} locally. If you are planning to use the {% data variables.product.prodname_codeql_cli %} with an external CI system, you need to make the {% data variables.product.prodname_codeql_cli %} available to servers in your CI system. For more information, see "[AUTOTITLE](/code-security/codeql-cli/getting-started-with-the-codeql-cli/setting-up-the-codeql-cli)."
+If you choose to run the {% data variables.product.prodname_codeql_cli %} directly, you first have to install the {% data variables.product.prodname_codeql_cli %} locally. If you are planning to use the {% data variables.product.prodname_codeql_cli %} with an external CI system, you need to make the {% data variables.product.prodname_codeql_cli %} available to servers in your CI system. For more information, see [AUTOTITLE](/code-security/codeql-cli/getting-started-with-the-codeql-cli/setting-up-the-codeql-cli).
 
 Once the {% data variables.product.prodname_codeql_cli %} is set up, you can use three different commands to generate results and upload them to {% data variables.product.product_name %}:
 
-1. `database create` to create a {% data variables.product.prodname_codeql %} database to represent the hierarchical structure of each supported programming language in the repository. For more information, see "[AUTOTITLE](/code-security/codeql-cli/getting-started-with-the-codeql-cli/preparing-your-code-for-codeql-analysis)."
-1. `database analyze` to run queries to analyze each {% data variables.product.prodname_codeql %} database and summarize the results in a SARIF file. For more information, see "[AUTOTITLE](/code-security/codeql-cli/getting-started-with-the-codeql-cli/analyzing-your-code-with-codeql-queries)."
-1. `github upload-results` to upload the resulting SARIF files to {% data variables.product.product_name %} where the results are matched to a branch or pull request and displayed as {% data variables.product.prodname_code_scanning %} alerts. For more information, see "[AUTOTITLE](/code-security/codeql-cli/getting-started-with-the-codeql-cli/uploading-codeql-analysis-results-to-github)."
+1. `database create` to create a {% data variables.product.prodname_codeql %} database to represent the hierarchical structure of each supported programming language in the repository. For more information, see [AUTOTITLE](/code-security/codeql-cli/getting-started-with-the-codeql-cli/preparing-your-code-for-codeql-analysis).
+1. `database analyze` to run queries to analyze each {% data variables.product.prodname_codeql %} database and summarize the results in a SARIF file. For more information, see [AUTOTITLE](/code-security/codeql-cli/getting-started-with-the-codeql-cli/analyzing-your-code-with-codeql-queries).
+1. `github upload-results` to upload the resulting SARIF files to {% data variables.product.product_name %} where the results are matched to a branch or pull request and displayed as {% data variables.product.prodname_code_scanning %} alerts. For more information, see [AUTOTITLE](/code-security/codeql-cli/getting-started-with-the-codeql-cli/uploading-codeql-analysis-results-to-github).
 
 {% data reusables.code-scanning.upload-sarif-ghas %}
 
