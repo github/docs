@@ -17,7 +17,7 @@ shortTitle: Authentication to GitHub
 
 To keep your account secure, you must authenticate before you can access certain resources on {% data variables.product.product_name %}. When you authenticate to {% data variables.product.product_name %}, you supply or confirm credentials that are unique to you to prove that you are exactly who you declare to be.
 
-You can access your resources in {% data variables.product.product_name %} in a variety of ways: in the browser, via {% data variables.product.prodname_desktop %} or another desktop application, with the API, or via the command line. Each way of accessing {% data variables.product.product_name %} supports different modes of authentication.
+You can access your resources in {% data variables.product.product_name %} in a variety of ways: browser, {% data variables.product.prodname_desktop %}, another desktop application, API or command line. Each way of accessing {% data variables.product.product_name %} supports different modes of authentication.
 {%- ifversion not fpt %}
 * Your identity provider (IdP){% endif %}
 * Username and password with two-factor authentication{% ifversion passkeys %}, or a passkey{% endif %}
