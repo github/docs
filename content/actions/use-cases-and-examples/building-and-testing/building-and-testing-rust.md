@@ -19,7 +19,7 @@ redirect_from:
 
 This guide shows you how to build, test, and publish a Rust package.
 
-{% data variables.product.prodname_dotcom %}-hosted runners have a tools cache with preinstalled software, which includes the dependencies for Go. For a full list of up-to-date software and the preinstalled versions of Go, see [AUTOTITLE](/actions/using-github-hosted-runners/about-github-hosted-runners#preinstalled-software).
+{% data variables.product.prodname_dotcom %}-hosted runners have a tools cache with preinstalled software, which includes the dependencies for Rust. For a full list of up-to-date software and the preinstalled versions of Rust, see [AUTOTITLE](/actions/using-github-hosted-runners/about-github-hosted-runners#preinstalled-software).
 
 ## Prerequisites
 
@@ -40,8 +40,7 @@ We recommend that you have a basic understanding of the Rust language. For more 
 1. Filter the selection of workflows by clicking **Continuous integration**.
 1. On the "Rust - by {% data variables.product.prodname_actions %}" workflow, click **Configure**.
 
-   ![Screenshot of the "Choose a workflow" page. The "Configure" button on the "Go" workflow is highlighted with an orange outline.](/assets/images/help/actions/starter-workflow-go.png)
-
+   ![Screenshot of the "Choose a workflow" page. The "Configure" button on the "Rust" workflow is highlighted with an orange outline.](/assets/images/help/actions/starter-workflow-rust.png)
 
 1. Edit the workflow as required. For example, change the version of Rust.
 1. Click **Commit changes**.
