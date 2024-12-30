@@ -424,6 +424,47 @@ If you want to accept the next line of the suggestion, you will need to set a cu
 
 {% endazure_data_studio %}
 
+{% eclipse %}
+
+## About {% data variables.product.prodname_copilot %} and {% data variables.product.prodname_eclipse %}
+
+This guide demonstrates how to get coding suggestions from {% data variables.product.prodname_copilot %} in {% data variables.product.prodname_eclipse %}. To see instructions for other popular coding environments, use the tool switcher at the top of the page.
+
+The examples in this guide use Java, however other languages will work similarly. {% data reusables.copilot.supported-languages %}
+
+## Prerequisites
+
+* **Subscription to {% data variables.product.prodname_copilot_short %}**. To use {% data variables.product.prodname_copilot %} in {% data variables.product.prodname_vscode %}, you must have an active {% data variables.product.prodname_copilot %} subscription. {% data reusables.copilot.subscription-prerequisite %}
+
+* **{% data variables.product.prodname_eclipse %}**. To use {% data variables.product.prodname_copilot %} in {% data variables.product.prodname_eclipse %}, you must have {% data variables.product.prodname_eclipse %} installed. For more information, see the [{% data variables.product.prodname_eclipse %} download page](https://www.eclipse.org/downloads/).
+
+* **{% data variables.product.prodname_copilot_short %} extension for {% data variables.product.prodname_eclipse %}**. To use {% data variables.product.prodname_copilot %} in {% data variables.product.prodname_eclipse %}, you must install the [{% data variables.product.prodname_copilot %} extension](https://marketplace.eclipse.org/).
+
+## Getting code suggestions
+
+{% data variables.product.prodname_copilot %} offers coding suggestions as you type. For example, type this function header in a Java file:
+
+```java copy
+public int getDiff(int a, int b)
+```
+
+{% data variables.product.prodname_copilot %} will automatically suggest the rest of the function. {% data reusables.copilot.accept-suggestion %}
+
+You can also describe something you want to do using natural language within a comment, and {% data variables.product.prodname_copilot_short %} will suggest the code to accomplish your goal. For example, type this comment in a JavaScript file:
+
+```java copy
+/*
+  * Return the diff between two different integers
+  */
+```
+
+{% data variables.product.prodname_copilot %} will automatically suggest code. {% data reusables.copilot.accept-suggestion %}
+
+> [!TIP]
+> If you receive limited or no suggestions from {% data variables.product.prodname_copilot_short %}, you may have duplication detection enabled. For more information about duplication detection, see [AUTOTITLE](/copilot/configuring-github-copilot/configuring-your-personal-github-copilot-settings-on-githubcom#enabling-or-disabling-suggestions-matching-public-code).
+
+{% endeclipse %}
+
 {% xcode %}
 
 {% data reusables.copilot.xcode-beta-note %}

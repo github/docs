@@ -253,6 +253,15 @@ prodname_vscode_command_palette: 'Visual Studio Code Command Palette'
 prodname_vscode_marketplace: 'Visual Studio Code Marketplace'
 prodname_vs_marketplace_shortname: 'VS Code Marketplace'
 
+# Eclipse
+prodname_eclipse_shortname: 'Eclipse'
+prodname_eclipse: 'Eclipse IDE'
+prodname_eclipse_command_palette_shortname: 'Eclipse Command Palette'
+prodname_eclipse_command_palette: 'Eclipse IDE Command Palette'
+prodname_eclipse_marketplace: 'Eclipse Marketplace'
+prodname_eclipse_marketplace_shortname: 'Eclipse IDE Marketplace'
+
+
 # GitHub Dependabot
 prodname_dependabot: 'Dependabot'
 prodname_dependabot_alerts: 'Dependabot alerts'
