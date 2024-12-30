@@ -6,9 +6,7 @@ versions:
 type: tutorial
 topics:
   - CI
-shortTitle: Build & test Rust
-redirect_from:
-  - /actions/automating-builds-and-tests/building-and-testing-rust
+shortTitle: Build, test & Publish with Rust
 ---
 
 ~~{% data reusables.actions.enterprise-github-hosted-runners %}~~
