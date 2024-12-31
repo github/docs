@@ -269,7 +269,6 @@
     "cookie-parser": "^1.4.7",
     "cuss": "2.2.0",
     "dayjs": "^1.11.3",
-    "docs.github.com": "file:",
     "dotenv": "^16.4.5",
     "escape-string-regexp": "5.0.0",
     "express": "4.21.2",
