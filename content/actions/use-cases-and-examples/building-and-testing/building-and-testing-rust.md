@@ -46,17 +46,22 @@ We recommend that you have a basic understanding of the Rust language. For more 
 
 ## Specifying a Rust version
 
-To use a preinstalled version of Rust on a {% data variables.product.prodname_dotcom %}-hosted runner, pass the relevant version to the `rust-version` property of the `setup-rust` action. This action finds a specific version of Rust from the tools cache on each runner, and adds the necessary binaries to `PATH`. These changes will persist for the remainder of the job.
+At the time of writing, the default rust compiler version is 1.83.0 rustup is available and can be used to install additional toolchains. For example, the following workflow temporarily sets the toolchain to nightly:
 
-The `setup-rust` action is the recommended way of using rust with {% data variables.product.prodname_actions %}, because it helps ensure consistent behavior across different runners and different versions of Rust. If you are using a self-hosted runner, you must install rust and add it to your self-hosted runner's `PATH`.
+```yaml copy
+      - name: Temporarily modify the rust toolchain version
+        run: rustup override set nightly
+      - name: Ouput rust version for educational purposes
+        run: rustup --version
+```
 
 ### Caching dependencies
 
-You can cache and restore dependencies using the following example below.
+You can cache and restore dependencies using the following example below. Note that you will need to have Cargo.lock in your repository to cache dependencies.
 
 ```yaml copy
       - name: ⚡ Cache
-        uses: actions/cache@v2
+        uses: actions/cache@v4
         with:
           path: |
             ~/.cargo/registry
@@ -64,7 +69,7 @@ You can cache and restore dependencies using the following example below.
             target
           key: ${{ runner.os }}-cargo-${{ hashFiles('**/Cargo.lock') }}
 ```
-If you have a custom requirement or need finer controls for caching, you can use the [`cache` action](https://github.com/marketplace/actions/cache). For more information, see [AUTOTITLE](/actions/using-workflows/caching-dependencies-to-speed-up-workflows).
+If you have a custom requirement or need finer controls for caching, you can take a look at the [`cache` action](https://github.com/marketplace/actions/cache). For more information, see [AUTOTITLE](/actions/using-workflows/caching-dependencies-to-speed-up-workflows).
 
 ## Building and testing your code
 
