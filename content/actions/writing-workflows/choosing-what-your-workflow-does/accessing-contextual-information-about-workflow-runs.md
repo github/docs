@@ -206,7 +206,7 @@ The `github` context contains information about the workflow run and the event t
 | `github.repository_id` | `string` | {% data reusables.actions.repository_id-description %} |
 | `github.repository_owner` | `string` | The repository owner's username. For example, `octocat`. |
 | `github.repository_owner_id` | `string` | {% data reusables.actions.repository_owner_id-description %} |
-| `github.repositoryUrl` | `string` | The Git URL to the repository. For example, `git://github.com/octocat/hello-world.git`. [(See note below)](/actions/writing-workflows/choosing-what-your-workflow-does/accessing-contextual-information-about-workflow-runs#note-on-githubrepositoryurl-property) |
+| `github.repositoryUrl` | `string` | The Git URL to the repository. For example, `git://github.com/octocat/hello-world.git`. Note: The `git://` protocol has been retired for security reasons. This value should only be used for identification and cannot be used to perform any git operations. Replace with {% raw %}`${{ github.serverUrl }}${{ github.repository }}`{% endraw %} to give you the HTTPS URL for the current repository. |
 | `github.retention_days` | `string` | The number of days that workflow run logs and artifacts are kept. |
 | `github.run_id` | `string` | {% data reusables.actions.run_id_description %} |
 | `github.run_number` | `string` | {% data reusables.actions.run_number_description %} |
@@ -287,10 +287,6 @@ jobs:
       - name: Run PR CI
         run: echo "Running PR only CI"
 ```
-
-### Note on `github.repositoryUrl` property
-
-The `git://` protocol is disabled for security reasons. You will not be able to use the value of `github.repositoryUrl` to perform any git operations. Instead, you can use `${{ github.serverUrl }}${{ github.repository }}` to give you the HTTP URL for the current repository.
 
 ## `env` context
 
