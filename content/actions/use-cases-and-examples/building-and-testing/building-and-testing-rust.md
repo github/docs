@@ -46,7 +46,7 @@ We recommend that you have a basic understanding of the Rust language. For more 
 
 ## Specifying a Rust version
 
-At the time of writing, the default rust compiler version is 1.83.0 rustup is available and can be used to install additional toolchains. For example, the following workflow temporarily sets the toolchain to nightly:
+At the time of writing, the default rust compiler version is 1.83.0 rustup is available and can be used to install additional toolchains.
 
 ```yaml copy
       - name: Temporarily modify the rust toolchain version
@@ -61,20 +61,20 @@ You can cache and restore dependencies using the following example below. Note t
 
 ```yaml copy
       - name: ⚡ Cache
-        uses: actions/cache@v4
+      - uses: {% data reusables.actions.action-cache %}
         with:
           path: |
             ~/.cargo/registry
             ~/.cargo/git
             target
-          key: ${{ runner.os }}-cargo-${{ hashFiles('**/Cargo.lock') }}
+          key: {% raw %}${{ runner.os }}-cargo-${{ hashFiles('**/Cargo.lock') }}{% endraw %}
 ```
+
 If you have a custom requirement or need finer controls for caching, you can take a look at the [`cache` action](https://github.com/marketplace/actions/cache). For more information, see [AUTOTITLE](/actions/using-workflows/caching-dependencies-to-speed-up-workflows).
 
 ## Building and testing your code
 
 You can use the same commands that you use locally to build and test your code. This example workflow demonstrates how to use `cargo build` and `cargo test` in a job:
-
 
 ```yaml copy
 jobs:
@@ -86,25 +86,22 @@ jobs:
     outputs:
       release_built: ${{ steps.set-output.outputs.release_built }}
     steps:
-      - uses: actions/checkout@v4
+      - uses: {% data reusables.actions.action-checkout %}
       - name: Build binaries in "${{ matrix.BUILD_TARGET }}" mode
         run: cargo build --profile ${{ matrix.BUILD_TARGET }}
       - name: Run tests in "${{ matrix.BUILD_TARGET }}" mode
         run: cargo test --profile ${{ matrix.BUILD_TARGET }}
 ```
+
 Note that the `release` keyword used above, corresponds to a cargo profile. You can use any [profile](https://doc.rust-lang.org/cargo/reference/profiles.html) you have defined in your `Cargo.toml` file.
 
 ## Upload artifacts
 
 In case publishing artifacts is needed, but not to crates.io, the following example demonstrates how to upload artifacts to the workflow run:
+
 ```yaml copy
-      - name: Upload Telegram Bot
-        uses: actions/upload-artifact@v4
-        with:
-          name: cndk8-telegram-bot
-          path: target/${{ matrix.BUILD_TARGET }}/telegram
       - name: Upload hello app
-        uses: actions/upload-artifact@v4
+        uses: {% data reusables.actions.action-upload-artifact %}
         with:
           name: cndk8-hello
           path: target/${{ matrix.BUILD_TARGET }}/cndk8
@@ -112,10 +109,9 @@ In case publishing artifacts is needed, but not to crates.io, the following exam
 
 And to use them on a different job, i.e publishing:
 
-
 ```yaml copy
       - name: Download hello app
-        uses: actions/download-artifact@v4
+        uses: {% data reusables.actions.action-download-artifact %}
         with:
           name: cndk8-hello
           path: ./cndk8-hello
@@ -132,7 +128,6 @@ And to use them on a different job, i.e publishing:
 Once you have setup your workflow to build and test your code, you can alternatively use a secret to login to crates.io and publish your package.
 
 ```yaml copy
-      - uses: actions/checkout@v4
       - name: login into crates.io
         run: cargo login ${{ secrets.CRATES_IO }}
       - name: Build binaries in "release" mode
@@ -142,5 +137,6 @@ Once you have setup your workflow to build and test your code, you can alternati
       - name: "Publish to crates.io"
         run: cargo publish # publishes your crate as a library that can be added as a dependency
 ```
+
 As an example of how packages are published, see the [cndk8 0.1.0](https://crates.io/crates/cndk8/0.1.0). In the case that there are errors with Metadata check
 your [manifest](https://doc.rust-lang.org/cargo/reference/manifest.html) Cargo.toml, when its about dirty directory check your Cargo.lock, and read the corresponding documentation.
