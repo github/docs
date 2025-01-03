@@ -8,8 +8,7 @@ topics:
   - CI
 shortTitle: Build, test & Publish with Rust
 ---
-
-~~{% data reusables.actions.enterprise-github-hosted-runners %}~~
+<!-- {% data reusables.actions.enterprise-github-hosted-runners %}-->
 
 ## Introduction
 
