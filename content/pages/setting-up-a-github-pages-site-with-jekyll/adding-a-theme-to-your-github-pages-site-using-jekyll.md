@@ -43,7 +43,7 @@ People with write permissions for a repository can add a theme to a {% data vari
 
 {% data reusables.pages.navigate-site-repo %}
 {% data reusables.pages.navigate-publishing-source %}
-1. Create a new file called _/assets/css/style.scss_.
+1. Create a new file called `/assets/css/style.scss`.
 1. Add the following content to the top of the file:
 
    ```scss
