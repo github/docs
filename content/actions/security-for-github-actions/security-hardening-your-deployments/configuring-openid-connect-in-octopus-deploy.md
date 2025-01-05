@@ -19,7 +19,6 @@ OpenID Connect (OIDC) allows your {% data variables.product.prodname_actions %} 
 
 This guide provides an overview of how to configure Octopus Deploy to trust {% data variables.product.prodname_dotcom %}'s OIDC as a federated identity, and includes a workflow example for the [`octopusdeploy/login`](https://github.com/OctopusDeploy/login) action that uses tokens to authenticate to your Octopus Deploy instance.
 
-
 ## Prerequisites
 
 {% data reusables.actions.oidc-link-to-intro %}
@@ -66,13 +65,13 @@ jobs:
       id-token: write # This is required to obtain an ID token from GitHub Actions for the job
     steps:
       - name: Login to Octopus
-        uses: OctopusDeploy/login@v1
+        uses: OctopusDeploy/login@34b6dcc1e86fa373c14e6a28c5507d221e4de629 #v1.0.2
         with:
           server: https://my.octopus.app
           service_account_id: 5be4ac10-2679-4041-a8b0-7b05b445e19e
 
       - name: Create a release in Octopus
-        uses: OctopusDeploy/create-release-action@v3
+        uses: OctopusDeploy/create-release-action@fe13cc69c1c037cb7bb085981b152f5e35257e1f #v3.2.2
         with:
           space: Default
           project: My Octopus Project
