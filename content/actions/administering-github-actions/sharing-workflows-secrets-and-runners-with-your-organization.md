@@ -40,7 +40,7 @@ Your organization can share workflows by reusing the workflows exactly or by cre
 
 ### Using workflow templates
 
-{% data reusables.actions.workflow-organization-templates %} For more information, see "[AUTOTITLE](/actions/using-workflows/creating-starter-workflows-for-your-organization)."
+{% data reusables.actions.workflow-organization-templates %} For more information, see [AUTOTITLE](/actions/using-workflows/creating-starter-workflows-for-your-organization).
 
 ## Sharing secrets and variables within an organization
 
@@ -55,14 +55,14 @@ When creating a secret or variable in an organization, you can use a policy to l
 {% data reusables.actions.sidebar-secrets-and-variables %}
 1. Click the **Secrets** or **Variables** tab, and create the secret or variable with your desired values and options.
 
-   For more information, see "[AUTOTITLE](/actions/security-guides/using-secrets-in-github-actions#creating-secrets-for-an-organization)" or "[AUTOTITLE](/actions/learn-github-actions/variables#creating-configuration-variables-for-an-organization)."
+   For more information, see [AUTOTITLE](/actions/security-guides/using-secrets-in-github-actions#creating-secrets-for-an-organization) or [AUTOTITLE](/actions/learn-github-actions/variables#creating-configuration-variables-for-an-organization).
 
 ## Share self-hosted runners within an organization
 
 Organization owners can add their self-hosted runners to groups, and then create policies that control which repositories can access the group.
 
-For more information, see "[AUTOTITLE](/actions/hosting-your-own-runners/managing-self-hosted-runners/managing-access-to-self-hosted-runners-using-groups)."
+For more information, see [AUTOTITLE](/actions/hosting-your-own-runners/managing-self-hosted-runners/managing-access-to-self-hosted-runners-using-groups).
 
 ## Next steps
 
-To continue learning about {% data variables.product.prodname_actions %}, see "[AUTOTITLE](/actions/using-workflows/creating-starter-workflows-for-your-organization)."
+To continue learning about {% data variables.product.prodname_actions %}, see [AUTOTITLE](/actions/using-workflows/creating-starter-workflows-for-your-organization).

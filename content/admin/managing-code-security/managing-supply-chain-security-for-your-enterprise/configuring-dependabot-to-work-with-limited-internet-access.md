@@ -17,9 +17,9 @@ redirect_from:
 
 ## About {% data variables.product.prodname_dependabot %} updates
 
-You can use {% data variables.product.prodname_dependabot_updates %} to fix vulnerabilities and keep dependencies updated to the latest version in {% data variables.product.prodname_ghe_server %}. {% data variables.product.prodname_dependabot_updates %} require {% data variables.product.prodname_actions %} with self-hosted runners set up for {% data variables.product.prodname_dependabot %} to use. {% data variables.product.prodname_dependabot %} alerts and security updates use information from the {% data variables.product.prodname_advisory_database %} accessed using {% data variables.product.prodname_github_connect %}. For more information, see "[AUTOTITLE](/admin/github-actions/enabling-github-actions-for-github-enterprise-server/managing-self-hosted-runners-for-dependabot-updates)" and "[AUTOTITLE](/admin/configuration/configuring-github-connect/enabling-dependabot-for-your-enterprise)."
+You can use {% data variables.product.prodname_dependabot_updates %} to fix vulnerabilities and keep dependencies updated to the latest version in {% data variables.product.prodname_ghe_server %}. {% data variables.product.prodname_dependabot_updates %} require {% data variables.product.prodname_actions %} with self-hosted runners set up for {% data variables.product.prodname_dependabot %} to use. {% data variables.product.prodname_dependabot %} alerts and security updates use information from the {% data variables.product.prodname_advisory_database %} accessed using {% data variables.product.prodname_github_connect %}. For more information, see [AUTOTITLE](/admin/github-actions/enabling-github-actions-for-github-enterprise-server/managing-self-hosted-runners-for-dependabot-updates) and [AUTOTITLE](/admin/configuration/configuring-github-connect/enabling-dependabot-for-your-enterprise).
 
-{% data reusables.dependabot.private-registry-support %} Alternatively, if your instance has limited or no internet access, you can configure {% data variables.product.prodname_dependabot %} to use only private registries as a source for security and version updates. For information on which ecosystems are supported as private registries, see "[AUTOTITLE](/code-security/dependabot/working-with-dependabot/removing-dependabot-access-to-public-registries#about-configuring-dependabot-to-only-access-private-registries)."
+{% data reusables.dependabot.private-registry-support %} Alternatively, if your instance has limited or no internet access, you can configure {% data variables.product.prodname_dependabot %} to use only private registries as a source for security and version updates. For information on which ecosystems are supported as private registries, see [AUTOTITLE](/code-security/dependabot/maintain-dependencies/removing-dependabot-access-to-public-registries#about-configuring-dependabot-to-only-access-private-registries).
 
 The instructions below assume that you need to set up {% data variables.product.prodname_dependabot %} runners with the following limitations.
 * No internet access.
@@ -27,7 +27,7 @@ The instructions below assume that you need to set up {% data variables.product.
 
 ## Restricting internet access for {% data variables.product.prodname_dependabot %} runners
 
-Before configuring {% data variables.product.prodname_dependabot %}, install Docker on your self-hosted runner. For more information, see "[AUTOTITLE](/admin/github-actions/enabling-github-actions-for-github-enterprise-server/managing-self-hosted-runners-for-dependabot-updates#configuring-self-hosted-runners-for-dependabot-updates)."
+Before configuring {% data variables.product.prodname_dependabot %}, install Docker on your self-hosted runner. For more information, see [AUTOTITLE](/admin/github-actions/enabling-github-actions-for-github-enterprise-server/managing-self-hosted-runners-for-dependabot-updates#configuring-self-hosted-runners-for-dependabot-updates).
 
 1. On {% data variables.product.prodname_ghe_server %}, navigate to the `github/dependabot-action` repository and retrieve information about the `dependabot-updater` and `dependabot-proxy` container images from the `containers.json` file.
 
@@ -46,7 +46,7 @@ Before configuring {% data variables.product.prodname_dependabot %}, install Doc
    {%- endif %}
 
    > [!NOTE]
-   > You will need to repeat this step when you upgrade to a new minor version of {% data variables.product.product_name %}, or if you manually update the {% data variables.product.prodname_dependabot %} action from {% data variables.product.prodname_dotcom_the_website %}. For more information, see "[AUTOTITLE](/admin/github-actions/managing-access-to-actions-from-githubcom/manually-syncing-actions-from-githubcom)."
+   > You will need to repeat this step when you upgrade to a new minor version of {% data variables.product.product_name %}, or if you manually update the {% data variables.product.prodname_dependabot %} action from {% data variables.product.prodname_dotcom_the_website %}. For more information, see [AUTOTITLE](/admin/github-actions/managing-access-to-actions-from-githubcom/manually-syncing-actions-from-githubcom).
 
 1. When you have finished adding these images to the runner, you are ready to restrict internet access to the {% data variables.product.prodname_dependabot %} runner, ensuring that it can still access your private registries for the required ecosystems and for {% data variables.product.prodname_ghe_server %}.
 
@@ -54,7 +54,8 @@ Before configuring {% data variables.product.prodname_dependabot %}, install Doc
 
 ## Verifying the configuration of {% data variables.product.prodname_dependabot %} runners
 
-1. For a test repository, configure {% data variables.product.prodname_dependabot %} to access private registries and remove access to public registries. For more information, see "[AUTOTITLE](/code-security/dependabot/working-with-dependabot/configuring-access-to-private-registries-for-dependabot)" and "[AUTOTITLE](/code-security/dependabot/working-with-dependabot/removing-dependabot-access-to-public-registries)."
+1. For a test repository, configure {% data variables.product.prodname_dependabot %} to access private registries and remove access to public registries. For more information, see [AUTOTITLE](/code-security/dependabot/working-with-dependabot/configuring-access-to-private-registries-for-dependabot) and [AUTOTITLE](/code-security/dependabot/maintain-dependencies/removing-dependabot-access-to-public-registries).
+
 1. In the **Insights** tab for the repository, click **Dependency graph** to display details of the dependencies.
 1. Click **{% data variables.product.prodname_dependabot %}** to display the ecosystems configured for version updates.
 1. For ecosystems that you want to test, click **Last checked TIME ago** to display the "Update logs" view.
@@ -62,4 +63,4 @@ Before configuring {% data variables.product.prodname_dependabot %}, install Doc
 
 When the check for updates is complete, you should check the "Update logs" view to verify that {% data variables.product.prodname_dependabot %} accessed the configured private registries on your instance to check for version updates.
 
-After you have verified that the configuration is correct, ask repository administrators to update their {% data variables.product.prodname_dependabot %} configurations to use private registries only. For more information, see "[AUTOTITLE](/code-security/dependabot/working-with-dependabot/removing-dependabot-access-to-public-registries)."
+After you have verified that the configuration is correct, ask repository administrators to update their {% data variables.product.prodname_dependabot %} configurations to use private registries only. For more information, see [AUTOTITLE](/code-security/dependabot/maintain-dependencies/removing-dependabot-access-to-public-registries).

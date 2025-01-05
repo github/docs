@@ -70,7 +70,7 @@ description: "File a bug report"
 
 ## `input` is not a permitted key
 
-An unexpected key was supplied at the top level of the template. For more information about which top-level keys are supported, see "[AUTOTITLE](/communities/using-templates-to-encourage-useful-issues-and-pull-requests/syntax-for-issue-forms#top-level-syntax)."
+An unexpected key was supplied at the top level of the template. For more information about which top-level keys are supported, see [AUTOTITLE](/communities/using-templates-to-encourage-useful-issues-and-pull-requests/syntax-for-issue-forms#top-level-syntax).
 
 ### Example of "`input` is not a permitted key" error
 
@@ -311,7 +311,7 @@ body:
     value: "Thanks for taking the time to fill out this bug! If you need real-time help, join us on Discord."
 ```
 
-The error can be fixed by adding the key `type` with a valid input type as the value. For the available `body` input types and their syntaxes, see "[AUTOTITLE](/communities/using-templates-to-encourage-useful-issues-and-pull-requests/syntax-for-githubs-form-schema#keys)."
+The error can be fixed by adding the key `type` with a valid input type as the value. For the available `body` input types and their syntaxes, see [AUTOTITLE](/communities/using-templates-to-encourage-useful-issues-and-pull-requests/syntax-for-githubs-form-schema#keys).
 
 ```yaml
 body:
@@ -628,7 +628,7 @@ body:
 
 ## Body cannot be empty
 
-The template body `key:value` pair cannot be empty. For more information about which top-level keys are required, see "[AUTOTITLE](/communities/using-templates-to-encourage-useful-issues-and-pull-requests/syntax-for-issue-forms#top-level-syntax)."
+The template body `key:value` pair cannot be empty. For more information about which top-level keys are required, see [AUTOTITLE](/communities/using-templates-to-encourage-useful-issues-and-pull-requests/syntax-for-issue-forms#top-level-syntax).
 
 The error can be fixed by adding the `body:` section.
 

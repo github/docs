@@ -15,7 +15,7 @@ Use `jobs.<job_id>.runs-on` to define the type of machine to run the job on.
   runs-on: [self-hosted, linux, x64, gpu]
   ```
 
-  For more information, see "[Choosing self-hosted runners](#choosing-self-hosted-runners)."
+  For more information, see [Choosing self-hosted runners](#choosing-self-hosted-runners).
 * You can mix strings and variables in an array. For example:
 
   {% raw %}

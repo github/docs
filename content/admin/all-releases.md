@@ -10,7 +10,7 @@ topics:
 shortTitle: Releases
 ---
 
-{% data reusables.enterprise.constantly-improving %} See "[AUTOTITLE](/admin/overview/about-upgrades-to-new-releases)."
+{% data reusables.enterprise.constantly-improving %} See [AUTOTITLE](/admin/overview/about-upgrades-to-new-releases).
 
 ## Releases of {% data variables.product.product_name %}
 
@@ -48,7 +48,7 @@ We hosted developer documentation for {% data variables.product.product_name %} 
 
 For instances with a {% data variables.product.prodname_GH_advanced_security %} license and {% data variables.product.prodname_code_scanning %} enabled, the {% data variables.product.prodname_codeql %} action for {% data variables.product.prodname_code_scanning %} analysis uses a minimum recommended version of the {% data variables.product.prodname_codeql_cli %} by default.
 
-If you run analysis in an external CI system, we recommend using the same version of the {% data variables.product.prodname_codeql_cli %}. See "[AUTOTITLE](/admin/code-security/managing-github-advanced-security-for-your-enterprise/configuring-code-scanning-for-your-appliance)."
+If you run analysis in an external CI system, we recommend using the same version of the {% data variables.product.prodname_codeql_cli %}. See [AUTOTITLE](/admin/code-security/managing-github-advanced-security-for-your-enterprise/configuring-code-scanning-for-your-appliance).
 
 | {% data variables.product.product_name %} version | Recommended {% data variables.product.prodname_codeql_cli %} version |
 | ------------------------------------------------- | ---------------------- |
@@ -65,7 +65,7 @@ If you run analysis in an external CI system, we recommend using the same versio
 For instances with {% data variables.product.prodname_actions %} enabled, self-hosted {% data variables.product.prodname_actions %} runners must run a minimum required version of the {% data variables.product.prodname_actions %} Runner application.
 
 * For most instances, the Runner application is updated automatically.
-* If your instance uses ephemeral self-hosted runners and you've disabled automatic updates, you must upgrade your runners before upgrading {% data variables.product.prodname_ghe_server %}. See "[AUTOTITLE](/actions/hosting-your-own-runners/managing-self-hosted-runners/about-self-hosted-runners#requirements-for-self-hosted-runner-machines)."
+* If your instance uses ephemeral self-hosted runners and you've disabled automatic updates, you must upgrade your runners before upgrading {% data variables.product.prodname_ghe_server %}. See [AUTOTITLE](/actions/hosting-your-own-runners/managing-self-hosted-runners/about-self-hosted-runners#requirements-for-self-hosted-runner-machines).
 
 | {% data variables.product.product_name %} version | Minimum Runner version |
 | ------------------------------------------------- | ---------------------- |

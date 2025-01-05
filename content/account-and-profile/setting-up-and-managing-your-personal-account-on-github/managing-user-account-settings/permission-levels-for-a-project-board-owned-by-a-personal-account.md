@@ -59,8 +59,8 @@ Collaborators with write access to a user-owned {% data variables.projects.proje
 
 ## {% data variables.projects.projects_v1_board_caps %} visibility
 
-You can change the {% data variables.projects.projects_v1_board %}'s visibility from private to public and back again. By default, user-owned {% data variables.projects.projects_v1_boards %} are private. For more information, see "[AUTOTITLE](/issues/organizing-your-work-with-project-boards/managing-project-boards/changing-project-board-visibility)."
+You can change the {% data variables.projects.projects_v1_board %}'s visibility from private to public and back again. By default, user-owned {% data variables.projects.projects_v1_boards %} are private. For more information, see [AUTOTITLE](/issues/organizing-your-work-with-project-boards/managing-project-boards/changing-project-board-visibility).
 
 ## Further reading
 
-* "[AUTOTITLE](/account-and-profile/setting-up-and-managing-your-personal-account-on-github/managing-user-account-settings/managing-access-to-your-personal-accounts-project-boards)"
+* [AUTOTITLE](/account-and-profile/setting-up-and-managing-your-personal-account-on-github/managing-user-account-settings/managing-access-to-your-personal-accounts-project-boards)

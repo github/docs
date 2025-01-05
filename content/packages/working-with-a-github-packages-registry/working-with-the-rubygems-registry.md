@@ -94,7 +94,7 @@ bundle config https://{% ifversion fpt or ghec %}rubygems.pkg.github.com{% else 
 
 ## Publishing a package
 
-{% ifversion packages-rubygems-v2 %}{% data reusables.package_registry.publishing-user-scoped-packages %}{% else %}By default, GitHub publishes the package to an existing repository with the same name as the package. For example, when you publish `GEM_NAME` to the `octo-org` organization, GitHub Packages publishes the gem to the `octo-org/GEM_NAME` repository.{% endif %} For more information on creating your gem, see "[Make your own gem](http://guides.rubygems.org/make-your-own-gem/)" in the RubyGems documentation.
+{% ifversion packages-rubygems-v2 %}{% data reusables.package_registry.publishing-user-scoped-packages %}{% else %}By default, GitHub publishes the package to an existing repository with the same name as the package. For example, when you publish `GEM_NAME` to the `octo-org` organization, GitHub Packages publishes the gem to the `octo-org/GEM_NAME` repository.{% endif %} For more information on creating your gem, see [Make your own gem](http://guides.rubygems.org/make-your-own-gem/) in the RubyGems documentation.
 
 {% data reusables.package_registry.auto-inherit-permissions-note %}
 
@@ -129,7 +129,7 @@ You can ensure gems will be linked to a repository as soon as they are published
 gem.metadata = { "github_repo" => "ssh://{% ifversion fpt or ghec %}github.com{% else %}HOSTNAME{% endif %}/OWNER/REPOSITORY" }
 ```
 
-For information on linking a published package with a repository, see "[AUTOTITLE](/packages/learn-github-packages/connecting-a-repository-to-a-package)."
+For information on linking a published package with a repository, see [AUTOTITLE](/packages/learn-github-packages/connecting-a-repository-to-a-package).
 
 {% else %}
 
@@ -178,4 +178,4 @@ You can use gems from {% data variables.product.prodname_registry %} much like y
 
 ## Further reading
 
-* "[AUTOTITLE](/packages/learn-github-packages/deleting-and-restoring-a-package)"
+* [AUTOTITLE](/packages/learn-github-packages/deleting-and-restoring-a-package)

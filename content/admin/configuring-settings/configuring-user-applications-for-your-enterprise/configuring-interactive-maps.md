@@ -14,7 +14,7 @@ redirect_from:
 
 ## About interactive maps
 
-You can allow users of {% data variables.location.product_location %} to create interactive maps using GeoJSON or TopoJSON syntax. For more information about creation of interactive maps, see "[AUTOTITLE](/get-started/writing-on-github/working-with-advanced-formatting/creating-diagrams#creating-geojson-and-topojson-maps)."
+You can allow users of {% data variables.location.product_location %} to create interactive maps using GeoJSON or TopoJSON syntax. For more information about creation of interactive maps, see [AUTOTITLE](/get-started/writing-on-github/working-with-advanced-formatting/creating-diagrams#creating-geojson-and-topojson-maps).
 
 To enable interactive maps, you must provide authentication credentials for Azure Maps.
 
@@ -97,7 +97,7 @@ After you create an application on your Entra ID tenant and generate a secret fo
 {% data reusables.enterprise_site_admin_settings.management-console %}
 {% data reusables.enterprise_management_console.privacy %}
 1. To enable interactive maps, select "Enable GeoJSON rendering".
-1. Generate a 32-character string to use as a secret to prevent cross-site request forgery (CSRF). For example, you can access the administrative shell and use `openssl` on {% data variables.location.product_location %} to generate a string. For more information, see "[AUTOTITLE](/admin/administering-your-instance/administering-your-instance-from-the-command-line/accessing-the-administrative-shell-ssh)."
+1. Generate a 32-character string to use as a secret to prevent cross-site request forgery (CSRF). For example, you can access the administrative shell and use `openssl` on {% data variables.location.product_location %} to generate a string. For more information, see [AUTOTITLE](/admin/administering-your-instance/administering-your-instance-from-the-command-line/accessing-the-administrative-shell-ssh).
 
    ```shell copy
    openssl rand -hex 32
@@ -121,8 +121,8 @@ After you create an application on your Entra ID tenant and generate a secret fo
        | :- | :- | :- |
        | Azure Map Client ID | Client ID for your Azure Maps account | [Manage authentication in Azure Maps](https://learn.microsoft.com/azure/azure-maps/how-to-manage-authentication#view-authentication-details) on Microsoft Learn |
        | Azure App Client ID | Application (client) ID for the application you created on your Entra ID tenant | [Create a Microsoft Entra application and service principal that can access resources](https://learn.microsoft.com/entra/identity-platform/howto-create-service-principal-portal#sign-in-to-the-application) on Microsoft Learn |
-       | Azure Tenant ID | ID for your tenant on Entra ID | "[Prerequisites](#prerequisites)" |
-       | Azure App Client Secret | Client secret that you generated for the application on your Entra ID tenant | "[Generating credentials for Azure Maps](#generating-credentials-for-azure-maps)"
+       | Azure Tenant ID | ID for your tenant on Entra ID | [Prerequisites](#prerequisites) |
+       | Azure App Client Secret | Client secret that you generated for the application on your Entra ID tenant | [Generating credentials for Azure Maps](#generating-credentials-for-azure-maps)
        | CSRF Secret | 32-character string to prevent CSRF attacks | See previous step. |
 {%- else %}
 1. To configure authentication, under "Azure Maps API Token", paste your token.

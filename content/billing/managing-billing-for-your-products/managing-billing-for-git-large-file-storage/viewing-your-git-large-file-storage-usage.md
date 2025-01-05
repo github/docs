@@ -62,5 +62,5 @@ shortTitle: View Git LFS usage
 
 ## Further reading
 
-* "[AUTOTITLE](/repositories/working-with-files/managing-large-files/about-storage-and-bandwidth-usage)"
-* "[AUTOTITLE](/billing/managing-billing-for-your-products/managing-billing-for-git-large-file-storage/upgrading-git-large-file-storage)"
+* [AUTOTITLE](/repositories/working-with-files/managing-large-files/about-storage-and-bandwidth-usage)
+* [AUTOTITLE](/billing/managing-billing-for-your-products/managing-billing-for-git-large-file-storage/upgrading-git-large-file-storage)

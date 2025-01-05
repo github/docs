@@ -30,7 +30,7 @@ Once you have configured your server and created your {% data variables.product.
 1. To the right of the {% data variables.product.prodname_github_app %} you want to configure for your {% data variables.product.prodname_copilot_extension_short %}, click **Edit**.
 1. In the "Identifying and authorizing users" section, under "Callback URL", enter your callback endpoint URL, then click **Save changes**.
 
-    > [!NOTE] Your server's hostname is the forwarding endpoint that you copied from your terminal when you configured your server. See "[AUTOTITLE](/copilot/building-copilot-extensions/creating-a-copilot-extension/configuring-your-server-to-deploy-your-copilot-agent)."
+    > [!NOTE] Your server's hostname is the forwarding endpoint that you copied from your terminal when you configured your server. See [AUTOTITLE](/copilot/building-copilot-extensions/creating-a-copilot-extension/configuring-your-server-to-deploy-your-copilot-agent).
     >
     > If you are using an ephemeral domain in ngrok, you will need to update this URL every time you restart your ngrok server.
 
@@ -62,7 +62,7 @@ Once you have configured your server and created your {% data variables.product.
 1. To the right of the {% data variables.product.prodname_github_app %} you want to configure for your {% data variables.product.prodname_copilot_extension_short %}, click **Edit**.
 1. In the "Identifying and authorizing users" section, under "Callback URL", enter your callback endpoint URL, then click **Save changes**.
 
-    > [!NOTE] Your server's hostname is the forwarding endpoint that you copied from your terminal when you configured your server. See "[AUTOTITLE](/copilot/building-copilot-extensions/creating-a-copilot-extension/configuring-your-server-to-deploy-your-copilot-agent)."
+    > [!NOTE] Your server's hostname is the forwarding endpoint that you copied from your terminal when you configured your server. See [AUTOTITLE](/copilot/building-copilot-extensions/creating-a-copilot-extension/configuring-your-server-to-deploy-your-copilot-agent).
     >
     > If you are using an ephemeral domain in ngrok, you will need to update this URL every time you restart your ngrok server.
 

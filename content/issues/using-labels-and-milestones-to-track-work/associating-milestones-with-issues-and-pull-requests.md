@@ -28,4 +28,4 @@ shortTitle: Add to milestones
 
 ## Further reading
 
-* "[AUTOTITLE](/issues/using-labels-and-milestones-to-track-work/filtering-issues-and-pull-requests-by-milestone)"
+* [AUTOTITLE](/issues/using-labels-and-milestones-to-track-work/filtering-issues-and-pull-requests-by-milestone)

@@ -12,7 +12,7 @@ topics:
 shortTitle: Setting an end date
 ---
 
-You can set an end date to your sponsorship. The end date assigned will be the last date for which you will be charged for that sponsorship, but the sponsorship will show active for another month. For example, if October 2023 is set as the end date, the last sponsorship will be charged in October 2023, but the sponsorship will be shown as active until November 2023. For more information about setting an end date to a new sponsorship, see "[AUTOTITLE](/sponsors/sponsoring-open-source-contributors/sponsoring-an-open-source-contributor)."
+You can set an end date to your sponsorship. The end date assigned will be the last date for which you will be charged for that sponsorship, but the sponsorship will show active for another month. For example, if October 2023 is set as the end date, the last sponsorship will be charged in October 2023, but the sponsorship will be shown as active until November 2023. For more information about setting an end date to a new sponsorship, see [AUTOTITLE](/sponsors/sponsoring-open-source-contributors/sponsoring-an-open-source-contributor).
 
 ## Setting an end date for an existing sponsorship
 

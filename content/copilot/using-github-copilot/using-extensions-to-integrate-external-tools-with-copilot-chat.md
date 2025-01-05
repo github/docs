@@ -20,10 +20,10 @@ redirect_from:
 
 {% data reusables.copilot.copilot-extensions.copilot-extensions-intro %}
 
-> [!NOTE] {% data variables.product.prodname_copilot_extensions %} are not the same as _the {% data variables.product.prodname_copilot %} extension_, which you install in your IDE to use default {% data variables.product.prodname_copilot_short %} functionality like code completions and {% data variables.product.prodname_copilot_chat %}. For more information on _the {% data variables.product.prodname_copilot %} extension_, see "[AUTOTITLE](/copilot/using-github-copilot/getting-started-with-github-copilot)."
+> [!NOTE] {% data variables.product.prodname_copilot_extensions %} are not the same as _the {% data variables.product.prodname_copilot %} extension_, which you install in your IDE to use default {% data variables.product.prodname_copilot_short %} functionality like code completions and {% data variables.product.prodname_copilot_chat %}. For more information on _the {% data variables.product.prodname_copilot %} extension_, see [AUTOTITLE](/copilot/using-github-copilot/getting-started-with-github-copilot).
 
 You can get started with {% data variables.product.prodname_copilot_extensions_short %} in one of two ways:
-* Build your own {% data variables.product.prodname_copilot_extension_short %}. See "[AUTOTITLE](/copilot/building-copilot-extensions/about-building-copilot-extensions)."
+* Build your own {% data variables.product.prodname_copilot_extension_short %}. See [AUTOTITLE](/copilot/building-copilot-extensions/about-building-copilot-extensions).
 * Install a {% data variables.product.prodname_copilot_extension_short %} from {% data variables.product.prodname_marketplace %}.
 
 You can interact with your custom-built or installed extension in a {% data variables.product.prodname_copilot_chat_short %} conversation, asking questions and performing actions that combine the capabilities of the external tool and {% data variables.product.prodname_dotcom %}. For example, if you install the Sentry extension for {% data variables.product.prodname_copilot %}, you can use the extension to get information about Sentry issues, then create and assign related tracking issues on {% data variables.product.prodname_dotcom %}.
@@ -64,22 +64,22 @@ The following table shows the contexts that are passed to {% data variables.prod
 
 ## Prerequisites
 
-**If you have a {% data variables.product.prodname_copilot_individuals_short %} subscription**, you need to install a {% data variables.product.prodname_copilot_extension_short %} before you can use the extension in {% data variables.product.prodname_copilot_chat_short %}. See "[AUTOTITLE](/copilot/github-copilot-chat/github-copilot-extensions/installing-github-copilot-extensions-for-your-personal-account)."
+**If you have a {% data variables.product.prodname_copilot_pro_short %} subscription**, you need to install a {% data variables.product.prodname_copilot_extension_short %} before you can use the extension in {% data variables.product.prodname_copilot_chat_short %}. See [AUTOTITLE](/copilot/github-copilot-chat/github-copilot-extensions/installing-github-copilot-extensions-for-your-personal-account).
 
 **If you have access to {% data variables.product.prodname_copilot_short %} through a {% data variables.product.prodname_copilot_business_short %} or {% data variables.product.prodname_copilot_enterprise_short %} subscription:**
-  1. An organization owner or enterprise owner needs to enable the {% data variables.product.prodname_copilot_extensions_short %} policy for your organization or enterprise. See "[AUTOTITLE](/copilot/managing-copilot/managing-github-copilot-in-your-organization/setting-policies-for-copilot-in-your-organization/managing-policies-for-copilot-in-your-organization#setting-a-policy-for-github-copilot-extensions-in-your-organization)" and "[AUTOTITLE](/enterprise-cloud@latest/copilot/managing-copilot/managing-copilot-for-your-enterprise/managing-policies-and-features-for-copilot-in-your-enterprise#configuring-policies-for-github-copilot)" in the {% data variables.product.prodname_ghe_cloud %} documentation.
-  1. An organization owner needs to install {% data variables.product.prodname_copilot_extensions_short %} for your organization. See "[AUTOTITLE](/copilot/github-copilot-chat/github-copilot-extensions/installing-github-copilot-extensions-for-your-organization)."
+  1. An organization owner or enterprise owner needs to enable the {% data variables.product.prodname_copilot_extensions_short %} policy for your organization or enterprise. See [AUTOTITLE](/copilot/managing-copilot/managing-github-copilot-in-your-organization/setting-policies-for-copilot-in-your-organization/managing-policies-for-copilot-in-your-organization#setting-a-policy-for-github-copilot-extensions-in-your-organization) and [AUTOTITLE](/enterprise-cloud@latest/copilot/managing-copilot/managing-copilot-for-your-enterprise/managing-policies-and-features-for-copilot-in-your-enterprise#configuring-policies-for-github-copilot) in the {% data variables.product.prodname_ghe_cloud %} documentation.
+  1. An organization owner needs to install {% data variables.product.prodname_copilot_extensions_short %} for your organization. See [AUTOTITLE](/copilot/github-copilot-chat/github-copilot-extensions/installing-github-copilot-extensions-for-your-organization).
 
 ## Using {% data variables.product.prodname_copilot_extensions %}
 
-1. To start using a {% data variables.product.prodname_copilot_extension_short %}, open a supported {% data variables.product.prodname_copilot_chat_short %} interface. See "[Supported clients and IDEs](#supported-clients-and-ides)."
+1. To start using a {% data variables.product.prodname_copilot_extension_short %}, open a supported {% data variables.product.prodname_copilot_chat_short %} interface. See [Supported clients and IDEs](#supported-clients-and-ides).
 1. To see a list of all {% data variables.product.prodname_copilot_extensions_short %} available in your {% data variables.product.prodname_copilot_chat_short %} conversation, in the {% data variables.product.prodname_copilot_chat_short %} text box, type `@`.
 
     > [!NOTE] If you are using {% data variables.product.prodname_copilot_chat_short %} in an IDE, and you or your organization owner install a {% data variables.product.prodname_copilot_extension_short %} while your IDE is open, you need to restart your IDE to begin using the {% data variables.product.prodname_copilot_extension_short %}.
 
 1. In the list of available {% data variables.product.prodname_copilot_extensions_short %}, click the one you want to use.
 1. To begin interacting with the {% data variables.product.prodname_copilot_extension_short %}, in the {% data variables.product.prodname_copilot_chat_short %} text box, ask the extension to answer a question or perform an action, then press <kbd>Enter</kbd>. For each new request, be sure to include `@EXTENSION-NAME` at the beginning of your sentence.
-    * If you did not install the {% data variables.product.prodname_copilot_extension_short %} yourself, and it is your first time using the {% data variables.product.prodname_copilot_extension_short %}, you will be asked to authorize the extension. See "[AUTOTITLE](/apps/using-github-apps/authorizing-github-apps)."
+    * If you did not install the {% data variables.product.prodname_copilot_extension_short %} yourself, and it is your first time using the {% data variables.product.prodname_copilot_extension_short %}, you will be asked to authorize the extension. See [AUTOTITLE](/apps/using-github-apps/authorizing-github-apps).
     * If you ask a {% data variables.product.prodname_copilot_extension_short %} to perform an action, you need to confirm the extension has your permission to act on your behalf before it will complete the task. After carefully reviewing the proposed action, in the confirmation dialog, click **Allow** or **Dismiss**.
 
 ## Tips for using {% data variables.product.prodname_copilot_extensions %}
@@ -108,4 +108,4 @@ For questions and issues related to {% data variables.product.prodname_copilot_e
 
 ## Further reading
 
-* "[AUTOTITLE](/copilot/building-copilot-extensions/about-building-copilot-extensions)"
+* [AUTOTITLE](/copilot/building-copilot-extensions/about-building-copilot-extensions)

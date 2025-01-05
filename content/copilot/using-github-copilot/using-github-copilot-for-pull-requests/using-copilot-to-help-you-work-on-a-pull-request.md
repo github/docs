@@ -2,6 +2,7 @@
 title: Using Copilot to help you work on a pull request
 shortTitle: Working on a PR
 intro: 'You can iterate, validate, and integrate suggested changes to code by using {% data variables.product.prodname_copilot_workspace %}.'
+product: '{% data reusables.gated-features.copilot-free-availability %}'
 versions:
   feature: copilot-hadron
 topics:
@@ -21,9 +22,9 @@ After you create a pull request, you can continue working on the PR on the {% da
 {% data variables.product.prodname_copilot_workspace %} enables you to work on your pull requests in one place - on {% data variables.product.github %} - from pull request creation to merge.
 
 {% data variables.product.prodname_copilot_short %} can help with pull requests in other ways too. These are explained in separate articles. {% data variables.product.prodname_copilot_short %} can:
-* Write a pull request summary for you - see "[AUTOTITLE](/copilot/using-github-copilot/using-github-copilot-for-pull-requests/creating-a-pull-request-summary-with-github-copilot)."
-* Review a pull request for you - see "[AUTOTITLE](/copilot/using-github-copilot/code-review/using-copilot-code-review)."
-* Suggest fixes for coding problems identified by {% data variables.product.prodname_codeql %} {% data variables.product.prodname_code_scanning %} - see "[AUTOTITLE](/code-security/code-scanning/managing-code-scanning-alerts/responsible-use-autofix-code-scanning)."
+* Write a pull request summary for you - see [AUTOTITLE](/copilot/using-github-copilot/using-github-copilot-for-pull-requests/creating-a-pull-request-summary-with-github-copilot).
+* Review a pull request for you - see [AUTOTITLE](/copilot/using-github-copilot/code-review/using-copilot-code-review).
+* Suggest fixes for coding problems identified by {% data variables.product.prodname_codeql %} {% data variables.product.prodname_code_scanning %} - see [AUTOTITLE](/code-security/code-scanning/managing-code-scanning-alerts/responsible-use-autofix-code-scanning).
 
 ### Benefits of {% data variables.product.prodname_copilot_workspace %}
 
@@ -39,9 +40,9 @@ After you create a pull request, you can continue working on the PR on the {% da
 
 Using {% data variables.product.prodname_copilot_workspace %} requires:
 
-* A {% data variables.product.prodname_copilot_short %} subscription. For more information, see "[AUTOTITLE](/copilot/about-github-copilot/subscription-plans-for-github-copilot)."
-* Admission to the {% data variables.release-phases.public_preview %} from the waitlist. To apply to join the waitlist, see "[Join the Copilot code review waitlist](https://gh.io/copilot-code-review-waitlist)."
-* An existing pull request on the {% data variables.product.github %} website. If you need help on creating a pull request, see "[AUTOTITLE](/pull-requests/collaborating-with-pull-requests/proposing-changes-to-your-work-with-pull-requests/creating-a-pull-request)."
+* A {% data variables.product.prodname_copilot_short %} subscription. For more information, see [AUTOTITLE](/copilot/about-github-copilot/subscription-plans-for-github-copilot).
+* Admission to the {% data variables.release-phases.public_preview %} from the waitlist. To apply to join the waitlist, see [Join the Copilot code review waitlist](https://gh.io/copilot-code-review-waitlist).
+* An existing pull request on the {% data variables.product.github %} website. If you need help on creating a pull request, see [AUTOTITLE](/pull-requests/collaborating-with-pull-requests/proposing-changes-to-your-work-with-pull-requests/creating-a-pull-request).
 
 Without access {% data variables.product.prodname_copilot_workspace %} you can still edit the files in pull requests by going to the **Files changed** tab, clicking the ellipsis (**...**) next to the file you want to edit, and then clicking **Edit file**.
 
@@ -60,7 +61,7 @@ To work on a pull request in {% data variables.product.prodname_copilot_workspac
 1. To work on a file that is not currently changed by this pull request, click **Files in this pull request** and, from the dropdown, select **All files in this repository**.
 1. Click a file in the list to open the file in the {% data variables.product.prodname_copilot_workspace_short %} editor.
 
-   The file is displayed in a diff view. You can change the view if required. See "[Changing the {% data variables.product.prodname_copilot_workspace_short %} options](#changing-the-workspace-options)" later in this article.
+   The file is displayed in a diff view. You can change the view if required. See [Changing the {% data variables.product.prodname_copilot_workspace_short %} options](#changing-the-workspace-options) later in this article.
 
    You can open and change multiple files before committing your changes.
 
@@ -124,7 +125,7 @@ You can use {% data variables.product.prodname_copilot_workspace %} to work thro
    * **The whole pull request** - for example, "what frameworks are referenced in this pull request?"
    * **General programming topics** - for example, "what is the latest version of ruby?"
 
-   For more information, see "[AUTOTITLE](/copilot/using-github-copilot/asking-github-copilot-questions-in-githubcom)."
+   For more information, see [AUTOTITLE](/copilot/using-github-copilot/asking-github-copilot-questions-in-githubcom).
 
 > [!NOTE] Currently not all {% data variables.product.prodname_copilot_chat_short %} features are available in the {% data variables.release-phases.public_preview %} of {% data variables.product.prodname_copilot_workspace %}.
 
@@ -161,7 +162,7 @@ You can set default **Build**, **Run**, and **Test** commands for everyone who u
 
 1. Create or edit a file in the root of your repository called `.devcontainer/devcontainer.json`.
 
-   > [!NOTE] The `.devcontainer/devcontainer.json` file is a configuration file for codespaces created for a repository. For more information, see "[AUTOTITLE](/enterprise-cloud@latest/codespaces/setting-up-your-project-for-codespaces/adding-a-dev-container-configuration/introduction-to-dev-containers#devcontainerjson)."
+   > [!NOTE] The `.devcontainer/devcontainer.json` file is a configuration file for codespaces created for a repository. For more information, see [AUTOTITLE](/enterprise-cloud@latest/codespaces/setting-up-your-project-for-codespaces/adding-a-dev-container-configuration/introduction-to-dev-containers#devcontainerjson).
 
 1. Add a `commands` section as follows, replacing the example commands shown here with the commands that people working on your repository should use.
 

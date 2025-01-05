@@ -26,11 +26,11 @@ By default, {% data variables.product.product_name %} uses built-in authenticati
 
 {% ifversion passkeys %}
 
-By default, users can use passkeys for built-in authentication, but you can disable passkeys for your instance. See "[AUTOTITLE](/admin/managing-iam/using-built-in-authentication/disabling-passkeys-for-your-instance)."
+By default, users can use passkeys for built-in authentication, but you can disable passkeys for your instance. See [AUTOTITLE](/admin/managing-iam/using-built-in-authentication/disabling-passkeys-for-your-instance).
 
 {% endif %}
 
-You can prevent unauthenticated people from creating new user accounts on your instance. For more information, see "[AUTOTITLE](/admin/identity-and-access-management/using-built-in-authentication/disabling-unauthenticated-sign-ups)."
+You can prevent unauthenticated people from creating new user accounts on your instance. For more information, see [AUTOTITLE](/admin/identity-and-access-management/using-built-in-authentication/disabling-unauthenticated-sign-ups).
 
 {% data reusables.enterprise_user_management.alternatively-enable-external-authentication %}
 
@@ -54,8 +54,8 @@ Once your instance has been created, you'll need to create your own admin accoun
 
 <a name="inviting-users"></a>
 
-After you configure built-in authentication and create your administrative account, you can invite people to create accounts and use your instance. For more information, see "[AUTOTITLE](/admin/identity-and-access-management/using-built-in-authentication/inviting-people-to-use-your-instance)."
+After you configure built-in authentication and create your administrative account, you can invite people to create accounts and use your instance. For more information, see [AUTOTITLE](/admin/identity-and-access-management/using-built-in-authentication/inviting-people-to-use-your-instance).
 
 ## Further reading
 
-* "[AUTOTITLE](/admin/configuration/configuring-your-enterprise/configuring-email-for-notifications)"
+* [AUTOTITLE](/admin/configuration/configuring-your-enterprise/configuring-email-for-notifications)

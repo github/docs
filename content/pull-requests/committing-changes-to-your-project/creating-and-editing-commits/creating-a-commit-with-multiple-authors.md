@@ -19,7 +19,7 @@ Before you can add a co-author to a commit, you must know the appropriate email 
 
 If a person chooses to keep their email address private, you should use their {% data variables.product.product_name %}-provided `no-reply` email to protect their privacy. Otherwise, the co-author's email will be available to the public in the commit message. If you want to keep your email private, you can choose to use a {% data variables.product.product_name %}-provided `no-reply` email for Git operations and ask other co-authors to list your `no-reply` email in commit trailers.
 
-For more information, see "[AUTOTITLE](/account-and-profile/setting-up-and-managing-your-personal-account-on-github/managing-email-preferences/setting-your-commit-email-address)."
+For more information, see [AUTOTITLE](/account-and-profile/setting-up-and-managing-your-personal-account-on-github/managing-email-preferences/setting-your-commit-email-address).
 
 > [!TIP]
 > You can help a co-author find their preferred email address by sharing this information:
@@ -30,7 +30,7 @@ For more information, see "[AUTOTITLE](/account-and-profile/setting-up-and-manag
 
 ## Creating co-authored commits using {% data variables.product.prodname_desktop %}
 
-You can use {% data variables.product.prodname_desktop %} to create a commit with a co-author. For more information, see "[AUTOTITLE](/desktop/making-changes-in-a-branch/committing-and-reviewing-changes-to-your-project-in-github-desktop#write-a-commit-message-and-push-your-changes)" and [{% data variables.product.prodname_desktop %}](https://desktop.github.com).
+You can use {% data variables.product.prodname_desktop %} to create a commit with a co-author. For more information, see [AUTOTITLE](/desktop/making-changes-in-a-branch/committing-and-reviewing-changes-to-your-project-in-github-desktop#write-a-commit-message-and-push-your-changes) and [{% data variables.product.prodname_desktop %}](https://desktop.github.com).
 
 ## Creating co-authored commits on the command line
 
@@ -59,7 +59,7 @@ You can use {% data variables.product.prodname_desktop %} to create a commit wit
    Co-authored-by: ANOTHER-NAME <ANOTHER-NAME@EXAMPLE.COM>"
    ```
 
-The new commit and message will appear on {% data variables.location.product_location %} the next time you push. For more information, see "[AUTOTITLE](/get-started/using-git/pushing-commits-to-a-remote-repository)."
+The new commit and message will appear on {% data variables.location.product_location %} the next time you push. For more information, see [AUTOTITLE](/get-started/using-git/pushing-commits-to-a-remote-repository).
 
 ## Creating co-authored commits on {% data variables.product.product_name %}
 
@@ -76,8 +76,8 @@ The new commit and message will appear on {% data variables.location.product_loc
 ## Further reading
 
 {% ifversion ghes %}
-* "[AUTOTITLE](/account-and-profile/setting-up-and-managing-your-github-profile/managing-contribution-settings-on-your-profile/viewing-contributions-on-your-profile)"
-* "[AUTOTITLE](/account-and-profile/setting-up-and-managing-your-github-profile/managing-contribution-settings-on-your-profile/why-are-my-contributions-not-showing-up-on-my-profile)"{% endif %}
-* "[AUTOTITLE](/repositories/viewing-activity-and-data-for-your-repository/viewing-a-projects-contributors)"
-* "[AUTOTITLE](/pull-requests/committing-changes-to-your-project/creating-and-editing-commits/changing-a-commit-message)"
-* "[AUTOTITLE](/desktop/making-changes-in-a-branch/committing-and-reviewing-changes-to-your-project-in-github-desktop#4-write-a-commit-message-and-push-your-changes)" in the {% data variables.product.prodname_desktop %} documentation
+* [AUTOTITLE](/account-and-profile/setting-up-and-managing-your-github-profile/managing-contribution-settings-on-your-profile/viewing-contributions-on-your-profile)
+* [AUTOTITLE](/account-and-profile/setting-up-and-managing-your-github-profile/managing-contribution-settings-on-your-profile/why-are-my-contributions-not-showing-up-on-my-profile){% endif %}
+* [AUTOTITLE](/repositories/viewing-activity-and-data-for-your-repository/viewing-a-projects-contributors)
+* [AUTOTITLE](/pull-requests/committing-changes-to-your-project/creating-and-editing-commits/changing-a-commit-message)
+* [AUTOTITLE](/desktop/making-changes-in-a-branch/committing-and-reviewing-changes-to-your-project-in-github-desktop#4-write-a-commit-message-and-push-your-changes) in the {% data variables.product.prodname_desktop %} documentation

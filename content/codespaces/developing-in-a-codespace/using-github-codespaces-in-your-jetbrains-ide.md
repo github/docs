@@ -24,7 +24,7 @@ After installing the JetBrains Gateway, you can set JetBrains as your default ed
 When you work in a codespace, you use the JetBrains thin client application on your local computer. This provides the graphical interface for the full JetBrains IDE of your choice, which runs on the remote virtual machine that hosts your codespace. The thin client is always used, even if the full JetBrains IDE is installed locally. Any local JetBrains IDE settings are imported and used by the thin client.
 
 > [!NOTE]
-> Only existing codespaces are available in the JetBrains Gateway. You can create codespaces in {% data variables.product.github %}, or by using {% data variables.product.prodname_cli %}. For more information, see "[AUTOTITLE](/codespaces/developing-in-a-codespace/creating-a-codespace-for-a-repository)."
+> Only existing codespaces are available in the JetBrains Gateway. You can create codespaces in {% data variables.product.github %}, or by using {% data variables.product.prodname_cli %}. For more information, see [AUTOTITLE](/codespaces/developing-in-a-codespace/creating-a-codespace-for-a-repository).
 
 ### The JetBrains remote development connection process
 
@@ -42,7 +42,7 @@ To work in a codespace in a JetBrains IDE you need:
 
 * A valid JetBrains license
 * The JetBrains Gateway application, versions 2023.3.\* or 2024.1.\*
-* An existing codespace running on a virtual machine that has at least 4 cores. The codespace must also be running an SSH server. For more information, see "[Codespace running an SSH server](#codespace-running-an-ssh-server)."
+* An existing codespace running on a virtual machine that has at least 4 cores. The codespace must also be running an SSH server. For more information, see [Codespace running an SSH server](#codespace-running-an-ssh-server).
 
 ### JetBrains license
 
@@ -59,18 +59,18 @@ You can install and update the JetBrains Gateway from the JetBrains Toolbox appl
    ![Screenshot of the JetBrains Toolbox with "Gateway" at the bottom of the list of applications. Each application has an "Install" button next to it.](/assets/images/help/codespaces/jetbrains-toolbox.png)
 
 1. To the right of **Gateway**, click the ellipsis (**...**), then click **Available versions**.
-1. In the list of versions, beside a supported version (see "[Prerequisites](#prerequisites)"), click **Install**.
+1. In the list of versions, beside a supported version (see [Prerequisites](#prerequisites)), click **Install**.
 
 ### Codespace running an SSH server
 
-You must have an existing codespace to connect to, and the virtual machine that hosts the codespace must have at least 4 cores. {% data reusables.codespaces.ways-to-create-a-codespace %} For more information, see "[AUTOTITLE](/codespaces/developing-in-a-codespace/creating-a-codespace-for-a-repository)."
+You must have an existing codespace to connect to, and the virtual machine that hosts the codespace must have at least 4 cores. {% data reusables.codespaces.ways-to-create-a-codespace %} For more information, see [AUTOTITLE](/codespaces/developing-in-a-codespace/creating-a-codespace-for-a-repository).
 
 {% data reusables.codespaces.ssh-server-installed %}
 
-For more information about the `devcontainer.json` file and the default container image, see "[AUTOTITLE](/codespaces/setting-up-your-project-for-codespaces/adding-a-dev-container-configuration/introduction-to-dev-containers)."
+For more information about the `devcontainer.json` file and the default container image, see [AUTOTITLE](/codespaces/setting-up-your-project-for-codespaces/adding-a-dev-container-configuration/introduction-to-dev-containers).
 
 > [!NOTE]
-> For help with connecting to your codespace over SSH, see "[AUTOTITLE](/codespaces/troubleshooting/troubleshooting-github-codespaces-clients?tool=jetbrains#ssh-connection-issues)."
+> For help with connecting to your codespace over SSH, see [AUTOTITLE](/codespaces/troubleshooting/troubleshooting-github-codespaces-clients?tool=jetbrains#ssh-connection-issues).
 
 ## Setting up the JetBrains Gateway
 
@@ -116,6 +116,6 @@ The first time you use JetBrains Gateway for {% data variables.product.prodname_
 
 ## Further reading
 
-* "[AUTOTITLE](/codespaces/developing-in-a-codespace/developing-in-a-codespace)"
-* "[AUTOTITLE](/codespaces/reference/using-the-github-codespaces-plugin-for-jetbrains)"
-* "[AUTOTITLE](/codespaces/troubleshooting/troubleshooting-github-codespaces-clients?tool=jetbrains)"
+* [AUTOTITLE](/codespaces/developing-in-a-codespace/developing-in-a-codespace)
+* [AUTOTITLE](/codespaces/reference/using-the-github-codespaces-plugin-for-jetbrains)
+* [AUTOTITLE](/codespaces/troubleshooting/troubleshooting-github-codespaces-clients?tool=jetbrains)

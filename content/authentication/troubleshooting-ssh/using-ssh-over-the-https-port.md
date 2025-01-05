@@ -72,4 +72,4 @@ that the host wasn't found in `known_hosts`, or that it was found by another nam
 ```
 
 It is safe to answer "yes" to this question, assuming that the SSH fingerprint matches
-one of {% data variables.product.prodname_dotcom %}'s published fingerprints. For the list of fingerprints, see "[AUTOTITLE](/authentication/keeping-your-account-and-data-secure/githubs-ssh-key-fingerprints)."
+one of {% data variables.product.prodname_dotcom %}'s published fingerprints. For the list of fingerprints, see [AUTOTITLE](/authentication/keeping-your-account-and-data-secure/githubs-ssh-key-fingerprints).

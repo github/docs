@@ -33,5 +33,5 @@ Click the link in the banner display, or alternatively, filter the list of repos
 
 ## Further reading
 
-* "[AUTOTITLE](/code-security/securing-your-organization/troubleshooting-security-configurations/a-repository-is-using-advanced-setup-for-code-scanning)"
-* "[AUTOTITLE](/code-security/securing-your-organization/troubleshooting-security-configurations/not-enough-github-advanced-security-licenses)"
+* [AUTOTITLE](/code-security/securing-your-organization/troubleshooting-security-configurations/a-repository-is-using-advanced-setup-for-code-scanning)
+* [AUTOTITLE](/code-security/securing-your-organization/troubleshooting-security-configurations/not-enough-github-advanced-security-licenses)

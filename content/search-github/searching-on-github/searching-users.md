@@ -12,7 +12,7 @@ versions:
 topics:
   - GitHub search
 ---
-You can search for users globally across all of {% data variables.product.product_name %}. For more information, see "[AUTOTITLE](/search-github/getting-started-with-searching-on-github/about-searching-on-github)."
+You can search for users globally across all of {% data variables.product.product_name %}. For more information, see [AUTOTITLE](/search-github/getting-started-with-searching-on-github/about-searching-on-github).
 
 {% data reusables.search.syntax_tips %}
 
@@ -92,7 +92,7 @@ You can filter users based on the number of followers that they have, using the 
 
 ## Search based on ability to sponsor
 
-You can search for users and organizations who can be sponsored on {% data variables.product.prodname_sponsors %} with the `is:sponsorable` qualifier. For more information, see "[AUTOTITLE](/sponsors/getting-started-with-github-sponsors/about-github-sponsors)."
+You can search for users and organizations who can be sponsored on {% data variables.product.prodname_sponsors %} with the `is:sponsorable` qualifier. For more information, see [AUTOTITLE](/sponsors/getting-started-with-github-sponsors/about-github-sponsors).
 
 | Qualifier  | Example
 | ------------- | -------------
@@ -102,4 +102,4 @@ You can search for users and organizations who can be sponsored on {% data varia
 
 ## Further reading
 
-* "[AUTOTITLE](/search-github/getting-started-with-searching-on-github/sorting-search-results)"
+* [AUTOTITLE](/search-github/getting-started-with-searching-on-github/sorting-search-results)

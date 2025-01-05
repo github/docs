@@ -19,16 +19,16 @@ shortTitle: Learning resources
 
 ## Using {% data variables.product.product_name %}
 
-Become better acquainted with {% data variables.product.product_name %} through our "[AUTOTITLE](/get-started/using-github)" articles:
-* To review the fundamentals of a {% data variables.product.product_name %} workflow, see "[AUTOTITLE](/get-started/using-github/github-flow)."
-* To learn about the various tools for working with repositories hosted on {% data variables.product.product_name %}, and how to choose a tool that best suits your needs, see "[AUTOTITLE](/get-started/using-github/connecting-to-github)."
-* To understand the different communication tools on {% data variables.product.product_name %}, such as {% data variables.product.prodname_github_issues %}{% ifversion fpt or ghec %}, {% data variables.product.prodname_discussions %},{% endif %} and pull requests, see "[AUTOTITLE](/get-started/using-github/communicating-on-github)."
+Become better acquainted with {% data variables.product.product_name %} through our [AUTOTITLE](/get-started/using-github) articles:
+* To review the fundamentals of a {% data variables.product.product_name %} workflow, see [AUTOTITLE](/get-started/using-github/github-flow).
+* To learn about the various tools for working with repositories hosted on {% data variables.product.product_name %}, and how to choose a tool that best suits your needs, see [AUTOTITLE](/get-started/using-github/connecting-to-github).
+* To understand the different communication tools on {% data variables.product.product_name %}, such as {% data variables.product.prodname_github_issues %}{% ifversion fpt or ghec %}, {% data variables.product.prodname_discussions %},{% endif %} and pull requests, see [AUTOTITLE](/get-started/using-github/communicating-on-github).
 
 ## Using Git
 
 Familiarize yourself with Git through our series of articles:
-* "[AUTOTITLE](/get-started/getting-started-with-git)."
-* "[AUTOTITLE](/get-started/using-git)."
+* [AUTOTITLE](/get-started/getting-started-with-git).
+* [AUTOTITLE](/get-started/using-git).
 
 There are also lots of other online reading resources to help you learn Git:
 * [Official Git project site](https://git-scm.com).

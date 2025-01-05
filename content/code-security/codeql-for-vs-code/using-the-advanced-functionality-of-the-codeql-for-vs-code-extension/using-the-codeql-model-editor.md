@@ -19,7 +19,7 @@ redirect_from:
 
 With {% data variables.product.prodname_codeql %} model packs, you can expand your {% data variables.product.prodname_codeql %} {% data variables.product.prodname_code_scanning %} analysis to recognize custom libraries and frameworks used by your codebase that are not supported by default. With the {% data variables.product.prodname_codeql %} model editor, you can create your own model packs. The model editor guides you through modeling the calls to external dependencies in your application, or fully modeling all the public entry and exit points in an external dependency.
 
-For more information about customizing {% data variables.product.prodname_code_scanning %} analysis with model packs, see "[AUTOTITLE](/code-security/code-scanning/managing-your-code-scanning-configuration/editing-your-configuration-of-default-setup#extending-codeql-coverage-with-codeql-model-packs-in-default-setup)" and "[AUTOTITLE](/code-security/code-scanning/creating-an-advanced-setup-for-code-scanning/customizing-your-advanced-setup-for-code-scanning#extending-codeql-coverage-with-codeql-model-packs)."
+For more information about customizing {% data variables.product.prodname_code_scanning %} analysis with model packs, see [AUTOTITLE](/code-security/code-scanning/managing-your-code-scanning-configuration/editing-your-configuration-of-default-setup#extending-codeql-coverage-with-codeql-model-packs-in-default-setup) and [AUTOTITLE](/code-security/code-scanning/creating-an-advanced-setup-for-code-scanning/customizing-your-advanced-setup-for-code-scanning#extending-codeql-coverage-with-codeql-model-packs).
 
 When you open the model editor, it analyzes the currently selected {% data variables.product.prodname_codeql %} database and identifies where the application uses external APIs and all public methods. An external (or third-party) API is any API that is not part of the {% data variables.product.prodname_codeql %} database you have selected.
 
@@ -83,7 +83,7 @@ This section uses an open source Java project called "sofa-jraft" as an example.
 
 1. When you have finished modeling, display the main model editor and click **Save all** or **Save** (shown at the bottom-right of each expanded list of methods). The percentage of methods modeled in the editor is updated.
 
-The models are stored in your workspace at `.github/codeql/extensions/CODEQL-MODEl-PACK`, where `CODEQL-MODEL-PACK` is the name of the {% data variables.product.prodname_codeql %} database that you selected. That is, the name of the repository, hyphen, the language analyzed by {% data variables.product.prodname_codeql %}. For more information, see "[AUTOTITLE](/code-security/codeql-cli/using-the-advanced-functionality-of-the-codeql-cli/creating-and-working-with-codeql-packs#creating-a-codeql-model-pack)."
+The models are stored in your workspace at `.github/codeql/extensions/CODEQL-MODEl-PACK`, where `CODEQL-MODEL-PACK` is the name of the {% data variables.product.prodname_codeql %} database that you selected. That is, the name of the repository, hyphen, the language analyzed by {% data variables.product.prodname_codeql %}. For more information, see [AUTOTITLE](/code-security/codeql-cli/using-the-advanced-functionality-of-the-codeql-cli/creating-and-working-with-codeql-packs#creating-a-codeql-model-pack).
 
 The models are stored in a series of YAML data extension files, one for each external API. For example:
 
@@ -124,7 +124,7 @@ This section uses an open source Java project called "sofa-jraft" as an example.
 
 1. When you have finished modeling, click **Save all** or **Save** (shown at the bottom-right of each expanded list of calls). The percentage of calls modeled in the editor is updated.
 
-The models are stored in your workspace at `.github/codeql/extensions/CODEQL-MODEL-PACK`, where `CODEQL-MODEL-PACK` is the name of the {% data variables.product.prodname_codeql %} database that you selected. That is, the name of the repository, hyphen, the language analyzed by {% data variables.product.prodname_codeql %}. For more information, see "[AUTOTITLE](/code-security/codeql-cli/using-the-advanced-functionality-of-the-codeql-cli/creating-and-working-with-codeql-packs#creating-a-codeql-model-pack)."
+The models are stored in your workspace at `.github/codeql/extensions/CODEQL-MODEL-PACK`, where `CODEQL-MODEL-PACK` is the name of the {% data variables.product.prodname_codeql %} database that you selected. That is, the name of the repository, hyphen, the language analyzed by {% data variables.product.prodname_codeql %}. For more information, see [AUTOTITLE](/code-security/codeql-cli/using-the-advanced-functionality-of-the-codeql-cli/creating-and-working-with-codeql-packs#creating-a-codeql-model-pack).
 
 The models are stored in a series of YAML data extension files, one for each public method. For example:
 
@@ -145,7 +145,7 @@ Some methods support more than one data flow. It is important to model all the d
 
 ## Testing {% data variables.product.prodname_codeql %} model packs in {% data variables.product.prodname_vscode_shortname %}
 
-You can test any {% data variables.product.prodname_codeql %} model packs you create in {% data variables.product.prodname_vscode_shortname %} with the "Running Queries: Use Extension Packs" setting. For more information, see "[AUTOTITLE](/code-security/codeql-for-vs-code/using-the-advanced-functionality-of-the-codeql-for-vs-code-extension/customizing-settings)." This method works for both databases and for variant analysis repositories.
+You can test any {% data variables.product.prodname_codeql %} model packs you create in {% data variables.product.prodname_vscode_shortname %} with the "Running Queries: Use Extension Packs" setting. For more information, see [AUTOTITLE](/code-security/codeql-for-vs-code/using-the-advanced-functionality-of-the-codeql-for-vs-code-extension/customizing-settings). This method works for both databases and for variant analysis repositories.
 
 * To run queries on a {% data variables.product.prodname_codeql %} database with any model packs that are stored within the `.github/codeql/extensions` directory of the workspace, update your `settings.json` file with: `"codeQL.runningQueries.useExtensionPacks": "all",`
 

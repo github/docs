@@ -15,7 +15,7 @@ redirect_from:
   - /codespaces/developing-in-codespaces/using-github-codespaces-for-pull-requests
 ---
 
-Using a codespace to work on a pull request gives you all the benefits of {% data variables.product.prodname_github_codespaces %}. For more information, see "[AUTOTITLE](/codespaces/overview#benefits-of-github-codespaces)."
+Using a codespace to work on a pull request gives you all the benefits of {% data variables.product.prodname_github_codespaces %}. For more information, see [AUTOTITLE](/codespaces/overview#benefits-of-github-codespaces).
 
 ## About pull requests in {% data variables.product.prodname_github_codespaces %}
 
@@ -39,7 +39,7 @@ Using a codespace to work on a pull request gives you all the benefits of {% dat
 
 ## Reviewing a pull request in {% data variables.product.prodname_codespaces %}
 
-1. With your default editor set to either {% data variables.product.prodname_vscode %} or {% data variables.product.prodname_vscode %} for Web, open the pull request in a codespace, as described in "[Opening a pull request in {% data variables.product.prodname_codespaces %}](#opening-a-pull-request-in-codespaces)" previously in this article.
+1. With your default editor set to either {% data variables.product.prodname_vscode %} or {% data variables.product.prodname_vscode %} for Web, open the pull request in a codespace, as described in [Opening a pull request in {% data variables.product.prodname_codespaces %}](#opening-a-pull-request-in-codespaces) previously in this article.
 1. In the Activity Bar, click the Git pull request icon to display the "{% data variables.product.prodname_dotcom %} Pull Request" side bar. This icon is only displayed in the Activity Bar when you open a pull request in a codespace.
 
    ![Screenshot of the {% data variables.product.prodname_vscode_shortname %} Activity Bar. The mouse pointer is hovering over an icon displaying the tooltip "{% data variables.product.prodname_dotcom %} Pull Request."](/assets/images/help/codespaces/github-pr-view.png)
@@ -68,7 +68,7 @@ Using a codespace to work on a pull request gives you all the benefits of {% dat
 
    ![Screenshot of the side bar showing the dropdown options "Comment and Submit," "Approve and Submit," and "Request Changes and Submit."](/assets/images/help/codespaces/submit-review.png)
 
-For more information on reviewing a pull request, see "[AUTOTITLE](/pull-requests/collaborating-with-pull-requests/reviewing-changes-in-pull-requests/reviewing-proposed-changes-in-a-pull-request)."
+For more information on reviewing a pull request, see [AUTOTITLE](/pull-requests/collaborating-with-pull-requests/reviewing-changes-in-pull-requests/reviewing-proposed-changes-in-a-pull-request).
 
 ## View comments from a review in {% data variables.product.prodname_codespaces %}
 

@@ -32,18 +32,18 @@ To do this, you need to:
 
 You can create a new webhook with a secret token, or you can add a secret token to an existing webhook. When creating a secret token, you should choose a random string of text with high entropy.
 
-* _To create a new webhook with a secret token_, see "[AUTOTITLE](/webhooks/using-webhooks/creating-webhooks)."
-* _To add a secret token to an existing webhook_, edit the webhook's settings. Under "Secret", type a string to use as a `secret` key. For more information, see "[AUTOTITLE](/webhooks/using-webhooks/editing-webhooks)."
+* _To create a new webhook with a secret token_, see [AUTOTITLE](/webhooks/using-webhooks/creating-webhooks).
+* _To add a secret token to an existing webhook_, edit the webhook's settings. Under "Secret", type a string to use as a `secret` key. For more information, see [AUTOTITLE](/webhooks/using-webhooks/editing-webhooks).
 
 ## Securely storing the secret token
 
-After creating a secret token, you should store it in a secure location that your server can access. Never hardcode a token into an application or push a token to any repository. For more information about how to use authentication credentials securely in your code, see "[AUTOTITLE](/rest/overview/keeping-your-api-credentials-secure#use-authentication-credentials-securely-in-your-code)."
+After creating a secret token, you should store it in a secure location that your server can access. Never hardcode a token into an application or push a token to any repository. For more information about how to use authentication credentials securely in your code, see [AUTOTITLE](/rest/overview/keeping-your-api-credentials-secure#use-authentication-credentials-securely-in-your-code).
 
 ## Validating webhook deliveries
 
-{% data variables.product.product_name %} will use your secret token to create a hash signature that's sent to you with each payload. The hash signature will appear in each delivery as the value of the `X-Hub-Signature-256` header. For more information, see "[AUTOTITLE](/webhooks/webhook-events-and-payloads#delivery-headers)."
+{% data variables.product.product_name %} will use your secret token to create a hash signature that's sent to you with each payload. The hash signature will appear in each delivery as the value of the `X-Hub-Signature-256` header. For more information, see [AUTOTITLE](/webhooks/webhook-events-and-payloads#delivery-headers).
 
-In your code that handles webhook deliveries, you should calculate a hash using your secret token. Then, compare the hash that {% data variables.product.company_short %} sent with the expected hash that you calculated, and ensure that they match. For examples showing how to validate the hashes in various programming languages, see "[Examples](#examples)."
+In your code that handles webhook deliveries, you should calculate a hash using your secret token. Then, compare the hash that {% data variables.product.company_short %} sent with the expected hash that you calculated, and ensure that they match. For examples showing how to validate the hashes in various programming languages, see [Examples](#examples).
 
 There are a few important things to keep in mind when validating webhook payloads:
 
@@ -198,5 +198,5 @@ const handleWebhook = async (req, res) => {
 
 ## Further reading
 
-* "[AUTOTITLE](/webhooks/using-webhooks/handling-webhook-deliveries)"
-* "[AUTOTITLE](/webhooks/using-webhooks/best-practices-for-using-webhooks)"
+* [AUTOTITLE](/webhooks/using-webhooks/handling-webhook-deliveries)
+* [AUTOTITLE](/webhooks/using-webhooks/best-practices-for-using-webhooks)

@@ -13,4 +13,4 @@ If the command returns `Replication is not running`, the replication may still b
   >   CRITICAL: mssql replication is down, didn't find Token_Configuration!
   >   ```
 
-  If `ghe-repl-status` did not return `OK`, and the explanation isn't listed in the note above, contact {% data variables.contact.enterprise_support %}. For more information, see "[AUTOTITLE](/support/contacting-github-support)."
+  If `ghe-repl-status` did not return `OK`, and the explanation isn't listed in the note above, contact {% data variables.contact.enterprise_support %}. For more information, see [AUTOTITLE](/support/contacting-github-support).

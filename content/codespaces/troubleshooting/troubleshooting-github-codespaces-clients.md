@@ -28,7 +28,7 @@ If you encounter issues using {% data variables.product.prodname_github_codespac
 
 ### Differences from working in {% data variables.product.prodname_vscode_shortname %} locally
 
-When you open a codespace in your browser, using the {% data variables.product.prodname_vscode_shortname %} web client, you will notice some differences from working in a local workspace in the {% data variables.product.prodname_vscode_shortname %} desktop application. For example, some key bindings will be different or missing, and some extensions may behave differently. For a summary, see: "[Known limitations and adaptions](https://code.visualstudio.com/docs/remote/codespaces#_known-limitations-and-adaptations)" in the {% data variables.product.prodname_vscode_shortname %} docs.
+When you open a codespace in your browser, using the {% data variables.product.prodname_vscode_shortname %} web client, you will notice some differences from working in a local workspace in the {% data variables.product.prodname_vscode_shortname %} desktop application. For example, some key bindings will be different or missing, and some extensions may behave differently. For a summary, see: [Known limitations and adaptions](https://code.visualstudio.com/docs/remote/codespaces#_known-limitations-and-adaptations) in the {% data variables.product.prodname_vscode_shortname %} docs.
 
 You can check for known issues and log new issues with the {% data variables.product.prodname_vscode_shortname %} experience in the [`microsoft/vscode`](https://github.com/microsoft/vscode/issues?q=is%3Aissue+is%3Aopen+codespaces) repository.
 
@@ -74,7 +74,7 @@ If the problem isn't fixed in {% data variables.product.prodname_vscode %} Stabl
 
 ### Performance issues
 
-A {% data variables.product.prodname_github_codespaces %} machine type with at least 4 cores is recommended for running any of the JetBrains IDEs. For more information, see "[AUTOTITLE](/codespaces/customizing-your-codespace/changing-the-machine-type-for-your-codespace)."
+A {% data variables.product.prodname_github_codespaces %} machine type with at least 4 cores is recommended for running any of the JetBrains IDEs. For more information, see [AUTOTITLE](/codespaces/customizing-your-codespace/changing-the-machine-type-for-your-codespace).
 
 If you are using a machine with 4 or more cores and the performance you are experiencing in JetBrains feels a little sluggish, you may need to increase the maximum Java heap size.
 
@@ -138,7 +138,7 @@ To work around this problem with older versions of the Gateway:
 
 ### SSH connection issues
 
-To connect via the SSH server running in your codespace, you must have an SSH key in your `~/.ssh` directory (macOS and Linux) or `%HOMEPATH%\.ssh` directory (Windows) that has already been added to your {% data variables.product.prodname_dotcom %} account. If you do not have any keys in this directory, {% data variables.product.prodname_cli %} will generate keys for you. For more information, see "[AUTOTITLE](/authentication/connecting-to-github-with-ssh/adding-a-new-ssh-key-to-your-github-account?platform=windows&tool=webui)."
+To connect via the SSH server running in your codespace, you must have an SSH key in your `~/.ssh` directory (macOS and Linux) or `%HOMEPATH%\.ssh` directory (Windows) that has already been added to your {% data variables.product.prodname_dotcom %} account. If you do not have any keys in this directory, {% data variables.product.prodname_cli %} will generate keys for you. For more information, see [AUTOTITLE](/authentication/connecting-to-github-with-ssh/adding-a-new-ssh-key-to-your-github-account?platform=windows&tool=webui).
 
 If you encounter problems with key validation, try upgrading your version of {% data variables.product.prodname_cli %}. For information, see the [upgrade instructions](https://github.com/cli/cli#installation) in the README for {% data variables.product.prodname_cli %}.
 

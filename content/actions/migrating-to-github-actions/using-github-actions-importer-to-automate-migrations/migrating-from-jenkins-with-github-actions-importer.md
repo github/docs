@@ -37,7 +37,7 @@ There are some limitations when migrating from Jenkins to {% data variables.prod
 * Self-hosted runners
 * Unknown plugins
 
-For more information on manual migrations, see "[AUTOTITLE](/actions/migrating-to-github-actions/manually-migrating-to-github-actions/migrating-from-jenkins-to-github-actions)."
+For more information on manual migrations, see [AUTOTITLE](/actions/migrating-to-github-actions/manually-migrating-to-github-actions/migrating-from-jenkins-to-github-actions).
 
 ## Installing the {% data variables.product.prodname_actions_importer %} CLI extension
 
@@ -47,7 +47,7 @@ For more information on manual migrations, see "[AUTOTITLE](/actions/migrating-t
 
 The `configure` CLI command is used to set required credentials and options for {% data variables.product.prodname_actions_importer %} when working with Jenkins and {% data variables.product.prodname_dotcom %}.
 
-1. Create a {% data variables.product.prodname_dotcom %} {% data variables.product.pat_v1 %}. For more information, see "[AUTOTITLE](/authentication/keeping-your-account-and-data-secure/managing-your-personal-access-tokens#creating-a-personal-access-token-classic)."
+1. Create a {% data variables.product.prodname_dotcom %} {% data variables.product.pat_v1 %}. For more information, see [AUTOTITLE](/authentication/keeping-your-account-and-data-secure/managing-your-personal-access-tokens#creating-a-personal-access-token-classic).
 
    Your token must have the `workflow` scope.
 
@@ -273,7 +273,7 @@ source_files:
 
 ### Supported syntax for Jenkins pipelines
 
-The following tables show the type of properties {% data variables.product.prodname_actions_importer %} is currently able to convert. For more details about how Jenkins pipeline syntax aligns with {% data variables.product.prodname_actions %}, see "[AUTOTITLE](/actions/migrating-to-github-actions/manually-migrating-to-github-actions/migrating-from-jenkins-to-github-actions)".
+The following tables show the type of properties {% data variables.product.prodname_actions_importer %} is currently able to convert. For more details about how Jenkins pipeline syntax aligns with {% data variables.product.prodname_actions %}, see [AUTOTITLE](/actions/migrating-to-github-actions/manually-migrating-to-github-actions/migrating-from-jenkins-to-github-actions).
 
 For information about supported Jenkins plugins, see the [`github/gh-actions-importer` repository](https://github.com/github/gh-actions-importer/blob/main/docs/jenkins/index.md).
 

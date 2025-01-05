@@ -36,7 +36,7 @@ You can control whether links in text blocks are underlined and therefore more d
 
 You can perform actions across the {% data variables.product.product_name %} website by using your keyboard alone. Keyboard shortcuts can be useful to save time, but can be activated accidentally or interfere with assistive technology.
 
-By default, all keyboard shortcuts are enabled on {% data variables.product.product_name %}. For more information, see "[AUTOTITLE](/get-started/accessibility/keyboard-shortcuts)."
+By default, all keyboard shortcuts are enabled on {% data variables.product.product_name %}. For more information, see [AUTOTITLE](/get-started/accessibility/keyboard-shortcuts).
 
 {% data reusables.user-settings.access_settings %}
 {% data reusables.user-settings.accessibility_settings %}
@@ -45,7 +45,7 @@ By default, all keyboard shortcuts are enabled on {% data variables.product.prod
    * To disable shortcut keys that don't use modifiers keys like <kbd>Control</kbd> or <kbd>Command</kbd>, under "General", deselect **Character keys**.
      * If you disable character keys, you may still be able to trigger shortcuts for your web browser, and you can still trigger shortcuts for {% data variables.product.product_name %} that use a modifier key.
    {%- ifversion command-palette %}
-   * To customize the keyboard shortcuts for triggering the command palette, under "Command palette", use the drop-down menus to choose a keyboard shortcut. For more information, see "[AUTOTITLE](/get-started/accessibility/github-command-palette)."
+   * To customize the keyboard shortcuts for triggering the command palette, under "Command palette", use the drop-down menus to choose a keyboard shortcut. For more information, see [AUTOTITLE](/get-started/accessibility/github-command-palette).
    {%- endif %}
 
 {% ifversion motion-management %}

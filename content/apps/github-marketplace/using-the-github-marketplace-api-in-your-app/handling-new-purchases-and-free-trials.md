@@ -20,7 +20,7 @@ shortTitle: New purchases & free trials
 {% data reusables.marketplace.marketplace-apps-not-actions %}
 
 > [!WARNING]
-> If you offer a {% data variables.product.prodname_github_app %} in {% data variables.product.prodname_marketplace %}, your app must identify users following the OAuth authorization flow. You don't need to set up a separate {% data variables.product.prodname_oauth_app %} to support this flow. See "[AUTOTITLE](/apps/creating-github-apps/authenticating-with-a-github-app/authenticating-with-a-github-app-on-behalf-of-a-user)" for more information.
+> If you offer a {% data variables.product.prodname_github_app %} in {% data variables.product.prodname_marketplace %}, your app must identify users following the OAuth authorization flow. You don't need to set up a separate {% data variables.product.prodname_oauth_app %} to support this flow. See [AUTOTITLE](/apps/creating-github-apps/authenticating-with-a-github-app/authenticating-with-a-github-app-on-behalf-of-a-user) for more information.
 
 ## Step 1. Initial purchase and webhook event
 
@@ -32,9 +32,9 @@ The customer completes the purchase by clicking **Complete order and begin insta
 
 Read the `effective_date` and `marketplace_purchase` object from the `marketplace_purchase` webhook to determine which plan the customer purchased, when the billing cycle starts, and when the next billing cycle begins.
 
-If your app offers a free trial, read the `marketplace_purchase[on_free_trial]` attribute from the webhook. If the value is `true`, your app will need to track the free trial start date (`effective_date`) and the date the free trial ends (`free_trial_ends_on`). Use the `free_trial_ends_on` date to display the remaining days left in a free trial in your app's UI. You can do this in either a banner or in your [billing UI](/apps/github-marketplace/selling-your-app-on-github-marketplace/billing-customers#providing-billing-services-in-your-apps-ui). To learn how to handle cancellations before a free trial ends, see "[AUTOTITLE](/apps/github-marketplace/using-the-github-marketplace-api-in-your-app/handling-plan-cancellations)." See "[AUTOTITLE](/apps/github-marketplace/using-the-github-marketplace-api-in-your-app/handling-plan-changes)" to find out how to transition a free trial to a paid plan when a free trial expires.
+If your app offers a free trial, read the `marketplace_purchase[on_free_trial]` attribute from the webhook. If the value is `true`, your app will need to track the free trial start date (`effective_date`) and the date the free trial ends (`free_trial_ends_on`). Use the `free_trial_ends_on` date to display the remaining days left in a free trial in your app's UI. You can do this in either a banner or in your [billing UI](/apps/github-marketplace/selling-your-app-on-github-marketplace/billing-customers#providing-billing-services-in-your-apps-ui). To learn how to handle cancellations before a free trial ends, see [AUTOTITLE](/apps/github-marketplace/using-the-github-marketplace-api-in-your-app/handling-plan-cancellations). See [AUTOTITLE](/apps/github-marketplace/using-the-github-marketplace-api-in-your-app/handling-plan-changes) to find out how to transition a free trial to a paid plan when a free trial expires.
 
-See "[AUTOTITLE](/apps/github-marketplace/using-the-github-marketplace-api-in-your-app/webhook-events-for-the-github-marketplace-api)" for an example of the `marketplace_purchase` event payload.
+See [AUTOTITLE](/apps/github-marketplace/using-the-github-marketplace-api-in-your-app/webhook-events-for-the-github-marketplace-api) for an example of the `marketplace_purchase` event payload.
 
 ## Step 2. Installation
 
@@ -43,7 +43,7 @@ If your app is a {% data variables.product.prodname_github_app %}, {% data varia
 At this point, if you specified a **Setup URL** in your {% data variables.product.prodname_github_app %} settings, {% data variables.product.product_name %} will redirect the customer to that URL. If you do not specify a setup URL, you will not be able to handle purchases of your {% data variables.product.prodname_github_app %}.
 
 > [!NOTE]
-> The **Setup URL** is described as optional in {% data variables.product.prodname_github_app %} settings, but it is a required field if you want to offer your app in {% data variables.product.prodname_marketplace %}. For more information, see "[AUTOTITLE](/apps/creating-github-apps/registering-a-github-app/about-the-setup-url)."
+> The **Setup URL** is described as optional in {% data variables.product.prodname_github_app %} settings, but it is a required field if you want to offer your app in {% data variables.product.prodname_marketplace %}. For more information, see [AUTOTITLE](/apps/creating-github-apps/registering-a-github-app/about-the-setup-url).
 
 If your app is an {% data variables.product.prodname_oauth_app %}, {% data variables.product.product_name %} does not install it anywhere. Instead, {% data variables.product.product_name %} redirects the customer to the **Installation URL** you specified in your [{% data variables.product.prodname_marketplace %} listing](/apps/github-marketplace/listing-an-app-on-github-marketplace/writing-a-listing-description-for-your-app#listing-urls).
 
@@ -53,9 +53,9 @@ When a customer purchases an {% data variables.product.prodname_oauth_app %}, {%
 
 When a customer purchases your app, you must send the customer through the OAuth authorization flow:
 
-* If your app is a {% data variables.product.prodname_github_app %}, begin the authorization flow as soon as {% data variables.product.product_name %} redirects the customer to the **Setup URL**. Follow the steps in "[AUTOTITLE](/apps/creating-github-apps/authenticating-with-a-github-app/authenticating-with-a-github-app-on-behalf-of-a-user)."
+* If your app is a {% data variables.product.prodname_github_app %}, begin the authorization flow as soon as {% data variables.product.product_name %} redirects the customer to the **Setup URL**. Follow the steps in [AUTOTITLE](/apps/creating-github-apps/authenticating-with-a-github-app/authenticating-with-a-github-app-on-behalf-of-a-user).
 
-* If your app is an {% data variables.product.prodname_oauth_app %}, begin the authorization flow as soon as {% data variables.product.product_name %} redirects the customer to the **Installation URL**. Follow the steps in "[AUTOTITLE](/apps/oauth-apps/building-oauth-apps/authorizing-oauth-apps)."
+* If your app is an {% data variables.product.prodname_oauth_app %}, begin the authorization flow as soon as {% data variables.product.product_name %} redirects the customer to the **Installation URL**. Follow the steps in [AUTOTITLE](/apps/oauth-apps/building-oauth-apps/authorizing-oauth-apps).
 
 For either type of app, the first step is to redirect the customer to [https://github.com/login/oauth/authorize](https://github.com/login/oauth/authorize).
 
@@ -66,7 +66,7 @@ After the customer completes the authorization, your app receives an OAuth acces
 
 ## Step 4. Provisioning customer accounts
 
-Your app must provision a customer account for all new purchases. Using the access token you received for the customer in [Step 3. Authorization](#step-3-authorization), call the "[`GET /user/marketplace_purchases`](/rest/apps/marketplace#list-subscriptions-for-the-authenticated-user)" endpoint. The response will include the customer's `account` information and show whether they are on a free trial (`on_free_trial`). Use this information to complete setup and provisioning.
+Your app must provision a customer account for all new purchases. Using the access token you received for the customer in [Step 3. Authorization](#step-3-authorization), call the [`GET /user/marketplace_purchases`](/rest/apps/marketplace#list-subscriptions-for-the-authenticated-user) endpoint. The response will include the customer's `account` information and show whether they are on a free trial (`on_free_trial`). Use this information to complete setup and provisioning.
 
 {% data reusables.marketplace.marketplace-double-purchases %}
 

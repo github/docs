@@ -100,7 +100,7 @@ To meet the needs of more users, screenshots must:
 
 * Be accompanied by complete instructions in the procedural step, with no information conveyed entirely in visual form.
 * Be full contrast, as in the interface itself, with nothing obscured or reduced in opacity or color contrast.
-* Have alt text that describes the content of the image and the appearance of its highlighting, if any. For more information, see "[AUTOTITLE](/contributing/style-guide-and-content-model/style-guide#alt-text)."
+* Have alt text that describes the content of the image and the appearance of its highlighting, if any. For more information, see [AUTOTITLE](/contributing/style-guide-and-content-model/style-guide#alt-text).
 * Be clear and crisp, with text and UI elements as legible as possible.
 
 ### Visual style
@@ -108,7 +108,7 @@ To meet the needs of more users, screenshots must:
 * Show a UI element with just enough surrounding context to help people know where to find the element on their screen.
 * Reduce negative space by resizing your browser window until optimal.
 * Show interfaces in light theme wherever possible.
-  * For {% data variables.product.prodname_dotcom %}, select "Light default" in your appearance settings. For more information, see "[AUTOTITLE](/account-and-profile/setting-up-and-managing-your-personal-account-on-github/managing-personal-account-settings/managing-your-theme-settings)."
+  * For {% data variables.product.prodname_dotcom %}, select "Light default" in your appearance settings. For more information, see [AUTOTITLE](/account-and-profile/setting-up-and-managing-your-personal-account-on-github/managing-personal-account-settings/managing-your-theme-settings).
   * For VSCode, select "GitHub light default" in the free [GitHub Theme](https://marketplace.visualstudio.com/items?itemName=GitHub.github-vscode-theme) extension.
   * If the software you need to screenshot is available in dark mode only, it's fine to use dark mode.
 * If your username and avatar appear, replace them with @octocat's username and [avatar](https://avatars.githubusercontent.com/u/583231?v=4). Use the developer tools in your browser to replace your username with `@octocat` and to replace the URL of your avatar with `https://avatars.githubusercontent.com/u/583231?v=4`.

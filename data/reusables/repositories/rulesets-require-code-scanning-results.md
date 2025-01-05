@@ -6,4 +6,4 @@
 
     ![Screenshot of the "Required tools and alert thresholds" section of "Rulesets" settings.](/assets/images/help/repository/rulesets-require-code-scanning.png)
 
-For more information about alert severity and security severity levels, see "[AUTOTITLE](/code-security/code-scanning/managing-code-scanning-alerts/about-code-scanning-alerts#about-alert-severity-and-security-severity-levels)."
+For more information about alert severity and security severity levels, see [AUTOTITLE](/code-security/code-scanning/managing-code-scanning-alerts/about-code-scanning-alerts#about-alert-severity-and-security-severity-levels).

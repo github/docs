@@ -19,7 +19,7 @@ that we own, and the programming languages that make them up. Then, we'll
 visualize that information in a couple of different ways using the [D3.js](https://d3js.org/) library. To
 interact with the {% ifversion fpt or ghec %}{% data variables.product.prodname_dotcom %}{% else %}{% data variables.product.product_name %}{% endif %} API, we'll be using the excellent Ruby library, [Octokit](https://github.com/octokit/octokit.rb).
 
-If you haven't already, you should read the "[Basics of Authentication](/apps/oauth-apps/building-oauth-apps/authenticating-to-the-rest-api-with-an-oauth-app)"
+If you haven't already, you should read the [Basics of Authentication](/apps/oauth-apps/building-oauth-apps/authenticating-to-the-rest-api-with-an-oauth-app)
 guide before starting this example. You can find the complete source code for this project in the [platform-samples](https://github.com/github/platform-samples/tree/master/api/ruby/rendering-data-as-graphs) repository.
 
 Let's jump right in!
@@ -140,7 +140,7 @@ our counts into D3 to get a neat bar graph representing the popularity of the la
 
 D3.js, or just D3, is a comprehensive library for creating many kinds of charts, graphs, and interactive visualizations.
 Using D3 in detail is beyond the scope of this guide, but for a good introductory article,
-check out "[D3 for Mortals](http://recursion.org/d3-for-mere-mortals/)."
+check out [D3 for Mortals](http://recursion.org/d3-for-mere-mortals/).
 
 D3 is a JavaScript library, and likes working with data as arrays. So, let's convert our Ruby hash into
 a JSON array for use by JavaScript in the browser.

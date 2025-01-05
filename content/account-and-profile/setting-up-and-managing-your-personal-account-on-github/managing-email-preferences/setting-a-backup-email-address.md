@@ -22,5 +22,5 @@ shortTitle: Set backup email address
 
 ## Further reading
 
-* "[AUTOTITLE](/account-and-profile/setting-up-and-managing-your-personal-account-on-github/managing-email-preferences)"
-* "[AUTOTITLE](/authentication/keeping-your-account-and-data-secure/updating-your-github-access-credentials)"
+* [AUTOTITLE](/account-and-profile/setting-up-and-managing-your-personal-account-on-github/managing-email-preferences)
+* [AUTOTITLE](/authentication/keeping-your-account-and-data-secure/updating-your-github-access-credentials)

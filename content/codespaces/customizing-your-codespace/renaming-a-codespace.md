@@ -53,7 +53,7 @@ In this example, replace `PERMANENT-CODESPACE-NAME` with the permanent name of t
 
 Display names can be up to 48 characters in length. The display name can contain any combination of characters, including spaces, provided you enclose it in single quotes.
 
-For more information, see "[AUTOTITLE](/codespaces/developing-in-a-codespace/using-github-codespaces-with-github-cli#rename-a-codespace)."
+For more information, see [AUTOTITLE](/codespaces/developing-in-a-codespace/using-github-codespaces-with-github-cli#rename-a-codespace).
 
 {% endcli %}
 
@@ -74,5 +74,5 @@ You can change the display name for your codespace on {% data variables.product.
 
 ## Further reading
 
-* "[AUTOTITLE](/codespaces/setting-your-user-preferences)"
-* "[AUTOTITLE](/codespaces/managing-your-codespaces)"
+* [AUTOTITLE](/codespaces/setting-your-user-preferences)
+* [AUTOTITLE](/codespaces/managing-your-codespaces)

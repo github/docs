@@ -17,7 +17,7 @@ topics:
 
 ## About {% data variables.product.product_name %}
 
-{% data reusables.enterprise.ghes-is-a-self-hosted-platform %} {% data reusables.enterprise.github-distributes-ghes %} For more information, see "[AUTOTITLE](/admin/overview/about-github-enterprise-server)."
+{% data reusables.enterprise.ghes-is-a-self-hosted-platform %} {% data reusables.enterprise.github-distributes-ghes %} For more information, see [AUTOTITLE](/admin/overview/about-github-enterprise-server).
 
 ## Storage architecture
 
@@ -49,9 +49,9 @@ The user filesystem contains files that store following configuration and data. 
 
 By default, {% data variables.product.product_name %} runs as a standalone instance. You can increase the reliability and performance of {% data variables.product.product_name %} by using a different topology for your deployment.
 
-* To mitigate the impact of system or network failures, you can deploy a passive replica instance. During an outage that affects your primary instance, you can manually fail over to the replica instance. For more information, see "[AUTOTITLE](/admin/enterprise-management/configuring-high-availability/about-high-availability-configuration)."
-* You can configure multiple active replicas to improve performance for developers who are geographically distant from your primary instance. For more information, see "[AUTOTITLE](/admin/enterprise-management/configuring-high-availability/about-geo-replication)."
-* Some enterprises with tens of thousands of developers may benefit from a cluster configuration that scales horizontally instead of vertically. For more information, see "[AUTOTITLE](/admin/enterprise-management/configuring-clustering/about-clustering)."
+* To mitigate the impact of system or network failures, you can deploy a passive replica instance. During an outage that affects your primary instance, you can manually fail over to the replica instance. For more information, see [AUTOTITLE](/admin/enterprise-management/configuring-high-availability/about-high-availability-configuration).
+* You can configure multiple active replicas to improve performance for developers who are geographically distant from your primary instance. For more information, see [AUTOTITLE](/admin/enterprise-management/configuring-high-availability/about-geo-replication).
+* Some enterprises with tens of thousands of developers may benefit from a cluster configuration that scales horizontally instead of vertically. For more information, see [AUTOTITLE](/admin/enterprise-management/configuring-clustering/about-clustering).
 
 ## Data retention and datacenter redundancy
 
@@ -62,7 +62,7 @@ By default, {% data variables.product.product_name %} runs as a standalone insta
 
 In addition to network backups, both AWS (EBS) and VMware disk snapshots of the user storage volumes are supported while the instance is offline or in maintenance mode. Regular volume snapshots can be used as a low-cost, low-complexity alternative to network backups with {% data variables.product.prodname_enterprise_backup_utilities %} if your service level requirements allow for regular offline maintenance.
 
-For more information, see "[AUTOTITLE](/admin/configuration/configuring-your-enterprise/configuring-backups-on-your-appliance)."
+For more information, see [AUTOTITLE](/admin/configuration/configuring-your-enterprise/configuring-backups-on-your-appliance).
 
 ## Security
 
@@ -91,7 +91,7 @@ Regular patch updates are released on the {% data variables.product.product_name
 
 ### Network security
 
-{% data variables.product.product_name %}'s internal firewall restricts network access to the instance's services. Only services necessary for the appliance to function are available over the network. For more information, see "[AUTOTITLE](/admin/configuration/configuring-network-settings/network-ports)."
+{% data variables.product.product_name %}'s internal firewall restricts network access to the instance's services. Only services necessary for the appliance to function are available over the network. For more information, see [AUTOTITLE](/admin/configuration/configuring-network-settings/network-ports).
 
 ### Application security
 
@@ -99,40 +99,40 @@ Regular patch updates are released on the {% data variables.product.product_name
 
 ### External services and support access
 
-{% data variables.product.product_name %} can operate without any egress access from your network to outside services. You can optionally enable integration with external services for email delivery, external monitoring, and log forwarding. For more information, see "[AUTOTITLE](/admin/configuration/configuring-your-enterprise/configuring-email-for-notifications)," "[AUTOTITLE](/admin/enterprise-management/monitoring-your-appliance/setting-up-external-monitoring)," and "[AUTOTITLE](/admin/monitoring-activity-in-your-enterprise/exploring-user-activity/log-forwarding)."
+{% data variables.product.product_name %} can operate without any egress access from your network to outside services. You can optionally enable integration with external services for email delivery, external monitoring, and log forwarding. For more information, see [AUTOTITLE](/admin/configuration/configuring-your-enterprise/configuring-email-for-notifications), [AUTOTITLE](/admin/enterprise-management/monitoring-your-appliance/setting-up-external-monitoring), and [AUTOTITLE](/admin/monitoring-activity-in-your-enterprise/exploring-user-activity/log-forwarding).
 
-You can manually collect and send troubleshooting data to {% data variables.contact.github_support %}. For more information, see "[AUTOTITLE](/support/contacting-github-support/providing-data-to-github-support)."
+You can manually collect and send troubleshooting data to {% data variables.contact.github_support %}. For more information, see [AUTOTITLE](/support/contacting-github-support/providing-data-to-github-support).
 
 ### Encrypted communication
 
-{% data variables.product.company_short %} designs {% data variables.product.product_name %} to run behind your corporate firewall. To secure communication over the wire, we encourage you to enable Transport Layer Security (TLS). {% data variables.product.product_name %} supports 2048-bit and higher commercial TLS certificates for HTTPS traffic. For more information, see "[AUTOTITLE](/admin/configuration/configuring-network-settings/configuring-tls)."
+{% data variables.product.company_short %} designs {% data variables.product.product_name %} to run behind your corporate firewall. To secure communication over the wire, we encourage you to enable Transport Layer Security (TLS). {% data variables.product.product_name %} supports 2048-bit and higher commercial TLS certificates for HTTPS traffic. For more information, see [AUTOTITLE](/admin/configuration/configuring-network-settings/configuring-tls).
 
-By default, the instance also offers Secure Shell (SSH) access for both repository access using Git and administrative purposes. For more information, see "[AUTOTITLE](/authentication/connecting-to-github-with-ssh/about-ssh)" and "[AUTOTITLE](/admin/configuration/configuring-your-enterprise/accessing-the-administrative-shell-ssh)."
+By default, the instance also offers Secure Shell (SSH) access for both repository access using Git and administrative purposes. For more information, see [AUTOTITLE](/authentication/connecting-to-github-with-ssh/about-ssh) and [AUTOTITLE](/admin/configuration/configuring-your-enterprise/accessing-the-administrative-shell-ssh).
 
-If you configure SAML authentication for {% data variables.location.product_location %}, you can enable encrypted assertions between the instance and your SAML IdP. For more information, see "[AUTOTITLE](/admin/identity-and-access-management/using-saml-for-enterprise-iam#enabling-encrypted-assertions)."
+If you configure SAML authentication for {% data variables.location.product_location %}, you can enable encrypted assertions between the instance and your SAML IdP. For more information, see [AUTOTITLE](/admin/identity-and-access-management/using-saml-for-enterprise-iam#enabling-encrypted-assertions).
 
 ### Users and access permissions
 
 {% data variables.product.product_name %} provides three types of accounts.
 
-* The `admin` Linux user account has controlled access to the underlying operating system, including direct filesystem and database access. A small set of trusted administrators should have access to this account, which they can access over SSH. For more information, see "[AUTOTITLE](/admin/configuration/configuring-your-enterprise/accessing-the-administrative-shell-ssh)."
+* The `admin` Linux user account has controlled access to the underlying operating system, including direct filesystem and database access. A small set of trusted administrators should have access to this account, which they can access over SSH. For more information, see [AUTOTITLE](/admin/configuration/configuring-your-enterprise/accessing-the-administrative-shell-ssh).
 * User accounts in the instance's web application have full access to their own data and any data that other users or organizations explicitly grant.
 * Site administrators in the instance's web application are user accounts that can manage high-level web application and instance settings, user and organization account settings, and repository data.
 
-For more information about {% data variables.product.product_name %}'s user permissions, see "[AUTOTITLE](/get-started/learning-about-github/access-permissions-on-github)."
+For more information about {% data variables.product.product_name %}'s user permissions, see [AUTOTITLE](/get-started/learning-about-github/access-permissions-on-github).
 
 ### Authentication
 
 {% data variables.product.product_name %} provides four authentication methods.
 
-* SSH public key authentication provides both repository access using Git and administrative shell access. For more information, see "[AUTOTITLE](/authentication/connecting-to-github-with-ssh/about-ssh)" and "[AUTOTITLE](/admin/configuration/configuring-your-enterprise/accessing-the-administrative-shell-ssh)."
-* Username and password authentication with HTTP cookies provides web application access and session management, with optional two-factor authentication (2FA). For more information, see "[AUTOTITLE](/admin/identity-and-access-management/using-built-in-authentication/configuring-built-in-authentication)."
-* External LDAP, SAML, or CAS authentication using an LDAP service, SAML Identity Provider (IdP), or other compatible service provides access to the web application. For more information, see "[AUTOTITLE](/admin/identity-and-access-management/using-saml-for-enterprise-iam)."
-* OAuth and {% data variables.product.pat_generic %}s provide access to Git repository data and APIs for both external clients and services. For more information, see "[AUTOTITLE](/authentication/keeping-your-account-and-data-secure/creating-a-personal-access-token)."
+* SSH public key authentication provides both repository access using Git and administrative shell access. For more information, see [AUTOTITLE](/authentication/connecting-to-github-with-ssh/about-ssh) and [AUTOTITLE](/admin/configuration/configuring-your-enterprise/accessing-the-administrative-shell-ssh).
+* Username and password authentication with HTTP cookies provides web application access and session management, with optional two-factor authentication (2FA). For more information, see [AUTOTITLE](/admin/identity-and-access-management/using-built-in-authentication/configuring-built-in-authentication).
+* External LDAP, SAML, or CAS authentication using an LDAP service, SAML Identity Provider (IdP), or other compatible service provides access to the web application. For more information, see [AUTOTITLE](/admin/identity-and-access-management/using-saml-for-enterprise-iam).
+* OAuth and {% data variables.product.pat_generic %}s provide access to Git repository data and APIs for both external clients and services. For more information, see [AUTOTITLE](/authentication/keeping-your-account-and-data-secure/creating-a-personal-access-token).
 
 ### Audit and access logging
 
-{% data variables.product.product_name %} stores both traditional operating system and application logs. The application also writes detailed auditing and security logs, which {% data variables.product.product_name %} stores permanently. You can forward both types of logs in real time to multiple destinations via the `syslog-ng` protocol. For more information, see "[AUTOTITLE](/admin/monitoring-activity-in-your-enterprise/reviewing-audit-logs-for-your-enterprise/about-the-audit-log-for-your-enterprise)" and "[AUTOTITLE](/admin/monitoring-activity-in-your-enterprise/exploring-user-activity/log-forwarding)."
+{% data variables.product.product_name %} stores both traditional operating system and application logs. The application also writes detailed auditing and security logs, which {% data variables.product.product_name %} stores permanently. You can forward both types of logs in real time to multiple destinations via the `syslog-ng` protocol. For more information, see [AUTOTITLE](/admin/monitoring-activity-in-your-enterprise/reviewing-audit-logs-for-your-enterprise/about-the-audit-log-for-your-enterprise) and [AUTOTITLE](/admin/monitoring-activity-in-your-enterprise/exploring-user-activity/log-forwarding).
 
 Access and audit logs include information like the following.
 
@@ -162,5 +162,5 @@ Tarballs are also available, with a full list of dependencies and metadata, at `
 
 ## Further reading
 
-* "[AUTOTITLE](/admin/overview/setting-up-a-trial-of-github-enterprise-server)"
-* "[AUTOTITLE](/admin/installation/setting-up-a-github-enterprise-server-instance)"
+* [AUTOTITLE](/admin/overview/setting-up-a-trial-of-github-enterprise-server)
+* [AUTOTITLE](/admin/installation/setting-up-a-github-enterprise-server-instance)

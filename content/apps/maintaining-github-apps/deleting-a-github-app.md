@@ -16,18 +16,18 @@ topics:
 ---
 
 > [!NOTE]
-> If you want to remove a {% data variables.product.prodname_github_app %} that you use but do not own, see "[AUTOTITLE](/apps/using-github-apps/reviewing-and-modifying-installed-github-apps#blocking-access)" instead.
+> If you want to remove a {% data variables.product.prodname_github_app %} that you use but do not own, see [AUTOTITLE](/apps/using-github-apps/reviewing-and-modifying-installed-github-apps#blocking-access) instead.
 
 ## About deleting {% data variables.product.prodname_github_apps %}
 
-If you own a {% data variables.product.prodname_github_app %} or are an app manager for a {% data variables.product.prodname_github_app %}, you can delete the {% data variables.product.prodname_github_app %} registration. For more information about {% data variables.product.prodname_github_app %} managers, see "[AUTOTITLE](/apps/maintaining-github-apps/about-github-app-managers)."
+If you own a {% data variables.product.prodname_github_app %} or are an app manager for a {% data variables.product.prodname_github_app %}, you can delete the {% data variables.product.prodname_github_app %} registration. For more information about {% data variables.product.prodname_github_app %} managers, see [AUTOTITLE](/apps/maintaining-github-apps/about-github-app-managers).
 
 When you delete a {% data variables.product.prodname_github_app %} registration, the app will be uninstalled from all accounts that the app is installed on.
 
 {% ifversion ghec or fpt %}
 
 > [!NOTE]
-> If your {% data variables.product.prodname_github_app %} is published on {% data variables.product.prodname_marketplace %}, you must remove your app from {% data variables.product.prodname_marketplace %} before you can delete your app. For more information, see "[AUTOTITLE](/apps/publishing-apps-to-github-marketplace/listing-an-app-on-github-marketplace/deleting-your-github-app-listing-from-github-marketplace)."
+> If your {% data variables.product.prodname_github_app %} is published on {% data variables.product.prodname_marketplace %}, you must remove your app from {% data variables.product.prodname_marketplace %} before you can delete your app. For more information, see [AUTOTITLE](/apps/publishing-apps-to-github-marketplace/listing-an-app-on-github-marketplace/deleting-your-github-app-listing-from-github-marketplace).
 
 {% endif %}
 

@@ -23,7 +23,7 @@ If a cluster node is unreachable by other nodes due to a hardware or software fa
 
 You can manage allocations using the `ghe-cluster-balance` utility, which can display the status of existing allocations or force your instance to balance allocations. For example, you should balance allocations after you add a new node to the cluster. Optionally, you can schedule regular balancing.
 
-You can run the following commands from any node in your cluster using the administrative shell. For more information, see "[Accessing the administrative shell (SSH)](/admin/configuration/configuring-your-enterprise/accessing-the-administrative-shell-ssh)."
+You can run the following commands from any node in your cluster using the administrative shell. For more information, see [Accessing the administrative shell (SSH)](/admin/configuration/configuring-your-enterprise/accessing-the-administrative-shell-ssh).
 
 ## Checking the distribution of cluster jobs
 
@@ -83,4 +83,4 @@ You can schedule rebalancing of jobs on your cluster by setting and applying con
 
 ## Further reading
 
-* "[AUTOTITLE](/admin/configuration/configuring-your-enterprise/command-line-utilities#ghe-cluster-balance)"
+* [AUTOTITLE](/admin/configuration/configuring-your-enterprise/command-line-utilities#ghe-cluster-balance)

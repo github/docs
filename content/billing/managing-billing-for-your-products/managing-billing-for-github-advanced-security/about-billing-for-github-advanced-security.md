@@ -43,7 +43,7 @@ There are a few key differences between metered and volume billing for {% data v
 
 ### Managing committers and repositories
 
-{% data variables.product.prodname_GH_advanced_security %} is billed per committer and enabled by repository. If a committer is removed from an organization or enterprise, they are no longer billable as of the removal day. However, if you disable {% data variables.product.prodname_GH_advanced_security %} on a repository, the committers tied to that repository will remain billable until the end of the current monthly billing cycle. Prorated billing applies if a committer starts partway through the month. For an example of how this works, see "[Understanding usage](/billing/managing-billing-for-github-advanced-security/about-billing-for-github-advanced-security#understanding-usage)."
+{% data variables.product.prodname_GH_advanced_security %} is billed per committer and enabled by repository. If a committer is removed from an organization or enterprise, they are no longer billable as of the removal day. However, if you disable {% data variables.product.prodname_GH_advanced_security %} on a repository, the committers tied to that repository will remain billable until the end of the current monthly billing cycle. Prorated billing applies if a committer starts partway through the month. For an example of how this works, see [Understanding usage](/billing/managing-billing-for-github-advanced-security/about-billing-for-github-advanced-security#understanding-usage).
 
 If you have further questions about using {% data variables.product.prodname_GH_advanced_security %}, you can contact your account manager in {% data variables.contact.contact_enterprise_sales %}.
 
@@ -70,14 +70,14 @@ For pricing details for {% data variables.product.prodname_GH_advanced_security 
 
 {% elsif ghec %}
 
-If you want to use {% data variables.product.prodname_GH_advanced_security %} features on any repository apart from a public repository on {% data variables.product.prodname_dotcom_the_website %}, you will need a {% data variables.product.prodname_GH_advanced_security %} license. For more information about {% data variables.product.prodname_GH_advanced_security %}, see "[AUTOTITLE](/get-started/learning-about-github/about-github-advanced-security)."
+If you want to use {% data variables.product.prodname_GH_advanced_security %} features on any repository apart from a public repository on {% data variables.product.prodname_dotcom_the_website %}, you will need a {% data variables.product.prodname_GH_advanced_security %} license. For more information about {% data variables.product.prodname_GH_advanced_security %}, see [AUTOTITLE](/get-started/learning-about-github/about-github-advanced-security).
 
 {% ifversion security-configurations %}
 {% data reusables.security-configurations.managing-GHAS-licenses %}
 
 {% endif %}
 
-{% data reusables.advanced-security.ghas-trial-availability %} See "[AUTOTITLE](/billing/managing-billing-for-your-products/managing-billing-for-github-advanced-security/setting-up-a-trial-of-github-advanced-security)."
+{% data reusables.advanced-security.ghas-trial-availability %} See [AUTOTITLE](/billing/managing-billing-for-your-products/managing-billing-for-github-advanced-security/setting-up-a-trial-of-github-advanced-security).
 
 {% data reusables.advanced-security.ghas-trial-invoiced %}
 
@@ -85,7 +85,7 @@ For other billing-related questions, contact {% data variables.contact.github_su
 
 {% elsif ghes %}
 
-You can make extra features for code security available to users by buying and uploading a license for {% data variables.product.prodname_GH_advanced_security %}. For more information about {% data variables.product.prodname_GH_advanced_security %}, see "[AUTOTITLE](/get-started/learning-about-github/about-github-advanced-security)."
+You can make extra features for code security available to users by buying and uploading a license for {% data variables.product.prodname_GH_advanced_security %}. For more information about {% data variables.product.prodname_GH_advanced_security %}, see [AUTOTITLE](/get-started/learning-about-github/about-github-advanced-security).
 
 {% ifversion security-configurations %}
 {% data reusables.security-configurations.managing-GHAS-licenses %}
@@ -100,7 +100,7 @@ You can make extra features for code security available to users by buying and u
 
 {% ifversion metered-ghe-ghas %}
 
-> [!IMPORTANT] If you have access to usage-based billing for {% data variables.product.prodname_GH_advanced_security %}, you will pay for the licenses you use each month and will not have a license limit. See "[AUTOTITLE](/billing/using-the-enhanced-billing-platform-for-enterprises/about-usage-based-billing-for-licenses)."
+> [!IMPORTANT] If you have access to usage-based billing for {% data variables.product.prodname_GH_advanced_security %}, you will pay for the licenses you use each month and will not have a license limit. See [AUTOTITLE](/billing/using-the-enhanced-billing-platform-for-enterprises/about-usage-based-billing-for-licenses).
 
 {% endif %}
 
@@ -109,22 +109,22 @@ Each license for {% data variables.product.prodname_GH_advanced_security %} spec
 When you remove a user from your enterprise account, the user's license is freed within 24 hours.
 
 {% ifversion ghes %}
-You can determine how many licenses you'll need for {% data variables.product.prodname_GH_advanced_security %} by generating a count of your instance's active committers in the site admin dashboard. See "[AUTOTITLE](/admin/configuration/configuring-your-enterprise/site-admin-dashboard#advanced-security-committers)."
+You can determine how many licenses you'll need for {% data variables.product.prodname_GH_advanced_security %} by generating a count of your instance's active committers in the site admin dashboard. See [AUTOTITLE](/admin/configuration/configuring-your-enterprise/site-admin-dashboard#advanced-security-committers).
 {% endif %}
 
 If you are over your license limit, {% data variables.product.prodname_GH_advanced_security %} continues to work on all repositories where it is already enabled. However, in organizations where {% data variables.product.prodname_GH_advanced_security %} is enabled for new repositories, repositories will be created with the feature deactivated. In addition, the option to enable {% data variables.product.prodname_GH_advanced_security %} for existing repositories will not be available.
 
 As soon as you free up some {% ifversion ghas-billing-UI-update %}licenses{% else %}seats{% endif %}, by deactivating {% data variables.product.prodname_GH_advanced_security %} for some repositories or by increasing your license size, the options for activating {% data variables.product.prodname_GH_advanced_security %} will work again as normal.
 
-You can enforce policies to allow or disallow the use of {% data variables.product.prodname_advanced_security %} by organizations owned by your enterprise account. See "[AUTOTITLE](/admin/policies/enforcing-policies-for-your-enterprise/enforcing-policies-for-advanced-security-in-your-enterprise)."
+You can enforce policies to allow or disallow the use of {% data variables.product.prodname_advanced_security %} by organizations owned by your enterprise account. See [AUTOTITLE](/admin/policies/enforcing-policies-for-your-enterprise/enforcing-policies-for-advanced-security-in-your-enterprise).
 
-For more information on viewing license usage, see "[AUTOTITLE](/billing/managing-billing-for-your-products/managing-billing-for-github-advanced-security/viewing-your-github-advanced-security-usage)."
+For more information on viewing license usage, see [AUTOTITLE](/billing/managing-billing-for-your-products/managing-billing-for-github-advanced-security/viewing-your-github-advanced-security-usage).
 
 ## Active committers and unique committers
 
 We record and display two numbers of {% ifversion ghas-billing-UI-update %}active {% endif %}committers for {% data variables.product.prodname_GH_advanced_security %} on {% data variables.location.product_location %}:
 
-* **{% ifversion ghas-billing-UI-update %}Active committers{% else %}Committers{% endif %}** is the number of committers who contributed to at least one {% ifversion fpt or ghec %}private {% endif %}organization-owned repository{% ifversion secret-scanning-user-owned-repos %} or one user-owned repository{% ifversion ghec %} when using {% data variables.product.prodname_ghe_cloud %} with {% data variables.product.prodname_emus %}{% endif %}{% endif %}, and who use a {% ifversion ghas-billing-UI-update %}license {% else %}seat {% endif %}in your enterprise. That is, they are also an organization member, an external collaborator, or have a pending invitation to join an organization in your enterprise, and they are not a {% data variables.product.prodname_github_app %} bot. For information about differences between bot and machine accounts, see "[AUTOTITLE](/apps/creating-github-apps/setting-up-a-github-app/differences-between-github-apps-and-oauth-apps#machine-vs-bot-accounts)."
+* **{% ifversion ghas-billing-UI-update %}Active committers{% else %}Committers{% endif %}** is the number of committers who contributed to at least one {% ifversion fpt or ghec %}private {% endif %}organization-owned repository{% ifversion secret-scanning-user-owned-repos %} or one user-owned repository{% ifversion ghec %} when using {% data variables.product.prodname_ghe_cloud %} with {% data variables.product.prodname_emus %}{% endif %}{% endif %}, and who use a {% ifversion ghas-billing-UI-update %}license {% else %}seat {% endif %}in your enterprise. That is, they are also an organization member, an external collaborator, or have a pending invitation to join an organization in your enterprise, and they are not a {% data variables.product.prodname_github_app %} bot. For information about differences between bot and machine accounts, see [AUTOTITLE](/apps/creating-github-apps/setting-up-a-github-app/differences-between-github-apps-and-oauth-apps#machine-vs-bot-accounts).
 * **Unique to this repository/organization** is the number of {% ifversion ghas-billing-UI-update %}active {% endif %}committers who contributed only to this repository, or to repositories in this organization. This number shows how many {% ifversion ghas-billing-UI-update %}licenses {% else %}seats {% endif %}you can free up by deactivating {% data variables.product.prodname_GH_advanced_security %} for that repository or organization.
 
 If there are no unique {% ifversion ghas-billing-UI-update %}active {% endif %}committers, all active committers also contribute to other repositories or organizations that use {% data variables.product.prodname_GH_advanced_security %}. Deactivating the feature for that repository or organization would not free any {% ifversion ghas-billing-UI-update %}licenses{% else %}seats{% endif %} for {% data variables.product.prodname_GH_advanced_security %}.
@@ -134,7 +134,7 @@ If there are no unique {% ifversion ghas-billing-UI-update %}active {% endif %}c
 When you activate or deactivate {% data variables.product.prodname_advanced_security %} for repositories, {% data variables.product.prodname_dotcom %} displays an overview of changes to the use of your license. If you deactivate access to {% data variables.product.prodname_GH_advanced_security %}, any {% ifversion ghas-billing-UI-update %}licenses{% else %}seats{% endif %} used by unique active committers are freed up.
 
 {% ifversion ghec %}
-For more information on managing the number of committers, see "[AUTOTITLE](/billing/managing-billing-for-your-products/managing-billing-for-github-advanced-security/managing-your-github-advanced-security-licensing)."
+For more information on managing the number of committers, see [AUTOTITLE](/billing/managing-billing-for-your-products/managing-billing-for-github-advanced-security/managing-your-github-advanced-security-licensing).
 {% endif %}
 
 ## Understanding usage
@@ -177,7 +177,7 @@ When you decide which repositories and organizations to prioritize for {% data v
 When you have enabled {% data variables.product.prodname_GH_advanced_security %} for these organizations or repositories, assess which other codebases you could add without incurring billing for unique {% ifversion ghas-billing-UI-update %}active {% endif %}committers. Finally, review the remaining important and busy codebases. If you want to increase the number of {% ifversion ghas-billing-UI-update %}licensed active committers, {% else %}seats in your license, {% endif %}contact {% data variables.contact.contact_enterprise_sales %}.
 
 {% ifversion ghas-in-license-sync %}
-If your enterprise uses {% data variables.product.prodname_GH_advanced_security %} on both {% data variables.product.prodname_ghe_server %} and {% data variables.product.prodname_ghe_cloud %}, you can ensure users aren't consuming multiple licenses unnecessarily by synchronizing license usage between environments.{% ifversion ghec %} {% data variables.product.prodname_GH_advanced_security %} is included in license sync in {% data variables.product.prodname_ghe_server %} version 3.12 and later.{% endif %} See "[AUTOTITLE](/billing/managing-your-license-for-github-enterprise/syncing-license-usage-between-github-enterprise-server-and-github-enterprise-cloud)."
+If your enterprise uses {% data variables.product.prodname_GH_advanced_security %} on both {% data variables.product.prodname_ghe_server %} and {% data variables.product.prodname_ghe_cloud %}, you can ensure users aren't consuming multiple licenses unnecessarily by synchronizing license usage between environments.{% ifversion ghec %} {% data variables.product.prodname_GH_advanced_security %} is included in license sync in {% data variables.product.prodname_ghe_server %} version 3.12 and later.{% endif %} See [AUTOTITLE](/billing/managing-your-license-for-github-enterprise/syncing-license-usage-between-github-enterprise-server-and-github-enterprise-cloud).
 {% endif %}
 
 {% endif %}

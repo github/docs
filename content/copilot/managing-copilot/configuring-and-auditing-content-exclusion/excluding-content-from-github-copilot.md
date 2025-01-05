@@ -186,7 +186,7 @@ As an enterprise owner, you can use the enterprise settings to specify files tha
 {% data reusables.enterprise-accounts.policies-tab %}
 {% data reusables.enterprise-accounts.copilot-tab %}
 1. Click the **Content exclusion** tab.
-1. Use paths to specify which content to exclude. See the previous section, "[Configuring content exclusions for your organization](#configuring-content-exclusions-for-your-organization)."
+1. Use paths to specify which content to exclude. See the previous section, [Configuring content exclusions for your organization](#configuring-content-exclusions-for-your-organization).
 
 > [!NOTE]
 > The key difference between setting content exclusion at the enterprise level and the organization level is that rules set at the enterprise level apply to all {% data variables.product.prodname_copilot_short %} users in the enterprise, whereas the rules set by organization owners only apply to users who are assigned a {% data variables.product.prodname_copilot_short %} seat by that organization.
@@ -220,5 +220,5 @@ There are a few different ways to test your content exclusions, depending on whi
 
 ## Further reading
 
-* "[AUTOTITLE](/copilot/managing-copilot/managing-github-copilot-in-your-organization/managing-access-to-github-copilot-in-your-organization/reviewing-changes-to-content-exclusions-for-github-copilot)"
+* [AUTOTITLE](/copilot/managing-copilot/managing-github-copilot-in-your-organization/managing-access-to-github-copilot-in-your-organization/reviewing-changes-to-content-exclusions-for-github-copilot)
 * [Configuring content exclusion for {% data variables.product.prodname_vs %}](https://learn.microsoft.com/en-us/visualstudio/ide/visual-studio-github-copilot-admin?view=vs-2022#configure-content-exclusion) in the Microsoft Learn documentation

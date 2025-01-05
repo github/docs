@@ -39,7 +39,7 @@ To configure the OIDC identity provider in GCP, you will need to perform the fol
 
 Additional guidance for configuring the identity provider:
 
-* For security hardening, make sure you've reviewed "[Configuring the OIDC trust with the cloud](/actions/deployment/security-hardening-your-deployments/about-security-hardening-with-openid-connect#configuring-the-oidc-trust-with-the-cloud)." For an example, see "[Configuring the subject in your cloud provider](/actions/deployment/security-hardening-your-deployments/about-security-hardening-with-openid-connect#configuring-the-subject-in-your-cloud-provider)."
+* For security hardening, make sure you've reviewed [Configuring the OIDC trust with the cloud](/actions/deployment/security-hardening-your-deployments/about-security-hardening-with-openid-connect#configuring-the-oidc-trust-with-the-cloud). For an example, see [Configuring the subject in your cloud provider](/actions/deployment/security-hardening-your-deployments/about-security-hardening-with-openid-connect#configuring-the-subject-in-your-cloud-provider).
 * For the service account to be available for configuration, it needs to be assigned to the `roles/iam.workloadIdentityUser` role. For more information, see [the GCP documentation](https://cloud.google.com/iam/docs/workload-identity-federation?_ga=2.114275588.-285296507.1634918453#conditions).
 * The Issuer URL to use: {% ifversion ghes %}`https://HOSTNAME/_services/token`{% else %}`https://token.actions.githubusercontent.com`{% endif %}
 

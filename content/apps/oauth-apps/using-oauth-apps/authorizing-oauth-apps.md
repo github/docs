@@ -37,7 +37,7 @@ When an {% data variables.product.prodname_oauth_app %} wants to identify you by
 
 _Scopes_ are named groups of permissions that an {% data variables.product.prodname_oauth_app %} can request to access both public and non-public data.
 
-When you want to use an {% data variables.product.prodname_oauth_app %} that integrates with {% data variables.product.product_name %}, that app lets you know what type of access to your data will be required. If you grant access to the app, then the app will be able to perform actions on your behalf, such as reading or modifying data. For example, if you want to use an app that requests `user:email` scope, the app will have read-only access to your private email addresses. For more information, see "[AUTOTITLE](/apps/oauth-apps/building-oauth-apps/scopes-for-oauth-apps)."
+When you want to use an {% data variables.product.prodname_oauth_app %} that integrates with {% data variables.product.product_name %}, that app lets you know what type of access to your data will be required. If you grant access to the app, then the app will be able to perform actions on your behalf, such as reading or modifying data. For example, if you want to use an app that requests `user:email` scope, the app will have read-only access to your private email addresses. For more information, see [AUTOTITLE](/apps/oauth-apps/building-oauth-apps/scopes-for-oauth-apps).
 
 > [!NOTE]
 > Currently, you can't scope source code access to read-only.
@@ -86,8 +86,8 @@ If you belong to any organizations with SAML single sign-on (SSO) enabled, and y
 
 ## Further reading
 
-* "[AUTOTITLE](/organizations/managing-oauth-access-to-your-organizations-data/about-oauth-app-access-restrictions)"
-* "[AUTOTITLE](/apps/using-github-apps/authorizing-github-apps)"
-* "[AUTOTITLE](/support/learning-about-github-support/github-marketplace-support)"
+* [AUTOTITLE](/organizations/managing-oauth-access-to-your-organizations-data/about-oauth-app-access-restrictions)
+* [AUTOTITLE](/apps/using-github-apps/authorizing-github-apps)
+* [AUTOTITLE](/support/learning-about-github-support/github-marketplace-support)
 
 {% endif %}

@@ -29,16 +29,16 @@ Entra ID is a service from Microsoft that allows you to centrally manage user ac
 
 {% data reusables.saml.idp-saml-and-scim-explanation %}
 
-For more information, see "[AUTOTITLE](/admin/managing-iam/provisioning-user-accounts-with-scim/user-provisioning-with-scim-on-ghes)."
+For more information, see [AUTOTITLE](/admin/managing-iam/provisioning-user-accounts-with-scim/user-provisioning-with-scim-on-ghes).
 
 ## Prerequisites
 
 {% ifversion scim-for-ghes-public-beta %}
-The general prerequisites for using SCIM on {% data variables.product.product_name %} apply. See the "Prerequisites" section in "[AUTOTITLE](/admin/managing-iam/provisioning-user-accounts-with-scim/configuring-scim-provisioning-for-users#prerequisites)."
+The general prerequisites for using SCIM on {% data variables.product.product_name %} apply. See the "Prerequisites" section in [AUTOTITLE](/admin/managing-iam/provisioning-user-accounts-with-scim/configuring-scim-provisioning-for-users#prerequisites).
 
 In addition:
 
-* To configure SCIM, you must have completed **steps 1 to 4** in "[AUTOTITLE](/admin/managing-iam/provisioning-user-accounts-with-scim/configuring-scim-provisioning-for-users)."
+* To configure SCIM, you must have completed **steps 1 to 4** in [AUTOTITLE](/admin/managing-iam/provisioning-user-accounts-with-scim/configuring-scim-provisioning-for-users).
   * You will need the {% data variables.product.pat_v1 %} created for the setup user to authenticate requests from Entra ID.
 {% else %}
 * {% data reusables.saml.ghes-you-must-configure-saml-sso %}
@@ -52,7 +52,7 @@ In addition:
 
 >[!NOTE] Even if you have previously configured SAML on Entra ID, you will need to configure SAML and SCIM on a **new application** to enable SCIM provisioning.
 
-Before starting this section, ensure you have followed steps **1 and 2** in "[AUTOTITLE](/admin/managing-iam/provisioning-user-accounts-with-scim/configuring-scim-provisioning-for-users)."
+Before starting this section, ensure you have followed steps **1 and 2** in [AUTOTITLE](/admin/managing-iam/provisioning-user-accounts-with-scim/configuring-scim-provisioning-for-users).
 
 ### In Entra ID
 
@@ -72,11 +72,11 @@ Before starting this section, ensure you have followed steps **1 and 2** in "[AU
 ### On {% data variables.product.product_name %}
 
 1. Sign in to {% data variables.location.product_location %} as a user with access to the Management Console.
-1. Configure SAML using the information you have gathered. See "[AUTOTITLE](/admin/managing-iam/using-saml-for-enterprise-iam/configuring-saml-single-sign-on-for-your-enterprise#configuring-saml-sso)."
+1. Configure SAML using the information you have gathered. See [AUTOTITLE](/admin/managing-iam/using-saml-for-enterprise-iam/configuring-saml-single-sign-on-for-your-enterprise#configuring-saml-sso).
 
 ## 2. Configure SCIM
 
-Before starting this section, ensure you have followed steps **1 to 4** in "[AUTOTITLE](/admin/managing-iam/provisioning-user-accounts-with-scim/configuring-scim-provisioning-for-users)."
+Before starting this section, ensure you have followed steps **1 to 4** in [AUTOTITLE](/admin/managing-iam/provisioning-user-accounts-with-scim/configuring-scim-provisioning-for-users).
 
 1. In the "{% data variables.product.prodname_ghe_server %}" application in Entra ID, click **Provisioning** in the left sidebar, then click **Get started**.
 1. Select the "Automatic" provisioning mode.
@@ -87,18 +87,18 @@ Before starting this section, ensure you have followed steps **1 to 4** in "[AUT
 1. Click **Test Connection**.
 1. When the test is complete, click **Save**.
 
-When you have finished configuring SCIM, you may want to disable some SAML settings you enabled for the configuration process. See "[AUTOTITLE](/admin/managing-iam/provisioning-user-accounts-with-scim/configuring-scim-provisioning-for-users#6-disable-optional-settings)."
+When you have finished configuring SCIM, you may want to disable some SAML settings you enabled for the configuration process. See [AUTOTITLE](/admin/managing-iam/provisioning-user-accounts-with-scim/configuring-scim-provisioning-for-users#6-disable-optional-settings).
 
 {% else %}
 
 ## Configuring authentication and user provisioning with Entra ID
 
-1. Configure SAML SSO for {% data variables.location.product_location %}. For more information, see "[AUTOTITLE](/admin/identity-and-access-management/using-saml-for-enterprise-iam/configuring-saml-single-sign-on-for-your-enterprise#configuring-saml-sso)."
-1. Configure user provisioning with SCIM for your instance. For more information, see "[AUTOTITLE](/admin/identity-and-access-management/using-saml-for-enterprise-iam/configuring-user-provisioning-with-scim-for-your-enterprise)."
+1. Configure SAML SSO for {% data variables.location.product_location %}. For more information, see [AUTOTITLE](/admin/identity-and-access-management/using-saml-for-enterprise-iam/configuring-saml-single-sign-on-for-your-enterprise#configuring-saml-sso).
+1. Configure user provisioning with SCIM for your instance. For more information, see [AUTOTITLE](/admin/identity-and-access-management/using-saml-for-enterprise-iam/configuring-user-provisioning-with-scim-for-your-enterprise).
 
 ## Managing enterprise owners
 
-The steps to make a person an enterprise owner depend on whether you only use SAML or also use SCIM. For more information about enterprise owners, see "[AUTOTITLE](/admin/user-management/managing-users-in-your-enterprise/roles-in-an-enterprise)."
+The steps to make a person an enterprise owner depend on whether you only use SAML or also use SCIM. For more information about enterprise owners, see [AUTOTITLE](/admin/user-management/managing-users-in-your-enterprise/roles-in-an-enterprise).
 
 If you configured provisioning, to grant the user enterprise ownership in {% data variables.product.product_name %}, assign the enterprise owner role to the user in Entra ID.
 

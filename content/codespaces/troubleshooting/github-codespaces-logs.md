@@ -151,7 +151,7 @@ The following instructions are for Chrome. The steps for other browsers are simi
 
 1. In the browser window for the codespace you want to debug, open the developer tools window.
 1. Click the **Console** tab.
-1. Show the console sidebar, if it is not already displayed. For more information, see "[Console features reference](https://developer.chrome.com/docs/devtools/console/reference#sidebar)" in the Chrome for Developers documentation.
+1. Show the console sidebar, if it is not already displayed. For more information, see [Console features reference](https://developer.chrome.com/docs/devtools/console/reference#sidebar) in the Chrome for Developers documentation.
 1. In the sidebar, click **NUMBER errors** to show only the errors.
 1. In the log area on the right, right-click and select **Save as** to save a copy of the errors to your local machine.
 
@@ -174,5 +174,5 @@ You can download logs for the remote JetBrains IDE and the local client applicat
 
 ## Further reading
 
-* "[AUTOTITLE](/codespaces/managing-codespaces-for-your-organization/reviewing-your-organizations-audit-logs-for-github-codespaces)"
-* "[AUTOTITLE](/codespaces/managing-your-codespaces/reviewing-your-security-logs-for-github-codespaces)"
+* [AUTOTITLE](/codespaces/managing-codespaces-for-your-organization/reviewing-your-organizations-audit-logs-for-github-codespaces)
+* [AUTOTITLE](/codespaces/managing-your-codespaces/reviewing-your-security-logs-for-github-codespaces)

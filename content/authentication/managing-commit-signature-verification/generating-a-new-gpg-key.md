@@ -18,7 +18,7 @@ topics:
 ## Generating a GPG key
 
 > [!NOTE]
-> Before generating a new GPG key, make sure you've verified your email address. If you haven't verified your email address, you won't be able to sign commits and tags with GPG.{% ifversion fpt or ghec %} For more information, see "[AUTOTITLE](/account-and-profile/setting-up-and-managing-your-personal-account-on-github/managing-email-preferences/verifying-your-email-address)."{% endif %}
+> Before generating a new GPG key, make sure you've verified your email address. If you haven't verified your email address, you won't be able to sign commits and tags with GPG.{% ifversion fpt or ghec %} For more information, see [AUTOTITLE](/account-and-profile/setting-up-and-managing-your-personal-account-on-github/managing-email-preferences/verifying-your-email-address).{% endif %}
 
 1. Download and install [the GPG command line tools](https://www.gnupg.org/download/) for your operating system. We generally recommend installing the latest version for your operating system.
 {% data reusables.command_line.open_the_multi_os_terminal %}
@@ -42,7 +42,7 @@ topics:
 1. Enter your user ID information.
 
    > [!NOTE]
-   > When asked to enter your email address, ensure that you enter the verified email address for your GitHub account. {% data reusables.gpg.private-email %} {% ifversion fpt or ghec %} For more information, see "[AUTOTITLE](/account-and-profile/setting-up-and-managing-your-personal-account-on-github/managing-email-preferences/verifying-your-email-address)" and "[AUTOTITLE](/account-and-profile/setting-up-and-managing-your-personal-account-on-github/managing-email-preferences/setting-your-commit-email-address)."{% endif %}
+   > When asked to enter your email address, ensure that you enter the verified email address for your GitHub account. {% data reusables.gpg.private-email %} {% ifversion fpt or ghec %} For more information, see [AUTOTITLE](/account-and-profile/setting-up-and-managing-your-personal-account-on-github/managing-email-preferences/verifying-your-email-address) and [AUTOTITLE](/account-and-profile/setting-up-and-managing-your-personal-account-on-github/managing-email-preferences/setting-your-commit-email-address).{% endif %}
 
 1. Type a secure passphrase.
 {% data reusables.gpg.list-keys-with-note %}
@@ -59,9 +59,9 @@ topics:
 
 ## Further reading
 
-* "[AUTOTITLE](/authentication/managing-commit-signature-verification/checking-for-existing-gpg-keys)"
-* "[AUTOTITLE](/authentication/managing-commit-signature-verification/adding-a-gpg-key-to-your-github-account)"
-* "[AUTOTITLE](/authentication/managing-commit-signature-verification/telling-git-about-your-signing-key)"
-* "[AUTOTITLE](/authentication/managing-commit-signature-verification/associating-an-email-with-your-gpg-key)"
-* "[AUTOTITLE](/authentication/managing-commit-signature-verification/signing-commits)"
-* "[AUTOTITLE](/authentication/managing-commit-signature-verification/signing-tags)"
+* [AUTOTITLE](/authentication/managing-commit-signature-verification/checking-for-existing-gpg-keys)
+* [AUTOTITLE](/authentication/managing-commit-signature-verification/adding-a-gpg-key-to-your-github-account)
+* [AUTOTITLE](/authentication/managing-commit-signature-verification/telling-git-about-your-signing-key)
+* [AUTOTITLE](/authentication/managing-commit-signature-verification/associating-an-email-with-your-gpg-key)
+* [AUTOTITLE](/authentication/managing-commit-signature-verification/signing-commits)
+* [AUTOTITLE](/authentication/managing-commit-signature-verification/signing-tags)

@@ -25,7 +25,7 @@ Labels allow you to send workflow jobs to specific types of self-hosted runners,
 
 {% data reusables.actions.self-hosted-runner-labels-runs-on %}
 
-For information on creating custom and default labels, see "[AUTOTITLE](/actions/hosting-your-own-runners/managing-self-hosted-runners/using-labels-with-self-hosted-runners)."
+For information on creating custom and default labels, see [AUTOTITLE](/actions/hosting-your-own-runners/managing-self-hosted-runners/using-labels-with-self-hosted-runners).
 
 {% ifversion target-runner-groups %}
 
@@ -35,7 +35,7 @@ For self-hosted runners defined at the organization {% ifversion ghec or ghes %}
 
 To specify a self-hosted runner group for your job, configure `runs-on.group` in your workflow file.
 
-For information on creating and managing runner groups, see "[AUTOTITLE](/actions/hosting-your-own-runners/managing-self-hosted-runners/managing-access-to-self-hosted-runners-using-groups)."
+For information on creating and managing runner groups, see [AUTOTITLE](/actions/hosting-your-own-runners/managing-self-hosted-runners/managing-access-to-self-hosted-runners-using-groups).
 
 {% endif %}
 
@@ -49,7 +49,7 @@ For information on creating and managing runner groups, see "[AUTOTITLE](/action
 {% data reusables.repositories.actions-tab %}
 {% data reusables.repositories.repository-runners %}
 1. Click the **Self hosted** tab at the top of the list of runners.
-1. Review the list of available self-hosted runners for the repository. This list includes both self-hosted runners and runner scale sets created with {% data variables.product.prodname_actions_runner_controller %}. For more information, see "[AUTOTITLE](/actions/hosting-your-own-runners/managing-self-hosted-runners-with-actions-runner-controller/about-actions-runner-controller)."
+1. Review the list of available self-hosted runners for the repository. This list includes both self-hosted runners and runner scale sets created with {% data variables.product.prodname_actions_runner_controller %}. For more information, see [AUTOTITLE](/actions/hosting-your-own-runners/managing-self-hosted-runners-with-actions-runner-controller/about-actions-runner-controller).
 {% data reusables.actions.copy-runner-label %}
 
 {% data reusables.actions.actions-tab-new-runners-note %}

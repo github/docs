@@ -21,7 +21,7 @@ The {% data variables.codespaces.serverless %} editor introduces a lightweight e
 
 The {% data variables.codespaces.serverless %} editor is available to everyone for free on {% data variables.product.prodname_dotcom_the_website %}.
 
-The {% data variables.codespaces.serverless %} editor provides many of the benefits of {% data variables.product.prodname_vscode %}, such as search, syntax highlighting, and a source control view. You can also use Settings Sync to share your own {% data variables.product.prodname_vscode_shortname %} settings with the editor. See "[Settings Sync](https://code.visualstudio.com/docs/editor/settings-sync)" in the {% data variables.product.prodname_vscode_shortname %} documentation.
+The {% data variables.codespaces.serverless %} editor provides many of the benefits of {% data variables.product.prodname_vscode %}, such as search, syntax highlighting, and a source control view. You can also use Settings Sync to share your own {% data variables.product.prodname_vscode_shortname %} settings with the editor. See [Settings Sync](https://code.visualstudio.com/docs/editor/settings-sync) in the {% data variables.product.prodname_vscode_shortname %} documentation.
 
 The {% data variables.codespaces.serverless %} editor runs entirely in your browser’s sandbox. The editor doesn’t clone the repository, but instead uses the [GitHub Repositories extension](https://code.visualstudio.com/docs/editor/github#_github-repositories-extension) to carry out most of the functionality that you will use. Your work is saved in the browser’s local storage until you commit it. You should commit your changes regularly to ensure that they're always accessible.
 
@@ -48,12 +48,12 @@ Both {% data variables.codespaces.serverless %} and {% data variables.product.pr
 
 || {% data variables.codespaces.serverless %} | {% data variables.product.prodname_github_codespaces %}|
 |-|----------------|---------|
-| **Cost** | Free.      | Free monthly quota of usage for personal accounts. For information on pricing, see "[AUTOTITLE](/free-pro-team@latest/billing/managing-billing-for-your-products/managing-billing-for-github-codespaces/about-billing-for-github-codespaces#about-github-codespaces-pricing)."|
+| **Cost** | Free.      | Free monthly quota of usage for personal accounts. For information on pricing, see [AUTOTITLE](/free-pro-team@latest/billing/managing-billing-for-your-products/managing-billing-for-github-codespaces/about-billing-for-github-codespaces#about-github-codespaces-pricing).|
 | **Availability** | Available to everyone on GitHub.com. | Available to everyone on GitHub.com. |
-| **Start up** | {% data variables.codespaces.serverless %} opens instantly with a key-press and you can start using it right away, without having to wait for additional configuration or installation. | When you create or resume a codespace, the codespace is assigned a VM and the container is configured based on the contents of a `devcontainer.json` file. This set up may take a few minutes to create the environment. See "[AUTOTITLE](/codespaces/developing-in-a-codespace/creating-a-codespace-for-a-repository)." |
+| **Start up** | {% data variables.codespaces.serverless %} opens instantly with a key-press and you can start using it right away, without having to wait for additional configuration or installation. | When you create or resume a codespace, the codespace is assigned a VM and the container is configured based on the contents of a `devcontainer.json` file. This set up may take a few minutes to create the environment. See [AUTOTITLE](/codespaces/developing-in-a-codespace/creating-a-codespace-for-a-repository). |
 | **Compute**  | There is no associated compute, so you won’t be able to build and run your code or use the integrated terminal. | With {% data variables.product.prodname_github_codespaces %}, you get the power of a dedicated VM on which you can run and debug your application.|
 | **Terminal access** | None. | {% data variables.product.prodname_github_codespaces %} provides a common set of tools by default, meaning that you can use the Terminal exactly as you would in your local environment.|
-| **Extensions**  | Only a subset of extensions that can run in the web will appear in the Extensions View and can be installed. See "[Using extensions](#using-extensions)."| With {% data variables.product.prodname_github_codespaces %}, you can use most extensions from the {% data variables.product.prodname_vscode_marketplace %}.|
+| **Extensions**  | Only a subset of extensions that can run in the web will appear in the Extensions View and can be installed. See [Using extensions](#using-extensions).| With {% data variables.product.prodname_github_codespaces %}, you can use most extensions from the {% data variables.product.prodname_vscode_marketplace %}.|
 
 {% endrowheaders %}
 
@@ -67,9 +67,9 @@ To continue your work in a codespace, click **Continue Working on…** and selec
 
 ## Using source control
 
-When you use {% data variables.codespaces.serverless %}, all actions are managed through the "Source Control" view, which is located in the Activity Bar on the left hand side. For more information on the "Source Control" view, see "[Version Control](https://code.visualstudio.com/docs/editor/versioncontrol)" in the {% data variables.product.prodname_vscode_shortname %} documentation.
+When you use {% data variables.codespaces.serverless %}, all actions are managed through the "Source Control" view, which is located in the Activity Bar on the left hand side. For more information on the "Source Control" view, see [Version Control](https://code.visualstudio.com/docs/editor/versioncontrol) in the {% data variables.product.prodname_vscode_shortname %} documentation.
 
-Because {% data variables.codespaces.serverless %} uses the GitHub Repositories extension to power its functionality, you can switch branches without needing to stash changes. See "[GitHub Repositories](https://code.visualstudio.com/docs/editor/github#_github-repositories-extension)" in the {% data variables.product.prodname_vscode_shortname %} documentation.
+Because {% data variables.codespaces.serverless %} uses the GitHub Repositories extension to power its functionality, you can switch branches without needing to stash changes. See [GitHub Repositories](https://code.visualstudio.com/docs/editor/github#_github-repositories-extension) in the {% data variables.product.prodname_vscode_shortname %} documentation.
 
 ### Create a new branch
 
@@ -110,7 +110,7 @@ You can use {% data variables.codespaces.serverless %} to work with an existing 
 
 The {% data variables.codespaces.serverless %} editor supports {% data variables.product.prodname_vscode_shortname %} extensions that have been specifically created or updated to run in the web. These extensions are known as "web extensions". To learn how you can create a web extension or update your existing extension to work for the web, see [Web extensions](https://code.visualstudio.com/api/extension-guides/web-extensions) in the {% data variables.product.prodname_vscode_shortname %} documentation.
 
-Extensions that can run in {% data variables.codespaces.serverless %} will appear in the Extensions View and can be installed. If you use Settings Sync, any compatible extensions are also installed automatically. For information, see "[Settings Sync](https://code.visualstudio.com/docs/editor/settings-sync)" in the {% data variables.product.prodname_vscode_shortname %} documentation.
+Extensions that can run in {% data variables.codespaces.serverless %} will appear in the Extensions View and can be installed. If you use Settings Sync, any compatible extensions are also installed automatically. For information, see [Settings Sync](https://code.visualstudio.com/docs/editor/settings-sync) in the {% data variables.product.prodname_vscode_shortname %} documentation.
 
 ## Using {% data variables.codespaces.serverless %} behind a firewall
 

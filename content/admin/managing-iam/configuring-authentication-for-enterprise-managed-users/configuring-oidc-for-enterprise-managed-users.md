@@ -21,13 +21,13 @@ redirect_from:
 
 With {% data variables.product.prodname_emus %}, your enterprise uses your identity provider (IdP) to authenticate all members. You can use OpenID Connect (OIDC) to manage authentication for your {% data variables.enterprise.prodname_emu_enterprise %}. Enabling OIDC SSO is a one-click setup process with certificates managed by {% data variables.product.prodname_dotcom %} and your IdP.
 
-{% data reusables.enterprise-accounts.emu-cap-validates %} See "[AUTOTITLE](/admin/identity-and-access-management/using-enterprise-managed-users-for-iam/about-support-for-your-idps-conditional-access-policy)."
+{% data reusables.enterprise-accounts.emu-cap-validates %} See [AUTOTITLE](/admin/identity-and-access-management/using-enterprise-managed-users-for-iam/about-support-for-your-idps-conditional-access-policy).
 
 {% data reusables.enterprise-accounts.emu-cap-public-preview %}
 
-You can adjust the lifetime of a session, and how often a {% data variables.enterprise.prodname_managed_user %} needs to reauthenticate with your IdP, by changing the lifetime policy property of the ID tokens issued for {% data variables.product.prodname_dotcom %} from your IdP. The default lifetime is one hour. See "[Configure token lifetime policies](https://learn.microsoft.com/en-us/entra/identity-platform/configure-token-lifetimes#create-a-policy-and-assign-it-to-a-service-principal)" in the Microsoft documentation.
+You can adjust the lifetime of a session, and how often a {% data variables.enterprise.prodname_managed_user %} needs to reauthenticate with your IdP, by changing the lifetime policy property of the ID tokens issued for {% data variables.product.prodname_dotcom %} from your IdP. The default lifetime is one hour. See [Configure token lifetime policies](https://learn.microsoft.com/en-us/entra/identity-platform/configure-token-lifetimes#create-a-policy-and-assign-it-to-a-service-principal) in the Microsoft documentation.
 
-To change the lifetime policy property, you will need the object ID associated with your {% data variables.product.prodname_emus %} OIDC. See "[AUTOTITLE](/admin/identity-and-access-management/configuring-authentication-for-enterprise-managed-users/finding-the-object-id-for-your-entra-oidc-application)."
+To change the lifetime policy property, you will need the object ID associated with your {% data variables.product.prodname_emus %} OIDC. See [AUTOTITLE](/admin/identity-and-access-management/configuring-authentication-for-enterprise-managed-users/finding-the-object-id-for-your-entra-oidc-application).
 
 >[!NOTE] If you need assistance configuring the OIDC session lifetime, contact [Microsoft Support](https://support.microsoft.com).
 
@@ -39,7 +39,7 @@ To change the lifetime policy property, you will need the object ID associated w
 
 Support for OIDC is available for customers using Entra ID.
 
-Each Entra ID tenant can support only one OIDC integration with {% data variables.product.prodname_emus %}. If you want to connect Entra ID to more than one enterprise on {% data variables.product.prodname_dotcom %}, use SAML instead. See "[AUTOTITLE](/admin/identity-and-access-management/using-enterprise-managed-users-for-iam/configuring-saml-single-sign-on-for-enterprise-managed-users)."
+Each Entra ID tenant can support only one OIDC integration with {% data variables.product.prodname_emus %}. If you want to connect Entra ID to more than one enterprise on {% data variables.product.prodname_dotcom %}, use SAML instead. See [AUTOTITLE](/admin/identity-and-access-management/using-enterprise-managed-users-for-iam/configuring-saml-single-sign-on-for-enterprise-managed-users).
 
 OIDC does not support IdP-initiated authentication.
 
@@ -57,10 +57,10 @@ OIDC does not support IdP-initiated authentication.
 
 ## Enabling provisioning
 
-After you enable OIDC SSO, enable provisioning. See "[AUTOTITLE](/admin/identity-and-access-management/using-enterprise-managed-users-for-iam/configuring-scim-provisioning-for-enterprise-managed-users)."
+After you enable OIDC SSO, enable provisioning. See [AUTOTITLE](/admin/identity-and-access-management/using-enterprise-managed-users-for-iam/configuring-scim-provisioning-for-enterprise-managed-users).
 
 ## Enabling guest collaborators
 
 You can use the role of guest collaborator to grant limited access to vendors and contractors in your enterprise. Unlike enterprise members, guest collaborators only have access to internal repositories within organizations where they are a member.
 
-To use guest collaborators with OIDC authentication, you may need to update your settings in Entra ID. See "[AUTOTITLE](/admin/managing-accounts-and-repositories/managing-users-in-your-enterprise/enabling-guest-collaborators)."
+To use guest collaborators with OIDC authentication, you may need to update your settings in Entra ID. See [AUTOTITLE](/admin/managing-accounts-and-repositories/managing-users-in-your-enterprise/enabling-guest-collaborators).

@@ -16,7 +16,7 @@ If you include a detectable license in your repository, people who visit your re
 
 ![Screenshot of the main page of the github-linguist/linguist repository. In the right sidebar, "MIT license," preceded by a law icon, is outlined in dark orange.](/assets/images/help/repository/repo-license-indicator.png)
 
-Open source licenses enable others to freely use, change, and distribute the project in your repository. For more information on repository licenses, see "[AUTOTITLE](/repositories/managing-your-repositorys-settings-and-features/customizing-your-repository/licensing-a-repository)."
+Open source licenses enable others to freely use, change, and distribute the project in your repository. For more information on repository licenses, see [AUTOTITLE](/repositories/managing-your-repositorys-settings-and-features/customizing-your-repository/licensing-a-repository).
 
 ## Including an open source license in your repository
 
@@ -46,7 +46,7 @@ Open source licenses enable others to freely use, change, and distribute the pro
 1. On the **Edit new file** tab, paste the full text of the license you want to use.
 {% data reusables.files.write_commit_message %}
 {% data reusables.files.choose-commit-email %}
-1. Below the commit message fields, decide whether to add your commit to the current branch or to a new branch. If your current branch is `main`, you should choose to create a new branch for your commit and then create a pull request. For more information, see "[AUTOTITLE](/pull-requests/collaborating-with-pull-requests/proposing-changes-to-your-work-with-pull-requests/creating-a-pull-request)".
+1. Below the commit message fields, decide whether to add your commit to the current branch or to a new branch. If your current branch is `main`, you should choose to create a new branch for your commit and then create a pull request. For more information, see [AUTOTITLE](/pull-requests/collaborating-with-pull-requests/proposing-changes-to-your-work-with-pull-requests/creating-a-pull-request).
 ![Screenshot of a {% data variables.product.prodname_dotcom %} pull request showing a radio button to commit directly to the main branch or to create a new branch. New branch is selected.](/assets/images/help/repository/choose-commit-branch.png)
 {% data reusables.files.propose_file_change %}
 
@@ -54,4 +54,4 @@ Open source licenses enable others to freely use, change, and distribute the pro
 
 ## Further reading
 
-* "[AUTOTITLE](/communities/setting-up-your-project-for-healthy-contributions/setting-guidelines-for-repository-contributors)"
+* [AUTOTITLE](/communities/setting-up-your-project-for-healthy-contributions/setting-guidelines-for-repository-contributors)

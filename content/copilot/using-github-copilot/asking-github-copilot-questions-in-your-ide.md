@@ -18,7 +18,7 @@ shortTitle: Chat in IDE
 
 ## Prerequisites
 
-* **Access to {% data variables.product.prodname_copilot %}**. See "[AUTOTITLE](/copilot/about-github-copilot/what-is-github-copilot#getting-access-to-copilot)."
+* **Access to {% data variables.product.prodname_copilot %}**. See [AUTOTITLE](/copilot/about-github-copilot/what-is-github-copilot#getting-access-to-copilot).
 {% data reusables.copilot.vscode-prerequisites %}
 
 {% data reusables.copilot.chat-access-denied %}
@@ -35,17 +35,17 @@ You can ask {% data variables.product.prodname_copilot_chat_short %} to give cod
    >
    > For additional ways to access {% data variables.product.prodname_copilot_chat_short %}, including inline with your code, see [Additional ways to access {% data variables.product.prodname_copilot_chat_short %}](#additional-ways-to-access-copilot-chat) below.
 
-1. Enter a prompt in the prompt box, or click one of the suggested prompts. For an introduction to the kinds of prompts you can use, see "[AUTOTITLE](/copilot/using-github-copilot/guides-on-using-github-copilot/getting-started-with-prompts-for-copilot-chat)."
+1. Enter a prompt in the prompt box, or click one of the suggested prompts. For an introduction to the kinds of prompts you can use, see [AUTOTITLE](/copilot/using-github-copilot/guides-on-using-github-copilot/getting-started-with-prompts-for-copilot-chat).
 
 1. Evaluate {% data variables.product.prodname_copilot_short %}'s response, and make a follow up request if needed.
 
    The response may contain text, code blocks, buttons, images, URIs, and file trees. The response often includes interactive elements. For example, the response may include a menu to insert a code block, or a button to invoke a {% data variables.product.prodname_vscode %} command.
 
-   To see the files that {% data variables.product.prodname_copilot_chat_short %} used to generate the response, select the **Used _n_ references** dropdown at the top of the response. The references may include a link to a custom instructions file. This file contains additional information that is automatically added to all of your chat questions to improve the quality of the responses. For more information, see "[AUTOTITLE](/copilot/customizing-copilot/adding-custom-instructions-for-github-copilot)."
+   To see the files that {% data variables.product.prodname_copilot_chat_short %} used to generate the response, select the **Used _n_ references** dropdown at the top of the response. The references may include a link to a custom instructions file. This file contains additional information that is automatically added to all of your chat questions to improve the quality of the responses. For more information, see [AUTOTITLE](/copilot/customizing-copilot/adding-custom-instructions-for-github-copilot).
 
 ## Using keywords in your prompt
 
-You can use special keywords to help {% data variables.product.prodname_copilot_short %} understand your prompt. For examples, see "[AUTOTITLE](/copilot/using-github-copilot/guides-on-using-github-copilot/getting-started-with-prompts-for-copilot-chat)."
+You can use special keywords to help {% data variables.product.prodname_copilot_short %} understand your prompt. For examples, see [AUTOTITLE](/copilot/using-github-copilot/guides-on-using-github-copilot/getting-started-with-prompts-for-copilot-chat).
 
 ### Chat participants
 
@@ -62,10 +62,10 @@ Chat participants include:
 * `@terminal`: Has context about the {% data variables.product.prodname_vscode %} terminal shell and its contents. Use `@terminal` when you want help creating or debugging terminal commands.
 * `@azure`: Has context about Azure services and how to use, deploy and manage them. Use `@azure` when you want help with Azure. The `@azure` chat participant is currently in {% data variables.release-phases.public_preview %} and is subject to change.
 {% ifversion ghec %}
-* `@github`: Allows you to use {% data variables.product.prodname_dotcom %}-specific {% data variables.product.prodname_copilot_short %} skills. See "[Using {% data variables.product.prodname_dotcom %} skills for {% data variables.product.prodname_copilot_short %}](#using-github-skills-for-copilot)."
+* `@github`: Allows you to use {% data variables.product.prodname_dotcom %}-specific {% data variables.product.prodname_copilot_short %} skills. See [Using {% data variables.product.prodname_dotcom %} skills for {% data variables.product.prodname_copilot_short %}](#using-github-skills-for-copilot).
 {% endif %}
 
-In addition to the built-in {% data variables.product.prodname_vscode %} chat participants, you can also install {% data variables.product.prodname_copilot_extensions_short %} that provide chat participants. You can install these extensions from [{% data variables.product.prodname_marketplace %}](https://github.com/marketplace?type=apps&copilot_app=true) and from [{% data variables.product.prodname_vscode_marketplace %}](https://marketplace.visualstudio.com/search?target=VSCode&category=Chat&sortBy=Installs). For information about extensions from {% data variables.product.prodname_marketplace %} that provide chat participants, see "[AUTOTITLE](/copilot/github-copilot-chat/github-copilot-extensions/about-github-copilot-extensions)."
+In addition to the built-in {% data variables.product.prodname_vscode %} chat participants, you can also install {% data variables.product.prodname_copilot_extensions_short %} that provide chat participants. You can install these extensions from [{% data variables.product.prodname_marketplace %}](https://github.com/marketplace?type=apps&copilot_app=true) and from [{% data variables.product.prodname_vscode_marketplace %}](https://marketplace.visualstudio.com/search?target=VSCode&category=Chat&sortBy=Installs). For information about extensions from {% data variables.product.prodname_marketplace %} that provide chat participants, see [AUTOTITLE](/copilot/github-copilot-chat/github-copilot-extensions/about-github-copilot-extensions).
 
 {% data reusables.copilot.copilot-extensions.public-preview-note %}
 
@@ -128,7 +128,7 @@ The skills you can use in {% data variables.product.prodname_copilot_chat_short 
 | **Pull request details** | Retrieves a specific pull request. This allows you to ask questions about the pull request, including getting a summary of the pull request, its comments, or the code it changes. | Yes | `@github List my recent pull requests` |
 | **Release details** | Retrieves the latest, or specified, release. This allows you to find out who created a release, when it happened, and information included in the release notes. | Yes | `@github When was the latest release?` |
 | **Repository details** | Retrieves a specific {% data variables.product.prodname_dotcom %} repository. This is useful for finding out details such as the repository owner and the main language used. | Yes | `@github Tell me about PATH-TO-REPOSITORY` |
-| **Semantic code search** | Natural language semantic code search in the default branch of the Git repository. This skill is useful when you want to know where or how certain functionality has been implemented in the code. Note: this requires indexing to be enabled for the repository (see "[AUTOTITLE](/enterprise-cloud@latest/copilot/managing-copilot/managing-github-copilot-in-your-organization/managing-github-copilot-features-in-your-organization/indexing-repositories-for-copilot-chat)"). | Yes <br><br>Available for all repositories with a {% data variables.product.prodname_copilot_enterprise_short %} subscription, and for public repositories with a {% data variables.product.prodname_copilot_individuals_short %} or {% data variables.product.prodname_copilot_business_short %} subscription. | `How does this repo manage HTTP requests and responses?`|
+| **Semantic code search** | Natural language semantic code search in the default branch of the Git repository. This skill is useful when you want to know where or how certain functionality has been implemented in the code. For more information, see [AUTOTITLE](/copilot/using-github-copilot/indexing-repositories-for-copilot-chat). | Yes <br><br>Available for all repositories with a {% data variables.product.prodname_copilot_enterprise_short %} subscription, and for public repositories with a {% data variables.product.prodname_copilot_individuals_short %} or {% data variables.product.prodname_copilot_business_short %} subscription. | `How does this repo manage HTTP requests and responses?`|
 | **Support search** | Retrieves information from the {% data variables.contact.contact_support_portal %}. This skill is useful for asking {% data variables.product.prodname_copilot_chat_short %} about {% data variables.product.prodname_dotcom %} products and support related questions. | Yes | `@github Can I use {% data variables.product.prodname_copilot_short %} knowledge bases with {% data variables.product.prodname_copilot_individuals_short %}?` |
 | **Web search** | Searches the web using the Bing search engine. This skill is useful for teaching {% data variables.product.prodname_copilot_short %} about recent events, new developments, trends, technologies, or extremely specific, detailed, or niche subjects. | No <br><br>{% ifversion fpt %}_For {% data variables.product.prodname_copilot_individuals_short %}:_<br>Enable in your user settings.<br><br>_For {% data variables.product.prodname_copilot_business_short %}:_<br>Enable in organization settings.{% else %}Enable in enterprise or organization settings.{% endif %} | `@github #web What are some recent articles about SAT tokens securing against vulnerabilities in Node?` |
 
@@ -138,7 +138,7 @@ The skills you can use in {% data variables.product.prodname_copilot_chat_short 
 
 > [!NOTE] This feature is only available if you have a {% data variables.product.prodname_copilot_enterprise_short %} subscription.
 
-Organization owners can create knowledge bases, grouping together Markdown documentation across one or more repositories. For more information, see "[AUTOTITLE](/copilot/managing-copilot/managing-github-copilot-in-your-organization/managing-github-copilot-features-in-your-organization/managing-copilot-knowledge-bases)."
+Organization owners can create knowledge bases, grouping together Markdown documentation across one or more repositories. For more information, see [AUTOTITLE](/copilot/managing-copilot/managing-github-copilot-in-your-organization/managing-github-copilot-features-in-your-organization/managing-copilot-knowledge-bases).
 
 You can tell {% data variables.product.prodname_copilot_short %} to answer a question within the context of a knowledge base.
 
@@ -153,7 +153,7 @@ You can tell {% data variables.product.prodname_copilot_short %} to answer a que
 
 {% data reusables.copilot.copilot-chat-models-beta-note %}
 
-{% data reusables.copilot.copilot-chat-models-list %}
+{% data reusables.copilot.copilot-chat-models-list-o1 %}
 
 ### Changing your AI model
 
@@ -195,11 +195,11 @@ To leave feedback about the {% data variables.product.prodname_copilot_chat %} e
 
 ## Further reading
 
-* "[AUTOTITLE](/copilot/using-github-copilot/prompt-engineering-for-github-copilot)"
+* [AUTOTITLE](/copilot/using-github-copilot/prompt-engineering-for-github-copilot)
 * [Using Copilot Chat in VS Code](https://code.visualstudio.com/docs/copilot/copilot-chat) and [Getting started with GitHub Copilot Chat in VS Code](https://code.visualstudio.com/docs/copilot/getting-started-chat) in the {% data variables.product.prodname_vscode %} documentation
-* "[AUTOTITLE](/copilot/github-copilot-enterprise/copilot-chat-in-github/using-github-copilot-chat-in-githubcom)"
-* "[AUTOTITLE](/copilot/github-copilot-chat/about-github-copilot-chat)"
-* "[AUTOTITLE](/free-pro-team@latest/site-policy/github-terms/github-terms-for-additional-products-and-features#github-copilot)"
+* [AUTOTITLE](/copilot/github-copilot-enterprise/copilot-chat-in-github/using-github-copilot-chat-in-githubcom)
+* [AUTOTITLE](/copilot/github-copilot-chat/about-github-copilot-chat)
+* [AUTOTITLE](/free-pro-team@latest/site-policy/github-terms/github-terms-for-additional-products-and-features#github-copilot)
 * [{% data variables.product.prodname_copilot %} Trust Center](https://resources.github.com/copilot-trust-center)
 * [{% data variables.product.prodname_copilot %} FAQ](https://github.com/features/copilot#faq)
 
@@ -209,11 +209,11 @@ To leave feedback about the {% data variables.product.prodname_copilot_chat %} e
 
 ## Prerequisites
 
-* **Access to {% data variables.product.prodname_copilot %}**. See "[AUTOTITLE](/copilot/about-github-copilot/what-is-github-copilot#getting-access-to-copilot)."
+* **Access to {% data variables.product.prodname_copilot %}**. See [AUTOTITLE](/copilot/about-github-copilot/what-is-github-copilot#getting-access-to-copilot).
 * **{% data variables.product.prodname_vs %} 2022 version 17.8 or later**. See [Install Visual Studio](https://learn.microsoft.com/visualstudio/install/install-visual-studio) in the {% data variables.product.prodname_vs %} documentation.
 * **{% data variables.product.prodname_copilot %} extension**. See [Install GitHub Copilot in Visual Studio](https://learn.microsoft.com/visualstudio/ide/visual-studio-github-copilot-install-and-states) in the {% data variables.product.prodname_vs %} documentation.
 * **{% data variables.product.prodname_copilot_chat %} extension**. See [Install GitHub Copilot in Visual Studio](https://learn.microsoft.com/visualstudio/ide/visual-studio-github-copilot-install-and-states) in the {% data variables.product.prodname_vs %} documentation.
-* **Sign in to {% data variables.product.company_short %} in {% data variables.product.prodname_vs %}**. If you experience authentication issues, see "[AUTOTITLE](/copilot/troubleshooting-github-copilot/troubleshooting-issues-with-github-copilot-chat-in-ides#troubleshooting-authentication-issues-in-your-editor)."
+* **Sign in to {% data variables.product.company_short %} in {% data variables.product.prodname_vs %}**. If you experience authentication issues, see [AUTOTITLE](/copilot/troubleshooting-github-copilot/troubleshooting-issues-with-github-copilot-chat-in-ides#troubleshooting-authentication-issues-in-your-editor).
 
 {% data reusables.copilot.chat-access-denied %}
 
@@ -222,12 +222,12 @@ To leave feedback about the {% data variables.product.prodname_copilot_chat %} e
 You can ask {% data variables.product.prodname_copilot_chat_short %} to give code suggestions, explain code, generate unit tests, and suggest code fixes.
 
 1. In the {% data variables.product.prodname_vs %} menu bar, click **View**, then click **{% data variables.product.prodname_copilot_chat %}**.
-1. In the {% data variables.product.prodname_copilot_chat_short %} window, enter a prompt, then press **Enter**. For example prompts, see "[AUTOTITLE](/copilot/using-github-copilot/guides-on-using-github-copilot/getting-started-with-prompts-for-copilot-chat)."
+1. In the {% data variables.product.prodname_copilot_chat_short %} window, enter a prompt, then press **Enter**. For example prompts, see [AUTOTITLE](/copilot/using-github-copilot/guides-on-using-github-copilot/getting-started-with-prompts-for-copilot-chat).
 1. Evaluate {% data variables.product.prodname_copilot_short %}'s response, and submit a follow up prompt if needed.
 
    The response often includes interactive elements. For example, the response may include buttons to copy, insert, or preview the result of a code block.
 
-   To see the files that {% data variables.product.prodname_copilot_chat_short %} used to generate the response, click the **References** link below the response. The references may include a link to a custom instructions file. This file contains additional information that is automatically added to all of your chat questions to improve the quality of the responses. For more information, see "[AUTOTITLE](/copilot/customizing-copilot/adding-custom-instructions-for-github-copilot)."
+   To see the files that {% data variables.product.prodname_copilot_chat_short %} used to generate the response, click the **References** link below the response. The references may include a link to a custom instructions file. This file contains additional information that is automatically added to all of your chat questions to improve the quality of the responses. For more information, see [AUTOTITLE](/copilot/customizing-copilot/adding-custom-instructions-for-github-copilot).
 
 ## Using keywords in your prompt
 
@@ -283,7 +283,7 @@ The skills you can use in {% data variables.product.prodname_copilot_chat_short 
 | {% endif %} |
 | **Lexical code search** | Keyword code search in the default branch of the Git repository. This skill is useful when you want to know about specific functions, methods or keywords that exist in the code. This skill leverages most of the functionality available to [{% data variables.product.prodname_dotcom %} Search](/search-github/github-code-search/understanding-github-code-search-syntax#using-qualifiers) like `symbol` and `path`. | Yes | `Find me the tests for the GitService class` |
 | **Path search** | Retrieves a specific file in the default branch of the Git repository. This skill is useful when you provide the exact path of a file in the repository. | Yes | `@github What logic does user_auth.js encapsulate?` |
-| **Semantic code search** | Natural language semantic code search in the default branch of the Git repository. This skill is useful when you want to know where or how certain functionality has been implemented in the code. Note: this requires indexing to be enabled for the repository (see "[AUTOTITLE](/enterprise-cloud@latest/copilot/managing-copilot/managing-github-copilot-in-your-organization/managing-github-copilot-features-in-your-organization/indexing-repositories-for-copilot-chat)"). | Yes <br><br>Available for all repositories with a {% data variables.product.prodname_copilot_enterprise_short %} subscription, and for public repositories with a {% data variables.product.prodname_copilot_individuals_short %} or {% data variables.product.prodname_copilot_business_short %} subscription. | `How does this repo manage HTTP requests and responses?`|
+| **Semantic code search** | Natural language semantic code search in the default branch of the Git repository. This skill is useful when you want to know where or how certain functionality has been implemented in the code. For more information, see [AUTOTITLE](/copilot/using-github-copilot/indexing-repositories-for-copilot-chat). | Yes <br><br>Available for all repositories with a {% data variables.product.prodname_copilot_enterprise_short %} subscription, and for public repositories with a {% data variables.product.prodname_copilot_individuals_short %} or {% data variables.product.prodname_copilot_business_short %} subscription. | `How does this repo manage HTTP requests and responses?`|
 | **Web search** | Searches the web using the Bing search engine. This skill is useful for teaching Copilot about recent events, new developments, trends, technologies, or extremely specific, detailed, or niche subjects. | No <br><br>{% ifversion fpt %}_For {% data variables.product.prodname_copilot_individuals_short %}:_<br>Enable in your user settings.<br><br>_For {% data variables.product.prodname_copilot_business_short %}:_<br>Enable in organization settings.{% else %}Enable in enterprise or organization settings.{% endif %} | `@github What are some recent articles about SAT tokens securing against vulnerabilities in Node?` |
 
 {% ifversion ghec %}
@@ -294,7 +294,7 @@ The skills you can use in {% data variables.product.prodname_copilot_chat_short 
 > * This feature is only available if you have a {% data variables.product.prodname_copilot_enterprise_short %} subscription.
 > * Support for knowledge bases is currently in preview, and only available in [{% data variables.product.prodname_vs %} 2022 Preview 3](https://visualstudio.microsoft.com/vs/preview/) onwards.
 
-Organization owners can create knowledge bases, grouping together Markdown documentation across one or more repositories. For more information, see "[AUTOTITLE](/copilot/github-copilot-enterprise/managing-copilot-knowledge-bases)."
+Organization owners can create knowledge bases, grouping together Markdown documentation across one or more repositories. For more information, see [AUTOTITLE](/copilot/github-copilot-enterprise/managing-copilot-knowledge-bases).
 
 You can tell {% data variables.product.prodname_copilot_short %} to answer a question within the context of a knowledge base.
 
@@ -308,7 +308,7 @@ You can tell {% data variables.product.prodname_copilot_short %} to answer a que
 
 {% data reusables.copilot.copilot-chat-models-beta-note %}
 
-{% data reusables.copilot.copilot-chat-models-list %}
+{% data reusables.copilot.copilot-chat-models-list-o1-preview %}
 
 ### Changing your AI model
 
@@ -340,12 +340,12 @@ To share feedback about {% data variables.product.prodname_copilot_chat_short %}
 
 ## Further reading
 
-* "[AUTOTITLE](/copilot/using-github-copilot/prompt-engineering-for-github-copilot)"
+* [AUTOTITLE](/copilot/using-github-copilot/prompt-engineering-for-github-copilot)
 * [Using {% data variables.product.prodname_copilot_chat %} in {% data variables.product.prodname_vs %} in the Microsoft Learn documentation](https://learn.microsoft.com/visualstudio/ide/visual-studio-github-copilot-chat?view=vs-2022#use-copilot-chat-in-visual-studio)
 * [Tips to improve {% data variables.product.prodname_copilot_chat %} results in the Microsoft Learn documentation](https://learn.microsoft.com/en-us/visualstudio/ide/copilot-chat-context?view=vs-2022)
-* "[AUTOTITLE](/copilot/github-copilot-enterprise/copilot-chat-in-github/using-github-copilot-chat-in-githubcom)"
-* "[AUTOTITLE](/copilot/github-copilot-chat/about-github-copilot-chat)"
-* "[AUTOTITLE](/free-pro-team@latest/site-policy/github-terms/github-terms-for-additional-products-and-features#github-copilot)"
+* [AUTOTITLE](/copilot/github-copilot-enterprise/copilot-chat-in-github/using-github-copilot-chat-in-githubcom)
+* [AUTOTITLE](/copilot/github-copilot-chat/about-github-copilot-chat)
+* [AUTOTITLE](/free-pro-team@latest/site-policy/github-terms/github-terms-for-additional-products-and-features#github-copilot)
 * [{% data variables.product.prodname_copilot %} Trust Center](https://resources.github.com/copilot-trust-center)
 * [{% data variables.product.prodname_copilot %} FAQ](https://github.com/features/copilot#faq)
 
@@ -355,7 +355,7 @@ To share feedback about {% data variables.product.prodname_copilot_chat_short %}
 
 ## Prerequisites
 
-* **Access to {% data variables.product.prodname_copilot %}**. See "[AUTOTITLE](/copilot/about-github-copilot/what-is-github-copilot#getting-access-to-copilot)."
+* **Access to {% data variables.product.prodname_copilot %}**. See [AUTOTITLE](/copilot/about-github-copilot/what-is-github-copilot#getting-access-to-copilot).
 * **A compatible JetBrains IDE**. {% data variables.product.prodname_copilot %} is compatible with the following IDEs:
 
   {% data reusables.copilot.jetbrains-compatible-ides %}
@@ -371,7 +371,7 @@ You can ask {% data variables.product.prodname_copilot_chat_short %} to give cod
 
    ![Screenshot of the {% data variables.product.prodname_copilot_chat_short %} icon in the Activity Bar.](/assets/images/help/copilot/jetbrains-copilot-chat-icon.png)
 
-1. Enter a prompt in the prompt box. For example prompts, see "[AUTOTITLE](/copilot/using-github-copilot/guides-on-using-github-copilot/getting-started-with-prompts-for-copilot-chat)."
+1. Enter a prompt in the prompt box. For example prompts, see [AUTOTITLE](/copilot/using-github-copilot/guides-on-using-github-copilot/getting-started-with-prompts-for-copilot-chat).
 
 1. Evaluate {% data variables.product.prodname_copilot_short %}'s response, and submit a follow up prompt if needed.
 
@@ -422,11 +422,11 @@ To share feedback about {% data variables.product.prodname_copilot_chat_short %}
 
 ## Further reading
 
-* "[AUTOTITLE](/copilot/using-github-copilot/prompt-engineering-for-github-copilot)"
-* "[AUTOTITLE](/copilot/github-copilot-enterprise/copilot-chat-in-github/using-github-copilot-chat-in-githubcom)"
-* "[AUTOTITLE](/copilot/github-copilot-chat/about-github-copilot-chat)"
-* "[AUTOTITLE](/free-pro-team@latest/site-policy/github-terms/github-copilot-pre-release-terms)"
-* "[AUTOTITLE](/free-pro-team@latest/site-policy/github-terms/github-terms-for-additional-products-and-features#github-copilot)"
+* [AUTOTITLE](/copilot/using-github-copilot/prompt-engineering-for-github-copilot)
+* [AUTOTITLE](/copilot/github-copilot-enterprise/copilot-chat-in-github/using-github-copilot-chat-in-githubcom)
+* [AUTOTITLE](/copilot/github-copilot-chat/about-github-copilot-chat)
+* [AUTOTITLE](/free-pro-team@latest/site-policy/github-terms/github-copilot-pre-release-terms)
+* [AUTOTITLE](/free-pro-team@latest/site-policy/github-terms/github-terms-for-additional-products-and-features#github-copilot)
 * [{% data variables.product.prodname_copilot %} Trust Center](https://resources.github.com/copilot-trust-center)
 * [{% data variables.product.prodname_copilot %} FAQ](https://github.com/features/copilot#faq)
 

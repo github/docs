@@ -48,14 +48,14 @@ type: overview
 ### About skillsets and agents
 
 {% data reusables.copilot.copilot-extensions.differences-between-agents-and-skillsets-1 %}
-For more information about skillsets, see "[AUTOTITLE](/copilot/building-copilot-extensions/building-a-copilot-skillset-for-your-copilot-extension/about-copilot-skillsets)."
+For more information about skillsets, see [AUTOTITLE](/copilot/building-copilot-extensions/building-a-copilot-skillset-for-your-copilot-extension/about-copilot-skillsets).
 {% data reusables.copilot.copilot-extensions.differences-between-agents-and-skillsets-2 %}
 
 ### About context passing
 
 {% data reusables.copilot.copilot-extensions.context-passing-public-preview-note %}
 
-You can allow your {% data variables.product.prodname_copilot_extension_short %} to receive context from the editor, such as the currently opened file, by enabling the **Read-only** access level for the "{% data variables.product.prodname_copilot_short %} Editor Context" permission in your {% data variables.product.prodname_github_app %} settings. See "[AUTOTITLE](/copilot/building-copilot-extensions/creating-a-copilot-extension/creating-a-github-app-for-your-copilot-extension#creating-a-github-app)."
+You can allow your {% data variables.product.prodname_copilot_extension_short %} to receive context from the editor, such as the currently opened file, by enabling the **Read-only** access level for the "{% data variables.product.prodname_copilot_short %} Editor Context" permission in your {% data variables.product.prodname_github_app %} settings. See [AUTOTITLE](/copilot/building-copilot-extensions/creating-a-copilot-extension/creating-a-github-app-for-your-copilot-extension#creating-a-github-app).
 
 The {% data variables.product.prodname_copilot_extensibility_platform %} automatically handles messaging when implicit and explicit context is unavailable or unauthorized. To enable context passing, you are required to request permissions from users. When requesting permissions, follow these best practices:
 
@@ -96,4 +96,4 @@ For more information on {% data variables.product.prodname_copilot_extensions_vs
 
 ## Further reading
 
-* "[AUTOTITLE](/copilot/building-copilot-extensions/copilot-extensions-glossary)"
+* [AUTOTITLE](/copilot/building-copilot-extensions/copilot-extensions-glossary)

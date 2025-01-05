@@ -42,7 +42,7 @@ Once you star repositories or follow people, you will see updates on their activ
 ## Search for a topic or project on {% data variables.product.prodname_dotcom %}
 
 1. Navigate to https://github.com/search.
-1. Type a keyword or query into the search bar. {% ifversion fpt or ghec %}For example, try "how to build a webpage", or "skills-course".{% endif %} For more detailed information on how to search {% data variables.product.product_name %} for specific topics, repositories, or code, see "[AUTOTITLE](/search-github/getting-started-with-searching-on-github/about-searching-on-github)."
+1. Type a keyword or query into the search bar. {% ifversion fpt or ghec %}For example, try "how to build a webpage", or "skills-course".{% endif %} For more detailed information on how to search {% data variables.product.product_name %} for specific topics, repositories, or code, see [AUTOTITLE](/search-github/getting-started-with-searching-on-github/about-searching-on-github).
 1. Use the left sidebar to filter the results. {% ifversion fpt or ghec %}For example, to browse all repositories in the "skills-course" topic, search "skills-course", then filter by "Topic".{% endif %}
 1. Star the repositories that match your interests.
 
@@ -68,9 +68,9 @@ Following people and organizations on {% data variables.product.product_name %} 
 ## Next steps
 
 * {% data reusables.support.connect-in-the-forum-bootcamp %}
-* In the next tutorial, "[AUTOTITLE](/get-started/start-your-journey/downloading-files-from-github)," you'll learn how to download files from {% data variables.product.product_name %} for your own use, and learn the differences between downloading, cloning, and forking repositories.
+* In the next tutorial, [AUTOTITLE](/get-started/start-your-journey/downloading-files-from-github), you'll learn how to download files from {% data variables.product.product_name %} for your own use, and learn the differences between downloading, cloning, and forking repositories.
 
 ## Further reading
 
-* "[AUTOTITLE](/account-and-profile/setting-up-and-managing-your-personal-account-on-github/managing-user-account-settings/about-your-personal-dashboard)"{% ifversion fpt or ghec %}
-* "[AUTOTITLE](/get-started/exploring-projects-on-github/finding-ways-to-contribute-to-open-source-on-github)"{% endif %}
+* [AUTOTITLE](/account-and-profile/setting-up-and-managing-your-personal-account-on-github/managing-user-account-settings/about-your-personal-dashboard){% ifversion fpt or ghec %}
+* [AUTOTITLE](/get-started/exploring-projects-on-github/finding-ways-to-contribute-to-open-source-on-github){% endif %}

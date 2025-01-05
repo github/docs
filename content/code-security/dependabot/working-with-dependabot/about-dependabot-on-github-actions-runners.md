@@ -21,21 +21,21 @@ topics:
 
 {% data reusables.dependabot.dependabot-on-actions-future-note %}
 
-Using {% data variables.product.prodname_actions %} runners allows you to more easily identify {% data variables.product.prodname_dependabot %} job errors and manually detect and troubleshoot failed runs. You can also integrate {% data variables.product.prodname_dependabot %} into your CI/CD pipelines by using {% data variables.product.prodname_actions %} APIs and webhooks to detect {% data variables.product.prodname_dependabot %} job status such as failed runs, and perform downstream processing. For more information, see "[AUTOTITLE](/rest/actions)" and "[AUTOTITLE](/webhooks/webhook-events-and-payloads)."
+Using {% data variables.product.prodname_actions %} runners allows you to more easily identify {% data variables.product.prodname_dependabot %} job errors and manually detect and troubleshoot failed runs. You can also integrate {% data variables.product.prodname_dependabot %} into your CI/CD pipelines by using {% data variables.product.prodname_actions %} APIs and webhooks to detect {% data variables.product.prodname_dependabot %} job status such as failed runs, and perform downstream processing. For more information, see [AUTOTITLE](/rest/actions) and [AUTOTITLE](/webhooks/webhook-events-and-payloads).
 
 > [!NOTE]
-> Running {% data variables.product.prodname_dependabot %} on {% data variables.product.prodname_dotcom %}-hosted and self-hosted runners **does not** count towards your included {% data variables.product.prodname_actions %} minutes. For more information, see "[AUTOTITLE](/billing/managing-billing-for-github-actions/about-billing-for-github-actions)."
+> Running {% data variables.product.prodname_dependabot %} on {% data variables.product.prodname_dotcom %}-hosted and self-hosted runners **does not** count towards your included {% data variables.product.prodname_actions %} minutes. For more information, see [AUTOTITLE](/billing/managing-billing-for-github-actions/about-billing-for-github-actions).
 
 You can run {% data variables.product.prodname_dependabot %} on {% data variables.product.prodname_actions %} using:
 * {% data variables.product.prodname_dotcom %}-hosted runners
-* {% data variables.actions.hosted_runners_caps %}. These runners are {% data variables.product.prodname_dotcom %}-hosted, with advanced features, such as more RAM, CPU, and disk space. For more information, see "[AUTOTITLE](/actions/using-github-hosted-runners/about-larger-runners)."
+* {% data variables.actions.hosted_runners_caps %}. These runners are {% data variables.product.prodname_dotcom %}-hosted, with advanced features, such as more RAM, CPU, and disk space. For more information, see [AUTOTITLE](/actions/using-github-hosted-runners/about-larger-runners).
 * Self-hosted runners
 
 {% data reusables.dependabot.vnet-arc-note %}
 
 Enabling {% data variables.product.prodname_dependabot %} on {% data variables.product.prodname_actions %} may increase the number of concurrent jobs run in your account. If required, customers on enterprise plans can request a higher limit for concurrent jobs. For more information, contact us through the {% data variables.contact.contact_support_portal %}, or contact your sales representative.
 
-If you are transitioning to using {% data variables.product.prodname_dependabot %} on {% data variables.product.prodname_actions %} runners and you restrict access to your organization's or repository's private resources, you may need to update your list of allowed IP addresses. For example, if you currently limit access to your private resources to the IP addresses that {% data variables.product.prodname_dependabot %} uses, you should update your allowlist to use the {% data variables.product.prodname_dotcom %}-hosted runners IP addresses sourced from the meta API endpoint. For more information, see "[AUTOTITLE](/rest/meta)."
+If you are transitioning to using {% data variables.product.prodname_dependabot %} on {% data variables.product.prodname_actions %} runners and you restrict access to your organization's or repository's private resources, you may need to update your list of allowed IP addresses. For example, if you currently limit access to your private resources to the IP addresses that {% data variables.product.prodname_dependabot %} uses, you should update your allowlist to use the {% data variables.product.prodname_dotcom %}-hosted runners IP addresses sourced from the meta API endpoint. For more information, see [AUTOTITLE](/rest/meta).
 
 {% data reusables.dependabot.dependabot-on-actions-enterprise-policy-condition %}
 
@@ -53,7 +53,7 @@ Future releases of {% data variables.product.product_name %} will remove the abi
 
 If you restrict access to your organization's or repository's private resources, you may need to update your list of allowed IP addresses prior to enabling {% data variables.product.prodname_dependabot %} on {% data variables.product.prodname_actions %} runners. You can update your IP allow list to use the {% data variables.product.prodname_dotcom %}-hosted runners IP addresses (instead of the {% data variables.product.prodname_dependabot %} IP addresses), sourced from the [meta](/rest/meta) REST API endpoint.
 
->[!WARNING] You should not rely on the {% data variables.product.prodname_actions %} IP addresses for authentication to private registries. These {% data variables.product.prodname_actions %} addresses are not only used by {% data variables.product.prodname_dotcom %}, and should not be trusted for authentication. Instead, use a self-hosted runner to ensure greater control over your network access. For more information, see "[AUTOTITLE](/code-security/dependabot/working-with-dependabot/managing-dependabot-on-self-hosted-runners)."
+>[!WARNING] You should not rely on the {% data variables.product.prodname_actions %} IP addresses for authentication to private registries. These {% data variables.product.prodname_actions %} addresses are not only used by {% data variables.product.prodname_dotcom %}, and should not be trusted for authentication. Instead, use a self-hosted runner to ensure greater control over your network access. For more information, see [AUTOTITLE](/code-security/dependabot/maintain-dependencies/managing-dependabot-on-self-hosted-runners).
 
 Note, disabling and re-enabling the "{% data variables.product.prodname_dependabot %} on {% data variables.product.prodname_actions %} runners" settings will not trigger a new {% data variables.product.prodname_dependabot %} run.
 
@@ -82,22 +82,22 @@ If a repository in your organization has {% data variables.product.prodname_depe
 1. In the "Security" section of the sidebar, click **{% octicon "codescan" aria-hidden="true" %} Code security** then **Global settings**.
 1. Under "Dependabot", select "{% data variables.product.prodname_dependabot %} on Actions runners" to enable the feature or deselect to disable it.
 
-For more information, see "[AUTOTITLE](/code-security/securing-your-organization/enabling-security-features-in-your-organization/configuring-global-security-settings-for-your-organization#enabling-dependency-updates-on-github-actions-runners)."
+For more information, see [AUTOTITLE](/code-security/securing-your-organization/enabling-security-features-in-your-organization/configuring-global-security-settings-for-your-organization#enabling-dependency-updates-on-github-actions-runners).
 
 ## Enabling or disabling {% data variables.product.prodname_dependabot %} on {% data variables.actions.hosted_runners %}
 
 If you run into {% data variables.product.prodname_dependabot %} timeouts and out-of-memory errors, you may want to use {% data variables.actions.hosted_runners %}, as you can configure these runners to have more resources.
 
-> [!NOTE] You can only enable {% data variables.actions.hosted_runners %} for {% data variables.product.prodname_dependabot %} _at the organization level_. {% data variables.product.prodname_dotcom %} will bill your organization at the regular Actions runner pricing. For more information, see "[AUTOTITLE](/billing/managing-billing-for-github-actions/about-billing-for-github-actions#per-minute-rates)."
+> [!NOTE] You can only enable {% data variables.actions.hosted_runners %} for {% data variables.product.prodname_dependabot %} _at the organization level_. {% data variables.product.prodname_dotcom %} will bill your organization at the regular Actions runner pricing. For more information, see [AUTOTITLE](/billing/managing-billing-for-github-actions/about-billing-for-github-actions#per-minute-rates).
 
-1. Add a {% data variables.actions.hosted_runner %} to your organization and ensure the name specified is `dependabot`. For more information, see "[AUTOTITLE](/actions/using-github-hosted-runners/about-larger-runners/managing-larger-runners#adding-a-larger-runner-to-an-organization)."
-1. Opt in the organization to self-hosted runners. For more information, see "[AUTOTITLE](/code-security/dependabot/working-with-dependabot/managing-dependabot-on-self-hosted-runners#enabling-or-disabling-for-your-organization)." This step is required, as it ensures that future {% data variables.product.prodname_dependabot %} jobs will run on the larger {% data variables.product.prodname_dotcom %}-hosted runner that has the `dependabot` name.
+1. Add a {% data variables.actions.hosted_runner %} to your organization and ensure the name specified is `dependabot`. For more information, see [AUTOTITLE](/actions/using-github-hosted-runners/about-larger-runners/managing-larger-runners#adding-a-larger-runner-to-an-organization).
+1. Opt in the organization to self-hosted runners. For more information, see [AUTOTITLE](/code-security/dependabot/maintain-dependencies/managing-dependabot-on-self-hosted-runners#enabling-or-disabling-for-your-organization). This step is required, as it ensures that future {% data variables.product.prodname_dependabot %} jobs will run on the larger {% data variables.product.prodname_dotcom %}-hosted runner that has the `dependabot` name.
 
 ## Managing {% data variables.product.prodname_dependabot %} on {% data variables.product.prodname_actions %} runners
 
-When a {% data variables.product.prodname_dependabot %} on {% data variables.product.prodname_actions %} job is run, you can review the workflow run history directly from the Dependabot job logs. For more information, see "[AUTOTITLE](/code-security/dependabot/working-with-dependabot/viewing-dependabot-job-logs)."
+When a {% data variables.product.prodname_dependabot %} on {% data variables.product.prodname_actions %} job is run, you can review the workflow run history directly from the Dependabot job logs. For more information, see [AUTOTITLE](/code-security/dependabot/troubleshooting-dependabot/viewing-dependabot-job-logs).
 
-You can also navigate to a {% data variables.product.prodname_dependabot %} workflow run from the **Actions** tab in a repository. For more information, see "[AUTOTITLE](/actions/monitoring-and-troubleshooting-workflows/viewing-workflow-run-history)."
+You can also navigate to a {% data variables.product.prodname_dependabot %} workflow run from the **Actions** tab in a repository. For more information, see [AUTOTITLE](/actions/monitoring-and-troubleshooting-workflows/viewing-workflow-run-history).
 
 To re-run a {% data variables.product.prodname_dependabot_version_updates %} or {% data variables.product.prodname_dependabot_security_updates %} job, use the appropriate procedure below. You cannot re-run a {% data variables.product.prodname_dependabot %} job on {% data variables.product.prodname_actions %} as you would for other {% data variables.product.prodname_actions %} workflows and jobs, that is, by using the **Actions** tab in a repository. You cannot view usage data for {% data variables.product.prodname_dependabot_updates %} workflows and jobs in your organization's {% data variables.product.prodname_actions %} usage metrics.
 
@@ -120,4 +120,4 @@ To re-run a {% data variables.product.prodname_dependabot_version_updates %} or 
 
 ## Further reading
 
-* "[AUTOTITLE](/code-security/dependabot/working-with-dependabot/troubleshooting-dependabot-on-github-actions)"
+* [AUTOTITLE](/code-security/dependabot/troubleshooting-dependabot/troubleshooting-dependabot-on-github-actions)

@@ -66,7 +66,7 @@ If you ever need to switch to an account on {% data variables.product.prodname_d
 1. Open the "{% data variables.product.prodname_copilot %} for Xcode" application.
 1. Click the **Advanced** tab.
 1. In the "Auth provider URL" field, enter the URL where you access {% data variables.product.github %}. For example: `https://{% data variables.enterprise.data_residency_example_domain %}`.
-1. Authorize the extension by following the instructions in "[Signing in to {% data variables.product.prodname_copilot %}](/copilot/managing-copilot/configure-personal-settings/installing-the-github-copilot-extension-in-your-environment?tool=xcode#signing-in-to-github-copilot)."
+1. Authorize the extension by following the instructions in [Signing in to {% data variables.product.prodname_copilot %}](/copilot/managing-copilot/configure-personal-settings/installing-the-github-copilot-extension-in-your-environment?tool=xcode#signing-in-to-github-copilot).
 
 {% endxcode %}
 
@@ -76,7 +76,7 @@ If you ever need to switch to an account on {% data variables.product.prodname_d
 
 To use the `gh-copilot` extension for the {% data variables.product.prodname_cli %}, you must:
 
-1. Download and install the extension. To do this, you must be authenticated to an account on {% data variables.product.prodname_dotcom_the_website %}. See "[AUTOTITLE](/copilot/managing-copilot/configure-personal-settings/installing-github-copilot-in-the-cli#installing-copilot-in-the-cli)."
+1. Download and install the extension. To do this, you must be authenticated to an account on {% data variables.product.prodname_dotcom_the_website %}. See [AUTOTITLE](/copilot/managing-copilot/configure-personal-settings/installing-github-copilot-in-the-cli#installing-copilot-in-the-cli).
 1. Authenticate to the account on {% data variables.enterprise.data_residency_site %} where you receive your {% data variables.product.prodname_copilot_short %} license.
 
 {% data variables.product.prodname_dotcom_the_website %} is the default destination of {% data variables.product.prodname_cli %} requests. To use `gh copilot`, you must ensure requests are sent to {% data variables.enterprise.data_residency_site %}, where you receive your license. You have the following options:
@@ -84,7 +84,7 @@ To use the `gh-copilot` extension for the {% data variables.product.prodname_cli
 * Set the `GH_HOST` environment variable to change the default host for all {% data variables.product.prodname_cli %} commands.
 * Sign out of {% data variables.product.prodname_dotcom_the_website %} with `gh auth logout`. However, you will need to sign back in to get updates to `gh-copilot`.
 
-For general information on using the {% data variables.product.prodname_cli %} across platforms, see "[AUTOTITLE](/github-cli/github-cli/using-multiple-accounts)."
+For general information on using the {% data variables.product.prodname_cli %} across platforms, see [AUTOTITLE](/github-cli/github-cli/using-multiple-accounts).
 
 {% endcli %}
 

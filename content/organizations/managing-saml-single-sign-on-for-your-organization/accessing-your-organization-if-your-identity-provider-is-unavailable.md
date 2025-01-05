@@ -15,7 +15,7 @@ permissions: Organization owners can use a recovery code to bypass SAML SSO.
 
 ## About recovery codes
 
-Organization owners can use one of their downloaded or saved recovery codes to bypass single sign-on. You may have saved these to a password manager. For more information about downloading recovery codes, see "[AUTOTITLE](/organizations/managing-saml-single-sign-on-for-your-organization/downloading-your-organizations-saml-single-sign-on-recovery-codes)."
+Organization owners can use one of their downloaded or saved recovery codes to bypass single sign-on. You may have saved these to a password manager. For more information about downloading recovery codes, see [AUTOTITLE](/organizations/managing-saml-single-sign-on-for-your-organization/downloading-your-organizations-saml-single-sign-on-recovery-codes).
 
 {% data reusables.saml.recovery-code-caveats %}
 

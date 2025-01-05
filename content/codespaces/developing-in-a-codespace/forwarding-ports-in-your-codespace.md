@@ -185,7 +185,7 @@ You can see the port labels when you list the forwarded ports for a codespace. T
 
 ## Forwarding a port
 
-For information on how to forward a port in a codespace to a port on your local machine, see the "Port forwarding" section of the "[Security model](https://www.jetbrains.com/help/idea/security-model.html#port_forwarding)" article in the JetBrains documentation.
+For information on how to forward a port in a codespace to a port on your local machine, see the "Port forwarding" section of the [Security model](https://www.jetbrains.com/help/idea/security-model.html#port_forwarding) article in the JetBrains documentation.
 
 Alternatively, you can use {% data variables.product.prodname_cli %} to forward a port. For more information, click the "{% data variables.product.prodname_cli %}" tab at the top of this page.
 

@@ -16,7 +16,7 @@ topics:
 
 ## About disabling {% data variables.product.prodname_copilot_autofix_short %} for {% data variables.product.prodname_code_scanning %}
 
-{% data variables.product.prodname_copilot_autofix %} is a {% data variables.product.prodname_copilot %}-powered expansion of {% data variables.product.prodname_code_scanning %}. It provides users with targeted recommendations to help them fix {% data variables.product.prodname_code_scanning %} alerts (including {% data variables.product.prodname_codeql %} alerts) so they can avoid introducing new security vulnerabilities. To learn more about {% data variables.product.prodname_copilot_autofix_short %} for {% data variables.product.prodname_code_scanning %}, see "[AUTOTITLE](/code-security/code-scanning/managing-code-scanning-alerts/responsible-use-autofix-code-scanning)."
+{% data variables.product.prodname_copilot_autofix %} is a {% data variables.product.prodname_copilot %}-powered expansion of {% data variables.product.prodname_code_scanning %}. It provides users with targeted recommendations to help them fix {% data variables.product.prodname_code_scanning %} alerts (including {% data variables.product.prodname_codeql %} alerts) so they can avoid introducing new security vulnerabilities. To learn more about {% data variables.product.prodname_copilot_autofix_short %} for {% data variables.product.prodname_code_scanning %}, see [AUTOTITLE](/code-security/code-scanning/managing-code-scanning-alerts/responsible-use-autofix-code-scanning).
 
 {% data reusables.rai.code-scanning.copilot-autofix-note %}
 
@@ -48,7 +48,7 @@ Note that disabling {% data variables.product.prodname_copilot_autofix_short %} 
 1. In the "Security" section of the sidebar, click **{% octicon "codescan" aria-hidden="true" %} Code security** then **Global settings**.
 1. Under the "{% data variables.product.prodname_code_scanning_caps %}" section, deselect **{% data variables.product.prodname_copilot_autofix_short %}** or **{% data variables.product.prodname_copilot_autofix_short %} for third-party tools**.
 
-For more information about configuring global {% data variables.product.prodname_code_scanning %} settings, see "[AUTOTITLE](/code-security/securing-your-organization/enabling-security-features-in-your-organization/configuring-global-security-settings-for-your-organization#configuring-global-code-scanning-settings)."
+For more information about configuring global {% data variables.product.prodname_code_scanning %} settings, see [AUTOTITLE](/code-security/securing-your-organization/enabling-security-features-in-your-organization/configuring-global-security-settings-for-your-organization#configuring-global-code-scanning-settings).
 
 ## Disabling {% data variables.product.prodname_copilot_autofix_short %} for a repository
 

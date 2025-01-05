@@ -25,7 +25,7 @@ topics:
 shortTitle: Add to your receipts
 ---
 
-Your receipts include your {% data variables.product.prodname_dotcom %} subscription as well as any subscriptions for other paid features and products. For more information, see "[AUTOTITLE](/billing/managing-your-github-billing-settings/about-billing-on-github)."
+Your receipts include your {% data variables.product.prodname_dotcom %} subscription as well as any subscriptions for other paid features and products. For more information, see [AUTOTITLE](/billing/managing-your-github-billing-settings/about-billing-on-github).
 
 > [!WARNING]
 > For security reasons, we strongly recommend against including any confidential or financial information (such as credit card numbers) on your receipts.

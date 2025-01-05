@@ -20,8 +20,8 @@ shortTitle: Create HA replica
 
 ## Creating a high availability replica
 
-1. Set up a new {% data variables.product.prodname_ghe_server %} appliance on your desired platform. The replica appliance should mirror the primary appliance's CPU, RAM, and storage settings. We recommend that you install the replica appliance in an independent environment. The underlying hardware, software, and network components should be isolated from those of the primary appliance. If you are a using a cloud provider, use a separate region or zone. For more information, see "[AUTOTITLE](/admin/installation/setting-up-a-github-enterprise-server-instance)."
-1. Ensure that the new appliance can communicate with all other appliances in this high availability environment over ports 122/TCP and 1194/UDP. For more information, see "[AUTOTITLE](/admin/configuration/configuring-network-settings/network-ports#administrative-ports)."
+1. Set up a new {% data variables.product.prodname_ghe_server %} appliance on your desired platform. The replica appliance should mirror the primary appliance's CPU, RAM, and storage settings. We recommend that you install the replica appliance in an independent environment. The underlying hardware, software, and network components should be isolated from those of the primary appliance. If you are a using a cloud provider, use a separate region or zone. For more information, see [AUTOTITLE](/admin/installation/setting-up-a-github-enterprise-server-instance).
+1. Ensure that the new appliance can communicate with all other appliances in this high availability environment over ports 122/TCP and 1194/UDP. For more information, see [AUTOTITLE](/admin/configuration/configuring-network-settings/network-ports#administrative-ports).
 1. In a browser, navigate to the new replica appliance's IP address and upload your {% data variables.product.prodname_enterprise %} license.
 {% data reusables.enterprise_installation.replica-steps %}
 1. Connect to the replica appliance's IP address using SSH.
@@ -43,9 +43,9 @@ shortTitle: Create HA replica
 
 ## Creating geo-replication replicas
 
-This example configuration uses a primary and two replicas, which are located in three different geographic regions. While the three nodes can be in different networks, all nodes are required to be reachable from all the other nodes. At the minimum, the required administrative ports should be open to all the other nodes. For more information about the port requirements, see "[AUTOTITLE](/admin/configuration/configuring-network-settings/network-ports#administrative-ports)."
+This example configuration uses a primary and two replicas, which are located in three different geographic regions. While the three nodes can be in different networks, all nodes are required to be reachable from all the other nodes. At the minimum, the required administrative ports should be open to all the other nodes. For more information about the port requirements, see [AUTOTITLE](/admin/configuration/configuring-network-settings/network-ports#administrative-ports).
 
-{% data reusables.enterprise_clustering.network-latency %} If latency is more than 70 milliseconds, we recommend cache replica nodes instead. For more information, see "[AUTOTITLE](/admin/enterprise-management/caching-repositories/configuring-a-repository-cache)."
+{% data reusables.enterprise_clustering.network-latency %} If latency is more than 70 milliseconds, we recommend cache replica nodes instead. For more information, see [AUTOTITLE](/admin/enterprise-management/caching-repositories/configuring-a-repository-cache).
 
 1. Create the first replica the same way you would for a standard two node configuration by running `ghe-repl-setup` on the first replica.
 
@@ -118,5 +118,5 @@ For testing, you can add entries to the local workstation's `hosts` file (for ex
 
 ## Further reading
 
-* "[AUTOTITLE](/admin/enterprise-management/configuring-high-availability/about-high-availability-configuration)"
-* "[AUTOTITLE](/admin/enterprise-management/configuring-high-availability/about-geo-replication)"
+* [AUTOTITLE](/admin/enterprise-management/configuring-high-availability/about-high-availability-configuration)
+* [AUTOTITLE](/admin/enterprise-management/configuring-high-availability/about-geo-replication)

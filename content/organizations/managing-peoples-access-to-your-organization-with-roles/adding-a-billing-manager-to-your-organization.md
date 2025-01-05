@@ -49,7 +49,7 @@ Billing managers **are not** able to:
 {% ifversion ghec %}
 
 > [!NOTE]
-> If your organization is owned by an enterprise account, you cannot invite billing managers at the organization level. For more information, see "[AUTOTITLE](/admin/overview/about-enterprise-accounts)."
+> If your organization is owned by an enterprise account, you cannot invite billing managers at the organization level. For more information, see [AUTOTITLE](/admin/overview/about-enterprise-accounts).
 
 {% endif %}
 
@@ -61,4 +61,4 @@ The invited person will receive an invitation email asking them to become a bill
 
 ## Further reading
 
-* "[AUTOTITLE](/enterprise-cloud@latest/admin/user-management/managing-users-in-your-enterprise/inviting-people-to-manage-your-enterprise)"{% ifversion fpt %} in the {% data variables.product.prodname_ghe_cloud %} documentation{% endif %}
+* [AUTOTITLE](/enterprise-cloud@latest/admin/user-management/managing-users-in-your-enterprise/inviting-people-to-manage-your-enterprise){% ifversion fpt %} in the {% data variables.product.prodname_ghe_cloud %} documentation{% endif %}

@@ -22,7 +22,7 @@ shortTitle: Manage GitHub Actions settings
 
 ## About {% data variables.product.prodname_actions %} permissions for your repository
 
-{% data reusables.actions.disabling-github-actions %} For more information about {% data variables.product.prodname_actions %}, see "[AUTOTITLE](/actions/learn-github-actions)."
+{% data reusables.actions.disabling-github-actions %} For more information about {% data variables.product.prodname_actions %}, see [AUTOTITLE](/actions/learn-github-actions).
 
 You can enable {% data variables.product.prodname_actions %} for your repository. {% data reusables.actions.enabled-actions-description %} You can disable {% data variables.product.prodname_actions %} for your repository altogether. {% data reusables.actions.disabled-actions-description %}
 
@@ -122,9 +122,9 @@ By default, when you create a new repository in your personal account, workflows
 
 ## Allowing access to components in an internal repository
 
-{% ifversion internal-actions %}Actions and reusable workflows in your internal repositories can be shared with internal and private repositories in the same organization or enterprise.{% else %}Members of your enterprise can use internal repositories to work on projects without sharing information publicly.{% endif %} For information about internal repositories, see "[AUTOTITLE](/repositories/creating-and-managing-repositories/about-repositories#about-internal-repositories)."
+{% ifversion internal-actions %}Actions and reusable workflows in your internal repositories can be shared with internal and private repositories in the same organization or enterprise.{% else %}Members of your enterprise can use internal repositories to work on projects without sharing information publicly.{% endif %} For information about internal repositories, see [AUTOTITLE](/repositories/creating-and-managing-repositories/about-repositories#about-internal-repositories).
 
-You can use the steps below to configure whether {% ifversion internal-actions %}actions and {% endif %}reusable workflows in an internal repository can be accessed from outside the repository.{% ifversion internal-actions %} For more information, see "[AUTOTITLE](/actions/creating-actions/sharing-actions-and-workflows-with-your-enterprise)." Alternatively, you can use the REST API to set, or get details of the level of access. For more information, see "[AUTOTITLE](/rest/actions/permissions#get-the-level-of-access-for-workflows-outside-of-the-repository)" and "[AUTOTITLE](/rest/actions/permissions#set-the-level-of-access-for-workflows-outside-of-the-repository)."{% endif %}
+You can use the steps below to configure whether {% ifversion internal-actions %}actions and {% endif %}reusable workflows in an internal repository can be accessed from outside the repository.{% ifversion internal-actions %} For more information, see [AUTOTITLE](/actions/creating-actions/sharing-actions-and-workflows-with-your-enterprise). Alternatively, you can use the REST API to set, or get details of the level of access. For more information, see [AUTOTITLE](/rest/actions/permissions#get-the-level-of-access-for-workflows-outside-of-the-repository) and [AUTOTITLE](/rest/actions/permissions#set-the-level-of-access-for-workflows-outside-of-the-repository).{% endif %}
 
 1. On {% data variables.product.prodname_dotcom %}, navigate to the main page of the internal repository.
 1. Under your repository name, click **{% octicon "gear" aria-hidden="true" %} Settings**.
@@ -141,9 +141,9 @@ You can use the steps below to configure whether {% ifversion internal-actions %
 
 ## Allowing access to components in a private repository
 
-Actions and reusable workflows in your private repositories can be shared with other private repositories {% ifversion fpt %}owned by the same user or organization{% else %}in the same organization or enterprise{% endif %}. For information about private repositories, see "[AUTOTITLE](/repositories/creating-and-managing-repositories/about-repositories#about-repository-visibility)."
+Actions and reusable workflows in your private repositories can be shared with other private repositories {% ifversion fpt %}owned by the same user or organization{% else %}in the same organization or enterprise{% endif %}. For information about private repositories, see [AUTOTITLE](/repositories/creating-and-managing-repositories/about-repositories#about-repository-visibility).
 
-You can use the steps below to configure whether actions and reusable workflows in a private repository can be accessed from outside the repository. For more information, see {% ifversion fpt %}"[AUTOTITLE](/actions/creating-actions/sharing-actions-and-workflows-from-your-private-repository)" and "[AUTOTITLE](/actions/creating-actions/sharing-actions-and-workflows-with-your-organization)."{% else %}"[AUTOTITLE](/actions/creating-actions/sharing-actions-and-workflows-with-your-enterprise)."{% endif %} Alternatively, you can use the REST API to set, or get details of the level of access. For more information, see "[AUTOTITLE](/rest/actions/permissions#get-the-level-of-access-for-workflows-outside-of-the-repository)" and "[AUTOTITLE](/rest/actions/permissions#set-the-level-of-access-for-workflows-outside-of-the-repository)."
+You can use the steps below to configure whether actions and reusable workflows in a private repository can be accessed from outside the repository. For more information, see {% ifversion fpt %}[AUTOTITLE](/actions/creating-actions/sharing-actions-and-workflows-from-your-private-repository) and [AUTOTITLE](/actions/creating-actions/sharing-actions-and-workflows-with-your-organization).{% else %}[AUTOTITLE](/actions/creating-actions/sharing-actions-and-workflows-with-your-enterprise).{% endif %} Alternatively, you can use the REST API to set, or get details of the level of access. For more information, see [AUTOTITLE](/rest/actions/permissions#get-the-level-of-access-for-workflows-outside-of-the-repository) and [AUTOTITLE](/rest/actions/permissions#set-the-level-of-access-for-workflows-outside-of-the-repository).
 
 {% ifversion fpt %}
 
@@ -194,7 +194,7 @@ You can configure the retention period for {% data variables.product.prodname_ac
 
 {% data reusables.actions.about-artifact-log-retention %}
 
-You can also define a custom retention period for a specific artifact created by a workflow. For more information, see "[AUTOTITLE](/actions/managing-workflow-runs/removing-workflow-artifacts#setting-the-retention-period-for-an-artifact)."
+You can also define a custom retention period for a specific artifact created by a workflow. For more information, see [AUTOTITLE](/actions/managing-workflow-runs/removing-workflow-artifacts#setting-the-retention-period-for-an-artifact).
 
 ## Setting the retention period for a repository
 

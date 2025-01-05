@@ -18,7 +18,7 @@ shortTitle: Manage GitHub Mobile
 
 ## About {% data variables.product.prodname_mobile %}
 
-{% data variables.product.prodname_mobile %} allows people to triage, collaborate, and manage work on {% data variables.location.product_location %} from a mobile device after successful authentication. {% data reusables.mobile.about-mobile %} For more information, see "[AUTOTITLE](/get-started/using-github/github-mobile)."
+{% data variables.product.prodname_mobile %} allows people to triage, collaborate, and manage work on {% data variables.location.product_location %} from a mobile device after successful authentication. {% data reusables.mobile.about-mobile %} For more information, see [AUTOTITLE](/get-started/using-github/github-mobile).
 
 You can allow or disallow people from using {% data variables.product.prodname_mobile %} to authenticate to {% data variables.location.product_location %} and access your instance's data. By default, {% data variables.product.prodname_mobile %} is enabled for people who use {% data variables.location.product_location %}.
 

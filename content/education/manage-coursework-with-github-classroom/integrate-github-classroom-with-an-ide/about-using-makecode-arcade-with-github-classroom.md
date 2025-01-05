@@ -10,7 +10,7 @@ redirect_from:
 ---
 ## About MakeCode Arcade
 
-MakeCode Arcade is an online integrated development environment (IDE) for developing retro arcade games using drag-and-drop block programming and JavaScript. Students can write, edit, run, test, and debug code in a browser with MakeCode Arcade. For more information about IDEs and {% data variables.product.prodname_classroom %}, see "[AUTOTITLE](/education/manage-coursework-with-github-classroom/integrate-github-classroom-with-an-ide/integrate-github-classroom-with-an-ide)."
+MakeCode Arcade is an online integrated development environment (IDE) for developing retro arcade games using drag-and-drop block programming and JavaScript. Students can write, edit, run, test, and debug code in a browser with MakeCode Arcade. For more information about IDEs and {% data variables.product.prodname_classroom %}, see [AUTOTITLE](/education/manage-coursework-with-github-classroom/integrate-github-classroom-with-an-ide/integrate-github-classroom-with-an-ide).
 
 {% data reusables.classroom.readme-contains-button-for-online-ide %}
 
@@ -28,4 +28,4 @@ By default, MakeCode Arcade is configured to push to the assignment repository o
 
 ## Further reading
 
-* "[AUTOTITLE](/repositories/managing-your-repositorys-settings-and-features/customizing-your-repository/about-readmes)"
+* [AUTOTITLE](/repositories/managing-your-repositorys-settings-and-features/customizing-your-repository/about-readmes)

@@ -16,11 +16,11 @@ Custom properties allow you to decorate your repositories with information such 
 An organization can have up to 100 property definitions. An allowed value list can have up to 200 items.
 
 {% ifversion ghec or ghes %}
-You can use repository properties to determine which repositories to target with a ruleset. For more information, see "[AUTOTITLE](/organizations/managing-organization-settings/creating-rulesets-for-repositories-in-your-organization#targeting-repositories-by-properties-in-your-organization)."
+You can use repository properties to determine which repositories to target with a ruleset. For more information, see [AUTOTITLE](/organizations/managing-organization-settings/creating-rulesets-for-repositories-in-your-organization#targeting-repositories-by-properties-in-your-organization).
 {% endif %}
 
 {% ifversion ghec %}
-You can define custom properties at the enterprise level to create a consistent experience across organizations. See "[AUTOTITLE](/admin/managing-accounts-and-repositories/managing-repositories-in-your-enterprise/managing-custom-properties-for-repositories-in-your-enterprise)".
+You can define custom properties at the enterprise level to create a consistent experience across organizations. See [AUTOTITLE](/admin/managing-accounts-and-repositories/managing-repositories-in-your-enterprise/managing-custom-properties-for-repositories-in-your-enterprise).
 {% endif %}
 
 ## Allowed characters
@@ -31,7 +31,7 @@ You can define custom properties at the enterprise level to create a consistent 
 
 You can add custom properties to your organization and set values for those properties for repositories in your organization.
 
-{% ifversion ghec %}You can also use the REST API to create and manage custom properties for an organization. For more information, see "[AUTOTITLE](/rest/orgs/custom-properties)."{% endif %}
+{% ifversion ghec %}You can also use the REST API to create and manage custom properties for an organization. For more information, see [AUTOTITLE](/rest/orgs/custom-properties).{% endif %}
 
 {% data reusables.profile.access_org %}
 {% data reusables.profile.org_settings %}
@@ -63,7 +63,7 @@ You{% ifversion custom-org-roles %}, and any users with the "Edit custom propert
 
 People with read permissions to a repository can view the values of custom properties for that repository, but they can't edit those values.
 
-{% ifversion ghec %}You can also use the REST API to list the custom properties assigned to a repository by your organization. For more information, see "[AUTOTITLE](/rest/repos/custom-properties)."{% endif %}
+{% ifversion ghec %}You can also use the REST API to list the custom properties assigned to a repository by your organization. For more information, see [AUTOTITLE](/rest/repos/custom-properties).{% endif %}
 
 {% data reusables.repositories.navigate-to-repo %}
 {% data reusables.repositories.sidebar-settings %}

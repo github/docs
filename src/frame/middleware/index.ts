@@ -113,7 +113,11 @@ export default function (app: Express) {
   }
 
   // *** Observability ***
-  if (process.env.DD_API_KEY) {
+  // This DD_API_KEY is only being used to determine if the target
+  // deployment environment is production. The key is not actually
+  // used for sending data. Afer migrating to Moda, we can remove
+  // the DD_API_KEY.
+  if (process.env.DD_API_KEY || process.env.MODA_PROD_SERVICE_ENV) {
     app.use(datadog)
   }
 

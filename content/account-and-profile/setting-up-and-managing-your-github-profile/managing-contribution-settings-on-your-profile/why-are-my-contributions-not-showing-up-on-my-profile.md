@@ -38,7 +38,7 @@ Commits will appear on your contributions graph if they meet **all** of the foll
   * In the repository's default branch
   * In the `gh-pages` branch (for repositories with project sites)
 
-For more information on project sites, see "[AUTOTITLE](/pages/getting-started-with-github-pages/about-github-pages#types-of-github-pages-sites)."
+For more information on project sites, see [AUTOTITLE](/pages/getting-started-with-github-pages/about-github-pages#types-of-github-pages-sites).
 
 In addition, **at least one** of the following must be true:
 * You are a collaborator on the repository or are a member of the organization that owns the repository.
@@ -55,7 +55,7 @@ After making a commit that meets the requirements to count as a contribution, yo
 
 ### Your local Git commit email isn't connected to your account
 
-Commits must be made with an email address that is connected to your account on {% data variables.product.prodname_dotcom %}{% ifversion fpt or ghec %}, or the {% data variables.product.prodname_dotcom %}-provided `noreply` email address provided to you in your email settings,{% endif %} in order to appear on your contributions graph.{% ifversion fpt or ghec %} For more information about `noreply` email addresses, see "[AUTOTITLE](/account-and-profile/setting-up-and-managing-your-personal-account-on-github/managing-email-preferences/setting-your-commit-email-address#about-commit-email-addresses)."{% endif %}
+Commits must be made with an email address that is connected to your account on {% data variables.product.prodname_dotcom %}{% ifversion fpt or ghec %}, or the {% data variables.product.prodname_dotcom %}-provided `noreply` email address provided to you in your email settings,{% endif %} in order to appear on your contributions graph.{% ifversion fpt or ghec %} For more information about `noreply` email addresses, see [AUTOTITLE](/account-and-profile/setting-up-and-managing-your-personal-account-on-github/managing-email-preferences/setting-your-commit-email-address#about-commit-email-addresses).{% endif %}
 
 You can check the email address used for a commit by adding `.patch` to the end of a commit URL. For example, the following commit URL includes `.patch`.
 
@@ -83,7 +83,7 @@ Generic email addresses, such as `jane@computer.local`, cannot be added to {% da
 
 ### Commit was not made in the default or `gh-pages` branch
 
-Commits are only counted if they are made in the default branch or the `gh-pages` branch (for repositories with project sites). For more information, see "[AUTOTITLE](/pages/getting-started-with-github-pages/about-github-pages#types-of-github-pages-sites)."
+Commits are only counted if they are made in the default branch or the `gh-pages` branch (for repositories with project sites). For more information, see [AUTOTITLE](/pages/getting-started-with-github-pages/about-github-pages#types-of-github-pages-sites).
 
 If your commits are in a non-default or non-`gh-pages` branch and you'd like them to count toward your contributions, you will need to do one of the following:
 * [Open a pull request](/pull-requests/collaborating-with-pull-requests/proposing-changes-to-your-work-with-pull-requests/creating-a-pull-request) to have your changes merged into the default branch or the `gh-pages` branch.
@@ -94,9 +94,9 @@ If your commits are in a non-default or non-`gh-pages` branch and you'd like the
 
 ### Commit was made in a fork
 
-Commits made in a fork will not count toward your contributions. To make them count, you must open a pull request to have your changes merged into the parent repository. For more information, see "[AUTOTITLE](/pull-requests/collaborating-with-pull-requests/proposing-changes-to-your-work-with-pull-requests/creating-a-pull-request)."
+Commits made in a fork will not count toward your contributions. To make them count, you must open a pull request to have your changes merged into the parent repository. For more information, see [AUTOTITLE](/pull-requests/collaborating-with-pull-requests/proposing-changes-to-your-work-with-pull-requests/creating-a-pull-request).
 
 ## Further reading
 
-* "[AUTOTITLE](/account-and-profile/setting-up-and-managing-your-github-profile/managing-contribution-settings-on-your-profile/showing-your-private-contributions-and-achievements-on-your-profile)"
-* "[AUTOTITLE](/account-and-profile/setting-up-and-managing-your-github-profile/managing-contribution-settings-on-your-profile/viewing-contributions-on-your-profile)"
+* [AUTOTITLE](/account-and-profile/setting-up-and-managing-your-github-profile/managing-contribution-settings-on-your-profile/showing-your-private-contributions-and-achievements-on-your-profile)
+* [AUTOTITLE](/account-and-profile/setting-up-and-managing-your-github-profile/managing-contribution-settings-on-your-profile/viewing-contributions-on-your-profile)

@@ -12,11 +12,11 @@ redirect_from:
   - /codespaces/troubleshooting/working-with-support-for-codespaces
 ---
 
-Before support can help you with problems with codespaces, you need to know the permanent name of the codespace and its codespaces ID (identifier). In addition, support may ask you to share some logs with them. For more information, see "[AUTOTITLE](/codespaces/troubleshooting/github-codespaces-logs)" and "[AUTOTITLE](/support/learning-about-github-support/about-github-support)."
+Before support can help you with problems with codespaces, you need to know the permanent name of the codespace and its codespaces ID (identifier). In addition, support may ask you to share some logs with them. For more information, see [AUTOTITLE](/codespaces/troubleshooting/github-codespaces-logs) and [AUTOTITLE](/support/learning-about-github-support/about-github-support).
 
 ## Codespace names
 
-Each codespace has two names: a display name, that you can change, and a unique, permanent name, that you cannot change. Unless you create a codespace with the {% data variables.product.prodname_cli %} and specify a display name of your choice, the display name is automatically generated when you create a codespace, consisting of two or three random words - for example, `literate space parakeet`. The permanent name is a combination of the initial display name, followed by some random characters - for example, `literate-space-parakeet-w5vg5ww5p793g7g9`. If you change the display name the permanent name remains unaffected. For more information, see "[AUTOTITLE](/codespaces/customizing-your-codespace/renaming-a-codespace)."
+Each codespace has two names: a display name, that you can change, and a unique, permanent name, that you cannot change. Unless you create a codespace with the {% data variables.product.prodname_cli %} and specify a display name of your choice, the display name is automatically generated when you create a codespace, consisting of two or three random words - for example, `literate space parakeet`. The permanent name is a combination of the initial display name, followed by some random characters - for example, `literate-space-parakeet-w5vg5ww5p793g7g9`. If you change the display name the permanent name remains unaffected. For more information, see [AUTOTITLE](/codespaces/customizing-your-codespace/renaming-a-codespace).
 
 {% data reusables.codespaces.permanent-codespace-names %}
 

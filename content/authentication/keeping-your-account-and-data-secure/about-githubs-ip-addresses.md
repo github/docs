@@ -19,11 +19,11 @@ topics:
 shortTitle: GitHub's IP addresses
 ---
 
-You can retrieve a list of the IP addresses for {% data variables.product.prodname_dotcom_the_website %} from the [meta](https://api.github.com/meta) API endpoint. For more information, see "[AUTOTITLE](/rest/meta)."
+You can retrieve a list of the IP addresses for {% data variables.product.prodname_dotcom_the_website %} from the [meta](https://api.github.com/meta) API endpoint. For more information, see [AUTOTITLE](/rest/meta).
 
 {% ifversion ghec %}
 
-If you access {% data variables.product.github %} on a subdomain of {% data variables.enterprise.data_residency_site %}, the meta endpoint does not return IP ranges for your subdomain. See "[AUTOTITLE](/admin/data-residency/network-details-for-ghecom#githubs-ip-addresses)."
+If you access {% data variables.product.github %} on a subdomain of {% data variables.enterprise.data_residency_site %}, the meta endpoint does not return IP ranges for your subdomain. See [AUTOTITLE](/admin/data-residency/network-details-for-ghecom#githubs-ip-addresses).
 
 {% endif %}
 
@@ -40,5 +40,5 @@ For applications to function, you must allow TCP ports 22, 80, and 443 via our I
 
 ## Further reading
 
-* "[AUTOTITLE](/get-started/using-github/troubleshooting-connectivity-problems)"
-* "[AUTOTITLE](/get-started/using-github/allowing-access-to-githubs-services-from-a-restricted-network)"
+* [AUTOTITLE](/get-started/using-github/troubleshooting-connectivity-problems)
+* [AUTOTITLE](/get-started/using-github/allowing-access-to-githubs-services-from-a-restricted-network)

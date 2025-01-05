@@ -14,7 +14,7 @@ redirect_from:
 ---
 ## About renaming branches
 
-You can rename a branch in a repository on {% data variables.location.product_location %}. For more information about branches, see "[AUTOTITLE](/pull-requests/collaborating-with-pull-requests/proposing-changes-to-your-work-with-pull-requests/about-branches)."
+You can rename a branch in a repository on {% data variables.location.product_location %}. For more information about branches, see [AUTOTITLE](/pull-requests/collaborating-with-pull-requests/proposing-changes-to-your-work-with-pull-requests/about-branches).
 
 When you rename a branch, any URLs that contain the old branch name are automatically redirected to the equivalent URL for the renamed branch. Branch protection policies are also updated, as well as the base branch for open pull requests (including those for forks) and draft releases. If the renamed branch is the head branch of an open pull request, this pull request is closed.
 

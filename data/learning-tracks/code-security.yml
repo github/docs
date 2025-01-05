@@ -54,9 +54,9 @@ dependabot_alerts:
     - >-
       /code-security/dependabot/working-with-dependabot/managing-pull-requests-for-dependency-updates
     - >-
-      /code-security/dependabot/working-with-dependabot/troubleshooting-the-detection-of-vulnerable-dependencies
+      /code-security/dependabot/troubleshooting-dependabot/troubleshooting-the-detection-of-vulnerable-dependencies
     - >-
-      /code-security/dependabot/working-with-dependabot/troubleshooting-dependabot-errors
+      /code-security/dependabot/troubleshooting-dependabot/troubleshooting-dependabot-errors
 dependabot_security_updates:
   title: Get pull requests to update your vulnerable dependencies
   description: >-
@@ -74,7 +74,7 @@ dependabot_security_updates:
     - >-
       /code-security/dependabot/working-with-dependabot/managing-pull-requests-for-dependency-updates
     - >-
-      /code-security/dependabot/working-with-dependabot/troubleshooting-the-detection-of-vulnerable-dependencies
+      /code-security/dependabot/troubleshooting-dependabot/troubleshooting-the-detection-of-vulnerable-dependencies
 dependency_version_updates:
   title: Keep your dependencies up-to-date
   description: >-
@@ -86,25 +86,25 @@ dependency_version_updates:
     - >-
       /code-security/dependabot/dependabot-version-updates/configuring-dependabot-version-updates
     - >-
-      /code-security/dependabot/dependabot-version-updates/customizing-dependency-updates
+      /code-security/dependabot/dependabot-version-updates/customizing-dependabot-prs
     - >-
-      /code-security/dependabot/dependabot-version-updates/configuration-options-for-the-dependabot.yml-file
+      /code-security/dependabot/working-with-dependabot/dependabot-options-reference
     - >-
       /code-security/dependabot/working-with-dependabot/keeping-your-actions-up-to-date-with-dependabot
     - >-
       /code-security/dependabot/working-with-dependabot/automating-dependabot-with-github-actions
     - >-
-      /code-security/dependabot/dependabot-version-updates/listing-dependencies-configured-for-version-updates
+      /code-security/dependabot/troubleshooting-dependabot/listing-dependencies-configured-for-version-updates
     - >-
       /code-security/dependabot/working-with-dependabot/configuring-access-to-private-registries-for-dependabot
     - >-
       /code-security/dependabot/working-with-dependabot/guidance-for-the-configuration-of-private-registries-for-dependabot
     - >-
-      /code-security/dependabot/working-with-dependabot/removing-dependabot-access-to-public-registries
+      /code-security/dependabot/maintain-dependencies/removing-dependabot-access-to-public-registries
     - >-
       /code-security/dependabot/working-with-dependabot/managing-pull-requests-for-dependency-updates
     - >-
-      /code-security/dependabot/working-with-dependabot/troubleshooting-dependabot-errors
+      /code-security/dependabot/troubleshooting-dependabot/troubleshooting-dependabot-errors
 secret_scanning:
   title: Scan for secrets
   description: >-

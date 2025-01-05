@@ -77,8 +77,8 @@ With the new billing platform, you can:
 
 {% endif %}
 
-If you have access, there will be a **{% octicon "credit-card" aria-hidden="true" %} Billing & Licensing** option in the sidebar. If you do **not** have access to the new, enhanced billing platform, to find out more about your billing platform, see "[AUTOTITLE](/billing/using-the-billing-platform/about-billing-on-github)."
+If you have access, there will be a **{% octicon "credit-card" aria-hidden="true" %} Billing & Licensing** option in the sidebar. If you do **not** have access to the new, enhanced billing platform, to find out more about your billing platform, see [AUTOTITLE](/billing/using-the-billing-platform/about-billing-on-github).
 
 ## Next steps
 
-* To **get started with the new billing platform**, see "[AUTOTITLE](/billing/using-the-new-billing-platform/getting-started-with-the-new-billing-platform)."
+* To **get started with the new billing platform**, see [AUTOTITLE](/billing/using-the-new-billing-platform/getting-started-with-the-new-billing-platform).

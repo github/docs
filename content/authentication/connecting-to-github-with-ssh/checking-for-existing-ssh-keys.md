@@ -16,7 +16,7 @@ shortTitle: Check for existing SSH key
 
 ## About SSH keys
 
-You can use SSH to perform Git operations in repositories. For more information, see "[AUTOTITLE](/authentication/connecting-to-github-with-ssh/about-ssh)."
+You can use SSH to perform Git operations in repositories. For more information, see [AUTOTITLE](/authentication/connecting-to-github-with-ssh/about-ssh).
 
 If you have an existing SSH key, you can use the key to authenticate Git operations over SSH.
 
@@ -46,4 +46,4 @@ Before you generate a new SSH key, you should check your local machine for exist
    * If you don't have a supported public and private key pair, or don't wish to use any that are available, generate a new SSH key.
    * If you see an existing public and private key pair listed (for example, _id_rsa.pub_ and _id_rsa_) that you would like to use to connect to {% data variables.product.product_name %}, you can add the key to the ssh-agent.
 
-     For more information about generation of a new SSH key or addition of an existing key to the ssh-agent, see "[AUTOTITLE](/authentication/connecting-to-github-with-ssh/generating-a-new-ssh-key-and-adding-it-to-the-ssh-agent)."
+     For more information about generation of a new SSH key or addition of an existing key to the ssh-agent, see [AUTOTITLE](/authentication/connecting-to-github-with-ssh/generating-a-new-ssh-key-and-adding-it-to-the-ssh-agent).

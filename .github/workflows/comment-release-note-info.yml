@@ -30,4 +30,4 @@ jobs:
             - If the change is urgent, post in `#docs-content-enterprise` on Slack.
             - Review the [style guide for release notes](https://docs.github.com/en/contributing/style-guide-and-content-model/style-guide#release-notes).
             - If you're updating or adding a note, add a datestamp in the format `[Updated: YYYY-MM-DD]`.
-            - If you're removing a note, add an "[Errata](https://docs.github.com/en/contributing/style-guide-and-content-model/style-guide#errata)" section with details of the change.
+            - If you're removing a note, add an [Errata](https://docs.github.com/en/contributing/style-guide-and-content-model/style-guide#errata) section with details of the change.

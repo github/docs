@@ -22,7 +22,7 @@ You can provide protection against disruption in a datacenter or cloud region by
 
 In a high availability configuration, nodes that host data services sync regularly with the replica cluster. Replica nodes run in standby and do not serve applications or process user requests.
 
-We recommend configuring high availability as a part of a comprehensive disaster recovery plan for {% data variables.product.prodname_ghe_server %} clustering. We also recommend performing regular backups. For more information, see "[AUTOTITLE](/enterprise/admin/configuration/configuring-backups-on-your-appliance)."
+We recommend configuring high availability as a part of a comprehensive disaster recovery plan for {% data variables.product.prodname_ghe_server %} clustering. We also recommend performing regular backups. For more information, see [AUTOTITLE](/enterprise/admin/configuration/configuring-backups-on-your-appliance).
 
 ## Prerequisites
 
@@ -30,7 +30,7 @@ We recommend configuring high availability as a part of a comprehensive disaster
 
 For each existing node in your active cluster, you'll need to provision a second virtual machine with identical hardware resources. For example, if your cluster has 13 nodes and each node has 12 vCPUs, 96 GB of RAM, and 750 GB of attached storage, you must provision 13 new virtual machines that each have 12 vCPUs, 96 GB of RAM, and 750 GB of attached storage.
 
-On each new virtual machine, install the same version of {% data variables.product.prodname_ghe_server %} that runs on the nodes in your active cluster. You don't need to upload a license or perform any additional configuration. For more information, see "[AUTOTITLE](/enterprise/admin/installation/setting-up-a-github-enterprise-server-instance)."
+On each new virtual machine, install the same version of {% data variables.product.prodname_ghe_server %} that runs on the nodes in your active cluster. You don't need to upload a license or perform any additional configuration. For more information, see [AUTOTITLE](/enterprise/admin/installation/setting-up-a-github-enterprise-server-instance).
 
 > [!NOTE]
 > The nodes that you intend to use for high availability replication should be standalone {% data variables.product.prodname_ghe_server %} instances. Don't initialize the replica nodes as a second cluster.
@@ -39,7 +39,7 @@ On each new virtual machine, install the same version of {% data variables.produ
 
 You must assign a static IP address to each new node that you provision, and you must configure a load balancer to accept connections and direct them to the nodes in your cluster's front-end tier.
 
-{% data reusables.enterprise_clustering.network-latency %} For more information about network connectivity between nodes in the replica cluster, see "[AUTOTITLE](/enterprise/admin/enterprise-management/cluster-network-configuration)."
+{% data reusables.enterprise_clustering.network-latency %} For more information about network connectivity between nodes in the replica cluster, see [AUTOTITLE](/enterprise/admin/enterprise-management/cluster-network-configuration).
 
 ## Creating a high availability replica for a cluster
 
@@ -124,9 +124,9 @@ To configure high availability, you must define a corresponding replica node for
 * Merge the modified copy of the cluster configuration back into your active configuration.
 * Apply the new configuration to start replication.
 
-For an example configuration, see "[Review an example configuration](#3-review-an-example-configuration)."
+For an example configuration, see [Review an example configuration](#3-review-an-example-configuration).
 
-1. For each node in your cluster, provision a matching virtual machine with identical specifications, running the same version of {% data variables.product.prodname_ghe_server %}. Note the IPv4 address and hostname for each new cluster node. For more information, see "[Prerequisites](#prerequisites)."
+1. For each node in your cluster, provision a matching virtual machine with identical specifications, running the same version of {% data variables.product.prodname_ghe_server %}. Note the IPv4 address and hostname for each new cluster node. For more information, see [Prerequisites](#prerequisites).
 
     > [!NOTE]
     > If you're reconfiguring high availability after a failover, you can use the old nodes from the primary datacenter instead.
@@ -211,7 +211,7 @@ For an example configuration, see "[Review an example configuration](#3-review-a
     >   * `replica` should be configured as `enabled`.
     > * Take the opportunity to remove sections for offline nodes that are no longer in use.
     >
-    > To review an example configuration, see "[Review an example configuration](#3-review-an-example-configuration)."
+    > To review an example configuration, see [Review an example configuration](#3-review-an-example-configuration).
 
 1. Initialize the new cluster configuration. {% data reusables.enterprise.use-a-multiplexer %}
 
@@ -233,9 +233,9 @@ For an example configuration, see "[Review an example configuration](#3-review-a
     ```
 
 {% data reusables.enterprise_clustering.configuration-finished %}
-1. Configure a load balancer that will accept connections from users after you fail over to the replica nodes. For more information, see "[AUTOTITLE](/enterprise/admin/enterprise-management/cluster-network-configuration#configuring-a-load-balancer)."
+1. Configure a load balancer that will accept connections from users after you fail over to the replica nodes. For more information, see [AUTOTITLE](/enterprise/admin/enterprise-management/cluster-network-configuration#configuring-a-load-balancer).
 
-You've finished configuring high availability replication for the nodes in your cluster. Each active node begins replicating configuration and data to its corresponding replica node, and you can direct traffic to the load balancer for the secondary datacenter in the event of a failure. For more information about failing over, see "[AUTOTITLE](/enterprise/admin/enterprise-management/initiating-a-failover-to-your-replica-cluster)."
+You've finished configuring high availability replication for the nodes in your cluster. Each active node begins replicating configuration and data to its corresponding replica node, and you can direct traffic to the load balancer for the secondary datacenter in the event of a failure. For more information about failing over, see [AUTOTITLE](/enterprise/admin/enterprise-management/initiating-a-failover-to-your-replica-cluster).
 
 ### 3. Review an example configuration
 
@@ -307,7 +307,7 @@ The configuration for the corresponding replica node in the storage tier should 
 
 Initial replication between the active and replica nodes in your cluster takes time. The amount of time depends on the amount of data to replicate and the activity levels for {% data variables.product.prodname_ghe_server %}.
 
-You can monitor the progress on any node in the cluster, using command-line tools available via the {% data variables.product.prodname_ghe_server %} administrative shell. For more information about the administrative shell, see "[AUTOTITLE](/enterprise/admin/configuration/accessing-the-administrative-shell-ssh)."
+You can monitor the progress on any node in the cluster, using command-line tools available via the {% data variables.product.prodname_ghe_server %} administrative shell. For more information about the administrative shell, see [AUTOTITLE](/enterprise/admin/configuration/accessing-the-administrative-shell-ssh).
 
 To monitor the replication of all services, use the following command.
 
@@ -315,7 +315,7 @@ To monitor the replication of all services, use the following command.
 ghe-cluster-repl-status
 ```
 
-You can use `ghe-cluster-status` to review the overall health of your cluster. For more information, see "[AUTOTITLE](/enterprise/admin/configuration/command-line-utilities#ghe-cluster-status)."
+You can use `ghe-cluster-status` to review the overall health of your cluster. For more information, see [AUTOTITLE](/enterprise/admin/configuration/command-line-utilities#ghe-cluster-status).
 
 ## Reconfiguring high availability replication after a failover
 
@@ -324,9 +324,9 @@ After you fail over from the cluster's active nodes to the cluster's replica nod
 * Provision and configure a new set of replica nodes for each of the new active nodes in your secondary datacenter.
 * Use the original active nodes as the new replica nodes.
 
-The process for reconfiguring high availability is identical to the initial configuration of high availability. For more information, see "[Creating a high availability replica for a cluster](#creating-a-high-availability-replica-for-a-cluster)."
+The process for reconfiguring high availability is identical to the initial configuration of high availability. For more information, see [Creating a high availability replica for a cluster](#creating-a-high-availability-replica-for-a-cluster).
 
-If you use the original active nodes, after reconfiguring high availability, you will need to unset maintenance mode on the nodes. For more information, see "[AUTOTITLE](/admin/administering-your-instance/configuring-maintenance-mode/enabling-and-scheduling-maintenance-mode#enabling-or-disabling-maintenance-mode-for-all-nodes-in-a-cluster-via-the-cli)."
+If you use the original active nodes, after reconfiguring high availability, you will need to unset maintenance mode on the nodes. For more information, see [AUTOTITLE](/admin/administering-your-instance/configuring-maintenance-mode/enabling-and-scheduling-maintenance-mode#enabling-or-disabling-maintenance-mode-for-all-nodes-in-a-cluster-via-the-cli).
 
 ## Disabling high availability replication for a cluster
 

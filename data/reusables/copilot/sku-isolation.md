@@ -1,6 +1,6 @@
 ## About {% data variables.product.prodname_copilot_sku_isolation %}
 
-As an {% ifversion ghec %}enterprise or {% endif %}organization owner, you can use your network firewall to explicitly allow access to {% data variables.product.prodname_copilot_for_business %}{% ifversion ghec %} or {% data variables.product.prodname_copilot_enterprise %}, or both{% endif %}, and/or block access to {% data variables.product.prodname_copilot_for_individuals %}. This allows you to control which {% data variables.product.prodname_copilot %} plans your members can use within your network.
+As an {% ifversion ghec %}enterprise or {% endif %}organization owner, you can use your network firewall to explicitly allow access to {% data variables.product.prodname_copilot_for_business %}{% ifversion ghec %} or {% data variables.product.prodname_copilot_enterprise %}, or both{% endif %}, and/or block access to {% data variables.product.prodname_copilot_pro %} or {% data variables.product.prodname_copilot_free %}. This allows you to control which {% data variables.product.prodname_copilot %} plans your members can use within your network.
 
 Configuring {% data variables.product.prodname_copilot_sku_isolation %} will affect the following {% data variables.product.prodname_copilot %} features:
 

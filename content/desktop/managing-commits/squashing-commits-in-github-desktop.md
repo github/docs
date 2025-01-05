@@ -47,4 +47,4 @@ When you squash commits, you may see one of the following notifications or error
 
 ## Further reading
 
-* "[AUTOTITLE](/desktop/managing-commits/options-for-managing-commits-in-github-desktop)"
+* [AUTOTITLE](/desktop/managing-commits/options-for-managing-commits-in-github-desktop)

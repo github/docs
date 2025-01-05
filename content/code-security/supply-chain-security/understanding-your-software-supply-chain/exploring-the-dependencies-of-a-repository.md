@@ -24,7 +24,7 @@ shortTitle: Explore dependencies
 
 ## Viewing the dependency graph
 
-The dependency graph shows the dependencies{% ifversion fpt or ghec %} and dependents{% endif %} of your repository. {% ifversion dependency-graph-repository-view-update %} {% data reusables.dependency-graph.repository-view-update %}{% endif %} For information about the detection of dependencies and which ecosystems are supported, see "[AUTOTITLE](/code-security/supply-chain-security/understanding-your-software-supply-chain/dependency-graph-supported-package-ecosystems)."
+The dependency graph shows the dependencies{% ifversion fpt or ghec %} and dependents{% endif %} of your repository. {% ifversion dependency-graph-repository-view-update %} {% data reusables.dependency-graph.repository-view-update %}{% endif %} For information about the detection of dependencies and which ecosystems are supported, see [AUTOTITLE](/code-security/supply-chain-security/understanding-your-software-supply-chain/dependency-graph-supported-package-ecosystems).
 
 {% data reusables.repositories.navigate-to-repo %}
 {% data reusables.repositories.accessing-repository-graphs %}
@@ -46,7 +46,7 @@ The dependency graph shows the dependencies{% ifversion fpt or ghec %} and depen
 {% endif %}
 
 {% ifversion ghes %}
-Enterprise owners can configure the dependency graph at an enterprise level. For more information, see "[AUTOTITLE](/admin/code-security/managing-supply-chain-security-for-your-enterprise/enabling-the-dependency-graph-for-your-enterprise)."
+Enterprise owners can configure the dependency graph at an enterprise level. For more information, see [AUTOTITLE](/admin/code-security/managing-supply-chain-security-for-your-enterprise/enabling-the-dependency-graph-for-your-enterprise).
 {% endif %}
 
 ### Dependencies view
@@ -60,7 +60,7 @@ Any direct and indirect dependencies that are specified in the repository's mani
 {% endif %}
 
 {% ifversion dependency-graph-repository-view-update %}
-Dependencies submitted to a project using the {% data variables.dependency-submission-api.name %} will show which detector was used for their submission and when they were submitted.{% elsif ghes %}Dependencies submitted to a project using the {% data variables.dependency-submission-api.name %}, although also grouped by ecosystem, are shown separately from dependencies identified through manifest or lock files in the repository. These submitted dependencies appear in the dependency graph as "Snapshot dependencies" because they are submitted as a snapshot, or set, of dependencies.{% else %}{% endif %} For more information on using the {% data variables.dependency-submission-api.name %}, see "[AUTOTITLE](/code-security/supply-chain-security/understanding-your-software-supply-chain/using-the-dependency-submission-api)."
+Dependencies submitted to a project using the {% data variables.dependency-submission-api.name %} will show which detector was used for their submission and when they were submitted.{% elsif ghes %}Dependencies submitted to a project using the {% data variables.dependency-submission-api.name %}, although also grouped by ecosystem, are shown separately from dependencies identified through manifest or lock files in the repository. These submitted dependencies appear in the dependency graph as "Snapshot dependencies" because they are submitted as a snapshot, or set, of dependencies.{% else %}{% endif %} For more information on using the {% data variables.dependency-submission-api.name %}, see [AUTOTITLE](/code-security/supply-chain-security/understanding-your-software-supply-chain/using-the-dependency-submission-api).
 
 If vulnerabilities have been detected in the repository, these are shown at the top of the view for users with access to {% data variables.product.prodname_dependabot_alerts %}.
 
@@ -115,8 +115,8 @@ If a manifest or lock file is not processed, its dependencies are omitted from t
 
 ## Further reading
 
-* "[AUTOTITLE](/code-security/supply-chain-security/understanding-your-software-supply-chain/about-the-dependency-graph)"
-* "[AUTOTITLE](/code-security/dependabot/dependabot-alerts/viewing-and-updating-dependabot-alerts)"{% ifversion ghec %}
-* "[AUTOTITLE](/organizations/collaborating-with-groups-in-organizations/viewing-insights-for-dependencies-in-your-organization)"{% endif %}{% ifversion fpt or ghec %}
-* "[AUTOTITLE](/get-started/privacy-on-github)"
+* [AUTOTITLE](/code-security/supply-chain-security/understanding-your-software-supply-chain/about-the-dependency-graph)
+* [AUTOTITLE](/code-security/dependabot/dependabot-alerts/viewing-and-updating-dependabot-alerts){% ifversion ghec %}
+* [AUTOTITLE](/organizations/collaborating-with-groups-in-organizations/viewing-insights-for-dependencies-in-your-organization){% endif %}{% ifversion fpt or ghec %}
+* [AUTOTITLE](/get-started/privacy-on-github)
 {% endif %}

@@ -343,11 +343,11 @@ If an article has headers, the headers must start with an H2 level header. You c
   TEXT
 
   ### SUBHEADER (H3)
-  
+
   TEXT
 
   #### SUBHEADER (H4)
-  
+
   TEXT
   ```
 
@@ -365,15 +365,15 @@ Each header at the same level on a page must be unique.
 
   ```markdown
   ## Examples  (H2)
-  
+
   TEXT
 
   ### Prompts for writing code (H3)
-  
+
   TEXT
 
   ### Prompts for writing tests (H3)
-  
+
   TEXT
   ```
 
@@ -381,19 +381,19 @@ Each header at the same level on a page must be unique.
 
   ```markdown
   ## Prompts for writing code (H2)
-  
+
   TEXT
 
   ### Example (H3)
-  
+
   TEXT
 
   ## Prompts for writing tests (H2)
-  
+
   TEXT
 
   ### Example (H3)
-  
+
   TEXT
   ```
 
@@ -401,15 +401,15 @@ Each header at the same level on a page must be unique.
 
   ```markdown
   ## Example prompts (H2)
-  
+
   TEXT
 
   ### Example (H3)
-  
+
   TEXT
 
   ### Example (H3)
-  
+
   TEXT
   ```
 
@@ -1203,7 +1203,7 @@ A release note for a retired feature answers the following questions.
 
 #### Examples of release notes for retired features
 
-* > **Retired:** {% data variables.product.github %} no longer supports required workflows for {% data variables.product.prodname_actions %} in {% data variables.product.prodname_ghe_server %} 3.11 and later. Use repository rulesets instead. For more information, see "[AUTOTITLE](/repositories/configuring-branches-and-merges-in-your-repository/managing-rulesets/available-rules-for-rulesets#require-workflows-to-pass-before-merging)."
+* > **Retired:** {% data variables.product.github %} no longer supports required workflows for {% data variables.product.prodname_actions %} in {% data variables.product.prodname_ghe_server %} 3.11 and later. Use repository rulesets instead. For more information, see [AUTOTITLE](/repositories/configuring-branches-and-merges-in-your-repository/managing-rulesets/available-rules-for-rulesets#require-workflows-to-pass-before-merging).
 
 {% endif %}
 
@@ -1226,7 +1226,7 @@ Errata answers the following questions.
 
 #### Example of errata
 
-* > "[Features](/)" incorrectly indicated that users of the {% data variables.product.prodname_advisory_database %} can see advisories for Elixir, Erlang's Hex package manager, and more. This feature is unavailable in GitHub Enterprise Server 3.7, and will be available in a future release. [Updated 2023-06-01]
+* > [Features](/) incorrectly indicated that users of the {% data variables.product.prodname_advisory_database %} can see advisories for Elixir, Erlang's Hex package manager, and more. This feature is unavailable in GitHub Enterprise Server 3.7, and will be available in a future release. [Updated 2023-06-01]
 
 ### Adding or updating a release note
 
@@ -1349,7 +1349,7 @@ For example in the following table, in order to make sense of the "Yes" and "No"
   </tr>
 </table>
 
-To add row headers for a Markdown table, wrap the table in the Liquid tags `{% raw %}{% rowheaders %} {% endrowheaders %}{% endraw %}`. For more information about using row headers, see "[AUTOTITLE](/contributing/syntax-and-versioning-for-github-docs/using-markdown-and-liquid-in-github-docs#table-row-headers)."
+To add row headers for a Markdown table, wrap the table in the Liquid tags `{% raw %}{% rowheaders %} {% endrowheaders %}{% endraw %}`. For more information about using row headers, see [AUTOTITLE](/contributing/syntax-and-versioning-for-github-docs/using-markdown-and-liquid-in-github-docs#table-row-headers).
 
 ### Include a value for every cell
 
@@ -1380,7 +1380,7 @@ All columns in a table should be left-aligned, except for columns containing onl
 
 Table content is left-aligned by default. Use Markdown table formatting, colons (`:`) to either the right or left of the dashes in the header row, to specify the alignment of each column. Read [AUTOTITLE](/get-started/writing-on-github/working-with-advanced-formatting/organizing-information-with-tables#formatting-content-within-your-table) for more information.
 
-The following example shows part of a table from [AUTOTITLE](/free-pro-team@latest/code-security/dependabot/dependabot-version-updates/configuration-options-for-the-dependabot.yml-file).
+The following example shows part of a table from [AUTOTITLE](/code-security/dependabot/working-with-dependabot/dependabot-options-reference).
 
 <table>
 <thead>

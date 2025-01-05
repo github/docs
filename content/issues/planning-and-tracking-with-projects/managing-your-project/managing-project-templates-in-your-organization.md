@@ -51,7 +51,7 @@ You can find all the templates in your organization on the "Templates" page.
 {% data reusables.projects.projects-tab %}
 {% data reusables.projects.templates-tab %}
 
-You can also add templates to teams and repositories, to make them accessible and more visible from the team or repository's "Templates" page. For more information, see "[AUTOTITLE](/issues/planning-and-tracking-with-projects/managing-your-project/adding-your-project-to-a-team)" and "[AUTOTITLE](/issues/planning-and-tracking-with-projects/managing-your-project/adding-your-project-to-a-repository)."
+You can also add templates to teams and repositories, to make them accessible and more visible from the team or repository's "Templates" page. For more information, see [AUTOTITLE](/issues/planning-and-tracking-with-projects/managing-your-project/adding-your-project-to-a-team) and [AUTOTITLE](/issues/planning-and-tracking-with-projects/managing-your-project/adding-your-project-to-a-repository).
 
 {% else %}
 
@@ -108,4 +108,4 @@ You can change the display order of your recommended templates in the "Create pr
 
 ## Further reading
 
-* "[AUTOTITLE](/issues/planning-and-tracking-with-projects/creating-projects/creating-a-project)"
+* [AUTOTITLE](/issues/planning-and-tracking-with-projects/creating-projects/creating-a-project)

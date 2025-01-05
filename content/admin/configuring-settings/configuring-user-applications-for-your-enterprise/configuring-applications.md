@@ -26,7 +26,7 @@ You can choose the amount of time that {% data variables.location.product_locati
 
 ## Enabling retention policy for checks
 
-You can enable a retention policy for checks, actions, and associated data by setting thresholds for archival and deletion. For more information about configuring actions, see "[AUTOTITLE](/admin/github-actions/getting-started-with-github-actions-for-your-enterprise/about-github-actions-for-enterprises)."
+You can enable a retention policy for checks, actions, and associated data by setting thresholds for archival and deletion. For more information about configuring actions, see [AUTOTITLE](/admin/github-actions/getting-started-with-github-actions-for-your-enterprise/about-github-actions-for-enterprises).
 
 {% data reusables.enterprise_site_admin_settings.access-settings %}
 {% data reusables.enterprise_site_admin_settings.management-console %}
@@ -41,7 +41,7 @@ You can enable a retention policy for checks, actions, and associated data by se
 
 ## Enabling interactive maps
 
-You can enable the display of interactive maps in the web interface for users of {% data variables.location.product_location %}. For more information, see "[AUTOTITLE](/admin/configuration/configuring-user-applications-for-your-enterprise/configuring-interactive-maps)."
+You can enable the display of interactive maps in the web interface for users of {% data variables.location.product_location %}. For more information, see [AUTOTITLE](/admin/configuration/configuring-user-applications-for-your-enterprise/configuring-interactive-maps).
 
 {% endif %}
 {% endif %}

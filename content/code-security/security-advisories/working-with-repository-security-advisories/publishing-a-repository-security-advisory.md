@@ -27,9 +27,9 @@ Anyone with admin permissions to a security advisory can publish the security ad
 
 ## Prerequisites
 
-Before you can publish a security advisory or request a CVE identification number, you must create a draft security advisory and provide information about the versions of your project affected by the security vulnerability. For more information, see "[AUTOTITLE](/code-security/security-advisories/working-with-repository-security-advisories/creating-a-repository-security-advisory)."
+Before you can publish a security advisory or request a CVE identification number, you must create a draft security advisory and provide information about the versions of your project affected by the security vulnerability. For more information, see [AUTOTITLE](/code-security/security-advisories/working-with-repository-security-advisories/creating-a-repository-security-advisory).
 
-If you've created a security advisory but haven't yet provided details about the versions of your project that the security vulnerability affects, you can edit the security advisory. For more information, see "[AUTOTITLE](/code-security/security-advisories/working-with-repository-security-advisories/editing-a-repository-security-advisory)."
+If you've created a security advisory but haven't yet provided details about the versions of your project that the security vulnerability affects, you can edit the security advisory. For more information, see [AUTOTITLE](/code-security/security-advisories/working-with-repository-security-advisories/editing-a-repository-security-advisory).
 
 ## About publishing a security advisory
 
@@ -37,7 +37,7 @@ When you publish a security advisory, you notify your community about the securi
 
 {% data reusables.repositories.security-advisories-republishing %}
 
-Before you publish a security advisory, you can privately collaborate to fix the vulnerability in a temporary private fork. For more information, see "[AUTOTITLE](/code-security/security-advisories/working-with-repository-security-advisories/collaborating-in-a-temporary-private-fork-to-resolve-a-repository-security-vulnerability)."
+Before you publish a security advisory, you can privately collaborate to fix the vulnerability in a temporary private fork. For more information, see [AUTOTITLE](/code-security/security-advisories/working-with-repository-security-advisories/collaborating-in-a-temporary-private-fork-to-resolve-a-repository-security-vulnerability).
 
 > [!WARNING]
 > Whenever possible, you should always add a fix version to a security advisory prior to publishing the advisory. If you don't, the advisory will be published without a fixed version, and {% data variables.product.prodname_dependabot %} will alert your users about the issue, without offering any safe version to update to.
@@ -58,7 +58,7 @@ When you publish a draft advisory from a public repository, everyone is able to 
 
 After you publish a security advisory, the URL for the security advisory will remain the same as before you published the security advisory. Anyone with read access to the repository can see the security advisory. Collaborators on the security advisory can continue to view past conversations, including the full comment stream, in the security advisory unless someone with admin permissions removes the collaborator from the security advisory.
 
-If you need to update or correct information in a security advisory that you've published, you can edit the security advisory. For more information, see "[AUTOTITLE](/code-security/security-advisories/working-with-repository-security-advisories/editing-a-repository-security-advisory)."
+If you need to update or correct information in a security advisory that you've published, you can edit the security advisory. For more information, see [AUTOTITLE](/code-security/security-advisories/working-with-repository-security-advisories/editing-a-repository-security-advisory).
 
 ## Publishing a security advisory
 
@@ -73,7 +73,7 @@ Publishing a security advisory deletes the temporary private fork for the securi
    ![Screenshot of the "Required advisory information has been provided" area of a draft security advisory. The "Publish advisory" button is outlined in dark orange.](/assets/images/help/security/publish-advisory-button.png)
 
   > [!NOTE]
-  > If you selected "Request CVE ID later", you will see a **Request CVE** button in place of the **Publish advisory** button. For more information, see "[Requesting a CVE identification number (Optional)](#requesting-a-cve-identification-number-optional)" below.
+  > If you selected "Request CVE ID later", you will see a **Request CVE** button in place of the **Publish advisory** button. For more information, see [Requesting a CVE identification number (Optional)](#requesting-a-cve-identification-number-optional) below.
 
 ## {% data variables.product.prodname_dependabot_alerts %} for published security advisories
 
@@ -81,7 +81,7 @@ Publishing a security advisory deletes the temporary private fork for the securi
 
 ## Requesting a CVE identification number (Optional)
 
-{% data reusables.repositories.request-security-advisory-cve-id %} For more information, see "[AUTOTITLE](/code-security/security-advisories/working-with-repository-security-advisories/about-repository-security-advisories#cve-identification-numbers)."
+{% data reusables.repositories.request-security-advisory-cve-id %} For more information, see [AUTOTITLE](/code-security/security-advisories/working-with-repository-security-advisories/about-repository-security-advisories#cve-identification-numbers).
 
 {% data reusables.repositories.navigate-to-repo %}
 {% data reusables.repositories.sidebar-security %}
@@ -93,4 +93,4 @@ Publishing a security advisory deletes the temporary private fork for the securi
 
 ## Further reading
 
-* "[AUTOTITLE](/code-security/security-advisories/working-with-repository-security-advisories/deleting-a-repository-security-advisory)"
+* [AUTOTITLE](/code-security/security-advisories/working-with-repository-security-advisories/deleting-a-repository-security-advisory)

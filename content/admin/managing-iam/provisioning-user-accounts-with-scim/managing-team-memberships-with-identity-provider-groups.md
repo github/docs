@@ -39,11 +39,11 @@ When group membership changes on your IdP, your IdP sends a SCIM request with th
 
 Teams connected to IdP groups cannot be parents of other teams nor a child of another team. If the team you want to connect to an IdP group is a parent or child team, we recommend creating a new team or removing the nested relationships that make your team a parent team.
 
-To manage repository access for any team in your enterprise, including teams connected to an IdP group, you must make changes on {% data variables.product.prodname_dotcom %}. For more information, see "[AUTOTITLE](/organizations/managing-user-access-to-your-organizations-repositories/managing-repository-roles/managing-team-access-to-an-organization-repository)".
+To manage repository access for any team in your enterprise, including teams connected to an IdP group, you must make changes on {% data variables.product.prodname_dotcom %}. For more information, see [AUTOTITLE](/organizations/managing-user-access-to-your-organizations-repositories/managing-repository-roles/managing-team-access-to-an-organization-repository).
 
 ## Requirements for connecting IdP groups with teams
 
-Before you can connect an IdP group with a team on {% data variables.product.prodname_dotcom %}, you must assign the group to the {% ifversion ghec %}{% data variables.product.prodname_emu_idp_application %}{% else %}relevant{% endif %} application in your IdP. For more information, see "[AUTOTITLE](/admin/identity-and-access-management/using-enterprise-managed-users-for-iam/configuring-scim-provisioning-for-enterprise-managed-users)."
+Before you can connect an IdP group with a team on {% data variables.product.prodname_dotcom %}, you must assign the group to the {% ifversion ghec %}{% data variables.product.prodname_emu_idp_application %}{% else %}relevant{% endif %} application in your IdP. For more information, see [AUTOTITLE](/admin/identity-and-access-management/using-enterprise-managed-users-for-iam/configuring-scim-provisioning-for-enterprise-managed-users).
 
 You can connect a team in your enterprise to one IdP group. You can assign the same IdP group to multiple teams in your enterprise.
 
@@ -69,7 +69,7 @@ Any member of an organization can create a new team and connect the team to an I
 Organization owners {% ifversion ghes %}and team maintainers {% endif %}can manage the existing connection between an IdP group and a team.{% ifversion ghec %} If your enterprise does not use {% data variables.enterprise.prodname_managed_users %}, team maintainers can also manage the connection.{% endif %}
 
 > [!NOTE]
-> Before you connect an existing team on {% data variables.product.prodname_dotcom %} to an IdP group for the first time, all members of the team on {% data variables.product.prodname_dotcom %} must first be removed. For more information, see "[AUTOTITLE](/organizations/organizing-members-into-teams/removing-organization-members-from-a-team)."
+> Before you connect an existing team on {% data variables.product.prodname_dotcom %} to an IdP group for the first time, all members of the team on {% data variables.product.prodname_dotcom %} must first be removed. For more information, see [AUTOTITLE](/organizations/organizing-members-into-teams/removing-organization-members-from-a-team).
 
 {% data reusables.profile.access_profile %}
 
@@ -92,7 +92,7 @@ Enterprise owners can review a list of IdP groups, each group's memberships, and
 1. {% data reusables.enterprise-accounts.groups-tab %}
 1. To view the teams connected to the IdP group, click **Teams**.
 
-If a team cannot sync with the group on your IdP, the team will display an error. For more information, see "[AUTOTITLE](/admin/identity-and-access-management/using-enterprise-managed-users-for-iam/troubleshooting-team-membership-with-identity-provider-groups)."
+If a team cannot sync with the group on your IdP, the team will display an error. For more information, see [AUTOTITLE](/admin/identity-and-access-management/using-enterprise-managed-users-for-iam/troubleshooting-team-membership-with-identity-provider-groups).
 
 ## Removing members from organizations
 
@@ -101,4 +101,4 @@ The way a member is added to an organization owned by your enterprise determines
 * **If a member was added to an organization manually, you must remove them manually.** Unassigning them from the {% ifversion ghec %}{% data variables.product.prodname_emu_idp_application %}{% else %}relevant{% endif %} application on your IdP will suspend the user but not remove them from the organization.
 * **If a user became an organization member because they were added to IdP groups, remove them from _all_ of the mapped IdP groups** associated with the organization.
 
-To discover how a member was added to an organization, you can filter the member list by type. See {% ifversion ghec %}"[AUTOTITLE](/admin/user-management/managing-users-in-your-enterprise/viewing-people-in-your-enterprise#filtering-by-member-type-in-an-enterprise-with-managed-users)."{% else %}"[AUTOTITLE](/admin/user-management/managing-users-in-your-enterprise/viewing-people-in-your-enterprise#filtering-by-member-type)."{% endif %}
+To discover how a member was added to an organization, you can filter the member list by type. See {% ifversion ghec %}[AUTOTITLE](/admin/user-management/managing-users-in-your-enterprise/viewing-people-in-your-enterprise#filtering-by-member-type-in-an-enterprise-with-managed-users).{% else %}[AUTOTITLE](/admin/user-management/managing-users-in-your-enterprise/viewing-people-in-your-enterprise#filtering-by-member-type).{% endif %}

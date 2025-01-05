@@ -9,7 +9,7 @@ versions:
 
 If you run tests locally and get failures in `tests/rendering/server.js` around static assets, stylesheets, or the client-side JavaScript bundle, but the same tests pass in CI on a PR, run the command `npm run build`. This is a one-time command that creates static assets locally.
 
-For more information, see "[AUTOTITLE](/contributing/setting-up-your-environment-to-work-on-github-docs/creating-a-local-environment)."
+For more information, see [AUTOTITLE](/contributing/setting-up-your-environment-to-work-on-github-docs/creating-a-local-environment).
 
 ## Troubleshooting stalled staging deployments
 
@@ -56,7 +56,7 @@ npm start
 
 When the server is running, navigate to the problematic article on `https://localhost:4000` in your browser. The staging server will just show an "Oops" error, but the local server should show a stack trace for debugging.
 
-If you see an error resembling the one below, make sure single quotes are properly escaped in the frontmatter. Also, check the formatting in `redirect_from` blocks. For more information, see "[AUTOTITLE](/contributing/syntax-and-versioning-for-github-docs/using-yaml-frontmatter#escaping-single-quotes)."
+If you see an error resembling the one below, make sure single quotes are properly escaped in the frontmatter. Also, check the formatting in `redirect_from` blocks. For more information, see [AUTOTITLE](/contributing/syntax-and-versioning-for-github-docs/using-yaml-frontmatter#escaping-single-quotes).
 
 ```text
 error parsing file: /Users/z/git/github/docs/content/dotcom/articles/troubleshooting-custom-domains-and-github-pages.md

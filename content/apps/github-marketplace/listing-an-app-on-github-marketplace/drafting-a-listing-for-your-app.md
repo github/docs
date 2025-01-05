@@ -55,8 +55,8 @@ To create a {% data variables.product.prodname_marketplace %} listing:
 
 ## Editing your listing
 
-Once you've created a {% data variables.product.prodname_marketplace %} draft listing, you can come back to modify information in your listing anytime. If your app is already approved and in {% data variables.product.prodname_marketplace %}, you can edit the information and images in your listing, but you will not be able to change existing published pricing plans. See "[AUTOTITLE](/apps/github-marketplace/listing-an-app-on-github-marketplace/setting-pricing-plans-for-your-listing)."
+Once you've created a {% data variables.product.prodname_marketplace %} draft listing, you can come back to modify information in your listing anytime. If your app is already approved and in {% data variables.product.prodname_marketplace %}, you can edit the information and images in your listing, but you will not be able to change existing published pricing plans. See [AUTOTITLE](/apps/github-marketplace/listing-an-app-on-github-marketplace/setting-pricing-plans-for-your-listing).
 
 ## Submitting your app
 
-Once you've completed your {% data variables.product.prodname_marketplace %} listing, you can submit your listing for review from the **Overview** page. You'll need to read and accept the "[AUTOTITLE](/free-pro-team@latest/site-policy/github-terms/github-marketplace-developer-agreement)," and then you can click **Submit for review**. After you submit your app for review, an onboarding expert will contact you with additional information about the onboarding process.
+Once you've completed your {% data variables.product.prodname_marketplace %} listing, you can submit your listing for review from the **Overview** page. You'll need to read and accept the [AUTOTITLE](/free-pro-team@latest/site-policy/github-terms/github-marketplace-developer-agreement), and then you can click **Submit for review**. After you submit your app for review, an onboarding expert will contact you with additional information about the onboarding process.

@@ -22,15 +22,15 @@ versions:
 
 Variables provide a way to store and reuse non-sensitive configuration information. You can store any configuration data such as compiler flags, usernames, or server names as variables. Variables are interpolated on the runner machine that runs your workflow. Commands that run in actions or workflow steps can create, read, and modify variables.
 
-You can set your own custom variables or use the default environment variables that {% data variables.product.prodname_dotcom %} sets automatically. For more information, see "[Default environment variables](#default-environment-variables)".
+You can set your own custom variables or use the default environment variables that {% data variables.product.prodname_dotcom %} sets automatically. For more information, see [Default environment variables](#default-environment-variables).
 
 You can set a custom variable in two ways.
 
-* To define an environment variable for use in a single workflow, you can use the `env` key in the workflow file. For more information, see "[Defining environment variables for a single workflow](#defining-environment-variables-for-a-single-workflow)".
-* To define a configuration variable across multiple workflows, you can define it at the organization, repository, or environment level. For more information, see "[Defining configuration variables for multiple workflows](#defining-configuration-variables-for-multiple-workflows)".
+* To define an environment variable for use in a single workflow, you can use the `env` key in the workflow file. For more information, see [Defining environment variables for a single workflow](#defining-environment-variables-for-a-single-workflow).
+* To define a configuration variable across multiple workflows, you can define it at the organization, repository, or environment level. For more information, see [Defining configuration variables for multiple workflows](#defining-configuration-variables-for-multiple-workflows).
 
 > [!WARNING]
-> By default, variables render unmasked in your build outputs. If you need greater security for sensitive information, such as passwords, use secrets instead. For more information, see "[AUTOTITLE](/actions/security-guides/using-secrets-in-github-actions)".
+> By default, variables render unmasked in your build outputs. If you need greater security for sensitive information, such as passwords, use secrets instead. For more information, see [AUTOTITLE](/actions/security-guides/using-secrets-in-github-actions).
 
 ## Defining environment variables for a single workflow
 
@@ -67,13 +67,13 @@ jobs:
 
 You can access `env` variable values using runner environment variables or using contexts. The example above shows three custom variables being used as runner environment variables in an `echo` command: `$DAY_OF_WEEK`, `$Greeting`, and `$First_Name`. The values for these variables are set, and scoped, at the workflow, job, and step level respectively. The interpolation of these variables happens on the runner.
 
-The commands in the `run` steps of a workflow, or a referenced action, are processed by the shell you are using on the runner. The instructions in the other parts of a workflow are processed by {% data variables.product.prodname_actions %} and are not sent to the runner. You can use either runner environment variables or contexts in `run` steps, but in the parts of a workflow that are not sent to the runner you must use contexts to access variable values. For more information, see "[Using contexts to access variable values](#using-contexts-to-access-variable-values)."
+The commands in the `run` steps of a workflow, or a referenced action, are processed by the shell you are using on the runner. The instructions in the other parts of a workflow are processed by {% data variables.product.prodname_actions %} and are not sent to the runner. You can use either runner environment variables or contexts in `run` steps, but in the parts of a workflow that are not sent to the runner you must use contexts to access variable values. For more information, see [Using contexts to access variable values](#using-contexts-to-access-variable-values).
 
-Because runner environment variable interpolation is done after a workflow job is sent to a runner machine, you must use the appropriate syntax for the shell that's used on the runner. In this example, the workflow specifies `ubuntu-latest`. By default, Linux runners use the bash shell, so you must use the syntax `$NAME`. By default, Windows runners use PowerShell, so you would use the syntax `$env:NAME`. For more information about shells, see "[AUTOTITLE](/actions/using-workflows/workflow-syntax-for-github-actions#jobsjob_idstepsshell)."
+Because runner environment variable interpolation is done after a workflow job is sent to a runner machine, you must use the appropriate syntax for the shell that's used on the runner. In this example, the workflow specifies `ubuntu-latest`. By default, Linux runners use the bash shell, so you must use the syntax `$NAME`. By default, Windows runners use PowerShell, so you would use the syntax `$env:NAME`. For more information about shells, see [AUTOTITLE](/actions/using-workflows/workflow-syntax-for-github-actions#jobsjob_idstepsshell).
 
 ### Naming conventions for environment variables
 
-When you set an environment variable, you cannot use any of the default environment variable names. For a complete list of default environment variables, see "[Default environment variables](#default-environment-variables)" below. If you attempt to override the value of one of these default variables, the assignment is ignored.
+When you set an environment variable, you cannot use any of the default environment variable names. For a complete list of default environment variables, see [Default environment variables](#default-environment-variables) below. If you attempt to override the value of one of these default variables, the assignment is ignored.
 
 > [!NOTE]
 > You can list the entire set of environment variables that are available to a workflow step by using <span style="white-space: nowrap;">`run: env`</span> in a step and then examining the output for the step.
@@ -84,7 +84,7 @@ You can create configuration variables for use across multiple workflows, and ca
 
 For example, you can use configuration variables to set default values for parameters passed to build tools at an organization level, but then allow repository owners to override these parameters on a case-by-case basis.
 
-When you define configuration variables, they are automatically available in the `vars` context. For more information, see "[Using the `vars` context to access configuration variable values](#using-the-vars-context-to-access-configuration-variable-values)".
+When you define configuration variables, they are automatically available in the `vars` context. For more information, see [Using the `vars` context to access configuration variable values](#using-the-vars-context-to-access-configuration-variable-values).
 
 ### Configuration variable precedence
 
@@ -178,7 +178,7 @@ A workflow created in a repository can access the following number of variables:
 
 ## Using contexts to access variable values
 
-{% data reusables.actions.actions-contexts-about-description %} For more information, see "[AUTOTITLE](/actions/learn-github-actions/contexts)". There are many other contexts that you can use for a variety of purposes in your workflows. For details of where you can use specific contexts within a workflow, see "[AUTOTITLE](/actions/learn-github-actions/contexts#context-availability)."
+{% data reusables.actions.actions-contexts-about-description %} For more information, see [AUTOTITLE](/actions/learn-github-actions/contexts). There are many other contexts that you can use for a variety of purposes in your workflows. For details of where you can use specific contexts within a workflow, see [AUTOTITLE](/actions/learn-github-actions/contexts#context-availability).
 
 You can access environment variable values using the `env` context and configuration variable values using the `vars` context.
 
@@ -239,7 +239,7 @@ You will commonly use either the `env` or `github` context to access variable va
 
 ### Using the `vars` context to access configuration variable values
 
-Configuration variables can be accessed across the workflow using `vars` context. For more information, see "[AUTOTITLE](/actions/learn-github-actions/contexts#vars-context)".
+Configuration variables can be accessed across the workflow using `vars` context. For more information, see [AUTOTITLE](/actions/learn-github-actions/contexts#vars-context).
 
 {% data reusables.actions.actions-vars-context-example-usage %}
 
@@ -249,7 +249,7 @@ The default environment variables that {% data variables.product.prodname_dotcom
 
 Because default environment variables are set by {% data variables.product.prodname_dotcom %} and not defined in a workflow, they are not accessible through the `env` context. However, most of the default variables have a corresponding, and similarly named, context property. For example, the value of the `GITHUB_REF` variable can be read during workflow processing using the {% raw %}`${{ github.ref }}`{% endraw %} context property.
 
-{% data reusables.actions.environment-variables-are-fixed %} For more information about setting environment variables, see "[Defining environment variables for a single workflow](#defining-environment-variables-for-a-single-workflow)" and "[AUTOTITLE](/actions/using-workflows/workflow-commands-for-github-actions#setting-an-environment-variable)."
+{% data reusables.actions.environment-variables-are-fixed %} For more information about setting environment variables, see [Defining environment variables for a single workflow](#defining-environment-variables-for-a-single-workflow) and [AUTOTITLE](/actions/using-workflows/workflow-commands-for-github-actions#setting-an-environment-variable).
 
 We strongly recommend that actions use variables to access the filesystem rather than using hardcoded file paths. {% data variables.product.prodname_dotcom %} sets variables for actions to use in all runner environments.
 
@@ -264,14 +264,14 @@ We strongly recommend that actions use variables to access the filesystem rather
 | `GITHUB_ACTOR_ID` | {% data reusables.actions.actor_id-description %} |
 | `GITHUB_API_URL` | Returns the API URL. For example: `{% data variables.product.rest_url %}`. |
 | `GITHUB_BASE_REF` | The name of the base ref or target branch of the pull request in a workflow run. This is only set when the event that triggers a workflow run is either `pull_request` or `pull_request_target`. For example, `main`. |
-| `GITHUB_ENV` | The path on the runner to the file that sets variables from workflow commands. The path to this file is unique to the current step and changes for each step in a job. For example, `/home/runner/work/_temp/_runner_file_commands/set_env_87406d6e-4979-4d42-98e1-3dab1f48b13a`. For more information, see "[AUTOTITLE](/actions/using-workflows/workflow-commands-for-github-actions#setting-an-environment-variable)." |
+| `GITHUB_ENV` | The path on the runner to the file that sets variables from workflow commands. The path to this file is unique to the current step and changes for each step in a job. For example, `/home/runner/work/_temp/_runner_file_commands/set_env_87406d6e-4979-4d42-98e1-3dab1f48b13a`. For more information, see [AUTOTITLE](/actions/using-workflows/workflow-commands-for-github-actions#setting-an-environment-variable). |
 | `GITHUB_EVENT_NAME` | The name of the event that triggered the workflow. For example, `workflow_dispatch`. |
 | `GITHUB_EVENT_PATH` | The path to the file on the runner that contains the full event webhook payload. For example, `/github/workflow/event.json`. |
 | `GITHUB_GRAPHQL_URL` | Returns the GraphQL API URL. For example: `{% data variables.product.graphql_url %}`. |
 | `GITHUB_HEAD_REF` | The head ref or source branch of the pull request in a workflow run. This property is only set when the event that triggers a workflow run is either `pull_request` or `pull_request_target`. For example, `feature-branch-1`. |
 | `GITHUB_JOB` | The [job_id](/actions/using-workflows/workflow-syntax-for-github-actions#jobsjob_id) of the current job. For example, `greeting_job`. |
-| `GITHUB_OUTPUT` | The path on the runner to the file that sets the current step's outputs from workflow commands. The path to this file is unique to the current step and changes for each step in a job. For example, `/home/runner/work/_temp/_runner_file_commands/set_output_a50ef383-b063-46d9-9157-57953fc9f3f0`. For more information, see "[AUTOTITLE](/actions/using-workflows/workflow-commands-for-github-actions#setting-an-output-parameter)." |
-| `GITHUB_PATH` | The path on the runner to the file that sets system `PATH` variables from workflow commands. The path to this file is unique to the current step and changes for each step in a job. For example, `/home/runner/work/_temp/_runner_file_commands/add_path_899b9445-ad4a-400c-aa89-249f18632cf5`. For more information, see "[AUTOTITLE](/actions/using-workflows/workflow-commands-for-github-actions#adding-a-system-path)." |
+| `GITHUB_OUTPUT` | The path on the runner to the file that sets the current step's outputs from workflow commands. The path to this file is unique to the current step and changes for each step in a job. For example, `/home/runner/work/_temp/_runner_file_commands/set_output_a50ef383-b063-46d9-9157-57953fc9f3f0`. For more information, see [AUTOTITLE](/actions/using-workflows/workflow-commands-for-github-actions#setting-an-output-parameter). |
+| `GITHUB_PATH` | The path on the runner to the file that sets system `PATH` variables from workflow commands. The path to this file is unique to the current step and changes for each step in a job. For example, `/home/runner/work/_temp/_runner_file_commands/add_path_899b9445-ad4a-400c-aa89-249f18632cf5`. For more information, see [AUTOTITLE](/actions/using-workflows/workflow-commands-for-github-actions#adding-a-system-path). |
 | `GITHUB_REF` | {% data reusables.actions.ref-description %} |
 | `GITHUB_REF_NAME` | {% data reusables.actions.ref_name-description %} |
 | `GITHUB_REF_PROTECTED` | {% data reusables.actions.ref_protected-description %} |
@@ -286,7 +286,7 @@ We strongly recommend that actions use variables to access the filesystem rather
 | `GITHUB_RUN_NUMBER` | {% data reusables.actions.run_number_description %} For example, `3`. |
 | `GITHUB_SERVER_URL`| The URL of the {% data variables.product.product_name %} server. For example: `https://{% data variables.product.product_url %}`. |
 | `GITHUB_SHA` | {% data reusables.actions.github_sha_description %} |
-| `GITHUB_STEP_SUMMARY` | The path on the runner to the file that contains job summaries from workflow commands. The path to this file is unique to the current step and changes for each step in a job. For example, `/home/runner/_layout/_work/_temp/_runner_file_commands/step_summary_1cb22d7f-5663-41a8-9ffc-13472605c76c`. For more information, see "[AUTOTITLE](/actions/using-workflows/workflow-commands-for-github-actions#adding-a-job-summary)." |
+| `GITHUB_STEP_SUMMARY` | The path on the runner to the file that contains job summaries from workflow commands. The path to this file is unique to the current step and changes for each step in a job. For example, `/home/runner/_layout/_work/_temp/_runner_file_commands/step_summary_1cb22d7f-5663-41a8-9ffc-13472605c76c`. For more information, see [AUTOTITLE](/actions/using-workflows/workflow-commands-for-github-actions#adding-a-job-summary). |
 | `GITHUB_TRIGGERING_ACTOR` | {% data reusables.actions.github-triggering-actor-description %} |
 | `GITHUB_WORKFLOW` | The name of the workflow. For example, `My test workflow`. If the workflow file doesn't specify a `name`, the value of this variable is the full path of the workflow file in the repository. |
 | `GITHUB_WORKFLOW_REF` | {% data reusables.actions.workflow-ref-description %} |
@@ -330,6 +330,6 @@ In this example, the two `if` statements check the `os` property of the `runner`
 
 ## Passing values between steps and jobs in a workflow
 
- If you generate a value in one step of a job, you can use the value in subsequent steps of the same job by assigning the value to an existing or new environment variable and then writing this to the `GITHUB_ENV` environment file. The environment file can be used directly by an action, or from a shell command in the workflow file by using the `run` keyword. For more information, see "[AUTOTITLE](/actions/using-workflows/workflow-commands-for-github-actions#setting-an-environment-variable)."
+ If you generate a value in one step of a job, you can use the value in subsequent steps of the same job by assigning the value to an existing or new environment variable and then writing this to the `GITHUB_ENV` environment file. The environment file can be used directly by an action, or from a shell command in the workflow file by using the `run` keyword. For more information, see [AUTOTITLE](/actions/using-workflows/workflow-commands-for-github-actions#setting-an-environment-variable).
 
- If you want to pass a value from a step in one job in a workflow to a step in another job in the workflow, you can define the value as a job output. You can then reference this job output from a step in another job. For more information, see "[AUTOTITLE](/actions/using-workflows/workflow-syntax-for-github-actions#jobsjob_idoutputs)."
+ If you want to pass a value from a step in one job in a workflow to a step in another job in the workflow, you can define the value as a job output. You can then reference this job output from a step in another job. For more information, see [AUTOTITLE](/actions/using-workflows/workflow-syntax-for-github-actions#jobsjob_idoutputs).

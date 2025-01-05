@@ -63,7 +63,7 @@ If you choose this option, actions {% ifversion actions-workflow-policy %}and re
 * **Allow actions created by {% data variables.product.prodname_dotcom %}:** Allows all actions created by {% data variables.product.prodname_dotcom %}, located in the [`actions`](https://github.com/actions) and [`github`](https://github.com/github) organizations.
 * **Allow Marketplace actions by verified creators:** Allows all {% data variables.product.prodname_marketplace %} actions created by verified creators, labeled with {% octicon "verified" aria-label="The verified badge" %}.{% ifversion ghes %}
 
-   Only available if you have {% data variables.product.prodname_github_connect %} enabled and configured with {% data variables.product.prodname_actions %}. See "[AUTOTITLE](/admin/github-actions/managing-access-to-actions-from-githubcom/enabling-automatic-access-to-githubcom-actions-using-github-connect)."{% endif %}
+   Only available if you have {% data variables.product.prodname_github_connect %} enabled and configured with {% data variables.product.prodname_actions %}. See [AUTOTITLE](/admin/github-actions/managing-access-to-actions-from-githubcom/enabling-automatic-access-to-githubcom-actions-using-github-connect).{% endif %}
 * **Allow specified actions{% ifversion actions-workflow-policy %} and reusable workflows{% endif %}:** Allows actions{% ifversion actions-workflow-policy %} and reusable workflows{% endif %} that you specify. You can specify individual actions{% ifversion actions-workflow-policy %} and reusable workflows{% endif %} or entire organizations and repositories.
 
 When specifying actions{% ifversion actions-workflow-policy %} and reusable workflows{% endif %}, use the following syntax:

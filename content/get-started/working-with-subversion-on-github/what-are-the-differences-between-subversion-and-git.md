@@ -49,7 +49,7 @@ A _subproject_ is a project that's developed and managed somewhere outside of yo
 
 In SVN, a subproject is called an _SVN external_. In Git, it's called a _Git submodule_. Although conceptually similar, Git submodules are not kept up-to-date automatically; you must explicitly ask for a new version to be brought into your project.
 
-For more information, see "[Git Tools Submodules](https://git-scm.com/book/en/v2/Git-Tools-Submodules)" in the Git documentation.
+For more information, see [Git Tools Submodules](https://git-scm.com/book/en/v2/Git-Tools-Submodules) in the Git documentation.
 
 ## Preserving history
 
@@ -63,4 +63,4 @@ SVN is configured to assume that the history of a project never changes. Git all
 ## Further reading
 
 * ["Branching and Merging" from the _Git SCM_ book](https://git-scm.com/book/en/v2/Git-Branching-Basic-Branching-and-Merging)
-* "[AUTOTITLE](/migrations/importing-source-code/using-the-command-line-to-import-source-code/importing-a-subversion-repository)"
+* [AUTOTITLE](/migrations/importing-source-code/using-the-command-line-to-import-source-code/importing-a-subversion-repository)

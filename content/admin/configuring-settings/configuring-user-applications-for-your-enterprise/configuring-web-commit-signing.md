@@ -19,7 +19,7 @@ redirect_from:
 
 ## About web commit signing
 
-If you enable web commit signing, {% data variables.product.product_name %} will automatically use GPG to sign commits users make on the web interface of {% data variables.location.product_location %}. Commits signed by {% data variables.product.product_name %} will have a verified status. For more information, see "[AUTOTITLE](/authentication/managing-commit-signature-verification/about-commit-signature-verification)."
+If you enable web commit signing, {% data variables.product.product_name %} will automatically use GPG to sign commits users make on the web interface of {% data variables.location.product_location %}. Commits signed by {% data variables.product.product_name %} will have a verified status. For more information, see [AUTOTITLE](/authentication/managing-commit-signature-verification/about-commit-signature-verification).
 
 You can enable web commit signing, rotate the private key used for web commit signing, and disable web commit signing.
 
@@ -37,7 +37,7 @@ You can enable web commit signing, rotate the private key used for web commit si
     ghe-config app.github.web-commit-signing-enabled true
     ```
 
-1. Create a new user on {% data variables.location.product_location %} via built-in authentication or external authentication. For more information, see "[AUTOTITLE](/admin/identity-and-access-management/managing-iam-for-your-enterprise/about-authentication-for-your-enterprise)."
+1. Create a new user on {% data variables.location.product_location %} via built-in authentication or external authentication. For more information, see [AUTOTITLE](/admin/identity-and-access-management/managing-iam-for-your-enterprise/about-authentication-for-your-enterprise).
    * The user's username must be the same username you used when creating the PGP key in step 1 above, for example, `web-flow`.
    * The user's email address must be the same address you used when creating the PGP key.
 {% data reusables.enterprise_site_admin_settings.add-key-to-web-flow-user %}
@@ -45,7 +45,7 @@ You can enable web commit signing, rotate the private key used for web commit si
 1. Under "No-reply email address", type the same email address you used when creating the PGP key.
 
    > [!NOTE]
-   > The "No-reply email address" field will only be displayed if you've enabled email for {% data variables.location.product_location %}. For more information, see "[AUTOTITLE](/admin/configuration/configuring-your-enterprise/configuring-email-for-notifications#configuring-smtp-for-your-enterprise)."
+   > The "No-reply email address" field will only be displayed if you've enabled email for {% data variables.location.product_location %}. For more information, see [AUTOTITLE](/admin/configuration/configuring-your-enterprise/configuring-email-for-notifications#configuring-smtp-for-your-enterprise).
 
 {% data reusables.enterprise_management_console.save-settings %}
 

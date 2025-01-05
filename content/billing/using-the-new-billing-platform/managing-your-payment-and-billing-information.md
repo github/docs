@@ -26,18 +26,18 @@ You can view your payment information and history, and update your billing conta
 
 You must know your Azure subscription ID. For more information, see the following documentation or [contact Azure support](https://azure.microsoft.com/support/).
 
-* "[AUTOTITLE](/billing/managing-the-plan-for-your-github-account/connecting-an-azure-subscription)"
+* [AUTOTITLE](/billing/managing-the-plan-for-your-github-account/connecting-an-azure-subscription)
 * [Get subscription and tenant IDs in the Azure portal](https://learn.microsoft.com/en-us/azure/azure-portal/get-subscription-tenant-id) in the Microsoft Docs
 
 {% elsif ghec %}
 
 ## Prerequisites for paying through Azure
 
-* You must be new to {% data variables.product.prodname_ghe_cloud %} to begin with usage-based billing through an Azure subscription. If your company already uses {% data variables.product.github %}, you can use {% data variables.product.prodname_importer_proper_name %} to migrate your resources to a new subscription that bills through Azure. For more information, see "[AUTOTITLE](/migrations/using-github-enterprise-importer/understanding-github-enterprise-importer/about-github-enterprise-importer)."
+* You must be new to {% data variables.product.prodname_ghe_cloud %} to begin with usage-based billing through an Azure subscription. If your company already uses {% data variables.product.github %}, you can use {% data variables.product.prodname_importer_proper_name %} to migrate your resources to a new subscription that bills through Azure. For more information, see [AUTOTITLE](/migrations/using-github-enterprise-importer/understanding-github-enterprise-importer/about-github-enterprise-importer).
 * Prepaid usage is not currently available for usage-based billing through Azure.
 * You must know your Azure subscription ID. For more information, see the following documentation or [contact Azure support](https://azure.microsoft.com/support/).
 
-  * "[AUTOTITLE](/billing/managing-the-plan-for-your-github-account/connecting-an-azure-subscription)"
+  * [AUTOTITLE](/billing/managing-the-plan-for-your-github-account/connecting-an-azure-subscription)
   * [Get subscription and tenant IDs in the Azure portal](https://learn.microsoft.com/en-us/azure/azure-portal/get-subscription-tenant-id) in the Microsoft Docs
 
 ## Connecting your Azure subscription
@@ -46,7 +46,7 @@ After creation of your new enterprise on {% data variables.product.prodname_dotc
 
 > [!IMPORTANT] If you don't use {% data variables.product.prodname_emus %}, connection of an Azure subscription will immediately end your trial and begin paid usage.
 
-For more information, see "[AUTOTITLE](/billing/managing-the-plan-for-your-github-account/connecting-an-azure-subscription#connecting-your-azure-subscription-to-your-enterprise-account)."
+For more information, see [AUTOTITLE](/billing/managing-the-plan-for-your-github-account/connecting-an-azure-subscription#connecting-your-azure-subscription-to-your-enterprise-account).
 
 ## What does my Azure invoice look like?
 

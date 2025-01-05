@@ -12,7 +12,7 @@ redirect_from:
 
 ## About searching for discussions
 
-You can search for discussions globally across all of {% data variables.product.product_name %}, or search for discussions within a particular organization or repository. For more information, see "[AUTOTITLE](/search-github/getting-started-with-searching-on-github/about-searching-on-github)."
+You can search for discussions globally across all of {% data variables.product.product_name %}, or search for discussions within a particular organization or repository. For more information, see [AUTOTITLE](/search-github/getting-started-with-searching-on-github/about-searching-on-github).
 
 {% data reusables.search.syntax_tips %}
 
@@ -56,7 +56,7 @@ You can search for a discussion that has been answered using the `is` qualifier.
 
 ## Search based on whether a discussion is locked
 
-You can search for a discussion that has been locked using the `is` qualifier. For more information, see "[AUTOTITLE](/discussions/managing-discussions-for-your-community/moderating-discussions)."
+You can search for a discussion that has been locked using the `is` qualifier. For more information, see [AUTOTITLE](/discussions/managing-discussions-for-your-community/moderating-discussions).
 
 | Qualifier        | Example
 | ------------- | -------------
@@ -65,7 +65,7 @@ You can search for a discussion that has been locked using the `is` qualifier. F
 
 ## Filter by repository visibility
 
-You can filter by the visibility of the repository containing the discussions using the `is` qualifier. For more information, see "[AUTOTITLE](/repositories/creating-and-managing-repositories/about-repositories#about-repository-visibility)."
+You can filter by the visibility of the repository containing the discussions using the `is` qualifier. For more information, see [AUTOTITLE](/repositories/creating-and-managing-repositories/about-repositories#about-repository-visibility).
 
 | Qualifier  | Example |
 | :- | :- |
@@ -111,7 +111,7 @@ You can use the `involves` qualifier to find discussions that involve a certain 
 
 ## Search by number of comments
 
-You can use the `comments` qualifier along with greater than, less than, and range qualifiers to search by the number of comments. For more information, see "[AUTOTITLE](/search-github/getting-started-with-searching-on-github/understanding-the-search-syntax)."
+You can use the `comments` qualifier along with greater than, less than, and range qualifiers to search by the number of comments. For more information, see [AUTOTITLE](/search-github/getting-started-with-searching-on-github/understanding-the-search-syntax).
 
 | Qualifier | Example |
 | :- | :- |
@@ -149,4 +149,4 @@ You can filter discussions by specific labels that are applied to discussions.
 
 ## Further reading
 
-* "[AUTOTITLE](/search-github/getting-started-with-searching-on-github/sorting-search-results)"
+* [AUTOTITLE](/search-github/getting-started-with-searching-on-github/sorting-search-results)

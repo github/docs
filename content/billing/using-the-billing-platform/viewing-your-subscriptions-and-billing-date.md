@@ -50,4 +50,4 @@ shortTitle: Subscriptions & billing date
 
 ## Further reading
 
-* "[AUTOTITLE](/billing/managing-the-plan-for-your-github-account/about-billing-for-plans)"
+* [AUTOTITLE](/billing/managing-the-plan-for-your-github-account/about-billing-for-plans)

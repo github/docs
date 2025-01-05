@@ -27,7 +27,7 @@ To make your repositories easier to reference in academic literature, you can cr
 1. Navigate to the [Zenodo {% data variables.product.prodname_dotcom %} page](https://zenodo.org/account/settings/github/).
 1. To the right of the name of the repository you want to archive, toggle the button to **On**.
 
-Zenodo archives your repository and issues a new DOI each time you create a new {% data variables.product.product_name %} [release](/repositories/releasing-projects-on-github/about-releases). Follow the steps at "[AUTOTITLE](/repositories/releasing-projects-on-github/managing-releases-in-a-repository)" to create a new one.
+Zenodo archives your repository and issues a new DOI each time you create a new {% data variables.product.product_name %} [release](/repositories/releasing-projects-on-github/about-releases). Follow the steps at [AUTOTITLE](/repositories/releasing-projects-on-github/managing-releases-in-a-repository) to create a new one.
 
 ## Publicizing and citing research material with Figshare
 

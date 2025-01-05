@@ -26,26 +26,26 @@ You can perform all the Git actions you need directly within your codespace. For
 
 {% vscode %}
 
-For more information about Git support in {% data variables.product.prodname_vscode %}, see "[Using Version Control in {% data variables.product.prodname_vscode_shortname %}](https://code.visualstudio.com/docs/editor/versioncontrol#_git-support)" in the {% data variables.product.prodname_vscode %} documentation.
+For more information about Git support in {% data variables.product.prodname_vscode %}, see [Using Version Control in {% data variables.product.prodname_vscode_shortname %}](https://code.visualstudio.com/docs/editor/versioncontrol#_git-support) in the {% data variables.product.prodname_vscode %} documentation.
 
 {% endvscode %}
 
 {% webui %}
 
-Source control in the {% data variables.product.prodname_vscode %} web client uses the same workflow as the {% data variables.product.prodname_vscode %} desktop application. For more information, see "[Using Version Control in {% data variables.product.prodname_vscode_shortname %}](https://code.visualstudio.com/docs/editor/versioncontrol#_git-support)" in the {% data variables.product.prodname_vscode %} documentation.
+Source control in the {% data variables.product.prodname_vscode %} web client uses the same workflow as the {% data variables.product.prodname_vscode %} desktop application. For more information, see [Using Version Control in {% data variables.product.prodname_vscode_shortname %}](https://code.visualstudio.com/docs/editor/versioncontrol#_git-support) in the {% data variables.product.prodname_vscode %} documentation.
 
 {% endwebui %}
 
 A typical workflow for updating a file using {% data variables.product.prodname_github_codespaces %} would be:
 
-* From the default branch of your repository on {% data variables.product.prodname_dotcom %}, create a codespace. See "[AUTOTITLE](/codespaces/developing-in-a-codespace/creating-a-codespace-for-a-repository)."
+* From the default branch of your repository on {% data variables.product.prodname_dotcom %}, create a codespace. See [AUTOTITLE](/codespaces/developing-in-a-codespace/creating-a-codespace-for-a-repository).
 * In your codespace, create a new branch to work on.
 * Make your changes and save them.
 * Commit the change.
 * Raise a pull request.
 
 > [!NOTE]
-> By default, {% data variables.product.prodname_github_codespaces %} uses the HTTPS protocol to transfer data to and from a remote repository, and authenticates with a `GITHUB_TOKEN` configured with read and write access to the repository from which you create the codespace. If you're having issues with authentication, see "[AUTOTITLE](/codespaces/troubleshooting/troubleshooting-authentication-to-a-repository)."
+> By default, {% data variables.product.prodname_github_codespaces %} uses the HTTPS protocol to transfer data to and from a remote repository, and authenticates with a `GITHUB_TOKEN` configured with read and write access to the repository from which you create the codespace. If you're having issues with authentication, see [AUTOTITLE](/codespaces/troubleshooting/troubleshooting-authentication-to-a-repository).
 
 ## About automatic forking
 
@@ -78,7 +78,7 @@ When you have made some changes, you can push them to a feature branch of your f
 git push origin my-feature-branch
 ```
 
-For more information, see "[AUTOTITLE](/pull-requests/collaborating-with-pull-requests/working-with-forks/about-forks)."
+For more information, see [AUTOTITLE](/pull-requests/collaborating-with-pull-requests/working-with-forks/about-forks).
 
 {% webui %}
 

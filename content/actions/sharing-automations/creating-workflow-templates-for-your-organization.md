@@ -37,7 +37,7 @@ Workflow templates created by users can only be used to create workflows in publ
 {% endif %}
 
 > [!NOTE]
-> To avoid duplication among workflow templates you can call reusable workflows from within a workflow. This can help make your workflows easier to maintain. For more information, see "[AUTOTITLE](/actions/using-workflows/reusing-workflows)."
+> To avoid duplication among workflow templates you can call reusable workflows from within a workflow. This can help make your workflows easier to maintain. For more information, see [AUTOTITLE](/actions/using-workflows/reusing-workflows).
 
 This procedure demonstrates how to create a workflow template and metadata file. The metadata file describes how the workflow templates will be presented to users when they are creating a new workflow.
 
@@ -114,4 +114,4 @@ To add another workflow template, add your files to the same `workflow-templates
 
 ## Next steps
 
-To continue learning about {% data variables.product.prodname_actions %}, see "[AUTOTITLE](/actions/learn-github-actions/using-starter-workflows)."
+To continue learning about {% data variables.product.prodname_actions %}, see [AUTOTITLE](/actions/learn-github-actions/using-starter-workflows).

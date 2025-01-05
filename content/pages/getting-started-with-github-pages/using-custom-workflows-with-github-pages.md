@@ -13,7 +13,7 @@ shortTitle: Use custom workflows
 
 ## About custom workflows
 
-Custom workflows allow {% data variables.product.prodname_pages %} sites to be built via the use of {% data variables.product.prodname_actions %}. You can still select the branch you would like to use via the workflow file, but you are able to do much more with the use of custom workflows. To start using custom workflows you must first enable them for your current repository. For more information, see "[AUTOTITLE](/pages/getting-started-with-github-pages/configuring-a-publishing-source-for-your-github-pages-site#publishing-with-a-custom-github-actions-workflow)."
+Custom workflows allow {% data variables.product.prodname_pages %} sites to be built via the use of {% data variables.product.prodname_actions %}. You can still select the branch you would like to use via the workflow file, but you are able to do much more with the use of custom workflows. To start using custom workflows you must first enable them for your current repository. For more information, see [AUTOTITLE](/pages/getting-started-with-github-pages/configuring-a-publishing-source-for-your-github-pages-site#publishing-with-a-custom-github-actions-workflow).
 
 ## Configuring the `configure-pages` action
 
@@ -26,7 +26,7 @@ To use the action place this snippet under your `jobs` in the desired workflow.
   uses: actions/configure-pages@v5
 ```
 
-This action helps support deployment from any static site generator to {% data variables.product.prodname_pages %}. To make this process less repetitive you can use workflow templates for some of the most widely used static site generators. For more information, see "[AUTOTITLE](/actions/learn-github-actions/using-starter-workflows)."
+This action helps support deployment from any static site generator to {% data variables.product.prodname_pages %}. To make this process less repetitive you can use workflow templates for some of the most widely used static site generators. For more information, see [AUTOTITLE](/actions/learn-github-actions/using-starter-workflows).
 
 ## Configuring the `upload-pages-artifact` action
 
@@ -175,4 +175,4 @@ jobs:
 # ...
 ```
 
-You can define your jobs to be run on different runners, sequentially, or in parallel. For more information, see "[AUTOTITLE](/actions/using-jobs)."
+You can define your jobs to be run on different runners, sequentially, or in parallel. For more information, see [AUTOTITLE](/actions/using-jobs).

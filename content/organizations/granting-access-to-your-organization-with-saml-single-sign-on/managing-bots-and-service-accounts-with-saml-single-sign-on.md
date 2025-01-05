@@ -19,4 +19,4 @@ To retain access for bots and service accounts, organization administrators can 
 
 ## Further reading
 
-* "[AUTOTITLE](/organizations/managing-saml-single-sign-on-for-your-organization/about-identity-and-access-management-with-saml-single-sign-on)"
+* [AUTOTITLE](/organizations/managing-saml-single-sign-on-for-your-organization/about-identity-and-access-management-with-saml-single-sign-on)

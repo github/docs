@@ -30,7 +30,7 @@ Organization owners can create knowledge bases, bringing together Markdown docum
 
 When you ask a question in {% data variables.product.prodname_copilot_chat %} with a knowledge base selected, {% data variables.product.prodname_copilot %} will search the knowledge base for relevant information and synthesize a response.
 
-For more information on how to use knowledge bases in {% data variables.product.prodname_copilot_chat_short %}, see "[AUTOTITLE](/copilot/github-copilot-chat/copilot-chat-in-github/using-github-copilot-chat-in-githubcom#asking-a-question-about-a-knowledge-base)" and "[AUTOTITLE](/copilot/github-copilot-chat/copilot-chat-in-ides/using-github-copilot-chat-in-your-ide#asking-a-question-about-a-knowledge-base-in-github-copilot-chat)."
+For more information on how to use knowledge bases in {% data variables.product.prodname_copilot_chat_short %}, see [AUTOTITLE](/copilot/github-copilot-chat/copilot-chat-in-github/using-github-copilot-chat-in-githubcom#asking-a-question-about-a-knowledge-base) and [AUTOTITLE](/copilot/github-copilot-chat/copilot-chat-in-ides/using-github-copilot-chat-in-your-ide#asking-a-question-about-a-knowledge-base-in-github-copilot-chat).
 
 ## Creating a knowledge base
 
@@ -55,7 +55,7 @@ Knowledge bases you create will be accessible by all organization members with a
 
     ![Screenshot of the "Select repositories" page.](/assets/images/help/copilot/copilot-select-repositories-page.png)
 
-1. Optionally, you can specify particular paths within the selected repositories for searches. When a search is conducted using the knowledge base, only the files located in those designated paths will be included in the results. For more information on specifying repository paths, see "[AUTOTITLE](/search-github/github-code-search/understanding-github-code-search-syntax#path-qualifier)"
+1. Optionally, you can specify particular paths within the selected repositories for searches. When a search is conducted using the knowledge base, only the files located in those designated paths will be included in the results. For more information on specifying repository paths, see [AUTOTITLE](/search-github/github-code-search/understanding-github-code-search-syntax#path-qualifier)
 
       * Click **Edit file paths**.
 
@@ -87,7 +87,3 @@ Organization owners can delete a knowledge base created in their organization.
 1. In the left sidebar, click **{% octicon "copilot" aria-hidden="true" %} {% data variables.product.prodname_copilot_short %}** then click **Knowledge bases**.
 1. To the right of the knowledge base you want to delete, click {% octicon "trash" aria-label="The trash symbol" %}.
 1. In the "Confirm deletion" dialog box, review the information and click **Delete**.
-
-## Indexing repositories within a knowledge base
-
-For more information about indexing, see "[AUTOTITLE](/copilot/managing-copilot/managing-github-copilot-in-your-organization/customizing-copilot-for-your-organization/indexing-repositories-for-copilot-chat)"
