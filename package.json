@@ -12,7 +12,7 @@
     "@babel/core": "^7.8.3",
     "@babel/plugin-transform-runtime": "^7.11.0",
     "@babel/preset-env": "^7.8.4",
-    "@babel/runtime": "^7.11.2",
+    "@babel/runtime": "^7.26.0",
     "@github-docs/data-directory": "^1.2.0",
     "@github-docs/frontmatter": "^1.3.1",
     "@github-docs/render-content": "^5.2.0",
