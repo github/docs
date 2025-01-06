@@ -17,7 +17,7 @@ When {% data variables.product.prodname_dependabot %} is paused, {% data variabl
 * To the UI of the **Settings** tab of the repository (under **{% ifversion code-security-wording-only %}**Code security**{% else %}**Code security and analysis**{% endif %}**, then **{% data variables.product.prodname_dependabot %}**).
 * To the list of {% data variables.product.prodname_dependabot_alerts %} (if {% data variables.product.prodname_dependabot_security_updates %} are affected).
 
-{% ifversion dependabot-updates-paused-enterprise-orgs %} Additionally, you will be able to see whether {% data variables.product.prodname_dependabot %} is paused at the organization-level in the security overview. The `paused` status will also be visible via the API. For more information, see "[AUTOTITLE](/rest/repos#enable-automated-security-fixes)."{% endif %}
+{% ifversion dependabot-updates-paused-enterprise-orgs %} Additionally, you will be able to see whether {% data variables.product.prodname_dependabot %} is paused at the organization-level in the security overview. The `paused` status will also be visible via the API. For more information, see [AUTOTITLE](/rest/repos#enable-automated-security-fixes).{% endif %}
 
 As soon as a maintainer interacts with a {% data variables.product.prodname_dependabot %} pull request again, {% data variables.product.prodname_dependabot %} will unpause itself:
 * Security updates are automatically resumed for {% data variables.product.prodname_dependabot_alerts %}.
