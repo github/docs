@@ -36,7 +36,7 @@ If you see rejected connections, make sure the domains documented by the `/meta`
 
 To get the list of domains required by {% data variables.product.prodname_github_codespaces %}, execute the following command using {% data variables.product.prodname_cli %}:
 
-`gh api meta | jq .domains.codespaces`
+`gh api meta --jq .domains.codespaces`
 
 ### "We are having trouble fetching your codespace information"
 

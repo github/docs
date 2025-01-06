@@ -20,7 +20,7 @@ topics:
 ---
 SNMP is a common standard for monitoring devices over a network. We strongly recommend enabling SNMP so you can monitor the health of {% data variables.location.product_location %} and know when to add more memory, storage, or processor power to the host machine.
 
-{% data variables.product.prodname_enterprise %} has a standard SNMP installation, so you can take advantage of the [many plugins](https://www.monitoring-plugins.org/doc/man/check_snmp.html) available for Nagios or for any other monitoring system.
+{% data variables.product.prodname_enterprise %} has a standard SNMP installation, so you can take advantage of the [many plugins](https://nagios-plugins.org/doc/man/check_snmp.html) available for Nagios or for any other monitoring system.
 
 ## Configuring SNMP v2c
 
