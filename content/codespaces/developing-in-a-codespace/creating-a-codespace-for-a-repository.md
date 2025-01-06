@@ -42,9 +42,6 @@ Organizations can enable members and outside collaborators to create and use cod
 
 {% data reusables.codespaces.starting-new-project-template %} For more information, see [AUTOTITLE](/codespaces/developing-in-a-codespace/creating-a-codespace-from-a-template).
 
-> [!NOTE]
-> If you use a JetBrains IDE, you can use {% data variables.product.prodname_cli %} to create a codespace. You can then use the JetBrains Gateway application to open the codespace in a JetBrains IDE. For more information, see [AUTOTITLE](/codespaces/developing-in-a-codespace/using-github-codespaces-in-your-jetbrains-ide).
-
 If you create a codespace from a repository, the codespace will be associated with a specific branch, which cannot be empty. You can create more than one codespace per repository or even per branch.
 
 {% data reusables.codespaces.you-can-see-all-your-codespaces %}

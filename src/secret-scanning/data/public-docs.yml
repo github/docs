@@ -898,6 +898,17 @@
   hasPushProtection: false
   hasValidityCheck: false
   isduplicate: false
+- provider: Cockroach Labs
+  supportedSecret: CockroachDB Cloud API Key
+  secretType: ccdb_api_key
+  versions:
+    fpt: '*'
+    ghec: '*'
+  isPublic: true
+  isPrivateWithGhas: false
+  hasPushProtection: false
+  hasValidityCheck: false
+  isduplicate: false
 - provider: Contentful
   supportedSecret: Contentful Personal Access Token
   secretType: contentful_personal_access_token

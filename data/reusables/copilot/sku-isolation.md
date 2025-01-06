@@ -14,7 +14,7 @@ Configuring {% data variables.product.prodname_copilot_sku_isolation %} will aff
 
 ## Important steps to ensure continued access to {% data variables.product.prodname_copilot %}
 
-You should ensure that your firewall allows access to all of the hostnames listed in "[AUTOTITLE](/copilot/managing-copilot/managing-github-copilot-in-your-organization/configuring-your-proxy-server-or-firewall-for-copilot)."
+You should ensure that your firewall allows access to all of the hostnames listed in [AUTOTITLE](/copilot/managing-copilot/managing-github-copilot-in-your-organization/configuring-your-proxy-server-or-firewall-for-copilot).
 
 ## Configuring {% data variables.product.prodname_copilot_sku_isolation %} for your {% ifversion ghec %}enterprise or {% endif %}organization
 
