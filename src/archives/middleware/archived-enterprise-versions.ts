@@ -234,8 +234,9 @@ export default async function archivedEnterpriseVersions(
         )
         .replaceAll(
           `${OLD_AZURE_BLOB_ENTERPRISE_DIR}/${requestedVersion}/`,
-          `${req.protocol}://${req.get('x-forwarded-host') || req.get('host')}/enterprise-server@${requestedVersion}/`,
+          `${req.protocol}://docs.github.com/enterprise-server@${requestedVersion}/`,
         )
+      // TODO host: req.get('x-forwarded-host') || req.get('host')
     }
 
     // Releases 3.1 and lower were previously hosted in the
