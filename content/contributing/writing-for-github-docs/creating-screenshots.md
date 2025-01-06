@@ -93,6 +93,8 @@ In addition to the criteria for inclusion, screenshots must meet the following r
 * 750–1000 pixels wide for full-column images
 * File size of 250 KB or less
 * Descriptive file names, such as `gist-embed-link.png` instead of `right_side_page_03.png`
+* Images captured on macOS must be retina images
+  * In Snagit, select **Snagit** > **Preferences** > **Advanced** and deselect "Scale down retina images when sharing"
 
 ### Accessibility
 
