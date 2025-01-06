@@ -5,6 +5,7 @@ name: Purge Fastly
 # **Who does it impact**: Writers and engineers.
 
 on:
+  deployment_status:
   workflow_dispatch:
     inputs:
       nuke_all:
@@ -16,9 +17,6 @@ on:
         description: "Comma separated languages. E.g. 'en,ja, es' (defaults to all)"
         required: false
         default: ''
-  push:
-    branches:
-      - main
 
 permissions:
   contents: read
@@ -29,11 +27,12 @@ env:
 
 jobs:
   send-purges:
+    # Run when workflow_dispatch is the event (manual) or when deployment_status is the event (automatic) and it's a successful production deploy
     if: >-
       ${{
         github.repository == 'github/docs-internal' &&
-        (github.event_name != 'workflow_run' ||
-        github.event.workflow_run.conclusion == 'success')
+        (github.event_name != 'deployment_status' ||
+         github.event.deployment_status.state == 'success' && github.event.deployment_status.environment == 'production')
       }}
     runs-on: ubuntu-latest
     steps:
