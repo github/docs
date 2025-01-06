@@ -31,7 +31,7 @@ Each codespace you create is hosted by {% data variables.product.prodname_dotcom
 
 By default, the codespace development environment is created from an Ubuntu Linux image that includes a selection of popular languages and tools, but you can use an image based on a Linux distribution of your choice and configure it for your particular requirements. Regardless of your local operating system, your codespace will run in a Linux environment. Windows and macOS are not supported operating systems for the remote development container.
 
-You can connect to your codespaces from your browser, from {% data variables.product.prodname_vscode %}, from the JetBrains Gateway application, or by using {% data variables.product.prodname_cli %}. When you connect, you are placed within the Docker container. You have limited access to the outer Linux virtual machine host.
+You can connect to your codespaces from your browser, from {% data variables.product.prodname_vscode %}, or by using {% data variables.product.prodname_cli %}. When you connect, you are placed within the Docker container. You have limited access to the outer Linux virtual machine host.
 
 ![Diagram showing the relationship between a code editor and a codespace running on an Azure virtual machine.](/assets/images/help/codespaces/codespaces-diagram.png)
 
