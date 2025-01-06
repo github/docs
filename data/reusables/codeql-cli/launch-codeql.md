@@ -5,4 +5,4 @@ package.
 * By adding `<extraction-root>/codeql` to your `PATH`, so that you
 can run the executable as just `codeql`.
 
-At this point, you can execute {% data variables.product.prodname_codeql %} commands. For a full list of the {% data variables.product.prodname_codeql_cli %} commands, see "[AUTOTITLE](/code-security/codeql-cli/codeql-cli-manual)."
+At this point, you can execute {% data variables.product.prodname_codeql %} commands. For a full list of the {% data variables.product.prodname_codeql_cli %} commands, see [AUTOTITLE](/code-security/codeql-cli/codeql-cli-manual).

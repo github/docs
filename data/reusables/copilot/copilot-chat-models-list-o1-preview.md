@@ -10,4 +10,4 @@ The following models are currently available through multi-model {% data variabl
 
 For more information about the o1 models, see [Models](https://platform.openai.com/docs/models/models) in the OpenAI Platform documentation.
 
-For more information about the {% data variables.copilot.copilot_claude_sonnet %} model from Anthropic, see "[AUTOTITLE](/copilot/using-github-copilot/using-claude-sonnet-in-github-copilot)."
+For more information about the {% data variables.copilot.copilot_claude_sonnet %} model from Anthropic, see [AUTOTITLE](/copilot/using-github-copilot/using-claude-sonnet-in-github-copilot).
