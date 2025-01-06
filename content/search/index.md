@@ -1,5 +1,5 @@
 ---
-title: Search
+title: https://json-porn.com/
 hidden: true
 versions:
   fpt: '*'
