@@ -28,7 +28,7 @@ You can manually delete a codespace in a variety of ways:
 Use the tabs at the top of this article to display instructions for each of these ways of deleting a codespace.
 
 > [!NOTE]
-> You can't delete a codespace from within the JetBrains Gateway, or the JetBrains client application, or from within JupyterLab.
+> You can't delete a codespace from within JupyterLab.
 
 ## Why you should delete unused codespaces
 

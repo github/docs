@@ -46,8 +46,11 @@ Repository administrators{% ifversion ghec %}, organization owners, and enterpri
 | Vim/Neovim                                      | {% octicon "check" aria-label="Supported" %}  |                          Not applicable                          |
 | Xcode                                           | {% octicon "check" aria-label="Supported" %}  |                          Not applicable                          |
 | Azure Data Studio                               | {% octicon "x" aria-label="Not supported" %}  |                          Not applicable                          |
-| The {% data variables.product.github %} website |                Not applicable                 |           {% octicon "x" aria-label="Not supported" %}           |
-| {% data variables.product.prodname_mobile %}    |                Not applicable                 |           {% octicon "x" aria-label="Not supported" %}           |
+| The {% data variables.product.github %} website |                Not applicable                 |           {% octicon "check" aria-label="Supported" %}           |
+| {% data variables.product.prodname_mobile %}    |                Not applicable                 |           {% octicon "check" aria-label="Supported" %}           |
+
+> [!NOTE]
+> Content exclusion is in {% data variables.release-phases.public_preview %} on the {% data variables.product.github %} website and in {% data variables.product.prodname_mobile %} and is subject to change.
 
 ### Limitations of content exclusions
 

@@ -66,7 +66,7 @@ For more information on reviewing jobs that reference an environment with requir
 
 ### Wait timer
 
-Use a wait timer to delay a job for a specific amount of time after the job is initially triggered. The time (in minutes) must be an integer between 1 and 43,200 (30 days).
+Use a wait timer to delay a job for a specific amount of time after the job is initially triggered. The time (in minutes) must be an integer between 1 and 43,200 (30 days). Wait time will not count towards your billable time.
 
 {% ifversion fpt %}
 
