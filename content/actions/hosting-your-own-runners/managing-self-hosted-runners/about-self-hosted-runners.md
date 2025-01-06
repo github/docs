@@ -124,6 +124,7 @@ The following processor architectures are supported for the self-hosted runner a
 
 ## Supported actions on self-hosted runners
 
+All `actions/setup-LANGUAGE` action repositories currently support three platforms: macOS, Windows, and Ubuntu.
 Some extra configuration might be required to use actions from {% data variables.product.github %} with {% data variables.product.prodname_ghe_server %}, or to use the `actions/setup-LANGUAGE` actions with self-hosted runners that do not have internet access. For more information, see [AUTOTITLE](/admin/github-actions/managing-access-to-actions-from-githubcom) and contact your {% data variables.product.prodname_enterprise %} site administrator.
 
 {% endif %}
