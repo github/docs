@@ -66,7 +66,7 @@ Host HOSTNAME
 
 ## Accessing the administrative shell using the local console
 
-In an emergency situation, for example if SSH is unavailable, you can access the administrative shell locally. Sign in as the `admin` user and use the password established during initial setup of {% data variables.product.prodname_ghe_server %}.
+In an emergency situation, for example if SSH is unavailable, you can access the administrative shell locally if your hypervisor provides console access. Press `Alt` + `F2` to switch to an interactive prompt, then sign in as the `admin` user and use the password established during initial setup of {% data variables.product.prodname_ghe_server %}.
 
 ## Access limitations for the administrative shell
 
