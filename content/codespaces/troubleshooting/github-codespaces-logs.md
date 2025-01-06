@@ -13,12 +13,6 @@ redirect_from:
   - /codespaces/troubleshooting/codespaces-logs
 ---
 
-{% jetbrains_beta %}
-
-{% data reusables.codespaces.codespaces-jetbrains-beta-note %}
-
-{% endjetbrains_beta %}
-
 Information on {% data variables.product.prodname_github_codespaces %} is output to various logs:
 
 {% webui %}
@@ -49,14 +43,6 @@ Browser logs are available if you are using {% data variables.product.prodname_g
 Other logs are available if you are using {% data variables.product.prodname_github_codespaces %} in {% data variables.product.prodname_vscode_shortname %} or in your web browser. Click the tabs above for details.
 
 {% endcli %}
-
-{% jetbrains_beta %}
-
-* Creation logs
-
-Other logs are available if you are using {% data variables.product.prodname_github_codespaces %} in {% data variables.product.prodname_vscode_shortname %} or in your web browser. Click the tabs above for details.
-
-{% endjetbrains_beta %}
 
 {% webui %}
 
@@ -158,19 +144,6 @@ The following instructions are for Chrome. The steps for other browsers are simi
    ![Screenshot of the developer tools panel in the Chrome browser. The right-click menu is displayed, showing the option "Save as."](/assets/images/help/codespaces/browser-console-log-save.png)
 
 {% endwebui %}
-
-{% jetbrains_beta %}
-
-{% data reusables.codespaces.jetbrains-open-codespace-plugin %}
-1. In the {% data variables.product.prodname_github_codespaces %} tool window, click the log icon.
-
-   ![Screenshot of the log button (a book symbol).](/assets/images/help/codespaces/jetbrains-plugin-icon-log.png)
-
-## JetBrains logs
-
-You can download logs for the remote JetBrains IDE and the local client application by going to the **Help** menu in the JetBrains client application and clicking **Collect Host and Client Logs**.
-
-{% endjetbrains_beta %}
 
 ## Further reading
 
