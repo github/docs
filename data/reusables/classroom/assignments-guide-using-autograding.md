@@ -1,6 +1,6 @@
-{% data reusables.classroom.about-autograding %} For more information, see "[AUTOTITLE](/education/manage-coursework-with-github-classroom/teach-with-github-classroom/use-autograding)."
+{% data reusables.classroom.about-autograding %} For more information, see [AUTOTITLE](/education/manage-coursework-with-github-classroom/teach-with-github-classroom/use-autograding).
 
-{% data reusables.classroom.use-add-test-drop-down-to-click-grading-method %} For more information, see "[AUTOTITLE](/education/manage-coursework-with-github-classroom/teach-with-github-classroom/use-autograding#grading-methods)."
+{% data reusables.classroom.use-add-test-drop-down-to-click-grading-method %} For more information, see [AUTOTITLE](/education/manage-coursework-with-github-classroom/teach-with-github-classroom/use-autograding#grading-methods).
 
 Define the parameters of your test case, like the name, commands, inputs, outputs, timeout, and points. When you're done, click **Save test case**.
 
