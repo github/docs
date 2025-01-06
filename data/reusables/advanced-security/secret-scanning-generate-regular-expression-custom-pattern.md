@@ -2,7 +2,7 @@
 1. On the top right, click **Generate with AI**.
 
    > [!NOTE]
-   > You can enter a regular expression manually instead of using the generator, by typing a regular expression for the format of your secret pattern in the "Secret format" field. For more information, see "[Defining a custom pattern for a repository](/code-security/secret-scanning/using-advanced-secret-scanning-and-push-protection-features/custom-patterns/defining-custom-patterns-for-secret-scanning#defining-a-custom-pattern-for-a-repository)" or "[Defining a custom pattern for an organization](/code-security/secret-scanning/using-advanced-secret-scanning-and-push-protection-features/custom-patterns/defining-custom-patterns-for-secret-scanning#defining-a-custom-pattern-for-an-organization)."
+   > You can enter a regular expression manually instead of using the generator, by typing a regular expression for the format of your secret pattern in the "Secret format" field. For more information, see [Defining a custom pattern for a repository](/code-security/secret-scanning/using-advanced-secret-scanning-and-push-protection-features/custom-patterns/defining-custom-patterns-for-secret-scanning#defining-a-custom-pattern-for-a-repository) or [Defining a custom pattern for an organization](/code-security/secret-scanning/using-advanced-secret-scanning-and-push-protection-features/custom-patterns/defining-custom-patterns-for-secret-scanning#defining-a-custom-pattern-for-an-organization).
 
 1. In the sliding panel that is displayed:
    * Complete the "I want a regular expression that" field, describing, ideally in plain English, what patterns you want your regular expression to capture. You can use other natural languages, but the performance may not be as good as with English.
