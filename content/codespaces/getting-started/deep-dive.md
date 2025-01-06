@@ -56,7 +56,6 @@ When your container has been created and any other initialization has run, you'l
 
 * Your web browser
 * [{% data variables.product.prodname_vscode %}](/codespaces/developing-in-a-codespace/using-github-codespaces-in-visual-studio-code)
-* [A JetBrains IDE](/codespaces/developing-in-a-codespace/using-github-codespaces-in-your-jetbrains-ide)
 * [{% data variables.product.prodname_cli %}](/codespaces/developing-in-a-codespace/using-github-codespaces-with-github-cli)
 
 ### Step 4: Post-creation setup
@@ -89,7 +88,6 @@ To stop your codespace you can
 
 * In the browser: on your list of codespaces at [https://github.com/codespaces](https://github.com/codespaces), click the ellipsis (**...**) to the right of the codespace you want to stop and click **Stop codespace**.
 * In {% data variables.product.prodname_vscode_shortname %}: open the {% data variables.product.prodname_vscode_command_palette %} - for example, by pressing <kbd>Ctrl</kbd>+<kbd>Shift</kbd>+<kbd>P</kbd> (Windows/Linux) or <kbd>Shift</kbd>+<kbd>Command</kbd>+<kbd>P</kbd> (Mac) - type `Codespaces: stop` then press <kbd>Enter</kbd>. For more information, see [AUTOTITLE](/codespaces/reference/using-the-vs-code-command-palette-in-codespaces#suspending-or-stopping-a-codespace).
-* In the JetBrains client, click the stop button at the top of the {% data variables.product.prodname_github_codespaces %} tool window. For more information, see the "JetBrains IDEs" tab of [AUTOTITLE](/codespaces/developing-in-a-codespace/stopping-and-starting-a-codespace).
 * In a terminal window: use the {% data variables.product.prodname_cli %} command `gh codespace stop`. For more information, see [AUTOTITLE](/codespaces/developing-in-a-codespace/using-github-codespaces-with-github-cli#gh-commands-for-github-codespaces).
 
 If you exit your codespace without running the stop command (for example, by closing the browser tab), or if you leave the codespace running without interaction, the codespace and its running processes will continue for the duration of the inactivity timeout period.
@@ -112,7 +110,7 @@ Running your application when you first land in your codespace can make for a fa
 
 ## Committing and pushing your changes
 
-Git is installed by default in your codespace and so you can rely on your existing Git workflow. You can work with Git in your codespace either via the Terminal or by using the source control features of {% data variables.product.prodname_vscode_shortname %} or JetBrains.
+Git is installed by default in your codespace and so you can rely on your existing Git workflow. You can work with Git in your codespace either via the Terminal or by using the source control features of {% data variables.product.prodname_vscode_shortname %}.
 
 If you're working with an existing repository, you can create a codespace from any branch, commit, or pull request in the repository, or you can switch to a new or existing branch from within your active codespace. Because {% data variables.product.prodname_github_codespaces %} is designed to be ephemeral, you can use it as an isolated environment to experiment, check a teammate's pull request, or fix merge conflicts.
 
@@ -125,27 +123,15 @@ For more information, see [AUTOTITLE](/codespaces/developing-in-a-codespace/usin
 > [!NOTE]
 > Commits from your codespace will be attributed to the name and public email configured at https://github.com/settings/profile. A token scoped to the repository, included in the environment as `GITHUB_TOKEN`, and your GitHub credentials will be used to authenticate.
 
-## Personalizing your codespace with extensions or plugins
+## Personalizing your codespace with extensions
 
-You can add plugins and extensions within a codespace to personalize your experience in JetBrains and {% data variables.product.prodname_vscode_shortname %} respectively.
+You can add extensions within a codespace to personalize your experience in {% data variables.product.prodname_vscode_shortname %}.
 
 ### {% data variables.product.prodname_vscode_shortname %} extensions
 
 If you work on your codespaces in the {% data variables.product.prodname_vscode_shortname %} desktop application, or the web client, you can add any extensions you need from the {% data variables.product.prodname_vscode_marketplace %}. For information on how extensions run in {% data variables.product.prodname_github_codespaces %}, see [Supporting Remote Development and {% data variables.product.prodname_github_codespaces %}](https://code.visualstudio.com/api/advanced-topics/remote-extensions) in the {% data variables.product.prodname_vscode_shortname %} documentation.
 
 If you already use {% data variables.product.prodname_vscode_shortname %}, you can use [Settings Sync](https://code.visualstudio.com/docs/editor/settings-sync) to automatically sync extensions, settings, themes, and keyboard shortcuts between your local instance and any codespaces you create.
-
-### JetBrains plugins
-
-If you work on your codespaces in a JetBrains IDE, you can add plugins from the JetBrains Marketplace.
-
-1. Click **JetBrains Client**, then click **Preferences**.
-1. In the Preferences dialog, click either **Plugins On Host** to install a plugin in the full JetBrains IDE that's running remotely, or **Plugins** to install a plugin on the local client, for example to change the user interface theme.
-1. Click the **Marketplace** tab.
-
-   ![Screenshot of the "Preferences" dialog, with the "Marketplace" tab displayed. The "Plugins On Host" option is highlighted with a dark orange outline.](/assets/images/help/codespaces/jetbrains-preferences-plugins.png)
-
-1. Click **Install** beside the required plugin.
 
 ## About the directory structure of a codespace
 
