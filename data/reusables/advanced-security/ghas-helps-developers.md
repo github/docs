@@ -1,1 +1,1 @@
-{% data variables.product.prodname_GH_advanced_security %} helps developers improve and maintain the security and quality of code. For more information, see "[AUTOTITLE](/get-started/learning-about-github/about-github-advanced-security)."
+{% data variables.product.prodname_GH_advanced_security %} helps developers improve and maintain the security and quality of code. For more information, see [AUTOTITLE](/get-started/learning-about-github/about-github-advanced-security).

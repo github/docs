@@ -20,13 +20,7 @@ redirect_from:
 
 {% endif %}
 
-{% jetbrains_beta %}
-
-{% data reusables.codespaces.codespaces-jetbrains-beta-note %}
-
-{% endjetbrains_beta %}
-
-You can reopen any of your active or stopped codespaces on {% data variables.product.github %}, in a JetBrains IDE, in {% data variables.product.prodname_vscode %}, or by using {% data variables.product.prodname_cli %}. You can't reopen a codespace that has been deleted. See [AUTOTITLE](/codespaces/getting-started/understanding-the-codespace-lifecycle).
+You can reopen any of your active or stopped codespaces on {% data variables.product.github %}, in {% data variables.product.prodname_vscode %}, or by using {% data variables.product.prodname_cli %}. You can't reopen a codespace that has been deleted. See [AUTOTITLE](/codespaces/getting-started/understanding-the-codespace-lifecycle).
 
 You can view all your codespaces on the "Your codespaces" page at [github.com/codespaces](https://github.com/codespaces). From this page, you can:
 
@@ -73,7 +67,6 @@ You can bookmark the address of this page if you want to get back to it quickly 
    You can open the codespace in:
    * Your browser
    * {% data variables.product.prodname_vscode %}
-   * JetBrains Gateway
    * JupyterLab
 
    {% data reusables.codespaces.application-installed-locally %}
@@ -152,14 +145,6 @@ You can also access the commands listed above by navigating to the Remote Explor
 See [`gh codespace code`](https://cli.github.com/manual/gh_codespace_code) in the {% data variables.product.prodname_cli %} manual.
 
 {% endcli %}
-
-{% jetbrains_beta %}
-
-## Reopening an existing codespace
-
-{% data reusables.codespaces.opening-codespace-in-jetbrains %}
-
-{% endjetbrains_beta %}
 
 ## Further reading
 
