@@ -77,5 +77,8 @@ jobs:
           project: My Octopus Project
 ```
 
- {% endraw %}
- 
+{% endraw %}
+
+## Further reading
+
+{% data reusables.actions.oidc-further-reading %}
