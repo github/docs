@@ -9,4 +9,4 @@
 
    The **Suggestions matching public code** preference controls whether {% data variables.product.prodname_copilot_short %} will provide code completion suggestions that match publicly available code.
 
-   For details about the preferences, see "[AUTOTITLE](/copilot/managing-copilot/managing-copilot-as-an-individual-subscriber/managing-copilot-policies-as-an-individual-subscriber)." You can change the preferences at any time.
+   For details about the preferences, see [AUTOTITLE](/copilot/managing-copilot/managing-copilot-as-an-individual-subscriber/managing-copilot-policies-as-an-individual-subscriber). You can change the preferences at any time.

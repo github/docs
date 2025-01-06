@@ -6,4 +6,4 @@ You can use a {% data variables.product.pat_v1 %} to authenticate to {% data var
 
 To authenticate to a {% data variables.product.prodname_registry %} registry within a {% data variables.product.prodname_actions %} workflow, you can use:
 * `GITHUB_TOKEN` to publish packages associated with the workflow repository.
-* a {% data variables.product.pat_v1 %} with at least `read:packages` scope to install packages associated with other private repositories (which `GITHUB_TOKEN` can't access).
+* A {% data variables.product.pat_v1 %} with at least `read:packages` scope to install packages associated with other private repositories (which `GITHUB_TOKEN` can't access).

@@ -12,5 +12,4 @@ Create a link using one of the following URL patterns. In these URLs `CODESPACE-
 | {% data variables.product.prodname_vscode_shortname %} web client |  `https://CODESPACE-NAME.github.dev` |
 | {% data variables.product.prodname_vscode_shortname %} web client with a specified workspace |  `https://CODESPACE-NAME.github.dev?folder=/workspaces/PATH/TO/WORKSPACE/DIRECTORY` |
 | {% data variables.product.prodname_vscode_shortname %} desktop application |  `https://github.com/codespaces/CODESPACE-NAME?editor=vscode` |
-| JetBrains Gateway |  `https://github.com/codespaces/CODESPACE-NAME?editor=jetbrains` |
 | JupyterLab |  `https://github.com/codespaces/CODESPACE-NAME?editor=jupyter` |
