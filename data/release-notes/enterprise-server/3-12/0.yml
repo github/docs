@@ -68,7 +68,8 @@ sections:
       notes:
         # https://github.com/github/releases/issues/3458
         - |
-          To debug issues with Dependabot, users can view logs for Dependabot job runs associated with version updates, security updates, and rebase updates. For more information, see [AUTOTITLE](/code-security/dependabot/working-with-dependabot/viewing-dependabot-job-logs).
+          To debug issues with Dependabot, users can view logs for Dependabot job runs associated with version updates, security updates, and rebase updates. For more information, see [AUTOTITLE](/code-security/dependabot/troubleshooting-dependabot/viewing-dependabot-job-logs).
+
         # https://github.com/github/releases/issues/3091
         - |
           Users can choose how to respond to Dependabot alerts automatically by setting up custom auto-triage rules in repositories or organizations. Auto-triage rules provide control over whether an alert is ignored, is snoozed, or triggers a pull request for a security update. Users can also use a rule created by GitHub to automatically dismiss low-impact issues in npm dependencies. Auto-triage rules are in public beta and subject to change. For more information, see [AUTOTITLE](/code-security/dependabot/dependabot-auto-triage-rules/about-dependabot-auto-triage-rules).

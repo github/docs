@@ -445,8 +445,8 @@ This guide demonstrates how to get coding suggestions from {% data variables.pro
 {% data variables.product.prodname_copilot %} offers coding suggestions as you type. For example, type this function
 signature in a Swift file:
 
-```shell copy
-func CalculateDaysBetweenDates(
+```swift copy
+func calculateDaysBetweenDates(
 ```
 
 {% data variables.product.prodname_copilot %} will automatically suggest an entire function body in grayed text. To accept the first line of a suggestion, press <kbd>Tab</kbd>. To view the full suggestion, hold <kbd>Option</kbd>, and to accept the full suggestion, press <kbd>Option</kbd>+<kbd>Tab</kbd>.

@@ -117,7 +117,7 @@ You can cache your dependencies to speed up your workflow runs. After a successf
 ```yaml copy
 steps:
   - uses: {% data reusables.actions.action-checkout %}
-  - name: Set up JDK 11
+  - name: Set up JDK 17
     uses: {% data reusables.actions.action-setup-java %}
     with:
       java-version: '17'

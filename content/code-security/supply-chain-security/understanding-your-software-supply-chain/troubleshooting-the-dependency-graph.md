@@ -67,5 +67,5 @@ Yes, the dependency graph has {% ifversion dependency-graph-repository-view-upda
 
 * [AUTOTITLE](/code-security/supply-chain-security/understanding-your-software-supply-chain/about-the-dependency-graph)
 * [AUTOTITLE](/repositories/managing-your-repositorys-settings-and-features/enabling-features-for-your-repository/managing-security-and-analysis-settings-for-your-repository)
-* [AUTOTITLE](/code-security/dependabot/working-with-dependabot/troubleshooting-the-detection-of-vulnerable-dependencies)
-* [AUTOTITLE](/code-security/dependabot/working-with-dependabot/troubleshooting-dependabot-errors)
+* [AUTOTITLE](/code-security/dependabot/troubleshooting-dependabot/troubleshooting-the-detection-of-vulnerable-dependencies)
+* [AUTOTITLE](/code-security/dependabot/troubleshooting-dependabot/troubleshooting-dependabot-errors)

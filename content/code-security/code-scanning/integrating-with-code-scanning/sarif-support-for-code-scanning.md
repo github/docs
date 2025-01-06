@@ -35,7 +35,7 @@ If you're new to SARIF and want to learn more, see Microsoft's [`SARIF tutorials
 
 ## Providing data to track {% data variables.product.prodname_code_scanning %} alerts across runs
 
-Each time the results of a new code scan are uploaded, the results are processed and alerts are added to the repository. To prevent duplicate alerts for the same problem, {% data variables.product.prodname_code_scanning %} uses fingerprints to match results across various runs so they only appear once in the latest run for the selected branch. This makes it possible to match alerts to the correct line of code when files are edited. The `ruleID` for a result has to be the same across analysis.
+Each time the results of a new code scan are uploaded, the results are processed and alerts are added to the repository. To prevent duplicate alerts for the same problem, {% data variables.product.prodname_code_scanning %} uses fingerprints to match results across various runs so they only appear once in the latest run for the selected branch. This makes it possible to match alerts to the correct line of code when files are edited. The `ruleId` for a result has to be the same across analysis.
 
 ### Reporting consistent filepaths
 
@@ -536,7 +536,7 @@ This SARIF output file has example values to show all supported SARIF properties
         {
           "ruleId": "R01",
           "message": {
-            "text": "Specifying both [ruleIndex](1) and [ruleID](2) might lead to inconsistencies."
+            "text": "Specifying both [ruleIndex](1) and [ruleId](2) might lead to inconsistencies."
           },
           "level": "error",
           "locations": [

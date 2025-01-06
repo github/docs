@@ -110,6 +110,9 @@ To make your site easier to read, code snippets are highlighted on {% data varia
 
 By default, code blocks on your site will be highlighted by Jekyll. Jekyll uses the [Rouge](https://github.com/rouge-ruby/rouge) highlighter (which is compatible with [Pygments](https://pygments.org/)). If you specify Pygments in your `_config.yml` file, Rouge will be used as the fallback instead. Jekyll cannot use any other syntax highlighter, and you'll get a page build warning if you specify another syntax highlighter in your `_config.yml` file. For more information, see [AUTOTITLE](/pages/setting-up-a-github-pages-site-with-jekyll/about-jekyll-build-errors-for-github-pages-sites).
 
+> [!NOTE]
+> Rouge only recognizes lower-case language identifiers for fenced code blocks. For a list of supported languages, see [Languages](https://rouge-ruby.github.io/docs/file.Languages.html).
+
 If you want to use another highlighter, such as [highlight.js](https://github.com/highlightjs/highlight.js), you must disable Jekyll's syntax highlighting by updating your project's `_config.yml` file.
 
 ```yaml

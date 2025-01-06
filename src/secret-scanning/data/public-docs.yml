@@ -898,6 +898,17 @@
   hasPushProtection: false
   hasValidityCheck: false
   isduplicate: false
+- provider: Cockroach Labs
+  supportedSecret: CockroachDB Cloud API Key
+  secretType: ccdb_api_key
+  versions:
+    fpt: '*'
+    ghec: '*'
+  isPublic: true
+  isPrivateWithGhas: false
+  hasPushProtection: false
+  hasValidityCheck: false
+  isduplicate: false
 - provider: Contentful
   supportedSecret: Contentful Personal Access Token
   secretType: contentful_personal_access_token
@@ -953,6 +964,17 @@
   isPublic: true
   isPrivateWithGhas: true
   hasPushProtection: true
+  hasValidityCheck: false
+  isduplicate: false
+- provider: Databento
+  supportedSecret: Databento API Key
+  secretType: databento_api_key
+  versions:
+    fpt: '*'
+    ghec: '*'
+  isPublic: true
+  isPrivateWithGhas: false
+  hasPushProtection: false
   hasValidityCheck: false
   isduplicate: false
 - provider: Databricks
@@ -1998,6 +2020,28 @@
   hasPushProtection: false
   hasValidityCheck: false
   isduplicate: false
+- provider: Lichess
+  supportedSecret: Lichess OAuth Access Token
+  secretType: lichess_oauth_access_token
+  versions:
+    fpt: '*'
+    ghec: '*'
+  isPublic: true
+  isPrivateWithGhas: false
+  hasPushProtection: false
+  hasValidityCheck: false
+  isduplicate: false
+- provider: Lichess
+  supportedSecret: Lichess Personal Access Token
+  secretType: lichess_personal_access_token
+  versions:
+    fpt: '*'
+    ghec: '*'
+  isPublic: true
+  isPrivateWithGhas: false
+  hasPushProtection: false
+  hasValidityCheck: false
+  isduplicate: false
 - provider: Lightspeed
   supportedSecret: Lightspeed Personal Access Token
   secretType: lightspeed_xs_pat
@@ -2488,6 +2532,17 @@
   hasPushProtection: true
   hasValidityCheck: '{% ifversion fpt or ghes %}false{% else %}true{% endif %}'
   isduplicate: true
+- provider: OpenRouter
+  supportedSecret: OpenRouter API Key
+  secretType: openrouter_api_key
+  versions:
+    fpt: '*'
+    ghec: '*'
+  isPublic: true
+  isPrivateWithGhas: false
+  hasPushProtection: false
+  hasValidityCheck: false
+  isduplicate: false
 - provider: Orbit
   supportedSecret: Orbit API Token
   secretType: orbit_api_token

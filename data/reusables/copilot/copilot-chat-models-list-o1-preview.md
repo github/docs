@@ -5,6 +5,9 @@ The following models are currently available through multi-model {% data variabl
 * **o1-preview:** This model is focused on advanced reasoning and solving complex problems, in particular in math and science. It responds more slowly than the `gpt-4o` model. You can make 10 requests to this model per day. Learn more about the [model's capabilities](https://platform.openai.com/docs/models/o1) and review the [model card](https://openai.com/index/openai-o1-system-card/). o1-preview is hosted on Azure.
 * **o1-mini:** This is the faster version of the `o1-preview` model, balancing the use of complex reasoning with the need for faster responses. It is best suited for code generation and small context operations. You can make 50 requests to this model per day. Learn more about the [model's capabilities](https://platform.openai.com/docs/models/o1) and review the [model card](https://openai.com/index/openai-o1-system-card/). o1-mini is hosted on Azure.
 
+> [!NOTE]
+> Support for the `o1` model, replacing `o1-preview`, is coming soon to {% data variables.product.prodname_vs %}.
+
 For more information about the o1 models, see [Models](https://platform.openai.com/docs/models/models) in the OpenAI Platform documentation.
 
-For more information about the {% data variables.copilot.copilot_claude_sonnet %} model from Anthropic, see "[AUTOTITLE](/copilot/using-github-copilot/using-claude-sonnet-in-github-copilot)."
+For more information about the {% data variables.copilot.copilot_claude_sonnet %} model from Anthropic, see [AUTOTITLE](/copilot/using-github-copilot/using-claude-sonnet-in-github-copilot).
