@@ -265,7 +265,7 @@ Here are some examples for using relative links to display an image.
 
 For more information, see [Relative Links](#relative-links).
 
-### The Picture Element
+### The Picture element
 
 The `<picture>` HTML element is supported.
 
