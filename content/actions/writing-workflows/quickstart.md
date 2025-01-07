@@ -5,6 +5,7 @@ allowTitleToDifferFromFilename: true
 redirect_from:
   - /actions/getting-started-with-github-actions/starting-with-preconfigured-workflow-templates
   - /actions/quickstart
+  - /actions/getting-started-with-github-actions
 versions:
   fpt: '*'
   ghes: '*'
