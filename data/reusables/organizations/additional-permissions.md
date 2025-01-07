@@ -9,7 +9,7 @@
 * Hide or unhide discussion comments
 * Convert issues to discussions
 
-For more information, see "[AUTOTITLE](/discussions)."
+For more information, see [AUTOTITLE](/discussions).
 {% endif %}
 
 ### Issue and Pull Requests
@@ -36,7 +36,7 @@ For more information, see "[AUTOTITLE](/discussions)."
 * Manage wiki settings
 * Manage project settings
 * Manage pull request merging settings
-* Manage {% data variables.product.prodname_pages %} settings (see "[AUTOTITLE](/pages/getting-started-with-github-pages/configuring-a-publishing-source-for-your-github-pages-site)")
+* Manage {% data variables.product.prodname_pages %} settings (see [AUTOTITLE](/pages/getting-started-with-github-pages/configuring-a-publishing-source-for-your-github-pages-site))
 * Manage webhooks
 * Manage deploy keys
 * Edit repository metadata
