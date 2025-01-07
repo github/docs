@@ -7,4 +7,4 @@ After you create an IP allow list, you can enable allowed IP addresses. When you
 
 {% endif %}
 
-Before you enable your IP allow list, you can check whether your allow list will permit a connection from a particular IP address. For more information, see "[Checking if an IP address is permitted](#checking-if-an-ip-address-is-permitted)."
+Before you enable your IP allow list, you can check whether your allow list will permit a connection from a particular IP address. For more information, see [Checking if an IP address is permitted](#checking-if-an-ip-address-is-permitted).
