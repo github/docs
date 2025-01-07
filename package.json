@@ -66,7 +66,7 @@
     "openapi-docs": "tsx src/rest/docs.js",
     "playwright-test": "playwright test --config src/fixtures/playwright.config.ts --project=\"Google Chrome\"",
     "post-lints": "tsx src/content-linter/scripts/post-lints.js",
-    "postinstall": "cp package-lock.json .installed.package-lock.json && echo \"Updated .installed.package-lock.json\" # see husky/post-checkout and husky/post-merge",
+    "postinstall": "copy package-lock.json .installed.package-lock.json && echo \"Updated .installed.package-lock.json\" # see husky/post-checkout and husky/post-merge",
     "precompute-pageinfo": "tsx src/pageinfo/scripts/precompute-pageinfo.ts",
     "prepare": "husky src/workflows/husky",
     "prettier": "prettier -w \"**/*.{ts,tsx,js,mjs,scss,yml,yaml}\"",
