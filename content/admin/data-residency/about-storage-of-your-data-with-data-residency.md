@@ -16,7 +16,7 @@ redirect_from:
 
 Although your code and user data are stored within your chosen region, {% data variables.product.company_short %} may store certain types of data outside your region, and may need to transfer some data outside your region.
 
-If you are in doubt about any aspect of {% data variables.enterprise.data_residency_short %}, contact your account manager in {% data variables.contact.contact_enterprise_sales %}.
+If you are in doubt about any aspect of {% data variables.enterprise.data_residency_short %}, contact your account manager.
 
 ## Data stored in your region
 
