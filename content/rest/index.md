@@ -75,6 +75,7 @@ children:
   - /orgs
   - /packages
   - /pages
+  - /private-registries
   - /projects
   - /pulls
   - /rate-limit
