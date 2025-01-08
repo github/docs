@@ -225,7 +225,7 @@
     ]
   },
   "dependencies": {
-    "@elastic/elasticsearch": "8.13.1",
+    "@elastic/elasticsearch": "8.16.2",
     "@github/failbot": "0.8.3",
     "@horizon-rs/language-guesser": "0.1.1",
     "@octokit/plugin-retry": "6.0.1",
