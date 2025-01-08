@@ -14,9 +14,9 @@ shortTitle: Countries supporting SMS
 ---
 If we don't support two-factor authentication via text message for your country of residence, you can set up authentication via a TOTP mobile application. For more information, see [AUTOTITLE](/authentication/securing-your-account-with-two-factor-authentication-2fa/configuring-two-factor-authentication).
 
-## Supported countries for SMS authentication
+## Supported countries and regions for SMS authentication
 
-If your country is not on this list, then we aren't currently able to reliably deliver text messages to your country. We update this list periodically.
+If your country or region is not on this list, then we aren't currently able to reliably deliver text messages to your country. We update this list periodically.
 
 <ul style="-webkit-column-count: 3; -moz-column-count: 3; column-count: 3;">
 <li>Aland Islands</li>
