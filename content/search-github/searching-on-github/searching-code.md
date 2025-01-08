@@ -1,30 +1,30 @@
 ---
-title: Searching code
-intro: 'You can search for code on {% data variables.product.product_name %} and narrow the results using these code search qualifiers in any combination.'
+title: Searching code {% ifversion code-search-upgrade %}(legacy){% endif %}
+intro: '{% ifversion code-search-upgrade %}You only need to use the legacy code search syntax if you are using the code search API{% else %}You can search for code on {% data variables.product.product_name %} and narrow the results using these code search qualifiers in any combination{% endif %}.'
 redirect_from:
   - /articles/searching-code
   - /github/searching-for-information-on-github/searching-files-in-a-repository-for-exact-matches
   - /github/searching-for-information-on-github/searching-code-for-exact-matches
   - /github/searching-for-information-on-github/searching-code
   - /github/searching-for-information-on-github/searching-on-github/searching-code
+allowTitleToDifferFromFilename: true
 versions:
   fpt: '*'
-  ghes: '*'
-  ghae: '*'
   ghec: '*'
+  ghes: '*'
 topics:
   - GitHub search
 ---
+{% ifversion code-search-upgrade %}
 
-{% ifversion github-code-search %}
-  {% note %}
+> [!NOTE]
+> This article covers the syntax for legacy code search, which you should only need to use for the [REST API endpoint for searching code](/rest/search/search#search-code).
+>
+> For information on the code search syntax that you can use on {% data variables.product.prodname_dotcom %}, see [AUTOTITLE](/search-github/github-code-search/understanding-github-code-search-syntax).
 
-  **Note:** {% data reusables.search.classic-search-code-search-note %}
-
-  {% endnote %}
 {% endif %}
 
-{% data reusables.search.you-can-search-globally %} For more information, see "[AUTOTITLE](/search-github/getting-started-with-searching-on-github/about-searching-on-github)."
+{% data reusables.search.you-can-search-globally %} For more information, see [AUTOTITLE](/search-github/getting-started-with-searching-on-github/about-searching-on-github).
 
 You can only search code using these code search qualifiers. Search qualifiers specifically for repositories, users, or commits, will not work when searching for code.
 
@@ -34,18 +34,17 @@ You can only search code using these code search qualifiers. Search qualifiers s
 
 Due to the complexity of searching code, there are some restrictions on how searches are performed:
 
-{% ifversion fpt or ghes or ghec %}
-- {% data reusables.search.required_login %}{% endif %}
-- Code in [forks](/pull-requests/collaborating-with-pull-requests/working-with-forks/about-forks) is only searchable if the fork has more stars than the parent repository. Forks with fewer stars than the parent repository are **not** indexed for code search. To include forks with more stars than their parent in the search results, you will need to add `fork:true` or `fork:only` to your query. For more information, see "[AUTOTITLE](/search-github/searching-on-github/searching-in-forks)."
-- Only the _default branch_ is indexed for code search.{% ifversion fpt or ghec %}
-- Only files smaller than 384 KB are searchable.{% else %}* Only files smaller than 5 MB are searchable.
-- Only the first 500 KB of each file is searchable.{% endif %}
-- Up to 4,000 private{% ifversion ghec or ghes or ghae %} and internal{% endif %} repositories are searchable. These 4,000 repositories will be the most recently updated of the first 10,000 private{% ifversion ghec or ghes or ghae %} and internal{% endif %} repositories that you have access to.
-- Only repositories with fewer than 500,000 files are searchable.{% ifversion fpt or ghec %}
-- Only repositories that have had activity or have been returned in search results in the last year are searchable.{% endif %}
-- Except with [`filename`](#search-by-filename) searches, you must always include at least one search term when searching source code. For example, searching for [`language:javascript`](https://github.com/search?utf8=%E2%9C%93&q=language%3Ajavascript&type=Code&ref=searchresults) is not valid, while [`amazing language:javascript`](https://github.com/search?utf8=%E2%9C%93&q=amazing+language%3Ajavascript&type=Code&ref=searchresults) is.
-- At most, search results can show two fragments from the same file, but there may be more results within the file.
-- You can't use the following wildcard characters as part of your search query: <code>. , : ; / \ ` ' " = * ! ? # $ & + ^ | ~ < > ( ) { } [ ] @</code>. The search will simply ignore these symbols.
+* {% data reusables.search.required_login %}
+* Code in [forks](/pull-requests/collaborating-with-pull-requests/working-with-forks/about-forks) is only searchable if the fork has more stars than the parent repository, and the forked repository has at least one pushed commit after being created. Forks with fewer stars than the parent repository or no commits are **not** indexed for code search. To include forks with more stars than their parent and at least one pushed commit in the search results, you will need to add `fork:true` or `fork:only` to your query. For more information, see [AUTOTITLE](/search-github/searching-on-github/searching-in-forks).
+* Only the _default branch_ is indexed for code search.{% ifversion fpt or ghec %}
+* Only files smaller than 384 KB are searchable.{% else %}* Only files smaller than 5 MB are searchable.
+* Only the first 500 KB of each file is searchable.{% endif %}
+* Up to 4,000 private{% ifversion ghec or ghes %} and internal{% endif %} repositories are searchable. These 4,000 repositories will be the most recently updated of the first 10,000 private{% ifversion ghec or ghes %} and internal{% endif %} repositories that you have access to.
+* Only repositories with fewer than 500,000 files are searchable.{% ifversion fpt or ghec %}
+* Only repositories that have had activity or have been returned in search results in the last year are searchable.{% endif %}
+* Except with [`filename`](#search-by-filename) searches, you must always include at least one search term when searching source code. For example, searching for [`language:javascript`](https://github.com/search?utf8=%E2%9C%93&q=language%3Ajavascript&type=Code&ref=searchresults) is not valid, while [`amazing language:javascript`](https://github.com/search?utf8=%E2%9C%93&q=amazing+language%3Ajavascript&type=Code&ref=searchresults) is.
+* At most, search results can show two fragments from the same file, but there may be more results within the file.
+* You can't use the following wildcard characters as part of your search query: <code>. , : ; / \ ` ' " = * ! ? # $ & + ^ | ~ < > ( ) { } [ ] @</code>. The search will simply ignore these symbols.
 
 ## Search by the file contents or file path
 
@@ -59,7 +58,7 @@ With the `in` qualifier you can restrict your search to the contents of the sour
 
 ## Search within a user's or organization's repositories
 
-To search the code in all repositories owned by a certain user or organization, you can use the  `user` or `org` qualifier. To search the code in a specific repository, you can use the `repo` qualifier.
+To search the code in all repositories owned by a certain user or organization, you can use the `user` or `org` qualifier. To search the code in a specific repository, you can use the `repo` qualifier.
 
 | Qualifier  | Example
 | ------------- | -------------
@@ -79,7 +78,7 @@ You can use the `path` qualifier to search for source code that appears at a spe
 
 ## Search by language
 
-You can search for code based on what language it's written in. The `language` qualifier can be the language name or alias. For a full list of supported languages with their names and aliases, see the [github/linguist repository](https://github.com/github/linguist/blob/master/lib/linguist/languages.yml).
+You can search for code based on what language it's written in. The `language` qualifier can be the language name or alias. For a full list of supported languages with their names and aliases, see the [github-linguist/linguist repository](https://github.com/github-linguist/linguist/blob/main/lib/linguist/languages.yml).
 
 | Qualifier  | Example
 | ------------- | -------------
@@ -97,13 +96,13 @@ You can use the `size` qualifier to search for source code based on the size of 
 
 ## Search by filename
 
-The `filename` qualifier matches code files with a certain filename. You can also find a file in a repository using the file finder. For more information, see "[AUTOTITLE](/search-github/searching-on-github/finding-files-on-github)."
+The `filename` qualifier matches code files with a certain filename. You can also find a file in a repository using the file finder. For more information, see [AUTOTITLE](/search-github/searching-on-github/finding-files-on-github).
 
 | Qualifier  | Example
 | ------------- | -------------
 | <code>filename:<em>FILENAME</em></code> | [**filename:linguist**](https://github.com/search?utf8=%E2%9C%93&q=filename%3Alinguist&type=Code) matches files named "linguist."
-| <code>filename:<em>FILENAME</em></code> | [**filename:.vimrc commands**](https://github.com/search?q=filename%3A.vimrc+commands&type=Code) matches *.vimrc* files with the word "commands."
-| <code>filename:<em>FILENAME</em></code> | [**filename:test_helper path:test language:ruby**](https://github.com/search?q=minitest+filename%3Atest_helper+path%3Atest+language%3Aruby&type=Code) matches Ruby files named *test_helper* within the *test* directory.
+| <code>filename:<em>FILENAME</em></code> | [**filename:.vimrc commands**](https://github.com/search?q=filename%3A.vimrc+commands&type=Code) matches _.vimrc_ files with the word "commands."
+| <code>filename:<em>FILENAME</em></code> | [**filename:test_helper path:test language:ruby**](https://github.com/search?q=minitest+filename%3Atest_helper+path%3Atest+language%3Aruby&type=Code) matches Ruby files named _test_helper_ within the _test_ directory.
 
 ## Search by file extension
 
@@ -116,6 +115,6 @@ The `extension` qualifier matches code files with a certain file extension.
 
 ## Further reading
 
-- "[AUTOTITLE](/search-github/getting-started-with-searching-on-github/sorting-search-results)"
-- "[AUTOTITLE](/search-github/searching-on-github/searching-in-forks)"{% ifversion fpt or ghec %}
-- "[AUTOTITLE](/repositories/working-with-files/using-files/navigating-code-on-github)"{% endif %}
+* [AUTOTITLE](/search-github/getting-started-with-searching-on-github/sorting-search-results)
+* [AUTOTITLE](/search-github/searching-on-github/searching-in-forks){% ifversion fpt or ghec %}
+* [AUTOTITLE](/repositories/working-with-files/using-files/navigating-code-on-github){% endif %}

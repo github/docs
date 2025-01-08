@@ -23,7 +23,7 @@ jobs:
         run: gh --version
 
       - name: Check out repo's default branch
-        uses: actions/checkout@93ea575cb5d8a053eaa0ac8fa3b40d7e05a33cc8
+        uses: actions/checkout@b4ffde65f46336ab88eb53be808477a3936bae11 # v4.1.1
 
       - uses: ./.github/actions/node-npm-setup
 
@@ -32,27 +32,37 @@ jobs:
         id: check-early-access
         env:
           BRANCH_NAME: ${{ github.head_ref || github.ref_name }}
-          GITHUB_TOKEN: ${{ secrets.DOCUBOT_REPO_PAT }}
-        run: node .github/actions-scripts/what-docs-early-access-branch.js
+          GITHUB_TOKEN: ${{ secrets.DOCS_BOT_PAT_READPUBLICKEY }}
+        run: npm run what-docs-early-access-branch
 
       - name: Check out docs-early-access too, if internal repo
         if: ${{ github.repository == 'github/docs-internal' }}
-        uses: actions/checkout@93ea575cb5d8a053eaa0ac8fa3b40d7e05a33cc8
+        uses: actions/checkout@b4ffde65f46336ab88eb53be808477a3936bae11 # v4.1.1
         with:
           repository: github/docs-early-access
-          token: ${{ secrets.DOCUBOT_REPO_PAT }}
+          token: ${{ secrets.DOCS_BOT_PAT_READPUBLICKEY }}
           path: docs-early-access
           ref: ${{ steps.check-early-access.outputs.branch }}
 
       - name: Merge docs-early-access repo's folders
         if: ${{ github.repository == 'github/docs-internal' }}
-        run: .github/actions-scripts/merge-early-access.sh
+        run: src/early-access/scripts/merge-early-access.sh
 
       - name: Restore disk-cache file for external link checking
-        uses: actions/cache@9b0c1fce7a93df8e3bb8926b0d6e9d89e92f20a7
+        uses: actions/cache@13aacd865c20de90d75de3b17ebe84f7a17d57d2 # v4.0.0
         with:
           path: external-link-checker-db.json
-          key: external-link-checker-${{ hashFiles('.github/actions/rendered-content-link-checker.js') }}
+          key: external-link-checker-${{ hashFiles('src/links/scripts/rendered-content-link-checker.ts') }}
+
+      - name: Insight into external link checker DB json file (before)
+        run: |
+          if [ -f external-link-checker-db.json ]; then
+            echo "external-link-checker-db.json exists"
+            echo -n "Number of URLs in cache: "
+            jq '.urls | keys_unsorted' external-link-checker-db.json | wc -l
+          else
+            echo "external-link-checker-db.json does not exist"
+          fi
 
       - name: Run link checker
         env:
@@ -61,7 +71,7 @@ jobs:
           # Set this to true in repo scope to enable debug logs
           # ACTIONS_RUNNER_DEBUG = true
           ACTION_RUN_URL: ${{ github.server_url }}/${{ github.repository }}/actions/runs/${{ github.run_id }}
-          GITHUB_TOKEN: ${{ secrets.DOCS_BOT_FR }}
+          GITHUB_TOKEN: ${{ secrets.DOCS_BOT_PAT_WRITEORG_PROJECT }}
           REPORT_AUTHOR: docs-bot
           REPORT_LABEL: broken link report
           REPORT_REPOSITORY: github/docs-content
@@ -75,11 +85,22 @@ jobs:
           # If we're unable to connect or the server returns a 50x error,
           # treat it as a warning and not as a broken link.
           EXTERNAL_SERVER_ERRORS_AS_WARNINGS: true
-        timeout-minutes: 30
-        run: node .github/actions-scripts/rendered-content-link-checker.js
+          FAIL_ON_FLAW: false
+        timeout-minutes: 120
+        run: npm run rendered-content-link-checker
 
-      - name: Upload artifact(s)
-        uses: actions/upload-artifact@3cea5372237819ed00197afe530f5a7ea3e805c8
+      - name: Insight into external link checker DB json file (after)
+        run: |
+          if [ -f external-link-checker-db.json ]; then
+            echo "external-link-checker-db.json exists"
+            echo -n "Number of URLs in cache: "
+            jq '.urls | keys_unsorted' external-link-checker-db.json | wc -l
+          else
+            echo "external-link-checker-db.json does not exist"
+          fi
+
+      - uses: ./.github/actions/slack-alert
+        if: ${{ failure() && github.event_name != 'workflow_dispatch' }}
         with:
-          name: artifacts
-          path: ./artifacts
+          slack_channel_id: ${{ secrets.DOCS_ALERTS_SLACK_CHANNEL_ID }}
+          slack_token: ${{ secrets.SLACK_DOCS_BOT_TOKEN }}

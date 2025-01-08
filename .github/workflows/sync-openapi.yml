@@ -1,0 +1,110 @@
+name: Sync OpenAPI schema
+
+# **What it does**: Once a day, this workflow syncs the REST, Webhooks, and GitHub Apps automated pipelines with the github/rest-api-description repository, and creates a pull request if there are updates to any of the data files we generate from the OpenAPI.
+# **Why we have it**: So we can automate updates to REST, Webhooks, and GitHub Apps documentation
+# **Who does it impact**: Anyone making OpenAPI changes in `github/github`, and wanting to get them published on the docs site.
+
+on:
+  workflow_dispatch:
+    inputs:
+      SOURCE_BRANCH:
+        description: 'Branch to pull the dereferenced OpenAPI source files from in the github/rest-api-descriptions repo.'
+        type: string
+        required: true
+        default: 'main'
+  schedule:
+    - cron: '20 16 * * *' # Run every day at 16:20 UTC / 8:20 PST
+
+permissions:
+  contents: write
+  pull-requests: write
+
+# This allows a subsequently queued workflow run to interrupt previous runs
+concurrency:
+  group: '${{ github.workflow }} @ ${{ github.event.pull_request.head.label || github.head_ref || github.ref }}'
+  cancel-in-progress: true
+
+jobs:
+  generate-decorated-files:
+    if: github.repository == 'github/docs-internal'
+    runs-on: ubuntu-20.04-xl
+    steps:
+      - name: Checkout repository code
+        uses: actions/checkout@b4ffde65f46336ab88eb53be808477a3936bae11 # v4.1.1
+
+        # Check out a nested repository inside of previous checkout
+      - name: Checkout rest-api-description repo
+        uses: actions/checkout@b4ffde65f46336ab88eb53be808477a3936bae11 # v4.1.1
+        with:
+          # By default, only the most recent commit of the `main` branch
+          # will be checked out
+          repository: github/rest-api-description
+          path: rest-api-description
+          ref: ${{ inputs.SOURCE_BRANCH }}
+
+      - uses: ./.github/actions/node-npm-setup
+
+      - name: Sync the REST, Webhooks, and GitHub Apps schemas
+        env:
+          # Needed for gh
+          GITHUB_TOKEN: ${{ secrets.DOCS_BOT_PAT_WRITEORG_PROJECT }}
+        run: |
+          npm run sync-rest -- --source-repo rest-api-description --output rest github-apps webhooks rest-redirects
+          git status
+          echo "Deleting the cloned github/rest-api-description repo..."
+          rm -rf rest-api-description
+
+      - name: Get the rest-api-description SHA being synced
+        id: rest-api-description
+        run: |
+          OPENAPI_COMMIT_SHA=$(cat src/rest/lib/config.json | jq -r '.sha')
+          echo "OPENAPI_COMMIT_SHA=$OPENAPI_COMMIT_SHA" >> $GITHUB_OUTPUT
+          echo "Copied files from github/rest-api-description repo. Commit SHA: $OPENAPI_COMMIT_SHA"
+          if [ -z $OPENAPI_COMMIT_SHA ]; then
+            echo "OpenAPI commit SHA is empty!"
+            exit 1
+          fi
+
+      - name: Create pull request
+        env:
+          # Needed for gh
+          GITHUB_TOKEN: ${{ secrets.DOCS_BOT_PAT_READPUBLICKEY }}
+        run: |
+          # If nothing to commit, exit now. It's fine. No orphans.
+          changes=$(git diff --name-only | wc -l)
+          if [[ $changes -eq 0 ]]; then
+            echo "There are no changes to commit after running `npm run sync-rest` Exiting..."
+            exit 0
+          fi
+
+          git config --global user.name "docs-bot"
+          git config --global user.email "77750099+docs-bot@users.noreply.github.com"
+
+          branchname=openapi-update-${{ steps.rest-api-description.outputs.OPENAPI_COMMIT_SHA }}
+
+          remotesha=$(git ls-remote --heads origin $branchname)
+          if [ -n "$remotesha" ]; then
+            # output is not empty, it means the remote branch exists
+            echo "Branch $branchname already exists in 'github/docs-internal'. Exiting..."
+            exit 0
+          fi
+
+          git checkout -b $branchname
+          git add .
+          git commit -m "Add decorated OpenAPI schema files"
+          git push origin $branchname
+
+          echo "Creating pull request..."
+          gh pr create \
+            --title "Update OpenAPI Description" \
+            --body '👋 humans. This PR updates the OpenAPI description with the latest changes. (Synced from github/rest-api-description@${{ steps.rest-api-description.outputs.OPENAPI_COMMIT_SHA }})
+
+            If CI does not pass or other problems arise, contact #docs-engineering on slack.' \
+            --repo github/docs-internal \
+            --label github-openapi-bot
+
+      - uses: ./.github/actions/slack-alert
+        if: ${{ failure() && github.event_name != 'workflow_dispatch' }}
+        with:
+          slack_channel_id: ${{ secrets.DOCS_ALERTS_SLACK_CHANNEL_ID }}
+          slack_token: ${{ secrets.SLACK_DOCS_BOT_TOKEN }}

@@ -1,0 +1,4 @@
+# Issue 10754
+# Versioning for deprecating the GitHub Actions required workflows docs
+versions:
+  ghes: '< 3.12'

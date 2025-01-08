@@ -1,0 +1,70 @@
+date: '2024-09-23'
+sections:
+  security_fixes:
+    - |
+      **MEDIUM:** An attacker could steal sensitive information by exploiting a Cross-Site Scripting vulnerability in the repository transfer feature. This exploitation would require social engineering. GitHub has requested CVE ID [CVE-2024-8770](https://www.cve.org/cverecord?id=CVE-2024-8770) for this vulnerability, which was reported via the [GitHub Bug Bounty program](https://bounty.github.com/).
+    - |
+      **MEDIUM:** An attacker could push a commit with changes to a workflow using a PAT or OAuth app that lacks the appropriate `workflow` scope by pushing a triple-nested tag pointing at the associated commit. GitHub has requested CVE ID [CVE-2024-8263](https://www.cve.org/cverecord?id=CVE-2024-8263) for this vulnerability, which was reported via the [GitHub Bug Bounty program](https://bounty.github.com/).
+    - |
+      **HIGH:** A GitHub App installed in organizations could upgrade some permissions from read to write access without approval from an organization administrator. An attacker would require an account with administrator access to install a malicious GitHub App. GitHub has requested [CVE ID CVE-2024-8810](https://www.cve.org/cverecord?id=CVE-2024-8810) for this vulnerability, which was reported via the [GitHub Bug Bounty Program](https://bounty.github.com/). [Updated: 2024-11-07]
+  bugs:
+    - |
+      For instances deployed on AWS with IMDSv2 enforced, fallback to private IPs was not successful.
+    - |
+      A config apply run may not have been properly applied due to calls being made to Nomad before it was ready to accept connections. When this occurred, the `Error querying agent info: failed querying self endpoint: Get "http://127.0.0.1:4646/v1/agent/self"` error was written to the `/data/user/common/ghe-config.log` file.
+    - |
+      `ghe-storage-find` was sometimes unable to identify a data disk.
+    - |
+      After upgrading the relevant GHES version, the `resolvconf` service failed to start due to a missing directory.
+    - |
+      When configuring a high availability replica and during the database seeding of a MySQL replica node, restarting the nomad service could time out. Consequently, when MySQL replication attempted to start an error was reported, and setting up replication failed.
+    - |
+      Placing Nomad jobs would not allow retries in cases when Nomad wasn't available yet.
+    - |
+      On an instance in a cluster configuration, the `ghe-cluster-status` command returned an error if a soft-deleted repository had a checksum mismatch.
+    - |
+      Some repositories could miss spokes information after restoring in a clustering topology due to unrescued exceptions.
+    - |
+      Fixes and improvements for the git core module.
+    - |
+      The `CommandPalette` component no longer displays repository information on `404` pages, preventing the leakage of private repository information for users without access.
+    - |
+      Custom links to other repositories displayed incorrect breadcrumbs.
+    - |
+      When a GitHub App installation had all repositories installed individually, it was not possible to remove the repositories from the selection.
+    - |
+      Some custom pattern matches were incorrectly filtered during post-scan filtering. You may want to edit and republish your custom patterns. You can manually republish custom patterns with the following command: `ghe-secret-scanning jobs queue custom-patterns republish --custom-pattern-id=?`. Outdated alerts caused by edits during custom pattern backfills have been fixed in version 3.13 and above.
+  changes:
+    - |
+      For instances deployed on Amazon Web Services (AWS), site administrators can configure regional AWS STS endpoints for OIDC from the Management Console.
+  known_issues:
+    - |
+      Custom firewall rules are removed during the upgrade process.
+    - |
+      During the validation phase of a configuration run, a `No such object` error may occur for the Notebook and Viewscreen services. This error can be ignored as the services should still correctly start.
+    - |
+      If the root site administrator is locked out of the Management Console after failed login attempts, the account does not unlock automatically after the defined lockout time. Someone with administrative SSH access to the instance must unlock the account using the administrative shell. For more information, see [AUTOTITLE](/admin/configuration/administering-your-instance-from-the-management-console/troubleshooting-access-to-the-management-console#unlocking-the-root-site-administrator-account).
+    - |
+      The `mbind: Operation not permitted` error in the `/var/log/mysql/mysql.err` file can be ignored. MySQL 8 does not gracefully handle when the `CAP_SYS_NICE` capability isn't required, and outputs an error instead of a warning.
+    - |
+      {% data reusables.release-notes.2023-11-aws-system-time %}
+    - |
+      On an instance with the HTTP `X-Forwarded-For` header configured for use behind a load balancer, all client IP addresses in the instance's audit log erroneously appear as `127.0.0.1`.
+    - |
+      {% data reusables.release-notes.2023-10-git-push-made-but-not-registered %}
+    - |
+      {% data reusables.release-notes.large-adoc-files-issue %}
+    - |
+      {% data reusables.release-notes.2024-01-haproxy-upgrade-causing-increased-errors %}
+    - |
+      Repositories originally imported using ghe-migrator will not correctly track Advanced Security contributions.
+    - |
+      The reply.[hostname] subdomain is falsely always displaying as having no ssl and dns record, when testing the domain settings via management console **without subdomain isolation**.
+    - |
+      Admin stats REST API endpoints may timeout on appliances with many users or repositories. Retrying the request until data is returned is advised.
+    - |
+      {% data reusables.release-notes.2024-06-possible-frontend-5-minute-outage-during-hotpatch-upgrade %}
+    - |
+      When restoring from a backup snapshot, a large number of `mapper_parsing_exception` errors may be displayed.
+    - |
+      Services may respond with a `503` status due to an out of date `haproxy` configuration. This can usually be resolved with a `ghe-config-apply` run.

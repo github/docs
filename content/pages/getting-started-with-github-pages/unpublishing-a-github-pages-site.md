@@ -1,6 +1,6 @@
 ---
 title: Unpublishing a GitHub Pages site
-intro: 'You can unpublish your {% data variables.product.prodname_pages %} site so that the site is no longer available.'
+intro: 'You can unpublish your {% data variables.product.prodname_pages %} site so that your current deployment is removed and the site is no longer available. This is different from deleting the site.'
 redirect_from:
   - /articles/how-do-i-unpublish-a-project-page
   - /articles/unpublishing-a-project-page
@@ -13,39 +13,30 @@ permissions: 'People with admin or maintainer permissions for a repository can u
 versions:
   fpt: '*'
   ghes: '*'
-  ghae: '*'
   ghec: '*'
 topics:
   - Pages
 shortTitle: Unpublish Pages site
 ---
 
-{% ifversion pages-custom-workflow %}
+When you unpublish your site, your current deployment is removed and the site will no longer be available. Any existing repository settings or content will not be affected.
 
-When you unpublish your site, the site will no longer be available. Any existing repository settings or content will not be affected.
+Unpublishing a site does not permanently delete the site. For information on deleting a site, see [AUTOTITLE](/pages/getting-started-with-github-pages/deleting-a-github-pages-site).
 
 {% data reusables.repositories.navigate-to-repo %}
 1. Under **{% data variables.product.prodname_pages %}**, next to the **Your site is live at** message, click {% octicon "kebab-horizontal" aria-label="the horizontal kebab icon" %}.
 1. In the menu that appears, select **Unpublish site**.
    ![Screenshot of {% data variables.product.prodname_pages %} settings showing the URL of a live Pages site. Under the horizontal kebab icon to the right, the "Unpublish site" dropdown option is outlined in dark orange.](/assets/images/help/pages/unpublish-site.png)
 
-{% else %}
+## Re-enabling a site that has been unpublished
 
-## Unpublishing a project site
+Unpublishing your {% data variables.product.prodname_pages %} site removes your current deployment. To make your site available again, you can create a new deployment.
 
-{% data reusables.repositories.navigate-to-repo %}
-2. If a `gh-pages` branch exists in the repository, delete the `gh-pages` branch. For more information, see "[AUTOTITLE](/pull-requests/collaborating-with-pull-requests/proposing-changes-to-your-work-with-pull-requests/creating-and-deleting-branches-within-your-repository#deleting-a-branch)."
-3. If the `gh-pages` branch was your publishing source, {% ifversion fpt or ghec %}skip to step 6{% else %}your site is now unpublished and you can skip the remaining steps{% endif %}.
-{% data reusables.repositories.sidebar-settings %}
-{% data reusables.pages.sidebar-pages %}
-5. Under "{% data variables.product.prodname_pages %}", use the branch dropdown menu and select **None.**
-  ![Screenshot of Pages settings in a {% data variables.product.prodname_dotcom %} repository. A menu to select a branch for a publishing source, labeled "None," is outlined in dark orange.](/assets/images/help/pages/publishing-source-drop-down.png)
-{% data reusables.pages.update_your_dns_settings %}
+### Re-enable using {% data variables.product.prodname_actions %}
 
-## Unpublishing a user or organization site
+A successful workflow run in the repository for your site will create a new deployment. Trigger a workflow run to redeploy your site.
 
-{% data reusables.repositories.navigate-to-repo %}
-2. Delete the branch that you're using as a publishing source, or delete the entire repository. For more information, see "[AUTOTITLE](/pull-requests/collaborating-with-pull-requests/proposing-changes-to-your-work-with-pull-requests/creating-and-deleting-branches-within-your-repository#deleting-a-branch)" and "[AUTOTITLE](/repositories/creating-and-managing-repositories/deleting-a-repository)."
-{% data reusables.pages.update_your_dns_settings %}
+### Re-enabling your site when publishing from a branch
 
-{% endif %}
+1. Configure your publishing source to publish from a branch of your choosing. For more information, see [AUTOTITLE](/pages/getting-started-with-github-pages/configuring-a-publishing-source-for-your-github-pages-site#publishing-from-a-branch).
+1. Commit to your publishing source to create a new deployment.

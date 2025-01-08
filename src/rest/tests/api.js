@@ -1,16 +1,16 @@
 import fs from 'fs'
 
-import { describe, expect } from '@jest/globals'
+import { describe, expect, test } from 'vitest'
 
-import { get } from '../../../tests/helpers/e2etest.js'
+import { get } from '#src/tests/helpers/e2etest.js'
 import {
   SURROGATE_ENUMS,
   makeLanguageSurrogateKey,
-} from '../../../middleware/set-fastly-surrogate-key.js'
+} from '#src/frame/middleware/set-fastly-surrogate-key.js'
 
 describe('anchor-redirect api', () => {
   const clientSideRedirects = JSON.parse(
-    fs.readFileSync('src/rest/data/client-side-rest-api-redirects.json', 'utf-8')
+    fs.readFileSync('src/rest/data/client-side-rest-api-redirects.json', 'utf-8'),
   )
 
   test('returns correct redirect to url', async () => {
@@ -22,7 +22,7 @@ describe('anchor-redirect api', () => {
     sp.set('hash', hash)
     const res = await get('/api/anchor-redirect?' + sp)
     expect(res.statusCode).toBe(200)
-    const { to } = JSON.parse(res.text)
+    const { to } = JSON.parse(res.body)
     expect(to).toBe(value)
   })
   test('errors when path is not passed', async () => {
@@ -48,7 +48,7 @@ describe('anchor-redirect api', () => {
     sp.set('path', 'foo')
     sp.set('hash', 'bar')
     const res = await get('/api/anchor-redirect?' + sp)
-    const { to } = JSON.parse(res.text)
+    const { to } = JSON.parse(res.body)
     expect(to).toBe(undefined)
   })
   test('reasonably aggressive cache-control headers', async () => {

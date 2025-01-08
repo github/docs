@@ -8,7 +8,6 @@ redirect_from:
 versions:
   fpt: '*'
   ghes: '*'
-  ghae: '*'
   ghec: '*'
 topics:
   - Repositories
@@ -20,6 +19,5 @@ children:
   - /renaming-a-file
   - /deleting-files-in-a-repository
   - /customizing-how-changed-files-appear-on-github
-  - /navigating-files-with-the-new-code-view
 ---
 

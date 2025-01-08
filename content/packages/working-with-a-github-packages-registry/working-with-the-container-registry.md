@@ -1,6 +1,6 @@
 ---
 title: Working with the Container registry
-intro: 'You can store and manage Docker and OCI images in the {% data variables.product.prodname_container_registry %}, which uses the package namespace `https://{% data reusables.package_registry.container-registry-hostname %}`.'
+intro: 'You can store and manage Docker and OCI images in the {% data variables.product.prodname_container_registry %}.'
 product: '{% data reusables.gated-features.packages %}'
 redirect_from:
   - /packages/managing-container-images-with-github-container-registry/pushing-and-pulling-docker-images
@@ -25,9 +25,19 @@ shortTitle: Container registry
 
 {% data reusables.package_registry.container-registry-benefits %}
 
-{% ifversion ghes > 3.4 %}
+{% ifversion ghes %}
 
-To use the {% data variables.product.prodname_container_registry %} on {% data variables.product.product_name %}, your site administrator must first configure {% data variables.product.prodname_registry %} for your instance **and** enable subdomain isolation. For more information, see "[AUTOTITLE](/admin/packages/getting-started-with-github-packages-for-your-enterprise)" and "[AUTOTITLE](/admin/configuration/configuring-network-settings/enabling-subdomain-isolation)."
+To use the {% data variables.product.prodname_container_registry %} on {% data variables.product.product_name %}, your site administrator must first configure {% data variables.product.prodname_registry %} for your instance **and** enable subdomain isolation. For more information, see [AUTOTITLE](/admin/packages/getting-started-with-github-packages-for-your-enterprise) and [AUTOTITLE](/admin/configuration/configuring-network-settings/enabling-subdomain-isolation).
+
+{% endif %}
+
+{% ifversion ghec %}
+
+## URL for the {% data variables.product.prodname_container_registry %}
+
+If you access {% data variables.product.github %} at {% data variables.product.prodname_dotcom_the_website %}, you will publish packages to {% data reusables.package_registry.container-registry-hostname %}. Examples in this article use this URL.
+
+If you access {% data variables.product.github %} at another domain, such as `octocorp.ghe.com`, replace "{% data reusables.package_registry.container-registry-hostname %}" with `https://containers.SUBDOMAIN.ghe.com`, where `SUBDOMAIN` is your enterprise's unique subdomain.
 
 {% endif %}
 
@@ -62,18 +72,26 @@ This registry supports granular permissions. {% data reusables.package_registry.
 ## Pushing container images
 
 This example pushes the latest version of `IMAGE_NAME`.
-  ```shell
-  $ docker push {% data reusables.package_registry.container-registry-hostname %}/NAMESPACE/IMAGE_NAME:latest
-  ```
+
+```shell
+docker push {% data reusables.package_registry.container-registry-hostname %}/NAMESPACE/IMAGE_NAME:latest
+```
 
 Replace `NAMESPACE` with the name of the personal account or organization to which you want the image to be scoped.
 
 This example pushes the `2.5` version of the image.
-  ```shell
-  $ docker push {% data reusables.package_registry.container-registry-hostname %}/NAMESPACE/IMAGE_NAME:2.5
-  ```
 
-{% data reusables.package_registry.publishing-user-scoped-packages %} You can link a published package to a repository using the user interface or command line. For more information, see "[AUTOTITLE](/packages/learn-github-packages/connecting-a-repository-to-a-package)."
+```shell
+docker push {% data reusables.package_registry.container-registry-hostname %}/NAMESPACE/IMAGE_NAME:2.5
+```
+
+{% data reusables.package_registry.publishing-user-scoped-packages %} You can link a published package to a repository using the user interface or command line. For more information, see [AUTOTITLE](/packages/learn-github-packages/connecting-a-repository-to-a-package).
+
+When you push a container image from the command line, the image is not linked to a repository by default. This is the case even if you tag the image with a namespace that matches the name of the repository, such as `{% ifversion fpt or ghec %}ghcr.io{% elsif ghes %}{% data reusables.package_registry.container-registry-example-hostname %}{% endif %}/octocat/my-repo:latest`.
+
+The easiest way to connect a repository to a container package is to publish the package from a workflow using `${% raw %}{{secrets.GITHUB_TOKEN}}{% endraw %}`, as the repository that contains the workflow is linked automatically. Note that the `GITHUB_TOKEN` will not have permission to push the package if you have previously pushed a package to the same namespace, but have not connected the package to the repository.
+
+To connect a repository when publishing an image from the command line, and to ensure your `GITHUB_TOKEN` has appropriate permissions when using a GitHub Actions workflow, we recommend adding the label `org.opencontainers.image.source` to your `Dockerfile`. For more information, see “[Labelling container images](#labelling-container-images)” in this article and “[AUTOTITLE](/packages/managing-github-packages-using-github-actions-workflows/publishing-and-installing-a-package-with-github-actions).”
 
 ## Pulling container images
 
@@ -82,25 +100,28 @@ This example pushes the `2.5` version of the image.
 To ensure you're always using the same image, you can specify the exact container image version you want to pull by the `digest` SHA value.
 
 1. To find the digest SHA value, use `docker inspect` or `docker pull` and copy the SHA value after `Digest:`
-  ```shell
-  $ docker inspect {% data reusables.package_registry.container-registry-hostname %}/NAMESPACE/IMAGE_NAME
-  ```
+
+   ```shell
+   docker inspect {% data reusables.package_registry.container-registry-hostname %}/NAMESPACE/IMAGE_NAME
+   ```
 
    Replace `NAMESPACE` with the name of the personal account or organization to which the image is scoped.
-2. Remove image locally as needed.
-  ```shell
-  $ docker rmi  {% data reusables.package_registry.container-registry-hostname %}/NAMESPACE/IMAGE_NAME:latest
-  ```
+1. Remove image locally as needed.
 
-3. Pull the container image with `@YOUR_SHA_VALUE` after the image name.
-  ```shell
-  $ docker pull {% data reusables.package_registry.container-registry-hostname %}/NAMESPACE/IMAGE_NAME@sha256:82jf9a84u29hiasldj289498uhois8498hjs29hkuhs
-  ```
+   ```shell
+   docker rmi {% data reusables.package_registry.container-registry-hostname %}/NAMESPACE/IMAGE_NAME:latest
+   ```
+
+1. Pull the container image with `@YOUR_SHA_VALUE` after the image name.
+
+   ```shell
+   docker pull {% data reusables.package_registry.container-registry-hostname %}/NAMESPACE/IMAGE_NAME@sha256:82jf9a84u29hiasldj289498uhois8498hjs29hkuhs
+   ```
 
 ### Pull by name
 
 ```shell
-$ docker pull {% data reusables.package_registry.container-registry-hostname %}/NAMESPACE/IMAGE_NAME
+docker pull {% data reusables.package_registry.container-registry-hostname %}/NAMESPACE/IMAGE_NAME
 ```
 
 Replace `NAMESPACE` with the name of the personal account or organization to which the image is scoped.
@@ -108,52 +129,56 @@ Replace `NAMESPACE` with the name of the personal account or organization to whi
 ### Pull by name and version
 
 Docker CLI example showing an image pulled by its name and the `1.14.1` version tag:
-  ```shell
-  $ docker pull {% data reusables.package_registry.container-registry-hostname %}/NAMESPACE/IMAGE_NAME:1.14.1
-  > 5e35bd43cf78: Pull complete
-  > 0c48c2209aab: Pull complete
-  > fd45dd1aad5a: Pull complete
-  > db6eb50c2d36: Pull complete
-  > Digest: sha256:ae3b135f133155b3824d8b1f62959ff8a72e9cf9e884d88db7895d8544010d8e
-  > Status: Downloaded newer image for {% data reusables.package_registry.container-registry-hostname %}/NAMESPACE/IMAGE_NAME/release:1.14.1
-  > {% data reusables.package_registry.container-registry-hostname %}/NAMESPACE/IMAGE_NAME/release:1.14.1
-  ```
+
+```shell
+$ docker pull {% data reusables.package_registry.container-registry-hostname %}/NAMESPACE/IMAGE_NAME:1.14.1
+> 5e35bd43cf78: Pull complete
+> 0c48c2209aab: Pull complete
+> fd45dd1aad5a: Pull complete
+> db6eb50c2d36: Pull complete
+> Digest: sha256:ae3b135f133155b3824d8b1f62959ff8a72e9cf9e884d88db7895d8544010d8e
+> Status: Downloaded newer image for {% data reusables.package_registry.container-registry-hostname %}/NAMESPACE/IMAGE_NAME/release:1.14.1
+> {% data reusables.package_registry.container-registry-hostname %}/NAMESPACE/IMAGE_NAME/release:1.14.1
+```
 
 Replace `NAMESPACE` with the name of the personal account or organization to which the image is scoped.
 
 ### Pull by name and latest version
 
-  ```shell
-  $ docker pull {% data reusables.package_registry.container-registry-hostname %}/NAMESPACE/IMAGE_NAME:latest
-  > latest: Pulling from NAMESPACE/IMAGE_NAME
-  > Digest: sha256:b3d3e366b55f9a54599220198b3db5da8f53592acbbb7dc7e4e9878762fc5344
-  > Status: Downloaded newer image for {% data reusables.package_registry.container-registry-hostname %}/NAMESPACE/IMAGE_NAME:latest
-  > {% data reusables.package_registry.container-registry-hostname %}/NAMESPACE/IMAGE_NAME:latest
-  ```
+```shell
+$ docker pull {% data reusables.package_registry.container-registry-hostname %}/NAMESPACE/IMAGE_NAME:latest
+> latest: Pulling from NAMESPACE/IMAGE_NAME
+> Digest: sha256:b3d3e366b55f9a54599220198b3db5da8f53592acbbb7dc7e4e9878762fc5344
+> Status: Downloaded newer image for {% data reusables.package_registry.container-registry-hostname %}/NAMESPACE/IMAGE_NAME:latest
+> {% data reusables.package_registry.container-registry-hostname %}/NAMESPACE/IMAGE_NAME:latest
+```
 
 Replace `NAMESPACE` with the name of the personal account or organization to which the image is scoped.
 
 ## Building container images
 
 This example builds the `hello_docker` image:
-  ```shell
-  $ docker build -t hello_docker .
-  ```
+
+```shell
+docker build -t hello_docker .
+```
 
 ## Tagging container images
 
 1. Find the ID for the Docker image you want to tag.
-  ```shell
-  $ docker images
-  > REPOSITORY                                            TAG                 IMAGE ID            CREATED             SIZE
-  > {% data reusables.package_registry.container-registry-hostname %}/my-org/hello_docker         latest            38f737a91f39        47 hours ago        91.7MB
-  > hello-world                                           latest              fce289e99eb9        16 months ago       1.84kB
-  ```
 
-2. Tag your Docker image using the image ID and your desired image name and hosting destination.
-  ```shell
-  $ docker tag 38f737a91f39 {% data reusables.package_registry.container-registry-hostname %}/NAMESPACE/NEW_IMAGE_NAME:latest
-  ```
+   ```shell
+   $ docker images
+   > REPOSITORY                                            TAG                 IMAGE ID            CREATED             SIZE
+   > {% data reusables.package_registry.container-registry-hostname %}/my-org/hello_docker         latest            38f737a91f39        47 hours ago        91.7MB
+   > hello-world                                           latest              fce289e99eb9        16 months ago       1.84kB
+   ```
+
+1. Tag your Docker image using the image ID and your desired image name and hosting destination.
+
+   ```shell
+   docker tag 38f737a91f39 {% data reusables.package_registry.container-registry-hostname %}/NAMESPACE/NEW_IMAGE_NAME:latest
+   ```
 
 Replace `NAMESPACE` with the name of the personal account or organization to which you want the image to be scoped.
 
@@ -161,15 +186,15 @@ Replace `NAMESPACE` with the name of the personal account or organization to whi
 
 {% data reusables.package_registry.about-annotation-keys %} Values for supported keys will appear on the package page for the image.
 
-For most images, you can use Docker labels to add the annotation keys to an image. For more information, see [LABEL](https://docs.docker.com/engine/reference/builder/#label) in the official Docker documentation and [Pre-Defined Annotation Keys](https://github.com/opencontainers/image-spec/blob/master/annotations.md#pre-defined-annotation-keys) in the `opencontainers/image-spec` repository.
+For most images, you can use Docker labels to add the annotation keys to an image. For more information, see [LABEL](https://docs.docker.com/engine/reference/builder/#label) in the official Docker documentation and [Pre-Defined Annotation Keys](https://github.com/opencontainers/image-spec/blob/main/annotations.md#pre-defined-annotation-keys) in the `opencontainers/image-spec` repository.
 
-For multi-arch images, you can add a description to the image by adding the appropriate annotation key to the `annotations` field in the image's manifest. For more information, see "[Adding a description to multi-arch images](#adding-a-description-to-multi-arch-images)."
+For multi-arch images, you can add a description to the image by adding the appropriate annotation key to the `annotations` field in the image's manifest. For more information, see [Adding a description to multi-arch images](#adding-a-description-to-multi-arch-images).
 
 The following annotation keys are supported in the {% data variables.product.prodname_container_registry %}.
 
 Key | Description
 ------|------------
-| `org.opencontainers.image.source` | The URL of the repository associated with the package. For more information, see "[AUTOTITLE](/packages/learn-github-packages/connecting-a-repository-to-a-package#connecting-a-repository-to-a-container-image-using-the-command-line)."
+| `org.opencontainers.image.source` | The URL of the repository associated with the package. For more information, see [AUTOTITLE](/packages/learn-github-packages/connecting-a-repository-to-a-package#connecting-a-repository-to-a-container-image-using-the-command-line).
 | `org.opencontainers.image.description` | A text-only description limited to 512 characters. This description will appear on the package page, below the name of the package.
 | `org.opencontainers.image.licenses` | An SPDX license identifier such as "MIT," limited to 256 characters. The license will appear on the package page, in the "Details" sidebar. For more information, see [SPDX License List](https://spdx.org/licenses/).
 
@@ -212,7 +237,7 @@ For example, the following {% data variables.product.prodname_actions %} workflo
 {% data reusables.actions.actions-not-certified-by-github-comment %}
 
 - name: Build and push Docker image
-  uses: docker/build-push-action@ad44023a93711e3deb337508980b4b5e9bcdc5dc
+  uses: docker/build-push-action@f2a1d5e99d037542a71f64918e516c093c6f3fc4
   with:
     context: .
     file: ./Dockerfile
@@ -220,3 +245,8 @@ For example, the following {% data variables.product.prodname_actions %} workflo
     push: true
     outputs: type=image,name=target,annotation-index.org.opencontainers.image.description=My multi-arch image
 ```
+
+## Troubleshooting
+
+* The {% data variables.product.prodname_container_registry %} has a 10 GB size limit for each layer.
+* The {% data variables.product.prodname_container_registry %} has a 10 minute timeout limit for uploads.

@@ -7,7 +7,6 @@ redirect_from:
 versions:
   fpt: '*'
   ghes: '*'
-  ghae: '*'
   ghec: '*'
 topics:
   - Community
@@ -19,9 +18,9 @@ Locking a conversation creates a timeline event that is visible to anyone with r
 
 ![Screenshot of a timeline event, which says "octo-org locked as too heated and limited conversation to collaborators 2 minutes ago."](/assets/images/help/issues/anonymized-timeline-entry-for-locked-conversation.png)
 
-While a conversation is locked, only [people with write access](/organizations/managing-user-access-to-your-organizations-repositories/repository-roles-for-an-organization) and [repository owners and collaborators](/account-and-profile/setting-up-and-managing-your-personal-account-on-github/managing-personal-account-settings/permission-levels-for-a-personal-account-repository#collaborator-access-for-a-repository-owned-by-a-personal-account) can add, hide, and delete comments. Reactions and votes in a locked conversation are disabled for all users.
+While a conversation is locked, only [people with write access](/organizations/managing-user-access-to-your-organizations-repositories/managing-repository-roles/repository-roles-for-an-organization) and [repository owners and collaborators](/account-and-profile/setting-up-and-managing-your-personal-account-on-github/managing-personal-account-settings/permission-levels-for-a-personal-account-repository#collaborator-access-for-a-repository-owned-by-a-personal-account) can add, hide, and delete comments. Reactions and votes in a locked conversation are disabled for all users.
 
-To search for locked conversations in a repository that is not archived, you can use the search qualifiers `is:locked` and `archived:false`. Conversations are automatically locked in archived repositories. For more information, see "[AUTOTITLE](/search-github/searching-on-github/searching-issues-and-pull-requests#search-based-on-whether-a-conversation-is-locked)."
+To search for locked conversations in a repository that is not archived, you can use the search qualifiers `is:locked` and `archived:false`. Conversations are automatically locked in archived repositories. For more information, see [AUTOTITLE](/search-github/searching-on-github/searching-issues-and-pull-requests#search-based-on-whether-a-conversation-is-locked).
 
 1. Optionally, write a comment explaining why you're locking the conversation.
 1. In the right sidebar of the issue or pull request, or above the comment box on the commit page, click **Lock conversation**.
@@ -31,9 +30,9 @@ To search for locked conversations in a repository that is not archived, you can
 
 ## Further reading
 
-- "[AUTOTITLE](/communities/setting-up-your-project-for-healthy-contributions)"
-- "[AUTOTITLE](/communities/using-templates-to-encourage-useful-issues-and-pull-requests)"
-- "[AUTOTITLE](/communities/moderating-comments-and-conversations/managing-disruptive-comments)"{% ifversion fpt or ghec %}
-- "[AUTOTITLE](/communities/maintaining-your-safety-on-github)"
-- "[AUTOTITLE](/communities/maintaining-your-safety-on-github/reporting-abuse-or-spam)"
+* [AUTOTITLE](/communities/setting-up-your-project-for-healthy-contributions)
+* [AUTOTITLE](/communities/using-templates-to-encourage-useful-issues-and-pull-requests)
+* [AUTOTITLE](/communities/moderating-comments-and-conversations/managing-disruptive-comments){% ifversion fpt or ghec %}
+* [AUTOTITLE](/communities/maintaining-your-safety-on-github)
+* [AUTOTITLE](/communities/maintaining-your-safety-on-github/reporting-abuse-or-spam)
 {% endif %}

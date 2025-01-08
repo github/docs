@@ -18,7 +18,7 @@ shortTitle: Sync license usage
 
 {% data reusables.enterprise-licensing.about-license-sync %}
 
-To ensure that you see up-to-date license details on {% data variables.product.prodname_dotcom_the_website %}, you can sync license usage between the environments automatically, using {% data variables.product.prodname_github_connect %}. For more information about {% data variables.product.prodname_github_connect %}, see "[About {% data variables.product.prodname_github_connect %}]({% ifversion ghec %}/enterprise-server@latest{% endif %}/admin/configuration/configuring-github-connect/about-github-connect){% ifversion ghec %}" in the {% data variables.product.prodname_ghe_server %} documentation.{% elsif ghes %}."{% endif %}
+To ensure that you see up-to-date license details on {% data variables.product.prodname_ghe_cloud %}, you can sync license usage to {% data variables.product.prodname_dotcom_the_website %}{% ifversion ghecom-license-sync %} or {% data variables.enterprise.data_residency_site %}{% endif %} automatically, using {% data variables.product.prodname_github_connect %}. For more information about {% data variables.product.prodname_github_connect %}, see "[About {% data variables.product.prodname_github_connect %}]({% ifversion ghec %}/enterprise-server@latest{% endif %}/admin/configuration/configuring-github-connect/about-github-connect){% ifversion ghec %}" in the {% data variables.product.prodname_ghe_server %} documentation.{% elsif ghes %}."{% endif %}
 
 If you don't want to enable {% data variables.product.prodname_github_connect %}, you can manually sync license usage by uploading a file from {% data variables.product.prodname_ghe_server %} to {% data variables.product.prodname_dotcom_the_website %}.
 
@@ -32,17 +32,16 @@ When you synchronize license usage, only the user ID and email addresses for eac
 
 You can use {% data variables.product.prodname_github_connect %} to automatically synchronize user license count and usage between {% data variables.product.prodname_ghe_server %} and {% data variables.product.prodname_ghe_cloud %} weekly. For more information, see "[Enabling automatic user license sync for your enterprise]({% ifversion ghec %}/enterprise-server@latest{% endif %}/admin/configuration/configuring-github-connect/enabling-automatic-user-license-sync-for-your-enterprise){% ifversion ghec %}" in the {% data variables.product.prodname_ghe_server %} documentation.{% elsif ghes %}."{% endif %}
 
-{% ifversion ghec or ghes > 3.4 %}
+{% ifversion ghec or ghes %}
 After you enable {% data variables.product.prodname_github_connect %}, license data will be automatically synchronized weekly. You can also manually synchronize your license data at any time, by triggering a license sync job.
 
 ### Triggering a license sync job
 
 1. Sign in to your {% data variables.product.prodname_ghe_server %} instance.
-{% data reusables.enterprise-accounts.access-enterprise %}
+{% data reusables.enterprise-accounts.access-enterprise-ghes %}
 {% data reusables.enterprise-accounts.settings-tab %}
 {% data reusables.enterprise-accounts.license-tab %}
-1. Under "License sync", click {% octicon "sync" aria-label="The Sync icon" %} **Sync now**.
-  ![Screenshot of "Sync now" button in license sync section](/assets/images/help/enterprises/license-sync-now-ghes.png)
+1. Under "License sync", click **{% octicon "sync" aria-hidden="true" %} Sync now**.
 
 {% endif %}
 
@@ -50,14 +49,15 @@ After you enable {% data variables.product.prodname_github_connect %}, license d
 
 You can download a JSON file from {% data variables.product.prodname_ghe_server %} and upload the file to {% data variables.product.prodname_ghe_cloud %} to manually sync user license usage between the two deployments.
 
-{% data reusables.enterprise-accounts.access-enterprise %}
+1. Sign in to your {% data variables.product.prodname_ghe_server %} instance.
+{% data reusables.enterprise-accounts.access-enterprise-ghes %}
 {% data reusables.enterprise-accounts.settings-tab %}
 {% data reusables.enterprise-accounts.license-tab %}
-5. In the "User licenses" section, under "Quick links", to download a file containing your current license usage on {% data variables.product.prodname_ghe_server %}, click **Export license usage**.
+1. In the "User licenses" section, under "Quick links", to download a file containing your current license usage on {% data variables.product.prodname_ghe_server %}, click **Export license usage**.
 
    ![Screenshot of the "User licenses" section of the "License" page. A link, labeled "Export license usage", is outlined in dark orange.](/assets/images/enterprise/management-console/export-license-usage-link.png)
 {% data reusables.enterprise-accounts.access-enterprise-on-dotcom %}
 {% data reusables.enterprise-accounts.settings-tab %}
 {% data reusables.enterprise-accounts.license-tab %}
-10. Next to "Enterprise Server instances", click **Add server usage**.
-11. Upload the JSON file you downloaded from {% data variables.product.prodname_ghe_server %}.
+1. Next to "Enterprise Server instances", click **Add server usage**.
+1. Upload the JSON file you downloaded from {% data variables.product.prodname_ghe_server %}.

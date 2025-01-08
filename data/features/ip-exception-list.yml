@@ -1,2 +1,2 @@
 versions:
-  ghes: '>=3.5'
+  ghes: '>=3.4'

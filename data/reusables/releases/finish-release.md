@@ -5,11 +5,11 @@
 {%- endif %}
 {%- ifversion discussions %}
 1. Optionally, if {% data variables.product.prodname_discussions %} is enabled for the repository, create a discussion for the release.
-   - Select **Create a discussion for this release**.
-   - Select the **Category** dropdown menu, then click a category for the release discussion.
+   * Select **Create a discussion for this release**.
+   * Select the **Category** dropdown menu, then click a category for the release discussion.
 {%- endif %}
 1. If you're ready to publicize your release, click **Publish release**. To work on the release later, click **Save draft**.
 
-   {%- ifversion fpt or ghec or ghae > 3.3 %}
-   You can then view your published or draft releases in the releases feed for your repository. For more information, see "[AUTOTITLE](/repositories/releasing-projects-on-github/viewing-your-repositorys-releases-and-tags)."
+   {%- ifversion fpt or ghec %}
+   You can then view your published or draft releases in the releases feed for your repository. For more information, see [AUTOTITLE](/repositories/releasing-projects-on-github/viewing-your-repositorys-releases-and-tags).
    {%- endif %}

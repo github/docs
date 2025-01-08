@@ -16,10 +16,10 @@ runs:
         BRANCH_NAME: ${{ github.head_ref || github.ref_name }}
         GITHUB_TOKEN: ${{ inputs.token }}
       shell: bash
-      run: node .github/actions-scripts/what-docs-early-access-branch.js
+      run: npm run what-docs-early-access-branch
 
     - name: Clone
-      uses: actions/checkout@93ea575cb5d8a053eaa0ac8fa3b40d7e05a33cc8
+      uses: actions/checkout@b4ffde65f46336ab88eb53be808477a3936bae11 # v4.1.1
       with:
         repository: github/docs-early-access
         token: ${{ inputs.token }}
@@ -29,5 +29,5 @@ runs:
     - name: Merge docs-early-access repo's folders
       shell: bash
       run: |
-        .github/actions-scripts/merge-early-access.sh
+        src/early-access/scripts/merge-early-access.sh
         rm -fr docs-early-access

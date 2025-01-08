@@ -12,34 +12,19 @@ on:
 permissions:
   contents: read
 
-# **IMPORTANT:** Do not change the FREEZE environment variable set here!
-# This workflow runs on a recurring basis. To temporarily disable it (e.g.,
-# during a docs deployment freeze), add an Actions Secret to the repo settings
-# called `FREEZE` with a value of `true`. To re-enable workflow, simply
-# delete that Secret from the repo settings. The environment variable here
-# will duplicate that Secret's value for later evaluation.
-env:
-  FREEZE: ${{ secrets.FREEZE }}
-
 jobs:
   check_github_github_links:
     if: github.repository == 'github/docs-internal'
     runs-on: ubuntu-latest
     env:
       # need to use a token from a user with access to github/github for this step
-      GITHUB_TOKEN: ${{ secrets.DOCS_BOT_FR }}
-      FIRST_RESPONDER_PROJECT: Docs content first responder
-      REPORT_AUTHOR: docubot
+      GITHUB_TOKEN: ${{ secrets.DOCS_BOT_PAT_WRITEORG_PROJECT }}
+      REPORT_AUTHOR: docs-bot
       REPORT_LABEL: github github broken link report
       REPORT_REPOSITORY: github/docs-content
     steps:
-      - if: ${{ env.FREEZE == 'true' }}
-        run: |
-          echo 'The repo is currently frozen! Exiting this workflow.'
-          exit 1 # prevents further steps from running
-
       - name: Checkout
-        uses: actions/checkout@93ea575cb5d8a053eaa0ac8fa3b40d7e05a33cc8
+        uses: actions/checkout@b4ffde65f46336ab88eb53be808477a3936bae11 # v4.1.1
         with:
           # To prevent issues with cloning early access content later
           persist-credentials: 'false'
@@ -48,7 +33,7 @@ jobs:
 
       - uses: ./.github/actions/get-docs-early-access
         with:
-          token: ${{ secrets.DOCUBOT_REPO_PAT }}
+          token: ${{ secrets.DOCS_BOT_PAT_READPUBLICKEY }}
 
       - name: Build server
         run: npm run build
@@ -57,35 +42,38 @@ jobs:
         env:
           NODE_ENV: production
           PORT: 4000
+          ENABLED_LANGUAGES: en
         run: |
 
-          node server.js &
+          npm run start &
           sleep 5
           curl --retry-connrefused --retry 3 -I http://localhost:4000/
 
       - name: Run broken github/github link check
         run: |
-          script/check-github-github-links.js > broken_github_github_links.md
+          npm run check-github-github-links -- broken_github_github_links.md
 
-      # check-github-github-links.js returns 0 if no links are broken, and 1 if any links
-      # are broken. When an Actions step's exit code is 1, the action run's job status
-      # is failure and the run ends. The following steps create an issue for the
-      # broken link report only if any links are broken, so `if: ${{ failure() }}`
-      # ensures the steps run despite the previous step's failure of the job.
-      #
-      # https://docs.github.com/actions/reference/context-and-expression-syntax-for-github-actions#job-status-check-functions
-
-      - if: ${{ failure() && env.FREEZE != 'true' }}
-        name: Get title for issue
+      - name: Get title for issue
+        # If the file 'broken_github_github_links.md' got created,
+        # the hash of it will not be an empty string. That means if found
+        # broken links, we want to create an issue.
+        if: ${{ hashFiles('broken_github_github_links.md') != '' }}
         id: check
         run: echo "title=$(head -1 broken_github_github_links.md)" >> $GITHUB_OUTPUT
-      - if: ${{ failure() && env.FREEZE != 'true'}}
-        name: Create issue from file
+
+      - name: Create issue from file
+        if: ${{ hashFiles('broken_github_github_links.md') != '' }}
         id: github-github-broken-link-report
-        uses: peter-evans/create-issue-from-file@433e51abf769039ee20ba1293a088ca19d573b7f
+        uses: peter-evans/create-issue-from-file@24452a72d85239eacf1468b0f1982a9f3fec4c94
         with:
           token: ${{ env.GITHUB_TOKEN }}
           title: ${{ steps.check.outputs.title }}
           content-filepath: ./broken_github_github_links.md
           repository: ${{ env.REPORT_REPOSITORY }}
           labels: ${{ env.REPORT_LABEL }}
+
+      - uses: ./.github/actions/slack-alert
+        if: ${{ failure() && github.event_name != 'workflow_dispatch' }}
+        with:
+          slack_channel_id: ${{ secrets.DOCS_ALERTS_SLACK_CHANNEL_ID }}
+          slack_token: ${{ secrets.SLACK_DOCS_BOT_TOKEN }}

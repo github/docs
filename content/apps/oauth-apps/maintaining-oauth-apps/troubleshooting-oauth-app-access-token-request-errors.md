@@ -1,6 +1,6 @@
 ---
-title: Troubleshooting OAuth App access token request errors
-intro: '{% data reusables.shortdesc.troubleshooting_access_token_reques_errors_oauth_apps %}'
+title: Troubleshooting OAuth app access token request errors
+intro: '{% data reusables.shortdesc.troubleshooting_access_token_request_errors_oauth_apps %}'
 redirect_from:
   - /apps/building-integrations/managing-oauth-apps/troubleshooting-oauth-app-access-token-request-errors
   - /apps/managing-oauth-apps/troubleshooting-oauth-app-access-token-request-errors
@@ -9,17 +9,14 @@ redirect_from:
 versions:
   fpt: '*'
   ghes: '*'
-  ghae: '*'
   ghec: '*'
 topics:
-  - OAuth Apps
+  - OAuth apps
 shortTitle: Troubleshoot token request
 ---
-{% note %}
 
-**Note:** These examples only show JSON responses.
-
-{% endnote %}
+> [!NOTE]
+> These examples only show JSON responses.
 
 ## Incorrect client credentials
 
@@ -55,15 +52,6 @@ registered with your application.
 
 ## Bad verification code
 
-```json
-{
-  "add_scopes": [
-    "repo"
-  ],
-  "note": "admin script"
-}
-```
-
 If the verification code you pass is incorrect, expired, or doesn't
 match what you received in the first request for authorization you will
 receive this error.
@@ -78,3 +66,17 @@ receive this error.
 
 To solve this error, start the [OAuth authorization process again](/apps/oauth-apps/building-oauth-apps/authorizing-oauth-apps)
 and get a new code.
+
+## Unverified user email
+
+If the user for whom you are trying to generate a user access token has not verified their primary email address with {% data variables.product.company_short %}, you will receive this error.
+
+```json
+{
+  "error": "unverified_user_email",
+  "error_description": "The user must have a verified primary email.",
+  "error_uri": "/apps/managing-oauth-apps/troubleshooting-oauth-app-access-token-request-errors/#unverified_user_email"
+}
+```
+
+To resolve this error, prompt the user to verify the primary email address on their {% data variables.product.company_short %} account. For more information, see {% ifversion fpt or ghec %}[AUTOTITLE](/account-and-profile/setting-up-and-managing-your-personal-account-on-github/managing-email-preferences/verifying-your-email-address).{% else %}[AUTOTITLE](/free-pro-team@latest/account-and-profile/setting-up-and-managing-your-personal-account-on-github/managing-email-preferences/verifying-your-email-address) in the {% data variables.product.prodname_free_user %} documentation.{% endif %}

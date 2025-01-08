@@ -5,9 +5,6 @@ name: Azure Production - Build and Deploy
 # **Who does it impact**: All contributors.
 
 on:
-  push:
-    branches:
-      - main
   workflow_dispatch:
 
 permissions:
@@ -31,54 +28,80 @@ jobs:
     env:
       DOCKER_IMAGE: ${{ secrets.PROD_REGISTRY_SERVER }}/${{ github.repository }}:${{ github.sha }}
       DOCKER_IMAGE_CACHE_REF: ${{ secrets.PROD_REGISTRY_SERVER }}/${{ github.repository }}:main-production
+      RESOURCE_GROUP_NAME: docs-prod
+      APP_SERVICE_NAME: ghdocs-prod
+      SLOT_NAME: canary
+      ACR_TOKEN_NAME: acrToken
 
     steps:
       - name: 'Az CLI login'
-        uses: azure/login@1f63701bf3e6892515f1b7ce2d2bf1708b46beaf
+        uses: azure/login@6c251865b4e6290e7b78be643ea2d005bc51f69a # pin @v2
         with:
           creds: ${{ secrets.PROD_AZURE_CREDENTIALS }}
 
-      - name: 'Docker login'
-        uses: azure/docker-login@83efeb77770c98b620c73055fbb59b2847e17dc0
-        with:
-          login-server: ${{ secrets.PROD_REGISTRY_SERVER }}
-          username: ${{ secrets.PROD_REGISTRY_USERNAME }}
-          password: ${{ secrets.PROD_REGISTRY_PASSWORD }}
-
-      - name: Set up Docker Buildx
-        uses: docker/setup-buildx-action@95cb08cb2672c73d4ffd2f422e6d11953d2a9c70
-
       - name: Check out repo
-        uses: actions/checkout@93ea575cb5d8a053eaa0ac8fa3b40d7e05a33cc8
+        uses: actions/checkout@b4ffde65f46336ab88eb53be808477a3936bae11 # v4.1.1
         with:
           ref: ${{ github.sha }}
           # To prevent issues with cloning early access content later
           persist-credentials: 'false'
 
       - name: Setup Node.js
-        uses: actions/setup-node@8c91899e586c5b171469028077307d293428b516
+        uses: actions/setup-node@60edb5dd545a775178f52524783378180af0d1f8 # v4.0.2
         with:
           node-version-file: 'package.json'
           cache: npm
 
+      # We need this to run a few scripts that were easier to write in JS/TS
+      - name: Install dependencies
+        run: npm install
+
+      # Create a temporary token for the Azure Container Registry
+      # and set it as a GitHub Actions environment variable
+      # Created token are viewable in the ACR resource UI
+      # under Repository permissions > Tokens
+      - name: 'Create Azure Container Registry Token'
+        env:
+          CONTAINER_REGISTRY_SERVER: ${{ secrets.PROD_REGISTRY_SERVER }}
+        run: npm run create-acr-token
+
+      - name: 'Docker login'
+        uses: azure/docker-login@15c4aadf093404726ab2ff205b2cdd33fa6d054c
+        with:
+          login-server: ${{ secrets.PROD_REGISTRY_SERVER }}
+          username: ${{ env.ACR_TOKEN_NAME }}
+          password: ${{ env.ACR_TOKEN_VALUE }}
+
+      - name: Set up Docker Buildx
+        uses: docker/setup-buildx-action@988b5a0280414f521da01fcc63a27aeeb4b104db
+
       - name: Clone docs-early-access
-        uses: actions/checkout@93ea575cb5d8a053eaa0ac8fa3b40d7e05a33cc8
+        uses: actions/checkout@b4ffde65f46336ab88eb53be808477a3936bae11 # v4.1.1
         with:
           repository: github/docs-early-access
-          token: ${{ secrets.DOCUBOT_REPO_PAT }}
+          token: ${{ secrets.DOCS_BOT_PAT_READPUBLICKEY }}
           path: docs-early-access
 
       - name: Merge docs-early-access repo's folders
-        run: .github/actions-scripts/merge-early-access.sh
+        run: src/early-access/scripts/merge-early-access.sh
+
+      - uses: ./.github/actions/warmup-remotejson-cache
+        with:
+          restore-only: true
+
+      - uses: ./.github/actions/precompute-pageinfo
+        with:
+          restore-only: true
 
       - uses: ./.github/actions/clone-translations
         with:
-          token: ${{ secrets.DOCUBOT_REPO_PAT }}
+          token: ${{ secrets.DOCS_BOT_PAT_READPUBLICKEY }}
 
       - name: 'Build and push image'
-        uses: docker/build-push-action@3b5e8027fcad23fda98b2e3ac259d8d67585f671
+        uses: docker/build-push-action@16ebe778df0e7752d2cfcbd924afdbbd89c1a755
         with:
           context: .
+          file: Dockerfile.azure
           push: true
           target: production
           tags: ${{ env.DOCKER_IMAGE }}, ${{ env.DOCKER_IMAGE_CACHE_REF }}
@@ -89,64 +112,26 @@ jobs:
 
       - name: 'Update docker-compose.prod.yaml template file'
         run: |
-          sed 's|#{IMAGE}#|${{ env.DOCKER_IMAGE }}|g' docker-compose.prod.tmpl.yaml > docker-compose.prod.yaml
+          sed 's|#{IMAGE}#|${{ env.DOCKER_IMAGE }}|g' src/workflows/docker-compose.prod.tmpl.yaml > docker-compose.prod.yaml
 
       - name: 'Apply updated docker-compose.prod.yaml config to canary slot'
         run: |
-          az webapp config container set --multicontainer-config-type COMPOSE --multicontainer-config-file docker-compose.prod.yaml --slot canary -n ghdocs-prod -g docs-prod
+          az webapp config container set --multicontainer-config-type COMPOSE --multicontainer-config-file docker-compose.prod.yaml --slot ${{ env.SLOT_NAME }} -n ${{ env.APP_SERVICE_NAME }} -g ${{ env.RESOURCE_GROUP_NAME }}
 
       # Watch canary slot instances to see when all the instances are ready
       - name: Check that canary slot is ready
-        uses: actions/github-script@98814c53be79b1d30f795b907e553d8679345975
         env:
           CHECK_INTERVAL: 10000
-        with:
-          script: |
-            const { execSync } = require('child_process')
+          EXPECTED_SHA: ${{ github.sha }}
+          CANARY_BUILD_URL: https://ghdocs-prod-canary.azurewebsites.net/_build
+        run: npm run check-canary-slots
 
-            const getStatesForSlot = (slot) => {
-              return JSON.parse(
-                execSync(
-                  `az webapp list-instances --slot ${slot} --query "[].state" -n ghdocs-prod -g docs-prod`,
-                  { encoding: 'utf8' }
-                )
-              )
-            }
-
-            let hasStopped = false
-            const waitDuration = parseInt(process.env.CHECK_INTERVAL, 10) || 10000
-            async function doCheck() {
-              const states = getStatesForSlot('canary')
-              console.log(`Instance states:`, states)
-
-              // We must wait until at-least 1 instance has STOPPED to know we're looking at the "next" deployment and not the "previous" one
-              // That way we don't immediately succeed just because all the previous instances were READY
-              if (!hasStopped) {
-                hasStopped = states.some((s) => s === 'STOPPED')
-              }
-
-              const isAllReady = states.every((s) => s === 'READY')
-
-              if (hasStopped && isAllReady) {
-                process.exit(0) // success
-              }
-
-              console.log(`checking again in ${waitDuration}ms`)
-              setTimeout(doCheck, waitDuration)
-            }
-
-            doCheck()
-
-      # TODO - make a request to verify the canary app version aligns with *this* github action workflow commit sha
       - name: 'Swap canary slot to production'
         run: |
-          az webapp deployment slot swap --slot canary --target-slot production -n ghdocs-prod -g docs-prod
+          az webapp deployment slot swap --slot ${{ env.SLOT_NAME }}  --target-slot production -n ${{ env.APP_SERVICE_NAME }} -g ${{ env.RESOURCE_GROUP_NAME }}
 
-      - name: Send Slack notification if workflow failed
-        uses: someimportantcompany/github-actions-slack-message@1d367080235edfa53df415bd8e0bbab480f29bad
-        if: ${{ failure() }}
+      - uses: ./.github/actions/slack-alert
+        if: ${{ failure() && github.event_name != 'workflow_dispatch' }}
         with:
-          channel: ${{ secrets.DOCS_ALERTS_SLACK_CHANNEL_ID }}
-          bot-token: ${{ secrets.SLACK_DOCS_BOT_TOKEN }}
-          color: failure
-          text: Production deployment (Azure) failed at commit ${{ github.sha }}. See https://github.com/${{ github.repository }}/actions/runs/${{ github.run_id }}
+          slack_channel_id: ${{ secrets.DOCS_ALERTS_SLACK_CHANNEL_ID }}
+          slack_token: ${{ secrets.SLACK_DOCS_BOT_TOKEN }}

@@ -1,7 +1,6 @@
 # Issue 7720
-# Organization owners can restrict public classic projects.
+# Organization owners can restrict public projects (classic)
 versions:
   fpt: '*'
   ghec: '*'
   ghes: '>3.6'
-  ghae: '>= 3.7'

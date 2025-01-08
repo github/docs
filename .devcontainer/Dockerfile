@@ -1,8 +1,8 @@
-# See here for image contents: https://github.com/microsoft/vscode-dev-containers/blob/main/containers/javascript-node/.devcontainer/base.Dockerfile
+# To find available Node images, see https://mcr.microsoft.com/en-us/product/devcontainers/javascript-node/tags
 
 # [Choice] Node.js version
-ARG VARIANT="18-buster"
-FROM mcr.microsoft.com/vscode/devcontainers/javascript-node:0-${VARIANT}
+ARG VARIANT="dev-22-bullseye"
+FROM mcr.microsoft.com/devcontainers/javascript-node:${VARIANT}
 
 # [Optional] Uncomment this section to install additional OS packages.
 # RUN apt-get update && export DEBIAN_FRONTEND=noninteractive \

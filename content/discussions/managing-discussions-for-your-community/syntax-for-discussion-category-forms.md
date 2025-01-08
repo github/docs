@@ -6,11 +6,9 @@ versions:
   feature: discussion-category-forms
 ---
 
-{% data reusables.discussions.discussion-category-forms-beta %}
-
 ## About YAML syntax for discussion category forms
 
-You can create custom discussion category forms by adding a YAML form definition file to the `/.github/DISCUSSION_TEMPLATE/` folder in your repository. {% data reusables.actions.learn-more-about-yaml %} 
+You can create custom discussion category forms by adding a YAML form definition file to the `/.github/DISCUSSION_TEMPLATE/` folder in your repository. {% data reusables.actions.learn-more-about-yaml %}
 
 {% data reusables.discussions.discussion-category-forms-name %}
 
@@ -26,7 +24,7 @@ This example YAML configuration file defines a general discussion category form.
 
 The configuration file for a discussion category form must contain a `body` key, and the `body` must contain at least 1 non-Markdown field.
 
-```YAML{:copy}
+```yaml copy
 body:
 - type: input
   id: suggestion
@@ -38,12 +36,12 @@ body:
     required: true
 ```
 
-You can set the following top-level keys for each issue form.
+You can set the following top-level keys for each discussion category form.
 
 | Key | Description | Required | Type |
-| :-- | :-- | :-- | :-- | :-- |
+| :-- | :-- | :-- | :-- |
 | `body` | Definition of the input types in the discussion form. | Required | Array |
 | `labels` | Labels that will automatically be added to discussions created with this template. | Optional | Array or comma-delimited string |
 | `title` | A default title that will be pre-populated in the discussion submission form. | Optional | String |
 
-To add fields to your form, include an array of form elements in the `body` key. For a list of available elements and their syntaxes, see "[AUTOTITLE](/communities/using-templates-to-encourage-useful-issues-and-pull-requests/syntax-for-githubs-form-schema)."
+To add fields to your form, include an array of form elements in the `body` key. For a list of available elements and their syntaxes, see [AUTOTITLE](/communities/using-templates-to-encourage-useful-issues-and-pull-requests/syntax-for-githubs-form-schema).

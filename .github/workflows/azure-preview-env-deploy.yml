@@ -1,13 +1,10 @@
-name: Azure - Deploy Preview Environment
+name: Azure - Deploy Preview Environment (private)
 
-# **What it does**: Build and deploy an Azure preview environment for this PR
-# **Why we have it**: It's our preview environment deploy mechanism, to docs-internal and docs public repo
-# **Who does it impact**: All contributors.
+# NOTE! This is specifically and only for github/docs-internal.
 
-# !!!
-# ! This worflow has access to secrets, runs in the public repository, and clones untrusted user code.
-# ! Modify with extreme caution
-# !!!
+# **What it does**: Build and deploy an Azure preview environment for this PR in github/docs-internal
+# **Why we have it**: It's our preview environment deploy mechanism, to docs-internal repo
+# **Who does it impact**: Writ-access contributors.
 
 on:
   # The advantage of 'pull_request' over 'pull_request_target' is that we
@@ -28,14 +25,17 @@ on:
         description: 'The commit SHA to build'
         type: string
         required: true
-
+      WITH_TRANSLATIONS:
+        description: 'With translations'
+        required: true
+        type: boolean
 permissions:
   contents: read
   deployments: write
 
 # This allows one deploy workflow to interrupt another
 concurrency:
-  group: 'preview-env @ ${{ github.head_ref || github.run_id }} for ${{ github.event.number || github.event.inputs.PR_NUMBER }}'
+  group: 'preview-env @ ${{ github.head_ref || github.run_id }} for ${{ github.event.number || inputs.PR_NUMBER }}'
   cancel-in-progress: true
 
 jobs:
@@ -47,11 +47,10 @@ jobs:
     # See https://bit.ly/3qB9nZW > If a job in a workflow is skipped due to a conditional, it will report its status as "Success".
     if: |
       (
-        (github.event.pull_request.head.sha || github.event.inputs.COMMIT_REF)
-         && (github.event.number || github.event.inputs.PR_NUMBER || github.run_id)
+        (github.event.pull_request.head.sha || inputs.COMMIT_REF)
+         && (github.event.number || inputs.PR_NUMBER || github.run_id)
        )
-       && (github.repository == 'github/docs-internal' || github.repository == 'github/docs')
-       &&  github.actor != 'dependabot[bot]'
+       && github.repository == 'github/docs-internal'
     timeout-minutes: 15
     environment:
       name: preview-env-${{ github.event.number }}
@@ -61,40 +60,29 @@ jobs:
       # to link a PR to a list of environments later.
       url: ${{ env.APP_URL }}
     env:
-      PR_NUMBER: ${{ github.event.number || github.event.inputs.PR_NUMBER || github.run_id }}
-      COMMIT_REF: ${{ github.event.pull_request.head.sha || github.event.inputs.COMMIT_REF }}
+      PR_NUMBER: ${{ github.event.number || inputs.PR_NUMBER || github.run_id }}
+      COMMIT_REF: ${{ github.event.pull_request.head.sha || inputs.COMMIT_REF }}
       BRANCH_NAME: ${{ github.head_ref || github.ref_name }}
-      IS_INTERNAL_BUILD: ${{ github.repository == 'github/docs-internal' }}
-      # This may also run in forked repositories, not just 'github/docs'
-      IS_PUBLIC_BUILD: ${{ github.repository != 'github/docs-internal' }}
-      NONPROD_REGISTRY_USERNAME: ${{ fromJSON('["ghdocs", "ghdocsinternal"]')[github.repository == 'github/docs-internal'] }}
+      NONPROD_REGISTRY_USERNAME: ghdocsinternal
 
     steps:
       - name: 'Az CLI login'
-        uses: azure/login@1f63701bf3e6892515f1b7ce2d2bf1708b46beaf
+        uses: azure/login@6c251865b4e6290e7b78be643ea2d005bc51f69a # pin @v2
         with:
           creds: ${{ secrets.NONPROD_AZURE_CREDENTIALS }}
 
       - name: 'Docker login'
-        uses: azure/docker-login@83efeb77770c98b620c73055fbb59b2847e17dc0
+        uses: azure/docker-login@15c4aadf093404726ab2ff205b2cdd33fa6d054c
         with:
           login-server: ${{ secrets.NONPROD_REGISTRY_SERVER }}
           username: ${{ env.NONPROD_REGISTRY_USERNAME }}
           password: ${{ secrets.NONPROD_REGISTRY_PASSWORD }}
 
       - name: Set up Docker Buildx
-        uses: docker/setup-buildx-action@95cb08cb2672c73d4ffd2f422e6d11953d2a9c70
+        uses: docker/setup-buildx-action@988b5a0280414f521da01fcc63a27aeeb4b104db
 
-      - if: ${{ env.IS_PUBLIC_BUILD == 'true' }}
-        name: Check out main branch
-        uses: actions/checkout@93ea575cb5d8a053eaa0ac8fa3b40d7e05a33cc8
-        with:
-          ref: 'main'
-          persist-credentials: 'false'
-
-      - if: ${{ env.IS_INTERNAL_BUILD == 'true' }}
-        name: Check out PR code
-        uses: actions/checkout@93ea575cb5d8a053eaa0ac8fa3b40d7e05a33cc8
+      - name: Check out PR code
+        uses: actions/checkout@b4ffde65f46336ab88eb53be808477a3936bae11 # v4.1.1
         with:
           ref: ${{ env.COMMIT_REF }}
           # To prevent issues with cloning early access content later
@@ -103,21 +91,20 @@ jobs:
       - name: Get preview app info
         env:
           APP_NAME_SEED: ${{ secrets.PREVIEW_ENV_NAME_SEED }}
-        run: .github/actions-scripts/get-preview-app-info.sh
+        run: src/workflows/get-preview-app-info.sh
 
       - name: 'Set env vars'
         run: |
           # Image tag is unique to each workflow run so that it always triggers a new deployment
           echo "DOCKER_IMAGE=${{ secrets.NONPROD_REGISTRY_SERVER }}/${IMAGE_REPO}:${{ env.COMMIT_REF }}-${{ github.run_number }}-${{ github.run_attempt }}" >> $GITHUB_ENV
 
-      - if: ${{ env.IS_INTERNAL_BUILD == 'true' }}
-        name: Determine which docs-early-access branch to clone
+      - name: Determine which docs-early-access branch to clone
         id: 'check-early-access'
-        uses: actions/github-script@98814c53be79b1d30f795b907e553d8679345975
+        uses: actions/github-script@e69ef5462fd455e02edcaf4dd7708eda96b9eda0
         env:
           BRANCH_NAME: ${{ env.BRANCH_NAME }}
         with:
-          github-token: ${{ secrets.DOCUBOT_REPO_PAT }}
+          github-token: ${{ secrets.DOCS_BOT_PAT_READPUBLICKEY }}
           result-encoding: string
           script: |
             const { BRANCH_NAME } = process.env
@@ -140,51 +127,56 @@ jobs:
               return 'main'
             }
 
-      - if: ${{ env.IS_INTERNAL_BUILD == 'true' }}
-        name: Clone docs-early-access
-        uses: actions/checkout@93ea575cb5d8a053eaa0ac8fa3b40d7e05a33cc8
+      - name: Clone docs-early-access
+        uses: actions/checkout@b4ffde65f46336ab88eb53be808477a3936bae11 # v4.1.1
         with:
           repository: github/docs-early-access
-          token: ${{ secrets.DOCUBOT_REPO_PAT }}
+          token: ${{ secrets.DOCS_BOT_PAT_READPUBLICKEY }}
           path: docs-early-access
           ref: ${{ steps.check-early-access.outputs.result }}
 
-      - if: ${{ env.IS_INTERNAL_BUILD == 'true' }}
-        name: Merge docs-early-access repo's folders
-        run: .github/actions-scripts/merge-early-access.sh
+      - name: Merge docs-early-access repo's folders
+        run: src/early-access/scripts/merge-early-access.sh
 
-      - if: ${{ env.IS_PUBLIC_BUILD == 'true' }}
-        name: Check out user code to temp directory
-        uses: actions/checkout@93ea575cb5d8a053eaa0ac8fa3b40d7e05a33cc8
+      - name: Determine if we should include translations?
+        uses: actions/github-script@e69ef5462fd455e02edcaf4dd7708eda96b9eda0
+        id: with-translations
         with:
-          path: ./user-code
-          ref: ${{ env.COMMIT_REF }}
+          script: |
+            if (process.env.IS_INTERNAL_BUILD !== 'true') return false
+            if (context.eventName === "workflow_dispatch") {
+              return context.payload.inputs.WITH_TRANSLATIONS === 'true'
+            }
+            // This works for pull_request_target too
+            if (context.payload.pull_request?.labels) {
+              return context.payload.pull_request.labels.map(label => label.name).includes('preview-with-translations')
+            }
+            return false
 
-      # Move acceptable user changes into our main branch checkout
-      - if: ${{ env.IS_PUBLIC_BUILD == 'true' }}
-        name: Move acceptable user changes
-        run: |
-          # Make sure recursive path expansion is enabled
-          shopt -s globstar
-          rsync -rptovR ./user-code/content/./**/*.md ./content
-          rsync -rptovR ./user-code/assets/./**/*.png ./assets
-          rsync -rptovR ./user-code/data/./**/*.{yml,md} ./data
-          rsync -rptovR ./user-code/components/./**/*.{scss,ts,tsx} ./components
-          rsync -rptovR --ignore-missing-args ./user-code/lib/./**/*.{js,ts} ./lib
-          rsync -rptovR --ignore-missing-args ./user-code/middleware/./**/*.{js,ts} ./middleware
-          rsync -rptovR ./user-code/pages/./**/*.tsx ./pages
-          rsync -rptovR ./user-code/stylesheets/./**/*.scss ./stylesheets
+      - if: ${{ steps.with-translations.outputs.result == 'true' }}
+        uses: ./.github/actions/clone-translations
+        with:
+          token: ${{ secrets.DOCS_BOT_PAT_READPUBLICKEY }}
+
+      - uses: ./.github/actions/warmup-remotejson-cache
+        with:
+          restore-only: true
+
+      - uses: ./.github/actions/precompute-pageinfo
+        with:
+          restore-only: true
 
       # In addition to making the final image smaller, we also save time by not sending unnecessary files to the docker build context
       - name: 'Prune for preview env'
-        run: .github/actions-scripts/prune-for-preview-env.sh
+        run: src/workflows/prune-for-preview-env.sh
 
       - name: 'Build and push image'
-        uses: docker/build-push-action@3b5e8027fcad23fda98b2e3ac259d8d67585f671
+        uses: docker/build-push-action@16ebe778df0e7752d2cfcbd924afdbbd89c1a755
         with:
           context: .
+          file: Dockerfile.azure
           push: true
-          target: preview
+          target: ${{ steps.with-translations.outputs.result == 'true'  && 'production' || 'preview' }}
           tags: ${{ env.DOCKER_IMAGE }}
           # we only pull the `main` cache image
           cache-from: type=registry,ref=${{ secrets.NONPROD_REGISTRY_SERVER }}/${{ github.repository }}:main-preview
@@ -201,11 +193,12 @@ jobs:
       # Deploy ARM template is idempotent
       # Note: once the resources exist the image tag must change for a new deployment to occur (the image tag includes workflow run number, run attempt, as well as sha)
       - name: Run ARM deploy
-        uses: azure/arm-deploy@65ae74fb7aec7c680c88ef456811f353adae4d06
+        uses: azure/arm-deploy@a1361c2c2cd398621955b16ca32e01c65ea340f5
         with:
+          scope: resourcegroup
           resourceGroupName: ${{ secrets.PREVIEW_ENV_RESOURCE_GROUP }}
           subscriptionId: ${{ secrets.NONPROD_SUBSCRIPTION_ID }}
-          template: ./azure-preview-env-template.json
+          template: ./src/workflows/azure-preview-env-template.json
           deploymentName: ${{ env.DEPLOYMENT_NAME }}
           parameters: appName="${{ env.APP_NAME }}"
             containerImage="${{ env.DOCKER_IMAGE }}"

@@ -1,0 +1,6 @@
+# Issue 14025
+# Push rulesets for prohibiting certain files from entering a private or internal repository, and/or paths in the repository
+versions:
+  fpt: '*'
+  ghec: '*'
+  ghes: '>=3.15'

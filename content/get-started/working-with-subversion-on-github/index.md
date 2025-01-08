@@ -6,9 +6,7 @@ redirect_from:
   - /github/importing-your-projects-to-github/working-with-subversion-on-github
   - /get-started/importing-your-projects-to-github/working-with-subversion-on-github
 versions:
-  fpt: '*'
-  ghes: '*'
-  ghec: '*'
+  ghes: '<3.13'
 children:
   - /what-are-the-differences-between-subversion-and-git
   - /support-for-subversion-clients

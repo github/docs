@@ -10,15 +10,16 @@ redirect_from:
 versions:
   fpt: '*'
   ghes: '*'
-  ghae: '*'
   ghec: '*'
 topics:
   - Projects
 children:
   - /finding-ways-to-contribute-to-open-source-on-github
+  - /using-github-copilot-to-explore-projects
+  - /contributing-to-a-project
   - /saving-repositories-with-stars
   - /following-people
   - /following-organizations
+
 shortTitle: Explore projects
 ---
-

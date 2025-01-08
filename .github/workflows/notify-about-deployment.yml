@@ -7,8 +7,7 @@ name: Notify about production deployment
 on:
   workflow_dispatch:
   workflow_run:
-    # Note, we could do this after the "Purge Fastly" finished
-    workflows: ['Azure Production - Build and Deploy']
+    workflows: ['Purge Fastly']
     types:
       - completed
 
@@ -18,11 +17,16 @@ permissions:
 
 jobs:
   find-pr-and-post-comment:
-    if: ${{ github.repository == 'github/docs-internal' }}
+    if: >-
+      ${{
+        github.repository == 'github/docs-internal' &&
+        (github.event_name != 'workflow_run' ||
+        github.event.workflow_run.conclusion == 'success')
+      }}
     runs-on: ubuntu-latest
     steps:
       - name: Check out repo
-        uses: actions/checkout@93ea575cb5d8a053eaa0ac8fa3b40d7e05a33cc8
+        uses: actions/checkout@b4ffde65f46336ab88eb53be808477a3936bae11 # v4.1.1
 
       - uses: ./.github/actions/node-npm-setup
 
@@ -36,14 +40,14 @@ jobs:
 
       - name: Find last PR
         id: get-number
-        timeout-minutes: 3
+        timeout-minutes: 5
         env:
-          GITHUB_TOKEN: ${{ secrets.DOCUBOT_REPO_PAT }}
-        run: .github/actions-scripts/find-past-built-pr.js
+          GITHUB_TOKEN: ${{ secrets.DOCS_BOT_PAT_READPUBLICKEY }}
+        run: npm run find-past-built-pr
 
       - name: Find content directory changes comment
         if: ${{ steps.get-number.outputs.number != '' }}
-        uses: peter-evans/find-comment@f4499a714d59013c74a08789b48abe4b704364a0
+        uses: peter-evans/find-comment@3eae4d37986fb5a8592848f6a574fdf654e61f9e
         id: findComment
         with:
           issue-number: ${{ steps.get-number.outputs.number }}
@@ -52,7 +56,7 @@ jobs:
 
       - name: Update comment
         if: ${{ steps.get-number.outputs.number != '' }}
-        uses: peter-evans/create-or-update-comment@67dcc547d311b736a8e6c5c236542148a47adc3d
+        uses: peter-evans/create-or-update-comment@71345be0265236311c031f5c7866368bd1eff043
         with:
           comment-id: ${{ steps.findComment.outputs.comment-id }}
           issue-number: ${{ steps.get-number.outputs.number }}
@@ -61,4 +65,13 @@ jobs:
             🚀 **This pull request has gone into production!**
 
             The SHA of https://docs.github.com/_build matches the merge commit in this PR.
+
+            If you don't see updates when expected, try adding a random query string to the URL like `?bla=1234` and see if that helps.
+            If that shows the expected content, it would indicate that the CDN is "overly caching" the page still. It will eventually update, but it can take a while.
           edit-mode: replace
+
+      - uses: ./.github/actions/slack-alert
+        if: ${{ failure() }}
+        with:
+          slack_channel_id: ${{ secrets.DOCS_ALERTS_SLACK_CHANNEL_ID }}
+          slack_token: ${{ secrets.SLACK_DOCS_BOT_TOKEN }}

@@ -9,12 +9,19 @@ redirect_from:
 versions:
   fpt: '*'
   ghes: '*'
-  ghae: '*'
   ghec: '*'
 topics:
   - GitHub search
 shortTitle: Understand search syntax
 ---
+
+{% ifversion code-search-upgrade %}
+
+> [!NOTE]
+> The syntax below applies to non-code search. For more information on code search syntax, see [AUTOTITLE](/search-github/github-code-search/understanding-github-code-search-syntax).
+
+{% endif %}
+
 ## Query for values greater or less than another value
 
 You can use `>`, `>=`, `<`, and `<=` to search for values that are greater than, greater than or equal to, less than, and less than or equal to another value.
@@ -52,8 +59,8 @@ Query  | Example
 <code><<em>YYYY</em>-<em>MM</em>-<em>DD</em></code> | **[cats pushed:<2012-07-05](https://github.com/search?q=cats+pushed%3A%3C2012-07-05&type=Repositories&utf8=%E2%9C%93)** matches repositories with the word "cats" that were pushed to before July 5, 2012.
 <code><=<em>YYYY</em>-<em>MM</em>-<em>DD</em></code> | **[cats created:<=2012-07-04](https://github.com/search?utf8=%E2%9C%93&q=cats+created%3A%3C%3D2012-07-04&type=Issues)** matches issues with the word "cats" that were created on or before July 4, 2012.
 <code><em>YYYY</em>-<em>MM</em>-<em>DD</em>..<em>YYYY</em>-<em>MM</em>-<em>DD</em></code> | **[cats pushed:2016-04-30..2016-07-04](https://github.com/search?utf8=%E2%9C%93&q=cats+pushed%3A2016-04-30..2016-07-04&type=Repositories)** matches repositories with the word "cats" that were pushed to between the end of April and July of 2016.
-<code><em>YYYY</em>-<em>MM</em>-<em>DD</em>..*</code> | **[cats created:2012-04-30..*](https://github.com/search?utf8=%E2%9C%93&q=cats+created%3A2012-04-30..*&type=Issues)** matches issues created after April 30th, 2012 containing the word "cats."
-<code>*..<em>YYYY</em>-<em>MM</em>-<em>DD</em></code> | **[cats created:*..2012-07-04](https://github.com/search?utf8=%E2%9C%93&q=cats+created%3A*..2012-07-04&type=Issues)** matches issues created before July 4th, 2012 containing the word "cats."
+<code><em>YYYY</em>-<em>MM</em>-<em>DD</em>..*</code> | **[cats created:2012-04-30..*](https://github.com/search?utf8=%E2%9C%93&q=cats+created%3A2012-04-30..*&type=Issues)** matches issues created on or after April 30th, 2012 containing the word "cats."
+<code>*..<em>YYYY</em>-<em>MM</em>-<em>DD</em></code> | **[cats created:*..2012-07-04](https://github.com/search?utf8=%E2%9C%93&q=cats+created%3A*..2012-07-04&type=Issues)** matches issues created on or before July 4th, 2012 containing the word "cats."
 
 {% data reusables.time_date.time_format %}
 
@@ -86,15 +93,18 @@ If your search query contains whitespace, you will need to surround it with quot
 * [cats NOT "hello world"](https://github.com/search?utf8=✓&q=cats+NOT+"hello+world"&type=Repositories) matches repositories with the word "cats" but not the words "hello world."
 * [build label:"bug fix"](https://github.com/search?utf8=%E2%9C%93&q=build+label%3A%22bug+fix%22&type=Issues) matches issues with the word "build" that have the label "bug fix."
 
-Some non-alphanumeric symbols, such as spaces, are dropped from code search queries within quotation marks, so results can be unexpected.
+{% ifversion ghes %} Some non-alphanumeric symbols, such as spaces, are dropped from code search queries within quotation marks, so results can be unexpected.{% endif %}
 
 ## Queries with usernames
 
-If your search query contains a qualifier that requires a username, such as `user`, `actor`, or `assignee`, you can use any {% data variables.product.product_name %} username, to specify a specific person, or `@me`, to specify the current user.
+If your search query contains a qualifier that requires a username, such as `user`, `actor`, or `assignee`, you can use any {% data variables.product.product_name %} username to specify a specific person{% ifversion copilot %}, `@me` to specify the current user, or `@copilot` to specify {% data variables.product.prodname_copilot_short %}.{% else %} or `@me`, to specify the current user.{% endif %}
 
-Query  | Example
-------------- | -------------
-`QUALIFIER:USERNAME` | [`author:nat`](https://github.com/search?q=author%3Anat&type=Commits) matches commits authored by @nat
-`QUALIFIER:@me` | [`is:issue assignee:@me`](https://github.com/search?q=is%3Aissue+assignee%3A%40me&type=Issues) matches issues assigned to the person viewing the results
+| Query  | Example |
+| ------ | ------- |
+| `QUALIFIER:USERNAME` | [`author:nat`](https://github.com/search?q=author%3Anat&type=Commits) matches commits authored by @nat |
+| `QUALIFIER:@me` | [`is:issue assignee:@me`](https://github.com/search?q=is%3Aissue+assignee%3A%40me&type=Issues) matches issues assigned to the person viewing the results |
+| {% ifversion copilot %} |
+| `QUALIFIER:@copilot` | [`is:pr reviewed-by:@copilot`](https://github.com/search?q=is:pr+reviewed-by:@copilot&type=pullrequests) matches pull requests reviewed by {% data variables.product.prodname_copilot_short %}. For more information, see [AUTOTITLE](/copilot/using-github-copilot/code-review/using-copilot-code-review). |
+| {% endif %} |
 
-You can only use `@me` with a qualifier and not as search term, such as `@me main.workflow`.
+You can only use `@me` {% ifversion copilot %} or `@copilot` {% endif %} with a qualifier, and not as a search term, such as `@me main.workflow`.

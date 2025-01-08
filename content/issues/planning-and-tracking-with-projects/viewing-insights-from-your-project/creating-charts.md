@@ -10,13 +10,8 @@ topics:
   - Projects
 ---
 
-{% data reusables.projects.insights-release-note %}
-
 {% data reusables.projects.access-insights %}
-3. In the menu on the left, click **New chart**.
-   ![Screenshot showing the new chart button](/assets/images/help/projects-v2/insights-new-chart.png)
-4. Optionally, to change the name of the new chart, click {% octicon "triangle-down" aria-label="The triangle icon" %}, type a new name, and press <kbd>Return</kbd>.
-   ![Screenshot showing how to rename a chart](/assets/images/help/projects-v2/insights-rename.png)
-5. Above the chart, type filters to change the data used to build the chart. For more information, see "[AUTOTITLE](/issues/planning-and-tracking-with-projects/customizing-views-in-your-project/filtering-projects)."
-6. To the right of the filter text box, click **Save changes**.
-   ![Screenshot showing save button](/assets/images/help/projects-v2/insights-save-filter.png)
+1. In the menu on the left, click **New chart**.
+1. Optionally, to change the name of the new chart, click {% octicon "triangle-down" aria-label="The triangle icon" %}, type a new name, and press <kbd>Return</kbd>.
+1. Above the chart, type filters to change the data used to build the chart. For more information, see [AUTOTITLE](/issues/planning-and-tracking-with-projects/customizing-views-in-your-project/filtering-projects).
+1. To the right of the filter text box, click **Save changes**.

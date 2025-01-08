@@ -6,7 +6,6 @@ versions:
   fpt: '*'
   ghes: '*'
   ghec: '*'
-  ghae: '*'
 ---
 
 ## About migrations
@@ -41,7 +40,7 @@ If you’re not using a code hosting platform at all, you might be storing your 
 
 Wherever your code lives, that's your "migration origin."
 
-You’ll also need to know which {% data variables.product.prodname_dotcom %} product you’re migrating to, or your "migration destination." This could be {% data variables.product.prodname_dotcom_the_website %}, which includes {% data variables.product.prodname_ghe_cloud %}, or {% data variables.product.prodname_ghe_server %}.
+You’ll also need to know which {% data variables.product.prodname_dotcom %} product you’re migrating to, or your "migration destination." This could be {% data variables.product.prodname_dotcom_the_website %}, {% data variables.enterprise.data_residency_site %}, or {% data variables.product.prodname_ghe_server %}.
 
 ### Building a basic inventory of the repositories you want to migrate
 
@@ -49,16 +48,20 @@ After you've identified your migration origin and destination, establish what da
 
 You should build a migration inventory with a list of all of the repositories in your migration origin(s) that you need to migrate. We recommend using a spreadsheet. As a starting point, you should record the following data for each repository:
 
-- Name
-- Owner: in {% data variables.product.prodname_dotcom %}, this would be an organization, but in other tools, there might be a different kind of owner
-- URL
-- Last updated timestamp
-- Number of pull requests (or equivalent in your migration origin)
-- Number of issues (or equivalent in your migration origin)
+* Name
+* Owner: in {% data variables.product.prodname_dotcom %}, this would be an organization, but in other tools, there might be a different kind of owner
+* URL
+* Last updated timestamp
+* Number of pull requests (or equivalent in your migration origin)
+* Number of issues (or equivalent in your migration origin)
 
 If you’re migrating from {% data variables.product.prodname_ghe_cloud %} or {% data variables.product.prodname_ghe_server %}, you can obtain this data with the `gh-repo-stats` extension for the {% data variables.product.prodname_cli %}. With just a few commands, `gh-repo-stats` will connect with your migration origin's API and create a CSV with all of the recommended fields. For more information, see the [mona-actions/gh-repo-stats](https://github.com/mona-actions/gh-repo-stats/) repository.
 
-If you’re migrating from Azure DevOps, we recommend our official `gh-migrator-analyzer` tool. `gh-migration-analyzer` will connect with the Azure DevOps API and build a very simple CSV with some of the fields suggested above. For more information, see the [github/gh-migration-analyzer](https://github.com/github/gh-migration-analyzer) repository.
+{% data reusables.enterprise-migration-tool.gh-repo-stats-not-supported %}
+
+If you’re migrating from Azure DevOps, we recommend the `inventory-report` command in the {% data variables.product.prodname_ado2gh_cli %}. The `inventory-report` command will connect with the Azure DevOps API, then build a simple CSV with some of the fields suggested above. For more information about how to install the {% data variables.product.prodname_ado2gh_cli %}, see [AUTOTITLE](/migrations/using-github-enterprise-importer/migrating-from-azure-devops-to-github-enterprise-cloud/migrating-repositories-from-azure-devops-to-github-enterprise-cloud).
+
+If you’re migrating from Bitbucket Server or Bitbucket Data Center, we recommend the `inventory-report` command in the {% data variables.product.prodname_bbs2gh_cli %}. The `inventory-report` command will use your Bitbucket instance's API to build a simple CSV. For more information about how to install the {% data variables.product.prodname_bbs2gh_cli %}, see [AUTOTITLE](/migrations/using-github-enterprise-importer/migrating-from-bitbucket-server-to-github-enterprise-cloud/migrating-repositories-from-bitbucket-server-to-github-enterprise-cloud).
 
 For other migration origins, create your migration inventory yourself. You could build the spreadsheet using the origin’s reporting tools, if available, or API, or you could create the inventory manually.
 
@@ -70,23 +73,23 @@ After you have a list of all of your repositories, you can decide which ones you
 
 After you’ve completed your basic migration inventory, collect information about the size of your repositories. If your repositories are large or contain individual files over 100MB, this can make your migration longer and riskier and limit the migration tools that are available to you.
 
-If you’re using Git as your version control system, it's not only large files currently in the repository that matter; large files in your repository's history matter too. For example, if you had a file larger than 100MB in your repository in the past, then that file will still be present in your Git history, unless you’ve rewritten the history to remove all traces of the file. For more information about rewriting history, see "[AUTOTITLE](/repositories/working-with-files/managing-large-files/about-large-files-on-github#removing-a-file-that-was-added-in-an-earlier-commit)."
+If you’re using Git as your version control system, it's not only large files currently in the repository that matter; large files in your repository's history matter too. For example, if you had a file larger than 100MB in your repository in the past, then that file will still be present in your Git history, unless you’ve rewritten the history to remove all traces of the file. For more information about rewriting history, see [AUTOTITLE](/repositories/working-with-files/managing-large-files/about-large-files-on-github#removing-a-file-that-was-added-in-an-earlier-commit).
 
 If you used `gh-repo-stats` to build your inventory, you’ll already have some basic information on how big your repositories are. To build a complete migration inventory, you'll need to obtain finer details about the data inside your repositories.
 
 Next, follow the instructions below to add the following data to your migration inventory for each repository:
 
-- The size of the largest file (also known as a “blob”)
-- The total size of all files (“blobs”)
+* The size of the largest file (also known as a “blob”)
+* The total size of all files (“blobs”)
 
-If you’re using a version control system other than Git, or your files aren’t tracked with a version control system at all, first move the repositories to Git. For more information, see "[Source code and history migrations](#source-code-and-history-migrations)."
+If you’re using a version control system other than Git, or your files aren’t tracked with a version control system at all, first move the repositories to Git. For more information, see [AUTOTITLE](/migrations/importing-source-code/using-the-command-line-to-import-source-code/adding-locally-hosted-code-to-github).
 
 Then, use the open-source tool, `git-sizer`, to get this data for your repository.
 
 ### Prerequisites
 
 1. Install `git-sizer`. For more information, see the [github/git-sizer](https://github.com/github/git-sizer#getting-started) repository.
-1. To verify that that `git-sizer` is installed, run `git-sizer –version`. If you see output like `git-sizer release 1.5.0`, installation was successful.
+1. To verify that `git-sizer` is installed, run `git-sizer –version`. If you see output like `git-sizer release 1.5.0`, installation was successful.
 1. Install `jq`. For more information, see [Download jq](https://stedolan.github.io/jq/download/) in the `jq` documentation.
 1. To verify that `jq` is installed, run `jq –-version`. If you see output like `jq-1.6`, installation was successful.
 
@@ -95,7 +98,7 @@ Then, use the open-source tool, `git-sizer`, to get this data for your repositor
 1. To clone your repository from the migration origin, run `git clone --mirror`.
 1. Navigate to the directory where you cloned your repository.
 1. To get the size of the largest file in your repository in bytes, run `git-sizer --no-progress -j | jq ".max_blob_size"`.
-1. To get the total size of all files in your repository in bytes, run `git-sizer --no-progress -j | jq “.unique_blob_size”`.
+1. To get the total size of all files in your repository in bytes, run `git-sizer --no-progress -j | jq ".unique_blob_size"`.
 1. Add the values from the previous steps to your inventory.
 
 ## About migration types
@@ -118,6 +121,8 @@ You may choose to complete a "self-serve migration," where you plan and run your
 
 Alternatively, you may prefer to work with {% data variables.product.company_short %}'s Expert Services team or a {% data variables.product.company_short %} Partner, which we call an "expert-led migration." With an expert-led migration, you benefit from the knowledge and experience of an expert who has previously run tens or even hundreds of migrations, and you get access to additional migration tools that aren’t available for self-serve.
 
+If you're migrating a large amount of data, you're likely to benefit from an expert-led migration. For example, if you're migrating thousands of repositories, or you have complex repositories greater than around 5 GB in size, we recommend connecting with Expert Services.
+
 {% rowheaders %}
 
 |   | Self-serve | Expert-led |
@@ -133,103 +138,24 @@ To learn more about expert-led migrations, contact your account representative o
 
 ## Deciding what tools to use
 
-Next, determine the best migration tooling for your desired migration fidelity.
-
-### Source, history, and metadata migrations
-
-For some migration paths, we offer specialist tools that allow you to migrate source, history, and metadata. The appropriate tool depends on your migration path.
-
-<table>
-  <tr>
-    <th></th>
-    <th scope="colgroup" colspan="2" style="text-align: center"><b>Destination</b></th>
-  </tr>
-  <tr>
-    <th scope="col"><b>Origin</b></th>
-    <th scope="col"><b>{% data variables.product.prodname_dotcom_the_website %}, including {% data variables.product.prodname_ghe_cloud %}</b></th>
-    <th scope="col"><b>{% data variables.product.prodname_ghe_server %}</b></th>
-  </tr>
-  <tr>
-    <th scope="row"><b>Azure DevOps (Cloud only)</b></th>
-    <td>{% data variables.product.prodname_importer_proper_name %}</td>
-    <td>None</td>
-  </tr>
-  <tr>
-    <th scope="row"><b>Bitbucket Server</b></th>
-    <td><ul><li><code>bbs-exporter</code> (expert-led migrations only)</li><li>{% data variables.product.prodname_importer_proper_name %} (private beta)</li></ul></td>
-    <td><code>bbs-exporter</code> (expert-led migrations only)</td>
-  </tr>
-  <tr>
-    <th scope="row"><b>GitLab (self-managed or SaaS)</b></th>
-    <td><code>gl-exporter</code> (expert-led migrations only)</td>
-    <td><code>gl-exporter</code> (expert-led migrations only)</td>
-  </tr>
-  <tr>
-    <th scope="row"><b>{% data variables.product.prodname_dotcom_the_website %}, including {% data variables.product.prodname_ghe_cloud %}</b></th>
-    <td><ul><li>{% data variables.product.prodname_importer_proper_name %}</li><li>Enterprise Cloud Importer (expert-led migrations only)</li></ul></td>
-    <td>ghe-migrator</td>
-  </tr>
-  <tr>
-    <th scope="row"><b>{% data variables.product.prodname_ghe_server %}</b></th>
-    <td><ul><li>{% data variables.product.prodname_importer_proper_name %}</li><li>Enterprise Cloud Importer (expert-led migrations only)</li></ul></td>
-    <td>ghe-migrator</td>
-  </tr>
-  </table>
-
-If your migration path is not included in the table, then we don’t offer any specialist tools to migrate source, history and metadata. As an alternative, you could run a "source snapshot" or "source and history" migration.
-
-You can learn more about each tool and its use, review the tool's documentation or contact your expert:
-
-- "[AUTOTITLE]({% ifversion ghae %}/free-pro-team@latest{% endif %}/migrations/using-github-enterprise-importer)"
-- "[AUTOTITLE]({% ifversion ghae %}/enterprise-server@latest{% endif %}/migrations/using-ghe-migrator)"
-- For tools that are only available with expert-led migrations, contact your account representative or [Expert Services](https://github.com/services/).
-
-### Limitations of specialist tools
-
-Each of our specialist tools has different limitations to consider.
-
-Pay particular attention to restrictions on the repository size. If you need to migrate large repositories, you may need to use a different tool than the one we normally recommend for your migration path.
-
-{% rowheaders %}
-
-| | Tooling available with expert-led migrations | {% data variables.product.prodname_importer_proper_name %} | ghe-migrator |
-|---|---|---|---|
-Supported sources | <ul><li>Bitbucket Server</li><li>GitLab (self-managed and SaaS)</li></ul> | <ul><li>Azure DevOps</li><li>Bitbucket Server (private beta)</li><li>{% data variables.product.company_short %} products (all)</li></ul> | <ul><li>{% data variables.product.prodname_ghe_cloud %}</li><li>{% data variables.product.prodname_ghe_server %}</li></ul>
-Supported targets | {% data variables.product.company_short %} products (all) | {% data variables.product.prodname_dotcom_the_website %}, including {% data variables.product.prodname_ghe_cloud %} | {% data variables.product.prodname_ghe_server %} |
-Availability | Only when working with Expert Services or a {% data variables.product.prodname_dotcom %} Partner | Open to all | Open to all
-Support  | Provided by your Expert Services team member or {% data variables.product.prodname_dotcom %} Partner | Open to all | Open to all
-Repository size | < 30GB |< 10GB | Unlimited, but subject to your server’s resources
-Data migrated | <ul><li>For Bitbucket, see the [`bbs-exporter`](https://github.github.com/enterprise-migrations/#/./2.2.3.0-export-from-bitbucket-features) documentation</li><li>For GitLab, see the [`gl-exporter`](https://github.github.com/enterprise-migrations/#/./2.2.2.0-export-from-gitlab-features) documentation</li><li>For {% data variables.product.product_name %}, see "[AUTOTITLE]({% ifversion ghae %}/enterprise-server@latest{% endif %}/migrations/using-ghe-migrator/about-ghe-migrator#migrated-data)"</li></ul> | See "[AUTOTITLE]({% ifversion ghae %}/free-pro-team@latest{% endif %}/migrations/using-github-enterprise-importer/understanding-github-enterprise-importer/migration-support-for-github-enterprise-importer)" | See "[AUTOTITLE]({% ifversion ghae %}/enterprise-server@latest{% endif %}/migrations/using-ghe-migrator/about-ghe-migrator#migrated-data)"
-
-{% endrowheaders %}
-
-### Source code and history migrations
-
-If your migration path isn’t listed above, then you won’t be able to complete a source, history, and metadata migration. Instead, you’ll be limited to a source snapshot migration or a source and history migration.
-
-- If your repository is hosted on a code hosting service using Git, Subversion (SVN), Mercurial, or Team Foundation Version Control (TFVC/TFS) and is accessible from the public internet, you can use {% data variables.product.company_short %}-provided tools to migrate your source and history.
-   - If you're migrating to {% data variables.product.prodname_dotcom_the_website %}, use {% data variables.product.prodname_dotcom %} Importer. For more information, see "[AUTOTITLE]({% ifversion ghes or ghae %}/free-pro-team@latest{% endif %}/migrations/importing-source-code/using-github-importer)."
-   - If you're migrating to {% data variables.product.prodname_ghe_server %}, use the administrative shell. For more information, see "[AUTOTITLE]({% ifversion not ghes %}/enterprise-server@latest{% endif %}/migrations/importing-source-code/using-the-command-line-to-import-source-code/importing-from-other-version-control-systems-with-the-administrative-shell)."
-- If your repository uses SVN for version control and is not accessible from the public internet, you can use the `git svn` command to convert your repository to Git, then push the repository to {% data variables.product.prodname_dotcom %}. For more information, see [Migrating to Git](https://git-scm.com/book/en/v2/Git-and-Other-Systems-Migrating-to-Git) in the "Pro Git" book.
-- If your repository uses Mercurial for version control and is not accessible from the public internet, you can use `hg-fast-export` to convert your repository to Git, then push the repository to {% data variables.product.prodname_dotcom %}. For more information, see [Migrating to Git](https://git-scm.com/book/en/v2/Git-and-Other-Systems-Migrating-to-Git) in the "Pro Git" book.
-- If your repository uses Team Foundation Version Control (TFVC) for version control and is not accessible from the public internet, you can use `git-tfs` to convert your repository to Git, then push the repository to {% data variables.product.prodname_dotcom %}. For more information, see the [git-tfs/git-tfs](https://github.com/git-tfs/git-tfs) repository.
+{% data reusables.migrations.about-migration-paths %} For more information, see [AUTOTITLE](/migrations/overview/migration-paths-to-github).
 
 ## Designing your organization structure for the migration destination
 
-In {% data variables.product.prodname_dotcom %}, each repository belongs to an organization. {% data reusables.organizations.short-summary %} For more information, see "[AUTOTITLE](/organizations/collaborating-with-groups-in-organizations/about-organizations)."
+In {% data variables.product.prodname_dotcom %}, each repository belongs to an organization. {% data reusables.organizations.short-summary %} For more information, see [AUTOTITLE](/organizations/collaborating-with-groups-in-organizations/about-organizations).
 
 Whether you’re adopting {% data variables.product.prodname_dotcom %} for the first time or already using {% data variables.product.prodname_dotcom %}, pause to consider the most effective structure for your organizations and repositories after your migration. The design you choose can maximize collaboration and discovery and minimize administrative burden, or it can create unnecessary silos and administrative overhead.
 
-We recommend that you minimize the number of organizations and structure them according to one of five archetypes. For detailed guidance, see "[AUTOTITLE](/admin/user-management/managing-organizations-in-your-enterprise/best-practices-for-structuring-organizations-in-your-enterprise)."
+We recommend that you minimize the number of organizations and structure them according to one of five archetypes. For detailed guidance, see [AUTOTITLE](/admin/user-management/managing-organizations-in-your-enterprise/best-practices-for-structuring-organizations-in-your-enterprise).
 
 ## Performing a dry run migration for every repository
 
 Before you continue planning, perform a dry run migration including all of your repositories. Comprehensive dry runs allow you to:
 
-- Verify that the tool you’ve chosen works for your repositories
-- Confirm that the tool meets your requirements
-- Understand exactly what data is migrated, and what data is not migrated
-- Understand how long your migration will take, to help you schedule your production migration
+* Verify that the tool you’ve chosen works for your repositories
+* Confirm that the tool meets your requirements
+* Understand exactly what data is migrated, and what data is not migrated
+* Understand how long your migration will take, to help you schedule your production migration
 
 There’s nothing unique about a dry run migration. Just run a normal migration, then delete the repository in the migration destination.
 
@@ -239,16 +165,16 @@ Migrating your repositories is only one step in a larger migration process. Ther
 
 The full list of steps required for your migration will depend on your unique circumstances, but there are some pre-migration steps that apply to all migrations:
 
-- Let your users know ahead of time about the upcoming migration and its timeline
-- Send reminders shortly before the migration takes place
-- Set up user accounts in {% data variables.product.prodname_dotcom %} for your team
-- Send instructions to your users for updating their local repositories to point to your new system
+* Let your users know ahead of time about the upcoming migration and its timeline
+* Send reminders shortly before the migration takes place
+* Set up user accounts in {% data variables.product.prodname_dotcom %} for your team
+* Send instructions to your users for updating their local repositories to point to your new system
 
 There are also post-migration steps that apply to all migrations:
 
-- Let your users know that the migration is finished
-- Link activity to users in your migration destination
-- Decommission your migration origin
+* Let your users know that the migration is finished
+* Link activity to users in your migration destination
+* Decommission your migration origin
 
 Here are some other steps you should consider when planning your migration.
 
@@ -258,7 +184,7 @@ If you’re moving between {% data variables.product.company_short %} products, 
 
 If you’re not using {% data variables.product.prodname_actions %}, the situation is more complicated. If you plan to continue using the same CI/CD provider, you'll need to check that the provider is compatible with {% data variables.product.prodname_dotcom %}, and connect the provider to your new organization and repositories.
 
-If you're planning to switch to {% data variables.product.prodname_actions %}, we do not recommend doing so at the same time that you migrate your repositories. Instead, wait until a later date, and perform your CI/CD migration as a separate step. This makes the migration process more manageable. When you're ready to migrate, see "[AUTOTITLE](/actions/migrating-to-github-actions)."
+If you're planning to switch to {% data variables.product.prodname_actions %}, we do not recommend doing so at the same time that you migrate your repositories. Instead, wait until a later date, and perform your CI/CD migration as a separate step. This makes the migration process more manageable. When you're ready to migrate, see [AUTOTITLE](/actions/migrating-to-github-actions).
 
 ### Migrating integrations
 
@@ -266,7 +192,7 @@ You’re likely to be using integrations with your code hosting provider, either
 
 If you’re already using {% data variables.product.prodname_dotcom %}, then you'll need to reconfigure your integrations to point to your new organizations and repositories. If the integration is provided by a vendor, contact the vendor for instructions. If the integration was developed in-house, reconfigure the integration in your new organization, generating new tokens and keys.
 
-If you’re new to {% data variables.product.prodname_dotcom %}, check whether your integrations are compatible with {% data variables.product.prodname_dotcom %}, then reconfigure them. If you use integrations that were developed in-house, re-write them to work with the {% data variables.product.prodname_dotcom %} API. For more information, see "[AUTOTITLE](/rest)."
+If you’re new to {% data variables.product.prodname_dotcom %}, check whether your integrations are compatible with {% data variables.product.prodname_dotcom %}, then reconfigure them. If you use integrations that were developed in-house, re-write them to work with the {% data variables.product.prodname_dotcom %} API. For more information, see [AUTOTITLE](/rest).
 
 ### Linking activity to users in your migration destination
 
@@ -276,13 +202,13 @@ For example, suppose @octocat created an issue on {% data variables.location.pro
 
 The way that attribution works differs between tools:
 
-- If you’re using `ghe-migrator`, `gl-exporter`, or `bbs-exporter`, you will decide how you want to attribute data ahead of time and include a mapping file when you import your data.
-- If you’re using {% data variables.product.prodname_importer_proper_name %}, data will be linked to placeholder identities called “mannequins”, and you can assign this history to real users after your data is migrated. For more information, see "[AUTOTITLE]({% ifversion ghae %}/free-pro-team@latest{% endif %}/migrations/using-github-enterprise-importer/completing-your-migration-with-github-enterprise-importer/reclaiming-mannequins-for-github-enterprise-importer)."
+* If you’re using `ghe-migrator`, `gl-exporter`, or `bbs-exporter`, you will decide how you want to attribute data ahead of time and include a mapping file when you import your data.
+* If you’re using {% data variables.product.prodname_importer_proper_name %}, data will be linked to placeholder identities called “mannequins”, and you can assign this history to real users after your data is migrated. For more information, see [AUTOTITLE](/migrations/using-github-enterprise-importer/completing-your-migration-with-github-enterprise-importer/reclaiming-mannequins-for-github-enterprise-importer).
 
 ### Managing teams and permissions
 
-Most customers use teams to manage access to repositories. With teams, instead of giving Mona access to a repository directly, you can add Mona to the Engineering team, and give everyone in the Engineering team access to the repository. For more information, see "[AUTOTITLE](/organizations/organizing-members-into-teams/about-teams)."
+Most customers use teams to manage access to repositories. With teams, instead of giving Mona access to a repository directly, you can add Mona to the Engineering team, and give everyone in the Engineering team access to the repository. For more information, see [AUTOTITLE](/organizations/organizing-members-into-teams/about-teams).
 
-You can create your teams and add team members before you migrate your repositories. You may want to manage your members through your identity provider (IdP) by linking your teams to IdP groups. For more information, see "[AUTOTITLE](/enterprise-cloud@latest/organizations/organizing-members-into-teams/synchronizing-a-team-with-an-identity-provider-group)."
+You can create your teams and add team members before you migrate your repositories. You may want to manage your members through your identity provider (IdP) by linking your teams to IdP groups. For more information, see [AUTOTITLE](/enterprise-cloud@latest/organizations/organizing-members-into-teams/synchronizing-a-team-with-an-identity-provider-group).
 
 However, you can’t attach your teams to repositories until after you've migrated the repositories.

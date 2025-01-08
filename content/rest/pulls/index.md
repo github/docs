@@ -1,5 +1,7 @@
 ---
-title: Pulls
+title: REST API endpoints for pull requests
+shortTitle: Pull requests
+allowTitleToDifferFromFilename: true
 intro: Use the REST API to manage pull requests and pull request reviews.
 redirect_from:
   - /v3/pulls
@@ -7,7 +9,6 @@ redirect_from:
 versions:
   fpt: '*'
   ghes: '*'
-  ghae: '*'
   ghec: '*'
 topics:
   - API

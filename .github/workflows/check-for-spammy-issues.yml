@@ -9,7 +9,7 @@ on:
     types: [opened]
 
 permissions:
-  contents: none
+  contents: read
 
 jobs:
   spammy-title-check:
@@ -17,9 +17,9 @@ jobs:
     if: github.repository == 'github/docs'
     runs-on: ubuntu-latest
     steps:
-      - uses: actions/github-script@98814c53be79b1d30f795b907e553d8679345975
+      - uses: actions/github-script@e69ef5462fd455e02edcaf4dd7708eda96b9eda0
         with:
-          github-token: ${{ secrets.DOCUBOT_READORG_REPO_WORKFLOW_SCOPES }}
+          github-token: ${{ secrets.DOCS_BOT_PAT_WORKFLOW_READORG }}
           script: |
 
             const issue = context.payload.issue
@@ -67,7 +67,7 @@ jobs:
               owner: owner,
               repo: repo,
               issue_number: issue.number,
-              body: `This issue may have been opened accidentally. I'm going to close it now, but feel free to open a new issue with a more descriptive title or ask any questions in [discussions](https://github.com/github/docs/discussions)!`
+              body: `This issue may have been opened accidentally. I'm going to close it now, but feel free to open a new issue with a more descriptive title!`
             });
 
             // Add the issue to the Done column on the triage board

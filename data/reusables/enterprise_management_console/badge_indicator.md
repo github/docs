@@ -1,1 +1,0 @@
-A team that's [synced to an LDAP group](/admin/identity-and-access-management/using-ldap-for-enterprise-iam/using-ldap#enabling-ldap-sync) is indicated with a special LDAP badge. The member list for an LDAP synced team can only be managed from the LDAP group it's mapped to.

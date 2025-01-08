@@ -14,6 +14,7 @@ on:
       - closed
     paths:
       - 'content/site-policy/**'
+      - '.github/workflows/site-policy-sync.yml'
   workflow_dispatch:
 
 permissions:
@@ -26,10 +27,10 @@ jobs:
     runs-on: ubuntu-latest
     steps:
       - name: checkout docs-internal
-        uses: actions/checkout@93ea575cb5d8a053eaa0ac8fa3b40d7e05a33cc8
+        uses: actions/checkout@b4ffde65f46336ab88eb53be808477a3936bae11 # v4.1.1
 
       - name: checkout public site-policy
-        uses: actions/checkout@93ea575cb5d8a053eaa0ac8fa3b40d7e05a33cc8
+        uses: actions/checkout@b4ffde65f46336ab88eb53be808477a3936bae11 # v4.1.1
         with:
           repository: github/site-policy
           token: ${{ secrets.API_TOKEN_SITEPOLICY }}
@@ -55,7 +56,7 @@ jobs:
 
       - name: If there are changes to push, create a branch in the public repo and push changes
         env:
-          GITHUB_TOKEN: ${{ secrets.DOCUBOT_REPO_PAT }}
+          GITHUB_TOKEN: ${{ secrets.DOCS_BOT_PAT_READPUBLICKEY }}
         run: |
           cd public-repo
           git config --local user.name 'site-policy-bot'

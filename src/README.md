@@ -4,39 +4,61 @@ Our application is in Node, Express, React, & Next. We are using a "subject fold
 
 ## Why subject folders
 
-We used to organize our code more by role: client, stylesheets, server middleware, shared files, tests, etc. We found over time as the site grew it was difficult to find all the pieces that made a single feature work across the code base. Instead, we're moving to organize by subject, so its easy to find all the related code for a single capability in one place.
+We used to organize our code more by role. Client, stylesheets, server middleware, shared files, tests, and so on. As the site grew, we had difficulty finding all the pieces that made a single feature work across the code base. Instead, we're moving to organize by subject. Subjects are easier to find all the related code for a single capability in one place.
 
 ## How to create and use subject folders
 
-Run `script/create-subject.js --name x` to create a new subject folder.
-
-Subjects do not need every element below. Not every element needs to be a folder. A subject folder looks similar to:
+Subjects do not need every element below. Not every element needs to be a folder. A subject folder looks like:
 
 ```
 src/
   xsubject/
     README.md
-    components/
-    lib/
-    tests/
-    scripts/
-    stylesheets/
-    pages/
     docs/
+    lib/
+    middleware/
+    pages/
+    components/
+    stylesheets/
+    scripts/
+    tests/
 ```
 
-We compose subjects together like TBD - still a work in progress!
+If subject depends on another subject, please make this explicit in the README.
 
-How to declare a subject depends on another subject TBD - still a work in progress!
+Choose the _most specific_ subject folder available when organizing code.
 
 ## When to use subject folders
 
-TBD - still a work in progress!
+A capability should have its own subject folder when it has its _own specific tests_.
 
 ## When not to use subject folders
 
-How to deal with things that don't fit into the pattern TBD - still a work in progress!
+A few things are harder to categorize, so there's some broad folders:
+
+- `frame/`, for things that make the header, footer, global sidebar functional. And there's no more specific option.
+- `workflows/`, for things that are processes rather than the production application. And there's no more specific option.
+
+But don't hesitate to make a new subject folder if there's at least a few files related.
 
 ## Where to get help
 
-TBD - still a work in progress!
+Check the README.md in the subject folder for questions specific to a subject.
+
+For internal folks, please ask in the Docs Engineering Slack or repository.
+
+For open source folks, please open an issue in the repository.
+
+## A note on tests and required checks
+
+Most subject folders have their own mention in `.github/workflows/test.yml`.
+Open the file to see the beginning of it. It's manually maintained but
+it's important to point out two things:
+
+1. It's manually entered so creating a `src/foo/tests/*.js` doesn't
+   automatically start running those tests.
+1. When you add an entry to `.github/workflows/test.yml`, and it's
+   gone into `main`, don't forget to add it to the branch protection's
+   required checks.
+
+❖

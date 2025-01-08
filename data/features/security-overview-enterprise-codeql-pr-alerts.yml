@@ -1,0 +1,5 @@
+# Reference: #14348
+# Documentation for enterprise-level CodeQL PR alerts report
+versions:
+  ghes: '> 3.14'
+  ghec: '*'

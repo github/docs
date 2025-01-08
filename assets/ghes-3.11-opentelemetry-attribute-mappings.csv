@@ -1,0 +1,112 @@
+Category,Old Attribute,New Attribute
+Memex,queue,gh.job.queue
+Memex,status,gh.memex.automation.status
+Memex,topic,messaging.kafka.source.topic
+Memex,partition,messaging.kafka.source.partition
+Memex,schema,messaging.kafka.message.schema
+Memex,offset,messaging.kafka.message.offset
+Memex,timestamp,messaging.kafka.message.timestamp
+Memex,item_ids,gh.memex.unauthorized_item_ids
+Authzd,authzd_request,gh.authzd.request.attributes
+Authzd,authzd.request,gh.authzd.request.attributes
+Authzd,authzd_response,gh.authzd.decisions
+Authzd,authzd.response,gh.authzd.decisions
+Authzd,authzd.rpc,gh.authzd.rpc
+Authzd,gh.authzd.enumerator.request.size,gh.authzd.enumerator.response.size
+Dependency Graph,job_timeout,gh.job.timeout
+Dependency Graph,push_id,gh.push.id
+Dependency Graph,ref,gh.commit.ref
+Dependency Graph,commit_sha,gh.commit.oid
+Dependency Graph,repo_count,gh.dependency_graph.manifest_paths_count
+Dependency Graph,max_manifest_files,gh.dependency_graph.max_manifest_files
+Dependency Graph,push_count,gh.dependency_graph.changed_manifest.count
+Dependency Graph,base,gh.comparison.base_rev
+Dependency Graph,head,gh.comparison.head_rev
+Driftwood,deployed_to,gh.driftwood.deployed_to
+Driftwood,release,gh.driftwood.release
+Driftwood,ref,gh.driftwood.ref
+Driftwood,service,gh.driftwood.service
+Driftwood,exception_id,gh.driftwood.exception_id
+Registry,ecosystem,gh.registry.ecosystem
+Registry,v2_enabled,gh.registry.v2_enabled
+Registry,display_login,gh.registry.display_login
+Registry,user_id,gh.registry.owner_id
+Registry,namespace,gh.registry.namespace
+Registry,namespace,gh.registry.user_name
+Registry,version,gh.registry.version
+Registry,no_versions,gh.registry.no_versions
+Registry,latest_version_id,gh.registry.latest_version_id
+Registry,force,gh.registry.force
+Registry,retry_failed,gh.registry.retry_failed
+Registry,package_type,gh.registry.package_type
+Registry,N/A,gh.registry.pkg_count
+Registry,N/A,gh.registry.namespace_count
+Registry,N/A,gh.registry.unmigrated_package_count
+Registry,repo,gh.registry.repository_name
+Packages,name,gh.packages.user_name
+Packages,repo,gh.packages.repository_name
+Packages,actions_usage,gh.packages.actions_usage
+Packages,combined_usage,gh.packages.combined_usage
+Packages,known_packages_usage,gh.packages.known_packages_usage
+Packages,overcharged_usage,gh.packages.overcharged_usage
+Packages,billing_difference,gh.packages.billing_difference
+Container Registry,owner,gh.container-registry.owner_name
+Container Registry,repository,gh.container-registry.repository_name
+Container Registry,combined_usage,gh.container-registry.combined_usage
+Container Registry,actions_usage,gh.container-registry.actions_usage
+Container Registry,non_docker_usage,gh.container-registry.non_docker_usage
+Container Registry,docker_usage,gh.container-registry.docker_usage
+Container Registry,size,gh.container-registry.size
+Registry,package_id,gh.registry.package_id
+Registry,unmigrated_count,gh.registry.unmigrated_count
+Registry,failed_count,gh.registry.failed_count
+Registry,unmigrated_ver_count,gh.registry.unmigrated_ver_count
+Registry,failed_ver_count,gh.registry.failed_ver_count
+Registry,id,gh.registry.migration_run_id
+Registry,success_pkg_count,gh.registry.success_pkg_count
+Registry,failed_pkg_count,gh.registry.failed_pkg_count
+Registry,success_org_count,gh.registry.success_org_count
+Registry,failed_org_count,gh.registry.failed_org_count
+Registry,migrated_pkg_count,gh.registry.migrated_pkg_count
+Registry,total_org_count,gh.registry.total_org_count
+Registry,total_pkg_count,gh.registry.total_pkg_count
+Registry,enqueued_at,gh.registry.job_enqueued_at
+Registry,is_forced,gh.registry.job_is_forced
+Registry,is_error_retry,gh.registry.job_is_error_retry
+Registry,delay_package_migration,gh.registry.job_delay_package_migration
+Registry,is_first_run,gh.registry.job_is_first_run
+Registry,offset_id,gh.registry.job_offset_id
+Registry,progress,gh.registry.job_progress
+Registry,created_at,gh.registry.created_at
+Registry,unmigrated_version_count,gh.registry.unmigrated_version_count
+Registry,owner_ids,gh.registry.unmigrated_owner_ids
+Registry,ecosystem,gh.registry.package_ecosystem
+Registry,batch,gh.registry.batch
+Registry,namespace,gh.registry.package_namespace
+Registry,N/A,gh.registry.version_name
+Registry,N/A,gh.registry.retry_count
+Registry,version_id,gh.registry.version_id
+Registry,owner,gh.registry.owner_namespace
+Registry,actor_id,gh.registry.actor_id
+Registry,version_deleted_name,gh.registry.version_deleted_name
+Registry,N/A,gh.registry.hydro_message
+Registry,N/A,gh.registry.hydro_partition
+Registry,N/A,gh.registry.hydro_offset
+Registry,user,gh.registry.user
+Registry,N/A,gh.registry.migrated_package_id
+Registry,unmigrated_count,gh.registry.unmigrated_count
+Registry,last_migrated_package_id,gh.registry.last_migrated_package_id
+Registry,last_migrated_version_id,gh.registry.last_migrated_version_id
+Registry,value,gh.registry.value
+AWS Namespace Cleaner,readonly,gh.aws_namespace_cleaner.readonly
+AWS Namespace Cleaner,namespace,gh.aws_namespace_cleaner.namespace
+AWS Namespace Cleaner,owner_id,gh.aws_namespace_cleaner.owner_id
+AWS Namespace Cleaner,batch_size,gh.aws_namespace_cleaner.batch_size
+AWS Namespace Cleaner,count,gh.aws_namespace_cleaner.count
+AWS Namespace Cleaner,objects,gh.aws_namespace_cleaner.objects
+AWS Namespace Cleaner,errors,gh.aws_namespace_cleaner.errors
+AWS Namespace Cleaner,guid,gh.aws_namespace_cleaner.guid
+AWS Namespace Cleaner,deleted,gh.aws_namespace_cleaner.deleted
+Apps,github_app,gh.integration.slug
+Apps,current_integration,gh.integration.id
+Apps,current_integration_installation,gh.installation.id

@@ -6,7 +6,28 @@ name: Content Changes Table Comment
 
 on:
   workflow_dispatch:
+    inputs:
+      PR_NUMBER:
+        description: 'PR Number'
+        type: string
+        required: true
+      BASE_SHA:
+        description: 'Base SHA'
+        type: string
+        required: true
+        default: 'main'
+      HEAD_SHA:
+        description: 'Head SHA (latest sha of the PR)'
+        type: string
+        required: true
+  # Required in lieu of `pull_request` so that the content changes tables can be posts to PRs opened from a fork.
   pull_request_target:
+    types:
+      - opened
+      - synchronize
+    paths:
+      - 'content/**'
+      - 'data/reusables/**'
 
 permissions:
   contents: read
@@ -18,53 +39,21 @@ concurrency:
   cancel-in-progress: true
 
 jobs:
-  PR-Preview-Links:
-    if: github.event.pull_request.user.login != 'Octomerger' && (github.repository == 'github/docs-internal' || github.repository == 'github/docs')
-    name: Add staging/live links to PR
-    runs-on: ubuntu-latest
-    outputs:
-      filterContentDir: ${{ steps.filter.outputs.filterContentDir }}
-    steps:
-      - name: Get files changed
-        uses: dorny/paths-filter@4512585405083f25c027a35db413c2b3b9006d50
-        id: filter
-        with:
-          # Base branch used to get changed files
-          base: ${{ github.event.pull_request.base.ref }}
-
-          # Enables setting an output in the format in `${FILTER_NAME}_files
-          # with the names of the matching files formatted as JSON array
-          list-files: json
-
-          # Returns list of changed files matching each filter
-          filters: |
-            filterContentDir:
-              - 'content/**/*'
-
   filterContentDir:
-    needs: PR-Preview-Links
-    if: ${{ needs.PR-Preview-Links.outputs.filterContentDir == 'true' }}
+    if: ${{ github.event.pull_request.user.login != 'docs-bot' && (github.repository == 'github/docs-internal' || github.repository == 'github/docs') }}
     runs-on: ubuntu-latest
     env:
-      PR_NUMBER: ${{ github.event.pull_request.number }}
+      PR_NUMBER: ${{ github.event.pull_request.number || inputs.PR_NUMBER }}
     steps:
       - name: check out repo content
-        uses: actions/checkout@93ea575cb5d8a053eaa0ac8fa3b40d7e05a33cc8
+        uses: actions/checkout@b4ffde65f46336ab88eb53be808477a3936bae11 # v4.1.1
 
       - name: Get preview app info
         env:
           APP_NAME_SEED: ${{ secrets.PREVIEW_ENV_NAME_SEED }}
-        run: .github/actions-scripts/get-preview-app-info.sh
+        run: src/workflows/get-preview-app-info.sh
 
-      - name: Setup Node.js
-        uses: actions/setup-node@8c91899e586c5b171469028077307d293428b516
-        with:
-          node-version-file: 'package.json'
-          cache: npm
-
-      - name: Install temporary dependencies
-        run: |
-          npm install --no-save github-slugger --registry https://registry.npmjs.org/
+      - uses: ./.github/actions/node-npm-setup
 
       - name: Get changes table
         id: changes
@@ -72,22 +61,24 @@ jobs:
         env:
           GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
           APP_URL: ${{ env.APP_URL }}
-        run: .github/actions-scripts/content-changes-table-comment.js
+          BASE_SHA: ${{ github.event.pull_request.base.sha || inputs.BASE_SHA }}
+          HEAD_SHA: ${{ github.event.pull_request.head.sha || inputs.HEAD_SHA }}
+        run: npm run content-changes-table-comment
 
       - name: Find content directory changes comment
-        uses: peter-evans/find-comment@f4499a714d59013c74a08789b48abe4b704364a0
+        uses: peter-evans/find-comment@3eae4d37986fb5a8592848f6a574fdf654e61f9e
         id: findComment
         with:
-          issue-number: ${{ github.event.pull_request.number }}
+          issue-number: ${{ github.event.pull_request.number || inputs.PR_NUMBER }}
           comment-author: 'github-actions[bot]'
           body-includes: '<!-- MODIFIED_CONTENT_LINKING_COMMENT -->'
 
       - name: Update comment
         if: ${{ steps.changes.outputs.changesTable != '' }}
-        uses: peter-evans/create-or-update-comment@67dcc547d311b736a8e6c5c236542148a47adc3d
+        uses: peter-evans/create-or-update-comment@71345be0265236311c031f5c7866368bd1eff043
         with:
           comment-id: ${{ steps.findComment.outputs.comment-id }}
-          issue-number: ${{ github.event.pull_request.number }}
+          issue-number: ${{ github.event.pull_request.number || inputs.PR_NUMBER }}
           body: |
             <!-- MODIFIED_CONTENT_LINKING_COMMENT -->
             ## Automatically generated comment ℹ️
@@ -105,5 +96,4 @@ jobs:
             fpt: Free, Pro, Team
             ghec: GitHub Enterprise Cloud
             ghes: GitHub Enterprise Server
-            ghae: GitHub AE
           edit-mode: replace

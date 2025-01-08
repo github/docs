@@ -10,7 +10,6 @@ intro: 'You can structure the information shared on {% data variables.product.pr
 versions:
   fpt: '*'
   ghes: '*'
-  ghae: '*'
   ghec: '*'
 children:
   - /getting-started-with-writing-and-formatting-on-github
@@ -18,4 +17,3 @@ children:
   - /working-with-saved-replies
   - /editing-and-sharing-content-with-gists
 ---
-

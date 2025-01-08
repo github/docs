@@ -17,7 +17,7 @@ shortTitle: Cancel or edit invitation
 {% data reusables.user-settings.access_org %}
 {% data reusables.organizations.people %}
 1. Under "Organization permissions", click **Invitations**.
-1. Next to the username of the person whose invitation you'd like to edit or cancel, click {% octicon "kebab-horizontal" aria-label="The horizontal kebab icon" %}, then click **Edit invitation**, or click **Cancel invitation**.
+1. Next to the username of the person whose invitation you'd like to edit or cancel, click {% octicon "kebab-horizontal" aria-label="Invitation options" %}, then click **Edit invitation**, or click **Cancel invitation**.
 
    ![Screenshot of the "Invitations" page. The "Edit invitation" and "Cancel invitation" buttons are highlighted with an orange outline.](/assets/images/help/organizations/organization-edit-or-cancel-invitation.png)
 
@@ -32,6 +32,6 @@ shortTitle: Cancel or edit invitation
 ## Further reading
 
 {% ifversion fpt or ghec %}
-- "[AUTOTITLE](/organizations/managing-membership-in-your-organization/inviting-users-to-join-your-organization)"
+* [AUTOTITLE](/organizations/managing-membership-in-your-organization/inviting-users-to-join-your-organization)
 {% endif %}
-- "[AUTOTITLE](/organizations/organizing-members-into-teams/adding-organization-members-to-a-team)"
+* [AUTOTITLE](/organizations/organizing-members-into-teams/adding-organization-members-to-a-team)

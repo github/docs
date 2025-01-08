@@ -1,0 +1,5 @@
+# Reference: #15269
+# Documentation for security configurations features that are **only** available to FPT/GHEC versions (e.g. the GitHub-recommended configuration)
+versions:
+  fpt: '*'
+  ghec: '*'

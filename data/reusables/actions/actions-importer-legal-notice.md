@@ -1,6 +1,6 @@
 Portions have been adapted from https://github.com/github/gh-actions-importer/ under the MIT license:
 
-```
+```text
 MIT License
 
 Copyright (c) 2022 GitHub

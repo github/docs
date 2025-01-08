@@ -1,9 +1,9 @@
 ---
-title: Protected branches
+title: REST API endpoints for protected branches
+shortTitle: Protected branches
 intro: Use the REST API to manage protected branches.
-versions:
+versions: # DO NOT MANUALLY EDIT. CHANGES WILL BE OVERWRITTEN BY A 🤖
   fpt: '*'
-  ghae: '*'
   ghec: '*'
   ghes: '*'
 topics:

@@ -6,17 +6,16 @@ redirect_from:
   - /github/setting-up-and-managing-organizations-and-teams/adding-people-to-your-organization
 versions:
   ghes: '*'
-  ghae: '*'
 permissions: Organization owners can add people to an organization.
 shortTitle: Add people to organization
 ---
 {% ifversion organization-invitation-enhancements %}
+
 ## Adding people to your organization
+
 {% endif %}
 
-{% ifversion not ghae %}
 If your organization [requires members to use two-factor authentication](/organizations/keeping-your-organization-secure/managing-two-factor-authentication-for-your-organization/requiring-two-factor-authentication-in-your-organization), users must [enable two-factor authentication](/authentication/securing-your-account-with-two-factor-authentication-2fa) before you can add them to the organization.
-{% endif %}
 
 {% data reusables.profile.access_org %}
 {% data reusables.user-settings.access_org %}
@@ -30,6 +29,7 @@ If your organization [requires members to use two-factor authentication](/organi
 {% data reusables.organizations.send-invitation %}
 
 {% ifversion organization-invitation-enhancements %}
+
 ## Retrying or canceling expired invitations
 
 Invitations expire after 7 days. You can retry or cancel expired invitations, either one by one or in bulk. Failed invitations to outside collaborators can also be found in this view.
@@ -42,4 +42,5 @@ Invitations expire after 7 days. You can retry or cancel expired invitations, ei
 {% endif %}
 
 ## Further reading
-- "[AUTOTITLE](/organizations/organizing-members-into-teams/adding-organization-members-to-a-team)"
+
+* [AUTOTITLE](/organizations/organizing-members-into-teams/adding-organization-members-to-a-team)

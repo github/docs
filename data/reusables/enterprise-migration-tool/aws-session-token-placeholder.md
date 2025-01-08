@@ -1,1 +1,0 @@
-AWS-SESSION-TOKEN | The AWS session token, if you're using temporary credentials (see [Using temporary credentials with AWS resources](https://docs.aws.amazon.com/IAM/latest/UserGuide/id_credentials_temp_use-resources.html) in the AWS documentation)

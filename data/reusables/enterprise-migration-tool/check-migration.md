@@ -22,6 +22,6 @@ query (
 }
 ```
 
-| Query variable | Description | 
+| Query variable | Description |
 |----|----|
-| `id` | The `id` of your migration that [the `startRepositoryMigration` mutation](#step-4-start-your-repository-migration) returned. |
+| `id` | The `id` of your migration that [the `startRepositoryMigration` mutation](#startrepositorymigration-mutation) returned. |

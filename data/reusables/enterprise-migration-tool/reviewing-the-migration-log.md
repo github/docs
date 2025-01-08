@@ -1,8 +1,7 @@
-First, review the migration log for each migrated repository. For more information, see "[AUTOTITLE](/migrations/using-github-enterprise-importer/completing-your-migration-with-github-enterprise-importer/accessing-your-migration-logs-for-github-enterprise-importer)."
+Review the migration log for each migrated repository. For more information, see [AUTOTITLE](/migrations/using-github-enterprise-importer/completing-your-migration-with-github-enterprise-importer/accessing-your-migration-logs-for-github-enterprise-importer).
 
-If any specific items within the repository could not be migrated, you'll see a warning in the migration log.
+If the migration failed, the log may contain additional information about the cause of the failure.
 
-{% data reusables.enterprise-migration-tool.migration-log-errors-okay %}
+If the migration succeeded, there may be warnings in the migration log representing specific pieces of data (for example pull requests, issues, or comments) which were not migrated or were migrated with caveats.
 
-1. Review your migration logs.
-1. Review any warnings each log, and ensure that none are blocking the acceptance of the migration. For more information, see "[AUTOTITLE](/migrations/using-github-enterprise-importer/completing-your-migration-with-github-enterprise-importer/troubleshooting-your-migration-with-github-enterprise-importer#troubleshooting-successful-migrations)."
+For more information on understanding migration warnings, see [AUTOTITLE](/migrations/using-github-enterprise-importer/completing-your-migration-with-github-enterprise-importer/troubleshooting-your-migration-with-github-enterprise-importer#understanding-migration-log-warnings). After reviewing any migration warnings, you will need to make a decision about whether you can accept those warnings and move forward.

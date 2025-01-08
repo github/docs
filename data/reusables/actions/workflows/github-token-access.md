@@ -1,0 +1,1 @@
+1. Under "Workflow permissions", choose whether you want the `GITHUB_TOKEN` to have read and write access for all permissions (the permissive setting), or just read access for the `contents` {% ifversion actions-default-workflow-permissions-restrictive %}and `packages` permissions{% else %}permission{% endif %} (the restricted setting).

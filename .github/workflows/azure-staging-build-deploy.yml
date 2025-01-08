@@ -23,7 +23,7 @@ permissions:
 # This allows a subsequently queued workflow run to take priority over
 # previously queued runs but NOT interrupt currently executing runs
 concurrency:
-  group: 'staging-env @ ${{ github.head_ref || github.run_id }} for ${{ github.event.number || github.event.inputs.PR_NUMBER }}'
+  group: 'staging-env @ ${{ github.head_ref || github.run_id }} for ${{ github.event.number || inputs.PR_NUMBER }}'
   cancel-in-progress: true
 
 jobs:
@@ -36,31 +36,31 @@ jobs:
       name: staging-env
       url: ${{ env.APP_URL }}
     env:
-      PR_NUMBER: ${{ github.event.number || github.event.inputs.PR_NUMBER || github.run_id }}
-      COMMIT_REF: ${{ github.event.pull_request.head.sha || github.event.inputs.COMMIT_REF }}
-      IMAGE_REPO: ${{ github.repository }}/pr-${{ github.event.number || github.event.inputs.PR_NUMBER || github.run_id }}
+      PR_NUMBER: ${{ github.event.number || inputs.PR_NUMBER || github.run_id }}
+      COMMIT_REF: ${{ github.event.pull_request.head.sha || inputs.COMMIT_REF }}
+      IMAGE_REPO: ${{ github.repository }}/pr-${{ github.event.number || inputs.PR_NUMBER || github.run_id }}
       RESOURCE_GROUP_NAME: docs-staging
       APP_SERVICE_NAME: ghdocs-staging
       SLOT_NAME: canary
 
     steps:
       - name: 'Az CLI login'
-        uses: azure/login@1f63701bf3e6892515f1b7ce2d2bf1708b46beaf
+        uses: azure/login@6c251865b4e6290e7b78be643ea2d005bc51f69a # pin @v2
         with:
           creds: ${{ secrets.PROD_AZURE_CREDENTIALS }}
 
       - name: 'Docker login'
-        uses: azure/docker-login@83efeb77770c98b620c73055fbb59b2847e17dc0
+        uses: azure/docker-login@15c4aadf093404726ab2ff205b2cdd33fa6d054c
         with:
           login-server: ${{ secrets.NONPROD_REGISTRY_SERVER }}
           username: ${{ secrets.NONPROD_REGISTRY_USERNAME }}
           password: ${{ secrets.NONPROD_REGISTRY_PASSWORD }}
 
       - name: Set up Docker Buildx
-        uses: docker/setup-buildx-action@95cb08cb2672c73d4ffd2f422e6d11953d2a9c70
+        uses: docker/setup-buildx-action@988b5a0280414f521da01fcc63a27aeeb4b104db
 
       - name: Check out repo
-        uses: actions/checkout@93ea575cb5d8a053eaa0ac8fa3b40d7e05a33cc8
+        uses: actions/checkout@b4ffde65f46336ab88eb53be808477a3936bae11 # v4.1.1
         with:
           ref: ${{ env.COMMIT_REF }}
           # To prevent issues with cloning early access content later
@@ -74,26 +74,27 @@ jobs:
           echo "DOCKER_IMAGE=${{ secrets.NONPROD_REGISTRY_SERVER }}/${{ env.IMAGE_REPO }}:${{ env.COMMIT_REF }}-${{ github.run_number }}-${{ github.run_attempt }}" >> $GITHUB_ENV
 
       - name: Setup Node.js
-        uses: actions/setup-node@8c91899e586c5b171469028077307d293428b516
+        uses: actions/setup-node@60edb5dd545a775178f52524783378180af0d1f8 # v4.0.2
         with:
           node-version-file: 'package.json'
           cache: npm
 
       - name: Clone docs-early-access
-        uses: actions/checkout@93ea575cb5d8a053eaa0ac8fa3b40d7e05a33cc8
+        uses: actions/checkout@b4ffde65f46336ab88eb53be808477a3936bae11 # v4.1.1
         with:
           repository: github/docs-early-access
-          token: ${{ secrets.DOCUBOT_REPO_PAT }}
+          token: ${{ secrets.DOCS_BOT_PAT_READPUBLICKEY }}
           path: docs-early-access
           ref: main
 
       - name: Merge docs-early-access repo's folders
-        run: .github/actions-scripts/merge-early-access.sh
+        run: src/early-access/scripts/merge-early-access.sh
 
       - name: 'Build and push image'
-        uses: docker/build-push-action@3b5e8027fcad23fda98b2e3ac259d8d67585f671
+        uses: docker/build-push-action@16ebe778df0e7752d2cfcbd924afdbbd89c1a755
         with:
           context: .
+          file: Dockerfile.azure
           push: true
           target: production
           tags: ${{ env.DOCKER_IMAGE }}
@@ -102,7 +103,7 @@ jobs:
 
       - name: 'Update docker-compose.staging.yaml template file'
         run: |
-          sed 's|#{IMAGE}#|${{ env.DOCKER_IMAGE }}|g' docker-compose.staging.tmpl.yaml > docker-compose.staging.yaml
+          sed 's|#{IMAGE}#|${{ env.DOCKER_IMAGE }}|g' src/workflows/docker-compose.staging.tmpl.yaml > docker-compose.staging.yaml
 
       - name: 'Apply updated docker-compose.staging.yaml config to deployment slot'
         run: |
@@ -110,49 +111,11 @@ jobs:
 
       # Watch deployment slot instances to see when all the instances are ready
       - name: Check that deployment slot is ready
-        uses: actions/github-script@98814c53be79b1d30f795b907e553d8679345975
         env:
           CHECK_INTERVAL: 10000
-        with:
-          script: |
-            const { execSync } = require('child_process')
-
-            const slotName = process.env.SLOT_NAME
-            const appServiceName = process.env.APP_SERVICE_NAME
-            const resourceGroupName = process.env.RESOURCE_GROUP_NAME
-
-            const getStatesForSlot = (slot, appService, resourceGroup) => {
-              return JSON.parse(
-                execSync(
-                  `az webapp list-instances --slot ${slot} --query "[].state" -n ${appService} -g ${resourceGroup}`,
-                  { encoding: 'utf8' }
-                )
-              )
-            }
-
-            let hasStopped = false
-            const waitDuration = parseInt(process.env.CHECK_INTERVAL, 10) || 10000
-            async function doCheck() {
-              const states = getStatesForSlot(slotName, appServiceName, resourceGroupName)
-              console.log(`Instance states:`, states)
-
-              // We must wait until at-least 1 instance has STOPPED to know we're looking at the "next" deployment and not the "previous" one
-              // That way we don't immediately succeed just because all the previous instances were READY
-              if (!hasStopped) {
-                hasStopped = states.some((s) => s === 'STOPPED')
-              }
-
-              const isAllReady = states.every((s) => s === 'READY')
-
-              if (hasStopped && isAllReady) {
-                process.exit(0) // success
-              }
-
-              console.log(`checking again in ${waitDuration}ms`)
-              setTimeout(doCheck, waitDuration)
-            }
-
-            doCheck()
+          EXPECTED_SHA: ${{ github.sha }}
+          CANARY_BUILD_URL: https://ghdocs-staging-canary.azurewebsites.net/_build
+        run: npm run check-canary-slots
 
       - name: 'Swap deployment slot to production'
         run: |

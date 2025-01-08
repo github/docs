@@ -9,7 +9,6 @@ redirect_from:
 versions:
   fpt: '*'
   ghes: '*'
-  ghae: '*'
   ghec: '*'
 topics:
   - GitHub Apps
@@ -17,7 +16,7 @@ shortTitle: Troubleshoot authorization
 ---
 ## Application suspended
 
-If the OAuth App you set up has been suspended (due to reported abuse, spam, or a mis-use of the API), GitHub will redirect to the registered callback URL using the following parameters to summarize the error:
+If the {% data variables.product.prodname_oauth_app %} you set up has been suspended (due to reported abuse, spam, or a mis-use of the API), GitHub will redirect to the registered callback URL using the following parameters to summarize the error:
 
     http://your-application.com/callback?error=application_suspended
       &error_description=Your+application+has+been+suspended.+Contact+support@github.com.

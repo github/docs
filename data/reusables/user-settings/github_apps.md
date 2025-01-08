@@ -1,1 +1,1 @@
-1. In the left sidebar, click **{% data variables.product.prodname_github_app %}s**.
+1. In the left sidebar, click **{% data variables.product.prodname_github_apps %}**.

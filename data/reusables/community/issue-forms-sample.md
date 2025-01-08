@@ -1,8 +1,9 @@
-```YAML{:copy}
+```yaml copy
 name: Bug Report
-description: File a bug report
+description: File a bug report.
 title: "[Bug]: "
-labels: ["bug", "triage"]
+labels: ["bug", "triage"]{% ifversion projects-in-issue-forms %}
+projects: ["octo-org/1", "octo-org/44"]{% endif %}
 assignees:
   - octocat
 body:
@@ -34,7 +35,8 @@ body:
       description: What version of our software are you running?
       options:
         - 1.0.2 (Default)
-        - 1.0.3 (Edge)
+        - 1.0.3 (Edge){% ifversion issue-form-dropdown-defaults %}
+      default: 0{% endif %}
     validations:
       required: true
   - type: dropdown
@@ -57,7 +59,7 @@ body:
     id: terms
     attributes:
       label: Code of Conduct
-      description: By submitting this issue, you agree to follow our [Code of Conduct](https://example.com)
+      description: By submitting this issue, you agree to follow our [Code of Conduct](https://example.com). 
       options:
         - label: I agree to follow this project's Code of Conduct
           required: true

@@ -17,9 +17,9 @@ This guide demonstrates how to use {% data variables.product.prodname_projects_v
 
 ## Prerequisites
 
-You can either create an organization project or a user project. To create an organization project, you need a {% data variables.product.prodname_dotcom %} organization. For more information about creating an organization, see "[AUTOTITLE](/organizations/collaborating-with-groups-in-organizations/creating-a-new-organization-from-scratch)."
+You can either create an organization project or a user project. To create an organization project, you need a {% data variables.product.prodname_dotcom %} organization. For more information about creating an organization, see [AUTOTITLE](/organizations/collaborating-with-groups-in-organizations/creating-a-new-organization-from-scratch).
 
-In this guide, you will add existing issues from repositories owned by your organization (for organization projects) or by you (for user projects) to your new project. For more information about creating issues, see "[AUTOTITLE](/issues/tracking-your-work-with-issues/creating-an-issue)."
+In this guide, you will add existing issues from repositories owned by your organization (for organization projects) or by you (for user projects) to your new project. For more information about creating issues, see [AUTOTITLE](/issues/tracking-your-work-with-issues/creating-an-issue).
 
 ## Creating a project
 
@@ -45,7 +45,7 @@ Next, add a few issues to your project.
 
 Repeat the above steps a few times to add multiple issues to your project.
 
-For more information and other ways to add issues to your project, or about other items you can add to your project, see "[AUTOTITLE](/issues/planning-and-tracking-with-projects/managing-items-in-your-project/adding-items-to-your-project)."
+For more information and other ways to add issues to your project, or about other items you can add to your project, see [AUTOTITLE](/issues/planning-and-tracking-with-projects/managing-items-in-your-project/adding-items-to-your-project).
 
 ## Adding draft issues to your project
 
@@ -59,11 +59,8 @@ Next, create an iteration field so you can plan and track your work over repeati
 
 {% data reusables.projects.new-field %}
 1. Select **Iteration**
-   ![Screenshot showing the iteration option](/assets/images/help/projects-v2/new-field-iteration.png)
-3. To change the duration of each iteration, type a new number, then select the dropdown and click either **days** or **weeks**.
-   ![Screenshot showing the iteration duration](/assets/images/help/projects-v2/iteration-field-duration.png)
-4. Click **Save**.
-   ![Screenshot showing save button](/assets/images/help/projects-v2/new-field-save-and-create.png)
+1. To change the duration of each iteration, type a new number, then select the dropdown and click either **days** or **weeks**.
+1. Click **Save**.
 
 ## Creating a field to track priority
 
@@ -71,33 +68,26 @@ Now, create a custom field named `Priority` and containing the values: `High`, `
 
 {% data reusables.projects.new-field %}
 1. Select **Single select**
-   ![Screenshot showing the single select option](/assets/images/help/projects-v2/new-field-single-select.png)
 1. Below "Options", type the first option, "High".
-   ![Screenshot showing the single select option](/assets/images/help/projects-v2/priority-example.png)
 1. To add additional fields, for "Medium" and "Low", click **Add option**.
 1. Click **Save**.
-   ![Screenshot showing save button](/assets/images/help/projects-v2/new-field-save.png)
 
 Specify a priority for all issues in your project.
 
-![Example priorities](/assets/images/help/projects/priority_example.png)
+![Screenshot showing a list of issues, each with a priority of "Low," "Medium," or "High" in the "Priority" field.](/assets/images/help/projects/priority-example.png)
 
 ## Grouping issues by priority
 
 Next, group all of the items in your project by priority to make it easier to focus on the high priority items.
 
 {% data reusables.projects.open-view-menu %}
-1. Click {% octicon "rows" aria-label="the rows icon" %} **Group**.
-   ![Screenshot showing the group menu item](/assets/images/help/projects-v2/group-menu-item.png)
+1. Click **{% octicon "rows" aria-hidden="true" %} Group**.
 1. Click **Priority**.
-   ![Screenshot showing the group menu](/assets/images/help/projects-v2/group-menu.png)
 
 Now, move issues between groups to change their priority.
 
 1. Choose an issue.
-2. Drag and drop the issue into a different priority group. When you do this, the priority of the issue will change to be the priority of its new group.
-
-![Move issue between groups](/assets/images/help/projects/move_between_group.gif)
+1. Drag and drop the issue into a different priority group. When you do this, the priority of the issue will change to be the priority of its new group.
 
 ## Saving the priority view
 
@@ -115,8 +105,6 @@ To view the progress of your project's issues, you can switch to board layout.
 
 The board layout is based on the status field, so specify a status for each issue in your project.
 
-![Example status](/assets/images/help/projects/status_example.png)
-
 Then, create a new view.
 
 {% data reusables.projects.new-view %}
@@ -125,9 +113,6 @@ Next, switch to board layout.
 
 {% data reusables.projects.open-view-menu %}
 1. Under "Layout", click **Board**.
-   ![Screenshot showing layout option](/assets/images/help/projects-v2/table-or-board.png)
-
-![Example priorities](/assets/images/help/projects/example_board.png)
 
 When you changed the layout, your project displayed an indicator to show that the view was modified. Save this view so that you and your collaborators can easily access it in the future.
 
@@ -136,62 +121,35 @@ When you changed the layout, your project displayed an indicator to show that th
 To indicate the purpose of the view, give it a descriptive name.
 
 {% data reusables.projects.open-view-menu %}
-1. Click {% octicon "pencil" aria-label="the pencil icon" %} **Rename view**.
-   ![Screenshot showing the rename menu item](/assets/images/help/projects-v2/rename-view.png)
+1. Click **{% octicon "pencil" aria-hidden="true" %} Rename view**.
 1. Type the new name for your view.
 1. To save changes, press <kbd>Return</kbd>.
 
-![Example priorities](/assets/images/help/projects/project-view-switch.gif)
-
-{% ifversion projects-v2-workflows %}
-
 ## Configure built-in automation
 
-{% ifversion projects-v2-auto-add %}
-
-Next, configure the auto-add workflow to automatically add issues opened in a repository with a specific label to your project. 
+Next, configure the auto-add workflow to automatically add issues opened in a repository with a specific label to your project.
 
 {% data reusables.projects.access-workflows %}
 1. In the "Default workflows" list, click **Auto-add to project**.
-   
-   ![Screenshot showing auto-add workflow](/assets/images/help/projects-v2/workflow-autoadd.png)
-   
 1. To start editing the workflow, in the top right, click **Edit**.
-   
-   ![Screenshot showing edit button](/assets/images/help/projects-v2/workflow-start-editing.png)
-   
-1. Under "Filters", select the repository you want to add items from.
-   
-   ![Screenshot showing repository select](/assets/images/help/projects-v2/workflow-autoadd-repo.png)
-   
-1. Next to the repository selection, type the filter criteria you want items to match before they are automatically added to your project. For example, to catch all issues and PRs opened with the label "bug", use `is:issue,pr label:bug`.
-   
-   ![Screenshot showing repository select](/assets/images/help/projects-v2/workflow-autoadd-filter.png)
-   
-1. To enable the new workflow, click **Save and turn on workflow**.
-   
-   ![Screenshot showing autoadd workflows](/assets/images/help/projects-v2/workflow-save-and-turn-on.png)
 
-{% endif %}
+   ![Screenshot showing the workflow menu bar. The "Edit" button is highlighted with an orange rectangle.](/assets/images/help/projects-v2/workflow-start-editing.png)
+
+1. Under "Filters", select the repository you want to add items from.
+1. Next to the repository selection, type the filter criteria you want items to match before they are automatically added to your project. For example, to catch all issues and PRs opened with the label "bug", use `is:issue,pr label:bug`.
+1. To enable the new workflow, click **Save and turn on workflow**.
 
 Finally, add a built in workflow to set the status to **Todo** when an item is added to your project.
 
 1. In the top-right, click {% octicon "kebab-horizontal" aria-label="The menu icon" %} to open the menu.
-  ![Screenshot showing the menu icon](/assets/images/help/projects-v2/open-menu.png)
-1. In the menu, click {% octicon "workflow" aria-label="The workflow icon" %} **Workflows**.
-  ![Screenshot showing the 'Workflows' menu item](/assets/images/help/projects-v2/workflows-menu-item.png)
+   ![Screenshot showing a project's menu bar. The menu icon is highlighted with an orange outline.](/assets/images/help/projects-v2/open-menu.png)
+1. In the menu, click **{% octicon "workflow" aria-hidden="true" %} Workflows**.
 1. Under **Default workflows**, click **Item added to project**.
-  ![Screenshot showing default workflows](/assets/images/help/projects-v2/default-workflows.png)
 1. Next to **When**, ensure that both `issues` and `pull requests` are selected.
-  ![Screenshot showing the "when" configuration for a workflow](/assets/images/help/projects-v2/workflow-when.png)
 1. Next to **Set**, select **Status:Todo**.
-  ![Screenshot showing the "set" configuration for a workflow](/assets/images/help/projects-v2/workflow-set.png)
 1. Click the **Disabled** toggle to enable the workflow.
-  ![Screenshot showing the "enable" control for a workflow](/assets/images/help/projects-v2/workflow-enable.png)
-
-{% endif %}
 
 ## Further reading
 
-- "[AUTOTITLE](/issues/planning-and-tracking-with-projects/managing-items-in-your-project/adding-items-to-your-project)"
-- "[AUTOTITLE](/issues/planning-and-tracking-with-projects/customizing-views-in-your-project/changing-the-layout-of-a-view)"
+* [AUTOTITLE](/issues/planning-and-tracking-with-projects/managing-items-in-your-project/adding-items-to-your-project)
+* [AUTOTITLE](/issues/planning-and-tracking-with-projects/customizing-views-in-your-project/changing-the-layout-of-a-view)

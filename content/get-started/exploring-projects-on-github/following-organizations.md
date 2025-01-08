@@ -11,7 +11,7 @@ topics:
 
 ## About followers on {% data variables.product.product_name %}
 
-{% data reusables.organizations.about-following-organizations %} For more information, see "[AUTOTITLE](/account-and-profile/setting-up-and-managing-your-personal-account-on-github/managing-personal-account-settings/about-your-personal-dashboard#staying-updated-with-activity-from-the-community)."
+{% data reusables.organizations.about-following-organizations %} For more information, see [AUTOTITLE](/account-and-profile/setting-up-and-managing-your-personal-account-on-github/managing-user-account-settings/about-your-personal-dashboard#staying-updated-with-activity-from-the-community).
 
 You can unfollow an organization if you do not wish to see their {% ifversion fpt or ghec %}public{% endif %} activity on {% data variables.product.product_name %}.
 
@@ -23,17 +23,18 @@ You can unfollow an organization if you do not wish to see their {% ifversion fp
 ## Unfollowing an organization on {% data variables.product.product_name %}
 
 1. Go to the organization page you want to unfollow.
-2. In the top-right corner, click **Unfollow**.
+1. In the top-right corner, click **Unfollow**.
 
 ## Viewing people and organizations a user follows on {% data variables.product.product_name %}
 
 {% data reusables.profile.navigate-to-user-profile %}
-2. Under the user's profile picture, click **following**.
+1. Under the user's profile picture, click **following**.
 
-  ![Screenshot of the sidebar of @octocat's profile page. A link, labeled "9 following", is outlined in dark orange.](/assets/images/help/profile/user-profile-following.png)
+   ![Screenshot of the sidebar of @octocat's profile page. A link, labeled "9 following", is outlined in dark orange.](/assets/images/help/profile/user-profile-following.png)
 
 {% ifversion fpt or ghec %}
+
 ## Further reading
 
-- "[AUTOTITLE](/get-started/exploring-projects-on-github/following-people)"
+* [AUTOTITLE](/get-started/exploring-projects-on-github/following-people)
 {% endif %}

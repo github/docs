@@ -11,13 +11,11 @@ redirect_from:
 versions:
   fpt: '*'
   ghec: '*'
-  ghae: '*'
   ghes: '*'
 children:
-  - /about-integrations
-  - /about-webhooks
-  - /about-github-marketplace
-  - /github-extensions-and-integrations
+  - /about-using-integrations
+  - /about-building-integrations
+  - /featured-github-integrations
   - /github-developer-program
 shortTitle: Exploring integrations
 ---

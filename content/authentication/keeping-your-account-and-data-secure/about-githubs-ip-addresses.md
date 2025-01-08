@@ -19,13 +19,16 @@ topics:
 shortTitle: GitHub's IP addresses
 ---
 
-You can retrieve a list of {% data variables.product.prodname_dotcom %}'s IP addresses from the [meta](https://api.github.com/meta) API endpoint. For more information, see "[AUTOTITLE](/rest/meta)."
+You can retrieve a list of the IP addresses for {% data variables.product.prodname_dotcom_the_website %} from the [meta](https://api.github.com/meta) API endpoint. For more information, see [AUTOTITLE](/rest/meta).
 
-{% note %}
+{% ifversion ghec %}
 
-**Note:** The list of {% data variables.product.prodname_dotcom %} IP addresses returned by the Meta API is not intended to be an exhaustive list. For example, IP addresses for some {% data variables.product.prodname_dotcom %} services might not be listed, such as LFS or {% data variables.product.prodname_registry %}.
+If you access {% data variables.product.github %} on a subdomain of {% data variables.enterprise.data_residency_site %}, the meta endpoint does not return IP ranges for your subdomain. See [AUTOTITLE](/admin/data-residency/network-details-for-ghecom#githubs-ip-addresses).
 
-{% endnote %}
+{% endif %}
+
+> [!NOTE]
+> The list of {% data variables.product.prodname_dotcom %} IP addresses returned by the Meta API is not intended to be an exhaustive list. For example, IP addresses for some {% data variables.product.prodname_dotcom %} services might not be listed, such as LFS or {% data variables.product.prodname_registry %}.
 
 These IP addresses are used by {% data variables.product.prodname_dotcom %} to serve our content, deliver webhooks, and perform hosted {% data variables.product.prodname_actions %} builds.
 
@@ -37,4 +40,5 @@ For applications to function, you must allow TCP ports 22, 80, and 443 via our I
 
 ## Further reading
 
-- "[AUTOTITLE](/get-started/using-github/troubleshooting-connectivity-problems)"
+* [AUTOTITLE](/get-started/using-github/troubleshooting-connectivity-problems)
+* [AUTOTITLE](/get-started/using-github/allowing-access-to-githubs-services-from-a-restricted-network)

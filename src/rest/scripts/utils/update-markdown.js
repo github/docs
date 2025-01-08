@@ -5,13 +5,13 @@ import { readFile } from 'fs/promises'
 import {
   updateContentDirectory,
   convertVersionsToFrontmatter,
-  MARKDOWN_COMMENT,
 } from '../../../automated-pipelines/lib/update-markdown.js'
-import { getDocsVersion } from '../../../../lib/all-versions.js'
+import { getDocsVersion } from '#src/versions/lib/all-versions.js'
 import { REST_DATA_DIR, REST_SCHEMA_FILENAME } from '../../lib/index.js'
+import { deprecated } from '#src/versions/lib/enterprise-server-releases.js'
 
-const { frontmatterDefaults, targetDirectory } = JSON.parse(
-  await readFile('src/rest/lib/config.json', 'utf-8')
+const { frontmatterDefaults, targetDirectory, indexOrder } = JSON.parse(
+  await readFile('src/rest/lib/config.json', 'utf-8'),
 )
 
 export async function updateRestFiles() {
@@ -21,6 +21,7 @@ export async function updateRestFiles() {
     targetDirectory,
     sourceContent: restMarkdownContent,
     frontmatter: frontmatterDefaults,
+    indexOrder,
   })
 }
 
@@ -29,9 +30,23 @@ export async function updateRestFiles() {
 // The data files are split up by version, so all files must be
 // read to get a complete list of versions.
 async function getDataFrontmatter(dataDirectory, schemaFilename) {
-  const fileList = walk(dataDirectory, { includeBasePath: true }).filter(
-    (file) => path.basename(file) === schemaFilename
-  )
+  const fileList = walk(dataDirectory, { includeBasePath: true })
+    .filter((file) => path.basename(file) === schemaFilename)
+    // Ignore any deprecated versions. This allows us to stop supporting
+    // the most recent deprecated version but still allow data to exist.
+    // This makes the deprecation steps easier.
+    .filter((file) => {
+      return !deprecated.some((depVersion) =>
+        file.split(path.sep).find((pathSplit) => {
+          if (pathSplit.startsWith('ghes')) {
+            // An example version format is: ghes-3.6 or ghes-3.6-2022-01-01
+            const ghesVersion = pathSplit.split('-')[1]
+            return ghesVersion === depVersion
+          }
+          return false
+        }),
+      )
+    })
 
   const restVersions = {}
 
@@ -59,7 +74,7 @@ async function getDataFrontmatter(dataDirectory, schemaFilename) {
 }
 
 /*
-  Take an object that includes the version frontmatter 
+  Take an object that includes the version frontmatter
   that should be applied to the Markdown page that corresponds
   to the category and subcategory. The format looks like this:
   {
@@ -67,7 +82,6 @@ async function getDataFrontmatter(dataDirectory, schemaFilename) {
       "artifacts": {
         "versions": {
           "free-pro-team@latest",
-          "github-ae@latest",
           "enterprise-cloud@latest",
           "enterprise-server@3.4",
           "enterprise-server@3.5",
@@ -82,43 +96,25 @@ async function getDataFrontmatter(dataDirectory, schemaFilename) {
 async function getMarkdownContent(versions) {
   const markdownUpdates = {}
 
-  for (const category of Object.keys(versions)) {
-    const subcategories = Object.keys(versions[category])
-    // When there is only a single subcategory and the name
-    // matches the category, this is an override due to a
-    // subcategory not being defined. In this case,
-    // the markdown file will be in the content/rest directory.
-    // The file path will be content/rest/<category>.md
-    if (subcategories.length === 1 && category === subcategories[0]) {
-      // this will be a file in the root of the rest directory
-      const filepath = path.join('content/rest', `${category}.md`)
-      markdownUpdates[filepath] = {
-        data: {
-          title: category,
-          shortTitle: category,
-          intro: '',
-          versions: await convertVersionsToFrontmatter(
-            versions[category][subcategories[0]].versions
-          ),
-          ...frontmatterDefaults,
-        },
-        content: MARKDOWN_COMMENT,
-      }
-      continue
-    }
-
+  for (const [category, subcategoryObject] of Object.entries(versions)) {
+    const subcategories = Object.keys(subcategoryObject)
     // The file path will be content/rest/<category>/<subcategory>.md
     for (const subcategory of subcategories) {
       const filepath = path.join('content/rest', category, `${subcategory}.md`)
+      // If the file already exists on disk, only the `versions` frontmatter
+      // property is updated. So the TODOCS placeholder values are only used
+      // when the file is newly created, which is the intention. When the TODOCS
+      // placeholder is added, it will fail the content linter CI test alerting
+      // the docs content reviewer to update the file before merging.
       markdownUpdates[filepath] = {
         data: {
-          title: subcategory,
-          shortTitle: subcategory,
-          intro: '',
+          title: 'TODOCS',
+          shortTitle: 'TODOCS',
+          intro: 'TODOCS',
           versions: await convertVersionsToFrontmatter(versions[category][subcategory].versions),
           ...frontmatterDefaults,
         },
-        content: MARKDOWN_COMMENT,
+        content: '',
       }
     }
   }

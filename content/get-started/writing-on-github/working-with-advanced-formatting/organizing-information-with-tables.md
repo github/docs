@@ -1,6 +1,7 @@
 ---
 title: Organizing information with tables
 intro: 'You can build tables to organize information in comments, issues, pull requests, and wikis.'
+product: '{% data reusables.gated-features.markdown-ui %}'
 redirect_from:
   - /articles/organizing-information-with-tables
   - /github/writing-on-github/organizing-information-with-tables
@@ -8,7 +9,6 @@ redirect_from:
 versions:
   fpt: '*'
   ghes: '*'
-  ghae: '*'
   ghec: '*'
 shortTitle: Organized data with tables
 ---
@@ -78,5 +78,5 @@ To include a pipe `|` as content within your cell, use a `\` before the pipe:
 
 ## Further reading
 
-- [{% data variables.product.prodname_dotcom %} Flavored Markdown Spec](https://github.github.com/gfm/)
-- "[AUTOTITLE](/get-started/writing-on-github/getting-started-with-writing-and-formatting-on-github/basic-writing-and-formatting-syntax)"
+* [{% data variables.product.prodname_dotcom %} Flavored Markdown Spec](https://github.github.com/gfm/)
+* [AUTOTITLE](/get-started/writing-on-github/getting-started-with-writing-and-formatting-on-github/basic-writing-and-formatting-syntax)

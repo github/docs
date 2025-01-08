@@ -1,5 +1,4 @@
-# Reference: #8243
-# Team Discussions migration and eventual deprecation announcement
+# Reference: #8869
+# Team Discussions migration and eventual deprecation announcement (for GHES - already deprecated for Dotcom and GHEC)
 versions:
-  fpt: '*'
-  ghec: '*'
+  ghes: '>3.9 <3.13'

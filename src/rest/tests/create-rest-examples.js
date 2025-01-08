@@ -1,4 +1,5 @@
-import { describe, expect } from '@jest/globals'
+import { describe, expect, test } from 'vitest'
+
 import getCodeSamples, { mergeExamples } from '../scripts/utils/create-rest-examples.js'
 import {
   operation,
@@ -7,7 +8,7 @@ import {
   noResponse,
   oneToOne,
   matchingTags,
-} from './fixtures/create-rest-examples.js'
+} from '../fixtures/create-rest-examples.js'
 
 describe('rest example requests and responses', () => {
   // If there is a request with no request body parameters and all of
@@ -53,7 +54,7 @@ describe('rest example requests and responses', () => {
     const mergedExamples = await getCodeSamples(operation)
     mergedExamples.forEach((example, index) => {
       expect(example.request.description).toBe(
-        'Example ' + (index + 1) + ': Status Code ' + example.response.statusCode
+        'Example ' + (index + 1) + ': Status Code ' + example.response.statusCode,
       )
     })
   })

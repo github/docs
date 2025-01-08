@@ -1,6 +1,7 @@
 ---
 title: Writing mathematical expressions
 intro: 'Use Markdown to display mathematical expressions on {% data variables.product.company_short %}.'
+product: '{% data reusables.gated-features.markdown-ui %}'
 versions:
   feature: math
 shortTitle: Mathematical expressions
@@ -12,61 +13,73 @@ To enable clear communication of mathematical expressions, {% data variables.pro
 
 {% data variables.product.company_short %}'s math rendering capability uses MathJax; an open source, JavaScript-based display engine. MathJax supports a wide range of LaTeX macros, and several useful accessibility extensions. For more information, see [the MathJax documentation](http://docs.mathjax.org/en/latest/input/tex/index.html#tex-and-latex-support) and [the MathJax Accessibility Extensions Documentation](https://mathjax.github.io/MathJax-a11y/docs/#reader-guide).
 
-Mathematical expressions rendering is available in {% data variables.product.prodname_github_issues %}, {% data variables.product.prodname_discussions %}, pull requests, {% ifversion fpt or ghec or ghes > 3.6 or ghae > 3.6 %}wikis, {% endif %}and Markdown files.
+Mathematical expressions rendering is available in {% data variables.product.prodname_github_issues %}, {% data variables.product.prodname_discussions %}, pull requests, wikis, and Markdown files.
 
 ## Writing inline expressions
 
-To include a math expression inline with your text, delimit the expression with a dollar symbol `$`.
+{% ifversion math-backtick-syntax %}
+There are two options for delimiting a math expression inline with your text. You can either surround the expression with dollar symbols (`$`), or start the expression with <code>$\`</code> and end it with <code>\`$</code>. The latter syntax is useful when the expression you are writing contains characters that overlap with markdown syntax. For more information, see [AUTOTITLE](/get-started/writing-on-github/getting-started-with-writing-and-formatting-on-github/basic-writing-and-formatting-syntax).
+{% else %}
+To include a math expression inline within your text, delimit the expression with dollar symbols `$`.
+{% endif %}
 
-```
-This sentence uses `$` delimiters to show math inline:  $\sqrt{3x-1}+(1+x)^2$
+```text
+This sentence uses `$` delimiters to show math inline: $\sqrt{3x-1}+(1+x)^2$
 ```
 
-![Screenshot of rendered Markdown showing how a mathematical expression displays on {% data variables.product.prodname_dotcom %} with a square root symbol and an exponent.](/assets/images/help/writing/inline-math-markdown-rendering.png)
+![Screenshot of rendered Markdown showing how a mathematical expression displays on {% data variables.product.prodname_dotcom %}. The equation is the square root of 3 x minus 1 plus open paren 1 plus x close paren squared.](/assets/images/help/writing/inline-math-markdown-rendering.png)
+
+{% ifversion math-backtick-syntax %}
+
+```text
+This sentence uses $\` and \`$ delimiters to show math inline: $`\sqrt{3x-1}+(1+x)^2`$
+```
+
+![Screenshot of rendered Markdown showing how a mathematical expression displays inline on {% data variables.product.prodname_dotcom %}. The equation is the square root of 3 x minus 1 plus open paren 1 plus x close paren squared.](/assets/images/help/writing/inline-backtick-math-markdown-rendering.png)
+{% endif %}
 
 ## Writing expressions as blocks
 
 To add a math expression as a block, start a new line and delimit the expression with two dollar symbols `$$`.
 
-```
-**The Cauchy-Schwarz Inequality**
+>[!TIP] If you're writing in an .md file, you will need to use specific formatting to create a line break, such as ending the line with a backslash as shown in the example below. For more information on line breaks in Markdown, see "[AUTOTITLE](/get-started/writing-on-github/getting-started-with-writing-and-formatting-on-github/basic-writing-and-formatting-syntax#line-breaks)."
 
+```text
+**The Cauchy-Schwarz Inequality**\
 $$\left( \sum_{k=1}^n a_k b_k \right)^2 \leq \left( \sum_{k=1}^n a_k^2 \right) \left( \sum_{k=1}^n b_k^2 \right)$$
 ```
 
-![Screenshot of rendered Markdown showing how a complex equation displays on {% data variables.product.prodname_dotcom %} with appropriate mathematical symbols, including parentheses and sigma notation.](/assets/images/help/writing/math-expression-as-a-block-rendering.png)
+![Screenshot of rendered Markdown showing how a complex equation displays on {% data variables.product.prodname_dotcom %}. The bolded text reads "The Cauchy-Schwarz Inequality". Below the text, there is an equation showing the The Cauchy-Schwarz Inequality formula.](/assets/images/help/writing/math-expression-as-a-block-rendering.png)
 
 {% ifversion math-fenced-blocks %}
 
-Alternatively, you can use the <code>\`\`\`math</code> code block syntax to display a math expression as a block. With this syntax, you don't need to use `$$` delimiters.
+Alternatively, you can use the <code>\`\`\`math</code> code block syntax to display a math expression as a block. With this syntax, you don't need to use `$$` delimiters. The following will render the same as above:
 
-````
-**Here is some math!**
+````text
+**The Cauchy-Schwarz Inequality**
 
 ```math
-\sqrt{3}
+\left( \sum_{k=1}^n a_k b_k \right)^2 \leq \left( \sum_{k=1}^n a_k^2 \right) \left( \sum_{k=1}^n b_k^2 \right)
 ```
 ````
-
-![Screenshot of rendered Markdown showing the bolded text "Here is some math!" followed by notation for the square root of 3.](/assets/images/help/writing/math-expression-as-a-fenced-code-block.png)
 
 {% endif %}
 
 ## Writing dollar signs in line with and within mathematical expressions
 
 To display a dollar sign as a character in the same line as a mathematical expression, you need to escape the non-delimiter `$` to ensure the line renders correctly.
-  
-  - Within a math expression, add a `\` symbol before the explicit `$`.
 
-  ```
-  This expression uses `\$` to display a dollar sign: $\sqrt{\$4}$
+* Within a math expression, add a `\` symbol before the explicit `$`.
+
+  ```text
+  This expression uses `\$` to display a dollar sign: $`\sqrt{\$4}`$
   ```
 
   ![Screenshot of rendered Markdown showing how a backslash before a dollar sign displays the sign as part of a mathematical expression.](/assets/images/help/writing/dollar-sign-within-math-expression.png)
 
-  - Outside a math expression, but on the same line, use span tags around the explicit `$`.
+* Outside a math expression, but on the same line, use span tags around the explicit `$`.
 
-  ```
+  ```text
   To split <span>$</span>100 in half, we calculate $100/2$
   ```
 

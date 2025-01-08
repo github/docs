@@ -8,7 +8,6 @@ redirect_from:
 versions:
   fpt: '*'
   ghes: '*'
-  ghae: '*'
   ghec: '*'
 topics:
   - Organizations
@@ -21,5 +20,5 @@ Unless you set a profile picture for a team, the team profile picture will match
 {% data reusables.user-settings.access_org %}
 {% data reusables.organizations.specific_team %}
 {% data reusables.organizations.team_settings %}
-5. Under "Profile picture", click **Upload new picture**, then select your desired profile picture.
-6. Click and drag to crop the image as needed, then click **Set new team avatar**.
+1. Under "Profile picture", click **Upload new picture**, then select your desired profile picture.
+1. Click and drag to crop the image as needed, then click **Set new team avatar**.

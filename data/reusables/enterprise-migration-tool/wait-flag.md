@@ -1,1 +1,0 @@
-The command will keep running until your migration finishes.

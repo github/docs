@@ -8,14 +8,19 @@ redirect_from:
 versions:
   fpt: '*'
   ghes: '*'
-  ghae: '*'
   ghec: '*'
 topics:
   - GitHub search
 ---
-Use the Sort menu to sort results by relevance, number of stars, number of forks, and how recently the items were updated.
 
-  ![Menu with options for sorting search results](/assets/images/help/search/repo-search-sort.png)
+{% ifversion code-search-upgrade %}
+
+> [!NOTE]
+> Sorting search results is not supported for {% data variables.product.product_name %} code search. For more information on code search, see [AUTOTITLE](/search-github/github-code-search/about-github-code-search).
+
+{% endif %}
+
+Use the **Sort** dropdown menu to sort results by relevance, number of stars, number of forks, and how recently the items were updated.
 
 To sort by interactions, reactions, author date, committer date, or how recently the items were updated, you can add a `sort` qualifier to your search query.
 
@@ -71,5 +76,5 @@ The `sort:updated` qualifier sorts by how recently the items were updated.
 
 ## Further reading
 
-- "[AUTOTITLE](/search-github/getting-started-with-searching-on-github/about-searching-on-github)"
-- "[AUTOTITLE](/issues/tracking-your-work-with-issues/filtering-and-searching-issues-and-pull-requests)"
+* [AUTOTITLE](/search-github/getting-started-with-searching-on-github/about-searching-on-github)
+* [AUTOTITLE](/issues/tracking-your-work-with-issues/filtering-and-searching-issues-and-pull-requests)

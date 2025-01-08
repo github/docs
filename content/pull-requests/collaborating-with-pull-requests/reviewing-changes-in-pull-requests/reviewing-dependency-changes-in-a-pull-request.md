@@ -5,7 +5,6 @@ product: '{% data reusables.gated-features.dependency-review %}'
 versions:
   fpt: '*'
   ghes: '>= 3.2'
-  ghae: '*'
   ghec: '*'
 type: how_to
 topics:
@@ -20,27 +19,22 @@ redirect_from:
   - /github/collaborating-with-pull-requests/reviewing-changes-in-pull-requests/reviewing-dependency-changes-in-a-pull-request
 shortTitle: Review dependency changes
 ---
-<!--Marketing-LINK: From /features/security/software-supply-chain page "Sign up for the dependency review beta" and "Reviewing dependency changes in a pull request".-->
+<!--Marketing-LINK: From /features/security/software-supply-chain page "Sign up for the dependency review {% data variables.release-phases.public_preview %}" and "Reviewing dependency changes in a pull request".-->
 
 ## About dependency review
 
 {% data reusables.dependency-review.feature-overview %}
 
-{% ifversion ghec %}Before you can use dependency review in a private repository, you must enable the dependency graph. For more information, see "[AUTOTITLE](/code-security/supply-chain-security/understanding-your-software-supply-chain/exploring-the-dependencies-of-a-repository#enabling-and-disabling-the-dependency-graph-for-a-private-repository)."{% endif %}
+{% ifversion ghec %}Before you can use dependency review in a private repository, you must enable the dependency graph. For more information, see [AUTOTITLE](/code-security/supply-chain-security/understanding-your-software-supply-chain/exploring-the-dependencies-of-a-repository#enabling-and-disabling-the-dependency-graph-for-a-private-repository).{% endif %}
 
-{% ifversion ghes %} Before you can use dependency review, you must enable the dependency graph and connect {% data variables.location.product_location %} to {% data variables.product.prodname_dotcom_the_website %}. For more information, see "[AUTOTITLE](/admin/configuration/configuring-github-connect/enabling-dependabot-for-your-enterprise)."{% endif %}
+{% ifversion ghes %}Before you can use dependency review, you must enable the dependency graph and connect {% data variables.location.product_location %} to {% data variables.product.prodname_dotcom_the_website %}. For more information, see [AUTOTITLE](/admin/configuration/configuring-github-connect/enabling-dependabot-for-your-enterprise).{% endif %}
 
-Dependency review allows you to "shift left". You can use the provided predictive information to catch vulnerable dependencies before they hit production. For more information, see "[AUTOTITLE](/code-security/supply-chain-security/understanding-your-software-supply-chain/about-dependency-review)."
-
-{% ifversion fpt or ghec or ghes > 3.5 %}
+Dependency review allows you to "shift left". You can use the provided predictive information to catch vulnerable dependencies before they hit production. For more information, see [AUTOTITLE](/code-security/supply-chain-security/understanding-your-software-supply-chain/about-dependency-review).
 
 You can use the {% data variables.dependency-review.action_name %} to help enforce dependency reviews on pull requests in your repository. {% data reusables.dependency-review.dependency-review-action-overview %}
 
-{% ifversion dependency-review-action-configuration %}
-You can configure the {% data variables.dependency-review.action_name %} to better suit your needs by specifying the type of dependency vulnerability you wish to catch. For more information, see "[AUTOTITLE](/code-security/supply-chain-security/understanding-your-software-supply-chain/configuring-dependency-review#configuring-the-dependency-review-github-action)."
-{% endif %}
+You can configure the {% data variables.dependency-review.action_name %} to better suit your needs by specifying the type of dependency vulnerability you wish to catch. For more information, see [AUTOTITLE](/code-security/supply-chain-security/understanding-your-software-supply-chain/configuring-the-dependency-review-action).
 
-{% endif %}
 ## Reviewing dependencies in a pull request
 
 {% data reusables.repositories.sidebar-pr %}
@@ -49,20 +43,17 @@ You can configure the {% data variables.dependency-review.action_name %} to bett
 
 1. If the pull request contains many files, use the **File filter** drop-down menu to collapse all files that don't record dependencies. This will make it easier to focus your review on the dependency changes.
 
-   ![The file filter menu](/assets/images/help/pull_requests/file-filter-menu-json.png)
+   ![Screenshot of the "Changed files" tab. A dropdown labeled "File filter" is expanded, displaying a list of file types with checkboxes.](/assets/images/help/pull_requests/file-filter-menu-json.png)
    The dependency review provides a clearer view of what has changed in large lock files, where the source diff is not rendered by default.
 
-  {% note %}
-
-   **Note:** Dependency review rich diffs are not available for committed static JavaScript files like `jquery.js`.
-
-   {% endnote %}
+   > [!NOTE]
+   > Dependency review rich diffs are not available for committed static JavaScript files like `jquery.js`.
 
 1. On the right of the header for a manifest or lock file, display the dependency review by clicking **{% octicon "file" aria-label="Display the rich diff" %}**.
 
-    ![Screenshot of the "Files changed" tab of a pull request. The button to display the rich diff, labeled with a file icon, is outlined in dark orange.](/assets/images/help/pull_requests/dependency-review-rich-diff.png)
+   ![Screenshot of the "Files changed" tab of a pull request. The button to display the rich diff, labeled with a file icon, is outlined in dark orange.](/assets/images/help/pull_requests/dependency-review-rich-diff.png)
 
-2. Check the dependencies listed in the dependency review.
+1. Check the dependencies listed in the dependency review.
 
    ![Screenshot of the vulnerability warnings in a dependency review for a pull request.](/assets/images/help/pull_requests/dependency-review-vulnerability.png)
 

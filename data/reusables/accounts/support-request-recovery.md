@@ -1,0 +1,1 @@
+A member of {% data variables.contact.github_support %} will review your request and email you within three business days. If your request is approved, you'll receive a link to complete your account recovery process. If your request is denied, the email will include a way to contact support with any additional questions.

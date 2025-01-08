@@ -29,24 +29,19 @@ jobs:
     if: github.repository == 'github/docs-internal'
     runs-on: ubuntu-latest
     steps:
-      - if: ${{ env.FREEZE == 'true' }}
-        run: |
-          echo 'The repo is currently frozen! Exiting this workflow.'
-          exit 1 # prevents further steps from running
-
       - name: Checkout repository code
-        uses: actions/checkout@93ea575cb5d8a053eaa0ac8fa3b40d7e05a33cc8
+        uses: actions/checkout@b4ffde65f46336ab88eb53be808477a3936bae11 # v4.1.1
 
         # Check out a nested repository inside of previous checkout
       - name: Checkout semmle-code repo
-        uses: actions/checkout@93ea575cb5d8a053eaa0ac8fa3b40d7e05a33cc8
+        uses: actions/checkout@b4ffde65f46336ab88eb53be808477a3936bae11 # v4.1.1
         with:
           # By default, only the most recent commit of the `main` branch
           # will be checked out
-          token: ${{ secrets.DOCS_BOT_FR }}
+          token: ${{ secrets.DOCS_BOT_PAT_WRITEORG_PROJECT }}
           repository: github/semmle-code
           path: semmle-code
-          ref: ${{ github.event.inputs.SOURCE_BRANCH }}
+          ref: ${{ inputs.SOURCE_BRANCH }}
 
       - uses: ./.github/actions/node-npm-setup
 
@@ -80,7 +75,7 @@ jobs:
       - name: Create pull request
         env:
           # Needed for gh
-          GITHUB_TOKEN: ${{ secrets.DOCUBOT_REPO_PAT }}
+          GITHUB_TOKEN: ${{ secrets.DOCS_BOT_PAT_READPUBLICKEY }}
         run: |
           # If nothing to commit, exit now. It's fine. No orphans.
           changes=$(git diff --name-only | wc -l)
@@ -90,8 +85,8 @@ jobs:
             exit 0
           fi
 
-          git config --global user.name "docubot"
-          git config --global user.email "67483024+docubot@users.noreply.github.com"
+          git config --global user.name "docs-bot"
+          git config --global user.email "77750099+docs-bot@users.noreply.github.com"
 
           branchname=codeql-cli-update-${{ steps.semmle-code.outputs.OPENAPI_COMMIT_SHA }}
 
@@ -107,17 +102,10 @@ jobs:
           echo "Creating pull request..."
           gh pr create \
             --title "Update CodeQL CLI manual" \
-            --body '👋 humans. This PR updates the CodeQL CLI manual Markdown pages with the latest changes. (Synced from semmle-code@${{ steps.semmle-code.outputs.OPENAPI_COMMIT_SHA }})
+            --body '👋 humans. This PR updates the CodeQL CLI manual Markdown pages with the latest changes in preparation for the next **CodeQL CLI** release.
+
+            This will be reviewed and merged by the Code scanning and GHAS focus team as part of the release of CodeQL CLI. (Synced from semmle-code@${{ steps.semmle-code.outputs.OPENAPI_COMMIT_SHA }})
 
             If CI does not pass or other problems arise, contact #docs-engineering on slack.' \
             --repo github/docs-internal \
-            --label codeql-cli-pipeline
-
-      - name: Send Slack notification if workflow fails
-        uses: someimportantcompany/github-actions-slack-message@1d367080235edfa53df415bd8e0bbab480f29bad
-        if: ${{ failure() && env.FREEZE != 'true' }}
-        with:
-          channel: ${{ secrets.DOCS_ALERTS_SLACK_CHANNEL_ID }}
-          bot-token: ${{ secrets.SLACK_DOCS_BOT_TOKEN }}
-          color: failure
-          text: The last Sync CodeQL CLI run for ${{github.repository}} failed. See https://github.com/${{github.repository}}/actions/workflows/sync-codeql-cli.yml
+            --label "codeql-cli-pipeline,skip FR board,ready-for-doc-review"

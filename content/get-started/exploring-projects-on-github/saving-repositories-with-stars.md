@@ -12,11 +12,10 @@ redirect_from:
 versions:
   fpt: '*'
   ghes: '*'
-  ghae: '*'
   ghec: '*'
 topics:
   - Repositories
-shortTitle: Save repos with stars
+shortTitle: Save repositories with stars
 ---
 You can search, sort, and filter your starred repositories and topics on your {% data variables.explore.your_stars_page %}.
 
@@ -25,10 +24,10 @@ You can search, sort, and filter your starred repositories and topics on your {%
 Starring makes it easy to find a repository or topic again later. You can see all the repositories and topics you have starred by going to your {% data variables.explore.your_stars_page %}.
 
 {% ifversion fpt or ghec %}
-You can star repositories and topics to discover similar projects on {% data variables.product.product_name %}. When you star repositories or topics, {% data variables.product.product_name %} may recommend related content on your personal dashboard. For more information, see "[AUTOTITLE](/get-started/exploring-projects-on-github/finding-ways-to-contribute-to-open-source-on-github)" and "[AUTOTITLE](/account-and-profile/setting-up-and-managing-your-personal-account-on-github/managing-personal-account-settings/about-your-personal-dashboard#staying-updated-with-activity-from-the-community)."
+You can star repositories and topics to discover similar projects on {% data variables.product.product_name %}. When you star repositories or topics, {% data variables.product.product_name %} may recommend related content on your personal dashboard. For more information, see [AUTOTITLE](/get-started/exploring-projects-on-github/finding-ways-to-contribute-to-open-source-on-github) and [AUTOTITLE](/account-and-profile/setting-up-and-managing-your-personal-account-on-github/managing-user-account-settings/about-your-personal-dashboard#staying-updated-with-activity-from-the-community).
 {% endif %}
 
-Starring a repository also shows appreciation to the repository maintainer for their work. Many of {% data variables.product.prodname_dotcom %}'s repository rankings depend on the number of stars a repository has. In addition, [Explore](https://github.com/explore) shows popular repositories based on the number of stars they have.
+Starring a repository also shows appreciation to the repository maintainer for their work. Many of {% data variables.product.prodname_dotcom %}'s repository rankings depend on the number of stars a repository has. In addition, [Explore {% data variables.product.prodname_dotcom %}](https://github.com/explore) shows popular repositories based on the number of stars they have.
 
 ## Starring a repository
 
@@ -44,20 +43,14 @@ Starring a repository is a simple two-step process.
 
 ## Viewing who has starred a repository
 
-
-You can view everyone who has starred a public repository or a private repository you have access to. 
-
+You can view everyone who has starred a public repository or a private repository you have access to.
 
 To view everyone who has starred a repository, add `/stargazers` to the end of the URL of a repository. For example, to view stargazers for the github/docs repository, visit https://github.com/github/docs/stargazers.
 
-
 ## Organizing starred repositories with lists
 
-{% note %}
-
-**Note:** Lists are currently in public beta and subject to change.
-
-{% endnote %}
+> [!NOTE]
+> Lists are currently in {% data variables.release-phases.public_preview %} and subject to change.
 
 Curate repositories that you've starred with public lists. You can create public lists that appear on your stars page at `https://github.com/USERNAME?tab=stars`.
 
@@ -65,50 +58,49 @@ Curate repositories that you've starred with public lists. You can create public
 
 If you add a private repository to a list, then the private repository will only appear in your list for people with `read` access to the repository.
 
-You can add a repository to an existing or new list wherever you see a repository's **Star** or **Starred** dropdown menu, whether on a repository page or in a list of starred repositories. 
+You can add a repository to an existing or new list wherever you see a repository's **Star** or **Starred** dropdown menu, whether on a repository page or in a list of starred repositories.
 
 ![Screenshot of a repository page. The "Star" dropdown menu is expanded, with a list options highlighted with a dark orange outline.](/assets/images/help/stars/stars-dropdown-on-repo.png)
-
 
 ### Creating a list
 
 {% data reusables.stars.stars-page-navigation %}
-2. Next to "Lists", click **Create list**.
-3. Enter a name and description for your list and click **Create**.
+1. Next to "Lists", click **Create list**.
+1. Enter a name and description for your list and click **Create**.
 
 ### Adding a repository to a list
 
 {% data reusables.stars.stars-page-navigation %}
-2. Find the repository you want to add to your list by typing it into the search bar.
-3. Next to the repository you want to add, use the **Starred** dropdown menu and select your list.
-  ![Screenshot of a list of repositories on the "Stars" page. Next to a repository, under the "Starred" button, a dropdown menu is outlined in orange.](/assets/images/help/stars/add-repo-to-list.png)
+1. Find the repository you want to add to your list by typing it into the search bar.
+1. Next to the repository you want to add, use the **Starred** dropdown menu and select your list.
+   ![Screenshot of a list of repositories on the "Stars" page. Next to a repository, under the "Starred" button, a dropdown menu is outlined in orange.](/assets/images/help/stars/add-repo-to-list.png)
 
 ### Removing a repository from your list
 
 {% data reusables.stars.stars-page-navigation %}
-2. Select your list.
-3. Next to the repository you want to remove, use the **Starred** drop-down menu and deselect your list.
-  ![Screenshot of a list of repositories on the "Stars" page. Next to a repository, under the "Starred" button, a dropdown menu is outlined in orange.](/assets/images/help/stars/add-repo-to-list.png)
+1. Select your list.
+1. Next to the repository you want to remove, use the **Starred** drop-down menu and deselect your list.
+   ![Screenshot of a list of repositories on the "Stars" page. Next to a repository, under the "Starred" button, a dropdown menu is outlined in orange.](/assets/images/help/stars/add-repo-to-list.png)
 
 ### Editing a list name or description
 
 {% data reusables.stars.stars-page-navigation %}
 1. Select the list you want to edit.
-2. Click **Edit list**.
-3. Update the name or description and click **Save list**.
+1. Click **Edit list**.
+1. Update the name or description and click **Save list**.
 
 ### Deleting a list
 
 {% data reusables.stars.stars-page-navigation %}
-2. Select the list you want to delete.
-3. Click **Delete list**.
-4. To confirm, click **Delete**.
+1. Select the list you want to delete.
+1. Click **Delete list**.
+1. To confirm, click **Delete**.
 
 {% endif %}
 
 ## Searching starred repositories and topics
 
-You can use the search bar on your {% data variables.explore.your_stars_page %} to quickly find repositories and topics you've starred. 
+You can use the search bar on your {% data variables.explore.your_stars_page %} to quickly find repositories and topics you've starred.
 
 {% data reusables.stars.stars-page-navigation %}
 1. Use the search bar to find your starred repositories or topics by their name.
@@ -124,7 +116,6 @@ You can use sorting or filtering to customize how you see starred repositories a
 1. To filter your list of stars based on their language, click on the desired language under the **Language** dropdown menu.
 1. To filter your list of stars based on repository type, click on the desired option under the **Type:** dropdown menu.
 
-
 ## Further reading
 
-- "[AUTOTITLE](/repositories/managing-your-repositorys-settings-and-features/customizing-your-repository/classifying-your-repository-with-topics)"
+* [AUTOTITLE](/repositories/managing-your-repositorys-settings-and-features/customizing-your-repository/classifying-your-repository-with-topics)

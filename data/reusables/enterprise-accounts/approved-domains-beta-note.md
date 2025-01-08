@@ -1,9 +1,2 @@
-{% ifversion fpt or ghes or ghec %}
-
-{% note %}
-
-**Note**: Domain approval is currently in beta and subject to change.
-
-{% endnote %}
-
-{% endif %}
+> [!NOTE]
+> The ability to approve a domain not owned by your organization or enterprise is currently in {% data variables.release-phases.public_preview %} and subject to change.

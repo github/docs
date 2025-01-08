@@ -8,7 +8,6 @@ redirect_from:
 versions:
   fpt: '*'
   ghes: '*'
-  ghae: '*'
   ghec: '*'
 topics:
   - Identity
@@ -18,4 +17,3 @@ children:
   - /using-a-verified-email-address-in-your-gpg-key
 shortTitle: Troubleshoot verification
 ---
-

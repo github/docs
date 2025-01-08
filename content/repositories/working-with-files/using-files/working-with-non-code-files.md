@@ -28,7 +28,6 @@ redirect_from:
 versions:
   fpt: '*'
   ghes: '*'
-  ghae: '*'
   ghec: '*'
 topics:
   - Repositories
@@ -39,17 +38,13 @@ shortTitle: Working with non-code files
 
 {% data variables.product.product_name %} can display several common image formats, including PNG, JPG, GIF, PSD, and SVG. In addition to simply displaying them, there are several ways to compare differences between versions of those image formats.
 
-{% note %}
-
-**Note:**
-- {% data variables.product.prodname_dotcom %} does not support comparing the differences between PSD files.
-- If you are using the Firefox browser, SVGs on {% data variables.product.prodname_dotcom %} may not render.
-
-{% endnote %}
+> [!NOTE]
+> * {% data variables.product.prodname_dotcom %} does not support comparing the differences between PSD files.
+> * If you are using the Firefox browser, SVGs on {% data variables.product.prodname_dotcom %} may not render.
 
 ### Viewing images
 
-You can directly browse and view images in your repository on {% ifversion ghae %}{% data variables.product.product_name %}{% else %}{% data variables.location.product_location %}{% endif %}.
+You can directly browse and view images in your repository on {% data variables.product.prodname_dotcom %}.
 
 SVGs don't currently support inline scripting or animation.
 
@@ -75,7 +70,7 @@ You can visually compare images in three different modes: [2-up](#2-up), [swipe]
 
 ## 3D File Viewer
 
-{% data variables.product.product_name %} can host and render 3D files with the *.stl* extension.
+{% data variables.product.product_name %} can host and render 3D files with the _.stl_ extension.
 
 When looking directly at an STL file on {% data variables.product.product_name %} you can:
 
@@ -83,16 +78,6 @@ When looking directly at an STL file on {% data variables.product.product_name %
 * Right click and drag to translate the view.
 * Scroll to zoom in and out.
 * Click the different view modes to change the view.
-
-### Diffs
-
-When looking at a commit or set of changes which includes an STL file, you'll be able to see a before and after diff of the file.
-
-By default, you'll get a view where everything unchanged is in wireframe. Additions are colored in green, and removed parts are colored in red.
-
-![Screenshot of the diff for a STL file. Portions of a 3D object are red, and other portions are green.](/assets/images/help/repository/stl_wireframe.png)
-
-You can also select the **Revision Slider** option, which lets you use a slider at the top of the file to transition between the current and previous revisions.
 
 ### Fixing slow performance
 
@@ -120,25 +105,20 @@ For example, if your model's URL is [`github.com/skalnik/secret-bear-clip/blob/m
 
 By default, the embedded renderer is 420 pixels wide by 620 pixels high, but you can customize the output by passing height and width variables as parameters at the end of the URL, such as `?height=300&width=500`.
 
-{% tip %}
+> [!NOTE]
+> `ref` can be a branch or the hash to an individual commit (like `2391ae`).
 
-**Note**: `ref` can be a branch or the hash to an individual commit (like `2391ae`).
-
-{% endtip %}
-
-{% ifversion mermaid %}
 ### Rendering in Markdown
 
-You can embed ASCII STL syntax directly in Markdown. For more information, see "[AUTOTITLE](/get-started/writing-on-github/working-with-advanced-formatting/creating-diagrams#creating-stl-3d-models)."
-{% endif %}
+You can embed ASCII STL syntax directly in Markdown. For more information, see [AUTOTITLE](/get-started/writing-on-github/working-with-advanced-formatting/creating-diagrams#creating-stl-3d-models).
 
 ## Rendering CSV and TSV data
 
-{% data variables.product.prodname_dotcom %} supports rendering tabular data in the form of *.csv* (comma-separated) and .*tsv* (tab-separated) files.
+{% data variables.product.prodname_dotcom %} supports rendering tabular data in the form of _.csv_ (comma-separated) and ._tsv_ (tab-separated) files.
 
-![Screenshot of a rendered CSV file, with data shown in a table format.](/assets/images/help/repository/rendered_csv.png)
+![Screenshot of a rendered CSV file, with data shown in a table format.](/assets/images/help/repository/rendered-csv.png)
 
-When viewed, any _.csv_ or _.tsv_ file committed to a repository on {% ifversion ghae %}{% data variables.product.product_name %}{% else %}{% data variables.location.product_location %}{% endif %} automatically renders as an interactive table, complete with headers and row numbering. By default, we'll always assume the first row is your header row.
+When viewed, any _.csv_ or _.tsv_ file committed to a repository on {% data variables.product.prodname_dotcom %} automatically renders as an interactive table, complete with headers and row numbering. By default, we'll always assume the first row is your header row.
 
 You can link to a particular row by clicking the row number, or select multiple rows by holding down the shift key. Just copy the URL and send it to a friend.
 
@@ -148,14 +128,15 @@ If you want to find a certain value in your dataset, you can start typing in the
 
 ### Handling errors
 
-Occasionally, you may discover that your CSV or TSV file isn't rendering. In those instances, an error box appears at the bottom of your raw text, suggesting what the error may be.
+Occasionally, you may discover that your CSV or TSV file isn't rendering. In those instances, a message appears above your raw text, suggesting what the error may be.
 
-![CSV render error message](/assets/images/help/repository/csv_render_error.png)
+![Screenshot of a text view of a CSV file. In the header, a message points out an error: "No commas found in this CSV file in line 0."](/assets/images/help/repository/csv-render-error.png)
 
 Common errors include:
 
 * Mismatched column counts. You must have the same number of separators in each row, even if the cell is blank
 * Exceeding the file size. Our rendering only works for files up to 512KB. Anything bigger than that slows down the browser.
+* Using unsupported delimiters, such as semicolons instead of commas.
 
 ## Rendering PDF documents
 
@@ -165,7 +146,7 @@ Currently, links within PDFs are ignored.
 
 ## Rendering differences in prose documents
 
-Commits and pull requests that include prose documents have the ability to represent those documents with *source* and *rendered* views.
+Commits and pull requests that include prose documents have the ability to represent those documents with _source_ and _rendered_ views.
 
 The source view shows the raw text that has been typed, while the rendered
 view shows how that text would look once it's rendered on {% data variables.product.product_name %}. For example,
@@ -185,11 +166,11 @@ Prose rendering is supported for rendered documents supported by [github/markup]
 
 To see the changes made to the document as part of a commit, click {% octicon "file" aria-label="Display the rich diff" %}.
 
-![Screenshot of the diff for a Markdown file. In the header of the file, a file icon is outlined in dark orange.](/assets/images/help/repository/rendered_prose_diff.png)
+![Screenshot of the diff for a Markdown file. In the header of the file, a file icon is outlined in dark orange.](/assets/images/help/repository/rendered-prose-diff.png)
 
 This "rich diff" highlights the code that has been added and removed.
 
-![Screenshot of the diff for a Markdown file. "@octo-org/core" is struck through, with a red background, followed by "@octocat", with a green background.](/assets/images/help/repository/rendered_prose_changes.png)
+![Screenshot of the diff for a Markdown file. "@octo-org/core" is struck through, with a red background, followed by "@octocat", with a green background.](/assets/images/help/repository/rendered-prose-changes.png)
 
 ### Disabling Markdown rendering
 
@@ -201,12 +182,12 @@ We provide a tooltip
 describing changes to attributes that, unlike words, would not otherwise be visible in the rendered document. For example, if a link URL changes from one website to
 another, we'd show a tooltip like this:
 
-![Screenshot of the diff for a Markdown file. A tooltip over a link says "href: /octo-org-repo/blob/CONTRIBUTING -> /octo-org/octo-repo/blob/docs/CONTRIBUTING."](/assets/images/help/repository/prose_diff_attributes.png)
+![Screenshot of the diff for a Markdown file. A tooltip over a link says "href: /octo-org-repo/blob/CONTRIBUTING -> /octo-org/octo-repo/blob/docs/CONTRIBUTING."](/assets/images/help/repository/prose-diff-attributes.png)
 
 ### Commenting on changes
 
 [Commit comments](/pull-requests/collaborating-with-pull-requests/reviewing-changes-in-pull-requests/commenting-on-a-pull-request) can only
-be added to files within the *source* view, on a line-by-line basis.
+be added to files within the _source_ view, on a line-by-line basis.
 
 ### Linking to headers
 
@@ -235,13 +216,14 @@ In general, rendered views of changes to a document containing embedded HTML wil
 Maps on {% data variables.product.product_name %} use [Leaflet.js](http://leafletjs.com) and support all the geometry types outlined in [the geoJSON spec](http://www.geojson.org/geojson-spec.html) (Point, LineString, Polygon, MultiPoint, MultiLineString, MultiPolygon, and GeometryCollection). TopoJSON files should be type "Topology" and adhere to the [TopoJSON spec](https://github.com/mbostock/topojson/wiki/Specification).
 
 {% ifversion geoJSON-with-MapBox %}
+
 ### Styling features
 
 You can customize the way features are displayed, such as specifying a particular color or adding a descriptive icon, by passing additional metadata within the GeoJSON object's properties. The options are:
 
 * `marker-size` - `small`, `medium`, or `large`
 * `marker-color` - valid RGB hex color
-* `marker-symbol` - an icon ID from [the Maki project](http://mapbox.com/maki/) or a single alphanumeric character (a-z or 0-9).
+* `marker-symbol` - an icon ID from [the Maki project](https://mapbox.com/maki/) or a single alphanumeric character (a-z or 0-9).
 * `stroke` - color of a polygon edge or line (RGB)
 * `stroke-opacity` - opacity of a polygon edge or line (0.0 - 1.0)
 * `stroke-width` - width of a polygon edge or line
@@ -253,7 +235,7 @@ See [version 1.1.0 of the open simplestyle spec](https://github.com/mapbox/simpl
 
 ### Embedding your map elsewhere
 
-Want to make your GeoJSON map available someplace other than {% data variables.product.product_name %}? Simply modify this template, and place it in any HTML page that supports JavaScript (e.g., [{% data variables.product.prodname_pages %}](http://pages.github.com)):
+Want to make your GeoJSON map available someplace other than {% data variables.product.product_name %}? Simply modify this template, and place it in any HTML page that supports JavaScript (for example, [{% data variables.product.prodname_pages %}](https://pages.github.com)):
 
 ```html
 <script src="https://embed.github.com/view/geojson/<username>/<repo>/<ref>/<path_to_file>"></script>
@@ -267,17 +249,14 @@ For example, if your map's URL is [github.com/benbalter/dc-wifi-social/blob/mast
 
 By default, the embedded map 420px x 620px, but you can customize the output by passing height and width variables as parameters at the end, such as `?height=300&width=500`.
 
-{% tip %}
+> [!NOTE]
+> `ref` can be a branch or the hash to an individual commit (like `2391ae`).
 
-**Note**: `ref` can be a branch or the hash to an individual commit (like `2391ae`).
-
-{% endtip %}
-
-{% ifversion mermaid %}
 ### Mapping in Markdown
 
-You can embed GeoJSON and TopoJSON directly in Markdown. For more information, see "[AUTOTITLE](/get-started/writing-on-github/working-with-advanced-formatting/creating-diagrams#creating-geojson-and-topojson-maps)."
-{% endif %}
+You can embed GeoJSON and TopoJSON directly in Markdown. For more information, see [AUTOTITLE](/get-started/writing-on-github/working-with-advanced-formatting/creating-diagrams#creating-geojson-and-topojson-maps).
+
+{% data reusables.advanced-formatting.administrator-must-enable-mapping %}
 
 ### Clustering
 
@@ -289,7 +268,7 @@ The underlying map data (street names, roads, etc.) are driven by [OpenStreetMap
 
 ### Troubleshooting GeoJSON/TopoJSON files
 
-If you're having trouble rendering GeoJSON files, ensure you have a valid GeoJSON file by running it through a [GeoJSON linter](http://geojsonlint.com/). If your points aren't appearing where you'd expect (<em>e.g.</em>, in the middle of the ocean), it's likely that the data is in a projection which is currently unsupported. Currently, {% data variables.product.product_name %} only supports the `urn:ogc:def:crs:OGC:1.3:CRS84` projection.
+If you're having trouble rendering GeoJSON files, ensure you have a valid GeoJSON file by running it through a [GeoJSON linter](http://geojsonlint.com/). If your points aren't appearing where you'd expect (for example, in the middle of the ocean), it's likely that the data is in a projection which is currently unsupported. Currently, {% data variables.product.product_name %} only supports the `urn:ogc:def:crs:OGC:1.3:CRS84` projection.
 
 Additionally, if your `.geojson` file is especially large (over 10 MB), it is not possible to render within the browser. If that's the case, you'll generally see a message that says we can't show files that large.
 
@@ -307,11 +286,11 @@ It may still be possible to render the data by converting the `.geojson` file to
 
 ## Working with Jupyter Notebook files on {% data variables.product.prodname_dotcom %}
 
-When you add Jupyter Notebook or IPython Notebook files with a *.ipynb* extension on {% data variables.location.product_location %}, they will render as static HTML files in your repository.
+When you add Jupyter Notebook or IPython Notebook files with a _.ipynb_ extension on {% data variables.product.prodname_dotcom %}, they will render as static HTML files in your repository.
 
-The interactive features of the notebook, such as custom JavaScript plots, will not work in your repository on {% data variables.location.product_location %}. For an example, see [*Linking and Interactions.ipynb*](https://github.com/bokeh/bokeh-notebooks/blob/main/tutorial/06%20-%20Linking%20and%20Interactions.ipynb).
+The interactive features of the notebook, such as custom JavaScript plots, will not work in your repository on {% data variables.product.prodname_dotcom %}. For an example, see [_Linking and Interactions.ipynb_](https://github.com/bokeh/bokeh-notebooks/blob/main/tutorial/06%20-%20Linking%20and%20Interactions.ipynb).
 
-To view your Jupyter notebook with JavaScript content rendered or to share your notebook files with others you can use [nbviewer](https://nbviewer.jupyter.org/). For an example, see [*Linking and Interactions.ipynb*](https://nbviewer.jupyter.org/github/bokeh/bokeh-notebooks/blob/main/tutorial/06%20-%20Linking%20and%20Interactions.ipynb) rendered on nbviewer.
+To view your Jupyter notebook with JavaScript content rendered or to share your notebook files with others you can use [nbviewer](https://nbviewer.jupyter.org/). For an example, see [_Linking and Interactions.ipynb_](https://nbviewer.jupyter.org/github/bokeh/bokeh-notebooks/blob/main/tutorial/06%20-%20Linking%20and%20Interactions.ipynb) rendered on nbviewer.
 
 To view a fully interactive version of your Jupyter Notebook, you can set up a notebook server locally. For more information, see [Jupyter's official documentation](http://jupyter.readthedocs.io/en/latest/index.html).
 
@@ -320,22 +299,21 @@ To view a fully interactive version of your Jupyter Notebook, you can set up a n
 If you're having trouble rendering Jupyter Notebook files in static HTML, you can convert the file locally on the command line by using the [`nbconvert` command](https://github.com/jupyter/nbconvert):
 
 ```shell
-$ jupyter nbconvert --to html NOTEBOOK-NAME.ipynb
+jupyter nbconvert --to html NOTEBOOK-NAME.ipynb
 ```
 
 ### Further reading about Jupyter Notebook
 
-- [Jupyter Notebook's GitHub repository](https://github.com/jupyter/jupyter_notebook)
-- [Gallery of Jupyter Notebooks](https://github.com/jupyter/jupyter/wiki)
+* [Jupyter Notebook's GitHub repository](https://github.com/jupyter/jupyter_notebook)
+* [Gallery of Jupyter Notebooks](https://github.com/jupyter/jupyter/wiki)
 
-{% ifversion mermaid %}
 ## Displaying Mermaid files on {% data variables.product.prodname_dotcom %}
 
 {% data variables.product.product_name %} supports rendering Mermaid files within repositories. Commit the file as you would normally using a `.mermaid` or `.mmd` extension. Then, navigate to the path of the Mermaid file on {% data variables.product.prodname_dotcom %}.
 
 For example, if you add a `.mmd` file with the following content to your repository:
 
-```
+```text
 graph TD
     A[Friend's Birthday] -->|Get money| B(Go shopping)
     B --> C{Let me think}
@@ -362,10 +340,9 @@ If the chart displays, but does not appear as you'd expect, you can create a new
 
 ### Mermaid in Markdown
 
-You can embed Mermaid syntax directly in Markdown. For more information, see "[AUTOTITLE](/get-started/writing-on-github/working-with-advanced-formatting/creating-diagrams#creating-mermaid-diagrams)."
+You can embed Mermaid syntax directly in Markdown. For more information, see [AUTOTITLE](/get-started/writing-on-github/working-with-advanced-formatting/creating-diagrams#creating-mermaid-diagrams).
 
 ### Further reading about Mermaid
 
 * [Mermaid.js documentation](https://mermaid-js.github.io/mermaid/#/)
 * [Mermaid.js live editor](https://mermaid.live/edit)
-{% endif %}

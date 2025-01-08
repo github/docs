@@ -1,6 +1,6 @@
 ## Publishing a codespace created from a template
 
-When you create a codespace from a template repository or a template on the "Your codespaces" page, the work you do won't be stored in a repository on {% data variables.product.prodname_dotcom %} until you publish your codespace. For more information, see "[AUTOTITLE](/codespaces/developing-in-codespaces/creating-a-codespace-from-a-template#publishing-to-a-repository-on-github)."
+When you create a codespace from a template repository or a template on the "Your codespaces" page, the work you do won't be stored in a repository on {% data variables.product.prodname_dotcom %} until you publish your codespace. For more information, see [AUTOTITLE](/codespaces/developing-in-codespaces/creating-a-codespace-from-a-template#publishing-to-a-repository-on-github).
 
 {% data reusables.codespaces.publishing-template-codespaces %}
 
@@ -8,16 +8,13 @@ When you create a codespace from a template repository or a template on the "You
 
 {% data reusables.codespaces.create-or-switch-branch %}
 
-{% tip %}
+> [!TIP]
+> If someone has recently changed a file on the remote repository, in the branch you switched to, you may not see those changes until you pull the changes into your codespace.
 
-**Tip**: If someone has recently changed a file on the remote repository, in the branch you switched to, you may not see those changes until you pull the changes into your codespace. 
-
-{% endtip %}
-
-## Committing your changes 
+## Committing your changes
 
 {% data reusables.codespaces.source-control-activity-bar %}
-1. To stage your changes, click  {% octicon "plus" aria-label="Stage changes" %} next to the file you've changed, or next to **Changes** if you've changed multiple files and you want to stage them all.
+1. To stage your changes, click {% octicon "plus" aria-label="Stage changes" %} next to the file you've changed, or next to **Changes** if you've changed multiple files and you want to stage them all.
 
    ![Screenshot of the "Source control" side bar with the staging button (a plus sign), to the right of "Changes," highlighted with a dark orange outline.](/assets/images/help/codespaces/codespaces-commit-stage.png)
 
@@ -31,7 +28,7 @@ When you create a codespace from a template repository or a template on the "You
 
 ## Pulling changes from the remote repository
 
-You can pull changes from the remote repository into your codespace at any time. 
+You can pull changes from the remote repository into your codespace at any time.
 
 {% data reusables.codespaces.source-control-activity-bar %}
 1. At the top of the side bar, click {% octicon "kebab-horizontal" aria-label="Views and More Actions..." %}.
@@ -40,11 +37,11 @@ You can pull changes from the remote repository into your codespace at any time.
 
 1. In the dropdown menu, click **Pull**.
 
-If the dev container configuration has been changed since you created the codespace, you can apply the changes by rebuilding the container for the codespace. For more information, see "[AUTOTITLE](/codespaces/setting-up-your-project-for-codespaces/adding-a-dev-container-configuration/introduction-to-dev-containers#applying-changes-to-your-configuration)."
+If the dev container configuration has been changed since you created the codespace, you can apply the changes by rebuilding the container for the codespace. For more information, see [AUTOTITLE](/codespaces/setting-up-your-project-for-codespaces/adding-a-dev-container-configuration/introduction-to-dev-containers#applying-changes-to-your-configuration).
 
-## Setting your codespace to automatically fetch new changes 
+## Setting your codespace to automatically fetch new changes
 
-You can set your codespace to automatically fetch details of any new commits that have been made to the remote repository. This allows you to see whether your local copy of the repository is out of date, in which case you may choose to pull in the new changes. 
+You can set your codespace to automatically fetch details of any new commits that have been made to the remote repository. This allows you to see whether your local copy of the repository is out of date, in which case you may choose to pull in the new changes.
 
 If the fetch operation detects new changes on the remote repository, you'll see the number of new commits in the status bar. You can then pull the changes into your local copy.
 
@@ -65,7 +62,7 @@ If the fetch operation detects new changes on the remote repository, you'll see 
 
 ## Raising a pull request
 
-{% data reusables.codespaces.source-control-pull-request %} 
+{% data reusables.codespaces.source-control-pull-request %}
 
 ## Pushing changes to your remote repository
 

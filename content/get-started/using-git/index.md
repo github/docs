@@ -13,7 +13,6 @@ redirect_from:
 versions:
   fpt: '*'
   ghes: '*'
-  ghae: '*'
   ghec: '*'
 children:
   - /about-git
@@ -26,5 +25,5 @@ children:
   - /using-git-rebase-on-the-command-line
   - /resolving-merge-conflicts-after-a-git-rebase
   - /dealing-with-special-characters-in-branch-and-tag-names
+  - /troubleshooting-the-2-gb-push-limit
 ---
-

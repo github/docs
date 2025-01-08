@@ -1,0 +1,6 @@
+# Reference: #9847
+# Public repos are now accessible without restriction via GraphQL by GitHub apps
+versions:
+  fpt: '*'
+  ghec: '*'
+  ghes: '>3.9'

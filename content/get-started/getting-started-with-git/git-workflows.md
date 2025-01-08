@@ -10,7 +10,6 @@ redirect_from:
 versions:
   fpt: '*'
   ghes: '*'
-  ghae: '*'
   ghec: '*'
 ---
-You can adopt the {% data variables.product.prodname_dotcom %} flow method to standardize how your team functions and collaborates on {% data variables.product.prodname_dotcom %}. For more information, see "[AUTOTITLE](/get-started/quickstart/github-flow)."
+You can adopt the {% data variables.product.prodname_dotcom %} flow method to standardize how your team functions and collaborates on {% data variables.product.prodname_dotcom %}. For more information, see [AUTOTITLE](/get-started/using-github/github-flow).

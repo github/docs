@@ -7,9 +7,7 @@ redirect_from:
   - /github/importing-your-projects-to-github/working-with-subversion-on-github/support-for-subversion-clients
   - /get-started/importing-your-projects-to-github/working-with-subversion-on-github/support-for-subversion-clients
 versions:
-  fpt: '*'
-  ghes: '*'
-  ghec: '*'
+  ghes: '<3.13'
 shortTitle: Support for Subversion clients
 ---
 GitHub supports Subversion clients via the HTTPS protocol. We use a Subversion bridge to communicate svn commands to GitHub.
@@ -20,46 +18,51 @@ GitHub supports Subversion clients via the HTTPS protocol. We use a Subversion b
 
 ### Checkout
 
-The first thing you'll want to do is a Subversion checkout.  Since Git clones keep the working directory (where you edit files) separate from the repository data, there is only one branch in the working directory at a time.
+The first thing you'll want to do is a Subversion checkout. Since Git clones keep the working directory (where you edit files) separate from the repository data, there is only one branch in the working directory at a time.
 
-Subversion checkouts are different: they mix the repository data in the working directories, so there is a working directory for each branch and tag you've checked out.  For repositories with many branches and tags, checking out everything can be a bandwidth burden, so you should start with a partial checkout.
+Subversion checkouts are different: they mix the repository data in the working directories, so there is a working directory for each branch and tag you've checked out. For repositories with many branches and tags, checking out everything can be a bandwidth burden, so you should start with a partial checkout.
 
 {% data reusables.repositories.navigate-to-repo %}
 {% data reusables.repositories.copy-clone-url %}
 
-3. Make an empty checkout of the repository:
-  ```shell
-  $ svn co --depth empty https://github.com/USER/REPO
-  > Checked out revision 1.
-  $ cd REPO
-  ```
+1. Make an empty checkout of the repository:
 
-4. Get the `trunk` branch. The Subversion bridge maps trunk to the Git HEAD branch.
-  ```shell
-  $ svn up trunk
-  > A    trunk
-  > A    trunk/README.md
-  > A    trunk/gizmo.rb
-  > Updated to revision 1.
-  ```
+   ```shell
+   $ svn co --depth empty https://github.com/USER/REPO
+   > Checked out revision 1.
+   $ cd REPO
+   ```
 
-5. Get an empty checkout of the `branches` directory.  This is where all of the non-`HEAD` branches live, and where you'll be making feature branches.
-  ```shell
-  $ svn up --depth empty branches
-  Updated to revision 1.
-  ```
+1. Get the `trunk` branch. The Subversion bridge maps trunk to the Git HEAD branch.
+
+   ```shell
+   $ svn up trunk
+   > A    trunk
+   > A    trunk/README.md
+   > A    trunk/gizmo.rb
+   > Updated to revision 1.
+   ```
+
+1. Get an empty checkout of the `branches` directory. This is where all of the non-`HEAD` branches live, and where you'll be making feature branches.
+
+   ```shell
+   $ svn up --depth empty branches
+   Updated to revision 1.
+   ```
 
 ### Creating branches
 
 You can also create branches using the Subversion bridge to GitHub.
 
 From your svn client, make sure the default branch is current by updating `trunk`:
+
 ```shell
 $ svn up trunk
 > At revision 1.
 ```
 
 Next, you can use `svn copy` to create a new branch:
+
 ```shell
 $ svn copy trunk branches/more_awesome
 > A    branches/more_awesome
@@ -71,7 +74,15 @@ $ svn commit -m 'Added more_awesome topic branch'
 
 You can confirm that the new branch exists in the repository's branch dropdown:
 
-![Screenshot of the repository page. A dropdown menu, labeled with a branch icon and "main", is highlighted with an orange outline.](/assets/images/help/branches/branch-selection-dropdown.png)
+{% ifversion global-nav-update %}
+
+   ![Screenshot of the repository page. A dropdown menu, labeled with a branch icon and "main", is highlighted with an orange outline.](/assets/images/help/branches/branch-selection-dropdown-global-nav-update.png)
+
+{% else %}
+
+   ![Screenshot of the repository page. A dropdown menu, labeled with a branch icon and "main", is highlighted with an orange outline.](/assets/images/help/branches/branch-selection-dropdown.png)
+
+{% endif %}
 
 You can also confirm the new branch via the command line:
 
@@ -110,13 +121,13 @@ $ svn commit -m 'Test coverage for problems'
 To switch between branches, you'll probably want to start with a checkout of `trunk`:
 
 ```shell
-$ svn co --depth empty https://github.com/USER/REPO/trunk
+svn co --depth empty https://github.com/USER/REPO/trunk
 ```
 
 Then, you can switch to another branch:
 
 ```shell
-$ svn switch https://github.com/USER/REPO/branches/more_awesome
+svn switch https://github.com/USER/REPO/branches/more_awesome
 ```
 
 ## Finding the Git commit SHA for a Subversion commit

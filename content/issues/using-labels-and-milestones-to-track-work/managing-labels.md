@@ -23,7 +23,6 @@ redirect_from:
 versions:
   fpt: '*'
   ghes: '*'
-  ghae: '*'
   ghec: '*'
 topics:
   - Pull requests
@@ -41,8 +40,8 @@ You can manage your work on {% data variables.product.product_name %} by creatin
 
 Label | Description
 ---  | ---
-`bug` | Indicates an unexpected problem or unintended behavior{% ifversion fpt or ghes or ghec %}
-`documentation` | Indicates a need for improvements or additions to documentation{% endif %}
+`bug` | Indicates an unexpected problem or unintended behavior
+`documentation` | Indicates a need for improvements or additions to documentation
 `duplicate` | Indicates similar {% ifversion fpt or ghec %}issues, pull requests, or discussions{% else %}issues or pull requests{% endif %}
 `enhancement` | Indicates new feature requests
 `good first issue` | Indicates a good issue for first-time contributors
@@ -55,9 +54,7 @@ Default labels are included in every new repository when the repository is creat
 
 Issues with the `good first issue` label are used to populate the repository's `contribute` page. For an example of a `contribute` page, see [github/docs/contribute](https://github.com/github/docs/contribute).
 
-{% ifversion fpt or ghes or ghec %}
-Organization owners can customize the default labels for repositories in their organization. For more information, see "[AUTOTITLE](/organizations/managing-organization-settings/managing-default-labels-for-repositories-in-your-organization)."
-{% endif %}
+Organization owners can customize the default labels for repositories in their organization. For more information, see [AUTOTITLE](/organizations/managing-organization-settings/managing-default-labels-for-repositories-in-your-organization).
 
 ## Creating a label
 
@@ -66,7 +63,7 @@ Anyone with write access to a repository can create a label.
 {% data reusables.repositories.navigate-to-repo %}
 {% data reusables.repositories.sidebar-issue-pr %}
 {% data reusables.project-management.labels %}
-4. To the right of the search field, click **New label**.
+1. To the right of the search field, click **New label**.
 {% data reusables.project-management.name-label %}
 {% data reusables.project-management.label-description %}
 {% data reusables.project-management.label-color-randomizer %}
@@ -104,7 +101,8 @@ Deleting a label will remove the label from issues and pull requests.
 {% data reusables.project-management.delete-label %}
 
 ## Further reading
-- "[AUTOTITLE](/issues/tracking-your-work-with-issues/filtering-and-searching-issues-and-pull-requests)"{% ifversion fpt or ghes or ghec %}
-- "[AUTOTITLE](/organizations/managing-organization-settings/managing-default-labels-for-repositories-in-your-organization)"{% endif %}{% ifversion fpt or ghec %}
-- "[AUTOTITLE](/communities/setting-up-your-project-for-healthy-contributions/encouraging-helpful-contributions-to-your-project-with-labels)"{% endif %}
-- "[AUTOTITLE](/get-started/writing-on-github/getting-started-with-writing-and-formatting-on-github/basic-writing-and-formatting-syntax#using-emoji)"
+
+* [AUTOTITLE](/issues/tracking-your-work-with-issues/filtering-and-searching-issues-and-pull-requests)
+* [AUTOTITLE](/organizations/managing-organization-settings/managing-default-labels-for-repositories-in-your-organization){% ifversion fpt or ghec %}
+* [AUTOTITLE](/communities/setting-up-your-project-for-healthy-contributions/encouraging-helpful-contributions-to-your-project-with-labels){% endif %}
+* [AUTOTITLE](/get-started/writing-on-github/getting-started-with-writing-and-formatting-on-github/basic-writing-and-formatting-syntax#using-emoji)

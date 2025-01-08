@@ -14,7 +14,6 @@ redirect_from:
 versions:
   fpt: '*'
   ghes: '*'
-  ghae: '*'
   ghec: '*'
 topics:
   - SSH
@@ -29,4 +28,3 @@ children:
   - /working-with-ssh-key-passphrases
 shortTitle: Connect with SSH
 ---
-

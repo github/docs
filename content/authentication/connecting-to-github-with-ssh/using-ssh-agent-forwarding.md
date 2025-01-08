@@ -9,7 +9,6 @@ redirect_from:
 versions:
   fpt: '*'
   ghes: '*'
-  ghae: '*'
   ghec: '*'
 topics:
   - API
@@ -18,7 +17,7 @@ shortTitle: SSH agent forwarding
 
 
 
-SSH agent forwarding can be used to make deploying to a server simple.  It allows you to use your local SSH keys instead of leaving keys (without passphrases!) sitting on your server.
+SSH agent forwarding can be used to make deploying to a server simple. It allows you to use your local SSH keys instead of leaving keys (without passphrases!) sitting on your server.
 
 If you've already set up an SSH key to interact with {% data variables.product.product_name %}, you're probably familiar with `ssh-agent`. It's a program that runs in the background and keeps your key loaded into memory, so that you don't need to enter your passphrase every time you need to use the key. The nifty thing is, you can choose to let servers access your local `ssh-agent` as if they were already running on the server. This is sort of like asking a friend to enter their password so that you can use their computer.
 
@@ -28,10 +27,10 @@ Check out [Steve Friedl's Tech Tips guide][tech-tips] for a more detailed explan
 
 Ensure that your own SSH key is set up and working. You can use [our guide on generating SSH keys][generating-keys] if you've not done this yet.
 
-You can test that your local key works by entering `ssh -T git@{% ifversion ghes or ghae %}hostname{% else %}github.com{% endif %}` in the terminal:
+You can test that your local key works by entering `ssh -T git@{% ifversion ghes %}hostname{% else %}github.com{% endif %}` in the terminal:
 
 ```shell
-$ ssh -T git@{% ifversion ghes or ghae %}hostname{% else %}github.com{% endif %}
+$ ssh -T git@{% ifversion ghes %}hostname{% else %}github.com{% endif %}
 # Attempt to SSH in to github
 > Hi USERNAME! You've successfully authenticated, but GitHub does not provide
 > shell access.
@@ -41,20 +40,17 @@ We're off to a great start. Let's set up SSH to allow agent forwarding to your s
 
 1. Using your favorite text editor, open up the file at `~/.ssh/config`. If this file doesn't exist, you can create it by entering `touch ~/.ssh/config` in the terminal.
 
-2. Enter the following text into the file, replacing `example.com` with your server's domain name or IP:
+1. Enter the following text into the file, replacing `example.com` with your server's domain name or IP:
 
         Host example.com
           ForwardAgent yes
 
-{% warning %}
-
-**Warning:** You may be tempted to use a wildcard like `Host *` to just apply this setting to all SSH connections. That's not really a good idea, as you'd be sharing your local SSH keys with *every* server you SSH into. They won't have direct access to the keys, but they will be able to use them *as you* while the connection is established. **You should only add servers you trust and that you intend to use with agent forwarding.**
-
-{% endwarning %}
+> [!WARNING]
+> You may be tempted to use a wildcard like `Host *` to just apply this setting to all SSH connections. That's not really a good idea, as you'd be sharing your local SSH keys with _every_ server you SSH into. They won't have direct access to the keys, but they will be able to use them _as you_ while the connection is established. **You should only add servers you trust and that you intend to use with agent forwarding.**
 
 ## Testing SSH agent forwarding
 
-To test that agent forwarding is working with your server, you can SSH into your server and run `ssh -T git@{% ifversion ghes or ghae %}hostname{% else %}github.com{% endif %}` once more.  If all is well, you'll get back the same prompt as you did locally.
+To test that agent forwarding is working with your server, you can SSH into your server and run `ssh -T git@{% ifversion ghes %}hostname{% else %}github.com{% endif %}` once more. If all is well, you'll get back the same prompt as you did locally.
 
 If you're unsure if your local key is being used, you can also inspect the `SSH_AUTH_SOCK` variable on your server:
 
@@ -70,7 +66,7 @@ If the variable is not set, it means that agent forwarding is not working:
 $ echo "$SSH_AUTH_SOCK"
 # Print out the SSH_AUTH_SOCK variable
 > [No output]
-$ ssh -T git@{% ifversion ghes or ghae %}hostname{% else %}github.com{% endif %}
+$ ssh -T git@{% ifversion ghes %}hostname{% else %}github.com{% endif %}
 # Try to SSH to github
 > Permission denied (publickey).
 ```
@@ -85,7 +81,7 @@ SSH forwarding only works with SSH URLs, not HTTP(s) URLs. Check the `.git/confi
 
 ```shell
 [remote "origin"]
-  url = git@{% ifversion ghes or ghae %}hostname{% else %}github.com{% endif %}:YOUR_ACCOUNT/YOUR_PROJECT.git
+  url = git@{% ifversion ghes %}hostname{% else %}github.com{% endif %}:YOUR_ACCOUNT/YOUR_PROJECT.git
   fetch = +refs/heads/*:refs/remotes/origin/*
 ```
 
@@ -100,7 +96,7 @@ Sometimes, system configurations disallow SSH agent forwarding. You can check if
 ```shell
 $ ssh -v URL
 # Connect to the specified URL with verbose debug output
-> OpenSSH_8.1p1, LibreSSL 2.7.3</span>
+> OpenSSH_8.1p1, LibreSSL 2.7.3
 > debug1: Reading configuration data /Users/YOU/.ssh/config
 > debug1: Applying options for example.com
 > debug1: Reading configuration data /etc/ssh_config
@@ -109,7 +105,7 @@ $ exit
 # Returns to your local command prompt
 ```
 
-In the example above, the file `~/.ssh/config` is loaded first, then `/etc/ssh_config` is read.  We can inspect that file to see if it's overriding our options by running the following commands:
+In the example above, the file `~/.ssh/config` is loaded first, then `/etc/ssh_config` is read. We can inspect that file to see if it's overriding our options by running the following commands:
 
 ```shell
 $ cat /etc/ssh_config
@@ -127,7 +123,7 @@ Agent forwarding may also be blocked on your server. You can check that agent fo
 
 ### Your local `ssh-agent` must be running
 
-On most computers, the operating system automatically launches `ssh-agent` for you.  On Windows, however, you need to do this manually. We have [a guide on how to start `ssh-agent` whenever you open Git Bash][autolaunch-ssh-agent].
+On most computers, the operating system automatically launches `ssh-agent` for you. On Windows, however, you need to do this manually. We have [a guide on how to start `ssh-agent` whenever you open Git Bash][autolaunch-ssh-agent].
 
 To verify that `ssh-agent` is running on your computer, type the following command in the terminal:
 
@@ -148,22 +144,19 @@ ssh-add -L
 If the command says that no identity is available, you'll need to add your key:
 
 ```shell
-$ ssh-add YOUR-KEY
+ssh-add YOUR-KEY
 ```
 
-{% tip %}
+> [!TIP]
+> On macOS, `ssh-agent` will "forget" this key, once it gets restarted during reboots. But you can import your SSH keys into Keychain using this command:
+>
+> ```shell
+> ssh-add --apple-use-keychain YOUR-KEY
+> ```
 
-On macOS, `ssh-agent` will "forget" this key, once it gets restarted during reboots. But you can import your SSH keys into Keychain using this command:
-
-```shell
-$ ssh-add --apple-use-keychain YOUR-KEY
-```
-
-For MacOS versions prior to Monterey (12.0), use `-K` instead of `--apple-use-keychain`. For more information, see "[AUTOTITLE](/authentication/connecting-to-github-with-ssh/generating-a-new-ssh-key-and-adding-it-to-the-ssh-agent#adding-your-ssh-key-to-the-ssh-agent)."
-
-{% endtip %}
+{% data reusables.ssh.apple-use-keychain %}
 
 [tech-tips]: http://www.unixwiz.net/techtips/ssh-agent-forwarding.html
-[generating-keys]: /articles/generating-ssh-keys
-[ssh-passphrases]: /ssh-key-passphrases/
-[autolaunch-ssh-agent]: /github/authenticating-to-github/working-with-ssh-key-passphrases#auto-launching-ssh-agent-on-git-for-windows
+[generating-keys]: /authentication/connecting-to-github-with-ssh
+[ssh-passphrases]: /authentication/connecting-to-github-with-ssh/working-with-ssh-key-passphrases
+[autolaunch-ssh-agent]: /authentication/connecting-to-github-with-ssh/working-with-ssh-key-passphrases#auto-launching-ssh-agent-on-git-for-windows

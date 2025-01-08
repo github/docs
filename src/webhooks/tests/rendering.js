@@ -1,11 +1,14 @@
-import { jest } from '@jest/globals'
-import { getDOM } from '../../../tests/helpers/e2etest.js'
-import { allVersions } from '../../../lib/all-versions.js'
+import { describe, expect, test, vi } from 'vitest'
+
+import { getDOM } from '#src/tests/helpers/e2etest.js'
+import { allVersions } from '#src/versions/lib/all-versions.js'
 import { getWebhooks } from '../lib/index.js'
 
 describe('webhooks events and payloads', () => {
-  jest.setTimeout(300 * 1000)
+  vi.setConfig({ testTimeout: 3 * 60 * 1000 })
 
+  // This test ensures that the page component and the Markdown file are
+  // in sync. It also checks that all expected items are present.
   test('loads webhook schema data for all versions', async () => {
     for (const version in allVersions) {
       const webhooks = await getWebhooks(version)
@@ -16,11 +19,10 @@ describe('webhooks events and payloads', () => {
         .map((i, h2) => $(h2).attr('id'))
         .get()
 
-      webhookNames.forEach((webhookName) => {
-        if (!domH2Ids.includes(webhookName)) {
-          throw new Error(`Webhook '${webhookName}' not on the ${versionedWebhooksPage} page`)
-        }
-      })
+      const everyWebhookEventPresent = webhookNames.every((webhookName) =>
+        domH2Ids.includes(webhookName),
+      )
+      expect(everyWebhookEventPresent).toBe(true)
     }
   })
 
@@ -32,7 +34,7 @@ describe('webhooks events and payloads', () => {
     for (const version in allVersions) {
       if (!version.includes('enterprise-server') && !version.includes('github-ae')) {
         const $ = await getDOM(
-          `/en/${version}/webhooks-and-events/webhooks/webhook-events-and-payloads`
+          `/en/${version}/webhooks-and-events/webhooks/webhook-events-and-payloads`,
         )
         const domH2Ids = $('h2')
           .map((i, h2) => $(h2).attr('id'))

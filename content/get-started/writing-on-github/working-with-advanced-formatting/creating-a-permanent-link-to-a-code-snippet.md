@@ -1,6 +1,7 @@
 ---
 title: Creating a permanent link to a code snippet
 intro: You can create a permanent link to a specific line or range of lines of code in a specific version of a file or pull request.
+product: '{% data reusables.gated-features.markdown-ui %}'
 redirect_from:
   - /github/managing-your-work-on-github/managing-your-work-with-issues-and-pull-requests/creating-a-permanent-link-to-a-code-snippet
   - /articles/creating-a-permanent-link-to-a-code-snippet
@@ -9,7 +10,6 @@ redirect_from:
 versions:
   fpt: '*'
   ghes: '*'
-  ghae: '*'
   ghec: '*'
 topics:
   - Pull requests
@@ -22,16 +22,13 @@ This type of permanent link will render as a code snippet only in the repository
 
 ![Screenshot of an issue comment. A code snippet has a header that lists the file name and line numbers, and a body that lists the code on those lines.](/assets/images/help/repository/rendered-code-snippet.png)
 
-{% tip %}
-
-**Tip:** To create a permalink for an entire file, see "[AUTOTITLE](/repositories/working-with-files/using-files/getting-permanent-links-to-files)."
-
-{% endtip %}
+> [!TIP]
+> To create a permalink for an entire file, see [AUTOTITLE](/repositories/working-with-files/using-files/getting-permanent-links-to-files).
 
 {% data reusables.repositories.navigate-to-repo %}
 1. Locate the code you'd like to link to:
-    - To link to code from a file, navigate to the file.
-    - To link to code from a pull request, navigate to the pull request and click {% octicon "diff" aria-label="The file diff icon" %} **Files changed**. Then, browse to the file that contains the code you want include in your comment, and click **View**.
+    * To link to code from a file, navigate to the file.
+    * To link to code from a pull request, navigate to the pull request and click **{% octicon "diff" aria-hidden="true" %} Files changed**. Then, browse to the file that contains the code you want include in your comment, and click **View**.
 {% data reusables.repositories.choose-line-or-range %}
 1. To the left of the line or range of lines, click {% octicon "kebab-horizontal" aria-label="Code line X options" %}. In the drop-down menu, click **Copy permalink**.
 
@@ -47,5 +44,5 @@ You can link to a specific line in the Markdown file the same way you can in cod
 
 ## Further reading
 
-- "[AUTOTITLE](/issues/tracking-your-work-with-issues/creating-an-issue)"
-- "[AUTOTITLE](/pull-requests/collaborating-with-pull-requests/reviewing-changes-in-pull-requests)"
+* [AUTOTITLE](/issues/tracking-your-work-with-issues/creating-an-issue)
+* [AUTOTITLE](/pull-requests/collaborating-with-pull-requests/reviewing-changes-in-pull-requests)

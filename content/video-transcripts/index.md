@@ -6,9 +6,10 @@ versions:
   fpt: '*'
   ghec: '*'
   ghes: '*'
-  ghae: '*'
 topics:
   - Transcripts
 children:
   - transcript-codespaces-your-instant-dev-box-in-the-cloud
+  - transcript-using-projects-for-feature-planning
+  - transcript-billing-github-consumption-through-an-azure-subscription
 ---

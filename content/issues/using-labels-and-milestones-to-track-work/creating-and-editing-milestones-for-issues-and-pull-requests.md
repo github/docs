@@ -9,7 +9,6 @@ redirect_from:
 versions:
   fpt: '*'
   ghes: '*'
-  ghae: '*'
   ghec: '*'
 topics:
   - Pull requests
@@ -21,12 +20,12 @@ type: how_to
 {% data reusables.repositories.navigate-to-repo %}
 {% data reusables.repositories.sidebar-issue-pr %}
 {% data reusables.project-management.milestones %}
-4. Choose one of these options:
-    - To create a new milestone, click **New Milestone**.
-    - To edit a milestone, next to the milestone you want to edit, click **Edit**.
+1. Choose one of these options:
+    * To create a new milestone, click **New Milestone**.
+    * To edit a milestone, next to the milestone you want to edit, click **Edit**.
 
        ![Screenshot of the list of milestones. Within the entry for the "beta release" milestone, a link, labeled "Edit," is outlined in dark orange.](/assets/images/help/repository/edit-milestone.png)
-5. Type the milestone's title, description, or other changes, and click **Create milestone** or **Save changes**. Milestones will render Markdown syntax. For more information about Markdown syntax, see "[AUTOTITLE](/get-started/writing-on-github/getting-started-with-writing-and-formatting-on-github/basic-writing-and-formatting-syntax)."
+1. Type the milestone's title, description, or other changes, and click **Create milestone** or **Save changes**. Milestones will render Markdown syntax. For more information about Markdown syntax, see [AUTOTITLE](/get-started/writing-on-github/getting-started-with-writing-and-formatting-on-github/basic-writing-and-formatting-syntax).
 
 ## Deleting milestones
 

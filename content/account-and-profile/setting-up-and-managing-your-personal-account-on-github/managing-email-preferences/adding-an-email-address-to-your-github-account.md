@@ -17,13 +17,9 @@ shortTitle: Add an email address
 ---
 {% ifversion fpt or ghec %}
 
-{% note %}
-
-**Notes**: 
-  - {% data reusables.user-settings.no-verification-disposable-emails %}
-  -  If you're a member of an {% data variables.enterprise.prodname_emu_enterprise %}, you cannot make changes to your email address on {% data variables.product.prodname_dotcom_the_website %}. {% data reusables.enterprise-accounts.emu-more-info-account %}
-
-{% endnote %}
+> [!NOTE]
+> * {% data reusables.user-settings.no-verification-disposable-emails %}
+> * If you're a member of an {% data variables.enterprise.prodname_emu_enterprise %}, you cannot make changes to your email address on {% data variables.product.prodname_dotcom %}. {% data reusables.enterprise-accounts.emu-more-info-account %}
 
 {% endif %}
 
@@ -34,4 +30,4 @@ shortTitle: Add an email address
 
 ## Further reading
 
-- "[AUTOTITLE](/account-and-profile/setting-up-and-managing-your-personal-account-on-github/managing-email-preferences)"
+* [AUTOTITLE](/account-and-profile/setting-up-and-managing-your-personal-account-on-github/managing-email-preferences)

@@ -1,12 +1,14 @@
-Repository administrators can enable or disable the dependency graph for private repositories.
+Repository administrators can enable or disable the dependency graph for private {% ifversion ghec %}or internal{% endif %} repositories.
 
-You can also enable or disable the dependency graph for all repositories owned by your user account or organization. For more information, see "[AUTOTITLE](/code-security/supply-chain-security/understanding-your-software-supply-chain/configuring-the-dependency-graph)."
+You can enable or disable the dependency graph for all repositories owned by your user account. For more information, see [AUTOTITLE](/account-and-profile/setting-up-and-managing-your-personal-account-on-github/managing-user-account-settings/managing-security-and-analysis-settings-for-your-personal-account).
+
+You can also enable the dependency graph for multiple repositories in an organization at the same time. For more information, see {% ifversion security-configurations %}[AUTOTITLE](/code-security/securing-your-organization).{% else %}[AUTOTITLE](/code-security/getting-started/quickstart-for-securing-your-organization).{% endif %}
 
 {% data reusables.repositories.navigate-to-repo %}
 {% data reusables.repositories.sidebar-settings %}
 {% data reusables.repositories.navigate-to-code-security-and-analysis %}
-4. Read the message about granting {% data variables.product.product_name %} read-only access to the repository data to enable the dependency graph, then next to "Dependency Graph", click **Enable**.
+1. Read the message about granting {% data variables.product.product_name %} read-only access to the repository data to enable the dependency graph, then next to "Dependency Graph", click **Enable**.
 
    ![Screenshot showing how to enable the dependency graph for a repository. The "Enable" button is highlighted with a dark orange outline.](/assets/images/help/repository/dependency-graph-enable-button.png)
 
-   You can disable the dependency graph at any time by clicking **Disable** next to "Dependency Graph" on the settings page for {% ifversion fpt or ghec or ghes > 3.4 or ghae > 3.4 %}"Code security and analysis."{% else %}"Security & analysis."{% endif %}
+   You can disable the dependency graph at any time by clicking **Disable** next to "Dependency Graph" on the settings page for "Code security and analysis."

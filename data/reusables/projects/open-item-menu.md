@@ -1,1 +1,1 @@
-1.  Select the {% octicon "triangle-down" aria-label="the item menu" %} (in table{% ifversion projects-v2-roadmaps %} or roadmap{% endif %} layout) or the {% octicon "kebab-horizontal" aria-label="the item menu" %} (in board layout).
+1. Click {% octicon "triangle-down" aria-label="Row actions" %} (in table or roadmap layout) or {% octicon "kebab-horizontal" aria-hidden="true" %} (in board layout).

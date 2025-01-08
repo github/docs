@@ -16,7 +16,7 @@ shortTitle: Manage payouts
 
 ## About payouts from {% data variables.product.prodname_sponsors %}
 
-You can view and manage your payouts from {% data variables.product.prodname_sponsors %}. For more information about payouts, see "[AUTOTITLE](/sponsors/receiving-sponsorships-through-github-sponsors/about-github-sponsors-for-open-source-contributors#sponsorship-payouts)."
+You can view and manage your payouts from {% data variables.product.prodname_sponsors %}. For more information about payouts, see [AUTOTITLE](/sponsors/receiving-sponsorships-through-github-sponsors/about-github-sponsors-for-open-source-contributors#sponsorship-payouts).
 
 If you use a fiscal host to receive payouts, you can view your current payout and next estimated payout but you cannot edit your payout information except by contacting support.
 
@@ -29,4 +29,3 @@ If you use a fiscal host to receive payouts, you can view your current payout an
 1. Under "Payout overview", view your last payout amount and estimated next payout amount.
 {% data reusables.sponsors.edit-bank-information %}
 1. If you use a Stripe Connect account to receive payouts, under "Payout receipts", you can export payout information as PDF files.
-   ![Screenshot of payout receipts section](/assets/images/help/sponsors/payout-receipts.png)
