@@ -10,7 +10,7 @@ shortTitle: Example workflows
 
 {% data reusables.package_registry.packages-ghes-release-stage %}
 
-You can find example workflows in "[AUTOTITLE](/packages/managing-github-packages-using-github-actions-workflows/publishing-and-installing-a-package-with-github-actions)" or in any of these {% data variables.product.prodname_actions %} guides:
+You can find example workflows in [AUTOTITLE](/packages/managing-github-packages-using-github-actions-workflows/publishing-and-installing-a-package-with-github-actions) or in any of these {% data variables.product.prodname_actions %} guides:
 
 * [Publishing Node.js packages](/actions/publishing-packages/publishing-nodejs-packages)
 * [Publishing Docker images](/actions/publishing-packages/publishing-docker-images)

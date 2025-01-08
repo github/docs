@@ -13,32 +13,29 @@ redirect_from:
   - /copilot/using-github-copilot/asking-github-copilot-questions-in-githubcom
 ---
 
-> [!NOTE] {% data variables.product.prodname_copilot_chat_dotcom %} is currently in {% data variables.release-phases.public_preview %} and is subject to change.
-
 ## Overview
 
 {% data variables.product.prodname_copilot_chat_dotcom %} is a chat interface that lets you ask and receive answers to coding-related questions on the {% data variables.product.github %} website.
 
-{% data variables.product.prodname_copilot_chat_short %} can help you with a variety of coding-related tasks, like offering you code suggestions, providing natural language descriptions of a piece of code's functionality and purpose, generating unit tests for your code, and proposing fixes for bugs in your code. For more information, see "[AUTOTITLE](/copilot/github-copilot-chat/copilot-chat-in-github/about-github-copilot-chat-in-githubcom)."
+{% data variables.product.prodname_copilot_chat_short %} can help you with a variety of coding-related tasks, like offering you code suggestions, providing natural language descriptions of a piece of code's functionality and purpose, generating unit tests for your code, and proposing fixes for bugs in your code. For more information, see [AUTOTITLE](/copilot/github-copilot-chat/copilot-chat-in-github/about-github-copilot-chat-in-githubcom).
 
 On {% data variables.product.github %}, you can use {% data variables.product.prodname_copilot_chat_short %} to ask:
 
-* General software-related questions, without a particular context. For more information, see "[Asking a general question about software development](#asking-a-general-question-about-software-development)."
-* Exploratory questions asked in the context of a specific repository. For more information, see "[Asking exploratory questions about a repository](#asking-exploratory-questions-about-a-repository)."
-* Questions asked in the context of a specific repository, file or symbol. For more information, see "[Asking a question about a specific file or symbol](#asking-a-question-about-a-specific-file-or-symbol)." {% ifversion ghec %}
-* Questions asked in the context of a knowledge base (that is, Markdown documentation across one or more repositories). For more information, see "[Asking a question about a knowledge base](#asking-a-question-about-a-knowledge-base)."{% endif %}
-* Questions about a specific file or specified lines of code within a file. For more information, see "[Asking questions about specific pieces of code](#asking-questions-about-specific-pieces-of-code)."
-* Questions about a pull request diff. For more information, see "[Finding out about the changes in a pull request](#asking-questions-about-a-specific-pull-request)."
-* Questions about a specific issue. For more information, see "[Asking a question about a specific issue or discussion](#asking-a-question-about-a-specific-issue-or-discussion)."
+* General software-related questions, without a particular context. For more information, see [Asking a general question about software development](#asking-a-general-question-about-software-development).
+* Exploratory questions asked in the context of a specific repository. For more information, see [Asking exploratory questions about a repository](#asking-exploratory-questions-about-a-repository).
+* Questions asked in the context of a specific repository, file or symbol. For more information, see [Asking a question about a specific file or symbol](#asking-a-question-about-a-specific-file-or-symbol). {% ifversion ghec %}
+* Questions asked in the context of a knowledge base (that is, Markdown documentation across one or more repositories). For more information, see [Asking a question about a knowledge base](#asking-a-question-about-a-knowledge-base).{% endif %}
+* Questions about a specific file or specified lines of code within a file. For more information, see [Asking questions about specific pieces of code](#asking-questions-about-specific-pieces-of-code).
+* Questions about a pull request diff. For more information, see [Finding out about the changes in a pull request](#asking-questions-about-a-specific-pull-request).
+* Questions about a specific issue. For more information, see [Asking a question about a specific issue or discussion](#asking-a-question-about-a-specific-issue-or-discussion).
 
 ### Limitations
 
-* Chat responses may be suboptimal if you ask questions about a specific repository that you've selected as a context, and the repository has not been indexed for semantic code search. {% data reusables.copilot.indexing-who-can-do-this %} For more information, see "[AUTOTITLE](/enterprise-cloud@latest/copilot/managing-copilot/managing-github-copilot-in-your-organization/managing-github-copilot-features-in-your-organization/indexing-repositories-for-copilot-chat)."
 * The quality of the results from {% data variables.product.prodname_copilot_chat_short %} may, in some situations, be degraded if very large files, or a large number of files, are used as a context for a question.
 
 ## Powered by skills
 
-{% data variables.product.prodname_copilot_short %} is powered by a collection of skills that are dynamically selected based on the question you ask. You can tell which skill {% data variables.product.prodname_copilot_short %} used by clicking {% octicon "chevron-down" aria-label="the down arrow" %} to expand the status information in the chat window.
+When using the GPT-4o and {% data variables.copilot.copilot_claude_sonnet %} models, {% data variables.product.prodname_copilot_short %} has access to a collection of skills to fetch data from {% data variables.product.github %}, which are dynamically selected based on the question you ask. You can tell which skill {% data variables.product.prodname_copilot_short %} used by clicking {% octicon "chevron-down" aria-label="the down arrow" %} to expand the status information in the chat window.
 
 ![Screenshot of the {% data variables.product.prodname_copilot_short %} chat panel with the status information expanded and the skill that was used highlighted with an orange outline.](/assets/images/help/copilot/chat-show-skill.png)
 
@@ -62,19 +59,19 @@ The skills you can use in {% data variables.product.prodname_copilot_chat_dotcom
 | **Pull request details** | Retrieves a specific pull request. This allows you to ask questions about the pull request, including getting a summary of the pull request, its comments, or the code it changes. | Yes | `Summarize this PR for me` <br><br>`Summarize the changes in this PR` |
 | **Release details** | Retrieves the latest, or specified, release. This allows you to find out who created a release, when it happened, and information included in the release notes. | Yes | `When was the latest release?` |
 | **Repository details** | Retrieves a specific {% data variables.product.prodname_dotcom %} repository. This is useful for finding out details such as the repository owner and the main language used. | Yes | `Tell me about this repo` |
-| **Semantic code search** | Natural language semantic code search in the default branch of the Git repository. This skill is useful when you want to know where or how certain functionality has been implemented in the code. Note: this requires indexing to be enabled for the repository (see "[AUTOTITLE](/enterprise-cloud@latest/copilot/managing-copilot/managing-github-copilot-in-your-organization/managing-github-copilot-features-in-your-organization/indexing-repositories-for-copilot-chat)"). | Yes <br><br>Available for all repositories with a {% data variables.product.prodname_copilot_enterprise_short %} subscription, and for public repositories with a {% data variables.product.prodname_copilot_individuals_short %} or {% data variables.product.prodname_copilot_business_short %} subscription. | `How does this repo manage HTTP requests and responses?`|
+| **Semantic code search** | Natural language semantic code search in the default branch of the Git repository. This skill is useful when you want to know where or how certain functionality has been implemented in the code. | Yes <br><br>Available for all repositories with a {% data variables.product.prodname_copilot_enterprise_short %} subscription, and for public repositories with a {% data variables.product.prodname_copilot_individuals_short %} or {% data variables.product.prodname_copilot_business_short %} subscription. | `How does this repo manage HTTP requests and responses?`|
 | **Support search** | Retrieves information from the {% data variables.contact.contact_support_portal %}. This skill is useful for asking {% data variables.product.prodname_copilot_chat_short %} about {% data variables.product.prodname_dotcom %} products and support related questions. | Yes | `Can I use {% data variables.product.prodname_copilot_short %} knowledge bases with {% data variables.product.prodname_copilot_individuals_short %}?` |
-| **Web search** | Searches the web using the Bing search engine. This skill is useful for teaching {% data variables.product.prodname_copilot_short %} about recent events, new developments, trends, technologies, or extremely specific, detailed, or niche subjects. | No <br><br>{% ifversion fpt %}_For {% data variables.product.prodname_copilot_individuals_short %}:_<br>Enable in your user settings.<br><br>_For {% data variables.product.prodname_copilot_business_short %}:_<br>Enable in organization settings.{% else %}Enable in enterprise or organization settings.{% endif %} | `What are some recent articles about SAT tokens securing against vulnerabilities in Node?` |
+| **Web search** | Searches the web using the Bing search engine. This skill allows {% data variables.product.prodname_copilot_short %} to access information about recent events, new developments, trends, technologies, or extremely specific, detailed, or niche subjects. | No <br><br>{% ifversion fpt %}_For {% data variables.product.prodname_copilot_individuals_short %}:_<br>Enable in your user settings.<br><br>_For {% data variables.product.prodname_copilot_business_short %}:_<br>Enable in organization settings.{% else %}Enable in enterprise or organization settings.{% endif %} | `What are some recent articles about SAT tokens securing against vulnerabilities in Node?` |
 
 ## AI models for {% data variables.product.prodname_copilot_chat_short %}
 
 {% data reusables.copilot.copilot-chat-models-beta-note %}
 
-{% data reusables.copilot.copilot-chat-models-list %}
+{% data reusables.copilot.copilot-chat-models-list-o1 %}
 
 ### Limitations of AI models for {% data variables.product.prodname_copilot_chat_short %}
 
-* If you want to use the skills listed in the table above{% ifversion ghec %}, or knowledge bases{% endif %}, on the {% data variables.product.github %} website, you must use the `gpt-4o` model.
+* If you want to use the skills listed in the table above{% ifversion ghec %}, or knowledge bases{% endif %}, on the {% data variables.product.github %} website, only the GPT 4o and {% data variables.copilot.copilot_claude_sonnet %} models are supported.
 * Experimental pre-release versions of the models may not interact with all filters correctly, including the duplication detection filter.
 
 ### Changing your AI model
@@ -94,7 +91,7 @@ The skills you can use in {% data variables.product.prodname_copilot_chat_dotcom
 
 You can ask a general question about software development that is not focused on a particular context, such as a repository{% ifversion ghec %} or a knowledge base{% endif %}.
 
-Depending on the question you ask, and your enterprise and organization settings, {% data variables.product.prodname_copilot_short %} may respond using information based on the results of a Bing search. By using Bing search, {% data variables.product.prodname_copilot_short %} can answer a broad range of tech-related questions with up-to-date details based on information currently available on the internet. For information on how to enable or disable Bing search integration, see "[AUTOTITLE](/copilot/managing-copilot/managing-copilot-as-an-individual-subscriber/managing-copilot-policies-as-an-individual-subscriber#enabling-or-disabling-web-search-for-github-copilot-chat)" and "[AUTOTITLE](/copilot/managing-copilot/managing-copilot-for-your-enterprise/managing-policies-and-features-for-copilot-in-your-enterprise)."
+Depending on the question you ask, and your enterprise and organization settings, {% data variables.product.prodname_copilot_short %} may respond using information based on the results of a Bing search. By using Bing search, {% data variables.product.prodname_copilot_short %} can answer a broad range of tech-related questions with up-to-date details based on information currently available on the internet. For information on how to enable or disable Bing search integration, see [AUTOTITLE](/copilot/managing-copilot/managing-copilot-as-an-individual-subscriber/managing-copilot-policies-as-an-individual-subscriber#enabling-or-disabling-web-search-for-github-copilot-chat) and [AUTOTITLE](/copilot/managing-copilot/managing-copilot-for-your-enterprise/managing-policies-and-features-for-copilot-in-your-enterprise).
 
 > [!NOTE] Bing search integration into {% data variables.product.prodname_copilot_chat_dotcom_short %} is currently in {% data variables.release-phases.public_preview %} and is subject to change.
 
@@ -121,7 +118,7 @@ Depending on the question you ask, and your enterprise and organization settings
 1. If {% data variables.product.prodname_copilot_short %} uses a Bing search to answer your question, "Results from Bing" is displayed above the response. Click this to see the search results that {% data variables.product.prodname_copilot_short %} used to answer your question.
 1. Within a conversation thread, you can ask follow-up questions. {% data variables.product.prodname_copilot_short %} will answer within the context of the conversation. For example, you could type "tell me more" to get {% data variables.product.prodname_copilot_short %} to expand on its last comment.
 
-   You can use your initial question as a foundation for follow-up questions. A detailed foundational prompt can help {% data variables.product.prodname_copilot_short %} provide more relevant answers to your follow-up questions. For more information, see "[Prompting {% data variables.product.prodname_copilot_chat %} to become your personal AI assistant for accessibility](https://github.blog/2023-10-09-prompting-github-copilot-chat-to-become-your-personal-ai-assistant-for-accessibility/)" on the {% data variables.product.prodname_dotcom %} Blog.
+   You can use your initial question as a foundation for follow-up questions. A detailed foundational prompt can help {% data variables.product.prodname_copilot_short %} provide more relevant answers to your follow-up questions. For more information, see [Prompting {% data variables.product.prodname_copilot_chat %} to become your personal AI assistant for accessibility](https://github.blog/2023-10-09-prompting-github-copilot-chat-to-become-your-personal-ai-assistant-for-accessibility/) on the {% data variables.product.prodname_dotcom %} Blog.
 
 {% data reusables.copilot.chat-conversation-buttons %}
 
@@ -159,9 +156,9 @@ Depending on the question you ask, and your enterprise and organization settings
 
    <a id="repo-indexing-note"></a>
 
-   > [!NOTE]
+   > [!TIP]
    >
-   > {% data variables.product.prodname_copilot_short %}'s ability to answer natural language questions like these in a repository context is improved when the repository has been indexed for semantic code search. The indexing status of the repository is displayed when you start a conversation that has a repository context. For more information, see "[AUTOTITLE](/enterprise-cloud@latest/copilot/managing-copilot/managing-github-copilot-in-your-organization/managing-github-copilot-features-in-your-organization/indexing-repositories-for-copilot-chat)."
+   > {% data reusables.copilot.semantic-index-info %}
 
 {% data reusables.copilot.stop-response-generation %}
 {% data reusables.copilot.chat-conversation-buttons %}
@@ -184,9 +181,9 @@ You can ask {% data variables.product.prodname_copilot_short %} about a specific
 
    {% data variables.product.prodname_copilot_short %} replies in the chat panel.
 
-   > [!NOTE]
+   > [!TIP]
    >
-   > {% data variables.product.prodname_copilot_short %}'s ability to answer natural language questions in the context of a repository is improved when the repository has been indexed for semantic code search. The indexing status of the repository is displayed when you start a conversation that has a repository context. For more information, see "[AUTOTITLE](/enterprise-cloud@latest/copilot/managing-copilot/managing-github-copilot-in-your-organization/managing-github-copilot-features-in-your-organization/indexing-repositories-for-copilot-chat)."
+   > {% data reusables.copilot.semantic-index-info %}
 
 {% data reusables.copilot.stop-response-generation %}
 {% data reusables.copilot.chat-conversation-buttons %}
@@ -311,6 +308,10 @@ You can chat with {% data variables.product.prodname_copilot_short %} about a fi
    {% data variables.product.prodname_copilot_short %} replies in the chat panel.
 
    <a id="repo-indexing-note"></a>
+
+   > [!TIP]
+   >
+   > {% data reusables.copilot.semantic-index-info %}
 
 {% data reusables.copilot.stop-response-generation %}
 {% data reusables.copilot.chat-conversation-buttons %}
@@ -467,5 +468,5 @@ To give feedback about {% data variables.product.prodname_copilot_chat_short %} 
 
 ## Further reading
 
-* "[AUTOTITLE](/copilot/github-copilot-chat/copilot-chat-in-ides/using-github-copilot-chat-in-your-ide)."
-* "[AUTOTITLE](/copilot/using-github-copilot/asking-github-copilot-questions-in-github-mobile)."
+* [AUTOTITLE](/copilot/github-copilot-chat/copilot-chat-in-ides/using-github-copilot-chat-in-your-ide).
+* [AUTOTITLE](/copilot/using-github-copilot/asking-github-copilot-questions-in-github-mobile).

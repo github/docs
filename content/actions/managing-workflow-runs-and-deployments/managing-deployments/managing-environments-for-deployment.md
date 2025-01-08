@@ -24,18 +24,18 @@ versions:
 
 ## About environments
 
-Environments are used to describe a general deployment target like `production`, `staging`, or `development`. When a {% data variables.product.prodname_actions %} workflow deploys to an environment, the environment is displayed on the main page of the repository. For more information about viewing deployments to environments, see "[AUTOTITLE](/actions/deployment/managing-your-deployments/viewing-deployment-history)."
+Environments are used to describe a general deployment target like `production`, `staging`, or `development`. When a {% data variables.product.prodname_actions %} workflow deploys to an environment, the environment is displayed on the main page of the repository. For more information about viewing deployments to environments, see [AUTOTITLE](/actions/deployment/managing-your-deployments/viewing-deployment-history).
 
 You can configure environments with protection rules and secrets. When a workflow job references an environment, the job won't start until all of the environment's protection rules pass. A job also cannot access secrets that are defined in an environment until all the deployment protection rules pass.
 
-{% ifversion actions-break-glass %}Optionally, you can bypass an environment's protection rules and force all pending jobs referencing the environment to proceed. For more information, see "[AUTOTITLE](/actions/managing-workflow-runs/reviewing-deployments#bypassing-environment-protection-rules)."{% endif %}
+{% ifversion actions-break-glass %}Optionally, you can bypass an environment's protection rules and force all pending jobs referencing the environment to proceed. For more information, see [AUTOTITLE](/actions/managing-workflow-runs/reviewing-deployments#bypassing-environment-protection-rules).{% endif %}
 
 {% ifversion fpt %}
 
 > [!NOTE]
 > Users with {% data variables.product.prodname_free_user %} plans can only configure environments for public repositories. If you convert a repository from public to private, any configured protection rules or environment secrets will be ignored, and you will not be able to configure any environments. If you convert your repository back to public, you will have access to any previously configured protection rules and environment secrets.
 >
-> Organizations with {% data variables.product.prodname_team %} and users with {% data variables.product.prodname_pro %} can configure environments for private repositories. For more information, see "[AUTOTITLE](/get-started/learning-about-github/githubs-plans)."
+> Organizations with {% data variables.product.prodname_team %} and users with {% data variables.product.prodname_pro %} can configure environments for private repositories. For more information, see [AUTOTITLE](/get-started/learning-about-github/githubs-plans).
 
 {% endif %}
 
@@ -55,7 +55,7 @@ Use required reviewers to require a specific person or team to approve workflow 
 
 {% ifversion deployments-prevent-self-approval %}You also have the option to prevent self-reviews for deployments to protected environments. If you enable this setting, users who initiate a deployment cannot approve the deployment job, even if they are a required reviewer. This ensures that deployments to protected environments are always reviewed by more than one person.{% endif %}
 
-For more information on reviewing jobs that reference an environment with required reviewers, see "[AUTOTITLE](/actions/managing-workflow-runs/reviewing-deployments)."
+For more information on reviewing jobs that reference an environment with required reviewers, see [AUTOTITLE](/actions/managing-workflow-runs/reviewing-deployments).
 
 {% ifversion fpt %}
 
@@ -66,7 +66,7 @@ For more information on reviewing jobs that reference an environment with requir
 
 ### Wait timer
 
-Use a wait timer to delay a job for a specific amount of time after the job is initially triggered. The time (in minutes) must be an integer between 1 and 43,200 (30 days).
+Use a wait timer to delay a job for a specific amount of time after the job is initially triggered. The time (in minutes) must be an integer between 1 and 43,200 (30 days). Wait time will not count towards your billable time.
 
 {% ifversion fpt %}
 
@@ -84,7 +84,7 @@ Use deployment branches{% ifversion deployment-protections-tag-patterns %} and t
 {%- else %}
 * **All branches:** All branches in the repository can deploy to the environment.
 {%- endif %}
-* **Protected branches{% ifversion deployment-protections-tag-patterns %} only{% endif %}:** Only branches with branch protection rules enabled can deploy to the environment. If no branch protection rules are defined for any branch in the repository, then all branches can deploy. For more information about branch protection rules, see "[AUTOTITLE](/repositories/configuring-branches-and-merges-in-your-repository/managing-protected-branches/about-protected-branches)."{% ifversion actions-protected-branches-restrictions %}
+* **Protected branches{% ifversion deployment-protections-tag-patterns %} only{% endif %}:** Only branches with branch protection rules enabled can deploy to the environment. If no branch protection rules are defined for any branch in the repository, then all branches can deploy. For more information about branch protection rules, see [AUTOTITLE](/repositories/configuring-branches-and-merges-in-your-repository/managing-protected-branches/about-protected-branches).{% ifversion actions-protected-branches-restrictions %}
 
   > [!NOTE]
   > Deployment workflow runs triggered by tags with the same name as a protected branch and forks with branches that match the protected branch name cannot deploy to the environment.
@@ -111,7 +111,7 @@ Use deployment branches{% ifversion deployment-protections-tag-patterns %} and t
 
 ### Allow administrators to bypass configured protection rules
 
-By default, administrators can bypass the protection rules and force deployments to specific environments. For more information, see "[AUTOTITLE](/actions/managing-workflow-runs/reviewing-deployments#bypassing-environment-protection-rules)."
+By default, administrators can bypass the protection rules and force deployments to specific environments. For more information, see [AUTOTITLE](/actions/managing-workflow-runs/reviewing-deployments#bypassing-environment-protection-rules).
 
 Alternatively, you can configure environments to disallow bypassing the protection rules for all deployments to the environment.
 
@@ -129,9 +129,9 @@ Alternatively, you can configure environments to disallow bypassing the protecti
 
 {% data reusables.actions.custom-deployment-protection-rules-beta-note %}
 
-{% data reusables.actions.about-custom-deployment-protection-rules %} For more information, see "[AUTOTITLE](/actions/deployment/protecting-deployments/creating-custom-deployment-protection-rules)".
+{% data reusables.actions.about-custom-deployment-protection-rules %} For more information, see [AUTOTITLE](/actions/deployment/protecting-deployments/creating-custom-deployment-protection-rules).
 
-Once custom deployment protection rules have been created and installed on a repository, you can enable the custom deployment protection rule for any environment in the repository. For more information about configuring and enabling custom deployment protection rules, see "[AUTOTITLE](/actions/deployment/protecting-deployments/configuring-custom-deployment-protection-rules)."
+Once custom deployment protection rules have been created and installed on a repository, you can enable the custom deployment protection rule for any environment in the repository. For more information about configuring and enabling custom deployment protection rules, see [AUTOTITLE](/actions/deployment/protecting-deployments/configuring-custom-deployment-protection-rules).
 
 {% ifversion fpt %}
 
@@ -144,23 +144,23 @@ Once custom deployment protection rules have been created and installed on a rep
 
 ## Environment secrets
 
-Secrets stored in an environment are only available to workflow jobs that reference the environment. If the environment requires approval, a job cannot access environment secrets until one of the required reviewers approves it. For more information about secrets, see "[AUTOTITLE](/actions/security-guides/using-secrets-in-github-actions)."
+Secrets stored in an environment are only available to workflow jobs that reference the environment. If the environment requires approval, a job cannot access environment secrets until one of the required reviewers approves it. For more information about secrets, see [AUTOTITLE](/actions/security-guides/using-secrets-in-github-actions).
 
 {% ifversion fpt %}
 > [!NOTE]
-> * Workflows that run on self-hosted runners are not run in an isolated container, even if they use environments. Environment secrets should be treated with the same level of security as repository and organization secrets. For more information, see "[AUTOTITLE](/actions/security-guides/security-hardening-for-github-actions#hardening-for-self-hosted-runners)."
-> * Environment secrets are only available in public repositories if you are using {% data variables.product.prodname_free_user %}. For access to environment secrets in private or internal repositories, you must use {% data variables.product.prodname_pro %}, {% data variables.product.prodname_team %}, or {% data variables.product.prodname_enterprise %}. For more information on switching your plan, see "[AUTOTITLE](/billing/managing-the-plan-for-your-github-account/upgrading-your-accounts-plan)."
+> * Workflows that run on self-hosted runners are not run in an isolated container, even if they use environments. Environment secrets should be treated with the same level of security as repository and organization secrets. For more information, see [AUTOTITLE](/actions/security-guides/security-hardening-for-github-actions#hardening-for-self-hosted-runners).
+> * If you are using {% data variables.product.prodname_free_user %}, environment secrets are only available in public repositories. For access to environment secrets in private or internal repositories, you must use {% data variables.product.prodname_pro %}, {% data variables.product.prodname_team %}, or {% data variables.product.prodname_enterprise %}. For more information on switching your plan, see [AUTOTITLE](/billing/managing-the-plan-for-your-github-account/upgrading-your-accounts-plan).
 
 {% else %}
 
 > [!NOTE]
-> Workflows that run on self-hosted runners are not run in an isolated container, even if they use environments. Environment secrets should be treated with the same level of security as repository and organization secrets. For more information, see "[AUTOTITLE](/actions/security-guides/security-hardening-for-github-actions#hardening-for-self-hosted-runners)."
+> Workflows that run on self-hosted runners are not run in an isolated container, even if they use environments. Environment secrets should be treated with the same level of security as repository and organization secrets. For more information, see [AUTOTITLE](/actions/security-guides/security-hardening-for-github-actions#hardening-for-self-hosted-runners).
 
 {% endif %}
 
 ## Environment variables
 
-Variables stored in an environment are only available to workflow jobs that reference the environment. These variables are only accessible using the [`vars`](/actions/learn-github-actions/contexts#vars-context) context. For more information, see "[AUTOTITLE](/actions/learn-github-actions/variables)."
+Variables stored in an environment are only available to workflow jobs that reference the environment. These variables are only accessible using the [`vars`](/actions/learn-github-actions/contexts#vars-context) context. For more information, see [AUTOTITLE](/actions/learn-github-actions/variables).
 
 {% ifversion fpt %}
 
@@ -186,22 +186,22 @@ Variables stored in an environment are only available to workflow jobs that refe
 {% data reusables.actions.sidebar-environment %}
 {% data reusables.actions.new-environment %}
 {% data reusables.actions.name-environment %}
-1. Optionally, specify people or teams that must approve workflow jobs that use this environment. For more information, see "[Required reviewers](#required-reviewers)."
+1. Optionally, specify people or teams that must approve workflow jobs that use this environment. For more information, see [Required reviewers](#required-reviewers).
    1. Select **Required reviewers**.
    1. Enter up to 6 people or teams. Only one of the required reviewers needs to approve the job for it to proceed.
    {% ifversion deployments-prevent-self-approval %}1. Optionally, to prevent users from approving workflows runs that they triggered, select **Prevent self-review**.{% endif %}
    1. Click **Save protection rules**.
-1. Optionally, specify the amount of time to wait before allowing workflow jobs that use this environment to proceed. For more information, see "[Wait timer](#wait-timer)."
+1. Optionally, specify the amount of time to wait before allowing workflow jobs that use this environment to proceed. For more information, see [Wait timer](#wait-timer).
    1. Select **Wait timer**.
    1. Enter the number of minutes to wait.
    1. Click **Save protection rules**.
 {%- ifversion actions-break-glass %}
-1. Optionally, disallow bypassing configured protection rules. For more information, see "[Allow administrators to bypass configured protection rules](#allow-administrators-to-bypass-configured-protection-rules)."
+1. Optionally, disallow bypassing configured protection rules. For more information, see [Allow administrators to bypass configured protection rules](#allow-administrators-to-bypass-configured-protection-rules).
    1. Deselect **Allow administrators to bypass configured protection rules**.
    1. Click **Save protection rules**.
 {%- endif %}
 {%- ifversion actions-custom-deployment-protection-rules-beta %}
-1. Optionally, enable any custom deployment protection rules that have been created with {% data variables.product.prodname_github_apps %}. For more information, see "[Custom deployment protection rules](#custom-deployment-protection-rules)."
+1. Optionally, enable any custom deployment protection rules that have been created with {% data variables.product.prodname_github_apps %}. For more information, see [Custom deployment protection rules](#custom-deployment-protection-rules).
    1. Select the custom protection rule you want to enable.
    1. Click **Save protection rules**.
 {%- endif %}
@@ -216,18 +216,18 @@ Variables stored in an environment are only available to workflow jobs that refe
 
       {% endif %}
    1. Click **Add rule**.
-1. Optionally, add environment secrets. These secrets are only available to workflow jobs that use the environment. Additionally, workflow jobs that use this environment can only access these secrets after any configured rules (for example, required reviewers) pass. For more information, see "[Environment secrets](#environment-secrets)."
+1. Optionally, add environment secrets. These secrets are only available to workflow jobs that use the environment. Additionally, workflow jobs that use this environment can only access these secrets after any configured rules (for example, required reviewers) pass. For more information, see [Environment secrets](#environment-secrets).
    1. Under **Environment secrets**, click **Add Secret**.
    1. Enter the secret name.
    1. Enter the secret value.
    1. Click **Add secret**.
-1. Optionally, add environment variables. These variables are only available to workflow jobs that use the environment, and are only accessible using the [`vars`](/actions/learn-github-actions/contexts#vars-context) context. For more information, see "[Environment variables](#environment-variables)."
+1. Optionally, add environment variables. These variables are only available to workflow jobs that use the environment, and are only accessible using the [`vars`](/actions/learn-github-actions/contexts#vars-context) context. For more information, see [Environment variables](#environment-variables).
    1. Under **Environment variables**, click **Add Variable**.
    1. Enter the variable name.
    1. Enter the variable value.
    1. Click **Add variable**.
 
-You can also create and configure environments through the REST API. For more information, see "[AUTOTITLE](/rest/deployments/environments)," "[AUTOTITLE](/rest/actions/secrets)," "[AUTOTITLE](/rest/actions/variables)," and "[AUTOTITLE](/rest/deployments/branch-policies)."
+You can also create and configure environments through the REST API. For more information, see [AUTOTITLE](/rest/deployments/environments), [AUTOTITLE](/rest/actions/secrets), [AUTOTITLE](/rest/actions/variables), and [AUTOTITLE](/rest/deployments/branch-policies).
 
 Running a workflow that references an environment that does not exist will create an environment with the referenced name. If the environment is created from running implicit page builds (for example, from a branch or folder source), the source branch will be added as a protection rule to the environment. Otherwise, the newly created environment will not have any protection rules or secrets configured. Anyone that can edit workflows in the repository can create environments via a workflow file, but only repository admins can configure the environment.
 
@@ -243,14 +243,14 @@ Deleting an environment will delete all secrets and protection rules associated 
 1. Next to the environment that you want to delete, click {% octicon "trash" aria-label="Delete environment" %}.
 1. Click **I understand, delete this environment**.
 
-You can also delete environments through the REST API. For more information, see "[AUTOTITLE](/rest/repos#environments)."
+You can also delete environments through the REST API. For more information, see [AUTOTITLE](/rest/repos#environments).
 
 ## How environments relate to deployments
 
 {% data reusables.actions.environment-deployment-event %}
 
-You can access these objects through the REST API or GraphQL API. You can also subscribe to these webhook events. For more information, see "[AUTOTITLE](/rest/repos#deployments)," "[AUTOTITLE](/graphql/reference/objects#deployment)" (GraphQL API), or "[AUTOTITLE](/webhooks-and-events/webhooks/webhook-events-and-payloads#deployment)."
+You can access these objects through the REST API or GraphQL API. You can also subscribe to these webhook events. For more information, see [AUTOTITLE](/rest/repos#deployments), [AUTOTITLE](/graphql/reference/objects#deployment) (GraphQL API), or [AUTOTITLE](/webhooks-and-events/webhooks/webhook-events-and-payloads#deployment).
 
 ## Next steps
 
-{% data variables.product.prodname_actions %} provides several features for managing your deployments. For more information, see "[AUTOTITLE](/actions/deployment/about-deployments/deploying-with-github-actions)."
+{% data variables.product.prodname_actions %} provides several features for managing your deployments. For more information, see [AUTOTITLE](/actions/deployment/about-deployments/deploying-with-github-actions).

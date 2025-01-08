@@ -15,7 +15,7 @@ topics:
 
 Users can search your instance to find, navigate, and understand issues, pull requests, code, and other content on {% data variables.product.product_name %}. Elasticsearch powers the search functionality on your instance. You can view the current status of Elasticsearch, and you can control search and index behavior.
 
-For more information about search for {% data variables.product.product_name %}, see "[AUTOTITLE](/search-github)." For more information about Elasticsearch, see the [Elasticsearch website](https://elastic.co).
+For more information about search for {% data variables.product.product_name %}, see [AUTOTITLE](/search-github). For more information about Elasticsearch, see the [Elasticsearch website](https://elastic.co).
 
 ## About index management
 
@@ -57,7 +57,7 @@ In normal use, enterprise owners do not need to create new indices or schedule r
    /usr/local/share/enterprise/ghe-es-auto-expand -v 0-1
    ```
 
-   See "[AUTOTITLE](/admin/administering-your-instance/administering-your-instance-from-the-command-line/accessing-the-administrative-shell-ssh)."
+   See [AUTOTITLE](/admin/administering-your-instance/administering-your-instance-from-the-command-line/accessing-the-administrative-shell-ssh).
 
 ## Managing search indices
 
@@ -73,7 +73,7 @@ When you view an existing search index in the site admin dashboard, you can perf
 
 ## Managing code search
 
-You can enable or disable both search and index operations for source code. For more information about code search, see "[AUTOTITLE](/search-github/searching-on-github/searching-code)."
+You can enable or disable both search and index operations for source code. For more information about code search, see [AUTOTITLE](/search-github/searching-on-github/searching-code).
 
 1. In the upper-right corner of any page, click {% octicon "rocket" aria-label="Site admin" %}.
 1. In the left sidebar, click **Search indexes**.

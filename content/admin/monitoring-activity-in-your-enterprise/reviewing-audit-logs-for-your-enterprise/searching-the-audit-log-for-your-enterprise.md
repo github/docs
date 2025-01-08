@@ -23,13 +23,13 @@ topics:
 
 You can search your enterprise audit log directly from the user interface by using the **Filters** dropdown, or by typing a search query.
 
-For more information about viewing your enterprise audit log, see "[AUTOTITLE](/admin/monitoring-activity-in-your-enterprise/reviewing-audit-logs-for-your-enterprise/accessing-the-audit-log-for-your-enterprise)."
+For more information about viewing your enterprise audit log, see [AUTOTITLE](/admin/monitoring-activity-in-your-enterprise/reviewing-audit-logs-for-your-enterprise/accessing-the-audit-log-for-your-enterprise).
 
 {% data reusables.audit_log.git-events-not-in-search-results %}
 
-You can also use the API to retrieve audit log events. For more information, see "[AUTOTITLE](/admin/monitoring-activity-in-your-enterprise/reviewing-audit-logs-for-your-enterprise/using-the-audit-log-api-for-your-enterprise)."
+You can also use the API to retrieve audit log events. For more information, see [AUTOTITLE](/admin/monitoring-activity-in-your-enterprise/reviewing-audit-logs-for-your-enterprise/using-the-audit-log-api-for-your-enterprise).
 
-You cannot search for entries using text. You can, however, construct search queries using a variety of filters. Many operators used when querying the log, such as `-`, `>`, or `<`, match the same format as searching across {% data variables.product.product_name %}. For more information, see "[AUTOTITLE](/search-github/getting-started-with-searching-on-github/about-searching-on-github)."
+You cannot search for entries using text. You can, however, construct search queries using a variety of filters. Many operators used when querying the log, such as `-`, `>`, or `<`, match the same format as searching across {% data variables.product.product_name %}. For more information, see [AUTOTITLE](/search-github/getting-started-with-searching-on-github/about-searching-on-github).
 
 > [!NOTE]
 > {% data reusables.audit_log.retention-periods %}
@@ -81,7 +81,7 @@ The `key:value` pairs that can be used in a search query are:
 | {% ifversion ghes %} |
 | `from`         | View from which the action was initiated. |
 | {% endif %} |
-| `hashed_token` | The token used to authenticate for the action (if applicable, see "[AUTOTITLE](/admin/monitoring-activity-in-your-enterprise/reviewing-audit-logs-for-your-enterprise/identifying-audit-log-events-performed-by-an-access-token)"). |
+| `hashed_token` | The token used to authenticate for the action (if applicable, see [AUTOTITLE](/admin/monitoring-activity-in-your-enterprise/reviewing-audit-logs-for-your-enterprise/identifying-audit-log-events-performed-by-an-access-token)). |
 | {% endif %} |
 | `ip`                | IP address of the actor. |
 | {% ifversion ghes %} |
@@ -111,9 +111,9 @@ The `key:value` pairs that can be used in a search query are:
 |  {% endif %} |
 | `user`         | Name of the user affected by the action. |
 
-To see actions grouped by category, you can also use the action qualifier as a `key:value` pair. For more information, see "[Search based on the action performed](#search-based-on-the-action-performed)."
+To see actions grouped by category, you can also use the action qualifier as a `key:value` pair. For more information, see [Search based on the action performed](#search-based-on-the-action-performed).
 
-For a full list of actions in your enterprise audit log, see "[AUTOTITLE](/admin/monitoring-activity-in-your-enterprise/reviewing-audit-logs-for-your-enterprise/audit-log-events-for-your-enterprise)."
+For a full list of actions in your enterprise audit log, see [AUTOTITLE](/admin/monitoring-activity-in-your-enterprise/reviewing-audit-logs-for-your-enterprise/audit-log-events-for-your-enterprise).
 
 ## Searching the audit log
 
@@ -166,5 +166,5 @@ Using the qualifier `country`, you can filter events in the audit log based on t
 
 ### Search based on the token that performed the action
 
-Use the `hashed_token` qualifier to search based on the token that performed the action. Before you can search for a token, you must generate a SHA-256 hash. For more information, see "[AUTOTITLE](/admin/monitoring-activity-in-your-enterprise/reviewing-audit-logs-for-your-enterprise/identifying-audit-log-events-performed-by-an-access-token)."
+Use the `hashed_token` qualifier to search based on the token that performed the action. Before you can search for a token, you must generate a SHA-256 hash. For more information, see [AUTOTITLE](/admin/monitoring-activity-in-your-enterprise/reviewing-audit-logs-for-your-enterprise/identifying-audit-log-events-performed-by-an-access-token).
 {% endif %}

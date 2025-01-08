@@ -51,7 +51,7 @@ We also recommend that the ESXi Power Management Setting be configured to "High 
    PS C:\> New-VM -Generation 1 -Name VM_NAME -MemoryStartupBytes MEMORY_SIZE -BootDevice VHD -VHDPath PATH_TO_VHD  
    ```
 
-{% data reusables.enterprise_installation.create-attached-storage-volume %} Replace `PATH_TO_DATA_DISK` with the path to the location where you create the disk. For more information, see "[New-VHD](https://docs.microsoft.com/powershell/module/hyper-v/new-vhd?view=win10-ps)" in the Microsoft documentation.
+{% data reusables.enterprise_installation.create-attached-storage-volume %} Replace `PATH_TO_DATA_DISK` with the path to the location where you create the disk. For more information, see [New-VHD](https://docs.microsoft.com/powershell/module/hyper-v/new-vhd?view=win10-ps) in the Microsoft documentation.
 
    ```shell
    PS C:\> New-VHD -Path PATH_TO_DATA_DISK -SizeBytes DISK_SIZE
@@ -85,11 +85,11 @@ We also recommend that the ESXi Power Management Setting be configured to "High 
 
 {% data reusables.enterprise_installation.copy-the-vm-public-dns-name %}
 {% data reusables.enterprise_installation.upload-a-license-file %}
-{% data reusables.enterprise_installation.save-settings-in-web-based-mgmt-console %} For more information, see "[AUTOTITLE](/admin/configuration/configuring-your-enterprise)."
+{% data reusables.enterprise_installation.save-settings-in-web-based-mgmt-console %} For more information, see [AUTOTITLE](/admin/configuration/configuring-your-enterprise).
 {% data reusables.enterprise_installation.instance-will-restart-automatically %}
 {% data reusables.enterprise_installation.visit-your-instance %}
 
 ## Further reading
 
-* "[AUTOTITLE](/admin/overview/system-overview)"{% ifversion ghes %}
-* "[AUTOTITLE](/admin/overview/about-upgrades-to-new-releases)"{% endif %}
+* [AUTOTITLE](/admin/overview/system-overview){% ifversion ghes %}
+* [AUTOTITLE](/admin/overview/about-upgrades-to-new-releases){% endif %}

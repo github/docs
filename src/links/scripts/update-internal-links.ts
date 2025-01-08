@@ -18,7 +18,7 @@ import yaml from 'js-yaml'
 
 import { updateInternalLinks } from '#src/links/lib/update-internal-links.js'
 import frontmatter from 'src/frame/lib/read-frontmatter.js'
-import walkFiles from 'src/workflows/walk-files.js'
+import walkFiles from 'src/workflows/walk-files'
 
 program
   .description('Update internal links in content files')

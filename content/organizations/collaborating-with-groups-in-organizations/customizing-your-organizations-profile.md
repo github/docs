@@ -28,7 +28,7 @@ Users who are not members of your organization will be shown a `public` view.
 
 You can give users easy access to important or frequently used repositories, by choosing up to six repositories for public users and six repositories for members of the organization. Once you pin repositories to your organization profile, the "Pinned" section is shown above the "Repositories" section of the profile page.
 
-Only organization owners can pin repositories. For more information, see "[Pinning repositories to your organization's profile](#pinning-repositories-to-your-organizations-profile)."
+Only organization owners can pin repositories. For more information, see [Pinning repositories to your organization's profile](#pinning-repositories-to-your-organizations-profile).
 
 ### Organization profile READMEs
 
@@ -41,10 +41,10 @@ You can choose what information to include in your organization profile README. 
 * An "About" section that describes your organization
 * Guidance for getting help in the organization
 
-You can format text and include emoji, images, and GIFs in your organization profile README by using {% data variables.product.company_short %} Flavored Markdown. For more information, see "[AUTOTITLE](/get-started/writing-on-github/getting-started-with-writing-and-formatting-on-github)."
+You can format text and include emoji, images, and GIFs in your organization profile README by using {% data variables.product.company_short %} Flavored Markdown. For more information, see [AUTOTITLE](/get-started/writing-on-github/getting-started-with-writing-and-formatting-on-github).
 
 {% ifversion enterprise-readme %}
-If you manage multiple organizations with an enterprise account, you can help members learn about the different organizations in the enterprise by creating an enterprise README. For more information, see "[AUTOTITLE](/admin/managing-your-enterprise-account/creating-a-readme-for-an-enterprise)."
+If you manage multiple organizations with an enterprise account, you can help members learn about the different organizations in the enterprise by creating an enterprise README. For more information, see [AUTOTITLE](/admin/managing-your-enterprise-account/creating-a-readme-for-an-enterprise).
 {% endif %}
 
 ## Adding a public organization profile README
@@ -109,5 +109,5 @@ You can replace the identicon with an image that represents your organization. T
 
 ## Further reading
 
-* "[AUTOTITLE](/repositories/managing-your-repositorys-settings-and-features/customizing-your-repository/about-readmes)"
-* "[AUTOTITLE](/account-and-profile/setting-up-and-managing-your-github-profile/customizing-your-profile/managing-your-profile-readme)"
+* [AUTOTITLE](/repositories/managing-your-repositorys-settings-and-features/customizing-your-repository/about-readmes)
+* [AUTOTITLE](/account-and-profile/setting-up-and-managing-your-github-profile/customizing-your-profile/managing-your-profile-readme)

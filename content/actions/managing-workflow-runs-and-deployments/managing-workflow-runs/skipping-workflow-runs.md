@@ -34,4 +34,4 @@ You won't be able to merge the pull request if your repository is configured to 
 > [!NOTE]
 > Skip instructions only apply to the `push` and `pull_request` events. For example, adding `[skip ci]` to a commit message won't stop a workflow that's triggered `on: pull_request_target` from running.
 
-Skip instructions only apply to the workflow run(s) that would be triggered by the commit that contains the skip instructions. You can also disable a workflow from running. For more information, see "[AUTOTITLE](/actions/managing-workflow-runs/disabling-and-enabling-a-workflow)."
+Skip instructions only apply to the workflow run(s) that would be triggered by the commit that contains the skip instructions. You can also disable a workflow from running. For more information, see [AUTOTITLE](/actions/managing-workflow-runs/disabling-and-enabling-a-workflow).

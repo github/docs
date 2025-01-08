@@ -29,7 +29,7 @@ This topic is specifically about writing queries to use with the [AUTOTITLE](/co
 
 ## Writing a valid query
 
-Before running a custom analysis you need to write a valid query, and save it in a file with a `.ql` extension. There is extensive documentation available to help you write queries. For more information, see "[{% data variables.product.prodname_codeql %} queries](https://codeql.github.com/docs/writing-codeql-queries/codeql-queries/#codeql-queries)."
+Before running a custom analysis you need to write a valid query, and save it in a file with a `.ql` extension. There is extensive documentation available to help you write queries. For more information, see [{% data variables.product.prodname_codeql %} queries](https://codeql.github.com/docs/writing-codeql-queries/codeql-queries/#codeql-queries).
 
 ## Including query metadata
 
@@ -41,20 +41,20 @@ When running queries with the `database analyze` command, you must include the f
 
 * Query type (`@kind`): identifies the query as a simple alert (`@kind problem`), an alert documented by a sequence of code locations (`@kind path-problem`), for extractor troubleshooting (`@kind diagnostic`), or a summary metric (`@kind metric` and `@tags summary`).
 
-For more information about these metadata properties, see "[Metadata for {% data variables.product.prodname_codeql %} queries](https://codeql.github.com/docs/writing-codeql-queries/metadata-for-codeql-queries/#metadata-for-codeql-queries)" and the [Query metadata style guide](https://github.com/github/codeql/blob/main/docs/query-metadata-style-guide.md).
+For more information about these metadata properties, see [Metadata for {% data variables.product.prodname_codeql %} queries](https://codeql.github.com/docs/writing-codeql-queries/metadata-for-codeql-queries/#metadata-for-codeql-queries) and the [Query metadata style guide](https://github.com/github/codeql/blob/main/docs/query-metadata-style-guide.md).
 
 > [!NOTE]
-> Metadata requirements may differ if you want to use your query with other applications. For more information, see "[Metadata for {% data variables.product.prodname_codeql %} queries](https://codeql.github.com/docs/writing-codeql-queries/metadata-for-codeql-queries/#metadata-for-codeql-queries)."
+> Metadata requirements may differ if you want to use your query with other applications. For more information, see [Metadata for {% data variables.product.prodname_codeql %} queries](https://codeql.github.com/docs/writing-codeql-queries/metadata-for-codeql-queries/#metadata-for-codeql-queries).
 
 ## Packaging custom QL queries
 
-When you write your own queries with the intention to share them with others, you should save them in a custom {% data variables.product.prodname_codeql %} pack. You can publish the pack as a {% data variables.product.prodname_codeql %} pack to {% data variables.product.prodname_registry %} - the {% data variables.product.prodname_dotcom %} {% data variables.product.prodname_container_registry %}. For more information, see "[AUTOTITLE](/code-security/codeql-cli/getting-started-with-the-codeql-cli/customizing-analysis-with-codeql-packs)."
+When you write your own queries with the intention to share them with others, you should save them in a custom {% data variables.product.prodname_codeql %} pack. You can publish the pack as a {% data variables.product.prodname_codeql %} pack to {% data variables.product.prodname_registry %} - the {% data variables.product.prodname_dotcom %} {% data variables.product.prodname_container_registry %}. For more information, see [AUTOTITLE](/code-security/codeql-cli/getting-started-with-the-codeql-cli/customizing-analysis-with-codeql-packs).
 
 <!-- tweaked to "For more information, see X" to match our style guide -->
 
 {% data variables.product.prodname_codeql %} packs organize the files used in {% data variables.product.prodname_codeql %} analysis and can store queries, library files, query suites, and important metadata. Their root directory must contain a file named `qlpack.yml`. Your custom queries should be saved in the {% data variables.product.prodname_codeql %} pack root, or its subdirectories.
 
-For each {% data variables.product.prodname_codeql %} pack, the `qlpack.yml` file includes information that tells the {% data variables.product.prodname_codeql_cli %} how to compile the queries, which other {% data variables.product.prodname_codeql %} packs and libraries the pack depends on, and where to find query suite definitions. For more information about what to include in this file, see "[AUTOTITLE](/code-security/codeql-cli/getting-started-with-the-codeql-cli/customizing-analysis-with-codeql-packs#codeqlpack-yml-properties)."
+For each {% data variables.product.prodname_codeql %} pack, the `qlpack.yml` file includes information that tells the {% data variables.product.prodname_codeql_cli %} how to compile the queries, which other {% data variables.product.prodname_codeql %} packs and libraries the pack depends on, and where to find query suite definitions. For more information about what to include in this file, see [AUTOTITLE](/code-security/codeql-cli/getting-started-with-the-codeql-cli/customizing-analysis-with-codeql-packs#codeqlpack-yml-properties).
 
 ## Including query help for custom {% data variables.product.prodname_codeql %} queries in SARIF files
 
@@ -72,8 +72,8 @@ corresponding query. Alternatively, for consistency with the standard {% data va
 you can write query help in the `.qhelp` format. Query help written in `.qhelp`
 files can’t be included in SARIF files, and they can’t be processed by code
 scanning so must be converted to markdown before running
-the analysis. For more information, see "[Query help files](https://codeql.github.com/docs/writing-codeql-queries/query-help-files/#query-help-files)"
-and "[AUTOTITLE](/code-security/codeql-cli/using-the-advanced-functionality-of-the-codeql-cli/testing-query-help-files)."
+the analysis. For more information, see [Query help files](https://codeql.github.com/docs/writing-codeql-queries/query-help-files/#query-help-files)
+and [AUTOTITLE](/code-security/codeql-cli/using-the-advanced-functionality-of-the-codeql-cli/testing-query-help-files).
 
 ## Contributing to the {% data variables.product.prodname_codeql %} repository
 
@@ -83,4 +83,4 @@ If you would like to share your query with other {% data variables.product.prodn
 
 ## Further reading
 
-* "[{% data variables.product.prodname_codeql %} queries](https://codeql.github.com/docs/writing-codeql-queries/codeql-queries/#codeql-queries)"
+* [{% data variables.product.prodname_codeql %} queries](https://codeql.github.com/docs/writing-codeql-queries/codeql-queries/#codeql-queries)

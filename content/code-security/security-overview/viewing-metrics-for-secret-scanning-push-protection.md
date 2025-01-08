@@ -31,23 +31,19 @@ You can also find more granular metrics, such as:
 * The repositories that are bypassing push protection the most
 * The percentage distribution of reasons that users give when they bypass the protection
 
-{% ifversion security-overview-additional-tools %}Use the date picker to set the time range that you want to view alert activity and metrics for, and click in the search box to add further filters on the alerts and metrics displayed. For more information, see "[AUTOTITLE](/code-security/security-overview/filtering-alerts-in-security-overview#additional-filters-for-secret-scanning-alert-views)."
+{% ifversion security-overview-additional-tools %}Use the date picker to set the time range that you want to view alert activity and metrics for, and click in the search box to add further filters on the alerts and metrics displayed. For more information, see [AUTOTITLE](/code-security/security-overview/filtering-alerts-in-security-overview#additional-filters-for-secret-scanning-alert-views).
 
 You can see {% data variables.product.prodname_secret_scanning %} metrics if you have:
 
 * The `admin` role for the repository.
-* A custom repository role with the "View {% data variables.product.prodname_secret_scanning %} results" fine-grained permissions for the repository. For more information, see "[AUTOTITLE](/organizations/managing-user-access-to-your-organizations-repositories/managing-repository-roles/about-custom-repository-roles#security)."
-* Access to alerts for the repository. For more information, see "[AUTOTITLE](/repositories/managing-your-repositorys-settings-and-features/enabling-features-for-your-repository/managing-security-and-analysis-settings-for-your-repository#granting-access-to-security-alerts)."
+* A custom repository role with the "View {% data variables.product.prodname_secret_scanning %} results" fine-grained permissions for the repository. For more information, see [AUTOTITLE](/organizations/managing-user-access-to-your-organizations-repositories/managing-repository-roles/about-custom-repository-roles#security).
+* Access to alerts for the repository. For more information, see [AUTOTITLE](/repositories/managing-your-repositorys-settings-and-features/enabling-features-for-your-repository/managing-security-and-analysis-settings-for-your-repository#granting-access-to-security-alerts).
 
 The metrics are based on activity from the default period or your selected period.
-
-![Screenshot of the top section of the "Metrics" view for secret scanning on the "Security" tab for an organization.](/assets/images/help/security-overview/security-overview-secret-scanning-metrics-additional-tools.png)
 
 {% else %}
 
 The metrics are based on activity from the default period or your selected period.
-
-![Screenshot of the top section of the "Metrics" view for secret scanning on the "Security" tab for an organization.](/assets/images/help/security-overview/security-overview-secret-scanning-metrics.png)
 
 {% endif %}
 
@@ -67,7 +63,7 @@ You can view metrics for {% data variables.product.prodname_secret_scanning %} p
 
 {% data reusables.security-overview.enterprise-filters-tip %}
 
-{% data reusables.enterprise-accounts.access-enterprise-on-dotcom %}
+{% ifversion ghes %}{% data reusables.enterprise-accounts.access-enterprise-ghes %}{% else %}{% data reusables.enterprise-accounts.access-enterprise-on-dotcom %}{% endif %}
 {% data reusables.code-scanning.click-code-security-enterprise %}
 1. In the sidebar, click **{% data variables.product.prodname_secret_scanning_caps %} metrics**.
 1. Click on an individual secret type or repository to see the associated {% data variables.secret-scanning.alerts %} for your enterprise.

@@ -15,8 +15,8 @@ A {% data variables.product.prodname_copilot_extension_short %} is a {% data var
 
 ## Prerequisites
 
-* You have created a {% data variables.product.prodname_copilot_agent_short %}. For more information, see "[AUTOTITLE](/copilot/building-copilot-extensions/building-a-copilot-agent-for-your-copilot-extension)."
-* You have configured your server to deploy your {% data variables.product.prodname_copilot_agent_short %}, and you have your hostname (aka forwarding endpoint). For more information, see "[AUTOTITLE](/copilot/building-copilot-extensions/creating-a-copilot-extension/configuring-your-server-to-deploy-your-copilot-agent)."
+* You have created a {% data variables.product.prodname_copilot_agent_short %}. For more information, see [AUTOTITLE](/copilot/building-copilot-extensions/building-a-copilot-agent-for-your-copilot-extension).
+* You have configured your server to deploy your {% data variables.product.prodname_copilot_agent_short %}, and you have your hostname (aka forwarding endpoint). For more information, see [AUTOTITLE](/copilot/building-copilot-extensions/creating-a-copilot-extension/configuring-your-server-to-deploy-your-copilot-agent).
 
 ## Creating a {% data variables.product.prodname_github_app %}
 

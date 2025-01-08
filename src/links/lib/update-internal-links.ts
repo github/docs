@@ -5,8 +5,9 @@ import path from 'path'
 import { visit, Test } from 'unist-util-visit'
 import { fromMarkdown } from 'mdast-util-from-markdown'
 import { toMarkdown } from 'mdast-util-to-markdown'
-import { Node, Nodes, Definition, Link } from 'mdast'
 import yaml from 'js-yaml'
+// eslint-disable-next-line import/no-unresolved
+import { type Node, type Nodes, type Definition, type Link } from 'mdast'
 
 import frontmatter from 'src/frame/lib/read-frontmatter.js'
 import {

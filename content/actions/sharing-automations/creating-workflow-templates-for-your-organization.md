@@ -37,7 +37,7 @@ Workflow templates created by users can only be used to create workflows in publ
 {% endif %}
 
 > [!NOTE]
-> To avoid duplication among workflow templates you can call reusable workflows from within a workflow. This can help make your workflows easier to maintain. For more information, see "[AUTOTITLE](/actions/using-workflows/reusing-workflows)."
+> To avoid duplication among workflow templates you can call reusable workflows from within a workflow. This can help make your workflows easier to maintain. For more information, see [AUTOTITLE](/actions/using-workflows/reusing-workflows).
 
 This procedure demonstrates how to create a workflow template and metadata file. The metadata file describes how the workflow templates will be presented to users when they are creating a new workflow.
 
@@ -105,7 +105,7 @@ This procedure demonstrates how to create a workflow template and metadata file.
      * An icon from {% data variables.product.prodname_dotcom %}'s set of [Octicons](https://primer.style/octicons/). To reference an octicon, the value must be `octicon <icon name>`. For example, `octicon smiley`.
    * `categories` - **Optional.** Defines the categories that the workflow is shown under. You can use category names from the following lists:
      * General category names from the [starter-workflows](https://github.com/actions/starter-workflows/blob/main/README.md#categories) repository.
-     * Linguist languages from the list in the [linguist](https://github.com/github-linguist/linguist/blob/master/lib/linguist/languages.yml) repository.
+     * Linguist languages from the list in the [linguist](https://github.com/github-linguist/linguist/blob/main/lib/linguist/languages.yml) repository.
      * Supported tech stacks from the list in the [starter-workflows](https://github.com/github-starter-workflows/repo-analysis-partner/blob/main/tech_stacks.yml) repository.
 
    * `filePatterns` - **Optional.** Allows the workflow to be used if the user's repository has a file in its root directory that matches a defined regular expression.
@@ -114,4 +114,4 @@ To add another workflow template, add your files to the same `workflow-templates
 
 ## Next steps
 
-To continue learning about {% data variables.product.prodname_actions %}, see "[AUTOTITLE](/actions/learn-github-actions/using-starter-workflows)."
+To continue learning about {% data variables.product.prodname_actions %}, see [AUTOTITLE](/actions/learn-github-actions/using-starter-workflows).

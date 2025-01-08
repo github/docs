@@ -22,7 +22,7 @@ If you currently use {% data variables.product.prodname_GH_advanced_security %},
 
 If you're considering using {% data variables.product.prodname_GH_advanced_security %}, you can use this tool to estimate potential costs to enable {% data variables.product.prodname_GH_advanced_security %}.
 
-For more information about billing for {% data variables.product.prodname_advanced_security %}, see "[AUTOTITLE](/billing/managing-billing-for-your-products/managing-billing-for-github-advanced-security/about-billing-for-github-advanced-security)."
+For more information about billing for {% data variables.product.prodname_advanced_security %}, see [AUTOTITLE](/billing/managing-billing-for-your-products/managing-billing-for-github-advanced-security/about-billing-for-github-advanced-security).
 
 ## Viewing committer information
 

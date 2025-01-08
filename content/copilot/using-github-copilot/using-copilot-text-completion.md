@@ -10,7 +10,7 @@ topics:
 ---
 
 >[!NOTE]
-> {% data variables.product.prodname_copilot_autocomplete_pr %} is currently in {% data variables.release-phases.public_preview %} and subject to change. To participate in the {% data variables.release-phases.public_preview %}, an administrator of your enterprise must opt in to the use of previews of {% data variables.product.prodname_copilot_short %} features.
+> {% data variables.product.prodname_copilot_autocomplete_pr %} is currently in {% data variables.release-phases.public_preview %} and subject to change. To participate in the {% data variables.release-phases.public_preview %}, an administrator of your enterprise must opt in to the use of previews of {% data variables.product.prodname_copilot_short %} features. See [AUTOTITLE](/copilot/managing-copilot/managing-copilot-for-your-enterprise/managing-policies-and-features-for-copilot-in-your-enterprise#copilot-in-githubcom).
 
 ## About {% data variables.product.prodname_copilot_autocomplete_pr %}
 

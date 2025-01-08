@@ -1395,6 +1395,24 @@
       "requestPath": "/repos/{owner}/{repo}/code-scanning/alerts/{alert_number}"
     },
     {
+      "slug": "get-the-status-of-an-autofix-for-a-code-scanning-alert",
+      "subcategory": "code-scanning",
+      "verb": "get",
+      "requestPath": "/repos/{owner}/{repo}/code-scanning/alerts/{alert_number}/autofix"
+    },
+    {
+      "slug": "create-an-autofix-for-a-code-scanning-alert",
+      "subcategory": "code-scanning",
+      "verb": "post",
+      "requestPath": "/repos/{owner}/{repo}/code-scanning/alerts/{alert_number}/autofix"
+    },
+    {
+      "slug": "commit-an-autofix-for-a-code-scanning-alert",
+      "subcategory": "code-scanning",
+      "verb": "post",
+      "requestPath": "/repos/{owner}/{repo}/code-scanning/alerts/{alert_number}/autofix/commits"
+    },
+    {
       "slug": "list-instances-of-a-code-scanning-alert",
       "subcategory": "code-scanning",
       "verb": "get",
@@ -2801,6 +2819,30 @@
       "requestPath": "/repos/{owner}/{repo}/issues/{issue_number}/lock"
     },
     {
+      "slug": "remove-sub-issue",
+      "subcategory": "sub-issues",
+      "verb": "delete",
+      "requestPath": "/repos/{owner}/{repo}/issues/{issue_number}/sub_issue"
+    },
+    {
+      "slug": "list-sub-issues",
+      "subcategory": "sub-issues",
+      "verb": "get",
+      "requestPath": "/repos/{owner}/{repo}/issues/{issue_number}/sub_issues"
+    },
+    {
+      "slug": "add-sub-issue",
+      "subcategory": "sub-issues",
+      "verb": "post",
+      "requestPath": "/repos/{owner}/{repo}/issues/{issue_number}/sub_issues"
+    },
+    {
+      "slug": "reprioritize-sub-issue",
+      "subcategory": "sub-issues",
+      "verb": "patch",
+      "requestPath": "/repos/{owner}/{repo}/issues/{issue_number}/sub_issues/priority"
+    },
+    {
       "slug": "list-timeline-events-for-an-issue",
       "subcategory": "timeline",
       "verb": "get",
@@ -3777,6 +3819,44 @@
       "requestPath": "/repos/{owner}/{repo}/pages/health"
     }
   ],
+  "private-registries": [
+    {
+      "slug": "list-private-registries-for-an-organization",
+      "subcategory": "organization-configurations",
+      "verb": "get",
+      "requestPath": "/orgs/{org}/private-registries"
+    },
+    {
+      "slug": "create-a-private-registry-for-an-organization",
+      "subcategory": "organization-configurations",
+      "verb": "post",
+      "requestPath": "/orgs/{org}/private-registries"
+    },
+    {
+      "slug": "get-private-registries-public-key-for-an-organization",
+      "subcategory": "organization-configurations",
+      "verb": "get",
+      "requestPath": "/orgs/{org}/private-registries/public-key"
+    },
+    {
+      "slug": "get-a-private-registry-for-an-organization",
+      "subcategory": "organization-configurations",
+      "verb": "get",
+      "requestPath": "/orgs/{org}/private-registries/{secret_name}"
+    },
+    {
+      "slug": "update-a-private-registry-for-an-organization",
+      "subcategory": "organization-configurations",
+      "verb": "patch",
+      "requestPath": "/orgs/{org}/private-registries/{secret_name}"
+    },
+    {
+      "slug": "delete-a-private-registry-for-an-organization",
+      "subcategory": "organization-configurations",
+      "verb": "delete",
+      "requestPath": "/orgs/{org}/private-registries/{secret_name}"
+    }
+  ],
   "projects": [
     {
       "slug": "list-organization-projects",
@@ -4751,6 +4831,12 @@
       "subcategory": "secret-scanning",
       "verb": "post",
       "requestPath": "/repos/{owner}/{repo}/secret-scanning/push-protection-bypasses"
+    },
+    {
+      "slug": "get-secret-scanning-scan-history-for-a-repository",
+      "subcategory": "secret-scanning",
+      "verb": "get",
+      "requestPath": "/repos/{owner}/{repo}/secret-scanning/scan-history"
     }
   ],
   "security-advisories": [

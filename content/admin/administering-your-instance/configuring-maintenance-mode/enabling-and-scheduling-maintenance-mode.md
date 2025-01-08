@@ -65,7 +65,7 @@ The IP exception list provides controlled and restricted access to {% data varia
 
 If you re-enable maintenance mode, the IP exception list will be disabled and {% data variables.location.product_location %} will return to maintenance mode. If you just disable the IP exception list, {% data variables.location.product_location %} will return to normal operation.
 
-You can also use a command-line utility to configure the IP exception list. For more information, see "[AUTOTITLE](/admin/configuration/configuring-your-enterprise/command-line-utilities#ghe-maintenance)" and "[AUTOTITLE](/admin/configuration/configuring-your-enterprise/accessing-the-administrative-shell-ssh)."
+You can also use a command-line utility to configure the IP exception list. For more information, see [AUTOTITLE](/admin/configuration/configuring-your-enterprise/command-line-utilities#ghe-maintenance) and [AUTOTITLE](/admin/configuration/configuring-your-enterprise/accessing-the-administrative-shell-ssh).
 
 {% data reusables.enterprise_site_admin_settings.access-settings %}
 {% data reusables.enterprise_site_admin_settings.management-console %}
@@ -83,13 +83,13 @@ You can also use a command-line utility to configure the IP exception list. For 
 
 ## Managing maintenance mode using the REST API
 
-You can manage maintenance mode on {% data variables.location.product_location %} using the REST API. For more information, see "[AUTOTITLE](/rest/enterprise-admin/manage-ghes#get-the-status-of-maintenance-mode)."
+You can manage maintenance mode on {% data variables.location.product_location %} using the REST API. For more information, see [AUTOTITLE](/rest/enterprise-admin/manage-ghes#get-the-status-of-maintenance-mode).
 
 {% else %}
 
 ## Scheduling maintenance mode with the {% data variables.product.prodname_enterprise_api %}
 
-You can schedule maintenance for different times or dates with the {% data variables.product.prodname_enterprise_api %}. For more information, see "[AUTOTITLE](/rest/enterprise-admin/management-console#enable-or-disable-maintenance-mode)."
+You can schedule maintenance for different times or dates with the {% data variables.product.prodname_enterprise_api %}. For more information, see [AUTOTITLE](/rest/enterprise-admin/management-console#enable-or-disable-maintenance-mode).
 
 {% endif %}
 
@@ -99,7 +99,7 @@ You can schedule maintenance for different times or dates with the {% data varia
 
 You can manage maintenance mode on {% data variables.location.product_location %} using the {% data variables.product.prodname_cli %} `gh es` extension. For more information, see the GH ES CLI usage documentation for [`gh es maintenance set`](https://github.com/github/gh-es/blob/main/USAGE.md#gh-es-maintenance-set) and [`gh es maintenance get`](https://github.com/github/gh-es/blob/main/USAGE.md#gh-es-maintenance-get).
 
-For more information, see "[AUTOTITLE](/admin/administering-your-instance/administering-your-instance-from-the-command-line/administering-your-instance-using-the-github-cli)".
+For more information, see [AUTOTITLE](/admin/administering-your-instance/administering-your-instance-from-the-command-line/administering-your-instance-using-the-github-cli).
 
 {% endif %}
 
@@ -107,11 +107,11 @@ For more information, see "[AUTOTITLE](/admin/administering-your-instance/admini
 
 ## Managing maintenance mode using SSH
 
-If you have SSH access, you can use the `ghe-maintenance` command line utility to can set or unset maintenance mode for a {% data variables.product.product_name %} instance with one node, or multiple nodes in a high-availability configuration. For more information, see "[AUTOTITLE](/admin/administering-your-instance/administering-your-instance-from-the-command-line/accessing-the-administrative-shell-ssh)" and "[AUTOTITLE](/admin/administering-your-instance/administering-your-instance-from-the-command-line/command-line-utilities#ghe-maintenance)."
+If you have SSH access, you can use the `ghe-maintenance` command line utility to can set or unset maintenance mode for a {% data variables.product.product_name %} instance with one node, or multiple nodes in a high-availability configuration. For more information, see [AUTOTITLE](/admin/administering-your-instance/administering-your-instance-from-the-command-line/accessing-the-administrative-shell-ssh) and [AUTOTITLE](/admin/administering-your-instance/administering-your-instance-from-the-command-line/command-line-utilities#ghe-maintenance).
 
 ## Managing maintenance mode for a cluster using SSH
 
-If you have SSH access to your {% data variables.product.prodname_ghe_server %} instance, you can use the `ghe-cluster-maintenance` command line utility to set or unset maintenance mode for every node in a cluster. For more information, see "[AUTOTITLE](/admin/administering-your-instance/administering-your-instance-from-the-command-line/accessing-the-administrative-shell-ssh)" and "[AUTOTITLE](/admin/administering-your-instance/administering-your-instance-from-the-command-line/command-line-utilities#ghe-cluster-maintenance)."
+If you have SSH access to your {% data variables.product.prodname_ghe_server %} instance, you can use the `ghe-cluster-maintenance` command line utility to set or unset maintenance mode for every node in a cluster. For more information, see [AUTOTITLE](/admin/administering-your-instance/administering-your-instance-from-the-command-line/accessing-the-administrative-shell-ssh) and [AUTOTITLE](/admin/administering-your-instance/administering-your-instance-from-the-command-line/command-line-utilities#ghe-cluster-maintenance).
 
 ```shell
 $ ghe-cluster-maintenance -h

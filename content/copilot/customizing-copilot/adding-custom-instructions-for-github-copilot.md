@@ -19,7 +19,7 @@ topics:
 ## Prerequisites
 
 * A custom instructions file (see the instructions below).
-* The **Use Instruction Files** ({% data variables.product.prodname_vscode_shortname %}) or **Enable custom instructions** ({% data variables.product.prodname_vs %}) option enabled in your settings. See "[Enabling or disabling custom instructions](#enabling-or-disabling-custom-instructions)" later in this article.
+* The **Use Instruction Files** ({% data variables.product.prodname_vscode_shortname %}) or **Enable custom instructions** ({% data variables.product.prodname_vs %}) option enabled in your settings. See [Enabling or disabling custom instructions](#enabling-or-disabling-custom-instructions) later in this article.
 
   > [!NOTE] The setting is enabled by default in {% data variables.product.prodname_vscode_shortname %} and disabled by default in {% data variables.product.prodname_vs %}.
 

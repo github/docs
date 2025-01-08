@@ -10,7 +10,7 @@ type: how_to
 
 ## About {% data variables.product.prodname_classroom %} CLI <!-- omit in toc -->
 
-{% data reusables.cli.about-cli %} For more information, see "[AUTOTITLE](/github-cli/github-cli/about-github-cli)."
+{% data reusables.cli.about-cli %} For more information, see [AUTOTITLE](/github-cli/github-cli/about-github-cli).
 
 You can work with {% data variables.product.prodname_classroom %} in the {% data variables.product.prodname_cli %} to:
 

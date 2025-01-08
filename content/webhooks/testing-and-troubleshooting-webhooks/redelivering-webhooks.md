@@ -18,7 +18,7 @@ You may want to redeliver a webhook to help you test your application or to reco
 
 Only people with admin access to a repository can redeliver webhooks in that repository.
 
-You can use the {% data variables.product.company_short %} web interface or the REST API to redeliver webhooks for a repository. For more information about using the REST API to redeliver webhooks, see "[AUTOTITLE](/rest/webhooks/repo-deliveries)."
+You can use the {% data variables.product.company_short %} web interface or the REST API to redeliver webhooks for a repository. For more information about using the REST API to redeliver webhooks, see [AUTOTITLE](/rest/webhooks/repo-deliveries).
 
 {% data reusables.repositories.navigate-to-repo %}
 {% data reusables.repositories.sidebar-settings %}
@@ -32,7 +32,7 @@ You can use the {% data variables.product.company_short %} web interface or the 
 
 Only organization owners can redeliver webhooks in that organization.
 
-You can use the {% data variables.product.company_short %} web interface or the REST API to redeliver webhooks for an organization. For more information about using the REST API to redeliver webhooks, see "[AUTOTITLE](/rest/orgs/webhooks)."
+You can use the {% data variables.product.company_short %} web interface or the REST API to redeliver webhooks for an organization. For more information about using the REST API to redeliver webhooks, see [AUTOTITLE](/rest/orgs/webhooks).
 
 {% data reusables.organizations.navigate-to-org %}
 {% data reusables.organizations.org_settings %}
@@ -46,7 +46,7 @@ You can use the {% data variables.product.company_short %} web interface or the 
 
 The owner of a {% data variables.product.prodname_github_app %} can redeliver webhooks for the app. If an organization has designated any app managers for a {% data variables.product.prodname_github_app %} owned by the organization, the app managers can also redeliver webhooks.
 
-You can use the {% data variables.product.company_short %} web interface or the REST API to redeliver webhooks for a {% data variables.product.prodname_github_app %}. For more information about using the REST API redeliver, see "[AUTOTITLE](/rest/apps/webhooks)."
+You can use the {% data variables.product.company_short %} web interface or the REST API to redeliver webhooks for a {% data variables.product.prodname_github_app %}. For more information about using the REST API redeliver, see [AUTOTITLE](/rest/apps/webhooks).
 
 {% data reusables.apps.settings-step %}
 {% data reusables.apps.enterprise-apps-steps %}

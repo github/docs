@@ -18,7 +18,7 @@ shortTitle: Delete a codespace
 
 ## Overview
 
-{% data reusables.codespaces.automatic-deletion %} See "[AUTOTITLE](/codespaces/setting-your-user-preferences/configuring-automatic-deletion-of-your-codespaces?tool=webui)."
+{% data reusables.codespaces.automatic-deletion %} See [AUTOTITLE](/codespaces/setting-your-user-preferences/configuring-automatic-deletion-of-your-codespaces?tool=webui).
 
 You can manually delete a codespace in a variety of ways:
 * In the terminal by using {% data variables.product.prodname_cli %}
@@ -28,11 +28,11 @@ You can manually delete a codespace in a variety of ways:
 Use the tabs at the top of this article to display instructions for each of these ways of deleting a codespace.
 
 > [!NOTE]
-> You can't delete a codespace from within the JetBrains Gateway, or the JetBrains client application, or from within JupyterLab.
+> You can't delete a codespace from within JupyterLab.
 
 ## Why you should delete unused codespaces
 
-There are costs associated with storing codespaces. You should therefore delete any codespaces you no longer need. See "[AUTOTITLE](/billing/managing-billing-for-your-products/managing-billing-for-github-codespaces/about-billing-for-github-codespaces)."
+There are costs associated with storing codespaces. You should therefore delete any codespaces you no longer need. See [AUTOTITLE](/billing/managing-billing-for-your-products/managing-billing-for-github-codespaces/about-billing-for-github-codespaces).
 
 {% data reusables.codespaces.max-number-codespaces %}
 
@@ -137,10 +137,10 @@ For more information, click the "{% data variables.product.prodname_cli %}" tab 
 
 {% endcli %}
 
-You can also use the REST API to delete codespaces for your organization. See "[AUTOTITLE](/rest/codespaces/organizations#delete-a-codespace-from-the-organization)."
+You can also use the REST API to delete codespaces for your organization. See [AUTOTITLE](/rest/codespaces/organizations#delete-a-codespace-from-the-organization).
 
 ## Further reading
 
-* "[AUTOTITLE](/codespaces/getting-started/understanding-the-codespace-lifecycle)"
-* "[AUTOTITLE](/codespaces/setting-your-user-preferences/configuring-automatic-deletion-of-your-codespaces)"
-* "[AUTOTITLE](/codespaces/managing-codespaces-for-your-organization/restricting-the-retention-period-for-codespaces)"
+* [AUTOTITLE](/codespaces/getting-started/understanding-the-codespace-lifecycle)
+* [AUTOTITLE](/codespaces/setting-your-user-preferences/configuring-automatic-deletion-of-your-codespaces)
+* [AUTOTITLE](/codespaces/managing-codespaces-for-your-organization/restricting-the-retention-period-for-codespaces)

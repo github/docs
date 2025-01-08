@@ -30,9 +30,9 @@ For most individual users, GPG or SSH will be the best choice for signing commit
 
 {% ifversion fpt or ghec %}
 
-Commits and tags have the following verification statuses, depending on whether you have enabled vigilant mode. By default vigilant mode is not enabled. For information on how to enable vigilant mode, see "[AUTOTITLE](/authentication/managing-commit-signature-verification/displaying-verification-statuses-for-all-of-your-commits)."
+Commits and tags have the following verification statuses, depending on whether you have enabled vigilant mode. By default vigilant mode is not enabled. For information on how to enable vigilant mode, see [AUTOTITLE](/authentication/managing-commit-signature-verification/displaying-verification-statuses-for-all-of-your-commits).
 
-Signing commits differs from signing off on a commit. For more information about signing off on commits, see "[AUTOTITLE](/repositories/managing-your-repositorys-settings-and-features/managing-repository-settings/managing-the-commit-signoff-policy-for-your-repository)."
+Signing commits differs from signing off on a commit. For more information about signing off on commits, see [AUTOTITLE](/repositories/managing-your-repositorys-settings-and-features/managing-repository-settings/managing-the-commit-signoff-policy-for-your-repository).
 
 ### Default statuses
 
@@ -44,11 +44,11 @@ Signing commits differs from signing off on a commit. For more information about
 
 ### Persistent commit signature verification
 
-Regardless of the signature choice - GPG, SSH, or S/MIME - once a commit signature is verified, it remains verified within its repository's network. See "[AUTOTITLE](/repositories/viewing-activity-and-data-for-your-repository/understanding-connections-between-repositories)."
+Regardless of the signature choice - GPG, SSH, or S/MIME - once a commit signature is verified, it remains verified within its repository's network. See [AUTOTITLE](/repositories/viewing-activity-and-data-for-your-repository/understanding-connections-between-repositories).
 
 When a commit signature is verified upon being pushed to {% data variables.product.product_name %}, a verification record is stored alongside the commit. This record can't be edited and will persist so that signatures remain verified over time, even if signing keys are rotated, revoked, or if contributors leave the organization.
 
-The verification record includes a timestamp marking when the verification was completed. This persistent record ensures a consistent verified state, providing a stable history of contributions within the repository. You can view this timestamp by hovering over the "Verified" badge on {% data variables.product.product_name %} or by accessing the commit via the REST API, which includes a `verified_at` field. See "[AUTOTITLE](/rest/commits/commits)."
+The verification record includes a timestamp marking when the verification was completed. This persistent record ensures a consistent verified state, providing a stable history of contributions within the repository. You can view this timestamp by hovering over the "Verified" badge on {% data variables.product.product_name %} or by accessing the commit via the REST API, which includes a `verified_at` field. See [AUTOTITLE](/rest/commits/commits).
 
 Persistent commit signature verification applies to new commits pushed to {% data variables.product.product_name %}. For any commits that predate this feature, a persistent record will be created the next time the commit's signature is verified on {% data variables.product.product_name %}, helping ensure that verified statuses remain stable and reliable across the repository's history.
 
@@ -68,7 +68,7 @@ The verification record is persistent across the repository network, meaning tha
 
 {% data reusables.pull_requests.rebase_and_merge_verification_2 %}
 
-For more information, see "[AUTOTITLE](/repositories/configuring-branches-and-merges-in-your-repository/configuring-pull-request-merges/about-merge-methods-on-github#rebasing-and-merging-your-commits)."
+For more information, see [AUTOTITLE](/repositories/configuring-branches-and-merges-in-your-repository/configuring-pull-request-merges/about-merge-methods-on-github#rebasing-and-merging-your-commits).
 
 {% ifversion fpt or ghec %}
 
@@ -78,14 +78,14 @@ For more information, see "[AUTOTITLE](/repositories/configuring-branches-and-me
 
 {% endif %}
 
-Repository administrators can enforce required commit signing on a branch to block all commits that are not signed and verified. For more information, see "[AUTOTITLE](/repositories/configuring-branches-and-merges-in-your-repository/managing-protected-branches/about-protected-branches#require-signed-commits)."
+Repository administrators can enforce required commit signing on a branch to block all commits that are not signed and verified. For more information, see [AUTOTITLE](/repositories/configuring-branches-and-merges-in-your-repository/managing-protected-branches/about-protected-branches#require-signed-commits).
 
 {% data reusables.identity-and-permissions.verification-status-check %}
 
-{% ifversion ghes %}If a site administrator has enabled web commit signing, {% data variables.product.product_name %} will automatically use GPG to sign commits you make using the web interface. Commits signed by {% data variables.product.product_name %} will have a verified status. You can verify the signature locally using the public key available at `https://HOSTNAME/web-flow.gpg`. For more information, see "[AUTOTITLE](/admin/configuration/configuring-your-enterprise/configuring-web-commit-signing)."
+{% ifversion ghes %}If a site administrator has enabled web commit signing, {% data variables.product.product_name %} will automatically use GPG to sign commits you make using the web interface. Commits signed by {% data variables.product.product_name %} will have a verified status. You can verify the signature locally using the public key available at `https://HOSTNAME/web-flow.gpg`. For more information, see [AUTOTITLE](/admin/configuration/configuring-your-enterprise/configuring-web-commit-signing).
 {% else %}{% data variables.product.prodname_dotcom %} will automatically use GPG to sign commits you make using the web interface. Commits signed by {% data variables.product.prodname_dotcom %} will have a verified status. You can verify the signature locally using the public key available at https://github.com/web-flow.gpg.
 
-You can optionally choose to have {% data variables.product.prodname_dotcom %} GPG sign commits you make in {% data variables.product.prodname_github_codespaces %}. For more information about enabling GPG verification for your codespaces, see "[AUTOTITLE](/codespaces/managing-your-codespaces/managing-gpg-verification-for-github-codespaces)."{% endif %}
+You can optionally choose to have {% data variables.product.prodname_dotcom %} GPG sign commits you make in {% data variables.product.prodname_github_codespaces %}. For more information about enabling GPG verification for your codespaces, see [AUTOTITLE](/codespaces/managing-your-codespaces/managing-gpg-verification-for-github-codespaces).{% endif %}
 
 ## GPG commit signature verification
 
@@ -147,6 +147,6 @@ Signature verification for bots will only work if the request is verified and au
 
 ## Further reading
 
-* "[AUTOTITLE](/authentication/managing-commit-signature-verification/signing-commits)"
-* "[AUTOTITLE](/authentication/managing-commit-signature-verification/signing-tags)"
-* "[AUTOTITLE](/authentication/troubleshooting-commit-signature-verification)"
+* [AUTOTITLE](/authentication/managing-commit-signature-verification/signing-commits)
+* [AUTOTITLE](/authentication/managing-commit-signature-verification/signing-tags)
+* [AUTOTITLE](/authentication/troubleshooting-commit-signature-verification)

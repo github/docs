@@ -46,7 +46,7 @@ Below is the JSON data that caused the error:
 
 ## Example prompt
 
-```Why is my JSON object invalid and how can I fix it?```
+`Why is my JSON object invalid and how can I fix it?`
 
 ## Example response
 

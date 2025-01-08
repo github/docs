@@ -50,4 +50,4 @@ After a required workflow has run at least once in a repository, you can view it
 
 ## Adding a required workflow to an organization
 
-Organization owners can configure required workflows in their organization. For more information, see "[AUTOTITLE](/organizations/managing-organization-settings/disabling-or-limiting-github-actions-for-your-organization#adding-a-required-workflow-to-an-organization)."
+Organization owners can configure required workflows in their organization. For more information, see [AUTOTITLE](/organizations/managing-organization-settings/disabling-or-limiting-github-actions-for-your-organization#adding-a-required-workflow-to-an-organization).

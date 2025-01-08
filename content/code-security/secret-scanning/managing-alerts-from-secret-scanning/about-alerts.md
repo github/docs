@@ -30,7 +30,7 @@ When {% data variables.product.company_short %} detects a supported secret in a 
 * {% ifversion secret-scanning-alert-experimental-list %}Default{% else %}High confidence{% endif %} alerts, which relate to supported patterns and specified custom patterns.
 * {% ifversion secret-scanning-alert-experimental-list %}Experimental{% else %}Other{% endif %} alerts, which can have a higher ratio of false positives or secrets used in tests.
 
-{% data variables.product.prodname_dotcom %} displays {% ifversion secret-scanning-alert-experimental-list %}experimental{% else %}these "other"{% endif %} alerts in a different list to {% ifversion secret-scanning-alert-experimental-list %}default{% else %}high confidence{% endif %} alerts, making triaging a better experience for users. For more information, see "[AUTOTITLE](/code-security/secret-scanning/managing-alerts-from-secret-scanning/viewing-alerts)."
+{% data variables.product.prodname_dotcom %} displays {% ifversion secret-scanning-alert-experimental-list %}experimental{% else %}these "other"{% endif %} alerts in a different list to {% ifversion secret-scanning-alert-experimental-list %}default{% else %}high confidence{% endif %} alerts, making triaging a better experience for users. For more information, see [AUTOTITLE](/code-security/secret-scanning/managing-alerts-from-secret-scanning/viewing-alerts).
 
 {% endif %}
 
@@ -38,20 +38,20 @@ When {% data variables.product.company_short %} detects a supported secret in a 
 
 ## About push protection alerts
 
-Push protection scans pushes for supported secrets. If push protection detects a supported secret, it will block the push. When a contributor bypasses push protection to push a secret to the repository, a push protection alert is generated and displayed in the **Security** tab of the repository. To see all push protection alerts for a repository, you must filter by `bypassed: true` on the alerts page. For more information, see "[AUTOTITLE](/code-security/secret-scanning/managing-alerts-from-secret-scanning/viewing-alerts#filtering-alerts)."
+Push protection scans pushes for supported secrets. If push protection detects a supported secret, it will block the push. When a contributor bypasses push protection to push a secret to the repository, a push protection alert is generated and displayed in the **Security** tab of the repository. To see all push protection alerts for a repository, you must filter by `bypassed: true` on the alerts page. For more information, see [AUTOTITLE](/code-security/secret-scanning/managing-alerts-from-secret-scanning/viewing-alerts#filtering-alerts).
 
 {% data reusables.secret-scanning.secret-scanning-pattern-pair-matches %}
 
 >[!NOTE]
-> {% ifversion secret-scanning-push-protection-for-users %}You can also enable push protection for your personal account, called "push protection for users", which prevents you from accidentally pushing supported secrets to _any_ public repository. Alerts are _not_ created if you choose to bypass your user-based push protection only. Alerts are only created if the repository itself has push protection enabled. For more information, see "[AUTOTITLE](/code-security/secret-scanning/working-with-secret-scanning-and-push-protection/push-protection-for-users)."{% endif %}
+> {% ifversion secret-scanning-push-protection-for-users %}You can also enable push protection for your personal account, called "push protection for users", which prevents you from accidentally pushing supported secrets to _any_ public repository. Alerts are _not_ created if you choose to bypass your user-based push protection only. Alerts are only created if the repository itself has push protection enabled. For more information, see [AUTOTITLE](/code-security/secret-scanning/working-with-secret-scanning-and-push-protection/push-protection-for-users).{% endif %}
 >
-> {% data reusables.secret-scanning.push-protection-older-tokens %} For more information about push protection limitations, see "[AUTOTITLE](/code-security/secret-scanning/troubleshooting-secret-scanning-and-push-protection/troubleshooting-secret-scanning#push-protection-and-pattern-versions)."
+> {% data reusables.secret-scanning.push-protection-older-tokens %} For more information about push protection limitations, see [AUTOTITLE](/code-security/secret-scanning/troubleshooting-secret-scanning-and-push-protection/troubleshooting-secret-scanning#push-protection-and-pattern-versions).
 
 {% ifversion fpt or ghec %}
 
 ## About partner alerts
 
-When {% data variables.product.company_short %} detects a leaked secret in a public repository or npm package, an alert is sent directly to the secret provider, if they are part of {% data variables.product.company_short %}'s secret scanning partner program. For more information about {% data variables.secret-scanning.partner_alerts %}, see "[AUTOTITLE](/code-security/secret-scanning/secret-scanning-partnership-program/secret-scanning-partner-program)" and "[AUTOTITLE](/code-security/secret-scanning/introduction/supported-secret-scanning-patterns)."
+When {% data variables.product.company_short %} detects a leaked secret in a public repository or npm package, an alert is sent directly to the secret provider, if they are part of {% data variables.product.company_short %}'s secret scanning partner program. For more information about {% data variables.secret-scanning.partner_alerts %}, see [AUTOTITLE](/code-security/secret-scanning/secret-scanning-partnership-program/secret-scanning-partner-program) and [AUTOTITLE](/code-security/secret-scanning/introduction/supported-secret-scanning-patterns).
 
 Partner alerts are not sent to repository administrators, so you do not need to take any action for this type of alert.
 
@@ -59,11 +59,11 @@ Partner alerts are not sent to repository administrators, so you do not need to 
 
 ## Next steps
 
-* "[AUTOTITLE](/code-security/secret-scanning/managing-alerts-from-secret-scanning/viewing-alerts)"
+* [AUTOTITLE](/code-security/secret-scanning/managing-alerts-from-secret-scanning/viewing-alerts)
 
 ## Further reading
 
-* "[AUTOTITLE](/code-security/secret-scanning/introduction/supported-secret-scanning-patterns){% ifversion ghec or ghes %}
-* "[AUTOTITLE](/code-security/secret-scanning/using-advanced-secret-scanning-and-push-protection-features/custom-patterns/defining-custom-patterns-for-secret-scanning)"{% endif %}{% ifversion secret-scanning-non-provider-patterns %}
-* "[AUTOTITLE](/code-security/secret-scanning/using-advanced-secret-scanning-and-push-protection-features/non-provider-patterns/enabling-secret-scanning-for-non-provider-patterns)"{% endif %}{% ifversion secret-scanning-ai-generic-secret-detection %}
-* "[AUTOTITLE](/code-security/secret-scanning/copilot-secret-scanning/responsible-ai-generic-secrets)"{% endif %}
+* [AUTOTITLE](/code-security/secret-scanning/introduction/supported-secret-scanning-patterns){% ifversion ghec or ghes %}
+* [AUTOTITLE](/code-security/secret-scanning/using-advanced-secret-scanning-and-push-protection-features/custom-patterns/defining-custom-patterns-for-secret-scanning){% endif %}{% ifversion secret-scanning-non-provider-patterns %}
+* [AUTOTITLE](/code-security/secret-scanning/using-advanced-secret-scanning-and-push-protection-features/non-provider-patterns/enabling-secret-scanning-for-non-provider-patterns){% endif %}{% ifversion secret-scanning-ai-generic-secret-detection %}
+* [AUTOTITLE](/code-security/secret-scanning/copilot-secret-scanning/responsible-ai-generic-secrets){% endif %}

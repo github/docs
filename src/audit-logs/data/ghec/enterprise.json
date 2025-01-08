@@ -365,6 +365,16 @@
     "docs_reference_links": "N/A"
   },
   {
+    "action": "business.proxy_security_header_enabled",
+    "description": "The proxy security header was enabled for an enterprise. When the header is provided in requests, only Enterprise Managed Users matching the header will be able to access GitHub.",
+    "docs_reference_links": "N/A"
+  },
+  {
+    "action": "business.proxy_security_header_unsatisfied",
+    "description": "A user outside the enterprise tried to access GitHub while the proxy security header was enabled and provided in the request.",
+    "docs_reference_links": "N/A"
+  },
+  {
     "action": "business.recovery_code_failed",
     "description": "An enterprise owner failed to sign into a enterprise with an external identity provider (IdP) using a recovery code.",
     "docs_reference_links": "/admin/identity-and-access-management/managing-recovery-codes-for-your-enterprise/accessing-your-enterprise-account-if-your-identity-provider-is-unavailable"
@@ -668,6 +678,36 @@
     "action": "checks.delete_logs",
     "description": "Logs in a check suite were deleted.",
     "docs_reference_links": "N/A"
+  },
+  {
+    "action": "code_scanning.alert_appeared_in_branch",
+    "description": "An existing code scanning alert appeared in a branch.",
+    "docs_reference_links": "/code-security/code-scanning/introduction-to-code-scanning/about-code-scanning"
+  },
+  {
+    "action": "code_scanning.alert_closed_became_fixed",
+    "description": "A code scanning alert was fixed.",
+    "docs_reference_links": "/code-security/code-scanning/introduction-to-code-scanning/about-code-scanning"
+  },
+  {
+    "action": "code_scanning.alert_closed_by_user",
+    "description": "A code scanning alert was manually dismissed.",
+    "docs_reference_links": "/code-security/code-scanning/introduction-to-code-scanning/about-code-scanning"
+  },
+  {
+    "action": "code_scanning.alert_created",
+    "description": "A code scanning alert was seen for the first time.",
+    "docs_reference_links": "/code-security/code-scanning/introduction-to-code-scanning/about-code-scanning"
+  },
+  {
+    "action": "code_scanning.alert_reappeared",
+    "description": "A code scanning alert that was previously fixed reappeared.",
+    "docs_reference_links": "/code-security/code-scanning/introduction-to-code-scanning/about-code-scanning"
+  },
+  {
+    "action": "code_scanning.alert_reopened_by_user",
+    "description": "A code scanning alert that was previously dismissed was reopened.",
+    "docs_reference_links": "/code-security/code-scanning/introduction-to-code-scanning/about-code-scanning"
   },
   {
     "action": "code.search",
@@ -3873,6 +3913,11 @@
     "action": "secret_scanning_push_protection_request.request",
     "description": "A user requested to bypass secret scanning push protection.",
     "docs_reference_links": "/code-security/secret-scanning/working-with-push-protection#requesting-bypass-privileges-when-working-with-the-command-line"
+  },
+  {
+    "action": "secret_scanning_scan.completed",
+    "description": "A secret scanning scan has completed on this repository.",
+    "docs_reference_links": "/code-security/secret-scanning/about-secret-scanning"
   },
   {
     "action": "security_configuration.create",

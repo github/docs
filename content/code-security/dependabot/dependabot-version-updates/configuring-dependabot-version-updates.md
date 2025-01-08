@@ -25,15 +25,15 @@ shortTitle: Configure version updates
 
 ## About version updates for dependencies
 
-You enable {% data variables.product.prodname_dependabot_version_updates %} by checking a `dependabot.yml` configuration file in to your repository's `.github` directory. {% data variables.product.prodname_dependabot %} then raises pull requests to keep the dependencies you configure up-to-date. For each package manager's dependencies that you want to update, you must specify the location of the package manifest files and how often to check for updates to the dependencies listed in those files. For information about enabling security updates, see "[AUTOTITLE](/code-security/dependabot/dependabot-security-updates/configuring-dependabot-security-updates)."
+You enable {% data variables.product.prodname_dependabot_version_updates %} by checking a `dependabot.yml` configuration file in to your repository's `.github` directory. {% data variables.product.prodname_dependabot %} then raises pull requests to keep the dependencies you configure up-to-date. For each package manager's dependencies that you want to update, you must specify the location of the package manifest files and how often to check for updates to the dependencies listed in those files. For information about enabling security updates, see [AUTOTITLE](/code-security/dependabot/dependabot-security-updates/configuring-dependabot-security-updates).
 
-{% data reusables.dependabot.initial-updates %} For more information, see "[AUTOTITLE](/code-security/dependabot/dependabot-version-updates/customizing-dependency-updates)."
+{% data reusables.dependabot.initial-updates %} {% ifversion dependabot-version-updates-groups %}For more information, see [AUTOTITLE](/code-security/dependabot/dependabot-version-updates/optimizing-pr-creation-version-updates).{% endif %}
 
 {% data reusables.dependabot.version-updates-skip-scheduled-runs %}
 
-By default only direct dependencies that are explicitly defined in a manifest are kept up to date by {% data variables.product.prodname_dependabot_version_updates %}. You can choose to receive updates for indirect dependencies defined in lock files. For more information, see "[AUTOTITLE](/code-security/dependabot/dependabot-version-updates/configuration-options-for-the-dependabot.yml-file#allow)."
+By default only direct dependencies that are explicitly defined in a manifest are kept up to date by {% data variables.product.prodname_dependabot_version_updates %}. You can choose to receive updates for indirect dependencies defined in lock files. For more information, see [AUTOTITLE](/code-security/dependabot/dependabot-version-updates/controlling-dependencies-updated#allowing-specific-dependencies-to-be-updated).
 
-{% data reusables.dependabot.private-dependencies-note %} Additionally, {% data variables.product.prodname_dependabot %} doesn't support private {% data variables.product.prodname_dotcom %} dependencies for all package managers. For more information, see "[AUTOTITLE](/code-security/dependabot/ecosystems-supported-by-dependabot/supported-ecosystems-and-repositories)" and "[AUTOTITLE](/get-started/learning-about-github/github-language-support)."
+{% data reusables.dependabot.private-dependencies-note %} Additionally, {% data variables.product.prodname_dependabot %} doesn't support private {% data variables.product.prodname_dotcom %} dependencies for all package managers. For more information, see [AUTOTITLE](/code-security/dependabot/ecosystems-supported-by-dependabot/supported-ecosystems-and-repositories) and [AUTOTITLE](/get-started/learning-about-github/github-language-support).
 
 ## Enabling {% data variables.product.prodname_dependabot_version_updates %}
 
@@ -43,7 +43,7 @@ You enable {% data variables.product.prodname_dependabot_version_updates %} by c
 {% data reusables.repositories.navigate-to-repo %}
 {% data reusables.repositories.sidebar-settings %}
 {% data reusables.repositories.navigate-to-code-security-and-analysis %}
-1. Under "Code security and analysis", to the right of "{% data variables.product.prodname_dependabot_version_updates %}", click **Enable** to open a basic `dependabot.yml` configuration file in the `.github` directory of your repository. {% data reusables.dependabot.link-to-yml-config-file %}
+1. Under {% ifversion code-security-wording-only %}"Code security"{% else %}"Code security and analysis"{% endif %}, to the right of "{% data variables.product.prodname_dependabot_version_updates %}", click **Enable** to open a basic `dependabot.yml` configuration file in the `.github` directory of your repository. {% data reusables.dependabot.link-to-yml-config-file %}
 {% else %}
 1. Create a `dependabot.yml` configuration file in the `.github` directory of your repository. You can use the snippet below as a starting point. {% data reusables.dependabot.link-to-yml-config-file %}
 {% endif %}
@@ -61,24 +61,23 @@ You enable {% data variables.product.prodname_dependabot_version_updates %} by c
    ```
 
 1. Add a `version`. This key is mandatory. The file must start with `version: 2`.
-1. Optionally, if you have dependencies in a private registry, add a `registries` section containing authentication details. For more information, see [`registries`](/code-security/dependabot/dependabot-version-updates/configuration-options-for-the-dependabot.yml-file#registries) in "Configuration options for the `dependabot.yml` file."
-1. Add an `updates` section, with an entry for each package manager you want {% data variables.product.prodname_dependabot %} to monitor. This key is mandatory. You use it to configure how {% data variables.product.prodname_dependabot %} updates the versions or your project's dependencies. Each entry configures the update settings for a particular package manager.
+1. Optionally, if you have dependencies in a private registry, add a `registries` section containing authentication details. For more information, see [AUTOTITLE](/code-security/dependabot/working-with-dependabot/configuring-access-to-private-registries-for-dependabot).
+1. Add an `updates` section, with an entry for each package manager you want {% data variables.product.prodname_dependabot %} to monitor. This key is mandatory. You use it to configure how {% data variables.product.prodname_dependabot %} updates the versions or your project's dependencies. Each entry configures the update settings for a particular package manager. For more information, see [About the dependabot.yml file](/code-security/dependabot/working-with-dependabot/dependabot-options-reference#about-the-dependabotyml-file) in "{% data variables.product.prodname_dependabot %} options reference."
 1. For each package manager, use:
 
-    * `package-ecosystem` to specify the package manager. For more information about the supported package managers, see [`package-ecosystem`](/code-security/dependabot/dependabot-version-updates/configuration-options-for-the-dependabot.yml-file#package-ecosystem) in "Configuration options for the `dependabot.yml` file."
-    * `directory` to specify the location of the manifest or other definition files. For more information, see [`directory`](/code-security/dependabot/dependabot-version-updates/configuration-options-for-the-dependabot.yml-file#directory) in "Configuration options for the `dependabot.yml` file."
-    {% ifversion dependabot-updates-multidirectory-support %}- `directories` to specify the location of multiple manifest or other definition files. For more information, see [`directories`](/code-security/dependabot/dependabot-version-updates/configuration-options-for-the-dependabot.yml-file#directories) in "Configuration options for the `dependabot.yml` file."{% endif %}
-    * `schedule.interval` to specify how often to check for new versions. For more information, see [`schedule.interval`](/code-security/dependabot/dependabot-version-updates/configuration-options-for-the-dependabot.yml-file#scheduleinterval) in "Configuration options for the `dependabot.yml` file."
+    * `package-ecosystem` to specify the package manager. For more information about the supported package managers, see [`package-ecosystem`](/code-security/dependabot/working-with-dependabot/dependabot-options-reference#package-ecosystem).
+    * {% ifversion dependabot-updates-multidirectory-support %}`directories` or {% endif %}`directory` to specify the location of multiple manifest or other definition files.{% ifversion dependabot-updates-multidirectory-support %} For more information, see [Defining multiple locations for manifest files](/code-security/dependabot/dependabot-version-updates/controlling-dependencies-updated#defining-multiple-locations-for-manifest-files).{% endif %}
+    * `schedule.interval` to specify how often to check for new versions.
 
 {% data reusables.dependabot.check-in-dependabot-yml %}
 
 ### Example `dependabot.yml` file
 
-The example `dependabot.yml` file below configures version updates for two package managers: npm and Docker. When this file is checked in, {% data variables.product.prodname_dependabot %} checks the manifest files on the default branch for outdated dependencies. If it finds outdated dependencies, it will raise pull requests against the default branch to update the dependencies.
+The example `dependabot.yml` file below configures version updates for three package managers: npm, Docker, and {% data variables.product.prodname_actions %}. When this file is checked in, {% data variables.product.prodname_dependabot %} checks the manifest files on the default branch for outdated dependencies. If it finds outdated dependencies, it will raise pull requests against the default branch to update the dependencies.
 
-```yaml
+```yaml copy
 # Basic `dependabot.yml` file with
-# minimum configuration for two package managers
+# minimum configuration for three package managers
 
 version: 2
 updates:
@@ -97,6 +96,14 @@ updates:
     # Check for updates once a week
     schedule:
       interval: "weekly"
+
+  # Enable version updates for GitHub Actions
+  - package-ecosystem: "github-actions"
+    # Workflow files stored in the default location of `.github/workflows`
+    # You don't need to specify `/.github/workflows` for `directory`. You can use `directory: "/"`.
+    directory: "/"
+    schedule:
+      interval: "weekly"
 ```
 
 In the example above, if the Docker dependencies were very outdated, you might want to start with a `daily` schedule until the dependencies are up-to-date, and then drop back to a weekly schedule.
@@ -110,7 +117,7 @@ On a fork, you also need to explicitly enable {% data variables.product.prodname
 {% data reusables.repositories.navigate-to-repo %}
 {% data reusables.repositories.sidebar-settings %}
 {% data reusables.repositories.navigate-to-code-security-and-analysis %}
-1. Under "Code security and analysis", to the right of "{% data variables.product.prodname_dependabot_version_updates %}", click **Enable** to allow {% data variables.product.prodname_dependabot %} to initiate version updates.
+1. Under {% ifversion code-security-wording-only %}"Code security"{% else %}"Code security and analysis"{% endif %}, to the right of "{% data variables.product.prodname_dependabot_version_updates %}", click **Enable** to allow {% data variables.product.prodname_dependabot %} to initiate version updates.
 
 ## Checking the status of version updates
 
@@ -118,7 +125,7 @@ After you enable version updates, the **Dependabot** tab in the dependency graph
 
 ![Screenshot of the Dependency graph page. A tab, titled "{% data variables.product.prodname_dependabot %}", is highlighted with an orange outline.](/assets/images/help/dependabot/dependabot-tab-view.png)
 
-For information, see "[AUTOTITLE](/code-security/dependabot/dependabot-version-updates/listing-dependencies-configured-for-version-updates)."
+For information, see [AUTOTITLE](/code-security/dependabot/troubleshooting-dependabot/listing-dependencies-configured-for-version-updates).
 
 ## Disabling {% data variables.product.prodname_dependabot_version_updates %}
 
@@ -165,4 +172,4 @@ updates:
         update-types: ["version-update:semver-patch"]
 ```
 
-For more information about checking for existing ignore preferences, see "[AUTOTITLE](/code-security/dependabot/dependabot-version-updates/configuration-options-for-the-dependabot.yml-file#ignore)."
+For more information about checking for existing ignore preferences, see [AUTOTITLE](/code-security/dependabot/working-with-dependabot/dependabot-options-reference#ignore).

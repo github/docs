@@ -18,7 +18,7 @@ You cannot use a {% data variables.enterprise.prodname_managed_user %} to contri
 
 {% ifversion account-switcher %}
 
-If you need to use multiple accounts, you can stay signed in to your accounts and switch between them. For example, switching between a personal account and a service account. For more information, see "[AUTOTITLE](/authentication/keeping-your-account-and-data-secure/switching-between-accounts)."
+If you need to use multiple accounts, you can stay signed in to your accounts and switch between them. For example, switching between a personal account and a service account. For more information, see [AUTOTITLE](/authentication/keeping-your-account-and-data-secure/switching-between-accounts).
 
 {% endif %}
 
@@ -35,9 +35,9 @@ If you contribute with two accounts from one workstation, you can access reposit
 
 Git can use either the HTTPS or SSH protocol to access and update data in repositories on {% data variables.product.github %}. The protocol you use to clone a repository determines which credentials your workstation will use to authenticate when you access the repository. With this approach to account management, you store the credentials for one account to use for HTTPS connections and upload an SSH key to the other account to use for SSH connections.
 
-You can find both the HTTPS or an SSH URLs for cloning a repository on the repository's page. For more information, see "[AUTOTITLE](/repositories/creating-and-managing-repositories/cloning-a-repository)."
+You can find both the HTTPS or an SSH URLs for cloning a repository on the repository's page. For more information, see [AUTOTITLE](/repositories/creating-and-managing-repositories/cloning-a-repository).
 
-For more information about the use of SSH to access repositories on {% data variables.product.product_name %}, see "[AUTOTITLE](/authentication/connecting-to-github-with-ssh)."
+For more information about the use of SSH to access repositories on {% data variables.product.product_name %}, see [AUTOTITLE](/authentication/connecting-to-github-with-ssh).
 
 ## Contributing to multiple accounts using HTTPS and {% data variables.product.pat_generic %}s
 
@@ -113,7 +113,7 @@ Alternatively, if you want to use the HTTPS protocol for both accounts, you can 
 
 ## Contributing to multiple accounts using SSH and `GIT_SSH_COMMAND`
 
-If you want to use the SSH protocol for both accounts, you can use different SSH keys for each account. For more information about using SSH, see "[AUTOTITLE](/authentication/connecting-to-github-with-ssh)."
+If you want to use the SSH protocol for both accounts, you can use different SSH keys for each account. For more information about using SSH, see [AUTOTITLE](/authentication/connecting-to-github-with-ssh).
 
 To use a different SSH key for different repositories that you clone to your workstation, you must write a shell wrapper function for Git operations. The function should perform the following steps.
 1. Determine the repository's full name with owner, using a command such as `git config --get remote.origin.url`.

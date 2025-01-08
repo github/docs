@@ -50,9 +50,9 @@ If your academic email address was already used to request a {% data variables.p
 If you have more than one personal account, you must merge your accounts. To retain the discount, keep the account that was granted the discount. You can rename the retained account and keep your contribution history by adding all your email addresses to the retained account.
 
 For more information, see:
-* "[AUTOTITLE](/account-and-profile/setting-up-and-managing-your-personal-account-on-github/managing-your-personal-account/merging-multiple-personal-accounts)"
-* "[AUTOTITLE](/account-and-profile/setting-up-and-managing-your-personal-account-on-github/managing-personal-account-settings/changing-your-github-username)"
-* "[AUTOTITLE](/account-and-profile/setting-up-and-managing-your-personal-account-on-github/managing-email-preferences/adding-an-email-address-to-your-github-account)"
+* [AUTOTITLE](/account-and-profile/setting-up-and-managing-your-personal-account-on-github/managing-your-personal-account/merging-multiple-personal-accounts)
+* [AUTOTITLE](/account-and-profile/setting-up-and-managing-your-personal-account-on-github/managing-personal-account-settings/changing-your-github-username)
+* [AUTOTITLE](/account-and-profile/setting-up-and-managing-your-personal-account-on-github/managing-email-preferences/adding-an-email-address-to-your-github-account)
 
 ## Ineligible student status
 
@@ -65,5 +65,5 @@ Your instructor may still apply for a {% data variables.product.prodname_educati
 
 ## Further reading
 
-* "[How to get the GitHub Student Developer Pack without a student ID](https://github.blog/2019-07-30-how-to-get-the-github-student-developer-pack-without-a-student-id/)" on {% data variables.product.prodname_blog %}
-* "[AUTOTITLE](/education/explore-the-benefits-of-teaching-and-learning-with-github-education/github-global-campus-for-students/apply-to-github-global-campus-as-a-student)"
+* [How to get the GitHub Student Developer Pack without a student ID](https://github.blog/2019-07-30-how-to-get-the-github-student-developer-pack-without-a-student-id/) on {% data variables.product.prodname_blog %}
+* [AUTOTITLE](/education/explore-the-benefits-of-teaching-and-learning-with-github-education/github-global-campus-for-students/apply-to-github-global-campus-as-a-student)

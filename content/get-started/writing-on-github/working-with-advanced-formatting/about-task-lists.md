@@ -33,7 +33,7 @@ If you add a task list to the body of an issue, the list has added functionality
 
 * To help you track your team's work on an issue, the progress of an issue's task list appears in various places on {% data variables.product.product_name %}, such as a repository's list of issues.
 * If a task references another issue and someone closes that issue, the task's checkbox will automatically be marked as complete.
-* If a task requires further tracking or discussion, you can convert the task to an issue by hovering over the task and clicking {% octicon "issue-opened" aria-label="The issue opened icon" %} in the upper-right corner of the task. To add more details before creating the issue, you can use keyboard shortcuts to open the new issue form. For more information, see "[AUTOTITLE](/get-started/accessibility/keyboard-shortcuts#issues-and-pull-requests)."
+* If a task requires further tracking or discussion, you can convert the task to an issue by hovering over the task and clicking {% octicon "issue-opened" aria-label="The issue opened icon" %} in the upper-right corner of the task. To add more details before creating the issue, you can use keyboard shortcuts to open the new issue form. For more information, see [AUTOTITLE](/get-started/accessibility/keyboard-shortcuts#issues-and-pull-requests).
 * Any issues referenced in the task list will specify that they are tracked in the referencing issue.
 
 ![Screenshot of a {% data variables.product.prodname_dotcom %} issue showing a task list under the header "Features." Some items are checked as done, others unchecked as undone. Three list items link to other {% data variables.product.prodname_github_issues %}.](/assets/images/help/writing/task-list-rendered.png)
@@ -44,7 +44,7 @@ If you add a task list to the body of an issue, the list has added functionality
 
 {% data reusables.repositories.task-list-markdown %}
 
-> [!TIP]
+> [!NOTE]
 > You cannot create task list items within closed issues or issues with linked pull requests.
 
 ## Reordering tasks
@@ -75,4 +75,4 @@ Any issues that are referenced in a task list specify that they are tracked by t
 
 ## Further reading
 
-* "[AUTOTITLE](/code-security/code-scanning/managing-code-scanning-alerts/tracking-code-scanning-alerts-in-issues-using-task-lists)"{% endif %}
+* [AUTOTITLE](/code-security/code-scanning/managing-code-scanning-alerts/tracking-code-scanning-alerts-in-issues-using-task-lists){% endif %}

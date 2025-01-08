@@ -30,7 +30,7 @@ shortTitle: Manage a payment method
 
 {% data reusables.dotcom_billing.payment-methods %} {% data reusables.dotcom_billing.same-payment-method %}
 
-We don't support purchase orders for personal accounts. We email receipts monthly or yearly on your account's billing date. If your company, country, or accountant requires your receipts to provide more detail, you can add extra information to your receipts. For more information, see "[AUTOTITLE](/billing/managing-your-github-billing-settings/adding-information-to-your-receipts)."
+We don't support purchase orders for personal accounts. We email receipts monthly or yearly on your account's billing date. If your company, country, or accountant requires your receipts to provide more detail, you can add extra information to your receipts. For more information, see [AUTOTITLE](/billing/managing-your-github-billing-settings/adding-information-to-your-receipts).
 
 {% ifversion us-sales-tax %}
 

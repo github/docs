@@ -30,9 +30,9 @@ topics:
 
 ## About configuring {% data variables.product.prodname_dependabot_security_updates %}
 
-You can enable {% data variables.product.prodname_dependabot_security_updates %} for any repository that uses {% data variables.product.prodname_dependabot_alerts %} and the dependency graph. For more information, see "[AUTOTITLE](/code-security/dependabot/dependabot-security-updates/about-dependabot-security-updates)."
+You can enable {% data variables.product.prodname_dependabot_security_updates %} for any repository that uses {% data variables.product.prodname_dependabot_alerts %} and the dependency graph. For more information, see [AUTOTITLE](/code-security/dependabot/dependabot-security-updates/about-dependabot-security-updates).
 
-You can enable or disable {% data variables.product.prodname_dependabot_security_updates %} for an individual repository{% ifversion code-security-multi-repo-enablement %}, for a selection of repositories in an organization,{% endif %} or for all repositories owned by your personal account or organization. For more information about enabling security features in an organization, see {% ifversion security-configurations %}"[AUTOTITLE](/code-security/securing-your-organization/enabling-security-features-in-your-organization)."{% else %}"[AUTOTITLE](/code-security/getting-started/quickstart-for-securing-your-organization)."{% endif %}
+You can enable or disable {% data variables.product.prodname_dependabot_security_updates %} for an individual repository{% ifversion code-security-multi-repo-enablement %}, for a selection of repositories in an organization,{% endif %} or for all repositories owned by your personal account or organization. For more information about enabling security features in an organization, see {% ifversion security-configurations %}[AUTOTITLE](/code-security/securing-your-organization/enabling-security-features-in-your-organization).{% else %}[AUTOTITLE](/code-security/getting-started/quickstart-for-securing-your-organization).{% endif %}
 
 {% data reusables.dependabot.dependabot-security-updates-disable-for-alert-rules %}
 
@@ -40,7 +40,7 @@ You can enable or disable {% data variables.product.prodname_dependabot_security
 
 ## Supported repositories
 
-{% data variables.product.prodname_dotcom %} automatically enables {% data variables.product.prodname_dependabot_security_updates %} for newly created repositories if your personal account or organization has enabled **Automatically enable for new repositories** for {% data variables.product.prodname_dependabot_security_updates %}. For more information, see "[Managing {% data variables.product.prodname_dependabot_security_updates %} for your repositories](#managing-dependabot-security-updates-for-your-repositories)."
+{% data variables.product.prodname_dotcom %} automatically enables {% data variables.product.prodname_dependabot_security_updates %} for newly created repositories if your personal account or organization has enabled **Automatically enable for new repositories** for {% data variables.product.prodname_dependabot_security_updates %}. For more information, see [Managing {% data variables.product.prodname_dependabot_security_updates %} for your repositories](#managing-dependabot-security-updates-for-your-repositories).
 
 If you create a fork of a repository that has security updates enabled, {% data variables.product.prodname_dotcom %} will automatically disable {% data variables.product.prodname_dependabot_security_updates %} for the fork. You can then decide whether to enable {% data variables.product.prodname_dependabot_security_updates %} on the specific fork.
 
@@ -48,7 +48,7 @@ If security updates are not enabled for your repository and you don't know why, 
 
 ## Managing {% data variables.product.prodname_dependabot_security_updates %} for your repositories
 
-You can enable or disable {% data variables.product.prodname_dependabot_security_updates %} for all qualifying repositories owned by your personal account or organization. For more information, see "[AUTOTITLE](/account-and-profile/setting-up-and-managing-your-personal-account-on-github/managing-personal-account-settings/managing-security-and-analysis-settings-for-your-personal-account)" or "[AUTOTITLE](/organizations/keeping-your-organization-secure/managing-security-settings-for-your-organization/managing-security-and-analysis-settings-for-your-organization)."
+You can enable or disable {% data variables.product.prodname_dependabot_security_updates %} for all qualifying repositories owned by your personal account or organization. For more information, see [AUTOTITLE](/account-and-profile/setting-up-and-managing-your-personal-account-on-github/managing-personal-account-settings/managing-security-and-analysis-settings-for-your-personal-account) or [AUTOTITLE](/organizations/keeping-your-organization-secure/managing-security-settings-for-your-organization/managing-security-and-analysis-settings-for-your-organization).
 
 You can also enable or disable {% data variables.product.prodname_dependabot_security_updates %} for an individual repository.
 
@@ -57,7 +57,7 @@ You can also enable or disable {% data variables.product.prodname_dependabot_sec
 {% data reusables.repositories.navigate-to-repo %}
 {% data reusables.repositories.sidebar-settings %}
 {% data reusables.repositories.navigate-to-code-security-and-analysis %}
-1. Under "Code security and analysis", to the right of "{% data variables.product.prodname_dependabot %} security updates", click **Enable** to enable the feature or **Disable** to disable it. {% ifversion fpt or ghec %}For public repositories, the button is disabled if the feature is always enabled.{% endif %}
+1. Under {% ifversion code-security-wording-only %}"Code security"{% else %}"Code security and analysis"{% endif %}, to the right of "{% data variables.product.prodname_dependabot %} security updates", click **Enable** to enable the feature or **Disable** to disable it. {% ifversion fpt or ghec %}For public repositories, the button is disabled if the feature is always enabled.{% endif %}
 
 {% ifversion dependabot-grouped-security-updates-config %}
 
@@ -65,9 +65,9 @@ You can also enable or disable {% data variables.product.prodname_dependabot_sec
 
 To reduce the number of pull requests you may be seeing, you can enable grouped security updates for your repository or organization. When this is enabled, {% data variables.product.prodname_dependabot %} will group security updates into one pull request for each package ecosystem. In order to use grouped security updates, you must first enable the following features:
 
-* **Dependency graph**. For more information, see "[AUTOTITLE](/code-security/supply-chain-security/understanding-your-software-supply-chain/configuring-the-dependency-graph)."
-* **{% data variables.product.prodname_dependabot_alerts %}**. For more information, see "[AUTOTITLE](/code-security/dependabot/dependabot-alerts/configuring-dependabot-alerts)."
-* **{% data variables.product.prodname_dependabot_security_updates %}**. For more information, see "[AUTOTITLE](/code-security/dependabot/dependabot-security-updates/configuring-dependabot-security-updates)."
+* **Dependency graph**. For more information, see [AUTOTITLE](/code-security/supply-chain-security/understanding-your-software-supply-chain/configuring-the-dependency-graph).
+* **{% data variables.product.prodname_dependabot_alerts %}**. For more information, see [AUTOTITLE](/code-security/dependabot/dependabot-alerts/configuring-dependabot-alerts).
+* **{% data variables.product.prodname_dependabot_security_updates %}**. For more information, see [AUTOTITLE](/code-security/dependabot/dependabot-security-updates/configuring-dependabot-security-updates).
 
 > [!NOTE]
 > When grouped security updates are first enabled, {% data variables.product.prodname_dependabot %} will immediately try to create grouped pull requests. You may notice {% data variables.product.prodname_dependabot %} closing old pull requests and opening new ones.
@@ -82,11 +82,11 @@ Repository administrators can enable or disable grouped security updates for the
 {% data reusables.repositories.navigate-to-repo %}
 {% data reusables.repositories.sidebar-settings %}
 {% data reusables.repositories.navigate-to-code-security-and-analysis %}
-1. Under "Code security and analysis", to the right of "Grouped security updates", click **Enable** to enable the feature or **Disable** to disable it.
+1. Under {% ifversion code-security-wording-only %}"Code security"{% else %}"Code security and analysis"{% endif %}, to the right of "Grouped security updates", click **Enable** to enable the feature or **Disable** to disable it.
 
 ### Enabling or disabling grouped {% data variables.product.prodname_dependabot_security_updates %} for an organization
 
-{% ifversion security-configurations %} You can enable grouped {% data variables.product.prodname_dependabot_security_updates %} into a single pull request. For more information, see "[AUTOTITLE](/code-security/securing-your-organization/enabling-security-features-in-your-organization/configuring-global-security-settings-for-your-organization#grouping-dependabot-security-updates)."
+{% ifversion security-configurations %} You can enable grouped {% data variables.product.prodname_dependabot_security_updates %} into a single pull request. For more information, see [AUTOTITLE](/code-security/securing-your-organization/enabling-security-features-in-your-organization/configuring-global-security-settings-for-your-organization#grouping-dependabot-security-updates).
 
 {% else %}
 
@@ -95,7 +95,7 @@ Organization owners can enable or disable grouped security updates for all repos
 {% data reusables.profile.access_org %}
 {% data reusables.profile.org_settings %}
 {% data reusables.organizations.security-and-analysis %}
-1. Under "Code security and analysis", to the right of "Grouped security updates", click **Disable all** or **Enable all**.
+1. Under {% ifversion code-security-wording-only %}"Code security"{% else %}"Code security and analysis"{% endif %}, to the right of "Grouped security updates", click **Disable all** or **Enable all**.
 1. Optionally, to enable grouped {% data variables.product.prodname_dependabot_security_updates %} for new repositories in your organization, select **Automatically enable for new repositories**.
 
 {% endif %}
@@ -113,9 +113,9 @@ Use the `groups` option with the `applies-to: security-updates` key to create se
 
 If you only require _security_ updates and want to exclude _version_ updates, you can set `open-pull-requests-limit` to `0` in order to prevent version updates for a given `package-ecosystem`.
 
-For more information about the configuration options available for security updates, see "[AUTOTITLE](/code-security/dependabot/dependabot-version-updates/configuration-options-for-the-dependabot.yml-file)."
+For more information about the configuration options available for security updates, see [AUTOTITLE](/code-security/dependabot/dependabot-security-updates/customizing-dependabot-security-prs).
 
-```yaml
+```yaml copy
 # Example configuration file that:
 #  - Has a private registry
 #  - Ignores lodash dependency
@@ -153,6 +153,6 @@ updates:
 
 ## Further reading
 
-* "[AUTOTITLE](/code-security/dependabot/dependabot-alerts/about-dependabot-alerts)"
-* "[AUTOTITLE](/code-security/dependabot/dependabot-alerts/configuring-dependabot-alerts)"
-* "[AUTOTITLE](/code-security/supply-chain-security/understanding-your-software-supply-chain/dependency-graph-supported-package-ecosystems#supported-package-ecosystems)"
+* [AUTOTITLE](/code-security/dependabot/dependabot-alerts/about-dependabot-alerts)
+* [AUTOTITLE](/code-security/dependabot/dependabot-alerts/configuring-dependabot-alerts)
+* [AUTOTITLE](/code-security/supply-chain-security/understanding-your-software-supply-chain/dependency-graph-supported-package-ecosystems#supported-package-ecosystems)

@@ -40,7 +40,7 @@ If you decide to re-enable {% data variables.projects.projects_v2_and_v1 %}, any
 
 ## Managing {% data variables.projects.projects_v1_boards %} in your organization's repositories
 
-You can control whether organization members can create {% data variables.projects.projects_v1_boards %} in repositories in your organization. You can still disable {% data variables.projects.projects_v1_boards %} in individual repositories. For more information, see "[AUTOTITLE](/repositories/managing-your-repositorys-settings-and-features/enabling-features-for-your-repository/disabling-project-boards-in-a-repository)."
+You can control whether organization members can create {% data variables.projects.projects_v1_boards %} in repositories in your organization. You can still disable {% data variables.projects.projects_v1_boards %} in individual repositories. For more information, see [AUTOTITLE](/repositories/managing-your-repositorys-settings-and-features/enabling-features-for-your-repository/disabling-project-boards-in-a-repository).
 
 {% data reusables.profile.access_org %}
 {% data reusables.profile.org_settings %}
@@ -54,8 +54,8 @@ You can control whether organization members can create {% data variables.projec
 
 ## Further reading
 
-{% ifversion projects-v2 %}- "[AUTOTITLE](/issues/planning-and-tracking-with-projects/learning-about-projects/about-projects)"{% endif %}
-{% ifversion projects-v1 %}* "[AUTOTITLE](/issues/organizing-your-work-with-project-boards/managing-project-boards/about-project-boards)"
-* "[AUTOTITLE](/issues/organizing-your-work-with-project-boards/managing-project-boards/closing-a-project-board)"
-* "[AUTOTITLE](/issues/organizing-your-work-with-project-boards/managing-project-boards/deleting-a-project-board)"{% endif %}
-* "[AUTOTITLE](/repositories/managing-your-repositorys-settings-and-features/enabling-features-for-your-repository/disabling-project-boards-in-a-repository)"
+{% ifversion projects-v2 %}- [AUTOTITLE](/issues/planning-and-tracking-with-projects/learning-about-projects/about-projects){% endif %}
+{% ifversion projects-v1 %}* [AUTOTITLE](/issues/organizing-your-work-with-project-boards/managing-project-boards/about-project-boards)
+* [AUTOTITLE](/issues/organizing-your-work-with-project-boards/managing-project-boards/closing-a-project-board)
+* [AUTOTITLE](/issues/organizing-your-work-with-project-boards/managing-project-boards/deleting-a-project-board){% endif %}
+* [AUTOTITLE](/repositories/managing-your-repositorys-settings-and-features/enabling-features-for-your-repository/disabling-project-boards-in-a-repository)

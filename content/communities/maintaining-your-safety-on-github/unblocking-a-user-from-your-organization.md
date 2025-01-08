@@ -14,7 +14,7 @@ shortTitle: Unblock from your org
 
 After unblocking a user from your organization, they'll be able to contribute to your organization's repositories.
 
-If you selected a specific amount of time to block the user, they will be automatically unblocked when that period of time ends. For more information, see "[AUTOTITLE](/communities/maintaining-your-safety-on-github/blocking-a-user-from-your-organization)."
+If you selected a specific amount of time to block the user, they will be automatically unblocked when that period of time ends. For more information, see [AUTOTITLE](/communities/maintaining-your-safety-on-github/blocking-a-user-from-your-organization).
 
 > [!TIP]
 > Any settings that were removed when you blocked the user from your organization, such as collaborator status, stars, and watches, will not be restored when you unblock the user.
@@ -37,7 +37,7 @@ If you selected a specific amount of time to block the user, they will be automa
 
 ## Further reading
 
-* "[AUTOTITLE](/communities/maintaining-your-safety-on-github/blocking-a-user-from-your-organization)"
-* "[AUTOTITLE](/communities/maintaining-your-safety-on-github/blocking-a-user-from-your-personal-account)"
-* "[AUTOTITLE](/communities/maintaining-your-safety-on-github/unblocking-a-user-from-your-personal-account)"
-* "[AUTOTITLE](/communities/maintaining-your-safety-on-github/reporting-abuse-or-spam)"
+* [AUTOTITLE](/communities/maintaining-your-safety-on-github/blocking-a-user-from-your-organization)
+* [AUTOTITLE](/communities/maintaining-your-safety-on-github/blocking-a-user-from-your-personal-account)
+* [AUTOTITLE](/communities/maintaining-your-safety-on-github/unblocking-a-user-from-your-personal-account)
+* [AUTOTITLE](/communities/maintaining-your-safety-on-github/reporting-abuse-or-spam)

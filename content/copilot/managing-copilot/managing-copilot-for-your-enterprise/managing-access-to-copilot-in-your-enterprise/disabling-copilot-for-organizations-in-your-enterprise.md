@@ -28,5 +28,5 @@ redirect_from:
 
 ## Further reading
 
-* "[AUTOTITLE](/billing/managing-billing-for-github-copilot/about-billing-for-github-copilot)"
-* "[AUTOTITLE](/copilot/managing-copilot/managing-copilot-for-your-enterprise/managing-policies-and-features-for-copilot-in-your-enterprise)"
+* [AUTOTITLE](/billing/managing-billing-for-github-copilot/about-billing-for-github-copilot)
+* [AUTOTITLE](/copilot/managing-copilot/managing-copilot-for-your-enterprise/managing-policies-and-features-for-copilot-in-your-enterprise)

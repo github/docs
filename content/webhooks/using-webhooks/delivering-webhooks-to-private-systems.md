@@ -34,6 +34,6 @@ The [`/meta` endpoint](/rest/meta/meta#get-github-meta-information) returns a JS
 
 ### Validating webhook payloads
 
-If your webhook is configured with a secret token, {% data variables.product.prodname_dotcom %} will include a cryptographic hash of each webhook payload. You should use this hash to validate the payload received from {% data variables.product.prodname_dotcom %} before any action is taken by your private system. For more information, see "[AUTOTITLE](/webhooks-and-events/webhooks/securing-your-webhooks)."
+If your webhook is configured with a secret token, {% data variables.product.prodname_dotcom %} will include a cryptographic hash of each webhook payload. You should use this hash to validate the payload received from {% data variables.product.prodname_dotcom %} before any action is taken by your private system. For more information, see [AUTOTITLE](/webhooks-and-events/webhooks/securing-your-webhooks).
 
 You can implement payload validation either on the reverse proxy or on your private system.

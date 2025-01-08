@@ -101,8 +101,8 @@ Once the article has a clearly defined purpose and structure, you can apply the 
 
 ## Further reading
 
-* "[AUTOTITLE](/contributing/style-guide-and-content-model/style-guide)"
-* "[AUTOTITLE](/contributing/style-guide-and-content-model/about-the-content-model)"
-* "[AUTOTITLE](/contributing/style-guide-and-content-model/contents-of-a-github-docs-article)"
-* "[Readability Guidelines](https://readabilityguidelines.co.uk/)," Content Design London
-* "[Rewriting Digital Content for Brevity](https://www.nngroup.com/articles/rewriting-content-brevity/)," Nielsen Norman Group
+* [AUTOTITLE](/contributing/style-guide-and-content-model/style-guide)
+* [AUTOTITLE](/contributing/style-guide-and-content-model/about-the-content-model)
+* [AUTOTITLE](/contributing/style-guide-and-content-model/contents-of-a-github-docs-article)
+* [Readability Guidelines](https://readabilityguidelines.co.uk/), Content Design London
+* [Rewriting Digital Content for Brevity](https://www.nngroup.com/articles/rewriting-content-brevity/), Nielsen Norman Group

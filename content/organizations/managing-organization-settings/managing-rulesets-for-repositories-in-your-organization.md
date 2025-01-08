@@ -19,7 +19,7 @@ After creating a ruleset at the organization level, you can make changes to the 
 
 {% endif %}
 
-You can use the REST and GraphQL APIs to manage rulesets. For more information, see "[AUTOTITLE](/rest/orgs/rules)" and "[AUTOTITLE](/graphql/reference/mutations#createrepositoryruleset)."
+You can use the REST and GraphQL APIs to manage rulesets. For more information, see [AUTOTITLE](/rest/orgs/rules) and [AUTOTITLE](/graphql/reference/mutations#createrepositoryruleset).
 
 {% data reusables.repositories.rulesets-anyone-can-view %}
 

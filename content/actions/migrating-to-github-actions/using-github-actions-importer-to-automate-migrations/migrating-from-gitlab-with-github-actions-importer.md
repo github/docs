@@ -41,7 +41,7 @@ Certain GitLab constructs must be migrated manually. These include:
 * Masked project or group variable values
 * Artifact reports
 
-For more information on manual migrations, see "[AUTOTITLE](/actions/migrating-to-github-actions/manually-migrating-to-github-actions/migrating-from-gitlab-cicd-to-github-actions)."
+For more information on manual migrations, see [AUTOTITLE](/actions/migrating-to-github-actions/manually-migrating-to-github-actions/migrating-from-gitlab-cicd-to-github-actions).
 
 ## Installing the {% data variables.product.prodname_actions_importer %} CLI extension
 
@@ -51,7 +51,7 @@ For more information on manual migrations, see "[AUTOTITLE](/actions/migrating-t
 
 The `configure` CLI command is used to set required credentials and options for {% data variables.product.prodname_actions_importer %} when working with GitLab and {% data variables.product.prodname_dotcom %}.
 
-1. Create a {% data variables.product.prodname_dotcom %} {% data variables.product.pat_v1 %}. For more information, see "[AUTOTITLE](/authentication/keeping-your-account-and-data-secure/managing-your-personal-access-tokens#creating-a-personal-access-token-classic)."
+1. Create a {% data variables.product.prodname_dotcom %} {% data variables.product.pat_v1 %}. For more information, see [AUTOTITLE](/authentication/keeping-your-account-and-data-secure/managing-your-personal-access-tokens#creating-a-personal-access-token-classic).
 
    Your token must have the `workflow` scope.
 
@@ -313,7 +313,7 @@ gh actions-importer migrate gitlab --project my-project-name --output-dir output
 
 ### Supported syntax for GitLab pipelines
 
-The following table shows the type of properties {% data variables.product.prodname_actions_importer %} is currently able to convert. For more details about how GitLab pipeline syntax aligns with {% data variables.product.prodname_actions %}, see "[AUTOTITLE](/actions/migrating-to-github-actions/manually-migrating-to-github-actions/migrating-from-gitlab-cicd-to-github-actions)".
+The following table shows the type of properties {% data variables.product.prodname_actions_importer %} is currently able to convert. For more details about how GitLab pipeline syntax aligns with {% data variables.product.prodname_actions %}, see [AUTOTITLE](/actions/migrating-to-github-actions/manually-migrating-to-github-actions/migrating-from-gitlab-cicd-to-github-actions).
 
 | GitLab Pipelines                        | GitHub Actions                  | Status                      |
 | :-------------------------------------- | :------------------------------ | :-------------------------- |

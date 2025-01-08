@@ -41,7 +41,7 @@ You can indicate emphasis with bold, italic, strikethrough, subscript, or supers
 | All bold and italic | `*** ***` | None | `***All this text is important***` | ***All this text is important*** | <!-- markdownlint-disable-line emphasis-style -->
 | Subscript | `<sub> </sub>` | None | `This is a <sub>subscript</sub> text` | This is a <sub>subscript</sub> text |
 | Superscript | `<sup> </sup>` | None | `This is a <sup>superscript</sup> text` | This is a <sup>superscript</sup> text |
-| Underline | `<ins> </ins>` | None | `This is an <ins>underlined</ins> text` | <ins>This text is underlined</ins> |
+| Underline | `<ins> </ins>` | None | `This is an <ins>underlined</ins> text` | This is an <ins>underlined</ins> text |
 
 ## Quoting text
 
@@ -58,7 +58,7 @@ Quoted text is indented, with a different type color.
 ![Screenshot of rendered GitHub Markdown showing sample quoted text. The quote is indented with a vertical line on the left, and its text is dark gray rather than black.](/assets/images/help/writing/quoted-text-rendered.png)
 
 > [!NOTE]
-> When viewing a conversation, you can automatically quote text in a comment by highlighting the text, then typing <kbd>R</kbd>. You can quote an entire comment by clicking {% octicon "kebab-horizontal" aria-label="The horizontal kebab icon" %}, then **Quote reply**. For more information about keyboard shortcuts, see "[AUTOTITLE](/get-started/accessibility/keyboard-shortcuts)."
+> When viewing a conversation, you can automatically quote text in a comment by highlighting the text, then typing <kbd>R</kbd>. You can quote an entire comment by clicking {% octicon "kebab-horizontal" aria-label="The horizontal kebab icon" %}, then **Quote reply**. For more information about keyboard shortcuts, see [AUTOTITLE](/get-started/accessibility/keyboard-shortcuts).
 
 ## Quoting code
 
@@ -83,7 +83,7 @@ git commit
 
 ![Screenshot of rendered GitHub Markdown showing a code block. The words "git status," "git add," and "git commit" appear in a fixed-width typeface, highlighted in light gray.](/assets/images/help/writing/code-block-rendered.png)
 
-For more information, see "[AUTOTITLE](/get-started/writing-on-github/working-with-advanced-formatting/creating-and-highlighting-code-blocks)."
+For more information, see [AUTOTITLE](/get-started/writing-on-github/working-with-advanced-formatting/creating-and-highlighting-code-blocks).
 
 {% data reusables.user-settings.enabling-fixed-width-fonts %}
 
@@ -120,7 +120,7 @@ You can also create a Markdown hyperlink by highlighting the text and using the 
 ![Screenshot of rendered GitHub Markdown showing how text within brackets, "GitHub Pages," appears as a blue hyperlink.](/assets/images/help/writing/link-rendered.png)
 
 > [!NOTE]
-> {% data variables.product.product_name %} automatically creates links when valid URLs are written in a comment. For more information, see "[AUTOTITLE](/get-started/writing-on-github/working-with-advanced-formatting/autolinked-references-and-urls)."
+> {% data variables.product.product_name %} automatically creates links when valid URLs are written in a comment. For more information, see [AUTOTITLE](/get-started/writing-on-github/working-with-advanced-formatting/autolinked-references-and-urls).
 
 ## Section links
 
@@ -199,6 +199,44 @@ Some text I want to provide a direct link to, but which doesn't have its own hea
 > [!TIP]
 > Custom anchors are not considered by the automatic naming and numbering behavior of automatic heading links.
 
+## Line breaks
+
+If you're writing in issues, pull requests, or discussions in a repository, {% data variables.product.github %} will render a line break automatically:
+
+```markdown
+This example
+Will span two lines
+```
+
+However, if you are writing in an .md file, the example above would render on one line without a line break. To create a line break in an .md file, you will need to include one of the following:
+
+* Include two spaces at the end of the first line.
+  <pre>
+  This example&nbsp;&nbsp;
+  Will span two lines
+  </pre>
+* Include a backslash at the end of the first line.
+
+  ```markdown
+  This example\
+  Will span two lines
+  ```
+
+* Include an HTML single line break tag at the end of the first line.
+
+  ```markdown
+  This example<br/>
+  Will span two lines
+  ```
+
+If you leave a blank line between two lines, both .md files and Markdown in issues, pull requests, and discussions will render the two lines separated by the blank line:
+
+```markdown
+This example
+
+Will have a blank line separating both lines
+```
+
 ## Images
 
 You can display an image by adding <kbd>!</kbd> and wrapping the alt text in `[ ]`. Alt text is a short text equivalent of the information in the image. Then, wrap the link for the image in parentheses `()`.
@@ -207,7 +245,7 @@ You can display an image by adding <kbd>!</kbd> and wrapping the alt text in `[ 
 
 ![Screenshot of a comment on a GitHub issue showing an image, added in the Markdown, of an Octocat smiling and raising a tentacle.](/assets/images/help/writing/image-rendered.png)
 
-{% data variables.product.product_name %} supports embedding images into your issues, pull requests{% ifversion fpt or ghec %}, discussions{% endif %}, comments and `.md` files. You can display an image from your repository, add a link to an online image, or upload an image. For more information, see "[Uploading assets](#uploading-assets)."
+{% data variables.product.product_name %} supports embedding images into your issues, pull requests{% ifversion fpt or ghec %}, discussions{% endif %}, comments and `.md` files. You can display an image from your repository, add a link to an online image, or upload an image. For more information, see [Uploading assets](#uploading-assets).
 
 > [!NOTE]
 > When you want to display an image that is in your repository, use relative links instead of absolute links.
@@ -225,17 +263,11 @@ Here are some examples for using relative links to display an image.
 > [!NOTE]
 > The last two relative links in the table above will work for images in a private repository only if the viewer has at least read access to the private repository that contains these images.
 
-For more information, see "[Relative Links](#relative-links)."
+For more information, see [Relative Links](#relative-links).
 
-### Specifying the theme an image is shown to
+### The Picture element
 
-You can specify the theme an image is displayed for in Markdown by using the HTML `<picture>` element in combination with the `prefers-color-scheme` media feature. We distinguish between light and dark color modes, so there are two options available. You can use these options to display images optimized for dark or light backgrounds. This is particularly helpful for transparent PNG images.
-
-For example, the following code displays a sun image for light themes and a moon for dark themes:
-
-{% data reusables.getting-started.picture-element-example %}
-
-The old method of specifying images based on the theme, by using a fragment appended to the URL (`#gh-dark-mode-only` or `#gh-light-mode-only`), is {% data variables.release-phases.closing_down %} and will be removed in favor of the new method described above.
+The `<picture>` HTML element is supported.
 
 ## Lists
 
@@ -309,11 +341,11 @@ If a task list item description begins with a parenthesis, you'll need to escape
 
 `- [ ] \(Optional) Open a followup issue`
 
-For more information, see "[AUTOTITLE](/get-started/writing-on-github/working-with-advanced-formatting/about-task-lists)."
+For more information, see [AUTOTITLE](/get-started/writing-on-github/working-with-advanced-formatting/about-task-lists).
 
 ## Mentioning people and teams
 
-You can mention a person or [team](/organizations/organizing-members-into-teams) on {% data variables.product.product_name %} by typing <kbd>@</kbd> plus their username or team name. This will trigger a notification and bring their attention to the conversation. People will also receive a notification if you edit a comment to mention their username or team name. For more information about notifications, see "[AUTOTITLE](/account-and-profile/managing-subscriptions-and-notifications-on-github/setting-up-notifications/about-notifications)."
+You can mention a person or [team](/organizations/organizing-members-into-teams) on {% data variables.product.product_name %} by typing <kbd>@</kbd> plus their username or team name. This will trigger a notification and bring their attention to the conversation. People will also receive a notification if you edit a comment to mention their username or team name. For more information about notifications, see [AUTOTITLE](/account-and-profile/managing-subscriptions-and-notifications-on-github/setting-up-notifications/about-notifications).
 
 > [!NOTE]
 > A person will only be notified about a mention if the person has read access to the repository and, if the repository is owned by an organization, the person is a member of the organization.
@@ -322,7 +354,7 @@ You can mention a person or [team](/organizations/organizing-members-into-teams)
 
 ![Screenshot of rendered GitHub Markdown showing how the team mention "@github/support" renders as bold, clickable text.](/assets/images/help/writing/mention-rendered.png)
 
-When you mention a parent team, members of its child teams also receive notifications, simplifying communication with multiple groups of people. For more information, see "[AUTOTITLE](/organizations/organizing-members-into-teams/about-teams)."
+When you mention a parent team, members of its child teams also receive notifications, simplifying communication with multiple groups of people. For more information, see [AUTOTITLE](/organizations/organizing-members-into-teams/about-teams).
 
 Typing an <kbd>@</kbd> symbol will bring up a list of people or teams on a project. The list filters as you type, so once you find the name of the person or team you are looking for, you can use the arrow keys to select it and press either tab or enter to complete the name. For teams, enter the @organization/team-name and all members of that team will get subscribed to the conversation.
 
@@ -332,7 +364,7 @@ The autocomplete results are restricted to repository collaborators and any othe
 
 You can bring up a list of suggested issues and pull requests within the repository by typing <kbd>#</kbd>. Type the issue or pull request number or title to filter the list, and then press either tab or enter to complete the highlighted result.
 
-For more information, see "[AUTOTITLE](/get-started/writing-on-github/working-with-advanced-formatting/autolinked-references-and-urls)."
+For more information, see [AUTOTITLE](/get-started/writing-on-github/working-with-advanced-formatting/autolinked-references-and-urls).
 
 ## Referencing external resources
 
@@ -428,7 +460,7 @@ You can tell {% data variables.product.product_name %} to ignore (or escape) Mar
 
 ![Screenshot of rendered GitHub Markdown showing how backslashes prevent the conversion of asterisks to italics. The text reads, "Let's rename our-new-project to our-old-project."](/assets/images/help/writing/escaped-character-rendered.png)
 
-For more information on backslashes, see Daring Fireball's "[Markdown Syntax](https://daringfireball.net/projects/markdown/syntax#backslash)."
+For more information on backslashes, see Daring Fireball's [Markdown Syntax](https://daringfireball.net/projects/markdown/syntax#backslash).
 
 > [!NOTE]
 > The Markdown formatting will not be ignored in the title of an issue or a pull request.
@@ -440,6 +472,6 @@ For more information on backslashes, see Daring Fireball's "[Markdown Syntax](ht
 ## Further reading
 
 * [{% data variables.product.prodname_dotcom %} Flavored Markdown Spec](https://github.github.com/gfm/)
-* "[AUTOTITLE](/get-started/writing-on-github/getting-started-with-writing-and-formatting-on-github/about-writing-and-formatting-on-github)"
-* "[AUTOTITLE](/get-started/writing-on-github/working-with-advanced-formatting)"
-* "[AUTOTITLE](/get-started/writing-on-github/getting-started-with-writing-and-formatting-on-github/quickstart-for-writing-on-github)"
+* [AUTOTITLE](/get-started/writing-on-github/getting-started-with-writing-and-formatting-on-github/about-writing-and-formatting-on-github)
+* [AUTOTITLE](/get-started/writing-on-github/working-with-advanced-formatting)
+* [AUTOTITLE](/get-started/writing-on-github/getting-started-with-writing-and-formatting-on-github/quickstart-for-writing-on-github)

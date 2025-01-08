@@ -37,7 +37,7 @@ Each recommended secret is displayed in one of three ways:
 
 You should use recommended secrets for development environment secrets that the user who creates the codespace, rather than the owner of the repository or organization, must provide. For example, if you have a public project, and users must provide a personal API key to run the application in your project, you can specify a recommended secret so that users will be prompted to provide the key as the value of the secret when they use the advanced options page to create a codespace.
 
-Alternatively, for development environment secrets that the owner of the repository or organization can provide, such as API keys shared across a team, you can set secrets at the level of the repository or organization. For more information, see "[AUTOTITLE](/codespaces/managing-codespaces-for-your-organization/managing-development-environment-secrets-for-your-repository-or-organization)."
+Alternatively, for development environment secrets that the owner of the repository or organization can provide, such as API keys shared across a team, you can set secrets at the level of the repository or organization. For more information, see [AUTOTITLE](/codespaces/managing-codespaces-for-your-organization/managing-development-environment-secrets-for-your-repository-or-organization).
 
 ## Specifying recommended secrets in the dev container configuration
 
@@ -64,4 +64,4 @@ Alternatively, for development environment secrets that the owner of the reposit
 
 ## Further reading
 
-* "[AUTOTITLE](/codespaces/developing-in-a-codespace/creating-a-codespace-for-a-repository?tool=webui#creating-a-codespace-for-a-repository)"
+* [AUTOTITLE](/codespaces/developing-in-a-codespace/creating-a-codespace-for-a-repository?tool=webui#creating-a-codespace-for-a-repository)

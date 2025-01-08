@@ -17,17 +17,17 @@ topics:
 
 After running an initial analysis of your code with default setup, you may need to make changes to your configuration to better meet your code security needs. For existing configurations of default setup, you can edit:
 * Which languages default setup will analyze.
-* The query suite run during analysis. For more information on the available query suites, see "[AUTOTITLE](/code-security/code-scanning/managing-your-code-scanning-configuration/codeql-query-suites)."{% ifversion codeql-threat-models %}
-* The threat models ({% data variables.release-phases.public_preview %}) to use for analysis. Your choice of threat model determines which sources of tainted data are treated as a risk to your application. During the {% data variables.release-phases.public_preview %}, threat models are supported only for analysis of {% data variables.code-scanning.code_scanning_threat_model_support %}. For more information about threat models, see "[Including local sources of tainted data in default setup](#including-local-sources-of-tainted-data-in-default-setup)."
+* The query suite run during analysis. For more information on the available query suites, see [AUTOTITLE](/code-security/code-scanning/managing-your-code-scanning-configuration/codeql-query-suites).{% ifversion codeql-threat-models %}
+* The threat models ({% data variables.release-phases.public_preview %}) to use for analysis. Your choice of threat model determines which sources of tainted data are treated as a risk to your application. During the {% data variables.release-phases.public_preview %}, threat models are supported only for analysis of {% data variables.code-scanning.code_scanning_threat_model_support %}. For more information about threat models, see [Including local sources of tainted data in default setup](#including-local-sources-of-tainted-data-in-default-setup).
 {% endif %}
 
 {% ifversion codeql-model-packs %}
 
-If your codebase depends on a library or framework that is not recognized by the standard libraries included with {% data variables.product.prodname_codeql %}, you can also extend the {% data variables.product.prodname_codeql %} coverage in default setup using {% data variables.product.prodname_codeql %} model packs. For more information, see "[Extending CodeQL coverage with CodeQL model packs in default setup](#extending-codeql-coverage-with-codeql-model-packs-in-default-setup)."
+If your codebase depends on a library or framework that is not recognized by the standard libraries included with {% data variables.product.prodname_codeql %}, you can also extend the {% data variables.product.prodname_codeql %} coverage in default setup using {% data variables.product.prodname_codeql %} model packs. For more information, see [Extending CodeQL coverage with CodeQL model packs in default setup](#extending-codeql-coverage-with-codeql-model-packs-in-default-setup).
 
 {% endif %}
 
-If you need to change any other aspects of your {% data variables.product.prodname_code_scanning %} configuration, consider configuring advanced setup. For more information, see "[AUTOTITLE](/code-security/code-scanning/creating-an-advanced-setup-for-code-scanning/configuring-advanced-setup-for-code-scanning)."
+If you need to change any other aspects of your {% data variables.product.prodname_code_scanning %} configuration, consider configuring advanced setup. For more information, see [AUTOTITLE](/code-security/code-scanning/creating-an-advanced-setup-for-code-scanning/configuring-advanced-setup-for-code-scanning).
 
 ## Customizing your existing configuration of default setup
 
@@ -38,6 +38,13 @@ If you need to change any other aspects of your {% data variables.product.prodna
 1. In the "{% data variables.product.prodname_codeql %} default configuration" window, click **{% octicon "pencil" aria-hidden="true" %} Edit**.
 1. Optionally, in the "Languages" section, select or deselect languages for analysis.
 1. Optionally, in the "Query suite" row of the "Scan settings" section, select a different query suite to run against your code.{% ifversion codeql-threat-models %}
+
+{% ifversion code-scanning-default-setup-customize-labels %}
+
+1. Optionally, to use labeled runners, in the "Runner type" section of the "{% data variables.product.prodname_codeql %} default configuration" modal dialog, select **Standard {% data variables.product.company_short %} runner** {% octicon "triangle-down" aria-hidden="true" %} to open a dropdown menu, then select **Labeled runner**. Then, next to "Runner label", enter the label of an existing self-hosted or {% data variables.product.company_short %}-hosted runner. For more information, see [AUTOTITLE](/code-security/code-scanning/enabling-code-scanning/configuring-default-setup-for-code-scanning#assigning-labels-to-runners).
+
+{% endif %}
+
 1. ({% data variables.release-phases.public_preview_caps %}) Optionally, in the "Threat model" row of the "Scan settings" section, select **Remote and local sources**.
 {% endif %}
 1. To update your configuration, as well as run an initial analysis of your code with the new configuration, click **Save changes**. All future analyses will use your new configuration.
@@ -50,7 +57,7 @@ You can use rulesets to prevent pull requests from being merged when one of the 
 
 {% data reusables.code-scanning.merge-protection-rulesets-conditions %}
 
-For more information, see "[AUTOTITLE](/code-security/code-scanning/managing-your-code-scanning-configuration/set-code-scanning-merge-protection)." For more general information about rulesets, see "[AUTOTITLE](/repositories/configuring-branches-and-merges-in-your-repository/managing-rulesets/about-rulesets)."
+For more information, see [AUTOTITLE](/code-security/code-scanning/managing-your-code-scanning-configuration/set-code-scanning-merge-protection). For more general information about rulesets, see [AUTOTITLE](/repositories/configuring-branches-and-merges-in-your-repository/managing-rulesets/about-rulesets).
 
 {% else %}
 
@@ -72,7 +79,7 @@ For more information, see "[AUTOTITLE](/code-security/code-scanning/managing-you
 
 If your codebase only considers remote network requests to be potential sources of tainted data, then we recommend using the default threat model. If your codebase considers sources other than network requests to potentially contain tainted data, then you can use threat models to add these additional sources to your {% data variables.product.prodname_codeql %} analysis. During the {% data variables.release-phases.public_preview %}, you can add local sources (for example: command-line arguments, environment variables, file systems, and databases) that your codebase may consider to be additional sources of tainted data.
 
-You can edit the threat model used in a default setup configuration. For more information, see "[Customizing your existing configuration of default setup](#customizing-your-existing-configuration-of-default-setup)."
+You can edit the threat model used in a default setup configuration. For more information, see [Customizing your existing configuration of default setup](#customizing-your-existing-configuration-of-default-setup).
 
 {% endif %}
 
@@ -86,7 +93,7 @@ If {% ifversion ghec %}your enterprise is hosted on {% data variables.product.pr
 
 For default setup, you need to define the models of your additional dependencies in {% data variables.product.prodname_codeql %} model packs. You can extend coverage in default setup with {% data variables.product.prodname_codeql %} model packs for individual repositories, or at scale for all repositories in an organization.
 
-For more information about {% data variables.product.prodname_codeql %} model packs and writing your own, see "[AUTOTITLE](/code-security/codeql-for-vs-code/using-the-advanced-functionality-of-the-codeql-for-vs-code-extension/using-the-codeql-model-editor)."
+For more information about {% data variables.product.prodname_codeql %} model packs and writing your own, see [AUTOTITLE](/code-security/codeql-for-vs-code/using-the-advanced-functionality-of-the-codeql-for-vs-code-extension/using-the-codeql-model-editor).
 
 ### Extending coverage for a repository
 
@@ -99,7 +106,7 @@ For more information about {% data variables.product.prodname_codeql %} model pa
 ### Extending coverage for all repositories in an organization
 
 >[!NOTE]
-> If you extend coverage with {% data variables.product.prodname_codeql %} model packs for all repositories in an organization, the model packs that you specify must be published to the {% ifversion ghes %}container registry associated with the {% data variables.product.prodname_ghe_server %} instance (`https://containers.HOSTNAME`){% else %}{% data variables.product.company_short %} {% data variables.product.prodname_container_registry %}{% endif %} and be accessible to the repositories that run {% data variables.product.prodname_code_scanning %}. For more information, see "[AUTOTITLE](/packages/working-with-a-github-packages-registry/working-with-the-container-registry)."
+> If you extend coverage with {% data variables.product.prodname_codeql %} model packs for all repositories in an organization, the model packs that you specify must be published to the {% ifversion ghes %}container registry associated with the {% data variables.product.prodname_ghe_server %} instance (`https://containers.HOSTNAME`){% else %}{% data variables.product.company_short %} {% data variables.product.prodname_container_registry %}{% endif %} and be accessible to the repositories that run {% data variables.product.prodname_code_scanning %}. For more information, see [AUTOTITLE](/packages/working-with-a-github-packages-registry/working-with-the-container-registry).
 
 {% data reusables.profile.access_org %}
 {% data reusables.organizations.org_settings %}

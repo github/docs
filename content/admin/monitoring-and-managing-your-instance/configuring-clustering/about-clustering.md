@@ -22,7 +22,7 @@ topics:
 
 The cluster topology for {% data variables.product.prodname_ghe_server %} provides horizontal scaling for companies with tens of thousands of developers. {% data variables.product.company_short %} recommends clustering if a single primary node would routinely experience resource exhaustion.
 
-In a cluster, the instance provides services and distributes data across multiple virtual machines (VMs) that run the {% data variables.product.product_name %} software. Each VM is called a node. For more information, see "[AUTOTITLE](/admin/enterprise-management/configuring-clustering/about-cluster-nodes)."
+In a cluster, the instance provides services and distributes data across multiple virtual machines (VMs) that run the {% data variables.product.product_name %} software. Each VM is called a node. For more information, see [AUTOTITLE](/admin/enterprise-management/configuring-clustering/about-cluster-nodes).
 
 <a name="is-clustering-right-for-my-organization"></a>
 

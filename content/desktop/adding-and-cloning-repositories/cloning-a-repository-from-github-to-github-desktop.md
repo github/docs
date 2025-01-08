@@ -11,7 +11,7 @@ shortTitle: Clone a GitHub repo
 ---
 
 > [!TIP]
-> You also can use {% data variables.product.prodname_desktop %} to clone repositories that exist on {% data variables.product.prodname_dotcom %}. For more information, see "[AUTOTITLE](/desktop/adding-and-cloning-repositories/cloning-and-forking-repositories-from-github-desktop)."
+> You also can use {% data variables.product.prodname_desktop %} to clone repositories that exist on {% data variables.product.prodname_dotcom %}. For more information, see [AUTOTITLE](/desktop/adding-and-cloning-repositories/cloning-and-forking-repositories-from-github-desktop).
 
 1. Sign in to {% data variables.product.github %} and {% data variables.product.prodname_desktop %} before you start to clone.
 {% data reusables.repositories.navigate-to-repo %}

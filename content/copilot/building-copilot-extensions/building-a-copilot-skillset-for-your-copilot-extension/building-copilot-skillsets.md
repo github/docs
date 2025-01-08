@@ -19,17 +19,17 @@ type: how_to
 
 Before you begin, make sure you have the following:
 
-1. **A configured {% data variables.product.prodname_github_app %}:** You’ll need a {% data variables.product.prodname_github_app %} to act as the container for your skillset. If you haven’t already set one up, refer to "[AUTOTITLE](/copilot/building-copilot-extensions/creating-a-copilot-extension/creating-a-github-app-for-your-copilot-extension)" and "[AUTOTITLE](/copilot/building-copilot-extensions/creating-a-copilot-extension/configuring-your-github-app-for-your-copilot-extension)".
+1. **A configured {% data variables.product.prodname_github_app %}:** You’ll need a {% data variables.product.prodname_github_app %} to act as the container for your skillset. If you haven’t already set one up, refer to [AUTOTITLE](/copilot/building-copilot-extensions/creating-a-copilot-extension/creating-a-github-app-for-your-copilot-extension) and [AUTOTITLE](/copilot/building-copilot-extensions/creating-a-copilot-extension/configuring-your-github-app-for-your-copilot-extension).
 1. **API endpoints:** You need one endpoint per skill. Each endpoint must:
     * Accept POST requests with the `application/json` MIME type
     * Be able to verify the signature of requests from {% data variables.product.github %} to authenticate their origin and prevent unauthorized access
     * Be publicly accessible via HTTPS
 
-For more information about signature verification, see "[Verifying that payloads are coming from Github](/copilot/building-copilot-extensions/building-a-copilot-agent-for-your-copilot-extension/configuring-your-copilot-agent-to-communicate-with-github#verifying-that-payloads-are-coming-from-github)".
+For more information about signature verification, see [Verifying that payloads are coming from Github](/copilot/building-copilot-extensions/building-a-copilot-agent-for-your-copilot-extension/configuring-your-copilot-agent-to-communicate-with-github#verifying-that-payloads-are-coming-from-github).
 
 ## Configuration requirements
 
-Each skillset is defined within a {% data variables.product.prodname_github_app %}. A single{% data variables.product.prodname_github_app %} can contain up to five skills. Each individual skill needs:
+Each skillset is defined within a {% data variables.product.prodname_github_app %}. A single {% data variables.product.prodname_github_app %} can contain up to five skills. Each individual skill needs:
 * **Name:** A clear and descriptive name (for example, "Get Issues").
 * **Inference description:** A detailed explanation of what the skill does and when to use it (for example, "Searches for external issues matching specific criteria like status and labels").
 * **API endpoint:** A POST endpoint that accepts JSON requests.

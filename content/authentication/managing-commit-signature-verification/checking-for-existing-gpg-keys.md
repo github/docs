@@ -27,16 +27,16 @@ shortTitle: Existing GPG keys
 
       ```shell
       $ gpg --armor --export 3AA5C34371567BD2
-      # Prints the GPG key ID, in ASCII armor format
+      # Prints the GPG public key, in ASCII armor format
       ```
 
       You can then [add your GPG key to your GitHub account](/authentication/managing-commit-signature-verification/adding-a-gpg-key-to-your-github-account).
 
 ## Further reading
 
-* "[AUTOTITLE](/authentication/managing-commit-signature-verification/generating-a-new-gpg-key)"
-* "[AUTOTITLE](/authentication/managing-commit-signature-verification/adding-a-gpg-key-to-your-github-account)"
-* "[AUTOTITLE](/authentication/managing-commit-signature-verification/telling-git-about-your-signing-key)"
-* "[AUTOTITLE](/authentication/managing-commit-signature-verification/associating-an-email-with-your-gpg-key)"
-* "[AUTOTITLE](/authentication/managing-commit-signature-verification/signing-commits)"
-* "[AUTOTITLE](/authentication/managing-commit-signature-verification/signing-tags)"
+* [AUTOTITLE](/authentication/managing-commit-signature-verification/generating-a-new-gpg-key)
+* [AUTOTITLE](/authentication/managing-commit-signature-verification/adding-a-gpg-key-to-your-github-account)
+* [AUTOTITLE](/authentication/managing-commit-signature-verification/telling-git-about-your-signing-key)
+* [AUTOTITLE](/authentication/managing-commit-signature-verification/associating-an-email-with-your-gpg-key)
+* [AUTOTITLE](/authentication/managing-commit-signature-verification/signing-commits)
+* [AUTOTITLE](/authentication/managing-commit-signature-verification/signing-tags)

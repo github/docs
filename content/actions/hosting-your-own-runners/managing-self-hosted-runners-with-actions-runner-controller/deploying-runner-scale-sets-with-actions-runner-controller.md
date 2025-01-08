@@ -18,13 +18,13 @@ defaultPlatform: linux
 
 Runner scale sets is a group of homogeneous runners that can be assigned jobs from {% data variables.product.prodname_actions %}. The number of active runners owned by a runner scale set can be controlled by auto-scaling runner solutions such as {% data variables.product.prodname_actions_runner_controller %} (ARC).
 
-You can use runner groups to manage runner scale sets. Similar to self-hosted runners, you can add runner scale sets to existing runner groups. However, runner scale sets can belong to only one runner group at a time and can only have one label assigned to them. For more information on runner groups, see "[AUTOTITLE](/actions/hosting-your-own-runners/managing-self-hosted-runners/managing-access-to-self-hosted-runners-using-groups)."
+You can use runner groups to manage runner scale sets. Similar to self-hosted runners, you can add runner scale sets to existing runner groups. However, runner scale sets can belong to only one runner group at a time and can only have one label assigned to them. For more information on runner groups, see [AUTOTITLE](/actions/hosting-your-own-runners/managing-self-hosted-runners/managing-access-to-self-hosted-runners-using-groups).
 
-To assign jobs to a runner scale set, you must configure your workflow to reference the runner scale set's name. For more information, see "[AUTOTITLE](/actions/hosting-your-own-runners/managing-self-hosted-runners-with-actions-runner-controller/using-actions-runner-controller-runners-in-a-workflow)."
+To assign jobs to a runner scale set, you must configure your workflow to reference the runner scale set's name. For more information, see [AUTOTITLE](/actions/hosting-your-own-runners/managing-self-hosted-runners-with-actions-runner-controller/using-actions-runner-controller-runners-in-a-workflow).
 
 ## Deploying a runner scale set
 
-To deploy a runner scale set, you must have ARC up and running. For more information, see "[AUTOTITLE](/actions/hosting-your-own-runners/managing-self-hosted-runners-with-actions-runner-controller/quickstart-for-actions-runner-controller)."
+To deploy a runner scale set, you must have ARC up and running. For more information, see [AUTOTITLE](/actions/hosting-your-own-runners/managing-self-hosted-runners-with-actions-runner-controller/quickstart-for-actions-runner-controller).
 
 You can deploy runner scale sets with ARC's Helm charts or by deploying the necessary manifests. Using ARC's Helm charts is the preferred method, especially if you do not have prior experience using ARC.
 
@@ -105,7 +105,7 @@ You can deploy runner scale sets with ARC's Helm charts or by deploying the nece
     arc-runner-set-754b578d-listener                       1/1     Running   0          12s
     ```
 
-If your installation was not successful, see "[AUTOTITLE](/actions/hosting-your-own-runners/managing-self-hosted-runners-with-actions-runner-controller/troubleshooting-actions-runner-controller-errors)" for troubleshooting information.
+If your installation was not successful, see [AUTOTITLE](/actions/hosting-your-own-runners/managing-self-hosted-runners-with-actions-runner-controller/troubleshooting-actions-runner-controller-errors) for troubleshooting information.
 
 ## Using advanced configuration options
 
@@ -159,7 +159,7 @@ githubConfigUrl: "http(s)://<HOSTNAME>/<'enterprises/your_enterprise'/'org'/'org
 
 ### Using a {% data variables.product.prodname_github_app %} for authentication
 
-If you are not using enterprise-level runners, you can use {% data variables.product.prodname_github_apps %} to authenticate with the {% data variables.product.company_short %} API. For more information, see "[AUTOTITLE](/actions/hosting-your-own-runners/managing-self-hosted-runners-with-actions-runner-controller/authenticating-to-the-github-api)."
+If you are not using enterprise-level runners, you can use {% data variables.product.prodname_github_apps %} to authenticate with the {% data variables.product.company_short %} API. For more information, see [AUTOTITLE](/actions/hosting-your-own-runners/managing-self-hosted-runners-with-actions-runner-controller/authenticating-to-the-github-api).
 
 > [!NOTE]
 > Given the security risk associated with exposing your private key in plain text in a file on disk, we recommend creating a Kubernetes secret and passing the reference instead.
@@ -210,7 +210,7 @@ githubConfigSecret:
 
 ### Managing access with runner groups
 
-You can use runner groups to control which organizations or repositories have access to your runner scale sets. For more information on runner groups, see "[AUTOTITLE](/actions/hosting-your-own-runners/managing-self-hosted-runners/managing-access-to-self-hosted-runners-using-groups)."
+You can use runner groups to control which organizations or repositories have access to your runner scale sets. For more information on runner groups, see [AUTOTITLE](/actions/hosting-your-own-runners/managing-self-hosted-runners/managing-access-to-self-hosted-runners-using-groups).
 
 To add a runner scale set to a runner group, you must already have a runner group created. Then set the `runnerGroup` property in your copy of the `values.yaml` file. The following example adds a runner scale set to the Octo-Group runner group.
 
@@ -415,11 +415,8 @@ template:
 
 You can customize the PodSpec of the listener pod and the controller will apply the configuration you specify. The following is an example pod specification.
 
-{% note %}
-
-It's important to not change the `listenerTemplate.spec.containers.name` value of the listener container. Otherwise, the configuration you specify will be applied to a new side-car container.
-
-{% endnote %}
+> [!NOTE]
+> It's important to not change the `listenerTemplate.spec.containers.name` value of the listener container. Otherwise, the configuration you specify will be applied to a new side-car container.
 
 ```yaml
 listenerTemplate:
@@ -447,15 +444,15 @@ listenerTemplate:
 
 If you are using container jobs and services or container actions, the `containerMode` value must be set to `dind` or `kubernetes`.
 
-* For more information on container jobs and services, see "[AUTOTITLE](/actions/using-jobs/running-jobs-in-a-container)."
-* For more information on container actions, see "[AUTOTITLE](/actions/creating-actions/creating-a-docker-container-action)."
+* For more information on container jobs and services, see [AUTOTITLE](/actions/using-jobs/running-jobs-in-a-container).
+* For more information on container actions, see [AUTOTITLE](/actions/creating-actions/creating-a-docker-container-action).
 
 ### Using Docker-in-Docker mode
 
 > [!NOTE]
 > The Docker-in-Docker container requires privileged mode. For more information, see [Configure a Security Context for a Pod or Container](https://kubernetes.io/docs/tasks/configure-pod-container/security-context/) in the Kubernetes documentation.
 >
-> By default, the `dind` container uses the `docker:dind` image, which runs the Docker daemon as root. You can replace this image with `docker:dind-rootless` as long as you are aware of the [known limitations](https://docs.docker.com/engine/security/rootless/#known-limitations) and run the pods with `--privileged` mode. To learn how to customize the Docker-in-Docker configuration, see "[Customizing container modes](/actions/hosting-your-own-runners/managing-self-hosted-runners-with-actions-runner-controller/deploying-runner-scale-sets-with-actions-runner-controller#customizing-container-modes)."
+> By default, the `dind` container uses the `docker:dind` image, which runs the Docker daemon as root. You can replace this image with `docker:dind-rootless` as long as you are aware of the [known limitations](https://docs.docker.com/engine/security/rootless/#known-limitations) and run the pods with `--privileged` mode. To learn how to customize the Docker-in-Docker configuration, see [Customizing container modes](/actions/hosting-your-own-runners/managing-self-hosted-runners-with-actions-runner-controller/deploying-runner-scale-sets-with-actions-runner-controller#customizing-container-modes).
 
 Docker-in-Docker mode is a configuration that allows you to run Docker inside a Docker container. In this configuration, for each runner pod created, ARC creates the following containers.
 
@@ -809,7 +806,7 @@ As of ARC version 0.4.0, runner-container-hooks support hook extensions. You can
 
 There are two options to configure hook extensions.
 
-* Store in your **custom runner image**. You can store the PodSpec in a YAML file anywhere in your custom runner image. For more information, see "[AUTOTITLE](/actions/hosting-your-own-runners/managing-self-hosted-runners-with-actions-runner-controller/about-actions-runner-controller#creating-your-own-runner-image)."
+* Store in your **custom runner image**. You can store the PodSpec in a YAML file anywhere in your custom runner image. For more information, see [AUTOTITLE](/actions/hosting-your-own-runners/managing-self-hosted-runners-with-actions-runner-controller/about-actions-runner-controller#creating-your-own-runner-image).
 * Store in a **ConfigMap**. You can create a config map with the PodSpec and mount that config map in the runner container. For more information, see [ConfigMaps](https://kubernetes.io/docs/concepts/configuration/configmap/) in the Kubernetes documentation.
 
 > [!NOTE]
@@ -908,19 +905,16 @@ The following table shows the metrics emitted by the controller-manager and list
 
 ## Using ARC with {% data variables.product.prodname_dependabot %} and {% data variables.product.prodname_code_scanning %}
 
-You can use {% data variables.product.prodname_actions_runner_controller %} to create dedicated runners for your {% data variables.product.prodname_ghe_server %} instance that {% data variables.product.prodname_dependabot %} can use to help secure and maintain the dependencies used in repositories on your enterprise. For more information, see "[AUTOTITLE](/admin/github-actions/enabling-github-actions-for-github-enterprise-server/managing-self-hosted-runners-for-dependabot-updates#system-requirements-for-dependabot-runners)."
+You can use {% data variables.product.prodname_actions_runner_controller %} to create dedicated runners for your {% data variables.product.prodname_ghe_server %} instance that {% data variables.product.prodname_dependabot %} can use to help secure and maintain the dependencies used in repositories on your enterprise. For more information, see [AUTOTITLE](/admin/github-actions/enabling-github-actions-for-github-enterprise-server/managing-self-hosted-runners-for-dependabot-updates#system-requirements-for-dependabot-runners).
 
-You can also use ARC with {% data variables.product.prodname_codeql %} to identify vulnerabilities and errors in your code. For more information, see "[AUTOTITLE](/code-security/code-scanning/introduction-to-code-scanning/about-code-scanning-with-codeql)." If you're already using {% data variables.product.prodname_code_scanning %} and want to configure a runner scale set to use default setup, set `INSTALLATION_NAME=code-scanning`. For more information about {% data variables.product.prodname_code_scanning %} default setup, see "[AUTOTITLE](/code-security/code-scanning/enabling-code-scanning/configuring-default-setup-for-code-scanning)."
+You can also use ARC with {% data variables.product.prodname_codeql %} to identify vulnerabilities and errors in your code. For more information, see [AUTOTITLE](/code-security/code-scanning/introduction-to-code-scanning/about-code-scanning-with-codeql). If you're already using {% data variables.product.prodname_code_scanning %} and want to configure a runner scale set to use default setup, set `INSTALLATION_NAME=code-scanning`. For more information about {% data variables.product.prodname_code_scanning %} default setup, see [AUTOTITLE](/code-security/code-scanning/enabling-code-scanning/configuring-default-setup-for-code-scanning).
 
 {% data variables.product.prodname_actions_runner_controller %} does not use multiple labels to route jobs to specific runner scale sets. Instead, to designate a runner scale set for {% data variables.product.prodname_dependabot %} updates or {% data variables.product.prodname_code_scanning %} with {% data variables.product.prodname_codeql %}, use a descriptive installation name in your Helm chart, such as `dependabot` or `code-scanning`. You can then set the `runs-on` value in your workflows to the installation name as the single label, and use the designated runner scale set for {% data variables.product.prodname_dependabot %} updates or {% data variables.product.prodname_code_scanning %} jobs.
 
-If you're using default setup for {% data variables.product.prodname_code_scanning %}, the analysis will automatically look for a runner scale set with the installation name `code-scanning`.
+If you're using default setup for {% data variables.product.prodname_code_scanning %}, the analysis will automatically look for a runner scale set with the installation name `code-scanning` {% ifversion code-scanning-default-setup-customize-labels %} but you can specify a custom name in the configuration, so that individual repositories can use different runner scale sets. See [AUTOTITLE](/code-security/code-scanning/enabling-code-scanning/configuring-default-setup-for-code-scanning#assigning-labels-to-runners){% endif %}.
 
-{% note %}
-
-The [Dependabot Action](https://github.com/github/dependabot-action) is used to run {% data variables.product.prodname_dependabot %} updates via {% data variables.product.prodname_actions %}. This action requires Docker as a dependency. For this reason, you can only use {% data variables.product.prodname_actions_runner_controller %} with {% data variables.product.prodname_dependabot %} when Docker-in-Docker (DinD) mode is enabled. For more information, see "[AUTOTITLE](/admin/github-actions/enabling-github-actions-for-github-enterprise-server/managing-self-hosted-runners-for-dependabot-updates#system-requirements-for-dependabot-runners)" and "[AUTOTITLE](/actions/hosting-your-own-runners/managing-self-hosted-runners-with-actions-runner-controller/deploying-runner-scale-sets-with-actions-runner-controller#using-docker-in-docker-or-kubernetes-mode-for-containers)."
-
-{% endnote %}
+> [!NOTE]
+> The [Dependabot Action](https://github.com/github/dependabot-action) is used to run {% data variables.product.prodname_dependabot %} updates via {% data variables.product.prodname_actions %}. This action requires Docker as a dependency. For this reason, you can only use {% data variables.product.prodname_actions_runner_controller %} with {% data variables.product.prodname_dependabot %} when Docker-in-Docker (DinD) mode is enabled. For more information, see [AUTOTITLE](/admin/github-actions/enabling-github-actions-for-github-enterprise-server/managing-self-hosted-runners-for-dependabot-updates#system-requirements-for-dependabot-runners) and [AUTOTITLE](/actions/hosting-your-own-runners/managing-self-hosted-runners-with-actions-runner-controller/deploying-runner-scale-sets-with-actions-runner-controller#using-docker-in-docker-or-kubernetes-mode-for-containers).
 
 {% endif %}
 
@@ -934,9 +928,9 @@ Because there is no support for upgrading or deleting CRDs with Helm, it is not 
 1. If there is a change in CRDs from the version you currently have installed, to the upgraded version, remove all CRDs associated with `actions.github.com` API group.
 1. Reinstall ARC again.
 
-For more information, see "[Deploying a runner scale set](/actions/hosting-your-own-runners/managing-self-hosted-runners-with-actions-runner-controller/deploying-runner-scale-sets-with-actions-runner-controller#deploying-a-runner-scale-set)."
+For more information, see [Deploying a runner scale set](/actions/hosting-your-own-runners/managing-self-hosted-runners-with-actions-runner-controller/deploying-runner-scale-sets-with-actions-runner-controller#deploying-a-runner-scale-set).
 
-If you would like to upgrade ARC but are concerned about downtime, you can deploy ARC in a high availability configuration to ensure runners are always available. For more information, see "[High availability and automatic failover](/actions/hosting-your-own-runners/managing-self-hosted-runners-with-actions-runner-controller/deploying-runner-scale-sets-with-actions-runner-controller#high-availability-and-automatic-failover)."
+If you would like to upgrade ARC but are concerned about downtime, you can deploy ARC in a high availability configuration to ensure runners are always available. For more information, see [High availability and automatic failover](/actions/hosting-your-own-runners/managing-self-hosted-runners-with-actions-runner-controller/deploying-runner-scale-sets-with-actions-runner-controller#high-availability-and-automatic-failover).
 
 > [!NOTE]
 > Transitioning from the [community supported version of ARC](https://github.com/actions/actions-runner-controller/discussions/2775) to the GitHub supported version is a substantial architectural change. The GitHub supported version involves a redesign of many components of ARC. It is not a minor software upgrade. For these reasons, we recommend testing the new versions in a staging environment that matches your production environment first. This will ensure stability and reliability of the setup before deploying in production.
@@ -955,7 +949,7 @@ You can test features before they are released by using canary releases of the c
 
 ## High availability and automatic failover
 
-ARC can be deployed in a high availability (active-active) configuration. If you have two distinct Kubernetes clusters deployed in separate regions, you can deploy ARC in both clusters and configure runner scale sets to use the same `runnerScaleSetName`. In order to do this, each runner scale set must be assigned to a distinct runner group. For example, you can have two runner scale sets each named `arc-runner-set`, as long as one runner scale set belongs to `runner-group-A` and the other runner scale set belongs to `runner-group-B`. For information on assigning runner scale sets to runner groups, see "[AUTOTITLE](/actions/hosting-your-own-runners/managing-self-hosted-runners/managing-access-to-self-hosted-runners-using-groups)."
+ARC can be deployed in a high availability (active-active) configuration. If you have two distinct Kubernetes clusters deployed in separate regions, you can deploy ARC in both clusters and configure runner scale sets to use the same `runnerScaleSetName`. In order to do this, each runner scale set must be assigned to a distinct runner group. For example, you can have two runner scale sets each named `arc-runner-set`, as long as one runner scale set belongs to `runner-group-A` and the other runner scale set belongs to `runner-group-B`. For information on assigning runner scale sets to runner groups, see [AUTOTITLE](/actions/hosting-your-own-runners/managing-self-hosted-runners/managing-access-to-self-hosted-runners-using-groups).
 
 If both runner scale sets are online, jobs assigned to them will be distributed arbitrarily (assignment race). You cannot configure the job assignment algorithm. If one of the clusters goes down, the runner scale set in the other cluster will continue to acquire jobs normally without any intervention or configuration change.
 

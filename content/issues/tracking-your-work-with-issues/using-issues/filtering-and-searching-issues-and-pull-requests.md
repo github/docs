@@ -51,8 +51,6 @@ type: how_to
 
 Issues and pull requests come with a set of default filters you can apply to organize your listings.
 
-{% data reusables.search.requested_reviews_search %}
-
 You can filter issues and pull requests to find:
 * All open issues and pull requests
 * Issues and pull requests that you've created
@@ -120,11 +118,8 @@ Once you've [assigned an issue or pull request to someone](/issues/tracking-your
    ![Screenshot of a list of issues. In the header above the list, a dropdown menu, labeled "Assignees", is outlined in dark orange.](/assets/images/help/issues/issues-assignee-dropdown.png)
 1. The Assignee drop-down menu lists everyone who has write access to your repository. Click the name of the person whose assigned items you want to see, or click **Assigned to nobody** to see which issues are unassigned.
 
-{% tip %}
-
-To clear your filter selection, click **Clear current search query, filters, and sorts**.
-
-{% endtip %}
+> [!TIP]
+> To clear your filter selection, click **Clear current search query, filters, and sorts**.
 
 ## Filtering issues and pull requests by labels
 
@@ -285,4 +280,4 @@ For example, if you filter on issues assigned to Hubot, and sort on the oldest o
 
 ## Further reading
 
-* "[AUTOTITLE](/search-github/searching-on-github/searching-issues-and-pull-requests)"
+* [AUTOTITLE](/search-github/searching-on-github/searching-issues-and-pull-requests)

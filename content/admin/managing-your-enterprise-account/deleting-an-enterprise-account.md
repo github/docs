@@ -32,7 +32,7 @@ If you upgraded to an enterprise account from a single organization and then del
 
 ## Prerequisites
 
-You must remove, transfer, or delete all organizations in the enterprise before you can delete the enterprise account. For more information, see "[AUTOTITLE](/admin/managing-accounts-and-repositories/managing-organizations-in-your-enterprise/adding-organizations-to-your-enterprise#transferring-an-organization-between-enterprise-accounts)" and "[AUTOTITLE](/admin/managing-accounts-and-repositories/managing-organizations-in-your-enterprise/removing-organizations-from-your-enterprise)."
+You must remove, transfer, or delete all organizations in the enterprise before you can delete the enterprise account. For more information, see [AUTOTITLE](/admin/managing-accounts-and-repositories/managing-organizations-in-your-enterprise/adding-organizations-to-your-enterprise#transferring-an-organization-between-enterprise-accounts) and [AUTOTITLE](/admin/managing-accounts-and-repositories/managing-organizations-in-your-enterprise/removing-organizations-from-your-enterprise).
 
 ## Deleting an enterprise account on {% data variables.product.prodname_dotcom %}
 

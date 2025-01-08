@@ -5,9 +5,6 @@ name: Azure Production - Build and Deploy
 # **Who does it impact**: All contributors.
 
 on:
-  push:
-    branches:
-      - main
   workflow_dispatch:
 
 permissions:
@@ -104,6 +101,7 @@ jobs:
         uses: docker/build-push-action@16ebe778df0e7752d2cfcbd924afdbbd89c1a755
         with:
           context: .
+          file: Dockerfile.azure
           push: true
           target: production
           tags: ${{ env.DOCKER_IMAGE }}, ${{ env.DOCKER_IMAGE_CACHE_REF }}
@@ -126,7 +124,7 @@ jobs:
           CHECK_INTERVAL: 10000
           EXPECTED_SHA: ${{ github.sha }}
           CANARY_BUILD_URL: https://ghdocs-prod-canary.azurewebsites.net/_build
-        run: src/workflows/check-canary-slots.js
+        run: npm run check-canary-slots
 
       - name: 'Swap canary slot to production'
         run: |

@@ -19,16 +19,16 @@ topics:
 shortTitle: Link PR to issue
 ---
 
-> [!NOTE]
-> The special keywords in a pull request description are interpreted when the pull request targets the repository's _default_ branch. However, if the PR's base is _any other branch_, then these keywords are ignored, no links are created and merging the PR has no effect on the issues. **If you want to link a pull request to an issue using a keyword, the PR must be on the default branch.**
-
 ## About linked issues and pull requests
 
-You can link an issue to a pull request manually or using a supported keyword in the pull request description.
+You can link an issue to a pull request manually or using a supported keyword in the pull request description, that is, the summary text added by the author when they created the pull request.
 
 When you link a pull request to the issue the pull request addresses, collaborators can see that someone is working on the issue.
 
-When you merge a linked pull request into the default branch of a repository, its linked issue is automatically closed. For more information about the default branch, see "[AUTOTITLE](/repositories/configuring-branches-and-merges-in-your-repository/managing-branches-in-your-repository/changing-the-default-branch)."
+When you merge a linked pull request into the **default branch** of a repository, its linked issue is automatically closed. For more information about the default branch, see [AUTOTITLE](/repositories/configuring-branches-and-merges-in-your-repository/managing-branches-in-your-repository/changing-the-default-branch).
+
+> [!NOTE]
+> The special keywords in a pull request description are interpreted only when the pull request targets the repository's _default_ branch. If the pull request targets _any other branch_, then these keywords are ignored, no links are created, and merging the PR has no effect on the issues.
 
 ## Linking a pull request to an issue using a keyword
 
@@ -90,4 +90,4 @@ You can manually link up to ten issues to each pull request. The issue can be in
 
 ## Further reading
 
-* "[AUTOTITLE](/get-started/writing-on-github/working-with-advanced-formatting/autolinked-references-and-urls#issues-and-pull-requests)"
+* [AUTOTITLE](/get-started/writing-on-github/working-with-advanced-formatting/autolinked-references-and-urls#issues-and-pull-requests)

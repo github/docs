@@ -4,6 +4,61 @@
       {
         "title": "The GraphQL schema includes these changes:",
         "changes": [
+          "<p>Type 'UpdateProjectV2FieldInput' was added</p>",
+          "<p>Type 'UpdateProjectV2FieldPayload' was added</p>",
+          "<p>Field 'updateProjectV2Field<code>was added to object type</code>Mutation'</p>"
+        ]
+      }
+    ],
+    "previewChanges": [],
+    "upcomingChanges": [],
+    "date": "2024-12-04"
+  },
+  {
+    "schemaChanges": [
+      {
+        "title": "The GraphQL schema includes these changes:",
+        "changes": [
+          "<p>Type <code>AddSubIssueInput</code> was added</p>",
+          "<p>Type <code>AddSubIssuePayload</code> was added</p>",
+          "<p>Type <code>AnnouncementBannerI</code> was added</p>",
+          "<p>Type <code>RemoveSubIssueInput</code> was added</p>",
+          "<p>Type <code>RemoveSubIssuePayload</code> was added</p>",
+          "<p>Type <code>ReprioritizeSubIssueInput</code> was added</p>",
+          "<p>Type <code>ReprioritizeSubIssuePayload</code> was added</p>",
+          "<p>Type <code>SubIssuesSummary</code> was added</p>",
+          "<p>Type <code>AnnouncementBanner</code> was removed</p>",
+          "<p>Input field <code>parentIssueId</code> of type <code>ID</code> was added to input object type <code>CreateIssueInput</code></p>",
+          "<p>Field <code>enabled</code> was added to object type <code>DeployKey</code></p>",
+          "<p><code>Enterprise</code> object implements <code>AnnouncementBannerI</code> interface</p>",
+          "<p><code>Enterprise</code> object type no longer implements <code>AnnouncementBanner</code> interface</p>",
+          "<p>Field <code>repositoryDeployKeySetting</code> was added to object type <code>EnterpriseOwnerInfo</code></p>",
+          "<p>Field <code>repositoryDeployKeySettingOrganizations</code> was added to object type <code>EnterpriseOwnerInfo</code></p>",
+          "<p>Field <code>verifiedAt</code> was added to interface <code>GitSignature</code></p>",
+          "<p>Field <code>verifiedAt</code> was added to object type <code>GpgSignature</code></p>",
+          "<p>Field <code>parent</code> was added to object type <code>Issue</code></p>",
+          "<p>Field <code>subIssues</code> was added to object type <code>Issue</code></p>",
+          "<p>Field <code>subIssuesSummary</code> was added to object type <code>Issue</code></p>",
+          "<p>Field <code>addSubIssue</code> was added to object type <code>Mutation</code></p>",
+          "<p>Field <code>removeSubIssue</code> was added to object type <code>Mutation</code></p>",
+          "<p>Field <code>reprioritizeSubIssue</code> was added to object type <code>Mutation</code></p>",
+          "<p><code>Organization</code> object implements <code>AnnouncementBannerI</code> interface</p>",
+          "<p><code>Organization</code> object type no longer implements <code>AnnouncementBanner</code> interface</p>",
+          "<p>Field <code>verifiedAt</code> was added to object type <code>SmimeSignature</code></p>",
+          "<p>Field <code>verifiedAt</code> was added to object type <code>SshSignature</code></p>",
+          "<p>Field <code>verifiedAt</code> was added to object type <code>UnknownSignature</code></p>"
+        ]
+      }
+    ],
+    "previewChanges": [],
+    "upcomingChanges": [],
+    "date": "2024-12-02"
+  },
+  {
+    "schemaChanges": [
+      {
+        "title": "The GraphQL schema includes these changes:",
+        "changes": [
           "<p>Type <code>UpdateEnterpriseDeployKeySettingInput</code> was added</p>",
           "<p>Type <code>UpdateEnterpriseDeployKeySettingPayload</code> was added</p>",
           "<p>Field <code>updateEnterpriseDeployKeySetting</code> was added to object type <code>Mutation</code></p>"

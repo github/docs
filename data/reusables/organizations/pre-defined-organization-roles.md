@@ -9,4 +9,5 @@ The current set of pre-defined roles are:
 * **All-repository admin:** Grants admin access to all repositories in the organization.
 {%- ifversion fpt or ghec or ghes > 3.15 %}
 * **CI/CD admin:** Grants admin access to manage Actions policies, runners, runner groups, hosted compute network configurations, secrets, variables, and usage metrics for an organization.
+* **Security manager**: Grants the ability to manage security policies, security alerts, and security configurations for an organization and all its repositories.
 {%- endif %}

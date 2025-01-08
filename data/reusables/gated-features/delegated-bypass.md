@@ -1,4 +1,4 @@
-Delegated bypass requires push protection to be enabled for the organization or the repository. See "[AUTOTITLE](/code-security/secret-scanning/introduction/about-push-protection)."
+Delegated bypass requires push protection to be enabled for the organization or the repository. See [AUTOTITLE](/code-security/secret-scanning/introduction/about-push-protection).
 
 Delegated bypass is available for the following repositories:
 

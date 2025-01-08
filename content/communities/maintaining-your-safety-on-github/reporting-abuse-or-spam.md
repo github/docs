@@ -86,8 +86,8 @@ If reported content is enabled for a public repository, you can also report cont
 
 ## Further reading
 
-* "[AUTOTITLE](/communities/setting-up-your-project-for-healthy-contributions)"
-* "[AUTOTITLE](/communities/using-templates-to-encourage-useful-issues-and-pull-requests)"
-* "[AUTOTITLE](/communities/moderating-comments-and-conversations/managing-disruptive-comments)"{% ifversion fpt or ghec %}
-* "[AUTOTITLE](/communities/moderating-comments-and-conversations/limiting-interactions-in-your-repository)"{% endif %}
-* "[AUTOTITLE](/communities/moderating-comments-and-conversations/tracking-changes-in-a-comment)"
+* [AUTOTITLE](/communities/setting-up-your-project-for-healthy-contributions)
+* [AUTOTITLE](/communities/using-templates-to-encourage-useful-issues-and-pull-requests)
+* [AUTOTITLE](/communities/moderating-comments-and-conversations/managing-disruptive-comments){% ifversion fpt or ghec %}
+* [AUTOTITLE](/communities/moderating-comments-and-conversations/limiting-interactions-in-your-repository){% endif %}
+* [AUTOTITLE](/communities/moderating-comments-and-conversations/tracking-changes-in-a-comment)

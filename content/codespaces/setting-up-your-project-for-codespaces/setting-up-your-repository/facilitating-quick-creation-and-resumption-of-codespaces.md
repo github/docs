@@ -21,7 +21,7 @@ You can make it easy for people to work on your repository in a codespace by pro
 
 ![Screenshot of an "Open in {% data variables.product.prodname_github_codespaces %}" badge on a README page.](/assets/images/help/codespaces/codespaces-badge-on-readme.png)
 
-The link to the codespace creation page can include specific configuration options to help people create an appropriate codespace. People who use the link will be able to choose different options, if they want, before creating the codespace. For information about the available options, see "[AUTOTITLE](/codespaces/developing-in-a-codespace/creating-a-codespace-for-a-repository#creating-a-codespace-for-a-repository)."
+The link to the codespace creation page can include specific configuration options to help people create an appropriate codespace. People who use the link will be able to choose different options, if they want, before creating the codespace. For information about the available options, see [AUTOTITLE](/codespaces/developing-in-a-codespace/creating-a-codespace-for-a-repository#creating-a-codespace-for-a-repository).
 
 Alternatively, you can link to the "Resume codespace" page, which provides a quick way for people to open a codespace they were working on recently.
 
@@ -50,8 +50,8 @@ You can use the "Share a deep link" option to configure more options for the cod
 
    ![Screenshot of the options dropdown in the "{% data variables.product.prodname_codespaces %}" tab. The "Share a deep link" option is highlighted with an orange outline.](/assets/images/help/codespaces/share-deep-link.png)
 
-1. Optionally, to take users to a page where they can quickly resume a recent codespace or create a new one, select **Quick start**. For more information, see "[Creating a link to resume a codespace](#creating-a-link-to-resume-a-codespace)."
-1. Optionally, to specify a dev container configuration, select **Configuration file**, then use the dropdown menu to choose a configuration. If you don't specify a configuration, the default configuration for your repository is used. For more information, see "[AUTOTITLE](/codespaces/setting-up-your-project-for-codespaces/adding-a-dev-container-configuration/introduction-to-dev-containers)."
+1. Optionally, to take users to a page where they can quickly resume a recent codespace or create a new one, select **Quick start**. For more information, see [Creating a link to resume a codespace](#creating-a-link-to-resume-a-codespace).
+1. Optionally, to specify a dev container configuration, select **Configuration file**, then use the dropdown menu to choose a configuration. If you don't specify a configuration, the default configuration for your repository is used. For more information, see [AUTOTITLE](/codespaces/setting-up-your-project-for-codespaces/adding-a-dev-container-configuration/introduction-to-dev-containers).
 1. Under "Snippets," you can copy the URL you have built, or copy a Markdown or HTML snippet including an "Open in {% data variables.product.prodname_github_codespaces %}" badge. To copy the URL or snippet, select between the **URL**, **HTML**, and **Markdown** tabs, then click {% octicon "copy" aria-label="Copy text to the system clipboard" %}.
 
    ![Screenshot of the "Share codespace configuration" window. Next to the "new codespace" URL, an icon of two overlapping squares is outlined in orange.](/assets/images/help/codespaces/copy-codespace-url.png)
@@ -77,7 +77,7 @@ This type of URL is useful, for instance, in a README for your repository as it 
 ## Creating an "Open in {% data variables.product.prodname_github_codespaces %}" badge
 
 > [!TIP]
-> You can use the "Share a deep link" option to create a Markdown or HTML snippet that includes an "Open in {% data variables.product.prodname_github_codespaces %}" badge with a custom URL. For more information, see "[Configuring more options](#configuring-more-options)."
+> You can use the "Share a deep link" option to create a Markdown or HTML snippet that includes an "Open in {% data variables.product.prodname_github_codespaces %}" badge with a custom URL. For more information, see [Configuring more options](#configuring-more-options).
 
 1. Get the URL to the codespace creation page, or the "Resume codespace" page, as described in the previous sections.
 1. Add the following Markdown to, for example, the `README.md` file of your repository:

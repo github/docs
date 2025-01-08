@@ -44,4 +44,4 @@ When you reorder commits, you may see one of the following notifications or erro
 
 ## Further reading
 
-* "[AUTOTITLE](/desktop/managing-commits/options-for-managing-commits-in-github-desktop)"
+* [AUTOTITLE](/desktop/managing-commits/options-for-managing-commits-in-github-desktop)

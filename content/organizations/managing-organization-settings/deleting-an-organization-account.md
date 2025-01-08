@@ -25,11 +25,8 @@ shortTitle: Delete organization
 {% endif %}
 Deleting your organization account removes all repositories, forks of private repositories, wikis, issues, pull requests, and project or organization pages. {% ifversion fpt or ghec %}Your billing will end and, after 90 days, the organization name becomes available for use on a new user or organization account.
 
-{% tip %}
-
-**Tip**: If you rename an organization, you can create a new organization with the same name immediately. For more information, see "[AUTOTITLE](/organizations/managing-organization-settings/renaming-an-organization)."
-
-{% endtip %}
+> [!TIP]
+> If you rename an organization, you can create a new organization with the same name immediately. For more information, see [AUTOTITLE](/organizations/managing-organization-settings/renaming-an-organization).
 
 {% endif %}
 
@@ -42,7 +39,7 @@ Deleting your organization account removes all repositories, forks of private re
 {% data reusables.package_registry.delete-account-namespace-retirement %}
 
 {% ifversion archive-organizations %}
-You can also archive an organization, instead of deleting it. Archiving an organization will make it read-only. For more information, see "[AUTOTITLE](/organizations/managing-organization-settings/archiving-an-organization)."
+You can also archive an organization, instead of deleting it. Archiving an organization will make it read-only. For more information, see [AUTOTITLE](/organizations/managing-organization-settings/archiving-an-organization).
 {% endif %}
 
 ## Backing up your organization content
@@ -52,7 +49,7 @@ You can also archive an organization, instead of deleting it. Archiving an organ
 {% ifversion ghes %}
 
 > [!NOTE]
-> If necessary, a site administrator for {% data variables.location.product_location %} may be able to partially restore a deleted organization. For more information, see "[AUTOTITLE](/admin/managing-accounts-and-repositories/managing-organizations-in-your-enterprise/restoring-a-deleted-organization)."
+> If necessary, a site administrator for {% data variables.location.product_location %} may be able to partially restore a deleted organization. For more information, see [AUTOTITLE](/admin/managing-accounts-and-repositories/managing-organizations-in-your-enterprise/restoring-a-deleted-organization).
 
 {% endif %}
 

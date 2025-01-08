@@ -12,7 +12,7 @@ redirect_from:
 
 ## About {% data variables.product.prodname_dotcom %}'s security features
 
-{% data variables.product.prodname_dotcom %} provides many features to make your code more secure. You can use {% data variables.product.prodname_dotcom %}'s built-in features to understand the actions your workflows depend on, ensure you are notified about vulnerabilities in the actions you consume, or automate the process of keeping the actions in your workflows up to date. If you publish and maintain actions, you can use {% data variables.product.prodname_dotcom %} to communicate with your community about vulnerabilities and how to fix them. For more information about security features that {% data variables.product.prodname_dotcom %} offers, see "[AUTOTITLE](/code-security/getting-started/github-security-features#about-githubs-security-features)."
+{% data variables.product.prodname_dotcom %} provides many features to make your code more secure. You can use {% data variables.product.prodname_dotcom %}'s built-in features to understand the actions your workflows depend on, ensure you are notified about vulnerabilities in the actions you consume, or automate the process of keeping the actions in your workflows up to date. If you publish and maintain actions, you can use {% data variables.product.prodname_dotcom %} to communicate with your community about vulnerabilities and how to fix them. For more information about security features that {% data variables.product.prodname_dotcom %} offers, see [AUTOTITLE](/code-security/getting-started/github-security-features#about-githubs-security-features).
 
 This article will explain how you can use some of {% data variables.product.prodname_dotcom %}'s security features to increase the security of your use of {% data variables.product.prodname_actions %}.
 
@@ -28,7 +28,7 @@ The dependency graph shows the following information about actions used in workf
 
 In the dependency graph, dependencies are automatically sorted by vulnerability severity. If any of the actions you use have security advisories, they will display at the top of the list. You can navigate to the advisory from the dependency graph and access instructions for resolving the vulnerability.
 
-{% ifversion fpt or ghec %}The dependency graph is enabled for public repositories, and you can choose to enable it on private repositories. For more information about using the dependency graph, see "[AUTOTITLE](/code-security/supply-chain-security/understanding-your-software-supply-chain/exploring-the-dependencies-of-a-repository)."{% else %}Enterprise owners can configure the dependency graph and {% data variables.product.prodname_dependabot_alerts %} for an enterprise. For more information, see "[AUTOTITLE](/admin/code-security/managing-supply-chain-security-for-your-enterprise/enabling-the-dependency-graph-for-your-enterprise)."{% endif %}
+{% ifversion fpt or ghec %}The dependency graph is enabled for public repositories, and you can choose to enable it on private repositories. For more information about using the dependency graph, see [AUTOTITLE](/code-security/supply-chain-security/understanding-your-software-supply-chain/exploring-the-dependencies-of-a-repository).{% else %}Enterprise owners can configure the dependency graph and {% data variables.product.prodname_dependabot_alerts %} for an enterprise. For more information, see [AUTOTITLE](/admin/code-security/managing-supply-chain-security-for-your-enterprise/enabling-the-dependency-graph-for-your-enterprise).{% endif %}
 
 ## Being aware of security vulnerabilities in actions you use
 
@@ -36,8 +36,8 @@ For actions available on the marketplace, {% data variables.product.prodname_dot
 
 You can set up your repositories so that you:
 
-* Receive alerts when actions used in your workflows receive a vulnerability report. For more information, see "[Monitoring the actions in your workflows](#monitoring-the-actions-in-your-workflows)."
-* Are warned about existing advisories when you add or update an action in a workflow. For more information, see "[Screening actions for vulnerabilities in new or updated workflows](#screening-actions-for-vulnerabilities-in-new-or-updated-workflows)."
+* Receive alerts when actions used in your workflows receive a vulnerability report. For more information, see [Monitoring the actions in your workflows](#monitoring-the-actions-in-your-workflows).
+* Are warned about existing advisories when you add or update an action in a workflow. For more information, see [Screening actions for vulnerabilities in new or updated workflows](#screening-actions-for-vulnerabilities-in-new-or-updated-workflows).
 
 ### Monitoring the actions in your workflows
 
@@ -46,9 +46,9 @@ You can use {% data variables.product.prodname_dependabot %} to monitor the acti
 > [!NOTE]
 > {% data variables.product.prodname_dependabot %} only creates alerts for vulnerable actions that use semantic versioning and will not create alerts for actions pinned to SHA values.
 
-{% ifversion fpt or ghec %}You can enable {% data variables.product.prodname_dependabot_alerts %} for your personal account, for a repository, or for an organization. For more information, see "[AUTOTITLE](/code-security/dependabot/dependabot-alerts/configuring-dependabot-alerts)."{% else %}An enterprise owner must first set up {% data variables.product.prodname_dependabot %} for your enterprise before you can manage {% data variables.product.prodname_dependabot_alerts %} for your repository. For more information, see "[AUTOTITLE](/admin/configuration/configuring-github-connect/enabling-dependabot-for-your-enterprise)."{% endif %}
+{% ifversion fpt or ghec %}You can enable {% data variables.product.prodname_dependabot_alerts %} for your personal account, for a repository, or for an organization. For more information, see [AUTOTITLE](/code-security/dependabot/dependabot-alerts/configuring-dependabot-alerts).{% else %}An enterprise owner must first set up {% data variables.product.prodname_dependabot %} for your enterprise before you can manage {% data variables.product.prodname_dependabot_alerts %} for your repository. For more information, see [AUTOTITLE](/admin/configuration/configuring-github-connect/enabling-dependabot-for-your-enterprise).{% endif %}
 
-{% data reusables.dependabot.where-to-view-dependabot-alerts %} For more information, see "[AUTOTITLE](/code-security/dependabot/dependabot-alerts/viewing-and-updating-dependabot-alerts)."
+{% data reusables.dependabot.where-to-view-dependabot-alerts %} For more information, see [AUTOTITLE](/code-security/dependabot/dependabot-alerts/viewing-and-updating-dependabot-alerts).
 
 ### Screening actions for vulnerabilities in new or updated workflows
 
@@ -56,13 +56,9 @@ When you open pull requests to update your workflows, it is good practice to use
 
 If any of the changes you made to your workflows are flagged as vulnerable, you can avoid adding them to your project or update them to a secure version.
 
-For more information about dependency review, see "[AUTOTITLE](/code-security/supply-chain-security/understanding-your-software-supply-chain/about-dependency-review)" and "[AUTOTITLE](/code-security/supply-chain-security/understanding-your-software-supply-chain/configuring-dependency-review)."
+For more information about dependency review, see [AUTOTITLE](/code-security/supply-chain-security/understanding-your-software-supply-chain/about-dependency-review).
 
-{% data reusables.dependency-review.about-dependency-review-action %}
-
-![Screenshot of a workflow run that uses the dependency review action.](/assets/images/help/graphs/dependency-review-action.png)
-
-{% data reusables.dependency-review.about-dependency-review-action2 %}
+{% data reusables.dependency-review.about-dependency-review-action %} For more information, see [AUTOTITLE](/code-security/supply-chain-security/understanding-your-software-supply-chain/about-dependency-review#about-the-dependency-review-action).
 
 ## Keeping the actions in your workflows secure and up to date
 
@@ -76,9 +72,9 @@ The following features can automatically update the actions in your workflows.
 > [!NOTE]
 > {% data reusables.actions.dependabot-version-updates-actions-caveats %}
 
-For information on how to configure {% data variables.product.prodname_dependabot_version_updates %}, see "[AUTOTITLE](/code-security/dependabot/dependabot-version-updates/configuring-dependabot-version-updates)."
+For information on how to configure {% data variables.product.prodname_dependabot_version_updates %}, see [AUTOTITLE](/code-security/dependabot/dependabot-version-updates/configuring-dependabot-version-updates).
 
-For information on how to configure {% data variables.product.prodname_dependabot_security_updates %}, see "[AUTOTITLE](/code-security/dependabot/dependabot-security-updates/configuring-dependabot-security-updates)."
+For information on how to configure {% data variables.product.prodname_dependabot_security_updates %}, see [AUTOTITLE](/code-security/dependabot/dependabot-security-updates/configuring-dependabot-security-updates).
 
 {% ifversion fpt or ghec %}
 
@@ -88,7 +84,7 @@ For information on how to configure {% data variables.product.prodname_dependabo
 
 If you are someone who maintains an action that is used in other projects, you can use the following {% data variables.product.prodname_dotcom %} features to enhance the security of the actions you've published.
 
-* Use the dependants view in the Dependency graph to see which projects depend on your code. If you receive a vulnerability report, this will give you an idea of who you need to communicate with about the vulnerability and how to fix it. For more information, see "[AUTOTITLE](/code-security/supply-chain-security/understanding-your-software-supply-chain/exploring-the-dependencies-of-a-repository#dependents-view)."
-* Use repository security advisories to create a security advisory, privately collaborate to fix the vulnerability in a temporary private fork, and publish a security advisory to alert your community of the vulnerability once a patch is released. For more information, see "[AUTOTITLE](/code-security/security-advisories/working-with-repository-security-advisories/configuring-private-vulnerability-reporting-for-a-repository)" and "[AUTOTITLE](/code-security/security-advisories/working-with-repository-security-advisories/creating-a-repository-security-advisory)."
+* Use the dependants view in the Dependency graph to see which projects depend on your code. If you receive a vulnerability report, this will give you an idea of who you need to communicate with about the vulnerability and how to fix it. For more information, see [AUTOTITLE](/code-security/supply-chain-security/understanding-your-software-supply-chain/exploring-the-dependencies-of-a-repository#dependents-view).
+* Use repository security advisories to create a security advisory, privately collaborate to fix the vulnerability in a temporary private fork, and publish a security advisory to alert your community of the vulnerability once a patch is released. For more information, see [AUTOTITLE](/code-security/security-advisories/working-with-repository-security-advisories/configuring-private-vulnerability-reporting-for-a-repository) and [AUTOTITLE](/code-security/security-advisories/working-with-repository-security-advisories/creating-a-repository-security-advisory).
 
 {% endif %}

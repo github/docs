@@ -62,7 +62,7 @@ In order to test your webhook locally, you can use a webhook proxy URL to forwar
 
 ### Create a webhook
 
-1. Create a webhook with the following settings. For more information, see "[AUTOTITLE](/webhooks/using-webhooks/creating-webhooks)."
+1. Create a webhook with the following settings. For more information, see [AUTOTITLE](/webhooks/using-webhooks/creating-webhooks).
 
    * For the URL, use your webhook proxy URL from earlier.
    * If you have an option to choose the content type, use JSON.
@@ -174,19 +174,19 @@ To test your webhook, you can use your computer or codespace to act as a local s
 
    You should see output that indicates something like "Sinatra has taken the stage on 3000".
 
-1. Trigger your webhook. For example, if you created a repository webhook that is subscribed to the `issues` event, open an issue in your repository. You can also redeliver a previous webhook delivery. For more information, see "[AUTOTITLE](/webhooks/testing-and-troubleshooting-webhooks/redelivering-webhooks)."
+1. Trigger your webhook. For example, if you created a repository webhook that is subscribed to the `issues` event, open an issue in your repository. You can also redeliver a previous webhook delivery. For more information, see [AUTOTITLE](/webhooks/testing-and-troubleshooting-webhooks/redelivering-webhooks).
 1. Navigate to your webhook proxy URL on smee.io. You should see an event that corresponds to the event that you triggered or redelivered. This indicates that {% data variables.product.company_short %} successfully sent a webhook delivery to the payload URL that you specified.
 1. In the terminal window where you ran `smee --url WEBHOOK_PROXY_URL --path /webhook --port 3000`, you should see something like `POST http://127.0.0.1:3000/webhook - 202`. This indicates that smee successfully forwarded your webhook to your local server.
 1. In the terminal window where you ran `PORT=3000 ruby FILE_NAME`, you should see a message corresponding to the event that was sent. For example, if you use the example code from above and you redelivered the `ping` event, you should see "{% data variables.product.company_short %} sent the ping event". You may also see some other lines that Sinatra automatically prints.
 1. In both terminal windows, enter <kbd>Ctrl</kbd>+<kbd>C</kbd> to stop your local server and stop listening for forwarded webhooks.
 
-Now that you have tested out your code locally, you can make changes to use your webhook in production. For more information, see "[Next steps](#next-steps)." If you had trouble testing your code, try the steps in "[Troubleshooting](#troubleshooting)."
+Now that you have tested out your code locally, you can make changes to use your webhook in production. For more information, see [Next steps](#next-steps). If you had trouble testing your code, try the steps in [Troubleshooting](#troubleshooting).
 
 ### JavaScript example
 
-This example uses Node.js and the Express library to define routes and handle HTTP requests. For more information, see "[expressjs.com](https://expressjs.com)."
+This example uses Node.js and the Express library to define routes and handle HTTP requests. For more information, see [expressjs.com](https://expressjs.com).
 
-For an example that uses {% data variables.product.company_short %}'s Octokit.js SDK, see "[AUTOTITLE](/apps/creating-github-apps/writing-code-for-a-github-app/building-a-github-app-that-responds-to-webhook-events)."
+For an example that uses {% data variables.product.company_short %}'s Octokit.js SDK, see [AUTOTITLE](/apps/creating-github-apps/writing-code-for-a-github-app/building-a-github-app-that-responds-to-webhook-events).
 
 This example requires your computer or codespace to run Node.js version 12 or greater and npm version 6.12.0 or greater. For more information, see [Node.js](https://nodejs.org).
 
@@ -270,25 +270,25 @@ To test your webhook, you can use your computer or codespace to act as a local s
 
    You should see output that says `Server is running on port 3000`.
 
-1. Trigger your webhook. For example, if you created a repository webhook that is subscribed to the `issues` event, open an issue in your repository. You can also redeliver a previous webhook delivery. For more information, see "[AUTOTITLE](/webhooks/testing-and-troubleshooting-webhooks/redelivering-webhooks)."
+1. Trigger your webhook. For example, if you created a repository webhook that is subscribed to the `issues` event, open an issue in your repository. You can also redeliver a previous webhook delivery. For more information, see [AUTOTITLE](/webhooks/testing-and-troubleshooting-webhooks/redelivering-webhooks).
 1. Navigate to your webhook proxy URL on smee.io. You should see an event that corresponds to the event that you triggered or redelivered. This indicates that {% data variables.product.company_short %} successfully sent a webhook delivery to the payload URL that you specified.
 1. In the terminal window where you ran `smee --url WEBHOOK_PROXY_URL --path /webhook --port 3000`, you should see something like `POST http://127.0.0.1:3000/webhook - 202`. This indicates that smee successfully forwarded your webhook to your local server.
 1. In the terminal window where you ran `node FILE_NAME`, you should see a message corresponding to the event that was sent. For example, if you use the example code from above and you redelivered the `ping` event, you should see "{% data variables.product.company_short %} sent the ping event".
 1. In both terminal windows, enter <kbd>Ctrl</kbd>+<kbd>C</kbd> to stop your local server and stop listening for forwarded webhooks.
 
-Now that you have tested out your code locally, you can make changes to use your webhook in production. For more information, see "[Next steps](#next-steps)." If you had trouble testing your code, try the steps in "[Troubleshooting](#troubleshooting)."
+Now that you have tested out your code locally, you can make changes to use your webhook in production. For more information, see [Next steps](#next-steps). If you had trouble testing your code, try the steps in [Troubleshooting](#troubleshooting).
 
 ## Troubleshooting
 
 If you don't see the expected results described in the testing steps, try the following:
 
-* Make sure that your webhook is using your webhook proxy URL (Smee.io URL). For more information about your webhook proxy URL, see "[Get a webhook proxy URL](#get-a-webhook-proxy-url)." For more information about your webhook settings, see "[AUTOTITLE](/webhooks/using-webhooks/creating-webhooks)."
-* Make sure that your webhook uses the JSON content type, if you have a choice about what content type to use. For more information about your webhook settings, see "[AUTOTITLE](/webhooks/using-webhooks/creating-webhooks)."
+* Make sure that your webhook is using your webhook proxy URL (Smee.io URL). For more information about your webhook proxy URL, see [Get a webhook proxy URL](#get-a-webhook-proxy-url). For more information about your webhook settings, see [AUTOTITLE](/webhooks/using-webhooks/creating-webhooks).
+* Make sure that your webhook uses the JSON content type, if you have a choice about what content type to use. For more information about your webhook settings, see [AUTOTITLE](/webhooks/using-webhooks/creating-webhooks).
 * Make sure that both the smee client and your local server are running. You will have these processes running in two separate terminal windows.
 * Make sure that your server is listening to the same port where smee.io is forwarding webhooks. All of the examples in this article use port 3000.
 * Make sure that the path where smee.io is forwarding webhooks matches a route that is defined in your code. All of the examples in this article use the `/webhooks` path.
 * Check for error messages in the terminal windows where you are running the smee client and your local server.
-* Check {% data variables.product.company_short %} to verify that a webhook delivery was triggered. For more information, see "[AUTOTITLE](/webhooks/testing-and-troubleshooting-webhooks/viewing-webhook-deliveries)."
+* Check {% data variables.product.company_short %} to verify that a webhook delivery was triggered. For more information, see [AUTOTITLE](/webhooks/testing-and-troubleshooting-webhooks/viewing-webhook-deliveries).
 * Check your webhook proxy URL on smee.io. You should see an event that corresponds to the event that you triggered or redelivered. This indicates that {% data variables.product.company_short %} successfully sent a webhook delivery to the payload URL that you specified.
 
 ## Next steps
@@ -306,7 +306,7 @@ This article gave basic examples that print a message when a webhook delivery is
 
 ### Verify that the delivery is from {% data variables.product.company_short %}
 
-In your code that handles webhook deliveries, you should validate that the delivery is from {% data variables.product.company_short %} before processing the delivery further. For more information, see "[AUTOTITLE](/webhooks/using-webhooks/securing-your-webhooks)."
+In your code that handles webhook deliveries, you should validate that the delivery is from {% data variables.product.company_short %} before processing the delivery further. For more information, see [AUTOTITLE](/webhooks/using-webhooks/securing-your-webhooks).
 
 ### Deploy your code to a server
 
@@ -322,9 +322,9 @@ You should not use smee.io to forward your webhooks in production.
 
 ### Follow best practices
 
-You should aim to follow best practices with your webhooks. For more information, see "[AUTOTITLE](/webhooks/using-webhooks/best-practices-for-using-webhooks)."
+You should aim to follow best practices with your webhooks. For more information, see [AUTOTITLE](/webhooks/using-webhooks/best-practices-for-using-webhooks).
 
 ## Further reading
 
-* "[AUTOTITLE](/apps/creating-github-apps/writing-code-for-a-github-app/building-a-github-app-that-responds-to-webhook-events)"
-* "[AUTOTITLE](/webhooks/using-webhooks/best-practices-for-using-webhooks)"
+* [AUTOTITLE](/apps/creating-github-apps/writing-code-for-a-github-app/building-a-github-app-that-responds-to-webhook-events)
+* [AUTOTITLE](/webhooks/using-webhooks/best-practices-for-using-webhooks)

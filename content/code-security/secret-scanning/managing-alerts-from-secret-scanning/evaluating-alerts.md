@@ -20,10 +20,10 @@ allowTitleToDifferFromFilename: true
 
 There are some additional features that can help you to evaluate alerts in order to better prioritize and manage them. You can:
 
-* Check the validity of a secret, to see if the secret is still active. {% ifversion fpt or ghes %}**Applies to {% data variables.product.company_short %} tokens only**.{% endif %} For more information, see "[Checking a secret's validity](#checking-a-secrets-validity)."{% ifversion secret-scanning-validity-check-partner-patterns %}
-* Perform an "on-demand" validity check, to get the most up to date validation status. For more information, see "[Performing an on-demand validity check](#performing-an-on-demand-validity-check)."{% endif %}
-* Review a token's metadata. **Applies to {% data variables.product.company_short %} tokens only**. For example, to see when the token was last used. For more information, see "[Reviewing {% data variables.product.company_short %} token metadata](#reviewing-github-token-metadata)."{% ifversion secret-scanning-multi-repo-public-leak %}
-* Review the labels assigned to the alert. For more information, see "[Reviewing alert labels](#reviewing-alert-labels)."{% endif %}
+* Check the validity of a secret, to see if the secret is still active. {% ifversion fpt or ghes %}**Applies to {% data variables.product.company_short %} tokens only**.{% endif %} For more information, see [Checking a secret's validity](#checking-a-secrets-validity).{% ifversion secret-scanning-validity-check-partner-patterns %}
+* Perform an "on-demand" validity check, to get the most up to date validation status. For more information, see [Performing an on-demand validity check](#performing-an-on-demand-validity-check).{% endif %}
+* Review a token's metadata. **Applies to {% data variables.product.company_short %} tokens only**. For example, to see when the token was last used. For more information, see [Reviewing {% data variables.product.company_short %} token metadata](#reviewing-github-token-metadata).{% ifversion secret-scanning-multi-repo-public-leak %}
+* Review the labels assigned to the alert. For more information, see [Reviewing alert labels](#reviewing-alert-labels).{% endif %}
 
 ## Checking a secret's validity
 
@@ -33,7 +33,7 @@ By default, {% data variables.product.company_short %} checks the validity of {%
 
 {% ifversion fpt %}
 
-Organizations using {% data variables.product.prodname_ghe_cloud %} with a license for {% data variables.product.prodname_GH_advanced_security %} can also enable validity checks for partner patterns. For more information, see "[Checking a secret's validity](/enterprise-cloud@latest/code-security/secret-scanning/managing-alerts-from-secret-scanning/evaluating-alerts#checking-a-secrets-validity)" in the {% data variables.product.prodname_ghe_cloud %} documentation.
+Organizations using {% data variables.product.prodname_ghe_cloud %} with a license for {% data variables.product.prodname_GH_advanced_security %} can also enable validity checks for partner patterns. For more information, see [Checking a secret's validity](/enterprise-cloud@latest/code-security/secret-scanning/managing-alerts-from-secret-scanning/evaluating-alerts#checking-a-secrets-validity) in the {% data variables.product.prodname_ghe_cloud %} documentation.
 
 {% endif %}
 
@@ -43,17 +43,17 @@ Organizations using {% data variables.product.prodname_ghe_cloud %} with a licen
 
 {% data reusables.gated-features.partner-pattern-validity-check-ghas %}
 
-For information on how to enable validity checks for partner patterns, see "[AUTOTITLE](/code-security/secret-scanning/enabling-secret-scanning-features/enabling-validity-checks-for-your-repository)," and for information on which partner patterns are currently supported, see "[AUTOTITLE](/code-security/secret-scanning/introduction/supported-secret-scanning-patterns)."
+For information on how to enable validity checks for partner patterns, see [AUTOTITLE](/code-security/secret-scanning/enabling-secret-scanning-features/enabling-validity-checks-for-your-repository), and for information on which partner patterns are currently supported, see [AUTOTITLE](/code-security/secret-scanning/introduction/supported-secret-scanning-patterns).
 
 {% endif %}
 
-You can use the REST API to retrieve a list of the most recent validation status for each of your tokens. For more information, see "[AUTOTITLE](/rest/secret-scanning)" in the REST API documentation. You can also use webhooks to be notified of activity relating to a {% data variables.product.prodname_secret_scanning %} alert. For more information, see the `secret_scanning_alert` event in "[AUTOTITLE](/webhooks/webhook-events-and-payloads?actionType=created#secret_scanning_alert)."
+You can use the REST API to retrieve a list of the most recent validation status for each of your tokens. For more information, see [AUTOTITLE](/rest/secret-scanning) in the REST API documentation. You can also use webhooks to be notified of activity relating to a {% data variables.product.prodname_secret_scanning %} alert. For more information, see the `secret_scanning_alert` event in [AUTOTITLE](/webhooks/webhook-events-and-payloads?actionType=created#secret_scanning_alert).
 
 {% ifversion copilot-chat-ghas-alerts %}
 
 ## Asking {% data variables.product.prodname_copilot_chat %} about {% data variables.product.prodname_secret_scanning %} alerts
 
-With a {% data variables.product.prodname_copilot_enterprise %} license, you can ask {% data variables.product.prodname_copilot_chat_short %} for help to better understand security alerts, including {% data variables.product.prodname_secret_scanning %} alerts, in repositories in your organization. For more information, see "[AUTOTITLE](/copilot/using-github-copilot/asking-github-copilot-questions-in-githubcom#asking-questions-about-alerts-from-github-advanced-security-features)."
+With a {% data variables.product.prodname_copilot_enterprise %} license, you can ask {% data variables.product.prodname_copilot_chat_short %} for help to better understand security alerts, including {% data variables.product.prodname_secret_scanning %} alerts, in repositories in your organization. For more information, see [AUTOTITLE](/copilot/using-github-copilot/asking-github-copilot-questions-in-githubcom#asking-questions-about-alerts-from-github-advanced-security-features).
 
 {% endif %}
 
@@ -89,7 +89,7 @@ Tokens, like {% data variables.product.pat_generic %} and other credentials, are
 |Last used on| Date the token was last used|
 |Access| Whether the token has organization access|
 
-{% ifversion secret-scanning-user-owned-repos %}{% data reusables.secret-scanning.secret-scanning-user-owned-repo-access %} If access is granted, {% data variables.product.prodname_dotcom %} will notify the owner of the repository containing the leaked secret, report the action in the repository owner and enterprise audit logs, and enable access for 2 hours.{% ifversion ghec %} For more information, see "[AUTOTITLE](/admin/managing-accounts-and-repositories/managing-repositories-in-your-enterprise/accessing-user-owned-repositories-in-your-enterprise)."{% endif %}{% endif %}
+{% ifversion secret-scanning-user-owned-repos %}{% data reusables.secret-scanning.secret-scanning-user-owned-repo-access %} If access is granted, {% data variables.product.prodname_dotcom %} will notify the owner of the repository containing the leaked secret, report the action in the repository owner and enterprise audit logs, and enable access for 2 hours.{% ifversion ghec %} For more information, see [AUTOTITLE](/admin/managing-accounts-and-repositories/managing-repositories-in-your-enterprise/accessing-user-owned-repositories-in-your-enterprise).{% endif %}{% endif %}
 
 {% ifversion secret-scanning-multi-repo-public-leak-deduped-alerts or secret-scanning-multi-repo-public-leak %}
 
@@ -108,4 +108,4 @@ In the alert view, you can review any labels assigned to the alert. The labels p
 
 ## Next steps
 
-* "[AUTOTITLE](/code-security/secret-scanning/managing-alerts-from-secret-scanning/resolving-alerts)"
+* [AUTOTITLE](/code-security/secret-scanning/managing-alerts-from-secret-scanning/resolving-alerts)

@@ -216,7 +216,7 @@ For Enterprise Marketing Pages, we may also use non-essential cookies to (i) gat
 
 Our emails to users may contain a pixel tag, which is a small, clear image that can tell us whether or not you have opened an email and what your IP address is. We use this pixel tag to make our email communications more effective and to make sure we are not sending you unwanted email.
 
-The length of time a cookie will stay on your browser or device depends on whether it is a “persistent” or “session” cookie. Session cookies will only stay on your device until you stop browsing. Persistent cookies stay until they expire or are deleted. The expiration time or retention period applicable to persistent cookies depends on the purpose of the cookie collection and tool used. You may be able to delete cookie data. For more information, see "[AUTOTITLE](/site-policy/privacy-policies/github-privacy-statement#what-are-your-cookie-choices-and-controls)."
+The length of time a cookie will stay on your browser or device depends on whether it is a “persistent” or “session” cookie. Session cookies will only stay on your device until you stop browsing. Persistent cookies stay until they expire or are deleted. The expiration time or retention period applicable to persistent cookies depends on the purpose of the cookie collection and tool used. You may be able to delete cookie data. For more information, see [AUTOTITLE](/site-policy/privacy-policies/github-privacy-statement#what-are-your-cookie-choices-and-controls).
 
 #### What are cookies and similar technologies?
 

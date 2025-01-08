@@ -1403,6 +1403,66 @@
       }
     ]
   },
+  "organization_private_registries": {
+    "title": "Organization private registries",
+    "displayTitle": "Organization permissions for \"Organization private registries\"",
+    "permissions": [
+      {
+        "category": "private-registries",
+        "slug": "list-private-registries-for-an-organization",
+        "subcategory": "organization-configurations",
+        "verb": "get",
+        "requestPath": "/orgs/{org}/private-registries",
+        "additional-permissions": false,
+        "access": "read"
+      },
+      {
+        "category": "private-registries",
+        "slug": "create-a-private-registry-for-an-organization",
+        "subcategory": "organization-configurations",
+        "verb": "post",
+        "requestPath": "/orgs/{org}/private-registries",
+        "additional-permissions": false,
+        "access": "write"
+      },
+      {
+        "category": "private-registries",
+        "slug": "get-private-registries-public-key-for-an-organization",
+        "subcategory": "organization-configurations",
+        "verb": "get",
+        "requestPath": "/orgs/{org}/private-registries/public-key",
+        "additional-permissions": false,
+        "access": "read"
+      },
+      {
+        "category": "private-registries",
+        "slug": "get-a-private-registry-for-an-organization",
+        "subcategory": "organization-configurations",
+        "verb": "get",
+        "requestPath": "/orgs/{org}/private-registries/{secret_name}",
+        "additional-permissions": false,
+        "access": "read"
+      },
+      {
+        "category": "private-registries",
+        "slug": "update-a-private-registry-for-an-organization",
+        "subcategory": "organization-configurations",
+        "verb": "patch",
+        "requestPath": "/orgs/{org}/private-registries/{secret_name}",
+        "additional-permissions": false,
+        "access": "write"
+      },
+      {
+        "category": "private-registries",
+        "slug": "delete-a-private-registry-for-an-organization",
+        "subcategory": "organization-configurations",
+        "verb": "delete",
+        "requestPath": "/orgs/{org}/private-registries/{secret_name}",
+        "additional-permissions": false,
+        "access": "write"
+      }
+    ]
+  },
   "organization_personal_access_token_requests": {
     "title": "Personal access token requests",
     "displayTitle": "Organization permissions for \"Personal access token requests\"",
@@ -3875,6 +3935,24 @@
       },
       {
         "category": "code-scanning",
+        "slug": "get-the-status-of-an-autofix-for-a-code-scanning-alert",
+        "subcategory": "code-scanning",
+        "verb": "get",
+        "requestPath": "/repos/{owner}/{repo}/code-scanning/alerts/{alert_number}/autofix",
+        "additional-permissions": false,
+        "access": "read"
+      },
+      {
+        "category": "code-scanning",
+        "slug": "create-an-autofix-for-a-code-scanning-alert",
+        "subcategory": "code-scanning",
+        "verb": "post",
+        "requestPath": "/repos/{owner}/{repo}/code-scanning/alerts/{alert_number}/autofix",
+        "additional-permissions": false,
+        "access": "write"
+      },
+      {
+        "category": "code-scanning",
         "slug": "list-instances-of-a-code-scanning-alert",
         "subcategory": "code-scanning",
         "verb": "get",
@@ -4266,6 +4344,15 @@
         "subcategory": "branches",
         "verb": "post",
         "requestPath": "/repos/{owner}/{repo}/branches/{branch}/rename",
+        "additional-permissions": false,
+        "access": "write"
+      },
+      {
+        "category": "code-scanning",
+        "slug": "commit-an-autofix-for-a-code-scanning-alert",
+        "subcategory": "code-scanning",
+        "verb": "post",
+        "requestPath": "/repos/{owner}/{repo}/code-scanning/alerts/{alert_number}/autofix/commits",
         "additional-permissions": false,
         "access": "write"
       },
@@ -5463,6 +5550,42 @@
         "subcategory": "reactions",
         "verb": "delete",
         "requestPath": "/repos/{owner}/{repo}/issues/{issue_number}/reactions/{reaction_id}",
+        "additional-permissions": false,
+        "access": "write"
+      },
+      {
+        "category": "issues",
+        "slug": "remove-sub-issue",
+        "subcategory": "sub-issues",
+        "verb": "delete",
+        "requestPath": "/repos/{owner}/{repo}/issues/{issue_number}/sub_issue",
+        "additional-permissions": false,
+        "access": "write"
+      },
+      {
+        "category": "issues",
+        "slug": "list-sub-issues",
+        "subcategory": "sub-issues",
+        "verb": "get",
+        "requestPath": "/repos/{owner}/{repo}/issues/{issue_number}/sub_issues",
+        "additional-permissions": false,
+        "access": "read"
+      },
+      {
+        "category": "issues",
+        "slug": "add-sub-issue",
+        "subcategory": "sub-issues",
+        "verb": "post",
+        "requestPath": "/repos/{owner}/{repo}/issues/{issue_number}/sub_issues",
+        "additional-permissions": false,
+        "access": "write"
+      },
+      {
+        "category": "issues",
+        "slug": "reprioritize-sub-issue",
+        "subcategory": "sub-issues",
+        "verb": "patch",
+        "requestPath": "/repos/{owner}/{repo}/issues/{issue_number}/sub_issues/priority",
         "additional-permissions": false,
         "access": "write"
       },
@@ -7047,6 +7170,15 @@
         "subcategory": "secret-scanning",
         "verb": "get",
         "requestPath": "/repos/{owner}/{repo}/secret-scanning/alerts/{alert_number}/locations",
+        "additional-permissions": false,
+        "access": "read"
+      },
+      {
+        "category": "secret-scanning",
+        "slug": "get-secret-scanning-scan-history-for-a-repository",
+        "subcategory": "secret-scanning",
+        "verb": "get",
+        "requestPath": "/repos/{owner}/{repo}/secret-scanning/scan-history",
         "additional-permissions": false,
         "access": "read"
       }

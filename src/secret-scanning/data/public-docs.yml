@@ -145,6 +145,18 @@
   hasValidityCheck: '{% ifversion fpt or ghes %}false{% else %}true{% endif %}'
   isduplicate: false
 - provider: Anthropic
+  supportedSecret: Anthropic Admin API Key
+  secretType: anthropic_admin_api_key
+  versions:
+    fpt: '*'
+    ghec: '*'
+    ghes: '>=3.16'
+  isPublic: true
+  isPrivateWithGhas: true
+  hasPushProtection: true
+  hasValidityCheck: false
+  isduplicate: false
+- provider: Anthropic
   supportedSecret: Anthropic API Key
   secretType: anthropic_api_key
   versions:
@@ -154,17 +166,6 @@
   isPublic: true
   isPrivateWithGhas: true
   hasPushProtection: true
-  hasValidityCheck: false
-  isduplicate: false
-- provider: Anthropic
-  supportedSecret: Anthropic Management API Key
-  secretType: anthropic_management_api_key
-  versions:
-    fpt: '*'
-    ghec: '*'
-  isPublic: true
-  isPrivateWithGhas: true
-  hasPushProtection: false
   hasValidityCheck: false
   isduplicate: false
 - provider: Anthropic
@@ -659,6 +660,18 @@
   hasValidityCheck: false
   isduplicate: false
 - provider: Azure
+  supportedSecret: Microsoft Azure Entra ID Token
+  secretType: microsoft_azure_entra_id_token
+  versions:
+    fpt: '*'
+    ghec: '*'
+    ghes: '>=3.16'
+  isPublic: false
+  isPrivateWithGhas: true
+  hasPushProtection: true
+  hasValidityCheck: false
+  isduplicate: false
+- provider: Azure
   supportedSecret: Microsoft Corporate Network User Credential
   secretType: microsoft_corporate_network_user_credential
   versions:
@@ -885,6 +898,17 @@
   hasPushProtection: false
   hasValidityCheck: false
   isduplicate: false
+- provider: Cockroach Labs
+  supportedSecret: CockroachDB Cloud API Key
+  secretType: ccdb_api_key
+  versions:
+    fpt: '*'
+    ghec: '*'
+  isPublic: true
+  isPrivateWithGhas: false
+  hasPushProtection: false
+  hasValidityCheck: false
+  isduplicate: false
 - provider: Contentful
   supportedSecret: Contentful Personal Access Token
   secretType: contentful_personal_access_token
@@ -940,6 +964,17 @@
   isPublic: true
   isPrivateWithGhas: true
   hasPushProtection: true
+  hasValidityCheck: false
+  isduplicate: false
+- provider: Databento
+  supportedSecret: Databento API Key
+  secretType: databento_api_key
+  versions:
+    fpt: '*'
+    ghec: '*'
+  isPublic: true
+  isPrivateWithGhas: false
+  hasPushProtection: false
   hasValidityCheck: false
   isduplicate: false
 - provider: Databricks
@@ -1581,6 +1616,17 @@
   hasValidityCheck: false
   isduplicate: false
 - provider: Google
+  supportedSecret: GCP API Key Bound to a Service Account
+  secretType: google_gcp_api_key_bound_service_account
+  versions:
+    fpt: '*'
+    ghec: '*'
+  isPublic: true
+  isPrivateWithGhas: false
+  hasPushProtection: false
+  hasValidityCheck: false
+  isduplicate: false
+- provider: Google
   supportedSecret: Google OAuth Access Token
   secretType: google_oauth_access_token
   versions:
@@ -1974,6 +2020,28 @@
   hasPushProtection: false
   hasValidityCheck: false
   isduplicate: false
+- provider: Lichess
+  supportedSecret: Lichess OAuth Access Token
+  secretType: lichess_oauth_access_token
+  versions:
+    fpt: '*'
+    ghec: '*'
+  isPublic: true
+  isPrivateWithGhas: false
+  hasPushProtection: false
+  hasValidityCheck: false
+  isduplicate: false
+- provider: Lichess
+  supportedSecret: Lichess Personal Access Token
+  secretType: lichess_personal_access_token
+  versions:
+    fpt: '*'
+    ghec: '*'
+  isPublic: true
+  isPrivateWithGhas: false
+  hasPushProtection: false
+  hasValidityCheck: false
+  isduplicate: false
 - provider: Lightspeed
   supportedSecret: Lightspeed Personal Access Token
   secretType: lightspeed_xs_pat
@@ -2226,6 +2294,17 @@
   hasPushProtection: false
   hasValidityCheck: false
   isduplicate: false
+- provider: MongoDB
+  supportedSecret: MongoDB Atlas Database URI with credentials
+  secretType: mongodb_atlas_db_uri_with_credentials
+  versions:
+    fpt: '*'
+    ghec: '*'
+  isPublic: true
+  isPrivateWithGhas: false
+  hasPushProtection: false
+  hasValidityCheck: false
+  isduplicate: false
 - provider: Netflix
   supportedSecret: Netflix NetKey
   secretType: netflix_netkey
@@ -2453,6 +2532,17 @@
   hasPushProtection: true
   hasValidityCheck: '{% ifversion fpt or ghes %}false{% else %}true{% endif %}'
   isduplicate: true
+- provider: OpenRouter
+  supportedSecret: OpenRouter API Key
+  secretType: openrouter_api_key
+  versions:
+    fpt: '*'
+    ghec: '*'
+  isPublic: true
+  isPrivateWithGhas: false
+  hasPushProtection: false
+  hasValidityCheck: false
+  isduplicate: false
 - provider: Orbit
   supportedSecret: Orbit API Token
   secretType: orbit_api_token
@@ -2865,6 +2955,18 @@
   isPublic: true
   isPrivateWithGhas: true
   hasPushProtection: true
+  hasValidityCheck: false
+  isduplicate: false
+- provider: Scalr
+  supportedSecret: Scalr API Token
+  secretType: scalr_api_token
+  versions:
+    fpt: '*'
+    ghec: '*'
+    ghes: '>=3.16'
+  isPublic: true
+  isPrivateWithGhas: true
+  hasPushProtection: false
   hasValidityCheck: false
   isduplicate: false
 - provider: Segment

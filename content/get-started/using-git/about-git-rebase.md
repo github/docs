@@ -20,7 +20,7 @@ Typically, you would use `git rebase` to:
 * Delete or revert commits that are no longer necessary
 
 > [!WARNING]
-> Because changing your commit history can make things difficult for everyone else using the repository, it's considered bad practice to rebase commits when you've already pushed to a repository. To learn how to safely rebase, see "[AUTOTITLE](/pull-requests/collaborating-with-pull-requests/incorporating-changes-from-a-pull-request/about-pull-request-merges)."
+> Because changing your commit history can make things difficult for everyone else using the repository, it's considered bad practice to rebase commits when you've already pushed to a repository. To learn how to safely rebase, see [AUTOTITLE](/pull-requests/collaborating-with-pull-requests/incorporating-changes-from-a-pull-request/about-pull-request-merges).
 
 ## Rebasing commits against a branch
 
@@ -100,8 +100,8 @@ Breaking this information, from top to bottom, we see that:
 
 ## Further reading
 
-* "[AUTOTITLE](/get-started/using-git/using-git-rebase-on-the-command-line)"
+* [AUTOTITLE](/get-started/using-git/using-git-rebase-on-the-command-line)
 * [The "Git Branching" chapter from the _Pro Git_ book](https://git-scm.com/book/en/v2/Git-Branching-Rebasing)
 * [The "Interactive Rebasing" chapter from the _Pro Git_ book](https://git-scm.com/book/en/v2/Git-Tools-Rewriting-History#_changing_multiple)
-* "[Squashing commits with rebase](http://gitready.com/advanced/2009/02/10/squashing-commits-with-rebase.html)"
-* "[AUTOTITLE](/desktop/working-with-your-remote-repository-on-github-or-github-enterprise/syncing-your-branch-in-github-desktop)" in the {% data variables.product.prodname_desktop %} documentation
+* [Squashing commits with rebase](http://gitready.com/advanced/2009/02/10/squashing-commits-with-rebase.html)
+* [AUTOTITLE](/desktop/working-with-your-remote-repository-on-github-or-github-enterprise/syncing-your-branch-in-github-desktop) in the {% data variables.product.prodname_desktop %} documentation

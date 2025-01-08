@@ -16,7 +16,7 @@ shortTitle: Create a team discussion
 {% data reusables.organizations.team-discussions-migration %}
 {% endif %}
 
-{% data reusables.organizations.team-discussions-permissions %} For more information, see "[AUTOTITLE](/organizations/collaborating-with-your-team/about-team-discussions)."
+{% data reusables.organizations.team-discussions-permissions %} For more information, see [AUTOTITLE](/organizations/collaborating-with-your-team/about-team-discussions).
 
 {% data reusables.profile.access_org %}
 {% data reusables.user-settings.access_org %}
@@ -28,6 +28,6 @@ shortTitle: Create a team discussion
 
 ## Further reading
 
-* "[AUTOTITLE](/organizations/collaborating-with-your-team/about-team-discussions)"
-* "[AUTOTITLE](/organizations/collaborating-with-your-team/editing-or-deleting-a-team-discussion)"
-* "[AUTOTITLE](/organizations/collaborating-with-your-team/pinning-a-team-discussion)"
+* [AUTOTITLE](/organizations/collaborating-with-your-team/about-team-discussions)
+* [AUTOTITLE](/organizations/collaborating-with-your-team/editing-or-deleting-a-team-discussion)
+* [AUTOTITLE](/organizations/collaborating-with-your-team/pinning-a-team-discussion)

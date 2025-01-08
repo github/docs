@@ -28,9 +28,9 @@ the tools, queries, and libraries required to create and analyze databases.
 
 The {% data variables.product.prodname_codeql_cli %} can be set up to support many different use cases and directory structures. To get started quickly, we recommend adopting a relatively simple setup, as outlined in the steps below.
 
-If you plan to use the {% data variables.product.prodname_codeql_cli %} for security research or to test or contribute queries, you may want a more advanced setup of {% data variables.product.prodname_codeql_cli %}. For more information, see "[AUTOTITLE](/code-security/codeql-cli/using-the-advanced-functionality-of-the-codeql-cli/advanced-setup-of-the-codeql-cli)."
+If you plan to use the {% data variables.product.prodname_codeql_cli %} for security research or to test or contribute queries, you may want a more advanced setup of {% data variables.product.prodname_codeql_cli %}. For more information, see [AUTOTITLE](/code-security/codeql-cli/using-the-advanced-functionality-of-the-codeql-cli/advanced-setup-of-the-codeql-cli).
 
-If you are setting up the {% data variables.product.prodname_codeql_cli %} in your CI system, you need to make the full contents of the {% data variables.product.prodname_codeql_cli %} bundle available to every CI server that you want to run {% data variables.product.prodname_codeql %} {% data variables.product.prodname_code_scanning %} analysis on. For example, you might configure each server to copy the bundle from a central, internal location and extract it. Alternatively, you could use the REST API to get the bundle directly from {% data variables.product.prodname_dotcom %}, ensuring that you benefit from the latest improvements to queries. For more information, see "[AUTOTITLE](/rest/releases)" in the REST API documentation.
+If you are setting up the {% data variables.product.prodname_codeql_cli %} in your CI system, you need to make the full contents of the {% data variables.product.prodname_codeql_cli %} bundle available to every CI server that you want to run {% data variables.product.prodname_codeql %} {% data variables.product.prodname_code_scanning %} analysis on. For example, you might configure each server to copy the bundle from a central, internal location and extract it. Alternatively, you could use the REST API to get the bundle directly from {% data variables.product.prodname_dotcom %}, ensuring that you benefit from the latest improvements to queries. For more information, see [AUTOTITLE](/rest/releases) in the REST API documentation.
 
 If you are using macOS on Apple Silicon (for example, Apple M1), ensure that the [Xcode command-line developer
 tools](https://developer.apple.com/downloads/index.action) and [Rosetta 2](https://support.apple.com/en-us/HT211861) are installed.
@@ -51,7 +51,7 @@ Extract the {% data variables.product.prodname_codeql_cli %} tar archive to a di
 {% data reusables.codeql-cli.launch-codeql %}
 
 > [!NOTE]
-> If you add `codeql` to your `PATH`, it can be accessed by {% data variables.product.prodname_codeql %} for {% data variables.product.prodname_vscode %} to compile and run queries. For more information about configuring {% data variables.product.prodname_vscode_shortname %} to access the {% data variables.product.prodname_codeql_cli %}, see "[AUTOTITLE](/code-security/codeql-for-vs-code/using-the-advanced-functionality-of-the-codeql-for-vs-code-extension/configuring-access-to-the-codeql-cli)."
+> If you add `codeql` to your `PATH`, it can be accessed by {% data variables.product.prodname_codeql %} for {% data variables.product.prodname_vscode %} to compile and run queries. For more information about configuring {% data variables.product.prodname_vscode_shortname %} to access the {% data variables.product.prodname_codeql_cli %}, see [AUTOTITLE](/code-security/codeql-for-vs-code/using-the-advanced-functionality-of-the-codeql-for-vs-code-extension/configuring-access-to-the-codeql-cli).
 
 ## Testing the {% data variables.product.prodname_codeql_cli %} configuration
 
@@ -86,7 +86,7 @@ You should check that the output contains the expected languages and also that t
 
 You can also run `codeql resolve languages` to show which languages are available for database creation. This will list the languages supported by default in your {% data variables.product.prodname_codeql_cli %} package.
 
-Optionally, you can download some CodeQL packs containing pre-compiled queries you would like to run. For more information, see "[AUTOTITLE](/code-security/codeql-cli/getting-started-with-the-codeql-cli/customizing-analysis-with-codeql-packs)."
+Optionally, you can download some CodeQL packs containing pre-compiled queries you would like to run. For more information, see [AUTOTITLE](/code-security/codeql-cli/getting-started-with-the-codeql-cli/customizing-analysis-with-codeql-packs).
 
 The `codeql resolve packs` command is useful for diagnosing problems when the {% data variables.product.prodname_codeql_cli %} is unable to locate query packs that you expect to be available for analysis.
 
@@ -94,4 +94,4 @@ The `codeql resolve packs` command is useful for diagnosing problems when the {%
 
 ## Next steps
 
-To learn how to prepare your code to be analyzed by the {% data variables.product.prodname_codeql_cli %}, see "[AUTOTITLE](/code-security/codeql-cli/getting-started-with-the-codeql-cli/preparing-your-code-for-codeql-analysis)."
+To learn how to prepare your code to be analyzed by the {% data variables.product.prodname_codeql_cli %}, see [AUTOTITLE](/code-security/codeql-cli/getting-started-with-the-codeql-cli/preparing-your-code-for-codeql-analysis).

@@ -38,13 +38,13 @@ Certain Travis CI constructs must be migrated manually. These include:
 * Secrets
 * Unknown job properties
 
-For more information on manual migrations, see "[AUTOTITLE](/actions/migrating-to-github-actions/manually-migrating-to-github-actions/migrating-from-travis-ci-to-github-actions)."
+For more information on manual migrations, see [AUTOTITLE](/actions/migrating-to-github-actions/manually-migrating-to-github-actions/migrating-from-travis-ci-to-github-actions).
 
 #### Travis CI project languages
 
 {% data variables.product.prodname_actions_importer %} transforms Travis CI project languages by adding a set of preconfigured build tools and a default build script to the transformed workflow. If no language is explicitly declared, {% data variables.product.prodname_actions_importer %} assumes a project language is Ruby.
 
-For a list of the project languages supported by {% data variables.product.prodname_actions_importer %}, see "[Supported project languages](#supported-project-languages)."
+For a list of the project languages supported by {% data variables.product.prodname_actions_importer %}, see [Supported project languages](#supported-project-languages).
 
 ## Installing the {% data variables.product.prodname_actions_importer %} CLI extension
 
@@ -54,7 +54,7 @@ For a list of the project languages supported by {% data variables.product.prodn
 
 The `configure` CLI command is used to set required credentials and options for {% data variables.product.prodname_actions_importer %} when working with Travis CI and {% data variables.product.prodname_dotcom %}.
 
-1. Create a {% data variables.product.prodname_dotcom %} {% data variables.product.pat_v1 %}. For more information, see "[AUTOTITLE](/authentication/keeping-your-account-and-data-secure/managing-your-personal-access-tokens#creating-a-personal-access-token-classic)."
+1. Create a {% data variables.product.prodname_dotcom %} {% data variables.product.pat_v1 %}. For more information, see [AUTOTITLE](/authentication/keeping-your-account-and-data-secure/managing-your-personal-access-tokens#creating-a-personal-access-token-classic).
 
    Your token must have the `workflow` scope.
 
@@ -311,7 +311,7 @@ gh actions-importer dry-run travis-ci --travis-ci-repository travis-org-name/tra
 
 ### Supported syntax for Travis CI pipelines
 
-The following table shows the type of properties {% data variables.product.prodname_actions_importer %} is currently able to convert. For more details about how Travis CI pipeline syntax aligns with {% data variables.product.prodname_actions %}, see "[AUTOTITLE](/actions/migrating-to-github-actions/manually-migrating-to-github-actions/migrating-from-travis-ci-to-github-actions)".
+The following table shows the type of properties {% data variables.product.prodname_actions_importer %} is currently able to convert. For more details about how Travis CI pipeline syntax aligns with {% data variables.product.prodname_actions %}, see [AUTOTITLE](/actions/migrating-to-github-actions/manually-migrating-to-github-actions/migrating-from-travis-ci-to-github-actions).
 
 | Travis CI    | GitHub Actions                     |              Status |
 | :------------------ | :--------------------------------- | ------------------: |

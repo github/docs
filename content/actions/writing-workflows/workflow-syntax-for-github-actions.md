@@ -109,17 +109,17 @@ run-name: Deploy to ${{ inputs.deploy_target }} by @${{ github.actor }}
 
 ## `on.workflow_call`
 
-Use `on.workflow_call` to define the inputs and outputs for a reusable workflow. You can also map the secrets that are available to the called workflow. For more information on reusable workflows, see "[AUTOTITLE](/actions/using-workflows/reusing-workflows)."
+Use `on.workflow_call` to define the inputs and outputs for a reusable workflow. You can also map the secrets that are available to the called workflow. For more information on reusable workflows, see [AUTOTITLE](/actions/using-workflows/reusing-workflows).
 
 ## `on.workflow_call.inputs`
 
-When using the `workflow_call` keyword, you can optionally specify inputs that are passed to the called workflow from the caller workflow. For more information about the `workflow_call` keyword, see "[AUTOTITLE](/actions/using-workflows/events-that-trigger-workflows#workflow-reuse-events)."
+When using the `workflow_call` keyword, you can optionally specify inputs that are passed to the called workflow from the caller workflow. For more information about the `workflow_call` keyword, see [AUTOTITLE](/actions/using-workflows/events-that-trigger-workflows#workflow-reuse-events).
 
 In addition to the standard input parameters that are available, `on.workflow_call.inputs` requires a `type` parameter. For more information, see [`on.workflow_call.inputs.<input_id>.type`](#onworkflow_callinputsinput_idtype).
 
 If a `default` parameter is not set, the default value of the input is `false` for a boolean, `0` for a number, and `""` for a string.
 
-Within the called workflow, you can use the `inputs` context to refer to an input. For more information, see "[AUTOTITLE](/actions/learn-github-actions/contexts#inputs-context)."
+Within the called workflow, you can use the `inputs` context to refer to an input. For more information, see [AUTOTITLE](/actions/learn-github-actions/contexts#inputs-context).
 
 If a caller workflow passes an input that is not specified in the called workflow, this results in an error.
 
@@ -148,7 +148,7 @@ jobs:
 
 {% endraw %}
 
-For more information, see "[AUTOTITLE](/actions/using-workflows/reusing-workflows)."
+For more information, see [AUTOTITLE](/actions/using-workflows/reusing-workflows).
 
 ## `on.workflow_call.inputs.<input_id>.type`
 
@@ -179,7 +179,7 @@ on:
 
 {% endraw %}
 
-For information on how to reference a job output, see [`jobs.<job_id>.outputs`](#jobsjob_idoutputs). For more information, see "[AUTOTITLE](/actions/using-workflows/reusing-workflows)."
+For information on how to reference a job output, see [`jobs.<job_id>.outputs`](#jobsjob_idoutputs). For more information, see [AUTOTITLE](/actions/using-workflows/reusing-workflows).
 
 ## `on.workflow_call.secrets`
 
@@ -188,7 +188,7 @@ A map of the secrets that can be used in the called workflow.
 Within the called workflow, you can use the `secrets` context to refer to a secret.
 
 > [!NOTE]
-> If you are passing the secret to a nested reusable workflow, then you must use [`jobs.<job_id>.secrets`](#jobsjob_idsecrets) again to pass the secret. For more information, see "[AUTOTITLE](/actions/using-workflows/reusing-workflows#passing-secrets-to-nested-workflows)."
+> If you are passing the secret to a nested reusable workflow, then you must use [`jobs.<job_id>.secrets`](#jobsjob_idsecrets) again to pass the secret. For more information, see [AUTOTITLE](/actions/using-workflows/reusing-workflows#passing-secrets-to-nested-workflows).
 
 If a caller workflow passes a secret that is not specified in the called workflow, this results in an error.
 
@@ -416,7 +416,7 @@ jobs:
 
 A job contains a sequence of tasks called `steps`. Steps can run commands, run setup tasks, or run an action in your repository, a public repository, or an action published in a Docker registry. Not all steps run actions, but all actions run as a step. Each step runs in its own process in the runner environment and has access to the workspace and filesystem. Because steps run in their own process, changes to environment variables are not preserved between steps. {% data variables.product.prodname_dotcom %} provides built-in steps to set up and complete a job.
 
-{% data variables.product.prodname_dotcom %} only displays the first 1,000 checks, however, you can run an unlimited number of steps as long as you are within the workflow usage limits. For more information, see "[AUTOTITLE](/actions/learn-github-actions/usage-limits-billing-and-administration)" for {% data variables.product.prodname_dotcom %}-hosted runners and "[AUTOTITLE](/actions/hosting-your-own-runners/managing-self-hosted-runners/about-self-hosted-runners#usage-limits)" for self-hosted runner usage limits.
+{% data variables.product.prodname_dotcom %} only displays the first 1,000 checks, however, you can run an unlimited number of steps as long as you are within the workflow usage limits. For more information, see [AUTOTITLE](/actions/learn-github-actions/usage-limits-billing-and-administration) for {% data variables.product.prodname_dotcom %}-hosted runners and [AUTOTITLE](/actions/hosting-your-own-runners/managing-self-hosted-runners/about-self-hosted-runners#usage-limits) for self-hosted runner usage limits.
 
 ### Example of `jobs.<job_id>.steps`
 
@@ -446,13 +446,13 @@ jobs:
 
 ## `jobs.<job_id>.steps[*].id`
 
-A unique identifier for the step. You can use the `id` to reference the step in contexts. For more information, see "[AUTOTITLE](/actions/learn-github-actions/contexts)."
+A unique identifier for the step. You can use the `id` to reference the step in contexts. For more information, see [AUTOTITLE](/actions/learn-github-actions/contexts).
 
 ## `jobs.<job_id>.steps[*].if`
 
 You can use the `if` conditional to prevent a step from running unless a condition is met. {% data reusables.actions.if-supported-contexts %}
 
-{% data reusables.actions.expression-syntax-if %} For more information, see "[AUTOTITLE](/actions/learn-github-actions/expressions)."
+{% data reusables.actions.expression-syntax-if %} For more information, see [AUTOTITLE](/actions/learn-github-actions/expressions).
 
 ### Example: Using contexts
 
@@ -467,7 +467,7 @@ steps:
 
 ### Example: Using status check functions
 
-The `my backup step` only runs when the previous step of a job fails. For more information, see "[AUTOTITLE](/actions/learn-github-actions/expressions#status-check-functions)."
+The `my backup step` only runs when the previous step of a job fails. For more information, see [AUTOTITLE](/actions/learn-github-actions/expressions#status-check-functions).
 
 ```yaml
 steps:
@@ -503,7 +503,7 @@ jobs:
 
 {% endraw %}
 
-For more information, see "[AUTOTITLE](/actions/learn-github-actions/contexts#context-availability)" and "[AUTOTITLE](/actions/security-guides/using-secrets-in-github-actions)."
+For more information, see [AUTOTITLE](/actions/learn-github-actions/contexts#context-availability) and [AUTOTITLE](/actions/security-guides/using-secrets-in-github-actions).
 
 ## `jobs.<job_id>.steps[*].name`
 
@@ -624,7 +624,7 @@ jobs:
 
 ### Example: Using an action inside a different private repository than the workflow
 
-Your workflow must checkout the private repository and reference the action locally. Generate a {% data variables.product.pat_generic %} and add the token as a secret. For more information, see "[AUTOTITLE](/authentication/keeping-your-account-and-data-secure/creating-a-personal-access-token)" and "[AUTOTITLE](/actions/security-guides/using-secrets-in-github-actions)."
+Your workflow must checkout the private repository and reference the action locally. Generate a {% data variables.product.pat_generic %} and add the token as a secret. For more information, see [AUTOTITLE](/authentication/keeping-your-account-and-data-secure/creating-a-personal-access-token) and [AUTOTITLE](/actions/security-guides/using-secrets-in-github-actions).
 
 Replace `PERSONAL_ACCESS_TOKEN` in the example with the name of your secret.
 
@@ -643,7 +643,7 @@ jobs:
         uses: ./.github/actions/my-private-repo/my-action
 ```
 
-Alternatively, use a {% data variables.product.prodname_github_app %} instead of a {% data variables.product.pat_generic %} in order to ensure your workflow continues to run even if the {% data variables.product.pat_generic %} owner leaves. For more information, see "[AUTOTITLE](/apps/creating-github-apps/guides/making-authenticated-api-requests-with-a-github-app-in-a-github-actions-workflow)."
+Alternatively, use a {% data variables.product.prodname_github_app %} instead of a {% data variables.product.pat_generic %} in order to ensure your workflow continues to run even if the {% data variables.product.pat_generic %} owner leaves. For more information, see [AUTOTITLE](/apps/creating-github-apps/guides/making-authenticated-api-requests-with-a-github-app-in-a-github-actions-workflow).
 
 ## `jobs.<job_id>.steps[*].run`
 
@@ -679,9 +679,9 @@ Using the `working-directory` keyword, you can specify the working directory of 
   working-directory: ./temp
 ```
 
-Alternatively, you can specify a default working directory for all `run` steps in a job, or for all `run` steps in the entire workflow. For more information, see "[`defaults.run.working-directory`](/actions/using-workflows/workflow-syntax-for-github-actions#defaultsrunworking-directory)" and "[`jobs.<job_id>.defaults.run.working-directory`](/actions/using-workflows/workflow-syntax-for-github-actions#jobsjob_iddefaultsrunworking-directory)."
+Alternatively, you can specify a default working directory for all `run` steps in a job, or for all `run` steps in the entire workflow. For more information, see [`defaults.run.working-directory`](/actions/using-workflows/workflow-syntax-for-github-actions#defaultsrunworking-directory) and [`jobs.<job_id>.defaults.run.working-directory`](/actions/using-workflows/workflow-syntax-for-github-actions#jobsjob_iddefaultsrunworking-directory).
 
-You can also use a `run` step to run a script. For more information, see "[AUTOTITLE](/actions/writing-workflows/choosing-what-your-workflow-does/adding-scripts-to-your-workflow)."
+You can also use a `run` step to run a script. For more information, see [AUTOTITLE](/actions/writing-workflows/choosing-what-your-workflow-does/adding-scripts-to-your-workflow).
 
 ## `jobs.<job_id>.steps[*].shell`
 
@@ -689,7 +689,7 @@ You can override the default shell settings in the runner's operating system and
 
 {% data reusables.actions.supported-shells %}
 
-Alternatively, you can specify a default shell for all `run` steps in a job, or for all `run` steps in the entire workflow. For more information, see "[`defaults.run.shell`](/actions/using-workflows/workflow-syntax-for-github-actions#defaultsrunshell)" and "[`jobs.<job_id>.defaults.run.shell`](/actions/using-workflows/workflow-syntax-for-github-actions#jobsjob_iddefaultsrunshell)."
+Alternatively, you can specify a default shell for all `run` steps in a job, or for all `run` steps in the entire workflow. For more information, see [`defaults.run.shell`](/actions/using-workflows/workflow-syntax-for-github-actions#defaultsrunshell) and [`jobs.<job_id>.defaults.run.shell`](/actions/using-workflows/workflow-syntax-for-github-actions#jobsjob_iddefaultsrunshell).
 
 ### Example: Running a command using Bash
 
@@ -755,7 +755,7 @@ steps:
 The command used, `perl` in this example, must be installed on the runner.
 
 {% ifversion fpt or ghec %}
-For information about the software included on GitHub-hosted runners, see "[AUTOTITLE](/actions/using-github-hosted-runners/about-github-hosted-runners#supported-software)."
+For information about the software included on GitHub-hosted runners, see [AUTOTITLE](/actions/using-github-hosted-runners/about-github-hosted-runners#supported-software).
 {% endif %}
 
 ### Exit codes and error action preference
@@ -780,7 +780,7 @@ For built-in shell keywords, we provide the following defaults that are executed
 
 A `map` of the input parameters defined by the action. Each input parameter is a key/value pair. Input parameters are set as environment variables. The variable is prefixed with `INPUT_` and converted to upper case.
 
-Input parameters defined for a Docker container must use `args`. For more information, see "[`jobs.<job_id>.steps[*].with.args`](#jobsjob_idstepswithargs)."
+Input parameters defined for a Docker container must use `args`. For more information, see [`jobs.<job_id>.steps[*].with.args`](#jobsjob_idstepswithargs).
 
 ### Example of `jobs.<job_id>.steps[*].with`
 
@@ -845,7 +845,7 @@ Sets variables for steps to use in the runner environment. You can also set vari
 
 {% data reusables.repositories.actions-env-var-note %}
 
-Public actions may specify expected variables in the README file. If you are setting a secret or sensitive value, such as a password or token, you must set secrets using the `secrets` context. For more information, see "[AUTOTITLE](/actions/learn-github-actions/contexts)."
+Public actions may specify expected variables in the README file. If you are setting a secret or sensitive value, such as a password or token, you must set secrets using the `secrets` context. For more information, see [AUTOTITLE](/actions/learn-github-actions/contexts).
 
 ### Example of `jobs.<job_id>.steps[*].env`
 
@@ -876,14 +876,14 @@ Fractional values are not supported. `timeout-minutes` must be a positive intege
 
 The maximum number of minutes to let a job run before {% data variables.product.prodname_dotcom %} automatically cancels it. Default: 360
 
-If the timeout exceeds the job execution time limit for the runner, the job will be canceled when the execution time limit is met instead. For more information about job execution time limits, see "[AUTOTITLE](/actions/learn-github-actions/usage-limits-billing-and-administration#usage-limits)" for {% data variables.product.prodname_dotcom %}-hosted runners and "[AUTOTITLE](/actions/hosting-your-own-runners/managing-self-hosted-runners/about-self-hosted-runners#usage-limits)" for self-hosted runner usage limits.
+If the timeout exceeds the job execution time limit for the runner, the job will be canceled when the execution time limit is met instead. For more information about job execution time limits, see [AUTOTITLE](/actions/learn-github-actions/usage-limits-billing-and-administration#usage-limits) for {% data variables.product.prodname_dotcom %}-hosted runners and [AUTOTITLE](/actions/hosting-your-own-runners/managing-self-hosted-runners/about-self-hosted-runners#usage-limits) for self-hosted runner usage limits.
 
 > [!NOTE]
-> {% data reusables.actions.github-token-expiration %} For self-hosted runners, the token may be the limiting factor if the job timeout is greater than 24 hours. For more information on the `GITHUB_TOKEN`, see "[AUTOTITLE](/actions/security-guides/automatic-token-authentication#about-the-github_token-secret)."
+> {% data reusables.actions.github-token-expiration %} For self-hosted runners, the token may be the limiting factor if the job timeout is greater than 24 hours. For more information on the `GITHUB_TOKEN`, see [AUTOTITLE](/actions/security-guides/automatic-token-authentication#about-the-github_token-secret).
 
 ## `jobs.<job_id>.strategy`
 
-Use `jobs.<job_id>.strategy` to use a matrix strategy for your jobs. {% data reusables.actions.jobs.about-matrix-strategy %} For more information, see "[AUTOTITLE](/actions/using-jobs/using-a-matrix-for-your-jobs)."
+Use `jobs.<job_id>.strategy` to use a matrix strategy for your jobs. {% data reusables.actions.jobs.about-matrix-strategy %} For more information, see [AUTOTITLE](/actions/using-jobs/using-a-matrix-for-your-jobs).
 
 ## `jobs.<job_id>.strategy.matrix`
 
@@ -992,7 +992,7 @@ If you configure your job to run in a container, or your step uses container act
 
 If you configure the job to run directly on the runner machine and your step doesn't use a container action, you must map any required Docker service container ports to the Docker host (the runner machine). You can access the service container using localhost and the mapped port.
 
-For more information about the differences between networking service containers, see "[AUTOTITLE](/actions/using-containerized-services/about-service-containers)."
+For more information about the differences between networking service containers, see [AUTOTITLE](/actions/using-containerized-services/about-service-containers).
 
 ### Example: Using localhost
 
@@ -1081,7 +1081,7 @@ volumes:
 
 ## `jobs.<job_id>.services.<service_id>.options`
 
-Additional Docker container resource options. For a list of options, see "[`docker create` options](https://docs.docker.com/engine/reference/commandline/create/#options)."
+Additional Docker container resource options. For a list of options, see [`docker create` options](https://docs.docker.com/engine/reference/commandline/create/#options).
 
 > [!WARNING]
 > The `--network` option is not supported.
@@ -1096,7 +1096,7 @@ The location and version of a reusable workflow file to run as a job. Use one of
 
 {% data reusables.actions.uses-keyword-example %}
 
-For more information, see "[AUTOTITLE](/actions/using-workflows/reusing-workflows)."
+For more information, see [AUTOTITLE](/actions/using-workflows/reusing-workflows).
 
 ## `jobs.<job_id>.with`
 
@@ -1210,7 +1210,7 @@ branches: [ main, 'release/v[0-9].[0-9]' ]
 branches: [ main, release/v[0-9].[0-9] ]
 ```
 
-For more information about branch, tag, and path filter syntax, see "[`on.<push>.<branches|tags>`](#onpushbranchestagsbranches-ignoretags-ignore)", "[`on.<pull_request>.<branches|tags>`](#onpull_requestpull_request_targetbranchesbranches-ignore)", and "[`on.<push|pull_request>.paths`](#onpushpull_requestpull_request_targetpathspaths-ignore)."
+For more information about branch, tag, and path filter syntax, see [`on.<push>.<branches|tags>`](#onpushbranchestagsbranches-ignoretags-ignore), [`on.<pull_request>.<branches|tags>`](#onpull_requestpull_request_targetbranchesbranches-ignore), and [`on.<push|pull_request>.paths`](#onpushpull_requestpull_request_targetpathspaths-ignore).
 
 ### Patterns to match branches and tags
 
@@ -1236,8 +1236,8 @@ Path patterns must match the whole path, and start from the repository's root.
 | `'**'`                                              | The `**` wildcard matches any character including slash (`/`). This is the default behavior when you don't use a `path` filter.                                                               | `all/the/files.md`                                                                      |
 | `'*.js'`                                            | The `*` wildcard matches any character, but does not match slash (`/`). Matches all `.js` files at the root of the repository.                                                                | `app.js`<br/><br/>`index.js`                                                            |
 | `'**.js'`                                           | Matches all `.js` files in the repository.                                                                                                                                                    | `index.js`<br/><br/>`js/index.js`<br/><br/>`src/js/app.js`                              |
-| `docs/*`                                            | All files within the root of the `docs` directory, at the root of the repository.                                                                                                             | `docs/README.md`<br/><br/>`docs/file.txt`                                               |
-| `docs/**`                                           | Any files in the `/docs` directory at the root of the repository.                                                                                                                             | `docs/README.md`<br/><br/>`docs/mona/octocat.txt`                                       |
+| `docs/*`                                            | All files within the root of the `docs` directory only, at the root of the repository.                                                                                                             | `docs/README.md`<br/><br/>`docs/file.txt`                                               |
+| `docs/**`                                           | Any files in the `docs` directory and its subdirectories at the root of the repository.                                                                                                                             | `docs/README.md`<br/><br/>`docs/mona/octocat.txt`                                       |
 | `docs/**/*.md`                                      | A file with a `.md` suffix anywhere in the `docs` directory.                                                                                                                                  | `docs/README.md`<br/><br/>`docs/mona/hello-world.md`<br/><br/>`docs/a/markdown/file.md` |
 | `'**/docs/**'`                                      | Any files in a `docs` directory anywhere in the repository.                                                                                                                                   | `docs/hello.md`<br/><br/>`dir/docs/my-file.txt`<br/><br/>`space/docs/plan/space.doc`    |
 | `'**/README.md'`                                    | A README.md file anywhere in the repository.                                                                                                                                                  | `README.md`<br/><br/>`js/README.md`                                                     |

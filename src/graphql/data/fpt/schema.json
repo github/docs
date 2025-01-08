@@ -1758,6 +1758,48 @@
       ]
     },
     {
+      "name": "addSubIssue",
+      "kind": "mutations",
+      "id": "addsubissue",
+      "href": "/graphql/reference/mutations#addsubissue",
+      "description": "<p>Adds a sub-issue to a given issue.</p>",
+      "inputFields": [
+        {
+          "name": "input",
+          "type": "AddSubIssueInput!",
+          "id": "addsubissueinput",
+          "kind": "input-objects",
+          "href": "/graphql/reference/input-objects#addsubissueinput"
+        }
+      ],
+      "returnFields": [
+        {
+          "name": "clientMutationId",
+          "type": "String",
+          "id": "string",
+          "kind": "scalars",
+          "href": "/graphql/reference/scalars#string",
+          "description": "<p>A unique identifier for the client performing the mutation.</p>"
+        },
+        {
+          "name": "issue",
+          "type": "Issue",
+          "id": "issue",
+          "kind": "objects",
+          "href": "/graphql/reference/objects#issue",
+          "description": "<p>The parent issue that the sub-issue was added to.</p>"
+        },
+        {
+          "name": "subIssue",
+          "type": "Issue",
+          "id": "issue",
+          "kind": "objects",
+          "href": "/graphql/reference/objects#issue",
+          "description": "<p>The sub-issue of the parent.</p>"
+        }
+      ]
+    },
+    {
       "name": "addUpvote",
       "kind": "mutations",
       "id": "addupvote",
@@ -6088,6 +6130,48 @@
       ]
     },
     {
+      "name": "removeSubIssue",
+      "kind": "mutations",
+      "id": "removesubissue",
+      "href": "/graphql/reference/mutations#removesubissue",
+      "description": "<p>Removes a sub-issue from a given issue.</p>",
+      "inputFields": [
+        {
+          "name": "input",
+          "type": "RemoveSubIssueInput!",
+          "id": "removesubissueinput",
+          "kind": "input-objects",
+          "href": "/graphql/reference/input-objects#removesubissueinput"
+        }
+      ],
+      "returnFields": [
+        {
+          "name": "clientMutationId",
+          "type": "String",
+          "id": "string",
+          "kind": "scalars",
+          "href": "/graphql/reference/scalars#string",
+          "description": "<p>A unique identifier for the client performing the mutation.</p>"
+        },
+        {
+          "name": "issue",
+          "type": "Issue",
+          "id": "issue",
+          "kind": "objects",
+          "href": "/graphql/reference/objects#issue",
+          "description": "<p>The parent of the sub-issue.</p>"
+        },
+        {
+          "name": "subIssue",
+          "type": "Issue",
+          "id": "issue",
+          "kind": "objects",
+          "href": "/graphql/reference/objects#issue",
+          "description": "<p>The sub-issue of the parent.</p>"
+        }
+      ]
+    },
+    {
       "name": "removeUpvote",
       "kind": "mutations",
       "id": "removeupvote",
@@ -6254,6 +6338,40 @@
           "kind": "objects",
           "href": "/graphql/reference/objects#environment",
           "description": "<p>The environment that was reordered.</p>"
+        }
+      ]
+    },
+    {
+      "name": "reprioritizeSubIssue",
+      "kind": "mutations",
+      "id": "reprioritizesubissue",
+      "href": "/graphql/reference/mutations#reprioritizesubissue",
+      "description": "<p>Reprioritizes a sub-issue to a different position in the parent list.</p>",
+      "inputFields": [
+        {
+          "name": "input",
+          "type": "ReprioritizeSubIssueInput!",
+          "id": "reprioritizesubissueinput",
+          "kind": "input-objects",
+          "href": "/graphql/reference/input-objects#reprioritizesubissueinput"
+        }
+      ],
+      "returnFields": [
+        {
+          "name": "clientMutationId",
+          "type": "String",
+          "id": "string",
+          "kind": "scalars",
+          "href": "/graphql/reference/scalars#string",
+          "description": "<p>A unique identifier for the client performing the mutation.</p>"
+        },
+        {
+          "name": "issue",
+          "type": "Issue",
+          "id": "issue",
+          "kind": "objects",
+          "href": "/graphql/reference/objects#issue",
+          "description": "<p>The parent issue that the sub-issue was reprioritized in.</p>"
         }
       ]
     },
@@ -8936,6 +9054,40 @@
           "kind": "objects",
           "href": "/graphql/reference/objects#draftissue",
           "description": "<p>The draft issue updated in the project.</p>"
+        }
+      ]
+    },
+    {
+      "name": "updateProjectV2Field",
+      "kind": "mutations",
+      "id": "updateprojectv2field",
+      "href": "/graphql/reference/mutations#updateprojectv2field",
+      "description": "<p>Update a project field.</p>",
+      "inputFields": [
+        {
+          "name": "input",
+          "type": "UpdateProjectV2FieldInput!",
+          "id": "updateprojectv2fieldinput",
+          "kind": "input-objects",
+          "href": "/graphql/reference/input-objects#updateprojectv2fieldinput"
+        }
+      ],
+      "returnFields": [
+        {
+          "name": "clientMutationId",
+          "type": "String",
+          "id": "string",
+          "kind": "scalars",
+          "href": "/graphql/reference/scalars#string",
+          "description": "<p>A unique identifier for the client performing the mutation.</p>"
+        },
+        {
+          "name": "projectV2Field",
+          "type": "ProjectV2FieldConfiguration",
+          "id": "projectv2fieldconfiguration",
+          "kind": "unions",
+          "href": "/graphql/reference/unions#projectv2fieldconfiguration",
+          "description": "<p>The updated field.</p>"
         }
       ]
     },
@@ -17916,6 +18068,14 @@
           "href": "/graphql/reference/scalars#datetime"
         },
         {
+          "name": "enabled",
+          "description": "<p>Whether or not the deploy key is enabled by policy at the Enterprise or Organization level.</p>",
+          "type": "Boolean!",
+          "id": "boolean",
+          "kind": "scalars",
+          "href": "/graphql/reference/scalars#boolean"
+        },
+        {
           "name": "id",
           "description": "<p>The Node ID of the DeployKey object.</p>",
           "type": "ID!",
@@ -21138,9 +21298,9 @@
       "description": "<p>An account to manage multiple organizations with consolidated policy and billing.</p>",
       "implements": [
         {
-          "name": "AnnouncementBanner",
-          "id": "announcementbanner",
-          "href": "/graphql/reference/interfaces#announcementbanner"
+          "name": "AnnouncementBannerI",
+          "id": "announcementbanneri",
+          "href": "/graphql/reference/interfaces#announcementbanneri"
         },
         {
           "name": "Node",
@@ -24266,6 +24426,84 @@
                 "id": "string",
                 "kind": "scalars",
                 "href": "/graphql/reference/scalars#string"
+              }
+            }
+          ]
+        },
+        {
+          "name": "repositoryDeployKeySetting",
+          "description": "<p>The setting value for whether deploy keys are enabled for repositories in organizations in this enterprise.</p>",
+          "type": "EnterpriseEnabledDisabledSettingValue!",
+          "id": "enterpriseenableddisabledsettingvalue",
+          "kind": "enums",
+          "href": "/graphql/reference/enums#enterpriseenableddisabledsettingvalue"
+        },
+        {
+          "name": "repositoryDeployKeySettingOrganizations",
+          "description": "<p>A list of enterprise organizations configured with the provided deploy keys setting value.</p>",
+          "type": "OrganizationConnection!",
+          "id": "organizationconnection",
+          "kind": "objects",
+          "href": "/graphql/reference/objects#organizationconnection",
+          "arguments": [
+            {
+              "name": "after",
+              "description": "<p>Returns the elements in the list that come after the specified cursor.</p>",
+              "type": {
+                "name": "String",
+                "id": "string",
+                "kind": "scalars",
+                "href": "/graphql/reference/scalars#string"
+              }
+            },
+            {
+              "name": "before",
+              "description": "<p>Returns the elements in the list that come before the specified cursor.</p>",
+              "type": {
+                "name": "String",
+                "id": "string",
+                "kind": "scalars",
+                "href": "/graphql/reference/scalars#string"
+              }
+            },
+            {
+              "name": "first",
+              "description": "<p>Returns the first <em>n</em> elements from the list.</p>",
+              "type": {
+                "name": "Int",
+                "id": "int",
+                "kind": "scalars",
+                "href": "/graphql/reference/scalars#int"
+              }
+            },
+            {
+              "name": "last",
+              "description": "<p>Returns the last <em>n</em> elements from the list.</p>",
+              "type": {
+                "name": "Int",
+                "id": "int",
+                "kind": "scalars",
+                "href": "/graphql/reference/scalars#int"
+              }
+            },
+            {
+              "name": "orderBy",
+              "description": "<p>Ordering options for organizations with this setting.</p>",
+              "type": {
+                "name": "OrganizationOrder",
+                "id": "organizationorder",
+                "kind": "input-objects",
+                "href": "/graphql/reference/input-objects#organizationorder"
+              }
+            },
+            {
+              "name": "value",
+              "description": "<p>The setting value to find organizations for.</p>",
+              "type": {
+                "name": "Boolean!",
+                "id": "boolean",
+                "kind": "scalars",
+                "href": "/graphql/reference/scalars#boolean"
               }
             }
           ]
@@ -27635,6 +27873,14 @@
           "href": "/graphql/reference/enums#gitsignaturestate"
         },
         {
+          "name": "verifiedAt",
+          "description": "<p>The date the signature was verified, if valid.</p>",
+          "type": "DateTime",
+          "id": "datetime",
+          "kind": "scalars",
+          "href": "/graphql/reference/scalars#datetime"
+        },
+        {
           "name": "wasSignedByGitHub",
           "description": "<p>True if the signature was made with GitHub's signing key.</p>",
           "type": "Boolean!",
@@ -28576,6 +28822,14 @@
           "href": "/graphql/reference/scalars#int"
         },
         {
+          "name": "parent",
+          "description": "<p>The parent entity of the issue.</p>",
+          "type": "Issue",
+          "id": "issue",
+          "kind": "objects",
+          "href": "/graphql/reference/objects#issue"
+        },
+        {
           "name": "participants",
           "description": "<p>A list of Users that are participating in the Issue conversation.</p>",
           "type": "UserConnection!",
@@ -28964,6 +29218,64 @@
           "id": "issuestatereason",
           "kind": "enums",
           "href": "/graphql/reference/enums#issuestatereason"
+        },
+        {
+          "name": "subIssues",
+          "description": "<p>A list of sub-issues associated with the Issue.</p>",
+          "type": "IssueConnection!",
+          "id": "issueconnection",
+          "kind": "objects",
+          "href": "/graphql/reference/objects#issueconnection",
+          "arguments": [
+            {
+              "name": "after",
+              "description": "<p>Returns the elements in the list that come after the specified cursor.</p>",
+              "type": {
+                "name": "String",
+                "id": "string",
+                "kind": "scalars",
+                "href": "/graphql/reference/scalars#string"
+              }
+            },
+            {
+              "name": "before",
+              "description": "<p>Returns the elements in the list that come before the specified cursor.</p>",
+              "type": {
+                "name": "String",
+                "id": "string",
+                "kind": "scalars",
+                "href": "/graphql/reference/scalars#string"
+              }
+            },
+            {
+              "name": "first",
+              "description": "<p>Returns the first <em>n</em> elements from the list.</p>",
+              "type": {
+                "name": "Int",
+                "id": "int",
+                "kind": "scalars",
+                "href": "/graphql/reference/scalars#int"
+              }
+            },
+            {
+              "name": "last",
+              "description": "<p>Returns the last <em>n</em> elements from the list.</p>",
+              "type": {
+                "name": "Int",
+                "id": "int",
+                "kind": "scalars",
+                "href": "/graphql/reference/scalars#int"
+              }
+            }
+          ]
+        },
+        {
+          "name": "subIssuesSummary",
+          "description": "<p>Summary of the state of an issue's sub-issues.</p>",
+          "type": "SubIssuesSummary!",
+          "id": "subissuessummary",
+          "kind": "objects",
+          "href": "/graphql/reference/objects#subissuessummary"
         },
         {
           "name": "timeline",
@@ -39736,9 +40048,9 @@
           "href": "/graphql/reference/interfaces#actor"
         },
         {
-          "name": "AnnouncementBanner",
-          "id": "announcementbanner",
-          "href": "/graphql/reference/interfaces#announcementbanner"
+          "name": "AnnouncementBannerI",
+          "id": "announcementbanneri",
+          "href": "/graphql/reference/interfaces#announcementbanneri"
         },
         {
           "name": "MemberStatusable",
@@ -67508,6 +67820,14 @@
           "href": "/graphql/reference/enums#gitsignaturestate"
         },
         {
+          "name": "verifiedAt",
+          "description": "<p>The date the signature was verified, if valid.</p>",
+          "type": "DateTime",
+          "id": "datetime",
+          "kind": "scalars",
+          "href": "/graphql/reference/scalars#datetime"
+        },
+        {
           "name": "wasSignedByGitHub",
           "description": "<p>True if the signature was made with GitHub's signing key.</p>",
           "type": "Boolean!",
@@ -69118,6 +69438,14 @@
           "href": "/graphql/reference/enums#gitsignaturestate"
         },
         {
+          "name": "verifiedAt",
+          "description": "<p>The date the signature was verified, if valid.</p>",
+          "type": "DateTime",
+          "id": "datetime",
+          "kind": "scalars",
+          "href": "/graphql/reference/scalars#datetime"
+        },
+        {
           "name": "wasSignedByGitHub",
           "description": "<p>True if the signature was made with GitHub's signing key.</p>",
           "type": "Boolean!",
@@ -69829,6 +70157,39 @@
           "id": "uri",
           "kind": "scalars",
           "href": "/graphql/reference/scalars#uri"
+        }
+      ]
+    },
+    {
+      "name": "SubIssuesSummary",
+      "kind": "objects",
+      "id": "subissuessummary",
+      "href": "/graphql/reference/objects#subissuessummary",
+      "description": "<p>Summary of the state of an issue's sub-issues.</p>",
+      "fields": [
+        {
+          "name": "completed",
+          "description": "<p>Count of completed sub-issues.</p>",
+          "type": "Int!",
+          "id": "int",
+          "kind": "scalars",
+          "href": "/graphql/reference/scalars#int"
+        },
+        {
+          "name": "percentCompleted",
+          "description": "<p>Percent of sub-issues which are completed.</p>",
+          "type": "Int!",
+          "id": "int",
+          "kind": "scalars",
+          "href": "/graphql/reference/scalars#int"
+        },
+        {
+          "name": "total",
+          "description": "<p>Count of total number of sub-issues.</p>",
+          "type": "Int!",
+          "id": "int",
+          "kind": "scalars",
+          "href": "/graphql/reference/scalars#int"
         }
       ]
     },
@@ -74305,6 +74666,14 @@
           "id": "gitsignaturestate",
           "kind": "enums",
           "href": "/graphql/reference/enums#gitsignaturestate"
+        },
+        {
+          "name": "verifiedAt",
+          "description": "<p>The date the signature was verified, if valid.</p>",
+          "type": "DateTime",
+          "id": "datetime",
+          "kind": "scalars",
+          "href": "/graphql/reference/scalars#datetime"
         },
         {
           "name": "wasSignedByGitHub",
@@ -79513,10 +79882,10 @@
       ]
     },
     {
-      "name": "AnnouncementBanner",
+      "name": "AnnouncementBannerI",
       "kind": "interfaces",
-      "id": "announcementbanner",
-      "href": "/graphql/reference/interfaces#announcementbanner",
+      "id": "announcementbanneri",
+      "href": "/graphql/reference/interfaces#announcementbanneri",
       "description": "<p>Represents an announcement banner.</p>",
       "fields": [
         {
@@ -80147,6 +80516,14 @@
           "id": "gitsignaturestate",
           "kind": "enums",
           "href": "/graphql/reference/enums#gitsignaturestate"
+        },
+        {
+          "name": "verifiedAt",
+          "description": "<p>The date the signature was verified, if valid.</p>",
+          "type": "DateTime",
+          "id": "datetime",
+          "kind": "scalars",
+          "href": "/graphql/reference/scalars#datetime"
         },
         {
           "name": "wasSignedByGitHub",
@@ -92854,6 +93231,57 @@
       ]
     },
     {
+      "name": "AddSubIssueInput",
+      "kind": "inputObjects",
+      "id": "addsubissueinput",
+      "href": "/graphql/reference/input-objects#addsubissueinput",
+      "description": "<p>Autogenerated input type of AddSubIssue.</p>",
+      "inputFields": [
+        {
+          "name": "clientMutationId",
+          "description": "<p>A unique identifier for the client performing the mutation.</p>",
+          "type": "String",
+          "id": "string",
+          "kind": "scalars",
+          "href": "/graphql/reference/scalars#string"
+        },
+        {
+          "name": "issueId",
+          "description": "<p>The id of the issue.</p>",
+          "type": "ID!",
+          "id": "id",
+          "kind": "scalars",
+          "href": "/graphql/reference/scalars#id",
+          "isDeprecated": false
+        },
+        {
+          "name": "replaceParent",
+          "description": "<p>Option to replace parent issue if one already exists.</p>",
+          "type": "Boolean",
+          "id": "boolean",
+          "kind": "scalars",
+          "href": "/graphql/reference/scalars#boolean"
+        },
+        {
+          "name": "subIssueId",
+          "description": "<p>The id of the sub-issue.</p>",
+          "type": "ID",
+          "id": "id",
+          "kind": "scalars",
+          "href": "/graphql/reference/scalars#id",
+          "isDeprecated": false
+        },
+        {
+          "name": "subIssueUrl",
+          "description": "<p>The url of the sub-issue.</p>",
+          "type": "String",
+          "id": "string",
+          "kind": "scalars",
+          "href": "/graphql/reference/scalars#string"
+        }
+      ]
+    },
+    {
       "name": "AddUpvoteInput",
       "kind": "inputObjects",
       "id": "addupvoteinput",
@@ -95259,6 +95687,15 @@
         {
           "name": "milestoneId",
           "description": "<p>The Node ID of the milestone for this issue.</p>",
+          "type": "ID",
+          "id": "id",
+          "kind": "scalars",
+          "href": "/graphql/reference/scalars#id",
+          "isDeprecated": false
+        },
+        {
+          "name": "parentIssueId",
+          "description": "<p>The Node ID of the parent issue to add this new issue to.</p>",
           "type": "ID",
           "id": "id",
           "kind": "scalars",
@@ -100358,6 +100795,41 @@
       ]
     },
     {
+      "name": "RemoveSubIssueInput",
+      "kind": "inputObjects",
+      "id": "removesubissueinput",
+      "href": "/graphql/reference/input-objects#removesubissueinput",
+      "description": "<p>Autogenerated input type of RemoveSubIssue.</p>",
+      "inputFields": [
+        {
+          "name": "clientMutationId",
+          "description": "<p>A unique identifier for the client performing the mutation.</p>",
+          "type": "String",
+          "id": "string",
+          "kind": "scalars",
+          "href": "/graphql/reference/scalars#string"
+        },
+        {
+          "name": "issueId",
+          "description": "<p>The id of the issue.</p>",
+          "type": "ID!",
+          "id": "id",
+          "kind": "scalars",
+          "href": "/graphql/reference/scalars#id",
+          "isDeprecated": false
+        },
+        {
+          "name": "subIssueId",
+          "description": "<p>The id of the sub-issue.</p>",
+          "type": "ID!",
+          "id": "id",
+          "kind": "scalars",
+          "href": "/graphql/reference/scalars#id",
+          "isDeprecated": false
+        }
+      ]
+    },
+    {
       "name": "RemoveUpvoteInput",
       "kind": "inputObjects",
       "id": "removeupvoteinput",
@@ -100799,6 +101271,59 @@
           "id": "int",
           "kind": "scalars",
           "href": "/graphql/reference/scalars#int"
+        }
+      ]
+    },
+    {
+      "name": "ReprioritizeSubIssueInput",
+      "kind": "inputObjects",
+      "id": "reprioritizesubissueinput",
+      "href": "/graphql/reference/input-objects#reprioritizesubissueinput",
+      "description": "<p>Autogenerated input type of ReprioritizeSubIssue.</p>",
+      "inputFields": [
+        {
+          "name": "afterId",
+          "description": "<p>The id of the sub-issue to be prioritized after (either positional argument after OR before should be specified).</p>",
+          "type": "ID",
+          "id": "id",
+          "kind": "scalars",
+          "href": "/graphql/reference/scalars#id",
+          "isDeprecated": false
+        },
+        {
+          "name": "beforeId",
+          "description": "<p>The id of the sub-issue to be prioritized before (either positional argument after OR before should be specified).</p>",
+          "type": "ID",
+          "id": "id",
+          "kind": "scalars",
+          "href": "/graphql/reference/scalars#id",
+          "isDeprecated": false
+        },
+        {
+          "name": "clientMutationId",
+          "description": "<p>A unique identifier for the client performing the mutation.</p>",
+          "type": "String",
+          "id": "string",
+          "kind": "scalars",
+          "href": "/graphql/reference/scalars#string"
+        },
+        {
+          "name": "issueId",
+          "description": "<p>The id of the parent issue.</p>",
+          "type": "ID!",
+          "id": "id",
+          "kind": "scalars",
+          "href": "/graphql/reference/scalars#id",
+          "isDeprecated": false
+        },
+        {
+          "name": "subIssueId",
+          "description": "<p>The id of the sub-issue to reprioritize.</p>",
+          "type": "ID!",
+          "id": "id",
+          "kind": "scalars",
+          "href": "/graphql/reference/scalars#id",
+          "isDeprecated": false
         }
       ]
     },
@@ -104626,6 +105151,48 @@
           "id": "string",
           "kind": "scalars",
           "href": "/graphql/reference/scalars#string"
+        }
+      ]
+    },
+    {
+      "name": "UpdateProjectV2FieldInput",
+      "kind": "inputObjects",
+      "id": "updateprojectv2fieldinput",
+      "href": "/graphql/reference/input-objects#updateprojectv2fieldinput",
+      "description": "<p>Autogenerated input type of UpdateProjectV2Field.</p>",
+      "inputFields": [
+        {
+          "name": "clientMutationId",
+          "description": "<p>A unique identifier for the client performing the mutation.</p>",
+          "type": "String",
+          "id": "string",
+          "kind": "scalars",
+          "href": "/graphql/reference/scalars#string"
+        },
+        {
+          "name": "fieldId",
+          "description": "<p>The ID of the field to update.</p>",
+          "type": "ID!",
+          "id": "id",
+          "kind": "scalars",
+          "href": "/graphql/reference/scalars#id",
+          "isDeprecated": false
+        },
+        {
+          "name": "name",
+          "description": "<p>The name to update.</p>",
+          "type": "String",
+          "id": "string",
+          "kind": "scalars",
+          "href": "/graphql/reference/scalars#string"
+        },
+        {
+          "name": "singleSelectOptions",
+          "description": "<p>Options for a field of type SINGLE_SELECT. If empty, no changes will be made\nto the options. If values are present, they will overwrite the existing\noptions for the field.</p>",
+          "type": "[ProjectV2SingleSelectFieldOptionInput!]",
+          "id": "projectv2singleselectfieldoptioninput",
+          "kind": "input-objects",
+          "href": "/graphql/reference/input-objects#projectv2singleselectfieldoptioninput"
         }
       ]
     },

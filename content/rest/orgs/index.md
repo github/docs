@@ -17,6 +17,7 @@ topics:
 children:
   - /api-insights
   - /blocking
+  - /bypass-requests
   - /custom-properties
   - /custom-roles
   - /members

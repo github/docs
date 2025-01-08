@@ -22,7 +22,7 @@ You can either split up your push into smaller parts, or delete the Git history 
 
 You can avoid hitting the limit by breaking your push into smaller parts, each of which should be under 2 GB in size. If a branch is within this size limit, you can push it all at once. However, if a branch is larger than 2 GB, you'll need to split the push into even smaller portions and push only a few commits at a time.
 
-1. If you haven't configured the remote yet, add the repository as a new remote. For more information, see "[AUTOTITLE](/get-started/getting-started-with-git/managing-remote-repositories#adding-a-remote-repository)."
+1. If you haven't configured the remote yet, add the repository as a new remote. For more information, see [AUTOTITLE](/get-started/getting-started-with-git/managing-remote-repositories#adding-a-remote-repository).
 1. To find suitable commits spread out along the history of the main branch in your local repository, run the following command:
 
    ```shell
@@ -64,7 +64,7 @@ If the repository does not have any history, or your initial commit was over 2 G
 1. Run `git init` and `git lfs install` on the new folder, and add the new empty {% data variables.product.prodname_dotcom %} repository as a remote.
 1. If you already use {% data variables.large_files.product_name_long %} and have all of the {% data variables.large_files.product_name_short %} tracking rules you intend to use already listed in the `.gitattributes` file in the old folder, that should be the first file you copy across to the new folder. You should ensure the tracking rules are in place before you add any other files, so that there's no chance things intended for {% data variables.large_files.product_name_short %} will be committed to regular Git storage.
 
-   If you do not already use {% data variables.large_files.product_name_short %}, you can skip this step, or you can set up the tracking rules you intend to use in the `.gitattributes` file in the new folder before you copy any other files across. For more information, see "[AUTOTITLE](/repositories/working-with-files/managing-large-files/configuring-git-large-file-storage)."
+   If you do not already use {% data variables.large_files.product_name_short %}, you can skip this step, or you can set up the tracking rules you intend to use in the `.gitattributes` file in the new folder before you copy any other files across. For more information, see [AUTOTITLE](/repositories/working-with-files/managing-large-files/configuring-git-large-file-storage).
 
 1. Move batches of files that are smaller than 2 GB from the old folder to the new folder. After each batch is moved, create a commit and push it before moving the next batch. You can take a cautious approach and stick to around 2 GB. Alternatively, if you have a folder with files meant for {% data variables.large_files.product_name_short %}, you can ignore those files when considering the 2 GB limit per batch.
 

@@ -69,9 +69,11 @@ If you want to see the code that triggered the security alert and the suggested 
 
 If you have access to {% data variables.product.prodname_copilot_chat_short %} then you can ask the AI questions about the vulnerability, the suggested fix, and how to test that the fix is comprehensive.
 
-To get the most out of {% data variables.product.prodname_copilot_chat_short %} when you're working on code security, you should consider:
+To get the most out of {% data variables.product.prodname_copilot_chat_short %} when you're working on code security, you should explicitly ask {% data variables.product.prodname_copilot_chat_short %} to use the {% data variables.product.prodname_GH_advanced_security %} skill to answer your questions.
 
-1. Indexing your repositories to give {% data variables.product.prodname_copilot_chat_short %} more context to answer questions about the repository code, see "[AUTOTITLE](/copilot/managing-copilot/managing-github-copilot-in-your-organization/customizing-copilot-for-your-organization/indexing-repositories-for-copilot-chat)."
-1. Explicitly asking {% data variables.product.prodname_copilot_chat_short %} to use the {% data variables.product.prodname_GH_advanced_security %} skill to answer your questions, for example: "Use the GitHub Advanced Security skill to explain how this alert introduces a vulnerability into the code."
+For example: "Use the GitHub Advanced Security skill to explain how this alert introduces a vulnerability into the code."
+
+> [!TIP]
+> {% data reusables.copilot.semantic-index-info %}
 
 {% endif %}

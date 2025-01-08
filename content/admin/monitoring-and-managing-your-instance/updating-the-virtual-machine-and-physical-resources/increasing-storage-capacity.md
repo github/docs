@@ -24,19 +24,19 @@ As more users join {% data variables.location.product_location %}, you may need 
 ## Requirements and recommendations
 
 > [!NOTE]
-> Before resizing any storage volume, put your instance in maintenance mode.{% ifversion ip-exception-list %} You can validate changes by configuring an IP exception list to allow access from specified IP addresses. {% endif %} For more information, see "[AUTOTITLE](/admin/configuration/configuring-your-enterprise/enabling-and-scheduling-maintenance-mode)."
+> Before resizing any storage volume, put your instance in maintenance mode.{% ifversion ip-exception-list %} You can validate changes by configuring an IP exception list to allow access from specified IP addresses. {% endif %} For more information, see [AUTOTITLE](/admin/configuration/configuring-your-enterprise/enabling-and-scheduling-maintenance-mode).
 
 ### Minimum recommended requirements
 
 {% ifversion ghes > 3.14 %}{% data reusables.enterprise_installation.hardware-rec-table %}{% else %}{% data reusables.enterprise_installation.hardware-rec-table-legacy %}{% endif %}
 
-Root storage refers to the total size of your instance's root disk. The available space on the root filesystem is 50% of the total storage available on the root disk. For more information, see "[AUTOTITLE](/admin/overview/system-overview#storage-architecture)."
+Root storage refers to the total size of your instance's root disk. The available space on the root filesystem is 50% of the total storage available on the root disk. For more information, see [AUTOTITLE](/admin/overview/system-overview#storage-architecture).
 
 ## Increasing the data partition size
 
 1. Resize the existing user volume disk using your virtualization platform's tools.
 {% data reusables.enterprise_installation.ssh-into-instance %}
-1. Put the appliance in maintenance mode. For more information, see "[AUTOTITLE](/admin/configuration/configuring-your-enterprise/enabling-and-scheduling-maintenance-mode)."
+1. Put the appliance in maintenance mode. For more information, see [AUTOTITLE](/admin/configuration/configuring-your-enterprise/enabling-and-scheduling-maintenance-mode).
 1. Reboot the appliance to detect the new storage allocation:
 
    ```shell
@@ -49,11 +49,11 @@ Root storage refers to the total size of your instance's root disk. The availabl
    ghe-storage-extend
    ```
 
-1. Ensure system services are functioning correctly, then release maintenance mode. For more information, see "[AUTOTITLE](/admin/configuration/configuring-your-enterprise/enabling-and-scheduling-maintenance-mode)."
+1. Ensure system services are functioning correctly, then release maintenance mode. For more information, see [AUTOTITLE](/admin/configuration/configuring-your-enterprise/enabling-and-scheduling-maintenance-mode).
 
 ## Increasing the root partition size using a new appliance
 
-1. Set up a new {% data variables.product.prodname_ghe_server %} instance with a larger root disk using the same version as your current appliance. For more information, see "[AUTOTITLE](/admin/installation/setting-up-a-github-enterprise-server-instance)."
+1. Set up a new {% data variables.product.prodname_ghe_server %} instance with a larger root disk using the same version as your current appliance. For more information, see [AUTOTITLE](/admin/installation/setting-up-a-github-enterprise-server-instance).
 1. Shut down the current appliance:
 
    ```shell
@@ -66,7 +66,7 @@ Root storage refers to the total size of your instance's root disk. The availabl
 ## Increasing the root partition size using an existing appliance
 
 > [!WARNING]
-> Before increasing the root partition size, you must put your instance in maintenance mode. For more information, see "[AUTOTITLE](/admin/configuration/configuring-your-enterprise/enabling-and-scheduling-maintenance-mode)."
+> Before increasing the root partition size, you must put your instance in maintenance mode. For more information, see [AUTOTITLE](/admin/configuration/configuring-your-enterprise/enabling-and-scheduling-maintenance-mode).
 
 1. Attach a new disk to your {% data variables.product.prodname_ghe_server %} appliance.
 1. Run the `lsblk` command to identify the new disk's device name.
@@ -104,6 +104,6 @@ Root storage refers to the total size of your instance's root disk. The availabl
 
 1. In the hypervisor, remove the old root disk and attach the new root disk at the same location as the old root disk.
 1. Start the appliance.
-1. Ensure system services are functioning correctly, then release maintenance mode. For more information, see "[AUTOTITLE](/admin/configuration/configuring-your-enterprise/enabling-and-scheduling-maintenance-mode)."
+1. Ensure system services are functioning correctly, then release maintenance mode. For more information, see [AUTOTITLE](/admin/configuration/configuring-your-enterprise/enabling-and-scheduling-maintenance-mode).
 
 If your appliance is configured for high-availability or geo-replication, remember to start replication on each replica node using `ghe-repl-start` after the storage on all nodes has been upgraded.

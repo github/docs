@@ -27,23 +27,23 @@ If you have source code stored locally on your computer that is tracked by Git o
 
 #### Using {% data variables.product.prodname_cli %}
 
-{% data variables.product.prodname_cli %} is an open source tool for using {% data variables.product.prodname_dotcom %} from your computer's command line. {% data variables.product.prodname_cli %} can simplify the process of adding an existing project to {% data variables.product.product_name %} using the command line. To learn more about {% data variables.product.prodname_cli %}, see "[AUTOTITLE](/github-cli/github-cli/about-github-cli)."
+{% data variables.product.prodname_cli %} is an open source tool for using {% data variables.product.prodname_dotcom %} from your computer's command line. {% data variables.product.prodname_cli %} can simplify the process of adding an existing project to {% data variables.product.product_name %} using the command line. To learn more about {% data variables.product.prodname_cli %}, see [AUTOTITLE](/github-cli/github-cli/about-github-cli).
 
 #### Using {% data variables.product.prodname_desktop %}
 
-If you're most comfortable with a point-and-click user interface, consider adding your project with {% data variables.product.prodname_desktop %} instead. For more information, see "[AUTOTITLE](/desktop/adding-and-cloning-repositories/adding-a-repository-from-your-local-computer-to-github-desktop)."
+If you're most comfortable with a point-and-click user interface, consider adding your project with {% data variables.product.prodname_desktop %} instead. For more information, see [AUTOTITLE](/desktop/adding-and-cloning-repositories/adding-a-repository-from-your-local-computer-to-github-desktop).
 
 ### Converting repositories from other VCS
 
 If your source code is tracked by a different VCS, such as Mercurial, Subversion, or Team Foundation Version Control, you must convert the repository to Git before you can add the project to {% data variables.product.product_name %}.
 
-* "[AUTOTITLE](/migrations/importing-source-code/using-the-command-line-to-import-source-code/importing-a-subversion-repository)"
-* "[AUTOTITLE](/migrations/importing-source-code/using-the-command-line-to-import-source-code/importing-a-mercurial-repository)"
-* "[AUTOTITLE](/migrations/importing-source-code/using-the-command-line-to-import-source-code/importing-a-team-foundation-version-control-repository)"
+* [AUTOTITLE](/migrations/importing-source-code/using-the-command-line-to-import-source-code/importing-a-subversion-repository)
+* [AUTOTITLE](/migrations/importing-source-code/using-the-command-line-to-import-source-code/importing-a-mercurial-repository)
+* [AUTOTITLE](/migrations/importing-source-code/using-the-command-line-to-import-source-code/importing-a-team-foundation-version-control-repository)
 
 ## Initializing a Git repository
 
-If your locally-hosted code isn't tracked by any VCS, the first step is to initialize a Git repository. If your project is already tracked by Git, skip to "[Importing a Git repository with the command line](#importing-a-git-repository-with-the-command-line)."
+If your locally-hosted code isn't tracked by any VCS, the first step is to initialize a Git repository. If your project is already tracked by Git, skip to [Importing a Git repository with the command line](#importing-a-git-repository-with-the-command-line).
 
 {% data reusables.command_line.open_the_multi_os_terminal %}
 1. Navigate to the root directory of your project.
@@ -79,8 +79,8 @@ If your locally-hosted code isn't tracked by any VCS, the first step is to initi
 
 After you've initialized a Git repository, you can push the repository to {% data variables.product.product_name %}, using either {% data variables.product.prodname_cli %} or Git.
 
-* "[Adding a local repository to {% data variables.product.prodname_dotcom %} with {% data variables.product.prodname_cli %}](#adding-a-local-repository-to-github-with-github-cli)"
-* "[Adding a local repository to {% data variables.product.prodname_dotcom %} using Git](#adding-a-local-repository-to-github-using-git)"
+* [Adding a local repository to {% data variables.product.prodname_dotcom %} with {% data variables.product.prodname_cli %}](#adding-a-local-repository-to-github-with-github-cli)
+* [Adding a local repository to {% data variables.product.prodname_dotcom %} using Git](#adding-a-local-repository-to-github-using-git)
 
 ### Adding a local repository to {% data variables.product.prodname_dotcom %} with {% data variables.product.prodname_cli %}
 
@@ -92,7 +92,7 @@ After you've initialized a Git repository, you can push the repository to {% dat
 
 ### Adding a local repository to {% data variables.product.prodname_dotcom %} using Git
 
-Before you can add your local repository to {% data variables.product.prodname_dotcom %} using Git, you must authenticate to {% data variables.product.prodname_dotcom %} on the command line. For more information, see "[AUTOTITLE](/authentication/keeping-your-account-and-data-secure/about-authentication-to-github#authenticating-with-the-command-line)."
+Before you can add your local repository to {% data variables.product.prodname_dotcom %} using Git, you must authenticate to {% data variables.product.prodname_dotcom %} on the command line. For more information, see [AUTOTITLE](/authentication/keeping-your-account-and-data-secure/about-authentication-to-github#authenticating-with-the-command-line).
 
 {% mac %}
 
@@ -110,7 +110,7 @@ Before you can add your local repository to {% data variables.product.prodname_d
    git remote add origin REMOTE-URL
    ```
 
-   For more information, see "[AUTOTITLE](/get-started/getting-started-with-git/managing-remote-repositories)."
+   For more information, see [AUTOTITLE](/get-started/getting-started-with-git/managing-remote-repositories).
 1. To verify that you set the remote URL correctly, run the following command.
 
    ```shell
@@ -123,7 +123,7 @@ Before you can add your local repository to {% data variables.product.prodname_d
    git push -u origin main
    ```
 
-   If your default branch is not named "main," replace "main" with the name of your default branch. For more information, see "[AUTOTITLE](/pull-requests/collaborating-with-pull-requests/proposing-changes-to-your-work-with-pull-requests/about-branches#about-the-default-branch)."
+   If your default branch is not named "main," replace "main" with the name of your default branch. For more information, see [AUTOTITLE](/pull-requests/collaborating-with-pull-requests/proposing-changes-to-your-work-with-pull-requests/about-branches#about-the-default-branch).
 
 {% endmac %}
 
@@ -143,7 +143,7 @@ Before you can add your local repository to {% data variables.product.prodname_d
    git remote add origin REMOTE-URL
    ```
 
-   For more information, see "[AUTOTITLE](/get-started/getting-started-with-git/managing-remote-repositories)."
+   For more information, see [AUTOTITLE](/get-started/getting-started-with-git/managing-remote-repositories).
 1. To verify that you set the remote URL correctly, run the following command.
 
    ```shell
@@ -156,7 +156,7 @@ Before you can add your local repository to {% data variables.product.prodname_d
    git push origin main
    ```
 
-   If your default branch is not named "main," replace "main" with the name of your default branch. For more information, see "[AUTOTITLE](/pull-requests/collaborating-with-pull-requests/proposing-changes-to-your-work-with-pull-requests/about-branches#about-the-default-branch)."
+   If your default branch is not named "main," replace "main" with the name of your default branch. For more information, see [AUTOTITLE](/pull-requests/collaborating-with-pull-requests/proposing-changes-to-your-work-with-pull-requests/about-branches#about-the-default-branch).
 
 {% endwindows %}
 
@@ -176,7 +176,7 @@ Before you can add your local repository to {% data variables.product.prodname_d
    git remote add origin REMOTE-URL
    ```
 
-   For more information, see "[AUTOTITLE](/get-started/getting-started-with-git/managing-remote-repositories)."
+   For more information, see [AUTOTITLE](/get-started/getting-started-with-git/managing-remote-repositories).
 1. To verify that you set the remote URL correctly, run the following command.
 
    ```shell
@@ -189,11 +189,11 @@ Before you can add your local repository to {% data variables.product.prodname_d
    git push origin main
    ```
 
-   If your default branch is not named "main," replace "main" with the name of your default branch. For more information, see "[AUTOTITLE](/pull-requests/collaborating-with-pull-requests/proposing-changes-to-your-work-with-pull-requests/about-branches#about-the-default-branch)."
+   If your default branch is not named "main," replace "main" with the name of your default branch. For more information, see [AUTOTITLE](/pull-requests/collaborating-with-pull-requests/proposing-changes-to-your-work-with-pull-requests/about-branches#about-the-default-branch).
 
 {% endlinux %}
 
 ## Further reading
 
-* "[AUTOTITLE](/repositories/working-with-files/managing-files/adding-a-file-to-a-repository#adding-a-file-to-a-repository-using-the-command-line)"{% ifversion fpt or ghec %}
-* "[AUTOTITLE](/get-started/using-git/troubleshooting-the-2-gb-push-limit)"{% endif %}
+* [AUTOTITLE](/repositories/working-with-files/managing-files/adding-a-file-to-a-repository#adding-a-file-to-a-repository-using-the-command-line){% ifversion fpt or ghec %}
+* [AUTOTITLE](/get-started/using-git/troubleshooting-the-2-gb-push-limit){% endif %}

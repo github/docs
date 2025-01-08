@@ -47,7 +47,7 @@ You can use the self-hosted runner application's `config` script with the `--che
 In addition to `--check`, you must provide two arguments to the script:
 
 * `--url` with the URL to your {% data variables.product.company_short %} repository, organization, or enterprise. For example, `--url https://github.com/octo-org/octo-repo`.
-* `--pat` with the value of a {% data variables.product.pat_v1 %}, which must have the `workflow` scope, or a {% data variables.product.pat_v2 %} with workflows read and write access. For example, `--pat ghp_abcd1234`. For more information, see "[AUTOTITLE](/authentication/keeping-your-account-and-data-secure/creating-a-personal-access-token)."
+* `--pat` with the value of a {% data variables.product.pat_v1 %}, which must have the `workflow` scope, or a {% data variables.product.pat_v2 %} with workflows read and write access. For example, `--pat ghp_abcd1234`. For more information, see [AUTOTITLE](/authentication/keeping-your-account-and-data-secure/creating-a-personal-access-token).
 
 For example:
 
@@ -71,7 +71,7 @@ config.cmd --check --url https://github.com/YOUR-ORG/YOUR-REPO --pat GHP_ABCD123
 
 The script tests each service, and outputs either a `PASS` or `FAIL` for each one. If you have any failing checks, you can see more details on the problem in the log file for the check. The log files are located in the `_diag` directory where you installed the runner application, and the path of the log file for each check is shown in the console output of the script.
 
-If you have any failing checks, you should also verify that your self-hosted runner machine meets all the communication requirements. For more information, see "[AUTOTITLE](/actions/hosting-your-own-runners/managing-self-hosted-runners/about-self-hosted-runners#communication-requirements)."
+If you have any failing checks, you should also verify that your self-hosted runner machine meets all the communication requirements. For more information, see [AUTOTITLE](/actions/hosting-your-own-runners/managing-self-hosted-runners/about-self-hosted-runners#communication-requirements).
 
 ### Disabling TLS certificate verification
 
@@ -119,7 +119,7 @@ export GITHUB_ACTIONS_RUNNER_TLS_NO_VERIFY=1
 You can monitor the status of the self-hosted runner application and its activities. Log files are kept in the `_diag` directory where you installed the runner application, and a new log is generated each time the application is started. The filename begins with `Runner_`, and is followed by a UTC timestamp of when the application was started.
 
 > [!WARNING]
-> Runner application log files for ephemeral runners must be forwarded and preserved externally for troubleshooting and diagnostic purposes. For more information about ephemeral runners and autoscaling self-hosted runners, see "[AUTOTITLE](/actions/hosting-your-own-runners/managing-self-hosted-runners/autoscaling-with-self-hosted-runners#using-ephemeral-runners-for-autoscaling)."
+> Runner application log files for ephemeral runners must be forwarded and preserved externally for troubleshooting and diagnostic purposes. For more information about ephemeral runners and autoscaling self-hosted runners, see [AUTOTITLE](/actions/hosting-your-own-runners/managing-self-hosted-runners/autoscaling-with-self-hosted-runners#using-ephemeral-runners-for-autoscaling).
 
 For detailed logs on workflow job executions, see the next section describing the `Worker_` files.
 
@@ -164,7 +164,7 @@ Feb 11 16:07:10 runner01 runsvc.sh[962]: 2020-02-11 16:07:10Z: Job testAction co
 ```
 
 To view the `systemd` configuration, you can locate the service file here: `/etc/systemd/system/actions.runner.<org>-<repo>.<runnerName>.service`.
-If you want to customize the self-hosted runner application service, do not directly modify this file. Follow the instructions described in "[AUTOTITLE](/actions/hosting-your-own-runners/managing-self-hosted-runners/configuring-the-self-hosted-runner-application-as-a-service#customizing-the-self-hosted-runner-service)."
+If you want to customize the self-hosted runner application service, do not directly modify this file. Follow the instructions described in [AUTOTITLE](/actions/hosting-your-own-runners/managing-self-hosted-runners/configuring-the-self-hosted-runner-application-as-a-service#customizing-the-self-hosted-runner-service).
 
 {% endlinux %}
 
@@ -192,7 +192,7 @@ Started:
 The resulting output includes the process ID and the name of the application’s `launchd` service.
 
 To view the `launchd` configuration, you can locate the service file here: `/Users/exampleUsername/Library/LaunchAgents/actions.runner.<repoName>.<runnerName>.service`.
-If you want to customize the self-hosted runner application service, do not directly modify this file. Follow the instructions described in "[AUTOTITLE](/actions/hosting-your-own-runners/managing-self-hosted-runners/configuring-the-self-hosted-runner-application-as-a-service#customizing-the-self-hosted-runner-service-1)."
+If you want to customize the self-hosted runner application service, do not directly modify this file. Follow the instructions described in [AUTOTITLE](/actions/hosting-your-own-runners/managing-self-hosted-runners/configuring-the-self-hosted-runner-application-as-a-service#customizing-the-self-hosted-runner-service-1).
 
 {% endmac %}
 

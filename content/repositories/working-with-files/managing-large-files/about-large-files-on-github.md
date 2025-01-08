@@ -29,16 +29,16 @@ shortTitle: Large files
 
 ### File size limits
 
-{% data variables.product.product_name %} limits the size of files allowed in repositories. If you attempt to add or update a file that is larger than {% data variables.large_files.warning_size %}, you will receive a warning from Git. The changes will still successfully push to your repository, but you can consider removing the commit to minimize performance impact. For more information, see "[Removing files from a repository's history](#removing-files-from-a-repositorys-history)."
+{% data variables.product.product_name %} limits the size of files allowed in repositories. If you attempt to add or update a file that is larger than {% data variables.large_files.warning_size %}, you will receive a warning from Git. The changes will still successfully push to your repository, but you can consider removing the commit to minimize performance impact. For more information, see [Removing files from a repository's history](#removing-files-from-a-repositorys-history).
 
 > [!NOTE]
-> If you add a file to a repository via a browser, the file can be no larger than {% data variables.large_files.max_github_browser_size %}. For more information, see "[AUTOTITLE](/repositories/working-with-files/managing-files/adding-a-file-to-a-repository)."
+> If you add a file to a repository via a browser, the file can be no larger than {% data variables.large_files.max_github_browser_size %}. For more information, see [AUTOTITLE](/repositories/working-with-files/managing-files/adding-a-file-to-a-repository).
 
-{% ifversion ghes %}By default, {% endif %}{% data variables.product.product_name %} blocks files larger than {% data variables.large_files.max_github_size %}. {% ifversion ghes %}However, a site administrator can configure a different limit for {% data variables.location.product_location %}. For more information, see "[AUTOTITLE](/admin/policies/enforcing-policies-for-your-enterprise/enforcing-repository-management-policies-in-your-enterprise)."{% endif %}
+{% ifversion ghes %}By default, {% endif %}{% data variables.product.product_name %} blocks files larger than {% data variables.large_files.max_github_size %}. {% ifversion ghes %}However, a site administrator can configure a different limit for {% data variables.location.product_location %}. For more information, see [AUTOTITLE](/admin/policies/enforcing-policies-for-your-enterprise/enforcing-repository-management-policies-in-your-enterprise).{% endif %}
 
-To track files beyond this limit, you must use {% data variables.large_files.product_name_long %} ({% data variables.large_files.product_name_short %}). For more information, see "[AUTOTITLE](/repositories/working-with-files/managing-large-files/about-git-large-file-storage)."
+To track files beyond this limit, you must use {% data variables.large_files.product_name_long %} ({% data variables.large_files.product_name_short %}). For more information, see [AUTOTITLE](/repositories/working-with-files/managing-large-files/about-git-large-file-storage).
 
-If you need to distribute large files within your repository, you can create releases on {% data variables.location.product_location %} instead of tracking the files. For more information, see "[Distributing large binaries](#distributing-large-binaries)."
+If you need to distribute large files within your repository, you can create releases on {% data variables.location.product_location %} instead of tracking the files. For more information, see [Distributing large binaries](#distributing-large-binaries).
 
 Git is not designed to handle large SQL files. To share large databases with other developers, we recommend using a file sharing service.
 
@@ -98,11 +98,19 @@ If the file was added with your most recent commit, and you have not pushed to {
 
 ### Removing a file that was added in an earlier commit
 
-If you added a file in an earlier commit, you need to remove it from the repository's history. To remove files from the repository's history, you can use the BFG Repo-Cleaner or the `git filter-repo` command. For more information see "[AUTOTITLE](/authentication/keeping-your-account-and-data-secure/removing-sensitive-data-from-a-repository)."
+If you added a file in an earlier commit, you need to remove it from the repository's history.  To remove files from the repository's history, we recommend the `git filter-repo` command. For more information see [AUTOTITLE](/authentication/keeping-your-account-and-data-secure/removing-sensitive-data-from-a-repository).
+
+> Alternatively, if you don't want to install an additional tool, you could use an interactive rebase to remove problematic commits. To do this:
+>
+> * You must know which commit(s) added or modified the file in question.
+> * The commit(s) must be part of only one branch.
+> * The one branch that the commits belong to must have had no merges since the commit(s) were applied.
+>
+> For more information about interactive rebases, see [AUTOTITLE](/get-started/using-git/using-git-rebase-on-the-command-line).  If you are unsure if you meet the necessary conditions for fixing with an interactive rebase, you should use `git filter-repo`.
 
 ## Distributing large binaries
 
-If you need to distribute large files within your repository, you can create releases on {% data variables.location.product_location %}. Releases allow you to package software, release notes, and links to binary files, for other people to use. For more information, visit "[AUTOTITLE](/repositories/releasing-projects-on-github/about-releases)."
+If you need to distribute large files within your repository, you can create releases on {% data variables.location.product_location %}. Releases allow you to package software, release notes, and links to binary files, for other people to use. For more information, visit [AUTOTITLE](/repositories/releasing-projects-on-github/about-releases).
 
 {% ifversion fpt or ghec %}
 

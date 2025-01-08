@@ -12,11 +12,11 @@ shortTitle: Sign in with a passkey
 
 ## About signing in with a passkey
 
-You must first add a passkey to your account before you can use the passkey to sign in to {% data variables.product.prodname_dotcom %} in the browser. For more information, see "[AUTOTITLE](/authentication/authenticating-with-a-passkey/managing-your-passkeys)."
+You must first add a passkey to your account before you can use the passkey to sign in to {% data variables.product.prodname_dotcom %} in the browser. For more information, see [AUTOTITLE](/authentication/authenticating-with-a-passkey/managing-your-passkeys).
 
 Once you have added a passkey to your account, you can use the passkey to sign in safely and securely to {% data variables.product.prodname_dotcom %} without having to enter your password, perform two-factor authentication (2FA), or verify a new device. Once you have added a synced passkey on one device, the passkey is available to use across multiple devices. These devices must use the same passkey provider (such as iCloud).
 
-Some authenticators allow passkeys to be used with nearby devices. For example, perhaps you want to sign in to {% data variables.product.prodname_dotcom %} using a Bluetooth-enabled laptop that's not set up with a passkey. If you have registered a passkey on your phone, you might opt to scan a QR code, or trigger a push notification to your phone, in order to complete the sign in securely. For more information, see "[Signing in with a passkey using a nearby device](#signing-in-with-a-passkey-using-a-nearby-device)."
+Some authenticators allow passkeys to be used with nearby devices. For example, perhaps you want to sign in to {% data variables.product.prodname_dotcom %} using a Bluetooth-enabled laptop that's not set up with a passkey. If you have registered a passkey on your phone, you might opt to scan a QR code, or trigger a push notification to your phone, in order to complete the sign in securely. For more information, see [Signing in with a passkey using a nearby device](#signing-in-with-a-passkey-using-a-nearby-device).
 
 ## Signing in with a passkey linked to your primary device
 
@@ -34,5 +34,5 @@ Some authenticators allow passkeys to be used with nearby devices. For example, 
 
 ## Further reading
 
-* "[AUTOTITLE](/authentication/authenticating-with-a-passkey/about-passkeys)"
-* "[AUTOTITLE](/authentication/authenticating-with-a-passkey/managing-your-passkeys)"
+* [AUTOTITLE](/authentication/authenticating-with-a-passkey/about-passkeys)
+* [AUTOTITLE](/authentication/authenticating-with-a-passkey/managing-your-passkeys)

@@ -93,4 +93,4 @@ At this point, the eligible items within my subscriptions, as we described earli
 
 T.J.: Thanks so much for joining us today. For future reference, we are also sharing two helpful resources to help you bill GitHub consumption through Azure in the future. And if you have a dedicated GitHub and/or Microsoft account team, please don't hesitate to reach out to them for additional information. Thanks.
 
-End of transcript. For more information, see "[AUTOTITLE](/enterprise-cloud@latest/billing/managing-the-plan-for-your-github-account/connecting-an-azure-subscription)" and [Get subscription and tenant IDs in the Azure portal](https://learn.microsoft.com/en-us/azure/azure-portal/get-subscription-tenant-id) in the Microsoft documentation.
+End of transcript. For more information, see [AUTOTITLE](/enterprise-cloud@latest/billing/managing-the-plan-for-your-github-account/connecting-an-azure-subscription) and [Get subscription and tenant IDs in the Azure portal](https://learn.microsoft.com/en-us/azure/azure-portal/get-subscription-tenant-id) in the Microsoft documentation.

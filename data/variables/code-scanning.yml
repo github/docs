@@ -13,10 +13,16 @@ no_build_support: '{% ifversion codeql-no-build-csharp %}C# and{% endif %} Java'
 compiled_languages: 'C/C++, C#, Go, Java, Kotlin, and Swift'
 
 # List of languages where the libraries support expansion using CodeQL model packs at the repository level.
-codeql_model_packs_support: '{% ifversion fpt or ghec or ghes > 3.14 %}C#, Java/Kotlin, Python, and Ruby{% elsif ghes > 3.12 %}C#, Java/Kotlin, and Ruby{% elsif ghes > 3.10 %}Java/Kotlin{% endif %}'
+codeql_model_packs_support: '{% ifversion fpt or ghec or ghes > 3.14 %} C/C++, C#, Java/Kotlin, Python, and Ruby{% elsif ghes > 3.12 %}C#, Java/Kotlin, and Ruby{% elsif ghes > 3.10 %}Java/Kotlin{% endif %}'
+
+# List of languages that the model editor in the CodeQL extension for VS Code supports
+codeql_model_editor_support: '{% ifversion fpt or ghec or ghes > 3.14 %} C#, Java/Kotlin, Python, and Ruby{% elsif ghes > 3.12 %}C#, Java/Kotlin, and Ruby{% elsif ghes > 3.10 %}Java/Kotlin{% endif %}'
 
 # List of that allow threat models to be configurable for code scanning
 code_scanning_threat_model_support: 'Java/Kotlin{% ifversion fpt or ghec or ghes > 3.12 %} and C#{% endif %}'
 
 # List of languages that Copilot Autofix Agent supports
 codeql_autofix_languages: ' C#, C/C++, Go, Java/Kotlin, Swift, JavaScript/TypeScript, Python, and Ruby'
+
+# List of languages that CodeQL dependency caching supports
+codeql_dependency_caching_languages: 'Java, Go, and C#'

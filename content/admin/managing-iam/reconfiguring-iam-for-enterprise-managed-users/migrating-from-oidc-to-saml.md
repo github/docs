@@ -23,14 +23,14 @@ To migrate from OIDC to SAML, you will first disable OIDC, which will suspend al
 
 Then, you will configure SAML and SCIM. At this time, users, groups, and identities will be re-provisioned.
 
-If you're new to {% data variables.product.prodname_emus %} and haven't yet configured authentication for your enterprise, you do not need to migrate and can set up SAML single sign-on (SSO) immediately. For more information, see "[AUTOTITLE](/admin/identity-and-access-management/using-enterprise-managed-users-for-iam/configuring-saml-single-sign-on-for-enterprise-managed-users)."
+If you're new to {% data variables.product.prodname_emus %} and haven't yet configured authentication for your enterprise, you do not need to migrate and can set up SAML single sign-on (SSO) immediately. For more information, see [AUTOTITLE](/admin/identity-and-access-management/using-enterprise-managed-users-for-iam/configuring-saml-single-sign-on-for-enterprise-managed-users).
 
 > [!WARNING]
 > {% data reusables.enterprise_user_management.migration-teams-warning %}
 
 ## Prerequisites
 
-* Your enterprise on {% data variables.product.github %} must currently be configured to use OIDC for authentication. For more information, see "[AUTOTITLE](/admin/identity-and-access-management/using-enterprise-managed-users-for-iam/configuring-oidc-for-enterprise-managed-users)."
+* Your enterprise on {% data variables.product.github %} must currently be configured to use OIDC for authentication. For more information, see [AUTOTITLE](/admin/identity-and-access-management/using-enterprise-managed-users-for-iam/configuring-oidc-for-enterprise-managed-users).
 {% data reusables.emus.migration-roles-prereq %}
 {% data reusables.emus.migration-schedule-downtime %}
 

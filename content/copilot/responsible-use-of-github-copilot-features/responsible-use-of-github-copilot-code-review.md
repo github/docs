@@ -14,8 +14,8 @@ redirect_from:
 ---
 
 > [!NOTE]
-> * {% data variables.copilot.copilot_code-review %} is in {% data variables.release-phases.public_preview %} and subject to change. To join the waitlist, see "[Join the {% data variables.copilot.copilot_code-review_short %} waitlist](https://gh.io/copilot-code-review-waitlist)."
-> * The "[AUTOTITLE](/free-pro-team@latest/site-policy/github-terms/github-pre-release-license-terms)" apply to your use of this product.
+> * {% data variables.copilot.copilot_code-review %} is in {% data variables.release-phases.public_preview %} and subject to change. To join the waitlist, see [Join the {% data variables.copilot.copilot_code-review_short %} waitlist](https://gh.io/copilot-code-review-waitlist).
+> * The [AUTOTITLE](/free-pro-team@latest/site-policy/github-terms/github-pre-release-license-terms) apply to your use of this product.
 
 ## About {% data variables.copilot.copilot_code-review %}
 
@@ -23,7 +23,7 @@ redirect_from:
 
 When a user requests a code review from {% data variables.product.prodname_copilot_short %}, {% data variables.product.prodname_copilot_short %} scans through the code changes, plus additional relevant context, and provides feedback on the code. As part of that feedback, it may also provide specific suggested code changes.
 
-{% data variables.product.prodname_copilot_short %}'s review can be customized with coding guidelines, which are natural language descriptions of coding style and best practices. For more information, see "[AUTOTITLE](/copilot/using-github-copilot/code-review/configuring-coding-guidelines)."
+{% data variables.product.prodname_copilot_short %}'s review can be customized with coding guidelines, which are natural language descriptions of coding style and best practices. For more information, see [AUTOTITLE](/copilot/using-github-copilot/code-review/configuring-coding-guidelines).
 
 The only supported language for {% data variables.copilot.copilot_code-review %} is English.
 
@@ -65,7 +65,7 @@ If you encounter any issues or limitations with {% data variables.copilot.copilo
 
 ### Configure coding guidelines
 
-You can configure coding guidelines to help {% data variables.product.prodname_copilot_short %} understand your coding style and best practices. For more information, see "[AUTOTITLE](/copilot/using-github-copilot/code-review/configuring-coding-guidelines)."
+You can configure coding guidelines to help {% data variables.product.prodname_copilot_short %} understand your coding style and best practices. For more information, see [AUTOTITLE](/copilot/using-github-copilot/code-review/configuring-coding-guidelines).
 
 ## Limitations of {% data variables.copilot.copilot_code-review %}
 
@@ -95,4 +95,4 @@ As part of its comments, {% data variables.copilot.copilot_code-review_short %} 
 
 For details of how to use {% data variables.copilot.copilot_code-review_short %}, see:
 
-* "[AUTOTITLE](/copilot/using-github-copilot/code-review/using-copilot-code-review)"
+* [AUTOTITLE](/copilot/using-github-copilot/code-review/using-copilot-code-review)

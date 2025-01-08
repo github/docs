@@ -45,7 +45,7 @@ For more information, see [`lib/frontmatter.js`](https://github.com/github/docs/
 ### `versions`
 
 * Purpose: Indicates the [versions](https://github.com/github/docs/blob/main/src/versions/lib/all-versions.js) to which a page applies.
-For more information about the different types of versioning, see "[Versioning documentation](/contributing/syntax-and-versioning-for-github-docs/versioning-documentation)."
+For more information about the different types of versioning, see [Versioning documentation](/contributing/syntax-and-versioning-for-github-docs/versioning-documentation).
 * Type: `Object`. Allowable keys map to product names and can be found in the `versions` object in [`lib/frontmatter.js`](https://github.com/github/docs/blob/main/src/frame/lib/frontmatter.js).
 * This frontmatter value is currently **required** for all pages.
 * The `*` is used to denote all releases for the version.
@@ -94,7 +94,7 @@ redirect_from:
   - /articles/getting-started-with-github-for-windows
 ```
 
-For more information, see "[AUTOTITLE](/contributing/syntax-and-versioning-for-github-docs/configuring-redirects)."
+For more information, see [AUTOTITLE](/contributing/syntax-and-versioning-for-github-docs/configuring-redirects).
 
 ### `title`
 
@@ -214,7 +214,7 @@ defaultPlatform: linux
 
 ### `defaultTool`
 
-* Purpose: Override the initial tool selection for a page, where the tool refers to the application the reader is using to work with GitHub (such as GitHub.com's web UI, the GitHub CLI, or GitHub Desktop) or the GitHub APIs. For more information about the tool selector, see "[AUTOTITLE](/contributing/syntax-and-versioning-for-github-docs/using-markdown-and-liquid-in-github-docs#tool-tags)." If this frontmatter is omitted, then the tool-specific content matching the GitHub web UI is shown by default. If a user has indicated a tool preference (by clicking on a tool tab), then the user's preference will be applied instead of the default value.
+* Purpose: Override the initial tool selection for a page, where the tool refers to the application the reader is using to work with GitHub (such as GitHub.com's web UI, the GitHub CLI, or GitHub Desktop) or the GitHub APIs. For more information about the tool selector, see [AUTOTITLE](/contributing/syntax-and-versioning-for-github-docs/using-markdown-and-liquid-in-github-docs#tool-tags). If this frontmatter is omitted, then the tool-specific content matching the GitHub web UI is shown by default. If a user has indicated a tool preference (by clicking on a tool tab), then the user's preference will be applied instead of the default value.
 * Type: `String`, one of: `webui`, `cli`, `desktop`, `curl`, `codespaces`, `vscode`, `importer_cli`, `graphql`, `powershell`, `bash`, `javascript`.
 * Optional.
 

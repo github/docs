@@ -19,9 +19,9 @@ shortTitle: Configure firewall rules
 ---
 ## About {% data variables.location.product_location %}'s firewall
 
-{% data variables.product.prodname_ghe_server %} uses Ubuntu's Uncomplicated Firewall (UFW) on the virtual appliance. For more information see "[UFW](https://help.ubuntu.com/community/UFW)" in the Ubuntu documentation. {% data variables.product.prodname_ghe_server %} automatically updates the firewall allowlist of allowed services with each release.
+{% data variables.product.prodname_ghe_server %} uses Ubuntu's Uncomplicated Firewall (UFW) on the virtual appliance. For more information see [UFW](https://help.ubuntu.com/community/UFW) in the Ubuntu documentation. {% data variables.product.prodname_ghe_server %} automatically updates the firewall allowlist of allowed services with each release.
 
-After you install {% data variables.product.prodname_ghe_server %}, all required network ports are automatically opened to accept connections. Every non-required port is automatically configured as `deny`, and the default outgoing policy is configured as `allow`. Stateful tracking is enabled for any new connections; these are typically network packets with the `SYN` bit set. For more information, see "[AUTOTITLE](/admin/configuration/configuring-network-settings/network-ports)."
+After you install {% data variables.product.prodname_ghe_server %}, all required network ports are automatically opened to accept connections. Every non-required port is automatically configured as `deny`, and the default outgoing policy is configured as `allow`. Stateful tracking is enabled for any new connections; these are typically network packets with the `SYN` bit set. For more information, see [AUTOTITLE](/admin/configuration/configuring-network-settings/network-ports).
 
 The UFW firewall also opens several other ports that are required for {% data variables.product.prodname_ghe_server %} to operate properly. For more information on the UFW rule set, see [the UFW README](https://github.com/jbq/ufw/blob/master/README#L213).
 

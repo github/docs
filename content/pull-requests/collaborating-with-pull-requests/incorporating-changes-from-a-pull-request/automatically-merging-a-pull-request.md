@@ -18,7 +18,7 @@ shortTitle: Merge PR automatically
 
 If you enable auto-merge for a pull request, the pull request will merge automatically when all required reviews are met and all required status checks have passed. Auto-merge prevents you from waiting around for requirements to be met, so you can move on to other tasks.
 
-Before you can use auto-merge with a pull request, auto-merge must be enabled for the repository. For more information, see "[AUTOTITLE](/repositories/configuring-branches-and-merges-in-your-repository/configuring-pull-request-merges/managing-auto-merge-for-pull-requests-in-your-repository)."
+Before you can use auto-merge with a pull request, auto-merge must be enabled for the repository. For more information, see [AUTOTITLE](/repositories/configuring-branches-and-merges-in-your-repository/configuring-pull-request-merges/managing-auto-merge-for-pull-requests-in-your-repository).
 
 After you enable auto-merge for a pull request, if someone who does not have write permissions to the repository pushes new changes to the head branch or switches the base branch of the pull request, auto-merge will be disabled. For example, if a maintainer enables auto-merge for a pull request from a fork, auto-merge will be disabled after a contributor pushes new changes to the pull request.
 
@@ -33,7 +33,7 @@ People with write permissions to a repository can enable auto-merge for a pull r
 {% data reusables.repositories.navigate-to-repo %}
 {% data reusables.repositories.sidebar-pr %}
 1. In the "Pull Requests" list, click the pull request you'd like to auto-merge.
-1. Optionally, to choose a merge method, select the {% octicon "triangle-down" aria-label="Select the merge method" %} dropdown menu, then click a merge method. For more information, see "[AUTOTITLE](/pull-requests/collaborating-with-pull-requests/incorporating-changes-from-a-pull-request/about-pull-request-merges)."
+1. Optionally, to choose a merge method, select the {% octicon "triangle-down" aria-label="Select the merge method" %} dropdown menu, then click a merge method. For more information, see [AUTOTITLE](/pull-requests/collaborating-with-pull-requests/incorporating-changes-from-a-pull-request/about-pull-request-merges).
 
    ![Screenshot of the merge box of a pull request. A dropdown menu, labeled with a downward-facing triangle, is outlined in dark orange.](/assets/images/help/pull_requests/enable-auto-merge-drop-down.png)
 

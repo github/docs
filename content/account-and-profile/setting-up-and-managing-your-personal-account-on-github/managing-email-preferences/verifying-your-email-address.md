@@ -44,7 +44,7 @@ If you are a member of an {% data variables.enterprise.prodname_emu_enterprise %
 
 Until you verify your email address, your account will use a placeholder email address with your enterprise's shortcode appended for certain operations. For example, the REST API endpoint for users will return `email+shortcode@domain.com`. In rare cases, you may find that third-party apps or your company's email provider do not handle the placeholder email correctly.
 
-You cannot verify an email address for your {% data variables.enterprise.prodname_managed_user %} if the email address is already verified by another account on {% data variables.product.prodname_dotcom_the_website %}. To verify the email, you will need to unverify the email address on the conflicting account, then verify it for your {% data variables.enterprise.prodname_managed_user %}. See "[AUTOTITLE](/account-and-profile/setting-up-and-managing-your-personal-account-on-github/managing-email-preferences/changing-your-primary-email-address)."
+You cannot verify an email address for your {% data variables.enterprise.prodname_managed_user %} if the email address is already verified by another account on {% data variables.product.prodname_dotcom_the_website %}. To verify the email, you will need to unverify the email address on the conflicting account, then verify it for your {% data variables.enterprise.prodname_managed_user %}. See [AUTOTITLE](/account-and-profile/setting-up-and-managing-your-personal-account-on-github/managing-email-preferences/changing-your-primary-email-address).
 
 Once you verify an email with a {% data variables.enterprise.prodname_managed_user %}, you won't be able to use the email to sign up for a personal account on {% data variables.product.prodname_dotcom_the_website %}.
 
@@ -65,7 +65,7 @@ Once you verify an email with a {% data variables.enterprise.prodname_managed_us
 
 ### Error page after clicking verification link
 
-The verification link expires after 24 hours. If you don't verify your email within 24 hours, you can request another email verification link. For more information, see "[AUTOTITLE](/account-and-profile/setting-up-and-managing-your-personal-account-on-github/managing-email-preferences/verifying-your-email-address#verifying-your-email-address)."
+The verification link expires after 24 hours. If you don't verify your email within 24 hours, you can request another email verification link. For more information, see [AUTOTITLE](/account-and-profile/setting-up-and-managing-your-personal-account-on-github/managing-email-preferences/verifying-your-email-address#verifying-your-email-address).
 
 If you click on the link in the confirmation email within 24 hours and you are directed to an error page, you should ensure that you're signed into the correct account on {% data variables.product.github %}.
 
@@ -78,8 +78,8 @@ If you click on the link in the confirmation email within 24 hours and you are d
 
 If you see the error message `Error adding EMAIL: Email is already verified by another user`, you must either unverify the email for the other account before proceeding, or choose a different email address to verify.
 
-To unverify an email address, delete it in your email settings, then optionally re-add it without verifying to keep any commits linked to your account. See "[AUTOTITLE](/account-and-profile/setting-up-and-managing-your-personal-account-on-github/managing-email-preferences/changing-your-primary-email-address)."
+To unverify an email address, delete it in your email settings, then optionally re-add it without verifying to keep any commits linked to your account. See [AUTOTITLE](/account-and-profile/setting-up-and-managing-your-personal-account-on-github/managing-email-preferences/changing-your-primary-email-address).
 
 ## Further reading
 
-* "[AUTOTITLE](/account-and-profile/setting-up-and-managing-your-personal-account-on-github/managing-email-preferences/changing-your-primary-email-address)"
+* [AUTOTITLE](/account-and-profile/setting-up-and-managing-your-personal-account-on-github/managing-email-preferences/changing-your-primary-email-address)

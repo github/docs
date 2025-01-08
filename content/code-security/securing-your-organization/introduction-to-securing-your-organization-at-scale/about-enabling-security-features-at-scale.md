@@ -12,7 +12,7 @@ topics:
 
 ## About securing your organization
 
-{% data variables.product.company_short %} offers many code security products and features including {% data variables.product.prodname_GH_advanced_security %}, a suite of features designed to protect your organization from vulnerabilities in your code, insecure dependencies, leaked secrets, and more. For more information on {% data variables.product.prodname_GH_advanced_security %}, see "[AUTOTITLE](/get-started/learning-about-github/about-github-advanced-security)."
+{% data variables.product.company_short %} offers many code security products and features including {% data variables.product.prodname_GH_advanced_security %}, a suite of features designed to protect your organization from vulnerabilities in your code, insecure dependencies, leaked secrets, and more. For more information on {% data variables.product.prodname_GH_advanced_security %}, see [AUTOTITLE](/get-started/learning-about-github/about-github-advanced-security).
 
 You can easily enable and manage {% data variables.product.company_short %}'s security features throughout your organization with {% data variables.product.prodname_security_configurations %}, which control repository-level security features, and {% data variables.product.prodname_global_settings %}, which control security features at the organization level. We recommend applying {% data variables.product.prodname_security_configurations %} _and_ customizing your {% data variables.product.prodname_global_settings %} to create a system that best meets the security needs of your organization.
 
@@ -37,27 +37,34 @@ You will only ever see enablement settings for features that have been installed
 
 {% endif %}
 
->[!NOTE]
 {% data reusables.code-scanning.custom-security-configuration-enforcement-edge-cases %}
 
-Each repository can only have one {% data variables.product.prodname_security_configuration %} applied to it. {% ifversion security-configurations-cloud %}To find out how you should get started with {% data variables.product.prodname_security_configurations %}, see "[AUTOTITLE](/code-security/securing-your-organization/introduction-to-securing-your-organization-at-scale/choosing-a-security-configuration-for-your-repositories)."{% endif %}
+Each repository can only have one {% data variables.product.prodname_security_configuration %} applied to it. {% ifversion security-configurations-cloud %}To find out how you should get started with {% data variables.product.prodname_security_configurations %}, see [AUTOTITLE](/code-security/securing-your-organization/introduction-to-securing-your-organization-at-scale/choosing-a-security-configuration-for-your-repositories).{% endif %}
 
 {% ifversion security-configurations-api %}
-You can also create and manage security configurations using the REST API. For more information, see "[AUTOTITLE](/rest/code-security/configurations)."
+You can also create and manage security configurations using the REST API. For more information, see [AUTOTITLE](/rest/code-security/configurations).
 {% endif %}
 
 ## About {% data variables.product.prodname_global_settings %}
 
-While {% data variables.product.prodname_security_configurations %} determine repository-level security settings, {% data variables.product.prodname_global_settings %} determine your organization-level security settings, which are then inherited by all repositories. With {% data variables.product.prodname_global_settings %}, you can customize how security features analyze your organization, as well as create security managers with permission to manage security alerts and settings across your organization.
+While {% data variables.product.prodname_security_configurations %} determine repository-level security settings, {% data variables.product.prodname_global_settings %} determine your organization-level security settings, which are then inherited by all repositories. With {% data variables.product.prodname_global_settings %}, you can customize how security features analyze your organization{% ifversion ghes < 3.16 %}, as well as grant a team permission to manage security alerts and settings across your organization{% endif %}.
+
+{% ifversion org-private-registry %}
+
+## About enabling secure access to private registries
+
+If your organization uses private registries, providing {% data variables.product.prodname_code_scanning %} and {% data variables.product.prodname_dependabot %} secure access to these registries will improve code analysis and allow {% data variables.product.prodname_dependabot %} to update a wider range of dependencies. For information, see [AUTOTITLE](/code-security/securing-your-organization/enabling-security-features-in-your-organization/giving-org-access-private-registries).
+
+{% endif %}
 
 ## Next steps
 
 {% ifversion security-configurations-cloud %}
 
-To determine which {% data variables.product.prodname_security_configurations %} are right for the repositories in your organization, see "[AUTOTITLE](/code-security/securing-your-organization/introduction-to-securing-your-organization-at-scale/choosing-a-security-configuration-for-your-repositories)."
+To determine which {% data variables.product.prodname_security_configurations %} are right for the repositories in your organization, see [AUTOTITLE](/code-security/securing-your-organization/introduction-to-securing-your-organization-at-scale/choosing-a-security-configuration-for-your-repositories).
 
 {% elsif security-configurations-ghes-only %}
 
-To get started with creating a {% data variables.product.prodname_security_configuration %} for your organization, see "[AUTOTITLE](/code-security/securing-your-organization/enabling-security-features-in-your-organization/creating-a-custom-security-configuration)."
+To get started with creating a {% data variables.product.prodname_security_configuration %} for your organization, see [AUTOTITLE](/code-security/securing-your-organization/enabling-security-features-in-your-organization/creating-a-custom-security-configuration).
 
 {% endif %}

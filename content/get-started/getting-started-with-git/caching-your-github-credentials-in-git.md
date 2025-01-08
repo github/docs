@@ -16,7 +16,7 @@ shortTitle: Caching credentials
 ---
 
 > [!TIP]
-> If you clone {% data variables.product.product_name %} repositories using SSH, then you can authenticate using an SSH key instead of using other credentials. For information about setting up an SSH connection, see "[AUTOTITLE](/authentication/connecting-to-github-with-ssh)."
+> If you clone {% data variables.product.product_name %} repositories using SSH, then you can authenticate using an SSH key instead of using other credentials. For information about setting up an SSH connection, see [AUTOTITLE](/authentication/connecting-to-github-with-ssh).
 
 ## {% data variables.product.prodname_cli %}
 
@@ -57,7 +57,7 @@ Once you've authenticated successfully, your credentials are stored in the macOS
 
 {% windows %}
 
-1. Install Git for Windows, which includes GCM. For more information, see "[Git for Windows releases](https://github.com/git-for-windows/git/releases/latest)" from its [releases page](https://github.com/git-for-windows/git/releases/latest).
+1. Install Git for Windows, which includes GCM. For more information, see [Git for Windows releases](https://github.com/git-for-windows/git/releases/latest) from its [releases page](https://github.com/git-for-windows/git/releases/latest).
 
 We recommend always installing the latest version. At a minimum, install version 2.29 or higher, which is the first version offering OAuth support for GitHub.
 
@@ -83,7 +83,7 @@ For Linux, install Git and GCM, then configure Git to use GCM.
 
 1. Install GCM. See the [instructions in the GCM repo](https://github.com/git-ecosystem/git-credential-manager/blob/release/docs/install.md), as they'll vary depending on the flavor of Linux you run.
 
-1. Configure Git to use GCM. There are several backing stores that you may choose from, so see the GCM docs to complete your setup. For more information, see "[GCM Linux](https://aka.ms/gcmcore-linuxcredstores)."
+1. Configure Git to use GCM. There are several backing stores that you may choose from, so see the GCM docs to complete your setup. For more information, see [GCM Linux](https://aka.ms/gcmcore-linuxcredstores).
 
 {% data reusables.gcm-core.next-time-you-clone %}
 
@@ -95,4 +95,4 @@ For more options for storing your credentials on Linux, see [Credential Storage]
 
 <br>
 
-For more information or to report issues with GCM, see the official GCM docs at "[Git Credential Manager](https://github.com/GitCredentialManager/git-credential-manager)."
+For more information or to report issues with GCM, see the official GCM docs at [Git Credential Manager](https://github.com/GitCredentialManager/git-credential-manager).

@@ -12,11 +12,11 @@ shortTitle: Manage your passkeys
 
 ## About managing your passkeys
 
-If you are connecting to {% data variables.product.prodname_dotcom %} from an eligible device and browser, {% data variables.product.company_short %} may prompt you to register the device as a passkey during sign-in. You can also add passkeys to your account from your account settings. For more information, see "[Adding a passkey to your account](#adding-a-passkey-to-your-account)."
+If you are connecting to {% data variables.product.prodname_dotcom %} from an eligible device and browser, {% data variables.product.company_short %} may prompt you to register the device as a passkey during sign-in. You can also add passkeys to your account from your account settings. For more information, see [Adding a passkey to your account](#adding-a-passkey-to-your-account).
 
-If you use two-factor authentication (2FA), {% data variables.product.company_short %} may prompt you to upgrade existing eligible security keys (such as Mac TouchID, or Windows Hello) into passkeys after authenticating to {% data variables.product.prodname_dotcom %}. You can also upgrade eligible security keys from your account settings. For more information, see "[Upgrading an existing security key to a passkey](#upgrading-an-existing-security-key-to-a-passkey)."
+If you use two-factor authentication (2FA), {% data variables.product.company_short %} may prompt you to upgrade existing eligible security keys (such as Mac TouchID, or Windows Hello) into passkeys after authenticating to {% data variables.product.prodname_dotcom %}. You can also upgrade eligible security keys from your account settings. For more information, see [Upgrading an existing security key to a passkey](#upgrading-an-existing-security-key-to-a-passkey).
 
-For information on how to remove a passkey from your account, see "[Removing a passkey from your account](#removing-a-passkey-from-your-account)."
+For information on how to remove a passkey from your account, see [Removing a passkey from your account](#removing-a-passkey-from-your-account).
 
 ## Adding a passkey to your account
 

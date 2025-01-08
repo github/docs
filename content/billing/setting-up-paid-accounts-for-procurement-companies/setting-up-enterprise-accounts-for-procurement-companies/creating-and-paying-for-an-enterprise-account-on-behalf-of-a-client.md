@@ -12,7 +12,7 @@ topics:
 shortTitle: On behalf of a client
 ---
 
->[!NOTE] If you are a Microsoft Cloud Solution Provider (CSP) partner and want to create an enterprise account for your customer, see "[AUTOTITLE](/billing/setting-up-paid-accounts-for-procurement-companies/setting-up-enterprise-accounts-for-procurement-companies/creating-an-enterprise-account-as-a-microsoft-csp-partner)."
+>[!NOTE] If you are a Microsoft Cloud Solution Provider (CSP) partner and want to create an enterprise account for your customer, see [AUTOTITLE](/billing/setting-up-paid-accounts-for-procurement-companies/setting-up-enterprise-accounts-for-procurement-companies/creating-an-enterprise-account-as-a-microsoft-csp-partner).
 
 ## Requirements
 
@@ -20,7 +20,7 @@ Before you start, make sure you know:
 * The {% data variables.product.prodname_dotcom %} username of the client who will become the owner of the enterprise account you create
 * The name your client would like to use for the enterprise account
 * The email address where you would like receipts to be sent
-* The number of paid seats your client would like you to purchase for the enterprise account (see "[AUTOTITLE](/billing/managing-the-plan-for-your-github-account/about-per-user-pricing)")
+* The number of paid seats your client would like you to purchase for the enterprise account (see [AUTOTITLE](/billing/managing-the-plan-for-your-github-account/about-per-user-pricing))
 
 ## Step 1: Create your personal account on {% data variables.product.prodname_dotcom %}
 
@@ -49,7 +49,7 @@ If you already have a personal account on {% data variables.product.prodname_dot
 
 ## Step 4: Invite your client as an enterprise owner
 
-Invite your client to become an enterprise owner. For more information, see "[AUTOTITLE](/enterprise-cloud@latest/admin/user-management/managing-users-in-your-enterprise/inviting-people-to-manage-your-enterprise#inviting-an-enterprise-administrator-to-your-enterprise-account)."
+Invite your client to become an enterprise owner. For more information, see [AUTOTITLE](/enterprise-cloud@latest/admin/user-management/managing-users-in-your-enterprise/inviting-people-to-manage-your-enterprise#inviting-an-enterprise-administrator-to-your-enterprise-account).
 
 ## Step 5: Change your role to billing manager
 
@@ -61,4 +61,4 @@ Invite your client to become an enterprise owner. For more information, see "[AU
 ## Next steps
 
 {% ifversion fpt %}1. If you would like your credit card to be removed from the enterprise account so that it's not charged again, contact {% data variables.contact.contact_support %}.
-1. {% endif %}When it's time to renew your client's paid subscription, see "[AUTOTITLE](/billing/setting-up-paid-accounts-for-procurement-companies/setting-up-enterprise-accounts-for-procurement-companies/renewing-your-clients-enterprise-account)."
+1. {% endif %}When it's time to renew your client's paid subscription, see [AUTOTITLE](/billing/setting-up-paid-accounts-for-procurement-companies/setting-up-enterprise-accounts-for-procurement-companies/renewing-your-clients-enterprise-account).

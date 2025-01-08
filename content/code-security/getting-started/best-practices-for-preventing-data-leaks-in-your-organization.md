@@ -30,17 +30,17 @@ The best approach will depend on the type of organization you're managing. For e
 
 Protect your organization's repositories and settings by implementing security best practices, including enabling 2FA and requiring it for all members, and establishing strong password guidelines.
 
-{% ifversion ghec %}- Enabling secure authentication processes by using SAML and SCIM integrations, as well as 2FA authentication whenever possible. For more information, see "[AUTOTITLE](/organizations/managing-saml-single-sign-on-for-your-organization/about-identity-and-access-management-with-saml-single-sign-on)," "[AUTOTITLE](/organizations/managing-saml-single-sign-on-for-your-organization/about-scim-for-organizations)," and "[AUTOTITLE](/authentication/securing-your-account-with-two-factor-authentication-2fa)." {% endif %}
+{% ifversion ghec %}- Enabling secure authentication processes by using SAML and SCIM integrations, as well as 2FA authentication whenever possible. For more information, see [AUTOTITLE](/organizations/managing-saml-single-sign-on-for-your-organization/about-identity-and-access-management-with-saml-single-sign-on), [AUTOTITLE](/organizations/managing-saml-single-sign-on-for-your-organization/about-scim-for-organizations), and [AUTOTITLE](/authentication/securing-your-account-with-two-factor-authentication-2fa). {% endif %}
 
-* Requiring organization members, outside collaborators, and billing managers to enable 2FA for their personal accounts, making it harder for malicious actors to access an organization's repositories and settings.{% ifversion ghec %} This is one step further from enabling secure authentication.{% endif %} For more information, see "[AUTOTITLE](/organizations/keeping-your-organization-secure/managing-two-factor-authentication-for-your-organization/requiring-two-factor-authentication-in-your-organization)."
+* Requiring organization members, outside collaborators, and billing managers to enable 2FA for their personal accounts, making it harder for malicious actors to access an organization's repositories and settings.{% ifversion ghec %} This is one step further from enabling secure authentication.{% endif %} For more information, see [AUTOTITLE](/organizations/keeping-your-organization-secure/managing-two-factor-authentication-for-your-organization/requiring-two-factor-authentication-in-your-organization).
 
-* Encouraging your users to create strong passwords and secure them appropriately, by following {% data variables.product.prodname_dotcom %}’s recommended password guidelines. For more information, see "[AUTOTITLE](/authentication/keeping-your-account-and-data-secure/creating-a-strong-password)."{% ifversion secret-scanning-push-protection-for-users %}
+* Encouraging your users to create strong passwords and secure them appropriately, by following {% data variables.product.prodname_dotcom %}’s recommended password guidelines. For more information, see [AUTOTITLE](/authentication/keeping-your-account-and-data-secure/creating-a-strong-password).{% ifversion secret-scanning-push-protection-for-users %}
 
-* Encouraging your users to keep push protection for users enabled in their personal account settings, so that no matter which public repository they push to, they are protected. For more information, see "[AUTOTITLE](/code-security/secret-scanning/working-with-secret-scanning-and-push-protection/push-protection-for-users)."{% endif %}
+* Encouraging your users to keep push protection for users enabled in their personal account settings, so that no matter which public repository they push to, they are protected. For more information, see [AUTOTITLE](/code-security/secret-scanning/working-with-secret-scanning-and-push-protection/push-protection-for-users).{% endif %}
 
-* Establishing an internal security policy in {% data variables.product.prodname_dotcom %}, so users know the appropriate steps to take and who to contact if an incident is suspected. For more information, see "[AUTOTITLE](/code-security/getting-started/adding-a-security-policy-to-your-repository)."
+* Establishing an internal security policy in {% data variables.product.prodname_dotcom %}, so users know the appropriate steps to take and who to contact if an incident is suspected. For more information, see [AUTOTITLE](/code-security/getting-started/adding-a-security-policy-to-your-repository).
 
-For more detailed information about securing accounts, see "[AUTOTITLE](/code-security/supply-chain-security/end-to-end-supply-chain/securing-accounts)."
+For more detailed information about securing accounts, see [AUTOTITLE](/code-security/supply-chain-security/end-to-end-supply-chain/securing-accounts).
 
 ## Prevent data leaks
 
@@ -48,18 +48,18 @@ As an organization owner, you should limit and review access as appropriate for 
 
 Recommendation | More information
 ------------------ | -----------------
-Disable the ability to fork repositories. | "[AUTOTITLE](/repositories/managing-your-repositorys-settings-and-features/managing-repository-settings/managing-the-forking-policy-for-your-repository)"
-Disable changing repository visibility. | "[AUTOTITLE](/organizations/managing-organization-settings/restricting-repository-visibility-changes-in-your-organization)"
-Restrict repository creation to private or internal. |  "[AUTOTITLE](/organizations/managing-organization-settings/restricting-repository-creation-in-your-organization)"
-Disable repository deletion and transfer. | "[AUTOTITLE](/organizations/managing-organization-settings/setting-permissions-for-deleting-or-transferring-repositories)"
+Disable the ability to fork repositories. | [AUTOTITLE](/repositories/managing-your-repositorys-settings-and-features/managing-repository-settings/managing-the-forking-policy-for-your-repository)
+Disable changing repository visibility. | [AUTOTITLE](/organizations/managing-organization-settings/restricting-repository-visibility-changes-in-your-organization)
+Restrict repository creation to private or internal. |  [AUTOTITLE](/organizations/managing-organization-settings/restricting-repository-creation-in-your-organization)
+Disable repository deletion and transfer. | [AUTOTITLE](/organizations/managing-organization-settings/setting-permissions-for-deleting-or-transferring-repositories)
 | {% ifversion deploy-keys-enterprise-org-policy %} |
-Disable the ability to use deploy keys. | "[AUTOTITLE](/organizations/managing-organization-settings/restricting-deploy-keys-in-your-organization)"
+Disable the ability to use deploy keys. | [AUTOTITLE](/organizations/managing-organization-settings/restricting-deploy-keys-in-your-organization)
 | {% endif %} |
 Scope {% data variables.product.pat_generic %}s to the minimum permissions necessary. | None
 Secure your code by converting public repositories to private whenever appropriate. You can alert the repository owners of this change automatically using a {% data variables.product.prodname_github_app %}. | [Prevent-Public-Repos](https://github.com/apps/prevent-public-repos) in {% data variables.product.prodname_marketplace %}
-Confirm your organization’s identity by verifying your domain and restricting email notifications to only verified email domains. | "[AUTOTITLE](/organizations/managing-organization-settings/verifying-or-approving-a-domain-for-your-organization){% ifversion ghec or ghes %}" and "[AUTOTITLE](/organizations/keeping-your-organization-secure/managing-security-settings-for-your-organization/restricting-email-notifications-for-your-organization){% endif %}"{% ifversion fpt or ghec %}
-Ensure your organization has upgraded to the {% data variables.product.company_short %} Customer Agreement instead of using the Standard Terms of Service. | "[AUTOTITLE](/organizations/managing-organization-settings/upgrading-to-the-github-customer-agreement)"{% endif %}
-Prevent contributors from making accidental commits. | "[AUTOTITLE](/authentication/keeping-your-account-and-data-secure/removing-sensitive-data-from-a-repository#avoiding-accidental-commits-in-the-future)"
+Confirm your organization’s identity by verifying your domain and restricting email notifications to only verified email domains. | [AUTOTITLE](/organizations/managing-organization-settings/verifying-or-approving-a-domain-for-your-organization){% ifversion ghec or ghes %} and [AUTOTITLE](/organizations/keeping-your-organization-secure/managing-security-settings-for-your-organization/restricting-email-notifications-for-your-organization){% endif %}{% ifversion fpt or ghec %}
+Ensure your organization has upgraded to the {% data variables.product.company_short %} Customer Agreement instead of using the Standard Terms of Service. | [AUTOTITLE](/organizations/managing-organization-settings/upgrading-to-the-github-customer-agreement){% endif %}
+Prevent contributors from making accidental commits. | [AUTOTITLE](/authentication/keeping-your-account-and-data-secure/removing-sensitive-data-from-a-repository#avoiding-accidental-commits-in-the-future)
 
 ## Detect data leaks
 
@@ -83,19 +83,19 @@ There are two forms of {% data variables.product.prodname_secret_scanning %} ava
    * Private and internal repositories when you have a license for {% data variables.product.prodname_GH_advanced_security %}{% endif %}
 {% endif %}
 
-{% ifversion ghes %}Your site administrator must enable {% data variables.product.prodname_secret_scanning %} for your instance before you can use this feature. For more information, see "[AUTOTITLE](/admin/code-security/managing-github-advanced-security-for-your-enterprise/configuring-secret-scanning-for-your-appliance)."{% endif %}
+{% ifversion ghes %}Your site administrator must enable {% data variables.product.prodname_secret_scanning %} for your instance before you can use this feature. For more information, see [AUTOTITLE](/admin/code-security/managing-github-advanced-security-for-your-enterprise/configuring-secret-scanning-for-your-appliance).{% endif %}
 
-For more information about {% data variables.product.prodname_secret_scanning %}, see "[AUTOTITLE](/code-security/secret-scanning/introduction/about-secret-scanning)."
+For more information about {% data variables.product.prodname_secret_scanning %}, see [AUTOTITLE](/code-security/secret-scanning/introduction/about-secret-scanning).
 
-{% data reusables.secret-scanning.push-protection-high-level %} For more information, see "[AUTOTITLE](/code-security/secret-scanning/protecting-pushes-with-secret-scanning)."{% ifversion ghec or ghes %} Finally, you can also extend the detection to include custom secret string structures. For more information, see "[AUTOTITLE](/code-security/secret-scanning/using-advanced-secret-scanning-and-push-protection-features/custom-patterns/defining-custom-patterns-for-secret-scanning)."{% endif %}
+{% data reusables.secret-scanning.push-protection-high-level %} For more information, see [AUTOTITLE](/code-security/secret-scanning/protecting-pushes-with-secret-scanning).{% ifversion ghec or ghes %} Finally, you can also extend the detection to include custom secret string structures. For more information, see [AUTOTITLE](/code-security/secret-scanning/using-advanced-secret-scanning-and-push-protection-features/custom-patterns/defining-custom-patterns-for-secret-scanning).{% endif %}
 
 ### Review the audit log for your organization
 
-You can also proactively secure IP and maintain compliance for your organization by leveraging your organization's audit log, along with the GraphQL Audit Log API. For more information, see "[AUTOTITLE](/organizations/keeping-your-organization-secure/managing-security-settings-for-your-organization/reviewing-the-audit-log-for-your-organization)" and "[AUTOTITLE](/graphql/reference/interfaces#auditentry)."
+You can also proactively secure IP and maintain compliance for your organization by leveraging your organization's audit log, along with the GraphQL Audit Log API. For more information, see [AUTOTITLE](/organizations/keeping-your-organization-secure/managing-security-settings-for-your-organization/reviewing-the-audit-log-for-your-organization) and [AUTOTITLE](/graphql/reference/interfaces#auditentry).
 
 ### Set up branch protection rules
 
-To ensure that all code is properly reviewed prior to being merged into the default branch, you can enable branch protection. By setting branch protection rules, you can enforce certain workflows or requirements before a contributor can push changes. For more information, see "[AUTOTITLE](/repositories/configuring-branches-and-merges-in-your-repository/managing-protected-branches/about-protected-branches)."
+To ensure that all code is properly reviewed prior to being merged into the default branch, you can enable branch protection. By setting branch protection rules, you can enforce certain workflows or requirements before a contributor can push changes. For more information, see [AUTOTITLE](/repositories/configuring-branches-and-merges-in-your-repository/managing-protected-branches/about-protected-branches).
 
 {% ifversion repo-rules %}
 
@@ -105,11 +105,9 @@ To ensure that all code is properly reviewed prior to being merged into the defa
 
 ## Mitigate data leaks
 
-If a user pushes sensitive data, ask them to remove it by using the `git filter-repo` tool or the BFG Repo-Cleaner open source tool. For more information, see "[AUTOTITLE](/authentication/keeping-your-account-and-data-secure/removing-sensitive-data-from-a-repository)." Also, it is possible to revert almost anything in Git. For more information, see [{% data variables.product.prodname_blog %}](https://github.blog/2015-06-08-how-to-undo-almost-anything-with-git/).
+If a user pushes sensitive data, ask them to remove it by using the `git filter-repo` tool. For more information, see [AUTOTITLE](/authentication/keeping-your-account-and-data-secure/removing-sensitive-data-from-a-repository). Also, if the sensitive data has not been pushed yet, you can just undo those changes locally; for more information, see [{% data variables.product.prodname_blog %}](https://github.blog/2015-06-08-how-to-undo-almost-anything-with-git/) (but note that `git revert` is not a valid way to undo the addition of sensitive data as it leaves the original sensitive commit in Git history).
 
-At the organization level, if you're unable to coordinate with the user who pushed the sensitive data to remove it, we recommend you contact {% data variables.contact.contact_support %} with the concerning commit SHA.
-
-If you're unable to coordinate directly with the repository owner to remove data that you're confident you own, you can fill out a DMCA takedown notice form and tell GitHub Support. For more information, see [DMCA takedown notice](https://support.github.com/contact/dmca-takedown).
+If you're unable to coordinate directly with the repository owner to remove data that you're confident you own, you can fill out a DMCA takedown notice form and tell GitHub Support.  Make sure to include the problematic commit hashes.  For more information, see [DMCA takedown notice](https://support.github.com/contact/dmca-takedown).
 
 > [!NOTE]
 > If one of your repositories has been taken down due to a false claim, you should fill out a DMCA
@@ -117,5 +115,5 @@ counter notice form and alert GitHub Support. For more information, see [DMCA co
 
 ## Next steps
 
-* "[AUTOTITLE](/code-security/supply-chain-security/end-to-end-supply-chain/securing-code)"
-* "[AUTOTITLE](/code-security/supply-chain-security/end-to-end-supply-chain/securing-builds)"
+* [AUTOTITLE](/code-security/supply-chain-security/end-to-end-supply-chain/securing-code)
+* [AUTOTITLE](/code-security/supply-chain-security/end-to-end-supply-chain/securing-builds)

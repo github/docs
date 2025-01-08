@@ -16,7 +16,7 @@ on:
       - 'package*.json'
       - src/assets/scripts/find-orphaned-assets.js
       - src/content-render/scripts/reusables-cli/find/unused.ts
-      - src/workflows/walk-files.js
+      - src/workflows/walk-files.ts
       - src/languages/lib/languages.js
       - .github/actions/clone-translations/action.yml
       - .github/actions/node-npm-setup/action.yml
@@ -91,14 +91,13 @@ jobs:
           git push origin $branchname
 
           body=$(cat <<-EOM
-            Found with the npm run find-orphaned-assets script.
-            The orphaned files workflow file .github/workflows/orphaned-files-check.yml
-            runs every Monday at 16:20 UTC / 8:20 PST.
-            The first responder should just spot-check some of the unused assets
-            to make sure they aren't referenced anywhere
-            and then approve and merge the pull request.
-            For more information, see [Doc: Orphaned Assets](https://github.com/github/docs-engineering/blob/main/docs/orphaned-assets.md)
-            and [Doc: Reusables CLI](https://github.com/github/docs-internal/tree/main/src/content-render/scripts/reusables-cli).
+            Found with the `npm run find-orphaned-assets` and `npm run -s reusables -- find unused` scripts.
+            
+            The orphaned files workflow file .github/workflows/orphaned-files-check.yml runs every Monday at 16:20 UTC / 8:20 PST.
+            
+            If you are the first responder, please spot check some of the unused assets to make sure they aren't referenced anywhere. Then, approve and merge the pull request.
+            
+            For more information, see [Doc: Orphaned Assets](https://github.com/github/docs-engineering/blob/main/docs/orphaned-assets.md) and [Doc: Reusables CLI](https://github.com/github/docs-internal/tree/main/src/content-render/scripts/reusables-cli).
           EOM
           )
 

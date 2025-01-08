@@ -59,7 +59,7 @@ That said, anyone with read access to a repository can view a comment's edit his
 
 ## Redacting sensitive information
 
-Comment authors and anyone with write access to a repository can also delete sensitive information from a comment's edit history. For more information, see "[AUTOTITLE](/communities/moderating-comments-and-conversations/tracking-changes-in-a-comment)."
+Comment authors and anyone with write access to a repository can also delete sensitive information from a comment's edit history. For more information, see [AUTOTITLE](/communities/moderating-comments-and-conversations/tracking-changes-in-a-comment).
 
 1. Navigate to the comment you'd like to edit.
 1. In the upper-right corner of the comment, click {% octicon "kebab-horizontal" aria-label="Show options" %}, then click **Edit**.
@@ -96,5 +96,5 @@ Deleting a comment creates a timeline event that is visible to anyone with read 
 
 ## Further reading
 
-* "[AUTOTITLE](/organizations/managing-peoples-access-to-your-organization-with-roles/managing-moderators-in-your-organization)"
+* [AUTOTITLE](/organizations/managing-peoples-access-to-your-organization-with-roles/managing-moderators-in-your-organization)
 {% endif %}

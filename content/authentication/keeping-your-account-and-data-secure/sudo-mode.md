@@ -60,14 +60,14 @@ To confirm access for sudo mode, you {% ifversion totp-and-mobile-sudo-challenge
 
 ## Confirming access using a passkey
 
-You must have a passkey registered to your account to confirm access to your account for sudo mode using a passkey. See "[AUTOTITLE](/authentication/authenticating-with-a-passkey/about-passkeys)."
+You must have a passkey registered to your account to confirm access to your account for sudo mode using a passkey. See [AUTOTITLE](/authentication/authenticating-with-a-passkey/about-passkeys).
 {% endif %}
 
 {% ifversion totp-and-mobile-sudo-challenge %}
 
 ### Confirming access using a security key
 
-You must configure two-factor authentication (2FA) for your account using a security key to confirm access to your account for sudo mode using the security key. For more information, see "[AUTOTITLE](/authentication/securing-your-account-with-two-factor-authentication-2fa/configuring-two-factor-authentication#configuring-two-factor-authentication-using-a-security-key)."
+You must configure two-factor authentication (2FA) for your account using a security key to confirm access to your account for sudo mode using the security key. For more information, see [AUTOTITLE](/authentication/securing-your-account-with-two-factor-authentication-2fa/configuring-two-factor-authentication#configuring-two-factor-authentication-using-a-security-key).
 
 When prompted to authenticate for sudo mode, click **Use security key**, then follow the prompts.
 
@@ -75,7 +75,7 @@ When prompted to authenticate for sudo mode, click **Use security key**, then fo
 
 ### Confirming access using {% data variables.product.prodname_mobile %}
 
-You must install and sign into {% data variables.product.prodname_mobile %} to confirm access to your account for sudo mode using the app. For more information, see "[AUTOTITLE](/get-started/using-github/github-mobile)."
+You must install and sign into {% data variables.product.prodname_mobile %} to confirm access to your account for sudo mode using the app. For more information, see [AUTOTITLE](/get-started/using-github/github-mobile).
 
 1. When prompted to authenticate for sudo mode, click **Use {% data variables.product.prodname_mobile %}**.
 1. Open {% data variables.product.prodname_mobile %}. {% data variables.product.prodname_dotcom %} will display numbers that you must enter in {% data variables.product.prodname_mobile %} to approve the request.
@@ -85,7 +85,7 @@ You must install and sign into {% data variables.product.prodname_mobile %} to c
 
 ### Confirming access using a 2FA code
 
-You must configure 2FA using a TOTP mobile app to confirm access to your account for sudo mode using a 2FA code. For more information, see "[AUTOTITLE](/authentication/securing-your-account-with-two-factor-authentication-2fa/configuring-two-factor-authentication)."
+You must configure 2FA using a TOTP mobile app to confirm access to your account for sudo mode using a 2FA code. For more information, see [AUTOTITLE](/authentication/securing-your-account-with-two-factor-authentication-2fa/configuring-two-factor-authentication).
 
 When prompted to authenticate for sudo mode, type the authentication code from your TOTP mobile app, then click **Verify**.
 

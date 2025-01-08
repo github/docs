@@ -30,7 +30,7 @@ they appear in the query suite definition. After all the instructions in the
 suite definition have been executed, the result is a set of selected queries.
 
 > [!NOTE]
-> Any custom queries that you want to add to a query suite must be in a "[{% data variables.product.prodname_codeql %} pack](/code-security/codeql-cli/getting-started-with-the-codeql-cli/customizing-analysis-with-codeql-packs)" and contain the correct query metadata. For more information, see "[Using custom queries with the {% data variables.product.prodname_codeql_cli %}](/code-security/codeql-cli/using-the-advanced-functionality-of-the-codeql-cli/using-custom-queries-with-the-codeql-cli)."
+> Any custom queries that you want to add to a query suite must be in a [{% data variables.product.prodname_codeql %} pack](/code-security/codeql-cli/getting-started-with-the-codeql-cli/customizing-analysis-with-codeql-packs) and contain the correct query metadata. For more information, see [Using custom queries with the {% data variables.product.prodname_codeql_cli %}](/code-security/codeql-cli/using-the-advanced-functionality-of-the-codeql-cli/using-custom-queries-with-the-codeql-cli).
 
 ## Locating queries to add to a query suite
 
@@ -132,7 +132,7 @@ regular expressions. When there is more than one metadata key, each key must be 
 The standard metadata keys available to match on are: `description`, `id`, `kind`,
 `name`, `tags`, `precision`, and `problem.severity`.
 For more information about query metadata properties, see
-"[Metadata for {% data variables.product.prodname_codeql %} queries](https://codeql.github.com/docs/writing-codeql-queries/metadata-for-codeql-queries/#metadata-for-codeql-queries)."
+[Metadata for {% data variables.product.prodname_codeql %} queries](https://codeql.github.com/docs/writing-codeql-queries/metadata-for-codeql-queries/#metadata-for-codeql-queries).
 
 In addition to metadata tags, the keys in the constraint block can also be:
 
@@ -239,7 +239,7 @@ use:
 ```
 
 > [!NOTE]
-> You can use the `codeql resolve queries /path/to/suite.qls` command to see which queries are selected by a query suite definition. For more information, see "[AUTOTITLE](/code-security/codeql-cli/codeql-cli-manual/resolve-queries)."
+> You can use the `codeql resolve queries /path/to/suite.qls` command to see which queries are selected by a query suite definition. For more information, see [AUTOTITLE](/code-security/codeql-cli/codeql-cli-manual/resolve-queries).
 
 ## Reusing existing query suite definitions
 
@@ -365,7 +365,7 @@ instruction:
 ## Saving a query suite
 
 Save your query suite in a file with a `.qls` extension and add it to a {% data variables.product.prodname_codeql %}
-pack. For more information, see "[AUTOTITLE](/code-security/codeql-cli/getting-started-with-the-codeql-cli/customizing-analysis-with-codeql-packs#custom-codeql-packs)."
+pack. For more information, see [AUTOTITLE](/code-security/codeql-cli/getting-started-with-the-codeql-cli/customizing-analysis-with-codeql-packs#custom-codeql-packs).
 
 ## Using query suites with {% data variables.product.prodname_codeql %}
 
@@ -373,8 +373,8 @@ You can specify query suites on the command line for any command that accepts
 `.qls` files. For example, you can compile the queries selected by a suite
 definition using `query compile`, or use the queries in an analysis using
 `database analyze`. For more information about analyzing {% data variables.product.prodname_codeql %} databases, see
-"[AUTOTITLE](/code-security/codeql-cli/getting-started-with-the-codeql-cli/analyzing-your-code-with-codeql-queries)."
+[AUTOTITLE](/code-security/codeql-cli/getting-started-with-the-codeql-cli/analyzing-your-code-with-codeql-queries).
 
 ## Further reading
 
-* "[{% data variables.product.prodname_codeql %} queries](https://codeql.github.com/docs/writing-codeql-queries/codeql-queries/#codeql-queries)"
+* [{% data variables.product.prodname_codeql %} queries](https://codeql.github.com/docs/writing-codeql-queries/codeql-queries/#codeql-queries)

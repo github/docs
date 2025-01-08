@@ -24,7 +24,7 @@ You can add sub-issues to an issue to break down larger pieces of work into task
 
 Your sub-issues can themselves contain sub-issues, allowing you to create full hierarchies of issues that visualize entire projects or pieces of work and show the relationships between your issues.
 
-You can add up to fifty sub-issues per parent issue and create up to eight levels of nested sub-issues.
+You can add up to {% data variables.projects.sub-issue_limit %} sub-issues per parent issue and create up to eight levels of nested sub-issues.
 
 ## Creating a sub-issue
 
