@@ -14,7 +14,7 @@ redirect_from:
 
 By default, {% data variables.product.company_short %} stores data for {% data variables.product.prodname_dotcom_the_website %} in the USA. {% data reusables.data-residency.when-you-adopt-data-residency %} To learn how {% data variables.product.company_short %} handles data storage, see [AUTOTITLE](/admin/data-residency/about-storage-of-your-data-with-data-residency).
 
-Access to this feature is currently managed by {% data variables.contact.contact_enterprise_sales %}.
+To get {% data variables.enterprise.data_residency_short %} for your enterprise, **contact {% data variables.contact.contact_sales_data_residency %}**.
 
 ## What is {% data variables.product.product_name %}?
 
@@ -107,7 +107,7 @@ When reading the documentation, readers may need to substitute references to {% 
 
 ## Getting started
 
-When you have worked with your account team in {% data variables.contact.contact_enterprise_sales %} to create a new enterprise account and choose a subdomain on {% data variables.enterprise.data_residency_site %}, you can get started with your new enterprise.
+When you have worked with your account team to create a new enterprise account and choose a subdomain on {% data variables.enterprise.data_residency_site %}, you can get started with your new enterprise.
 
 You will:
 
