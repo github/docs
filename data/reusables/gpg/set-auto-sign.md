@@ -5,4 +5,4 @@
    git config --global tag.gpgSign true
    ```
 
-   For more information, see "[AUTOTITLE](/authentication/managing-commit-signature-verification/signing-commits)."
+   For more information, see [AUTOTITLE](/authentication/managing-commit-signature-verification/signing-commits).

@@ -1,13 +1,36 @@
+# Deploy configuration reference: https://thehub.github.com/epd/engineering/products-and-services/internal/moda/reference/deployment-yaml/
+
+environments:
+  - name: production
+    require_pipeline: true
+    cluster_selector:
+      profile: general
+      region: iad
+
 required_builds:
   - docs-internal-moda-config-bundle / docs-internal-moda-config-bundle
   - docs-internal-docker-image / docs-internal-docker-image
   - docs-internal-docker-security / docs-internal-docker-security
-environments:
-  - name: production
-    auto_deploy: true
-    cluster_selector:
-      profile: general
-      region: iad
+
+# Make the pipeline start automatically when a PR is enqueued
+auto_start_pipeline: production_rollout
+
+pipelines:
+  production_rollout:
+    thread_notifications: true
+    notify_users_via_dm: false
+    timeout: 1200
+    stages:
+      - name: full_production
+        kind: deployment
+        start_message: We are now going to deploy {{app}}/{{ref}}! Please pause or cancel the pipeline after the deploy if you want more time before auto-merging your pull request(s).
+        config:
+          environment: production
+          timeout: 1200
+        # gates:
+        #   - kind: timer
+        #     duration: 1200
+
 notifications:
   slack_channels:
     - '#docs-ops'

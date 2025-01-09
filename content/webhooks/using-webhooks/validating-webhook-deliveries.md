@@ -57,8 +57,8 @@ There are a few important things to keep in mind when validating webhook payload
 
 You can use the following `secret` and `payload` values to verify that your implementation is correct:
 
-* `secret`: "It's a Secret to Everybody"
-* `payload`: "Hello, World!"
+* `secret`: `It's a Secret to Everybody`
+* `payload`: `Hello, World!`
 
 If your implementation is correct, the signatures that you generate should match the following signature values:
 

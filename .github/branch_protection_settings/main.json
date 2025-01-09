@@ -41,7 +41,10 @@
       "workflows",
       "lint-code",
       "secret-scanning",
-      "pagelist"
+      "pagelist",
+      "docs-internal-docker-image / docs-internal-docker-image",
+      "docs-internal-docker-security / docs-internal-docker-security",
+      "docs-internal-moda-config-bundle / docs-internal-moda-config-bundle"
     ],
     "contexts_url": "https://api.github.com/repos/github/docs-internal/branches/main/protection/required_status_checks/contexts",
     "checks": [
@@ -85,7 +88,19 @@
       { "context": "workflows", "app_id": 15368 },
       { "context": "lint-code", "app_id": 15368 },
       { "context": "secret-scanning", "app_id": 15368 },
-      { "context": "pagelist", "app_id": 15368 }
+      { "context": "pagelist", "app_id": 15368 },
+      {
+        "context": "docs-internal-docker-image / docs-internal-docker-image",
+        "app_id": 15368
+      },
+      {
+        "context": "docs-internal-docker-security / docs-internal-docker-security",
+        "app_id": 15368
+      },
+      {
+        "context": "docs-internal-moda-config-bundle / docs-internal-moda-config-bundle",
+        "app_id": 15368
+      }
     ]
   },
   "restrictions": {

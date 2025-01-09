@@ -4,4 +4,4 @@ If you want to create a {% data variables.product.prodname_pages %} site for a r
 
 {% ifversion fpt or ghec %}If the account that owns the repository uses {% data variables.product.prodname_free_user %} or {% data variables.product.prodname_free_team %} for organizations, the repository must be public.{% endif %}
 
- If you want to create a site in an existing repository, skip to the "[Creating your site](#creating-your-site)" section.
+ If you want to create a site in an existing repository, skip to the [Creating your site](#creating-your-site) section.

@@ -34,8 +34,6 @@ Enable {% data variables.product.prodname_copilot_short %} for some or all organ
 
 If your enterprise is on {% data variables.enterprise.data_residency_site %}, users must perform some additional setup to authenticate to their account from their development environment. See [AUTOTITLE](/copilot/managing-copilot/configure-personal-settings/using-github-copilot-with-an-account-on-ghecom).
 
-## 5. Share onboarding material
+## 5. Drive {% data variables.product.prodname_copilot_short %} adoption
 
-* **Share onboarding material:** Share onboarding material with each organization that you granted {% data variables.product.prodname_copilot_short %} access to. See [AUTOTITLE](/copilot/setting-up-github-copilot/setting-up-github-copilot-for-your-organization).
-* **Encourage adoption:** Encouragement from leadership can help drive adoption of {% data variables.product.prodname_copilot_short %} in your enterprise. Consider messaging your support of {% data variables.product.prodname_copilot_short %} and how it can help your enterprise.
-* **Set up training sessions or workshops:** Training sessions or workshops can help members learn how to use {% data variables.product.prodname_copilot_short %} effectively.
+Planning and implementing an effective enablement process is essential to drive adoption of {% data variables.product.prodname_copilot_short %} in your enterprise. See [AUTOTITLE](/copilot/rolling-out-github-copilot-at-scale/driving-copilot-adoption-in-your-company).

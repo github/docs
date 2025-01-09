@@ -30,6 +30,7 @@ children:
   - /using-github-copilot
   - /example-prompts-for-github-copilot-chat
   - /managing-copilot
+  - /rolling-out-github-copilot-at-scale
   - /customizing-copilot
   - /building-copilot-extensions
   - /troubleshooting-github-copilot

@@ -18,7 +18,7 @@ If the repository for your {% data variables.product.prodname_pages %} site cont
 
 You can only use submodules that point to public repositories, because the {% data variables.product.prodname_pages %} server cannot access private repositories.
 
-Use the `https://` read-only URL for your submodules, including nested submodules. You can make this change in your _.gitmodules_ file.
+Use the `https://` read-only URL for your submodules, including nested submodules. You can make this change in your `.gitmodules` file.
 
 ## Further reading
 

@@ -17,7 +17,7 @@ redirect_from:
 
 When you adopt {% data variables.enterprise.data_residency %}, you can choose where your company's code and data are stored.
 
-After you have **worked with {% data variables.contact.contact_enterprise_sales %}** to create an enterprise account with a dedicated URL on {% data variables.enterprise.data_residency_site %}, you'll use this guide to set up your enterprise. You will:
+After you have **worked with {% data variables.contact.contact_sales_data_residency %}** to create an enterprise account with a dedicated URL on {% data variables.enterprise.data_residency_site %}, you'll use this guide to set up your enterprise. You will:
 
 * Add users by configuring authentication and provisioning with an identity management system
 * Set up billing for your enterprise

@@ -265,15 +265,9 @@ Here are some examples for using relative links to display an image.
 
 For more information, see [Relative Links](#relative-links).
 
-### Specifying the theme an image is shown to
+### The Picture element
 
-You can specify the theme an image is displayed for in Markdown by using the HTML `<picture>` element in combination with the `prefers-color-scheme` media feature. We distinguish between light and dark color modes, so there are two options available. You can use these options to display images optimized for dark or light backgrounds. This is particularly helpful for transparent PNG images.
-
-For example, the following code displays a sun image for light themes and a moon for dark themes:
-
-{% data reusables.getting-started.picture-element-example %}
-
-The old method of specifying images based on the theme, by using a fragment appended to the URL (`#gh-dark-mode-only` or `#gh-light-mode-only`), is {% data variables.release-phases.closing_down %} and will be removed in favor of the new method described above.
+The `<picture>` HTML element is supported.
 
 ## Lists
 
