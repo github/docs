@@ -15,8 +15,14 @@ export default function robots(req: ExtendedRequest, res: Response, next: NextFu
 
   defaultCacheControl(res)
 
+  const host = req.get('x-host') || req.get('x-forwarded-host') || req.get('host')
+
   // only include robots.txt when it's our production domain and adding localhost for robots-txt.js test
-  if (req.hostname === 'docs.github.com' || req.hostname === '127.0.0.1') {
+  if (
+    host === 'docs.github.com' ||
+    req.hostname === 'docs.github.com' ||
+    req.hostname === '127.0.0.1'
+  ) {
     return res.send(defaultResponse)
   }
 
