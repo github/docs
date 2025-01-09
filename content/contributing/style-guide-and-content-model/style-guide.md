@@ -44,7 +44,7 @@ Alerts should be concise. If the information consists of more than a couple of s
 
 ### Alert types
 
-We use four types of alerts: Note, Tip, Warning, and Caution.
+We use four types of alerts: Note, Tip, Important, Warning, and Caution.
 
 #### Note
 
@@ -67,6 +67,11 @@ For example, [AUTOTITLE](/account-and-profile/setting-up-and-managing-your-githu
 
 > [!TIP]
 > When you @mention an organization, only those that you're a member of will autocomplete. You can still @mention organizations that you're not a member of, like a previous employer, but the organization name won't autocomplete for you.
+
+#### Important
+
+> [!IMPORTANT]
+> Key information users need to know to achieve their goal.
 
 #### Warning
 
