@@ -267,7 +267,7 @@ When `ignore` is used {% data variables.product.prodname_dependabot %} uses the 
 |------------|---------|
 | `dependency-name` | Ignore updates for dependencies with matching names, optionally using `*` to match zero or more characters. |
 | `versions` | Ignore specific versions or ranges of versions. |
-| `update-types` | Ignore updates to one or more semantic versioning levels. Supported values: `sem-ver:minor`, `sem-ver:patch`, and `sem-ver:major`. |
+| `update-types` | Ignore updates to one or more semantic versioning levels. Supported values: `version-update:semver-minor`, `version-update:semver-patch`, and `version-update:semver-major`. |
 
 ### `dependency-name` (`ignore`)
 
