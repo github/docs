@@ -53,3 +53,7 @@ For details of how to change the model for {% data variables.product.prodname_co
 
 * [AUTOTITLE](/copilot/using-github-copilot/asking-github-copilot-questions-in-githubcom#changing-your-ai-model)
 * [AUTOTITLE](/copilot/using-github-copilot/asking-github-copilot-questions-in-your-ide#changing-your-ai-model)
+
+## Leaving feedback
+
+To leave feedback about Claude 3.5 Sonnet in {% data variables.product.prodname_copilot %}, or to ask a question, see the {% data variables.product.prodname_github_community %} discussion "[Claude 3.5 Sonnet is now available to all {% data variables.product.prodname_copilot_short %} users in Public Preview](https://github.com/orgs/community/discussions/143337)."

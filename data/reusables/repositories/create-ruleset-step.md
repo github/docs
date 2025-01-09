@@ -1,7 +1,6 @@
 {%- ifversion push-rulesets %}
 1. Click **New ruleset**.
-1. To create a ruleset targeting branches, click **New branch ruleset**.
-1. Alternatively, to create a ruleset targeting tags, click **New tag ruleset**.
+1. To create a ruleset targeting branches, click **New branch ruleset**. Alternatively, to create a ruleset targeting tags, click **New tag ruleset**.
 {% else %}
 1. You can create a ruleset targeting branches, or a ruleset targeting tags.
    * To create a ruleset targeting branches, click **New branch ruleset**.
