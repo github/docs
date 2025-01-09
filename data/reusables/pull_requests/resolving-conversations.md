@@ -6,7 +6,7 @@ To indicate that a conversation on the **Files changed** tab is complete, click 
 
 The entire conversation will be collapsed and marked as resolved, making it easier to find conversations that still need to be addressed.
 
-If the suggestion in a comment is out of your pull request's scope, you can open a new issue that tracks the feedback and links back to the original comment. For more information, see "[AUTOTITLE](/issues/tracking-your-work-with-issues/creating-an-issue)."
+If the suggestion in a comment is out of your pull request's scope, you can open a new issue that tracks the feedback and links back to the original comment. For more information, see [AUTOTITLE](/issues/tracking-your-work-with-issues/creating-an-issue).
 
 #### Discovering and navigating conversations
 

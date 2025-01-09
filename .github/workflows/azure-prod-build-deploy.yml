@@ -5,9 +5,6 @@ name: Azure Production - Build and Deploy
 # **Who does it impact**: All contributors.
 
 on:
-  push:
-    branches:
-      - main
   workflow_dispatch:
 
 permissions:
