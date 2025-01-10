@@ -666,6 +666,86 @@ upcoming_changes:
     date: '2025-01-01T00:00:00+00:00'
     criticality: breaking
     owner: chriskirkland
+  - location: AnnouncementBannerI.announcement
+    description:
+      '`announcement` will be removed. Use the `announcementBanner` object
+      instead.'
+    reason:
+      The individual `announcementX` fields do not follow our standard GraphQL
+      patterns.
+    date: '2025-04-01T00:00:00+00:00'
+    criticality: breaking
+    owner: vaindil
+  - location: AnnouncementBannerI.announcementCreatedAt
+    description:
+      '`announcementCreatedAt` will be removed. Use the `announcementBanner`
+      object instead.'
+    reason:
+      The individual `announcementX` fields do not follow our standard GraphQL
+      patterns.
+    date: '2025-04-01T00:00:00+00:00'
+    criticality: breaking
+    owner: vaindil
+  - location: AnnouncementBannerI.announcementExpiresAt
+    description:
+      '`announcementExpiresAt` will be removed. Use the `announcementBanner`
+      object instead.'
+    reason:
+      The individual `announcementX` fields do not follow our standard GraphQL
+      patterns.
+    date: '2025-04-01T00:00:00+00:00'
+    criticality: breaking
+    owner: vaindil
+  - location: AnnouncementBannerI.announcementUserDismissible
+    description:
+      '`announcementUserDismissible` will be removed. Use the `announcementBanner`
+      object instead.'
+    reason:
+      The individual `announcementX` fields do not follow our standard GraphQL
+      patterns.
+    date: '2025-04-01T00:00:00+00:00'
+    criticality: breaking
+    owner: vaindil
+  - location: Enterprise.announcement
+    description:
+      '`announcement` will be removed. Use the `announcementBanner` object
+      instead.'
+    reason:
+      The individual `announcementX` fields do not follow our standard GraphQL
+      patterns.
+    date: '2025-04-01T00:00:00+00:00'
+    criticality: breaking
+    owner: vaindil
+  - location: Enterprise.announcementCreatedAt
+    description:
+      '`announcementCreatedAt` will be removed. Use the `announcementBanner`
+      object instead.'
+    reason:
+      The individual `announcementX` fields do not follow our standard GraphQL
+      patterns.
+    date: '2025-04-01T00:00:00+00:00'
+    criticality: breaking
+    owner: vaindil
+  - location: Enterprise.announcementExpiresAt
+    description:
+      '`announcementExpiresAt` will be removed. Use the `announcementBanner`
+      object instead.'
+    reason:
+      The individual `announcementX` fields do not follow our standard GraphQL
+      patterns.
+    date: '2025-04-01T00:00:00+00:00'
+    criticality: breaking
+    owner: vaindil
+  - location: Enterprise.announcementUserDismissible
+    description:
+      '`announcementUserDismissible` will be removed. Use the `announcementBanner`
+      object instead.'
+    reason:
+      The individual `announcementX` fields do not follow our standard GraphQL
+      patterns.
+    date: '2025-04-01T00:00:00+00:00'
+    criticality: breaking
+    owner: vaindil
   - location: Enterprise.members.hasTwoFactorEnabled
     description:
       '`hasTwoFactorEnabled` will be removed. Use `two_factor_method_security`
@@ -690,6 +770,46 @@ upcoming_changes:
     date: '2025-04-01T00:00:00+00:00'
     criticality: breaking
     owner: authentication
+  - location: Organization.announcement
+    description:
+      '`announcement` will be removed. Use the `announcementBanner` object
+      instead.'
+    reason:
+      The individual `announcementX` fields do not follow our standard GraphQL
+      patterns.
+    date: '2025-04-01T00:00:00+00:00'
+    criticality: breaking
+    owner: vaindil
+  - location: Organization.announcementCreatedAt
+    description:
+      '`announcementCreatedAt` will be removed. Use the `announcementBanner`
+      object instead.'
+    reason:
+      The individual `announcementX` fields do not follow our standard GraphQL
+      patterns.
+    date: '2025-04-01T00:00:00+00:00'
+    criticality: breaking
+    owner: vaindil
+  - location: Organization.announcementExpiresAt
+    description:
+      '`announcementExpiresAt` will be removed. Use the `announcementBanner`
+      object instead.'
+    reason:
+      The individual `announcementX` fields do not follow our standard GraphQL
+      patterns.
+    date: '2025-04-01T00:00:00+00:00'
+    criticality: breaking
+    owner: vaindil
+  - location: Organization.announcementUserDismissible
+    description:
+      '`announcementUserDismissible` will be removed. Use the `announcementBanner`
+      object instead.'
+    reason:
+      The individual `announcementX` fields do not follow our standard GraphQL
+      patterns.
+    date: '2025-04-01T00:00:00+00:00'
+    criticality: breaking
+    owner: vaindil
   - location: ProjectV2.databaseId
     description: '`databaseId` will be removed. Use `fullDatabaseId` instead.'
     reason:
