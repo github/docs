@@ -167,6 +167,12 @@ const githubDocsConfig = {
     'partial-markdown-files': true,
     'yml-files': true,
   },
+  'link-quotation': {
+    // GHD043
+    severity: 'error',
+    'partial-markdown-files': true,
+    'yml-files': true,
+  },
 }
 
 export const githubDocsFrontmatterConfig = {
@@ -208,6 +214,11 @@ export const githubDocsFrontmatterConfig = {
   'liquid-ifversion-versions': {
     // GHD022
     severity: 'warning',
+    'partial-markdown-files': false,
+  },
+  'link-quotation': {
+    // GHD043
+    severity: 'error',
     'partial-markdown-files': false,
   },
 }
