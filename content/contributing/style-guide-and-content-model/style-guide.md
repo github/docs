@@ -44,7 +44,7 @@ Alerts should be concise. If the information consists of more than a couple of s
 
 ### Alert types
 
-We use four types of alerts: Note, Tip, Important, Warning, and Caution.
+We use five types of alerts: Note, Tip, Important, Warning, and Caution.
 
 #### Note
 
