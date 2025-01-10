@@ -1,4 +1,83 @@
----
+README.md{
+  "customerId": "1005061234",
+  "customerType": "testing",
+  "switchId": "602414d84f9a1980cf5eafcc",
+  "switchStatus": "completed",
+  "failureReason": "bad-credentials",
+  "createdDate": "2023-07-25T08:14:20Z",
+  "updatedDate": "2023-07-25T08:30:20Z",
+  "authenticated": true,
+  "provider": {
+    "id": "607e249736b9f053b536bde0",
+    "name": "Paycom"
+  },
+  "distributions": [
+    {
+      "type": "percent",
+      "allocatedValue": 52,
+      "bankIdentifier": "110000000",
+      "accountNumberEndsWith": "4126"
+    }
+  ]
+}1005061234110000000{
+  "customerId": "1005061234",
+  "customerType": "testing",
+  "switches": [
+    {
+      "id": "602414d84f9a1980cf5eafcc",
+      "status": "completed",
+      "createdDate": "2024-01-10T11:18:27Z"
+    },
+    {
+      "id": "65cb40beec86d3bd0e8664cc",
+      "status": "failed",
+      "failureReason": "bad-credentials",
+      "createdDate": "2024-02-13T10:13:27Z"
+    }
+  ]
+}{
+  "institutionLoginId": 7008461438,
+  "authorizationStartDate": "2024-12-31T16:11:23:20Z",
+  "authorizationEndDate": "2024-01-01T16:11:23:20Z"
+}700846143811:23{
+  "id": "123456789012-voiepayroll",
+  "customerId": 1011140000,
+  "consumerId": "656cf7083c5c06e0c125a698579f0000",
+  "consumerSsn": "6789",
+  "requesterName": "Decisioning API",
+  "endUser": {
+    "name": "ABC Apartments",
+    "address": "123 Main St",
+    "city": "Murray",
+    "state": "UT",
+    "zip": "84123",
+    "phone": "555-2106",
+    "email": "customerservice@abcapartments.com",
+    "url": "abcapartments.com"
+  },
+  "requestId": "7a7qyps2iy",
+  "type": "voiePayroll",
+  "reportStyle": "credentialedPayroll",
+  "status": "inProgress",
+  "createdDate": 1579819592,
+  "constraints": {
+    "payrollData": {
+      "payrollAccountIds": [
+        "018b8f10-fdf8-0ef7-ded5-34a17c34d86f"
+      ]
+    },
+    "reportCustomFields": [
+      {
+        "label": "loanID",
+        "value": "12345",
+        "shown": true
+      }
+    ]
+  },
+  "customerType": "active",
+  "title": "Mastercard Open Banking Verification of Income and Employment - Payroll",
+  "portfolioId": "9qud7dtuzbew-2-port"
+}123456789012101114000084123customerservice@abcapartments.comabcapartments.com123451579819592---
 title: GitHub Community Guidelines
 redirect_from:
   - /community-guidelines
