@@ -74,7 +74,7 @@ For example, [AUTOTITLE](/account-and-profile/setting-up-and-managing-your-githu
 Highlights key information users need to know to achieve their goal.
 
 > [!IMPORTANT]
-> Key information users need to know to achieve their goal.
+> Runner Scale Sets do not support multiple labels, only the name of the runner can be used in place of a label. See [AUTOTITLE](/actions/hosting-your-own-runners/managing-self-hosted-runners-with-actions-runner-controller/deploying-runner-scale-sets-with-actions-runner-controller).
 
 #### Warning
 
