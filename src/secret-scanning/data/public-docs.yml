@@ -1878,7 +1878,7 @@
   hasValidityCheck: false
   isduplicate: false
 - provider: Hubspot
-  supportedSecret: 'Hubspot Private Apps User Token '
+  supportedSecret: Hubspot Private Apps User Token
   secretType: hubspot_private_apps_user_token
   versions:
     fpt: '*'
