@@ -1,5 +1,5 @@
 ---
-title: Automatically merging a pull request
+title: Automatically merging a Pull Request
 intro: You can increase development velocity by enabling auto-merge for a pull request so that the pull request will merge automatically when all merge requirements are met.
 product: '{% data reusables.gated-features.auto-merge %}'
 versions:
@@ -7,7 +7,7 @@ versions:
   ghes: '*'
   ghec: '*'
 topics:
-  - Pull requests
+  - Pull Requests
 redirect_from:
   - /github/collaborating-with-issues-and-pull-requests/incorporating-changes-from-a-pull-request/automatically-merging-a-pull-request
   - /github/collaborating-with-issues-and-pull-requests/automatically-merging-a-pull-request
