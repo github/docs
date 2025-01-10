@@ -70,6 +70,9 @@ For example, [AUTOTITLE](/account-and-profile/setting-up-and-managing-your-githu
 
 #### Important
 
+
+Highlights key information users need to know to achieve their goal.
+
 > [!IMPORTANT]
 > Key information users need to know to achieve their goal.
 
