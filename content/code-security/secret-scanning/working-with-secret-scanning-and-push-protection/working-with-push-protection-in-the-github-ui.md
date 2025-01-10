@@ -30,7 +30,7 @@ When you {% ifversion push-protection-delegated-bypass-file-upload-support %}upl
 You should either:
 
 * **Remove** the secret from the commit. For more information, see [Resolving a blocked commit](#resolving-a-blocked-commit).
-* **Review** the instructions in the dialog box {% ifversion push-protection-delegated-bypass %}to see what options are available to you{% endif %} to allow the push. For more information, see "[Bypassing push protection](#bypassing-push-protection){% ifversion push-protection-delegated-bypass %}" and [Requesting bypass privileges](#requesting-bypass-privileges){% endif %}.
+* **Review** the instructions in the dialog box {% ifversion push-protection-delegated-bypass %}to see what options are available to you{% endif %} to allow the push. For more information, see [Bypassing push protection](#bypassing-push-protection){% ifversion push-protection-delegated-bypass %} and [Requesting bypass privileges](#requesting-bypass-privileges){% endif %}.
 
 {% data variables.product.prodname_dotcom %} will only display one detected secret at a time in the web UI. If a particular secret has already been detected in the repository and an alert already exists, {% data variables.product.prodname_dotcom %} will not block that secret.
 

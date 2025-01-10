@@ -24,7 +24,7 @@ When you attempt to push a supported secret from the command line to a repositor
 You should either:
 
 * **Remove** the secret from your branch. For more information, see [Resolving a blocked push](#resolving-a-blocked-push).
-* **Follow a provided URL** {% ifversion push-protection-delegated-bypass %}to see what options are available to you{% endif %} to allow the push. For more information, see "[Bypassing push protection](#bypassing-push-protection){% ifversion push-protection-delegated-bypass %}" and [Requesting bypass privileges](#requesting-bypass-privileges){% endif %}.
+* **Follow a provided URL** {% ifversion push-protection-delegated-bypass %}to see what options are available to you{% endif %} to allow the push. For more information, see [Bypassing push protection](#bypassing-push-protection){% ifversion push-protection-delegated-bypass %} and [Requesting bypass privileges](#requesting-bypass-privileges){% endif %}.
 
 Up to five detected secrets will be displayed at a time on the command line. If a particular secret has already been detected in the repository and an alert already exists, {% data variables.product.prodname_dotcom %} will not block that secret.
 
