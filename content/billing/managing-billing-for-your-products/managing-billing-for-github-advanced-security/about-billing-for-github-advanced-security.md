@@ -38,12 +38,12 @@ There are a few key differences between metered and volume billing for {% data v
 
 * **Volume billing:**
 
-  * Purchase a defined number of licenses (e.g. 100 licenses).
+  * Purchase a defined number of licenses (for example, 100 licenses).
   * If usage exceeds purchased licenses, you will need to purchase additional licenses to cover this overage usage.
 
 ### Managing committers and repositories
 
-{% data variables.product.prodname_GH_advanced_security %} is billed per committer and enabled by repository. If a committer is removed from an organization or enterprise, they are no longer billable as of the removal day. However, if you disable {% data variables.product.prodname_GH_advanced_security %} on a repository, the committers tied to that repository will remain billable until the end of the current monthly billing cycle. Prorated billing applies if a committer starts partway through the month. For an example of how this works, see [Understanding usage](/billing/managing-billing-for-github-advanced-security/about-billing-for-github-advanced-security#understanding-usage).
+{% data variables.product.prodname_GH_advanced_security %} is billed per committer and enabled by repository. If you remove a committer from an organization or enterprise, or if you disable {% data variables.product.prodname_GH_advanced_security %} on a repository, the committers will remain billable until the end of the current monthly billing cycle. Prorated billing applies only when a committer starts partway through the month. For examples of how committers are tracked and billed, see [Understanding usage](/billing/managing-billing-for-github-advanced-security/about-billing-for-github-advanced-security#understanding-usage).
 
 If you have further questions about using {% data variables.product.prodname_GH_advanced_security %}, you can contact your account manager in {% data variables.contact.contact_enterprise_sales %}.
 
