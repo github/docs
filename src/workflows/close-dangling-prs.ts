@@ -1,7 +1,6 @@
 import { program, Option } from 'commander'
 
 import github from './github.js'
-import { getActionContext } from './action-context.js'
 import { octoSecondaryRatelimitRetry } from './secondary-ratelimit-retry'
 
 const DRY_RUN = process.env.DRY_RUN || 'false'
@@ -32,19 +31,13 @@ const CONFIGS: Config[] = [
   },
 ]
 
-let owner = 'github'
-let repo = 'docs-internal'
-
-if (process.env.GITHUB_EVENT_PATH) {
-  const actionContext = getActionContext()
-  owner = actionContext.owner
-  repo = actionContext.repo
-}
+const owner = process.env.GITHUB_REPOSITORY_OWNER || 'github'
+const repo = process.env.GITHUB_REPOSITORY?.split('/')[1] || 'docs-internal'
 
 program
   .description('Finds PRs with "FOR PREVIEW ONLY" in the title that are too old and closes them.')
-  .option('owner', 'Owner of the repository', owner)
-  .option('repo', 'Name of the repository', repo)
+  .option('--owner', 'Owner of the repository', owner)
+  .option('--repo', 'Name of the repository', repo)
   .addOption(
     new Option(
       '--dry-run',
