@@ -42,7 +42,7 @@ This sentence uses $\` and \`$ delimiters to show math inline: $`\sqrt{3x-1}+(1+
 
 To add a math expression as a block, start a new line and delimit the expression with two dollar symbols `$$`.
 
->[!TIP] If you're writing in an .md file, you will need to use specific formatting to create a line break, such as ending the line with a backslash as shown in the example below. For more information on line breaks in Markdown, see "[AUTOTITLE](/get-started/writing-on-github/getting-started-with-writing-and-formatting-on-github/basic-writing-and-formatting-syntax#line-breaks)."
+>[!TIP] If you're writing in an .md file, you will need to use specific formatting to create a line break, such as ending the line with a backslash as shown in the example below. For more information on line breaks in Markdown, see [AUTOTITLE](/get-started/writing-on-github/getting-started-with-writing-and-formatting-on-github/basic-writing-and-formatting-syntax#line-breaks).
 
 ```text
 **The Cauchy-Schwarz Inequality**\

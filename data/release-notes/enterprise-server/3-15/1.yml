@@ -51,6 +51,8 @@ sections:
       When exporting repositories using the migrations REST API, prior to blob storage upload the tarball is staged in the root volume. For more disk capacity, the tarball will now be staged in the data volume.
   known_issues:
     - |
+      Syntax highlighting does not work on the "Code" view of a file. This error will be fixed in the next release. [Updated: 2025-01-10]
+    - |
       Admins setting up cluster high availability (HA) may encounter a `spokes` error when running `ghe-cluster-repl-status` if a new organization and repositories are created before using the `ghe-cluster-repl-bootstrap` command. To avoid this issue, complete the cluster HA setup with `ghe-cluster-repl-bootstrap` before creating new organizations and repositories.
     - |
       During the validation phase of a configuration run, a `No such object` error may occur for the Notebook and Viewscreen services. This error can be ignored as the services should still correctly start.
