@@ -1,4 +1,11 @@
----
+func calculateDaysBetweenDates(SELECT [UserId], [Red], [Orange], [Yellow], [Green], [Blue], [Purple], [Rainbow]
+FROM [Tag].[Scoreboard]
+INNER JOINSELECT TokenColor, COUNT(UserID) AS UserCount
+FROM Tag.Users
+GROUP BY TokenColor
+-- pivot that query on tokencolor for Purple, Blue, Green, Yellow, Orange, Red
+-- and rename the columns to match the colors
+SELECT [Purple], [Blue], [Green], [Yellow], [Orange], [Red]Tag.Users:help copilotfunction calculateDaysBetweenDates(begin, end) {---
 title: Getting code suggestions in your IDE with GitHub Copilot
 shortTitle: Get code suggestions
 intro: 'Use {% data variables.product.prodname_copilot %} to get code suggestions in your editor.'
