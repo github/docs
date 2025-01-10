@@ -49,7 +49,7 @@ When you enable {% data variables.product.prodname_code_scanning %} default setu
 
 When configuring private registries for the first time, you need to disable and re-enable {% data variables.product.prodname_code_scanning %} default setup for any repositories that you want to use the new definition. New or modified configurations will be automatically picked up on subsequent runs.
 
-You can confirm whether private registries were used successfully by {% data variables.product.prodname_code_scanning %} analysis by looking in the Actions log files, see "[Determining whether code scanning default setup used any private registries](/code-security/code-scanning/managing-your-code-scanning-configuration/viewing-code-scanning-logs#determining-whether-code-scanning-default-setup-used-any-private-registries)."
+You can confirm whether private registries were used successfully by {% data variables.product.prodname_code_scanning %} analysis by looking in the Actions log files, see [Determining whether code scanning default setup used any private registries](/code-security/code-scanning/managing-your-code-scanning-configuration/viewing-code-scanning-logs#determining-whether-code-scanning-default-setup-used-any-private-registries).
 
 ## {% data variables.product.prodname_code_scanning_caps %} advanced setup access to private registries
 
