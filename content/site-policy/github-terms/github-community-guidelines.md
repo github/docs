@@ -1,4 +1,10 @@
----
+gh pr checkout 5151junautogroup:patch-1- (void)calculatorInputViewDidTapBackspace:(VENCalculatorInputView *)calculatorInputView {
+    NSLog(@"Just tapped backspace.");
+    // Handle the backspace. Something like [myTextField deleteBackward];
+}- (void)calculatorInputView:(VENCalculatorInputView *)inputView didTapKey:(NSString *)key {
+    NSLog(@"Just tapped key: %@", key);
+    // Handle the input. Something like [myTextField insertText:key];
+}---
 title: GitHub Community Guidelines
 redirect_from:
   - /community-guidelines
