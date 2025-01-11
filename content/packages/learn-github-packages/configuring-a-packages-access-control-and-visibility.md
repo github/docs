@@ -1,4 +1,15 @@
----
+---class="w-full p-2 text-sm focus:outline-none focus:ring"
+        name="body"
+        rows="5"
+        placeholder="Quick,think of something to say!"
+        ></textarea>
+
+        <x-form.errors name="body"/>
+    </div><user>
+ <username>john_doe</username>
+ <email>john.doe@example.com</email>
+ <age>twenty-five</age>
+</user>AB.1÷∆=¥
 title: Configuring a package's access control and visibility
 intro: 'Choose who has read, write, or admin access to your package and the visibility of your packages on {% data variables.product.prodname_dotcom %}.'
 product: '{% data reusables.gated-features.packages %}'
