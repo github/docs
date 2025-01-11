@@ -286,6 +286,7 @@ Use to ignore specific versions or ranges of versions. If you want to define a r
 * Bundler: use `~> 2.0`
 * Docker: use Ruby version syntax
 * NuGet: use `7.*`
+* Maven: use `[1.4,)`
 
 For examples, see [AUTOTITLE](/code-security/dependabot/dependabot-version-updates/controlling-dependencies-updated#ignoring-specific-versions-or-ranges-of-versions).
 
