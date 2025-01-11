@@ -1,0 +1,13 @@
+required_builds:
+  - docs-staging-{{x}}-moda-config-bundle / docs-staging-{{x}}-moda-config-bundle
+  - docs-staging-{{x}}-docker-image / docs-staging-{{x}}-docker-image
+  - docs-staging-{{x}}-docker-security / docs-staging-{{x}}-docker-security
+environments:
+  - name: staging
+    auto_deploy: true
+    cluster_selector:
+      profile: general
+      region: iad
+notifications:
+  slack_channels:
+    - '#docs-ops'

@@ -52,4 +52,4 @@ For details of how to change the model for {% data variables.product.prodname_co
 
 ## Leaving feedback
 
-To leave feedback about Claude 3.5 Sonnet in {% data variables.product.prodname_copilot %}, or to ask a question, see the {% data variables.product.prodname_github_community %} discussion "[Claude 3.5 Sonnet is now available to all {% data variables.product.prodname_copilot_short %} users in Public Preview](https://github.com/orgs/community/discussions/143337)."
+To leave feedback about Claude 3.5 Sonnet in {% data variables.product.prodname_copilot %}, or to ask a question, see the {% data variables.product.prodname_github_community %} discussion [Claude 3.5 Sonnet is now available to all {% data variables.product.prodname_copilot_short %} users in Public Preview](https://github.com/orgs/community/discussions/143337).
