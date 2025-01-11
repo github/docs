@@ -5,6 +5,7 @@
 name: Sync Staging Repo Files
 
 on:
+  workflow_dispatch:
   push:
     branches: [main]
     paths:
@@ -50,7 +51,7 @@ jobs:
           for i in $(seq 0 $NUMBER_OF_REPOS); do
             repos+=("{\"repo\": \"github/docs-staging-$i\", \"index\": $i}")
           done
-          json_repos=$(printf '%s\n' "${repos[@]}" | jq -s .)
+          json_repos=$(printf '%s\n' "${repos[@]}" | jq -s -c .)
           echo "repos=$json_repos" >> $GITHUB_OUTPUT
 
       - name: Set matrix output with repo and index
