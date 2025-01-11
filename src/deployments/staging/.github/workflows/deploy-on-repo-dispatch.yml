@@ -1,0 +1,72 @@
+# This file is the source of truth for all `docs-staging-X` repos. The copy of this workflow should be synchronized with each staging repo.
+# It triggers on the update-sha repository dispatch event, which is dispatched whenever a `docs-staging-X` branch is pushed to in `docs-intenal`.
+# This workflow updates the SHA in the staging repo's `.env` using the SHA sent in the dispatch event to the latest commit in the `docs-staging-X` branch
+# The merge should trigger an automatic Moda deploy using the contents pulled from the SHA pointing to a branch in `docs-internal`.
+
+name: Deploy on repo dispatch
+
+on:
+  repository_dispatch:
+    # This event is dispatched whenever a `docs-staging-X` branch is pushed to
+    types: [update-sha]
+
+permissions:
+  contents: write
+  pull-requests: write
+
+jobs:
+  update-sha:
+    runs-on: ubuntu-latest
+
+    steps:
+      - name: Checkout Repository
+        uses: actions/checkout@b4ffde65f46336ab88eb53be808477a3936bae11 # v4.1.1
+        with:
+          fetch-depth: 0 # Ensure full history for PR creation
+
+      # Extract SHA from the dispatch payload
+      - name: Set SHA from Payload
+        id: set_sha
+        run: echo "SHA=${{ github.event.client_payload.SHA }}" >> $GITHUB_ENV
+
+      # Update the .env file with the new SHA
+      - name: Update .env File
+        run: |
+          if grep -q "^SHA=" .env; then
+            sed -i "s/^SHA=.*/SHA=${SHA}/" .env
+          else
+            echo "SHA=${SHA}" >> .env
+
+      - name: Commit Changes to new branch
+        run: |
+          BRANCH_NAME=update-sha-${{ github.run_id }}
+          git config user.name "github-actions[bot]"
+          git config user.email "github-actions[bot]@users.noreply.github.com"
+          git checkout -b $BRANCH_NAME
+          git add .env
+          git commit -m "Update SHA to ${{ env.SHA }}"
+          echo "BRANCH_NAME=$BRANCH_NAME" >> $GITHUB_ENV
+
+      - name: Push Branch
+        run: git push origin ${{ env.BRANCH_NAME }}
+
+      - name: Create Pull Request
+        id: create_pr
+        env:
+          GH_TOKEN: ${{ secrets.GITHUB_TOKEN }}
+        run: |
+          PR_URL=$(gh pr create \
+            --title "Update SHA to ${{ env.SHA }}" \
+            --body "This PR updates the SHA in the \`.env\` file to \`${{ env.SHA }}\`." \
+            --base main \
+            --head ${{ env.BRANCH_NAME }} \
+            --json url \
+            --jq .url)
+          echo "PR_URL=$PR_URL" >> $GITHUB_ENV
+
+      - name: Merge Pull Request
+        env:
+          GH_TOKEN: ${{ secrets.GITHUB_TOKEN }}
+        run: |
+          PR_NUMBER=$(gh pr view $PR_URL --json number --jq .number)
+          gh pr merge $PR_NUMBER --merge --delete-branch --auto --squash --yes
