@@ -6,7 +6,8 @@ For internal documentation, please see the Moda directory in the internal Docs E
 
 1. [Why staging servers?](#why-staging-servers)
 1. [What are staging servers?](#what-are-staging-servers)
-1. [How do staging deploys work from docs-internal?](#how-do-they-work)
+1. [How do staging deploys work from docs-internal?](#how-do-staging-deploys-work-from-docs-internal)
+1. [How do review server deploys work from docs-internal?](#how-do-review-server-deploys-work-from-docs-internal)
 1. [Keeping build configurations in sync](#keeping-build-configurations-in-sync)
 
 ## Why staging servers?
