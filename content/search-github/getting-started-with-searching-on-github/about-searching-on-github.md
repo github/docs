@@ -36,7 +36,7 @@ After typing a search query, you can press **Enter** to go to the full search re
 
 > [!NOTE]
 > * {% data reusables.search.required_login %}
-> * {% data variables.product.prodname_pages %} sites are not searchable on {% data variables.product.product_name %}. However you can search the source content if it exists in the default branch of a repository, using code search. For more information, see "[AUTOTITLE]{% ifversion code-search-upgrade %}(/search-github/github-code-search/understanding-github-code-search-syntax){% else %}(/search-github/searching-on-github/searching-code){% endif %}." For more information about {% data variables.product.prodname_pages %}, see [AUTOTITLE](/pages/getting-started-with-github-pages/about-github-pages)
+> * {% data variables.product.prodname_pages %} sites are not searchable on {% data variables.product.product_name %}. However you can search the source content if it exists in the default branch of a repository, using code search. For more information, see [AUTOTITLE]{% ifversion code-search-upgrade %}(/search-github/github-code-search/understanding-github-code-search-syntax){% else %}(/search-github/searching-on-github/searching-code){% endif %}. For more information about {% data variables.product.prodname_pages %}, see [AUTOTITLE](/pages/getting-started-with-github-pages/about-github-pages)
 > * Currently our search doesn't support exact matching.{% ifversion ghes %}
 > * Whenever you are searching in code files, only the first two results in each file will be returned.{% endif %}
 

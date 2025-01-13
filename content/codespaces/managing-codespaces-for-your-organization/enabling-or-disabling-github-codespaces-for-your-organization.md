@@ -39,7 +39,7 @@ Only people who can either push changes to a repository, or fork the repository,
 
 In addition, to allow users to create codespaces, you must ensure that{% ifversion ghec %}:
 * Your enterprise does not use OIDC with CAP. For more information, see [AUTOTITLE](/admin/identity-and-access-management/using-enterprise-managed-users-for-iam/about-support-for-your-idps-conditional-access-policy).
-* Your{% else %} your{% endif %} organization does not have an IP address allow list enabled. For more information, see "[Managing allowed IP addresses for your organization](/{% ifversion fpt %}enterprise-cloud@latest/{% endif %}organizations/keeping-your-organization-secure/managing-allowed-ip-addresses-for-your-organization){% ifversion fpt %}" in the {% data variables.product.prodname_ghe_cloud %} documentation.{% else %}."{% endif %}
+* Your{% else %} your{% endif %} organization does not have an IP address allow list enabled. For more information, see [Managing allowed IP addresses for your organization](/{% ifversion fpt %}enterprise-cloud@latest/{% endif %}organizations/keeping-your-organization-secure/managing-allowed-ip-addresses-for-your-organization){% ifversion fpt %} in the {% data variables.product.prodname_ghe_cloud %} documentation.{% else %}.{% endif %}
 
 {% ifversion fpt %}
 

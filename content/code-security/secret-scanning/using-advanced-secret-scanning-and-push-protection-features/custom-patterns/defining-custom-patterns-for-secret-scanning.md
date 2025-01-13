@@ -135,7 +135,7 @@ After your pattern is created, {% data variables.product.prodname_secret_scannin
 
 ## Defining a custom pattern for an enterprise account
 
-Before defining a custom pattern, you must ensure that you enable secret scanning for your enterprise account. For more information, see "[Enabling {% data variables.product.prodname_GH_advanced_security %} for your enterprise]({% ifversion fpt or ghec %}/enterprise-server@latest/{% endif %}/admin/advanced-security/enabling-github-advanced-security-for-your-enterprise)."
+Before defining a custom pattern, you must ensure that you enable secret scanning for your enterprise account. For more information, see [AUTOTITLE]({% ifversion fpt or ghec %}/enterprise-server@latest/{% endif %}/admin/advanced-security/enabling-github-advanced-security-for-your-enterprise).
 
 > [!NOTE]
 > * At the enterprise level, only the creator of a custom pattern can edit the pattern, and use it in a dry run.

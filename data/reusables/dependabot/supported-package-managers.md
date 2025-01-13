@@ -136,7 +136,7 @@ pnpm is supported for {% data variables.product.prodname_dependabot_version_upda
 
 {% ifversion dependabot-updates-pub-private-registry %}
 
-You can use {% data variables.product.prodname_dependabot %} to keep Dart dependencies up-to-date if you use private hosted pub repositories. For information about allowing {% data variables.product.prodname_dependabot %} to access private {% data variables.product.prodname_dotcom %} dependencies, see "[Allowing {% data variables.product.prodname_dependabot %} to access private dependencies](/organizations/keeping-your-organization-secure/managing-security-settings-for-your-organization/managing-security-and-analysis-settings-for-your-organization#allowing-dependabot-to-access-private{% ifversion ghec or ghes %}-or-internal{% endif %}-dependencies)."
+You can use {% data variables.product.prodname_dependabot %} to keep Dart dependencies up-to-date if you use private hosted pub repositories. For information about allowing {% data variables.product.prodname_dependabot %} to access private {% data variables.product.prodname_dotcom %} dependencies, see [Allowing {% data variables.product.prodname_dependabot %} to access private dependencies](/organizations/keeping-your-organization-secure/managing-security-settings-for-your-organization/managing-security-and-analysis-settings-for-your-organization#allowing-dependabot-to-access-private{% ifversion ghec or ghes %}-or-internal{% endif %}-dependencies).
 
 {% endif %}
 

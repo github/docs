@@ -112,9 +112,9 @@ If your enterprise does not use {% data variables.product.prodname_emus %}, you 
 
 After a user successfully authenticates to a {% data variables.product.prodname_ghe_server %} instance for the first time, the user consumes a seat.
 
-Suspended users are not counted when calculating the number of licensed users consuming seats. For more information, see "[Suspending and unsuspending users]({% ifversion not ghes %}/enterprise-server@latest{% endif %}/admin/user-management/managing-users-in-your-enterprise/suspending-and-unsuspending-users){% ifversion not ghes %}" in the {% data variables.product.prodname_ghe_server %} documentation.{% else %}."{% endif %}
+Suspended users are not counted when calculating the number of licensed users consuming seats. For more information, see [Suspending and unsuspending users]({% ifversion not ghes %}/enterprise-server@latest{% endif %}/admin/user-management/managing-users-in-your-enterprise/suspending-and-unsuspending-users){% ifversion not ghes %} in the {% data variables.product.prodname_ghe_server %} documentation.{% else %}.{% endif %}
 
-Dormant users do occupy a seat license. Administrators can suspend dormant users to free licenses. For more information, see "[Managing dormant users]({% ifversion not ghes %}/enterprise-server@latest{% endif %}/admin/user-management/managing-users-in-your-enterprise/managing-dormant-users){% ifversion not ghes %}" in the {% data variables.product.prodname_ghe_server %} documentation.{% else %}."{% endif %}
+Dormant users do occupy a seat license. Administrators can suspend dormant users to free licenses. For more information, see [Managing dormant users]({% ifversion not ghes %}/enterprise-server@latest{% endif %}/admin/user-management/managing-users-in-your-enterprise/managing-dormant-users){% ifversion not ghes %} in the {% data variables.product.prodname_ghe_server %} documentation.{% else %}.{% endif %}
 
 {% endif %}
 
