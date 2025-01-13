@@ -1,9 +1,9 @@
 # Fixture content
 
 Fixture content is content (and data) that is meant to look very similar
-to the real content, but exists for the benefit of testing functionality.
+to the real content but exists for the benefit of testing functionality.
 
-In its simplest form, code and content is intricately linked, and oftentimes
+In its simplest form, code and content are intricately linked, and oftentimes
 to be able to have automated testing of functionality, you need some content
 to exercise that functionality.
 
@@ -13,13 +13,13 @@ sustainably works when we're changing any code, but without having to
 worry about the real English content breaking the tests.
 
 **Note!** We also don't want the writers of the real English content to
-have to worry about breaking tests of functionality.
+have to worry about breaking functionality tests.
 
 ## How to write fixtured based rendering tests
 
 The content is in `src/fixtures/fixtures/content/` (and `src/fixtures/fixtures/data/`)
-is a cut down version of the real `content/` (and `data/`) at the root.
-It doesn't have nearly as many pages and if you look closely you'll see
+is a cut-down version of the real `content/` (and `data/`) at the root.
+It doesn't have nearly as many pages, and if you look closely, you'll see
 references and mentions to unrealistic things like "foo" or "HubGit"
 which are whimsical but also importantly *different*. If it works
 with any silly name, the code is modular and good.
@@ -28,9 +28,9 @@ with any silly name, the code is modular and good.
 
 Navigate around in `src/fixtures/fixtures/content/` and familiarize yourself
 with the directory structure. The only things that are "identical" to the
-real content is the top-level product names which match the real content.
+actual content are the top-level product names, which match the actual content.
 Deeper than the product level, the names and directories can be whatever
-you want it to be.
+you want them to be.
 
 Once you've found a place to put some fixture content, before writing
 a `vitest` test, you can preview your changes using:
