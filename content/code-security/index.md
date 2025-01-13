@@ -41,6 +41,7 @@ topics:
   - Vulnerabilities
 children:
   - /getting-started
+  - /trialing-github-advanced-security
   - /adopting-github-advanced-security-at-scale
   - /securing-your-organization
   - /secret-scanning
