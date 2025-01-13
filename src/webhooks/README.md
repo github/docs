@@ -20,7 +20,7 @@ The workflow runs the `npm run sync-rest` script, which then calls the `src/webh
 
 ## Manually running the pipeline
 
-You will need first to wait for the OpenAPI to be merged into `github/rest-api-description`.
+You will need to first wait for the OpenAPI to be merged into `github/rest-api-description`.
 
 Then, you can manually sync the data used by the REST, Webhooks, and GitHub App pipelines before the scheduled daily run [here](https://github.com/github/docs-internal/actions/workflows/sync-openapi.yml). Use the default input options.
 
@@ -29,7 +29,7 @@ Then, you can manually sync the data used by the REST, Webhooks, and GitHub App 
 To run the webhooks pipeline locally:
 
 1. Clone the [`github/rest-api-description`](https://github.com/github/rest-api-description) repository inside your local `docs-internal` repository. 
-1. Set a `GITHUB_TOKEN` in your `.env` with (classic) `repo` scopes & enable SSO for the GitHub org. 
+1. Set a `GITHUB_TOKEN` in your `.env` with (classic) `repo` scopes & enable SSO for the github org. 
 1. Run `npm run sync-rest -- -s rest-api-description -o webhooks`.
 
 ## About this directory
@@ -38,12 +38,12 @@ To run the webhooks pipeline locally:
 - `src/webhooks/lib` - The source code used in production to display the webhook docs and configuration files edited by content and engineering team members.
   - `src/webhooks/lib/config.json` - A configuration file used to specify metadata about the webhooks pipeline.
 - `src/webhooks/scripts` - The scripts and source code used run the webhooks pipeline, which updates the `src/webhooks/data` directory. 
-  - `src/webhooks/scripts/sync.ts` - The entry point script that runs the webhooks pipeline.
+  - `src/webhooks/scripts/sync.ts` - The entrypoint script that runs the webhooks pipeline.
 - `src/webhooks/tests` - The tests used to verify the webhooks pipeline.
 
 ## Configuring the pipeline
 
-The `src/webhooks/lib/config.json` file can contain any metadata the content and engineering teams needs to configure the webhooks pipeline. The file currently only contains the following property:
+The `src/webhooks/lib/config.json` file can contain any metadata needed by the content and engineering teams to configure the webhooks pipeline. The file currently only contains the following property:
 
 - `sha` - The SHA of the commit in `github/rest-api-description` that was used to generate the data in `src/webhooks/data`. This value is automatically updated when the pipeline runs.
 
