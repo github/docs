@@ -65,7 +65,7 @@ These qualifiers are available in all views.
 
 | Qualifier | Description |
 |--------|--------|
-| `team` | Display data for all repositories that the specified team has {% ifversion security-overview-team-write-access -%} write access or {% endif -%} admin access to. For more information on repository roles, see [AUTOTITLE](/organizations/managing-user-access-to-your-organizations-repositories/managing-repository-roles/repository-roles-for-an-organization). |
+| `team` | Display data for all repositories that the specified team has write access or admin access to. For more information on repository roles, see [AUTOTITLE](/organizations/managing-user-access-to-your-organizations-repositories/managing-repository-roles/repository-roles-for-an-organization). |
 | `topic` | Display data for all repositories that are classified with a specific topic. For more information on repository topics, see [AUTOTITLE](/repositories/managing-your-repositorys-settings-and-features/customizing-your-repository/classifying-your-repository-with-topics). |
 
 {% ifversion security-overview-repository-properties %}
