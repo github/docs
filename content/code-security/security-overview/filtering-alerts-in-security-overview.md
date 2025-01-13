@@ -97,7 +97,7 @@ In enterprise-level views, you can limit the data to repositories owned by a sin
 |  {% endif %} |
 | `org` | Display data for repositories owned by one organization. | {% data variables.product.prodname_dependabot_alerts %} and {% data variables.product.prodname_code_scanning %} alerts |
 
-{% elsif security-overview-org-risk-coverage-enterprise %}
+{% else %}
 
 In enterprise-level views, you can limit the data to repositories owned by a single organization in your enterprise. Use the `org` qualifier to display data for repositories owned by one organization.
 
@@ -126,21 +126,9 @@ In the "Risk" and "Coverage" views, you can show data only for repositories wher
 | `dependabot-security-updates` | Display data for repositories where {% data variables.product.prodname_dependabot_security_updates %} is enabled or not enabled.  |
 | `secret-scanning-push-protection` | Display data for repositories where push protection for {% data variables.product.prodname_secret_scanning %} is enabled or not enabled. |
 
-{% ifversion security-overview-org-risk-coverage-enterprise %}{% else %}
-
-## Repository risk-level filtering
-
-The level of risk for a repository is determined by the number and severity of alerts from security features. You can filter on the level of risk using the `risk` qualifier.
-
-* The level of risk can be one of `high`, `medium`, or `low`.
-* If one or more security features are not enabled for a repository, the repository has an `unknown` level of risk.
-* If all security features are enabled and no alerts are report, the repository has a `clear` level of risk.
-
-{% endif %}
-
 ## Alert number filters
 
-{% ifversion security-overview-org-risk-coverage-enterprise %}In the "Risk" view, you can filter repositories by the number of alerts they have of a specific type.{% else %}These qualifiers are available in the enterprise-level "Overview" and in the organization-level "Security risk" view.{% endif %}
+In the "Risk" view, you can filter repositories by the number of alerts they have of a specific type.
 
 | Qualifier | Description |
 | -------- | -------- |
