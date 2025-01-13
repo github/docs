@@ -76728,6 +76728,15 @@
           "href": "/graphql/reference/objects#copilotendpoints"
         },
         {
+          "name": "copilotLicenseType",
+          "description": "<p>The user's license type for Copilot.</p>",
+          "type": "CopilotLicenseType",
+          "id": "copilotlicensetype",
+          "kind": "enums",
+          "href": "/graphql/reference/enums#copilotlicensetype",
+          "isDeprecated": false
+        },
+        {
           "name": "copilotLimitedUser",
           "description": "<p>Properties of the current Copilot user, if limited by Copilot Free.</p>",
           "type": "CopilotLimitedUser",
@@ -85737,6 +85746,36 @@
         {
           "name": "THIRD_QUARTILE",
           "description": "<p>Second highest 25% of days of contributions. More contributions than second quartile, less than the fourth quartile.</p>"
+        }
+      ]
+    },
+    {
+      "name": "CopilotLicenseType",
+      "kind": "enums",
+      "id": "copilotlicensetype",
+      "href": "/graphql/reference/enums#copilotlicensetype",
+      "description": "<p>Indicates the type of access a user has to GitHub Copilot.</p>",
+      "isDeprecated": false,
+      "values": [
+        {
+          "name": "COPILOT_BUSINESS",
+          "description": "<p>Business access.</p>"
+        },
+        {
+          "name": "COPILOT_ENTERPRISE",
+          "description": "<p>Enterprise access.</p>"
+        },
+        {
+          "name": "COPILOT_FREE",
+          "description": "<p>Limited free access.</p>"
+        },
+        {
+          "name": "COPILOT_INDIVIDUAL",
+          "description": "<p>Individual access.</p>"
+        },
+        {
+          "name": "NO_ACCESS",
+          "description": "<p>No access found.</p>"
         }
       ]
     },

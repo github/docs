@@ -6980,6 +6980,36 @@ type CopilotEndpoints {
 }
 
 """
+Indicates the type of access a user has to GitHub Copilot
+"""
+enum CopilotLicenseType @requiredCapabilities(requiredCapabilities: ["access_copilot_limited_graphql_api"]) {
+  """
+  Business access
+  """
+  COPILOT_BUSINESS
+
+  """
+  Enterprise access
+  """
+  COPILOT_ENTERPRISE
+
+  """
+  Limited free access
+  """
+  COPILOT_FREE
+
+  """
+  Individual access
+  """
+  COPILOT_INDIVIDUAL
+
+  """
+  No access found
+  """
+  NO_ACCESS
+}
+
+"""
 The type of the activity that was performed.
 """
 enum CopilotLimitedFeature @requiredCapabilities(requiredCapabilities: ["access_copilot_limited_graphql_api"]) {
@@ -63232,6 +63262,12 @@ type User implements Actor & Node & PackageOwner & ProfileOwner & ProjectOwner &
   The user's Copilot endpoint information
   """
   copilotEndpoints: CopilotEndpoints
+
+  """
+  The user's license type for Copilot
+  """
+  copilotLicenseType: CopilotLicenseType
+    @requiredCapabilities(requiredCapabilities: ["access_copilot_limited_graphql_api"])
 
   """
   Properties of the current Copilot user, if limited by Copilot Free.
