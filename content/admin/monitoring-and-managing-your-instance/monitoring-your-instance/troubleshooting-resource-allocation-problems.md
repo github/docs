@@ -27,7 +27,7 @@ shortTitle: Troubleshooting resource allocation problems
 
 We recommend using the monitor dashboard to stay informed on your appliance's resource health and make decisions on how to fix high usage issues, such as the ones outlined on this page.
 
-For system-critical issues, and prior to making modifications to your appliance, we highly recommend contacting us by visiting {% data variables.contact.contact_ent_support %} and including your support bundle. For more information, see "[Providing data to {% data variables.product.prodname_enterprise %} Support](/enterprise/{{ currentVersion}}/admin/guides/enterprise-support/providing-data-to-github-support#creating-and-sharing-support-bundles)."
+For system-critical issues, and prior to making modifications to your appliance, we highly recommend contacting us by visiting {% data variables.contact.contact_ent_support %} and including your support bundle. For more information, see [Providing data to {% data variables.product.prodname_enterprise %} Support](/enterprise/{{ currentVersion}}/admin/guides/enterprise-support/providing-data-to-github-support#creating-and-sharing-support-bundles).
 
 ## High CPU usage
 
