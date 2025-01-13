@@ -272,7 +272,7 @@ The following examples are designed to give you an idea of some of the build com
 
 * Swift project built from an Xcode project or workspace. By default, the largest Swift target is built:
 
-  It's a good idea to ensure that the project is in a clean state and that there are no build artefacts available.
+  It's a good idea to ensure that the project is in a clean state and that there are no build artifacts available.
 
   ```shell
   xcodebuild clean -all
