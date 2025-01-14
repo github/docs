@@ -26,20 +26,6 @@ clone_or_use_cached_repo "repo" "docs-internal" "$STAGING_BRANCH" "$SHA"
 # Clone other repo from the root of docs-internal
 cd repo
 
-
-# - - - - - - - - - -
-# Early access
-# - - - - - - - - - -
-. ../build-scripts/determine-early-access-branch.sh
-echo "EARLY_ACCESS_BRANCH is set to '${EARLY_ACCESS_BRANCH}'"
-clone_or_use_cached_repo "docs-early-access" "docs-early-access" "$EARLY_ACCESS_BRANCH" ""
-# - - - - - - - - - -
-# !Important! 
-# - - - - - - - - - -
-# Note that we use ../build-script instead of the merge-early-access script in the docs-internal that we checked out
-# This is for security. We don't want to run user-supplied code for the build step
-. ../build-scripts/merge-early-access.sh
-
 # - - - - - - - - - -
 # Clone the translations repos
 # - - - - - - - - - -
