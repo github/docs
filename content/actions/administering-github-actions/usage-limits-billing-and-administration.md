@@ -118,7 +118,7 @@ The workflow runs in a repository's workflow run history are retained for 400 da
 
 {% data reusables.actions.disabling-github-actions %}
 
-{% ifversion actions-cache-admin-ui %}You can also manage {% data variables.product.prodname_actions %} settings for your enterprise, such as workflow permissions and cache storage.{% endif %}
+{% ifversion ghes %}You can also manage {% data variables.product.prodname_actions %} settings for your enterprise, such as workflow permissions and cache storage.{% endif %}
 
 For more information, see:
 * [AUTOTITLE](/repositories/managing-your-repositorys-settings-and-features/enabling-features-for-your-repository/managing-github-actions-settings-for-a-repository)

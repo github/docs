@@ -190,7 +190,7 @@ By default, when you create a new organization, workflows are not allowed to {% 
 
 ## Managing {% data variables.product.prodname_actions %} cache storage for your organization
 
-Organization administrators can view {% ifversion actions-cache-admin-ui %}and manage {% endif %}{% data variables.product.prodname_actions %} cache storage for all repositories in the organization.
+Organization administrators can view {% ifversion ghes %}and manage {% endif %}{% data variables.product.prodname_actions %} cache storage for all repositories in the organization.
 
 ### Viewing {% data variables.product.prodname_actions %} cache storage by repository
 
@@ -202,7 +202,7 @@ For each repository in your organization, you can see how much cache storage a r
 1. In the left sidebar, click **{% octicon "play" aria-hidden="true" %} Actions**, then click **Caches**.
 1. Review the list of repositories for information about their {% data variables.product.prodname_actions %} caches. You can click on a repository name to see more detail about the repository's caches.
 
-{% ifversion actions-cache-admin-ui %}
+{% ifversion ghes %}
 
 ### Configuring {% data variables.product.prodname_actions %} cache storage for your organization
 

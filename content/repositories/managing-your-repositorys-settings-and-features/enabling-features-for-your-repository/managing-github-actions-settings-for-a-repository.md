@@ -203,20 +203,17 @@ You can also define a custom retention period for a specific artifact created by
 {% data reusables.repositories.settings-sidebar-actions-general %}
 {% data reusables.actions.change-retention-period-for-artifacts-logs %}
 
-{% ifversion actions-cache-policy-apis %}
+{% ifversion ghes %}
 
 ## Configuring cache storage for a repository
 
 {% data reusables.actions.cache-default-size %} However, these default sizes might be different if an enterprise owner has changed them. {% data reusables.actions.cache-eviction-process %}
 
-You can set a total cache storage size for your repository up to the maximum size allowed by the {% ifversion actions-cache-admin-ui %}organization or{% endif %} enterprise policy setting{% ifversion actions-cache-admin-ui %}s{% endif %}.
-
-{% ifversion actions-cache-admin-ui %}
+You can set a total cache storage size for your repository up to the maximum size allowed by the organization or enterprise policy settings.
 
 {% data reusables.repositories.navigate-to-repo %}
 {% data reusables.repositories.sidebar-settings %}
 {% data reusables.repositories.settings-sidebar-actions-general %}
 {% data reusables.actions.change-cache-size-limit %}
 
-{% endif %}
 {% endif %}
