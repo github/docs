@@ -69,7 +69,7 @@ If you are provisioning a self-hosted runner for {% data variables.product.prodn
 
 If you are using default setup for {% data variables.product.prodname_code_scanning %}, you can assign self-hosted runners {% ifversion code-scanning-default-setup-customize-labels %}with the default `code-scanning` label, or you can optionally give them custom labels so that individual repositories can use different runners.{% else %}with the `code-scanning` label.{% endif %} See [AUTOTITLE](/code-security/code-scanning/enabling-code-scanning/configuring-default-setup-for-code-scanning#assigning-labels-to-runners).
 
-{% ifversion ghes or default-setup-self-hosted-runners-GHEC %} For information about using default setup for code scanning analysis of compiled languages, see [AUTOTITLE](/code-security/code-scanning/automatically-scanning-your-code-for-vulnerabilities-and-errors/codeql-code-scanning-for-compiled-languages).{% endif %}
+For information about using default setup for code scanning analysis of compiled languages, see [AUTOTITLE](/code-security/code-scanning/automatically-scanning-your-code-for-vulnerabilities-and-errors/codeql-code-scanning-for-compiled-languages).
 
 {% endif %}
 
