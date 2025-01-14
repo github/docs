@@ -196,7 +196,7 @@ You can view a list of all dormant users {% ifversion ghes %} who have not been 
 
    ![Screenshot of the tabs above an organization name. The "People" tab is highlighted with an orange outline.](/assets/images/help/enterprises/emu-organization-people-tab.png)
 1. Above the list of members, click **Type**, then select the type of members you want to view.
-   ![Screenshot of the list of members. A dropdown menu labeled "Type" is outlined in orange, and an expanded dropdown shows options for "All members," "Managed by IdP groups," and "Managed directly."](/assets/images/help/enterprises/filter-by-member-type.png)
+   ![Screenshot of the list of members. A dropdown menu labeled "Type" is outlined and expanded.](/assets/images/help/enterprises/filter-by-member-type.png)
 
 {% endif %}
 

@@ -58,7 +58,7 @@ Dormant users are not automatically suspended. Consider suspending dormant users
 {% data reusables.enterprise_site_admin_settings.click-user %}
 1. In the **User info** section, view the status of the user's account. Any users labeled with "{% octicon "hourglass" aria-hidden="true" %} Dormant" are dormant, and users labeled with "{% octicon "hourglass" aria-hidden="true" %} "Active" are not.
 
-   ![Screenshot of the "User info" section of the site admin page for a user. The "User info" heading is highlighted in dark orange. Under the heading, the user is marked as active.](/assets/images/enterprise/stafftools/active-user.png)
+   ![Screenshot of the "User info" section for a user. The "User info" heading is outlined. Under the heading, the user is marked as active.](/assets/images/enterprise/stafftools/active-user.png)
 
 ## Configuring the dormancy threshold
 
