@@ -56,7 +56,7 @@ To scan for your secrets, {% data variables.product.prodname_dotcom %} needs the
   * High entropy random strings
   * A 32-bit checksum
 
-  ![Screenshot showing the breakdown of a secret into details to be considered when submitting to GitHub a regular expression to find high quality secrets.](/assets/images/help/security/regular-expression-guidance.png)
+  ![Screenshot showing the breakdown of a secret into a prefix and a 32-bit checksum.](/assets/images/help/security/regular-expression-guidance.png)
 
 * A test account for your service. This will allow us to generate and analyze examples of the secrets, further reducing false positives.
 * The URL of the endpoint that receives messages from {% data variables.product.prodname_dotcom %}. The URL doesn't have to be unique for each secret type.

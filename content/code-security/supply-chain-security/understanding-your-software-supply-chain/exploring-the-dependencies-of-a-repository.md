@@ -91,7 +91,7 @@ You may notice some repositories have a "Used by" section in the sidebar of the 
 
 The "Used by" section shows the number of public references to the package that were found, and displays the avatars of some of the owners of the dependent projects.
 
-![Screenshot of the "Used by" section for a repository. To the right of the "Used by" header is "13.4m." Under the header are 8 avatars and "+13,435,819."](/assets/images/help/repository/used-by-section.png)
+![Screenshot of the "Used by" section for a repository showing the summary of "13.4m" with details of 8 avatars and "+13,435,819."](/assets/images/help/repository/used-by-section.png)
 
 Clicking any item in this section takes you to the **Dependents** tab of the dependency graph.
 
