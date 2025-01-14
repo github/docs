@@ -75,8 +75,8 @@ Code often needs to communicate with other systems over a network, and requires 
 {% endif %}
 
 {% ifversion fpt %}
-You can enable and configure additional scanning that will alert you about accidentally leaked secrets on {% data variables.product.product_name %} if you own:
-   * Public repositories on {% data variables.product.prodname_dotcom %}.
+You can enable and configure additional scanning that will alert you about accidentally leaked secrets on {% data variables.product.github %} if you own:
+   * Public repositories.
    * An organization using {% data variables.product.prodname_ghe_cloud %} with a license for {% data variables.product.prodname_GH_advanced_security %}. {% data variables.product.prodname_secret_scanning_caps %} will also analyze your private repositories.
 
 {% elsif secret-scanning-user-owned-repos %}
@@ -87,7 +87,7 @@ You can also define custom patterns to detect additional secrets at the reposito
 You can configure {% data variables.product.prodname_secret_scanning %} to check for secrets issued by many service providers and to notify you when any are detected. You can also define custom patterns to detect additional secrets at the repository, organization, or enterprise level. For more information, see [AUTOTITLE](/code-security/secret-scanning/introduction/about-secret-scanning) and [AUTOTITLE](/code-security/secret-scanning/introduction/supported-secret-scanning-patterns).
 {% endif %}
 
-### Secure storage of secrets you use in {% data variables.product.product_name %}
+### Secure storage of secrets you use on {% data variables.product.github %}
 
 {% ifversion fpt or ghec %}
 Besides your code, you probably need to use secrets in other places. For example, to allow {% data variables.product.prodname_actions %} workflows, {% data variables.product.prodname_dependabot %}, or your {% data variables.product.prodname_github_codespaces %} development environment to communicate with other systems. For more information on how to securely store and use secrets, see [AUTOTITLE](/actions/security-guides/encrypted-secrets), [AUTOTITLE](/code-security/dependabot/working-with-dependabot/configuring-access-to-private-registries-for-dependabot#storing-credentials-for-dependabot-to-use), and [AUTOTITLE](/codespaces/managing-your-codespaces/managing-encrypted-secrets-for-your-codespaces).

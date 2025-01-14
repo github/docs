@@ -35,7 +35,7 @@ By checking the dependency reviews in a pull request, and changing any dependenc
 
 Dependency review supports the same languages and package management ecosystems as the dependency graph. For more information, see [AUTOTITLE](/code-security/supply-chain-security/understanding-your-software-supply-chain/dependency-graph-supported-package-ecosystems#supported-package-ecosystems).
 
-For more information on supply chain features available on {% data variables.product.product_name %}, see [AUTOTITLE](/code-security/supply-chain-security/understanding-your-software-supply-chain/about-supply-chain-security).
+For more information on supply chain features available on {% data variables.product.github %}, see [AUTOTITLE](/code-security/supply-chain-security/understanding-your-software-supply-chain/about-supply-chain-security).
 
 {% ifversion ghec or ghes %}
 

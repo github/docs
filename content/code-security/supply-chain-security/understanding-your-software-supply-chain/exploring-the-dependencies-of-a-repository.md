@@ -67,7 +67,7 @@ If vulnerabilities have been detected in the repository, these are shown at the 
 {% ifversion ghes %}
 
 > [!NOTE]
-> {% data variables.product.product_name %} does not populate the **Dependents** view.
+> {% data variables.product.prodname_ghe_server %} does not populate the **Dependents** view.
 
 {% endif %}
 

@@ -43,7 +43,7 @@ To best secure your organization, you should encourage contributors to review an
 {% data reusables.security-configurations.secret-scanning-security-configs-summary %} {% ifversion fpt or ghec %}There are two types of {% data variables.product.prodname_secret_scanning %} alerts:
 
 * {% data variables.secret-scanning.partner_alerts_caps %}, which are sent to the provider who issued the secret
-* {% data variables.secret-scanning.user_alerts_caps %}, which appear on {% data variables.product.product_name %} and can be resolved
+* {% data variables.secret-scanning.user_alerts_caps %}, which appear on {% data variables.product.github %} and can be resolved
 
 {% endif %}
 You can view {% data variables.product.prodname_secret_scanning %} alerts for an organization by navigating to the main page of that organization, clicking the **{% octicon "shield" aria-hidden="true" %} Security** tab, then clicking **{% octicon "key" aria-hidden="true" %} {% data variables.product.prodname_secret_scanning_caps %}**.

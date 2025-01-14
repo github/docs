@@ -23,7 +23,7 @@ For information about features in {% data variables.product.prodname_dotcom %} t
 
 ## About these guides
 
-This series of guides explains how to think about securing your end-to-end supply chain: personal account, code, and build processes. Each guide explains the risk to that area, and introduces the {% data variables.product.product_name %} features that can help you address that risk.
+This series of guides explains how to think about securing your end-to-end supply chain: personal account, code, and build processes. Each guide explains the risk to that area, and introduces the {% data variables.product.github %} features that can help you address that risk.
 
 Everyone's needs are different, so each guide starts with the highest impact change, and continues from there with additional improvements you should consider. You should feel free to skip around and focus on improvements you think will have the biggest benefit. The goal isn't to do everything at once but to continuously improve security in your systems over time.
 
