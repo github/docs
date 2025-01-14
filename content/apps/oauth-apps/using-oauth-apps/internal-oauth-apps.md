@@ -23,7 +23,7 @@ These {% data variables.product.prodname_oauth_apps %} are :
 * GitHub Codespaces for JetBrains
 * GitHub Desktop
 * GitHub Education
-* github-importer-production
+* github-importer-production <!-- markdownlint-disable-line GHD034 -->
 * GitHub iOS
 * GitHub Support
 * JetBrains IDE Integration
