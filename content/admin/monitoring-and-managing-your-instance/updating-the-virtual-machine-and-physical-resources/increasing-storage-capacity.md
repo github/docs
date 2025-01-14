@@ -69,14 +69,40 @@ Root storage refers to the total size of your instance's root disk. The availabl
 > Before increasing the root partition size, you must put your instance in maintenance mode. For more information, see [AUTOTITLE](/admin/configuration/configuring-your-enterprise/enabling-and-scheduling-maintenance-mode).
 
 1. Attach a new disk to your {% data variables.product.prodname_ghe_server %} appliance.
-1. Run the `lsblk` command to identify the new disk's device name.
+1. Run the `lsblk` command to identify the new disk's device name.{% ifversion ghes > 3.13 %}
+1. Back up your existing EFI boot partition:
+
+   ```shell
+   sudo dd if=/dev/disk/by-label/EFIBOOT of=EFIBOOT.bak bs=1M
+   ```
+
+{% endif %}
+
 1. Run the `parted` command to format the disk, substituting your device name for `/dev/xvdg`:
+
+{% ifversion ghes < 3.14 %}
 
    ```shell
    sudo parted /dev/xvdg mklabel msdos
    sudo parted /dev/xvdg mkpart primary ext4 0% 50%
    sudo parted /dev/xvdg mkpart primary ext4 50% 100%
    ```
+
+{% else %}
+
+   ```shell
+   sudo parted /dev/xvdg mklabel gpt
+   sudo parted -a optimal /dev/xvdg mkpart bios fat32 1MiB 2MiB
+   sudo parted /dev/xvdg set 1 bios_grub on
+   sudo parted -a optimal /dev/xvdg mkpart efi fat32 2MiB 512MiB
+   sudo parted /dev/xvdg set 2 esp on
+   sudo parted -a optimal /dev/xvdg mkpart primary 512MiB 50%
+   sudo parted /dev/xvdg set 3 boot off
+   sudo parted /dev/xvdg set 3 esp off
+   sudo parted -a optimal /dev/xvdg mkpart primary 50% 100%
+   ```
+
+{% endif %}
 
 1. If your appliance is configured for high-availability or geo-replication, to stop replication run the `ghe-repl-stop` command on each replica node:
 
@@ -85,6 +111,8 @@ Root storage refers to the total size of your instance's root disk. The availabl
    ```
 
 1. To install the {% data variables.product.prodname_ghe_server %} software on the newly partitioned disk, run the `ghe-upgrade` command. You must replace **PACKAGE-NAME.pkg** with the path to a platform-specific upgrade package that matches the version of {% data variables.product.prodname_ghe_server %} already running on the appliance. You cannot use a universal hotpatch upgrade package, such as `github-enterprise-2.11.9.hpkg`. After the `ghe-upgrade` command completes, application services will automatically terminate.
+
+{% ifversion ghes < 3.14 %}
 
    ```shell
    ghe-upgrade PACKAGE-NAME.pkg -s -t /dev/xvdg1
@@ -95,6 +123,21 @@ Root storage refers to the total size of your instance's root disk. The availabl
    ```shell
    sudo mkfs.ext4 -L fallback /dev/xvdg2
    ```
+
+{% else %}
+
+   ```shell
+   ghe-upgrade PACKAGE-NAME.pkg -s -t /dev/xvdg3
+   ```
+
+1. Run these commands on the secondary partitions of the newly added disk:
+
+   ```shell
+   sudo dd if=/dev/disk/by-label/EFIBOOT of=/dev/xvdg2 bs=1M
+   sudo mkfs.ext4 -L fallback /dev/xvdg4
+   ```
+
+{% endif %}
 
 1. Shut down the appliance:
 
