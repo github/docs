@@ -12,7 +12,8 @@ topics:
   - Organizations
   - Teams
 versions:
-  feature: security-overview-org-risk-coverage
+  ghes: '*'
+  ghec: '*'
 ---
 
 {% data reusables.security-overview.beta-org-risk-coverage %}
