@@ -26,7 +26,7 @@ The dedicated review servers are deployed in a similar fashion that the staging 
 
 Each staging server requires its own `github/` repo in order to deploy to Moda in the form of `github/docs-staging-X` where X is the number of that staging server e.g. `github/docs-staging-0` or `github/docs-staging-1`.
 
-The URLs of the staging servers also follow this pattern, `docs-staging-x.github.net`, e.g. `docs-staging-2.github.net`
+The URLs of the staging servers also follow this pattern, `https://docs-staging-{{x}}.service.iad.github.net`, e.g. `https://docs-staging-2.service.iad.github.net`
 
 With the exception of the first 2 which are our review servers:
 
@@ -37,10 +37,13 @@ Ideally there should always be enough staging servers for each developer on the 
 
 So we have 8 dedicated staging servers, `docs-staging-{2-9}`:
 
-- `docs-staging-2` -> https://docs-staging-2.github.net
-- `docs-staging-3` -> https://docs-staging-3.github.net
+- `docs-staging-2` -> https://docs-staging-2.service.iad.github.net
+- `docs-staging-3` -> https://docs-staging-3.service.iad.github.net
 - etc
-- `docs-staging-9` -> https://docs-staging-9.github.net
+- `docs-staging-9` -> https://docs-staging-9.service.iad.github.net
+
+> [!NOTE]
+> [Developer VPN](https://thehub.github.com/security/security-operations/developer-vpn-access/) access is required to view a staging server. Initial set up takes some work, but connecting to it after it's configured is rather simple.
 
 ## How do staging deploys work from docs-internal?
 
@@ -60,7 +63,7 @@ sequenceDiagram
     WF2->WF2: 1. Extracts SHA from `repository_dispatch` event <br />2. Updates `.env` in docs-staging-x with SHA value<br />3. Auto-merges the PR into docs-staging-x
     WF2->MD: Auto-merge kicks off Moda deploy
     MD->MD: Dockerfile build clones docs-internal code from SHA target set in `.env`
-    note over MD: Deployed to <br/> `docs-staging-X.github.net`
+    note over MD: Deployed to <br/> `https://docs-staging-{{x}}.service.iad.github.net`
 ```
 
 Whenever a developer pushes code to a staging branch in `docs-internal`, e.g. `docs-staging-2`, a pipeline begins with the final result being a staging server running with the latest changes from that branch. See the above diagram, or read below for a textual explanation.
@@ -81,13 +84,14 @@ The pipeline is as follows:
 
 1. The PR merge kicks off an automatic Moda deploy for the `docs-staging-X` server.
 
-1. At build time, the [Dockerfile](./Dockerfile) clones the `SHA` from `docs-internal` and builds, runs, and deploys it to https://docs-staging-X.github.net which is only accessible behind the devvpn.
+1. At build time, the [Dockerfile](./Dockerfile) clones the `SHA` from `docs-internal` and builds, runs, and deploys it to `https://docs-staging-{{x}}.service.iad.github.net` which is only accessible behind the [Developer VPN](https://thehub.github.com/security/security-operations/developer-vpn-access/).
 
 ## How do review server deploys work from docs-internal?
 
 The process is very similar to the process in the previous section for staging servers. The differences are as follows:
 
 1. Review servers live in:
+
    1. Repo [docs-staging-0](https://github.com/github/doc-staging-0) (internal) @ https://docs-review.github.com
    1. Repo [docs-staging-1](https://gthub.com/github/doc-staging-1) (external) @ https://os-docs-review.github.com
 

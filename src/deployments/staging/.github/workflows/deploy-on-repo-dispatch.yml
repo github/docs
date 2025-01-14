@@ -22,51 +22,55 @@ jobs:
       - name: Checkout Repository
         uses: actions/checkout@b4ffde65f46336ab88eb53be808477a3936bae11 # v4.1.1
         with:
-          fetch-depth: 0 # Ensure full history for PR creation
+          fetch-depth: 2
 
-      # Extract SHA from the dispatch payload
+      # Extract SHA from the dispatch payload and set it as an output
       - name: Set SHA from Payload
         id: set_sha
-        run: echo "SHA=${{ github.event.client_payload.SHA }}" >> $GITHUB_ENV
+        run: echo "SHA=${{ github.event.client_payload.SHA }}" >> $GITHUB_OUTPUT
 
       # Update the .env file with the new SHA
       - name: Update .env File
         run: |
+          SHA=${{ steps.set_sha.outputs.SHA }}
           if grep -q "^SHA=" .env; then
             sed -i "s/^SHA=.*/SHA=${SHA}/" .env
           else
             echo "SHA=${SHA}" >> .env
+          fi
 
       - name: Commit Changes to new branch
+        id: commit_changes
         run: |
           BRANCH_NAME=update-sha-${{ github.run_id }}
           git config user.name "github-actions[bot]"
           git config user.email "github-actions[bot]@users.noreply.github.com"
           git checkout -b $BRANCH_NAME
           git add .env
-          git commit -m "Update SHA to ${{ env.SHA }}"
-          echo "BRANCH_NAME=$BRANCH_NAME" >> $GITHUB_ENV
+          git commit -m "Update SHA to ${{ steps.set_sha.outputs.SHA }}"
+          echo "BRANCH_NAME=${BRANCH_NAME}" >> $GITHUB_OUTPUT
 
       - name: Push Branch
-        run: git push origin ${{ env.BRANCH_NAME }}
+        run: git push origin ${{ steps.commit_changes.outputs.BRANCH_NAME }}
 
+      # Create a Pull Request and set the PR URL as an output
       - name: Create Pull Request
         id: create_pr
         env:
           GH_TOKEN: ${{ secrets.GITHUB_TOKEN }}
         run: |
           PR_URL=$(gh pr create \
-            --title "Update SHA to ${{ env.SHA }}" \
-            --body "This PR updates the SHA in the \`.env\` file to \`${{ env.SHA }}\`." \
+            --title "Update SHA to ${{ steps.set_sha.outputs.SHA }}" \
+            --body "This PR updates the SHA in the \`.env\` file to \`${{ steps.set_sha.outputs.SHA }}\`." \
             --base main \
-            --head ${{ env.BRANCH_NAME }} \
-            --json url \
-            --jq .url)
-          echo "PR_URL=$PR_URL" >> $GITHUB_ENV
+            --head ${{ steps.commit_changes.outputs.BRANCH_NAME }} \
+          )
+          echo "PR_URL=${PR_URL}" >> $GITHUB_OUTPUT
 
+      # Merge the Pull Request
       - name: Merge Pull Request
         env:
           GH_TOKEN: ${{ secrets.GITHUB_TOKEN }}
         run: |
-          PR_NUMBER=$(gh pr view $PR_URL --json number --jq .number)
-          gh pr merge $PR_NUMBER --merge --delete-branch --auto --squash --yes
+          PR_NUMBER=$(gh pr view ${{ steps.create_pr.outputs.PR_URL }} --json number --jq .number)
+          gh pr merge $PR_NUMBER --auto --squash

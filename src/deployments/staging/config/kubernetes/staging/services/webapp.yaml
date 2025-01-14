@@ -6,7 +6,6 @@ metadata:
     service: webapp
   annotations:
     moda.github.net/domain-name: '{{server_domain_name}}'
-    moda.github.net/dns-registration-enabled: 'false'
     moda.github.net/load-balancer-type: '{{load_balancer_type}}'
 spec:
   ports:

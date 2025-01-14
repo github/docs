@@ -1,0 +1,25 @@
+---
+version: 1
+ownership:
+  # ownership.yaml describes who is responsible for a service, and how to contact them. If your service is made up
+  # of multiple components, you can define multiple entries in this file.
+  #
+  # Additional documentation on ownership.yaml fields is available at: https://thehub.github.com/engineering/products/service-catalog/service-ownership/#attributes-of-durable-ownership
+  - team: github/docs-engineering
+    repo: https://github.com/github/docs-staging-{{x}}
+    name: docs-staging-{{x}}
+    kind: moda
+    long_name: Docs Staging {{x}}
+    description: The \#{{x}} staging app for GitHub Docs.
+    exec_sponsor: nerdneha
+    maintainer: ebonsignori
+    qos: best_effort
+    tier: 3
+    sev2:
+      issue: https://github.com/github/docs-engineering/issues/
+      tta: 1w
+    sev3:
+      slack: docs-alerts
+      tta: 1d
+    dependencies:
+      - docs

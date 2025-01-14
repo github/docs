@@ -13,7 +13,8 @@ on:
       - 'src/deployments/staging/.github/**'
       - 'src/deployments/staging/Dockerfile'
       - 'src/deployments/staging/.env.example'
-      - 'src/deployments/staging/README.example.md'
+      - 'src/deployments/staging/README.staging.md'
+      - 'src/deployments/staging/ownership.yaml'
       - 'src/deployments/staging/config/**'
 
 permissions:
@@ -47,18 +48,21 @@ jobs:
         id: generate-repos
         run: |
           NUMBER_OF_REPOS=${{ steps.read-config.outputs.number_of_repos }}
+          # Since we use 0-based index e.g. docs-staging-0, we need to subtract 1
+          END=$((NUMBER_OF_REPOS - 1))
           repos=()
-          for i in $(seq 0 $NUMBER_OF_REPOS); do
+          for i in $(seq 0 $END); do
             repos+=("{\"repo\": \"github/docs-staging-$i\", \"index\": $i}")
           done
           json_repos=$(printf '%s\n' "${repos[@]}" | jq -s -c .)
           echo "repos=$json_repos" >> $GITHUB_OUTPUT
 
-      - name: Set matrix output with repo and index
+      - name: Set matrix
         id: set-matrix
         run: |
-          repos=${{ steps.generate-repos.outputs.repos }}
-          echo "matrix={\"include\": $repos}" >> $GITHUB_OUTPUT
+          echo "matrix={\"include\": $REPOS}" >> $GITHUB_OUTPUT
+        env:
+          REPOS: ${{ steps.generate-repos.outputs.repos }}
 
       - uses: ./.github/actions/slack-alert
         if: ${{ failure() && github.event_name != 'workflow_dispatch' }}
@@ -77,17 +81,20 @@ jobs:
       - name: Checkout source repository
         uses: actions/checkout@b4ffde65f46336ab88eb53be808477a3936bae11 # v4.1.1
         with:
-          fetch-depth: 0
+          # Only need latest commits to sync with
+          fetch-depth: 2
 
       - name: Checkout target repository
         uses: actions/checkout@b4ffde65f46336ab88eb53be808477a3936bae11 # v4.1.1
         with:
           repository: ${{ matrix.repo }}
-          token: ${{ secrets.DOCS_BOT_PAT_READPUBLICKEY }}
+          token: ${{ secrets.DOCS_BOT_PAT_WORKFLOW }}
           path: target_repo
-          fetch-depth: 0
+          fetch-depth: 2
 
       - name: Synchronize files to target repo
+        env:
+          INDEX: ${{ matrix.index }}
         run: |
           # Create necessary directories if they DNE
           mkdir -p target_repo/build-scripts
@@ -111,10 +118,13 @@ jobs:
             cp src/deployments/staging/.env.example target_repo/.env
           fi
 
-          # Conditional copy for README.md if not present
-          if [ ! -f target_repo/README.md ]; then
-            cp src/deployments/staging/README.example.md target_repo/README.md
+          # Only copy README.md for non-review servers e.g. index >= 2 
+          if [ "$INDEX" -ge 2 ]; then
+            cp src/deployments/staging/README.staging.md target_repo/README.md
           fi
+
+          # Copy ownership.yaml
+          cp src/deployments/staging/ownership.yaml target_repo/ownership.yaml
 
       - name: Install jq
         run: sudo apt-get update && sudo apt-get install -y jq
@@ -146,17 +156,36 @@ jobs:
           # If any files still contain {{x}}, replace them with the current index
           find target_repo -type f -exec sed -i "s/{{x}}/$INDEX/g" {} +
 
-      - name: Commit and push changes
+      - name: Commit Changes to new branch
+        id: commit_changes
         run: |
+          BRANCH_NAME=sync-staging-files-${{ github.run_id }}
           cd target_repo
           git config user.name "github-actions[bot]"
           git config user.email "github-actions[bot]@users.noreply.github.com"
+          git checkout -b $BRANCH_NAME
           git add .
-          # If there are changes, commit and push
           if ! git diff --cached --quiet; then
-            git commit -m "Synchronize files from source repository with index ${{ matrix.index }}"
-            git push
+            git commit -m "Synchronize files from source repository with docs-staging-${{ matrix.index }}"
+            git push origin $BRANCH_NAME
           fi
+          echo "BRANCH_NAME=${BRANCH_NAME}" >> $GITHUB_OUTPUT
+
+      # We want to create a PR instead of committing directly in order to trigger a deployment
+      - name: Create Pull Request
+        id: create_pr
+        env:
+          GH_TOKEN: ${{ secrets.DOCS_BOT_PAT_READPUBLICKEY }}
+        run: |
+          cd target_repo
+          PR_URL=$(gh pr create \
+            --title "Sync files from docs-internal" \
+            --body "This PR synchronized the files of this repo with the source of truth files in doc-internal. The PR should automatically merge, if it doesn't please fix files in docs-internal so that the fix is applied to every docs-staging-x repo." \
+            --base main \
+            --head ${{ steps.commit_changes.outputs.BRANCH_NAME }} \
+          )
+          # Enable auto-merge on PR
+          gh pr merge $PR_URL --auto --squash
 
       - uses: ./.github/actions/slack-alert
         if: ${{ failure() && github.event_name != 'workflow_dispatch' }}
