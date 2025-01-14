@@ -104,7 +104,7 @@ You can choose to enable a security feature automatically in all new repositorie
 1. In the left sidebar, click **{% octicon "codescan" aria-hidden="true" %} Code security and analysis**.
 1. Below the name of the feature, select the option for automatically enabling the feature in applicable future repositories.
 
-   ![Screenshot of "Code security and analysis" page. Below "Dependabot alerts", a checkbox to enable the feature in future repositories is highlighted in orange.](/assets/images/help/security/enable-for-new-repos.png)
+   ![Screenshot of "Code security and analysis" page. Below "Dependabot alerts", the checkbox to enable alerts in new repositories is outlined in orange.](/assets/images/help/security/enable-for-new-repos.png)
 
 ## Monitoring the impact of security features
 

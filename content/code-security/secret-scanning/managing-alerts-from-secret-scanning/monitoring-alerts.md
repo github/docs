@@ -34,7 +34,7 @@ In addition to displaying an alert in the **Security** tab of the repository, {%
 1. On your notification settings page, under "Subscriptions", then under "Watching", select the **Notify me** dropdown.
 1. Select "Email" as a notification option, then click **Save**.
 
-   ![Screenshot of the notification settings for a user account. An element header, titled "Subscriptions", and a sub-header, titled "Watching", are shown. A checkbox, titled "Email", is highlighted with an orange outline.](/assets/images/help/notifications/repository-watching-notification-options.png)
+   ![Screenshot of the notification settings for a user account. Under "Subscriptions" and "Watching" a checkbox, titled "Email", is outlined in orange.](/assets/images/help/notifications/repository-watching-notification-options.png)
 
 {% data reusables.notifications.watch-settings %}
 

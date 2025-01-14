@@ -18,7 +18,7 @@ shortTitle: Auto linked references
 
 `Visit https://github.com`
 
-![Screenshot of rendered {% data variables.product.prodname_dotcom %} Markdown showing how a URL beginning with "http" becomes as a blue clickable link. The text reads, "Visit https://github.com."](/assets/images/help/writing/url-autolink-rendered.png)
+![Screenshot of rendered {% data variables.product.github %} Markdown showing how a URL is displayed as a blue clickable link, "Visit https://github.com."](/assets/images/help/writing/url-autolink-rendered.png)
 
 For more information on creating links, see [AUTOTITLE](/get-started/writing-on-github/getting-started-with-writing-and-formatting-on-github/basic-writing-and-formatting-syntax#links).
 

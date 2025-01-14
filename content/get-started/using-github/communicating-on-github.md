@@ -140,7 +140,7 @@ This community maintainer started a discussion to welcome the community, and to 
 
 This example shows a team post for the `octo-team` team.
 
-![Example of team discussion.](/assets/images/help/projects/team-discussions-example.png)
+![Screenshot of a team discussion that was created in a GitHub community repository.](/assets/images/help/projects/team-discussions-example.png)
 
 The `octocat` team member posted a team discussion, informing the team of various things:
 * A team member called Mona started remote game events.

@@ -134,7 +134,7 @@ For example, you can create a TopoJSON map by specifying coordinates and shapes.
 ```
 ````
 
-![Screenshot of a rendered TopoJSON map of parts of Indonesia, Singapore, and Malaysia with a blue point, a purple rectangular overlay, and blue zigzag lines.](/assets/images/help/writing/fenced-topojson-rendered-map.png)
+![Screenshot of a rendered TopoJSON map of Indonesia, Singapore, and Malaysia with a blue point, a purple rectangular overlay, and blue zigzag lines.](/assets/images/help/writing/fenced-topojson-rendered-map.png)
 
 For more information on working with `.geojson` and `.topojson` files, see [AUTOTITLE](/repositories/working-with-files/using-files/working-with-non-code-files#mapping-geojson-files-on-github).
 
@@ -179,6 +179,6 @@ endsolid
 ```
 ````
 
-![Screenshot of a 3D model of a blue pyramid atop a grid of black lines on a white ground. Options to select "Wireframe", "Surface Angle", or "Solid" appear at bottom.](/assets/images/help/writing/fenced-stl-rendered-object.png)
+![Screenshot of a 3D model of a blue pyramid on a grid of black lines. Options "Wireframe", "Surface Angle", or "Solid" appear at bottom.](/assets/images/help/writing/fenced-stl-rendered-object.png)
 
 For more information on working with `.stl` files, see [AUTOTITLE](/repositories/working-with-files/using-files/working-with-non-code-files#3d-file-viewer).
