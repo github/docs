@@ -27,7 +27,7 @@ Configuring self-hosted runners is only one step in the middle of the process fo
 
 ## Configuring self-hosted runners for {% data variables.product.prodname_dependabot_updates %}
 
-## # System requirements for {% data variables.product.prodname_dependabot %} runners
+### System requirements for {% data variables.product.prodname_dependabot %} runners
 
 {% data reusables.dependabot.dependabot-runners-system-requirements %}
 
