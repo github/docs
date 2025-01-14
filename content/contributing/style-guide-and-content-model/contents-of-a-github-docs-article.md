@@ -185,6 +185,6 @@ Format further reading sections using unordered lists. See [AUTOTITLE](/contribu
 
 ```markdown
 ## Further reading
-- "[Article title](article-URL)"
+- [Article title](article-URL)
 - [External resource title](external-resource-URL) in External Resource Name
 ```

@@ -55,6 +55,6 @@ Update your calls to run the {% data variables.product.prodname_codeql_cli %} fo
 ## Further reading
 
 * [AUTOTITLE](/code-security/code-scanning/creating-an-advanced-setup-for-code-scanning)
-* "[Building Java and Kotlin](/code-security/code-scanning/creating-an-advanced-setup-for-code-scanning/codeql-code-scanning-for-compiled-languages#building-java-and-kotlin){% ifversion codeql-no-build %}
+* [Building Java and Kotlin](/code-security/code-scanning/creating-an-advanced-setup-for-code-scanning/codeql-code-scanning-for-compiled-languages#building-java-and-kotlin){% ifversion codeql-no-build %}
 * [CodeQL build modes](/code-security/code-scanning/creating-an-advanced-setup-for-code-scanning/codeql-code-scanning-for-compiled-languages#codeql-build-modes){% elsif ghes %}
 * [Adding build steps for a compiled language](/code-security/code-scanning/creating-an-advanced-setup-for-code-scanning/codeql-code-scanning-for-compiled-languages#adding-build-steps-for-a-compiled-language){% endif %}

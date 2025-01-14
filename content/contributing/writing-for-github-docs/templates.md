@@ -52,7 +52,7 @@ Keep adding headers and sections until you've completed your article.
 Optionally, include a bulleted list of related articles the user can reference to extend the concepts covered in this article. Consider linking to procedural articles or tutorials that help the user use the information in your article.
 {% endcomment %}
 
-- "[Article title](article-URL)"{% endraw %}
+- [Article title](article-URL){% endraw %}
 ```
 
 <!-- markdownlint-enable search-replace -->
@@ -104,7 +104,7 @@ Keep adding headers and sections until you've completed your article.
 Optionally, include a bulleted list of related articles the user can reference to extend the concepts covered in this article. Consider linking to procedural articles or tutorials that help the user use the information in your article.
 {% endcomment %}
 
-- "[Article title](article-URL)"{% endraw %}
+- [Article title](article-URL){% endraw %}
 ```
 
 <!-- markdownlint-enable search-replace -->
@@ -156,7 +156,7 @@ Keep adding procedures until you've finished writing your article.
 Optionally, include a bulleted list of related articles the user can reference to extend the concepts covered in this article. Consider linking to procedural articles or tutorials that help the user use the information in your article.
 {% endcomment %}
 
-- "[Article title](article-URL)"{% endraw %}
+- [Article title](article-URL){% endraw %}
 ```
 
 <!-- markdownlint-enable search-replace -->
@@ -299,7 +299,7 @@ Remember to show code snippets in context
 Include a bulleted list of tutorials or articles the user can reference to extend the concepts taught in this tutorial
 {% endcomment %}
 
-- "[Article title](article-URL)"{% endraw %}
+- [Article title](article-URL){% endraw %}
 ```
 
 <!-- markdownlint-enable search-replace -->

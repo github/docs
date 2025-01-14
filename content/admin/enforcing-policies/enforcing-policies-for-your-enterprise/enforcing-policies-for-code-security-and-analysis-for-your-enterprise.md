@@ -1,7 +1,7 @@
 ---
 title: Enforcing policies for code security and analysis for your enterprise
-intro: 'You can enforce policies to manage the use of {% ifversion security-feature-enablement-policies %}code security and analysis{% else %}{% data variables.product.prodname_GH_advanced_security %}{% endif %} features within your enterprise''s organizations.'
-permissions: 'Enterprise owners can enforce {% ifversion security-feature-enablement-policies %}code security and analysis{% endif %} policies for {% data variables.product.prodname_GH_advanced_security %} in an enterprise.'
+intro: 'You can enforce policies to manage the use of code security and analysis features within your enterprise''s organizations.'
+permissions: 'Enterprise owners can enforce code security and analysis policies for {% data variables.product.prodname_GH_advanced_security %} in an enterprise.'
 product: '{% data reusables.gated-features.ghas %}'
 versions:
   ghec: '*'
@@ -28,22 +28,12 @@ redirect_from:
   - /admin/policies/enforcing-policies-for-your-enterprise/enforcing-policies-for-code-security-and-analysis-for-your-enterprise
 shortTitle: Code security & analysis
 ---
-{% ifversion security-feature-enablement-policies %}
 
 ## About policies for code security and analysis in your enterprise
 
 You can enforce policies to manage the use of code security and analysis features within organizations owned by your enterprise. You can allow or disallow people with admin access to a repository to enable or disable the security and analysis features.
 
 Additionally, you can enforce policies for the use of {% data variables.product.prodname_GH_advanced_security %} in your enterprise's organizations and repositories.
-{% else %}
-
-## About policies for {% data variables.product.prodname_GH_advanced_security %} in your enterprise
-
-{% data reusables.advanced-security.ghas-helps-developers %} For more information, see [AUTOTITLE](/get-started/learning-about-github/about-github-advanced-security).
-
-{% ifversion ghes %}If you purchase a license for {% data variables.product.prodname_GH_advanced_security %}, any{% else %}Any{% endif %} organization on {% data variables.product.prodname_ghe_server %} can use {% data variables.product.prodname_advanced_security %} features. You can enforce policies to control how members of your enterprise on {% data variables.product.product_name %} use {% data variables.product.prodname_advanced_security %}.
-
-{% endif %}
 
 {% ifversion ghec %}
 
@@ -84,15 +74,12 @@ Across all organizations owned by your enterprise, you can allow members with ad
 {% data reusables.enterprise.role-permission-hierarchy %}
 
 {% data reusables.enterprise-accounts.access-enterprise %}
-{% data reusables.enterprise-accounts.policies-tab %}{% ifversion security-feature-enablement-policies %}
-{% data reusables.enterprise-accounts.code-security-and-analysis-policies %}{% else %}
-{% data reusables.enterprise-accounts.advanced-security-policies %}{% endif %}{% ifversion security-feature-enablement-policies %}
+{% data reusables.enterprise-accounts.policies-tab %}
+{% data reusables.enterprise-accounts.code-security-and-analysis-policies %}
 1. In the "{% data variables.product.prodname_GH_advanced_security %} policies" section, under "{% data variables.product.prodname_GH_advanced_security %} availability", select the dropdown menu and click a policy for the organizations owned by your enterprise.
 
-{% data reusables.enterprise-accounts.advanced-security-organization-policy-drop-down %}{% endif %}
+{% data reusables.enterprise-accounts.advanced-security-organization-policy-drop-down %}
 {% data reusables.enterprise-accounts.advanced-security-individual-organization-policy-drop-down %}
-
-{% ifversion security-feature-enablement-policies %}
 
 ## Enforcing a policy to manage the use of {% data variables.product.prodname_GH_advanced_security %} features in your enterprise's repositories
 
@@ -113,8 +100,6 @@ Across all of your enterprise's organizations, you can allow or disallow people 
 {% data reusables.enterprise-accounts.policies-tab %}
 {% data reusables.enterprise-accounts.code-security-and-analysis-policies %}
 1. In the "{% data variables.product.prodname_GH_advanced_security %} policies" section, under "Enable or disable {% data variables.product.prodname_secret_scanning %} by repository admins", select the dropdown menu and click a policy.
-
-{% endif %}
 
 {% ifversion secret-scanning-ai-generic-secret-detection %}
 

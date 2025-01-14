@@ -45,7 +45,7 @@ directory using [codeql database run-queries](/code-security/codeql-cli/codeql-c
 
 \[Mandatory] Path to the CodeQL database that has been queried.
 
-#### `<filesuite>...`
+#### `<file|dir|suite>...`
 
 Repeat the specification of which queries were executed here.
 
