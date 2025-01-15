@@ -92,7 +92,7 @@ You can create a custom message that suspended users will see when attempting to
 {% data reusables.enterprise-accounts.messages-tab %}
 1. To the right of "Suspended user page", click **Add message**.
 
-   ![Screenshot of the "Suspend user page" section of the "Messages" settings. A button, labeled with a plus icon and "Add message," is highlighted with an orange outline.](/assets/images/enterprise/site-admin-settings/add-message.png)
+   ![Screenshot of the "Suspend user page" section of the "Messages" settings. A button, labeled with a plus icon and "Add message," is outlined.](/assets/images/enterprise/site-admin-settings/add-message.png)
 1. In the "Suspend user message" field, type your message. You can type Markdown, or use the Markdown toolbar to style your message.
 1. To see the rendered message, click **Preview**.
 {% data reusables.enterprise_site_admin_settings.save-changes %}

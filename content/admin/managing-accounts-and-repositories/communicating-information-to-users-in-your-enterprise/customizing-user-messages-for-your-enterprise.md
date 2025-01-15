@@ -45,7 +45,7 @@ There are several types of user messages.
 {% data reusables.enterprise-accounts.messages-tab %}
 1. To the right of "Sign in page", click **Add message** or **Edit message**.
 
-   ![Screenshot of the "Sign in page" section of the "Messages" settings. A button, labeled with a plus icon and "Add message", is highlighted with an orange outline.](/assets/images/enterprise/site-admin-settings/edit-message.png)
+   ![Screenshot of the "Sign in page" section of the "Messages" settings. A button, labeled with a plus icon and "Add message", is outlined.](/assets/images/enterprise/site-admin-settings/edit-message.png)
 1. Under **Sign in message**, type the message you'd like users to see.
 {% data reusables.enterprise_site_admin_settings.message-preview-save %}
 
@@ -60,7 +60,7 @@ There are several types of user messages.
 {% data reusables.enterprise-accounts.messages-tab %}
 1. {% ifversion ghes %}To the right of{% else %}Under{% endif %} "Sign out page", click **Add message** or **Edit message**.
 
-   ![Screenshot of the "Sign out page" section of the "Messages" settings. A button, labeled with a plus icon and "Add message," is highlighted with an orange outline.](/assets/images/enterprise/site-admin-settings/sign-out-add-message-button.png)
+   ![Screenshot of the "Sign out page" section of the "Messages" settings. A button, labeled with a plus icon and "Add message," is outlined.](/assets/images/enterprise/site-admin-settings/sign-out-add-message-button.png)
 1. Under **Sign out message**, type the message you'd like users to see.
 {% ifversion ghes %}
 {% data reusables.enterprise_site_admin_settings.message-preview-save %}{% else %}
