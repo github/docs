@@ -1,4 +1,7 @@
 {
   "workbench.editor.enablePreview": false,
-  "workbench.editor.enablePreviewFromQuickOpen": false
+  "workbench.editor.enablePreviewFromQuickOpen": false,
+  "marquee.widgets.npm-stats.packageNames": [
+    "docs.github.com"
+  ]
 }
