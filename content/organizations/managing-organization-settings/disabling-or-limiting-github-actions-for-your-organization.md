@@ -171,22 +171,18 @@ By default, when you create a new organization,{% ifversion ghec or ghes %} the 
 {% data reusables.actions.workflows.github-token-access %}
 1. Click **Save** to apply the settings.
 
-{% ifversion allow-actions-to-approve-pr %}
-
-### Preventing {% data variables.product.prodname_actions %} from {% ifversion allow-actions-to-approve-pr-with-ent-repo %}creating or {% endif %}approving pull requests
+### Preventing {% data variables.product.prodname_actions %} from creating or approving pull requests
 
 {% data reusables.actions.workflow-pr-approval-permissions-intro %}
 
-By default, when you create a new organization, workflows are not allowed to {% ifversion allow-actions-to-approve-pr-with-ent-repo %}create or {% endif %}approve pull requests.
+By default, when you create a new organization, workflows are not allowed to create or approve pull requests.
 
 {% data reusables.profile.access_profile %}
 {% data reusables.profile.access_org %}
 {% data reusables.profile.org_settings %}
 {% data reusables.organizations.settings-sidebar-actions-general %}
-1. Under "Workflow permissions", use the **Allow GitHub Actions to {% ifversion allow-actions-to-approve-pr-with-ent-repo %}create and {% endif %}approve pull requests** setting to configure whether `GITHUB_TOKEN` can {% ifversion allow-actions-to-approve-pr-with-ent-repo %}create and {% endif %}approve pull requests.
+1. Under "Workflow permissions", use the **Allow GitHub Actions to create and approve pull requests** setting to configure whether `GITHUB_TOKEN` can create and approve pull requests.
 1. Click **Save** to apply the settings.
-
-{% endif %}
 
 ## Managing {% data variables.product.prodname_actions %} cache storage for your organization
 

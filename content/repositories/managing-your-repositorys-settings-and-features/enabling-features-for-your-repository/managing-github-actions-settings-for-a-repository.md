@@ -101,8 +101,6 @@ By default, when you create a new repository in your personal account, `GITHUB_T
 {% data reusables.actions.workflows.github-token-access %}
 1. Click **Save** to apply the settings.
 
-{% ifversion allow-actions-to-approve-pr-with-ent-repo %}
-
 ### Preventing {% data variables.product.prodname_actions %} from creating or approving pull requests
 
 {% data reusables.actions.workflow-pr-approval-permissions-intro %}
@@ -116,7 +114,6 @@ By default, when you create a new repository in your personal account, workflows
 {% data reusables.repositories.settings-sidebar-actions-general %}
 1. Under "Workflow permissions", use the **Allow GitHub Actions to create and approve pull requests** setting to configure whether `GITHUB_TOKEN` can create and approve pull requests.
 1. Click **Save** to apply the settings.
-{% endif %}
 
 {% ifversion ghes or ghec %}
 
