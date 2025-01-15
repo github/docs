@@ -562,8 +562,6 @@ ghe-webhook-logs -g DELIVERY_GUID
 
 ## Clustering
 
-{% ifversion cluster-rebalancing %}
-
 ### ghe-cluster-balance
 
 This utility allows you to enforce an even distribution of allocations across your cluster nodes by checking the status of your cluster's allocations, then rebalancing problematic allocations. For more information, see [AUTOTITLE](/admin/enterprise-management/configuring-clustering/rebalancing-cluster-workloads).
@@ -607,8 +605,6 @@ To display a short description of the utility and any valid subcommands:
 ```shell
 ghe-cluster-balance help
 ```
-
-{% endif %}
 
 ### ghe-cluster-maintenance
 
@@ -674,7 +670,7 @@ ssh -p 122 admin@HOSTNAME -- 'ghe-cluster-support-bundle -o' > cluster-support-b
 To create a standard bundle including data from the last 2 days:
 
 ```shell
-ssh -p 122 admin@HOSTNAME -- "ghe-cluster-support-bundle -p {% ifversion bundle-cli-syntax-no-quotes %}2days {% endif %} -o" > support-bundle.tgz
+ssh -p 122 admin@HOSTNAME -- "ghe-cluster-support-bundle -p 2days -o" > support-bundle.tgz
 ```
 
 To create an extended bundle including data from the last 8 days:
@@ -1295,7 +1291,7 @@ ssh -p 122 admin@HOSTNAME -- 'ghe-support-bundle -o' > support-bundle.tgz
 To create a standard bundle including data from the last 2 days:
 
 ```shell
-ssh -p 122 admin@HOSTNAME -- "ghe-support-bundle -p {% ifversion bundle-cli-syntax-no-quotes %}2days {% endif %} -o" > support-bundle.tgz
+ssh -p 122 admin@HOSTNAME -- "ghe-support-bundle -p 2days -o" > support-bundle.tgz
 ```
 
 To create an extended bundle including data from the last 8 days:
