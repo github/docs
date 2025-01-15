@@ -31,7 +31,7 @@ There are three main ways to use {% data variables.product.prodname_codeql %} an
 {% ifversion ghes %}
 
 > [!NOTE]
-> On {% data variables.product.product_name %} {% ifversion ghes %}{{ allVersions[currentVersion].currentRelease }},{% endif %} the {% data variables.product.prodname_codeql %} action uses {% data variables.product.prodname_codeql_cli %} version {% data variables.product.codeql_cli_ghes_recommended_version %} by default. We recommend that you use the same version of the {% data variables.product.prodname_codeql_cli %} if you run analysis in an external CI system.
+> On {% data variables.product.prodname_ghe_server %} {{ allVersions[currentVersion].currentRelease }}, the {% data variables.product.prodname_codeql %} action uses {% data variables.product.prodname_codeql_cli %} version {% data variables.product.codeql_cli_ghes_recommended_version %} by default. We recommend that you use the same version of the {% data variables.product.prodname_codeql_cli %} if you run analysis in an external CI system.
 
 {% endif %}
 
@@ -43,7 +43,7 @@ For information about {% data variables.product.prodname_code_scanning %} alerts
 
 1. You generate a {% data variables.product.prodname_codeql %} database to represent your codebase.
 1. Then you run {% data variables.product.prodname_codeql %} queries on that database to identify problems in the codebase.
-1. The query results are shown as {% data variables.product.prodname_code_scanning %} alerts in {% data variables.product.product_name %} when you use {% data variables.product.prodname_codeql %} with {% data variables.product.prodname_code_scanning %}.
+1. The query results are shown as {% data variables.product.prodname_code_scanning %} alerts in {% data variables.product.github %} when you use {% data variables.product.prodname_codeql %} with {% data variables.product.prodname_code_scanning %}.
 
 {% data variables.product.prodname_codeql %} supports both compiled and interpreted languages, and can find vulnerabilities and errors in code that's written in the supported languages.
 
