@@ -1,1 +1,0 @@
-Puedes enfocar tu cursor en la barra de búsqueda que está sobre el listado de informe de problemas o solicitud de extracción con un atajo de teclado. Para obtener más información, consulta "[Atajos del teclado](/articles/keyboard-shortcuts/#issue-and-pull-request-lists)".

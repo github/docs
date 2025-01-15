@@ -1,0 +1,5 @@
+# Reference: #15332
+# Allows actors with the ability to create repos to be required to enter custom properties on repo creation.
+versions:
+  ghec: '*'
+  ghes: '>= 3.15'

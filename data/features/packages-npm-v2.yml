@@ -1,0 +1,5 @@
+# Issue 7039
+# npm Package Registry Improvements (v2) GA
+versions:
+  fpt: '*'
+  ghec: '*'

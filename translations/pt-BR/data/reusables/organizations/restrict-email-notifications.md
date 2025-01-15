@@ -1,1 +1,0 @@
-1. Em "Enforcement preferences" (Preferências de aplicação), selecione **Restrict email notifications to domain email** (Restringir notificações de e-mail aos e-mails do domínio). ![Caixa de seleção para restringir as notificações de e-mail aos e-mails do domínio verificado](/assets/images/help/organizations/restrict-email-notifications-to-domain.png)

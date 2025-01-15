@@ -1,0 +1,6 @@
+# Issue 13329
+# Push protection blocks uploads in the UI
+versions:
+  fpt: '*'
+  ghec: '*'
+  ghes: '>=3.14'

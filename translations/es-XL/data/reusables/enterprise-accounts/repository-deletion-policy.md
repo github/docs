@@ -1,1 +1,0 @@
-1. Debajo de "Repository deletion and transfer" (Eliminación y transferencia de repositorios), usa el menú desplegable y elige una política. ![Menú desplegable con opciones de políticas de eliminación de repositorios](/assets/images/help/business-accounts/repository-deletion-policy-drop-down.png)

@@ -1,0 +1,4 @@
+# Reference: #14514
+# Documentation for the use of autofix within security campaigns
+versions:
+  ghec: '*'

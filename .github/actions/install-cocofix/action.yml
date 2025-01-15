@@ -1,0 +1,21 @@
+name: Install CocoFix
+
+description: Installs the private package `@github/cocofix` from the GitHub Package Registry.
+
+inputs:
+  token:
+    description: PAT
+    required: true
+
+runs:
+  using: 'composite'
+  steps:
+    - name: Install CoCoFix
+      shell: bash
+      env:
+        TOKEN: ${{ inputs.token }}
+      run: |
+        npm install --no-save \
+          '--@github:registry=https://npm.pkg.github.com' \
+          '--//npm.pkg.github.com/:_authToken=${TOKEN}' \
+          @github/cocofix

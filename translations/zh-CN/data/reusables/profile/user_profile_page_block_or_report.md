@@ -1,1 +1,0 @@
-1. 在左侧边栏中，在用户的个人资料图片下，单击 {% octicon "kebab-horizontal" aria-label="The horizontal kebab icon" %}，然后单击 **Block or report user（阻止或报告用户）**。 ![阻止或举报用户链接](/assets/images/help/profile/profile-block-or-report-button.png)

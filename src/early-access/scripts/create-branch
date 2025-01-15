@@ -1,0 +1,41 @@
+#!/usr/bin/env bash
+
+# [start-readme]
+#
+# This script is run on a writer's machine to create an Early Access branch that matches the current docs-internal branch.
+#
+# [end-readme]
+
+set -e
+
+# Get current branch name
+currentBranch=$(git rev-parse --abbrev-ref HEAD)
+
+if [ $currentBranch == "main" ]; then
+  echo "You cannot run this script on the 'main' branch. Checkout a new branch first."
+  exit 0
+fi
+
+# Go up a directory
+pushd .. > /dev/null
+
+if [ ! -d "docs-early-access" ]; then
+  echo "A 'docs-early-access' directory does not exist! Run src/early-access/scripts/clone-locally first."
+  popd > /dev/null
+  exit 0
+fi
+
+# Navigate to docs-early-access
+cd docs-early-access
+
+# Check out main and update
+git checkout main
+git pull origin main
+
+# Create a branch with the current docs-internal branch name
+git checkout -b $currentBranch
+
+# Go back to the previous working directory
+popd > /dev/null
+
+echo -e "\nDone! Created a branch called ${currentBranch}. Remember to commit your work in ../docs-early-access when you're ready."

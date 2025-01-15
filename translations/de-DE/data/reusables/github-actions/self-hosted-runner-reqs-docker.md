@@ -1,1 +1,0 @@
-Selbst gehostete Läufer müssen ein Linux-Betriebssystem verwenden und Docker installiert haben, um Docker Containeraktionen auszuführen. Weitere Informationen zu den Anforderungen von selbst-gehosteten Läufern findest Du unter["Über selbst-gehostete Läufer".](/actions/hosting-your-own-runners/about-self-hosted-runners#requirements-for-self-hosted-runner-machines)

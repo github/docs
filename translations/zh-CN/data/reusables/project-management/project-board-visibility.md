@@ -1,1 +1,0 @@
-默认情况下，您的项目板为私有，只有对项目板具有读取、写入或管理权限的人才能看到。 {% if currentVersion == "github-ae@latest" %}An internal{% else %}A public{% endif %} project board is visible to {% if currentVersion == "github-ae@latest" %}any enterprise members{% else %}anyone{% endif %} with the project board's URL.

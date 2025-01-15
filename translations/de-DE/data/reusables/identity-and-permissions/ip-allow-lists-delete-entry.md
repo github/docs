@@ -1,1 +1,0 @@
-1. Klicke in der „IP allow list" (IP-Zulassungsliste) auf der rechten Seite des zu löschenden Eintrages auf **Delete** (Löschen). ![Schaltfläche „Delete allowed IP address" (Löschen einer zulässigen IP-Adresse)](/assets/images/help/security/ip-address-delete-button.png)

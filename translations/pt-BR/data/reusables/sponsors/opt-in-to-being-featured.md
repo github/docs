@@ -1,1 +1,0 @@
-1. Opcionalmente, selecione **Optar por participar para ser potencialmente destacado em github.com/sponsors**. ![Caixa de seleção para optar por ser destacado](/assets/images/help/sponsors/opt-in-to-being-featured.png)

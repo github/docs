@@ -1,1 +1,0 @@
-1. Bestätige unter „Billing Information" (Abrechnungsinformationen), dass Du die App für Dein persönliches Konto installierst. ![Dein Name, Dein Avatar, der text "persönliches Konto", und ein Dropdownmenü um das Abrechnungskonto zu wechseln](/assets/images/help/marketplace/marketplace-confirm-personal-account.png)

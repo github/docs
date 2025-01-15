@@ -1,1 +1,0 @@
-1. "{% data variables.large_files.product_name_short %} Data（{% data variables.large_files.product_name_short %}のデータ）"の隣の**Edit（編集）**ドロップダウンを使って** Remove data packs（データパックを削除**をクリックしてください。 ![Git LFSデータプランのダウングレード](/assets/images/help/large_files/downgrade_lfs_data_packs.png)

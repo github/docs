@@ -1,1 +1,0 @@
-1. Digite as informações sobre a vulnerabilidade de segurança tratados pela consultoria de segurança. ![Metadados da consultoria de segurança](/assets/images/help/security/security-advisory-metadata.png)

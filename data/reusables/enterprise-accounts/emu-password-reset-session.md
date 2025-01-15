@@ -1,0 +1,1 @@
+If you need to reset the password for your setup user, contact {% data variables.contact.github_support %} through the {% data variables.contact.contact_enterprise_portal %}. The usual password reset option by providing your email address will not work.

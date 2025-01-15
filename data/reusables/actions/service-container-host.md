@@ -1,0 +1,1 @@
+This workflow configures a job that runs in the `node:20-bookworm-slim` container and uses the `ubuntu-latest` {% ifversion not ghes %} {% data variables.product.prodname_dotcom %}-hosted {%- endif %} runner as the Docker host for the container. For more information about the `node:20-bookworm-slim` container, see the [node image](https://hub.docker.com/_/node) on Docker Hub.

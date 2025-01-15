@@ -1,0 +1,21 @@
+* Bash
+* C
+* C#
+* C++
+* CodeQL
+* Elixir
+* Go
+* JSX
+* Java
+* JavaScript
+* Lua
+* PHP
+* Protocol Buffers
+* Python
+* R
+* Ruby
+* Rust
+* Scala
+* Starlark
+* Swift
+* Typescript

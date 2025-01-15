@@ -1,1 +1,0 @@
-1. Se você está atualizando a partir de {% data variables.product.prodname_free_team %}, clique em **Upgrade options** (Opções de atualização). Se você está atualizando a partir de {% data variables.product.prodname_team %}, use o menu suspenso **Edit** e clique em **Upgrade**. ![Botão de opções de atualização](/assets/images/help/billing/choose-monthly-or-yearly-billing.png)

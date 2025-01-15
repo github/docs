@@ -1,0 +1,1 @@
+Use these workflows as a starting place to build your custom workflow or use them as-is. You can browse the full list of workflow templates in the [actions/starter-workflows](https://github.com/actions/starter-workflows) repository. For more information, see [AUTOTITLE](/actions/writing-workflows/using-starter-workflows).

@@ -1,92 +1,199 @@
-# NOTE: Changes to this file should also be applied to './test-windows.yml' and './test-translations.yml'
+name: Test
 
-name: Node.js Tests
+# **What it does**: Runs our tests.
+# **Why we have it**: We want our tests to pass before merging code.
+# **Who does it impact**: Docs engineering, open-source engineering contributors.
 
 on:
   workflow_dispatch:
-  push:
-    branches:
-      - main
+  merge_group:
   pull_request:
-    branches-ignore:
-      - translations
+
+permissions:
+  contents: read
+  pull-requests: read
+
+# This allows a subsequently queued workflow run to interrupt previous runs
+concurrency:
+  group: '${{ github.workflow }} @ ${{ github.event.pull_request.head.label || github.head_ref || github.ref }}'
+  cancel-in-progress: true
 
 env:
-  CI: true
+  # Setting this will activate the vitest tests that depend on actually
+  # sending real search queries to Elasticsearch
+  ELASTICSEARCH_URL: http://localhost:9200/
 
 jobs:
-  see_if_should_skip:
-    continue-on-error: true
-    runs-on: ubuntu-latest
-    # Map a step output to a job output
-    outputs:
-      should_skip: ${{ steps.skip_check.outputs.should_skip }}
-    steps:
-      - id: skip_check
-        uses: fkirc/skip-duplicate-actions@36feb0d8d062137530c2e00bd278d138fe191289
-        with:
-          cancel_others: 'false'
-          github_token: ${{ github.token }}
-          paths: '[".github/workflows/test.yml", ".node-version", ".npmrc", "app.json", "content/**", "data/**","lib/**", "Dockerfile", "feature-flags.json", "Gemfile", "Gemfile.lock", "middleware/**", "node_modules/**","package.json", "package-lock.json", "server.js", "tests/**", "translations/**", "Procfile", "webpack.config.js"]'
-
   test:
-    needs: see_if_should_skip
-    # Run on self-hosted if the private repo or ubuntu-latest if the public repo
+    name: ${{ matrix.name }}
+    if: github.repository == 'github/docs-internal' || github.repository == 'github/docs'
+
+    # Run on ubuntu-20.04-xl if the private repo or ubuntu-latest if the public repo
     # See pull # 17442 in the private repo for context
-    runs-on: ${{ fromJSON('["ubuntu-latest", "self-hosted"]')[github.repository == 'github/docs-internal'] }}
+    runs-on: ${{ fromJSON('["ubuntu-latest", "ubuntu-20.04-xl"]')[github.repository == 'github/docs-internal'] }}
     timeout-minutes: 60
     strategy:
       fail-fast: false
       matrix:
-        test-group: [content, meta, rendering, routing, unit, graphql]
+        # Note that *if you add* to this, remember to also add that
+        # to the **required checks** in the branch protection rules.
+        name:
+          # src/ directory
+          - archives
+          - assets
+          - audit-logs
+          - automated-pipelines
+          # - bookmarklets
+          - changelogs
+          # - code-scanning
+          # - codeql-cli
+          - color-schemes
+          - content-linter
+          - content-render
+          - data-directory
+          # - dev-toc
+          - early-access
+          - events
+          - fixtures
+          - frame
+          - ghes-releases
+          - github-apps
+          - graphql
+          - landings
+          - languages
+          - learning-track
+          # - links
+          - observability
+          # - open-source
+          - pageinfo
+          - pagelist
+          # - pages
+          - products
+          - redirects
+          - release-notes
+          - rest
+          - search
+          - secret-scanning
+          - shielding
+          # - tests
+          # - tools
+          - tracking
+          - versions
+          - webhooks
+          - workflows
+
+        # The languages suite only runs on docs-internal
+        isPrivateRepo:
+          - ${{ github.repository == 'github/docs-internal' }}
+        exclude:
+          - name: languages
+            isPrivateRepo: false
+
     steps:
       # Each of these ifs needs to be repeated at each step to make sure the required check still runs
       # Even if if doesn't do anything
-      - if: ${{ needs.see_if_should_skip.outputs.should_skip != 'true' }}
-        name: Check out repo
-        uses: actions/checkout@5a4ac9002d0be2fb38bd78e4b4dbde5606d7042f
+      - name: Check out repo
+        uses: actions/checkout@b4ffde65f46336ab88eb53be808477a3936bae11 # v4.1.1
+
+      - uses: ./.github/actions/setup-elasticsearch
+        if: ${{ matrix.name == 'search' || matrix.name == 'languages' }}
+
+      - uses: ./.github/actions/node-npm-setup
+
+      - uses: ./.github/actions/get-docs-early-access
+        if: ${{ github.repository == 'github/docs-internal' }}
         with:
-          # Enables cloning the Early Access repo later with the relevant PAT
-          persist-credentials: 'false'
+          token: ${{ secrets.DOCS_BOT_PAT_READPUBLICKEY }}
 
-      - if: ${{ needs.see_if_should_skip.outputs.should_skip != 'true' }}
-        name: Setup node
-        uses: actions/setup-node@c46424eee26de4078d34105d3de3cc4992202b1e
-        with:
-          node-version: 14.x
+      - name: Check the test fixture data (if applicable)
+        if: ${{ matrix.name == 'fixtures' }}
+        run: npm run copy-fixture-data -- --check
 
-      - if: ${{ needs.see_if_should_skip.outputs.should_skip != 'true' }}
-        name: Get npm cache directory
-        id: npm-cache
-        run: |
-          echo "::set-output name=dir::$(npm config get cache)"
-
-      - if: ${{ needs.see_if_should_skip.outputs.should_skip != 'true' }}
-        name: Cache node modules
-        uses: actions/cache@0781355a23dac32fd3bac414512f4b903437991a
-        with:
-          path: ${{ steps.npm-cache.outputs.dir }}
-          key: ${{ runner.os }}-node-${{ hashFiles('**/package-lock.json') }}
-          restore-keys: |
-            ${{ runner.os }}-node-
-
-      - if: ${{ needs.see_if_should_skip.outputs.should_skip != 'true' }}
-        name: Install dependencies
-        run: npm ci
-
-      - if: ${{ needs.see_if_should_skip.outputs.should_skip != 'true' && github.repository == 'github/docs-internal' }}
-        name: Clone early access
-        run: npm run heroku-postbuild
+      # This keeps our fixture content/data in check
+      - name: Check the test fixture content (if applicable)
+        if: ${{ matrix.name == 'fixtures' }}
         env:
-          DOCUBOT_REPO_PAT: ${{ secrets.DOCUBOT_REPO_PAT }}
-          GIT_BRANCH: ${{ github.ref }}
+          ROOT: src/fixtures/fixtures
+        run: |
+          # If either of these fail, it means our fixture content's internal
+          # links can and should be updated.
+          npm run update-internal-links -- --dry-run --check --strict \
+            src/fixtures/fixtures/content \
+            --exclude src/fixtures/fixtures/content/get-started/foo/typo-autotitling.md \
+            --exclude src/fixtures/fixtures/content/get-started/foo/anchor-autotitling.md
+          npm run update-internal-links -- --dry-run --check --strict \
+            src/fixtures/fixtures/data
 
-      - if: ${{ needs.see_if_should_skip.outputs.should_skip != 'true' && github.repository != 'github/docs-internal' }}
-        name: Run build script
+      - name: Clone all translations
+        if: ${{ matrix.name == 'languages' }}
+        uses: ./.github/actions/clone-translations
+        with:
+          token: ${{ secrets.DOCS_BOT_PAT_READPUBLICKEY }}
+
+      - name: Gather files changed
+        if: ${{ matrix.name == 'content-linter' }}
+        env:
+          GH_TOKEN: ${{ secrets.GITHUB_TOKEN }}
+          PR: ${{ github.event.pull_request.number }}
+          HEAD: ${{ github.event.pull_request.head.ref || github.event.merge_group.head_ref }}
+        run: |
+          # Find the file diff in the pull request or merge group
+          # If its a pull request, use the faster call to the GitHub API
+          # For push, workflow_dispatch, and merge_group, use git diff
+          if [ -n "$PR" ]
+          then
+            echo __ running gh pr diff __
+            DIFF=`gh pr diff $PR --name-only`
+          elif [ -n "$HEAD" ]
+          then
+            echo __ running git fetch main __
+            git fetch origin main --depth 1
+            echo __ running git diff __
+            DIFF=`git diff --name-only origin/main`
+          else
+            echo __ no head, empty diff __
+            DIFF=''
+          fi
+          # So we can inspect the output
+          echo __ DIFF found __
+          echo $DIFF
+
+          # So that becomes a string like `foo.js path/bar.md`
+          # Must do this because the list of files can be HUGE. Especially
+          # in a repo-sync when there are lots of translation files involved.
+          echo __ format, write to get_diff_files.txt __
+          echo $DIFF | tr '\n' ' ' > get_diff_files.txt
+
+      - uses: ./.github/actions/cache-nextjs
+
+      - name: Run build script
         run: npm run build
 
-      - if: ${{ needs.see_if_should_skip.outputs.should_skip != 'true' }}
-        name: Run tests
-        run: npx jest tests/${{ matrix.test-group }}/
+      - uses: ./.github/actions/warmup-remotejson-cache
+        # Only the 'routing' tests include end-to-end tests about
+        # archived enterprise server URLs.
+        if: ${{ matrix.name == 'redirects' }}
+
+      - uses: ./.github/actions/precompute-pageinfo
+        # Only the 'pageinfo' tests include end-to-end tests about this.
+        if: ${{ matrix.name == 'pageinfo' }}
         env:
-          NODE_OPTIONS: '--max_old_space_size=4096'
+          ROOT: src/fixtures/fixtures
+
+      - name: Index fixtures into the local Elasticsearch
+        # For the sake of saving time, only run this step if the group
+        # is one that will run tests against an Elasticsearch on localhost.
+        if: ${{ matrix.name == 'search' || matrix.name == 'languages' }}
+        run: npm run index-test-fixtures
+
+      - name: Run tests
+        env:
+          DIFF_FILE: get_diff_files.txt
+          CHANGELOG_CACHE_FILE_PATH: src/fixtures/fixtures/changelog-feed.json
+          # By default, when `process.env.NODE_ENV === 'test'` it forces the
+          # tests run only in English. The exception is the
+          # `languages` suite which needs all languages to be set up.
+          ENABLED_LANGUAGES: ${{ matrix.name == 'languages' && 'all' || '' }}
+          ROOT: ${{ (matrix.name == 'fixtures' || matrix.name == 'pageinfo' || matrix.name == 'landings' ) && 'src/fixtures/fixtures' || '' }}
+          TRANSLATIONS_FIXTURE_ROOT: ${{ (matrix.name == 'fixtures' || matrix.name == 'pageinfo') && 'src/fixtures/fixtures/translations' || '' }}
+        run: npm test -- src/${{ matrix.name }}/tests/

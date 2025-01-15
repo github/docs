@@ -1,2 +1,0 @@
-Puedes crear plantillas de informe de problemas predeterminadas{% if currentVersion == "free-pro-team@latest" or currentVersion ver_gt "enterprise-server@2.19" %} y un archivo de configuración predeterminado para éstas{% endif %} para tu cuenta de organización{% if currentVersion == "free-pro-team@latest" or currentVersion ver_gt "enterprise-server@2.19" %} o de usuario{% endif %}. Para obtener más información, consulta "[Crear un archivo de salud predeterminado para la comunidad](/github/building-a-strong-community/creating-a-default-community-health-file)"
-

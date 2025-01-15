@@ -1,0 +1,6 @@
+# Refactors the content in the GHAS adoption articles to suggest using default setup for code scanning
+# Reference: #10939
+
+versions:
+  ghec: '*'
+  ghes: '>3.11'

@@ -1,1 +1,0 @@
-1. {% data variables.product.prodname_free_team %}からアップグレードしているなら、**Upgrade options（アップグレードオプション）**をクリックしてください。 {% data variables.product.prodname_team %}からアップグレードしているなら、**Edit（編集）**ドロップダウンを使い、**Upgrade（アップグレード）**をクリックしてください。 ![アップグレードオプションボタン](/assets/images/help/billing/choose-monthly-or-yearly-billing.png)

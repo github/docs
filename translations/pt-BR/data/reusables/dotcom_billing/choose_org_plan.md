@@ -1,1 +1,0 @@
-1. Se você está atualizando o {% data variables.product.prodname_free_team %}, selecione um produto em "Upgrading to" (Atualizar para). ![Botão Upgrade (Atualizar)](/assets/images/help/billing/upgrade-to-product.png)

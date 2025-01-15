@@ -1,0 +1,3 @@
+On an instance with a high-availability, geo-replication, or repository cache configuration, a known issue causes the `SpokesRepairRepoReplicaJob` and `SpokesSyncCacheReplicaJob` jobs to fail. This means repository replicas in cache servers are not updated, and will remain out of sync if the repository is updated. Additionally, if a regular repository replica becomes out of sync, repair attempts will fail, causing the corresponding repository network to be marked as failed until a network repair is triggered.
+  
+The network repair will eventually return the repository to a healthy state. However, this process can take several hours for very large and active repositories or networks, potentially leading to prolonged replication issues.

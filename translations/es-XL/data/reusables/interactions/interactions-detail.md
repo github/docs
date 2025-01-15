@@ -1,1 +1,0 @@
-Cuando se habilitan las restricciones, solo el grupo de usuarios de {% data variables.product.product_name %} que hayas especificado podrá participar en las interacciones. Las restricciones caducan 24 horas después de la hora en la que se configuraron.

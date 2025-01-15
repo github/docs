@@ -1,1 +1,0 @@
-Insights da organização estão disponíveis com {% data variables.product.prodname_ghe_cloud %}. Para obter mais informações, consulte os "[Produtos da {% data variables.product.prodname_dotcom %}](/articles/github-s-products)".

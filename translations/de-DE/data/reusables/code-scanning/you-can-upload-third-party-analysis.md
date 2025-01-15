@@ -1,1 +1,0 @@
-Du kannst SARIF-Dateien von statischen Analysewerkzeugen von Drittanbietern in {% data variables.product.prodname_dotcom %} hochladen und {% data variables.product.prodname_code_scanning %}-Warnungen von diesen Werkzeugen in Deinem Repository sehen.

@@ -1,1 +1,1 @@
-After creating and registering an OAuth App, you can make changes to it.
+After creating and registering an {% data variables.product.prodname_oauth_app %}, you can make changes to it.

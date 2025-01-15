@@ -1,1 +1,0 @@
-{% data variables.product.prodname_code_scanning_capc %}は、Static Analysis Results Interchange Format (SARIF) データを出力するサードパーティのコードスキャンニングツールと相互運用できます。 SARIFはオープン標準です。 詳しい情報については「[{% data variables.product.prodname_code_scanning %}のためのSARIF出力](/github/finding-security-vulnerabilities-and-errors-in-your-code/sarif-support-for-code-scanning)」を参照してください。

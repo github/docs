@@ -1,1 +1,0 @@
-1. Em "Idade mínima", digite a idade de um pull request em horas. Lembretes agendados não incluirão pull requests que são mais recentes do que este limite de idade. ![Campos de etiquetas ignoradas](/assets/images/help/settings/scheduled-reminders-min-age-field.png)

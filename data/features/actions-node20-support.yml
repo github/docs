@@ -1,0 +1,6 @@
+# Reference: #13600
+# Versioning for Node20 support for GitHub Actions
+versions:
+  fpt: '*'
+  ghec: '*'
+  ghes: '>=3.11'

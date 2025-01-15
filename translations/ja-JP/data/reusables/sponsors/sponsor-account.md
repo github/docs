@@ -1,1 +1,0 @@
-1. Click **Sponsor _ACCOUNT_**. ![[Sponsor] ボタン](/assets/images/help/sponsors/sponsor-developer-button.png)

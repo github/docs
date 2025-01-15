@@ -1,0 +1,3 @@
+[Hotpatch upgrades](/admin/upgrading-your-instance/performing-an-upgrade/upgrading-with-a-hotpatch) from GitHub Enterprise Server version `3.11.0` to `3.11.1` will result in the appliance losing network connectivity after a reboot.
+If you have upgraded to GitHub Enterprise Server `3.11.1` from `3.11.0` using a hotpatch upgrade, please contact [GitHub Support](https://support.github.com/) for assistance.
+If you have upgraded directly to GitHub Enterprise Server `3.11.1` from previous versions (for example, from any version of GitHub Enterprise Server in the 3.9 or 3.10 series), your instance is not affected by this issue.

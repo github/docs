@@ -1,43 +1,37 @@
 ---
-title: GitHub Education Documentation
-shortTitle: Education
-intro: "{% data variables.product.prodname_education %} helps you teach or learn software development with the tools and support of {% data variables.product.company_short %}'s platform and community."
+title: "{% data variables.product.prodname_education %} documentation"
+shortTitle: "{% data variables.product.prodname_education %}"
+intro: '{% data variables.product.prodname_education %} helps you teach or learn software development with the tools and support of {% data variables.product.company_short %}''s platform and community.'
 introLinks:
   quickstart: /education/quickstart
+redirect_from:
+  - /education/explore-internship-projects-with-github-octernships/about-github-octernships
+  - /education/explore-internship-projects-with-github-octernships/applying-for-github-octernships
+  - /education/explore-internship-projects-with-github-octernships
 featuredLinks:
-  guides:
-    - /education/teach-and-learn-with-github-education/apply-for-a-student-developer-pack
-    - /education/teach-and-learn-with-github-education/apply-for-an-educator-or-researcher-discount
-    - /education/teach-and-learn-with-github-education/use-github-at-your-educational-institution
+  startHere:
+    - /education/explore-the-benefits-of-teaching-and-learning-with-github-education/github-education-for-students/apply-to-github-education-as-a-student
+    - /education/explore-the-benefits-of-teaching-and-learning-with-github-education/github-education-for-teachers/apply-to-github-education-as-a-teacher
+    - /education/explore-the-benefits-of-teaching-and-learning-with-github-education/use-github-at-your-educational-institution
   guideCards:
-    - /github/getting-started-with-github/signing-up-for-a-new-github-account
-    - /github/getting-started-with-github/git-and-github-learning-resources
-    - /education/manage-coursework-with-github-classroom/basics-of-setting-up-github-classroom
+    - /get-started/start-your-journey/creating-an-account-on-github
+    - /get-started/start-your-journey/git-and-github-learning-resources
   popular:
-    - /education/teach-and-learn-with-github-education/use-github-for-your-schoolwork
-    - /education/teach-and-learn-with-github-education/use-github-in-your-classroom-and-research
+    - /education/manage-coursework-with-github-classroom/get-started-with-github-classroom/about-github-classroom
+    - /education/explore-the-benefits-of-teaching-and-learning-with-github-education/github-education-for-students
+    - /education/explore-the-benefits-of-teaching-and-learning-with-github-education/github-education-for-teachers
     - /desktop
-    - /github/getting-started-with-github/github-cli
+    - /github-cli/github-cli/about-github-cli
     - /education/manage-coursework-with-github-classroom/teach-with-github-classroom
-
 changelog:
-  - title: 'Try something new at Local Hack Day: Learn'
-    date: '2020-10-15'
-    href: https://github.blog/2020-10-15-try-something-new-at-local-hack-day-learn/
-  - title: 'Remote Education: Creating community through shared experiences'
-    date: '2020-09-24'
-    href: https://github.blog/2020-09-24-remote-education-creating-community-through-shared-experiences/
-  - title: 'Remote Education: A series of best practices for online campus communities'
-    date: '2020-09-10'
-    href: https://github.blog/2020-09-10-remote-education-a-series-of-best-practices-for-online-campus-communities/
-  - title: Welcome to the inaugural class of MLH Fellows
-    date: '2020-06-24'
-    href: https://github.blog/2020-06-24-welcome-to-the-inaugural-class-of-mlh-fellows/
-
+  label: education
 layout: product-landing
 versions:
-  free-pro-team: '*'
+  fpt: '*'
+children:
+  - /quickstart
+  - /explore-the-benefits-of-teaching-and-learning-with-github-education
+  - /contribute-with-github-community-exchange
+  - /manage-coursework-with-github-classroom
+  - /guides
 ---
-
-<!-- {% link_with_intro /teach-and-learn-with-github-education %} -->
-<!-- {% link_with_intro /manage-coursework-with-github-classroom %} -->

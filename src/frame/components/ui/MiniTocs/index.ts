@@ -1,0 +1,1 @@
+export { MiniTocs } from './MiniTocs'

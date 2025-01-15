@@ -1,0 +1,109 @@
+name: 'Orphaned features check'
+
+# **What it does**: Finds any data/features that are no longer used in the repo.
+# **Why we have it**: To avoid orphans into the repo.
+# **Who does it impact**: Docs content.
+
+on:
+  workflow_dispatch:
+  schedule:
+    - cron: '20 16 * * 1' # Run every Monday at 16:20 UTC / 8:20 PST
+  pull_request:
+    paths:
+      - .github/workflows/orphaned-features-check.yml
+      # In case any of the dependencies affect the script
+      - 'package*.json'
+      - 'src/data-directory/scripts/find-orphaned-features/**'
+      - .github/actions/clone-translations/action.yml
+      - .github/actions/node-npm-setup/action.yml
+
+permissions:
+  contents: read
+
+jobs:
+  orphaned-features-check:
+    if: ${{ github.repository == 'github/docs-internal' }}
+    runs-on: ubuntu-latest
+    steps:
+      - name: Checkout English repo
+        uses: actions/checkout@b4ffde65f46336ab88eb53be808477a3936bae11 # v4.1.1
+        with:
+          # Using a PAT is necessary so that the new commit will trigger the
+          # CI in the PR. (Events from GITHUB_TOKEN don't trigger new workflows.)
+          token: ${{ secrets.DOCS_BOT_PAT_READPUBLICKEY }}
+
+      # It's important because translations are often a bit behind.
+      # So if a translation is a bit behind, it might still be referencing
+      # a feature even though none of the English content does.
+      - name: Clone all translations
+        uses: ./.github/actions/clone-translations
+        with:
+          token: ${{ secrets.DOCS_BOT_PAT_READPUBLICKEY }}
+
+      - uses: ./.github/actions/node-npm-setup
+
+      - name: Check for orphaned features
+        env:
+          # Needed for gh
+          GITHUB_TOKEN: ${{ secrets.DOCS_BOT_PAT_READPUBLICKEY }}
+          DRY_RUN: ${{ github.event_name == 'pull_request'}}
+        run: |
+          set -e
+
+          npm run find-orphaned-features -- find --verbose --output /tmp/orphaned-features.json
+
+          if [ -f /tmp/orphaned-features.json ]; then
+            echo "Orphaned features found:"
+            cat /tmp/orphaned-features.json
+          else
+            echo "No orphaned features found"
+            exit 0
+          fi
+
+          # Why only 5?
+          # Because, we're not in a hurry and anything larger than that would
+          # make the PR too intimidatingly big to review.
+          npm run find-orphaned-features -- delete --max 5 --verbose /tmp/orphaned-features.json
+
+          git status
+
+          # When run on a pull_request, we're just testing the tooling.
+          # Exit before it actually pushes the possible changes.
+          if [ "$DRY_RUN" = "true" ]; then
+            echo "Dry-run mode when run in a pull request"
+            exit 0
+          fi
+
+          # Replicated from the translation pipeline PR-maker Action
+          git config --global user.name "docs-bot"
+          git config --global user.email "77750099+docs-bot@users.noreply.github.com"
+
+          date=$(date '+%Y-%m-%d-%H-%M')
+          branchname=orphaned-features-$date-$GITHUB_RUN_ID
+
+          git checkout -b $branchname
+          git commit -a -m "Delete orphaned features $date"
+          git push origin $branchname
+
+          body=$(cat <<-EOM
+            Found with the 'npm run find-orphaned-features' script.
+            The orphaned features workflow file .github/workflows/orphaned-features-check.yml
+            runs every Monday at 16:20 UTC / 8:20 PST.
+            The first responder should just spot-check some of the orphans
+            to make sure they aren't referenced anywhere
+            and then approve and merge the pull request.
+            For more information, see [Doc: Orphaned Features](https://github.com/github/docs-engineering/blob/main/docs/orphaned-features.md).
+          EOM
+          )
+
+          gh pr create \
+            --title "Delete orphaned features ($date)" \
+            --body "$body" \
+            --repo github/docs-internal \
+            --label docs-content-fr
+
+      - uses: ./.github/actions/slack-alert
+        if: ${{ failure() && github.event_name == 'schedule' }}
+        with:
+          slack_channel_id: ${{ secrets.DOCS_ALERTS_SLACK_CHANNEL_ID }}
+          slack_token: ${{ secrets.SLACK_DOCS_BOT_TOKEN }}

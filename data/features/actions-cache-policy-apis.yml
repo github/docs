@@ -1,0 +1,4 @@
+# Reference: #6456
+# APIs to set default and max cache sizes. Only for GHES.
+versions:
+  ghes: '>=3.5'

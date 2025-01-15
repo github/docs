@@ -1,0 +1,5 @@
+# Eliminate the notion of recommended languages in default setup
+# Reference: #11523
+
+versions:
+  ghes: '>3.8 <3.12'

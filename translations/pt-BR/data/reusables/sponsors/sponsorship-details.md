@@ -1,1 +1,0 @@
-You can sponsor anyone with a sponsored developer profile or sponsored organization profile on behalf of your user account or an organization. You can choose from multiple sponsorship tiers, with monthly payment amounts and benefits that are set by the sponsored account. O seu patrocínio compartilhará a data de cobrança existente da sua conta, o método de pagamento e o recibo.

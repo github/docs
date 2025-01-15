@@ -1,1 +1,0 @@
-6. Wenn Du optional ein [untergeordnetes Team](/articles/about-teams#nested-teams) erstellst, verwende das Dropdownmenü für die Auswahl eines übergeordnetes Team für Dein neues Team. ![Dropdownmenü mit den vorhandenen Teams der Organisation](/assets/images/help/teams/choose-parent-team.png)

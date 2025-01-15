@@ -1,1 +1,0 @@
-1. 静的サイトジェネレータを使ってローカルでサイトを構築し、生成されたファイルを{% data variables.product.product_name %}にプッシュしているなら、ローカルのリポジトリに_CNAME_ファイルを追加したコミットをプルしてください。 詳しい情報については「[カスタムドメインと{% data variables.product.prodname_pages %}のトラブルシューティング](/articles/troubleshooting-custom-domains-and-github-pages#cname-errors)」を参照してください。

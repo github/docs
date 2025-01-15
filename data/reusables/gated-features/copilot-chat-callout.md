@@ -1,0 +1,3 @@
+All users with a {% data variables.product.prodname_copilot_pro %} or {% data variables.product.prodname_copilot_free %} subscription can access {% data variables.product.prodname_copilot_chat %} in your IDE.
+
+Owners of organizations {% ifversion ghec %}or enterprises {% endif %}with a {% data variables.product.prodname_copilot_business_short %} subscription{% ifversion ghec %}, or a {% data variables.product.prodname_copilot_enterprise_short %} subscription, {% endif %} can decide whether to grant access to {% data variables.product.prodname_copilot_chat %} in your IDE{% ifversion ghec %} and {% data variables.product.prodname_dotcom_the_website %}{% endif %}.

@@ -1,1 +1,0 @@
-When you configure editor settings for {% data variables.product.prodname_vscode %}, there are three scopes available: _Workspace_, _Remote [Codespaces]_, and _User_. If a setting is defined in multiple scopes, _Workspace_ settings take priority, then _Remote [Codespaces]_, then _User_.

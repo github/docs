@@ -1,0 +1,5 @@
+# Issue 11855
+versions:
+  fpt: '*'
+  ghec: '*'
+  ghes: '>=3.12'

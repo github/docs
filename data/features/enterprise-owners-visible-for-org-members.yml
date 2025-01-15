@@ -1,0 +1,5 @@
+# Reference: Issue #5741 in docs-content
+# Documentation for enterprise owners UI updates
+versions:
+  ghes: '>=3.4'
+  ghec: '*'

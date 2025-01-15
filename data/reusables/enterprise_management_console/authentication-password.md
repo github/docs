@@ -1,1 +1,1 @@
-In "Authentication password", type the authentication password.
+Under "Authentication password", type the authentication password.

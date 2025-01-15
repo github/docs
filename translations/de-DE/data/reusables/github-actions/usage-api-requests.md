@@ -1,1 +1,0 @@
-- **API requests** (API Anfragen) - Pro Stunde kannst Du bis zu 1000 API-Anfragen über alle Aktionen innerhalb innerhalb eines Repository ausführen. Bei Überschreitung schlagen zusätzliche API-Aufrufe fehl, was dazu führen kann, dass Aufträge fehlschlagen.

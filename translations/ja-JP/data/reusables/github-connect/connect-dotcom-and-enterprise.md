@@ -1,1 +1,0 @@
-1. **Connect to {% data variables.product.prodname_dotcom_the_website %}（{% data variables.product.prodname_dotcom_the_website %}への接続）**をクリックしてください。 ![GitHub Enterprise Server設定からGitHub.comへの接続](/assets/images/help/settings/github.com_end_user_connection.png)

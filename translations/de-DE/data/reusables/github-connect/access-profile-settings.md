@@ -1,1 +1,0 @@
-1. Klicke in {% data variables.product.product_location_enterprise %} in der oberen rechten Ecke einer beliebigen Seite auf Dein Profilfoto und anschließend auf **Settings** (Einstellungen). ![Symbol „Settings" (Einstellungen) auf der Benutzerleiste](/assets/images/help/settings/userbar-account-settings.png)

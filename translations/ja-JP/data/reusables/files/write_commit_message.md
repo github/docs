@@ -1,1 +1,0 @@
-1. ページの下部で、ファイルに対して行った変更を説明する短く分かりやすいコミットメッセージを入力してください。 コミットメッセージでは、複数の作者にコミットを関連づけることができます。 詳しい情報については「[複数の共作者を持つコミットの作成](/articles/creating-a-commit-with-multiple-authors)」を参照してください。 ![変更のコミットメッセージ](/assets/images/help/repository/write-commit-message-quick-pull.png)

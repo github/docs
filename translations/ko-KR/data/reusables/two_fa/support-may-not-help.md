@@ -1,1 +1,0 @@
-For security reasons, {% data variables.product.product_name %} Support may not be able to restore access to accounts with two-factor authentication enabled if you lose your two-factor authentication credentials or lose access to your account recovery methods.

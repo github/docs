@@ -1,0 +1,5 @@
+# Reference: #9925
+# ghe-backup-progress utility for GitHub Enterprise Server Backup Utilities
+
+versions:
+  ghes: '>=3.9'

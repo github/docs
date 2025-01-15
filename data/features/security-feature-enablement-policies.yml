@@ -1,0 +1,5 @@
+# Reference: #7661.
+# Documentation for Security Features Enablement Enterprise-Level Policies.
+versions:
+  ghec: '*'
+  ghes: '>=3.8'

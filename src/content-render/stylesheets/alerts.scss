@@ -1,0 +1,53 @@
+// Largely identical styling from the monolith,
+// but the color names match the Primer variables
+// and we had to directly state a few props instead of using variables
+// that are only in the monolith.
+
+$colors: "default", "muted", "subtle", "accent", "success", "attention",
+  "severe", "danger", "open", "closed", "done", "sponsors";
+
+.ghd-alert {
+  padding: var(--base-size-8, 0.5rem) var(--base-size-16, 1rem);
+  border-left: 0.25em solid
+    var(--borderColor-default, var(--color-border-default));
+  margin: 1rem 0;
+
+  p:last-child,
+  ul:last-child,
+  ol:last-child {
+    margin-bottom: 0;
+  }
+
+  pre {
+    background: transparent;
+    padding: 0.5rem;
+  }
+}
+
+.ghd-alert-title {
+  display: flex;
+  font-weight: var(--base-text-weight-medium, 500);
+  align-items: center;
+  line-height: 1;
+}
+
+@each $color in $colors {
+  .ghd-alert-#{$color} {
+    border-left-color: var(--fgColor-#{$color}, var(--color-#{$color}-fg));
+
+    .ghd-alert-title {
+      color: var(--fgColor-#{$color}, var(--color-#{$color}-fg));
+    }
+  }
+
+  // Temporary: so that the existing "notes" "callouts" etc color the first word
+  .ghd-spotlight-#{$color} {
+    p:first-child {
+      strong:first-child,
+      b:first-child {
+        color: var(--fgColor-#{$color}, var(--color-#{$color}-fg));
+      }
+    }
+  }
+  // End temporary
+}

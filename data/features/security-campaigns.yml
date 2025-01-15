@@ -1,0 +1,4 @@
+# Reference: #14514
+# Documentation for security campaigns
+versions:
+  ghec: '*'

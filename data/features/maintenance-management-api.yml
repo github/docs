@@ -1,0 +1,5 @@
+# Maintenance API for GHES Manage.
+# Reference: #10906
+
+versions:
+  ghes: '>= 3.10'

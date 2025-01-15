@@ -1,2 +1,1 @@
-1. In the left sidebar, click **Codespaces**.
-!["Codespaces" tab in left sidebar](/assets/images/help/organizations/codespaces-sidebar-tab.png)
+1. In the left sidebar, click **{% octicon "codespaces" aria-hidden="true" %} Codespaces**.

@@ -1,0 +1,56 @@
+name: Comment on adding "needs SME" label
+
+# **What it does**: Comment on issues and pull requests when a "needs SME" label is added. SME = subject matter expert.
+# **Why we have it**: We want to manage our queue of issues and pull requests that need sme review.
+# **Who does it impact**: Everyone that works on docs or docs-internal.
+
+on:
+  issues:
+    types: [labeled]
+  # Needed in lieu of `pull_request` so that PRs from a fork can be labeled.
+  pull_request_target:
+    types: [labeled]
+
+permissions:
+  contents: read
+  issues: write
+  pull-requests: write
+
+jobs:
+  add-issue-comment:
+    if: ${{ github.repository == 'github/docs' && (github.event.label.name == 'needs SME' && github.event_name == 'issues') }}
+    runs-on: ubuntu-latest
+    steps:
+      - name: Check out repo
+        uses: actions/checkout@b4ffde65f46336ab88eb53be808477a3936bae11 # v4.1.1
+
+      - uses: peter-evans/create-or-update-comment@71345be0265236311c031f5c7866368bd1eff043
+        with:
+          issue-number: ${{ github.event.issue.number }}
+          body: |
+            Thanks for opening an issue! We've triaged this issue for technical review by a subject matter expert :eyes:
+
+      - uses: ./.github/actions/slack-alert
+        if: ${{ failure() && github.event_name != 'pull_request_target' }}
+        with:
+          slack_channel_id: ${{ secrets.DOCS_ALERTS_SLACK_CHANNEL_ID }}
+          slack_token: ${{ secrets.SLACK_DOCS_BOT_TOKEN }}
+
+  add-pr-comment:
+    if: ${{ github.repository == 'github/docs' && (github.event.label.name == 'needs SME' && github.event_name == 'pull_request_target') }}
+    runs-on: ubuntu-latest
+    steps:
+      - name: Check out repo
+        uses: actions/checkout@b4ffde65f46336ab88eb53be808477a3936bae11 # v4.1.1
+
+      - uses: peter-evans/create-or-update-comment@71345be0265236311c031f5c7866368bd1eff043
+        with:
+          issue-number: ${{ github.event.pull_request.number }}
+          body: |
+            Thanks for opening a pull request! We've triaged this issue for technical review by a subject matter expert :eyes:
+
+      - uses: ./.github/actions/slack-alert
+        if: ${{ failure() && github.event_name != 'pull_request_target' }}
+        with:
+          slack_channel_id: ${{ secrets.DOCS_ALERTS_SLACK_CHANNEL_ID }}
+          slack_token: ${{ secrets.SLACK_DOCS_BOT_TOKEN }}

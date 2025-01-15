@@ -1,1 +1,0 @@
-4. En "Payouts information" (Información de pago), haz clic en **Edit your bank information** (Editar tu información bancaria). ![Editar tu enlace de información bancaria](/assets/images/help/sponsors/edit-bank-info.png)

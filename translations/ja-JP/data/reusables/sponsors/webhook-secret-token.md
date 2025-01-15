@@ -1,1 +1,0 @@
-5. シークレットトークンを入力してください。 詳しい情報については「[webhookをセキュアにする](/webhooks/securing/#securing-your-secret-token)」を参照してください。 ![シークレットトークンと他のカスタマイズのオプションのフィールド](/assets/images/help/sponsors/webhook-secret-token.png)

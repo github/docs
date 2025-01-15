@@ -1,1 +1,0 @@
-5. Como opção, para enviar seu e-mail para patrocinadores de camadas específicas, use o menu suspenso **All sponsors** (Todos os patrocinadores) e selecione uma ou mais camadas. ![Menu suspenso selecionar camadas de patrocinadores](/assets/images/help/sponsors/select-tiers-email.png)
