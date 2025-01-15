@@ -98,7 +98,7 @@ You can configure this behavior for an organization using the procedure below. M
 
 {% data reusables.actions.workflows.required-workflow-beta %}
 
-You can configure required workflows to run in all or selected repositories in an organization where you are an owner. Required workflows are triggered by {% ifversion actions-required-workflow-improvements %}`pull_request` and `pull_request_target` default events{% else %}pull requests{% endif %} and must pass before a pull request can be merged. For more information, see [AUTOTITLE](/actions/using-workflows/required-workflows).
+You can configure required workflows to run in all or selected repositories in an organization where you are an owner. Required workflows are triggered by `pull_request` and `pull_request_target` default events and must pass before a pull request can be merged. For more information, see [AUTOTITLE](/actions/using-workflows/required-workflows).
 
 ### Prerequisites
 
@@ -125,7 +125,7 @@ Note the following restrictions and behaviors for the target repositories:
 {% data reusables.organizations.settings-sidebar-actions-general %}
 1. To the right of "Required Workflows", click **Add workflow**.
 
-1. Under "Required workflow", use the drop-down menu to select the repository that contains the workflow. Then, enter the path to the workflow in the text field. {% ifversion actions-required-workflow-improvements %}You can reference any branch, tag, or commit SHA from the repository containing the workflow file using the `{path}@{ref}` syntax.{% endif %}
+1. Under "Required workflow", use the drop-down menu to select the repository that contains the workflow. Then, enter the path to the workflow in the text field. You can reference any branch, tag, or commit SHA from the repository containing the workflow file using the `{path}@{ref}` syntax.
 
 1. Under "Apply to repositories...", use the drop-down menu to select which repositories the required workflow applies to. Select **All repositories** to apply the required workflow to all repositories in your organization, or **Selected repositories** to choose which repositories it will apply to.
 
@@ -160,9 +160,7 @@ You can set the default permissions for the `GITHUB_TOKEN` in the settings for y
 
 ### Configuring the default `GITHUB_TOKEN` permissions
 
-{% ifversion actions-default-workflow-permissions-restrictive %}
 By default, when you create a new organization,{% ifversion ghec or ghes %} the setting is inherited from what is configured in the enterprise settings.{% else %} `GITHUB_TOKEN` only has read access for the `contents` and `packages` scopes.{% endif %}
-{% endif %}
 
 {% data reusables.profile.access_profile %}
 {% data reusables.profile.access_org %}

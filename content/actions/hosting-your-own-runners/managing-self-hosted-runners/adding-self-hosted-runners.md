@@ -28,11 +28,7 @@ For information on supported operating systems for self-hosted runners, or using
 
 You can set up automation to scale the number of self-hosted runners. For more information, see [AUTOTITLE](/actions/hosting-your-own-runners/managing-self-hosted-runners/autoscaling-with-self-hosted-runners).
 
-{% ifversion actions-single-use-tokens %}
-
 You can register ephemeral runners that perform a single job before the registration is cleaned up by using just-in-time runner registration. For more information, see [AUTOTITLE](/actions/security-guides/security-hardening-for-github-actions#using-just-in-time-runners).
-
-{% endif %}
 
 ## Prerequisites
 

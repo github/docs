@@ -79,9 +79,7 @@ All other {% data variables.product.prodname_actions %} data, such as the workfl
 
 * Azure Blob storage
 * Amazon S3
-{%- ifversion actions-ghes-gcp-storage %}
 * Google Cloud Storage
-{%- endif %}
 * S3-compatible MinIO cluster
 
 > [!NOTE]
@@ -101,9 +99,7 @@ Follow one of the procedures below to enable {% data variables.product.prodname_
 
 * [Enabling GitHub Actions with Azure Blob storage](/admin/github-actions/enabling-github-actions-for-github-enterprise-server/enabling-github-actions-with-azure-blob-storage)
 * [Enabling GitHub Actions with Amazon S3 storage](/admin/github-actions/enabling-github-actions-for-github-enterprise-server/enabling-github-actions-with-amazon-s3-storage)
-{%- ifversion actions-ghes-gcp-storage %}
 * [Enabling GitHub Actions with Google Cloud Storage](/admin/github-actions/enabling-github-actions-for-github-enterprise-server/enabling-github-actions-with-google-cloud-storage)
-{%- endif %}
 * [Enabling GitHub Actions with MinIO storage](/admin/github-actions/enabling-github-actions-for-github-enterprise-server/enabling-github-actions-with-minio-storage)
 
 ## Managing access permissions for {% data variables.product.prodname_actions %} in your enterprise
