@@ -30,7 +30,7 @@ As an alternative to running {% data variables.product.prodname_code_scanning %}
 
 ## Integrations with webhooks
 
-You can use {% data variables.product.prodname_code_scanning %} webhooks to build or configure integrations, such as [{% data variables.product.prodname_github_apps %}](/apps/creating-github-apps/setting-up-a-github-app) or [{% data variables.product.prodname_oauth_apps %}](/apps/oauth-apps/building-oauth-apps), that subscribe to {% data variables.product.prodname_code_scanning %} events in your repository. For example, you could build an integration that creates an issue on {% data variables.product.product_name %} or sends you a Slack notification when a new {% data variables.product.prodname_code_scanning %} alert is added in your repository. For more information, see [AUTOTITLE](/webhooks) and [AUTOTITLE](/webhooks-and-events/webhooks/webhook-events-and-payloads#code_scanning_alert).
+You can use {% data variables.product.prodname_code_scanning %} webhooks to build or configure integrations, such as [{% data variables.product.prodname_github_apps %}](/apps/creating-github-apps/setting-up-a-github-app) or [{% data variables.product.prodname_oauth_apps %}](/apps/oauth-apps/building-oauth-apps), that subscribe to {% data variables.product.prodname_code_scanning %} events in your repository. For example, you could build an integration that creates an issue on {% data variables.product.github %} or sends you a Slack notification when a new {% data variables.product.prodname_code_scanning %} alert is added in your repository. For more information, see [AUTOTITLE](/webhooks) and [AUTOTITLE](/webhooks-and-events/webhooks/webhook-events-and-payloads#code_scanning_alert).
 
 ## Further reading
 

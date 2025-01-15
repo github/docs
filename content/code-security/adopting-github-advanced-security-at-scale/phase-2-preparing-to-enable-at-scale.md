@@ -37,7 +37,7 @@ Your core focus should be preparing as many teams to use {% data variables.produ
 
 ### Collecting information about your repositories
 
-You can programmatically gather information about the different programming languages used in your repositories and use that data to enable {% data variables.product.prodname_code_scanning %} on all repositories that use the same language, using {% data variables.product.product_name %}'s GraphQL API.
+You can programmatically gather information about the different programming languages used in your repositories and use that data to enable {% data variables.product.prodname_code_scanning %} on all repositories that use the same language, using {% data variables.product.github %}'s GraphQL API.
 
 > [!NOTE]
 > To gather this data without manually running the GraphQL queries described in this article, you can use our publicly available tool. For more information, see the [ghas-enablement tool](https://github.com/NickLiffen/ghas-enablement) repository.
@@ -123,19 +123,19 @@ Before you can proceed with pilot programs and rolling out {% data variables.pro
 ## Preparing to enable {% data variables.product.prodname_secret_scanning %}
 
 > [!NOTE]
-> When a secret is detected in a repository that has enabled {% data variables.product.prodname_secret_scanning %}, {% data variables.product.prodname_dotcom %} alerts all users with access to security alerts for the repository. {% ifversion ghec %}
+> When a secret is detected in a repository that has enabled {% data variables.product.prodname_secret_scanning %}, {% data variables.product.github %} alerts all users with access to security alerts for the repository. {% ifversion ghec %}
 >
-> Secrets found in public repositories using {% data variables.secret-scanning.partner_alerts %} are reported directly to the partner, without creating an alert on {% data variables.product.product_name %}. For details about the supported partner patterns, see [AUTOTITLE](/code-security/secret-scanning/introduction/supported-secret-scanning-patterns#supported-secrets).{% endif %}
+> Secrets found in public repositories using {% data variables.secret-scanning.partner_alerts %} are reported directly to the partner, without creating an alert on {% data variables.product.github %}. For details about the supported partner patterns, see [AUTOTITLE](/code-security/secret-scanning/introduction/supported-secret-scanning-patterns#supported-secrets).{% endif %}
 
-If a project communicates with an external service, it might use a token or private key for authentication. If you check a secret into a repository, anyone who has read access to the repository can use the secret to access the external service with your privileges. {% data variables.product.prodname_secret_scanning_caps %} will scan your entire Git history on all branches present in your {% data variables.product.prodname_dotcom %} repositories for secrets and alert you or block the push containing the secret. For more information, see [AUTOTITLE](/code-security/secret-scanning/introduction/about-secret-scanning).
+If a project communicates with an external service, it might use a token or private key for authentication. If you check a secret into a repository, anyone who has read access to the repository can use the secret to access the external service with your privileges. {% data variables.product.prodname_secret_scanning_caps %} will scan your entire Git history on all branches present in your {% data variables.product.github %} repositories for secrets and alert you or block the push containing the secret. For more information, see [AUTOTITLE](/code-security/secret-scanning/introduction/about-secret-scanning).
 
-{% ifversion ghec %}{% data variables.secret-scanning.partner_alerts_caps %} runs automatically on public repositories and public npm packages to notify service providers about leaked secrets on {% data variables.product.prodname_dotcom %}.
+{% ifversion ghec %}{% data variables.secret-scanning.partner_alerts_caps %} runs automatically on public repositories and public npm packages to notify service providers about leaked secrets on {% data variables.product.github %}.
 
 {% data variables.secret-scanning.user_alerts_caps %} are available for free on all public repositories.{% endif %}
 
 ### Considerations when enabling {% data variables.product.prodname_secret_scanning %}
 
-{% ifversion default-setup-ghas-enablement %}Enabling{% else %}{% data variables.product.product_name %}’s {% data variables.product.prodname_secret_scanning %} capability is slightly different from {% data variables.product.prodname_code_scanning %} since it requires no specific configuration per programming language or per repository and less configuration overall to get started. This means enabling{% endif %} {% data variables.product.prodname_secret_scanning %} at the organizational level can be easy, but clicking **Enable All** at the organization level and selecting the option **Automatically enable {% data variables.product.prodname_secret_scanning %} for every new repository** has some downstream effects that you should be aware of:
+{% ifversion default-setup-ghas-enablement %}Enabling{% else %}{% data variables.product.github %}’s {% data variables.product.prodname_secret_scanning %} capability is slightly different from {% data variables.product.prodname_code_scanning %} since it requires no specific configuration per programming language or per repository and less configuration overall to get started. This means enabling{% endif %} {% data variables.product.prodname_secret_scanning %} at the organizational level can be easy, but clicking **Enable All** at the organization level and selecting the option **Automatically enable {% data variables.product.prodname_secret_scanning %} for every new repository** has some downstream effects that you should be aware of:
 
 #### License consumption
 
@@ -149,7 +149,7 @@ If you are enabling {% data variables.product.prodname_secret_scanning %} on a l
 
 ### Custom patterns for {% data variables.product.prodname_secret_scanning %}
 
-{% data variables.product.prodname_secret_scanning_caps %} detects a large number of default patterns but can also be configured to detect custom patterns, such as secret formats unique to your infrastructure or used by integrators that {% data variables.product.product_name %}'s {% data variables.product.prodname_secret_scanning %} does not currently detect. For more information about supported secrets for partner patterns, see [AUTOTITLE](/code-security/secret-scanning/introduction/supported-secret-scanning-patterns).
+{% data variables.product.prodname_secret_scanning_caps %} detects a large number of default patterns but can also be configured to detect custom patterns, such as secret formats unique to your infrastructure or used by integrators that {% data variables.product.github %}'s {% data variables.product.prodname_secret_scanning %} does not currently detect. For more information about supported secrets for partner patterns, see [AUTOTITLE](/code-security/secret-scanning/introduction/supported-secret-scanning-patterns).
 
 As you audit your repositories and speak to security and developer teams, build a list of the secret types that you will later use to configure custom patterns for {% data variables.product.prodname_secret_scanning %}. For more information, see [AUTOTITLE](/code-security/secret-scanning/using-advanced-secret-scanning-and-push-protection-features/custom-patterns/defining-custom-patterns-for-secret-scanning).
 
