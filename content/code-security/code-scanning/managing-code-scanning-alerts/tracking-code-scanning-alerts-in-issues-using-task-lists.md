@@ -28,7 +28,7 @@ You can also quickly create a new issue to track an alert:
 
 You can use more than one issue to track the same {% data variables.product.prodname_code_scanning %} alert, and issues can belong to different repositories from the repository where the {% data variables.product.prodname_code_scanning %} alert was found.
 
-{% data variables.product.product_name %} provides visual cues in different locations of the user interface to indicate when you are tracking {% data variables.product.prodname_code_scanning %} alerts in issues.
+{% data variables.product.github %} provides visual cues in different locations of the user interface to indicate when you are tracking {% data variables.product.prodname_code_scanning %} alerts in issues.
 
 * The {% data variables.product.prodname_code_scanning %} alerts list page will show which alerts are tracked in issues so that you can view at a glance which alerts still require processing and how many issues they are tracked in.
 
