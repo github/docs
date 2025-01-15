@@ -1,0 +1,1 @@
+1. To jump back into a previous conversation you had with {% data variables.product.prodname_copilot_short %}, select the {% octicon "kebab-horizontal" aria-label="Open conversation options" %} dropdown menu, then click **{% octicon "history" aria-hidden="true" %} View all conversations**.

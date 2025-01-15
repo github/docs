@@ -1,0 +1,33 @@
+# Deploy configuration reference: https://thehub.github.com/epd/engineering/products-and-services/internal/moda/reference/deployment-yaml/
+
+environments:
+  - name: staging
+    require_pipeline: true
+    cluster_selector:
+      profile: general
+      region: iad
+
+required_builds:
+  - docs-staging-{{x}}-moda-config-bundle / docs-staging-{{x}}-moda-config-bundle
+  - docs-staging-{{x}}-docker-image / docs-staging-{{x}}-docker-image
+  - docs-staging-{{x}}-docker-security / docs-staging-{{x}}-docker-security
+
+# Make the pipeline start automatically when a PR is enqueued
+auto_start_pipeline: staging_rollout
+
+pipelines:
+  staging_rollout:
+    thread_notifications: true
+    notify_users_via_dm: false
+    timeout: 1200
+    stages:
+      - name: full_staging
+        kind: deployment
+        start_message: We are now going to deploy {{app}}/{{ref}}! Please pause or cancel the pipeline after the deploy if you want more time before auto-merging your pull request(s).
+        config:
+          environment: staging
+          timeout: 1200
+
+notifications:
+  slack_channels:
+    - '#docs-ops'

@@ -1,0 +1,5 @@
+# Reference: #7114.
+# Documentation for security overview availability to all enterprise accounts.
+versions:
+  ghec: '*'
+  ghes: '>=3.7'

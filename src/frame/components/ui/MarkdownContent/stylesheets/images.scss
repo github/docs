@@ -1,0 +1,20 @@
+.markdownBody {
+  // All non-emoji screenshots get the same shadow and height constraint
+  img:not([src*="https://github.githubassets.com/images/icons/emoji"])
+  {
+    max-height: 32rem;
+    box-shadow: var(--color-shadow-medium);
+  }
+
+  // Make sure images that contain emoji render at the expected size
+  img[src*="https://github.githubassets.com/images/icons/emoji"]
+  {
+    height: 20px;
+    width: 20px;
+  }
+
+  // For when writers don't leave an empty line and there's no `p` tag preceding the image
+  :global(.procedural-image-wrapper) {
+    margin: 1rem 0;
+  }
+}

@@ -2,16 +2,16 @@
 title: About the GraphQL API
 intro: 'The {% data variables.product.prodname_dotcom %} GraphQL API offers flexibility and the ability to define precisely the data you want to fetch.'
 versions:
-  free-pro-team: '*'
-  enterprise-server: '*'
-  github-ae: '*'
+  fpt: '*'
+  ghec: '*'
+  ghes: '*'
 topics:
   - API
 ---
 
-### Overview
+## Overview
 
-Here are some quick links to get you up and running with the GraphQL API v4:
+Here are some quick links to get you up and running with the GraphQL API:
 
 * [Authentication](/graphql/guides/forming-calls-with-graphql#authenticating-with-graphql)
 * [Root endpoint](/graphql/guides/forming-calls-with-graphql#the-graphql-endpoint)
@@ -19,11 +19,13 @@ Here are some quick links to get you up and running with the GraphQL API v4:
 * [Rate limits](/graphql/overview/resource-limitations)
 * [Migrating from REST](/graphql/guides/migrating-from-rest-to-graphql)
 
-### About GraphQL
+For more information about {% data variables.product.company_short %}'s APIs, see [AUTOTITLE](/rest/overview/about-githubs-apis).
 
-The [GraphQL](https://graphql.github.io/) data query language is:
+## About GraphQL
 
-* **A [specification](https://graphql.github.io/graphql-spec/June2018/).** The spec determines the validity of the [schema](/graphql/guides/introduction-to-graphql#schema) on the API server. The schema determines the validity of client calls.
+The [GraphQL](https://graphql.org/) data query language is:
+
+* **A [specification](https://spec.graphql.org/June2018/).** The spec determines the validity of the [schema](/graphql/guides/introduction-to-graphql#schema) on the API server. The schema determines the validity of client calls.
 
 * **[Strongly typed](#about-the-graphql-schema-reference).** The schema defines an API's type system and all object relationships.
 
@@ -33,13 +35,13 @@ The [GraphQL](https://graphql.github.io/) data query language is:
 
 * **An application layer.** GraphQL is not a storage model or a database query language. The _graph_ refers to graph structures defined in the schema, where [nodes](/graphql/guides/introduction-to-graphql#node) define objects and [edges](/graphql/guides/introduction-to-graphql#edge) define relationships between objects. The API traverses and returns application data based on the schema definitions, independent of how the data is stored.
 
-### Why GitHub is using GraphQL
+## Why GitHub is using GraphQL
 
-GitHub chose GraphQL for our API v4 because it offers significantly more flexibility for our integrators. The ability to define precisely the data you want&mdash;and _only_ the data you want&mdash;is a powerful advantage over the REST API v3 endpoints. GraphQL lets you replace multiple REST requests with _a single call_ to fetch the data you specify.
+GitHub chose GraphQL because it offers significantly more flexibility for our integrators. The ability to define precisely the data you want&mdash;and _only_ the data you want&mdash;is a powerful advantage over traditional REST API endpoints. GraphQL lets you replace multiple REST requests with _a single call_ to fetch the data you specify.
 
-For more details about why GitHub has moved to GraphQL, see the original [announcement blog post](https://githubengineering.com/the-github-graphql-api/).
+For more details about why GitHub invested in GraphQL, see the original [announcement blog post](https://github.blog/2016-09-14-the-github-graphql-api/).
 
-### About the GraphQL schema reference
+## About the GraphQL schema reference
 
 The docs in the sidebar are generated from the {% data variables.product.prodname_dotcom %} GraphQL [schema](/graphql/guides/introduction-to-graphql#discovering-the-graphql-api). All calls are validated and executed against the schema. Use these docs to find out what data you can call:
 
@@ -51,6 +53,8 @@ You can access this same content via the [Explorer Docs sidebar](/graphql/guides
 
 For other information, such as authentication and rate limit details, check out the [guides](/graphql/guides).
 
-### Requesting support
+## Requesting support
 
 {% data reusables.support.help_resources %}
+
+If you observe unexpected failures, you can use [githubstatus.com](https://www.githubstatus.com/) or the [{% data variables.product.company_short %} status API](https://www.githubstatus.com/api) to check for incidents affecting the API.

@@ -1,1 +1,0 @@
-Te recomendamos que solo utilices los ejecutores auto-hospedados con los repositorios privados. Esto se debe a que tu repositorio podría ejecutar código peligroso en tu máquina de ejecutor auto-hospedado potencialmente al crear una solicitud de cambios que excluya el código en un flujo de trabajo.

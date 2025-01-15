@@ -1,1 +1,0 @@
-La tarea de revisión de código se encuentra disponible con {% data variables.product.prodname_team %}{% if currentVersion ver_gt "enterprise-server@2.19" %}, {% data variables.product.prodname_ghe_server %} 2.20+, {% endif %} y{% data variables.product.prodname_ghe_cloud %}. Para obtener más información, consulta la sección "[Productos de GitHub](/articles/githubs-products)".

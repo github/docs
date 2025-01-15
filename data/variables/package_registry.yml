@@ -1,0 +1,7 @@
+# sentence fragments
+package-settings-actions-access-menu: >-
+  {% ifversion ghes %}through the **Actions access** menu option{% else %}by using the **Add Repository** button under "Manage Actions access" in the package's settings{% endif %}
+package-settings-actions-access-role-dropdown: >-
+  the **Role** drop-down menu to select the default access level that you'd like the repository to have to your package.
+# packages registries limits
+limit_rubygems_max_metadata_size: '2 MB'

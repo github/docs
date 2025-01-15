@@ -1,1 +1,0 @@
-このワークフローは`node:10.18-jessie`コンテナ内で実行されるジョブを設定し、`ubuntu-latest` {% data variables.product.prodname_dotcom %}ホストランナーをコンテナ用のDockerホストとして使用します。 `node:10.18-jessie`コンテナに関する詳しい情報についてはDocker Hubの[nodeイメージ](https://hub.docker.com/_/node)を参照してください。

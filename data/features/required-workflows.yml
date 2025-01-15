@@ -1,0 +1,6 @@
+# Issue 8526
+# Required workflows
+versions:
+  fpt: '*'
+  ghec: '*'
+  ghes: '>=3.8'

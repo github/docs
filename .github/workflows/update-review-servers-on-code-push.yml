@@ -1,0 +1,67 @@
+# **What it does**: Triggers a repo dispatch event when pushing a code change to `main`
+# dispatches the latest SHA to both review server repos, `docs-staging-0` and `docs-staging-1`
+#
+# Note: We only dispatch on code changes to prevent unnecessary deployments since content changes
+# won't affect the review servers.
+#
+# **Why we have it**: Keeps the review servers up-to-date with the latest code changes
+# **Who does it impact**: Docs Content and Docs Engineering
+
+name: Update review servers on code push
+
+on:
+  push:
+    branches:
+      - main
+    paths:
+      - 'src/**'
+      - 'package.json'
+      - 'tsconfig.json'
+      - 'next.config.js'
+
+permissions:
+  contents: read
+
+jobs:
+  dispatch-sha:
+    if: github.repository == 'github/docs-internal'
+    runs-on: ubuntu-latest
+    strategy:
+      matrix:
+        target_repo: [docs-staging-0, docs-staging-1]
+
+    steps:
+      # Needed because we call a composite action (Slack alert)
+      - name: Checkout source repository
+        uses: actions/checkout@b4ffde65f46336ab88eb53be808477a3936bae11 # v4.1.1
+        with:
+          fetch-depth: 1 # Only need latest commit
+
+      - name: Determine commit SHA and dispatch condition
+        id: determine_repo
+        run: |
+          echo "commit_sha=${GITHUB_SHA}" >> $GITHUB_OUTPUT
+          # Since this workflow only runs when code changes occur (due to path filters),
+          # we can always set should_dispatch to true.
+          echo "should_dispatch=true" >> $GITHUB_OUTPUT
+
+      - name: Dispatch repository dispatch event to staging repos
+        if: steps.determine_repo.outputs.should_dispatch == 'true'
+        env:
+          REPO_DISPATCH_TOKEN: ${{ secrets.DOCS_BOT_PAT_WORKFLOW }}
+          TARGET_OWNER: github
+          TARGET_REPO: ${{ matrix.target_repo }}
+          EVENT_TYPE: update-sha
+          SHA: ${{ steps.determine_repo.outputs.commit_sha }}
+        run: |
+          curl -X POST \
+            -H "Accept: application/vnd.github.v3+json" \
+            -H "Authorization: token $REPO_DISPATCH_TOKEN" \
+            https://api.github.com/repos/$TARGET_OWNER/$TARGET_REPO/dispatches \
+            -d "{\"event_type\":\"$EVENT_TYPE\",\"client_payload\":{\"SHA\":\"$SHA\"}}"
+
+      - uses: ./.github/actions/slack-alert
+        if: ${{ failure() && github.event_name != 'workflow_dispatch' }}
+        with:
+          slack_channel_id: ${{ secrets.DOCS_ALERTS_SLACK_CHANNEL_ID }}
+          slack_token: ${{ secrets.SLACK_DOCS_BOT_TOKEN }}

@@ -1,1 +1,0 @@
-誰でも、自分の[GitHubアカウント設定ページ](https://github.com/settings/apps/authorizations)からGitHub Appの認可を取り消すことができます。 GitHub Appの認可を取り消しても、そのGitHub Appはアンインストールされません。 GitHub Appは、このwebhookを受信したら、トークンを取り返した人の代わりにAPIを呼ぶことを止めるようにプログラムしなければなりません。 取り消されたアクセストークンを使い続けると、GitHub Appは`401 Bad Credentials`エラーを受け取ることになります。

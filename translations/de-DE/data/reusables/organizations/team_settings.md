@@ -1,1 +1,0 @@
-1. Zuoberst auf der Teamseite klicke auf {% octicon "gear" aria-label="The Settings gear" %} **Settings** (Einstellungen). ![Registerkarte „Team settings" (Teameinstellungen)](/assets/images/help/teams/team-settings-button.png)

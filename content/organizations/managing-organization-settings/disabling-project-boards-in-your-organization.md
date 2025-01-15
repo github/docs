@@ -1,37 +1,61 @@
 ---
-title: Disabling project boards in your organization
-intro: Organization owners can turn off organization-wide project boards and repository project boards in an organization.
+title: 'Disabling {% ifversion projects-v2 %}projects{% else %}{% data variables.projects.projects_v1_boards %}{% endif %} in your organization'
+intro: 'Organization owners can turn off {% ifversion projects-v2 %}organization-wide {% data variables.projects.projects_v2 %}, organization-wide {% data variables.projects.projects_v1_boards %}, and repository-level {% data variables.projects.projects_v1_boards %}{% else %}organization-wide {% data variables.projects.projects_v1_boards %} and repository {% data variables.projects.projects_v1_boards %}{% endif %} in an organization.'
 redirect_from:
   - /github/managing-your-work-on-github/managing-project-boards/disabling-project-boards-in-your-organization
   - /articles/disabling-project-boards-in-your-organization
   - /github/managing-your-work-on-github/disabling-project-boards-in-your-organization
 versions:
-  free-pro-team: '*'
-  enterprise-server: '*'
-  github-ae: '*'
+  fpt: '*'
+  ghes: '*'
+  ghec: '*'
 topics:
   - Pull requests
+shortTitle: Disable projects
+allowTitleToDifferFromFilename: true
 ---
-After you disable organization-wide project boards, it won’t be possible to create new project boards at the organization level, and any existing organization-level project boards will become inaccessible at their previous URLs. Project boards in repositories in the organization are not affected.
+After you disable organization-wide projects, it won’t be possible to create new projects at the organization level, and any existing organization-level projects will become inaccessible at their previous URLs. {% ifversion projects-v2 and projects-v1 %}These settings apply to {% data variables.projects.projects_v2 %} and {% data variables.projects.projects_v1_boards %}.{% endif %}{% ifversion projects-v1 %} {% data variables.projects.projects_v1_boards_caps %} in repositories in the organization are not affected.{% endif %}
 
-After you disable repository project boards in an organization, it won't be possible to create new project boards in any repositories in the organization, and any existing project boards in repositories in the organization will become inaccessible at their previous URLs. Project boards at the organization level are not affected.
+{% ifversion projects-v1 %}
 
-When you disable project boards, you will no longer see project board information in timelines or [audit logs](/articles/reviewing-the-audit-log-for-your-organization/).
+After you disable repository-level {% data variables.projects.projects_v1_boards %} in an organization, it won't be possible to create new {% data variables.projects.projects_v1_boards %} in any repositories in the organization, and any existing {% data variables.projects.projects_v1_boards %} in repositories in the organization will become inaccessible at their previous URLs. {% data variables.projects.projects_v1_boards_caps %} at the organization level are not affected.
 
+When {% data variables.projects.projects_v1_boards %} are disabled, you will no longer see {% data variables.projects.projects_v1_board %} information in timelines or [audit logs](/organizations/keeping-your-organization-secure/managing-security-settings-for-your-organization/reviewing-the-audit-log-for-your-organization).
+
+{% endif %}
+
+## Disabling {% data variables.projects.projects_v2_and_v1 %} in your organization
 
 {% data reusables.profile.access_org %}
 {% data reusables.profile.org_settings %}
-4. Decide whether to disable organization-wide project boards, disable repository project boards in the organization, or both. Then, under "Projects":
-    - To disable organization-wide project boards, unselect **Enable projects for the organization**.
-    - To disable repository project boards in the organization, unselect **Enable projects for all repositories**.
-  ![Checkboxes to disable projects for an organization or for all of an organization's repositories](/assets/images/help/projects/disable-org-projects-checkbox.png)
-5. Click **Save**.
+1. In the "Code planning, and automation" section of the sidebar, click **{% octicon "table" aria-hidden="true" %} Projects**.
+1. Decide whether to disable {% data variables.projects.projects_v2_and_v1 %} in your organization. Then, under "Projects":
+    * To disable {% data variables.projects.projects_v2_and_v1 %}, deselect **Enable Projects for the organization**.
+    * To enable {% data variables.projects.projects_v2_and_v1 %} in the organization, select **Enable Projects for the organization**.
+1. Click **Save**.
 
-{% data reusables.organizations.disable_project_board_results %}
+If you decide to re-enable {% data variables.projects.projects_v2_and_v1 %}, any {% data variables.projects.projects_v2_and_v1 %} that were previously added will be available.
 
-### Further reading
+{% ifversion projects-v1 %}
 
-- "[About project boards](/articles/about-project-boards)"
-- "[Closing a project board](/articles/closing-a-project-board)"
-- "[Deleting a project board](/articles/deleting-a-project-board)"
-- "[Disabling project boards in a repository](/articles/disabling-project-boards-in-a-repository)"
+## Managing {% data variables.projects.projects_v1_boards %} in your organization's repositories
+
+You can control whether organization members can create {% data variables.projects.projects_v1_boards %} in repositories in your organization. You can still disable {% data variables.projects.projects_v1_boards %} in individual repositories. For more information, see [AUTOTITLE](/repositories/managing-your-repositorys-settings-and-features/enabling-features-for-your-repository/disabling-project-boards-in-a-repository).
+
+{% data reusables.profile.access_org %}
+{% data reusables.profile.org_settings %}
+1. In the "Code planning, and automation" section of the sidebar, click **{% octicon "table" aria-hidden="true" %} Projects**.
+1. Decide whether to allow members to create {% data variables.projects.projects_v1_boards %} in repositories in your organization. Then, under "Projects (classic) only":
+    * To enable {% data variables.projects.projects_v1_boards %} in repositories, select **Allow members to enable {% data variables.product.prodname_projects_v1_caps %} for all repositories**.
+    * To disable {% data variables.projects.projects_v1_boards %} in repositories, deselect **Allow members to enable {% data variables.product.prodname_projects_v1_caps %} for all repositories**.
+1. Click **Save**.
+
+{% endif %}
+
+## Further reading
+
+{% ifversion projects-v2 %}- [AUTOTITLE](/issues/planning-and-tracking-with-projects/learning-about-projects/about-projects){% endif %}
+{% ifversion projects-v1 %}* [AUTOTITLE](/issues/organizing-your-work-with-project-boards/managing-project-boards/about-project-boards)
+* [AUTOTITLE](/issues/organizing-your-work-with-project-boards/managing-project-boards/closing-a-project-board)
+* [AUTOTITLE](/issues/organizing-your-work-with-project-boards/managing-project-boards/deleting-a-project-board){% endif %}
+* [AUTOTITLE](/repositories/managing-your-repositorys-settings-and-features/enabling-features-for-your-repository/disabling-project-boards-in-a-repository)

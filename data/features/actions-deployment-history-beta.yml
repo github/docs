@@ -1,0 +1,6 @@
+# Reference: #10902
+# Beta release for deployment history dashboard "Drill deep into Deployments across Environments"
+versions:
+  fpt: '*'
+  ghec: '*'
+  ghes: '>= 3.11'

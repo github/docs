@@ -1,1 +1,0 @@
-1. 在“{% data variables.product.prodname_dotcom %} 用于操作和包的存储”下，查看您企业帐户中每个组织用于 {% data variables.product.prodname_actions %} 和 {% data variables.product.prodname_registry %} 的存储使用详情。 ![存储使用详情](/assets/images/help/billing/actions-packages-storage-enterprise.png)

@@ -1,0 +1,6 @@
+# Reference: #9228
+# Public beta for repository rulesets
+versions:
+  fpt: '*'
+  ghec: '*'
+  ghes: '>3.10'

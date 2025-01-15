@@ -1,1 +1,0 @@
-{% data variables.product.prodname_dotcom %} may contact {% data variables.product.prodname_sponsors %} applicants or participants for additional information regarding their sponsorship profile or activity to determine eligibility for sponsorship or matching, or as part of investigating potential terms violations.

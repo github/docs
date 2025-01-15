@@ -6,10 +6,10 @@ redirect_from:
   - /github/teaching-and-learning-with-github-education/using-github-at-your-educational-institution
   - /articles/using-github-at-your-educational-institution
 versions:
-  free-pro-team: '*'
+  fpt: '*'
 children:
   - /about-github-campus-program
-  - /about-campus-experts
-  - /about-campus-advisors
+  - /about-github-campus-experts
+  - /applying-to-be-a-github-campus-expert
+shortTitle: At your institution
 ---
-

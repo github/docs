@@ -5,23 +5,38 @@ name: Move and unlabel ready to merge PRs
 # **Who does it impact**: Open source contributors, open-source maintainers.
 
 on:
+  # Needed in lieu of `pull_request` so that the a PR from a fork can trigger the project board and label automation.
   pull_request_target:
     types:
       - labeled
 
+permissions:
+  contents: read
+  pull-requests: write
+
 jobs:
   unmark_for_review:
-    if: github.repository == 'github/docs' && github.event.label.name == 'ready to merge'
+    if: >-
+      ${{
+        github.repository == 'github/docs' &&
+        github.event.label.name == 'ready to merge'
+      }}
     runs-on: ubuntu-latest
     steps:
       - name: move PR
-        uses: alex-page/github-project-automation-plus@fdb7991b72040d611e1123d2b75ff10eda9372c9
+        uses: alex-page/github-project-automation-plus@303f24a24c67ce7adf565a07e96720faf126fe36
         with:
-          project: Docs team reviews
+          project: Docs open source board
           column: Triage
-          repo-token: ${{ secrets.DOCUBOT_FR_PROJECT_BOARD_WORKFLOWS_REPO_ORG_READ_SCOPES }}
+          repo-token: ${{ secrets.DOCS_BOT_PAT_WORKFLOW_READORG }}
+
+      - name: Check out repo
+        uses: actions/checkout@b4ffde65f46336ab88eb53be808477a3936bae11 # v4.1.1
+
+      - uses: ./.github/actions/node-npm-setup
+
       - name: remove label
-        uses: andymckay/labeler@22d5392de2b725cea4b284df5824125054049d84
+        uses: ./.github/actions/labeler
         with:
-          remove-labels: 'waiting for review'
-          repo-token: ${{ secrets.GITHUB_TOKEN }}
+          ignoreifAssigned: 'false'
+          removeLabels: 'waiting for review'

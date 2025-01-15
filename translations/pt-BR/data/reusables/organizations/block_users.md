@@ -1,1 +1,0 @@
-1. Na barra lateral Configurações da sua organização, clique **Blocked users** (Usuários bloqueados). ![Usuários bloqueados nas configurações da organização](/assets/images/help/organizations/org-settings-block-users.png)

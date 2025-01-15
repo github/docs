@@ -1,0 +1,6 @@
+# Issue 9102 and a Hubber-contribution PR /docs-internal/pull/36758
+# Documentation for single-use registration tokens and just-in-time runners
+versions:
+  fpt: '*'
+  ghec: '*'
+  ghes: '>=3.10'

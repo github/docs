@@ -1,0 +1,5 @@
+# Issue #11307
+# Documentation for custom organization roles can include repository permissions
+versions:
+  ghec: '*'
+  ghes: '>=3.15'

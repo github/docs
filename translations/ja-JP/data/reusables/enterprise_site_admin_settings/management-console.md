@@ -1,1 +1,0 @@
-1. 左のサイドバーで**{% data variables.enterprise.management_console %}**をクリックしてください。 ![左のサイドバーの{% data variables.enterprise.management_console %}タブ](/assets/images/enterprise/management-console/management-console-tab.png)

@@ -1,1 +1,0 @@
-ユーザをアイデンティティプロバイダに追加せずに認証したいなら、ビルトイン認証を設定できます。 詳細は「[使用中のアイデンティティプロバイダ外のユーザのためにビルトイン認証を許可する](/enterprise/{{ currentVersion }}/admin/guides/user-management/allowing-built-in-authentication-for-users-outside-your-identity-provider)」を参照してください。

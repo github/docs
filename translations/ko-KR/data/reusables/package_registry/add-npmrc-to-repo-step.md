@@ -1,1 +1,0 @@
-3. Add the *.npmrc* file to the repository where {% data variables.product.prodname_registry %} can find your project. For more information, see "[Adding a file to a repository using the command line](/github/managing-files-in-a-repository/adding-a-file-to-a-repository-using-the-command-line)."

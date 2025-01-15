@@ -1,1 +1,0 @@
-コードレビューの割り当ては、{% data variables.product.prodname_team %}、{% data variables.product.prodname_ghe_server %} 2.20+、{% if currentVersion == "github-ae@latest" %} {% data variables.product.prodname_ghe_managed %}、{% endif %}{% data variables.product.prodname_ghe_cloud %}で利用できます。 詳しい情報については「[GitHubの製品](/articles/githubs-products)」を参照してください。

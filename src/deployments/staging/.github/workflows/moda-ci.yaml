@@ -1,0 +1,95 @@
+name: docs-staging-{{x}} Moda CI
+
+# More info on CI actions setup can be found here:
+# https://github.com/github/ops/blob/master/docs/playbooks/build-systems/moving-moda-apps-from-bp-to-actions.md
+
+on:
+  workflow_dispatch:
+  push:
+    branches-ignore:
+      - 'gh-readonly-queue/**'
+  merge_group:
+    types: [checks_requested]
+
+jobs:
+  ##########################
+  # Add DOCS_BOT_PAT_READPUBLICKEY to vault-keys
+  ##########################
+  set-vault-keys:
+    runs-on: ubuntu-latest
+    outputs:
+      modified_vault_keys: ${{ steps.modify_vault_keys.outputs.modified }}
+    steps:
+      - name: Set vault-keys output
+        id: modify_vault_keys
+        run: |
+          if [ -z "${{ vars.VAULT_KEYS }}" ]; then
+            echo "modified=DOCS_BOT_PAT_READPUBLICKEY" >> $GITHUB_OUTPUT
+          else
+            echo "modified=${{ vars.VAULT_KEYS }},DOCS_BOT_PAT_READPUBLICKEY" >> $GITHUB_OUTPUT
+          fi
+
+  #############
+  # Moda jobs
+  #############
+  moda-config-bundle:
+    name: ${{ matrix.ci_job.job }}
+    needs: set-vault-keys
+    strategy:
+      fail-fast: false
+      matrix:
+        ci_job: [{ 'job': 'docs-staging-{{x}}-moda-config-bundle' }]
+    uses: github/internal-actions/.github/workflows/moda.yml@main
+    with:
+      ci-formatted-job-name: ${{ matrix.ci_job.job }}
+      vault-keys: ${{ needs.set-vault-keys.outputs.modified_vault_keys }}
+    secrets:
+      dx-bot-token: ${{ secrets.INTERNAL_ACTIONS_DX_BOT_ACCOUNT_TOKEN }}
+      datadog-api-key: ${{ secrets.DATADOG_API_KEY }}
+
+  #############
+  # Docker Image jobs
+  #############
+  docker-image:
+    name: ${{ matrix.ci_job.job }}
+    needs: set-vault-keys
+    strategy:
+      fail-fast: false
+      matrix:
+        ci_job: [{ 'job': 'docs-staging-{{x}}-docker-image' }]
+    uses: github/internal-actions/.github/workflows/kube.yml@main
+    with:
+      ci-formatted-job-name: ${{ matrix.ci_job.job }}
+      # Fetches the 'DOCS_BOT_PAT_READPUBLICKEY' secret from Vault to pass to the docker build environment as --secret id=DOCS_BOT_PAT_READPUBLICKEY,src=$(cat DOCS_BOT_PAT_READPUBLICKEY)
+      vault-keys: ${{ needs.set-vault-keys.outputs.modified_vault_keys }}
+      docker-build-env-secrets: 'DOCS_BOT_PAT_READPUBLICKEY'
+    secrets:
+      dx-bot-token: ${{ secrets.INTERNAL_ACTIONS_DX_BOT_ACCOUNT_TOKEN }}
+      datadog-api-key: ${{ secrets.DATADOG_API_KEY }}
+
+  #############
+  # Docker Security jobs
+  #############
+  docker-security:
+    name: ${{ matrix.ci_job.job }}
+    needs: set-vault-keys
+    strategy:
+      fail-fast: false
+      matrix:
+        ci_job: [{ 'job': 'docs-staging-{{x}}-docker-security' }]
+    uses: github/internal-actions/.github/workflows/docker_security.yml@main
+    with:
+      ci-formatted-job-name: ${{ matrix.ci_job.job }}
+      # Fetches the 'DOCS_BOT_PAT_READPUBLICKEY' secret from Vault to pass to the docker build environment as --secret id=DOCS_BOT_PAT_READPUBLICKEY,src=$(cat DOCS_BOT_PAT_READPUBLICKEY)
+      vault-keys: ${{ needs.set-vault-keys.outputs.modified_vault_keys }}
+      docker-build-env-secrets: 'DOCS_BOT_PAT_READPUBLICKEY'
+    secrets:
+      dx-bot-token: ${{ secrets.INTERNAL_ACTIONS_DX_BOT_ACCOUNT_TOKEN }}
+      datadog-api-key: ${{ secrets.DATADOG_API_KEY }}
+
+permissions:
+  actions: read
+  checks: read
+  contents: read
+  statuses: read
+  id-token: write

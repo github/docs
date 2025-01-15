@@ -1,4 +1,0 @@
-1. **Report to repository admins（リポジトリ管理者にレポート）**あるいは**Report abuse to {% data variables.product.prodname_dotcom %} Support（悪用を{% data variables.product.prodname_dotcom %} Supportにレポート）**という選択肢が表示されることがあります。 もし表示されなければ、次のステップに飛ばしてください。
-    - コンテンツを{% data variables.product.prodname_dotcom %} Supportにレポートするには、**Report abuse to {% data variables.product.prodname_dotcom %} Support（悪用を{% data variables.product.prodname_dotcom %} Supportにレポート）**をクリックしてください。
-    - コンテンツをリポジトリメンテナにレポートするには、 **Choose a reason（理由を選択）**ドロップダウンメニューを使って理由を選び、続いて**Report to repository admins（リポジトリ管理者にレポート）**をクリックしてください。 レポートは送信されました。 !["コンテンツをレポート" モーダル](/assets/images/help/repository/report-content-modal.png)
-2. "Report content（コンテンツをレポート）"フォームに記入して、**Send request（リクエストを送信）**をクリックしてください。 !["コンテンツをレポート" フォーム](/assets/images/help/repository/report-content-to-support-form.png)

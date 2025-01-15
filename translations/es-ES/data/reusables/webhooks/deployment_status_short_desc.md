@@ -1,1 +1,0 @@
-Se crea un despliegue. {% data reusables.webhooks.action_type_desc %} Para obtener más información, consulta la API de REST de "[estados de despliegue](/rest/reference/repos#list-deployment-statuses)".

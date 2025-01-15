@@ -1,21 +1,20 @@
 ---
 title: Using the GraphQL API for Discussions
-intro: 'Learn how to use the GitHub Discussions GraphQL API.'
+intro: 'Learn how to use the {% data variables.product.prodname_discussions %} GraphQL API.'
 versions:
-  free-pro-team: '*'
+  feature: discussions
+shortTitle: Use GraphQL for Discussions
 ---
 
-The {% data variables.product.prodname_discussions %} GraphQL API allows you to get, create, edit, and delete discussion posts. For more information about {% data variables.product.prodname_discussions %}, see "[‎About discussions](/discussions/collaborating-with-your-community-using-discussions/about-discussions)."
+The {% data variables.product.prodname_discussions %} GraphQL API allows you to get, create, edit, and delete discussion posts. For more information about {% data variables.product.prodname_discussions %}, see [AUTOTITLE](/discussions/collaborating-with-your-community-using-discussions/about-discussions).
 
-This API is available for authenticated users, OAuth Apps, and GitHub Apps. Access tokens require the `repo` scope for private repositories and the `public_repo` scope for public repositories. For more information, see "[Scopes for OAuth apps](/developers/apps/scopes-for-oauth-apps)."
-
-To use this API, you must include `GraphQL-Features: discussions_api` in the `HTTP` header.
+This API is available for authenticated users, {% data variables.product.prodname_oauth_apps %}, and GitHub Apps. Access tokens require the `repo` scope for private repositories and the `public_repo` scope for public repositories. For more information, see [AUTOTITLE](/apps/oauth-apps/building-oauth-apps/scopes-for-oauth-apps).
 
 ## Fields
 
 ### Repository.discussions
 
-List the discussions within a repository. If `categoryId` is specified, only results within that category will be returned.
+List the discussions within a repository. If `categoryId` is specified, only results within that category will be returned. {% ifversion answered-fields-for-discussions %}If `answered` is not specified, both answered and unanswered discussions will be returned.{% endif %}
 
 _Signature:_
 
@@ -26,6 +25,9 @@ discussions(
   first: Int,
   last: Int,
   categoryId: ID = null,
+  {%- ifversion answered-fields-for-discussions %}
+  answered: Boolean = null,
+  {%- endif %}
   orderBy: DiscussionOrder = {field: UPDATED_AT, direction: DESC}
 ) : Discussion
 ```
@@ -68,7 +70,7 @@ enum DiscussionOrderField {
 
 ### Repository.discussionCategories
 
-Return the available discussion categories defined within this repository. Each repository may have up to 10 categories. For more information about discussion categories, see "[About discussions](/discussions/collaborating-with-your-community-using-discussions/about-discussions#about-categories-and-formats-for-discussions)."
+Return the available discussion categories defined within this repository. Each repository may have up to 25 categories. For more information about discussion categories, see [AUTOTITLE](/discussions/collaborating-with-your-community-using-discussions/about-discussions#about-categories-and-formats-for-discussions).
 
 _Signature:_
 
@@ -108,7 +110,7 @@ pinnedDiscussions(
 
 ## Objects
 
-**Note:** For brevity, connection types are not expanded here. Each connection type mentioned in the schema follows the same pattern as other connections in the GraphQL API. For more information, see "[Introduction to GraphQL](/graphql/guides/introduction-to-graphql#connection)."
+**Note:** For brevity, connection types are not expanded here. Each connection type mentioned in the schema follows the same pattern as other connections in the GraphQL API. For more information, see [AUTOTITLE](/graphql/guides/introduction-to-graphql#connection).
 
 ```graphql
 query {
@@ -157,6 +159,13 @@ type Discussion implements Comment & Deletable & Lockable & Node & Reactable & R
   Reason that the conversation was locked.
   """
   activeLockReason: LockReason
+
+  {%- ifversion answered-fields-for-discussions %}
+  """
+  Check if this discussion has been answered
+  """
+  isAnswered: Boolean!
+  {%- endif %}
 
   """
   The comment chosen as this discussion's answer, if any.
@@ -1006,6 +1015,7 @@ Return type fields:
 * `discussion: Discussion` The discussion that was modified.
 
 ### deleteDiscussion
+
 Input fields:
 
 * `id: ID!` The node ID of the discussion to delete.
@@ -1081,4 +1091,4 @@ Return type fields:
 
 ## Search
 
-Discussion may be returned from the top-level `search` field. To search for discussion, specify `type` as `DISCUSSION`. The `SearchResultItemConnection` type has a `discussionCount` field to report the number of returned discussions, and the `Discussion` type is added to the `SearchResultItem` union. For more information, see "[Queries](/graphql/reference/queries#searchresultitemconnection)" and "[Searching discussions](/github/searching-for-information-on-github/searching-discussions)."
+Discussion may be returned from the top-level `search` field. To search for discussion, specify `type` as `DISCUSSION`. The `SearchResultItemConnection` type has a `discussionCount` field to report the number of returned discussions, and the `Discussion` type is added to the `SearchResultItem` union. For more information, see [AUTOTITLE](/graphql/reference/queries#searchresultitemconnection) and [AUTOTITLE](/search-github/searching-on-github/searching-discussions).

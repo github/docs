@@ -1,1 +1,1 @@
-`cpp`, `csharp`, `go`, `java`, `javascript`, and `python`
+{% ifversion codeql-language-identifiers-311 %}`c-cpp`, `csharp`, `go`, `java-kotlin`, `javascript-typescript`, `python`, `ruby`, and `swift`{% else %}`cpp`, `csharp`, `go`, `java`, `javascript`, `python`, `ruby`, and `swift`{% endif %}

@@ -1,1 +1,0 @@
-1. Under "{% data variables.product.prodname_insights %} License", click "Choose Files", then upload your {% data variables.product.prodname_enterprise %} license file. ![Choose Files button](/assets/images/help/insights/choose-files.png)

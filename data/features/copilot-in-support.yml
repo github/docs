@@ -1,0 +1,6 @@
+# 13300
+
+versions:
+  fpt: '*'
+  ghec: '*'
+  ghes: '*'

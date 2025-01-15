@@ -1,0 +1,6 @@
+# Issues 9692
+# Docs for closing discussions
+versions:
+  fpt: '*'
+  ghec: '*'
+  ghes: '>=3.9'

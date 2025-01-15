@@ -1,0 +1,6 @@
+# Issue 12447
+# Global navigation
+versions:
+  fpt: '*'
+  ghec: '*'
+  ghes: '>=3.12'

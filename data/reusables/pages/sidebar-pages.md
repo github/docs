@@ -1,4 +1,1 @@
-{% if currentVersion == "free-pro-team@latest" or currentVersion ver_gt "enterprise-server@3.1" %}
-1. In the left sidebar, click **Pages**.
-   ![Page tab in the left-hand sidebar](/assets/images/help/pages/pages-tab.png)
-{% endif %}
+1. In the "Code and automation" section of the sidebar, click **{% octicon "browser" aria-hidden="true" %} Pages**.

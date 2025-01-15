@@ -1,1 +1,0 @@
-1. In der linken Seitenleisten klicke auf **Repository labels** (Repository Kennzeichnungen). ![Registerkarte „Repository labels" (Repository Kennzeichnungen)](/assets/images/help/organizations/repo-labels-tab.png)

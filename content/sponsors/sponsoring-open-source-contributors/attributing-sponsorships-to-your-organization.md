@@ -4,21 +4,22 @@ intro: You can attribute the sponsorships paid by one of your organizations to a
 redirect_from:
   - /github/supporting-the-open-source-community-with-github-sponsors/attributing-sponsorships-to-your-organization
 versions:
-  free-pro-team: '*'
+  fpt: '*'
+  ghec: '*'
 permissions: People who are organization owners of both organizations can attribute one organization's sponsorships to another organization.
 type: how_to
 topics:
   - Open Source
   - Organizations
   - Sponsors profile
+shortTitle: Attribute sponsorships
 ---
 
 1. Navigate to the organization whose sponsorships you want to attribute to another organization.
-2. Under your organization name, click {% octicon "heart" aria-label="The heart icon" %} **Sponsoring**.
-  !["Sponsoring" tab](/assets/images/help/sponsors/sponsoring-tab.png)
-1. In the upper-right corner, click {% octicon "gear" aria-label="The gear icon" %} **Settings**.
-  !["Settings" button](/assets/images/help/sponsors/sponsoring-settings-button.png)
-1. Under "Link sponsorships to another account", use the drop-down menu, then click the organization you want this organization's sponsorships to be attributed to.
-  ![Drop-down menu to select account](/assets/images/help/sponsors/select-an-account-drop-down.png)
+{% data reusables.organizations.navigate-to-sponsoring %}
+1. In the sidebar, click **{% octicon "gear" aria-hidden="true" %} Settings**.
+
+   ![Screenshot of the sponsorship overview page for @octo-org. A sidebar tab, labeled "Settings," is outlined in dark orange.](/assets/images/help/sponsors/sponsoring-settings-tab.png)
+
+1. In the "Link sponsorships to another account" section, select the dropdown menu, then click the organization you want your organization's sponsorships to be attributed to.
 1. Click **Link account**.
-  !["Link account" button](/assets/images/help/sponsors/link-account-button.png)

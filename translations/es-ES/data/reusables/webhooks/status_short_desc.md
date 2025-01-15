@@ -1,1 +1,0 @@
-Cuando el estado de una confirmación de Git cambia. {% data reusables.webhooks.action_type_desc %} Para obtener más información, consulta la API de REST de "[estados](/rest/reference/repos#statuses)".

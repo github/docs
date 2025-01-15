@@ -1,0 +1,6 @@
+# Issue 10099
+# Keyboard shortcuts on boards
+versions:
+  fpt: '*'
+  ghec: '*'
+  ghes: '>=3.10'

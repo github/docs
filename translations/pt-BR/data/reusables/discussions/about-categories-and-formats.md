@@ -1,1 +1,0 @@
-Todas as discussões devem ser criadas em uma categoria e os administradores e mantenedores de repositório definem as categorias de um repositório. As categorias podem conter conversas abertas ou conversas com formato de pergunta/resposta.

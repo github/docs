@@ -1,1 +1,0 @@
-1. Klicke auf {% octicon "plus" aria-label="The plus icon" %} **Add** (Hinzufügen). ![Schaltfläche zum Hinzufügen einer zulässigen IP-Adresse](/assets/images/help/security/new-allowlist-entry-button.png)

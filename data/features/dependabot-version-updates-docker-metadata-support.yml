@@ -1,0 +1,5 @@
+# Reference: Issue #9966 - Dependabot supports release notes and changelogs for Docker images - [GA]
+versions:
+  fpt: '*'
+  ghec: '*'
+  ghes: '>=3.9'

@@ -1,0 +1,5 @@
+# Reference: #8973
+# Documentation for tweaks to the results of the team filter on the "Security risk" and "Security coverage" views
+versions:
+  ghec: '*'
+  ghes: '> 3.8'

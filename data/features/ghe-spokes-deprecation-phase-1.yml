@@ -1,0 +1,4 @@
+# Reference: releases#3055
+# Description: First batch of subcommands of ghe-spokes which have been replaced by ghe-spokesctl
+versions:
+  ghes: '>=3.9'

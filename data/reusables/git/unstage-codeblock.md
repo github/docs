@@ -1,1 +1,1 @@
-To unstage a file, use 'git reset HEAD <em>YOUR-FILE</em>'.
+To unstage a file, use 'git reset HEAD YOUR-FILE'.

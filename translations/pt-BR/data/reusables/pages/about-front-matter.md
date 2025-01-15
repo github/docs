@@ -1,1 +1,0 @@
-Para definir variáveis e metadados, como um título e layout, para uma página ou publicação no seu site, você pode adicionar a página inicial YAML na parte superior de qualquer arquivo Markdown ou HTML. Para obter mais informações, consulte "[Front Matter](https://jekyllrb.com/docs/front-matter/)" na documentação do Jekyll.

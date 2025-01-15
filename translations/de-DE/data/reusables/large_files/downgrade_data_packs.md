@@ -1,2 +1,0 @@
-1. Unter „Downgrade data plan" (Datenplan herabstufen) wähle die Anzahl Datenpakete auf welche Du herabstufen möchtest. ![Wähle die neu gewünschte Anzahl der Datenpakete](/assets/images/help/large_files/downgrade_number_of_data_packs.png)
-2. Um das Herabstufen zu beenden, klicke auf **Downgrade data plan** (Datenplan herabstufen). ![Herabstufen des Datenplans beenden](/assets/images/help/large_files/downgrade_data_plan.png)

@@ -1,0 +1,6 @@
+# Reference: #16090
+# Add versioning tag details to Dependabot docs
+versions:
+  fpt: '*'
+  ghec: '*'
+  ghes: '> 3.14'

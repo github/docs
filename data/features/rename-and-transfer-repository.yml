@@ -1,0 +1,6 @@
+# Issue #8916
+# Rename repositories while transferring them
+versions:
+  fpt: '*'
+  ghec: '*'
+  ghes: '>=3.9'

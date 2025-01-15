@@ -1,2 +1,1 @@
-1. Under "Enforcement preferences", select **Restrict email notifications to domain email**.
-  ![Checkbox to restrict email notifications to verified domain emails](/assets/images/help/organizations/restrict-email-notifications-to-domain.png)
+1. Under "Notification preferences", select **Restrict email notifications to only approved or verified domains**.

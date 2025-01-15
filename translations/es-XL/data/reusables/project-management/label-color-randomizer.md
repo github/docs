@@ -1,1 +1,0 @@
-1. De manera opcional, para personalizar el color de tu etiqueta, edita el número hexadecimal, o da clic en el botón de actualización para obtener otra selección aleatoria. ![Emite un nuevo color de etiqueta cuando actualiza](/assets/images/help/issues/issues-color-refresh.png)

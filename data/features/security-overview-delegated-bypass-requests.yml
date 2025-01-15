@@ -1,0 +1,5 @@
+# Reference: #15792
+# Documentation for the bypass requests page for delegated bypass at the org-level (security overview)
+versions:
+  ghec: '*'
+  ghes: '>3.15'

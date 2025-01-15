@@ -1,1 +1,0 @@
-2. 单击组织旁边的 **Settings（设置）** 。 ![设置按钮](/assets/images/help/organizations/settings-button.png)

@@ -1,1 +1,0 @@
-*Private* (Publicações privadas) são visíveis apenas para membros da equipe e proprietários de organizações, e as publicações *public* (publicações publicas) são visíveis para todos os membros da organização.

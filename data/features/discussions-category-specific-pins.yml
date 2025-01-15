@@ -1,0 +1,6 @@
+# Issues 8452
+# Category specific pins in Discussions
+versions:
+  fpt: '*'
+  ghec: '*'
+  ghes: '>=3.8'

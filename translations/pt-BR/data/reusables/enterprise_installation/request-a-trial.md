@@ -1,1 +1,0 @@
-Você pode solicitar uma versão de avaliação para avaliar {% data variables.product.prodname_ghe_server %}. Para obter mais informações, consulte "<a href="/articles/setting-up-a-trial-of-github-enterprise-server" class="dotcom-only">Configurar uma versão de avaliação do {% data variables.product.prodname_ghe_server %}</a>".

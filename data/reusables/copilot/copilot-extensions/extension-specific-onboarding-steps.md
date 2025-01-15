@@ -1,0 +1,1 @@
+1. After installing a {% data variables.product.prodname_copilot_extension_short %}, you need to complete the authentication and onboarding steps unique to that extension. Visit the extension's marketplace listing page or the developer's documentation to complete the necessary steps.

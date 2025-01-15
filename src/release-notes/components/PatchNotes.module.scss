@@ -1,0 +1,16 @@
+@import "@primer/css/support/variables/layout.scss";
+@import "@primer/css/support/mixins/layout.scss";
+@import "src/frame/stylesheets/breakpoint-xxl.scss";
+
+.aside {
+  @include breakpoint(md) {
+    width: 8rem;
+    height: calc(100vh - 105px);
+    top: 105px;
+  }
+
+  @include breakpoint-xxl {
+    height: calc(100vh - 65px);
+    top: 65px;
+  }
+}

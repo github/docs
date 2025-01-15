@@ -1,1 +1,0 @@
-1. Para minimizar o tempo de inatividade, faça uma lista de repositórios que você deseja exportar a partir da instância de origem. É possível adicionar vários repositórios a uma exportação de uma vez usando um arquivo de texto que lista a URL de cada repositório em uma linha separada.

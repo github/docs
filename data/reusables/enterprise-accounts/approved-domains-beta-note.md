@@ -1,9 +1,2 @@
-{% if currentVersion == "free-pro-team@latest" or currentVersion ver_gt "enterprise-server@3.1" %}
-
-{% note %}
-
-**Note**: Domain approval is currently in beta and subject to change.
-
-{% endnote %}
-
-{% endif %}
+> [!NOTE]
+> The ability to approve a domain not owned by your organization or enterprise is currently in {% data variables.release-phases.public_preview %} and subject to change.

@@ -1,1 +1,0 @@
-{% data variables.product.product_name %} 上的 {% data variables.product.prodname_actions %} 设计为在无法完全访问互联网的环境中工作。 默认情况下，工作流程不能使用直接来自 {% data variables.product.prodname_dotcom_the_website %} 和 [{% data variables.product.prodname_marketplace %}](https://github.com/marketplace?type=actions) 的操作。
