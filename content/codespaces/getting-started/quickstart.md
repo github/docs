@@ -71,7 +71,7 @@ Now that you've made a few changes, you can use the integrated terminal or the s
 
 1. To commit your staged changes, type a commit message describing the change you've made, then click **Commit**.
 
-   ![Screenshot of the "Source control" side bar. A commit message, with "Change haiku text and styles" entered, and the "Commit" button are highlighted with an orange outline.](/assets/images/help/codespaces/vscode-commit-button.png)
+   ![Screenshot of the "Source control" side bar. The commit message, "Change haiku text and styles," and the "Commit" button are outlined in orange.](/assets/images/help/codespaces/vscode-commit-button.png)
 
 1. Click **Publish Branch**.
 
@@ -96,7 +96,7 @@ When you connect to a codespace using the browser, or the {% data variables.prod
 
 1. In the search bar, type `fairyfloss` and click **Install**.
 
-   ![Screenshot of the "Extensions: Marketplace" side bar. "fairyfloss" is entered into the search box and, below it, the "fairyfloss" extension is displayed, with an "Install" button.](/assets/images/help/codespaces/add-extension.png)
+   ![Screenshot of "Extensions: Marketplace". The search box shows "fairyfloss." The results show the "fairyfloss" extension with an "Install" button.](/assets/images/help/codespaces/add-extension.png)
 
 1. Select the `fairyfloss` theme by selecting it from the list.
 

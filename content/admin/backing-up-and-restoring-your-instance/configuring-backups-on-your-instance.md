@@ -188,8 +188,6 @@ On an instance in a high-availability configuration, after you restore to new di
 
 To remediate after the restoration completes and before starting replication, you can tear down stale UUIDs using `ghe-repl-teardown`. If you need further assistance, visit {% data variables.contact.contact_ent_support %}.
 
-{% ifversion backup-utilities-progress %}
-
 ## Monitoring backup or restoration progress
 
 During a backup or restoration operation, you can use the `ghe-backup-progress` utility on your backup host to monitor the operation's progress. The utility prints the progress of each job sequentially.
@@ -207,5 +205,3 @@ Optionally, you can run the following command to print the current progress, the
 ```shell copy
 bin/ghe-backup-progress --once
 ```
-
-{% endif %}

@@ -146,7 +146,7 @@ You can add a predefined dev container configuration either while working in a c
 
 1. Click the definition you want to use.
 
-   ![Screenshot of the "Add Development Container Configuration Files" menu with the dropdown showing options such as "Alpine," "C# (.NET)," "C++," and "Debian."](/assets/images/help/codespaces/predefined-container-definitions-list.png)
+   ![Screenshot of the "Add Development Container Configuration Files" menu showing options such as "Alpine," "C# (.NET)," "C++," and "Debian."](/assets/images/help/codespaces/predefined-container-definitions-list.png)
 
 1. Follow the prompts to customize your definition.
 1. Click **OK**.
