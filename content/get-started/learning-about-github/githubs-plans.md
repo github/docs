@@ -1,13 +1,10 @@
 ---
-title: GitHub’s plans
-intro: 'An overview of {% data variables.product.prodname_dotcom %}''s pricing plans.'
+title: GitHub Pricing Plans
+intro: An overview of GitHub's pricing plans and features for individual, organization, and enterprise accounts.
 redirect_from:
-  - /articles/github-s-products
+  - /articles/githubs-products
   - /articles/githubs-plans
-  - /github/getting-started-with-github/githubs-plans
-  - /github/getting-started-with-github/learning-about-github/githubs-plans
-  - /get-started/learning-about-github/githubs-products
-  - /github/getting-started-with-github/githubs-products
+  - /get-started/githubs-products
 versions:
   fpt: '*'
   ghes: '*'
@@ -19,129 +16,105 @@ topics:
   - Desktop
   - Security
 ---
-## About {% data variables.product.prodname_dotcom %}'s plans
 
-{% data variables.product.prodname_dotcom %} offers free and paid plans for storing and collaborating on code. Some plans are available only to personal accounts, while other plans are available only to organization and enterprise accounts. For more information about accounts, see [AUTOTITLE](/get-started/learning-about-github/types-of-github-accounts).
+## About GitHub's Plans
 
-See costs and features for each plan at {% data variables.product.pricing_link %}. {% data reusables.products.product-roadmap %}
+GitHub offers free and paid plans tailored to individual, organization, and enterprise needs. Each plan provides varying levels of features for collaboration, security, and deployment.
 
-When you read {% data variables.product.prodname_docs %}, make sure to select the version that reflects your plan. For more information, see [AUTOTITLE](/get-started/using-github-docs/about-versions-of-github-docs).
+For a detailed comparison of pricing and features, visit [GitHub Pricing](https://github.com/pricing). To view the product roadmap, visit the [GitHub Roadmap](https://github.com/github/roadmap).
 
-## {% data variables.product.prodname_free_user %} for personal accounts
+When using the GitHub documentation, ensure you select the correct version for your plan. For more details, see [GitHub Documentation Versions](https://docs.github.com/en/get-started/using-github-docs/about-versions-of-github-docs).
 
-With {% data variables.product.prodname_free_team %} for personal accounts, you can work with unlimited collaborators on unlimited public repositories with a full feature set, and on unlimited private repositories with a limited feature set.
+---
 
-With {% data variables.product.prodname_free_user %}, your personal account includes:
-* {% data variables.product.prodname_gcf %}
-* {% data variables.product.prodname_dependabot_alerts %}
-* Deployment protection rules for public repositories
-* Two-factor authentication enforcement
-* 500 MB {% data variables.product.prodname_registry %} storage {% ifversion fpt or ghec %}
-* 120 {% data variables.product.prodname_github_codespaces %} core hours per month
-* 15 GB {% data variables.product.prodname_github_codespaces %} storage per month {% endif %}
-* {% data variables.product.prodname_actions %} features:
-  * 2,000 minutes per month
-  * Deployment protection rules for public repositories
-* GitHub Pages in public repositories
+## GitHub Free Plan (Personal Accounts)
 
-## {% data variables.product.prodname_pro %}
+The free plan includes all essential features for individual developers:
 
-In addition to the features available with {% data variables.product.prodname_free_user %} for personal accounts, {% data variables.product.prodname_pro %} includes:
-* {% data variables.contact.github_support %} via email
-* 3,000 {% data variables.product.prodname_actions %} minutes per month
-* 2 GB {% data variables.product.prodname_registry %} storage {% ifversion fpt or ghec %}
-* 180 {% data variables.product.prodname_github_codespaces %} core hours per month
-* 20 GB {% data variables.product.prodname_github_codespaces %} storage per month {% endif %}
-* Advanced tools and insights in private repositories:
-  * Required pull request reviewers
-  * Multiple pull request reviewers
-  * Protected branches
-  * Code owners
-  * Auto-linked references
-  * {% data variables.product.prodname_pages %}
+- Unlimited collaborators on public repositories.
+- Unlimited private repositories with limited features.
+- GitHub Actions: 2,000 minutes/month.
+- GitHub Codespaces: 120 core hours/month, 15 GB storage/month.
+- GitHub Packages: 500 MB storage.
+- Deployment protection rules for public repositories.
+- GitHub Pages (for public repositories).
+- Security features: Dependabot alerts, 2FA enforcement.
 
-    > [!NOTE]
-    > To publish a {% data variables.product.prodname_pages %} site privately, you need to have an organization account. Additionally, your organization must use {% data variables.product.prodname_ghe_cloud %}.
+---
 
-  * Wikis
-  * Repository insights graphs: Pulse, contributors, traffic, commits, code frequency, network, and forks
-    {% data reusables.repositories.repo-insights-commit-limit %}
+## GitHub Pro Plan
 
-## {% data variables.product.prodname_free_team %} for organizations
+The Pro plan is ideal for individual developers seeking additional features:
 
-With {% data variables.product.prodname_free_team %} for organizations, you can work with unlimited collaborators on unlimited public repositories with a full feature set, or unlimited private repositories with a limited feature set.
+- Email support from GitHub.
+- GitHub Actions: 3,000 minutes/month.
+- GitHub Codespaces: 180 core hours/month, 20 GB storage/month.
+- Advanced tools for private repositories:
+  - Required pull request reviewers.
+  - Multiple reviewers per pull request.
+  - Protected branches.
+  - Code owners.
+  - Repository insights (traffic, commits, etc.).
 
-In addition to the features available with {% data variables.product.prodname_free_user %} for personal accounts, {% data variables.product.prodname_free_team %} for organizations includes:
-* {% data variables.product.prodname_gcf %}{% ifversion team-discussions %}
-* Team discussions{% endif %}
-* Team access controls for managing groups
-* 2,000 {% data variables.product.prodname_actions %} minutes per month
-* 500 MB {% data variables.product.prodname_registry %} storage
+---
 
-## {% data variables.product.prodname_team %}
+## GitHub Free Plan (Organizations)
 
-In addition to the features available with {% data variables.product.prodname_free_team %} for organizations, {% data variables.product.prodname_team %} includes:
-* {% data variables.contact.github_support %} via email
-* 3,000 {% data variables.product.prodname_actions %} minutes per month
-* 2 GB {% data variables.product.prodname_registry %} storage
-* Advanced tools and insights in private repositories:
-  * Required pull request reviewers
-  * Multiple pull request reviewers
-  * Draft pull requests
-  * Team pull request reviewers
-  * Protected branches
-  * Code owners
-  * Scheduled reminders
-  * {% data variables.product.prodname_pages %}
+The free organization plan offers essential features for teams:
 
-    > [!NOTE]
-    > To publish a {% data variables.product.prodname_pages %} site privately, you need to have an organization account. Additionally, your organization must use {% data variables.product.prodname_ghe_cloud %}.
+- Unlimited collaborators on public repositories.
+- Private repositories with limited features.
+- GitHub Actions: 2,000 minutes/month.
+- GitHub Packages: 500 MB storage.
+- Team discussions and access controls for group management.
 
-  * Wikis
-  * Repository insights graphs: Pulse, contributors, traffic, commits, code frequency, network, and forks
-    {% data reusables.repositories.repo-insights-commit-limit %}
-{%- ifversion fpt or ghec %}
-* The option to enable or disable {% data variables.product.prodname_github_codespaces %}
-  * Organization owners can choose to enable or disable {% data variables.product.prodname_github_codespaces %} for the organization's private {% ifversion ghec %}and internal {% endif %}repositories, and can pay for the usage of members and collaborators. For more information, see [AUTOTITLE](/codespaces/managing-codespaces-for-your-organization/enabling-or-disabling-github-codespaces-for-your-organization) and [AUTOTITLE](/codespaces/managing-codespaces-for-your-organization/choosing-who-owns-and-pays-for-codespaces-in-your-organization).
-{%- endif %}
+---
 
-{% data variables.product.company_short %} bills for {% data variables.product.prodname_team %} on a per-user basis. For more information, see [About per-user pricing]({% ifversion not fpt %}/free-pro-team@latest{% endif %}/billing/managing-the-plan-for-your-github-account/about-per-user-pricing){% ifversion fpt %}.{% else %} in the Free, Pro, & Team documentation.{% endif %}
+## GitHub Team Plan
 
-{% data reusables.actions.actions-billing %}
+The Team plan provides additional features for organizations:
 
-## {% data variables.product.prodname_enterprise %}
+- Email support from GitHub.
+- GitHub Actions: 3,000 minutes/month.
+- GitHub Packages: 2 GB storage.
+- Advanced repository tools:
+  - Team-based pull request reviewers.
+  - Scheduled reminders.
+  - Protected branches.
+  - Draft pull requests.
 
-{% data variables.product.prodname_enterprise %} includes two deployment options: {% data variables.product.prodname_ghe_cloud %}, which is hosted by {% data variables.product.company_short %} in the cloud, and {% data variables.product.prodname_ghe_server %}, which is self-hosted. For more information, see [About {% data variables.product.prodname_dotcom %} for enterprises]({% ifversion fpt %}/enterprise-cloud@latest{% endif %}/admin/overview/about-github-for-enterprises){% ifversion fpt %} in the {% data variables.product.prodname_ghe_cloud %} documentation.{% else %}.{% endif %}
+---
 
-In addition to the features available with {% data variables.product.prodname_team %}, {% data variables.product.prodname_enterprise %} includes:
+## GitHub Enterprise Plan
 
-* {% data variables.contact.enterprise_support %}
-* Additional security, compliance, and deployment controls
-* Authentication with SAML single sign-on
-* Access provisioning with SAML or SCIM
-* Deployment protection rules with {% data variables.product.prodname_actions %} for private or internal repositories
-* {% data variables.product.prodname_github_connect %}
-* The option to purchase {% data variables.product.prodname_GH_advanced_security %}. For more information, see [AUTOTITLE](/get-started/learning-about-github/about-github-advanced-security).
-* Additional features such as internal repositories{% ifversion repo-rules %}, security overview, and repository rules{% else %} and security overview{% endif %}.
+GitHub Enterprise offers advanced tools and customization options for organizations:
 
-{% data variables.product.prodname_ghe_cloud %} specifically includes:
-* 50,000 {% data variables.product.prodname_actions %} minutes per month
-  * Included minutes can be used with standard {% data variables.product.prodname_dotcom %}-hosted runners only. For more information about billing for {% data variables.actions.hosted_runners %}, see [AUTOTITLE](/enterprise-cloud@latest/actions/using-github-hosted-runners/about-larger-runners/about-larger-runners#understanding-billing).
-* 50 GB {% data variables.product.prodname_registry %} storage
-* A service level agreement for 99.9% monthly uptime
-* The option to centrally manage policy and billing for multiple {% data variables.product.prodname_dotcom %} organizations with an enterprise account. For more information, see [AUTOTITLE](/enterprise-cloud@latest/admin/managing-your-enterprise-account/about-enterprise-accounts).
+- Dedicated enterprise support.
+- Advanced security and compliance tools:
+  - SAML single sign-on.
+  - SCIM-based provisioning.
+  - Deployment protection for private repositories.
+- GitHub Advanced Security (optional add-on).
+- GitHub Actions: 50,000 minutes/month (standard runners).
+- GitHub Packages: 50 GB storage.
+- Region-specific data hosting and custom subdomains.
 
-  * If you upgrade an existing organization to {% data variables.product.prodname_ghe_cloud %}, your enterprise account will contain your organization. For more information, see [AUTOTITLE]({% ifversion fpt or ghes %}/enterprise-cloud@latest{% endif %}/billing/managing-the-plan-for-your-github-account/upgrading-your-accounts-plan#upgrading-your-organizations-plan) and [AUTOTITLE]({% ifversion fpt or ghes %}/enterprise-cloud@latest{% endif %}/admin/managing-your-enterprise-account/creating-an-enterprise-account#about-enterprise-account-creation){% ifversion fpt or ghes %} in the {% data variables.product.prodname_ghe_cloud %} documentation.{% else %}.{% endif %}
-* The option to provision and manage the user accounts for your developers, by using {% data variables.product.prodname_emus %}. For more information, see [AUTOTITLE](/enterprise-cloud@latest/admin/identity-and-access-management/understanding-iam-for-enterprises/about-enterprise-managed-users).
-* Additional features such as audit log streaming and IP allow list. For more information, see [AUTOTITLE]({% ifversion fpt and ghes %}/enterprise-cloud@latest{% endif %}/admin/monitoring-activity-in-your-enterprise/reviewing-audit-logs-for-your-enterprise/streaming-the-audit-log-for-your-enterprise) and [AUTOTITLE](/enterprise-cloud@latest/admin/configuration/hardening-security-for-your-enterprise/restricting-network-traffic-to-your-enterprise-with-an-ip-allow-list){% ifversion fpt or ghes %} in the {% data variables.product.prodname_ghe_cloud %} documentation.{% else %}.{% endif %}
-* The option to host your company's data in a specific region, on a unique subdomain
+Enterprise deployment options include:
+1. **GitHub Enterprise Cloud**: Hosted by GitHub.
+2. **GitHub Enterprise Server**: Self-hosted.
 
-For a detailed list of the features available with {% data variables.product.prodname_enterprise %}, see our [Pricing](https://github.com/pricing) page.
+For a detailed feature list, visit [GitHub Enterprise Pricing](https://github.com/pricing).
 
-To see how {% data variables.product.product_name %} compares to GitLab, Bitbucket, and Jenkins, see [Comparing GitHub to other DevOps solutions](https://resources.github.com/devops/tools/compare/).
+---
 
-You can set up trials to evaluate {% data variables.product.prodname_ghe_cloud %} and {% data variables.product.prodname_ghe_server %}. For more information, see [AUTOTITLE](/enterprise-cloud@latest/admin/overview/setting-up-a-trial-of-github-enterprise-cloud) and [AUTOTITLE](/enterprise-server@latest/admin/overview/setting-up-a-trial-of-github-enterprise-server).
+## Comparing GitHub to Other DevOps Tools
 
-## Further reading
+To see how GitHub stacks up against alternatives like GitLab, Bitbucket, and Jenkins, visit [GitHub DevOps Comparison](https://resources.github.com/devops/tools/compare/).
 
-* [About per-user pricing]({% ifversion not ghec %}/enterprise-cloud@latest{% endif %}/billing/managing-the-plan-for-your-github-account/about-per-user-pricing){% ifversion not ghec %} in the {% data variables.product.prodname_ghe_cloud %} documentation{% endif %}
+---
+
+## Further Reading
+
+- [GitHub Per-User Pricing](https://docs.github.com/en/billing/managing-the-plan-for-your-github-account/about-per-user-pricing)
+- [GitHub Actions Billing](https://docs.github.com/en/actions/learn-github-actions/usage-limits-billing-and-administration)
+- [GitHub Advanced Security](https://docs.github.com/en/get-started/learning-about-github/about-github-advanced-security)
