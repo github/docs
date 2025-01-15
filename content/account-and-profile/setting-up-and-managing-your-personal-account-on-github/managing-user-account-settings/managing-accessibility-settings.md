@@ -48,8 +48,6 @@ By default, all keyboard shortcuts are enabled on {% data variables.product.prod
    * To customize the keyboard shortcuts for triggering the command palette, under "Command palette", use the drop-down menus to choose a keyboard shortcut. For more information, see [AUTOTITLE](/get-started/accessibility/github-command-palette).
    {%- endif %}
 
-{% ifversion motion-management %}
-
 ## Managing motion
 
 You can control how {% data variables.product.product_name %} displays animated _.gif_ images.
@@ -61,5 +59,3 @@ By default, {% data variables.product.product_name %} syncs with your system-lev
 1. Under "Motion", manage settings for motion.
 
    * To control how {% data variables.product.product_name %} displays animated images, under "Autoplay animated images", select **Sync with system**, **Enabled**, or **Disabled**.
-
-{% endif %}
