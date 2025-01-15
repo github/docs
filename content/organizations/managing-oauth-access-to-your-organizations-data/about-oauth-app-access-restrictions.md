@@ -19,8 +19,7 @@ shortTitle: '{% data variables.product.prodname_oauth_app %} restrictions'
 
 {% data reusables.apps.oauth-app-access-restrictions %}
 
-{% ifversion limit-app-access-requests %}
-{% data reusables.organizations.restricted-app-access-requests %}{% endif %}
+{% data reusables.organizations.restricted-app-access-requests %}
 
 Even if you restrict {% data variables.product.prodname_oauth_apps %} access in your organization, users can still authorize internal {% data variables.product.prodname_oauth_apps %} apps and use them to access data from the organization. For more information, see [AUTOTITLE](/apps/oauth-apps/using-oauth-apps/internal-oauth-apps).
 

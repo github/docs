@@ -19,7 +19,7 @@ To perform any actions on {% data variables.product.product_name %}, such as cre
 
 Within an organization, you can assign roles at the organization, team, and repository level. For more information about the different levels of roles, see [AUTOTITLE](/organizations/managing-peoples-access-to-your-organization-with-roles/roles-in-an-organization).
 
-You can have more granular control over the permissions you grant at the repository level by creating up to {% ifversion authz-increased-custom-repo-roles %}five {% else %}three {% endif %} custom repository roles. {% data reusables.organizations.about-custom-repo-roles %} For more information, see [AUTOTITLE](/organizations/managing-user-access-to-your-organizations-repositories/managing-repository-roles/managing-custom-repository-roles-for-an-organization).
+You can have more granular control over the permissions you grant at the repository level by creating up to five custom repository roles. {% data reusables.organizations.about-custom-repo-roles %} For more information, see [AUTOTITLE](/organizations/managing-user-access-to-your-organizations-repositories/managing-repository-roles/managing-custom-repository-roles-for-an-organization).
 
 After you create a custom role, anyone with admin access to a repository can assign the role to an individual or team. For more information, see [AUTOTITLE](/organizations/managing-user-access-to-your-organizations-repositories/managing-repository-roles/managing-an-individuals-access-to-an-organization-repository) and [AUTOTITLE](/organizations/managing-user-access-to-your-organizations-repositories/managing-repository-roles/managing-team-access-to-an-organization-repository).
 

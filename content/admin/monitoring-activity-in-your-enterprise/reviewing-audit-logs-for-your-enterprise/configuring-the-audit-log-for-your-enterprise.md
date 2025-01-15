@@ -4,7 +4,7 @@ intro: You can configure settings for your enterprise's audit log.
 shortTitle: Configure audit logs
 permissions: Enterprise owners can configure the audit log.
 versions:
-  feature: audit-data-retention-tab
+  ghes: '*'
 type: how_to
 topics:
   - Auditing

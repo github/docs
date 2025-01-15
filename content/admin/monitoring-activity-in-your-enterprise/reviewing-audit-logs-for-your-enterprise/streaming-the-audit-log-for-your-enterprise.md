@@ -2,7 +2,7 @@
 title: Streaming the audit log for your enterprise
 intro: 'Learn how to stream audit and Git events data from {% data variables.product.prodname_dotcom %} to an external data management system.'
 versions:
-  feature: audit-log-streaming
+  ghes: '*'
   ghec: '*'
 type: tutorial
 topics:

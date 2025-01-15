@@ -35,7 +35,7 @@ For an overview of repository-level security, see [AUTOTITLE](/code-security/get
 1. Under {% ifversion code-security-wording-only %}"Code security"{% else %}"Code security and analysis"{% endif %}, to the right of the feature, click **Disable all** or **Enable all**.
 1. Optionally, enable the feature by default for new repositories that you own.{% ifversion not ghes %}
 
-   ![Screenshot of the "Enable FEATURE" modal dialog, with the "Enable by default for new private repositories" option highlighted with a dark orange outline.](/assets/images/help/settings/security-and-analysis-enable-by-default-in-modal.png){% endif %}
+   ![Screenshot of the "Enable FEATURE" modal dialog, with the "Enable by default for new private repositories" option outlined in dark orange.](/assets/images/help/settings/security-and-analysis-enable-by-default-in-modal.png){% endif %}
 
 1. Click **Disable FEATURE** or **Enable FEATURE** to disable or enable the feature for all the repositories you own.
 
