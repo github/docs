@@ -21,7 +21,7 @@ You can search for issues and pull requests globally across all of {% data varia
 > * This article contains example searches on the {% data variables.product.prodname_dotcom %}.com website, but you can use the same search filters on {% data variables.location.product_location %}.
 {% endif %}
 {% ifversion issues-advanced-search %}
-> * If your organization has opted-in to the {% data variables.release-phases.public_preview %} of advanced issue search, you can use boolean and nested queries on your repository's issues page. See [AUTOTITLE](/issues/tracking-your-work-with-issues/using-issues/filtering-and-searching-issues-and-pull-requests#building-advanced-filters-for-issues).
+> * You can build advanced filters using boolean and nested queries on your repository's issues page. See [AUTOTITLE](/issues/tracking-your-work-with-issues/using-issues/filtering-and-searching-issues-and-pull-requests#building-advanced-filters-for-issues).
 {% endif %}
 > * For a list of search syntaxes that you can add to any search qualifier to further improve your results, see [AUTOTITLE](/search-github/getting-started-with-searching-on-github/understanding-the-search-syntax).
 > * Use quotations around multi-word search terms. For example, if you want to search for issues with the label "In progress," you'd search for `label:"in progress"`. Search is not case sensitive.

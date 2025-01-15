@@ -14,7 +14,6 @@ jobs:
 
 {% endraw %}
 
-{% ifversion actions-inherit-secrets-reusable-workflows %}
 Workflows that call reusable workflows in the same organization or enterprise can use the `inherit` keyword to implicitly pass the secrets.
 
 {% raw %}
@@ -29,5 +28,3 @@ jobs:
 ```
 
 {% endraw %}
-
-{% endif %}

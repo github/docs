@@ -91,9 +91,7 @@ The default permissions can also be configured in the organization settings. If 
 
 ### Configuring the default `GITHUB_TOKEN` permissions
 
-{% ifversion actions-default-workflow-permissions-restrictive %}
 By default, when you create a new repository in your personal account, `GITHUB_TOKEN` only has read access for the `contents` and `packages` scopes. If you create a new repository in an organization, the setting is inherited from what is configured in the organization settings.
-{% endif %}
 
 {% data reusables.repositories.navigate-to-repo %}
 {% data reusables.repositories.sidebar-settings %}
@@ -101,22 +99,17 @@ By default, when you create a new repository in your personal account, `GITHUB_T
 {% data reusables.actions.workflows.github-token-access %}
 1. Click **Save** to apply the settings.
 
-{% ifversion allow-actions-to-approve-pr-with-ent-repo %}
-
 ### Preventing {% data variables.product.prodname_actions %} from creating or approving pull requests
 
 {% data reusables.actions.workflow-pr-approval-permissions-intro %}
 
-{% ifversion actions-default-workflow-permissions-restrictive %}
 By default, when you create a new repository in your personal account, workflows are not allowed to create or approve pull requests. If you create a new repository in an organization, the setting is inherited from what is configured in the organization settings.
-{% endif %}
 
 {% data reusables.repositories.navigate-to-repo %}
 {% data reusables.repositories.sidebar-settings %}
 {% data reusables.repositories.settings-sidebar-actions-general %}
 1. Under "Workflow permissions", use the **Allow GitHub Actions to create and approve pull requests** setting to configure whether `GITHUB_TOKEN` can create and approve pull requests.
 1. Click **Save** to apply the settings.
-{% endif %}
 
 {% ifversion ghes or ghec %}
 

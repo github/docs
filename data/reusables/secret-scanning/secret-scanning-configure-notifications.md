@@ -1,4 +1,4 @@
-When a new secret is detected, {% data variables.product.product_name %} notifies all users with access to security alerts for the repository according to their notification preferences. These users include:
+When a new secret is detected, {% data variables.product.github %} notifies all users with access to security alerts for the repository according to their notification preferences. These users include:
 * Repository administrators
 * Security managers
 * Users with custom roles with read/write access
