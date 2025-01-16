@@ -41,8 +41,8 @@ When you open the command palette, it shows your location at the top left and us
 ![Screenshot of the command palette. "octo-org" is highlighted with an orange outline.](/assets/images/help/command-palette/command-palette-launch.png)
 
 > [!NOTE]
-> * If you are editing Markdown text, open the command palette with <kbd>Ctrl</kbd>+<kbd>Alt</kbd>+<kbd>K</kbd> (Windows and Linux) or <kbd>Command</kbd>+<kbd>Option</kbd>+<kbd>K</kbd> (Mac).{% ifversion projects-v2 %}
-> * If you are working on a {% data variables.projects.project_v2 %}, a project-specific command palette is displayed instead. For more information, see [AUTOTITLE](/issues/planning-and-tracking-with-projects/customizing-views-in-your-project/changing-the-layout-of-a-view).{% endif %}
+> * If you are editing Markdown text, open the command palette with <kbd>Ctrl</kbd>+<kbd>Alt</kbd>+<kbd>K</kbd> (Windows and Linux) or <kbd>Command</kbd>+<kbd>Option</kbd>+<kbd>K</kbd> (Mac).
+> * If you are working on a {% data variables.projects.project_v2 %}, a project-specific command palette is displayed instead. For more information, see [AUTOTITLE](/issues/planning-and-tracking-with-projects/customizing-views-in-your-project/changing-the-layout-of-a-view).
 
 ### Customizing your {% data variables.product.prodname_command_palette %} keyboard shortcuts
 

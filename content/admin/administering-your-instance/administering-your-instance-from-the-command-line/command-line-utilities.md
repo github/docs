@@ -282,7 +282,7 @@ ghe-org-admin-promote -a
 
 ### ghe-reactivate-admin-login
 
-Use this command to immediately unlock the {% data variables.enterprise.management_console %} after {% ifversion enterprise-authentication-rate-limits %}an account lockout. To configure authentication policies for {% data variables.location.product_location %}, see [AUTOTITLE](/admin/configuration/configuring-your-enterprise/configuring-rate-limits#configuring-authentication-policy-rate-limits).{% else %}10 failed login attempts in the span of 10 minutes.{% endif %}
+Use this command to immediately unlock the {% data variables.enterprise.management_console %} after an account lockout. To configure authentication policies for {% data variables.location.product_location %}, see [AUTOTITLE](/admin/configuration/configuring-your-enterprise/configuring-rate-limits#configuring-authentication-policy-rate-limits).
 
 ```shell
 ghe-reactivate-admin-login
@@ -376,7 +376,7 @@ inactive
 
 ### ghe-set-password
 
-This utility allows you to set a new {% ifversion enterprise-management-console-multi-user-auth %}root site administrator {% endif %}password for authentication to the {% data variables.enterprise.management_console %}. For more information, see [AUTOTITLE](/admin/administering-your-instance/administering-your-instance-from-the-web-ui/managing-access-to-the-management-console).
+This utility allows you to set a new root site administrator password for authentication to the {% data variables.enterprise.management_console %}. For more information, see [AUTOTITLE](/admin/administering-your-instance/administering-your-instance-from-the-web-ui/managing-access-to-the-management-console).
 
 ```shell
 ghe-set-password
