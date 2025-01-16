@@ -50,7 +50,7 @@ At the time of writing, the default rust compiler version is 1.83.0 rustup is av
 ```yaml copy
       - name: Temporarily modify the rust toolchain version
         run: rustup override set nightly
-      - name: Ouput rust version for educational purposes
+      - name: Output rust version for educational purposes
         run: rustup --version
 ```
 
