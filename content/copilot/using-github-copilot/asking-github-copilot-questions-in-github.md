@@ -370,8 +370,6 @@ You can ask {% data variables.product.prodname_copilot_short %} to summarize a p
 
 ### Ask why a workflow has failed
 
-> [!NOTE]This feature is currently in {% data variables.release-phases.public_preview %} and subject to change.
-
 1. On {% data variables.product.github %}, navigate to a pull request in a repository.
 1. Scroll to the bottom of the page, then, next to one of the failing checks, click **Details**.
 

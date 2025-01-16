@@ -2,4 +2,3 @@
 * **Opt in to preview features:** If enabled, users can test new {% data variables.product.prodname_copilot_short %} features that are not yet generally available. Be aware that previews of features may have flaws, and the features may be changed or discontinued at any time. Current previews of {% data variables.product.prodname_copilot_short %} features include:
 
   * {% data variables.product.prodname_copilot_autocomplete_pr %}. See [AUTOTITLE](/copilot/using-github-copilot/using-copilot-text-completion).
-  * Asking {% data variables.product.prodname_copilot_short %} why a workflow has failed. See [AUTOTITLE](/copilot/using-github-copilot/asking-github-copilot-questions-in-githubcom#ask-why-a-workflow-has-failed).
