@@ -2,7 +2,9 @@
 title: Granting higher permissions to top contributors
 intro: Repository administrators can promote any community member to a moderator and maintainer.
 versions:
-  feature: discussions
+  fpt: '*'
+  ghes: '*'
+  ghec: '*'
 shortTitle: Grant higher permissions
 ---
 

@@ -2,7 +2,9 @@
 title: Finding your discussions
 intro: You can easily access every discussion you've created or participated in.
 versions:
-  feature: discussions
+  fpt: '*'
+  ghes: '*'
+  ghec: '*'
 shortTitle: Find discussions
 redirect_from:
   - /discussions/guides/finding-discussions-across-multiple-repositories

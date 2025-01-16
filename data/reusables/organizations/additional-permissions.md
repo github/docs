@@ -1,5 +1,3 @@
-{% ifversion discussions %}
-
 ### Discussions
 
 * Create a discussion category
@@ -10,7 +8,6 @@
 * Convert issues to discussions
 
 For more information, see [AUTOTITLE](/discussions).
-{% endif %}
 
 ### Issue and Pull Requests
 
