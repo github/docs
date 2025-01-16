@@ -5,21 +5,29 @@
 # --------------------------------------------------------------------------------
 # BASE IMAGE
 # --------------------------------------------------------------------------------
-# To update the sha, run `docker pull node:$VERSION-alpine`
-# look for something like: `Digest: sha256:0123456789abcdef`
-FROM node:22-alpine@sha256:c13b26e7e602ef2f1074aef304ce6e9b7dd284c419b35d89fcf3cc8e44a8def9 AS base
+# To update the sha:
+# https://github.com/github/gh-base-image/pkgs/container/gh-base-image%2Fgh-base-noble
+FROM ghcr.io/github/gh-base-image/gh-base-noble:20250108-185521-gcd4825276 AS base
+
+# Install git for cloning docs-early-access & translations repos
+# Install curl for determining the early access branch
+RUN apt-get -qq update && apt-get -qq install --no-install-recommends git curl
+
+# Install Node.js latest LTS
+# https://github.com/nodejs/release#release-schedule
+# Ubuntu's apt-get install nodejs is _very_ outdated
+RUN curl -sL https://deb.nodesource.com/setup_22.x | bash -
+RUN apt-get install -y nodejs
+RUN node --version
 
 # This directory is owned by the node user
+RUN useradd -ms /bin/bash node
 ARG APP_HOME=/home/node/app
 RUN mkdir -p $APP_HOME && chown -R node:node $APP_HOME
 WORKDIR $APP_HOME
 
 # Switch to root to ensure we have permissions to copy, chmod, and install
 USER root
-
-# Install git for cloning docs-early-access & translations repos
-# Install curl for determining the early access branch
-RUN apk add --no-cache git curl
 
 # Copy in build scripts
 COPY src/deployments/production/build-scripts/*.sh ./build-scripts/
@@ -39,12 +47,12 @@ COPY data ./data
 # We use --mount-type=secret to avoid the secret being copied into the image layers for security
 # The secret passed via --secret can only be used in this RUN command
 RUN --mount=type=secret,id=DOCS_BOT_PAT_READPUBLICKEY \
-    # We don't cache because Docker can't know if we need to fetch new content from remote repos
-    echo "Don't cache this step by printing date: $(date)" && \
-    . ./build-scripts/fetch-repos.sh
+  # We don't cache because Docker can't know if we need to fetch new content from remote repos
+  echo "Don't cache this step by printing date: $(date)" && \
+  . ./build-scripts/fetch-repos.sh
 
 # Give node user access to the copied content since we cloned as root
-RUN chown -R node:node $APP_HOME/content 
+RUN chown -R node:node $APP_HOME/content
 RUN chown -R node:node $APP_HOME/assets
 RUN chown -R node:node $APP_HOME/data
 # Give node user access to translations repos
@@ -105,7 +113,7 @@ RUN npm run precompute-pageinfo -- --max-versions 2
 RUN npm prune --production
 
 # --------------------------------------------------------------------------------
-# PRODUCTION IMAGE 
+# PRODUCTION IMAGE
 # --------------------------------------------------------------------------------
 FROM base AS production
 
@@ -140,7 +148,7 @@ COPY --chown=node:node --from=builder $APP_HOME/next.config.js ./
 COPY --chown=node:node --from=builder $APP_HOME/tsconfig.json ./
 
 # - - -
-# Environment variables are set in the Moda 
+# Environment variables are set in the Moda
 # configuration: config/moda/configuration/*/env.yaml
 # - - -
 

@@ -1,1 +1,1 @@
-The content in the `contributing` directory has been deprecated. See "[Style guide](https://docs.github.com/contributing/style-guide-and-content-model/style-guide)" in the GitHub Docs for the maintained version of this article.
+The content in the `contributing` directory has been deprecated. See [Style guide](https://docs.github.com/contributing/style-guide-and-content-model/style-guide) in the GitHub Docs for the maintained version of this article.

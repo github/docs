@@ -5,7 +5,7 @@ intro: 'You can force your {% data variables.product.product_name %} cluster to 
 product: '{% data reusables.gated-features.cluster %}'
 permissions: 'People with administrative SSH access to a {% data variables.product.product_name %} instance can rebalance cluster workloads on the instance.'
 versions:
-  feature: cluster-rebalancing
+  ghes: '*'
 type: how_to
 topics:
   - Clustering

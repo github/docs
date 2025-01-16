@@ -46,8 +46,6 @@ You can integrate Jira Cloud with your personal or organization account to scan 
 
 {% endif %}
 
-{% ifversion slack-and-team-integrations %}
-
 ## Team communication tools
 
 You can integrate your {% ifversion fpt or ghec %}personal{% elsif ghes %}user{% endif %} or organization account on {% data variables.location.product_location %} with third-party team communication tools, such as Slack or Microsoft Teams.
@@ -83,5 +81,3 @@ The {% data variables.product.prodname_dotcom %} for Teams app lets you subscrib
 You can also open and close issues, comment on your issues and pull requests, approve deployments, and see detailed references to issues and pull requests without leaving Microsoft Teams. The app will also ping you personally on Teams if you are mentioned as part of any {% data variables.product.prodname_dotcom %} notifications that you receive in your channels or personal chats.
 
 For more information, see the integration's [README](https://github.com/integrations/microsoft-teams/blob/master/Readme.md) in the `integrations/microsoft-teams` repository.
-
-{% endif %}

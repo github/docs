@@ -28,7 +28,7 @@ Environments are used to describe a general deployment target like `production`,
 
 You can configure environments with protection rules and secrets. When a workflow job references an environment, the job won't start until all of the environment's protection rules pass. A job also cannot access secrets that are defined in an environment until all the deployment protection rules pass.
 
-{% ifversion actions-break-glass %}Optionally, you can bypass an environment's protection rules and force all pending jobs referencing the environment to proceed. For more information, see [AUTOTITLE](/actions/managing-workflow-runs/reviewing-deployments#bypassing-environment-protection-rules).{% endif %}
+Optionally, you can bypass an environment's protection rules and force all pending jobs referencing the environment to proceed. For more information, see [AUTOTITLE](/actions/managing-workflow-runs/reviewing-deployments#bypassing-environment-protection-rules).
 
 {% ifversion fpt %}
 
@@ -41,13 +41,11 @@ You can configure environments with protection rules and secrets. When a workflo
 
 ## Deployment protection rules
 
-Deployment protection rules require specific conditions to pass before a job referencing the environment can proceed. You can use deployment protection rules to require a manual approval, delay a job, or restrict the environment to certain branches.{% ifversion actions-custom-deployment-protection-rules-beta %} You can also create and implement custom protection rules powered by {% data variables.product.prodname_github_apps %} to use third-party systems to control deployments referencing environments configured on {% data variables.product.github %}.
+Deployment protection rules require specific conditions to pass before a job referencing the environment can proceed. You can use deployment protection rules to require a manual approval, delay a job, or restrict the environment to certain branches. You can also create and implement custom protection rules powered by {% data variables.product.prodname_github_apps %} to use third-party systems to control deployments referencing environments configured on {% data variables.product.github %}.
 
 Third-party systems can be observability systems, change management systems, code quality systems, or other manual configurations that you use to assess readiness before deployments are safely rolled out to environments.
 
 {% data reusables.actions.custom-deployment-protection-rules-limits %}
-
-{% endif %}
 
 ### Required reviewers
 
@@ -66,7 +64,7 @@ For more information on reviewing jobs that reference an environment with requir
 
 ### Wait timer
 
-Use a wait timer to delay a job for a specific amount of time after the job is initially triggered. The time (in minutes) must be an integer between 1 and 43,200 (30 days).
+Use a wait timer to delay a job for a specific amount of time after the job is initially triggered. The time (in minutes) must be an integer between 1 and 43,200 (30 days). Wait time will not count towards your billable time.
 
 {% ifversion fpt %}
 
@@ -107,8 +105,6 @@ Use deployment branches{% ifversion deployment-protections-tag-patterns %} and t
 
 {% endif %}
 
-{% ifversion actions-break-glass %}
-
 ### Allow administrators to bypass configured protection rules
 
 By default, administrators can bypass the protection rules and force deployments to specific environments. For more information, see [AUTOTITLE](/actions/managing-workflow-runs/reviewing-deployments#bypassing-environment-protection-rules).
@@ -121,9 +117,6 @@ Alternatively, you can configure environments to disallow bypassing the protecti
 > Allowing administrators to bypass protection rules is only available for public repositories for users on {% data variables.product.prodname_free_user %}, {% data variables.product.prodname_pro %}, and {% data variables.product.prodname_team %} plans.
 
 {% endif %}
-{% endif %}
-
-{% ifversion actions-custom-deployment-protection-rules-beta %}
 
 ### Custom deployment protection rules
 
@@ -137,8 +130,6 @@ Once custom deployment protection rules have been created and installed on a rep
 
 > [!NOTE]
 > Custom deployment protection rules are only available for public repositories for users on {% data variables.product.prodname_free_user %}, {% data variables.product.prodname_pro %}, and {% data variables.product.prodname_team %} plans.
-
-{% endif %}
 
 {% endif %}
 
@@ -195,17 +186,13 @@ Variables stored in an environment are only available to workflow jobs that refe
    1. Select **Wait timer**.
    1. Enter the number of minutes to wait.
    1. Click **Save protection rules**.
-{%- ifversion actions-break-glass %}
 1. Optionally, disallow bypassing configured protection rules. For more information, see [Allow administrators to bypass configured protection rules](#allow-administrators-to-bypass-configured-protection-rules).
    1. Deselect **Allow administrators to bypass configured protection rules**.
    1. Click **Save protection rules**.
-{%- endif %}
-{%- ifversion actions-custom-deployment-protection-rules-beta %}
 1. Optionally, enable any custom deployment protection rules that have been created with {% data variables.product.prodname_github_apps %}. For more information, see [Custom deployment protection rules](#custom-deployment-protection-rules).
    1. Select the custom protection rule you want to enable.
    1. Click **Save protection rules**.
-{%- endif %}
-1. Optionally, specify what branches{% ifversion deployment-protections-tag-patterns %} and tags{% endif %} can deploy to this environment. For more information, see "[Deployment branches{% ifversion deployment-protections-tag-patterns %} and tags{% endif %}](/actions/deployment/targeting-different-environments/managing-environments-for-deployment#deployment-branches{% ifversion deployment-protections-tag-patterns %}-and-tags{% endif %})."
+1. Optionally, specify what branches{% ifversion deployment-protections-tag-patterns %} and tags{% endif %} can deploy to this environment. For more information, see [Deployment branches{% ifversion deployment-protections-tag-patterns %} and tags{% endif %}](/actions/deployment/targeting-different-environments/managing-environments-for-deployment#deployment-branches{% ifversion deployment-protections-tag-patterns %}-and-tags{% endif %}).
    1. Select the desired option in the **Deployment branches** dropdown.
    1. If you chose **Selected branches{% ifversion deployment-protections-tag-patterns %} and tags{% endif %}**, to add a new rule, click **Add deployment branch{% ifversion deployment-protections-tag-patterns %} or tag{% endif %} rule**
    {% ifversion deployment-protections-tag-patterns %}1. In the "Ref type" dropdown menu, depending on what rule you want to apply, click **{% octicon "git-branch" aria-hidden="true" %} Branch** or **{% octicon "tag" aria-hidden="true" %} Tag**.{% endif %}

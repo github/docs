@@ -52,7 +52,7 @@ Repository administrators can also enable rulesets. Rulesets can be used to requ
 {% data reusables.desktop.history-tab %}
 1. Right-click on the commit you would like to create a new branch from and select **Create Branch from Commit**.
 
-   ![Screenshot of a list of commits in the "History" tab. Next to a commit, in a context menu, the cursor hovers over the "Create Branch from Commit" option.](/assets/images/help/desktop/create-branch-from-commit-context-menu.png)
+   ![Screenshot of a list of commits in the "History" tab. Next to a commit, the cursor hovers the "Create Branch from Commit" option in a context menu.](/assets/images/help/desktop/create-branch-from-commit-context-menu.png)
 
 {% data reusables.desktop.name-branch %}
 {% data reusables.desktop.confirm-new-branch-button %}

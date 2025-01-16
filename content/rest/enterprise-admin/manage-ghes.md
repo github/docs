@@ -32,8 +32,6 @@ To authenticate requests to endpoints for the Manage {% data variables.product.p
 curl -L -u "api_key:ROOT-SITE-ADMINISTRATOR-PASSWORD" 'http(s)://HOSTNAME:ADMINISTRATION-PORT/manage'
 ```
 
-{% ifversion enterprise-management-console-multi-user-auth %}
-
 ### Authentication as a {% data variables.enterprise.management_console %} user
 
 {% data variables.enterprise.management_console %} user accounts can also authenticate to access these endpoints. For more information, see [AUTOTITLE](/admin/configuration/administering-your-instance-from-the-management-console/managing-access-to-the-management-console#management-console-user).
@@ -43,8 +41,6 @@ To authenticate with the password for a {% data variables.enterprise.management_
 ```shell
 curl -L -u "YOUR_USER_NAME:YOUR_PASSWORD" 'http(s)://HOSTNAME:ADMINISTRATION-PORT/manage'
 ```
-
-{% endif %}
 
 ### Query parameters
 

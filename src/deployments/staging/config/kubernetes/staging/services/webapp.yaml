@@ -1,0 +1,18 @@
+apiVersion: v1
+kind: Service
+metadata:
+  name: webapp
+  labels:
+    service: webapp
+  annotations:
+    moda.github.net/domain-name: '{{server_domain_name}}'
+    moda.github.net/load-balancer-type: '{{load_balancer_type}}'
+spec:
+  ports:
+    - name: http
+      port: 4000
+      protocol: TCP
+      targetPort: http
+  selector:
+    app: webapp
+  type: LoadBalancer

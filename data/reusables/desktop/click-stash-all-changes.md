@@ -1,3 +1,3 @@
 1. Click **Stash All Changes**.
 
-   ![Screenshot of the "Changes" tab. The header bar, labeled "1 changed file", is outlined in orange. In a context menu, the cursor hovers over "Stash All Changes".](/assets/images/help/desktop/mac-stash-all-changes.png)
+   ![Screenshot of the "Changes" tab. The header shows "1 changed file" and is outlined in orange. "Stash All Changes" is highlighted in a context menu.](/assets/images/help/desktop/mac-stash-all-changes.png)

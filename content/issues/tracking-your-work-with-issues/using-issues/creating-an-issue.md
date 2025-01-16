@@ -97,8 +97,6 @@ You can open a new issue from a specific line or lines of code in a file or pull
 {% data reusables.repositories.assign-an-issue-as-project-maintainer %}
 {% data reusables.repositories.submit-new-issue %}
 
-{% ifversion discussions %}
-
 ## Creating an issue from discussion
 
 People with triage permission to a repository can create an issue from a discussion.
@@ -114,8 +112,6 @@ When you create an issue from a discussion, the contents of the discussion post 
 {% data reusables.repositories.type-issue-title-and-description %}
 {% data reusables.repositories.assign-an-issue-as-project-maintainer %}
 {% data reusables.repositories.submit-new-issue %}
-
-{% endif %}
 
 {% ifversion projects-v2-create-issue-modal %}
 

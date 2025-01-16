@@ -36,7 +36,7 @@ If you add a task list to the body of an issue, the list has added functionality
 * If a task requires further tracking or discussion, you can convert the task to an issue by hovering over the task and clicking {% octicon "issue-opened" aria-label="The issue opened icon" %} in the upper-right corner of the task. To add more details before creating the issue, you can use keyboard shortcuts to open the new issue form. For more information, see [AUTOTITLE](/get-started/accessibility/keyboard-shortcuts#issues-and-pull-requests).
 * Any issues referenced in the task list will specify that they are tracked in the referencing issue.
 
-![Screenshot of a {% data variables.product.prodname_dotcom %} issue showing a task list under the header "Features." Some items are checked as done, others unchecked as undone. Three list items link to other {% data variables.product.prodname_github_issues %}.](/assets/images/help/writing/task-list-rendered.png)
+![Screenshot of an issue showing a task list under the header "Features." Three list items link to other issues.](/assets/images/help/writing/task-list-rendered.png)
 
 {% endif %}
 
@@ -44,7 +44,7 @@ If you add a task list to the body of an issue, the list has added functionality
 
 {% data reusables.repositories.task-list-markdown %}
 
-> [!TIP]
+> [!NOTE]
 > You cannot create task list items within closed issues or issues with linked pull requests.
 
 ## Reordering tasks
@@ -61,13 +61,13 @@ You can reorder tasks across different lists in the same comment, but you cannot
 
 You can also convert tasks into issues. First, hover over one of the items in your task list and then click {% octicon "issue-opened" aria-label="Convert to issue" %}.
 
- {% ifversion fpt or ghec %} ![Screenshot of a {% data variables.product.prodname_dotcom %} issue showing two tasks. The"Convert to issue" icon is highlighted with an orange outline.](/assets/images/help/writing/convert-task-lists-into-issues.png){% endif %}
+ {% ifversion fpt or ghec %} ![Screenshot of an issue showing two tasks. The "Convert to issue" icon is highlighted with an orange outline.](/assets/images/help/writing/convert-task-lists-into-issues.png){% endif %}
 
 ## Navigating tracked issues
 
-Any issues that are referenced in a task list specify that they are tracked by the issue that contains the task list. To navigate to the tracking issue from the tracked issue, click on the tracking issue number in the **Tracked in** section next to the issue status.
+Any issues that are referenced in a task list specify that they are tracked by the issue that contains the task list. To navigate to the tracking issue from the tracked issue, click on the tracking issue number in the **Tracked by** section next to the issue status.
 
-![Screenshot of a {% data variables.product.prodname_dotcom %} issue named "Create relationships between issues" and numbered issue 3. A button below the issue title reading "Tracked by issue #2" is outlined in dark orange.](/assets/images/help/writing/task-list-tracked.png)
+![Screenshot of issue 3 showing the issue status of "Open" and the text "Tracked by issue #2", which is outlined in orange.](/assets/images/help/writing/task-list-tracked.png)
 
 {% endif %}
 

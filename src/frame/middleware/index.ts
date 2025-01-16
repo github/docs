@@ -29,8 +29,8 @@ import archivedEnterpriseVersionsAssets from '@/archives/middleware/archived-ent
 import api from './api'
 import healthz from './healthz'
 import manifestJson from './manifest-json'
-import remoteIP from './remote-ip'
 import buildInfo from './build-info'
+import reqHeaders from './req-headers'
 import archivedEnterpriseVersions from '@/archives/middleware/archived-enterprise-versions'
 import robots from './robots'
 import earlyAccessLinks from '@/early-access/middleware/early-access-links'
@@ -244,8 +244,8 @@ export default function (app: Express) {
 
   // *** Rendering, 2xx responses ***
   app.use('/api', api)
-  app.get('/_ip', remoteIP)
   app.get('/_build', buildInfo)
+  app.get('/_req-headers', reqHeaders)
   app.use(asyncMiddleware(manifestJson))
 
   // Things like `/api` sets their own Fastly surrogate keys.

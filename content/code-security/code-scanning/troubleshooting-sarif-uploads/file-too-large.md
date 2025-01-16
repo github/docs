@@ -40,8 +40,8 @@ There are many potential causes of very large SARIF results files.
 
 Take a look at the results file that was rejected by {% data variables.product.prodname_code_scanning %} to see if:
 
-* the SARIF file was compressed using gzip
-* the compressed file is smaller than 10 MB
+* The SARIF file was compressed using gzip
+* The compressed file is smaller than 10 MB
 
 If the file wasn't compressed using gzip, try compressing the file before rerunning the upload process. If the compressed file is still too large, you need to configure the analysis to generate a smaller set of results.
 

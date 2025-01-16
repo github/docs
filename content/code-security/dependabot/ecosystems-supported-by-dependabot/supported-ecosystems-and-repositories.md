@@ -34,7 +34,7 @@ You can configure updates for repositories that contain a dependency manifest or
 {% ifversion ghes %}
 
 > [!NOTE]
-> To ensure that {% data variables.product.product_name %} supports {% data variables.product.prodname_dependabot_updates %} for the latest supported ecosystem versions, your enterprise owner must download the most recent version of the [{% data variables.product.prodname_dependabot %} action](https://github.com/github/dependabot-action). {% data reusables.actions.action-bundled-actions %}
+> To ensure that {% data variables.product.prodname_ghe_server %} supports {% data variables.product.prodname_dependabot_updates %} for the latest supported ecosystem versions, your enterprise owner must download the most recent version of the [{% data variables.product.prodname_dependabot %} action](https://github.com/github/dependabot-action). {% data reusables.actions.action-bundled-actions %}
 {% endif %}
 
 > [!NOTE]

@@ -11,15 +11,11 @@ topics:
 
 {% data reusables.copilot.claude-sonnet-preview-note %}
 
-## {% data variables.copilot.copilot_claude_sonnet %} announcement and rollout
+## About {% data variables.copilot.copilot_claude_sonnet %} in {% data variables.product.prodname_copilot %}
 
-{% data variables.copilot.copilot_claude_sonnet %} availability in {% data variables.product.prodname_copilot %} was announced on October 29th at GitHub Universe 2024. Access to the model will roll out progressively over an estimated two-week period to all {% data variables.product.prodname_copilot_short %} plans. This new model will initially be available in {% data variables.product.prodname_copilot_chat_short %} for {% data variables.product.prodname_vscode %} and in immersive chat on the {% data variables.product.github %} website.
+{% data variables.copilot.copilot_claude_sonnet %} is a large language model that you can use as an alternative to the default model used by {% data variables.product.prodname_copilot_chat_short %}. {% data variables.copilot.copilot_claude_sonnet %} excels at coding tasks across the entire software development lifecycle, from initial design to bug fixes, maintenance to optimizations. Learn more about the [model's capabilities](https://www.anthropic.com/claude/sonnet) or read the [model card](https://assets.anthropic.com/m/61e7d27f8c8f5919/original/Claude-3-Model-Card.pdf).
 
-To know if you or your organization has access to enable {% data variables.copilot.copilot_claude_sonnet %}, you can check whether the policy is present at the bottom of [your personal {% data variables.product.prodname_copilot_short %} policy settings](https://github.com/settings/copilot). If you don't see a policy for **Anthropic {% data variables.copilot.copilot_claude_sonnet %} for {% data variables.product.prodname_copilot_short %}**, you have not yet received access via the rollout.
-
-## About {% data variables.copilot.copilot_claude_sonnet %} on GitHub
-
-{% data variables.copilot.copilot_claude_sonnet %} excels at coding tasks across the entire software development lifecycle, from initial design to bug fixes, maintenance to optimizations. Learn more about the [model's capabilities](https://www.anthropic.com/claude/sonnet) or read the [model card](https://assets.anthropic.com/m/61e7d27f8c8f5919/original/Claude-3-Model-Card.pdf).
+{% data variables.copilot.copilot_claude_sonnet %} is currently available in {% data variables.product.prodname_copilot_chat_short %} for {% data variables.product.prodname_vscode %} and {% data variables.product.prodname_vs %}, and in immersive chat on the {% data variables.product.github %} website.
 
 {% data variables.product.prodname_copilot %} uses {% data variables.copilot.copilot_claude_sonnet %} hosted on Amazon Web Services. When using {% data variables.copilot.copilot_claude_sonnet %}, prompts and metadata are sent to Amazon's Bedrock service, which makes the [following data commitments](https://docs.aws.amazon.com/bedrock/latest/userguide/data-protection.html): _Amazon Bedrock doesn't store or log your prompts and completions. Amazon Bedrock doesn't use your prompts and completions to train any AWS models and doesn't distribute them to third parties_.
 
@@ -33,7 +29,7 @@ You must enable access to {% data variables.copilot.copilot_claude_sonnet %} bef
 
 ### Setup for individual use
 
-If you have a {% data variables.product.prodname_copilot_pro_short %} subscription, you can enable {% data variables.copilot.copilot_claude_sonnet %} in two ways:
+If you have a {% data variables.product.prodname_copilot_free_short %} or {% data variables.product.prodname_copilot_pro_short %} subscription, you can enable {% data variables.copilot.copilot_claude_sonnet %} in two ways:
 
 * The first time you choose to use {% data variables.copilot.copilot_claude_sonnet %} with {% data variables.product.prodname_copilot_chat_short %} in {% data variables.product.prodname_vscode %}, or in the immersive view of {% data variables.product.prodname_copilot_chat_short %}, you will be prompted to allow access to the model.
 
@@ -53,3 +49,7 @@ For details of how to change the model for {% data variables.product.prodname_co
 
 * [AUTOTITLE](/copilot/using-github-copilot/asking-github-copilot-questions-in-githubcom#changing-your-ai-model)
 * [AUTOTITLE](/copilot/using-github-copilot/asking-github-copilot-questions-in-your-ide#changing-your-ai-model)
+
+## Leaving feedback
+
+To leave feedback about Claude 3.5 Sonnet in {% data variables.product.prodname_copilot %}, or to ask a question, see the {% data variables.product.prodname_github_community %} discussion [Claude 3.5 Sonnet is now available to all {% data variables.product.prodname_copilot_short %} users in Public Preview](https://github.com/orgs/community/discussions/143337).

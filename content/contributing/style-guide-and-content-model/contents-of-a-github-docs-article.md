@@ -77,13 +77,12 @@ Occasionally, it's relevant to mention required permissions in conceptual conten
 * Don't include permissions in an article’s intro.
 * Roles exist at different levels. Refer only to the role at the same level as the action. For example, you need admin access to a repository (repository-level role) to configure protected branches. You can get admin access to a repository by being an organization owner (organization-level role), but the repository-level role is what actually governs your ability to take the action, so that is the only role that should be mentioned in the permissions statement.
 * Language to use in a permissions statement:
+  * People with [ACCOUNT ROLE].
   * [ACCOUNT ROLE] can [ACTION].
   * People with [FEATURE ROLE] access for a [FEATURE] can [ACTION].
   * AVOID: [ACCOUNT ROLE] and people with [FEATURE ROLE] access for a [FEATURE] can [ACTION].
 
-### Examples of permissions statements
-
-* Article with single permissions statement for multiple procedures: [AUTOTITLE](/enterprise-cloud@latest/admin/policies/enforcing-policies-for-your-enterprise/enforcing-repository-management-policies-in-your-enterprise)
+See the [AUTOTITLE](/contributing/style-guide-and-content-model/style-guide#permission-statements-and-product-callouts) for more information on formatting permission statements.
 
 ## Product callout
 
@@ -94,10 +93,10 @@ All product callouts are stored as reusables in [`gated-features`](https://githu
 ### How to write a product callout
 
 * Product callouts follow a strict format, clearly identifying the feature and which products it’s available in.
-* Product callouts also include a link to "GitHub’s products” and occasionally to another relevant article.
+* Product callouts may include links to articles that directly help users understand who can use the feature. These links can be inline links to the specific products or GitHub plans that are required.
 * Examples:
-  * [Feature name] is available in [product(s)]. For more information, see "GitHub’s products.”
-  * [Feature name] is available in public repositories with [free product(s)], and in public and private repositories with [paid products]. For more information, see "GitHub’s products.”
+  * [Feature name] is available in [product(s)].
+  * [Feature name] is available in public repositories with [free product(s)], and in public and private repositories with [paid products].
 
 ### Examples of articles with product callouts
 
@@ -186,6 +185,6 @@ Format further reading sections using unordered lists. See [AUTOTITLE](/contribu
 
 ```markdown
 ## Further reading
-- "[Article title](article-URL)"
+- [Article title](article-URL)
 - [External resource title](external-resource-URL) in External Resource Name
 ```

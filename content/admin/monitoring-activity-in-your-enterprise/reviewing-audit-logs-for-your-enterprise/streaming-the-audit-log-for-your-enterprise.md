@@ -2,7 +2,7 @@
 title: Streaming the audit log for your enterprise
 intro: 'Learn how to stream audit and Git events data from {% data variables.product.prodname_dotcom %} to an external data management system.'
 versions:
-  feature: audit-log-streaming
+  ghes: '*'
   ghec: '*'
 type: tutorial
 topics:
@@ -318,8 +318,6 @@ To restart streaming, click **Resume stream**.
 {% ifversion audit-log-streaming-for-api %}
 
 ## Enabling audit log streaming of API requests
-
->[!NOTE] This feature is currently in {% data variables.release-phases.public_preview %} and subject to change.
 
 {% data reusables.enterprise-accounts.access-enterprise %}
 {% data reusables.enterprise-accounts.settings-tab %}

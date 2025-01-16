@@ -34,8 +34,6 @@ For more information about environments and required approvals, see [AUTOTITLE](
 
 {% endif %}
 
-{% ifversion actions-break-glass %}
-
 ## Bypassing deployment protection rules
 
 If you have configured deployment protection rules that control whether software can be deployed to an environment, you can bypass these rules and force all pending jobs referencing the environment to proceed.
@@ -50,4 +48,3 @@ If you have configured deployment protection rules that control whether software
 1. In the pop-up window, select the environments for which you want to bypass deployment protection rules.
 1. Under **Leave a comment**, enter a description for bypassing the deployment protection rules.
 1. Click **I understand the consequences, start deploying**.
-{% endif %}

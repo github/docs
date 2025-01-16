@@ -46,7 +46,7 @@ If you enable HTTPS for your {% data variables.product.prodname_pages %} site bu
 To remove your site's mixed content, make sure all your assets are served over HTTPS by changing `http://` to `https://` in your site's HTML.
 
 Assets are commonly found in the following locations:
-* If your site uses Jekyll, your HTML files will probably be found in the __layouts_ folder.
+* If your site uses Jekyll, your HTML files will probably be found in the `_layouts` folder.
 * CSS is usually found in the `<head>` section of your HTML file.
 * JavaScript is usually found in the `<head>` section or just before the closing `</body>` tag.
 * Images are often found in the `<body>` section.

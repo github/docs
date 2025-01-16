@@ -52,7 +52,7 @@ Templates maintained by {% data variables.product.company_short %}, including th
 {% data reusables.codespaces.view-all-templates-step %}
 1. Optionally, to view the template repository containing the files for a template, click the name of the template.
 
-   ![Screenshot of the "Explore quick start templates" section of the codespaces page. Three templates are listed, and the names of the templates are highlighted with orange outlines.](/assets/images/help/codespaces/react-template-name.png)
+   ![Screenshot of the "Explore quick start templates" section. Three templates are listed. The templates names are outlined in orange.](/assets/images/help/codespaces/react-template-name.png)
 
 1. Under the name of the template you want to launch, click **Use this template**.
 

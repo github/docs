@@ -1,6 +1,6 @@
 ---
 title: Viewing people's roles in an organization
-intro: 'You can view a list of the people in your organization and filter by their role. For more information on organization roles, see "[Roles in an organization](/organizations/managing-peoples-access-to-your-organization-with-roles/roles-in-an-organization)."'
+intro: 'You can view a list of the people in your organization and filter by their role. For more information on organization roles, see [Roles in an organization](/organizations/managing-peoples-access-to-your-organization-with-roles/roles-in-an-organization).'
 permissions: Organization members can see people's roles in the organization.
 redirect_from:
   - /articles/viewing-people-s-roles-in-an-organization
@@ -49,7 +49,7 @@ You can also view whether an enterprise owner has a specific role in the organiz
 | Enterprise owner | Organization owner | Able to configure organization settings and manage access to the organization's resources through teams, etc. |
 | Enterprise owner | Organization member | Able to access organization resources and content, such as repositories, without access to the organization's settings. |
 
-To review all roles in an organization, see [AUTOTITLE](/organizations/managing-peoples-access-to-your-organization-with-roles/roles-in-an-organization). {% ifversion custom-repository-roles %} An organization member can also have a custom role for a specific repository. For more information, see [AUTOTITLE](/organizations/managing-user-access-to-your-organizations-repositories/managing-repository-roles/managing-custom-repository-roles-for-an-organization).{% endif %}
+To review all roles in an organization, see [AUTOTITLE](/organizations/managing-peoples-access-to-your-organization-with-roles/roles-in-an-organization). {% ifversion ghec or ghes %} An organization member can also have a custom role for a specific repository. For more information, see [AUTOTITLE](/organizations/managing-user-access-to-your-organizations-repositories/managing-repository-roles/managing-custom-repository-roles-for-an-organization).{% endif %}
 
 For more information about the enterprise owner role, see [AUTOTITLE](/admin/managing-accounts-and-repositories/managing-users-in-your-enterprise/roles-in-an-enterprise#enterprise-owner).
 

@@ -3,7 +3,8 @@ title: Managing custom repository roles for an organization
 intro: 'Learn how to create, edit, or delete custom repository roles for your organization.'
 permissions: Organization owners.
 versions:
-  feature: custom-repository-roles
+  ghes: '*'
+  ghec: '*'
 topics:
   - Organizations
   - Teams

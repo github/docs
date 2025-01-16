@@ -25,7 +25,7 @@ shortTitle: Configure
 ![Screenshot of the "Features" section of a repository's settings, with the "Issues" setting ticked and the green "Set up templates" button visible.](/assets/images/help/repository/set-up-issue-templates-button.png)
 1. Use the **Add template** dropdown menu, and click on the type of template you'd like to create.
 
-   ![Screenshot of the "Add template" dropdown menu expanded to show the standard "Bug report" and "Feature request" templates. In addition, the "Custom template" is listed.](/assets/images/help/repository/add-template-drop-down-menu.png)
+   ![Screenshot of the "Add template" dropdown menu expanded to show standard templates, "Bug report" and "Feature request," with a "Custom template".](/assets/images/help/repository/add-template-drop-down-menu.png)
 1. To preview or edit the template before committing it to the repository, next to the template, click **Preview and edit**.
 1. To edit the template, click {% octicon "pencil" aria-label="Edit template" %}, and type in the fields to edit their contents.
 
@@ -35,8 +35,6 @@ shortTitle: Configure
 1. In the "Commit message" field, type a commit message describing your changes.
 1. Below the commit message fields, select whether to commit your template directly to the default branch, or to create a new branch and open a pull request. For more information about pull requests, see [AUTOTITLE](/pull-requests/collaborating-with-pull-requests/proposing-changes-to-your-work-with-pull-requests/about-pull-requests).
 1. Click **Commit changes**. Once these changes are merged into the default branch, the template will be available for contributors to use when they open new issues in the repository.
-
-{% ifversion issue-forms %}
 
 ## Creating issue forms
 
@@ -58,8 +56,6 @@ Here is the rendered version of the issue form.
 1. In your repository, create a file called `.github/ISSUE_TEMPLATE/FORM-NAME.yml`, replacing `FORM-NAME` with the name for your issue form. For more information about creating new files on GitHub, see [AUTOTITLE](/repositories/working-with-files/managing-files/creating-new-files).
 1. In the body of the new file, type the contents of your issue form. For more information, see [AUTOTITLE](/communities/using-templates-to-encourage-useful-issues-and-pull-requests/syntax-for-issue-forms).
 1. Commit your file to the default branch of your repository. For more information, see [AUTOTITLE](/repositories/working-with-files/managing-files/creating-new-files).
-
-{% endif %}
 
 ## Configuring the template chooser
 

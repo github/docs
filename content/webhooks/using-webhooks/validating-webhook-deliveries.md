@@ -57,12 +57,12 @@ There are a few important things to keep in mind when validating webhook payload
 
 You can use the following `secret` and `payload` values to verify that your implementation is correct:
 
-* `secret`: "It's a Secret to Everybody"
-* `payload`: "Hello, World!"
+* `secret`: `It's a Secret to Everybody`
+* `payload`: `Hello, World!`
 
 If your implementation is correct, the signatures that you generate should match the following signature values:
 
-* signature: `757107ea0eb2509fc211221cce984b8a37570b6d7586c22c46f4379c8b043e17`
+* signature: `757107ea0eb2509fc211221cce984b8a37570b6d7586c22c46f4379c8b043e17` <!-- markdownlint-disable-line GHD034 -->
 * X-Hub-Signature-256: `sha256=757107ea0eb2509fc211221cce984b8a37570b6d7586c22c46f4379c8b043e17`
 
 ### Examples
@@ -182,12 +182,12 @@ const webhooks = new Webhooks({
 const handleWebhook = async (req, res) => {
   const signature = req.headers["x-hub-signature-256"];
   const body = await req.text();
-  
+
   if (!(await webhooks.verify(body, signature))) {
     res.status(401).send("Unauthorized");
     return;
   }
-  
+
   // The rest of your logic here
 };
 ```

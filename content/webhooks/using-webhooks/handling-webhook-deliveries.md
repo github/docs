@@ -119,11 +119,11 @@ To use this example, you must install the sinatra gem in your Ruby project. For 
 Create a Ruby file with the following contents. Modify the code to handle the event types that your webhook is subscribed to, as well as the `ping` event that {% data variables.product.company_short %} sends when you create a webhook. This example handles the `issues` and `ping` events.
 
 ```ruby copy annotate
-# These are the dependencies for this code. You installed the `sinatra` gem earlier. For more information, see "[Ruby example: Install dependencies](#ruby-example-install-dependencies)." The `json` library is a standard Ruby library, so you don't need to install it.
+# These are the dependencies for this code. You installed the `sinatra` gem earlier. For more information, see [Ruby example: Install dependencies](#ruby-example-install-dependencies). The `json` library is a standard Ruby library, so you don't need to install it.
 require 'sinatra'
 require 'json'
 
-# The `/webhook` route matches the path that you specified for the smee.io forwarding. For more information, see "[Forward webhooks](#forward-webhooks)."
+# The `/webhook` route matches the path that you specified for the smee.io forwarding. For more information, see [Forward webhooks](#forward-webhooks).
 #
 # Once you deploy your code to a server and update your webhook URL, you should change this to match the path portion of the URL for your webhook.
 post '/webhook' do
@@ -142,7 +142,7 @@ post '/webhook' do
   # If any events have an `action` field, you should also add logic to handle each action that you are interested in.
   # For example, this code handles the `opened` and `closed` actions for the `issue` event.
   #
-  # For more information about the data that you can expect for each event type, see "[AUTOTITLE](/webhooks/webhook-events-and-payloads)."
+  # For more information about the data that you can expect for each event type, see [AUTOTITLE](/webhooks/webhook-events-and-payloads).
   if github_event == "issues"
     data = JSON.parse(request.body.read)
     action = data['action']
@@ -203,13 +203,13 @@ npm install express
 Create a JavaScript file with the following contents. Modify the code to handle the event types that your webhook is subscribed to, as well as the `ping` event that {% data variables.product.company_short %} sends when you create a webhook. This example handles the `issues` and `ping` events.
 
 ```javascript copy annotate
-// You installed the `express` library earlier. For more information, see "[JavaScript example: Install dependencies](#javascript-example-install-dependencies)."
+// You installed the `express` library earlier. For more information, see [JavaScript example: Install dependencies](#javascript-example-install-dependencies).
 const express = require('express');
 
 // This initializes a new Express application.
 const app = express();
 
-// This defines a POST route at the `/webhook` path. This path matches the path that you specified for the smee.io forwarding. For more information, see "[Forward webhooks](#forward-webhooks)."
+// This defines a POST route at the `/webhook` path. This path matches the path that you specified for the smee.io forwarding. For more information, see [Forward webhooks](#forward-webhooks).
 //
 // Once you deploy your code to a server and update your webhook URL, you should change this to match the path portion of the URL for your webhook.
 app.post('/webhook', express.json({type: 'application/json'}), (request, response) => {
@@ -227,7 +227,7 @@ app.post('/webhook', express.json({type: 'application/json'}), (request, respons
   // If any events have an `action` field, you should also add logic to handle each action that you are interested in.
   // For example, this code handles the `opened` and `closed` actions for the `issue` event.
   //
-  // For more information about the data that you can expect for each event type, see "[AUTOTITLE](/webhooks/webhook-events-and-payloads)."
+  // For more information about the data that you can expect for each event type, see [AUTOTITLE](/webhooks/webhook-events-and-payloads).
   if (githubEvent === 'issues') {
     const data = request.body;
     const action = data.action;
@@ -246,7 +246,7 @@ app.post('/webhook', express.json({type: 'application/json'}), (request, respons
 });
 
 // This defines the port where your server should listen.
-// 3000 matches the port that you specified for webhook forwarding. For more information, see "[Forward webhooks](#forward-webhooks)."
+// 3000 matches the port that you specified for webhook forwarding. For more information, see [Forward webhooks](#forward-webhooks).
 //
 // Once you deploy your code to a server, you should change this to match the port where your server is listening.
 const port = 3000;

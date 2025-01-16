@@ -14,9 +14,9 @@ redirect_from:
 
 When you're reading an article on {% data variables.product.prodname_docs %} and find a link to another article, you can open a hover card to get more information about the article. The hover card provides basic information about the article, so you can determine whether it will be useful to you without leaving the article you're reading.
 
-If you navigate {% data variables.product.prodname_docs %} with a mouse, the hover card is displayed when you hover the cursor over a link.
+If you navigate {% data variables.product.prodname_docs %} with a mouse, the hover card is displayed when you hover the cursor over a link. The card shows  the article's location, title, and introduction.
 
-![Screenshot of part of an article on {% data variables.product.prodname_docs %}. A cursor hovers over a link to an article called "Create a repo," and a hover card displays the article's location, title, and introduction.](/assets/images/help/docs/hover-card.png)
+![Screenshot of part of an article on {% data variables.product.prodname_docs %}. The cursor hovers over a link to an article and a hover card is shown.](/assets/images/help/docs/hover-card.png)
 
 ## Using hover cards with a keyboard
 

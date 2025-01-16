@@ -276,10 +276,6 @@ To avoid exceeding a rate limit, you should pause at least 1 second between muta
 
 You should also subscribe to webhook events instead of polling the API for data. For more information, see [AUTOTITLE](/webhooks).
 
-{% ifversion audit-log-streaming %}
-
 You can also stream the audit log in order to view API requests. This can help you troubleshoot integrations that are exceeding the rate limit. For more information, see [AUTOTITLE](/admin/monitoring-activity-in-your-enterprise/reviewing-audit-logs-for-your-enterprise/streaming-the-audit-log-for-your-enterprise).
-
-{% endif %}
 
 {% endif %}

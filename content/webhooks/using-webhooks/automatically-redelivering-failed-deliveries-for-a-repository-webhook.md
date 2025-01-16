@@ -83,7 +83,7 @@ jobs:
       # - Replace `YOUR_REPO_OWNER` with the owner of the repository where the webhook was created.
       # - Replace `YOUR_REPO_NAME` with the name of the repository where the webhook was created.
       # - Replace `YOUR_HOOK_ID` with the ID of the webhook.
-      # - Replace `YOUR_LAST_REDELIVERY_VARIABLE_NAME` with the name that you want to use for a configuration variable that will be stored in the repository where this workflow is stored. The name can be any string that contains only alphanumeric characters and `_`, and does not start with `GITHUB_` or a number. For more information, see "[AUTOTITLE](/actions/learn-github-actions/variables#defining-configuration-variables-for-multiple-workflows)."
+      # - Replace `YOUR_LAST_REDELIVERY_VARIABLE_NAME` with the name that you want to use for a configuration variable that will be stored in the repository where this workflow is stored. The name can be any string that contains only alphanumeric characters and `_`, and does not start with `GITHUB_` or a number. For more information, see [AUTOTITLE](/actions/learn-github-actions/variables#defining-configuration-variables-for-multiple-workflows).
       {% ifversion ghes %}# - Replace `YOUR_HOSTNAME` with the name of {% data variables.location.product_location %}.{% endif %}
       - name: Run script
         env:
@@ -106,7 +106,7 @@ This section demonstrates how you can write a script to find and redeliver faile
 Copy this script into a file called `.github/workflows/scripts/redeliver-failed-deliveries.js` in the same repository where you saved the {% data variables.product.prodname_actions %} workflow file above.
 
 ```javascript copy annotate
-// This script uses {% data variables.product.company_short %}'s Octokit SDK to make API requests. For more information, see "[AUTOTITLE](/rest/guides/scripting-with-the-rest-api-and-javascript)."
+// This script uses {% data variables.product.company_short %}'s Octokit SDK to make API requests. For more information, see [AUTOTITLE](/rest/guides/scripting-with-the-rest-api-and-javascript).
 const { Octokit } = require("octokit");
 
 //
@@ -215,7 +215,7 @@ async function checkAndRedeliverWebhooks() {
 }
 
 // This function will fetch all of the webhook deliveries that were delivered since `lastWebhookRedeliveryTime`.
-// It uses the `octokit.paginate.iterator()` method to iterate through paginated results. For more information, see "[AUTOTITLE](/rest/guides/scripting-with-the-rest-api-and-javascript#making-paginated-requests)."
+// It uses the `octokit.paginate.iterator()` method to iterate through paginated results. For more information, see [AUTOTITLE](/rest/guides/scripting-with-the-rest-api-and-javascript#making-paginated-requests).
 //
 // If a page of results includes deliveries that occurred before `lastWebhookRedeliveryTime`,
 // it will store only the deliveries that occurred after `lastWebhookRedeliveryTime` and then stop.
@@ -309,7 +309,7 @@ async function getVariable({ variableName, repoOwner, repoName, octokit }) {
   }
 }
 
-// This function will update a configuration variable (or create the variable if it doesn't already exist). For more information, see "[AUTOTITLE](/actions/learn-github-actions/variables#defining-configuration-variables-for-multiple-workflows)."
+// This function will update a configuration variable (or create the variable if it doesn't already exist). For more information, see [AUTOTITLE](/actions/learn-github-actions/variables#defining-configuration-variables-for-multiple-workflows).
 async function updateVariable({
   variableName,
   value,

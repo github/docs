@@ -3,7 +3,8 @@ title: Managing GitHub Advanced Security features for your enterprise
 intro: 'You can control {% data variables.product.prodname_GH_advanced_security %} features that secure and analyze code across all organizations owned by your enterprise.'
 permissions: 'Enterprise owners can manage {% data variables.product.prodname_advanced_security %} features for organizations in an enterprise.'
 versions:
-  feature: secret-scanning-enterprise-level
+  ghec: '*'
+  ghes: '*'
 type: how_to
 topics:
   - Alerts
@@ -31,7 +32,7 @@ To manage individual {% data variables.product.prodname_GH_advanced_security %} 
 
 {% endif %}
 
-{% ifversion secret-scanning-enterprise-level-api %}{% data reusables.secret-scanning.secret-scanning-enterprise-level-api %}{% endif %}
+{% data reusables.secret-scanning.secret-scanning-enterprise-level-api %}
 
 {% ifversion ghes %}For information about buying a license for {% data variables.product.prodname_GH_advanced_security %}, see [AUTOTITLE](/billing/managing-billing-for-your-products/managing-billing-for-github-advanced-security/about-billing-for-github-advanced-security).{% elsif ghec %}For information about buying a license for {% data variables.product.prodname_GH_advanced_security %}, see [AUTOTITLE](/billing/managing-billing-for-your-products/managing-billing-for-github-advanced-security/signing-up-for-github-advanced-security).{% endif %}
 
@@ -60,4 +61,4 @@ When you enable one or more security and analysis features for existing reposito
    > [!NOTE]
    > When a custom link is configured for an organization, the organization-level value overrides the custom link set for the enterprise. See [AUTOTITLE](/code-security/secret-scanning/protecting-pushes-with-secret-scanning).
 
-   ![Screenshot of the "Push protection" section of the settings for security and analysis features. The checkbox and the text field used for enabling a custom link are outlined in dark orange.](/assets/images/help/organizations/secret-scanning-custom-link.png){% endif %}
+   ![Screenshot of "Push protection" settings. The checkbox and text field used for enabling a custom link are outlined.](/assets/images/help/organizations/secret-scanning-custom-link.png){% endif %}

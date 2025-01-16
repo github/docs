@@ -34,7 +34,7 @@ Types of {% data variables.projects.projects_v1_boards %}:
 
 To create a {% data variables.projects.projects_v1_board %} for your organization, you must be an organization member. Organization owners and people with {% data variables.projects.projects_v1_board %} admin permissions can customize access to the {% data variables.projects.projects_v1_board %}.
 
-{% ifversion classic-project-visibility-permissions %}{% data reusables.projects.owners-can-limit-visibility-permissions %}{% endif %}
+{% data reusables.projects.owners-can-limit-visibility-permissions %}
 
 {% endif %}
 

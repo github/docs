@@ -10,6 +10,7 @@ redirect_from:
   - /articles/should-i-rename-usernamegithubcom-repositories-to-usernamegithubio
   - /articles/about-github-pages
   - /github/working-with-github-pages/about-github-pages
+  - /early-access/github/articles/managing-your-disabled-github-pages-site
 product: '{% data reusables.gated-features.pages %}'
 versions:
   fpt: '*'
@@ -28,7 +29,7 @@ You can host your site on {% data variables.product.prodname_dotcom %}'s `github
 {% endif %}
 
 {% ifversion fpt or ghec %}
-{% data reusables.pages.about-private-publishing %} For more information, see "[Changing the visibility of your {% data variables.product.prodname_pages %} site]({% ifversion fpt %}/enterprise-cloud@latest{% endif %}/pages/getting-started-with-github-pages/changing-the-visibility-of-your-github-pages-site){% ifversion fpt %}" in the {% data variables.product.prodname_ghe_cloud %} documentation.{% else %}."{% endif %}
+{% data reusables.pages.about-private-publishing %} For more information, see [Changing the visibility of your {% data variables.product.prodname_pages %} site]({% ifversion fpt %}/enterprise-cloud@latest{% endif %}/pages/getting-started-with-github-pages/changing-the-visibility-of-your-github-pages-site){% ifversion fpt %} in the {% data variables.product.prodname_ghe_cloud %} documentation.{% else %}.{% endif %}
 {% endif %}
 
 To get started, see [AUTOTITLE](/pages/getting-started-with-github-pages/creating-a-github-pages-site).
@@ -117,7 +118,7 @@ Using {% data variables.product.prodname_pages %} to create a copy of an existin
 
 {% data variables.product.prodname_pages %} sites are subject to the following usage limits:
 
-* {% data variables.product.prodname_pages %} source repositories have a recommended limit of 1 GB.{% ifversion fpt or ghec %} For more information, see [AUTOTITLE](/repositories/working-with-files/managing-large-files/about-large-files-on-github#file-and-repository-size-limitations){% endif %}
+* {% data variables.product.prodname_pages %} source repositories have a recommended limit of 1 GB.{% ifversion fpt or ghec %} For more information, see [AUTOTITLE](/repositories/working-with-files/managing-large-files/about-large-files-on-github#file-and-repository-size-limitations){% endif %}.
 * Published {% data variables.product.prodname_pages %} sites may be no larger than 1 GB.
 * {% data variables.product.prodname_pages %} deployments will timeout if they take longer than 10 minutes.
 {% ifversion fpt or ghec %}

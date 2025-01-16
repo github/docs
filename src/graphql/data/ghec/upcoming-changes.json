@@ -51,6 +51,38 @@
       "owner": "dewski"
     },
     {
+      "location": "Organization.announcementUserDismissible",
+      "description": "<p><code>announcementUserDismissible</code> will be removed. Use the <code>announcementBanner</code> object instead.</p>",
+      "reason": "<p>The individual <code>announcementX</code> fields do not follow our standard GraphQL patterns.</p>",
+      "date": "2025-04-01",
+      "criticality": "breaking",
+      "owner": "vaindil"
+    },
+    {
+      "location": "Organization.announcementExpiresAt",
+      "description": "<p><code>announcementExpiresAt</code> will be removed. Use the <code>announcementBanner</code> object instead.</p>",
+      "reason": "<p>The individual <code>announcementX</code> fields do not follow our standard GraphQL patterns.</p>",
+      "date": "2025-04-01",
+      "criticality": "breaking",
+      "owner": "vaindil"
+    },
+    {
+      "location": "Organization.announcementCreatedAt",
+      "description": "<p><code>announcementCreatedAt</code> will be removed. Use the <code>announcementBanner</code> object instead.</p>",
+      "reason": "<p>The individual <code>announcementX</code> fields do not follow our standard GraphQL patterns.</p>",
+      "date": "2025-04-01",
+      "criticality": "breaking",
+      "owner": "vaindil"
+    },
+    {
+      "location": "Organization.announcement",
+      "description": "<p><code>announcement</code> will be removed. Use the <code>announcementBanner</code> object instead.</p>",
+      "reason": "<p>The individual <code>announcementX</code> fields do not follow our standard GraphQL patterns.</p>",
+      "date": "2025-04-01",
+      "criticality": "breaking",
+      "owner": "vaindil"
+    },
+    {
       "location": "EnterpriseOwnerInfo.outsideCollaborators.hasTwoFactorEnabled",
       "description": "<p><code>hasTwoFactorEnabled</code> will be removed. Use <code>two_factor_method_security</code> instead.</p>",
       "reason": "<p><code>has_two_factor_enabled</code> will be removed.</p>",
@@ -73,6 +105,70 @@
       "date": "2025-04-01",
       "criticality": "breaking",
       "owner": "authentication"
+    },
+    {
+      "location": "Enterprise.announcementUserDismissible",
+      "description": "<p><code>announcementUserDismissible</code> will be removed. Use the <code>announcementBanner</code> object instead.</p>",
+      "reason": "<p>The individual <code>announcementX</code> fields do not follow our standard GraphQL patterns.</p>",
+      "date": "2025-04-01",
+      "criticality": "breaking",
+      "owner": "vaindil"
+    },
+    {
+      "location": "Enterprise.announcementExpiresAt",
+      "description": "<p><code>announcementExpiresAt</code> will be removed. Use the <code>announcementBanner</code> object instead.</p>",
+      "reason": "<p>The individual <code>announcementX</code> fields do not follow our standard GraphQL patterns.</p>",
+      "date": "2025-04-01",
+      "criticality": "breaking",
+      "owner": "vaindil"
+    },
+    {
+      "location": "Enterprise.announcementCreatedAt",
+      "description": "<p><code>announcementCreatedAt</code> will be removed. Use the <code>announcementBanner</code> object instead.</p>",
+      "reason": "<p>The individual <code>announcementX</code> fields do not follow our standard GraphQL patterns.</p>",
+      "date": "2025-04-01",
+      "criticality": "breaking",
+      "owner": "vaindil"
+    },
+    {
+      "location": "Enterprise.announcement",
+      "description": "<p><code>announcement</code> will be removed. Use the <code>announcementBanner</code> object instead.</p>",
+      "reason": "<p>The individual <code>announcementX</code> fields do not follow our standard GraphQL patterns.</p>",
+      "date": "2025-04-01",
+      "criticality": "breaking",
+      "owner": "vaindil"
+    },
+    {
+      "location": "AnnouncementBannerI.announcementUserDismissible",
+      "description": "<p><code>announcementUserDismissible</code> will be removed. Use the <code>announcementBanner</code> object instead.</p>",
+      "reason": "<p>The individual <code>announcementX</code> fields do not follow our standard GraphQL patterns.</p>",
+      "date": "2025-04-01",
+      "criticality": "breaking",
+      "owner": "vaindil"
+    },
+    {
+      "location": "AnnouncementBannerI.announcementExpiresAt",
+      "description": "<p><code>announcementExpiresAt</code> will be removed. Use the <code>announcementBanner</code> object instead.</p>",
+      "reason": "<p>The individual <code>announcementX</code> fields do not follow our standard GraphQL patterns.</p>",
+      "date": "2025-04-01",
+      "criticality": "breaking",
+      "owner": "vaindil"
+    },
+    {
+      "location": "AnnouncementBannerI.announcementCreatedAt",
+      "description": "<p><code>announcementCreatedAt</code> will be removed. Use the <code>announcementBanner</code> object instead.</p>",
+      "reason": "<p>The individual <code>announcementX</code> fields do not follow our standard GraphQL patterns.</p>",
+      "date": "2025-04-01",
+      "criticality": "breaking",
+      "owner": "vaindil"
+    },
+    {
+      "location": "AnnouncementBannerI.announcement",
+      "description": "<p><code>announcement</code> will be removed. Use the <code>announcementBanner</code> object instead.</p>",
+      "reason": "<p>The individual <code>announcementX</code> fields do not follow our standard GraphQL patterns.</p>",
+      "date": "2025-04-01",
+      "criticality": "breaking",
+      "owner": "vaindil"
     }
   ],
   "2025-01-01": [

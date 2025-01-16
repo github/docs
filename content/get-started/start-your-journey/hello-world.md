@@ -61,9 +61,9 @@ This diagram shows:
 
 * The `main` branch
 * A new branch called `feature`
-* The journey that `feature` takes before it's merged into `main`
+* The journey that `feature` takes through stages for "Commit changes," "Submit pull request," and "Discuss proposed changes" before it's merged into `main`
 
-![Diagram of the two branches. The "feature" branch diverges from the "main" branch, goes through stages for "Commit changes," "Submit pull request," and "Discuss proposed changes," and is then merged back into main.](/assets/images/help/repository/branching.png)
+![Diagram of the two branches. The "feature" branch diverges from the "main" branch and is then merged back into main.](/assets/images/help/repository/branching.png)
 
 ### Creating a branch
 

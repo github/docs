@@ -22,14 +22,10 @@ topics:
 
 {% data variables.product.product_name %} provides built-in collaborative communication tools allowing you to interact closely with your community. This quickstart guide will show you how to pick the right tool for your needs.
 
-{% ifversion discussions %}
-  {% ifversion team-discussions %}
-  You can create and participate in issues, pull requests, {% data variables.product.prodname_discussions %}, and team discussions, depending on the type of conversation you'd like to have.
-  {% else %}
-  You can create and participate in issues, pull requests, and {% data variables.product.prodname_discussions %}, depending on the type of conversation you'd like to have.
-  {% endif %}
+{% ifversion team-discussions %}
+You can create and participate in issues, pull requests, {% data variables.product.prodname_discussions %}, and team discussions, depending on the type of conversation you'd like to have.
 {% else %}
-You can create and participate in issues, pull requests and team discussions, depending on the type of conversation you'd like to have.
+You can create and participate in issues, pull requests, and team discussions, depending on the type of conversation you'd like to have.
 {% endif %}
 
 ### {% data variables.product.prodname_github_issues %}
@@ -109,8 +105,6 @@ The **Files changed** tab of the pull request shows the implemented fix.
 * The user creates a pull request with the fix.
 * A repository maintainer reviews the pull request, comments on it, and merges it.
 
-{% ifversion discussions %}
-
 ### Scenarios for {% data variables.product.prodname_discussions %}
 
 * I have a question that's not necessarily related to specific files in the repository.
@@ -126,7 +120,6 @@ This example shows the {% data variables.product.prodname_discussions %} welcome
 
 This community maintainer started a discussion to welcome the community, and to ask members to introduce themselves. This post fosters an inviting atmosphere for visitors and contributors. The post also clarifies that the team's happy to help with contributions to the repository.
 
-{% endif %}
 {% ifversion team-discussions %}
 
 ### Scenarios for team discussions
@@ -140,7 +133,7 @@ This community maintainer started a discussion to welcome the community, and to 
 
 This example shows a team post for the `octo-team` team.
 
-![Example of team discussion.](/assets/images/help/projects/team-discussions-example.png)
+![Screenshot of a team discussion that was created in a GitHub community repository.](/assets/images/help/projects/team-discussions-example.png)
 
 The `octocat` team member posted a team discussion, informing the team of various things:
 * A team member called Mona started remote game events.
@@ -184,9 +177,7 @@ For issues, for example, you can tag issues with labels for quicker searching an
 
 For pull requests, you can create draft pull requests if your proposed changes are still a work in progress. Draft pull requests cannot be merged until they're marked as ready for review. For more information, see [AUTOTITLE](/pull-requests/collaborating-with-pull-requests/proposing-changes-to-your-work-with-pull-requests/about-pull-requests#draft-pull-requests).
 
-{% ifversion discussions %}
 For {% data variables.product.prodname_discussions %}, you can{% ifversion fpt or ghec %} set up a code of conduct and{% endif %} pin discussions that contain important information for your community. For more information, see [AUTOTITLE](/discussions/collaborating-with-your-community-using-discussions/about-discussions).
-{% endif %}
 
 {% ifversion team-discussions %}For team discussions, you can edit or delete discussions on a team's page, and you can configure notifications for team discussions. For more information, see [AUTOTITLE](/organizations/collaborating-with-your-team/about-team-discussions).{% endif %}
 

@@ -72,5 +72,5 @@ Read [more about OAuth2.](/apps/building-integrations/setting-up-and-registering
 You can use this instead:
 
 ```markdown
-OAuth2 tokens can be acquired programmatically for applications that are not websites. For more information, see "[Setting up and registering OAuth Apps](apps/building-integrations/setting-up-and-registering-oauth-apps/)" and "[Create a new authorization](/rest/reference/oauth-authorizations/#create-a-new-authorization)."
+OAuth2 tokens can be acquired programmatically for applications that are not websites. For more information, see [AUTOTITLE](apps/building-integrations/setting-up-and-registering-oauth-apps/) and [Create a new authorization](/rest/reference/oauth-authorizations/#create-a-new-authorization).
 ```

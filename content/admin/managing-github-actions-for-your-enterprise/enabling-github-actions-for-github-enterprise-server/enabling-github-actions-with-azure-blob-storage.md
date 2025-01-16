@@ -53,7 +53,7 @@ To configure {% data variables.product.prodname_ghe_server %} to use OIDC with a
    ![Screenshot of the "Overview" page in Entra ID. The first four items in the "Essentials" section are highlighted with an orange outline.](/assets/images/azure/azure-aad-app-storage-ids.png)
 1. In your Entra ID application, under "Manage", click **Certificates & secrets**, select the **Federated credentials** tab, then click **Add credential**.
 
-   ![Screenshot of the "Federated credentials" page in Entra ID. The "Certificates & secrets" tab, the "Federated credentials" tab, and the "Add credential" button are highlighted with orange outlines.](/assets/images/azure/azure-federated-credential.png)
+   ![Screenshot of the page to manage "Certificates & secrets". The page link, "Federated credentials" tab, and "Add credential" button are outlined.](/assets/images/azure/azure-federated-credential.png)
 1. Enter the following details for the credential:
    1. For "Federated credential scenario", select **Other issuer**.
    1. For "Issuer", enter `https://HOSTNAME/_services/token`, where `HOSTNAME` is the public hostname for {% data variables.location.product_location_enterprise %}. For example, `https://my-ghes-host.example.com/_services/token`.

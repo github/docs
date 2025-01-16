@@ -36,7 +36,7 @@ If you're an organization owner, you can enable push protection for multiple rep
 
 Organization owners, security managers, and repository administrators can also enable push protection for {% data variables.product.prodname_secret_scanning %} via the API. For more information, see [AUTOTITLE](/rest/repos#update-a-repository) and expand the "Properties of the `security_and_analysis` object" section.
 
-{% ifversion secret-scanning-enterprise-level %}
+{% ifversion ghec or ghes %}
 
 If your organization is owned by an enterprise account, an enterprise owner can also enable push protection at the enterprise level. For more information, see [AUTOTITLE](/admin/code-security/managing-github-advanced-security-for-your-enterprise/managing-github-advanced-security-features-for-your-enterprise).
 

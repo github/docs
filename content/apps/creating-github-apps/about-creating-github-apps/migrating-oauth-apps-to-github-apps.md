@@ -20,10 +20,10 @@ shortTitle: 'Migrate from {% data variables.product.prodname_oauth_apps %}'
 
 {% data variables.product.prodname_github_apps %} are the recommended way to integrate with {% data variables.product.company_short %}. {% data variables.product.prodname_github_apps %} offer many advantages over {% data variables.product.prodname_oauth_apps %}, including:
 
-* enhanced security features, like fine-grained permissions, choice over repository access, and short lived tokens
-* the ability to act independently of or on behalf of a user
-* scalable rate limits
-* built-in webhooks
+* Enhanced security features, like fine-grained permissions, choice over repository access, and short lived tokens
+* The ability to act independently of or on behalf of a user
+* Scalable rate limits
+* Built-in webhooks
 
 For more information, see [AUTOTITLE](/apps/creating-github-apps/setting-up-a-github-app/about-creating-github-apps#using-a-github-app-instead-of-an-oauth-app).
 

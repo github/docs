@@ -8,6 +8,7 @@ redirect_from:
   - /admin/overview/managing-billing-for-github-enterprise
   - /billing/managing-billing-for-your-github-account/about-billing-for-your-enterprise
   - /billing/managing-your-github-billing-settings/about-billing-for-your-enterprise
+  - /early-access/github/automatically-renew-the-billing-plan-for-your-enterprise
 versions:
   ghec: '*'
   ghes: '*'
@@ -40,10 +41,10 @@ Each user on {% data variables.location.product_location %} consumes a seat on y
 {%- ifversion ghes %}
 * [AUTOTITLE](/enterprise-cloud@latest/billing/managing-the-plan-for-your-github-account/about-per-user-pricing)
 {%- endif %}
-* "[Viewing the subscription and usage for your enterprise account]({% ifversion ghes %}/enterprise-cloud@latest{% endif %}/billing/managing-the-plan-for-your-github-account/viewing-the-subscription-and-usage-for-your-enterprise-account)"
-* "[Managing invoices for your enterprise]({% ifversion ghes %}/enterprise-cloud@latest{% endif %}/billing/managing-the-plan-for-your-github-account/managing-invoices-for-your-enterprise)"
+* [Viewing the subscription and usage for your enterprise account]({% ifversion ghes %}/enterprise-cloud@latest{% endif %}/billing/managing-the-plan-for-your-github-account/viewing-the-subscription-and-usage-for-your-enterprise-account)
+* [Managing invoices for your enterprise]({% ifversion ghes %}/enterprise-cloud@latest{% endif %}/billing/managing-the-plan-for-your-github-account/managing-invoices-for-your-enterprise)
 
-Administrators for your enterprise account on {% data variables.product.prodname_dotcom_the_website %} can access and manage billing for the enterprise. For more information, see "[Roles in an enterprise]({% ifversion ghes %}/enterprise-cloud@latest{% endif %}/admin/user-management/managing-users-in-your-enterprise/roles-in-an-enterprise){% ifversion ghec %}."{% elsif ghes %}" in the {% data variables.product.prodname_ghe_cloud %} documentation.{% endif %}
+Administrators for your enterprise account on {% data variables.product.prodname_dotcom_the_website %} can access and manage billing for the enterprise. For more information, see [Roles in an enterprise]({% ifversion ghes %}/enterprise-cloud@latest{% endif %}/admin/user-management/managing-users-in-your-enterprise/roles-in-an-enterprise){% ifversion ghec %}.{% elsif ghes %} in the {% data variables.product.prodname_ghe_cloud %} documentation.{% endif %}
 
 {% ifversion ghec %}
 {% data reusables.enterprise-accounts.billing-azure-subscription-enterprise-only %} See [AUTOTITLE](/billing/managing-the-plan-for-your-github-account/connecting-an-azure-subscription).

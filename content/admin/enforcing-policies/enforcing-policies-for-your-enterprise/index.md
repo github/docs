@@ -25,6 +25,8 @@ children:
   - /enforcing-policies-for-github-codespaces-in-your-enterprise
   - /enforcing-policies-for-code-security-and-analysis-for-your-enterprise
   - /enforcing-policies-for-personal-access-tokens-in-your-enterprise
+  - /enforcing-policies-for-code-governance
+  - /managing-policies-for-code-governance
 shortTitle: Enforce policies
 ---
 

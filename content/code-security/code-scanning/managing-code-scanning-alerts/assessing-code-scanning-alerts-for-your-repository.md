@@ -79,7 +79,7 @@ You can use the "Only alerts in application code" filter or `autofilter:true` ke
 
 ## Searching {% data variables.product.prodname_code_scanning %} alerts
 
-You can search the list of alerts. This is useful if there is a large number of alerts in your repository, or if you don't know the exact name for an alert for example. {% data variables.product.product_name %} performs the free text search across:
+You can search the list of alerts. This is useful if there is a large number of alerts in your repository, or if you don't know the exact name for an alert for example. {% data variables.product.github %} performs the free text search across:
 * The name of the alert
 * The alert details (this also includes the information hidden from view by default in the **Show more** collapsible section)
 
