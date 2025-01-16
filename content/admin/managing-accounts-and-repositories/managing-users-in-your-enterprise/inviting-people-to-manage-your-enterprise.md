@@ -39,7 +39,9 @@ If you do use {% data variables.product.prodname_emus %}, enterprise owners and 
 
 {% ifversion ghec %}After you invite someone to join the enterprise account, they must accept the emailed invitation before they can access the enterprise account. Pending invitations will expire after 7 days.{% endif %}
 
+{% ifversion enterprise-membership-view-improvements %}
 You can see all pending invitations to become an administrator of your enterprise account. For more information, see [AUTOTITLE](/admin/user-management/managing-users-in-your-enterprise/viewing-people-in-your-enterprise#viewing-pending-invitations).
+{% endif %}
 
 {% data reusables.enterprise-accounts.access-enterprise %}
 {% data reusables.enterprise-accounts.people-tab %}
