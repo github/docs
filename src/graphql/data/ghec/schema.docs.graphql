@@ -13208,6 +13208,11 @@ type Enterprise implements AnnouncementBannerI & Node {
   slug: String!
 
   """
+  Identifies the date and time when the object was last updated.
+  """
+  updatedAt: DateTime!
+
+  """
   The HTTP URL for this enterprise.
   """
   url: URI!
