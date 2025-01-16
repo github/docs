@@ -116,7 +116,7 @@ And to use them on a different job, i.e publishing:
           path: ./cndk8-hello
       - name: Publish hello app to GitHub Packages
         run: |
-          curl -u "${{ github.actor }}:${{ secrets.GH_TOKEN }}" \
+          curl -u "${{ github.actor }}:${{ secrets.GITHUB_TOKEN }}" \
             -X POST "https://uploads.github.com/repos/${{ github.repository }}/releases/assets?name=cndk8-hello.tar.gz" \
             --header "Content-Type: application/gzip" \
             --data-binary @./cndk8-hello/cndk8
