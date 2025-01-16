@@ -21800,6 +21800,14 @@
           "href": "/graphql/reference/scalars#string"
         },
         {
+          "name": "updatedAt",
+          "description": "<p>Identifies the date and time when the object was last updated.</p>",
+          "type": "DateTime!",
+          "id": "datetime",
+          "kind": "scalars",
+          "href": "/graphql/reference/scalars#datetime"
+        },
+        {
           "name": "url",
           "description": "<p>The HTTP URL for this enterprise.</p>",
           "type": "URI!",

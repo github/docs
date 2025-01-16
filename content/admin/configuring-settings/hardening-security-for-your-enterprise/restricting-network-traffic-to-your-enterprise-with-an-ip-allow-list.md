@@ -1,6 +1,6 @@
 ---
 title: Restricting network traffic to your enterprise with an IP allow list
-shortTitle: Restricting network traffic
+shortTitle: IP allow list
 intro: You can restrict access to your enterprise and only allow access to your resources from specified IP addresses by using an IP allow list.
 permissions: Enterprise owners can configure IP allow lists.
 versions:

@@ -40,7 +40,7 @@ You can quickly copy one cell's content over other cells in the same field by dr
 
 1. Drag the handle up or down over the cells where you would like to copy the contents.
 
-   ![Screenshot showing two columns on a table layout. Three cells are selected. The blue handle, on the lower right of the cell, is highlighted with an orange outline.](/assets/images/help/projects-v2/bulk-cell-drag.png)
+   ![Screenshot showing two columns on a table layout. Three cells are selected. The blue handle, on the lower right of the cell, is outlined in orange.](/assets/images/help/projects-v2/bulk-cell-drag.png)
 
 1. When you finish dragging, the contents of the originally selected cell will be copied over the cells you selected while dragging.
 
@@ -56,7 +56,7 @@ You can quickly clear the same field for multiple items.
 {% indented_data_reference reusables.projects.select-a-cell spaces=4 %}
 
    ![Screenshot showing a column on a table layout. Three cells are selected.](/assets/images/help/projects-v2/select-multiple-cells.png)
-  
+
 1. Press <kbd>Delete</kbd> or <kbd>Backspace</kbd> on your keyboard.
 
 ## Undoing bulk changes in a table

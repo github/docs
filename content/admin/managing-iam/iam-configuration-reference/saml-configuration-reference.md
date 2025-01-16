@@ -107,7 +107,7 @@ To specify more than one value for an attribute, use multiple `<saml2:AttributeV
   * If you configure SAML for an organization, this value is `https://github.com/orgs/ORGANIZATION`.
   * If you configure SAML for an enterprise, this URL is `https://github.com/enterprises/ENTERPRISE` or `https://SUBDOMAIN.ghe.com/enterprises/SUBDOMAIN`.
   {%- endif %}
-* Your IdP must protect each assertion in the response with a digital signature. You can accomplish this by signing each individual `<Assertion>` element or by signing the `<Response>` element.
+* Your IdP must provide a single assertion in the response with a digital signature. You can accomplish this by signing the `<Assertion>` element or by signing the `<Response>` element.
 * Your IdP must provide a `<NameID>` element as part of the `<Subject>` element. You may use any persistent name identifier format.
 * Your IdP must include the `Recipient` attribute, which must be set to the ACS URL. The following example demonstrates the attribute.
 

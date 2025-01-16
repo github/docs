@@ -59,6 +59,6 @@ You can insert breaks into your iterations to communicate when you are taking ti
 1. Click the name of the iteration field you want to adjust.
 1. Hover over the dividing line above an iteration, then click **Insert break**.
 
-   ![Screenshot of the list of iterations for a project. On the dividing line between two iterations, a button, labeled "Insert break," is outlined in dark orange.](/assets/images/help/issues/iteration-insert-break.png)
+   ![Screenshot of the list of iterations for a project. On the line dividing two iterations, a button, labeled "Insert break," is outlined in orange.](/assets/images/help/issues/iteration-insert-break.png)
 1. Optionally, to change the duration of the break, click on the date to open the calendar. Click on the start day, then click the end day, and then click **Apply**.
 1. Click **Save changes**.

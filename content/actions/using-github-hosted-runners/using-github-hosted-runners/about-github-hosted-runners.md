@@ -27,7 +27,7 @@ Runners are the machines that execute jobs in a {% data variables.product.prodna
 
 {% ifversion not ghes %}
 
-You can choose one of the standard {% data variables.product.prodname_dotcom %}-hosted runner options or, if you are on the {% data variables.product.prodname_team %} or {% data variables.product.prodname_ghe_cloud %} plan, you can provision a runner with more cores, or a runner that's powered by a GPU or ARM processor. These machines are referred to as "{% data variables.actions.hosted_runner %}." For more information, see [AUTOTITLE](/enterprise-cloud@latest/actions/using-github-hosted-runners/about-larger-runners/about-larger-runners).
+You can choose one of the standard {% data variables.product.prodname_dotcom %}-hosted runner options or, if you are on the {% data variables.product.prodname_team %} or {% data variables.product.prodname_ghe_cloud %} plan, you can provision a runner with more cores, or a runner that's powered by a GPU processor. These machines are referred to as "{% data variables.actions.hosted_runner %}." For more information, see [AUTOTITLE](/enterprise-cloud@latest/actions/using-github-hosted-runners/about-larger-runners/about-larger-runners).
 
 Using {% data variables.product.prodname_dotcom %}-hosted runners requires network access with at least 70 kilobits per second upload and download speeds.
 
@@ -118,7 +118,11 @@ While the job runs, the logs and output can be viewed in the {% data variables.p
 
 {% ifversion actions-hosted-runners %}
 
-{% data variables.product.prodname_dotcom %}-hosted runners are available for use in both public and private repositories.
+Ranges of {% data variables.product.prodname_dotcom %}-hosted runners are available for use in public and private repositories.
+
+For lists of available runners, see:
+* [Standard runners for **public** repositories](#standard-github-hosted-runners-for-public-repositories)
+* {% ifversion ghec %}[Standard runners for **private** and **internal** repositories](#standard-github-hosted-runners-for-internal-and-private-repositories){% else %}[Standard runners for **private** repositories](#standard-github-hosted-runners-for--private-repositories){% endif %}
 
 {% data variables.product.prodname_dotcom %}-hosted Linux runners support hardware acceleration for Android SDK tools, which makes running Android tests much faster and consumes fewer minutes. For more information on Android hardware acceleration, see [Configure hardware acceleration for the Android Emulator](https://developer.android.com/studio/run/emulator-acceleration) in the Android Developers documentation.
 
@@ -144,15 +148,17 @@ Workflow logs list the runner used to run a job. For more information, see [AUTO
 
 For more information, see [AUTOTITLE](/actions/using-github-hosted-runners/about-larger-runners).
 
-## Supported software
+## Runner Images
 
-The software tools included in {% data variables.product.prodname_dotcom %}-hosted runners are updated weekly. The update process takes several days, and the list of preinstalled software on the `main` branch is updated after the whole deployment ends.
+{% data variables.product.github %} maintains our own set of VM images for our standard hosted runners. This includes the images for macOS, x64 linux and Windows images. The list of images and their included tools are managed in the [`actions/runner-images`](https://github.com/actions/runner-images) repository. Our arm64 linux images are partner images, and those are managed in the [`actions/partner-runner-images`](https://github.com/actions/partner-runner-images) repository.
 
-### Preinstalled software
+### Preinstalled software for GitHub-owned images
+
+The software tools included in our GitHub-owned images are updated weekly. The update process takes several days, and the list of preinstalled software on the `main` branch is updated after the whole deployment ends.
 
 Workflow logs include a link to the preinstalled tools on the exact runner. To find this information in the workflow log, expand the `Set up job` section. Under that section, expand the `Runner Image` section. The link following `Included Software` will describe the preinstalled tools on the runner that ran the workflow.
 
-For more information, see [AUTOTITLE](/actions/monitoring-and-troubleshooting-workflows/viewing-workflow-run-history). For the overall list of included tools for each runner operating system, see the [Available Images](https://github.com/actions/runner-images#available-images) documentation the runner images repository.
+For more information, see [AUTOTITLE](/actions/monitoring-and-troubleshooting-workflows/viewing-workflow-run-history).
 
 {% data variables.product.prodname_dotcom %}-hosted runners include the operating system's default built-in tools, in addition to the packages listed in the above references. For example, Ubuntu and macOS runners include `grep`, `find`, and `which`, among other default tools.
 
@@ -178,7 +184,9 @@ You can install additional software on {% data variables.product.prodname_dotcom
 
 {% data variables.product.prodname_dotcom %} hosts Linux and Windows runners on virtual machines in Microsoft Azure with the {% data variables.product.prodname_actions %} runner application installed. The {% data variables.product.prodname_dotcom %}-hosted runner application is a fork of the Azure Pipelines Agent. Inbound ICMP packets are blocked for all Azure virtual machines, so ping or traceroute commands might not work. {% data variables.product.prodname_dotcom %} hosts macOS runners in Azure data centers.
 
-For Linux and Windows runners, {% data variables.product.company_short %} uses `Dadsv5-series` virtual machines. For more information, see [Dasv5 and Dadsv5-series](https://learn.microsoft.com/en-us/azure/virtual-machines/dasv5-dadsv5-series#dadsv5-series) in the Microsoft Azure documentation.
+For Linux and Windows x64 runners, {% data variables.product.company_short %} uses `Dadsv5-series` virtual machines. For more information, see [Dasv5 and Dadsv5-series](https://learn.microsoft.com/en-us/azure/virtual-machines/dasv5-dadsv5-series#dadsv5-series) in the Microsoft Azure documentation.
+
+For linux arm64 runners, {% data variables.product.company_short %} uses `Dpdsv6-series` virtual machines. For more information, see [Dpdsv6 series](https://learn.microsoft.com/en-us/azure/virtual-machines/sizes/general-purpose/dpdsv6-series?tabs=sizebasic) in the Microsoft Azure documentation.
 
 GPU runners use `NCasT4_v3-series` virtual machines. For more information, see [NCasT4_v3-series](https://learn.microsoft.com/en-us/azure/virtual-machines/nct4-v3-series) in the Microsoft Azure documentation.
 

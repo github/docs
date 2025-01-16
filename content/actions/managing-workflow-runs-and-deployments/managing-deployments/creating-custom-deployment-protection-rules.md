@@ -41,11 +41,11 @@ Alternatively, you can write your own protection rules for any of the above use 
    1. Optionally, in the **Callback URL** text field under "Identifying and authorizing users," enter the callback URL. For more information, see [AUTOTITLE](/apps/creating-github-apps/creating-github-apps/about-the-user-authorization-callback-url).
    1. Under "Permissions," select **Repository permissions**.
    1. To the right of "Actions," click the drop down menu and select **Access: Read-only**.
-   ![Screenshot of the "Repository permissions" section when creating a new GitHub App. The button to configure permissions, with the "read-only" permission selected, for Actions is highlighted by a dark orange rectangle.](/assets/images/help/actions/actions-repo-permissions-read-only.png)
+   ![Screenshot of the "Repository permissions" section for a new GitHub App. The Actions permission shows "Read-only" and is outlined in orange.](/assets/images/help/actions/actions-repo-permissions-read-only.png)
    1. To the right of "Deployments," click the drop down menu and select **Access: Read and write**.
-   ![Screenshot of the "Deployments" permission settings in the "Repository permissions" section while creating a new GitHub App. The button to configure permissions, with the "read-only" permission selected, for Deployments is highlighted by a dark orange rectangle.](/assets/images/help/actions/actions-deployments-repo-permissions-read-and-write.png)
+   ![Screenshot of the "Repository permissions" section for a new GitHub App. The Deployments permission shows "Read and write" and is outlined in orange.](/assets/images/help/actions/actions-deployments-repo-permissions-read-and-write.png)
    1. Under "Subscribe to events," select **Deployment protection rule**.
-   ![Screenshot of the "Subscribe to events section" section while creating a new GitHub App. The checkbox to subscribe to the deployment protection rule event is highlighted by a dark orange rectangle.](/assets/images/help/actions/actions-subscribe-to-events-deployment-protection-rules.png)
+   ![Screenshot of the "Subscribe to events section" section for a new GitHub App. The checkbox for the Deployment protection rule is outlined in orange.](/assets/images/help/actions/actions-subscribe-to-events-deployment-protection-rules.png)
 
 1. Install the custom deployment protection rule in your repositories and enable it for use. For more information, see [AUTOTITLE](/actions/deployment/protecting-deployments/configuring-custom-deployment-protection-rules).
 
