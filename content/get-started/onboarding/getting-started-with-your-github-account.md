@@ -153,12 +153,9 @@ Notifications provide updates about the activity on {% data variables.product.pr
 
 You can use {% data variables.product.prodname_pages %} to create and host a website directly from a repository on {% data variables.location.product_location %}. For more information, see [AUTOTITLE](/pages/getting-started-with-github-pages/about-github-pages).
 
-{% ifversion discussions %}
-
 ### 9. Using {% data variables.product.prodname_discussions %}
 
 You can enable {% data variables.product.prodname_discussions %} for your repository to help build a community around your project. Maintainers, contributors and visitors can use discussions to share announcements, ask and answer questions, and participate in conversations around goals. For more information, see [AUTOTITLE](/discussions/collaborating-with-your-community-using-discussions/about-discussions).
-{% endif %}
 
 ## Part 4: Customizing and automating your work on {% data variables.product.product_name %}
 
