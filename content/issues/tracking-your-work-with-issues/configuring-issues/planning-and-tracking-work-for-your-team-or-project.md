@@ -165,11 +165,11 @@ You can use {% data variables.projects.projects_v2 %} on {% data variables.produ
 
 Here is the table layout of an example project, populated with the Project Octocat issues we have created.
 
-![Screenshot of the table view of the "Project Octocat" project, containing a list of issues, with columns for "Title," "Assignees," "Status," "Labels," and "Notes."](/assets/images/help/issues/quickstart-projects-table-view.png)
+![Screenshot of the table view of a project, containing a list of issues, with columns for "Title," "Assignees," "Status," "Labels," and "Notes."](/assets/images/help/issues/quickstart-projects-table-view.png)
 
 We can also view the same project as a board.
 
-![Screenshot of the board view of the "Project Octocat" project, with issues organized into columns for "No Status," "Todo," "In Progress," and "Done."](/assets/images/help/issues/quickstart-projects-board-view.png)
+![Screenshot of the board view of a project, with issues organized into columns for "No Status," "Todo," "In Progress," and "Done."](/assets/images/help/issues/quickstart-projects-board-view.png)
 
 {% endif %}
 {% ifversion projects-v1 %}

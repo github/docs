@@ -145,7 +145,7 @@ If your organization uses issue types, you can filter issues for a particular ty
 {% data reusables.repositories.sidebar-issues %}
 1. Above the list of issues, select the **Types** dropdown menu.
 
-   ![Screenshot of a list of issues. In the header above the list, a dropdown menu, labeled "Types", is outlined in dark orange and the Issue Types menu is open.](/assets/images/help/issues/issue-type-dropdown.png)
+   ![Screenshot of a list of issues. In the header above the list, the "Types" dropdown menu is expanded and outlined in orange.](/assets/images/help/issues/issue-type-dropdown.png)
 
 1. In the list of type, click an issue type.
 
