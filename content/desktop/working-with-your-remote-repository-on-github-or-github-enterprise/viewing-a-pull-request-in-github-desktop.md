@@ -41,7 +41,7 @@ You cannot comment on a pull request from {% data variables.product.prodname_des
 1. In the list of pull requests, click the pull request that you would like to open in {% data variables.product.prodname_desktop %}.
 1. To the right of the title of the pull request, click **{% octicon "code" aria-hidden="true" %} Code**, then, on the **Local** tab, click **Checkout with GitHub Desktop**.
 
-   ![Screenshot of a pull request on GitHub. The "Code" dropdown menu is expanded, and a button, labeled "Checkout with GitHub Desktop" is outlined in orange.](/assets/images/help/desktop/open-pr-in-desktop-button.png)
+   ![Screenshot of a pull request on GitHub. The "Code" dropdown menu is expanded, and the "Checkout with GitHub Desktop" button is outlined in orange.](/assets/images/help/desktop/open-pr-in-desktop-button.png)
 
 {% data reusables.desktop.checked-out-pr %}
 
