@@ -1,6 +1,8 @@
 ---
 title: Syntax for GitHub's form schema
 intro: 'You can use {% data variables.product.company_short %}''s form schema to configure forms for supported features.'
+redirect_from:
+  - /early-access/github/save-time-with-slash-commands/githubs-form-schema
 versions:
   fpt: '*'
   ghec: '*'
