@@ -112,7 +112,7 @@ You can modify the permissions for the `GITHUB_TOKEN` in individual workflow fil
 
 You can see the permissions that `GITHUB_TOKEN` had for a specific job in the "Set up job" section of the workflow run log. For more information, see [AUTOTITLE](/actions/monitoring-and-troubleshooting-workflows/using-workflow-run-logs).
 
-You can use the `permissions` key in your workflow file to modify permissions for the `GITHUB_TOKEN` for an entire workflow or for individual jobs. This allows you to configure the minimum required permissions for a workflow or job. When the `permissions` key is used, all unspecified permissions are set to no access, with the exception of the `metadata` scope, which always gets read access.
+You can use the `permissions` key in your workflow file to modify permissions for the `GITHUB_TOKEN` for an entire workflow or for individual jobs. This allows you to configure the minimum required permissions for a workflow or job.
 
 {% data reusables.actions.forked-write-permission %}
 
@@ -122,6 +122,8 @@ For full details of the `permissions` key, see [AUTOTITLE](/actions/using-workfl
 
 > [!NOTE]
 > Organization{% ifversion not fpt %} and enterprise{% endif %} owners can prevent you from granting write access to the `GITHUB_TOKEN` at the repository level. For more information, see [AUTOTITLE](/organizations/managing-organization-settings/disabling-or-limiting-github-actions-for-your-organization#setting-the-permissions-of-the-github_token-for-your-organization){% ifversion not fpt %} and [AUTOTITLE](/admin/policies/enforcing-policies-for-your-enterprise/enforcing-policies-for-github-actions-in-your-enterprise#enforcing-a-policy-for-workflow-permissions-in-your-enterprise).{% else %}.{% endif %}
+>
+> When the `permissions` key is used, all unspecified permissions are set to no access, with the exception of the `metadata` scope, which always gets read access.
 
 #### How the permissions are calculated for a workflow job
 
