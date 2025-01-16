@@ -46,17 +46,17 @@ This tutorial uses [the Spoon-Knife project](https://github.com/octocat/Spoon-Kn
 
 ## Cloning a fork to your computer
 
-You've successfully forked the Spoon-Knife repository, but so far, it only exists on {% data variables.product.product_name %}. To be able to work on the project, you will need to clone it to your computer.
+You've successfully forked the Spoon-Knife repository, but so far, it only exists on {% data variables.product.github %}. To be able to work on the project, you will need to clone it to your computer.
 
 You can clone your fork with the command line, {% data variables.product.prodname_cli %}, or {% data variables.product.prodname_desktop %}.
 
 {% webui %}
 
-1. On {% data variables.product.product_name %}, navigate to **your fork** of the Spoon-Knife repository.
+1. On {% data variables.product.github %}, navigate to **your fork** of the Spoon-Knife repository.
 {% data reusables.repositories.copy-clone-url %}
 {% data reusables.command_line.open_the_multi_os_terminal %}
 {% data reusables.command_line.change-current-directory-clone %}
-1. Type `git clone`, and then paste the URL you copied earlier. It will look like this, with your {% data variables.product.product_name %} username instead of `YOUR-USERNAME`:
+1. Type `git clone`, and then paste the URL you copied earlier. It will look like this, with your {% data variables.product.github %} username instead of `YOUR-USERNAME`:
 
    ```shell
    git clone https://{% data variables.product.product_url %}/YOUR-USERNAME/Spoon-Knife
@@ -157,7 +157,7 @@ For more information about how to stage and commit changes in {% data variables.
 
 When you stage and commit files, you essentially tell Git, "Okay, take a snapshot of my changes!" You can continue to make more changes, and take more commit snapshots.
 
-Right now, your changes only exist locally. When you're ready to push your changes up to {% data variables.product.product_name %}, push your changes to the remote.
+Right now, your changes only exist locally. When you're ready to push your changes up to {% data variables.product.github %}, push your changes to the remote.
 
 {% webui %}
 
@@ -185,11 +185,11 @@ For more information about how to push changes in {% data variables.product.prod
 
 At last, you're ready to propose changes into the main project! This is the final step in producing a fork of someone else's project, and arguably the most important. If you've made a change that you feel would benefit the community as a whole, you should definitely consider contributing back.
 
-To do so, head on over to the repository on {% data variables.product.product_name %} where your project lives. For this example, it would be at `https://github.com/<your_username>/Spoon-Knife`. You'll see a banner indicating that your branch is one commit ahead of `octocat:main`. Click **Contribute** and then **Open a pull request**.
+To do so, head on over to the repository on {% data variables.product.github %} where your project lives. For this example, it would be at `https://github.com/<your_username>/Spoon-Knife`. You'll see a banner indicating that your branch is one commit ahead of `octocat:main`. Click **Contribute** and then **Open a pull request**.
 
-{% data variables.product.product_name %} will bring you to a page that shows the differences between your fork and the `octocat/Spoon-Knife` repository. Click **Create pull request**.
+{% data variables.product.github %} will bring you to a page that shows the differences between your fork and the `octocat/Spoon-Knife` repository. Click **Create pull request**.
 
-{% data variables.product.product_name %} will bring you to a page where you can enter a title and a description of your changes. It's important to provide as much useful information and a rationale for why you're making this pull request in the first place. The project owner needs to be able to determine whether your change is as useful to everyone as you think it is. Finally, click **Create pull request**.
+{% data variables.product.github %} will bring you to a page where you can enter a title and a description of your changes. It's important to provide as much useful information and a rationale for why you're making this pull request in the first place. The project owner needs to be able to determine whether your change is as useful to everyone as you think it is. Finally, click **Create pull request**.
 
 ## Managing feedback
 
