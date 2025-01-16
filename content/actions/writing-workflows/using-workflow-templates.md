@@ -35,7 +35,7 @@ Workflow templates are templates that help you to create your own {% data variab
 
 {% data reusables.actions.workflow-templates-repo-link %}
 
-You can also create your own workflow template to share with your organization. These workflow templates will appear alongside the {% data variables.product.product_name %}-provided workflow templates. Anyone with write access to the organization's `github` repository can set up a workflow template. For more information, see [AUTOTITLE](/actions/using-workflows/creating-starter-workflows-for-your-organization).
+You can also create your own workflow template to share with your organization. These workflow templates will appear alongside the {% data variables.product.product_name %}-provided workflow templates. Anyone with write access to the organization's `.github` repository can set up a workflow template. For more information, see [AUTOTITLE](/actions/using-workflows/creating-starter-workflows-for-your-organization).
 
 ## Choosing and using a workflow template
 

@@ -36,4 +36,4 @@ When you delete milestones, issues and pull requests are not affected.
 {% data reusables.project-management.milestones %}
 1. Next to the milestone you want to delete, click **Delete**.
 
-![Screenshot of the list of milestones for a repository. Within the entry for the "beta release" milestone, a red "Delete" link is outlined in dark orange.](/assets/images/help/repository/delete-milestone.png)
+![Screenshot of the list of milestones for a repository. Within the entry for the "beta release" milestone, a red "Delete" link is outlined in orange.](/assets/images/help/repository/delete-milestone.png)

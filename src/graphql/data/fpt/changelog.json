@@ -4,6 +4,19 @@
       {
         "title": "The GraphQL schema includes these changes:",
         "changes": [
+          "<p>Field <code>updatedAt</code> was added to object type <code>Enterprise</code></p>"
+        ]
+      }
+    ],
+    "previewChanges": [],
+    "upcomingChanges": [],
+    "date": "2025-01-16"
+  },
+  {
+    "schemaChanges": [
+      {
+        "title": "The GraphQL schema includes these changes:",
+        "changes": [
           "<p>Type <code>CopilotLicenseType</code> was removed</p>",
           "<p>Type <code>CopilotLimitedFeature</code> was removed</p>",
           "<p>Type <code>CopilotLimitedUser</code> was removed</p>",

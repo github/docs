@@ -120,7 +120,7 @@ You can also create a Markdown hyperlink by highlighting the text and using the 
 ![Screenshot of rendered GitHub Markdown showing how text within brackets, "GitHub Pages," appears as a blue hyperlink.](/assets/images/help/writing/link-rendered.png)
 
 > [!NOTE]
-> {% data variables.product.product_name %} automatically creates links when valid URLs are written in a comment. For more information, see [AUTOTITLE](/get-started/writing-on-github/working-with-advanced-formatting/autolinked-references-and-urls).
+> {% data variables.product.github %} automatically creates links when valid URLs are written in a comment. For more information, see [AUTOTITLE](/get-started/writing-on-github/working-with-advanced-formatting/autolinked-references-and-urls).
 
 ## Section links
 
@@ -245,7 +245,7 @@ You can display an image by adding <kbd>!</kbd> and wrapping the alt text in `[ 
 
 ![Screenshot of a comment on a GitHub issue showing an image, added in the Markdown, of an Octocat smiling and raising a tentacle.](/assets/images/help/writing/image-rendered.png)
 
-{% data variables.product.product_name %} supports embedding images into your issues, pull requests{% ifversion fpt or ghec %}, discussions{% endif %}, comments and `.md` files. You can display an image from your repository, add a link to an online image, or upload an image. For more information, see [Uploading assets](#uploading-assets).
+{% data variables.product.github %} supports embedding images into your issues, pull requests{% ifversion fpt or ghec %}, discussions{% endif %}, comments and `.md` files. You can display an image from your repository, add a link to an online image, or upload an image. For more information, see [Uploading assets](#uploading-assets).
 
 > [!NOTE]
 > When you want to display an image that is in your repository, use relative links instead of absolute links.
@@ -295,7 +295,7 @@ To order your list, precede each line with a number.
 
 You can create a nested list by indenting one or more list items below another item.
 
-To create a nested list using the web editor on {% data variables.product.product_name %} or a text editor that uses a monospaced font, like [{% data variables.product.prodname_vscode %}](https://code.visualstudio.com/), you can align your list visually. Type space characters in front of your nested list item until the list marker character (<kbd>-</kbd> or <kbd>*</kbd>) lies directly below the first character of the text in the item above it.
+To create a nested list using the web editor on {% data variables.product.github %} or a text editor that uses a monospaced font, like [{% data variables.product.prodname_vscode %}](https://code.visualstudio.com/), you can align your list visually. Type space characters in front of your nested list item until the list marker character (<kbd>-</kbd> or <kbd>*</kbd>) lies directly below the first character of the text in the item above it.
 
 ```markdown
 1. First list item
@@ -310,7 +310,7 @@ To create a nested list using the web editor on {% data variables.product.produc
 
 ![Screenshot of rendered GitHub Markdown showing a numbered item followed by nested bullets at two different levels of nesting.](/assets/images/help/writing/nested-list-example-1.png)
 
-To create a nested list in the comment editor on {% data variables.product.product_name %}, which doesn't use a monospaced font, you can look at the list item immediately above the nested list and count the number of characters that appear before the content of the item. Then type that number of space characters in front of the nested list item.
+To create a nested list in the comment editor on {% data variables.product.github %}, which doesn't use a monospaced font, you can look at the list item immediately above the nested list and count the number of characters that appear before the content of the item. Then type that number of space characters in front of the nested list item.
 
 In this example, you could add a nested list item under the list item `100. First list item` by indenting the nested list item a minimum of five spaces, since there are five characters (`100. `) before `First list item`.
 
@@ -345,7 +345,7 @@ For more information, see [AUTOTITLE](/get-started/writing-on-github/working-wit
 
 ## Mentioning people and teams
 
-You can mention a person or [team](/organizations/organizing-members-into-teams) on {% data variables.product.product_name %} by typing <kbd>@</kbd> plus their username or team name. This will trigger a notification and bring their attention to the conversation. People will also receive a notification if you edit a comment to mention their username or team name. For more information about notifications, see [AUTOTITLE](/account-and-profile/managing-subscriptions-and-notifications-on-github/setting-up-notifications/about-notifications).
+You can mention a person or [team](/organizations/organizing-members-into-teams) on {% data variables.product.github %} by typing <kbd>@</kbd> plus their username or team name. This will trigger a notification and bring their attention to the conversation. People will also receive a notification if you edit a comment to mention their username or team name. For more information about notifications, see [AUTOTITLE](/account-and-profile/managing-subscriptions-and-notifications-on-github/setting-up-notifications/about-notifications).
 
 > [!NOTE]
 > A person will only be notified about a mention if the person has read access to the repository and, if the repository is owned by an organization, the person is a member of the organization.
@@ -415,7 +415,7 @@ The footnote will render like this:
 
 ## Alerts
 
-Alerts are a Markdown extension based on the blockquote syntax that you can use to emphasize critical information. On {% data variables.product.product_name %}, they are displayed with distinctive colors and icons to indicate the significance of the content.
+Alerts are a Markdown extension based on the blockquote syntax that you can use to emphasize critical information. On {% data variables.product.github %}, they are displayed with distinctive colors and icons to indicate the significance of the content.
 
 Use alerts only when they are crucial for user success and limit them to one or two per article to prevent overloading the reader. Additionally, you should avoid placing alerts consecutively. Alerts cannot be nested within other elements.
 
@@ -446,7 +446,7 @@ Here are the rendered alerts:
 
 ## Hiding content with comments
 
-You can tell {% data variables.product.product_name %} to hide content from the rendered Markdown by placing the content in an HTML comment.
+You can tell {% data variables.product.github %} to hide content from the rendered Markdown by placing the content in an HTML comment.
 
 ```text
 <!-- This content will not appear in the rendered Markdown -->
@@ -454,7 +454,7 @@ You can tell {% data variables.product.product_name %} to hide content from the 
 
 ## Ignoring Markdown formatting
 
-You can tell {% data variables.product.product_name %} to ignore (or escape) Markdown formatting by using <kbd>\\</kbd> before the Markdown character.
+You can tell {% data variables.product.github %} to ignore (or escape) Markdown formatting by using <kbd>\\</kbd> before the Markdown character.
 
 `Let's rename \*our-new-project\* to \*our-old-project\*.`
 

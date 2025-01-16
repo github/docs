@@ -23,7 +23,7 @@ shortTitle: Filter by milestone
 {% data reusables.repositories.sidebar-issue-pr %}
 1. Select **Milestones** to see a list of all available milestones for the repository.
 
-   ![Screenshot of the list of issues for a repository. Above the list, a button, labeled with a signpost icon and "Milestones," is outlined in dark orange.](/assets/images/help/issues/issues-milestone-button.png)
+   ![Screenshot of the list of issues for a repository. Above the list, a "Milestones" button with a signpost icon and "Milestones," is outlined in orange.](/assets/images/help/issues/issues-milestone-button.png)
 1. Select the milestone you're interested in from the list. You can view relevant information for the milestone, including all issues and pull requests associated with it, from the milestone page. For more information, see [AUTOTITLE](/issues/using-labels-and-milestones-to-track-work/about-milestones).
 
 ## Further reading
