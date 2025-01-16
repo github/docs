@@ -2,7 +2,9 @@
 title: Following organizations
 intro: 'You can follow organizations on {% data variables.product.github %} to receive notifications about their activity.'
 versions:
-  feature: for-you-feed
+  fpt: '*'
+  ghes: '*'
+  ghec: '*'
 topics:
   - Profile
 ---
