@@ -2,11 +2,11 @@ When viewing a Markdown file, you can click {% ifversion code-view-ui %}**Code**
 
 {% ifversion code-view-ui %}
 
-  ![Screenshot of a Markdown file in a {% data variables.product.prodname_dotcom %} repository showing options for interacting with the file. A button, labeled "Code", is outlined in dark orange.](/assets/images/help/writing/display-markdown-as-source-global-nav-update.png)
+  ![Screenshot of a Markdown file in a repository showing options for interacting with the file. A button, labeled "Code", is outlined in dark orange.](/assets/images/help/writing/display-markdown-as-source-global-nav-update.png)
 
 {% else %}
 
-  ![Screenshot of a Markdown file in a {% data variables.product.prodname_dotcom %} repository showing options for interacting with the file. The button to display the source blob is outlined in dark orange.](/assets/images/help/writing/display-markdown-as-source.png)
+  ![Screenshot of a Markdown file in a repository showing options for interacting with the file. The icon to display the code is outlined in orange.](/assets/images/help/writing/display-markdown-as-source.png)
 
 {% endif %}
 
