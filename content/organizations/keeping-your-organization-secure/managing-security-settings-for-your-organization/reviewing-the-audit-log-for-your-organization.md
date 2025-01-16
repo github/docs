@@ -123,7 +123,7 @@ To search for specific events, use the `action` qualifier in your query. Actions
 | {% ifversion fpt or ghec %} |
 | `repository_vulnerability_alerts` | Contains repository-level configuration activities for {% data variables.product.prodname_dependabot_alerts %}.
 | {% endif %} |
-| {% ifversion custom-repository-roles %} |
+| {% ifversion ghec or ghes %} |
 | `role` | Contains all activities related to [custom repository roles](/organizations/managing-user-access-to-your-organizations-repositories/managing-repository-roles/managing-custom-repository-roles-for-an-organization).
 | {% endif %} |
 | {% ifversion ghes or ghec %} |

@@ -153,7 +153,7 @@
 | {% ifversion ghec or ghes %} |
 | `restrict_notification_delivery` | Contains activities related to the restriction of email notifications to approved or verified domains for an enterprise. |
 | {% endif %} |
-| {% ifversion custom-repository-roles %} |
+| {% ifversion ghec or ghes %} |
 | `role` | Contains activities related to [custom repository roles](/organizations/managing-user-access-to-your-organizations-repositories/managing-repository-roles/managing-custom-repository-roles-for-an-organization). |
 | {% endif %} |
 | {% ifversion ghec or ghes %} |

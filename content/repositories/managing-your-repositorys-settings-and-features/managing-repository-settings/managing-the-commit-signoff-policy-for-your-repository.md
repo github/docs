@@ -2,7 +2,9 @@
 title: Managing the commit signoff policy for your repository
 intro: 'You can require users to automatically sign off on the commits they make to your repository using {% data variables.product.product_name %}''s web interface.'
 versions:
-  feature: commit-signoffs
+  fpt: '*'
+  ghec: '*'
+  ghes: '*'
 permissions: Organization owners and repository administrators can require all commits to a repository to be signed off by the commit author.
 topics:
   - Repositories

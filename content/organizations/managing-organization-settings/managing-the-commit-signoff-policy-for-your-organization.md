@@ -2,7 +2,9 @@
 title: Managing the commit signoff policy for your organization
 intro: 'You can require users to automatically sign off all commits they make in {% data variables.product.product_name %}''s web interface to repositories owned by your organization.'
 versions:
-  feature: commit-signoffs
+  fpt: '*'
+  ghec: '*'
+  ghes: '*'
 permissions: Organization owners can require all commits to repositories owned by the organization be signed off by the commit author.
 topics:
   - Organizations
