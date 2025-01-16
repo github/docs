@@ -5,8 +5,7 @@ permissions: Enterprise owners can manage their role in an organization owned by
 redirect_from:
   - /admin/user-management/managing-organizations-in-your-enterprise/managing-your-role-in-an-organization-owned-by-your-enterprise
 versions:
-  ghec: '*'
-  ghes: '*'
+  feature: enterprise-owner-join-org
 type: how_to
 topics:
   - Administrator

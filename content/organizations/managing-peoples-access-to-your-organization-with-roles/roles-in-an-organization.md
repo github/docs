@@ -44,7 +44,7 @@ You can assign people to a variety of organization-level roles to control your m
 For more granular control of access to your organization's settings, you can create a custom organization role. For more information, see [AUTOTITLE](/organizations/managing-peoples-access-to-your-organization-with-roles/about-custom-organization-roles).
 {% endif %}
 
-{% ifversion ghec or ghes %}
+{% ifversion enterprise-owner-join-org %}
 If your organization is owned by an enterprise account, enterprise owners can choose to join your organization with any role. For more information, see [AUTOTITLE](/admin/user-management/managing-organizations-in-your-enterprise/managing-your-role-in-an-organization-owned-by-your-enterprise).
 {% endif %}
 

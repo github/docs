@@ -27,7 +27,7 @@ Organization owners have full administrative access to the organization. {% data
 > [!NOTE]
 > As an organization owner, you can change the role of other organization members and owners. You can't change your own role.
 
-{% ifversion ghec or ghes %}
+{% ifversion enterprise-owner-join-org %}
 If your organization is owned by an enterprise account, any enterprise owner can make themselves an owner of your organization. For more information, see [AUTOTITLE](/admin/user-management/managing-organizations-in-your-enterprise/managing-your-role-in-an-organization-owned-by-your-enterprise).
 {% endif %}
 
