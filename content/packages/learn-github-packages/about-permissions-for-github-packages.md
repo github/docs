@@ -19,7 +19,7 @@ The following {% data variables.product.prodname_registry %} registries support 
 
 * {% data variables.product.prodname_container_registry %}
 {%- ifversion packages-npm-v2 %}
-* npm registry
+* npm registry <!-- markdownlint-disable-line GHD034 -->
 {%- endif %}
 {%- ifversion packages-nuget-v2 %}
 * NuGet registry
@@ -38,7 +38,7 @@ The following {% data variables.product.prodname_registry %} registries **only**
 * Docker registry (`docker.pkg.github.com`)
 {%- endif %}
 {%- ifversion packages-npm-v2 %}{% else %}
-* npm registry
+* npm registry <!-- markdownlint-disable-line GHD034 -->
 {%- endif %}
 * Apache Maven registry
 * Gradle registry
