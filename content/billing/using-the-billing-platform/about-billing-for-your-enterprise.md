@@ -8,6 +8,7 @@ redirect_from:
   - /admin/overview/managing-billing-for-github-enterprise
   - /billing/managing-billing-for-your-github-account/about-billing-for-your-enterprise
   - /billing/managing-your-github-billing-settings/about-billing-for-your-enterprise
+  - /early-access/github/automatically-renew-the-billing-plan-for-your-enterprise
 versions:
   ghec: '*'
   ghes: '*'

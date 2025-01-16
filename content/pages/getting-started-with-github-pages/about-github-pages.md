@@ -10,6 +10,7 @@ redirect_from:
   - /articles/should-i-rename-usernamegithubcom-repositories-to-usernamegithubio
   - /articles/about-github-pages
   - /github/working-with-github-pages/about-github-pages
+  - /early-access/github/articles/managing-your-disabled-github-pages-site
 product: '{% data reusables.gated-features.pages %}'
 versions:
   fpt: '*'
