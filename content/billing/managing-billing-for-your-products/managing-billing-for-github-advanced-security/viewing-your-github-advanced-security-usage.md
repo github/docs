@@ -141,7 +141,7 @@ You can download the {% data variables.product.prodname_advanced_security %} lic
 {%- ifversion ghec %}
 1. Under "{% data variables.product.prodname_GH_advanced_security %}," click the **Manage** dropdown and then click **Download report**.
 
-   ![Screenshot of the "Manage" dropdown in the {% data variables.product.prodname_GH_advanced_security %} licensing screen. The "Download Report" button is highlighted with an orange outline.](/assets/images/help/enterprises/ghas-download-report.png)
+   ![Screenshot of the "Manage" dropdown in the {% data variables.product.prodname_GH_advanced_security %} licensing screen. The "Download Report" button is outlined in orange.](/assets/images/help/enterprises/ghas-download-report.png)
 
 {%- elsif ghes %}
 1. Under "{% data variables.product.prodname_GH_advanced_security %}," click **{% octicon "download" aria-hidden="true" %} CSV report** in the header of the "Committers" table.
