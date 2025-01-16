@@ -617,12 +617,10 @@ $ ghe-cluster-maintenance -q
 # Queries the current mode
 $ ghe-cluster-maintenance -s
 # Sets maintenance mode
-{%- ifversion custom-maintenance-mode-message %}
 $ ghe-cluster-maintenance -s "MESSAGE"
 # Sets maintenance mode with a custom message
 $ ghe-cluster-maintenance -m "MESSAGE"
 # Updates the custom message
-{%- endif %}
 $ ghe-cluster-maintenance -u
 # Unsets maintenance mode
 ```

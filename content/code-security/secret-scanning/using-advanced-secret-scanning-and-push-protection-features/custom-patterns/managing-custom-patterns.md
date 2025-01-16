@@ -22,9 +22,7 @@ When you save a change to a custom pattern, this closes all the {% data variable
 
 {% data reusables.secret-scanning.view-custom-pattern %}
 1. Under "{% data variables.product.prodname_secret_scanning_caps %}", to the right of the custom pattern you want to edit, click {% octicon "pencil" aria-label="Edit pattern" %}.
-{%- ifversion custom-pattern-dry-run-ga %}
 1. When you're ready to test your edited custom pattern, to identify matches without creating alerts, click **Save and dry run**.
-{%- endif %}
 1. When you have reviewed and tested your changes, click **Publish changes**.{% ifversion secret-scanning-push-protection-custom-patterns %}
 {% data reusables.advanced-security.secret-scanning-enable-push-protection-custom-pattern %}
 1. Optionally, to disable push protection for your custom pattern, click **Disable**.
@@ -52,7 +50,7 @@ You can enable {% data variables.product.prodname_secret_scanning %} as a push p
 
 {% data reusables.secret-scanning.push-protection-enterprise-note %}
 
-Before enabling push protection for a custom pattern at enterprise level, you must also{% ifversion custom-pattern-dry-run-ga %} test your custom patterns using dry runs. {% data reusables.secret-scanning.dry-runs-enterprise-permissions %}{% else %} test your custom patterns in a repository before defining them for your entire enterprise, as there is no dry-run functionality. That way, you can avoid creating excess false-positive {% data variables.secret-scanning.alerts %}.{% endif %}
+Before enabling push protection for a custom pattern at enterprise level, you must also test your custom patterns using dry runs. {% data reusables.secret-scanning.dry-runs-enterprise-permissions %}
 
 {% data reusables.enterprise-accounts.access-enterprise %}
 {% data reusables.enterprise-accounts.policies-tab %}
@@ -60,9 +58,7 @@ Before enabling push protection for a custom pattern at enterprise level, you mu
 1. Under "{% ifversion code-security-wording-only-enterprise %}Code security{% else %}Code security and analysis{% endif %}", click **Security features**.
 {% data reusables.advanced-security.secret-scanning-edit-custom-pattern %}
 
-   {% ifversion custom-pattern-dry-run-ga %}
    >[!NOTE] At the enterprise level, you can only edit and enable push protection for custom patterns that you created.
-   {%- endif %}
 
 1. To enable push protection for your custom pattern, scroll down to "Push Protection", and click **Enable**.
 

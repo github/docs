@@ -38,8 +38,6 @@ It's appropriate to lock a conversation when the entire conversation is not cons
 1. To lock the conversation, click **Lock conversation**.
 1. When you're ready to unlock the conversation, click **Unlock conversation** in the right margin of a discussion, then click **Unlock conversation**.
 
-{% ifversion converting-issues-to-discussions %}
-
 ## Converting an issue to a discussion
 
 When you convert an issue to a discussion, the discussion is automatically created using the content from the issue. People with write access to a repository, or source repository for organization discussions, can bulk convert issues based on labels. For more information, see [AUTOTITLE](/discussions/managing-discussions-for-your-community/managing-discussions).
@@ -50,7 +48,6 @@ When you convert an issue to a discussion, the discussion is automatically creat
 1. In the right margin of an issue, click **Convert to discussion**.
 1. Select the **Choose a category** drop-down menu, and click a category for your discussion.
 1. Click **I understand, convert this issue to a discussion**.
-{% endif %}
 
 {% ifversion discussions-hide-comments-on-block %}
 

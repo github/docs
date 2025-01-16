@@ -50,12 +50,11 @@ You can perform initial validation of your maintenance operation by configuring 
 1. In the top navigation bar, click **Maintenance**.
 
    ![Screenshot of the header of the {% data variables.enterprise.management_console %}. A tab, labeled "Maintenance", is highlighted with an orange outline.](/assets/images/enterprise/management-console/maintenance-tab.png)
-1. Under "Enable and schedule", {% ifversion custom-maintenance-mode-message %}select **Enable maintenance mode**, then {% endif %}decide whether to enable maintenance mode immediately or to schedule a maintenance window for a future time.
+1. Under "Enable and schedule", select **Enable maintenance mode**, then decide whether to enable maintenance mode immediately or to schedule a maintenance window for a future time.
     * To enable maintenance mode immediately, select the dropdown menu and click **now**.
     * To schedule a maintenance window for a future time, select the dropdown menu and click a start time.
 {% data reusables.enterprise_management_console.custom-maintenance-message %}
-{% ifversion custom-maintenance-mode-message %}1. When you're satisfied with the timing of the window and the optional message, click **Save**. If you selected "now", your instance will be put into maintenance mode immediately.
-{% else %}1. When you're satisfied with the timing of the window, select the checkbox next to "Enable maintenance mode". If you selected "now", your instance will be put into maintenance mode immediately.{% endif %}
+1. When you're satisfied with the timing of the window and the optional message, click **Save**. If you selected "now", your instance will be put into maintenance mode immediately.
 
 {% ifversion ip-exception-list %}
 
@@ -103,8 +102,6 @@ For more information, see [AUTOTITLE](/admin/administering-your-instance/adminis
 
 {% endif %}
 
-{% ifversion custom-maintenance-mode-message %}
-
 ## Managing maintenance mode using SSH
 
 If you have SSH access, you can use the `ghe-maintenance` command line utility to can set or unset maintenance mode for a {% data variables.product.product_name %} instance with one node, or multiple nodes in a high-availability configuration. For more information, see [AUTOTITLE](/admin/administering-your-instance/administering-your-instance-from-the-command-line/accessing-the-administrative-shell-ssh) and [AUTOTITLE](/admin/administering-your-instance/administering-your-instance-from-the-command-line/command-line-utilities#ghe-maintenance).
@@ -120,14 +117,10 @@ $ ghe-cluster-maintenance -q
 # Queries the current mode
 $ ghe-cluster-maintenance -s
 # Sets maintenance mode
-{%- ifversion custom-maintenance-mode-message %}
 $ ghe-cluster-maintenance -s "MESSAGE"
 # Sets maintenance mode with a custom message
 $ ghe-cluster-maintenance -m "MESSAGE"
 # Updates the custom message
-{%- endif %}
 $ ghe-cluster-maintenance -u
 # Unsets maintenance mode
 ```
-
-{% endif %}

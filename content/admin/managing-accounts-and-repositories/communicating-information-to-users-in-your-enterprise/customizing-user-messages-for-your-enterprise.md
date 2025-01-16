@@ -107,8 +107,7 @@ Each time a user sees a mandatory message, an audit log event is created. The ev
 
 You can set a global announcement banner to be displayed to all users at the top of every page{% ifversion ghec %} within your enterprise, including every page in every organization owned by the enterprise{% endif %}.
 
-{% ifversion custom-banner-messages %}
-You can also create announcement banners at the organization level. For more information, see [AUTOTITLE](/organizations/managing-organization-settings/creating-an-announcement-banner-for-your-organization).{% endif %}
+You can also create announcement banners at the organization level. For more information, see [AUTOTITLE](/organizations/managing-organization-settings/creating-an-announcement-banner-for-your-organization).
 
 {% ifversion ghes %}
 You can also set an announcement banner{% ifversion ghes %} in the administrative shell using a command line utility or{% endif %} using the API. For more information, see {% ifversion ghes %}[AUTOTITLE](/admin/configuration/configuring-your-enterprise/command-line-utilities#ghe-announce) and {% endif %}[AUTOTITLE](/rest/enterprise-admin#announcements).
@@ -116,19 +115,9 @@ You can also set an announcement banner{% ifversion ghes %} in the administrativ
 
 {% data reusables.enterprise-accounts.access-enterprise %}
 {% data reusables.enterprise-accounts.settings-tab %}
-{% data reusables.enterprise-accounts.messages-tab %}{% ifversion custom-banner-messages %}{% else %}
-1. To the right of "Announcement", click **Add announcement**.{% endif %}
-1. Under "Announcement", in the text field, type the announcement you want displayed in a banner.
-1. Optionally, under "Expires on", select the calendar drop-down menu and click an expiration date.
-   {% ifversion ghe-announce-dismiss %}
-
-   > [!NOTE]
-   > Announcements must either have an expiration date, be user dismissible, or both.
-
-   {% endif %}
+{% data reusables.enterprise-accounts.messages-tab %}
 {%- ifversion ghe-announce-dismiss %}
 1. Optionally, to allow each user to dismiss the announcement, select **User dismissible**.
-{%- endif %}{% ifversion custom-banner-messages %}
-1. Optionally, to allow each user to dismiss the announcement, select **Allow users to dismiss the announcement**.
 {%- endif %}
+1. Optionally, to allow each user to dismiss the announcement, select **Allow users to dismiss the announcement**.
 {% data reusables.enterprise_site_admin_settings.message-preview-save %}

@@ -2,7 +2,8 @@
 title: About custom repository roles
 intro: You can more granularly control access to your organization's repositories with custom repository roles.
 versions:
-  feature: custom-repository-roles
+  ghes: '*'
+  ghec: '*'
 topics:
   - Organizations
   - Teams
@@ -23,11 +24,7 @@ You can have more granular control over the permissions you grant at the reposit
 
 After you create a custom role, anyone with admin access to a repository can assign the role to an individual or team. For more information, see [AUTOTITLE](/organizations/managing-user-access-to-your-organizations-repositories/managing-repository-roles/managing-an-individuals-access-to-an-organization-repository) and [AUTOTITLE](/organizations/managing-user-access-to-your-organizations-repositories/managing-repository-roles/managing-team-access-to-an-organization-repository).
 
-{% ifversion custom-repo-role-api %}
-
 You can also use the REST API to create and manage custom repository roles. For more information, see [AUTOTITLE](/rest/orgs/custom-roles).
-
-{% endif %}
 
 {% ifversion custom-org-roles %}
 Custom repository roles manage access to specific repositories in your organization. To {% ifversion org-custom-role-with-repo-permissions %}grant access to all repositories, and to {% endif %}control access to your organization's administration settings, you can use custom organization roles. See [AUTOTITLE](/organizations/managing-peoples-access-to-your-organization-with-roles/about-custom-organization-roles).

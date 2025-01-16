@@ -46,9 +46,7 @@ You can create defaults in your organization or personal account for the followi
 | _CODE_OF_CONDUCT.md_ | A CODE_OF_CONDUCT file defines standards for how to engage in a community. For more information, see [AUTOTITLE](/communities/setting-up-your-project-for-healthy-contributions/adding-a-code-of-conduct-to-your-project). |
 |  {% endif %} |
 | _CONTRIBUTING.md_ | A CONTRIBUTING file communicates how people should contribute to your project. For more information, see [AUTOTITLE](/communities/setting-up-your-project-for-healthy-contributions/setting-guidelines-for-repository-contributors). |
-|  {% ifversion discussion-category-forms %} |
 | Discussion category forms | Discussion category forms customize the templates that are available for community members to use when they open new discussions in your repository. For more information, see [AUTOTITLE](/discussions/managing-discussions-for-your-community/creating-discussion-category-forms). |
-|  {% endif %} |
 |  {% ifversion fpt or ghec %} |
 | _FUNDING.yml_ | A FUNDING file displays a sponsor button in your repository to increase the visibility of funding options for your open source project. For more information, see [AUTOTITLE](/repositories/managing-your-repositorys-settings-and-features/customizing-your-repository/displaying-a-sponsor-button-in-your-repository). |
 |  {% endif %} |

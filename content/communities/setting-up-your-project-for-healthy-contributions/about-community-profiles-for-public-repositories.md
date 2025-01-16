@@ -21,7 +21,7 @@ As a repository maintainer, you can use the community standards checklist to see
 
 If a project doesn't have one of the recommended files, you can click the associated **Add** button to draft and submit a file.
 
-![Screenshot of the "Community Standards" maintainer checklist. Each item has an "Added" label (green checkmark) or a "Not added yet" label (orange circle).](/assets/images/help/repository/add-button-community-profile.png)
+![Screenshot of the "Community Standards" maintainer checklist. Each item has an "Added" label (green check) or a "Not added yet" label (orange circle).](/assets/images/help/repository/add-button-community-profile.png)
 
 {% data reusables.repositories.security-guidelines %}
 
@@ -33,7 +33,7 @@ As a potential contributor, use the community profile checklist to see if a proj
 
 If a project doesn't have a recommended file, you can click **Propose** to draft and submit a file to the repository maintainer for approval.
 
-![Screenshot of the "Community Standards" contributor checklist. Each item has an "Added" label (green checkmark) or a "Not added yet" label (orange circle).](/assets/images/help/repository/propose-button-community-profile.png)
+![Screenshot of the "Community Standards" contributor checklist. Each item has an "Added" icon (green check) or a "Not added yet" icon (orange circle).](/assets/images/help/repository/propose-button-community-profile.png)
 
 ## Further reading
 
