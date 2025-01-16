@@ -47,9 +47,7 @@ For more information, see [AUTOTITLE](/discussions).
 * Create protected tags
 * Delete protected tags
 * Bypass branch protections
-{%- ifversion edit-repository-rules %}
 * Edit repository rules
-{%- endif %}
 
 ### Security
 

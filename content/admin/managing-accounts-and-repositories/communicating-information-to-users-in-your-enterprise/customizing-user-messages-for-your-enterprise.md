@@ -84,21 +84,12 @@ If you include Markdown checkboxes in the message, all checkboxes must be select
 
 Each time a user sees a mandatory message, an audit log event is created. The event includes the version of the message that the user saw. For more information see [AUTOTITLE](/admin/monitoring-activity-in-your-enterprise/reviewing-audit-logs-for-your-enterprise/audit-log-events-for-your-enterprise).
 
-{% ifversion display-mandatory-message-again %} {% else %}
-
-> [!NOTE]
-> If you change the mandatory message for {% data variables.location.product_location %}, users who have already acknowledged the message will not see the new message.
-
-{% endif %}
-
 {% data reusables.enterprise-accounts.access-enterprise %}
 {% data reusables.enterprise-accounts.settings-tab %}
 {% data reusables.enterprise-accounts.messages-tab %}
 1. To the right of "Mandatory message", click **Add mandatory message**.
 1. Under "Mandatory message", in the text box, type your message.
-{%- ifversion display-mandatory-message-again %}
 1. Optionally, select **Show updated message to all users even if they dismissed the previous one**.
-   {% endif %}
 {% data reusables.enterprise_site_admin_settings.message-preview-save %}
 
 {% endif %}

@@ -77,7 +77,7 @@ Before launching {% data variables.location.product_location %} on Azure, you'll
 
 ## Configuring the {% data variables.product.prodname_ghe_server %} virtual machine
 
-To configure the instance, you must confirm the instance's status, upload a license file, set the {% ifversion enterprise-management-console-multi-user-auth %}root {% endif %} {% data variables.enterprise.management_console %} password, configure the instance's settings, and restart the instance.
+To configure the instance, you must confirm the instance's status, upload a license file, set the root {% data variables.enterprise.management_console %} password, configure the instance's settings, and restart the instance.
 
 {% data reusables.enterprise_installation.new-instance-attack-vector-warning %}
 
