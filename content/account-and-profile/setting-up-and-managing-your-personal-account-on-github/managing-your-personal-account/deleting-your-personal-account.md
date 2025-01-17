@@ -48,7 +48,7 @@ For more information, see the following articles.
 
 {% ifversion ghes %}
 > [!NOTE]
-> * You should contact an enterprise owner before deleting your account on {% data variables.product.product_name %}.
+> * You should contact an enterprise owner before deleting your account on {% data variables.product.prodname_ghe_server %}.
 {% endif %}
 
 ## Back up your account data
@@ -66,7 +66,7 @@ Before you delete your personal account, make a copy of all repositories, privat
     * If you're the only owner in the organization, you must transfer ownership to another person or delete your organization.
     * If there are other organization owners in the organization, you must remove yourself from the organization.
 1. In the "Make sure you want to do this" dialog box, complete the steps to confirm you understand what happens when your account is deleted:
-   {% ifversion fpt or ghec %}- Recall that all repositories, forks of private repositories, wikis, issues, pull requests and {% data variables.product.prodname_pages %} sites owned by your account will be deleted. Your billing will end immediately. Your username will be available to anyone for use on {% data variables.product.product_name %} after 90 days.{% else %}
-    * Recall that all repositories, forks of private repositories, wikis, issues, pull requests and pages owned by your account will be deleted, and your username will be available for use on {% data variables.product.product_name %}.{% endif %}
-    * In the first field, type your {% data variables.product.product_name %} username or email.
+   {% ifversion fpt or ghec %}- Recall that all repositories, forks of private repositories, wikis, issues, pull requests and {% data variables.product.prodname_pages %} sites owned by your account will be deleted. Your billing will end immediately. Your username will be available for anyone to use after 90 days.{% else %}
+    * Recall that all repositories, forks of private repositories, wikis, issues, pull requests and pages owned by your account will be deleted, and your username will be available for use.{% endif %}
+    * In the first field, type your username or email.
     * In the second field, type the phrase from the prompt.

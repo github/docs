@@ -162,7 +162,7 @@ with:
   who-to-greet: 'Mona the Octocat'
 ```
 
-## Commit, tag, and push your action to {% data variables.product.product_name %}
+## Commit, tag, and push your action
 
 From your terminal, commit your `action.yml`, `entrypoint.sh`, `Dockerfile`, and `README.md` files.
 

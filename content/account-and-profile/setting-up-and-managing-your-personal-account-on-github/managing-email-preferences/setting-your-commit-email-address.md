@@ -28,7 +28,7 @@ shortTitle: Set commit email address
 
 For web-based Git operations, you can set your commit email address on {% data variables.product.github %}. For commits you push from the command line, you can set your commit email address in Git.
 
-{% ifversion fpt or ghec %}Any commits you made prior to changing your commit email address are still associated with your previous email address.{% else %}After changing your commit email address on {% data variables.product.product_name %}, the new email address will be visible in all of your future web-based Git operations by default. Any commits you made prior to changing your commit email address are still associated with your previous email address.{% endif %}
+{% ifversion fpt or ghec %}Any commits you made prior to changing your commit email address are still associated with your previous email address.{% else %}After changing your commit email address on {% data variables.product.github %}, the new email address will be visible in all of your future web-based Git operations by default. Any commits you made prior to changing your commit email address are still associated with your previous email address.{% endif %}
 
 {% ifversion fpt or ghec %}
 

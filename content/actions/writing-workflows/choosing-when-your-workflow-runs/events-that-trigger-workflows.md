@@ -1,6 +1,6 @@
 ---
 title: Events that trigger workflows
-intro: 'You can configure your workflows to run when specific activity on {% data variables.product.product_name %} happens, at a scheduled time, or when an event outside of {% data variables.product.product_name %} occurs.'
+intro: 'You can configure your workflows to run when specific activity on {% data variables.product.github %} happens, at a scheduled time, or when an event outside of {% data variables.product.github %} occurs.'
 redirect_from:
   - /articles/events-that-trigger-workflows
   - /github/automating-your-workflow-with-github-actions/events-that-trigger-workflows
@@ -956,7 +956,7 @@ on:
 > {% data reusables.developer-site.multiple_activity_types %} For information about each activity type, see [AUTOTITLE](/webhooks-and-events/webhooks/webhook-events-and-payloads#release). {% data reusables.developer-site.limit_workflow_to_activity_types %}
 
 > [!NOTE]
-> Workflows are not triggered for the `created`, `edited`, or `deleted` activity types for draft releases. When you create your release through the {% data variables.product.product_name %} browser UI, your release may automatically be saved as a draft.
+> Workflows are not triggered for the `created`, `edited`, or `deleted` activity types for draft releases. When you create your release through the {% data variables.product.github %} UI, your release may automatically be saved as a draft.
 
 > [!NOTE]
 > The `prereleased` type will not trigger for pre-releases published from draft releases, but the `published` type will trigger. If you want a workflow to run when stable _and_ pre-releases publish, subscribe to `published` instead of `released` and `prereleased`.
@@ -979,7 +979,7 @@ on:
 
 {% data reusables.actions.branch-requirement %}
 
-You can use the {% data variables.product.product_name %} API to trigger a webhook event called [`repository_dispatch`](/webhooks-and-events/webhooks/webhook-events-and-payloads#repository_dispatch) when you want to trigger a workflow for activity that happens outside of {% data variables.product.product_name %}. For more information, see [AUTOTITLE](/rest/repos/repos#create-a-repository-dispatch-event).
+You can use the {% data variables.product.github %} API to trigger a webhook event called [`repository_dispatch`](/webhooks-and-events/webhooks/webhook-events-and-payloads#repository_dispatch) when you want to trigger a workflow for activity that happens outside of {% data variables.product.github %}. For more information, see [AUTOTITLE](/rest/repos/repos#create-a-repository-dispatch-event).
 
 When you make a request to create a `repository_dispatch` event, you must specify an `event_type` to describe the activity type. By default, all `repository_dispatch` activity types trigger a workflow to run. You can use the `types` keyword to limit your workflow to run when a specific `event_type` value is sent in the `repository_dispatch` webhook payload.
 
@@ -1158,7 +1158,7 @@ on: workflow_call
 
 {% data reusables.actions.branch-requirement %}
 
-To enable a workflow to be triggered manually, you need to configure the `workflow_dispatch` event. You can manually trigger a workflow run using the {% data variables.product.product_name %} API, {% data variables.product.prodname_cli %}, or {% data variables.product.product_name %} browser interface. For more information, see [AUTOTITLE](/actions/managing-workflow-runs/manually-running-a-workflow).
+To enable a workflow to be triggered manually, you need to configure the `workflow_dispatch` event. You can manually trigger a workflow run using the {% data variables.product.github %} API, {% data variables.product.prodname_cli %}, or the {% data variables.product.github %} UI. For more information, see [AUTOTITLE](/actions/managing-workflow-runs/manually-running-a-workflow).
 
 ```yaml
 on: workflow_dispatch
@@ -1320,7 +1320,7 @@ jobs:
           path: pr/
 ```
 
-When a run of the above workflow completes, it triggers a run of the following workflow. The following workflow uses the `github.event.workflow_run` context and the {% data variables.product.product_name %} REST API to download the artifact that was uploaded by the above workflow, unzips the downloaded artifact, and comments on the pull request whose number was uploaded as an artifact.
+When a run of the above workflow completes, it triggers a run of the following workflow. The following workflow uses the `github.event.workflow_run` context and the {% data variables.product.github %} REST API to download the artifact that was uploaded by the above workflow, unzips the downloaded artifact, and comments on the pull request whose number was uploaded as an artifact.
 
 ```yaml
 name: Use the data

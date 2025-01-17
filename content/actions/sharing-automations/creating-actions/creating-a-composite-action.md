@@ -33,7 +33,7 @@ Composite actions allow you to collect a series of workflow job steps into a sin
 
 Before you begin, you'll create a repository on {% data variables.product.github %}.
 
-1. Create a new public repository on {% data variables.product.github %}. You can choose any repository name, or use the following `hello-world-composite-action` example. You can add these files after your project has been pushed to {% data variables.product.product_name %}. For more information, see [AUTOTITLE](/repositories/creating-and-managing-repositories/creating-a-new-repository).
+1. Create a new public repository on {% data variables.product.github %}. You can choose any repository name, or use the following `hello-world-composite-action` example. You can add these files after your project has been pushed to {% data variables.product.github %}. For more information, see [AUTOTITLE](/repositories/creating-and-managing-repositories/creating-a-new-repository).
 
 1. Clone your repository to your computer. For more information, see [AUTOTITLE](/repositories/creating-and-managing-repositories/cloning-a-repository).
 

@@ -56,7 +56,7 @@ You can visually compare images in three different modes: [2-up](#2-up), [swipe]
 
 **2-up** is the default mode; it gives you a quick glimpse of both images. In addition, if the image has changed size between versions, the actual dimension change is displayed. This should make it very apparent when things are resized, such as when assets are upgraded to higher resolutions.
 
-![Screenshot of a diff for an image in 2-up mode. The image on the right is outlined in green and larger than the image on the left, which is outlined in red.](/assets/images/help/repository/images-2up-view.png)
+![Screenshot of a diff for an image in 2-up mode. The larger image on the right is outlined in green. The image on the left is outlined in red.](/assets/images/help/repository/images-2up-view.png)
 
 #### Swipe
 
@@ -170,7 +170,7 @@ To see the changes made to the document as part of a commit, click {% octicon "f
 
 This "rich diff" highlights the code that has been added and removed.
 
-![Screenshot of the diff for a Markdown file. "@octo-org/core" is struck through, with a red background, followed by "@octocat", with a green background.](/assets/images/help/repository/rendered-prose-changes.png)
+![Screenshot of the diff for a Markdown file. The old text, "@octo-org/core", is struck out with a red background. The new text has a green background.](/assets/images/help/repository/rendered-prose-changes.png)
 
 ### Disabling Markdown rendering
 
@@ -178,11 +178,9 @@ This "rich diff" highlights the code that has been added and removed.
 
 ### Visualizing attribute changes
 
-We provide a tooltip
-describing changes to attributes that, unlike words, would not otherwise be visible in the rendered document. For example, if a link URL changes from one website to
-another, we'd show a tooltip like this:
+We provide a tooltip describing changes to attributes that, unlike words, would not otherwise be visible in the rendered document. For example, if a link URL changes from one website to another, we'd show a tooltip like this: "href: /octo-org-repo/blob/CONTRIBUTING -> /octo-org/octo-repo/blob/docs/CONTRIBUTING."
 
-![Screenshot of the diff for a Markdown file. A tooltip over a link says "href: /octo-org-repo/blob/CONTRIBUTING -> /octo-org/octo-repo/blob/docs/CONTRIBUTING."](/assets/images/help/repository/prose-diff-attributes.png)
+![Screenshot of the diff for a Markdown file. The tooltip over the "CONTRIBUTING file" link contains the URL changes from the example above.](/assets/images/help/repository/prose-diff-attributes.png)
 
 ### Commenting on changes
 

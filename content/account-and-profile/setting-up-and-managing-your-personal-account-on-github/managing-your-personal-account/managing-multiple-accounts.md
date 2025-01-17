@@ -37,7 +37,7 @@ Git can use either the HTTPS or SSH protocol to access and update data in reposi
 
 You can find both the HTTPS or an SSH URLs for cloning a repository on the repository's page. For more information, see [AUTOTITLE](/repositories/creating-and-managing-repositories/cloning-a-repository).
 
-For more information about the use of SSH to access repositories on {% data variables.product.product_name %}, see [AUTOTITLE](/authentication/connecting-to-github-with-ssh).
+For more information about the use of SSH to access repositories, see [AUTOTITLE](/authentication/connecting-to-github-with-ssh).
 
 ## Contributing to multiple accounts using HTTPS and {% data variables.product.pat_generic %}s
 

@@ -1,7 +1,7 @@
 ---
 title: Using workflow templates
 shortTitle: Use workflow templates
-intro: '{% data variables.product.product_name %} provides workflow templates for a variety of languages and tooling.'
+intro: '{% data variables.product.github %} provides workflow templates for a variety of languages and tooling.'
 redirect_from:
   - /articles/setting-up-continuous-integration-using-github-actions
   - /github/automating-your-workflow-with-github-actions/setting-up-continuous-integration-using-github-actions
@@ -29,13 +29,13 @@ topics:
 
 Workflow templates are templates that help you to create your own {% data variables.product.prodname_actions %} workflows for a repository. They offer an alternative to starting from a blank workflow file and are useful because some of the work will already have been done for you.
 
-{% data variables.product.product_name %} offers workflow templates for a variety of languages and tooling. When you set up workflows in your repository, {% data variables.product.product_name %} analyzes the code in your repository and recommends workflows based on the language and framework in your repository. For example, if you use Node.js, {% data variables.product.product_name %} will suggest a workflow template file that installs your Node.js packages and runs your tests. You can search and filter to find relevant workflow templates.
+{% data variables.product.github %} offers workflow templates for a variety of languages and tooling. When you set up workflows in your repository, {% data variables.product.github %} analyzes the code in your repository and recommends workflows based on the language and framework in your repository. For example, if you use Node.js, {% data variables.product.github %} will suggest a workflow template file that installs your Node.js packages and runs your tests. You can search and filter to find relevant workflow templates.
 
 {% data reusables.actions.workflow-templates-categories %}
 
 {% data reusables.actions.workflow-templates-repo-link %}
 
-You can also create your own workflow template to share with your organization. These workflow templates will appear alongside the {% data variables.product.product_name %}-provided workflow templates. Anyone with write access to the organization's `.github` repository can set up a workflow template. For more information, see [AUTOTITLE](/actions/using-workflows/creating-starter-workflows-for-your-organization).
+You can also create your own workflow template to share with your organization. These workflow templates will appear alongside the {% data variables.product.github %}-provided workflow templates. Anyone with write access to the organization's `.github` repository can set up a workflow template. For more information, see [AUTOTITLE](/actions/using-workflows/creating-starter-workflows-for-your-organization).
 
 ## Choosing and using a workflow template
 

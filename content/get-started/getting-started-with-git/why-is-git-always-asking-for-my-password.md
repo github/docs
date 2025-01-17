@@ -12,7 +12,7 @@ versions:
   ghec: '*'
 shortTitle: Git passwords
 ---
-Using an HTTPS remote URL has some advantages compared with using SSH. It's easier to set up than SSH, and usually works through strict firewalls and proxies. However, it also prompts you to enter your {% data variables.product.product_name %} credentials every time you pull or push a repository.
+Using an HTTPS remote URL has some advantages compared with using SSH. It's easier to set up than SSH, and usually works through strict firewalls and proxies. However, it also prompts you to enter your {% data variables.product.github %} credentials every time you pull or push a repository.
 
 {% data reusables.user-settings.password-authentication-deprecation %}
 

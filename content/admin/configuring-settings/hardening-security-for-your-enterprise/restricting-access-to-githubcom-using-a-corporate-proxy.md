@@ -7,6 +7,8 @@ versions:
   ghec: '*'
 ---
 
+>[!NOTE] The header for restricting access to {% data variables.product.prodname_dotcom_the_website %} is currently in {% data variables.release-phases.public_preview %} and subject to change.
+
 If you use {% data variables.product.prodname_emus %}, you can block users on your network from authenticating to {% data variables.product.prodname_dotcom_the_website %} with accounts that are not members of your enterprise. This helps reduce the risk of your company's data being exposed to the public.
 
 To enforce this restriction, you will configure your network proxy or firewall to inject a header into your users' web and API requests to {% data variables.product.prodname_dotcom_the_website %}.

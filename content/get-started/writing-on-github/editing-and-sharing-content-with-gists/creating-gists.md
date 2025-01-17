@@ -16,7 +16,7 @@ versions:
 ---
 ## About gists
 
-Gists provide a simple way to share code snippets with others. Every gist is a Git repository, which means that it can be forked and cloned. If you are signed in to {% data variables.product.product_name %} when you create a gist, the gist will be associated with your account and you will see it in your list of gists when you navigate to your {% data variables.gists.gist_homepage %}.
+Gists provide a simple way to share code snippets with others. Every gist is a Git repository, which means that it can be forked and cloned. If you are signed in to {% data variables.product.github %} when you create a gist, the gist will be associated with your account and you will see it in your list of gists when you navigate to your {% data variables.gists.gist_homepage %}.
 
 Gists can be public or secret. Public gists show up in {% data variables.gists.discover_url %}, where people can browse new gists as they're created. They're also searchable, so you can use them if you'd like other people to find and see your work.
 
@@ -60,7 +60,7 @@ Follow the steps below to create a gist.
 >
 > Alternatively, you can drag and drop a text file from your desktop directly into the editor.
 
-1. Sign in to {% data variables.product.product_name %}.
+1. Sign in to {% data variables.product.github %}.
 1. Navigate to your {% data variables.gists.gist_homepage %}.
 1. Optionally, in the "Gist description" field, type a description for your gist.
 1. In the "Filename including extension" field, type a file name for your gist, including the file extensions.
