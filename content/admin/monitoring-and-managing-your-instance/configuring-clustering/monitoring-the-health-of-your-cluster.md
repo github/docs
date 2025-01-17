@@ -26,11 +26,7 @@ topics:
 
 A {% data variables.product.product_name %} cluster comprises multiple nodes, with redundant services distributed across two or more nodes. If an individual service or an entire node fails, users should not notice. Failures affect performance and redundancy, so it's important to monitor the health of your cluster. You can monitor the health of your cluster using a command-line utility or an external monitoring tool like Nagios.
 
-{% ifversion node-eligibility-service %}
-
 You can also monitor the health of individual nodes using {% data variables.product.prodname_nes %}. For more information, see [AUTOTITLE](/admin/enterprise-management/configuring-clustering/monitoring-the-health-of-your-cluster-nodes-with-node-eligibility-service).
-
-{% endif %}
 
 ## Manually checking cluster status
 

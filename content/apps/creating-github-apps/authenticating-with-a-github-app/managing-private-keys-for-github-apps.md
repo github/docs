@@ -12,7 +12,7 @@ topics:
 
 ## About private keys for {% data variables.product.prodname_github_apps %}
 
-After you create a {% data variables.product.prodname_github_app %}, you'll need to generate a private key in order to make requests to the {% data variables.product.product_name %} API as the application itself. For example, you need a private key to sign a JSON Web Token (JWT) in order to request an installation access token. For more information, see [AUTOTITLE](/apps/creating-github-apps/authenticating-with-a-github-app/generating-a-json-web-token-jwt-for-a-github-app)
+After you create a {% data variables.product.prodname_github_app %}, you'll need to generate a private key in order to make requests to the {% data variables.product.github %} API as the application itself. For example, you need a private key to sign a JSON Web Token (JWT) in order to request an installation access token. For more information, see [AUTOTITLE](/apps/creating-github-apps/authenticating-with-a-github-app/generating-a-json-web-token-jwt-for-a-github-app)
 
 You can create {% ifversion app-key-limit %}up to 25 {% else %}multiple {% endif %}private keys for an app. You should use multiple keys in order to rotate keys without downtime in the event of a key compromise. {% ifversion app-key-limit %}If your application has 25 or more keys, you must delete some before you can create more. {% endif %}
 
@@ -37,7 +37,7 @@ To generate a private key:
 
 ## Verifying private keys
 
-{% data variables.product.product_name %} generates a fingerprint for each private and public key pair using the SHA-256 hash function. You can verify that your private key matches the public key stored on {% data variables.product.product_name %} by generating the fingerprint of your private key and comparing it to the fingerprint shown on {% data variables.product.product_name %}.
+{% data variables.product.github %} generates a fingerprint for each private and public key pair using the SHA-256 hash function. You can verify that your private key matches the public key stored on {% data variables.product.github %} by generating the fingerprint of your private key and comparing it to the fingerprint shown on {% data variables.product.github %}.
 
 To verify a private key:
 
@@ -50,7 +50,7 @@ To verify a private key:
     openssl rsa -in PATH_TO_PEM_FILE -pubout -outform DER | openssl sha256 -binary | openssl base64
     ```
 
-1. Compare the results of the locally generated fingerprint to the fingerprint you see in {% data variables.product.product_name %}.
+1. Compare the results of the locally generated fingerprint to the fingerprint you see in {% data variables.product.github %}.
 
 ## Deleting private keys
 

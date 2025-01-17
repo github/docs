@@ -68,7 +68,7 @@ When you transfer a repository, its issues, pull requests, wiki, stars, and watc
 
 * When you transfer a repository from an organization to a personal account, the repository's read-only collaborators will not be transferred. This is because collaborators can't have read-only access to repositories owned by a personal account. For more information about repository permission levels, see [AUTOTITLE](/account-and-profile/setting-up-and-managing-your-personal-account-on-github/managing-personal-account-settings/permission-levels-for-a-personal-account-repository) and [AUTOTITLE](/organizations/managing-user-access-to-your-organizations-repositories/managing-repository-roles/repository-roles-for-an-organization).{% ifversion fpt or ghec %}
 * Sponsors who have access to the repository through a sponsorship tier may be affected. See [AUTOTITLE](/sponsors/receiving-sponsorships-through-github-sponsors/managing-your-sponsorship-tiers#adding-a-repository-to-a-sponsorship-tier).{% endif %}
-* Packages associated with the repository {% ifversion packages-registries-v2 %}may be transferred, or may lose their link to the repository, depending on the registry they belong to{% else %}are transferred as part of the transfer process{% endif %}. See [AUTOTITLE](/packages/learn-github-packages/about-permissions-for-github-packages#about-repository-transfers).
+* Packages associated with the repository may be transferred, or may lose their link to the repository, depending on the registry they belong to. See [AUTOTITLE](/packages/learn-github-packages/about-permissions-for-github-packages#about-repository-transfers).
 
 See [AUTOTITLE](/get-started/getting-started-with-git/managing-remote-repositories).
 

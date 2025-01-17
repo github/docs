@@ -816,8 +816,6 @@ This utility allows you to evacuate all storage services before evacuating a clu
 ghe-storage evacuate storage-server-UUID
 ```
 
-{% ifversion node-eligibility-service %}
-
 ### nes
 
 This utility allows you to monitor the health of cluster nodes using {% data variables.product.prodname_nes %}. By default, {% data variables.product.prodname_nes %} is disabled. For more information, see [AUTOTITLE](/admin/enterprise-management/configuring-clustering/monitoring-the-health-of-your-cluster-nodes-with-node-eligibility-service).
@@ -871,8 +869,6 @@ To manually update a node's eligibility for re-addition to the cluster:
 ```shell
 nes set-node-eligibility eligible HOSTNAME
 ```
-
-{% endif %}
 
 ## Git
 
