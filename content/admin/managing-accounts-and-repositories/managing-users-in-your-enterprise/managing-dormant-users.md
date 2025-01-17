@@ -29,7 +29,7 @@ topics:
 When assessing user dormancy, we only consider organizations, repositories, or sign-on events that are associated with the enterprise. For example, a user who has recently commented on an issue in a public repository outside of the enterprise may be considered dormant, while a user who has commented on an issue in a public repository within the enterprise will not be considered dormant.
 {% endif %}
 
-A user account is considered to be dormant if the user {% ifversion ghec %} hasn't performed any of the previous activities in the past 90 days.{% elsif ghes %} meets the following criteria:
+A user account is considered to be dormant if the user {% ifversion ghec %} hasn't performed any of the previous activities in the past 30 days.{% elsif ghes %} meets the following criteria:
 
 * The user's account has existed for longer than the dormancy threshold {% data variables.location.product_location %}.
 * The user hasn't performed any of the previous activities within the dormancy threshold.
