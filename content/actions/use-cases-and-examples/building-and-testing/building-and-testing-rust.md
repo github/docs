@@ -94,7 +94,7 @@ jobs:
 
 Note that the `release` keyword used above, corresponds to a cargo profile. You can use any [profile](https://doc.rust-lang.org/cargo/reference/profiles.html) you have defined in your `Cargo.toml` file.
 
-## Upload artifacts
+## Uploading and publishing artifacts
 
 In case publishing artifacts is needed, but not to crates.io, the following example demonstrates how to upload artifacts to the workflow run:
 
@@ -106,20 +106,19 @@ In case publishing artifacts is needed, but not to crates.io, the following exam
           path: target/${{ matrix.BUILD_TARGET }}/cndk8
 ```
 
-And to use them on a different job, i.e publishing:
+And to use them on a different job, i.e publishing as a github release, check [AUTOTITLE](/actions/security-for-github-actions/security-guides/automatic-token-authentication) to ensure your workflows have the right permissions on the repository.
 
 ```yaml copy
+      - uses: {% data reusables.actions.action-checkout %}
       - name: Download hello app
         uses: {% data reusables.actions.action-download-artifact %}
         with:
           name: cndk8-hello
           path: ./cndk8-hello
-      - name: Publish hello app to GitHub Packages
-        run: |
-          curl -u "${{ github.actor }}:${{ secrets.GITHUB_TOKEN }}" \
-            -X POST "https://uploads.github.com/repos/${{ github.repository }}/releases/assets?name=cndk8-hello.tar.gz" \
-            --header "Content-Type: application/gzip" \
-            --data-binary @./cndk8-hello/cndk8
+      - name: Publish hello app binary as a release on GitHub
+      - run: |
+          gh release create v0.1.0 --generate-notes
+          gh release upload v0.1.0 ./cndk8-hello/cndk8#my-cndk8-hello-app
 ```
 
 ## Publishing your package or library to crates.io
