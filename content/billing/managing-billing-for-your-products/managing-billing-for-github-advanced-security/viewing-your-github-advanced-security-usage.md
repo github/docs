@@ -28,7 +28,7 @@ shortTitle: View Advanced Security usage
 
 ## About licenses for {% data variables.product.prodname_GH_advanced_security %}
 
-Each license for {% data variables.product.prodname_GH_advanced_security %} specifies a maximum number of {% ifversion ghas-billing-UI-update %}licenses {% endif %}that can use these features. Periodically you should check that your use is within your license capacity. For more information, see [AUTOTITLE](/billing/managing-billing-for-your-products/managing-billing-for-github-advanced-security/about-billing-for-github-advanced-security).
+Each license for {% data variables.product.prodname_GH_advanced_security %} specifies a maximum number of licenses that can use these features. Periodically you should check that your use is within your license capacity. For more information, see [AUTOTITLE](/billing/managing-billing-for-your-products/managing-billing-for-github-advanced-security/about-billing-for-github-advanced-security).
 
 {% ifversion ghas-committers-calculator %}
 You can estimate the number of licenses your enterprise would need to purchase {% data variables.product.prodname_GH_advanced_security %} or to enable {% data variables.product.prodname_GH_advanced_security %} for additional organizations and repositories. For more information, see [AUTOTITLE](/billing/managing-billing-for-your-products/managing-billing-for-github-advanced-security/viewing-committer-information-for-github-advanced-security).
@@ -42,7 +42,7 @@ You can estimate the number of licenses your enterprise would need to purchase {
 
 ## Viewing {% data variables.product.prodname_GH_advanced_security %} license usage for your enterprise account
 
-You can view the enterprise account's current {% ifversion ghas-billing-UI-update %}license{% endif %} limits and usage.
+You can view the enterprise account's current license limits and usage.
 
 {% ifversion ghec %}
 
@@ -94,12 +94,12 @@ You can view the enterprise account's current {% ifversion ghas-billing-UI-updat
 
 You can download a CSV file with {% data variables.product.prodname_GH_advanced_security %} license usage information at both the enterprise and organization levels. The CSV file contains information about each {% data variables.product.prodname_advanced_security %} license that is in use, including:
 
-* The username of the person using the {% ifversion ghas-billing-UI-update %}license{% endif %}
+* The username of the person using the license
 * The {% data variables.product.prodname_advanced_security %}-enabled repositories where commits were made
-* The organizations{% ifversion secret-scanning-user-owned-repos %}{% ifversion ghec %} and user namespaces for {% data variables.product.prodname_emus %}{% endif %}{% endif %} that people using {% ifversion ghas-billing-UI-update %}licenses{% endif %} belong to
+* The organizations{% ifversion secret-scanning-user-owned-repos %}{% ifversion ghec %} and user namespaces for {% data variables.product.prodname_emus %}{% endif %}{% endif %} that people using licenses belong to
 * The most recent commit dates{% ifversion ghec or ghes > 3.11 %} and associated email addresses{% endif %}
 
-You can use this information for insights into your {% data variables.product.prodname_advanced_security %} usage, such as which members of your enterprise are using an {% data variables.product.prodname_advanced_security %} {% ifversion ghas-billing-UI-update %}license{% endif %} or how {% data variables.product.prodname_advanced_security %} licenses are being consumed across your organizations.
+You can use this information for insights into your {% data variables.product.prodname_advanced_security %} usage, such as which members of your enterprise are using an {% data variables.product.prodname_advanced_security %} license or how {% data variables.product.prodname_advanced_security %} licenses are being consumed across your organizations.
 
 You can download the {% data variables.product.prodname_advanced_security %} license usage CSV through the {% data variables.product.product_name %} user interface or the REST API.
 
