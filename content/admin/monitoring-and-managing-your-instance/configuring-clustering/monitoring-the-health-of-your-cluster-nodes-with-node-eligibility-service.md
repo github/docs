@@ -5,7 +5,7 @@ intro: 'You can monitor when nodes in a {% data variables.product.product_name %
 permissions: 'People with administrative SSH access to a {% data variables.product.product_name %} instance can monitor cluster nodes.'
 product: '{% data reusables.gated-features.cluster %}'
 versions:
-  feature: node-eligibility-service
+  ghes: '*'
 type: how_to
 topics:
   - Clustering

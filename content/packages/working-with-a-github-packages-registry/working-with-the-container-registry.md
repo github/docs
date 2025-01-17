@@ -54,14 +54,11 @@ When installing or publishing a Docker image, the {% data variables.product.prod
 
 {% data reusables.package_registry.authenticate-packages %}
 
-{% ifversion packages-registries-v2 %}
-
 ### Authenticating in a {% data variables.product.prodname_actions %} workflow
 
 This registry supports granular permissions. {% data reusables.package_registry.authenticate_with_pat_for_v2_registry %}
 
 {% data reusables.package_registry.v2-actions-codespaces %}
-{% endif %}
 
 ### Authenticating with a {% data variables.product.pat_v1 %}
 
