@@ -89,7 +89,7 @@ When you enable {% data variables.product.prodname_github_connect %} or specific
 * The {% data variables.product.prodname_github_connect %} features that are enabled on {% data variables.location.product_location %}, and the date and time of enablement{% endif %}
 * The dormancy threshold for your enterprise
 * The number of dormant users for your enterprise
-* A count of license-consuming seats, which does not include suspended users
+* A count of {% ifversion enterprise-licensing-language %}consumed licenses{% else %}license-consuming seats{% endif %}, which does not include suspended users
 
 {% data variables.product.prodname_github_connect %} syncs the above connection data between {% data variables.location.product_location %} and {% data variables.product.prodname_ghe_cloud %} weekly, starting from the day and approximate time that {% data variables.product.prodname_github_connect %} was enabled.
 

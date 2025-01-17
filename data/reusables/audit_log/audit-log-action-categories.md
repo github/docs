@@ -185,6 +185,6 @@
 | {% endif %} |
 | `user` | Contains activities related to users in an enterprise or organization. |
 | {% ifversion ghec or ghes %} |
-| `user_license` | Contains activities related to a user occupying a licensed seat in, and being a member of, an enterprise. |
+| `user_license` | Contains activities related to a user occupying a {% ifversion enterprise-licensing-language %}license{% else %}licensed seat{% endif %} in, and being a member of, an enterprise. |
 | {% endif %} |
 | `workflows` | Contains activities related to {% data variables.product.prodname_actions %} workflows. |

@@ -39,7 +39,7 @@ If your organization is managed by an enterprise account, then you can view the 
 You can also view whether an enterprise owner has a specific role in the organization. Enterprise owners can also be an organization member, any other organization role, or be un-affiliated with the organization.
 
 > [!NOTE]
-> If you're an organization owner, you can also invite an enterprise owner to have a role in the organization. If an enterprise owner accepts the invitation, a seat or license in the organization is used from the available licenses for your enterprise. For more information about how licensing works, see [AUTOTITLE](/admin/managing-accounts-and-repositories/managing-users-in-your-enterprise/roles-in-an-enterprise#enterprise-owner).
+> If you're an organization owner, you can also invite an enterprise owner to have a role in the organization. If an enterprise owner accepts the invitation, a {% ifversion enterprise-licensing-language %}{% else %}seat or{% endif %} license in the organization is used from the available licenses for your enterprise. For more information about how licensing works, see [AUTOTITLE](/admin/managing-accounts-and-repositories/managing-users-in-your-enterprise/roles-in-an-enterprise#enterprise-owner).
 
 | **Enterprise role** | **Organization role** | **Organization access or impact** |
 |----|----|----|
