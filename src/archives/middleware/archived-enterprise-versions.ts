@@ -226,7 +226,10 @@ export default async function archivedEnterpriseVersions(
     // Releases 3.2 and higher contain image asset paths with the
     // old Azure Blob Storage URL. These need to be rewritten to
     // the new archived enterprise repo URL.
-    if (versionSatisfiesRange(requestedVersion, `>=${firstReleaseStoredInBlobStorage}`)) {
+    if (
+      versionSatisfiesRange(requestedVersion, `>=${firstReleaseStoredInBlobStorage}`) &&
+      versionSatisfiesRange(requestedVersion, `<=3.9`)
+    ) {
       // `x-host` is a custom header set by Fastly.
       // GLB automatically deletes the `x-forwarded-host` header.
       const host = req.get('x-host') || req.get('x-forwarded-host') || req.get('host')
