@@ -19,7 +19,7 @@ shortTitle: Handle line endings
 
 Every time you press <kbd>return</kbd> on your keyboard you insert an invisible character called a line ending. Different operating systems handle line endings differently.
 
-When you're collaborating on projects with Git and {% data variables.product.product_name %}, Git might produce unexpected results if, for example, you're working on a Windows machine, and your collaborator has made a change in macOS.
+When you're collaborating on projects with Git and {% data variables.product.github %}, Git might produce unexpected results if, for example, you're working on a Windows machine, and your collaborator has made a change in macOS.
 
 You can configure Git to handle line endings automatically so you can collaborate effectively with people who use different operating systems.
 

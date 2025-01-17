@@ -14,7 +14,7 @@ shortTitle: Auto linked references
 ---
 ## URLs
 
-{% data variables.product.product_name %} automatically creates links from standard URLs.
+{% data variables.product.github %} automatically creates links from standard URLs.
 
 `Visit https://github.com`
 
@@ -24,7 +24,7 @@ For more information on creating links, see [AUTOTITLE](/get-started/writing-on-
 
 ## Issues and pull requests
 
-Within conversations on {% data variables.product.product_name %}, references to issues and pull requests are automatically converted to shortened links.
+Within conversations on {% data variables.product.github %}, references to issues and pull requests are automatically converted to shortened links.
 
 > [!NOTE]
 > Autolinked references are not created in wikis or files in a repository.
@@ -56,7 +56,7 @@ https://github.com/github/docs/labels/enhancement
 
 ## Commit SHAs
 
-References to a commit's SHA hash are automatically converted into shortened links to the commit on {% data variables.product.product_name %}.
+References to a commit's SHA hash are automatically converted into shortened links to the commit on {% data variables.product.github %}.
 
 | Reference type | Raw reference | Short link |
 | --- | --- | --- |
