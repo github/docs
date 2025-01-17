@@ -25,8 +25,6 @@ Issues can be created in a variety of ways, so you can choose the most convenien
 
 ## About sub-issues
 
-{% data reusables.issues.release-stage %}
-
 {% data reusables.issues.about-sub-issues %} See [AUTOTITLE](/issues/tracking-your-work-with-issues/using-issues/adding-sub-issues) and [AUTOTITLE](/issues/tracking-your-work-with-issues/using-issues/browsing-sub-issues).
 
 {% endif %}

@@ -71,8 +71,6 @@ You can filter issues and pull requests to find:
 
 ## Building advanced filters for issues
 
-{% data reusables.issues.release-stage %}
-
 You can build advanced filters using boolean and nested queries on your repository's issues page. As you type your filter, {% data variables.product.github %} will show available qualifiers, suggest values, and warn when there is a problem with your filter.
 
 ### Using boolean operators
@@ -136,8 +134,6 @@ Once you've [applied labels to an issue or pull request](/issues/using-labels-an
 {% ifversion issue-types %}
 
 ## Filtering by issue type
-
-{% data reusables.issues.release-stage %}
 
 If your organization uses issue types, you can filter issues for a particular type. You can also type the `type:` qualifier directly into your filter.
 
