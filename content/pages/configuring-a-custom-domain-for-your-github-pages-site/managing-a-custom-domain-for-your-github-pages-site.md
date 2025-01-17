@@ -161,7 +161,7 @@ If you get an error about a custom domain being taken, you may need to remove th
 {% data reusables.pages.sidebar-pages %}
 1. Under "Custom domain," click **Remove**.
 
-   ![Screenshot of a settings box to save or remove a custom domain on {% data variables.product.prodname_pages %} . To the right of a text box reading "example.com" is a button labeled "Remove" in red type.](/assets/images/help/pages/remove-custom-domain.png)
+   ![Screenshot of a custom domain. To the right of a text box reading "example.com", and a "Save" button, is a button labeled "Remove" in red type.](/assets/images/help/pages/remove-custom-domain.png)
 
 ## Securing your custom domain
 
