@@ -38,7 +38,7 @@ From the pull request page you can update your pull request's branch using a tra
 
    * Click the update branch drop down menu, click **Update with rebase**, and then click **Rebase branch** to update by rebasing on the base branch.
 
-     ![Screenshot of the merge section for a pull request. The dropdown menu is expanded, showing "Update with merge commit" and "Update with rebase" options.](/assets/images/help/pull_requests/pull-request-update-branch-rebase-option.png)
+     ![Screenshot of the merge section of a pull request. The dropdown menu is expanded, showing "Update with merge commit" and "Update with rebase" options.](/assets/images/help/pull_requests/pull-request-update-branch-rebase-option.png)
 
 ## Further reading
 

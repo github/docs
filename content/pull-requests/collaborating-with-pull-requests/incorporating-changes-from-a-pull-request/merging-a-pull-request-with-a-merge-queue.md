@@ -92,7 +92,7 @@ You can view the merge queue for a base branch in various places on {% data vari
 
 * The merge queue view shows the pull requests that are currently in the queue, with your pull requests clearly marked.
 
-  ![Screenshot of the merge queue.](/assets/images/help/pull_requests/merge-queue-view.png)
+  ![Screenshot of the merge queue for a repository.](/assets/images/help/pull_requests/merge-queue-view.png)
 
 ## Understanding why your pull request was removed from the merge queue
 
