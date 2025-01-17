@@ -8,7 +8,6 @@ topics:
   - Project management
 ---
 
-
 {% data reusables.issues.about-sub-issues %}
 
 ## Navigating issue hierarchy
