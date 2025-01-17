@@ -32,7 +32,7 @@ If you use {% data variables.product.product_name %} with an individual organiza
 
 {% elsif ghes %}
 
-Each user on {% data variables.location.product_location %} consumes a seat on your license. {% data variables.product.company_short %} bills monthly for the total number of seats consumed on your license.
+Each user on {% data variables.location.product_location %} consumes a {% ifversion enterprise-licensing-language %}license{% else %}seat on your license{% endif %}. {% data variables.product.company_short %} bills monthly for the total number of {% ifversion enterprise-licensing-language %}consumed licenses{% else %}seats consumed on your license{% endif %}.
 
 {% endif %}
 

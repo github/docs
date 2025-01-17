@@ -131,5 +131,5 @@ Bot accounts are specific to GitHub Apps and are built into every GitHub App.
 
 | GitHub Apps | {% data variables.product.prodname_oauth_apps %} |
 | ----- | ----------- |
-| GitHub App bots do not consume a {% data variables.product.prodname_enterprise %} seat. | A machine user account consumes a {% data variables.product.prodname_enterprise %} seat. |
+| GitHub App bots do not consume a {% data variables.product.prodname_enterprise %} {% ifversion enterprise-licensing-language %}license{% else %}seat{% endif %}. | A machine user account consumes a {% data variables.product.prodname_enterprise %} {% ifversion enterprise-licensing-language %}license{% else %}seat{% endif %}. |
 | Because a GitHub App bot is never granted a password, a customer can't sign into it directly. | A machine user account is granted a username and password to be managed and secured by the customer. |

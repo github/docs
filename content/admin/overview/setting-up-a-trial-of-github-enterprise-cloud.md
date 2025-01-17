@@ -37,7 +37,7 @@ The trial lasts for **{% data reusables.enterprise.ghec-trial-length %} days** a
 * {% data variables.product.prodname_GH_advanced_security %}
 * Access to the **new billing platform**. See [AUTOTITLE](/billing/using-the-new-billing-platform/about-the-new-billing-platform-for-enterprises).{% endif %}
 * An **enterprise account**, which allows you to manage multiple organizations. See [AUTOTITLE](/enterprise-cloud@latest/get-started/learning-about-github/types-of-github-accounts).
-* Up to **50 seats** to grant access to users.
+* Up to **50 licenses** to grant access to users.
 
 ## Features not included in the trial
 
