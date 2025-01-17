@@ -107,7 +107,7 @@ You can also set an announcement banner{% ifversion ghes %} in the administrativ
 {% data reusables.enterprise-accounts.access-enterprise %}
 {% data reusables.enterprise-accounts.settings-tab %}
 {% data reusables.enterprise-accounts.messages-tab %}
-{%- ifversion ghe-announce-dismiss %}
+{%- ifversion ghes %}
 1. Optionally, to allow each user to dismiss the announcement, select **User dismissible**.
 {%- endif %}
 1. Optionally, to allow each user to dismiss the announcement, select **Allow users to dismiss the announcement**.
