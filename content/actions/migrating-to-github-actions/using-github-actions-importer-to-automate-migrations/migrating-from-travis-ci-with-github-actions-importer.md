@@ -72,7 +72,7 @@ The `configure` CLI command is used to set required credentials and options for 
 
    * For "Which CI providers are you configuring?", use the arrow keys to select `Travis CI`, press <kbd>Space</kbd> to select it, then press <kbd>Enter</kbd>.
    * For "{% data variables.product.pat_generic_caps %} for GitHub", enter the value of the {% data variables.product.pat_v1 %} that you created earlier, and press <kbd>Enter</kbd>.
-   * For "Base url of the GitHub instance", {% ifversion ghes %}enter the URL for your {% data variables.product.product_name %} instance, and press <kbd>Enter</kbd>.{% else %}press <kbd>Enter</kbd> to accept the default value (`https://github.com`).{% endif %}
+   * For "Base url of the GitHub instance", {% ifversion ghes %}enter the URL for {% data variables.location.product_location_enterprise %}, and press <kbd>Enter</kbd>.{% else %}press <kbd>Enter</kbd> to accept the default value (`https://github.com`).{% endif %}
    * For "{% data variables.product.pat_generic_caps %} for Travis CI", enter the value for the Travis CI API access token that you created earlier, and press <kbd>Enter</kbd>.
    * For "Base url of the Travis CI instance", enter the URL of your Travis CI instance, and press <kbd>Enter</kbd>.
    * For "Travis CI organization name", enter the name of your Travis CI organization, and press <kbd>Enter</kbd>.

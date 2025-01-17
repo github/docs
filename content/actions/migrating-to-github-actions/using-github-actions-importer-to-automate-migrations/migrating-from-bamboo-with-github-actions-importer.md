@@ -86,7 +86,7 @@ The `configure` CLI command is used to set required credentials and options for 
 
    * For "Which CI providers are you configuring?", use the arrow keys to select `Bamboo`, press <kbd>Space</kbd> to select it, then press <kbd>Enter</kbd>.
    * For "{% data variables.product.pat_generic_caps %} for GitHub", enter the value of the {% data variables.product.pat_v1 %} that you created earlier, and press <kbd>Enter</kbd>.
-   * For "Base url of the GitHub instance", {% ifversion ghes %}enter the URL for your {% data variables.product.product_name %} instance, and press <kbd>Enter</kbd>.{% else %}press <kbd>Enter</kbd> to accept the default value (`https://github.com`).{% endif %}
+   * For "Base url of the GitHub instance", {% ifversion ghes %}enter the URL for {% data variables.location.product_location_enterprise %}, and press <kbd>Enter</kbd>.{% else %}press <kbd>Enter</kbd> to accept the default value (`https://github.com`).{% endif %}
    * For "{% data variables.product.pat_generic_caps %} for Bamboo", enter the value for the Bamboo {% data variables.product.pat_generic %} that you created earlier, and press <kbd>Enter</kbd>.
    * For "Base url of the Bamboo instance", enter the URL for your Bamboo Server or Bamboo Data Center instance, and press <kbd>Enter</kbd>.
 

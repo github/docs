@@ -212,11 +212,11 @@ Since there are so many IP address ranges for {% data variables.product.prodname
 
 The list of {% data variables.product.prodname_actions %} IP addresses returned by the API is updated once a week.
 
-## Communication requirements for {% data variables.product.prodname_dotcom %}-hosted runners and {% data variables.product.product_name %}
+## Communication requirements for {% data variables.product.prodname_dotcom %}-hosted runners
 
-A {% data variables.product.prodname_dotcom %}-hosted runner must establish connections to {% data variables.product.prodname_dotcom %}-owned endpoints to perform essential communication operations. In addition, your runner may require access to additional networks that you specify or utilize within an action.
+A {% data variables.product.github %}-hosted runner must establish connections to {% data variables.product.github %}-owned endpoints to perform essential communication operations. In addition, your runner may require access to additional networks that you specify or utilize within an action.
 
-To ensure proper communications for {% data variables.product.prodname_dotcom %}-hosted runners between networks within your configuration, ensure that the following communications are allowed.
+To ensure proper communications for {% data variables.product.github %}-hosted runners between networks within your configuration, ensure that the following communications are allowed.
 
 {% data reusables.actions.domain-name-cname-recursive-firewall-rules %}
 
