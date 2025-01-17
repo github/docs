@@ -19,7 +19,7 @@ shortTitle: Classify with topics
 
 With topics, you can explore repositories in a particular subject area, find projects to contribute to, and discover new solutions to a specific problem. Topics appear on the main page of a repository. You can click a topic name to {% ifversion fpt or ghec %}see related topics and a list of other repositories classified with that topic{% else %}search for other repositories with that topic{% endif %}.
 
-![Screenshot of the github/docs repository. In the right sidebar, three topics are outlined in dark orange: "docs," "hacktoberfest," and "works-with-codespaces."](/assets/images/help/repository/os-repo-with-topics.png)
+![Screenshot of the github/docs repository. In the sidebar, three topics are outlined in orange: "docs," "hacktoberfest," and "works-with-codespaces."](/assets/images/help/repository/os-repo-with-topics.png)
 
 To browse the most used topics, go to {% data variables.product.product_url %}/topics/.
 

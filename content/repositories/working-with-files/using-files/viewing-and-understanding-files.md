@@ -84,9 +84,9 @@ Now when you visit the blame view, the listed revisions will not be included in 
 <!--Page used for the screenshots below: https://github.com/electron/electron/blame/main/lib/browser/ipc-main-internal.ts -->
 
 {% ifversion fpt or ghec %}
-![Screenshot of the blame view for the "ipc-main-internal.ts" file. A blue banner states that the information is "Ignoring revisions in .git-blame-ignore-revs." The link to the .git-blame-ignore-revs file is outlined in dark orange.](/assets/images/help/repository/blame-ignore-revs-file.png)
+![Screenshot of the blame view for a file. The blue "Ignoring revisions" banner includes a link to ".git-blame-ignore-revs" which is outlined in orange.](/assets/images/help/repository/blame-ignore-revs-file.png)
 {% else %}
-![Screenshot of the blame view for the "ipc-main-internal.ts" file. A blue banner states that the information is "Ignoring revisions in .git-blame-ignore-revs." The link to the .git-blame-ignore-revs file is outlined in dark orange.](/assets/images/enterprise/repository/blame-ignore-revs-file.png)
+![Screenshot of the blame view for a file. The blue "Ignoring revisions" banner includes a link to ".git-blame-ignore-revs" which is outlined in orange.](/assets/images/enterprise/repository/blame-ignore-revs-file.png)
 {% endif %}
 
 This can be useful when a few commits make extensive changes to your code. You can use the file when running `git blame` locally as well:

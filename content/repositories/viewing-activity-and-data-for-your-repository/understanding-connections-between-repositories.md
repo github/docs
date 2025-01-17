@@ -83,7 +83,7 @@ Forks are listed alphabetically by the organization or username of the person wh
 
 1. Optionally, to preserve the filter values you have selected as the default filters for any time you view a forks page, click **Save Defaults**. If the currently selected filters are already the defaults, the button will be disabled and labeled as **Defaults Saved**.
 
-   ![Screenshot of the forks page with filter and sort options shown. The "Defaults saved" button, which is disabled because the defaults are already saved, is highlighted with an orange outline."](/assets/images/help/graphs/repository-forks-page-save-defaults-button.png)
+   ![Screenshot of the forks page with filter and sort options shown. The "Defaults saved" button is disabled because the defaults are already saved.](/assets/images/help/graphs/repository-forks-page-save-defaults-button.png)
 
 {% endif %}
 
