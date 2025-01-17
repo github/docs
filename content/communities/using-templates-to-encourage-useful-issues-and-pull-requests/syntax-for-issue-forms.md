@@ -2,7 +2,9 @@
 title: Syntax for issue forms
 intro: 'You can define different input types, validations, default assignees, and default labels for your issue forms.'
 versions:
-  feature: issue-forms
+  fpt: '*'
+  ghes: '*'
+  ghec: '*'
 topics:
   - Community
 ---
