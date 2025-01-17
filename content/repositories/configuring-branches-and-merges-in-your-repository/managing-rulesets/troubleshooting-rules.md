@@ -19,6 +19,23 @@ If a branch or tag is targeted by rules restricting the metadata of commits, you
 
 When utilizing push rulesets, a maximum of 1000 reference updates are allowed per push. If your push exceeds this limit, it will be rejected. For more information see [AUTOTITLE](/repositories/configuring-branches-and-merges-in-your-repository/managing-rulesets/creating-rulesets-for-a-repository#creating-a-push-ruleset).
 
+## Troubleshooting required status checks
+
+When defining status checks, the name format depends on the type of check:
+
+* **Workflow**: The name format is `<job name>`.  
+* **Reusable workflow**: The name format is `<job name> / <reusable job name>`.  
+* **Other checks**: The name format is `<check name>`.
+
+Required status checks do not take workflow, matrix, or event trigger types into account.
+
+{% ifversion repo-rules-enterprise %}
+
+Status checks are not indexed for rulesets defined above the repository level. You must manually enter the exact check name expected.
+
+For rulesets in evaluate mode, a status check will run on the targeted branch but will not be required to pass.
+{% endif %}
+
 {% ifversion repo-rules-required-workflows %}
 
 ## Troubleshooting ruleset workflows

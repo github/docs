@@ -33,7 +33,6 @@ $ ghe-announce -u
 > Removed the announcement message
 ```
 
-{% ifversion ghe-announce-dismiss %}
 To allow each user to dismiss the announcement for themselves, use the `-d` flag.
 
 ```shell
@@ -45,8 +44,6 @@ $ ghe-announce -u
 > Removed the announcement message, which was user
 > dismissible: MESSAGE
 ```
-
-{% endif %}
 
 You can also set an announcement banner using the enterprise settings on {% data variables.product.product_name %}. For more information, see [AUTOTITLE](/admin/user-management/managing-users-in-your-enterprise/customizing-user-messages-for-your-enterprise#creating-a-global-announcement-banner).
 
@@ -791,8 +788,6 @@ Flag | Description
 
 {% endif %}
 
-{% ifversion ghe-spokes-deprecation-phase-1 %}
-
 ### ghe-spokesctl
 
 This utility allows you to manage replication of repositories on the distributed Git servers.
@@ -812,36 +807,6 @@ To evacuate storage services on a cluster node:
 ```shell
 ghe-spokesctl server set evacuating git-server-UUID
 ```
-
-{% else %}
-
-### ghe-spokes
-
-This utility allows you to manage the three copies of each repository on the distributed Git servers.
-
-```shell
-ghe-spokes
-```
-
-To show a summary of repository location and health:
-
-```shell
-ghe-spokes status
-```
-
-To show the servers in which the repository is stored:
-
-```shell
-ghe-spokes route
-```
-
-To evacuate storage services on a cluster node:
-
-```shell
-ghe-spokes server evacuate git-server-UUID
-```
-
-{% endif %}
 
 ### ghe-storage
 
@@ -984,12 +949,8 @@ This utility tests the blob storage configuration for {% data variables.product.
 
 For more information about the configuration of {% data variables.product.prodname_actions %}, see [AUTOTITLE](/admin/github-actions/getting-started-with-github-actions-for-your-enterprise/getting-started-with-github-actions-for-github-enterprise-server).
 
-{% ifversion ghes-actions-storage-oidc %}
-
 > [!NOTE]
 > This utility only works with configurations that use a credentials-based connection to the storage provider. To test OpenID Connect (OIDC) configurations, use [`ghe-actions-test-storage-with-oidc`](#ghe-actions-test-storage-with-oidc).
-
-{% endif %}
 
 ```shell
 ghe-actions-precheck -p [PROVIDER] -cs ["CONNECTION-STRING"]
@@ -1001,8 +962,6 @@ If your storage system is configured correctly, you'll see the following output.
 All Storage tests passed
 ```
 
-{% ifversion ghes-actions-storage-oidc %}
-
 ### ghe-actions-test-storage-with-oidc
 
 This utility checks that the blob storage provider for {% data variables.product.prodname_actions %} on {% data variables.location.product_location %} is valid when OpenID Connect (OIDC) is used.
@@ -1013,8 +972,6 @@ This utility checks that the blob storage provider for {% data variables.product
 ```shell
 ghe-actions-test-storage-with-oidc -p [PROVIDER] -cs ["CONNECTION-STRING"]
 ```
-
-{% endif %}
 
 ### ghe-actions-stop
 
@@ -1330,8 +1287,6 @@ In this example, `ghe-repl-status -vv` sends verbose status information from a r
 
 ## Upgrading {% data variables.product.prodname_ghe_server %}
 
-{% ifversion ghes-upgrade-complete-indicator %}
-
 ### ghe-check-background-upgrade-jobs
 
 During an upgrade to a feature release, this utility displays the status of background jobs on {% data variables.location.product_location %}. If you're running back-to-back upgrades, you should use this utility to check that all background jobs are complete before proceeding with the next upgrade.
@@ -1346,10 +1301,6 @@ During an upgrade to a feature release, this utility displays the status of back
 ```shell
 ghe-check-background-upgrade-jobs
 ```
-
-{% endif %}
-
-{% ifversion ghe-migrations-cli-utility %}
 
 ### ghe-migrations
 
@@ -1372,8 +1323,6 @@ By default, the visualizer refreshes every second. To specify the duration in se
 ```shell
 ghe-migrations -refresh_rate SECONDS
 ```
-
-{% endif %}
 
 ### ghe-update-check
 

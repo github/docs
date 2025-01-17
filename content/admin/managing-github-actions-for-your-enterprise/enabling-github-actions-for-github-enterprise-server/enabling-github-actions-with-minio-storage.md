@@ -37,7 +37,6 @@ Before enabling {% data variables.product.prodname_actions %}, make sure you hav
 {% data reusables.enterprise_site_admin_settings.management-console %}
 {% data reusables.enterprise_management_console.actions %}
 {% data reusables.actions.enterprise-enable-checkbox %}
-{%- ifversion ghes-actions-storage-oidc %}
 {% data reusables.actions.enterprise-s3-storage-setup %}
 1. Under "Authentication", select **Credentials-based**, and enter your storage bucket's details:
 
@@ -45,11 +44,6 @@ Before enabling {% data variables.product.prodname_actions %}, make sure you hav
    > For MinIO, you cannot use OpenID Connect (OIDC) authentication. You must use credentials-based authentication.
 
    {% data reusables.actions.enterprise-minio-storage-credential-fields %}
-{%- else %}
-1. Under "Artifact & Log Storage", select **Amazon S3**, and enter your storage bucket's details:
-
-   {% data reusables.actions.enterprise-minio-storage-credential-fields %}
-{% endif %}
 1. Under "Artifact & Log Storage", select **Force path style**.
 {% data reusables.enterprise_management_console.test-storage-button %}
 {% data reusables.enterprise_management_console.save-settings %}

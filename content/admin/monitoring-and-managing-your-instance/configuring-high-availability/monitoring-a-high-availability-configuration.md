@@ -37,7 +37,7 @@ You can also monitor replication status from the overview dashboard on your inst
 ## Monitoring replication using the {% data variables.product.prodname_cli %}
 
 You can monitor replication status on your instance using the `gh es` extension for {% data variables.product.prodname_cli %}. For more information, see the [GH ES CLI usage documentation](https://github.com/github/gh-es/blob/main/USAGE.md#gh-es-replication-status) and [AUTOTITLE](/admin/administering-your-instance/administering-your-instance-from-the-command-line/administering-your-instance-using-the-github-cli).
-  
+
 {% endif %}
 
 {% ifversion replication-management-api %}
@@ -91,26 +91,18 @@ If you've recently configured high availability or geo-replication, the initial 
 
 #### Under-replicated repositories or repository networks
 
-You can view a specific repository's replication status by connecting to a node and running the following {% ifversion ghe-spokes-deprecation-phase-1 %}commands{% else %}command{% endif %}, replacing OWNER with the repository's owner and REPOSITORY with the repository's name.
+You can view a specific repository's replication status by connecting to a node and running the following commands, replacing OWNER with the repository's owner and REPOSITORY with the repository's name.
 
 ```text
-{%- ifversion ghe-spokes-deprecation-phase-1 %}
 ghe-spokesctl check OWNER/REPOSITORY
 ghe-spokesctl info OWNER/REPOSITORY
-{%- else %}
-ghe-spokes diagnose OWNER/REPOSITORY
-{%- endif %}
 ```
 
 Alternatively, if you want to view a repository network's replication status, replace NETWORK-ID/REPOSITORY-ID with the network ID and repository ID number.
 
 ```text
-{%- ifversion ghe-spokes-deprecation-phase-1 %}
 ghe-spokesctl check NETWORK-ID/REPOSITORY-ID
 ghe-spokesctl info NETWORK-ID/REPOSITORY-ID
-{%- else %}
-ghe-spokes diagnose NETWORK-ID/REPOSITORY-ID
-{%- endif %}
 ```
 
 #### Under-replicated storage objects
