@@ -1,6 +1,6 @@
 ---
 title: Types of emails GitHub sends
-intro: 'There are several types of emails you can receive from {% data variables.product.product_name %}, including notifications, account information, customer research invitations, and marketing communications.'
+intro: 'There are several types of emails you can receive from {% data variables.product.github %}, including notifications, account information, customer research invitations, and marketing communications.'
 redirect_from:
   - /articles/types-of-emails-github-sends
   - /github/setting-up-and-managing-your-github-user-account/types-of-emails-github-sends
@@ -34,7 +34,7 @@ If you've upgraded to paid products or features, then you'll receive billing rec
 
 ## Customer research emails
 
-{% data variables.product.product_name %} occasionally seeks customers to participate in research sessions to help us build a better GitHub. These are conducted remotely, open to customers worldwide, and may include:
+{% data variables.product.company_short %} occasionally seeks customers to participate in research sessions to help us build a better GitHub. These are conducted remotely, open to customers worldwide, and may include:
 
 * Feedback surveys
 * Research interviews
