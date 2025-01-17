@@ -21,7 +21,7 @@ shortTitle: Rate limits
 
 {% ifversion ghes %}
 
-API rate limits are disabled by default for {% data variables.product.product_name %}. Contact your site administrator to confirm the rate limits for your instance.
+API rate limits are disabled by default for {% data variables.product.prodname_ghe_server %}. Contact your site administrator to confirm the rate limits for your instance.
 
 If you are a site administrator, you can set rate limits for your instance. For more information, see [AUTOTITLE](/admin/configuration/configuring-user-applications-for-your-enterprise/configuring-rate-limits).
 
