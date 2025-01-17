@@ -67,7 +67,7 @@ If your repository has checks configured to run on pull requests, you will see a
 
 ### Address review comments
 
-Reviewers should leave questions, comments, and suggestions. Reviewers can comment on the whole pull request or add comments to specific lines{% ifversion pull-request-comment-on-file %} or files{% endif %}. You and reviewers can insert images or code suggestions to clarify comments. For more information, see [AUTOTITLE](/pull-requests/collaborating-with-pull-requests/reviewing-changes-in-pull-requests).
+Reviewers should leave questions, comments, and suggestions. Reviewers can comment on the whole pull request or add comments to specific lines or files. You and reviewers can insert images or code suggestions to clarify comments. For more information, see [AUTOTITLE](/pull-requests/collaborating-with-pull-requests/reviewing-changes-in-pull-requests).
 
 You can continue to commit and push changes in response to the reviews. Your pull request will update automatically.
 

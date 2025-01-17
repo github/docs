@@ -1,5 +1,3 @@
-{% ifversion discussions %}
-
 ### Discussions
 
 * Create a discussion category
@@ -10,7 +8,6 @@
 * Convert issues to discussions
 
 For more information, see [AUTOTITLE](/discussions).
-{% endif %}
 
 ### Issue and Pull Requests
 
@@ -50,9 +47,7 @@ For more information, see [AUTOTITLE](/discussions).
 * Create protected tags
 * Delete protected tags
 * Bypass branch protections
-{%- ifversion edit-repository-rules %}
 * Edit repository rules
-{%- endif %}
 
 ### Security
 

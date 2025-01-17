@@ -60,7 +60,7 @@ In the file menu at the top of the screen, you can access settings and actions t
 
 At the top of the {% data variables.product.prodname_desktop %} app, you will see a bar that shows the current state of your repository.
 
-![Screenshot of the GitHub Desktop app. A bar displaying details for the "hello-world" repository spans the top of the window, and is outlined in orange.](/assets/images/help/desktop/explore-github-desktop.png)
+![Screenshot of the GitHub Desktop app. A bar showing details for the "hello-world" repository spans the top of the window, and is outlined in orange.](/assets/images/help/desktop/explore-github-desktop.png)
 
 * **Current repository** shows the name of the repository you're working on. You can click **Current repository** to switch to a different repository in {% data variables.product.prodname_desktop %}.
 * **Current branch** shows the name of the branch you're working on. You can click **Current branch** to view all the branches in your repository, switch to a different branch, or create a new branch. Once you create pull requests in your repository, you can also view these by clicking on **Current branch**.
@@ -70,7 +70,7 @@ At the top of the {% data variables.product.prodname_desktop %} app, you will se
 
 In the left sidebar, you'll find the **Changes** and **History** views.
 
-![Screenshot of the GitHub Desktop app. A sidebar on the left-hand side, with tabs labeled "Changes" and "History", is highlighted with an orange outline.](/assets/images/help/desktop/changes-and-history.png)
+![Screenshot of the GitHub Desktop app. A sidebar on the left-hand side, with tabs labeled "Changes" and "History", is outlined in orange.](/assets/images/help/desktop/changes-and-history.png)
 
 * The **Changes** view shows changes you've made to files in your current branch but haven't committed to your local repository. At the bottom, there is a box with "Summary" and "Description" text boxes and a **Commit to BRANCH** button. This is where you'll commit new changes. The **Commit to BRANCH** button is dynamic and will display which branch you're committing your changes to.
 * The **History** view shows the previous commits on the current branch of your repository. You should see an "Initial commit" that was created by {% data variables.product.prodname_desktop %} when you created your repository. To the right of the commit, depending on the options you selected while creating your repository, you may see _.gitattributes_, _.gitignore_, LICENSE, or README files. You can click each file to see a diff for that file, which is the changes made to the file in that commit. The diff only shows the parts of the file that have changed, not the entire contents of the file

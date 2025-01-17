@@ -21,11 +21,7 @@ These extra logs are enabled by setting secrets or variables in the repository c
 
 For more information on setting secrets and variables, see [AUTOTITLE](/actions/security-guides/using-secrets-in-github-actions) and [AUTOTITLE](/actions/learn-github-actions/variables).
 
-{% ifversion debug-reruns %}
-
 Additionally, anyone who has access to run a workflow can enable runner diagnostic logging and step debug logging for a workflow re-run. For more information, see [AUTOTITLE](/actions/managing-workflow-runs/re-running-workflows-and-jobs).
-
- {% endif %}
 
 ## Enabling runner diagnostic logging
 

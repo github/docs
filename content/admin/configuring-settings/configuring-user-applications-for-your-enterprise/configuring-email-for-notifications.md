@@ -25,8 +25,8 @@ shortTitle: Configure email notifications
 ## Configuring SMTP for your enterprise
 
 {% data reusables.enterprise_site_admin_settings.email-settings %}
-1. Select **Enable email**. This will enable both outbound and inbound email. However, for inbound email to work you will also need to configure your DNS settings as described below in "[Configuring DNS and firewall
-settings to allow incoming emails](#configuring-dns-and-firewall-settings-to-allow-incoming-emails)."
+1. Select **Enable email**. This will enable both outbound and inbound email. However, for inbound email to work you will also need to configure your DNS settings as described below in [Configuring DNS and firewall
+settings to allow incoming emails](#configuring-dns-and-firewall-settings-to-allow-incoming-emails).
 1. Type the settings for your SMTP server.
       * In the **Server address** field, type the address of your SMTP server.
       * In the **Port** field, type the port that your SMTP server uses to send email.

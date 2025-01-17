@@ -48,11 +48,7 @@ The {% data variables.product.prodname_actions %} service will then automaticall
 > [!NOTE]
 > If a job is labeled for a certain type of runner, but none matching that type are available, the job does not immediately fail at the time of queueing. Instead, the job will remain queued until the 24 hour timeout period expires.
 
-{% ifversion actions-single-use-tokens %}
-
 Alternatively, you can create ephemeral, just-in-time runners using the REST API. For more information, see [AUTOTITLE](/rest/actions/self-hosted-runners).
-
-{% endif %}
 
 ## Controlling runner software updates on self-hosted runners
 

@@ -139,7 +139,7 @@ Since {% data variables.product.prodname_github_apps %} are a first class actor 
 
 * Tightly-scoped tokens with well-defined permission sets and expiration times (1 hour, or less if revoked manually using the API)
 * Dedicated rate limits that grow with your organization
-* Decoupled from {% data variables.product.prodname_dotcom %} user identities, so they do not consume any licensed seats
+* Decoupled from {% data variables.product.prodname_dotcom %} user identities, so they do not consume any {% ifversion enterprise-licensing-language %}licenses{% else %}licensed seats{% endif %}
 * Never granted a password, so cannot be directly signed in to
 
 ### Cons of installation access tokens

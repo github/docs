@@ -61,11 +61,11 @@ This section uses an open source Java project called "sofa-jraft" as an example.
 
 1. Display the {% data variables.product.prodname_codeql %} model editor. By default the editor runs in application mode, so the list of external APIs used by the selected codebase is shown.
 
-    ![Screenshot of the "Application mode" view of the CodeQL model pack editor in Visual Studio Code showing two of the external Java frameworks used by the "sofa-jraft" codebase.](/assets/images/help/security/codeql-for-vs-code-model-application-mode.png)
+    ![Screenshot of the "Application mode" view showing two of the external Java frameworks used by the "sofa-jraft" codebase.](/assets/images/help/security/codeql-for-vs-code-model-application-mode.png)
 
 1. Click to expand an external API and view the list of calls from the codebase to the external dependency.
 
-    ![Screenshot of the "Application mode" view of the CodeQL model pack editor in Visual Studio Code showing the calls to the "rocksdbjni" framework ready for modeling. The "View" option for the first call is highlighted with a dark orange outline.](/assets/images/help/security/codeql-for-vs-code-model-application-mode-expanded.png)
+    ![Screenshot of  "Application mode" showing the calls to the "rocksdbjni" framework. The "View" option for the first call is outlined in orange.](/assets/images/help/security/codeql-for-vs-code-model-application-mode-expanded.png)
 
 1. Click **View** associated with an API call or method to show where it is used in your codebase.
 
@@ -104,13 +104,13 @@ This section uses an open source Java project called "sofa-jraft" as an example.
 
 1. Display the {% data variables.product.prodname_codeql %} model editor. By default the editor runs in application mode. Click **Model as dependency** to display dependency mode. The screen changes to show the public API of the framework or library.
 
-    ![Screenshot of the "Dependency mode" view of the CodeQL model pack editor in Visual Studio Code showing three of the packages published by the "sofa-jraft" codebase.](/assets/images/help/security/codeql-for-vs-code-model-dependency-mode.png)
+    ![Screenshot of the "Dependency mode" view showing three of the packages published by the "sofa-jraft" codebase.](/assets/images/help/security/codeql-for-vs-code-model-dependency-mode.png)
 
 1. Click to expand a package and view the list of available methods.
 
 1. Click **View** associated with a method to show its definition.
 
-    ![Screenshot of the "Dependency mode" view of the CodeQL model pack editor in Visual Studio Code showing one model for the "com.alipay.sofa.jraft.option.BallotBoxOptions.getClosureQueue()" method. The "+" button is outlined in dark orange. Click this button to create a second model for the method.](/assets/images/help/security/codeql-for-vs-code-model-dependency-mode-expanded.png)
+    ![Screenshot of "Dependency mode" with one model for "com.alipay.sofa.jraft.option.BallotBoxOptions.getClosureQueue()". The "+" button is outlined.](/assets/images/help/security/codeql-for-vs-code-model-dependency-mode-expanded.png)
 
 1. When you have determined how to model the method, define the "Model type".
 
@@ -141,7 +141,7 @@ The editor will create a separate model file for each package that you model.
 
 Some methods support more than one data flow. It is important to model all the data flows for a method, otherwise you cannot detect all the potential problems associated with using the method. First you model one data flow for the method, and then use the **+** button in the method row to specify a second data flow model.
 
-![Screenshot of the "Dependency mode" view of the CodeQL model pack editor in Visual Studio Code showing the public methods available in the "com.alipay.soft.jraft.option" package ready for modeling. The "View" option for the first method is highlighted with a dark orange outline.](/assets/images/help/security/codeql-for-vs-code-model-dependency-mode-plus.png)
+![Screenshot of the "Dependency mode" view with public methods available in "com.alipay.soft.jraft.option". A "View" option is outlined in orange.](/assets/images/help/security/codeql-for-vs-code-model-dependency-mode-plus.png)
 
 ## Testing {% data variables.product.prodname_codeql %} model packs in {% data variables.product.prodname_vscode_shortname %}
 

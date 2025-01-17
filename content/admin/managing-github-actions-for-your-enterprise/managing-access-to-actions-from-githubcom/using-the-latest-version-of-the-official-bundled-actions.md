@@ -38,7 +38,7 @@ Once {% data variables.product.prodname_github_connect %} is configured, you can
 1. Under **Reason**, type a reason for unlocking the repository, then click **Unlock**.
 1. Now that the repository is unlocked, you can leave the site admin pages and delete the repository within the `actions` organization. At the top of the page, click the repository name, in this example **checkout**, to return to the summary page.
 
-   ![Screenshot of the site admin details for the actions/checkout repository. The name of the repository, "checkout", is a link and is highlighted with an orange outline.](/assets/images/enterprise/site-admin-settings/display-repository-admin-summary.png)
+   ![Screenshot of the site admin details for the actions/checkout repository. The name of the repository, "checkout", is a link and is outlined.](/assets/images/enterprise/site-admin-settings/display-repository-admin-summary.png)
 1. Under "Repository info", click **View code** to leave the site admin pages and display the `checkout` repository.
 
    ![Screenshot of the site admin details for a repository. The "View code" link is highlighted with an orange outline.](/assets/images/enterprise/site-admin-settings/exit-admin-page-for-repository.png)

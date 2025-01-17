@@ -38,7 +38,7 @@ These security features help harden your {% data variables.product.prodname_gith
 
 Similar to {% data variables.product.prodname_oauth_apps %}, {% data variables.product.prodname_github_apps %} can still take actions on behalf of a user. Unlike {% data variables.product.prodname_oauth_apps %}, which don't indicate that the action was performed by the app, {% data variables.product.prodname_github_apps %} indicate that the action was performed by the app on behalf of the user.
 
-{% data variables.product.prodname_github_apps %} are not tied to a user account and do not consume a seat on {% data variables.product.product_name %}. {% data variables.product.prodname_github_apps %} remain installed even when the person who initially installed the app leaves the organization. This lets your integrations continue to work even if people leave your team.
+{% data variables.product.prodname_github_apps %} are not tied to a user account and do not consume a {% ifversion enterprise-licensing-language %}license{% else %}seat{% endif %} on {% data variables.product.product_name %}. {% data variables.product.prodname_github_apps %} remain installed even when the person who initially installed the app leaves the organization. This lets your integrations continue to work even if people leave your team.
 
 ### {% data variables.product.prodname_github_apps %} have scalable rate limits
 
@@ -62,7 +62,7 @@ For more information about the REST API endpoints that are available to {% data 
 
  If you want to access {% data variables.product.prodname_dotcom %} resources on behalf of a user or in an organization, or you anticipate a long-lived integration, we recommend building a {% data variables.product.prodname_github_app %}.
 
- You can use {% data variables.product.pat_generic_plural %} for API testing or short-lived scripts. Since a {% data variables.product.pat_generic %} is associated with a user, your automation could break if the user no longer has access to the resources you need. A {% data variables.product.prodname_github_app %} installed in an organization is not dependent on a user. Additionally, unlike a user, a {% data variables.product.prodname_github_app %} does not consume a {% data variables.product.company_short %} seat.
+ You can use {% data variables.product.pat_generic_plural %} for API testing or short-lived scripts. Since a {% data variables.product.pat_generic %} is associated with a user, your automation could break if the user no longer has access to the resources you need. A {% data variables.product.prodname_github_app %} installed in an organization is not dependent on a user. Additionally, unlike a user, a {% data variables.product.prodname_github_app %} does not consume a {% data variables.product.company_short %} {% ifversion enterprise-licensing-language %}license{% else %}seat{% endif %}.
 
 {% data variables.product.company_short %} supports two types of {% data variables.product.pat_generic_plural %}, but recommends that you use {% data variables.product.pat_v2 %}s instead of {% data variables.product.pat_v1_plural %} whenever possible. For more information about {% data variables.product.pat_generic_plural %}, see [AUTOTITLE](/authentication/keeping-your-account-and-data-secure/creating-a-personal-access-token#types-of-personal-access-tokens).
 

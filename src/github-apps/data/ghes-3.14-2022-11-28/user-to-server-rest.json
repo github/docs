@@ -3757,7 +3757,7 @@
       "requestPath": "/repos/{owner}/{repo}/autolinks/{autolink_id}"
     },
     {
-      "slug": "check-if-automated-security-fixes-are-enabled-for-a-repository",
+      "slug": "check-if-dependabot-security-updates-are-enabled-for-a-repository",
       "subcategory": "repos",
       "verb": "get",
       "requestPath": "/repos/{owner}/{repo}/automated-security-fixes"

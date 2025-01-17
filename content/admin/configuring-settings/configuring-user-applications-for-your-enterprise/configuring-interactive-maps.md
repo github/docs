@@ -4,7 +4,7 @@ intro: 'You can enable the display of interactive maps in the web interface for 
 shortTitle: Configure interactive maps
 permissions: 'People with access to the {% data variables.enterprise.management_console %} can configure interactive maps.'
 versions:
-  feature: azure-maps
+  ghes: '*'
 type: how_to
 topics:
   - Enterprise
@@ -18,18 +18,14 @@ You can allow users of {% data variables.location.product_location %} to create 
 
 To enable interactive maps, you must provide authentication credentials for Azure Maps.
 
-{% ifversion azure-maps-auth-2023 %}
 {% ifversion ghes < 3.13 %}
 
 > [!WARNING]
 > Authentication with Azure Maps using an API token is {% data variables.release-phases.retired %} in {% data variables.product.product_name %} {{ allVersions[currentVersion].currentRelease }}.{% ifversion ghes = 3.10 %}4{% elsif ghes = 3.11 %}1{% endif %} and later. If you upgrade to the latest release of {% data variables.product.product_name %} on an instance already configured to authenticate with an API token, interactive maps will be disabled. You must reconfigure authentication using role-based access control (RBAC) for an application on a Microsoft Entra ID (previously known as Azure AD) tenant. {% data reusables.enterprise.azure-maps-auth-deprecation-link %}
 
 {% endif %}
-{% endif %}
 
 ## Prerequisites
-
-{% ifversion azure-maps-auth-2023 %}
 
 {% ifversion ghes < 3.12 %}
 
@@ -37,13 +33,11 @@ The following prerequisites apply if your instance runs {% data variables.produc
 
 {% endif %}
 
-* To configure interactive maps for your instance, you must have {% ifversion azure-maps-auth-2023 %}administrative access to a tenant in Microsoft Entra ID. For more information, contact the administrator for Microsoft resources at your company, or see [Quickstart: Create a new tenant in Microsoft Entra ID](https://learn.microsoft.com/entra/fundamentals/create-new-tenant) on Microsoft Learn{% else %}an API token for Azure Maps{% endif %}.
+* To configure interactive maps for your instance, you must have administrative access to a tenant in Microsoft Entra ID. For more information, contact the administrator for Microsoft resources at your company, or see [Quickstart: Create a new tenant in Microsoft Entra ID](https://learn.microsoft.com/entra/fundamentals/create-new-tenant) on Microsoft Learn.
 
 * You must know the tenant ID for your tenant in Entra ID. For more information, see [Get subscription and tenant IDs in the Azure portal](https://learn.microsoft.com/en-us/azure/azure-portal/get-subscription-tenant-id#find-your-microsoft-entra-tenant) on Microsoft Learn.
 
 * Your instance must be able to access https://login.microsoftonline.com.
-
-{% endif %}
 
 {% ifversion ghes < 3.12 %}
 
@@ -52,8 +46,6 @@ If your instance runs {% ifversion ghes < 3.11 %}a release of {% data variables.
 {% data reusables.enterprise.azure-maps-auth-warning %}
 
 {% endif %}
-
-{% ifversion azure-maps-auth-2023 %}
 
 ## Generating credentials for Azure Maps
 
@@ -83,15 +75,9 @@ To generate credentials for Azure Maps, you must create an application for your 
 
    * On your Entra ID tenant, from **Access control (IAM)**, you must assign the role of "Azure Maps Data Reader" to "User, group, or service principal", select the application you created earlier in these instructions, and complete the form.
 
-{% endif %}
-
 ## Enabling interactive maps
 
-{% ifversion azure-maps-auth-2023 %}
-
 After you create an application on your Entra ID tenant and generate a secret for the use of Azure Maps, you can configure interactive maps on {% data variables.location.product_location %}.
-
-{% endif %}
 
 {% data reusables.enterprise_site_admin_settings.access-settings %}
 {% data reusables.enterprise_site_admin_settings.management-console %}
@@ -104,7 +90,6 @@ After you create an application on your Entra ID tenant and generate a secret fo
    ```
 
    Store the string in a secure location that you can reference in the next step.
-{%- ifversion azure-maps-auth-2023 %}
 1. {% ifversion ghes > 3.11 %}Below the headings, type or paste{% else %}Enter{% endif %} your authentication details for Azure Maps.
 
    {%- ifversion ghes < 3.11 %}
@@ -112,8 +97,8 @@ After you create an application on your Entra ID tenant and generate a secret fo
 
      {% data reusables.enterprise.azure-maps-auth-warning %}
    * If your instance runs {% data variables.product.product_name %} {{ allVersions[currentVersion].currentRelease }}.{% ifversion ghes = 3.10 %}4{% elsif ghes = 3.11 %}1{% endif %} or later, below the headings, type or paste the following information.
+   {%- endif %}
 
-     {%- endif %}
      * Optionally, to change the style of rendered maps, under "Basemap ID", type the ID for the style you'd like to use.
      * Under the headings, type or paste your authentication details.
 
@@ -124,9 +109,6 @@ After you create an application on your Entra ID tenant and generate a secret fo
        | Azure Tenant ID | ID for your tenant on Entra ID | [Prerequisites](#prerequisites) |
        | Azure App Client Secret | Client secret that you generated for the application on your Entra ID tenant | [Generating credentials for Azure Maps](#generating-credentials-for-azure-maps)
        | CSRF Secret | 32-character string to prevent CSRF attacks | See previous step. |
-{%- else %}
-1. To configure authentication, under "Azure Maps API Token", paste your token.
-{%- endif %}
 {% data reusables.enterprise_management_console.save-settings %}
 
 ## Disabling interactive maps

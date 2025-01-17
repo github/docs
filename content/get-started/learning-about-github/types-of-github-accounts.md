@@ -1,6 +1,6 @@
 ---
 title: Types of GitHub accounts
-intro: 'Accounts on {% data variables.product.product_name %} allow you to organize and control access to code.'
+intro: 'Accounts on {% data variables.product.github %} allow you to organize and control access to code.'
 redirect_from:
   - /manage-multiple-clients
   - /managing-clients
@@ -21,14 +21,14 @@ topics:
   - Security
 ---
 
-## About accounts on {% data variables.product.product_name %}
+## About accounts
 
-With {% data variables.product.product_name %}, you can store and collaborate on code. Accounts allow you to organize and control access to that code. There are three types of accounts on {% data variables.product.product_name %}.
+With {% data variables.product.github %}, you can store and collaborate on code. Accounts allow you to organize and control access to that code. There are three types of accounts on {% data variables.product.github %}.
 * User accounts
 * Organization accounts
 * Enterprise accounts
 
-Every person who uses {% data variables.product.product_name %} signs in to a user account. An organization account enhances collaboration between multiple users, and {% ifversion fpt or ghec %}an enterprise account{% else %}the enterprise account for {% data variables.location.product_location %}{% endif %} allows central management of multiple organizations.
+Every person who uses {% data variables.product.github %} signs in to a user account. An organization account enhances collaboration between multiple users, and {% ifversion fpt or ghec %}an enterprise account{% else %}the enterprise account for {% data variables.location.product_location %}{% endif %} allows central management of multiple organizations.
 
 ## User accounts
 

@@ -138,8 +138,8 @@ query pack to download, keep in mind that when you update your version of
 also need to switch to a newer version of the query pack. Newer
 versions of {% data variables.product.prodname_codeql %} _may_ provide
 degraded performance when used with query packs that have been pinned
-to a very old version. For more information, see "[About {% data variables.product.prodname_codeql %}
-pack compatibility](#about-codeql-pack-compatibility)."
+to a very old version. For more information, see [About {% data variables.product.prodname_codeql %}
+pack compatibility](#about-codeql-pack-compatibility).
 
 ## Using a {% data variables.product.prodname_codeql %} pack to analyze a {% data variables.product.prodname_codeql %} database
 

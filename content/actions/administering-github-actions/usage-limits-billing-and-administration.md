@@ -45,7 +45,7 @@ There are some limits on {% data variables.product.prodname_actions %} usage whe
 * **Job execution time** - Each job in a workflow can run for up to 6 hours of execution time. If a job reaches this limit, the job is terminated and fails to complete.
 {% data reusables.actions.usage-workflow-run-time %}
 {% data reusables.actions.usage-api-requests %}
-* **Webhook rate limit** - Each repository is limited to 1500 triggered events every 10 seconds.
+* **Webhook rate limit** - Each repository is limited to 1500 events triggering a workflow run every 10 seconds. When the limit is reached, the workflow runs that were supposed to be triggered by the webhook events will be blocked and will not be queued.
 * **Concurrent jobs** - The number of concurrent jobs you can run in your account depends on your {% data variables.product.prodname_dotcom %} plan, as well as the type of runner used. If exceeded, any additional jobs are queued.
 
   **Standard {% data variables.product.prodname_dotcom %}-hosted runners**
@@ -112,13 +112,13 @@ For more information, see:
 
 ## Workflow run history retention policy
 
-The workflow runs in a repository's workflow run history are retained for 400 days. After 400 days, workflow runs are archived. 10 days after archival, they are permanently deleted. The retention period for workflow runs cannot be modified. For more information, see "[AUTOTITLE](/actions/monitoring-and-troubleshooting-workflows/monitoring-workflows/viewing-workflow-run-history)."
+The workflow runs in a repository's workflow run history are retained for 400 days. After 400 days, workflow runs are archived. 10 days after archival, they are permanently deleted. The retention period for workflow runs cannot be modified. For more information, see [AUTOTITLE](/actions/monitoring-and-troubleshooting-workflows/monitoring-workflows/viewing-workflow-run-history).
 
 ## Disabling or limiting {% data variables.product.prodname_actions %} for your repository or organization
 
 {% data reusables.actions.disabling-github-actions %}
 
-{% ifversion actions-cache-admin-ui %}You can also manage {% data variables.product.prodname_actions %} settings for your enterprise, such as workflow permissions and cache storage.{% endif %}
+{% ifversion ghes %}You can also manage {% data variables.product.prodname_actions %} settings for your enterprise, such as workflow permissions and cache storage.{% endif %}
 
 For more information, see:
 * [AUTOTITLE](/repositories/managing-your-repositorys-settings-and-features/enabling-features-for-your-repository/managing-github-actions-settings-for-a-repository)

@@ -27,8 +27,8 @@ on:
 jobs:
   print-tag:
     runs-on: ubuntu-latest
-    if: {% ifversion actions-unified-inputs %}{% raw %} ${{ inputs.print_tags }} {% endraw %}{% else %}{% raw %} ${{ github.event.inputs.print_tags == 'true' }} {% endraw %}{% endif %}
+    if:{% raw %} ${{ inputs.print_tags }} {% endraw %}
     steps:
       - name: Print the input tag to STDOUT
-        run: {% ifversion actions-unified-inputs %}echo {% raw %} The tags are ${{ inputs.tags }} {% endraw %}{% else %}echo {% raw %} The tags are ${{ github.event.inputs.tags }} {% endraw %}{% endif %}
+        run: echo {% raw %} The tags are ${{ inputs.tags }} {% endraw %}
 ```

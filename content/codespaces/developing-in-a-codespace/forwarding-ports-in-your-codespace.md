@@ -25,7 +25,7 @@ Port forwarding gives you access to TCP ports running within your codespace. For
 {% data reusables.codespaces.navigate-to-ports-tab %}
 1. Under the list of ports, click **Add port**.
 
-   ![Screenshot of the "Add port" button.](/assets/images/help/codespaces/add-port-button.png)
+   ![Screenshot of the "Add port" button for a codespace.](/assets/images/help/codespaces/add-port-button.png)
 
 1. Type the port number or address, then press Enter.
 
@@ -69,7 +69,7 @@ By default, {% data variables.product.prodname_github_codespaces %} forwards por
 {% data reusables.codespaces.navigate-to-ports-tab %}
 1. Under the list of ports, click **Add port**.
 
-   ![Screenshot of the "Add port" button.](/assets/images/help/codespaces/add-port-button.png)
+   ![Screenshot of the "Add port" button for a codespace.](/assets/images/help/codespaces/add-port-button.png)
 
 1. Type the port number or address, then press Enter.
 

@@ -28,11 +28,11 @@ You can also quickly create a new issue to track an alert:
 
 You can use more than one issue to track the same {% data variables.product.prodname_code_scanning %} alert, and issues can belong to different repositories from the repository where the {% data variables.product.prodname_code_scanning %} alert was found.
 
-{% data variables.product.product_name %} provides visual cues in different locations of the user interface to indicate when you are tracking {% data variables.product.prodname_code_scanning %} alerts in issues.
+{% data variables.product.github %} provides visual cues in different locations of the user interface to indicate when you are tracking {% data variables.product.prodname_code_scanning %} alerts in issues.
 
 * The {% data variables.product.prodname_code_scanning %} alerts list page will show which alerts are tracked in issues so that you can view at a glance which alerts still require processing and how many issues they are tracked in.
 
-  ![Screenshot of the {% data variables.product.prodname_code_scanning %} alerts view. The first entry includes the issue icon followed by the number 2. The third entry includes the issue icon followed by the number 1. Both are outlined in dark orange.](/assets/images/help/repository/code-scanning-alert-list-tracked-issues.png)
+  ![Screenshot of {% data variables.product.prodname_code_scanning %} alerts view. The first and third entries include the issue icon with the issue number.](/assets/images/help/repository/code-scanning-alert-list-tracked-issues.png)
 
 * A "tracked in" section will also show in the corresponding alert page.
 
@@ -45,7 +45,7 @@ You can use more than one issue to track the same {% data variables.product.prod
 
   The color of the icon is grey because an alert has a status of "open" or "closed" on every branch. The issue tracks an alert, so the alert cannot have a single open/closed state in the issue. If the alert is closed on one branch, the icon color will not change.
 
-  ![Screenshot showing an issue that tracks a {% data variables.product.prodname_code_scanning %} alert. The hovercard for the alert is displayed, with a grey security badge icon preceding the title.](/assets/images/help/repository/code-scanning-tracking-issue-hovercard.png)
+  ![Screenshot of an issue that tracks a {% data variables.product.prodname_code_scanning %} alert. The hovercard is displayed, with a grey security badge icon.](/assets/images/help/repository/code-scanning-tracking-issue-hovercard.png)
 
 The status of the tracked alert won't change if you change the checkbox state of the corresponding task list item (checked/unchecked) in the issue.
 

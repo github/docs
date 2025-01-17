@@ -92,8 +92,6 @@ Add pronouns to your public user profile to share information about yourself wit
 
 {% endif %}
 
-{% ifversion profile-time-zone %}
-
 ## Setting your location and time zone
 
 You can set a location and time zone on your profile to show other people your local time. Your location and time zone will be visible:
@@ -110,8 +108,6 @@ When you view your profile, you will see your location, local time, and your tim
    * Select **Display current local time**.
    * Select the **Time zone** dropdown menu, then click your local time zone.
 {% data reusables.profile.update-profile %}
-
-{% endif %}
 
 {% ifversion profile-social-links %}
 

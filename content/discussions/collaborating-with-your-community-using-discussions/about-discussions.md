@@ -2,7 +2,9 @@
 title: About discussions
 intro: 'Use discussions to ask and answer questions, share information, make announcements, and conduct or participate in a conversation about a project on {% data variables.product.product_name %}.'
 versions:
-  feature: discussions
+  fpt: '*'
+  ghes: '*'
+  ghec: '*'
 ---
 
 
@@ -16,11 +18,11 @@ With {% data variables.product.prodname_discussions %}, the community for your p
 * Upvote discussions and comments to give higher visibility to ideas you find valuable
 * Foster an inviting atmosphere for visitors and contributors to discuss goals, development, administration, and workflows
 
-![Screenshot of the "Discussions" page for a {% data variables.product.company_short %} repository, showing a list of discussions such as "Feedback on the new layout" and "Project direction".](/assets/images/help/discussions/hero.png)
+![Screenshot of the "Discussions" page for a repository, showing a list of discussions such as "Feedback on the new layout" and "Project direction".](/assets/images/help/discussions/hero.png)
 
 You might use repository discussions to discuss topics that are specific to the repository. If your project spans multiple repositories, you might use organization discussions to discuss topics that aren't specific to a single repository in your organization.
 
-{% ifversion discussions-closable %}{% data reusables.discussions.closing-discussions %} For more information, see [Closing a discussion](/discussions/managing-discussions-for-your-community/managing-discussions#closing-a-discussion).{% else %}You don't need to close a discussion like you close an issue or a pull request.{% endif %}
+{% data reusables.discussions.closing-discussions %} For more information, see [Closing a discussion](/discussions/managing-discussions-for-your-community/managing-discussions#closing-a-discussion).
 
 If a repository administrator or project maintainer enables {% data variables.product.prodname_discussions %} for a repository, anyone who has access to the repository can create and participate in discussions for the repository. If an organization owner enables {% data variables.product.prodname_discussions %} for an organization, anyone who can view the source repository can create an organization discussion.
 
@@ -40,7 +42,7 @@ For more information on creating polls, see [AUTOTITLE](/discussions/collaborati
 
 ## About discussion organization
 
-You can organize discussions with categories{% ifversion discussions-category-section %}, sections, {% endif %} and labels.
+You can organize discussions with categories, sections, and labels.
 
 {% data reusables.discussions.you-can-categorize-discussions %} {% data reusables.discussions.about-categories-and-formats %} {% data reusables.discussions.repository-category-limit %}
 
@@ -48,8 +50,7 @@ For discussions with a question/answer format, an individual comment within the 
 
 {% data reusables.discussions.about-announcement-format %}
 
-{% ifversion discussions-category-section %}
-{% data reusables.discussions.category-sections %}{% endif %}
+{% data reusables.discussions.category-sections %}
 
 For more information, see [AUTOTITLE](/discussions/managing-discussions-for-your-community/managing-categories-for-discussions).
 

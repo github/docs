@@ -138,7 +138,7 @@ The stroke is the color `fg.severe` in the [Primer Design System](https://primer
 
 1. To download the Snagit theme, navigate to [`snagit-theme-github-docs.snagtheme`](https://github.com/github/docs/blob/main/contributing/images/snagit-theme-github-docs.snagtheme) in the `github/docs` repository, then click {% octicon "download" aria-label="Download raw content" %}.
 
-   ![Screenshot of the file view for "snagit-theme-github-docs.snagtheme." In the header of the file, a button labeled with a download icon is outlined in dark orange.](/assets/images/contributing/download-snagit-theme.png)
+   ![Screenshot of the file view for "snagit-theme-github-docs.snagtheme." In the header of the file, a button with a download icon is outlined in orange.](/assets/images/contributing/download-snagit-theme.png)
 1. Open Snagit, then select the **Shape** tool.
 1. Under "Quick styles," select **Import**.
 1. Select the Snagit theme from your computer's files. This will install the shape preset.

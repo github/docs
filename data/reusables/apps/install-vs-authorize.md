@@ -2,7 +2,7 @@ When you **install** a {% data variables.product.prodname_github_app %} on your 
 
 For example, you might grant the {% data variables.product.prodname_github_app %} permission to read repository metadata and write issues, and you might grant the {% data variables.product.prodname_github_app %} access to all of your repositories.
 
-![Screenshot of the page to install a GitHub App. The app is requesting read access to metadata and write access to issues. The app can also request user authorization for read access to emails and write access to gists.](/assets/images/github-apps/install-app.png)
+![Screenshot of the page to install a GitHub App. The app requests read access to metadata and write access to issues.](/assets/images/github-apps/install-app.png)
 
 When you **authorize** a {% data variables.product.prodname_github_app %}, you grant the app access to your {% data variables.product.prodname_dotcom %} account, based on the account permissions the app requested. During the authorization process, the app will indicate which resources the app can access on your account. When you authorize a {% data variables.product.prodname_github_app %}, you also grant the app permission to act on your behalf.
 

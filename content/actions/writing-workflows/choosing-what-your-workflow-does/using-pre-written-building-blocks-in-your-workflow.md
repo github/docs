@@ -54,7 +54,7 @@ You can search and browse actions directly in your repository's workflow editor.
 1. In the upper right corner of the file view, to open the workflow editor, click {% octicon "pencil" aria-label="Edit file" %}.
    ![Screenshot of a workflow file showing the header section. The pencil icon for editing files is highlighted with a dark orange outline.](/assets/images/help/repository/actions-edit-workflow-file.png)
 1. To the right of the editor, use the {% data variables.product.prodname_marketplace %} sidebar to browse actions. Actions with the {% octicon "verified" aria-label="Creator verified by GitHub" %} badge indicate {% data variables.product.prodname_dotcom %} has verified the creator of the action as a partner organization.
-   ![Screenshot of a workflow file in edit mode. The right sidebar shows Marketplace actions. A checkmark in a stamp icon, showing that the creator is verified by GitHub, is outlined in orange.](/assets/images/help/repository/actions-marketplace-sidebar.png)
+   ![Screenshot of a workflow in the file editor. The sidebar shows Marketplace actions. A "Creator verified by GitHub" badge is outlined in orange.](/assets/images/help/repository/actions-marketplace-sidebar.png)
 
 ## Adding an action to your workflow
 

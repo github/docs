@@ -91,7 +91,7 @@ You can update your enterprise account's credit card or PayPal details, or you c
 {% data reusables.enterprise-accounts.billing-tab %}
 1. Under "Payment information", click **Switch to invoice**.
 
-   ![Screenshot of the billing page for an enterprise account. In the "Payment information" section, a link, labeled "Switch to invoice", is outlined in dark orange.](/assets/images/help/billing/switch-to-invoice.png)
+   ![Screenshot of the billing page for an enterprise account. In the "Payment information" section, a "Switch to invoice" link is outlined in orange.](/assets/images/help/billing/switch-to-invoice.png)
 1. Complete the form, then click **Contact Sales**.
 
 {% endif %}

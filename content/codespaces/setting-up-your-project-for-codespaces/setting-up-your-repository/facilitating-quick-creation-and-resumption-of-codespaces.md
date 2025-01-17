@@ -43,7 +43,7 @@ You can use the "Share a deep link" option to configure more options for the cod
 {% data reusables.repositories.navigate-to-repo %}
 1. If you want to create a link for a branch other than the repository's default branch, under the repository name, click the button labeled with the name of the current branch. In the dropdown menu, select the branch for which you want to create a link.
 
-   ![Screenshot of the expanded branch dropdown menu, listing various branches. The dropdown menu, labeled with a branch icon and "trunk," is highlighted with a dark orange outline.](/assets/images/help/codespaces/branch-drop-down.png)
+   ![Screenshot of the branch dropdown menu, listing various branches. The dropdown menu, labeled with a branch icon and "trunk," is outlined in orange.](/assets/images/help/codespaces/branch-drop-down.png)
 
 1. Click the **{% octicon "code" aria-hidden="true" %} Code** button, then click the **Codespaces** tab.
 1. To open the "Share codespace configuration" window, at the top right of the **Codespaces** tab, select {% octicon "kebab-horizontal" aria-label="Codespace repository configuration" %}, then click **Share a deep link**.
@@ -94,4 +94,4 @@ This type of URL is useful, for instance, in a README for your repository as it 
 
    The example Markdown is rendered like this:
 
-   [![Open in GitHub Codespaces.](https://github.com/codespaces/badge.svg)](https://codespaces.new/github/docs)
+   [![Open in GitHub Codespaces.](https://github.com/codespaces/badge.svg)](https://codespaces.new/github/docs) <!-- markdownlint-disable-line GHD033 -->

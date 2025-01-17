@@ -57,7 +57,7 @@ Some workflows require or benefit from rebasing instead of merging. By rebasing 
 
    {% windows %}
 
-   ![Screenshot of the "GitHub Desktop" menu bar on Windows. In the expanded "Branch" dropdown menu, an option labeled "Rebase Current Branch" is outlined in orange.](/assets/images/help/desktop/windows-rebase-current-branch.png)
+   ![Screenshot of the "GitHub Desktop" menu bar on Windows. In the "Branch" dropdown menu, the "Rebase Current Branch" option is outlined in orange.](/assets/images/help/desktop/windows-rebase-current-branch.png)
 
    {% endwindows %}
 
@@ -74,13 +74,13 @@ Some workflows require or benefit from rebasing instead of merging. By rebasing 
 
    {% mac %}
 
-   ![Screenshot of the menu bar on a Mac. On the expanded "Branch" dropdown menu, the cursor hovers over an option labeled "Squash and Merge into Current Branch".](/assets/images/help/desktop/squash-and-merge-menu.png)
+   ![Screenshot of the menu bar on a Mac. On the expanded "Branch" dropdown menu, the cursor hovers over the "Squash and Merge into Current Branch" option.](/assets/images/help/desktop/squash-and-merge-menu.png)
 
    {% endmac %}
 
    {% windows %}
 
-   ![Screenshot of the "GitHub Desktop" menu bar on Windows. In the expanded "Branch" dropdown menu, option labeled "Squash and merge into curre..." is outlined in orange.](/assets/images/help/desktop/windows-squash-and-merge-menu.png)
+   ![Screenshot of the "GitHub Desktop" menu bar on Windows. In the "Branch" dropdown menu, the "Squash and merge into curre..." option is outlined.](/assets/images/help/desktop/windows-squash-and-merge-menu.png)
 
    {% endwindows %}
 

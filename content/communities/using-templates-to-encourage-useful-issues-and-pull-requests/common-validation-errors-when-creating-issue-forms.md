@@ -205,7 +205,7 @@ body:
 
 ## Labels are too similar
 
-Similar labels may be processed into identical references. If an `id` attribute is not provided for an `input`, the `label` attribute is used to generate a reference to the `input` field. To do this, we process the `label` by leveraging the Rails [parameterize](https://apidock.com/rails/ActiveSupport/Inflector/parameterize) method. In some cases, two labels that are distinct can be processed into the same parameterized string.
+Similar labels may be processed into identical references. If an `id` attribute is not provided for an `input`, the `label` attribute is used to generate a reference to the `input` field. To do this, we process the `label` by leveraging the Rails [parameterize](https://www.rubydoc.info/docs/rails/ActiveSupport/Inflector#parameterize-instance_method) method. In some cases, two labels that are distinct can be processed into the same parameterized string.
 
 ### Example of "labels are too similar" error
 

@@ -75,7 +75,7 @@
           "id": "enterpriseadministratorrole",
           "kind": "enums",
           "href": "/graphql/reference/enums#enterpriseadministratorrole",
-          "description": "<p>The role for the business member invitation.</p>"
+          "description": "<p>The role for the enterprise member invitation.</p>"
         },
         {
           "name": "userLogin",
@@ -83,7 +83,7 @@
           "id": "string",
           "kind": "scalars",
           "href": "/graphql/reference/scalars#string",
-          "description": "<p>The login of the user invited to join the business.</p>"
+          "description": "<p>The login of the user invited to join the enterprise.</p>"
         }
       ]
     },
@@ -127,7 +127,7 @@
           "id": "string",
           "kind": "scalars",
           "href": "/graphql/reference/scalars#string",
-          "description": "<p>The login of the user invited to join the business.</p>"
+          "description": "<p>The login of the user invited to join the enterprise.</p>"
         }
       ]
     },
@@ -1112,6 +1112,48 @@
           "description": "<p>The accepted topic.</p>",
           "isDeprecated": true,
           "deprecationReason": "<p>Suggested topics are no longer supported Removal on 2024-04-01 UTC.</p>"
+        }
+      ]
+    },
+    {
+      "name": "accessUserNamespaceRepository",
+      "kind": "mutations",
+      "id": "accessusernamespacerepository",
+      "href": "/graphql/reference/mutations#accessusernamespacerepository",
+      "description": "<p>Access user namespace repository for a temporary duration.</p>",
+      "inputFields": [
+        {
+          "name": "input",
+          "type": "AccessUserNamespaceRepositoryInput!",
+          "id": "accessusernamespacerepositoryinput",
+          "kind": "input-objects",
+          "href": "/graphql/reference/input-objects#accessusernamespacerepositoryinput"
+        }
+      ],
+      "returnFields": [
+        {
+          "name": "clientMutationId",
+          "type": "String",
+          "id": "string",
+          "kind": "scalars",
+          "href": "/graphql/reference/scalars#string",
+          "description": "<p>A unique identifier for the client performing the mutation.</p>"
+        },
+        {
+          "name": "expiresAt",
+          "type": "DateTime",
+          "id": "datetime",
+          "kind": "scalars",
+          "href": "/graphql/reference/scalars#datetime",
+          "description": "<p>The time that repository access expires at.</p>"
+        },
+        {
+          "name": "repository",
+          "type": "Repository",
+          "id": "repository",
+          "kind": "objects",
+          "href": "/graphql/reference/objects#repository",
+          "description": "<p>The repository that is temporarily accessible.</p>"
         }
       ]
     },
@@ -5218,48 +5260,6 @@
       ]
     },
     {
-      "name": "markNotificationAsDone",
-      "kind": "mutations",
-      "id": "marknotificationasdone",
-      "href": "/graphql/reference/mutations#marknotificationasdone",
-      "description": "<p>Marks a notification as done.</p>",
-      "inputFields": [
-        {
-          "name": "input",
-          "type": "MarkNotificationAsDoneInput!",
-          "id": "marknotificationasdoneinput",
-          "kind": "input-objects",
-          "href": "/graphql/reference/input-objects#marknotificationasdoneinput"
-        }
-      ],
-      "returnFields": [
-        {
-          "name": "clientMutationId",
-          "type": "String",
-          "id": "string",
-          "kind": "scalars",
-          "href": "/graphql/reference/scalars#string",
-          "description": "<p>A unique identifier for the client performing the mutation.</p>"
-        },
-        {
-          "name": "success",
-          "type": "Boolean",
-          "id": "boolean",
-          "kind": "scalars",
-          "href": "/graphql/reference/scalars#boolean",
-          "description": "<p>Did the operation succeed?.</p>"
-        },
-        {
-          "name": "viewer",
-          "type": "User",
-          "id": "user",
-          "kind": "objects",
-          "href": "/graphql/reference/objects#user",
-          "description": "<p>The user that the notification belongs to.</p>"
-        }
-      ]
-    },
-    {
       "name": "markProjectV2AsTemplate",
       "kind": "mutations",
       "id": "markprojectv2astemplate",
@@ -7474,40 +7474,6 @@
           "kind": "objects",
           "href": "/graphql/reference/objects#pullrequestreviewthread",
           "description": "<p>The thread to resolve.</p>"
-        }
-      ]
-    },
-    {
-      "name": "unsubscribeFromNotifications",
-      "kind": "mutations",
-      "id": "unsubscribefromnotifications",
-      "href": "/graphql/reference/mutations#unsubscribefromnotifications",
-      "description": "<p>Unsubscribes from notifications.</p>",
-      "inputFields": [
-        {
-          "name": "input",
-          "type": "UnsubscribeFromNotificationsInput!",
-          "id": "unsubscribefromnotificationsinput",
-          "kind": "input-objects",
-          "href": "/graphql/reference/input-objects#unsubscribefromnotificationsinput"
-        }
-      ],
-      "returnFields": [
-        {
-          "name": "clientMutationId",
-          "type": "String",
-          "id": "string",
-          "kind": "scalars",
-          "href": "/graphql/reference/scalars#string",
-          "description": "<p>A unique identifier for the client performing the mutation.</p>"
-        },
-        {
-          "name": "success",
-          "type": "Boolean",
-          "id": "boolean",
-          "kind": "scalars",
-          "href": "/graphql/reference/scalars#boolean",
-          "description": "<p>Did the operation succeed?.</p>"
         }
       ]
     },
@@ -10060,6 +10026,47 @@
           "name": "projectColumnName",
           "description": "<p>Column name referenced by this project event.</p>",
           "type": "String!",
+          "id": "string",
+          "kind": "scalars",
+          "href": "/graphql/reference/scalars#string"
+        }
+      ]
+    },
+    {
+      "name": "AnnouncementBanner",
+      "kind": "objects",
+      "id": "announcementbanner",
+      "href": "/graphql/reference/objects#announcementbanner",
+      "description": "<p>An announcement banner for an enterprise or organization.</p>",
+      "fields": [
+        {
+          "name": "createdAt",
+          "description": "<p>The date the announcement was created.</p>",
+          "type": "DateTime!",
+          "id": "datetime",
+          "kind": "scalars",
+          "href": "/graphql/reference/scalars#datetime"
+        },
+        {
+          "name": "expiresAt",
+          "description": "<p>The expiration date of the announcement, if any.</p>",
+          "type": "DateTime",
+          "id": "datetime",
+          "kind": "scalars",
+          "href": "/graphql/reference/scalars#datetime"
+        },
+        {
+          "name": "isUserDismissible",
+          "description": "<p>Whether the announcement can be dismissed by the user.</p>",
+          "type": "Boolean!",
+          "id": "boolean",
+          "kind": "scalars",
+          "href": "/graphql/reference/scalars#boolean"
+        },
+        {
+          "name": "message",
+          "description": "<p>The text of the announcement.</p>",
+          "type": "String",
           "id": "string",
           "kind": "scalars",
           "href": "/graphql/reference/scalars#string"
@@ -17604,6 +17611,31 @@
       ]
     },
     {
+      "name": "CvssSeverities",
+      "kind": "objects",
+      "id": "cvssseverities",
+      "href": "/graphql/reference/objects#cvssseverities",
+      "description": "<p>The Common Vulnerability Scoring System.</p>",
+      "fields": [
+        {
+          "name": "cvssV3",
+          "description": "<p>The CVSS v3 severity associated with this advisory.</p>",
+          "type": "CVSS",
+          "id": "cvss",
+          "kind": "objects",
+          "href": "/graphql/reference/objects#cvss"
+        },
+        {
+          "name": "cvssV4",
+          "description": "<p>The CVSS v4 severity associated with this advisory.</p>",
+          "type": "CVSS",
+          "id": "cvss",
+          "kind": "objects",
+          "href": "/graphql/reference/objects#cvss"
+        }
+      ]
+    },
+    {
       "name": "DemilestonedEvent",
       "kind": "objects",
       "id": "demilestonedevent",
@@ -17768,6 +17800,14 @@
         {
           "name": "packageName",
           "description": "<p>The name of the package in the canonical form used by the package manager.</p>",
+          "type": "String!",
+          "id": "string",
+          "kind": "scalars",
+          "href": "/graphql/reference/scalars#string"
+        },
+        {
+          "name": "relationship",
+          "description": "<p>Public preview: The relationship of the dependency. Can be direct, transitive, or unknown.</p>",
           "type": "String!",
           "id": "string",
           "kind": "scalars",
@@ -21315,7 +21355,17 @@
           "type": "String",
           "id": "string",
           "kind": "scalars",
-          "href": "/graphql/reference/scalars#string"
+          "href": "/graphql/reference/scalars#string",
+          "isDeprecated": true,
+          "deprecationReason": "<p>The individual <code>announcementX</code> fields do not follow our standard GraphQL patterns. Use the <code>announcementBanner</code> object instead. Removal on 2025-04-01 UTC.</p>"
+        },
+        {
+          "name": "announcementBanner",
+          "description": "<p>The announcement banner set on this enterprise, if any. Only visible to members of the enterprise.</p>",
+          "type": "AnnouncementBanner",
+          "id": "announcementbanner",
+          "kind": "objects",
+          "href": "/graphql/reference/objects#announcementbanner"
         },
         {
           "name": "announcementCreatedAt",
@@ -21323,7 +21373,9 @@
           "type": "DateTime",
           "id": "datetime",
           "kind": "scalars",
-          "href": "/graphql/reference/scalars#datetime"
+          "href": "/graphql/reference/scalars#datetime",
+          "isDeprecated": true,
+          "deprecationReason": "<p>The individual <code>announcementX</code> fields do not follow our standard GraphQL patterns. Use the <code>announcementBanner</code> object instead. Removal on 2025-04-01 UTC.</p>"
         },
         {
           "name": "announcementExpiresAt",
@@ -21331,7 +21383,9 @@
           "type": "DateTime",
           "id": "datetime",
           "kind": "scalars",
-          "href": "/graphql/reference/scalars#datetime"
+          "href": "/graphql/reference/scalars#datetime",
+          "isDeprecated": true,
+          "deprecationReason": "<p>The individual <code>announcementX</code> fields do not follow our standard GraphQL patterns. Use the <code>announcementBanner</code> object instead. Removal on 2025-04-01 UTC.</p>"
         },
         {
           "name": "announcementUserDismissible",
@@ -21339,7 +21393,9 @@
           "type": "Boolean",
           "id": "boolean",
           "kind": "scalars",
-          "href": "/graphql/reference/scalars#boolean"
+          "href": "/graphql/reference/scalars#boolean",
+          "isDeprecated": true,
+          "deprecationReason": "<p>The individual <code>announcementX</code> fields do not follow our standard GraphQL patterns. Use the <code>announcementBanner</code> object instead. Removal on 2025-04-01 UTC.</p>"
         },
         {
           "name": "avatarUrl",
@@ -21666,6 +21722,76 @@
           "href": "/graphql/reference/scalars#uri"
         },
         {
+          "name": "ruleset",
+          "description": "<p>Returns a single ruleset from the current enterprise by ID.</p>",
+          "type": "RepositoryRuleset",
+          "id": "repositoryruleset",
+          "kind": "objects",
+          "href": "/graphql/reference/objects#repositoryruleset",
+          "arguments": [
+            {
+              "name": "databaseId",
+              "description": "<p>The ID of the ruleset to be returned.</p>",
+              "type": {
+                "name": "Int!",
+                "id": "int",
+                "kind": "scalars",
+                "href": "/graphql/reference/scalars#int"
+              }
+            }
+          ]
+        },
+        {
+          "name": "rulesets",
+          "description": "<p>A list of rulesets for this enterprise.</p>",
+          "type": "RepositoryRulesetConnection",
+          "id": "repositoryrulesetconnection",
+          "kind": "objects",
+          "href": "/graphql/reference/objects#repositoryrulesetconnection",
+          "arguments": [
+            {
+              "name": "after",
+              "description": "<p>Returns the elements in the list that come after the specified cursor.</p>",
+              "type": {
+                "name": "String",
+                "id": "string",
+                "kind": "scalars",
+                "href": "/graphql/reference/scalars#string"
+              }
+            },
+            {
+              "name": "before",
+              "description": "<p>Returns the elements in the list that come before the specified cursor.</p>",
+              "type": {
+                "name": "String",
+                "id": "string",
+                "kind": "scalars",
+                "href": "/graphql/reference/scalars#string"
+              }
+            },
+            {
+              "name": "first",
+              "description": "<p>Returns the first <em>n</em> elements from the list.</p>",
+              "type": {
+                "name": "Int",
+                "id": "int",
+                "kind": "scalars",
+                "href": "/graphql/reference/scalars#int"
+              }
+            },
+            {
+              "name": "last",
+              "description": "<p>Returns the last <em>n</em> elements from the list.</p>",
+              "type": {
+                "name": "Int",
+                "id": "int",
+                "kind": "scalars",
+                "href": "/graphql/reference/scalars#int"
+              }
+            }
+          ]
+        },
+        {
           "name": "slug",
           "description": "<p>The URL-friendly identifier for the enterprise.</p>",
           "type": "String!",
@@ -21674,12 +21800,90 @@
           "href": "/graphql/reference/scalars#string"
         },
         {
+          "name": "updatedAt",
+          "description": "<p>Identifies the date and time when the object was last updated.</p>",
+          "type": "DateTime!",
+          "id": "datetime",
+          "kind": "scalars",
+          "href": "/graphql/reference/scalars#datetime"
+        },
+        {
           "name": "url",
           "description": "<p>The HTTP URL for this enterprise.</p>",
           "type": "URI!",
           "id": "uri",
           "kind": "scalars",
           "href": "/graphql/reference/scalars#uri"
+        },
+        {
+          "name": "userNamespaceRepositories",
+          "description": "<p>A list of repositories that belong to users. Only available for enterprises with Enterprise Managed Users.</p>",
+          "type": "UserNamespaceRepositoryConnection!",
+          "id": "usernamespacerepositoryconnection",
+          "kind": "objects",
+          "href": "/graphql/reference/objects#usernamespacerepositoryconnection",
+          "arguments": [
+            {
+              "name": "after",
+              "description": "<p>Returns the elements in the list that come after the specified cursor.</p>",
+              "type": {
+                "name": "String",
+                "id": "string",
+                "kind": "scalars",
+                "href": "/graphql/reference/scalars#string"
+              }
+            },
+            {
+              "name": "before",
+              "description": "<p>Returns the elements in the list that come before the specified cursor.</p>",
+              "type": {
+                "name": "String",
+                "id": "string",
+                "kind": "scalars",
+                "href": "/graphql/reference/scalars#string"
+              }
+            },
+            {
+              "name": "first",
+              "description": "<p>Returns the first <em>n</em> elements from the list.</p>",
+              "type": {
+                "name": "Int",
+                "id": "int",
+                "kind": "scalars",
+                "href": "/graphql/reference/scalars#int"
+              }
+            },
+            {
+              "name": "last",
+              "description": "<p>Returns the last <em>n</em> elements from the list.</p>",
+              "type": {
+                "name": "Int",
+                "id": "int",
+                "kind": "scalars",
+                "href": "/graphql/reference/scalars#int"
+              }
+            },
+            {
+              "name": "orderBy",
+              "description": "<p>Ordering options for repositories returned from the connection.</p>",
+              "type": {
+                "name": "RepositoryOrder",
+                "id": "repositoryorder",
+                "kind": "input-objects",
+                "href": "/graphql/reference/input-objects#repositoryorder"
+              }
+            },
+            {
+              "name": "query",
+              "description": "<p>The search string to look for.</p>",
+              "type": {
+                "name": "String",
+                "id": "string",
+                "kind": "scalars",
+                "href": "/graphql/reference/scalars#string"
+              }
+            }
+          ]
         },
         {
           "name": "viewerIsAdmin",
@@ -29217,7 +29421,20 @@
           "type": "IssueStateReason",
           "id": "issuestatereason",
           "kind": "enums",
-          "href": "/graphql/reference/enums#issuestatereason"
+          "href": "/graphql/reference/enums#issuestatereason",
+          "arguments": [
+            {
+              "name": "enableDuplicate",
+              "defaultValue": false,
+              "description": "<p>Whether or not to return state reason for duplicates.</p>",
+              "type": {
+                "name": "Boolean",
+                "id": "boolean",
+                "kind": "scalars",
+                "href": "/graphql/reference/scalars#boolean"
+              }
+            }
+          ]
         },
         {
           "name": "subIssues",
@@ -40120,7 +40337,17 @@
           "type": "String",
           "id": "string",
           "kind": "scalars",
-          "href": "/graphql/reference/scalars#string"
+          "href": "/graphql/reference/scalars#string",
+          "isDeprecated": true,
+          "deprecationReason": "<p>The individual <code>announcementX</code> fields do not follow our standard GraphQL patterns. Use the <code>announcementBanner</code> object instead. Removal on 2025-04-01 UTC.</p>"
+        },
+        {
+          "name": "announcementBanner",
+          "description": "<p>The announcement banner set on this organization, if any. Only visible to members of the organization's enterprise.</p>",
+          "type": "AnnouncementBanner",
+          "id": "announcementbanner",
+          "kind": "objects",
+          "href": "/graphql/reference/objects#announcementbanner"
         },
         {
           "name": "announcementCreatedAt",
@@ -40128,7 +40355,9 @@
           "type": "DateTime",
           "id": "datetime",
           "kind": "scalars",
-          "href": "/graphql/reference/scalars#datetime"
+          "href": "/graphql/reference/scalars#datetime",
+          "isDeprecated": true,
+          "deprecationReason": "<p>The individual <code>announcementX</code> fields do not follow our standard GraphQL patterns. Use the <code>announcementBanner</code> object instead. Removal on 2025-04-01 UTC.</p>"
         },
         {
           "name": "announcementExpiresAt",
@@ -40136,7 +40365,9 @@
           "type": "DateTime",
           "id": "datetime",
           "kind": "scalars",
-          "href": "/graphql/reference/scalars#datetime"
+          "href": "/graphql/reference/scalars#datetime",
+          "isDeprecated": true,
+          "deprecationReason": "<p>The individual <code>announcementX</code> fields do not follow our standard GraphQL patterns. Use the <code>announcementBanner</code> object instead. Removal on 2025-04-01 UTC.</p>"
         },
         {
           "name": "announcementUserDismissible",
@@ -40144,7 +40375,9 @@
           "type": "Boolean",
           "id": "boolean",
           "kind": "scalars",
-          "href": "/graphql/reference/scalars#boolean"
+          "href": "/graphql/reference/scalars#boolean",
+          "isDeprecated": true,
+          "deprecationReason": "<p>The individual <code>announcementX</code> fields do not follow our standard GraphQL patterns. Use the <code>announcementBanner</code> object instead. Removal on 2025-04-01 UTC.</p>"
         },
         {
           "name": "anyPinnableItems",
@@ -44444,6 +44677,102 @@
           "id": "string",
           "kind": "scalars",
           "href": "/graphql/reference/scalars#string"
+        }
+      ]
+    },
+    {
+      "name": "ParentIssueAddedEvent",
+      "kind": "objects",
+      "id": "parentissueaddedevent",
+      "href": "/graphql/reference/objects#parentissueaddedevent",
+      "description": "<p>Represents a<code>parent_issue_added</code>event on a given issue.</p>",
+      "implements": [
+        {
+          "name": "Node",
+          "id": "node",
+          "href": "/graphql/reference/interfaces#node"
+        }
+      ],
+      "fields": [
+        {
+          "name": "actor",
+          "description": "<p>Identifies the actor who performed the event.</p>",
+          "type": "Actor",
+          "id": "actor",
+          "kind": "interfaces",
+          "href": "/graphql/reference/interfaces#actor"
+        },
+        {
+          "name": "createdAt",
+          "description": "<p>Identifies the date and time when the object was created.</p>",
+          "type": "DateTime!",
+          "id": "datetime",
+          "kind": "scalars",
+          "href": "/graphql/reference/scalars#datetime"
+        },
+        {
+          "name": "id",
+          "description": "<p>The Node ID of the ParentIssueAddedEvent object.</p>",
+          "type": "ID!",
+          "id": "id",
+          "kind": "scalars",
+          "href": "/graphql/reference/scalars#id"
+        },
+        {
+          "name": "parent",
+          "description": "<p>The parent issue added.</p>",
+          "type": "Issue",
+          "id": "issue",
+          "kind": "objects",
+          "href": "/graphql/reference/objects#issue"
+        }
+      ]
+    },
+    {
+      "name": "ParentIssueRemovedEvent",
+      "kind": "objects",
+      "id": "parentissueremovedevent",
+      "href": "/graphql/reference/objects#parentissueremovedevent",
+      "description": "<p>Represents a<code>parent_issue_removed</code>event on a given issue.</p>",
+      "implements": [
+        {
+          "name": "Node",
+          "id": "node",
+          "href": "/graphql/reference/interfaces#node"
+        }
+      ],
+      "fields": [
+        {
+          "name": "actor",
+          "description": "<p>Identifies the actor who performed the event.</p>",
+          "type": "Actor",
+          "id": "actor",
+          "kind": "interfaces",
+          "href": "/graphql/reference/interfaces#actor"
+        },
+        {
+          "name": "createdAt",
+          "description": "<p>Identifies the date and time when the object was created.</p>",
+          "type": "DateTime!",
+          "id": "datetime",
+          "kind": "scalars",
+          "href": "/graphql/reference/scalars#datetime"
+        },
+        {
+          "name": "id",
+          "description": "<p>The Node ID of the ParentIssueRemovedEvent object.</p>",
+          "type": "ID!",
+          "id": "id",
+          "kind": "scalars",
+          "href": "/graphql/reference/scalars#id"
+        },
+        {
+          "name": "parent",
+          "description": "<p>The parent issue removed.</p>",
+          "type": "Issue",
+          "id": "issue",
+          "kind": "objects",
+          "href": "/graphql/reference/objects#issue"
         }
       ]
     },
@@ -52659,6 +52988,14 @@
       "href": "/graphql/reference/objects#pullrequestparameters",
       "description": "<p>Require all commits be made to a non-target branch and submitted via a pull request before they can be merged.</p>",
       "fields": [
+        {
+          "name": "allowedMergeMethods",
+          "description": "<p>When merging pull requests, you can allow any combination of merge commits,\nsquashing, or rebasing. At least one option must be enabled.</p>",
+          "type": "[String!]",
+          "id": "string",
+          "kind": "scalars",
+          "href": "/graphql/reference/scalars#string"
+        },
         {
           "name": "dismissStaleReviewsOnPush",
           "description": "<p>New, reviewable commits pushed will dismiss previous pull request review approvals.</p>",
@@ -67213,6 +67550,14 @@
           "deprecationReason": "<p><code>cvss</code> will be removed. New <code>cvss_severities</code> field will now contain both <code>cvss_v3</code> and <code>cvss_v4</code> properties. Removal on 2025-10-01 UTC.</p>"
         },
         {
+          "name": "cvssSeverities",
+          "description": "<p>The CVSS associated with this advisory.</p>",
+          "type": "CvssSeverities!",
+          "id": "cvssseverities",
+          "kind": "objects",
+          "href": "/graphql/reference/objects#cvssseverities"
+        },
+        {
           "name": "cwes",
           "description": "<p>CWEs associated with this Advisory.</p>",
           "type": "CWEConnection!",
@@ -70157,6 +70502,102 @@
           "id": "uri",
           "kind": "scalars",
           "href": "/graphql/reference/scalars#uri"
+        }
+      ]
+    },
+    {
+      "name": "SubIssueAddedEvent",
+      "kind": "objects",
+      "id": "subissueaddedevent",
+      "href": "/graphql/reference/objects#subissueaddedevent",
+      "description": "<p>Represents a<code>sub_issue_added</code>event on a given issue.</p>",
+      "implements": [
+        {
+          "name": "Node",
+          "id": "node",
+          "href": "/graphql/reference/interfaces#node"
+        }
+      ],
+      "fields": [
+        {
+          "name": "actor",
+          "description": "<p>Identifies the actor who performed the event.</p>",
+          "type": "Actor",
+          "id": "actor",
+          "kind": "interfaces",
+          "href": "/graphql/reference/interfaces#actor"
+        },
+        {
+          "name": "createdAt",
+          "description": "<p>Identifies the date and time when the object was created.</p>",
+          "type": "DateTime!",
+          "id": "datetime",
+          "kind": "scalars",
+          "href": "/graphql/reference/scalars#datetime"
+        },
+        {
+          "name": "id",
+          "description": "<p>The Node ID of the SubIssueAddedEvent object.</p>",
+          "type": "ID!",
+          "id": "id",
+          "kind": "scalars",
+          "href": "/graphql/reference/scalars#id"
+        },
+        {
+          "name": "subIssue",
+          "description": "<p>The sub-issue added.</p>",
+          "type": "Issue",
+          "id": "issue",
+          "kind": "objects",
+          "href": "/graphql/reference/objects#issue"
+        }
+      ]
+    },
+    {
+      "name": "SubIssueRemovedEvent",
+      "kind": "objects",
+      "id": "subissueremovedevent",
+      "href": "/graphql/reference/objects#subissueremovedevent",
+      "description": "<p>Represents a<code>sub_issue_removed</code>event on a given issue.</p>",
+      "implements": [
+        {
+          "name": "Node",
+          "id": "node",
+          "href": "/graphql/reference/interfaces#node"
+        }
+      ],
+      "fields": [
+        {
+          "name": "actor",
+          "description": "<p>Identifies the actor who performed the event.</p>",
+          "type": "Actor",
+          "id": "actor",
+          "kind": "interfaces",
+          "href": "/graphql/reference/interfaces#actor"
+        },
+        {
+          "name": "createdAt",
+          "description": "<p>Identifies the date and time when the object was created.</p>",
+          "type": "DateTime!",
+          "id": "datetime",
+          "kind": "scalars",
+          "href": "/graphql/reference/scalars#datetime"
+        },
+        {
+          "name": "id",
+          "description": "<p>The Node ID of the SubIssueRemovedEvent object.</p>",
+          "type": "ID!",
+          "id": "id",
+          "kind": "scalars",
+          "href": "/graphql/reference/scalars#id"
+        },
+        {
+          "name": "subIssue",
+          "description": "<p>The sub-issue removed.</p>",
+          "type": "Issue",
+          "id": "issue",
+          "kind": "objects",
+          "href": "/graphql/reference/objects#issue"
         }
       ]
     },
@@ -78844,6 +79285,128 @@
       ]
     },
     {
+      "name": "UserNamespaceRepository",
+      "kind": "objects",
+      "id": "usernamespacerepository",
+      "href": "/graphql/reference/objects#usernamespacerepository",
+      "description": "<p>A repository owned by an Enterprise Managed user.</p>",
+      "implements": [
+        {
+          "name": "Node",
+          "id": "node",
+          "href": "/graphql/reference/interfaces#node"
+        }
+      ],
+      "fields": [
+        {
+          "name": "id",
+          "description": "<p>The Node ID of the UserNamespaceRepository object.</p>",
+          "type": "ID!",
+          "id": "id",
+          "kind": "scalars",
+          "href": "/graphql/reference/scalars#id"
+        },
+        {
+          "name": "name",
+          "description": "<p>The name of the repository.</p>",
+          "type": "String!",
+          "id": "string",
+          "kind": "scalars",
+          "href": "/graphql/reference/scalars#string"
+        },
+        {
+          "name": "nameWithOwner",
+          "description": "<p>The repository's name with owner.</p>",
+          "type": "String!",
+          "id": "string",
+          "kind": "scalars",
+          "href": "/graphql/reference/scalars#string"
+        },
+        {
+          "name": "owner",
+          "description": "<p>The user owner of the repository.</p>",
+          "type": "RepositoryOwner!",
+          "id": "repositoryowner",
+          "kind": "interfaces",
+          "href": "/graphql/reference/interfaces#repositoryowner"
+        },
+        {
+          "name": "repository",
+          "description": "<p>The repository owned by an enterprise managed user.</p>",
+          "type": "RepositoryInfo",
+          "id": "repositoryinfo",
+          "kind": "interfaces",
+          "href": "/graphql/reference/interfaces#repositoryinfo"
+        }
+      ]
+    },
+    {
+      "name": "UserNamespaceRepositoryConnection",
+      "kind": "objects",
+      "id": "usernamespacerepositoryconnection",
+      "href": "/graphql/reference/objects#usernamespacerepositoryconnection",
+      "description": "<p>A list of repositories owned by users in an enterprise with Enterprise Managed Users.</p>",
+      "fields": [
+        {
+          "name": "edges",
+          "description": "<p>A list of edges.</p>",
+          "type": "[UserNamespaceRepositoryEdge]",
+          "id": "usernamespacerepositoryedge",
+          "kind": "objects",
+          "href": "/graphql/reference/objects#usernamespacerepositoryedge"
+        },
+        {
+          "name": "nodes",
+          "description": "<p>A list of nodes.</p>",
+          "type": "[UserNamespaceRepository]",
+          "id": "usernamespacerepository",
+          "kind": "objects",
+          "href": "/graphql/reference/objects#usernamespacerepository"
+        },
+        {
+          "name": "pageInfo",
+          "description": "<p>Information to aid in pagination.</p>",
+          "type": "PageInfo!",
+          "id": "pageinfo",
+          "kind": "objects",
+          "href": "/graphql/reference/objects#pageinfo"
+        },
+        {
+          "name": "totalCount",
+          "description": "<p>Identifies the total count of items in the connection.</p>",
+          "type": "Int!",
+          "id": "int",
+          "kind": "scalars",
+          "href": "/graphql/reference/scalars#int"
+        }
+      ]
+    },
+    {
+      "name": "UserNamespaceRepositoryEdge",
+      "kind": "objects",
+      "id": "usernamespacerepositoryedge",
+      "href": "/graphql/reference/objects#usernamespacerepositoryedge",
+      "description": "<p>An edge in a connection.</p>",
+      "fields": [
+        {
+          "name": "cursor",
+          "description": "<p>A cursor for use in pagination.</p>",
+          "type": "String!",
+          "id": "string",
+          "kind": "scalars",
+          "href": "/graphql/reference/scalars#string"
+        },
+        {
+          "name": "node",
+          "description": "<p>The item at the end of the edge.</p>",
+          "type": "UserNamespaceRepository",
+          "id": "usernamespacerepository",
+          "kind": "objects",
+          "href": "/graphql/reference/objects#usernamespacerepository"
+        }
+      ]
+    },
+    {
       "name": "UserStatus",
       "kind": "objects",
       "id": "userstatus",
@@ -79894,7 +80457,9 @@
           "type": "String",
           "id": "string",
           "kind": "scalars",
-          "href": "/graphql/reference/scalars#string"
+          "href": "/graphql/reference/scalars#string",
+          "isDeprecated": true,
+          "deprecationReason": "<p>The individual <code>announcementX</code> fields do not follow our standard GraphQL patterns. Use the <code>announcementBanner</code> object instead. Removal on 2025-04-01 UTC.</p>"
         },
         {
           "name": "announcementCreatedAt",
@@ -79902,7 +80467,9 @@
           "type": "DateTime",
           "id": "datetime",
           "kind": "scalars",
-          "href": "/graphql/reference/scalars#datetime"
+          "href": "/graphql/reference/scalars#datetime",
+          "isDeprecated": true,
+          "deprecationReason": "<p>The individual <code>announcementX</code> fields do not follow our standard GraphQL patterns. Use the <code>announcementBanner</code> object instead. Removal on 2025-04-01 UTC.</p>"
         },
         {
           "name": "announcementExpiresAt",
@@ -79910,7 +80477,9 @@
           "type": "DateTime",
           "id": "datetime",
           "kind": "scalars",
-          "href": "/graphql/reference/scalars#datetime"
+          "href": "/graphql/reference/scalars#datetime",
+          "isDeprecated": true,
+          "deprecationReason": "<p>The individual <code>announcementX</code> fields do not follow our standard GraphQL patterns. Use the <code>announcementBanner</code> object instead. Removal on 2025-04-01 UTC.</p>"
         },
         {
           "name": "announcementUserDismissible",
@@ -79918,7 +80487,9 @@
           "type": "Boolean",
           "id": "boolean",
           "kind": "scalars",
-          "href": "/graphql/reference/scalars#boolean"
+          "href": "/graphql/reference/scalars#boolean",
+          "isDeprecated": true,
+          "deprecationReason": "<p>The individual <code>announcementX</code> fields do not follow our standard GraphQL patterns. Use the <code>announcementBanner</code> object instead. Removal on 2025-04-01 UTC.</p>"
         }
       ]
     },
@@ -85170,7 +85741,7 @@
         },
         {
           "name": "DUPLICATE",
-          "description": "<p>An issue that has been closed as a duplicate.</p>"
+          "description": "<p>An issue that has been closed as a duplicate. To retrieve this value, set\n<code>(enableDuplicate: true)</code> when querying the stateReason field.</p>"
         },
         {
           "name": "NOT_PLANNED",
@@ -85258,6 +85829,14 @@
           "description": "<p>Represents a<code>moved_columns_in_project</code>event on a given issue or pull request.</p>"
         },
         {
+          "name": "PARENT_ISSUE_ADDED_EVENT",
+          "description": "<p>Represents a<code>parent_issue_added</code>event on a given issue.</p>"
+        },
+        {
+          "name": "PARENT_ISSUE_REMOVED_EVENT",
+          "description": "<p>Represents a<code>parent_issue_removed</code>event on a given issue.</p>"
+        },
+        {
           "name": "PINNED_EVENT",
           "description": "<p>Represents a<code>pinned</code>event on a given issue or pull request.</p>"
         },
@@ -85280,6 +85859,14 @@
         {
           "name": "SUBSCRIBED_EVENT",
           "description": "<p>Represents a<code>subscribed</code>event on a given <code>Subscribable</code>.</p>"
+        },
+        {
+          "name": "SUB_ISSUE_ADDED_EVENT",
+          "description": "<p>Represents a<code>sub_issue_added</code>event on a given issue.</p>"
+        },
+        {
+          "name": "SUB_ISSUE_REMOVED_EVENT",
+          "description": "<p>Represents a<code>sub_issue_removed</code>event on a given issue.</p>"
         },
         {
           "name": "TRANSFERRED_EVENT",
@@ -87286,6 +87873,14 @@
           "description": "<p>Represents a<code>moved_columns_in_project</code>event on a given issue or pull request.</p>"
         },
         {
+          "name": "PARENT_ISSUE_ADDED_EVENT",
+          "description": "<p>Represents a<code>parent_issue_added</code>event on a given issue.</p>"
+        },
+        {
+          "name": "PARENT_ISSUE_REMOVED_EVENT",
+          "description": "<p>Represents a<code>parent_issue_removed</code>event on a given issue.</p>"
+        },
+        {
           "name": "PINNED_EVENT",
           "description": "<p>Represents a<code>pinned</code>event on a given issue or pull request.</p>"
         },
@@ -87348,6 +87943,14 @@
         {
           "name": "SUBSCRIBED_EVENT",
           "description": "<p>Represents a<code>subscribed</code>event on a given <code>Subscribable</code>.</p>"
+        },
+        {
+          "name": "SUB_ISSUE_ADDED_EVENT",
+          "description": "<p>Represents a<code>sub_issue_added</code>event on a given issue.</p>"
+        },
+        {
+          "name": "SUB_ISSUE_REMOVED_EVENT",
+          "description": "<p>Represents a<code>sub_issue_removed</code>event on a given issue.</p>"
         },
         {
           "name": "TRANSFERRED_EVENT",
@@ -87497,7 +88100,7 @@
       "values": [
         {
           "name": "INTERNAL",
-          "description": "<p>The repository is visible only to users in the same business.</p>"
+          "description": "<p>The repository is visible only to users in the same enterprise.</p>"
         },
         {
           "name": "PRIVATE",
@@ -87518,7 +88121,7 @@
       "values": [
         {
           "name": "INTERNAL",
-          "description": "<p>The repository is visible only to users in the same business.</p>"
+          "description": "<p>The repository is visible only to users in the same enterprise.</p>"
         },
         {
           "name": "PRIVATE",
@@ -87539,7 +88142,7 @@
       "values": [
         {
           "name": "INTERNAL",
-          "description": "<p>The repository is visible only to users in the same business.</p>"
+          "description": "<p>The repository is visible only to users in the same enterprise.</p>"
         },
         {
           "name": "PRIVATE",
@@ -87581,7 +88184,7 @@
       "values": [
         {
           "name": "INTERNAL",
-          "description": "<p>The repository is visible only to users in the same business.</p>"
+          "description": "<p>The repository is visible only to users in the same enterprise.</p>"
         },
         {
           "name": "PRIVATE",
@@ -87602,7 +88205,7 @@
       "values": [
         {
           "name": "INTERNAL",
-          "description": "<p>The repository is visible only to users in the same business.</p>"
+          "description": "<p>The repository is visible only to users in the same enterprise.</p>"
         },
         {
           "name": "PRIVATE",
@@ -87623,7 +88226,7 @@
       "values": [
         {
           "name": "INTERNAL",
-          "description": "<p>The repository is visible only to users in the same business.</p>"
+          "description": "<p>The repository is visible only to users in the same enterprise.</p>"
         },
         {
           "name": "PRIVATE",
@@ -88127,6 +88730,10 @@
           "description": "<p>Push.</p>"
         },
         {
+          "name": "REPOSITORY",
+          "description": "<p>repository.</p>"
+        },
+        {
           "name": "TAG",
           "description": "<p>Tag.</p>"
         }
@@ -88141,7 +88748,7 @@
       "values": [
         {
           "name": "INTERNAL",
-          "description": "<p>The repository is visible only to users in the same business.</p>"
+          "description": "<p>The repository is visible only to users in the same enterprise.</p>"
         },
         {
           "name": "PRIVATE",
@@ -90810,6 +91417,16 @@
           "href": "/graphql/reference/objects#movedcolumnsinprojectevent"
         },
         {
+          "name": "ParentIssueAddedEvent",
+          "id": "parentissueaddedevent",
+          "href": "/graphql/reference/objects#parentissueaddedevent"
+        },
+        {
+          "name": "ParentIssueRemovedEvent",
+          "id": "parentissueremovedevent",
+          "href": "/graphql/reference/objects#parentissueremovedevent"
+        },
+        {
           "name": "PinnedEvent",
           "id": "pinnedevent",
           "href": "/graphql/reference/objects#pinnedevent"
@@ -90833,6 +91450,16 @@
           "name": "ReopenedEvent",
           "id": "reopenedevent",
           "href": "/graphql/reference/objects#reopenedevent"
+        },
+        {
+          "name": "SubIssueAddedEvent",
+          "id": "subissueaddedevent",
+          "href": "/graphql/reference/objects#subissueaddedevent"
+        },
+        {
+          "name": "SubIssueRemovedEvent",
+          "id": "subissueremovedevent",
+          "href": "/graphql/reference/objects#subissueremovedevent"
         },
         {
           "name": "SubscribedEvent",
@@ -91797,6 +92424,16 @@
           "href": "/graphql/reference/objects#movedcolumnsinprojectevent"
         },
         {
+          "name": "ParentIssueAddedEvent",
+          "id": "parentissueaddedevent",
+          "href": "/graphql/reference/objects#parentissueaddedevent"
+        },
+        {
+          "name": "ParentIssueRemovedEvent",
+          "id": "parentissueremovedevent",
+          "href": "/graphql/reference/objects#parentissueremovedevent"
+        },
+        {
           "name": "PinnedEvent",
           "id": "pinnedevent",
           "href": "/graphql/reference/objects#pinnedevent"
@@ -91870,6 +92507,16 @@
           "name": "ReviewRequestedEvent",
           "id": "reviewrequestedevent",
           "href": "/graphql/reference/objects#reviewrequestedevent"
+        },
+        {
+          "name": "SubIssueAddedEvent",
+          "id": "subissueaddedevent",
+          "href": "/graphql/reference/objects#subissueaddedevent"
+        },
+        {
+          "name": "SubIssueRemovedEvent",
+          "id": "subissueremovedevent",
+          "href": "/graphql/reference/objects#subissueremovedevent"
         },
         {
           "name": "SubscribedEvent",
@@ -92470,6 +93117,40 @@
           "kind": "scalars",
           "href": "/graphql/reference/scalars#id",
           "isDeprecated": false
+        }
+      ]
+    },
+    {
+      "name": "AccessUserNamespaceRepositoryInput",
+      "kind": "inputObjects",
+      "id": "accessusernamespacerepositoryinput",
+      "href": "/graphql/reference/input-objects#accessusernamespacerepositoryinput",
+      "description": "<p>Autogenerated input type of AccessUserNamespaceRepository.</p>",
+      "inputFields": [
+        {
+          "name": "clientMutationId",
+          "description": "<p>A unique identifier for the client performing the mutation.</p>",
+          "type": "String",
+          "id": "string",
+          "kind": "scalars",
+          "href": "/graphql/reference/scalars#string"
+        },
+        {
+          "name": "enterpriseId",
+          "description": "<p>The ID of the enterprise owning the user namespace repository.</p>",
+          "type": "ID!",
+          "id": "id",
+          "kind": "scalars",
+          "href": "/graphql/reference/scalars#id",
+          "isDeprecated": false
+        },
+        {
+          "name": "repositoryId",
+          "description": "<p>The ID of the user namespace repository to access.</p>",
+          "type": "ID!",
+          "id": "id",
+          "kind": "scalars",
+          "href": "/graphql/reference/scalars#id"
         }
       ]
     },
@@ -94303,6 +94984,15 @@
           "id": "string",
           "kind": "scalars",
           "href": "/graphql/reference/scalars#string"
+        },
+        {
+          "name": "duplicateIssueId",
+          "description": "<p>ID of the issue that this is a duplicate of.</p>",
+          "type": "ID",
+          "id": "id",
+          "kind": "scalars",
+          "href": "/graphql/reference/scalars#id",
+          "isDeprecated": false
         },
         {
           "name": "issueId",
@@ -99057,32 +99747,6 @@
       ]
     },
     {
-      "name": "MarkNotificationAsDoneInput",
-      "kind": "inputObjects",
-      "id": "marknotificationasdoneinput",
-      "href": "/graphql/reference/input-objects#marknotificationasdoneinput",
-      "description": "<p>Autogenerated input type of MarkNotificationAsDone.</p>",
-      "isDeprecated": false,
-      "inputFields": [
-        {
-          "name": "clientMutationId",
-          "description": "<p>A unique identifier for the client performing the mutation.</p>",
-          "type": "String",
-          "id": "string",
-          "kind": "scalars",
-          "href": "/graphql/reference/scalars#string"
-        },
-        {
-          "name": "id",
-          "description": "<p>The NotificationThread id.</p>",
-          "type": "ID!",
-          "id": "id",
-          "kind": "scalars",
-          "href": "/graphql/reference/scalars#id"
-        }
-      ]
-    },
-    {
       "name": "MarkProjectV2AsTemplateInput",
       "kind": "inputObjects",
       "id": "markprojectv2astemplateinput",
@@ -100188,6 +100852,14 @@
       "href": "/graphql/reference/input-objects#pullrequestparametersinput",
       "description": "<p>Require all commits be made to a non-target branch and submitted via a pull request before they can be merged.</p>",
       "inputFields": [
+        {
+          "name": "allowedMergeMethods",
+          "description": "<p>When merging pull requests, you can allow any combination of merge commits,\nsquashing, or rebasing. At least one option must be enabled.</p>",
+          "type": "[String!]",
+          "id": "string",
+          "kind": "scalars",
+          "href": "/graphql/reference/scalars#string"
+        },
         {
           "name": "dismissStaleReviewsOnPush",
           "description": "<p>New, reviewable commits pushed will dismiss previous pull request review approvals.</p>",
@@ -103217,33 +103889,6 @@
           "name": "threadId",
           "description": "<p>The ID of the thread to unresolve.</p>",
           "type": "ID!",
-          "id": "id",
-          "kind": "scalars",
-          "href": "/graphql/reference/scalars#id",
-          "isDeprecated": false
-        }
-      ]
-    },
-    {
-      "name": "UnsubscribeFromNotificationsInput",
-      "kind": "inputObjects",
-      "id": "unsubscribefromnotificationsinput",
-      "href": "/graphql/reference/input-objects#unsubscribefromnotificationsinput",
-      "description": "<p>Autogenerated input type of UnsubscribeFromNotifications.</p>",
-      "isDeprecated": false,
-      "inputFields": [
-        {
-          "name": "clientMutationId",
-          "description": "<p>A unique identifier for the client performing the mutation.</p>",
-          "type": "String",
-          "id": "string",
-          "kind": "scalars",
-          "href": "/graphql/reference/scalars#string"
-        },
-        {
-          "name": "ids",
-          "description": "<p>The NotificationThread IDs of the objects to unsubscribe from.</p>",
-          "type": "[ID!]!",
           "id": "id",
           "kind": "scalars",
           "href": "/graphql/reference/scalars#id",

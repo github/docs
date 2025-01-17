@@ -18,8 +18,7 @@ versions:
 
 Typing <kbd>?</kbd> on {% data variables.product.prodname_dotcom %} brings up a dialog box that lists the keyboard shortcuts available for that page. You can use these keyboard shortcuts to perform actions across the site without using your mouse to navigate.
 
-{% ifversion keyboard-shortcut-accessibility-setting %}
-You can disable character key shortcuts, while still allowing shortcuts that use modifier keys, in your accessibility settings. For more information, see [AUTOTITLE](/account-and-profile/setting-up-and-managing-your-personal-account-on-github/managing-user-account-settings/managing-accessibility-settings).{% endif %}
+You can disable character key shortcuts, while still allowing shortcuts that use modifier keys, in your accessibility settings. For more information, see [AUTOTITLE](/account-and-profile/setting-up-and-managing-your-personal-account-on-github/managing-user-account-settings/managing-accessibility-settings).
 
 {% ifversion command-palette %}
 The {% data variables.product.prodname_command_palette %} also gives you quick access to a wide range of actions, without the need to remember keyboard shortcuts. For more information, see [AUTOTITLE](/get-started/accessibility/github-command-palette).
@@ -49,9 +48,7 @@ The following sections list some of the available keyboard shortcuts, organized 
 |<kbd>G</kbd> <kbd>B</kbd> | Go to the **Projects** tab. For more information, see [AUTOTITLE](/issues/organizing-your-work-with-project-boards/managing-project-boards/about-project-boards).
 | {% endif %} |
 |<kbd>G</kbd> <kbd>W</kbd> | Go to the **Wiki** tab. For more information, see [AUTOTITLE](/communities/documenting-your-project-with-wikis/about-wikis). |
-|  {% ifversion discussions %} |
 |<kbd>G</kbd> <kbd>G</kbd> | Go to the **Discussions** tab. For more information, see [AUTOTITLE](/discussions/collaborating-with-your-community-using-discussions/about-discussions).
-| {% endif %} |
 
 ## Source code editing
 
@@ -175,8 +172,6 @@ If you view a code file in a repository using the **Code** view and click on any
 |<kbd>Option</kbd> and click (Mac) or <kbd>Alt</kbd> and click (Windows/Linux) | Toggle between collapsing and expanding all outdated or resolved review comments in a pull request (for example, by holding down <kbd>Alt</kbd> and clicking **Show outdated** or **Hide outdated**) |
 |Click, then <kbd>Shift</kbd> and click | Comment on multiple lines of a pull request by clicking a line number, holding <kbd>Shift</kbd>, then clicking another line number. For more information, see [AUTOTITLE](/pull-requests/collaborating-with-pull-requests/reviewing-changes-in-pull-requests/commenting-on-a-pull-request#adding-line-comments-to-a-pull-request).|
 
-{% ifversion projects-v2 %}
-
 ## {% data variables.projects.projects_v2_caps %}
 
 ### Navigating a project
@@ -197,12 +192,10 @@ If you view a code file in a repository using the **Code** view and click on any
 |<kbd>Escape</kbd> | Cancel editing for the focused cell |
 |<kbd>Command</kbd>+<kbd>Shift</kbd>+<kbd>\ </kbd>(Mac) or <kbd>Ctrl</kbd>+<kbd>Shift</kbd>+<kbd>\ </kbd>(Windows/Linux) | Open row actions menu |
 |<kbd>Shift</kbd>+<kbd>Space</kbd> | Select item |
-|<kbd>Shift</kbd>+<kbd>↓</kbd> | Add cell {% ifversion projects-v2-board-keyboard-shorts %} or card{% endif %} below to selection |
-|<kbd>Shift</kbd>+<kbd>↑</kbd> | Add cell {% ifversion projects-v2-board-keyboard-shorts %}or card{% endif %} above to selection |
+|<kbd>Shift</kbd>+<kbd>↓</kbd> | Add cell or card below to selection |
+|<kbd>Shift</kbd>+<kbd>↑</kbd> | Add cell or card above to selection |
 |<kbd>Space</kbd> | Open selected item |
 |<kbd>e</kbd> | Archive selected items |
-
-{% ifversion projects-v2-board-keyboard-shorts %}
 
 ### Moving cards on the board layout
 
@@ -219,10 +212,6 @@ If you view a code file in a repository using the **Code** view and click on any
 |<kbd>Command</kbd>+<kbd>←</kbd> (Mac) or </br> <kbd>Ctrl</kbd>+<kbd>←</kbd> (Windows/Linux) | Move card(s) to the leftmost column |
 |<kbd>→</kbd> | Move card(s) right |
 |<kbd>Command</kbd>+<kbd>→</kbd> (Mac) or </br> <kbd>Ctrl</kbd>+<kbd>→</kbd> (Windows/Linux) | Move card(s) to the rightmost column |
-
-{% endif %}
-
-{% endif %}
 
 {% ifversion projects-v1 %}
 

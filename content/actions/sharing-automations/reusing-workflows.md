@@ -104,7 +104,6 @@ Called workflows that are owned by the same user or organization{% ifversion ghe
 * You can call a maximum of 20 unique reusable workflows from a single workflow file.
 {% endif %}
 {% ifversion private-actions %}{% else %}- Reusable workflows stored within a private repository can only be used by workflows within the same repository.{% endif %}
-{% ifversion actions-reusable-workflow-matrix %}{% else %}* The `strategy` property is not supported in any job that calls a reusable workflow.{% endif %}
 * Any environment variables set in an `env` context defined at the workflow level in the caller workflow are not propagated to the called workflow. For more information, see [AUTOTITLE](/actions/learn-github-actions/variables) and [AUTOTITLE](/actions/learn-github-actions/contexts#env-context).
 * Similarly, environment variables set in the `env` context, defined in the called workflow, are not accessible in the `env` context of the caller workflow. Instead, you must use outputs of the reusable workflow. For more information, see [Using outputs from a reusable workflow](#using-outputs-from-a-reusable-workflow).
 * To reuse variables in multiple workflows, set them at the organization, repository, or environment levels and reference them using the `vars` context. For more information see [AUTOTITLE](/actions/learn-github-actions/variables) and [AUTOTITLE](/actions/learn-github-actions/contexts#vars-context).
@@ -142,15 +141,10 @@ You can define inputs and secrets, which can be passed from the caller workflow 
 
    {% endraw %}
    For details of the syntax for defining inputs and secrets, see [`on.workflow_call.inputs`](/actions/using-workflows/workflow-syntax-for-github-actions#onworkflow_callinputs) and [`on.workflow_call.secrets`](/actions/using-workflows/workflow-syntax-for-github-actions#onworkflow_callsecrets).
-   {% ifversion actions-inherit-secrets-reusable-workflows %}
 1. In the reusable workflow, reference the input or secret that you defined in the `on` key in the previous step.
 
    > [!NOTE]
    > If the secrets are inherited by using `secrets: inherit` in the calling workflow, you can reference them even if they are not explicitly defined in the `on` key. For more information, see [AUTOTITLE](/actions/using-workflows/workflow-syntax-for-github-actions#jobsjob_idsecretsinherit).
-
-   {%- else %}
-1. In the reusable workflow, reference the input or secret that you defined in the `on` key in the previous step.
-   {%- endif %}
 
    {% raw %}
 
@@ -225,8 +219,6 @@ You can call multiple workflows, referencing each in a separate job.
 
 {% data reusables.actions.pass-inputs-to-reusable-workflows %}
 
-{% ifversion actions-reusable-workflow-matrix %}
-
 ### Using a matrix strategy with a reusable workflow
 
 Jobs using the matrix strategy can call a reusable workflow.
@@ -249,7 +241,6 @@ jobs:
 ```
 
 {% endraw %}
-{% endif %}
 
 ### Supported keywords for jobs that call a reusable workflow
 
@@ -261,12 +252,8 @@ When you call a reusable workflow, you can only use the following keywords in th
 * [`jobs.<job_id>.with.<input_id>`](/actions/using-workflows/workflow-syntax-for-github-actions#jobsjob_idwithinput_id)
 * [`jobs.<job_id>.secrets`](/actions/using-workflows/workflow-syntax-for-github-actions#jobsjob_idsecrets)
 * [`jobs.<job_id>.secrets.<secret_id>`](/actions/using-workflows/workflow-syntax-for-github-actions#jobsjob_idsecretssecret_id)
-{%- ifversion actions-inherit-secrets-reusable-workflows %}
 * [`jobs.<job_id>.secrets.inherit`](/actions/using-workflows/workflow-syntax-for-github-actions#jobsjob_idsecretsinherit)
-{%- endif %}
-{%- ifversion actions-reusable-workflow-matrix %}
 * [`jobs.<job_id>.strategy`](/actions/using-workflows/workflow-syntax-for-github-actions#jobsjob_idstrategy)
-{%- endif %}
 * [`jobs.<job_id>.needs`](/actions/using-workflows/workflow-syntax-for-github-actions#jobsjob_idneeds)
 * [`jobs.<job_id>.if`](/actions/using-workflows/workflow-syntax-for-github-actions#jobsjob_idif)
 * [`jobs.<job_id>.concurrency`](/actions/using-workflows/workflow-syntax-for-github-actions#jobsjob_idconcurrency)
@@ -368,10 +355,10 @@ For information on how to use the API to determine which workflow files were inv
 
 ## Using outputs from a reusable workflow
 
-A reusable workflow may generate data that you want to use in the caller workflow. To use these outputs, you must specify them as the outputs of the reusable workflow.{% ifversion actions-reusable-workflow-matrix %}
+A reusable workflow may generate data that you want to use in the caller workflow. To use these outputs, you must specify them as the outputs of the reusable workflow.
 
 If a reusable workflow that sets an output is executed with a matrix strategy, the output will be the output set by the last successful completing reusable workflow of the matrix which actually sets a value.
-That means if the last successful completing reusable workflow sets an empty string for its output, and the second last successful completing reusable workflow sets an actual value for its output, the output will contain the value of the second last completing reusable workflow.{% endif %}
+That means if the last successful completing reusable workflow sets an empty string for its output, and the second last successful completing reusable workflow sets an actual value for its output, the output will contain the value of the second last completing reusable workflow.
 
 The following reusable workflow has a single job containing two steps. In each of these steps we set a single word as the output: "hello" and "world." In the `outputs` section of the job, we map these step outputs to job outputs called: `output1` and `output2`. In the `on.workflow_call.outputs` section we then define two outputs for the workflow itself, one called `firstword` which we map to `output1`, and one called `secondword` which we map to `output2`.
 

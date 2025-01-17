@@ -110,7 +110,7 @@ If the existing organization uses billed apps, make sure to remove the billed ap
 {%- endif %}
 1. Next to the organization you want to transfer, select the {% octicon "kebab-horizontal" width="16" aria-label="Organization settings" %} dropdown menu, then click **Transfer organization**.
 
-   ![Screenshot of an organization in the organization list. A dropdown menu, labeled with the kebab icon, is expanded and the "Transfer organization" option is highlighted with an orange outline.](/assets/images/help/business-accounts/transfer-organization.png)
+   ![Screenshot of the expanded dropdown menu labeled with the kebab icon, for an organization. The "Transfer organization" option is outlined.](/assets/images/help/business-accounts/transfer-organization.png)
 
 1. Select the **Select enterprise** dropdown menu, start typing the name of the destination enterprise, and click the enterprise you want to transfer the organization to.
 1. Click **Review transfer**.

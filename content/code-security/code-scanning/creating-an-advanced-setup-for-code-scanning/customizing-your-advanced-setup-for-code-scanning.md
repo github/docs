@@ -34,7 +34,7 @@ make sure that you also update the MS short link: https://aka.ms/code-scanning-d
 
 ## About {% data variables.product.prodname_code_scanning %} configuration
 
-You can run {% data variables.product.prodname_code_scanning %} on {% data variables.product.product_name %}, using {% data variables.product.prodname_actions %}, or from your continuous integration (CI) system. For more information, see [AUTOTITLE](/actions/learn-github-actions) or [AUTOTITLE](/code-security/code-scanning/integrating-with-code-scanning/using-code-scanning-with-your-existing-ci-system).
+You can run {% data variables.product.prodname_code_scanning %} on {% data variables.product.github %}, using {% data variables.product.prodname_actions %}, or from your continuous integration (CI) system. For more information, see [AUTOTITLE](/actions/learn-github-actions) or [AUTOTITLE](/code-security/code-scanning/integrating-with-code-scanning/using-code-scanning-with-your-existing-ci-system).
 
 With advanced setup for {% data variables.product.prodname_code_scanning %}, you can customize a {% data variables.product.prodname_code_scanning %} workflow for granular control over your configuration. For more information, see [AUTOTITLE](/code-security/code-scanning/creating-an-advanced-setup-for-code-scanning/configuring-advanced-setup-for-code-scanning).
 
@@ -241,7 +241,7 @@ This parameter is particularly useful if you work with monorepos and have multip
         category: "my_category"
 ```
 
-If you don't specify a `category` parameter in your workflow, {% data variables.product.product_name %} will generate a category name for you, based on the name of the workflow file triggering the action, the action name, and any matrix variables. For example:
+If you don't specify a `category` parameter in your workflow, {% data variables.product.github %} will generate a category name for you, based on the name of the workflow file triggering the action, the action name, and any matrix variables. For example:
 * The `.github/workflows/codeql-analysis.yml` workflow and the `analyze` action will produce the category `.github/workflows/codeql.yml:analyze`.
 * The `.github/workflows/codeql-analysis.yml` workflow, the `analyze` action, and the `{language: {% ifversion codeql-language-identifiers-311 %}javascript-typescript{% else %}javascript{% endif %}, os: linux}` matrix variables will produce the category `.github/workflows/codeql-analysis.yml:analyze/language:{% ifversion codeql-language-identifiers-311 %}javascript-typescript{% else %}javascript{% endif %}/os:linux`.
 
@@ -288,7 +288,7 @@ To add one or more {% data variables.product.prodname_codeql %} query packs, add
 > [!NOTE]
 > For workflows that generate {% data variables.product.prodname_codeql %} databases for multiple languages, you must instead specify the {% data variables.product.prodname_codeql %} query packs in a configuration file. For more information, see [Specifying {% data variables.product.prodname_codeql %} query packs](#specifying-codeql-query-packs) below.
 
-In the example below, `scope` is the organization or personal account that published the package. When the workflow runs, the four {% data variables.product.prodname_codeql %} query packs are downloaded from {% data variables.product.product_name %} and the default queries or query suite for each pack run:
+In the example below, `scope` is the organization or personal account that published the package. When the workflow runs, the four {% data variables.product.prodname_codeql %} query packs are downloaded from {% data variables.product.github %} and the default queries or query suite for each pack run:
 * The latest version of `pack1` is downloaded and all default queries are run.
 * Version 1.2.3 of `pack2` is downloaded and all default queries are run.
 * The latest version of `pack3` that is compatible with version 3.2.1 is downloaded and all queries are run.

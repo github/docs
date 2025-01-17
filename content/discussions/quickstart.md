@@ -3,7 +3,9 @@ title: Quickstart for GitHub Discussions
 intro: 'Enable {% data variables.product.prodname_discussions %} on an existing repository or organization and start conversations with your community.'
 allowTitleToDifferFromFilename: true
 versions:
-  feature: discussions
+  fpt: '*'
+  ghes: '*'
+  ghec: '*'
 shortTitle: Quickstart
 ---
 

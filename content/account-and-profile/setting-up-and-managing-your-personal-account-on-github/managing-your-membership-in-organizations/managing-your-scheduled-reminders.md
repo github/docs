@@ -28,7 +28,7 @@ You can set scheduled reminders for personal or team-level review requests for p
 {% data reusables.reminders.scheduled-reminders %}
 1. Next to the organization you'd like to schedule reminders for, click {% octicon "pencil" aria-label="Edit reminder" %}.
 
-   ![Screenshot of the settings for a personal account showing the name of a GitHub organization. An edit button with a pencil icon is outlined in dark orange.](/assets/images/help/settings/scheduled-reminders-org-choice.png)
+   ![Screenshot of the settings for a personal account showing the name of a GitHub organization. An edit button with a pencil icon is outlined in orange.](/assets/images/help/settings/scheduled-reminders-org-choice.png)
 
 {% data reusables.reminders.authorize-slack %}
 {% data reusables.reminders.days-dropdown %}
@@ -45,7 +45,7 @@ You can set scheduled reminders for personal or team-level review requests for p
 {% data reusables.reminders.scheduled-reminders %}
 1. Next to the organization you'd like to edit scheduled reminders for, click {% octicon "pencil" aria-label="Edit reminder" %}.
 
-   ![Screenshot of the settings for a personal account showing the name of a GitHub organization. An edit button with a pencil icon is outlined in dark orange.](/assets/images/help/settings/scheduled-reminders-org-choice.png)
+   ![Screenshot of the settings for a personal account showing the name of a GitHub organization. An edit button with a pencil icon is outlined in orange.](/assets/images/help/settings/scheduled-reminders-org-choice.png)
 
 {% data reusables.reminders.edit-page %}
 {% data reusables.reminders.update-buttons %}
@@ -57,7 +57,7 @@ You can set scheduled reminders for personal or team-level review requests for p
 {% data reusables.reminders.scheduled-reminders %}
 1. Next to the organization you'd like to delete reminders for, click {% octicon "pencil" aria-label="Edit reminder" %}.
 
-   ![Screenshot of the settings for a personal account showing the name of a GitHub organization. An edit button with a pencil icon is outlined in dark orange.](/assets/images/help/settings/scheduled-reminders-org-choice.png)
+   ![Screenshot of the settings for a personal account showing the name of a GitHub organization. An edit button with a pencil icon is outlined in orange.](/assets/images/help/settings/scheduled-reminders-org-choice.png)
 
 {% data reusables.reminders.delete %}
 

@@ -55,7 +55,7 @@ The exit status of a pre-receive script determines if the push will be accepted.
 
 ### Environment variables
 
-In addition to the standard input for your pre-receive hook script, `stdin`, {% data variables.product.prodname_ghe_server %} makes the following variables available in the Bash environment for your script's execution. For more information about `stdin` for your pre-receive hook script, see "[Input (`stdin`)](#input-stdin)."
+In addition to the standard input for your pre-receive hook script, `stdin`, {% data variables.product.prodname_ghe_server %} makes the following variables available in the Bash environment for your script's execution. For more information about `stdin` for your pre-receive hook script, see [Input (`stdin`)](#input-stdin).
 
 Different environment variables are available to your pre-receive hook script depending on what triggers the script to run.
 

@@ -1,4 +1,4 @@
-name: Update GraphQL files
+name: Sync GraphQL schema
 
 # **What it does**: This updates our GraphQL schemas.
 # **Why we have it**: We want our GraphQL docs up to date.
@@ -25,7 +25,7 @@ jobs:
         env:
           # need to use a token from a user with access to github/github for this step
           GITHUB_TOKEN: ${{ secrets.DOCS_BOT_PAT_WRITEORG_PROJECT }}
-        run: npm run graphql-sync
+        run: npm run sync-graphql
       - name: Create pull request
         id: create-pull-request
         uses: peter-evans/create-pull-request@6cd32fd93684475c31847837f87bb135d40a2b79 # pin @v7.0.3

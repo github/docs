@@ -44,7 +44,7 @@ Alerts should be concise. If the information consists of more than a couple of s
 
 ### Alert types
 
-We use four types of alerts: Note, Tip, Warning, and Caution.
+We use five types of alerts: Note, Tip, Important, Warning, and Caution.
 
 #### Note
 
@@ -67,6 +67,13 @@ For example, [AUTOTITLE](/account-and-profile/setting-up-and-managing-your-githu
 
 > [!TIP]
 > When you @mention an organization, only those that you're a member of will autocomplete. You can still @mention organizations that you're not a member of, like a previous employer, but the organization name won't autocomplete for you.
+
+#### Important
+
+Highlights key information users need to know to achieve their goal.
+
+> [!IMPORTANT]
+> Runner Scale Sets do not support multiple labels, only the name of the runner can be used in place of a label. See [AUTOTITLE](/actions/hosting-your-own-runners/managing-self-hosted-runners-with-actions-runner-controller/deploying-runner-scale-sets-with-actions-runner-controller).
 
 #### Warning
 
@@ -1000,7 +1007,7 @@ A release note for a feature answers the following questions.
 1. What is the functionality?
 1. If applicable, where can I read more about the functionality?
 
-> _AUDIENCE_ (**1**) can _DESCRIPTION OF NEED_ (**2**) by _DESCRIPTION OF FEATURE'S USE_ (**3**). For more information, see "[_ARTICLE TITLE_](/)" (**4**).
+> _AUDIENCE_ (**1**) can _DESCRIPTION OF NEED_ (**2**) by _DESCRIPTION OF FEATURE'S USE_ (**3**). For more information, see [_ARTICLE TITLE_](/) (**4**)
 
 * Categorize each feature in a section, under a feature heading.
 * Write in the present tense.
@@ -1194,7 +1201,7 @@ A release note for a retired feature answers the following questions.
 1. If applicable, what replaces the retired functionality?
 1. If applicable, where can I read more?
 
-> _AUDIENCE_ (**1**) _DESCRIPTION OF RETIRED FUNCTIONALITY_ (**2**) _REPLACEMENT FUNCTIONALITY_ (**3**) For more information, see "[_ARTICLE TITLE_](/)" (**4**).
+> _AUDIENCE_ (**1**) _DESCRIPTION OF RETIRED FUNCTIONALITY_ (**2**) _REPLACEMENT FUNCTIONALITY_ (**3**) For more information, see [_ARTICLE TITLE_](/) (**4**)
 
 * Notes are in the present tense.
 * To reduce repetition and unnecessary words, "now" is usually implied.

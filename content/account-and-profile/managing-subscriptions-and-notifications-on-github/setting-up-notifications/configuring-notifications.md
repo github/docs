@@ -79,7 +79,7 @@ Anytime you comment in a conversation or when someone @mentions your username, y
 
 For conversations you're watching or participating in, you can choose whether you want to receive notifications by email or through the notifications inbox. For more information, see [Choosing your notification settings](/account-and-profile/managing-subscriptions-and-notifications-on-github/setting-up-notifications/configuring-notifications#choosing-your-notification-settings).
 
-![Screenshot of the "Notification settings" page. The "Participating" and "Watching" settings are shown, each with two checkbox options, titled "Email" and "Web and Mobile".](/assets/images/help/notifications-v2/participating-and-watching-options.png){% endif %}
+![Screenshot of the "Notification settings" page. "Participating" and "Watching" each have two checkbox options: "Email" and "Web and Mobile".](/assets/images/help/notifications-v2/participating-and-watching-options.png){% endif %}
 
 For example, on your "Notification settings" page:
 * If you don't want notifications to be sent to your email, deselect **email** for participating and watching notifications.
@@ -236,8 +236,6 @@ For more information about the notification delivery methods available to you, a
 
 For more information on how to configure notifications for {% data variables.secret-scanning.alerts %}, see [AUTOTITLE](/code-security/secret-scanning/managing-alerts-from-secret-scanning/monitoring-alerts).
 
-{% ifversion update-notification-settings-22 or ghes %}
-
 ## {% data variables.product.prodname_actions %} notification options
 
 For repositories that are set up with {% data variables.product.prodname_actions %} and that you are watching, you can choose how you want to receive workflow run updates.
@@ -245,7 +243,7 @@ For repositories that are set up with {% data variables.product.prodname_actions
 {% ifversion update-notification-settings-22 %}
 1. On the "Notification settings" page, under "System", then under "Actions", select the **Don't notify** dropdown menu.
 
-   ![Screenshot of the "System" section of the notification settings. Under "Actions," a dropdown menu, titled "Don't notify", is highlighted with an orange outline.](/assets/images/help/notifications/github-actions-customize-notifications.png)
+   ![Screenshot of the "System" section of the notification settings. Under "Actions," a dropdown menu, titled "Don't notify", is outlined in orange.](/assets/images/help/notifications/github-actions-customize-notifications.png)
 1. To opt into web notifications, from the dropdown menu, select "On {% data variables.product.prodname_dotcom %}."
 
    To opt into email notifications, from the dropdown menu, select "Email."
@@ -254,9 +252,7 @@ For repositories that are set up with {% data variables.product.prodname_actions
 {% ifversion ghes %}
 On the "Notification settings" page, select "Email" or "Web" notifications. Optionally, to only receive notifications for failed workflow runs, select "Send notifications for failed workflows only".
 
-![Screenshot of the "Actions" section on the "Notification settings" page. Three checkboxes, titled "Email", "Web", and "Send notifications for failed workflows only", are shown.](/assets/images/help/notifications-v2/github-actions-notification-options.png){% endif %}
-
-{% endif %}
+![Screenshot of the "Actions" section of "Notification settings" with checkboxes: "Email", "Web", and "Send notifications for failed workflows only."](/assets/images/help/notifications-v2/github-actions-notification-options.png){% endif %}
 
 ## Organization alerts notification options
 

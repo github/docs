@@ -3,7 +3,9 @@ title: Enabling or disabling GitHub Discussions for a repository
 intro: 'You can use {% data variables.product.prodname_discussions %} in a repository as a place for your community to have conversations, ask questions, and post answers without scoping work in an issue.'
 permissions: 'People with admin permissions to a repository can enable {% data variables.product.prodname_discussions %} for the repository.'
 versions:
-  feature: discussions
+  fpt: '*'
+  ghes: '*'
+  ghec: '*'
 topics:
   - Repositories
 redirect_from:

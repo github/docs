@@ -2,7 +2,9 @@
 title: Allowing project visibility changes in your organization
 intro: 'Organization owners can allow members with admin permissions to adjust the visibility of {% data variables.projects.projects_v2_and_v1 %} in their organization.'
 versions:
-  feature: classic-project-visibility-permissions-or-projects-v2
+  fpt: '*'
+  ghes: '*'
+  ghec: '*'
 topics:
   - Organizations
   - Projects
