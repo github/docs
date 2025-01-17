@@ -60,9 +60,7 @@ While you can use a hotpatch to upgrade to the latest patch release within a fea
    tail -f /data/user/common/ghe-config.log
    ```
 
-{% ifversion ip-exception-list %}
 1. Optionally, after the upgrade, validate the upgrade by configuring an IP exception list to allow access to a specified list of IP addresses. See [AUTOTITLE](/admin/configuration/configuring-your-enterprise/enabling-and-scheduling-maintenance-mode#validating-changes-in-maintenance-mode-using-the-ip-exception-list).
-{% endif %}
 1. For single node upgrades, perform any post-upgrade tasks including disabling maintenance mode so users can use {% data variables.location.product_location %}.
 
     > [!NOTE] After you upgrade an instance in a high availability configuration, you should remain in maintenance mode until you have upgraded all of the replica nodes and replication is current. See [Upgrading additional nodes with an upgrade package](#upgrading-additional-nodes-with-an-upgrade-package).

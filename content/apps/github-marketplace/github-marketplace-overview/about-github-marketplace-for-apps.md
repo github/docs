@@ -1,6 +1,6 @@
 ---
 title: About GitHub Marketplace for apps
-intro: 'Learn about {% data variables.product.prodname_marketplace %} where you can share your apps publicly with all {% data variables.product.product_name %} users.'
+intro: 'Learn about {% data variables.product.prodname_marketplace %} where you can share your apps with everyone.'
 redirect_from:
   - /apps/marketplace/getting-started
   - /marketplace/getting-started

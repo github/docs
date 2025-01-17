@@ -24,7 +24,7 @@ As more users join {% data variables.location.product_location %}, you may need 
 ## Requirements and recommendations
 
 > [!NOTE]
-> Before resizing any storage volume, put your instance in maintenance mode.{% ifversion ip-exception-list %} You can validate changes by configuring an IP exception list to allow access from specified IP addresses. {% endif %} For more information, see [AUTOTITLE](/admin/configuration/configuring-your-enterprise/enabling-and-scheduling-maintenance-mode).
+> Before resizing any storage volume, put your instance in maintenance mode. You can validate changes by configuring an IP exception list to allow access from specified IP addresses. For more information, see [AUTOTITLE](/admin/configuration/configuring-your-enterprise/enabling-and-scheduling-maintenance-mode).
 
 ### Minimum recommended requirements
 

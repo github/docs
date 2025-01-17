@@ -38,7 +38,7 @@ These security features help harden your {% data variables.product.prodname_gith
 
 Similar to {% data variables.product.prodname_oauth_apps %}, {% data variables.product.prodname_github_apps %} can still take actions on behalf of a user. Unlike {% data variables.product.prodname_oauth_apps %}, which don't indicate that the action was performed by the app, {% data variables.product.prodname_github_apps %} indicate that the action was performed by the app on behalf of the user.
 
-{% data variables.product.prodname_github_apps %} are not tied to a user account and do not consume a {% ifversion enterprise-licensing-language %}license{% else %}seat{% endif %} on {% data variables.product.product_name %}. {% data variables.product.prodname_github_apps %} remain installed even when the person who initially installed the app leaves the organization. This lets your integrations continue to work even if people leave your team.
+{% data variables.product.prodname_github_apps %} are not tied to a user account and do not consume a {% ifversion enterprise-licensing-language %}license{% else %}seat{% endif %}. {% data variables.product.prodname_github_apps %} remain installed even when the person who initially installed the app leaves the organization. This lets your integrations continue to work even if people leave your team.
 
 ### {% data variables.product.prodname_github_apps %} have scalable rate limits
 

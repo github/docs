@@ -180,9 +180,7 @@ $ ghe-restore -c 169.154.1.1
 > Visit https://169.154.1.1/setup/settings to review appliance configuration.
 ```
 
-{% ifversion ip-exception-list %}
 Optionally, to validate the restore, configure an IP exception list to allow access to a specified list of IP addresses. For more information, see [AUTOTITLE](/admin/configuration/configuring-your-enterprise/enabling-and-scheduling-maintenance-mode#validating-changes-in-maintenance-mode-using-the-ip-exception-list).
-{% endif %}
 
 On an instance in a high-availability configuration, after you restore to new disks on an existing or empty instance, `ghe-repl-status` may report that Git or Alambic replication is out of sync due to stale server UUIDs. These stale UUIDs can be the result of a retired node in a high-availability configuration still being present in the application database, but not in the restored replication configuration.
 

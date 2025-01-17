@@ -3,7 +3,9 @@ title: Managing accessibility settings
 shortTitle: Manage accessibility settings
 intro: '{% data variables.product.github %}''s user interface can adapt to your vision, hearing, motor, cognitive, or learning needs.'
 versions:
-  feature: keyboard-shortcut-accessibility-setting
+  fpt: '*'
+  ghes: '*'
+  ghec: '*'
 redirect_from:
   - /account-and-profile/setting-up-and-managing-your-github-user-account/managing-user-account-settings/managing-accessibility-settings
   - /account-and-profile/setting-up-and-managing-your-personal-account-on-github/managing-personal-account-settings/managing-accessibility-settings
