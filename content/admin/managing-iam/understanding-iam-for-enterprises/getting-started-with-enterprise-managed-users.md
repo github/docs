@@ -37,12 +37,14 @@ After we create your enterprise, you will receive an email inviting you to choos
 Using an **incognito or private browsing window**:
 
 1. Set the user's password.
-1. Save the user's recovery codes.
-1. Enable two-factor authentication. See [AUTOTITLE](/authentication/securing-your-account-with-two-factor-authentication-2fa/configuring-two-factor-authentication).
+1. Enable two-factor authentication (2FA), and save the enterprise recovery codes. See [AUTOTITLE](/admin/managing-iam/managing-recovery-codes-for-your-enterprise/downloading-your-enterprise-accounts-single-sign-on-recovery-codes#downloading-codes-for-an-enterprise-with-enterprise-managed-users).
+
+   > [!WARNING]
+   > All subsequent login attempts for the setup user account will require a successful 2FA challenge response or the use of an enterprise recovery code to complete authentication. To avoid being locked out of your account, save your enterprise recovery codes.
 
 {% data reusables.enterprise-accounts.emu-password-reset-session %}
 
-We strongly recommend **storing the credentials for the setup user** in your company's password management tool. Someone will need to sign in as this user to update authentication settings, migrate to another identity provider or authentication method, or use your enterprise's recovery codes.
+{% data reusables.enterprise-accounts.emu-recommend-password-manager %}
 
 ## Create a {% data variables.product.pat_generic %}
 

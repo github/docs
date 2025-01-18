@@ -8,7 +8,7 @@ topics:
 shortTitle: Enhance your resume
 ---
 
-## How can my {% data variables.product.github %} profile enhance my resume?
+## How can my {% data variables.product.github %} profile help with my job search?
 
 When you include a link to your {% data variables.product.github %} profile in your resume, you showcase your skills and experience to potential employers. In this article, you'll find practical tips for preparing your {% data variables.product.github %} profile for a job search.
 
@@ -38,7 +38,7 @@ For instructions for creating a profile README, see [AUTOTITLE](/account-and-pro
 
 > [!NOTE] Updating and customizing your profile README also helps demonstrate fluency using Markdown and HTML, which are useful skills for technical jobs. To show off your skills for potential employers, look for ways to use more advanced Markdown or HTML elements in your profile README.
 
-## Step 3: Choose projects to showcase
+## Step 3: Showcase your best projects
 
 Pick your favorite 3-5 projects to highlight for your job application. For the best chances at an interview, pick projects that show your diverse skills and are relevant to your specific job search.
 
@@ -53,7 +53,7 @@ Repositories you pin will be prominently displayed on your profile, allowing you
 
 To get started, click **Customize your pins** in the "Popular repositories" section of your profile.
 
-## Step 4: Prepare the projects you want to showcase
+## Step 4: Improve your showcased projects
 
 Hiring managers usually consider many applicants for each role. Expect that they will only look at your projects for a couple minutes. To give the best impression during this brief time, you should make your projects easy to understand and explore.
 
@@ -89,13 +89,13 @@ To give the best impression, you'll want to make sure that hiring managers can u
 * Simplify complex functions, break down large classes, and remove redundant code
 * Provide tests to validate that your code is working as expected
 
-You can use [{% data variables.product.prodname_copilot_extension_vsc %}](https://marketplace.visualstudio.com/items?itemName=GitHub.copilot) to interact with {% data variables.product.prodname_copilot_short %} in {% data variables.product.prodname_vscode_shortname %}. Here, {% data variables.product.prodname_copilot_short %} can help answer more specific questions about your project, make edits across multiple files, provide suggestions for simplifying your code, and write tests. For more information, see [AUTOTITLE](/copilot/using-github-copilot/guides-on-using-github-copilot/writing-tests-with-github-copilot).
+It might be easiest to make these changes locally in {% data variables.product.prodname_vscode_shortname %}, using the {% data variables.product.prodname_copilot_extension_vsc %}. For example, when you start typing a line comment, {% data variables.product.prodname_copilot_short %} can automatically suggest the rest of the comment.
 
 ### Update your project's dependencies
 
-To showcase your understanding of security best practices, ensure your project is using the latest versions of any dependencies. You can use {% data variables.product.prodname_dependabot_alerts %} and security updates to view alerts about dependencies with known security vulnerabilities. For more information, see [AUTOTITLE](/code-security/dependabot/dependabot-alerts/about-dependabot-alerts).
+To showcase your understanding of security best practices, ensure your project is using the latest versions of any dependencies. {% data variables.product.prodname_dependabot %} can alert you to security vulnerabilities in your dependencies and generate pull requests that will update your project to the latest version. See [AUTOTITLE](/code-security/getting-started/dependabot-quickstart-guide).
 
-## Looking forward: Maintaining your projects
+## Extra credit: Maintaining your projects
 
 Your profile is now ready to be included on your resume! The changes you made today will have a big impact on your job search and will make your {% data variables.product.github %} profile stand out to hiring managers.
 
