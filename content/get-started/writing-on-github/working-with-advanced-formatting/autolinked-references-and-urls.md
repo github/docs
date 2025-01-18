@@ -73,6 +73,11 @@ When referencing a commit from a private repository inside of a commit message, 
 
 {% data reusables.repositories.autolink-references %}
 
+## Avoiding backlinks to linked references
+
+References to issues, pull requests, etc. cause the referenced item to have a backlink to the referencing item.
+To avoid this, you can use the URL `redirect.github.com` instead of `github.com` in your reference.
+
 ## Further reading
 
 * [AUTOTITLE](/get-started/writing-on-github/getting-started-with-writing-and-formatting-on-github/basic-writing-and-formatting-syntax)
