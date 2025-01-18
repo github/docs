@@ -4,6 +4,7 @@ intro: This error usually means you were unable to connect to the server. Often 
 redirect_from:
   - /articles/error-bad-file-number
   - /github/authenticating-to-github/error-bad-file-number
+  - 
   - /github/authenticating-to-github/troubleshooting-ssh/error-bad-file-number
 versions:
   fpt: '*'
