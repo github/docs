@@ -1,7 +1,7 @@
 ---
 title: Disabling webhooks
 shortTitle: Disable webhooks
-intro: 'You can disable a webhook to unsubscribe from events that occur on {% data variables.product.prodname_dotcom %}.'
+intro: 'You can disable a webhook to unsubscribe from events that occur on {% data variables.product.github %}.'
 versions:
   fpt: '*'
   ghes: '*'
@@ -26,7 +26,7 @@ For more information, see [AUTOTITLE](/webhooks/about-webhooks) and [AUTOTITLE](
 
 To disable a repository webhook, you can deactivate or delete it. You must be a repository owner, or have admin access in the repository, to disable webhooks.
 
-You can use the {% data variables.product.prodname_dotcom %} web interface or the REST API to delete a webhook for a repository. For more information about using the REST API to delete a repository webhook, see [AUTOTITLE](/rest/webhooks/repos#delete-a-repository-webhook).
+You can use the {% data variables.product.github %} web interface or the REST API to delete a webhook for a repository. For more information about using the REST API to delete a repository webhook, see [AUTOTITLE](/rest/webhooks/repos#delete-a-repository-webhook).
 
 {% data reusables.repositories.navigate-to-repo %}
 {% data reusables.repositories.sidebar-settings %}
@@ -37,7 +37,7 @@ You can use the {% data variables.product.prodname_dotcom %} web interface or th
 
 To disable an organization webhook, you can deactivate or delete it. Only organization owners can disable webhooks in an organization.
 
-You can use the {% data variables.product.prodname_dotcom %} web interface or the REST API to delete an organization webhook. For more information about using the REST API to delete an organization webhook, see [AUTOTITLE](/rest/orgs/webhooks#delete-an-organization-webhook).
+You can use the {% data variables.product.github %} web interface or the REST API to delete an organization webhook. For more information about using the REST API to delete an organization webhook, see [AUTOTITLE](/rest/orgs/webhooks#delete-an-organization-webhook).
 
 1. In the upper-right corner of any page on {% data variables.product.github %}, click your profile photo.
 1. Click **Your organizations**.
