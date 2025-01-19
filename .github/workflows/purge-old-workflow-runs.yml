@@ -1,4 +1,4 @@
-name: Purge old workflow runs
+ name: Purge old workflow runs
 
 # **What it does**: Deletes really old workflow runs.
 # **Why we have it**: To keep things neat and tidy.
