@@ -1,6 +1,6 @@
 ---
 title: About GitHub Sponsors
-intro: '{% data variables.product.prodname_sponsors %} allows the developer community to financially support the people and organizations who design, build, and maintain the open source projects they depend on, directly on {% data variables.product.product_name %}.'
+intro: '{% data variables.product.prodname_sponsors %} allows the developer community to financially support the people and organizations who design, build, and maintain the open source projects they depend on, directly on {% data variables.product.github %}.'
 redirect_from:
   - /articles/about-github-sponsors
   - /github/supporting-the-open-source-community-with-github-sponsors/about-github-sponsors
@@ -30,7 +30,7 @@ When you become a sponsored developer or sponsored organization, additional term
 > [!NOTE]
 > {% data reusables.sponsors.matching-fund-eligible %}
 
-The {% data variables.product.prodname_matching_fund %} aims to benefit members of the {% data variables.product.prodname_dotcom %} community who develop open source software that promotes the [{% data variables.product.prodname_dotcom %} Community Guidelines](/free-pro-team@latest/site-policy/github-terms/github-community-guidelines). Payments to sponsored organizations and payments from organizations are not eligible for {% data variables.product.prodname_matching_fund %}.
+The {% data variables.product.prodname_matching_fund %} aims to benefit members of the {% data variables.product.github %} community who develop open source software that promotes the [{% data variables.product.github %} Community Guidelines](/free-pro-team@latest/site-policy/github-terms/github-community-guidelines). Payments to sponsored organizations and payments from organizations are not eligible for {% data variables.product.prodname_matching_fund %}.
 
 To be eligible for the {% data variables.product.prodname_matching_fund %}, you must create a profile that will attract a community that will sustain you for the long term. For more information about creating a strong profile, see [AUTOTITLE](/sponsors/receiving-sponsorships-through-github-sponsors/editing-your-profile-details-for-github-sponsors).
 
