@@ -31,7 +31,7 @@ For more information on adding line {% ifversion pull-request-comment-on-file %}
 To reply to an existing line {% ifversion pull-request-comment-on-file %}or file {% endif %}comment, you'll need to navigate to the comment on either the **Conversation** tab or **Files changed** tab and add an additional comment below it.
 
 > [!TIP]
-> * Pull request comments support the same [formatting](/get-started/writing-on-github) as regular comments on {% data variables.product.product_name %}, such as @mentions, emoji, and references.
+> * Pull request comments support the same [formatting](/get-started/writing-on-github) as regular comments on {% data variables.product.github %}, such as @mentions, emoji, and references.
 > * You can add reactions to comments in pull requests in the **Files changed** tab.
 
 ## Adding comments to a pull request

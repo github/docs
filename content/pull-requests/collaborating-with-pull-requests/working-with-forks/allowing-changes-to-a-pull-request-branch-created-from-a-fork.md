@@ -23,7 +23,7 @@ You can set commit permissions when you first create a pull request from a fork.
 
 ## Enabling repository maintainer permissions on existing pull requests
 
-1. On {% data variables.product.product_name %}, navigate to the main page of the upstream repository of your pull request.
+1. On {% data variables.product.github %}, navigate to the main page of the upstream repository of your pull request.
 1. Under the upstream repository name, click **{% octicon "git-pull-request" aria-hidden="true" %} Pull requests**.
 {% ifversion global-nav-update %}
 

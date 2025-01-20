@@ -1,6 +1,6 @@
 ---
 title: Merging a pull request with a merge queue
-intro: 'If a merge queue is required by the branch protection setting for the branch, you can add your pull requests to a merge queue and {% data variables.product.product_name %} will merge the pull requests for you once all required checks have passed.'
+intro: 'If a merge queue is required by the branch protection setting for the branch, you can add your pull requests to a merge queue and {% data variables.product.github %} will merge the pull requests for you once all required checks have passed.'
 versions:
   feature: merge-queue
 topics:
@@ -37,7 +37,7 @@ product: '{% data reusables.gated-features.merge-queue %}'
    ![Screenshot of the merge queue options for a pull request.](/assets/images/help/pull_requests/merge-queue-options.png)
 
    > [!NOTE]
-   > You can click **Merge when ready** whenever you're ready to merge your proposed changes. {% data variables.product.product_name %} will automatically add the pull request to the merge queue once required approval and status checks conditions are met.
+   > You can click **Merge when ready** whenever you're ready to merge your proposed changes. {% data variables.product.github %} will automatically add the pull request to the merge queue once required approval and status checks conditions are met.
 
 1. Confirm you want to add the pull request to the merge queue by clicking **Confirm merge when ready**.
 
@@ -72,13 +72,13 @@ Alternatively, you can navigate to the merge queue page for the base branch, cli
 
 {% cli %}
 
-You can view the merge queue for a base branch in various places on {% data variables.product.product_name %}. You cannot use {% data variables.product.prodname_cli %} to view a merge queue.
+You can view the merge queue for a base branch in various places on {% data variables.product.github %}. You cannot use {% data variables.product.prodname_cli %} to view a merge queue.
 
 {% endcli %}
 
 {% webui %}
 
-You can view the merge queue for a base branch in various places on {% data variables.product.product_name %}.
+You can view the merge queue for a base branch in various places on {% data variables.product.github %}.
 
 {% endwebui %}
 

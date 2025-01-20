@@ -1,6 +1,6 @@
 ---
 title: Commit exists on GitHub but not in my local clone
-intro: 'Sometimes a commit will be viewable on {% data variables.product.product_name %}, but will not exist in your local clone of the repository.'
+intro: 'Sometimes a commit will be viewable on {% data variables.product.github %}, but will not exist in your local clone of the repository.'
 redirect_from:
   - /articles/commit-exists-on-github-but-not-in-my-local-clone
   - /github/committing-changes-to-your-project/commit-exists-on-github-but-not-in-my-local-clone
@@ -52,13 +52,13 @@ or has force pushed over the branch, the missing commit may have been orphaned
 into your local clone.
 
 Fortunately, if any collaborator has a local clone of the repository with the
-missing commit, they can push it back to {% data variables.product.product_name %}. They need to make sure the commit
-is referenced by a local branch and then push it as a new branch to {% data variables.product.product_name %}.
+missing commit, they can push it back to {% data variables.product.github %}. They need to make sure the commit
+is referenced by a local branch and then push it as a new branch to {% data variables.product.github %}.
 
 Let's say that the person still has a local branch (call it `B`) that contains
 the commit. This might be tracking the branch that was force pushed or deleted
 and they simply haven't updated yet. To preserve the commit, they can push that
-local branch to a new branch (call it `recover-B`) on {% data variables.product.product_name %}. For this example,
+local branch to a new branch (call it `recover-B`) on {% data variables.product.github %}. For this example,
 let's assume they have a remote named `upstream` via which they have push access
 to `github.com/ACCOUNT/REPOSITORY`.
 
