@@ -1,6 +1,6 @@
 ---
 title: Using a verified email address in your GPG key
-intro: 'When verifying a signature, {% data variables.product.product_name %} checks that the committer or tagger email address matches an email address from the GPG key''s identities and is a verified email address on the user''s account. This ensures that the key belongs to you and that you created the commit or tag.'
+intro: 'When verifying a signature, {% data variables.product.github %} checks that the committer or tagger email address matches an email address from the GPG key''s identities and is a verified email address on the user''s account. This ensures that the key belongs to you and that you created the commit or tag.'
 redirect_from:
   - /articles/using-a-verified-email-address-in-your-gpg-key
   - /github/authenticating-to-github/using-a-verified-email-address-in-your-gpg-key

@@ -1,6 +1,6 @@
 ---
 title: Token expiration and revocation
-intro: 'Your tokens can expire and can also be revoked by you, applications you have authorized, and {% data variables.product.product_name %} itself.'
+intro: 'Your tokens can expire and can also be revoked by you, applications you have authorized, and {% data variables.product.github %} itself.'
 versions:
   fpt: '*'
   ghes: '*'
@@ -15,7 +15,7 @@ redirect_from:
 
 When a token has expired or has been revoked, it can no longer be used to authenticate Git and API requests. It is not possible to restore an expired or revoked token, you or the application will need to create a new token.
 
-This article explains the possible reasons your {% data variables.product.product_name %} token might be revoked or expire.
+This article explains the possible reasons your {% data variables.product.github %} token might be revoked or expire.
 
 > [!NOTE]
 > When a {% data variables.product.pat_generic %} or OAuth token expires or is revoked, you may see an `oauth_authorization.destroy` action in your security log. For more information, see [AUTOTITLE](/authentication/keeping-your-account-and-data-secure/reviewing-your-security-log).
@@ -36,7 +36,7 @@ If a valid OAuth token, {% data variables.product.prodname_github_app %} token, 
 
 ## Token expired due to lack of use
 
-{% data variables.product.product_name %} will automatically revoke an OAuth token or {% data variables.product.pat_generic %} when the token hasn't been used in one year.
+{% data variables.product.github %} will automatically revoke an OAuth token or {% data variables.product.pat_generic %} when the token hasn't been used in one year.
 {% endif %}
 
 ## Token revoked by the user

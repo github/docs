@@ -1,6 +1,6 @@
 ---
 title: Adding a GPG key to your GitHub account
-intro: 'To configure your account on {% data variables.product.product_name %} to use your new (or existing) GPG key, you''ll also need to add the key to your account.'
+intro: 'To configure your account on {% data variables.product.github %} to use your new (or existing) GPG key, you''ll also need to add the key to your account.'
 redirect_from:
   - /articles/adding-a-gpg-key-to-your-github-account
   - /github/authenticating-to-github/adding-a-new-gpg-key-to-your-github-account
@@ -22,9 +22,9 @@ shortTitle: Add a GPG key
 
 ## About addition of GPG keys to your account
 
-To sign commits associated with your account on {% data variables.product.product_name %}, you can add a public GPG key to your personal account. Before you add a key, you should check for existing keys. If you don't find any existing keys, you can generate and copy a new key. For more information, see [AUTOTITLE](/authentication/managing-commit-signature-verification/checking-for-existing-gpg-keys) and [AUTOTITLE](/authentication/managing-commit-signature-verification/generating-a-new-gpg-key).
+To sign commits associated with your account on {% data variables.product.github %}, you can add a public GPG key to your personal account. Before you add a key, you should check for existing keys. If you don't find any existing keys, you can generate and copy a new key. For more information, see [AUTOTITLE](/authentication/managing-commit-signature-verification/checking-for-existing-gpg-keys) and [AUTOTITLE](/authentication/managing-commit-signature-verification/generating-a-new-gpg-key).
 
-You can add multiple public keys to your account on {% data variables.product.product_name %}. Commits signed by any of the corresponding private keys will show as verified. {% ifversion persistent-commit-verification %}Once a commit has been verified, any commits signed by the corresponding private key will continue to show as verified, even if the public key is removed.{% else %}If you remove a public key, any commits signed by the corresponding private key will no longer show as verified.{% endif %}
+You can add multiple public keys to your account on {% data variables.product.github %}. Commits signed by any of the corresponding private keys will show as verified. {% ifversion persistent-commit-verification %}Once a commit has been verified, any commits signed by the corresponding private key will continue to show as verified, even if the public key is removed.{% else %}If you remove a public key, any commits signed by the corresponding private key will no longer show as verified.{% endif %}
 
 ![Screenshot of a list of commits. One commit is marked as "Verified." A dropdown shows the commit was signed and when it was signed.](/assets/images/help/settings/verified-persistent-commit.png)
 
@@ -32,7 +32,7 @@ To verify as many of your commits as possible, you can add expired and revoked k
 
 {% data reusables.gpg.supported-gpg-key-algorithms %}
 
-When verifying a signature, {% data variables.product.product_name %} extracts the signature and attempts to parse its key ID. The key ID is then matched with keys added to {% data variables.product.product_name %}. Until a matching GPG key is added to {% data variables.product.product_name %}, it cannot verify your signatures.
+When verifying a signature, {% data variables.product.github %} extracts the signature and attempts to parse its key ID. The key ID is then matched with keys added to {% data variables.product.github %}. Until a matching GPG key is added to {% data variables.product.github %}, it cannot verify your signatures.
 
 ## Adding a GPG key
 
