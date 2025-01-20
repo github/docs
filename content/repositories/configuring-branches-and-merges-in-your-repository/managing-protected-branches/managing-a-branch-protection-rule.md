@@ -86,11 +86,9 @@ When you create a branch rule, the branch you specify doesn't have to exist yet 
 {%- ifversion required-deployments %}
 1. Optionally, to choose which environments the changes must be successfully deployed to before merging, select **Require deployments to succeed before merging**, then select the environments.
 {%- endif %}
-{% ifversion lock-branch %}
 1. Optionally, make the branch read-only.
    * Select **Lock branch**.
    * Optionally, to allow fork syncing, select **Allow fork syncing**.
-{%- endif %}
 1. Optionally, select **Do not allow bypassing the above settings**.
 1. Optionally,{% ifversion fpt or ghec %} in public repositories owned by a {% data variables.product.prodname_free_user %} organization and in all repositories owned by an organization using {% data variables.product.prodname_team %} or {% data variables.product.prodname_ghe_cloud %},{% endif %} enable branch restrictions.
    * Select **Restrict who can push to matching branches**.
