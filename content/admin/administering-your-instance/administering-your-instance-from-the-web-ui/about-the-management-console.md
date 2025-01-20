@@ -24,11 +24,7 @@ To access the {% data variables.enterprise.management_console %}, you can use th
 
 The {% data variables.enterprise.management_console %} password hash is stored in `/data/user/common/secrets.conf`. If high availability or clustering is configured, the file is automatically synced from the primary node to any additional nodes. Any change to the primary's password will automatically be replicated to all of the instance's nodes. For more information about high availability, see [AUTOTITLE](/admin/enterprise-management/configuring-high-availability/about-high-availability-configuration).
 
-{% ifversion management-console-events-audit-log %}
-
 When someone performs an action in the {% data variables.enterprise.management_console %} via the web interface or REST API, an event appears in the audit log. For more information, see [AUTOTITLE](/admin/monitoring-activity-in-your-enterprise/reviewing-audit-logs-for-your-enterprise/audit-log-events-for-your-enterprise).
-
-{% endif %}
 
 ## Examples of activities in the {% data variables.enterprise.management_console %}
 

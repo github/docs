@@ -24,7 +24,7 @@ When you generate an SSH key, you can add a passphrase to further secure the key
 
 If you don't already have an SSH key, you must generate a new SSH key to use for authentication. If you're unsure whether you already have an SSH key, you can check for existing keys. For more information, see [AUTOTITLE](/authentication/connecting-to-github-with-ssh/checking-for-existing-ssh-keys).
 
-If you want to use a hardware security key to authenticate to {% data variables.product.product_name %}, you must generate a new SSH key for your hardware security key. You must connect your hardware security key to your computer when you authenticate with the key pair. For more information, see the [OpenSSH 8.2 release notes](https://www.openssh.com/txt/release-8.2).
+If you want to use a hardware security key to authenticate to {% data variables.product.github %}, you must generate a new SSH key for your hardware security key. You must connect your hardware security key to your computer when you authenticate with the key pair. For more information, see the [OpenSSH 8.2 release notes](https://www.openssh.com/txt/release-8.2).
 
 ## Generating a new SSH key
 
@@ -39,7 +39,7 @@ If you are a site administrator for {% data variables.location.product_location_
 {% data reusables.ssh.key-type-support %}
 
 {% data reusables.command_line.open_the_multi_os_terminal %}
-1. Paste the text below, replacing the email used in the example with your {% data variables.product.product_name %} email address.
+1. Paste the text below, replacing the email used in the example with your {% data variables.product.github %} email address.
 
    ```shell
    ssh-keygen -t ed25519 -C "your_email@example.com"
@@ -188,7 +188,7 @@ If you are using macOS or Linux, you may need to update your SSH client or insta
 1. Insert your hardware security key into your computer.
 {% data reusables.command_line.open_the_multi_os_terminal %}
 
-1. Paste the text below, replacing the email address in the example with the email address associated with your account on {% data variables.product.product_name %}.
+1. Paste the text below, replacing the email address in the example with the email address associated with your {% data variables.product.github %} account.
 
    {% mac %}
 

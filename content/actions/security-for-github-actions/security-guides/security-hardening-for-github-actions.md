@@ -208,7 +208,7 @@ The same principles described above for using third-party actions also apply to 
 
 {% data reusables.actions.dependabot-version-updates-for-actions %}
 
-{% ifversion internal-actions %}
+{% ifversion ghec or ghes %}
 
 ## Allowing workflows to access internal and private repositories
 

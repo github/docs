@@ -21,7 +21,7 @@ redirect_from:
 
 {% data variables.product.company_short %} strongly recommends regular backups of your instance's configuration and data. Before you proceed with any upgrade, back up your instance, then validate the backup in a staging environment. For more information, see [AUTOTITLE](/admin/configuration/configuring-your-enterprise/configuring-backups-on-your-appliance) and [AUTOTITLE](/admin/installation/setting-up-a-github-enterprise-server-instance/setting-up-a-staging-instance).
 
-{% ifversion mysql-8-upgrade %}
+{% ifversion ghes = 3.10 %}
 
 ## Increased I/O utilization from MySQL 8 upgrade in {% data variables.product.prodname_ghe_server %} 3.9 or later
 

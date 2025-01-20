@@ -75,10 +75,6 @@ With reusable workflows, your team can call one workflow from another workflow, 
 
 To provide a starting place for developers building new workflows, you can use workflow templates. This not only saves time for your developers, but promotes consistency and best practice across your enterprise. For more information, see [AUTOTITLE](/actions/using-workflows/creating-starter-workflows-for-your-organization).
 
-{% ifversion not internal-actions %}
-Whenever your workflow developers want to use an action that's stored in a private repository, they must configure the workflow to clone the repository first. To reduce the number of repositories that must be cloned, consider grouping commonly used actions in a single repository. For more information, see [AUTOTITLE](/actions/creating-actions/about-custom-actions#choosing-a-location-for-your-action).
-{% endif %}
-
 ## Managing resources
 
 You should plan for how you'll manage the resources required to use {% data variables.product.prodname_actions %}.

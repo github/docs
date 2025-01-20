@@ -58,9 +58,7 @@ For each branch protection rule, you can choose to enable or disable the followi
 {%- ifversion required-deployments %}
 * [Require deployments to succeed before merging](#require-deployments-to-succeed-before-merging)
 {%- endif %}
-{%- ifversion lock-branch %}
 * [Lock branch](#lock-branch)
-{%- endif %}
 * [Do not allow bypassing the above settings](#do-not-allow-bypassing-the-above-settings)
 * [Restrict who can push to matching branches](#restrict-who-can-push-to-matching-branches)
 * [Allow force pushes](#allow-force-pushes)
@@ -160,14 +158,11 @@ Before you can require a linear commit history, your repository must allow squas
 
 You can require that changes are successfully deployed to specific environments before a branch can be merged. For example, you can use this rule to ensure that changes are successfully deployed to a staging environment before the changes merge to your default branch.
 
-{% ifversion lock-branch %}
-
 ### Lock branch
 
 Locking a branch will make the branch read-only and ensures that no commits can be made to the branch. Locked branches can also not be deleted.
 
 By default, a forked repository does not support syncing from its upstream repository. You can enable **Allow fork syncing** to pull changes from the upstream repository while preventing other contributions to the fork's branch.
-{% endif %}
 
 ### Do not allow bypassing the above settings
 

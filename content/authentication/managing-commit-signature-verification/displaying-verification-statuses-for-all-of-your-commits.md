@@ -24,7 +24,7 @@ However, you can give other users increased confidence in the identity attribute
 
 {% data reusables.identity-and-permissions.vigilant-mode-verification-statuses %}
 
-You should only enable vigilant mode if you sign all of your commits and tags and use an email address that is verified for your account on {% data variables.product.product_name %} as your committer email address. After enabling this mode, any unsigned commits or tags that you generate locally and push to {% data variables.product.prodname_dotcom %} will be marked "Unverified."
+You should only enable vigilant mode if you sign all of your commits and tags and use an email address that is verified for your {% data variables.product.github %} account as your committer email address. After enabling this mode, any unsigned commits or tags that you generate locally and push to {% data variables.product.github %} will be marked "Unverified."
 
 {% data reusables.identity-and-permissions.verification-status-check %}
 

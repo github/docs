@@ -20,7 +20,7 @@ shortTitle: View license usage
 
 ## About license usage for {% data variables.product.prodname_enterprise %}
 
-You can view license usage for {% data variables.product.product_name %} on {% data variables.product.github %}.
+You can view license usage for {% data variables.product.prodname_enterprise %} on {% data variables.product.github %}.
 
 If you use both {% data variables.product.prodname_ghe_cloud %} and {% data variables.product.prodname_ghe_server %} and sync license usage between the products, you can view license usage for both on {% data variables.product.prodname_ghe_cloud %}. For more information about license sync, see [AUTOTITLE](/billing/managing-your-license-for-github-enterprise/syncing-license-usage-between-github-enterprise-server-and-github-enterprise-cloud).
 

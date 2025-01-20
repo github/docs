@@ -18,7 +18,7 @@ shortTitle: GPG verification
 
 ## About GPG verification in {% data variables.product.prodname_github_codespaces %}
 
-After you enable GPG verification, {% data variables.product.company_short %} will automatically sign commits you make in {% data variables.product.prodname_github_codespaces %}, and the commits will have a verified status on {% data variables.product.product_name %}. For more information about {% data variables.product.product_name %}-signed commits, see [AUTOTITLE](/authentication/managing-commit-signature-verification/about-commit-signature-verification).
+After you enable GPG verification, {% data variables.product.company_short %} will automatically sign commits you make in {% data variables.product.prodname_github_codespaces %}, and the commits will have a verified status on {% data variables.product.github %}. For more information about {% data variables.product.github %}-signed commits, see [AUTOTITLE](/authentication/managing-commit-signature-verification/about-commit-signature-verification).
 
 By default, GPG verification is disabled for codespaces you create. If you enable GPG verification, your commits are signed in repositories that you trust.
 

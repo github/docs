@@ -3,7 +3,9 @@ title: Writing mathematical expressions
 intro: 'Use Markdown to display mathematical expressions on {% data variables.product.github %}.'
 product: '{% data reusables.gated-features.markdown-ui %}'
 versions:
-  feature: math
+  fpt: '*'
+  ghes: '*'
+  ghec: '*'
 shortTitle: Mathematical expressions
 ---
 
