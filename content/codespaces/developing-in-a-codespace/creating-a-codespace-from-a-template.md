@@ -70,7 +70,7 @@ You can create a codespace from any template repository, then publish your work 
 
 {% data reusables.codespaces.template-codespaces-default-editor %}
 
-## Publishing to a repository on {% data variables.product.product_name %}
+## Publishing to a repository on {% data variables.product.github %}
 
 {% data reusables.codespaces.about-publishing-templates %}
 
