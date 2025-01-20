@@ -1,6 +1,6 @@
 ---
 title: About pull requests
-intro: 'Learn about pull requests and draft pull requests on {% data variables.product.product_name %}. Pull requests communicate changes to a branch in a repository. Once a pull request is opened, you can review changes with collaborators and add follow-up commits.'
+intro: 'Learn about pull requests and draft pull requests on {% data variables.product.github %}. Pull requests communicate changes to a branch in a repository. Once a pull request is opened, you can review changes with collaborators and add follow-up commits.'
 redirect_from:
   - /github/collaborating-with-issues-and-pull-requests/proposing-changes-to-your-work-with-pull-requests/about-pull-requests
   - /articles/using-pull-requests
