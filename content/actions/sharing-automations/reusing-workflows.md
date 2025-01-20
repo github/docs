@@ -60,9 +60,8 @@ A reusable workflow can be used by another workflow if any of the following is t
   You cannot directly use reusable workflows defined on {% data variables.product.prodname_dotcom_the_website %}. Instead store a copy of the reusable workflow on {% data variables.location.product_location %}, and call the workflow from that path.
 
   {% elsif actions-workflow-policy %}, and your {% ifversion ghec %}enterprise{% else %}organization{% endif %} allows you to use public reusable workflows.{% endif %}{% ifversion ghes or ghec %}
-* The called workflow is stored in an internal repository and the settings for that repository allow it to be accessed. For more information, see {% ifversion internal-actions %}[AUTOTITLE](/actions/creating-actions/sharing-actions-and-workflows-with-your-enterprise){% else %}[AUTOTITLE](/repositories/managing-your-repositorys-settings-and-features/enabling-features-for-your-repository/managing-github-actions-settings-for-a-repository#allowing-access-to-components-in-an-internal-repository){% endif %}.{% endif %}{% ifversion private-actions %}
+* The called workflow is stored in an internal repository and the settings for that repository allow it to be accessed. For more information, see {% ifversion internal-actions %}[AUTOTITLE](/actions/creating-actions/sharing-actions-and-workflows-with-your-enterprise){% else %}[AUTOTITLE](/repositories/managing-your-repositorys-settings-and-features/enabling-features-for-your-repository/managing-github-actions-settings-for-a-repository#allowing-access-to-components-in-an-internal-repository){% endif %}.{% endif %}
 * The called workflow is stored in a private repository and the settings for that repository allow it to be accessed. For more information, see {% ifversion ghes or ghec %}[AUTOTITLE](/actions/creating-actions/sharing-actions-and-workflows-with-your-enterprise).{% else %}[AUTOTITLE](/actions/creating-actions/sharing-actions-and-workflows-with-your-organization) and [AUTOTITLE](/actions/creating-actions/sharing-actions-and-workflows-from-your-private-repository).{% endif %}
-{% endif %}
 
 The following table shows the accessibility of reusable workflows to a caller workflow, depending on the visibility of the host repository.
 
@@ -103,7 +102,6 @@ Called workflows that are owned by the same user or organization{% ifversion ghe
 * Reusable workflows can't call other reusable workflows.
 * You can call a maximum of 20 unique reusable workflows from a single workflow file.
 {% endif %}
-{% ifversion private-actions %}{% else %}- Reusable workflows stored within a private repository can only be used by workflows within the same repository.{% endif %}
 * Any environment variables set in an `env` context defined at the workflow level in the caller workflow are not propagated to the called workflow. For more information, see [AUTOTITLE](/actions/learn-github-actions/variables) and [AUTOTITLE](/actions/learn-github-actions/contexts#env-context).
 * Similarly, environment variables set in the `env` context, defined in the called workflow, are not accessible in the `env` context of the caller workflow. Instead, you must use outputs of the reusable workflow. For more information, see [Using outputs from a reusable workflow](#using-outputs-from-a-reusable-workflow).
 * To reuse variables in multiple workflows, set them at the organization, repository, or environment levels and reference them using the `vars` context. For more information see [AUTOTITLE](/actions/learn-github-actions/variables) and [AUTOTITLE](/actions/learn-github-actions/contexts#vars-context).
