@@ -12,7 +12,7 @@ shortTitle: Upload a new license
 
 ## About license files for {% data variables.product.prodname_enterprise %}
 
-After you purchase or upgrade a license for {% data variables.product.prodname_enterprise %} from {% data variables.contact.contact_enterprise_sales %}, you must upload the new license file to {% data variables.location.product_location_enterprise %} to unlock your new user licenses. For more information about licenses for {% data variables.product.product_name %}, see [AUTOTITLE](/billing/managing-your-license-for-github-enterprise/about-licenses-for-github-enterprise) and [AUTOTITLE](/billing/managing-your-license-for-github-enterprise/downloading-your-license-for-github-enterprise).
+After you purchase or upgrade a license for {% data variables.product.prodname_enterprise %} from {% data variables.contact.contact_enterprise_sales %}, you must upload the new license file to {% data variables.location.product_location_enterprise %} to unlock your new user licenses. For more information, see [AUTOTITLE](/billing/managing-your-license-for-github-enterprise/about-licenses-for-github-enterprise) and [AUTOTITLE](/billing/managing-your-license-for-github-enterprise/downloading-your-license-for-github-enterprise).
 
 {% data reusables.enterprise-licensing.contact-sales-for-renewals-or-seats %}
 
