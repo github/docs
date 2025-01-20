@@ -18,7 +18,7 @@ topics:
 
 {% data reusables.repositories.about-forks %} A fork can exist in either a personal account or an organization.
 
-When you view a forked repository on {% data variables.product.product_name %}, the upstream repository is indicated below the name of the fork.
+When you view a forked repository on {% data variables.product.github %}, the upstream repository is indicated below the name of the fork.
 
 ![Screenshot of a repository's page on GitHub. Below the name of the repository, "mona/docs", the text "forked from github/docs" is outlined in orange.](/assets/images/help/pull_requests/fork-path.png)
 

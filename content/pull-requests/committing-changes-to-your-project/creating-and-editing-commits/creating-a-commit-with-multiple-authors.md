@@ -1,6 +1,6 @@
 ---
 title: Creating a commit with multiple authors
-intro: 'You can attribute a commit to more than one author by adding one or more `Co-authored-by` trailers to the commit''s message. Co-authored commits are visible on {% data variables.product.product_name %}{% ifversion ghes %} and can be included in the profile contributions graph and the repository''s statistics{% endif %}.'
+intro: 'You can attribute a commit to more than one author by adding one or more `Co-authored-by` trailers to the commit''s message. Co-authored commits are visible on {% data variables.product.github %}{% ifversion ghes %} and can be included in the profile contributions graph and the repository''s statistics{% endif %}.'
 redirect_from:
   - /articles/creating-a-commit-with-multiple-authors
   - /github/committing-changes-to-your-project/creating-a-commit-with-multiple-authors
@@ -17,13 +17,13 @@ Before you can add a co-author to a commit, you must know the appropriate email 
 
 {% ifversion fpt or ghec %}
 
-If a person chooses to keep their email address private, you should use their {% data variables.product.product_name %}-provided `no-reply` email to protect their privacy. Otherwise, the co-author's email will be available to the public in the commit message. If you want to keep your email private, you can choose to use a {% data variables.product.product_name %}-provided `no-reply` email for Git operations and ask other co-authors to list your `no-reply` email in commit trailers.
+If a person chooses to keep their email address private, you should use their {% data variables.product.github %}-provided `no-reply` email to protect their privacy. Otherwise, the co-author's email will be available to the public in the commit message. If you want to keep your email private, you can choose to use a {% data variables.product.github %}-provided `no-reply` email for Git operations and ask other co-authors to list your `no-reply` email in commit trailers.
 
 For more information, see [AUTOTITLE](/account-and-profile/setting-up-and-managing-your-personal-account-on-github/managing-email-preferences/setting-your-commit-email-address).
 
 > [!TIP]
 > You can help a co-author find their preferred email address by sharing this information:
-> * To find your {% data variables.product.product_name %}-provided `no-reply` email, navigate to your email settings page under "Keep my email address private."
+> * To find your {% data variables.product.github %}-provided `no-reply` email, navigate to your email settings page under "Keep my email address private."
 > * To find the email you used to configure Git on your computer, run `git config user.email` on the command line.
 
 {% endif %}
@@ -61,9 +61,9 @@ You can use {% data variables.product.prodname_desktop %} to create a commit wit
 
 The new commit and message will appear on {% data variables.location.product_location %} the next time you push. For more information, see [AUTOTITLE](/get-started/using-git/pushing-commits-to-a-remote-repository).
 
-## Creating co-authored commits on {% data variables.product.product_name %}
+## Creating co-authored commits on {% data variables.product.github %}
 
-After you've made changes in a file using the web editor on {% data variables.product.product_name %}, you can create a co-authored commit by adding a `Co-authored-by:` trailer to the commit's message.
+After you've made changes in a file using the web editor on {% data variables.product.github %}, you can create a co-authored commit by adding a `Co-authored-by:` trailer to the commit's message.
 
 {% data reusables.pull_requests.collect-co-author-commit-git-config-info %}
 1. Click **Commit changes...**

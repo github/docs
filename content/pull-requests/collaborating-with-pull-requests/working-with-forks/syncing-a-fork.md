@@ -23,13 +23,13 @@ permissions: People with write access for a forked repository can sync the fork 
 ## Syncing a fork branch from the web UI
 
 {% ifversion syncing-fork-web-ui %}
-1. On {% data variables.product.product_name %}, navigate to the main page of the forked repository that you want to sync with the upstream repository.
+1. On {% data variables.product.github %}, navigate to the main page of the forked repository that you want to sync with the upstream repository.
 1. Above the list of files, select the **Sync fork** dropdown menu.
 
     ![Screenshot of the main page of a fork. A dropdown menu, labeled with a sync icon and "Sync fork," is outlined in dark orange.](/assets/images/help/repository/sync-fork-dropdown.png)
 1. Review the details about the commits from the upstream repository, then click **Update branch**.
 {% else %}
-1. On {% data variables.product.product_name %}, navigate to the main page of the forked repository that you want to sync with the upstream repository.
+1. On {% data variables.product.github %}, navigate to the main page of the forked repository that you want to sync with the upstream repository.
 1. Above the list of files, select the **Fetch upstream** dropdown menu.
 
     ![Screenshot of the main page of a fork. A dropdown menu, labeled with a sync icon and "Fetch upstream," is outlined in dark orange.](/assets/images/help/repository/fetch-upstream-drop-down.png)

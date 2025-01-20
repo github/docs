@@ -28,7 +28,7 @@ You must have write access to a repository to create a branch, open a pull reque
 
 {% data reusables.branches.new-repo-default-branch %} The default branch is the branch that {% data variables.product.prodname_dotcom %} displays when anyone visits your repository. The default branch is also the initial branch that Git checks out locally when someone clones the repository. {% data reusables.branches.default-branch-automatically-base-branch %}
 
-By default, {% data variables.product.product_name %} names the default branch `main` in any new repository.
+By default, {% data variables.product.github %} names the default branch `main` in any new repository.
 
 {% data reusables.branches.change-default-branch %}
 
