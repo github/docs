@@ -32,7 +32,7 @@ You can change the format of the diff view in this tab by clicking {% octicon "g
    ![Screenshot of the "Files changed" tab for a pull request. The "Diff view" menu is outlined in dark orange.](/assets/images/help/pull_requests/diff-settings-menu.png)
 
    You can also choose to hide whitespace differences. The choice you make only applies to this pull request and will be remembered the next time you visit this page.
-1. Optionally, filter the files to show only the files you want to review{% ifversion pr-tree-view %} or use the file tree to navigate to a specific file{% endif %}. For more information, see [AUTOTITLE](/pull-requests/collaborating-with-pull-requests/reviewing-changes-in-pull-requests/filtering-files-in-a-pull-request).
+1. Optionally, filter the files to show only the files you want to review or use the file tree to navigate to a specific file. For more information, see [AUTOTITLE](/pull-requests/collaborating-with-pull-requests/reviewing-changes-in-pull-requests/filtering-files-in-a-pull-request).
 {%- ifversion ghec %}
 1. Optionally, if you have access to {% data variables.product.prodname_copilot_enterprise %}, you can ask {% data variables.product.prodname_copilot_short %} about the changes in a file in a pull request by clicking {% octicon "kebab-horizontal" aria-label="Show options" %} at the top right of the file, clicking **Ask {% data variables.product.prodname_copilot_short %} about this diff**, then typing a request such as "Explain these changes." For more information, see [AUTOTITLE](/enterprise-cloud@latest/copilot/github-copilot-chat/copilot-chat-in-github/using-github-copilot-chat-in-githubcom#asking-questions-about-a-specific-pull-request).
 {%- endif %}
