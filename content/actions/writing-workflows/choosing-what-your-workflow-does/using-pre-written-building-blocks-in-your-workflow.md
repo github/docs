@@ -33,7 +33,7 @@ Actions can be:
 
 The actions you use in your workflow can be defined in:
 
-* The same repository as your workflow file{% ifversion internal-actions %}
+* The same repository as your workflow file{% ifversion ghec or ghes %}
 * An internal repository within the same enterprise account that is configured to allow access to workflows{% endif %}
 * Any public repository
 * A published Docker container image on Docker Hub
@@ -91,7 +91,7 @@ The `action.yml` file is used to provide metadata for the action. Learn about th
 
 If an action is defined in a different repository than your workflow file, you can reference the action with the `{owner}/{repo}@{ref}` syntax in your workflow file.
 
-The action must be stored in a public repository{% ifversion internal-actions %} or an internal repository that is configured to allow access to workflows. For more information, see [AUTOTITLE](/actions/creating-actions/sharing-actions-and-workflows-with-your-enterprise).{% else %}.{% endif %}
+The action must be stored in a public repository{% ifversion ghec or ghes %} or an internal repository that is configured to allow access to workflows. For more information, see [AUTOTITLE](/actions/creating-actions/sharing-actions-and-workflows-with-your-enterprise).{% else %}.{% endif %}
 
 ```yaml
 jobs:

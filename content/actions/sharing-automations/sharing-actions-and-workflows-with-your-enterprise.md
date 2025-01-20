@@ -2,7 +2,8 @@
 title: Sharing actions and workflows with your enterprise
 intro: You can share an action or reusable workflow with your enterprise without publishing the action or workflow publicly.
 versions:
-  feature: internal-actions
+  ghec: '*'
+  ghes: '*'
 type: tutorial
 topics:
   - Actions

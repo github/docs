@@ -19,15 +19,15 @@ type: how_to
 
 If you need to share workflows and other {% data variables.product.prodname_actions %} features with your team, then consider collaborating within a {% data variables.product.prodname_dotcom %} organization. An organization allows you to centrally store and manage secrets, artifacts, and self-hosted runners. You can also create workflow templates in the `.github` repository and share them with other users in your organization.
 
-## Sharing {% ifversion internal-actions %}actions and {% endif %}workflows
+## Sharing {% ifversion ghec or ghes %}actions and {% endif %}workflows
 
-{% ifversion internal-actions %}
+{% ifversion ghec or ghes %}
 You can share both individual actions and entire workflows with your organization, with or without publishing the actions or workflows publicly. You can reuse actions and workflows exactly by referencing them in your workflow file, and you can create workflow templates.
 {% else %}
 Your organization can share workflows by reusing the workflows exactly or by creating workflow templates
 {% endif %}
 
-{% ifversion internal-actions %}
+{% ifversion ghec or ghes %}
 
 ### Sharing actions with your enterprise
 
