@@ -106,9 +106,7 @@ You can require that all changes to the target branch be associated with a pull 
 
 ### Additional settings
 
-{% ifversion pull-request-mergeability-security-changes %}
 {% data reusables.pull_requests.security-changes-mergeability %}
-{% endif %}
 
 {% data reusables.pull_requests.required-reviews-for-prs-summary %}
 

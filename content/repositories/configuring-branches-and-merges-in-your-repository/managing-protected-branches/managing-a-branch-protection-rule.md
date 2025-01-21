@@ -61,9 +61,7 @@ When you create a branch rule, the branch you specify doesn't have to exist yet 
 {% data reusables.repositories.repository-branches %}
 {% data reusables.repositories.add-branch-protection-rules %}
 1. Optionally, enable required pull requests.
-{% ifversion pull-request-mergeability-security-changes %}
 {% indented_data_reference reusables.pull_requests.security-changes-mergeability spaces=3 %}
-{% endif %}
    * Under "Protect matching branches", select **Require a pull request before merging**.
    * Optionally, to require approvals before a pull request can be merged, select **Require approvals**.
 
@@ -83,9 +81,7 @@ When you create a branch rule, the branch you specify doesn't have to exist yet 
 {%- ifversion merge-queue %}
 1. Optionally, to merge pull requests using a merge queue, select **Require merge queue**. {% data reusables.pull_requests.merge-queue-references %}
 {%- endif %}
-{%- ifversion required-deployments %}
 1. Optionally, to choose which environments the changes must be successfully deployed to before merging, select **Require deployments to succeed before merging**, then select the environments.
-{%- endif %}
 1. Optionally, make the branch read-only.
    * Select **Lock branch**.
    * Optionally, to allow fork syncing, select **Allow fork syncing**.

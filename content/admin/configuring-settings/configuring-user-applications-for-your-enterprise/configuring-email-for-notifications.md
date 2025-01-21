@@ -52,8 +52,6 @@ settings to allow incoming emails](#configuring-dns-and-firewall-settings-to-all
 1. When the test email succeeds, under the "Settings" sidebar, click **Save settings**.
 {% data reusables.enterprise_site_admin_settings.wait-for-configuration-run %}
 
-{% ifversion require-tls-for-smtp %}
-
 ## Enforcing TLS for SMTP connections
 
 You can enforce TLS encryption for all incoming SMTP connections, which can help satisfy an ISO-27017 certification requirement.
@@ -63,7 +61,6 @@ You can enforce TLS encryption for all incoming SMTP connections, which can help
 
    ![Screenshot of the "Email" section of the Management Console. A checkbox, labeled "Enforce TLS auth (recommended)", is outlined in dark orange.](/assets/images/enterprise/configuration/enforce-tls-for-smtp-checkbox.png)
 {% data reusables.enterprise_management_console.save-settings %}
-{% endif %}
 
 ## Configuring DNS and firewall settings to allow incoming emails
 

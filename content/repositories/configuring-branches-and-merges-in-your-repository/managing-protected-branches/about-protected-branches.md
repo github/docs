@@ -55,9 +55,7 @@ For each branch protection rule, you can choose to enable or disable the followi
 {% ifversion merge-queue %}
 * [Require merge queue](#require-merge-queue)
 {% endif %}
-{%- ifversion required-deployments %}
 * [Require deployments to succeed before merging](#require-deployments-to-succeed-before-merging)
-{%- endif %}
 * [Lock branch](#lock-branch)
 * [Do not allow bypassing the above settings](#do-not-allow-bypassing-the-above-settings)
 * [Restrict who can push to matching branches](#restrict-who-can-push-to-matching-branches)
@@ -93,9 +91,7 @@ Optionally, you can require that the most recent reviewable push must be approve
 
 For complex pull requests that require many reviews, requiring an approval from someone other than the last person to push can be a compromise that avoids the need to dismiss all stale reviews: with this option, "stale" reviews are not dismissed, and the pull request remains approved as long as someone other than the person who made the most recent changes approves it. Users who have already reviewed a pull request can reapprove after the most recent push to meet this requirement. If you are concerned about pull requests being "hijacked" (where unapproved content is added to approved pull requests), it is safer to dismiss stale reviews.
 
-{% ifversion pull-request-mergeability-security-changes %}
 {% data reusables.pull_requests.security-changes-mergeability %}
-{% endif %}
 
 ### Require status checks before merging
 
