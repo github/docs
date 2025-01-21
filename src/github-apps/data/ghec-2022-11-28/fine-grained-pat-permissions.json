@@ -1661,6 +1661,66 @@
       }
     ]
   },
+  "organization_network_configurations": {
+    "title": "Network configurations",
+    "displayTitle": "Organization permissions for \"Network configurations\"",
+    "permissions": [
+      {
+        "category": "settings",
+        "slug": "list-hosted-compute-network-configurations-for-an-organization",
+        "subcategory": "network-configurations",
+        "verb": "get",
+        "requestPath": "/orgs/{org}/settings/network-configurations",
+        "additional-permissions": false,
+        "access": "read"
+      },
+      {
+        "category": "settings",
+        "slug": "create-a-hosted-compute-network-configuration-for-an-organization",
+        "subcategory": "network-configurations",
+        "verb": "post",
+        "requestPath": "/orgs/{org}/settings/network-configurations",
+        "additional-permissions": false,
+        "access": "write"
+      },
+      {
+        "category": "settings",
+        "slug": "get-a-hosted-compute-network-configuration-for-an-organization",
+        "subcategory": "network-configurations",
+        "verb": "get",
+        "requestPath": "/orgs/{org}/settings/network-configurations/{network_configuration_id}",
+        "additional-permissions": false,
+        "access": "read"
+      },
+      {
+        "category": "settings",
+        "slug": "update-a-hosted-compute-network-configuration-for-an-organization",
+        "subcategory": "network-configurations",
+        "verb": "patch",
+        "requestPath": "/orgs/{org}/settings/network-configurations/{network_configuration_id}",
+        "additional-permissions": false,
+        "access": "write"
+      },
+      {
+        "category": "settings",
+        "slug": "delete-a-hosted-compute-network-configuration-from-an-organization",
+        "subcategory": "network-configurations",
+        "verb": "delete",
+        "requestPath": "/orgs/{org}/settings/network-configurations/{network_configuration_id}",
+        "additional-permissions": false,
+        "access": "write"
+      },
+      {
+        "category": "settings",
+        "slug": "get-a-hosted-compute-network-settings-resource-for-an-organization",
+        "subcategory": "network-configurations",
+        "verb": "get",
+        "requestPath": "/orgs/{org}/settings/network-settings/{network_settings_id}",
+        "additional-permissions": false,
+        "access": "read"
+      }
+    ]
+  },
   "organization_announcement_banners": {
     "title": "Organization announcement banners",
     "displayTitle": "Organization permissions for \"Organization announcement banners\"",
