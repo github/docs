@@ -141,7 +141,7 @@ If your organization uses issue types, you can filter issues for a particular ty
 {% data reusables.repositories.sidebar-issues %}
 1. Above the list of issues, select the **Types** dropdown menu.
 
-   ![Screenshot of a list of issues. In the header above the list, the "Types" dropdown menu is expanded and outlined in orange.](/assets/images/help/issues/issue-type-dropdown.png)
+   ![Screenshot of a list of issues. In the list header, the "Types" filter is outlined in orange and expanded.](/assets/images/help/issues/issue-type-dropdown.png)
 
 1. In the list of type, click an issue type.
 
@@ -178,7 +178,7 @@ You can use filters to search for issues and pull requests that meet specific cr
 
 The issues and pull requests search bar allows you to define your own custom filters and sort by a wide variety of criteria. You can find the search bar on each repository's **Issues** and **Pull requests** tabs and on your [Issues and Pull requests dashboards](/issues/tracking-your-work-with-issues/viewing-all-of-your-issues-and-pull-requests).
 
-![Screenshot of the list of issues for a repository. Above the list, a search field, containing the query "is:issue is:open", is outlined in dark orange.](/assets/images/help/issues/issues-search-bar.png)
+![Screenshot of the list of issues for a repository. Above the list, a search field, containing the query "is:issue is:open", is outlined in orange.](/assets/images/help/issues/issues-search-bar.png)
 
 > [!TIP]
 > {% data reusables.search.search_issues_and_pull_requests_shortcut %}

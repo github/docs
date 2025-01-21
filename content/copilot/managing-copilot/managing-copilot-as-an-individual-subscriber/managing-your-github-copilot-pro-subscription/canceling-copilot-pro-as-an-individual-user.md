@@ -31,6 +31,6 @@ You can cancel your {% data variables.product.prodname_copilot_pro_short %} subs
 {% data reusables.user-settings.billing_plans %}
 1. Under "Add-ons", in the "{% data variables.product.prodname_copilot %}" section, select the **Manage subscription** dropdown on the right and then click **Cancel**.
 
-     ![Screenshot of the {% data variables.product.prodname_copilot %} section of the "Plans and usage" page. The edit dropdown is expanded and the "Cancel" option is highlighted in dark orange.](/assets/images/help/copilot/copilot-cancel-cfi-subscription.png)
+     ![Screenshot of the {% data variables.product.prodname_copilot %} section of the "Plans and usage" page. The edit dropdown is expanded and the "Cancel" option is outlined in orange.](/assets/images/help/copilot/copilot-cancel-cfi-subscription.png)
 
 1. In the "Cancel {% data variables.product.prodname_copilot %}" modal, click **I understand, cancel {% data variables.product.prodname_copilot %}**
