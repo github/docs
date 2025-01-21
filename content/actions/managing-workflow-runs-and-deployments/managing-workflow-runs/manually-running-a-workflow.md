@@ -29,11 +29,8 @@ To trigger the `workflow_dispatch` event, your workflow must be in the default b
 {% data reusables.repositories.actions-tab %}
 1. In the left sidebar, click the name of the workflow you want to run.
 
-   {% ifversion workflow-nav-2022 -%}
    ![Screenshot of the "Actions" page. In the left sidebar, a workflow name is highlighted with an outline in dark orange.](/assets/images/help/repository/actions-select-workflow-2022.png)
-   {%- else -%}
-   ![Screenshot of the "Actions" page. Features apart from one workflow in the left sidebar are grayed out.](/assets/images/help/repository/actions-select-workflow.png)
-   {%- endif %}
+
 1. Above the list of workflow runs, click the **Run workflow** button.
 
    > [!NOTE]

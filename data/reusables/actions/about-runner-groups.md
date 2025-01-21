@@ -4,6 +4,4 @@ When you grant access to a runner group, you can see the runner group listed in 
 
 When new runners are created, they are automatically assigned to the default group unless otherwise specified. Runners can only be in one group at a time. You can move runners from one runner group to another. For more information, see [Moving a runner to a group](#moving-a-runner-to-a-group).
 
-{% ifversion target-runner-groups %}
 For information on how to route jobs to runners in a specific group, see [AUTOTITLE](/actions/using-jobs/choosing-the-runner-for-a-job#choosing-runners-in-a-group).
-{% endif %}
