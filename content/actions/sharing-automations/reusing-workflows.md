@@ -442,4 +442,4 @@ For information about using the REST API to query the audit log for an organizat
 
 To continue learning about {% data variables.product.prodname_actions %}, see [AUTOTITLE](/actions/using-workflows/events-that-trigger-workflows).
 
-{% ifversion restrict-groups-to-workflows %}You can standardize deployments by creating a self-hosted runner group that can only execute a specific reusable workflow. For more information, see [AUTOTITLE](/actions/hosting-your-own-runners/managing-self-hosted-runners/managing-access-to-self-hosted-runners-using-groups).{% endif %}
+{% ifversion ghec or ghes %}You can standardize deployments by creating a self-hosted runner group that can only execute a specific reusable workflow. For more information, see [AUTOTITLE](/actions/hosting-your-own-runners/managing-self-hosted-runners/managing-access-to-self-hosted-runners-using-groups).{% endif %}

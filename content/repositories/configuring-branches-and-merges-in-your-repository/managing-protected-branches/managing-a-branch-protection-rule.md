@@ -92,9 +92,7 @@ When you create a branch rule, the branch you specify doesn't have to exist yet 
 1. Optionally, select **Do not allow bypassing the above settings**.
 1. Optionally,{% ifversion fpt or ghec %} in public repositories owned by a {% data variables.product.prodname_free_user %} organization and in all repositories owned by an organization using {% data variables.product.prodname_team %} or {% data variables.product.prodname_ghe_cloud %},{% endif %} enable branch restrictions.
    * Select **Restrict who can push to matching branches**.
-{%- ifversion restrict-pushes-create-branch %}
    * Optionally, to also restrict the creation of matching branches, select **Restrict pushes that create matching branches**.
-{%- endif %}
    * In the search field, search for and select the people, teams, or apps who will have permission to push to the protected branch or create a matching branch.
 1. Optionally, under "Rules applied to everyone including administrators", select **Allow force pushes**.
 
