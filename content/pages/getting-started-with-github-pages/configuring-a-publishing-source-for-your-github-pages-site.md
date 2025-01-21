@@ -59,7 +59,7 @@ To configure your site to publish with {% data variables.product.prodname_action
 {% data reusables.repositories.sidebar-settings %}
 {% data reusables.pages.sidebar-pages %}
 1. Under "Build and deployment", under "Source", select **{% data variables.product.prodname_actions %}**.
-1. {% data variables.product.product_name %} will suggest several workflow templates. If you already have a workflow to publish your site, you can skip this step. Otherwise, choose one of the options to create a {% data variables.product.prodname_actions %} workflow. For more information about creating your custom workflow, see [Creating a custom {% data variables.product.prodname_actions %} workflow to publish your site](#creating-a-custom-github-actions-workflow-to-publish-your-site).
+1. {% data variables.product.github %} will suggest several workflow templates. If you already have a workflow to publish your site, you can skip this step. Otherwise, choose one of the options to create a {% data variables.product.prodname_actions %} workflow. For more information about creating your custom workflow, see [Creating a custom {% data variables.product.prodname_actions %} workflow to publish your site](#creating-a-custom-github-actions-workflow-to-publish-your-site).
 
    {% data variables.product.prodname_pages %} does not associate a specific workflow to the {% data variables.product.prodname_pages %} settings. However, the {% data variables.product.prodname_pages %} settings will link to the workflow run that most recently deployed your site.
 
@@ -67,7 +67,7 @@ To configure your site to publish with {% data variables.product.prodname_action
 
 For more information about {% data variables.product.prodname_actions %}, see [AUTOTITLE](/actions).
 
-When you configure your site to publish with {% data variables.product.prodname_actions %}, {% data variables.product.product_name %} will suggest workflow templates for common publishing scenarios. The general flow of a workflow is to:
+When you configure your site to publish with {% data variables.product.prodname_actions %}, {% data variables.product.github %} will suggest workflow templates for common publishing scenarios. The general flow of a workflow is to:
 
 1. Trigger whenever there is a push to the default branch of the repository or whenever the workflow is run manually from the Actions tab.
 1. Use the [`actions/checkout`](https://github.com/actions/checkout) action to check out the repository contents.
