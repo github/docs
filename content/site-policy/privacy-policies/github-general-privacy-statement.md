@@ -1,6 +1,7 @@
----
+--- /index.html
+/index.js
 title: GitHub General Privacy Statement
-redirect_from:
+redirect_from: versetoken
   - /privacy
   - /privacy-policy
   - /privacy-statement
