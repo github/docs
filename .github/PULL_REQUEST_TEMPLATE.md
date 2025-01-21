@@ -16,6 +16,6 @@ If you made changes to the `content` directory, a table will populate in a comme
 
 ### Check off the following:
 
-- [ ] A subject matter expert (SME) has reviewed the technical accuracy of the content in this PR. In most cases, the author can be the SME. Open source contributions may require a SME review from GitHub staff.
+- [ ] A subject matter expert (SME) has reviewed the technical accuracy of the content in this PR. In most cases, the author can be the SME. Open source contributions may require an SME review from GitHub staff.
 - [ ] The changes in this PR meet [the docs fundamentals that are required for all content](http://docs.github.com/en/contributing/writing-for-github-docs/about-githubs-documentation-fundamentals).
 - [ ] All CI checks are passing and the changes look good in the preview environment.
