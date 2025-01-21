@@ -1,7 +1,7 @@
 ---
 title: About single select fields
 shortTitle: About single select fields
-intro: 'You can create single select fields with multiple options{% ifversion projects-v2-colorful-selects %}, each with a description and a color,{% endif %} that can be selected from a dropdown menu.'
+intro: 'You can create single select fields with multiple options, each with a description and a color, that can be selected from a dropdown menu.'
 versions:
   feature: projects-v2
 type: tutorial
@@ -25,8 +25,6 @@ Single select fields can contain up to 50 options.
 
 ## Editing a single select field
 
-{% ifversion projects-v2-colorful-selects %}
-
 You can set descriptions and colors for each of your single select options.
 
 1. Access your project's settings.
@@ -41,13 +39,3 @@ You can set descriptions and colors for each of your single select options.
 
 1. Optionally, under **Description**, type a description for this option.
 1. Click **Save** to save your changes.
-
-{% else %}
-
-{% data reusables.projects.project-settings %}
-1. Click the name of the single select field you want to adjust.
-1. Edit existing options or click **Add option**.
-1. Optionally, to delete an option, click {% octicon "x" aria-label="Remove option" %}.
-1. Click **Save options**.
-
-{% endif %}
