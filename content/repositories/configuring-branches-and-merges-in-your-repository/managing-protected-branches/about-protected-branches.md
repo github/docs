@@ -55,9 +55,7 @@ For each branch protection rule, you can choose to enable or disable the followi
 {% ifversion merge-queue %}
 * [Require merge queue](#require-merge-queue)
 {% endif %}
-{%- ifversion required-deployments %}
 * [Require deployments to succeed before merging](#require-deployments-to-succeed-before-merging)
-{%- endif %}
 * [Lock branch](#lock-branch)
 * [Do not allow bypassing the above settings](#do-not-allow-bypassing-the-above-settings)
 * [Restrict who can push to matching branches](#restrict-who-can-push-to-matching-branches)
@@ -93,9 +91,7 @@ Optionally, you can require that the most recent reviewable push must be approve
 
 For complex pull requests that require many reviews, requiring an approval from someone other than the last person to push can be a compromise that avoids the need to dismiss all stale reviews: with this option, "stale" reviews are not dismissed, and the pull request remains approved as long as someone other than the person who made the most recent changes approves it. Users who have already reviewed a pull request can reapprove after the most recent push to meet this requirement. If you are concerned about pull requests being "hijacked" (where unapproved content is added to approved pull requests), it is safer to dismiss stale reviews.
 
-{% ifversion pull-request-mergeability-security-changes %}
 {% data reusables.pull_requests.security-changes-mergeability %}
-{% endif %}
 
 ### Require status checks before merging
 
@@ -178,11 +174,9 @@ You can enable branch restrictions in public repositories owned by a {% data var
 
 When you enable branch restrictions, only users, teams, or apps that have been given permission can push to the protected branch. You can view and edit the users, teams, or apps with push access to a protected branch in the protected branch's settings. When status checks are required, the people, teams, and apps that have permission to push to a protected branch will still be prevented from merging into the branch when the required checks fail. People, teams, and apps that have permission to push to a protected branch will still need to create a pull request when pull requests are required.
 
-{% ifversion restrict-pushes-create-branch %}
 Optionally, you can apply the same restrictions to the creation of branches that match the rule. For example, if you create a rule that only allows a certain team to push to any branches that contain the word `release`, only members of that team would be able to create a new branch that contains the word `release`.
-{% endif %}
 
-You can only give push access to a protected branch, or give permission to create a matching branch, to users, teams, or installed {% data variables.product.prodname_github_apps %} with write access to a repository. People and apps with admin permissions to a repository are always able to push to a protected branch{% ifversion restrict-pushes-create-branch %} or create a matching branch{% endif %}.
+You can only give push access to a protected branch, or give permission to create a matching branch, to users, teams, or installed {% data variables.product.prodname_github_apps %} with write access to a repository. People and apps with admin permissions to a repository are always able to push to a protected branch or create a matching branch.
 
 ### Allow force pushes
 

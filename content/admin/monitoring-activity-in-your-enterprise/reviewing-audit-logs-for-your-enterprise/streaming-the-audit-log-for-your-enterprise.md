@@ -58,8 +58,8 @@ To set up the audit log stream, follow the instructions for your provider:
 
 * [Amazon S3](#setting-up-streaming-to-amazon-s3)
 * [Azure Blob Storage](#setting-up-streaming-to-azure-blob-storage)
-* [Azure Event Hubs](#setting-up-streaming-to-azure-event-hubs){% ifversion streaming-datadog %}
-* [Datadog](#setting-up-streaming-to-datadog){% endif %}
+* [Azure Event Hubs](#setting-up-streaming-to-azure-event-hubs)
+* [Datadog](#setting-up-streaming-to-datadog)
 * [Google Cloud Storage](#setting-up-streaming-to-google-cloud-storage)
 * [Splunk](#setting-up-streaming-to-splunk)
 
@@ -230,8 +230,6 @@ From {% data variables.product.prodname_dotcom %}:
 1. Click **Check endpoint** to verify that {% data variables.product.prodname_dotcom %} can connect and write to the Azure Events Hub endpoint.
 {% data reusables.enterprise.verify-audit-log-streaming-endpoint %}
 
-{% ifversion streaming-datadog %}
-
 ### Setting up streaming to Datadog
 
 To set up streaming to Datadog, create a client token or an API key in Datadog, then configure audit log streaming in {% data variables.product.product_name %} using the token for authentication. You do not need to create a bucket or other storage container in Datadog.
@@ -247,7 +245,6 @@ After you set up streaming to Datadog, you can see your audit log data by filter
 1. To verify that {% data variables.product.prodname_dotcom %} can connect and write to the Datadog endpoint, click **Check endpoint**.
 {% data reusables.enterprise.verify-audit-log-streaming-endpoint %}
 1. After a few minutes, confirm that audit log data appears on the **Logs** tab in Datadog. If it doesn't appear, confirm that your token and site are correct in {% data variables.product.prodname_dotcom %}.
-{% endif %}
 
 ### Setting up streaming to Google Cloud Storage
 
@@ -298,9 +295,7 @@ To stream audit logs to Splunk's HTTP Event Collector (HEC) endpoint, make sure 
 
 Pause the stream to perform maintenance on the receiving application without losing audit data. Audit logs are stored for up to seven days on {% data variables.product.github %} and are then exported when you unpause the stream.
 
-{% ifversion streaming-datadog %}
 Datadog only accepts logs from up to 18 hours in the past. If you pause a stream to a Datadog endpoint for more than 18 hours, you risk losing logs that Datadog won't accept after you resume streaming.
-{% endif %}
 
 {% data reusables.enterprise.navigate-to-log-streaming-tab %}
 1. To the right of your configured stream, click **Pause stream**.

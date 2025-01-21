@@ -10,9 +10,8 @@ versions:
 topics:
   - Community
 ---
-{% ifversion team-discussions-migration %}
+
 {% data reusables.organizations.team-discussions-migration %}
-{% endif %}
 
 {% data reusables.organizations.team-discussions-purpose %}
 

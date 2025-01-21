@@ -12,9 +12,7 @@ topics:
 shortTitle: Manage a team discussion
 ---
 
-{% ifversion team-discussions-migration %}
 {% data reusables.organizations.team-discussions-migration %}
-{% endif %}
 
 {% data reusables.profile.access_org %}
 {% data reusables.user-settings.access_org %}

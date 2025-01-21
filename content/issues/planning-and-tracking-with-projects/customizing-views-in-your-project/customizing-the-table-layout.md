@@ -65,19 +65,8 @@ You can change the order of rows.
 
 You can sort items by a field value.
 
-{% ifversion projects-v2-consistent-sorting %}{% else %}
-
-> [!NOTE]
-> When a table is sorted, you cannot manually reorder rows.
-
-{% endif %}
-
 {% data reusables.projects.customize.sort %}
-
-{% ifversion projects-v2-numeric-summary %}
 
 ## Showing the sum of a number field
 
 {% data reusables.projects.customize.sum %}
-
-{% endif %}

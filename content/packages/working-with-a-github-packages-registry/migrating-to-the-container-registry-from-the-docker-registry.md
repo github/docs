@@ -41,11 +41,7 @@ After a Docker image has been migrated to the {% data variables.product.prodname
 
 {% data reusables.package_registry.container-registry-migration-namespaces %}
 
-{% ifversion packages-rest-api %}
-
 After migration, you'll no longer be able to use the GraphQL API to query for packages with a `PackageType` of "DOCKER". Instead, you can use the REST API to query for packages with a `package_type` of "container". For more information, see [AUTOTITLE](/rest/packages).
-
-{% endif %}
 
 {% ifversion fpt or ghec %}
 

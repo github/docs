@@ -344,7 +344,7 @@ For third-party images, such as the images for ARM-powered runners, you can find
 
 {% data reusables.actions.disable-selfhosted-runners-crossrefs %}
 
-When a self-hosted runner is defined at the organization or enterprise level, {% data variables.product.github %} can schedule workflows from multiple repositories onto the same runner. Consequently, a security compromise of these environments can result in a wide impact. To help reduce the scope of a compromise, you can create boundaries by organizing your self-hosted runners into separate groups. You can restrict what {% ifversion restrict-groups-to-workflows %}workflows, {% endif %}organizations and repositories can access runner groups. For more information, see [AUTOTITLE](/actions/hosting-your-own-runners/managing-self-hosted-runners/managing-access-to-self-hosted-runners-using-groups).
+When a self-hosted runner is defined at the organization or enterprise level, {% data variables.product.github %} can schedule workflows from multiple repositories onto the same runner. Consequently, a security compromise of these environments can result in a wide impact. To help reduce the scope of a compromise, you can create boundaries by organizing your self-hosted runners into separate groups. You can restrict what {% ifversion ghec or ghes %}workflows, {% endif %}organizations and repositories can access runner groups. For more information, see [AUTOTITLE](/actions/hosting-your-own-runners/managing-self-hosted-runners/managing-access-to-self-hosted-runners-using-groups).
 
 You should also consider the environment of the self-hosted runner machines:
 * What sensitive information resides on the machine configured as a self-hosted runner? For example, private SSH keys, API access tokens, among others.

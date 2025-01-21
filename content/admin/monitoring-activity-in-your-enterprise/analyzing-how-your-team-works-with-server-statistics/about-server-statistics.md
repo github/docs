@@ -2,7 +2,7 @@
 title: About Server Statistics
 intro: 'You can use {% data variables.product.prodname_server_statistics %} to analyze your own aggregate data from {% data variables.product.prodname_ghe_server %}, and help us improve {% data variables.product.company_short %} products.'
 versions:
-  feature: server-statistics
+  ghes: '*'
 permissions: 'Enterprise owners can enable {% data variables.product.prodname_server_statistics %}.'
 redirect_from:
   - /early-access/github/analyze-how-your-team-works-with-server-statistics/about-server-statistics
