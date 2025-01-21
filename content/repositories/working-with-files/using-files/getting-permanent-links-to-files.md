@@ -17,7 +17,7 @@ shortTitle: Permanent links to files
 ---
 
 > [!TIP]
-> Press "?" on any page in {% data variables.product.product_name %} to see all available keyboard shortcuts.
+> Press "?" on any page in {% data variables.product.github %} to see all available keyboard shortcuts.
 
 ## File views show the latest version on a branch
 

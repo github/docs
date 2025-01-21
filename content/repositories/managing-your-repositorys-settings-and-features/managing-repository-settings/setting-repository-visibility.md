@@ -42,9 +42,9 @@ We recommend reviewing the following caveats before you change the visibility of
 
 ### Making a repository private
 
-* {% data variables.product.product_name %} will detach public forks of the public repository and put them into a new network. Public forks are not made private.
+* {% data variables.product.github %} will detach public forks of the public repository and put them into a new network. Public forks are not made private.
 {%- ifversion ghes or ghec %}
-* If you change a repository's visibility from internal to private, {% data variables.product.prodname_dotcom %} will remove forks that belong to any user without access to the newly private repository. The visibility of any forks will also change to private. For more information, see [AUTOTITLE](/pull-requests/collaborating-with-pull-requests/working-with-forks/what-happens-to-forks-when-a-repository-is-deleted-or-changes-visibility)
+* If you change a repository's visibility from internal to private, {% data variables.product.github %} will remove forks that belong to any user without access to the newly private repository. The visibility of any forks will also change to private. For more information, see [AUTOTITLE](/pull-requests/collaborating-with-pull-requests/working-with-forks/what-happens-to-forks-when-a-repository-is-deleted-or-changes-visibility)
 {%- endif %}
 {%- ifversion fpt %}
 * If you're using {% data variables.product.prodname_free_user %} for personal accounts or organizations, some features won't be available in the repository after you change the visibility to private. Any published {% data variables.product.prodname_pages %} site will be automatically unpublished. If you added a custom domain to the {% data variables.product.prodname_pages %} site, you should remove or update your DNS records before making the repository private, to avoid the risk of a domain takeover. For more information, see [AUTOTITLE](/get-started/learning-about-github/githubs-plans) and [AUTOTITLE](/pages/configuring-a-custom-domain-for-your-github-pages-site/managing-a-custom-domain-for-your-github-pages-site).
@@ -61,13 +61,13 @@ We recommend reviewing the following caveats before you change the visibility of
 
 ### Making a repository internal
 
-* Any forks of the repository will remain in the repository network, and {% data variables.product.product_name %} maintains the relationship between the root repository and the fork. For more information, see [AUTOTITLE](/pull-requests/collaborating-with-pull-requests/working-with-forks/what-happens-to-forks-when-a-repository-is-deleted-or-changes-visibility)
+* Any forks of the repository will remain in the repository network, and {% data variables.product.github %} maintains the relationship between the root repository and the fork. For more information, see [AUTOTITLE](/pull-requests/collaborating-with-pull-requests/working-with-forks/what-happens-to-forks-when-a-repository-is-deleted-or-changes-visibility)
 
 {% endif %}
 
 ### Making a repository public
 
-* {% data variables.product.product_name %} will detach private forks and turn them into a standalone private repository. For more information, see [AUTOTITLE](/pull-requests/collaborating-with-pull-requests/working-with-forks/what-happens-to-forks-when-a-repository-is-deleted-or-changes-visibility#changing-a-private-repository-to-a-public-repository){% ifversion fpt or ghec %}
+* {% data variables.product.github %} will detach private forks and turn them into a standalone private repository. For more information, see [AUTOTITLE](/pull-requests/collaborating-with-pull-requests/working-with-forks/what-happens-to-forks-when-a-repository-is-deleted-or-changes-visibility#changing-a-private-repository-to-a-public-repository){% ifversion fpt or ghec %}
 * If you're converting your private repository to a public repository as part of a move toward creating an open source project, see the [Open Source Guides](http://opensource.guide) for helpful tips and guidelines. You can also take a free course on managing an open source project with [{% data variables.product.prodname_learning %}]({% data variables.product.prodname_learning_link %}). Once your repository is public, you can also view your repository's community profile to see whether your project meets best practices for supporting contributors. For more information, see [AUTOTITLE](/communities/setting-up-your-project-for-healthy-contributions/about-community-profiles-for-public-repositories).
 * The repository will automatically gain access to {% data variables.product.prodname_GH_advanced_security %} features.
 * Actions history and logs will be visible to everyone. If your repository had reusable or required workflows that were shared from a different repository in your organization, the workflow file path including the repository name will be visible in the logs. For more information on how to remove workflow runs and artifacts see [AUTOTITLE](/actions/managing-workflow-runs#deleting-logs) and [AUTOTITLE](/rest/actions/workflow-runs).
