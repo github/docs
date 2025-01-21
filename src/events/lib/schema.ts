@@ -106,6 +106,10 @@ const context = {
       type: 'boolean',
       description: 'Anonymous -- whether the user has github.com cookies set.',
     },
+    dotcom_user: {
+      type: 'string',
+      description: 'The cookie value of dotcom_user',
+    },
 
     // Device information
     os: {
