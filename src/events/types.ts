@@ -34,6 +34,7 @@ export type EventProps = {
     path_type: string
     status: number
     is_logged_in: boolean
+    dotcom_user: string
     os: string
     os_version: string
     browser: string
