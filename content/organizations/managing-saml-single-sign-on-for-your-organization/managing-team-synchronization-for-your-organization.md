@@ -1,6 +1,6 @@
 ---
 title: Managing team synchronization for your organization
-intro: 'You can enable and disable team synchronization between your identity provider (IdP) and your organization on {% data variables.product.product_name %}.'
+intro: 'You can enable and disable team synchronization between your identity provider (IdP) and your organization on {% data variables.product.github %}.'
 redirect_from:
   - /articles/synchronizing-teams-between-your-identity-provider-and-github
   - /github/setting-up-and-managing-organizations-and-teams/synchronizing-teams-between-your-identity-provider-and-github
@@ -19,7 +19,7 @@ shortTitle: Manage team synchronization
 
 ## About team synchronization
 
-You can enable team synchronization between your IdP and {% data variables.product.product_name %} to allow organization owners and team maintainers to connect teams in your organization with IdP groups.
+You can enable team synchronization between your IdP and {% data variables.product.github %} to allow organization owners and team maintainers to connect teams in your organization with IdP groups.
 
 {% data reusables.identity-and-permissions.about-team-sync %}
 

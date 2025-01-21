@@ -83,7 +83,7 @@ You can help to make your organization more secure by recommending or requiring 
 
 {% data reusables.getting-started.using-org-community-files-and-moderation-tools %}
 
-## Part 5: Customizing and automating your work on {% data variables.product.product_name %}
+## Part 5: Customizing and automating your work
 
 {% data reusables.getting-started.customizing-and-automating %}
 
@@ -91,7 +91,7 @@ You can help to make your organization more secure by recommending or requiring 
 
 {% data reusables.getting-started.marketplace %}
 
-### 2. Using the {% ifversion fpt or ghec %}{% data variables.product.prodname_dotcom %}{% else %}{% data variables.product.product_name %}{% endif %} API
+### 2. Using the {% ifversion fpt or ghec %}{% data variables.product.github %}{% else %}{% data variables.product.prodname_ghe_server %}{% endif %} API
 
 {% data reusables.getting-started.api %}
 
@@ -103,7 +103,7 @@ You can help to make your organization more secure by recommending or requiring 
 
 {% data reusables.getting-started.packages %}
 
-## Part 6: Participating in {% data variables.product.prodname_dotcom %}'s community
+## Part 6: Participating in {% data variables.product.github %}'s community
 
 {% data reusables.getting-started.participating-in-community %}
 

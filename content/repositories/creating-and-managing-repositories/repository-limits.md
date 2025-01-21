@@ -9,9 +9,9 @@ topics:
   - Repositories
 ---
 
-Certain types of repository resources can be quite large, requiring excessive processing on {% data variables.product.product_name %}. Because of this, limits are set to ensure requests complete in a reasonable amount of time.
+Certain types of repository resources can be quite large, requiring excessive processing on {% data variables.product.github %}. Because of this, limits are set to ensure requests complete in a reasonable amount of time.
 
-Most of the limits below affect both {% data variables.product.product_name %} and the API.
+Most of the limits below affect both {% data variables.product.github %} and the API.
 
 ## Text limits
 
