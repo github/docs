@@ -1,6 +1,6 @@
 ---
 title: About Jekyll build errors for GitHub Pages sites
-intro: 'If Jekyll encounters an error building your {% data variables.product.prodname_pages %} site locally or on {% data variables.product.product_name %}, you''ll receive an error message with more information.'
+intro: 'If Jekyll encounters an error building your {% data variables.product.prodname_pages %} site locally or on {% data variables.product.github %}, you''ll receive an error message with more information.'
 redirect_from:
   - /articles/viewing-jekyll-build-error-messages
   - /articles/generic-jekyll-build-failures
@@ -24,7 +24,7 @@ If you are publishing from a branch, sometimes {% data variables.product.prodnam
 * You're using a CI service that isn't configured to build your publishing source. For example, Travis CI won't build the `gh-pages` branch unless you add the branch to a safe list. For more information, see [Customizing the build](https://docs.travis-ci.com/user/customizing-the-build/#safelisting-or-blocklisting-branches) on Travis CI, or your CI service's documentation.
 
 > [!NOTE]
-> It can take up to 10 minutes for changes to your site to publish after you push the changes to {% data variables.product.product_name %}.
+> It can take up to 10 minutes for changes to your site to publish after you push the changes to {% data variables.product.github %}.
 
 {% ifversion build-pages-with-actions %}
 If Jekyll does attempt to build your site and encounters an error, you will receive a build error message.
@@ -45,24 +45,24 @@ By default, your {% data variables.product.prodname_pages %} site is built and d
 
 {% ifversion build-pages-with-actions %}{% else %}
 
-## Viewing your repository's build failures on {% data variables.product.product_name %}
+## Viewing your repository's build failures on {% data variables.product.github %}
 
-You can see build failures (but not build warnings) for your site on {% data variables.product.product_name %} in the **Settings** tab of your site's repository.
+You can see build failures (but not build warnings) for your site in the **Settings** tab of your site's repository.
 {% endif %}
 
 ## Viewing Jekyll build error messages locally
 
-We recommend testing your site locally, which allows you to see build error messages on the command line, and addressing any build failures before pushing changes to {% data variables.product.product_name %}. For more information, see [AUTOTITLE](/pages/setting-up-a-github-pages-site-with-jekyll/testing-your-github-pages-site-locally-with-jekyll).
+We recommend testing your site locally, which allows you to see build error messages on the command line, and addressing any build failures before pushing changes to {% data variables.product.github %}. For more information, see [AUTOTITLE](/pages/setting-up-a-github-pages-site-with-jekyll/testing-your-github-pages-site-locally-with-jekyll).
 
 ## Viewing Jekyll build error messages in your pull request
 
-If you are publishing from a branch, when you create a pull request to update your publishing source on {% data variables.product.product_name %}, you can see build error messages on the **Checks** tab of the pull request. For more information, see [AUTOTITLE](/pull-requests/collaborating-with-pull-requests/collaborating-on-repositories-with-code-quality-features/about-status-checks).
+If you are publishing from a branch, when you create a pull request to update your publishing source on {% data variables.product.github %}, you can see build error messages on the **Checks** tab of the pull request. For more information, see [AUTOTITLE](/pull-requests/collaborating-with-pull-requests/collaborating-on-repositories-with-code-quality-features/about-status-checks).
 
 If you are publishing with a custom {% data variables.product.prodname_actions %} workflow, in order to see build error messages in your pull request, you must configure your workflow to run on the `pull_request` trigger. When you do this, we recommend that you skip any deploy steps if the workflow was triggered by the `pull_request` event. This will allow you to see any build errors without deploying the changes from your pull request to your site. For more information, see [AUTOTITLE](/actions/using-workflows/events-that-trigger-workflows#pull_request) and [AUTOTITLE](/actions/learn-github-actions/expressions).
 
 ## Viewing Jekyll build errors by email
 
-If you are publishing from a branch, when you push changes to your publishing source on {% data variables.product.product_name %}, {% data variables.product.prodname_pages %} will attempt to build your site. If the build fails, you'll receive an email at your primary email address. {% data reusables.pages.build-failure-email-server %}
+If you are publishing from a branch, when you push changes to your publishing source on {% data variables.product.github %}, {% data variables.product.prodname_pages %} will attempt to build your site. If the build fails, you'll receive an email at your primary email address. {% data reusables.pages.build-failure-email-server %}
 
 If you are publishing with a custom {% data variables.product.prodname_actions %} workflow, in order to receive emails about build errors in your pull request, you must configure your workflow to run on the `pull_request` trigger. When you do this, we recommend that you skip any deploy steps if the workflow was triggered by the `pull_request` event. This will allow you to see any build errors without deploying the changes from your pull request to your site. For more information, see [AUTOTITLE](/actions/using-workflows/events-that-trigger-workflows#pull_request) and [AUTOTITLE](/actions/learn-github-actions/expressions).
 

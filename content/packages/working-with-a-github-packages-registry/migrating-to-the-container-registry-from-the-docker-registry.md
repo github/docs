@@ -30,7 +30,7 @@ topics:
 {% ifversion ghes %}
 
 > [!NOTE]
-> {% data reusables.package_registry.container-registry-ghes-migration-availability %} For more information about finding the version of {% data variables.product.product_name %} that you use, see [AUTOTITLE](/get-started/learning-about-github/about-versions-of-github-docs#github-enterprise-server).
+> {% data reusables.package_registry.container-registry-ghes-migration-availability %} For more information about finding the version of {% data variables.product.prodname_ghe_server %} that you use, see [AUTOTITLE](/get-started/learning-about-github/about-versions-of-github-docs#github-enterprise-server).
 
 {% endif %}
 

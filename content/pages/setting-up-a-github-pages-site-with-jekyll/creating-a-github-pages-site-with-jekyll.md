@@ -134,7 +134,7 @@ Before you can use Jekyll to create a {% data variables.product.prodname_pages %
    {% endif %}
    ```
 
-1. Push the repository to {% data variables.product.product_name %}, replacing BRANCH with the name of the branch you're working on.
+1. Push the repository to {% data variables.product.github %}, replacing BRANCH with the name of the branch you're working on.
 
    ```shell
    git push -u origin BRANCH

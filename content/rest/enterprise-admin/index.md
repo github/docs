@@ -24,6 +24,7 @@ children:
   - /license
   - /manage-ghes
   - /management-console
+  - /network-configurations
   - /org-pre-receive-hooks
   - /orgs
   - /pre-receive-environments

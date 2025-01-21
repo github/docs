@@ -55,7 +55,7 @@ Subdomains are configured with a `CNAME` record through your DNS provider. For m
 
 A `www` subdomain is the most commonly used type of subdomain. For example, `www.example.com` includes a `www` subdomain.
 
-`www` subdomains are the most stable type of custom domain because `www` subdomains are not affected by changes to the IP addresses of {% data variables.product.product_name %}'s servers.
+`www` subdomains are the most stable type of custom domain because `www` subdomains are not affected by changes to the IP addresses of {% data variables.product.github %}'s servers.
 
 ### Custom subdomains
 

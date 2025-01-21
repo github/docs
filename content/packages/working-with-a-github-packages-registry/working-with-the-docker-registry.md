@@ -85,7 +85,7 @@ cat ~/TOKEN.txt | docker login HOSTNAME -u USERNAME --password-stdin
 
 {% endif %}
 
-To use this example login command, replace `USERNAME` with your {% data variables.product.product_name %} username{% ifversion ghes %}, `HOSTNAME` with the URL for {% data variables.location.product_location %},{% endif %} and `~/TOKEN.txt` with the file path to your {% data variables.product.pat_generic %} for {% data variables.product.product_name %}.
+To use this example login command, replace `USERNAME` with your {% data variables.product.github %} username{% ifversion ghes %}, `HOSTNAME` with the URL for {% data variables.location.product_location %},{% endif %} and `~/TOKEN.txt` with the file path to your {% data variables.product.pat_generic %} for {% data variables.product.github %}.
 
 For more information, see [Docker login](https://docs.docker.com/engine/reference/commandline/login/#provide-a-password-using-stdin).
 
