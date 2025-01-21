@@ -46,11 +46,7 @@ You can also configure the default base permission at the organization-level for
 
 You can also add teams, external collaborators, and individual organization members as collaborators for an organization-level project. For more information, see [AUTOTITLE](/organizations/organizing-members-into-teams/about-teams).
 
-{% ifversion projects-v2-add-to-team %}
-
 If you grant a team read permissions or greater for a project, the project is also displayed on the team's projects page. You can also add projects to a team on the team's projects page. For more information, see [AUTOTITLE](/issues/planning-and-tracking-with-projects/managing-your-project/adding-your-project-to-a-team).
-
-{% endif %}
 
 You can only invite an individual user to collaborate on your organization-level project if they are already a member of the organization or an outside collaborator on at least one repository in the organization.
 
