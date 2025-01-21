@@ -32,7 +32,7 @@ sections:
       In some cases, `ghe-spokesctl status`(without `--live`) displayed entries that no longer existed.
   changes:
     - |
-      New installations of GitHub Enterprise Server version 3.15 and upgrades to 3.15 recommend a root disk size of at least 400GB. Previously the system would not boot with a smaller disk size, see [Enterprise Server 3.15.0](/enterprise-server@3.15/admin/release-notes#3.15.0-features). Customers on standalone or standalone HA topologies should plan to upgrade their root disk size to 400GB.
+      The 400GB root disk requirement introduced in [Enterprise Server 3.15.0](/enterprise-server@3.15/admin/release-notes#3.15.0-features) has been reverted. The 400GB root disk size is no longer a requirement for GHES new installations and upgrades. Customers on standalone or standalone HA topologies are still recommended to upgrade their root disk size to 400GB.
     - |
       To avoid service disruption, the bundled action `actions/setup-dotnet` uses new .NET CDN URLs. See https://github.com/dotnet/core/issues/9671.
     - |
