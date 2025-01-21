@@ -1,0 +1,64 @@
+date: '2025-01-21'
+sections:
+  security_fixes:
+    - |
+      **HIGH:** An attacker could forge a SAML response to provision and/or gain access to an account with administrator privileges for GitHub Enterprise Server instances that use SAML single sign-on authentication. Instances not utilizing SAML single sign-on or where the attacker is not already an existing user are not impacted. Exploitation of this vulnerability would allow for signature spoofing by improper validation. GitHub has requested CVE ID [CVE-2025-23369](https://www.cve.org/cverecord?id=CVE-2025-23369) for this vulnerability, which was reported via the [GitHub Bug Bounty program](https://bounty.github.com/).
+    - |
+      Packages have been updated to the latest security versions.
+  bugs:
+    - |
+      Restore failed silently on incremental MySQL backups.
+    - |
+      On an instance with GitHub Actions enabled, a configuration run could hang if the blob storage was inaccessible.
+    - |
+      Site administrators using `ghe-config-apply` saw `rm cannot remove DIRECTORY` errors. Old log directories are now removed without reporting errors.
+    - |
+      After an initial reboot, the appliance sometimes altered the ownership permissions of `gitmon` directories. As a result, the Management Console could hang at the "Starting" phase.
+    - |
+      The view for a repository's "top contributors" failed to render when when it received invalid parameters.
+    - |
+      Repository archive exports failed when the archive was more than 5 GiB.
+    - |
+      When users bypassed push protections for a file upload but did not re-add the file after the bypass was created, an incorrect error message displayed.
+    - |
+      The SAML SSO and SCIM identity of the user (actor) who performed the action, `external_identity_nameid`, was omitted from the metadata for audit log entries.
+    - |
+      If you unarchived a repository with secret scanning enabled and then enabled GitHub Advanced Security, the feature settings were incorrectly reported by security overview. Secret scanning was shown as disabled.
+    - |
+      `ghe-migrator` imports could fail due to attachments with invalid model types.
+  changes:
+    - |
+      To avoid service disruption, the bundled action `actions/setup-dotnet` uses new .NET CDN URLs. See https://github.com/dotnet/core/issues/9671.
+    - |
+      To avoid unnecessary error messages when users attempt to create a ruleset in evaluate mode in a repository that is user owned, we removed the evaluate mode option on the ruleset.
+  known_issues:
+    - |
+      During the validation phase of a configuration run, a `No such object` error may occur for the Notebook and Viewscreen services. This error can be ignored as the services should still correctly start.
+    - |
+      If the root site administrator is locked out of the Management Console after failed login attempts, the account does not unlock automatically after the defined lockout time. Someone with administrative SSH access to the instance must unlock the account using the administrative shell. For more information, see "[AUTOTITLE](/admin/configuration/administering-your-instance-from-the-management-console/troubleshooting-access-to-the-management-console#unlocking-the-root-site-administrator-account)."
+    - |
+      On an instance with the HTTP `X-Forwarded-For` header configured for use behind a load balancer, all client IP addresses in the instance's audit log erroneously appear as 127.0.0.1.
+    - |
+      {% data reusables.release-notes.large-adoc-files-issue %}
+    - |
+      Repositories originally imported using ghe-migrator will not correctly track Advanced Security contributions.
+    - |
+      Admin stats REST API endpoints may timeout on appliances with many users or repositories. Retrying the request until data is returned is advised.
+    - |
+      When following the steps for [Replacing the primary MySQL node](/enterprise-server@3.12/admin/monitoring-managing-and-updating-your-instance/configuring-clustering/replacing-a-cluster-node#replacing-the-primary-mysql-node), step 14 (running `ghe-cluster-config-apply`) might fail with errors. If this occurs, re-running `ghe-cluster-config-apply` is expected to succeed.
+    - |
+      Running a config apply as part of the steps for [Replacing a node in an emergency](/admin/monitoring-managing-and-updating-your-instance/configuring-clustering/replacing-a-cluster-node#replacing-a-node-in-an-emergency) may fail with errors if the node being replaced is still reachable. If this occurs, shutdown the node and repeat the steps.
+    - |
+      {% data reusables.release-notes.2024-06-possible-frontend-5-minute-outage-during-hotpatch-upgrade %}
+    - |
+      When restoring data originally backed up from a 3.13 appliance onto a 3.13 appliance, the elasticsearch indices need to be reindexed before some of the data will show up.  This happens via a nightly scheduled job.  It can also be forced by running `/usr/local/share/enterprise/ghe-es-search-repair`.
+    - |
+      An organization-level code scanning configuration page is displayed on instances that do not use GitHub Advanced Security or code scanning.
+    - |
+      When following the steps for [Replacing the primary MySQL node](/admin/monitoring-managing-and-updating-your-instance/configuring-clustering/replacing-a-cluster-node#replacing-the-primary-mysql-node), step 14 (running `ghe-cluster-config-apply`) might fail with errors. If this occurs, re-running `ghe-cluster-config-apply` is expected to succeed.
+    - |
+      In the header bar displayed to site administrators, some icons are not available.
+    - |
+      When enabling automatic update checks for the first time in the Management Console, the status is not dynamically reflected until the "Updates" page is reloaded.
+    - |
+      When restoring from a backup snapshot, a large number of `mapper_parsing_exception` errors may be displayed.

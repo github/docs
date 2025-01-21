@@ -12,6 +12,16 @@ shortTitle: About troubleshooting
 
 ## Troubleshooting your workflows
 
+There are several ways you can troubleshoot failed workflow runs.
+
+{% ifversion copilot %}
+
+### Using {% data variables.product.prodname_copilot %}
+
+If a workflow run fails, you can open a chat with {% data variables.product.prodname_copilot %} for assistance resolving the error. See [AUTOTITLE](/actions/monitoring-and-troubleshooting-workflows/troubleshooting-workflows/using-copilot-to-troubleshoot-workflows).
+
+{% endif %}
+
 ### Using workflow run logs
 
 Each workflow run generates activity logs that you can view, search, and download. For more information, see [AUTOTITLE](/actions/monitoring-and-troubleshooting-workflows/using-workflow-run-logs).
@@ -30,8 +40,6 @@ If you attempt to cancel a workflow and the cancellation doesn't succeed, make s
 
 To analyze the inefficiencies and reliability of your workflows using metrics, see [AUTOTITLE](/actions/administering-github-actions/viewing-github-actions-metrics).
 {% endif %}
-
-## Monitoring self-hosted runners
 
 ## Troubleshooting self-hosted runners
 
