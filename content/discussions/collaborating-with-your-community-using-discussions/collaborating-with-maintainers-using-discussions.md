@@ -1,7 +1,7 @@
 ---
 title: Collaborating with maintainers using discussions
 shortTitle: Collaborating with maintainers
-intro: 'You can contribute to the goals, plans, health, and community for a project on {% data variables.product.product_name %} by communicating with the maintainers of the project in a discussion.'
+intro: 'You can contribute to the goals, plans, health, and community for a project on {% data variables.product.github %} by communicating with the maintainers of the project in a discussion.'
 permissions: 'People with read access to a repository can start and participate in discussions and polls in the repository. People with read access to the source repository for organization discussions can start and participate in discussions and polls in the organization. {% data reusables.enterprise-accounts.emu-permission-interact %}'
 versions:
   fpt: '*'

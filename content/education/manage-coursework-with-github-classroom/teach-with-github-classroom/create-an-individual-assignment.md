@@ -39,7 +39,7 @@ Name your assignment, decide whether to assign a deadline, and choose the visibi
 
 ### Naming an assignment
 
-For an individual assignment, {% data variables.product.prodname_classroom %} names repositories by the repository prefix and the student's {% data variables.product.product_name %} username. By default, the repository prefix is the assignment title. For example, if you name an assignment "assignment-1" and the student's username on {% data variables.product.product_name %} is @octocat, the name of the assignment repository for @octocat will be `assignment-1-octocat`.
+For an individual assignment, {% data variables.product.prodname_classroom %} names repositories by the repository prefix and the student's {% data variables.product.github %} username. By default, the repository prefix is the assignment title. For example, if you name an assignment "assignment-1" and the student's username on {% data variables.product.github %} is @octocat, the name of the assignment repository for @octocat will be `assignment-1-octocat`.
 
 {% data reusables.classroom.assignments-type-a-title %}
 
@@ -119,7 +119,7 @@ You can see whether a student has joined the classroom and accepted or submitted
 
 ## Next steps
 
-* Once you create the assignment, students can start work on the assignment using Git and {% data variables.product.product_name %}'s features. Students can clone the repository, push commits, manage branches, create and review pull requests, address merge conflicts, and discuss changes with issues. Both you and student can review the commit history for the repository. For more information, see [AUTOTITLE](/get-started), [AUTOTITLE](/repositories), and [AUTOTITLE](/pull-requests/collaborating-with-pull-requests).
+* Once you create the assignment, students can start work on the assignment using Git and {% data variables.product.github %}'s features. Students can clone the repository, push commits, manage branches, create and review pull requests, address merge conflicts, and discuss changes with issues. Both you and student can review the commit history for the repository. For more information, see [AUTOTITLE](/get-started), [AUTOTITLE](/repositories), and [AUTOTITLE](/pull-requests/collaborating-with-pull-requests).
 
 * When a student finishes an assignment, you can review the files in the repository, or you can review the history and visualizations for the repository to better understand the student's work. For more information, see [AUTOTITLE](/repositories/viewing-activity-and-data-for-your-repository).
 

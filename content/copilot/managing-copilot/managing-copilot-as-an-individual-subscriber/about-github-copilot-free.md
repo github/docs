@@ -67,7 +67,7 @@ In {% data variables.product.prodname_vscode_shortname %} you can access {% data
 
 With {% data variables.product.prodname_copilot_free_short %}, you can ask {% data variables.product.prodname_copilot_short %} questions within a chat interface on {% data variables.product.github %}.
 
-1. To access your personal dashboard once you're signed in, click the {% octicon "mark-github" aria-label="The github octocat logo" %} in the upper-left corner of any page on {% data variables.product.product_name %}.
+1. To access your personal dashboard once you're signed in, click the {% octicon "mark-github" aria-label="The github octocat logo" %} in the upper-left corner of any page on {% data variables.product.github %}.
 1. At the top of the dashboard, use the "Ask a question" box to start a chat with {% data variables.product.prodname_copilot_short %}.
 
 ### Other IDEs
