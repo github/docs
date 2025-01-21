@@ -1,6 +1,6 @@
 ---
 title: GitHub Mobile
-intro: 'Triage, collaborate, and manage your work on {% data variables.product.product_name %} from your mobile device.'
+intro: 'Triage, collaborate, and manage your work on {% data variables.product.github %} from your mobile device.'
 shortTitle: GitHub Mobile
 versions:
   fpt: '*'
@@ -18,7 +18,7 @@ redirect_from:
 
 {% data reusables.mobile.about-mobile %}
 
-{% data variables.product.prodname_mobile %} gives you a way to do high-impact work on {% data variables.product.product_name %} quickly and from anywhere. {% data variables.product.prodname_mobile %} is a safe and secure way to access your {% data variables.product.product_name %} data through a trusted, first-party client application.
+{% data variables.product.prodname_mobile %} gives you a way to do high-impact work on {% data variables.product.github %} quickly and from anywhere. {% data variables.product.prodname_mobile %} is a safe and secure way to access your data through a trusted, first-party client application.
 
 With {% data variables.product.prodname_mobile %} you can:
 
