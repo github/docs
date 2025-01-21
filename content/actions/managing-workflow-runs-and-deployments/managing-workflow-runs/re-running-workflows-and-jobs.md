@@ -123,13 +123,9 @@ gh run rerun --job JOB_ID --debug
 
 {% endcli %}
 
-{% ifversion partial-reruns-with-reusable %}
-
 ## Re-running workflows and jobs with reusable workflows
 
 {% data reusables.actions.partial-reruns-with-reusable %}
-
-{% endif %}
 
 ## Reviewing previous workflow runs
 
