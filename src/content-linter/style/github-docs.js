@@ -100,12 +100,6 @@ const githubDocsConfig = {
     'partial-markdown-files': true,
     'yml-files': true,
   },
-  'code-fence-line-length': {
-    // GHD030
-    severity: 'warning',
-    'partial-markdown-files': true,
-    'yml-files': true,
-  },
   'image-alt-text-exclude-words': {
     // GHD031
     severity: 'error',
