@@ -21,17 +21,17 @@ shortTitle: Introduction
 
 ## About {% data variables.product.prodname_registry %}
 
-{% data variables.product.prodname_registry %} is a platform for hosting and managing packages, including containers and other dependencies. {% data variables.product.prodname_registry %} combines your source code and packages in one place to provide integrated permissions management{% ifversion fpt or ghec %} and billing{% endif %}, so you can centralize your software development on {% data variables.product.product_name %}.
+{% data variables.product.prodname_registry %} is a platform for hosting and managing packages, including containers and other dependencies. {% data variables.product.prodname_registry %} combines your source code and packages in one place to provide integrated permissions management{% ifversion fpt or ghec %} and billing{% endif %}, so you can centralize your software development on {% data variables.product.github %}.
 
-You can integrate {% data variables.product.prodname_registry %} with {% ifversion fpt or ghec %}{% data variables.product.prodname_dotcom %}{% else %}{% data variables.product.product_name %}{% endif %} APIs, {% data variables.product.prodname_actions %}, and webhooks to create an end-to-end DevOps workflow that includes your code, CI, and deployment solutions.
+You can integrate {% data variables.product.prodname_registry %} with {% data variables.product.github %}'s APIs, {% data variables.product.prodname_actions %}, and webhooks to create an end-to-end DevOps workflow that includes your code, CI, and deployment solutions.
 
 {% data variables.product.prodname_registry %} offers different package registries for commonly used package managers, such as npm, RubyGems, Apache Maven, Gradle, Docker, and NuGet. {% ifversion fpt or ghec %}{% data variables.product.prodname_dotcom %}'s {% data variables.product.prodname_container_registry %} is optimized for containers and supports Docker and OCI images.{% endif %} For more information on the different package registries that {% data variables.product.prodname_registry %} supports, see [AUTOTITLE](/packages/working-with-a-github-packages-registry).
 
-You can view a package's README, as well as metadata such as licensing, download statistics, version history, and more on {% data variables.product.product_name %}. For more information, see [AUTOTITLE](/packages/learn-github-packages/viewing-packages).
+You can view a package's README, as well as metadata such as licensing, download statistics, version history, and more on {% data variables.product.github %}. For more information, see [AUTOTITLE](/packages/learn-github-packages/viewing-packages).
 
 {% ifversion ghes %}
 
-For more information about the configuration of {% data variables.product.prodname_registry %} on {% data variables.product.product_name %}, see [AUTOTITLE](/admin/packages/getting-started-with-github-packages-for-your-enterprise).
+For more information about the configuration of {% data variables.product.prodname_registry %} on {% data variables.product.prodname_ghe_server %}, see [AUTOTITLE](/admin/packages/getting-started-with-github-packages-for-your-enterprise).
 
 {% endif %}
 

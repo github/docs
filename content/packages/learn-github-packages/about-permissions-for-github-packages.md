@@ -65,7 +65,7 @@ To use or manage a package hosted by a package registry, you must use a {% data 
 
 For example:
 * To download and install packages from a repository, your {% data variables.product.pat_v1 %} must have the `read:packages` scope, and your user account must have read permission.
-* To delete a package on {% data variables.product.product_name %}, your {% data variables.product.pat_v1 %} must at least have the `delete:packages` and `read:packages` scope. For more information, see [AUTOTITLE](/packages/learn-github-packages/deleting-and-restoring-a-package).
+* To delete a package, your {% data variables.product.pat_v1 %} must at least have the `delete:packages` and `read:packages` scope. For more information, see [AUTOTITLE](/packages/learn-github-packages/deleting-and-restoring-a-package).
 
 | Scope | Description | Required permission |
 | --- | --- | --- |
