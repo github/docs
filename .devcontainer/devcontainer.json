@@ -11,7 +11,8 @@
 
   // Install features. Type 'feature' in the VS Code command palette for a full list.
   "features": {
-    "sshd": "latest"
+    "ghcr.io/devcontainers/features/sshd:1": {},
+    "ghcr.io/devcontainers/features/github-cli:1": {}
   },
 
   "customizations": {
@@ -43,6 +44,11 @@
           "permissions": {
             "contents": "write"
           }
+        },
+        "github/gh-kustomize": {
+          "permissions": {
+            "contents": "read"
+          }
         }
       }
     }
@@ -57,8 +63,9 @@
     }
   },
 
+  "onCreateCommand": ".devcontainer/on-create-command.sh",
   // Use 'postCreateCommand' to run commands after the container is created.
-  "postCreateCommand": "npm ci",
+  "postCreateCommand": ".devcontainer/post-create-command.sh",
 
   // Comment out connect as root instead. More info: https://aka.ms/vscode-remote/containers/non-root.
   "remoteUser": "node",

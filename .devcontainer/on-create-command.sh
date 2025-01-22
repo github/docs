@@ -1,0 +1,1 @@
+gh extension install github/gh-kustomize --pin "$(cat .devcontainer/.gh-kustomize-version)" || true
