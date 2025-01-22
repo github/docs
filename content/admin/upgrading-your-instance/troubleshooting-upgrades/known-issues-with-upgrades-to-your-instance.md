@@ -72,7 +72,7 @@ Before you test any mitigation procedure in a production environment, back up yo
 
 To attempt to mitigate the performance impact, you can adjust InnoDB's flushing method to skip the `fsync()` system call after each write operation. For more information, see [`innodb_flush_method`](https://dev.mysql.com/doc/refman/8.0/en/innodb-parameters.html#sysvar_innodb_flush_method) in the MySQL 8.0 Reference Manual.
 
-The following instructions are only intended for {% data variables.product.product_name %} 3.9 and later.
+The following instructions are only intended for {% data variables.product.prodname_ghe_server %} 3.9 and later.
 
 > [!WARNING]
 > Adjustment of the flushing method requires that your instance's storage device has a battery-backed cache. If the device's cache is not battery-backed, you risk data loss.

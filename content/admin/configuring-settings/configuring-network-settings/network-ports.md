@@ -69,7 +69,7 @@ If you enable automatic access to {% data variables.product.prodname_dotcom_the_
 
 ## {% data variables.product.prodname_github_connect %} ports
 
-If you enable {% data variables.product.prodname_github_connect %}, the connection between {% data variables.product.product_name %} and {% data variables.product.prodname_dotcom_the_website %} uses HTTPS over ports 443 or 80, and TLS is required. For more information, see [AUTOTITLE](/admin/configuration/configuring-github-connect/about-github-connect).
+If you enable {% data variables.product.prodname_github_connect %}, the connection between {% data variables.product.prodname_ghe_server %} and {% data variables.product.prodname_dotcom_the_website %} uses HTTPS over ports 443 or 80, and TLS is required. For more information, see [AUTOTITLE](/admin/configuration/configuring-github-connect/about-github-connect).
 
 ## Further reading
 

@@ -9,7 +9,7 @@ redirect_from:
   - /enterprise/admin/authentication/authenticating-users-for-your-github-enterprise-server-instance/using-cas
   - /admin/identity-and-access-management/authenticating-users-for-your-github-enterprise-server-instance/using-cas
   - /admin/identity-and-access-management/using-cas-for-enterprise-iam/using-cas
-intro: 'If you use Central Authentication Service (CAS) to centralize access to multiple web applications, you can integrate {% data variables.product.product_name %} by configuring CAS authentication for your instance.'
+intro: 'If you use Central Authentication Service (CAS) to centralize access to multiple web applications, you can integrate {% data variables.product.prodname_ghe_server %} by configuring CAS authentication for your instance.'
 versions:
   ghes: '*'
 type: how_to
@@ -21,7 +21,7 @@ topics:
   - SSO
 ---
 
-## About CAS authentication for {% data variables.product.product_name %}
+## About CAS authentication for {% data variables.product.prodname_ghe_server %}
 
 CAS is a single sign-on (SSO) protocol that centralizes authentication to multiple web applications. For more information, see [Central Authentication Service](https://en.wikipedia.org/wiki/Central_Authentication_Service) on Wikipedia.
 

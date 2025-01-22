@@ -1,6 +1,6 @@
 ---
   title: Upgrading your instance
-  intro: 'Administrators can upgrade {% data variables.product.product_name %} to get the latest features and security updates.'
+  intro: 'Administrators can upgrade {% data variables.product.prodname_ghe_server %} to get the latest features and security updates.'
   versions:
     ghes: '*'
   topics:
