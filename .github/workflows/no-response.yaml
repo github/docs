@@ -46,7 +46,7 @@ jobs:
             This PR has been automatically closed because there has been no response to
             to our request for more information from the original author. Please reach out
             if you have the information we requested, or open a [new issue](https://github.com/github/docs/issues/new/choose)
-            to describing your changes. Then we can begin the review process.
+            to describe your changes. Then we can begin the review process.
 
       - name: Check out repo
         if: ${{ failure() }}

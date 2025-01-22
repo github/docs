@@ -23,7 +23,7 @@ versions:
   fpt: '*'
   ghes: '*'
   ghec: '*'
-permissions: 'People with admin permissions {% ifversion edit-repository-rules %}or a custom role with the "edit repository rules" permission{% endif %} to a repository can manage branch protection rules.'
+permissions: 'People with admin permissions or a custom role with the "edit repository rules" permission to a repository can manage branch protection rules.'
 topics:
   - Repositories
 shortTitle: Branch protection rule
@@ -61,9 +61,7 @@ When you create a branch rule, the branch you specify doesn't have to exist yet 
 {% data reusables.repositories.repository-branches %}
 {% data reusables.repositories.add-branch-protection-rules %}
 1. Optionally, enable required pull requests.
-{% ifversion pull-request-mergeability-security-changes %}
 {% indented_data_reference reusables.pull_requests.security-changes-mergeability spaces=3 %}
-{% endif %}
    * Under "Protect matching branches", select **Require a pull request before merging**.
    * Optionally, to require approvals before a pull request can be merged, select **Require approvals**.
 
@@ -72,9 +70,7 @@ When you create a branch rule, the branch you specify doesn't have to exist yet 
    * Optionally, to require review from a code owner when the pull request affects code that has a designated owner, select **Require review from Code Owners**. Note that if code has multiple owners, an approval from _any_ of the code owners will be sufficient to meet this requirement. For more information, see [AUTOTITLE](/repositories/managing-your-repositorys-settings-and-features/customizing-your-repository/about-code-owners).
    * Optionally, to allow specific actors to push code to the branch without creating pull requests when they're required, select **Allow specified actors to bypass required pull requests**. Then, search for and select the actors who should be allowed to skip creating a pull request.
    * Optionally, if the repository is part of an organization, select **Restrict who can dismiss pull request reviews**. Then, in the search field, search for and select the actors who are allowed to dismiss pull request reviews. For more information, see [AUTOTITLE](/pull-requests/collaborating-with-pull-requests/reviewing-changes-in-pull-requests/dismissing-a-pull-request-review).
-{% ifversion last-pusher-require-approval %}
    * Optionally, to require someone other than the last person to push to a branch to approve a pull request prior to merging, select **Require approval of the most recent reviewable push**. For more information, see [AUTOTITLE](/repositories/configuring-branches-and-merges-in-your-repository/defining-the-mergeability-of-pull-requests/about-protected-branches#require-pull-request-reviews-before-merging).
-{% endif %}
 1. Optionally, enable required status checks. For more information, see [AUTOTITLE](/pull-requests/collaborating-with-pull-requests/collaborating-on-repositories-with-code-quality-features/about-status-checks).
    * Select **Require status checks to pass before merging**.
    * Optionally, to ensure that pull requests are tested with the latest code on the protected branch, select **Require branches to be up to date before merging**.
@@ -85,20 +81,14 @@ When you create a branch rule, the branch you specify doesn't have to exist yet 
 {%- ifversion merge-queue %}
 1. Optionally, to merge pull requests using a merge queue, select **Require merge queue**. {% data reusables.pull_requests.merge-queue-references %}
 {%- endif %}
-{%- ifversion required-deployments %}
 1. Optionally, to choose which environments the changes must be successfully deployed to before merging, select **Require deployments to succeed before merging**, then select the environments.
-{%- endif %}
-{% ifversion lock-branch %}
 1. Optionally, make the branch read-only.
    * Select **Lock branch**.
    * Optionally, to allow fork syncing, select **Allow fork syncing**.
-{%- endif %}
 1. Optionally, select **Do not allow bypassing the above settings**.
 1. Optionally,{% ifversion fpt or ghec %} in public repositories owned by a {% data variables.product.prodname_free_user %} organization and in all repositories owned by an organization using {% data variables.product.prodname_team %} or {% data variables.product.prodname_ghe_cloud %},{% endif %} enable branch restrictions.
    * Select **Restrict who can push to matching branches**.
-{%- ifversion restrict-pushes-create-branch %}
    * Optionally, to also restrict the creation of matching branches, select **Restrict pushes that create matching branches**.
-{%- endif %}
    * In the search field, search for and select the people, teams, or apps who will have permission to push to the protected branch or create a matching branch.
 1. Optionally, under "Rules applied to everyone including administrators", select **Allow force pushes**.
 

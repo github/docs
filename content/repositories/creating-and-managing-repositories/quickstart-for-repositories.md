@@ -20,15 +20,15 @@ topics:
 ---
 ## Create a repository
 
-{% data variables.product.product_name %} repositories store a variety of projects. In this guide, you'll create a repository and commit your first change.
+{% data variables.product.github %} repositories store a variety of projects. In this guide, you'll create a repository and commit your first change.
 
 {% webui %}
 
 {% data reusables.repositories.create_new %}
 1. Type a short, memorable name for your repository. For example, "hello-world".
 
-   ![Screenshot of the first step in creating a {% data variables.product.prodname_dotcom %} repository. The "Repository name" field contains the text "hello-world" and is outlined in dark orange.](/assets/images/help/repository/create-repository-name.png)
-1. Optionally, add a description of your repository. For example, "My first repository on {% data variables.product.product_name %}."
+   ![Screenshot of the first step in creating a repository. The "Repository name" field contains the text "hello-world" and is outlined in dark orange.](/assets/images/help/repository/create-repository-name.png)
+1. Optionally, add a description of your repository. For example, "My first repository on {% data variables.product.github %}."
 {% data reusables.repositories.choose-repo-visibility %}
 {% data reusables.repositories.initialize-with-readme %}
 {% data reusables.repositories.create-repo %}
@@ -66,7 +66,7 @@ Let's commit a change to the README file.
 {% data reusables.files.preview_change %}
 1. Review the changes you made to the file. If you select **Show diff**, you will see the new content in green.
 
-   ![Screenshot of the "Preview" view for a file. A checkbox labeled "Show diff" is selected, and an addition to the file is indicated by a green line marker. Both are outlined in orange.](/assets/images/help/repository/create-commit-review.png)
+   ![Screenshot of a file preview. The "Show diff" checkbox is enabled and additions to the file are shown with a green line. Both are outlined in orange.](/assets/images/help/repository/create-commit-review.png)
 {% data reusables.files.write_commit_message %}
 {% data reusables.files.choose_commit_branch %}
 {% data reusables.files.propose_file_change %}

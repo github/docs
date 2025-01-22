@@ -16,7 +16,7 @@ redirect_from:
 
 You can use {% data variables.product.prodname_dotcom %} repositories, issues, projects, and other tools to plan and track your work, whether working on an individual project or cross-functional team.
 
-In this guide, you will learn how to create and set up a repository for collaborating with a group of people, create issue templates{% ifversion issue-forms %} and forms{% endif %}, open issues and use task lists to break down work, and establish a {% data variables.projects.projects_v1_board %} for organizing and tracking issues.
+In this guide, you will learn how to create and set up a repository for collaborating with a group of people, create issue templates and forms, open issues and use task lists to break down work, and establish a {% data variables.projects.projects_v1_board %} for organizing and tracking issues.
 
 ## Creating a repository
 
@@ -54,7 +54,7 @@ You can use issues to track the different types of work that your cross-function
 * Feature requests: Your team or users can create issues to request an improvement to your product or project.
 * Bugs: Your team or users can create issues to report a bug.
 
-Depending on the type of repository and project you are working on, you may prioritize certain types of issues over others. Once you have identified the most common issue types for your team, you can create issue templates {% ifversion issue-forms %}and forms{% endif %} for your repository. Issue templates {% ifversion issue-forms %}and forms{% endif %} allow you to create a standardized list of templates that a contributor can choose from when they open an issue in your repository. For more information, see [AUTOTITLE](/communities/using-templates-to-encourage-useful-issues-and-pull-requests/configuring-issue-templates-for-your-repository).
+Depending on the type of repository and project you are working on, you may prioritize certain types of issues over others. Once you have identified the most common issue types for your team, you can create issue templates and forms for your repository. Issue templates and forms allow you to create a standardized list of templates that a contributor can choose from when they open an issue in your repository. For more information, see [AUTOTITLE](/communities/using-templates-to-encourage-useful-issues-and-pull-requests/configuring-issue-templates-for-your-repository).
 
 ### Issue template example
 
@@ -155,9 +155,7 @@ Below is an example of a `front-end` label that we created and added to the issu
 
 ![Screenshot of an issue called "Front-end work for Project Octocat." In the right sidebar, in the "Labels" section, the "front-end" label is applied.](/assets/images/help/issues/quickstart-add-label-to-issue.png)
 
-## Adding issues to a {% data variables.projects.projects_v1_board %}
-
-{% ifversion projects-v2 %}
+## Adding issues to a {% data variables.projects.projects_v2 %}
 
 You can use {% data variables.projects.projects_v2 %} on {% data variables.product.prodname_dotcom %} to plan and track the work for your team. A project is a customizable spreadsheet that integrates with your issues and pull requests on {% data variables.product.prodname_dotcom %}, automatically staying up-to-date with the information on {% data variables.product.prodname_dotcom %}. You can customize the layout by filtering, sorting, and grouping your issues and PRs. To get started with projects, see [AUTOTITLE](/issues/planning-and-tracking-with-projects/learning-about-projects/quickstart-for-projects).
 
@@ -165,16 +163,15 @@ You can use {% data variables.projects.projects_v2 %} on {% data variables.produ
 
 Here is the table layout of an example project, populated with the Project Octocat issues we have created.
 
-![Screenshot of the table view of the "Project Octocat" project, containing a list of issues, with columns for "Title," "Assignees," "Status," "Labels," and "Notes."](/assets/images/help/issues/quickstart-projects-table-view.png)
+![Screenshot of the table view of a project, containing a list of issues, with columns for "Title," "Assignees," "Status," "Labels," and "Notes."](/assets/images/help/issues/quickstart-projects-table-view.png)
 
 We can also view the same project as a board.
 
-![Screenshot of the board view of the "Project Octocat" project, with issues organized into columns for "No Status," "Todo," "In Progress," and "Done."](/assets/images/help/issues/quickstart-projects-board-view.png)
+![Screenshot of the board view of a project, with issues organized into columns for "No Status," "Todo," "In Progress," and "Done."](/assets/images/help/issues/quickstart-projects-board-view.png)
 
-{% endif %}
 {% ifversion projects-v1 %}
 
-You can {% ifversion projects-v2 %} also use the existing{% else %} use{% endif %} {% data variables.product.prodname_projects_v1 %} on {% data variables.product.prodname_dotcom %} to plan and track your or your team's work. {% data variables.projects.projects_v1_boards_caps %} are made up of issues, pull requests, and notes that are categorized as cards in columns of your choosing. You can create {% data variables.projects.projects_v1_boards %} for feature work, high-level roadmaps, or even release checklists. For more information, see [AUTOTITLE](/issues/organizing-your-work-with-project-boards/managing-project-boards/about-project-boards).
+You can also use the existing {% data variables.product.prodname_projects_v1 %} on {% data variables.product.prodname_dotcom %} to plan and track your or your team's work. {% data variables.projects.projects_v1_boards_caps %} are made up of issues, pull requests, and notes that are categorized as cards in columns of your choosing. You can create {% data variables.projects.projects_v1_boards %} for feature work, high-level roadmaps, or even release checklists. For more information, see [AUTOTITLE](/issues/organizing-your-work-with-project-boards/managing-project-boards/about-project-boards).
 
 ### {% data variables.projects.projects_v1_board_caps %} example
 
@@ -193,6 +190,6 @@ You have now learned about the tools {% data variables.product.prodname_dotcom %
 * [AUTOTITLE](/communities/using-templates-to-encourage-useful-issues-and-pull-requests/about-issue-and-pull-request-templates) for learning more about issue templates
 * [AUTOTITLE](/issues/using-labels-and-milestones-to-track-work/managing-labels) for learning how to create, edit and delete labels
 * [AUTOTITLE](/get-started/writing-on-github/working-with-advanced-formatting/about-task-lists) for learning more about task lists
-{% ifversion projects-v2 %} - [AUTOTITLE](/issues/planning-and-tracking-with-projects/learning-about-projects/about-projects) for learning more about projects
-* [AUTOTITLE](/issues/planning-and-tracking-with-projects/customizing-views-in-your-project/changing-the-layout-of-a-view) for learning how to customize views for projects{% endif %}
+* [AUTOTITLE](/issues/planning-and-tracking-with-projects/learning-about-projects/about-projects) for learning more about projects
+* [AUTOTITLE](/issues/planning-and-tracking-with-projects/customizing-views-in-your-project/changing-the-layout-of-a-view) for learning how to customize views for projects
 {% ifversion projects-v1 %}- [AUTOTITLE](/issues/organizing-your-work-with-project-boards/managing-project-boards/about-project-boards) for learning how to manage {% data variables.projects.projects_v1_boards %}{% endif %}

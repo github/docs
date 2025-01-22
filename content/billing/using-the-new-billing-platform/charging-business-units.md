@@ -18,29 +18,29 @@ If your account is billed to Azure, you will have the option to add an Azure sub
 
 {% ifversion metered-ghe-ghas %}
 
-## Cost center billing for seat-based products
+## Cost center billing for {% ifversion enterprise-licensing-language %}license{% else %}seat{% endif %}-based products
 
-For seat-based products like {% data variables.product.prodname_enterprise %}, {% data variables.product.prodname_GH_advanced_security %}, and {% data variables.product.prodname_copilot %}, cost centers are based on **users**. Changes to users (additions or deletions) will affect billing as follows:
+For {% ifversion enterprise-licensing-language %}license{% else %}seat{% endif %}-based products like {% data variables.product.prodname_enterprise %}, {% data variables.product.prodname_GH_advanced_security %}, and {% data variables.product.prodname_copilot %}, cost centers are based on **users**. Changes to users (additions or deletions) will affect billing as follows:
 
 * Any new usage after the change will be billed to the cost center immediately.
-* Seats added before a user is added to a cost center are only reflected at the start of the next month.
+* {% ifversion enterprise-licensing-language %}Licenses{% else %}Seats{% endif %} added before a user is added to a cost center are only reflected at the start of the next month.
 * Deletion of a user from a cost center is reflected at the start of the next month.
 
-For example, if you add a user to a cost center, any new usage for that user will be billed to the cost center right away. However, if the usage (seat) for the user was added _before_ the user was added to the cost center, then the user’s seat will only start being billed to the cost center at the start of the next billing cycle.
+For example, if you add a user to a cost center, any new usage for that user will be billed to the cost center right away. However, if the usage ({% ifversion enterprise-licensing-language %}license{% else %}seat{% endif %}) for the user was added _before_ the user was added to the cost center, then the user’s {% ifversion enterprise-licensing-language %}license{% else %}seat{% endif %} will only start being billed to the cost center at the start of the next billing cycle.
 {% endif %}
 
 ## Creating a cost center
 
 Create cost centers to monitor and manage expenses for specific organizations or repositories. Multiple organizations and repositories can be assigned to one cost center.
 
-This method can be used to track only non-seat based products usage such as:
+This method can be used to track only non-{% ifversion enterprise-licensing-language %}license{% else %}seat{% endif %} based products usage such as:
 
 * {% data variables.product.prodname_actions %}
 * {% data variables.product.prodname_github_codespaces %}
 * {% data variables.product.prodname_registry %}
 * {% data variables.large_files.product_name_short %}
 
-For seat-based products like usage-based billing for {% data variables.product.prodname_enterprise %} and {% data variables.product.prodname_GH_advanced_security %}, and {% data variables.product.prodname_copilot %}, assign users to the cost center via the API.
+For {% ifversion enterprise-licensing-language %}license{% else %}seat{% endif %}-based products like usage-based billing for {% data variables.product.prodname_enterprise %} and {% data variables.product.prodname_GH_advanced_security %}, and {% data variables.product.prodname_copilot %}, assign users to the cost center via the API.
 
 {% data reusables.enterprise-accounts.access-enterprise %}
 {% data reusables.billing.enterprise-billing-menu %}
@@ -78,7 +78,7 @@ To add or remove members from a cost center, you can use the API. See [AUTOTITLE
 
 ### Effects of removing a member from a cost center
 
-If you add a member to a cost center, any usage accrued (for example, a seat) will immediately start being billed against the cost center. If you remove a member from a cost center, any usage from that point will be billed against the enterprise. For example:
+If you add a member to a cost center, any usage accrued (for example, a {% ifversion enterprise-licensing-language %}license{% else %}seat{% endif %}) will immediately start being billed against the cost center. If you remove a member from a cost center, any usage from that point will be billed against the enterprise. For example:
 
 * On May 1st, an enterprise has three {% data variables.product.prodname_copilot_short %} users. The charges for all three users ($39 each) are billed to the enterprise.
 * On May 10th, you create two cost centers: Cost Center 1 and Cost Center 2. User A and User B are assigned to Cost Center 1, and User C to Cost Center 2. Future charges for Users A and B go to Cost Center 1, and for User C to Cost Center 2.

@@ -24,7 +24,7 @@ topics:
   - Notifications
 shortTitle: View subscriptions
 ---
-You receive notifications for your subscriptions of ongoing activity on {% data variables.product.product_name %}. There are many reasons you can be subscribed to a conversation. For more information, see [AUTOTITLE](/account-and-profile/managing-subscriptions-and-notifications-on-github/setting-up-notifications/about-notifications#notifications-and-subscriptions).
+You receive notifications for your subscriptions of ongoing activity on {% data variables.product.github %}. There are many reasons you can be subscribed to a conversation. For more information, see [AUTOTITLE](/account-and-profile/managing-subscriptions-and-notifications-on-github/setting-up-notifications/about-notifications#notifications-and-subscriptions).
 
 We recommend auditing and unsubscribing from your subscriptions as a part of a healthy notifications workflow. For more information about your options for unsubscribing, see [AUTOTITLE](/account-and-profile/managing-subscriptions-and-notifications-on-github/managing-subscriptions-for-activity-on-github/managing-your-subscriptions).
 
@@ -35,7 +35,7 @@ When your inbox has too many notifications to manage, consider whether you have 
 To see an overview of your repository subscriptions, see [Reviewing repositories that you're watching](#reviewing-repositories-that-youre-watching).
 
 > [!TIP]
-> You can select the types of event to be notified of by using the **Custom** option of the **Watch/Unwatch** dropdown list in your [watching page](https://github.com/watching) or on any repository page on {% data variables.product.product_name %}. For more information, see [AUTOTITLE](/account-and-profile/managing-subscriptions-and-notifications-on-github/setting-up-notifications/configuring-notifications#configuring-your-watch-settings-for-an-individual-repository).
+> You can select the types of event to be notified of by using the **Custom** option of the **Watch/Unwatch** dropdown list in your [watching page](https://github.com/watching) or on any repository page on {% data variables.product.github %}. For more information, see [AUTOTITLE](/account-and-profile/managing-subscriptions-and-notifications-on-github/setting-up-notifications/configuring-notifications#configuring-your-watch-settings-for-an-individual-repository).
 
 Many people forget about repositories that they've chosen to watch in the past. From the "Watched repositories" page you can quickly unwatch repositories. For more information on ways to unsubscribe, see [Unwatch recommendations](https://github.blog/changelog/2020-11-10-unwatch-recommendations/) on {% data variables.product.prodname_blog %} and [AUTOTITLE](/account-and-profile/managing-subscriptions-and-notifications-on-github/managing-subscriptions-for-activity-on-github/managing-your-subscriptions). You can also create a triage workflow to help with the notifications you receive. For guidance on triage workflows, see [AUTOTITLE](/account-and-profile/managing-subscriptions-and-notifications-on-github/viewing-and-triaging-notifications/customizing-a-workflow-for-triaging-your-notifications).
 

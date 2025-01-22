@@ -97,7 +97,7 @@ For information on bulk enablement, see [AUTOTITLE](/code-security/code-scanning
 
 ## Configuring {% data variables.product.prodname_code_scanning %} using third-party actions
 
-{% data variables.product.product_name %} includes workflow templates for third-party actions, as well as the {% data variables.product.prodname_codeql %} action. Using a workflow template is much easier than writing a workflow unaided.
+{% data variables.product.github %} includes workflow templates for third-party actions, as well as the {% data variables.product.prodname_codeql %} action. Using a workflow template is much easier than writing a workflow unaided.
 
 {% data reusables.code-scanning.billing %}
 

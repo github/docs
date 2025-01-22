@@ -14,7 +14,7 @@ shortTitle: Manage multiple accounts
 
 In some cases, you may need to use multiple accounts on {% data variables.product.github %}. For example, you may have a personal account for open source contributions, and your employer may also create and manage a user account for you within an enterprise.
 
-You cannot use a {% data variables.enterprise.prodname_managed_user %} to contribute to public projects on {% data variables.location.product_location %}, so you must contribute to those resources using your personal account. For more information, see "[About {% data variables.product.prodname_emus %}]({% ifversion fpt %}/enterprise-cloud@latest{% endif %}/admin/identity-and-access-management/using-enterprise-managed-users-for-iam/about-enterprise-managed-users#abilities-and-restrictions-of-managed-user-accounts){% ifversion fpt %}" in the {% data variables.product.prodname_ghe_cloud %} documentation.{% elsif ghec %}."{% endif %}
+You cannot use a {% data variables.enterprise.prodname_managed_user %} to contribute to public projects on {% data variables.location.product_location %}, so you must contribute to those resources using your personal account. For more information, see [About {% data variables.product.prodname_emus %}]({% ifversion fpt %}/enterprise-cloud@latest{% endif %}/admin/identity-and-access-management/using-enterprise-managed-users-for-iam/about-enterprise-managed-users#abilities-and-restrictions-of-managed-user-accounts){% ifversion fpt %} in the {% data variables.product.prodname_ghe_cloud %} documentation.{% elsif ghec %}.{% endif %}
 
 {% ifversion account-switcher %}
 
@@ -37,7 +37,7 @@ Git can use either the HTTPS or SSH protocol to access and update data in reposi
 
 You can find both the HTTPS or an SSH URLs for cloning a repository on the repository's page. For more information, see [AUTOTITLE](/repositories/creating-and-managing-repositories/cloning-a-repository).
 
-For more information about the use of SSH to access repositories on {% data variables.product.product_name %}, see [AUTOTITLE](/authentication/connecting-to-github-with-ssh).
+For more information about the use of SSH to access repositories, see [AUTOTITLE](/authentication/connecting-to-github-with-ssh).
 
 ## Contributing to multiple accounts using HTTPS and {% data variables.product.pat_generic %}s
 

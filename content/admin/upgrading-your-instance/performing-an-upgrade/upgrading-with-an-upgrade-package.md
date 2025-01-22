@@ -1,6 +1,6 @@
 ---
   title: Upgrading with an upgrade package
-  intro: 'Learn how to use an upgrade package to upgrade {% data variables.product.product_name %} to a newer feature release.'
+  intro: 'Learn how to use an upgrade package to upgrade {% data variables.product.prodname_ghe_server %} to a newer feature release.'
   redirect_from:
     - /admin/monitoring-managing-and-updating-your-instance/updating-the-virtual-machine-and-physical-resources/upgrading-github-enterprise-server#upgrading-a-standalone-instance-using-an-upgrade-package
     - /admin/enterprise-management/updating-the-virtual-machine-and-physical-resources/upgrading-github-enterprise-server#upgrading-with-an-upgrade-package
@@ -47,15 +47,12 @@ While you can use a hotpatch to upgrade to the latest patch release within a fea
    Proceed with installation? [y/N]
    ```
 
-{%- ifversion ghe-migrations-cli-utility %}
 1. Optionally, during an upgrade to a feature release, you can monitor the status of database migrations using the `ghe-migrations` utility. See [AUTOTITLE](/admin/configuration/configuring-your-enterprise/command-line-utilities#ghe-migrations).
-{%- endif %}
 1. After the instance restarts, the upgrade will continue in the background. You cannot unset maintenance mode until the process completes.
 
-   {% ifversion ghes-upgrade-complete-indicator %}
    To check the status of background jobs, use the `ghe-check-background-upgrade-jobs` utility. If you're running back-to-back upgrades, you must ensure background jobs are complete before proceeding with the following upgrade to a feature release.
 
-   {%- ifversion ghes < 3.12 %} To use this utility with {% data variables.product.product_name %} {{ allVersions[currentVersion].currentRelease }}, your instance must run version {{ allVersions[currentVersion].currentRelease }}.{% ifversion ghes = 3.9 %}7{% elsif ghes = 3.10 %}4{% elsif ghes = 3.11 %}1{% endif %} or later.{% endif %}{%- endif %} See [AUTOTITLE](/admin/configuration/configuring-your-enterprise/command-line-utilities#ghe-check-background-upgrade-jobs).
+   {%- ifversion ghes < 3.12 %} To use this utility with {% data variables.product.prodname_ghe_server %} {{ allVersions[currentVersion].currentRelease }}, your instance must run version {{ allVersions[currentVersion].currentRelease }}.{% ifversion ghes = 3.9 %}7{% elsif ghes = 3.10 %}4{% elsif ghes = 3.11 %}1{% endif %} or later.{% endif %} See [AUTOTITLE](/admin/configuration/configuring-your-enterprise/command-line-utilities#ghe-check-background-upgrade-jobs).
 
    To monitor progress of the configuration run, read the output in `/data/user/common/ghe-config.log`. For example, you can tail the log by running the following command:
 
@@ -63,9 +60,7 @@ While you can use a hotpatch to upgrade to the latest patch release within a fea
    tail -f /data/user/common/ghe-config.log
    ```
 
-{% ifversion ip-exception-list %}
 1. Optionally, after the upgrade, validate the upgrade by configuring an IP exception list to allow access to a specified list of IP addresses. See [AUTOTITLE](/admin/configuration/configuring-your-enterprise/enabling-and-scheduling-maintenance-mode#validating-changes-in-maintenance-mode-using-the-ip-exception-list).
-{% endif %}
 1. For single node upgrades, perform any post-upgrade tasks including disabling maintenance mode so users can use {% data variables.location.product_location %}.
 
     > [!NOTE] After you upgrade an instance in a high availability configuration, you should remain in maintenance mode until you have upgraded all of the replica nodes and replication is current. See [Upgrading additional nodes with an upgrade package](#upgrading-additional-nodes-with-an-upgrade-package).

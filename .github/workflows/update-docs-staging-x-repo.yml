@@ -18,7 +18,7 @@ on:
     types: [labeled]
 
 permissions:
-  contents: read
+  contents: write
 
 jobs:
   dispatch-sha:
@@ -71,6 +71,13 @@ jobs:
 
             # Get the commit SHA from the pull request head
             COMMIT_SHA="${{ github.event.pull_request.head.sha }}"
+
+            # Update the docs-staging-x branch to the latest SHA from the PR branch
+            git config user.name "github-actions[bot]"
+            git config user.email "github-actions[bot]@users.noreply.github.com"
+            git checkout docs-staging-$STAGING_NUMBER || { echo "Failed to checkout docs-staging-$STAGING_NUMBER"; exit 1; }
+            git reset --hard $COMMIT_SHA || { echo "Git reset failed"; exit 1; }
+            git push origin docs-staging-$STAGING_NUMBER --force || { echo "Git push failed"; exit 1; }
 
           else
             echo "Event type $EVENT_TYPE not supported."

@@ -71,7 +71,7 @@ The `configure` CLI command is used to set required credentials and options for 
 
    * For "Which CI providers are you configuring?", use the arrow keys to select `GitLab`, press <kbd>Space</kbd> to select it, then press <kbd>Enter</kbd>.
    * For "{% data variables.product.pat_generic_caps %} for GitHub", enter the value of the {% data variables.product.pat_v1 %} that you created earlier, and press <kbd>Enter</kbd>.
-   * For "Base url of the GitHub instance", {% ifversion ghes %}enter the URL for your {% data variables.product.product_name %} instance, and press <kbd>Enter</kbd>.{% else %}press <kbd>Enter</kbd> to accept the default value (`https://github.com`).{% endif %}
+   * For "Base url of the GitHub instance", {% ifversion ghes %}enter the URL for {% data variables.location.product_location_enterprise %}, and press <kbd>Enter</kbd>.{% else %}press <kbd>Enter</kbd> to accept the default value (`https://github.com`).{% endif %}
    * For "Private token for GitLab", enter the value for the GitLab {% data variables.product.pat_generic %} that you created earlier, and press <kbd>Enter</kbd>.
    * For "Base url of the GitLab instance", enter the URL of your GitLab instance, and press <kbd>Enter</kbd>.
 
@@ -192,7 +192,7 @@ You can use the `migrate` command to convert a GitLab pipeline and open a pull r
 
 To migrate a GitLab pipeline to {% data variables.product.prodname_actions %}, run the following command in your terminal, replacing the following values:
 
-* `target-url` value with the URL for your {% data variables.product.product_name %} repository
+* `target-url` value with the URL for your {% data variables.product.github %} repository
 * `my-gitlab-project` with your GitLab project slug
 * `my-gitlab-namespace` with the namespace or group you are migrating (full path for subgroups, e.g. `my-org/my-team`)
 

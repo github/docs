@@ -23,7 +23,7 @@ If you have an account on {% data variables.product.prodname_dotcom %} or {% dat
 
 If you do not already have an account on {% data variables.product.github %}, create one now.{% ifversion fpt or ghec %} For more information, see [AUTOTITLE](/get-started/start-your-journey/creating-an-account-on-github).{% endif %}
 
-{% ifversion ghec %}If you're part of an organization that uses {% data variables.product.prodname_emus %} and you do not have an account, contact your enterprise administrator.{% elsif ghes %}If you're a member of an organization that uses {% data variables.product.product_name %} and you do not have an account, contact your {% data variables.product.prodname_enterprise %} site administrator.{% endif %}
+{% ifversion ghec %}If you're part of an organization that uses {% data variables.product.prodname_emus %} and you do not have an account, contact your enterprise administrator.{% elsif ghes %}If you're a member of an organization that uses {% data variables.product.prodname_ghe_server %} and you do not have an account, contact your site administrator.{% endif %}
 
 ### Authenticating to {% data variables.product.prodname_dotcom %}
 

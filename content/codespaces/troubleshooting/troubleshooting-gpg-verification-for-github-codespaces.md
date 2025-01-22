@@ -111,7 +111,7 @@ If GPG verification is disabled in your settings for {% data variables.product.p
 1. On the "User" tab, in the search bar, search for "gpg".
 1. Verify that the "Enables commit signing with GPG or X.509" setting is deselected.
 
-   ![Screenshot of the "User" settings tab. A deselected checkbox, labeled "Enables commit signing with GPG or X.509," is highlighted with an orange outline.](/assets/images/help/codespaces/gpg-vscode-setting.png)
+   ![Screenshot of the "User" settings tab. A deselected checkbox, labeled "Enables commit signing with GPG or X.509," is outlined in orange.](/assets/images/help/codespaces/gpg-vscode-setting.png)
 
 If you find this setting is enabled, you should either deselect the checkbox to stop {% data variables.product.prodname_vscode_shortname %} trying to sign your commits, or you should enable GPG verification for the repository you're working in so your commits can be signed successfully.
 

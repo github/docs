@@ -248,6 +248,116 @@
       },
       {
         "category": "actions",
+        "slug": "list-github-hosted-runners-for-an-organization",
+        "subcategory": "hosted-runners",
+        "verb": "get",
+        "requestPath": "/orgs/{org}/actions/hosted-runners",
+        "access": "read",
+        "user-to-server": true,
+        "server-to-server": true,
+        "additional-permissions": false
+      },
+      {
+        "category": "actions",
+        "slug": "create-a-github-hosted-runner-for-an-organization",
+        "subcategory": "hosted-runners",
+        "verb": "post",
+        "requestPath": "/orgs/{org}/actions/hosted-runners",
+        "access": "write",
+        "user-to-server": true,
+        "server-to-server": true,
+        "additional-permissions": false
+      },
+      {
+        "category": "actions",
+        "slug": "get-github-owned-images-for-github-hosted-runners-in-an-organization",
+        "subcategory": "hosted-runners",
+        "verb": "get",
+        "requestPath": "/orgs/{org}/actions/hosted-runners/images/github-owned",
+        "access": "read",
+        "user-to-server": true,
+        "server-to-server": true,
+        "additional-permissions": false
+      },
+      {
+        "category": "actions",
+        "slug": "get-partner-images-for-github-hosted-runners-in-an-organization",
+        "subcategory": "hosted-runners",
+        "verb": "get",
+        "requestPath": "/orgs/{org}/actions/hosted-runners/images/partner",
+        "access": "read",
+        "user-to-server": true,
+        "server-to-server": true,
+        "additional-permissions": false
+      },
+      {
+        "category": "actions",
+        "slug": "get-limits-on-github-hosted-runners-for-an-organization",
+        "subcategory": "hosted-runners",
+        "verb": "get",
+        "requestPath": "/orgs/{org}/actions/hosted-runners/limits",
+        "access": "read",
+        "user-to-server": true,
+        "server-to-server": true,
+        "additional-permissions": false
+      },
+      {
+        "category": "actions",
+        "slug": "get-github-hosted-runners-machine-specs-for-an-organization",
+        "subcategory": "hosted-runners",
+        "verb": "get",
+        "requestPath": "/orgs/{org}/actions/hosted-runners/machine-sizes",
+        "access": "read",
+        "user-to-server": true,
+        "server-to-server": true,
+        "additional-permissions": false
+      },
+      {
+        "category": "actions",
+        "slug": "get-platforms-for-github-hosted-runners-in-an-organization",
+        "subcategory": "hosted-runners",
+        "verb": "get",
+        "requestPath": "/orgs/{org}/actions/hosted-runners/platforms",
+        "access": "read",
+        "user-to-server": true,
+        "server-to-server": true,
+        "additional-permissions": false
+      },
+      {
+        "category": "actions",
+        "slug": "get-a-github-hosted-runner-for-an-organization",
+        "subcategory": "hosted-runners",
+        "verb": "get",
+        "requestPath": "/orgs/{org}/actions/hosted-runners/{hosted_runner_id}",
+        "access": "read",
+        "user-to-server": true,
+        "server-to-server": true,
+        "additional-permissions": false
+      },
+      {
+        "category": "actions",
+        "slug": "update-a-github-hosted-runner-for-an-organization",
+        "subcategory": "hosted-runners",
+        "verb": "patch",
+        "requestPath": "/orgs/{org}/actions/hosted-runners/{hosted_runner_id}",
+        "access": "write",
+        "user-to-server": true,
+        "server-to-server": true,
+        "additional-permissions": false
+      },
+      {
+        "category": "actions",
+        "slug": "delete-a-github-hosted-runner-for-an-organization",
+        "subcategory": "hosted-runners",
+        "verb": "delete",
+        "requestPath": "/orgs/{org}/actions/hosted-runners/{hosted_runner_id}",
+        "access": "write",
+        "user-to-server": true,
+        "server-to-server": true,
+        "additional-permissions": false
+      },
+      {
+        "category": "actions",
         "slug": "get-the-customization-template-for-an-oidc-subject-claim-for-an-organization",
         "subcategory": "oidc",
         "verb": "get",
@@ -1907,6 +2017,78 @@
       }
     ]
   },
+  "organization_network_configurations": {
+    "title": "Network configurations",
+    "displayTitle": "Organization permissions for \"Network configurations\"",
+    "permissions": [
+      {
+        "category": "settings",
+        "slug": "list-hosted-compute-network-configurations-for-an-organization",
+        "subcategory": "network-configurations",
+        "verb": "get",
+        "requestPath": "/orgs/{org}/settings/network-configurations",
+        "access": "read",
+        "user-to-server": true,
+        "server-to-server": true,
+        "additional-permissions": false
+      },
+      {
+        "category": "settings",
+        "slug": "create-a-hosted-compute-network-configuration-for-an-organization",
+        "subcategory": "network-configurations",
+        "verb": "post",
+        "requestPath": "/orgs/{org}/settings/network-configurations",
+        "access": "write",
+        "user-to-server": true,
+        "server-to-server": true,
+        "additional-permissions": false
+      },
+      {
+        "category": "settings",
+        "slug": "get-a-hosted-compute-network-configuration-for-an-organization",
+        "subcategory": "network-configurations",
+        "verb": "get",
+        "requestPath": "/orgs/{org}/settings/network-configurations/{network_configuration_id}",
+        "access": "read",
+        "user-to-server": true,
+        "server-to-server": true,
+        "additional-permissions": false
+      },
+      {
+        "category": "settings",
+        "slug": "update-a-hosted-compute-network-configuration-for-an-organization",
+        "subcategory": "network-configurations",
+        "verb": "patch",
+        "requestPath": "/orgs/{org}/settings/network-configurations/{network_configuration_id}",
+        "access": "write",
+        "user-to-server": true,
+        "server-to-server": true,
+        "additional-permissions": false
+      },
+      {
+        "category": "settings",
+        "slug": "delete-a-hosted-compute-network-configuration-from-an-organization",
+        "subcategory": "network-configurations",
+        "verb": "delete",
+        "requestPath": "/orgs/{org}/settings/network-configurations/{network_configuration_id}",
+        "access": "write",
+        "user-to-server": true,
+        "server-to-server": true,
+        "additional-permissions": false
+      },
+      {
+        "category": "settings",
+        "slug": "get-a-hosted-compute-network-settings-resource-for-an-organization",
+        "subcategory": "network-configurations",
+        "verb": "get",
+        "requestPath": "/orgs/{org}/settings/network-settings/{network_settings_id}",
+        "access": "read",
+        "user-to-server": true,
+        "server-to-server": true,
+        "additional-permissions": false
+      }
+    ]
+  },
   "organization_announcement_banners": {
     "title": "Organization announcement banners",
     "displayTitle": "Organization permissions for \"Organization announcement banners\"",
@@ -2814,6 +2996,17 @@
         "verb": "delete",
         "requestPath": "/orgs/{org}/actions/runner-groups/{runner_group_id}",
         "access": "write",
+        "user-to-server": true,
+        "server-to-server": true,
+        "additional-permissions": false
+      },
+      {
+        "category": "actions",
+        "slug": "list-github-hosted-runners-in-a-group-for-an-organization",
+        "subcategory": "self-hosted-runner-groups",
+        "verb": "get",
+        "requestPath": "/orgs/{org}/actions/runner-groups/{runner_group_id}/hosted-runners",
+        "access": "read",
         "user-to-server": true,
         "server-to-server": true,
         "additional-permissions": false
@@ -4104,7 +4297,7 @@
       },
       {
         "category": "repos",
-        "slug": "check-if-automated-security-fixes-are-enabled-for-a-repository",
+        "slug": "check-if-dependabot-security-updates-are-enabled-for-a-repository",
         "subcategory": "repos",
         "verb": "get",
         "requestPath": "/repos/{owner}/{repo}/automated-security-fixes",
@@ -4115,7 +4308,7 @@
       },
       {
         "category": "repos",
-        "slug": "enable-automated-security-fixes",
+        "slug": "enable-dependabot-security-updates",
         "subcategory": "repos",
         "verb": "put",
         "requestPath": "/repos/{owner}/{repo}/automated-security-fixes",
@@ -4126,7 +4319,7 @@
       },
       {
         "category": "repos",
-        "slug": "disable-automated-security-fixes",
+        "slug": "disable-dependabot-security-updates",
         "subcategory": "repos",
         "verb": "delete",
         "requestPath": "/repos/{owner}/{repo}/automated-security-fixes",

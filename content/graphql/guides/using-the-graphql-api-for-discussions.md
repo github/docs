@@ -2,7 +2,9 @@
 title: Using the GraphQL API for Discussions
 intro: 'Learn how to use the {% data variables.product.prodname_discussions %} GraphQL API.'
 versions:
-  feature: discussions
+  fpt: '*'
+  ghes: '*'
+  ghec: '*'
 shortTitle: Use GraphQL for Discussions
 ---
 

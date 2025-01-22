@@ -12,7 +12,7 @@ versions:
 type: tutorial
 defaultPlatform: linux
 ---
- 
+
 {% data reusables.actions.enterprise-github-hosted-runners %}
 
 {% capture service_first_step %}1. Stop the self-hosted runner application if it is currently running.{% endcapture %}
@@ -21,7 +21,7 @@ defaultPlatform: linux
 {% capture service_nonwindows_intro %}
 
 > [!NOTE]
-> You must add a runner to {% data variables.product.product_name %} before you can configure the self-hosted runner application as a service.
+> You must add a runner to {% data variables.product.github %} before you can configure the self-hosted runner application as a service.
 For more information, see [AUTOTITLE](/actions/hosting-your-own-runners/managing-self-hosted-runners/adding-self-hosted-runners).
 
 {% endcapture %}

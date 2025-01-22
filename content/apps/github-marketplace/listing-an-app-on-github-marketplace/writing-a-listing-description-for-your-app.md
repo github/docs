@@ -111,7 +111,7 @@ If your app only works with specific languages, select up to 10 programming lang
 
 A feature card consists of your app's logo, name, and a custom background image that captures your brand personality. {% data variables.product.prodname_marketplace %} displays this card if your app is one of the four randomly featured apps at the top of the [homepage](https://github.com/marketplace). Each app's very short description is displayed below its feature card.
 
-![Screenshot of a feature card for OctocatApp. The app's name and an icon of Mona are displayed on a pink background, above the description "United we code."](/assets/images/marketplace/marketplace-feature-card.png)
+![Screenshot of a feature card for OctocatApp. The app's name and an icon of Mona are displayed on a pink background, above the text "United we code."](/assets/images/marketplace/marketplace-feature-card.png)
 
 As you upload images and select colors, your {% data variables.product.prodname_marketplace %} draft listing will display a preview of your logo and feature card.
 

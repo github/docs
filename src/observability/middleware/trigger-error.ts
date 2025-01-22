@@ -15,7 +15,8 @@ export default async function triggerError(
   // pattern used on async middleware! This is an intentional omission!
 
   // prevent this from being used in production
-  if (process.env.NODE_ENV === 'production' && process.env.HEROKU_PRODUCTION_APP) return next()
+  if (process.env.NODE_ENV === 'production' && process.env.MODA_PROD_SERVICE_ENV === 'true')
+    return next()
 
   throw new Error('Intentional error')
 }

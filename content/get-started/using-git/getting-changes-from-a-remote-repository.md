@@ -30,11 +30,11 @@ You can choose from [several different URLs](/get-started/getting-started-with-g
 
 {% ifversion global-nav-update %}
 
-  ![Screenshot of the main page of a repository. A green button, labeled "Code," is outlined in dark orange and expanded to show the HTTPS URL for the repository.](/assets/images/help/repository/remotes-url-global-nav-update.png)
+  ![Screenshot of the main page of a repository. A green "Code" button is outlined in orange and expanded to show the HTTPS URL for the repository.](/assets/images/help/repository/remotes-url-global-nav-update.png)
 
 {% else %}
 
-  ![Screenshot of the main page of a repository. A green button, labeled "Code," is outlined in dark orange and expanded to show the HTTPS URL for the repository.](/assets/images/help/repository/remotes-url.png)
+  ![Screenshot of the main page of a repository. A green "Code" button is outlined in orange and expanded to show the HTTPS URL for the repository.](/assets/images/help/repository/remotes-url.png)
 
 {% endif %}
 

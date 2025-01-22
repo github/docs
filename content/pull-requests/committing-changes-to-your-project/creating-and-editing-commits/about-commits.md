@@ -16,8 +16,7 @@ versions:
 
 {% data reusables.commits.about-commits %}
 
-{% ifversion commit-signoffs %}
-If the repository you are committing to has compulsory commit signoffs enabled, and you are committing via the web interface, you will automatically sign off on the commit as part of the commit process. For more information, see [AUTOTITLE](/repositories/managing-your-repositorys-settings-and-features/managing-repository-settings/managing-the-commit-signoff-policy-for-your-repository). {% endif %}
+If the repository you are committing to has compulsory commit signoffs enabled, and you are committing via the web interface, you will automatically sign off on the commit as part of the commit process. For more information, see [AUTOTITLE](/repositories/managing-your-repositorys-settings-and-features/managing-repository-settings/managing-the-commit-signoff-policy-for-your-repository).
 
 You can add a co-author on any commits you collaborate on. For more information, see [AUTOTITLE](/pull-requests/committing-changes-to-your-project/creating-and-editing-commits/creating-a-commit-with-multiple-authors).
 
@@ -43,8 +42,6 @@ Once the commit is on the default branch, any tags that contain the commit will 
 
 ![Screenshot of a commit summary. The tag icon and "v2.3.4" are highlighted with an orange outline.](/assets/images/help/commits/commit-tag-label.png)
 
-{% ifversion commit-tree-view %}
-
 ## Using the file tree
 
 You can use the file tree to navigate between files in a commit.
@@ -59,8 +56,6 @@ You can use the file tree to navigate between files in a commit.
 
    ![Screenshot of the "Files changed" tab of a pull request. In the left sidebar, the file tree is outlined in dark orange.](/assets/images/help/repository/file-tree.png)
 1. To filter by file path, enter part or all of the file path in the **Filter changed files** search box.
-
-{% endif %}
 
 ## Further reading
 

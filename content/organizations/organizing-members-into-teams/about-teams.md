@@ -17,7 +17,7 @@ topics:
 
 You can use teams to manage access for people in an organization, and for sending notifications. Organization owners and team maintainers can give teams admin, read, or write access to organization repositories. Organization members can send a notification to an entire team by mentioning the team's name. Teams can only be made up of members of your organization, outside collaborators are unable to be on a team.
 
-{% ifversion team-mentions-setting %}Organization owners and team maintainers can disable team notifications. For more information, see [AUTOTITLE](/organizations/organizing-members-into-teams/configuring-team-notifications).{% endif %}
+Organization owners and team maintainers can disable team notifications. For more information, see [AUTOTITLE](/organizations/organizing-members-into-teams/configuring-team-notifications).
 
 Organization members can also send a notification to an entire team by requesting a review from that team. Organization members can request reviews from specific teams with read access to the repository where the pull request is opened. Teams can be designated as owners of certain types or areas of code in a CODEOWNERS file.
 
@@ -52,7 +52,7 @@ Organization members can create and participate in discussions with the team. Fo
 
 ## Nested teams
 
-You can reflect your group or company's hierarchy within your {% data variables.product.product_name %} organization with multiple levels of nested teams. A parent team can have multiple child teams, while each child team only has one parent team. You cannot nest secret teams.
+You can reflect your group or company's hierarchy within your {% data variables.product.github %} organization with multiple levels of nested teams. A parent team can have multiple child teams, while each child team only has one parent team. You cannot nest secret teams.
 
 Child teams inherit the parent's access permissions, simplifying permissions management for large groups. Members of child teams also receive notifications when the parent team is @mentioned, simplifying communication with multiple groups of people.
 

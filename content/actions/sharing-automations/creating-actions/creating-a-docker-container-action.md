@@ -162,7 +162,7 @@ with:
   who-to-greet: 'Mona the Octocat'
 ```
 
-## Commit, tag, and push your action to {% data variables.product.product_name %}
+## Commit, tag, and push your action
 
 From your terminal, commit your `action.yml`, `entrypoint.sh`, `Dockerfile`, and `README.md` files.
 
@@ -179,8 +179,8 @@ git push --follow-tags
 
 Now you're ready to test your action out in a workflow.
 
-{% ifversion private-actions %}- When an action is in a private repository, you can control who can access it. For more information, see [AUTOTITLE](/repositories/managing-your-repositorys-settings-and-features/enabling-features-for-your-repository/managing-github-actions-settings-for-a-repository#allowing-access-to-components-in-a-private-repository).{% else %}- When an action is in a private repository, the action can only be used in workflows in the same repository.{% endif %}
-{% ifversion ghes or ghec %}{% ifversion internal-actions %}- When an action is in an internal repository, you can control who can access it. For more information, see [AUTOTITLE](/repositories/managing-your-repositorys-settings-and-features/enabling-features-for-your-repository/managing-github-actions-settings-for-a-repository#allowing-access-to-components-in-an-internal-repository).{% else %}- When an action is in an internal repository, the action can only be used in workflows in the same repository.{% endif %}{% endif %}
+* When an action is in a private repository, you can control who can access it. For more information, see [AUTOTITLE](/repositories/managing-your-repositorys-settings-and-features/enabling-features-for-your-repository/managing-github-actions-settings-for-a-repository#allowing-access-to-components-in-a-private-repository).
+* {% ifversion ghes or ghec %}When an action is in an internal repository, you can control who can access it. For more information, see [AUTOTITLE](/repositories/managing-your-repositorys-settings-and-features/enabling-features-for-your-repository/managing-github-actions-settings-for-a-repository#allowing-access-to-components-in-an-internal-repository).{% else %}When an action is in an internal repository, the action can only be used in workflows in the same repository.{% endif %}
 * Public actions can be used by workflows in any repository.
 
 {% data reusables.actions.enterprise-marketplace-actions %}

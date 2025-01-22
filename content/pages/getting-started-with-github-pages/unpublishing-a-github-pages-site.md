@@ -26,7 +26,7 @@ Unpublishing a site does not permanently delete the site. For information on del
 {% data reusables.repositories.navigate-to-repo %}
 1. Under **{% data variables.product.prodname_pages %}**, next to the **Your site is live at** message, click {% octicon "kebab-horizontal" aria-label="the horizontal kebab icon" %}.
 1. In the menu that appears, select **Unpublish site**.
-   ![Screenshot of {% data variables.product.prodname_pages %} settings showing the URL of a live Pages site. Under the horizontal kebab icon to the right, the "Unpublish site" dropdown option is outlined in dark orange.](/assets/images/help/pages/unpublish-site.png)
+   ![Screenshot of {% data variables.product.prodname_pages %} settings with the URL of a live site. On the right under a kebab icon, the "Unpublish site" option is outlined in orange.](/assets/images/help/pages/unpublish-site.png)
 
 ## Re-enabling a site that has been unpublished
 

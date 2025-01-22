@@ -12,9 +12,9 @@ topics:
   - Community
 shortTitle: Add a license to a repo
 ---
-If you include a detectable license in your repository, people who visit your repository will see it at the top of the repository page. To read the entire license file, click the license name.
+If you include a detectable license in your repository, people who visit your repository will see it at the top of the repository page. To read the entire license file, click the license name (for example: [github-linguist/linguist](https://github.com/github-linguist/linguist)).
 
-![Screenshot of the main page of the github-linguist/linguist repository. In the right sidebar, "MIT license," preceded by a law icon, is outlined in dark orange.](/assets/images/help/repository/repo-license-indicator.png)
+![Screenshot of the main page of a repository. In the right sidebar, "MIT license," preceded by a law icon, is outlined in orange.](/assets/images/help/repository/repo-license-indicator.png)
 
 Open source licenses enable others to freely use, change, and distribute the project in your repository. For more information on repository licenses, see [AUTOTITLE](/repositories/managing-your-repositorys-settings-and-features/customizing-your-repository/licensing-a-repository).
 
@@ -27,7 +27,7 @@ Open source licenses enable others to freely use, change, and distribute the pro
 1. In the file name field, type _LICENSE_ or _LICENSE.md_ (with all caps).
 1. Under the file name, click **Choose a license template**.
 
-   ![Screenshot of the new file form, with "LICENSE" entered in the file name field. A button, labeled "Choose a license template," is outlined in dark orange.](/assets/images/help/repository/license-tool.png)
+   ![Screenshot of the new file form, with "LICENSE" entered in the file name field. A "Choose a license template" button is outlined in dark orange.](/assets/images/help/repository/license-tool.png)
 1. On the left side of the page, under "Add a license to your project," review the available licenses, then select a license from the list.
 1. Click **Review and submit**.
 {% data reusables.files.write_commit_message %}

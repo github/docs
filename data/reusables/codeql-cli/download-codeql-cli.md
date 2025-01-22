@@ -12,7 +12,7 @@ You should download the {% data variables.product.prodname_codeql %} bundle from
 {% ifversion ghes %}
 
 > [!NOTE]
-> For {% data variables.product.product_name %}{% ifversion ghes %} {{ allVersions[currentVersion].currentRelease }}{% endif %}, we recommend {% data variables.product.prodname_codeql_cli %} version {% data variables.product.codeql_cli_ghes_recommended_version %}.
+> For {% data variables.product.prodname_ghe_server %}{% ifversion ghes %} {{ allVersions[currentVersion].currentRelease }}{% endif %}, we recommend {% data variables.product.prodname_codeql_cli %} version {% data variables.product.codeql_cli_ghes_recommended_version %}.
 
 {% endif %}
 

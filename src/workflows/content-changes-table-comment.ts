@@ -1,5 +1,3 @@
-#!/usr/bin/env node
-
 /**
  * Hi there! 👋
  * To test this code locally, outside of Actions, you need to run
@@ -23,11 +21,10 @@ import { getContents } from './git-utils.js'
 import getApplicableVersions from '@/versions/lib/get-applicable-versions.js'
 import nonEnterpriseDefaultVersion from '@/versions/lib/non-enterprise-default-version.js'
 import { allVersionShortnames } from '@/versions/lib/all-versions.js'
-import { waitUntilUrlIsHealthy } from './wait-until-url-is-healthy.js'
 import readFrontmatter from '@/frame/lib/read-frontmatter.js'
 import { inLiquid } from './lib/in-liquid'
 
-const { GITHUB_TOKEN, APP_URL } = process.env
+const { GITHUB_TOKEN, REVIEW_SERVER_ACCESS_TOKEN, APP_URL } = process.env
 const context = github.context
 
 // the max size of the comment (in bytes)
@@ -44,13 +41,8 @@ if (import.meta.url.endsWith(process.argv[1])) {
   const baseSHA = process.env.BASE_SHA || context.payload.pull_request!.base.sha
   const headSHA = process.env.HEAD_SHA || context.payload.pull_request!.head.sha
 
-  const isHealthy = await waitUntilUrlIsHealthy(new URL('/healthz', APP_URL).toString())
-  if (!isHealthy) {
-    core.setFailed(`Timeout waiting for preview environment: ${APP_URL}`)
-  } else {
-    const markdownTable = await main(owner, repo, baseSHA, headSHA)
-    core.setOutput('changesTable', markdownTable)
-  }
+  const markdownTable = await main(owner, repo, baseSHA, headSHA)
+  core.setOutput('changesTable', markdownTable)
 }
 
 async function main(owner: string, repo: string, baseSHA: string, headSHA: string) {
@@ -60,10 +52,30 @@ async function main(owner: string, repo: string, baseSHA: string, headSHA: strin
   if (!APP_URL) {
     throw new Error(`APP_URL environment variable not set`)
   }
+  const headBranch = process.env.HEAD_BRANCH
+
   const RetryingOctokit = Octokit.plugin(retry)
   const octokit = new RetryingOctokit({
     auth: `token ${GITHUB_TOKEN}`,
   })
+
+  // we'll attach the branch or sha right after this
+  const searchParams = new URLSearchParams({
+    'review-server-repository': `${owner}/${repo}`,
+  })
+
+  // this token will be available in the internal repo only, skip it for the open source repo
+  if (REVIEW_SERVER_ACCESS_TOKEN)
+    searchParams.append('review-server-access-token', REVIEW_SERVER_ACCESS_TOKEN)
+
+  // this script compares with SHAs only, so this allows us
+  // to surface the branch name for the review server bar
+  headBranch
+    ? searchParams.append('review-server-branch', headBranch)
+    : searchParams.append('review-server-sha', headSHA)
+
+  const queryParams = `?${searchParams.toString()}`
+
   // get the list of file changes from the PR
   const response = await octokit.rest.repos.compareCommitsWithBasehead({
     owner,
@@ -134,7 +146,7 @@ async function main(owner: string, repo: string, baseSHA: string, headSHA: strin
         return
       }
 
-      return makeRow({ file, fileName, sourceUrl, fileUrl, data })
+      return makeRow({ file, fileName, sourceUrl, fileUrl, queryParams, data })
     }),
   )
 
@@ -149,6 +161,7 @@ async function main(owner: string, repo: string, baseSHA: string, headSHA: strin
           fileName,
           sourceUrl: file.blob_url,
           fileUrl,
+          queryParams,
           data,
           fromReusable: true,
         })
@@ -194,6 +207,7 @@ type File = {
 function makeRow({
   file,
   fileUrl,
+  queryParams,
   fileName,
   sourceUrl,
   data,
@@ -201,6 +215,7 @@ function makeRow({
 }: {
   file: File
   fileUrl: string
+  queryParams: string
   fileName: string
   sourceUrl: string
   data: any
@@ -235,12 +250,12 @@ function makeRow({
         if (versions.toString() === nonEnterpriseDefaultVersion) {
           // omit version from fpt url
 
-          previewCell += `[${plan}](${APP_URL}/${fileUrl})<br>`
+          previewCell += `[${plan}](${APP_URL}/${fileUrl}${queryParams})<br>`
           prodCell += `[${plan}](${PROD_URL}/${fileUrl})<br>`
         } else {
           // for non-versioned releases (ghec) use full url
 
-          previewCell += `[${plan}](${APP_URL}/${versions}/${fileUrl})<br>`
+          previewCell += `[${plan}](${APP_URL}/${versions}/${fileUrl}${queryParams})<br>`
           prodCell += `[${plan}](${PROD_URL}/${versions}/${fileUrl})<br>`
         }
       } else if (versions.length) {
@@ -250,7 +265,7 @@ function makeRow({
         prodCell += `${plan}@ `
 
         versions.forEach((version) => {
-          previewCell += `[${version.split('@')[1]}](${APP_URL}/${version}/${fileUrl}) `
+          previewCell += `[${version.split('@')[1]}](${APP_URL}/${version}/${fileUrl}${queryParams}) `
           prodCell += `[${version.split('@')[1]}](${PROD_URL}/${version}/${fileUrl}) `
         })
         previewCell += '<br>'

@@ -49,3 +49,9 @@ To enable encrypted assertions, you must provide {% data variables.location.prod
 {% data reusables.enterprise_site_admin_settings.wait-for-configuration-run %}
 
 If you enabled SAML debugging to test authentication with encrypted assertions, disable SAML debugging when you're done testing. For more information, see [AUTOTITLE](/admin/identity-and-access-management/using-saml-for-enterprise-iam/troubleshooting-saml-authentication#configuring-saml-debugging).
+
+## SAML signing certificate for AuthnRequests
+
+With encrypted assertions, {% data variables.product.prodname_ghe_server %} relies on the SAML signing certificate private key to decrypt assertions. This certificate is automatically generated when {% data variables.product.prodname_ghe_server %} is set up, and it is valid for 10 years.
+
+You can find more details about the SAML signing certificate, how long it is valid for, and how to regenerate it if needed in [AUTOTITLE](/admin/managing-iam/iam-configuration-reference/saml-configuration-reference#saml-signing-certificate-for-authnrequests).

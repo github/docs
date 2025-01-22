@@ -2928,6 +2928,39 @@
   hasPushProtection: true
   hasValidityCheck: false
   isduplicate: false
+- provider: Ramp
+  supportedSecret: Ramp OAuth Client ID
+  secretType: ramp_client_id
+  versions:
+    fpt: '*'
+    ghec: '*'
+  isPublic: true
+  isPrivateWithGhas: true
+  hasPushProtection: false
+  hasValidityCheck: false
+  isduplicate: false
+- provider: Ramp
+  supportedSecret: Ramp OAuth Client Secret
+  secretType: ramp_client_secret
+  versions:
+    fpt: '*'
+    ghec: '*'
+  isPublic: true
+  isPrivateWithGhas: true
+  hasPushProtection: false
+  hasValidityCheck: false
+  isduplicate: false
+- provider: Ramp
+  supportedSecret: Ramp OAuth Access or Refresh Token
+  secretType: ramp_oauth_token
+  versions:
+    fpt: '*'
+    ghec: '*'
+  isPublic: true
+  isPrivateWithGhas: true
+  hasPushProtection: false
+  hasValidityCheck: false
+  isduplicate: false
 - provider: ReadMe
   supportedSecret: ReadMe API Key
   secretType: readmeio_api_access_token

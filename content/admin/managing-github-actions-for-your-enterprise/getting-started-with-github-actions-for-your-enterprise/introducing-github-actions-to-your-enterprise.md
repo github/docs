@@ -29,11 +29,9 @@ Then,{% else %}First,{% endif %} decide whether you'll allow third-party actions
 
 For more information, see [AUTOTITLE](/repositories/managing-your-repositorys-settings-and-features/enabling-features-for-your-repository/managing-github-actions-settings-for-a-repository#managing-github-actions-permissions-for-your-repository), [AUTOTITLE](/organizations/managing-organization-settings/disabling-or-limiting-github-actions-for-your-organization#managing-github-actions-permissions-for-your-organization), and [AUTOTITLE](/admin/policies/enforcing-policies-for-your-enterprise/enforcing-policies-for-github-actions-in-your-enterprise#enforcing-a-policy-to-restrict-the-use-of-github-actions-in-your-enterprise).
 
-{% ifversion ghec or ghes %}
 Consider combining OpenID Connect (OIDC) with reusable workflows to enforce consistent deployments across your repository, organization, or enterprise. You can do this by defining trust conditions on cloud roles based on reusable workflows. For more information, see [AUTOTITLE](/actions/deployment/security-hardening-your-deployments/using-openid-connect-with-reusable-workflows).
-{% endif %}
 
-You can access information about activity related to {% data variables.product.prodname_actions %} in the audit logs for your enterprise. If your business needs require retaining this information longer than audit log data is retained, plan how you'll export and store this data outside of {% data variables.product.prodname_dotcom %}. For more information, see {% ifversion ghec %}[AUTOTITLE](/admin/monitoring-activity-in-your-enterprise/reviewing-audit-logs-for-your-enterprise/exporting-audit-log-activity-for-your-enterprise) and [AUTOTITLE](/admin/monitoring-activity-in-your-enterprise/reviewing-audit-logs-for-your-enterprise/streaming-the-audit-log-for-your-enterprise).{% else %}{% ifversion audit-log-streaming %}[AUTOTITLE](/admin/monitoring-activity-in-your-enterprise/reviewing-audit-logs-for-your-enterprise/streaming-the-audit-log-for-your-enterprise) and {% endif %}[AUTOTITLE](/admin/monitoring-activity-in-your-enterprise/exploring-user-activity/log-forwarding).{% endif %}
+You can access information about activity related to {% data variables.product.prodname_actions %} in the audit logs for your enterprise. If your business needs require retaining this information longer than audit log data is retained, plan how you'll export and store this data outside of {% data variables.product.prodname_dotcom %}. For more information, see {% ifversion ghec %}[AUTOTITLE](/admin/monitoring-activity-in-your-enterprise/reviewing-audit-logs-for-your-enterprise/exporting-audit-log-activity-for-your-enterprise) and [AUTOTITLE](/admin/monitoring-activity-in-your-enterprise/reviewing-audit-logs-for-your-enterprise/streaming-the-audit-log-for-your-enterprise).{% else %}[AUTOTITLE](/admin/monitoring-activity-in-your-enterprise/reviewing-audit-logs-for-your-enterprise/streaming-the-audit-log-for-your-enterprise) and [AUTOTITLE](/admin/monitoring-activity-in-your-enterprise/exploring-user-activity/log-forwarding).{% endif %}
 
 {% ifversion custom-org-roles %}You can practice the principle of least privilege by administering custom organization roles for access to settings in your {% data variables.product.prodname_actions %} CI/CD pipeline. For more information about custom organization roles, see [AUTOTITLE](/organizations/managing-peoples-access-to-your-organization-with-roles/about-custom-organization-roles).{% endif %}
 
@@ -76,10 +74,6 @@ Think about how your enterprise can use features of {% data variables.product.pr
 With reusable workflows, your team can call one workflow from another workflow, avoiding exact duplication. Reusable workflows promote best practice by helping your team use workflows that are well designed and have already been tested. For more information, see [AUTOTITLE](/actions/using-workflows/reusing-workflows).
 
 To provide a starting place for developers building new workflows, you can use workflow templates. This not only saves time for your developers, but promotes consistency and best practice across your enterprise. For more information, see [AUTOTITLE](/actions/using-workflows/creating-starter-workflows-for-your-organization).
-
-{% ifversion not internal-actions %}
-Whenever your workflow developers want to use an action that's stored in a private repository, they must configure the workflow to clone the repository first. To reduce the number of repositories that must be cloned, consider grouping commonly used actions in a single repository. For more information, see [AUTOTITLE](/actions/creating-actions/about-custom-actions#choosing-a-location-for-your-action).
-{% endif %}
 
 ## Managing resources
 

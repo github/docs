@@ -63,7 +63,7 @@ Choose which package ecosystems you'd like to enable, disable, or set to read-on
 
 If subdomain isolation is enabled for {% data variables.location.product_location %}, you will need to create and upload a TLS certificate that allows the package host URL for each ecosystem you want to use, such as `{% data reusables.package_registry.container-registry-hostname %}`. Make sure each package host URL includes `https://`.
 
-  You can create the certificate manually, or you can use _Let's Encrypt_. If you already use _Let's Encrypt_, you must request a new TLS certificate after enabling {% data variables.product.prodname_registry %}. For more information about package host URLs, see [AUTOTITLE](/admin/configuration/configuring-network-settings/enabling-subdomain-isolation). For more information about uploading TLS certificates to {% data variables.product.product_name %}, see [AUTOTITLE](/admin/configuration/configuring-network-settings/configuring-tls).
+  You can create the certificate manually, or you can use _Let's Encrypt_. If you already use _Let's Encrypt_, you must request a new TLS certificate after enabling {% data variables.product.prodname_registry %}. For more information about package host URLs, see [AUTOTITLE](/admin/configuration/configuring-network-settings/enabling-subdomain-isolation). For more information about uploading TLS certificates to {% data variables.product.prodname_ghe_server %}, see [AUTOTITLE](/admin/configuration/configuring-network-settings/configuring-tls).
 
 ## Step 6: Check for and rename reserved names
 

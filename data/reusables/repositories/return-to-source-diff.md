@@ -2,4 +2,4 @@
 
    To return to the source diff view, click the **{% octicon "code" aria-label="Display the source diff" %}** button.
 
-   ![Screenshot of the "Files changed" tab of a pull request. The button to display the source diff, which is labeled with a code icon, is outlined in dark orange.](/assets/images/help/pull_requests/dependency-review-source-diff.png)
+   ![Screenshot of the "Files changed" tab of a pull request. The button to display the source diff, shown with a code icon, is outlined in orange.](/assets/images/help/pull_requests/dependency-review-source-diff.png)

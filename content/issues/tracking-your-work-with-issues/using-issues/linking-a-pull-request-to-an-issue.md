@@ -1,6 +1,6 @@
 ---
 title: Linking a pull request to an issue
-intro: 'You can link a pull request {% ifversion link-existing-branches-to-issue %}or branch {% endif %}to an issue to show that a fix is in progress and to automatically close the issue when the pull request {% ifversion link-existing-branches-to-issue %}or branch {% endif %} is merged.'
+intro: 'You can link a pull request or branch to an issue to show that a fix is in progress and to automatically close the issue when the pull request or branch is merged.'
 redirect_from:
   - /github/managing-your-work-on-github/managing-your-work-with-issues-and-pull-requests/linking-a-pull-request-to-an-issue
   - /articles/closing-issues-via-commit-message
@@ -70,8 +70,6 @@ You can manually link up to ten issues to each pull request. The issue and pull 
 {% data reusables.pull_requests.click-development-in-pull-request %}
 1. Click the issue you want to link to the pull request.
 
-{% ifversion link-existing-branches-to-issue %}
-
 ## Manually linking a pull request or branch to an issue using the issue sidebar
 
 Anyone with write permissions to a repository can manually link a pull request or branch to an issue from the issue sidebar.
@@ -85,8 +83,6 @@ You can manually link up to ten issues to each pull request. The issue can be in
 1. Click the repository containing the pull request or branch you want to link to the issue.
 1. Click the pull request or branch you want to link to the issue.
 1. Click **Apply**.
-
-{% endif %}
 
 ## Further reading
 

@@ -8,12 +8,12 @@ versions:
 
 This guide will walk you through setting up, configuring and managing your {% data variables.product.prodname_ghe_cloud %} account as an enterprise owner.
 
-{% data variables.product.prodname_dotcom %} provides two types of Enterprise products:
+{% data variables.product.github %} provides two types of Enterprise products:
 
 * **{% data variables.product.prodname_ghe_cloud %}**
 * **{% data variables.product.prodname_ghe_server %}**
 
-The main difference between the products is that {% data variables.product.prodname_ghe_cloud %} is hosted by {% data variables.product.prodname_dotcom %}, while {% data variables.product.prodname_ghe_server %} is self-hosted.
+The main difference between the products is that {% data variables.product.prodname_ghe_cloud %} is hosted by {% data variables.product.github %}, while {% data variables.product.prodname_ghe_server %} is self-hosted.
 
 {% data variables.product.prodname_ghe_cloud %} includes an enterprise account, which allows you to manage multiple organizations. You can choose to let enterprise members create and manage their own personal accounts, or you can use {% data variables.product.prodname_emus %}. For more information about {% data variables.product.prodname_ghe_cloud %}, see [AUTOTITLE](/enterprise-cloud@latest/admin/overview/about-github-enterprise-cloud).
 
@@ -27,7 +27,7 @@ To get started with {% data variables.product.prodname_ghe_cloud %}, decide whic
 
 ### 2. About enterprise accounts
 
-An enterprise account allows you to centrally manage policy and settings for multiple {% data variables.product.prodname_dotcom %} organizations, including member access, billing and usage and security. For more information, see [AUTOTITLE](/enterprise-cloud@latest/admin/managing-your-enterprise-account/about-enterprise-accounts).
+An enterprise account allows you to centrally manage policy and settings for multiple {% data variables.product.github %} organizations, including member access, billing and usage and security. For more information, see [AUTOTITLE](/enterprise-cloud@latest/admin/managing-your-enterprise-account/about-enterprise-accounts).
 
 ### 3. Creating an enterprise account
 
@@ -108,7 +108,7 @@ You can centrally manage access to your enterprise's resources from your IdP usi
 
 #### 3. Managing team synchronization
 
-You can enable and manage team synchronization between an identity provider (IdP) and {% data variables.product.prodname_dotcom %} to allow organizations owned by your enterprise account to manage team membership with IdP groups. For more information, see [AUTOTITLE](/enterprise-cloud@latest/admin/identity-and-access-management/using-saml-for-enterprise-iam/managing-team-synchronization-for-organizations-in-your-enterprise).
+You can enable and manage team synchronization between an identity provider (IdP) and {% data variables.product.github %} to allow organizations owned by your enterprise account to manage team membership with IdP groups. For more information, see [AUTOTITLE](/enterprise-cloud@latest/admin/identity-and-access-management/using-saml-for-enterprise-iam/managing-team-synchronization-for-organizations-in-your-enterprise).
 
 #### 4. Enforcing policies for Advanced Security features in your enterprise account
 
@@ -128,15 +128,15 @@ You can view actions from all of the organizations owned by your enterprise acco
 
 You can also restrict email notifications for your enterprise account so that enterprise members can only use an email address in a verified or approved domain to receive notifications. For more information, see [AUTOTITLE](/enterprise-cloud@latest/admin/policies/enforcing-policies-for-your-enterprise/restricting-email-notifications-for-your-enterprise).
 
-## Part 5: Customizing and automating your enterprise's work on {% data variables.product.prodname_dotcom %}
+## Part 5: Customizing and automating your enterprise's work on {% data variables.product.github %}
 
-Members of your organization or enterprise can use tools from the {% data variables.product.prodname_marketplace %}, the {% data variables.product.prodname_dotcom %} API, and existing {% data variables.product.product_name %} features to customize and automate your work.
+Members of your organization or enterprise can use tools from the {% data variables.product.prodname_marketplace %}, the {% data variables.product.github %} API, and existing {% data variables.product.github %} features to customize and automate your work.
 
 ### 1. Using {% data variables.product.prodname_marketplace %}
 
 {% data reusables.getting-started.marketplace %}
 
-### 2. Using the {% data variables.product.prodname_dotcom %} API
+### 2. Using the {% data variables.product.github %} API
 
 {% data reusables.getting-started.api %}
 
@@ -152,7 +152,7 @@ Members of your organization or enterprise can use tools from the {% data variab
 
 {% data variables.product.prodname_pages %} is a static site hosting service that takes HTML, CSS, and JavaScript files straight from a repository and publishes a website. You can manage the publication of {% data variables.product.prodname_pages %} sites at the organization level. For more information, see [AUTOTITLE](/organizations/managing-organization-settings/managing-the-publication-of-github-pages-sites-for-your-organization) and [AUTOTITLE](/pages/getting-started-with-github-pages/about-github-pages).
 
-## Part 6: Participating in {% data variables.product.prodname_dotcom %}'s community
+## Part 6: Participating in {% data variables.product.github %}'s community
 
 You and your enterprise members can use GitHub's learning and support resources to get the help they need. You can also support the open source community.
 

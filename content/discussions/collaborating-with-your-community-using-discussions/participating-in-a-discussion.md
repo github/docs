@@ -1,9 +1,11 @@
 ---
 title: Participating in a discussion
-intro: 'You can converse with the community and maintainers in a forum within the repository for a project on {% data variables.product.product_name %}.'
+intro: 'You can converse with the community and maintainers in a forum within the repository for a project on {% data variables.product.github %}.'
 permissions: 'People with read access to a repository can participate in discussions and polls in the repository. People with read access to the source repository for organization discussions can participate in discussions and polls in that organization. {% data reusables.enterprise-accounts.emu-permission-interact %}'
 versions:
-  feature: discussions
+  fpt: '*'
+  ghes: '*'
+  ghec: '*'
 shortTitle: Participate in discussion
 ---
 
@@ -19,7 +21,7 @@ In addition to starting or viewing discussions and polls, you can:
 * React to comments with emoji
 * Upvote discussions and top-level comments to give them more visibility
 
-{% ifversion fpt or ghec %}You can block users and report disruptive content to maintain a safe and pleasant environment for yourself on {% data variables.product.product_name %}. For more information, see [AUTOTITLE](/communities/maintaining-your-safety-on-github).{% endif %}
+{% ifversion fpt or ghec %}You can block users and report disruptive content to maintain a safe and pleasant environment for yourself. For more information, see [AUTOTITLE](/communities/maintaining-your-safety-on-github).{% endif %}
 
 ## Prerequisites
 

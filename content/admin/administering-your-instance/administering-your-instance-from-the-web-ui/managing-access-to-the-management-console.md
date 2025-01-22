@@ -1,7 +1,7 @@
 ---
 title: Managing access to the Management Console
 shortTitle: Manage Management Console access
-intro: '{% ifversion enterprise-management-console-multi-user-auth %}You can increase the security of {% data variables.location.product_location %} by creating or deleting {% data variables.enterprise.management_console %} users. As the root site administrator, you {% else %}You {% endif %}can access the {% data variables.enterprise.management_console %} as well as configure {% data variables.enterprise.management_console %} authentication rate limits.'
+intro: 'You can increase the security of {% data variables.location.product_location %} by creating or deleting {% data variables.enterprise.management_console %} users. As the root site administrator, you can access the {% data variables.enterprise.management_console %} as well as configure {% data variables.enterprise.management_console %} authentication rate limits.'
 redirect_from:
   - /admin/configuration/administering-your-instance-from-the-management-console/managing-access-to-the-management-console
 versions:
@@ -18,11 +18,9 @@ topics:
 
 {% ifversion ghes-manage-api-cli-extension %}You can also use the `gh es` {% data variables.product.prodname_cli %} extension to manage the root site administrator password, which controls access to the Management Console. For more information, see the [GH ES CLI usage documentation](https://github.com/github/gh-es/blob/main/USAGE.md#gh-es-access-set-password) and [AUTOTITLE](/admin/administering-your-instance/administering-your-instance-from-the-command-line/administering-your-instance-using-the-github-cli).{% endif %}
 
-{% ifversion enterprise-management-console-multi-user-auth %}
-
 ## Types of {% data variables.enterprise.management_console %} accounts
 
-There are two types of user accounts for the {% data variables.enterprise.management_console %} on a {% data variables.product.product_name %} instance. The root site administrator account authenticates with a password established during the initial setup of {% data variables.location.product_location %}.
+There are two types of user accounts for the {% data variables.enterprise.management_console %} on a {% data variables.product.prodname_ghe_server %} instance. The root site administrator account authenticates with a password established during the initial setup of {% data variables.location.product_location %}.
 
 The root site administrator can create additional accounts{% ifversion management-console-editor %}, and assign one of two roles to each{% endif %}.
 
@@ -72,10 +70,6 @@ If you have not configured email notifications for {% data variables.location.pr
 1. To copy the invitation link, click {% octicon "link" aria-label="Copy invitation link" %} on any {% data variables.enterprise.management_console %} user account.
 1. Send the invitation link to the {% data variables.enterprise.management_console %} user. The invitation link will lead the user through the final account setup steps.
 
-{% endif %}
-
-{% ifversion enterprise-authentication-rate-limits %}
-
 ## Configuring rate limits for authentication to the {% data variables.enterprise.management_console %}
 
 You can configure the lockout time and login attempt limits for the {% data variables.enterprise.management_console %}.
@@ -87,5 +81,3 @@ After you configure rate limits and a {% data variables.enterprise.management_co
 1. Optionally, under "Lockout time for Management Console users", type a number of minutes to lock the {% data variables.enterprise.management_console %} after too many failed login attempts. When locked out, the root site administrator must be manually unlocked.
 1. Optionally, under "Login attempt limit for all users", type a maximum number of failed login attempts to allow before the {% data variables.enterprise.management_console %} is locked.
 {% data reusables.enterprise_management_console.save-settings %}
-
-{% endif %}

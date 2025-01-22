@@ -20,9 +20,9 @@ You will only need to verify a new device once. If you clear your cookies, or us
 
 ## Verifying your sign-in attempt
 
-1. Sign in to {% data variables.product.product_name %}, using your username and password.
+1. Sign in to {% data variables.product.github %}, using your username and password.
 1. If you are signing in from an unrecognized device, {% data variables.product.prodname_dotcom %} may ask to you pass a "Device verification" prompt. The verification code is sent to all primary and backup email addresses associated with your account. The code is valid for one hour.
-    * If you have the {% data variables.product.prodname_mobile %} application installed, {% data variables.product.product_name %} sends a verification request to your mobile device, instead of sending an email. Enter the code displayed in your browser into the {% data variables.product.prodname_mobile %} app to verify your sign-in. You can request an email code if your mobile device is unavailable.
+    * If you have the {% data variables.product.prodname_mobile %} application installed, {% data variables.product.github %} sends a verification request to your mobile device, instead of sending an email. Enter the code displayed in your browser into the {% data variables.product.prodname_mobile %} app to verify your sign-in. You can request an email code if your mobile device is unavailable.
 1. Enter the verification code into your browser to verify your sign-in.
 
 ## Troubleshooting device verification

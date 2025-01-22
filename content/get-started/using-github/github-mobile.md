@@ -1,6 +1,6 @@
 ---
 title: GitHub Mobile
-intro: 'Triage, collaborate, and manage your work on {% data variables.product.product_name %} from your mobile device.'
+intro: 'Triage, collaborate, and manage your work on {% data variables.product.github %} from your mobile device.'
 shortTitle: GitHub Mobile
 versions:
   fpt: '*'
@@ -18,7 +18,7 @@ redirect_from:
 
 {% data reusables.mobile.about-mobile %}
 
-{% data variables.product.prodname_mobile %} gives you a way to do high-impact work on {% data variables.product.product_name %} quickly and from anywhere. {% data variables.product.prodname_mobile %} is a safe and secure way to access your {% data variables.product.product_name %} data through a trusted, first-party client application.
+{% data variables.product.prodname_mobile %} gives you a way to do high-impact work on {% data variables.product.github %} quickly and from anywhere. {% data variables.product.prodname_mobile %} is a safe and secure way to access your data through a trusted, first-party client application.
 
 With {% data variables.product.prodname_mobile %} you can:
 
@@ -59,7 +59,7 @@ To access accounts on {% data variables.enterprise.data_residency %} using {% da
 
 You must install {% data variables.product.prodname_mobile %} 1.4 or later on your device to use {% data variables.product.prodname_mobile %} with {% data variables.product.prodname_ghe_server %}.
 
-To use {% data variables.product.prodname_mobile %} with {% data variables.product.prodname_ghe_server %}, {% data variables.product.prodname_dotcom %} must be version 3.0 or greater, and your enterprise owner must enable mobile support for your enterprise. For more information, see {% ifversion ghes %}[AUTOTITLE](/admin/release-notes) and {% endif %}"[Managing {% data variables.product.prodname_mobile %} for your enterprise]({% ifversion not ghes %}/enterprise-server@latest{% endif %}/admin/configuration/configuring-your-enterprise/managing-github-mobile-for-your-enterprise){% ifversion not ghes %}" in the {% data variables.product.prodname_ghe_server %} documentation.{% else %}."{% endif %}
+To use {% data variables.product.prodname_mobile %} with {% data variables.product.prodname_ghe_server %}, {% data variables.product.prodname_dotcom %} must be version 3.0 or greater, and your enterprise owner must enable mobile support for your enterprise. For more information, see {% ifversion ghes %}[AUTOTITLE](/admin/release-notes) and {% endif %}[Managing {% data variables.product.prodname_mobile %} for your enterprise]({% ifversion not ghes %}/enterprise-server@latest{% endif %}/admin/configuration/configuring-your-enterprise/managing-github-mobile-for-your-enterprise){% ifversion not ghes %} in the {% data variables.product.prodname_ghe_server %} documentation.{% else %}.{% endif %}
 
 During the {% data variables.release-phases.public_preview %} for {% data variables.product.prodname_mobile %} with {% data variables.product.prodname_ghe_server %}, you must be signed in with a personal account on {% data variables.product.prodname_dotcom_the_website %}.
 

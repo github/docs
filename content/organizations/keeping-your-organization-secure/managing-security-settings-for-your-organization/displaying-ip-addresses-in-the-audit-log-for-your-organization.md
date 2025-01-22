@@ -18,7 +18,7 @@ topics:
 
 ## About display of IP addresses in the audit log
 
-By default, {% data variables.product.product_name %} does not display the source IP address for events in your organization's audit log. {% data reusables.audit_log.about-ip-display %} If you enable this setting, the IP address will be displayed for **new and existing events** in the audit log.
+By default, {% data variables.product.github %} does not display the source IP address for events in your organization's audit log. {% data reusables.audit_log.about-ip-display %} If you enable this setting, the IP address will be displayed for **new and existing events** in the audit log.
 
 You are responsible for meeting any legal obligations that accompany the viewing or storage of IP addresses displayed within your organization's audit log.
 
@@ -34,7 +34,7 @@ After you enable the feature, you can access the audit log to view events that i
 
 ## Events that display IP addresses in the audit log
 
-{% data variables.product.product_name %} displays an IP address for each event in the organization audit log that meets these criteria.
+{% data variables.product.github %} displays an IP address for each event in the organization audit log that meets these criteria.
 
 * The actor is an organization member or owner
 * The target is either an organization-owned repository that is private or internal, or an organization resource that is not a repository, such as a project.

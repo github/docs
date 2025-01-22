@@ -52,4 +52,8 @@ You can enable web search for {% data variables.product.prodname_copilot_chat %}
 {% data reusables.user-settings.copilot-settings %}
 1. To the right of **{% data variables.product.prodname_copilot_short %} access to Bing**, select the dropdown menu, and then click **Enabled** or **Disabled**.
 
+## Model training and improvements
+
+By default, {% data variables.product.github %}, its affiliates, and third parties will **not** use your data, including prompts, suggestions, and code snippets, for AI model training. This is reflected in your personal settings for {% data variables.product.prodname_copilot %} and cannot be enabled.
+
 {% endif %}

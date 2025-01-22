@@ -1,6 +1,6 @@
 ---
 title: About archiving content and data on GitHub
-intro: 'You can archive content and data on {% data variables.product.product_name %} for other people to view and reference.'
+intro: 'You can archive content and data for other people to view and reference.'
 redirect_from:
   - /articles/about-archiving-content-and-data-on-github
   - /github/creating-cloning-and-archiving-repositories/about-archiving-content-and-data-on-github
@@ -14,7 +14,7 @@ shortTitle: Archive content & data
 ---
 ## Persistence of public repositories
 
-{% data variables.product.product_name %} intends to keep your public repositories available unless you remove them. In some cases, we may make public content unavailable, for example if:
+{% data variables.product.company_short %} intends to keep your public repositories available unless you remove them. In some cases, we may make public content unavailable, for example if:
 
 * We receive a [DMCA Takedown Notice](/free-pro-team@latest/site-policy/content-removal-policies/dmca-takedown-policy) for content in a repository.
 * We determine that a repository's content violates our [Community Guidelines](/free-pro-team@latest/site-policy/github-terms/github-community-guidelines) or [Terms of Service](/free-pro-team@latest/site-policy/github-terms/github-terms-of-service).
@@ -33,4 +33,4 @@ You can opt out of the {% data variables.product.prodname_archive %} for your re
 
 ## Adding an open source license to increase archivability
 
-Libraries and researchers may require legal protections to create archives of publicly available content. If you want third parties to consider your work on {% data variables.product.product_name %} for archiving, you can add an [open source license](/repositories/managing-your-repositorys-settings-and-features/customizing-your-repository/licensing-a-repository) to your projects. An open source license gives contributors explicit permissions to copy and distribute the material in your repositories.
+Libraries and researchers may require legal protections to create archives of publicly available content. If you want third parties to consider your work on {% data variables.product.github %} for archiving, you can add an [open source license](/repositories/managing-your-repositorys-settings-and-features/customizing-your-repository/licensing-a-repository) to your projects. An open source license gives contributors explicit permissions to copy and distribute the material in your repositories.

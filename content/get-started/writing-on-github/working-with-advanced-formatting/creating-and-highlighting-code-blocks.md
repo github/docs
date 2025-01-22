@@ -25,7 +25,7 @@ function test() {
 ```
 ````
 
-![Screenshot of rendered {% data variables.product.prodname_dotcom %} Markdown showing how triple backticks render code blocks in raw formatting. The block begins with "function test() {."](/assets/images/help/writing/fenced-code-block-rendered.png)
+![Screenshot of rendered {% data variables.product.github %} Markdown showing the use of triple backticks to create code blocks. The block begins with "function test() {."](/assets/images/help/writing/fenced-code-block-rendered.png)
 
 > [!TIP]
 > To preserve your formatting within a list, make sure to indent non-fenced code blocks by eight spaces.
@@ -40,7 +40,7 @@ Look! You can see my backticks.
 ````
 `````
 
-![Screenshot of rendered {% data variables.product.prodname_dotcom %} Markdown showing how quadruple backticks cause triple backticks surrounding a code block to remain visible. The block reads, "Look! You can see my backticks."](/assets/images/help/writing/fenced-code-show-backticks-rendered.png)
+![Screenshot of rendered Markdown showing that when you write triple backticks between quadruple backticks they are visible in the rendered content.](/assets/images/help/writing/fenced-code-show-backticks-rendered.png)
 
 {% data reusables.user-settings.enabling-fixed-width-fonts %}
 

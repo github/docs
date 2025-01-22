@@ -22,7 +22,7 @@ shortTitle: Dependency graph
 
 {% data reusables.dependabot.about-the-dependency-graph %}
 
-When you push a commit to {% data variables.product.product_name %} that changes or adds a supported manifest or lock file to the default branch, the dependency graph is automatically updated.{% ifversion fpt or ghec %} In addition, the graph is updated when anyone pushes a change to the repository of one of your dependencies.{% endif %}
+When you push a commit to {% data variables.product.github %} that changes or adds a supported manifest or lock file to the default branch, the dependency graph is automatically updated.{% ifversion fpt or ghec %} In addition, the graph is updated when anyone pushes a change to the repository of one of your dependencies.{% endif %}
 
 For information on the supported ecosystems and manifest files, see [AUTOTITLE](/code-security/supply-chain-security/understanding-your-software-supply-chain/dependency-graph-supported-package-ecosystems#supported-package-ecosystems).
 
@@ -55,7 +55,7 @@ The dependency graph includes all the dependencies of a repository that are deta
 
 The dependency graph identifies indirect dependencies{% ifversion fpt or ghec %} only if they are defined in a lock file or have been submitted using the {% data variables.dependency-submission-api.name %}. For the most reliable graph, you should use lock files (or their equivalent) because they define exactly which versions of the direct and indirect dependencies you currently use. If you use lock files, you also ensure that all contributors to the repository are using the same versions, which will make it easier for you to test and debug code{% else %} from the lock files{% endif %}. If your ecosystem does not have lock files, you can use pre-made actions that resolve transitive dependencies for many ecosystems. For more information, see [AUTOTITLE](/code-security/supply-chain-security/understanding-your-software-supply-chain/using-the-dependency-submission-api#using-pre-made-actions).
 
-For more information on how {% data variables.product.product_name %} helps you understand the dependencies in your environment, see [AUTOTITLE](/code-security/supply-chain-security/understanding-your-software-supply-chain/about-supply-chain-security).
+For more information on how {% data variables.product.github %} helps you understand the dependencies in your environment, see [AUTOTITLE](/code-security/supply-chain-security/understanding-your-software-supply-chain/about-supply-chain-security).
 
 {% ifversion fpt or ghec %}
 

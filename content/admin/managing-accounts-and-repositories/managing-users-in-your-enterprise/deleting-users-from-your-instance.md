@@ -34,7 +34,7 @@ If you have enabled SCIM provisioning on your instance, you cannot delete **user
 
 ## Should I delete or suspend a user account?
 
-{% data variables.product.prodname_dotcom %} recommends suspending users where possible, rather than deleting their accounts. Suspending user accounts on {% data variables.product.product_name %} preserves the history of resources owned by the user account, such as repositories and pull requests, and releases the licensed seat previously consumed by the user. See [AUTOTITLE](/admin/managing-accounts-and-repositories/managing-users-in-your-enterprise/suspending-and-unsuspending-users).
+{% data variables.product.prodname_dotcom %} recommends suspending users where possible, rather than deleting their accounts. Suspending user accounts on {% data variables.product.product_name %} preserves the history of resources owned by the user account, such as repositories and pull requests, and releases the {% ifversion enterprise-licensing-language %}license{% else %}licensed seat{% endif %} previously consumed by the user. See [AUTOTITLE](/admin/managing-accounts-and-repositories/managing-users-in-your-enterprise/suspending-and-unsuspending-users).
 
 As an alternative to deleting or suspending a user account, to stop a user's repositories being permanently removed from your enterprise you can place a legal hold on the user account. See [Placing a legal hold on a user or organization](/admin/managing-accounts-and-repositories/managing-users-in-your-enterprise/placing-a-legal-hold-on-a-user-or-organization).
 

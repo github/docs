@@ -2,7 +2,7 @@
 title: Enabling Server Statistics for your enterprise
 intro: 'You can analyze your own aggregate data from {% data variables.product.prodname_ghe_server %} and help us improve {% data variables.product.company_short %} products by enabling {% data variables.product.prodname_server_statistics %}.'
 versions:
-  feature: server-statistics
+  ghes: '*'
 redirect_from:
   - /early-access/github/analyze-how-your-team-works-with-server-statistics/about-server-statistics/enabling-server-statistics
   - /admin/configuration/configuring-github-connect/enabling-server-statistics-for-your-enterprise

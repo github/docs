@@ -74,13 +74,13 @@ To enable a new version of GHES on GitHub Docs, update the site's supported vers
 
   - [ ] Add and commit the changes.
 
-- [ ] Optionally, on your workstation, run the local development environment for GitHub Docs and verify that the new GHES version is enabled. See "[About versions of GitHub Docs](https://docs.github.com/get-started/learning-about-github/about-versions-of-github-docs)".
+- [ ] Optionally, on your workstation, run the local development environment for GitHub Docs and verify that the new GHES version is enabled. See [About versions of GitHub Docs](https://docs.github.com/get-started/learning-about-github/about-versions-of-github-docs).
 
 - [ ] Push your changes.
 
 - [ ] Create a PR. For the body, copy the contents of the body comment for the [previous release](https://github.com/github/docs-internal/pull/44684), modifying it to reflect this release.
 
-- [ ] Link your PR to this issue. See "[Linking a pull request to an issue](https://docs.github.com/issues/tracking-your-work-with-issues/linking-a-pull-request-to-an-issue#manually-linking-a-pull-request-to-an-issue-using-the-pull-request-sidebar)".
+- [ ] Link your PR to this issue. See [Linking a pull request to an issue](https://docs.github.com/issues/tracking-your-work-with-issues/linking-a-pull-request-to-an-issue#manually-linking-a-pull-request-to-an-issue-using-the-pull-request-sidebar).
 
 <br/>
 <a name="check-failures">

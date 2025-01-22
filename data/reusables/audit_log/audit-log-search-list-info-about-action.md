@@ -12,7 +12,7 @@ Each audit log entry shows applicable information about an event, such as:
 {%- ifversion ghec or ghes > 3.12 %}
 * The SAML SSO and SCIM identity of the user (actor) who performed the action
 {%- endif %}
-{%- ifversion token-audit-log %}
+{%- ifversion ghec or ghes %}
 * For actions outside of the web UI, how the user (actor) authenticated
 {%- endif %}
 {%- ifversion enterprise-audit-log-ip-addresses %}

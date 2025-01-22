@@ -71,8 +71,6 @@ You can filter issues and pull requests to find:
 
 ## Building advanced filters for issues
 
-{% data reusables.issues.release-stage %}
-
 You can build advanced filters using boolean and nested queries on your repository's issues page. As you type your filter, {% data variables.product.github %} will show available qualifiers, suggest values, and warn when there is a problem with your filter.
 
 ### Using boolean operators
@@ -137,15 +135,13 @@ Once you've [applied labels to an issue or pull request](/issues/using-labels-an
 
 ## Filtering by issue type
 
-{% data reusables.issues.release-stage %}
-
 If your organization uses issue types, you can filter issues for a particular type. You can also type the `type:` qualifier directly into your filter.
 
 {% data reusables.repositories.navigate-to-repo %}
 {% data reusables.repositories.sidebar-issues %}
 1. Above the list of issues, select the **Types** dropdown menu.
 
-   ![Screenshot of a list of issues. In the header above the list, a dropdown menu, labeled "Types", is outlined in dark orange and the Issue Types menu is open.](/assets/images/help/issues/issue-type-dropdown.png)
+   ![Screenshot of a list of issues. In the list header, the "Types" filter is outlined in orange and expanded.](/assets/images/help/issues/issue-type-dropdown.png)
 
 1. In the list of type, click an issue type.
 
@@ -182,7 +178,7 @@ You can use filters to search for issues and pull requests that meet specific cr
 
 The issues and pull requests search bar allows you to define your own custom filters and sort by a wide variety of criteria. You can find the search bar on each repository's **Issues** and **Pull requests** tabs and on your [Issues and Pull requests dashboards](/issues/tracking-your-work-with-issues/viewing-all-of-your-issues-and-pull-requests).
 
-![Screenshot of the list of issues for a repository. Above the list, a search field, containing the query "is:issue is:open", is outlined in dark orange.](/assets/images/help/issues/issues-search-bar.png)
+![Screenshot of the list of issues for a repository. Above the list, a search field, containing the query "is:issue is:open", is outlined in orange.](/assets/images/help/issues/issues-search-bar.png)
 
 > [!TIP]
 > {% data reusables.search.search_issues_and_pull_requests_shortcut %}
@@ -226,8 +222,8 @@ With issue and pull request search terms, you can:
 
 For issues, you can also use search to:
 
-* Filter for issues that are linked to a pull request by a closing reference: `linked:pr`{% ifversion issue-close-reasons %}
-* Filter issues by the reason they were closed: `is:closed reason:completed` or `is:closed reason:"not planned"`{% endif %}
+* Filter for issues that are linked to a pull request by a closing reference: `linked:pr`
+* Filter issues by the reason they were closed: `is:closed reason:completed` or `is:closed reason:"not planned"`
 {% ifversion issue-types %}* Filter for issues with a particular type: `is:open type:"Bug"`{% endif %}
 
 For pull requests, you can also use search to:

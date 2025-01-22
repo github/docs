@@ -1,7 +1,7 @@
 ---
 title: Using GitHub Codespaces with GitHub CLI
 shortTitle: GitHub CLI
-intro: 'You can work with {% data variables.product.prodname_github_codespaces %} directly from your command line by using `gh`, the {% data variables.product.product_name %} command line interface.'
+intro: 'You can work with {% data variables.product.prodname_github_codespaces %} directly from your command line by using `gh`, the {% data variables.product.github %} command line interface.'
 versions:
   fpt: '*'
   ghec: '*'

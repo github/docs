@@ -32,7 +32,7 @@ receive this error response.
 ```
 
 To solve this error, make sure you have the correct credentials for your {% data variables.product.prodname_oauth_app %}. Double check the `client_id` and `client_secret` to make sure they are correct and being passed correctly
-to {% data variables.product.product_name %}.
+to {% data variables.product.github %}.
 
 ## Redirect URI mismatch
 

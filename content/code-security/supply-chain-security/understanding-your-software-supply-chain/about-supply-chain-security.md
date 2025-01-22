@@ -1,6 +1,6 @@
 ---
 title: About supply chain security
-intro: '{% data variables.product.product_name %} helps you secure your supply chain, from understanding the dependencies in your environment, to knowing about vulnerabilities in those dependencies, and patching them.'
+intro: '{% data variables.product.github %} helps you secure your supply chain, from understanding the dependencies in your environment, to knowing about vulnerabilities in those dependencies, and patching them.'
 shortTitle: Supply chain security
 redirect_from:
   - /code-security/supply-chain-security/managing-vulnerabilities-in-your-projects-dependencies
@@ -29,9 +29,9 @@ One of the most important things you can do to protect your supply chain is to p
 
 You add dependencies directly to your supply chain when you specify them in a manifest file or a lockfile. Dependencies can also be included transitively, that is, even if you don’t specify a particular dependency, but a dependency of yours uses it, then you’re also dependent on that dependency.
 
-{% data variables.product.product_name %} offers a range of features to help you understand the dependencies in your environment, know about vulnerabilities in those dependencies, and patch them.
+{% data variables.product.github %} offers a range of features to help you understand the dependencies in your environment, know about vulnerabilities in those dependencies, and patch them.
 
-The supply chain features on {% data variables.product.product_name %} are:
+The supply chain features on {% data variables.product.github %} are:
 * **Dependency graph**
 * **Dependency review**
 * **{% data variables.product.prodname_dependabot_alerts %}**
@@ -59,7 +59,7 @@ To generate the dependency graph, {% data variables.product.company_short %} loo
 
 * The dependency graph includes information on your _direct_ dependencies and _transitive_ dependencies.
 * The dependency graph is automatically updated when you push a commit to {% data variables.product.company_short %} that changes or adds a supported manifest or lock file to the default branch, and when anyone pushes a change to the repository of one of your dependencies.
-* You can see the dependency graph by opening the repository's main page on {% data variables.product.product_name %}, and navigating to the **Insights** tab.
+* You can see the dependency graph by opening the repository's main page on {% data variables.product.github %}, and navigating to the **Insights** tab.
 * {% data reusables.dependency-graph.sbom-export %}
 
 {% data reusables.dependency-submission.dependency-submission-link %}
@@ -91,13 +91,13 @@ The term "{% data variables.product.prodname_dependabot %}" encompasses the foll
 
 * If {% data variables.product.prodname_actions %} is enabled for the repository, {% data variables.product.prodname_dotcom %} runs {% data variables.product.prodname_dependabot_updates %} on {% data variables.product.prodname_actions %}.
 
-* If {% data variables.product.prodname_actions %} is not enabled for the repository, {% data variables.product.prodname_dotcom %} generates {% data variables.product.prodname_dependabot_alerts %} using the built-in {% data variables.product.prodname_dependabot %} application in {% data variables.product.product_name %}.
+* If {% data variables.product.prodname_actions %} is not enabled for the repository, {% data variables.product.github %} generates {% data variables.product.prodname_dependabot_alerts %} using its built-in {% data variables.product.prodname_dependabot %} application.
 
 For more information, see [AUTOTITLE](/code-security/dependabot/working-with-dependabot/about-dependabot-on-github-actions-runners).
 
 {% else %}
 
-{% data variables.product.prodname_dependabot_security_updates %} and {% data variables.product.prodname_dependabot_version_updates %} require {% data variables.product.prodname_actions %} to run on {% data variables.product.product_name %}. {% data variables.product.prodname_dependabot_alerts %} do not require {% data variables.product.prodname_actions %}. For more information, see [AUTOTITLE](/admin/configuration/configuring-github-connect/enabling-dependabot-for-your-enterprise).
+{% data variables.product.prodname_dependabot_security_updates %} and {% data variables.product.prodname_dependabot_version_updates %} require {% data variables.product.prodname_actions %} to run on {% data variables.product.prodname_ghe_server %}. {% data variables.product.prodname_dependabot_alerts %} do not require {% data variables.product.prodname_actions %}. For more information, see [AUTOTITLE](/admin/configuration/configuring-github-connect/enabling-dependabot-for-your-enterprise).
 
 {% endif %}
 

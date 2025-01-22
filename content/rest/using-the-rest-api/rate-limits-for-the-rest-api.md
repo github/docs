@@ -14,7 +14,7 @@ redirect_from:
 
 {% ifversion ghes %}
 
-Rate limits are disabled by default for {% data variables.product.product_name %}. Contact your site administrator to confirm the rate limits for your instance.
+Rate limits are disabled by default for {% data variables.product.prodname_ghe_server %}. Contact your site administrator to confirm the rate limits for your instance.
 
 If you are a site administrator, you can set rate limits, including secondary rate limits, for your instance. See [AUTOTITLE](/admin/configuration/configuring-user-applications-for-your-enterprise/configuring-rate-limits).
 
@@ -109,7 +109,7 @@ Continuing to make requests while you are rate limited may result in the banning
 
 You should follow best practices to help you stay under the rate limits. See [AUTOTITLE](/rest/guides/best-practices-for-using-the-rest-api).
 
-{% ifversion audit-log-streaming %}
+{% ifversion ghec or ghes %}
 
 You can also stream the audit log in order to view API requests. This can help you troubleshoot integrations that are exceeding the rate limit. See [AUTOTITLE](/admin/monitoring-activity-in-your-enterprise/reviewing-audit-logs-for-your-enterprise/streaming-the-audit-log-for-your-enterprise).
 

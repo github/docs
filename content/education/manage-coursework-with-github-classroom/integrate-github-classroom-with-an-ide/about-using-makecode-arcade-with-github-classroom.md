@@ -14,11 +14,11 @@ MakeCode Arcade is an online integrated development environment (IDE) for develo
 
 {% data reusables.classroom.readme-contains-button-for-online-ide %}
 
-The first time the student clicks the button to visit MakeCode Arcade, the student must sign into MakeCode Arcade with {% data variables.product.product_name %} credentials. After signing in, the student will have access to a development environment containing the code from the assignment repository, fully configured on MakeCode Arcade.
+The first time the student clicks the button to visit MakeCode Arcade, the student must sign into MakeCode Arcade with {% data variables.product.github %} credentials. After signing in, the student will have access to a development environment containing the code from the assignment repository, fully configured on MakeCode Arcade.
 
 For more information about working on MakeCode Arcade, see the [MakeCode Arcade Tour](https://arcade.makecode.com/ide-tour) and [documentation](https://arcade.makecode.com/docs) on the MakeCode Arcade website.
 
-MakeCode Arcade does not support multiplayer-editing for group assignments. Instead, students can collaborate with Git and {% data variables.product.product_name %} features like branches and pull requests.
+MakeCode Arcade does not support multiplayer-editing for group assignments. Instead, students can collaborate with Git and {% data variables.product.github %} features like branches and pull requests.
 
 ## About submission of assignments with MakeCode Arcade
 

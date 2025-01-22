@@ -2,7 +2,9 @@
 title: 'Managing base permissions for {% data variables.projects.projects_v2 %}'
 intro: 'Organization owners can configure a base permission for {% data variables.projects.projects_v2 %} created in their organization.'
 versions:
-  feature: projects-v2-default-base-permission
+  fpt: '*'
+  ghes: '*'
+  ghec: '*'
 topics:
   - Projects
 shortTitle: 'Manage {% data variables.projects.projects_v2 %} base permissions'

@@ -295,7 +295,7 @@ If you added manual build steps for compiled languages and {% data variables.pro
 
 ## Autobuild steps for compiled languages
 
-{% ifversion fpt or ghec %}{% data variables.product.prodname_dotcom %}-hosted runners are always run with the software required by `autobuild`.{% endif %} If you use self-hosted runners for {% data variables.product.prodname_actions %}, you may need to install additional software to use the `autobuild` process. Additionally, if your repository requires a specific version of a build tool, you may need to install it manually. {% ifversion code-scanning-default-setup-self-hosted-310 or default-setup-self-hosted-runners-GHEC %} For self-hosted runners, you should install dependencies directly in the runners themselves. We provide examples of common dependencies for C/C++, C#, and Java in each of the `autobuild` sections of this article for those languages. For more information, see [AUTOTITLE](/actions/hosting-your-own-runners/managing-self-hosted-runners/about-self-hosted-runners).{% endif %}
+{% ifversion fpt or ghec %}{% data variables.product.prodname_dotcom %}-hosted runners are always run with the software required by `autobuild`.{% endif %} If you use self-hosted runners for {% data variables.product.prodname_actions %}, you may need to install additional software to use the `autobuild` process. Additionally, if your repository requires a specific version of a build tool, you may need to install it manually. {% ifversion ghes or default-setup-self-hosted-runners-GHEC %} For self-hosted runners, you should install dependencies directly in the runners themselves. We provide examples of common dependencies for C/C++, C#, and Java in each of the `autobuild` sections of this article for those languages. For more information, see [AUTOTITLE](/actions/hosting-your-own-runners/managing-self-hosted-runners/about-self-hosted-runners).{% endif %}
 
 * [Building C/C++](#building-cc)
 * [Building C#](#building-c)
@@ -468,7 +468,7 @@ The `autobuild` process attempts to autodetect a suitable way to install the dep
 1. Extract all Go code in the repository, similar to running `go build ./...`.
 
 > [!NOTE]
-> If you use default setup, it will look for a `go.mod` file to automatically install a compatible version of the Go language.{% ifversion code-scanning-default-setup-self-hosted-310 %} If you're using a self-hosted runner with default setup that doesn't have internet access, you can manually install a compatible version of Go.{% endif %}
+> If you use default setup, it will look for a `go.mod` file to automatically install a compatible version of the Go language.{% ifversion ghes %} If you're using a self-hosted runner with default setup that doesn't have internet access, you can manually install a compatible version of Go.{% endif %}
 
 ### Extractor options for Go
 

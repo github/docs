@@ -102,11 +102,11 @@ For a list of supported plugins, see [Dependency versions](https://pages.github.
 > [!TIP]
 > You can make sure you're using the latest version of all plugins by keeping the {% data variables.product.prodname_pages %} gem updated. For more information, see [AUTOTITLE](/pages/setting-up-a-github-pages-site-with-jekyll/testing-your-github-pages-site-locally-with-jekyll#updating-the-github-pages-gem) and [Dependency versions](https://pages.github.com/versions/) on the {% data variables.product.prodname_pages %} site.
 
-{% data variables.product.prodname_pages %} cannot build sites using unsupported plugins. If you want to use unsupported plugins, generate your site locally and then push your site's static files to {% data variables.product.product_name %}.
+{% data variables.product.prodname_pages %} cannot build sites using unsupported plugins. If you want to use unsupported plugins, generate your site locally and then push your site's static files to {% data variables.product.github %}.
 
 ## Syntax highlighting
 
-To make your site easier to read, code snippets are highlighted on {% data variables.product.prodname_pages %} sites the same way they're highlighted on {% data variables.product.product_name %}. For more information about syntax highlighting on {% data variables.product.product_name %}, see [AUTOTITLE](/get-started/writing-on-github/working-with-advanced-formatting/creating-and-highlighting-code-blocks).
+To make your site easier to read, code snippets are highlighted on {% data variables.product.prodname_pages %} sites the same way they're highlighted on {% data variables.product.github %}. For more information about syntax highlighting, see [AUTOTITLE](/get-started/writing-on-github/working-with-advanced-formatting/creating-and-highlighting-code-blocks).
 
 By default, code blocks on your site will be highlighted by Jekyll. Jekyll uses the [Rouge](https://github.com/rouge-ruby/rouge) highlighter (which is compatible with [Pygments](https://pygments.org/)). If you specify Pygments in your `_config.yml` file, Rouge will be used as the fallback instead. Jekyll cannot use any other syntax highlighter, and you'll get a page build warning if you specify another syntax highlighter in your `_config.yml` file. For more information, see [AUTOTITLE](/pages/setting-up-a-github-pages-site-with-jekyll/about-jekyll-build-errors-for-github-pages-sites).
 

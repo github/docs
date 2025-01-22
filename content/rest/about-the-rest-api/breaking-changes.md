@@ -26,4 +26,4 @@ Once your integration is updated, test your integration to verify that it works 
 
 ## Breaking changes for {{ initialRestVersioningReleaseDate }}
 
-Version `{{ initialRestVersioningReleaseDate }}` is the first version of the {% data variables.product.product_name %} REST API after date-based versioning was introduced. This version does not include any breaking changes.
+Version `{{ initialRestVersioningReleaseDate }}` is the first version of the {% data variables.product.github %} REST API after date-based versioning was introduced. This version does not include any breaking changes.

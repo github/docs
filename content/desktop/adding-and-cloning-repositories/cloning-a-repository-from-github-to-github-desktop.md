@@ -18,7 +18,7 @@ shortTitle: Clone a GitHub repo
 {% data reusables.repositories.open-with-github-desktop %}
 1. Click **Choose...** and navigate to a local directory where you want to clone the repository.
 
-   ![Screenshot of the "URL" tab of the "Clone a Repository" window. Next to the "Local Path" field, a button, labeled "Choose", is highlighted with an orange outline.](/assets/images/help/desktop/clone-choose-button-url-mac.png)
+   ![Screenshot of the "URL" tab of the "Clone a Repository" window. Next to the "Local Path" field, a button, labeled "Choose", is outlined in orange.](/assets/images/help/desktop/clone-choose-button-url-mac.png)
 
    > [!NOTE]
    > If the repository is configured to use LFS, you will be prompted to initialize {% data variables.large_files.product_name_short %}.
