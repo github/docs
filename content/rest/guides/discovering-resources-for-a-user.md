@@ -15,9 +15,9 @@ shortTitle: Discover resources for a user
 
 
 
-When making authenticated requests to the {% ifversion fpt or ghec %}{% data variables.product.prodname_dotcom %}{% else %}{% data variables.product.product_name %}{% endif %} API, applications often need to fetch the current user's repositories and organizations. In this guide, we'll explain how to reliably discover those resources.
+When making authenticated requests to the {% data variables.product.github %} API, applications often need to fetch the current user's repositories and organizations. In this guide, we'll explain how to reliably discover those resources.
 
-To interact with the {% ifversion fpt or ghec %}{% data variables.product.prodname_dotcom %}{% else %}{% data variables.product.product_name %}{% endif %} API, we'll be using [Octokit.rb](https://github.com/octokit/octokit.rb). You can find the complete source code for this project in the [platform-samples](https://github.com/github/platform-samples/tree/master/api/ruby/discovering-resources-for-a-user) repository.
+To interact with the {% data variables.product.github %} API, we'll be using [Octokit.rb](https://github.com/octokit/octokit.rb). You can find the complete source code for this project in the [platform-samples](https://github.com/github/platform-samples/tree/master/api/ruby/discovering-resources-for-a-user) repository.
 
 ## Getting started
 
