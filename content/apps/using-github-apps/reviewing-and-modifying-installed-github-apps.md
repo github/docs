@@ -16,7 +16,7 @@ topics:
 
 You should periodically review the {% data variables.product.prodname_github_apps %} that you have installed. You can review the permissions that you granted and change the repositories that the {% data variables.product.prodname_github_app %} can access. If you no longer use an app, consider suspending or deleting the {% data variables.product.prodname_github_app %} to block its access to resources owned by the account where it is installed.
 
-In addition to reviewing {% data variables.product.prodname_github_apps %} that you have installed, you can review {% data variables.product.prodname_github_apps %} that you have authorized to act on your behalf. For more information, see "[AUTOTITLE](/apps/using-github-apps/reviewing-and-revoking-authorization-of-github-apps)."
+In addition to reviewing {% data variables.product.prodname_github_apps %} that you have installed, you can review {% data variables.product.prodname_github_apps %} that you have authorized to act on your behalf. For more information, see [AUTOTITLE](/apps/using-github-apps/reviewing-and-revoking-authorization-of-github-apps).
 
 ## Navigating to the {% data variables.product.prodname_github_app %} you want to review or modify
 
@@ -34,26 +34,23 @@ In addition to reviewing {% data variables.product.prodname_github_apps %} that 
 
 * For a repository where a {% data variables.product.prodname_github_app %} was granted access:
 
-   {% note %}
-
-   **Note**: In the following steps, you will be taken to the account settings for the organization or personal account where the {% data variables.product.prodname_github_app %} is installed. The settings will affect all repositories where the app is installed under that account, not just the repository where you navigated from.
-
-   {% endnote %}
+   > [!NOTE]
+   > In the following steps, you will be taken to the account settings for the organization or personal account where the {% data variables.product.prodname_github_app %} is installed. The settings will affect all repositories where the app is installed under that account, not just the repository where you navigated from.
 
    1. Navigate to the main page of the organization or repository.
-   1. Click {% octicon "gear" aria-label="The Settings gear" %} **Settings**.
+   1. Click **{% octicon "gear" aria-hidden="true" %} Settings**.
    1. Under "Integrations," click **GitHub Apps**. A list of the {% data variables.product.prodname_github_apps %} that have been granted access to your repository will be displayed.
 
    1. Next to the {% data variables.product.prodname_github_app %} you want to review or modify, click **Configure**.
 
 ## Reviewing permissions
 
-1. Navigate to the {% data variables.product.prodname_github_app %} you want to modify. For more information, see "[Navigating to the GitHub App you want to review or modify](#navigating-to-the-github-app-you-want-to-review-or-modify)."
-1. Under "Permissions," review the permissions that the {% data variables.product.prodname_github_app %} has. For more information about what different permissions enable a {% data variables.product.prodname_github_app %} to do, see "[AUTOTITLE](/apps/creating-github-apps/setting-up-a-github-app/choosing-permissions-for-a-github-app)."
+1. Navigate to the {% data variables.product.prodname_github_app %} you want to modify. For more information, see [Navigating to the GitHub App you want to review or modify](#navigating-to-the-github-app-you-want-to-review-or-modify).
+1. Under "Permissions," review the permissions that the {% data variables.product.prodname_github_app %} has. For more information about what different permissions enable a {% data variables.product.prodname_github_app %} to do, see [AUTOTITLE](/apps/creating-github-apps/setting-up-a-github-app/choosing-permissions-for-a-github-app).
 
 ## Modifying repository access
 
-1. Navigate to the {% data variables.product.prodname_github_app %} you want to modify. For more information, see "[Navigating to the GitHub App you want to review or modify](#navigating-to-the-github-app-you-want-to-review-or-modify)."
+1. Navigate to the {% data variables.product.prodname_github_app %} you want to modify. For more information, see [Navigating to the GitHub App you want to review or modify](#navigating-to-the-github-app-you-want-to-review-or-modify).
 1. Under "Repository access," select **All repositories** or **Only select repositories**.
 1. If you selected **Only select repositories** in the previous step, under the **Select repositories** dropdown, select the repositories that you want the {% data variables.product.prodname_github_app %} to access.
 
@@ -62,17 +59,17 @@ In addition to reviewing {% data variables.product.prodname_github_apps %} that 
 
 ## Blocking access
 
-1. Navigate to the {% data variables.product.prodname_github_app %} you want to modify. For more information, see "[Navigating to the GitHub App you want to review or modify](#navigating-to-the-github-app-you-want-to-review-or-modify)."
+1. Navigate to the {% data variables.product.prodname_github_app %} you want to modify. For more information, see [Navigating to the GitHub App you want to review or modify](#navigating-to-the-github-app-you-want-to-review-or-modify).
 1. To keep the {% data variables.product.prodname_github_app %} installed for future use but temporarily block it from accessing resources owned by your account, click **Suspend**.
 
-   When you suspend a {% data variables.product.prodname_github_app %}, your authorization of the app (if the app is installed on your personal account) or the authorization of the app by members of your organization (if the app is installed on an organization) will not be affected. For more information, see "[AUTOTITLE](/apps/using-github-apps/authorizing-github-apps)."
+   When you suspend a {% data variables.product.prodname_github_app %}, your authorization of the app (if the app is installed on your personal account) or the authorization of the app by members of your organization (if the app is installed on an organization) will not be affected. For more information, see [AUTOTITLE](/apps/using-github-apps/authorizing-github-apps).
 
    If the {% data variables.product.prodname_github_app %} was previously suspended, you can unsuspend the app by clicking **Unsuspend**. If the {% data variables.product.prodname_github_app %} was suspended by the {% data variables.product.prodname_github_app %} owner, then you cannot unsuspend the app.
 1. To uninstall a {% data variables.product.prodname_github_app %} and block it from accessing resources owned by your account, click **Uninstall**.
 
-   When you delete a {% data variables.product.prodname_github_app %}, your authorization of the app (if the app is installed on your personal account) or the authorization of the app by members of your organization (if the app is installed on an organization) will be revoked. For more information, see "[AUTOTITLE](/apps/using-github-apps/authorizing-github-apps)."
+   When you delete a {% data variables.product.prodname_github_app %}, your authorization of the app (if the app is installed on your personal account) or the authorization of the app by members of your organization (if the app is installed on an organization) will be revoked. For more information, see [AUTOTITLE](/apps/using-github-apps/authorizing-github-apps).
 
 ## Further reading
 
-* "[AUTOTITLE](/apps/using-github-apps/reviewing-and-revoking-authorization-of-github-apps)"
-* "[AUTOTITLE](/apps/using-github-apps/internal-github-apps)"
+* [AUTOTITLE](/apps/using-github-apps/reviewing-and-revoking-authorization-of-github-apps)
+* [AUTOTITLE](/apps/using-github-apps/internal-github-apps)

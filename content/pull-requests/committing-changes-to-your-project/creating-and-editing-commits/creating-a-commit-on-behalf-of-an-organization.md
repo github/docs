@@ -1,6 +1,6 @@
 ---
 title: Creating a commit on behalf of an organization
-intro: 'You can create commits on behalf of an organization by adding a  trailer to the commit''s message. Commits attributed to an organization include an `on-behalf-of` badge on {% data variables.product.product_name %}.'
+intro: 'You can create commits on behalf of an organization by adding a trailer to the commit''s message. Commits attributed to an organization include an `on-behalf-of` badge on {% data variables.product.github %}.'
 redirect_from:
   - /articles/creating-a-commit-on-behalf-of-an-organization
   - /github/committing-changes-to-your-project/creating-a-commit-on-behalf-of-an-organization
@@ -13,12 +13,12 @@ shortTitle: On behalf of an organization
 
 To create commits on behalf of an organization:
 
-* You must be a member of the organization indicated in the trailer
-* You must sign the commit
-* Your commit email and the organization email must be in a domain verified by the organization
-* Your commit message must end with the commit trailer `on-behalf-of: @org <name@organization.com>`
-  * `org` is the organization's login
-  * `name@organization.com` is in the organization's domain
+* You must be a member of the organization indicated in the trailer.
+* You must sign the commit.
+* Your commit email and the organization email must be in a domain verified by the organization.
+* Your commit message must end with the commit trailer `on-behalf-of: @org <name@organization.com>`.
+  * `org` is the organization's login.
+  * `name@organization.com` is in the organization's domain.
 
 Organizations can use the `name@organization.com` email as a public point of contact for open source efforts.
 
@@ -32,11 +32,8 @@ Organizations can use the `name@organization.com` email as a public point of con
    >
    ```
 
-   {% tip %}
-
-   **Tip:** If you're using a text editor on the command line to type your commit message, ensure there are two newlines between the end of your commit description and the `on-behalf-of:` commit trailer.
-
-   {% endtip %}
+   > [!TIP]
+   > If you're using a text editor on the command line to type your commit message, ensure there are two newlines between the end of your commit description and the `on-behalf-of:` commit trailer.
 
 1. On the next line of the commit message, type `on-behalf-of: @org <name@organization.com>`, then a closing quotation mark.
 
@@ -47,22 +44,22 @@ Organizations can use the `name@organization.com` email as a public point of con
    on-behalf-of: @ORG NAME@ORGANIZATION.COM"
    ```
 
-The new commit, message, and badge will appear on {% data variables.location.product_location %} the next time you push. For more information, see "[AUTOTITLE](/get-started/using-git/pushing-commits-to-a-remote-repository)."
+The new commit, message, and badge will appear on {% data variables.product.prodname_dotcom %} the next time you push. For more information, see [AUTOTITLE](/get-started/using-git/pushing-commits-to-a-remote-repository).
 
-## Creating commits with an `on-behalf-of` badge on {% data variables.product.product_name %}
+## Creating commits with an `on-behalf-of` badge on {% data variables.product.github %}
 
-After you've made changes in a file using the web editor on {% data variables.product.product_name %}, you can create a commit on behalf of your organization by adding an `on-behalf-of:` trailer to the commit's message.
+After you've made changes in a file using the web editor on {% data variables.product.github %}, you can create a commit on behalf of your organization by adding an `on-behalf-of:` trailer to the commit's message.
 
 1. Click **Commit changes...**
 1. In the "Commit message" field, type a short, meaningful commit message that describes the changes you made.
 1. In the text box below your commit message, add `on-behalf-of: @org <name@organization.com>`.
 1. Click **Commit changes** or **Propose changes**.
 
-The new commit, message, and badge will appear on {% data variables.location.product_location %}.
+The new commit, message, and badge will appear on {% data variables.product.prodname_dotcom %}.
 
 ## Further reading
 
-* "[AUTOTITLE](/account-and-profile/setting-up-and-managing-your-github-profile/managing-contribution-settings-on-your-profile/viewing-contributions-on-your-profile)"
-* "[AUTOTITLE](/account-and-profile/setting-up-and-managing-your-github-profile/managing-contribution-settings-on-your-profile/why-are-my-contributions-not-showing-up-on-my-profile)"
-* "[AUTOTITLE](/repositories/viewing-activity-and-data-for-your-repository/viewing-a-projects-contributors)"
-* "[AUTOTITLE](/pull-requests/committing-changes-to-your-project/creating-and-editing-commits/changing-a-commit-message)"
+* [AUTOTITLE](/account-and-profile/setting-up-and-managing-your-github-profile/managing-contribution-settings-on-your-profile/viewing-contributions-on-your-profile)
+* [AUTOTITLE](/account-and-profile/setting-up-and-managing-your-github-profile/managing-contribution-settings-on-your-profile/why-are-my-contributions-not-showing-up-on-my-profile)
+* [AUTOTITLE](/repositories/viewing-activity-and-data-for-your-repository/viewing-a-projects-contributors)
+* [AUTOTITLE](/pull-requests/committing-changes-to-your-project/creating-and-editing-commits/changing-a-commit-message)

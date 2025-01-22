@@ -29,8 +29,8 @@ import archivedEnterpriseVersionsAssets from '@/archives/middleware/archived-ent
 import api from './api'
 import healthz from './healthz'
 import manifestJson from './manifest-json'
-import remoteIP from './remote-ip'
 import buildInfo from './build-info'
+import reqHeaders from './req-headers'
 import archivedEnterpriseVersions from '@/archives/middleware/archived-enterprise-versions'
 import robots from './robots'
 import earlyAccessLinks from '@/early-access/middleware/early-access-links'
@@ -61,7 +61,7 @@ import fastlyCacheTest from './fastly-cache-test'
 import trailingSlashes from './trailing-slashes'
 import mockVaPortal from './mock-va-portal'
 import dynamicAssets from '@/assets/middleware/dynamic-assets'
-import contextualizeSearch from '@/search/middleware/contextualize.js'
+import generalSearchMiddleware from '@/search/middleware/general-search-middleware'
 import shielding from '@/shielding/middleware'
 import tracking from '@/tracking/middleware'
 import { MAX_REQUEST_TIMEOUT } from '@/frame/lib/constants.js'
@@ -113,7 +113,7 @@ export default function (app: Express) {
   }
 
   // *** Observability ***
-  if (process.env.DD_API_KEY) {
+  if (process.env.MODA_PROD_SERVICE_ENV) {
     app.use(datadog)
   }
 
@@ -240,8 +240,8 @@ export default function (app: Express) {
 
   // *** Rendering, 2xx responses ***
   app.use('/api', api)
-  app.get('/_ip', remoteIP)
   app.get('/_build', buildInfo)
+  app.get('/_req-headers', reqHeaders)
   app.use(asyncMiddleware(manifestJson))
 
   // Things like `/api` sets their own Fastly surrogate keys.
@@ -275,7 +275,7 @@ export default function (app: Express) {
   app.use(asyncMiddleware(productExamples))
   app.use(asyncMiddleware(productGroups))
   app.use(asyncMiddleware(glossaries))
-  app.use(asyncMiddleware(contextualizeSearch))
+  app.use(asyncMiddleware(generalSearchMiddleware))
   app.use(asyncMiddleware(featuredLinks))
   app.use(asyncMiddleware(learningTrack))
 

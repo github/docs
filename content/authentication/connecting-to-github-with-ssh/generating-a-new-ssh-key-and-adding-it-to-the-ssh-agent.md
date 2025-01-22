@@ -18,13 +18,13 @@ shortTitle: Generate new SSH key
 
 ## About SSH key passphrases
 
-{% data reusables.ssh.about-ssh %} For more information, see "[AUTOTITLE](/authentication/connecting-to-github-with-ssh/about-ssh)."
+{% data reusables.ssh.about-ssh %} For more information, see [AUTOTITLE](/authentication/connecting-to-github-with-ssh/about-ssh).
 
 When you generate an SSH key, you can add a passphrase to further secure the key. Whenever you use the key, you must enter the passphrase. If your key has a passphrase and you don't want to enter the passphrase every time you use the key, you can add your key to the SSH agent. The SSH agent manages your SSH keys and remembers your passphrase.
 
-If you don't already have an SSH key, you must generate a new SSH key to use for authentication. If you're unsure whether you already have an SSH key, you can check for existing keys. For more information, see "[AUTOTITLE](/authentication/connecting-to-github-with-ssh/checking-for-existing-ssh-keys)."
+If you don't already have an SSH key, you must generate a new SSH key to use for authentication. If you're unsure whether you already have an SSH key, you can check for existing keys. For more information, see [AUTOTITLE](/authentication/connecting-to-github-with-ssh/checking-for-existing-ssh-keys).
 
-If you want to use a hardware security key to authenticate to {% data variables.product.product_name %}, you must generate a new SSH key for your hardware security key. You must connect your hardware security key to your computer when you authenticate with the key pair. For more information, see the [OpenSSH 8.2 release notes](https://www.openssh.com/txt/release-8.2).
+If you want to use a hardware security key to authenticate to {% data variables.product.github %}, you must generate a new SSH key for your hardware security key. You must connect your hardware security key to your computer when you authenticate with the key pair. For more information, see the [OpenSSH 8.2 release notes](https://www.openssh.com/txt/release-8.2).
 
 ## Generating a new SSH key
 
@@ -32,28 +32,25 @@ You can generate a new SSH key on your local machine. After you generate the key
 
 {% ifversion ghes %}
 
-If you are a site administrator for {% data variables.location.product_location %}, you can use the same key to grant yourself administrative SSH access to the instance. For more information, see "[AUTOTITLE](/admin/configuration/configuring-your-enterprise/accessing-the-administrative-shell-ssh)."
+If you are a site administrator for {% data variables.location.product_location_enterprise %}, you can use the same key to grant yourself administrative SSH access to the instance. For more information, see [AUTOTITLE](/admin/configuration/configuring-your-enterprise/accessing-the-administrative-shell-ssh).
 
 {% endif %}
 
 {% data reusables.ssh.key-type-support %}
 
 {% data reusables.command_line.open_the_multi_os_terminal %}
-1. Paste the text below, replacing the email used in the example with your {% data variables.product.product_name %} email address.
+1. Paste the text below, replacing the email used in the example with your {% data variables.product.github %} email address.
 
    ```shell
    ssh-keygen -t ed25519 -C "your_email@example.com"
    ```
 
-   {% note %}
-
-   **Note:** If you are using a legacy system that doesn't support the Ed25519 algorithm, use:
-
-   ```shell
-    ssh-keygen -t rsa -b 4096 -C "your_email@example.com"
-   ```
-
-   {% endnote %}
+   > [!NOTE]
+   > If you are using a legacy system that doesn't support the Ed25519 algorithm, use:
+   >
+   > ```shell
+   > ssh-keygen -t rsa -b 4096 -C "your_email@example.com"
+   > ```
 
    This creates a new SSH key, using the provided email as a label.
 
@@ -87,7 +84,7 @@ If you are a site administrator for {% data variables.location.product_location 
 
    {% endlinux %}
 
-1. At the prompt, type a secure passphrase. For more information, see "[AUTOTITLE](/authentication/connecting-to-github-with-ssh/working-with-ssh-key-passphrases)."
+1. At the prompt, type a secure passphrase. For more information, see [AUTOTITLE](/authentication/connecting-to-github-with-ssh/working-with-ssh-key-passphrases).
 
    ```shell
    > Enter passphrase (empty for no passphrase): [Type a passphrase]
@@ -126,20 +123,14 @@ Before adding a new SSH key to the ssh-agent to manage your keys, you should hav
        IdentityFile ~/.ssh/id_ed25519
      ```
 
-     {% note %}
-
-     **Notes:**
-
-     * If you chose not to add a passphrase to your key, you should omit the `UseKeychain` line.
-
-     * If you see a `Bad configuration option: usekeychain` error, add an additional line to the configuration's' `Host *.{% ifversion ghes %}HOSTNAME{% else %}github.com{% endif %}` section.
-
-       ```text copy
-       Host {% ifversion ghes %}HOSTNAME{% else %}github.com{% endif %}
-         IgnoreUnknown UseKeychain
-       ```
-
-     {% endnote %}
+     > [!NOTE]
+     > * If you chose not to add a passphrase to your key, you should omit the `UseKeychain` line.
+     > * If you see a `Bad configuration option: usekeychain` error, add an additional line to the configuration's' `Host *.{% ifversion ghes %}HOSTNAME{% else %}github.com{% endif %}` section.
+     >
+     > ```text copy
+     > Host {% ifversion ghes %}HOSTNAME{% else %}github.com{% endif %}
+     >   IgnoreUnknown UseKeychain
+     > ```
 
 1. Add your SSH private key to the ssh-agent and store your passphrase in the keychain. {% data reusables.ssh.add-ssh-key-to-ssh-agent %}
 
@@ -157,7 +148,7 @@ Before adding a new SSH key to the ssh-agent to manage your keys, you should hav
 
 {% data reusables.desktop.windows_git_bash %}
 
-1. In a new _admin elevated_ PowerShell window, ensure the ssh-agent is running. You can use the "Auto-launching the ssh-agent" instructions in "[AUTOTITLE](/articles/working-with-ssh-key-passphrases)", or start it manually:
+1. In a new _admin elevated_ PowerShell window, ensure the ssh-agent is running. You can use the "Auto-launching the ssh-agent" instructions in [AUTOTITLE](/articles/working-with-ssh-key-passphrases), or start it manually:
 
    ```powershell
    # start the ssh-agent in the background
@@ -192,12 +183,12 @@ Before adding a new SSH key to the ssh-agent to manage your keys, you should hav
 
 ## Generating a new SSH key for a hardware security key
 
-If you are using macOS or Linux, you may need to update your SSH client or install a new SSH client prior to generating a new SSH key. For more information, see "[AUTOTITLE](/authentication/troubleshooting-ssh/error-unknown-key-type)."
+If you are using macOS or Linux, you may need to update your SSH client or install a new SSH client prior to generating a new SSH key. For more information, see [AUTOTITLE](/authentication/troubleshooting-ssh/error-unknown-key-type).
 
 1. Insert your hardware security key into your computer.
 {% data reusables.command_line.open_the_multi_os_terminal %}
 
-1. Paste the text below, replacing the email address in the example with the email address associated with your account on {% data variables.product.product_name %}.
+1. Paste the text below, replacing the email address in the example with the email address associated with your {% data variables.product.github %} account.
 
    {% mac %}
 
@@ -223,15 +214,12 @@ If you are using macOS or Linux, you may need to update your SSH client or insta
 
    {% endlinux %}
 
-   {% note %}
-
-   **Note:** If the command fails and you receive the error `invalid format` or `feature not supported,` you may be using a hardware security key that does not support the Ed25519 algorithm. Enter the following command instead.
-
-   ```shell
-    ssh-keygen -t ecdsa-sk -C "your_email@example.com"
-   ```
-
-   {% endnote %}
+   > [!NOTE]
+   > If the command fails and you receive the error `invalid format` or `feature not supported,` you may be using a hardware security key that does not support the Ed25519 algorithm. Enter the following command instead.
+   >
+   > ```shell
+   > ssh-keygen -t ecdsa-sk -C "your_email@example.com"
+   > ```
 
 1. When you are prompted, touch the button on your hardware security key.
 1. When you are prompted to "Enter a file in which to save the key," press Enter to accept the default file location.

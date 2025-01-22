@@ -1,4 +1,4 @@
-1. Under your repository name, click {% octicon "play" aria-hidden="true" %} **Actions**.
+1. Under your repository name, click **{% octicon "play" aria-hidden="true" %} Actions**.
 
 {% ifversion global-nav-update %}
 

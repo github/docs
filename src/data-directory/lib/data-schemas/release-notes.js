@@ -67,6 +67,8 @@ export default {
         'security_fixes',
         'backups',
         'errata',
+        'closing_down',
+        'retired',
       ].reduce((prev, curr) => ({ ...prev, [curr]: section }), {}),
     },
   },

@@ -1186,7 +1186,7 @@
   },
   {
     "action": "org.delete",
-    "description": "An organization was deleted by a user-initiated background job.",
+    "description": "An organization was deleted by a user or staff.",
     "docs_reference_links": "N/A"
   },
   {

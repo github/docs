@@ -20,9 +20,9 @@ redirect_from:
 
 {% webui %}
 
-1. Navigate to your repository on {% data variables.product.prodname_dotcom_the_website %}, find your `devcontainer.json` file, and click {% octicon "pencil" aria-label="Edit this file" %} to edit the file.
+1. Navigate to your repository on {% data variables.product.github %}, find your `devcontainer.json` file, and click {% octicon "pencil" aria-label="Edit this file" %} to edit the file.
 
-   If you don't already have a `devcontainer.json` file, you can create one now. For more information, see "[AUTOTITLE](/codespaces/setting-up-your-project-for-codespaces/adding-a-dev-container-configuration/introduction-to-dev-containers#creating-a-custom-dev-container-configuration)."
+   If you don't already have a `devcontainer.json` file, you can create one now. For more information, see [AUTOTITLE](/codespaces/setting-up-your-project-for-codespaces/adding-a-dev-container-configuration/introduction-to-dev-containers#creating-a-custom-dev-container-configuration).
 1. To the right of the file editor, in the **Marketplace** tab, browse or search for the feature you want to add, then click the name of the feature.
 
    ![Screenshot of the "Marketplace" tab with "Terra" in the search box and the Terraform feature listed in the search results.](/assets/images/help/codespaces/feature-marketplace.png)
@@ -56,17 +56,14 @@ redirect_from:
 
 1. Commit the changes to your `devcontainer.json` file.
 
-The configuration changes will take effect in new codespaces created from the repository. To make the changes take effect in existing codespaces, you will need to pull the updates to the `devcontainer.json` file into your codespace, then rebuild the container for the codespace. For more information, see "[AUTOTITLE](/codespaces/setting-up-your-project-for-codespaces/adding-a-dev-container-configuration/introduction-to-dev-containers#applying-configuration-changes-to-a-codespace)."
+The configuration changes will take effect in new codespaces created from the repository. To make the changes take effect in existing codespaces, you will need to pull the updates to the `devcontainer.json` file into your codespace, then rebuild the container for the codespace. For more information, see [AUTOTITLE](/codespaces/setting-up-your-project-for-codespaces/adding-a-dev-container-configuration/introduction-to-dev-containers#applying-configuration-changes-to-a-codespace).
 
 {% endwebui %}
 
 {% vscode %}
 
-{% note %}
-
-To add features in {% data variables.product.prodname_vscode_shortname %} while you are working locally, and not connected to a codespace, you must have the "Dev Containers" extension installed and enabled. For more information about this extension, see the [{% data variables.product.prodname_vs_marketplace_shortname %}](https://marketplace.visualstudio.com/items?itemName=ms-vscode-remote.remote-containers).
-
-{% endnote %}
+> [!NOTE]
+> To add features in {% data variables.product.prodname_vscode_shortname %} while you are working locally, and not connected to a codespace, you must have the "Dev Containers" extension installed and enabled. For more information about this extension, see the [{% data variables.product.prodname_vs_marketplace_shortname %}](https://marketplace.visualstudio.com/items?itemName=ms-vscode-remote.remote-containers).
 
 {% data reusables.codespaces.command-palette %}
 1. Start typing "add dev" then click **Codespaces: Add Dev Container Configuration Files**.

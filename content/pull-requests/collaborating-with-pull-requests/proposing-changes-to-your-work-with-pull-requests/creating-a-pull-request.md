@@ -14,7 +14,7 @@ topics:
   - Pull requests
 ---
 
-If you want to create a new branch for your pull request and do not have write permissions to the repository, you can fork the repository first. For more information, see "[AUTOTITLE](/pull-requests/collaborating-with-pull-requests/proposing-changes-to-your-work-with-pull-requests/creating-a-pull-request-from-a-fork)" and "[AUTOTITLE](/pull-requests/collaborating-with-pull-requests/working-with-forks/about-forks)."
+If you want to create a new branch for your pull request and do not have write permissions to the repository, you can fork the repository first. For more information, see [AUTOTITLE](/pull-requests/collaborating-with-pull-requests/proposing-changes-to-your-work-with-pull-requests/creating-a-pull-request-from-a-fork) and [AUTOTITLE](/pull-requests/collaborating-with-pull-requests/working-with-forks/about-forks).
 
 You can specify which branch you'd like to merge your changes into when you create your pull request. Pull requests can only be opened between two branches that are different.
 
@@ -24,7 +24,7 @@ You can specify which branch you'd like to merge your changes into when you crea
 
 ## Changing the branch range and destination repository
 
-By default, pull requests are based on the parent repository's default branch. For more information, see "[AUTOTITLE](/pull-requests/collaborating-with-pull-requests/proposing-changes-to-your-work-with-pull-requests/about-branches#about-the-default-branch)."
+By default, pull requests are based on the parent repository's default branch. For more information, see [AUTOTITLE](/pull-requests/collaborating-with-pull-requests/proposing-changes-to-your-work-with-pull-requests/about-branches#about-the-default-branch).
 
 If the default parent repository isn't correct, you can change both the parent repository and the branch with the drop-down lists. You can also swap your head and base branches with the drop-down lists to establish diffs between reference points. References here must be branch names in your GitHub repository.
 
@@ -36,13 +36,9 @@ When you change the base repository, you also change notifications for the pull 
 
 When you change any of the information in the branch range, the Commit and Files changed preview areas will update to show your new range.
 
-{% tip %}
-
-**Tips**:
-* Using the compare view, you can set up comparisons across any timeframe. For more information, see "[AUTOTITLE](/pull-requests/committing-changes-to-your-project/viewing-and-comparing-commits/comparing-commits)."
-* Project maintainers can add a pull request template for a repository. Templates include prompts for information in the body of a pull request. For more information, see "[AUTOTITLE](/communities/using-templates-to-encourage-useful-issues-and-pull-requests/about-issue-and-pull-request-templates)."
-
-{% endtip %}
+> [!TIP]
+> * Using the compare view, you can set up comparisons across any timeframe. For more information, see [AUTOTITLE](/pull-requests/committing-changes-to-your-project/viewing-and-comparing-commits/comparing-commits).
+> * Project maintainers can add a pull request template for a repository. Templates include prompts for information in the body of a pull request. For more information, see [AUTOTITLE](/communities/using-templates-to-encourage-useful-issues-and-pull-requests/about-issue-and-pull-request-templates).
 
 ## Creating the pull request
 
@@ -98,7 +94,7 @@ To mark a pull request as a draft, use the `--draft` flag.
 gh pr create --draft
 ```
 
-To add a labels or milestones to the new pull request, use the `--label` and `--milestone`  flags.
+To add a labels or milestones to the new pull request, use the `--label` and `--milestone` flags.
 
 ```shell
 gh pr create --label "bug,help wanted" --milestone octocat-milestone
@@ -113,7 +109,7 @@ gh pr create --project octocat-project
 To assign an individual or team as reviewers, use the `--reviewer` flag.
 
 ```shell
-gh pr create --reviewer monalisa,hubot  --reviewer myorg/team-name
+gh pr create --reviewer monalisa,hubot --reviewer myorg/team-name
 ```
 
 To create the pull request in your default web browser, use the `--web` flag.
@@ -166,18 +162,45 @@ gh pr create --web
 ![Screenshot of the "{% data variables.product.prodname_dotcom %} Pull Request" side bar with a form for creating a pull request, including "Title" and "Description" fields.](/assets/images/help/codespaces/codespaces-commit-pr.png)
 1. Click **Create**.
 
-For more information on creating pull requests in {% data variables.product.prodname_github_codespaces %}, see "[AUTOTITLE](/codespaces/developing-in-codespaces/using-github-codespaces-for-pull-requests)."
+For more information on creating pull requests in {% data variables.product.prodname_github_codespaces %}, see [AUTOTITLE](/codespaces/developing-in-codespaces/using-github-codespaces-for-pull-requests).
 
 {% endcodespaces %}
 
 {% endif %}
 
+## Making changes to files in your pull request
+
+After you have opened your pull request, you can continue making changes to the files by adding new commits to your head branch.
+
+{% webui %}
+
+You can also make changes to files on the {% data variables.product.github %} website.
+
+1. On {% data variables.product.github %}, navigate to a pull request in a repository.
+{% data reusables.repositories.changed-files %}
+1. Scroll down to the file you want to make changes to.
+   * If the pull request has a lot of files, you can use the filter to locate the file. See [AUTOTITLE](/pull-requests/collaborating-with-pull-requests/reviewing-changes-in-pull-requests/filtering-files-in-a-pull-request).
+1. Above the file you want to change, click {% octicon "kebab-horizontal" aria-label="Show options" %}.
+   ![Screenshot of the options above a file on the "File changed" tab. The "Show options" button is highlighted with an orange rectangle.](/assets/images/help/pull_requests/menu-on-pull-request-file.png)
+1. In the menu, click **Edit file**.
+1. Make your changes in the editor and when committing your change, choose to commit directly back to your head branch.
+
+{% ifversion copilot-hadron %}
+
+If you are part of the {% data variables.release-phases.public_preview %} of {% data variables.product.prodname_copilot_workspace %}, clicking **Edit** on a file on the "Files changed" tab will open the file in a {% data variables.product.prodname_copilot_workspace %} on {% data variables.product.prodname_dotcom %}. In a {% data variables.product.prodname_copilot_workspace %}, you can still make changes to the file but also make changes to other files in the repository, group your changes into a single commit, and take advantage of {% data variables.product.prodname_copilot_short %} code completion.
+
+You can access {% data variables.product.prodname_copilot_workspace %} by choosing to edit an individual file or by clicking **Open in {% data variables.product.prodname_copilot_workspace_short %}** in your pull request's right sidebar. For more information about {% data variables.product.prodname_copilot_workspace %} and joining the {% data variables.release-phases.public_preview %}, see [AUTOTITLE](/copilot/using-github-copilot/using-github-copilot-for-pull-requests/using-copilot-to-help-you-work-on-a-pull-request).
+
+{% endif %}
+
+{% endwebui %}
+
 ## Further reading
 
-* "[AUTOTITLE](/pull-requests/collaborating-with-pull-requests/proposing-changes-to-your-work-with-pull-requests/creating-a-pull-request-from-a-fork)"
-* "[AUTOTITLE](/pull-requests/collaborating-with-pull-requests/proposing-changes-to-your-work-with-pull-requests/keeping-your-pull-request-in-sync-with-the-base-branch)"
-* "[AUTOTITLE](/pull-requests/collaborating-with-pull-requests/proposing-changes-to-your-work-with-pull-requests/changing-the-base-branch-of-a-pull-request)"
-* "[AUTOTITLE](/issues/organizing-your-work-with-project-boards/tracking-work-with-project-boards/adding-issues-and-pull-requests-to-a-project-board#adding-issues-and-pull-requests-to-a-project-board-from-the-sidebar)"
-* "[AUTOTITLE](/issues/tracking-your-work-with-issues/creating-an-issue)"
-* "[AUTOTITLE](/issues/tracking-your-work-with-issues/assigning-issues-and-pull-requests-to-other-github-users)"
-* "[AUTOTITLE](/get-started/writing-on-github)"
+* [AUTOTITLE](/pull-requests/collaborating-with-pull-requests/proposing-changes-to-your-work-with-pull-requests/creating-a-pull-request-from-a-fork)
+* [AUTOTITLE](/pull-requests/collaborating-with-pull-requests/proposing-changes-to-your-work-with-pull-requests/keeping-your-pull-request-in-sync-with-the-base-branch)
+* [AUTOTITLE](/pull-requests/collaborating-with-pull-requests/proposing-changes-to-your-work-with-pull-requests/changing-the-base-branch-of-a-pull-request){% ifversion projects-v1 %}
+* [AUTOTITLE](/issues/organizing-your-work-with-project-boards/tracking-work-with-project-boards/adding-issues-and-pull-requests-to-a-project-board#adding-issues-and-pull-requests-to-a-project-board-from-the-sidebar){% endif %}
+* [AUTOTITLE](/issues/tracking-your-work-with-issues/creating-an-issue)
+* [AUTOTITLE](/issues/tracking-your-work-with-issues/assigning-issues-and-pull-requests-to-other-github-users)
+* [AUTOTITLE](/get-started/writing-on-github)

@@ -19,11 +19,8 @@ redirect_from:
 
 This guide explains how to use {% data variables.product.prodname_actions %} to build and deploy a PHP project to [Azure App Service](https://azure.microsoft.com/services/app-service/).
 
-{% note %}
-
-**Note**: {% data reusables.actions.about-oidc-short-overview %} and "[AUTOTITLE](/actions/deployment/security-hardening-your-deployments/configuring-openid-connect-in-azure)."
-
-{% endnote %}
+> [!NOTE]
+> {% data reusables.actions.about-oidc-short-overview %} and [AUTOTITLE](/actions/deployment/security-hardening-your-deployments/configuring-openid-connect-in-azure).
 
 ## Prerequisites
 
@@ -84,13 +81,13 @@ jobs:
       - uses: {% data reusables.actions.action-checkout %}
 
       - name: Setup PHP
-        uses: shivammathur/setup-php@v2
+        uses: shivammathur/setup-php@1f2e3d4c5b6a7f8e9d0c1b2a3e4f5d6c7b8a9e0f
         with:
           php-version: {% raw %}${{ env.PHP_VERSION }}{% endraw %}
 
       - name: Check if composer.json exists
         id: check_files
-        uses: andstor/file-existence-action@v2
+        uses: andstor/file-existence-action@2a3b4c5d6e7f8a9b0c1d2e3f4a5b6c7d8e9f0a1b
         with:
           files: 'composer.json'
 
@@ -145,6 +142,6 @@ jobs:
 
 The following resources may also be useful:
 
-* For the original starter workflow, see [`azure-webapps-php.yml`](https://github.com/actions/starter-workflows/blob/main/deployments/azure-webapps-php.yml) in the {% data variables.product.prodname_actions %} `starter-workflows` repository.
+* For the original workflow template, see [`azure-webapps-php.yml`](https://github.com/actions/starter-workflows/blob/main/deployments/azure-webapps-php.yml) in the {% data variables.product.prodname_actions %} `starter-workflows` repository.
 * The action used to deploy the web app is the official Azure [`Azure/webapps-deploy`](https://github.com/Azure/webapps-deploy) action.
 * For more examples of GitHub Action workflows that deploy to Azure, see the [actions-workflow-samples](https://github.com/Azure/actions-workflow-samples) repository.

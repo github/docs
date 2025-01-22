@@ -12,6 +12,7 @@
 * PHP
 * Protocol Buffers
 * Python
+* R
 * Ruby
 * Rust
 * Scala

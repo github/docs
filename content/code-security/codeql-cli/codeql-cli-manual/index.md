@@ -83,6 +83,7 @@ children:
   - /resolve-library-path
   - /resolve-metadata
   - /resolve-ml-models
+  - /resolve-packs
   - /resolve-qlpacks
   - /resolve-qlref
   - /resolve-queries

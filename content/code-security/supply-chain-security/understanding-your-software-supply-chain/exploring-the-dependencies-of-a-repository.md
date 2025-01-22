@@ -1,6 +1,7 @@
 ---
 title: Exploring the dependencies of a repository
 intro: 'You can use the dependency graph to see the packages your project depends on{% ifversion fpt or ghec %} and the repositories that depend on it{% endif %}. In addition, you can see any vulnerabilities detected in its dependencies.'
+permissions: '{% data reusables.permissions.dependency-graph-view-dependencies %}'
 redirect_from:
   - /articles/listing-the-packages-that-a-repository-depends-on
   - /github/visualizing-repository-data-with-graphs/listing-the-packages-that-a-repository-depends-on
@@ -23,7 +24,7 @@ shortTitle: Explore dependencies
 
 ## Viewing the dependency graph
 
-The dependency graph shows the dependencies{% ifversion fpt or ghec %} and dependents{% endif %} of your repository. {% ifversion dependency-graph-repository-view-update %} {% data reusables.dependency-graph.repository-view-update %}{% endif %} For information about the detection of dependencies and which ecosystems are supported, see "[AUTOTITLE](/code-security/supply-chain-security/understanding-your-software-supply-chain/about-the-dependency-graph)."
+The dependency graph shows the dependencies{% ifversion fpt or ghec %} and dependents{% endif %} of your repository. {% ifversion dependency-graph-repository-view-update %} {% data reusables.dependency-graph.repository-view-update %}{% endif %} For information about the detection of dependencies and which ecosystems are supported, see [AUTOTITLE](/code-security/supply-chain-security/understanding-your-software-supply-chain/dependency-graph-supported-package-ecosystems).
 
 {% data reusables.repositories.navigate-to-repo %}
 {% data reusables.repositories.accessing-repository-graphs %}
@@ -45,7 +46,7 @@ The dependency graph shows the dependencies{% ifversion fpt or ghec %} and depen
 {% endif %}
 
 {% ifversion ghes %}
-Enterprise owners can configure the dependency graph at an enterprise level. For more information, see "[AUTOTITLE](/admin/code-security/managing-supply-chain-security-for-your-enterprise/enabling-the-dependency-graph-for-your-enterprise)."
+Enterprise owners can configure the dependency graph at an enterprise level. For more information, see [AUTOTITLE](/admin/code-security/managing-supply-chain-security-for-your-enterprise/enabling-the-dependency-graph-for-your-enterprise).
 {% endif %}
 
 ### Dependencies view
@@ -59,16 +60,15 @@ Any direct and indirect dependencies that are specified in the repository's mani
 {% endif %}
 
 {% ifversion dependency-graph-repository-view-update %}
-Dependencies submitted to a project using the {% data variables.dependency-submission-api.name %} will show which detector was used for their submission and when they were submitted.{% elsif ghes %}Dependencies submitted to a project using the {% data variables.dependency-submission-api.name %}, although also grouped by ecosystem, are shown separately from dependencies identified through manifest or lock files in the repository. These submitted dependencies appear in the dependency graph as "Snapshot dependencies" because they are submitted as a snapshot, or set, of dependencies.{% else %}{% endif %} For more information on using the {% data variables.dependency-submission-api.name %}, see "[AUTOTITLE](/code-security/supply-chain-security/understanding-your-software-supply-chain/using-the-dependency-submission-api)."
+Dependencies submitted to a project using the {% data variables.dependency-submission-api.name %} will show which detector was used for their submission and when they were submitted.{% elsif ghes %}Dependencies submitted to a project using the {% data variables.dependency-submission-api.name %}, although also grouped by ecosystem, are shown separately from dependencies identified through manifest or lock files in the repository. These submitted dependencies appear in the dependency graph as "Snapshot dependencies" because they are submitted as a snapshot, or set, of dependencies.{% else %}{% endif %} For more information on using the {% data variables.dependency-submission-api.name %}, see [AUTOTITLE](/code-security/supply-chain-security/understanding-your-software-supply-chain/using-the-dependency-submission-api).
 
 If vulnerabilities have been detected in the repository, these are shown at the top of the view for users with access to {% data variables.product.prodname_dependabot_alerts %}.
 
 {% ifversion ghes %}
-{% note %}
 
-**Note:** {% data variables.product.product_name %} does not populate the **Dependents** view.
+> [!NOTE]
+> {% data variables.product.prodname_ghe_server %} does not populate the **Dependents** view.
 
-{% endnote %}
 {% endif %}
 
 {% ifversion fpt or ghec %}
@@ -85,13 +85,13 @@ For public repositories, the dependents view shows how the repository is used by
 
 You may notice some repositories have a "Used by" section in the sidebar of the **Code** tab. Your repository will have a "Used by" section if:
 * The dependency graph is enabled for the repository (see the above section for more details).
-* Your repository contains a package that is published on a [supported package ecosystem](/code-security/supply-chain-security/understanding-your-software-supply-chain/about-the-dependency-graph#supported-package-ecosystems).
+* Your repository contains a package that is published on a [supported package ecosystem](/code-security/supply-chain-security/understanding-your-software-supply-chain/dependency-graph-supported-package-ecosystems#supported-package-ecosystems).
 * Within the ecosystem, your package has a link to a _public_ repository where the source is stored.
 * More than 100 repositories depend on your package.
 
 The "Used by" section shows the number of public references to the package that were found, and displays the avatars of some of the owners of the dependent projects.
 
-![Screenshot of the "Used by" section for a repository. To the right of the "Used by" header is "13.4m." Under the header are 8 avatars and "+13,435,819."](/assets/images/help/repository/used-by-section.png)
+![Screenshot of the "Used by" section for a repository showing the summary of "13.4m" with details of 8 avatars and "+13,435,819."](/assets/images/help/repository/used-by-section.png)
 
 Clicking any item in this section takes you to the **Dependents** tab of the dependency graph.
 
@@ -115,8 +115,8 @@ If a manifest or lock file is not processed, its dependencies are omitted from t
 
 ## Further reading
 
-* "[AUTOTITLE](/code-security/supply-chain-security/understanding-your-software-supply-chain/about-the-dependency-graph)"
-* "[AUTOTITLE](/code-security/dependabot/dependabot-alerts/viewing-and-updating-dependabot-alerts)"{% ifversion ghec %}
-* "[AUTOTITLE](/organizations/collaborating-with-groups-in-organizations/viewing-insights-for-dependencies-in-your-organization)"{% endif %}{% ifversion fpt or ghec %}
-* "[AUTOTITLE](/get-started/privacy-on-github)"
+* [AUTOTITLE](/code-security/supply-chain-security/understanding-your-software-supply-chain/about-the-dependency-graph)
+* [AUTOTITLE](/code-security/dependabot/dependabot-alerts/viewing-and-updating-dependabot-alerts){% ifversion ghec %}
+* [AUTOTITLE](/organizations/collaborating-with-groups-in-organizations/viewing-insights-for-dependencies-in-your-organization){% endif %}{% ifversion fpt or ghec %}
+* [AUTOTITLE](/get-started/privacy-on-github)
 {% endif %}

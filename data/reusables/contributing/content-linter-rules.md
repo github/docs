@@ -32,7 +32,6 @@
 | [search-replace](https://github.com/OnkarRuikar/markdownlint-rule-search-replace) | deprecated liquid syntax: octicon-<icon-name> | The octicon liquid syntax used is deprecated. Use this format instead `octicon "<octicon-name>" aria-label="<Octicon aria label>"` | error |  |
 | [GH001](https://github.com/github/markdownlint-github/blob/main/docs/rules/GH001-no-default-alt-text.md) | no-default-alt-text | Images should have meaningful alternative text (alt text) | error | accessibility, images |
 | [GH002](https://github.com/github/markdownlint-github/blob/main/docs/rules/GH002-no-generic-link-text.md) | no-generic-link-text | Avoid using generic link text like `Learn more` or `Click here` | error | accessibility, links |
-| GHD030 | code-fence-line-length | Code fence lines should not exceed a maximum length | warning | code, accessibility |
 | GHD032 | image-alt-text-end-punctuation | Alternate text for images should end with punctuation | error | accessibility, images |
 | GHD004 | image-file-kebab-case | Image file names must use kebab-case | error | images |
 | GHD033 | incorrect-alt-text-length | Images alternate text should be between 40-150 characters | warning | accessibility, images |
@@ -63,3 +62,7 @@
 | GHD036 | image-no-gif | Image must not be a gif, styleguide reference: contributing/style-guide-and-content-model/style-guide.md#images | error | images |
 | GHD038 | expired-content | Expired content must be remediated. | error | expired |
 | GHD039 | expiring-soon | Content that expires soon should be proactively addressed. | warning | expired |
+| [GHD040](https://github.com/github/docs/blob/main/src/content-linter/README.md) | table-liquid-versioning | Tables must use the correct liquid versioning format | error | tables |
+| GHD041 | third-party-action-pinning | Code examples that use third-party actions must always pin to a full length commit SHA | error | feature, actions |
+| GHD042 | liquid-tag-whitespace | Liquid tags should start and end with one whitespace. Liquid tag arguments should be separated by only one whitespace. | error | liquid, format |
+| GHD043 | link-quotation | Internal link titles must not be surrounded by quotations | error | links, url |

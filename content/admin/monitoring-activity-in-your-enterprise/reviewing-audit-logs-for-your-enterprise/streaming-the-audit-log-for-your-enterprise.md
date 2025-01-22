@@ -2,7 +2,7 @@
 title: Streaming the audit log for your enterprise
 intro: 'Learn how to stream audit and Git events data from {% data variables.product.prodname_dotcom %} to an external data management system.'
 versions:
-  feature: audit-log-streaming
+  ghes: '*'
   ghec: '*'
 type: tutorial
 topics:
@@ -22,7 +22,7 @@ permissions: Enterprise owners
 
 ## About audit log streaming
 
-You can help protect intellectual property and maintain compliance for your company by using streaming to keep copies of your audit log data. The audit log details events such as changes to settings and access, user membership, app permissions, and more. See "[AUTOTITLE](/admin/monitoring-activity-in-your-enterprise/reviewing-audit-logs-for-your-enterprise/audit-log-events-for-your-enterprise)", "[AUTOTITLE](/organizations/keeping-your-organization-secure/managing-security-settings-for-your-organization/audit-log-events-for-your-organization)", and "[AUTOTITLE](/authentication/keeping-your-account-and-data-secure/security-log-events)."
+You can help protect intellectual property and maintain compliance for your company by using streaming to keep copies of your audit log data. The audit log details events such as changes to settings and access, user membership, app permissions, and more. See [AUTOTITLE](/admin/monitoring-activity-in-your-enterprise/reviewing-audit-logs-for-your-enterprise/audit-log-events-for-your-enterprise), [AUTOTITLE](/organizations/keeping-your-organization-secure/managing-security-settings-for-your-organization/audit-log-events-for-your-organization), and [AUTOTITLE](/authentication/keeping-your-account-and-data-secure/security-log-events).
 
 Streaming audit log data has these benefits:
 
@@ -38,7 +38,7 @@ All streamed audit logs are sent as compressed JSON files. The filename format i
 
 {% ifversion ghes %}
 
-Enabling audit log streaming can cause a minor impact on the performance of {% data variables.location.product_location %}. To learn about increasing resources to mitigate this performance impact, see "[AUTOTITLE](/admin/monitoring-and-managing-your-instance/updating-the-virtual-machine-and-physical-resources/increasing-cpu-or-memory-resources)."
+Enabling audit log streaming can cause a minor impact on the performance of {% data variables.location.product_location %}. To learn about increasing resources to mitigate this performance impact, see [AUTOTITLE](/admin/monitoring-and-managing-your-instance/updating-the-virtual-machine-and-physical-resources/increasing-cpu-or-memory-resources).
 
 {% endif %}
 
@@ -48,7 +48,7 @@ Enabling audit log streaming can cause a minor impact on the performance of {% d
 
 Every 24 hours, a health check runs for each stream. If a stream is set up incorrectly, an email will be sent to the enterprise owners. To avoid audit log events being dropped from the stream, a misconfigured stream must be fixed within six days.
 
-To fix your streaming configuration, follow the steps in "[Setting up audit log streaming](#setting-up-audit-log-streaming)."
+To fix your streaming configuration, follow the steps in [Setting up audit log streaming](#setting-up-audit-log-streaming).
 
 {% endif %}
 
@@ -58,14 +58,24 @@ To set up the audit log stream, follow the instructions for your provider:
 
 * [Amazon S3](#setting-up-streaming-to-amazon-s3)
 * [Azure Blob Storage](#setting-up-streaming-to-azure-blob-storage)
-* [Azure Event Hubs](#setting-up-streaming-to-azure-event-hubs){% ifversion streaming-datadog %}
-* [Datadog](#setting-up-streaming-to-datadog){% endif %}
+* [Azure Event Hubs](#setting-up-streaming-to-azure-event-hubs)
+* [Datadog](#setting-up-streaming-to-datadog)
 * [Google Cloud Storage](#setting-up-streaming-to-google-cloud-storage)
 * [Splunk](#setting-up-streaming-to-splunk)
 
 {% ifversion ghec %}
 
->[!NOTE] To get a list of IP address ranges that {% data variables.product.prodname_dotcom %} uses for connections to the streaming endpoint, use the REST API. The `meta` endpoint for {% data variables.product.product_name %} includes a `hooks` key with a list of the IP addresses. See "[AUTOTITLE](/rest/meta/meta#get-github-enterprise-cloud-meta-information)."
+>[!NOTE] To get a list of IP address ranges that {% data variables.product.prodname_dotcom %} uses for connections to the streaming endpoint, use the REST API. The `meta` endpoint for {% data variables.product.product_name %} includes a `hooks` key with a list of the IP addresses. See [AUTOTITLE](/rest/meta/meta#get-github-enterprise-cloud-meta-information).
+
+{% endif %}
+
+{% ifversion ghec %}
+
+### Streaming to multiple endpoints
+
+>[!NOTE] This feature is currently in {% data variables.release-phases.public_preview %} and subject to change.
+
+You can stream audit logs to multiple endpoints. For example, you can stream your audit log to two endpoints of the same type, or you can stream to two different providers. To set up multiple streams, follow the instructions for each provider.
 
 {% endif %}
 
@@ -160,7 +170,7 @@ From {% data variables.product.prodname_dotcom %}:
 
 To disable streaming to S3 with OIDC, delete the {% data variables.product.prodname_dotcom %} OIDC provider you created in AWS when you set up streaming. See [Creating OpenID Connect (OIDC) identity providers](https://docs.aws.amazon.com/IAM/latest/UserGuide/id_roles_providers_create_oidc.html) in the AWS documentation.
 
-If you disable streaming due to a security vulnerability in OIDC, after you delete the provider, set up streaming with access keys until the vulnerability is resolved. See "[Setting up streaming to S3 with access keys](#setting-up-streaming-to-s3-with-access-keys)."
+If you disable streaming due to a security vulnerability in OIDC, after you delete the provider, set up streaming with access keys until the vulnerability is resolved. See [Setting up streaming to S3 with access keys](#setting-up-streaming-to-s3-with-access-keys).
 
 {% endif %}
 
@@ -169,6 +179,8 @@ If you disable streaming due to a security vulnerability in OIDC, after you dele
 You can consolidate your audit logs by integrating streaming to S3 with AWS CloudTrail Lake. See the [AWS CloudTrail Documentation](https://docs.aws.amazon.com/cloudtrail/) or the [GitHub Audit Log to CloudTrail Open Audit](https://github.com/aws-samples/aws-cloudtrail-lake-github-audit-log) in the `aws-samples/aws-cloudtrail-lake-github-audit-log` repository.
 
 ### Setting up streaming to Azure Blob Storage
+
+> [!NOTE] Audit log streaming to blob storage in Azure Government is not supported.
 
 Before setting up a stream in {% data variables.product.prodname_dotcom %}, first create a storage account and a container in Microsoft Azure. See [Introduction to Azure Blob Storage](https://docs.microsoft.com/en-us/azure/storage/blobs/storage-blobs-introduction) in the Microsoft documentation.
 
@@ -218,8 +230,6 @@ From {% data variables.product.prodname_dotcom %}:
 1. Click **Check endpoint** to verify that {% data variables.product.prodname_dotcom %} can connect and write to the Azure Events Hub endpoint.
 {% data reusables.enterprise.verify-audit-log-streaming-endpoint %}
 
-{% ifversion streaming-datadog %}
-
 ### Setting up streaming to Datadog
 
 To set up streaming to Datadog, create a client token or an API key in Datadog, then configure audit log streaming in {% data variables.product.product_name %} using the token for authentication. You do not need to create a bucket or other storage container in Datadog.
@@ -235,7 +245,6 @@ After you set up streaming to Datadog, you can see your audit log data by filter
 1. To verify that {% data variables.product.prodname_dotcom %} can connect and write to the Datadog endpoint, click **Check endpoint**.
 {% data reusables.enterprise.verify-audit-log-streaming-endpoint %}
 1. After a few minutes, confirm that audit log data appears on the **Logs** tab in Datadog. If it doesn't appear, confirm that your token and site are correct in {% data variables.product.prodname_dotcom %}.
-{% endif %}
 
 ### Setting up streaming to Google Cloud Storage
 
@@ -284,11 +293,9 @@ To stream audit logs to Splunk's HTTP Event Collector (HEC) endpoint, make sure 
 
 ## Pausing audit log streaming
 
-Pause the stream to perform maintenance on the receiving application without losing audit data. Audit logs are stored for up to seven days on {% data variables.location.product_location %} and are then exported when you unpause the stream.
+Pause the stream to perform maintenance on the receiving application without losing audit data. Audit logs are stored for up to seven days on {% data variables.product.github %} and are then exported when you unpause the stream.
 
-{% ifversion streaming-datadog %}
 Datadog only accepts logs from up to 18 hours in the past. If you pause a stream to a Datadog endpoint for more than 18 hours, you risk losing logs that Datadog won't accept after you resume streaming.
-{% endif %}
 
 {% data reusables.enterprise.navigate-to-log-streaming-tab %}
 1. To the right of your configured stream, click **Pause stream**.
@@ -306,8 +313,6 @@ To restart streaming, click **Resume stream**.
 {% ifversion audit-log-streaming-for-api %}
 
 ## Enabling audit log streaming of API requests
-
->[!NOTE] This feature is currently in public beta and subject to change.
 
 {% data reusables.enterprise-accounts.access-enterprise %}
 {% data reusables.enterprise-accounts.settings-tab %}

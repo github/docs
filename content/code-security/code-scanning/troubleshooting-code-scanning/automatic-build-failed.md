@@ -17,6 +17,6 @@ If an automatic build of code for a compiled language within your project fails,
 
 ## Further reading
 
-* "[AUTOTITLE](/code-security/code-scanning/creating-an-advanced-setup-for-code-scanning)."{% ifversion codeql-no-build %}
-* "[CodeQL build modes](/code-security/code-scanning/creating-an-advanced-setup-for-code-scanning/codeql-code-scanning-for-compiled-languages#codeql-build-modes)"{% elsif ghes %}
-* "[Adding build steps for a compiled language](/code-security/code-scanning/creating-an-advanced-setup-for-code-scanning/codeql-code-scanning-for-compiled-languages#adding-build-steps-for-a-compiled-language)."{% endif %}
+* [AUTOTITLE](/code-security/code-scanning/creating-an-advanced-setup-for-code-scanning).{% ifversion codeql-no-build %}
+* [CodeQL build modes](/code-security/code-scanning/creating-an-advanced-setup-for-code-scanning/codeql-code-scanning-for-compiled-languages#codeql-build-modes){% elsif ghes %}
+* [Adding build steps for a compiled language](/code-security/code-scanning/creating-an-advanced-setup-for-code-scanning/codeql-code-scanning-for-compiled-languages#adding-build-steps-for-a-compiled-language).{% endif %}

@@ -2,7 +2,9 @@
 title: Managing requests for personal access tokens in your organization
 intro: 'Organization owners can approve or deny {% data variables.product.pat_v2 %}s that request access to their organization.'
 versions:
-  feature: pat-v2
+  fpt: '*'
+  ghes: '*'
+  ghec: '*'
 shortTitle: Manage token requests
 ---
 
@@ -10,21 +12,14 @@ shortTitle: Manage token requests
 
 ## About {% data variables.product.pat_v2 %} requests
 
-When organization members create a {% data variables.product.pat_v2 %} to access resources owned by the organization, if the organization requires approval for {% data variables.product.pat_v2 %}s, then an organization owner must approve the token before it can be used to access any resources that are not public. For more information, see "[AUTOTITLE](/organizations/managing-programmatic-access-to-your-organization/setting-a-personal-access-token-policy-for-your-organization)."
+When organization members create a {% data variables.product.pat_v2 %} to access resources owned by the organization, if the organization requires approval for {% data variables.product.pat_v2 %}s, then an organization owner must approve the token before it can be used to access any resources that are not public. For more information, see [AUTOTITLE](/organizations/managing-programmatic-access-to-your-organization/setting-a-personal-access-token-policy-for-your-organization).
 
 {% data variables.product.company_short %} will notify organization owners with a daily email about all {% data variables.product.pat_v2 %}s that are awaiting approval. When a token is denied or approved, the user who created the token will receive an email notification.
 
-{% note %}
+> [!NOTE]
+> Only {% data variables.product.pat_v2 %}s, not {% data variables.product.pat_v1_plural %}, are subject to approval. Unless the organization has restricted access by {% data variables.product.pat_v1_plural %}, any {% data variables.product.pat_v1 %} can access organization resources without prior approval. For more information, see [AUTOTITLE](/organizations/managing-programmatic-access-to-your-organization/setting-a-personal-access-token-policy-for-your-organization).
 
-**Note**: Only {% data variables.product.pat_v2 %}s, not {% data variables.product.pat_v1_plural %}, are subject to approval. Unless the organization has restricted access by {% data variables.product.pat_v1_plural %}, any {% data variables.product.pat_v1 %} can access organization resources without prior approval. For more information, see "[AUTOTITLE](/organizations/managing-programmatic-access-to-your-organization/setting-a-personal-access-token-policy-for-your-organization)."
-
-{% endnote %}
-
-{% ifversion pat-v2-org-admin-api %}
-
-Organization owners can also use the REST API to review and manage {% data variables.product.pat_v2 %} requests. These endpoints can only be called by {% data variables.product.prodname_github_apps %}, and cannot be called with {% data variables.product.pat_generic_plural %} or {% data variables.product.prodname_oauth_apps %}. For more information, see "[AUTOTITLE](/rest/orgs/orgs#list-requests-to-access-organization-resources-with-fine-grained-personal-access-tokens)."
-
-{% endif %}
+Organization owners can also use the REST API to review and manage {% data variables.product.pat_v2 %} requests. These endpoints can only be called by {% data variables.product.prodname_github_apps %}, and cannot be called with {% data variables.product.pat_generic_plural %} or {% data variables.product.prodname_oauth_apps %}. For more information, see [AUTOTITLE](/rest/orgs/orgs#list-requests-to-access-organization-resources-with-fine-grained-personal-access-tokens).
 
 ## Managing {% data variables.product.pat_v2 %} requests
 

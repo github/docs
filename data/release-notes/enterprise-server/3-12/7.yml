@@ -113,6 +113,8 @@ sections:
       On an instance with a GitHub Advanced Security license, contributions were not tracked on public repositories.
     - |
       On an instance with a GitHub Advanced Security license, the "adjust configuration" step failed when enabling code scanning with the default setup on self-hosted Windows runners.
+    - |
+      Migration of the `issue_edits` table caused intermittent failures during the upgrade to GitHub Enterprise Server version 3.12, resulting in the error message `ActiveRecord::ConcurrentMigrationError: Failed to release advisory lock.` [Updated: 2024-08-14]
   changes:
     - |
       In a high availability configuration, users can only run `ghe-config-apply` or `ghe-cluster-config-apply` on a replica node if replication is already running (from `ghe-repl-start`). If replication isnt running on the node, the user will be instructed to start replication.
@@ -140,7 +142,7 @@ sections:
     - |
       During the validation phase of a configuration run, a `No such object` error may occur for the Notebook and Viewscreen services. This error can be ignored as the services should still correctly start.
     - |
-      If the root site administrator is locked out of the Management Console after failed login attempts, the account does not unlock automatically after the defined lockout time. Someone with administrative SSH access to the instance must unlock the account using the administrative shell. For more information, see "[AUTOTITLE](/admin/configuration/administering-your-instance-from-the-management-console/troubleshooting-access-to-the-management-console#unlocking-the-root-site-administrator-account)."
+      If the root site administrator is locked out of the Management Console after failed login attempts, the account does not unlock automatically after the defined lockout time. Someone with administrative SSH access to the instance must unlock the account using the administrative shell. For more information, see [AUTOTITLE](/admin/configuration/administering-your-instance-from-the-management-console/troubleshooting-access-to-the-management-console#unlocking-the-root-site-administrator-account).
     - |
       If an instance is configured to forward logs to a target server with TLS enabled, certificate authority (CA) bundles that a site administrator uploads using `ghe-ssl-ca-certificate-install` are not respected, and connections to the server fail.
     - |

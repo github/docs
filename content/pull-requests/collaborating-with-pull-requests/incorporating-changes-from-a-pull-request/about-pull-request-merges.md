@@ -24,24 +24,14 @@ topics:
 
 ### Merge message for a squash merge
 
-{% ifversion default-merge-squash-commit-message %}
 When you squash and merge, {% data variables.product.prodname_dotcom %} generates a default commit message, which you can edit. Depending on how the repository is configured and the number of commits in the pull request, not including merge commits, this message may include the pull request title, pull request description, or information about the commits.
-{% else %}
-When you squash and merge, {% data variables.product.prodname_dotcom %} generates a default commit message, which you can edit. The default message depends on the number of commits in the pull request, not including merge commits.
 
-Number of commits | Summary | Description |
------------------ | ------- | ----------- |
-One commit | The title of the commit message for the single commit, followed by the pull request number | The body text of the commit message for the single commit
-More than one commit | The pull request title, followed by the pull request number | A list of the commit messages for all of the squashed commits, in date order
-{% endif %}
+| Number of commits | Summary | Description |
+| ----------------- | ------- | ----------- |
+| One commit | The title of the commit message for the single commit, followed by the pull request number | The body text of the commit message for the single commit |
+| More than one commit | The pull request title, followed by the pull request number | A list of the commit messages for all of the squashed commits, in date order |
 
-Number of commits | Summary | Description |
------------------ | ------- | ----------- |
-One commit | The title of the commit message for the single commit, followed by the pull request number | The body text of the commit message for the single commit
-More than one commit | The pull request title, followed by the pull request number | A list of the commit messages for all of the squashed commits, in date order
-
-{% ifversion default-merge-squash-commit-message %}
-People with maintainer or admin access to a repository can configure their repository's default merge message for all squashed commits to use the pull request title, the pull request title and commit details, or the pull request title and description. For more information, see "[AUTOTITLE](/repositories/configuring-branches-and-merges-in-your-repository/configuring-pull-request-merges/configuring-commit-squashing-for-pull-requests)".{% endif %}
+People with maintainer or admin access to a repository can configure their repository's default merge message for all squashed commits to use the pull request title, the pull request title and commit details, or the pull request title and description. For more information, see [AUTOTITLE](/repositories/configuring-branches-and-merges-in-your-repository/configuring-pull-request-merges/configuring-commit-squashing-for-pull-requests).
 
 ### Squashing and merging a long-running branch
 
@@ -55,17 +45,17 @@ Because this commit is only on the base branch and not the head branch, the comm
 
 {% data reusables.pull_requests.rebase_and_merge_summary %}
 
-You aren't able to automatically rebase and merge on {% data variables.location.product_location %} when:
+You aren't able to automatically rebase and merge when:
 * The pull request has merge conflicts.
 * Rebasing the commits from the base branch into the head branch runs into conflicts.
 * Rebasing the commits is considered "unsafe," such as when a rebase is possible without merge conflicts but would produce a different result than a merge would.
 
-If you still want to rebase the commits but can't rebase and merge automatically on {% data variables.location.product_location %} you must:
+If you still want to rebase the commits but can't rebase and merge automatically, you must:
 * Rebase the topic branch (or head branch) onto the base branch locally on the command line
 * [Resolve any merge conflicts on the command line](/pull-requests/collaborating-with-pull-requests/addressing-merge-conflicts/resolving-a-merge-conflict-using-the-command-line).
 * Force-push the rebased commits to the pull request's topic branch (or remote head branch).
 
-Anyone with write permissions in the repository, can then [merge the changes](/pull-requests/collaborating-with-pull-requests/incorporating-changes-from-a-pull-request/merging-a-pull-request) using the rebase and merge button on {% data variables.location.product_location %}.
+Anyone with write permissions in the repository, can then [merge the changes](/pull-requests/collaborating-with-pull-requests/incorporating-changes-from-a-pull-request/merging-a-pull-request) using the rebase and merge button.
 
 ## Indirect merges
 
@@ -85,5 +75,5 @@ Pull requests that are merged indirectly are marked as `merged` even if [branch 
 
 ## Further reading
 
-* "[AUTOTITLE](/pull-requests/collaborating-with-pull-requests/proposing-changes-to-your-work-with-pull-requests/about-pull-requests)"
-* "[AUTOTITLE](/pull-requests/collaborating-with-pull-requests/addressing-merge-conflicts)"
+* [AUTOTITLE](/pull-requests/collaborating-with-pull-requests/proposing-changes-to-your-work-with-pull-requests/about-pull-requests)
+* [AUTOTITLE](/pull-requests/collaborating-with-pull-requests/addressing-merge-conflicts)

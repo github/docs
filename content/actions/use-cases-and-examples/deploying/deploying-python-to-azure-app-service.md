@@ -20,11 +20,8 @@ redirect_from:
 
 This guide explains how to use {% data variables.product.prodname_actions %} to build and deploy a Python project to [Azure App Service](https://azure.microsoft.com/services/app-service/).
 
-{% note %}
-
-**Note**: {% data reusables.actions.about-oidc-short-overview %} and "[AUTOTITLE](/actions/deployment/security-hardening-your-deployments/configuring-openid-connect-in-azure)."
-
-{% endnote %}
+> [!NOTE]
+> {% data reusables.actions.about-oidc-short-overview %} and [AUTOTITLE](/actions/deployment/security-hardening-your-deployments/configuring-openid-connect-in-azure).
 
 ## Prerequisites
 
@@ -141,6 +138,6 @@ jobs:
 
 The following resources may also be useful:
 
-* For the original starter workflow, see [`azure-webapps-python.yml`](https://github.com/actions/starter-workflows/blob/main/deployments/azure-webapps-python.yml) in the {% data variables.product.prodname_actions %} `starter-workflows` repository.
+* For the original workflow template, see [`azure-webapps-python.yml`](https://github.com/actions/starter-workflows/blob/main/deployments/azure-webapps-python.yml) in the {% data variables.product.prodname_actions %} `starter-workflows` repository.
 * The action used to deploy the web app is the official Azure [`Azure/webapps-deploy`](https://github.com/Azure/webapps-deploy) action.
 * For more examples of GitHub Action workflows that deploy to Azure, see the [actions-workflow-samples](https://github.com/Azure/actions-workflow-samples) repository.

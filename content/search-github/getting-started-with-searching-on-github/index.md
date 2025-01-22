@@ -15,7 +15,7 @@ children:
   - /understanding-the-search-syntax
   - /troubleshooting-search-queries
   - /sorting-search-results
-  - /enabling-githubcom-repository-search-from-your-private-enterprise-environment
+  - /enabling-repository-search-across-environments
 shortTitle: Start with search on GitHub
 ---
 

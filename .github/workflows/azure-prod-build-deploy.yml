@@ -5,9 +5,6 @@ name: Azure Production - Build and Deploy
 # **Who does it impact**: All contributors.
 
 on:
-  push:
-    branches:
-      - main
   workflow_dispatch:
 
 permissions:
@@ -34,22 +31,13 @@ jobs:
       RESOURCE_GROUP_NAME: docs-prod
       APP_SERVICE_NAME: ghdocs-prod
       SLOT_NAME: canary
+      ACR_TOKEN_NAME: acrToken
 
     steps:
       - name: 'Az CLI login'
         uses: azure/login@6c251865b4e6290e7b78be643ea2d005bc51f69a # pin @v2
         with:
           creds: ${{ secrets.PROD_AZURE_CREDENTIALS }}
-
-      - name: 'Docker login'
-        uses: azure/docker-login@15c4aadf093404726ab2ff205b2cdd33fa6d054c
-        with:
-          login-server: ${{ secrets.PROD_REGISTRY_SERVER }}
-          username: ${{ secrets.PROD_REGISTRY_USERNAME }}
-          password: ${{ secrets.PROD_REGISTRY_PASSWORD }}
-
-      - name: Set up Docker Buildx
-        uses: docker/setup-buildx-action@988b5a0280414f521da01fcc63a27aeeb4b104db
 
       - name: Check out repo
         uses: actions/checkout@b4ffde65f46336ab88eb53be808477a3936bae11 # v4.1.1
@@ -64,10 +52,28 @@ jobs:
           node-version-file: 'package.json'
           cache: npm
 
-      # Currently we only need this to run dependencies in
-      # src/workflows/check-canary-slots.js
+      # We need this to run a few scripts that were easier to write in JS/TS
       - name: Install dependencies
         run: npm install
+
+      # Create a temporary token for the Azure Container Registry
+      # and set it as a GitHub Actions environment variable
+      # Created token are viewable in the ACR resource UI
+      # under Repository permissions > Tokens
+      - name: 'Create Azure Container Registry Token'
+        env:
+          CONTAINER_REGISTRY_SERVER: ${{ secrets.PROD_REGISTRY_SERVER }}
+        run: npm run create-acr-token
+
+      - name: 'Docker login'
+        uses: azure/docker-login@15c4aadf093404726ab2ff205b2cdd33fa6d054c
+        with:
+          login-server: ${{ secrets.PROD_REGISTRY_SERVER }}
+          username: ${{ env.ACR_TOKEN_NAME }}
+          password: ${{ env.ACR_TOKEN_VALUE }}
+
+      - name: Set up Docker Buildx
+        uses: docker/setup-buildx-action@988b5a0280414f521da01fcc63a27aeeb4b104db
 
       - name: Clone docs-early-access
         uses: actions/checkout@b4ffde65f46336ab88eb53be808477a3936bae11 # v4.1.1
@@ -95,6 +101,7 @@ jobs:
         uses: docker/build-push-action@16ebe778df0e7752d2cfcbd924afdbbd89c1a755
         with:
           context: .
+          file: Dockerfile.azure
           push: true
           target: production
           tags: ${{ env.DOCKER_IMAGE }}, ${{ env.DOCKER_IMAGE_CACHE_REF }}
@@ -117,7 +124,7 @@ jobs:
           CHECK_INTERVAL: 10000
           EXPECTED_SHA: ${{ github.sha }}
           CANARY_BUILD_URL: https://ghdocs-prod-canary.azurewebsites.net/_build
-        run: src/workflows/check-canary-slots.js
+        run: npm run check-canary-slots
 
       - name: 'Swap canary slot to production'
         run: |

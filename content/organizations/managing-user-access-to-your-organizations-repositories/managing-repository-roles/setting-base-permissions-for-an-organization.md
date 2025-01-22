@@ -20,22 +20,17 @@ shortTitle: Set base permissions
 
 You can set base permissions that apply to all members of an organization when accessing any of the organization's repositories. Base permissions do not apply to outside collaborators.
 
-{% ifversion fpt or ghec %}By default, members of an organization will have **Read** permissions to the organization's repositories.{% endif %}
+{% ifversion fpt or ghec %}By default, members of an organization will have **Read** permissions to the organization's public repositories.{% endif %}
 
 If someone with admin access to an organization's repository grants a member a higher level of access for the repository, the higher level of access overrides the base permission.
 
-{% ifversion custom-repository-roles %}
-If you've created a custom repository role with an inherited role that is lower access than your organization's base permissions, any members assigned to that role will default to the organization's base permissions rather than the inherited role. For more information, see "[AUTOTITLE](/organizations/managing-user-access-to-your-organizations-repositories/managing-repository-roles/managing-custom-repository-roles-for-an-organization)."
+{% ifversion ghec or ghes %}
+If you've created a custom repository role with an inherited role that is lower access than your organization's base permissions, any members assigned to that role will default to the organization's base permissions rather than the inherited role. For more information, see [AUTOTITLE](/organizations/managing-user-access-to-your-organizations-repositories/managing-repository-roles/managing-custom-repository-roles-for-an-organization).
 {% endif %}
 
-{% note %}
-
-**Notes:**
-
-* All changes to base permissions will affect both new and existing members.
-* {% data reusables.repositories.org-base-permissions-private-forks %}
-
-{% endnote %}
+> [!NOTE]
+> * All changes to base permissions will affect both new and existing members.
+> * {% data reusables.repositories.org-base-permissions-private-forks %}
 
 ## Setting base permissions
 
@@ -47,5 +42,5 @@ If you've created a custom repository role with an inherited role that is lower 
 
 ## Further reading
 
-* "[AUTOTITLE](/organizations/managing-user-access-to-your-organizations-repositories/managing-repository-roles/repository-roles-for-an-organization)"
-* "[AUTOTITLE](/organizations/managing-user-access-to-your-organizations-repositories/managing-outside-collaborators/adding-outside-collaborators-to-repositories-in-your-organization)"
+* [AUTOTITLE](/organizations/managing-user-access-to-your-organizations-repositories/managing-repository-roles/repository-roles-for-an-organization)
+* [AUTOTITLE](/organizations/managing-user-access-to-your-organizations-repositories/managing-outside-collaborators/adding-outside-collaborators-to-repositories-in-your-organization)

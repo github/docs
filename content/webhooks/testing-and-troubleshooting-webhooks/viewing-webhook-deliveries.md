@@ -16,17 +16,17 @@ You can view details about webhook deliveries that occurred in the past {% data 
 
 For each webhook delivery, you can view:
 
-* the request headers and payload that {% data variables.product.company_short %} sent
-* the time at which the request was sent
-* the response that {% data variables.product.company_short %} received from your server
+* The request headers and payload that {% data variables.product.company_short %} sent
+* The time at which the request was sent
+* The response that {% data variables.product.company_short %} received from your server
 
-You can also redeliver recent webhook deliveries. For more information, see "[AUTOTITLE](/webhooks/testing-and-troubleshooting-webhooks/redelivering-webhooks)."
+You can also redeliver recent webhook deliveries. For more information, see [AUTOTITLE](/webhooks/testing-and-troubleshooting-webhooks/redelivering-webhooks).
 
 ## Viewing deliveries for repository webhooks
 
 Only people with admin access to a repository can view deliveries for webhooks in that repository.
 
-You can use the {% data variables.product.company_short %} web interface or the REST API to view recent webhook deliveries for a repository. For more information about using the REST API to view recent deliveries, see "[AUTOTITLE](/rest/webhooks/repo-deliveries)."
+You can use the {% data variables.product.company_short %} web interface or the REST API to view recent webhook deliveries for a repository. For more information about using the REST API to view recent deliveries, see [AUTOTITLE](/rest/webhooks/repo-deliveries).
 
 {% data reusables.repositories.navigate-to-repo %}
 {% data reusables.repositories.sidebar-settings %}
@@ -39,7 +39,7 @@ You can use the {% data variables.product.company_short %} web interface or the 
 
 Only organization owners can view deliveries for webhooks in that organization.
 
-You can use the {% data variables.product.company_short %} web interface or the REST API to view recent webhook deliveries for an organization. For more information about using the REST API to view recent deliveries, see "[AUTOTITLE](/rest/orgs/webhooks)."
+You can use the {% data variables.product.company_short %} web interface or the REST API to view recent webhook deliveries for an organization. For more information about using the REST API to view recent deliveries, see [AUTOTITLE](/rest/orgs/webhooks).
 
 {% data reusables.organizations.navigate-to-org %}
 {% data reusables.organizations.org_settings %}
@@ -52,11 +52,10 @@ You can use the {% data variables.product.company_short %} web interface or the 
 
 The owner of a {% data variables.product.prodname_github_app %} can view recent webhook deliveries for the app. If an organization has designated any app managers for a {% data variables.product.prodname_github_app %} owned by the organization, the app managers can also view recent webhook deliveries.
 
-You can use the {% data variables.product.company_short %} web interface or the REST API to view recent webhook deliveries for a {% data variables.product.prodname_github_app %}. For more information about using the REST API to view recent deliveries, see "[AUTOTITLE](/rest/apps/webhooks)."
+You can use the {% data variables.product.company_short %} web interface or the REST API to view recent webhook deliveries for a {% data variables.product.prodname_github_app %}. For more information about using the REST API to view recent deliveries, see [AUTOTITLE](/rest/apps/webhooks).
 
 {% data reusables.apps.settings-step %}
-{% data reusables.user-settings.developer_settings %}
-{% data reusables.user-settings.github_apps %}
+{% data reusables.apps.enterprise-apps-steps %}
 1. Next to the {% data variables.product.prodname_github_app %} that you want to view webhook deliveries for, click **Edit**.
 1. In the sidebar, click **Advanced**.
 {% data reusables.webhooks.webhook_recent_deliveries %}

@@ -14,20 +14,16 @@ versions:
 topics:
   - Repositories
 ---
-{% data reusables.organizations.owners-and-admins-can %} delete an organization repository. If **Allow members to delete or transfer repositories for this organization** has been disabled, only organization owners can delete organization repositories. {% data reusables.organizations.new-repo-permissions-more-info %}
+
+{% data reusables.organizations.owners-and-admins-can %} delete an organization repository, and these users may be prevented from deleting a repository by an organization or enterprise policy. {% data reusables.organizations.new-repo-permissions-more-info %}
 
 Deleting a public repository will not delete any forks of the repository.
 
-{% warning %}
+> [!WARNING]
+> * Deleting a repository will **permanently** delete release attachments and team permissions. This action **cannot** be undone.
+> * Deleting a private{% ifversion ghes or ghec %} or internal{% endif %} repository will delete all forks of the repository.
 
-**Warnings**:
-
-* Deleting a repository will **permanently** delete release attachments and team permissions. This action **cannot** be undone.
-* Deleting a private{% ifversion ghes or ghec %} or internal{% endif %} repository will delete all forks of the repository.
-
-{% endwarning %}
-
-Some deleted repositories can be restored within 90 days of deletion. {% ifversion ghes %}Your site administrator may be able to restore a deleted repository for you. For more information, see "[AUTOTITLE](/admin/user-management/managing-repositories-in-your-enterprise/restoring-a-deleted-repository)." {% else %}For more information, see "[AUTOTITLE](/repositories/creating-and-managing-repositories/restoring-a-deleted-repository)."{% endif %}
+Some deleted repositories can be restored within 90 days of deletion. {% ifversion ghes %}Your site administrator may be able to restore a deleted repository for you. For more information, see [AUTOTITLE](/admin/user-management/managing-repositories-in-your-enterprise/restoring-a-deleted-repository). {% else %}For more information, see [AUTOTITLE](/repositories/creating-and-managing-repositories/restoring-a-deleted-repository).{% endif %}
 
 {% data reusables.repositories.navigate-to-repo %}
 {% data reusables.repositories.sidebar-settings %}

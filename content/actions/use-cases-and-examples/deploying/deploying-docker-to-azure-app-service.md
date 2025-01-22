@@ -21,11 +21,8 @@ redirect_from:
 
 This guide explains how to use {% data variables.product.prodname_actions %} to build and deploy a Docker container to [Azure App Service](https://azure.microsoft.com/services/app-service/).
 
-{% note %}
-
-**Note**: {% data reusables.actions.about-oidc-short-overview %} and "[AUTOTITLE](/actions/deployment/security-hardening-your-deployments/configuring-openid-connect-in-azure)."
-
-{% endnote %}
+> [!NOTE]
+> {% data reusables.actions.about-oidc-short-overview %} and [AUTOTITLE](/actions/deployment/security-hardening-your-deployments/configuring-openid-connect-in-azure).
 
 ## Prerequisites
 
@@ -51,7 +48,7 @@ Before creating your {% data variables.product.prodname_actions %} workflow, you
 
 1. Set registry credentials for your web app.
 
-   Create a {% data variables.product.pat_v1 %} with the `repo` and `read:packages` scopes. For more information, see "[AUTOTITLE](/authentication/keeping-your-account-and-data-secure/creating-a-personal-access-token)."
+   Create a {% data variables.product.pat_v1 %} with the `repo` and `read:packages` scopes. For more information, see [AUTOTITLE](/authentication/keeping-your-account-and-data-secure/creating-a-personal-access-token).
 
    Set `DOCKER_REGISTRY_SERVER_URL` to `https://ghcr.io`, `DOCKER_REGISTRY_SERVER_USERNAME` to the GitHub username or organization that owns the repository, and `DOCKER_REGISTRY_SERVER_PASSWORD` to your {% data variables.product.pat_generic %} from above. This will give your web app credentials so it can pull the container image after your workflow pushes a newly built image to the registry. You can do this with the following Azure CLI command:
 
@@ -101,10 +98,10 @@ jobs:
       - uses: {% data reusables.actions.action-checkout %}
 
       - name: Set up Docker Buildx
-        uses: docker/setup-buildx-action@v2
+        uses: docker/setup-buildx-action@7a8b9c0d1e2f3a4b5c6d7e8f9a0b1c2d3e4f5a6b
 
       - name: Log in to GitHub container registry
-        uses: docker/login-action@v2
+        uses: docker/login-action@8c9d0e1f2a3b4c5d6e7f8a9b0c1d2e3f4a5b6c7d
         with:
           registry: ghcr.io
           username: {% raw %}${{ github.actor }}{% endraw %}
@@ -114,7 +111,7 @@ jobs:
         run: echo "REPO=${GITHUB_REPOSITORY,,}" >>${GITHUB_ENV}
 
       - name: Build and push container image to registry
-        uses: docker/build-push-action@v4
+        uses: docker/build-push-action@9e0f1a2b3c4d5e6f7a8b9c0d1e2f3a4b5c6d7e8f
         with:
           push: true
           tags: ghcr.io/{% raw %}${{ env.REPO }}{% endraw %}:{% raw %}${{ github.sha }}{% endraw %}
@@ -146,6 +143,6 @@ jobs:
 
 The following resources may also be useful:
 
-* For the original starter workflow, see [`azure-container-webapp.yml`](https://github.com/actions/starter-workflows/blob/main/deployments/azure-container-webapp.yml) in the {% data variables.product.prodname_actions %} `starter-workflows` repository.
+* For the original workflow template, see [`azure-container-webapp.yml`](https://github.com/actions/starter-workflows/blob/main/deployments/azure-container-webapp.yml) in the {% data variables.product.prodname_actions %} `starter-workflows` repository.
 * The action used to deploy the web app is the official Azure [`Azure/webapps-deploy`](https://github.com/Azure/webapps-deploy) action.
 * For more examples of GitHub Action workflows that deploy to Azure, see the [actions-workflow-samples](https://github.com/Azure/actions-workflow-samples) repository.

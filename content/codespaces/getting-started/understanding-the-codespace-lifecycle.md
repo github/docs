@@ -15,11 +15,8 @@ redirect_from:
   - /codespaces/getting-started/the-codespace-lifecycle
 ---
 
-{% note %}
-
-This article explains the stages in the life of a codespace, from creation to deletion. If you have read the "[AUTOTITLE](/codespaces/getting-started/quickstart)" article and you now want to start using {% data variables.product.prodname_github_codespaces %} for your own work, see the articles under "[AUTOTITLE](/codespaces/developing-in-a-codespace)."
-
-{% endnote %}
+> [!NOTE]
+> This article explains the stages in the life of a codespace, from creation to deletion. If you have read the [AUTOTITLE](/codespaces/getting-started/quickstart) article and you now want to start using {% data variables.product.prodname_github_codespaces %} for your own work, see the articles under [AUTOTITLE](/codespaces/developing-in-a-codespace).
 
 ## About the lifecycle of a codespace
 
@@ -27,7 +24,7 @@ The lifecycle of a codespace begins when you create a codespace and ends when yo
 
 ## Creating a codespace
 
-When you want to work on a project, you can choose to create a new codespace or open an existing codespace. You might want to create a new codespace from a branch of your repository each time you develop in {% data variables.product.prodname_github_codespaces %} or keep a long-running codespace for a feature. {% data reusables.codespaces.starting-new-project-template %} For more information, see "[AUTOTITLE](/codespaces/developing-in-a-codespace/creating-a-codespace-for-a-repository)" and "[AUTOTITLE](/codespaces/developing-in-a-codespace/creating-a-codespace-from-a-template)."
+When you want to work on a project, you can choose to create a new codespace or open an existing codespace. You might want to create a new codespace from a branch of your repository each time you develop in {% data variables.product.prodname_github_codespaces %} or keep a long-running codespace for a feature. {% data reusables.codespaces.starting-new-project-template %} For more information, see [AUTOTITLE](/codespaces/developing-in-a-codespace/creating-a-codespace-for-a-repository) and [AUTOTITLE](/codespaces/developing-in-a-codespace/creating-a-codespace-from-a-template).
 
 {% data reusables.codespaces.max-number-codespaces %} Similarly, if you reach the maximum number of active codespaces and you try to start another, you are prompted to stop one of your active codespaces.
 
@@ -39,13 +36,13 @@ If you choose to create a new codespace each time you work on a project, you sho
 
 When you connect to a codespace through the web, auto-save is enabled automatically for the web editor and configured to save changes after a delay. When you connect to a codespace through {% data variables.product.prodname_vscode %} running on your desktop, you must enable auto-save. For more information, see [Save/Auto Save](https://code.visualstudio.com/docs/editor/codebasics#_save-auto-save) in the {% data variables.product.prodname_vscode %} documentation.
 
-Your work will be saved on a virtual machine in the cloud. You can close and stop a codespace and return to the saved work later. If you have unsaved changes, your editor will prompt you to save them before exiting. However, if your codespace is deleted, then your work will be deleted too. To persist your work, you will need to commit your changes and push them to your remote repository, or publish your work to a new remote repository if you created your codespace from a template. For more information, see "[AUTOTITLE](/codespaces/developing-in-a-codespace/using-source-control-in-your-codespace)."
+Your work will be saved on a virtual machine in the cloud. You can close and stop a codespace and return to the saved work later. If you have unsaved changes, your editor will prompt you to save them before exiting. However, if your codespace is deleted, then your work will be deleted too. To persist your work, you will need to commit your changes and push them to your remote repository, or publish your work to a new remote repository if you created your codespace from a template. For more information, see [AUTOTITLE](/codespaces/developing-in-a-codespace/using-source-control-in-your-codespace).
 
 ## Timeouts for {% data variables.product.prodname_github_codespaces %}
 
-If you leave your codespace running without interaction, or if you exit your codespace without explicitly stopping it, the codespace will timeout after a period of inactivity and stop running. By default, a codespace will timeout after 30 minutes of inactivity, but you can customize the duration of the timeout period for new codespaces that you create. For more information about setting the default timeout period for your codespaces, see "[AUTOTITLE](/codespaces/setting-your-user-preferences/setting-your-timeout-period-for-github-codespaces)." For more information about stopping a codespace, see "[Stopping a codespace](#stopping-a-codespace)."
+If you leave your codespace running without interaction, or if you exit your codespace without explicitly stopping it, the codespace will timeout after a period of inactivity and stop running. By default, a codespace will timeout after 30 minutes of inactivity, but you can customize the duration of the timeout period for new codespaces that you create. For more information about setting the default timeout period for your codespaces, see [AUTOTITLE](/codespaces/setting-your-user-preferences/setting-your-timeout-period-for-github-codespaces). For more information about stopping a codespace, see [Stopping a codespace](#stopping-a-codespace).
 
-When a codespace times out, your data is preserved from the last time your changes were saved. For more information, see "[Saving changes in a codespace](#saving-changes-in-a-codespace)."
+When a codespace times out, your data is preserved from the last time your changes were saved. For more information, see [Saving changes in a codespace](#saving-changes-in-a-codespace).
 
 ## Rebuilding a codespace
 
@@ -53,23 +50,23 @@ You can rebuild your codespace to implement changes you've made to your dev cont
 
 {% data reusables.codespaces.rebuild-note %}
 
-For more information, see "[AUTOTITLE](/codespaces/setting-up-your-project-for-codespaces/adding-a-dev-container-configuration/introduction-to-dev-containers)" and "[AUTOTITLE](/codespaces/developing-in-a-codespace/rebuilding-the-container-in-a-codespace)."
+For more information, see [AUTOTITLE](/codespaces/setting-up-your-project-for-codespaces/adding-a-dev-container-configuration/introduction-to-dev-containers) and [AUTOTITLE](/codespaces/developing-in-a-codespace/rebuilding-the-container-in-a-codespace).
 
 ## Stopping a codespace
 
-{% data reusables.codespaces.stopping-a-codespace %} For more information, see "[AUTOTITLE](/codespaces/developing-in-a-codespace/stopping-and-starting-a-codespace)."
+{% data reusables.codespaces.stopping-a-codespace %} For more information, see [AUTOTITLE](/codespaces/developing-in-a-codespace/stopping-and-starting-a-codespace).
 
 ## Deleting a codespace
 
 You can create a codespace for a particular task and then safely delete the codespace after you push your changes to a remote branch.
 
-If you try to delete a codespace with unpushed git commits, your editor will notify you that you have changes that have not been pushed to a remote branch. You can push any desired changes and then delete your codespace, or continue to delete your codespace and any uncommitted changes. You can also export your code to a new branch without creating a new codespace. For more information, see "[AUTOTITLE](/codespaces/troubleshooting/exporting-changes-to-a-branch)."
+If you try to delete a codespace with unpushed git commits, your editor will notify you that you have changes that have not been pushed to a remote branch. You can push any desired changes and then delete your codespace, or continue to delete your codespace and any uncommitted changes. You can also export your code to a new branch without creating a new codespace. For more information, see [AUTOTITLE](/codespaces/troubleshooting/exporting-changes-to-a-branch).
 
-Codespaces that have been stopped and remain inactive for a specified period of time will be deleted automatically. By default, inactive codespaces are deleted after 30 days, but you can customize your codespace retention period. For more information, see "[AUTOTITLE](/codespaces/setting-your-user-preferences/configuring-automatic-deletion-of-your-codespaces)."
+Codespaces that have been stopped and remain inactive for a specified period of time will be deleted automatically. By default, inactive codespaces are deleted after 30 days, but you can customize your codespace retention period. For more information, see [AUTOTITLE](/codespaces/setting-your-user-preferences/configuring-automatic-deletion-of-your-codespaces).
 
-If you create a codespace, it will continue to accrue storage charges until it is deleted, irrespective of whether it is active or stopped. For more information, see "[AUTOTITLE](/billing/managing-billing-for-github-codespaces/about-billing-for-github-codespaces#about-billing-for-storage-usage)." Deleting a codespace does not reduce the current billable amount for {% data variables.product.prodname_github_codespaces %}, which accumulates during each monthly billing cycle. For more information, see "[AUTOTITLE](/billing/managing-billing-for-github-codespaces/viewing-your-github-codespaces-usage)."
+If you create a codespace, it will continue to accrue storage charges until it is deleted, irrespective of whether it is active or stopped. For more information, see [AUTOTITLE](/billing/managing-billing-for-your-products/managing-billing-for-github-codespaces/about-billing-for-github-codespaces#about-billing-for-storage-usage). Deleting a codespace does not reduce the current billable amount for {% data variables.product.prodname_github_codespaces %}, which accumulates during each monthly billing cycle. For more information, see [AUTOTITLE](/billing/managing-billing-for-your-products/managing-billing-for-github-codespaces/viewing-your-github-codespaces-usage).
 
-For more information on deleting a codespace, see "[AUTOTITLE](/codespaces/developing-in-a-codespace/deleting-a-codespace)."
+For more information on deleting a codespace, see [AUTOTITLE](/codespaces/developing-in-a-codespace/deleting-a-codespace).
 
 ## Losing the connection while using {% data variables.product.prodname_github_codespaces %}
 

@@ -23,7 +23,7 @@ You can change numerous settings for the {% data variables.product.prodname_code
 * How the extension displays previous queries.
 * How the extension runs queries.
 
-## Editing settings
+## Editing settings for the {% data variables.product.prodname_codeql %} extension
 
 1. Open the "Extensions" view and right-click **{% data variables.product.prodname_codeql %}**, then click **Extension Settings**.
 
@@ -33,15 +33,12 @@ You can change numerous settings for the {% data variables.product.prodname_code
 
    ![Screenshot of the CodeQL for VS Code Extension Settings window displayed inside VS Code.](/assets/images/help/security/codeql-for-vs-code-extension-settings.png)
 
-{% note %}
-
-**Note:** Alternatively, you can edit the settings in JSON format by opening the {% data variables.product.prodname_vscode_command_palette_shortname %} and selecting **Preferences: Open User Settings (JSON)**.
-
-{% endnote %}
+> [!TIP]
+> Alternatively, you can edit the settings in JSON format by opening the {% data variables.product.prodname_vscode_command_palette_shortname %} and selecting **Preferences: Open User Settings (JSON)**.
 
 ### Choosing a version of the {% data variables.product.prodname_codeql_cli %}
 
-To override the default behavior and use a specific version of the {% data variables.product.prodname_codeql_cli %}, you can specify the {% data variables.product.prodname_codeql_cli %} "Executable Path" in the extension settings, and point it to your existing copy of the {% data variables.product.prodname_codeql_cli %}. That is, the file named `codeql` (Linux and macOS), or `codeql.exe` (Windows). For more information about the default behavior, see "[AUTOTITLE](/code-security/codeql-for-vs-code/using-the-advanced-functionality-of-the-codeql-for-vs-code-extension/configuring-access-to-the-codeql-cli)."
+To override the default behavior and use a specific version of the {% data variables.product.prodname_codeql_cli %}, you can specify the {% data variables.product.prodname_codeql_cli %} "Executable Path" in the extension settings, and point it to your existing copy of the {% data variables.product.prodname_codeql_cli %}. That is, the file named `codeql` (Linux and macOS), or `codeql.exe` (Windows). For more information about the default behavior, see [AUTOTITLE](/code-security/codeql-for-vs-code/using-the-advanced-functionality-of-the-codeql-for-vs-code-extension/configuring-access-to-the-codeql-cli).
 
 ### Changing the labels of query history items
 
@@ -69,7 +66,7 @@ To save query server logs in a custom location, edit the "Running Queries: Custo
 
 {% ifversion codeql-vs-code-mrva %}
 
-There are a number of settings under "Variant Analysis" that you can use to define or edit lists of {% data variables.product.company_short %} repositories for variant analysis, and change to a different controller repository. For information on the purpose and requirements for a controller repository, see "[AUTOTITLE](/code-security/codeql-for-vs-code/getting-started-with-codeql-for-vs-code/running-codeql-queries-at-scale-with-multi-repository-variant-analysis)."
+There are a number of settings under "Variant Analysis" that you can use to define or edit lists of {% data variables.product.company_short %} repositories for variant analysis, and change to a different controller repository. For information on the purpose and requirements for a controller repository, see [AUTOTITLE](/code-security/codeql-for-vs-code/getting-started-with-codeql-for-vs-code/running-codeql-queries-at-scale-with-multi-repository-variant-analysis).
 
 {% endif %}
 
@@ -111,25 +108,54 @@ You can change the items shown in the view or add new items by directly editing 
 
 To automatically add database source folders to your workspace, you can enable the "Adding Databases: Add Database Source to Workspace" setting.
 
-This setting is disabled by default. You may want to enable the setting if you regularly browse the source code of databases (for example, to view the abstract syntax tree of the code). For more information, see "[AUTOTITLE](/code-security/codeql-for-vs-code/using-the-advanced-functionality-of-the-codeql-for-vs-code-extension/exploring-the-structure-of-your-source-code)."
+This setting is disabled by default. You may want to enable the setting if you regularly browse the source code of databases (for example, to view the abstract syntax tree of the code). For more information, see [AUTOTITLE](/code-security/codeql-for-vs-code/using-the-advanced-functionality-of-the-codeql-for-vs-code-extension/exploring-the-structure-of-your-source-code).
 
-{% note %}
-
-If you are in a single-folder workspace, adding database source folders will cause the workspace to reload as a multi-root workspace. This may cause query history and database lists to reset.
-
-Before enabling this setting, we recommend that you save your workspace as a multi-root workspace. For more information, see [Multi-root Workspaces](https://code.visualstudio.com/docs/editor/multi-root-workspaces) in the {% data variables.product.prodname_vscode %} documentation.
-
-{% endnote %}
+> [!NOTE]
+> If you are in a single-folder workspace, adding database source folders will cause the workspace to reload as a multi-root workspace. This may cause query history and database lists to reset.
+>
+> Before enabling this setting, we recommend that you save your workspace as a multi-root workspace. For more information, see [Multi-root Workspaces](https://code.visualstudio.com/docs/editor/multi-root-workspaces) in the {% data variables.product.prodname_vscode %} documentation.
 
 ### Configuring settings for testing queries locally
 
 To increase the number of threads used for testing queries, you can update the "Running Tests: Number Of Threads" setting.
 
-To pass additional arguments to the {% data variables.product.prodname_codeql_cli %} when running tests, you can update the "Running Tests: Additional Test Arguments" setting. For more information about the available arguments, see "[AUTOTITLE](/code-security/codeql-cli/codeql-cli-manual/test-run/)."
+To pass additional arguments to the {% data variables.product.prodname_codeql_cli %} when running tests, you can update the "Running Tests: Additional Test Arguments" setting. For more information about the available arguments, see [AUTOTITLE](/code-security/codeql-cli/codeql-cli-manual/test-run/).
 
 ### Configuring settings for telemetry and data collection
 
-You can configure whether the {% data variables.product.prodname_codeql %} extension collects telemetry data. This is disabled by default. For more information, see "[AUTOTITLE](/code-security/codeql-for-vs-code/using-the-advanced-functionality-of-the-codeql-for-vs-code-extension/telemetry-in-codeql-for-visual-studio-code)."
+You can configure whether the {% data variables.product.prodname_codeql %} extension collects telemetry data. This is disabled by default. For more information, see [AUTOTITLE](/code-security/codeql-for-vs-code/using-the-advanced-functionality-of-the-codeql-for-vs-code-extension/telemetry-in-codeql-for-visual-studio-code).
+
+{% ifversion ghec %}
+
+## Changing the {% data variables.product.github %} URL used by the extension
+
+By default, the {% data variables.product.prodname_codeql %} for {% data variables.product.prodname_vscode %} extension is configured to analyze repositories hosted on {% data variables.product.prodname_dotcom_the_website %}. If you use {% data variables.enterprise.data_residency %}, you can specify the URL of your site using the "{% data variables.product.github %} Enterprise URI" setting.
+
+### Specifying the {% data variables.product.github %} URL in your settings
+
+1. Open the "Extensions" view and right-click **{% data variables.product.prodname_codeql %}**, then click **Extension Settings**.
+
+1. In the "Settings" window, scroll down until you find the {% data variables.product.github %} Authentication settings and enter the URL of your {% data variables.enterprise.data_residency %}. The new settings are saved automatically.
+
+   ![Screenshot of the "Extensions" settings for "{% data variables.product.github %} Authentication" the URI field is outlined in dark orange.](/assets/images/help/security/codeql-for-vs-code-set-ghe-uri.png)
+
+Alternatively, you can define the URL in the JSON file where your settings for {% data variables.product.prodname_codeql %} are stored.
+
+```json
+    "github-enterprise.uri": "{% data variables.enterprise.data_residency_domain %}",
+```
+
+### When the extension uses the {% data variables.product.github %} URL you set
+
+When {% data variables.product.github %} Enterprise URI (`github-enterprise.uri`) is defined, the extension uses this URL in:
+
+* Requests to download databases from {% data variables.product.github %}
+* Creating a list of repositories for variant analysis
+
+> [!NOTE]
+> {% data variables.enterprise.data_residency %} requires authentication to see all repositories, so you will need to authenticate before you can download or analyze data. In addition, you will not see any "Top XX repositories" lists for variant analysis, see [AUTOTITLE](/code-security/codeql-for-vs-code/getting-started-with-codeql-for-vs-code/running-codeql-queries-at-scale-with-multi-repository-variant-analysis).
+
+{% endif %}
 
 ## Further reading
 

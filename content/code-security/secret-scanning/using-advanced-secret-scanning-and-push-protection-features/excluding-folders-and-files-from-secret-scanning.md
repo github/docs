@@ -1,7 +1,7 @@
 ---
 title: Excluding folders and files from secret scanning
 intro: 'You can customize {% data variables.product.prodname_secret_scanning %} to exclude directories or files from analysis, by configuring a `secret_scanning.yml` file in your repository.'
-product: '{% data reusables.gated-features.secret-scanning %}'
+permissions: '{% data reusables.permissions.secret-scanning-alerts %}'
 shortTitle: Exclude folders and files
 versions:
   fpt: '*'
@@ -38,20 +38,16 @@ You can configure a `secret_scanning.yml` file to exclude directories from {% da
 
     This tells {% data variables.product.prodname_secret_scanning %} to ignore everything in the `docs` directory. You can use this example file as a template to add the files and folders you’d like to exclude from your own repositories.
 
-    You can also use special characters, such as `*` to filter paths. For more information about filter patterns, see "[Workflow syntax for GitHub Actions](/actions/reference/workflow-syntax-for-github-actions#filter-pattern-cheat-sheet)."
+    You can also use special characters, such as `*` to filter paths. For more information about filter patterns, see [Workflow syntax for GitHub Actions](/actions/reference/workflow-syntax-for-github-actions#filter-pattern-cheat-sheet).
 
     ``` yaml copy
     paths-ignore:
       - "foo/bar/*.js"
     ```
 
-    {% note %}
-
-    **Notes:**
-    * If there are more than 1,000 entries in `paths-ignore`, {% data variables.product.prodname_secret_scanning %} will only exclude the first 1,000 directories from scans.
-    * If `secret_scanning.yml` is larger than 1 MB, {% data variables.product.prodname_secret_scanning %} will ignore the entire file.
-
-    {% endnote %}
+    > [!NOTE]
+    > * If there are more than 1,000 entries in `paths-ignore`, {% data variables.product.prodname_secret_scanning %} will only exclude the first 1,000 directories from scans.
+    > * If `secret_scanning.yml` is larger than 1 MB, {% data variables.product.prodname_secret_scanning %} will ignore the entire file.
 
 ## Verifying that the folder is excluded from {% data variables.product.prodname_secret_scanning %}
 

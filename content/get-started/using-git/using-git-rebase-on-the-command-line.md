@@ -107,7 +107,7 @@ Once you are satisfied with your changes, run
 
 At this point, you can edit any of the files in your project to make any additional changes. For each change you make, you'll need to perform a new commit, and you can do that by entering the `git commit --amend` command. When you're finished making all your changes, you can run `git rebase --continue`.
 
-Git then gets to the `reword 4ca2acc` command.  It opens up your text editor one more time, and presents the following information:
+Git then gets to the `reword 4ca2acc` command. It opens up your text editor one more time, and presents the following information:
 
 ```text
 i cant' typ goods
@@ -136,12 +136,9 @@ $ git push origin main --force-with-lease
 $ git push origin main --force
 ```
 
-{% warning %}
-
-Force pushing has serious implications because it changes the historical sequence of commits for the branch. Use it with caution, especially if your repository is being accessed by multiple people.
-
-{% endwarning %}
+> [!WARNING]
+> Force pushing has serious implications because it changes the historical sequence of commits for the branch. Use it with caution, especially if your repository is being accessed by multiple people.
 
 ## Further reading
 
-* "[AUTOTITLE](/get-started/using-git/resolving-merge-conflicts-after-a-git-rebase)"
+* [AUTOTITLE](/get-started/using-git/resolving-merge-conflicts-after-a-git-rebase)

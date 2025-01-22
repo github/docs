@@ -1,6 +1,6 @@
-You can use contexts to create matrices. For more information about contexts, see "[AUTOTITLE](/actions/learn-github-actions/contexts)."
+You can use contexts to create matrices. For more information about contexts, see [AUTOTITLE](/actions/learn-github-actions/contexts).
 
-For example, the following workflow triggers on the `repository_dispatch` event and uses information from the event payload to build the matrix. When a repository dispatch event is created with a payload like the one below, the matrix `version` variable will have a value of `[12, 14, 16]`. For more information about the `repository_dispatch` trigger, see "[AUTOTITLE](/actions/using-workflows/events-that-trigger-workflows#repository_dispatch)."
+For example, the following workflow triggers on the `repository_dispatch` event and uses information from the event payload to build the matrix. When a repository dispatch event is created with a payload like the one below, the matrix `version` variable will have a value of `[12, 14, 16]`. For more information about the `repository_dispatch` trigger, see [AUTOTITLE](/actions/using-workflows/events-that-trigger-workflows#repository_dispatch).
 
 ```json
 {

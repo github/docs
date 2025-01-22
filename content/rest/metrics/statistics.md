@@ -21,7 +21,7 @@ You can use the REST API to fetch the data that {% data variables.product.produc
 ### Best practices for caching
 
 Computing repository statistics is an expensive operation, so we try to return cached
-data whenever possible.  If the data hasn't been cached when you query a repository's
+data whenever possible. If the data hasn't been cached when you query a repository's
 statistics, you'll receive a `202` response; a background job is also fired to
 start compiling these statistics. You should allow the job a short time to complete, and
 then submit the request again. If the job has completed, that request will receive a

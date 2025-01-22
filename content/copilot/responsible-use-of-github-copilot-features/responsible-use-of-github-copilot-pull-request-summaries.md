@@ -4,19 +4,12 @@ shortTitle: Pull request summaries
 intro: 'Learn how to use {% data variables.product.prodname_copilot_for_prs %} responsibly by understanding its purposes, capabilities, and limitations.'
 versions:
   feature: copilot
-permissions: 'Members of an enterprise with a subscription to {% data variables.product.prodname_copilot_enterprise %}'
 topics:
   - Copilot
 type: rai
 redirect_from:
   - /copilot/github-copilot-enterprise/copilot-pull-request-summaries/about-copilot-pull-request-summaries
 ---
-
-{% ifversion fpt %}
-
-{% data reusables.rai.copilot.enterprise-fpt-link %}
-
-{% endif %}
 
 ## About {% data variables.product.prodname_copilot_for_prs %}
 
@@ -95,5 +88,5 @@ Because a summary is an outline of the changes that were made in a pull request,
 
 * [{% data variables.product.prodname_copilot %} Trust Center](https://resources.github.com/copilot-trust-center/)
 {%- ifversion fpt %}
-* "[AUTOTITLE](/copilot/github-copilot-enterprise/copilot-pull-request-summaries/creating-a-pull-request-summary-with-github-copilot)" in the {% data variables.product.prodname_ghe_cloud %} documentation.
+* [AUTOTITLE](/copilot/github-copilot-enterprise/copilot-pull-request-summaries/creating-a-pull-request-summary-with-github-copilot) in the {% data variables.product.prodname_ghe_cloud %} documentation.
 {%- endif %}

@@ -15,7 +15,7 @@ topics:
 
 
 
-You can use the REST API to deploy your projects hosted on {% data variables.product.product_name %} on a server that you own. For more information about the endpoints to manage deployments and statuses, see "[AUTOTITLE](/rest/deployments)." You can also use the REST API to coordinate your deployments the moment your code lands on the default branch. For more information, see "[AUTOTITLE](/rest/guides/building-a-ci-server)."
+You can use the REST API to deploy your projects hosted on {% data variables.product.product_name %} on a server that you own. For more information about the endpoints to manage deployments and statuses, see [AUTOTITLE](/rest/deployments). You can also use the REST API to coordinate your deployments the moment your code lands on the default branch. For more information, see [AUTOTITLE](/rest/guides/building-a-ci-server).
 
 This guide will use the REST API to demonstrate a setup that you can use.
 In our scenario, we will:
@@ -33,11 +33,10 @@ to [use it](/webhooks-and-events/webhooks/configuring-your-server-to-receive-pay
 applications to the internet.
 
 {% ifversion cli-webhook-forwarding %}
-{% note %}
 
-**Note:** Alternatively, you can use webhook forwarding to set up your local environment to receive webhooks. For more information, see "[AUTOTITLE](/webhooks-and-events/webhooks/receiving-webhooks-with-the-github-cli)."
+> [!NOTE]
+> Alternatively, you can use webhook forwarding to set up your local environment to receive webhooks. For more information, see [AUTOTITLE](/webhooks-and-events/webhooks/receiving-webhooks-with-the-github-cli).
 
-{% endnote %}
 {% endif %}
 
 Note: you can download the complete source code for this project

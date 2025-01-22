@@ -7,7 +7,8 @@ import { useTranslation } from 'src/languages/components/useTranslation'
 import { DEFAULT_VERSION, useVersion } from 'src/versions/components/useVersion'
 import { useQuery } from 'src/search/components/useQuery'
 import { useBreakpoint } from 'src/search/components/useBreakpoint'
-import { EventType, sendEvent } from 'src/events/components/events'
+import { sendEvent } from 'src/events/components/events'
+import { EventType } from 'src/events/types'
 
 type Props = { isSearchOpen: boolean }
 

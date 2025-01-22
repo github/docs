@@ -1,6 +1,6 @@
 ---
 title: Managing remote repositories
-intro: 'Learn to work with your local repositories on your computer and remote repositories hosted on {% data variables.product.product_name %}.'
+intro: 'Learn to work with your local repositories on your computer and remote repositories hosted on {% data variables.product.github %}.'
 redirect_from:
   - /categories/18/articles
   - /remotes
@@ -24,6 +24,12 @@ versions:
   ghec: '*'
 shortTitle: Manage remote repositories
 ---
+{% ifversion ghec %}
+
+> [!NOTE] {% data reusables.enterprise-data-residency.access-domain %}
+
+{% endif %}
+
 ## Adding a remote repository
 
 To add a new remote, use the `git remote add` command on the terminal, in the directory your repository is stored at.
@@ -44,7 +50,7 @@ $ git remote -v
 > origin  https://{% data variables.product.product_url %}/OWNER/REPOSITORY.git (push)
 ```
 
-For more information on which URL to use, see "[AUTOTITLE](/get-started/getting-started-with-git/about-remote-repositories)."
+For more information on which URL to use, see [AUTOTITLE](/get-started/getting-started-with-git/about-remote-repositories).
 
 ### Troubleshooting: Remote origin already exists
 
@@ -57,18 +63,15 @@ $ git remote add origin https://{% data variables.product.product_url %}/octocat
 
 To fix this, you can:
 * Use a different name for the new remote.
-* Rename the existing remote repository before you add the new remote. For more information, see "[Renaming a remote repository](#renaming-a-remote-repository)" below.
-* Delete the existing remote repository before you add the new remote. For more information, see "[Removing a remote repository](#removing-a-remote-repository)" below.
+* Rename the existing remote repository before you add the new remote. For more information, see [Renaming a remote repository](#renaming-a-remote-repository) below.
+* Delete the existing remote repository before you add the new remote. For more information, see [Removing a remote repository](#removing-a-remote-repository) below.
 
 ## Changing a remote repository's URL
 
 The `git remote set-url` command changes an existing remote repository URL.
 
-{% tip %}
-
-**Tip:** For information on the difference between HTTPS and SSH URLs, see "[AUTOTITLE](/get-started/getting-started-with-git/about-remote-repositories)."
-
-{% endtip %}
+> [!TIP]
+> For information on the difference between HTTPS and SSH URLs, see [AUTOTITLE](/get-started/getting-started-with-git/about-remote-repositories).
 
 The `git remote set-url` command takes two arguments:
 
@@ -228,12 +231,8 @@ $ git remote -v
 > origin  https://{% data variables.product.product_url %}/OWNER/REPOSITORY.git (push)
 ```
 
-{% warning %}
-
-**Note**: `git remote rm` does not delete the remote repository from the server. It simply
-removes the remote and its references from your local repository.
-
-{% endwarning %}
+> [!NOTE]
+> `git remote rm` does not delete the remote repository from the server. It simply removes the remote and its references from your local repository.
 
 ### Troubleshooting: Could not remove config section 'remote.[name]'
 
@@ -248,4 +247,4 @@ Check that you've correctly typed the remote name.
 
 ## Further reading
 
-* ["Working with Remotes" from the _Pro Git_ book](https://git-scm.com/book/en/Git-Basics-Working-with-Remotes)
+* ["Working with Remotes" from the _Pro Git_ book](https://git-scm.com/book/en/v2/Git-Basics-Working-with-Remotes)

@@ -28,15 +28,14 @@ After you register a GitHub App, you can customize your app's badge by uploading
 
 {% ifversion fpt or ghec %}
 
-For more information about badges for {% data variables.product.prodname_github_apps %} in {% data variables.product.prodname_marketplace %}, see "[AUTOTITLE](/apps/publishing-apps-to-github-marketplace/listing-an-app-on-github-marketplace/writing-a-listing-description-for-your-app#guidelines-for-logos)." You can change a custom badge for a GitHub App that already has an approved Marketplace listing by navigating to https://github.com/marketplace/manage.
+For more information about badges for {% data variables.product.prodname_github_apps %} in {% data variables.product.prodname_marketplace %}, see [AUTOTITLE](/apps/publishing-apps-to-github-marketplace/listing-an-app-on-github-marketplace/writing-a-listing-description-for-your-app#guidelines-for-logos). You can change a custom badge for a GitHub App that already has an approved Marketplace listing by navigating to https://github.com/marketplace/manage.
 
 {% endif %}
 
 ## Creating a custom badge
 
 {% data reusables.apps.settings-step %}
-{% data reusables.user-settings.developer_settings %}
-{% data reusables.user-settings.github_apps %}
+{% data reusables.apps.enterprise-apps-steps %}
 {% data reusables.user-settings.modify_github_app %}
 1. Under "Display information", drag and drop an image from a local folder or click **Upload a logo** to select an image from your computer.
 1. Optionally, crop your image.
@@ -44,17 +43,16 @@ For more information about badges for {% data variables.product.prodname_github_
 1. Under "Badge background color", type the hexadecimal color code of the background color for your badge.
 
 {% ifversion fpt or ghec %}
-   {% note %}
 
-   **Note:** The "Badge background color" input field will only appear after you upload a logo.
+   > [!NOTE]
+   > The "Badge background color" input field will only appear after you upload a logo.
 
-   {% endnote %}
 {% endif %}
 
 {% ifversion fpt or ghec %}
 
 ## Next steps
 
-For more information about listing your {% data variables.product.prodname_github_app %} in {% data variables.product.prodname_marketplace %}, see "[AUTOTITLE](/apps/publishing-apps-to-github-marketplace/listing-an-app-on-github-marketplace)."
+For more information about listing your {% data variables.product.prodname_github_app %} in {% data variables.product.prodname_marketplace %}, see [AUTOTITLE](/apps/publishing-apps-to-github-marketplace/listing-an-app-on-github-marketplace).
 
 {% endif %}

@@ -1,6 +1,6 @@
 {% rowheaders %}
 
-| Query name | Related CWEs | Default | Extended | Autofix |
+| Query name | Related CWEs | Default | Extended | {% data variables.product.prodname_copilot_autofix_short %} |
 | --- | --- | --- | --- | --- |
 | ['requireSSL' attribute is not set to true](https://codeql.github.com/codeql-query-help/csharp/cs-web-requiressl-not-set/) | 319, 614 | {% octicon "check" aria-label="Included" %} | {% octicon "check" aria-label="Included" %} | {% octicon "check" aria-label="Included" %} |
 | [Arbitrary file access during archive extraction ("Zip Slip")](https://codeql.github.com/codeql-query-help/csharp/cs-zipslip/) | 022 | {% octicon "check" aria-label="Included" %} | {% octicon "check" aria-label="Included" %} | {% octicon "check" aria-label="Included" %} |

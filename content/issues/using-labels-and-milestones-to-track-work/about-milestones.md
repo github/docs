@@ -28,8 +28,5 @@ Additionally, you can edit the milestone from the milestone page and create new 
 
 You can prioritize open issues and pull requests in a milestone by clicking to the left of an issue or pull request's checkbox, dragging it to a new location, and dropping it.
 
-{% note %}
-
-**Note:** If there are more than 500 open issues in a milestone, you won't be able to prioritize issues.
-
-{% endnote %}
+> [!NOTE]
+> If there are more than 500 open issues in a milestone, you won't be able to prioritize issues.

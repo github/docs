@@ -23,7 +23,7 @@ When you enable SAML single sign-on for your enterprise account, each enterprise
 
 {% ifversion ghec %}
 
-If your enterprise is uses {% data variables.product.prodname_emus %}, your members will use accounts provisioned through your IdP. {% data variables.enterprise.prodname_managed_users_caps %} will not use their existing user account on {% data variables.product.product_name %}. For more information, see "[AUTOTITLE](/enterprise-cloud@latest/admin/identity-and-access-management/using-enterprise-managed-users-for-iam/about-enterprise-managed-users)."
+If your enterprise is uses {% data variables.product.prodname_emus %}, your members will use accounts provisioned through your IdP. {% data variables.enterprise.prodname_managed_users_caps %} will not use their existing user account on {% data variables.product.product_name %}. For more information, see [AUTOTITLE](/enterprise-cloud@latest/admin/identity-and-access-management/using-enterprise-managed-users-for-iam/about-enterprise-managed-users).
 
 {% endif %}
 
@@ -72,6 +72,6 @@ If your enterprise uses {% data variables.product.prodname_emus %}, you will not
 
 ## Further reading
 
-* "[AUTOTITLE](/organizations/granting-access-to-your-organization-with-saml-single-sign-on/viewing-and-managing-a-members-saml-access-to-your-organization)"
+* [AUTOTITLE](/organizations/granting-access-to-your-organization-with-saml-single-sign-on/viewing-and-managing-a-members-saml-access-to-your-organization)
 
 {% endif %}

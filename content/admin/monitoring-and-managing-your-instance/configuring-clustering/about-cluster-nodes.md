@@ -39,11 +39,8 @@ Each node must have a root volume, as well as a separate data volume. These are 
 
 For adequate redundancy, use these minimum nodes operating each service.
 
-{% tip %}
-
-**Note:** Your environment's scaling requirements depend on many factors, including the size and number of repositories, number of users, and overall utilization.
-
-{% endtip %}
+> [!NOTE]
+> Your environment's scaling requirements depend on many factors, including the size and number of repositories, number of users, and overall utilization.
 
 ## Example cluster configuration
 

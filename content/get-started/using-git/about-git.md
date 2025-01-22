@@ -1,6 +1,6 @@
 ---
 title: About Git
-intro: 'Learn about the version control system, Git, and how it works with {% data variables.product.product_name %}.'
+intro: 'Learn about the version control system, Git, and how it works with {% data variables.product.github %}.'
 versions:
   fpt: '*'
   ghes: '*'
@@ -36,17 +36,17 @@ In a distributed version control system, every developer has a full copy of the 
 
 A repository, or Git project, encompasses the entire collection of files and folders associated with a project, along with each file's revision history. The file history appears as snapshots in time called commits. The commits can be organized into multiple lines of development called branches. Because Git is a DVCS, repositories are self-contained units and anyone who has a copy of the repository can access the entire codebase and its history. Using the command line or other ease-of-use interfaces, a Git repository also allows for: interaction with the history, cloning the repository, creating branches, committing, merging, comparing changes across versions of code, and more.
 
-Through platforms like {% data variables.product.product_name %}, Git also provides more opportunities for project transparency and collaboration. Public repositories help teams work together to build the best possible final product.
+Through platforms like {% data variables.product.github %}, Git also provides more opportunities for project transparency and collaboration. Public repositories help teams work together to build the best possible final product.
 
-## How {% data variables.product.product_name %} works
+## How {% data variables.product.github %} works
 
-{% data variables.product.product_name %} hosts Git repositories and provides developers with tools to ship better code through command line features, issues (threaded discussions), pull requests, code review, or the use of a collection of free and for-purchase apps in the {% data variables.product.prodname_marketplace %}. With collaboration layers like the {% data variables.product.product_name %} flow, a community of 100 million developers, and an ecosystem with hundreds of integrations, {% data variables.product.product_name %} changes the way software is built.
+{% data variables.product.github %} hosts Git repositories and provides developers with tools to ship better code through command line features, issues (threaded discussions), pull requests, code review, or the use of a collection of free and for-purchase apps in the {% data variables.product.prodname_marketplace %}. With collaboration layers like the {% data variables.product.github %} flow, a community of 100 million developers, and an ecosystem with hundreds of integrations, {% data variables.product.github %} changes the way software is built.
 
-{% data variables.product.product_name %} builds collaboration directly into the development process. Work is organized into repositories where developers can outline requirements or direction and set expectations for team members. Then, using the {% data variables.product.product_name %} flow, developers simply create a branch to work on updates, commit changes to save them, open a pull request to propose and discuss changes, and merge pull requests once everyone is on the same page. For more information, see "[AUTOTITLE](/get-started/using-github/github-flow)."
+{% data variables.product.github %} builds collaboration directly into the development process. Work is organized into repositories where developers can outline requirements or direction and set expectations for team members. Then, using the {% data variables.product.github %} flow, developers simply create a branch to work on updates, commit changes to save them, open a pull request to propose and discuss changes, and merge pull requests once everyone is on the same page. For more information, see [AUTOTITLE](/get-started/using-github/github-flow).
 
 For {% data variables.product.prodname_dotcom %} plans and costs, see {% data variables.product.pricing_link %}. For information on how {% data variables.product.prodname_enterprise %} compares to other options, see [Comparing GitHub to other DevOps solutions](https://resources.github.com/devops/tools/compare/).
 
-## {% data variables.product.product_name %} and the command line
+## {% data variables.product.github %} and the command line
 
 ### Basic Git commands
 
@@ -75,7 +75,7 @@ For more information, see the [full reference guide to Git commands](https://git
 ### Example: Contribute to an existing repository
 
 ```bash
-# download a repository on {% data variables.product.product_name %} to our machine
+# download a repository on {% data variables.product.github %} to our machine
 # Replace `owner/repo` with the owner and name of the repository to clone
 git clone https://github.com/owner/repo.git
 
@@ -100,9 +100,9 @@ git commit -m "my snapshot"
 git push --set-upstream origin my-branch
 ```
 
-### Example: Start a new repository and publish it to {% data variables.product.product_name %}
+### Example: Start a new repository and publish it to {% data variables.product.github %}
 
-First, you will need to create a new repository on {% data variables.product.product_name %}. For more information, see "[AUTOTITLE](/get-started/start-your-journey/hello-world)." **Do not** initialize the repository with a README, .gitignore or License file. This empty repository will await your code.
+First, you will need to create a new repository on {% data variables.product.github %}. For more information, see [AUTOTITLE](/get-started/start-your-journey/hello-world). **Do not** initialize the repository with a README, .gitignore or License file. This empty repository will await your code.
 
 ```bash
 # create a new directory, and initialize it with git-specific functions
@@ -127,9 +127,9 @@ git remote add origin https://github.com/YOUR-USERNAME/YOUR-REPOSITORY-NAME.git
 git push --set-upstream origin main
 ```
 
-### Example: contribute to an existing branch on {% data variables.product.product_name %}
+### Example: contribute to an existing branch on {% data variables.product.github %}
 
-This example assumes that you already have a project called `repo` on the machine and that a new branch has been pushed to {% data variables.product.product_name %} since the last time changes were made locally.
+This example assumes that you already have a project called `repo` on the machine and that a new branch has been pushed to {% data variables.product.github %} since the last time changes were made locally.
 
 ```bash
 # change into the `repo` directory
@@ -155,11 +155,11 @@ git push
 
 ## Models for collaborative development
 
-There are two primary ways people collaborate on {% data variables.product.product_name %}:
+There are two primary ways people collaborate on {% data variables.product.github %}:
 
 1. Shared repository
 1. Fork and pull
 
-With a shared repository, individuals and teams are explicitly designated as contributors with read, write, or administrator access. This simple permission structure, combined with features like protected branches, helps teams progress quickly when they adopt {% data variables.product.product_name %}.
+With a shared repository, individuals and teams are explicitly designated as contributors with read, write, or administrator access. This simple permission structure, combined with features like protected branches, helps teams progress quickly when they adopt {% data variables.product.github %}.
 
-For an open source project, or for projects to which anyone can contribute, managing individual permissions can be challenging, but a fork and pull model allows anyone who can view the project to contribute. A fork is a copy of a project under a developer's personal account. Every developer has full control of their fork and is free to implement a fix or a new feature. Work completed in forks is either kept separate, or is surfaced back to the original project via a pull request. There, maintainers can review the suggested changes before they're merged. For more information, see "[AUTOTITLE](/get-started/exploring-projects-on-github/contributing-to-a-project)."
+For an open source project, or for projects to which anyone can contribute, managing individual permissions can be challenging, but a fork and pull model allows anyone who can view the project to contribute. A fork is a copy of a project under a developer's personal account. Every developer has full control of their fork and is free to implement a fix or a new feature. Work completed in forks is either kept separate, or is surfaced back to the original project via a pull request. There, maintainers can review the suggested changes before they're merged. For more information, see [AUTOTITLE](/get-started/exploring-projects-on-github/contributing-to-a-project).

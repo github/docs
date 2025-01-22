@@ -23,11 +23,11 @@ topics:
   - Privacy
   - Security
 ---
-You must enable private mode if {% data variables.location.product_location %} is publicly accessible over the Internet. In private mode, users cannot anonymously clone repositories over `git://`. If built-in authentication is also enabled, an administrator must invite new users to create an account on the instance. For more information, see "[AUTOTITLE](/admin/identity-and-access-management/using-built-in-authentication/configuring-built-in-authentication)."
+You must enable private mode if {% data variables.location.product_location %} is publicly accessible over the Internet. In private mode, users cannot anonymously clone repositories. If built-in authentication is also enabled, an administrator must invite new users to create an account on the instance. For more information, see [AUTOTITLE](/admin/identity-and-access-management/using-built-in-authentication/configuring-built-in-authentication).
 
 {% data reusables.enterprise_installation.image-urls-viewable-warning %}
 
-With private mode enabled, you can allow unauthenticated Git operations (and anyone with network access to {% data variables.location.product_location %}) to read a public repository's code on your instance with anonymous Git read access enabled. For more information, see "[AUTOTITLE](/admin/policies/enforcing-policies-for-your-enterprise/enforcing-repository-management-policies-in-your-enterprise)."
+With private mode enabled, you can allow unauthenticated Git operations (and anyone with network access to {% data variables.location.product_location %}) to read a public repository's code on your instance with anonymous Git read access enabled. For more information, see [AUTOTITLE](/admin/policies/enforcing-policies-for-your-enterprise/enforcing-repository-management-policies-in-your-enterprise).
 
 {% data reusables.enterprise_site_admin_settings.access-settings %}
 {% data reusables.enterprise_site_admin_settings.management-console %}

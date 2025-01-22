@@ -21,15 +21,10 @@ topics:
 
 You can replace a functional node in a {% data variables.product.product_name %} cluster, or you can replace a node that has failed unexpectedly.
 
-{% ifversion cluster-rebalancing %}
-After you replace a node, {% data variables.location.product_location %} does not automatically distribute jobs to the new node. You can force your instance to balance jobs across nodes. For more information, see "[AUTOTITLE](/admin/enterprise-management/configuring-clustering/rebalancing-cluster-workloads)."
-{% endif %}
+After you replace a node, {% data variables.location.product_location %} does not automatically distribute jobs to the new node. You can force your instance to balance jobs across nodes. For more information, see [AUTOTITLE](/admin/enterprise-management/configuring-clustering/rebalancing-cluster-workloads).
 
-{% warning %}
-
-**Warning:** To avoid conflicts, do not reuse a hostname that was previously assigned to a node in the cluster.
-
-{% endwarning %}
+> [!WARNING]
+> To avoid conflicts, do not reuse a hostname that was previously assigned to a node in the cluster.
 
 ## Replacing a functional node
 
@@ -37,11 +32,8 @@ You can replace an existing, functional node in your cluster. For example, you m
 
 To replace a functional node, install the {% data variables.product.product_name %} appliance on a new VM, configure an IP address, add the new node to the cluster configuration file, initialize the cluster and apply the configuration, then take the node you replaced offline.
 
-{% note %}
-
-**Note:** If you're replacing the primary MySQL node, see "[Replacing the primary MySQL node](#replacing-the-primary-mysql-node)."
-
-{% endnote %}
+> [!NOTE]
+> If you're replacing the primary MySQL node, see [Replacing the primary MySQL node](#replacing-the-primary-mysql-node).
 
 {% data reusables.enterprise_clustering.replacing-a-cluster-node-provision %}
 {% data reusables.enterprise_clustering.replacing-a-cluster-node-admin-configure-ip %}
@@ -55,7 +47,7 @@ To replace a functional node, install the {% data variables.product.product_name
    ghe-remove-node NODE-HOSTNAME
    ```
 
-   This command will evacuate data from any data services running on the node, mark the node as offline in your configuration, and stop traffic being routed to the node. For more information, see "[AUTOTITLE](/admin/administering-your-instance/administering-your-instance-from-the-command-line/command-line-utilities#ghe-remove-node)."
+   This command will evacuate data from any data services running on the node, mark the node as offline in your configuration, and stop traffic being routed to the node. For more information, see [AUTOTITLE](/admin/administering-your-instance/administering-your-instance-from-the-command-line/command-line-utilities#ghe-remove-node).
 {% else %}
 {% data reusables.enterprise_clustering.replacing-a-cluster-node-need-three-nodes %}
 {% data reusables.enterprise_clustering.replacing-a-cluster-node-mark-offline %}
@@ -66,11 +58,8 @@ To replace a functional node, install the {% data variables.product.product_name
 
 You can replace a failed node in your cluster. For example, a software or hardware issue may affect a node's availability.
 
-{% note %}
-
-**Note:** If you're replacing the primary MySQL node, see "[Replacing the primary MySQL node](#replacing-the-primary-mysql-node)."
-
-{% endnote %}
+> [!NOTE]
+> If you're replacing the primary MySQL node, see [Replacing the primary MySQL node](#replacing-the-primary-mysql-node).
 
 {% ifversion cluster-node-removal %}
 
@@ -82,7 +71,7 @@ To replace a node in an emergency, you'll take the failed node offline, add your
    ghe-remove-node --no-evacuate NODE-HOSTNAME
    ```
 
-   This command will mark the node as offline in your configuration and stop traffic being routed to the node. You can run this command in `no-evacuate` mode now because, later in this procedure, you'll run commands that instruct data services on the node to copy any replicas onto the other available nodes in the cluster. For more information, see "[AUTOTITLE](/admin/administering-your-instance/administering-your-instance-from-the-command-line/command-line-utilities#ghe-remove-node)."
+   This command will mark the node as offline in your configuration and stop traffic being routed to the node. You can run this command in `no-evacuate` mode now because, later in this procedure, you'll run commands that instruct data services on the node to copy any replicas onto the other available nodes in the cluster. For more information, see [AUTOTITLE](/admin/administering-your-instance/administering-your-instance-from-the-command-line/command-line-utilities#ghe-remove-node).
 1. Add your replacement node to the cluster.
    {% data reusables.enterprise_clustering.replacing-a-cluster-node-provision %}
    {% data reusables.enterprise_clustering.replacing-a-cluster-node-admin-configure-ip %}
@@ -116,11 +105,8 @@ To replace a node in an emergency, you'll take the failed node offline, add your
 
       These commands indicate to each service that the node is permanently removed. The services will recreate any replicas contained within the node on the available nodes within the cluster.
 
-      {% note %}
-
-      **Note:** These commands may cause increased load on the server while data is rebalanced across replicas.
-
-      {% endnote %}
+      > [!NOTE]
+      > These commands may cause increased load on the server while data is rebalanced across replicas.
 
       For the `git-server` service (used for repository data):
 
@@ -167,7 +153,7 @@ To replace a node in an emergency, install the {% data variables.product.product
 
 ## Replacing the primary MySQL node
 
-To provide database services, your cluster requires a primary MySQL node and at least one replica MySQL node. For more information, see "[AUTOTITLE](/admin/monitoring-and-managing-your-instance/configuring-clustering/about-cluster-nodes)."
+To provide database services, your cluster requires a primary MySQL node and at least one replica MySQL node. For more information, see [AUTOTITLE](/admin/monitoring-and-managing-your-instance/configuring-clustering/about-cluster-nodes).
 
 If you want to provide the VM for your primary MySQL node with more resources, or if the node fails, you can replace the node. To minimize downtime, add the new node to your cluster, replicate the MySQL data, and then promote the node. Some downtime is required during promotion.
 
@@ -199,14 +185,12 @@ If you want to provide the VM for your primary MySQL node with more resources, o
 1. Wait for MySQL replication to finish. To monitor MySQL replication from any node in the cluster, run `ghe-cluster-status -v`.
 
    Shortly after adding the node to the cluster, you may see an error for replication status while replication catches up. Replication can take hours depending on the instance's load, the amount of database data, and the last time the instance generated a database seed.
-1. During your scheduled maintenance window, enable maintenance mode. For more information, see "[AUTOTITLE](/admin/administering-your-instance/configuring-maintenance-mode/enabling-and-scheduling-maintenance-mode#enabling-or-disabling-maintenance-mode-for-all-nodes-in-a-cluster-via-the-cli)."
+1. During your scheduled maintenance window, enable maintenance mode. For more information, see [AUTOTITLE](/admin/administering-your-instance/configuring-maintenance-mode/enabling-and-scheduling-maintenance-mode#enabling-or-disabling-maintenance-mode-for-all-nodes-in-a-cluster-via-the-cli).
 1. Ensure that MySQL replication is finished from any node in the cluster by running `ghe-cluster-status -v`.
 
-   {% warning %}
+   > [!WARNING]
+   > If you do not wait for MySQL replication to finish, you risk data loss on your instance.
 
-   **Warning**: If you do not wait for MySQL replication to finish, you risk data loss on your instance.
-
-   {% endwarning %}
 1. To set the current MySQL primary node to read-only mode, run the following command from of the instance's nodes.
 
    ```shell copy
@@ -233,4 +217,4 @@ If you want to provide the VM for your primary MySQL node with more resources, o
    </pre>
 1. From the administrative shell of the node where you modified `cluster.conf`, run `ghe-cluster-config-apply`. This will reconfigure the cluster so that the newly added node becomes the primary MySQL node and the original primary MySQL node becomes a replica MySQL node.
 1. Check the status of MySQL replication from any node in the cluster by running `ghe-cluster-status -v`.
-1. If MySQL replication is finished, from any node in the cluster, disable maintenance mode.  For more information, see "[AUTOTITLE](/admin/administering-your-instance/configuring-maintenance-mode/enabling-and-scheduling-maintenance-mode#enabling-or-disabling-maintenance-mode-for-all-nodes-in-a-cluster-via-the-cli)."
+1. If MySQL replication is finished, from any node in the cluster, disable maintenance mode. For more information, see [AUTOTITLE](/admin/administering-your-instance/configuring-maintenance-mode/enabling-and-scheduling-maintenance-mode#enabling-or-disabling-maintenance-mode-for-all-nodes-in-a-cluster-via-the-cli).

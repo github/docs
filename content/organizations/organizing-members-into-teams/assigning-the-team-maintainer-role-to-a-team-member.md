@@ -36,11 +36,8 @@ People with the team maintainer role can manage team membership and settings.
 
 {% ifversion ghec %}
 
-{% note %}
-
-**Note** If your enterprise uses {% data variables.enterprise.prodname_managed_users %} and manages a team's membership with an identity provider (IdP) group, you cannot assign the team maintainer role manually for that team. For more information, see "[AUTOTITLE](/admin/identity-and-access-management/using-enterprise-managed-users-for-iam/managing-team-memberships-with-identity-provider-groups)."
-
-{% endnote %}
+> [!NOTE]
+> If your enterprise uses {% data variables.enterprise.prodname_managed_users %} and manages a team's membership with an identity provider (IdP) group, you cannot assign the team maintainer role manually for that team. For more information, see [AUTOTITLE](/admin/identity-and-access-management/using-enterprise-managed-users-for-iam/managing-team-memberships-with-identity-provider-groups).
 
 {% endif %}
 

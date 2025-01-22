@@ -2,7 +2,7 @@
 title: CodeQL query suites
 shortTitle: CodeQL query suites
 intro: 'You can choose from different built-in {% data variables.product.prodname_codeql %} query suites to use in your {% data variables.product.prodname_codeql %} {% data variables.product.prodname_code_scanning %} setup.'
-product: '{% data reusables.gated-features.code-scanning %}'
+product: '{% data reusables.gated-features.codeql %}'
 versions:
   fpt: '*'
   ghes: '*'
@@ -23,13 +23,13 @@ With {% data variables.product.prodname_codeql %} {% data variables.product.prod
 * `default` query suite.
 * `security-extended` query suite. This suite is referred to as the "Extended" query suite on {% data variables.product.prodname_dotcom %}.
 
-Currently, both the `default` query suite and the `security-extended` query suite are available for default setup for {% data variables.product.prodname_code_scanning %}. {% ifversion bulk-code-scanning-query-suite %}Additionally, organization owners and security managers can recommend a query suite for use with default setup throughout their organization. For more information on configuring default setup for individual repositories, see "[AUTOTITLE](/code-security/code-scanning/enabling-code-scanning/configuring-default-setup-for-code-scanning)." For more information on configuring default setup at scale and recommending a query suite, see "[AUTOTITLE](/code-security/code-scanning/enabling-code-scanning/configuring-default-setup-for-code-scanning-at-scale)."{% else %}For more information on default setup, see "[AUTOTITLE](/code-security/code-scanning/enabling-code-scanning/configuring-default-setup-for-code-scanning)" and "[AUTOTITLE](/code-security/code-scanning/enabling-code-scanning/configuring-default-setup-for-code-scanning-at-scale)."{% endif %}
+Currently, both the `default` query suite and the `security-extended` query suite are available for default setup for {% data variables.product.prodname_code_scanning %}. {% ifversion bulk-code-scanning-query-suite %}Additionally, organization owners and security managers can recommend a query suite for use with default setup throughout their organization. For more information on configuring default setup for individual repositories, see [AUTOTITLE](/code-security/code-scanning/enabling-code-scanning/configuring-default-setup-for-code-scanning). For more information on configuring default setup at scale and recommending a query suite, see [AUTOTITLE](/code-security/code-scanning/enabling-code-scanning/configuring-default-setup-for-code-scanning-at-scale).{% else %}For more information on default setup, see [AUTOTITLE](/code-security/code-scanning/enabling-code-scanning/configuring-default-setup-for-code-scanning) and [AUTOTITLE](/code-security/code-scanning/enabling-code-scanning/configuring-default-setup-for-code-scanning-at-scale).{% endif %}
 
-To use a custom query suite, you must configure advanced setup for {% data variables.product.prodname_codeql %} {% data variables.product.prodname_code_scanning %}. For more information on advanced setups and creating a query suite, see "[AUTOTITLE](/code-security/code-scanning/creating-an-advanced-setup-for-code-scanning/configuring-advanced-setup-for-code-scanning#configuring-advanced-setup-for-code-scanning-with-codeql)" and "[AUTOTITLE](/code-security/codeql-cli/using-the-advanced-functionality-of-the-codeql-cli/creating-codeql-query-suites)."
+To use a custom query suite, you must configure advanced setup for {% data variables.product.prodname_codeql %} {% data variables.product.prodname_code_scanning %}. For more information on advanced setups and creating a query suite, see [AUTOTITLE](/code-security/code-scanning/creating-an-advanced-setup-for-code-scanning/configuring-advanced-setup-for-code-scanning#configuring-advanced-setup-for-code-scanning-with-codeql) and [AUTOTITLE](/code-security/codeql-cli/using-the-advanced-functionality-of-the-codeql-cli/creating-codeql-query-suites).
 
 ## Built-in {% data variables.product.prodname_codeql %} query suites
 
-The built-in {% data variables.product.prodname_codeql %} query suites, `default` and `security-extended`, are created and maintained by {% data variables.product.prodname_dotcom %}. Both of these query suites are available for every {% data variables.product.prodname_codeql %}-supported language. For more information on {% data variables.product.prodname_codeql %}-supported languages, see "[AUTOTITLE](/code-security/code-scanning/introduction-to-code-scanning/about-code-scanning-with-codeql#about-codeql)."
+The built-in {% data variables.product.prodname_codeql %} query suites, `default` and `security-extended`, are created and maintained by {% data variables.product.prodname_dotcom %}. Both of these query suites are available for every {% data variables.product.prodname_codeql %}-supported language. For more information on {% data variables.product.prodname_codeql %}-supported languages, see [AUTOTITLE](/code-security/code-scanning/introduction-to-code-scanning/about-code-scanning-with-codeql#about-codeql).
 
 ### `default` query suite
 
@@ -45,10 +45,10 @@ The built-in {% data variables.product.prodname_codeql %} query suites, `default
 
 ## Query lists for the default query suites
 
-For each language, the following article lists which queries are included in the `default` and the `security-extended` suites. {% ifversion code-scanning-autofix %}Where autofix is available for a language, details of which queries are supported are also included.{% endif %}
+For each language, the following article lists which queries are included in the `default` and the `security-extended` suites. {% ifversion code-scanning-autofix %}Where {% data variables.product.prodname_copilot_autofix_short %} is available for a language, details of which queries are supported are also included.{% endif %}
 
 {% data reusables.code-scanning.codeql-query-tables.links-to-all-tables %}
 
 ## Further reading
 
-* "[AUTOTITLE](/code-security/codeql-cli/using-the-advanced-functionality-of-the-codeql-cli/creating-codeql-query-suites)"
+* [AUTOTITLE](/code-security/codeql-cli/using-the-advanced-functionality-of-the-codeql-cli/creating-codeql-query-suites)

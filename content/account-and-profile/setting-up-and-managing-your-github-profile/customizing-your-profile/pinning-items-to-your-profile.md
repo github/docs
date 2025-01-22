@@ -14,13 +14,13 @@ topics:
   - Profiles
 shortTitle: Pin items
 ---
-You can pin a public repository if you own the repository or you've made contributions to the repository within the last year. Commits to forks don't count as contributions, so you can't pin a fork that you don't own. For more information, see "[AUTOTITLE](/account-and-profile/setting-up-and-managing-your-github-profile/managing-contribution-settings-on-your-profile/why-are-my-contributions-not-showing-up-on-my-profile)"
+You can pin a public repository if you own the repository or you've made contributions to the repository within the last year. Commits to forks don't count as contributions, so you can't pin a fork that you don't own. For more information, see [AUTOTITLE](/account-and-profile/setting-up-and-managing-your-github-profile/managing-contribution-settings-on-your-profile/why-are-my-contributions-not-showing-up-on-my-profile)
 
 You can pin any public gist you own.
 
 Pinned items include important information about the item, like the number of stars a repository has received or the first few lines of a gist. Once you pin items to your profile, the "Pinned" section replaces the "Popular repositories" section on your profile.
 
-You can reorder the items in the "Pinned" section. In the upper-right corner of a pin, click {% octicon "grabber" aria-label="The grabber symbol" %}  and drag the pin to a new location.
+You can reorder the items in the "Pinned" section. In the upper-right corner of a pin, click {% octicon "grabber" aria-label="The grabber symbol" %} and drag the pin to a new location.
 
 {% data reusables.profile.access_profile %}
 1. At the top of the "Popular repositories" or "Pinned" section, click **Customize your pins**.
@@ -33,4 +33,4 @@ You can reorder the items in the "Pinned" section. In the upper-right corner of 
 
 ## Further reading
 
-* "[AUTOTITLE](/account-and-profile/setting-up-and-managing-your-github-profile/customizing-your-profile/about-your-profile)"
+* [AUTOTITLE](/account-and-profile/setting-up-and-managing-your-github-profile/customizing-your-profile/about-your-profile)

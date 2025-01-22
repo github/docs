@@ -186,7 +186,7 @@ With your dev container configuration added and a basic understanding of what ev
 1. Run the application by pressing `F5`.
 1. If a "toast" notification message is displayed at the bottom right corner of {% data variables.product.prodname_vscode_shortname %}, asking whether you want to switch to standard mode, click **Yes**.
 
-   ![Screenshot of a popup message: "Run/Debug feature requires Java language server to run in Standard mode. Do you want to switch it to Standard mode now?"](/assets/images/help/codespaces/switch-to-standard-mode.png)
+   ![Screenshot of the message: "Run/Debug feature requires Java language server to run in Standard mode. Do you want to switch it to Standard mode now?"](/assets/images/help/codespaces/switch-to-standard-mode.png)
 
 1. When the project files have been imported, click the **Debug Console** tab to see the program output.
 

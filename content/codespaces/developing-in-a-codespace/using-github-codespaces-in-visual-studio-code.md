@@ -1,7 +1,7 @@
 ---
 title: Using GitHub Codespaces in Visual Studio Code
 shortTitle: Visual Studio Code
-intro: 'You can develop in your codespace directly in {% data variables.product.prodname_vscode %} by connecting the {% data variables.product.prodname_github_codespaces %} extension with your account on {% data variables.product.product_name %}.'
+intro: 'You can develop in your codespace directly in {% data variables.product.prodname_vscode %} by connecting the {% data variables.product.prodname_github_codespaces %} extension with your {% data variables.product.github %} account.'
 redirect_from:
   - /github/developing-online-with-codespaces/using-codespaces-in-visual-studio-code
   - /github/developing-online-with-codespaces/connecting-to-your-codespace-from-visual-studio-code
@@ -20,15 +20,15 @@ topics:
 
 ## About {% data variables.product.prodname_github_codespaces %} in {% data variables.product.prodname_vscode %}
 
-You can use your local install of {% data variables.product.prodname_vscode %} to create, manage, work in, and delete codespaces. {% data reusables.codespaces.using-codespaces-in-vscode %} For more information on setting up {% data variables.product.prodname_github_codespaces %} in {% data variables.product.prodname_vscode_shortname %}, see "[Prerequisites](#prerequisites)."
+You can use your local install of {% data variables.product.prodname_vscode %} to create, manage, work in, and delete codespaces. {% data reusables.codespaces.using-codespaces-in-vscode %} For more information on setting up {% data variables.product.prodname_github_codespaces %} in {% data variables.product.prodname_vscode_shortname %}, see [Prerequisites](#prerequisites).
 
-By default, if you create a new codespace on {% data variables.product.prodname_dotcom_the_website %}, it will open in the browser. If you would prefer to open any new codespaces in {% data variables.product.prodname_vscode_shortname %} automatically, you can set your default editor to be {% data variables.product.prodname_vscode_shortname %}. For more information, see "[AUTOTITLE](/codespaces/setting-your-user-preferences/setting-your-default-editor-for-github-codespaces)."
+By default, if you create a new codespace on {% data variables.product.github %}, it will open in the browser. If you would prefer to open any new codespaces in {% data variables.product.prodname_vscode_shortname %} automatically, you can set your default editor to be {% data variables.product.prodname_vscode_shortname %}. For more information, see [AUTOTITLE](/codespaces/setting-your-user-preferences/setting-your-default-editor-for-github-codespaces).
 
-If you prefer to work in the browser, but want to continue using your existing {% data variables.product.prodname_vscode_shortname %} extensions, themes, and shortcuts, you can turn on Settings Sync. For more information, see "[AUTOTITLE](/codespaces/setting-your-user-preferences/personalizing-github-codespaces-for-your-account#settings-sync)."
+If you prefer to work in the browser, but want to continue using your existing {% data variables.product.prodname_vscode_shortname %} extensions, themes, and shortcuts, you can turn on Settings Sync. For more information, see [AUTOTITLE](/codespaces/setting-your-user-preferences/personalizing-github-codespaces-for-your-account#settings-sync).
 
 ## Prerequisites
 
-To develop in a codespace directly in {% data variables.product.prodname_vscode_shortname %}, you must install and sign into the {% data variables.product.prodname_github_codespaces %} extension with your {% data variables.product.product_name %} credentials. The {% data variables.product.prodname_github_codespaces %} extension requires {% data variables.product.prodname_vscode_shortname %} October 2020 Release 1.51 or later.
+To develop in a codespace directly in {% data variables.product.prodname_vscode_shortname %}, you must install and sign into the {% data variables.product.prodname_github_codespaces %} extension with your {% data variables.product.github %} credentials. The {% data variables.product.prodname_github_codespaces %} extension requires {% data variables.product.prodname_vscode_shortname %} October 2020 Release 1.51 or later.
 
 Use the {% data variables.product.prodname_vscode_marketplace %} to install the [{% data variables.product.prodname_github_codespaces %}](https://marketplace.visualstudio.com/items?itemName=GitHub.codespaces) extension. For more information, see [Extension Marketplace](https://code.visualstudio.com/docs/editor/extension-gallery) in the {% data variables.product.prodname_vscode_shortname %} documentation.
 
@@ -58,11 +58,8 @@ Use the {% data variables.product.prodname_vscode_marketplace %} to install the 
 
 {% data reusables.codespaces.codespaces-machine-types %} You can change the machine type of your codespace at any time.
 
-{% note %}
-
-**Note**: {% data reusables.codespaces.codespaces-machine-type-availability %}
-
-{% endnote %}
+> [!NOTE]
+> {% data reusables.codespaces.codespaces-machine-type-availability %}
 
 {% data reusables.codespaces.changing-machine-type-in-vscode %}
 
@@ -89,9 +86,9 @@ To switch back to the Stable version of {% data variables.product.prodname_vscod
 
 ## Using the Insiders desktop application for {% data variables.product.prodname_codespaces %}
 
-To use {% data variables.product.prodname_github_codespaces %} in the Insiders version of the {% data variables.product.prodname_vscode_shortname %} desktop application, start or create your codespaces from within the {% data variables.product.prodname_vscode_shortname %} Insiders application. For more information see "[Creating a codespace in {% data variables.product.prodname_vscode_shortname %}](#creating-a-codespace-in-vs-code)" and "[Opening a codespace in {% data variables.product.prodname_vscode_shortname %}](#opening-a-codespace-in-vs-code)" earlier in this article.
+To use {% data variables.product.prodname_github_codespaces %} in the Insiders version of the {% data variables.product.prodname_vscode_shortname %} desktop application, start or create your codespaces from within the {% data variables.product.prodname_vscode_shortname %} Insiders application. For more information see [Creating a codespace in {% data variables.product.prodname_vscode_shortname %}](#creating-a-codespace-in-vs-code) and [Opening a codespace in {% data variables.product.prodname_vscode_shortname %}](#opening-a-codespace-in-vs-code) earlier in this article.
 
 ## Further reading
 
-* "[AUTOTITLE](/codespaces/reference/using-the-vs-code-command-palette-in-codespaces)"
-* "[AUTOTITLE](/codespaces/reference/using-github-copilot-in-github-codespaces)"
+* [AUTOTITLE](/codespaces/reference/using-the-vs-code-command-palette-in-codespaces)
+* [AUTOTITLE](/codespaces/reference/using-github-copilot-in-github-codespaces)

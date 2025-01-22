@@ -16,22 +16,14 @@ To turn your fork into a standalone repository, you can clone the fork, use the 
 
 The new repository will no longer automatically sync with changes from the original repository.
 
-{% note %}
-
-**Notes:**
-
-* The new repository will not retain any of its issues, pull requests, wikis, stars, watchers, comments, child forks, or other metadata that may currently be associated with your current fork.
-* All commit metadata will be preserved. Commits may become eligible to be counted as contributions, if they meet certain criteria. For more information, see "[AUTOTITLE](/account-and-profile/setting-up-and-managing-your-github-profile/managing-contribution-settings-on-your-profile/why-are-my-contributions-not-showing-up-on-my-profile#your-local-git-commit-email-isnt-connected-to-your-account)."
-
-{% endnote %}
+> [!NOTE]
+> * The new repository will not retain any of its issues, pull requests, wikis, stars, watchers, comments, child forks, or other metadata that may currently be associated with your current fork.
+> * All git commit metadata will be preserved. Commits may become eligible to be counted as contributions if they meet certain criteria. For more information, see [AUTOTITLE](/account-and-profile/setting-up-and-managing-your-github-profile/managing-contribution-settings-on-your-profile/why-are-my-contributions-not-showing-up-on-my-profile#your-local-git-commit-email-isnt-connected-to-your-account).
 
 {% ifversion ghes %}
 
-{% note %}
-
-**Note:** If you are unable to detach a fork, contact your site administrator.
-
-{% endnote %}
+> [!NOTE]
+> If you are unable to detach a fork, contact your site administrator.
 
 {% endif %}
 
@@ -43,30 +35,25 @@ You can delete a fork and recreate the same repository, without the connection t
 1. Create a bare clone of the fork.
 
    ```shell
-   git clone --bare https://{% data variables.product.product_url %}/EXAMPLE-USER/FORK-NAME.git
+   git clone --bare https://{% data variables.product.product_url %}/EXAMPLE-USER/FORK.git
    ```
 
-1. Delete the forked repository. For more information, see "[AUTOTITLE](/repositories/creating-and-managing-repositories/deleting-a-repository)."<br><br>
+1. Delete the forked repository. For more information, see [AUTOTITLE](/repositories/creating-and-managing-repositories/deleting-a-repository).<br><br>
 
-   {% warning %}
+   > [!WARNING]
+   > Deleting a fork will **permanently** delete any associated pull requests and configurations. This action **cannot** be undone.
 
-   **Warning**: Deleting a fork will **permanently** delete any associated pull requests and configurations. This action **cannot** be undone.
-
-   {% endwarning %}
-
-1. Create a new repository with the same name in the same location. For more information, see "[AUTOTITLE](/repositories/creating-and-managing-repositories/creating-a-new-repository)."
+1. Create a new repository with the same name in the same location. For more information, see [AUTOTITLE](/repositories/creating-and-managing-repositories/creating-a-new-repository).
 1. Mirror-push the repository back to the same remote URL.
 
    ```shell
-   cd FORK-NAME.git
-   git push --mirror https://github.com/EXAMPLE-USER/FORK-NAME.git
+   git --git-dir FORK.git push --mirror https://{% data variables.product.product_url %}/EXAMPLE-USER/FORK.git
    ```
 
 1. Remove temporary local clone you created earlier.
 
    ```shell
-   cd ..
-   rm -rf FORK-NAME.git
+   rm -rf FORK.git
    ```
 
 For more information, see [our support page](https://support.github.com/request/fork) on forks.

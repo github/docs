@@ -41,12 +41,12 @@
   },
   {
     "action": "auto_approve_personal_access_token_requests.disable",
-    "description": "Triggered when the organization must approve fine-grained personal access tokens before the tokens can access organization resources.",
+    "description": "Triggered when the organization must approve fine-grained personal access tokens before the tokens can access organization resources. See also: personal_access_token.auto_approve_grant_requests_disabled",
     "docs_reference_links": "/organizations/managing-programmatic-access-to-your-organization/setting-a-personal-access-token-policy-for-your-organization"
   },
   {
     "action": "auto_approve_personal_access_token_requests.enable",
-    "description": "Triggered when fine-grained personal access tokens can access organization resources without prior approval.",
+    "description": "Triggered when fine-grained personal access tokens can access organization resources without prior approval. See also: personal_access_token.auto_approve_grant_requests_enabled",
     "docs_reference_links": "/organizations/managing-programmatic-access-to-your-organization/setting-a-personal-access-token-policy-for-your-organization"
   },
   {

@@ -35,7 +35,7 @@ If you use SAML at the enterprise level with Entra ID as your IdP, you can enabl
 
 {% data reusables.identity-and-permissions.team-sync-disable %}
 
-You can also configure and manage team synchronization for an individual organization. For more information, see "[AUTOTITLE](/organizations/managing-saml-single-sign-on-for-your-organization/managing-team-synchronization-for-your-organization)."
+You can also configure and manage team synchronization for an individual organization. For more information, see [AUTOTITLE](/organizations/managing-saml-single-sign-on-for-your-organization/managing-team-synchronization-for-your-organization).
 
 {% data reusables.identity-and-permissions.team-sync-usage-limits %}
 
@@ -43,8 +43,8 @@ You can also configure and manage team synchronization for an individual organiz
 
 * You must use an Entra ID commercial tenant, not Gov Cloud.
 * You or your Entra ID administrator must be a Global administrator or a Privileged Role administrator in Entra ID.
-* You must enforce SAML single sign-on for organizations in your enterprise account with your supported IdP. For more information, see "[AUTOTITLE](/admin/identity-and-access-management/using-saml-for-enterprise-iam/configuring-saml-single-sign-on-for-your-enterprise)."
-* You must authenticate to your enterprise account using SAML SSO and the supported IdP. For more information, see "[AUTOTITLE](/authentication/authenticating-with-saml-single-sign-on)."
+* You must enforce SAML single sign-on for organizations in your enterprise account with your supported IdP. For more information, see [AUTOTITLE](/admin/identity-and-access-management/using-saml-for-enterprise-iam/configuring-saml-single-sign-on-for-your-enterprise).
+* You must authenticate to your enterprise account using SAML SSO and the supported IdP. For more information, see [AUTOTITLE](/authentication/authenticating-with-saml-single-sign-on).
 
 ## Managing team synchronization for Entra ID
 

@@ -16,7 +16,7 @@ A cross-origin request is a request made to a different domain than the one orig
 
 ## Cross-origin resource sharing (CORS)
 
-The REST API supports cross-origin resource sharing (CORS) for AJAX requests from any origin. For more information, see the "[CORS W3C Recommendation](http://www.w3.org/TR/cors/)" and the [HTML 5 Security Guide](https://code.google.com/archive/p/html5security/wikis/CrossOriginRequestSecurity.wiki)
+The REST API supports cross-origin resource sharing (CORS) for AJAX requests from any origin. For more information, see the [CORS W3C Recommendation](http://www.w3.org/TR/cors/) and the [HTML 5 Security Guide](https://code.google.com/archive/p/html5security/wikis/CrossOriginRequestSecurity.wiki)
 
 Here's a sample request sent from a browser hitting
 `http://example.com`:

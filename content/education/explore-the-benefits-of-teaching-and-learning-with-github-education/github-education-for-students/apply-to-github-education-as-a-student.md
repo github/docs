@@ -10,7 +10,7 @@ redirect_from:
   - /education/explore-the-benefits-of-teaching-and-learning-with-github-education/github-global-campus-for-students/apply-to-github-global-campus-as-a-student
 versions:
   fpt: '*'
-shortTitle: Apply to Github Education
+shortTitle: Apply to GitHub Education
 ---
 {% data reusables.education.about-github-education-link %}
 
@@ -26,13 +26,10 @@ Documents that prove your current student status include a picture of your schoo
 
 During your tenure as a student, you may be prompted to periodically re-verify your current academic status.
 
-{% note %}
+> [!NOTE]
+> You cannot transfer academic discounts from one account to another. If you have more than one account you want to apply the discount to, consider [merging](/account-and-profile/setting-up-and-managing-your-personal-account-on-github/managing-your-personal-account/merging-multiple-personal-accounts) your personal accounts and [renaming](/account-and-profile/setting-up-and-managing-your-personal-account-on-github/managing-personal-account-settings/changing-your-github-username) the retained account if desired.
 
-**Note:** You cannot transfer academic discounts from one account to another. If you have more than one account you want to apply the discount to, consider [merging](/account-and-profile/setting-up-and-managing-your-personal-account-on-github/managing-your-personal-account/merging-multiple-personal-accounts) your personal accounts and [renaming](/account-and-profile/setting-up-and-managing-your-personal-account-on-github/managing-personal-account-settings/changing-your-github-username) the retained account if desired.
-
-{% endnote %}
-
-For information about renewing your {% data variables.product.prodname_global_campus %} access, see "[AUTOTITLE](/education/explore-the-benefits-of-teaching-and-learning-with-github-education/github-global-campus-for-students/apply-to-github-global-campus-as-a-student#expiration-and-renewals)."
+For information about renewing your {% data variables.product.prodname_global_campus %} access, see [AUTOTITLE](/education/explore-the-benefits-of-teaching-and-learning-with-github-education/github-global-campus-for-students/apply-to-github-global-campus-as-a-student#expiration-and-renewals).
 
 ## Applying to {% data variables.product.prodname_global_campus %}
 
@@ -47,9 +44,9 @@ For information about renewing your {% data variables.product.prodname_global_ca
 
 ## Expiration and renewals
 
-Once your {% data variables.product.prodname_global_campus %} access expires, you may reapply if you're still eligible, although some of our partner offers for {% data variables.product.prodname_student_pack %} cannot renew. Most of the timed offers from our partners start once you set them up. To reapply, simply return to https://education.github.com, click your profile picture, then click **Reverify your academic affiliation**.
+Once your {% data variables.product.prodname_global_campus %} access expires, you may reapply if you're still eligible, although some of our partner offers for {% data variables.product.prodname_student_pack %} cannot renew. Most of the timed offers from our partners start once you set them up. To reapply, simply return to https://education.github.com, click your profile picture, then click **Your benefits application**.
 
-![Screenshot of a profile menu on the GitHub Education website. The "Reverify your academic affiliation" menu option is outlined in dark orange.](/assets/images/help/education/reverify-academic-affiliation.png)
+![Screenshot of a profile menu on the GitHub Education website. The "Your benefits application" menu option is outlined in red.](/assets/images/help/education/your-benefits-application.png)
 
 For more information, see the [{% data variables.product.prodname_student_pack %}](https://education.github.com/pack) page.
 
@@ -57,7 +54,7 @@ To see when your free access to the {% data variables.product.prodname_student_p
 
 ## Further reading
 
-* "[AUTOTITLE](/education/explore-the-benefits-of-teaching-and-learning-with-github-education/github-global-campus-for-students/why-wasnt-my-application-to-global-campus-for-students-approved)"
-* "[AUTOTITLE](/get-started/start-your-journey/creating-an-account-on-github)"
-* "[AUTOTITLE](/education/manage-coursework-with-github-classroom/get-started-with-github-classroom/about-github-classroom)"
+* [AUTOTITLE](/education/explore-the-benefits-of-teaching-and-learning-with-github-education/github-global-campus-for-students/why-wasnt-my-application-to-global-campus-for-students-approved)
+* [AUTOTITLE](/get-started/start-your-journey/creating-an-account-on-github)
+* [AUTOTITLE](/education/manage-coursework-with-github-classroom/get-started-with-github-classroom/about-github-classroom)
 * [{% data variables.product.prodname_education %}](https://education.github.com)

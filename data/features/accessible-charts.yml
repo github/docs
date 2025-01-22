@@ -1,0 +1,6 @@
+# Issue 14969
+# Accessibility updates to the repo insights and the code frequency pages
+versions:
+  fpt: '*'
+  ghec: '*'
+  ghes: '>=3.15'

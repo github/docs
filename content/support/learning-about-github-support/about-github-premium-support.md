@@ -22,15 +22,9 @@ topics:
   - Support
 ---
 
-{% note %}
-
-**Notes:**
-
-* The terms of {% data variables.contact.premium_support %} are subject to change without notice and are effective as of November 2021.
-
-* {% data reusables.support.data-protection-and-privacy %}
-
-{% endnote %}
+> [!NOTE]
+> * The terms of {% data variables.contact.premium_support %} are subject to change without notice and are effective as of November 2021.
+> * {% data reusables.support.data-protection-and-privacy %}
 
 ## About {% data variables.contact.premium_support %}
 
@@ -48,11 +42,11 @@ There are two {% data variables.contact.premium_support %} plans: Premium and Pr
 | Initial response time | <ul><li>30 minutes for {% data variables.product.support_ticket_priority_urgent %} (including initial troubleshooting)</li><li>4 hours for {% data variables.product.support_ticket_priority_high %}</li></ul> | <ul><li>30 minutes for {% data variables.product.support_ticket_priority_urgent %} (including initial troubleshooting)</li><li>4 hours for {% data variables.product.support_ticket_priority_high %}</li></ul> |
 | Support channels | <ul><li>Online ticket submission</li><li>Phone support in English via callback request (when required for ticket resolution)</li><li>Screen share request for critical issues</li></ul> | <ul><li>Online ticket submission</li><li>Phone support in English via callback request (when required for ticket resolution)</li><li>Screen share request for critical issues</li></ul> |
 | Training | Access to premium content  | <ul><li>Access to premium content</li><li>1 virtual training class per year</li></ul> |
-| Members with support entitlements | 20 | 20 |
+| Members with support entitlements | 20 | 40 |
 | Resources | Priority ticket handling | <ul><li>Priority ticket handling</li><li>Named Customer Reliability Engineer</li></ul>   |
 Escalation management | For high and urgent priority tickets | For High and Urgent priority tickets
 Incident management | None | For urgent priority tickets, as needed
-| Health checks | {% ifversion not ghes %}None{% else %}Unlimited automated health check reports (see "[Generating a health check for your enterprise](/admin/enterprise-management/monitoring-your-appliance/generating-a-health-check-for-your-enterprise)"){% endif %} | <ul>{% ifversion ghes %}<li>Unlimited automated health check reports. For more information, see "[AUTOTITLE](/admin/enterprise-management/monitoring-your-appliance/generating-a-health-check-for-your-enterprise)")</li>{% endif %}<li>Quarterly enhanced health checks, with findings, interpretations, and recommendations from your CRE (by request)</li></ul>    |
+| Health checks | {% ifversion not ghes %}None{% else %}Unlimited automated health check reports (see [Generating a health check for your enterprise](/admin/enterprise-management/monitoring-your-appliance/generating-a-health-check-for-your-enterprise)){% endif %} | <ul>{% ifversion ghes %}<li>Unlimited automated health check reports. For more information, see [AUTOTITLE](/admin/enterprise-management/monitoring-your-appliance/generating-a-health-check-for-your-enterprise))</li>{% endif %}<li>Quarterly enhanced health checks, with findings, interpretations, and recommendations from your CRE (by request)</li></ul>    |
 | {% ifversion ghes %} |
 | Crisis prevention | None | Yearly participation in guided incident simulations to help you be prepared |
 | {% endif %} |
@@ -62,11 +56,26 @@ Incident management | None | For urgent priority tickets, as needed
 
 {% endrowheaders %}
 
-  {% note %}
+  > [!NOTE]
+  > Enterprise owners and billing managers automatically have a support entitlement. Enterprise owners can add support entitlements to members of organizations owned by their enterprise account. For more information, see [AUTOTITLE](/enterprise-cloud@latest/admin/user-management/managing-users-in-your-enterprise/managing-support-entitlements-for-your-enterprise).
 
-  **Note:** Enterprise owners and billing managers automatically have a support entitlement. Enterprise owners can add support entitlements to members of organizations owned by their enterprise account. For more information, see "[AUTOTITLE](/enterprise-cloud@latest/admin/user-management/managing-users-in-your-enterprise/managing-support-entitlements-for-your-enterprise)."
+## Billing for {% data variables.contact.premium_support %}
 
-  {% endnote %}
+How you are charged for {% data variables.contact.premium_support %} will depend on your {% data variables.product.github %} products and how you are charged for them.
+
+* If you are a **licensed billing** customer, the support fee percentage is applied to the cost of licenses for the current year.
+
+* If you are a **metered billing** customer, the support fee percentage for **{% data variables.product.premium_support_plan %}**, **Premium Plus plan**, and **{% data variables.product.microsoft_premium_plus_support_plan %}** is calculated as either a percentage of your estimated metered spending or a set minimum annual fee—whichever amount is higher. For {% data variables.product.microsoft_premium_plus_support_plan %} customers, this is in addition to the Unified Support contract fee.
+
+  The support fee for metered billing is estimated from the previous 12 months' spending. If you have less than 12 months of spending history, {% data variables.product.github %} will take a 12-month run rate based on your spending history. If your last 3 to 6 months spending is vastly different to the last 6 to 9 months, the last 3 to 6 month period will be used.
+
+  If you are switching from **licensed billing to metered billing**, your support fee at contract renewal is estimated based on the previous year's purchased licenses. Minimum thresholds remain in place.
+
+* If you are both a licensed and metered billing customer (hybrid), your charge will be calculated from the support fee percentage applied to the current year's license purchases **plus** the support fee percentage applied to your estimated metered billing spend.
+
+New {% data variables.product.github %} customers who are only planning to use metered products will be required to pay the annual minimum for {% data variables.product.premium_support_plan %} or {% data variables.product.premium_plus_support_plan %}.
+
+If you would like a quote for {% data variables.contact.premium_support %}, contact [{% data variables.product.github %}'s Sales team](https://github.com/enterprise/contact?scid=&utm_campaign=2023q3-site-ww-PremiumSupport&utm_content=Premium+Support&utm_medium=referral&utm_source=github).
 
 ## Signing up for {% data variables.contact.premium_support %}
 
@@ -82,7 +91,7 @@ To sign up for {% data variables.contact.premium_support %} or upgrade your plan
 
 ## Hours of operation
 
-{% data variables.contact.premium_support %} is available 24 hours a day, 7 days per week. If you purchased {% data variables.contact.premium_support %} prior to September 17, 2018, support is limited during holidays. For more information on holidays {% data variables.contact.premium_support %} observes, see the holiday schedule at "[AUTOTITLE](/enterprise-server@latest/support/learning-about-github-support/about-github-support)."
+{% data variables.contact.premium_support %} is available 24 hours a day, 7 days per week. If you purchased {% data variables.contact.premium_support %} prior to September 17, 2018, support is limited during holidays. For more information on holidays {% data variables.contact.premium_support %} observes, see the holiday schedule at [AUTOTITLE](/enterprise-server@latest/support/learning-about-github-support/about-github-support).
 
 ## Service Level Agreement response times
 
@@ -108,7 +117,7 @@ You must install the minimum supported version of {% data variables.product.prod
 
 ## Assigning a priority to a support ticket
 
-When you contact {% data variables.contact.premium_support %}, you can choose one of four priorities for the ticket: {% data variables.product.support_ticket_priority_urgent %}, {% data variables.product.support_ticket_priority_high %}, {% data variables.product.support_ticket_priority_normal %}, or {% data variables.product.support_ticket_priority_low %}. For more information, see "[AUTOTITLE](/support/learning-about-github-support/about-ticket-priority)."
+When you contact {% data variables.contact.premium_support %}, you can choose one of four priorities for the ticket: {% data variables.product.support_ticket_priority_urgent %}, {% data variables.product.support_ticket_priority_high %}, {% data variables.product.support_ticket_priority_normal %}, or {% data variables.product.support_ticket_priority_low %}. For more information, see [AUTOTITLE](/support/learning-about-github-support/about-ticket-priority).
 
 ## Resolving and closing support tickets
 
@@ -120,7 +129,7 @@ If you use a custom or unsupported plug-in, module, or custom code, {% data vari
 
 ## Receiving credits for missed responses to support tickets
 
-If you don't receive an initial response within the guaranteed response time to more than four tickets in a given quarter based on {% data variables.product.company_short %}'s fiscal year, you're eligible for a credit. To honor the SLA, {% data variables.product.company_short %} will refund 20% of the quarterly {% data variables.contact.premium_support %} fee. To receive the refund, you must submit a credit request.
+If you are on the Premium or Premium Plus support plan, and you don't receive an initial response within the guaranteed response time to more than four tickets in a given quarter based on {% data variables.product.company_short %}'s fiscal year, you're eligible for a credit. To honor the SLA, {% data variables.product.company_short %} will refund 20% of the quarterly {% data variables.contact.premium_support %} fee. To receive the refund, you must submit a credit request.
 
 The credit request must be made within 30 days of the end of the quarter during which {% data variables.contact.premium_support %} did not respond to your tickets within the designated response time. Credit requests will not be honored if the respective deadline has passed. Once the respective deadline passes, you have waived the ability to claim a refund for the qualified credit. Credit requests may take the form of a refund or credit to your account, cannot be exchanged into a cash amount, require you to have paid any outstanding invoices, and expire upon termination of your agreement with {% data variables.product.company_short %}.
 

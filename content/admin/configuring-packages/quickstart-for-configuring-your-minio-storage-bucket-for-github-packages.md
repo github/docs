@@ -47,7 +47,7 @@ For more information about your options, see the official [MinIO docs](https://d
     docker pull minio/minio
     ```
 
-    For more information, see the official "[MinIO Quickstart Guide](https://docs.min.io/docs/minio-quickstart-guide)."
+    For more information, see the official [MinIO Quickstart Guide](https://docs.min.io/docs/minio-quickstart-guide).
 
 1. Sign in to MinIO using your MinIO access key and secret.
 
@@ -90,9 +90,9 @@ For more information about your options, see the official [MinIO docs](https://d
              minio/minio server /data
      ```
 
-     For more information, see "[MinIO Docker Quickstart guide](https://docs.min.io/docs/minio-docker-quickstart-guide.html)."
+     For more information, see [MinIO Docker Quickstart guide](https://docs.min.io/docs/minio-docker-quickstart-guide.html).
 
-   * Run MinIO using Docker as a cluster. This MinIO deployment uses several hosts and MinIO's erasure coding for the strongest data protection. To run MinIO in a cluster mode, see the "[Distributed MinIO Quickstart Guide](https://docs.min.io/docs/distributed-minio-quickstart-guide.html)."
+   * Run MinIO using Docker as a cluster. This MinIO deployment uses several hosts and MinIO's erasure coding for the strongest data protection. To run MinIO in a cluster mode, see the [Distributed MinIO Quickstart Guide](https://docs.min.io/docs/distributed-minio-quickstart-guide.html).
 
 ## 3. Create your MinIO bucket for {% data variables.product.prodname_registry %}
 
@@ -128,4 +128,4 @@ To finish configuring storage for {% data variables.product.prodname_registry %}
 echo "http://${MINIO_ACCESS_KEY}:${MINIO_SECRET_KEY}@minioclustername.example.com:9000"
 ```
 
-For the next steps, see "[AUTOTITLE](/admin/packages/enabling-github-packages-with-minio)."
+For the next steps, see [AUTOTITLE](/admin/packages/enabling-github-packages-with-minio).

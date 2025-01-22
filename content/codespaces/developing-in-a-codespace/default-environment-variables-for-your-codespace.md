@@ -18,11 +18,8 @@ redirect_from:
 
 {% data variables.product.prodname_dotcom %} sets default environment variables for every codespace. Commands run in codespaces can create, read, and modify environment variables.
 
-{% note %}
-
-**Note**: Environment variables are case-sensitive.
-
-{% endnote %}
+> [!NOTE]
+> Environment variables are case-sensitive.
 
 ## List of default environment variables
 
@@ -36,6 +33,6 @@ redirect_from:
 | `GITHUB_API_URL` | Returns the API URL. For example, `{% data variables.product.rest_url %}`. |
 | `GITHUB_GRAPHQL_URL` | Returns the GraphQL API URL. For example, `{% data variables.product.graphql_url %}`. |
 | `GITHUB_REPOSITORY` | The owner and repository name. For example, `octocat/Hello-World`. |
-| `GITHUB_SERVER_URL`| Returns the URL of the {% data variables.product.product_name %} server. For example, `https://{% data variables.product.product_url %}`. |
-| `GITHUB_TOKEN` | A signed auth token representing the user in the codespace. You can use this to make authenticated calls to the GitHub API. For more information, see "[AUTOTITLE](/codespaces/reference/security-in-github-codespaces#authentication)."  |
+| `GITHUB_SERVER_URL`| Returns the URL of the {% data variables.product.github %} server. For example, `https://{% data variables.product.product_url %}`. |
+| `GITHUB_TOKEN` | A signed auth token representing the user in the codespace. You can use this to make authenticated calls to the GitHub API. For more information, see [AUTOTITLE](/codespaces/reference/security-in-github-codespaces#authentication).  |
 | `GITHUB_USER` | The name of the user that initiated the codespace. For example, `octocat`. |

@@ -12,7 +12,7 @@ topics:
 redirect_from:
   - /actions/deployment/security-hardening-your-deployments/configuring-openid-connect-in-google-cloud-platform
 ---
- 
+
 {% data reusables.actions.enterprise-github-hosted-runners %}
 
 ## Overview
@@ -27,6 +27,18 @@ This guide gives an overview of how to configure GCP to trust {% data variables.
 
 {% data reusables.actions.oidc-security-notice %}
 
+{% data reusables.actions.oidc-on-ghecom %}
+
+{% ifversion ghes %}
+{% data reusables.actions.oidc-endpoints %}
+  <!-- This note is indented to align with the above reusable. -->
+
+  > [!NOTE]
+  > Google Cloud Platform does not have fixed IP ranges defined for these endpoints.
+
+* Make sure that the value of the issuer claim that's included with the JSON Web Token (JWT) is set to a publicly routable URL. For more information, see [AUTOTITLE](/enterprise-server@latest/actions/deployment/security-hardening-your-deployments/about-security-hardening-with-openid-connect).
+{% endif %}
+
 ## Adding a Google Cloud Workload Identity Provider
 
 To configure the OIDC identity provider in GCP, you will need to perform the following configuration. For instructions on making these changes, refer to [the GCP documentation](https://github.com/google-github-actions/auth).
@@ -37,7 +49,7 @@ To configure the OIDC identity provider in GCP, you will need to perform the fol
 
 Additional guidance for configuring the identity provider:
 
-* For security hardening, make sure you've reviewed "[AUTOTITLE](/actions/deployment/security-hardening-your-deployments/about-security-hardening-with-openid-connect#configuring-the-oidc-trust-with-the-cloud)." For an example, see "[AUTOTITLE](/actions/deployment/security-hardening-your-deployments/about-security-hardening-with-openid-connect#configuring-the-subject-in-your-cloud-provider)."
+* For security hardening, make sure you've reviewed [Configuring the OIDC trust with the cloud](/actions/deployment/security-hardening-your-deployments/about-security-hardening-with-openid-connect#configuring-the-oidc-trust-with-the-cloud). For an example, see [Configuring the subject in your cloud provider](/actions/deployment/security-hardening-your-deployments/about-security-hardening-with-openid-connect#configuring-the-subject-in-your-cloud-provider).
 * For the service account to be available for configuration, it needs to be assigned to the `roles/iam.workloadIdentityUser` role. For more information, see [the GCP documentation](https://cloud.google.com/iam/docs/workload-identity-federation?_ga=2.114275588.-285296507.1634918453#conditions).
 * The Issuer URL to use: {% ifversion ghes %}`https://HOSTNAME/_services/token`{% else %}`https://token.actions.githubusercontent.com`{% endif %}
 
@@ -51,7 +63,7 @@ To update your workflows for OIDC, you will need to make two changes to your YAM
 
 ### Adding permissions settings
 
- {% data reusables.actions.oidc-permissions-token %}
+{% data reusables.actions.oidc-permissions-token %}
 
 ### Requesting the access token
 
@@ -59,9 +71,8 @@ The `google-github-actions/auth` action receives a JWT from the {% data variable
 
 This example has a job called `Get_OIDC_ID_token` that uses actions to request a list of services from GCP.
 
-* `<example-workload-identity-provider>`: Replace this with the path to your identity provider in GCP. For example, `projects/<example-project-id>/locations/global/workloadIdentityPools/<name-of-pool>/providers/<name-of-provider>`
-* `<example-service-account>`: Replace this with the name of your service account in GCP.
-* `<project-id>`: Replace this with the ID of your GCP project.
+* `WORKLOAD-IDENTITY-PROVIDER`: Replace this with the path to your identity provider in GCP. For example, `projects/example-project-id/locations/global/workloadIdentityPools/name-of-pool/providers/name-of-provider`
+* `SERVICE-ACCOUNT`: Replace this with the name of your service account in GCP.
 
 This action exchanges a {% data variables.product.prodname_dotcom %} OIDC token for a Google Cloud access token, using [Workload Identity Federation](https://cloud.google.com/iam/docs/workload-identity-federation).
 
@@ -83,11 +94,11 @@ jobs:
     steps:
     - id: 'auth'
       name: 'Authenticate to GCP'
-      uses: 'google-github-actions/auth@v0.3.1'
+      uses: 'google-github-actions/auth@f1e2d3c4b5a6f7e8d9c0b1a2c3d4e5f6a7b8c9d0'
       with:
           create_credentials_file: 'true'
-          workload_identity_provider: '<example-workload-identity-provider>'
-          service_account: '<example-service-account>'
+          workload_identity_provider: 'WORKLOAD-IDENTITY-PROVIDER'
+          service_account: 'SERVICE-ACCOUNT'
     - id: 'gcloud'
       name: 'gcloud'
       run: |-

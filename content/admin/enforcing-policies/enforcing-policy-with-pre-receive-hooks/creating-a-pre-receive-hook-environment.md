@@ -17,9 +17,12 @@ shortTitle: Pre-receive hook environments
 ---
 A pre-receive environment for {% data variables.product.prodname_ghe_server %} is a Linux [`chroot`](https://en.wikipedia.org/wiki/Chroot) environment. Because pre-receive hooks execute on every push event, they should be fast and lightweight. The environment needed for such checks will typically be minimal.
 
-{% data variables.product.prodname_ghe_server %} provides a default environment which includes these packages: `awk`,  `bash`, `coreutils`, `curl`, `find`, `gnupg`, `grep`, `jq`, `sed`.
+{% data variables.product.prodname_ghe_server %} provides a default environment which includes these packages: `awk`, `bash`, `coreutils`, `curl`, `find`, `gnupg`, `grep`, `jq`, `sed`.
 
 If you have a specific requirement that isn't met by this environment, such as support for a particular language, you can create and upload your own 64-bit Linux `chroot` environment.
+
+The Git version used in the pre-receive hook environment must be at least 2.11, or if you are using libgit2 you must use at least version 0.18.
+If you are using another Git implementation, it must support relative paths in the `info/alternates` file.
 
 ## Creating a pre-receive hook environment using Docker
 
@@ -70,16 +73,12 @@ You can use a Linux container management tool to build a pre-receive hook enviro
    tar -czf /path/to/pre-receive-environment.tar.gz .
    ```
 
-   {% note %}
+   > [!NOTE]
+   > * Do not include leading directory paths of files within the tar archive, such as `/path/to/chroot`.
+   > * `/bin/sh` must exist and be executable, as the entry point into the chroot environment.
+   > * Unlike traditional chroots, the `dev` directory is not required by the chroot environment for pre-receive hooks.
 
-   **Notes:**
-   * Do not include leading directory paths of files within the tar archive, such as `/path/to/chroot`.
-   * `/bin/sh` must exist and be executable, as the entry point into the chroot environment.
-   * Unlike traditional chroots, the `dev` directory is not required by the chroot environment for pre-receive hooks.
-
-   {% endnote %}
-
-For more information about creating a chroot environment see "[Chroot](https://wiki.debian.org/chroot)" from the _Debian Wiki_, "[BasicChroot](https://help.ubuntu.com/community/BasicChroot)" from the _Ubuntu Community Help Wiki_, or "[Installing Alpine Linux in a chroot](https://wiki.alpinelinux.org/wiki/Installing_Alpine_Linux_in_a_chroot)" from the _Alpine Linux Wiki_.
+For more information about creating a chroot environment see [Chroot](https://wiki.debian.org/chroot) from the _Debian Wiki_, [BasicChroot](https://help.ubuntu.com/community/BasicChroot) from the _Ubuntu Community Help Wiki_, or [Installing Alpine Linux in a chroot](https://wiki.alpinelinux.org/wiki/Installing_Alpine_Linux_in_a_chroot) from the _Alpine Linux Wiki_.
 
 ## Uploading a pre-receive hook environment on {% data variables.product.prodname_ghe_server %}
 

@@ -21,13 +21,13 @@ An SSH certificate is a mechanism for one SSH key to sign another SSH key. If yo
 
 After you add an SSH CA to your organization or enterprise account, you can use the CA to sign client SSH certificates for organization members and outside collaborators. These organization contributors can use the signed certificates to access that organization's repositories.
 
-Certificates added to your enterprise grant access to all organizations owned by your enterprise account. For more information, see "[AUTOTITLE](/admin/policies/enforcing-policies-for-your-enterprise/enforcing-policies-for-security-settings-in-your-enterprise#managing-ssh-certificate-authorities-for-your-enterprise)."
+Certificates added to your enterprise grant access to all organizations owned by your enterprise account. For more information, see [AUTOTITLE](/admin/policies/enforcing-policies-for-your-enterprise/enforcing-policies-for-security-settings-in-your-enterprise#managing-ssh-certificate-authorities-for-your-enterprise).
 
 {% data reusables.organizations.can-require-ssh-cert %}
 
-Optionally, you can require that members and outside collaborators use SSH certificates to access organization resources. For more information, see "[AUTOTITLE](/organizations/managing-git-access-to-your-organizations-repositories/managing-your-organizations-ssh-certificate-authorities)" and "[AUTOTITLE](/admin/policies/enforcing-policies-for-your-enterprise/enforcing-policies-for-security-settings-in-your-enterprise#managing-ssh-certificate-authorities-for-your-enterprise)."
+Optionally, you can require that members and outside collaborators use SSH certificates to access organization resources. For more information, see [AUTOTITLE](/organizations/managing-git-access-to-your-organizations-repositories/managing-your-organizations-ssh-certificate-authorities) and [AUTOTITLE](/admin/policies/enforcing-policies-for-your-enterprise/enforcing-policies-for-security-settings-in-your-enterprise#managing-ssh-certificate-authorities-for-your-enterprise).
 
-For example, you can build an internal system that issues a new certificate to your developers every morning. Each developer can use their daily certificate to work on your organization's repositories on {% data variables.product.product_name %}. At the end of the day, the certificate can automatically expire, protecting your repositories if the certificate is later compromised.
+For example, you can build an internal system that issues a new certificate to your developers every morning. Each developer can use their daily certificate to work on your organization's repositories on {% data variables.product.github %}. At the end of the day, the certificate can automatically expire, protecting your repositories if the certificate is later compromised.
 
 {% ifversion ghec %}
 Organization contributors can use their signed certificates for authentication even if you've enforced SAML single sign-on (SSO), without the need to authorize the signed certificates.
@@ -47,13 +47,10 @@ If your organization doesn't require SSH certificates, contributors can continue
 
 ## Issuing certificates
 
-When you issue each certificate, you must include an extension that specifies which {% data variables.product.product_name %} user the certificate is for. You can reference the user using their login handle{% ifversion ssh-ca-expires %} or their user ID{% endif %}. For example, you can use OpenSSH's `ssh-keygen` command, replacing KEY-IDENTITY with your key identity and USERNAME with a {% data variables.product.product_name %} username{% ifversion ssh-ca-expires %} or user ID{% endif %}. The certificate you generate will be authorized to act on behalf of that user for any of your organization's resources. Make sure you validate the user's identity before you issue the certificate.
+When you issue each certificate, you must include an extension that specifies which {% data variables.product.github %} user the certificate is for. You can reference the user using their login handle{% ifversion ssh-ca-expires %} or their user ID{% endif %}. For example, you can use OpenSSH's `ssh-keygen` command, replacing KEY-IDENTITY with your key identity and USERNAME with a {% data variables.product.github %} username{% ifversion ssh-ca-expires %} or user ID{% endif %}. The certificate you generate will be authorized to act on behalf of that user for any of your organization's resources. Make sure you validate the user's identity before you issue the certificate.
 
-{% note %}
-
-**Note:** You must update to OpenSSH 7.6 or later to use these commands.
-
-{% endnote %}
+> [!NOTE]
+> You must update to OpenSSH 7.6 or later to use these commands.
 
 To use the `login` to identify the user, use `extension:login`:
 
@@ -69,16 +66,14 @@ ssh-keygen -s ./ca-key -V '+1d' -I KEY-IDENTITY -O extension:id@{% data variable
 ```
 
 {% endif %}
-{% warning %}
 
-**Warning**: After a certificate has been signed and issued, the certificate cannot be revoked.
-
-{% endwarning %}
+> [!WARNING]
+> After a certificate has been signed and issued, the certificate cannot be revoked.
 
 For CAs uploaded {% ifversion ghec %}after March 27th, 2024{% elsif ghes %}to {% data variables.product.prodname_ghe_server %} version 3.13 or later{% endif %}, you {% ifversion ghes < 3.13 %}will need to{% else %}must{% endif %} use the `-V` flag to configure a lifetime less than 366 days for the certificate. For CAs uploaded {% ifversion ghec %}before this date{% elsif ghes %}before version 3.13{% endif %}, the `-V` flag is optional, and you can create certificates that are irrevocable and live forever.
 
 {% ifversion ssh-ca-expires %}
-If you have legacy CAs that are exempt from the expiration requirement, you can upgrade the CA to enforce the requirement. To learn more, see "[AUTOTITLE](/organizations/managing-git-access-to-your-organizations-repositories/managing-your-organizations-ssh-certificate-authorities)" and "[AUTOTITLE](/admin/policies/enforcing-policies-for-your-enterprise/enforcing-policies-for-security-settings-in-your-enterprise#managing-ssh-certificate-authorities-for-your-enterprise)."
+If you have legacy CAs that are exempt from the expiration requirement, you can upgrade the CA to enforce the requirement. To learn more, see [AUTOTITLE](/organizations/managing-git-access-to-your-organizations-repositories/managing-your-organizations-ssh-certificate-authorities) and [AUTOTITLE](/admin/policies/enforcing-policies-for-your-enterprise/enforcing-policies-for-security-settings-in-your-enterprise#managing-ssh-certificate-authorities-for-your-enterprise).
 
 If you use a username as the login extension, {% data variables.product.company_short %} validates that the named user has not been renamed since the certificate was issued. This prevents a rename attack, where a certificate issued for a username is valid even if the underlying user account changes. To enforce this, the certificate must include the `valid_after` claim, which tells us when the certificate was issued. This field is often missing if an expiration is not required for the certificate, which is why expirations are now required.
 {% endif %}
@@ -89,7 +84,7 @@ To issue a certificate for someone who uses SSH to access multiple {% data varia
 ssh-keygen -s ./ca-key -V '+1d' -I KEY-IDENTITY -O extension:login@github.com=USERNAME-1 extension:login@HOSTNAME=USERNAME-2 ./user-key.pub
 ```
 
-You can restrict the IP addresses from which an organization member can access your organization's resources by using a `source-address` extension. The extension accepts a specific IP address or a range of IP addresses using CIDR notation. You can specify multiple addresses or ranges by separating the values with commas. For more information, see "[Classless Inter-Domain Routing](https://en.wikipedia.org/wiki/Classless_Inter-Domain_Routing#CIDR_notation)" on Wikipedia.
+You can restrict the IP addresses from which an organization member can access your organization's resources by using a `source-address` extension. The extension accepts a specific IP address or a range of IP addresses using CIDR notation. You can specify multiple addresses or ranges by separating the values with commas. For more information, see [Classless Inter-Domain Routing](https://en.wikipedia.org/wiki/Classless_Inter-Domain_Routing#CIDR_notation) on Wikipedia.
 
 ```shell
 ssh-keygen -s ./ca-key -V '+1d' -I KEY-IDENTITY -O extension:login@{% data variables.product.product_url %}=USERNAME -O source-address=COMMA-SEPARATED-LIST-OF-IP-ADDRESSES-OR-RANGES ./user-key.pub

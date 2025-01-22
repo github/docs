@@ -1,4 +1,4 @@
-1. Under your repository name, click {% octicon "issue-opened" aria-hidden="true" %} **Issues**.
+1. Under your repository name, click **{% octicon "issue-opened" aria-hidden="true" %} Issues**.
 
 {% ifversion global-nav-update %}
 

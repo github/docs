@@ -2,4 +2,3 @@
 versions:
   fpt: '*'
   ghec: '*'
-  ghes: '*'

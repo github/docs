@@ -1,6 +1,6 @@
 ---
 title: Viewing contributions on your profile
-intro: 'Your {% data variables.product.product_name %} profile shows off your pinned repositories, Achievements, and a graph of your repository contributions over the past year.'
+intro: 'Your profile shows off your pinned repositories, Achievements, and a graph of your repository contributions over the past year.'
 redirect_from:
   - /articles/viewing-contributions
   - /articles/viewing-contributions-on-your-profile-page
@@ -15,13 +15,10 @@ topics:
   - Profiles
 shortTitle: View contributions
 ---
-Your contribution graph and Achievements show activity from public repositories. You can choose to show activity from both public and private repositories, with specific details of your activity in private repositories anonymized. For more information, see "[AUTOTITLE](/account-and-profile/setting-up-and-managing-your-github-profile/managing-contribution-settings-on-your-profile/showing-your-private-contributions-and-achievements-on-your-profile)."
+Your contribution graph and Achievements show activity from public repositories. You can choose to show activity from both public and private repositories, with specific details of your activity in private repositories anonymized. For more information, see [AUTOTITLE](/account-and-profile/setting-up-and-managing-your-github-profile/managing-contribution-settings-on-your-profile/showing-your-private-contributions-and-achievements-on-your-profile).
 
-{% note %}
-
-**Note:** Commits will only appear on your contributions graph if the email address you used to author the commits is connected to your account on {% data variables.product.product_name %}. For more information, see "[AUTOTITLE](/account-and-profile/setting-up-and-managing-your-github-profile/managing-contribution-settings-on-your-profile/why-are-my-contributions-not-showing-up-on-my-profile#your-local-git-commit-email-isnt-connected-to-your-account)"
-
-{% endnote %}
+> [!NOTE]
+> Commits will only appear on your contributions graph if the email address you used to author the commits is connected to your {% data variables.product.github %} account. For more information, see [AUTOTITLE](/account-and-profile/setting-up-and-managing-your-github-profile/managing-contribution-settings-on-your-profile/why-are-my-contributions-not-showing-up-on-my-profile#your-local-git-commit-email-isnt-connected-to-your-account)
 
 ## What counts as a contribution
 
@@ -44,7 +41,7 @@ This section displays your repositories with the most watchers. Once you [pin re
 
 ## Pinned
 
-This section displays up to six public repositories or gists. Important details are listed for each of the items you've chosen to feature. For more information, see "[AUTOTITLE](/account-and-profile/setting-up-and-managing-your-github-profile/customizing-your-profile/pinning-items-to-your-profile)."
+This section displays up to six public repositories or gists. Important details are listed for each of the items you've chosen to feature. For more information, see [AUTOTITLE](/account-and-profile/setting-up-and-managing-your-github-profile/customizing-your-profile/pinning-items-to-your-profile).
 
 ![Screenshot of the "Pinned repositories" section of a user's profile page.](/assets/images/help/profile/profile-pinned-repositories.png)
 
@@ -57,27 +54,24 @@ Your contributions calendar shows your contribution activity.
 * Click on a day's square to show the contributions made during that 24-hour period.
 * Press _Shift_ and click on another day's square to show contributions made during that time span.
 
-{% note %}
-
-**Note:** You can select up to a one-month range on your contributions calendar. If you select a larger time span, we will only display one month of contributions.
-
-{% endnote %}
+> [!NOTE]
+> You can select up to a one-month range on your contributions calendar. If you select a larger time span, we will only display one month of contributions.
 
 ![Screenshot of the contributions graph on a user profile.](/assets/images/help/profile/contributions-graph.png)
 
 ### How contribution event times are calculated
 
 Timestamps are calculated differently for commits and pull requests:
-* **Commits** use the time zone information in the commit timestamp. For more information, see "[AUTOTITLE](/account-and-profile/setting-up-and-managing-your-github-profile/managing-contribution-settings-on-your-profile/troubleshooting-commits-on-your-timeline)."
-* **Pull requests** and **issues** opened on {% data variables.product.product_name %} use your browser's time zone. Those opened via the API use the timestamp or time zone [specified in the API call](https://developer.github.com/changes/2014-03-04-timezone-handling-changes).
+* **Commits** use the time zone information in the commit timestamp. For more information, see [AUTOTITLE](/account-and-profile/setting-up-and-managing-your-github-profile/managing-contribution-settings-on-your-profile/troubleshooting-commits-on-your-timeline).
+* **Pull requests** and **issues** opened on {% data variables.product.github %} use your browser's time zone. Those opened via the API use the timestamp or time zone [specified in the API call](https://developer.github.com/changes/2014-03-04-timezone-handling-changes).
 
 ## Activity overview
 
-{% data reusables.profile.activity-overview-summary %} For more information, see "[AUTOTITLE](/account-and-profile/setting-up-and-managing-your-github-profile/managing-contribution-settings-on-your-profile/showing-an-overview-of-your-activity-on-your-profile)."
+{% data reusables.profile.activity-overview-summary %} For more information, see [AUTOTITLE](/account-and-profile/setting-up-and-managing-your-github-profile/managing-contribution-settings-on-your-profile/showing-an-overview-of-your-activity-on-your-profile).
 
 ![Screenshot of the activity overview section of a user profile.](/assets/images/help/profile/activity-overview-section.png)
 
-The organizations featured in the activity overview are prioritized according to how active you are in the organization. If you @mention an organization in your profile bio, and you’re an organization member, then that organization is prioritized first in the activity overview. For more information, see "[AUTOTITLE](/get-started/writing-on-github/getting-started-with-writing-and-formatting-on-github/basic-writing-and-formatting-syntax#mentioning-people-and-teams)" or "[AUTOTITLE](/account-and-profile/setting-up-and-managing-your-github-profile/customizing-your-profile/personalizing-your-profile)."
+The organizations featured in the activity overview are prioritized according to how active you are in the organization. If you @mention an organization in your profile bio, and you’re an organization member, then that organization is prioritized first in the activity overview. For more information, see [AUTOTITLE](/get-started/writing-on-github/getting-started-with-writing-and-formatting-on-github/basic-writing-and-formatting-syntax#mentioning-people-and-teams) or [AUTOTITLE](/account-and-profile/setting-up-and-managing-your-github-profile/customizing-your-profile/personalizing-your-profile).
 
 ## Contribution activity
 
@@ -91,4 +85,4 @@ If you can't see certain events in your timeline, check to make sure you still h
 
 ## Viewing contributions from {% data variables.product.prodname_enterprise %} on {% data variables.product.prodname_dotcom_the_website %}
 
-If you use {% ifversion fpt or ghec %}{% data variables.product.prodname_ghe_server %}{% else %}{% data variables.product.product_name %}{% endif %} and your enterprise owner enables {% data variables.enterprise.prodname_unified_contributions %}, you can send enterprise contribution counts to your {% data variables.product.prodname_dotcom_the_website %} profile. For more information, see "[AUTOTITLE](/account-and-profile/setting-up-and-managing-your-github-profile/managing-contribution-settings-on-your-profile/sending-enterprise-contributions-to-your-githubcom-profile)."
+If you use {% data variables.product.prodname_ghe_server %} and your enterprise owner enables {% data variables.enterprise.prodname_unified_contributions %}, you can send enterprise contribution counts to your {% data variables.product.prodname_dotcom_the_website %} profile. For more information, see [AUTOTITLE](/account-and-profile/setting-up-and-managing-your-github-profile/managing-contribution-settings-on-your-profile/sending-enterprise-contributions-to-your-githubcom-profile).

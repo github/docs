@@ -12,6 +12,7 @@ redirect_from:
   - /actions/deployment/deploying-to-your-cloud-provider
   - /actions/deployment/deploying-to-your-cloud-provider/deploying-to-azure
 children:
+  - creating-an-example-workflow
   - building-and-testing
   - deploying
   - publishing-packages

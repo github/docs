@@ -1,4 +1,5 @@
-# Reference: #12924 (Java)
+# Reference: #12924 (Java beta)
+# Reference: #14184 (Java GA)
 
 versions:
   fpt: '*'

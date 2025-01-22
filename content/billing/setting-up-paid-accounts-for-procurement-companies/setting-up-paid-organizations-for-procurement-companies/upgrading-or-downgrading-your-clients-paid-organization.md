@@ -18,13 +18,9 @@ shortTitle: Upgrade or downgrade
 ---
 {% data reusables.organizations.reseller-ask-to-become-billing-manager %}
 
-{% tip %}
-
-**Tips**:
-* Before you upgrade your client's organization, you can [view or update the payment method on file for the organization](/billing/managing-your-github-billing-settings/adding-or-editing-a-payment-method).
-* These instructions are for upgrading and downgrading organizations on the _per-seat subscription_. If your client pays for {% data variables.product.product_name %} using a _legacy per-repository_ plan, you can upgrade or [downgrade](/billing/managing-the-plan-for-your-github-account/downgrading-your-accounts-plan) their legacy plan, or [switch their organization to per-seat pricing](/billing/managing-the-plan-for-your-github-account/upgrading-your-accounts-plan).
-
-{% endtip %}
+> [!TIP]
+> * Before you upgrade your client's organization, you can [view or update the payment method on file for the organization](/billing/managing-your-github-billing-settings/adding-or-editing-a-payment-method).
+> * These instructions are for upgrading and downgrading organizations on the _per-seat subscription_. If your client pays for {% data variables.product.github %} using a _legacy per-repository_ plan, you can upgrade or [downgrade](/billing/managing-the-plan-for-your-github-account/downgrading-your-accounts-plan) their legacy plan, or [switch their organization to per-seat pricing](/billing/managing-the-plan-for-your-github-account/upgrading-your-accounts-plan).
 
 ## Upgrading an organization's number of paid seats
 

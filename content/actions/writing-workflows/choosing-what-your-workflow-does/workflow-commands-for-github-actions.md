@@ -24,7 +24,7 @@ versions:
 
 Actions can communicate with the runner machine to set environment variables, output values used by other actions, add debug messages to the output logs, and other tasks.
 
-Most workflow commands use the `echo` command in a specific format, while others are invoked by writing to a file. For more information, see "[Environment files](#environment-files)."
+Most workflow commands use the `echo` command in a specific format, while others are invoked by writing to a file. For more information, see [Environment files](#environment-files).
 
 ### Example of a workflow command
 
@@ -44,17 +44,11 @@ Write-Output "::workflow-command parameter1={data},parameter2={data}::{command v
 
 {% endpowershell %}
 
-{% note %}
+> [!NOTE]
+> Workflow command and parameter names are case insensitive.
 
-**Note:** Workflow command and parameter names are case insensitive.
-
-{% endnote %}
-
-{% warning %}
-
-**Warning:** If you are using Command Prompt, omit double quote characters (`"`) when using workflow commands.
-
-{% endwarning %}
+> [!WARNING]
+> If you are using Command Prompt, omit double quote characters (`"`) when using workflow commands.
 
 ## Using workflow commands to access toolkit functions
 
@@ -112,7 +106,7 @@ The following table shows which toolkit functions are available within a workflo
 
 ## Setting a debug message
 
-Prints a debug message to the log. You must create a secret named `ACTIONS_STEP_DEBUG` with the value `true` to see the debug messages set by this command in the log. For more information, see "[AUTOTITLE](/actions/monitoring-and-troubleshooting-workflows/enabling-debug-logging)."
+Prints a debug message to the log. You must create a secret named `ACTIONS_STEP_DEBUG` with the value `true` to see the debug messages set by this command in the log. For more information, see [AUTOTITLE](/actions/monitoring-and-troubleshooting-workflows/enabling-debug-logging).
 
 ```text copy
 ::debug::{message}
@@ -159,7 +153,7 @@ echo "::notice file=app.js,line=1,col=5,endColumn=7::Missing semicolon"
 {% powershell %}
 
 ```powershell copy
-Write-Output "::notice file=app.js,line=1,col=5,endColumn=7::Missing semicolon"
+Write-Output "::notice file=app.js,line=1,col=5,endColumn=7,title=YOUR-TITLE::Missing semicolon"
 ```
 
 {% endpowershell %}
@@ -179,7 +173,7 @@ Creates a warning message and prints the message to the log. {% data reusables.a
 {% bash %}
 
 ```bash copy
-echo "::warning file=app.js,line=1,col=5,endColumn=7::Missing semicolon"
+echo "::warning file=app.js,line=1,col=5,endColumn=7,title=YOUR-TITLE::Missing semicolon"
 ```
 
 {% endbash %}
@@ -187,7 +181,7 @@ echo "::warning file=app.js,line=1,col=5,endColumn=7::Missing semicolon"
 {% powershell %}
 
 ```powershell copy
-Write-Output "::warning file=app.js,line=1,col=5,endColumn=7::Missing semicolon"
+Write-Output "::warning file=app.js,line=1,col=5,endColumn=7,title=YOUR-TITLE::Missing semicolon"
 ```
 
 {% endpowershell %}
@@ -207,7 +201,7 @@ Creates an error message and prints the message to the log. {% data reusables.ac
 {% bash %}
 
 ```bash copy
-echo "::error file=app.js,line=1,col=5,endColumn=7::Missing semicolon"
+echo "::error file=app.js,line=1,col=5,endColumn=7,title=YOUR-TITLE::Missing semicolon"
 ```
 
 {% endbash %}
@@ -215,7 +209,7 @@ echo "::error file=app.js,line=1,col=5,endColumn=7::Missing semicolon"
 {% powershell %}
 
 ```powershell copy
-Write-Output "::error file=app.js,line=1,col=5,endColumn=7::Missing semicolon"
+Write-Output "::error file=app.js,line=1,col=5,endColumn=7,title=YOUR-TITLE::Missing semicolon"
 ```
 
 {% endpowershell %}
@@ -263,7 +257,7 @@ jobs:
 
 {% endpowershell %}
 
-![Screenshot of the log for the workflow step. The second line, "My title", is prefaced by a downward arrow, indicating an expanded group. The next line, "Inside group", is indented below.](/assets/images/help/actions/actions-log-group.png)
+![Screenshot of the log for the workflow step. The second line, "My title", is an expanded group. The next line, "Inside group", is indented below.](/assets/images/help/actions/actions-log-group.png)
 
 ## Masking a value in a log
 
@@ -293,11 +287,8 @@ Write-Output "::add-mask::Mona The Octocat"
 
 {% endpowershell %}
 
-{% warning %}
-
-**Warning:** Make sure you register the secret with 'add-mask' before outputting it in the build logs or using it in any other workflow commands.
-
-{% endwarning %}
+> [!WARNING]
+> Make sure you register the secret with 'add-mask' before outputting it in the build logs or using it in any other workflow commands.
 
 ### Example: Masking an environment variable
 
@@ -391,15 +382,12 @@ If you want to pass a masked secret between jobs or workflows, you should store 
 #### Setup
 
 1. Set up a secret store to store the secret that you will generate during your workflow. For example, Vault.
-1. Generate a key for reading and writing to that secret store. Store the key as a repository secret. In the following example workflow, the secret name is `SECRET_STORE_CREDENTIALS`. For more information, see "[AUTOTITLE](/actions/security-guides/using-secrets-in-github-actions)."
+1. Generate a key for reading and writing to that secret store. Store the key as a repository secret. In the following example workflow, the secret name is `SECRET_STORE_CREDENTIALS`. For more information, see [AUTOTITLE](/actions/security-guides/using-secrets-in-github-actions).
 
 #### Workflow
 
-{% note %}
-
-**Note**: This workflow uses an imaginary secret store, `secret-store`, which has imaginary commands `store-secret` and `retrieve-secret`. `some/secret-store@ 27b31702a0e7fc50959f5ad993c78deac1bdfc29` is an imaginary action that installs the `secret-store` application and configures it to connect to an `instance` with `credentials`.
-
-{% endnote %}
+> [!NOTE]
+> This workflow uses an imaginary secret store, `secret-store`, which has imaginary commands `store-secret` and `retrieve-secret`. `some/secret-store@ 27b31702a0e7fc50959f5ad993c78deac1bdfc29` is an imaginary action that installs the `secret-store` application and configures it to connect to an `instance` with `credentials`.
 
 {% bash %}
 
@@ -412,7 +400,7 @@ jobs:
     outputs:
       handle: {% raw %}${{ steps.generate-secret.outputs.handle }}{% endraw %}
     steps:
-    - uses: some/secret-store@v1
+    - uses: some/secret-store@27b31702a0e7fc50959f5ad993c78deac1bdfc29
       with:{% raw %}
         credentials: ${{ secrets.SECRET_STORE_CREDENTIALS }}
         instance: ${{ secrets.SECRET_STORE_INSTANCE }}{% endraw %}
@@ -428,7 +416,7 @@ jobs:
     runs-on: macos-latest
     needs: secret-generator
     steps:
-    - uses: some/secret-store@v1
+    - uses: some/secret-store@27b31702a0e7fc50959f5ad993c78deac1bdfc29
       with:{% raw %}
         credentials: ${{ secrets.SECRET_STORE_CREDENTIALS }}
         instance: ${{ secrets.SECRET_STORE_INSTANCE }}{% endraw %}
@@ -452,7 +440,7 @@ jobs:
   secret-generator:
     runs-on: ubuntu-latest
     steps:
-    - uses: some/secret-store@v1
+    - uses: some/secret-store@27b31702a0e7fc50959f5ad993c78deac1bdfc29
       with:{% raw %}
         credentials: ${{ secrets.SECRET_STORE_CREDENTIALS }}
         instance: ${{ secrets.SECRET_STORE_INSTANCE }}{% endraw %}
@@ -467,7 +455,7 @@ jobs:
     runs-on: macos-latest
     needs: secret-generator
     steps:
-    - uses: some/secret-store@v1
+    - uses: some/secret-store@27b31702a0e7fc50959f5ad993c78deac1bdfc29
       with:{% raw %}
         credentials: ${{ secrets.SECRET_STORE_CREDENTIALS }}
         instance: ${{ secrets.SECRET_STORE_INSTANCE }}{% endraw %}
@@ -492,11 +480,8 @@ Stops processing any workflow commands. This special command allows you to log a
 
 To stop the processing of workflow commands, pass a unique token to `stop-commands`. To resume processing workflow commands, pass the same token that you used to stop workflow commands.
 
-{% warning %}
-
-**Warning:** Make sure the token you're using is randomly generated and unique for each run.
-
-{% endwarning %}
+> [!WARNING]
+> Make sure the token you're using is randomly generated and unique for each run.
 
 ```text copy
 ::{endtoken}::
@@ -544,9 +529,9 @@ jobs:
 
 ## Sending values to the pre and post actions
 
-You can create environment variables for sharing with your workflow's `pre:` or `post:` actions by writing to the file located at `GITHUB_STATE`. For example, you can create a file with the `pre:` action,  pass the file location to the `main:` action, and then use the `post:` action to delete the file. Alternatively, you could create a file with the `main:` action, pass the file location to the `post:` action, and also use the `post:` action to delete the file.
+You can create environment variables for sharing with your workflow's `pre:` or `post:` actions by writing to the file located at `GITHUB_STATE`. For example, you can create a file with the `pre:` action, pass the file location to the `main:` action, and then use the `post:` action to delete the file. Alternatively, you could create a file with the `main:` action, pass the file location to the `post:` action, and also use the `post:` action to delete the file.
 
-If you have multiple `pre:` or `post:` actions, you can only access the saved value in the action where it was written to `GITHUB_STATE`. For more information on the `post:` action, see "[AUTOTITLE](/actions/creating-actions/metadata-syntax-for-github-actions#runspost)."
+If you have multiple `pre:` or `post:` actions, you can only access the saved value in the action where it was written to `GITHUB_STATE`. For more information on the `post:` action, see [AUTOTITLE](/actions/creating-actions/metadata-syntax-for-github-actions#runspost).
 
 The `GITHUB_STATE` file is only available within an action. The saved value is stored as an environment value with the `STATE_` prefix.
 
@@ -564,12 +549,12 @@ fs.appendFileSync(process.env.GITHUB_STATE, `processID=12345${os.EOL}`, {
 The `STATE_processID` variable is then exclusively available to the cleanup script running under the `main` action. This example runs in `main` and uses JavaScript to display the value assigned to the `STATE_processID` environment variable:
 
 ```javascript copy
-console.log("The running PID from the main action is: " +  process.env.STATE_processID);
+console.log("The running PID from the main action is: " + process.env.STATE_processID);
 ```
 
 ## Environment files
 
-During the execution of a workflow, the runner generates temporary files that can be used to perform certain actions. The path to these files can be accessed and edited using GitHub's default environment variables. See "[AUTOTITLE](/actions/learn-github-actions/variables#default-environment-variables)." You will need to use UTF-8 encoding when writing to these files to ensure proper processing of the commands. Multiple commands can be written to the same file, separated by newlines.
+During the execution of a workflow, the runner generates temporary files that can be used to perform certain actions. The path to these files can be accessed and edited using GitHub's default environment variables. See [AUTOTITLE](/actions/learn-github-actions/variables#default-environment-variables). You will need to use UTF-8 encoding when writing to these files to ensure proper processing of the commands. Multiple commands can be written to the same file, separated by newlines.
 To use environment variables in a GitHub Action, you create or modify `.env` files using specific GitHub Actions commands.
 
 Here's how:
@@ -605,33 +590,30 @@ steps:
 
 {% powershell %}
 
-{% note %}
-
-**Note:** PowerShell versions 5.1 and below (`shell: powershell`) do not use UTF-8 by default, so you must specify the UTF-8 encoding. For example:
-
-```yaml copy
-jobs:
-  legacy-powershell-example:
-    runs-on: windows-latest
-    steps:
-      - shell: powershell
-        run: |
-          "mypath" | Out-File -FilePath $env:GITHUB_PATH -Encoding utf8 -Append
-```
-
-PowerShell Core versions 6 and higher (`shell: pwsh`) use UTF-8 by default. For example:
-
-```yaml copy
-jobs:
-  powershell-core-example:
-    runs-on: windows-latest
-    steps:
-      - shell: pwsh
-        run: |
-          "mypath" | Out-File -FilePath $env:GITHUB_PATH -Append
-```
-
-{% endnote %}
+> [!NOTE]
+> PowerShell versions 5.1 and below (`shell: powershell`) do not use UTF-8 by default, so you must specify the UTF-8 encoding. For example:
+>
+> ```yaml copy
+> jobs:
+>   legacy-powershell-example:
+>     runs-on: windows-latest
+>     steps:
+>       - shell: powershell
+>         run: |
+>           "mypath" | Out-File -FilePath $env:GITHUB_PATH -Encoding utf8 -Append
+> ```
+>
+> PowerShell Core versions 6 and higher (`shell: pwsh`) use UTF-8 by default. For example:
+>
+> ```yaml copy
+> jobs:
+>   powershell-core-example:
+>     runs-on: windows-latest
+>     steps:
+>       - shell: pwsh
+>         run: |
+>           "mypath" >> $env:GITHUB_PATH
+> ```
 
 {% endpowershell %}
 
@@ -652,7 +634,7 @@ echo "{environment_variable_name}={value}" >> "$GITHUB_ENV"
 * Using PowerShell version 6 and higher:
 
   ```powershell copy
-  "{environment_variable_name}={value}" | Out-File -FilePath $env:GITHUB_ENV -Append
+  "{environment_variable_name}={value}" >> $env:GITHUB_ENV
   ```
 
 * Using PowerShell version 5.1 and below:
@@ -665,13 +647,14 @@ echo "{environment_variable_name}={value}" >> "$GITHUB_ENV"
 
 You can make an environment variable available to any subsequent steps in a workflow job by defining or updating the environment variable and writing this to the `GITHUB_ENV` environment file. The step that creates or updates the environment variable does not have access to the new value, but all subsequent steps in a job will have access.
 
-{% data reusables.actions.environment-variables-are-fixed %} For more information about the default environment variables, see "[AUTOTITLE](/actions/learn-github-actions/environment-variables#default-environment-variables)."
+{% data reusables.actions.environment-variables-are-fixed %} For more information about the default environment variables, see [AUTOTITLE](/actions/learn-github-actions/environment-variables#default-environment-variables).
 
-{% ifversion github-env-node-options %}{% note %}
+{% ifversion github-env-node-options %}
 
-**Note:** Due to security restrictions, `GITHUB_ENV` cannot be used to set the `NODE_OPTIONS` environment variable.
+> [!NOTE]
+> Due to security restrictions, `GITHUB_ENV` cannot be used to set the `NODE_OPTIONS` environment variable.
 
-{% endnote %}{% endif %}
+{% endif %}
 
 ### Example of writing an environment variable to `GITHUB_ENV`
 
@@ -698,7 +681,7 @@ steps:
   - name: Set the value
     id: step_one
     run: |
-      "action_state=yellow" | Out-File -FilePath $env:GITHUB_ENV -Append
+      "action_state=yellow" >> $env:GITHUB_ENV
   - name: Use the value
     id: step_two
     run: |
@@ -717,11 +700,8 @@ For multiline strings, you may use a delimiter with the following syntax.
 {delimiter}
 ```
 
-{% warning %}
-
-**Warning:** Make sure the delimiter you're using won't occur on a line of its own within the value. If the value is completely arbitrary then you shouldn't use this format. Write the value to a file instead.
-
-{% endwarning %}
+> [!WARNING]
+> Make sure the delimiter you're using won't occur on a line of its own within the value. If the value is completely arbitrary then you shouldn't use this format. Write the value to a file instead.
 
 #### Example of a multiline string
 
@@ -750,10 +730,10 @@ steps:
   - name: Set the value in pwsh
     id: step_one
     run: |
-      $EOF = -join (1..15 | ForEach {[char]((48..57)+(65..90)+(97..122) | Get-Random)})
-      "JSON_RESPONSE<<$EOF" | Out-File -FilePath $env:GITHUB_ENV -Append
-      (Invoke-WebRequest -Uri "https://example.com").Content | Out-File -FilePath $env:GITHUB_ENV -Append
-      "$EOF" | Out-File -FilePath $env:GITHUB_ENV -Append
+      $EOF = (New-Guid).Guid
+      "JSON_RESPONSE<<$EOF" >> $env:GITHUB_ENV
+      (Invoke-WebRequest -Uri "https://example.com").Content >> $env:GITHUB_ENV
+      "$EOF" >> $env:GITHUB_ENV
     shell: pwsh
 ```
 
@@ -761,7 +741,7 @@ steps:
 
 ## Setting an output parameter
 
-Sets a step's output parameter. Note that the step will need an `id` to be defined to later retrieve the output value. You can set multi-line output values with the same technique used in the "[Multiline strings](/actions/using-workflows/workflow-commands-for-github-actions#multiline-strings)" section to define multi-line environment variables.
+Sets a step's output parameter. Note that the step will need an `id` to be defined to later retrieve the output value. You can set multi-line output values with the same technique used in the [Multiline strings](/actions/using-workflows/workflow-commands-for-github-actions#multiline-strings) section to define multi-line environment variables.
 
 {% bash %}
 
@@ -774,7 +754,7 @@ echo "{name}={value}" >> "$GITHUB_OUTPUT"
 {% powershell %}
 
 ```powershell copy
-"{name}=value" | Out-File -FilePath $env:GITHUB_OUTPUT -Append
+"{name}=value" >> $env:GITHUB_OUTPUT
 ```
 
 {% endpowershell %}
@@ -805,7 +785,7 @@ This example demonstrates how to set the `SELECTED_COLOR` output parameter and l
       - name: Set color
         id: color-selector
         run: |
-            "SELECTED_COLOR=green" | Out-File -FilePath $env:GITHUB_OUTPUT -Append
+            "SELECTED_COLOR=green" >> $env:GITHUB_OUTPUT
       - name: Get color
         env:{% raw %}
           SELECTED_COLOR: ${{ steps.color-selector.outputs.SELECTED_COLOR }}{% endraw %}
@@ -827,14 +807,14 @@ echo "{markdown content}" >> $GITHUB_STEP_SUMMARY
 {% powershell %}
 
 ```powershell copy
-"{markdown content}" | Out-File -FilePath $env:GITHUB_STEP_SUMMARY -Append
+"{markdown content}" >> $env:GITHUB_STEP_SUMMARY
 ```
 
 {% endpowershell %}
 
 You can set some custom Markdown for each job so that it will be displayed on the summary page of a workflow run. You can use job summaries to display and group unique content, such as test result summaries, so that someone viewing the result of a workflow run doesn't need to go into the logs to see important information related to the run, such as failures.
 
-Job summaries support [{% data variables.product.prodname_dotcom %} flavored Markdown](https://github.github.com/gfm/), and you can add your Markdown content for a step to the `GITHUB_STEP_SUMMARY` environment file. `GITHUB_STEP_SUMMARY` is unique for each step in a job. For more information about the per-step file that `GITHUB_STEP_SUMMARY` references, see "[Environment files](#environment-files)."
+Job summaries support [{% data variables.product.prodname_dotcom %} flavored Markdown](https://github.github.com/gfm/), and you can add your Markdown content for a step to the `GITHUB_STEP_SUMMARY` environment file. `GITHUB_STEP_SUMMARY` is unique for each step in a job. For more information about the per-step file that `GITHUB_STEP_SUMMARY` references, see [Environment files](#environment-files).
 
 When a job finishes, the summaries for all steps in a job are grouped together into a single job summary and are shown on the workflow run summary page. If multiple jobs generate summaries, the job summaries are ordered by job completion time.
 
@@ -851,7 +831,7 @@ echo "### Hello world! :rocket:" >> $GITHUB_STEP_SUMMARY
 {% powershell %}
 
 ```powershell copy
-"### Hello world! :rocket:" | Out-File -FilePath $env:GITHUB_STEP_SUMMARY -Append
+"### Hello world! :rocket:" >> $env:GITHUB_STEP_SUMMARY
 ```
 
 {% endpowershell %}
@@ -883,11 +863,11 @@ For multiline Markdown content, you can use `>>` to continuously append content 
 ```yaml
 - name: Generate list using Markdown
   run: |
-    "This is the lead in sentence for the list" | Out-File -FilePath $env:GITHUB_STEP_SUMMARY -Append
-    "" | Out-File -FilePath $env:GITHUB_STEP_SUMMARY -Append # this is a blank line
-    "- Lets add a bullet point" | Out-File -FilePath $env:GITHUB_STEP_SUMMARY -Append
-    "- Lets add a second bullet point" | Out-File -FilePath $env:GITHUB_STEP_SUMMARY -Append
-    "- How about a third one?" | Out-File -FilePath $env:GITHUB_STEP_SUMMARY -Append
+    "This is the lead in sentence for the list" >> $env:GITHUB_STEP_SUMMARY
+    "" >> $env:GITHUB_STEP_SUMMARY # this is a blank line
+    "- Lets add a bullet point" >> $env:GITHUB_STEP_SUMMARY
+    "- Lets add a second bullet point" >> $env:GITHUB_STEP_SUMMARY
+    "- How about a third one?" >> $env:GITHUB_STEP_SUMMARY
 ```
 
 {% endpowershell %}
@@ -914,8 +894,8 @@ To clear all content for the current step, you can use `>` to overwrite any prev
 ```yaml
 - name: Overwrite Markdown
   run: |
-    "Adding some Markdown content" | Out-File -FilePath $env:GITHUB_STEP_SUMMARY -Append
-    "There was an error, we need to clear the previous Markdown with some new content." | Out-File -FilePath $env:GITHUB_STEP_SUMMARY
+    "Adding some Markdown content" >> $env:GITHUB_STEP_SUMMARY
+    "There was an error, we need to clear the previous Markdown with some new content." >> $env:GITHUB_STEP_SUMMARY
 ```
 
 {% endpowershell %}
@@ -942,13 +922,13 @@ To completely remove a summary for the current step, the file that `GITHUB_STEP_
 ```yaml
 - name: Delete all summary content
   run: |
-    "Adding Markdown content that we want to remove before the step ends" | Out-File -FilePath $env:GITHUB_STEP_SUMMARY -Append
+    "Adding Markdown content that we want to remove before the step ends" >> $env:GITHUB_STEP_SUMMARY
     Remove-Item $env:GITHUB_STEP_SUMMARY
 ```
 
 {% endpowershell %}
 
-After a step has completed, job summaries are uploaded and subsequent steps cannot modify previously uploaded Markdown content. Summaries automatically mask any secrets that might have been added accidentally. If a job summary contains sensitive information that must be deleted, you can delete the entire workflow run to remove all its job summaries. For more information see "[AUTOTITLE](/actions/managing-workflow-runs/deleting-a-workflow-run)."
+After a step has completed, job summaries are uploaded and subsequent steps cannot modify previously uploaded Markdown content. Summaries automatically mask any secrets that might have been added accidentally. If a job summary contains sensitive information that must be deleted, you can delete the entire workflow run to remove all its job summaries. For more information see [AUTOTITLE](/actions/managing-workflow-runs/deleting-a-workflow-run).
 
 ### Step isolation and limits
 
@@ -965,7 +945,7 @@ Prepends a directory to the system `PATH` variable and automatically makes it av
 This example demonstrates how to add the user `$HOME/.local/bin` directory to `PATH`:
 
 ```bash copy
-echo "$HOME/.local/bin" >> $GITHUB_PATH
+echo "$HOME/.local/bin" >> "$GITHUB_PATH"
 ```
 
 {% endbash %}
@@ -975,7 +955,7 @@ echo "$HOME/.local/bin" >> $GITHUB_PATH
 This example demonstrates how to add the user `$env:HOMEPATH/.local/bin` directory to `PATH`:
 
 ```powershell copy
-"$env:HOMEPATH/.local/bin" | Out-File -FilePath $env:GITHUB_PATH -Append
+"$env:HOMEPATH/.local/bin" | Out-File -FilePath "$env:GITHUB_PATH" -Append
 ```
 
 {% endpowershell %}

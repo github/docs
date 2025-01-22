@@ -2,7 +2,7 @@
 title: Working with push protection in the GitHub UI
 shortTitle: Push protection in the GitHub UI
 intro: 'Learn your options for unblocking your commit when {% data variables.product.prodname_secret_scanning %} detects a secret in your changes.'
-product: '{% data reusables.gated-features.secret-scanning %}'
+permissions: '{% data reusables.permissions.push-protection-resolve-block %}'
 versions:
   fpt: '*'
   ghes: '*'
@@ -17,7 +17,7 @@ topics:
 
 ## About push protection in the {% data variables.product.prodname_dotcom %} UI
 
-When you are creating and editing files in the {% data variables.product.prodname_dotcom %} UI, push protection prevents you from accidentally committing secrets to a repository by blocking commits containing supported secrets.
+When you {% ifversion push-protection-delegated-bypass-file-upload-support %}upload, create, {% else %}create {% endif %}or edit files from the {% data variables.product.prodname_dotcom %} UI, push protection prevents you from accidentally committing secrets to a repository by blocking commits containing supported secrets.
 
 {% ifversion push-protection-block-uploads %}
 
@@ -29,8 +29,8 @@ When you are creating and editing files in the {% data variables.product.prodnam
 
 You should either:
 
-* **Remove** the secret from the commit. For more information, see "[Resolving a blocked commit](#resolving-a-blocked-commit)."
-* **Review** the instructions in the dialog box {% ifversion push-protection-delegated-bypass %}to see what options are available to you{% endif %} to allow the push. For more information, see "[Bypassing push protection](#bypassing-push-protection){% ifversion push-protection-delegated-bypass %}" and "[Requesting bypass privileges](#requesting-bypass-privileges){% endif %}."
+* **Remove** the secret from the commit. For more information, see [Resolving a blocked commit](#resolving-a-blocked-commit).
+* **Review** the instructions in the dialog box {% ifversion push-protection-delegated-bypass %}to see what options are available to you{% endif %} to allow the push. For more information, see [Bypassing push protection](#bypassing-push-protection){% ifversion push-protection-delegated-bypass %} and [Requesting bypass privileges](#requesting-bypass-privileges){% endif %}.
 
 {% data variables.product.prodname_dotcom %} will only display one detected secret at a time in the web UI. If a particular secret has already been detected in the repository and an alert already exists, {% data variables.product.prodname_dotcom %} will not block that secret.
 
@@ -42,7 +42,7 @@ Organization owners can provide a custom link that will be displayed when a push
 
 To resolve a blocked commit in the web UI, you need to remove the secret from the file. Once you remove the secret, you will be able to commit your changes.
 
->[!NOTE] To learn how to resolved a blocked push on the command line, see "[AUTOTITLE](/code-security/secret-scanning/working-with-secret-scanning-and-push-protection/working-with-push-protection-from-the-command-line#resolving-a-blocked-push)."
+>[!NOTE] To learn how to resolved a blocked push on the command line, see [AUTOTITLE](/code-security/secret-scanning/working-with-secret-scanning-and-push-protection/working-with-push-protection-from-the-command-line#resolving-a-blocked-push).
 
 ## Bypassing push protection
 
@@ -59,7 +59,7 @@ If {% data variables.product.prodname_dotcom %} blocks a secret that you believe
 
 {% ifversion push-protection-delegated-bypass %}
 
-If you don't see the option to bypass the block, the repository administrator or organization owner has configured tighter controls around push protection. Instead, you should remove the secret from the commit, or submit a request for "bypass privileges" in order to push the blocked secret. For more information, see "[Requesting bypass privileges](/code-security/secret-scanning/working-with-secret-scanning-and-push-protection/working-with-push-protection-in-the-github-ui#requesting-bypass-privileges)."
+If you don't see the option to bypass the block, the repository administrator or organization owner has configured tighter controls around push protection. Instead, you should remove the secret from the commit, or submit a request for "bypass privileges" in order to push the blocked secret. For more information, see [Requesting bypass privileges](/code-security/secret-scanning/working-with-secret-scanning-and-push-protection/working-with-push-protection-in-the-github-ui#requesting-bypass-privileges).
 
 {% endif %}
 
@@ -89,4 +89,5 @@ If your request is denied, you will need to remove the secret from the file befo
 
 ## Further reading
 
-* [AUTOTITLE](/code-security/secret-scanning/working-with-secret-scanning-and-push-protection/working-with-push-protection-from-the-command-line)
+* [AUTOTITLE](/code-security/secret-scanning/working-with-secret-scanning-and-push-protection/working-with-push-protection-from-the-command-line){% ifversion secret-scanning-push-protection-content-endpoints %}
+* [AUTOTITLE](/code-security/secret-scanning/working-with-secret-scanning-and-push-protection/working-with-push-protection-from-the-rest-api){% endif %}

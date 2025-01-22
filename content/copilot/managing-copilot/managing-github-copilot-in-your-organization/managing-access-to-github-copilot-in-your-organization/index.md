@@ -11,9 +11,6 @@ children:
   - /managing-requests-for-copilot-business-in-your-organization
   - /revoking-access-to-copilot-for-members-of-your-organization
   - /managing-github-copilot-access-to-your-organizations-network
-  - /reviewing-user-activity-data-for-copilot-in-your-organization
-  - /reviewing-changes-to-content-exclusions-for-github-copilot
-  - /reviewing-audit-logs-for-copilot-business
 redirect_from:
   - /copilot/managing-copilot/managing-github-copilot-in-your-organization/reviewing-github-copilot-activity-in-your-organization
 ---

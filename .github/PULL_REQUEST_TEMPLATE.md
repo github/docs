@@ -4,7 +4,7 @@ Thank you for contributing to this project! You must fill out the information be
 
 ### Why:
 
-Closes: 
+Closes:
 
 <!-- If there's an existing issue for your change, please link to it above.
 If there's _not_ an existing issue, please open one first to make it more likely that this update will be accepted: https://github.com/github/docs/issues/new/choose. -->
@@ -16,7 +16,6 @@ If you made changes to the `content` directory, a table will populate in a comme
 
 ### Check off the following:
 
-- [ ] I have reviewed my changes in staging, available via the **View deployment** link in this PR's timeline (this link will be available after opening the PR).
-
-  - For content changes, you will also see an automatically generated comment with links directly to pages you've modified. The comment won't appear if your PR only edits files in the `data` directory.
-- [ ] For content changes, I have completed the [self-review checklist](https://docs.github.com/en/contributing/collaborating-on-github-docs/self-review-checklist).
+- [ ] A subject matter expert (SME) has reviewed the technical accuracy of the content in this PR. In most cases, the author can be the SME. Open source contributions may require a SME review from GitHub staff.
+- [ ] The changes in this PR meet [the docs fundamentals that are required for all content](http://docs.github.com/en/contributing/writing-for-github-docs/about-githubs-documentation-fundamentals).
+- [ ] All CI checks are passing and the changes look good in the preview environment.

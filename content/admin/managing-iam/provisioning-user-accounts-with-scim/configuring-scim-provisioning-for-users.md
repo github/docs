@@ -25,7 +25,21 @@ topics:
 
 {% data reusables.enterprise_user_management.about-scim-provisioning %}
 
-If you use a partner IdP, you can simplify the configuration of SCIM provisioning by using the partner IdP's application. If you don't use a partner IdP for provisioning, you can implement SCIM using calls to {% data variables.product.company_short %}'s REST API for SCIM{% ifversion ghec %}, which is in beta and subject to change{% endif %}. For more information, see {% ifversion ghec %}"[AUTOTITLE](/admin/managing-iam/understanding-iam-for-enterprises/about-enterprise-managed-users#identity-management-systems)."{% else %}"[AUTOTITLE](/admin/managing-iam/provisioning-user-accounts-with-scim/user-provisioning-with-scim-on-ghes#supported-identity-providers)."{% endif %}
+If you use a partner IdP, you can simplify the configuration of SCIM provisioning by using the partner IdP's application. If you don't use a partner IdP for provisioning, you can implement SCIM using calls to {% data variables.product.company_short %}'s REST API for SCIM. For more information, see {% ifversion ghec %}[AUTOTITLE](/admin/managing-iam/understanding-iam-for-enterprises/about-enterprise-managed-users#identity-management-systems).{% else %}[AUTOTITLE](/admin/managing-iam/provisioning-user-accounts-with-scim/user-provisioning-with-scim-on-ghes#supported-identity-providers).{% endif %}
+
+{% ifversion ghes %}
+
+## Who needs to follow these instructions?
+
+Even if your instance already uses SAML authentication, or if you were enrolled in the SCIM {% data variables.release-phases.private_preview %} on a previous {% data variables.product.prodname_ghe_server %} version, you must ensure you have followed **all instructions in this guide** to enable SCIM in version 3.14 and later.
+
+This guide applies in any of the following situations.
+
+* You're **setting up SAML and SCIM for the first time**: you'll follow these instructions to get started.
+* You **already use SAML authentication**: you'll need to enable SCIM on your instance, plus either reconfigure SAML with an IdP application that supports automated provisioning or set up a SCIM integration with the REST API.
+* You were **enrolled in the SCIM {% data variables.release-phases.private_preview %}**: you'll need to reenable SCIM on your instance and, if you're using a partner IdP, reconfigure your settings on an updated IdP application.
+
+{% endif %}
 
 {% ifversion ghec %}
 
@@ -39,7 +53,7 @@ If you use a partner IdP, you can simplify the configuration of SCIM provisionin
 
 {% ifversion ghec %}
 
-If you're configuring SCIM provisioning for a new enterprise, make sure to complete all previous steps in the initial configuration process. See "[AUTOTITLE](/admin/managing-iam/understanding-iam-for-enterprises/getting-started-with-enterprise-managed-users)."
+If you're configuring SCIM provisioning for a new enterprise, make sure to complete all previous steps in the initial configuration process. See [AUTOTITLE](/admin/managing-iam/understanding-iam-for-enterprises/getting-started-with-enterprise-managed-users).
 
 {% else %}
 
@@ -48,7 +62,7 @@ If you're configuring SCIM provisioning for a new enterprise, make sure to compl
   * After you have configured SCIM, you must keep SAML authentication enabled to continue using SCIM.
 * You must have administrative access on your IdP to configure user provisioning for {% data variables.product.product_name %}.
 * You must have access to the Management Console on {% data variables.product.product_name %}.
-* If you are configuring SCIM on an instance with existing users, ensure you have understood how SCIM will identify and update these users. See "[AUTOTITLE](/admin/managing-iam/provisioning-user-accounts-with-scim/user-provisioning-with-scim-on-ghes#what-will-happen-to-existing-users-on-my-instance)."
+* If you are configuring SCIM on an instance with existing users, ensure you have understood how SCIM will identify and update these users. See [AUTOTITLE](/admin/managing-iam/provisioning-user-accounts-with-scim/user-provisioning-with-scim-on-ghes#what-will-happen-to-existing-users-on-my-instance).
 
 {% endif %}
 
@@ -64,20 +78,20 @@ To ensure you can continue to sign in and configure settings when SCIM is enable
    * Select **Allow creation of accounts with built-in authentication**, so you can create the user.
    * Select **Disable administrator demotion/promotion**, so admin permissions can be granted outside of your SAML provider.
 
-   For help finding these settings, see "[AUTOTITLE](/admin/managing-iam/using-saml-for-enterprise-iam/configuring-saml-single-sign-on-for-your-enterprise#configuring-saml-sso)."
+   For help finding these settings, see [AUTOTITLE](/admin/managing-iam/using-saml-for-enterprise-iam/configuring-saml-single-sign-on-for-your-enterprise#configuring-saml-sso).
 
-1. Create a built-in user account to perform provisioning actions on your instance. See "[AUTOTITLE](/admin/identity-and-access-management/managing-iam-for-your-enterprise/allowing-built-in-authentication-for-users-outside-your-provider#inviting-users-outside-your-provider-to-authenticate-to-your-instance)."
+1. Create a built-in user account to perform provisioning actions on your instance. See [AUTOTITLE](/admin/identity-and-access-management/managing-iam-for-your-enterprise/allowing-built-in-authentication-for-users-outside-your-provider#inviting-users-outside-your-provider-to-authenticate-to-your-instance).
 
    >[!NOTE] Ensure the user's email and username are different from any user you plan on provisioning through SCIM. If your email provider supports it, you can modify an email address by adding `+admin`, for example `johndoe+admin@example.com`.
 
-1. Promote the user to an enterprise owner. See "[AUTOTITLE](/admin/managing-accounts-and-repositories/managing-users-in-your-enterprise/promoting-or-demoting-a-site-administrator#promoting-a-user-from-the-enterprise-settings)."
+1. Promote the user to an enterprise owner. See [AUTOTITLE](/admin/managing-accounts-and-repositories/managing-users-in-your-enterprise/promoting-or-demoting-a-site-administrator#promoting-a-user-from-the-enterprise-settings).
 
 ## 2. Create a {% data variables.product.pat_generic %}
 
 1. Sign in to your instance as the **built-in setup user** you created in the previous section.
-1. Create a {% data variables.product.pat_v1 %}. For instructions, see "[AUTOTITLE](/authentication/keeping-your-account-and-data-secure/managing-your-personal-access-tokens#creating-a-personal-access-token-classic)."
+1. Create a {% data variables.product.pat_v1 %}. For instructions, see [AUTOTITLE](/authentication/keeping-your-account-and-data-secure/managing-your-personal-access-tokens#creating-a-personal-access-token-classic).
 
-   * The token must have the **admin:enterprise** scope.
+   * The token must have the {% ifversion scim-enterprise-scope %}`scim:enterprise`{% else %}`admin:enterprise`{% endif %} scope.
    * The token must have **no expiration**. If you specify an expiration date, SCIM will no longer function after the expiration date passes.
 
 1. Store the token securely in a password manager until you need the token again later in the setup process. You'll need the token to configure SCIM on your IdP.
@@ -86,10 +100,10 @@ To ensure you can continue to sign in and configure settings when SCIM is enable
 
 > [!NOTE] Complete this section if either of the following situations applies:
 > * If you have **not already enabled SAML authentication**, you will need to do so before you can enable SCIM.
-> * If you already use SAML authentication and want to use a **partner IdP for both authentication and provisioning**, you must configure SAML using an application that supports automatic provisioning via SCIM.
+> * If you already use SAML authentication and want to use a **partner IdP for both authentication and provisioning**, or if you're **upgrading from the SCIM {% data variables.release-phases.private_preview %}**, you must reconfigure SAML using a new application.
 
 1. Sign in to your instance as a user with access to the Management Console.
-1. Go to the "Authentication" section of the Management Console. For instructions, see "[AUTOTITLE](/admin/managing-iam/using-saml-for-enterprise-iam/configuring-saml-single-sign-on-for-your-enterprise#configuring-saml-sso)."
+1. Go to the "Authentication" section of the Management Console. For instructions, see [AUTOTITLE](/admin/managing-iam/using-saml-for-enterprise-iam/configuring-saml-single-sign-on-for-your-enterprise#configuring-saml-sso).
 1. Select **SAML**.
 1. Configure the SAML settings according to your requirements and the IdP you're using.
 
@@ -97,16 +111,16 @@ To ensure you can continue to sign in and configure settings when SCIM is enable
      * **Allow creation of accounts with built-in authentication**
      * **Disable administrator demotion/promotion**
    * If you're using a partner IdP, to find the information you need to configure the settings, follow the "Configure SAML" section of the relevant guide.
-     * "[AUTOTITLE](/admin/managing-iam/provisioning-user-accounts-with-scim/configuring-authentication-and-provisioning-with-entra-id#1-configure-saml)"
-     * "[AUTOTITLE](/admin/managing-iam/provisioning-user-accounts-with-scim/configuring-authentication-and-provisioning-with-pingfederate#1-configure-saml)"
-     * "[AUTOTITLE](/admin/managing-iam/provisioning-user-accounts-with-scim/configuring-scim-provisioning-with-okta#1-configure-saml)"
+     * [AUTOTITLE](/admin/managing-iam/provisioning-user-accounts-with-scim/configuring-authentication-and-provisioning-with-entra-id#1-configure-saml)
+     * [AUTOTITLE](/admin/managing-iam/provisioning-user-accounts-with-scim/configuring-authentication-and-provisioning-with-pingfederate#1-configure-saml)
+     * [AUTOTITLE](/admin/managing-iam/provisioning-user-accounts-with-scim/configuring-scim-provisioning-with-okta#1-configure-saml)
 
 1. Optionally, complete configuration of the SAML settings within the application in your IdP. Alternatively, you can leave this step until later.
 
 ## 4. Enable SCIM on your instance
 
 1. Sign in to your instance as the **built-in setup user** you created earlier.
-{% data reusables.enterprise-accounts.access-enterprise %}
+{% data reusables.enterprise-accounts.access-enterprise-emu %}
 {% data reusables.enterprise-accounts.settings-tab %}
 {% data reusables.enterprise-accounts.security-tab %}
 1. Under "SCIM Configuration", select **Enable SCIM configuration**.
@@ -136,12 +150,12 @@ To use a partner IdP's application both authentication and provisioning, review 
 
 {% rowheaders %}
 
-| IdP | SSO method | More information |
+| IdP | SSO method | Instructions |
 |---|---|---|
 | Microsoft Entra ID (previously known as Azure AD) | OIDC | [Tutorial: Configure GitHub Enterprise Managed User (OIDC) for automatic user provisioning](https://docs.microsoft.com/azure/active-directory/saas-apps/github-enterprise-managed-user-oidc-provisioning-tutorial) on Microsoft Learn |
 | Entra ID | SAML | [Tutorial: Configure GitHub Enterprise Managed User for automatic user provisioning](https://docs.microsoft.com/en-us/azure/active-directory/saas-apps/github-enterprise-managed-user-provisioning-tutorial) on Microsoft Learn |
-| Okta | SAML | "[AUTOTITLE](/admin/identity-and-access-management/using-enterprise-managed-users-for-iam/configuring-scim-provisioning-for-enterprise-managed-users-with-okta)" |
-| PingFederate | SAML | [Configure PingFederate for provisioning and SSO](https://docs.pingidentity.com/r/en-us/pingfederate-github-emu-connector/pingfederate_github_connector_configure_pingfederate_for_provisioning_and_sso) and [Managing channels](https://docs.pingidentity.com/r/en-us/pingfederate-112/help_saasmanagementtasklet_saasmanagementstate) in the PingFederate documentation |
+| Okta | SAML | [AUTOTITLE](/admin/identity-and-access-management/using-enterprise-managed-users-for-iam/configuring-scim-provisioning-for-enterprise-managed-users-with-okta) |
+| PingFederate | SAML | The "Prerequisites" and "2. Configure SCIM" sections in [AUTOTITLE](/admin/managing-iam/provisioning-user-accounts-with-scim/configuring-authentication-and-provisioning-with-pingfederate) |
 
 {% endrowheaders %}
 
@@ -149,30 +163,28 @@ To use a partner IdP's application both authentication and provisioning, review 
 
 To use a partner IdP's application for both authentication and provisioning, review the instructions that are linked below. Complete the steps for enabling SCIM, plus any SAML configuration that you haven't already performed.
 
-* "[AUTOTITLE](/admin/managing-iam/provisioning-user-accounts-with-scim/configuring-authentication-and-provisioning-with-entra-id)"
-* "[AUTOTITLE](/admin/managing-iam/provisioning-user-accounts-with-scim/configuring-authentication-and-provisioning-with-pingfederate)"
-* "[AUTOTITLE](/admin/managing-iam/provisioning-user-accounts-with-scim/configuring-scim-provisioning-with-okta)"
+* [AUTOTITLE](/admin/managing-iam/provisioning-user-accounts-with-scim/configuring-authentication-and-provisioning-with-entra-id)
+* [AUTOTITLE](/admin/managing-iam/provisioning-user-accounts-with-scim/configuring-authentication-and-provisioning-with-pingfederate)
+* [AUTOTITLE](/admin/managing-iam/provisioning-user-accounts-with-scim/configuring-scim-provisioning-with-okta)
 
 {% endif %}
 
 ### Configuring provisioning for other identity management systems
 
-If you don't use a partner IdP, or if you only use a partner IdP for authentication, you can manage the lifecycle of user accounts using {% data variables.product.company_short %}'s REST API endpoints for SCIM provisioning. These endpoints are in beta and subject to change. See "[AUTOTITLE](/admin/identity-and-access-management/provisioning-user-accounts-for-enterprise-managed-users/provisioning-users-and-groups-with-scim-using-the-rest-api)."
+If you don't use a partner IdP, or if you only use a partner IdP for authentication, you can manage the lifecycle of user accounts using {% data variables.product.company_short %}'s REST API endpoints for SCIM provisioning. See [AUTOTITLE](/admin/identity-and-access-management/provisioning-user-accounts-for-enterprise-managed-users/provisioning-users-and-groups-with-scim-using-the-rest-api).
 
 {% ifversion emu-public-scim-schema %}
 
 {% data reusables.emus.sign-in-as-setup-user %}
 
-   {% note %}
+   > [!NOTE]
+   > {% data reusables.enterprise-accounts.emu-password-reset-session %}
 
-   **Note**: {% data reusables.enterprise-accounts.emu-password-reset-session %}
-
-   {% endnote %}
-{% data reusables.enterprise-accounts.access-enterprise %}
-{% data reusables.enterprise-accounts.settings-tab %}
-{% data reusables.enterprise-accounts.security-tab %}
+{% data reusables.enterprise-accounts.access-enterprise-emu %}
+{% data reusables.enterprise-accounts.identity-provider-tab %}
+{% data reusables.enterprise-accounts.sso-configuration %}
 1. Under "Open SCIM Configuration", select "Enable open SCIM configuration".
-1. Manage the lifecycle of your users by making calls to the REST API endpoints for SCIM provisioning. For more information, see "[AUTOTITLE](/admin/identity-and-access-management/provisioning-user-accounts-for-enterprise-managed-users/provisioning-users-and-groups-with-scim-using-the-rest-api)."
+1. Manage the lifecycle of your users by making calls to the REST API endpoints for SCIM provisioning. See [AUTOTITLE](/admin/identity-and-access-management/provisioning-user-accounts-for-enterprise-managed-users/provisioning-users-and-groups-with-scim-using-the-rest-api).
 
 {% endif %}
 

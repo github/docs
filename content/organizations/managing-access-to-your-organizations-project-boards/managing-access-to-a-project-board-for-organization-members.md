@@ -5,9 +5,7 @@ redirect_from:
   - /articles/managing-access-to-a-project-board-for-organization-members
   - /github/setting-up-and-managing-organizations-and-teams/managing-access-to-a-project-board-for-organization-members
 versions:
-  fpt: '*'
-  ghes: '*'
-  ghec: '*'
+  feature: projects-v1
 topics:
   - Organizations
   - Teams
@@ -21,16 +19,13 @@ By default, organization members have write access to their organization's {% da
 
 ## Setting a baseline permission level for all organization members
 
-{% tip %}
-
-**Tip:** You can give an organization member higher permissions to {% data variables.projects.projects_v1_board %}. For more information, see "[AUTOTITLE](/organizations/managing-access-to-your-organizations-project-boards/project-board-permissions-for-an-organization)."
-
-{% endtip %}
+> [!TIP]
+> You can give an organization member higher permissions to {% data variables.projects.projects_v1_board %}. For more information, see [AUTOTITLE](/organizations/managing-access-to-your-organizations-project-boards/project-board-permissions-for-an-organization).
 
 {% data reusables.profile.access_org %}
 {% data reusables.user-settings.access_org %}
-{% data reusables.organizations.organization-wide-project %}{% ifversion projects-v2 %}
-1. Click **Projects (classic)**{% endif %}
+{% data reusables.organizations.organization-wide-project %}
+1. Click **Projects (classic)**.
 {% data reusables.project-management.select-project %}
 {% data reusables.project-management.click-menu %}
 {% data reusables.project-management.access-collaboration-settings %}
@@ -39,6 +34,6 @@ By default, organization members have write access to their organization's {% da
 
 ## Further reading
 
-* "[AUTOTITLE](/organizations/managing-access-to-your-organizations-project-boards/managing-an-individuals-access-to-an-organization-project-board)"
-* "[AUTOTITLE](/organizations/managing-access-to-your-organizations-project-boards/managing-team-access-to-an-organization-project-board)"
-* "[AUTOTITLE](/organizations/managing-access-to-your-organizations-project-boards/project-board-permissions-for-an-organization)"
+* [AUTOTITLE](/organizations/managing-access-to-your-organizations-project-boards/managing-an-individuals-access-to-an-organization-project-board)
+* [AUTOTITLE](/organizations/managing-access-to-your-organizations-project-boards/managing-team-access-to-an-organization-project-board)
+* [AUTOTITLE](/organizations/managing-access-to-your-organizations-project-boards/project-board-permissions-for-an-organization)

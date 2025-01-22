@@ -61,9 +61,15 @@ shell:
 sql:
   name: SQL
   comment: hyphen
+swift:
+  name: Swift
+  comment: slash
 text:
   name: Text
   comment: number
+typescript:
+  name: TypeScript
+  comment: slash
 xml:
   name: XML
   comment: xml

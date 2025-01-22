@@ -15,11 +15,8 @@ topics:
 ---
 {% ifversion fpt or ghec %}
 
-{% note %}
-
-**Note:** If you have a project hosted on another Git-based hosting service, you can automatically import your project to {% data variables.product.prodname_dotcom %} using the {% data variables.product.prodname_importer %} tool. For more information, see "[AUTOTITLE](/migrations/importing-source-code/using-github-importer/about-github-importer)."
-
-{% endnote %}
+> [!NOTE]
+> If you have a project hosted on another Git-based hosting service, you can automatically import your project to {% data variables.product.prodname_dotcom %} using the {% data variables.product.prodname_importer %} tool. For more information, see [AUTOTITLE](/migrations/importing-source-code/using-github-importer/about-github-importer).
 
 {% endif %}
 
@@ -37,7 +34,7 @@ Before you can push the original repository to your new copy, or _mirror_, of th
 1. Mirror-push to the new repository.
 
    ```shell
-   cd OLD-REPOSITORY.git
+   cd OLD-REPOSITORY
    git push --mirror https://{% data variables.product.product_url %}/EXAMPLE-USER/NEW-REPOSITORY.git
    ```
 
@@ -45,7 +42,7 @@ Before you can push the original repository to your new copy, or _mirror_, of th
 
    ```shell
    cd ..
-   rm -rf OLD-REPOSITORY.git
+   rm -rf OLD-REPOSITORY
    ```
 
 ## Mirroring a repository that contains {% data variables.large_files.product_name_long %} objects
@@ -60,7 +57,7 @@ Before you can push the original repository to your new copy, or _mirror_, of th
 1. Navigate to the repository you just cloned.
 
    ```shell
-   cd OLD-REPOSITORY.git
+   cd OLD-REPOSITORY
    ```
 
 1. Pull in the repository's {% data variables.large_files.product_name_long %} objects.
@@ -85,7 +82,7 @@ Before you can push the original repository to your new copy, or _mirror_, of th
 
    ```shell
    cd ..
-   rm -rf OLD-REPOSITORY.git
+   rm -rf OLD-REPOSITORY
    ```
 
 ## Mirroring a repository in another location
@@ -119,7 +116,7 @@ If you want to mirror a repository in another location, including getting update
 
 ## Further reading
 
-* "[AUTOTITLE](/desktop/making-changes-in-a-branch/pushing-changes-to-github-from-github-desktop#pushing-changes-to-github)"
-* "[AUTOTITLE](/desktop/configuring-and-customizing-github-desktop/about-git-large-file-storage-and-github-desktop)"
+* [AUTOTITLE](/desktop/making-changes-in-a-branch/pushing-changes-to-github-from-github-desktop#pushing-changes-to-github)
+* [AUTOTITLE](/desktop/configuring-and-customizing-github-desktop/about-git-large-file-storage-and-github-desktop)
 
 {% endif %}

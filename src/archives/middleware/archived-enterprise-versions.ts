@@ -1,7 +1,4 @@
-import path from 'path'
-
 import type { Response, NextFunction } from 'express'
-import slash from 'slash'
 import got from 'got'
 
 import statsd from '@/observability/lib/statsd.js'
@@ -13,7 +10,7 @@ import {
 } from '@/versions/lib/enterprise-server-releases.js'
 import patterns from '@/frame/lib/patterns.js'
 import versionSatisfiesRange from '@/versions/lib/version-satisfies-range.js'
-import { isArchivedVersion } from '@/archives/lib/is-archived-version.js'
+import { isArchivedVersion } from '@/archives/lib/is-archived-version'
 import {
   setFastlySurrogateKey,
   SURROGATE_ENUMS,
@@ -25,18 +22,16 @@ import getRedirect, { splitPathByLanguage } from '@/redirects/lib/get-redirect.j
 import getRemoteJSON from '@/frame/lib/get-remote-json.js'
 import { ExtendedRequest } from '@/types'
 
-const REMOTE_ENTERPRISE_STORAGE_URL = 'https://githubdocs.azureedge.net/enterprise'
-
-function splitByLanguage(uri: string) {
-  let language = null
-  let withoutLanguage = uri
-  const match = uri.match(languagePrefixPathRegex)
-  if (match) {
-    language = match[1]
-    withoutLanguage = uri.replace(languagePrefixPathRegex, '/')
-  }
-  return [language, withoutLanguage]
-}
+const OLD_PUBLIC_AZURE_BLOB_URL = 'https://githubdocs.azureedge.net'
+// Old Azure Blob Storage `enterprise` container.
+const OLD_AZURE_BLOB_ENTERPRISE_DIR = `${OLD_PUBLIC_AZURE_BLOB_URL}/enterprise`
+// Old Azure Blob storage `github-images` container with
+// the root directory of 'enterprise'.
+const OLD_GITHUB_IMAGES_ENTERPRISE_DIR = `${OLD_PUBLIC_AZURE_BLOB_URL}/github-images/enterprise`
+const OLD_DEVELOPER_SITE_CONTAINER = `${OLD_PUBLIC_AZURE_BLOB_URL}/developer-site`
+// This is the new repo naming convention we use for each archived enterprise
+// version. E.g. https://github.github.com/docs-ghes-2.10
+const ENTERPRISE_GH_PAGES_URL_PREFIX = 'https://github.github.com/docs-ghes-'
 
 type ArchivedRedirects = {
   [url: string]: string | null
@@ -93,7 +88,8 @@ const retryConfiguration = { limit: 3 }
 const timeoutConfiguration = { response: 1500 }
 
 // This module handles requests for deprecated GitHub Enterprise versions
-// by routing them to static content in help-docs-archived-enterprise-versions
+// by routing them to static content in
+// one of the docs-ghes-<release number> repos.
 
 export default async function archivedEnterpriseVersions(
   req: ExtendedRequest,
@@ -108,6 +104,7 @@ export default async function archivedEnterpriseVersions(
 
   const redirectCode = pathLanguagePrefixed(req.path) ? 301 : 302
 
+  // Redirects for releases 3.0+
   if (deprecatedWithFunctionalRedirects.includes(requestedVersion)) {
     const redirectTo = getRedirect(req.path, req.context)
     if (redirectTo) {
@@ -138,8 +135,7 @@ export default async function archivedEnterpriseVersions(
       return res.redirect(redirectCode, `/${language}${newRedirectTo}`)
     }
   }
-  // redirect language-prefixed URLs like /en/enterprise/2.10 -> /enterprise/2.10
-  // (this only applies to versions <2.13)
+  // For releases 2.13 and lower, redirect language-prefixed URLs like /en/enterprise/2.10 -> /enterprise/2.10
   if (
     req.path.startsWith('/en/') &&
     versionSatisfiesRange(requestedVersion, `<${firstVersionDeprecatedOnNewSite}`)
@@ -148,8 +144,7 @@ export default async function archivedEnterpriseVersions(
     return res.redirect(redirectCode, req.baseUrl + req.path.replace(/^\/en/, ''))
   }
 
-  // find redirects for versions between 2.13 and 2.17
-  // starting with 2.18, we updated the archival script to create a redirects.json file
+  // Redirects for releases 2.13 - 2.17
   if (
     versionSatisfiesRange(requestedVersion, `>=${firstVersionDeprecatedOnNewSite}`) &&
     versionSatisfiesRange(requestedVersion, `<=${lastVersionWithoutArchivedRedirectsFile}`)
@@ -173,7 +168,8 @@ export default async function archivedEnterpriseVersions(
       return res.redirect(redirectCode, redirect)
     }
   }
-
+  // Redirects for 2.18 - 3.0. Starting with 2.18, we updated the archival
+  // script to create a redirects.json file
   if (
     versionSatisfiesRange(requestedVersion, `>${lastVersionWithoutArchivedRedirectsFile}`) &&
     !deprecatedWithFunctionalRedirects.includes(requestedVersion)
@@ -195,19 +191,25 @@ export default async function archivedEnterpriseVersions(
       return res.redirect(redirectCode, redirectJson[req.path])
     }
   }
-
-  const statsdTags = [`version:${requestedVersion}`]
+  // Retrieve the page from the archived repo
   const doGet = () =>
     got(getProxyPath(req.path, requestedVersion), {
       throwHttpErrors: false,
       retry: retryConfiguration,
       timeout: timeoutConfiguration,
     })
+
+  const statsdTags = [`version:${requestedVersion}`]
   const r = await statsd.asyncTimer(doGet, 'archive_enterprise_proxy', [
     ...statsdTags,
     `path:${req.path}`,
   ])()
+
   if (r.statusCode === 200) {
+    const [, withoutLanguagePath] = splitByLanguage(req.path)
+    const isDeveloperPage = withoutLanguagePath?.startsWith(
+      `/enterprise/${requestedVersion}/developer`,
+    )
     res.set('x-robots-tag', 'noindex')
 
     // make stubbed redirect files (which exist in versions <2.13) redirect with a 301
@@ -221,11 +223,80 @@ export default async function archivedEnterpriseVersions(
 
     cacheAggressively(res)
 
+    // Releases 3.2 and higher contain image asset paths with the
+    // old Azure Blob Storage URL. These need to be rewritten to
+    // the new archived enterprise repo URL.
+    if (
+      versionSatisfiesRange(requestedVersion, `>=${firstReleaseStoredInBlobStorage}`) &&
+      versionSatisfiesRange(requestedVersion, `<=3.9`)
+    ) {
+      // `x-host` is a custom header set by Fastly.
+      // GLB automatically deletes the `x-forwarded-host` header.
+      const host = req.get('x-host') || req.get('x-forwarded-host') || req.get('host')
+      r.body = r.body
+        .replaceAll(
+          `${OLD_AZURE_BLOB_ENTERPRISE_DIR}/${requestedVersion}/assets/cb-`,
+          `${ENTERPRISE_GH_PAGES_URL_PREFIX}${requestedVersion}/assets/cb-`,
+        )
+        .replaceAll(
+          `${OLD_AZURE_BLOB_ENTERPRISE_DIR}/${requestedVersion}/`,
+          `${req.protocol}://${host}/enterprise-server@${requestedVersion}/`,
+        )
+    }
+
+    // Releases 3.1 and lower were previously hosted in the
+    // help-docs-archived-enterprise-versions repo. Only the images
+    // were stored in the old Azure Blob Storage `github-images` container.
+    // The image paths all need to be updated to reference the images in the
+    // new archived enterprise repo's root assets directory.
+    if (versionSatisfiesRange(requestedVersion, `<${firstReleaseStoredInBlobStorage}`)) {
+      r.body = r.body.replaceAll(
+        `${OLD_GITHUB_IMAGES_ENTERPRISE_DIR}/${requestedVersion}`,
+        `${ENTERPRISE_GH_PAGES_URL_PREFIX}${requestedVersion}`,
+      )
+      if (versionSatisfiesRange(requestedVersion, '<=2.18') && isDeveloperPage) {
+        r.body = r.body.replaceAll(
+          `${OLD_DEVELOPER_SITE_CONTAINER}/${requestedVersion}`,
+          `${ENTERPRISE_GH_PAGES_URL_PREFIX}${requestedVersion}/developer`,
+        )
+        // Update all hrefs to add /developer to the path
+        r.body = r.body.replaceAll(
+          `="/enterprise/${requestedVersion}`,
+          `="/enterprise/${requestedVersion}/developer`,
+        )
+        // The changelog is the only thing remaining on developer.github.com
+        r.body = r.body.replaceAll('href="/changes', 'href="https://developer.github.com/changes')
+      }
+    }
+
+    // In all releases, some assets were incorrectly scraped and contain
+    // deep relative paths. For example, releases 3.4+ use the webp format
+    // for images. The URLs for those images were never rewritten to pull
+    // from the Azure Blob Storage container. This may be due to not
+    // updating our scraping tool to handle the new image types. There
+    // are additional images in older versions that also have a relative path.
+    // We want to update the URLs in the format
+    // "../../../../../../assets/" to prefix the assets directory with the
+    // new archived enterprise repo URL.
+    r.body = r.body.replaceAll(
+      /="(\.\.\/)*assets/g,
+      `="${ENTERPRISE_GH_PAGES_URL_PREFIX}${requestedVersion}/assets`,
+    )
+
+    // Fix broken hrefs on the 2.16 landing page
+    if (requestedVersion === '2.16' && req.path === '/en/enterprise/2.16') {
+      r.body = r.body.replaceAll('ref="/en/enterprise', 'ref="/en/enterprise/2.16')
+    }
+
+    // Remove the search results container from the page, which removes a white
+    // box that prevents clicking on page links
+    r.body = r.body.replaceAll('<div id="search-results-container"></div>', '')
+
     return res.send(r.body)
   }
-
-  // from 2.13 to 2.17, we lost access to frontmatter redirects during the archival process
-  // this workaround finds potentially relevant frontmatter redirects in currently supported pages
+  // In releases 2.13 - 2.17, we lost access to frontmatter redirects
+  //  during the archival process. This workaround finds potentially
+  // relevant frontmatter redirects in currently supported pages
   if (
     versionSatisfiesRange(requestedVersion, `>=${firstVersionDeprecatedOnNewSite}`) &&
     versionSatisfiesRange(requestedVersion, `<=${lastVersionWithoutArchivedRedirectsFile}`)
@@ -244,18 +315,35 @@ export default async function archivedEnterpriseVersions(
   return next()
 }
 
-// paths are slightly different depending on the version
-// for >=2.13: /2.13/en/enterprise/2.13/user/articles/viewing-contributions-on-your-profile
-// for <2.13: /2.12/user/articles/viewing-contributions-on-your-profile
 function getProxyPath(reqPath: string, requestedVersion: string) {
-  if (versionSatisfiesRange(requestedVersion, `>=${firstReleaseStoredInBlobStorage}`)) {
-    const newReqPath = reqPath.includes('redirects.json') ? `/${reqPath}` : reqPath + '/index.html'
-    return `${REMOTE_ENTERPRISE_STORAGE_URL}/${requestedVersion}${newReqPath}`
+  const [, withoutLanguagePath] = splitByLanguage(reqPath)
+  const isDeveloperPage = withoutLanguagePath?.startsWith(
+    `/enterprise/${requestedVersion}/developer`,
+  )
+
+  // This was the last release supported on developer.github.com
+  if (isDeveloperPage) {
+    const enterprisePath = `/enterprise/${requestedVersion}`
+    const newReqPath = reqPath.replace(enterprisePath, '')
+    return ENTERPRISE_GH_PAGES_URL_PREFIX + requestedVersion + newReqPath
   }
-  const proxyPath = versionSatisfiesRange(requestedVersion, `>=${firstVersionDeprecatedOnNewSite}`)
-    ? slash(path.join('/', requestedVersion, reqPath))
-    : reqPath.replace(/^\/enterprise/, '')
-  return `https://github.github.com/help-docs-archived-enterprise-versions${proxyPath}`
+
+  // Releases 2.18 and higher
+  if (versionSatisfiesRange(requestedVersion, `>${lastVersionWithoutArchivedRedirectsFile}`)) {
+    const newReqPath = reqPath.includes('redirects.json') ? `/${reqPath}` : reqPath + '/index.html'
+    return ENTERPRISE_GH_PAGES_URL_PREFIX + requestedVersion + newReqPath
+  }
+
+  // Releases 2.13 - 2.17
+  // redirect.json files don't exist for these versions
+  if (versionSatisfiesRange(requestedVersion, `>=2.13`)) {
+    return ENTERPRISE_GH_PAGES_URL_PREFIX + requestedVersion + reqPath + '/index.html'
+  }
+
+  // Releases 2.12 and lower
+  const enterprisePath = `/enterprise/${requestedVersion}`
+  const newReqPath = reqPath.replace(enterprisePath, '')
+  return ENTERPRISE_GH_PAGES_URL_PREFIX + requestedVersion + newReqPath
 }
 
 // Module-level global cache object.
@@ -276,7 +364,7 @@ function getFallbackRedirect(req: ExtendedRequest) {
   //
   // The keys are valid URLs that it can redirect to. I.e. these are
   // URLs that we definitely know are valid and will be found
-  // in https://github.com/github/help-docs-archived-enterprise-versions
+  // in one of the docs-ghes-<release number> repos.
   // The array values are possible URLs we deem acceptable redirect
   // sources.
   // But to avoid an unnecessary, O(n), loop every time, we turn this
@@ -310,4 +398,15 @@ function getFallbackRedirect(req: ExtendedRequest) {
   if (fallback) {
     return `/${language}${fallback}`
   }
+}
+
+function splitByLanguage(uri: string) {
+  let language = null
+  let withoutLanguage = uri
+  const match = uri.match(languagePrefixPathRegex)
+  if (match) {
+    language = match[1]
+    withoutLanguage = uri.replace(languagePrefixPathRegex, '/')
+  }
+  return [language, withoutLanguage]
 }

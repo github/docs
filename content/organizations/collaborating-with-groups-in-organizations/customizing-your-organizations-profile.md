@@ -13,7 +13,6 @@ shortTitle: Customize organization profile
 
 ## About your organization's profile page
 
-{% ifversion org-profile-pin-private %}
 You can customize your organization's Overview page to show a README and pinned repositories dedicated to public users or members of the organization.
 
 Members of your organization who are signed into {% data variables.product.prodname_dotcom %}, can select a `member` or `public` view of the README and pinned repositories when they visit your organization's profile page.
@@ -28,11 +27,9 @@ Users who are not members of your organization will be shown a `public` view.
 
 You can give users easy access to important or frequently used repositories, by choosing up to six repositories for public users and six repositories for members of the organization. Once you pin repositories to your organization profile, the "Pinned" section is shown above the "Repositories" section of the profile page.
 
-Only organization owners can pin repositories. For more information, see "[Pinning repositories to your organization's profile](#pinning-repositories-to-your-organizations-profile)."
+Only organization owners can pin repositories. For more information, see [Pinning repositories to your organization's profile](#pinning-repositories-to-your-organizations-profile).
 
 ### Organization profile READMEs
-
-{% endif %}
 
 You can share information about how to engage with your organization by creating an organization profile README for both public users and members of the organization. {% data variables.product.prodname_dotcom %} shows your organization profile README in the "Overview" tab of your organization.
 
@@ -41,10 +38,10 @@ You can choose what information to include in your organization profile README. 
 * An "About" section that describes your organization
 * Guidance for getting help in the organization
 
-You can format text and include emoji, images, and GIFs in your organization profile README by using {% data variables.product.company_short %} Flavored Markdown. For more information, see "[AUTOTITLE](/get-started/writing-on-github/getting-started-with-writing-and-formatting-on-github)."
+You can format text and include emoji, images, and GIFs in your organization profile README by using {% data variables.product.company_short %} Flavored Markdown. For more information, see [AUTOTITLE](/get-started/writing-on-github/getting-started-with-writing-and-formatting-on-github).
 
 {% ifversion enterprise-readme %}
-If you manage multiple organizations with an enterprise account, you can help members learn about the different organizations in the enterprise by creating an enterprise README. For more information, see "[AUTOTITLE](/admin/managing-your-enterprise-account/creating-a-readme-for-an-enterprise)."
+If you manage multiple organizations with an enterprise account, you can help members learn about the different organizations in the enterprise by creating an enterprise README. For more information, see [AUTOTITLE](/admin/managing-your-enterprise-account/creating-a-readme-for-an-enterprise).
 {% endif %}
 
 ## Adding a public organization profile README
@@ -54,8 +51,6 @@ The content of public `README.md` will appear on your organization's public prof
 1. If your organization does not already have a public `.github` repository, create a public `.github` repository.
 1. In your organization's `.github` repository, create a `README.md` file in the `profile` folder.
 1. Commit the changes to the `README.md` file.
-
-{% ifversion org-profile-pin-private %}
 
 ## Adding a member-only organization profile README
 
@@ -86,11 +81,9 @@ You can pin repositories that you want to feature, such as those that are freque
 1. In the "Edit pinned repositories" dialog box, select a combination of up to six public, {% ifversion not fpt %}private, or internal{% else %}or private{% endif %} repositories to display.
 1. Click **Save pins**.
 
-{% endif %}
-
 ## Changing your organization's profile picture
 
-When you create an organization, {% data variables.product.product_name %} provides you with a randomly generated "identicon." The identicon is generated from a hash of your organization's user ID, so there's no way to control its color or pattern.
+When you create an organization, {% data variables.product.github %} provides you with a randomly generated "identicon." The identicon is generated from a hash of your organization's user ID, so there's no way to control its color or pattern.
 
 You can replace the identicon with an image that represents your organization. To replace the image, you can upload a new image or use a Gravatar image.
 
@@ -109,5 +102,5 @@ You can replace the identicon with an image that represents your organization. T
 
 ## Further reading
 
-* "[AUTOTITLE](/repositories/managing-your-repositorys-settings-and-features/customizing-your-repository/about-readmes)"
-* "[AUTOTITLE](/account-and-profile/setting-up-and-managing-your-github-profile/customizing-your-profile/managing-your-profile-readme)"
+* [AUTOTITLE](/repositories/managing-your-repositorys-settings-and-features/customizing-your-repository/about-readmes)
+* [AUTOTITLE](/account-and-profile/setting-up-and-managing-your-github-profile/customizing-your-profile/managing-your-profile-readme)

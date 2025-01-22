@@ -2,7 +2,7 @@
 title: 'Using {% data variables.product.prodname_classroom %} with {% data variables.product.prodname_cli %}'
 shortTitle: '{% data variables.product.prodname_classroom %} CLI'
 allowTitleToDifferFromFilename: true
-intro: 'You can use `gh`, the {% data variables.product.product_name %} command line interface, to work with {% data variables.product.prodname_classroom %} directly from your command line.'
+intro: 'You can use `gh`, the {% data variables.product.github %} command line interface, to work with {% data variables.product.prodname_classroom %} directly from your command line.'
 versions:
   fpt: '*'
 type: how_to
@@ -10,9 +10,9 @@ type: how_to
 
 ## About {% data variables.product.prodname_classroom %} CLI <!-- omit in toc -->
 
-{% data reusables.cli.about-cli %} For more information, see "[AUTOTITLE](/github-cli/github-cli/about-github-cli)."
+{% data reusables.cli.about-cli %} For more information, see [AUTOTITLE](/github-cli/github-cli/about-github-cli).
 
-You can work with {% data variables.product.prodname_classroom %} in the  {% data variables.product.prodname_cli %} to:
+You can work with {% data variables.product.prodname_classroom %} in the {% data variables.product.prodname_cli %} to:
 
 * [List classrooms](#list-classrooms)
 * [View classroom information](#view-classroom-information)

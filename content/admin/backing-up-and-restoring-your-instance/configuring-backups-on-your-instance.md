@@ -32,7 +32,7 @@ topics:
 
 Only data added since the last snapshot will transfer over the network and occupy additional physical storage space. To minimize performance impact, backups are performed online under the lowest CPU/IO priority. You do not need to schedule a maintenance window to perform a backup.
 
-Major releases and version numbers for {% data variables.product.prodname_enterprise_backup_utilities %} align with feature releases of {% data variables.product.product_name %}. We support the four most recent versions of both products. For more information, see "[AUTOTITLE](/admin/all-releases)."
+Major releases and version numbers for {% data variables.product.prodname_enterprise_backup_utilities %} align with feature releases of {% data variables.product.product_name %}. We support the four most recent versions of both products. For more information, see [AUTOTITLE](/admin/all-releases).
 
 For more detailed information on features, requirements, and advanced usage, see the [{% data variables.product.prodname_enterprise_backup_utilities %} README](https://github.com/github/backup-utils#readme) in the {% data variables.product.prodname_enterprise_backup_utilities %} project documentation.
 
@@ -66,11 +66,8 @@ If you have an existing backup configuration file, `backup.config`, ensure you c
 
 Backup snapshots created by {% data variables.product.prodname_enterprise_backup_utilities %} are written to the disk path set by the `GHE_DATA_DIR` data directory variable in your `backup.config` file. These snapshots need to be stored on a filesystem which supports symbolic and hard links.
 
-{% note %}
-
-**Note:** We recommend ensuring your snapshots are not kept in a subdirectory of the {% data variables.product.prodname_enterprise_backup_utilities %} installation directory, to avoid inadvertently overwriting your data directory when upgrading {% data variables.product.prodname_enterprise_backup_utilities %} versions.
-
-{% endnote %}
+> [!NOTE]
+> We recommend ensuring your snapshots are not kept in a subdirectory of the {% data variables.product.prodname_enterprise_backup_utilities %} installation directory, to avoid inadvertently overwriting your data directory when upgrading {% data variables.product.prodname_enterprise_backup_utilities %} versions.
 
 1. Download the relevant {% data variables.product.prodname_enterprise_backup_utilities %} release from the [Releases](https://github.com/github/backup-utils/releases) page of the github/backup-utils repository.
 
@@ -94,18 +91,16 @@ Backup snapshots created by {% data variables.product.prodname_enterprise_backup
 
 1. To customize your configuration, edit `backup.config` in a text editor.
 
-   1. If you previously upgraded {% data variables.product.prodname_enterprise_backup_utilities %} using Git, ensure that you copy your existing configuration from `backup.config` into the new file. For more information, see "[Upgrading {% data variables.product.prodname_enterprise_backup_utilities %}](#upgrading-github-enterprise-server-backup-utilities)."
+   1. If you previously upgraded {% data variables.product.prodname_enterprise_backup_utilities %} using Git, ensure that you copy your existing configuration from `backup.config` into the new file. For more information, see [Upgrading {% data variables.product.prodname_enterprise_backup_utilities %}](#upgrading-github-enterprise-server-backup-utilities).
    1. Set the `GHE_HOSTNAME` value to your primary {% data variables.product.prodname_ghe_server %} instance's hostname or IP address.
 
-      {% note %}
+      > [!NOTE]
+      > If {% data variables.location.product_location %} is deployed as a cluster or in a high availability configuration using a load balancer, the `GHE_HOSTNAME` can be the load balancer hostname, as long as the load balancer allows SSH access over port 122 to {% data variables.location.product_location %}.
+      >
+      > To ensure a recovered instance is immediately available, perform backups targeting the primary instance even in a geo-replication configuration.
 
-      **Note:** If {% data variables.location.product_location %} is deployed as a cluster or in a high availability configuration using a load balancer, the `GHE_HOSTNAME` can be the load balancer hostname, as long as the load balancer allows SSH access over port 122 to {% data variables.location.product_location %}.
-
-      To ensure a recovered instance is immediately available, perform backups targeting the primary instance even in a geo-replication configuration.
-
-      {% endnote %}
    1. Set the `GHE_DATA_DIR` value to the filesystem location where you want to store backup snapshots. We recommend choosing a location on the same filesystem as your backup host.
-1. To grant your backup host access to your instance, open your primary instance's settings page at `http(s)://HOSTNAME/setup/settings` and add the backup host's SSH key to the list of authorized SSH keys. For more information, see "[AUTOTITLE](/admin/configuration/configuring-your-enterprise/accessing-the-administrative-shell-ssh#enabling-access-to-the-administrative-shell-via-ssh)."
+1. To grant your backup host access to your instance, open your primary instance's settings page at `http(s)://HOSTNAME/setup/settings` and add the backup host's SSH key to the list of authorized SSH keys. For more information, see [AUTOTITLE](/admin/configuration/configuring-your-enterprise/accessing-the-administrative-shell-ssh#enabling-access-to-the-administrative-shell-via-ssh).
 1. On your backup host, verify SSH connectivity with {% data variables.location.product_location %} with the `ghe-host-check` command.
 
    ```shell
@@ -135,8 +130,8 @@ When upgrading {% data variables.product.prodname_enterprise_backup_utilities %}
 
 1. To determine how to upgrade {% data variables.product.prodname_enterprise_backup_utilities %}, review the output from `git rev-parse --is-inside-work-tree`.
 
-   * If the output is `true`, {% data variables.product.prodname_enterprise_backup_utilities %} was installed by cloning the project's Git repository. To upgrade, copy your existing configuration in `backup.config`, then follow the instructions in "[Installing {% data variables.product.prodname_enterprise_backup_utilities %}](#installing-github-enterprise-server-backup-utilities)."
-   * If the output includes `fatal: not a git repository (or any of the parent directories)`, {% data variables.product.prodname_enterprise_backup_utilities %} was extracted from a compressed archive file. To upgrade, follow the instructions in "[Installing {% data variables.product.prodname_enterprise_backup_utilities %}](#installing-github-enterprise-server-backup-utilities)."
+   * If the output is `true`, {% data variables.product.prodname_enterprise_backup_utilities %} was installed by cloning the project's Git repository. To upgrade, copy your existing configuration in `backup.config`, then follow the instructions in [Installing {% data variables.product.prodname_enterprise_backup_utilities %}](#installing-github-enterprise-server-backup-utilities).
+   * If the output includes `fatal: not a git repository (or any of the parent directories)`, {% data variables.product.prodname_enterprise_backup_utilities %} was extracted from a compressed archive file. To upgrade, follow the instructions in [Installing {% data variables.product.prodname_enterprise_backup_utilities %}](#installing-github-enterprise-server-backup-utilities).
 
 ## Scheduling a backup
 
@@ -154,10 +149,10 @@ Network settings are excluded from the backup snapshot. After restoration, you m
 
 ### Prerequisites
 
-1. Ensure maintenance mode is enabled on the primary instance and all active processes have completed. For more information, see "[AUTOTITLE](/admin/configuration/configuring-your-enterprise/enabling-and-scheduling-maintenance-mode)."
-1. Stop replication on all replica nodes in a high-availability configuration. For more information, see "[AUTOTITLE](/admin/enterprise-management/configuring-high-availability/about-high-availability-configuration#ghe-repl-stop)."
-1. Provision a new {% data variables.product.product_name %} instance to use as a target for the restoration of your backup. For more information, see "[AUTOTITLE](/admin/installation/setting-up-a-github-enterprise-server-instance)."
-1. If {% data variables.location.product_location %} has {% data variables.product.prodname_actions %} enabled, you must configure the external storage provider for {% data variables.product.prodname_actions %} on the replacement instance. For more information, see "[AUTOTITLE](/admin/github-actions/advanced-configuration-and-troubleshooting/backing-up-and-restoring-github-enterprise-server-with-github-actions-enabled)."
+1. Ensure maintenance mode is enabled on the primary instance and all active processes have completed. For more information, see [AUTOTITLE](/admin/configuration/configuring-your-enterprise/enabling-and-scheduling-maintenance-mode).
+1. Stop replication on all replica nodes in a high-availability configuration. For more information, see [AUTOTITLE](/admin/enterprise-management/configuring-high-availability/about-high-availability-configuration#ghe-repl-stop).
+1. Provision a new {% data variables.product.product_name %} instance to use as a target for the restoration of your backup. For more information, see [AUTOTITLE](/admin/installation/setting-up-a-github-enterprise-server-instance).
+1. If {% data variables.location.product_location %} has {% data variables.product.prodname_actions %} enabled, you must configure the external storage provider for {% data variables.product.prodname_actions %} on the replacement instance. For more information, see [AUTOTITLE](/admin/github-actions/advanced-configuration-and-troubleshooting/backing-up-and-restoring-github-enterprise-server-with-github-actions-enabled).
 
 ### Starting the restore operation
 
@@ -185,15 +180,11 @@ $ ghe-restore -c 169.154.1.1
 > Visit https://169.154.1.1/setup/settings to review appliance configuration.
 ```
 
-{% ifversion ip-exception-list %}
-Optionally, to validate the restore, configure an IP exception list to allow access to a specified list of IP addresses. For more information, see "[AUTOTITLE](/admin/configuration/configuring-your-enterprise/enabling-and-scheduling-maintenance-mode#validating-changes-in-maintenance-mode-using-the-ip-exception-list)."
-{% endif %}
+Optionally, to validate the restore, configure an IP exception list to allow access to a specified list of IP addresses. For more information, see [AUTOTITLE](/admin/configuration/configuring-your-enterprise/enabling-and-scheduling-maintenance-mode#validating-changes-in-maintenance-mode-using-the-ip-exception-list).
 
 On an instance in a high-availability configuration, after you restore to new disks on an existing or empty instance, `ghe-repl-status` may report that Git or Alambic replication is out of sync due to stale server UUIDs. These stale UUIDs can be the result of a retired node in a high-availability configuration still being present in the application database, but not in the restored replication configuration.
 
 To remediate after the restoration completes and before starting replication, you can tear down stale UUIDs using `ghe-repl-teardown`. If you need further assistance, visit {% data variables.contact.contact_ent_support %}.
-
-{% ifversion backup-utilities-progress %}
 
 ## Monitoring backup or restoration progress
 
@@ -212,5 +203,3 @@ Optionally, you can run the following command to print the current progress, the
 ```shell copy
 bin/ghe-backup-progress --once
 ```
-
-{% endif %}

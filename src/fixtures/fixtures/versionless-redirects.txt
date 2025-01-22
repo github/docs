@@ -106,7 +106,7 @@
 - /graphql/guides/managing-enterprise-accounts
 - /v4/guides/managing-enterprise-accounts
 
-/enterprise-cloud@latest/billing/managing-your-github-billing-settings/about-billing-for-your-enterprise
+/enterprise-cloud@latest/billing/using-the-billing-platform/about-billing-for-your-enterprise
 - /admin/overview/managing-billing-for-your-enterprise
 - /admin/overview/managing-billing-for-github-enterprise
 
@@ -223,7 +223,7 @@
 - /github/setting-up-and-managing-your-enterprise-account/enforcing-a-policy-on-dependency-insights-in-your-enterprise-account
 - /github/setting-up-and-managing-your-enterprise/enforcing-a-policy-on-dependency-insights-in-your-enterprise-account
 
-/enterprise-cloud@latest/billing/managing-licenses-for-visual-studio-subscriptions-with-github-enterprise/about-visual-studio-subscriptions-with-github-enterprise
+/enterprise-cloud@latest/billing/managing-billing-for-your-products/managing-licenses-for-visual-studio-subscriptions-with-github-enterprise/about-visual-studio-subscriptions-with-github-enterprise
 - /github/setting-up-and-managing-your-enterprise/managing-your-enterprise-account/managing-licenses-for-visual-studio-subscription-with-github-enterprise
 - /github/setting-up-and-managing-your-enterprise/managing-licenses-for-the-github-enterprise-and-visual-studio-bundle
 - /github/setting-up-and-managing-your-enterprise-account/managing-licenses-for-the-github-enterprise-and-visual-studio-bundle
@@ -433,9 +433,8 @@
 - /pages/getting-started-with-github-pages/changing-the-visibility-of-your-github-pages-site
 - /github/working-with-github-pages/changing-the-visibility-of-your-github-pages-site
 
-/enterprise-cloud@latest/billing/managing-billing-for-github-advanced-security/viewing-your-github-advanced-security-usage
-- /billing/managing-billing-for-github-advanced-security/viewing-your-github-advanced-security-usage
-- /billing/managing-licensing-for-github-advanced-security/viewing-your-github-advanced-security-usage
+/enterprise-cloud@latest/billing/managing-billing-for-your-products/managing-billing-for-github-advanced-security/viewing-your-github-advanced-security-usage
+- /billing/managing-billing-for-your-products/managing-billing-for-github-advanced-security/viewing-your-github-advanced-security-usage
 - /admin/advanced-security/viewing-your-github-advanced-security-usage
 - /github/setting-up-and-managing-billing-and-payments-on-github/managing-licensing-for-github-advanced-security/viewing-your-github-advanced-security-usage
 - /github/setting-up-and-managing-your-enterprise/managing-use-of-advanced-security-for-organizations-in-your-enterprise-account
@@ -452,7 +451,7 @@
 - /articles/changing-the-visibility-of-your-organizations-dependency-insights
 - /github/setting-up-and-managing-organizations-and-teams/changing-the-visibility-of-your-organizations-dependency-insights
 
-/enterprise-server@latest/search-github/getting-started-with-searching-on-github/enabling-githubcom-repository-search-from-your-private-enterprise-environment
+/enterprise-server@latest/search-github/getting-started-with-searching-on-github/enabling-repository-search-across-environments
 - /search-github/getting-started-with-searching-on-github/enabling-githubcom-repository-search-from-your-private-enterprise-environment
 - /articles/enabling-private-githubcom-repository-search-in-your-github-enterprise-account
 - /articles/enabling-private-github-com-repository-search-in-your-github-enterprise-server-account

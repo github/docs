@@ -13,13 +13,19 @@ redirect_from:
   - /codespaces/codespaces-quickstart
 ---
 
+{% ifversion ghec %}
+
+{% data reusables.codespaces.data-residency-availability %}
+
+{% endif %}
+
 ## Introduction
 
 In this guide, you'll create a codespace from a template repository and explore some of the essential features available to you within the codespace. You'll work in the browser version of {% data variables.product.prodname_vscode %}, which is initially the default editor for {% data variables.product.prodname_github_codespaces %}. After trying out this quickstart you can use {% data variables.product.prodname_codespaces %} in other editors, and you can change the default editor. Links are provided at the end of this guide.
 
 From this quickstart, you'll learn how to create a codespace, connect to a forwarded port to view your running application, publish your codespace to a new repository, and personalize your setup with extensions.
 
-For more information on exactly how {% data variables.product.prodname_github_codespaces %} works, see the companion guide "[AUTOTITLE](/codespaces/getting-started/deep-dive)."
+For more information on exactly how {% data variables.product.prodname_github_codespaces %} works, see the companion guide [AUTOTITLE](/codespaces/getting-started/deep-dive).
 
 ## Creating your codespace
 
@@ -65,18 +71,18 @@ Now that you've made a few changes, you can use the integrated terminal or the s
 
 1. To commit your staged changes, type a commit message describing the change you've made, then click **Commit**.
 
-   ![Screenshot of the "Source control" side bar. A commit message, with "Change haiku text and styles" entered, and the "Commit" button are highlighted with an orange outline.](/assets/images/help/codespaces/vscode-commit-button.png)
+   ![Screenshot of the "Source control" side bar. The commit message, "Change haiku text and styles," and the "Commit" button are outlined in orange.](/assets/images/help/codespaces/vscode-commit-button.png)
 
 1. Click **Publish Branch**.
 
    ![Screenshot of the "Source control" side bar showing the "Publish Branch" button.](/assets/images/help/codespaces/vscode-publish-branch-button.png)
 
-1. In the "Repository Name" dropdown, type a name for your new repository, then select **Publish to {% data variables.product.prodname_dotcom %}  private repository** or **Publish to {% data variables.product.prodname_dotcom %}  public repository**.
+1. In the "Repository Name" dropdown, type a name for your new repository, then select **Publish to {% data variables.product.prodname_dotcom %} private repository** or **Publish to {% data variables.product.prodname_dotcom %} public repository**.
 
    ![Screenshot of the repository name dropdown in {% data variables.product.prodname_vscode_shortname %}. Two options are shown, for publishing to a private or a public repository.](/assets/images/help/codespaces/choose-new-repository.png)
 
    The owner of the new repository will be the {% data variables.product.prodname_dotcom %} account with which you created the codespace.
-1. In the pop-up that appears in the lower right corner of the editor, click **Open on {% data variables.product.prodname_dotcom %}** to view the new repository on {% data variables.product.prodname_dotcom_the_website %}. In the new repository, view the `haikus.json` file and check that the change you made in your codespace has been successfully pushed to the repository.
+1. In the pop-up that appears in the lower right corner of the editor, click **Open on {% data variables.product.prodname_dotcom %}** to view the new repository on {% data variables.product.github %}. In the new repository, view the `haikus.json` file and check that the change you made in your codespace has been successfully pushed to the repository.
 
    ![Screenshot of a confirmation message for a successfully published repository, showing the "Open on {% data variables.product.prodname_dotcom %}" button.](/assets/images/help/codespaces/open-on-github.png)
 
@@ -90,7 +96,7 @@ When you connect to a codespace using the browser, or the {% data variables.prod
 
 1. In the search bar, type `fairyfloss` and click **Install**.
 
-   ![Screenshot of the "Extensions: Marketplace" side bar. "fairyfloss" is entered into the search box and, below it, the "fairyfloss" extension is displayed, with an "Install" button.](/assets/images/help/codespaces/add-extension.png)
+   ![Screenshot of "Extensions: Marketplace". The search box shows "fairyfloss." The results show the "fairyfloss" extension with an "Install" button.](/assets/images/help/codespaces/add-extension.png)
 
 1. Select the `fairyfloss` theme by selecting it from the list.
 
@@ -98,21 +104,20 @@ When you connect to a codespace using the browser, or the {% data variables.prod
 
 ### About Settings Sync
 
-You can enable Settings Sync to sync extensions and other settings across devices and instances of {% data variables.product.prodname_vscode_shortname %}. {% data reusables.codespaces.about-settings-sync %} For more information, see "[AUTOTITLE](/codespaces/setting-your-user-preferences/personalizing-github-codespaces-for-your-account#settings-sync)."
+You can enable Settings Sync to sync extensions and other settings across devices and instances of {% data variables.product.prodname_vscode_shortname %}. {% data reusables.codespaces.about-settings-sync %} For more information, see [AUTOTITLE](/codespaces/setting-your-user-preferences/personalizing-github-codespaces-for-your-account#settings-sync).
 
 ## Next steps
 
 You've successfully created, personalized, and run your first application within a codespace but there's so much more to explore! Here are some helpful resources for taking your next steps with {% data variables.product.prodname_github_codespaces %}.
 
-* "[AUTOTITLE](/codespaces/getting-started/deep-dive)": This quickstart presented some of the features of {% data variables.product.prodname_github_codespaces %}. The deep dive looks at these areas from a technical standpoint.
-* "[AUTOTITLE](/codespaces/setting-up-your-project-for-codespaces/adding-a-dev-container-configuration)": These guides provide information on setting up your repository to use {% data variables.product.prodname_github_codespaces %} with specific languages.
-* "[AUTOTITLE](/codespaces/setting-up-your-project-for-codespaces/adding-a-dev-container-configuration/introduction-to-dev-containers)": This guide provides details on creating a custom configuration for {% data variables.product.prodname_codespaces %} for your project.
+* [AUTOTITLE](/codespaces/getting-started/deep-dive): This quickstart presented some of the features of {% data variables.product.prodname_github_codespaces %}. The deep dive looks at these areas from a technical standpoint.
+* [AUTOTITLE](/codespaces/setting-up-your-project-for-codespaces/adding-a-dev-container-configuration): These guides provide information on setting up your repository to use {% data variables.product.prodname_github_codespaces %} with specific languages.
+* [AUTOTITLE](/codespaces/setting-up-your-project-for-codespaces/adding-a-dev-container-configuration/introduction-to-dev-containers): This guide provides details on creating a custom configuration for {% data variables.product.prodname_codespaces %} for your project.
 
 ## Further reading
 
-* "[AUTOTITLE](/codespaces/managing-codespaces-for-your-organization/enabling-or-disabling-github-codespaces-for-your-organization)"
-* "[AUTOTITLE](/codespaces/developing-in-a-codespace/using-github-codespaces-in-visual-studio-code)"
-* "[AUTOTITLE](/codespaces/developing-in-a-codespace/using-github-codespaces-in-your-jetbrains-ide)"
-* "[AUTOTITLE](/codespaces/developing-in-a-codespace/using-github-codespaces-with-github-cli)"
-* "[AUTOTITLE](/codespaces/setting-your-user-preferences/setting-your-default-editor-for-github-codespaces)."
-* "[AUTOTITLE](/codespaces/managing-codespaces-for-your-organization/managing-the-cost-of-github-codespaces-in-your-organization)"
+* [AUTOTITLE](/codespaces/managing-codespaces-for-your-organization/enabling-or-disabling-github-codespaces-for-your-organization)
+* [AUTOTITLE](/codespaces/developing-in-a-codespace/using-github-codespaces-in-visual-studio-code)
+* [AUTOTITLE](/codespaces/developing-in-a-codespace/using-github-codespaces-with-github-cli)
+* [AUTOTITLE](/codespaces/setting-your-user-preferences/setting-your-default-editor-for-github-codespaces).
+* [AUTOTITLE](/codespaces/managing-codespaces-for-your-organization/managing-the-cost-of-github-codespaces-in-your-organization)

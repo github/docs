@@ -29,7 +29,7 @@ Here are guidelines about the fields you'll need to fill out in the **Listing de
 
 ### Listing name
 
-Your listing's name will appear on the [{% data variables.product.prodname_marketplace %} homepage](https://github.com/marketplace). The name is limited to 255 characters and can be different from your app's name. Your listing cannot have the same name as an existing account on {% data variables.location.product_location %}, unless the name is your own user or organization name.
+Your listing's name will appear on the [{% data variables.product.prodname_marketplace %} homepage](https://github.com/marketplace). The name is limited to 255 characters and can be different from your app's name. Your listing cannot have the same name as an existing account on {% data variables.product.github %}, unless the name is your own user or organization name.
 
 ### Very short description of listing
 
@@ -96,7 +96,7 @@ If your app only works with specific languages, select up to 10 programming lang
 **Required URLs**
 * **Customer support URL:** The URL of a web page that your customers will go to when they have technical support, product, or account inquiries.
 * **Privacy policy URL:** The web page that displays your app's privacy policy.
-* **Installation URL:** This field is shown for {% data variables.product.prodname_oauth_apps %} only. ({% data variables.product.prodname_github_apps %} don't use this URL because they use the optional Setup URL from the {% data variables.product.prodname_github_app %}'s settings page instead.) When a customer purchases your {% data variables.product.prodname_oauth_app %}, {% data variables.product.company_short %} will redirect customers to the installation URL after they install the app. You will need to redirect customers to `https://github.com/login/oauth/authorize` to begin the OAuth authorization flow. See "[AUTOTITLE](/apps/github-marketplace/using-the-github-marketplace-api-in-your-app/handling-new-purchases-and-free-trials)" for more details. Skip this field if you're listing a {% data variables.product.prodname_github_app %}.
+* **Installation URL:** This field is shown for {% data variables.product.prodname_oauth_apps %} only. ({% data variables.product.prodname_github_apps %} don't use this URL because they use the optional Setup URL from the {% data variables.product.prodname_github_app %}'s settings page instead.) When a customer purchases your {% data variables.product.prodname_oauth_app %}, {% data variables.product.company_short %} will redirect customers to the installation URL after they install the app. You will need to redirect customers to `https://github.com/login/oauth/authorize` to begin the OAuth authorization flow. See [AUTOTITLE](/apps/github-marketplace/using-the-github-marketplace-api-in-your-app/handling-new-purchases-and-free-trials) for more details. Skip this field if you're listing a {% data variables.product.prodname_github_app %}.
 
 **Optional URLs**
 * **Company URL:** A link to your company's website.
@@ -111,7 +111,7 @@ If your app only works with specific languages, select up to 10 programming lang
 
 A feature card consists of your app's logo, name, and a custom background image that captures your brand personality. {% data variables.product.prodname_marketplace %} displays this card if your app is one of the four randomly featured apps at the top of the [homepage](https://github.com/marketplace). Each app's very short description is displayed below its feature card.
 
-![Screenshot of a feature card for OctocatApp. The app's name and an icon of Mona are displayed on a pink background, above the description "United we code."](/assets/images/marketplace/marketplace-feature-card.png)
+![Screenshot of a feature card for OctocatApp. The app's name and an icon of Mona are displayed on a pink background, above the text "United we code."](/assets/images/marketplace/marketplace-feature-card.png)
 
 As you upload images and select colors, your {% data variables.product.prodname_marketplace %} draft listing will display a preview of your logo and feature card.
 

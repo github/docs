@@ -1,0 +1,42 @@
+name: Reviewers - Dependabot
+
+# **What it does**: Automatically add reviewers based on paths, for docs-internal and docs repos.
+# **Why we have it**: So dependabot maintainers can be notified about relevant pull requests.
+# **Who does it impact**: dependabot-updates-reviewers.
+
+on:
+  pull_request:
+    paths:
+      - 'data/reusable/dependabot/**'
+      - 'content/code-security/dependabot/**'
+      - 'content/rest/dependabot/**'
+      - '.github/workflows/reviewers-dependabot.yml'
+
+permissions:
+  contents: read
+  pull-requests: write
+  repository-projects: read
+
+jobs:
+  add-reviewer:
+    if: >-
+      ${{ github.repository == 'github/docs-internal' &&
+          !github.event.pull_request.draft &&
+          !contains(github.event.pull_request.labels.*.name, 'reviewers-dependabot') &&
+          github.event.pull_request.head.ref != 'repo-sync' }}
+    runs-on: ubuntu-latest
+    env:
+      GH_TOKEN: ${{ secrets.DOCS_BOT_PAT_WRITEORG_PROJECT }}
+      PR: ${{ github.event.pull_request.html_url }}
+
+    steps:
+      - name: Check out repo
+        uses: actions/checkout@b4ffde65f46336ab88eb53be808477a3936bae11 # v4.1.1
+
+      - name: Add Dependabot Core Maintainers as reviewers
+        run: |
+          labels=$(gh pr view ${{ github.event.pull_request.number }} --json labels --jq '.labels[].name')
+          if ! echo "$labels" | grep -q 'reviewers-dependabot'; then
+            gh pr edit $PR --add-reviewer github/dependabot-updates-reviewers
+            gh pr edit $PR --add-label reviewers-dependabot
+          fi

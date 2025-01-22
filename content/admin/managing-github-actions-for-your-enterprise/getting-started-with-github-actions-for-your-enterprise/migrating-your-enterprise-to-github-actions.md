@@ -17,7 +17,7 @@ redirect_from:
 
 To migrate your enterprise to {% data variables.product.prodname_actions %} from an existing system, you can plan the migration, complete the migration, and retire existing systems.
 
-This guide addresses specific considerations for migrations. For additional information about introducing {% data variables.product.prodname_actions %} to your enterprise, see "[AUTOTITLE](/admin/github-actions/getting-started-with-github-actions-for-your-enterprise/introducing-github-actions-to-your-enterprise)."
+This guide addresses specific considerations for migrations. For additional information about introducing {% data variables.product.prodname_actions %} to your enterprise, see [AUTOTITLE](/admin/github-actions/getting-started-with-github-actions-for-your-enterprise/introducing-github-actions-to-your-enterprise).
 
 ## Planning your migration
 
@@ -33,7 +33,7 @@ Before you can migrate to {% data variables.product.prodname_actions %}, you nee
 
 First, create an inventory of the existing build and release workflows within your enterprise, gathering information about which workflows are being actively used and need to migrated and which can be left behind.
 
-Next, learn the differences between your current provider and {% data variables.product.prodname_actions %}. This will help you assess any difficulties in migrating each workflow, and where your enterprise might experience differences in features. For more information, see "[AUTOTITLE](/actions/migrating-to-github-actions)."
+Next, learn the differences between your current provider and {% data variables.product.prodname_actions %}. This will help you assess any difficulties in migrating each workflow, and where your enterprise might experience differences in features. For more information, see [AUTOTITLE](/actions/migrating-to-github-actions).
 
 With this information, you'll be able to determine which workflows you can and want to migrate to {% data variables.product.prodname_actions %}.
 
@@ -49,7 +49,7 @@ Identify the gates and checks in your existing system and verify that you can im
 
 ### Identifying and validating migration tools
 
-Automated migration tools can translate your enterprise's workflows from the existing system's syntax to the syntax required by {% data variables.product.prodname_actions %}. Identify third-party tooling or contact your dedicated representative or {% data variables.contact.contact_enterprise_sales %} to ask about tools that {% data variables.product.company_short %} can provide. For example, you can use the {% data variables.product.prodname_actions_importer %} to plan, scope, and migrate your CI pipelines to {% data variables.product.prodname_actions %} from various supported services. For more information, see "[AUTOTITLE](/actions/migrating-to-github-actions/automated-migrations/automating-migration-with-github-actions-importer)."
+Automated migration tools can translate your enterprise's workflows from the existing system's syntax to the syntax required by {% data variables.product.prodname_actions %}. Identify third-party tooling or contact your dedicated representative or {% data variables.contact.contact_enterprise_sales %} to ask about tools that {% data variables.product.company_short %} can provide. For example, you can use the {% data variables.product.prodname_actions_importer %} to plan, scope, and migrate your CI pipelines to {% data variables.product.prodname_actions %} from various supported services. For more information, see [AUTOTITLE](/actions/migrating-to-github-actions/automated-migrations/automating-migration-with-github-actions-importer).
 
 After you've identified a tool to automate your migrations, validate the tool by running the tool on some test workflows and verifying that the results are as expected.
 

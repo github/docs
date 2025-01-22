@@ -105,6 +105,7 @@ export function getAllReusablesFilePaths(): string[] {
     walk(reusablesDirectory, {
       includeBasePath: true,
       directories: false,
+      ignore: ['**/README.md', 'enterprise_deprecation/**'],
     }),
   )
 }

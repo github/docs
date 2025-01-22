@@ -1,0 +1,6 @@
+# Reference: #16102
+# Organization-level definition of private registries. This feature is not yet available for GitHub Enterprise Server.
+# Limited to use with CodeQL code scanning default setup.
+versions:
+  fpt: '*'
+  ghec: '*'

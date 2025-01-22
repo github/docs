@@ -37,11 +37,11 @@ shortTitle: Troubleshoot Jekyll errors
 
 ## Troubleshooting build errors
 
-If Jekyll encounters an error building your {% data variables.product.prodname_pages %} site locally or on {% data variables.product.product_name %}, you can use error messages to troubleshoot. For more information about error messages and how to view them, see "[AUTOTITLE](/pages/setting-up-a-github-pages-site-with-jekyll/about-jekyll-build-errors-for-github-pages-sites)."
+If Jekyll encounters an error building your {% data variables.product.prodname_pages %} site locally or on {% data variables.product.github %}, you can use error messages to troubleshoot. For more information about error messages and how to view them, see [AUTOTITLE](/pages/setting-up-a-github-pages-site-with-jekyll/about-jekyll-build-errors-for-github-pages-sites).
 
 If you received a generic error message, check for common issues.
-* You're using unsupported plugins. For more information, see "[AUTOTITLE](/pages/setting-up-a-github-pages-site-with-jekyll/about-github-pages-and-jekyll#plugins)."{% ifversion fpt or ghec %}
-* Your repository has exceeded our repository size limits. For more information, see "[AUTOTITLE](/repositories/working-with-files/managing-large-files/about-large-files-on-github)"{% endif %}
+* You're using unsupported plugins. For more information, see [AUTOTITLE](/pages/setting-up-a-github-pages-site-with-jekyll/about-github-pages-and-jekyll#plugins).{% ifversion fpt or ghec %}
+* Your repository has exceeded our repository size limits. For more information, see [AUTOTITLE](/repositories/working-with-files/managing-large-files/about-large-files-on-github){% endif %}
 * You changed the `source` setting in your `_config.yml` file. If you publish your site from a branch, {% data variables.product.prodname_pages %} overrides this setting during the build process.
 * A filename in your published files contains a colon (`:`) which is not supported.
 
@@ -65,7 +65,7 @@ To troubleshoot, make sure that your `_config.yml` file follows these rules:
 
 This error means that one of the pages on your site includes an invalid datetime.
 
-To troubleshoot, search the file in the error message and the file's layouts for calls to any date-related Liquid filters. Make sure that any variables passed into date-related Liquid filters have values in all cases and never pass `nil` or `""`. For more information, see "[Liquid filters](https://help.shopify.com/en/themes/liquid/filters)" in the Liquid documentation.
+To troubleshoot, search the file in the error message and the file's layouts for calls to any date-related Liquid filters. Make sure that any variables passed into date-related Liquid filters have values in all cases and never pass `nil` or `""`. For more information, see [Filters](https://shopify.dev/docs/api/liquid/filters) in the Liquid documentation.
 
 ## File does not exist in includes directory
 
@@ -87,7 +87,7 @@ encoding: UTF-8
 
 This error means that you specified any syntax highlighter other than [Rouge](https://github.com/jneen/rouge) or [Pygments](https://pygments.org/) in your configuration file.
 
-To troubleshoot, update your `_config.yml` file to specify [Rouge](https://github.com/jneen/rouge) or [Pygments](https://pygments.org/). For more information, see "[AUTOTITLE](/pages/setting-up-a-github-pages-site-with-jekyll/about-github-pages-and-jekyll#syntax-highlighting)."
+To troubleshoot, update your `_config.yml` file to specify [Rouge](https://github.com/jneen/rouge) or [Pygments](https://pygments.org/). For more information, see [AUTOTITLE](/pages/setting-up-a-github-pages-site-with-jekyll/about-github-pages-and-jekyll#syntax-highlighting).
 
 ## Invalid post date
 
@@ -121,24 +121,24 @@ To troubleshoot, make sure the YAML files in your __data_ folder follow these ru
 
 {% data reusables.pages.yaml-linter %}
 
-For more information about Jekyll data files, see "[Data Files](https://jekyllrb.com/docs/datafiles/)" in the Jekyll documentation.
+For more information about Jekyll data files, see [Data Files](https://jekyllrb.com/docs/datafiles/) in the Jekyll documentation.
 
 ## Markdown errors
 
 This error means that your repository contains Markdown errors.
 
-To troubleshoot, make sure you are using a supported Markdown processor. For more information, see "[AUTOTITLE](/pages/setting-up-a-github-pages-site-with-jekyll/setting-a-markdown-processor-for-your-github-pages-site-using-jekyll)."
+To troubleshoot, make sure you are using a supported Markdown processor. For more information, see [AUTOTITLE](/pages/setting-up-a-github-pages-site-with-jekyll/setting-a-markdown-processor-for-your-github-pages-site-using-jekyll).
 
-Then, make sure the file in the error message uses valid Markdown syntax. For more information, see "[Markdown: Syntax](https://daringfireball.net/projects/markdown/syntax)" on Daring Fireball.
+Then, make sure the file in the error message uses valid Markdown syntax. For more information, see [Markdown: Syntax](https://daringfireball.net/projects/markdown/syntax) on Daring Fireball.
 
 ## Missing docs folder
 
 This error means that you have chosen the `docs` folder on a branch as your publishing source, but there is no `docs` folder in the root of your repository on that branch.
 
 To troubleshoot, if your `docs` folder was accidentally moved, try moving the `docs` folder back to the root of your repository on the branch you chose for your publishing source. If the `docs` folder was accidentally deleted, you can either:
-* Use Git to revert or undo the deletion. For more information, see "[git-revert](https://git-scm.com/docs/git-revert.html)" in the Git documentation.
-* Create a new `docs` folder in the root of your repository on the branch you chose for your publishing source and add your site's source files to the folder. For more information, see "[AUTOTITLE](/repositories/working-with-files/managing-files/creating-new-files)."
-* Change your publishing source. For more information, see "[AUTOTITLE](/pages/getting-started-with-github-pages/configuring-a-publishing-source-for-your-github-pages-site)."
+* Use Git to revert or undo the deletion. For more information, see [git-revert](https://git-scm.com/docs/git-revert.html) in the Git documentation.
+* Create a new `docs` folder in the root of your repository on the branch you chose for your publishing source and add your site's source files to the folder. For more information, see [AUTOTITLE](/repositories/working-with-files/managing-files/creating-new-files).
+* Change your publishing source. For more information, see [AUTOTITLE](/pages/getting-started-with-github-pages/configuring-a-publishing-source-for-your-github-pages-site).
 
 ## Missing submodule
 
@@ -146,38 +146,38 @@ This error means that your repository includes a submodule that doesn't exist or
 
 {% data reusables.pages.remove-submodule %}
 
-If you do want to use a submodule, initialize the submodule. For more information, see "[Git Tools - Submodules](https://git-scm.com/book/en/v2/Git-Tools-Submodules)" in the _Pro Git_ book.
+If you do want to use a submodule, initialize the submodule. For more information, see [Git Tools - Submodules](https://git-scm.com/book/en/v2/Git-Tools-Submodules) in the _Pro Git_ book.
 
 ## Relative permalinks configured
 
 This errors means that you have relative permalinks, which are not supported by {% data variables.product.prodname_pages %}, in your `_config.yml` file.
 
-Permalinks are permanent URLs that reference a particular page on your site. Absolute permalinks begin with the root of the site, while relative permalinks begin with the folder containing the referenced page. {% data variables.product.prodname_pages %} and Jekyll no longer support relative permalinks. For more information about permalinks, see "[Permalinks](https://jekyllrb.com/docs/permalinks/)" in the Jekyll documentation.
+Permalinks are permanent URLs that reference a particular page on your site. Absolute permalinks begin with the root of the site, while relative permalinks begin with the folder containing the referenced page. {% data variables.product.prodname_pages %} and Jekyll no longer support relative permalinks. For more information about permalinks, see [Permalinks](https://jekyllrb.com/docs/permalinks/) in the Jekyll documentation.
 
-To troubleshoot, remove the `relative_permalinks` line from your `_config.yml` file and reformat any relative permalinks in your site with absolute permalinks. For more information, see "[AUTOTITLE](/repositories/working-with-files/managing-files/editing-files)."
+To troubleshoot, remove the `relative_permalinks` line from your `_config.yml` file and reformat any relative permalinks in your site with absolute permalinks. For more information, see [AUTOTITLE](/repositories/working-with-files/managing-files/editing-files).
 
 ## Syntax error in 'for' loop
 
 This error means that your code includes invalid syntax in a Liquid `for` loop declaration.
 
-To troubleshoot, make sure all `for` loops in the file in the error message have proper syntax. For more information about proper syntax for `for` loops, see "[Iteration tags](https://help.shopify.com/en/themes/liquid/tags/iteration-tags#for)" in the Liquid documentation.
+To troubleshoot, make sure all `for` loops in the file in the error message have proper syntax. For more information about proper syntax for `for` loops, see [Tags](https://shopify.dev/docs/api/liquid/tags/for) in the Liquid documentation.
 
 ## Tag not properly closed
 
 This error message means that your code includes a logic tag that is not properly closed. For example, {% raw %}`{% capture example_variable %}` must be closed by `{% endcapture %}`{% endraw %}.
 
-To troubleshoot, make sure all logic tags in the file in the error message are properly closed. For more information, see "[Liquid tags](https://help.shopify.com/en/themes/liquid/tags)" in the Liquid documentation.
+To troubleshoot, make sure all logic tags in the file in the error message are properly closed. For more information, see [Tags](https://shopify.dev/docs/api/liquid/tags) in the Liquid documentation.
 
 ## Tag not properly terminated
 
 This error means that your code includes an output tag that is not properly terminated. For example, {% raw %}`{{ page.title }` instead of `{{ page.title }}`{% endraw %}.
 
-To troubleshoot, make sure all output tags in the file in the error message are terminated with `}}`. For more information, see "[Liquid objects](https://help.shopify.com/en/themes/liquid/objects)" in the Liquid documentation.
+To troubleshoot, make sure all output tags in the file in the error message are terminated with `}}`. For more information, see [Objects](https://shopify.dev/docs/api/liquid/objects) in the Liquid documentation.
 
 ## Unknown tag error
 
 This error means that your code contains an unrecognized Liquid tag.
 
-To troubleshoot, make sure all Liquid tags in the file in the error message match Jekyll's default variables and there are no typos in the tag names. For a list of default variables, see "[Variables](https://jekyllrb.com/docs/variables/)" in the Jekyll documentation.
+To troubleshoot, make sure all Liquid tags in the file in the error message match Jekyll's default variables and there are no typos in the tag names. For a list of default variables, see [Variables](https://jekyllrb.com/docs/variables/) in the Jekyll documentation.
 
-Unsupported plugins are a common source of unrecognized tags. If you use an unsupported plugin in your site by generating your site locally and pushing your static files to {% data variables.product.product_name %}, make sure the plugin is not introducing tags that are not in Jekyll's default variables. For a list of supported plugins, see "[AUTOTITLE](/pages/setting-up-a-github-pages-site-with-jekyll/about-github-pages-and-jekyll#plugins)."
+Unsupported plugins are a common source of unrecognized tags. If you use an unsupported plugin in your site by generating your site locally and pushing your static files to {% data variables.product.github %}, make sure the plugin is not introducing tags that are not in Jekyll's default variables. For a list of supported plugins, see [AUTOTITLE](/pages/setting-up-a-github-pages-site-with-jekyll/about-github-pages-and-jekyll#plugins).

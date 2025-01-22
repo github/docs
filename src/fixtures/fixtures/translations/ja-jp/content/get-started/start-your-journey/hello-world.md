@@ -18,7 +18,7 @@ recover from it.
 
 ["AUTOTITLE](/get-started/start-your-journey/dynamic-title)"
 
-"[AUTOTITLE](/get-started/foo/cross-version-linking)"
+[AUTOTITLE](/get-started/foo/cross-version-linking)
 
 ## Use of a reusable that might have auto-title links
 

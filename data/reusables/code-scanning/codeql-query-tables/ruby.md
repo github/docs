@@ -1,6 +1,6 @@
 {% rowheaders %}
 
-| Query name | Related CWEs | Default | Extended | Autofix |
+| Query name | Related CWEs | Default | Extended | {% data variables.product.prodname_copilot_autofix_short %} |
 | --- | --- | --- | --- | --- |
 | [Bad HTML filtering regexp](https://codeql.github.com/codeql-query-help/ruby/rb-bad-tag-filter/) | 116, 020, 185, 186 | {% octicon "check" aria-label="Included" %} | {% octicon "check" aria-label="Included" %} | {% octicon "check" aria-label="Included" %} |
 | [Badly anchored regular expression](https://codeql.github.com/codeql-query-help/ruby/rb-regex-badly-anchored-regexp/) | 020 | {% octicon "check" aria-label="Included" %} | {% octicon "check" aria-label="Included" %} | {% octicon "check" aria-label="Included" %} |
@@ -35,6 +35,7 @@
 | [Use of `Kernel.open` or `IO.read` or similar sinks with a non-constant value](https://codeql.github.com/codeql-query-help/ruby/rb-non-constant-kernel-open/) | 078, 088, 073 | {% octicon "check" aria-label="Included" %} | {% octicon "check" aria-label="Included" %} | {% octicon "check" aria-label="Included" %} |
 | [Use of `Kernel.open`, `IO.read` or similar sinks with user-controlled input](https://codeql.github.com/codeql-query-help/ruby/rb-kernel-open/) | 078, 088, 073 | {% octicon "check" aria-label="Included" %} | {% octicon "check" aria-label="Included" %} | {% octicon "check" aria-label="Included" %} |
 | [Use of a broken or weak cryptographic algorithm](https://codeql.github.com/codeql-query-help/ruby/rb-weak-cryptographic-algorithm/) | 327 | {% octicon "check" aria-label="Included" %} | {% octicon "check" aria-label="Included" %} | {% octicon "check" aria-label="Included" %} |
+| [Use of a broken or weak cryptographic hashing algorithm on sensitive data](https://codeql.github.com/codeql-query-help/ruby/rb-weak-sensitive-data-hashing/) | 327, 328, 916 | {% octicon "check" aria-label="Included" %} | {% octicon "check" aria-label="Included" %} | {% octicon "check" aria-label="Included" %} |
 | [Use of externally-controlled format string](https://codeql.github.com/codeql-query-help/ruby/rb-tainted-format-string/) | 134 | {% octicon "check" aria-label="Included" %} | {% octicon "check" aria-label="Included" %} | {% octicon "check" aria-label="Included" %} |
 | [Weak cookie configuration](https://codeql.github.com/codeql-query-help/ruby/rb-weak-cookie-configuration/) | 732, 1275 | {% octicon "check" aria-label="Included" %} | {% octicon "check" aria-label="Included" %} | {% octicon "check" aria-label="Included" %} |
 | [XML external entity expansion](https://codeql.github.com/codeql-query-help/ruby/rb-xxe/) | 611, 776, 827 | {% octicon "check" aria-label="Included" %} | {% octicon "check" aria-label="Included" %} | {% octicon "check" aria-label="Included" %} |

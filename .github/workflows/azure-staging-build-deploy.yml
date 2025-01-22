@@ -94,6 +94,7 @@ jobs:
         uses: docker/build-push-action@16ebe778df0e7752d2cfcbd924afdbbd89c1a755
         with:
           context: .
+          file: Dockerfile.azure
           push: true
           target: production
           tags: ${{ env.DOCKER_IMAGE }}
@@ -114,7 +115,7 @@ jobs:
           CHECK_INTERVAL: 10000
           EXPECTED_SHA: ${{ github.sha }}
           CANARY_BUILD_URL: https://ghdocs-staging-canary.azurewebsites.net/_build
-        run: src/workflows/check-canary-slots.js
+        run: npm run check-canary-slots
 
       - name: 'Swap deployment slot to production'
         run: |

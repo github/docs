@@ -7,8 +7,9 @@ import { useNumberFormatter } from 'src/search/components/useNumberFormatter'
 import { SearchResults } from 'src/search/components/SearchResults'
 import { NoQuery } from 'src/search/components/NoQuery'
 import { useMainContext } from 'src/frame/components/context/MainContext'
-import { ValidationErrors } from './ValidationErrors'
-import { useSearchContext } from './context/SearchContext'
+import { ValidationErrors } from 'src/search/components/ValidationErrors'
+import { useSearchContext } from 'src/search/components/context/SearchContext'
+import type { SearchTotalHits } from '@elastic/elasticsearch/lib/api/types'
 
 export function Search() {
   const { search } = useSearchContext()
@@ -17,7 +18,7 @@ export function Search() {
   const { t } = useTranslation('search_results')
   const { currentVersion } = useVersion()
 
-  const { query } = search.search
+  const { query } = search.searchParams
 
   // A reference to the `content/search/index.md` Page object.
   // Not to be confused with the "page" that is for paginating
@@ -37,7 +38,7 @@ export function Search() {
       pageTitle += ` (${searchVersion})`
     }
     if (results) {
-      pageTitle = `${formatInteger(results.meta.found.value)} ${pageTitle}`
+      pageTitle = `${formatInteger((results.meta.found as SearchTotalHits).value)} ${pageTitle}`
     }
   }
 
@@ -63,7 +64,7 @@ export function Search() {
         <ValidationErrors errors={validationErrors} />
       ) : null}
 
-      {results ? <SearchResults results={results} search={search.search} /> : null}
+      {results ? <SearchResults results={results} searchParams={search.searchParams} /> : null}
     </div>
   )
 }

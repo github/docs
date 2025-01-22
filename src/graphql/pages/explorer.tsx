@@ -32,7 +32,6 @@ export default function GQLExplorer({
       <AutomatedPageContext.Provider value={automatedPageContext}>
         <AutomatedPage fullWidth={true}>
           <div>
-            {/* eslint-disable-next-line jsx-a11y/iframe-has-title */}
             <iframe
               ref={graphiqlRef}
               style={{ height: 715 }}

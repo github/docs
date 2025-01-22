@@ -1,10 +1,5 @@
 import { createContext, useContext } from 'react'
-
-import type { SearchT } from '../types'
-
-export type SearchContextT = {
-  search: SearchT
-}
+import type { SearchContextT } from '../types'
 
 export const SearchContext = createContext<SearchContextT | null>(null)
 

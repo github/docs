@@ -36,7 +36,7 @@
   },
   {
     "action": "api.request",
-    "description": "An API request was made to a security-significant endpoint for the enterprise. This event is only included if API Request Events is enabled in the enterprise's audit log settings. This event is only available via audit log streaming.",
+    "description": "An API request was made to an endpoint for the enterprise, or an enterprise owned resource. This event is only included if API Request Events is enabled in the enterprise's audit log settings. This event is only available via audit log streaming.",
     "docs_reference_links": "/admin/monitoring-activity-in-your-enterprise/reviewing-audit-logs-for-your-enterprise/streaming-the-audit-log-for-your-enterprise#enabling-audit-log-streaming-of-api-requests"
   },
   {
@@ -66,12 +66,12 @@
   },
   {
     "action": "auto_approve_personal_access_token_requests.disable",
-    "description": "Triggered when the organization must approve fine-grained personal access tokens before the tokens can access organization resources.",
+    "description": "Triggered when the organization must approve fine-grained personal access tokens before the tokens can access organization resources. See also: personal_access_token.auto_approve_grant_requests_disabled",
     "docs_reference_links": "/organizations/managing-programmatic-access-to-your-organization/setting-a-personal-access-token-policy-for-your-organization"
   },
   {
     "action": "auto_approve_personal_access_token_requests.enable",
-    "description": "Triggered when fine-grained personal access tokens can access organization resources without prior approval.",
+    "description": "Triggered when fine-grained personal access tokens can access organization resources without prior approval. See also: personal_access_token.auto_approve_grant_requests_enabled",
     "docs_reference_links": "/organizations/managing-programmatic-access-to-your-organization/setting-a-personal-access-token-policy-for-your-organization"
   },
   {
@@ -220,6 +220,11 @@
     "docs_reference_links": "N/A"
   },
   {
+    "action": "business.code_scanning_autofix_third_party_tools_policy_update",
+    "description": "The policy for Code scanning autofix third party tools was updated for an enterprise.",
+    "docs_reference_links": "N/A"
+  },
+  {
     "action": "business.connect_usage_metrics_export",
     "description": "Server statistics were exported for the enterprise.",
     "docs_reference_links": "/admin/monitoring-activity-in-your-enterprise/analyzing-how-your-team-works-with-server-statistics/exporting-server-statistics"
@@ -357,6 +362,16 @@
   {
     "action": "business.members_can_update_protected_branches.enable",
     "description": "The ability for enterprise members to update branch protection rules was enabled. Enterprise owners and members can update protected branches.",
+    "docs_reference_links": "N/A"
+  },
+  {
+    "action": "business.proxy_security_header_enabled",
+    "description": "The proxy security header was enabled for an enterprise. When the header is provided in requests, only Enterprise Managed Users matching the header will be able to access GitHub.",
+    "docs_reference_links": "N/A"
+  },
+  {
+    "action": "business.proxy_security_header_unsatisfied",
+    "description": "A user outside the enterprise tried to access GitHub while the proxy security header was enabled and provided in the request.",
     "docs_reference_links": "N/A"
   },
   {
@@ -555,6 +570,26 @@
     "docs_reference_links": "N/A"
   },
   {
+    "action": "business.security_center_export_code_scanning_metrics",
+    "description": "A CSV export was requested on the \"CodeQL pull request alerts\" page.",
+    "docs_reference_links": "N/A"
+  },
+  {
+    "action": "business.security_center_export_coverage",
+    "description": "A CSV export was requested on the \"Coverage\" page.",
+    "docs_reference_links": "N/A"
+  },
+  {
+    "action": "business.security_center_export_overview_dashboard",
+    "description": "A CSV export was requested on the \"Overview Dashboard\" page.",
+    "docs_reference_links": "N/A"
+  },
+  {
+    "action": "business.security_center_export_risk",
+    "description": "A CSV export was requested on the \"Risk\" page.",
+    "docs_reference_links": "N/A"
+  },
+  {
     "action": "business.set_actions_fork_pr_approvals_policy",
     "description": "The policy for requiring approvals for workflows from public forks was changed for an enterprise.",
     "docs_reference_links": "/admin/policies/enforcing-policies-for-your-enterprise/enforcing-policies-for-github-actions-in-your-enterprise#enforcing-a-policy-for-fork-pull-requests-in-your-enterprise"
@@ -643,6 +678,36 @@
     "action": "checks.delete_logs",
     "description": "Logs in a check suite were deleted.",
     "docs_reference_links": "N/A"
+  },
+  {
+    "action": "code_scanning.alert_appeared_in_branch",
+    "description": "Existing code scanning alerts appeared in a branch.",
+    "docs_reference_links": "/code-security/code-scanning/introduction-to-code-scanning/about-code-scanning"
+  },
+  {
+    "action": "code_scanning.alert_closed_became_fixed",
+    "description": "Code scanning alerts were fixed.",
+    "docs_reference_links": "/code-security/code-scanning/introduction-to-code-scanning/about-code-scanning"
+  },
+  {
+    "action": "code_scanning.alert_closed_by_user",
+    "description": "Code scanning alerts were manually dismissed.",
+    "docs_reference_links": "/code-security/code-scanning/introduction-to-code-scanning/about-code-scanning"
+  },
+  {
+    "action": "code_scanning.alert_created",
+    "description": "Code scanning alerts were seen for the first time.",
+    "docs_reference_links": "/code-security/code-scanning/introduction-to-code-scanning/about-code-scanning"
+  },
+  {
+    "action": "code_scanning.alert_reappeared",
+    "description": "Code scanning alerts that were previously fixed reappeared.",
+    "docs_reference_links": "/code-security/code-scanning/introduction-to-code-scanning/about-code-scanning"
+  },
+  {
+    "action": "code_scanning.alert_reopened_by_user",
+    "description": "Code scanning alerts that were previously dismissed were reopened.",
+    "docs_reference_links": "/code-security/code-scanning/introduction-to-code-scanning/about-code-scanning"
   },
   {
     "action": "code.search",
@@ -1205,6 +1270,16 @@
     "docs_reference_links": "N/A"
   },
   {
+    "action": "external_group.scim_api_failure",
+    "description": "Failed external group SCIM API request.",
+    "docs_reference_links": "/rest/scim/scim"
+  },
+  {
+    "action": "external_group.scim_api_success",
+    "description": "Successful external group SCIM API request. Excludes GET API requests.",
+    "docs_reference_links": "/rest/scim/scim"
+  },
+  {
     "action": "external_group.unlink",
     "description": "An external group was unlinked to a GitHub team.",
     "docs_reference_links": "N/A"
@@ -1230,19 +1305,19 @@
     "docs_reference_links": "N/A"
   },
   {
+    "action": "external_identity.scim_api_failure",
+    "description": "Failed external identity SCIM API request.",
+    "docs_reference_links": "/rest/scim/scim"
+  },
+  {
+    "action": "external_identity.scim_api_success",
+    "description": "Successful external identity SCIM API request. Excludes GET API requests.",
+    "docs_reference_links": "/rest/scim/scim"
+  },
+  {
     "action": "external_identity.update",
     "description": "An external identity was updated.",
     "docs_reference_links": "N/A"
-  },
-  {
-    "action": "forbid_auto_approve_personal_access_token_requests.disable",
-    "description": "Auto-approve policy for fine-grained personal access tokens was enabled for the organization.",
-    "docs_reference_links": "/organizations/managing-programmatic-access-to-your-organization/setting-a-personal-access-token-policy-for-your-organization#enforcing-an-approval-policy-for-fine-grained-personal-access-tokens"
-  },
-  {
-    "action": "forbid_auto_approve_personal_access_token_requests.enable",
-    "description": "Auto-approve policy for fine-grained personal access tokens was disabled for the organization.",
-    "docs_reference_links": "/organizations/managing-programmatic-access-to-your-organization/setting-a-personal-access-token-policy-for-your-organization#enforcing-an-approval-policy-for-fine-grained-personal-access-tokens"
   },
   {
     "action": "git.clone",
@@ -1410,6 +1485,11 @@
     "docs_reference_links": "N/A"
   },
   {
+    "action": "ip_allow_list.disable_idp_ip_allowlist_for_web",
+    "description": "Identity Provider based IP allow list for web interactions was disabled.",
+    "docs_reference_links": "N/A"
+  },
+  {
     "action": "ip_allow_list.disable_skip_idp_ip_allowlist_app_access",
     "description": "N/A",
     "docs_reference_links": "N/A"
@@ -1427,6 +1507,11 @@
   {
     "action": "ip_allow_list.enable_for_installed_apps",
     "description": "An IP allow list was enabled for installed GitHub Apps.",
+    "docs_reference_links": "N/A"
+  },
+  {
+    "action": "ip_allow_list.enable_idp_ip_allowlist_for_web",
+    "description": "Identity Provider based IP allow list for web interactions was enabled.",
     "docs_reference_links": "N/A"
   },
   {
@@ -1795,6 +1880,16 @@
     "docs_reference_links": "N/A"
   },
   {
+    "action": "org.code_scanning_autofix_third_party_tools_disabled",
+    "description": "Autofix for third party tools for code scanning alerts was disabled for an organization.",
+    "docs_reference_links": "N/A"
+  },
+  {
+    "action": "org.code_scanning_autofix_third_party_tools_enabled",
+    "description": "Autofix for third party tools for code scanning alerts was enabled for an organization.",
+    "docs_reference_links": "N/A"
+  },
+  {
     "action": "org.codeql_disabled",
     "description": "Code scanning using the default setup was disabled for an organization.",
     "docs_reference_links": "/code-security/code-scanning/enabling-code-scanning/configuring-default-setup-for-code-scanning-at-scale"
@@ -1918,6 +2013,11 @@
     "action": "org_credential_authorization.revoke",
     "description": "An owner revoked authorized credentials.",
     "docs_reference_links": "/organizations/granting-access-to-your-organization-with-saml-single-sign-on/viewing-and-managing-a-members-saml-access-to-your-organization"
+  },
+  {
+    "action": "org.delete",
+    "description": "An organization was deleted by a user or staff.",
+    "docs_reference_links": "N/A"
   },
   {
     "action": "org.disable_member_team_creation_permission",
@@ -2515,6 +2615,11 @@
     "docs_reference_links": "/organizations/managing-peoples-access-to-your-organization-with-roles/about-custom-organization-roles"
   },
   {
+    "action": "organization_wide_project_base_role.update",
+    "description": "An organization's default project base role was updated.",
+    "docs_reference_links": "N/A"
+  },
+  {
     "action": "packages.package_deleted",
     "description": "An entire package was deleted.",
     "docs_reference_links": "/packages/learn-github-packages/deleting-and-restoring-a-package"
@@ -2667,6 +2772,11 @@
   {
     "action": "project.access",
     "description": "A project board visibility was changed.",
+    "docs_reference_links": "N/A"
+  },
+  {
+    "action": "project_base_role.update",
+    "description": "A project's base role was updated.",
     "docs_reference_links": "N/A"
   },
   {
@@ -3047,6 +3157,16 @@
   {
     "action": "repo.code_scanning_autofix_enabled",
     "description": "Autofix for code scanning alerts was enabled for a repository.",
+    "docs_reference_links": "N/A"
+  },
+  {
+    "action": "repo.code_scanning_autofix_third_party_tools_disabled",
+    "description": "Autofix for third party tools for code scanning alerts was disabled for a repository.",
+    "docs_reference_links": "N/A"
+  },
+  {
+    "action": "repo.code_scanning_autofix_third_party_tools_enabled",
+    "description": "Autofix for third party tools for code scanning alerts was enabled for a repository.",
     "docs_reference_links": "N/A"
   },
   {
@@ -3585,6 +3705,26 @@
     "docs_reference_links": "/code-security/secret-scanning/protecting-pushes-with-secret-scanning"
   },
   {
+    "action": "repository_security_configuration.applied",
+    "description": "A code security configuration was applied to a repository.",
+    "docs_reference_links": "N/A"
+  },
+  {
+    "action": "repository_security_configuration.failed",
+    "description": "A code security configuration failed to attach to the repository.",
+    "docs_reference_links": "N/A"
+  },
+  {
+    "action": "repository_security_configuration.removed",
+    "description": "A code security configuration was removed from a repository.",
+    "docs_reference_links": "N/A"
+  },
+  {
+    "action": "repository_security_configuration.removed_by_settings_change",
+    "description": "A code security configuration was removed due to a change in repository or enterprise settings.",
+    "docs_reference_links": "N/A"
+  },
+  {
     "action": "repository_visibility_change.clear",
     "description": "The repository visibility change setting was cleared for an organization or enterprise.",
     "docs_reference_links": "/organizations/managing-organization-settings/restricting-repository-visibility-changes-in-your-organization, /admin/policies/enforcing-policies-for-your-enterprise/enforcing-repository-management-policies-in-your-enterprise#enforcing-a-policy-for-changes-to-repository-visibility"
@@ -3632,6 +3772,11 @@
   {
     "action": "repository_vulnerability_alert.resolve",
     "description": "Changes were pushed to update and resolve a Dependabot alert in a project dependency.",
+    "docs_reference_links": "N/A"
+  },
+  {
+    "action": "repository_vulnerability_alert.withdraw",
+    "description": "A Dependabot alert was withdrawn.",
     "docs_reference_links": "N/A"
   },
   {
@@ -3700,9 +3845,19 @@
     "docs_reference_links": "/code-security/secret-scanning/managing-alerts-from-secret-scanning"
   },
   {
+    "action": "secret_scanning_alert.public_leak",
+    "description": "A secret scanning alert was leaked in a public repo.",
+    "docs_reference_links": "/code-security/secret-scanning/managing-alerts-from-secret-scanning"
+  },
+  {
     "action": "secret_scanning_alert.reopen",
     "description": "A secret scanning alert was reopened.",
     "docs_reference_links": "N/A"
+  },
+  {
+    "action": "secret_scanning_alert.report",
+    "description": "A leaked secret was reported to the secret's provider by secret scanning.",
+    "docs_reference_links": "/code-security/secret-scanning/managing-alerts-from-secret-scanning/resolving-alerts"
   },
   {
     "action": "secret_scanning_alert.resolve",
@@ -3758,6 +3913,41 @@
     "action": "secret_scanning_push_protection_request.request",
     "description": "A user requested to bypass secret scanning push protection.",
     "docs_reference_links": "/code-security/secret-scanning/working-with-push-protection#requesting-bypass-privileges-when-working-with-the-command-line"
+  },
+  {
+    "action": "secret_scanning_scan.completed",
+    "description": "A secret scanning scan has completed on this repository.",
+    "docs_reference_links": "/code-security/secret-scanning/about-secret-scanning"
+  },
+  {
+    "action": "security_configuration.create",
+    "description": "A security configuration was created",
+    "docs_reference_links": "N/A"
+  },
+  {
+    "action": "security_configuration_default.delete",
+    "description": "A default security configuration setting for new repositories was removed.",
+    "docs_reference_links": "N/A"
+  },
+  {
+    "action": "security_configuration_default.update",
+    "description": "A default security configuration setting for new repositories was updated.",
+    "docs_reference_links": "N/A"
+  },
+  {
+    "action": "security_configuration.delete",
+    "description": "A security configuration was deleted",
+    "docs_reference_links": "N/A"
+  },
+  {
+    "action": "security_configuration_policy.update",
+    "description": "A security configuration policy was updated",
+    "docs_reference_links": "N/A"
+  },
+  {
+    "action": "security_configuration.update",
+    "description": "A security configuration was updated",
+    "docs_reference_links": "N/A"
   },
   {
     "action": "sponsors.agreement_sign",

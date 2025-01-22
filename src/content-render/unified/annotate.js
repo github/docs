@@ -160,7 +160,7 @@ function getSubnav() {
       name: 'annotate-display',
       value: 'beside',
       type: 'button',
-      className: 'BtnGroup-item btn btn-sm',
+      className: 'annotate-option',
     },
     ['Beside'],
   )
@@ -170,12 +170,12 @@ function getSubnav() {
       name: 'annotate-display',
       value: 'inline',
       type: 'button',
-      className: 'BtnGroup-item btn btn-sm',
+      className: 'annotate-option',
     },
     ['Inline'],
   )
 
-  return h('div', { className: 'BtnGroup' }, [besideBtn, inlineBtn])
+  return h('div', { className: 'annotate-toggle' }, [besideBtn, inlineBtn])
 }
 
 function template({ lang, code, rows }) {

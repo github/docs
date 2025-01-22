@@ -19,7 +19,7 @@ redirect_from:
 {%- ifversion ghes = 3.12 %} 3.12.1{%- endif %}
 {%- ifversion ghes = 3.11 %} 3.11.7{%- endif %}
 {%- ifversion ghes = 3.10 %} 3.10.10{%- endif %}
- and{% endif %} is available as a public beta.
+ and{% endif %} is available as a {% data variables.release-phases.public_preview %}.
 
 Adding a new MySQL replica node to your cluster when your primary node has more than seven days of data will normally trigger database seeding which can take several hours depending on the amount of data. You can choose to defer database seeding, allowing the config apply run to complete sooner, resulting in being able to open your appliance to traffic sooner.
 

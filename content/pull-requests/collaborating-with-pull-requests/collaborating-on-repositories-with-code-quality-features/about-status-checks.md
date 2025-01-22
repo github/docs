@@ -26,32 +26,26 @@ You can see the overall state of the last commit to a branch on your repository'
 
 {% data reusables.actions.workflows.skipped-job-status-checks-passing %}
 
-## Types of status checks on {% data variables.product.product_name %}
+## Types of status checks on {% data variables.product.github %}
 
-There are two types of status checks on {% data variables.product.product_name %}:
+There are two types of status checks on {% data variables.product.github %}:
 
 * Checks
 * Commit statuses
 
 _Checks_ are different from _commit statuses_ in that they provide line annotations, more detailed messaging, and are only available for use with {% data variables.product.prodname_github_apps %}.
 
-{% note %}
+> [!NOTE]
+> {% data variables.product.prodname_actions %} generates checks, not commit statuses, when workflows are run.
 
-**Note:** {% data variables.product.prodname_actions %} generates checks, not commit statuses, when workflows are run.
-
-{% endnote %}
-
-Organization owners and users with push access to a repository can create checks and commit statuses with {% data variables.product.product_name %}'s API. For more information, see "[AUTOTITLE](/rest/checks)" and "[AUTOTITLE](/rest/commits/statuses)."
+Organization owners and users with push access to a repository can create checks and commit statuses with {% data variables.product.github %}'s API. For more information, see [AUTOTITLE](/rest/checks) and [AUTOTITLE](/rest/commits/statuses).
 
 ## Checks
 
 When _checks_ are set up in a repository, pull requests have a **Checks** tab where you can view detailed build output from checks and rerun failed checks.
 
-{% note %}
-
-**Note:** The **Checks** tab only gets populated for pull requests if you set up _checks_, not _commit statuses_, for the repository.
-
-{% endnote %}
+> [!NOTE]
+> The **Checks** tab only gets populated for pull requests if you set up _checks_, not _commit statuses_, for the repository.
 
 When a specific line in a commit causes a check to fail, you will see details about the failure, warning, or notice next to the relevant code in the **Files** tab of the pull request.
 
@@ -61,9 +55,9 @@ You can navigate between the checks summaries for various commits in a pull requ
 
 ### Skipping and requesting checks for individual commits
 
-When a repository is set to automatically request checks for pushes, you can choose to skip checks for an individual commit you push. When a repository is _not_ set to  automatically request checks for pushes, you can request checks for an individual commit you push. For more information on these settings, see "[AUTOTITLE](/rest/checks/suites#update-repository-preferences-for-check-suites)."
+When a repository is set to automatically request checks for pushes, you can choose to skip checks for an individual commit you push. When a repository is _not_ set to automatically request checks for pushes, you can request checks for an individual commit you push. For more information on these settings, see [AUTOTITLE](/rest/checks/suites#update-repository-preferences-for-check-suites).
 
-You can also skip workflow runs triggered by the `push` and `pull_request` events by including a command in your commit message. For more information, see "[AUTOTITLE](/actions/managing-workflow-runs/skipping-workflow-runs)"
+You can also skip workflow runs triggered by the `push` and `pull_request` events by including a command in your commit message. For more information, see [AUTOTITLE](/actions/managing-workflow-runs/skipping-workflow-runs)
 
 Alternatively, to skip or request _all_ checks for your commit, add one of the following trailer lines to the end of your commit message:
 
@@ -87,10 +81,6 @@ Alternatively, to skip or request _all_ checks for your commit, add one of the f
 
 {% data reusables.commits.about-commit-cleanup %}
 
-{% ifversion status-check-retention %}
-
 ### Retention of checks
 
 {% data reusables.pull_requests.retention-checks-data %}
-
-{% endif %}

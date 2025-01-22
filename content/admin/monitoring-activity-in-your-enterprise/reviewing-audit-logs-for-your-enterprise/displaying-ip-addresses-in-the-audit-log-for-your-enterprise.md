@@ -20,9 +20,9 @@ By default, {% data variables.product.product_name %} does not display the sourc
 
 You are responsible for meeting any legal obligations that accompany the viewing or storage of IP addresses displayed within your enterprise's audit log.
 
-If you choose to display IP addresses for your enterprise account, the IP addresses will appear in both your enterprise's audit log and the audit log of every organization owned by your enterprise. Alternatively, you can enable the display of IP addresses in the audit log for individual organizations. For more information, see "[AUTOTITLE](/organizations/keeping-your-organization-secure/managing-security-settings-for-your-organization/displaying-ip-addresses-in-the-audit-log-for-your-organization)."
+If you choose to display IP addresses for your enterprise account, IP addresses for **new and existing events** will appear in both your enterprise's audit log and the audit log of every organization owned by your enterprise. Alternatively, you can enable the display of IP addresses in the audit log for individual organizations. For more information, see [AUTOTITLE](/organizations/keeping-your-organization-secure/managing-security-settings-for-your-organization/displaying-ip-addresses-in-the-audit-log-for-your-organization).
 
-You can display IP addresses in the audit log regardless of which authentication method you use for your enterprise on {% data variables.location.product_location %}. For more information, see "[AUTOTITLE](/admin/identity-and-access-management/managing-iam-for-your-enterprise/about-authentication-for-your-enterprise)."
+You can display IP addresses in the audit log regardless of which authentication method you use for your enterprise on {% data variables.product.github %}. For more information, see [AUTOTITLE](/admin/identity-and-access-management/managing-iam-for-your-enterprise/about-authentication-for-your-enterprise).
 
 {% data reusables.audit_log.users-agree-to-ip-collection %}
 
@@ -45,4 +45,4 @@ If members of your enterprise access {% data variables.location.product_location
 {% data reusables.audit_log.enable-ip-disclosure %}
 1. Click **Save**.
 
-After you enable the feature, you can access the audit log to view events that include IP addresses. For more information, see "[AUTOTITLE](/admin/monitoring-activity-in-your-enterprise/reviewing-audit-logs-for-your-enterprise/accessing-the-audit-log-for-your-enterprise)."
+After you enable the feature, you can access the audit log to view events that include IP addresses. For more information, see [AUTOTITLE](/admin/monitoring-activity-in-your-enterprise/reviewing-audit-logs-for-your-enterprise/accessing-the-audit-log-for-your-enterprise).

@@ -17,19 +17,17 @@ shortTitle: 'Disable projects'
 allowTitleToDifferFromFilename: true
 ---
 
-{% ifversion projects-v2 %}
-
 ## Disabling {% data variables.projects.projects_v2 %} in a repository
 
-When you disable {% data variables.projects.projects_v2 %} in a repository, linked projects will no longer be available in the repository's {% octicon "table" aria-hidden="true" %} **Projects** tab. Linked projects will remain accessible at an organization or user level.
+When you disable {% data variables.projects.projects_v2 %} in a repository, linked projects will no longer be available in the repository's **{% octicon "table" aria-hidden="true" %} Projects** tab. Linked projects will remain accessible at an organization or user level.
 
 {% data reusables.repositories.navigate-to-repo %}
 {% data reusables.repositories.sidebar-settings %}
 1. Under "Features," deselect the **Projects** checkbox.
 
-{% ifversion projects-v1 %}## Disabling {% data variables.projects.projects_v1_boards %} in a repository{% endif %}
+{% ifversion projects-v1 %}
 
-{% endif %}
+## Disabling {% data variables.projects.projects_v1_boards %} in a repository
 
 When you disable {% data variables.projects.projects_v1_boards %} in a repository, existing {% data variables.projects.projects_v1_boards %} are inaccessible at their previous URLs. If you decide to re-enable {% data variables.projects.projects_v1_boards %}, any {% data variables.projects.projects_v1_boards %} that were previously added will be available.
 
@@ -40,3 +38,5 @@ After you disable {% data variables.projects.projects_v1_boards %}, you will no 
 {% data reusables.repositories.navigate-to-repo %}
 {% data reusables.repositories.sidebar-settings %}
 1. Under "Features," deselect the **{% data variables.product.prodname_projects_v1_caps %}** checkbox.
+
+{% endif %}

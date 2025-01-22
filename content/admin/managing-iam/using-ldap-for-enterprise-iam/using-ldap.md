@@ -25,7 +25,7 @@ topics:
 
 ## About LDAP authentication for {% data variables.product.product_name %}
 
-LDAP is a popular application protocol for access and maintenance of directory information services, and is one of the most common protocols for integration of third-party software with large company user directories. For more information, see "[Lightweight Directory Access Protocol](https://en.wikipedia.org/wiki/Lightweight_Directory_Access_Protocol)" on Wikipedia.
+LDAP is a popular application protocol for access and maintenance of directory information services, and is one of the most common protocols for integration of third-party software with large company user directories. For more information, see [Lightweight Directory Access Protocol](https://en.wikipedia.org/wiki/Lightweight_Directory_Access_Protocol) on Wikipedia.
 
 If you use an LDAP directory for centralized authentication, you can configure LDAP authentication for the people who use {% data variables.location.product_location %}.
 
@@ -46,7 +46,7 @@ If you use an LDAP directory for centralized authentication, you can configure L
 
 ## Username considerations with LDAP
 
-{% data reusables.enterprise_user_management.consider-usernames-for-external-authentication %} For more information, see "[AUTOTITLE](/admin/identity-and-access-management/managing-iam-for-your-enterprise/username-considerations-for-external-authentication)."
+{% data reusables.enterprise_user_management.consider-usernames-for-external-authentication %} For more information, see [AUTOTITLE](/admin/identity-and-access-management/managing-iam-for-your-enterprise/username-considerations-for-external-authentication).
 
 ## Configuring LDAP with {% data variables.location.product_location %}
 
@@ -54,11 +54,8 @@ After you configure LDAP, users will be able to sign into your instance with the
 
 When you configure LDAP access for users via the {% data variables.enterprise.management_console %}, your user licenses aren't used until the first time a user signs in to your instance. However, if you create an account manually using site admin settings, the user license is immediately accounted for.
 
-{% warning %}
-
-**Warning:** Before configuring LDAP on {% data variables.location.product_location %}, make sure that your LDAP service supports paged results.
-
-{% endwarning %}
+> [!WARNING]
+> Before configuring LDAP on {% data variables.location.product_location %}, make sure that your LDAP service supports paged results.
 
 {% data reusables.enterprise_site_admin_settings.access-settings %}
 {% data reusables.enterprise_site_admin_settings.management-console %}
@@ -113,19 +110,16 @@ When this option is selected, the certificate is validated to make sure:
 
 ## Enabling LDAP Sync
 
-You can establish role-based access control for users from your LDAP server by synchronizing {% data variables.product.prodname_ghe_server %} users and team membership against your established LDAP groups. For more information, see "[AUTOTITLE](/organizations/organizing-members-into-teams/creating-a-team#creating-teams-with-ldap-sync-enabled)."
+You can establish role-based access control for users from your LDAP server by synchronizing {% data variables.product.prodname_ghe_server %} users and team membership against your established LDAP groups. For more information, see [AUTOTITLE](/organizations/organizing-members-into-teams/creating-a-team#creating-teams-with-ldap-sync-enabled).
 
-LDAP sync does not create user accounts on {% data variables.location.product_location %}. For more information, see "[Viewing and creating LDAP users](#viewing-and-creating-ldap-users)."
+LDAP sync does not create user accounts on {% data variables.location.product_location %}. For more information, see [Viewing and creating LDAP users](#viewing-and-creating-ldap-users).
 
-{% note %}
-
-**Note:** Using LDAP Synchronization with groups that exceed 1499 members may lead to team membership synchronization failures.
-
-If you use Active Directory specifically, user lookups and team synchronization may fail when the LDAP groups configured for teams or in the {% data variables.enterprise.management_console %} exceed 1500 members, due to the `MaxValRange` limit in Active Directory. As a workaround, you can use Active Directory groups that contain less than 1500 members, or you can work with your Active Directory administrator to increase the `MaxValRange` value for your domain controllers. For more information, see [View and set LDAP policy in Active Directory by using Ntdsutil.exe](https://learn.microsoft.com/en-US/troubleshoot/windows-server/identity/view-set-ldap-policy-using-ntdsutil) in Microsoft Learn.
-
-If you need help determining if modifying the `MaxValRange` is the right approach for your Active Directory environment, contact Microsoft Support.
-
-{% endnote %}
+> [!NOTE]
+> Using LDAP Synchronization with groups that exceed 1499 members may lead to team membership synchronization failures.
+>
+> If you use Active Directory specifically, user lookups and team synchronization may fail when the LDAP groups configured for teams or in the {% data variables.enterprise.management_console %} exceed 1500 members, due to the `MaxValRange` limit in Active Directory. As a workaround, you can use Active Directory groups that contain less than 1500 members, or you can work with your Active Directory administrator to increase the `MaxValRange` value for your domain controllers. For more information, see [View and set LDAP policy in Active Directory by using Ntdsutil.exe](https://learn.microsoft.com/en-US/troubleshoot/windows-server/identity/view-set-ldap-policy-using-ntdsutil) in Microsoft Learn.
+>
+> If you need help determining if modifying the `MaxValRange` is the right approach for your Active Directory environment, contact Microsoft Support.
 
 To enable LDAP Sync, in your LDAP settings, select **Synchronization**.
 
@@ -149,40 +143,30 @@ After you enable LDAP sync, a synchronization job will run at the specified time
 * If an LDAP User field is defined for SSH public keys, synchronize the user's public SSH keys with the LDAP entry.
 * If an LDAP User field is defined for GPG keys, synchronize the user's GPG keys with the LDAP entry.
 
-{% note %}
-
-**Note**: LDAP entries can only be marked as disabled if you use Active Directory and the `userAccountControl` attribute is present and flagged with `ACCOUNTDISABLE`. Some variations of Active Directory, such as AD LDS and ADAM, don't support the `userAccountControl` attribute.
-
-{% endnote %}
+> [!NOTE]
+> LDAP entries can only be marked as disabled if you use Active Directory and the `userAccountControl` attribute is present and flagged with `ACCOUNTDISABLE`. Some variations of Active Directory, such as AD LDS and ADAM, don't support the `userAccountControl` attribute.
 
 A synchronization job will also run at the specified time interval to perform the following operations on each team that has been mapped to an LDAP group:
 
 * If a team's corresponding LDAP group has been removed, remove all members from the team.
 * If LDAP member entries have been removed from the LDAP group, remove the corresponding users from the team. If the user is no longer a member of any team in the organization and is not an owner of the organization, remove the user from the organization. If the user loses access to any repositories as a result, delete any private forks the user has of those repositories.
 
-  {% note %}
+  > [!NOTE]
+  > LDAP Sync will not remove a user from an organization if the user is an owner of that organization. Another organization owner will need to manually remove the user instead.
 
-  **Note:** LDAP Sync will not remove a user from an organization if the user is an owner of that organization. Another organization owner will need to manually remove the user instead.
-
-  {% endnote %}
 * If LDAP member entries have been added to the LDAP group, add the corresponding users to the team. If the user regains access to any repositories as a result, restore any private forks of the repositories that were deleted because the user lost access in the past 90 days.
 
 {% data reusables.enterprise_user_management.ldap-sync-nested-teams %}
 
-{% warning %}
-
-**Security Warning:**
-
-When LDAP Sync is enabled, site admins and organization owners can search the LDAP directory for groups to map the team to.
-
-This has the potential to disclose sensitive organizational information to contractors or other unprivileged users, including:
-
-* The existence of specific LDAP Groups visible to the _Domain search user_.
-* Members of the LDAP group who have {% data variables.product.prodname_ghe_server %} user accounts, which is disclosed when creating a team synced with that LDAP group.
-
-If disclosing such information is not desired, your company or organization should restrict the permissions of the configured _Domain search user_ in the admin console. If such restriction isn't possible, contact us by visiting {% data variables.contact.contact_ent_support %}.
-
-{% endwarning %}
+> [!WARNING]
+> When LDAP Sync is enabled, site admins and organization owners can search the LDAP directory for groups to map the team to.
+>
+> This has the potential to disclose sensitive organizational information to contractors or other unprivileged users, including:
+>
+> * The existence of specific LDAP Groups visible to the _Domain search user_.
+> * Members of the LDAP group who have {% data variables.product.prodname_ghe_server %} user accounts, which is disclosed when creating a team synced with that LDAP group.
+>
+> If disclosing such information is not desired, your company or organization should restrict the permissions of the configured _Domain search user_ in the admin console. If such restriction isn't possible, contact us by visiting {% data variables.contact.contact_ent_support %}.
 
 ## Supported LDAP group object classes
 
@@ -227,11 +211,11 @@ You can also [use the API to trigger a manual sync](/rest/enterprise-admin/ldap)
 
 If [LDAP Sync is enabled](#enabling-ldap-sync), removing a user's LDAP credentials will suspend their account after the next synchronization run.
 
-If LDAP Sync is **not** enabled, you must manually suspend the {% data variables.product.prodname_ghe_server %} account after you remove the LDAP credentials. For more information, see "[AUTOTITLE](/admin/user-management/managing-users-in-your-enterprise/suspending-and-unsuspending-users)".
+If LDAP Sync is **not** enabled, you must manually suspend the {% data variables.product.prodname_ghe_server %} account after you remove the LDAP credentials. For more information, see [AUTOTITLE](/admin/user-management/managing-users-in-your-enterprise/suspending-and-unsuspending-users).
 
 ## About logging for LDAP
 
-Log events for LDAP appear in {% ifversion opentelemetry-and-otel-log-migration-phase-1 %}systemd journal logs{% else %}log files{% endif %} on {% data variables.location.product_location %}. You'll find events related to LDAP operations in {% ifversion opentelemetry-and-otel-log-migration-phase-1 %}the logs for `github-unicorn` and `github-resqued`{% else %}`auth.log`, `ldap-sync.log`, and `ldap.log`{% endif %}. For more information, see "[AUTOTITLE](/admin/monitoring-and-managing-your-instance/monitoring-your-instance/about-system-logs#{% ifversion opentelemetry-and-otel-log-migration-phase-1 %}journal-logs-for-the-github-application{% else %}log-files-for-authentication{% endif %})."
+Log events for LDAP appear in systemd journal logs on {% data variables.location.product_location %}. You'll find events related to LDAP operations in the logs for `github-unicorn` and `github-resqued`. For more information, see [AUTOTITLE](/admin/monitoring-and-managing-your-instance/monitoring-your-instance/about-system-logs#journal-logs-for-the-github-application).
 
 ## Limitations for LDAP on {% data variables.product.product_name %}
 

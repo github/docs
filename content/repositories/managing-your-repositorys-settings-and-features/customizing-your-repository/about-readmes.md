@@ -18,7 +18,7 @@ topics:
 
 {% data reusables.repositories.about-READMEs %}
 
-For more information about providing guidelines for your project, see {% ifversion fpt or ghec %}"[AUTOTITLE](/communities/setting-up-your-project-for-healthy-contributions/adding-a-code-of-conduct-to-your-project)" and {% endif %}"[AUTOTITLE](/communities/setting-up-your-project-for-healthy-contributions)."
+For more information about providing guidelines for your project, see {% ifversion fpt or ghec %}[AUTOTITLE](/communities/setting-up-your-project-for-healthy-contributions/adding-a-code-of-conduct-to-your-project) and {% endif %}[AUTOTITLE](/communities/setting-up-your-project-for-healthy-contributions).
 
 A README is often the first item a visitor will see when visiting your repository. README files typically include information on:
 * What the project does
@@ -27,21 +27,25 @@ A README is often the first item a visitor will see when visiting your repositor
 * Where users can get help with your project
 * Who maintains and contributes to the project
 
-If you put your README file in your repository's hidden `.github`, root, or `docs` directory, {% data variables.product.product_name %} will recognize and automatically surface your README to repository visitors.
+If you put your README file in your repository's hidden `.github`, root, or `docs` directory, {% data variables.product.github %} will recognize and automatically surface your README to repository visitors.
 
 If a repository contains more than one README file, then the file shown is chosen from locations in the following order: the `.github` directory, then the repository's root directory, and finally the `docs` directory.
+
+When your README is viewed on GitHub, any content beyond 500 KiB will be truncated.
 
 {% data reusables.profile.profile-readme %}
 
 ## Auto-generated table of contents for README files
 
-For the rendered view of any Markdown file in a repository, including README files, {% data variables.product.product_name %} will automatically generate a table of contents based on section headings. You can view the table of contents for a README file by clicking the {% octicon "list-unordered" aria-label="Table of Contents" %}  menu icon at the top left of the rendered page.
+For the rendered view of any Markdown file in a repository, including README files, {% data variables.product.github %} will automatically generate a table of contents based on section headings. You can view the table of contents for a README file by clicking the {% octicon "list-unordered" aria-label="Table of Contents" %} menu icon at the top left of the rendered page.
 
-![Screenshot of the README for a repository. In the upper-left corner, a dropdown menu, labeled with a list icon, is expanded to show a table of contents.](/assets/images/help/repository/readme-automatic-toc.png)
+![Screenshot of the README for a repository. In the upper-left corner, the "Table of contents" dropdown menu (list icon) is expanded.](/assets/images/help/repository/readme-automatic-toc.png)
 
 ## Section links in README files and blob pages
 
 {% data reusables.repositories.section-links %}
+
+For more detailed information about section links, see [Section links](/get-started/writing-on-github/getting-started-with-writing-and-formatting-on-github/basic-writing-and-formatting-syntax#section-links).
 
 ## Relative links and image paths in README files
 
@@ -49,12 +53,12 @@ For the rendered view of any Markdown file in a repository, including README fil
 
 ## Wikis
 
-A README should contain only the necessary information for developers to get started using and contributing to your project. Longer documentation is best suited for wikis. For more information, see "[AUTOTITLE](/communities/documenting-your-project-with-wikis/about-wikis)."
+A README should contain only the necessary information for developers to get started using and contributing to your project. Longer documentation is best suited for wikis. For more information, see [AUTOTITLE](/communities/documenting-your-project-with-wikis/about-wikis).
 
 ## Further reading
 
-* "[AUTOTITLE](/repositories/working-with-files/managing-files/adding-a-file-to-a-repository)"
-* "[5 tips for making your {% data variables.product.company_short %} profile page accessible](https://github.blog/2023-10-26-5-tips-for-making-your-github-profile-page-accessible/)" in the {% data variables.product.company_short %} blog
+* [AUTOTITLE](/repositories/working-with-files/managing-files/adding-a-file-to-a-repository)
+* [5 tips for making your {% data variables.product.company_short %} profile page accessible](https://github.blog/2023-10-26-5-tips-for-making-your-github-profile-page-accessible/) in the {% data variables.product.company_short %} blog
 {%- ifversion fpt or ghec %}
-* "[AUTOTITLE](/codespaces/setting-up-your-project-for-codespaces/setting-up-your-repository/adding-a-codespaces-badge)"
+* [AUTOTITLE](/codespaces/setting-up-your-project-for-codespaces/setting-up-your-repository/adding-a-codespaces-badge)
 {%- endif %}

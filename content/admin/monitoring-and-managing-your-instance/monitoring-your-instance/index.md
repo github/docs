@@ -14,13 +14,14 @@ versions:
 topics:
   - Enterprise
 children:
-  - /accessing-the-monitor-dashboard
+  - /about-the-monitor-dashboards
   - /recommended-alert-thresholds
   - /setting-up-external-monitoring
   - /configuring-collectd-for-your-instance
   - /collectd-metrics-for-github-enterprise-server
   - /monitoring-using-snmp
   - /about-system-logs
+  - /troubleshooting-resource-allocation-problems
   - /generating-a-health-check-for-your-enterprise
 shortTitle: Monitor your instance
 ---

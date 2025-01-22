@@ -17,13 +17,13 @@ includeGuides:
   - /actions/writing-workflows/quickstart
   - /actions/about-github-actions/understanding-github-actions
   - /actions/sharing-automations/creating-actions/creating-a-docker-container-action
-  - /actions/writing-workflows/using-starter-workflows
+  - /actions/writing-workflows/using-workflow-templates
   - /actions/use-cases-and-examples/building-and-testing/building-and-testing-python
   - /actions/use-cases-and-examples/building-and-testing/building-and-testing-nodejs
   - /actions/use-cases-and-examples/publishing-packages/about-packaging-with-github-actions
   - /actions/use-cases-and-examples/publishing-packages/publishing-docker-images
   - /actions/writing-workflows/choosing-what-your-workflow-does/caching-dependencies-to-speed-up-workflows
-  - /actions/about-github-actions/about-continuous-integration
+  - /actions/about-github-actions/about-continuous-integration-with-github-actions
   - /actions/use-cases-and-examples/building-and-testing/building-and-testing-powershell
   - /actions/use-cases-and-examples/building-and-testing/building-and-testing-ruby
   - /actions/use-cases-and-examples/building-and-testing/building-and-testing-java-with-maven
@@ -35,7 +35,7 @@ includeGuides:
   - /actions/use-cases-and-examples/publishing-packages/publishing-nodejs-packages
   - /actions/use-cases-and-examples/publishing-packages/publishing-java-packages-with-maven
   - /actions/use-cases-and-examples/publishing-packages/publishing-java-packages-with-gradle
-  - /actions/writing-workflows/choosing-what-your-workflow-does/storing-workflow-data-as-artifacts
+  - /actions/writing-workflows/choosing-what-your-workflow-does/storing-and-sharing-data-from-a-workflow
   - /actions/use-cases-and-examples/using-containerized-services/about-service-containers
   - /actions/use-cases-and-examples/using-containerized-services/creating-redis-service-containers
   - /actions/use-cases-and-examples/using-containerized-services/creating-postgresql-service-containers

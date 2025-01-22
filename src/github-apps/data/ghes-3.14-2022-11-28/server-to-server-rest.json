@@ -1821,6 +1821,12 @@
       "requestPath": "/orgs/{org}/pre-receive-hooks/{pre_receive_hook_id}"
     },
     {
+      "slug": "update-pre-receive-hook-enforcement-for-an-organization",
+      "subcategory": "org-pre-receive-hooks",
+      "verb": "patch",
+      "requestPath": "/orgs/{org}/pre-receive-hooks/{pre_receive_hook_id}"
+    },
+    {
       "slug": "remove-pre-receive-hook-enforcement-for-an-organization",
       "subcategory": "org-pre-receive-hooks",
       "verb": "delete",
@@ -1836,6 +1842,12 @@
       "slug": "get-a-pre-receive-hook-for-a-repository",
       "subcategory": "repo-pre-receive-hooks",
       "verb": "get",
+      "requestPath": "/repos/{owner}/{repo}/pre-receive-hooks/{pre_receive_hook_id}"
+    },
+    {
+      "slug": "update-pre-receive-hook-enforcement-for-a-repository",
+      "subcategory": "repo-pre-receive-hooks",
+      "verb": "patch",
       "requestPath": "/repos/{owner}/{repo}/pre-receive-hooks/{pre_receive_hook_id}"
     },
     {
@@ -2335,7 +2347,7 @@
       "requestPath": "/organizations"
     },
     {
-      "slug": "deprecated---list-custom-repository-roles-in-an-organization",
+      "slug": "closing-down---list-custom-repository-roles-in-an-organization",
       "subcategory": "custom-roles",
       "verb": "get",
       "requestPath": "/organizations/{organization_id}/custom_roles"
@@ -3563,7 +3575,7 @@
       "requestPath": "/repos/{owner}/{repo}/autolinks/{autolink_id}"
     },
     {
-      "slug": "check-if-automated-security-fixes-are-enabled-for-a-repository",
+      "slug": "check-if-dependabot-security-updates-are-enabled-for-a-repository",
       "subcategory": "repos",
       "verb": "get",
       "requestPath": "/repos/{owner}/{repo}/automated-security-fixes"
@@ -3767,19 +3779,19 @@
       "requestPath": "/repos/{owner}/{repo}/tags"
     },
     {
-      "slug": "deprecated---list-tag-protection-states-for-a-repository",
+      "slug": "closing-down---list-tag-protection-states-for-a-repository",
       "subcategory": "tags",
       "verb": "get",
       "requestPath": "/repos/{owner}/{repo}/tags/protection"
     },
     {
-      "slug": "deprecated---create-a-tag-protection-state-for-a-repository",
+      "slug": "closing-down---create-a-tag-protection-state-for-a-repository",
       "subcategory": "tags",
       "verb": "post",
       "requestPath": "/repos/{owner}/{repo}/tags/protection"
     },
     {
-      "slug": "deprecated---delete-a-tag-protection-state-for-a-repository",
+      "slug": "closing-down---delete-a-tag-protection-state-for-a-repository",
       "subcategory": "tags",
       "verb": "delete",
       "requestPath": "/repos/{owner}/{repo}/tags/protection/{tag_protection_id}"

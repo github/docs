@@ -28,33 +28,30 @@ While a migration is in progress, access to the destination repository is locked
 
 {% data variables.product.prodname_importer_proper_name %} does not lock source repositories by default. Source repositories will only be locked if you specify the `--lock-source-repo` option in the {% data variables.product.prodname_cli %}, or the `lockSource` attribute in the `startRepositoryMigration` GraphQL mutation.
 
-{% note %}
+> [!NOTE]
+> We do not recommend locking source repositories unless you are certain you will not want to unlock them later. Consider archiving the repositories instead. For more information, see [AUTOTITLE](/repositories/archiving-a-github-repository/archiving-repositories).
 
-**Note:** We do not recommend locking source repositories unless you are certain you will not want to unlock them later. Consider archiving the repositories instead. For more information, see "[AUTOTITLE](/repositories/archiving-a-github-repository/archiving-repositories)."
-
-{% endnote %}
-
-For information about how to unlock repositories that were locked by {% data variables.product.prodname_importer_proper_name %}, see "[AUTOTITLE](/migrations/using-github-enterprise-importer/completing-your-migration-with-github-enterprise-importer/troubleshooting-your-migration-with-github-enterprise-importer#locked-repositories)."
+For information about how to unlock repositories that were locked by {% data variables.product.prodname_importer_proper_name %}, see [AUTOTITLE](/migrations/using-github-enterprise-importer/completing-your-migration-with-github-enterprise-importer/troubleshooting-your-migration-with-github-enterprise-importer#locked-repositories).
 
 ## Repositories locked by the "Organization migrations" REST API
 
-When you call the "[Start an organization migration](/rest/migrations/orgs#start-an-organization-migration)" endpoint to generate a migration archive for a source repository, the repository is not locked by default. The repository is only locked if you set the `lock_repositories` parameter to `true`.
+When you call the [Start an organization migration](/rest/migrations/orgs#start-an-organization-migration) endpoint to generate a migration archive for a source repository, the repository is not locked by default. The repository is only locked if you set the `lock_repositories` parameter to `true`.
 
-If you lock a repository via this endpoint, you can unlock the repository using the "[Unlock an organization repository](/rest/migrations/orgs#unlock-an-organization-repository)" endpoint.
+If you lock a repository via this endpoint, you can unlock the repository using the [Unlock an organization repository](/rest/migrations/orgs#unlock-an-organization-repository) endpoint.
 
-If the repository is stored on {% data variables.product.prodname_ghe_server %}, a site administrator can also unlock the repository using the site admin dashboard. For more information, see "[AUTOTITLE]({% ifversion not ghes %}/enterprise-server@latest{% endif %}/admin/user-management/managing-repositories-in-your-enterprise/locking-a-repository){% ifversion ghes %}."{% else %}" in the {% data variables.product.prodname_ghe_server %} documentation.{% endif %}
+If the repository is stored on {% data variables.product.prodname_ghe_server %}, a site administrator can also unlock the repository using the site admin dashboard. For more information, see [AUTOTITLE]({% ifversion not ghes %}/enterprise-server@latest{% endif %}/admin/user-management/managing-repositories-in-your-enterprise/locking-a-repository){% ifversion ghes %}.{% else %} in the {% data variables.product.prodname_ghe_server %} documentation.{% endif %}
 
 ## Repositories locked by `ghe-migrator`
 
 When you use `ghe-migrator`, the destination repository on {% data variables.product.prodname_ghe_server %} is locked by default and is not automatically unlocked.
 
-If the import succeeded, you can unlock the repository with the `ghe-migrator unlock` command. For more information, see "[AUTOTITLE](/migrations/using-ghe-migrator/migrating-data-to-github-enterprise-server#unlocking-repositories-on-the-target-instance)."
+If the import succeeded, you can unlock the repository with the `ghe-migrator unlock` command. For more information, see [AUTOTITLE](/migrations/using-ghe-migrator/migrating-data-to-github-enterprise-server#unlocking-repositories-on-the-target-instance).
 
 If the import failed, not all of your data has been migrated, and we recommend deleting the repository and retrying the migration, to prevent data loss.
 
-If you're sure you want to use the repository, a site administrator can unlock the repository using the site admin dashboard. For more information, see "[AUTOTITLE]({% ifversion not ghes %}/enterprise-server@latest{% endif %}/admin/user-management/managing-repositories-in-your-enterprise/locking-a-repository){% ifversion ghes %}."{% else %}" in the {% data variables.product.prodname_ghe_server %} documentation.{% endif %}
+If you're sure you want to use the repository, a site administrator can unlock the repository using the site admin dashboard. For more information, see [AUTOTITLE]({% ifversion not ghes %}/enterprise-server@latest{% endif %}/admin/user-management/managing-repositories-in-your-enterprise/locking-a-repository){% ifversion ghes %}.{% else %} in the {% data variables.product.prodname_ghe_server %} documentation.{% endif %}
 
-The source repository is not locked by default, only if the `--lock` argument is specified when preparing the repository for export with the `ghe-migrator add` command. To unlock the repository, use the `ghe-migrator unlock` command. For more information, see "[AUTOTITLE](/migrations/using-ghe-migrator/migrating-data-to-github-enterprise-server#unlocking-repositories-on-the-source)."
+The source repository is not locked by default, only if the `--lock` argument is specified when preparing the repository for export with the `ghe-migrator add` command. To unlock the repository, use the `ghe-migrator unlock` command. For more information, see [AUTOTITLE](/migrations/using-ghe-migrator/migrating-data-to-github-enterprise-server#unlocking-repositories-on-the-source).
 
 ## Repositories locked by Enterprise Cloud Importer
 

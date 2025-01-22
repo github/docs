@@ -18,12 +18,14 @@ topics:
   - Enterprise
 children:
   - /about-github-connect
-  - /managing-github-connect
+  - /enabling-github-connect-for-githubcom
+  - /enabling-github-connect-for-ghecom
   - /enabling-automatic-user-license-sync-for-your-enterprise
   - /enabling-dependabot-for-your-enterprise
   - /enabling-server-statistics-for-your-enterprise
   - /enabling-unified-search-for-your-enterprise
   - /enabling-unified-contributions-for-your-enterprise
+  - /disabling-github-connect
 shortTitle: GitHub Connect
 ---
 

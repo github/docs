@@ -1,4 +1,4 @@
-This configuration file adds the `security-and-quality` query suite to the list of queries run by {% data variables.product.prodname_codeql %} when scanning your code. For more information about the query suites available for use, see "[Running additional queries](#running-additional-queries)."
+This configuration file adds the `security-and-quality` query suite to the list of queries run by {% data variables.product.prodname_codeql %} when scanning your code. For more information about the query suites available for use, see [Running additional queries](#running-additional-queries).
 
 ``` yaml
 name: "My {% data variables.product.prodname_codeql %} config"
@@ -25,13 +25,11 @@ queries:
     uses: ./codeql-packs/complex-python-codeql-pack/rootAndBar.qls
 
 paths:
-  - src 
-paths-ignore: 
+  - src
+paths-ignore:
   - src/node_modules
   - '**/*.test.js'
 ```
-
-{% ifversion code-scanning-exclude-queries-from-analysis %}
 
 The following configuration file only runs queries that generate alerts of severity error. The configuration first selects all the default queries, all queries in `./my-queries`, and the default suite in `codeql/java-queries`, then excludes all the queries that generate warnings or recommendations.
 
@@ -47,5 +45,3 @@ query-filters:
       - warning
       - recommendation
 ```
-
-{% endif %}

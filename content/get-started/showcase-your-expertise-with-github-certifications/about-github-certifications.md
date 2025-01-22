@@ -8,11 +8,8 @@ versions:
 
 {% ifversion ghec %}
 
-{% note %}
-
-**Note:** {% data variables.enterprise.prodname_managed_users_caps %} do not have access to the {% data variables.product.prodname_certifications %} program.
-
-{% endnote %}
+> [!NOTE]
+> {% data variables.enterprise.prodname_managed_users_caps %} do not have access to the {% data variables.product.prodname_certifications %} program.
 
 {% endif %}
 

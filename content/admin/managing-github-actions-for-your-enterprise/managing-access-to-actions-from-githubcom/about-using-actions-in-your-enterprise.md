@@ -41,32 +41,25 @@ To see all the official actions included on your enterprise instance, browse to 
 
 There is no connection required between {% data variables.location.product_location %} and {% data variables.product.prodname_dotcom_the_website %} to use these actions.
 
-Each action is a repository in the `actions` organization, and each action repository includes the necessary tags, branches, and commit SHAs that your workflows can use to reference the action. For information on how to update the bundled official actions, see "[AUTOTITLE](/admin/github-actions/managing-access-to-actions-from-githubcom/using-the-latest-version-of-the-official-bundled-actions)."
+Each action is a repository in the `actions` organization, and each action repository includes the necessary tags, branches, and commit SHAs that your workflows can use to reference the action. For information on how to update the bundled official actions, see [AUTOTITLE](/admin/github-actions/managing-access-to-actions-from-githubcom/using-the-latest-version-of-the-official-bundled-actions).
 
-{% note %}
-
-**Notes:**
-* When using setup actions (such as `actions/setup-LANGUAGE`) on {% data variables.product.product_name %} with self-hosted runners, you might need to set up the tools cache on runners that do not have internet access. For more information, see "[AUTOTITLE](/admin/github-actions/managing-access-to-actions-from-githubcom/setting-up-the-tool-cache-on-self-hosted-runners-without-internet-access)."
-* When {% data variables.product.product_name %} is updated, bundled actions are automatically replaced with default versions in the upgrade package.
-
-{% endnote %}
+> [!NOTE]
+> * When using setup actions (such as `actions/setup-LANGUAGE`) on {% data variables.product.product_name %} with self-hosted runners, you might need to set up the tools cache on runners that do not have internet access. For more information, see [AUTOTITLE](/admin/github-actions/managing-access-to-actions-from-githubcom/setting-up-the-tool-cache-on-self-hosted-runners-without-internet-access).
+> * All `actions/setup-LANGUAGE` action repositories currently support three platforms: macOS, Windows, and Ubuntu.
+> * When {% data variables.product.product_name %} is updated, bundled actions are automatically replaced with default versions in the upgrade package.
+> * Being bundled with {% data variables.product.prodname_ghe_server %} means the action is available within that environment, but it doesn’t automatically guarantee compatibility with all platforms or self-hosted runners.
 
 ## Configuring access to actions on {% data variables.product.prodname_dotcom_the_website %}
 
 {% data reusables.actions.access-actions-on-dotcom %}
 
-The recommended approach is to enable automatic access to all actions from {% data variables.product.prodname_dotcom_the_website %}. You can do this by using {% data variables.product.prodname_github_connect %} to integrate {% data variables.product.product_name %} with {% data variables.product.prodname_ghe_cloud %}. For more information, see "[AUTOTITLE](/admin/github-actions/managing-access-to-actions-from-githubcom/enabling-automatic-access-to-githubcom-actions-using-github-connect)".
+The recommended approach is to enable automatic access to all actions from {% data variables.product.prodname_dotcom_the_website %}. You can do this by using {% data variables.product.prodname_github_connect %} to integrate {% data variables.product.product_name %} with {% data variables.product.prodname_ghe_cloud %}. For more information, see [AUTOTITLE](/admin/github-actions/managing-access-to-actions-from-githubcom/enabling-automatic-access-to-githubcom-actions-using-github-connect).
 
-{% ifversion ghes %}
-{% note %}
-
-**Note:** Before you can configure access to actions on {% data variables.product.prodname_dotcom_the_website %}, you must configure {% data variables.location.product_location %} to use {% data variables.product.prodname_actions %}. For more information, see "[AUTOTITLE](/admin/github-actions/getting-started-with-github-actions-for-your-enterprise/getting-started-with-github-actions-for-github-enterprise-server)."
-
-{% endnote %}
-{% endif %}
+> [!NOTE]
+> Before you can configure access to actions on {% data variables.product.prodname_dotcom_the_website %}, you must configure {% data variables.location.product_location %} to use {% data variables.product.prodname_actions %}. For more information, see [AUTOTITLE](/admin/github-actions/getting-started-with-github-actions-for-your-enterprise/getting-started-with-github-actions-for-github-enterprise-server).
 
 {% data reusables.actions.self-hosted-runner-networking-to-dotcom %}
 
 {% data reusables.actions.enterprise-limit-actions-use %}
 
-Alternatively, if you want stricter control over which actions are allowed in your enterprise, or you do not want to allow outbound connections to {% data variables.product.prodname_dotcom_the_website %}, you can manually download and sync actions onto your enterprise instance using the `actions-sync` tool. For more information, see "[AUTOTITLE](/admin/github-actions/managing-access-to-actions-from-githubcom/manually-syncing-actions-from-githubcom)."
+Alternatively, if you want stricter control over which actions are allowed in your enterprise, or you do not want to allow outbound connections to {% data variables.product.prodname_dotcom_the_website %}, you can manually download and sync actions onto your enterprise instance using the `actions-sync` tool. For more information, see [AUTOTITLE](/admin/github-actions/managing-access-to-actions-from-githubcom/manually-syncing-actions-from-githubcom).

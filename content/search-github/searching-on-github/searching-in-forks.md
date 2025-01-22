@@ -13,15 +13,12 @@ topics:
   - GitHub search
 ---
 
-To show forks in repository search results, add `fork:true` or `fork:only` to your query. For more information, see "[AUTOTITLE](/search-github/searching-on-github/searching-for-repositories)."
+To show forks in repository search results, add `fork:true` or `fork:only` to your query. For more information, see [AUTOTITLE](/search-github/searching-on-github/searching-for-repositories).
 
-{% ifversion ghes %}Forks are only indexed for code search when they have more stars than the parent repository. You will not be able to search the code in a fork that has fewer stars than its parent. To show forks with more stars than the parent repository in code search results, add `fork:true` or `fork:only` to your query. For more information, see "[AUTOTITLE](/search-github/searching-on-github/searching-code)."{% endif %}
+{% ifversion ghes %}Forks are only indexed for code search when they have more stars than the parent repository. You will not be able to search the code in a fork that has fewer stars than its parent. To show forks with more stars than the parent repository in code search results, add `fork:true` or `fork:only` to your query. For more information, see [AUTOTITLE](/search-github/searching-on-github/searching-code).{% endif %}
 
-{% note %}
-
-**Note:**  Forks can only be included in repository and code searches.
-
-{% endnote %}
+> [!NOTE]
+> Forks can only be included in repository and code searches.
 
 The `fork:true` qualifier finds all results that match your search query, including forks. The `fork:only` qualifier finds _only_ forks that match your search query.
 
@@ -34,6 +31,6 @@ The `fork:true` qualifier finds all results that match your search query, includ
 
 ## Further reading
 
-* "[AUTOTITLE](/pull-requests/collaborating-with-pull-requests/working-with-forks/about-forks)"
-* "[AUTOTITLE](/repositories/viewing-activity-and-data-for-your-repository/understanding-connections-between-repositories#listing-the-forks-of-a-repository)"
-* "[AUTOTITLE](/search-github/getting-started-with-searching-on-github/about-searching-on-github)"
+* [AUTOTITLE](/pull-requests/collaborating-with-pull-requests/working-with-forks/about-forks)
+* [AUTOTITLE](/repositories/viewing-activity-and-data-for-your-repository/understanding-connections-between-repositories#listing-the-forks-of-a-repository)
+* [AUTOTITLE](/search-github/getting-started-with-searching-on-github/about-searching-on-github)

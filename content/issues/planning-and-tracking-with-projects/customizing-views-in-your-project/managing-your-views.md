@@ -30,7 +30,7 @@ You can duplicate an existing view and use it as a base to make further changes.
 
 1. Switch to the view you want to duplicate.
 {% data reusables.projects.open-view-menu %}
-1. Click {% octicon "versions" aria-hidden="true" %} **Duplicate view**.
+1. Click **{% octicon "versions" aria-hidden="true" %} Duplicate view**.
 
 ## Saving changes to a view
 
@@ -52,7 +52,7 @@ You can rename your saved views. The name change is automatically saved.
 
 1. Switch to the view you want to rename.
 {% data reusables.projects.open-view-menu %}
-1. Click {% octicon "pencil" aria-hidden="true" %} **Rename view**.
+1. Click **{% octicon "pencil" aria-hidden="true" %} Rename view**.
 1. Type the new name for your view.
 1. To save your changes, press <kbd>Return</kbd>.
 
@@ -60,4 +60,4 @@ You can rename your saved views. The name change is automatically saved.
 
 1. Switch to the view you want to delete.
 {% data reusables.projects.open-view-menu %}
-1. Click {% octicon "trash" aria-hidden="true" %} **Delete view**.
+1. Click **{% octicon "trash" aria-hidden="true" %} Delete view**.

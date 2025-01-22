@@ -20,8 +20,5 @@ redirect_from:
 
 On a skipped job, you should see "This check was skipped."
 
-{% note %}
-
-**Note:** In some parts of the workflow you cannot use environment variables. Instead you can use contexts to access the value of an environment variable. For more information, see "[AUTOTITLE](/actions/learn-github-actions/variables#using-the-env-context-to-access-environment-variable-values)."
-
-{% endnote %}
+> [!NOTE]
+> In some parts of the workflow you cannot use environment variables. Instead you can use contexts to access the value of an environment variable. For more information, see [AUTOTITLE](/actions/learn-github-actions/variables#using-the-env-context-to-access-environment-variable-values).

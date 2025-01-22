@@ -9,9 +9,9 @@ topics:
   - Repositories
 ---
 
-Certain types of repository resources can be quite large, requiring excessive processing on {% data variables.product.product_name %}. Because of this, limits are set to ensure requests complete in a reasonable amount of time.
+Certain types of repository resources can be quite large, requiring excessive processing on {% data variables.product.github %}. Because of this, limits are set to ensure requests complete in a reasonable amount of time.
 
-Most of the limits below affect both {% data variables.product.product_name %} and the API.
+Most of the limits below affect both {% data variables.product.github %} and the API.
 
 ## Text limits
 
@@ -32,8 +32,8 @@ Some portions of a limited diff may be displayed, but anything exceeding the lim
 
 The compare view and pull requests pages display a list of commits between the `base` and `head` revisions. These lists are limited to **250** commits. If they exceed that limit, a note indicates that additional commits are present (but they're not shown).
 
-The maximum count of commits displayed on the Commits tab of Github.com is **10,000**. Use other tools such as `git rev-list --count mybranch` to count and enumerate a high volume of commits when needed.
+The maximum count of commits displayed on the Commits tab is **10,000**. Use other tools such as `git rev-list --count mybranch` to count and enumerate a high volume of commits when needed.
 
 ## Organization Limits
 
-If a repository owner exceeds **100,000** repositories, some UI experiences and API functionality may be degraded. For more information, see "[AUTOTITLE](/repositories/creating-and-managing-repositories/about-repositories#about-repository-ownership)."
+If a repository owner exceeds **100,000** repositories, some UI experiences and API functionality may be degraded. For more information, see [AUTOTITLE](/repositories/creating-and-managing-repositories/about-repositories#about-repository-ownership).

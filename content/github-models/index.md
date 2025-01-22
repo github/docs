@@ -7,5 +7,6 @@ versions:
   ghec: '*'
 children:
   - /prototyping-with-ai-models
+  - /integrating-ai-models-into-your-development-workflow
   - /responsible-use-of-github-models
 ---

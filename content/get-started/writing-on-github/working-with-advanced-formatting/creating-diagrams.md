@@ -1,20 +1,23 @@
 ---
 title: Creating diagrams
 intro: Create diagrams to convey information through charts and graphs
+product: '{% data reusables.gated-features.markdown-ui %}'
 versions:
-  feature: mermaid
+  fpt: '*'
+  ghes: '*'
+  ghec: '*'
 shortTitle: Create diagrams
 ---
 
 ## About creating diagrams
 
-You can create diagrams in Markdown using three different syntaxes: mermaid, geoJSON and topoJSON, and ASCII STL. Diagram rendering is available in {% data variables.product.prodname_github_issues %}, {% data variables.product.prodname_discussions %}, pull requests, wikis, and Markdown files.
+You can create diagrams in Markdown using four different syntaxes: mermaid, geoJSON, topoJSON, and ASCII STL. Diagram rendering is available in {% data variables.product.prodname_github_issues %}, {% data variables.product.prodname_discussions %}, pull requests, wikis, and Markdown files.
 
 ## Creating Mermaid diagrams
 
 Mermaid is a Markdown-inspired tool that renders text into diagrams. For example, Mermaid can render flow charts, sequence diagrams, pie charts and more. For more information, see the [Mermaid documentation](https://mermaid-js.github.io/mermaid/#/).
 
-To create a Mermaid diagram, add Mermaid syntax inside a fenced code block with the `mermaid` language identifier. For more information about creating code blocks, see "[AUTOTITLE](/get-started/writing-on-github/working-with-advanced-formatting/creating-and-highlighting-code-blocks)."
+To create a Mermaid diagram, add Mermaid syntax inside a fenced code block with the `mermaid` language identifier. For more information about creating code blocks, see [AUTOTITLE](/get-started/writing-on-github/working-with-advanced-formatting/creating-and-highlighting-code-blocks).
 
 For example, you can create a flow chart by specifying values and arrows.
 
@@ -32,11 +35,8 @@ graph TD;
 
 ![Screenshot of a rendered Mermaid flow chart with four lavender boxes labeled A, B, C, and D. Arrows extend from A to B, B to D, A to C, and C to D.](/assets/images/help/writing/mermaid-flow-chart.png)
 
-{% note %}
-
-**Note:** You may observe errors if you run a third-party Mermaid plugin when using Mermaid syntax on {% data variables.product.company_short %}.
-
-{% endnote %}
+> [!NOTE]
+> You may observe errors if you run a third-party Mermaid plugin when using Mermaid syntax on {% data variables.product.company_short %}.
 
 ### Checking your version of Mermaid
 
@@ -50,7 +50,13 @@ To ensure {% data variables.product.company_short %} supports your Mermaid synta
 
 ## Creating GeoJSON and TopoJSON maps
 
-You can use GeoJSON or TopoJSON syntax to create interactive maps. To create a map, add GeoJSON or TopoJSON inside a fenced code block with the `geojson` or `topojson` syntax identifier. For more information, see "[AUTOTITLE](/get-started/writing-on-github/working-with-advanced-formatting/creating-and-highlighting-code-blocks)."
+You can use GeoJSON or TopoJSON syntax to create interactive maps. To create a map, add GeoJSON or TopoJSON inside a fenced code block with the `geojson` or `topojson` syntax identifier. For more information, see [AUTOTITLE](/get-started/writing-on-github/working-with-advanced-formatting/creating-and-highlighting-code-blocks).
+
+{% ifversion ghec %}
+
+>[!NOTE] GeoJSON and TopoJSON maps are not available on subdomains of {% data variables.enterprise.data_residency_site %}, such as `octocorp.ghe.com`.
+
+{% endif %}
 
 {% data reusables.advanced-formatting.administrator-must-enable-mapping %}
 
@@ -130,13 +136,13 @@ For example, you can create a TopoJSON map by specifying coordinates and shapes.
 ```
 ````
 
-![Screenshot of a rendered TopoJSON map of parts of Indonesia, Singapore, and Malaysia with a blue point, a purple rectangular overlay, and blue zigzag lines.](/assets/images/help/writing/fenced-topojson-rendered-map.png)
+![Screenshot of a rendered TopoJSON map of Indonesia, Singapore, and Malaysia with a blue point, a purple rectangular overlay, and blue zigzag lines.](/assets/images/help/writing/fenced-topojson-rendered-map.png)
 
-For more information on working with `.geojson` and `.topojson` files, see "[AUTOTITLE](/repositories/working-with-files/using-files/working-with-non-code-files#mapping-geojson-files-on-github)."
+For more information on working with `.geojson` and `.topojson` files, see [AUTOTITLE](/repositories/working-with-files/using-files/working-with-non-code-files#mapping-geojson-files-on-github).
 
 ## Creating STL 3D models
 
-You can use ASCII STL syntax directly in markdown to create interactive 3D models. To display a model, add ASCII STL syntax inside a fenced code block with the `stl` syntax identifier. For more information, see "[AUTOTITLE](/get-started/writing-on-github/working-with-advanced-formatting/creating-and-highlighting-code-blocks)."
+You can use ASCII STL syntax directly in markdown to create interactive 3D models. To display a model, add ASCII STL syntax inside a fenced code block with the `stl` syntax identifier. For more information, see [AUTOTITLE](/get-started/writing-on-github/working-with-advanced-formatting/creating-and-highlighting-code-blocks).
 
 For example, you can create a simple 3D model:
 
@@ -175,6 +181,6 @@ endsolid
 ```
 ````
 
-![Screenshot of a 3D model of a blue pyramid atop a grid of black lines on a white ground. Options to select "Wireframe", "Surface Angle", or "Solid" appear at bottom.](/assets/images/help/writing/fenced-stl-rendered-object.png)
+![Screenshot of a 3D model of a blue pyramid on a grid of black lines. Options "Wireframe", "Surface Angle", or "Solid" appear at bottom.](/assets/images/help/writing/fenced-stl-rendered-object.png)
 
-For more information on working with `.stl` files, see "[AUTOTITLE](/repositories/working-with-files/using-files/working-with-non-code-files#3d-file-viewer)."
+For more information on working with `.stl` files, see [AUTOTITLE](/repositories/working-with-files/using-files/working-with-non-code-files#3d-file-viewer).

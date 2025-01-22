@@ -3,6 +3,7 @@
   intro: 'To save your {% data variables.product.product_name %} data before upgrading, take a virtual machine snapshot.'
   redirect_from:
     - /admin/enterprise-management/updating-the-virtual-machine-and-physical-resources/upgrading-github-enterprise-server#taking-a-snapshot
+    - /enterprise/admin/installation/upgrading-github-enterprise-server#taking-a-snapshot
   versions:
     ghes: '*'
   type: how_to

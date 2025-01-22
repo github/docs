@@ -38,7 +38,7 @@ This string represents the following arguments.
 | `<new-value>` | New object name to be stored in the ref.<br> When you delete a ref, the value is 40 zeroes. |
 | `<ref-name>`  | The full name of the ref. |
 
-For more information about `git-receive-pack`, see "[git-receive-pack](https://git-scm.com/docs/git-receive-pack)" in the Git documentation. For more information about refs, see "[Git References](https://git-scm.com/book/en/v2/Git-Internals-Git-References)" in _Pro Git_.
+For more information about `git-receive-pack`, see [git-receive-pack](https://git-scm.com/docs/git-receive-pack) in the Git documentation. For more information about refs, see [Git References](https://git-scm.com/book/en/v2/Git-Internals-Git-References) in _Pro Git_.
 
 ### Output (`stdout`)
 
@@ -55,7 +55,7 @@ The exit status of a pre-receive script determines if the push will be accepted.
 
 ### Environment variables
 
-In addition to the standard input for your pre-receive hook script, `stdin`, {% data variables.product.prodname_ghe_server %} makes the following variables available in the Bash environment for your script's execution. For more information about `stdin` for your pre-receive hook script, see "[Input (`stdin`)](#input-stdin)."
+In addition to the standard input for your pre-receive hook script, `stdin`, {% data variables.product.prodname_ghe_server %} makes the following variables available in the Bash environment for your script's execution. For more information about `stdin` for your pre-receive hook script, see [Input (`stdin`)](#input-stdin).
 
 Different environment variables are available to your pre-receive hook script depending on what triggers the script to run.
 
@@ -71,8 +71,8 @@ The following variables are always available in the pre-receive hook environment
 | Variable | Description | Example value |
 | :- | :- | :- |
 |  <pre>$GIT_DIR</pre> | Path to the remote repository on the instance | /data/user/repositories/a/ab/<br>a1/b2/34/100001234/1234.git |
-|  <pre>$GIT_PUSH_OPTION_COUNT</pre> | The number of push options that were sent by the client with `--push-option`. For more information, see "[git-push](https://git-scm.com/docs/git-push#Documentation/git-push.txt---push-optionltoptiongt)" in the Git documentation. | 1 |
-| <pre>$GIT\_PUSH\_OPTION\_N</pre> | Where N is an integer starting at 0, this variable contains the push option string that was sent by the client. The first option that was sent is stored in `GIT_PUSH_OPTION_0`, the second option that was sent is stored in `GIT_PUSH_OPTION_1`, and so on. For more information about push options, see "[git-push](https://git-scm.com/docs/git-push#git-push---push-optionltoptiongt)" in the Git documentation. | abcd |
+|  <pre>$GIT_PUSH_OPTION_COUNT</pre> | The number of push options that were sent by the client with `--push-option`. For more information, see [git-push](https://git-scm.com/docs/git-push#Documentation/git-push.txt---push-optionltoptiongt) in the Git documentation. | 1 |
+| <pre>$GIT\_PUSH\_OPTION\_N</pre> | Where N is an integer starting at 0, this variable contains the push option string that was sent by the client. The first option that was sent is stored in `GIT_PUSH_OPTION_0`, the second option that was sent is stored in `GIT_PUSH_OPTION_1`, and so on. For more information about push options, see [git-push](https://git-scm.com/docs/git-push#git-push---push-optionltoptiongt) in the Git documentation. | abcd |
 |  <pre>$GIT_USER_AGENT</pre> | User-agent string sent by the Git client that pushed the changes | git/2.0.0 |
 |  <pre>$GITHUB_REPO_NAME</pre> | Name of the repository being updated in NAME/OWNER format | octo-org/hello-enterprise |
 |  <pre>$GITHUB_REPO_PUBLIC</pre> | Boolean representing whether the repository being updated is public | <ul><li>true: Repository's visibility is public</li><li>false: Repository's visibility is private or internal</li></ul>
@@ -85,28 +85,28 @@ The `$GITHUB_VIA` variable is available in the pre-receive hook environment when
 
 | Value | Action | More information |
 | :- | :- | :- |
-| <pre>auto-merge deployment api</pre> | Automatic merge of the base branch via a deployment created with the API | "[AUTOTITLE](/rest/deployments#create-a-deployment)" |
-| <pre>blob#save</pre> | Change to a file's contents in the web interface | "[AUTOTITLE](/repositories/working-with-files/managing-files/editing-files)" |
-| <pre>branch merge api</pre> | Merge of a branch via the API | "[AUTOTITLE](/rest/branches#merge-a-branch)" |
-| <pre>branches page delete button</pre> | Deletion of a branch in the web interface | "[AUTOTITLE](/pull-requests/collaborating-with-pull-requests/proposing-changes-to-your-work-with-pull-requests/creating-and-deleting-branches-within-your-repository#deleting-a-branch)" |
-| <pre>git refs create api</pre> | Creation of a ref via the API | "[AUTOTITLE](/rest/git/refs#create-a-reference)" |
-| <pre>git refs delete api</pre> | Deletion of a ref via the API | "[AUTOTITLE](/rest/git/refs#delete-a-reference)" |
-| <pre>git refs update api</pre> | Update of a ref via the API | "[AUTOTITLE](/rest/git/refs#update-a-reference)" |
-| <pre>git repo contents api</pre> | Change to a file's contents via the API | "[AUTOTITLE](/rest/repos/contents#create-or-update-file-contents)" |
-| `merge` | Merge of a pull request using auto-merge | "[AUTOTITLE](/pull-requests/collaborating-with-pull-requests/incorporating-changes-from-a-pull-request/automatically-merging-a-pull-request)" |
-| <pre>merge base into head</pre> | Update of the topic branch from the base branch when the base branch requires strict status checks (via **Update branch** in a pull request, for example) | "[AUTOTITLE](/repositories/configuring-branches-and-merges-in-your-repository/managing-protected-branches/about-protected-branches#require-status-checks-before-merging)" |
-| <pre>pull request branch delete button</pre> | Deletion of a topic branch from a pull request in the web interface | "[AUTOTITLE](/repositories/configuring-branches-and-merges-in-your-repository/managing-branches-in-your-repository/deleting-and-restoring-branches-in-a-pull-request#deleting-a-branch-used-for-a-pull-request)" |
-| <pre>pull request branch undo button</pre> | Restoration of a topic branch from a pull request in the web interface | "[AUTOTITLE](/repositories/configuring-branches-and-merges-in-your-repository/managing-branches-in-your-repository/deleting-and-restoring-branches-in-a-pull-request#restoring-a-deleted-branch)" |
-| <pre>pull request merge api</pre> | Merge of a pull request via the API | "[AUTOTITLE](/rest/pulls/pulls#merge-a-pull-request)" |
-| <pre>pull request merge button</pre> | Merge of a pull request in the web interface | "[AUTOTITLE](/pull-requests/collaborating-with-pull-requests/incorporating-changes-from-a-pull-request/merging-a-pull-request#merging-a-pull-request-on-github)" |
-| <pre>pull request revert button</pre> | Revert of a pull request | "[AUTOTITLE](/pull-requests/collaborating-with-pull-requests/incorporating-changes-from-a-pull-request/reverting-a-pull-request)" |
-| <pre>releases delete button</pre> | Deletion of a release | "[AUTOTITLE](/repositories/releasing-projects-on-github/managing-releases-in-a-repository#deleting-a-release)" |
-| <pre>stafftools branch restore</pre> | Restoration of a branch from the site admin dashboard | "[AUTOTITLE](/admin/configuration/configuring-your-enterprise/site-admin-dashboard#repositories)" |
-| <pre>tag create api</pre> | Creation of a tag via the API | "[AUTOTITLE](/rest/git/tags#create-a-tag-object)" |
-{%- ifversion ghes < 3.13 %}
-| <pre>slumlord (#SHA)</pre> | Commit via Subversion | "[AUTOTITLE](/get-started/working-with-subversion-on-github/support-for-subversion-clients#making-commits-to-subversion)" |
+| <pre>auto-merge deployment api</pre> | Automatic merge of the base branch via a deployment created with the API | [AUTOTITLE](/rest/deployments#create-a-deployment) |
+| <pre>blob#save</pre> | Change to a file's contents in the web interface | [AUTOTITLE](/repositories/working-with-files/managing-files/editing-files) |
+| <pre>branch merge api</pre> | Merge of a branch via the API | [AUTOTITLE](/rest/branches#merge-a-branch) |
+| <pre>branches page delete button</pre> | Deletion of a branch in the web interface | [AUTOTITLE](/pull-requests/collaborating-with-pull-requests/proposing-changes-to-your-work-with-pull-requests/creating-and-deleting-branches-within-your-repository#deleting-a-branch) |
+| <pre>git refs create api</pre> | Creation of a ref via the API | [AUTOTITLE](/rest/git/refs#create-a-reference) |
+| <pre>git refs delete api</pre> | Deletion of a ref via the API | [AUTOTITLE](/rest/git/refs#delete-a-reference) |
+| <pre>git refs update api</pre> | Update of a ref via the API | [AUTOTITLE](/rest/git/refs#update-a-reference) |
+| <pre>git repo contents api</pre> | Change to a file's contents via the API | [AUTOTITLE](/rest/repos/contents#create-or-update-file-contents) |
+| `merge` | Merge of a pull request using auto-merge | [AUTOTITLE](/pull-requests/collaborating-with-pull-requests/incorporating-changes-from-a-pull-request/automatically-merging-a-pull-request) |
+| <pre>merge base into head</pre> | Update of the topic branch from the base branch when the base branch requires strict status checks (via **Update branch** in a pull request, for example) | [AUTOTITLE](/repositories/configuring-branches-and-merges-in-your-repository/managing-protected-branches/about-protected-branches#require-status-checks-before-merging) |
+| <pre>pull request branch delete button</pre> | Deletion of a topic branch from a pull request in the web interface | [AUTOTITLE](/repositories/configuring-branches-and-merges-in-your-repository/managing-branches-in-your-repository/deleting-and-restoring-branches-in-a-pull-request#deleting-a-branch-used-for-a-pull-request) |
+| <pre>pull request branch undo button</pre> | Restoration of a topic branch from a pull request in the web interface | [AUTOTITLE](/repositories/configuring-branches-and-merges-in-your-repository/managing-branches-in-your-repository/deleting-and-restoring-branches-in-a-pull-request#restoring-a-deleted-branch) |
+| <pre>pull request merge api</pre> | Merge of a pull request via the API | [AUTOTITLE](/rest/pulls/pulls#merge-a-pull-request) |
+| <pre>pull request merge button</pre> | Merge of a pull request in the web interface | [AUTOTITLE](/pull-requests/collaborating-with-pull-requests/incorporating-changes-from-a-pull-request/merging-a-pull-request#merging-a-pull-request-on-github) |
+| <pre>pull request revert button</pre> | Revert of a pull request | [AUTOTITLE](/pull-requests/collaborating-with-pull-requests/incorporating-changes-from-a-pull-request/reverting-a-pull-request) |
+| <pre>releases delete button</pre> | Deletion of a release | [AUTOTITLE](/repositories/releasing-projects-on-github/managing-releases-in-a-repository#deleting-a-release) |
+| <pre>stafftools branch restore</pre> | Restoration of a branch from the site admin dashboard | [AUTOTITLE](/admin/configuration/configuring-your-enterprise/site-admin-dashboard#repositories) |
+| <pre>tag create api</pre> | Creation of a tag via the API | [AUTOTITLE](/rest/git/tags#create-a-tag-object) |
+| {% ifversion ghes < 3.13 %} |
+| <pre>slumlord (#SHA)</pre> | Commit via Subversion | [AUTOTITLE](/get-started/working-with-subversion-on-github/support-for-subversion-clients#making-commits-to-subversion) |
 | {% endif %} |
-| <pre>web branch create</pre> | Creation of a branch via the web interface | "[AUTOTITLE](/pull-requests/collaborating-with-pull-requests/proposing-changes-to-your-work-with-pull-requests/creating-and-deleting-branches-within-your-repository#creating-a-branch)" |
+| <pre>web branch create</pre> | Creation of a branch via the web interface | [AUTOTITLE](/pull-requests/collaborating-with-pull-requests/proposing-changes-to-your-work-with-pull-requests/creating-and-deleting-branches-within-your-repository#creating-a-branch) |
 
 #### Available for pull request merges
 
@@ -266,4 +266,4 @@ You can test a pre-receive hook script locally before you create or update it on
 
 ## Further reading
 
-* "[Customizing Git - An Example Git-Enforced Policy](https://git-scm.com/book/en/v2/Customizing-Git-An-Example-Git-Enforced-Policy)" from the _Pro Git website_
+* [Customizing Git - An Example Git-Enforced Policy](https://git-scm.com/book/en/v2/Customizing-Git-An-Example-Git-Enforced-Policy) from the _Pro Git website_

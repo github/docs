@@ -1,7 +1,7 @@
 ---
 title: About Azure private networking for GitHub-hosted runners in your enterprise
 shortTitle: About Azure private networking
-intro: 'You can create create a private network configuration for your enterprise to use {% data variables.product.company_short %}-hosted runners in your Azure Virtual Network(s) (VNET).'
+intro: 'You can create a private network configuration for your enterprise to use {% data variables.product.company_short %}-hosted runners in your Azure Virtual Network(s) (VNET).'
 versions:
   ghec: '*'
 type: overview
@@ -51,7 +51,7 @@ redirect_from:
 
 You can give organization owners in your enterprise the ability to set up and maintain organization-level network configurations for {% data variables.product.company_short %}-hosted runners.
 
-For more information, see "[AUTOTITLE](/admin/configuration/configuring-private-networking-for-hosted-compute-products/configuring-private-networking-for-github-hosted-runners-in-your-enterprise#enabling-creation-of-network-configurations-for-organizations)."
+For more information, see [AUTOTITLE](/admin/configuration/configuring-private-networking-for-hosted-compute-products/configuring-private-networking-for-github-hosted-runners-in-your-enterprise#enabling-creation-of-network-configurations-for-organizations).
 
 ## Using {% data variables.product.company_short %}-hosted runners with an Azure VNET
 

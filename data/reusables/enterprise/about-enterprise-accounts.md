@@ -1,1 +1,0 @@
-Your enterprise account on {% data variables.product.prodname_dotcom_the_website %} allows you to manage multiple organizations. Your enterprise account must have a handle, like an organization or user account on {% data variables.product.prodname_dotcom %}.

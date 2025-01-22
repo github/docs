@@ -18,7 +18,7 @@ shortTitle: Plan cancellations
 
 {% data reusables.marketplace.marketplace-apps-not-actions %}
 
-For more information about cancelling as it relates to billing, see "[AUTOTITLE](/apps/github-marketplace/selling-your-app-on-github-marketplace/billing-customers)."
+For more information about cancelling as it relates to billing, see [AUTOTITLE](/apps/github-marketplace/selling-your-app-on-github-marketplace/billing-customers).
 
 ## Step 1. Cancellation event
 
@@ -33,8 +33,5 @@ When a customer cancels a free or paid plan, your app must perform these steps t
 1. If your app is an {% data variables.product.prodname_oauth_app %}, remove all webhooks your app created for repositories.
 1. Remove all customer data within 30 days of receiving the `cancelled` event.
 
-{% note %}
-
-**Note:** We recommend using the [`marketplace_purchase`](/apps/github-marketplace/using-the-github-marketplace-api-in-your-app/webhook-events-for-the-github-marketplace-api) webhook's `effective_date` to determine when a plan change will occur and periodically synchronizing the [List accounts for a plan](/rest/apps/marketplace#list-accounts-for-a-plan). For more information on webhooks, see "[AUTOTITLE](/apps/github-marketplace/using-the-github-marketplace-api-in-your-app/webhook-events-for-the-github-marketplace-api)."
-
-{% endnote %}
+> [!NOTE]
+> We recommend using the [`marketplace_purchase`](/apps/github-marketplace/using-the-github-marketplace-api-in-your-app/webhook-events-for-the-github-marketplace-api) webhook's `effective_date` to determine when a plan change will occur and periodically synchronizing the [List accounts for a plan](/rest/apps/marketplace#list-accounts-for-a-plan). For more information on webhooks, see [AUTOTITLE](/apps/github-marketplace/using-the-github-marketplace-api-in-your-app/webhook-events-for-the-github-marketplace-api).

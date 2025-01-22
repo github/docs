@@ -69,6 +69,29 @@
   border-bottom: 1px solid var(--color-border-default);
 }
 
+.annotate-toggle {
+  background: var(--color-segmented-control-bg);
+  border-radius: 6px;
+  margin-right: 1rem;
+  font-weight: 500;
+}
+
+.annotate-option {
+  background: none;
+  border: 1px solid transparent;
+  border-radius: 6px;
+  padding: 0.25rem 0.75rem;
+
+  &:hover {
+    background: var(--color-segmented-control-button-hover-bg);
+  }
+
+  &.selected {
+    background: var(--color-segmented-control-button-bg);
+    border-color: var(--color-segmented-control-button-selected-border);
+  }
+}
+
 .annotate-row {
   display: flex;
   flex-direction: column;
@@ -113,4 +136,8 @@
 
 .subnav-item[aria-current]:not([aria-current="false"]) {
   z-index: 0;
+}
+
+button.js-btn-copy.copied::after {
+  content: "Copied!";
 }

@@ -1,193 +1,11 @@
 {
-  "enterprise_administration": {
-    "title": "Enterprise administration",
-    "displayTitle": "Business permissions for \"Enterprise administration\"",
-    "permissions": [
-      {
-        "category": "actions",
-        "slug": "get-github-actions-cache-usage-for-an-enterprise",
-        "subcategory": "cache",
-        "verb": "get",
-        "requestPath": "/enterprises/{enterprise}/actions/cache/usage",
-        "access": "write",
-        "user-to-server": true,
-        "server-to-server": true,
-        "additional-permissions": false
-      },
-      {
-        "category": "actions",
-        "slug": "get-github-actions-cache-usage-policy-for-an-enterprise",
-        "subcategory": "cache",
-        "verb": "get",
-        "requestPath": "/enterprises/{enterprise}/actions/cache/usage-policy",
-        "access": "write",
-        "user-to-server": true,
-        "server-to-server": true,
-        "additional-permissions": false
-      },
-      {
-        "category": "actions",
-        "slug": "set-github-actions-cache-usage-policy-for-an-enterprise",
-        "subcategory": "cache",
-        "verb": "patch",
-        "requestPath": "/enterprises/{enterprise}/actions/cache/usage-policy",
-        "access": "write",
-        "user-to-server": true,
-        "server-to-server": true,
-        "additional-permissions": false
-      },
-      {
-        "category": "enterprise-admin",
-        "slug": "get-the-audit-log-for-an-enterprise",
-        "subcategory": "audit-log",
-        "verb": "get",
-        "requestPath": "/enterprises/{enterprise}/audit-log",
-        "access": "read",
-        "user-to-server": true,
-        "server-to-server": true,
-        "additional-permissions": false
-      },
-      {
-        "category": "enterprise-admin",
-        "slug": "get-github-advanced-security-active-committers-for-an-enterprise",
-        "subcategory": "billing",
-        "verb": "get",
-        "requestPath": "/enterprises/{enterprise}/settings/billing/advanced-security",
-        "access": "write",
-        "user-to-server": true,
-        "server-to-server": true,
-        "additional-permissions": false
-      },
-      {
-        "category": "enterprise-admin",
-        "slug": "list-provisioned-scim-groups-for-an-enterprise",
-        "subcategory": "scim",
-        "verb": "get",
-        "requestPath": "/scim/v2/enterprises/{enterprise}/Groups",
-        "access": "write",
-        "user-to-server": true,
-        "server-to-server": true,
-        "additional-permissions": false
-      },
-      {
-        "category": "enterprise-admin",
-        "slug": "provision-a-scim-enterprise-group",
-        "subcategory": "scim",
-        "verb": "post",
-        "requestPath": "/scim/v2/enterprises/{enterprise}/Groups",
-        "access": "write",
-        "user-to-server": true,
-        "server-to-server": true,
-        "additional-permissions": false
-      },
-      {
-        "category": "enterprise-admin",
-        "slug": "get-scim-provisioning-information-for-an-enterprise-group",
-        "subcategory": "scim",
-        "verb": "get",
-        "requestPath": "/scim/v2/enterprises/{enterprise}/Groups/{scim_group_id}",
-        "access": "write",
-        "user-to-server": true,
-        "server-to-server": true,
-        "additional-permissions": false
-      },
-      {
-        "category": "enterprise-admin",
-        "slug": "set-scim-information-for-a-provisioned-enterprise-group",
-        "subcategory": "scim",
-        "verb": "put",
-        "requestPath": "/scim/v2/enterprises/{enterprise}/Groups/{scim_group_id}",
-        "access": "write",
-        "user-to-server": true,
-        "server-to-server": true,
-        "additional-permissions": false
-      },
-      {
-        "category": "enterprise-admin",
-        "slug": "update-an-attribute-for-a-scim-enterprise-group",
-        "subcategory": "scim",
-        "verb": "patch",
-        "requestPath": "/scim/v2/enterprises/{enterprise}/Groups/{scim_group_id}",
-        "access": "write",
-        "user-to-server": true,
-        "server-to-server": true,
-        "additional-permissions": false
-      },
-      {
-        "category": "enterprise-admin",
-        "slug": "delete-a-scim-group-from-an-enterprise",
-        "subcategory": "scim",
-        "verb": "delete",
-        "requestPath": "/scim/v2/enterprises/{enterprise}/Groups/{scim_group_id}",
-        "access": "write",
-        "user-to-server": true,
-        "server-to-server": true,
-        "additional-permissions": false
-      },
-      {
-        "category": "enterprise-admin",
-        "slug": "list-scim-provisioned-identities-for-an-enterprise",
-        "subcategory": "scim",
-        "verb": "get",
-        "requestPath": "/scim/v2/enterprises/{enterprise}/Users",
-        "access": "write",
-        "user-to-server": true,
-        "server-to-server": true,
-        "additional-permissions": false
-      },
-      {
-        "category": "enterprise-admin",
-        "slug": "provision-a-scim-enterprise-user",
-        "subcategory": "scim",
-        "verb": "post",
-        "requestPath": "/scim/v2/enterprises/{enterprise}/Users",
-        "access": "write",
-        "user-to-server": true,
-        "server-to-server": true,
-        "additional-permissions": false
-      },
-      {
-        "category": "enterprise-admin",
-        "slug": "get-scim-provisioning-information-for-an-enterprise-user",
-        "subcategory": "scim",
-        "verb": "get",
-        "requestPath": "/scim/v2/enterprises/{enterprise}/Users/{scim_user_id}",
-        "access": "write",
-        "user-to-server": true,
-        "server-to-server": true,
-        "additional-permissions": false
-      },
-      {
-        "category": "enterprise-admin",
-        "slug": "set-scim-information-for-a-provisioned-enterprise-user",
-        "subcategory": "scim",
-        "verb": "put",
-        "requestPath": "/scim/v2/enterprises/{enterprise}/Users/{scim_user_id}",
-        "access": "write",
-        "user-to-server": true,
-        "server-to-server": true,
-        "additional-permissions": false
-      },
-      {
-        "category": "enterprise-admin",
-        "slug": "delete-a-scim-user-from-an-enterprise",
-        "subcategory": "scim",
-        "verb": "delete",
-        "requestPath": "/scim/v2/enterprises/{enterprise}/Users/{scim_user_id}",
-        "access": "write",
-        "user-to-server": true,
-        "server-to-server": true,
-        "additional-permissions": false
-      }
-    ]
-  },
   "organization_administration": {
     "title": "Administration",
     "displayTitle": "Organization permissions for \"Administration\"",
     "permissions": [
       {
         "category": "orgs",
-        "slug": "deprecated---list-custom-repository-roles-in-an-organization",
+        "slug": "closing-down---list-custom-repository-roles-in-an-organization",
         "subcategory": "custom-roles",
         "verb": "get",
         "requestPath": "/organizations/{organization_id}/custom_roles",
@@ -545,7 +363,7 @@
     "permissions": [
       {
         "category": "orgs",
-        "slug": "deprecated---list-custom-repository-roles-in-an-organization",
+        "slug": "closing-down---list-custom-repository-roles-in-an-organization",
         "subcategory": "custom-roles",
         "verb": "get",
         "requestPath": "/organizations/{organization_id}/custom_roles",
@@ -1186,6 +1004,17 @@
         "verb": "get",
         "requestPath": "/orgs/{org}/pre-receive-hooks/{pre_receive_hook_id}",
         "access": "read",
+        "user-to-server": true,
+        "server-to-server": true,
+        "additional-permissions": false
+      },
+      {
+        "category": "enterprise-admin",
+        "slug": "update-pre-receive-hook-enforcement-for-an-organization",
+        "subcategory": "org-pre-receive-hooks",
+        "verb": "patch",
+        "requestPath": "/orgs/{org}/pre-receive-hooks/{pre_receive_hook_id}",
+        "access": "write",
         "user-to-server": true,
         "server-to-server": true,
         "additional-permissions": false
@@ -2868,7 +2697,7 @@
       },
       {
         "category": "repos",
-        "slug": "check-if-automated-security-fixes-are-enabled-for-a-repository",
+        "slug": "check-if-dependabot-security-updates-are-enabled-for-a-repository",
         "subcategory": "repos",
         "verb": "get",
         "requestPath": "/repos/{owner}/{repo}/automated-security-fixes",
@@ -3539,7 +3368,7 @@
       },
       {
         "category": "repos",
-        "slug": "deprecated---list-tag-protection-states-for-a-repository",
+        "slug": "closing-down---list-tag-protection-states-for-a-repository",
         "subcategory": "tags",
         "verb": "get",
         "requestPath": "/repos/{owner}/{repo}/tags/protection",
@@ -3550,7 +3379,7 @@
       },
       {
         "category": "repos",
-        "slug": "deprecated---create-a-tag-protection-state-for-a-repository",
+        "slug": "closing-down---create-a-tag-protection-state-for-a-repository",
         "subcategory": "tags",
         "verb": "post",
         "requestPath": "/repos/{owner}/{repo}/tags/protection",
@@ -3561,7 +3390,7 @@
       },
       {
         "category": "repos",
-        "slug": "deprecated---delete-a-tag-protection-state-for-a-repository",
+        "slug": "closing-down---delete-a-tag-protection-state-for-a-repository",
         "subcategory": "tags",
         "verb": "delete",
         "requestPath": "/repos/{owner}/{repo}/tags/protection/{tag_protection_id}",
@@ -4219,7 +4048,7 @@
         "access": "read",
         "user-to-server": true,
         "server-to-server": true,
-        "additional-permissions": true
+        "additional-permissions": false
       },
       {
         "category": "dependency-graph",
@@ -5908,6 +5737,39 @@
         "additional-permissions": false
       },
       {
+        "category": "activity",
+        "slug": "check-if-a-repository-is-starred-by-the-authenticated-user",
+        "subcategory": "starring",
+        "verb": "get",
+        "requestPath": "/user/starred/{owner}/{repo}",
+        "access": "read",
+        "user-to-server": true,
+        "server-to-server": false,
+        "additional-permissions": true
+      },
+      {
+        "category": "activity",
+        "slug": "star-a-repository-for-the-authenticated-user",
+        "subcategory": "starring",
+        "verb": "put",
+        "requestPath": "/user/starred/{owner}/{repo}",
+        "access": "read",
+        "user-to-server": true,
+        "server-to-server": false,
+        "additional-permissions": true
+      },
+      {
+        "category": "activity",
+        "slug": "unstar-a-repository-for-the-authenticated-user",
+        "subcategory": "starring",
+        "verb": "delete",
+        "requestPath": "/user/starred/{owner}/{repo}",
+        "access": "read",
+        "user-to-server": true,
+        "server-to-server": false,
+        "additional-permissions": true
+      },
+      {
         "category": "repos",
         "slug": "list-repositories-for-a-user",
         "subcategory": "repos",
@@ -6047,6 +5909,17 @@
         "verb": "get",
         "requestPath": "/repos/{owner}/{repo}/pre-receive-hooks/{pre_receive_hook_id}",
         "access": "read",
+        "user-to-server": true,
+        "server-to-server": true,
+        "additional-permissions": false
+      },
+      {
+        "category": "enterprise-admin",
+        "slug": "update-pre-receive-hook-enforcement-for-a-repository",
+        "subcategory": "repo-pre-receive-hooks",
+        "verb": "patch",
+        "requestPath": "/repos/{owner}/{repo}/pre-receive-hooks/{pre_receive_hook_id}",
+        "access": "write",
         "user-to-server": true,
         "server-to-server": true,
         "additional-permissions": false
@@ -6337,17 +6210,6 @@
         "user-to-server": true,
         "server-to-server": true,
         "additional-permissions": false
-      },
-      {
-        "category": "dependency-graph",
-        "slug": "get-a-diff-of-the-dependencies-between-commits",
-        "subcategory": "dependency-review",
-        "verb": "get",
-        "requestPath": "/repos/{owner}/{repo}/dependency-graph/compare/{basehead}",
-        "access": "read",
-        "user-to-server": true,
-        "server-to-server": true,
-        "additional-permissions": true
       },
       {
         "category": "issues",
@@ -7982,7 +7844,7 @@
         "access": "read",
         "user-to-server": true,
         "server-to-server": false,
-        "additional-permissions": false
+        "additional-permissions": true
       },
       {
         "category": "activity",
@@ -7993,7 +7855,7 @@
         "access": "write",
         "user-to-server": true,
         "server-to-server": false,
-        "additional-permissions": false
+        "additional-permissions": true
       },
       {
         "category": "activity",
@@ -8004,7 +7866,7 @@
         "access": "write",
         "user-to-server": true,
         "server-to-server": false,
-        "additional-permissions": false
+        "additional-permissions": true
       },
       {
         "category": "activity",

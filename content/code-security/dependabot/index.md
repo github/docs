@@ -14,9 +14,12 @@ topics:
   - Repositories
   - Dependencies
 children:
+  - /ecosystems-supported-by-dependabot
   - /dependabot-alerts
   - /dependabot-auto-triage-rules
   - /dependabot-security-updates
   - /dependabot-version-updates
   - /working-with-dependabot
+  - /maintain-dependencies
+  - /troubleshooting-dependabot
 ---

@@ -14,7 +14,7 @@ redirect_from:
 
 {% data reusables.rest-api.about-api-versions %}
 
-For more information about API versions, see "[AUTOTITLE](/rest/overview/api-versions)."
+For more information about API versions, see [AUTOTITLE](/rest/overview/api-versions).
 
 ## Upgrading to a new API version
 

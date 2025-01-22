@@ -14,18 +14,19 @@ topics:
   - GitHub search
 shortTitle: Search issues & PRs
 ---
-You can search for issues and pull requests globally across all of {% data variables.product.product_name %}, or search for issues and pull requests within a particular organization. For more information, see "[AUTOTITLE](/search-github/getting-started-with-searching-on-github/about-searching-on-github)."
+You can search for issues and pull requests globally across all of {% data variables.product.product_name %}, or search for issues and pull requests within a particular organization. For more information, see [AUTOTITLE](/search-github/getting-started-with-searching-on-github/about-searching-on-github).
 
-{% tip %}
-
-**Tips:**{% ifversion ghes %}
-* This article contains example searches on the {% data variables.product.prodname_dotcom %}.com website, but you can use the same search filters on {% data variables.location.product_location %}.{% endif %}
-* For a list of search syntaxes that you can add to any search qualifier to further improve your results, see "[AUTOTITLE](/search-github/getting-started-with-searching-on-github/understanding-the-search-syntax)".
-* Use quotations around multi-word search terms. For example, if you want to search for issues with the label "In progress," you'd search for `label:"in progress"`. Search is not case sensitive.
-* Use a minus (hyphen) symbol to exclude results that match a qualifier. For example, to ignore issues created by the "octocat" user, you'd use `-author:octocat` in your search. Note that this does not work for [missing metadata qualifiers](#search-by-missing-metadata).
-* {% data reusables.search.search_issues_and_pull_requests_shortcut %}
-
-  {% endtip %}
+> [!TIP]
+{% ifversion ghes %}
+> * This article contains example searches on the {% data variables.product.prodname_dotcom %}.com website, but you can use the same search filters on {% data variables.location.product_location %}.
+{% endif %}
+{% ifversion issues-advanced-search %}
+> * You can build advanced filters using boolean and nested queries on your repository's issues page. See [AUTOTITLE](/issues/tracking-your-work-with-issues/using-issues/filtering-and-searching-issues-and-pull-requests#building-advanced-filters-for-issues).
+{% endif %}
+> * For a list of search syntaxes that you can add to any search qualifier to further improve your results, see [AUTOTITLE](/search-github/getting-started-with-searching-on-github/understanding-the-search-syntax).
+> * Use quotations around multi-word search terms. For example, if you want to search for issues with the label "In progress," you'd search for `label:"in progress"`. Search is not case sensitive.
+> * Use a minus (hyphen) symbol to exclude results that match a qualifier. For example, to ignore issues created by the "octocat" user, you'd use `-author:octocat` in your search. Note that this does not work for [missing metadata qualifiers](#search-by-missing-metadata).
+> * {% data reusables.search.search_issues_and_pull_requests_shortcut %}
 
 ## Search only issues or pull requests
 
@@ -50,7 +51,7 @@ With the `in` qualifier you can restrict your search to the title, body, comment
 
 ## Search within a user's or organization's repositories
 
-To search issues and pull requests in all repositories owned by a certain user or organization, you can use the  `user` or `org` qualifier. To search issues and pull requests in a specific repository, you can use the `repo` qualifier.
+To search issues and pull requests in all repositories owned by a certain user or organization, you can use the `user` or `org` qualifier. To search issues and pull requests in a specific repository, you can use the `repo` qualifier.
 
 {% data reusables.pull_requests.large-search-workaround %}
 
@@ -71,7 +72,7 @@ You can filter issues and pull requests based on whether they're open or closed 
 | `is:open` | [**performance is:open is:issue**](https://github.com/search?q=performance+is%3Aopen+is%3Aissue&type=Issues) matches open issues with the word "performance."
 | `is:closed` | [**android is:closed**](https://github.com/search?utf8=%E2%9C%93&q=android+is%3Aclosed&type=) matches closed issues and pull requests with the word "android."
 
-{% ifversion merge-queue  %}
+{% ifversion merge-queue %}
 
 ## Search for pull requests in the merge queue
 
@@ -94,12 +95,14 @@ You can filter issues based on the reason given when the issue was closed, using
 
 ## Filter by repository visibility
 
-You can filter by the visibility of the repository containing the issues and pull requests using the `is` qualifier. For more information, see "[AUTOTITLE](/repositories/creating-and-managing-repositories/about-repositories#about-repository-visibility)."
+You can filter by the visibility of the repository containing the issues and pull requests using the `is` qualifier. For more information, see [AUTOTITLE](/repositories/creating-and-managing-repositories/about-repositories#about-repository-visibility).
 
-| Qualifier  | Example
+| Qualifier  | Example |
 | ------------- | ------------- |
-| `is:public` | [**is:public**](https://github.com/search?q=is%3Apublic&type=Issues) matches issues and pull requests in public repositories.{% ifversion ghes or ghec %}
-| `is:internal` | [**is:internal**](https://github.com/search?q=is%3Ainternal&type=Issues) matches issues and pull requests in internal repositories.{% endif %}
+| `is:public` | [**is:public**](https://github.com/search?q=is%3Apublic&type=Issues) matches issues and pull requests in public repositories. |
+| {% ifversion ghes or ghec %} |
+| `is:internal` | [**is:internal**](https://github.com/search?q=is%3Ainternal&type=Issues) matches issues and pull requests in internal repositories. |
+| {% endif %} |
 | `is:private` | [**is:private cupcake**](https://github.com/search?q=is%3Aprivate+cupcake&type=Issues) matches issues and pull requests that contain the word "cupcake" in private repositories you can access.
 
 ## Search by author
@@ -124,7 +127,7 @@ The `assignee` qualifier finds issues and pull requests that are assigned to a c
 
 ## Search by mention
 
-The `mentions` qualifier finds issues that mention a certain user. For more information, see "[AUTOTITLE](/get-started/writing-on-github/getting-started-with-writing-and-formatting-on-github/basic-writing-and-formatting-syntax#mentioning-people-and-teams)."
+The `mentions` qualifier finds issues that mention a certain user. For more information, see [AUTOTITLE](/get-started/writing-on-github/getting-started-with-writing-and-formatting-on-github/basic-writing-and-formatting-syntax#mentioning-people-and-teams).
 
 | Qualifier     | Example
 | ------------- | -------------
@@ -270,7 +273,7 @@ You can filter issues and pull requests by the number of reactions using the `re
 
 ## Search for draft pull requests
 
-You can filter for draft pull requests. For more information, see "[AUTOTITLE](/pull-requests/collaborating-with-pull-requests/proposing-changes-to-your-work-with-pull-requests/about-pull-requests#draft-pull-requests)."
+You can filter for draft pull requests. For more information, see [AUTOTITLE](/pull-requests/collaborating-with-pull-requests/proposing-changes-to-your-work-with-pull-requests/about-pull-requests#draft-pull-requests).
 
 | Qualifier        | Example
 | ------------- | -------------
@@ -351,7 +354,7 @@ The `archived` qualifier filters your results based on whether an issue or pull 
 
 ## Search based on whether a conversation is locked
 
-You can search for an issue or pull request that has a locked conversation using the `is` qualifier. For more information, see "[AUTOTITLE](/communities/moderating-comments-and-conversations/locking-conversations)."
+You can search for an issue or pull request that has a locked conversation using the `is` qualifier. For more information, see [AUTOTITLE](/communities/moderating-comments-and-conversations/locking-conversations).
 
 | Qualifier        | Example
 | ------------- | -------------
@@ -376,4 +379,4 @@ You can narrow your search to issues and pull requests that are missing certain 
 
 ## Further reading
 
-* "[AUTOTITLE](/search-github/getting-started-with-searching-on-github/sorting-search-results)"
+* [AUTOTITLE](/search-github/getting-started-with-searching-on-github/sorting-search-results)

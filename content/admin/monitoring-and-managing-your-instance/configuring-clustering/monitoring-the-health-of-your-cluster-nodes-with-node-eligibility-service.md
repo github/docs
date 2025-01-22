@@ -5,7 +5,7 @@ intro: 'You can monitor when nodes in a {% data variables.product.product_name %
 permissions: 'People with administrative SSH access to a {% data variables.product.product_name %} instance can monitor cluster nodes.'
 product: '{% data reusables.gated-features.cluster %}'
 versions:
-  feature: node-eligibility-service
+  ghes: '*'
 type: how_to
 topics:
   - Clustering
@@ -27,7 +27,7 @@ You can proactively mitigate the impact of reduced node availability by using {%
 
 By default, {% data variables.product.prodname_nes %} is disabled. If you enable {% data variables.product.prodname_nes %}, your instance will alert you of unhealthy nodes by displaying a banner in the administrative web UI for {% data variables.product.product_name %}, and in CLI output for some cluster-related utilities, such as `ghe-config-apply` and `ghe-cluster-diagnostics`.
 
-{% data variables.product.prodname_nes %} allows you to monitor the health of individual nodes. You can also monitor the overall health of your cluster. For more information, see "[AUTOTITLE](/admin/enterprise-management/configuring-clustering/monitoring-the-health-of-your-cluster)."
+{% data variables.product.prodname_nes %} allows you to monitor the health of individual nodes. You can also monitor the overall health of your cluster. For more information, see [AUTOTITLE](/admin/enterprise-management/configuring-clustering/monitoring-the-health-of-your-cluster).
 
 ## About health and eligibility of cluster nodes
 
@@ -123,7 +123,7 @@ To manage whether {% data variables.product.prodname_nes %} can take a node and 
 To view an overview of your nodes' health using {% data variables.product.prodname_nes %}, use one of the following methods.
 
 * SSH into any node in the cluster, then run `nes get-cluster-health`.
-* Navigate to the {% data variables.enterprise.management_console %}'s "Status" page. For more information, see "[AUTOTITLE](/admin/configuration/administering-your-instance-from-the-management-console/accessing-the-management-console)."
+* Navigate to the {% data variables.enterprise.management_console %}'s "Status" page. For more information, see [AUTOTITLE](/admin/configuration/administering-your-instance-from-the-management-console/accessing-the-management-console).
 
 ## Re-enabling an ineligible node to join the cluster
 
@@ -168,7 +168,7 @@ After {% data variables.product.prodname_nes %} detects that a node has exceeded
 
 ## Viewing logs for {% data variables.product.prodname_nes %}
 
-You can view logs for {% data variables.product.prodname_nes %} from any node in the cluster, or from the node that runs the service. If you generate a support bundle, the logs are included. For more information, see "[AUTOTITLE](/support/contacting-github-support/providing-data-to-github-support)."
+You can view logs for {% data variables.product.prodname_nes %} from any node in the cluster, or from the node that runs the service. If you generate a support bundle, the logs are included. For more information, see [AUTOTITLE](/support/contacting-github-support/providing-data-to-github-support).
 
 {% data reusables.enterprise_installation.ssh-into-cluster-node %}
 1. To view logs for {% data variables.product.prodname_nes %} from any node in the cluster, run the following command.
@@ -193,4 +193,4 @@ You can view logs for {% data variables.product.prodname_nes %} from any node in
 
 ## Further reading
 
-* "[AUTOTITLE](/admin/configuration/configuring-your-enterprise/command-line-utilities#nes)"
+* [AUTOTITLE](/admin/configuration/configuring-your-enterprise/command-line-utilities#nes)

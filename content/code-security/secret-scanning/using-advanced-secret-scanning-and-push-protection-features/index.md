@@ -15,7 +15,6 @@ topics:
 children:
   - /excluding-folders-and-files-from-secret-scanning
   - /non-provider-patterns
-  - /generic-secret-detection
   - /custom-patterns
   - /delegated-bypass-for-push-protection
 ---

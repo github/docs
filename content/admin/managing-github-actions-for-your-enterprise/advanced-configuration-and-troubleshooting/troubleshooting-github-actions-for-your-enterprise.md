@@ -17,11 +17,11 @@ shortTitle: Troubleshoot GitHub Actions
 
 ## Checking the health of {% data variables.product.prodname_actions %}
 
-You can check the health of {% data variables.product.prodname_actions %} on {% data variables.location.product_location %} with the `ghe-actions-check` command-line utility. For more information, see "[AUTOTITLE](/admin/configuration/configuring-your-enterprise/command-line-utilities#ghe-actions-check)" and "[AUTOTITLE](/admin/configuration/configuring-your-enterprise/accessing-the-administrative-shell-ssh)."
+You can check the health of {% data variables.product.prodname_actions %} on {% data variables.location.product_location %} with the `ghe-actions-check` command-line utility. For more information, see [AUTOTITLE](/admin/configuration/configuring-your-enterprise/command-line-utilities#ghe-actions-check) and [AUTOTITLE](/admin/configuration/configuring-your-enterprise/accessing-the-administrative-shell-ssh).
 
 ## Configuring self-hosted runners when using a self-signed certificate for {% data variables.product.prodname_ghe_server %}
 
-{% data reusables.actions.enterprise-self-signed-cert %} For more information, see "[AUTOTITLE](/admin/configuration/configuring-network-settings/configuring-tls)."
+{% data reusables.actions.enterprise-self-signed-cert %} For more information, see [AUTOTITLE](/admin/configuration/configuring-network-settings/configuring-tls).
 
 ### Installing the certificate on the runner machine
 
@@ -62,7 +62,7 @@ If you deploy {% data variables.product.prodname_ghe_server %} in your environme
 You will need to update the configuration of your self-hosted runners to use the new hostname for {% data variables.location.product_location %}. Each self-hosted runner will require one of the following procedures:
 
 * In the self-hosted runner application directory, edit the `.runner` and `.credentials` files to replace all mentions of the old hostname with the new hostname, then restart the self-hosted runner application.
-* Remove the runner from {% data variables.product.prodname_ghe_server %} using the UI, and re-add it. For more information, see "[AUTOTITLE](/actions/hosting-your-own-runners/managing-self-hosted-runners/removing-self-hosted-runners)" and "[AUTOTITLE](/actions/hosting-your-own-runners/managing-self-hosted-runners/adding-self-hosted-runners)."
+* Remove the runner from {% data variables.product.prodname_ghe_server %} using the UI, and re-add it. For more information, see [AUTOTITLE](/actions/hosting-your-own-runners/managing-self-hosted-runners/removing-self-hosted-runners) and [AUTOTITLE](/actions/hosting-your-own-runners/managing-self-hosted-runners/adding-self-hosted-runners).
 
 ## Stuck jobs and {% data variables.product.prodname_actions %} memory and CPU limits
 
@@ -72,9 +72,9 @@ You may be hitting the CPU or memory limits if you notice that jobs are not star
 
 ### 1. Check the overall CPU and memory usage in the management console
 
-Access the management console and use the monitor dashboard to inspect the overall CPU and memory graphs under "System Health". For more information, see "[AUTOTITLE](/admin/enterprise-management/monitoring-your-appliance/accessing-the-monitor-dashboard)."
+Access the management console and use the monitor dashboard to inspect the overall CPU and memory graphs under "System Health". For more information, see [AUTOTITLE](/admin/monitoring-and-managing-your-instance/monitoring-your-instance/about-the-monitor-dashboards).
 
-If the overall "System Health" CPU usage is close to 100%, or there is no free memory left, then {% data variables.location.product_location %} is running at capacity and needs to be scaled up. For more information, see "[AUTOTITLE](/admin/enterprise-management/updating-the-virtual-machine-and-physical-resources/increasing-cpu-or-memory-resources)."
+If the overall "System Health" CPU usage is close to 100%, or there is no free memory left, then {% data variables.location.product_location %} is running at capacity and needs to be scaled up. For more information, see [AUTOTITLE](/admin/enterprise-management/updating-the-virtual-machine-and-physical-resources/increasing-cpu-or-memory-resources).
 
 ### 2. Check the Nomad Jobs CPU and memory usage in the management console
 
@@ -93,7 +93,7 @@ If any of these services are at or near 100% CPU utilization, or the memory is n
 
 ### 3. Increase the resource allocation for services at their limit
 
-1. Log in to the administrative shell using SSH. For more information, see "[AUTOTITLE](/admin/configuration/configuring-your-enterprise/accessing-the-administrative-shell-ssh)."
+1. Log in to the administrative shell using SSH. For more information, see [AUTOTITLE](/admin/configuration/configuring-your-enterprise/accessing-the-administrative-shell-ssh).
 1. Run the following command to see what resources are available for allocation:
 
    ```shell
@@ -110,11 +110,9 @@ If any of these services are at or near 100% CPU utilization, or the memory is n
 
    For CPU and memory, this shows how much is allocated to the **total** of **all** services (the left value) and how much is available (the right value). In the example above, there is 23 GiB of memory allocated out of 32 GiB total. This means there is 9 GiB of memory available for allocation.
 
-   {% warning %}
+   > [!WARNING]
+   > Be careful not to allocate more than the total available resources, or services will fail to start.
 
-   **Warning:** Be careful not to allocate more than the total available resources, or services will fail to start.
-
-   {% endwarning %}
 1. Change directory to `/etc/consul-templates/etc/nomad-jobs/actions`:
 
    ```shell
@@ -160,11 +158,11 @@ If any of these services are at or near 100% CPU utilization, or the memory is n
 
 ## Troubleshooting failures when {% data variables.product.prodname_dependabot %} triggers existing workflows
 
-{% data reusables.dependabot.dependabot-on-actions-troubleshooting-workflows %} For more information, see "[Providing workflows triggered by {% data variables.product.prodname_dependabot %} access to secrets and increased permissions](#providing-workflows-triggered-by-dependabot-access-to-secrets-and-increased-permissions)" below.
+{% data reusables.dependabot.dependabot-on-actions-troubleshooting-workflows %} For more information, see [Providing workflows triggered by {% data variables.product.prodname_dependabot %} access to secrets and increased permissions](#providing-workflows-triggered-by-dependabot-access-to-secrets-and-increased-permissions) below.
 
 ### Providing workflows triggered by {% data variables.product.prodname_dependabot %} access to secrets and increased permissions
 
-1. Log in to the administrative shell using SSH. For more information, see "[AUTOTITLE](/admin/configuration/configuring-your-enterprise/accessing-the-administrative-shell-ssh)."
+1. Log in to the administrative shell using SSH. For more information, see [AUTOTITLE](/admin/configuration/configuring-your-enterprise/accessing-the-administrative-shell-ssh).
 1. To remove the limitations on workflows triggered by {% data variables.product.prodname_dependabot %} on {% data variables.location.product_location %}, use the following command.
 
     ``` shell
@@ -183,19 +181,19 @@ If any of these services are at or near 100% CPU utilization, or the memory is n
 
 ## Troubleshooting bundled actions in {% data variables.product.prodname_actions %}
 
-If you receive the following error when installing {% data variables.product.prodname_actions %} in {% data variables.product.prodname_ghe_server %}, you can resolve the problem by installing the official bundled actions and starter workflows.
+If you receive the following error when installing {% data variables.product.prodname_actions %} in {% data variables.product.prodname_ghe_server %}, you can resolve the problem by installing the official bundled actions and workflow templates.
 
 ```shell
 A part of the Actions setup had problems and needs an administrator to resolve.
 ```
 
-To install the official bundled actions and starter workflows within a designated organization in {% data variables.product.prodname_ghe_server %}, follow this procedure.
+To install the official bundled actions and workflow templates within a designated organization in {% data variables.product.prodname_ghe_server %}, follow this procedure.
 
-1. Identify an organization that will store the official bundled actions and starter workflows. You can create a new organization or reuse an existing one.
-    * To create a new organization, see "[AUTOTITLE](/organizations/collaborating-with-groups-in-organizations/creating-a-new-organization-from-scratch)."
-    * For assistance with choosing a name for this organization, see "[AUTOTITLE](/admin/github-actions/getting-started-with-github-actions-for-your-enterprise/getting-started-with-github-actions-for-github-enterprise-server#reserved-names)."
+1. Identify an organization that will store the official bundled actions and workflow templates. You can create a new organization or reuse an existing one.
+    * To create a new organization, see [AUTOTITLE](/organizations/collaborating-with-groups-in-organizations/creating-a-new-organization-from-scratch).
+    * For assistance with choosing a name for this organization, see [AUTOTITLE](/admin/github-actions/getting-started-with-github-actions-for-your-enterprise/getting-started-with-github-actions-for-github-enterprise-server#reserved-names).
 
-1. Log in to the administrative shell using SSH. For more information, see "[AUTOTITLE](/admin/configuration/configuring-your-enterprise/accessing-the-administrative-shell-ssh)."
+1. Log in to the administrative shell using SSH. For more information, see [AUTOTITLE](/admin/configuration/configuring-your-enterprise/accessing-the-administrative-shell-ssh).
 1. To designate your organization as the location to store the bundled actions, use the `ghe-config` command, replacing `ORGANIZATION` with the name of your organization.
 
     ```shell
@@ -220,4 +218,4 @@ To install the official bundled actions and starter workflows within a designate
     ghe-config-apply
     ```
 
-After you've completed these steps, you can resume configuring {% data variables.product.prodname_actions %} at "[AUTOTITLE](/admin/github-actions/getting-started-with-github-actions-for-your-enterprise/getting-started-with-github-actions-for-github-enterprise-server#managing-access-permissions-for-github-actions-in-your-enterprise)."
+After you've completed these steps, you can resume configuring {% data variables.product.prodname_actions %} at [AUTOTITLE](/admin/github-actions/getting-started-with-github-actions-for-your-enterprise/getting-started-with-github-actions-for-github-enterprise-server#managing-access-permissions-for-github-actions-in-your-enterprise).

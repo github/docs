@@ -26,11 +26,8 @@ Servers that accept SSH connections advertise one or more cryptographic host key
 
 By default, {% data variables.location.product_location %} generates and advertises host keys with OpenSSH-style host key rotation. To increase the security of SSH in your environment, you can enable additional algorithms for the generation of host keys.
 
-{% note %}
-
-**Note**: If you enable additional host key algorithms, clients that do not use OpenSSH for SSH connections may experience warnings during connection, or fail to connect entirely. Some SSH implementations can ignore unsupported algorithms and fall back to a different algorithm. If the client does not support fallback, the connection will fail. For example, the SSH library for Go does not support fallback to a different algorithm.
-
-{% endnote %}
+> [!NOTE]
+> If you enable additional host key algorithms, clients that do not use OpenSSH for SSH connections may experience warnings during connection, or fail to connect entirely. Some SSH implementations can ignore unsupported algorithms and fall back to a different algorithm. If the client does not support fallback, the connection will fail. For example, the SSH library for Go does not support fallback to a different algorithm.
 
 ## Managing an Ed25519 host key
 

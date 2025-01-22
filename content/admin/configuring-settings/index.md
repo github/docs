@@ -20,9 +20,8 @@ children:
   - /configuring-github-connect
 ---
 {% ifversion ghes %}
-{% note %}
 
-**Note:** To configure {% data variables.product.prodname_actions %} or {% data variables.product.prodname_registry %} for your enterprise, see "[AUTOTITLE](/admin/github-actions)" or "[AUTOTITLE](/admin/packages)."
+> [!NOTE]
+> To configure {% data variables.product.prodname_actions %} or {% data variables.product.prodname_registry %} for your enterprise, see [AUTOTITLE](/admin/github-actions) or [AUTOTITLE](/admin/packages).
 
-{% endnote %}
 {% endif %}

@@ -33,19 +33,19 @@ You can configure any of the following policies for your enterprise:
 * [{% data variables.product.prodname_copilot_extensions %}](#github-copilot-extensions)
 * [Suggestions matching public code](#suggestions-matching-public-code)
 * [Give {% data variables.product.prodname_copilot_short %} access to Bing](#give-copilot-access-to-bing)
+* [{% data variables.product.prodname_copilot_short %} access to {% data variables.copilot.copilot_claude_sonnet %}](#copilot-access-to-claude-35-sonnet)
+* [{% data variables.product.prodname_copilot_short %} access to the o1 family of models](#copilot-access-to-the-o1-family-of-models)
 
 ### {% data variables.product.prodname_copilot_short %} in {% data variables.product.prodname_dotcom_the_website %}
 
-With a {% data variables.product.prodname_copilot_enterprise_short %} license, you can enable "{% data variables.product.prodname_copilot_short %} in {% data variables.product.prodname_dotcom_the_website %}" to provide members of your enterprise access to AI features on {% data variables.product.prodname_dotcom_the_website %}, including:
-* **{% data variables.product.prodname_copilot_chat %} in {% data variables.product.prodname_dotcom_the_website %}** - You can ask {% data variables.product.prodname_copilot %} coding-related questions within a chat interface on {% data variables.product.prodname_dotcom_the_website %}. You can ask general questions or questions within a specific context such as a repository, issue, file, or symbol.
+With a {% data variables.product.prodname_copilot_enterprise_short %} license, you can enable "{% data variables.product.prodname_copilot_short %} in {% data variables.product.prodname_dotcom_the_website %}" to provide members of your enterprise access to AI features on the {% data variables.product.github %} website, including:
+* **{% data variables.product.prodname_copilot_chat %} in {% data variables.product.prodname_dotcom_the_website %}** - You can ask {% data variables.product.prodname_copilot %} coding-related questions within a chat interface on {% data variables.product.github %}. You can ask general questions or questions within a specific context such as a repository, issue, file, or symbol.
 * **{% data variables.product.prodname_copilot_short %} pull request summaries** - {% data variables.product.prodname_copilot_short %} can generate a summary of the changes made in a pull request, as well as a list of impacted files, using natural language. This overview helps reviewers quickly understand the proposed changes.
 * **{% data variables.product.prodname_copilot_short %} knowledge bases** - Organization owners can create knowledge bases consisting of Markdown documentation across one or more repositories, allowing organization members to use that documentation as context when they ask questions in {% data variables.product.prodname_copilot_chat_dotcom_short %}, {% data variables.product.prodname_copilot_chat_short %} in {% data variables.product.prodname_vscode %}, and {% data variables.product.prodname_copilot_chat_short %} in {% data variables.product.prodname_vs %}.
 
 If you enable "{% data variables.product.prodname_copilot_short %} in {% data variables.product.prodname_dotcom_the_website %}", you can also configure additional features:
-* **Opt in to user feedback collection** - If enabled, members of your enterprise can provide feedback after {% data variables.product.prodname_copilot_short %} generates a pull request summary, and the summary will be sent to {% data variables.product.prodname_dotcom %} for context. If disabled, members of your enterprise can still provide feedback after each {% data variables.product.prodname_copilot_chat_short %} response, and via the "Give feedback" link in conversations.
-* **Previews of {% data variables.product.prodname_copilot_short %} features** - If enabled, members of your enterprise can test new {% data variables.product.prodname_copilot_short %} features that are not yet generally available. Be aware that previews of features may have flaws, and the features may be changed or discontinued at any time. Current previews of {% data variables.product.prodname_copilot_short %} features:
 
-  * {% data variables.product.prodname_copilot_autocomplete_pr %}. For more information, see "[Using Copilot text completion](/copilot/using-github-copilot/using-copilot-text-completion)."
+{% data reusables.copilot.policies-for-dotcom %}
 
 ### {% data variables.product.prodname_copilot_cli %}
 
@@ -61,7 +61,7 @@ You can chat with {% data variables.product.prodname_copilot %} in your IDE to g
 
 ### {% data variables.product.prodname_copilot_extensions %}
 
-{% data reusables.copilot.copilot-extensions.beta-note %}
+{% data reusables.copilot.copilot-extensions.public-preview-note %}
 
 {% data variables.product.prodname_copilot_extensions %} integrate external tools with {% data variables.product.prodname_copilot_chat %}, helping members of your enterprise reduce context switching, interact with tools using natural language, and customize their {% data variables.product.prodname_copilot_chat_short %} experience.
 
@@ -71,9 +71,30 @@ You can chat with {% data variables.product.prodname_copilot %} in your IDE to g
 
 ### Give {% data variables.product.prodname_copilot_short %} access to Bing
 
-> [!NOTE] Bing search integration into {% data variables.product.prodname_copilot_chat_short %} in {% data variables.product.prodname_dotcom_the_website %}, {% data variables.product.prodname_vscode_shortname %}, and {% data variables.product.prodname_vs %} is currently in beta and is subject to change.
+> [!NOTE] Bing search integration into {% data variables.product.prodname_copilot_chat_dotcom_short %}, {% data variables.product.prodname_vscode_shortname %}, and {% data variables.product.prodname_vs %} is currently in {% data variables.release-phases.public_preview %} and is subject to change.
 
 {% data variables.product.prodname_copilot_chat %} can use Bing to provide enhanced responses by searching the internet for information related to a question. Bing search is particularly helpful when discussing new technologies or highly specific subjects.
+
+### {% data variables.product.prodname_copilot_short %} access to {% data variables.copilot.copilot_claude_sonnet %}
+
+{% data reusables.copilot.claude-sonnet-preview-note %}
+
+By default, {% data variables.product.prodname_copilot_chat_short %} uses the `GPT 4o` model. If you grant access to **Anthropic {% data variables.copilot.copilot_claude_sonnet %} in {% data variables.product.prodname_copilot_short %}**, members of your enterprise can choose to use this model rather than the default `GPT 4o` model. See [AUTOTITLE](/copilot/using-github-copilot/using-claude-sonnet-in-github-copilot).
+
+### {% data variables.product.prodname_copilot_short %} access to the o1 family of models
+
+{% data reusables.models.o1-models-preview-note %}
+
+By default, {% data variables.product.prodname_copilot_chat_short %} uses the `GPT 4o` model. If you grant access to the o1 family of models, members of your enterprise can select to use these models rather than the default `GPT 4o` model.
+
+The o1 family of models includes three models:
+
+* `o1`/`o1-preview`: These models are focused on advanced reasoning and solving complex problems, in particular in math and science. They respond more slowly than the `gpt-4o` model. Each member of your enterprise can make 10 requests to each of these models per day.
+* `o1-mini`: This is the faster version of the `o1` model, balancing the use of complex reasoning with the need for faster responses. It is best suited for code generation and small context operations. Each member of your enterprise can make 50 requests to this model per day.
+
+### {% data variables.product.prodname_copilot_short %} Metrics API access
+
+Enable this policy to allow users to use the {% data variables.product.prodname_copilot_short %} Metrics API. See [AUTOTITLE](/rest/copilot/copilot-metrics).
 
 ## Configuring policies for {% data variables.product.prodname_copilot %}
 

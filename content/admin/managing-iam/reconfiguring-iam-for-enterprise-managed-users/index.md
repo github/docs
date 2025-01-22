@@ -2,7 +2,7 @@
 title: Reconfiguring IAM for Enterprise Managed Users
 shortTitle: Reconfigure IAM for managed users
 product: '{% data reusables.gated-features.emus %}'
-intro: 'If the systems you use for IAM change, you can migrate your users to the new configuration by reconfiguring your managed enterprise on {% data variables.product.prodname_dotcom_the_website %}.'
+intro: 'If the systems you use for IAM change, you can migrate your users to the new configuration by reconfiguring your managed enterprise.'
 versions:
   ghec: '*'
 topics:
@@ -16,4 +16,3 @@ children:
 redirect_from:
   - /admin/identity-and-access-management/reconfiguring-iam-for-enterprise-managed-users
 ---
-

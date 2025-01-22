@@ -8,7 +8,7 @@ redirect_from:
 ---
 
 > [!NOTE]
-> These guidelines are specific to {% data variables.product.company_short %}'s documentation. For general style questions or guidance on topics not covered here, see the [Microsoft Style Guide](https://docs.microsoft.com/style-guide/welcome/). For markup specific to source content on docs.github.com, see "[AUTOTITLE](/contributing/syntax-and-versioning-for-github-docs/using-markdown-and-liquid-in-github-docs)." For any questions about the GitHub brand, see our "[GitHub Brand Guide](https://brand.github.com)."<!-- markdownlint-disable-line search-replace -->
+> These guidelines are specific to {% data variables.product.company_short %}'s documentation. For general style questions or guidance on topics not covered here, see the [Microsoft Style Guide](https://docs.microsoft.com/style-guide/welcome/). For markup specific to source content on docs.github.com, see [AUTOTITLE](/contributing/syntax-and-versioning-for-github-docs/using-markdown-and-liquid-in-github-docs). For any questions about the GitHub brand, see our [GitHub Brand Guide](https://brand.github.com).<!-- markdownlint-disable-line search-replace -->
 
 ## The {% data variables.product.prodname_docs %} approach to style
 
@@ -23,16 +23,16 @@ redirect_from:
 
 We document each of the events that may appear in the audit logs for each type of account: user, organization, and enterprise.
 
-* "[AUTOTITLE](/authentication/keeping-your-account-and-data-secure/security-log-events)"
-* "[AUTOTITLE](/organizations/keeping-your-organization-secure/managing-security-settings-for-your-organization/audit-log-events-for-your-organization)"
-* "[AUTOTITLE]({% ifversion fpt %}/enterprise-cloud@latest{% endif %}/admin/monitoring-activity-in-your-enterprise/reviewing-audit-logs-for-your-enterprise/audit-log-events-for-your-enterprise)" {% ifversion fpt %}in the {% data variables.product.prodname_ghe_cloud %} documentation{% endif %}
+* [AUTOTITLE](/authentication/keeping-your-account-and-data-secure/security-log-events)
+* [AUTOTITLE](/organizations/keeping-your-organization-secure/managing-security-settings-for-your-organization/audit-log-events-for-your-organization)
+* [AUTOTITLE]({% ifversion fpt %}/enterprise-cloud@latest{% endif %}/admin/monitoring-activity-in-your-enterprise/reviewing-audit-logs-for-your-enterprise/audit-log-events-for-your-enterprise) {% ifversion fpt %}in the {% data variables.product.prodname_ghe_cloud %} documentation{% endif %}
 
 When writing the description for an audit log event, describe the event that took place in a way that applies to all versions, using past tense and passive voice. Do not begin the sentence with phrases that are already implied by the context of the article, such as "Triggered by."
 
-* **Use**: The visibility of a repository was changed.
-* **Use**: Secret scanning was enabled for all new repositories.
-* **Avoid**: An organization owner disabled a two-factor authentication requirement for the organization.
-* **Avoid**: Triggered when a user updates which repositories a codespace can access.
+* **Use:** The visibility of a repository was changed.
+* **Use:** Secret scanning was enabled for all new repositories.
+* **Avoid:** An organization owner disabled a two-factor authentication requirement for the organization.
+* **Avoid:** Triggered when a user updates which repositories a codespace can access.
 
 ## Alerts
 
@@ -44,7 +44,7 @@ Alerts should be concise. If the information consists of more than a couple of s
 
 ### Alert types
 
-We use four types of alerts: Note, Tip, Warning, and Caution.
+We use five types of alerts: Note, Tip, Important, Warning, and Caution.
 
 #### Note
 
@@ -52,21 +52,28 @@ Provides additional context that users may need to take into account. Tasks can 
 
 Notes are particularly useful for communicating parenthetical information that is not central to the process being described:
 * Caveats that might affect the outcome of a process, such as specific user settings.
-* Products and features that are subject to changes in availability, such as those in beta or being deprecated.
+* Products and features that are subject to changes in availability, such as those in {% data variables.release-phases.public_preview %} or {% data variables.release-phases.closing_down %}.
 
-For example, "[AUTOTITLE](/code-security/secret-scanning/managing-alerts-from-secret-scanning/evaluating-alerts#reviewing-github-token-metadata)" uses a note to inform users that metadata for {% data variables.product.prodname_dotcom %} tokens is currently in beta.
+For example, [AUTOTITLE](/code-security/secret-scanning/managing-alerts-from-secret-scanning/evaluating-alerts#reviewing-github-token-metadata) uses a note to inform users that metadata for {% data variables.product.prodname_dotcom %} tokens is currently in {% data variables.release-phases.public_preview %}.
 
 > [!NOTE]
-> Metadata for {% data variables.product.prodname_dotcom %} tokens is currently in public beta and subject to change.
+> Metadata for {% data variables.product.prodname_dotcom %} tokens is currently in {% data variables.release-phases.public_preview %} and subject to change.
 
 #### Tip
 
 Recommendations, best practices or product hints. Tips contain non-essential information that users can follow at their discretion. Particularly useful in articles aimed at new users.
 
-For example, "[AUTOTITLE](/account-and-profile/setting-up-and-managing-your-github-profile/customizing-your-profile/personalizing-your-profile)" uses a tip alert to help users understand what to expect when they @mention an organization.
+For example, [AUTOTITLE](/account-and-profile/setting-up-and-managing-your-github-profile/customizing-your-profile/personalizing-your-profile) uses a tip alert to help users understand what to expect when they @mention an organization.
 
 > [!TIP]
 > When you @mention an organization, only those that you're a member of will autocomplete. You can still @mention organizations that you're not a member of, like a previous employer, but the organization name won't autocomplete for you.
+
+#### Important
+
+Highlights key information users need to know to achieve their goal.
+
+> [!IMPORTANT]
+> Runner Scale Sets do not support multiple labels, only the name of the runner can be used in place of a label. See [AUTOTITLE](/actions/hosting-your-own-runners/managing-self-hosted-runners-with-actions-runner-controller/deploying-runner-scale-sets-with-actions-runner-controller).
 
 #### Warning
 
@@ -74,7 +81,7 @@ Highlights potential risks that a user should be aware of before starting or con
 
 Warning alerts are particularly relevant for processes that occur outside the {% data variables.product.prodname_dotcom %} UI, such as in the command line or through an API.
 
-For example, "[AUTOTITLE](/enterprise-cloud@latest/organizations/managing-git-access-to-your-organizations-repositories/about-ssh-certificate-authorities)" includes instructions for the command line, and uses a warning alert to inform users that once issued, certificates cannot be revoked:
+For example, [AUTOTITLE](/enterprise-cloud@latest/organizations/managing-git-access-to-your-organizations-repositories/about-ssh-certificate-authorities) includes instructions for the command line, and uses a warning alert to inform users that once issued, certificates cannot be revoked:
 
 > [!WARNING]
 > After a certificate has been signed and issued, the certificate cannot be revoked. Make sure to use the -V flag to configure a lifetime for the certificate, or the certificate can be used indefinitely.
@@ -121,19 +128,19 @@ Caution:
 
 Liquid syntax for alerts is still supported and may still appear in older articles, but should not be used for new alerts.
 
-For more information on formatting alerts, see “Alerts” in "[AUTOTITLE](/contributing/syntax-and-versioning-for-github-docs/using-markdown-and-liquid-in-github-docs#alerts)."
+For more information on formatting alerts, see “Alerts” in [AUTOTITLE](/contributing/syntax-and-versioning-for-github-docs/using-markdown-and-liquid-in-github-docs#alerts).
 
 ## Buttons
 
-Landing pages and some articles have buttons that take people to relevant content in other articles or on other {% data variables.product.prodname_dotcom %} webpages. Buttons should be used when someone needs to navigate to another page to complete the task being described. For example, "[AUTOTITLE](/enterprise-cloud@latest/admin/overview/setting-up-a-trial-of-github-enterprise-cloud)" has a button that takes people to the trial sign up page since that is the next step in the process of setting up a trial. The "[AUTOTITLE](/migrations)" landing page uses a button to direct people to the article that most people will need to read to start a migration.
+Landing pages and some articles have buttons that take people to relevant content in other articles or on other {% data variables.product.prodname_dotcom %} webpages. Buttons should be used when someone needs to navigate to another page to complete the task being described. For example, [AUTOTITLE](/enterprise-cloud@latest/admin/overview/setting-up-a-trial-of-github-enterprise-cloud) has a button that takes people to the trial sign up page since that is the next step in the process of setting up a trial. The [AUTOTITLE](/migrations) landing page uses a button to direct people to the article that most people will need to read to start a migration.
 
 If a button encourages people to navigate away from the {% data variables.product.prodname_docs %} site, follow the call to action (CTA) button guidelines. If you want to include another type of button on a landing page or article, you must get approval from the {% data variables.product.prodname_docs %} team.
 
 ## Call to action (CTA) buttons
 
-CTA buttons emphasize a link that we expect or encourage people to navigate to after reading an article or as part of completing the task that an article describes. CTAs should only take people to {% data variables.product.company_short %}-owned domains. For example, the "Try {% data variables.product.prodname_copilot %}" CTA in "[AUTOTITLE](/free-pro-team@latest/copilot/using-github-copilot/getting-started-with-github-copilot)" links to the [GitHub Copilot settings menu](https://github.com/settings/copilot) on {% data variables.product.prodname_dotcom_the_website %}.
+CTA buttons emphasize a link that we expect or encourage people to navigate to after reading an article or as part of completing the task that an article describes. CTAs should only take people to {% data variables.product.company_short %}-owned domains. For example, the "Try {% data variables.product.prodname_copilot %}" CTA in [AUTOTITLE](/free-pro-team@latest/copilot/using-github-copilot/getting-started-with-github-copilot) links to the [GitHub Copilot settings menu](https://github.com/settings/copilot) on {% data variables.product.prodname_dotcom_the_website %}.
 
-Only include a CTA button if navigating to the link supports user needs. Do not use CTA buttons solely for marketing GitHub features or products. In the above example, someone who wants to try {% data variables.product.prodname_copilot %} must navigate to the {% data variables.product.prodname_copilot_short %} settings menu and would likely want to after reading the article. In contrast, even though someone might use {% data variables.product.prodname_copilot_short %} as part of writing code that they then create a pull request for, we would not add a "Try {% data variables.product.prodname_copilot %}" CTA to "[AUTOTITLE](/pull-requests/collaborating-with-pull-requests/proposing-changes-to-your-work-with-pull-requests/creating-a-pull-request)" since {% data variables.product.prodname_copilot_short %} is not connected to the user needs of "Creating a pull request." Most people will create pull requests without using {% data variables.product.prodname_copilot_short %}. But people visiting articles about getting started with {% data variables.product.prodname_copilot_short %} are probably interested in trying {% data variables.product.prodname_copilot_short %} if they are not already using it. So we add the CTA button to help people get where they are trying to go.
+Only include a CTA button if navigating to the link supports user needs. Do not use CTA buttons solely for marketing GitHub features or products. In the above example, someone who wants to try {% data variables.product.prodname_copilot %} must navigate to the {% data variables.product.prodname_copilot_short %} settings menu and would likely want to after reading the article. In contrast, even though someone might use {% data variables.product.prodname_copilot_short %} as part of writing code that they then create a pull request for, we would not add a "Try {% data variables.product.prodname_copilot %}" CTA to [AUTOTITLE](/pull-requests/collaborating-with-pull-requests/proposing-changes-to-your-work-with-pull-requests/creating-a-pull-request) since {% data variables.product.prodname_copilot_short %} is not connected to the user needs of "Creating a pull request." Most people will create pull requests without using {% data variables.product.prodname_copilot_short %}. But people visiting articles about getting started with {% data variables.product.prodname_copilot_short %} are probably interested in trying {% data variables.product.prodname_copilot_short %} if they are not already using it. So we add the CTA button to help people get where they are trying to go.
 
 Style your CTAs using the following format.
 
@@ -150,10 +157,10 @@ Replace the placeholders with the relevant information for your CTA.
 
 ### Code blocks
 
-Keep lines in code samples to about 60 characters, to avoid requiring readers to scroll horizontally in the code block. Locate explanatory text before the code block, rather than using comments inside the code block. See "[AUTOTITLE](/contributing/syntax-and-versioning-for-github-docs/using-markdown-and-liquid-in-github-docs#code-sample-syntax-highlighting)" for more information on the syntax and formatting of code blocks.
+Keep lines in code samples to about 60 characters, to avoid requiring readers to scroll horizontally in the code block. Locate explanatory text before the code block, rather than using comments inside the code block. See [AUTOTITLE](/contributing/syntax-and-versioning-for-github-docs/using-markdown-and-liquid-in-github-docs#code-sample-syntax-highlighting) for more information on the syntax and formatting of code blocks.
 
 Within code blocks:
-* Specify the language of the sample after the first code fence. For a list of all supported languages, see "[Code languages](https://github.com/github/docs/blob/main/data/code-languages.yml)" in the [`github/docs`](https://github.com/github/docs) repository.
+* Specify the language of the sample after the first code fence. For a list of all supported languages, see [Code languages](https://github.com/github/docs/blob/main/data/code-languages.yml) in the [`github/docs`](https://github.com/github/docs) repository.
 * Do not use HTML to style or markup a code block.
 * Style any placeholders that people need to replace with their own values in all caps.
   * **Use:** `git checkout -b BRANCH-NAME`
@@ -175,13 +182,13 @@ Within code blocks:
     ```
 
 * If your code example includes `{` or `}` that should render, wrap that section in <code>&#123;% raw %&#125;</code> <code>&#123;% endraw %&#125;</code> to disable Liquid processing for that section.
-  * **Use**:
+  * **Use:**
 
     <pre>
     GITHUB_TOKEN: &#123;% raw %&#125;$&#123;&#123; secrets.GITHUB_TOKEN &#125;&#125;&#123;% endraw %&#125;
     </pre>
 
-  * **Avoid**:
+  * **Avoid:**
 
     <pre>
     GITHUB_TOKEN: $&#123;&#123; secrets.GITHUB_TOKEN &#125;&#125;
@@ -277,17 +284,21 @@ Workflow runs are delayed when too many workflows run at once. Since many users 
 
 ## Emphasis
 
-Use italics to emphasize words or parts of a sentence. Use emphasis sparingly for terminology or context that someone must be aware of to successfully complete the task that they're working on. Do not use italics to emphasize words that have other formatting applied such as all caps for placeholder text or bold for UI elements.
+Use bold to emphasize words or parts of a sentence. Use emphasis sparingly (no more than five contiguous words), and remember that it is a visual aid for scannability for sighted users.
 
-* **Use:** _{% data variables.product.pat_v2 %}s_ have several security advantages over {% data variables.product.pat_v1_plural %}.
-* **Use:** _For types of packages other than containers_, to the right of the package version click **Delete**.
+* Do not bold words that have other formatting applied, such as all caps for placeholder text.
+* For accessibility, do not use bolding as the only way to convey meaning or emphasis.
+
+For example:
+
+* **Use:** Managed user accounts **cannot create public content** or collaborate outside your enterprise.
 * **Avoid:** Next to _**Title**_, add a descriptive label for your new key.
 
 ## Error messages
 
 When you include the text of an error message from a {% data variables.product.company_short %} product or interface in an article, format the text according to the interface where the message appears.
 
-* If the message appears in {% data variables.product.prodname_dotcom %}'s web interface, or in a graphical client app like {% data variables.product.prodname_desktop %} or {% data variables.product.prodname_mobile %}, treat the message like other text in the UI. For more information, see "[User interface text](#user-interface-text)."
+* If the message appears in {% data variables.product.prodname_dotcom %}'s web interface, or in a graphical client app like {% data variables.product.prodname_desktop %} or {% data variables.product.prodname_mobile %}, treat the message like other text in the UI. For more information, see [User interface text](#user-interface-text).
 
 * If the message appears in a command-line interface, log output, or a response from an API, reproduce the text exactly and use backticks to format the message using a monospaced font.
 
@@ -295,7 +306,7 @@ When you include the text of an error message from a {% data variables.product.c
 
 In general, do not document content that will expire. Anyone who visits {% data variables.product.prodname_docs %} should be confident that the information is accurate and up to date.
 
-If you must document content that you know will expire, you can use the content linter to tag and track the content's expiration date. This will flag the content as outdated and avoids tracking expiration dates outside of the content itself. See "[AUTOTITLE](/contributing/collaborating-on-github-docs/using-the-content-linter#syntax-for-expiring-and-expired-content)" for information on how to format expiring content tags.
+If you must document content that you know will expire, you can use the content linter to tag and track the content's expiration date. This will flag the content as outdated and avoids tracking expiration dates outside of the content itself. See [AUTOTITLE](/contributing/collaborating-on-github-docs/using-the-content-linter#syntax-for-expiring-and-expired-content) for information on how to format expiring content tags.
 
 ## Footnotes
 
@@ -328,19 +339,22 @@ Note that regardless of the identifier you use (letters, words), footnotes will 
 
 ## Headers
 
-Headers must adequately describe the content under them. Headers can either follow the guidelines for writing titles or can be written as questions. Use sentence casing for headers. Each header on a page must be unique.
+Headers must adequately describe the content under them. Headers can either follow the [guidelines for writing titles](/contributing/style-guide-and-content-model/contents-of-a-github-docs-article#titles) or can be written as questions. Use sentence casing for headers.
 
 If an article has headers, the headers must start with an H2 level header. You can use H3 and H4 level headers to further organize content into related groups, but you cannot skip header levels. There must be text content between a header and subheader, such as an introduction.
 * **Use:**
 
   ```markdown
   ## HEADER (H2)
+
   TEXT
 
   ### SUBHEADER (H3)
+
   TEXT
 
   #### SUBHEADER (H4)
+
   TEXT
   ```
 
@@ -352,10 +366,59 @@ If an article has headers, the headers must start with an H2 level header. You c
   #### SUBHEADER (H4)
   ```
 
-When referring to headers, surround the header name with quotation marks.
-* **Use:** Under "User licenses," view your total licenses.
+Each header at the same level on a page must be unique.
 
-For more information, see the "[AUTOTITLE](/contributing/style-guide-and-content-model/contents-of-a-github-docs-article)."
+* **Use:**
+
+  ```markdown
+  ## Examples  (H2)
+
+  TEXT
+
+  ### Prompts for writing code (H3)
+
+  TEXT
+
+  ### Prompts for writing tests (H3)
+
+  TEXT
+  ```
+
+* **Use:**
+
+  ```markdown
+  ## Prompts for writing code (H2)
+
+  TEXT
+
+  ### Example (H3)
+
+  TEXT
+
+  ## Prompts for writing tests (H2)
+
+  TEXT
+
+  ### Example (H3)
+
+  TEXT
+  ```
+
+* **Avoid:**
+
+  ```markdown
+  ## Example prompts (H2)
+
+  TEXT
+
+  ### Example (H3)
+
+  TEXT
+
+  ### Example (H3)
+
+  TEXT
+  ```
 
 ## Images
 
@@ -415,7 +478,7 @@ For example, see [accompanying explanation of this diagram in the Actions docume
 
 #### Alt text for images of command-line interfaces
 
-Do not use screenshots of command-line interfaces to convey commands and their output. Instead, directly provide the commands a user should use. For more information, see the "[Commands](#commands)" section of the style guide.
+Do not use screenshots of command-line interfaces to convey commands and their output. Instead, directly provide the commands a user should use. For more information, see the [Commands](#commands) section of the style guide.
 
 When using a screenshot of a command-line interface to show user interface elements, follow standard alt text guidelines for screenshots.
 
@@ -428,11 +491,11 @@ Be descriptive when naming image files: include the name, action, and UI element
 
 ### Screenshots
 
-To learn about creating and versioning images, see "[Creating and updating screenshots](/contributing/writing-for-github-docs/creating-screenshots)."
+To learn about creating and versioning images, see [Creating and updating screenshots](/contributing/writing-for-github-docs/creating-screenshots).
 
 ### Diagrams
 
-To learn about creating diagrams, see "[AUTOTITLE](/contributing/writing-for-github-docs/creating-diagrams-for-github-docs)."
+To learn about creating diagrams, see [AUTOTITLE](/contributing/writing-for-github-docs/creating-diagrams-for-github-docs).
 
 ## Inclusive language
 
@@ -485,7 +548,7 @@ Below are some usage highlights for how we present keyboard shortcuts in our doc
 * The basic syntax is to show keys with `+` between key combinations, without any spaces.
 
   * **Use:** `<kbd>Command</kbd>+<kbd>B</kbd>`, which is rendered as <kbd>Command</kbd>+<kbd>B</kbd>.
-  * **Avoid:** `<kbd>Command</kbd> + <kbd>B</kbd>` or `<kbd>Command + B</kbd>` which are  rendered as <kbd>Command</kbd> + <kbd>B</kbd> or <kbd>Command + B</kbd>.
+  * **Avoid:** `<kbd>Command</kbd> + <kbd>B</kbd>` or `<kbd>Command + B</kbd>` which are rendered as <kbd>Command</kbd> + <kbd>B</kbd> or <kbd>Command + B</kbd>.
 * Always capitalize letter keys for general references and keyboard shortcuts.
 
   * **Use:** <kbd>Command</kbd>+<kbd>B</kbd>
@@ -586,21 +649,23 @@ You can introduce links with just the verb "see" if the context makes it clear w
 
 Use the title of the documentation article, or external web page, as the link text. For any link that points to another article on the {% data variables.product.prodname_docs %} site, use the special keyword `AUTOTITLE` for the link text. See details in the [content markup reference](https://github.com/github/docs/blob/main/contributing/content-markup-reference.md#internal-links-with-autotitle).
 
-* For links to other pages: `See "[AUTOTITLE](/PATH/TO/PAGE)."`
-* For links to sections in other pages: `For more information, see "[AUTOTITLE](/PATH/TO/PAGE#SECTION-LINK)."`
+Do not apply any styling to links or wrap them in quotation marks.
+
+* For links to other pages: `See [AUTOTITLE](/PATH/TO/PAGE).`
+* For links to sections in other pages: `For more information, see [AUTOTITLE](/PATH/TO/PAGE#SECTION-LINK).`
 
 Do not use inline links, where words within the sentence are hyperlinked without any additional words to indicate that the sentence contains a link. This can be difficult to translate and read.
 
-Do not include quotation marks within a hyperlink.
+Do not include punctuation marks within a hyperlink.
 
-* **Use:** `OAuth2 tokens can be acquired programmatically for applications that are not websites. For more information, see "[AUTOTITLE](/apps/creating-github-apps/authenticating-with-a-github-app/generating-a-user-access-token-for-a-github-app)" and "[AUTOTITLE](/apps/oauth-apps/building-oauth-apps/authorizing-oauth-apps)."`
+* **Use:** `OAuth2 tokens can be acquired programmatically for applications that are not websites. For more information, see [AUTOTITLE](/apps/creating-github-apps/authenticating-with-a-github-app/generating-a-user-access-token-for-a-github-app) and [AUTOTITLE](/apps/oauth-apps/building-oauth-apps/authorizing-oauth-apps).`
 * **Avoid:** `Read [more about OAuth2](/apps/building-integrations/setting-up-and-registering-oauth-apps/). Note that OAuth2 tokens can be [acquired programmatically](/enterprise-server@2.22/rest/reference/oauth-authorizations/#create-a-new-authorization), for applications that are not websites.`
 
 ### Links between versions
 
 Sometimes, you need to link from one version of {% data variables.product.prodname_docs %} to another. When you want to link to a different version of the _same_ page, you should use the `currentArticle` property.
 
-For example, the Free, Pro, & Team version of "[AUTOTITLE](/organizations/managing-organization-settings/managing-the-publication-of-github-pages-sites-for-your-organization)" might link to the {% data variables.product.prodname_ghe_cloud %} version of the same article like this:
+For example, the Free, Pro, & Team version of [AUTOTITLE](/organizations/managing-organization-settings/managing-the-publication-of-github-pages-sites-for-your-organization) might link to the {% data variables.product.prodname_ghe_cloud %} version of the same article like this:
 
 ```text
 You can choose to allow or disallow the publication of GitHub Pages sites.
@@ -611,7 +676,7 @@ You can choose to allow or disallow the publication of GitHub Pages sites.
 To link to a different article in a different version, use this format:
 
 ```markdown
-For more information, see "[ARTICLE TITLE](/)" in the VERSION documentation.
+For more information, see [ARTICLE TITLE](/) in the VERSION documentation.
 ```
 
 To link to the same article in a different version, use this format:
@@ -629,7 +694,7 @@ Links to specific sections of articles must be descriptive enough that someone u
 To link to a specific header in the same article, use this format:
 
 ```markdown
-For more information, see "[HEADER TITLE](#HEADER-TITLE)," later in this article.
+For more information, see [HEADER TITLE](#HEADER-TITLE), later in this article.
 ```
 
 Same-page section links do **not** work with `AUTOTITLE`. Instead, you must type out the full header text.
@@ -637,13 +702,13 @@ Same-page section links do **not** work with `AUTOTITLE`. Instead, you must type
 To link to a specific header in a different article, use this format:
 
 ```markdown
-For more information, see "[AUTOTITLE](PATH-TO-ARTICLE#HEADER-TITLE)."
+For more information, see [AUTOTITLE](PATH-TO-ARTICLE#HEADER-TITLE).
 ```
 
 To link to two or more specific headers in a different article, use this format:
 
 ```markdown
-For more information, see "[HEADER-TITLE-1](PATH-TO-ARTICLE#SECTION-LINK-1)" and "[HEADER-TITLE-2](PATH-TO-ARTICLE#SECTION-LINK-2)" in "ARTICLE-TITLE."
+For more information, see [HEADER-TITLE-1](PATH-TO-ARTICLE#SECTION-LINK-1) and [HEADER-TITLE-2](PATH-TO-ARTICLE#SECTION-LINK-2) in "ARTICLE-TITLE."
 ```
 
 ### Links to a specific tool
@@ -651,7 +716,7 @@ For more information, see "[HEADER-TITLE-1](PATH-TO-ARTICLE#SECTION-LINK-1)" and
 If you link to content with a specific tool selected, make sure that it is clear that the link will be for a specific tool even if someone doesn't interact with the tool switcher tab in the article.
 
 ```markdown
-For more information, see the TOOLNAME documentation in "[ARTICLE TITLE](/PATH/TO/ARTICLE?tool=TOOLNAME)."
+For more information, see the TOOLNAME documentation in [ARTICLE TITLE](/PATH/TO/ARTICLE?tool=TOOLNAME).
 ```
 
 ### Links to learning paths
@@ -659,7 +724,7 @@ For more information, see the TOOLNAME documentation in "[ARTICLE TITLE](/PATH/T
 Use this format to link to a learning path.
 
 ```markdown
-For more information, follow the "[LEARNING PATH TITLE](/)" learning path.
+For more information, follow the [LEARNING PATH TITLE](/) learning path.
 ```
 
 ### Links to external resources
@@ -725,7 +790,7 @@ Together, permission statements and product callouts tell readers who can use th
 
 Consider what information belongs in a permission statement or a product callout.
 
-For example, when creating permissions and product callouts for the article "[AUTOTITLE](/free-pro-team@latest/copilot/managing-copilot/managing-github-copilot-in-your-organization/managing-github-copilot-features-in-your-organization/managing-policies-for-copilot-in-your-organization)," the permission statement would answer "What role can manage policies and features for {% data variables.product.prodname_copilot %} in an organization?" And the product callout would answer "What {% data variables.product.prodname_copilot_short %} subscriptions do users need to manage {% data variables.product.prodname_copilot_short %} policies and features for an organization?"
+For example, when creating permissions and product callouts for the article [AUTOTITLE](/free-pro-team@latest/copilot/managing-copilot/managing-github-copilot-in-your-organization/managing-github-copilot-features-in-your-organization/managing-policies-for-copilot-in-your-organization), the permission statement would answer "What role can manage policies and features for {% data variables.product.prodname_copilot %} in an organization?" And the product callout would answer "What {% data variables.product.prodname_copilot_short %} subscriptions do users need to manage {% data variables.product.prodname_copilot_short %} policies and features for an organization?"
 
 #### Focus on key information, not explanations
 
@@ -830,7 +895,7 @@ Code examples that use third-party actions must include the following disclaimer
 # documentation.
 ```
 
-To insert this disclaimer, use the `{% raw %}{% data reusables.actions.actions-not-certified-by-github-comment %}{% endnote %}{% endraw %}` reusable.
+To insert this disclaimer, use the `{% raw %}{% data reusables.actions.actions-not-certified-by-github-comment %}{% endraw %}` reusable.
 
 For {% data variables.product.prodname_docs %} purposes, a third-party action is any action that doesn't have the `actions/`, `github/` or `octo-org/` prefix. For example, this is a first-party action:
 
@@ -847,7 +912,7 @@ steps:
 ```
 
 Examples:
-* See the code block in "[Publishing to package registries](/actions/guides/building-and-testing-python#publishing-to-package-registries)"
+* See the code block in [Publishing to package registries](/actions/guides/building-and-testing-python#publishing-to-package-registries)
 
 #### Pinning version numbers to SHA
 
@@ -865,7 +930,7 @@ steps:
   - uses: actions/javascript-action@main
 ```
 
-For more information, see "[Using SHAs](/actions/learn-github-actions/finding-and-customizing-actions#using-shas)"
+For more information, see [Using SHAs](/actions/learn-github-actions/finding-and-customizing-actions#using-shas)
 
 ### {% data variables.product.prodname_codespaces %}
 
@@ -900,7 +965,7 @@ You should use variables to refer to these types of tokens, as well as to {% dat
 * Use `{% raw %}{% data variables.product.pat_v2 %}{% endraw %}` or `{% raw %}{% data variables.product.pat_v2_caps %}{% endraw %}` to refer to {% data variables.product.pat_v2 %}s.
 * Use `{% raw %}{% data variables.product.pat_v1 %}{% endraw %}`, `{% raw %}{% data variables.product.pat_v1_plural %}{% endraw %}`, `{% raw %}{% data variables.product.pat_v1_caps %}{% endraw %}`, or `{% raw %}{% data variables.product.pat_v1_caps_plural %}{% endraw %}` to refer to {% data variables.product.pat_v1 %}.
 
-For more information about {% data variables.product.prodname_dotcom %}'s {% data variables.product.pat_generic_plural %}, see "[AUTOTITLE](/authentication/keeping-your-account-and-data-secure/creating-a-personal-access-token#about-personal-access-tokens)."
+For more information about {% data variables.product.prodname_dotcom %}'s {% data variables.product.pat_generic_plural %}, see [AUTOTITLE](/authentication/keeping-your-account-and-data-secure/creating-a-personal-access-token#about-personal-access-tokens).
 
 ## Punctuation
 
@@ -919,10 +984,15 @@ Each release note in a set describes one of the following changes.
 * [Bug fixes](#bug-fixes): fixes to flaws or unexpected behavior
 * [Changes](#changes): notable changes to past behavior
 * [Known issues](#known-issues): issues that {% data variables.product.company_short %} has identified, but cannot or has not yet prioritized
+{%- ifversion ghes < 3.16 %}
 * [Deprecations](#deprecations): removal of a feature or behavior
+{%- else %}
+* [Closing down](#closing-down): the process of being retired and should no longer be relied upon for future work
+* [Retired](#retired): end of a product or feature lifecycle
+{%- endif %}
 * [Errata](#errata): correction to inaccurate release note or documentation
 
-You can also review guidelines for updating release notes in "[Adding or updating a release note](#adding-or-updating-a-release-note)" and "[Removing a release note](#removing-a-release-note)."
+You can also review guidelines for updating release notes in [Adding or updating a release note](#adding-or-updating-a-release-note) and [Removing a release note](#removing-a-release-note).
 
 ### Features
 
@@ -937,7 +1007,7 @@ A release note for a feature answers the following questions.
 1. What is the functionality?
 1. If applicable, where can I read more about the functionality?
 
-> _AUDIENCE_ (**1**) can _DESCRIPTION OF NEED_ (**2**) by _DESCRIPTION OF FEATURE'S USE_ (**3**). For more information, see "[_ARTICLE TITLE_](/)" (**4**).
+> _AUDIENCE_ (**1**) can _DESCRIPTION OF NEED_ (**2**) by _DESCRIPTION OF FEATURE'S USE_ (**3**). For more information, see [_ARTICLE TITLE_](/) (**4**)
 
 * Categorize each feature in a section, under a feature heading.
 * Write in the present tense.
@@ -946,11 +1016,11 @@ A release note for a feature answers the following questions.
 
 #### Examples of feature release notes
 
-* > Site administrators can increase the security of the Management Console by configuring the rate limit for sign-in attempts, as well as the lockout duration after exceeding the rate limit. For more information, see "[Configuring rate limits](/enterprise-server@3.7/admin/configuration/configuring-your-enterprise/configuring-rate-limits#configuring-rate-limits-for-authentication-to-the-management-console)."
+* > Site administrators can increase the security of the Management Console by configuring the rate limit for sign-in attempts, as well as the lockout duration after exceeding the rate limit. For more information, see [Configuring rate limits](/enterprise-server@3.7/admin/configuration/configuring-your-enterprise/configuring-rate-limits#configuring-rate-limits-for-authentication-to-the-management-console).
 
-* > Enterprise owners can control where users can fork repositories. Forking can be limited to preset combinations of organizations, the same organization as the parent repository, user accounts, or everywhere. For more information, see "[Enforcing repository management policies in your enterprise](/enterprise-server@3.7/admin/policies/enforcing-policies-for-your-enterprise/enforcing-repository-management-policies-in-your-enterprise#enforcing-a-policy-for-forking-private-or-internal-repositories)."
+* > Enterprise owners can control where users can fork repositories. Forking can be limited to preset combinations of organizations, the same organization as the parent repository, user accounts, or everywhere. For more information, see [Enforcing repository management policies in your enterprise](/enterprise-server@3.7/admin/policies/enforcing-policies-for-your-enterprise/enforcing-repository-management-policies-in-your-enterprise#enforcing-a-policy-for-forking-private-or-internal-repositories).
 
-* > Users can create files with geoJSON, topoJSON, and STL diagrams and render the diagrams in the web interface. For more information, see "[Working with non-code files](/enterprise-server@3.7/repositories/working-with-files/using-files/working-with-non-code-files)."
+* > Users can create files with geoJSON, topoJSON, and STL diagrams and render the diagrams in the web interface. For more information, see [Working with non-code files](/enterprise-server@3.7/repositories/working-with-files/using-files/working-with-non-code-files).
 
 ### Security fixes
 
@@ -970,9 +1040,9 @@ A release note for a security fix answers the following questions.
 
 #### Examples of release notes for security fixes
 
-* > **MEDIUM**: An attacker could cause unbounded resource exhaustion on the instance by making parallel requests to the Markdown REST API. To mitigate this issue, {% data variables.product.company_short %} has updated [CommonMarker](https://github.com/gjtorikian/commonmarker). {% data variables.product.company_short %} has requested CVE ID [CVE-2022-39209](https://nvd.nist.gov/vuln/detail/CVE-2022-39209) for this vulnerability.
+* > **MEDIUM:** An attacker could cause unbounded resource exhaustion on the instance by making parallel requests to the Markdown REST API. To mitigate this issue, {% data variables.product.company_short %} has updated [CommonMarker](https://github.com/gjtorikian/commonmarker). {% data variables.product.company_short %} has requested CVE ID [CVE-2022-39209](https://nvd.nist.gov/vuln/detail/CVE-2022-39209) for this vulnerability.
 
-* > **MEDIUM**: An attacker could embed dangerous links in the instance's web UI because pull request preview links did not properly sanitize URLs. This vulnerability was reported via the [{% data variables.product.company_short %} Bug Bounty program](https://bounty.github.com).
+* > **MEDIUM:** An attacker could embed dangerous links in the instance's web UI because pull request preview links did not properly sanitize URLs. This vulnerability was reported via the [{% data variables.product.company_short %} Bug Bounty program](https://bounty.github.com).
 
 #### Base image and package updates
 
@@ -997,7 +1067,7 @@ A release note for a bug fix answers the following questions.
 * Language like "fixed a bug…" or "fixed an issue…" is implied and unnecessary.
 * To reduce repetition and unnecessary words, "now" is usually implied.
 * To clarify actors and impact, avoid passive language when possible.
-* If the release note includes an error message, format the message according to the guidance in "[Error messages](#error-messages)."
+* If the release note includes an error message, format the message according to the guidance in [Error messages](#error-messages).
 
 #### Examples of release notes for bug fixes
 
@@ -1032,7 +1102,7 @@ A release note for a change answers the following questions.
 
 * > On an instance with a {% data variables.product.prodname_GH_advanced_security %} license, users who author custom patterns for secret scanning can provide expressions that must or must not match that are up to 2,000 characters. This limit is an increase from 1,000 characters.
 
-* > For administrators who need to review or modify SAML mappings, the default path for output from `ghe-saml-mapping-csv -d` is `/data/user/tmp` instead of `/tmp`. For more information, see "[Command-line utilities](/enterprise-server@3.8/admin/configuration/configuring-your-enterprise/command-line-utilities#ghe-saml-mapping-csv)."
+* > For administrators who need to review or modify SAML mappings, the default path for output from `ghe-saml-mapping-csv -d` is `/data/user/tmp` instead of `/tmp`. For more information, see [Command-line utilities](/enterprise-server@3.8/admin/configuration/configuring-your-enterprise/command-line-utilities#ghe-saml-mapping-csv).
 
 * > To avoid intermittent issues with the success of Git operations on an instance with multiple nodes, {% data variables.product.prodname_ghe_server %} checks the status of the MySQL container before attempting a SQL query. The timeout duration has also been reduced.
 
@@ -1052,15 +1122,17 @@ A release note for a known issue answers the following questions.
 
 * To clarify actors and impact, avoid passive language when possible.
 * To reduce repetition and unnecessary words, "now" is usually implied.
-* If the release note includes an error message, format the message according to the guidance in "[Error messages](#error-messages)."
+* If the release note includes an error message, format the message according to the guidance in [Error messages](#error-messages).
 * If useful, include relevant links to GitHub Docs.
-* Known issues are also a type of content on GitHub Docs. For more information, see "[AUTOTITLE](/contributing/style-guide-and-content-model/troubleshooting-content-type#known-issues)." If useful, write or link to more in-depth and contextually relevant content in the docs.
+* Known issues are also a type of content on GitHub Docs. For more information, see [AUTOTITLE](/contributing/style-guide-and-content-model/troubleshooting-content-type#known-issues). If useful, write or link to more in-depth and contextually relevant content in the docs.
 
 #### Examples of release notes for known issues
 
 * > After a user enables the option for a repository to allow users with read access to create discussions, the feature is not enabled.
 
 * > After an administrator begins a configuration run, a `No such object error` may occur during the validation phase for the Notebook and Viewscreen services. This error can be ignored as the services should still correctly start.
+
+{% ifversion ghes < 3.16 %}
 
 ### Deprecations
 
@@ -1075,7 +1147,7 @@ A release note for a deprecation answers the following questions.
 1. If applicable, what replaces the deprecated functionality?
 1. If applicable, where can I read more?
 
-> _AUDIENCE_ (**1**) _DESCRIPTION OF DEPRECATED FUNCTIONALITY_ (**2**) _REPLACEMENT FUNCTIONALITY_ (**3**) For more information, see "[_ARTICLE TITLE_](/)" (**4**).
+> _AUDIENCE_ (**1**) _DESCRIPTION OF DEPRECATED FUNCTIONALITY_ (**2**) _REPLACEMENT FUNCTIONALITY_ (**3**) For more information, see [_ARTICLE TITLE_](/) (**4**).
 
 * Notes are in the present tense, or the future tense for upcoming changes. If applicable, specify the upcoming release where the deprecation will occur.
 * To reduce repetition and unnecessary words, "now" is usually implied.
@@ -1084,9 +1156,63 @@ A release note for a deprecation answers the following questions.
 
 #### Examples of release notes for deprecations
 
-* > **Upcoming deprecation**: In {% data variables.product.prodname_ghe_server %} 3.8 and later, to ensure instance security, unsecure algorithms will be disabled for SSH connections to the administrative shell.
+* > **Upcoming deprecation:** In {% data variables.product.prodname_ghe_server %} 3.8 and later, to ensure instance security, unsecure algorithms will be disabled for SSH connections to the administrative shell.
 
 * > Commit comments, which are comments that users add directly to a commit outside of a pull request, no longer appear in the pull request timeline. Users could not reply to or resolve these comments. The Timeline events REST API and the GraphQL API's `PullRequest` object also no longer return commit comments.
+
+{% else %}
+
+### Closing down
+
+A release note for a feature that is closing down summarizes a behavior or feature that {% data variables.product.github %} plans to remove. These features are still available for production use and come with the associated support SLAs and technical support obligations. However, they are in the process of being retired and should no longer be relied upon for future work. Closing down is a transitional stage where users are advised to stop using the feature and prepare for its retirement.
+
+#### Writing release notes features that are closing down
+
+A release note for a feature that is closing down answers the following questions.
+
+1. Does this existing functionality apply to me, with my role or access?
+1. What is the functionality that's closing down?
+1. If applicable, what replaces the closing down functionality?
+1. If applicable, where can I read more?
+
+> _AUDIENCE_ (**1**) _DESCRIPTION OF CLOSING DOWN FUNCTIONALITY_ (**2**) _REPLACEMENT FUNCTIONALITY_ (**3**) For more information, see [_ARTICLE TITLE_](/) (**4**).
+
+* Notes are in the present tense, or the future tense for upcoming changes. If applicable, specify the upcoming release when the retirement will occur.
+* To reduce repetition and unnecessary words, "now" is usually implied.
+* To clarify actors and impact, avoid passive language when possible.
+* Categorize each feature in a section, under a feature heading.
+
+#### Examples of release notes for features that are closing down
+
+* > **Closing down:** In {% data variables.product.prodname_ghe_server %} 3.8 and later, to ensure instance security, unsecure algorithms will be disabled for SSH connections to the administrative shell.
+
+* > Commit comments, which are comments that users add directly to a commit outside of a pull request, no longer appear in the pull request timeline. Users could not reply to or resolve these comments. The Timeline events REST API and the GraphQL API's `PullRequest` object also no longer return commit comments.
+
+### Retired
+
+Retired products or features are no longer available for new customers, marketed, supported, or documented. At this stage, the product is effectively discontinued, and no new development or fixes will be provided. The only support for retired products may come from existing commitments, such as those required for previously released versions of {% data variables.product.prodname_ghe_server %}. Retiring marks the official end of a product or feature's lifecycle, with no further updates, bug fixes, or user support, signaling a complete transition to newer tools or services.
+
+#### Writing release notes for retired features
+
+A release note for a retired feature answers the following questions.
+
+1. Does this functionality apply to me, with my role or access?
+1. What is the functionality that's retired?
+1. If applicable, what replaces the retired functionality?
+1. If applicable, where can I read more?
+
+> _AUDIENCE_ (**1**) _DESCRIPTION OF RETIRED FUNCTIONALITY_ (**2**) _REPLACEMENT FUNCTIONALITY_ (**3**) For more information, see [_ARTICLE TITLE_](/) (**4**)
+
+* Notes are in the present tense.
+* To reduce repetition and unnecessary words, "now" is usually implied.
+* To clarify actors and impact, avoid passive language when possible.
+* Categorize each feature in a section, under a feature heading.
+
+#### Examples of release notes for retired features
+
+* > **Retired:** {% data variables.product.github %} no longer supports required workflows for {% data variables.product.prodname_actions %} in {% data variables.product.prodname_ghe_server %} 3.11 and later. Use repository rulesets instead. For more information, see [AUTOTITLE](/repositories/configuring-branches-and-merges-in-your-repository/managing-rulesets/available-rules-for-rulesets#require-workflows-to-pass-before-merging).
+
+{% endif %}
 
 ### Errata
 
@@ -1107,7 +1233,7 @@ Errata answers the following questions.
 
 #### Example of errata
 
-* > "[Features](/)" incorrectly indicated that users of the {% data variables.product.prodname_advisory_database %} can see advisories for Elixir, Erlang's Hex package manager, and more. This feature is unavailable in GitHub Enterprise Server 3.7, and will be available in a future release. [Updated 2023-06-01]
+* > [Features](/) incorrectly indicated that users of the {% data variables.product.prodname_advisory_database %} can see advisories for Elixir, Erlang's Hex package manager, and more. This feature is unavailable in GitHub Enterprise Server 3.7, and will be available in a future release. [Updated 2023-06-01]
 
 ### Adding or updating a release note
 
@@ -1115,17 +1241,17 @@ To signal to readers that you've added or changed a note, or to indicate the pub
 
 ### Removing a release note
 
-To signal that we have removed a release note, add an "Errata" section detailing which note you removed and (if relevant) which version the removed note actually pertains to. See "[Writing errata](#writing-errata)."
+To signal that we have removed a release note, add an "Errata" section detailing which note you removed and (if relevant) which version the removed note actually pertains to. See [Writing errata](#writing-errata).
 
 ## Reusables and variables
 
-Use reusable strings for individual nouns (e.g. product names) or for complete sentences or paragraphs. Sentence fragments and phrases should not be contained in reusable strings as they can cause problems when content is localized. For more information, see the [data directory](https://github.com/github/docs/tree/main/data) in the [`github/docs`](https://github.com/github/docs) repository, "[Creating reusable content](/contributing/writing-for-github-docs/creating-reusable-content)", and the “[Product names](#product-names)” section of this document.
+Use reusable strings for individual nouns (e.g. product names) or for complete sentences or paragraphs. Sentence fragments and phrases should not be contained in reusable strings as they can cause problems when content is localized. For more information, see the [data directory](https://github.com/github/docs/tree/main/data) in the [`github/docs`](https://github.com/github/docs) repository, [Creating reusable content](/contributing/writing-for-github-docs/creating-reusable-content), and the [Product names](#product-names) section of this document.
 
 ## Sectional TOCs
 
-If a section of an article uses `H3` or `H4` headers to further divide the content and only some of the content is relevant to a reader, you can use a sectional table of contents (TOC) to help readers identify and navigate to the information that is most relevant to them. For example, in "[AUTOTITLE](/enterprise-cloud@latest/admin/monitoring-activity-in-your-enterprise/reviewing-audit-logs-for-your-enterprise/streaming-the-audit-log-for-your-enterprise#setting-up-streaming-to-amazon-s3)" people will probably only set up audit log streaming for one provider, so the sectional TOC in "Setting up audit log streaming" allows people to select their provider and navigate to the relevant content without reading the entire section.
+If a section of an article uses `H3` or `H4` headers to further divide the content and only some of the content is relevant to a reader, you can use a sectional table of contents (TOC) to help readers identify and navigate to the information that is most relevant to them. For example, in [AUTOTITLE](/enterprise-cloud@latest/admin/monitoring-activity-in-your-enterprise/reviewing-audit-logs-for-your-enterprise/streaming-the-audit-log-for-your-enterprise#setting-up-streaming-to-amazon-s3) people will probably only set up audit log streaming for one provider, so the sectional TOC in "Setting up audit log streaming" allows people to select their provider and navigate to the relevant content without reading the entire section.
 
-Do not add a sectional TOC if `H3` or `H4` headers are used only to group content and all information could be of relevance to a reader. For example, in "[AUTOTITLE](/enterprise-cloud@latest/admin/identity-and-access-management/managing-iam-for-your-enterprise/about-authentication-for-your-enterprise#identifying-the-best-authentication-method-for-your-enterprise)," people should read and consider each section as it relates to their enterprise. We do not include a sectional TOC in this article because people should be reading through each section, not picking and choosing between them. Adding a sectional TOC would also force people who use screenreaders or other adaptive technology to tab and scroll through more headers before finding what they need.
+Do not add a sectional TOC if `H3` or `H4` headers are used only to group content and all information could be of relevance to a reader. For example, in [AUTOTITLE](/enterprise-cloud@latest/admin/identity-and-access-management/managing-iam-for-your-enterprise/about-authentication-for-your-enterprise#identifying-the-best-authentication-method-for-your-enterprise), people should read and consider each section as it relates to their enterprise. We do not include a sectional TOC in this article because people should be reading through each section, not picking and choosing between them. Adding a sectional TOC would also force people who use screenreaders or other adaptive technology to tab and scroll through more headers before finding what they need.
 
 Format sectional TOCs as a list. Include all subsections in the order that they appear in the article and refer to them using the full header title.
 
@@ -1177,13 +1303,13 @@ Tables are added to the {% data variables.product.prodname_docs %} using Markdow
 
 ### Use tables only for presenting tabular information
 
-Tables work best for presenting tabular data, such as information that needs to be compared or values with multiple attributes. Do not use tables for simple lists - see the "[Lists](#lists)" section of this document.
+Tables work best for presenting tabular data, such as information that needs to be compared or values with multiple attributes. Do not use tables for simple lists - see the [Lists](#lists) section of this document.
 
 ### Avoid describing table data
 
 A table’s data and why it is important should be clear from any preceding content, the column headers, and (if needed) the row headers. Avoid unneeded descriptions of the data in a table. If the data in a table is unclear without a lengthy description, consider if your table needs row headers or if the information would be better communicated in a different way.
 
-For example, in "[AUTOTITLE](/actions/hosting-your-own-runners/autoscaling-with-self-hosted-runners#recommended-autoscaling-solutions)," a table comparing the features between two supported autoscaling solutions is introduced with the sentence `Each solution has certain specifics that may be important to consider.` The article does not describe any of the different features that are compared because that information is clearly communicated by the table.
+For example, in [AUTOTITLE](/actions/hosting-your-own-runners/autoscaling-with-self-hosted-runners#recommended-autoscaling-solutions), a table comparing the features between two supported autoscaling solutions is introduced with the sentence `Each solution has certain specifics that may be important to consider.` The article does not describe any of the different features that are compared because that information is clearly communicated by the table.
 
 * **Use:** "Different size limits per repository apply depending on your GHES version."
 * **Avoid:** "The first row of the table shows the information for GitHub Enterprise Cloud. The second row shows the information for GitHub Enterprise Server."
@@ -1230,7 +1356,7 @@ For example in the following table, in order to make sense of the "Yes" and "No"
   </tr>
 </table>
 
-To add row headers for a Markdown table, wrap the table in the Liquid tags `{% raw %}{% rowheaders %} {% endrowheaders %}{% endraw %}`. For more information about using row headers, see "[AUTOTITLE](/contributing/syntax-and-versioning-for-github-docs/using-markdown-and-liquid-in-github-docs#table-row-headers)."
+To add row headers for a Markdown table, wrap the table in the Liquid tags `{% raw %}{% rowheaders %} {% endrowheaders %}{% endraw %}`. For more information about using row headers, see [AUTOTITLE](/contributing/syntax-and-versioning-for-github-docs/using-markdown-and-liquid-in-github-docs#table-row-headers).
 
 ### Include a value for every cell
 
@@ -1238,30 +1364,30 @@ Every cell in a table must contain a value.
 
 For cells with no data, use "None" or "Not applicable". Do not use "NA" or "N/A".
 
-For tables with row headers, the first cell (cell "A1") should describe the row headers to help people understand the whole table. However, if doing this would make the table less clear or add redundant information, you can leave this cell empty. For example, in the article "[AUTOTITLE](/actions/automating-builds-and-tests/building-and-testing-powershell#powershell-module-locations)," the first cell could be labeled as "Modules", but since each row header already includes the word "module", this header would repeat information that does not add descriptive value to understanding the table as a whole.
+For tables with row headers, the first cell (cell "A1") should describe the row headers to help people understand the whole table. However, if doing this would make the table less clear or add redundant information, you can leave this cell empty. For example, in the article [AUTOTITLE](/actions/automating-builds-and-tests/building-and-testing-powershell#powershell-module-locations), the first cell could be labeled as "Modules", but since each row header already includes the word "module", this header would repeat information that does not add descriptive value to understanding the table as a whole.
 
 ### Use clear, consistent symbols and labels
 
 For tables that use symbols:
 
 * Populate all cells. For example in a permissions table, do not mark only the cells for things that require a permission.
-* Use octicons or SVG. Do not use emoji. For more information about octicons, see "[AUTOTITLE](/contributing/syntax-and-versioning-for-github-docs/using-markdown-and-liquid-in-github-docs#octicons)."
+* Use octicons or SVG. Do not use emoji. For more information about octicons, see [AUTOTITLE](/contributing/syntax-and-versioning-for-github-docs/using-markdown-and-liquid-in-github-docs#octicons).
 * Use a [check mark](https://primer.style/octicons/check-16) for affirmative values ("Yes", "Required", "Supported") and a [cross](https://primer.style/octicons/x-16) for negative values ("No", "Optional", "Unsupported").
 * Use `aria-label` to describe the meaning of the symbol, not its visual characteristics. For example, "Required", not "Check mark icon".
 
-Where table data is not truly binary (every value is either "Yes" or "No", for example), text values may be needed in addition to, or instead of, symbols. For example on the page "[AUTOTITLE](/support/learning-about-github-support/about-github-support)", some features are marked as "Available to purchase".
+Where table data is not truly binary (every value is either "Yes" or "No", for example), text values may be needed in addition to, or instead of, symbols. For example on the page [AUTOTITLE](/support/learning-about-github-support/about-github-support), some features are marked as "Available to purchase".
 
 ### Use footnotes sparingly
 
-See "[Footnotes](#footnotes)."
+See [Footnotes](#footnotes).
 
 ### Align table content consistently
 
 All columns in a table should be left-aligned, except for columns containing only octicons which should be center-aligned. If a column contains both text and octicons, use center alignment.
 
-Table content is left-aligned by default. Use Markdown table formatting, colons (`:`) to either the right or left of the dashes in the header row, to specify the alignment of each column. Read "[AUTOTITLE](/get-started/writing-on-github/working-with-advanced-formatting/organizing-information-with-tables#formatting-content-within-your-table)" for more information.
+Table content is left-aligned by default. Use Markdown table formatting, colons (`:`) to either the right or left of the dashes in the header row, to specify the alignment of each column. Read [AUTOTITLE](/get-started/writing-on-github/working-with-advanced-formatting/organizing-information-with-tables#formatting-content-within-your-table) for more information.
 
-The following example shows part of a table from "[AUTOTITLE](/free-pro-team@latest/code-security/dependabot/dependabot-version-updates/configuration-options-for-the-dependabot.yml-file)."
+The following example shows part of a table from [AUTOTITLE](/code-security/dependabot/working-with-dependabot/dependabot-options-reference).
 
 <table>
 <thead>
@@ -1332,9 +1458,7 @@ The table is generated with the following alignment syntax.
 
 ## Titles
 
-Use quotation marks around article titles, whether the article is hosted on GitHub Docs or elsewhere. Do not include quotation marks around the names of external sites.
-
-For further guidance, see “[Formatting titles](https://docs.microsoft.com/style-guide/text-formatting/formatting-titles)” in Microsoft’s Style Guide.
+Use sentence casing for titles.
 
 ## Short titles
 
@@ -1347,7 +1471,7 @@ We use short titles to populate the sidebar navigation. Since short titles appea
 * Short titles use the base form of verbs instead of gerunds.
   * **Use:** "Configure notifications" instead of "Configuring notifications."
 * Short titles for categories, map topics, and articles can omit product and feature names if it is clear what product or feature they relate to.
-  * **Use:** "Configure notifications" as the short title for "[AUTOTITLE](/code-security/dependabot/dependabot-alerts/configuring-notifications-for-dependabot-alerts)" since the article is in the "{% data variables.product.prodname_dependabot_alerts %}" map topic.
+  * **Use:** "Configure notifications" as the short title for [AUTOTITLE](/code-security/dependabot/dependabot-alerts/configuring-notifications-for-dependabot-alerts) since the article is in the "{% data variables.product.prodname_dependabot_alerts %}" map topic.
 * Short titles do not introduce new words that are not in the full title.
 * Short titles should be parallel to short titles for similar content.
   * **Use:** "Organizations and teams" and "Enterprise accounts"
@@ -1447,7 +1571,7 @@ Microsoft Style Guide:
 
 You may add videos to reinforce text-based information but videos should never replace written content. Videos are inaccessible to some users and are also difficult to find by searching.
 
-Videos on the GitHub Docs website must be well-produced and contain fewer barriers for people with disabilities, and conform to our content model for videos. For more information, see "[About using videos in GitHub Docs](/contributing/writing-for-github-docs/using-videos-in-github-docs)."
+Videos on the GitHub Docs website must be well-produced and contain fewer barriers for people with disabilities, and conform to our content model for videos. For more information, see [About using videos in GitHub Docs](/contributing/writing-for-github-docs/using-videos-in-github-docs).
 
 ## Voice and tone
 
@@ -1463,7 +1587,7 @@ To learn more about writing approachable content, see “[Microsoft's brand voic
 
 ## Word choice and terminology
 
-For general guidance and GitHub-specific terms, see our "[Glossary](/get-started/learning-about-github/github-glossary)". For more detailed guidance, see the “[A-Z word list](https://docs.microsoft.com/style-guide)” in Microsoft’s style guide.
+For general guidance and GitHub-specific terms, see our [Glossary](/get-started/learning-about-github/github-glossary). For more detailed guidance, see the “[A-Z word list](https://docs.microsoft.com/style-guide)” in Microsoft’s style guide.
 
 ### Abbreviations
 
@@ -1481,7 +1605,7 @@ Do not use symbols or octicons that aren’t used in GitHub’s user interface.
 
 #### Product names and accounts
 
-To avoid ambiguity and confusion, do not use product names as adjectives to describe accounts in any of our products. Instead, clarify the account type and choose clearer phrasing that avoids conflating accounts and products. When talking about accounts, only refer to the product name when needed to disambiguate between products. For more information about types of accounts available in GitHub's products, see "[AUTOTITLE](/get-started/learning-about-github/types-of-github-accounts)."
+To avoid ambiguity and confusion, do not use product names as adjectives to describe accounts in any of our products. Instead, clarify the account type and choose clearer phrasing that avoids conflating accounts and products. When talking about accounts, only refer to the product name when needed to disambiguate between products. For more information about types of accounts available in GitHub's products, see [AUTOTITLE](/get-started/learning-about-github/types-of-github-accounts).
 * **Use:** Your organization on {% data variables.product.prodname_ghe_cloud %}
 * **Avoid:** Your {% data variables.product.prodname_ghe_cloud %} account
 * **Avoid:** Your {% data variables.product.prodname_ghe_server %} organization
@@ -1514,17 +1638,17 @@ If the reader manages an enterprise account, and you're describing the people's 
 
 The following documentation should reference "user accounts."
 
-* The "[AUTOTITLE](/enterprise-cloud@latest/admin)" product
-* Enterprise-specific billing documentation, like "[AUTOTITLE](/enterprise-cloud@latest/billing/managing-your-github-billing-settings/about-billing-for-your-enterprise)"
-* Content within other products that's intended for an administrative audience, like "[AUTOTITLE](/enterprise-cloud@latest/code-security/supply-chain-security/end-to-end-supply-chain/securing-accounts)" in the "Code security" product or "[AUTOTITLE](/enterprise-cloud@latest/admin/overview/setting-up-a-trial-of-github-enterprise-cloud)" in the "Get started" product
-* Enterprise-specific API content, like the "[AUTOTITLE](/enterprise-cloud@latest/rest/reference/enterprise-admin)" REST API reference documentation
+* The [AUTOTITLE](/enterprise-cloud@latest/admin) product
+* Enterprise-specific billing documentation, like [AUTOTITLE](/enterprise-cloud@latest/billing/managing-your-github-billing-settings/about-billing-for-your-enterprise)
+* Content within other products that's intended for an administrative audience, like [AUTOTITLE](/enterprise-cloud@latest/code-security/supply-chain-security/end-to-end-supply-chain/securing-accounts) in the "Code security" product or [AUTOTITLE](/enterprise-cloud@latest/admin/overview/setting-up-a-trial-of-github-enterprise-cloud) in the "Get started" product
+* Enterprise-specific API content, like the [AUTOTITLE](/enterprise-cloud@latest/rest/reference/enterprise-admin) REST API reference documentation
 
 For enterprises on {% data variables.product.prodname_ghe_cloud %} that don't use {% data variables.product.prodname_emus %}, use "personal account" when describing members of organizations owned by the enterprise.
 
 * **Use:** If you configure SAML SSO, members of your organization will continue to sign into their personal accounts on {% data variables.product.prodname_dotcom_the_website %}.
 * **Avoid:** If you configure SAML SSO, members of your organization will continue to sign into their user accounts on {% data variables.product.prodname_dotcom_the_website %}.
 
-Documentation that describes {% data variables.product.prodname_ghe_cloud %} without {% data variables.product.prodname_emus %} is generally in the "[AUTOTITLE](/enterprise-cloud@latest/organizations/managing-saml-single-sign-on-for-your-organization)" category.
+Documentation that describes {% data variables.product.prodname_ghe_cloud %} without {% data variables.product.prodname_emus %} is generally in the [AUTOTITLE](/enterprise-cloud@latest/organizations/managing-saml-single-sign-on-for-your-organization) category.
 
 #### People's accounts for other services
 
@@ -1618,7 +1742,7 @@ When specifying the access required to take an action, refer only to the role at
 * **Use:** People with write access to a repository can do X to the repository.
 * **Avoid:** Organization owners and people with write access can do X to the repository.
 
-For more information about word choice for permissions statements, see "[AUTOTITLE](/contributing/style-guide-and-content-model/contents-of-a-github-docs-article#permissions-statements)" in the content model.
+For more information about word choice for permissions statements, see [AUTOTITLE](/contributing/style-guide-and-content-model/contents-of-a-github-docs-article#permissions-statements) in the content model.
 
 ### Prepositions
 

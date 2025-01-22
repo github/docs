@@ -14,7 +14,7 @@ import frontmatter from '#src/frame/lib/read-frontmatter.js'
 import removeLiquidStatements from './remove-liquid-statements.js'
 import removeDeprecatedFrontmatter from './remove-deprecated-frontmatter.js'
 import { all, getNextReleaseNumber } from '#src/versions/lib/enterprise-server-releases.js'
-import walkFiles from '#src/workflows/walk-files.js'
+import walkFiles from '#src/workflows/walk-files.ts'
 
 program
   .description(

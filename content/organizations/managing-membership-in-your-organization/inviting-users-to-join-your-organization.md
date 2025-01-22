@@ -1,6 +1,6 @@
 ---
 title: Inviting users to join your organization
-intro: 'You can invite anyone to become a member of your organization using their username or email address for {% data variables.location.product_location %}.'
+intro: 'You can invite anyone to become a member of your organization using their username or email address for {% data variables.product.prodname_dotcom %}.'
 permissions: Organization owners can invite users to join an organization.
 redirect_from:
   - /articles/adding-or-inviting-members-to-a-team-in-an-organization
@@ -23,21 +23,18 @@ shortTitle: Invite users to join
 
  You can use a person's {% data variables.product.company_short %} username or email address for the invitation.
 
-{% note %}
+> [!NOTE]
+> If you use an email address for the invitation, the invitee will only be able to accept the invitation if the email address matches with a verified email address associated with the invitee's personal account on {% data variables.product.prodname_dotcom %}. For more information, see [AUTOTITLE](/account-and-profile/setting-up-and-managing-your-personal-account-on-github/managing-email-preferences/verifying-your-email-address).
+>
+> If an invitee's personal account has been flagged, the invitee won't be able to accept any new or pending invitations to join organizations.
 
-**Note:** If you use an email address for the invitation, the invitee will only be able to accept the invitation if the email address matches with a verified email address associated with the invitee's personal account on {% data variables.product.prodname_dotcom %}. For more information, see "[AUTOTITLE](/account-and-profile/setting-up-and-managing-your-personal-account-on-github/managing-email-preferences/verifying-your-email-address)."
-
-If an invitee's personal account has been flagged, the invitee won't be able to accept any new or pending invitations to join organizations.
-
-{% endnote %}
-
-If your organization has a paid per-user subscription, an unused license must be available before you can invite a new member to join the organization or reinstate a former organization member. For more information, see "[AUTOTITLE](/billing/managing-the-plan-for-your-github-account/about-per-user-pricing)."
+If your organization has a paid per-user subscription, an unused license must be available before you can invite a new member to join the organization or reinstate a former organization member. For more information, see [AUTOTITLE](/billing/managing-the-plan-for-your-github-account/about-per-user-pricing).
 
 {% data reusables.organizations.org-invite-scim %}
 
-If your organization requires members to use two-factor authentication, users that you invite must enable two-factor authentication before accepting the invitation. For more information, see "[AUTOTITLE](/organizations/keeping-your-organization-secure/managing-two-factor-authentication-for-your-organization/requiring-two-factor-authentication-in-your-organization)" and "[AUTOTITLE](/authentication/securing-your-account-with-two-factor-authentication-2fa)."
+If your organization requires members to use two-factor authentication, users that you invite must enable two-factor authentication before accepting the invitation. For more information, see [AUTOTITLE](/organizations/keeping-your-organization-secure/managing-two-factor-authentication-for-your-organization/requiring-two-factor-authentication-in-your-organization) and [AUTOTITLE](/authentication/securing-your-account-with-two-factor-authentication-2fa).
 
-{% ifversion fpt %}Organizations that use {% data variables.product.prodname_ghe_cloud %}{% else %}You{% endif %} can implement SCIM to add, manage, and remove organization members' access to {% data variables.product.prodname_dotcom_the_website %} through an identity provider (IdP). For more information, see "[AUTOTITLE](/enterprise-cloud@latest/organizations/managing-saml-single-sign-on-for-your-organization/about-scim-for-organizations){% ifversion fpt %}" in the {% data variables.product.prodname_ghe_cloud %} documentation.{% else %}."{% endif %}
+{% ifversion fpt %}Organizations that use {% data variables.product.prodname_ghe_cloud %}{% else %}You{% endif %} can implement SCIM to add, manage, and remove organization members' access to {% data variables.product.prodname_dotcom %} through an identity provider (IdP). For more information, see [AUTOTITLE](/enterprise-cloud@latest/organizations/managing-saml-single-sign-on-for-your-organization/about-scim-for-organizations){% ifversion fpt %}" in the {% data variables.product.prodname_ghe_cloud %} documentation.{% else %}.{% endif %}
 
 To prevent abuse, you can only create 50 organization invitations within a 24-hour period. If your organization is more than one month old or on a paid plan, the limit is 500 invitations per 24 hour period. {% ifversion ghec %} This limit does not apply to invitations created via SCIM provisioning.{% endif %}
 
@@ -68,4 +65,4 @@ Invitations expire after 7 days. You can retry or cancel expired invitations, ei
 
 ## Further reading
 
-* "[AUTOTITLE](/organizations/organizing-members-into-teams/adding-organization-members-to-a-team)"
+* [AUTOTITLE](/organizations/organizing-members-into-teams/adding-organization-members-to-a-team)

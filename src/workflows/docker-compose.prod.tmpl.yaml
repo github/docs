@@ -23,7 +23,7 @@ services:
     restart: always
 
   datadog-agent:
-    image: 'ghdocsprod.azurecr.io/datadog/dogstatsd:7.49.1'
+    image: 'ghdocsprod.azurecr.io/datadog/dogstatsd:latest'
     ports:
       - '8125:8125'
     environment:

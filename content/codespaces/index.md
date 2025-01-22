@@ -11,7 +11,7 @@ featuredLinks:
     - /codespaces/getting-started/understanding-the-codespace-lifecycle
     - /codespaces/setting-up-your-project-for-codespaces/adding-a-dev-container-configuration/introduction-to-dev-containers
     - /codespaces/managing-your-codespaces/managing-repository-access-for-your-codespaces
-    - /billing/managing-billing-for-github-codespaces/about-billing-for-github-codespaces
+    - /billing/managing-billing-for-your-products/managing-billing-for-github-codespaces/about-billing-for-github-codespaces
   guideCards:
     - /codespaces/getting-started/deep-dive
     - /codespaces/developing-in-a-codespace/creating-a-codespace-for-a-repository
@@ -19,7 +19,6 @@ featuredLinks:
     - /codespaces/developing-in-a-codespace/opening-an-existing-codespace
     - /codespaces/setting-your-user-preferences/personalizing-github-codespaces-for-your-account
     - /codespaces/developing-in-a-codespace/using-github-codespaces-in-visual-studio-code
-    - /codespaces/developing-in-a-codespace/using-github-codespaces-in-your-jetbrains-ide
   popular:
     - /codespaces/setting-up-your-project-for-codespaces/adding-a-dev-container-configuration/setting-up-your-nodejs-project-for-codespaces
     - /codespaces/setting-up-your-project-for-codespaces/adding-a-dev-container-configuration/setting-up-your-python-project-for-codespaces
@@ -37,6 +36,8 @@ communityRedirect:
 redirect_from:
   - /github/developing-online-with-github-codespaces
   - /github/developing-online-with-codespaces
+  - /codespaces/developing-in-a-codespace/using-github-codespaces-in-your-jetbrains-ide
+  - /codespaces/reference/using-the-github-codespaces-plugin-for-jetbrains
 layout: product-landing
 versions:
   fpt: '*'

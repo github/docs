@@ -1,0 +1,6 @@
+# Reference: #52010
+# UI change for tabbed settings pages for enterprise and orgs.
+versions:
+  fpt: '*'
+  ghec: '*'
+  ghes: '>=3.15'

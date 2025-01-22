@@ -9,7 +9,7 @@ intro: |
   >
   > If {% data variables.location.product_location %} is running an RC, you cannot upgrade to the general availability (GA) release. You also cannot upgrade with a hotpatch.
 
-  For upgrade instructions, see "[Upgrading {% data variables.product.prodname_ghe_server %}](/admin/enterprise-management/updating-the-virtual-machine-and-physical-resources/upgrading-github-enterprise-server)."
+  For upgrade instructions, see [Upgrading {% data variables.product.prodname_ghe_server %}](/admin/enterprise-management/updating-the-virtual-machine-and-physical-resources/upgrading-github-enterprise-server).
 sections:
   # Remove section heading if the section contains no notes.
 
@@ -33,18 +33,18 @@ sections:
           People deploying a GitHub Enterprise Server instance in AWS can now deploy in an environment that uses Instance Metadata Service Version 2 (IMDSv2).
         # https://github.com/github/releases/issues/3887
         - |
-          As part of the upgrade to GitHub Enterprise Server 3.13, Elasticsearch (ES) is upgraded from version 5.6.16 to 8.7.0. Upgrading platform components improves performance and security posture. For important upgrade considerations, see "[AUTOTITLE](/admin/monitoring-managing-and-updating-your-instance/updating-the-virtual-machine-and-physical-resources/preparing-for-the-elasticsearch-upgrade)."
+          As part of the upgrade to GitHub Enterprise Server 3.13, Elasticsearch (ES) is upgraded from version 5.6.16 to 8.7.0. Upgrading platform components improves performance and security posture. For important upgrade considerations, see [AUTOTITLE](/admin/monitoring-managing-and-updating-your-instance/updating-the-virtual-machine-and-physical-resources/preparing-for-the-elasticsearch-upgrade).
         # https://github.com/github/releases/issues/3776
         - |
-          To improve existing tooling for license handling, the `ghe-license` script handles all operations regarding the active license. Commands can be performed on new licenses without importing them first. The script allows direct application of the license without a full configuration run and avoids restarting the instance to reduce downtime. See "[AUTOTITLE](/admin/administering-your-instance/administering-your-instance-from-the-command-line/command-line-utilities#ghe-license)."
+          To improve existing tooling for license handling, the `ghe-license` script handles all operations regarding the active license. Commands can be performed on new licenses without importing them first. The script allows direct application of the license without a full configuration run and avoids restarting the instance to reduce downtime. See [AUTOTITLE](/admin/administering-your-instance/administering-your-instance-from-the-command-line/command-line-utilities#ghe-license).
 
-          Administrators can upload the license to their instance using multiple interfaces, including the Management Console, Manage GHES API, CLI, or SSH. See "[AUTOTITLE](/billing/managing-your-license-for-github-enterprise/uploading-a-new-license-to-github-enterprise-server)."
+          Administrators can upload the license to their instance using multiple interfaces, including the Management Console, Manage GHES API, CLI, or SSH. See [AUTOTITLE](/billing/managing-your-license-for-github-enterprise/uploading-a-new-license-to-github-enterprise-server).
 
     - heading: Audit logs
       notes:
         # https://github.com/github/releases/issues/3724
         - |
-          Enterprise and organization audit log events include the applicable SAML and SCIM identity data associated with the user. This data provides increased visibility into the identity of the user and enables logs from multiple systems to quickly and easily be linked using a common corporate identity. The SAML identity information displays in the `external_identity_nameid` field and the SCIM identity data displays in the `external_identity_username` field within the audit log payloads. For more information, see "[AUTOTITLE](/organizations/keeping-your-organization-secure/managing-security-settings-for-your-organization/reviewing-the-audit-log-for-your-organization)."
+          Enterprise and organization audit log events include the applicable SAML and SCIM identity data associated with the user. This data provides increased visibility into the identity of the user and enables logs from multiple systems to quickly and easily be linked using a common corporate identity. The SAML identity information displays in the `external_identity_nameid` field and the SCIM identity data displays in the `external_identity_username` field within the audit log payloads. For more information, see [AUTOTITLE](/organizations/keeping-your-organization-secure/managing-security-settings-for-your-organization/reviewing-the-audit-log-for-your-organization).
 
 
     - heading: GitHub Actions
@@ -54,28 +54,28 @@ sections:
           {% data reusables.actions.actions-runner-release-note %}
         # https://github.com/github/releases/issues/3822
         - |
-          To ensure Actions runners are truly ephemeral and more secure, execution timeouts on self-hosted jobs are limited to 5 days. If a job reaches this limit, the job is terminated and fails to complete. For more information, see "[AUTOTITLE](/actions/hosting-your-own-runners/managing-self-hosted-runners/about-self-hosted-runners#usage-limits)."
+          To ensure Actions runners are truly ephemeral and more secure, execution timeouts on self-hosted jobs are limited to 5 days. If a job reaches this limit, the job is terminated and fails to complete. For more information, see [AUTOTITLE](/actions/hosting-your-own-runners/managing-self-hosted-runners/about-self-hosted-runners#usage-limits).
 
     - heading: Repositories
       notes:
         # https://github.com/github/releases/issues/2992
         - |
-          Users can use repository properties to add meaningful metadata to repositories that simplifies repository classification, enhances discoverability, and seamlessly integrates with rulesets. For more information, see "[AUTOTITLE](/organizations/managing-organization-settings/managing-custom-properties-for-repositories-in-your-organization)."
+          Users can use repository properties to add meaningful metadata to repositories that simplifies repository classification, enhances discoverability, and seamlessly integrates with rulesets. For more information, see [AUTOTITLE](/organizations/managing-organization-settings/managing-custom-properties-for-repositories-in-your-organization).
         # https://github.com/github/releases/issues/3849
         - |
           Users can browse and view code in a revamped experience for GitHub repositories, providing a tree pane for browsing files, fuzzy search for files, sticky code headers, and more.
         # https://github.com/github/releases/issues/3550
         - |
-          Users can migrate existing tag protection rules into repository rules. For more information, see "[AUTOTITLE](/repositories/managing-your-repositorys-settings-and-features/managing-repository-settings/configuring-tag-protection-rules#importing-tag-protection-rules-to-repository-rulesets)."
+          Users can migrate existing tag protection rules into repository rules. For more information, see [AUTOTITLE](/repositories/managing-your-repositorys-settings-and-features/managing-repository-settings/configuring-tag-protection-rules#importing-tag-protection-rules-to-repository-rulesets).
 
     - heading: Projects
       notes:
         # https://github.com/github/releases/issues/3606
         - |
-          Users can post status updates on their projects to share the current status, start date, and target date of the project itself. For more information, see "[AUTOTITLE](/issues/planning-and-tracking-with-projects/learning-about-projects/sharing-project-updates)."
+          Users can post status updates on their projects to share the current status, start date, and target date of the project itself. For more information, see [AUTOTITLE](/issues/planning-and-tracking-with-projects/learning-about-projects/sharing-project-updates).
         # https://github.com/github/releases/issues/3878
         - |
-          Users can migrate their projects (classic) to the new Projects experience. For more information, see "[AUTOTITLE](/issues/planning-and-tracking-with-projects/creating-projects/migrating-from-projects-classic)."
+          Users can migrate their projects (classic) to the new Projects experience. For more information, see [AUTOTITLE](/issues/planning-and-tracking-with-projects/creating-projects/migrating-from-projects-classic).
 
     - heading: Pull requests
       notes:
@@ -87,19 +87,19 @@ sections:
       notes:
         # https://github.com/github/releases/issues/3566
         - |
-          In the secret scanning list view, users can apply a filter to display alerts that are the result of having bypassed push protection. For more information, see "[AUTOTITLE](/code-security/secret-scanning/managing-alerts-from-secret-scanning)."
+          In the secret scanning list view, users can apply a filter to display alerts that are the result of having bypassed push protection. For more information, see [AUTOTITLE](/code-security/secret-scanning/managing-alerts-from-secret-scanning).
         # https://github.com/github/releases/issues/3180
         - |
-          To increase coverage of secret scanning across an instance, users can enable secret scanning in repositories owned by their personal account. Enterprise owners can disable this feature, or automatically enable it for all new user-owned repositories, in the enterprise settings. See "[AUTOTITLE](/admin/code-security/managing-github-advanced-security-for-your-enterprise/managing-github-advanced-security-features-for-your-enterprise)."
+          To increase coverage of secret scanning across an instance, users can enable secret scanning in repositories owned by their personal account. Enterprise owners can disable this feature, or automatically enable it for all new user-owned repositories, in the enterprise settings. See [AUTOTITLE](/admin/code-security/managing-github-advanced-security-for-your-enterprise/managing-github-advanced-security-features-for-your-enterprise).
 
     - heading: Code scanning
       notes:
         # https://github.com/github/releases/issues/3526
         - |
-           Users can enable code scanning on repositories even if they don't contain any code written in the [languages currently supported by CodeQL](https://codeql.github.com/docs/codeql-overview/supported-languages-and-frameworks/). Default setup will automatically trigger the first scan when a supported language is detected on the default branch. For more information, see "[AUTOTITLE](/code-security/code-scanning/enabling-code-scanning/configuring-default-setup-for-code-scanning)."
+           Users can enable code scanning on repositories even if they don't contain any code written in the [languages currently supported by CodeQL](https://codeql.github.com/docs/codeql-overview/supported-languages-and-frameworks/). Default setup will automatically trigger the first scan when a supported language is detected on the default branch. For more information, see [AUTOTITLE](/code-security/code-scanning/enabling-code-scanning/configuring-default-setup-for-code-scanning).
         # https://github.com/github/releases/issues/3545
         - |
-           Users can use CodeQL threat model settings for Java to adapt CodeQL's code scanning analysis to detect the most relevant security vulnerabilities in their code. This feature is in public beta and subject to change. For more information, see "[AUTOTITLE](/code-security/code-scanning/creating-an-advanced-setup-for-code-scanning/customizing-your-advanced-setup-for-code-scanning)."
+           Users can use CodeQL threat model settings for Java to adapt CodeQL's code scanning analysis to detect the most relevant security vulnerabilities in their code. This feature is in public beta and subject to change. For more information, see [AUTOTITLE](/code-security/code-scanning/creating-an-advanced-setup-for-code-scanning/customizing-your-advanced-setup-for-code-scanning).
         # https://github.com/github/releases/issues/3771
         # https://github.com/github/releases/issues/3807
         # https://github.com/github/releases/issues/3818
@@ -123,13 +123,13 @@ sections:
         # https://github.com/github/releases/issues/3778
         # https://github.com/github/releases/issues/3779
         - |
-          On the security overview dashboard, users can find detailed insights for the security alerts in an organization or enterprise, including trending data that tracks alert counts and activity over time and snapshot data that reflects the current state of the security landscape. Alerts are displayed for both GitHub's security features and third-party tools. Filters are available for the type and visibility of alerts, date range, repository custom properties, and more. The overview dashboard is in public beta and subject to change. For more information, see "[AUTOTITLE](/code-security/security-overview/viewing-security-insights)."
+          On the security overview dashboard, users can find detailed insights for the security alerts in an organization or enterprise, including trending data that tracks alert counts and activity over time and snapshot data that reflects the current state of the security landscape. Alerts are displayed for both GitHub's security features and third-party tools. Filters are available for the type and visibility of alerts, date range, repository custom properties, and more. The overview dashboard is in public beta and subject to change. For more information, see [AUTOTITLE](/code-security/security-overview/viewing-security-insights).
        # https://github.com/github/releases/issues/3782
         - |
-          Users can view trending data for the enablement of security features in an organization. In security overview for an organization, the "Enablement trends" view shows historical data for the activation of security features including Dependabot updates, code scanning alerts, and secret scanning alerts. This feature is in public beta and subject to change. For more information, see "[AUTOTITLE](/code-security/security-overview/assessing-adoption-code-security#viewing-enablement-trends-for-an-organization-beta)."
+          Users can view trending data for the enablement of security features in an organization. In security overview for an organization, the "Enablement trends" view shows historical data for the activation of security features including Dependabot updates, code scanning alerts, and secret scanning alerts. This feature is in public beta and subject to change. For more information, see [AUTOTITLE](/code-security/security-overview/assessing-adoption-code-security#viewing-enablement-trends-for-an-organization-beta).
        # https://github.com/github/releases/issues/3712
         - |
-          For users who use `devcontainer.json` files to define development containers for repositories, Dependabot version updates can keep "features" defined for the dev container up to date. Once configured in `dependabot.yml`, Dependabot will open pull requests on a specified schedule to update the listed features to the latest version. Dependabot security updates for dev containers are not currently supported. For more information, see "[AUTOTITLE](/code-security/dependabot/dependabot-version-updates/about-dependabot-version-updates#dev-containers)."
+          For users who use `devcontainer.json` files to define development containers for repositories, Dependabot version updates can keep "features" defined for the dev container up to date. Once configured in `dependabot.yml`, Dependabot will open pull requests on a specified schedule to update the listed features to the latest version. Dependabot security updates for dev containers are not currently supported. For more information, see [AUTOTITLE](/code-security/dependabot/dependabot-version-updates/about-dependabot-version-updates#dev-containers).
 
     - heading: Authentication
       notes:
@@ -137,7 +137,7 @@ sections:
         - |
           For enterprises or organizations that use an SSH certificate authority (CA) to provide SSH certificates to members, to protect against a security risk involving user renames, new SSH CAs that are uploaded to a GitHub Enterprise Server 3.13 instance can only be used to sign certificates that are set to expire. For new CAs, you must use the `-V` parameter with `ssh-keygen` to generate a certificate with a `valid-after` claim.
 
-          The `valid-after` claim allows GitHub to validate that the user named in the SSH certificate hasn't been renamed since the certificate was signed. CAs uploaded prior to version 3.13 are exempt from this requirement and can be used to sign certificates that do not expire. However, when you've ensured that your certificate signing process uses the `-V` flag, GitHub encourages you to upgrade existing certificates to enforce the expiration requirement. For more information, see "[AUTOTITLE](/organizations/managing-git-access-to-your-organizations-repositories/managing-your-organizations-ssh-certificate-authorities#upgrading-an-ssh-certificate-authority)" or "[AUTOTITLE](/admin/policies/enforcing-policies-for-your-enterprise/enforcing-policies-for-security-settings-in-your-enterprise#upgrading-an-ssh-certificate-authority)."
+          The `valid-after` claim allows GitHub to validate that the user named in the SSH certificate hasn't been renamed since the certificate was signed. CAs uploaded prior to version 3.13 are exempt from this requirement and can be used to sign certificates that do not expire. However, when you've ensured that your certificate signing process uses the `-V` flag, GitHub encourages you to upgrade existing certificates to enforce the expiration requirement. For more information, see [AUTOTITLE](/organizations/managing-git-access-to-your-organizations-repositories/managing-your-organizations-ssh-certificate-authorities#upgrading-an-ssh-certificate-authority) or [AUTOTITLE](/admin/policies/enforcing-policies-for-your-enterprise/enforcing-policies-for-security-settings-in-your-enterprise#upgrading-an-ssh-certificate-authority).
 
   changes:
     # https://github.com/github/releases/issues/3971
@@ -156,7 +156,7 @@ sections:
        The "Create a reference" REST API endpoint is restricted from accepting POSTs from users and apps that only have permission to read and write packages. Previously, this endpoint accepted updates to both tags and branches.
     # https://github.com/github/releases/issues/3850
     - |
-      To ensure security updates are applied correctly regardless of your repository's configuration settings, Dependabot uses private registry configurations specified in the `dependabot.yml` file as expected, even if there is a configuration with `target-branch`.  Security updates still do not support `target-branch` configuration. For more information, see "[AUTOTITLE](/code-security/dependabot/working-with-dependabot/configuring-access-to-private-registries-for-dependabot)."
+      To ensure security updates are applied correctly regardless of your repository's configuration settings, Dependabot uses private registry configurations specified in the `dependabot.yml` file as expected, even if there is a configuration with `target-branch`.  Security updates still do not support `target-branch` configuration. For more information, see [AUTOTITLE](/code-security/dependabot/working-with-dependabot/configuring-access-to-private-registries-for-dependabot).
 
   known_issues:
     # INCLUDE NOTES FOR RELEASE FROM "GHES Release Note Tracking" PROJECT'S "Known Issues" TAB
@@ -165,15 +165,19 @@ sections:
     - |
       During the validation phase of a configuration run, a `No such object` error may occur for the Notebook and Viewscreen services. This error can be ignored as the services should still correctly start.
     - |
-      If the root site administrator is locked out of the Management Console after failed login attempts, the account does not unlock automatically after the defined lockout time. Someone with administrative SSH access to the instance must unlock the account using the administrative shell. For more information, see "[AUTOTITLE](/admin/configuration/administering-your-instance-from-the-management-console/troubleshooting-access-to-the-management-console#unlocking-the-root-site-administrator-account)."
+      If the root site administrator is locked out of the Management Console after failed login attempts, the account does not unlock automatically after the defined lockout time. Someone with administrative SSH access to the instance must unlock the account using the administrative shell. For more information, see [AUTOTITLE](/admin/configuration/administering-your-instance-from-the-management-console/troubleshooting-access-to-the-management-console#unlocking-the-root-site-administrator-account).
     - |
       On an instance with the HTTP `X-Forwarded-For` header configured for use behind a load balancer, all client IP addresses in the instance's audit log erroneously appear as 127.0.0.1.
     - |
       {% data reusables.release-notes.2023-12-backup-utils-exit-early-redis %}
     - |
-      When enabling log forwarding, specific service logs, including babeld, are duplicated. For more information, see "[AUTOTITLE](/admin/monitoring-activity-in-your-enterprise/exploring-user-activity-in-your-enterprise/log-forwarding#enabling-log-forwarding)."
+      When enabling log forwarding, specific service logs, including babeld, are duplicated. For more information, see [AUTOTITLE](/admin/monitoring-activity-in-your-enterprise/exploring-user-activity-in-your-enterprise/log-forwarding#enabling-log-forwarding).
     - |
       {% data reusables.release-notes.2024-06-possible-frontend-5-minute-outage-during-hotpatch-upgrade %} [Updated: 2024-06-17]
+    - |
+      {% data reusables.release-notes.2024-11-ghe-repl-promote-primary-down %}
+
+      [Updated: 2024-11-29]
 
   deprecations:
     # https://github.com/github/releases/issues/2732
@@ -181,4 +185,4 @@ sections:
       As part of sunsetting Subversion compatibility, Subversion support is now disabled by default. Subversion can be re-enabled in the 3.13 release series by setting `app.svnbridge.enabled = true`. In 3.14, subversion support will be permanently removed. For more information, see [Sunsetting Subversion support](https://github.blog/2023-01-20-sunsetting-subversion-support/) on the GitHub blog.
     # https://github.com/github/releases/issues/3859
     - |
-      The Manage GHES API reached feature parity with the Management Console API in GHES 3.12. As a result, we will deprecate the Management Console API in GitHub Enterprise Server 3.15. For information about updating tooling that relies on the Management Console API, see "[AUTOTITLE](/rest/enterprise-admin/management-console)."
+      The Manage GHES API reached feature parity with the Management Console API in GHES 3.12. As a result, we will deprecate the Management Console API in GitHub Enterprise Server 3.15. For information about updating tooling that relies on the Management Console API, see [AUTOTITLE](/rest/enterprise-admin/management-console).

@@ -17,9 +17,9 @@ shortTitle: SSH agent forwarding
 
 
 
-SSH agent forwarding can be used to make deploying to a server simple.  It allows you to use your local SSH keys instead of leaving keys (without passphrases!) sitting on your server.
+SSH agent forwarding can be used to make deploying to a server simple. It allows you to use your local SSH keys instead of leaving keys (without passphrases!) sitting on your server.
 
-If you've already set up an SSH key to interact with {% data variables.product.product_name %}, you're probably familiar with `ssh-agent`. It's a program that runs in the background and keeps your key loaded into memory, so that you don't need to enter your passphrase every time you need to use the key. The nifty thing is, you can choose to let servers access your local `ssh-agent` as if they were already running on the server. This is sort of like asking a friend to enter their password so that you can use their computer.
+If you've already set up an SSH key to interact with {% data variables.product.github %}, you're probably familiar with `ssh-agent`. It's a program that runs in the background and keeps your key loaded into memory, so that you don't need to enter your passphrase every time you need to use the key. The nifty thing is, you can choose to let servers access your local `ssh-agent` as if they were already running on the server. This is sort of like asking a friend to enter their password so that you can use their computer.
 
 Check out [Steve Friedl's Tech Tips guide][tech-tips] for a more detailed explanation of SSH agent forwarding.
 
@@ -45,15 +45,12 @@ We're off to a great start. Let's set up SSH to allow agent forwarding to your s
         Host example.com
           ForwardAgent yes
 
-{% warning %}
-
-**Warning:** You may be tempted to use a wildcard like `Host *` to just apply this setting to all SSH connections. That's not really a good idea, as you'd be sharing your local SSH keys with _every_ server you SSH into. They won't have direct access to the keys, but they will be able to use them _as you_ while the connection is established. **You should only add servers you trust and that you intend to use with agent forwarding.**
-
-{% endwarning %}
+> [!WARNING]
+> You may be tempted to use a wildcard like `Host *` to just apply this setting to all SSH connections. That's not really a good idea, as you'd be sharing your local SSH keys with _every_ server you SSH into. They won't have direct access to the keys, but they will be able to use them _as you_ while the connection is established. **You should only add servers you trust and that you intend to use with agent forwarding.**
 
 ## Testing SSH agent forwarding
 
-To test that agent forwarding is working with your server, you can SSH into your server and run `ssh -T git@{% ifversion ghes %}hostname{% else %}github.com{% endif %}` once more.  If all is well, you'll get back the same prompt as you did locally.
+To test that agent forwarding is working with your server, you can SSH into your server and run `ssh -T git@{% ifversion ghes %}hostname{% else %}github.com{% endif %}` once more. If all is well, you'll get back the same prompt as you did locally.
 
 If you're unsure if your local key is being used, you can also inspect the `SSH_AUTH_SOCK` variable on your server:
 
@@ -108,7 +105,7 @@ $ exit
 # Returns to your local command prompt
 ```
 
-In the example above, the file `~/.ssh/config` is loaded first, then `/etc/ssh_config` is read.  We can inspect that file to see if it's overriding our options by running the following commands:
+In the example above, the file `~/.ssh/config` is loaded first, then `/etc/ssh_config` is read. We can inspect that file to see if it's overriding our options by running the following commands:
 
 ```shell
 $ cat /etc/ssh_config
@@ -126,7 +123,7 @@ Agent forwarding may also be blocked on your server. You can check that agent fo
 
 ### Your local `ssh-agent` must be running
 
-On most computers, the operating system automatically launches `ssh-agent` for you.  On Windows, however, you need to do this manually. We have [a guide on how to start `ssh-agent` whenever you open Git Bash][autolaunch-ssh-agent].
+On most computers, the operating system automatically launches `ssh-agent` for you. On Windows, however, you need to do this manually. We have [a guide on how to start `ssh-agent` whenever you open Git Bash][autolaunch-ssh-agent].
 
 To verify that `ssh-agent` is running on your computer, type the following command in the terminal:
 
@@ -150,15 +147,12 @@ If the command says that no identity is available, you'll need to add your key:
 ssh-add YOUR-KEY
 ```
 
-{% tip %}
-
-On macOS, `ssh-agent` will "forget" this key, once it gets restarted during reboots. But you can import your SSH keys into Keychain using this command:
-
-```shell
-ssh-add --apple-use-keychain YOUR-KEY
-```
-
-{% endtip %}
+> [!TIP]
+> On macOS, `ssh-agent` will "forget" this key, once it gets restarted during reboots. But you can import your SSH keys into Keychain using this command:
+>
+> ```shell
+> ssh-add --apple-use-keychain YOUR-KEY
+> ```
 
 {% data reusables.ssh.apple-use-keychain %}
 

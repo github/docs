@@ -19,18 +19,18 @@ shortTitle: Reinstate a member
 
 If a user is removed from your organization in one of the following ways, the user's access privileges and settings are saved for three months.
 
-* You manually removed the user from your organization. For more information, see "[AUTOTITLE](/organizations/managing-membership-in-your-organization/removing-a-member-from-your-organization)."
+* You manually removed the user from your organization. For more information, see [AUTOTITLE](/organizations/managing-membership-in-your-organization/removing-a-member-from-your-organization).
 {%- ifversion ghec %}
-* The user was removed via SCIM. For more information, see "[AUTOTITLE](/organizations/managing-saml-single-sign-on-for-your-organization/about-scim-for-organizations)."
+* The user was removed via SCIM. For more information, see [AUTOTITLE](/organizations/managing-saml-single-sign-on-for-your-organization/about-scim-for-organizations).
 {%- endif %}
-* The user was removed from your organization because you've required members and outside collaborators to enable two-factor authentication (2FA). For more information, see "[AUTOTITLE](/organizations/keeping-your-organization-secure/requiring-two-factor-authentication-in-your-organization)."{% ifversion fpt or ghec %}
-* The user was removed from your organization because you enforced SAML single sign-on. For more information, see "[AUTOTITLE](/enterprise-cloud@latest/organizations/managing-saml-single-sign-on-for-your-organization/enforcing-saml-single-sign-on-for-your-organization){% ifversion fpt %}" in the {% data variables.product.prodname_ghe_cloud %} documentation.{% else %}."{% endif %}{% endif %}
-* You converted an organization member to an outside collaborator. For more information, see "[AUTOTITLE](/organizations/managing-user-access-to-your-organizations-repositories/managing-outside-collaborators/converting-an-organization-member-to-an-outside-collaborator)."
+* The user was removed from your organization because you've required members and outside collaborators to enable two-factor authentication (2FA). For more information, see [AUTOTITLE](/organizations/keeping-your-organization-secure/requiring-two-factor-authentication-in-your-organization).{% ifversion fpt or ghec %}
+* The user was removed from your organization because you enforced SAML single sign-on. For more information, see [AUTOTITLE](/enterprise-cloud@latest/organizations/managing-saml-single-sign-on-for-your-organization/enforcing-saml-single-sign-on-for-your-organization){% ifversion fpt %}" in the {% data variables.product.prodname_ghe_cloud %} documentation.{% else %}.{% endif %}{% endif %}
+* You converted an organization member to an outside collaborator. For more information, see [AUTOTITLE](/organizations/managing-user-access-to-your-organizations-repositories/managing-outside-collaborators/converting-an-organization-member-to-an-outside-collaborator).
 
 You can restore the user's privileges if you {% ifversion fpt or ghec %}invite{% else %}add{% endif %} them back to the organization within that time frame.
 
 {% ifversion fpt or ghec %}
-If your organization has a paid per-user subscription, an unused license must be available before you can reinstate a former organization member. For more information, see "[AUTOTITLE](/articles/about-per-user-pricing)."
+If your organization has a paid per-user subscription, an unused license must be available before you can reinstate a former organization member. For more information, see [AUTOTITLE](/articles/about-per-user-pricing).
 {% endif %}
 
 ## Items that are restored for reinstated members
@@ -51,8 +51,8 @@ When you reinstate a former organization member, the following items can be rest
 
 The correct way to reinstate a former member depends on your organization's identity and access management configuration.
 
-* If the user was removed via SCIM because they were unassigned from the {% data variables.product.product_name %} application in your IdP, re-invite the user via SCIM by re-assigning them to the application. The user's organization membership will be reinstated after they sign into {% data variables.product.prodname_dotcom_the_website %} and accept the invitation.
-* If your organization uses SAML but not SCIM, ask the user to authenticate via SAML single sign-on, via your IP or by signing into {% data variables.product.prodname_dotcom_the_website %}, navigating to the organization, and clicking the banner to authenticate via SAML single sign-on. The user's organization membership will be reinstated after they successfully authenticate.
+* If the user was removed via SCIM because they were unassigned from the {% data variables.product.prodname_ghe_cloud %} application in your IdP, re-invite the user via SCIM by re-assigning them to the application. The user's organization membership will be reinstated after they sign into {% data variables.product.prodname_dotcom %} and accept the invitation.
+* If your organization uses SAML but not SCIM, ask the user to authenticate via SAML single sign-on, via your IP or by signing into {% data variables.product.prodname_dotcom %}, navigating to the organization, and clicking the banner to authenticate via SAML single sign-on. The user's organization membership will be reinstated after they successfully authenticate.
 * Otherwise, invite the user to rejoin your organization on {% data variables.product.prodname_dotcom %}, following the steps below.
 
 {% endif %}

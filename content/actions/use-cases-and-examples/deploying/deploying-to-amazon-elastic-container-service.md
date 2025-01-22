@@ -25,11 +25,8 @@ This guide explains how to use {% data variables.product.prodname_actions %} to 
 
 On every new push to `main` in your {% data variables.product.company_short %} repository, the {% data variables.product.prodname_actions %} workflow builds and pushes a new container image to Amazon ECR, and then deploys a new task definition to Amazon ECS.
 
-{% note %}
-
-**Note**: {% data reusables.actions.about-oidc-short-overview %} and "[AUTOTITLE](/actions/deployment/security-hardening-your-deployments/configuring-openid-connect-in-amazon-web-services)."
-
-{% endnote %}
+> [!NOTE]
+> {% data reusables.actions.about-oidc-short-overview %} and [AUTOTITLE](/actions/deployment/security-hardening-your-deployments/configuring-openid-connect-in-amazon-web-services).
 
 ## Prerequisites
 
@@ -80,7 +77,7 @@ Before creating your {% data variables.product.prodname_actions %} workflow, you
 
 1. Create {% data variables.product.prodname_actions %} secrets named `AWS_ACCESS_KEY_ID` and `AWS_SECRET_ACCESS_KEY` to store the values for your Amazon IAM access key.
 
-   For more information on creating secrets for {% data variables.product.prodname_actions %}, see "[AUTOTITLE](/actions/security-guides/using-secrets-in-github-actions#creating-secrets-for-a-repository)."
+   For more information on creating secrets for {% data variables.product.prodname_actions %}, see [AUTOTITLE](/actions/security-guides/using-secrets-in-github-actions#creating-secrets-for-a-repository).
 
    See the documentation for each action used below for the recommended IAM policies for the IAM user, and methods for handling the access key credentials.
 
@@ -171,12 +168,12 @@ jobs:
 
 ## Additional resources
 
-For the original starter workflow, see [`aws.yml`](https://github.com/actions/starter-workflows/blob/main/deployments/aws.yml) in the {% data variables.product.prodname_actions %} `starter-workflows` repository.
+For the original workflow template, see [`aws.yml`](https://github.com/actions/starter-workflows/blob/main/deployments/aws.yml) in the {% data variables.product.prodname_actions %} `starter-workflows` repository.
 
 For more information on the services used in these examples, see the following documentation:
 
-* "[Security best practices in IAM](https://docs.aws.amazon.com/IAM/latest/UserGuide/best-practices.html)" in the Amazon AWS documentation.
-* Official AWS "[Configure AWS Credentials](https://github.com/aws-actions/configure-aws-credentials)" action.
+* [Security best practices in IAM](https://docs.aws.amazon.com/IAM/latest/UserGuide/best-practices.html) in the Amazon AWS documentation.
+* Official AWS [Configure AWS Credentials](https://github.com/aws-actions/configure-aws-credentials) action.
 * Official AWS [Amazon ECR "Login"](https://github.com/aws-actions/amazon-ecr-login) action.
 * Official AWS [Amazon ECS "Render Task Definition"](https://github.com/aws-actions/amazon-ecs-render-task-definition) action.
 * Official AWS [Amazon ECS "Deploy Task Definition"](https://github.com/aws-actions/amazon-ecs-deploy-task-definition) action.

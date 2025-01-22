@@ -14,7 +14,7 @@ topics:
 shortTitle: GitHub Archive program
 ---
 
-{% data reusables.repositories.about-github-archive-program %} For more information, see "[AUTOTITLE](/repositories/archiving-a-github-repository/about-archiving-content-and-data-on-github#about-the-github-archive-program)."
+{% data reusables.repositories.about-github-archive-program %} For more information, see [AUTOTITLE](/repositories/archiving-a-github-repository/about-archiving-content-and-data-on-github#about-the-github-archive-program).
 
 If you opt out of the {% data variables.product.prodname_archive %} for a repository, the repository will be excluded from any long-term archives that {% data variables.product.prodname_dotcom %} may create in the future.
 

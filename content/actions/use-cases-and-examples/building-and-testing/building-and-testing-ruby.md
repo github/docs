@@ -28,22 +28,22 @@ We recommend that you have a basic understanding of Ruby, YAML, workflow configu
 * [Learn {% data variables.product.prodname_actions %}](/actions/learn-github-actions)
 * [Ruby in 20 minutes](https://www.ruby-lang.org/en/documentation/quickstart/)
 
-## Using a Ruby starter workflow
+## Using a Ruby workflow template
 
-{% data reusables.actions.starter-workflow-get-started %}
+{% data reusables.actions.workflow-templates-get-started %}
 
-{% data variables.product.prodname_dotcom %} provides a starter workflow for Ruby that should work for most Ruby projects. The subsequent sections of this guide give examples of how you can customize this starter workflow.
+{% data variables.product.prodname_dotcom %} provides a workflow template for Ruby that should work for most Ruby projects. The subsequent sections of this guide give examples of how you can customize this workflow template.
 
 {% data reusables.repositories.navigate-to-repo %}
 {% data reusables.repositories.actions-tab %}
 {% data reusables.actions.new-starter-workflow %}
-1. The "Choose a workflow" page shows a selection of recommended starter workflows. Search for "ruby".
+1. The "Choose a workflow" page shows a selection of recommended workflow templates. Search for "ruby".
 1. Filter the selection of workflows by clicking **Continuous integration**.
 1. On the "Ruby" workflow, click **Configure**.
 
 {%- ifversion ghes %}
 
-   If you don't find the "Ruby" starter workflow, copy the following workflow code to a new file called `ruby.yml` in the `.github/workflows` directory of your repository.
+   If you don't find the "Ruby" workflow template, copy the following workflow code to a new file called `ruby.yml` in the `.github/workflows` directory of your repository.
 
    ```yaml copy
    name: Ruby
@@ -108,7 +108,7 @@ steps:
 - run: bundle exec rake
 ```
 
-Alternatively, you can check a `.ruby-version` file  into the root of your repository and `setup-ruby` will use the version defined in that file.
+Alternatively, you can check a `.ruby-version` file into the root of your repository and `setup-ruby` will use the version defined in that file.
 
 ## Testing with multiple versions of Ruby
 
@@ -124,7 +124,7 @@ strategy:
 
 {% endraw %}
 
-Each version of Ruby specified in the `ruby-version` array creates a job that runs the same steps. The {% raw %}`${{ matrix.ruby-version }}`{% endraw %} context is used to access the current job's version. For more information about matrix strategies and contexts, see "[AUTOTITLE](/actions/using-workflows/workflow-syntax-for-github-actions)" and "[AUTOTITLE](/actions/learn-github-actions/contexts)."
+Each version of Ruby specified in the `ruby-version` array creates a job that runs the same steps. The {% raw %}`${{ matrix.ruby-version }}`{% endraw %} context is used to access the current job's version. For more information about matrix strategies and contexts, see [AUTOTITLE](/actions/using-workflows/workflow-syntax-for-github-actions) and [AUTOTITLE](/actions/learn-github-actions/contexts).
 
 The full updated workflow with a matrix strategy could look like this:
 
@@ -175,8 +175,6 @@ steps:
 - run: bundle install
 ```
 
-{% ifversion actions-caching %}
-
 ### Caching dependencies
 
 The `setup-ruby` actions provides a method to automatically handle the caching of your gems between runs.
@@ -198,7 +196,7 @@ This will configure bundler to install your gems to `vendor/cache`. For each suc
 
 **Caching without setup-ruby**
 
-For greater control over caching, you can use the `actions/cache` action directly. For more information, see "[AUTOTITLE](/actions/using-workflows/caching-dependencies-to-speed-up-workflows)."
+For greater control over caching, you can use the `actions/cache` action directly. For more information, see [AUTOTITLE](/actions/using-workflows/caching-dependencies-to-speed-up-workflows).
 
 ```yaml
 steps:
@@ -229,8 +227,6 @@ steps:
     bundle config path vendor/bundle
     bundle install --jobs 4 --retry 3
 ```
-
-{% endif %}
 
 ## Matrix testing your code
 

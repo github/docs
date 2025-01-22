@@ -4,6 +4,7 @@ In order to successfully deploy a NIC and join a NIC to a subnet, the {% data va
 * `GitHub.Network/networkSettings/read`
 * `GitHub.Network/networkSettings/write`
 * `GitHub.Network/networkSettings/delete`
+* `GitHub.Network/RegisteredSubscriptions/read`
 * `Microsoft.Network/locations/operations/read`
 * `Microsoft.Network/locations/operationResults/read`
 * `Microsoft.Network/locations/usages/read`

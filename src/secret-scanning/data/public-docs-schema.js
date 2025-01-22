@@ -69,7 +69,7 @@ export default {
       },
       isduplicate: {
         description:
-          'whether the token has more than one version, meaning there are more than one token descriptions with the same token key',
+          'whether the token has more than one version, meaning there is more than one token description with the same token key',
         type: ['boolean'],
       },
     },

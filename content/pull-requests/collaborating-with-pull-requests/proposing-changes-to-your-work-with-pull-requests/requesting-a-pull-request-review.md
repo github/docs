@@ -16,17 +16,20 @@ topics:
 shortTitle: Request a PR review
 ---
 
-Repositories belong to a personal account (a single individual owner) or an organization account (a shared account with numerous collaborators or maintainers). For more information, see "[AUTOTITLE](/get-started/learning-about-github/types-of-github-accounts)." Owners and collaborators on a repository owned by a personal account can assign pull request reviews. Organization members with triage permissions can also assign a reviewer for a pull request.
+Repositories belong to a personal account (a single individual owner) or an organization account (a shared account with numerous collaborators or maintainers). For more information, see [AUTOTITLE](/get-started/learning-about-github/types-of-github-accounts). Owners and collaborators on a repository owned by a personal account can assign pull request reviews. Organization members with triage permissions can also assign a reviewer for a pull request.
 
-To assign a reviewer to a pull request, you will need write access to the repository. For more information about repository access, see "[AUTOTITLE](/organizations/managing-user-access-to-your-organizations-repositories/managing-repository-roles/repository-roles-for-an-organization)." If you have write access, you can assign anyone who has read access to the repository as a reviewer.
+To assign a reviewer to a pull request, you will need write access to the repository. For more information about repository access, see [AUTOTITLE](/organizations/managing-user-access-to-your-organizations-repositories/managing-repository-roles/repository-roles-for-an-organization). If you have write access, you can assign anyone who has read access to the repository as a reviewer.
 
-Organization members with write access can also assign a pull request review to any person or team with read access to a repository. The requested reviewer or team will receive a notification that you asked them to review the pull request. If you request a review from a team and code review assignment is enabled, specific members will be requested and the team will be removed as a reviewer. For more information, see "[AUTOTITLE](/organizations/organizing-members-into-teams/managing-code-review-settings-for-your-team)."
+Organization members with write access can also assign a pull request review to any person or team with read access to a repository. The requested reviewer or team will receive a notification that you asked them to review the pull request. If you request a review from a team and code review assignment is enabled, specific members will be requested and the team will be removed as a reviewer. For more information, see [AUTOTITLE](/organizations/organizing-members-into-teams/managing-code-review-settings-for-your-team).
 
-{% note %}
+> [!NOTE]
+> Pull request authors can't request reviews unless they are either a repository owner or collaborator with write access to the repository.
 
-**Note:** Pull request authors can't request reviews unless they are either a repository owner or collaborator with write access to the repository.
+{% ifversion copilot-hadron %}
 
-{% endnote %}
+## Requesting reviews from collaborators and organization members
+
+{% endif %}
 
 You can request a review from either a suggested or specific person. Suggested reviewers are based on [git blame data](/repositories/working-with-files/using-files/viewing-a-file). If you request a review, other people with read access to the repository can still review your pull request. Once someone has reviewed your pull request and you've made the necessary changes, you can re-request review from the same reviewer. If the requested reviewer does not submit a review, and the pull request meets the repository's [mergeability requirements](/repositories/configuring-branches-and-merges-in-your-repository/defining-the-mergeability-of-pull-requests), you can still merge the pull request.
 
@@ -44,6 +47,17 @@ You can request a review from either a suggested or specific person. Suggested r
 
    ![Screenshot of the "Reviewers" section of a pull request's sidebar. To the right of @octocat, a sync icon is outlined in dark orange.](/assets/images/help/pull_requests/request-re-review.png)
 
+{% ifversion copilot-hadron %}
+
+## Requesting a review from {% data variables.product.prodname_copilot %}
+
+>[!NOTE]
+>{% data variables.product.prodname_copilot_workspace %} is currently in {% data variables.release-phases.public_preview %}. For information about joining the {% data variables.release-phases.public_preview %}, see [AUTOTITLE](/copilot/using-github-copilot/using-github-copilot-for-pull-requests/using-copilot-to-help-you-work-on-a-pull-request).
+
+You can also request that {% data variables.product.prodname_copilot_short %} reviews your code and provides feedback and suggested changes on your work. See [AUTOTITLE](/copilot/using-github-copilot/code-review/using-copilot-code-review).
+
+{% endif %}
+
 ## Further reading
 
-* "[AUTOTITLE](/pull-requests/collaborating-with-pull-requests/reviewing-changes-in-pull-requests/about-pull-request-reviews)"
+* [AUTOTITLE](/pull-requests/collaborating-with-pull-requests/reviewing-changes-in-pull-requests/about-pull-request-reviews)

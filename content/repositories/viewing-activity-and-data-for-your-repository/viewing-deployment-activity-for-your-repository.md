@@ -13,13 +13,11 @@ topics:
   - Repositories
 shortTitle: View deployment activity
 ---
-{% note %}
 
-**Note:** The deployments dashboard is currently in beta and subject to change.
+> [!NOTE]
+> The deployments dashboard is currently in {% data variables.release-phases.public_preview %} and subject to change.
 
-{% endnote %}
-
-People with read access to a repository can see an overview of all current deployments and a log of past deployment activity, if the repository's deployment workflow is integrated with {% data variables.product.product_name %} through the Deployments API or an app from [{% data variables.product.prodname_marketplace %}](https://github.com/marketplace/category/deployment). For more information, see "[AUTOTITLE](/rest/repos#deployments)."
+People with read access to a repository can see an overview of all current deployments and a log of past deployment activity, if the repository's deployment workflow is integrated with {% data variables.product.github %} through the Deployments API or an app from [{% data variables.product.prodname_marketplace %}](https://github.com/marketplace/category/deployment). For more information, see [AUTOTITLE](/rest/repos#deployments).
 
 You can also see deployment information on the "Conversation" tab of a pull request.
 
@@ -32,4 +30,4 @@ You can also see deployment information on the "Conversation" tab of a pull requ
 
 ## Further reading
 
-* "[AUTOTITLE](/pull-requests/collaborating-with-pull-requests/proposing-changes-to-your-work-with-pull-requests/about-pull-requests)"
+* [AUTOTITLE](/pull-requests/collaborating-with-pull-requests/proposing-changes-to-your-work-with-pull-requests/about-pull-requests)

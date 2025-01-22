@@ -7,7 +7,7 @@ header:
     release_candidate:
       # The version name is rendered before the below text via includes/header-notification.html
       ' is currently available as a <a href="/admin/overview/about-upgrades-to-new-releases">release candidate</a>.'
-    early_access: 📣 Please <b>do not share</b> this URL publicly. This page contains content about an early access feature.
+    early_access: 📣 Please <b>do not share</b> this URL publicly. This page contains content about a private preview feature.
     release_notes_use_latest: Please use the latest release for the latest security, performance, and bug fixes.
     # GHES release notes
     ghes_release_notes_upgrade_patch_only: 📣 This is not the <a href="#{{ latestPatch }}">latest patch release</a> of Enterprise Server.
@@ -63,7 +63,6 @@ survey:
   additional_feedback: Can you tell us more about your rating? (Optional)
   optional: Optional
   required: Required
-  email_placeholder: 'Example: email@example.com'
   email_label: Leave your email if we can contact you. (Optional)
   email_validation: Please enter a valid email address
   send: Send
@@ -149,6 +148,7 @@ rest_reference:
   http_status_code: HTTP response status codes for "{{ RESTOperationTitle }}"
   code_sample: Code sample
   code_samples: Code samples for "{{ RESTOperationTitle }}"
+  data_residency_notice: If you access GitHub at GHE.com, replace <code>api.github.com</code> with your enterprise's dedicated subdomain at <code>api.SUBDOMAIN.ghe.com</code>.
   preview_notice: Preview notice for "{{ RESTOperationTitle }}"
   preview_notices: Preview notices for "{{ RESTOperationTitle }}"
   fine_grained_access: Fine-grained access tokens for "{{ RESTOperationTitle }}"
@@ -210,7 +210,7 @@ product_landing:
   quickstart: Quickstart
   reference: Reference
   overview: Overview
-  try_ghec_for_free: Try Enterprise Cloud for free
+  try_ghec_for_free: Try GitHub's enterprise features
   try_ghas_for_free: Try GitHub Advanced Security for free
   plan_your_migration: Plan your migration
   releases: Releases
@@ -263,7 +263,6 @@ scroll_button:
   scroll_to_top: Scroll to top
 popovers:
   role_description: hovercard link
-  keyboard_shortcut_description: Press alt+up to activate
 alerts:
   NOTE: Note
   IMPORTANT: Important

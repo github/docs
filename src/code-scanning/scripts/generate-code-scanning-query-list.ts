@@ -198,7 +198,13 @@ function printQueries(options: Options, queries: QueryExtended[]) {
   const markdown: string[] = []
   markdown.push('{% rowheaders %}')
   markdown.push('') // blank line
-  const header = ['Query name', 'Related CWEs', 'Default', 'Extended', 'Autofix']
+  const header = [
+    'Query name',
+    'Related CWEs',
+    'Default',
+    'Extended',
+    '{% data variables.product.prodname_copilot_autofix_short %}',
+  ]
   markdown.push(`| ${header.join(' | ')} |`)
   markdown.push(`| ${header.map(() => '---').join(' | ')} |`)
 

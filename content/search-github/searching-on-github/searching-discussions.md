@@ -2,7 +2,9 @@
 title: Searching discussions
 intro: 'You can search for discussions on {% data variables.product.product_name %} and narrow the results using search qualifiers.'
 versions:
-  feature: discussions
+  fpt: '*'
+  ghes: '*'
+  ghec: '*'
 topics:
   - GitHub search
 redirect_from:
@@ -12,7 +14,7 @@ redirect_from:
 
 ## About searching for discussions
 
-You can search for discussions globally across all of {% data variables.product.product_name %}, or search for discussions within a particular organization or repository. For more information, see "[AUTOTITLE](/search-github/getting-started-with-searching-on-github/about-searching-on-github)."
+You can search for discussions globally across all of {% data variables.product.product_name %}, or search for discussions within a particular organization or repository. For more information, see [AUTOTITLE](/search-github/getting-started-with-searching-on-github/about-searching-on-github).
 
 {% data reusables.search.syntax_tips %}
 
@@ -28,7 +30,7 @@ With the `in` qualifier you can restrict your search for discussions to the titl
 
 ## Search within a user's or organization's repositories
 
-To search discussions in all repositories owned by a certain user or organization, you can use the  `user` or `org` qualifier. To search discussions in a specific repository, you can use the `repo` qualifier.
+To search discussions in all repositories owned by a certain user or organization, you can use the `user` or `org` qualifier. To search discussions in a specific repository, you can use the `repo` qualifier.
 
 | Qualifier | Example |
 | :- | :- |
@@ -56,7 +58,7 @@ You can search for a discussion that has been answered using the `is` qualifier.
 
 ## Search based on whether a discussion is locked
 
-You can search for a discussion that has been locked using the `is` qualifier. For more information, see "[AUTOTITLE](/discussions/managing-discussions-for-your-community/moderating-discussions)."
+You can search for a discussion that has been locked using the `is` qualifier. For more information, see [AUTOTITLE](/discussions/managing-discussions-for-your-community/moderating-discussions).
 
 | Qualifier        | Example
 | ------------- | -------------
@@ -65,12 +67,14 @@ You can search for a discussion that has been locked using the `is` qualifier. F
 
 ## Filter by repository visibility
 
-You can filter by the visibility of the repository containing the discussions using the `is` qualifier. For more information, see "[AUTOTITLE](/repositories/creating-and-managing-repositories/about-repositories#about-repository-visibility)."
+You can filter by the visibility of the repository containing the discussions using the `is` qualifier. For more information, see [AUTOTITLE](/repositories/creating-and-managing-repositories/about-repositories#about-repository-visibility).
 
-| Qualifier  | Example
+| Qualifier  | Example |
 | :- | :- |
-| `is:public` | [**is:public**](https://github.com/search?q=is%3Apublic&type=Discussions) matches discussions in public repositories.{% ifversion ghec %}
-| `is:internal` | [**is:internal**](https://github.com/search?q=is%3Ainternal&type=Discussions) matches discussions in internal repositories.{% endif %}
+| `is:public` | [**is:public**](https://github.com/search?q=is%3Apublic&type=Discussions) matches discussions in public repositories. |
+|  {% ifversion ghec %} |
+| `is:internal` | [**is:internal**](https://github.com/search?q=is%3Ainternal&type=Discussions) matches discussions in internal repositories. |
+|  {% endif %} |
 | `is:private` | [**is:private tiramisu**](https://github.com/search?q=is%3Aprivate+tiramisu&type=Discussions) matches discussions that contain the word "tiramisu" in private repositories you can access.
 
 ## Search by author
@@ -105,11 +109,11 @@ You can use the `involves` qualifier to find discussions that involve a certain 
 | Qualifier | Example |
 | :- | :- |
 | <code>involves:<em>USERNAME</em></code> | **[involves:becca involves:octocat](https://github.com/search?q=involves%3Abecca+involves%3Aoctocat&type=Discussions)** matches discussions either @becca or @octocat are involved in.
-| `in:body` <code>involves:<em>USERNAME</em></code> | [**NOT beta in:body involves:becca**](https://github.com/search?q=NOT+beta+in%3Abody+involves%3Abecca&type=Discussions) matches discussions @becca is involved in that do not contain the word "beta" in the body.
+| `in:body` <code>involves:<em>USERNAME</em></code> | [**NOT free in:body involves:becca**](https://github.com/search?q=NOT+free+in%3Abody+involves%3Abecca&type=Discussions) matches discussions @becca is involved in that do not contain the word "free" in the body.
 
 ## Search by number of comments
 
-You can use the `comments` qualifier along with greater than, less than, and range qualifiers to search by the number of comments. For more information, see "[AUTOTITLE](/search-github/getting-started-with-searching-on-github/understanding-the-search-syntax)."
+You can use the `comments` qualifier along with greater than, less than, and range qualifiers to search by the number of comments. For more information, see [AUTOTITLE](/search-github/getting-started-with-searching-on-github/understanding-the-search-syntax).
 
 | Qualifier | Example |
 | :- | :- |
@@ -147,4 +151,4 @@ You can filter discussions by specific labels that are applied to discussions.
 
 ## Further reading
 
-* "[AUTOTITLE](/search-github/getting-started-with-searching-on-github/sorting-search-results)"
+* [AUTOTITLE](/search-github/getting-started-with-searching-on-github/sorting-search-results)

@@ -14,59 +14,64 @@ if (isNaN(MAX)) {
 
 const ipv4WithPort = /^(\d{1,3}\.\d{1,3}\.\d{1,3}\.\d{1,3}):\d{1,5}$/
 
-export default rateLimit({
-  // 1 minute
-  windowMs: EXPIRES_IN_AS_SECONDS * 1000,
-  // limit each IP to X requests per windowMs
-  // We currently have about 25 instances in production. That's routed
-  // in Azure to spread the requests to each healthy instance.
-  // So, the true rate limit, per `windowMs`, is this number multiplied
-  // by the current number of instances.
-  max: MAX,
+export function createRateLimiter(max = MAX) {
+  return rateLimit({
+    // 1 minute
+    windowMs: EXPIRES_IN_AS_SECONDS * 1000,
+    // limit each IP to X requests per windowMs
+    // We currently have about 25 instances in production. That's routed
+    // in Azure to spread the requests to each healthy instance.
+    // So, the true rate limit, per `windowMs`, is this number multiplied
+    // by the current number of instances.
+    max: max,
 
-  // Return rate limit info in the `RateLimit-*` headers
-  standardHeaders: true,
-  // Disable the `X-RateLimit-*` headers
-  legacyHeaders: false,
+    // Return rate limit info in the `RateLimit-*` headers
+    standardHeaders: true,
+    // Disable the `X-RateLimit-*` headers
+    legacyHeaders: false,
 
-  keyGenerator: (req) => {
-    let { ip } = req
-    // In our Azure preview environment, with the way the proxying works,
-    // the `x-forwarded-for` is always the origin IP with a port number
-    // attached. E.g. `75.40.90.27:56675, 169.254.129.1`
-    // This port number portion changes with every request, so we strip it.
-    ip = (ip || '').replace(ipv4WithPort, '$1')
+    keyGenerator: (req) => {
+      let { ip } = req
+      // In our Azure preview environment, with the way the proxying works,
+      // the `x-forwarded-for` is always the origin IP with a port number
+      // attached. E.g. `75.40.90.27:56675, 169.254.129.1`
+      // This port number portion changes with every request, so we strip it.
+      ip = (ip || '').replace(ipv4WithPort, '$1')
 
-    return ip
-  },
+      return ip
+    },
 
-  skip: (req) => {
-    // Always ignore these
-    if (req.path === '/api/events') return true
-    // If the query string looks totally regular, then skip
-    if (!isSuspiciousRequest(req)) return true
+    skip: (req) => {
+      // Always ignore these
+      if (req.path === '/api/events') return true
+      // Always rate limit these routes
+      const dontSkip =
+        req.originalUrl.includes('/api/search') || req.originalUrl.includes('/api/ai-search')
+      // If the query string looks totally regular, then skip
+      if (!isSuspiciousRequest(req) && !dontSkip) return true
 
-    // This is so we can get a sense of how many requests are being
-    // treated as suspicious. They don't necessarily get rate limited.
-    const tags = [
-      `url:${req.url}`,
-      `ip:${req.ip}`,
-      `path:${req.path}`,
-      `qs:${req.url.split('?')[1]}`,
-    ]
+      // This is so we can get a sense of how many requests are being
+      // treated as suspicious. They don't necessarily get rate limited.
+      const tags = [
+        `url:${req.url}`,
+        `ip:${req.ip}`,
+        `path:${req.path}`,
+        `qs:${req.url.split('?')[1]}`,
+      ]
 
-    statsd.increment('middleware.rate_limit_dont_skip', 1, tags)
+      statsd.increment('middleware.rate_limit_dont_skip', 1, tags)
 
-    return false
-  },
+      return false
+    },
 
-  handler: (req, res, next, options) => {
-    const tags = [`url:${req.url}`, `ip:${req.ip}`, `path:${req.path}`]
-    statsd.increment('middleware.rate_limit', 1, tags)
-    noCacheControl(res)
-    res.status(options.statusCode).send(options.message)
-  },
-})
+    handler: (req, res, next, options) => {
+      const tags = [`url:${req.url}`, `ip:${req.ip}`, `path:${req.path}`]
+      statsd.increment('middleware.rate_limit', 1, tags)
+      noCacheControl(res)
+      res.status(options.statusCode).send(options.message)
+    },
+  })
+}
 
 const RECOGNIZED_KEYS_BY_PREFIX = {
   '/_next/data/': ['versionId', 'productId', 'restPage', 'apiVersion', 'category', 'subcategory'],

@@ -47,3 +47,11 @@ Featured sponsors allows you to spotlight your sponsors. You can opt to automati
     * A pop up window will display allowing you to search your sponsors. Click on the desired sponsors and click **Save**.
 
 {% data reusables.sponsors.save-profile %}
+
+## Sharing your profile
+
+Let others know about your Sponsors profile by sharing it out on social media or embedding it on your personal website.
+
+{% data reusables.sponsors.navigate-to-sponsors-dashboard %}
+1. From the left sidebar, click **Overview**.
+1. Under "Share it out", select the option to share your Sponsors profile on social media or embed it on a website.

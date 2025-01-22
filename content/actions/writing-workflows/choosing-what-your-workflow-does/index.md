@@ -10,20 +10,19 @@ versions:
   ghec: '*'
 children:
   - /using-jobs-in-a-workflow
-  - /finding-and-customizing-actions
+  - /using-pre-written-building-blocks-in-your-workflow
   - /using-github-cli-in-workflows
   - /workflow-commands-for-github-actions
   - /adding-scripts-to-your-workflow
-  - /assigning-permissions-to-jobs
-  - /expressions
-  - /variables
-  - /contexts
-  - /defining-outputs-for-jobs
-  - /setting-default-values-for-jobs
+  - /controlling-permissions-for-github_token
+  - /evaluate-expressions-in-workflows-and-actions
+  - /store-information-in-variables
+  - /accessing-contextual-information-about-workflow-runs
+  - /passing-information-between-jobs
+  - /setting-a-default-shell-and-working-directory
   - /using-environments-for-deployment
-  - /using-concurrency
-  - /using-a-matrix-for-your-jobs
+  - /control-the-concurrency-of-workflows-and-jobs
+  - /running-variations-of-jobs-in-a-workflow
   - /caching-dependencies-to-speed-up-workflows
-  - /storing-workflow-data-as-artifacts
+  - /storing-and-sharing-data-from-a-workflow
 ---
-

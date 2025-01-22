@@ -7,7 +7,7 @@ permissions:
   checks: read|write|none
   contents: read|write|none
   deployments: read|write|none{% ifversion fpt or ghec %}
-  id-token: read|write|none{% endif %}
+  id-token: write|none{% endif %}
   issues: read|write|none
   discussions: read|write|none
   packages: read|write|none

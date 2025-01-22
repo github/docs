@@ -11,8 +11,8 @@ versions:
   ghec: '*'
 children:
   - /quickstart
-  - /about-workflows  
-  - /using-starter-workflows
+  - /about-workflows
+  - /using-workflow-templates
   - /choosing-when-your-workflow-runs
   - /choosing-where-your-workflow-runs
   - /choosing-what-your-workflow-does

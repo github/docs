@@ -7,7 +7,7 @@ Additionally, {% data variables.product.prodname_secret_scanning %} scans:{% ifv
 * Titles, descriptions, and comments in {% data variables.product.prodname_discussions %}{% endif %}{% ifversion secret-scanning-enhancements-wikis %}
 * Wikis{% endif %}
 
-{% ifversion fpt or ghec %}
+{% ifversion ghec %}
 This additional scanning is free for public repositories.
 {% endif %}
 

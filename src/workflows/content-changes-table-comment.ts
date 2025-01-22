@@ -257,7 +257,7 @@ function makeRow({
         prodCell += '<br>'
       }
     }
-  } catch (e) {
+  } catch {
     console.error(
       `Version information for ${file.filename} couldn't be determined from its frontmatter.`,
     )
