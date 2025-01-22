@@ -1,6 +1,6 @@
 ---
 title: Filtering files in a pull request
-intro: 'To help you quickly review changes in a large pull request, you can filter changed files{% ifversion pr-tree-view %} or use the file tree to navigate between files{% endif %}.'
+intro: 'To help you quickly review changes in a large pull request, you can filter changed files or use the file tree to navigate between files.'
 redirect_from:
   - /github/collaborating-with-issues-and-pull-requests/reviewing-changes-in-pull-requests/filtering-files-in-a-pull-request
   - /articles/filtering-files-in-a-pull-request-by-file-type
@@ -15,7 +15,7 @@ topics:
   - Pull requests
 shortTitle: Filter files
 ---
-You can filter files in a pull request by file extension type, such as `.html` or `.js`, lack of an extension, code ownership, or dotfiles.{% ifversion pr-tree-view %} You can also use the file tree to filter by file path, navigate between files, or see a high level view of the changed files.{% endif %}
+You can filter files in a pull request by file extension type, such as `.html` or `.js`, lack of an extension, code ownership, or dotfiles. You can also use the file tree to filter by file path, navigate between files, or see a high level view of the changed files.
 
 ## Using the file filter dropdown
 
@@ -33,8 +33,6 @@ You can filter files in a pull request by file extension type, such as `.html` o
 
    ![Screenshot of the view options for a pull request. The "Clear filters" option is outlined in dark orange.](/assets/images/help/pull_requests/clear-file-filter.png)
 
-{% ifversion pr-tree-view %}
-
 ## Using the file tree
 
 {% data reusables.repositories.sidebar-pr %}
@@ -48,8 +46,6 @@ You can filter files in a pull request by file extension type, such as `.html` o
 
    ![Screenshot of the "Files changed" tab of a pull request. In the left sidebar, the file tree is outlined in dark orange.](/assets/images/help/repository/file-tree.png)
 1. To filter by file path, enter part or all of the file path in the **Filter changed files** search box. Alternatively, use the file filter dropdown. For more information, see [Using the file filter dropdown](#using-the-file-filter-dropdown).
-
-{% endif %}
 
 ## Further reading
 

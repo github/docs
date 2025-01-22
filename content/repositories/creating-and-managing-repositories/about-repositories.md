@@ -38,7 +38,7 @@ Clone | To download a full copy of a repository's data from {% data variables.lo
 Fork | A new repository that shares code and visibility settings with the original "upstream" repository.
 Merge | To take the changes from one branch and apply them to another.
 Pull request | A request to merge changes from one branch into another.
-Remote | A repository stored on {% data variables.product.product_name %}, not on your computer.
+Remote | A repository stored on {% data variables.product.github %}, not on your computer.
 Upstream | The branch on an original repository that has been forked or cloned. The corresponding branch on the cloned or forked repository is called the "downstream."
 
 {% endrowheaders %}

@@ -20,7 +20,7 @@ topics:
 ---
 ## Create a repository
 
-{% data variables.product.product_name %} repositories store a variety of projects. In this guide, you'll create a repository and commit your first change.
+{% data variables.product.github %} repositories store a variety of projects. In this guide, you'll create a repository and commit your first change.
 
 {% webui %}
 
@@ -28,7 +28,7 @@ topics:
 1. Type a short, memorable name for your repository. For example, "hello-world".
 
    ![Screenshot of the first step in creating a repository. The "Repository name" field contains the text "hello-world" and is outlined in dark orange.](/assets/images/help/repository/create-repository-name.png)
-1. Optionally, add a description of your repository. For example, "My first repository on {% data variables.product.product_name %}."
+1. Optionally, add a description of your repository. For example, "My first repository on {% data variables.product.github %}."
 {% data reusables.repositories.choose-repo-visibility %}
 {% data reusables.repositories.initialize-with-readme %}
 {% data reusables.repositories.create-repo %}

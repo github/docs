@@ -3,7 +3,7 @@ title: REST API endpoints for managing GitHub Enterprise Server
 allowTitleToDifferFromFilename: true
 shortTitle: Manage GHES
 intro: >-
-  Use the REST API to manage your {% data variables.product.product_name %}
+  Use the REST API to manage your {% data variables.product.prodname_ghe_server %}
   instance.
 versions: # DO NOT MANUALLY EDIT. CHANGES WILL BE OVERWRITTEN BY A 🤖
   ghes: '*'

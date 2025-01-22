@@ -1,6 +1,6 @@
 ---
 title: About anonymized URLs
-intro: 'If you upload an image or video to {% data variables.product.product_name %}, the URL of the image or video will be modified so your information is not trackable.'
+intro: 'If you upload an image or video to {% data variables.product.github %}, the URL of the image or video will be modified so your information is not trackable.'
 redirect_from:
   - /articles/why-do-my-images-have-strange-urls
   - /articles/about-anonymized-image-urls
@@ -14,7 +14,7 @@ topics:
   - Identity
   - Access management
 ---
-To host your images, {% data variables.product.product_name %} uses the [open-source project Camo](https://github.com/atmos/camo). Camo generates an anonymous URL proxy for each file which hides your browser details and related information from other users. On {% data variables.product.prodname_dotcom_the_website %}, the URL starts `https://<subdomain>.githubusercontent.com/`, with different subdomains depending on how you uploaded the image.
+To host your images, {% data variables.product.github %} uses the [open-source project Camo](https://github.com/atmos/camo). Camo generates an anonymous URL proxy for each file which hides your browser details and related information from other users. On {% data variables.product.prodname_dotcom_the_website %}, the URL starts `https://<subdomain>.githubusercontent.com/`, with different subdomains depending on how you uploaded the image.
 
 Videos also get anonymized URLs with the same format as image URLs, but are not processed through Camo. This is because {% data variables.product.prodname_dotcom %} does not support externally hosted videos, so the anonymized URL is a link to the uploaded video hosted by {% data variables.product.prodname_dotcom %}.
 

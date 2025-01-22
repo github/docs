@@ -22,7 +22,7 @@ product: 'Requiring two-factor authentication is available to organizations on a
 
 ## About two-factor authentication for organizations
 
-{% data reusables.two_fa.about-2fa %} You can require all {% ifversion fpt or ghec %}members, outside collaborators, and billing managers{% else %}members and outside collaborators{% endif %} in your organization to enable two-factor authentication on {% data variables.product.product_name %}. For more information about two-factor authentication, see [AUTOTITLE](/authentication/securing-your-account-with-two-factor-authentication-2fa).
+{% data reusables.two_fa.about-2fa %} You can require all {% ifversion fpt or ghec %}members, outside collaborators, and billing managers{% else %}members and outside collaborators{% endif %} in your organization to enable two-factor authentication on {% data variables.product.github %}. For more information about two-factor authentication, see [AUTOTITLE](/authentication/securing-your-account-with-two-factor-authentication-2fa).
 
 {% ifversion fpt or ghec %}
 
@@ -52,7 +52,7 @@ You can also require two-factor authentication for organizations in an enterpris
 
 ## Prerequisites
 
-Before you can require {% ifversion fpt or ghec %}organization members, outside collaborators, and billing managers{% else %}organization members and outside collaborators{% endif %} to use two-factor authentication, you must enable 2FA for your account on {% data variables.product.product_name %}. For more information, see [AUTOTITLE](/authentication/securing-your-account-with-two-factor-authentication-2fa).
+Before you can require {% ifversion fpt or ghec %}organization members, outside collaborators, and billing managers{% else %}organization members and outside collaborators{% endif %} to use two-factor authentication, you must enable 2FA for your account. For more information, see [AUTOTITLE](/authentication/securing-your-account-with-two-factor-authentication-2fa).
 
 Before you require use of two-factor authentication, we recommend notifying {% ifversion fpt or ghec %}organization members, outside collaborators, and billing managers{% else %}organization members and outside collaborators{% endif %} and asking them to set up 2FA for their accounts. You can see if members and outside collaborators already use 2FA. For more information, see [AUTOTITLE](/organizations/keeping-your-organization-secure/managing-two-factor-authentication-for-your-organization/viewing-whether-users-in-your-organization-have-2fa-enabled).
 

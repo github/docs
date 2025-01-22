@@ -10,7 +10,7 @@ versions:
   ghes: '*'
   ghec: '*'
 ---
- 
+
 {% data reusables.actions.enterprise-github-hosted-runners %}
 
 You can see whether a workflow run is in progress or complete from the workflow run page. You must be logged in to a {% data variables.product.prodname_dotcom %} account to view workflow run information, including for public repositories. For more information, see [AUTOTITLE](/get-started/learning-about-github/access-permissions-on-github).
@@ -61,12 +61,8 @@ You can download the log files from your workflow run. You can also download a w
 
    ![Screenshot of the log for a job. In the header, a gear icon is outlined in dark orange.](/assets/images/help/actions/download-logs-drop-down.png)
 
-  {% ifversion re-run-jobs %}
-
   > [!NOTE]
   > When you download the log archive for a workflow that was partially re-run, the archive only includes the jobs that were re-run. To get a complete set of logs for jobs that were run from a workflow, you must download the log archives for the previous run attempts that ran the other jobs.
-
-  {% endif %}
 
 ## Deleting logs
 

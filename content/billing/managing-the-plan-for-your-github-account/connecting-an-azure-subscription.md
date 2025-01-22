@@ -22,13 +22,13 @@ shortTitle: Connect an Azure subscription
 
 ## About connection of an Azure subscription
 
-You can pay for usage of {% data variables.product.product_name %} features through Azure by connecting an Azure Subscription ID to your organization {% ifversion ghec %}or enterprise{% endif %} account on {% data variables.location.product_location %}. {% ifversion fpt %}For more information about organization accounts, see [AUTOTITLE](/organizations/collaborating-with-groups-in-organizations/about-organizations).{% elsif ghec %}
+You can pay for usage of {% data variables.product.github %} features through Azure by connecting an Azure Subscription ID to your organization {% ifversion ghec %}or enterprise{% endif %} account on {% data variables.location.product_location %}. {% ifversion fpt %}For more information about organization accounts, see [AUTOTITLE](/organizations/collaborating-with-groups-in-organizations/about-organizations).{% elsif ghec %}
 
 In this article, the instructions that you must follow to connect an Azure subscription depend on whether your company uses a single organization or an enterprise account on {% data variables.location.product_location %}. For more information about the differences between these two types of accounts, see [AUTOTITLE](/get-started/learning-about-github/types-of-github-accounts).{% endif %}
 
 {% ifversion ghec %}
 
-If you use {% data variables.product.product_name %} through a Microsoft Enterprise Agreement, connection to an Azure subscription is the only way to use {% data variables.product.prodname_github_codespaces %} and {% data variables.product.prodname_copilot_business_short %}, or to use {% data variables.product.prodname_actions %} and {% data variables.product.prodname_registry %} beyond your plan's included amounts.
+If you use {% data variables.product.prodname_ghe_cloud %} through a Microsoft Enterprise Agreement, connection to an Azure subscription is the only way to use {% data variables.product.prodname_github_codespaces %} and {% data variables.product.prodname_copilot_business_short %}, or to use {% data variables.product.prodname_actions %} and {% data variables.product.prodname_registry %} beyond your plan's included amounts.
 
 {% endif %}
 
@@ -82,7 +82,7 @@ For example, you link your Azure subscription to your organization {% ifversion 
 
 ## Video demonstration of connecting a subscription
 
-To connect an Azure subscription, you'll need appropriate access permissions on both {% data variables.product.product_name %} and the Azure billing portal. This may require coordination between two different people.
+To connect an Azure subscription, you'll need appropriate access permissions on both {% data variables.product.github %} and the Azure billing portal. This may require coordination between two different people.
 
 To see a demo of the process from beginning to end, see [Billing GitHub consumption through an Azure subscription](https://www.youtube.com/watch?v=Y-f7JKJ4_8Y) on {% data variables.product.company_short %}'s YouTube channel. This video demonstrates the process for an enterprise account. If you're connecting a subscription to an organization account, see [Connecting your Azure subscription to your organization account](/free-pro-team@latest/billing/managing-the-plan-for-your-github-account/connecting-an-azure-subscription#connecting-your-azure-subscription-to-your-organization-account).
 

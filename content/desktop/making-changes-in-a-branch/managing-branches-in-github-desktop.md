@@ -59,7 +59,7 @@ Repository administrators can also enable rulesets. Rulesets can be used to requ
 
 ## Publishing a branch
 
-If you create a branch on {% data variables.product.product_name %}, you'll need to publish the branch to make it available for collaboration on {% data variables.product.prodname_dotcom %}.
+If you create a branch in {% data variables.product.prodname_desktop %}, you'll need to publish the branch to make it available for collaboration on {% data variables.product.github %}.
 
 1. In the repository bar, click **{% octicon "git-branch" aria-hidden="true" %} Current Branch**, then click the branch that you want to publish.
    ![Screenshot of the "Current Branch" dropdown view. Under "Recent Branches", a branch, named "my-feature", is highlighted with an orange outline.](/assets/images/help/desktop/select-branch-from-dropdown.png)

@@ -1,7 +1,7 @@
 ---
 title: Managing discussions for your community
 shortTitle: Managing discussions
-intro: 'You can enable and configure {% data variables.product.prodname_discussions %} for your repository, and you can use tools on {% data variables.product.product_name %} to moderate conversations among community members.'
+intro: 'You can enable and configure {% data variables.product.prodname_discussions %} for your repository, and you can use tools to moderate conversations among community members.'
 versions:
   fpt: '*'
   ghes: '*'

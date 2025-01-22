@@ -55,16 +55,18 @@ For more information about skillsets, see [AUTOTITLE](/copilot/building-copilot-
 
 {% data reusables.copilot.copilot-extensions.context-passing-public-preview-note %}
 
-You can allow your {% data variables.product.prodname_copilot_extension_short %} to receive context from the editor, such as the currently opened file, by enabling the **Read-only** access level for the "{% data variables.product.prodname_copilot_short %} Editor Context" permission in your {% data variables.product.prodname_github_app %} settings. See [AUTOTITLE](/copilot/building-copilot-extensions/creating-a-copilot-extension/creating-a-github-app-for-your-copilot-extension#creating-a-github-app).
+You can allow your {% data variables.product.prodname_copilot_extension_short %} to receive context from the editor, such as the currently opened file, by enabling the **Read-only** access level for the "{% data variables.product.prodname_copilot_short %} Editor Context" permission in your {% data variables.product.prodname_github_app %} settings. See step 10 of [Configuring your {% data variables.product.prodname_github_app %}](/copilot/building-copilot-extensions/creating-a-copilot-extension/configuring-your-github-app-for-your-copilot-extension#configuring-your-github-app).
 
-The {% data variables.product.prodname_copilot_extensibility_platform %} automatically handles messaging when implicit and explicit context is unavailable or unauthorized. To enable context passing, you are required to request permissions from users. When requesting permissions, follow these best practices:
+The {% data variables.product.prodname_copilot_extensibility_platform %} automatically handles messaging when implicit and explicit context is unavailable or unauthorized. To enable context passing, you are required to request permissions from users. To enable context passing, you are required to:
 
-* Clearly communicate what context you need and what you need it for.
-* Implement appropriate error handling for unavailable context that your own application logic and API calls.
-* In the event context is unavailable, provide value where possible without this data.
-* Request only the minimum required permissions for your extension.
+* Update your APIs to handle new reference types.
+* Request permissions from users. When requesting permissions, follow these best practices:
+  * Clearly communicate what context you need and what you need it for.
+  * Implement appropriate error handling for unavailable context that your own application logic and API calls.
+  * If context is unavailable, provide value where possible without this data.
+  * Request only the minimum required permissions for your extension.
 
-Context passing respects content exclusions, `.env` files, and files listed in the content exclusion settings.
+Context passing respects content exclusions, which refers to any files listed in your context exclusion settings, including files that begin with `.`.
 
 ### Resources for building {% data variables.product.prodname_copilot_extensions %}
 

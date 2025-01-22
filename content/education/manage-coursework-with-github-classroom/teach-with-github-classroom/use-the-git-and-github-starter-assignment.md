@@ -48,11 +48,11 @@ Import the starter course into your organization, name your assignment, decide w
 
 ### Importing the assignment
 
-To import the Git & {% data variables.product.product_name %} starter assignment into your organization, click **Import the assignment**.
+To import the Git & {% data variables.product.github %} starter assignment into your organization, click **Import the assignment**.
 
 ### Naming the assignment
 
-For an individual assignment, {% data variables.product.prodname_classroom %} names repositories by the repository prefix and the student's {% data variables.product.product_name %} username. By default, the repository prefix is the assignment title. For example, if you name an assignment "assignment-1" and the student's username on {% data variables.product.product_name %} is @octocat, the name of the assignment repository for @octocat will be `assignment-1-octocat`.
+For an individual assignment, {% data variables.product.prodname_classroom %} names repositories by the repository prefix and the student's {% data variables.product.github %} username. By default, the repository prefix is the assignment title. For example, if you name an assignment "assignment-1" and the student's username on {% data variables.product.github %} is @octocat, the name of the assignment repository for @octocat will be `assignment-1-octocat`.
 
 {% data reusables.classroom.assignments-type-a-title %}
 

@@ -83,7 +83,7 @@ You can pin repositories that you want to feature, such as those that are freque
 
 ## Changing your organization's profile picture
 
-When you create an organization, {% data variables.product.product_name %} provides you with a randomly generated "identicon." The identicon is generated from a hash of your organization's user ID, so there's no way to control its color or pattern.
+When you create an organization, {% data variables.product.github %} provides you with a randomly generated "identicon." The identicon is generated from a hash of your organization's user ID, so there's no way to control its color or pattern.
 
 You can replace the identicon with an image that represents your organization. To replace the image, you can upload a new image or use a Gravatar image.
 

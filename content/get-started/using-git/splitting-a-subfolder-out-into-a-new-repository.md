@@ -59,7 +59,7 @@ If you create a new clone of the repository, you won't lose any of your Git hist
    # Filter the specific branch by using a single sub-directory as the root for the new repository
    ```
 
-1. [Create a new repository](/repositories/creating-and-managing-repositories/creating-a-new-repository) on {% data variables.product.product_name %}.
+1. [Create a new repository](/repositories/creating-and-managing-repositories/creating-a-new-repository) on {% data variables.product.github %}.
 
 1. At the top of your new repository on {% data variables.product.prodname_dotcom %}'s Quick Setup page, click {% octicon "copy" aria-label="Copy to clipboard" %} to copy the remote repository URL.
 
@@ -83,7 +83,7 @@ If you create a new clone of the repository, you won't lose any of your Git hist
     > origin  https://{% data variables.product.product_url %}/USERNAME/NEW-REPOSITORY-NAME.git (push)
     ```
 
-1. Push your changes to the new repository on {% data variables.product.product_name %}.
+1. Push your changes to the new repository on {% data variables.product.github %}.
 
     ```shell
     git push -u origin BRANCH-NAME

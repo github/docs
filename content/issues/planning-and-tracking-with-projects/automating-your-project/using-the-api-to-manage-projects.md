@@ -395,7 +395,7 @@ gh api graphql -f query='
             nodes{
               id
               fieldValues(first: 8) {
-                nodes{                
+                nodes{
                   ... on ProjectV2ItemFieldTextValue {
                     text
                     field {
@@ -420,9 +420,9 @@ gh api graphql -f query='
                       }
                     }
                   }
-                }              
+                }
               }
-              content{              
+              content{
                 ... on DraftIssue {
                   title
                   body
@@ -574,7 +574,7 @@ gh api graphql -f query='
   mutation {
     updateProjectV2(
       input: {
-        projectId: "PROJECT_ID", 
+        projectId: "PROJECT_ID",
         title: "Project title",
         public: false,
         readme: "# Project README\n\nA long description",
@@ -618,8 +618,8 @@ gh api graphql -f query='
         projectId: "PROJECT_ID"
         itemId: "ITEM_ID"
         fieldId: "FIELD_ID"
-        value: { 
-          text: "Updated text"        
+        value: {
+          text: "Updated text"
         }
       }
     ) {
@@ -673,8 +673,8 @@ gh api graphql -f query='
         projectId: "PROJECT_ID"
         itemId: "ITEM_ID"
         fieldId: "FIELD_ID"
-        value: { 
-          singleSelectOptionId: "OPTION_ID"        
+        value: {
+          singleSelectOptionId: "OPTION_ID"
         }
       }
     ) {
@@ -717,8 +717,8 @@ gh api graphql -f query='
         projectId: "PROJECT_ID"
         itemId: "ITEM_ID"
         fieldId: "FIELD_ID"
-        value: { 
-          iterationId: "ITERATION_ID"        
+        value: {
+          iterationId: "ITERATION_ID"
         }
       }
     ) {
@@ -826,10 +826,6 @@ gh api graphql -f query='
 
 {% endcli %}
 
-{% ifversion projects-v2-webhooks %}
-
 ## Using webhooks
 
 You can use webhooks to subscribe to events taking place in your project. For example, when an item is edited, {% data variables.product.product_name %} can send a HTTP POST payload to the webhook's configured URL which can trigger automation on your server. For more information about webhooks, see [AUTOTITLE](/webhooks-and-events/webhooks/about-webhooks). To learn more about the `projects_v2_item` webhook event, see [AUTOTITLE](/webhooks-and-events/webhooks/webhook-events-and-payloads#projects_v2_item).
-
-{% endif %}

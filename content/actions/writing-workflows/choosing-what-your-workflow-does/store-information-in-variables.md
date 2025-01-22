@@ -284,7 +284,7 @@ We strongly recommend that actions use variables to access the filesystem rather
 | `GITHUB_RUN_ATTEMPT` | A unique number for each attempt of a particular workflow run in a repository. This number begins at 1 for the workflow run's first attempt, and increments with each re-run. For example, `3`. |
 | `GITHUB_RUN_ID` | {% data reusables.actions.run_id_description %} For example, `1658821493`. |
 | `GITHUB_RUN_NUMBER` | {% data reusables.actions.run_number_description %} For example, `3`. |
-| `GITHUB_SERVER_URL`| The URL of {% data variables.location.product_location_enterprise %}. For example: `https://{% data variables.product.product_url %}`. |
+| `GITHUB_SERVER_URL`| The URL of the {% data variables.product.github %} server. For example: `https://{% data variables.product.product_url %}`. |
 | `GITHUB_SHA` | {% data reusables.actions.github_sha_description %} |
 | `GITHUB_STEP_SUMMARY` | The path on the runner to the file that contains job summaries from workflow commands. The path to this file is unique to the current step and changes for each step in a job. For example, `/home/runner/_layout/_work/_temp/_runner_file_commands/step_summary_1cb22d7f-5663-41a8-9ffc-13472605c76c`. For more information, see [AUTOTITLE](/actions/using-workflows/workflow-commands-for-github-actions#adding-a-job-summary). |
 | `GITHUB_TRIGGERING_ACTOR` | {% data reusables.actions.github-triggering-actor-description %} |

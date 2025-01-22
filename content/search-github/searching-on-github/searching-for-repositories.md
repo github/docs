@@ -1,6 +1,6 @@
 ---
 title: Searching for repositories
-intro: 'You can search for repositories on {% data variables.product.product_name %} and narrow the results using these repository search qualifiers in any combination.'
+intro: 'You can search for repositories on {% data variables.product.github %} and narrow the results using these repository search qualifiers in any combination.'
 redirect_from:
   - /articles/searching-repositories
   - /articles/searching-for-repositories

@@ -24,6 +24,7 @@ children:
   - /license
   - /manage-ghes
   - /management-console
+  - /network-configurations
   - /org-pre-receive-hooks
   - /orgs
   - /pre-receive-environments
@@ -69,11 +70,11 @@ http(s)://HOSTNAME:ADMINISTRATION-PORT/
 
 ## Authentication
 
-Your {% data variables.product.product_name %} installation's API endpoints accept the same authentication methods as the {% data variables.product.prodname_dotcom %} API. For more information, see [AUTOTITLE](/rest/overview/authenticating-to-the-rest-api).
+Your {% data variables.product.prodname_ghe_server %} installation's API endpoints accept the same authentication methods as the {% data variables.product.github %} API. For more information, see [AUTOTITLE](/rest/overview/authenticating-to-the-rest-api).
 
 OAuth tokens must have the `site_admin` [OAuth scope](/apps/oauth-apps/building-oauth-apps/scopes-for-oauth-apps#available-scopes) when used with these endpoints.
 
-These endpoints are only accessible to authenticated {% data variables.product.product_name %} site administrators, except for endpoints of the [AUTOTITLE](/rest/enterprise-admin/manage-ghes) API{% ifversion ghes < 3.15 %} and [AUTOTITLE](/rest/enterprise-admin/management-console) API{% endif %}, which allow authentication as a Management Console user. See [AUTOTITLE](/admin/configuration/administering-your-instance-from-the-management-console).
+These endpoints are only accessible to authenticated {% data variables.product.prodname_ghe_server %} site administrators, except for endpoints of the [AUTOTITLE](/rest/enterprise-admin/manage-ghes) API{% ifversion ghes < 3.15 %} and [AUTOTITLE](/rest/enterprise-admin/management-console) API{% endif %}, which allow authentication as a Management Console user. See [AUTOTITLE](/admin/configuration/administering-your-instance-from-the-management-console).
 
 {% data reusables.enterprise_management_console.api-deprecation %}
 

@@ -10,9 +10,8 @@ versions:
 topics:
   - Community
 ---
-{% ifversion team-discussions-migration %}
+
 {% data reusables.organizations.team-discussions-migration %}
-{% endif %}
 
 {% data reusables.organizations.team-discussions-purpose %}
 
@@ -27,7 +26,7 @@ You can link to any team discussion to reference it elsewhere. You can pin impor
 When someone posts or replies to a public discussion on a team's page, members of the team and members of any child teams receive email or web notifications. When someone posts or replies to a private discussion on a team's page, only members of the team receive notifications.
 
 > [!TIP]
-> Depending on your notification settings, you'll receive updates by email, the web notifications page on {% data variables.product.product_name %}, or both. For more information, see [AUTOTITLE](/account-and-profile/managing-subscriptions-and-notifications-on-github/setting-up-notifications/configuring-notifications).
+> Depending on your notification settings, you'll receive updates by email, the web notifications page on {% data variables.product.github %}, or both. For more information, see [AUTOTITLE](/account-and-profile/managing-subscriptions-and-notifications-on-github/setting-up-notifications/configuring-notifications).
 
 By default, if your username is mentioned in a team discussion, you'll receive notifications for the post mentioning your username and any replies to that post. Also, by default, if you reply to a post, you will receive notifications for other replies to the post.
 

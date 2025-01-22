@@ -12,9 +12,7 @@ topics:
 shortTitle: Create a team discussion
 ---
 
-{% ifversion team-discussions-migration %}
 {% data reusables.organizations.team-discussions-migration %}
-{% endif %}
 
 {% data reusables.organizations.team-discussions-permissions %} For more information, see [AUTOTITLE](/organizations/collaborating-with-your-team/about-team-discussions).
 

@@ -101,7 +101,7 @@ You can download a CSV file with {% data variables.product.prodname_GH_advanced_
 
 You can use this information for insights into your {% data variables.product.prodname_advanced_security %} usage, such as which members of your enterprise are using an {% data variables.product.prodname_advanced_security %} license or how {% data variables.product.prodname_advanced_security %} licenses are being consumed across your organizations.
 
-You can download the {% data variables.product.prodname_advanced_security %} license usage CSV through the {% data variables.product.product_name %} user interface or the REST API.
+You can download the {% data variables.product.prodname_advanced_security %} license usage CSV through the {% data variables.product.github %} user interface or the REST API.
 
 ### Downloading {% data variables.product.prodname_advanced_security %} license usage information through the UI
 

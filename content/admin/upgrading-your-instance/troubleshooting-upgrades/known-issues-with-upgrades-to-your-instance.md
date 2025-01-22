@@ -21,7 +21,7 @@ redirect_from:
 
 {% data variables.product.company_short %} strongly recommends regular backups of your instance's configuration and data. Before you proceed with any upgrade, back up your instance, then validate the backup in a staging environment. For more information, see [AUTOTITLE](/admin/configuration/configuring-your-enterprise/configuring-backups-on-your-appliance) and [AUTOTITLE](/admin/installation/setting-up-a-github-enterprise-server-instance/setting-up-a-staging-instance).
 
-{% ifversion mysql-8-upgrade %}
+{% ifversion ghes = 3.10 %}
 
 ## Increased I/O utilization from MySQL 8 upgrade in {% data variables.product.prodname_ghe_server %} 3.9 or later
 
@@ -207,11 +207,14 @@ If your appliance averages more than 70% CPU utilization, {% data variables.prod
 As part of upgrading GitHub Enterprise Server to version 3.13 or later, the Elasticsearch service will be upgraded. {% data variables.product.company_short %} strongly recommends following the guidance in [AUTOTITLE](/admin/upgrading-your-instance/performing-an-upgrade/preparing-for-the-elasticsearch-upgrade).
 {% endif %}
 
-{% ifversion ghes > 3.14 and ghes < 3.17 %}
+{% ifversion ghes > 3.14 %}
 
 ## Required root disk size increased to 400GB
 
-New installations of 3.15 or later, or upgrades to 3.15 or later require root disk size of at least 400GB. This capacity is an enforced requirement for the system to boot successfully. {% data variables.product.company_short %} strongly recommends following the guidance in [AUTOTITLE](/admin/monitoring-and-managing-your-instance/updating-the-virtual-machine-and-physical-resources/increasing-storage-capacity).
+> [!Note]
+> The previous root disk size requirement of 400GB for versions 3.15.2 and later has been removed. This requirement was based on analysis of support bundles and support tickets. Some factors, such as logs, put excessive pressure on the root disk which caused appliance issues. After receiving feedback that it's challenging for many customers to procure new hardware, we rolled back the requirement in favor of a gradual approach. We still recommend customers, especially those using standalone or standalone high-availability topologies, upgrade the root disk to 400GB. When you are able to upgrade the root disk to 400GB, see the following instructions.
+
+To customers using standalone or HA topologies, it is recommended that new installations of 3.15 or later, or upgrades to 3.15 to use root disk size of at least 400GB. {% data variables.product.company_short %} strongly recommends following the guidance in [AUTOTITLE](/admin/monitoring-and-managing-your-instance/updating-the-virtual-machine-and-physical-resources/increasing-storage-capacity).
 
 {% endif %}
 

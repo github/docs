@@ -1,6 +1,6 @@
 ---
 title: Searching code {% ifversion code-search-upgrade %}(legacy){% endif %}
-intro: '{% ifversion code-search-upgrade %}You only need to use the legacy code search syntax if you are using the code search API{% else %}You can search for code on {% data variables.product.product_name %} and narrow the results using these code search qualifiers in any combination{% endif %}.'
+intro: '{% ifversion code-search-upgrade %}You only need to use the legacy code search syntax if you are using the code search API{% else %}You can search for code on {% data variables.product.github %} and narrow the results using these code search qualifiers in any combination{% endif %}.'
 redirect_from:
   - /articles/searching-code
   - /github/searching-for-information-on-github/searching-files-in-a-repository-for-exact-matches

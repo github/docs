@@ -105,7 +105,7 @@ Right now, you have a fork of the Spoon-Knife repository, but you do not have th
 {% data reusables.repositories.copy-clone-url %}
 {% data reusables.command_line.open_the_multi_os_terminal %}
 {% data reusables.command_line.change-current-directory-clone %}
-1. Type `git clone`, and then paste the URL you copied earlier. It will look like this, with your {% data variables.product.product_name %} username instead of `YOUR-USERNAME`:
+1. Type `git clone`, and then paste the URL you copied earlier. It will look like this, with your {% data variables.product.github %} username instead of `YOUR-USERNAME`:
 
    ```shell
    git clone https://{% data variables.product.product_url %}/YOUR-USERNAME/Spoon-Knife

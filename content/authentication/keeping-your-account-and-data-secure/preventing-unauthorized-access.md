@@ -14,7 +14,7 @@ topics:
   - Access management
 shortTitle: Unauthorized access
 ---
-{% data variables.product.product_name %} requires a password to perform sensitive actions, such as adding new SSH keys, authorizing applications, or modifying team members.
+{% data variables.product.github %} requires a password to perform sensitive actions, such as adding new SSH keys, authorizing applications, or modifying team members.
 
 After changing your password, you should perform these actions to make sure that your account is secure:
 

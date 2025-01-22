@@ -51,7 +51,7 @@ Use the number to estimate the amount of disk space the MySQL audit logs will ne
 
 {% data reusables.enterprise_installation.preflight-checks %}
 
-{% ifversion mysql-8-upgrade %}
+{% ifversion ghes = 3.10 %}
 
 ## Known issues
 

@@ -1,6 +1,6 @@
 ---
-title: 'Disabling {% ifversion projects-v2 %}projects{% else %}{% data variables.projects.projects_v1_boards %}{% endif %} in your organization'
-intro: 'Organization owners can turn off {% ifversion projects-v2 %}organization-wide {% data variables.projects.projects_v2 %}, organization-wide {% data variables.projects.projects_v1_boards %}, and repository-level {% data variables.projects.projects_v1_boards %}{% else %}organization-wide {% data variables.projects.projects_v1_boards %} and repository {% data variables.projects.projects_v1_boards %}{% endif %} in an organization.'
+title: 'Disabling projects in your organization'
+intro: 'Organization owners can turn off organization-wide {% data variables.projects.projects_v2 %}, organization-wide {% data variables.projects.projects_v1_boards %}, and repository-level {% data variables.projects.projects_v1_boards %} in an organization.'
 redirect_from:
   - /github/managing-your-work-on-github/managing-project-boards/disabling-project-boards-in-your-organization
   - /articles/disabling-project-boards-in-your-organization
@@ -54,7 +54,7 @@ You can control whether organization members can create {% data variables.projec
 
 ## Further reading
 
-{% ifversion projects-v2 %}- [AUTOTITLE](/issues/planning-and-tracking-with-projects/learning-about-projects/about-projects){% endif %}
+* [AUTOTITLE](/issues/planning-and-tracking-with-projects/learning-about-projects/about-projects)
 {% ifversion projects-v1 %}* [AUTOTITLE](/issues/organizing-your-work-with-project-boards/managing-project-boards/about-project-boards)
 * [AUTOTITLE](/issues/organizing-your-work-with-project-boards/managing-project-boards/closing-a-project-board)
 * [AUTOTITLE](/issues/organizing-your-work-with-project-boards/managing-project-boards/deleting-a-project-board){% endif %}

@@ -26,9 +26,9 @@ You can see the overall state of the last commit to a branch on your repository'
 
 {% data reusables.actions.workflows.skipped-job-status-checks-passing %}
 
-## Types of status checks on {% data variables.product.product_name %}
+## Types of status checks on {% data variables.product.github %}
 
-There are two types of status checks on {% data variables.product.product_name %}:
+There are two types of status checks on {% data variables.product.github %}:
 
 * Checks
 * Commit statuses
@@ -38,7 +38,7 @@ _Checks_ are different from _commit statuses_ in that they provide line annotati
 > [!NOTE]
 > {% data variables.product.prodname_actions %} generates checks, not commit statuses, when workflows are run.
 
-Organization owners and users with push access to a repository can create checks and commit statuses with {% data variables.product.product_name %}'s API. For more information, see [AUTOTITLE](/rest/checks) and [AUTOTITLE](/rest/commits/statuses).
+Organization owners and users with push access to a repository can create checks and commit statuses with {% data variables.product.github %}'s API. For more information, see [AUTOTITLE](/rest/checks) and [AUTOTITLE](/rest/commits/statuses).
 
 ## Checks
 

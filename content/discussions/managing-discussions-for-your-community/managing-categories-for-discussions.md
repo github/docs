@@ -82,7 +82,7 @@ You can edit a section to change the section's emoji and title, and to add and r
 
 ## Deleting a category
 
-When you delete a category, {% data variables.product.product_name %} will move all discussions in the deleted category to an existing category that you choose.
+When you delete a category, {% data variables.product.github %} will move all discussions in the deleted category to an existing category that you choose.
 
 When you delete a section, all categories within the section will no longer belong to a section.
 

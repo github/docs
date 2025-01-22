@@ -33,7 +33,7 @@ After you have installed {% data variables.product.prodname_desktop %}, you can 
 
 {% mac %}
 
-1. Before you can authenticate to {% data variables.product.prodname_dotcom %} or {% data variables.product.prodname_enterprise %}, you will need an account.{% ifversion fpt or ghec %} For more information, see [AUTOTITLE](/get-started/start-your-journey/creating-an-account-on-github).{% endif %}{% ifversion ghec %} If you're part of an organization that uses {% data variables.product.prodname_emus %} and you do not have an account, contact your enterprise administrator.{% elsif ghes %} If you're a member of an organization that uses {% data variables.product.product_name %} and you do not have an account, contact your {% data variables.product.prodname_enterprise %} site administrator.{% endif %}
+1. Before you can authenticate to {% data variables.product.prodname_dotcom %} or {% data variables.product.prodname_enterprise %}, you will need an account.{% ifversion fpt or ghec %} For more information, see [AUTOTITLE](/get-started/start-your-journey/creating-an-account-on-github).{% endif %}{% ifversion ghec %} If you're part of an organization that uses {% data variables.product.prodname_emus %} and you do not have an account, contact your enterprise administrator.{% elsif ghes %} If you're a member of an organization that uses {% data variables.product.prodname_ghe_server %} and you do not have an account, contact your site administrator.{% endif %}
 {% data reusables.desktop.mac-select-desktop-menu %}
 {% data reusables.desktop.mac-click-sign-into %}
 1. Follow the steps to sign in. For more information about authentication, see [AUTOTITLE](/desktop/installing-and-authenticating-to-github-desktop/authenticating-to-github-in-github-desktop).
@@ -42,7 +42,7 @@ After you have installed {% data variables.product.prodname_desktop %}, you can 
 
 {% windows %}
 
-1. Before you can authenticate to {% data variables.product.prodname_dotcom %} or {% data variables.product.prodname_enterprise %}, you will need an account.{% ifversion fpt or ghec %} For more information, see [AUTOTITLE](/get-started/start-your-journey/creating-an-account-on-github).{% endif %}{% ifversion ghec %} If you're part of an organization that uses {% data variables.product.prodname_emus %} and you do not have an account, contact your enterprise administrator.{% elsif ghes %} If you're a member of an organization that uses {% data variables.product.product_name %} and you do not have an account, contact your {% data variables.product.prodname_enterprise %} site administrator.{% endif %}
+1. Before you can authenticate to {% data variables.product.prodname_dotcom %} or {% data variables.product.prodname_enterprise %}, you will need an account.{% ifversion fpt or ghec %} For more information, see [AUTOTITLE](/get-started/start-your-journey/creating-an-account-on-github).{% endif %}{% ifversion ghec %} If you're part of an organization that uses {% data variables.product.prodname_emus %} and you do not have an account, contact your enterprise administrator.{% elsif ghes %} If you're a member of an organization that uses {% data variables.product.prodname_ghe_server %} and you do not have an account, contact your site administrator.{% endif %}
 {% data reusables.desktop.windows-choose-options %}
 {% data reusables.desktop.windows-click-sign-into %}
 1. Follow the steps to sign in. For more information about authentication, see [AUTOTITLE](/desktop/installing-and-authenticating-to-github-desktop/authenticating-to-github-in-github-desktop).

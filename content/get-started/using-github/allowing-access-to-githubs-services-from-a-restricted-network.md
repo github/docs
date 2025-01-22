@@ -7,7 +7,7 @@ versions:
 shortTitle: Allow network access
 ---
 
-## About access to {% data variables.product.product_name %} from a restricted network
+## About access to {% data variables.product.github %} from a restricted network
 
 In rare cases, an institution's network access policy may restrict access to specific domain names for end users. For example, the policy may use DNS filtering to deny access to sites like {% data variables.product.prodname_dotcom %}. If your institution requires this level of control, but you still want to permit access to services on {% data variables.product.prodname_dotcom %}, you can create exceptions in your policy to allow access to the necessary domains.
 
