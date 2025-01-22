@@ -1,6 +1,6 @@
 ---
 title: Setting up a staging instance
-intro: 'You can set up a {% data variables.product.product_name %} instance in a separate, isolated environment, and use the instance to validate and test changes.'
+intro: 'You can set up a {% data variables.product.prodname_ghe_server %} instance in a separate, isolated environment, and use the instance to validate and test changes.'
 redirect_from:
   - /enterprise/admin/installation/setting-up-a-staging-instance
   - /admin/installation/setting-up-a-staging-instance
@@ -19,14 +19,14 @@ shortTitle: Set up a staging instance
 
 {% data variables.product.company_short %} recommends that you set up a separate environment to test backups, updates, or changes to the configuration for {% data variables.location.product_location %}. This environment, which you should isolate from your production systems, is called a staging environment.
 
-For example, to protect against loss of data, you can regularly validate the backup of your production instance. You can regularly restore the backup of your production data to a separate {% data variables.product.product_name %} instance in a staging environment. On this staging instance, you could also test the upgrade to the latest feature release of {% data variables.product.product_name %}.
+For example, to protect against loss of data, you can regularly validate the backup of your production instance. You can regularly restore the backup of your production data to a separate {% data variables.product.prodname_ghe_server %} instance in a staging environment. On this staging instance, you could also test the upgrade to the latest feature release of {% data variables.product.prodname_ghe_server %}.
 
 > [!TIP]
 > You may reuse your existing {% data variables.product.prodname_enterprise %} license file as long as the staging instance is not used in a production capacity.
 
 ## Considerations for a staging environment
 
-To thoroughly test {% data variables.product.product_name %} and recreate an environment that's as similar to your production environment as possible, consider the external systems that interact with your instance. For example, you may want to test the following in your staging environment.
+To thoroughly test {% data variables.product.prodname_ghe_server %} and recreate an environment that's as similar to your production environment as possible, consider the external systems that interact with your instance. For example, you may want to test the following in your staging environment.
 
 * Authentication, especially if you use an external authentication provider like SAML
 * Integration with an external ticketing system
@@ -151,7 +151,7 @@ You may want to power off a staging instance to save costs and power it back on 
 
 An instance can stay offline for {% ifversion ghes = 3.10 %}7 days{% elsif ghes < 3.14 %}60 days as of the latest patch release of this version, increased from 7 days{% else %}60 days{% endif %}.
 
-If you bring the instance back online within the allowed offline time period, {% data variables.product.product_name %} instantiates successfully. If the instance stays offline for longer than the allowed period, {% data variables.product.product_name %} fails to instantiate successfully, and an error message with the text `server has been offline for more than the configured server_rejoin_age_max` may appear in the system logs. See [AUTOTITLE](/admin/monitoring-and-managing-your-instance/monitoring-your-instance/about-system-logs).
+If you bring the instance back online within the allowed offline time period, {% data variables.product.prodname_ghe_server %} instantiates successfully. If the instance stays offline for longer than the allowed period, {% data variables.product.prodname_ghe_server %} fails to instantiate successfully, and an error message with the text `server has been offline for more than the configured server_rejoin_age_max` may appear in the system logs. See [AUTOTITLE](/admin/monitoring-and-managing-your-instance/monitoring-your-instance/about-system-logs).
 
 If the instance is stuck in the error state, you can run these commands to recover.
 

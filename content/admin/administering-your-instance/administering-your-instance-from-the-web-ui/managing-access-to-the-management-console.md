@@ -20,7 +20,7 @@ topics:
 
 ## Types of {% data variables.enterprise.management_console %} accounts
 
-There are two types of user accounts for the {% data variables.enterprise.management_console %} on a {% data variables.product.product_name %} instance. The root site administrator account authenticates with a password established during the initial setup of {% data variables.location.product_location %}.
+There are two types of user accounts for the {% data variables.enterprise.management_console %} on a {% data variables.product.prodname_ghe_server %} instance. The root site administrator account authenticates with a password established during the initial setup of {% data variables.location.product_location %}.
 
 The root site administrator can create additional accounts{% ifversion management-console-editor %}, and assign one of two roles to each{% endif %}.
 

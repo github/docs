@@ -41,7 +41,7 @@ You can access additional features and workflows on {% data variables.location.p
 
 ## Enabling {% data variables.product.prodname_github_connect %}
 
-To enable {% data variables.product.prodname_github_connect %}, you must be an enterprise owner on both {% data variables.product.product_name %} and {% data variables.product.prodname_ghe_cloud %}.
+To enable {% data variables.product.prodname_github_connect %}, you must be an enterprise owner on both {% data variables.product.prodname_ghe_server %} and {% data variables.product.prodname_ghe_cloud %}.
 
 1. Sign in to {% data variables.location.product_location %} and {% data variables.product.prodname_dotcom_the_website %}.
 {% data reusables.github-connect.enable-github-connect %}

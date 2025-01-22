@@ -13,7 +13,7 @@ redirect_from:
   - /admin/configuration/configuring-network-settings/changing-the-hostname-for-your-instance
 ---
 
-## About changes to the hostname for {% data variables.product.product_name %}
+## About changes to the hostname for {% data variables.product.prodname_ghe_server %}
 
 If you need to use a new hostname for {% data variables.location.product_location %}, you must back up the existing instance's settings and data, configure a new instance, restore the backup to the new instance, and then adjust your DNS configuration to send traffic to the new instance.
 
