@@ -15,9 +15,9 @@ redirect_from:
   - /admin/overview/creating-an-enterprise-account
 ---
 
-<!-- expires 2024-12-31 -->
+<!-- expires 2025-02-28 -->
 {% data reusables.enterprise.single-organizations-enterprise-migration %}
-<!-- end expires 2024-12-31 -->
+<!-- end expires 2025-02-28 -->
 
 ## When should I create an enterprise account?
 
