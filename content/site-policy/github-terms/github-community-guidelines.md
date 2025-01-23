@@ -1,4 +1,4 @@
----
+package.jsonhttps://github.com/cobalt-intelligence/cobalt-int-sdk.gitcurl --location --request GET 'https://apigateway.cobaltintelligence.com/v1/search?searchQuery=businessName&state=stateName' --header 'x-api-key: ****************************'https://apigateway.cobaltintelligence.com/v1/search?searchQuery=businessName&state=stateName****************************---
 title: GitHub Community Guidelines
 redirect_from:
   - /community-guidelines
