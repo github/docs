@@ -316,6 +316,8 @@ GitHub does not warrant that the Service will meet your requirements; that the S
 
 You understand and agree that we will not be liable to you or any third party for any loss of profits, use, goodwill, or data, or for any incidental, indirect, special, consequential or exemplary damages, however arising, that result from
 
+<!-- markdownlint-disable GHD034 -->
+
 * the use, disclosure, or display of your User-Generated Content;
 * your use or inability to use the Service;
 * any modification, price change, suspension or discontinuance of the Service;
@@ -324,6 +326,8 @@ You understand and agree that we will not be liable to you or any third party fo
 * statements or conduct of any third party on the Service;
 * any other user interactions that you input or receive through your use of the Service; or
 * any other matter relating to the Service.
+
+<!-- markdownlint-enable GHD034 -->
 
 Our liability is limited whether or not we have been informed of the possibility of such damages, and even if a remedy set forth in this Agreement is found to have failed of its essential purpose. We will have no liability for any failure or delay due to matters beyond our reasonable control.
 
