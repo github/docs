@@ -28,7 +28,7 @@ The auto-add workflow supports a subset of filters. You can use the following fi
 | `is` | open, closed, merged, draft, issue, pr
 | `label` | "label name"
 | `reason` | completed, reopened, "not planned"
-| `assignee` | {% data variables.product.product_name %} username
+| `assignee` | {% data variables.product.github %} username
 | `no` | label, assignee, reason
 
 All filters, other than `no`, support negation. For example, you could use `-label:bug` to add issues that do not have the "bug" label.
