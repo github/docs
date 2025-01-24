@@ -1,6 +1,6 @@
 ---
 title: Best practices for maintaining dependencies
-intro: 'Guidance and recommendations for maintaining the dependencies you use, including {% data variables.product.github %}''s secutiy products that can help.'
+intro: 'Guidance and recommendations for maintaining the dependencies you use, including {% data variables.product.github %}''s security products that can help.'
 allowTitleToDifferFromFilename: true
 versions:
   fpt: '*'
