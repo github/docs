@@ -23,6 +23,7 @@ on:
       - '!src/**.json' # So that Docs Engineering isn't reviewing automated pipeline data PRs
       - '!src/**.yml' # So that Docs Engineering isn't reviewing automated pipeline data PRs
       - '.github/**'
+      - 'config/**'
       - '**Dockerfile'
       - 'package*.json'
       - .github/workflows/reviewers-docs-engineering.yml

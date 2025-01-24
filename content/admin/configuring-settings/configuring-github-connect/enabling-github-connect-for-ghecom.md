@@ -56,7 +56,7 @@ After the run completes, you can configure {% data variables.product.prodname_gi
 
 ## Step 2: Enable {% data variables.product.prodname_github_connect %}
 
-To enable {% data variables.product.prodname_github_connect %}, you must be an enterprise owner on both {% data variables.product.product_name %} and {% data variables.product.prodname_ghe_cloud %}.
+To enable {% data variables.product.prodname_github_connect %}, you must be an enterprise owner on both {% data variables.product.prodname_ghe_server %} and {% data variables.product.prodname_ghe_cloud %}.
 
 People with a user account in both environments can connect the accounts from {% data variables.location.product_location_enterprise %}.
 

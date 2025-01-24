@@ -113,7 +113,7 @@ export default function (app: Express) {
   }
 
   // *** Observability ***
-  if (process.env.MODA_PROD_SERVICE_ENV) {
+  if (process.env.MODA_PROD_SERVICE_ENV === 'true') {
     app.use(datadog)
   }
 

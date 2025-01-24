@@ -40,7 +40,7 @@ The following rules apply to secret names:
 
   {% data reusables.codespaces.secret-precedence %} Similarly, if an organization, repository, and environment all have a secret with the same name, the environment-level secret takes precedence.
 
-To help ensure that {% data variables.product.prodname_dotcom %} redacts your secret in logs, avoid using structured data as the values of secrets. For example, avoid creating secrets that contain JSON or encoded Git blobs.
+To help ensure that {% data variables.product.prodname_dotcom %} redacts your secrets in logs correctly, avoid using structured data as the values of secrets. For example, avoid creating secrets that contain JSON or encoded Git blobs. Using structured data as secrets could cause non-secrets to be detected as such, making passing data between workflows harder to implement. In such cases, consider manipulating the structured data, for example encoding them to a string, before storing them as secrets, and decoding them before they are used.
 
 ### Accessing your secrets
 

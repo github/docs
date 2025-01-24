@@ -1,7 +1,7 @@
 ---
 title: Managing search indices for your instance
 shortTitle: Manage search indices
-intro: '{% data variables.product.product_name %} uses Elasticsearch to power search features, and provides tools for managing search and index behavior.'
+intro: '{% data variables.product.prodname_ghe_server %} uses Elasticsearch to power search features, and provides tools for managing search and index behavior.'
 permissions: Enterprise owners can manage search indices for a {% data variables.product.prodname_ghe_server %} instance.
 versions:
   ghes: '*'
@@ -13,13 +13,13 @@ topics:
 
 ## About search for {% data variables.product.prodname_ghe_server %}
 
-Users can search your instance to find, navigate, and understand issues, pull requests, code, and other content on {% data variables.product.product_name %}. Elasticsearch powers the search functionality on your instance. You can view the current status of Elasticsearch, and you can control search and index behavior.
+Users can search your instance to find, navigate, and understand issues, pull requests, code, and other content on {% data variables.product.prodname_ghe_server %}. Elasticsearch powers the search functionality on your instance. You can view the current status of Elasticsearch, and you can control search and index behavior.
 
-For more information about search for {% data variables.product.product_name %}, see [AUTOTITLE](/search-github). For more information about Elasticsearch, see the [Elasticsearch website](https://elastic.co).
+For more information about search for {% data variables.product.prodname_ghe_server %}, see [AUTOTITLE](/search-github). For more information about Elasticsearch, see the [Elasticsearch website](https://elastic.co).
 
 ## About index management
 
-{% data variables.product.product_name %} reconciles the state of the search index with data on the instance automatically and regularly, including:
+{% data variables.product.prodname_ghe_server %} reconciles the state of the search index with data on the instance automatically and regularly, including:
 
 * Issues, pull requests, repositories, and users in the database
 * Git repositories (source code) on disk

@@ -1,6 +1,6 @@
 ---
   title: Overview of the upgrade process
-  intro: 'Learn the recommendations and requirements for upgrading {% data variables.product.product_name %}, so you can plan and test your upgrade strategy.'
+  intro: 'Learn the recommendations and requirements for upgrading {% data variables.product.prodname_ghe_server %}, so you can plan and test your upgrade strategy.'
   redirect_from:
     - /enterprise/admin/installation/upgrading-github-enterprise-server
     - /enterprise/admin/articles/upgrading-to-the-latest-release
@@ -43,7 +43,7 @@ The process you must follow to apply an upgrade package depends on how many node
 * Review the release notes and documented known issues before performing an upgrade. See [AUTOTITLE](/admin/release-notes) and [AUTOTITLE](/admin/upgrading-your-instance/troubleshooting-upgrades/known-issues-with-upgrades-to-your-instance).
 * Review [AUTOTITLE](/admin/enterprise-management/updating-the-virtual-machine-and-physical-resources/upgrade-requirements) to ensure you understand the requirements and recommendations for upgrading.
 * Check that {% data variables.location.product_location %}'s data disk is at least 15% free. {% data variables.product.company_short %} recommends ensuring there is additional free storage on the disk. In some rare cases, for customers with large data volumes, this threshold may differ. See [AUTOTITLE](/admin/monitoring-managing-and-updating-your-instance/updating-the-virtual-machine-and-physical-resources/increasing-storage-capacity).
-* Check that you have sufficient hardware resources for {% data variables.product.product_name %}. {% data reusables.enterprise_installation.preflight-checks %}
+* Check that you have sufficient hardware resources for {% data variables.product.prodname_ghe_server %}. {% data reusables.enterprise_installation.preflight-checks %}
 * Ensure you have a copy of all custom firewall rules for {% data variables.location.product_location %}, as customized rules will not persist post-upgrade. You must reapply any custom rules following the upgrade. See [AUTOTITLE](/admin/configuring-settings/configuring-network-settings/configuring-built-in-firewall-rules).
 * For instances in a high availability configuration, check that the status of replication reports `OK` before upgrading. See [AUTOTITLE](/admin/monitoring-and-managing-your-instance/configuring-high-availability/monitoring-a-high-availability-configuration).
 * Consider configuring the IP exception list for maintenance mode, so you can temporarily limit access to {% data variables.location.product_location %} to validate your server health after an upgrade. See [AUTOTITLE](/admin/administering-your-instance/configuring-maintenance-mode/enabling-and-scheduling-maintenance-mode).
@@ -51,7 +51,7 @@ The process you must follow to apply an upgrade package depends on how many node
 ### Choose your upgrade version and package
 
 * Determine an upgrade strategy and choose a version to upgrade to.
-  * You can upgrade a {% data variables.product.product_name %} instance to a new patch release or to a new feature release.
+  * You can upgrade a {% data variables.product.prodname_ghe_server %} instance to a new patch release or to a new feature release.
   * Refer to the [{% data variables.enterprise.upgrade_assistant %}](https://support.github.com/enterprise/server-upgrade) to find the upgrade path from your current release version, to a new patch or feature release version.
 * Choose an upgrade package (hotpatch or upgrade package).
   * To upgrade to a patch release, you can use a hotpatch or an upgrade package. To upgrade to a feature release, you must use an upgrade package.
@@ -103,7 +103,7 @@ Create a virtual machine (VM) snapshot of your instance's primary node immediate
 
 Review the considerations for upgrades, and complete any preparation steps as described above, before you start installing an upgrade package.
 
-The instructions for upgrading your {% data variables.product.product_name %} instance differ depending on the type of upgrade you're performing and the number of nodes your instance has.
+The instructions for upgrading your {% data variables.product.prodname_ghe_server %} instance differ depending on the type of upgrade you're performing and the number of nodes your instance has.
 
 * [Upgrading with a hotpatch](/admin/upgrading-your-instance/performing-an-upgrade/upgrading-with-a-hotpatch#upgrading-with-a-hotpatch)
   * [Upgrading a standalone instance using a hotpatch](/admin/upgrading-your-instance/performing-an-upgrade/upgrading-with-a-hotpatch#upgrading-a-standalone-instance-using-a-hotpatch)
@@ -115,7 +115,7 @@ The instructions for upgrading your {% data variables.product.product_name %} in
 ## Completing post-upgrade tasks
 
 * Check the status of background jobs, and review the upgrade log for errors.
-* Check basic {% data variables.product.product_name %} functionality. For example, ensure you can sign in via the user interface, and verify that several of your organizations, repositories and issues can be reached as expected. It's also a good idea to manually run several Git fetches, clones, and pushes using SSH and/or HTTPS, and check that API requests and webhook deliveries complete successfully.
+* Check basic {% data variables.product.prodname_ghe_server %} functionality. For example, ensure you can sign in via the user interface, and verify that several of your organizations, repositories and issues can be reached as expected. It's also a good idea to manually run several Git fetches, clones, and pushes using SSH and/or HTTPS, and check that API requests and webhook deliveries complete successfully.
 * Reapply any custom firewall rules. See [AUTOTITLE](/admin/configuring-settings/configuring-network-settings/configuring-built-in-firewall-rules).
 * Delete any VM snapshots taken prior to upgrading. See [AUTOTITLE](/admin/upgrading-your-instance/preparing-to-upgrade/taking-a-snapshot).
 * Disable maintenance mode, and update any pre-upgrade communications such as announcement banners. See [AUTOTITLE](/admin/user-management/managing-users-in-your-enterprise/customizing-user-messages-for-your-enterprise#creating-a-global-announcement-banner) and [AUTOTITLE](/admin/configuration/configuring-your-enterprise/enabling-and-scheduling-maintenance-mode).

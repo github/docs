@@ -9,7 +9,7 @@ const {
   DD_AGENT_HOST,
 } = process.env
 
-const mock = NODE_ENV === 'test' || !MODA_PROD_SERVICE_ENV
+const mock = NODE_ENV === 'test' || MODA_PROD_SERVICE_ENV !== 'true'
 
 // MODA_APP_NAME gets set when the deploy target is Moda
 const modaApp = MODA_APP_NAME ? `moda_app_name:${MODA_APP_NAME}` : false

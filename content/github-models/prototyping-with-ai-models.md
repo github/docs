@@ -90,6 +90,18 @@ After you load a preset, you can edit, share, or delete the preset:
 * To share the preset, select the **Preset: PRESET-NAME** {% octicon "triangle-down" aria-hidden="true" %} dropdown menu, then click **{% octicon "share" aria-hidden="true" %} Share preset** to get a shareable URL.
 * To delete the preset, select the **Preset: PRESET-NAME** {% octicon "triangle-down" aria-hidden="true" %} dropdown menu, then click **{% octicon "trash" aria-hidden="true" %} Delete preset** and confirm the deletion.
 
+## Using the prompt editor
+
+The prompt editor in {% data variables.product.prodname_github_models %} is designed to help you iterate, refine, and perfect your prompts. This dedicated view provides a focused and intuitive experience for crafting and testing inputs, enabling you to:
+
+* Quickly test and refine prompts without the complexity of multi-turn interactions.
+* Fine-tune prompts for precision and relevance in your projects.
+* Use a specialized space for single-turn scenarios to ensure consistent and optimized results.
+
+To access the prompt editor, click **{% octicon "stack" aria-hidden="true" %} Prompt editor** at the top right of the playground.
+
+![Screenshot of the 'Prompt editor' button, highlighted with a dark orange outline, at the top right of the playground.](/assets/images/help/models/model-playground-prompt-editor.png)
+
 ## Experimenting with AI models in {% data variables.product.prodname_vscode %}
 
 > [!NOTE] The AI Toolkit extension for {% data variables.product.prodname_vscode %} is in {% data variables.release-phases.public_preview %} and is subject to change.

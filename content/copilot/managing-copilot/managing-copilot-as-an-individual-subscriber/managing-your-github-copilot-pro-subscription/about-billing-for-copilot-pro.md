@@ -44,12 +44,6 @@ You can cancel your {% data variables.product.prodname_copilot_short %} trial at
 
 You can cancel your {% data variables.product.prodname_copilot_pro_short %} subscription at any time. The cancellation will take effect at the end of your current billing cycle. See [AUTOTITLE](/copilot/managing-copilot/managing-copilot-as-an-individual-subscriber/managing-your-copilot-subscription/canceling-copilot-as-an-individual-user).
 
-<!-- expires 2025-01-22 -->
-
-{% data reusables.copilot.copilot-pro-temporary-refund %}
-
-<!-- end expires 2025-01-22 -->
-
 ## Determining your billing date
 
 Your billing date will depend on whether or not you are already being billed by {% data variables.product.prodname_dotcom %}.
