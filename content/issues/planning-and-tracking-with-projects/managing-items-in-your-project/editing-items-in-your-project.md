@@ -63,7 +63,7 @@ You can quickly clear the same field for multiple items.
 
 ## Undoing bulk changes in a table
 
-When you make a bulk change in the table layout, {% data variables.product.product_name %} will display the option to undo that change.
+When you make a bulk change in the table layout, {% data variables.product.github %} will display the option to undo that change.
 
 1. Make a bulk change to your table.
 1. When the notice appears in the lower right of your table, click **Undo**.
